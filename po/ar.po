@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-10-30 00:25+0000\n"
+"POT-Creation-Date: 2022-11-06 00:22+0000\n"
 "PO-Revision-Date: 2022-05-21 00:27+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1221,8 +1221,8 @@ msgstr "إبحث:"
 #: libraries/classes/BrowseForeigners.php:204
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:341
 #: libraries/classes/Controllers/Server/PrivilegesController.php:341
-#: libraries/classes/Normalization.php:254 libraries/classes/Tracking.php:322
-#: libraries/classes/Tracking.php:474
+#: libraries/classes/Normalization.php:254 libraries/classes/Tracking.php:307
+#: libraries/classes/Tracking.php:455
 #: templates/columns_definitions/column_definitions_form.twig:42
 #: templates/database/designer/main.twig:1102
 #: templates/database/events/editor_form.twig:115
@@ -1603,39 +1603,44 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "الفيتنامية"
 
-#: libraries/classes/Common.php:229
+#: libraries/classes/Common.php:257
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "عليك الترقية إلى %s%s أو لاحقا."
 
-#: libraries/classes/Common.php:261
+#: libraries/classes/Common.php:290
 msgid "Error: Token mismatch"
 msgstr "خطأ: عدم تطابق الرمز المميز"
 
-#: libraries/classes/Common.php:473
+#: libraries/classes/Common.php:351
+#, php-format
+msgid "See %sour documentation%s for more information."
+msgstr ""
+
+#: libraries/classes/Common.php:511
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/classes/Common.php:523
+#: libraries/classes/Common.php:560
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
 
-#: libraries/classes/Common.php:540
+#: libraries/classes/Common.php:575
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Common.php:551
+#: libraries/classes/Common.php:585
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/classes/Common.php:561
+#: libraries/classes/Common.php:595
 msgid "possible exploit"
 msgstr "إستغلال محتمل"
 
@@ -3335,7 +3340,7 @@ msgstr "خوادم"
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
 #: libraries/classes/Plugins/Export/ExportXml.php:119
-#: libraries/classes/Server/Status/Data.php:159
+#: libraries/classes/Server/Status/Data.php:163
 #: templates/database/export/index.twig:22
 #: templates/database/structure/show_create.twig:6
 msgid "Tables"
@@ -4070,7 +4075,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:946
 #: libraries/classes/ConfigStorage/UserGroups.php:120
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:405
-#: libraries/classes/Display/Results.php:2745
+#: libraries/classes/Display/Results.php:2749
 #: libraries/classes/Html/Generator.php:663
 #: libraries/classes/Html/Generator.php:912
 #: templates/console/bookmark_content.twig:10 templates/console/display.twig:41
@@ -4100,7 +4105,7 @@ msgid "Explain SQL"
 msgstr "شرح SQL"
 
 #: libraries/classes/Config/Descriptions.php:948
-#: libraries/classes/Export.php:1275 libraries/classes/Html/Generator.php:711
+#: libraries/classes/Export.php:1276 libraries/classes/Html/Generator.php:711
 #: templates/console/display.twig:121
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
@@ -4504,31 +4509,31 @@ msgstr "تحويل المتصفح"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr "لا يمكن حفظ الإعدادات، نموذج التكوين المقدم يحتوي على أخطاء!"
 
-#: libraries/classes/Config.php:642
+#: libraries/classes/Config.php:644
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "ملف الإعدادت (%s) غير قابل للقراءة."
 
-#: libraries/classes/Config.php:680
+#: libraries/classes/Config.php:685
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "صلاحيات خاطئة على ملف الإعدادات , لاينبغى أن يكون قابل للكتابة!"
 
-#: libraries/classes/Config.php:695
+#: libraries/classes/Config.php:701
 msgid "Failed to read configuration file!"
 msgstr "أخفق قراءة ملف التهيئة!"
 
-#: libraries/classes/Config.php:697
+#: libraries/classes/Config.php:703
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr "يبدو أن هناك خطأ في بناء الجملة."
 
-#: libraries/classes/Config.php:1222
+#: libraries/classes/Config.php:1232
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "فهرس خادم غير صحيح: %s"
 
-#: libraries/classes/Config.php:1235
+#: libraries/classes/Config.php:1245
 #, php-format
 msgid "Server %d"
 msgstr "خادم %d"
@@ -4764,7 +4769,7 @@ msgid "No databases selected."
 msgstr "لا قواعد بيانات محددة."
 
 #: libraries/classes/Controllers/AbstractController.php:137
-#: libraries/classes/Controllers/SchemaExportController.php:30
+#: libraries/classes/Controllers/SchemaExportController.php:36
 #: libraries/classes/Controllers/Server/UserGroupsFormController.php:47
 msgid "Missing parameter:"
 msgstr "مدخلات مفقودة:"
@@ -4804,7 +4809,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Database/ExportController.php:90
 #: libraries/classes/Controllers/Database/TrackingController.php:139
-#: libraries/classes/Controllers/Export/ExportController.php:333
+#: libraries/classes/Controllers/Export/ExportController.php:338
 #: libraries/classes/Database/Qbe.php:322
 #: templates/database/structure/index.twig:25
 #: templates/navigation/tree/path.twig:9
@@ -4818,7 +4823,7 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 
 #: libraries/classes/Controllers/Database/ImportController.php:81
-#: libraries/classes/Controllers/Import/ImportController.php:579
+#: libraries/classes/Controllers/Import/ImportController.php:582
 #: libraries/classes/Controllers/Server/ImportController.php:60
 #: libraries/classes/Controllers/Table/ImportController.php:71
 msgid "Could not load import plugins, please check your installation!"
@@ -4920,7 +4925,7 @@ msgid "Table %s has been emptied."
 msgstr "تم إفراغ محتويات الجدول %s."
 
 #: libraries/classes/Controllers/Database/StructureController.php:578
-#: libraries/classes/Display/Results.php:3750
+#: libraries/classes/Display/Results.php:3754
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -4980,7 +4985,7 @@ msgstr "نعم"
 #: libraries/classes/Controllers/Table/DropColumnController.php:74
 #: libraries/classes/Controllers/Table/OperationsController.php:343
 #: libraries/classes/Controllers/Table/ReplaceController.php:323
-#: libraries/classes/Core.php:698 templates/preview_sql.twig:3
+#: libraries/classes/Core.php:604 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "لا تغييرات"
 
@@ -5007,36 +5012,36 @@ msgstr "لم يتم تحديد جداول."
 msgid "Database Log"
 msgstr "سجل قاعدة البيانات"
 
-#: libraries/classes/Controllers/ErrorReportController.php:103
+#: libraries/classes/Controllers/ErrorReportController.php:99
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr "تم اكتشاف خطأ، وتلقائياً تم إرسال تقرير بهذا الخطأ بناءً على إعداداتك."
 
-#: libraries/classes/Controllers/ErrorReportController.php:107
+#: libraries/classes/Controllers/ErrorReportController.php:103
 msgid "Thank you for submitting this report."
 msgstr "شكرا لك لتقديم هذا التقرير."
 
-#: libraries/classes/Controllers/ErrorReportController.php:111
+#: libraries/classes/Controllers/ErrorReportController.php:107
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr "تم اكتشاف خطأ وتم إنشاء تقرير خطأ ولكن أخفق إرساله."
 
-#: libraries/classes/Controllers/ErrorReportController.php:114
+#: libraries/classes/Controllers/ErrorReportController.php:110
 msgid "If you experience any problems please submit a bug report manually."
 msgstr "إذا واجهت أي مشاكل يرجى تقديم تقرير بذلك يدويا."
 
-#: libraries/classes/Controllers/ErrorReportController.php:117
+#: libraries/classes/Controllers/ErrorReportController.php:113
 msgid "You may want to refresh the page."
 msgstr "لربما يكون من الأفضل أن تقوم بتحديث هذه الصفحة."
 
 #: libraries/classes/Controllers/Export/ExportController.php:132
-#: libraries/classes/Export.php:1262
+#: libraries/classes/Export.php:1263
 msgid "Bad type!"
 msgstr "نوع غير جيد!"
 
-#: libraries/classes/Controllers/Export/ExportController.php:224
+#: libraries/classes/Controllers/Export/ExportController.php:227
 msgid "Bad parameters!"
 msgstr "عوامل متغيرة غير جيدة!"
 
@@ -5163,17 +5168,23 @@ msgstr ""
 "من المحتمل أنك قد حاولت رفع ملف كبير الحجم. الرجاء مراجعة %sdocumentation%s "
 "لإيجاد حلّ بديل لتغيير هذا الحد."
 
-#: libraries/classes/Controllers/Import/ImportController.php:376
-#: libraries/classes/Controllers/Import/ImportController.php:619
+#: libraries/classes/Controllers/Import/ImportController.php:249
+#, fuzzy
+#| msgid "Remove database"
+msgid "Incorrect format parameter"
+msgstr "حذف قاعدة البيانات"
+
+#: libraries/classes/Controllers/Import/ImportController.php:379
+#: libraries/classes/Controllers/Import/ImportController.php:622
 msgid "Showing bookmark"
 msgstr "عرض العلامة المرجعية"
 
-#: libraries/classes/Controllers/Import/ImportController.php:402
-#: libraries/classes/Controllers/Import/ImportController.php:615
+#: libraries/classes/Controllers/Import/ImportController.php:405
+#: libraries/classes/Controllers/Import/ImportController.php:618
 msgid "The bookmark has been deleted."
 msgstr "لقد حذفت العلامة المرجعية."
 
-#: libraries/classes/Controllers/Import/ImportController.php:525
+#: libraries/classes/Controllers/Import/ImportController.php:528
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5183,7 +5194,7 @@ msgstr ""
 "يتجاوز الحجم الأقصى المسموح به من قبل إعداد PHP الخاص بك. انظر [doc@faq1-16] "
 "أسئلة وأجوبة 1.16[/doc]."
 
-#: libraries/classes/Controllers/Import/ImportController.php:627
+#: libraries/classes/Controllers/Import/ImportController.php:630
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
@@ -5194,7 +5205,7 @@ msgstr[3] "انتهى الإستيراد بنجاح، %d الاستعلامات 
 msgstr[4] "انتهى الإستيراد بنجاح، %d تم تنفيذ الاستعلامات."
 msgstr[5] "انتهى الإستيراد بنجاح، %d تم تنفيذ الاستعلامات ."
 
-#: libraries/classes/Controllers/Import/ImportController.php:664
+#: libraries/classes/Controllers/Import/ImportController.php:667
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5203,7 +5214,7 @@ msgstr ""
 "انتهت مهلة البرنامج النصي، إذا كنت ترغب في إنهاء الاستيراد، الرجاء %s إعادة "
 "إرسال نفس الملف%s وسوف تستأنف الاستيراد."
 
-#: libraries/classes/Controllers/Import/ImportController.php:674
+#: libraries/classes/Controllers/Import/ImportController.php:677
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5211,8 +5222,8 @@ msgstr ""
 "على كل حال عند آخر معالجة لم يتم تحليل أي معلومات، هذا يعني أن phpMyAdmin لا "
 "يستطيع استكمال هذا الاستيراد، ما لم يتم زيادة حد وقت PHP."
 
-#: libraries/classes/Controllers/Import/ImportController.php:742
-#: libraries/classes/Controllers/Sql/SqlController.php:173
+#: libraries/classes/Controllers/Import/ImportController.php:745
+#: libraries/classes/Controllers/Sql/SqlController.php:177
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "تم تعطيل عبارات «Drop Database»."
 
@@ -5515,7 +5526,7 @@ msgid "Removing Selected Users"
 msgstr "حذف المستخدمين المحددين"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:154
-#: libraries/classes/Tracking.php:234 libraries/classes/Tracking.php:634
+#: libraries/classes/Tracking.php:230 libraries/classes/Tracking.php:615
 #: templates/columns_definitions/column_definitions_form.twig:175
 #: templates/columns_definitions/column_definitions_form.twig:180
 #: templates/error/report_modal.twig:14 templates/export_modal.twig:6
@@ -5607,7 +5618,7 @@ msgstr "تمّ حذف القالب ."
 #. l10n: Other, small valued, queries
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:167
 #: libraries/classes/Controllers/Server/Status/QueriesController.php:94
-#: libraries/classes/Server/Status/Data.php:163
+#: libraries/classes/Server/Status/Data.php:167
 msgid "Other"
 msgstr "آخر"
 
@@ -5801,7 +5812,7 @@ msgid "Please add at least one variable to the series!"
 msgstr "الرجاء إضافة متغير واحد على الأقل إلى السلسلة!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:225
-#: libraries/classes/Display/Results.php:1064
+#: libraries/classes/Display/Results.php:1068
 #: libraries/classes/Plugins/Export/ExportSql.php:2169
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
 #: libraries/config.values.php:111
@@ -6227,8 +6238,8 @@ msgid "Request failed!!"
 msgstr "الطلب فشل!!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:353
-#: libraries/classes/Controllers/Sql/EnumValuesController.php:50
-#: libraries/classes/Controllers/Sql/SetValuesController.php:53
+#: libraries/classes/Controllers/Sql/EnumValuesController.php:51
+#: libraries/classes/Controllers/Sql/SetValuesController.php:52
 msgid "Error in processing request"
 msgstr "حدث خطأ أثناء معالجة الطلب"
 
@@ -6403,8 +6414,8 @@ msgid "Show query box"
 msgstr "إظهار صندوق الإستعلام"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:406
-#: libraries/classes/Display/Results.php:2813
-#: libraries/classes/Tracking.php:257
+#: libraries/classes/Display/Results.php:2817
+#: libraries/classes/Tracking.php:249
 #: templates/console/bookmark_content.twig:11
 #: templates/database/central_columns/main.twig:268
 #: templates/database/central_columns/main.twig:380
@@ -6533,7 +6544,7 @@ msgid "No partial dependencies selected!"
 msgstr "لم يتم تحديد أي تبعيات جزئية!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:440
-#: libraries/classes/Export.php:1315 libraries/classes/Html/Generator.php:984
+#: libraries/classes/Export.php:1316 libraries/classes/Html/Generator.php:984
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:288
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -6671,7 +6682,7 @@ msgid "Ignore"
 msgstr "تجاهل"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:493
-#: libraries/classes/Display/Results.php:2749
+#: libraries/classes/Display/Results.php:2753
 #: libraries/classes/Html/Generator.php:79
 #: templates/display/results/table.twig:306
 #: templates/display/results/table.twig:307
@@ -8368,7 +8379,7 @@ msgstr "التتبع غير نشط."
 msgid "Setting variable failed"
 msgstr ""
 
-#: libraries/classes/Controllers/Setup/FormController.php:32
+#: libraries/classes/Controllers/Setup/FormController.php:33
 msgid "Incorrect form specified!"
 msgstr ""
 
@@ -8388,7 +8399,7 @@ msgstr ""
 msgid "Insecure connection"
 msgstr ""
 
-#: libraries/classes/Controllers/Setup/MainController.php:24
+#: libraries/classes/Controllers/Setup/MainController.php:27
 msgid "Configuration already exists, setup is disabled!"
 msgstr ""
 
@@ -8398,18 +8409,18 @@ msgstr ""
 msgid "Wrong data"
 msgstr "لايوجد بيانات"
 
-#: libraries/classes/Controllers/Setup/ValidateController.php:44
+#: libraries/classes/Controllers/Setup/ValidateController.php:46
 #, php-format
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: libraries/classes/Controllers/Sql/SqlController.php:246
-#: libraries/classes/Sql.php:1148
+#: libraries/classes/Controllers/Sql/SqlController.php:255
+#: libraries/classes/Sql.php:1121
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "تم إنشاء العلامة المرجعية %s."
 
-#: libraries/classes/Controllers/Sql/SqlController.php:253
+#: libraries/classes/Controllers/Sql/SqlController.php:262
 msgid "Bookmark not created!"
 msgstr "المرجعية لم يتم إنشاؤها!"
 
@@ -8447,7 +8458,7 @@ msgid "The database name is empty!"
 msgstr "اسم قاعدة البيانات خالي!"
 
 #: libraries/classes/Controllers/Table/CreateController.php:80
-#: libraries/classes/Controllers/Table/GetFieldController.php:49
+#: libraries/classes/Controllers/Table/GetFieldController.php:50
 #, php-format
 msgid "'%s' database does not exist."
 msgstr ""
@@ -8472,24 +8483,24 @@ msgstr ""
 #: libraries/classes/Controllers/Table/Partition/RepairController.php:54
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:55
 #: libraries/classes/Controllers/Table/RelationController.php:300
-#: libraries/classes/Controllers/View/OperationsController.php:92
+#: libraries/classes/Controllers/View/OperationsController.php:91
 #: libraries/classes/Database/Routines.php:1226
-#: libraries/classes/Display/Results.php:3459 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3463 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "تم تنفيذ استعلام SQL الخاص بك بنجاح."
 
 #: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:32
 #: libraries/classes/Controllers/Table/DropColumnController.php:51
-#: libraries/classes/Controllers/Table/Structure/AddIndexController.php:46
+#: libraries/classes/Controllers/Table/Structure/AddIndexController.php:47
 #: libraries/classes/Controllers/Table/Structure/BrowseController.php:35
-#: libraries/classes/Controllers/Table/Structure/CentralColumnsAddController.php:44
-#: libraries/classes/Controllers/Table/Structure/CentralColumnsRemoveController.php:44
-#: libraries/classes/Controllers/Table/Structure/ChangeController.php:50
-#: libraries/classes/Controllers/Table/Structure/FulltextController.php:46
+#: libraries/classes/Controllers/Table/Structure/CentralColumnsAddController.php:45
+#: libraries/classes/Controllers/Table/Structure/CentralColumnsRemoveController.php:45
+#: libraries/classes/Controllers/Table/Structure/ChangeController.php:51
+#: libraries/classes/Controllers/Table/Structure/FulltextController.php:47
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:51
-#: libraries/classes/Controllers/Table/Structure/SpatialController.php:46
-#: libraries/classes/Controllers/Table/Structure/UniqueController.php:46
+#: libraries/classes/Controllers/Table/Structure/SpatialController.php:47
+#: libraries/classes/Controllers/Table/Structure/UniqueController.php:47
 msgid "No column selected."
 msgstr "لايوجد صفوف مختارة."
 
@@ -8504,20 +8515,20 @@ msgstr[3] "تم إسقاط %1$d أعمدة بنجاح"
 msgstr[4] "تم إسقاط %1$d عمود بنجاح"
 msgstr[5] "تم إسقاط %1$d عمود بنجاح"
 
-#: libraries/classes/Controllers/Table/GetFieldController.php:57
+#: libraries/classes/Controllers/Table/GetFieldController.php:58
 msgid "Invalid table name"
 msgstr "اسم الجدول غير صالح"
 
 #. l10n: In case a SQL query did not pass a security check
-#: libraries/classes/Controllers/Table/GetFieldController.php:66
-#: libraries/classes/Controllers/Transformation/WrapperController.php:78
+#: libraries/classes/Controllers/Table/GetFieldController.php:68
+#: libraries/classes/Controllers/Transformation/WrapperController.php:80
 msgid "There is an issue with your request."
 msgstr ""
 
-#: libraries/classes/Controllers/Table/GetFieldController.php:80
+#: libraries/classes/Controllers/Table/GetFieldController.php:82
 #: libraries/classes/Database/Routines.php:1245
 #: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:242
-#: libraries/classes/Sql.php:963
+#: libraries/classes/Sql.php:936
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "قام MySQL  بإرجاع نتيجة فارغة."
 
@@ -8554,7 +8565,7 @@ msgstr "اسم الجدول فارغ!"
 #: libraries/classes/Controllers/Table/Partition/DropController.php:61
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:61
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:61
-#: libraries/classes/Controllers/View/OperationsController.php:95
+#: libraries/classes/Controllers/View/OperationsController.php:94
 #: libraries/classes/Html/Generator.php:860 libraries/classes/Import.php:138
 #: libraries/classes/InsertEdit.php:740 libraries/classes/Message.php:192
 #: templates/error/generic.twig:37
@@ -8577,7 +8588,7 @@ msgstr "العلاقات الداخلية تم تحديثها بنجاح ."
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
 
-#: libraries/classes/Controllers/Table/Structure/ChangeController.php:82
+#: libraries/classes/Controllers/Table/Structure/ChangeController.php:76
 #, fuzzy, php-format
 #| msgid "Failed to get real row count."
 msgid "Failed to get description of column %s!"
@@ -8611,7 +8622,7 @@ msgstr "تم حذف الاعمده بنجاح."
 
 #: libraries/classes/Controllers/Table/Structure/PartitioningController.php:266
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:272
-#: libraries/classes/Tracking.php:784
+#: libraries/classes/Tracking.php:765
 msgid "Query error"
 msgstr "خطأ في الإستعلام"
 
@@ -8633,25 +8644,25 @@ msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "%s جدول تم نقله إلى %s."
 
-#: libraries/classes/Controllers/Table/TrackingController.php:80
+#: libraries/classes/Controllers/Table/TrackingController.php:78
 #, fuzzy, php-format
 #| msgid "Tracking is active."
 msgid "Tracking of %s is activated."
 msgstr "التتبع نشط."
 
-#: libraries/classes/Controllers/Table/TrackingController.php:162
+#: libraries/classes/Controllers/Table/TrackingController.php:161
 #, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "Tracking versions deleted successfully."
 msgstr "تم حذف المستخدمين المحددين بنجاح."
 
-#: libraries/classes/Controllers/Table/TrackingController.php:167
+#: libraries/classes/Controllers/Table/TrackingController.php:166
 #, fuzzy
 #| msgid "No rows selected"
 msgid "No versions selected."
 msgstr "لايوجد صفوف مختارة"
 
-#: libraries/classes/Controllers/Table/TrackingController.php:215
+#: libraries/classes/Controllers/Table/TrackingController.php:214
 msgid "SQL statements executed."
 msgstr "تم تنفيذ جمل SQL."
 
@@ -8668,7 +8679,7 @@ msgstr "تغيير كلمة السر"
 msgid "View name can not be empty!"
 msgstr ""
 
-#: libraries/classes/Core.php:205 libraries/classes/ZipExtension.php:62
+#: libraries/classes/Core.php:127 libraries/classes/ZipExtension.php:62
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
@@ -8911,7 +8922,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "لا توجد جداول متوفره في قاعدة البيانات هذه!."
 
-#: libraries/classes/DatabaseInterface.php:1137
+#: libraries/classes/DatabaseInterface.php:1132
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -8919,24 +8930,19 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:1182
+#: libraries/classes/DatabaseInterface.php:1177
 #, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to set configured collation connection!"
 msgstr "فشل قراءة ملف الإعدادات"
 
-#: libraries/classes/DatabaseInterface.php:1640
+#: libraries/classes/DatabaseInterface.php:1635
 msgid "Missing connection parameters!"
 msgstr "معلمات اتصال مفقودة!"
 
-#: libraries/classes/DatabaseInterface.php:1667
+#: libraries/classes/DatabaseInterface.php:1662
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "أخفق الاتصال بمستخدم التحكم كما هو معرف في التهيئة."
-
-#: libraries/classes/DatabaseInterface.php:2088
-#, php-format
-msgid "See %sour documentation%s for more information."
-msgstr ""
 
 #: libraries/classes/Database/Qbe.php:756
 #: templates/database/qbe/ins_del_and_or_cell.twig:21
@@ -9236,19 +9242,19 @@ msgstr "الرجاء إدخال أكثر من {0} حرفا"
 msgid "The table name cannot end with a space character."
 msgstr "الكلمات مفصولة بمسافة (\" \")."
 
-#: libraries/classes/Display/Results.php:1262
+#: libraries/classes/Display/Results.php:1266
 #: templates/display/results/table.twig:204
 msgid "Partial texts"
 msgstr "نصوص جزئيّة"
 
-#: libraries/classes/Display/Results.php:1266
+#: libraries/classes/Display/Results.php:1270
 #: templates/display/results/table.twig:208
 msgid "Full texts"
 msgstr "نصوص كاملة"
 
-#: libraries/classes/Display/Results.php:1607
-#: libraries/classes/Display/Results.php:1633 libraries/classes/Util.php:2497
-#: libraries/classes/Util.php:2520 libraries/config.values.php:113
+#: libraries/classes/Display/Results.php:1611
+#: libraries/classes/Display/Results.php:1637 libraries/classes/Util.php:2487
+#: libraries/classes/Util.php:2510 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:111
@@ -9260,9 +9266,9 @@ msgstr "نصوص كاملة"
 msgid "Descending"
 msgstr "تنازليا"
 
-#: libraries/classes/Display/Results.php:1615
-#: libraries/classes/Display/Results.php:1625 libraries/classes/Util.php:2489
-#: libraries/classes/Util.php:2512 libraries/config.values.php:112
+#: libraries/classes/Display/Results.php:1619
+#: libraries/classes/Display/Results.php:1629 libraries/classes/Util.php:2479
+#: libraries/classes/Util.php:2502 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:109
@@ -9274,42 +9280,42 @@ msgstr "تنازليا"
 msgid "Ascending"
 msgstr "تصاعديا"
 
-#: libraries/classes/Display/Results.php:2789
-#: libraries/classes/Display/Results.php:2804
+#: libraries/classes/Display/Results.php:2793
+#: libraries/classes/Display/Results.php:2808
 msgid "The row has been deleted."
 msgstr "تم حذف الصف."
 
-#: libraries/classes/Display/Results.php:2836
+#: libraries/classes/Display/Results.php:2840
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "حذف"
 
-#: libraries/classes/Display/Results.php:3392
+#: libraries/classes/Display/Results.php:3396
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
 "ممكن أن يكون تقريبي. أنظر إلى [doc@faq3-11]الأسئلة المتكررة 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:3759
+#: libraries/classes/Display/Results.php:3763
 #, fuzzy, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "اظهر الصفوف %1s - %2s"
 
-#: libraries/classes/Display/Results.php:3773
+#: libraries/classes/Display/Results.php:3777
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d جملة %2$d طلب بحث"
 
-#: libraries/classes/Display/Results.php:3778
+#: libraries/classes/Display/Results.php:3782
 #, php-format
 msgid "%d total"
 msgstr "المجموع %d"
 
-#: libraries/classes/Display/Results.php:3791 libraries/classes/Sql.php:969
+#: libraries/classes/Display/Results.php:3795 libraries/classes/Sql.php:942
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "استغرق الاستعلام %01.4f ثانية."
 
-#: libraries/classes/Display/Results.php:4118
+#: libraries/classes/Display/Results.php:4122
 msgid "Link not found!"
 msgstr "لم يتم العثور على الرابط!"
 
@@ -9354,7 +9360,7 @@ msgid "Buffer Pool"
 msgstr ""
 
 #: libraries/classes/Engines/Innodb.php:108
-#: libraries/classes/Server/Status/Data.php:233
+#: libraries/classes/Server/Status/Data.php:237
 msgid "InnoDB Status"
 msgstr "وضع InnoDB"
 
@@ -9631,30 +9637,30 @@ msgstr "أبلغ عن"
 msgid "Automatically send report next time"
 msgstr "إرسال التقرير تلقائيا في المرة القادمة"
 
-#: libraries/classes/Export.php:163 libraries/classes/Export.php:199
-#: libraries/classes/Export.php:475
+#: libraries/classes/Export.php:164 libraries/classes/Export.php:200
+#: libraries/classes/Export.php:476
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "لا توجد مساحة كافية لحفظ الملف %s."
 
-#: libraries/classes/Export.php:424
+#: libraries/classes/Export.php:425
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr "الملف %s موجود على الخادم بالفعل , غير الاسم أو حدد خيار الكتابة عليه."
 
-#: libraries/classes/Export.php:431 libraries/classes/Export.php:441
+#: libraries/classes/Export.php:432 libraries/classes/Export.php:442
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "خادم الويب ليس لديه صلاحية لحفظ الملف %s."
 
-#: libraries/classes/Export.php:481
+#: libraries/classes/Export.php:482
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "تم حفظ الـDump إلى الملف %s."
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: libraries/classes/Export.php:913
+#: libraries/classes/Export.php:914
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
@@ -9802,7 +9808,7 @@ msgstr "تحليل ثابت:"
 msgid "%d errors were found during analysis."
 msgstr ""
 
-#: libraries/classes/Import.php:276 libraries/classes/Sql.php:977
+#: libraries/classes/Import.php:276 libraries/classes/Sql.php:950
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -9959,11 +9965,11 @@ msgstr "أو"
 msgid "web server upload directory:"
 msgstr "دليل تحميل الملفات على خادم الشبكة"
 
-#: libraries/classes/InsertEdit.php:1335 libraries/classes/Sql.php:960
+#: libraries/classes/InsertEdit.php:1335 libraries/classes/Sql.php:933
 msgid "Showing SQL query"
 msgstr "عرض استعلام SQL"
 
-#: libraries/classes/InsertEdit.php:1359 libraries/classes/Sql.php:940
+#: libraries/classes/InsertEdit.php:1359 libraries/classes/Sql.php:913
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -10088,12 +10094,12 @@ msgstr "الأعمدة المركزية"
 msgid "User accounts"
 msgstr "حسابات المستخدمين"
 
-#: libraries/classes/Menu.php:530 libraries/classes/Server/Status/Data.php:152
+#: libraries/classes/Menu.php:530 libraries/classes/Server/Status/Data.php:156
 #: libraries/classes/Util.php:1881 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "سجل ثنائي"
 
-#: libraries/classes/Menu.php:537 libraries/classes/Server/Status/Data.php:157
+#: libraries/classes/Menu.php:537 libraries/classes/Server/Status/Data.php:161
 #: libraries/classes/Util.php:1882
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
@@ -10101,7 +10107,7 @@ msgstr "سجل ثنائي"
 msgid "Replication"
 msgstr "إستنساخ"
 
-#: libraries/classes/Menu.php:543 libraries/classes/Server/Status/Data.php:229
+#: libraries/classes/Menu.php:543 libraries/classes/Server/Status/Data.php:233
 #: libraries/classes/Util.php:1883 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:191
@@ -10779,7 +10785,7 @@ msgstr "لا يمكن الدخول إلى خادم MySQL"
 msgid "Wrong username/password. Access denied."
 msgstr "خطأ في اسم المستخدم أو كلمة السر. الوصول ممنوع."
 
-#: libraries/classes/Plugins/Auth/AuthenticationSignon.php:149
+#: libraries/classes/Plugins/Auth/AuthenticationSignon.php:159
 msgid "Can not find signon authentication script:"
 msgstr "لايمكن إيجاد برنامج مصادقة التوقيع:"
 
@@ -11608,13 +11614,13 @@ msgstr ""
 msgid "XML"
 msgstr "إكس إم إل"
 
-#: libraries/classes/Plugins.php:615
+#: libraries/classes/Plugins.php:616
 #, fuzzy
 #| msgid "This format has no options"
 msgid "This format has no options"
 msgstr "هذا التنسيق ليس له أي خيارات"
 
-#: libraries/classes/Plugins.php:632
+#: libraries/classes/Plugins.php:635
 msgid "Invalid authentication method set in configuration:"
 msgstr "اسلوب مصادقة غير صحيح في الإعدادات:"
 
@@ -12062,72 +12068,72 @@ msgstr "حديث"
 msgid "Favorites"
 msgstr "المفضلة"
 
-#: libraries/classes/ReplicationGui.php:444
+#: libraries/classes/ReplicationGui.php:447
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
 
-#: libraries/classes/ReplicationGui.php:455
+#: libraries/classes/ReplicationGui.php:458
 #, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication started successfully."
 msgstr "تم إعادة قراءة الصلاحيات بنجاح."
 
-#: libraries/classes/ReplicationGui.php:456
+#: libraries/classes/ReplicationGui.php:459
 msgid "Error starting replication."
 msgstr ""
 
-#: libraries/classes/ReplicationGui.php:459
+#: libraries/classes/ReplicationGui.php:462
 #, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
 msgstr "تم إعادة قراءة الصلاحيات بنجاح."
 
-#: libraries/classes/ReplicationGui.php:460
+#: libraries/classes/ReplicationGui.php:463
 msgid "Error stopping replication."
 msgstr ""
 
-#: libraries/classes/ReplicationGui.php:463
+#: libraries/classes/ReplicationGui.php:466
 #, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication resetting successfully."
 msgstr "تم إعادة قراءة الصلاحيات بنجاح."
 
-#: libraries/classes/ReplicationGui.php:464
+#: libraries/classes/ReplicationGui.php:467
 msgid "Error resetting replication."
 msgstr ""
 
-#: libraries/classes/ReplicationGui.php:467
+#: libraries/classes/ReplicationGui.php:470
 msgid "Success."
 msgstr ""
 
-#: libraries/classes/ReplicationGui.php:468
+#: libraries/classes/ReplicationGui.php:471
 #, fuzzy
 #| msgid "Error"
 msgid "Error."
 msgstr "خطأ"
 
-#: libraries/classes/ReplicationGui.php:504
+#: libraries/classes/ReplicationGui.php:511
 msgid "Unknown error"
 msgstr ""
 
-#: libraries/classes/ReplicationGui.php:517
+#: libraries/classes/ReplicationGui.php:524
 #, fuzzy, php-format
 #| msgid "Failed to connect to SQL validator!"
 msgid "Unable to connect to primary %s."
 msgstr "فشل الإتصال بمدقق SQL!"
 
-#: libraries/classes/ReplicationGui.php:527
+#: libraries/classes/ReplicationGui.php:534
 msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
 msgstr ""
 
-#: libraries/classes/ReplicationGui.php:545
+#: libraries/classes/ReplicationGui.php:552
 msgid "Unable to change primary!"
 msgstr ""
 
-#: libraries/classes/ReplicationGui.php:549
+#: libraries/classes/ReplicationGui.php:556
 #, fuzzy, php-format
 #| msgid "The privileges were reloaded successfully."
 msgid "Primary server changed successfully to %s."
@@ -12140,7 +12146,7 @@ msgid ""
 "the folder/file \"%s\""
 msgstr ""
 
-#: libraries/classes/Routing.php:138 libraries/classes/Routing.php:207
+#: libraries/classes/Routing.php:138 libraries/classes/Routing.php:210
 #, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "خطأ 404! الصفحة %s غير موجودة ."
@@ -12601,81 +12607,81 @@ msgstr ""
 msgid "You have added a new user."
 msgstr "لقد أضفت مستخدم جديد."
 
-#: libraries/classes/Server/Status/Data.php:146
+#: libraries/classes/Server/Status/Data.php:150
 #: libraries/classes/Server/Status/Processes.php:147
 #: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:20
 msgid "SQL query"
 msgstr "استعلام SQL"
 
-#: libraries/classes/Server/Status/Data.php:149
+#: libraries/classes/Server/Status/Data.php:153
 msgid "Handler"
 msgstr ""
 
-#: libraries/classes/Server/Status/Data.php:150
+#: libraries/classes/Server/Status/Data.php:154
 msgid "Query cache"
 msgstr "ذاكرة التخزين المؤقت للاستعلام"
 
-#: libraries/classes/Server/Status/Data.php:151
+#: libraries/classes/Server/Status/Data.php:155
 msgid "Threads"
 msgstr ""
 
-#: libraries/classes/Server/Status/Data.php:153
+#: libraries/classes/Server/Status/Data.php:157
 msgid "Temporary data"
 msgstr "البيانات المؤقتة"
 
-#: libraries/classes/Server/Status/Data.php:154
+#: libraries/classes/Server/Status/Data.php:158
 msgid "Delayed inserts"
 msgstr "تأخر إدراج"
 
-#: libraries/classes/Server/Status/Data.php:155
+#: libraries/classes/Server/Status/Data.php:159
 msgid "Key cache"
 msgstr ""
 
-#: libraries/classes/Server/Status/Data.php:156
+#: libraries/classes/Server/Status/Data.php:160
 msgid "Joins"
 msgstr ""
 
-#: libraries/classes/Server/Status/Data.php:158
+#: libraries/classes/Server/Status/Data.php:162
 msgid "Sorting"
 msgstr "فرز"
 
-#: libraries/classes/Server/Status/Data.php:160
+#: libraries/classes/Server/Status/Data.php:164
 msgid "Transaction coordinator"
 msgstr "منسق المعاملات"
 
-#: libraries/classes/Server/Status/Data.php:161
+#: libraries/classes/Server/Status/Data.php:165
 #: templates/server/binlog/index.twig:27
 msgid "Files"
 msgstr "الملفات"
 
-#: libraries/classes/Server/Status/Data.php:180
+#: libraries/classes/Server/Status/Data.php:184
 msgid "Flush (close) all tables"
 msgstr "Flush (إغلاق) جميع الجداول"
 
-#: libraries/classes/Server/Status/Data.php:184
+#: libraries/classes/Server/Status/Data.php:188
 msgid "Show open tables"
 msgstr "تبين الجداول المفتوحة"
 
-#: libraries/classes/Server/Status/Data.php:193
+#: libraries/classes/Server/Status/Data.php:197
 #, fuzzy
 #| msgid "Show slave hosts"
 msgid "Show replica hosts"
 msgstr "اظهر الحوادم التابعه"
 
-#: libraries/classes/Server/Status/Data.php:200
+#: libraries/classes/Server/Status/Data.php:204
 #: templates/server/replication/primary_replication.twig:9
 #, fuzzy
 #| msgid "Show master status"
 msgid "Show primary status"
 msgstr "إظهار الحالة الرئيسية"
 
-#: libraries/classes/Server/Status/Data.php:207
+#: libraries/classes/Server/Status/Data.php:211
 #, fuzzy
 #| msgid "Show slave status"
 msgid "Show replica status"
 msgstr "إظهار حالة التابع"
 
-#: libraries/classes/Server/Status/Data.php:215
+#: libraries/classes/Server/Status/Data.php:219
 msgid "Flush query cache"
 msgstr ""
 
@@ -12723,41 +12729,41 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr ""
 
-#: libraries/classes/Sql.php:497
+#: libraries/classes/Sql.php:470
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/classes/Sql.php:957
+#: libraries/classes/Sql.php:930
 msgid "Showing as PHP code"
 msgstr "تظهر كملف PHP"
 
-#: libraries/classes/Sql.php:1329
+#: libraries/classes/Sql.php:1302
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
 
-#: libraries/classes/Sql.php:1343
+#: libraries/classes/Sql.php:1316
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
 "and Delete features may result in undesired behavior. %s"
 msgstr ""
 
-#: libraries/classes/SqlQueryForm.php:150
+#: libraries/classes/SqlQueryForm.php:154
 #, fuzzy, php-format
 #| msgid "Run SQL query/queries on database %s"
 msgid "Run SQL query/queries on server “%s”"
 msgstr "تنفيذ استعلام/استعلامات SQL على قاعدة بيانات %s"
 
-#: libraries/classes/SqlQueryForm.php:166
+#: libraries/classes/SqlQueryForm.php:170
 #, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr "تنفيذ استعلام/استعلامات SQL على قاعدة بيانات %s"
 
-#: libraries/classes/SqlQueryForm.php:181
+#: libraries/classes/SqlQueryForm.php:185
 #, fuzzy, php-format
 #| msgid "Run SQL query/queries on database %s"
 msgid "Run SQL query/queries on table %s"
@@ -12789,7 +12795,7 @@ msgstr "%s معطل في خادم MySQL هذا."
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "خادم MySQL هذا لايدعم محرك التخزين %s ."
 
-#: libraries/classes/Table/Indexes.php:58 libraries/classes/Table.php:2097
+#: libraries/classes/Table/Indexes.php:58 libraries/classes/Table.php:2096
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "اسم المفتاح الأساسي يجب أن يكون أساسيا \"PRIMARY\"!"
 
@@ -12830,20 +12836,20 @@ msgstr "فشل في إعادة تسمية الجدول %1$s إلى %2$s!"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "تمّت تسمية الجدول %1$s إلى %2$s."
 
-#: libraries/classes/Table.php:1791
+#: libraries/classes/Table.php:1790
 #, fuzzy
 #| msgid "Could not save table UI preferences"
 msgid "Could not save table UI preferences!"
 msgstr "لا يمكن حفظ تفضيلات جدول UI"
 
-#: libraries/classes/Table.php:1815
+#: libraries/classes/Table.php:1814
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: libraries/classes/Table.php:1950
+#: libraries/classes/Table.php:1949
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -12851,15 +12857,15 @@ msgid ""
 "changed."
 msgstr ""
 
-#: libraries/classes/Table.php:2109
+#: libraries/classes/Table.php:2108
 msgid "Can't rename index to PRIMARY!"
 msgstr "لايمكن تغيير اسم الفهرس إلى الأساسي!"
 
-#: libraries/classes/Table.php:2135
+#: libraries/classes/Table.php:2134
 msgid "No index parts defined!"
 msgstr "أجزاء الفهرسة غير معرفة!"
 
-#: libraries/classes/Table.php:2431
+#: libraries/classes/Table.php:2430
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -12884,138 +12890,138 @@ msgstr "المظهر %s غير موجود!"
 msgid "No valid image path for theme %s found!"
 msgstr "مسار الصورة للمظهر %s غير صحيح!"
 
-#: libraries/classes/Tracking.php:233
+#: libraries/classes/Tracking.php:229
 #: templates/database/tracking/tables.twig:115
 #: templates/table/tracking/main.twig:73
 msgid "Tracking report"
 msgstr "تقرير التتبع"
 
-#: libraries/classes/Tracking.php:237
+#: libraries/classes/Tracking.php:233
 msgid "Tracking statements"
 msgstr ""
 
-#: libraries/classes/Tracking.php:252
+#: libraries/classes/Tracking.php:244
 #, fuzzy
 #| msgid "Allows inserting and replacing data."
 msgid "Delete tracking data row from report"
 msgstr "يسمح بإضافة واستبدال البيانات."
 
-#: libraries/classes/Tracking.php:262
+#: libraries/classes/Tracking.php:254
 msgid "No data"
 msgstr "لايوجد بيانات"
 
-#: libraries/classes/Tracking.php:307
+#: libraries/classes/Tracking.php:292
 #: templates/database/operations/index.twig:131
 #: templates/database/structure/copy_form.twig:19
 #: templates/table/operations/index.twig:275
 msgid "Structure only"
 msgstr "البنية فقط"
 
-#: libraries/classes/Tracking.php:310
+#: libraries/classes/Tracking.php:295
 #: templates/database/operations/index.twig:143
 #: templates/database/structure/copy_form.twig:29
 #: templates/table/operations/index.twig:287
 msgid "Data only"
 msgstr "بيانات فقط"
 
-#: libraries/classes/Tracking.php:313
+#: libraries/classes/Tracking.php:298
 #: templates/database/operations/index.twig:137
 #: templates/database/structure/copy_form.twig:24
 #: templates/table/operations/index.twig:281
 msgid "Structure and data"
 msgstr "البنية والبيانات"
 
-#: libraries/classes/Tracking.php:378 libraries/classes/Tracking.php:444
+#: libraries/classes/Tracking.php:359 libraries/classes/Tracking.php:425
 #, php-format
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr ""
 
-#: libraries/classes/Tracking.php:465
+#: libraries/classes/Tracking.php:446
 msgid "SQL dump (file download)"
 msgstr ""
 
-#: libraries/classes/Tracking.php:467
+#: libraries/classes/Tracking.php:448
 msgid "SQL dump"
 msgstr ""
 
-#: libraries/classes/Tracking.php:470
+#: libraries/classes/Tracking.php:451
 msgid "This option will replace your table and contained data."
 msgstr ""
 
-#: libraries/classes/Tracking.php:472
+#: libraries/classes/Tracking.php:453
 msgid "SQL execution"
 msgstr "تنفيذ SQL"
 
-#: libraries/classes/Tracking.php:476
+#: libraries/classes/Tracking.php:457
 #, php-format
 msgid "Export as %s"
 msgstr "تصدير كـ %s"
 
-#: libraries/classes/Tracking.php:514
+#: libraries/classes/Tracking.php:495
 msgid "Data manipulation statement"
 msgstr ""
 
-#: libraries/classes/Tracking.php:550
+#: libraries/classes/Tracking.php:531
 msgid "Data definition statement"
 msgstr ""
 
-#: libraries/classes/Tracking.php:633
+#: libraries/classes/Tracking.php:614
 #: templates/database/tracking/tables.twig:126
 #: templates/table/tracking/main.twig:80
 msgid "Structure snapshot"
 msgstr "لقطة للبناء الهيكلي"
 
-#: libraries/classes/Tracking.php:651
+#: libraries/classes/Tracking.php:632
 #, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr ""
 
-#: libraries/classes/Tracking.php:728
+#: libraries/classes/Tracking.php:709
 msgid "Tracking data definition successfully deleted"
 msgstr ""
 
-#: libraries/classes/Tracking.php:741
+#: libraries/classes/Tracking.php:722
 msgid "Tracking data manipulation successfully deleted"
 msgstr ""
 
-#: libraries/classes/Tracking.php:805
+#: libraries/classes/Tracking.php:786
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
 msgstr ""
 
-#: libraries/classes/Tracking.php:809
+#: libraries/classes/Tracking.php:790
 msgid "Comment out these two lines if you do not need them."
 msgstr ""
 
-#: libraries/classes/Tracking.php:820
+#: libraries/classes/Tracking.php:801
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr ""
 
-#: libraries/classes/Tracking.php:853
+#: libraries/classes/Tracking.php:834
 #, php-format
 msgid "Tracking report for table `%s`"
 msgstr "تتبع التقرير للجدول %s"
 
-#: libraries/classes/Tracking.php:885
+#: libraries/classes/Tracking.php:866
 #, fuzzy, php-format
 #| msgid "Tracking is active."
 msgid "Tracking for %1$s was activated at version %2$s."
 msgstr "التتبع نشط."
 
-#: libraries/classes/Tracking.php:888
+#: libraries/classes/Tracking.php:869
 #, fuzzy, php-format
 #| msgid "Tracking is active."
 msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "التتبع نشط."
 
-#: libraries/classes/Tracking.php:987
+#: libraries/classes/Tracking.php:968
 #, fuzzy, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "Version %1$s of %2$s was deleted."
 msgstr "انشئ إصدار %s  لـ %s.s%s"
 
-#: libraries/classes/Tracking.php:1018
+#: libraries/classes/Tracking.php:999
 #, fuzzy, php-format
 #| msgid "Version %s is created, tracking for %s.%s is activated."
 msgid "Version %1$s was created, tracking for %2$s is active."
@@ -13335,7 +13341,7 @@ msgstr "%s يوم، %s ساعة، %s دقيقة و%s ثانية"
 msgid "Users"
 msgstr "المستخدمون"
 
-#: libraries/classes/Util.php:2481
+#: libraries/classes/Util.php:2471
 #: templates/database/multi_table_query/form.twig:67
 msgid "Sort"
 msgstr "ترتيب"

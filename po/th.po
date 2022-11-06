@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-10-30 00:25+0000\n"
+"POT-Creation-Date: 2022-11-06 00:22+0000\n"
 "PO-Revision-Date: 2022-10-29 17:26+0000\n"
 "Last-Translator: JonathanExam <644245001@mcru.ac.th>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1290,8 +1290,8 @@ msgstr "ค้นหา:"
 #: libraries/classes/BrowseForeigners.php:204
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:341
 #: libraries/classes/Controllers/Server/PrivilegesController.php:341
-#: libraries/classes/Normalization.php:254 libraries/classes/Tracking.php:322
-#: libraries/classes/Tracking.php:474
+#: libraries/classes/Normalization.php:254 libraries/classes/Tracking.php:307
+#: libraries/classes/Tracking.php:455
 #: templates/columns_definitions/column_definitions_form.twig:42
 #: templates/database/designer/main.twig:1102
 #: templates/database/events/editor_form.twig:115
@@ -1670,22 +1670,27 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "เวียดนาม"
 
-#: libraries/classes/Common.php:229
+#: libraries/classes/Common.php:257
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr ""
 
-#: libraries/classes/Common.php:261
+#: libraries/classes/Common.php:290
 msgid "Error: Token mismatch"
 msgstr "เกิดข้อผิดพลาด: โทเค็นไม่ตรงกัน"
 
-#: libraries/classes/Common.php:473
+#: libraries/classes/Common.php:351
+#, php-format
+msgid "See %sour documentation%s for more information."
+msgstr ""
+
+#: libraries/classes/Common.php:511
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/classes/Common.php:523
+#: libraries/classes/Common.php:560
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1694,17 +1699,17 @@ msgstr ""
 "คุณได้เปิดใช้งาน mbstring.func_overload ในการกำหนดค่าของ PHP ตัวเลือกนี้ไม่เข้ากันกับ "
 "phpMyAdmin และอาจทำให้ข้อมูลบางอย่างจะเสียหายได้!"
 
-#: libraries/classes/Common.php:540
+#: libraries/classes/Common.php:575
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Common.php:551
+#: libraries/classes/Common.php:585
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/classes/Common.php:561
+#: libraries/classes/Common.php:595
 msgid "possible exploit"
 msgstr "﻿ใช้ประโยชน์ได้"
 
@@ -3440,7 +3445,7 @@ msgstr "เซิร์ฟเวอร์"
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
 #: libraries/classes/Plugins/Export/ExportXml.php:119
-#: libraries/classes/Server/Status/Data.php:159
+#: libraries/classes/Server/Status/Data.php:163
 #: templates/database/export/index.twig:22
 #: templates/database/structure/show_create.twig:6
 msgid "Tables"
@@ -4224,7 +4229,7 @@ msgstr "ข้ามตารางที่ถูกล็อก"
 #: libraries/classes/Config/Descriptions.php:946
 #: libraries/classes/ConfigStorage/UserGroups.php:120
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:405
-#: libraries/classes/Display/Results.php:2745
+#: libraries/classes/Display/Results.php:2749
 #: libraries/classes/Html/Generator.php:663
 #: libraries/classes/Html/Generator.php:912
 #: templates/console/bookmark_content.twig:10 templates/console/display.twig:41
@@ -4254,7 +4259,7 @@ msgid "Explain SQL"
 msgstr "อธิบาย SQL"
 
 #: libraries/classes/Config/Descriptions.php:948
-#: libraries/classes/Export.php:1275 libraries/classes/Html/Generator.php:711
+#: libraries/classes/Export.php:1276 libraries/classes/Html/Generator.php:711
 #: templates/console/display.twig:121
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
@@ -4671,31 +4676,31 @@ msgstr "การแปลงที่เรียกใช้ได้"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
 
-#: libraries/classes/Config.php:642
+#: libraries/classes/Config.php:644
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "ไฟล์ตั้งค่า %s ไม่สามารถอ่านได้"
 
-#: libraries/classes/Config.php:680
+#: libraries/classes/Config.php:685
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "สิทธิ์สำหรับไฟล์ตั้งค่าไม่ถูกต้อง ไม่ควรให้เขียนได้ทั้งหมด!"
 
-#: libraries/classes/Config.php:695
+#: libraries/classes/Config.php:701
 msgid "Failed to read configuration file!"
 msgstr "ไม่สามารถอ่านไฟล์การตั้งค่าได้!"
 
-#: libraries/classes/Config.php:697
+#: libraries/classes/Config.php:703
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr "ซึ่งมักจะหมายความว่ามีข้อผิดพลาดทางไวยากรณ์อยู่โปรดตรวจสอบข้อผิดพลาดที่แสดงด้านล่าง"
 
-#: libraries/classes/Config.php:1222
+#: libraries/classes/Config.php:1232
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "ลำดับเซิฟเวอร์ไม่ถูกต้อง: %s"
 
-#: libraries/classes/Config.php:1235
+#: libraries/classes/Config.php:1245
 #, php-format
 msgid "Server %d"
 msgstr "เซิร์ฟเวอร์ %d"
@@ -4943,7 +4948,7 @@ msgid "No databases selected."
 msgstr "ไม่มีฐานข้อมูลที่ถูกเลือก"
 
 #: libraries/classes/Controllers/AbstractController.php:137
-#: libraries/classes/Controllers/SchemaExportController.php:30
+#: libraries/classes/Controllers/SchemaExportController.php:36
 #: libraries/classes/Controllers/Server/UserGroupsFormController.php:47
 #, fuzzy
 #| msgid "Add new field"
@@ -4985,7 +4990,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Database/ExportController.php:90
 #: libraries/classes/Controllers/Database/TrackingController.php:139
-#: libraries/classes/Controllers/Export/ExportController.php:333
+#: libraries/classes/Controllers/Export/ExportController.php:338
 #: libraries/classes/Database/Qbe.php:322
 #: templates/database/structure/index.twig:25
 #: templates/navigation/tree/path.twig:9
@@ -4999,7 +5004,7 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 
 #: libraries/classes/Controllers/Database/ImportController.php:81
-#: libraries/classes/Controllers/Import/ImportController.php:579
+#: libraries/classes/Controllers/Import/ImportController.php:582
 #: libraries/classes/Controllers/Server/ImportController.php:60
 #: libraries/classes/Controllers/Table/ImportController.php:71
 msgid "Could not load import plugins, please check your installation!"
@@ -5103,7 +5108,7 @@ msgid "Table %s has been emptied."
 msgstr "ลบข้อมูลในตาราง %s เรียบร้อยแล้ว"
 
 #: libraries/classes/Controllers/Database/StructureController.php:578
-#: libraries/classes/Display/Results.php:3750
+#: libraries/classes/Display/Results.php:3754
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -5161,7 +5166,7 @@ msgstr "ใช่"
 #: libraries/classes/Controllers/Table/DropColumnController.php:74
 #: libraries/classes/Controllers/Table/OperationsController.php:343
 #: libraries/classes/Controllers/Table/ReplaceController.php:323
-#: libraries/classes/Core.php:698 templates/preview_sql.twig:3
+#: libraries/classes/Core.php:604 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "ไม่มีการเปลี่ยนแปลง"
 
@@ -5188,36 +5193,36 @@ msgstr "ไม่มีตารางที่ถูกเลือก"
 msgid "Database Log"
 msgstr "ประวัติการเข้าใช้ของฐานข้อมูล"
 
-#: libraries/classes/Controllers/ErrorReportController.php:103
+#: libraries/classes/Controllers/ErrorReportController.php:99
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr "ตรวจพบข้อผิดพลาด และรายงานตามที่ได้ตั้งค่าไว้เรียบร้อยแล้ว"
 
-#: libraries/classes/Controllers/ErrorReportController.php:107
+#: libraries/classes/Controllers/ErrorReportController.php:103
 msgid "Thank you for submitting this report."
 msgstr "ขอบคุณสำหรับการรายงานครั้งนี้"
 
-#: libraries/classes/Controllers/ErrorReportController.php:111
+#: libraries/classes/Controllers/ErrorReportController.php:107
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr "ตรวจพบข้อผิดพลาด และรายงานได้ถูกสร้างขึ้นแล้ว แต่ไม่สามารถส่งได้ในขณะนี้"
 
-#: libraries/classes/Controllers/ErrorReportController.php:114
+#: libraries/classes/Controllers/ErrorReportController.php:110
 msgid "If you experience any problems please submit a bug report manually."
 msgstr "หากคุณพบปัญหาในการใช้งานบางอย่าง กรุณารายงานข้อผิดพลาด้วยตัวคุณเอง"
 
-#: libraries/classes/Controllers/ErrorReportController.php:117
+#: libraries/classes/Controllers/ErrorReportController.php:113
 msgid "You may want to refresh the page."
 msgstr "คุณอาจจะต้องการรีเฟรซหน้านี้"
 
 #: libraries/classes/Controllers/Export/ExportController.php:132
-#: libraries/classes/Export.php:1262
+#: libraries/classes/Export.php:1263
 msgid "Bad type!"
 msgstr "ประเภทไม่ถูกต้อง!"
 
-#: libraries/classes/Controllers/Export/ExportController.php:224
+#: libraries/classes/Controllers/Export/ExportController.php:227
 msgid "Bad parameters!"
 msgstr "พารามิเตอร์ไม่ถูกต้อง!"
 
@@ -5340,17 +5345,23 @@ msgstr ""
 "คุณพยายามที่จะอัพโหลดไฟล์ที่มีขนาดใหญ่เกินไป กรุณาดูที่ %s เอกสารช่วยเหลือ%s "
 "เพื่อแก้ไขปัญหาดังกล่าวนี้"
 
-#: libraries/classes/Controllers/Import/ImportController.php:376
-#: libraries/classes/Controllers/Import/ImportController.php:619
+#: libraries/classes/Controllers/Import/ImportController.php:249
+#, fuzzy
+#| msgid "Remove database"
+msgid "Incorrect format parameter"
+msgstr "เอาฐานข้อมูลออก"
+
+#: libraries/classes/Controllers/Import/ImportController.php:379
+#: libraries/classes/Controllers/Import/ImportController.php:622
 msgid "Showing bookmark"
 msgstr "แสดงบุ๊คมาร์ค"
 
-#: libraries/classes/Controllers/Import/ImportController.php:402
-#: libraries/classes/Controllers/Import/ImportController.php:615
+#: libraries/classes/Controllers/Import/ImportController.php:405
+#: libraries/classes/Controllers/Import/ImportController.php:618
 msgid "The bookmark has been deleted."
 msgstr "ลบคำค้นที่จดไว้เรียบร้อยแล้ว"
 
-#: libraries/classes/Controllers/Import/ImportController.php:525
+#: libraries/classes/Controllers/Import/ImportController.php:528
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5359,13 +5370,13 @@ msgstr ""
 "ไม่มีข้อมูลสำหรับการนำเข้า อาจจะไม่ได้ใส่ชื่อไฟล์ หรือขนาดไฟล์เกินขนาดสูงสุดที่ระบบตั้งไว้ "
 "กรุณาแก้ไขไฟล์ตั้งค่าของ PHP ดูเอกสารเพิ่มเติมได้ที่ [doc@faq1-16]FAQ 1.16[/doc]"
 
-#: libraries/classes/Controllers/Import/ImportController.php:627
+#: libraries/classes/Controllers/Import/ImportController.php:630
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "นำเข้าสำเร็จเรียบร้อย การเรียกใช้ %d รายการได้ถูกดำเนินการแล้ว"
 
-#: libraries/classes/Controllers/Import/ImportController.php:664
+#: libraries/classes/Controllers/Import/ImportController.php:667
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5374,7 +5385,7 @@ msgstr ""
 "หมดเวลาการเรียกใช้สคริปต์แล้ว หากคุณต้องการนำเข้าให้เรียบร้อย กรุณา %sนำเข้าไฟล์เดิม%s "
 "อีกรอบ และการนำเข้าจะดำเนินต่อไป"
 
-#: libraries/classes/Controllers/Import/ImportController.php:674
+#: libraries/classes/Controllers/Import/ImportController.php:677
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5382,8 +5393,8 @@ msgstr ""
 "ชุดข้อมูลที่นำเข้าล่าสุดไม่ได้สามารถนำเข้าได้ หมายความว่า phpMyAdmin ไม่สามารถนำเข้าได้ทัน "
 "ตามเวลารันสูงสุดที่กำหนดใน PHP"
 
-#: libraries/classes/Controllers/Import/ImportController.php:742
-#: libraries/classes/Controllers/Sql/SqlController.php:173
+#: libraries/classes/Controllers/Import/ImportController.php:745
+#: libraries/classes/Controllers/Sql/SqlController.php:177
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "คำสั่ง \"DROP DATABASE\" ถูกปิดไว้"
 
@@ -5684,7 +5695,7 @@ msgid "Removing Selected Users"
 msgstr "กำลังลบผู้ใช้ที่เลือกออก"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:154
-#: libraries/classes/Tracking.php:234 libraries/classes/Tracking.php:634
+#: libraries/classes/Tracking.php:230 libraries/classes/Tracking.php:615
 #: templates/columns_definitions/column_definitions_form.twig:175
 #: templates/columns_definitions/column_definitions_form.twig:180
 #: templates/error/report_modal.twig:14 templates/export_modal.twig:6
@@ -5776,7 +5787,7 @@ msgstr "แม่แบบถูกลบออกแล้ว"
 #. l10n: Other, small valued, queries
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:167
 #: libraries/classes/Controllers/Server/Status/QueriesController.php:94
-#: libraries/classes/Server/Status/Data.php:163
+#: libraries/classes/Server/Status/Data.php:167
 msgid "Other"
 msgstr "อื่นๆ"
 
@@ -5968,7 +5979,7 @@ msgid "Please add at least one variable to the series!"
 msgstr "กรุณาเพิ่มค่าตัวแปรอย่างน้อยหนึ่งตัวเข้าไปในลำดับ!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:225
-#: libraries/classes/Display/Results.php:1064
+#: libraries/classes/Display/Results.php:1068
 #: libraries/classes/Plugins/Export/ExportSql.php:2169
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
 #: libraries/config.values.php:111
@@ -6388,8 +6399,8 @@ msgid "Request failed!!"
 msgstr "การร้องขอล้มเหลว!!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:353
-#: libraries/classes/Controllers/Sql/EnumValuesController.php:50
-#: libraries/classes/Controllers/Sql/SetValuesController.php:53
+#: libraries/classes/Controllers/Sql/EnumValuesController.php:51
+#: libraries/classes/Controllers/Sql/SetValuesController.php:52
 msgid "Error in processing request"
 msgstr "ข้อผิดพลาดในการประมวลผลคำร้องขอ"
 
@@ -6564,8 +6575,8 @@ msgid "Show query box"
 msgstr "แสดงช่องคำค้น SQL"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:406
-#: libraries/classes/Display/Results.php:2813
-#: libraries/classes/Tracking.php:257
+#: libraries/classes/Display/Results.php:2817
+#: libraries/classes/Tracking.php:249
 #: templates/console/bookmark_content.twig:11
 #: templates/database/central_columns/main.twig:268
 #: templates/database/central_columns/main.twig:380
@@ -6692,7 +6703,7 @@ msgid "No partial dependencies selected!"
 msgstr "ไม่มีการอ้างอิงบางส่วนที่ถูกเลือก!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:440
-#: libraries/classes/Export.php:1315 libraries/classes/Html/Generator.php:984
+#: libraries/classes/Export.php:1316 libraries/classes/Html/Generator.php:984
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:288
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -6827,7 +6838,7 @@ msgid "Ignore"
 msgstr "ข้าม"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:493
-#: libraries/classes/Display/Results.php:2749
+#: libraries/classes/Display/Results.php:2753
 #: libraries/classes/Html/Generator.php:79
 #: templates/display/results/table.twig:306
 #: templates/display/results/table.twig:307
@@ -8512,7 +8523,7 @@ msgstr "หน่วยความจำของชุดคำสั่ง �
 msgid "Setting variable failed"
 msgstr ""
 
-#: libraries/classes/Controllers/Setup/FormController.php:32
+#: libraries/classes/Controllers/Setup/FormController.php:33
 msgid "Incorrect form specified!"
 msgstr ""
 
@@ -8532,7 +8543,7 @@ msgstr ""
 msgid "Insecure connection"
 msgstr "การเชื่อมต่อที่ไม่ปลอดภัย"
 
-#: libraries/classes/Controllers/Setup/MainController.php:24
+#: libraries/classes/Controllers/Setup/MainController.php:27
 msgid "Configuration already exists, setup is disabled!"
 msgstr ""
 
@@ -8542,18 +8553,18 @@ msgstr ""
 msgid "Wrong data"
 msgstr "ไม่มีฐานข้อมูล"
 
-#: libraries/classes/Controllers/Setup/ValidateController.php:44
+#: libraries/classes/Controllers/Setup/ValidateController.php:46
 #, php-format
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: libraries/classes/Controllers/Sql/SqlController.php:246
-#: libraries/classes/Sql.php:1148
+#: libraries/classes/Controllers/Sql/SqlController.php:255
+#: libraries/classes/Sql.php:1121
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "บุ๊คมาร์ค %s ได้ถูกสร้างขึ้น"
 
-#: libraries/classes/Controllers/Sql/SqlController.php:253
+#: libraries/classes/Controllers/Sql/SqlController.php:262
 #, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created!"
@@ -8595,7 +8606,7 @@ msgid "The database name is empty!"
 msgstr "ชื่อฐานข้อมูลว่างเปล่า!"
 
 #: libraries/classes/Controllers/Table/CreateController.php:80
-#: libraries/classes/Controllers/Table/GetFieldController.php:49
+#: libraries/classes/Controllers/Table/GetFieldController.php:50
 #, php-format
 msgid "'%s' database does not exist."
 msgstr ""
@@ -8620,9 +8631,9 @@ msgstr "มีผู้ใช้ %s อยู่แล้ว!"
 #: libraries/classes/Controllers/Table/Partition/RepairController.php:54
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:55
 #: libraries/classes/Controllers/Table/RelationController.php:300
-#: libraries/classes/Controllers/View/OperationsController.php:92
+#: libraries/classes/Controllers/View/OperationsController.php:91
 #: libraries/classes/Database/Routines.php:1226
-#: libraries/classes/Display/Results.php:3459 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3463 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully."
@@ -8631,15 +8642,15 @@ msgstr "ทำคำค้นเสร็จเรียบร้อยแล้
 
 #: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:32
 #: libraries/classes/Controllers/Table/DropColumnController.php:51
-#: libraries/classes/Controllers/Table/Structure/AddIndexController.php:46
+#: libraries/classes/Controllers/Table/Structure/AddIndexController.php:47
 #: libraries/classes/Controllers/Table/Structure/BrowseController.php:35
-#: libraries/classes/Controllers/Table/Structure/CentralColumnsAddController.php:44
-#: libraries/classes/Controllers/Table/Structure/CentralColumnsRemoveController.php:44
-#: libraries/classes/Controllers/Table/Structure/ChangeController.php:50
-#: libraries/classes/Controllers/Table/Structure/FulltextController.php:46
+#: libraries/classes/Controllers/Table/Structure/CentralColumnsAddController.php:45
+#: libraries/classes/Controllers/Table/Structure/CentralColumnsRemoveController.php:45
+#: libraries/classes/Controllers/Table/Structure/ChangeController.php:51
+#: libraries/classes/Controllers/Table/Structure/FulltextController.php:47
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:51
-#: libraries/classes/Controllers/Table/Structure/SpatialController.php:46
-#: libraries/classes/Controllers/Table/Structure/UniqueController.php:46
+#: libraries/classes/Controllers/Table/Structure/SpatialController.php:47
+#: libraries/classes/Controllers/Table/Structure/UniqueController.php:47
 #, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
@@ -8652,22 +8663,22 @@ msgid "%1$d column has been dropped successfully."
 msgid_plural "%1$d columns have been dropped successfully."
 msgstr[0] "%s ฐานข้อมูลได้ถูกทิ้งไปเรียบร้อยแล้ว."
 
-#: libraries/classes/Controllers/Table/GetFieldController.php:57
+#: libraries/classes/Controllers/Table/GetFieldController.php:58
 msgid "Invalid table name"
 msgstr "ชื่อตารางไม่ถูกต้อง"
 
 #. l10n: In case a SQL query did not pass a security check
-#: libraries/classes/Controllers/Table/GetFieldController.php:66
-#: libraries/classes/Controllers/Transformation/WrapperController.php:78
+#: libraries/classes/Controllers/Table/GetFieldController.php:68
+#: libraries/classes/Controllers/Transformation/WrapperController.php:80
 #, fuzzy
 #| msgid "Tracked tables"
 msgid "There is an issue with your request."
 msgstr "ตารางที่ถูกติดตาม"
 
-#: libraries/classes/Controllers/Table/GetFieldController.php:80
+#: libraries/classes/Controllers/Table/GetFieldController.php:82
 #: libraries/classes/Database/Routines.php:1245
 #: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:242
-#: libraries/classes/Sql.php:963
+#: libraries/classes/Sql.php:936
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL คืนผลลัพธ์ว่างเปล่ากลับมา (null / 0 แถว)."
 
@@ -8704,7 +8715,7 @@ msgstr "ชื่อตารางยังว่างอยู่!"
 #: libraries/classes/Controllers/Table/Partition/DropController.php:61
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:61
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:61
-#: libraries/classes/Controllers/View/OperationsController.php:95
+#: libraries/classes/Controllers/View/OperationsController.php:94
 #: libraries/classes/Html/Generator.php:860 libraries/classes/Import.php:138
 #: libraries/classes/InsertEdit.php:740 libraries/classes/Message.php:192
 #: templates/error/generic.twig:37
@@ -8728,7 +8739,7 @@ msgstr "รีเลชันภายใน"
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
 
-#: libraries/classes/Controllers/Table/Structure/ChangeController.php:82
+#: libraries/classes/Controllers/Table/Structure/ChangeController.php:76
 #, fuzzy, php-format
 #| msgid "Failed to fetch headers"
 msgid "Failed to get description of column %s!"
@@ -8764,7 +8775,7 @@ msgstr "ลบผู้ใช้ที่เลือกไว้เรียบ
 
 #: libraries/classes/Controllers/Table/Structure/PartitioningController.php:266
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:272
-#: libraries/classes/Tracking.php:784
+#: libraries/classes/Tracking.php:765
 #, fuzzy
 #| msgid "Query type"
 msgid "Query error"
@@ -8782,25 +8793,25 @@ msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "ลบผู้ใช้ที่เลือกไว้เรียบร้อยแล้ว."
 
-#: libraries/classes/Controllers/Table/TrackingController.php:80
+#: libraries/classes/Controllers/Table/TrackingController.php:78
 #, fuzzy, php-format
 #| msgid "Tracking is active."
 msgid "Tracking of %s is activated."
 msgstr "การติดตามเริ่มทำงานแล้ว"
 
-#: libraries/classes/Controllers/Table/TrackingController.php:162
+#: libraries/classes/Controllers/Table/TrackingController.php:161
 #, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "Tracking versions deleted successfully."
 msgstr "ลบผู้ใช้ที่เลือกไว้เรียบร้อยแล้ว."
 
-#: libraries/classes/Controllers/Table/TrackingController.php:167
+#: libraries/classes/Controllers/Table/TrackingController.php:166
 #, fuzzy
 #| msgid "No rows selected"
 msgid "No versions selected."
 msgstr "ยังไม่ได้เลือกแถว"
 
-#: libraries/classes/Controllers/Table/TrackingController.php:215
+#: libraries/classes/Controllers/Table/TrackingController.php:214
 msgid "SQL statements executed."
 msgstr ""
 
@@ -8817,7 +8828,7 @@ msgstr "เปลี่ยนรหัสผ่าน"
 msgid "View name can not be empty!"
 msgstr ""
 
-#: libraries/classes/Core.php:205 libraries/classes/ZipExtension.php:62
+#: libraries/classes/Core.php:127 libraries/classes/ZipExtension.php:62
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "ส่วนขยาย %s ขาดหายไป กรุณาตรวจสอบการกำหนดค่าของ PHP"
@@ -9053,7 +9064,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "ไม่พบตารางใด ๆ ในฐานข้อมูล"
 
-#: libraries/classes/DatabaseInterface.php:1137
+#: libraries/classes/DatabaseInterface.php:1132
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -9061,25 +9072,20 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:1182
+#: libraries/classes/DatabaseInterface.php:1177
 #, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to set configured collation connection!"
 msgstr "ไม่สามารถอ่านแฟ้มการตั้งค่าได้"
 
-#: libraries/classes/DatabaseInterface.php:1640
+#: libraries/classes/DatabaseInterface.php:1635
 #, fuzzy
 #| msgid "Add new field"
 msgid "Missing connection parameters!"
 msgstr "เพิ่มฟิลด์ใหม่"
 
-#: libraries/classes/DatabaseInterface.php:1667
+#: libraries/classes/DatabaseInterface.php:1662
 msgid "Connection for controluser as defined in your configuration failed."
-msgstr ""
-
-#: libraries/classes/DatabaseInterface.php:2088
-#, php-format
-msgid "See %sour documentation%s for more information."
 msgstr ""
 
 #: libraries/classes/Database/Qbe.php:756
@@ -9392,23 +9398,23 @@ msgstr "กรุณากรอกไม่เกิน {0} ตัว"
 msgid "The table name cannot end with a space character."
 msgstr "คำถูกแบ่งด้วยช่องว่าง (\" \")."
 
-#: libraries/classes/Display/Results.php:1262
+#: libraries/classes/Display/Results.php:1266
 #: templates/display/results/table.twig:204
 #, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "ข้อความบางส่วน"
 
-#: libraries/classes/Display/Results.php:1266
+#: libraries/classes/Display/Results.php:1270
 #: templates/display/results/table.twig:208
 #, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
 msgstr "ทั้งข้อความ"
 
-#: libraries/classes/Display/Results.php:1607
-#: libraries/classes/Display/Results.php:1633 libraries/classes/Util.php:2497
-#: libraries/classes/Util.php:2520 libraries/config.values.php:113
+#: libraries/classes/Display/Results.php:1611
+#: libraries/classes/Display/Results.php:1637 libraries/classes/Util.php:2487
+#: libraries/classes/Util.php:2510 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:111
@@ -9420,9 +9426,9 @@ msgstr "ทั้งข้อความ"
 msgid "Descending"
 msgstr "มากไปน้อย"
 
-#: libraries/classes/Display/Results.php:1615
-#: libraries/classes/Display/Results.php:1625 libraries/classes/Util.php:2489
-#: libraries/classes/Util.php:2512 libraries/config.values.php:112
+#: libraries/classes/Display/Results.php:1619
+#: libraries/classes/Display/Results.php:1629 libraries/classes/Util.php:2479
+#: libraries/classes/Util.php:2502 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:109
@@ -9434,48 +9440,48 @@ msgstr "มากไปน้อย"
 msgid "Ascending"
 msgstr "น้อยไปมาก"
 
-#: libraries/classes/Display/Results.php:2789
-#: libraries/classes/Display/Results.php:2804
+#: libraries/classes/Display/Results.php:2793
+#: libraries/classes/Display/Results.php:2808
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "ลบเรียบร้อยแล้ว"
 
-#: libraries/classes/Display/Results.php:2836
+#: libraries/classes/Display/Results.php:2840
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "ฆ่าทิ้ง"
 
-#: libraries/classes/Display/Results.php:3392
+#: libraries/classes/Display/Results.php:3396
 #, fuzzy
 #| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "มีข้อผิดพลาดระหว่างการอัพโหลด กรุณาดู [doc@faq1-11]FAQ 1.11[/doc]"
 
-#: libraries/classes/Display/Results.php:3759
+#: libraries/classes/Display/Results.php:3763
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "แสดงแถว"
 
-#: libraries/classes/Display/Results.php:3773
+#: libraries/classes/Display/Results.php:3777
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:3778
+#: libraries/classes/Display/Results.php:3782
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%d total"
 msgstr "ทั้งหมด"
 
-#: libraries/classes/Display/Results.php:3791 libraries/classes/Sql.php:969
+#: libraries/classes/Display/Results.php:3795 libraries/classes/Sql.php:942
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "คำค้นใช้เวลา %01.4f วินาที"
 
-#: libraries/classes/Display/Results.php:4118
+#: libraries/classes/Display/Results.php:4122
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -9523,7 +9529,7 @@ msgid "Buffer Pool"
 msgstr ""
 
 #: libraries/classes/Engines/Innodb.php:108
-#: libraries/classes/Server/Status/Data.php:233
+#: libraries/classes/Server/Status/Data.php:237
 msgid "InnoDB Status"
 msgstr "สถานะของ InnoDB"
 
@@ -9805,30 +9811,30 @@ msgstr "นำเข้า"
 msgid "Automatically send report next time"
 msgstr "สร้างเวอร์ชั่นโดยอัตโนมัติ"
 
-#: libraries/classes/Export.php:163 libraries/classes/Export.php:199
-#: libraries/classes/Export.php:475
+#: libraries/classes/Export.php:164 libraries/classes/Export.php:200
+#: libraries/classes/Export.php:476
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "พื้นที่ไม่เพียงพอที่จะบันทึกไฟล์ %s"
 
-#: libraries/classes/Export.php:424
+#: libraries/classes/Export.php:425
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr "ให้เปลี่ยนชื่อไฟล์ หรือเลือกแบบเขียนทับไฟล์เดิม เพราะมีไฟล์ %s อยู่ในเซิร์ฟเวอร์อยู่แล้ว"
 
-#: libraries/classes/Export.php:431 libraries/classes/Export.php:441
+#: libraries/classes/Export.php:432 libraries/classes/Export.php:442
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "บันทึกไฟล์ %s ไม่ได้ เพราะเว็บเซิร์ฟเวอร์ไม่อนุญาต"
 
-#: libraries/classes/Export.php:481
+#: libraries/classes/Export.php:482
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "ข้อมูลที่ส่งออกถูกบันทึกไว้ในไฟล์ %s"
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: libraries/classes/Export.php:913
+#: libraries/classes/Export.php:914
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
@@ -9986,7 +9992,7 @@ msgstr "ข้อมูลคงที่"
 msgid "%d errors were found during analysis."
 msgstr ""
 
-#: libraries/classes/Import.php:276 libraries/classes/Sql.php:977
+#: libraries/classes/Import.php:276 libraries/classes/Sql.php:950
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -10140,11 +10146,11 @@ msgstr "หรือ"
 msgid "web server upload directory:"
 msgstr "ไดเรกทอรีสำหรับอัพโหลด ที่เว็บเซิร์ฟเวอร์"
 
-#: libraries/classes/InsertEdit.php:1335 libraries/classes/Sql.php:960
+#: libraries/classes/InsertEdit.php:1335 libraries/classes/Sql.php:933
 msgid "Showing SQL query"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1359 libraries/classes/Sql.php:940
+#: libraries/classes/InsertEdit.php:1359 libraries/classes/Sql.php:913
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -10273,13 +10279,13 @@ msgstr "เพิ่ม/ลบ คอลัมน์ (ฟิลด์)"
 msgid "User accounts"
 msgstr "ผู้ใช้"
 
-#: libraries/classes/Menu.php:530 libraries/classes/Server/Status/Data.php:152
+#: libraries/classes/Menu.php:530 libraries/classes/Server/Status/Data.php:156
 #: libraries/classes/Util.php:1881 templates/server/binlog/index.twig:3
 #, fuzzy
 msgid "Binary log"
 msgstr "ข้อมูลไบนารี "
 
-#: libraries/classes/Menu.php:537 libraries/classes/Server/Status/Data.php:157
+#: libraries/classes/Menu.php:537 libraries/classes/Server/Status/Data.php:161
 #: libraries/classes/Util.php:1882
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
@@ -10287,7 +10293,7 @@ msgstr "ข้อมูลไบนารี "
 msgid "Replication"
 msgstr "การจำลองแบบ"
 
-#: libraries/classes/Menu.php:543 libraries/classes/Server/Status/Data.php:229
+#: libraries/classes/Menu.php:543 libraries/classes/Server/Status/Data.php:233
 #: libraries/classes/Util.php:1883 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:191
@@ -10959,7 +10965,7 @@ msgstr "ไม่สามารถล็อกอินเข้าเซิร
 msgid "Wrong username/password. Access denied."
 msgstr "อนุญาตให้เข้าใช้ไม่ได้ ชื่อผู้ใช้หรือรหัสผ่านผิด"
 
-#: libraries/classes/Plugins/Auth/AuthenticationSignon.php:149
+#: libraries/classes/Plugins/Auth/AuthenticationSignon.php:159
 msgid "Can not find signon authentication script:"
 msgstr "﻿สามารถค้นหา signon สำหรับตรวจสอบสคริปต์:"
 
@@ -11791,13 +11797,13 @@ msgstr ""
 msgid "XML"
 msgstr "XML"
 
-#: libraries/classes/Plugins.php:615
+#: libraries/classes/Plugins.php:616
 #, fuzzy
 #| msgid "This format has no options"
 msgid "This format has no options"
 msgstr "รูปแบบนี้ไม่มีตัวเลือก"
 
-#: libraries/classes/Plugins.php:632
+#: libraries/classes/Plugins.php:635
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 
@@ -12218,78 +12224,78 @@ msgstr "ตั้งค่าใหม่"
 msgid "Favorites"
 msgstr "ตัวแปร"
 
-#: libraries/classes/ReplicationGui.php:444
+#: libraries/classes/ReplicationGui.php:447
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
 
-#: libraries/classes/ReplicationGui.php:455
+#: libraries/classes/ReplicationGui.php:458
 #, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication started successfully."
 msgstr "สิทธิได้ถูกเรียกใช้ใหม่เรียบร้อยแล้ว"
 
-#: libraries/classes/ReplicationGui.php:456
+#: libraries/classes/ReplicationGui.php:459
 #, fuzzy
 #| msgid "Master replication"
 msgid "Error starting replication."
 msgstr "การจำลองแบบมาสเตอร์"
 
-#: libraries/classes/ReplicationGui.php:459
+#: libraries/classes/ReplicationGui.php:462
 #, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
 msgstr "สิทธิได้ถูกเรียกใช้ใหม่เรียบร้อยแล้ว"
 
-#: libraries/classes/ReplicationGui.php:460
+#: libraries/classes/ReplicationGui.php:463
 #, fuzzy
 #| msgid "Master replication"
 msgid "Error stopping replication."
 msgstr "การจำลองแบบมาสเตอร์"
 
-#: libraries/classes/ReplicationGui.php:463
+#: libraries/classes/ReplicationGui.php:466
 #, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication resetting successfully."
 msgstr "สิทธิได้ถูกเรียกใช้ใหม่เรียบร้อยแล้ว"
 
-#: libraries/classes/ReplicationGui.php:464
+#: libraries/classes/ReplicationGui.php:467
 #, fuzzy
 #| msgid "Master replication"
 msgid "Error resetting replication."
 msgstr "การจำลองแบบมาสเตอร์"
 
-#: libraries/classes/ReplicationGui.php:467
+#: libraries/classes/ReplicationGui.php:470
 msgid "Success."
 msgstr ""
 
-#: libraries/classes/ReplicationGui.php:468
+#: libraries/classes/ReplicationGui.php:471
 #, fuzzy
 #| msgid "Error"
 msgid "Error."
 msgstr "ผิดพลาด"
 
-#: libraries/classes/ReplicationGui.php:504
+#: libraries/classes/ReplicationGui.php:511
 msgid "Unknown error"
 msgstr "ข้อผิดพลาดที่ไม่รู้จัก"
 
-#: libraries/classes/ReplicationGui.php:517
+#: libraries/classes/ReplicationGui.php:524
 #, fuzzy, php-format
 #| msgid "Enable SSL for connection to MySQL server"
 msgid "Unable to connect to primary %s."
 msgstr "เปิดใช้งาน SSL สำหรับการเชื่อมต่อไปยังเซิร์ฟเวอร์ MySQL"
 
-#: libraries/classes/ReplicationGui.php:527
+#: libraries/classes/ReplicationGui.php:534
 msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
 msgstr ""
 
-#: libraries/classes/ReplicationGui.php:545
+#: libraries/classes/ReplicationGui.php:552
 msgid "Unable to change primary!"
 msgstr ""
 
-#: libraries/classes/ReplicationGui.php:549
+#: libraries/classes/ReplicationGui.php:556
 #, fuzzy, php-format
 #| msgid "The privileges were reloaded successfully."
 msgid "Primary server changed successfully to %s."
@@ -12302,7 +12308,7 @@ msgid ""
 "the folder/file \"%s\""
 msgstr ""
 
-#: libraries/classes/Routing.php:138 libraries/classes/Routing.php:207
+#: libraries/classes/Routing.php:138 libraries/classes/Routing.php:210
 #, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "ข้อผิดพลาด 404! ไม่พบหน้า %s"
@@ -12748,85 +12754,85 @@ msgstr ""
 msgid "You have added a new user."
 msgstr "เพิ่มผู้ใช้ใหม่เรียบร้อยแล้ว"
 
-#: libraries/classes/Server/Status/Data.php:146
+#: libraries/classes/Server/Status/Data.php:150
 #: libraries/classes/Server/Status/Processes.php:147
 #: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:20
 msgid "SQL query"
 msgstr "คำค้น SQL"
 
-#: libraries/classes/Server/Status/Data.php:149
+#: libraries/classes/Server/Status/Data.php:153
 msgid "Handler"
 msgstr "ตัวจัดการ"
 
-#: libraries/classes/Server/Status/Data.php:150
+#: libraries/classes/Server/Status/Data.php:154
 #, fuzzy
 msgid "Query cache"
 msgstr "ชนิดคำค้น"
 
-#: libraries/classes/Server/Status/Data.php:151
+#: libraries/classes/Server/Status/Data.php:155
 msgid "Threads"
 msgstr "บทสนทนา"
 
-#: libraries/classes/Server/Status/Data.php:153
+#: libraries/classes/Server/Status/Data.php:157
 msgid "Temporary data"
 msgstr "ข้อมูลชั่วคราว"
 
-#: libraries/classes/Server/Status/Data.php:154
+#: libraries/classes/Server/Status/Data.php:158
 #, fuzzy
 msgid "Delayed inserts"
 msgstr "แทรกหลายระเบียนในคราวเดียว"
 
-#: libraries/classes/Server/Status/Data.php:155
+#: libraries/classes/Server/Status/Data.php:159
 msgid "Key cache"
 msgstr "แคชคีย์"
 
-#: libraries/classes/Server/Status/Data.php:156
+#: libraries/classes/Server/Status/Data.php:160
 msgid "Joins"
 msgstr "เข้าร่วม"
 
-#: libraries/classes/Server/Status/Data.php:158
+#: libraries/classes/Server/Status/Data.php:162
 msgid "Sorting"
 msgstr "การเรียงลำดับ"
 
-#: libraries/classes/Server/Status/Data.php:160
+#: libraries/classes/Server/Status/Data.php:164
 msgid "Transaction coordinator"
 msgstr ""
 
-#: libraries/classes/Server/Status/Data.php:161
+#: libraries/classes/Server/Status/Data.php:165
 #: templates/server/binlog/index.twig:27
 #, fuzzy
 msgid "Files"
 msgstr "จำนวนฟิลด์"
 
-#: libraries/classes/Server/Status/Data.php:180
+#: libraries/classes/Server/Status/Data.php:184
 msgid "Flush (close) all tables"
 msgstr ""
 
-#: libraries/classes/Server/Status/Data.php:184
+#: libraries/classes/Server/Status/Data.php:188
 #, fuzzy
 msgid "Show open tables"
 msgstr "แสดงตาราง"
 
-#: libraries/classes/Server/Status/Data.php:193
+#: libraries/classes/Server/Status/Data.php:197
 #, fuzzy
 #| msgid "Show slave hosts"
 msgid "Show replica hosts"
 msgstr "แสดงโฮสต์ทาส"
 
-#: libraries/classes/Server/Status/Data.php:200
+#: libraries/classes/Server/Status/Data.php:204
 #: templates/server/replication/primary_replication.twig:9
 #, fuzzy
 #| msgid "Show master status"
 msgid "Show primary status"
 msgstr "แสดงสถานะมาสเตอร์"
 
-#: libraries/classes/Server/Status/Data.php:207
+#: libraries/classes/Server/Status/Data.php:211
 #, fuzzy
 #| msgid "Show slave status"
 msgid "Show replica status"
 msgstr "แสดงสถานะทาส"
 
-#: libraries/classes/Server/Status/Data.php:215
+#: libraries/classes/Server/Status/Data.php:219
 msgid "Flush query cache"
 msgstr ""
 
@@ -12874,16 +12880,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr ""
 
-#: libraries/classes/Sql.php:497
+#: libraries/classes/Sql.php:470
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/classes/Sql.php:957
+#: libraries/classes/Sql.php:930
 msgid "Showing as PHP code"
 msgstr ""
 
-#: libraries/classes/Sql.php:1329
+#: libraries/classes/Sql.php:1302
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12894,7 +12900,7 @@ msgid ""
 msgstr ""
 "ตารางนี้ไม่มีสดมภ์ไหนที่เก็บค่าที่แตกต่างกันเสมอ การแก้ไขหรือเพิ่มผ่านตารางจะไม่สามารถบันทึกได้"
 
-#: libraries/classes/Sql.php:1343
+#: libraries/classes/Sql.php:1316
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -12903,18 +12909,18 @@ msgstr ""
 "สิ่งที่ถูกเลือกไม่มีคอลัมน์เอกลักษณ์ การแก้ไขผ่านตาราง แก้ไข คัดลอก "
 "และลบอาจจะเกิดผลลัพธ์ที่ไม่คาดคิด %s"
 
-#: libraries/classes/SqlQueryForm.php:150
+#: libraries/classes/SqlQueryForm.php:154
 #, fuzzy, php-format
 #| msgid "Run SQL query/queries on server %s"
 msgid "Run SQL query/queries on server “%s”"
 msgstr "เรียกใช้แบบสอบถาม SQL/แบบสอบถามบนเซิร์ฟเวอร์ %s"
 
-#: libraries/classes/SqlQueryForm.php:166
+#: libraries/classes/SqlQueryForm.php:170
 #, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr "ประมวลผลคำค้นบนฐานข้อมูล %s"
 
-#: libraries/classes/SqlQueryForm.php:181
+#: libraries/classes/SqlQueryForm.php:185
 #, fuzzy, php-format
 #| msgid "Run SQL query/queries on database %s"
 msgid "Run SQL query/queries on table %s"
@@ -12946,7 +12952,7 @@ msgstr "%s ถูกปิดบน MySQL Server"
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "MySQL ไม่รองรับ %s"
 
-#: libraries/classes/Table/Indexes.php:58 libraries/classes/Table.php:2097
+#: libraries/classes/Table/Indexes.php:58 libraries/classes/Table.php:2096
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "ชื่อขอคีย์หลักจะต้องเป็น \"PRIMARY\" เท่านั้น!"
 
@@ -12995,13 +13001,13 @@ msgstr "มีข้อผิดพลาดจากเปลี่ยนชื
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "ตาราง %s ได้ถูกเปลี่ยนชื่อเป็น %s"
 
-#: libraries/classes/Table.php:1791
+#: libraries/classes/Table.php:1790
 #, fuzzy
 #| msgid "Could not save table UI preferences"
 msgid "Could not save table UI preferences!"
 msgstr "ไม่สามารถบันทึกการกำหนดลักษณะตาราง UI"
 
-#: libraries/classes/Table.php:1815
+#: libraries/classes/Table.php:1814
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -13010,7 +13016,7 @@ msgstr ""
 "มีปัญหาในการล้างข้อมูลการตั้งค่าตาราง UL (ดูได้ที่ $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: libraries/classes/Table.php:1950
+#: libraries/classes/Table.php:1949
 #, fuzzy, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -13020,15 +13026,15 @@ msgstr ""
 "﻿ไม่สามารถบันทึกคุณสมบัติ UI \"% s\" ได้ การเปลี่ยนแปลงจะมีผล หลังจากคุณรีเฟรชหน้านี้ "
 "โปรดตรวจสอบหากมีการเปลี่ยนโครงสร้างของตาราง"
 
-#: libraries/classes/Table.php:2109
+#: libraries/classes/Table.php:2108
 msgid "Can't rename index to PRIMARY!"
 msgstr "เปลี่ยนชื่อดัชนีเป็น PRIMARY ไม่ได้!"
 
-#: libraries/classes/Table.php:2135
+#: libraries/classes/Table.php:2134
 msgid "No index parts defined!"
 msgstr "ไม่ได้กำหนดส่วนใดๆ ของดัชนี!"
 
-#: libraries/classes/Table.php:2431
+#: libraries/classes/Table.php:2430
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -13054,138 +13060,138 @@ msgstr "ไม่พบธีม %s !"
 msgid "No valid image path for theme %s found!"
 msgstr "ไม่พบเส้นทางรูปภาพของธีม %s !"
 
-#: libraries/classes/Tracking.php:233
+#: libraries/classes/Tracking.php:229
 #: templates/database/tracking/tables.twig:115
 #: templates/table/tracking/main.twig:73
 msgid "Tracking report"
 msgstr "รายงานผลการติดตาม"
 
-#: libraries/classes/Tracking.php:237
+#: libraries/classes/Tracking.php:233
 msgid "Tracking statements"
 msgstr ""
 
-#: libraries/classes/Tracking.php:252
+#: libraries/classes/Tracking.php:244
 #, fuzzy
 #| msgid "Delete tracking data for this table"
 msgid "Delete tracking data row from report"
 msgstr "ลบการติดตามตารางนี้"
 
-#: libraries/classes/Tracking.php:262
+#: libraries/classes/Tracking.php:254
 msgid "No data"
 msgstr "ไม่มีข้อมูล"
 
-#: libraries/classes/Tracking.php:307
+#: libraries/classes/Tracking.php:292
 #: templates/database/operations/index.twig:131
 #: templates/database/structure/copy_form.twig:19
 #: templates/table/operations/index.twig:275
 msgid "Structure only"
 msgstr "เฉพาะโครงสร้าง"
 
-#: libraries/classes/Tracking.php:310
+#: libraries/classes/Tracking.php:295
 #: templates/database/operations/index.twig:143
 #: templates/database/structure/copy_form.twig:29
 #: templates/table/operations/index.twig:287
 msgid "Data only"
 msgstr "เฉพาะข้อมูล"
 
-#: libraries/classes/Tracking.php:313
+#: libraries/classes/Tracking.php:298
 #: templates/database/operations/index.twig:137
 #: templates/database/structure/copy_form.twig:24
 #: templates/table/operations/index.twig:281
 msgid "Structure and data"
 msgstr "ทั้งโครงสร้างและข้อมูล"
 
-#: libraries/classes/Tracking.php:378 libraries/classes/Tracking.php:444
+#: libraries/classes/Tracking.php:359 libraries/classes/Tracking.php:425
 #, php-format
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr ""
 
-#: libraries/classes/Tracking.php:465
+#: libraries/classes/Tracking.php:446
 msgid "SQL dump (file download)"
 msgstr ""
 
-#: libraries/classes/Tracking.php:467
+#: libraries/classes/Tracking.php:448
 msgid "SQL dump"
 msgstr ""
 
-#: libraries/classes/Tracking.php:470
+#: libraries/classes/Tracking.php:451
 msgid "This option will replace your table and contained data."
 msgstr ""
 
-#: libraries/classes/Tracking.php:472
+#: libraries/classes/Tracking.php:453
 msgid "SQL execution"
 msgstr ""
 
-#: libraries/classes/Tracking.php:476
+#: libraries/classes/Tracking.php:457
 #, php-format
 msgid "Export as %s"
 msgstr ""
 
-#: libraries/classes/Tracking.php:514
+#: libraries/classes/Tracking.php:495
 msgid "Data manipulation statement"
 msgstr ""
 
-#: libraries/classes/Tracking.php:550
+#: libraries/classes/Tracking.php:531
 msgid "Data definition statement"
 msgstr ""
 
-#: libraries/classes/Tracking.php:633
+#: libraries/classes/Tracking.php:614
 #: templates/database/tracking/tables.twig:126
 #: templates/table/tracking/main.twig:80
 msgid "Structure snapshot"
 msgstr "เก็บโครงสร้างไว้"
 
-#: libraries/classes/Tracking.php:651
+#: libraries/classes/Tracking.php:632
 #, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr ""
 
-#: libraries/classes/Tracking.php:728
+#: libraries/classes/Tracking.php:709
 msgid "Tracking data definition successfully deleted"
 msgstr ""
 
-#: libraries/classes/Tracking.php:741
+#: libraries/classes/Tracking.php:722
 msgid "Tracking data manipulation successfully deleted"
 msgstr ""
 
-#: libraries/classes/Tracking.php:805
+#: libraries/classes/Tracking.php:786
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
 msgstr ""
 
-#: libraries/classes/Tracking.php:809
+#: libraries/classes/Tracking.php:790
 msgid "Comment out these two lines if you do not need them."
 msgstr ""
 
-#: libraries/classes/Tracking.php:820
+#: libraries/classes/Tracking.php:801
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr ""
 
-#: libraries/classes/Tracking.php:853
+#: libraries/classes/Tracking.php:834
 #, php-format
 msgid "Tracking report for table `%s`"
 msgstr ""
 
-#: libraries/classes/Tracking.php:885
+#: libraries/classes/Tracking.php:866
 #, fuzzy, php-format
 #| msgid "Tracking is active."
 msgid "Tracking for %1$s was activated at version %2$s."
 msgstr "การติดตามเริ่มทำงานแล้ว"
 
-#: libraries/classes/Tracking.php:888
+#: libraries/classes/Tracking.php:869
 #, fuzzy, php-format
 #| msgid "Tracking is active."
 msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "การติดตามเริ่มทำงานแล้ว"
 
-#: libraries/classes/Tracking.php:987
+#: libraries/classes/Tracking.php:968
 #, fuzzy, php-format
 #| msgid "Create version %1$s of %2$s"
 msgid "Version %1$s of %2$s was deleted."
 msgstr "สร้างเวอร์ชั่น %1$s ของ %2$s"
 
-#: libraries/classes/Tracking.php:1018
+#: libraries/classes/Tracking.php:999
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr ""
@@ -13513,7 +13519,7 @@ msgstr "%s วัน, %s ชั่วโมง, %s นาที, %s วินา
 msgid "Users"
 msgstr "ผู้ใช้"
 
-#: libraries/classes/Util.php:2481
+#: libraries/classes/Util.php:2471
 #: templates/database/multi_table_query/form.twig:67
 msgid "Sort"
 msgstr "เรียง"
