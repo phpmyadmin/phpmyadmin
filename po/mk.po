@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-11-07 12:02+0000\n"
+"PO-Revision-Date: 2022-11-09 01:09+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -2104,10 +2104,8 @@ msgid "Primary key added."
 msgstr "Примарниот клуч %s е додаден."
 
 #: js/messages.php:448 libraries/classes/Normalization.php:242
-#, fuzzy
-#| msgid "Change"
 msgid "Taking you to next step…"
-msgstr "Промени"
+msgstr "Кон следниот чекор…"
 
 #: js/messages.php:450
 #, php-format
@@ -2749,10 +2747,8 @@ msgid "Execute this query again?"
 msgstr "Прикажи го повторно овој упит"
 
 #: js/messages.php:727
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to delete this bookmark?"
-msgstr "Дали навистина сакате да "
+msgstr "Дали навистина сакате да ја избришете ознаката?"
 
 #: js/messages.php:729
 msgid "Some error occurred while getting SQL debug info."
@@ -8673,10 +8669,8 @@ msgid "Add prefix"
 msgstr "Додади ново поле"
 
 #: libraries/classes/MultSubmits.php:500
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
-msgstr "Дали навистина сакате да "
+msgstr "Дали навистина сакате да егзекутурате следното барање?"
 
 #: libraries/classes/Navigation/Navigation.php:69
 msgid "An error has occurred while loading the navigation display"
@@ -8917,10 +8911,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Normalization.php:206 normalization.php:19
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Select one…"
-msgstr "Додади/избриши колона"
+msgstr "Изберете еден…"
 
 #: libraries/classes/Normalization.php:207 normalization.php:20
 #, fuzzy
@@ -10148,10 +10140,8 @@ msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:80
 #: libraries/classes/Plugins/Import/ImportLdi.php:75
-#, fuzzy
-#| msgid "Column names"
 msgid "Column names: "
-msgstr "Имиња на колони"
+msgstr "Имиња на колони: "
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:120
 #: libraries/classes/Plugins/Import/ImportCsv.php:135
@@ -10721,10 +10711,8 @@ msgid "Enabled"
 msgstr "Овозможено"
 
 #: libraries/classes/Relation.php:116
-#, fuzzy
-#| msgid "Modifications have been saved"
 msgid "Configuration of pmadb…"
-msgstr "Измените се сочувани"
+msgstr "Конфигурација на pmadb…"
 
 #: libraries/classes/Relation.php:120 libraries/classes/Relation.php:156
 msgid "General relation features"
@@ -15506,9 +15494,8 @@ msgstr "\"gzip\""
 
 #: templates/database/designer/rename_to_panel.twig:22
 #: templates/database/designer/options_panel.twig:84
-#, fuzzy
 msgid "Rename to"
-msgstr "Промени го името на табелата во "
+msgstr "Преименувајте во"
 
 #: templates/database/designer/rename_to_panel.twig:30
 #: templates/database/designer/options_panel.twig:90
@@ -17220,9 +17207,8 @@ msgid "View name can not be empty!"
 msgstr ""
 
 #: view_operations.php:105
-#, fuzzy
 msgid "Rename view to"
-msgstr "Промени го името на табелата во "
+msgstr "Преименувај го погледот во"
 
 #: view_operations.php:144
 #, fuzzy
@@ -18245,10 +18231,8 @@ msgid "Query cache fragmentation"
 msgstr "Вид на упит"
 
 #: libraries/advisory_rules_mysql_before80003.txt:34
-#, fuzzy
-#| msgid "The server is not responding"
 msgid "The query cache is considerably fragmented."
-msgstr "Серверот не одговара"
+msgstr "Кешот за барања е значително фрагментиран."
 
 #: libraries/advisory_rules_mysql_before80003.txt:35
 msgid ""
