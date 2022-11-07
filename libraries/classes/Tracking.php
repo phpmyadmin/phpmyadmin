@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use DateTimeImmutable;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Html\Generator;
@@ -68,18 +69,20 @@ class Tracking
      *
      * @return array filtered entries
      */
-    public function filter(array $data, array $filter_users, string $dateFrom, string $dateTo): array
-    {
-        $dateFromTimestamp = strtotime($dateFrom);
-        $dateToTimestamp = strtotime($dateTo);
+    public function filter(
+        array $data,
+        array $filter_users,
+        DateTimeImmutable $dateFrom,
+        DateTimeImmutable $dateTo
+    ): array {
         $tmp_entries = [];
         $id = 0;
         foreach ($data as $entry) {
             $timestamp = strtotime($entry['date']);
             $filtered_user = in_array($entry['username'], $filter_users);
             if (
-                $timestamp >= $dateFromTimestamp
-                && $timestamp <= $dateToTimestamp
+                $timestamp >= $dateFrom->getTimestamp()
+                && $timestamp <= $dateTo->getTimestamp()
                 && (in_array('*', $filter_users) || $filtered_user)
             ) {
                 $tmp_entries[] = [
@@ -218,8 +221,8 @@ class Tracking
         string $logType,
         array $filter_users,
         string $version,
-        string $dateFrom,
-        string $dateTo,
+        DateTimeImmutable $dateFrom,
+        DateTimeImmutable $dateTo,
         string $users
     ) {
         $html = '<h3>' . __('Tracking report')
@@ -300,8 +303,8 @@ class Tracking
      */
     public function getHtmlForElementsOfTrackingReport(
         string $logType,
-        string $dateFrom,
-        string $dateTo,
+        DateTimeImmutable $dateFrom,
+        DateTimeImmutable $dateTo,
         string $users
     ): array {
         $str1 = '<select name="log_type">'
@@ -316,9 +319,9 @@ class Tracking
             . __('Structure and data') . '</option>'
             . '</select>';
         $str2 = '<input type="text" name="date_from" value="'
-            . htmlspecialchars($dateFrom) . '" size="19">';
+            . htmlspecialchars($dateFrom->format('Y-m-d H:i:s')) . '" size="19">';
         $str3 = '<input type="text" name="date_to" value="'
-            . htmlspecialchars($dateTo) . '" size="19">';
+            . htmlspecialchars($dateTo->format('Y-m-d H:i:s')) . '" size="19">';
         $str4 = '<input type="text" name="users" value="'
             . htmlspecialchars($users) . '">';
         $str5 = '<input type="hidden" name="list_report" value="1">'
@@ -361,8 +364,8 @@ class Tracking
         $str5,
         $drop_image_or_text,
         string $version,
-        string $dateFrom,
-        string $dateTo
+        DateTimeImmutable $dateFrom,
+        DateTimeImmutable $dateTo
     ) {
         $ddlog_count = 0;
 
@@ -436,8 +439,8 @@ class Tracking
         $str5,
         string $logType,
         string $version,
-        string $dateFrom,
-        string $dateTo,
+        DateTimeImmutable $dateFrom,
+        DateTimeImmutable $dateTo,
         string $users
     ) {
         $html = '<form method="post" action="' . Url::getFromRoute('/table/tracking') . '">';
@@ -461,8 +464,8 @@ class Tracking
             'report' => 'true',
             'version' => $version,
             'log_type' => $logType,
-            'date_from' => $dateFrom,
-            'date_to' => $dateTo,
+            'date_from' => $dateFrom->format('Y-m-d H:i:s'),
+            'date_to' => $dateTo->format('Y-m-d H:i:s'),
             'users' => $users,
             'report_export' => 'true',
         ]);
@@ -504,8 +507,8 @@ class Tracking
         $ddlog_count,
         $drop_image_or_text,
         string $version,
-        string $dateFrom,
-        string $dateTo
+        DateTimeImmutable $dateFrom,
+        DateTimeImmutable $dateTo
     ) {
         // no need for the second returned parameter
         [$html] = $this->getHtmlForDataStatements(
@@ -541,8 +544,8 @@ class Tracking
         array $url_params,
         $drop_image_or_text,
         string $version,
-        string $dateFrom,
-        string $dateTo
+        DateTimeImmutable $dateFrom,
+        DateTimeImmutable $dateTo
     ) {
         [$html, $line_number] = $this->getHtmlForDataStatements(
             $data,
@@ -588,18 +591,16 @@ class Tracking
         $lineNumber,
         $tableId,
         string $version,
-        string $dateFrom,
-        string $dateTo
+        DateTimeImmutable $dateFrom,
+        DateTimeImmutable $dateTo
     ) {
-        $dateFromTimestamp = strtotime($dateFrom);
-        $dateToTimestamp = strtotime($dateTo);
         $offset = $lineNumber;
         $entries = [];
         foreach ($data[$whichLog] as $entry) {
             $timestamp = strtotime($entry['date']);
             if (
-                $timestamp >= $dateFromTimestamp
-                && $timestamp <= $dateToTimestamp
+                $timestamp >= $dateFrom->getTimestamp()
+                && $timestamp <= $dateTo->getTimestamp()
                 && (in_array('*', $filterUsers)
                 || in_array($entry['username'], $filterUsers))
             ) {
@@ -1062,8 +1063,13 @@ class Tracking
      *
      * @return array
      */
-    public function getEntries(array $data, array $filter_users, string $logType, string $dateFrom, string $dateTo)
-    {
+    public function getEntries(
+        array $data,
+        array $filter_users,
+        string $logType,
+        DateTimeImmutable $dateFrom,
+        DateTimeImmutable $dateTo
+    ) {
         $entries = [];
         // Filtering data definition statements
         if ($logType === 'schema' || $logType === 'schema_and_data') {
