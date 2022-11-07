@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use DateTimeImmutable;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\SqlQueryForm;
@@ -77,7 +78,12 @@ class TrackingTest extends AbstractTestCase
         ];
         $filter_users = ['username1'];
 
-        $ret = $this->tracking->filter($data, $filter_users, '2010-01-01 12:34:56', '2020-01-01 12:34:56');
+        $ret = $this->tracking->filter(
+            $data,
+            $filter_users,
+            new DateTimeImmutable('2010-01-01 12:34:56'),
+            new DateTimeImmutable('2020-01-01 12:34:56')
+        );
 
         $this->assertEquals('username1', $ret[0]['username']);
         $this->assertEquals('statement1', $ret[0]['statement']);
@@ -280,8 +286,8 @@ class TrackingTest extends AbstractTestCase
             'schema_and_data',
             $filter_users,
             '10',
-            '2022-11-03 22:15:24',
-            '2022-11-04 22:15:24',
+            new DateTimeImmutable('2022-11-03 22:15:24'),
+            new DateTimeImmutable('2022-11-04 22:15:24'),
             'users'
         );
 
@@ -354,8 +360,8 @@ class TrackingTest extends AbstractTestCase
             $ddlog_count,
             $drop_image_or_text,
             '10',
-            '2010-01-01 12:34:56',
-            '2020-01-01 12:34:56'
+            new DateTimeImmutable('2010-01-01 12:34:56'),
+            new DateTimeImmutable('2020-01-01 12:34:56')
         );
 
         $this->assertStringContainsString(
@@ -404,8 +410,8 @@ class TrackingTest extends AbstractTestCase
             $url_params,
             $drop_image_or_text,
             '10',
-            '2010-01-01 12:34:56',
-            '2020-01-01 12:34:56'
+            new DateTimeImmutable('2010-01-01 12:34:56'),
+            new DateTimeImmutable('2020-01-01 12:34:56')
         );
 
         $this->assertStringContainsString(
@@ -572,8 +578,8 @@ class TrackingTest extends AbstractTestCase
             $data,
             $filter_users,
             'schema',
-            '2010-01-01 12:34:56',
-            '2020-01-01 12:34:56'
+            new DateTimeImmutable('2010-01-01 12:34:56'),
+            new DateTimeImmutable('2020-01-01 12:34:56')
         );
         $this->assertEquals('username3', $entries[0]['username']);
         $this->assertEquals('statement1', $entries[0]['statement']);

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use DateTimeImmutable;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
@@ -14,6 +15,8 @@ use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Tracking;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Throwable;
+use Webmozart\Assert\Assert;
 
 use function __;
 use function array_map;
@@ -93,8 +96,8 @@ final class TrackingController extends AbstractController
 
         $logType = $this->validateLogTypeParam($request->getParsedBodyParam('log_type'));
 
-        $dateFrom = '';
-        $dateTo = '';
+        $dateFrom = null;
+        $dateTo = null;
         $users = '';
 
         // Init vars for tracking report
@@ -105,15 +108,19 @@ final class TrackingController extends AbstractController
                 $versionParam
             );
 
-            /** @var string $dateFrom */
-            $dateFrom = $request->getParsedBodyParam('date_from', $trackedData['date_from']);
-            /** @var string $dateTo */
-            $dateTo = $request->getParsedBodyParam('date_to', $trackedData['date_to']);
+            $dateFrom = $this->validateDateTimeParam(
+                $request->getParsedBodyParam('date_from', $trackedData['date_from'])
+            );
+            $dateTo = $this->validateDateTimeParam($request->getParsedBodyParam('date_to', $trackedData['date_to']));
+
             /** @var string $users */
             $users = $request->getParsedBodyParam('users', '*');
 
             $GLOBALS['filter_users'] = array_map('trim', explode(',', $users));
         }
+
+        $dateFrom = $dateFrom ?? new DateTimeImmutable();
+        $dateTo = $dateTo ?? new DateTimeImmutable();
 
         // Prepare export
         if ($reportExport !== null) {
@@ -271,5 +278,19 @@ final class TrackingController extends AbstractController
     private function validateLogTypeParam($param): string
     {
         return in_array($param, ['schema', 'data'], true) ? $param : 'schema_and_data';
+    }
+
+    /**
+     * @param mixed $param
+     */
+    private function validateDateTimeParam($param): DateTimeImmutable
+    {
+        try {
+            Assert::stringNotEmpty($param);
+
+            return new DateTimeImmutable($param);
+        } catch (Throwable $exception) {
+            return new DateTimeImmutable();
+        }
     }
 }
