@@ -63,27 +63,23 @@ class Tracking
     /**
      * Filters tracking entries
      *
-     * @param array $data           the entries to filter
-     * @param int   $filter_ts_from "from" date
-     * @param int   $filter_ts_to   "to" date
-     * @param array $filter_users   users
+     * @param array $data         the entries to filter
+     * @param array $filter_users users
      *
      * @return array filtered entries
      */
-    public function filter(
-        array $data,
-        $filter_ts_from,
-        $filter_ts_to,
-        array $filter_users
-    ): array {
+    public function filter(array $data, array $filter_users, string $dateFrom, string $dateTo): array
+    {
+        $dateFromTimestamp = strtotime($dateFrom);
+        $dateToTimestamp = strtotime($dateTo);
         $tmp_entries = [];
         $id = 0;
         foreach ($data as $entry) {
             $timestamp = strtotime($entry['date']);
             $filtered_user = in_array($entry['username'], $filter_users);
             if (
-                $timestamp >= $filter_ts_from
-                && $timestamp <= $filter_ts_to
+                $timestamp >= $dateFromTimestamp
+                && $timestamp <= $dateToTimestamp
                 && (in_array('*', $filter_users) || $filtered_user)
             ) {
                 $tmp_entries[] = [
@@ -209,11 +205,9 @@ class Tracking
     /**
      * Function to get html for tracking report and tracking report export
      *
-     * @param array $data           data
-     * @param array $url_params     url params
-     * @param int   $filter_ts_to   filter time stamp from
-     * @param int   $filter_ts_from filter time stamp tp
-     * @param array $filter_users   filter users
+     * @param array $data         data
+     * @param array $url_params   url params
+     * @param array $filter_users filter users
      * @psalm-param 'schema'|'data'|'schema_and_data' $logType
      *
      * @return string
@@ -222,8 +216,6 @@ class Tracking
         array $data,
         array $url_params,
         string $logType,
-        $filter_ts_to,
-        $filter_ts_from,
         array $filter_users,
         string $version,
         string $dateFrom,
@@ -268,8 +260,6 @@ class Tracking
             $data,
             $url_params,
             $logType,
-            $filter_ts_to,
-            $filter_ts_from,
             $filter_users,
             $str1,
             $str2,
@@ -277,7 +267,9 @@ class Tracking
             $str4,
             $str5,
             $drop_image_or_text,
-            $version
+            $version,
+            $dateFrom,
+            $dateTo
         );
 
         $html .= $this->getHtmlForTrackingReportExportForm2(
@@ -346,8 +338,6 @@ class Tracking
      *
      * @param array  $data               data
      * @param array  $url_params         url params
-     * @param int    $filter_ts_to       filter time stamp from
-     * @param int    $filter_ts_from     filter time stamp tp
      * @param array  $filter_users       filter users
      * @param string $str1               HTML for log_type select
      * @param string $str2               HTML for "from date"
@@ -363,8 +353,6 @@ class Tracking
         array $data,
         array $url_params,
         string $logType,
-        $filter_ts_to,
-        $filter_ts_from,
         array $filter_users,
         $str1,
         $str2,
@@ -372,7 +360,9 @@ class Tracking
         $str4,
         $str5,
         $drop_image_or_text,
-        string $version
+        string $version,
+        string $dateFrom,
+        string $dateTo
     ) {
         $ddlog_count = 0;
 
@@ -395,11 +385,11 @@ class Tracking
             [$temp, $ddlog_count] = $this->getHtmlForDataDefinitionStatements(
                 $data,
                 $filter_users,
-                $filter_ts_from,
-                $filter_ts_to,
                 $url_params,
                 $drop_image_or_text,
-                $version
+                $version,
+                $dateFrom,
+                $dateTo
             );
             $html .= $temp;
             unset($temp);
@@ -410,12 +400,12 @@ class Tracking
             $html .= $this->getHtmlForDataManipulationStatements(
                 $data,
                 $filter_users,
-                $filter_ts_from,
-                $filter_ts_to,
                 $url_params,
                 $ddlog_count,
                 $drop_image_or_text,
-                $version
+                $version,
+                $dateFrom,
+                $dateTo
             );
         }
 
@@ -501,8 +491,6 @@ class Tracking
      *
      * @param array  $data               data
      * @param array  $filter_users       filter users
-     * @param int    $filter_ts_from     filter time staml from
-     * @param int    $filter_ts_to       filter time stamp to
      * @param array  $url_params         url parameters
      * @param int    $ddlog_count        data definition log count
      * @param string $drop_image_or_text drop image or text
@@ -512,26 +500,26 @@ class Tracking
     public function getHtmlForDataManipulationStatements(
         array $data,
         array $filter_users,
-        $filter_ts_from,
-        $filter_ts_to,
         array $url_params,
         $ddlog_count,
         $drop_image_or_text,
-        string $version
+        string $version,
+        string $dateFrom,
+        string $dateTo
     ) {
         // no need for the second returned parameter
         [$html] = $this->getHtmlForDataStatements(
             $data,
             $filter_users,
-            $filter_ts_from,
-            $filter_ts_to,
             $url_params,
             $drop_image_or_text,
             'dmlog',
             __('Data manipulation statement'),
             $ddlog_count,
             'dml_versions',
-            $version
+            $version,
+            $dateFrom,
+            $dateTo
         );
 
         return $html;
@@ -542,8 +530,6 @@ class Tracking
      *
      * @param array  $data               data
      * @param array  $filter_users       filter users
-     * @param int    $filter_ts_from     filter time stamp from
-     * @param int    $filter_ts_to       filter time stamp to
      * @param array  $url_params         url parameters
      * @param string $drop_image_or_text drop image or text
      *
@@ -552,24 +538,24 @@ class Tracking
     public function getHtmlForDataDefinitionStatements(
         array $data,
         array $filter_users,
-        $filter_ts_from,
-        $filter_ts_to,
         array $url_params,
         $drop_image_or_text,
-        string $version
+        string $version,
+        string $dateFrom,
+        string $dateTo
     ) {
         [$html, $line_number] = $this->getHtmlForDataStatements(
             $data,
             $filter_users,
-            $filter_ts_from,
-            $filter_ts_to,
             $url_params,
             $drop_image_or_text,
             'ddlog',
             __('Data definition statement'),
             1,
             'ddl_versions',
-            $version
+            $version,
+            $dateFrom,
+            $dateTo
         );
 
         return [
@@ -583,8 +569,6 @@ class Tracking
      *
      * @param array  $data            data
      * @param array  $filterUsers     filter users
-     * @param int    $filterTsFrom    filter time stamp from
-     * @param int    $filterTsTo      filter time stamp to
      * @param array  $urlParams       url parameters
      * @param string $dropImageOrText drop image or text
      * @param string $whichLog        dmlog|ddlog
@@ -597,23 +581,25 @@ class Tracking
     private function getHtmlForDataStatements(
         array $data,
         array $filterUsers,
-        $filterTsFrom,
-        $filterTsTo,
         array $urlParams,
         $dropImageOrText,
         $whichLog,
         $headerMessage,
         $lineNumber,
         $tableId,
-        string $version
+        string $version,
+        string $dateFrom,
+        string $dateTo
     ) {
+        $dateFromTimestamp = strtotime($dateFrom);
+        $dateToTimestamp = strtotime($dateTo);
         $offset = $lineNumber;
         $entries = [];
         foreach ($data[$whichLog] as $entry) {
             $timestamp = strtotime($entry['date']);
             if (
-                $timestamp >= $filterTsFrom
-                && $timestamp <= $filterTsTo
+                $timestamp >= $dateFromTimestamp
+                && $timestamp <= $dateToTimestamp
                 && (in_array('*', $filterUsers)
                 || in_array($entry['username'], $filterUsers))
             ) {
@@ -1070,27 +1056,20 @@ class Tracking
     /**
      * Function to get the entries
      *
-     * @param array $data           data
-     * @param int   $filter_ts_from filter time stamp from
-     * @param int   $filter_ts_to   filter time stamp to
-     * @param array $filter_users   filter users
+     * @param array $data         data
+     * @param array $filter_users filter users
      * @phpstan-param 'schema'|'data'|'schema_and_data' $logType
      *
      * @return array
      */
-    public function getEntries(array $data, $filter_ts_from, $filter_ts_to, array $filter_users, string $logType)
+    public function getEntries(array $data, array $filter_users, string $logType, string $dateFrom, string $dateTo)
     {
         $entries = [];
         // Filtering data definition statements
         if ($logType === 'schema' || $logType === 'schema_and_data') {
             $entries = array_merge(
                 $entries,
-                $this->filter(
-                    $data['ddlog'],
-                    $filter_ts_from,
-                    $filter_ts_to,
-                    $filter_users
-                )
+                $this->filter($data['ddlog'], $filter_users, $dateFrom, $dateTo)
             );
         }
 
@@ -1098,12 +1077,7 @@ class Tracking
         if ($logType === 'data' || $logType === 'schema_and_data') {
             $entries = array_merge(
                 $entries,
-                $this->filter(
-                    $data['dmlog'],
-                    $filter_ts_from,
-                    $filter_ts_to,
-                    $filter_users
-                )
+                $this->filter($data['dmlog'], $filter_users, $dateFrom, $dateTo)
             );
         }
 

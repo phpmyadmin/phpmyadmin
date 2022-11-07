@@ -23,7 +23,6 @@ use function htmlspecialchars;
 use function in_array;
 use function is_array;
 use function sprintf;
-use function strtotime;
 
 final class TrackingController extends AbstractController
 {
@@ -46,8 +45,6 @@ final class TrackingController extends AbstractController
         $GLOBALS['msg'] = $GLOBALS['msg'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
         $GLOBALS['entries'] = $GLOBALS['entries'] ?? null;
-        $GLOBALS['filter_ts_from'] = $GLOBALS['filter_ts_from'] ?? null;
-        $GLOBALS['filter_ts_to'] = $GLOBALS['filter_ts_to'] ?? null;
         $GLOBALS['filter_users'] = $GLOBALS['filter_users'] ?? null;
 
         $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'table/tracking.js']);
@@ -86,8 +83,6 @@ final class TrackingController extends AbstractController
 
         $trackedData = [];
         $GLOBALS['entries'] = [];
-        $GLOBALS['filter_ts_from'] = null;
-        $GLOBALS['filter_ts_to'] = null;
         $GLOBALS['filter_users'] = [];
 
         $report = $request->hasBodyParam('report');
@@ -117,8 +112,6 @@ final class TrackingController extends AbstractController
             /** @var string $users */
             $users = $request->getParsedBodyParam('users', '*');
 
-            $GLOBALS['filter_ts_from'] = strtotime($dateFrom);
-            $GLOBALS['filter_ts_to'] = strtotime($dateTo);
             $GLOBALS['filter_users'] = array_map('trim', explode(',', $users));
         }
 
@@ -126,10 +119,10 @@ final class TrackingController extends AbstractController
         if ($reportExport !== null) {
             $GLOBALS['entries'] = $this->tracking->getEntries(
                 $trackedData,
-                (int) $GLOBALS['filter_ts_from'],
-                (int) $GLOBALS['filter_ts_to'],
                 $GLOBALS['filter_users'],
-                $logType
+                $logType,
+                $dateFrom,
+                $dateTo
             );
         }
 
@@ -239,8 +232,6 @@ final class TrackingController extends AbstractController
                 $trackedData,
                 $GLOBALS['urlParams'],
                 $logType,
-                (int) $GLOBALS['filter_ts_to'],
-                (int) $GLOBALS['filter_ts_from'],
                 $GLOBALS['filter_users'],
                 $versionParam,
                 $dateFrom,

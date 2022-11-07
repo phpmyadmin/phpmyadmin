@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.29.0@7ec5ffbd5f68ae03782d7fd33fff0c45a69f95b3">
+<files psalm-version="4.30.0@d0bc6e25d89f649e4f36a534f330f8bb4643dd69">
   <file src="libraries/classes/Advisory/Advisor.php">
     <MixedArgument occurrences="8">
       <code>$matches[1]</code>
@@ -4234,11 +4234,9 @@
     <MixedArgument occurrences="1">
       <code>$version</code>
     </MixedArgument>
-    <MixedAssignment occurrences="11">
+    <MixedAssignment occurrences="9">
       <code>$GLOBALS['entries']</code>
       <code>$GLOBALS['errorUrl']</code>
-      <code>$GLOBALS['filter_ts_from']</code>
-      <code>$GLOBALS['filter_ts_to']</code>
       <code>$GLOBALS['filter_users']</code>
       <code>$GLOBALS['msg']</code>
       <code>$reportExport</code>
@@ -4540,8 +4538,7 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$post_key</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="2">
-      <code>$_ENV[$var_name]</code>
+    <PossiblyInvalidCast occurrences="1">
       <code>$_SERVER[$var_name]</code>
     </PossiblyInvalidCast>
     <PossiblyNullReference occurrences="1">
