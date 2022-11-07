@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-09-29 00:17-0300\n"
-"PO-Revision-Date: 2022-11-07 12:05+0000\n"
+"PO-Revision-Date: 2022-11-09 01:10+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/mk/>\n"
@@ -1032,10 +1032,8 @@ msgid "Query cache fragmentation"
 msgstr "Вид на упит"
 
 #: libraries/advisory_rules_mysql_before80003.php:56
-#, fuzzy
-#| msgid "The server is not responding"
 msgid "The query cache is considerably fragmented."
-msgstr "Серверот не одговара"
+msgstr "Кешот за барања е значително фрагментиран."
 
 #: libraries/advisory_rules_mysql_before80003.php:58
 msgid ""
@@ -5461,10 +5459,8 @@ msgid "Do you really want to remove partitioning?"
 msgstr "Дали навистина сакате да ги отстраните партициите?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:73
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to reset the replica (RESET REPLICA)?"
-msgstr "Дали навистина сакате да "
+msgstr "Дали навистина сакате да ја ресетирате репликата (RESET REPLICA)?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:75
 msgid ""
@@ -5552,9 +5548,8 @@ msgstr "Ажурирање на следниот запис"
 
 #. l10n: Rename a table Index
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:109
-#, fuzzy
 msgid "Rename index"
-msgstr "Промени го името на табелата во "
+msgstr "Преименувај го индексот"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:110
 #: templates/table/index_form.twig:237
@@ -6684,10 +6679,8 @@ msgstr "Примарниот клуч %s е додаден."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:411
 #: libraries/classes/Normalization.php:282
-#, fuzzy
-#| msgid "Change"
 msgid "Taking you to next step…"
-msgstr "Промени"
+msgstr "Кон следниот чекор…"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:412
 #, php-format
@@ -7359,10 +7352,8 @@ msgid "Execute this query again?"
 msgstr "Прикажи го повторно овој упит"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:654
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to delete this bookmark?"
-msgstr "Дали навистина сакате да "
+msgstr "Дали навистина сакате да ја избришете ознаката?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:655
 msgid "Some error occurred while getting SQL debug info."
@@ -7515,10 +7506,8 @@ msgstr ""
 
 #: libraries/classes/Controllers/NormalizationController.php:40
 #: libraries/classes/Normalization.php:245
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Select one…"
-msgstr "Додади/избриши колона"
+msgstr "Изберете еден…"
 
 #: libraries/classes/Controllers/NormalizationController.php:41
 #: libraries/classes/Normalization.php:246
@@ -11467,10 +11456,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportLdi.php:62
-#, fuzzy
-#| msgid "Column names"
 msgid "Column names: "
-msgstr "Имиња на колони"
+msgstr "Имиња на колони: "
 
 #: libraries/classes/Plugins/Import/ImportLdi.php:106
 msgid "This plugin does not support compressed imports!"
@@ -14612,9 +14599,8 @@ msgstr "во упитот"
 
 #: templates/database/designer/main.twig:495
 #: templates/database/designer/main.twig:711
-#, fuzzy
 msgid "Rename to"
-msgstr "Промени го името на табелата во "
+msgstr "Преименувајте во"
 
 #: templates/database/designer/main.twig:501
 #: templates/database/designer/main.twig:719
@@ -15471,10 +15457,8 @@ msgstr "Додади AUTO_INCREMENT вредност"
 #: templates/table/delete/confirm.twig:12
 #: templates/table/structure/drop_confirm.twig:6
 #: templates/table/structure/primary.twig:6
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
-msgstr "Дали навистина сакате да "
+msgstr "Дали навистина сакате да егзекутурате следното барање?"
 
 #: templates/database/structure/favorite_anchor.twig:4
 #: templates/recent_favorite_table_favorite.twig:6
@@ -16406,9 +16390,8 @@ msgstr "Операции"
 
 #: templates/indexes.twig:39
 #: templates/table/structure/display_structure.twig:489
-#, fuzzy
 msgid "Rename"
-msgstr "Промени го името на табелата во "
+msgstr "Преименувај"
 
 #: templates/indexes.twig:45
 #: templates/table/structure/display_structure.twig:495
@@ -17052,10 +17035,8 @@ msgid "phpMyAdmin configuration storage"
 msgstr "phpMyAdmin документација"
 
 #: templates/relation/check_relations.twig:9
-#, fuzzy
-#| msgid "Modifications have been saved"
 msgid "Configuration of pmadb…"
-msgstr "Измените се сочувани"
+msgstr "Конфигурација на pmadb…"
 
 #: templates/relation/check_relations.twig:10
 #: templates/relation/check_relations.twig:56
@@ -17248,10 +17229,8 @@ msgid "Managing central list of columns:"
 msgstr ""
 
 #: templates/relation/check_relations.twig:483
-#, fuzzy
-#| msgid "Rename table to"
 msgid "Remembering designer settings:"
-msgstr "Промени го името на табелата во "
+msgstr "Запомни подесувања за дизајн:"
 
 #: templates/relation/check_relations.twig:508
 #, fuzzy
@@ -19285,9 +19264,8 @@ msgid "Check referential integrity"
 msgstr "Провери го референцијалниот интегритет:"
 
 #: templates/table/operations/view.twig:12
-#, fuzzy
 msgid "Rename view to"
-msgstr "Промени го името на табелата во "
+msgstr "Преименувај го погледот во"
 
 #: templates/table/operations/view.twig:37
 #, fuzzy
