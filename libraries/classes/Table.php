@@ -205,24 +205,15 @@ class Table implements Stringable
     /**
      * Checks the storage engine used to create table
      *
-     * @param array|string $engine Checks the table engine against an
+     * @param string[]|string $engine Checks the table engine against an
      *                             array of engine strings or a single string, should be uppercase
      */
     public function isEngine($engine): bool
     {
+        $engine = (array) $engine;
         $tableStorageEngine = $this->getStorageEngine();
 
-        if (is_array($engine)) {
-            foreach ($engine as $e) {
-                if ($e == $tableStorageEngine) {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
-        return $tableStorageEngine == $engine;
+        return in_array($tableStorageEngine, $engine, true);
     }
 
     /**
@@ -362,9 +353,6 @@ class Table implements Stringable
     public function getStorageEngine(): string
     {
         $tableStorageEngine = $this->getStatusInfo('ENGINE', false, true);
-        if ($tableStorageEngine === false) {
-            return '';
-        }
 
         return strtoupper((string) $tableStorageEngine);
     }
@@ -2152,7 +2140,7 @@ class Table implements Stringable
             $index->getChoice() !== 'SPATIAL'
             && $index->getChoice() !== 'FULLTEXT'
             && in_array($type, Index::getIndexTypes())
-            && ! $this->isEngine(['TOKUDB'])
+            && ! $this->isEngine('TOKUDB')
         ) {
             $sqlQuery .= ' USING ' . $type;
         }

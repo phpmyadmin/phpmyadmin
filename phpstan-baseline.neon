@@ -8081,11 +8081,6 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Table\\:\\:isEngine\\(\\) has parameter \\$engine with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Table\\:\\:updateForeignKeys\\(\\) has parameter \\$destinationForeignColumn with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
