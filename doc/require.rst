@@ -12,7 +12,11 @@ web server (such as Apache, nginx, :term:`IIS`) to install phpMyAdmin's files in
 PHP
 ---
 
-* You need PHP 7.1.3 or newer, with ``session`` support, the Standard PHP Library
+* Download version: You need PHP 7.2.5 or newer.
+
+* Package installation: for the latest version of phpMyAdmin 5.X it is recommended the version of php 8.1 or higher (normally this version will be installed automatically like a dependency OS distribution).
+
+* Also need ``session`` support, the Standard PHP Library
   (SPL) extension, hash, ctype, and JSON support.
 
 * The ``mbstring`` extension (see :term:`mbstring`) is strongly recommended
