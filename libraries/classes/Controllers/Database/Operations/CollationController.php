@@ -69,7 +69,7 @@ final class CollationController extends AbstractController
          * Changes tables charset if requested by the user
          */
         if ($request->getParsedBodyParam('change_all_tables_collations') === 'on') {
-            [$tables] = Util::getDbInfo($GLOBALS['db']);
+            [$tables] = Util::getDbInfo($request, $GLOBALS['db']);
             foreach ($tables as ['Name' => $tableName]) {
                 if ($this->dbi->getTable($GLOBALS['db'], $tableName)->isView()) {
                     // Skip views, we can not change the collation of a view.

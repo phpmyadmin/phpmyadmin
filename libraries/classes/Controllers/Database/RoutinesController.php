@@ -94,7 +94,7 @@ class RoutinesController extends AbstractController
                     $GLOBALS['tooltip_truename'],
                     $GLOBALS['tooltip_aliasname'],
                     $GLOBALS['pos'],
-                ] = Util::getDbInfo($GLOBALS['db']);
+                ] = Util::getDbInfo($request, $GLOBALS['db']);
             }
         } elseif (strlen($GLOBALS['db']) > 0) {
             $this->dbi->selectDb($GLOBALS['db']);

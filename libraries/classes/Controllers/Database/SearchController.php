@@ -73,7 +73,7 @@ class SearchController extends AbstractController
                 $GLOBALS['tooltip_truename'],
                 $GLOBALS['tooltip_aliasname'],
                 $GLOBALS['pos'],
-            ] = Util::getDbInfo($GLOBALS['db']);
+            ] = Util::getDbInfo($request, $GLOBALS['db']);
         }
 
         // Main search form has been submitted, get results

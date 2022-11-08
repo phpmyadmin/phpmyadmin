@@ -14526,12 +14526,10 @@
       <code>mb_strpos($value, '.')</code>
       <code>mb_strrpos($columnSpecification, ')')</code>
     </PossiblyFalseOperand>
-    <PossiblyInvalidArgument occurrences="5">
+    <PossiblyInvalidArgument occurrences="3">
       <code>$sep</code>
       <code>$sep</code>
       <code>$table</code>
-      <code>$tableType</code>
-      <code>$tableType</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidArrayAccess occurrences="2">
       <code>$group[$groupName]['tab' . $sep . 'count']</code>
@@ -14549,7 +14547,7 @@
       <code>$sep</code>
       <code>$sep</code>
     </PossiblyInvalidCast>
-    <PossiblyInvalidOperand occurrences="12">
+    <PossiblyInvalidOperand occurrences="11">
       <code>$GLOBALS['cfg']['NavigationTreeTableSeparator']</code>
       <code>$GLOBALS['cfg']['NavigationTreeTableSeparator']</code>
       <code>$sep</code>
@@ -14561,7 +14559,6 @@
       <code>$sep</code>
       <code>$sep</code>
       <code>$sep</code>
-      <code>$tableGroup</code>
     </PossiblyInvalidOperand>
     <PossiblyNullArgument occurrences="2">
       <code>$maxSize</code>
@@ -14592,9 +14589,6 @@
     <RedundantCondition occurrences="1">
       <code>$columnsList !== null</code>
     </RedundantCondition>
-    <RiskyCast occurrences="1">
-      <code>$_REQUEST['pos']</code>
-    </RiskyCast>
   </file>
   <file src="libraries/classes/Utils/ForeignKey.php">
     <RedundantCastGivenDocblockType occurrences="1">

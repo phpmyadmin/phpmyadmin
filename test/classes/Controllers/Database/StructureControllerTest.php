@@ -9,6 +9,7 @@ use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FlashMessages;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Replication;
 use PhpMyAdmin\Table;
@@ -448,7 +449,7 @@ class StructureControllerTest extends AbstractTestCase
             $structureController,
             StructureController::class,
             'getDatabaseInfo',
-            ['']
+            [$this->createStub(ServerRequest::class)]
         );
 
         $this->assertSame(

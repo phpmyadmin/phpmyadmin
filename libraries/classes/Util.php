@@ -6,6 +6,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Components\Expression;
@@ -43,6 +44,7 @@ use function implode;
 use function in_array;
 use function ini_get;
 use function is_array;
+use function is_numeric;
 use function is_object;
 use function is_scalar;
 use function is_string;
@@ -2070,11 +2072,9 @@ class Util
     /**
      * Gets the list of tables in the current db and information about these tables if possible.
      *
-     * @param string $db
-     *
      * @return array
      */
-    public static function getDbInfo($db, bool $isResultLimited = true)
+    public static function getDbInfo(ServerRequest $request, string $db, bool $isResultLimited = true): array
     {
         /**
          * limits for table list
@@ -2084,8 +2084,10 @@ class Util
             $_SESSION['tmpval']['table_limit_offset_db'] = $db;
         }
 
-        if (isset($_REQUEST['pos'])) {
-            $_SESSION['tmpval']['table_limit_offset'] = (int) $_REQUEST['pos'];
+        /** @var mixed $posParam */
+        $posParam = $request->getParam('pos');
+        if (is_numeric($posParam)) {
+            $_SESSION['tmpval']['table_limit_offset'] = (int) $posParam;
         }
 
         $pos = $_SESSION['tmpval']['table_limit_offset'];
@@ -2130,7 +2132,9 @@ class Util
             $sort = 'Name';
             $sortOrder = 'ASC';
 
-            if (isset($_REQUEST['sort'])) {
+            /** @var mixed $sortParam */
+            $sortParam = $request->getParam('sort');
+            if (is_string($sortParam)) {
                 $sortableNameMappings = [
                     'table' => 'Name',
                     'records' => 'Rows',
@@ -2145,9 +2149,9 @@ class Util
                 ];
 
                 // Make sure the sort type is implemented
-                if (isset($sortableNameMappings[$_REQUEST['sort']])) {
-                    $sort = $sortableNameMappings[$_REQUEST['sort']];
-                    if ($_REQUEST['sort_order'] === 'DESC') {
+                if (isset($sortableNameMappings[$sortParam])) {
+                    $sort = $sortableNameMappings[$sortParam];
+                    if ($request->getParam('sort_order') === 'DESC') {
                         $sortOrder = 'DESC';
                     }
                 }
@@ -2159,15 +2163,22 @@ class Util
             $limitCount = false;
             $groupTable = [];
 
-            if (! empty($_REQUEST['tbl_group']) || ! empty($_REQUEST['tbl_type'])) {
-                if (! empty($_REQUEST['tbl_type'])) {
+            /** @var mixed $tableGroupParam */
+            $tableGroupParam = $request->getParam('tbl_group');
+            /** @var mixed $tableTypeParam */
+            $tableTypeParam = $request->getParam('tbl_type');
+            if (
+                is_string($tableGroupParam) && $tableGroupParam !== ''
+                || is_string($tableTypeParam) && $tableTypeParam !== ''
+            ) {
+                if (is_string($tableTypeParam) && $tableTypeParam !== '') {
                     // only tables for selected type
-                    $tableType = $_REQUEST['tbl_type'];
+                    $tableType = $tableTypeParam;
                 }
 
-                if (! empty($_REQUEST['tbl_group'])) {
+                if (is_string($tableGroupParam) && $tableGroupParam !== '') {
                     // only tables for selected group
-                    $tableGroup = $_REQUEST['tbl_group'];
+                    $tableGroup = $tableGroupParam;
                     // include the table with the exact name of the group if such
                     // exists
                     $groupTable = $GLOBALS['dbi']->getTablesFull(

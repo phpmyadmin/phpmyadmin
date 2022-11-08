@@ -113,7 +113,7 @@ class StructureController extends AbstractController
     /**
      * Retrieves database information for further use.
      */
-    private function getDatabaseInfo(): void
+    private function getDatabaseInfo(ServerRequest $request): void
     {
         [
             $tables,
@@ -122,7 +122,7 @@ class StructureController extends AbstractController
             $isShowStats,
             $dbIsSystemSchema,,,
             $position,
-        ] = Util::getDbInfo($GLOBALS['db']);
+        ] = Util::getDbInfo($request, $GLOBALS['db']);
 
         $this->tables = $tables;
         $this->numTables = $numTables;
@@ -153,7 +153,7 @@ class StructureController extends AbstractController
         $this->addScriptFiles(['database/structure.js', 'table/change.js']);
 
         // Gets the database structure
-        $this->getDatabaseInfo();
+        $this->getDatabaseInfo($request);
 
         // Checks if there are any tables to be shown on current page.
         // If there are no tables, the user is redirected to the last page

@@ -293,7 +293,7 @@ class OperationsController extends AbstractController
             $GLOBALS['tooltip_truename'],
             $GLOBALS['tooltip_aliasname'],
             $GLOBALS['pos'],
-        ] = Util::getDbInfo($GLOBALS['db']);
+        ] = Util::getDbInfo($request, $GLOBALS['db']);
 
         $oldMessage = '';
         if (isset($GLOBALS['message'])) {

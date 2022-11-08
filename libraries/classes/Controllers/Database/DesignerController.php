@@ -242,7 +242,7 @@ class DesignerController extends AbstractController
             $GLOBALS['tooltip_truename'],
             $GLOBALS['tooltip_aliasname'],
             $GLOBALS['pos'],
-        ] = Util::getDbInfo($GLOBALS['db']);
+        ] = Util::getDbInfo($request, $GLOBALS['db']);
 
         // Embed some data into HTML, later it will be read
         // by designer/init.js and converted to JS variables.

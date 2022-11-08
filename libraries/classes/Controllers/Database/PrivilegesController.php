@@ -98,7 +98,7 @@ class PrivilegesController extends AbstractController
             $GLOBALS['tooltip_truename'],
             $GLOBALS['tooltip_aliasname'],
             $GLOBALS['pos'],
-        ] = Util::getDbInfo($db->getName());
+        ] = Util::getDbInfo($request, $db->getName());
 
         $content = ob_get_clean();
         $this->response->addHTML($content . "\n");

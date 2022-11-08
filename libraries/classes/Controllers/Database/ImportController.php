@@ -68,7 +68,7 @@ final class ImportController extends AbstractController
             $GLOBALS['tooltip_truename'],
             $GLOBALS['tooltip_aliasname'],
             $GLOBALS['pos'],
-        ] = Util::getDbInfo($GLOBALS['db']);
+        ] = Util::getDbInfo($request, $GLOBALS['db']);
 
         [$GLOBALS['SESSION_KEY'], $uploadId] = Ajax::uploadProgressSetup();
 

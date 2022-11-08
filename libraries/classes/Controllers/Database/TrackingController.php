@@ -78,7 +78,7 @@ class TrackingController extends AbstractController
             $GLOBALS['tooltip_truename'],
             $GLOBALS['tooltip_aliasname'],
             $GLOBALS['pos'],
-        ] = Util::getDbInfo($GLOBALS['db']);
+        ] = Util::getDbInfo($request, $GLOBALS['db']);
 
         if (isset($_POST['delete_tracking'], $_POST['table'])) {
             Tracker::deleteTracking($GLOBALS['db'], $_POST['table']);
