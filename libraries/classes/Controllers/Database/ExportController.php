@@ -41,7 +41,6 @@ final class ExportController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['sub_part'] = $GLOBALS['sub_part'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
@@ -59,10 +58,6 @@ final class ExportController extends AbstractController
 
         $this->addScriptFiles(['export.js']);
 
-        // $sub_part is used in Util::getDbInfo() to see if we are coming from
-        // /database/export, in which case we don't obey $cfg['MaxTableList']
-        $GLOBALS['sub_part'] = '_export';
-
         $this->checkParameters(['db']);
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
@@ -77,12 +72,11 @@ final class ExportController extends AbstractController
         [
             $GLOBALS['tables'],
             $GLOBALS['num_tables'],
-            $GLOBALS['total_num_tables'],
-            $GLOBALS['sub_part'],,,
+            $GLOBALS['total_num_tables'],,,
             $GLOBALS['tooltip_truename'],
             $GLOBALS['tooltip_aliasname'],
             $GLOBALS['pos'],
-        ] = Util::getDbInfo($GLOBALS['db'], $GLOBALS['sub_part']);
+        ] = Util::getDbInfo($GLOBALS['db'], false);
 
         // exit if no tables in db found
         if ($GLOBALS['num_tables'] < 1) {

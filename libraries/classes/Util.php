@@ -2068,15 +2068,13 @@ class Util
     }
 
     /**
-     * Gets the list of tables in the current db and information about these
-     * tables if possible
+     * Gets the list of tables in the current db and information about these tables if possible.
      *
-     * @param string $db      database name
-     * @param string $subPart part of script name
+     * @param string $db
      *
      * @return array
      */
-    public static function getDbInfo($db, string $subPart)
+    public static function getDbInfo($db, bool $isResultLimited = true)
     {
         /**
          * limits for table list
@@ -2191,7 +2189,7 @@ class Util
                 //  (needed for proper working of the MaxTableList feature)
                 $tables = $GLOBALS['dbi']->getTables($db);
                 $totalNumTables = count($tables);
-                if ($subPart !== '_export') {
+                if ($isResultLimited) {
                     // fetch the details for a possible limited subset
                     $limitOffset = $pos;
                     $limitCount = true;
@@ -2217,19 +2215,10 @@ class Util
             $totalNumTables = $numTables;
         }
 
-        /**
-         * If coming from a Show MySQL link on the home page,
-         * put something in $sub_part
-         */
-        if ($subPart === '') {
-            $subPart = '_structure';
-        }
-
         return [
             $tables,
             $numTables,
             $totalNumTables,
-            $subPart,
             $isShowStats,
             $isSystemSchema,
             $tooltipTrueName,

@@ -2545,8 +2545,8 @@ class UtilTest extends AbstractTestCase
             'TABLE_COMMENT' => '',
             'TABLE_TYPE' => 'BASE TABLE',
         ];
-        $expected = [['test_table' => $tableInfo], 1, 1, '_structure', true, false, [], [], 0];
-        $actual = Util::getDbInfo('test_db', '');
+        $expected = [['test_table' => $tableInfo], 1, 1, true, false, [], [], 0];
+        $actual = Util::getDbInfo('test_db');
         $this->assertSame($expected, $actual);
     }
 

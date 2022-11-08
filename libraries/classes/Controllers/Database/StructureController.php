@@ -111,20 +111,18 @@ class StructureController extends AbstractController
     }
 
     /**
-     * Retrieves database information for further use
-     *
-     * @param string $subPart Page part name
+     * Retrieves database information for further use.
      */
-    private function getDatabaseInfo(string $subPart): void
+    private function getDatabaseInfo(): void
     {
         [
             $tables,
             $numTables,
-            $totalNumTables,,
+            $totalNumTables,
             $isShowStats,
             $dbIsSystemSchema,,,
             $position,
-        ] = Util::getDbInfo($GLOBALS['db'], $subPart);
+        ] = Util::getDbInfo($GLOBALS['db']);
 
         $this->tables = $tables;
         $this->numTables = $numTables;
@@ -155,7 +153,7 @@ class StructureController extends AbstractController
         $this->addScriptFiles(['database/structure.js', 'table/change.js']);
 
         // Gets the database structure
-        $this->getDatabaseInfo('_structure');
+        $this->getDatabaseInfo();
 
         // Checks if there are any tables to be shown on current page.
         // If there are no tables, the user is redirected to the last page

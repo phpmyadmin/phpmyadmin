@@ -46,7 +46,6 @@ class QueryByExampleController extends AbstractController
         $GLOBALS['savedSearch'] = $GLOBALS['savedSearch'] ?? null;
         $GLOBALS['currentSearchId'] = $GLOBALS['currentSearchId'] ?? null;
         $GLOBALS['goto'] = $GLOBALS['goto'] ?? null;
-        $GLOBALS['sub_part'] = $GLOBALS['sub_part'] ?? null;
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
@@ -145,8 +144,6 @@ class QueryByExampleController extends AbstractController
             }
         }
 
-        $GLOBALS['sub_part'] = '_qbe';
-
         $this->checkParameters(['db']);
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
@@ -161,12 +158,11 @@ class QueryByExampleController extends AbstractController
         [
             $GLOBALS['tables'],
             $GLOBALS['num_tables'],
-            $GLOBALS['total_num_tables'],
-            $GLOBALS['sub_part'],,,
+            $GLOBALS['total_num_tables'],,,
             $GLOBALS['tooltip_truename'],
             $GLOBALS['tooltip_aliasname'],
             $GLOBALS['pos'],
-        ] = Util::getDbInfo($GLOBALS['db'], $GLOBALS['sub_part']);
+        ] = Util::getDbInfo($GLOBALS['db']);
 
         $databaseQbe = new Qbe(
             $this->relation,

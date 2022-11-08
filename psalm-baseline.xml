@@ -1083,8 +1083,7 @@
       <code>$_POST['selected_page']</code>
       <code>$_POST['selected_page']</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="5">
-      <code>$GLOBALS['sub_part'] ?? ''</code>
+    <MixedArgument occurrences="4">
       <code>$GLOBALS['success']</code>
       <code>$html</code>
       <code>$position['dbName']</code>
@@ -1096,7 +1095,7 @@
       <code>$position['tableName']</code>
       <code>$position['tableName']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="22">
+    <MixedAssignment occurrences="21">
       <code>$GLOBALS['classes_side_menu']</code>
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['fullTableNames']</code>
@@ -1108,7 +1107,6 @@
       <code>$GLOBALS['script_display_field']</code>
       <code>$GLOBALS['script_tables']</code>
       <code>$GLOBALS['selected_page']</code>
-      <code>$GLOBALS['sub_part']</code>
       <code>$GLOBALS['success']</code>
       <code>$GLOBALS['tab_column']</code>
       <code>$GLOBALS['tab_pos']</code>
@@ -1201,15 +1199,11 @@
     </RiskyCast>
   </file>
   <file src="libraries/classes/Controllers/Database/EventsController.php">
-    <MixedArgument occurrences="1">
-      <code>$GLOBALS['sub_part'] ?? ''</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="9">
+    <MixedAssignment occurrences="8">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['errors']</code>
       <code>$GLOBALS['num_tables']</code>
       <code>$GLOBALS['pos']</code>
-      <code>$GLOBALS['sub_part']</code>
       <code>$GLOBALS['tables']</code>
       <code>$GLOBALS['tooltip_aliasname']</code>
       <code>$GLOBALS['tooltip_truename']</code>
@@ -1233,12 +1227,11 @@
       <code>$each_table['Name']</code>
       <code>$each_table['Name']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="12">
+    <MixedAssignment occurrences="11">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['num_tables']</code>
       <code>$GLOBALS['pos']</code>
       <code>$GLOBALS['single_table']</code>
-      <code>$GLOBALS['sub_part']</code>
       <code>$GLOBALS['table_select']</code>
       <code>$GLOBALS['tables']</code>
       <code>$GLOBALS['tooltip_aliasname']</code>
@@ -1255,9 +1248,6 @@
     </PossiblyNullIterator>
   </file>
   <file src="libraries/classes/Controllers/Database/ImportController.php">
-    <MixedArgument occurrences="1">
-      <code>$GLOBALS['sub_part'] ?? ''</code>
-    </MixedArgument>
     <MixedArrayAccess occurrences="2">
       <code>$_SESSION[$GLOBALS['SESSION_KEY']]['handler']</code>
       <code>$_SESSION[$GLOBALS['SESSION_KEY']]['handler']</code>
@@ -1266,11 +1256,10 @@
       <code>$_SESSION[$GLOBALS['SESSION_KEY']]</code>
       <code>$_SESSION[$GLOBALS['SESSION_KEY']]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="9">
+    <MixedAssignment occurrences="8">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['num_tables']</code>
       <code>$GLOBALS['pos']</code>
-      <code>$GLOBALS['sub_part']</code>
       <code>$GLOBALS['tables']</code>
       <code>$GLOBALS['tooltip_aliasname']</code>
       <code>$GLOBALS['tooltip_truename']</code>
@@ -1318,7 +1307,7 @@
       <code>$GLOBALS['cfg']['AllowUserDropDatabase']</code>
       <code>$GLOBALS['cfg']['PmaNoRelation_DisableWarning']</code>
     </InvalidArrayOffset>
-    <MixedAssignment occurrences="18">
+    <MixedAssignment occurrences="17">
       <code>$GLOBALS['db_collation']</code>
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['export_sql_plugin']</code>
@@ -1330,7 +1319,6 @@
       <code>$GLOBALS['reload']</code>
       <code>$GLOBALS['single_table']</code>
       <code>$GLOBALS['sqlConstratints']</code>
-      <code>$GLOBALS['sub_part']</code>
       <code>$GLOBALS['tables']</code>
       <code>$GLOBALS['tables_full']</code>
       <code>$GLOBALS['tooltip_aliasname']</code>
@@ -1367,14 +1355,13 @@
     <InvalidArgument occurrences="1">
       <code>$_POST['searchId']</code>
     </InvalidArgument>
-    <MixedAssignment occurrences="11">
+    <MixedAssignment occurrences="10">
       <code>$GLOBALS['currentSearchId']</code>
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['num_tables']</code>
       <code>$GLOBALS['pos']</code>
       <code>$GLOBALS['savedSearch']</code>
       <code>$GLOBALS['savedSearchList']</code>
-      <code>$GLOBALS['sub_part']</code>
       <code>$GLOBALS['tables']</code>
       <code>$GLOBALS['tooltip_aliasname']</code>
       <code>$GLOBALS['tooltip_truename']</code>
@@ -1390,16 +1377,14 @@
     </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Controllers/Database/RoutinesController.php">
-    <MixedArgument occurrences="2">
-      <code>$GLOBALS['sub_part'] ?? ''</code>
+    <MixedArgument occurrences="1">
       <code>$item</code>
     </MixedArgument>
-    <MixedAssignment occurrences="10">
+    <MixedAssignment occurrences="9">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['errors']</code>
       <code>$GLOBALS['num_tables']</code>
       <code>$GLOBALS['pos']</code>
-      <code>$GLOBALS['sub_part']</code>
       <code>$GLOBALS['tables']</code>
       <code>$GLOBALS['tooltip_aliasname']</code>
       <code>$GLOBALS['tooltip_truename']</code>
@@ -1414,14 +1399,10 @@
     <InvalidArrayOffset occurrences="1">
       <code>$GLOBALS['cfg']['UseDbSearch']</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="1">
-      <code>$GLOBALS['sub_part'] ?? ''</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="8">
+    <MixedAssignment occurrences="7">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['num_tables']</code>
       <code>$GLOBALS['pos']</code>
-      <code>$GLOBALS['sub_part']</code>
       <code>$GLOBALS['tables']</code>
       <code>$GLOBALS['tooltip_aliasname']</code>
       <code>$GLOBALS['tooltip_truename']</code>
@@ -1845,11 +1826,10 @@
       <code>$entry['statement']</code>
       <code>$entry['username']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="10">
+    <MixedAssignment occurrences="9">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['num_tables']</code>
       <code>$GLOBALS['pos']</code>
-      <code>$GLOBALS['sub_part']</code>
       <code>$GLOBALS['tables']</code>
       <code>$GLOBALS['tooltip_aliasname']</code>
       <code>$GLOBALS['tooltip_truename']</code>
@@ -1885,15 +1865,11 @@
     </PossiblyNullIterator>
   </file>
   <file src="libraries/classes/Controllers/Database/TriggersController.php">
-    <MixedArgument occurrences="1">
-      <code>$GLOBALS['sub_part'] ?? ''</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="9">
+    <MixedAssignment occurrences="8">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['errors']</code>
       <code>$GLOBALS['num_tables']</code>
       <code>$GLOBALS['pos']</code>
-      <code>$GLOBALS['sub_part']</code>
       <code>$GLOBALS['tables']</code>
       <code>$GLOBALS['tooltip_aliasname']</code>
       <code>$GLOBALS['tooltip_truename']</code>
@@ -2790,7 +2766,7 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$GLOBALS['queries']</code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="29">
+    <MixedAssignment occurrences="28">
       <code>$GLOBALS['_add_user_error']</code>
       <code>$GLOBALS['db_and_table']</code>
       <code>$GLOBALS['dbname']</code>
@@ -2811,7 +2787,6 @@
       <code>$GLOBALS['ret_message']</code>
       <code>$GLOBALS['ret_queries']</code>
       <code>$GLOBALS['routinename']</code>
-      <code>$GLOBALS['sub_part']</code>
       <code>$GLOBALS['tablename']</code>
       <code>$GLOBALS['tables']</code>
       <code>$GLOBALS['title']</code>
@@ -4250,15 +4225,11 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Controllers/Table/TriggersController.php">
-    <MixedArgument occurrences="1">
-      <code>$GLOBALS['sub_part'] ?? ''</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="9">
+    <MixedAssignment occurrences="8">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['errors']</code>
       <code>$GLOBALS['num_tables']</code>
       <code>$GLOBALS['pos']</code>
-      <code>$GLOBALS['sub_part']</code>
       <code>$GLOBALS['tables']</code>
       <code>$GLOBALS['tooltip_aliasname']</code>
       <code>$GLOBALS['tooltip_truename']</code>

@@ -50,7 +50,6 @@ class RoutinesController extends AbstractController
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
-        $GLOBALS['sub_part'] = $GLOBALS['sub_part'] ?? null;
         $GLOBALS['tooltip_truename'] = $GLOBALS['tooltip_truename'] ?? null;
         $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
         $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
@@ -91,12 +90,11 @@ class RoutinesController extends AbstractController
                 [
                     $GLOBALS['tables'],
                     $GLOBALS['num_tables'],
-                    $GLOBALS['total_num_tables'],
-                    $GLOBALS['sub_part'],,,
+                    $GLOBALS['total_num_tables'],,,
                     $GLOBALS['tooltip_truename'],
                     $GLOBALS['tooltip_aliasname'],
                     $GLOBALS['pos'],
-                ] = Util::getDbInfo($GLOBALS['db'], $GLOBALS['sub_part'] ?? '');
+                ] = Util::getDbInfo($GLOBALS['db']);
             }
         } elseif (strlen($GLOBALS['db']) > 0) {
             $this->dbi->selectDb($GLOBALS['db']);

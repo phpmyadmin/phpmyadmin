@@ -80,7 +80,6 @@ class OperationsController extends AbstractController
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
-        $GLOBALS['sub_part'] = $GLOBALS['sub_part'] ?? null;
         $GLOBALS['tooltip_truename'] = $GLOBALS['tooltip_truename'] ?? null;
         $GLOBALS['db_collation'] = $GLOBALS['db_collation'] ?? null;
         $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
@@ -286,19 +285,15 @@ class OperationsController extends AbstractController
 
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/operations');
 
-        // Gets the database structure
-        $GLOBALS['sub_part'] = '_structure';
-
         [
             $GLOBALS['tables'],
             $GLOBALS['num_tables'],
-            $GLOBALS['total_num_tables'],
-            $GLOBALS['sub_part'],,
+            $GLOBALS['total_num_tables'],,
             $isSystemSchema,
             $GLOBALS['tooltip_truename'],
             $GLOBALS['tooltip_aliasname'],
             $GLOBALS['pos'],
-        ] = Util::getDbInfo($GLOBALS['db'], $GLOBALS['sub_part']);
+        ] = Util::getDbInfo($GLOBALS['db']);
 
         $oldMessage = '';
         if (isset($GLOBALS['message'])) {

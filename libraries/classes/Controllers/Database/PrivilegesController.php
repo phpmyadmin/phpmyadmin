@@ -89,19 +89,16 @@ class PrivilegesController extends AbstractController
             )->getDisplay());
         }
 
-        // Gets the database structure
-        $GLOBALS['sub_part'] = '_structure';
         ob_start();
 
         [
             $GLOBALS['tables'],
             $GLOBALS['num_tables'],
-            $GLOBALS['total_num_tables'],
-            $GLOBALS['sub_part'],,,
+            $GLOBALS['total_num_tables'],,,
             $GLOBALS['tooltip_truename'],
             $GLOBALS['tooltip_aliasname'],
             $GLOBALS['pos'],
-        ] = Util::getDbInfo($db->getName(), $GLOBALS['sub_part']);
+        ] = Util::getDbInfo($db->getName());
 
         $content = ob_get_clean();
         $this->response->addHTML($content . "\n");
