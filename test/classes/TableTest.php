@@ -1308,7 +1308,7 @@ class TableTest extends AbstractTestCase
         $table = new Table($table, $db, $GLOBALS['dbi']);
         $sql = $table->getSqlQueryForIndexCreateOrEdit($index, $error);
 
-        $this->assertEquals('ALTER TABLE `pma_db`.`pma_table` DROP PRIMARY KEY, ADD UNIQUE ;', $sql);
+        $this->assertEquals('ALTER TABLE `pma_db`.`pma_table` DROP PRIMARY KEY, ADD UNIQUE;', $sql);
     }
 
     /**
@@ -1326,7 +1326,7 @@ class TableTest extends AbstractTestCase
         $table = new Table($table, $db, $GLOBALS['dbi']);
         $sql = $table->getSqlQueryForIndexCreateOrEdit($index, $error);
 
-        $this->assertEquals('ALTER TABLE `pma_db`.`pma_table` DROP PRIMARY KEY, ADD UNIQUE ;', $sql);
+        $this->assertEquals('ALTER TABLE `pma_db`.`pma_table` DROP PRIMARY KEY, ADD UNIQUE;', $sql);
     }
 
     /**

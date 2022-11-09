@@ -88,14 +88,14 @@ class Index
      *
      * @var int
      */
-    private $keyBlockSize = null;
+    private $keyBlockSize = 0;
 
     /**
      * Parser option for the index
      *
      * @var string
      */
-    private $parser = null;
+    private $parser = '';
 
     /**
      * @param array $params parameters
@@ -341,7 +341,7 @@ class Index
         }
 
         if (isset($params['Key_block_size'])) {
-            $this->keyBlockSize = $params['Key_block_size'];
+            $this->keyBlockSize = (int) $params['Key_block_size'];
         }
 
         if (! isset($params['Parser'])) {
@@ -383,10 +383,8 @@ class Index
 
     /**
      * Return the key block size
-     *
-     * @return int
      */
-    public function getKeyBlockSize()
+    public function getKeyBlockSize(): int
     {
         return $this->keyBlockSize;
     }

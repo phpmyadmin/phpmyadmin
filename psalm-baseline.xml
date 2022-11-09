@@ -8012,14 +8012,13 @@
     <MixedArrayOffset occurrences="1">
       <code>$columns['sub_parts'][$key]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="15">
+    <MixedAssignment occurrences="14">
       <code>$column</code>
       <code>$key</code>
       <code>$name</code>
       <code>$sub_part</code>
       <code>$this-&gt;choice</code>
       <code>$this-&gt;comment</code>
-      <code>$this-&gt;keyBlockSize</code>
       <code>$this-&gt;name</code>
       <code>$this-&gt;nonUnique</code>
       <code>$this-&gt;packed</code>
@@ -8032,9 +8031,7 @@
     <PossiblyNullOperand occurrences="1">
       <code>$params['Seq_in_index']</code>
     </PossiblyNullOperand>
-    <PossiblyNullPropertyAssignmentValue occurrences="3">
-      <code>null</code>
-      <code>null</code>
+    <PossiblyNullPropertyAssignmentValue occurrences="1">
       <code>null</code>
     </PossiblyNullPropertyAssignmentValue>
     <RedundantCastGivenDocblockType occurrences="1">
@@ -13416,10 +13413,7 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Table.php">
-    <DeprecatedMethod occurrences="52">
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
+    <DeprecatedMethod occurrences="49">
       <code>escapeString</code>
       <code>escapeString</code>
       <code>escapeString</code>
