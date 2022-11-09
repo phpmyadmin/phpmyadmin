@@ -2533,17 +2533,16 @@ class Table implements Stringable
             && $this->dbi->getVersion() > 50705
             && ! $GLOBALS['cfg']['Server']['DisableIS']
         ) {
-            $sql = "SELECT
+            $sql = 'SELECT
                 `COLUMN_NAME` AS `Field`,
                 `GENERATION_EXPRESSION` AS `Expression`
                 FROM
                 `information_schema`.`COLUMNS`
                 WHERE
-                `TABLE_SCHEMA` = '" . $this->dbi->escapeString($this->dbName) . "'
-                AND `TABLE_NAME` = '" . $this->dbi->escapeString($this->name) . "'";
+                `TABLE_SCHEMA` = ' . $this->dbi->quoteString($this->dbName) . '
+                AND `TABLE_NAME` = ' . $this->dbi->quoteString($this->name);
             if ($column != null) {
-                $sql .= " AND  `COLUMN_NAME` = '" . $this->dbi->escapeString($column)
-                    . "'";
+                $sql .= ' AND  `COLUMN_NAME` = ' . $this->dbi->quoteString($column);
             }
 
             return $this->dbi->fetchResult($sql, 'Field', 'Expression');
