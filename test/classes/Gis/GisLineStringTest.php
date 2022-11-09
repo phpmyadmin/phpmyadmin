@@ -8,8 +8,6 @@ use PhpMyAdmin\Gis\GisLineString;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
-use function preg_match;
-
 /**
  * @covers \PhpMyAdmin\Gis\GisLineString
  * @runTestsInSeparateProcesses
@@ -246,8 +244,8 @@ class GisLineStringTest extends GisGeomTestCase
         array $scaleData,
         string $output
     ): void {
-        $string = $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData);
-        $this->assertEquals(1, preg_match($output, $string));
+        $svg = $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData);
+        $this->assertMatchesRegularExpression($output, $svg);
     }
 
     /**
