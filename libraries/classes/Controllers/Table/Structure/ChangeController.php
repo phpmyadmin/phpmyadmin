@@ -38,7 +38,7 @@ final class ChangeController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        if ($request->getParsedBodyParam('change_column') !== null) {
+        if ($request->getParam('change_column') !== null) {
             $this->displayHtmlForColumnChange([$request->getParam('field')]);
 
             return;
