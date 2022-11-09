@@ -7,8 +7,9 @@ namespace PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -49,14 +50,21 @@ class SearchController extends AbstractController
             return;
         }
 
-        // If config variable $cfg['UseDbSearch'] is on false : exit.
         if (! $GLOBALS['cfg']['UseDbSearch']) {
-            Generator::mysqlDie(
-                __('Access denied!'),
-                '',
-                false,
-                $GLOBALS['errorUrl']
+            $errorMessage = __(
+                'Searching inside the database is disabled by the [code]$cfg[\'UseDbSearch\'][/code] configuration.'
             );
+            $errorMessage .= MySQLDocumentation::showDocumentation('config', 'cfg_UseDbSearch');
+            $this->response->setRequestStatus(false);
+            if ($this->response->isAjax()) {
+                $this->response->addJSON('message', Message::error($errorMessage)->getDisplay());
+
+                return;
+            }
+
+            $this->render('error/simple', ['error_message' => $errorMessage, 'back_url' => $GLOBALS['errorUrl']]);
+
+            return;
         }
 
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/search');

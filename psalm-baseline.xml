@@ -13388,10 +13388,7 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Table.php">
-    <DeprecatedMethod occurrences="49">
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
+    <DeprecatedMethod occurrences="46">
       <code>escapeString</code>
       <code>escapeString</code>
       <code>escapeString</code>
