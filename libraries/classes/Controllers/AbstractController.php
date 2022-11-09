@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -67,11 +66,9 @@ abstract class AbstractController
 
         if (strlen($db) === 0 || ! $is_db) {
             if ($this->response->isAjax()) {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON(
-                    'message',
-                    Message::error(__('No databases selected.'))
-                );
+                //Redirecting to the server page and exiting the AJAX control
+                $param = ['ajax_request' => 'false', 'message' => __('No databases selected.')];
+                $this->redirect('/server/databases', $param);
 
                 return false;
             }
