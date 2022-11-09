@@ -17,6 +17,7 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function count;
+use function is_array;
 
 final class PrimaryController extends AbstractController
 {
@@ -43,26 +44,23 @@ final class PrimaryController extends AbstractController
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
-        $selected = $request->getParsedBodyParam('selected', []);
-        $selected_fld = $request->getParsedBodyParam('selected_fld', []);
+        /** @var string[]|null $selected */
+        $selected = $request->getParsedBodyParam('selected_fld', $request->getParsedBodyParam('selected'));
 
-        if (empty($selected) && empty($selected_fld)) {
+        if (! is_array($selected) || $selected === []) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 
             return;
         }
 
-        $primary = $this->getKeyForTablePrimary();
-        if (empty($primary) && ! empty($selected_fld)) {
-            // no primary key, so we can safely create new
-            $mult_btn = __('Yes');
-            $selected = $selected_fld;
-        }
+        $this->dbi->selectDb($GLOBALS['db']);
+        $hasPrimary = $this->hasPrimaryKey();
 
-        $mult_btn = $_POST['mult_btn'] ?? $mult_btn ?? '';
+        /** @var string|null $deletionConfirmed */
+        $deletionConfirmed = $request->getParsedBodyParam('mult_btn', null);
 
-        if (! empty($selected_fld) && ! empty($primary)) {
+        if ($hasPrimary && $deletionConfirmed === null) {
             $this->checkParameters(['db', 'table']);
 
             $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
@@ -74,15 +72,15 @@ final class PrimaryController extends AbstractController
             $this->render('table/structure/primary', [
                 'db' => $GLOBALS['db'],
                 'table' => $GLOBALS['table'],
-                'selected' => $selected_fld,
+                'selected' => $selected,
             ]);
 
             return;
         }
 
-        if ($mult_btn === __('Yes')) {
+        if ($deletionConfirmed === __('Yes') || ! $hasPrimary) {
             $GLOBALS['sql_query'] = 'ALTER TABLE ' . Util::backquote($GLOBALS['table']);
-            if (! empty($primary)) {
+            if ($hasPrimary) {
                 $GLOBALS['sql_query'] .= ' DROP PRIMARY KEY,';
             }
 
@@ -110,27 +108,16 @@ final class PrimaryController extends AbstractController
         ($this->structureController)($request);
     }
 
-    /**
-     * Gets table primary key
-     *
-     * @return string
-     */
-    private function getKeyForTablePrimary()
+    private function hasPrimaryKey(): bool
     {
-        $this->dbi->selectDb($GLOBALS['db']);
-        $result = $this->dbi->query(
-            'SHOW KEYS FROM ' . Util::backquote($GLOBALS['table']) . ';'
-        );
-        $primary = '';
-        foreach ($result as $row) {
-            // Backups the list of primary keys
-            if ($row['Key_name'] !== 'PRIMARY') {
-                continue;
-            }
+        $result = $this->dbi->query('SHOW KEYS FROM ' . Util::backquote($GLOBALS['table']));
 
-            $primary .= $row['Column_name'] . ', ';
+        foreach ($result as $row) {
+            if ($row['Key_name'] === 'PRIMARY') {
+                return true;
+            }
         }
 
-        return $primary;
+        return false;
     }
 }
