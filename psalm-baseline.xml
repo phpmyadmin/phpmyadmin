@@ -3571,9 +3571,6 @@
     </PossiblyInvalidOperand>
   </file>
   <file src="libraries/classes/Controllers/Table/OperationsController.php">
-    <InvalidArgument occurrences="1">
-      <code>$_POST['partition_name']</code>
-    </InvalidArgument>
     <MixedArgument occurrences="7">
       <code>$GLOBALS['create_options']['pack_keys']</code>
       <code>$GLOBALS['create_options']['page_checksum'] ?? ''</code>
@@ -3583,8 +3580,9 @@
       <code>$_message</code>
       <code>$_message</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="1">
+    <MixedArgumentTypeCoercion occurrences="2">
       <code>$GLOBALS['table_alters']</code>
+      <code>is_array($partitionNames) ? $partitionNames : []</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="1">
       <code>$GLOBALS['showtable']['Row_format']</code>
@@ -3622,29 +3620,6 @@
     <MixedMethodCall occurrences="1">
       <code>getList</code>
     </MixedMethodCall>
-    <PossiblyInvalidArgument occurrences="10">
-      <code>$_POST['db']</code>
-      <code>$_POST['new_name']</code>
-      <code>$_POST['new_name']</code>
-      <code>$_POST['new_name']</code>
-      <code>$_POST['new_tbl_storage_engine']</code>
-      <code>$_POST['new_tbl_storage_engine']</code>
-      <code>$_POST['order_field']</code>
-      <code>$_POST['order_order'] ?? null</code>
-      <code>$_POST['partition_operation']</code>
-      <code>$_POST['tbl_collation']</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="9">
-      <code>$_POST['db']</code>
-      <code>$_POST['new_name']</code>
-      <code>$_POST['new_name']</code>
-      <code>$_POST['new_name']</code>
-      <code>$_POST['new_tbl_storage_engine']</code>
-      <code>$_POST['new_tbl_storage_engine']</code>
-      <code>$_POST['order_field']</code>
-      <code>$_POST['partition_operation']</code>
-      <code>$_POST['tbl_collation']</code>
-    </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Controllers/Table/Partition/AnalyzeController.php">
     <MixedArgument occurrences="1">
