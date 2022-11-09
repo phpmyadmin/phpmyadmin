@@ -765,7 +765,7 @@ abstract class TestBase extends TestCase
      * @param string $arg     Selector
      * @param int    $timeout Timeout in seconds
      */
-    public function waitUntilElementIsVisible(string $func, string $arg, int $timeout): WebDriverElement
+    public function waitUntilElementIsVisible(string $func, string $arg, int $timeout = 10): WebDriverElement
     {
         $element = $this->webDriver->wait($timeout, 500)->until(
             WebDriverExpectedCondition::visibilityOfElementLocated(WebDriverBy::$func($arg))
