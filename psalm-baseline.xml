@@ -2583,22 +2583,17 @@
     </MixedArgument>
   </file>
   <file src="libraries/classes/Controllers/Server/BinlogController.php">
-    <MixedAssignment occurrences="1">
-      <code>$GLOBALS['errorUrl']</code>
+    <MixedArgument occurrences="2">
+      <code>$log</code>
+      <code>$log ?? ''</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="2">
+      <code>$log</code>
+      <code>$urlParams['log']</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="2">
-      <code>$params['log']</code>
-      <code>$params['log'] ?? ''</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="1">
-      <code>$params['log'] ?? ''</code>
-    </PossiblyInvalidCast>
     <RedundantCast occurrences="1">
       <code>(int) $GLOBALS['cfg']['MaxRows']</code>
     </RedundantCast>
-    <RiskyCast occurrences="1">
-      <code>$params['pos']</code>
-    </RiskyCast>
   </file>
   <file src="libraries/classes/Controllers/Server/Databases/CreateController.php">
     <MixedAssignment occurrences="1">
