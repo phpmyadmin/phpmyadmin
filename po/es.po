@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-11-06 00:22+0000\n"
-"PO-Revision-Date: 2022-10-03 13:18+0000\n"
+"PO-Revision-Date: 2022-11-12 14:50+0000\n"
 "Last-Translator: Luis Méndez Alejo <gnumax@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/es/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:240
 #, php-format
@@ -5516,10 +5516,8 @@ msgstr ""
 "documentation%s para hallar modos de superar esta limitación."
 
 #: libraries/classes/Controllers/Import/ImportController.php:249
-#, fuzzy
-#| msgid "Incorrect form specified!"
 msgid "Incorrect format parameter"
-msgstr "¡Se ha especificado un formulario incorrecto!"
+msgstr "Parámetro de formato incorrecto"
 
 #: libraries/classes/Controllers/Import/ImportController.php:379
 #: libraries/classes/Controllers/Import/ImportController.php:622
@@ -13794,10 +13792,8 @@ msgstr ""
 "asumiendo el mapeo convencional de direcciones IPv4 en direcciones IPv6"
 
 #: libraries/classes/Types.php:445
-#, fuzzy
-#| msgid "Stores a Universally Unique Identifier (UUID)"
 msgid "128-bit UUID (Universally Unique Identifier)"
-msgstr "Almacena indentificadores únicos universales («UUID»)"
+msgstr "UUID de 128 bits (identificador único universal)"
 
 #: libraries/classes/Types.php:801
 msgctxt "numeric types"
