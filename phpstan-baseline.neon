@@ -8361,11 +8361,6 @@ parameters:
 			path: libraries/classes/Tracking.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tracking\\:\\:exportAsFileDownload\\(\\) has parameter \\$entries with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Tracking.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tracking\\:\\:exportAsSqlDump\\(\\) has parameter \\$entries with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Tracking.php
@@ -8572,11 +8567,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Tracking.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Tracking.php
 

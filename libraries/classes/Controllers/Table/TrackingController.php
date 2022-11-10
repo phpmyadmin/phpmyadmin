@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use DateTimeImmutable;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
@@ -25,6 +26,7 @@ use function explode;
 use function htmlspecialchars;
 use function in_array;
 use function is_array;
+use function mb_strlen;
 use function sprintf;
 
 final class TrackingController extends AbstractController
@@ -135,7 +137,12 @@ final class TrackingController extends AbstractController
 
         // Export as file download
         if ($reportExport !== null && $request->getParsedBodyParam('export_type') === 'sqldumpfile') {
-            $this->tracking->exportAsFileDownload($tableParam, $GLOBALS['entries']);
+            $downloadInfo = $this->tracking->getDownloadInfoForExport($tableParam, $GLOBALS['entries']);
+            $this->response->disable();
+            Core::downloadHeader($downloadInfo['filename'], 'text/x-sql', mb_strlen($downloadInfo['dump']));
+            echo $downloadInfo['dump'];
+
+            return;
         }
 
         $actionMessage = '';

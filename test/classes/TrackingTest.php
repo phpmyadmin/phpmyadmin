@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests;
 use DateTimeImmutable;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracking;
@@ -14,7 +15,11 @@ use PhpMyAdmin\Url;
 
 use function __;
 use function _pgettext;
+use function date;
 use function htmlspecialchars;
+use function ini_get;
+use function ini_restore;
+use function ini_set;
 use function sprintf;
 
 /**
@@ -583,5 +588,25 @@ class TrackingTest extends AbstractTestCase
         );
         $this->assertEquals('username3', $entries[0]['username']);
         $this->assertEquals('statement1', $entries[0]['statement']);
+    }
+
+    public function testGetDownloadInfoForExport(): void
+    {
+        $tracking = new Tracking(
+            $this->createStub(SqlQueryForm::class),
+            $this->createStub(Template::class),
+            $this->createStub(Relation::class),
+            $this->createStub(DatabaseInterface::class)
+        );
+        ini_set('url_rewriter.tags', 'a=href,area=href,frame=src,form=,fieldset=');
+        $entries = [['statement' => 'first statement'], ['statement' => 'second statement']];
+        $expectedDump = '# Tracking report for table `test&gt; table`' . "\n"
+            . '# ' . date('Y-m-d H:i:s') . "\n"
+            . 'first statementsecond statement';
+        $actual = $tracking->getDownloadInfoForExport('test>  table', $entries);
+        $this->assertSame('log_test&gt; table.sql', $actual['filename']);
+        $this->assertSame($expectedDump, $actual['dump']);
+        $this->assertSame('', ini_get('url_rewriter.tags'));
+        ini_restore('url_rewriter.tags');
     }
 }

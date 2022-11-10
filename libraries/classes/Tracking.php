@@ -27,7 +27,6 @@ use function mb_strstr;
 use function preg_replace;
 use function rtrim;
 use function sprintf;
-use function strlen;
 use function strtotime;
 
 use const SORT_ASC;
@@ -847,35 +846,25 @@ class Tracking
     }
 
     /**
-     * Function to export as entries
+     * @param array<int, array<string, int|string>> $entries
      *
-     * @param array $entries entries
+     * @return array<string, string>
+     * @psalm-return array{filename: non-empty-string, dump: non-empty-string}
      */
-    public function exportAsFileDownload(string $table, array $entries): void
+    public function getDownloadInfoForExport(string $table, array $entries): array
     {
         ini_set('url_rewriter.tags', '');
 
         // Replace all multiple whitespaces by a single space
-        $table = htmlspecialchars(preg_replace('/\s+/', ' ', $table));
-        $dump = '# ' . sprintf(
-            __('Tracking report for table `%s`'),
-            $table
-        )
-        . "\n" . '# ' . date('Y-m-d H:i:s') . "\n";
+        $table = htmlspecialchars((string) preg_replace('/\s+/', ' ', $table));
+        $dump = '# ' . sprintf(__('Tracking report for table `%s`'), $table) . "\n" . '# ' . date('Y-m-d H:i:s') . "\n";
         foreach ($entries as $entry) {
             $dump .= $entry['statement'];
         }
 
         $filename = 'log_' . $table . '.sql';
-        ResponseRenderer::getInstance()->disable();
-        Core::downloadHeader(
-            $filename,
-            'text/x-sql',
-            strlen($dump)
-        );
-        echo $dump;
 
-        exit;
+        return ['filename' => $filename, 'dump' => $dump];
     }
 
     /**

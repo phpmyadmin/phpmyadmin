@@ -4167,6 +4167,9 @@
     <MixedArgument occurrences="1">
       <code>$version</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$GLOBALS['entries']</code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment occurrences="9">
       <code>$GLOBALS['entries']</code>
       <code>$GLOBALS['errorUrl']</code>
@@ -14071,11 +14074,10 @@
       <code>$value['Name']</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1"/>
-    <MixedArrayAccess occurrences="17">
+    <MixedArrayAccess occurrences="16">
       <code>$data[$which_log][$delete_id]</code>
       <code>$entry['date']</code>
       <code>$entry['date']</code>
-      <code>$entry['statement']</code>
       <code>$entry['statement']</code>
       <code>$entry['statement']</code>
       <code>$entry['statement']</code>
@@ -14095,11 +14097,10 @@
       <code>$entry['line_number']</code>
       <code>$entry['url_params']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="18">
+    <MixedAssignment occurrences="17">
       <code>$columns</code>
       <code>$drop_create_statements</code>
       <code>$entries[]</code>
-      <code>$entry</code>
       <code>$entry</code>
       <code>$entry</code>
       <code>$entry</code>
@@ -14118,9 +14119,8 @@
     <MixedInferredReturnType occurrences="1">
       <code>string</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="5">
+    <MixedOperand occurrences="4">
       <code>$drop_create_statements</code>
-      <code>$entry['statement']</code>
       <code>$entry['statement']</code>
       <code>$entry['statement']</code>
       <code>$temp</code>
