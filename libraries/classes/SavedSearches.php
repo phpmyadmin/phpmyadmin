@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Features\SavedQueryByExampleSearchesFeature;
+use PhpMyAdmin\Exceptions\SavedSearchesException;
 
 use function __;
 use function count;
@@ -229,18 +230,13 @@ class SavedSearches
 
     /**
      * Save the search
+     *
+     * @throws SavedSearchesException
      */
     public function save(SavedQueryByExampleSearchesFeature $savedQueryByExampleSearchesFeature): bool
     {
         if ($this->getSearchName() == null) {
-            $message = Message::error(
-                __('Please provide a name for this bookmarked search.')
-            );
-            $response = ResponseRenderer::getInstance();
-            $response->setRequestStatus($message->isSuccess());
-            $response->addJSON('fieldWithError', 'searchName');
-            $response->addJSON('message', $message);
-            exit;
+            throw new SavedSearchesException(__('Please provide a name for this bookmarked search.'));
         }
 
         if (
@@ -249,13 +245,7 @@ class SavedSearches
             || $this->getSearchName() == null
             || $this->getCriterias() == null
         ) {
-            $message = Message::error(
-                __('Missing information to save the bookmarked search.')
-            );
-            $response = ResponseRenderer::getInstance();
-            $response->setRequestStatus($message->isSuccess());
-            $response->addJSON('message', $message);
-            exit;
+            throw new SavedSearchesException(__('Missing information to save the bookmarked search.'));
         }
 
         $savedSearchesTbl = Util::backquote($savedQueryByExampleSearchesFeature->database) . '.'
@@ -269,14 +259,7 @@ class SavedSearches
             $existingSearches = $this->getList($savedQueryByExampleSearchesFeature, $wheres);
 
             if (! empty($existingSearches)) {
-                $message = Message::error(
-                    __('An entry with this name already exists.')
-                );
-                $response = ResponseRenderer::getInstance();
-                $response->setRequestStatus($message->isSuccess());
-                $response->addJSON('fieldWithError', 'searchName');
-                $response->addJSON('message', $message);
-                exit;
+                throw new SavedSearchesException(__('An entry with this name already exists.'));
             }
 
             $sqlQuery = 'INSERT INTO ' . $savedSearchesTbl
@@ -303,14 +286,7 @@ class SavedSearches
         $existingSearches = $this->getList($savedQueryByExampleSearchesFeature, $wheres);
 
         if (! empty($existingSearches)) {
-            $message = Message::error(
-                __('An entry with this name already exists.')
-            );
-            $response = ResponseRenderer::getInstance();
-            $response->setRequestStatus($message->isSuccess());
-            $response->addJSON('fieldWithError', 'searchName');
-            $response->addJSON('message', $message);
-            exit;
+            throw new SavedSearchesException(__('An entry with this name already exists.'));
         }
 
         $sqlQuery = 'UPDATE ' . $savedSearchesTbl
@@ -325,18 +301,13 @@ class SavedSearches
 
     /**
      * Delete the search
+     *
+     * @throws SavedSearchesException
      */
     public function delete(SavedQueryByExampleSearchesFeature $savedQueryByExampleSearchesFeature): bool
     {
         if ($this->getId() == null) {
-            $message = Message::error(
-                __('Missing information to delete the search.')
-            );
-            $response = ResponseRenderer::getInstance();
-            $response->setRequestStatus($message->isSuccess());
-            $response->addJSON('fieldWithError', 'searchId');
-            $response->addJSON('message', $message);
-            exit;
+            throw new SavedSearchesException(__('Missing information to delete the search.'));
         }
 
         $savedSearchesTbl = Util::backquote($savedQueryByExampleSearchesFeature->database) . '.'
@@ -350,18 +321,13 @@ class SavedSearches
 
     /**
      * Load the current search from an id.
+     *
+     * @throws SavedSearchesException
      */
     public function load(SavedQueryByExampleSearchesFeature $savedQueryByExampleSearchesFeature): bool
     {
         if ($this->getId() == null) {
-            $message = Message::error(
-                __('Missing information to load the search.')
-            );
-            $response = ResponseRenderer::getInstance();
-            $response->setRequestStatus($message->isSuccess());
-            $response->addJSON('fieldWithError', 'searchId');
-            $response->addJSON('message', $message);
-            exit;
+            throw new SavedSearchesException(__('Missing information to load the search.'));
         }
 
         $savedSearchesTbl = Util::backquote($savedQueryByExampleSearchesFeature->database)
@@ -375,12 +341,7 @@ class SavedSearches
         $oneResult = $resList->fetchAssoc();
 
         if ($oneResult === []) {
-            $message = Message::error(__('Error while loading the search.'));
-            $response = ResponseRenderer::getInstance();
-            $response->setRequestStatus($message->isSuccess());
-            $response->addJSON('fieldWithError', 'searchId');
-            $response->addJSON('message', $message);
-            exit;
+            throw new SavedSearchesException(__('Error while loading the search.'));
         }
 
         $this->setSearchName($oneResult['search_name'])

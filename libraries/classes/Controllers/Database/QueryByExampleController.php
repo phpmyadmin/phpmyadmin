@@ -9,7 +9,9 @@ use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Database\Qbe;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Exceptions\SavedSearchesException;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SavedSearches;
@@ -75,14 +77,39 @@ class QueryByExampleController extends AbstractController
             if (isset($_POST['action'])) {
                 $GLOBALS['savedSearch']->setSearchName($_POST['searchName']);
                 if ($_POST['action'] === 'create') {
-                    $GLOBALS['savedSearch']->setId(null)
-                        ->setCriterias($_POST)
-                        ->save($savedQbeSearchesFeature);
+                    try {
+                        $GLOBALS['savedSearch']->setId(null)
+                            ->setCriterias($_POST)
+                            ->save($savedQbeSearchesFeature);
+                    } catch (SavedSearchesException $exception) {
+                        $this->response->setRequestStatus(false);
+                        $this->response->addJSON('fieldWithError', 'searchName');
+                        $this->response->addJSON('message', Message::error($exception->getMessage())->getDisplay());
+
+                        return;
+                    }
                 } elseif ($_POST['action'] === 'update') {
-                    $GLOBALS['savedSearch']->setCriterias($_POST)
-                        ->save($savedQbeSearchesFeature);
+                    try {
+                        $GLOBALS['savedSearch']->setCriterias($_POST)
+                            ->save($savedQbeSearchesFeature);
+                    } catch (SavedSearchesException $exception) {
+                        $this->response->setRequestStatus(false);
+                        $this->response->addJSON('fieldWithError', 'searchName');
+                        $this->response->addJSON('message', Message::error($exception->getMessage())->getDisplay());
+
+                        return;
+                    }
                 } elseif ($_POST['action'] === 'delete') {
-                    $GLOBALS['savedSearch']->delete($savedQbeSearchesFeature);
+                    try {
+                        $GLOBALS['savedSearch']->delete($savedQbeSearchesFeature);
+                    } catch (SavedSearchesException $exception) {
+                        $this->response->setRequestStatus(false);
+                        $this->response->addJSON('fieldWithError', 'searchId');
+                        $this->response->addJSON('message', Message::error($exception->getMessage())->getDisplay());
+
+                        return;
+                    }
+
                     //After deletion, reset search.
                     $GLOBALS['savedSearch'] = new SavedSearches();
                     $GLOBALS['savedSearch']->setUsername($GLOBALS['cfg']['Server']['user'])
@@ -96,7 +123,15 @@ class QueryByExampleController extends AbstractController
                             ->setDbname($GLOBALS['db']);
                         $_POST = [];
                     } else {
-                        $GLOBALS['savedSearch']->load($savedQbeSearchesFeature);
+                        try {
+                            $GLOBALS['savedSearch']->load($savedQbeSearchesFeature);
+                        } catch (SavedSearchesException $exception) {
+                            $this->response->setRequestStatus(false);
+                            $this->response->addJSON('fieldWithError', 'searchId');
+                            $this->response->addJSON('message', Message::error($exception->getMessage())->getDisplay());
+
+                            return;
+                        }
                     }
                 }
                 //Else, it's an "update query"
