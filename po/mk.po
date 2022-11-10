@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-11-09 01:09+0000\n"
+"PO-Revision-Date: 2022-11-11 23:49+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -316,16 +316,14 @@ msgstr ""
 "пробајте повторно."
 
 #: db_operations.php:156
-#, fuzzy, php-format
-#| msgid "Database %s has been renamed to %s."
+#, php-format
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "Базата на податоци %s е преименувана во %s"
+msgstr "Датабазата %1$s беше преименувана во %2$s."
 
 #: db_operations.php:168
-#, fuzzy, php-format
-#| msgid "Database %s has been copied to %s."
+#, php-format
 msgid "Database %1$s has been copied to %2$s."
-msgstr "Базата на податоци %s е ископирана во %s"
+msgstr "Датабазата %s беше копирана во %2$s."
 
 #: db_operations.php:297
 #, php-format
@@ -1078,10 +1076,8 @@ msgid "Create composite index"
 msgstr "Верзија на серверот"
 
 #: js/messages.php:126
-#, fuzzy
-#| msgid "Fields enclosed by"
 msgid "Composite with:"
-msgstr "Полињата се раздвоени со"
+msgstr "Kомбиниранo со:"
 
 #: js/messages.php:127
 #, fuzzy
@@ -1103,16 +1099,12 @@ msgid "Simulate query"
 msgstr "во упитот"
 
 #: js/messages.php:134
-#, fuzzy
-#| msgid "Latched pages"
 msgid "Matched rows:"
-msgstr "Заглавени страници"
+msgstr "Совпаднати редови:"
 
 #: js/messages.php:135 libraries/classes/Util.php:566
-#, fuzzy
-#| msgid "SQL query"
 msgid "SQL query:"
-msgstr "SQL упит"
+msgstr "SQL барање:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:139
@@ -1347,10 +1339,9 @@ msgid "EiB"
 msgstr "EB"
 
 #: js/messages.php:210
-#, fuzzy, php-format
-#| msgid "%s table(s)"
+#, php-format
 msgid "%d table(s)"
-msgstr "%s табела"
+msgstr "%d табела(и)"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:213
@@ -1855,10 +1846,8 @@ msgid "No accounts selected."
 msgstr "Нема селектирани записи"
 
 #: js/messages.php:375
-#, fuzzy
-#| msgid "Inside table(s):"
 msgid "Dropping column"
-msgstr "во табела(и):"
+msgstr "Отстранување на колона"
 
 #: js/messages.php:376
 #, fuzzy
@@ -2047,10 +2036,9 @@ msgid "No auto-saved query"
 msgstr ""
 
 #: js/messages.php:427
-#, fuzzy, php-format
-#| msgid "Variable"
+#, php-format
 msgid "Variable %d:"
-msgstr "Променлива"
+msgstr "Варијабила %d:"
 
 #: js/messages.php:430 libraries/classes/Normalization.php:967
 msgid "Pick"
@@ -2229,16 +2217,12 @@ msgid "Range search"
 msgstr "Пребарување"
 
 #: js/messages.php:488
-#, fuzzy
-#| msgid "Column names"
 msgid "Column maximum:"
-msgstr "Имиња на колони"
+msgstr "Колона максимум:"
 
 #: js/messages.php:489
-#, fuzzy
-#| msgid "Column names"
 msgid "Column minimum:"
-msgstr "Имиња на колони"
+msgstr "Колона минимум:"
 
 #: js/messages.php:490
 msgid "Minimum value:"
@@ -2402,10 +2386,8 @@ msgid "Add tables from other databases"
 msgstr "Табелите не се пронајдени во базата на податоци."
 
 #: js/messages.php:566
-#, fuzzy
-#| msgid "Page number:"
 msgid "Page name"
-msgstr "Број на страници:"
+msgstr "Име на страна"
 
 #: js/messages.php:567 templates/database/designer/side_menu.twig:57
 #: templates/database/designer/side_menu.twig:60
@@ -2592,9 +2574,8 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 
 #: js/messages.php:644
-#, fuzzy
 msgid "Go to link:"
-msgstr "Базата на податоци не постои"
+msgstr "Посети линк:"
 
 #: js/messages.php:645
 #, fuzzy
@@ -3878,10 +3859,9 @@ msgid "Invalid server index: %s"
 msgstr ""
 
 #: libraries/classes/Config.php:1884
-#, fuzzy, php-format
-#| msgid "Server"
+#, php-format
 msgid "Server %d"
-msgstr "Сервер"
+msgstr "Сервер %d"
 
 #: libraries/classes/Config/Descriptions.php:62
 msgid ""
@@ -4687,10 +4667,8 @@ msgid "Settings that didn't fit anywhere else."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:508
-#, fuzzy
-#| msgid "Page number:"
 msgid "Page titles"
-msgstr "Број на страници:"
+msgstr "Наслови на страници"
 
 #: libraries/classes/Config/Descriptions.php:511
 msgid ""
@@ -6368,9 +6346,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1426
-#, fuzzy
 msgid "Proxy username"
-msgstr "Корисничко име:"
+msgstr "Прокси корисничко име"
 
 #: libraries/classes/Config/Descriptions.php:1428
 msgid "The password for authenticating with the proxy."
@@ -6897,12 +6874,11 @@ msgid "Database %1$s has been created."
 msgstr "Базата на податоци %1$s е креирана."
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:208
-#, fuzzy, php-format
-#| msgid "%s databases have been dropped successfully."
+#, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%s базата на податоци успешно е избришана."
-msgstr[1] "%s базата на податоци успешно е избришана."
+msgstr[0] "%1$d база на податоци беше успешно избришана."
+msgstr[1] "%1$d бази на податоци беа успешно избришани."
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:343
 #: libraries/classes/Import.php:122
@@ -8601,20 +8577,18 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/classes/Message.php:266
-#, fuzzy, php-format
-#| msgid "No rows selected"
+#, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "Нема селектирани записи"
-msgstr[1] "Нема селектирани записи"
+msgstr[0] "%1$d редица избришана"
+msgstr[1] "%1$d редици избришани"
 
 #: libraries/classes/Message.php:285
-#, fuzzy, php-format
-#| msgid "No rows selected"
+#, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "Нема селектирани записи"
-msgstr[1] "Нема селектирани записи"
+msgstr[0] "%1$d редица внесена."
+msgstr[1] "%1$d редици внесени."
 
 #: libraries/classes/MultSubmits.php:399 libraries/classes/Operations.php:197
 #: libraries/classes/Operations.php:1286 libraries/classes/Tracking.php:395
@@ -14227,10 +14201,8 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s денови, %s часови, %s минути и %s секунди"
 
 #: libraries/classes/Util.php:1882
-#, fuzzy
-#| msgid "Routines"
 msgid "Missing parameter:"
-msgstr "Рутини"
+msgstr "Недостига параметар:"
 
 #: libraries/classes/Util.php:2440
 #, fuzzy, php-format
@@ -15441,12 +15413,11 @@ msgid "Save chart as image"
 msgstr "Сочувај како податотека"
 
 #: templates/database/structure/body_for_table_summary.twig:6
-#, fuzzy, php-format
-#| msgid "%s table(s)"
+#, php-format
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] "%s табела"
-msgstr[1] "%s табела"
+msgstr[1] "%s табели"
 
 #: templates/database/structure/body_for_table_summary.twig:17
 msgid "Sum"
@@ -18026,10 +17997,11 @@ msgid "Rate of aborted clients"
 msgstr "Содржина"
 
 #: libraries/advisory_rules_generic.txt:357
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
-msgstr "Големина на меѓупросторот за подредување"
+msgstr ""
+"Ратата на абортирани клиенти е %s, оваа вредност треба да биде помала од 1 "
+"на саат"
 
 #: libraries/advisory_rules_generic.txt:361
 msgid "Is InnoDB disabled?"
@@ -18197,10 +18169,9 @@ msgid "Consider increasing {query_cache_limit}."
 msgstr ""
 
 #: libraries/advisory_rules_mysql_before80003.txt:22
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr "Големина на меѓупросторот за подредување"
+msgstr "Тековната рата на кеширањите барања од %s%% е под 20%%"
 
 #: libraries/advisory_rules_mysql_before80003.txt:24
 #, fuzzy
@@ -18297,9 +18268,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_mysql_before80003.txt:50
-#, fuzzy, php-format
+#, php-format
 msgid "Current query cache size: %s"
-msgstr "Верзија на серверот"
+msgstr "Тековната големина на кеширањи барања: %s"
 
 #: libraries/advisory_rules_mysql_before80003.txt:52
 #, fuzzy
