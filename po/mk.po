@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-11-06 00:22+0000\n"
-"PO-Revision-Date: 2022-11-09 01:12+0000\n"
+"PO-Revision-Date: 2022-11-12 14:50+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:240
 #, php-format
@@ -859,9 +859,11 @@ msgid "Rate of aborted clients"
 msgstr "Содржина"
 
 #: libraries/classes/Advisory/Rules.php:626
-#, fuzzy, php-format
+#, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
-msgstr "Големина на меѓупросторот за подредување"
+msgstr ""
+"Ратата на абортирани клиенти е %s, оваа вредност треба да биде помала од 1 "
+"на саат"
 
 #: libraries/classes/Advisory/Rules.php:632
 msgid "Is InnoDB disabled?"
@@ -1030,9 +1032,9 @@ msgid "Consider increasing {query_cache_limit}."
 msgstr ""
 
 #: libraries/classes/Advisory/Rules.php:792
-#, fuzzy, php-format
+#, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr "Големина на меѓупросторот за подредување"
+msgstr "Тековната рата на кеширањите барања од %s%% е под 20%%"
 
 #: libraries/classes/Advisory/Rules.php:797
 #, fuzzy
@@ -1129,9 +1131,9 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Advisory/Rules.php:865
-#, fuzzy, php-format
+#, php-format
 msgid "Current query cache size: %s"
-msgstr "Верзија на серверот"
+msgstr "Тековната големина на кеширањи барања: %s"
 
 #: libraries/classes/Advisory/Rules.php:870
 #, fuzzy
@@ -3175,9 +3177,9 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:729
 #: libraries/classes/Plugins/Export/ExportSql.php:354
-#, fuzzy, php-format
+#, php-format
 msgid "%s view"
-msgstr "Вредност на сесијата"
+msgstr "%s поглед"
 
 #: libraries/classes/Config/Descriptions.php:730
 msgid "Use ignore inserts"
@@ -3320,9 +3322,8 @@ msgid "Other core settings"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:768
-#, fuzzy
 msgid "Page titles"
-msgstr "Број на страници:"
+msgstr "Наслови на страници"
 
 #: libraries/classes/Config/Descriptions.php:769
 msgid "Security"
@@ -4209,9 +4210,8 @@ msgid "Proxy URL"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:964
-#, fuzzy
 msgid "Proxy username"
-msgstr "Корисничко име:"
+msgstr "Прокси корисничко име"
 
 #: libraries/classes/Config/Descriptions.php:965
 #, fuzzy
@@ -4520,9 +4520,9 @@ msgid "Invalid server index: %s"
 msgstr ""
 
 #: libraries/classes/Config.php:1245 libraries/classes/Config.php:1235
-#, fuzzy, php-format
+#, php-format
 msgid "Server %d"
-msgstr "Сервер"
+msgstr "Сервер %d"
 
 #: libraries/classes/Config/ServerConfigChecks.php:59
 #, php-format
@@ -4743,9 +4743,8 @@ msgstr "Не е избрана ни една база на податоци."
 #: libraries/classes/Controllers/SchemaExportController.php:36
 #: libraries/classes/Controllers/Server/UserGroupsFormController.php:47
 #: libraries/classes/Controllers/SchemaExportController.php:30
-#, fuzzy
 msgid "Missing parameter:"
-msgstr "Рутини"
+msgstr "Недостига параметар:"
 
 #: libraries/classes/Controllers/ChangeLogController.php:41
 #: libraries/classes/Controllers/LicenseController.php:38
@@ -4818,14 +4817,14 @@ msgstr ""
 "пробајте повторно."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:216
-#, fuzzy, php-format
+#, php-format
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "Базата на податоци %s е преименувана во %s"
+msgstr "Датабазата %1$s беше преименувана во %2$s."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:226
-#, fuzzy, php-format
+#, php-format
 msgid "Database %1$s has been copied to %2$s."
-msgstr "Базата на податоци %s е ископирана во %s"
+msgstr "Датабазата %s беше копирана во %2$s."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:335
 #, php-format
@@ -5426,9 +5425,8 @@ msgid "Create composite index"
 msgstr "Верзија на серверот"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:130
-#, fuzzy
 msgid "Composite with:"
-msgstr "Полињата се раздвоени со"
+msgstr "Kомбиниранo со:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:131
 #, fuzzy
@@ -5454,15 +5452,13 @@ msgid "Simulate query"
 msgstr "во упитот"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:138
-#, fuzzy
 msgid "Matched rows:"
-msgstr "Заглавени страници"
+msgstr "Совпаднати редови:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:139
 #: libraries/classes/Html/Generator.php:884 templates/export.twig:67
-#, fuzzy
 msgid "SQL query:"
-msgstr "SQL упит"
+msgstr "SQL барање:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:143
@@ -5766,9 +5762,9 @@ msgid "EiB"
 msgstr "EB"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:217
-#, fuzzy, php-format
+#, php-format
 msgid "%d table(s)"
-msgstr "%s табела"
+msgstr "%d табела(и)"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:220
@@ -6257,9 +6253,8 @@ msgid "No accounts selected."
 msgstr "Нема селектирани записи"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:363
-#, fuzzy
 msgid "Dropping column"
-msgstr "во табела(и):"
+msgstr "Отстранување на колона"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:364
 #, fuzzy
@@ -6457,9 +6452,9 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:413
-#, fuzzy, php-format
+#, php-format
 msgid "Variable %d:"
-msgstr "Променлива"
+msgstr "Варијабила %d:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:416
 #: libraries/classes/Normalization.php:1002
@@ -6627,14 +6622,12 @@ msgid "Show search criteria"
 msgstr "SQL упит"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:463
-#, fuzzy
 msgid "Column maximum:"
-msgstr "Имиња на колони"
+msgstr "Колона максимум:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:464
-#, fuzzy
 msgid "Column minimum:"
-msgstr "Имиња на колони"
+msgstr "Колона минимум:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:467
 #, fuzzy
@@ -6831,9 +6824,8 @@ msgid "Add tables from other databases"
 msgstr "Табелите не се пронајдени во базата на податоци."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:542
-#, fuzzy
 msgid "Page name"
-msgstr "Број на страници:"
+msgstr "Име на страна"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:543
 #: templates/database/designer/main.twig:63
@@ -7000,9 +6992,8 @@ msgid "Select database first"
 msgstr "Избери табели"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:598
-#, fuzzy
 msgid "Go to link:"
-msgstr "Базата на податоци не постои"
+msgstr "Посети линк:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:601
 #, fuzzy
@@ -7765,11 +7756,11 @@ msgid "Database %1$s has been created."
 msgstr "Базата на податоци %1$s е креирана."
 
 #: libraries/classes/Controllers/Server/Databases/DestroyController.php:97
-#, fuzzy, php-format
+#, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%s базата на податоци успешно е избришана."
-msgstr[1] "%s базата на податоци успешно е избришана."
+msgstr[0] "%1$d база на податоци беше успешно избришана."
+msgstr[1] "%1$d бази на податоци беа успешно избришани."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
 #, fuzzy, php-format
@@ -8543,11 +8534,11 @@ msgid "No column selected."
 msgstr "Нема селектирани записи"
 
 #: libraries/classes/Controllers/Table/DropColumnController.php:80
-#, fuzzy, php-format
+#, php-format
 msgid "%1$d column has been dropped successfully."
 msgid_plural "%1$d columns have been dropped successfully."
-msgstr[0] "%s базата на податоци успешно е избришана."
-msgstr[1] "%s базата на податоци успешно е избришана."
+msgstr[0] "%1$d колона беше успешно отпуштена."
+msgstr[1] "%1$d колони беа успешно отпуштени."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:58
 #: libraries/classes/Controllers/Table/GetFieldController.php:57
@@ -10196,18 +10187,18 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/classes/Message.php:273
-#, fuzzy, php-format
+#, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "Нема селектирани записи"
-msgstr[1] "Нема селектирани записи"
+msgstr[0] "%1$d редица избришана"
+msgstr[1] "%1$d редици избришани"
 
 #: libraries/classes/Message.php:294
-#, fuzzy, php-format
+#, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "Нема селектирани записи"
-msgstr[1] "Нема селектирани записи"
+msgstr[0] "%1$d редица внесена."
+msgstr[1] "%1$d редици внесени."
 
 #: libraries/classes/Navigation/Navigation.php:229
 #, fuzzy
@@ -15041,11 +15032,11 @@ msgid "Add prefix"
 msgstr "Додади ново поле"
 
 #: templates/database/structure/body_for_table_summary.twig:6
-#, fuzzy, php-format
+#, php-format
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] "%s табела"
-msgstr[1] "%s табела"
+msgstr[1] "%s табели"
 
 #: templates/database/structure/body_for_table_summary.twig:17
 msgid "Sum"
