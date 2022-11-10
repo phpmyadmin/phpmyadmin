@@ -8926,16 +8926,6 @@ parameters:
 			path: libraries/classes/ZipExtension.php
 
 		-
-			message: "#^Call to an undefined static method PHPUnit\\\\Framework\\\\TestCase\\:\\:assertFileDoesNotExist\\(\\)\\.$#"
-			count: 1
-			path: test/classes/AbstractTestCase.php
-
-		-
-			message: "#^Call to an undefined static method PHPUnit\\\\Framework\\\\TestCase\\:\\:assertMatchesRegularExpression\\(\\)\\.$#"
-			count: 1
-			path: test/classes/AbstractTestCase.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\AbstractTestCase\\:\\:callFunction\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/AbstractTestCase.php
