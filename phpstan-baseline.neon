@@ -1391,11 +1391,6 @@ parameters:
 			path: libraries/classes/Controllers/Preferences/ManageController.php
 
 		-
-			message: "#^Parameter \\#1 \\$exportType of method PhpMyAdmin\\\\Export\\:\\:processExportSchema\\(\\) expects string\\|null, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/SchemaExportController.php
-
-		-
 			message: "#^Cannot cast mixed to int\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/BinlogController.php
@@ -3512,11 +3507,6 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Export\\:\\:\\$dumpBufferObjects type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Export.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between PhpMyAdmin\\\\Plugins\\\\SchemaPlugin and null will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Export.php
 

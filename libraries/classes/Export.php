@@ -1240,22 +1240,19 @@ class Export
      * get all the export options and verify
      * call and include the appropriate Schema Class depending on $export_type
      *
-     * @param string|null $exportType format of the export
+     * @param non-empty-string $exportType format of the export
      */
-    public function processExportSchema(?string $exportType): void
+    public function processExportSchema(DatabaseName $db, string $exportType): void
     {
         /**
          * default is PDF, otherwise validate it's only letters a-z
          */
-        if (! isset($exportType) || ! preg_match('/^[a-zA-Z]+$/', $exportType)) {
+        if (! preg_match('/^[a-zA-Z]+$/', $exportType)) {
             $exportType = 'pdf';
         }
 
-        // sanitize this parameter which will be used below in a file inclusion
-        $exportType = Core::securePath($exportType);
-
         // get the specific plugin
-        /** @var SchemaPlugin $exportPlugin */
+        /** @var SchemaPlugin|null $exportPlugin */
         $exportPlugin = Plugins::getPlugin('schema', $exportType);
 
         // Check schema export type
@@ -1263,8 +1260,8 @@ class Export
             throw new RuntimeException(__('Bad type!'));
         }
 
-        $this->dbi->selectDb($_POST['db']);
-        $exportPlugin->exportSchema($_POST['db']);
+        $this->dbi->selectDb($db);
+        $exportPlugin->exportSchema($db->getName());
     }
 
     private function getHTMLForRefreshButton(string $exportType): string

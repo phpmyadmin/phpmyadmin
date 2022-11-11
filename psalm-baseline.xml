@@ -2577,11 +2577,6 @@
       <code>$_POST['2fa_configure']</code>
     </PossiblyInvalidCast>
   </file>
-  <file src="libraries/classes/Controllers/SchemaExportController.php">
-    <MixedArgument occurrences="1">
-      <code>$request-&gt;getParsedBodyParam('export_type')</code>
-    </MixedArgument>
-  </file>
   <file src="libraries/classes/Controllers/Server/BinlogController.php">
     <MixedArgument occurrences="2">
       <code>$log</code>
@@ -6598,9 +6593,6 @@
     </PossiblyUndefinedArrayOffset>
   </file>
   <file src="libraries/classes/Export.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>$exportPlugin === null</code>
-    </DocblockTypeContradiction>
     <InvalidReturnStatement occurrences="1">
       <code>$memoryLimit</code>
     </InvalidReturnStatement>
@@ -6676,13 +6668,6 @@
       <code>$tmpSelect</code>
       <code>$view</code>
     </MixedOperand>
-    <PossiblyInvalidArgument occurrences="2">
-      <code>$_POST['db']</code>
-      <code>$_POST['db']</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="1">
-      <code>$_POST['db']</code>
-    </PossiblyInvalidCast>
     <PossiblyNullArgument occurrences="1">
       <code>$GLOBALS['file_handle']</code>
     </PossiblyNullArgument>
