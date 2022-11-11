@@ -1480,8 +1480,8 @@ return [
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
-                '$dbi' => '@dbi',
                 '$structureController' => '@' . Table\StructureController::class,
+                '$indexes' => '@table_indexes',
             ],
         ],
         Table\Structure\AddKeyController::class => [
@@ -1533,8 +1533,8 @@ return [
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
-                '$dbi' => '@dbi',
                 '$structureController' => '@' . Table\StructureController::class,
+                '$indexes' => '@table_indexes',
             ],
         ],
         Table\Structure\MoveColumnsController::class => [
@@ -1587,8 +1587,8 @@ return [
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
-                '$dbi' => '@dbi',
                 '$structureController' => '@' . Table\StructureController::class,
+                '$indexes' => '@table_indexes',
             ],
         ],
         Table\Structure\UniqueController::class => [
@@ -1596,8 +1596,8 @@ return [
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
-                '$dbi' => '@dbi',
                 '$structureController' => '@' . Table\StructureController::class,
+                '$indexes' => '@table_indexes',
             ],
         ],
         Table\StructureController::class => [
