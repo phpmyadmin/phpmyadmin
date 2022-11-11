@@ -14,7 +14,8 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 use function __;
-use function count;
+use function array_map;
+use function implode;
 use function is_array;
 
 abstract class AbstractIndexController extends AbstractController
@@ -49,14 +50,7 @@ abstract class AbstractIndexController extends AbstractController
             return;
         }
 
-        $i = 1;
-        $selectedCount = count($selected);
-        $GLOBALS['sql_query'] = 'ALTER TABLE ' . Util::backquote($GLOBALS['table']) . ' ADD ' . $indexType . '(';
-
-        foreach ($selected as $field) {
-            $GLOBALS['sql_query'] .= Util::backquote($field);
-            $GLOBALS['sql_query'] .= $i++ === $selectedCount ? ');' : ', ';
-        }
+        $GLOBALS['sql_query'] = $this->getAddIndexSql($indexType, $GLOBALS['table'], $selected);
 
         $this->dbi->selectDb($GLOBALS['db']);
         $result = $this->dbi->tryQuery($GLOBALS['sql_query']);
@@ -70,5 +64,15 @@ abstract class AbstractIndexController extends AbstractController
         }
 
         ($this->structureController)($request);
+    }
+
+    /**
+     * @param string[] $selectedColumns
+     */
+    private function getAddIndexSql(string $indexType, string $table, array $selectedColumns): string
+    {
+        $columnsSql = implode(', ', array_map([Util::class, 'backquote'], $selectedColumns));
+
+        return 'ALTER TABLE ' . Util::backquote($table) . ' ADD ' . $indexType . '(' . $columnsSql . ');';
     }
 }
