@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Table\Structure;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -52,16 +53,7 @@ abstract class AbstractIndexController extends AbstractController
 
         $GLOBALS['sql_query'] = $this->getAddIndexSql($indexType, $GLOBALS['table'], $selected);
 
-        $this->dbi->selectDb($GLOBALS['db']);
-        $result = $this->dbi->tryQuery($GLOBALS['sql_query']);
-
-        if (! $result) {
-            $GLOBALS['message'] = Message::error($this->dbi->getError());
-        }
-
-        if (empty($GLOBALS['message'])) {
-            $GLOBALS['message'] = Message::success();
-        }
+        $GLOBALS['message'] = $this->executeAddIndexSql($GLOBALS['db'], $GLOBALS['sql_query']);
 
         ($this->structureController)($request);
     }
@@ -74,5 +66,20 @@ abstract class AbstractIndexController extends AbstractController
         $columnsSql = implode(', ', array_map([Util::class, 'backquote'], $selectedColumns));
 
         return 'ALTER TABLE ' . Util::backquote($table) . ' ADD ' . $indexType . '(' . $columnsSql . ');';
+    }
+
+    /**
+     * @param string|DatabaseName $db
+     */
+    private function executeAddIndexSql($db, string $sql): Message
+    {
+        $this->dbi->selectDb($db);
+        $result = $this->dbi->tryQuery($sql);
+
+        if (! $result) {
+            return Message::error($this->dbi->getError());
+        }
+
+        return Message::success();
     }
 }
