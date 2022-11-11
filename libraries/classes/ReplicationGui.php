@@ -71,18 +71,18 @@ class ReplicationGui
      */
     public function getHtmlForPrimaryReplication(
         ?string $connection,
-        ?bool $replClearScr,
+        bool $hasReplicaClearScreen,
         ?string $primaryAddUser,
         ?string $username,
         ?string $hostname
     ): string {
-        if ($replClearScr === null) {
+        if (! $hasReplicaClearScreen) {
             $primaryStatusTable = $this->getHtmlForReplicationStatusTable($connection, 'primary', true, false);
             $replicas = $GLOBALS['dbi']->fetchResult('SHOW SLAVE HOSTS', null, null);
 
             $urlParams = $GLOBALS['urlParams'];
             $urlParams['primary_add_user'] = true;
-            $urlParams['repl_clear_scr'] = true;
+            $urlParams['replica_clear_screen'] = true;
         }
 
         if ($primaryAddUser !== null) {
@@ -90,7 +90,7 @@ class ReplicationGui
         }
 
         return $this->template->render('server/replication/primary_replication', [
-            'clear_screen' => $replClearScr !== null,
+            'clear_screen' => $hasReplicaClearScreen,
             'primary_status_table' => $primaryStatusTable ?? '',
             'replicas' => $replicas ?? [],
             'url_params' => $urlParams ?? [],
@@ -176,7 +176,7 @@ class ReplicationGui
 
             $urlParams = $GLOBALS['urlParams'];
             $urlParams['replica_configure'] = true;
-            $urlParams['repl_clear_scr'] = true;
+            $urlParams['replica_clear_screen'] = true;
 
             $reconfigurePrimaryLink = Url::getCommon($urlParams, '', false);
 

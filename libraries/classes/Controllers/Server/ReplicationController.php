@@ -45,8 +45,7 @@ class ReplicationController extends AbstractController
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
-        /** @var bool|null $replClearScr */
-        $replClearScr = $request->getParsedBodyParam('repl_clear_scr');
+        $hasReplicaClearScreen = (bool) $request->getParsedBodyParam('replica_clear_screen');
         $replicaConfigure = $request->getParsedBodyParam('replica_configure');
         $primaryConfigure = $request->getParsedBodyParam('primary_configure');
 
@@ -106,7 +105,7 @@ class ReplicationController extends AbstractController
 
             $primaryReplicationHtml = $this->replicationGui->getHtmlForPrimaryReplication(
                 $primaryConnection,
-                $replClearScr,
+                $hasReplicaClearScreen,
                 $primaryAddUser,
                 $username,
                 $hostname
@@ -116,7 +115,7 @@ class ReplicationController extends AbstractController
         if ($primaryConfigure !== null) {
             $primaryConfigurationHtml = $this->replicationGui->getHtmlForPrimaryConfiguration();
         } else {
-            if ($replClearScr === null) {
+            if (! $hasReplicaClearScreen) {
                 $replicaConfigurationHtml = $this->replicationGui->getHtmlForReplicaConfiguration(
                     $primaryConnection,
                     $replicaInfo['status'],
@@ -137,7 +136,7 @@ class ReplicationController extends AbstractController
             'is_primary' => $primaryInfo['status'],
             'primary_configure' => $primaryConfigure,
             'replica_configure' => $replicaConfigure,
-            'clear_screen' => $replClearScr,
+            'clear_screen' => $hasReplicaClearScreen,
             'primary_replication_html' => $primaryReplicationHtml ?? '',
             'primary_configuration_html' => $primaryConfigurationHtml ?? '',
             'replica_configuration_html' => $replicaConfigurationHtml ?? '',
