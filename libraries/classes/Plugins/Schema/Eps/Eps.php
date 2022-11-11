@@ -7,11 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Eps;
 
-use PhpMyAdmin\Core;
-use PhpMyAdmin\ResponseRenderer;
-
-use function strlen;
-
 /**
  * This Class is EPS Library and
  * helps in developing structure of EPS Schema Export
@@ -234,24 +229,8 @@ class Eps
         $this->stringCommands .= "showpage \n";
     }
 
-    /**
-     * Output EPS Document for download
-     *
-     * @param string $fileName name of the eps document
-     */
-    public function showOutput($fileName): void
+    public function getOutputData(): string
     {
-        // if(ob_get_clean()){
-        //ob_end_clean();
-        //}
-        $output = $this->stringCommands;
-        ResponseRenderer::getInstance()
-            ->disable();
-        Core::downloadHeader(
-            $fileName,
-            'image/x-eps',
-            strlen($output)
-        );
-        print $output;
+        return $this->stringCommands;
     }
 }

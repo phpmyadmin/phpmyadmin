@@ -153,11 +153,11 @@ class EpsRelationSchema extends ExportRelationSchema
     }
 
     /**
-     * Output Eps Document for download
+     * @return array{fileName: non-empty-string, fileData: string}
      */
-    public function showOutput(): void
+    public function getExportInfo(): array
     {
-        $this->diagram->showOutput($this->getFileName('.eps'));
+        return ['fileName' => $this->getFileName('.eps'), 'fileData' => $this->diagram->getOutputData()];
     }
 
     /**

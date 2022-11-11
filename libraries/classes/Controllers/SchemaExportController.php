@@ -4,16 +4,18 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use PhpMyAdmin\Core;
 use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Exceptions\ExportException;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use RuntimeException;
 
 use function __;
 use function is_string;
+use function mb_strlen;
 
 /**
  * Schema export handler
@@ -51,10 +53,20 @@ class SchemaExportController
          * Include the appropriate Schema Class depending on $exportType, default is PDF.
          */
         try {
-            $this->export->processExportSchema($db, $exportType);
-        } catch (RuntimeException $exception) {
+            $exportInfo = $this->export->getExportSchemaInfo($db, $exportType);
+        } catch (ExportException $exception) {
             $this->response->setRequestStatus(false);
             $this->response->addHTML(Message::error($exception->getMessage())->getDisplay());
+
+            return;
         }
+
+        $this->response->disable();
+        Core::downloadHeader(
+            $exportInfo['fileName'],
+            $exportInfo['mediaType'],
+            mb_strlen($exportInfo['fileData'], '8bit')
+        );
+        echo $exportInfo['fileData'];
     }
 }

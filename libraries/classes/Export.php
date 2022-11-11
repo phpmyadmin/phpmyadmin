@@ -11,9 +11,9 @@ use PhpMyAdmin\Controllers\Database\ExportController as DatabaseExportController
 use PhpMyAdmin\Controllers\Server\ExportController as ServerExportController;
 use PhpMyAdmin\Controllers\Table\ExportController as TableExportController;
 use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Exceptions\ExportException;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\SchemaPlugin;
-use RuntimeException;
 
 use function __;
 use function array_filter;
@@ -1240,9 +1240,13 @@ class Export
      * get all the export options and verify
      * call and include the appropriate Schema Class depending on $export_type
      *
-     * @param non-empty-string $exportType format of the export
+     * @param non-empty-string $exportType
+     *
+     * @return array{fileName: non-empty-string, mediaType: non-empty-string, fileData: string}
+     *
+     * @throws ExportException
      */
-    public function processExportSchema(DatabaseName $db, string $exportType): void
+    public function getExportSchemaInfo(DatabaseName $db, string $exportType): array
     {
         /**
          * default is PDF, otherwise validate it's only letters a-z
@@ -1257,11 +1261,12 @@ class Export
 
         // Check schema export type
         if ($exportPlugin === null) {
-            throw new RuntimeException(__('Bad type!'));
+            throw new ExportException(__('Bad type!'));
         }
 
         $this->dbi->selectDb($db);
-        $exportPlugin->exportSchema($db->getName());
+
+        return $exportPlugin->getExportInfo($db);
     }
 
     private function getHTMLForRefreshButton(string $exportType): string

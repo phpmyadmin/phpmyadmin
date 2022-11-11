@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema;
 
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\Pdf\PdfRelationSchema;
 use PhpMyAdmin\Plugins\SchemaPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -113,16 +114,18 @@ class SchemaPdf extends SchemaPlugin
     }
 
     /**
-     * Exports the schema into PDF format.
-     *
-     * @param string $db database name
+     * @return array{fileName: non-empty-string, mediaType: non-empty-string, fileData: string}
      */
-    public function exportSchema($db): bool
+    public function getExportInfo(DatabaseName $db): array
     {
-        $export = new PdfRelationSchema($db);
-        $export->showOutput();
+        $export = new PdfRelationSchema($db->getName());
+        $exportInfo = $export->getExportInfo();
 
-        return true;
+        return [
+            'fileName' => $exportInfo['fileName'],
+            'mediaType' => 'application/pdf',
+            'fileData' => $exportInfo['fileData'],
+        ];
     }
 
     public static function isAvailable(): bool

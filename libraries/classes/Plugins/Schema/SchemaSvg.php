@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema;
 
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\Svg\SvgRelationSchema;
 use PhpMyAdmin\Plugins\SchemaPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -66,15 +67,17 @@ class SchemaSvg extends SchemaPlugin
     }
 
     /**
-     * Exports the schema into SVG format.
-     *
-     * @param string $db database name
+     * @return array{fileName: non-empty-string, mediaType: non-empty-string, fileData: string}
      */
-    public function exportSchema($db): bool
+    public function getExportInfo(DatabaseName $db): array
     {
-        $export = new SvgRelationSchema($db);
-        $export->showOutput();
+        $export = new SvgRelationSchema($db->getName());
+        $exportInfo = $export->getExportInfo();
 
-        return true;
+        return [
+            'fileName' => $exportInfo['fileName'],
+            'mediaType' => 'image/svg+xml',
+            'fileData' => $exportInfo['fileData'],
+        ];
     }
 }
