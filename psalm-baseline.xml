@@ -3858,13 +3858,10 @@
       <code>$_POST['delimiter']</code>
     </PossiblyInvalidArgument>
   </file>
-  <file src="libraries/classes/Controllers/Table/Structure/AddIndexController.php">
-    <MixedArgument occurrences="1">
-      <code>$field</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$field</code>
-    </MixedAssignment>
+  <file src="libraries/classes/Controllers/Table/Structure/AbstractIndexController.php">
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$selected</code>
+    </MixedArgumentTypeCoercion>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/AddKeyController.php">
     <MixedAssignment occurrences="1">
@@ -3892,14 +3889,6 @@
     </MixedArgumentTypeCoercion>
     <MixedAssignment occurrences="1">
       <code>$GLOBALS['num_fields']</code>
-    </MixedAssignment>
-  </file>
-  <file src="libraries/classes/Controllers/Table/Structure/FulltextController.php">
-    <MixedArgument occurrences="1">
-      <code>$field</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$field</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/MoveColumnsController.php">
@@ -4063,22 +4052,6 @@
       <code>$_POST['field_expression'][$i]</code>
       <code>$_POST['field_virtuality'][$i]</code>
     </PossiblyInvalidOperand>
-  </file>
-  <file src="libraries/classes/Controllers/Table/Structure/SpatialController.php">
-    <MixedArgument occurrences="1">
-      <code>$field</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$field</code>
-    </MixedAssignment>
-  </file>
-  <file src="libraries/classes/Controllers/Table/Structure/UniqueController.php">
-    <MixedArgument occurrences="1">
-      <code>$field</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$field</code>
-    </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/StructureController.php">
     <MixedArgument occurrences="12">
