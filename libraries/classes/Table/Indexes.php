@@ -36,12 +36,16 @@ final class Indexes
      * @param Index $index      An Index instance.
      * @param bool  $renameMode Rename the Index mode
      */
-    public function doSaveData(Index $index, bool $renameMode, string $db, string $table, bool $previewSql): void
-    {
+    public function doSaveData(
+        Index $index,
+        bool $renameMode,
+        string $db,
+        string $table,
+        bool $previewSql,
+        string $oldIndexName = '',
+    ): void {
         $error = false;
         if ($renameMode && Compatibility::isCompatibleRenameIndex($this->dbi->getVersion())) {
-            $oldIndexName = $_POST['old_index'];
-
             if ($oldIndexName === 'PRIMARY') {
                 if ($index->getName() === '') {
                     $index->setName('PRIMARY');
