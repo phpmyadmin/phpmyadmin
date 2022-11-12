@@ -2207,9 +2207,6 @@
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Import/ImportController.php">
-    <DeprecatedMethod occurrences="1">
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <DocblockTypeContradiction occurrences="1">
       <code>$import_plugin == null</code>
     </DocblockTypeContradiction>
@@ -2272,7 +2269,7 @@
     <MixedMethodCall occurrences="1">
       <code>close</code>
     </MixedMethodCall>
-    <PossiblyInvalidArgument occurrences="10">
+    <PossiblyInvalidArgument occurrences="8">
       <code>$GLOBALS['format']</code>
       <code>$GLOBALS['local_import_file']</code>
       <code>$_POST['bkm_label']</code>
@@ -2280,18 +2277,15 @@
       <code>$_POST['bookmark_variable']</code>
       <code>$_POST['sql_query']</code>
       <code>$_POST['sql_query']</code>
-      <code>$parameter</code>
-      <code>$replacement</code>
       <code>$skip &lt; $GLOBALS['read_limit'] ? $skip : $GLOBALS['read_limit']</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="7">
+    <PossiblyInvalidCast occurrences="6">
       <code>$GLOBALS['format']</code>
       <code>$GLOBALS['local_import_file']</code>
       <code>$_POST['bkm_label']</code>
       <code>$_POST['bkm_label']</code>
       <code>$_POST['sql_query']</code>
       <code>$_POST['sql_query']</code>
-      <code>$replacement</code>
     </PossiblyInvalidCast>
     <PossiblyInvalidOperand occurrences="3">
       <code>$GLOBALS['charset_of_file']</code>
@@ -9867,8 +9861,7 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportSql.php">
-    <DeprecatedMethod occurrences="10">
-      <code>escapeString</code>
+    <DeprecatedMethod occurrences="9">
       <code>escapeString</code>
       <code>escapeString</code>
       <code>escapeString</code>
