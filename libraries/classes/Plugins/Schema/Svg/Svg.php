@@ -7,14 +7,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Svg;
 
-use PhpMyAdmin\Core;
-use PhpMyAdmin\ResponseRenderer;
 use XMLWriter;
 
 use function intval;
 use function is_int;
+use function is_string;
 use function sprintf;
-use function strlen;
 
 /**
  * This Class inherits the XMLwriter class and
@@ -164,29 +162,11 @@ class Svg extends XMLWriter
         $this->endDocument();
     }
 
-    /**
-     * output RelationStatsSvg Document
-     *
-     * svg document prompted to the user for download
-     * RelationStatsSvg document saved in .svg extension and can be
-     * easily changeable by using any svg IDE
-     *
-     * @see XMLWriter::startElement()
-     * @see XMLWriter::writeAttribute()
-     *
-     * @param string $fileName file name
-     */
-    public function showOutput($fileName): void
+    public function getOutputData(): string
     {
-        //ob_get_clean();
-        $output = $this->flush();
-        ResponseRenderer::getInstance()->disable();
-        Core::downloadHeader(
-            $fileName,
-            'image/svg+xml',
-            strlen($output)
-        );
-        print $output;
+        $data = $this->flush();
+
+        return is_string($data) ? $data : '';
     }
 
     /**

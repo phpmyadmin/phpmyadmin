@@ -316,11 +316,11 @@ class PdfRelationSchema extends ExportRelationSchema
     }
 
     /**
-     * Output Pdf Document for download
+     * @return array{fileName: non-empty-string, fileData: string}
      */
-    public function showOutput(): void
+    public function getExportInfo(): array
     {
-        $this->diagram->download($this->getFileName('.pdf'));
+        return ['fileName' => $this->getFileName('.pdf'), 'fileData' => $this->diagram->getOutputData()];
     }
 
     /**

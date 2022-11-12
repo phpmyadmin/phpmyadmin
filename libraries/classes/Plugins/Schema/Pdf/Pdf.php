@@ -14,6 +14,7 @@ use PhpMyAdmin\Util;
 use function __;
 use function count;
 use function getcwd;
+use function is_string;
 use function max;
 use function mb_ord;
 use function str_replace;
@@ -427,5 +428,13 @@ class Pdf extends PdfLib
     public function setOffline($value): void
     {
         $this->offline = $value;
+    }
+
+    public function getOutputData(): string
+    {
+        /** @var mixed $data */
+        $data = $this->getPDFData();
+
+        return is_string($data) ? $data : '';
     }
 }

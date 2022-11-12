@@ -9267,8 +9267,7 @@
     </PossiblyInvalidArrayOffset>
   </file>
   <file src="libraries/classes/Pdf.php">
-    <MixedArgument occurrences="4">
-      <code>$pdfData</code>
+    <MixedArgument occurrences="3">
       <code>$this-&gt;CurrentFont</code>
       <code>$this-&gt;pages</code>
       <code>$this-&gt;pages[$n]</code>
@@ -9283,9 +9282,6 @@
       <code>$this-&gt;footerset[$this-&gt;page]</code>
       <code>$this-&gt;footerset[$this-&gt;page]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="1">
-      <code>$pdfData</code>
-    </MixedAssignment>
     <ParamNameMismatch occurrences="1">
       <code>$error_message</code>
     </ParamNameMismatch>
@@ -10990,11 +10986,6 @@
       <code>(string) $currentDb</code>
     </RedundantCastGivenDocblockType>
   </file>
-  <file src="libraries/classes/Plugins/Schema/Dia/Dia.php">
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$output</code>
-    </PossiblyInvalidArgument>
-  </file>
   <file src="libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php">
     <MixedArgument occurrences="5">
       <code>$one_field</code>
@@ -11615,9 +11606,6 @@
       <code>is_int($height)</code>
       <code>is_int($width)</code>
     </DocblockTypeContradiction>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$output</code>
-    </PossiblyInvalidArgument>
     <RedundantCastGivenDocblockType occurrences="3">
       <code>(string) $styles</code>
       <code>(string) $styles</code>

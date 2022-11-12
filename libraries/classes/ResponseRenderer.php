@@ -69,7 +69,7 @@ class ResponseRenderer
      *
      * @var bool
      */
-    private $isDisabled;
+    protected $isDisabled;
     /**
      * Whether there were any errors during the processing of the request
      * Only used for ajax responses

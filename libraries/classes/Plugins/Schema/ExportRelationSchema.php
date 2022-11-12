@@ -237,13 +237,11 @@ class ExportRelationSchema
     }
 
     /**
-     * Returns the file name
+     * @param non-empty-string $extension
      *
-     * @param string $extension file extension
-     *
-     * @return string file name
+     * @return non-empty-string
      */
-    protected function getFileName($extension): string
+    protected function getFileName(string $extension): string
     {
         $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
 

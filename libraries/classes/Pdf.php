@@ -13,7 +13,6 @@ use TCPDF_FONTS;
 
 use function __;
 use function count;
-use function strlen;
 use function strtr;
 
 /**
@@ -136,22 +135,5 @@ class Pdf extends TCPDF
             __('Error while creating PDF:') . ' ' . $error_message
         )->getDisplay();
         exit;
-    }
-
-    /**
-     * Sends file as a download to user.
-     *
-     * @param string $filename file name
-     */
-    public function download($filename): void
-    {
-        $pdfData = $this->getPDFData();
-        ResponseRenderer::getInstance()->disable();
-        Core::downloadHeader(
-            $filename,
-            'application/pdf',
-            strlen($pdfData)
-        );
-        echo $pdfData;
     }
 }

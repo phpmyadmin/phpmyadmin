@@ -176,11 +176,11 @@ class SvgRelationSchema extends ExportRelationSchema
     }
 
     /**
-     * Output RelationStatsSvg Document for download
+     * @return array{fileName: non-empty-string, fileData: string}
      */
-    public function showOutput(): void
+    public function getExportInfo(): array
     {
-        $this->diagram->showOutput($this->getFileName('.svg'));
+        return ['fileName' => $this->getFileName('.svg'), 'fileData' => $this->diagram->getOutputData()];
     }
 
     /**

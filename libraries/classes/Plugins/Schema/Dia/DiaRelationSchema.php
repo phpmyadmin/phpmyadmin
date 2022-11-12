@@ -146,11 +146,11 @@ class DiaRelationSchema extends ExportRelationSchema
     }
 
     /**
-     * Output Dia Document for download
+     * @return array{fileName: non-empty-string, fileData: string}
      */
-    public function showOutput(): void
+    public function getExportInfo(): array
     {
-        $this->diagram->showOutput($this->getFileName('.dia'));
+        return ['fileName' => $this->getFileName('.dia'), 'fileData' => $this->diagram->getOutputData()];
     }
 
     /**
