@@ -189,22 +189,3 @@ jobs:
         with:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
           coverage-reports: build/logs/clover.xml
-
-  test-js:
-    name: Test javascript files
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-          cache: 'yarn'
-
-      - name: Install modules
-        run: yarn install --non-interactive
-
-      - name: Run tests
-        run: yarn test
