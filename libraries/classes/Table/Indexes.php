@@ -16,11 +16,8 @@ use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Util;
 
 use function __;
-use function array_map;
-use function implode;
 
 final class Indexes
 {
@@ -117,16 +114,6 @@ final class Indexes
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $error);
         }
-    }
-
-    /**
-     * @param string[] $selectedColumns
-     */
-    public function getAddIndexSql(string $indexType, string $table, array $selectedColumns): string
-    {
-        $columnsSql = implode(', ', array_map([Util::class, 'backquote'], $selectedColumns));
-
-        return 'ALTER TABLE ' . Util::backquote($table) . ' ADD ' . $indexType . '(' . $columnsSql . ');';
     }
 
     /**

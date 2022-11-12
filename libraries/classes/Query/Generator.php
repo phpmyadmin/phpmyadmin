@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Query;
 
 use PhpMyAdmin\Util;
 
+use function array_map;
 use function count;
 use function implode;
 use function is_array;
@@ -407,5 +408,15 @@ class Generator
         }
 
         return $sql_query . implode(', ', $partitionNames) . ';';
+    }
+
+    /**
+     * @param string[] $selectedColumns
+     */
+    public static function getAddIndexSql(string $indexType, string $table, array $selectedColumns): string
+    {
+        $columnsSql = implode(', ', array_map([Util::class, 'backquote'], $selectedColumns));
+
+        return 'ALTER TABLE ' . Util::backquote($table) . ' ADD ' . $indexType . '(' . $columnsSql . ');';
     }
 }

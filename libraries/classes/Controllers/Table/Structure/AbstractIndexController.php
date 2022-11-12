@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Table\Structure;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Query\Generator;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Indexes;
 use PhpMyAdmin\Template;
@@ -46,7 +47,7 @@ abstract class AbstractIndexController extends AbstractController
             return;
         }
 
-        $GLOBALS['sql_query'] = $this->indexes->getAddIndexSql($indexType, $GLOBALS['table'], $selected);
+        $GLOBALS['sql_query'] = Generator::getAddIndexSql($indexType, $GLOBALS['table'], $selected);
 
         $GLOBALS['message'] = $this->indexes->executeAddIndexSql($GLOBALS['db'], $GLOBALS['sql_query']);
 
