@@ -43,7 +43,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: yarn
+          cache: 'yarn'
 
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v3
