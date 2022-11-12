@@ -544,6 +544,7 @@ var ConsoleInput = {
         if (ConsoleInput.codeMirror) {
             // eslint-disable-next-line new-cap
             ConsoleInput.inputs.console = CodeMirror($('#pma_console').find('.console_query_input')[0], {
+                // style: cm-s-pma
                 theme: 'pma',
                 mode: 'text/x-sql',
                 lineWrapping: true,
@@ -562,6 +563,7 @@ var ConsoleInput = {
             if ($('#pma_bookmarks').length !== 0) {
                 // eslint-disable-next-line new-cap
                 ConsoleInput.inputs.bookmark = CodeMirror($('#pma_console').find('.bookmark_add_input')[0], {
+                    // style: cm-s-pma
                     theme: 'pma',
                     mode: 'text/x-sql',
                     lineWrapping: true,
