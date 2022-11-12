@@ -4,12 +4,14 @@ $textarea-rows: 15;
 .CodeMirror {
   height: 20rem;
   direction: ltr;
+}
 
+// Code mirror default style (do not affect the console style)
+.CodeMirror.cm-s-default {
   // @see: issue #17705
   div.CodeMirror-scroll {
     margin-right: 0;
     padding-bottom: 0;
-    overflow: hidden !important;
   }
 }
 

@@ -140,10 +140,9 @@ final class ImportController extends AbstractController
             // apply values for parameters
             if (! empty($_POST['parameterized']) && ! empty($_POST['parameters']) && is_array($_POST['parameters'])) {
                 $parameters = $_POST['parameters'];
-                foreach ($parameters as $parameter => $replacement) {
-                    $replacementValue = $this->dbi->escapeString($replacement);
+                foreach ($parameters as $parameter => $replacementValue) {
                     if (! is_numeric($replacementValue)) {
-                        $replacementValue = '\'' . $replacementValue . '\'';
+                        $replacementValue = '\'' . $this->dbi->escapeString($replacementValue) . '\'';
                     }
 
                     $quoted = preg_quote($parameter, '/');

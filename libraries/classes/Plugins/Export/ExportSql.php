@@ -2349,23 +2349,20 @@ class ExportSql extends ExportPlugin
                     }
                 } elseif ($metaInfo->isMappedTypeBit) {
                     // detection of 'bit' works only on mysqli extension
-                    $values[] = "b'" . $GLOBALS['dbi']->escapeString(
-                        Util::printableBitValue(
-                            (int) $row[$j],
-                            $metaInfo->length
-                        )
-                    )
-                    . "'";
+                    $values[] = "b'" . Util::printableBitValue(
+                        (int) $row[$j],
+                        $metaInfo->length
+                    ) . "'";
                 } elseif ($metaInfo->isMappedTypeGeometry) {
                     // export GIS types as hex
                     $values[] = '0x' . bin2hex($row[$j]);
                 } elseif (! empty($GLOBALS['exporting_metadata']) && $row[$j] === '@LAST_PAGE') {
                     $values[] = '@LAST_PAGE';
+                } elseif ($row[$j] === '') {
+                    $values[] = "''";
                 } else {
                     // something else -> treat as a string
-                    $values[] = '\''
-                        . $GLOBALS['dbi']->escapeString($row[$j])
-                        . '\'';
+                    $values[] = '\'' . $GLOBALS['dbi']->escapeString($row[$j]) . '\'';
                 }
             }
 

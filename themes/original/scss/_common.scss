@@ -436,7 +436,6 @@ div#modalOverlay {
 }
 
 #login_form label {
-  width: 10em;
   font-weight: bolder;
 }
 
@@ -1788,9 +1787,32 @@ input#auto_increment_opt {
   }
 }
 
-input.btn {
+input.btn,
+button.btn {
+  border-color: $btn-border-color;
   color: #333;
   background-color: #d0dce0;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: #8b9aa0;
+    border-color: $btn-border-color;
+  }
+}
+
+button.jsPrintButton {
+  background-color: unset;
+  border-color: unset;
+  border: unset;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: unset;
+    border-color: unset;
+    border: unset;
+  }
 }
 
 body .ui-widget {

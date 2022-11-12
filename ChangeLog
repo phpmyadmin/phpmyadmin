@@ -60,6 +60,7 @@ phpMyAdmin - ChangeLog
 - issue #16042 Exported gzip file of database has first ~73 kB uncompressed and rest is gzip compressed in Firefox
 - issue #17705 Fix inline SQL query edit FK checkbox preventing submit buttons from working
 - issue #17777 Fix Uncaught TypeError: Cannot read properties of null (reading 'inline') on datepickers when re-opened
+- issue        Fix Original theme buttons style and login form width
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5
