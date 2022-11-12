@@ -36,7 +36,7 @@ final class Indexes
      * @param Index $index      An Index instance.
      * @param bool  $renameMode Rename the Index mode
      */
-    public function doSaveData(Index $index, bool $renameMode, string $db, string $table): void
+    public function doSaveData(Index $index, bool $renameMode, string $db, string $table, bool $previewSql): void
     {
         $error = false;
         if ($renameMode && Compatibility::isCompatibleRenameIndex($this->dbi->getVersion())) {
@@ -64,7 +64,7 @@ final class Indexes
         }
 
         // If there is a request for SQL previewing.
-        if (isset($_POST['preview_sql'])) {
+        if ($previewSql) {
             $this->response->addJSON(
                 'sql_data',
                 $this->template->render('preview_sql', ['query_data' => $sqlQuery]),
