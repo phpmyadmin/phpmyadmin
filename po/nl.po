@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-11-13 00:20+0000\n"
-"PO-Revision-Date: 2022-10-03 13:18+0000\n"
+"PO-Revision-Date: 2022-11-13 16:26+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:240
 #, php-format
@@ -5166,6 +5166,8 @@ msgid ""
 "Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
 "code] configuration."
 msgstr ""
+"Zoeken binnen de database is uitgeschakeld door de "
+"[code]$cfg['UseDbSearch'][/code] configuratie."
 
 #: libraries/classes/Controllers/Database/Structure/AddPrefixController.php:20
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:45
@@ -5473,10 +5475,8 @@ msgstr ""
 "%sdocumentatie%s om deze limiet te omzeilen."
 
 #: libraries/classes/Controllers/Import/ImportController.php:249
-#, fuzzy
-#| msgid "Incorrect form specified!"
 msgid "Incorrect format parameter"
-msgstr "Onjuist formulier gespecificeerd!"
+msgstr "Onjuist parameterformaat"
 
 #: libraries/classes/Controllers/Import/ImportController.php:379
 #: libraries/classes/Controllers/Import/ImportController.php:622
@@ -11409,7 +11409,7 @@ msgstr "Gegevens worden geëxporteerd voor tabel"
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/zoom_search/result_form.twig:36
 msgid "Null"
-msgstr "Leeg"
+msgstr "Nul"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:279
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:372
@@ -13733,10 +13733,8 @@ msgstr ""
 "gebruikelijke omzetting van IPv4 adressen in IPv6 adressen wordt aangenomen"
 
 #: libraries/classes/Types.php:445
-#, fuzzy
-#| msgid "Stores a Universally Unique Identifier (UUID)"
 msgid "128-bit UUID (Universally Unique Identifier)"
-msgstr "Bevat een Universeel Unieke Identifier (UUID)"
+msgstr "128-bit UUID (Universeel Unieke Identificatie)"
 
 #: libraries/classes/Types.php:801
 msgctxt "numeric types"
@@ -15793,10 +15791,8 @@ msgid "Send error report"
 msgstr "Verzend foutmeldingsverslag"
 
 #: templates/error/simple.twig:2
-#, fuzzy
-#| msgid "Something went wrong."
 msgid "Something went wrong"
-msgstr "Er ging iets verkeerd."
+msgstr "Er ging iets verkeerd"
 
 #: templates/error/simple.twig:7 templates/modals/index_dialog_modal.twig:30
 msgid "Go back"
@@ -18857,7 +18853,7 @@ msgstr "tabel-specifiek"
 
 #: templates/table/relation/common_form.twig:9
 msgid "Foreign key constraints"
-msgstr "Beperkingen voor vreemde sleutels"
+msgstr "Externe sleutel beperkingen"
 
 #: templates/table/relation/common_form.twig:14
 msgid "Actions"
@@ -18886,7 +18882,7 @@ msgstr ""
 
 #: templates/table/relation/common_form.twig:28
 msgid "Foreign key constraint"
-msgstr "Vreemde sleutel"
+msgstr "Externe sleutel beperking"
 
 #: templates/table/relation/common_form.twig:44
 msgid "+ Add constraint"
