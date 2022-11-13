@@ -240,7 +240,6 @@
             db_priv: bool,
             dbi: PhpMyAdmin\DatabaseInterface,
             dbs_to_test: string[]|false,
-            dblist: PhpMyAdmin\Database\DatabaseList,
             display_query: string,
             errno: int,
             error: bool,

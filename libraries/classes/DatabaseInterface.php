@@ -9,7 +9,6 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Database\DatabaseList;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\DbalInterface;
 use PhpMyAdmin\Dbal\DbiExtension;
@@ -140,6 +139,9 @@ class DatabaseInterface implements DbalInterface
 
     /** @var float */
     public $lastQueryExecutionTime = 0;
+
+    /** @var ListDatabase|null */
+    private $databaseList = null;
 
     /**
      * @param DbiExtension $ext Object to be used for database queries
@@ -701,14 +703,14 @@ class DatabaseInterface implements DbalInterface
             // f.e. to apply hide_db and only_db
             $drops = array_diff(
                 array_keys($databases),
-                (array) $GLOBALS['dblist']->databases
+                (array) $this->getDatabaseList()
             );
             foreach ($drops as $drop) {
                 unset($databases[$drop]);
             }
         } else {
             $databases = [];
-            foreach ($GLOBALS['dblist']->databases as $databaseName) {
+            foreach ($this->getDatabaseList() as $databaseName) {
                 // Compatibility with INFORMATION_SCHEMA output
                 $databases[$databaseName]['SCHEMA_NAME'] = $databaseName;
 
@@ -843,7 +845,7 @@ class DatabaseInterface implements DbalInterface
 
         $columns = [];
         if ($database === null) {
-            foreach ($GLOBALS['dblist']->databases as $database) {
+            foreach ($this->getDatabaseList() as $database) {
                 $columns[$database] = $this->getColumnsFull($database, null, null, $link);
             }
 
@@ -1145,10 +1147,7 @@ class DatabaseInterface implements DbalInterface
         /* Loads closest context to this version. */
         Context::loadClosest(($this->isMariaDb ? 'MariaDb' : 'MySql') . $this->versionInt);
 
-        /**
-         * the DatabaseList class as a stub for the ListDatabase class
-         */
-        $GLOBALS['dblist'] = new DatabaseList();
+        $this->databaseList = null;
     }
 
     /**
@@ -1190,14 +1189,11 @@ class DatabaseInterface implements DbalInterface
     public function postConnectControl(Relation $relation): void
     {
         // If Zero configuration mode enabled, check PMA tables in current db.
-        if ($GLOBALS['cfg']['ZeroConf'] != true) {
+        if (! $GLOBALS['cfg']['ZeroConf']) {
             return;
         }
 
-        /**
-         * the DatabaseList class as a stub for the ListDatabase class
-         */
-        $GLOBALS['dblist'] = new DatabaseList();
+        $this->databaseList = null;
 
         $relation->initRelationParamsCache();
     }
@@ -2107,5 +2103,14 @@ class DatabaseInterface implements DbalInterface
     public function prepare(string $query, $link = self::CONNECT_USER)
     {
         return $this->extension->prepare($this->links[$link], $query);
+    }
+
+    public function getDatabaseList(): ListDatabase
+    {
+        if ($this->databaseList === null) {
+            $this->databaseList = new ListDatabase();
+        }
+
+        return $this->databaseList;
     }
 }

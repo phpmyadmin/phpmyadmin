@@ -67,7 +67,7 @@ final class Options
         }
 
         $databases = [];
-        foreach ($GLOBALS['dblist']->databases as $currentDb) {
+        foreach ($GLOBALS['dbi']->getDatabaseList() as $currentDb) {
             if (Utilities::isSystemSchema($currentDb, true)) {
                 continue;
             }

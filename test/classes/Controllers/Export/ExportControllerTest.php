@@ -53,10 +53,14 @@ class ExportControllerTest extends AbstractTestCase
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['sql_indexes'] = null;
         $GLOBALS['sql_auto_increments'] = null;
-        $GLOBALS['dblist'] = (object) ['databases' => ['test_db']];
         $GLOBALS['config']->selectServer();
         $GLOBALS['cfg'] = $GLOBALS['config']->settings;
 
+        $this->dummyDbi->addResult(
+            'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`',
+            [['test_db']],
+            ['SCHEMA_NAME']
+        );
         $this->dummyDbi->addResult('SET SQL_MODE=""', [[]]);
         $this->dummyDbi->addResult('SET time_zone = "+00:00"', [[]]);
         $this->dummyDbi->addResult('SELECT @@session.time_zone', [['SYSTEM']]);

@@ -21,7 +21,6 @@ use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use ReflectionMethod;
-use stdClass;
 
 use function __;
 use function _pgettext;
@@ -1684,7 +1683,9 @@ class PrivilegesTest extends AbstractTestCase
         );
         // phpcs:enable
 
-        $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $GLOBALS['dbi'] = $dbi;
+        $serverPrivileges = $this->getPrivileges($dbi);
 
         // Test case 1
         $actual = $serverPrivileges->getHtmlForAllTableSpecificRights('pma', 'host', 'table', 'pmadb');
@@ -1697,12 +1698,13 @@ class PrivilegesTest extends AbstractTestCase
         $this->assertStringContainsString('Table-specific privileges', $actual);
 
         // Test case 2
-        $GLOBALS['dblist'] = new stdClass();
-        $GLOBALS['dblist']->databases = [
-            'x',
-            'y',
-            'z',
-        ];
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['cfg']['Server']['only_db'] = '';
+        $dummyDbi->addResult(
+            'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`',
+            [['x'], ['y'], ['z']],
+            ['SCHEMA_NAME']
+        );
         $actual = $serverPrivileges->getHtmlForAllTableSpecificRights('pma2', 'host2', 'database', '');
         $this->assertStringContainsString(
             '<div class="card-header js-submenu-label" data-submenu-label="Database">',

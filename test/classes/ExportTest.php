@@ -10,7 +10,6 @@ use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\Export\ExportPhparray;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Transformations;
-use stdClass;
 
 use function htmlspecialchars;
 
@@ -189,18 +188,22 @@ SQL;
     public function testExportServer(): void
     {
         $GLOBALS['plugin_param'] = ['export_type' => 'server', 'single_table' => false];
-        $GLOBALS['dblist'] = new stdClass();
-        $GLOBALS['dblist']->databases = ['test_db'];
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = false;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['cfg']['Server']['only_db'] = '';
         $GLOBALS['sql_structure_or_data'] = 'structure_and_data';
         $GLOBALS['sql_insert_syntax'] = 'both';
         $GLOBALS['sql_max_query_size'] = '50000';
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult(
+            'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`',
+            [['test_db']],
+            ['SCHEMA_NAME']
+        );
         $dbiDummy->addResult(
             'SHOW TABLES FROM `test_db`;',
             [['test_table']],

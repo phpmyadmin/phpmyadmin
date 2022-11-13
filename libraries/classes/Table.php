@@ -984,8 +984,9 @@ class Table implements Stringable
         $GLOBALS['asfile'] = 1;
 
         // Ensuring the target database is valid.
-        if (! $GLOBALS['dblist']->databases->exists($sourceDb, $targetDb)) {
-            if (! $GLOBALS['dblist']->databases->exists($sourceDb)) {
+        $databaseList = $GLOBALS['dbi']->getDatabaseList();
+        if (! $databaseList->exists($sourceDb, $targetDb)) {
+            if (! $databaseList->exists($sourceDb)) {
                 $GLOBALS['message'] = Message::rawError(
                     sprintf(
                         __('Source database `%s` was not found!'),
@@ -994,7 +995,7 @@ class Table implements Stringable
                 );
             }
 
-            if (! $GLOBALS['dblist']->databases->exists($targetDb)) {
+            if (! $databaseList->exists($targetDb)) {
                 $GLOBALS['message'] = Message::rawError(
                     sprintf(
                         __('Target database `%s` was not found!'),
@@ -1461,7 +1462,7 @@ class Table implements Stringable
 
         if ($newDb !== null && $newDb !== $this->getDbName()) {
             // Ensure the target is valid
-            if (! $GLOBALS['dblist']->databases->exists($newDb)) {
+            if (! $this->dbi->getDatabaseList()->exists($newDb)) {
                 $this->errors[] = __('Invalid database:') . ' ' . $newDb;
 
                 return false;

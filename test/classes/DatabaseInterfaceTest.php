@@ -6,15 +6,14 @@ namespace PhpMyAdmin\Tests;
 
 use mysqli_stmt;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Database\DatabaseList;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\ResultInterface;
+use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Utils\SessionCache;
-use stdClass;
 
 /**
  * @covers \PhpMyAdmin\DatabaseInterface
@@ -168,22 +167,22 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $this->assertInstanceOf(SystemDatabase::class, $sd);
     }
 
-    /**
-     * Tests for DBI::postConnectControl() method.
-     */
-    public function testPostConnectControl(): void
+    public function testPostConnectControlWithZeroConf(): void
     {
-        $dummyDbi = $this->createDbiDummy();
-        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $GLOBALS['cfg']['ZeroConf'] = true;
+        $dbi = $this->createDatabaseInterface();
+        $relationMock = $this->createMock(Relation::class);
+        $relationMock->expects($this->once())->method('initRelationParamsCache');
+        $dbi->postConnectControl($relationMock);
+    }
 
-        $dummyDbi->addResult(
-            'SHOW TABLES FROM `phpmyadmin`;',
-            []
-        );
-        $GLOBALS['db'] = '';
-        $GLOBALS['cfg']['Server']['only_db'] = [];
-        $dbi->postConnectControl(new Relation($dbi));
-        $this->assertInstanceOf(DatabaseList::class, $GLOBALS['dblist']);
+    public function testPostConnectControlWithoutZeroConf(): void
+    {
+        $GLOBALS['cfg']['ZeroConf'] = false;
+        $dbi = $this->createDatabaseInterface();
+        $relationMock = $this->createMock(Relation::class);
+        $relationMock->expects($this->never())->method('initRelationParamsCache');
+        $dbi->postConnectControl($relationMock);
     }
 
     /**
@@ -194,6 +193,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
     {
         $GLOBALS['lang'] = 'en';
         $GLOBALS['cfg']['Server']['SessionTimeZone'] = '';
+        LanguageManager::getInstance()->availableLanguages();
 
         $mock = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -221,6 +221,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
             '@@version' => '10.20.7-MariaDB-1:10.9.3+maria~ubu2204',
             '@@version_comment' => 'mariadb.org binary distribution',
         ];
+        LanguageManager::getInstance()->availableLanguages();
 
         $mock = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -256,6 +257,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
     ): void {
         $GLOBALS['lang'] = 'en';
         $GLOBALS['cfg']['Server']['SessionTimeZone'] = '';
+        LanguageManager::getInstance()->availableLanguages();
 
         $mock = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -625,18 +627,17 @@ class DatabaseInterfaceTest extends AbstractTestCase
     {
         $dummyDbi = $this->createDbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);
+        $GLOBALS['dbi'] = $dbi;
 
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        $GLOBALS['cfg']['Server']['only_db'] = '';
         $GLOBALS['cfg']['NaturalOrder'] = true;
-        $GLOBALS['dblist'] = new stdClass();
-        $GLOBALS['dblist']->databases = [
-            'db1',
-            'db2',
-        ];
         $dummyDbi->removeDefaultResults();
+        $dummyDbi->addResult('SELECT CURRENT_USER();', []);
+        $dummyDbi->addResult('SHOW DATABASES', [['db1'], ['db2']], ['Database']);
         $dummyDbi->addResult(
             'SELECT @@collation_database',
             [

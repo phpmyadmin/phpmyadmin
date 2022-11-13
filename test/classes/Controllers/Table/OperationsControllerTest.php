@@ -39,7 +39,6 @@ class OperationsControllerTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['lang'] = 'en';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
-        $GLOBALS['dblist'] = (object) ['databases' => ['test_db']];
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';
 
@@ -53,6 +52,11 @@ class OperationsControllerTest extends AbstractTestCase
         $GLOBALS['containerBuilder']->setParameter('db', 'test_db');
         $GLOBALS['containerBuilder']->setParameter('table', 'test_table');
 
+        $this->dummyDbi->addResult(
+            'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`',
+            [['test_db']],
+            ['SCHEMA_NAME']
+        );
         $this->dummyDbi->addSelectDb('test_db');
         $this->dummyDbi->addSelectDb('test_db');
         // phpcs:disable Generic.Files.LineLength.TooLong

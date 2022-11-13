@@ -594,7 +594,7 @@ class Export
         }
 
         // Walk over databases
-        foreach ($GLOBALS['dblist']->databases as $currentDb) {
+        foreach ($this->dbi->getDatabaseList() as $currentDb) {
             if (! isset($tmpSelect) || ! mb_strpos(' ' . $tmpSelect, '|' . $currentDb . '|')) {
                 continue;
             }

@@ -489,8 +489,9 @@ class OperationsController extends AbstractController
         $possibleRowFormats = $this->operations->getPossibleRowFormat();
 
         $databaseList = [];
-        if (count($GLOBALS['dblist']->databases) <= $GLOBALS['cfg']['MaxDbList']) {
-            $databaseList = $GLOBALS['dblist']->databases->getList();
+        $listDatabase = $this->dbi->getDatabaseList();
+        if (count($listDatabase) <= $GLOBALS['cfg']['MaxDbList']) {
+            $databaseList = $listDatabase->getList();
         }
 
         $hasForeignKeys = ! empty($this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'foreign'));
