@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-11-13 00:20+0000\n"
-"PO-Revision-Date: 2022-11-07 12:02+0000\n"
+"PO-Revision-Date: 2022-11-13 16:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:240
 #, php-format
@@ -5195,6 +5195,8 @@ msgid ""
 "Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
 "code] configuration."
 msgstr ""
+"La recherche dans une base de données est désactivée par la configuration "
+"[code]$cfg['UseDbSearch'][/code]."
 
 #: libraries/classes/Controllers/Database/Structure/AddPrefixController.php:20
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:45
@@ -15852,10 +15854,8 @@ msgid "Send error report"
 msgstr "Envoyer le rapport d'erreurs"
 
 #: templates/error/simple.twig:2
-#, fuzzy
-#| msgid "Something went wrong."
 msgid "Something went wrong"
-msgstr "Quelque chose s'est mal passé."
+msgstr "Quelque chose s'est mal passé"
 
 #: templates/error/simple.twig:7 templates/modals/index_dialog_modal.twig:30
 msgid "Go back"
