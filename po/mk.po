@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-11-11 23:49+0000\n"
+"PO-Revision-Date: 2022-11-14 11:47+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -7287,10 +7287,8 @@ msgid "Submit Query"
 msgstr "Изврши SQL"
 
 #: libraries/classes/Database/Qbe.php:1856
-#, fuzzy
-#| msgid "Search"
 msgid "Saved bookmarked search:"
-msgstr "Пребарување"
+msgstr "Пребарување на зачувани белешки:"
 
 #: libraries/classes/Database/Qbe.php:1858
 #, fuzzy
@@ -8316,10 +8314,8 @@ msgid "Or"
 msgstr "или"
 
 #: libraries/classes/InsertEdit.php:1501
-#, fuzzy
-#| msgid "web server upload directory"
 msgid "web server upload directory:"
-msgstr "директориум за праќање на веб серверот"
+msgstr "директориум за праќање на веб серверот:"
 
 #: libraries/classes/InsertEdit.php:1703
 #: templates/table/search/input_box.twig:38
@@ -8651,10 +8647,8 @@ msgid "An error has occurred while loading the navigation display"
 msgstr ""
 
 #: libraries/classes/Navigation/Navigation.php:207
-#, fuzzy
-#| msgid "Column names"
 msgid "Groups:"
-msgstr "Имиња на колони"
+msgstr "Групи:"
 
 #: libraries/classes/Navigation/Navigation.php:208
 msgid "Events:"
@@ -9397,10 +9391,8 @@ msgid "The table name is empty!"
 msgstr "Името на табелата е празно!"
 
 #: libraries/classes/Pdf.php:131
-#, fuzzy
-#| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "Дозволува читање на податоци."
+msgstr "Грешка при креирање на PDF:"
 
 #: libraries/classes/Plugins.php:578
 #, fuzzy
@@ -9520,31 +9512,23 @@ msgstr "Формат:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:63
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:58
-#, fuzzy
-#| msgid "Lines terminated by"
 msgid "Columns separated with:"
-msgstr "Линиите се завршуваат со"
+msgstr "Колоните се одвоени со:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:68
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:64
-#, fuzzy
-#| msgid "Fields enclosed by"
 msgid "Columns enclosed with:"
-msgstr "Полињата се раздвоени со"
+msgstr "Колоните се оградени со:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:73
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:71
-#, fuzzy
-#| msgid "Fields escaped by"
 msgid "Columns escaped with:"
-msgstr "Escape карактер &nbsp; &nbsp; &nbsp;"
+msgstr "Колоните се избегнати со:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:78
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:78
-#, fuzzy
-#| msgid "Lines terminated by"
 msgid "Lines terminated with:"
-msgstr "Линиите се завршуваат со"
+msgstr "Линиите завршуваат со:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:83
 #: libraries/classes/Plugins/Export/ExportExcel.php:52
@@ -9553,10 +9537,8 @@ msgstr "Линиите се завршуваат со"
 #: libraries/classes/Plugins/Export/ExportOds.php:67
 #: libraries/classes/Plugins/Export/ExportOdt.php:134
 #: libraries/classes/Plugins/Export/ExportTexytext.php:91
-#, fuzzy
-#| msgid "Replace NULL by"
 msgid "Replace NULL with:"
-msgstr "Замени NULL со"
+msgstr "Замени NULL со:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:88
 #: libraries/classes/Plugins/Export/ExportExcel.php:57
@@ -9564,10 +9546,8 @@ msgid "Remove carriage return/line feed characters within columns"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportExcel.php:67
-#, fuzzy
-#| msgid "Excel edition"
 msgid "Excel edition:"
-msgstr "Excel издание"
+msgstr "Excel издание:"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:70
 #: libraries/classes/Plugins/Export/ExportLatex.php:103
@@ -9697,24 +9677,18 @@ msgstr "Опции на трансформацијата"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:121
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
-#, fuzzy
-#| msgid "Table caption"
 msgid "Table caption:"
-msgstr "Коментар на табела"
+msgstr "Наслов на табела:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:127
 #: libraries/classes/Plugins/Export/ExportLatex.php:179
-#, fuzzy
-#| msgid "Table caption"
 msgid "Table caption (continued):"
-msgstr "Коментар на табела"
+msgstr "Наслов на табела (продолжение):"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:133
 #: libraries/classes/Plugins/Export/ExportLatex.php:185
-#, fuzzy
-#| msgid "Label key"
 msgid "Label key:"
-msgstr "Ознака на клучот"
+msgstr "Ознака на клучот:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:140
 #: libraries/classes/Plugins/Export/ExportOdt.php:101
@@ -9740,10 +9714,8 @@ msgid "Display MIME types"
 msgstr "Достапни MIME-типови"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:168
-#, fuzzy
-#| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row:"
-msgstr "Стави ги имињата на полињата во првата редица"
+msgstr "Стави ги имињата на полињата во првата редица:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:216
 #: libraries/classes/Plugins/Export/ExportSql.php:695
@@ -9756,18 +9728,14 @@ msgstr "Хост:"
 #: libraries/classes/Plugins/Export/ExportLatex.php:221
 #: libraries/classes/Plugins/Export/ExportSql.php:701
 #: libraries/classes/Plugins/Export/ExportXml.php:243
-#, fuzzy
-#| msgid "Generation Time"
 msgid "Generation Time:"
-msgstr "Време на креирање"
+msgstr "Време на креирање:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:224
 #: libraries/classes/Plugins/Export/ExportSql.php:707
 #: libraries/classes/Plugins/Export/ExportXml.php:246
-#, fuzzy
-#| msgid "PHP Version"
 msgid "PHP Version:"
-msgstr "PHP верзија"
+msgstr "PHP верзија:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:254
 #: libraries/classes/Plugins/Export/ExportSql.php:896
@@ -9798,10 +9766,8 @@ msgid "Export table headers"
 msgstr "хоризонтален (ротирани заглавија)"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:99
-#, fuzzy
-#| msgid "Import files"
 msgid "Report title:"
-msgstr "Увоз на податотека"
+msgstr "Наслов на извештај:"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:228
 #, fuzzy
@@ -9825,10 +9791,10 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:111
-#, fuzzy
-#| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "Додади коментар во заглавие (користи \\n за нов ред)"
+msgstr ""
+"Додади коментар во заглавие (користи \\n"
+" за нов ред):"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:117
 msgid ""
@@ -11317,9 +11283,8 @@ msgstr ""
 #: libraries/classes/Rte/Routines.php:172
 #: libraries/classes/Rte/Routines.php:1332
 #: libraries/classes/Rte/Routines.php:1542
-#, fuzzy
 msgid "Error in processing request:"
-msgstr "Листа на процеси"
+msgstr "Грешка при процесирање на барањето:"
 
 #: libraries/classes/Rte/Footer.php:102
 msgid "OFF"
@@ -13153,9 +13118,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Server/Status/Variables.php:607
-#, fuzzy
 msgid "Percentage of used key cache (calculated value)"
-msgstr "Кодна страна на податотеката:"
+msgstr "Процентажа на користен кеш за клучеви (калкулирана вредност)"
 
 #: libraries/classes/Server/Status/Variables.php:610
 msgid "The number of requests to read a key block from the cache."
