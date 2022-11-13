@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-11-13 00:20+0000\n"
-"PO-Revision-Date: 2022-11-07 12:02+0000\n"
+"PO-Revision-Date: 2022-11-13 16:26+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:240
 #, php-format
@@ -5093,6 +5093,8 @@ msgid ""
 "Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
 "code] configuration."
 msgstr ""
+"Iskanje znotraj zbirke podatkov je onemogočeno z nastavitvijo "
+"[code]$cfg['UseDbSearch'][/code]."
 
 #: libraries/classes/Controllers/Database/Structure/AddPrefixController.php:20
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:45
@@ -15631,10 +15633,8 @@ msgid "Send error report"
 msgstr "Pošlji poročilo o napaki"
 
 #: templates/error/simple.twig:2
-#, fuzzy
-#| msgid "Something went wrong."
 msgid "Something went wrong"
-msgstr "Prišlo je do napake."
+msgstr "Prišlo je do napake"
 
 #: templates/error/simple.twig:7 templates/modals/index_dialog_modal.twig:30
 msgid "Go back"
