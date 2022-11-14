@@ -122,7 +122,7 @@ class Operations
 
         // rebuild the database list because Table::moveCopy
         // checks in this list if the target db exists
-        $GLOBALS['dblist']->databases->build();
+        $this->dbi->getDatabaseList()->build();
     }
 
     /**

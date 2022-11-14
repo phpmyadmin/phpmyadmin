@@ -11166,11 +11166,6 @@ parameters:
 			path: test/classes/TableTest.php
 
 		-
-			message: "#^Strict comparison using \\=\\=\\= between mixed and mixed will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/TableTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\TemplateTest\\:\\:providerTestDynamicRender\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/TemplateTest.php

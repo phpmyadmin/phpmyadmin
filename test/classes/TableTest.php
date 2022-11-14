@@ -7,11 +7,11 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
+use PhpMyAdmin\ListDatabase;
 use PhpMyAdmin\Query\Cache;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
-use stdClass;
 
 /**
  * @covers \PhpMyAdmin\Table
@@ -37,17 +37,6 @@ class TableTest extends AbstractTestCase
         $GLOBALS['sql_if_not_exists'] = true;
         $GLOBALS['sql_drop_table'] = true;
         $GLOBALS['cfg']['Server']['table_uiprefs'] = 'pma__table_uiprefs';
-        $GLOBALS['dblist'] = new stdClass();
-        $GLOBALS['dblist']->databases = new class
-        {
-            /**
-             * @param mixed $name name
-             */
-            public function exists($name): bool
-            {
-                return $name === $name;// unused $name hack
-            }
-        };
 
         $sql_isView_true = 'SELECT TABLE_NAME'
             . ' FROM information_schema.VIEWS'
@@ -268,6 +257,10 @@ class TableTest extends AbstractTestCase
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
+
+        $databaseList = $this->createStub(ListDatabase::class);
+        $databaseList->method('exists')->willReturn(true);
+        $dbi->expects($this->any())->method('getDatabaseList')->willReturn($databaseList);
 
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValueMap($fetchResult));

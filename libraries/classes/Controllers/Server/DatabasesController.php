@@ -78,7 +78,6 @@ class DatabasesController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['server'] = $GLOBALS['server'] ?? null;
-        $GLOBALS['dblist'] = $GLOBALS['dblist'] ?? null;
         $GLOBALS['is_create_db_priv'] = $GLOBALS['is_create_db_priv'] ?? null;
         $GLOBALS['db_to_create'] = $GLOBALS['db_to_create'] ?? null;
         $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
@@ -121,7 +120,7 @@ class DatabasesController extends AbstractController
                 $this->position,
                 true
             );
-            $this->databaseCount = count($GLOBALS['dblist']->databases);
+            $this->databaseCount = count($this->dbi->getDatabaseList());
         }
 
         $urlParams = [

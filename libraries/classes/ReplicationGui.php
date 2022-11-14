@@ -212,7 +212,7 @@ class ReplicationGui
     public function getHtmlForReplicationDbMultibox(): string
     {
         $databases = [];
-        foreach ($GLOBALS['dblist']->databases as $database) {
+        foreach ($GLOBALS['dbi']->getDatabaseList() as $database) {
             if (Utilities::isSystemSchema($database)) {
                 continue;
             }

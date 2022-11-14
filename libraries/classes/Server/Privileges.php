@@ -1914,7 +1914,7 @@ class Privileges
         $data['type'] = $type;
 
         if ($type === 'database') {
-            $predDbArray = $GLOBALS['dblist']->databases;
+            $predDbArray = $this->dbi->getDatabaseList();
             $databasesToSkip = [
                 'information_schema',
                 'performance_schema',
@@ -1922,24 +1922,22 @@ class Privileges
 
             $databases = [];
             $escapedDatabases = [];
-            if (! empty($predDbArray)) {
-                foreach ($predDbArray as $currentDb) {
-                    if (in_array($currentDb, $databasesToSkip)) {
-                        continue;
-                    }
-
-                    $currentDbEscaped = Util::escapeMysqlWildcards($currentDb);
-                    // cannot use array_diff() once, outside of the loop,
-                    // because the list of databases has special characters
-                    // already escaped in $foundRows,
-                    // contrary to the output of SHOW DATABASES
-                    if (in_array($currentDbEscaped, $foundRows)) {
-                        continue;
-                    }
-
-                    $databases[] = $currentDb;
-                    $escapedDatabases[] = $currentDbEscaped;
+            foreach ($predDbArray as $currentDb) {
+                if (in_array($currentDb, $databasesToSkip)) {
+                    continue;
                 }
+
+                $currentDbEscaped = Util::escapeMysqlWildcards($currentDb);
+                // cannot use array_diff() once, outside of the loop,
+                // because the list of databases has special characters
+                // already escaped in $foundRows,
+                // contrary to the output of SHOW DATABASES
+                if (in_array($currentDbEscaped, $foundRows)) {
+                    continue;
+                }
+
+                $databases[] = $currentDb;
+                $escapedDatabases[] = $currentDbEscaped;
             }
 
             $data['databases'] = $databases;

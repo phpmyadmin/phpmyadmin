@@ -14,7 +14,6 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
-use stdClass;
 
 use function __;
 
@@ -48,12 +47,7 @@ class DatabasesControllerTest extends AbstractTestCase
 
     public function testIndexAction(): void
     {
-        $GLOBALS['dblist'] = new stdClass();
-        $GLOBALS['dblist']->databases = [
-            'sakila',
-            'employees',
-        ];
-
+        $GLOBALS['cfg']['Server']['only_db'] = '';
         $template = new Template();
         $transformations = new Transformations();
         $relationCleanup = new RelationCleanup(
@@ -71,6 +65,11 @@ class DatabasesControllerTest extends AbstractTestCase
             $GLOBALS['dbi']
         );
 
+        $this->dummyDbi->addResult(
+            'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`',
+            [['sakila'], ['employees']],
+            ['SCHEMA_NAME']
+        );
         $this->dummyDbi->addSelectDb('mysql');
         $controller($this->createStub(ServerRequest::class));
         $this->dummyDbi->assertAllSelectsConsumed();

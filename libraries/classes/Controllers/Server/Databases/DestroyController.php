@@ -48,7 +48,6 @@ final class DestroyController extends AbstractController
     {
         $GLOBALS['selected'] = $GLOBALS['selected'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
-        $GLOBALS['dblist'] = $GLOBALS['dblist'] ?? null;
         $GLOBALS['reload'] = $GLOBALS['reload'] ?? null;
 
         $selected_dbs = $_POST['selected_dbs'] ?? null;
@@ -90,7 +89,7 @@ final class DestroyController extends AbstractController
             $this->transformations->clear($database);
         }
 
-        $GLOBALS['dblist']->databases->build();
+        $this->dbi->getDatabaseList()->build();
 
         $message = Message::success(
             _ngettext(

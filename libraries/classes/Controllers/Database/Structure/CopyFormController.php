@@ -13,8 +13,6 @@ final class CopyFormController extends AbstractController
 {
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['dblist'] = $GLOBALS['dblist'] ?? null;
-
         $selected = $_POST['selected_tbl'] ?? [];
 
         if (empty($selected)) {
@@ -29,7 +27,7 @@ final class CopyFormController extends AbstractController
             $urlParams['selected'][] = $selectedValue;
         }
 
-        $databasesList = $GLOBALS['dblist']->databases;
+        $databasesList = $GLOBALS['dbi']->getDatabaseList();
         foreach ($databasesList as $key => $databaseName) {
             if ($databaseName == $GLOBALS['db']) {
                 $databasesList->offsetUnset($key);
