@@ -54,6 +54,7 @@ class UtilTest extends AbstractTestCase
      * @requires extension mysqli
      * @requires extension curl
      * @requires extension mbstring
+     * @requires extension sodium
      */
     public function testListPHPExtensions(): void
     {
@@ -62,6 +63,7 @@ class UtilTest extends AbstractTestCase
                 'mysqli',
                 'curl',
                 'mbstring',
+                'sodium',
             ],
             Util::listPHPExtensions()
         );

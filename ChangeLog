@@ -61,6 +61,7 @@ phpMyAdmin - ChangeLog
 - issue #17705 Fix inline SQL query edit FK checkbox preventing submit buttons from working
 - issue #17777 Fix Uncaught TypeError: Cannot read properties of null (reading 'inline') on datepickers when re-opened
 - issue        Fix Original theme buttons style and login form width
+- issue #17892 Fix closing index edit modal and reopening causes it to fire twice
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5

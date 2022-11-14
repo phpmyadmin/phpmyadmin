@@ -2345,6 +2345,10 @@ class Util
             $result[] = 'mbstring';
         }
 
+        if (extension_loaded('sodium')) {
+            $result[] = 'sodium';
+        }
+
         return $result;
     }
 
