@@ -3434,10 +3434,8 @@ Functions.indexDialogModal = function (routeUrl, url, title, callbackSuccess, ca
             '<span class="visually-hidden">' + Messages.strLoading + '</span></div>';
     });
 
-    /**
-     * @var button_options Object that stores the options
-     *                     passed to jQueryUI dialog
-     */
+    // Remove previous click listeners from other modal openings (issue: #17892)
+    $('#indexDialogModalGoButton').off('click');
     $('#indexDialogModalGoButton').on('click', function () {
         /**
          * @var the_form object referring to the export form
