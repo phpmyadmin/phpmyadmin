@@ -104,9 +104,9 @@ class Config
     public $done = false;
 
     /**
-     * @param string $source source to read config from
+     * @param string|null $source source to read config from
      */
-    public function __construct(?string $source = null)
+    public function loadAndCheck(?string $source = null): void
     {
         $this->settings = ['is_setup' => false];
 
@@ -114,7 +114,7 @@ class Config
         // PhpMyAdmin\Config::load()
         $this->load($source);
 
-        // other settings, independent from config file, comes in
+        // other settings, independent of config file, comes in
         $this->checkSystem();
 
         $this->baseSettings = $this->settings;

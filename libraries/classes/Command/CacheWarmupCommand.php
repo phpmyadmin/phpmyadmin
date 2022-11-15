@@ -26,6 +26,7 @@ use function str_contains;
 use function str_replace;
 
 use const CACHE_DIR;
+use const CONFIG_FILE;
 
 final class CacheWarmupCommand extends Command
 {
@@ -121,7 +122,8 @@ final class CacheWarmupCommand extends Command
         $GLOBALS['config'] = $GLOBALS['config'] ?? null;
 
         $output->writeln('Warming up the twig cache', OutputInterface::VERBOSITY_VERBOSE);
-        $GLOBALS['config'] = new Config(CONFIG_FILE);
+        $GLOBALS['config'] = new Config();
+        $GLOBALS['config']->loadAndCheck(CONFIG_FILE);
         $GLOBALS['cfg']['environment'] = $environment;
         $GLOBALS['config']->set('environment', $GLOBALS['cfg']['environment']);
         $GLOBALS['dbi'] = new DatabaseInterface(new DbiDummy());

@@ -30,6 +30,7 @@ use function sys_get_temp_dir;
 use function tempnam;
 use function unlink;
 
+use const CONFIG_FILE;
 use const DIRECTORY_SEPARATOR;
 use const INFO_MODULES;
 use const PHP_EOL;
@@ -56,15 +57,17 @@ class ConfigTest extends AbstractTestCase
         parent::setTheme();
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $_SERVER['HTTP_USER_AGENT'] = '';
-        $this->object = new Config();
+        $this->object = $this->createConfig();
         $GLOBALS['server'] = 0;
         $_SESSION['git_location'] = '.git';
         $_SESSION['is_git_revision'] = true;
-        $GLOBALS['config'] = new Config(CONFIG_FILE);
+        $GLOBALS['config'] = new Config();
+        $GLOBALS['config']->loadAndCheck(CONFIG_FILE);
         $GLOBALS['cfg']['ProxyUrl'] = '';
 
         //for testing file permissions
-        $this->permTestObj = new Config(ROOT_PATH . 'config.sample.inc.php');
+        $this->permTestObj = new Config();
+        $this->permTestObj->loadAndCheck(ROOT_PATH . 'config.sample.inc.php');
     }
 
     /**
@@ -83,7 +86,7 @@ class ConfigTest extends AbstractTestCase
      */
     public function testLoadConfigs(): void
     {
-        $defaultConfig = new Config();
+        $defaultConfig = $this->createConfig();
         $tmpConfig = tempnam('./', 'config.test.inc.php');
         if ($tmpConfig === false) {
             $this->markTestSkipped('Creating a temporary file does not work');
@@ -94,7 +97,8 @@ class ConfigTest extends AbstractTestCase
         // end of setup
 
         // Test loading an empty file does not change the default config
-        $config = new Config($tmpConfig);
+        $config = new Config();
+        $config->loadAndCheck($tmpConfig);
         $this->assertSame($defaultConfig->settings, $config->settings);
 
         $contents = '<?php' . PHP_EOL
@@ -102,7 +106,8 @@ class ConfigTest extends AbstractTestCase
         file_put_contents($tmpConfig, $contents);
 
         // Test loading a config changes the setup
-        $config = new Config($tmpConfig);
+        $config = new Config();
+        $config->loadAndCheck($tmpConfig);
         $defaultConfig->settings['ProtectBinary'] = true;
         $this->assertSame($defaultConfig->settings, $config->settings);
         $defaultConfig->settings['ProtectBinary'] = 'blob';
@@ -117,7 +122,7 @@ class ConfigTest extends AbstractTestCase
      */
     public function testLoadInvalidConfigs(): void
     {
-        $defaultConfig = new Config();
+        $defaultConfig = $this->createConfig();
         $tmpConfig = tempnam('./', 'config.test.inc.php');
         if ($tmpConfig === false) {
             $this->markTestSkipped('Creating a temporary file does not work');
@@ -128,7 +133,8 @@ class ConfigTest extends AbstractTestCase
         // end of setup
 
         // Test loading an empty file does not change the default config
-        $config = new Config($tmpConfig);
+        $config = new Config();
+        $config->loadAndCheck($tmpConfig);
         $this->assertSame($defaultConfig->settings, $config->settings);
 
         $contents = '<?php' . PHP_EOL
@@ -136,7 +142,8 @@ class ConfigTest extends AbstractTestCase
         file_put_contents($tmpConfig, $contents);
 
         // Test loading a custom key config changes the setup
-        $config = new Config($tmpConfig);
+        $config = new Config();
+        $config->loadAndCheck($tmpConfig);
         $defaultConfig->settings['fooBar'] = true;
         // Equals because of the key sorting
         $this->assertEquals($defaultConfig->settings, $config->settings);
@@ -151,7 +158,8 @@ class ConfigTest extends AbstractTestCase
         file_put_contents($tmpConfig, $contents);
 
         // Test loading a custom key config changes the setup
-        $config = new Config($tmpConfig);
+        $config = new Config();
+        $config->loadAndCheck($tmpConfig);
         $defaultConfig->settings['ValidKey'] = true;
         // Equals because of the key sorting
         $this->assertEquals($defaultConfig->settings, $config->settings);

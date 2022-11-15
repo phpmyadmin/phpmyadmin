@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table\Maintenance;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Table\Maintenance\AnalyzeController;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Table\Maintenance;
@@ -29,7 +28,7 @@ class AnalyzeControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface();
         $GLOBALS['dbi'] = $dbi;
         $response = new ResponseRenderer();
-        $controller = new AnalyzeController($response, new Template(), new Maintenance($dbi), new Config());
+        $controller = new AnalyzeController($response, new Template(), new Maintenance($dbi), $this->createConfig());
         $controller($request);
         $this->assertFalse($response->hasSuccessState());
         $this->assertSame(['message' => 'No table selected.'], $response->getJSONResult());

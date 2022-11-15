@@ -20,7 +20,6 @@ return [
         ],
         'config' => [
             'class' => PhpMyAdmin\Config::class,
-            'arguments' => [CONFIG_FILE],
         ],
         'central_columns' => [
             'class' => PhpMyAdmin\Database\CentralColumns::class,

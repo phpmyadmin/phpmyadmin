@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\AddFieldController;
 use PhpMyAdmin\Http\ServerRequest;
@@ -259,7 +258,7 @@ class AddFieldControllerTest extends AbstractTestCase
             $response,
             $template,
             $transformations,
-            new Config(),
+            $this->createConfig(),
             $dbi,
             new ColumnsDefinition($dbi, $relation, $transformations)
         ))($request);

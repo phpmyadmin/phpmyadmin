@@ -35,6 +35,7 @@ use function str_replace;
 use function urlencode;
 use function var_export;
 
+use const CONFIG_FILE;
 use const JSON_PRETTY_PRINT;
 use const PHP_URL_PATH;
 use const UPLOAD_ERR_OK;
