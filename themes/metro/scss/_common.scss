@@ -2127,6 +2127,7 @@ table.show_create {
   bottom: 0;
   left: 0;
   z-index: 100;
+  pointer-events: none;
 }
 
 textarea {
@@ -2150,6 +2151,7 @@ textarea {
     background: $th-background;
     border-top: solid 1px #ccc;
     cursor: n-resize;
+    pointer-events: auto;
 
     span {
       vertical-align: middle;

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
-use function sleep;
 use function strtolower;
 
 /**
@@ -174,8 +173,6 @@ class ExportTest extends TestBase
             }
         }
 
-        $this->scrollToBottom();
-        sleep(2);
         $this->scrollToBottom();
 
         $this->waitForElement('id', 'buttonGo')->click();

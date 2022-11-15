@@ -1877,6 +1877,7 @@ table.show_create {
   bottom: 0;
   left: 0;
   z-index: 100;
+  pointer-events: none;
 }
 
 #pma_console {
@@ -1896,6 +1897,7 @@ table.show_create {
     background: #ccc;
     border-top: solid 1px #aaa;
     cursor: n-resize;
+    pointer-events: auto;
 
     span {
       vertical-align: middle;
