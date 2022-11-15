@@ -16,6 +16,8 @@ use function header;
 use function in_array;
 use function sprintf;
 
+use const CONFIG_FILE;
+
 final class MainController
 {
     public function __invoke(ServerRequest $request): void

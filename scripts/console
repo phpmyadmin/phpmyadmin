@@ -28,7 +28,8 @@ if (! class_exists(Application::class)) {
 
 $containerBuilder = Core::getContainerBuilder();
 $cfg['environment'] = 'production';
-$config = new Config(CONFIG_FILE);
+$config = new Config();
+$config->loadAndCheck(CONFIG_FILE);
 $config->set('environment', $cfg['environment']);
 $dbi = new DatabaseInterface(new DbiDummy());
 

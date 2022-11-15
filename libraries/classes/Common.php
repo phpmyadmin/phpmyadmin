@@ -47,6 +47,7 @@ use function strlen;
 use function trigger_error;
 use function urldecode;
 
+use const CONFIG_FILE;
 use const E_USER_ERROR;
 
 final class Common
@@ -126,6 +127,7 @@ final class Common
 
         /** @var Config $config */
         $config = $GLOBALS['containerBuilder']->get('config');
+        $config->loadAndCheck(CONFIG_FILE);
         $GLOBALS['config'] = $config;
 
         if ($route !== '/messages') {

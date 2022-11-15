@@ -180,9 +180,17 @@ abstract class AbstractTestCase extends TestCase
         return new DbiDummy();
     }
 
+    protected function createConfig(): Config
+    {
+        $config = new Config();
+        $config->loadAndCheck();
+
+        return $config;
+    }
+
     protected function setGlobalConfig(): void
     {
-        $GLOBALS['config'] = new Config();
+        $GLOBALS['config'] = $this->createConfig();
         $GLOBALS['config']->checkServers();
         $GLOBALS['config']->set('environment', 'development');
         $GLOBALS['cfg'] = $GLOBALS['config']->settings;
