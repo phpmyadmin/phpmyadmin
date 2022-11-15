@@ -8,6 +8,7 @@ use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\TableName;
+use PhpMyAdmin\Exceptions\ConfigException;
 use PhpMyAdmin\Exceptions\MissingExtensionException;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\ServerRequest;
@@ -106,11 +107,7 @@ final class Common
         try {
             self::checkRequiredPhpExtensions();
         } catch (MissingExtensionException $exception) {
-            echo (new Template())->render('error/generic', [
-                'lang' => $GLOBALS['lang'] ?? 'en',
-                'dir' => $GLOBALS['text_dir'] ?? 'ltr',
-                'error_message' => $exception->getMessage(),
-            ]);
+            echo self::getGenericError($exception->getMessage());
 
             return;
         }
@@ -127,8 +124,15 @@ final class Common
 
         /** @var Config $config */
         $config = $GLOBALS['containerBuilder']->get('config');
-        $config->loadAndCheck(CONFIG_FILE);
         $GLOBALS['config'] = $config;
+
+        try {
+            $config->loadAndCheck(CONFIG_FILE);
+        } catch (ConfigException $exception) {
+            echo self::getGenericError($exception->getMessage());
+
+            return;
+        }
 
         if ($route !== '/messages') {
             // Include session handling after the globals, to prevent overwriting.
@@ -166,22 +170,24 @@ final class Common
         $language = LanguageManager::getInstance()->selectLanguage();
         $language->activate();
 
-        /**
-         * check for errors occurred while loading configuration
-         * this check is done here after loading language files to present errors in locale
-         */
-        $config->checkPermissions();
-        $config->checkErrors();
+        try {
+            /**
+             * check for errors occurred while loading configuration
+             * this check is done here after loading language files to present errors in locale
+             */
+            $config->checkPermissions();
+            $config->checkErrors();
+        } catch (ConfigException $exception) {
+            echo self::getGenericError($exception->getMessage());
+
+            return;
+        }
 
         try {
             self::checkServerConfiguration();
             self::checkRequest();
         } catch (RuntimeException $exception) {
-            echo (new Template())->render('error/generic', [
-                'lang' => $GLOBALS['lang'] ?? 'en',
-                'dir' => $GLOBALS['text_dir'] ?? 'ltr',
-                'error_message' => $exception->getMessage(),
-            ]);
+            echo self::getGenericError($exception->getMessage());
 
             return;
         }
@@ -252,15 +258,11 @@ final class Common
             Logging::logUser($GLOBALS['cfg']['Server']['user']);
 
             if ($GLOBALS['dbi']->getVersion() < $GLOBALS['cfg']['MysqlMinVersion']['internal']) {
-                echo (new Template())->render('error/generic', [
-                    'lang' => $GLOBALS['lang'] ?? 'en',
-                    'dir' => $GLOBALS['text_dir'] ?? 'ltr',
-                    'error_message' => sprintf(
-                        __('You should upgrade to %s %s or later.'),
-                        'MySQL',
-                        (string) $GLOBALS['cfg']['MysqlMinVersion']['human']
-                    ),
-                ]);
+                echo self::getGenericError(sprintf(
+                    __('You should upgrade to %s %s or later.'),
+                    'MySQL',
+                    (string) $GLOBALS['cfg']['MysqlMinVersion']['human']
+                ));
 
                 return;
             }
@@ -688,5 +690,14 @@ final class Common
         $GLOBALS['urlParams']['server'] = $server;
         $GLOBALS['containerBuilder']->setParameter('server', $server);
         $GLOBALS['containerBuilder']->setParameter('url_params', $GLOBALS['urlParams']);
+    }
+
+    private static function getGenericError(string $message): string
+    {
+        return (new Template())->render('error/generic', [
+            'lang' => $GLOBALS['lang'] ?? 'en',
+            'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+            'error_message' => $message,
+        ]);
     }
 }
