@@ -862,6 +862,8 @@ class Core
         $loader = new PhpFileLoader($containerBuilder, new FileLocator(ROOT_PATH . 'libraries'));
         $loader->load('services_loader.php');
 
+        $GLOBALS['containerBuilder'] = $containerBuilder;
+
         return $containerBuilder;
     }
 

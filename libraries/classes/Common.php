@@ -96,10 +96,10 @@ final class Common
 
         $isMinimumCommon = $isSetupPage || $route === '/import-status' || $route === '/url' || $route === '/messages';
 
-        $GLOBALS['containerBuilder'] = Core::getContainerBuilder();
+        $container = Core::getContainerBuilder();
 
         /** @var ErrorHandler $errorHandler */
-        $errorHandler = $GLOBALS['containerBuilder']->get('error_handler');
+        $errorHandler = $container->get('error_handler');
         $GLOBALS['errorHandler'] = $errorHandler;
 
         try {
@@ -114,7 +114,7 @@ final class Common
         self::cleanupPathInfo();
 
         /** @var Config $config */
-        $config = $GLOBALS['containerBuilder']->get('config');
+        $config = $container->get('config');
         $GLOBALS['config'] = $config;
 
         try {
@@ -142,12 +142,12 @@ final class Common
          * @global array $urlParams
          */
         $GLOBALS['urlParams'] = [];
-        $GLOBALS['containerBuilder']->setParameter('url_params', $GLOBALS['urlParams']);
+        $container->setParameter('url_params', $GLOBALS['urlParams']);
 
-        self::setGotoAndBackGlobals($GLOBALS['containerBuilder'], $config);
+        self::setGotoAndBackGlobals($container, $config);
         self::checkTokenRequestParam();
-        self::setDatabaseAndTableFromRequest($GLOBALS['containerBuilder'], $request);
-        self::setSQLQueryGlobalFromRequest($request);
+        self::setDatabaseAndTableFromRequest($container, $request);
+        self::setSQLQueryGlobalFromRequest($container, $request);
 
         //$_REQUEST['set_theme'] // checked later in this file LABEL_theme_setup
         //$_REQUEST['server']; // checked later in this file
@@ -183,7 +183,7 @@ final class Common
             return;
         }
 
-        self::setCurrentServerGlobal($config);
+        self::setCurrentServerGlobal($container, $config);
 
         $GLOBALS['cfg'] = $config->settings;
 
@@ -195,7 +195,7 @@ final class Common
 
         if ($isMinimumCommon) {
             $config->loadUserPreferences(true);
-            $GLOBALS['containerBuilder']->set('theme_manager', ThemeManager::getInstance());
+            $container->set('theme_manager', ThemeManager::getInstance());
             Tracker::enable();
 
             if ($route === '/url') {
@@ -209,7 +209,7 @@ final class Common
                 return;
             }
 
-            Routing::callControllerForRoute($request, Routing::getDispatcher(), $GLOBALS['containerBuilder']);
+            Routing::callControllerForRoute($request, Routing::getDispatcher(), $container);
 
             return;
         }
@@ -222,8 +222,8 @@ final class Common
         ThemeManager::getInstance()->setThemeCookie();
 
         $GLOBALS['dbi'] = DatabaseInterface::load();
-        $GLOBALS['containerBuilder']->set(DatabaseInterface::class, $GLOBALS['dbi']);
-        $GLOBALS['containerBuilder']->setAlias('dbi', DatabaseInterface::class);
+        $container->set(DatabaseInterface::class, $GLOBALS['dbi']);
+        $container->setAlias('dbi', DatabaseInterface::class);
 
         if (! empty($GLOBALS['cfg']['Server'])) {
             $config->getLoginCookieValidityFromCache($GLOBALS['server']);
@@ -290,23 +290,23 @@ final class Common
 
         Profiling::check($GLOBALS['dbi'], $response);
 
-        $GLOBALS['containerBuilder']->set('response', ResponseRenderer::getInstance());
+        $container->set('response', ResponseRenderer::getInstance());
 
         // load user preferences
         $config->loadUserPreferences();
 
-        $GLOBALS['containerBuilder']->set('theme_manager', ThemeManager::getInstance());
+        $container->set('theme_manager', ThemeManager::getInstance());
 
         /* Tell tracker that it can actually work */
         Tracker::enable();
 
         if (! empty($GLOBALS['server']) && isset($GLOBALS['cfg']['ZeroConf']) && $GLOBALS['cfg']['ZeroConf']) {
             /** @var Relation $relation */
-            $relation = $GLOBALS['containerBuilder']->get('relation');
+            $relation = $container->get('relation');
             $GLOBALS['dbi']->postConnectControl($relation);
         }
 
-        Routing::callControllerForRoute($request, Routing::getDispatcher(), $GLOBALS['containerBuilder']);
+        Routing::callControllerForRoute($request, Routing::getDispatcher(), $container);
     }
 
     /**
@@ -517,10 +517,8 @@ final class Common
         Sanitize::removeRequestVars($allowList);
     }
 
-    private static function setDatabaseAndTableFromRequest(
-        ContainerInterface $containerBuilder,
-        ServerRequest $request
-    ): void {
+    private static function setDatabaseAndTableFromRequest(ContainerInterface $container, ServerRequest $request): void
+    {
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
 
         $db = DatabaseName::tryFromValue($request->getParam('db'));
@@ -535,7 +533,7 @@ final class Common
 
         $GLOBALS['urlParams']['db'] = $GLOBALS['db'];
         $GLOBALS['urlParams']['table'] = $GLOBALS['table'];
-        $containerBuilder->setParameter('url_params', $GLOBALS['urlParams']);
+        $container->setParameter('url_params', $GLOBALS['urlParams']);
     }
 
     /**
@@ -658,7 +656,7 @@ final class Common
         ob_start();
     }
 
-    private static function setSQLQueryGlobalFromRequest(ServerRequest $request): void
+    private static function setSQLQueryGlobalFromRequest(ContainerInterface $container, ServerRequest $request): void
     {
         $sqlQuery = '';
         if ($request->isPost()) {
@@ -670,17 +668,17 @@ final class Common
         }
 
         $GLOBALS['sql_query'] = $sqlQuery;
-        $GLOBALS['containerBuilder']->setParameter('sql_query', $sqlQuery);
+        $container->setParameter('sql_query', $sqlQuery);
     }
 
-    private static function setCurrentServerGlobal(Config $config): void
+    private static function setCurrentServerGlobal(ContainerInterface $container, Config $config): void
     {
         $config->checkServers();
         $server = $config->selectServer();
         $GLOBALS['server'] = $server;
         $GLOBALS['urlParams']['server'] = $server;
-        $GLOBALS['containerBuilder']->setParameter('server', $server);
-        $GLOBALS['containerBuilder']->setParameter('url_params', $GLOBALS['urlParams']);
+        $container->setParameter('server', $server);
+        $container->setParameter('url_params', $GLOBALS['urlParams']);
     }
 
     private static function getGenericError(string $message): string
