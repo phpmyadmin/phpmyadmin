@@ -40,7 +40,6 @@ use function mb_strpos;
 use function mb_strrpos;
 use function mb_substr;
 use function ob_start;
-use function register_shutdown_function;
 use function restore_error_handler;
 use function session_id;
 use function sprintf;
@@ -87,7 +86,6 @@ final class Common
     public static function run(bool $isSetupPage = false): void
     {
         $GLOBALS['lang'] = $GLOBALS['lang'] ?? null;
-        $GLOBALS['isConfigLoading'] = $GLOBALS['isConfigLoading'] ?? null;
         $GLOBALS['auth_plugin'] = $GLOBALS['auth_plugin'] ?? null;
         $GLOBALS['theme'] = $GLOBALS['theme'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
@@ -114,13 +112,6 @@ final class Common
 
         self::configurePhpSettings();
         self::cleanupPathInfo();
-
-        /* parsing configuration file                  LABEL_parsing_config_file      */
-
-        /** Indication for the error handler */
-        $GLOBALS['isConfigLoading'] = false;
-
-        register_shutdown_function([Config::class, 'fatalErrorHandler']);
 
         /** @var Config $config */
         $config = $GLOBALS['containerBuilder']->get('config');
