@@ -48,6 +48,9 @@ use function usort;
 
 class Plugins
 {
+    /** @var AuthenticationPlugin|null */
+    private static $authPlugin = null;
+
     /**
      * Instantiates the specified plugin type for a certain format
      *
@@ -627,19 +630,20 @@ class Plugins
      */
     public static function getAuthPlugin(): AuthenticationPlugin
     {
-        /** @psalm-var class-string $class */
-        $class = 'PhpMyAdmin\\Plugins\\Auth\\Authentication'
-            . ucfirst(strtolower($GLOBALS['cfg']['Server']['auth_type']));
+        if (self::$authPlugin instanceof AuthenticationPlugin) {
+            return self::$authPlugin;
+        }
 
-        if (! class_exists($class)) {
+        $authType = $GLOBALS['cfg']['Server']['auth_type'];
+        $class = 'PhpMyAdmin\\Plugins\\Auth\\Authentication' . ucfirst(strtolower($authType));
+        if (! class_exists($class) || ! is_subclass_of($class, AuthenticationPlugin::class)) {
             throw new AuthenticationPluginException(
-                __('Invalid authentication method set in configuration:') . ' ' . $GLOBALS['cfg']['Server']['auth_type']
+                __('Invalid authentication method set in configuration:') . ' ' . $authType
             );
         }
 
-        /** @var AuthenticationPlugin $plugin */
-        $plugin = new $class();
+        self::$authPlugin = new $class();
 
-        return $plugin;
+        return self::$authPlugin;
     }
 }

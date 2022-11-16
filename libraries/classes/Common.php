@@ -87,7 +87,6 @@ final class Common
     public static function run(bool $isSetupPage = false): void
     {
         $GLOBALS['lang'] = $GLOBALS['lang'] ?? null;
-        $GLOBALS['auth_plugin'] = $GLOBALS['auth_plugin'] ?? null;
         $GLOBALS['theme'] = $GLOBALS['theme'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
         $GLOBALS['token_mismatch'] = $GLOBALS['token_mismatch'] ?? null;
@@ -230,14 +229,14 @@ final class Common
             $config->getLoginCookieValidityFromCache($GLOBALS['server']);
 
             try {
-                $GLOBALS['auth_plugin'] = Plugins::getAuthPlugin();
+                $authPlugin = Plugins::getAuthPlugin();
             } catch (AuthenticationPluginException $exception) {
                 echo self::getGenericError($exception->getMessage());
 
                 return;
             }
 
-            $GLOBALS['auth_plugin']->authenticate();
+            $authPlugin->authenticate();
 
             /* Enable LOAD DATA LOCAL INFILE for LDI plugin */
             if ($route === '/import' && ($_POST['format'] ?? '') === 'ldi') {
@@ -247,11 +246,9 @@ final class Common
                 // phpcs:enable
             }
 
-            self::connectToDatabaseServer($GLOBALS['dbi'], $GLOBALS['auth_plugin']);
-
-            $GLOBALS['auth_plugin']->rememberCredentials();
-
-            $GLOBALS['auth_plugin']->checkTwoFactor();
+            self::connectToDatabaseServer($GLOBALS['dbi'], $authPlugin);
+            $authPlugin->rememberCredentials();
+            $authPlugin->checkTwoFactor();
 
             /* Log success */
             Logging::logUser($GLOBALS['cfg']['Server']['user']);

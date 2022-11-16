@@ -222,8 +222,7 @@
       <code>$GLOBALS['cfg']['MysqlMinVersion']['internal']</code>
       <code>$GLOBALS['cfg']['Server']['user']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="6">
-      <code>$GLOBALS['auth_plugin']</code>
+    <MixedAssignment occurrences="5">
       <code>$GLOBALS['back']</code>
       <code>$GLOBALS['theme']</code>
       <code>$controlLink</code>
@@ -2311,17 +2310,6 @@
     <MixedAssignment occurrences="1">
       <code>$options</code>
     </MixedAssignment>
-  </file>
-  <file src="libraries/classes/Controllers/LogoutController.php">
-    <MixedAssignment occurrences="1">
-      <code>$GLOBALS['auth_plugin']</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>logOut</code>
-    </MixedMethodCall>
-    <PossiblyNullReference occurrences="1">
-      <code>logOut</code>
-    </PossiblyNullReference>
   </file>
   <file src="libraries/classes/Controllers/NavigationController.php">
     <PossiblyInvalidArgument occurrences="9">
@@ -9256,9 +9244,8 @@
       <code>$val</code>
       <code>$val</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="3">
+    <MixedMethodCall occurrences="2">
       <code>getProperties</code>
-      <code>new $class()</code>
       <code>new $class()</code>
     </MixedMethodCall>
     <PossiblyInvalidArgument occurrences="4">
@@ -9308,6 +9295,9 @@
       <code>SelectPropertyItem</code>
       <code>TextPropertyItem</code>
     </UnnecessaryVarAnnotation>
+    <UnsafeInstantiation occurrences="1">
+      <code>new $class()</code>
+    </UnsafeInstantiation>
   </file>
   <file src="libraries/classes/Plugins/Auth/AuthenticationCookie.php">
     <DocblockTypeContradiction occurrences="1">
@@ -14196,21 +14186,12 @@
       <code>$username</code>
       <code>$username</code>
     </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$GLOBALS['auth_plugin']</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>handlePasswordChange</code>
-    </MixedMethodCall>
     <PossiblyInvalidArgument occurrences="1">
       <code>$_POST['pma_pw']</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast occurrences="1">
       <code>$_POST['pma_pw']</code>
     </PossiblyInvalidCast>
-    <PossiblyNullReference occurrences="1">
-      <code>handlePasswordChange</code>
-    </PossiblyNullReference>
   </file>
   <file src="libraries/classes/UserPreferences.php">
     <DeprecatedMethod occurrences="7">
