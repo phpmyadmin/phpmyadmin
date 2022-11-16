@@ -6,6 +6,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Config\Settings;
 use PhpMyAdmin\Exceptions\ConfigException;
+use Throwable;
 
 use function __;
 use function array_filter;
@@ -14,7 +15,6 @@ use function array_replace_recursive;
 use function array_slice;
 use function count;
 use function defined;
-use function error_get_last;
 use function error_reporting;
 use function explode;
 use function fclose;
@@ -348,8 +348,6 @@ class Config
      */
     public function load(?string $source = null): bool
     {
-        $GLOBALS['isConfigLoading'] = $GLOBALS['isConfigLoading'] ?? null;
-
         $this->loadDefaults();
 
         if ($source !== null) {
@@ -373,10 +371,13 @@ class Config
         }
 
         ob_start();
-        $GLOBALS['isConfigLoading'] = true;
-        /** @psalm-suppress UnresolvableInclude */
-        $eval_result = include $this->getSource();
-        $GLOBALS['isConfigLoading'] = false;
+        try {
+            /** @psalm-suppress UnresolvableInclude */
+            $eval_result = include $this->getSource();
+        } catch (Throwable $exception) {
+            throw new ConfigException('Failed to load phpMyAdmin configuration.');
+        }
+
         ob_end_clean();
 
         if ($canUseErrorReporting) {
@@ -1026,35 +1027,6 @@ class Config
     public function issetCookie(string $cookieName): bool
     {
         return isset($_COOKIE[$this->getCookieName($cookieName)]);
-    }
-
-    /**
-     * Error handler to catch fatal errors when loading configuration
-     * file
-     */
-    public static function fatalErrorHandler(): void
-    {
-        if (! isset($GLOBALS['isConfigLoading']) || ! $GLOBALS['isConfigLoading']) {
-            return;
-        }
-
-        $error = error_get_last();
-        if ($error === null) {
-            return;
-        }
-
-        echo (new Template())->render('error/generic', [
-            'lang' => $GLOBALS['lang'] ?? 'en',
-            'dir' => $GLOBALS['text_dir'] ?? 'ltr',
-            'error_message' => sprintf(
-                'Failed to load phpMyAdmin configuration (%s:%s): %s',
-                Error::relPath($error['file']),
-                $error['line'],
-                $error['message']
-            ),
-        ]);
-
-        exit;
     }
 
     /**

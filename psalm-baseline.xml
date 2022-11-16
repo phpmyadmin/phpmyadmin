@@ -222,10 +222,9 @@
       <code>$GLOBALS['cfg']['MysqlMinVersion']['internal']</code>
       <code>$GLOBALS['cfg']['Server']['user']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="7">
+    <MixedAssignment occurrences="6">
       <code>$GLOBALS['auth_plugin']</code>
       <code>$GLOBALS['back']</code>
-      <code>$GLOBALS['isConfigLoading']</code>
       <code>$GLOBALS['theme']</code>
       <code>$controlLink</code>
       <code>$sqlDelimiter</code>
@@ -296,9 +295,8 @@
       <code>$this-&gt;settings['Servers'][$server]</code>
       <code>$this-&gt;settings['Servers'][$this-&gt;settings['ServerDefault']]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="28">
+    <MixedAssignment occurrences="27">
       <code>$GLOBALS['cfg']['LoginCookieValidity']</code>
-      <code>$GLOBALS['isConfigLoading']</code>
       <code>$collation_connection</code>
       <code>$config_data</code>
       <code>$default_value</code>
