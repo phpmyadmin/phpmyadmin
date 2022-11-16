@@ -8,6 +8,7 @@ use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\TableName;
+use PhpMyAdmin\Exceptions\AuthenticationPluginException;
 use PhpMyAdmin\Exceptions\ConfigException;
 use PhpMyAdmin\Exceptions\MissingExtensionException;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
@@ -228,7 +229,14 @@ final class Common
         if (! empty($GLOBALS['cfg']['Server'])) {
             $config->getLoginCookieValidityFromCache($GLOBALS['server']);
 
-            $GLOBALS['auth_plugin'] = Plugins::getAuthPlugin();
+            try {
+                $GLOBALS['auth_plugin'] = Plugins::getAuthPlugin();
+            } catch (AuthenticationPluginException $exception) {
+                echo self::getGenericError($exception->getMessage());
+
+                return;
+            }
+
             $GLOBALS['auth_plugin']->authenticate();
 
             /* Enable LOAD DATA LOCAL INFILE for LDI plugin */
