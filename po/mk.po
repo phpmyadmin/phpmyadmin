@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-11-14 11:47+0000\n"
+"PO-Revision-Date: 2022-11-17 05:48+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -4254,10 +4254,8 @@ msgstr "Полињата се раздвоени со"
 #: libraries/classes/Config/Descriptions.php:635
 #: libraries/classes/Config/Descriptions.php:654
 #: libraries/classes/Plugins/Import/ImportCsv.php:148
-#, fuzzy
-#| msgid "Fields escaped by"
 msgid "Columns escaped with"
-msgstr "Escape карактер &nbsp; &nbsp; &nbsp;"
+msgstr "Колоните се избегнати со"
 
 #: libraries/classes/Config/Descriptions.php:268
 #: libraries/classes/Config/Descriptions.php:280
@@ -12255,31 +12253,19 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:4758
-#, fuzzy, php-format
-#| msgid ""
-#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
-#| "privilege tables. The content of these tables may differ from the "
-#| "privileges the server uses, if they have been changed manually. In this "
-#| "case, you should %sreload the privileges%s before you continue."
+#, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
 "server uses, if they have been changed manually. In this case, you should "
 "%sreload the privileges%s before you continue."
 msgstr ""
-"Напомена: phpMyAdmin ги зема привилегиите на корисникот директно од MySQL "
-"табелата на привилегии. Содржината на оваа табела табела може да се "
-"разликува од привилегиите кои серверот ги користи ако се вршени мануелни "
-"измени. Во тој случај %sповторно вчитајте ги привилегиите%s пред да "
-"продолжите со работа."
+"Белешка: phpMyAdmin ги зема привилегиите на корисникот директно од табелата "
+"на привилегии на MySQL. Содржината на оваа табела може да се разликува од "
+"привилегиите кои серверот ги користи ако се рачно изменети. Во тој случај "
+"%sповторно вчитајте ги привилегиите%s пред да продолжите."
 
 #: libraries/classes/Server/Privileges.php:4775
-#, fuzzy
-#| msgid ""
-#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
-#| "privilege tables. The content of these tables may differ from the "
-#| "privileges the server uses, if they have been changed manually. In this "
-#| "case, you should %sreload the privileges%s before you continue."
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12287,11 +12273,11 @@ msgid ""
 "privileges have to be reloaded but currently, you don't have the RELOAD "
 "privilege."
 msgstr ""
-"Напомена: phpMyAdmin ги зема привилегиите на корисникот директно од MySQL "
-"табелата на привилегии. Содржината на оваа табела табела може да се "
-"разликува од привилегиите кои серверот ги користи ако се вршени мануелни "
-"измени. Во тој случај %sповторно вчитајте ги привилегиите%s пред да "
-"продолжите со работа."
+"Белешка: phpMyAdmin ги зема привилегиите на корисникот директно од табелата "
+"на привилегии на MySQL. Содржината на оваа табела може да се разликува од "
+"привилегиите кои серверот ги користи ако се рачно изменети. Во тој случај, "
+"привилегиите треба да се вчитаат повторно, но вие ja немате RELOAD "
+"привилегијата."
 
 #: libraries/classes/Server/Privileges.php:5060
 msgid "You have added a new user."
