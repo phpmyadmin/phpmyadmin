@@ -14,6 +14,7 @@ use PhpMyAdmin\Exceptions\MissingExtensionException;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
+use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 use PhpMyAdmin\SqlParser\Lexer;
 use RuntimeException;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -228,8 +229,10 @@ final class Common
         if (! empty($GLOBALS['cfg']['Server'])) {
             $config->getLoginCookieValidityFromCache($GLOBALS['server']);
 
+            /** @var AuthenticationPluginFactory $authPluginFactory */
+            $authPluginFactory = $container->get(AuthenticationPluginFactory::class);
             try {
-                $authPlugin = Plugins::getAuthPlugin();
+                $authPlugin = $authPluginFactory->create();
             } catch (AuthenticationPluginException $exception) {
                 echo self::getGenericError($exception->getMessage());
 

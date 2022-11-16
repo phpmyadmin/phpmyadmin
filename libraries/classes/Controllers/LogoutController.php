@@ -6,10 +6,18 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 
 class LogoutController
 {
+    /** @var AuthenticationPluginFactory */
+    private $authPluginFactory;
+
+    public function __construct(AuthenticationPluginFactory $authPluginFactory)
+    {
+        $this->authPluginFactory = $authPluginFactory;
+    }
+
     public function __invoke(ServerRequest $request): void
     {
         if (! $request->isPost() || $GLOBALS['token_mismatch']) {
@@ -18,6 +26,7 @@ class LogoutController
             return;
         }
 
-        Plugins::getAuthPlugin()->logOut();
+        $authPlugin = $this->authPluginFactory->create();
+        $authPlugin->logOut();
     }
 }

@@ -9287,17 +9287,11 @@
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>$properties != null</code>
     </RedundantConditionGivenDocblockType>
-    <RedundantFunctionCall occurrences="1">
-      <code>strtolower</code>
-    </RedundantFunctionCall>
     <UnnecessaryVarAnnotation occurrences="3">
       <code>RadioPropertyItem</code>
       <code>SelectPropertyItem</code>
       <code>TextPropertyItem</code>
     </UnnecessaryVarAnnotation>
-    <UnsafeInstantiation occurrences="1">
-      <code>new $class()</code>
-    </UnsafeInstantiation>
   </file>
   <file src="libraries/classes/Plugins/Auth/AuthenticationCookie.php">
     <DocblockTypeContradiction occurrences="1">
@@ -9428,6 +9422,14 @@
     <PossiblyNullReference occurrences="1">
       <code>issetCookie</code>
     </PossiblyNullReference>
+  </file>
+  <file src="libraries/classes/Plugins/AuthenticationPluginFactory.php">
+    <RedundantFunctionCall occurrences="1">
+      <code>strtolower</code>
+    </RedundantFunctionCall>
+    <UnsafeInstantiation occurrences="1">
+      <code>new $class()</code>
+    </UnsafeInstantiation>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportCodegen.php">
     <PossiblyNullArgument occurrences="4">

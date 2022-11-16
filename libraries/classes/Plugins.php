@@ -5,9 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use FilesystemIterator;
-use PhpMyAdmin\Exceptions\AuthenticationPluginException;
 use PhpMyAdmin\Html\MySQLDocumentation;
-use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Plugins\Plugin;
@@ -42,15 +40,10 @@ use function str_replace;
 use function str_starts_with;
 use function strcasecmp;
 use function strcmp;
-use function strtolower;
-use function ucfirst;
 use function usort;
 
 class Plugins
 {
-    /** @var AuthenticationPlugin|null */
-    private static $authPlugin = null;
-
     /**
      * Instantiates the specified plugin type for a certain format
      *
@@ -623,27 +616,5 @@ class Plugins
         }
 
         return $ret;
-    }
-
-    /**
-     * @throws AuthenticationPluginException
-     */
-    public static function getAuthPlugin(): AuthenticationPlugin
-    {
-        if (self::$authPlugin instanceof AuthenticationPlugin) {
-            return self::$authPlugin;
-        }
-
-        $authType = $GLOBALS['cfg']['Server']['auth_type'];
-        $class = 'PhpMyAdmin\\Plugins\\Auth\\Authentication' . ucfirst(strtolower($authType));
-        if (! class_exists($class) || ! is_subclass_of($class, AuthenticationPlugin::class)) {
-            throw new AuthenticationPluginException(
-                __('Invalid authentication method set in configuration:') . ' ' . $authType
-            );
-        }
-
-        self::$authPlugin = new $class();
-
-        return self::$authPlugin;
     }
 }

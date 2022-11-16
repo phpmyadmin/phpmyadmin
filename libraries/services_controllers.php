@@ -37,6 +37,7 @@ use PhpMyAdmin\Controllers\Transformation;
 use PhpMyAdmin\Controllers\UserPasswordController;
 use PhpMyAdmin\Controllers\VersionCheckController;
 use PhpMyAdmin\Controllers\View;
+use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 
 return [
     'services' => [
@@ -585,6 +586,7 @@ return [
         ],
         LogoutController::class => [
             'class' => LogoutController::class,
+            'arguments' => ['@' . AuthenticationPluginFactory::class],
         ],
         NavigationController::class => [
             'class' => NavigationController::class,
