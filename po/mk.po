@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-09-29 00:17-0300\n"
-"PO-Revision-Date: 2022-11-14 11:47+0000\n"
+"PO-Revision-Date: 2022-11-18 03:47+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/mk/>\n"
@@ -3034,10 +3034,8 @@ msgstr "Полињата се раздвоени со"
 #: libraries/classes/Config/Descriptions.php:795
 #: libraries/classes/Config/Descriptions.php:801
 #: libraries/classes/Plugins/Import/ImportCsv.php:677
-#, fuzzy
-#| msgid "Fields escaped by"
 msgid "Columns escaped with"
-msgstr "Escape карактер &nbsp; &nbsp; &nbsp;"
+msgstr "Колоните се избегнати со"
 
 #: libraries/classes/Config/Descriptions.php:663
 #: libraries/classes/Config/Descriptions.php:669
@@ -4993,10 +4991,8 @@ msgstr "Пристапот не е допуштен!"
 #: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:54
 #: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:54
 #: libraries/classes/Controllers/Table/Maintenance/RepairController.php:54
-#, fuzzy
-#| msgid "No tables selected."
 msgid "No table selected."
-msgstr "Не е избрана ниту една табела."
+msgstr "Не е избрана табела."
 
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:53
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:53
@@ -5350,10 +5346,8 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "Со ова ја БРИШЕТЕ комплетната база на податоци!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:47
-#, fuzzy
-#| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to DELETE all the rows of the table!"
-msgstr "Со ова ја БРИШЕТЕ комплетната база на податоци!"
+msgstr "Со ова ги БРИШЕТЕ(DELETE) сите редови на табелата!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:48
 #, fuzzy
@@ -5696,17 +5690,13 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:140
 #: templates/server/privileges/users_overview.twig:100
-#, fuzzy
-#| msgid "Remove database"
 msgid "Lock this account."
-msgstr "Избриши ја базата на податоци."
+msgstr "Заклучи го овој корисник."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:141
 #: templates/server/privileges/users_overview.twig:100
-#, fuzzy
-#| msgid "User"
 msgid "Unlock this account."
-msgstr "Корисник"
+msgstr "Вклучи го овој корисник."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:144
 #, fuzzy
@@ -5959,10 +5949,8 @@ msgstr "нема"
 
 #. l10n: SQL Query on modal to show exported query
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:210
-#, fuzzy
-#| msgid "SQL query"
 msgid "SQL Query"
-msgstr "SQL упит"
+msgstr "SQL Барање"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:211
 msgid "Resume monitor"
@@ -7567,16 +7555,14 @@ msgstr[0] "%1$d база на податоци беше успешно избр�
 msgstr[1] "%1$d бази на податоци беа успешно избришани."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
-#, fuzzy, php-format
-#| msgid "The selected users have been deleted successfully."
+#, php-format
 msgid "The account %s@%s has been successfully locked."
-msgstr "Изабраните корисници успешно се избришани."
+msgstr "Корисникот %s@%s беше успешно заклучен."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountUnlockController.php:47
-#, fuzzy, php-format
-#| msgid "The selected users have been deleted successfully."
+#, php-format
 msgid "The account %s@%s has been successfully unlocked."
-msgstr "Изабраните корисници успешно се избришани."
+msgstr "Корисникот %s@%s беше успешно отклучен."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:152
 #: libraries/classes/Controllers/Server/UserGroupsController.php:53
@@ -8211,10 +8197,8 @@ msgid "Missing parameter:"
 msgstr "Недостига параметар:"
 
 #: libraries/classes/Controllers/Server/UserGroupsFormController.php:60
-#, fuzzy
-#| msgid "The server is not responding"
 msgid "User groups management is not enabled."
-msgstr "Серверот не одговара"
+msgstr "Менаџментот за кориснички групи не е уклучен."
 
 #: libraries/classes/Controllers/Server/Variables/SetVariableController.php:93
 msgid "Setting variable failed"
@@ -12462,31 +12446,19 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:3016
-#, fuzzy, php-format
-#| msgid ""
-#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
-#| "privilege tables. The content of these tables may differ from the "
-#| "privileges the server uses, if they have been changed manually. In this "
-#| "case, you should %sreload the privileges%s before you continue."
+#, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
 "server uses, if they have been changed manually. In this case, you should "
 "%sreload the privileges%s before you continue."
 msgstr ""
-"Напомена: phpMyAdmin ги зема привилегиите на корисникот директно од MySQL "
-"табелата на привилегии. Содржината на оваа табела табела може да се "
-"разликува од привилегиите кои серверот ги користи ако се вршени мануелни "
-"измени. Во тој случај %sповторно вчитајте ги привилегиите%s пред да "
-"продолжите со работа."
+"Белешка: phpMyAdmin ги зема привилегиите на корисникот директно од табелата "
+"на привилегии на MySQL. Содржината на оваа табела може да се разликува од "
+"привилегиите кои серверот ги користи ако се рачно изменети. Во тој случај "
+"%sповторно вчитајте ги привилегиите%s пред да продолжите."
 
 #: libraries/classes/Server/Privileges.php:3032
-#, fuzzy
-#| msgid ""
-#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
-#| "privilege tables. The content of these tables may differ from the "
-#| "privileges the server uses, if they have been changed manually. In this "
-#| "case, you should %sreload the privileges%s before you continue."
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12494,11 +12466,11 @@ msgid ""
 "privileges have to be reloaded but currently, you don't have the RELOAD "
 "privilege."
 msgstr ""
-"Напомена: phpMyAdmin ги зема привилегиите на корисникот директно од MySQL "
-"табелата на привилегии. Содржината на оваа табела табела може да се "
-"разликува од привилегиите кои серверот ги користи ако се вршени мануелни "
-"измени. Во тој случај %sповторно вчитајте ги привилегиите%s пред да "
-"продолжите со работа."
+"Белешка: phpMyAdmin ги зема привилегиите на корисникот директно од табелата "
+"на привилегии на MySQL. Содржината на оваа табела може да се разликува од "
+"привилегиите кои серверот ги користи ако се рачно изменети. Во тој случај, "
+"привилегиите треба да се вчитаат повторно, но вие ja немате RELOAD "
+"привилегијата."
 
 #: libraries/classes/Server/Privileges.php:3346
 msgid "You have added a new user."
@@ -19524,10 +19496,9 @@ msgid "at beginning of table"
 msgstr "на почетокот од табелата"
 
 #: templates/table/structure/display_structure.twig:552
-#, fuzzy, php-format
-#| msgid "Create an index on&nbsp;%s&nbsp;columns"
+#, php-format
 msgid "Create an index on %s columns"
-msgstr "Направи клуч на&nbsp;%s&nbsp;колони"
+msgstr "Направи индекс на %s колони"
 
 #: templates/table/structure/display_table_stats.twig:14
 msgid "Space usage"
