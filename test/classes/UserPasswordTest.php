@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
@@ -35,7 +36,7 @@ class UserPasswordTest extends AbstractTestCase
             new RelationCleanup($GLOBALS['dbi'], $relation),
             new Plugins($GLOBALS['dbi'])
         );
-        $this->object = new UserPassword($serverPrivileges);
+        $this->object = new UserPassword($serverPrivileges, $this->createStub(AuthenticationPluginFactory::class));
     }
 
     /**

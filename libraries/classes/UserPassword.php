@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\Server\Privileges;
 
@@ -19,12 +20,13 @@ class UserPassword
     /** @var Privileges */
     private $serverPrivileges;
 
-    /**
-     * @param Privileges $serverPrivileges Privileges object
-     */
-    public function __construct(Privileges $serverPrivileges)
+    /** @var AuthenticationPluginFactory */
+    private $authPluginFactory;
+
+    public function __construct(Privileges $serverPrivileges, AuthenticationPluginFactory $authPluginFactory)
     {
         $this->serverPrivileges = $serverPrivileges;
+        $this->authPluginFactory = $authPluginFactory;
     }
 
     /**
@@ -65,8 +67,6 @@ class UserPassword
      */
     public function changePassword($password, ?string $authenticationPlugin): string
     {
-        $GLOBALS['auth_plugin'] = $GLOBALS['auth_plugin'] ?? null;
-
         $hashing_function = $this->changePassHashingFunction($authenticationPlugin);
 
         [$username, $hostname] = $GLOBALS['dbi']->getCurrentUserAndHost();
@@ -114,7 +114,8 @@ class UserPassword
             $orig_auth_plugin
         );
 
-        $GLOBALS['auth_plugin']->handlePasswordChange($password);
+        $authPlugin = $this->authPluginFactory->create();
+        $authPlugin->handlePasswordChange($password);
 
         return $sql_query;
     }

@@ -6,7 +6,6 @@ namespace PhpMyAdmin;
 
 use FilesystemIterator;
 use PhpMyAdmin\Html\MySQLDocumentation;
-use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Plugins\Plugin;
@@ -27,7 +26,6 @@ use Throwable;
 use function __;
 use function class_exists;
 use function count;
-use function defined;
 use function get_class;
 use function htmlspecialchars;
 use function is_subclass_of;
@@ -42,8 +40,6 @@ use function str_replace;
 use function str_starts_with;
 use function strcasecmp;
 use function strcmp;
-use function strtolower;
-use function ucfirst;
 use function usort;
 
 class Plugins
@@ -620,30 +616,5 @@ class Plugins
         }
 
         return $ret;
-    }
-
-    public static function getAuthPlugin(): AuthenticationPlugin
-    {
-        /** @psalm-var class-string $class */
-        $class = 'PhpMyAdmin\\Plugins\\Auth\\Authentication'
-            . ucfirst(strtolower($GLOBALS['cfg']['Server']['auth_type']));
-
-        if (! class_exists($class)) {
-            echo (new Template())->render('error/generic', [
-                'lang' => $GLOBALS['lang'] ?? 'en',
-                'dir' => $GLOBALS['text_dir'] ?? 'ltr',
-                'error_message' => __('Invalid authentication method set in configuration:')
-                    . ' ' . $GLOBALS['cfg']['Server']['auth_type'],
-            ]);
-
-            if (! defined('TESTSUITE')) {
-                exit;
-            }
-        }
-
-        /** @var AuthenticationPlugin $plugin */
-        $plugin = new $class();
-
-        return $plugin;
     }
 }

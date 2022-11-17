@@ -8,11 +8,13 @@ use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\TableName;
+use PhpMyAdmin\Exceptions\AuthenticationPluginException;
 use PhpMyAdmin\Exceptions\ConfigException;
 use PhpMyAdmin\Exceptions\MissingExtensionException;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
+use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 use PhpMyAdmin\SqlParser\Lexer;
 use RuntimeException;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -86,7 +88,6 @@ final class Common
     public static function run(bool $isSetupPage = false): void
     {
         $GLOBALS['lang'] = $GLOBALS['lang'] ?? null;
-        $GLOBALS['auth_plugin'] = $GLOBALS['auth_plugin'] ?? null;
         $GLOBALS['theme'] = $GLOBALS['theme'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
         $GLOBALS['token_mismatch'] = $GLOBALS['token_mismatch'] ?? null;
@@ -228,8 +229,17 @@ final class Common
         if (! empty($GLOBALS['cfg']['Server'])) {
             $config->getLoginCookieValidityFromCache($GLOBALS['server']);
 
-            $GLOBALS['auth_plugin'] = Plugins::getAuthPlugin();
-            $GLOBALS['auth_plugin']->authenticate();
+            /** @var AuthenticationPluginFactory $authPluginFactory */
+            $authPluginFactory = $container->get(AuthenticationPluginFactory::class);
+            try {
+                $authPlugin = $authPluginFactory->create();
+            } catch (AuthenticationPluginException $exception) {
+                echo self::getGenericError($exception->getMessage());
+
+                return;
+            }
+
+            $authPlugin->authenticate();
 
             /* Enable LOAD DATA LOCAL INFILE for LDI plugin */
             if ($route === '/import' && ($_POST['format'] ?? '') === 'ldi') {
@@ -239,11 +249,9 @@ final class Common
                 // phpcs:enable
             }
 
-            self::connectToDatabaseServer($GLOBALS['dbi'], $GLOBALS['auth_plugin']);
-
-            $GLOBALS['auth_plugin']->rememberCredentials();
-
-            $GLOBALS['auth_plugin']->checkTwoFactor();
+            self::connectToDatabaseServer($GLOBALS['dbi'], $authPlugin);
+            $authPlugin->rememberCredentials();
+            $authPlugin->checkTwoFactor();
 
             /* Log success */
             Logging::logUser($GLOBALS['cfg']['Server']['user']);

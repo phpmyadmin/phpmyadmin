@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
+use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 
 return [
     'services' => [
@@ -132,6 +133,9 @@ return [
             'class' => PhpMyAdmin\Partitioning\Maintenance::class,
             'arguments' => ['$dbi' => '@dbi'],
         ],
+        AuthenticationPluginFactory::class => [
+            'class' => AuthenticationPluginFactory::class,
+        ],
         'relation' => [
             'class' => Relation::class,
             'arguments' => ['$dbi' => '@dbi'],
@@ -251,7 +255,7 @@ return [
         ],
         'user_password' => [
             'class' => PhpMyAdmin\UserPassword::class,
-            'arguments' => ['@server_privileges'],
+            'arguments' => ['@server_privileges', '@' . AuthenticationPluginFactory::class],
         ],
         'user_preferences' => [
             'class' => PhpMyAdmin\UserPreferences::class,
