@@ -63,6 +63,7 @@ class ResultsTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $_SESSION[' HMAC_secret '] = 'test';
+        $_SESSION = [' PMA_token ' => 'token'];
     }
 
     /**
