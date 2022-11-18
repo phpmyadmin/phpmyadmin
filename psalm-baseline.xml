@@ -6963,7 +6963,7 @@
       <code>$ring['points']</code>
       <code>$wkt</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="38">
+    <MixedArrayAccess occurrences="33">
       <code>$data_row[$k]</code>
       <code>$data_row[$k]</code>
       <code>$data_row['no_of_polygons']</code>
@@ -6975,19 +6975,14 @@
       <code>$label_point[1]</code>
       <code>$label_point[1]</code>
       <code>$param_row[$k]</code>
-      <code>$param_row[$k]</code>
       <code>$param_row[$k][$j]</code>
       <code>$param_row[$k][$j][$i]</code>
-      <code>$param_row[$k][0]</code>
-      <code>$param_row[$k][0][$i]</code>
       <code>$params[$index]['MULTIPOLYGON']</code>
       <code>$point['x']</code>
       <code>$point['y']</code>
       <code>$point[0]</code>
       <code>$point[1]</code>
       <code>$points_arr[$i][0]</code>
-      <code>$points_arr[$i][0]</code>
-      <code>$points_arr[$i][1]</code>
       <code>$points_arr[$i][1]</code>
       <code>$points_arr[0][0]</code>
       <code>$points_arr[0][1]</code>
@@ -7003,11 +6998,7 @@
       <code>$ring['points']</code>
       <code>$row_data['parts'][$j]</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="13">
-      <code>$param_row[$k]</code>
-      <code>$param_row[$k]</code>
-      <code>$param_row[$k]</code>
-      <code>$param_row[$k]</code>
+    <MixedArrayAssignment occurrences="9">
       <code>$param_row[$k]</code>
       <code>$param_row[$k]</code>
       <code>$param_row[$k]</code>
@@ -7025,7 +7016,7 @@
       <code>$row_data['parts'][$k]</code>
       <code>$row_data['parts'][$k]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="25">
+    <MixedAssignment occurrences="23">
       <code>$data_row</code>
       <code>$i</code>
       <code>$i</code>
@@ -7039,8 +7030,6 @@
       <code>$param_row</code>
       <code>$param_row[$k][$j][$i]['x']</code>
       <code>$param_row[$k][$j][$i]['y']</code>
-      <code>$param_row[$k][0][$i]['x']</code>
-      <code>$param_row[$k][0][$i]['y']</code>
       <code>$params['srid']</code>
       <code>$point</code>
       <code>$point</code>
