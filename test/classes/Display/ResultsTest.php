@@ -1129,7 +1129,8 @@ class ResultsTest extends AbstractTestCase
         );
     }
 
-    public function testPftextConfigParam(): void {
+    public function testPftextConfigParam(): void
+    {
         $db = 'test_db';
         $table = 'test_table';
 
@@ -1146,7 +1147,7 @@ class ResultsTest extends AbstractTestCase
 
         $object = new DisplayResults($this->dbi, $db, $table, 1, '', $query);
         $object->setConfigParamsForDisplayTable($analyzedSqlResults);
-        
+
         $this->assertSame('P', $_SESSION['tmpval']['pftext']);
     }
 
@@ -1169,7 +1170,7 @@ class ResultsTest extends AbstractTestCase
         $table = 'test_table';
         $query = 'SELECT * FROM `test_db`.`test_table`;';
         [$analyzedSqlResults] = ParseAnalyze::sqlQuery($query, $db);
-        
+
         $object = new DisplayResults($this->dbi, $db, $table, 1, '', $query);
         $object->setConfigParamsForDisplayTable($analyzedSqlResults);
 
