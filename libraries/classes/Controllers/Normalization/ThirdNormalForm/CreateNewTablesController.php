@@ -25,7 +25,7 @@ final class CreateNewTablesController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $newtables = json_decode($_POST['newTables'], true);
+        $newtables = json_decode($request->getParsedBodyParam('newTables'), true);
         $res = $this->normalization->createNewTablesFor3NF($newtables, $GLOBALS['db']);
         $this->response->addJSON($res);
     }

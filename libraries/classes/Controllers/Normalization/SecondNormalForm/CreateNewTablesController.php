@@ -25,8 +25,8 @@ final class CreateNewTablesController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $partialDependencies = json_decode($_POST['pd'], true);
-        $tablesName = json_decode($_POST['newTablesName']);
+        $partialDependencies = json_decode($request->getParsedBodyParam('pd'), true);
+        $tablesName = json_decode($request->getParsedBodyParam('newTablesName'));
         $res = $this->normalization->createNewTablesFor2NF(
             $partialDependencies,
             $tablesName,

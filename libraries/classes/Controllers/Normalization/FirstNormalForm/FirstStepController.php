@@ -28,8 +28,9 @@ final class FirstStepController extends AbstractController
         $this->addScriptFiles(['normalization.js', 'vendor/jquery/jquery.uitablefilter.js']);
 
         $normalForm = '1nf';
-        if (isset($_POST['normalizeTo']) && in_array($_POST['normalizeTo'], ['1nf', '2nf', '3nf'])) {
-            $normalForm = $_POST['normalizeTo'];
+        $normalizeTo = $request->getParsedBodyParam('normalizeTo');
+        if (isset($normalizeTo) && in_array($normalizeTo, ['1nf', '2nf', '3nf'])) {
+            $normalForm = $normalizeTo;
         }
 
         $html = $this->normalization->getHtmlFor1NFStep1($GLOBALS['db'], $GLOBALS['table'], $normalForm);

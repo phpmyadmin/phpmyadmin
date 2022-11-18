@@ -23,10 +23,10 @@ final class MoveRepeatingGroup extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $repeatingColumns = $_POST['repeatingColumns'];
-        $newTable = $_POST['newTable'];
-        $newColumn = $_POST['newColumn'];
-        $primary_columns = $_POST['primary_columns'];
+        $repeatingColumns = $request->getParsedBodyParam('repeatingColumns');
+        $newTable = $request->getParsedBodyParam('newTable');
+        $newColumn = $request->getParsedBodyParam('newColumn');
+        $primary_columns = $request->getParsedBodyParam('primary_columns');
         $res = $this->normalization->moveRepeatingGroup(
             $repeatingColumns,
             $primary_columns,
