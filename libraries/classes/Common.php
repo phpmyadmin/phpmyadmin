@@ -11,6 +11,7 @@ use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Exceptions\AuthenticationPluginException;
 use PhpMyAdmin\Exceptions\ConfigException;
 use PhpMyAdmin\Exceptions\MissingExtensionException;
+use PhpMyAdmin\Exceptions\SessionHandlerException;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
@@ -127,8 +128,14 @@ final class Common
         }
 
         if ($route !== '/messages') {
-            // Include session handling after the globals, to prevent overwriting.
-            Session::setUp($config, $errorHandler);
+            try {
+                // Include session handling after the globals, to prevent overwriting.
+                Session::setUp($config, $errorHandler);
+            } catch (SessionHandlerException $exception) {
+                echo self::getGenericError($exception->getMessage());
+
+                return;
+            }
         }
 
         $request = Core::populateRequestWithEncryptedQueryParams($request);
