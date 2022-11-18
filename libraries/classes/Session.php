@@ -1,15 +1,11 @@
 <?php
-/**
- * Session handling
- *
- * @see     https://www.php.net/manual/en/features.sessions.php
- */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use function defined;
+use PhpMyAdmin\Exceptions\SessionHandlerException;
+
 use function htmlspecialchars;
 use function implode;
 use function ini_get;
@@ -32,13 +28,12 @@ use function setcookie;
 use const PHP_SESSION_ACTIVE;
 use const PHP_VERSION_ID;
 
-/**
- * Session class
- */
 class Session
 {
     /**
      * Generates PMA_token session variable.
+     *
+     * @throws SessionHandlerException
      */
     private static function generateToken(): void
     {
@@ -53,19 +48,15 @@ class Session
             return;
         }
 
-        echo (new Template())->render('error/generic', [
-            'lang' => $GLOBALS['lang'] ?? 'en',
-            'dir' => $GLOBALS['text_dir'] ?? 'ltr',
-            'error_message' => 'Failed to generate random CSRF token!',
-        ]);
-
-        exit;
+        throw new SessionHandlerException('Failed to generate random CSRF token!');
     }
 
     /**
      * tries to secure session from hijacking and fixation
      * should be called before login and after successful login
      * (only required if sensitive information stored in session)
+     *
+     * @throws SessionHandlerException
      */
     public static function secure(): void
     {
@@ -83,6 +74,8 @@ class Session
      * Session failed function
      *
      * @param array $errors PhpMyAdmin\ErrorHandler array
+     *
+     * @throws SessionHandlerException
      */
     private static function sessionFailed(array $errors): void
     {
@@ -114,20 +107,12 @@ class Session
             . 'in your browser.'
             . '<br><br>'
             . implode('<br><br>', $messages);
-        echo (new Template())->render('error/generic', [
-            'lang' => $GLOBALS['lang'] ?? 'en',
-            'dir' => $GLOBALS['text_dir'] ?? 'ltr',
-            'error_message' => $errorMessage,
-        ]);
 
-        exit;
+        throw new SessionHandlerException($errorMessage);
     }
 
     /**
-     * Set up session
-     *
-     * @param Config       $config       Configuration handler
-     * @param ErrorHandler $errorHandler Error handler
+     * @throws SessionHandlerException
      */
     public static function setUp(Config $config, ErrorHandler $errorHandler): void
     {
@@ -251,14 +236,8 @@ class Session
             return;
         }
 
-        echo (new Template())->render('error/generic', [
-            'lang' => $GLOBALS['lang'] ?? 'en',
-            'dir' => $GLOBALS['text_dir'] ?? 'ltr',
-            'error_message' => 'Failed to store CSRF token in session! Probably sessions are not working properly.',
-        ]);
-
-        if (! defined('TESTSUITE')) {
-            exit;
-        }
+        throw new SessionHandlerException(
+            'Failed to store CSRF token in session! Probably sessions are not working properly.'
+        );
     }
 }
