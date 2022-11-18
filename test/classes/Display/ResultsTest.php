@@ -1129,6 +1129,27 @@ class ResultsTest extends AbstractTestCase
         );
     }
 
+    public function testPftextConfigParam(): void {
+        $db = 'test_db';
+        $table = 'test_table';
+
+        $query = 'ANALYZE FORMAT=JSON SELECT * FROM test_table';
+        [$analyzedSqlResults] = ParseAnalyze::sqlQuery($query, $db);
+
+        $object = new DisplayResults($this->dbi, $db, $table, 1, '', $query);
+        $object->setConfigParamsForDisplayTable($analyzedSqlResults);
+
+        $this->assertSame('F', $_SESSION['tmpval']['pftext']);
+
+        $query = 'ANALYZE NO_WRITE_TO_BINLOG TABLE test_table';
+        [$analyzedSqlResults] = ParseAnalyze::sqlQuery($query, $db);
+
+        $object = new DisplayResults($this->dbi, $db, $table, 1, '', $query);
+        $object->setConfigParamsForDisplayTable($analyzedSqlResults);
+        
+        $this->assertSame('P', $_SESSION['tmpval']['pftext']);
+    }
+
     /**
      * @dataProvider providerSetConfigParamsForDisplayTable
      */
@@ -1147,9 +1168,10 @@ class ResultsTest extends AbstractTestCase
         $db = 'test_db';
         $table = 'test_table';
         $query = 'SELECT * FROM `test_db`.`test_table`;';
-
+        [$analyzedSqlResults] = ParseAnalyze::sqlQuery($query, $db);
+        
         $object = new DisplayResults($this->dbi, $db, $table, 1, '', $query);
-        $object->setConfigParamsForDisplayTable();
+        $object->setConfigParamsForDisplayTable($analyzedSqlResults);
 
         $this->assertArrayHasKey('tmpval', $_SESSION);
         $this->assertIsArray($_SESSION['tmpval']);
