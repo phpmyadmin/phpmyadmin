@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-11-17 05:48+0000\n"
+"PO-Revision-Date: 2022-11-18 12:59+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -4067,10 +4067,8 @@ msgid "Default table tab"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:183
-#, fuzzy
-#| msgid "Enclose table and field names with backquotes"
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "Името на полето стави го во '"
+msgstr "Автоматското дополнување на табели и имиња на колони во SQL барања."
 
 #: libraries/classes/Config/Descriptions.php:185
 #, fuzzy
@@ -4515,10 +4513,8 @@ msgid "Browse mode"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:436
-#, fuzzy
-#| msgid "Automatic recovery mode"
 msgid "Customize browse mode."
-msgstr "Режим на автоматско опоравување"
+msgstr "Подеси мод на прегледување."
 
 #: libraries/classes/Config/Descriptions.php:440
 #: libraries/classes/Config/Descriptions.php:444
@@ -4526,9 +4522,8 @@ msgstr "Режим на автоматско опоравување"
 #: libraries/classes/Config/Descriptions.php:498
 #: libraries/classes/Config/Descriptions.php:502
 #: libraries/classes/Config/Descriptions.php:559
-#, fuzzy
 msgid "Customize default options."
-msgstr "Опции за извоз на бази на податоци"
+msgstr "Подеси стандардни опции."
 
 #: libraries/classes/Config/Descriptions.php:442
 #: libraries/classes/Config/Forms/User/ExportForm.php:75
@@ -4549,18 +4544,16 @@ msgid "Edit mode"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:452
-#, fuzzy
 msgid "Customize edit mode."
-msgstr "Опции за извоз на бази на податоци"
+msgstr "Подесувања на модови за уредување."
 
 #: libraries/classes/Config/Descriptions.php:454
 msgid "Export defaults"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:456
-#, fuzzy
 msgid "Customize default export options."
-msgstr "Опции за извоз на бази на податоци"
+msgstr "Подесување на стандардни опции за извоз."
 
 #: libraries/classes/Config/Descriptions.php:458
 #, fuzzy
@@ -4578,9 +4571,8 @@ msgid "Import defaults"
 msgstr "Увоз на податотека"
 
 #: libraries/classes/Config/Descriptions.php:464
-#, fuzzy
 msgid "Customize default common import options."
-msgstr "Опции за извоз на бази на податоци"
+msgstr "Подесување на стандардни опции за увоз."
 
 #: libraries/classes/Config/Descriptions.php:466
 msgid "Import / export"
@@ -4603,9 +4595,8 @@ msgid "Databases"
 msgstr "База на податоци"
 
 #: libraries/classes/Config/Descriptions.php:476
-#, fuzzy
 msgid "Databases display options."
-msgstr "Опции за извоз на бази на податоци"
+msgstr "Опции за приказ на бази на податоци."
 
 #: libraries/classes/Config/Descriptions.php:478
 #: libraries/classes/Config/Forms/User/NaviForm.php:59
@@ -4613,9 +4604,8 @@ msgid "Navigation panel"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:480
-#, fuzzy
 msgid "Customize appearance of the navigation panel."
-msgstr "Опции за извоз на бази на податоци"
+msgstr "Подесување на изгледот на панелот за навигација."
 
 #: libraries/classes/Config/Descriptions.php:482
 #, fuzzy
@@ -4623,9 +4613,8 @@ msgid "Navigation tree"
 msgstr "Опции за извоз на бази на податоци"
 
 #: libraries/classes/Config/Descriptions.php:484
-#, fuzzy
 msgid "Customize the navigation tree."
-msgstr "Опции за извоз на бази на податоци"
+msgstr "Подесување на дрво за навигација."
 
 #: libraries/classes/Config/Descriptions.php:486
 #: libraries/classes/Server/Select.php:56 setup/frames/index.inc.php:123
@@ -4634,9 +4623,8 @@ msgid "Servers"
 msgstr "Сервер"
 
 #: libraries/classes/Config/Descriptions.php:488
-#, fuzzy
 msgid "Servers display options."
-msgstr "Опции за извоз на бази на податоци"
+msgstr "Опции за приказ на сервери."
 
 #: libraries/classes/Config/Descriptions.php:492
 #, fuzzy
