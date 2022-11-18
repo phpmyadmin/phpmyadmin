@@ -63,7 +63,6 @@ class ResultsTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $_SESSION[' HMAC_secret '] = 'test';
-        $_SESSION = [' PMA_token ' => 'token'];
     }
 
     /**
@@ -1186,7 +1185,7 @@ class ResultsTest extends AbstractTestCase
 
         return [
             'default values' => [
-                [],
+                [' PMA_token ' => 'token'],
                 [],
                 [],
                 [],
@@ -1240,6 +1239,7 @@ class ResultsTest extends AbstractTestCase
                             'j' => [],
                         ],
                     ],
+                    ' PMA_token ' => 'token',
                 ],
                 [],
                 [],
@@ -1278,7 +1278,7 @@ class ResultsTest extends AbstractTestCase
                 ],
             ],
             'default and request values' => [
-                [],
+                [' PMA_token ' => 'token',],
                 ['session_max_rows' => '27'],
                 ['session_max_rows' => '28'],
                 [
@@ -1341,6 +1341,7 @@ class ResultsTest extends AbstractTestCase
                             'i' => [],
                         ],
                     ],
+                    ' PMA_token ' => 'token',
                 ],
                 [],
                 ['session_max_rows' => DisplayResults::ALL_ROWS],
