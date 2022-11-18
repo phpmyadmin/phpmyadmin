@@ -64,6 +64,7 @@ class UserPasswordController extends AbstractController
 
         $noPass = $request->getParsedBodyParam('nopass');
         $pmaPw = $request->getParsedBodyParam('pma_pw');
+        $pmaPw2 = $request->getParsedBodyParam('pma_pw2');
 
         /**
          * If the "change password" form has been submitted, checks for valid values
@@ -77,16 +78,16 @@ class UserPasswordController extends AbstractController
             }
 
             $GLOBALS['change_password_message'] = $this->userPassword->setChangePasswordMsg(
-                $_POST['pma_pw'],
-                $_POST['pma_pw2'],
-                (bool) $_POST['nopass']
+                $pmaPw,
+                $pmaPw2,
+                (bool) $noPass
             );
             $GLOBALS['msg'] = $GLOBALS['change_password_message']['msg'];
 
             if (! $GLOBALS['change_password_message']['error']) {
                 $sql_query = $this->userPassword->changePassword(
                     $GLOBALS['password'],
-                    $_POST['authentication_plugin'] ?? null
+                    $request->getParsedBodyParam('authentication_plugin')
                 );
 
                 if ($this->response->isAjax()) {
