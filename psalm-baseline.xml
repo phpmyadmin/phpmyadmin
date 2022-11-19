@@ -5800,11 +5800,9 @@
     <InvalidReturnType occurrences="1">
       <code>int|bool</code>
     </InvalidReturnType>
-    <MixedArgument occurrences="26">
+    <MixedArgument occurrences="24">
       <code>$a</code>
       <code>$b</code>
-      <code>$grant</code>
-      <code>$grant</code>
       <code>$link</code>
       <code>$link</code>
       <code>$link</code>
@@ -5852,11 +5850,9 @@
       <code>$this-&gt;links[$link]</code>
       <code>$this-&gt;links[$link]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="16">
+    <MixedAssignment occurrences="14">
       <code>$aLength</code>
       <code>$bLength</code>
-      <code>$grant</code>
-      <code>$grant</code>
       <code>$keyIndex</code>
       <code>$map['real_column']</code>
       <code>$resultRows[$row[$key]]</code>

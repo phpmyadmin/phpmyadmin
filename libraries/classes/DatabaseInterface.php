@@ -1573,9 +1573,15 @@ class DatabaseInterface implements DbalInterface
         return isset($this->links[self::CONNECT_USER]);
     }
 
+    /**
+     * @return string[]
+     */
     private function getCurrentUserGrants(): array
     {
-        return $this->fetchResult('SHOW GRANTS FOR CURRENT_USER();');
+        /** @var string[] $grants */
+        $grants = $this->fetchResult('SHOW GRANTS FOR CURRENT_USER();');
+
+        return $grants;
     }
 
     /**
