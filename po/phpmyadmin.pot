@@ -13249,7 +13249,7 @@ msgstr ""
 
 #: templates/database/central_columns/main.twig:166
 #: templates/display/results/table.twig:137
-msgid "Filter rows"
+msgid "Filter rows:"
 msgstr ""
 
 #: templates/database/central_columns/main.twig:167
