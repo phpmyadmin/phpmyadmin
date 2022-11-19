@@ -134,9 +134,15 @@
         </td>
         <td class="navigation_separator"></td>
         <td class="largescreenonly">
-          <span>{% trans 'Filter rows' %}:</span>
-          <input type="text" class="filter_rows" placeholder="
-          {%- trans 'Search this table' %}" data-for="{{ unique_id }}">
+          <div class="row g-1 p-1 align-items-center">
+            <div class="col-auto">
+              <label for="filterRows" class="col-form-label">{% trans 'Filter rows' %}:</label>
+            </div>
+            <div class="col-auto">
+              <input type="text" id="filterRows" class="filter_rows form-control"
+                    placeholder="{% trans 'Search this table' %}" data-for="{{ unique_id }}">
+            </div>
+          </div>
         </td>
         <td class="largescreenonly">
           {% if navigation.sort_by_key is not empty %}
