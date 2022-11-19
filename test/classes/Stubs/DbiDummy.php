@@ -17,6 +17,7 @@ use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\FieldMetadata;
 use PHPUnit\Framework\Assert;
+use stdClass;
 
 use function addslashes;
 use function count;
@@ -97,11 +98,11 @@ class DbiDummy implements DbiExtension
     /**
      * Connects to the database server.
      *
-     * @return object|bool A connection object on success or false on failure.
+     * @return object|false A connection object on success or false on failure.
      */
     public function connect(string $user, string $password, Server $server)
     {
-        return true;
+        return new stdClass();
     }
 
     /**

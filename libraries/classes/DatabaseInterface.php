@@ -22,6 +22,7 @@ use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\Utils\SessionCache;
+use stdClass;
 
 use function __;
 use function array_diff;
@@ -39,6 +40,7 @@ use function explode;
 use function implode;
 use function is_array;
 use function is_int;
+use function is_object;
 use function is_string;
 use function mb_strtolower;
 use function microtime;
@@ -110,7 +112,7 @@ class DatabaseInterface implements DbalInterface
     /**
      * Opened database links
      *
-     * @var array
+     * @var array<int, object>
      */
     private $links;
 
@@ -151,8 +153,8 @@ class DatabaseInterface implements DbalInterface
         $this->extension = $ext;
         $this->links = [];
         if (defined('TESTSUITE')) {
-            $this->links[self::CONNECT_USER] = 1;
-            $this->links[self::CONNECT_CONTROL] = 2;
+            $this->links[self::CONNECT_USER] = new stdClass();
+            $this->links[self::CONNECT_CONTROL] = new stdClass();
         }
 
         $this->currentUser = [];
@@ -1614,7 +1616,7 @@ class DatabaseInterface implements DbalInterface
      * @param array|null $server Server information like host/port/socket/persistent
      * @param int|null   $target How to store connection link, defaults to $mode
      *
-     * @return mixed false on error or a connection object on success
+     * @return object|false false on error or a connection object on success
      */
     public function connect(int $mode, ?array $server = null, ?int $target = null)
     {
@@ -1640,7 +1642,7 @@ class DatabaseInterface implements DbalInterface
         $result = $this->extension->connect($user, $password, new Server($server));
         $GLOBALS['errorHandler']->setHideLocation(false);
 
-        if ($result) {
+        if (is_object($result)) {
             $this->links[$target] = $result;
             /* Run post connect for user connections */
             if ($target == self::CONNECT_USER) {

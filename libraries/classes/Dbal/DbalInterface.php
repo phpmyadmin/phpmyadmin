@@ -469,7 +469,7 @@ interface DbalInterface
      * @param array|null $server Server information like host/port/socket/persistent
      * @param int|null   $target How to store connection link, defaults to $mode
      *
-     * @return mixed false on error or a connection object on success
+     * @return object|false false on error or a connection object on success
      */
     public function connect(int $mode, ?array $server = null, ?int $target = null);
 

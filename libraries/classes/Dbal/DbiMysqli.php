@@ -46,7 +46,7 @@ class DbiMysqli implements DbiExtension
     /**
      * Connects to the database server.
      *
-     * @return object|bool A connection object on success or false on failure.
+     * @return object|false A connection object on success or false on failure.
      */
     public function connect(string $user, string $password, Server $server)
     {

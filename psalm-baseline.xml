@@ -222,12 +222,10 @@
       <code>$GLOBALS['cfg']['MysqlMinVersion']['internal']</code>
       <code>$GLOBALS['cfg']['Server']['user']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="5">
+    <MixedAssignment occurrences="3">
       <code>$GLOBALS['back']</code>
       <code>$GLOBALS['theme']</code>
-      <code>$controlLink</code>
       <code>$sqlDelimiter</code>
-      <code>$userLink</code>
     </MixedAssignment>
     <PossiblyInvalidArgument occurrences="3">
       <code>$_GET['url'] ?? ''</code>
@@ -5802,7 +5800,7 @@
     <InvalidReturnType occurrences="1">
       <code>int|bool</code>
     </InvalidReturnType>
-    <MixedArgument occurrences="40">
+    <MixedArgument occurrences="30">
       <code>$a</code>
       <code>$b</code>
       <code>$grant</code>
@@ -5827,16 +5825,6 @@
       <code>$table</code>
       <code>$table</code>
       <code>$tableData[$sortBy] ?? ''</code>
-      <code>$this-&gt;links[$linkIndex]</code>
-      <code>$this-&gt;links[$link]</code>
-      <code>$this-&gt;links[$link]</code>
-      <code>$this-&gt;links[$link]</code>
-      <code>$this-&gt;links[$link]</code>
-      <code>$this-&gt;links[$link]</code>
-      <code>$this-&gt;links[$link]</code>
-      <code>$this-&gt;links[$link]</code>
-      <code>$this-&gt;links[$link]</code>
-      <code>$this-&gt;links[$link]</code>
       <code>$this-&gt;versionComment</code>
       <code>$this-&gt;versionString</code>
       <code>$user</code>
@@ -5895,9 +5883,6 @@
       <code>$b['Data_length']</code>
       <code>$tableData['Data_length']</code>
     </MixedOperand>
-    <MixedPropertyFetch occurrences="1">
-      <code>$this-&gt;links[$link]-&gt;warning_count</code>
-    </MixedPropertyFetch>
     <MixedReturnStatement occurrences="2">
       <code>SessionCache::get('mysql_cur_user')</code>
       <code>reset($columns)</code>

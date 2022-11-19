@@ -828,7 +828,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $stmtStub = $this->createStub(mysqli_stmt::class);
         $dummyDbi = $this->createMock(DbiExtension::class);
         $dummyDbi->expects($this->once())->method('prepare')
-            ->with($this->identicalTo(2), $this->equalTo($query))
+            ->with($this->isType('object'), $this->equalTo($query))
             ->willReturn($stmtStub);
         $dbi = $this->createDatabaseInterface($dummyDbi);
         $stmt = $dbi->prepare($query, DatabaseInterface::CONNECT_CONTROL);
