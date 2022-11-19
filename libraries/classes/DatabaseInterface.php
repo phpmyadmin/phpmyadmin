@@ -116,8 +116,8 @@ class DatabaseInterface implements DbalInterface
      */
     private $links;
 
-    /** @var array Current user and host cache */
-    private $currentUser;
+    /** @var array<int, string>|null */
+    private $currentUserAndHost = null;
 
     /** @var string|null lower_case_table_names value cache */
     private $lowerCaseTableNames = null;
@@ -157,7 +157,6 @@ class DatabaseInterface implements DbalInterface
             $this->links[self::CONNECT_CONTROL] = new stdClass();
         }
 
-        $this->currentUser = [];
         $this->cache = new Cache();
         $this->types = new Types($this);
     }
@@ -1582,16 +1581,16 @@ class DatabaseInterface implements DbalInterface
     /**
      * Get the current user and host
      *
-     * @return array array of username and hostname
+     * @return array<int, string> array of username and hostname
      */
     public function getCurrentUserAndHost(): array
     {
-        if (count($this->currentUser) === 0) {
+        if ($this->currentUserAndHost === null) {
             $user = $this->getCurrentUser();
-            $this->currentUser = explode('@', $user);
+            $this->currentUserAndHost = explode('@', $user);
         }
 
-        return $this->currentUser;
+        return $this->currentUserAndHost;
     }
 
     /**

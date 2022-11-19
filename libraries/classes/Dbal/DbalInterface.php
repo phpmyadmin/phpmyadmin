@@ -450,7 +450,7 @@ interface DbalInterface
     /**
      * Get the current user and host
      *
-     * @return array array of username and hostname
+     * @return array<int, string> array of username and hostname
      */
     public function getCurrentUserAndHost(): array;
 

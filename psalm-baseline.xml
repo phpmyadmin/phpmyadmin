@@ -5800,13 +5800,11 @@
     <InvalidReturnType occurrences="1">
       <code>int|bool</code>
     </InvalidReturnType>
-    <MixedArgument occurrences="30">
+    <MixedArgument occurrences="26">
       <code>$a</code>
       <code>$b</code>
       <code>$grant</code>
       <code>$grant</code>
-      <code>$host</code>
-      <code>$host</code>
       <code>$link</code>
       <code>$link</code>
       <code>$link</code>
@@ -5827,8 +5825,6 @@
       <code>$tableData[$sortBy] ?? ''</code>
       <code>$this-&gt;versionComment</code>
       <code>$this-&gt;versionString</code>
-      <code>$user</code>
-      <code>$user</code>
       <code>$user</code>
       <code>$warningsCount</code>
     </MixedArgument>
@@ -12413,7 +12409,7 @@
     <InvalidReturnType occurrences="1">
       <code>array</code>
     </InvalidReturnType>
-    <MixedArgument occurrences="39">
+    <MixedArgument occurrences="37">
       <code>$GLOBALS['dbname']</code>
       <code>$alterRealSqlQuery</code>
       <code>$alterSqlQuery</code>
@@ -12422,7 +12418,6 @@
       <code>$exportUser</code>
       <code>$exportUser</code>
       <code>$exportUser</code>
-      <code>$hostname</code>
       <code>$paramDbName</code>
       <code>$paramDbName</code>
       <code>$paramRoutineName</code>
@@ -12452,7 +12447,6 @@
       <code>$sqlQuery</code>
       <code>$updQuery</code>
       <code>$user</code>
-      <code>$username</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="12">
       <code>$queries</code>
@@ -14165,14 +14159,6 @@
       <code>escapeString</code>
       <code>escapeString</code>
     </DeprecatedMethod>
-    <MixedArgument occurrences="6">
-      <code>$hostname</code>
-      <code>$hostname</code>
-      <code>$hostname</code>
-      <code>$username</code>
-      <code>$username</code>
-      <code>$username</code>
-    </MixedArgument>
     <PossiblyInvalidArgument occurrences="1">
       <code>$_POST['pma_pw']</code>
     </PossiblyInvalidArgument>
@@ -14227,15 +14213,13 @@
       <code>$table['disp_name']</code>
       <code>$units[$d]</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="8">
-      <code>$host</code>
+    <MixedArgument occurrences="6">
       <code>$limitOffset</code>
       <code>$maxSize</code>
       <code>$maxUnit</code>
       <code>$row[$i] ?? null</code>
       <code>$table</code>
       <code>$table['Name']</code>
-      <code>$user</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="5">
       <code>$columnNames</code>
