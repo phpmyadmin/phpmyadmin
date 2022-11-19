@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-09-29 00:17-0300\n"
-"PO-Revision-Date: 2022-11-18 12:59+0000\n"
+"PO-Revision-Date: 2022-11-20 04:54+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/mk/>\n"
@@ -4794,9 +4794,8 @@ msgid "Could not connect to the database server!"
 msgstr ""
 
 #: libraries/classes/Config/Validator.php:279
-#, fuzzy
 msgid "Invalid authentication type!"
-msgstr "Тип на извоз"
+msgstr "Невалиден тип на автентикација!"
 
 #: libraries/classes/Config/Validator.php:284
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -5338,22 +5337,16 @@ msgid "You are about to DELETE all the rows of the table!"
 msgstr "Со ова ги БРИШЕТЕ(DELETE) сите редови на табелата!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:48
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "Избришете го податоците за тракирање од табелава"
+msgstr "Избришете ги податоците за тракирање од оваа табела?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:49
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "Избришете го податоците за тракирање од табелава"
+msgstr "Избришете ги податоците за тракирање од овие табели?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:50
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
-msgstr "Избришете го податоците за тракирање од табелава"
+msgstr "Избришете ги податоците за тракирање за оваа верзија?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:51
 #, fuzzy
@@ -5496,10 +5489,8 @@ msgid "Missing value in the form!"
 msgstr "Недостасува вредност во образецот!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:103
-#, fuzzy
-#| msgid "at least one of the words"
 msgid "Select at least one of the options!"
-msgstr "барем еден од зборовите"
+msgstr "Изберете барем една од опциите!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:104
 msgid "Please enter a valid number!"
@@ -6297,10 +6288,8 @@ msgid "Formatting SQL…"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:321
-#, fuzzy
-#| msgid "Add new field"
 msgid "No parameters found!"
-msgstr "Додади ново поле"
+msgstr "Не беа најдени параметрите!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:325
 #: templates/database/central_columns/main.twig:269
@@ -6357,9 +6346,8 @@ msgid "Processing request"
 msgstr "Листа на процеси"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:335
-#, fuzzy
 msgid "Request failed!!"
-msgstr "Вид на упит"
+msgstr "Барањето не успеа!!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:336
 #: libraries/classes/Controllers/Sql/EnumValuesController.php:51
@@ -6682,10 +6670,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:422
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "Не е избрана ни една база на податоци."
+msgstr "Не беа избрани деловни зависности!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:423
 #: libraries/classes/Export.php:587 libraries/classes/Html/Generator.php:987
@@ -6740,10 +6726,8 @@ msgid "Selected dependencies are as follows:"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:438
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No dependencies selected!"
-msgstr "Не е избрана ни една база на податоци."
+msgstr "Не беа избрани зависностите!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:441
 #: templates/columns_definitions/column_definitions_form.twig:160
@@ -7292,10 +7276,8 @@ msgid "Successfully copied!"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:650
-#, fuzzy
-#| msgid "Copy database to"
 msgid "Copying failed!"
-msgstr "Копирај ја базата на податоци во"
+msgstr "Копирањето не успеа!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:653
 #, fuzzy
