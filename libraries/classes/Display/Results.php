@@ -3222,14 +3222,14 @@ class Results
      * Checks the posted options for viewing query results
      * and sets appropriate values in the session.
      *
-     * @param array $analyzedSqlResults the analyzed query results
+     * @param StatementInfo $analyzedSqlResults the analyzed query results
      *
      * @todo    make maximum remembered queries configurable
      * @todo    move/split into SQL class!?
      * @todo    currently this is called twice unnecessary
      * @todo    ignore LIMIT and ORDER in query!?
      */
-    public function setConfigParamsForDisplayTable(array $analyzedSqlResults): void
+    public function setConfigParamsForDisplayTable(StatementInfo $analyzedSqlResults): void
     {
         $sqlMd5 = md5($this->properties['server'] . $this->properties['db'] . $this->properties['sql_query']);
         $query = [];
@@ -3264,7 +3264,7 @@ class Results
         }
 
         // Full text is needed in case of explain statements, if not specified.
-        $fullText = $analyzedSqlResults['is_explain'];
+        $fullText = $analyzedSqlResults->isExplain;
 
         if (
             isset($_REQUEST['pftext']) && in_array(

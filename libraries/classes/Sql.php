@@ -1646,7 +1646,7 @@ class Sql
             $goto,
             $sqlQuery
         );
-        $displayResultsObject->setConfigParamsForDisplayTable($analyzedSqlResults);
+        $displayResultsObject->setConfigParamsForDisplayTable($statementInfo);
 
         // assign default full_sql_query
         $fullSqlQuery = $sqlQuery;
