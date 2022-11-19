@@ -79,7 +79,6 @@ class OperationsController extends AbstractController
         $GLOBALS['create_options'] = $GLOBALS['create_options'] ?? null;
         $GLOBALS['table_alters'] = $GLOBALS['table_alters'] ?? null;
         $GLOBALS['warning_messages'] = $GLOBALS['warning_messages'] ?? null;
-        $GLOBALS['lowerCaseNames'] = $GLOBALS['lowerCaseNames'] ?? null;
         $GLOBALS['reload'] = $GLOBALS['reload'] ?? null;
         $GLOBALS['result'] = $GLOBALS['result'] ?? null;
         $GLOBALS['new_tbl_storage_engine'] = $GLOBALS['new_tbl_storage_engine'] ?? null;
@@ -93,10 +92,7 @@ class OperationsController extends AbstractController
 
         $this->checkUserPrivileges->getPrivileges();
 
-        // lower_case_table_names=1 `DB` becomes `db`
-        $GLOBALS['lowerCaseNames'] = $this->dbi->getLowerCaseNames() === '1';
-
-        if ($GLOBALS['lowerCaseNames']) {
+        if ($this->dbi->getLowerCaseNames() === 1) {
             $GLOBALS['table'] = mb_strtolower($GLOBALS['table']);
         }
 
@@ -199,8 +195,7 @@ class OperationsController extends AbstractController
             /** @var mixed $newName */
             $newName = $request->getParsedBodyParam('new_name');
             if (is_string($newName)) {
-                // lower_case_table_names=1 `DB` becomes `db`
-                if ($GLOBALS['lowerCaseNames']) {
+                if ($this->dbi->getLowerCaseNames() === 1) {
                     $newName = mb_strtolower($newName);
                 }
 

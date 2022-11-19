@@ -44,8 +44,7 @@ final class CreateController extends AbstractController
             return;
         }
 
-        // lower_case_table_names=1 `DB` becomes `db`
-        if ($this->dbi->getLowerCaseNames() === '1') {
+        if ($this->dbi->getLowerCaseNames() === 1) {
             $newDb = mb_strtolower($newDb);
         }
 

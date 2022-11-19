@@ -50,7 +50,7 @@ class PrivilegesController extends AbstractController
     {
         try {
             $db = DatabaseName::fromValue($request->getParam('db'));
-            if ($this->dbi->getLowerCaseNames() === '1') {
+            if ($this->dbi->getLowerCaseNames() === 1) {
                 $db = DatabaseName::fromValue(mb_strtolower($db->getName()));
             }
         } catch (InvalidDatabaseName $exception) {

@@ -104,25 +104,24 @@ class NavigationControllerTest extends AbstractTestCase
             [[0]]
         );
 
-        $this->dummyDbi->addResult(
-            'SELECT @@lower_case_table_names',
-            []
-        );
+        $this->dummyDbi->addResult('SELECT @@lower_case_table_names', [['0']]);
 
         $this->dummyDbi->addResult(
             'SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE '
-            . '`ROUTINE_SCHEMA` =\'air-balloon_burner_dev2\' AND `ROUTINE_TYPE`=\'FUNCTION\'',
+            . '`ROUTINE_SCHEMA` COLLATE utf8_bin=\'air-balloon_burner_dev2\' AND `ROUTINE_TYPE`=\'FUNCTION\'',
             [[0]]
         );
 
         $this->dummyDbi->addResult(
-            'SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE `ROUTINE_SCHEMA` =\'air-balloon_burner_dev2\''
+            'SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`ROUTINES`'
+            . ' WHERE `ROUTINE_SCHEMA` COLLATE utf8_bin=\'air-balloon_burner_dev2\''
             . 'AND `ROUTINE_TYPE`=\'PROCEDURE\'',
             [[0]]
         );
 
         $this->dummyDbi->addResult(
-            'SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE `EVENT_SCHEMA` =\'air-balloon_burner_dev2\'',
+            'SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`EVENTS`'
+            . ' WHERE `EVENT_SCHEMA` COLLATE utf8_bin=\'air-balloon_burner_dev2\'',
             [[0]]
         );
 
@@ -258,25 +257,23 @@ class NavigationControllerTest extends AbstractTestCase
             [[0]]
         );
 
-        $this->dummyDbi->addResult(
-            'SELECT @@lower_case_table_names',
-            []
-        );
+        $this->dummyDbi->addResult('SELECT @@lower_case_table_names', [['0']]);
 
         $this->dummyDbi->addResult(
             'SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE '
-            . '`ROUTINE_SCHEMA` =\'air-balloon_burner_dev2\' AND `ROUTINE_TYPE`=\'FUNCTION\'',
+            . '`ROUTINE_SCHEMA` COLLATE utf8_bin=\'air-balloon_burner_dev2\' AND `ROUTINE_TYPE`=\'FUNCTION\'',
             [[0]]
         );
 
         $this->dummyDbi->addResult(
-            'SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE `EVENT_SCHEMA` =\'air-balloon_burner_dev2\'',
+            'SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE'
+            . ' `EVENT_SCHEMA` COLLATE utf8_bin=\'air-balloon_burner_dev2\'',
             [[0]]
         );
 
         $this->dummyDbi->addResult(
             'SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE '
-            . '`ROUTINE_SCHEMA` =\'air-balloon_burner_dev2\'AND `ROUTINE_TYPE`=\'PROCEDURE\'',
+            . '`ROUTINE_SCHEMA` COLLATE utf8_bin=\'air-balloon_burner_dev2\'AND `ROUTINE_TYPE`=\'PROCEDURE\'',
             [[0]]
         );
 

@@ -2001,11 +2001,11 @@ class Util
     public static function getCollateForIS()
     {
         $names = $GLOBALS['dbi']->getLowerCaseNames();
-        if ($names === '0') {
+        if ($names === 0) {
             return 'COLLATE utf8_bin';
         }
 
-        if ($names === '2') {
+        if ($names === 2) {
             return 'COLLATE utf8_general_ci';
         }
 

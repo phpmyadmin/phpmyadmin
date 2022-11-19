@@ -576,12 +576,7 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query' => "SHOW VARIABLES LIKE 'lower_case_table_names'",
-                'result' => [
-                    [
-                        'lower_case_table_names',
-                        '1',
-                    ],
-                ],
+                'result' => [['lower_case_table_names', '1']],
             ],
             [
                 'query' => 'SELECT 1 FROM mysql.user LIMIT 1',
@@ -1142,8 +1137,8 @@ class DbiDummy implements DbiExtension
                     . ' `CHECKSUM` AS `Checksum`, `CREATE_OPTIONS` AS `Create_options`,'
                     . ' `TABLE_COMMENT` AS `Comment`'
                     . ' FROM `information_schema`.`TABLES` t'
-                    . ' WHERE `TABLE_SCHEMA` IN (\'pma_test\')'
-                    . ' AND t.`TABLE_NAME` = \'table1\' ORDER BY Name ASC',
+                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin IN (\'pma_test\')'
+                    . ' AND t.`TABLE_NAME` COLLATE utf8_bin = \'table1\' ORDER BY Name ASC',
                 'columns' => [
                     'TABLE_CATALOG',
                     'TABLE_SCHEMA',
@@ -1354,8 +1349,8 @@ class DbiDummy implements DbiExtension
                     . ' `CHECKSUM` AS `Checksum`, `CREATE_OPTIONS` AS `Create_options`,'
                     . ' `TABLE_COMMENT` AS `Comment`'
                     . ' FROM `information_schema`.`TABLES` t'
-                    . ' WHERE `TABLE_SCHEMA` IN (\'my_db\')'
-                    . ' AND t.`TABLE_NAME` = \'test_tbl\' ORDER BY Name ASC',
+                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin IN (\'my_db\')'
+                    . ' AND t.`TABLE_NAME` COLLATE utf8_bin = \'test_tbl\' ORDER BY Name ASC',
                 'columns' => [
                     'TABLE_CATALOG',
                     'TABLE_SCHEMA',
@@ -1790,8 +1785,8 @@ class DbiDummy implements DbiExtension
                 . ' `UPDATE_TIME` AS `Update_time`, `CHECK_TIME` AS `Check_time`,'
                 . ' `TABLE_COLLATION` AS `Collation`, `CHECKSUM` AS `Checksum`,'
                 . ' `CREATE_OPTIONS` AS `Create_options`, `TABLE_COMMENT` AS `Comment`'
-                . " FROM `information_schema`.`TABLES` t WHERE `TABLE_SCHEMA` IN ('table1')"
-                . " AND t.`TABLE_NAME` = 'pma_test' ORDER BY Name ASC",
+                . " FROM `information_schema`.`TABLES` t WHERE `TABLE_SCHEMA` COLLATE utf8_bin IN ('table1')"
+                . " AND t.`TABLE_NAME` COLLATE utf8_bin = 'pma_test' ORDER BY Name ASC",
                 'columns' => [
                     'TABLE_CATALOG',
                     'TABLE_SCHEMA',
@@ -2019,7 +2014,7 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query' => 'SELECT @@lower_case_table_names',
-                'result' => [],
+                'result' => [['0']],
             ],
             [
                 'query' => 'SELECT `PLUGIN_NAME`, `PLUGIN_DESCRIPTION` FROM `information_schema`.`PLUGINS`'
@@ -2902,7 +2897,7 @@ class DbiDummy implements DbiExtension
                     . ' `CHECK_TIME` AS `Check_time`, `TABLE_COLLATION` AS `Collation`,'
                     . ' `CHECKSUM` AS `Checksum`, `CREATE_OPTIONS` AS `Create_options`,'
                     . ' `TABLE_COMMENT` AS `Comment` FROM `information_schema`.`TABLES` t'
-                    . ' WHERE `TABLE_SCHEMA` IN (\'test_db\') ORDER BY Name ASC',
+                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin IN (\'test_db\') ORDER BY Name ASC',
                 'columns' => [
                     'TABLE_CATALOG',
                     'TABLE_SCHEMA',

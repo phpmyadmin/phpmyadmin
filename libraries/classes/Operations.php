@@ -978,7 +978,7 @@ class Operations
                 $message->addParam($old);
 
                 $new_name = (string) $_POST['new_name'];
-                if ($this->dbi->getLowerCaseNames() === '1') {
+                if ($this->dbi->getLowerCaseNames() === 1) {
                     $new_name = strtolower($new_name);
                 }
 

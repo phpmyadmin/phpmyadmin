@@ -1456,7 +1456,7 @@ class Table implements Stringable
      */
     public function rename($newName, $newDb = null): bool
     {
-        if ($this->dbi->getLowerCaseNames() === '1') {
+        if ($this->dbi->getLowerCaseNames() === 1) {
             $newName = strtolower($newName);
         }
 

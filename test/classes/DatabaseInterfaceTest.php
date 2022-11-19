@@ -910,4 +910,34 @@ class DatabaseInterfaceTest extends AbstractTestCase
             ],
         ];
     }
+
+    /**
+     * @param string|false|null $result
+     *
+     * @dataProvider providerForTestGetLowerCaseNames
+     */
+    public function testGetLowerCaseNames($result, int $expected): void
+    {
+        $dbiDummy = $this->createDbiDummy();
+        $expectedResult = $result !== false ? [[$result]] : [];
+        $dbiDummy->addResult('SELECT @@lower_case_table_names', $expectedResult, ['@@lower_case_table_names']);
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+        $this->assertSame($expected, $dbi->getLowerCaseNames());
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
+    /**
+     * @return iterable<string, array{string|false|null, int}>
+     */
+    public function providerForTestGetLowerCaseNames(): iterable
+    {
+        yield 'string 0' => ['0', 0];
+        yield 'string 1' => ['1', 1];
+        yield 'string 2' => ['2', 2];
+        yield 'invalid lower value' => ['-1', 0];
+        yield 'invalid higher value' => ['3', 0];
+        yield 'empty string' => ['', 0];
+        yield 'null' => [null, 0];
+        yield 'false' => [false, 0];
+    }
 }

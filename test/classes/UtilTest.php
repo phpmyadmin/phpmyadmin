@@ -2612,4 +2612,26 @@ class UtilTest extends AbstractTestCase
             ],
         ];
     }
+
+    /**
+     * @dataProvider providerForTestGetLowerCaseNames
+     */
+    public function testGetCollateForIS(string $lowerCaseTableNames, string $expected): void
+    {
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult('SELECT @@lower_case_table_names', [[$lowerCaseTableNames]], ['@@lower_case_table_names']);
+        $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
+        $this->assertSame($expected, Util::getCollateForIS());
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
+    /**
+     * @return iterable<string, array{string, string}>
+     */
+    public function providerForTestGetLowerCaseNames(): iterable
+    {
+        yield 'lower_case_table_names=0' => ['0', 'COLLATE utf8_bin'];
+        yield 'lower_case_table_names=1' => ['1', ''];
+        yield 'lower_case_table_names=2' => ['2', 'COLLATE utf8_general_ci'];
+    }
 }

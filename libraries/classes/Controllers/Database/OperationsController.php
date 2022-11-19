@@ -106,7 +106,7 @@ class OperationsController extends AbstractController
 
             try {
                 $newDatabaseName = DatabaseName::fromValue($request->getParsedBodyParam('newname'));
-                if ($this->dbi->getLowerCaseNames() === '1') {
+                if ($this->dbi->getLowerCaseNames() === 1) {
                     $newDatabaseName = DatabaseName::fromValue(mb_strtolower($newDatabaseName->getName()));
                 }
             } catch (InvalidDatabaseName $exception) {

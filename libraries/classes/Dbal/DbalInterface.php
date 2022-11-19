@@ -457,9 +457,12 @@ interface DbalInterface
     /**
      * Returns value for lower_case_table_names variable
      *
-     * @return string
+     * @see https://mariadb.com/kb/en/server-system-variables/#lower_case_table_names
+     * @see https://dev.mysql.com/doc/refman/en/server-system-variables.html#sysvar_lower_case_table_names
+     *
+     * @psalm-return 0|1|2
      */
-    public function getLowerCaseNames();
+    public function getLowerCaseNames(): int;
 
     /**
      * connects to the database server

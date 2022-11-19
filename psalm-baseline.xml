@@ -3521,7 +3521,7 @@
     <MixedArrayAccess occurrences="1">
       <code>$GLOBALS['showtable']['Row_format']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="27">
+    <MixedAssignment occurrences="26">
       <code>$GLOBALS['auto_increment']</code>
       <code>$GLOBALS['columns']</code>
       <code>$GLOBALS['comment']</code>
@@ -3531,7 +3531,6 @@
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['hideOrderTable']</code>
       <code>$GLOBALS['indexes']</code>
-      <code>$GLOBALS['lowerCaseNames']</code>
       <code>$GLOBALS['message_to_show']</code>
       <code>$GLOBALS['new_tbl_storage_engine']</code>
       <code>$GLOBALS['notNull']</code>

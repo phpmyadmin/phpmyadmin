@@ -119,7 +119,10 @@ class DatabaseInterface implements DbalInterface
     /** @var array<int, string>|null */
     private $currentUserAndHost = null;
 
-    /** @var string|null lower_case_table_names value cache */
+    /**
+     * @var int|null lower_case_table_names value cache
+     * @psalm-var 0|1|2|null
+     */
     private $lowerCaseTableNames = null;
 
     /** @var bool Whether connection is MariaDB */
@@ -1602,12 +1605,16 @@ class DatabaseInterface implements DbalInterface
     /**
      * Returns value for lower_case_table_names variable
      *
-     * @return string
+     * @see https://mariadb.com/kb/en/server-system-variables/#lower_case_table_names
+     * @see https://dev.mysql.com/doc/refman/en/server-system-variables.html#sysvar_lower_case_table_names
+     *
+     * @psalm-return 0|1|2
      */
-    public function getLowerCaseNames()
+    public function getLowerCaseNames(): int
     {
         if ($this->lowerCaseTableNames === null) {
-            $this->lowerCaseTableNames = $this->fetchValue('SELECT @@lower_case_table_names') ?: '';
+            $value = (int) $this->fetchValue('SELECT @@lower_case_table_names');
+            $this->lowerCaseTableNames = $value >= 0 && $value <= 2 ? $value : 0;
         }
 
         return $this->lowerCaseTableNames;
@@ -1866,7 +1873,7 @@ class DatabaseInterface implements DbalInterface
     {
         $fields = $result->getFieldsMeta();
 
-        if ($this->getLowerCaseNames() === '2') {
+        if ($this->getLowerCaseNames() === 2) {
             /**
              * Fixup orgtable for lower_case_table_names = 2
              *
