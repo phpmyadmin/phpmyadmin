@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-11-13 00:20+0000\n"
-"PO-Revision-Date: 2022-11-19 18:56+0000\n"
+"PO-Revision-Date: 2022-11-20 00:23+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -4645,9 +4645,8 @@ msgid "Could not connect to the database server!"
 msgstr ""
 
 #: libraries/classes/Config/Validator.php:279
-#, fuzzy
 msgid "Invalid authentication type!"
-msgstr "Тип на извоз"
+msgstr "Невалиден тип на автентикација!"
 
 #: libraries/classes/Config/Validator.php:284
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -5336,9 +5335,8 @@ msgid "Missing value in the form!"
 msgstr "Недостасува вредност во образецот!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:120
-#, fuzzy
 msgid "Select at least one of the options!"
-msgstr "барем еден од зборовите"
+msgstr "Изберете барем една од опциите!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:121
 msgid "Please enter a valid number!"
@@ -6106,9 +6104,8 @@ msgid "Formatting SQL…"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:338
-#, fuzzy
 msgid "No parameters found!"
-msgstr "Додади ново поле"
+msgstr "Не беа најдени параметрите!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:342
 #: templates/database/central_columns/main.twig:269
@@ -6167,9 +6164,8 @@ msgid "Processing request"
 msgstr "Листа на процеси"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:352
-#, fuzzy
 msgid "Request failed!!"
-msgstr "Вид на упит"
+msgstr "Барањето не успеа!!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:353
 #: libraries/classes/Controllers/Sql/EnumValuesController.php:51
@@ -6481,9 +6477,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:439
-#, fuzzy
 msgid "No partial dependencies selected!"
-msgstr "Не е избрана ни една база на податоци."
+msgstr "Не беа избрани деловни зависности!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:440
 #: libraries/classes/Export.php:1318 libraries/classes/Html/Generator.php:981
@@ -6537,9 +6532,8 @@ msgid "Selected dependencies are as follows:"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:455
-#, fuzzy
 msgid "No dependencies selected!"
-msgstr "Не е избрана ни една база на податоци."
+msgstr "Не беа избрани зависностите!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:458
 #: templates/columns_definitions/column_definitions_form.twig:159
@@ -7050,9 +7044,8 @@ msgid "Successfully copied!"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:657
-#, fuzzy
 msgid "Copying failed!"
-msgstr "Копирај ја базата на податоци во"
+msgstr "Копирањето не успеа!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:660
 #, fuzzy
