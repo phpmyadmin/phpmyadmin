@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-11-18 12:59+0000\n"
+"PO-Revision-Date: 2022-11-20 04:54+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -875,22 +875,16 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "Со ова ја БРИШЕТЕ комплетната база на податоци!"
 
 #: js/messages.php:52
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "Избришете го податоците за тракирање од табелава"
+msgstr "Избришете ги податоците за тракирање од оваа табела?"
 
 #: js/messages.php:54
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "Избришете го податоците за тракирање од табелава"
+msgstr "Избришете ги податоците за тракирање од овие табели?"
 
 #: js/messages.php:56
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
-msgstr "Избришете го податоците за тракирање од табелава"
+msgstr "Избришете ги податоците за тракирање за оваа верзија?"
 
 #: js/messages.php:58
 #, fuzzy
@@ -1032,10 +1026,8 @@ msgid "Missing value in the form!"
 msgstr "Недостасува вредност во образецот!"
 
 #: js/messages.php:118
-#, fuzzy
-#| msgid "at least one of the words"
 msgid "Select at least one of the options!"
-msgstr "барем еден од зборовите"
+msgstr "Изберете барем една од опциите!"
 
 #: js/messages.php:119
 msgid "Please enter a valid number!"
@@ -1767,10 +1759,8 @@ msgid "Formatting SQL…"
 msgstr ""
 
 #: js/messages.php:351
-#, fuzzy
-#| msgid "Add new field"
 msgid "No parameters found!"
-msgstr "Додади ново поле"
+msgstr "Не беа најдени параметрите!"
 
 #: js/messages.php:355 templates/database/designer/having_query_panel.twig:118
 #: templates/database/designer/rename_to_panel.twig:45
@@ -1808,9 +1798,8 @@ msgid "Processing request"
 msgstr "Листа на процеси"
 
 #: js/messages.php:365
-#, fuzzy
 msgid "Request failed!!"
-msgstr "Вид на упит"
+msgstr "Барањето не успеа!!"
 
 #: js/messages.php:366
 #, fuzzy
@@ -2134,10 +2123,8 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:460
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "Не е избрана ни една база на податоци."
+msgstr "Не беа избрани деловни зависности!"
 
 #: js/messages.php:463
 msgid "Show me the possible partial dependencies based on data in the table"
@@ -2185,10 +2172,8 @@ msgid "Selected dependencies are as follows:"
 msgstr ""
 
 #: js/messages.php:479
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No dependencies selected!"
-msgstr "Не е избрана ни една база на податоци."
+msgstr "Не беа избрани зависностите!"
 
 #: js/messages.php:482 libraries/classes/CentralColumns.php:1254
 #: libraries/classes/InsertEdit.php:1805
@@ -6705,9 +6690,8 @@ msgid "Could not connect to the database server!"
 msgstr ""
 
 #: libraries/classes/Config/Validator.php:253
-#, fuzzy
 msgid "Invalid authentication type!"
-msgstr "Тип на извоз"
+msgstr "Невалиден тип на автентикација!"
 
 #: libraries/classes/Config/Validator.php:260
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
