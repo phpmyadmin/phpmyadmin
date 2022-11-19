@@ -163,8 +163,14 @@
             {% endif %}
             <td class="navigation_separator"></td>
             <td>
-                <span>{% trans 'Filter rows' %}:</span>
-                <input type="text" class="filter_rows" placeholder="{% trans 'Search this table' %}">
+              <div class="row">
+                <div class="col-auto">
+                  <label for="filterRows" class="col-form-label">{% trans 'Filter rows' %}:</label>
+                </div>
+                <div class="col-auto">
+                  <input type="text" id="filterRows" class="filter_rows form-control" placeholder="{% trans 'Search this table' %}">
+                </div>
+              </div>
             </td>
             <td class="navigation_separator"></td>
         </tr>
