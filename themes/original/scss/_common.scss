@@ -48,6 +48,10 @@ form {
   display: inline;
 }
 
+input[type=checkbox]#fk_checks {
+  margin: 6px;
+}
+
 textarea {
   overflow: visible;
 }
