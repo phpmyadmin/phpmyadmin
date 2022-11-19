@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-11-13 00:20+0000\n"
-"PO-Revision-Date: 2022-11-18 12:59+0000\n"
+"PO-Revision-Date: 2022-11-19 18:56+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -5190,19 +5190,16 @@ msgid "You are about to DELETE all the rows of the table!"
 msgstr "Со ова ги БРИШЕТЕ(DELETE) сите редови на табелата!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:65
-#, fuzzy
 msgid "Delete tracking data for this table?"
-msgstr "Избришете го податоците за тракирање од табелава"
+msgstr "Избришете ги податоците за тракирање од оваа табела?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:66
-#, fuzzy
 msgid "Delete tracking data for these tables?"
-msgstr "Избришете го податоците за тракирање од табелава"
+msgstr "Избришете ги податоците за тракирање од овие табели?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:67
-#, fuzzy
 msgid "Delete tracking data for this version?"
-msgstr "Избришете го податоците за тракирање од табелава"
+msgstr "Избришете ги податоците за тракирање за оваа верзија?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:68
 #, fuzzy
