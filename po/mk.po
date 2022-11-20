@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-11-20 04:54+0000\n"
+"PO-Revision-Date: 2022-11-21 20:47+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -4612,9 +4612,8 @@ msgid "Servers display options."
 msgstr "Опции за приказ на сервери."
 
 #: libraries/classes/Config/Descriptions.php:492
-#, fuzzy
 msgid "Tables display options."
-msgstr "Опции за извоз на бази на податоци"
+msgstr "Опции за приказ на табели."
 
 #: libraries/classes/Config/Descriptions.php:494
 #: libraries/classes/Config/Forms/User/MainForm.php:84
@@ -4668,10 +4667,8 @@ msgid "Authentication"
 msgstr "Документација"
 
 #: libraries/classes/Config/Descriptions.php:527
-#, fuzzy
-#| msgid "Documentation"
 msgid "Authentication settings."
-msgstr "Документација"
+msgstr "Подесувања за автентикација."
 
 #: libraries/classes/Config/Descriptions.php:529
 msgid "Server configuration"
@@ -4684,10 +4681,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:536
-#, fuzzy
-#| msgid "MySQL connection collation"
 msgid "Enter server connection parameters."
-msgstr "Колација за MySQL врска"
+msgstr "Наведете параметри за конектирање на сервер."
 
 #: libraries/classes/Config/Descriptions.php:538
 msgid "Configuration storage"
@@ -4737,9 +4732,8 @@ msgid "SQL queries"
 msgstr "SQL упит"
 
 #: libraries/classes/Config/Descriptions.php:563
-#, fuzzy
 msgid "SQL queries settings."
-msgstr "SQL упит"
+msgstr "Подесувања за SQL барања."
 
 #: libraries/classes/Config/Descriptions.php:565
 #, fuzzy
@@ -4747,9 +4741,8 @@ msgid "Startup"
 msgstr "Статус"
 
 #: libraries/classes/Config/Descriptions.php:567
-#, fuzzy
 msgid "Customize startup page."
-msgstr "Опции за извоз на бази на податоци"
+msgstr "Подесување на стартна страница."
 
 #: libraries/classes/Config/Descriptions.php:569
 #, fuzzy
