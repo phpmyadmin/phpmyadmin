@@ -189,7 +189,7 @@ $cfg['Servers'][$i]['ssl_ciphers'] = null;
 
 /**
  * MySQL 5.6 or later triggers the mysqlnd driver in PHP to validate the
- * peer_name of the SSL certifcate
+ * peer_name of the SSL certificate
  * For most self-signed certificates this is a problem. Setting this to false
  * will disable the check and allow the connection (PHP 5.6.16 or later)
  *
@@ -2857,7 +2857,7 @@ $cfg['CheckConfigurationPermissions'] = true;
  * is replaced by form with button.
  * This is required as some web servers (IIS) have problems with long URLs.
  * The recommended limit is 2000
- * (see https://www.boutell.com/newfaq/misc/urllength.html) but we put
+ * (see https://stackoverflow.com/a/417184/5155484) but we put
  * 1000 to accommodate Suhosin, see bug #3358750.
  */
 $cfg['LinkLengthLimit'] = 1000;
