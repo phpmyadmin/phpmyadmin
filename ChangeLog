@@ -62,6 +62,7 @@ phpMyAdmin - ChangeLog
 - issue #17606 Fix preview SQL modal not working inside "Add Index" modal
 - issue        Fix PHP error on adding new column on create table form
 - issue #17482 Default to "Full texts" when running explain statements
+- issue        Fixed Chrome scrolling performance issue on a textarea of an "export as text" page
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5
