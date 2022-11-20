@@ -2105,6 +2105,9 @@
     <PossiblyNullArgument occurrences="1">
       <code>$this-&gt;config-&gt;get('TempDir')</code>
     </PossiblyNullArgument>
+    <RedundantCondition occurrences="1">
+      <code>'' !== 'config'</code>
+    </RedundantCondition>
     <UnusedVariable occurrences="1">
       <code>$collationsList</code>
     </UnusedVariable>
