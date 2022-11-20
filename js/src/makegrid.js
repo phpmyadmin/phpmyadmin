@@ -597,6 +597,12 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
          * @param cell <td> element to be edited
          */
         showEditCell: function (cell) {
+            // destroy the date picker instance left if any, see: #17703
+            var $datePickerInstance = $(g.cEdit).find('.hasDatepicker');
+            if ($datePickerInstance.length > 0) {
+                $datePickerInstance.datepicker('destroy');
+            }
+
             if ($(cell).is('.grid_edit') &&
                 !g.colRsz && !g.colReorder) {
                 if (!g.isCellEditActive) {

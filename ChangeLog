@@ -66,6 +66,11 @@ phpMyAdmin - ChangeLog
 - issue        Fix PHP error on adding new column on create table form
 - issue #17482 Default to "Full texts" when running explain statements
 - issue        Fixed Chrome scrolling performance issue on a textarea of an "export as text" page
+- issue #17703 Fix datepicker appears on all fields, not just date
+- issue        Fix space in the tree line when a DB is expanded
+- issue #17340 Fix "New Table" page -> "VIRTUAL" attribute is lost when adding a new column
+- issue #17446 Fix missing option for STORED virtual column on MySQL and PERSISTENT is not supported on MySQL
+- issue #17446 Lower the check for virtual columns to MySQL>=5.7.6 nothing is supported on 5.7.5
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5

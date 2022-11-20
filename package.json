@@ -19,7 +19,7 @@
     "autoprefixer": "^10.4.7",
     "babel-loader": "^8.2.3",
     "bootstrap": "5.2.0",
-    "codemirror": "5.65.9",
+    "codemirror": "5.65.10",
     "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^6.6.0",
     "jquery": "3.6.0",
