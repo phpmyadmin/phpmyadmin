@@ -4357,7 +4357,7 @@ class Results
         }
 
         // Truncate values that are too long, see: #17902
-        [,$dispval] = $this->getPartialText($dispval);
+        [, $dispval] = $this->getPartialText($dispval);
 
         return $dispval;
     }
