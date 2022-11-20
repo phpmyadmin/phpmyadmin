@@ -149,7 +149,11 @@
     <td class="text-center">
       <select name="field_virtuality[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}" class="virtuality">
         {% for key, value in options %}
-          <option value="{{ key }}"{{ column_meta['Extra'] is defined and key != '' and column_meta['Extra']|slice(0, key|length) is same as (key) ? ' selected' }}>
+          {% set virtuality = column_meta['Extra'] is defined ? column_meta['Extra'] : null %}
+          {# Creating a new row on create table sends a Virtuality field #}
+          {% set virtuality = column_meta['Virtuality'] is defined ? column_meta['Virtuality'] : virtuality %}
+
+          <option value="{{ key }}"{{ virtuality is not null and key != '' and virtuality|slice(0, key|length) is same as (key) ? ' selected' }}>
             {{ value }}
           </option>
         {% endfor %}
