@@ -4352,6 +4352,13 @@ class Results
             return __('Link not found!');
         }
 
+        if ($dispval === null) {
+            return null;
+        }
+
+        // Truncate values that are too long, see: #17902
+        [,$dispval] = $this->getPartialText($dispval);
+
         return $dispval;
     }
 
