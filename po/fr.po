@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-11-20 00:22+0000\n"
-"PO-Revision-Date: 2022-11-14 16:48+0000\n"
-"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
+"PO-Revision-Date: 2022-11-21 20:48+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -14547,10 +14547,8 @@ msgstr ""
 
 #: templates/database/central_columns/main.twig:168
 #: templates/display/results/table.twig:139
-#, fuzzy
-#| msgid "Filter rows"
 msgid "Filter rows:"
-msgstr "Filtrer les lignes"
+msgstr "Filtrer les lignes :"
 
 #: templates/database/central_columns/main.twig:171
 #: templates/display/results/table.twig:143
