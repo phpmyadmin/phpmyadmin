@@ -114,6 +114,13 @@ class InsertEdit
             'err_url' => $errorUrl,
             'sql_query' => $_POST['sql_query'] ?? '',
         ];
+
+        if ($formParams['sql_query'] === '' && isset($_GET['sql_query'], $_GET['sql_signature'])) {
+            if (Core::checkSqlQuerySignature($_GET['sql_query'], $_GET['sql_signature'])) {
+                $formParams['sql_query'] = $_GET['sql_query'];
+            }
+        }
+
         if (isset($whereClauses)) {
             foreach ($whereClauseArray as $keyId => $whereClause) {
                 $formParams['where_clause[' . $keyId . ']'] = trim($whereClause);
@@ -122,6 +129,8 @@ class InsertEdit
 
         if (isset($_POST['clause_is_unique'])) {
             $formParams['clause_is_unique'] = $_POST['clause_is_unique'];
+        } elseif (isset($_GET['clause_is_unique'])) {
+            $formParams['clause_is_unique'] = $_GET['clause_is_unique'];
         }
 
         return $formParams;
