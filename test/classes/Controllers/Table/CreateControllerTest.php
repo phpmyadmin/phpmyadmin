@@ -233,7 +233,7 @@ class CreateControllerTest extends AbstractTestCase
             'is_virtual_columns_supported' => true,
             'is_integers_length_restricted' => false,
             'browse_mime' => true,
-            'supports_stored_keyword' => false,
+            'supports_stored_keyword' => true,
             'server_version' => $dbi->getVersion(),
             'max_rows' => 25,
             'char_editing' => 'input',
