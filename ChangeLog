@@ -65,6 +65,7 @@ phpMyAdmin - ChangeLog
 - issue        Fixed Chrome scrolling performance issue on a textarea of an "export as text" page
 - issue #17703 Fix datepicker appears on all fields, not just date
 - issue        Fix space in the tree line when a DB is expanded
+- issue #17340 Fix "New Table" page -> "VIRTUAL" attribute is lost when adding a new column
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5
