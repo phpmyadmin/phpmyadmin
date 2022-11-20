@@ -61,7 +61,7 @@
         "paragonie/sodium_compat": "^1.17",
         "phpmyadmin/motranslator": "^5.0",
         "phpmyadmin/shapefile": "^3.0.1",
-        "phpmyadmin/sql-parser": "dev-master#8fddb4becdfb657db3b9ade52e952ef3c822a26b",
+        "phpmyadmin/sql-parser": "dev-master#bb49d475e58b4082e63ed91a92ce955c9c20b058",
         "phpmyadmin/twig-i18n-extension": "^4.0",
         "psr/http-factory": "^1.0",
         "psr/http-message": "^1.0",
