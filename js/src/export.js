@@ -599,9 +599,9 @@ window.AJAX.registerOnload('export.js', function () {
      * Disables the view output as text option if the output must be saved as a file
      */
     $('#plugins').on('change', function () {
-        var activePlugin = $('#plugins').find('option:selected').val();
-        var forceFile = $('#force_file_' + activePlugin).val();
-        if (forceFile === 'true') {
+        const isBinary = $('#plugins').find('option:selected')
+            .attr('data-is-binary') === 'true';
+        if (isBinary) {
             if ($('#radio_dump_asfile').prop('checked') !== true) {
                 $('#radio_dump_asfile').prop('checked', true);
                 Export.toggleSaveToFile();

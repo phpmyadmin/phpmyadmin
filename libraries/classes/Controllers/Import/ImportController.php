@@ -251,10 +251,7 @@ final class ImportController extends AbstractController
             return;
         }
 
-        $post_patterns = [
-            '/^force_file_/',
-            '/^' . $GLOBALS['format'] . '_/',
-        ];
+        $post_patterns = ['/^' . $GLOBALS['format'] . '_/'];
 
         Core::setPostAsGlobal($post_patterns);
 

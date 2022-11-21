@@ -120,13 +120,9 @@
       <div class="card-body">
         <select class="form-select" id="plugins" name="what" aria-label="{% trans 'File format to export' %}">
           {% for option in plugins_choice %}
-            <option value="{{ option.name }}"{{ option.is_selected ? ' selected' }}>{{ option.text }}</option>
+            <option value="{{ option.name }}"{{ option.is_selected ? ' selected' }} data-is-binary="{{ option.is_binary ? 'true' : 'false' }}">{{ option.text }}</option>
           {% endfor %}
         </select>
-
-        {% for option in plugins_choice %}
-          <input type="hidden" id="force_file_{{ option.name }}" value="{{ option.force_file ? 'true' : 'false' }}">
-        {% endfor %}
       </div>
     </div>
 

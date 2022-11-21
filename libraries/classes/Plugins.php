@@ -259,7 +259,7 @@ class Plugins
      * @param ExportPlugin[]|ImportPlugin[]|SchemaPlugin[] $list
      *
      * @return array<int, array<string, bool|string>>
-     * @psalm-return list<array{name: non-empty-lowercase-string, text: string, is_selected: bool, force_file: bool}>
+     * @psalm-return list<array{name: non-empty-lowercase-string, text: string, is_selected: bool, is_binary: bool}>
      */
     public static function getChoice(array $list, string $default): array
     {
@@ -271,7 +271,7 @@ class Plugins
                 'name' => $pluginName,
                 'text' => self::getString($properties->getText()),
                 'is_selected' => $pluginName === $default,
-                'force_file' => $properties->getForceFile(),
+                'is_binary' => $properties->getForceFile(),
             ];
         }
 
