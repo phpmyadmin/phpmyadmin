@@ -22,13 +22,13 @@ interface DbalInterface
      * runs a query
      *
      * @param string $query             SQL query to execute
-     * @param mixed  $link              optional database link to use
+     * @param int    $link              optional database link to use
      * @param int    $options           optional query options
      * @param bool   $cacheAffectedRows whether to cache affected rows
      */
     public function query(
         string $query,
-        $link = DatabaseInterface::CONNECT_USER,
+        int $link = DatabaseInterface::CONNECT_USER,
         int $options = 0,
         bool $cacheAffectedRows = true
     ): ResultInterface;
@@ -37,7 +37,7 @@ interface DbalInterface
      * runs a query and returns the result
      *
      * @param string $query             query to run
-     * @param mixed  $link              link type
+     * @param int    $link              link type
      * @param int    $options           query options
      * @param bool   $cacheAffectedRows whether to cache affected row
      *
@@ -45,7 +45,7 @@ interface DbalInterface
      */
     public function tryQuery(
         string $query,
-        $link = DatabaseInterface::CONNECT_USER,
+        int $link = DatabaseInterface::CONNECT_USER,
         int $options = 0,
         bool $cacheAffectedRows = true
     );
@@ -54,22 +54,22 @@ interface DbalInterface
      * Send multiple SQL queries to the database server and execute the first one
      *
      * @param string $multiQuery multi query statement to execute
-     * @param int    $linkIndex  index of the opened database link
+     * @param int    $link       index of the opened database link
      */
     public function tryMultiQuery(
         string $multiQuery = '',
-        $linkIndex = DatabaseInterface::CONNECT_USER
+        int $link = DatabaseInterface::CONNECT_USER
     ): bool;
 
     /**
      * returns array with table names for given db
      *
      * @param string $database name of database
-     * @param mixed  $link     mysql link resource|object
+     * @param int    $link     mysql link resource|object
      *
      * @return array   tables names
      */
-    public function getTables(string $database, $link = DatabaseInterface::CONNECT_USER): array;
+    public function getTables(string $database, int $link = DatabaseInterface::CONNECT_USER): array;
 
     /**
      * returns array of all tables in given db or dbs
@@ -93,7 +93,7 @@ interface DbalInterface
      * @param string       $sortBy       table attribute to sort by
      * @param string       $sortOrder    direction to sort (ASC or DESC)
      * @param string|null  $tableType    whether table or view
-     * @param mixed        $link         link type
+     * @param int          $link         link type
      *
      * @return array           list of tables in given db(s)
      *
@@ -108,7 +108,7 @@ interface DbalInterface
         string $sortBy = 'Name',
         string $sortOrder = 'ASC',
         ?string $tableType = null,
-        $link = DatabaseInterface::CONNECT_USER
+        int $link = DatabaseInterface::CONNECT_USER
     ): array;
 
     /**
@@ -138,7 +138,7 @@ interface DbalInterface
     public function getDatabasesFull(
         ?string $database = null,
         bool $forceStats = false,
-        $link = DatabaseInterface::CONNECT_USER,
+        int $link = DatabaseInterface::CONNECT_USER,
         string $sortBy = 'SCHEMA_NAME',
         string $sortOrder = 'ASC',
         int $limitOffset = 0,
@@ -162,7 +162,7 @@ interface DbalInterface
      * @param string|null $database name of database
      * @param string|null $table    name of table to retrieve columns from
      * @param string|null $column   name of specific column
-     * @param mixed       $link     mysql link resource
+     * @param int         $link     mysql link resource
      *
      * @return array
      */
@@ -170,7 +170,7 @@ interface DbalInterface
         ?string $database = null,
         ?string $table = null,
         ?string $column = null,
-        $link = DatabaseInterface::CONNECT_USER
+        int $link = DatabaseInterface::CONNECT_USER
     ): array;
 
     /**
@@ -189,7 +189,7 @@ interface DbalInterface
         string $table,
         string $column,
         bool $full = false,
-        $link = DatabaseInterface::CONNECT_USER
+        int $link = DatabaseInterface::CONNECT_USER
     ): array;
 
     /**
@@ -206,7 +206,7 @@ interface DbalInterface
         string $database,
         string $table,
         bool $full = false,
-        $link = DatabaseInterface::CONNECT_USER
+        int $link = DatabaseInterface::CONNECT_USER
     ): array;
 
     /**
@@ -214,14 +214,14 @@ interface DbalInterface
      *
      * @param string $database name of database
      * @param string $table    name of table to retrieve columns from
-     * @param mixed  $link     mysql link resource
+     * @param int    $link     mysql link resource
      *
      * @return string[]
      */
     public function getColumnNames(
         string $database,
         string $table,
-        $link = DatabaseInterface::CONNECT_USER
+        int $link = DatabaseInterface::CONNECT_USER
     ): array;
 
     /**
@@ -229,7 +229,7 @@ interface DbalInterface
      *
      * @param string $database name of database
      * @param string $table    name of the table whose indexes are to be retrieved
-     * @param mixed  $link     mysql link resource
+     * @param int    $link     mysql link resource
      *
      * @return array<int, array<string, string|null>>
      * @psalm-return array<int, array{
@@ -254,7 +254,7 @@ interface DbalInterface
     public function getTableIndexes(
         string $database,
         string $table,
-        $link = DatabaseInterface::CONNECT_USER
+        int $link = DatabaseInterface::CONNECT_USER
     ): array;
 
     /**
@@ -270,7 +270,7 @@ interface DbalInterface
     public function getVariable(
         string $var,
         int $type = DatabaseInterface::GETVAR_SESSION,
-        $link = DatabaseInterface::CONNECT_USER
+        int $link = DatabaseInterface::CONNECT_USER
     );
 
     /**
@@ -280,7 +280,7 @@ interface DbalInterface
      * @param string $value value to set
      * @param int    $link  mysql link resource|object
      */
-    public function setVariable(string $var, string $value, $link = DatabaseInterface::CONNECT_USER): bool;
+    public function setVariable(string $var, string $value, int $link = DatabaseInterface::CONNECT_USER): bool;
 
     /**
      * Function called just after a connection to the MySQL database server has
@@ -327,7 +327,7 @@ interface DbalInterface
     public function fetchValue(
         string $query,
         $field = 0,
-        $link = DatabaseInterface::CONNECT_USER
+        int $link = DatabaseInterface::CONNECT_USER
     );
 
     /**
@@ -349,7 +349,7 @@ interface DbalInterface
     public function fetchSingleRow(
         string $query,
         string $type = DbalInterface::FETCH_ASSOC,
-        $link = DatabaseInterface::CONNECT_USER
+        int $link = DatabaseInterface::CONNECT_USER
     ): ?array;
 
     /**
@@ -410,7 +410,7 @@ interface DbalInterface
         string $query,
         $key = null,
         $value = null,
-        $link = DatabaseInterface::CONNECT_USER
+        int $link = DatabaseInterface::CONNECT_USER
     ): array;
 
     /**
@@ -427,7 +427,7 @@ interface DbalInterface
      *
      * @return array warnings
      */
-    public function getWarnings($link = DatabaseInterface::CONNECT_USER): array;
+    public function getWarnings(int $link = DatabaseInterface::CONNECT_USER): array;
 
     /**
      * gets the current user with host
@@ -482,21 +482,21 @@ interface DbalInterface
      * @param string|DatabaseName $dbname database name to select
      * @param int                 $link   link type
      */
-    public function selectDb($dbname, $link = DatabaseInterface::CONNECT_USER): bool;
+    public function selectDb($dbname, int $link = DatabaseInterface::CONNECT_USER): bool;
 
     /**
      * Check if there are any more query results from a multi query
      *
      * @param int $link link type
      */
-    public function moreResults($link = DatabaseInterface::CONNECT_USER): bool;
+    public function moreResults(int $link = DatabaseInterface::CONNECT_USER): bool;
 
     /**
      * Prepare next result from multi_query
      *
      * @param int $link link type
      */
-    public function nextResult($link = DatabaseInterface::CONNECT_USER): bool;
+    public function nextResult(int $link = DatabaseInterface::CONNECT_USER): bool;
 
     /**
      * Store the result returned from multi query
@@ -505,7 +505,7 @@ interface DbalInterface
      *
      * @return mixed false when empty results / result set when not empty
      */
-    public function storeResult($link = DatabaseInterface::CONNECT_USER);
+    public function storeResult(int $link = DatabaseInterface::CONNECT_USER);
 
     /**
      * Returns a string representing the type of connection used
@@ -514,7 +514,7 @@ interface DbalInterface
      *
      * @return string|bool type of connection used
      */
-    public function getHostInfo($link = DatabaseInterface::CONNECT_USER);
+    public function getHostInfo(int $link = DatabaseInterface::CONNECT_USER);
 
     /**
      * Returns the version of the MySQL protocol used
@@ -523,7 +523,7 @@ interface DbalInterface
      *
      * @return int|bool version of the MySQL protocol used
      */
-    public function getProtoInfo($link = DatabaseInterface::CONNECT_USER);
+    public function getProtoInfo(int $link = DatabaseInterface::CONNECT_USER);
 
     /**
      * returns a string that represents the client library version
@@ -537,7 +537,7 @@ interface DbalInterface
      *
      * @param int $link link type
      */
-    public function getError($link = DatabaseInterface::CONNECT_USER): string;
+    public function getError(int $link = DatabaseInterface::CONNECT_USER): string;
 
     /**
      * returns the number of rows returned by last query
@@ -558,7 +558,7 @@ interface DbalInterface
      *
      * @return int
      */
-    public function insertId($link = DatabaseInterface::CONNECT_USER);
+    public function insertId(int $link = DatabaseInterface::CONNECT_USER);
 
     /**
      * returns the number of rows affected by last query
@@ -569,7 +569,7 @@ interface DbalInterface
      * @return int|string
      * @psalm-return int|numeric-string
      */
-    public function affectedRows($link = DatabaseInterface::CONNECT_USER, bool $getFromCache = true);
+    public function affectedRows(int $link = DatabaseInterface::CONNECT_USER, bool $getFromCache = true);
 
     /**
      * returns metainfo for fields in $result
@@ -584,13 +584,13 @@ interface DbalInterface
      * Returns properly quoted string for use in MySQL queries.
      *
      * @param string $str  string to be quoted
-     * @param mixed  $link optional database link to use
+     * @param int    $link optional database link to use
      *
      * @psalm-return non-empty-string
      *
      * @psalm-taint-escape sql
      */
-    public function quoteString(string $str, $link = DatabaseInterface::CONNECT_USER): string;
+    public function quoteString(string $str, int $link = DatabaseInterface::CONNECT_USER): string;
 
     /**
      * returns properly escaped string for use in MySQL queries
@@ -598,11 +598,11 @@ interface DbalInterface
      * @deprecated Use {@see quoteString()} instead.
      *
      * @param string $str  string to be escaped
-     * @param mixed  $link optional database link to use
+     * @param int    $link optional database link to use
      *
      * @return string a MySQL escaped string
      */
-    public function escapeString(string $str, $link = DatabaseInterface::CONNECT_USER): string;
+    public function escapeString(string $str, int $link = DatabaseInterface::CONNECT_USER): string;
 
     /**
      * returns properly escaped string for use in MySQL LIKE clauses
@@ -686,5 +686,5 @@ interface DbalInterface
      *
      * @return object|false A statement object or false.
      */
-    public function prepare(string $query, $link = DatabaseInterface::CONNECT_USER);
+    public function prepare(string $query, int $link = DatabaseInterface::CONNECT_USER);
 }

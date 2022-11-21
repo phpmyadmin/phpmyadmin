@@ -2856,37 +2856,12 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
-			message: "#^Parameter \\#1 \\$link of method PhpMyAdmin\\\\DatabaseInterface\\:\\:affectedRows\\(\\) expects int, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
-			message: "#^Parameter \\#1 \\$link of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getError\\(\\) expects int, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/DatabaseInterface.php
-
-		-
-			message: "#^Parameter \\#2 \\$link of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeMysqlLikeString\\(\\) expects int, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Query\\\\Cache\\:\\:cacheTableData\\(\\) expects bool\\|string, array\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
 
 		-
-			message: "#^Parameter \\#3 \\.\\.\\.\\$args of function array_map expects array, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
-			message: "#^Parameter \\#4 \\$link of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchResult\\(\\) expects int, mixed given\\.$#"
-			count: 7
-			path: libraries/classes/DatabaseInterface.php
-
-		-
-			message: "#^Parameter \\#7 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
+			message: "#^Parameter \\#3 \\.\\.\\.\\$args of function array_map expects array, int given\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
 
@@ -2971,7 +2946,7 @@ parameters:
 			path: libraries/classes/Dbal/DbiMysqli.php
 
 		-
-			message: "#^Parameter \\#1 \\$link \\(mysqli\\) of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:escapeString\\(\\) should be contravariant with parameter \\$link \\(mixed\\) of method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:escapeString\\(\\)$#"
+			message: "#^Parameter \\#1 \\$link \\(mysqli\\) of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:escapeString\\(\\) should be contravariant with parameter \\$link \\(object\\) of method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:escapeString\\(\\)$#"
 			count: 1
 			path: libraries/classes/Dbal/DbiMysqli.php
 
@@ -2996,7 +2971,7 @@ parameters:
 			path: libraries/classes/Dbal/DbiMysqli.php
 
 		-
-			message: "#^Parameter \\#1 \\$link \\(mysqli\\) of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:prepare\\(\\) should be contravariant with parameter \\$link \\(mixed\\) of method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:prepare\\(\\)$#"
+			message: "#^Parameter \\#1 \\$link \\(mysqli\\) of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:prepare\\(\\) should be contravariant with parameter \\$link \\(object\\) of method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:prepare\\(\\)$#"
 			count: 1
 			path: libraries/classes/Dbal/DbiMysqli.php
 

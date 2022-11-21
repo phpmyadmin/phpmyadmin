@@ -5790,6 +5790,12 @@
     <EmptyArrayAccess occurrences="1">
       <code>$resultTarget[]</code>
     </EmptyArrayAccess>
+    <InvalidArgument occurrences="1">
+      <code>$link</code>
+    </InvalidArgument>
+    <InvalidArrayAccess occurrences="1">
+      <code>$link</code>
+    </InvalidArrayAccess>
     <InvalidOperand occurrences="6">
       <code>$row['Data_free']</code>
       <code>$row['Data_length']</code>
@@ -5804,21 +5810,9 @@
     <InvalidReturnType occurrences="1">
       <code>int|bool</code>
     </InvalidReturnType>
-    <MixedArgument occurrences="24">
+    <MixedArgument occurrences="12">
       <code>$a</code>
       <code>$b</code>
-      <code>$link</code>
-      <code>$link</code>
-      <code>$link</code>
-      <code>$link</code>
-      <code>$link</code>
-      <code>$link</code>
-      <code>$link</code>
-      <code>$link</code>
-      <code>$link</code>
-      <code>$link</code>
-      <code>$link</code>
-      <code>$link</code>
       <code>$link</code>
       <code>$password</code>
       <code>$table</code>
@@ -5835,14 +5829,13 @@
       <code>uksort($eachTables, 'strnatcasecmp')</code>
       <code>usort($tables, 'strnatcasecmp')</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="5">
-      <code>$link</code>
+    <MixedArrayAccess occurrences="4">
       <code>$tableData[$sortBy]</code>
       <code>$tableData['Data_length']</code>
       <code>$tableData['Engine']</code>
       <code>$tableData['Index_length']</code>
     </MixedArrayAccess>
-    <MixedArrayOffset occurrences="10">
+    <MixedArrayOffset occurrences="7">
       <code>$resultRows[$row[$key]]</code>
       <code>$resultTarget[$row[$keyIndex]]</code>
       <code>$resultTarget[$row[$keyIndex]]</code>
@@ -5850,9 +5843,6 @@
       <code>$row[$keyIndex]</code>
       <code>$row[$keyIndex]</code>
       <code>$row[$keyIndex]</code>
-      <code>$this-&gt;links[$link]</code>
-      <code>$this-&gt;links[$link]</code>
-      <code>$this-&gt;links[$link]</code>
     </MixedArrayOffset>
     <MixedAssignment occurrences="14">
       <code>$aLength</code>

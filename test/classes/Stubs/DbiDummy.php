@@ -469,7 +469,7 @@ class DbiDummy implements DbiExtension
     /**
      * returns properly escaped string for use in MySQL queries
      *
-     * @param mixed  $link   database link
+     * @param object $link   database link
      * @param string $string string to be escaped
      *
      * @return string a MySQL escaped string
@@ -519,7 +519,7 @@ class DbiDummy implements DbiExtension
     }
 
     /**
-     * @param mixed  $link  link
+     * @param object $link  link
      * @param string $query query
      *
      * @return object|false
