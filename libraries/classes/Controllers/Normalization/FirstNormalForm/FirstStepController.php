@@ -29,7 +29,7 @@ final class FirstStepController extends AbstractController
 
         $normalForm = '1nf';
         $normalizeTo = $request->getParsedBodyParam('normalizeTo');
-        if (isset($normalizeTo) && in_array($normalizeTo, ['1nf', '2nf', '3nf'])) {
+        if ($normalizeTo !== null && in_array($normalizeTo, ['1nf', '2nf', '3nf'])) {
             $normalForm = $normalizeTo;
         }
 
