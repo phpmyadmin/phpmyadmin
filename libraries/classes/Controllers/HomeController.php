@@ -235,7 +235,7 @@ class HomeController extends AbstractController
             'is_demo' => $GLOBALS['cfg']['DBG']['demo'],
             'has_server_selection' => $hasServerSelection ?? false,
             'server_selection' => $serverSelection ?? '',
-            'has_change_password_link' => $GLOBALS['cfg']['Server']['auth_type'] !== 'config'
+            'has_change_password_link' => ($GLOBALS['cfg']['Server']['auth_type'] ?? '') !== 'config'
                 && $GLOBALS['cfg']['ShowChgPassword'],
             'charsets' => $charsetsList ?? [],
             'available_languages' => $availableLanguages,

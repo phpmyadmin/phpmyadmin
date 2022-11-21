@@ -1196,7 +1196,7 @@ class ResultsTest extends AbstractTestCase
                 ],
             ],
             'default and request values' => [
-                [' PMA_token ' => 'token',],
+                [' PMA_token ' => 'token'],
                 ['session_max_rows' => '27'],
                 ['session_max_rows' => '28'],
                 [
