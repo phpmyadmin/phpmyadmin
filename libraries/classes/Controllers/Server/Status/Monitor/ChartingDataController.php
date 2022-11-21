@@ -37,7 +37,7 @@ final class ChartingDataController extends AbstractController
     {
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
-        $params = ['requiredData' => $_POST['requiredData'] ?? null];
+        $params = ['requiredData' => $request->getParsedBodyParam('requiredData')];
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {

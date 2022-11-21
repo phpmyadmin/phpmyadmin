@@ -38,8 +38,8 @@ final class SlowLogController extends AbstractController
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
         $params = [
-            'time_start' => $_POST['time_start'] ?? null,
-            'time_end' => $_POST['time_end'] ?? null,
+            'time_start' => $request->getParsedBodyParam('time_start'),
+            'time_end' => $request->getParsedBodyParam('time_end'),
         ];
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 

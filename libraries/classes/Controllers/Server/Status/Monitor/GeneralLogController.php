@@ -38,10 +38,10 @@ final class GeneralLogController extends AbstractController
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
         $params = [
-            'time_start' => $_POST['time_start'] ?? null,
-            'time_end' => $_POST['time_end'] ?? null,
-            'limitTypes' => $_POST['limitTypes'] ?? null,
-            'removeVariables' => $_POST['removeVariables'] ?? null,
+            'time_start' => $request->getParsedBodyParam('time_start'),
+            'time_end' => $request->getParsedBodyParam('time_end'),
+            'limitTypes' => $request->getParsedBodyParam('limitTypes'),
+            'removeVariables' => $request->getParsedBodyParam('removeVariables'),
         ];
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 

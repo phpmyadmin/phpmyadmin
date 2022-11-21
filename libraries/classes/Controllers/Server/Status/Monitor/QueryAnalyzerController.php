@@ -38,8 +38,8 @@ final class QueryAnalyzerController extends AbstractController
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
         $params = [
-            'database' => $_POST['database'] ?? null,
-            'query' => $_POST['query'] ?? null,
+            'database' => $request->getParsedBodyParam('database'),
+            'query' => $request->getParsedBodyParam('query'),
         ];
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
