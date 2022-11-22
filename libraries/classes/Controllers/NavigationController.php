@@ -51,7 +51,8 @@ class NavigationController extends AbstractController
             return;
         }
 
-        if (isset($_POST['getNaviSettings']) && $_POST['getNaviSettings']) {
+        $getNaviSettings = $request->getParsedBodyParam('getNaviSettings');
+        if ($getNaviSettings !== null && $getNaviSettings) {
             $pageSettings = new PageSettings('Navi', 'pma_navigation_settings');
             $this->response->addHTML($pageSettings->getErrorHTML());
             $this->response->addJSON('message', $pageSettings->getHTML());
@@ -59,43 +60,49 @@ class NavigationController extends AbstractController
             return;
         }
 
-        if (isset($_POST['reload'])) {
+        if ($request->getParsedBodyParam('reload') !== null) {
             SessionCache::set('dbs_to_test', false);// Empty database list cache, see #14252
         }
 
         $relationParameters = $this->relation->getRelationParameters();
         if ($relationParameters->navigationItemsHidingFeature !== null) {
-            if (isset($_POST['hideNavItem'])) {
-                if (! empty($_POST['itemName']) && ! empty($_POST['itemType']) && ! empty($_POST['dbName'])) {
+
+            $itemName = $request->getParsedBodyParam('itemName', '');
+            $itemType = $request->getParsedBodyParam('itemType', '');
+            $dbName = $request->getParsedBodyParam('dbName', '');
+            $tableName = $request->getParsedBodyParam('tableName', '');
+
+            if ($request->getParsedBodyParam('hideNavItem') !== null) {
+                if (! empty($itemName) && ! empty($itemType) && ! empty($dbName)) {
                     $this->navigation->hideNavigationItem(
-                        $_POST['itemName'],
-                        $_POST['itemType'],
-                        $_POST['dbName'],
-                        (! empty($_POST['tableName']) ? $_POST['tableName'] : null)
+                        $itemName,
+                        $itemType,
+                        $dbName,
+                        (! empty($tableName) ? $tableName : null)
                     );
                 }
 
                 return;
             }
 
-            if (isset($_POST['unhideNavItem'])) {
-                if (! empty($_POST['itemName']) && ! empty($_POST['itemType']) && ! empty($_POST['dbName'])) {
+            if ($request->getParsedBodyParam('unhideNavItem') !== null) {
+                if (! empty($itemName) && ! empty($itemType) && ! empty($dbName)) {
                     $this->navigation->unhideNavigationItem(
-                        $_POST['itemName'],
-                        $_POST['itemType'],
-                        $_POST['dbName'],
-                        (! empty($_POST['tableName']) ? $_POST['tableName'] : null)
+                        $itemName,
+                        $itemType,
+                        $dbName,
+                        (! empty($tableName) ? $tableName : null)
                     );
                 }
 
                 return;
             }
 
-            if (isset($_POST['showUnhideDialog'])) {
-                if (! empty($_POST['dbName'])) {
+            if ($request->getParsedBodyParam('showUnhideDialog') !== null) {
+                if (! empty($dbName)) {
                     $this->response->addJSON(
                         'message',
-                        $this->navigation->getItemUnhideDialog($_POST['dbName'])
+                        $this->navigation->getItemUnhideDialog($dbName)
                     );
                 }
 
