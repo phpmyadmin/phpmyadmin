@@ -461,6 +461,10 @@ const CheckAddUser = {
     }
 };
 
+const selectPasswordRadioWhenChangingPassword = () => {
+    $('#nopass_0').prop('checked', true);
+};
+
 /**
  * AJAX scripts for /server/privileges page.
  *
@@ -483,6 +487,9 @@ const CheckAddUser = {
 window.AJAX.registerTeardown('server/privileges.js', function () {
     $('#fieldset_add_user_login').off('change', 'input[name=\'username\']');
     $(document).off('click', '#deleteUserCard .btn.ajax');
+    $('#text_pma_change_pw').off('keyup');
+    $('#text_pma_change_pw').off('change');
+    $('#text_pma_change_pw2').off('change');
 
     const editUserGroupModal = document.getElementById('editUserGroupModal');
     if (editUserGroupModal) {
@@ -504,6 +511,8 @@ window.AJAX.registerOnload('server/privileges.js', function () {
     $('#text_pma_pw').on('keyup', PasswordStrength.handleEvent);
     $('#text_pma_pw').on('input', SwitchToUseTextField.handleEvent);
     $('#text_pma_change_pw').on('keyup', ChangePasswordStrength.handleEvent);
+    $('#text_pma_change_pw').on('change', selectPasswordRadioWhenChangingPassword);
+    $('#text_pma_change_pw2').on('change', selectPasswordRadioWhenChangingPassword);
     $(document).on('change', '#select_authentication_plugin', ShowSha256PasswordNotice.handleEvent);
     $(document).on('click', '#deleteUserCard .btn.ajax', RevokeUser.handleEvent);
 
