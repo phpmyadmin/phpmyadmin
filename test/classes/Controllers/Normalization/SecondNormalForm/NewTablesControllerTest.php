@@ -24,19 +24,21 @@ class NewTablesControllerTest extends AbstractTestCase
     {
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';
-        $_POST['pd'] = json_encode(['ID, task' => [], 'task' => ['timestamp']]);
 
         $dbi = $this->createDatabaseInterface();
         $GLOBALS['dbi'] = $dbi;
         $response = new ResponseRenderer();
         $template = new Template();
-
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['pd', null, json_encode(['ID, task' => [], 'task' => ['timestamp']])],
+        ]);
         $controller = new NewTablesController(
             $response,
             $template,
             new Normalization($dbi, new Relation($dbi), new Transformations(), $template)
         );
-        $controller($this->createStub(ServerRequest::class));
+        $controller($request);
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $this->assertSame(

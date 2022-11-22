@@ -24,7 +24,7 @@ class CreateNewTablesControllerTest extends AbstractTestCase
     {
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';
-        $_POST['newTables'] = json_encode([
+        $newTables = json_encode([
             'test_table' => [
                 'event' => [
                     'pk' => 'eventID',
@@ -46,13 +46,17 @@ class CreateNewTablesControllerTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $response = new ResponseRenderer();
         $template = new Template();
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['newTables', null, $newTables],
+        ]);
 
         $controller = new CreateNewTablesController(
             $response,
             $template,
             new Normalization($dbi, new Relation($dbi), new Transformations(), $template)
         );
-        $controller($this->createStub(ServerRequest::class));
+        $controller($request);
 
         $this->assertSame([
             'legendText' => 'End of step',

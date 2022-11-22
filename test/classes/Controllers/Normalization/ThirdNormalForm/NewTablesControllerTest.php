@@ -24,7 +24,7 @@ class NewTablesControllerTest extends AbstractTestCase
     {
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';
-        $_POST['tables'] = json_encode([
+        $tables = json_encode([
             'test_table' => [
                 'event',
                 'event',
@@ -37,7 +37,7 @@ class NewTablesControllerTest extends AbstractTestCase
                 'event',
             ],
         ]);
-        $_POST['pd'] = json_encode([
+        $pd = json_encode([
             '' => [],
             'event' => [
                 'TypeOfEvent',
@@ -54,13 +54,19 @@ class NewTablesControllerTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $response = new ResponseRenderer();
         $template = new Template();
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['tables', null, $tables],
+            ['pd', null, $pd],
+        ]);
+
 
         $controller = new NewTablesController(
             $response,
             $template,
             new Normalization($dbi, new Relation($dbi), new Transformations(), $template)
         );
-        $controller($this->createStub(ServerRequest::class));
+        $controller($request);
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $this->assertSame([

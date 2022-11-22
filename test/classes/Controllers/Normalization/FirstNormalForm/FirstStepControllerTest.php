@@ -29,7 +29,6 @@ class FirstStepControllerTest extends AbstractTestCase
     {
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';
-        $_POST['normalizeTo'] = $normalizeTo;
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addSelectDb('test_db');
@@ -38,13 +37,17 @@ class FirstStepControllerTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $response = new ResponseRenderer();
         $template = new Template();
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['normalizeTo', null, $normalizeTo],
+        ]);
 
         $controller = new FirstStepController(
             $response,
             $template,
             new Normalization($dbi, new Relation($dbi), new Transformations(), $template)
         );
-        $controller($this->createStub(ServerRequest::class));
+        $controller($request);
 
         $files = $response->getHeader()->getScripts()->getFiles();
         $this->assertTrue(

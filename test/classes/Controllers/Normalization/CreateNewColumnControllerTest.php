@@ -24,7 +24,6 @@ class CreateNewColumnControllerTest extends AbstractTestCase
         $GLOBALS['col_priv'] = false;
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';
-        $_POST['numFields'] = 1;
 
         $dbiDummy = $this->createDbiDummy();
 
@@ -32,13 +31,17 @@ class CreateNewColumnControllerTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $response = new ResponseRenderer();
         $template = new Template();
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['numFields', null, '1'],
+        ]);
 
         $controller = new CreateNewColumnController(
             $response,
             $template,
             new Normalization($dbi, new Relation($dbi), new Transformations(), $template)
         );
-        $controller($this->createStub(ServerRequest::class));
+        $controller($request);
 
         $this->assertStringContainsString('<table id="table_columns"', $response->getHTMLResult());
     }

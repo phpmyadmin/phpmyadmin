@@ -24,8 +24,6 @@ class CreateNewTablesControllerTest extends AbstractTestCase
     {
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';
-        $_POST['pd'] = json_encode(['ID, task' => [], 'task' => ['timestamp']]);
-        $_POST['newTablesName'] = json_encode(['ID, task' => 'batch_log2', 'task' => 'table2']);
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addSelectDb('test_db');
@@ -37,13 +35,18 @@ class CreateNewTablesControllerTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $response = new ResponseRenderer();
         $template = new Template();
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['pd', null, json_encode(['ID, task' => [], 'task' => ['timestamp']])],
+            ['newTablesName', null, json_encode(['ID, task' => 'batch_log2', 'task' => 'table2'])],
+        ]);
 
         $controller = new CreateNewTablesController(
             $response,
             $template,
             new Normalization($dbi, new Relation($dbi), new Transformations(), $template)
         );
-        $controller($this->createStub(ServerRequest::class));
+        $controller($request);
 
         $this->assertSame([
             'legendText' => 'End of step',
