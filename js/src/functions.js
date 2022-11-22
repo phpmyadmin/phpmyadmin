@@ -388,24 +388,16 @@ Functions.tooltip = function ($elements, item, myContent, additionalOptions) {
 };
 
 /**
- * HTML escaping
- *
- * @param {any} unsafe
- * @return {string | false}
+ * @param {string} value
+ * @return {string}
  */
-Functions.escapeHtml = function (unsafe) {
-    if (typeof (unsafe) !== 'undefined') {
-        return unsafe
-            .toString()
-            .replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/"/g, '&quot;')
-            .replace(/'/g, '&#039;');
-    } else {
-        return false;
-    }
+const escapeHtml = (value = '') => {
+    const element = document.createElement('span');
+    element.appendChild(document.createTextNode(value));
+    return element.innerHTML;
 };
+
+Functions.escapeHtml = escapeHtml
 
 /**
  * JavaScript escaping
