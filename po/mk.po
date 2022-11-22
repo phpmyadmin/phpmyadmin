@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-11-21 20:47+0000\n"
+"PO-Revision-Date: 2022-11-23 22:47+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -17115,6 +17115,8 @@ msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"За да имате попрецизни просеци, препорачано е да го оставите серверот да "
+"работи за подолго од еден ден пред да ја извршите оваа анализа"
 
 #: libraries/advisory_rules_generic.txt:54
 #, php-format
@@ -17138,6 +17140,8 @@ msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
+"Оставате го серверот да работи за подолго време додека се егзекуриани "
+"поголеми броеви на барања."
 
 #: libraries/advisory_rules_generic.txt:61
 #, php-format
@@ -17159,6 +17163,8 @@ msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
+"Можете да го зголемите {long_query_time} или да го оптимизирате барањето "
+"наведено во логот за спори барања"
 
 #: libraries/advisory_rules_generic.txt:68
 #, php-format
