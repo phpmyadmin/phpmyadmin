@@ -73,12 +73,15 @@ class GeneralLogControllerTest extends AbstractTestCase
             $GLOBALS['dbi']
         );
 
-        $_POST['time_start'] = '0';
-        $_POST['time_end'] = '10';
-        $_POST['limitTypes'] = '1';
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['time_start', null, '0'],
+            ['time_end', null, '10'],
+            ['limitTypes', null, '1'],
+        ]);
 
         $this->dummyDbi->addSelectDb('mysql');
-        $controller($this->createStub(ServerRequest::class));
+        $controller($request);
         $this->dummyDbi->assertAllSelectsConsumed();
         $ret = $response->getJSONResult();
 

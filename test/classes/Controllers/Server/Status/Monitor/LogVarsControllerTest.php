@@ -68,10 +68,14 @@ class LogVarsControllerTest extends AbstractTestCase
             $GLOBALS['dbi']
         );
 
-        $_POST['varName'] = 'varName';
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['varName', null, 'varName'],
+        ]);
+
 
         $this->dummyDbi->addSelectDb('mysql');
-        $controller($this->createStub(ServerRequest::class));
+        $controller($request);
         $this->dummyDbi->assertAllSelectsConsumed();
         $ret = $response->getJSONResult();
 
