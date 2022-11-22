@@ -397,7 +397,7 @@ const escapeHtml = (value = '') => {
     return element.innerHTML;
 };
 
-Functions.escapeHtml = escapeHtml
+Functions.escapeHtml = escapeHtml;
 
 /**
  * JavaScript escaping

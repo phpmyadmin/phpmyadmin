@@ -1,16 +1,9 @@
 import $ from 'jquery';
 
 /**
- * Functions used in the export tab
- *
- */
-
-var Export = {};
-
-/**
  * Disables the "Dump some row(s)" sub-options
  */
-Export.disableDumpSomeRowsSubOptions = function () {
+const disableDumpSomeRowsSubOptions = function () {
     $('label[for=\'limit_to\']').fadeTo('fast', 0.4);
     $('label[for=\'limit_from\']').fadeTo('fast', 0.4);
     $('input[type=\'text\'][name=\'limit_to\']').prop('disabled', 'disabled');
@@ -20,7 +13,7 @@ Export.disableDumpSomeRowsSubOptions = function () {
 /**
  * Enables the "Dump some row(s)" sub-options
  */
-Export.enableDumpSomeRowsSubOptions = function () {
+const enableDumpSomeRowsSubOptions = function () {
     $('label[for=\'limit_to\']').fadeTo('fast', 1);
     $('label[for=\'limit_from\']').fadeTo('fast', 1);
     $('input[type=\'text\'][name=\'limit_to\']').prop('disabled', '');
@@ -32,7 +25,7 @@ Export.enableDumpSomeRowsSubOptions = function () {
  *
  * @return {object} template data
  */
-Export.getTemplateData = function () {
+const getTemplateData = function () {
     var $form = $('form[name="dump"]');
     var excludeList = ['token', 'server', 'db', 'table', 'single_table',
         'export_type', 'export_method', 'sql_query', 'template_id'];
@@ -71,8 +64,8 @@ Export.getTemplateData = function () {
  *
  * @param name name of the template
  */
-Export.createTemplate = function (name) {
-    var templateData = Export.getTemplateData();
+const createTemplate = function (name) {
+    var templateData = getTemplateData();
 
     var params = {
         'ajax_request': true,
@@ -106,7 +99,7 @@ Export.createTemplate = function (name) {
  *
  * @param id ID of the template to load
  */
-Export.loadTemplate = function (id) {
+const loadTemplate = function (id) {
     var params = {
         'ajax_request': true,
         'server': window.CommonParams.get('server'),
@@ -153,8 +146,8 @@ Export.loadTemplate = function (id) {
  *
  * @param id ID of the template to update
  */
-Export.updateTemplate = function (id) {
-    var templateData = Export.getTemplateData();
+const updateTemplate = function (id) {
+    var templateData = getTemplateData();
 
     var params = {
         'ajax_request': true,
@@ -181,7 +174,7 @@ Export.updateTemplate = function (id) {
  *
  * @param id ID of the template to delete
  */
-Export.deleteTemplate = function (id) {
+const deleteTemplate = function (id) {
     var params = {
         'ajax_request': true,
         'server': window.CommonParams.get('server'),
@@ -248,7 +241,7 @@ window.AJAX.registerOnload('export.js', function () {
         e.preventDefault();
         var name = $('input[name="templateName"]').val();
         if (name.length) {
-            Export.createTemplate(name);
+            createTemplate(name);
         }
     });
 
@@ -257,7 +250,7 @@ window.AJAX.registerOnload('export.js', function () {
         e.preventDefault();
         var id = $(this).val();
         if (id.length) {
-            Export.loadTemplate(id);
+            loadTemplate(id);
         }
     });
 
@@ -266,7 +259,7 @@ window.AJAX.registerOnload('export.js', function () {
         e.preventDefault();
         var id = $('select[name="template"]').val();
         if (id.length) {
-            Export.updateTemplate(id);
+            updateTemplate(id);
         }
     });
 
@@ -275,7 +268,7 @@ window.AJAX.registerOnload('export.js', function () {
         e.preventDefault();
         var id = $('select[name="template"]').val();
         if (id.length) {
-            Export.deleteTemplate(id);
+            deleteTemplate(id);
         }
     });
 
@@ -342,13 +335,13 @@ window.AJAX.registerOnload('export.js', function () {
     });
 });
 
-Export.setupTableStructureOrData = function () {
+const setupTableStructureOrData = function () {
     if ($('input[name=\'export_type\']').val() !== 'database') {
         return;
     }
     var pluginName = $('#plugins').find('option:selected').val();
     var formElemName = pluginName + '_structure_or_data';
-    var forceStructureOrData = !($('input[name=\'' + formElemName + '_default\']').length);
+    var forceStructureOrData = ! ($('input[name=\'' + formElemName + '_default\']').length);
 
     if (forceStructureOrData === true) {
         $('input[name="structure_or_data_forced"]').val(1);
@@ -371,7 +364,7 @@ Export.setupTableStructureOrData = function () {
                 .prop('checked', false);
         }
         if (structureOrData === 'structure' || structureOrData === 'structure_and_data') {
-            if (!$('.export_structure input[type="checkbox"]:checked').length) {
+            if (! $('.export_structure input[type="checkbox"]:checked').length) {
                 $('input[name="table_select[]"]:checked')
                     .closest('tr')
                     .find('.export_structure input[type="checkbox"]')
@@ -379,7 +372,7 @@ Export.setupTableStructureOrData = function () {
             }
         }
         if (structureOrData === 'data' || structureOrData === 'structure_and_data') {
-            if (!$('.export_data input[type="checkbox"]:checked').length) {
+            if (! $('.export_data input[type="checkbox"]:checked').length) {
                 $('input[name="table_select[]"]:checked')
                     .closest('tr')
                     .find('.export_data input[type="checkbox"]')
@@ -387,9 +380,9 @@ Export.setupTableStructureOrData = function () {
             }
         }
 
-        Export.checkSelectedTables();
-        Export.checkTableSelectAll();
-        Export.checkTableSelectStructureOrData();
+        checkSelectedTables();
+        checkTableSelectAll();
+        checkTableSelectStructureOrData();
     }
 };
 
@@ -397,7 +390,7 @@ Export.setupTableStructureOrData = function () {
  * Toggles the hiding and showing of plugin structure-specific and data-specific
  * options
  */
-Export.toggleStructureDataOpts = function () {
+const toggleStructureDataOpts = function () {
     var pluginName = $('select#plugins').val();
     var radioFormName = pluginName + '_structure_or_data';
     var dataDiv = '#' + pluginName + '_data';
@@ -421,9 +414,9 @@ Export.toggleStructureDataOpts = function () {
 /**
  * Toggles the disabling of the "save to file" options
  */
-Export.toggleSaveToFile = function () {
+const toggleSaveToFile = function () {
     var $ulSaveAsfile = $('#ul_save_asfile');
-    if (!$('#radio_dump_asfile').prop('checked')) {
+    if (! $('#radio_dump_asfile').prop('checked')) {
         $ulSaveAsfile.find('> li').fadeTo('fast', 0.4);
         $ulSaveAsfile.find('> li > input').prop('disabled', true);
         $ulSaveAsfile.find('> li > select').prop('disabled', true);
@@ -435,17 +428,17 @@ Export.toggleSaveToFile = function () {
 };
 
 window.AJAX.registerOnload('export.js', function () {
-    Export.toggleSaveToFile();
-    $('input[type=\'radio\'][name=\'output_format\']').on('change', Export.toggleSaveToFile);
+    toggleSaveToFile();
+    $('input[type=\'radio\'][name=\'output_format\']').on('change', toggleSaveToFile);
 });
 
 /**
  * For SQL plugin, toggles the disabling of the "display comments" options
  */
-Export.toggleSqlIncludeComments = function () {
+const toggleSqlIncludeComments = function () {
     $('#checkbox_sql_include_comments').on('change', function () {
         var $ulIncludeComments = $('#ul_include_comments');
-        if (!$('#checkbox_sql_include_comments').prop('checked')) {
+        if (! $('#checkbox_sql_include_comments').prop('checked')) {
             $ulIncludeComments.find('> li').fadeTo('fast', 0.4);
             $ulIncludeComments.find('> li > input').prop('disabled', true);
         } else {
@@ -460,7 +453,7 @@ Export.toggleSqlIncludeComments = function () {
     });
 };
 
-Export.checkTableSelectAll = function () {
+const checkTableSelectAll = function () {
     var total = $('input[name="table_select[]"]').length;
     var strChecked = $('input[name="table_structure[]"]:checked').length;
     var dataChecked = $('input[name="table_data[]"]:checked').length;
@@ -496,7 +489,7 @@ Export.checkTableSelectAll = function () {
     }
 };
 
-Export.checkTableSelectStructureOrData = function () {
+const checkTableSelectStructureOrData = function () {
     var dataChecked = $('input[name="table_data[]"]:checked').length;
     var autoIncrement = $('#checkbox_sql_auto_increment');
 
@@ -512,7 +505,7 @@ Export.checkTableSelectStructureOrData = function () {
     }
 };
 
-Export.toggleTableSelectAllStr = function () {
+const toggleTableSelectAllStr = function () {
     var strAll = $('#table_structure_all').is(':checked');
     if (strAll) {
         $('input[name="table_structure[]"]').prop('checked', true);
@@ -521,7 +514,7 @@ Export.toggleTableSelectAllStr = function () {
     }
 };
 
-Export.toggleTableSelectAllData = function () {
+const toggleTableSelectAllData = function () {
     var dataAll = $('#table_data_all').is(':checked');
     if (dataAll) {
         $('input[name="table_data[]"]').prop('checked', true);
@@ -530,13 +523,13 @@ Export.toggleTableSelectAllData = function () {
     }
 };
 
-Export.checkSelectedTables = function () {
+const checkSelectedTables = function () {
     $('.export_table_select tbody tr').each(function () {
-        Export.checkTableSelected(this);
+        checkTableSelected(this);
     });
 };
 
-Export.checkTableSelected = function (row) {
+const checkTableSelected = function (row) {
     var $row = $(row);
     var tableSelect = $row.find('input[name="table_select[]"]');
     var strCheck = $row.find('input[name="table_structure[]"]');
@@ -557,7 +550,7 @@ Export.checkTableSelected = function (row) {
     }
 };
 
-Export.toggleTableSelect = function (row) {
+const toggleTableSelect = function (row) {
     var $row = $(row);
     var tableSelected = $row.find('input[name="table_select[]"]').is(':checked');
 
@@ -570,7 +563,7 @@ Export.toggleTableSelect = function (row) {
     }
 };
 
-Export.handleAddProcCheckbox = function () {
+const handleAddProcCheckbox = function () {
     if ($('#table_structure_all').is(':checked') === true
         && $('#table_data_all').is(':checked') === true
     ) {
@@ -604,7 +597,7 @@ window.AJAX.registerOnload('export.js', function () {
         if (isBinary) {
             if ($('#radio_dump_asfile').prop('checked') !== true) {
                 $('#radio_dump_asfile').prop('checked', true);
-                Export.toggleSaveToFile();
+                toggleSaveToFile();
             }
             $('#radio_view_as_text').prop('disabled', true).parent().fadeTo('fast', 0.4);
         } else {
@@ -613,42 +606,42 @@ window.AJAX.registerOnload('export.js', function () {
     });
 
     $('input[type=\'radio\'][name$=\'_structure_or_data\']').on('change', function () {
-        Export.toggleStructureDataOpts();
+        toggleStructureDataOpts();
     });
 
     $('input[name="table_select[]"]').on('change', function () {
-        Export.toggleTableSelect($(this).closest('tr'));
-        Export.checkTableSelectAll();
-        Export.handleAddProcCheckbox();
-        Export.checkTableSelectStructureOrData();
+        toggleTableSelect($(this).closest('tr'));
+        checkTableSelectAll();
+        handleAddProcCheckbox();
+        checkTableSelectStructureOrData();
     });
 
     $('input[name="table_structure[]"]').on('change', function () {
-        Export.checkTableSelected($(this).closest('tr'));
-        Export.checkTableSelectAll();
-        Export.handleAddProcCheckbox();
-        Export.checkTableSelectStructureOrData();
+        checkTableSelected($(this).closest('tr'));
+        checkTableSelectAll();
+        handleAddProcCheckbox();
+        checkTableSelectStructureOrData();
     });
 
     $('input[name="table_data[]"]').on('change', function () {
-        Export.checkTableSelected($(this).closest('tr'));
-        Export.checkTableSelectAll();
-        Export.handleAddProcCheckbox();
-        Export.checkTableSelectStructureOrData();
+        checkTableSelected($(this).closest('tr'));
+        checkTableSelectAll();
+        handleAddProcCheckbox();
+        checkTableSelectStructureOrData();
     });
 
     $('#table_structure_all').on('change', function () {
-        Export.toggleTableSelectAllStr();
-        Export.checkSelectedTables();
-        Export.handleAddProcCheckbox();
-        Export.checkTableSelectStructureOrData();
+        toggleTableSelectAllStr();
+        checkSelectedTables();
+        handleAddProcCheckbox();
+        checkTableSelectStructureOrData();
     });
 
     $('#table_data_all').on('change', function () {
-        Export.toggleTableSelectAllData();
-        Export.checkSelectedTables();
-        Export.handleAddProcCheckbox();
-        Export.checkTableSelectStructureOrData();
+        toggleTableSelectAllData();
+        checkSelectedTables();
+        handleAddProcCheckbox();
+        checkTableSelectStructureOrData();
     });
 
     if ($('input[name=\'export_type\']').val() === 'database') {
@@ -686,13 +679,13 @@ window.AJAX.registerOnload('export.js', function () {
             .parent()
             .fadeTo('fast', 0.4);
 
-        Export.setupTableStructureOrData();
+        setupTableStructureOrData();
     }
 
     /**
      * Handle force structure_or_data
      */
-    $('#plugins').on('change', Export.setupTableStructureOrData);
+    $('#plugins').on('change', setupTableStructureOrData);
 });
 
 /**
@@ -750,7 +743,7 @@ function toggleQuickOrCustom () {
 
 var timeOut;
 
-Export.checkTimeOut = function (timeLimit) {
+const checkTimeOut = function (timeLimit) {
     var limit = timeLimit;
     if (typeof limit === 'undefined' || limit === 0) {
         return true;
@@ -779,7 +772,7 @@ Export.checkTimeOut = function (timeLimit) {
  *
  * @return {void}
  */
-Export.createAliasModal = function (event) {
+const createAliasModal = function (event) {
     event.preventDefault();
     var modal = $('#renameExportModal');
     modal.modal('show');
@@ -821,14 +814,14 @@ Export.createAliasModal = function (event) {
             }
         });
         // Toggle checkbox based on aliases
-        $('input#btn_alias_config').prop('checked', !isEmpty);
+        $('input#btn_alias_config').prop('checked', ! isEmpty);
     });
     $('#saveAndCloseBtn').on('click', function () {
         $('#alias_modal').parent().appendTo($('form[name="dump"]'));
     });
 };
 
-Export.aliasToggleRow = function (elm) {
+const aliasToggleRow = function (elm) {
     var inputs = elm.parents('tr').find('input,button');
     if (elm.val()) {
         inputs.attr('disabled', false);
@@ -837,17 +830,17 @@ Export.aliasToggleRow = function (elm) {
     }
 };
 
-Export.aliasRow = null;
+let aliasRow = null;
 
-Export.addAlias = function (type, name, field, value) {
+const addAlias = function (type, name, field, value) {
     if (value === '') {
         return;
     }
 
-    if (Export.aliasRow === null) {
-        Export.aliasRow = $('#alias_data tfoot tr');
+    if (aliasRow === null) {
+        aliasRow = $('#alias_data tfoot tr');
     }
-    var row = Export.aliasRow.clone();
+    var row = aliasRow.clone();
     row.find('th').text(type);
     row.find('td').first().text(name);
     row.find('input').attr('name', field);
@@ -872,34 +865,34 @@ window.AJAX.registerOnload('export.js', function () {
         .remove();
     toggleQuickOrCustom();
 
-    Export.toggleStructureDataOpts();
-    Export.toggleSqlIncludeComments();
-    Export.checkTableSelectAll();
-    Export.handleAddProcCheckbox();
+    toggleStructureDataOpts();
+    toggleSqlIncludeComments();
+    checkTableSelectAll();
+    handleAddProcCheckbox();
 
     /**
      * Initially disables the "Dump some row(s)" sub-options
      */
-    Export.disableDumpSomeRowsSubOptions();
+    disableDumpSomeRowsSubOptions();
 
     /**
      * Disables the "Dump some row(s)" sub-options when it is not selected
      */
     $('input[type=\'radio\'][name=\'allrows\']').on('change', function () {
         if ($('#radio_allrows_0').prop('checked')) {
-            Export.enableDumpSomeRowsSubOptions();
+            enableDumpSomeRowsSubOptions();
         } else {
-            Export.disableDumpSomeRowsSubOptions();
+            disableDumpSomeRowsSubOptions();
         }
     });
 
     // Open Alias Modal Dialog on click
-    $('#btn_alias_config').on('click', Export.createAliasModal);
+    $('#btn_alias_config').on('click', createAliasModal);
     $('.alias_remove').on('click', function () {
         $(this).parents('tr').remove();
     });
     $('#db_alias_select').on('change', function () {
-        Export.aliasToggleRow($(this));
+        aliasToggleRow($(this));
         var table = window.CommonParams.get('table');
         if (table) {
             var option = $('<option></option>');
@@ -929,7 +922,7 @@ window.AJAX.registerOnload('export.js', function () {
         }
     });
     $('#table_alias_select').on('change', function () {
-        Export.aliasToggleRow($(this));
+        aliasToggleRow($(this));
         var database = $('#db_alias_select').val();
         var table = $(this).val();
         var params = {
@@ -953,12 +946,12 @@ window.AJAX.registerOnload('export.js', function () {
         });
     });
     $('#column_alias_select').on('change', function () {
-        Export.aliasToggleRow($(this));
+        aliasToggleRow($(this));
     });
     $('#db_alias_button').on('click', function (e) {
         e.preventDefault();
         var db = $('#db_alias_select').val();
-        Export.addAlias(
+        addAlias(
             window.Messages.strAliasDatabase,
             db,
             'aliases[' + db + '][alias]',
@@ -970,7 +963,7 @@ window.AJAX.registerOnload('export.js', function () {
         e.preventDefault();
         var db = $('#db_alias_select').val();
         var table = $('#table_alias_select').val();
-        Export.addAlias(
+        addAlias(
             window.Messages.strAliasTable,
             db + '.' + table,
             'aliases[' + db + '][tables][' + table + '][alias]',
@@ -983,7 +976,7 @@ window.AJAX.registerOnload('export.js', function () {
         var db = $('#db_alias_select').val();
         var table = $('#table_alias_select').val();
         var column = $('#column_alias_select').val();
-        Export.addAlias(
+        addAlias(
             window.Messages.strAliasColumn,
             db + '.' + table + '.' + column,
             'aliases[' + db + '][tables][' + table + '][colums][' + column + ']',
@@ -1012,7 +1005,7 @@ window.AJAX.registerOnload('export.js', function () {
         // If the time limit set is zero,
         // then time out won't occur so no need to check for time out.
         if (timeLimit > 0) {
-            Export.checkTimeOut(timeLimit);
+            checkTimeOut(timeLimit);
         }
     });
 });
