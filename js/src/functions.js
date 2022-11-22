@@ -397,7 +397,7 @@ const escapeHtml = (value = '') => {
     return element.innerHTML;
 };
 
-Functions.escapeHtml = escapeHtml
+Functions.escapeHtml = escapeHtml;
 
 /**
  * JavaScript escaping
@@ -3722,7 +3722,7 @@ Functions.getAutoSubmitEventHandler = function () {
 };
 
 /**
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const PrintPage = {
     handleEvent: () => {

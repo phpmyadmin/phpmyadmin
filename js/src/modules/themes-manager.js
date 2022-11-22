@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 /**
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 export const ThemesManager = {
     handleEvent: () => {

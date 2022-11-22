@@ -30,7 +30,7 @@ function exportPrivilegesModalHandler (data, msgbox) {
 }
 
 /**
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const EditUserGroup = {
     /**
@@ -88,7 +88,7 @@ const EditUserGroup = {
 };
 
 /**
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const AccountLocking = {
     handleEvent: function () {
@@ -130,7 +130,7 @@ const AccountLocking = {
 /**
  * Display a warning if there is already a user by the name entered as the username.
  *
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const AddUserLoginCheckUsername = {
     handleEvent: function () {
@@ -160,7 +160,7 @@ const AddUserLoginCheckUsername = {
 /**
  * Indicating password strength
  *
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const PasswordStrength = {
     handleEvent: function () {
@@ -175,7 +175,7 @@ const PasswordStrength = {
 /**
  * Automatically switching to 'Use Text field' from 'No password' once start writing in text area
  *
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const SwitchToUseTextField = {
     handleEvent: function () {
@@ -186,7 +186,7 @@ const SwitchToUseTextField = {
 };
 
 /**
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const ChangePasswordStrength = {
     handleEvent: function () {
@@ -199,7 +199,7 @@ const ChangePasswordStrength = {
 /**
  * Display a notice if sha256_password is selected
  *
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const ShowSha256PasswordNotice = {
     handleEvent: function () {
@@ -213,7 +213,7 @@ const ShowSha256PasswordNotice = {
 };
 
 /**
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const RevokeUser = {
     /**
@@ -281,7 +281,7 @@ const RevokeUser = {
 };
 
 /**
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const ExportPrivileges = {
     /**
@@ -307,7 +307,7 @@ const ExportPrivileges = {
 };
 
 /**
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const ExportUser = {
     /**
@@ -323,7 +323,7 @@ const ExportUser = {
 };
 
 /**
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const SslTypeToggle = {
     handleEvent: function () {
@@ -337,7 +337,7 @@ const SslTypeToggle = {
 };
 
 /**
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const SslPrivilegeToggle = {
     handleEvent: function () {
@@ -416,7 +416,7 @@ function addOrUpdateSubmenu () {
 }
 
 /**
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const SelectAllPrivileges = {
     /**
@@ -439,7 +439,7 @@ function setMaxWidth () {
 /**
  * Validates the "add a user" form
  *
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const CheckAddUser = {
     handleEvent: function () {

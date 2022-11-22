@@ -3,7 +3,7 @@ import $ from 'jquery';
 /* global Navigation */
 
 /**
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const DropDatabases = {
     /**
@@ -79,7 +79,7 @@ const DropDatabases = {
 };
 
 /**
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const CreateDatabase = {
     /**
