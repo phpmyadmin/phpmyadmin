@@ -60,7 +60,7 @@ class NavigationController extends AbstractController
             return;
         }
 
-        if ($request->getParsedBodyParam('reload') !== null) {
+        if ($request->hasBodyParam('reload')) {
             SessionCache::set('dbs_to_test', false);// Empty database list cache, see #14252
         }
 
