@@ -23,7 +23,7 @@ final class FirstStepController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $tables = $_POST['tables'];
+        $tables = $request->getParsedBodyParam('tables');
         $res = $this->normalization->getHtmlFor3NFstep1($GLOBALS['db'], $tables);
         $this->response->addJSON($res);
     }

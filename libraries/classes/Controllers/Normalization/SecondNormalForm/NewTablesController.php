@@ -25,7 +25,7 @@ final class NewTablesController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $partialDependencies = json_decode($_POST['pd'], true);
+        $partialDependencies = json_decode($request->getParsedBodyParam('pd'), true);
         $html = $this->normalization->getHtmlForNewTables2NF($partialDependencies, $GLOBALS['table']);
         $this->response->addHTML($html);
     }

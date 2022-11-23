@@ -23,10 +23,6 @@ class MoveRepeatingGroupTest extends AbstractTestCase
     {
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';
-        $_POST['repeatingColumns'] = 'col1, col2';
-        $_POST['newTable'] = 'new_table';
-        $_POST['newColumn'] = 'new_column';
-        $_POST['primary_columns'] = 'id,col1';
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $dbiDummy = $this->createDbiDummy();
@@ -39,13 +35,20 @@ class MoveRepeatingGroupTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $response = new ResponseRenderer();
         $template = new Template();
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['repeatingColumns', null, 'col1, col2'],
+            ['newTable', null, 'new_table'],
+            ['newColumn', null, 'new_column'],
+            ['primary_columns', null, 'id,col1'],
+        ]);
 
         $controller = new MoveRepeatingGroup(
             $response,
             $template,
             new Normalization($dbi, new Relation($dbi), new Transformations(), $template)
         );
-        $controller($this->createStub(ServerRequest::class));
+        $controller($request);
 
         $message = Message::success('Selected repeating group has been moved to the table \'test_table\'');
         $this->assertSame(['queryError' => false, 'message' => $message->getDisplay()], $response->getJSONResult());
