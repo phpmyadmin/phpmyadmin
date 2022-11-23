@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { CommonParams } from '../common.js';
 
 /**
  * @fileoverview    Javascript functions used in server variables page
@@ -48,7 +49,7 @@ window.AJAX.registerOnload('server/variables.js', function () {
             var $msgbox = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
             $.post('index.php?route=/server/variables/set/' + encodeURIComponent(varName), {
                 'ajax_request': true,
-                'server': window.CommonParams.get('server'),
+                'server': CommonParams.get('server'),
                 'varValue': $valueCell.find('input').val()
             }, function (data) {
                 if (data.success) {
@@ -77,7 +78,7 @@ window.AJAX.registerOnload('server/variables.js', function () {
 
         $.get('index.php?route=/server/variables/get/' + encodeURIComponent(varName), {
             'ajax_request': true,
-            'server': window.CommonParams.get('server')
+            'server': CommonParams.get('server')
         }, function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 var $links = $('<div></div>')

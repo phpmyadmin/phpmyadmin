@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { CommonParams } from '../common.js';
 
 /**
  * @fileoverview JavaScript functions used on /table/search
@@ -301,7 +302,7 @@ window.AJAX.registerOnload('table/select.js', function () {
                 url: 'index.php?route=/table/search',
                 type: 'POST',
                 data: {
-                    'server': window.CommonParams.get('server'),
+                    'server': CommonParams.get('server'),
                     'ajax_request': 1,
                     'db': $('input[name="db"]').val(),
                     'table': $('input[name="table"]').val(),

@@ -10,7 +10,7 @@ import $ from 'jquery';
  *
  * @test-module CommonParams
  */
-window.CommonParams = (function () {
+const CommonParams = (function () {
     /**
      * @var {Object} params An associative array of key value pairs
      * @access private
@@ -86,7 +86,7 @@ window.CommonParams = (function () {
         getUrlQuery: function (separator) {
             var sep = (typeof separator !== 'undefined') ? separator : '?';
             var common = this.get('common_query');
-            var argsep = window.CommonParams.get('arg_separator');
+            var argsep = CommonParams.get('arg_separator');
             if (typeof common === 'string' && common.length > 0) {
                 // If the last char is the separator, do not add it
                 // Else add it
@@ -111,7 +111,7 @@ window.CommonParams = (function () {
  * The content for this is normally loaded from Header.php or
  * Response.php and executed by ajax.js
  */
-window.CommonActions = {
+const CommonActions = {
     /**
      * Saves the database name when it's changed
      * and reloads the query window, if necessary
@@ -121,8 +121,8 @@ window.CommonActions = {
      * @return {void}
      */
     setDb: function (newDb) {
-        if (newDb !== window.CommonParams.get('db')) {
-            window.CommonParams.setAll({ 'db': newDb, 'table': '' });
+        if (newDb !== CommonParams.get('db')) {
+            CommonParams.setAll({ 'db': newDb, 'table': '' });
         }
     },
     /**
@@ -133,11 +133,11 @@ window.CommonActions = {
      * @return {void}
      */
     openDb: function (newDb) {
-        window.CommonParams
+        CommonParams
             .set('db', newDb)
             .set('table', '');
         this.refreshMain(
-            window.CommonParams.get('opendb_url')
+            CommonParams.get('opendb_url')
         );
     },
     /**
@@ -156,9 +156,9 @@ window.CommonActions = {
             newUrl = newUrl.substring(0, newUrl.indexOf('?'));
         }
         if (newUrl.indexOf('?') !== -1) {
-            newUrl += window.CommonParams.getUrlQuery(window.CommonParams.get('arg_separator'));
+            newUrl += CommonParams.getUrlQuery(CommonParams.get('arg_separator'));
         } else {
-            newUrl += window.CommonParams.getUrlQuery('?');
+            newUrl += CommonParams.getUrlQuery('?');
         }
         $('<a></a>', { href: newUrl })
             .appendTo('body')
@@ -169,3 +169,7 @@ window.CommonActions = {
         }
     }
 };
+
+window.CommonParams = CommonParams;
+
+export { CommonActions, CommonParams };

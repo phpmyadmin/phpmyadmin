@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { CommonParams } from './common.js';
 
 /* global Navigation */
 
@@ -28,7 +29,7 @@ window.AJAX = {
     // eslint-disable-next-line valid-jsdoc
     /**
      * @var {Function} callback Callback to execute after a successful request
-     *                          Used by window.CommonActions from common.js
+     *                          Used by CommonActions from common.js
      */
     callback: function () {},
     /**
@@ -300,7 +301,7 @@ window.AJAX = {
         $('html, body').animate({ scrollTop: 0 }, 'fast');
 
         var url = isLink ? href : $(this).attr('action');
-        var argsep = window.CommonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         var params = 'ajax_request=true' + argsep + 'ajax_page_request=true';
         var dataPost = window.AJAX.source.getPostData();
         if (! isLink) {
@@ -366,7 +367,7 @@ window.AJAX = {
         }
         Functions.ajaxRemoveMessage(window.AJAX.$msgbox);
 
-        window.CommonParams.set('token', data.new_token);
+        CommonParams.set('token', data.new_token);
 
         window.AJAX.scriptHandler.load([]);
 
@@ -421,7 +422,7 @@ window.AJAX = {
 
         if (typeof data.success !== 'undefined' && data.success) {
             // reload page if user trying to login has changed
-            if (window.CommonParams.get('user') !== data.params.user) {
+            if (CommonParams.get('user') !== data.params.user) {
                 window.location = 'index.php';
                 Functions.ajaxShowMessage(window.Messages.strLoading, false);
                 window.AJAX.active = false;
@@ -548,7 +549,7 @@ window.AJAX = {
                     $('#selflink').find('> a').attr('href', data.selflink);
                 }
                 if (data.params) {
-                    window.CommonParams.setAll(data.params);
+                    CommonParams.setAll(data.params);
                 }
                 if (data.scripts) {
                     window.AJAX.scriptHandler.load(data.scripts);
@@ -681,10 +682,10 @@ window.AJAX = {
             // Clear loaded scripts if they are from another version of phpMyAdmin.
             // Depends on common params being set before loading scripts in responseHandler
             if (self.scriptsVersion === null) {
-                self.scriptsVersion = window.CommonParams.get('version');
-            } else if (self.scriptsVersion !== window.CommonParams.get('version')) {
+                self.scriptsVersion = CommonParams.get('version');
+            } else if (self.scriptsVersion !== CommonParams.get('version')) {
                 self.scripts = [];
-                self.scriptsVersion = window.CommonParams.get('version');
+                self.scriptsVersion = CommonParams.get('version');
             }
             self.scriptsCompleted = false;
             self.scriptsToBeFired = [];
@@ -751,7 +752,7 @@ window.AJAX = {
 
             script.type = 'text/javascript';
             var file = name.indexOf('vendor/') !== -1 ? name : 'dist/' + name;
-            script.src = 'js/' + file + '?' + 'v=' + encodeURIComponent(window.CommonParams.get('version'));
+            script.src = 'js/' + file + '?' + 'v=' + encodeURIComponent(CommonParams.get('version'));
             script.async = false;
             script.onload = function () {
                 self.done(name, callback);
@@ -875,7 +876,7 @@ window.AJAX = {
                 var state = event.originalEvent.state;
                 if (state && state.menu) {
                     window.AJAX.$msgbox = Functions.ajaxShowMessage();
-                    var params = 'ajax_request=true' + window.CommonParams.get('arg_separator') + 'ajax_page_request=true';
+                    var params = 'ajax_request=true' + CommonParams.get('arg_separator') + 'ajax_page_request=true';
                     var url = state.url || location.href;
                     $.get(url, params, window.AJAX.responseHandler);
                     // TODO: Check if sometimes menu is not retrieved from server,

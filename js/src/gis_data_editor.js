@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { CommonParams } from './common.js';
 
 /**
  * @fileoverview    functions used in GIS data editor
@@ -142,7 +143,7 @@ function loadGISEditor (value, field, type, inputName) {
         'input_name' : inputName,
         'get_gis_editor' : true,
         'ajax_request': true,
-        'server': window.CommonParams.get('server')
+        'server': CommonParams.get('server')
     }, function (data) {
         if (typeof data !== 'undefined' && data.success === true) {
             $gisEditor.html(data.gis_editor);
@@ -194,7 +195,7 @@ function insertDataAndClose () {
     var $form = $('form#gis_data_editor_form');
     var inputName = $form.find('input[name=\'input_name\']').val();
 
-    var argsep = window.CommonParams.get('arg_separator');
+    var argsep = CommonParams.get('arg_separator');
     $.post('index.php?route=/gis-data-editor', $form.serialize() + argsep + 'generate=true' + argsep + 'ajax_request=true', function (data) {
         if (typeof data !== 'undefined' && data.success === true) {
             $('input[name=\'' + inputName + '\']').val(data.result);
@@ -242,7 +243,7 @@ window.AJAX.registerOnload('gis_data_editor.js', function () {
      */
     $(document).on('change', '#gis_editor input[type=\'text\']', function () {
         var $form = $('form#gis_data_editor_form');
-        var argsep = window.CommonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         $.post('index.php?route=/gis-data-editor', $form.serialize() + argsep + 'generate=true' + argsep + 'ajax_request=true', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 $('#gis_data_textarea').val(data.result);
@@ -265,7 +266,7 @@ window.AJAX.registerOnload('gis_data_editor.js', function () {
         var $gisEditor = $('#gis_editor');
         var $form = $('form#gis_data_editor_form');
 
-        var argsep = window.CommonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         $.post('index.php?route=/gis-data-editor', $form.serialize() + argsep + 'get_gis_editor=true' + argsep + 'ajax_request=true', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 $gisEditor.html(data.gis_editor);

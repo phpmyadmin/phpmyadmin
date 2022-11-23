@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { CommonParams } from '../common.js';
 
 /* global Navigation */
 
@@ -203,7 +204,7 @@ window.AJAX.registerOnload('database/structure.js', function () {
             $('#makeConsistentWithCentralListModal').modal('show').on('shown.bs.modal', function () {
                 $('#makeConsistentWithCentralListContinue').on('click', function () {
                     const $form = $('#tablesForm');
-                    const argSep = window.CommonParams.get('arg_separator');
+                    const argSep = CommonParams.get('arg_separator');
                     const data = $form.serialize() + argSep + 'ajax_request=true' + argSep + 'ajax_page_request=true';
 
                     Functions.ajaxShowMessage();
@@ -298,7 +299,7 @@ window.AJAX.registerOnload('database/structure.js', function () {
         }
 
         var $form = $(this).parents('form');
-        var argsep = window.CommonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         var data = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
 
         Functions.ajaxShowMessage();

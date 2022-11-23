@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { CommonActions, CommonParams } from '../common.js';
 
 /* global Navigation */
 
@@ -63,7 +64,7 @@ const DropDatabases = {
                     $form.find('tbody').sortTable('.name');
                     if ($form.find('tbody').find('tr').length === 0) {
                         // user just dropped the last db on this page
-                        window.CommonActions.refreshMain();
+                        CommonActions.refreshMain();
                     }
                     Navigation.reload();
                 } else {
@@ -114,7 +115,7 @@ const CreateDatabase = {
                 // make ajax request to load db structure page - taken from ajax.js
                 var dbStructUrl = data.url;
                 dbStructUrl = dbStructUrl.replace(/amp;/ig, '');
-                var params = 'ajax_request=true' + window.CommonParams.get('arg_separator') + 'ajax_page_request=true';
+                var params = 'ajax_request=true' + CommonParams.get('arg_separator') + 'ajax_page_request=true';
                 $.get(dbStructUrl, params, window.AJAX.responseHandler);
             } else {
                 Functions.ajaxShowMessage(data.error, false);
@@ -127,7 +128,7 @@ function checkPrivilegesForDatabase () {
     var tableRows = $('.server_databases');
     $.each(tableRows, function () {
         $(this).on('click', function () {
-            window.CommonActions.setDb($(this).attr('data'));
+            CommonActions.setDb($(this).attr('data'));
         });
     });
 }

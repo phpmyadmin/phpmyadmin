@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { CommonActions, CommonParams } from './common.js';
 
 /* global Navigation */
 
@@ -349,7 +350,7 @@ Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, c
     var $table = $('input[name="table"]');
     var table = $table.length > 0 ? $table.val() : '';
     var postData = {
-        'server': window.CommonParams.get('server'),
+        'server': CommonParams.get('server'),
         'db': $('input[name="db"]').val(),
         'table': table,
         'ajax_request': 1,
@@ -591,7 +592,7 @@ Indexes.on = () => function () {
     $(document).on('click', '#save_index_frm', function (event) {
         event.preventDefault();
         var $form = $('#index_frm');
-        var argsep = window.CommonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         var submitData = $form.serialize() + argsep + 'do_save_data=1' + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
         Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
         window.AJAX.source = $form;
@@ -661,7 +662,7 @@ Indexes.on = () => function () {
                         Functions.highlightSql($('#page_content'));
                     }
                     Navigation.reload();
-                    window.CommonActions.refreshMain('index.php?route=/table/structure');
+                    CommonActions.refreshMain('index.php?route=/table/structure');
                 } else {
                     Functions.ajaxShowMessage(window.Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
@@ -693,11 +694,11 @@ Indexes.on = () => function () {
             url = $(this).find('a').getPostData();
             title = window.Messages.strEditIndex;
         }
-        url += window.CommonParams.get('arg_separator') + 'ajax_request=true';
+        url += CommonParams.get('arg_separator') + 'ajax_request=true';
         Functions.indexEditorDialog(url, title, function (data) {
-            window.CommonParams.set('db', data.params.db);
-            window.CommonParams.set('table', data.params.table);
-            window.CommonActions.refreshMain('index.php?route=/table/structure');
+            CommonParams.set('db', data.params.db);
+            CommonParams.set('table', data.params.table);
+            CommonActions.refreshMain('index.php?route=/table/structure');
         });
     });
 
@@ -708,11 +709,11 @@ Indexes.on = () => function () {
         event.preventDefault();
         var url = $(this).find('a').getPostData();
         var title = window.Messages.strRenameIndex;
-        url += window.CommonParams.get('arg_separator') + 'ajax_request=true';
+        url += CommonParams.get('arg_separator') + 'ajax_request=true';
         Functions.indexRenameDialog(url, title, function (data) {
-            window.CommonParams.set('db', data.params.db);
-            window.CommonParams.set('table', data.params.table);
-            window.CommonActions.refreshMain('index.php?route=/table/structure');
+            CommonParams.set('db', data.params.db);
+            CommonParams.set('table', data.params.table);
+            CommonActions.refreshMain('index.php?route=/table/structure');
         });
     });
 
