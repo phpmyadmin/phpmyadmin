@@ -60,7 +60,6 @@ class NewTablesControllerTest extends AbstractTestCase
             ['pd', null, $pd],
         ]);
 
-
         $controller = new NewTablesController(
             $response,
             $template,

@@ -2332,95 +2332,77 @@
     </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Controllers/Normalization/FirstNormalForm/FirstStepController.php">
-    <PossiblyInvalidArgument occurrences="1">
+    <MixedArgument occurrences="1">
       <code>$normalForm</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="1">
+    </MixedArgument>
+    <MixedAssignment occurrences="2">
       <code>$normalForm</code>
-    </PossiblyInvalidCast>
+      <code>$normalizeTo</code>
+    </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Normalization/MoveRepeatingGroup.php">
-    <PossiblyInvalidArgument occurrences="4">
+    <MixedArgument occurrences="4">
       <code>$newColumn</code>
       <code>$newTable</code>
       <code>$primary_columns</code>
       <code>$repeatingColumns</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="4">
+    </MixedArgument>
+    <MixedAssignment occurrences="4">
       <code>$newColumn</code>
       <code>$newTable</code>
       <code>$primary_columns</code>
       <code>$repeatingColumns</code>
-    </PossiblyInvalidCast>
+    </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Normalization/SecondNormalForm/CreateNewTablesController.php">
-    <MixedArgument occurrences="2">
+    <MixedArgument occurrences="4">
       <code>$partialDependencies</code>
+      <code>$request-&gt;getParsedBodyParam('newTablesName')</code>
+      <code>$request-&gt;getParsedBodyParam('pd')</code>
       <code>$tablesName</code>
     </MixedArgument>
     <MixedAssignment occurrences="2">
       <code>$partialDependencies</code>
       <code>$tablesName</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="2">
-      <code>$_POST['newTablesName']</code>
-      <code>$_POST['pd']</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="2">
-      <code>$_POST['newTablesName']</code>
-      <code>$_POST['pd']</code>
-    </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Controllers/Normalization/SecondNormalForm/NewTablesController.php">
-    <MixedArgument occurrences="1">
+    <MixedArgument occurrences="2">
       <code>$partialDependencies</code>
+      <code>$request-&gt;getParsedBodyParam('pd')</code>
     </MixedArgument>
     <MixedAssignment occurrences="1">
       <code>$partialDependencies</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$_POST['pd']</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="1">
-      <code>$_POST['pd']</code>
-    </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Controllers/Normalization/ThirdNormalForm/CreateNewTablesController.php">
-    <MixedArgument occurrences="1">
+    <MixedArgument occurrences="2">
       <code>$newtables</code>
+      <code>$request-&gt;getParsedBodyParam('newTables')</code>
     </MixedArgument>
     <MixedAssignment occurrences="1">
       <code>$newtables</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$_POST['newTables']</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="1">
-      <code>$_POST['newTables']</code>
-    </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Controllers/Normalization/ThirdNormalForm/FirstStepController.php">
-    <PossiblyInvalidArgument occurrences="1">
+    <MixedArgument occurrences="1">
       <code>$tables</code>
-    </PossiblyInvalidArgument>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$tables</code>
+    </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Normalization/ThirdNormalForm/NewTablesController.php">
-    <MixedArgument occurrences="2">
+    <MixedArgument occurrences="4">
       <code>$dependencies</code>
+      <code>$request-&gt;getParsedBodyParam('pd')</code>
+      <code>$request-&gt;getParsedBodyParam('tables')</code>
       <code>$tables</code>
     </MixedArgument>
     <MixedAssignment occurrences="2">
       <code>$dependencies</code>
       <code>$tables</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="2">
-      <code>$_POST['pd']</code>
-      <code>$_POST['tables']</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="2">
-      <code>$_POST['pd']</code>
-      <code>$_POST['tables']</code>
-    </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Controllers/PhpInfoController.php">
     <InvalidArrayOffset occurrences="1">
@@ -4217,13 +4199,16 @@
     <InvalidArrayOffset occurrences="1">
       <code>$GLOBALS['cfg']['ShowChgPassword']</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="4">
+    <MixedArgument occurrences="7">
       <code>$GLOBALS['change_password_message']['msg']</code>
       <code>$GLOBALS['msg']</code>
       <code>$GLOBALS['msg']-&gt;getDisplay()</code>
       <code>$GLOBALS['password']</code>
+      <code>$pmaPw</code>
+      <code>$pmaPw2</code>
+      <code>$request-&gt;getParsedBodyParam('authentication_plugin')</code>
     </MixedArgument>
-    <MixedAssignment occurrences="7">
+    <MixedAssignment occurrences="8">
       <code>$GLOBALS['change_password_message']</code>
       <code>$GLOBALS['msg']</code>
       <code>$GLOBALS['msg']</code>
@@ -4231,19 +4216,11 @@
       <code>$GLOBALS['password']</code>
       <code>$noPass</code>
       <code>$pmaPw</code>
+      <code>$pmaPw2</code>
     </MixedAssignment>
     <MixedMethodCall occurrences="1">
       <code>getDisplay</code>
     </MixedMethodCall>
-    <PossiblyInvalidArgument occurrences="3">
-      <code>$_POST['authentication_plugin'] ?? null</code>
-      <code>$_POST['pma_pw']</code>
-      <code>$_POST['pma_pw2']</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="2">
-      <code>$_POST['pma_pw']</code>
-      <code>$_POST['pma_pw2']</code>
-    </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Controllers/VersionCheckController.php">
     <MixedArgument occurrences="1">

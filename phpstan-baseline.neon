@@ -1356,6 +1356,36 @@ parameters:
 			path: libraries/classes/Controllers/HomeController.php
 
 		-
+			message: "#^Parameter \\#3 \\$normalizedTo of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlFor1NFStep1\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Normalization/FirstNormalForm/FirstStepController.php
+
+		-
+			message: "#^Parameter \\#1 \\$repeatingColumns of method PhpMyAdmin\\\\Normalization\\:\\:moveRepeatingGroup\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Normalization/MoveRepeatingGroup.php
+
+		-
+			message: "#^Parameter \\#2 \\$primaryColumns of method PhpMyAdmin\\\\Normalization\\:\\:moveRepeatingGroup\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Normalization/MoveRepeatingGroup.php
+
+		-
+			message: "#^Parameter \\#3 \\$newTable of method PhpMyAdmin\\\\Normalization\\:\\:moveRepeatingGroup\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Normalization/MoveRepeatingGroup.php
+
+		-
+			message: "#^Parameter \\#4 \\$newColumn of method PhpMyAdmin\\\\Normalization\\:\\:moveRepeatingGroup\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Normalization/MoveRepeatingGroup.php
+
+		-
+			message: "#^Parameter \\#1 \\$json of function json_decode expects string, mixed given\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Normalization/SecondNormalForm/CreateNewTablesController.php
+
+		-
 			message: "#^Parameter \\#1 \\$partialDependencies of method PhpMyAdmin\\\\Normalization\\:\\:createNewTablesFor2NF\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Normalization/SecondNormalForm/CreateNewTablesController.php
@@ -1366,9 +1396,19 @@ parameters:
 			path: libraries/classes/Controllers/Normalization/SecondNormalForm/CreateNewTablesController.php
 
 		-
+			message: "#^Parameter \\#1 \\$json of function json_decode expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Normalization/SecondNormalForm/NewTablesController.php
+
+		-
 			message: "#^Parameter \\#1 \\$partialDependencies of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlForNewTables2NF\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Normalization/SecondNormalForm/NewTablesController.php
+
+		-
+			message: "#^Parameter \\#1 \\$json of function json_decode expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Normalization/ThirdNormalForm/CreateNewTablesController.php
 
 		-
 			message: "#^Parameter \\#1 \\$newTables of method PhpMyAdmin\\\\Normalization\\:\\:createNewTablesFor3NF\\(\\) expects array, mixed given\\.$#"
@@ -1376,8 +1416,18 @@ parameters:
 			path: libraries/classes/Controllers/Normalization/ThirdNormalForm/CreateNewTablesController.php
 
 		-
+			message: "#^Parameter \\#2 \\$tables of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlFor3NFstep1\\(\\) expects array, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Normalization/ThirdNormalForm/FirstStepController.php
+
+		-
 			message: "#^Parameter \\#1 \\$dependencies of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlForNewTables3NF\\(\\) expects object, mixed given\\.$#"
 			count: 1
+			path: libraries/classes/Controllers/Normalization/ThirdNormalForm/NewTablesController.php
+
+		-
+			message: "#^Parameter \\#1 \\$json of function json_decode expects string, mixed given\\.$#"
+			count: 2
 			path: libraries/classes/Controllers/Normalization/ThirdNormalForm/NewTablesController.php
 
 		-
@@ -1889,6 +1939,21 @@ parameters:
 			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTables\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/TableController.php
+
+		-
+			message: "#^Parameter \\#1 \\$pmaPw of method PhpMyAdmin\\\\UserPassword\\:\\:setChangePasswordMsg\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/UserPasswordController.php
+
+		-
+			message: "#^Parameter \\#2 \\$authenticationPlugin of method PhpMyAdmin\\\\UserPassword\\:\\:changePassword\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/UserPasswordController.php
+
+		-
+			message: "#^Parameter \\#2 \\$pmaPw2 of method PhpMyAdmin\\\\UserPassword\\:\\:setChangePasswordMsg\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/UserPasswordController.php
 
 		-
 			message: "#^Call to function is_array\\(\\) with array will always evaluate to true\\.$#"
