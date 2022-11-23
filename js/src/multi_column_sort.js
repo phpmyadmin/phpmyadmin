@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { CommonParams } from './common.js';
 
 /**
  * @fileoverview    Implements the shiftkey + click remove column
@@ -12,7 +13,7 @@ window.AJAX.registerOnload('keyhandler.js', function () {
     $('th.draggable.column_heading.pointer.marker a').on('click', function (event) {
         var orderUrlRemove = $(this).parent().find('input[name="url-remove-order"]').val();
         var orderUrlAdd = $(this).parent().find('input[name="url-add-order"]').val();
-        var argsep = window.CommonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         if (event.ctrlKey || event.altKey) {
             event.preventDefault();
             window.AJAX.source = $(this);

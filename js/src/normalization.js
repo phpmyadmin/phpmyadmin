@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { CommonParams } from './common.js';
 
 /**
  * @fileoverview   events handling from normalization page
@@ -21,9 +22,9 @@ function appendHtmlColumnsList () {
         'index.php?route=/normalization/get-columns',
         {
             'ajax_request': true,
-            'db': window.CommonParams.get('db'),
-            'table': window.CommonParams.get('table'),
-            'server': window.CommonParams.get('server'),
+            'db': CommonParams.get('db'),
+            'table': CommonParams.get('table'),
+            'server': CommonParams.get('server'),
         },
         function (data) {
             if (data.success === true) {
@@ -36,14 +37,14 @@ function appendHtmlColumnsList () {
 function goTo3NFStep1 (newTables) {
     var tables = newTables;
     if (Object.keys(tables).length === 1) {
-        tables = [window.CommonParams.get('table')];
+        tables = [CommonParams.get('table')];
     }
     $.post(
         'index.php?route=/normalization/3nf/step1',
         {
             'ajax_request': true,
-            'db': window.CommonParams.get('db'),
-            'server': window.CommonParams.get('server'),
+            'db': CommonParams.get('db'),
+            'server': CommonParams.get('server'),
             'tables': tables,
         }, function (data) {
             $('#page_content').find('h3').html(window.Messages.str3NFNormalization);
@@ -81,9 +82,9 @@ function goTo2NFStep1 () {
         'index.php?route=/normalization/2nf/step1',
         {
             'ajax_request': true,
-            'db': window.CommonParams.get('db'),
-            'table': window.CommonParams.get('table'),
-            'server': window.CommonParams.get('server'),
+            'db': CommonParams.get('db'),
+            'table': CommonParams.get('table'),
+            'server': CommonParams.get('server'),
         }, function (data) {
             $('#page_content h3').html(window.Messages.str2NFNormalization);
             $('#mainContent legend').html(data.legendText);
@@ -106,7 +107,7 @@ function goTo2NFStep1 () {
                 if (normalizeto === '3nf') {
                     $('#mainContent #newCols').html(window.Messages.strToNextStep);
                     setTimeout(function () {
-                        goTo3NFStep1([window.CommonParams.get('table')]);
+                        goTo3NFStep1([CommonParams.get('table')]);
                     }, 3000);
                 }
             }
@@ -120,7 +121,7 @@ function goToFinish1NF () {
     }
     $('#mainContent legend').html(window.Messages.strEndStep);
     $('#mainContent h4').html(
-        '<h3>' + Functions.sprintf(window.Messages.strFinishMsg, Functions.escapeHtml(window.CommonParams.get('table'))) + '</h3>'
+        '<h3>' + Functions.sprintf(window.Messages.strFinishMsg, Functions.escapeHtml(CommonParams.get('table'))) + '</h3>'
     );
     $('#mainContent p').html('');
     $('#mainContent #extra').html('');
@@ -133,9 +134,9 @@ function goToStep4 () {
         'index.php?route=/normalization/1nf/step4',
         {
             'ajax_request': true,
-            'db': window.CommonParams.get('db'),
-            'table': window.CommonParams.get('table'),
-            'server': window.CommonParams.get('server'),
+            'db': CommonParams.get('db'),
+            'table': CommonParams.get('table'),
+            'server': CommonParams.get('server'),
         }, function (data) {
             $('#mainContent legend').html(data.legendText);
             $('#mainContent h4').html(data.headText);
@@ -156,9 +157,9 @@ function goToStep3 () {
         'index.php?route=/normalization/1nf/step3',
         {
             'ajax_request': true,
-            'db': window.CommonParams.get('db'),
-            'table': window.CommonParams.get('table'),
-            'server': window.CommonParams.get('server'),
+            'db': CommonParams.get('db'),
+            'table': CommonParams.get('table'),
+            'server': CommonParams.get('server'),
         }, function (data) {
             $('#mainContent legend').html(data.legendText);
             $('#mainContent h4').html(data.headText);
@@ -179,9 +180,9 @@ function goToStep2 (extra) {
         'index.php?route=/normalization/1nf/step2',
         {
             'ajax_request': true,
-            'db': window.CommonParams.get('db'),
-            'table': window.CommonParams.get('table'),
-            'server': window.CommonParams.get('server')
+            'db': CommonParams.get('db'),
+            'table': CommonParams.get('table'),
+            'server': CommonParams.get('server')
         }, function (data) {
             $('#mainContent legend').html(data.legendText);
             $('#mainContent h4').html(data.headText);
@@ -215,9 +216,9 @@ function goTo2NFFinish (pd) {
     }
     var datastring = {
         'ajax_request': true,
-        'db': window.CommonParams.get('db'),
-        'table': window.CommonParams.get('table'),
-        'server': window.CommonParams.get('server'),
+        'db': CommonParams.get('db'),
+        'table': CommonParams.get('table'),
+        'server': CommonParams.get('server'),
         'pd': JSON.stringify(pd),
         'newTablesName': JSON.stringify(tables),
     };
@@ -262,8 +263,8 @@ function goTo3NFFinish (newTables) {
     }
     var datastring = {
         'ajax_request': true,
-        'db': window.CommonParams.get('db'),
-        'server': window.CommonParams.get('server'),
+        'db': CommonParams.get('db'),
+        'server': CommonParams.get('server'),
         'newTables': JSON.stringify(newTables),
     };
     $.ajax({
@@ -312,9 +313,9 @@ function goTo2NFStep2 (pd, primaryKey) {
         extra += '</div>';
         var datastring = {
             'ajax_request': true,
-            'db': window.CommonParams.get('db'),
-            'table': window.CommonParams.get('table'),
-            'server': window.CommonParams.get('server'),
+            'db': CommonParams.get('db'),
+            'table': CommonParams.get('table'),
+            'server': CommonParams.get('server'),
             'pd': JSON.stringify(pd),
         };
         $.ajax({
@@ -361,9 +362,9 @@ function goTo3NFStep2 (pd, tablesTds) {
         extra += '</div>';
         var datastring = {
             'ajax_request': true,
-            'db': window.CommonParams.get('db'),
+            'db': CommonParams.get('db'),
             'tables': JSON.stringify(tablesTds),
-            'server': window.CommonParams.get('server'),
+            'server': CommonParams.get('server'),
             'pd': JSON.stringify(pd),
         };
         $.ajax({
@@ -454,9 +455,9 @@ function moveRepeatingGroup (repeatingCols) {
     }
     var datastring = {
         'ajax_request': true,
-        'db': window.CommonParams.get('db'),
-        'table': window.CommonParams.get('table'),
-        'server': window.CommonParams.get('server'),
+        'db': CommonParams.get('db'),
+        'table': CommonParams.get('table'),
+        'server': CommonParams.get('server'),
         'repeatingColumns': repeatingCols,
         'newTable':newTable,
         'newColumn':newColumn,
@@ -513,9 +514,9 @@ window.AJAX.registerOnload('normalization.js', function () {
             'index.php?route=/normalization/create-new-column',
             {
                 'ajax_request': true,
-                'db': window.CommonParams.get('db'),
-                'table': window.CommonParams.get('table'),
-                'server': window.CommonParams.get('server'),
+                'db': CommonParams.get('db'),
+                'table': CommonParams.get('table'),
+                'server': CommonParams.get('server'),
                 'numFields': numField
             },
             function (data) {
@@ -556,7 +557,7 @@ window.AJAX.registerOnload('normalization.js', function () {
             $('#newCols #field_0_1').trigger('focus');
             return false;
         }
-        var argsep = window.CommonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         var datastring = $('#newCols :input').serialize();
         datastring += argsep + 'ajax_request=1' + argsep + 'do_save_data=1' + argsep + 'field_where=last';
         $.post('index.php?route=/table/add-field', datastring, function (data) {
@@ -565,12 +566,12 @@ window.AJAX.registerOnload('normalization.js', function () {
                     'index.php?route=/sql',
                     {
                         'ajax_request': true,
-                        'db': window.CommonParams.get('db'),
-                        'table': window.CommonParams.get('table'),
-                        'server': window.CommonParams.get('server'),
+                        'db': CommonParams.get('db'),
+                        'table': CommonParams.get('table'),
+                        'server': CommonParams.get('server'),
                         'dropped_column': selectedCol,
                         'purge' : 1,
-                        'sql_query': 'ALTER TABLE `' + window.CommonParams.get('table') + '` DROP `' + selectedCol + '`;',
+                        'sql_query': 'ALTER TABLE `' + CommonParams.get('table') + '` DROP `' + selectedCol + '`;',
                         'is_js_confirmed': 1
                     },
                     function (data) {
@@ -595,9 +596,9 @@ window.AJAX.registerOnload('normalization.js', function () {
             'index.php?route=/normalization/add-new-primary',
             {
                 'ajax_request': true,
-                'db': window.CommonParams.get('db'),
-                'table': window.CommonParams.get('table'),
-                'server': window.CommonParams.get('server'),
+                'db': CommonParams.get('db'),
+                'table': CommonParams.get('table'),
+                'server': CommonParams.get('server'),
             },
             function (data) {
                 if (data.success === true) {
@@ -634,7 +635,7 @@ window.AJAX.registerOnload('normalization.js', function () {
     });
     $('.tblFooters').on('click', '#saveNewPrimary', function () {
         var datastring = $('#newCols :input').serialize();
-        var argsep = window.CommonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         datastring += argsep + 'field_key[0]=primary_0' + argsep + 'ajax_request=1' + argsep + 'do_save_data=1' + argsep + 'field_where=last';
         $.post('index.php?route=/table/add-field', datastring, function (data) {
             if (data.success === true) {
@@ -652,7 +653,7 @@ window.AJAX.registerOnload('normalization.js', function () {
         });
     });
     $('#extra').on('click', '#removeRedundant', function () {
-        var dropQuery = 'ALTER TABLE `' + window.CommonParams.get('table') + '` ';
+        var dropQuery = 'ALTER TABLE `' + CommonParams.get('table') + '` ';
         $('#extra input[type=checkbox]:checked').each(function () {
             dropQuery += 'DROP `' + $(this).val() + '`, ';
         });
@@ -661,9 +662,9 @@ window.AJAX.registerOnload('normalization.js', function () {
             'index.php?route=/sql',
             {
                 'ajax_request': true,
-                'db': window.CommonParams.get('db'),
-                'table': window.CommonParams.get('table'),
-                'server': window.CommonParams.get('server'),
+                'db': CommonParams.get('db'),
+                'table': CommonParams.get('table'),
+                'server': CommonParams.get('server'),
                 'sql_query': dropQuery,
                 'is_js_confirmed': 1
             },
@@ -685,7 +686,7 @@ window.AJAX.registerOnload('normalization.js', function () {
         if (repeatingCols !== '') {
             var newColName = $('#extra input[type=checkbox]:checked').first().val();
             repeatingCols = repeatingCols.slice(0, -2);
-            var confirmStr = Functions.sprintf(window.Messages.strMoveRepeatingGroup, Functions.escapeHtml(repeatingCols), Functions.escapeHtml(window.CommonParams.get('table')));
+            var confirmStr = Functions.sprintf(window.Messages.strMoveRepeatingGroup, Functions.escapeHtml(repeatingCols), Functions.escapeHtml(CommonParams.get('table')));
             confirmStr += '<input type="text" name="repeatGroupTable" placeholder="' + window.Messages.strNewTablePlaceholder + '">' +
                 '( ' + Functions.escapeHtml(primaryKey.toString()) + ', <input type="text" name="repeatGroupColumn" placeholder="' + window.Messages.strNewColumnPlaceholder + '" value="' + Functions.escapeHtml(newColName) + '">)' +
                 '</ol>';
@@ -718,9 +719,9 @@ window.AJAX.registerOnload('normalization.js', function () {
         event.preventDefault();
         var url = {
             'create_index': 1,
-            'server':  window.CommonParams.get('server'),
-            'db': window.CommonParams.get('db'),
-            'table': window.CommonParams.get('table'),
+            'server':  CommonParams.get('server'),
+            'db': CommonParams.get('db'),
+            'table': CommonParams.get('table'),
             'added_fields': 1,
             'add_fields':1,
             'index': { 'Key_name':'PRIMARY' },
@@ -758,9 +759,9 @@ window.AJAX.registerOnload('normalization.js', function () {
             'index.php?route=/normalization/partial-dependencies',
             {
                 'ajax_request': true,
-                'db': window.CommonParams.get('db'),
-                'table': window.CommonParams.get('table'),
-                'server': window.CommonParams.get('server'),
+                'db': CommonParams.get('db'),
+                'table': CommonParams.get('table'),
+                'server': CommonParams.get('server'),
             }, function (data) {
                 $('#showPossiblePd').html('- ' + window.Messages.strHidePd);
                 $('#showPossiblePd').addClass('hideList');

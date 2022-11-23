@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { CommonParams } from '../common.js';
 
 const GitInfo = {
     /**
@@ -104,7 +105,7 @@ const GitInfo = {
         $.get(
             'index.php?route=/git-revision',
             {
-                'server': window.CommonParams.get('server'),
+                'server': CommonParams.get('server'),
                 'ajax_request': true,
                 'no_debug': true
             },
@@ -129,7 +130,7 @@ const GitInfo = {
             url: 'index.php?route=/version-check',
             method: 'POST',
             data: {
-                'server': window.CommonParams.get('server')
+                'server': CommonParams.get('server')
             },
             success: GitInfo.currentVersion
         });

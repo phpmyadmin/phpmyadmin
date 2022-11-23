@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { CommonActions, CommonParams } from '../common.js';
 
 /**
  * @fileoverview    functions used on the table structure page
@@ -25,7 +26,7 @@ import $ from 'jquery';
  * Reload fields table
  */
 function reloadFieldForm () {
-    $.post($('#fieldsForm').attr('action'), $('#fieldsForm').serialize() + window.CommonParams.get('arg_separator') + 'ajax_request=true', function (formData) {
+    $.post($('#fieldsForm').attr('action'), $('#fieldsForm').serialize() + CommonParams.get('arg_separator') + 'ajax_request=true', function (formData) {
         var $tempDiv = $('<div id=\'temp_div\'><div>').append(formData.message);
         $('#fieldsForm').replaceWith($tempDiv.find('#fieldsForm'));
         $('#addColumns').replaceWith($tempDiv.find('#addColumns'));
@@ -77,7 +78,7 @@ window.AJAX.registerOnload('table/structure.js', function () {
 
         function submitForm () {
             var $msg = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
-            $.post($form.attr('action'), $form.serialize() + window.CommonParams.get('arg_separator') + 'do_save_data=1', function (data) {
+            $.post($form.attr('action'), $form.serialize() + CommonParams.get('arg_separator') + 'do_save_data=1', function (data) {
                 if ($('.sqlqueryresults').length !== 0) {
                     $('.sqlqueryresults').remove();
                 } else if ($('.error:not(.tab)').length !== 0) {
@@ -105,7 +106,7 @@ window.AJAX.registerOnload('table/structure.js', function () {
                             }
                         });
                     } else {
-                        window.CommonActions.refreshMain('index.php?route=/table/structure');
+                        CommonActions.refreshMain('index.php?route=/table/structure');
                     }
                 } else {
                     Functions.ajaxShowMessage(data.error, false);
@@ -198,7 +199,7 @@ window.AJAX.registerOnload('table/structure.js', function () {
         $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
             var $msg = Functions.ajaxShowMessage(window.Messages.strDroppingColumn, false);
             var params = Functions.getJsConfirmCommonParam(this, $thisAnchor.getPostData());
-            params += window.CommonParams.get('arg_separator') + 'ajax_page_request=1';
+            params += CommonParams.get('arg_separator') + 'ajax_page_request=1';
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     Functions.ajaxRemoveMessage($msg);
@@ -274,7 +275,7 @@ window.AJAX.registerOnload('table/structure.js', function () {
             window.AJAX.source = $this;
 
             var params = Functions.getJsConfirmCommonParam(this, $thisAnchor.getPostData());
-            params += window.CommonParams.get('arg_separator') + 'ajax_page_request=1';
+            params += CommonParams.get('arg_separator') + 'ajax_page_request=1';
             $.post(url, params, window.AJAX.responseHandler);
         });
     }); // end Add key
@@ -338,7 +339,7 @@ window.AJAX.registerOnload('table/structure.js', function () {
                 Functions.ajaxRemoveMessage($msgbox);
                 return;
             }
-            $.post($form.prop('action'), serialized + window.CommonParams.get('arg_separator') + 'ajax_request=true', function (data) {
+            $.post($form.prop('action'), serialized + CommonParams.get('arg_separator') + 'ajax_request=true', function (data) {
                 if (data.success === false) {
                     Functions.ajaxRemoveMessage($msgbox);
                     var errorModal = $('#moveColumnsErrorModal');
@@ -395,7 +396,7 @@ window.AJAX.registerOnload('table/structure.js', function () {
     $('body').on('click', '#fieldsForm button.mult_submit', function (e) {
         e.preventDefault();
         var $form = $(this).parents('form');
-        var argsep = window.CommonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
 
         Functions.ajaxShowMessage();

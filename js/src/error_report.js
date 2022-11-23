@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { CommonParams } from './common.js';
 
 /**
  * general function, usually for data manipulation pages
@@ -59,7 +60,7 @@ var ErrorReport = {
         if (ErrorReport.errorReportData === null) {
             $.post('index.php?route=/error-report', {
                 'ajax_request': true,
-                'server': window.CommonParams.get('server'),
+                'server': CommonParams.get('server'),
                 'get_settings': true,
                 'exception_type': 'js'
             }, function (data) {
@@ -136,7 +137,7 @@ var ErrorReport = {
         buttonHtml += window.Messages.strShowReportDetails;
         buttonHtml += '</button>';
 
-        var settingsUrl = 'index.php?route=/preferences/features&server=' + window.CommonParams.get('server');
+        var settingsUrl = 'index.php?route=/preferences/features&server=' + CommonParams.get('server');
         buttonHtml += '<a class="ajax" href="' + settingsUrl + '">';
         buttonHtml += Functions.getImage('s_cog', window.Messages.strChangeReportSettings);
         buttonHtml += '</a>';
@@ -217,7 +218,7 @@ var ErrorReport = {
             }
         }
         var reportData = {
-            'server': window.CommonParams.get('server'),
+            'server': CommonParams.get('server'),
             'ajax_request': true,
             'exception': exception,
             'url': window.location.href,

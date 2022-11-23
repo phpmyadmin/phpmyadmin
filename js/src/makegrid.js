@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { CommonParams } from './common.js';
 
 /* global Sql */
 /* global firstDayOfCalendar */ // templates/javascript/variables.twig
@@ -701,7 +702,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
 
                         // Truncates the text.
                         $thisField.removeClass('truncated');
-                        if (window.CommonParams.get('pftext') === 'P' && value.length > g.maxTruncatedLen) {
+                        if (CommonParams.get('pftext') === 'P' && value.length > g.maxTruncatedLen) {
                             $thisField.addClass('truncated');
                             value = value.substring(0, g.maxTruncatedLen) + '...';
                         }
@@ -2037,7 +2038,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
 
             // initialize cell editing configuration
             g.saveCellsAtOnce = $(g.o).find('.save_cells_at_once').val();
-            g.maxTruncatedLen = window.CommonParams.get('LimitChars');
+            g.maxTruncatedLen = CommonParams.get('LimitChars');
 
             // register events
             $(g.t).find('td.data.click1')

@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { CommonParams } from './common.js';
 
 /**
  * Functions used in configuration forms and on user preferences pages
@@ -650,7 +651,7 @@ function savePrefsToLocalStorage (form) {
         type: 'POST',
         data: {
             'ajax_request': true,
-            'server': window.CommonParams.get('server'),
+            'server': CommonParams.get('server'),
             'submit_get_json': true
         },
         success: function (data) {
@@ -702,7 +703,7 @@ function offerPrefsAutoimport () {
         if ($a.attr('href') === '#no') {
             $cnt.remove();
             $.post('index.php', {
-                'server': window.CommonParams.get('server'),
+                'server': CommonParams.get('server'),
                 'prefs_autoload': 'hide'
             }, null, 'html');
             return;
@@ -710,7 +711,7 @@ function offerPrefsAutoimport () {
             $cnt.remove();
             localStorage.clear();
             $.post('index.php', {
-                'server': window.CommonParams.get('server'),
+                'server': CommonParams.get('server'),
                 'prefs_autoload': 'hide'
             }, null, 'html');
             return;

@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { CommonParams } from '../../common.js';
 
 /**
  * @fileoverview    Javascript functions used in server status monitor page
@@ -784,7 +785,7 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
         var loadLogVars = function (getvars) {
             var vars = {
                 'ajax_request': true,
-                'server': window.CommonParams.get('server')
+                'server': CommonParams.get('server')
             };
             if (getvars) {
                 $.extend(vars, getvars);
@@ -1489,7 +1490,7 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
         runtime.refreshRequest = $.post('index.php?route=/server/status/monitor/chart', {
             'ajax_request': true,
             'requiredData': JSON.stringify(runtime.dataList),
-            'server': window.CommonParams.get('server')
+            'server': CommonParams.get('server')
         }, function (data) {
             var chartData;
             if (typeof data !== 'undefined' && data.success === true) {
@@ -1748,7 +1749,7 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
                 'time_end': Math.round(opts.end / 1000),
                 'removeVariables': opts.removeVariables,
                 'limitTypes': opts.limitTypes,
-                'server': window.CommonParams.get('server')
+                'server': CommonParams.get('server')
             },
             function (data) {
                 var logData;
@@ -2177,7 +2178,7 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
             'ajax_request': true,
             'query': window.codeMirrorEditor ? window.codeMirrorEditor.getValue() : $('#sqlquery').val(),
             'database': db,
-            'server': window.CommonParams.get('server')
+            'server': CommonParams.get('server')
         }, function (responseData) {
             var data = responseData;
             var i;

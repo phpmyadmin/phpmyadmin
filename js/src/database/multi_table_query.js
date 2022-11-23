@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { CommonParams } from '../common.js';
 
 /**
  * @fileoverview    function used in QBE for DB
@@ -75,7 +76,7 @@ window.AJAX.registerOnload('database/multi_table_query.js', function () {
                 'db': $('#db_name').val(),
                 'tables': Object.keys(tableAliases),
                 'ajax_request': '1',
-                'token': window.CommonParams.get('token')
+                'token': CommonParams.get('token')
             },
             success: function (response) {
                 foreignKeys = response.foreignKeyConstrains;
@@ -127,8 +128,8 @@ window.AJAX.registerOnload('database/multi_table_query.js', function () {
             'db': $('#db_name').val(),
             'sql_query': query,
             'ajax_request': '1',
-            'server': window.CommonParams.get('server'),
-            'token': window.CommonParams.get('token')
+            'server': CommonParams.get('server'),
+            'token': CommonParams.get('token')
         };
         $.ajax({
             type: 'POST',
