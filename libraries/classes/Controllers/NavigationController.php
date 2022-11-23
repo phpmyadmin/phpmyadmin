@@ -85,7 +85,7 @@ class NavigationController extends AbstractController
                 return;
             }
 
-            if ($request->getParsedBodyParam('unhideNavItem') !== null) {
+            if ($request->hasBodyParam('unhideNavItem')) {
                 if (! empty($itemName) && ! empty($itemType) && ! empty($dbName)) {
                     $this->navigation->unhideNavigationItem(
                         $itemName,
