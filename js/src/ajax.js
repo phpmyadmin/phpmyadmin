@@ -9,7 +9,7 @@ import { CommonParams } from './common.js';
  *
  * @test-module AJAX
  */
-window.AJAX = {
+const AJAX = {
     /**
      * @var {boolean} active Whether we are busy
      */
@@ -31,7 +31,8 @@ window.AJAX = {
      * @var {Function} callback Callback to execute after a successful request
      *                          Used by CommonActions from common.js
      */
-    callback: function () {},
+    callback: function () {
+    },
     /**
      * @var {boolean} debug Makes noise in your Firebug console
      */
@@ -75,7 +76,7 @@ window.AJAX = {
      * @return {self} For chaining
      */
     registerOnload: function (file, func) {
-        var eventName = 'onload_' + window.AJAX.hash(file);
+        var eventName = 'onload_' + AJAX.hash(file);
         $(document).on(eventName, func);
         if (this.debug) {
             // eslint-disable-next-line no-console
@@ -97,7 +98,7 @@ window.AJAX = {
      * @return {self} For chaining
      */
     registerTeardown: function (file, func) {
-        var eventName = 'teardown_' + window.AJAX.hash(file);
+        var eventName = 'teardown_' + AJAX.hash(file);
         $(document).on(eventName, func);
         if (this.debug) {
             // eslint-disable-next-line no-console
@@ -117,7 +118,7 @@ window.AJAX = {
      * @return {void}
      */
     fireOnload: function (file) {
-        var eventName = 'onload_' + window.AJAX.hash(file);
+        var eventName = 'onload_' + AJAX.hash(file);
         $(document).trigger(eventName);
         if (this.debug) {
             // eslint-disable-next-line no-console
@@ -136,7 +137,7 @@ window.AJAX = {
      * @return {void}
      */
     fireTeardown: function (file) {
-        var eventName = 'teardown_' + window.AJAX.hash(file);
+        var eventName = 'teardown_' + AJAX.hash(file);
         $(document).triggerHandler(eventName);
         if (this.debug) {
             // eslint-disable-next-line no-console
@@ -184,22 +185,22 @@ window.AJAX = {
              * in textarea, it returns only the change in content.
              */
             if (event.data.value === 1) {
-                newHash = window.AJAX.hash($(this).val());
+                newHash = AJAX.hash($(this).val());
             } else {
-                newHash = window.AJAX.hash($(this).is(':checked'));
+                newHash = AJAX.hash($(this).is(':checked'));
             }
             oldHash = $(this).data('val-hash');
         }
         // Set lock if old value !== new value
         // otherwise release lock
         if (oldHash !== newHash) {
-            window.AJAX.lockedTargets[lockId] = true;
+            AJAX.lockedTargets[lockId] = true;
         } else {
-            delete window.AJAX.lockedTargets[lockId];
+            delete AJAX.lockedTargets[lockId];
         }
         // Show lock icon if locked targets is not empty.
         // otherwise remove lock icon
-        if (! $.isEmptyObject(window.AJAX.lockedTargets)) {
+        if (! $.isEmptyObject(AJAX.lockedTargets)) {
             $('#lock_page_icon').html(Functions.getImage('s_lock', window.Messages.strLockToolTip).toString());
         } else {
             $('#lock_page_icon').html('');
@@ -211,7 +212,7 @@ window.AJAX = {
      * @return {void}
      */
     resetLock: function () {
-        window.AJAX.lockedTargets = {};
+        AJAX.lockedTargets = {};
         $('#lock_page_icon').html('');
     },
     handleMenu: {
@@ -241,7 +242,7 @@ window.AJAX = {
             return true;
         } else if ($(this).hasClass('ajax') || $(this).hasClass('disableAjax')) {
             // reset the lockedTargets object, as specified AJAX operation has finished
-            window.AJAX.resetLock();
+            AJAX.resetLock();
             return true;
         } else if (href && href.match(/^#/)) {
             return true;
@@ -264,27 +265,27 @@ window.AJAX = {
         // the click event is not triggered by script
         if (typeof event !== 'undefined' && event.type === 'click' &&
             event.isTrigger !== true &&
-            ! $.isEmptyObject(window.AJAX.lockedTargets) &&
+            ! $.isEmptyObject(AJAX.lockedTargets) &&
             confirm(window.Messages.strConfirmNavigation) === false
         ) {
             return false;
         }
-        window.AJAX.resetLock();
+        AJAX.resetLock();
         var isLink = !! href || false;
         var previousLinkAborted = false;
 
-        if (window.AJAX.active === true) {
+        if (AJAX.active === true) {
             // Cancel the old request if abortable, when the user requests
             // something else. Otherwise silently bail out, as there is already
             // a request well in progress.
-            if (window.AJAX.xhr) {
+            if (AJAX.xhr) {
                 // In case of a link request, attempt aborting
-                window.AJAX.xhr.abort();
-                if (window.AJAX.xhr.status === 0 && window.AJAX.xhr.statusText === 'abort') {
+                AJAX.xhr.abort();
+                if (AJAX.xhr.status === 0 && AJAX.xhr.statusText === 'abort') {
                     // If aborted
-                    window.AJAX.$msgbox = Functions.ajaxShowMessage(window.Messages.strAbortedRequest);
-                    window.AJAX.active = false;
-                    window.AJAX.xhr = null;
+                    AJAX.$msgbox = Functions.ajaxShowMessage(window.Messages.strAbortedRequest);
+                    AJAX.active = false;
+                    AJAX.xhr = null;
                     previousLinkAborted = true;
                 } else {
                     // If can't abort
@@ -296,14 +297,14 @@ window.AJAX = {
             }
         }
 
-        window.AJAX.source = $(this);
+        AJAX.source = $(this);
 
         $('html, body').animate({ scrollTop: 0 }, 'fast');
 
         var url = isLink ? href : $(this).attr('action');
         var argsep = CommonParams.get('arg_separator');
         var params = 'ajax_request=true' + argsep + 'ajax_page_request=true';
-        var dataPost = window.AJAX.source.getPostData();
+        var dataPost = AJAX.source.getPostData();
         if (! isLink) {
             params += argsep + $(this).serialize();
         } else if (dataPost) {
@@ -311,18 +312,18 @@ window.AJAX = {
             isLink = false;
         }
 
-        if (window.AJAX.debug) {
+        if (AJAX.debug) {
             // eslint-disable-next-line no-console
             console.log('Loading: ' + url); // no need to translate
         }
 
         if (isLink) {
-            window.AJAX.active = true;
-            window.AJAX.$msgbox = Functions.ajaxShowMessage();
+            AJAX.active = true;
+            AJAX.$msgbox = Functions.ajaxShowMessage();
             // Save reference for the new link request
-            window.AJAX.xhr = $.get(url, params, window.AJAX.responseHandler);
+            AJAX.xhr = $.get(url, params, AJAX.responseHandler);
             var state = {
-                url : href
+                url: href
             };
             if (previousLinkAborted) {
                 // hack: there is already an aborted entry on stack
@@ -341,12 +342,12 @@ window.AJAX = {
             // Submit the request if there is no onsubmit handler
             // or if it returns a value that evaluates to true
             if (typeof onsubmit !== 'function' || onsubmit.apply(this, [event])) {
-                window.AJAX.active = true;
-                window.AJAX.$msgbox = Functions.ajaxShowMessage();
+                AJAX.active = true;
+                AJAX.$msgbox = Functions.ajaxShowMessage();
                 if ($(this).attr('id') === 'login_form') {
-                    $.post(url, params, window.AJAX.loginResponseHandler);
+                    $.post(url, params, AJAX.loginResponseHandler);
                 } else {
-                    $.post(url, params, window.AJAX.responseHandler);
+                    $.post(url, params, AJAX.responseHandler);
                 }
             }
         }
@@ -354,7 +355,7 @@ window.AJAX = {
     /**
      * Response handler to handle login request from login modal after session expiration
      *
-     * To refer to self use 'window.AJAX', instead of 'this' as this function
+     * To refer to self use 'AJAX', instead of 'this' as this function
      * is called in the jQuery context.
      *
      * @param {object} data Event data
@@ -365,11 +366,11 @@ window.AJAX = {
         if (typeof data === 'undefined' || data === null) {
             return;
         }
-        Functions.ajaxRemoveMessage(window.AJAX.$msgbox);
+        Functions.ajaxRemoveMessage(AJAX.$msgbox);
 
         CommonParams.set('token', data.new_token);
 
-        window.AJAX.scriptHandler.load([]);
+        AJAX.scriptHandler.load([]);
 
         if (data.displayMessage) {
             $('#page_content').prepend(data.displayMessage);
@@ -383,7 +384,7 @@ window.AJAX = {
             msg = data.errSubmitMsg;
         }
         if (data.errors) {
-            $('<div></div>', { id : 'pma_errors', class : 'clearfloat d-print-none' })
+            $('<div></div>', { id: 'pma_errors', class: 'clearfloat d-print-none' })
                 .insertAfter('#selflink')
                 .append(data.errors);
             // bind for php error reporting forms (bottom)
@@ -402,12 +403,12 @@ window.AJAX = {
             ) {
                 $('#pma_report_errors_form').trigger('submit');
                 Functions.ajaxShowMessage(window.Messages.phpErrorsBeingSubmitted, false);
-                $('html, body').animate({ scrollTop:$(document).height() }, 'slow');
+                $('html, body').animate({ scrollTop: $(document).height() }, 'slow');
             } else if (data.promptPhpErrors) {
                 // otherwise just prompt user if it is set so.
                 msg = msg + window.Messages.phpErrorsFound;
                 // scroll to bottom where all the errors are displayed.
-                $('html, body').animate({ scrollTop:$(document).height() }, 'slow');
+                $('html, body').animate({ scrollTop: $(document).height() }, 'slow');
             }
         }
 
@@ -425,8 +426,8 @@ window.AJAX = {
             if (CommonParams.get('user') !== data.params.user) {
                 window.location = 'index.php';
                 Functions.ajaxShowMessage(window.Messages.strLoading, false);
-                window.AJAX.active = false;
-                window.AJAX.xhr = null;
+                AJAX.active = false;
+                AJAX.xhr = null;
                 return;
             }
             // remove the login modal if the login is successful otherwise show error.
@@ -435,8 +436,8 @@ window.AJAX = {
                     $('#modalOverlay').remove();
                 }
                 $('fieldset.disabled_for_expiration').removeAttr('disabled').removeClass('disabled_for_expiration');
-                window.AJAX.fireTeardown('functions.js');
-                window.AJAX.fireOnload('functions.js');
+                AJAX.fireTeardown('functions.js');
+                AJAX.fireOnload('functions.js');
             }
             if (typeof data.new_token !== 'undefined') {
                 $('input[name=token]').val(data.new_token);
@@ -445,8 +446,8 @@ window.AJAX = {
             $('#modalOverlay').replaceWith(data.error);
         } else {
             Functions.ajaxShowMessage(data.error, false);
-            window.AJAX.active = false;
-            window.AJAX.xhr = null;
+            AJAX.active = false;
+            AJAX.xhr = null;
             Functions.handleRedirectAndReload(data);
             if (data.fieldWithError) {
                 $(':input.error').removeClass('error');
@@ -460,7 +461,7 @@ window.AJAX = {
      * failed requests or requests with uncaught errors, see the .ajaxError
      * handler at the bottom of this file.
      *
-     * To refer to self use 'window.AJAX', instead of 'this' as this function
+     * To refer to self use 'AJAX', instead of 'this' as this function
      * is called in the jQuery context.
      *
      * @param {object} data Event data
@@ -473,24 +474,24 @@ window.AJAX = {
         }
         // Can be a string when an error occurred and only HTML was returned.
         if (typeof data === 'string') {
-            Functions.ajaxRemoveMessage(window.AJAX.$msgbox);
+            Functions.ajaxRemoveMessage(AJAX.$msgbox);
             Functions.ajaxShowMessage($(data).text(), false, 'error');
-            window.AJAX.active = false;
-            window.AJAX.xhr = null;
+            AJAX.active = false;
+            AJAX.xhr = null;
             return;
         }
         if (typeof data.success !== 'undefined' && data.success) {
             $('html, body').animate({ scrollTop: 0 }, 'fast');
-            Functions.ajaxRemoveMessage(window.AJAX.$msgbox);
+            Functions.ajaxRemoveMessage(AJAX.$msgbox);
 
             if (data.redirect) {
                 Functions.ajaxShowMessage(data.redirect, false);
-                window.AJAX.active = false;
-                window.AJAX.xhr = null;
+                AJAX.active = false;
+                AJAX.xhr = null;
                 return;
             }
 
-            window.AJAX.scriptHandler.reset(function () {
+            AJAX.scriptHandler.reset(function () {
                 if (data.reloadNavigation) {
                     Navigation.reload();
                 }
@@ -499,11 +500,11 @@ window.AJAX = {
                 }
                 if (data.menu) {
                     var state = {
-                        url : data.selflink,
-                        menu : data.menu
+                        url: data.selflink,
+                        menu: data.menu
                     };
                     history.replaceState(state, null);
-                    window.AJAX.handleMenu.replace(data.menu);
+                    AJAX.handleMenu.replace(data.menu);
                 }
                 if (data.disableNaviSettings) {
                     Navigation.disableSettings();
@@ -552,7 +553,7 @@ window.AJAX = {
                     CommonParams.setAll(data.params);
                 }
                 if (data.scripts) {
-                    window.AJAX.scriptHandler.load(data.scripts);
+                    AJAX.scriptHandler.load(data.scripts);
                 }
                 if (data.displayMessage) {
                     $('#page_content').prepend(data.displayMessage);
@@ -566,7 +567,7 @@ window.AJAX = {
                     msg = data.errSubmitMsg;
                 }
                 if (data.errors) {
-                    $('<div></div>', { id : 'pma_errors', class : 'clearfloat d-print-none' })
+                    $('<div></div>', { id: 'pma_errors', class: 'clearfloat d-print-none' })
                         .insertAfter('#selflink')
                         .append(data.errors);
                     // bind for php error reporting forms (bottom)
@@ -585,12 +586,12 @@ window.AJAX = {
                     ) {
                         $('#pma_report_errors_form').trigger('submit');
                         Functions.ajaxShowMessage(window.Messages.phpErrorsBeingSubmitted, false);
-                        $('html, body').animate({ scrollTop:$(document).height() }, 'slow');
+                        $('html, body').animate({ scrollTop: $(document).height() }, 'slow');
                     } else if (data.promptPhpErrors) {
                         // otherwise just prompt user if it is set so.
                         msg = msg + window.Messages.phpErrorsFound;
                         // scroll to bottom where all the errors are displayed.
-                        $('html, body').animate({ scrollTop:$(document).height() }, 'slow');
+                        $('html, body').animate({ scrollTop: $(document).height() }, 'slow');
                     }
                 }
                 Functions.ajaxShowMessage(msg, false);
@@ -602,21 +603,22 @@ window.AJAX = {
                     Functions.ignorePhpErrors(false);
                 });
 
-                if (typeof window.AJAX.callback === 'function') {
-                    window.AJAX.callback.call();
+                if (typeof AJAX.callback === 'function') {
+                    AJAX.callback.call();
                 }
-                window.AJAX.callback = function () {};
+                AJAX.callback = function () {
+                };
             });
         } else {
             Functions.ajaxShowMessage(data.error, false);
-            Functions.ajaxRemoveMessage(window.AJAX.$msgbox);
+            Functions.ajaxRemoveMessage(AJAX.$msgbox);
             var $ajaxError = $('<div></div>');
             $ajaxError.attr({ 'id': 'ajaxError' });
             $('#page_content').append($ajaxError);
             $ajaxError.html(data.error);
             $('html, body').animate({ scrollTop: $(document).height() }, 200);
-            window.AJAX.active = false;
-            window.AJAX.xhr = null;
+            AJAX.active = false;
+            AJAX.xhr = null;
             Functions.handleRedirectAndReload(data);
             if (data.fieldWithError) {
                 $(':input.error').removeClass('error');
@@ -722,7 +724,7 @@ window.AJAX = {
          */
         done: function (script, callback) {
             if ($.inArray(script, this.scriptsToBeFired)) {
-                window.AJAX.fireOnload(script);
+                AJAX.fireOnload(script);
             }
             if ($.inArray(script, this.scriptsToBeLoaded)) {
                 this.scriptsToBeLoaded.splice($.inArray(script, this.scriptsToBeLoaded), 1);
@@ -731,9 +733,9 @@ window.AJAX = {
                 this.scriptsCompleted = true;
             }
             /* We need to wait for last signal (with null) or last script load */
-            window.AJAX.active = (this.scriptsToBeLoaded.length > 0) || ! this.scriptsCompleted;
+            AJAX.active = (this.scriptsToBeLoaded.length > 0) || ! this.scriptsCompleted;
             /* Run callback on last script */
-            if (! window.AJAX.active && typeof callback === 'function') {
+            if (! AJAX.active && typeof callback === 'function') {
                 callback();
             }
         },
@@ -769,15 +771,15 @@ window.AJAX = {
          */
         reset: function (callback) {
             for (var i in this.scriptsToBeFired) {
-                window.AJAX.fireTeardown(this.scriptsToBeFired[i]);
+                AJAX.fireTeardown(this.scriptsToBeFired[i]);
             }
             this.scriptsToBeFired = [];
             /**
              * Re-attach a generic event handler to clicks
              * on pages and submissions of forms
              */
-            $(document).off('click', 'a').on('click', 'a', window.AJAX.requestHandler);
-            $(document).off('submit', 'form').on('submit', 'form', window.AJAX.requestHandler);
+            $(document).off('click', 'a').on('click', 'a', AJAX.requestHandler);
+            $(document).off('submit', 'form').on('submit', 'form', AJAX.requestHandler);
             callback();
         }
     },
@@ -786,7 +788,7 @@ window.AJAX = {
      * Here we register a function that will remove the onsubmit event from all
      * forms that will be handled by the generic page loader. We then save this
      * event handler in the "jQuery data", so that we can fire it up later in
-     * window.AJAX.requestHandler().
+     * AJAX.requestHandler().
      *
      * See bug #3583316
      */
@@ -827,14 +829,14 @@ window.AJAX = {
             'form.lock-page input[type="number"], ' +
             'form.lock-page select',
             { value: 1 },
-            window.AJAX.lockPageHandler
+            AJAX.lockPageHandler
         );
         $pageContent.on(
             'change',
             'form.lock-page input[type="checkbox"], ' +
             'form.lock-page input[type="radio"]',
             { value: 2 },
-            window.AJAX.lockPageHandler
+            AJAX.lockPageHandler
         );
         /**
          * Reset lock when lock-page form reset event is fired
@@ -842,7 +844,7 @@ window.AJAX = {
          * form directly.
          */
         $('form.lock-page').on('reset', function () {
-            window.AJAX.resetLock();
+            AJAX.resetLock();
         });
     },
 
@@ -867,7 +869,7 @@ window.AJAX = {
             history.replaceState(state, null);
 
             $(window).on('popstate', function (event) {
-                var initPop = (!initState && location.href === initURL);
+                var initPop = (! initState && location.href === initURL);
                 initState = true;
                 // check if popstate fired on first page itself
                 if (initPop) {
@@ -875,15 +877,15 @@ window.AJAX = {
                 }
                 var state = event.originalEvent.state;
                 if (state && state.menu) {
-                    window.AJAX.$msgbox = Functions.ajaxShowMessage();
+                    AJAX.$msgbox = Functions.ajaxShowMessage();
                     var params = 'ajax_request=true' + CommonParams.get('arg_separator') + 'ajax_page_request=true';
                     var url = state.url || location.href;
-                    $.get(url, params, window.AJAX.responseHandler);
+                    $.get(url, params, AJAX.responseHandler);
                     // TODO: Check if sometimes menu is not retrieved from server,
                     // Not sure but it seems menu was missing only for printview which
                     // been removed lately, so if it's right some dead menu checks/fallbacks
                     // may need to be removed from this file and Header.php
-                    // window.AJAX.handleMenu.replace(event.originalEvent.state.menu);
+                    // AJAX.handleMenu.replace(event.originalEvent.state.menu);
                 }
             });
         };
@@ -895,7 +897,7 @@ window.AJAX = {
      */
     getFatalErrorHandler: function () {
         return function (event, request) {
-            if (window.AJAX.debug) {
+            if (AJAX.debug) {
                 // eslint-disable-next-line no-console
                 console.log('AJAX error: status=' + request.status + ', text=' + request.statusText);
             }
@@ -915,8 +917,8 @@ window.AJAX = {
                         '</div>',
                         false
                     );
-                    window.AJAX.active = false;
-                    window.AJAX.xhr = null;
+                    AJAX.active = false;
+                    AJAX.xhr = null;
 
                     return;
                 }
@@ -935,9 +937,13 @@ window.AJAX = {
                     '</div>',
                     false
                 );
-                window.AJAX.active = false;
-                window.AJAX.xhr = null;
+                AJAX.active = false;
+                AJAX.xhr = null;
             }
         };
     }
 };
+
+window.AJAX = AJAX;
+
+export { AJAX };
