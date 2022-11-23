@@ -2,6 +2,7 @@ import $ from 'jquery';
 import { AJAX } from './ajax.js';
 import { Functions } from './functions.js';
 import { Navigation } from './navigation.js';
+import { PageSettings } from './page_settings.js';
 
 /* global Indexes */
 
@@ -41,5 +42,10 @@ AJAX.registerOnload('indexes.js', Indexes.on());
 
 $(() => Functions.checkNumberOfFields());
 
-AJAX.registerTeardown('page_settings.js', window.PageSettings.off());
-AJAX.registerOnload('page_settings.js', window.PageSettings.on());
+AJAX.registerTeardown('main.js', () => {
+    PageSettings.off();
+});
+
+AJAX.registerOnload('main.js', () => {
+    PageSettings.on();
+});

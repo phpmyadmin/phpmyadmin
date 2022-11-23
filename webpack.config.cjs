@@ -53,7 +53,6 @@ module.exports = [
             'name-conflict-fixes': './js/src/name-conflict-fixes.js',
             'navigation': './js/src/navigation.js',
             'normalization': './js/src/normalization.js',
-            'page_settings': './js/src/page_settings.js',
             'replication': './js/src/replication.js',
             'server/databases': './js/src/server/databases.js',
             'server/plugins': './js/src/server/plugins.js',
