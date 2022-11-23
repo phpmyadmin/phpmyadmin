@@ -98,7 +98,7 @@ class NavigationController extends AbstractController
                 return;
             }
 
-            if ($request->getParsedBodyParam('showUnhideDialog') !== null) {
+            if ($request->hasBodyParam('showUnhideDialog')) {
                 if (! empty($dbName)) {
                     $this->response->addJSON(
                         'message',
