@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-05-05 18:09+0000\n"
+"PO-Revision-Date: 2022-11-27 12:48+0000\n"
 "Last-Translator: Justin Nogossek <justmegaliga10000@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/4-9/de/"
 ">\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.12.1\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -16531,7 +16531,7 @@ msgstr "Zeige Erzeugungsabfrage"
 
 #: templates/table/relation/common_form.twig:6
 msgid "Foreign key constraints"
-msgstr "Beschränkungen durch Fremdschlüssel"
+msgstr "Fremdschlüssel-Beschränkungen"
 
 #: templates/table/relation/common_form.twig:10
 msgid "Actions"
@@ -16560,7 +16560,7 @@ msgstr ""
 
 #: templates/table/relation/common_form.twig:24
 msgid "Foreign key constraint"
-msgstr "Beschränkung für auswärtige Schlüssel"
+msgstr "Fremdschlüssel-Beschränkung"
 
 #: templates/table/relation/common_form.twig:89
 msgid "+ Add constraint"
