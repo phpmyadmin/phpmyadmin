@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-09-29 00:17-0300\n"
-"PO-Revision-Date: 2022-05-27 05:56+0000\n"
+"PO-Revision-Date: 2022-11-27 12:48+0000\n"
 "Last-Translator: Justin Nogossek <justmegaliga10000@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/5-2/de/"
 ">\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13-dev\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5406,6 +5406,10 @@ msgid ""
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"Die Konfigurationsdatei benötigt einen gültigen Schlüssel für die Cookie-"
+"Verschlüsselung. Ein temporärer Schlüssel wurde automatisch für dich "
+"generiert. Bitte schau in der [doc@cfg_blowfish_secret]Dokumentation[/doc] "
+"nach."
 
 #: libraries/classes/Controllers/HomeController.php:328
 #, php-format
@@ -5414,6 +5418,9 @@ msgid ""
 "necessary. It should only be %d bytes long. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"Der Cookie-Verschlüsselungsschlüssel in der Konfigurationsdatei ist länger "
+"als nötig. Er sollte nur %d Bytes lang sein. Bitte schau in der "
+"[doc@cfg_blowfish_secret]Dokumentation[/doc] nach."
 
 #: libraries/classes/Controllers/HomeController.php:346
 msgid ""
@@ -16014,7 +16021,7 @@ msgstr "Achtung"
 
 #: templates/home/index.twig:282
 msgid "Notice"
-msgstr ""
+msgstr "Hinweis"
 
 #: templates/home/index.twig:295
 msgid "phpMyAdmin Themes"
@@ -16507,7 +16514,7 @@ msgstr "Ansicht:"
 
 #: templates/modals/index_dialog_modal.twig:30
 msgid "Go back"
-msgstr ""
+msgstr "Zurück"
 
 #: templates/modals/unhide_nav_item.twig:5
 msgid "Show hidden navigation tree items."
@@ -18814,7 +18821,7 @@ msgstr "tabellenspezifisch"
 
 #: templates/table/relation/common_form.twig:9
 msgid "Foreign key constraints"
-msgstr "Beschränkungen durch Fremdschlüssel"
+msgstr "Fremdschlüssel-Beschränkungen"
 
 #: templates/table/relation/common_form.twig:14
 msgid "Actions"
@@ -18843,7 +18850,7 @@ msgstr ""
 
 #: templates/table/relation/common_form.twig:28
 msgid "Foreign key constraint"
-msgstr "Beschränkung für auswärtige Schlüssel"
+msgstr "Fremdschlüssel-Beschränkung"
 
 #: templates/table/relation/common_form.twig:93
 msgid "+ Add constraint"
