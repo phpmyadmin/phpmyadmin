@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { AJAX } from '../ajax.js';
 import { Functions } from '../functions.js';
 
 /**
@@ -18,7 +19,7 @@ import { Functions } from '../functions.js';
 /**
  * Unbind all event handlers before tearing down a page
  */
-window.AJAX.registerTeardown('database/qbe.js', function () {
+AJAX.registerTeardown('database/qbe.js', function () {
     $(document).off('change', 'select[name^=criteriaColumn]');
     $(document).off('change', '#searchId');
     $(document).off('click', '#saveSearch');
@@ -26,7 +27,7 @@ window.AJAX.registerTeardown('database/qbe.js', function () {
     $(document).off('click', '#deleteSearch');
 });
 
-window.AJAX.registerOnload('database/qbe.js', function () {
+AJAX.registerOnload('database/qbe.js', function () {
     Functions.getSqlEditor($('#textSqlquery'), {}, 'none');
 
     $('#tblQbe').width($('#tblQbe').parent().width());

@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { AJAX } from '../../ajax.js';
 
 /**
  *
@@ -9,14 +10,14 @@ import $ from 'jquery';
 /**
  * Unbind all event handlers before tearing down a page
  */
-window.AJAX.registerTeardown('server/status/variables.js', function () {
+AJAX.registerTeardown('server/status/variables.js', function () {
     $('#filterAlert').off('change');
     $('#filterText').off('keyup');
     $('#filterCategory').off('change');
     $('#dontFormat').off('change');
 });
 
-window.AJAX.registerOnload('server/status/variables.js', function () {
+AJAX.registerOnload('server/status/variables.js', function () {
     // Filters for status variables
     var textFilter = null;
     var alertFilter = $('#filterAlert').prop('checked');

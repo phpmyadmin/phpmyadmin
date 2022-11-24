@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { AJAX } from '../ajax.js';
 import { Functions } from '../functions.js';
 import { CommonActions, CommonParams } from '../common.js';
 
@@ -24,14 +25,14 @@ import { CommonActions, CommonParams } from '../common.js';
 /**
  * Unbind all event handlers before tearing down a page
  */
-window.AJAX.registerTeardown('database/operations.js', function () {
+AJAX.registerTeardown('database/operations.js', function () {
     $(document).off('submit', '#rename_db_form.ajax');
     $(document).off('submit', '#copy_db_form.ajax');
     $(document).off('submit', '#change_db_charset_form.ajax');
     $(document).off('click', '#drop_db_anchor.ajax');
 });
 
-window.AJAX.registerOnload('database/operations.js', function () {
+AJAX.registerOnload('database/operations.js', function () {
     /**
      * Ajax event handlers for 'Rename Database'
      */

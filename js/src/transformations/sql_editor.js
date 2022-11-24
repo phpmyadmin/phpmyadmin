@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { AJAX } from '../ajax.js';
 import { Functions } from '../functions.js';
 
 /**
@@ -6,7 +7,7 @@ import { Functions } from '../functions.js';
  *
  * @package PhpMyAdmin
  */
-window.AJAX.registerOnload('transformations/sql_editor.js', function () {
+AJAX.registerOnload('transformations/sql_editor.js', function () {
     $('textarea.transform_sql_editor').each(function () {
         Functions.getSqlEditor($(this), {}, 'both');
     });

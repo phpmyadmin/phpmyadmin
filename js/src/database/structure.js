@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { AJAX } from '../ajax.js';
 import { Functions } from '../functions.js';
 import { CommonParams } from '../common.js';
 
@@ -27,7 +28,7 @@ window.DatabaseStructure = DatabaseStructure;
 /**
  * Unbind all event handlers before tearing down a page
  */
-window.AJAX.registerTeardown('database/structure.js', function () {
+AJAX.registerTeardown('database/structure.js', function () {
     $(document).off('click', 'a.truncate_table_anchor.ajax');
     $(document).off('click', 'a.drop_table_anchor.ajax');
     $(document).off('click', '#real_end_input');
@@ -188,7 +189,7 @@ DatabaseStructure.fetchRealRowCount = function ($target) {
     });
 };
 
-window.AJAX.registerOnload('database/structure.js', function () {
+AJAX.registerOnload('database/structure.js', function () {
     /**
      * Event handler on select of "Make consistent with central list"
      */
@@ -207,12 +208,12 @@ window.AJAX.registerOnload('database/structure.js', function () {
                     const data = $form.serialize() + argSep + 'ajax_request=true' + argSep + 'ajax_page_request=true';
 
                     Functions.ajaxShowMessage();
-                    window.AJAX.source = $form;
+                    AJAX.source = $form;
 
                     $.post(
                         'index.php?route=/database/structure/central-columns/make-consistent',
                         data,
-                        window.AJAX.responseHandler
+                        AJAX.responseHandler
                     );
 
                     $('#makeConsistentWithCentralListModal').modal('hide');
@@ -302,9 +303,9 @@ window.AJAX.registerOnload('database/structure.js', function () {
         var data = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
 
         Functions.ajaxShowMessage();
-        window.AJAX.source = $form;
+        AJAX.source = $form;
 
-        $.post(url, data, window.AJAX.responseHandler);
+        $.post(url, data, AJAX.responseHandler);
     });
 
     /**

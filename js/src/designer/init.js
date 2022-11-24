@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { AJAX } from '../ajax.js';
 
 /**
  * Initializes the data required to run Designer, then fires it up.
@@ -10,11 +11,11 @@ import $ from 'jquery';
 /* global DesignerPage */ // js/designer/page.js
 /* global designerConfig */ // templates/database/designer/main.twig
 
-window.AJAX.registerTeardown('designer/init.js', function () {
+AJAX.registerTeardown('designer/init.js', function () {
     $('.trigger').off('click');
 });
 
-window.AJAX.registerOnload('designer/init.js', function () {
+AJAX.registerOnload('designer/init.js', function () {
     $('.trigger').on('click', function () {
         $('.panel').toggle('fast');
         $(this).toggleClass('active');

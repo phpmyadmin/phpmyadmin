@@ -1,9 +1,10 @@
 import $ from 'jquery';
+import { AJAX } from '../ajax.js';
 
 /**
  * JSON syntax highlighting transformation plugin
  */
-window.AJAX.registerOnload('transformations/json.js', function () {
+AJAX.registerOnload('transformations/json.js', function () {
     var $elm = $('#page_content').find('code.json');
     $elm.each(function () {
         var $json = $(this);

@@ -11,7 +11,6 @@ module.exports = [
         mode: 'none',
         devtool: 'source-map',
         entry: {
-            'ajax': './js/src/ajax.js',
             'chart': './js/src/chart.js',
             'codemirror/addon/lint/sql-lint': './js/src/codemirror/addon/lint/sql-lint.js',
             'common': './js/src/common.js',

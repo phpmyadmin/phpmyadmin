@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { AJAX } from '../ajax.js';
 import { Functions } from '../functions.js';
 import { CommonActions, CommonParams } from '../common.js';
 
@@ -7,7 +8,7 @@ import { CommonActions, CommonParams } from '../common.js';
 /**
  * Unbind all event handlers before tearing down a page
  */
-window.AJAX.registerTeardown('table/operations.js', function () {
+AJAX.registerTeardown('table/operations.js', function () {
     $(document).off('submit', '#copyTable.ajax');
     $(document).off('submit', '#moveTableForm');
     $(document).off('submit', '#tableOptionsForm');
@@ -67,7 +68,7 @@ var confirmAndPost = function (linkObject, action) {
  * jQuery coding for 'Table operations'. Used on /table/operations
  * Attach Ajax Event handlers for Table operations
  */
-window.AJAX.registerOnload('table/operations.js', function () {
+AJAX.registerOnload('table/operations.js', function () {
     /**
      * Ajax action for submitting the "Copy table"
      */
@@ -247,8 +248,8 @@ window.AJAX.registerOnload('table/operations.js', function () {
             var argsep = CommonParams.get('arg_separator');
             var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
             Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
-            window.AJAX.source = $form;
-            $.post($form.attr('action'), submitData, window.AJAX.responseHandler);
+            AJAX.source = $form;
+            $.post($form.attr('action'), submitData, AJAX.responseHandler);
         }
 
         if ($('#partitionOperationRadioDrop').is(':checked')) {

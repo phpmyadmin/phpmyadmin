@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { AJAX } from '../ajax.js';
 import { Functions } from '../functions.js';
 import { CommonActions, CommonParams } from '../common.js';
 
@@ -117,7 +118,7 @@ const CreateDatabase = {
                 var dbStructUrl = data.url;
                 dbStructUrl = dbStructUrl.replace(/amp;/ig, '');
                 var params = 'ajax_request=true' + CommonParams.get('arg_separator') + 'ajax_page_request=true';
-                $.get(dbStructUrl, params, window.AJAX.responseHandler);
+                $.get(dbStructUrl, params, AJAX.responseHandler);
             } else {
                 Functions.ajaxShowMessage(data.error, false);
             }
@@ -134,12 +135,12 @@ function checkPrivilegesForDatabase () {
     });
 }
 
-window.AJAX.registerTeardown('server/databases.js', function () {
+AJAX.registerTeardown('server/databases.js', function () {
     $(document).off('submit', '#dbStatsForm');
     $(document).off('submit', '#create_database_form.ajax');
 });
 
-window.AJAX.registerOnload('server/databases.js', function () {
+AJAX.registerOnload('server/databases.js', function () {
     $(document).on('submit', '#dbStatsForm', DropDatabases.handleEvent);
     $(document).on('submit', '#create_database_form.ajax', CreateDatabase.handleEvent);
     checkPrivilegesForDatabase();

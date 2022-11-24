@@ -1,7 +1,8 @@
 import $ from 'jquery';
+import { AJAX } from './ajax.js';
 import { Functions } from './functions.js';
 
-window.AJAX.registerOnload('u2f.js', function () {
+AJAX.registerOnload('u2f.js', function () {
     var $inputReg = $('#u2f_registration_response');
     if ($inputReg.length > 0) {
         var $formReg = $inputReg.parents('form');

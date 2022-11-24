@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { AJAX } from './ajax.js';
 import { Functions } from './functions.js';
 import { CommonParams } from './common.js';
 
@@ -2070,7 +2071,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                                 // temporarily remove ajax class so the page loader will not handle it,
                                 // submit and then add it back
                                 $link.removeClass('ajax');
-                                window.AJAX.requestHandler.call($link[0]);
+                                AJAX.requestHandler.call($link[0]);
                                 $link.addClass('ajax');
                                 $cell.data('clicks', 0);
                             }, 700);

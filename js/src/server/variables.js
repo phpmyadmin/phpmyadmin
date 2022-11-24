@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { AJAX } from '../ajax.js';
 import { Functions } from '../functions.js';
 import { CommonParams } from '../common.js';
 
@@ -11,12 +12,12 @@ import { CommonParams } from '../common.js';
 /**
  * Unbind all event handlers before tearing down a page
  */
-window.AJAX.registerTeardown('server/variables.js', function () {
+AJAX.registerTeardown('server/variables.js', function () {
     $(document).off('click', 'a.editLink');
     $('#serverVariables').find('.var-name').find('a img').remove();
 });
 
-window.AJAX.registerOnload('server/variables.js', function () {
+AJAX.registerOnload('server/variables.js', function () {
     var $saveLink = $('a.saveLink');
     var $cancelLink = $('a.cancelLink');
 

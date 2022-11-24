@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { AJAX } from '../../ajax.js';
 import { Functions } from '../../functions.js';
 import { CommonParams } from '../../common.js';
 
@@ -165,7 +166,7 @@ var processList = {
     }
 };
 
-window.AJAX.registerOnload('server/status/processes.js', function () {
+AJAX.registerOnload('server/status/processes.js', function () {
     processList.init();
     // Bind event handler for kill_process
     $('#tableprocesslist').on(
@@ -193,7 +194,7 @@ window.AJAX.registerOnload('server/status/processes.js', function () {
 /**
  * Unbind all event handlers before tearing down a page
  */
-window.AJAX.registerTeardown('server/status/processes.js', function () {
+AJAX.registerTeardown('server/status/processes.js', function () {
     $('#tableprocesslist').off('click', 'a.kill_process');
     $('a#toggleRefresh').off('click');
     $('#id_refreshRate').off('change');

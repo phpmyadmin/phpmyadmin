@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { AJAX } from '../ajax.js';
 import { Functions } from '../functions.js';
 
 /**
@@ -11,14 +12,14 @@ import { Functions } from '../functions.js';
 /**
  * Unbind all event handlers before tearing down a page
  */
-window.AJAX.registerTeardown('server/user_groups.js', function () {
+AJAX.registerTeardown('server/user_groups.js', function () {
     $('#deleteUserGroupModal').off('show.bs.modal');
 });
 
 /**
  * Bind event handlers
  */
-window.AJAX.registerOnload('server/user_groups.js', function () {
+AJAX.registerOnload('server/user_groups.js', function () {
     const deleteUserGroupModal = $('#deleteUserGroupModal');
     deleteUserGroupModal.on('show.bs.modal', function (event) {
         const userGroupName = $(event.relatedTarget).data('user-group');
@@ -37,7 +38,7 @@ window.AJAX.registerOnload('server/user_groups.js', function () {
                     'userGroup': userGroupName,
                     'ajax_request': true,
                 },
-                window.AJAX.responseHandler
+                AJAX.responseHandler
             );
 
             $('#deleteUserGroupModal').modal('hide');

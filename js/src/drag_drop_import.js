@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { AJAX } from './ajax.js';
 import { Functions } from './functions.js';
 import { CommonParams } from './common.js';
 
@@ -297,7 +298,7 @@ var DragDropImport = {
             $('.pma_sql_import_status').slideDown();
             for (var i = 0; i < files.length; i++) {
                 var ext  = (DragDropImport.getExtension(files[i].name));
-                var hash = window.AJAX.hash(++DragDropImport.uploadCount);
+                var hash = AJAX.hash(++DragDropImport.uploadCount);
 
                 var $sqlImportStatusDiv = $('.pma_sql_import_status div');
                 $sqlImportStatusDiv.append('<li data-hash="' + hash + '">' +

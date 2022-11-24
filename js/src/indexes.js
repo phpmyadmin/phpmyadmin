@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { AJAX } from './ajax.js';
 import { Functions } from './functions.js';
 import { CommonActions, CommonParams } from './common.js';
 
@@ -594,8 +595,8 @@ Indexes.on = () => function () {
         var argsep = CommonParams.get('arg_separator');
         var submitData = $form.serialize() + argsep + 'do_save_data=1' + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
         Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
-        window.AJAX.source = $form;
-        $.post($form.attr('action'), submitData, window.AJAX.responseHandler);
+        AJAX.source = $form;
+        $.post($form.attr('action'), submitData, AJAX.responseHandler);
     });
 
     $(document).on('click', '#preview_index_frm', function (event) {

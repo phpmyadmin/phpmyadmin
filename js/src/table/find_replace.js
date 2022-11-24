@@ -1,10 +1,11 @@
 import $ from 'jquery';
+import { AJAX } from '../ajax.js';
 import { Functions } from '../functions.js';
 
 /**
  * Unbind all event handlers before tearing down a page
  */
-window.AJAX.registerTeardown('table/find_replace.js', function () {
+AJAX.registerTeardown('table/find_replace.js', function () {
     $('#find_replace_form').off('submit');
     $('#toggle_find').off('click');
 });
@@ -12,7 +13,7 @@ window.AJAX.registerTeardown('table/find_replace.js', function () {
 /**
  * Bind events
  */
-window.AJAX.registerOnload('table/find_replace.js', function () {
+AJAX.registerOnload('table/find_replace.js', function () {
     $('<div id="toggle_find_div"><a id="toggle_find"></a></div>')
         .insertAfter('#find_replace_form')
         .hide();
