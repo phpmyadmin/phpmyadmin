@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-11-20 00:22+0000\n"
-"PO-Revision-Date: 2022-05-27 05:55+0000\n"
+"PO-Revision-Date: 2022-11-26 05:48+0000\n"
 "Last-Translator: Justin Nogossek <justmegaliga10000@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "de/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13-dev\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:240
 #, php-format
@@ -5192,6 +5192,8 @@ msgid ""
 "Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
 "code] configuration."
 msgstr ""
+"Die Suche innerhalb der Datenbank wird durch die Konfiguration "
+"[code]$cfg['UseDbSearch'][/code] deaktiviert."
 
 #: libraries/classes/Controllers/Database/Structure/AddPrefixController.php:20
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:45
@@ -5429,6 +5431,10 @@ msgid ""
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"Die Konfigurationsdatei benötigt einen gültigen Schlüssel für die Cookie-"
+"Verschlüsselung. Ein temporärer Schlüssel wurde automatisch für dich "
+"generiert. Bitte schau in der [doc@cfg_blowfish_secret]Dokumentation[/doc] "
+"nach."
 
 #: libraries/classes/Controllers/HomeController.php:335
 #, php-format
@@ -5437,6 +5443,9 @@ msgid ""
 "necessary. It should only be %d bytes long. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"Der Cookie-Verschlüsselungsschlüssel in der Konfigurationsdatei ist länger "
+"als nötig. Er sollte nur %d Bytes lang sein. Bitte schau in der "
+"[doc@cfg_blowfish_secret]Dokumentation[/doc] nach."
 
 #: libraries/classes/Controllers/HomeController.php:353
 msgid ""
@@ -5498,10 +5507,8 @@ msgstr ""
 "%sDokumentation%s zur Lösung diese Problems."
 
 #: libraries/classes/Controllers/Import/ImportController.php:249
-#, fuzzy
-#| msgid "Incorrect form specified!"
 msgid "Incorrect format parameter"
-msgstr "Falsche Form angegeben!"
+msgstr "Falsche Formatparameter"
 
 #: libraries/classes/Controllers/Import/ImportController.php:379
 #: libraries/classes/Controllers/Import/ImportController.php:622
@@ -9064,10 +9071,8 @@ msgstr "Ansicht"
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:41
 #: libraries/classes/Controllers/Table/Partition/RepairController.php:41
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:41
-#, fuzzy
-#| msgid "The table name must be a non-empty string."
 msgid "The partition name must be a non-empty string."
-msgstr "Der Tabellenname muss eine nicht leere Zeichenfolge sein."
+msgstr "Der Partitionsname muss eine nicht leere Zeichenkette sein."
 
 #: libraries/classes/Controllers/Table/Partition/DropController.php:61
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:61
@@ -13823,10 +13828,8 @@ msgstr ""
 "Adressen"
 
 #: libraries/classes/Types.php:445
-#, fuzzy
-#| msgid "Stores a Universally Unique Identifier (UUID)"
 msgid "128-bit UUID (Universally Unique Identifier)"
-msgstr "Speichert einen universell eindeutigen Identifizierer (UUID)"
+msgstr "128-bit UUID (Universally Unique Identifier)"
 
 #: libraries/classes/Types.php:801
 msgctxt "numeric types"
@@ -14580,10 +14583,8 @@ msgstr "Die zentrale Liste der Spalten für die aktuelle Datenbank ist leer"
 
 #: templates/database/central_columns/main.twig:168
 #: templates/display/results/table.twig:139
-#, fuzzy
-#| msgid "Filter rows"
 msgid "Filter rows:"
-msgstr "Zeilen filtern"
+msgstr "Zeilen filtern:"
 
 #: templates/database/central_columns/main.twig:171
 #: templates/display/results/table.twig:143
@@ -15887,14 +15888,12 @@ msgid "Send error report"
 msgstr "Fehlerbericht senden"
 
 #: templates/error/simple.twig:2
-#, fuzzy
-#| msgid "Something went wrong."
 msgid "Something went wrong"
-msgstr "Etwas ist schief gelaufen."
+msgstr "Etwas ist schief gelaufen"
 
 #: templates/error/simple.twig:7 templates/modals/index_dialog_modal.twig:30
 msgid "Go back"
-msgstr ""
+msgstr "Zurück"
 
 #: templates/export/template_options.twig:1 templates/export.twig:42
 msgid "Select a template"
@@ -18956,7 +18955,7 @@ msgstr "tabellenspezifisch"
 
 #: templates/table/relation/common_form.twig:9
 msgid "Foreign key constraints"
-msgstr "Beschränkungen durch Fremdschlüssel"
+msgstr "Fremdschlüssel-Beschränkungen"
 
 #: templates/table/relation/common_form.twig:14
 msgid "Actions"
@@ -18985,7 +18984,7 @@ msgstr ""
 
 #: templates/table/relation/common_form.twig:28
 msgid "Foreign key constraint"
-msgstr "Beschränkung für auswärtige Schlüssel"
+msgstr "Fremdschlüssel-Beschränkung"
 
 #: templates/table/relation/common_form.twig:44
 msgid "+ Add constraint"
