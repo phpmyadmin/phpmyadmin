@@ -1,8 +1,9 @@
 import $ from 'jquery';
+import { AJAX } from './ajax.js';
+import { Navigation } from './navigation.js';
 import { CommonActions, CommonParams } from './common.js';
 import { mysqlDocKeyword, mysqlDocBuiltin } from './modules/doc-links.js';
 
-/* global Navigation */
 /* global ChartType, ColumnType, DataTable, JQPlotChartFactory */ // js/chart.js
 /* global DatabaseStructure */ // js/database/structure.js
 /* global Indexes */ // js/indexes.js
@@ -336,7 +337,7 @@ Functions.getSqlEditor = function ($textarea, options, resize, lintOptions) {
                 value: 3,
                 content: codemirrorEditor.isClean(),
             };
-            window.AJAX.lockPageHandler(e);
+            AJAX.lockPageHandler(e);
         });
 
         return codemirrorEditor;
@@ -2339,7 +2340,7 @@ Functions.onloadCreateTableEvents = function () {
                         var tableStructureUrl = 'index.php?route=/table/structure' + argsep + 'server=' + data.params.server +
                             argsep + 'db=' + data.params.db + argsep + 'token=' + data.params.token +
                             argsep + 'goto=' + encodeURIComponent('index.php?route=/database/structure') + argsep + 'table=' + data.params.table + '';
-                        $.get(tableStructureUrl, params12, window.AJAX.responseHandler);
+                        $.get(tableStructureUrl, params12, AJAX.responseHandler);
                     } else {
                         Functions.ajaxShowMessage(
                             '<div class="alert alert-danger" role="alert">' + data.error + '</div>',
@@ -2592,7 +2593,7 @@ Functions.onloadChangePasswordEvents = function () {
             }
 
             if (data.scripts) {
-                window.AJAX.scriptHandler.load(data.scripts);
+                AJAX.scriptHandler.load(data.scripts);
             }
 
             // for this dialog, we remove the fieldset wrapping due to double headings
@@ -3668,7 +3669,7 @@ Functions.onloadLockPage = function () {
         // val-hash is the hash of default value of the field
         // so that it can be compared with new value hash
         // to check whether field was modified or not.
-        $(this).data('val-hash', window.AJAX.hash($(this).val()));
+        $(this).data('val-hash', AJAX.hash($(this).val()));
     });
 
     // initializes lock-page elements (input types checkbox and radio buttons)
@@ -3676,7 +3677,7 @@ Functions.onloadLockPage = function () {
     $('#page_content form.lock-page input[type="checkbox"], ' +
         '#page_content form.lock-page input[type="radio"]').each(function (i) {
         $(this).data('lock-id', i);
-        $(this).data('val-hash', window.AJAX.hash($(this).is(':checked')));
+        $(this).data('val-hash', AJAX.hash($(this).is(':checked')));
     });
 };
 
@@ -4447,3 +4448,5 @@ Functions.on = function () {
         Functions.onloadSortLinkMouseEvent();
     };
 };
+
+export { Functions };

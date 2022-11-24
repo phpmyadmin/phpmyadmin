@@ -139,6 +139,7 @@ class Header
         $this->scripts->addFile('vendor/jquery/jquery.validate.min.js');
         $this->scripts->addFile('vendor/jquery/jquery-ui-timepicker-addon.js');
         $this->scripts->addFile('index.php', ['route' => '/messages', 'l' => $GLOBALS['lang']]);
+        $this->scripts->addFile('shared.js');
         $this->scripts->addFile('ajax.js');
         $this->scripts->addFile('keyhandler.js');
         $this->scripts->addFile('menu_resizer.js');

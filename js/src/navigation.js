@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { Functions } from './functions.js';
 import { CommonParams } from './common.js';
 
 /**
@@ -1648,3 +1649,5 @@ Navigation.showFullName = function ($containerELem) {
         }
     });
 };
+
+export { Navigation };

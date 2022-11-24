@@ -1,7 +1,7 @@
 import $ from 'jquery';
+import { Functions } from './functions.js';
+import { Navigation } from './navigation.js';
 import { CommonParams } from './common.js';
-
-/* global Navigation */
 
 /**
  * This object handles ajax requests for pages. It also
