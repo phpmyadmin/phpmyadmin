@@ -1,9 +1,10 @@
 import $ from 'jquery';
 import CodeMirror from 'codemirror';
+import { Functions } from '../functions.js';
 import { CommonParams } from '../common.js';
 import { Config } from './console/config.js';
 
-/* global Functions, Navigation */
+/* global Navigation */
 
 /**
  * Console object

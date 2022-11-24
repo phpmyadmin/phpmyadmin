@@ -1,11 +1,9 @@
 import $ from 'jquery';
+import { Functions } from '../functions.js';
 import { CommonParams } from '../common.js';
 
 /**
  * JavaScript functions used on Database Search page
- *
- * @requires    jQuery
- * @requires    js/functions.js
  *
  * @package PhpMyAdmin
  */

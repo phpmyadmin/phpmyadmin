@@ -1,12 +1,10 @@
 import $ from 'jquery';
+import { Functions } from '../functions.js';
 
 /**
  * @fileoverview    function used in table data manipulation pages
  *
- * @requires    jQuery
  * @requires    jQueryUI
- * @requires    js/functions.js
- *
  */
 
 /* global extendingValidatorMessages */ // templates/javascript/variables.twig

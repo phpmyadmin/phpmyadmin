@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { Functions } from '../functions.js';
 
 /**
  * Unbind all event handlers before tearing down a page

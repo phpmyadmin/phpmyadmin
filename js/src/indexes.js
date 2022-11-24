@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { Functions } from './functions.js';
 import { CommonActions, CommonParams } from './common.js';
 
 /* global Navigation */
@@ -7,9 +8,7 @@ import { CommonActions, CommonParams } from './common.js';
  * @fileoverview    function used for index manipulation pages
  * @name            Table Structure
  *
- * @requires    jQuery
  * @requires    jQueryUI
- * @required    js/functions.js
  */
 
 var Indexes = {};

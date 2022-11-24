@@ -1,3 +1,5 @@
+import { Functions } from '../functions.js';
+
 var designerTables = [
     {
         name: 'pdf_pages',

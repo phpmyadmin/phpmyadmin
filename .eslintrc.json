@@ -13,9 +13,6 @@
         "browser": true,
         "es6": true
     },
-    "globals": {
-        "Functions": "readonly"
-    },
     "rules": {
         "valid-jsdoc": ["error", {
             "prefer": {

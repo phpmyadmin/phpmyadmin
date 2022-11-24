@@ -40,7 +40,6 @@ module.exports = [
             'error_report': './js/src/error_report.js',
             'export': './js/src/export.js',
             'export_output': './js/src/export_output.js',
-            'functions': './js/src/functions.js',
             'gis_data_editor': './js/src/gis_data_editor.js',
             'home': './js/src/home.js',
             'import': './js/src/import.js',

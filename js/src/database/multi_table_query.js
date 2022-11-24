@@ -1,15 +1,13 @@
 import $ from 'jquery';
+import { Functions } from '../functions.js';
 import { CommonParams } from '../common.js';
 
 /**
  * @fileoverview    function used in QBE for DB
  * @name            Database Operations
  *
- * @requires    jQuery
  * @requires    jQueryUI
- * @requires    js/functions.js
  * @requires    js/database/query_generator.js
- *
  */
 
 /**

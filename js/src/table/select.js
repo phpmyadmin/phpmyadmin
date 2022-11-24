@@ -1,11 +1,9 @@
 import $ from 'jquery';
+import { Functions } from '../functions.js';
 import { CommonParams } from '../common.js';
 
 /**
  * @fileoverview JavaScript functions used on /table/search
- *
- * @requires    jQuery
- * @requires    js/functions.js
  */
 
 /* global changeValueFieldType, verifyAfterSearchFieldChange */ // js/table/change.js

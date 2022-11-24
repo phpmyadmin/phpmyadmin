@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { Functions } from '../functions.js';
 
 /**
  * @fileoverview    Javascript functions used in server user groups page

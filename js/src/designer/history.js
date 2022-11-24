@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { Functions } from '../functions.js';
 
 /**
  * @fileoverview    function used in this file builds history tab and generates query.

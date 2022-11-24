@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { Functions } from '../functions.js';
 import { CommonParams } from '../common.js';
 
 /* global Navigation */
@@ -7,9 +8,7 @@ import { CommonParams } from '../common.js';
  * @fileoverview    functions used on the database structure page
  * @name            Database Structure
  *
- * @requires    jQuery
  * @requires    jQueryUI
- * @required    js/functions.js
  */
 
 var DatabaseStructure = {};

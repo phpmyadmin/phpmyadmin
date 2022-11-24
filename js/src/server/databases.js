@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { Functions } from '../functions.js';
 import { CommonActions, CommonParams } from '../common.js';
 
 /* global Navigation */

@@ -5,7 +5,7 @@ import { Navigation } from './navigation.js';
 
 /* global Indexes */
 
-AJAX.registerOnload('functions.js', () => AJAX.removeSubmitEvents());
+AJAX.registerOnload('main.js', () => AJAX.removeSubmitEvents());
 $(AJAX.loadEventHandler());
 
 /**
@@ -26,8 +26,8 @@ AJAX.registerOnload('config.js', window.Config.on());
 
 $.ajaxPrefilter(Functions.addNoCacheToAjaxRequests());
 
-AJAX.registerTeardown('functions.js', Functions.off());
-AJAX.registerOnload('functions.js', Functions.on());
+AJAX.registerTeardown('main.js', Functions.off());
+AJAX.registerOnload('main.js', Functions.on());
 
 $(Functions.dismissNotifications());
 $(Functions.initializeMenuResizer());

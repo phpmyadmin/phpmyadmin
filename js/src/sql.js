@@ -1,11 +1,9 @@
 import $ from 'jquery';
+import { Functions } from './functions.js';
 import { CommonActions, CommonParams } from './common.js';
 
 /**
  * @fileoverview    functions used wherever an sql query form is used
- *
- * @requires    jQuery
- * @requires    js/functions.js
  *
  * @test-module Sql
  */

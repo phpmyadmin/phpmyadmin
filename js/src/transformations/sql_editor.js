@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { Functions } from '../functions.js';
 
 /**
  * SQL syntax highlighting transformation plugin js

@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { Functions } from '../functions.js';
 import { CommonActions, CommonParams } from '../common.js';
 
 /* global Navigation */
@@ -7,10 +8,7 @@ import { CommonActions, CommonParams } from '../common.js';
  * @fileoverview    function used in server privilege pages
  * @name            Database Operations
  *
- * @requires    jQuery
  * @requires    jQueryUI
- * @requires    js/functions.js
- *
  */
 
 /**

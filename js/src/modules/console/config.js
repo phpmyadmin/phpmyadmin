@@ -1,4 +1,4 @@
-/* global Functions */
+import { Functions } from '../../functions.js';
 
 /**
  * @link https://docs.phpmyadmin.net/en/latest/config.html#console-settings

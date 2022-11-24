@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { Functions } from '../functions.js';
 
 /**
  * @fileoverview    functions used for visualizing GIS data

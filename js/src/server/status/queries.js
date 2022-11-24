@@ -1,12 +1,11 @@
 import $ from 'jquery';
+import { Functions } from '../../functions.js';
 
 /**
  * @fileoverview    Javascript functions used in server status query page
  * @name            Server Status Query
  *
- * @requires    jQuery
  * @requires    jQueryUI
- * @requires    js/functions.js
  */
 
 /* global initTableSorter */ // js/server/status/sorter.js

@@ -1,12 +1,10 @@
 import $ from 'jquery';
+import { Functions } from '../functions.js';
 import { CommonParams } from '../common.js';
 
 // TODO: change the axis
 /**
  * @fileoverview JavaScript functions used on /table/search
- *
- * @requires    jQuery
- * @requires    js/functions.js
  **/
 
 /* global Sql */

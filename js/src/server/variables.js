@@ -1,13 +1,12 @@
 import $ from 'jquery';
+import { Functions } from '../functions.js';
 import { CommonParams } from '../common.js';
 
 /**
  * @fileoverview    Javascript functions used in server variables page
  * @name            Server Replication
  *
- * @requires    jQuery
  * @requires    jQueryUI
- * @requires    js/functions.js
  */
 /**
  * Unbind all event handlers before tearing down a page

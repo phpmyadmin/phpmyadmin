@@ -1,12 +1,11 @@
 import $ from 'jquery';
+import { Functions } from './functions.js';
 
 /**
  * @fileoverview    Javascript functions used in server replication page
  * @name            Server Replication
  *
- * @requires    jQuery
  * @requires    jQueryUI
- * @requires    js/functions.js
  */
 
 var randomServerId = Math.floor(Math.random() * 10000000);

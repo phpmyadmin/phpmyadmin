@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { Functions } from './functions.js';
 
 /**
  * Handles the resizing of a menu according to the available screen width

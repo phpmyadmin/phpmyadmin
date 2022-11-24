@@ -1,13 +1,12 @@
 import $ from 'jquery';
+import { Functions } from '../../functions.js';
 import { CommonParams } from '../../common.js';
 
 /**
  * @fileoverview    Javascript functions used in server status monitor page
  * @name            Server Status Monitor
  *
- * @requires    jQuery
  * @requires    jQueryUI
- * @requires    js/functions.js
  */
 
 /* global firstDayOfCalendar, themeImagePath */ // templates/javascript/variables.twig
