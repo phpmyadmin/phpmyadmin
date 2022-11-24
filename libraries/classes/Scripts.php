@@ -86,8 +86,9 @@ class Scripts
      */
     private function hasOnloadEvent(string $filename): bool
     {
-        return ! str_contains($filename, 'jquery')
-            && ! str_contains($filename, 'codemirror')
+        return ! str_contains($filename, 'vendor')
+            && ! str_contains($filename, 'runtime.js')
+            && ! str_contains($filename, 'name-conflict-fixes.js')
             && ! str_contains($filename, 'index.php')
             && ! str_contains($filename, 'ajax.js')
             && ! str_contains($filename, 'datetimepicker.js')
