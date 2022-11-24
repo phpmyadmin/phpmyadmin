@@ -202,10 +202,13 @@ class UserPreferences
 
     private function hasAccessToDatabase(DatabaseName $database): bool
     {
-        $escapedDb = $GLOBALS['dbi']->escapeString($database->getName());
-        $query = 'SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = \'' . $escapedDb . '\';';
+        $query = 'SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '
+            . $GLOBALS['dbi']->quoteString($database->getName());
         if ($GLOBALS['cfg']['Server']['DisableIS']) {
-            $query = 'SHOW DATABASES LIKE \'' . Util::escapeMysqlWildcards($escapedDb) . '\';';
+            $query = 'SHOW DATABASES LIKE '
+                . $GLOBALS['dbi']->quoteString(
+                    $GLOBALS['dbi']->escapeMysqlWildcards($database->getName())
+                );
         }
 
         return (bool) $GLOBALS['dbi']->fetchSingleRow($query, 'ASSOC', DatabaseInterface::CONNECT_CONTROL);

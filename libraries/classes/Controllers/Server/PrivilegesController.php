@@ -18,7 +18,6 @@ use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 
 use function __;
 use function header;
@@ -387,7 +386,7 @@ class PrivilegesController extends AbstractController
         if (isset($_GET['adduser']) || $GLOBALS['_add_user_error'] === true) {
             // Add user
             $this->response->addHTML($serverPrivileges->getHtmlForAddUser(
-                Util::escapeMysqlWildcards(is_string($GLOBALS['dbname']) ? $GLOBALS['dbname'] : '')
+                $serverPrivileges->escapeGrantWildcards(is_string($GLOBALS['dbname']) ? $GLOBALS['dbname'] : '')
             ));
         } else {
             if (isset($GLOBALS['dbname']) && ! is_array($GLOBALS['dbname'])) {
@@ -418,7 +417,7 @@ class PrivilegesController extends AbstractController
                         $GLOBALS['hostname'] ?? '',
                         is_string($GLOBALS['dbname']) ? $GLOBALS['dbname'] : '',
                         $GLOBALS['routinename'],
-                        Util::escapeMysqlWildcards($GLOBALS['url_dbname'] ?? '')
+                        $serverPrivileges->escapeGrantWildcards($GLOBALS['url_dbname'] ?? '')
                     )
                 );
             } else {
@@ -431,7 +430,7 @@ class PrivilegesController extends AbstractController
                 $this->response->addHTML(
                     $serverPrivileges->getHtmlForUserProperties(
                         $GLOBALS['dbname_is_wildcard'],
-                        Util::escapeMysqlWildcards($GLOBALS['url_dbname'] ?? ''),
+                        $serverPrivileges->escapeGrantWildcards($GLOBALS['url_dbname'] ?? ''),
                         $GLOBALS['username'],
                         $GLOBALS['hostname'] ?? '',
                         $GLOBALS['dbname'] ?? '',

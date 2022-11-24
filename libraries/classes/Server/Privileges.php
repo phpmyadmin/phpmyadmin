@@ -54,6 +54,7 @@ use function sprintf;
 use function str_contains;
 use function str_replace;
 use function strlen;
+use function strtr;
 use function trim;
 use function uksort;
 
@@ -120,12 +121,38 @@ class Privileges
 
         if (strlen($tablename) > 0) {
             return Util::backquote(
-                Util::unescapeMysqlWildcards($dbname)
-            )
-            . '.' . Util::backquote($tablename);
+                $this->unescapeGrantWildcards($dbname)
+            ) . '.' . Util::backquote($tablename);
         }
 
         return Util::backquote($dbname) . '.*';
+    }
+
+    /**
+     * Add slashes before "_" and "%" characters for using them in MySQL
+     * database, table and field names.
+     * Note: This function does not escape backslashes!
+     *
+     * @param string $name the string to escape
+     *
+     * @return string the escaped string
+     */
+    public function escapeGrantWildcards($name): string
+    {
+        return strtr($name, ['_' => '\\_', '%' => '\\%']);
+    }
+
+    /**
+     * removes slashes before "_" and "%" characters
+     * Note: This function does not unescape backslashes!
+     *
+     * @param string $name the string to escape
+     *
+     * @return string the escaped string
+     */
+    public function unescapeGrantWildcards($name): string
+    {
+        return strtr($name, ['\\_' => '_', '\\%' => '%']);
     }
 
     /**
@@ -540,7 +567,7 @@ class Privileges
             . ' FROM `mysql`.`tables_priv`'
             . " WHERE `User` = '" . $this->dbi->escapeString($username) . "'"
             . " AND `Host` = '" . $this->dbi->escapeString($hostname) . "'"
-            . " AND `Db` = '" . $this->dbi->escapeString(Util::unescapeMysqlWildcards($db)) . "'"
+            . " AND `Db` = '" . $this->dbi->escapeString($this->unescapeGrantWildcards($db)) . "'"
             . " AND `Table_name` = '" . $this->dbi->escapeString($table) . "';";
     }
 
@@ -647,7 +674,7 @@ class Privileges
             $res = $this->dbi->tryQuery(
                 'SHOW COLUMNS FROM '
                 . Util::backquote(
-                    Util::unescapeMysqlWildcards($db)
+                    $this->unescapeGrantWildcards($db)
                 )
                 . '.' . Util::backquote($table) . ';'
             );
@@ -674,7 +701,7 @@ class Privileges
                 . ' = \'' . $this->dbi->escapeString($hostname) . "'"
                 . ' AND `Db`'
                 . ' = \'' . $this->dbi->escapeString(
-                    Util::unescapeMysqlWildcards($db)
+                    $this->unescapeGrantWildcards($db)
                 ) . "'"
                 . ' AND `Table_name`'
                 . ' = \'' . $this->dbi->escapeString($table) . '\';'
@@ -1718,7 +1745,7 @@ class Privileges
                 // only Db names in the table `mysql`.`db` uses wildcards
                 // as we are in the db specific rights display we want
                 // all db names escaped, also from other sources
-                $dbRightsRow['Db'] = Util::escapeMysqlWildcards($dbRightsRow['Db']);
+                $dbRightsRow['Db'] = $this->escapeGrantWildcards($dbRightsRow['Db']);
             }
 
             $dbRights[$dbRightsRow[$dbOrTableName]] = $dbRightsRow;
@@ -1857,7 +1884,7 @@ class Privileges
                 $onePrivilege['column_privs'] = ! empty($row['Column_priv']);
                 $onePrivilege['privileges'] = implode(',', $this->extractPrivInfo($row, true));
 
-                $paramDbName = Util::escapeMysqlWildcards($dbname);
+                $paramDbName = $this->escapeGrantWildcards($dbname);
                 $paramTableName = $row['Table_name'];
             } else { // routine
                 $name = $row['Routine_name'];
@@ -1872,7 +1899,7 @@ class Privileges
                     $this->extractPrivInfo($privs, true)
                 );
 
-                $paramDbName = Util::escapeMysqlWildcards($dbname);
+                $paramDbName = $this->escapeGrantWildcards($dbname);
                 $paramRoutineName = $row['Routine_name'];
             }
 
@@ -1911,6 +1938,7 @@ class Privileges
         $data['username'] = $username;
         $data['hostname'] = $hostname;
         $data['database'] = $dbname;
+        $data['escaped_database'] = $this->escapeGrantWildcards($dbname);
         $data['type'] = $type;
 
         if ($type === 'database') {
@@ -1927,7 +1955,7 @@ class Privileges
                     continue;
                 }
 
-                $currentDbEscaped = Util::escapeMysqlWildcards($currentDb);
+                $currentDbEscaped = $this->escapeGrantWildcards($currentDb);
                 // cannot use array_diff() once, outside of the loop,
                 // because the list of databases has special characters
                 // already escaped in $foundRows,
@@ -2792,7 +2820,7 @@ class Privileges
                     $dbAndTable[$key] .= '.*';
                 }
             } else {
-                $unescapedDb = Util::unescapeMysqlWildcards($dbname);
+                $unescapedDb = $this->unescapeGrantWildcards($dbname);
                 $dbAndTable = Util::backquote($unescapedDb) . '.';
 
                 if ($tablename !== null) {
@@ -3115,7 +3143,7 @@ class Privileges
                 $tableSpecificRights .= $this->getHtmlForAllTableSpecificRights($username, $hostname, 'database');
             } else {
                 // unescape wildcards in dbname at table level
-                $unescapedDb = Util::unescapeMysqlWildcards($dbname);
+                $unescapedDb = $this->unescapeGrantWildcards($dbname);
 
                 $tableSpecificRights .= $this->getHtmlForAllTableSpecificRights(
                     $username,
@@ -3353,7 +3381,7 @@ class Privileges
 
             $query = 'GRANT ALL PRIVILEGES ON '
                 . Util::backquote(
-                    Util::escapeMysqlWildcards($username)
+                    $this->escapeGrantWildcards($username)
                 ) . '.* TO \''
                 . $this->dbi->escapeString($username)
                 . '\'@\'' . $this->dbi->escapeString($hostname) . '\';';
@@ -3367,7 +3395,7 @@ class Privileges
             // Grant all privileges on wildcard name (username\_%)
             $query = 'GRANT ALL PRIVILEGES ON '
                 . Util::backquote(
-                    Util::escapeMysqlWildcards($username) . '\_%'
+                    $this->escapeGrantWildcards($username) . '\_%'
                 ) . '.* TO \''
                 . $this->dbi->escapeString($username)
                 . '\'@\'' . $this->dbi->escapeString($hostname) . '\';';
@@ -3682,7 +3710,7 @@ class Privileges
             . " WHERE `User` = '" . $this->dbi->escapeString($username) . "'"
             . " AND `Host` = '" . $this->dbi->escapeString($hostname) . "'"
             . " AND `Db` = '"
-            . $this->dbi->escapeString(Util::unescapeMysqlWildcards($database)) . "'"
+            . $this->dbi->escapeString($this->unescapeGrantWildcards($database)) . "'"
             . " AND `Routine_name` LIKE '" . $this->dbi->escapeString($routine) . "';";
         $privileges = $this->dbi->fetchValue($sql);
         if ($privileges === false) {

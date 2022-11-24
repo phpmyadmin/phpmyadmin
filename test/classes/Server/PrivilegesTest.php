@@ -243,7 +243,7 @@ class PrivilegesTest extends AbstractTestCase
             . ' FROM `mysql`.`tables_priv`'
             . " WHERE `User` = '" . $dbi->escapeString($username) . "'"
             . " AND `Host` = '" . $dbi->escapeString($hostname) . "'"
-            . " AND `Db` = '" . Util::unescapeMysqlWildcards($db) . "'"
+            . " AND `Db` = '" . $serverPrivileges->unescapeGrantWildcards($db) . "'"
             . " AND `Table_name` = '" . $dbi->escapeString($table) . "';";
         $this->assertEquals($sql, $ret);
 
@@ -1952,5 +1952,80 @@ class PrivilegesTest extends AbstractTestCase
         $relation = new Relation($dbi);
 
         return new Privileges(new Template(), $dbi, $relation, new RelationCleanup($dbi, $relation), new Plugins($dbi));
+    }
+
+    /**
+     * data provider for testEscapeMysqlWildcards and testUnescapeMysqlWildcards
+     *
+     * @psalm-return list<array{string, string}>
+     */
+    public function providerUnEscapeMysqlWildcards(): array
+    {
+        return [
+            [
+                '\_test',
+                '_test',
+            ],
+            [
+                '\_\\',
+                '_\\',
+            ],
+            [
+                '\\_\%',
+                '_%',
+            ],
+            [
+                '\\\_',
+                '\_',
+            ],
+            [
+                '\\\_\\\%',
+                '\_\%',
+            ],
+            [
+                '\_\\%\_\_\%',
+                '_%__%',
+            ],
+            [
+                '\%\_',
+                '%_',
+            ],
+            [
+                '\\\%\\\_',
+                '\%\_',
+            ],
+        ];
+    }
+
+    /**
+     * @param string $a Expected value
+     * @param string $b String to escape
+     *
+     * @dataProvider providerUnEscapeMysqlWildcards
+     */
+    public function testEscapeMysqlWildcards(string $a, string $b): void
+    {
+        $dbi = $this->createDatabaseInterface();
+        $serverPrivileges = $this->getPrivileges($dbi);
+        $this->assertEquals(
+            $a,
+            $serverPrivileges->escapeGrantWildcards($b)
+        );
+    }
+
+    /**
+     * @param string $a String to unescape
+     * @param string $b Expected value
+     *
+     * @dataProvider providerUnEscapeMysqlWildcards
+     */
+    public function testUnescapeMysqlWildcards(string $a, string $b): void
+    {
+        $dbi = $this->createDatabaseInterface();
+        $serverPrivileges = $this->getPrivileges($dbi);
+        $this->assertEquals(
+            $b,
+            $serverPrivileges->unescapeGrantWildcards($a)
+        );
     }
 }

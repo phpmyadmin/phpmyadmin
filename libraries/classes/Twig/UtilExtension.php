@@ -162,10 +162,6 @@ class UtilExtension extends AbstractExtension
                 'convert_bit_default_value',
                 [Util::class, 'convertBitDefaultValue']
             ),
-            new TwigFilter(
-                'escape_mysql_wildcards',
-                [Util::class, 'escapeMysqlWildcards']
-            ),
         ];
     }
 }

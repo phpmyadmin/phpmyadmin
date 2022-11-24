@@ -134,8 +134,6 @@ class Generator
             }
 
             $database = $GLOBALS['db'];
-        } else {
-            $database = Util::unescapeMysqlWildcards($database);
         }
 
         $scriptName = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');

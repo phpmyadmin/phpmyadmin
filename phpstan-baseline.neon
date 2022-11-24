@@ -6971,11 +6971,6 @@ parameters:
 			path: libraries/classes/Query/Compatibility.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Query\\\\Generator\\:\\:getTableCondition\\(\\) has parameter \\$escapedTableOrTables with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Query/Generator.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Query\\\\Utilities\\:\\:usortComparisonCallback\\(\\) has parameter \\$a with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Query/Utilities.php
@@ -7411,7 +7406,7 @@ parameters:
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Parameter \\#1 \\$name of static method PhpMyAdmin\\\\Util\\:\\:escapeMysqlWildcards\\(\\) expects string, array\\<int, string\\>\\|string\\|true\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:escapeGrantWildcards\\(\\) expects string, array\\<int, string\\>\\|string\\|true\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
 
@@ -11502,11 +11497,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\UtilTest\\:\\:providerTimespanFormat\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/UtilTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\UtilTest\\:\\:providerUnEscapeMysqlWildcards\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/UtilTest.php
 

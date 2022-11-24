@@ -5756,10 +5756,7 @@
     </PossiblyNullReference>
   </file>
   <file src="libraries/classes/DatabaseInterface.php">
-    <DeprecatedMethod occurrences="6">
-      <code>[$this, 'escapeString']</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
+    <DeprecatedMethod occurrences="3">
       <code>escapeString</code>
       <code>escapeString</code>
       <code>escapeString</code>
@@ -12050,11 +12047,6 @@
       <code>$eachTables[$table_name]['VERSION']</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Query/Generator.php">
-    <MixedArgumentTypeCoercion occurrences="1">
-      <code>$escapedTableOrTables</code>
-    </MixedArgumentTypeCoercion>
-  </file>
   <file src="libraries/classes/Query/Utilities.php">
     <MixedArrayAssignment occurrences="1">
       <code>$_SESSION['debug']['queries']</code>
@@ -14208,8 +14200,7 @@
     </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/UserPreferences.php">
-    <DeprecatedMethod occurrences="7">
-      <code>escapeString</code>
+    <DeprecatedMethod occurrences="6">
       <code>escapeString</code>
       <code>escapeString</code>
       <code>escapeString</code>
@@ -16407,8 +16398,7 @@
       <code>$_SESSION['cache']['server_server']</code>
       <code>$_SESSION['cache']['server_server']</code>
     </MixedArrayAccess>
-    <MixedInferredReturnType occurrences="18">
-      <code>array</code>
+    <MixedInferredReturnType occurrences="17">
       <code>array</code>
       <code>array</code>
       <code>array</code>

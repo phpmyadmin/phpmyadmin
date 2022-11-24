@@ -10,6 +10,7 @@ use function is_string;
 use function preg_match;
 use function sort;
 use function strlen;
+use function strtr;
 use function usort;
 
 /**
@@ -133,7 +134,7 @@ class ListDatabase extends ListAbstract
             // thus containing not escaped _ or %
             if (! preg_match('/(^|[^\\\\])(_|%)/', $each_only_db)) {
                 // ... not contains wildcard
-                $items[] = Util::unescapeMysqlWildcards($each_only_db);
+                $items[] = strtr($each_only_db, ['\\\\' => '\\', '\\_' => '_', '\\%' => '%']);
                 continue;
             }
 
