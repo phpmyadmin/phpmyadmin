@@ -70,6 +70,7 @@ phpMyAdmin - ChangeLog
 - issue #17446 Lower the check for virtual columns to MySQL>=5.7.6 nothing is supported on 5.7.5
 - issue        Fix column names option for CSV Export
 - issue #17177 Fix preview SQL when reordering columns doesn't work on move columns
+- issue #15887 Fixed DROP TABLE errors ignored on multi table select for DROP
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5
