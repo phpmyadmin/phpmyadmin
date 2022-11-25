@@ -3,6 +3,7 @@ phpMyAdmin - ChangeLog
 
 5.3.0 (not yet released)
 - issue #17842 Change js.cookie.js to js.cookie.min.js
+- issue #17632 Improve tab keypress to text fields on the login form
 
 5.2.1 (not yet released)
 - issue #17522 Fix case where the routes cache file is invalid
