@@ -59,15 +59,21 @@ class MySQLDocumentation
     /**
      * Displays a link to the phpMyAdmin documentation
      *
-     * @param string $page   Page in documentation
-     * @param string $anchor Optional anchor in page
-     * @param bool   $bbcode Optional flag indicating whether to output bbcode
+     * @param string $page            Page in documentation
+     * @param string $anchor          Optional anchor in page
+     * @param bool   $bbcode          Optional flag indicating whether to output bbcode
+     * @param bool   $disableTabIndex Optional flag indicating that a negative tabindex should be set on the link
      *
      * @return string  the html link
      */
-    public static function showDocumentation($page, $anchor = '', $bbcode = false): string
+    public static function showDocumentation($page, $anchor = '', $bbcode = false, $disableTabIndex = false): string
     {
-        return Generator::showDocumentationLink(self::getDocumentationLink($page, $anchor), 'documentation', $bbcode);
+        return Generator::showDocumentationLink(
+            self::getDocumentationLink($page, $anchor),
+            'documentation',
+            $bbcode,
+            $disableTabIndex
+        );
     }
 
     /**

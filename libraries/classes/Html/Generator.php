@@ -772,19 +772,24 @@ class Generator
     /**
      * Displays a link to the documentation as an icon
      *
-     * @param string $link   documentation link
-     * @param string $target optional link target
-     * @param bool   $bbcode optional flag indicating whether to output bbcode
+     * @param string $link            documentation link
+     * @param string $target          optional link target
+     * @param bool   $bbcode          optional flag indicating whether to output bbcode
+     * @param bool   $disableTabIndex optional flag indicating that a negative tabindex should be set on the link
      *
      * @return string the html link
      */
-    public static function showDocumentationLink($link, $target = 'documentation', $bbcode = false): string
-    {
+    public static function showDocumentationLink(
+        $link,
+        $target = 'documentation',
+        $bbcode = false,
+        $disableTabIndex = false
+    ): string {
         if ($bbcode) {
             return '[a@' . $link . '@' . $target . '][dochelpicon][/a]';
         }
 
-        return '<a href="' . $link . '" target="' . $target . '">'
+        return '<a href="' . $link . '" target="' . $target . '"' . ($disableTabIndex ? ' tabindex="-1"' : '') . '>'
             . self::getImage('b_help', __('Documentation'))
             . '</a>';
     }
