@@ -1677,7 +1677,7 @@ $cfg['Export']['texytext_null'] = 'NULL';
 /**
  * @global boolean $cfg['Export']['csv_columns']
  */
-$cfg['Export']['csv_columns'] = false;
+$cfg['Export']['csv_columns'] = true;
 
 /**
  * @global string $cfg['Export']['csv_structure_or_data']

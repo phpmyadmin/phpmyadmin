@@ -307,6 +307,17 @@ You can configure several phpMyAdmin features using environment variables:
 
     If set, this option will override the default `config.user.inc.php` with the base64 decoded contents of the variable.
 
+.. envvar:: PMA_UPLOADDIR
+
+    If set, this option will set the path where files can be saved to be available to import (:config:option:`$cfg['UploadDir']`)
+
+.. envvar:: PMA_SAVEDIR
+
+    If set, this option will set the path where exported files can be saved (:config:option:`$cfg['SaveDir']`)
+
+.. envvar:: APACHE_PORT
+
+    If set, this option will change the default Apache port from `80` in case you want it to run on a different port like an unprivileged port. Set to any port value (such as `APACHE_PORT=8090`).
 
 By default, :ref:`cookie` is used, but if :envvar:`PMA_USER` and
 :envvar:`PMA_PASSWORD` are set, it is switched to :ref:`auth_config`.

@@ -71,6 +71,7 @@ phpMyAdmin - ChangeLog
 - issue #17340 Fix "New Table" page -> "VIRTUAL" attribute is lost when adding a new column
 - issue #17446 Fix missing option for STORED virtual column on MySQL and PERSISTENT is not supported on MySQL
 - issue #17446 Lower the check for virtual columns to MySQL>=5.7.6 nothing is supported on 5.7.5
+- issue        Fix column names option for CSV Export
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5

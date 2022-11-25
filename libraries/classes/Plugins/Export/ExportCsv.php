@@ -111,11 +111,6 @@ class ExportCsv extends ExportPlugin
         $GLOBALS['csv_enclosed'] = $GLOBALS['csv_enclosed'] ?? null;
         $GLOBALS['csv_escaped'] = $GLOBALS['csv_escaped'] ?? null;
 
-        //Enable columns names by default for CSV
-        if ($GLOBALS['what'] === 'csv') {
-            $GLOBALS['csv_columns'] = 'yes';
-        }
-
         // Here we just prepare some values for export
         if ($GLOBALS['what'] === 'excel') {
             $GLOBALS['csv_terminated'] = "\015\012";
@@ -135,7 +130,7 @@ class ExportCsv extends ExportPlugin
             $GLOBALS['csv_enclosed'] = '"';
             $GLOBALS['csv_escaped'] = '"';
             if (isset($GLOBALS['excel_columns'])) {
-                $GLOBALS['csv_columns'] = 'yes';
+                $GLOBALS['csv_columns'] = true;
             }
         } else {
             if (empty($GLOBALS['csv_terminated']) || mb_strtolower($GLOBALS['csv_terminated']) === 'auto') {
@@ -238,7 +233,7 @@ class ExportCsv extends ExportPlugin
         $fields_cnt = $result->numFields();
 
         // If required, get fields name at the first line
-        if (isset($GLOBALS['csv_columns'])) {
+        if (isset($GLOBALS['csv_columns']) && $GLOBALS['csv_columns']) {
             $schema_insert = '';
             foreach ($result->getFieldNames() as $col_as) {
                 if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
