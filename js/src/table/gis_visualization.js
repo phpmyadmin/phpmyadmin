@@ -1,4 +1,6 @@
 import $ from 'jquery';
+import { AJAX } from '../ajax.js';
+import { Functions } from '../functions.js';
 
 /**
  * @fileoverview    functions used for visualizing GIS data
@@ -189,7 +191,7 @@ function onGisMouseWheel (event) {
 /**
  * Unbind all event handlers before tearing down a page
  */
-window.AJAX.registerTeardown('table/gis_visualization.js', function () {
+AJAX.registerTeardown('table/gis_visualization.js', function () {
     $(document).off('click', '#choice');
     $(document).off('dragstart', 'svg');
     $(document).off('mouseup', 'svg');
@@ -211,7 +213,7 @@ window.AJAX.registerTeardown('table/gis_visualization.js', function () {
     }
 });
 
-window.AJAX.registerOnload('table/gis_visualization.js', function () {
+AJAX.registerOnload('table/gis_visualization.js', function () {
     // If we are in GIS visualization, initialize it
     if ($('#gis_div').length > 0) {
         initGISVisualization();

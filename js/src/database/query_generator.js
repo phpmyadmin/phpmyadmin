@@ -1,13 +1,11 @@
 import $ from 'jquery';
+import { Functions } from '../functions.js';
 
 /**
  * @fileoverview    function used in QBE for DB
  * @name            Database Operations
  *
- * @requires    jQuery
  * @requires    jQueryUI
- * @requires    js/functions.js
- *
  */
 
 function getFormatsText () {

@@ -1,6 +1,7 @@
 import $ from 'jquery';
-
-/* global Navigation */
+import { AJAX } from './ajax.js';
+import { Functions } from './functions.js';
+import { Navigation } from './navigation.js';
 
 /**
  * Holds common parameters such as server, db, table, etc
@@ -165,7 +166,7 @@ const CommonActions = {
             .trigger('click')
             .remove();
         if (typeof callback !== 'undefined') {
-            window.AJAX.callback = callback;
+            AJAX.callback = callback;
         }
     }
 };

@@ -1,11 +1,10 @@
 import $ from 'jquery';
+import { AJAX } from '../ajax.js';
+import { Functions } from '../functions.js';
 import { CommonParams } from '../common.js';
 
 /**
  * JavaScript functions used on Database Search page
- *
- * @requires    jQuery
- * @requires    js/functions.js
  *
  * @package PhpMyAdmin
  */
@@ -20,7 +19,7 @@ import { CommonParams } from '../common.js';
 /**
  * Unbind all event handlers before tearing down a page
  */
-window.AJAX.registerTeardown('database/search.js', function () {
+AJAX.registerTeardown('database/search.js', function () {
     $('a.browse_results').off('click');
     $('a.delete_results').off('click');
     $('#buttonGo').off('click');
@@ -32,7 +31,7 @@ window.AJAX.registerTeardown('database/search.js', function () {
     $(document).off('submit', '#db_search_form.ajax');
 });
 
-window.AJAX.registerOnload('database/search.js', function () {
+AJAX.registerOnload('database/search.js', function () {
     /** Hide the table link in the initial search result */
     var icon = Functions.getImage('s_tbl', '', { 'id': 'table-image' }).toString();
     $('#table-info').prepend(icon).hide();

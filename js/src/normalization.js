@@ -1,4 +1,6 @@
 import $ from 'jquery';
+import { AJAX } from './ajax.js';
+import { Functions } from './functions.js';
 import { CommonParams } from './common.js';
 
 /**
@@ -481,7 +483,7 @@ function moveRepeatingGroup (repeatingCols) {
         }
     });
 }
-window.AJAX.registerTeardown('normalization.js', function () {
+AJAX.registerTeardown('normalization.js', function () {
     $('#extra').off('click', '#selectNonAtomicCol');
     $('#splitGo').off('click');
     $('.tblFooters').off('click', '#saveSplit');
@@ -494,7 +496,7 @@ window.AJAX.registerTeardown('normalization.js', function () {
     $('#mainContent').off('click', '.pickPd');
 });
 
-window.AJAX.registerOnload('normalization.js', function () {
+AJAX.registerOnload('normalization.js', function () {
     var selectedCol;
     normalizeto = $('#mainContent').data('normalizeto');
     $('#extra').on('click', '#selectNonAtomicCol', function () {

@@ -1,4 +1,6 @@
 import $ from 'jquery';
+import { AJAX } from './ajax.js';
+import { Functions } from './functions.js';
 import { CommonParams } from './common.js';
 
 /**
@@ -224,8 +226,8 @@ var ErrorReport = {
             'url': window.location.href,
             'exception_type': 'js'
         };
-        if (window.AJAX.scriptHandler.scripts.length > 0) {
-            reportData.scripts = window.AJAX.scriptHandler.scripts.map(
+        if (AJAX.scriptHandler.scripts.length > 0) {
+            reportData.scripts = AJAX.scriptHandler.scripts.map(
                 function (script) {
                     return script;
                 }
@@ -259,13 +261,13 @@ var ErrorReport = {
         }
     },
     /**
-     * Automatically wraps the callback in window.AJAX.registerOnload
+     * Automatically wraps the callback in AJAX.registerOnload
      *
      * @return {void}
      */
     wrapAjaxOnloadCallback: function () {
-        var oldOnload = window.AJAX.registerOnload;
-        window.AJAX.registerOnload = function (file, func) {
+        var oldOnload = AJAX.registerOnload;
+        AJAX.registerOnload = function (file, func) {
             var wrappedFunction = ErrorReport.wrapFunction(func);
             oldOnload.call(this, file, wrappedFunction);
         };
@@ -288,7 +290,7 @@ var ErrorReport = {
         };
     },
     /**
-     * Wraps the callback in window.AJAX.registerOnload automatically
+     * Wraps the callback in AJAX.registerOnload automatically
      *
      * @return {void}
      */
@@ -298,7 +300,7 @@ var ErrorReport = {
     }
 };
 
-window.AJAX.registerOnload('error_report.js', function () {
+AJAX.registerOnload('error_report.js', function () {
     window.TraceKit.report.subscribe(ErrorReport.errorHandler);
     ErrorReport.setUpErrorReporting();
 });

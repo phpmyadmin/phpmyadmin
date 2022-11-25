@@ -139,12 +139,11 @@ class Header
         $this->scripts->addFile('vendor/jquery/jquery.validate.min.js');
         $this->scripts->addFile('vendor/jquery/jquery-ui-timepicker-addon.js');
         $this->scripts->addFile('index.php', ['route' => '/messages', 'l' => $GLOBALS['lang']]);
-        $this->scripts->addFile('ajax.js');
+        $this->scripts->addFile('shared.js');
         $this->scripts->addFile('keyhandler.js');
         $this->scripts->addFile('menu_resizer.js');
         $this->scripts->addFile('cross_framing_protection.js');
         $this->scripts->addFile('config.js');
-        $this->scripts->addFile('functions.js');
         $this->scripts->addFile('navigation.js');
         $this->scripts->addFile('indexes.js');
         $this->scripts->addFile('common.js');

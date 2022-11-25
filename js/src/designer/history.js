@@ -1,4 +1,6 @@
 import $ from 'jquery';
+import { AJAX } from '../ajax.js';
+import { Functions } from '../functions.js';
 
 /**
  * @fileoverview    function used in this file builds history tab and generates query.
@@ -807,7 +809,7 @@ DesignerHistory.buildQuery = function () {
     });
 };
 
-window.AJAX.registerTeardown('designer/history.js', function () {
+AJAX.registerTeardown('designer/history.js', function () {
     vqbEditor = null;
     historyArray = [];
     selectField = [];
@@ -817,7 +819,7 @@ window.AJAX.registerTeardown('designer/history.js', function () {
     $('#ok_edit_where').off('click');
 });
 
-window.AJAX.registerOnload('designer/history.js', function () {
+AJAX.registerOnload('designer/history.js', function () {
     $('#ok_edit_rename').on('click', function () {
         DesignerHistory.edit('Rename');
     });

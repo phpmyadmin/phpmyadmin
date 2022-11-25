@@ -1,12 +1,12 @@
 import $ from 'jquery';
+import { AJAX } from '../../ajax.js';
+import { Functions } from '../../functions.js';
 
 /**
  * @fileoverview    Javascript functions used in server status query page
  * @name            Server Status Query
  *
- * @requires    jQuery
  * @requires    jQueryUI
- * @requires    js/functions.js
  */
 
 /* global initTableSorter */ // js/server/status/sorter.js
@@ -14,7 +14,7 @@ import $ from 'jquery';
 /**
  * Unbind all event handlers before tearing down a page
  */
-window.AJAX.registerTeardown('server/status/queries.js', function () {
+AJAX.registerTeardown('server/status/queries.js', function () {
     if (document.getElementById('serverstatusquerieschart') !== null) {
         var queryPieChart = $('#serverstatusquerieschart').data('queryPieChart');
         if (queryPieChart) {
@@ -23,7 +23,7 @@ window.AJAX.registerTeardown('server/status/queries.js', function () {
     }
 });
 
-window.AJAX.registerOnload('server/status/queries.js', function () {
+AJAX.registerOnload('server/status/queries.js', function () {
     // Build query statistics chart
     var cdata = [];
     try {

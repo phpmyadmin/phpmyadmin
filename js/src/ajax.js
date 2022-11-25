@@ -1,7 +1,7 @@
 import $ from 'jquery';
+import { Functions } from './functions.js';
+import { Navigation } from './navigation.js';
 import { CommonParams } from './common.js';
-
-/* global Navigation */
 
 /**
  * This object handles ajax requests for pages. It also
@@ -436,8 +436,8 @@ const AJAX = {
                     $('#modalOverlay').remove();
                 }
                 $('fieldset.disabled_for_expiration').removeAttr('disabled').removeClass('disabled_for_expiration');
-                AJAX.fireTeardown('functions.js');
-                AJAX.fireOnload('functions.js');
+                AJAX.fireTeardown('main.js');
+                AJAX.fireOnload('main.js');
             }
             if (typeof data.new_token !== 'undefined') {
                 $('input[name=token]').val(data.new_token);

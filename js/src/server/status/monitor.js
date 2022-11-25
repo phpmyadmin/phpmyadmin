@@ -1,13 +1,13 @@
 import $ from 'jquery';
+import { AJAX } from '../../ajax.js';
+import { Functions } from '../../functions.js';
 import { CommonParams } from '../../common.js';
 
 /**
  * @fileoverview    Javascript functions used in server status monitor page
  * @name            Server Status Monitor
  *
- * @requires    jQuery
  * @requires    jQueryUI
- * @requires    js/functions.js
  */
 
 /* global firstDayOfCalendar, themeImagePath */ // templates/javascript/variables.twig
@@ -79,7 +79,7 @@ function destroyGrid () {
     monitorSettings = null;
 }
 
-window.AJAX.registerOnload('server/status/monitor.js', function () {
+AJAX.registerOnload('server/status/monitor.js', function () {
     var $jsDataForm = $('#js_data');
     serverTimeDiff = new Date().getTime() - $jsDataForm.find('input[name=server_time]').val();
     serverOs = $jsDataForm.find('input[name=server_os]').val();
@@ -90,7 +90,7 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
 /**
  * Unbind all event handlers before tearing down a page
  */
-window.AJAX.registerTeardown('server/status/monitor.js', function () {
+AJAX.registerTeardown('server/status/monitor.js', function () {
     $('#emptyDialog').remove();
     $('a.popupLink').off('click');
     $('body').off('click');
@@ -98,7 +98,7 @@ window.AJAX.registerTeardown('server/status/monitor.js', function () {
 /**
  * Popup behaviour
  */
-window.AJAX.registerOnload('server/status/monitor.js', function () {
+AJAX.registerOnload('server/status/monitor.js', function () {
     $('<div></div>')
         .attr('id', 'emptyDialog')
         .appendTo('#page_content');
@@ -126,7 +126,7 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
     });
 });
 
-window.AJAX.registerTeardown('server/status/monitor.js', function () {
+AJAX.registerTeardown('server/status/monitor.js', function () {
     $('a[href="#rearrangeCharts"], a[href="#endChartEditMode"]').off('click');
     $('div.popupContent select[name="chartColumns"]').off('change');
     $('div.popupContent select[name="gridChartRefresh"]').off('change');
@@ -150,7 +150,7 @@ window.AJAX.registerTeardown('server/status/monitor.js', function () {
     destroyGrid();
 });
 
-window.AJAX.registerOnload('server/status/monitor.js', function () {
+AJAX.registerOnload('server/status/monitor.js', function () {
     // Show tab links
     $('div.tabLinks').show();
     $('#loadingMonitorIcon').remove();
@@ -2321,6 +2321,6 @@ window.AJAX.registerOnload('server/status/monitor.js', function () {
 });
 
 // Run the monitor once loaded
-window.AJAX.registerOnload('server/status/monitor.js', function () {
+AJAX.registerOnload('server/status/monitor.js', function () {
     $('a[href="#pauseCharts"]').trigger('click');
 });

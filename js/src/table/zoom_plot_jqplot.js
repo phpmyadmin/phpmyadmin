@@ -1,12 +1,11 @@
 import $ from 'jquery';
+import { AJAX } from '../ajax.js';
+import { Functions } from '../functions.js';
 import { CommonParams } from '../common.js';
 
 // TODO: change the axis
 /**
  * @fileoverview JavaScript functions used on /table/search
- *
- * @requires    jQuery
- * @requires    js/functions.js
  **/
 
 /* global Sql */
@@ -105,7 +104,7 @@ function getType (field) {
 /**
  * Unbind all event handlers before tearing down a page
  */
-window.AJAX.registerTeardown('table/zoom_plot_jqplot.js', function () {
+AJAX.registerTeardown('table/zoom_plot_jqplot.js', function () {
     $('#tableid_0').off('change');
     $('#tableid_1').off('change');
     $('#tableid_2').off('change');
@@ -118,7 +117,7 @@ window.AJAX.registerTeardown('table/zoom_plot_jqplot.js', function () {
     $('div#querychart').off('jqplotDataClick');
 });
 
-window.AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
+AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
     var currentChart = null;
     var searchedDataKey = null;
     var xLabel = $('#tableid_0').val();

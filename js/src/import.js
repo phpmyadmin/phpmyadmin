@@ -1,4 +1,6 @@
 import $ from 'jquery';
+import { AJAX } from './ajax.js';
+import { Functions } from './functions.js';
 
 /**
  * Functions used in the import tab
@@ -49,7 +51,7 @@ function matchFile (fname) {
 /**
  * Unbind all event handlers before tearing down a page
  */
-window.AJAX.registerTeardown('import.js', function () {
+AJAX.registerTeardown('import.js', function () {
     $('#plugins').off('change');
     $('#input_import_file').off('change');
     $('#select_local_import_file').off('change');
@@ -58,7 +60,7 @@ window.AJAX.registerTeardown('import.js', function () {
     $('#text_csv_enclosed').add('#text_csv_escaped').off('keyup');
 });
 
-window.AJAX.registerOnload('import.js', function () {
+AJAX.registerOnload('import.js', function () {
     // import_file_form validation.
     $(document).on('submit', '#import_file_form', function () {
         var radioLocalImport = $('#localFileTab');

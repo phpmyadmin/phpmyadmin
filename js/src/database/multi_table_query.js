@@ -1,15 +1,14 @@
 import $ from 'jquery';
+import { AJAX } from '../ajax.js';
+import { Functions } from '../functions.js';
 import { CommonParams } from '../common.js';
 
 /**
  * @fileoverview    function used in QBE for DB
  * @name            Database Operations
  *
- * @requires    jQuery
  * @requires    jQueryUI
- * @requires    js/functions.js
  * @requires    js/database/query_generator.js
- *
  */
 
 /**
@@ -19,7 +18,7 @@ import { CommonParams } from '../common.js';
 /**
  * Unbind all event handlers before tearing down a page
  */
-window.AJAX.registerTeardown('database/multi_table_query.js', function () {
+AJAX.registerTeardown('database/multi_table_query.js', function () {
     $('.tableNameSelect').each(function () {
         $(this).off('change');
     });
@@ -27,7 +26,7 @@ window.AJAX.registerTeardown('database/multi_table_query.js', function () {
     $('#add_column_button').off('click');
 });
 
-window.AJAX.registerOnload('database/multi_table_query.js', function () {
+AJAX.registerOnload('database/multi_table_query.js', function () {
     var editor = Functions.getSqlEditor($('#MultiSqlquery'), {}, 'both');
     $('.CodeMirror-line').css('text-align', 'left');
     editor.setSize(-1, 50);

@@ -1,4 +1,6 @@
 import $ from 'jquery';
+import { AJAX } from '../ajax.js';
+import { Functions } from '../functions.js';
 import { CommonActions, CommonParams } from '../common.js';
 
 /**
@@ -17,12 +19,12 @@ var change = 0; // variable to track any change in designer layout.
 var showRelationLines = true;
 var alwaysShowText = false;
 
-window.AJAX.registerTeardown('designer/move.js', function () {
+AJAX.registerTeardown('designer/move.js', function () {
     $(document).off('fullscreenchange');
     $('#selflink').show();
 });
 
-window.AJAX.registerOnload('designer/move.js', function () {
+AJAX.registerOnload('designer/move.js', function () {
     var $content = $('#page_content');
     var $img = $('#toggleFullscreen').find('img');
     var $span = $img.siblings('span');
@@ -2026,7 +2028,7 @@ DesignerMove.enableTableEvents = function (index, element) {
     DesignerMove.enablePageContentEvents();
 };
 
-window.AJAX.registerTeardown('designer/move.js', function () {
+AJAX.registerTeardown('designer/move.js', function () {
     $('#side_menu').off('mouseenter mouseleave');
     $('#key_Show_left_menu').off('click');
     $('#toggleFullscreen').off('click');
@@ -2076,7 +2078,7 @@ window.AJAX.registerTeardown('designer/move.js', function () {
     $('#page_content').off('mousemove');
 });
 
-window.AJAX.registerOnload('designer/move.js', function () {
+AJAX.registerOnload('designer/move.js', function () {
     $('#key_Show_left_menu').on('click', function () {
         DesignerMove.showLeftMenu(this);
         return false;

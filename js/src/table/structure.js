@@ -1,13 +1,13 @@
 import $ from 'jquery';
+import { AJAX } from '../ajax.js';
+import { Functions } from '../functions.js';
 import { CommonActions, CommonParams } from '../common.js';
 
 /**
  * @fileoverview    functions used on the table structure page
  * @name            Table Structure
  *
- * @requires    jQuery
  * @requires    jQueryUI
- * @required    js/functions.js
  */
 
 /* global Navigation */
@@ -46,7 +46,7 @@ function checkFirst () {
 /**
  * Unbind all event handlers before tearing down a page
  */
-window.AJAX.registerTeardown('table/structure.js', function () {
+AJAX.registerTeardown('table/structure.js', function () {
     $(document).off('click', 'a.drop_column_anchor.ajax');
     $(document).off('click', 'a.add_key.ajax');
     $(document).off('click', '#move_columns_anchor');
@@ -56,7 +56,7 @@ window.AJAX.registerTeardown('table/structure.js', function () {
     $(document).off('click', '#remove_partitioning.ajax');
 });
 
-window.AJAX.registerOnload('table/structure.js', function () {
+AJAX.registerOnload('table/structure.js', function () {
     // Re-initialize variables.
     window.primaryIndexes = [];
     window.indexes = [];
@@ -272,11 +272,11 @@ window.AJAX.registerOnload('table/structure.js', function () {
 
         $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
             Functions.ajaxShowMessage();
-            window.AJAX.source = $this;
+            AJAX.source = $this;
 
             var params = Functions.getJsConfirmCommonParam(this, $thisAnchor.getPostData());
             params += CommonParams.get('arg_separator') + 'ajax_page_request=1';
-            $.post(url, params, window.AJAX.responseHandler);
+            $.post(url, params, AJAX.responseHandler);
         });
     }); // end Add key
 
@@ -400,9 +400,9 @@ window.AJAX.registerOnload('table/structure.js', function () {
         var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
 
         Functions.ajaxShowMessage();
-        window.AJAX.source = $form;
+        AJAX.source = $form;
 
-        $.post(this.formAction, submitData, window.AJAX.responseHandler);
+        $.post(this.formAction, submitData, AJAX.responseHandler);
     });
 
     /**
@@ -415,8 +415,8 @@ window.AJAX.registerOnload('table/structure.js', function () {
         function submitPartitionAction (url) {
             var params = 'ajax_request=true&ajax_page_request=true&' + $link.getPostData();
             Functions.ajaxShowMessage();
-            window.AJAX.source = $link;
-            $.post(url, params, window.AJAX.responseHandler);
+            AJAX.source = $link;
+            $.post(url, params, AJAX.responseHandler);
         }
 
         if ($link.is('#partition_action_DROP')) {
@@ -445,8 +445,8 @@ window.AJAX.registerOnload('table/structure.js', function () {
                 'ajax_page_request' : true
             }, $link.getPostData());
             Functions.ajaxShowMessage();
-            window.AJAX.source = $link;
-            $.post(url, params, window.AJAX.responseHandler);
+            AJAX.source = $link;
+            $.post(url, params, AJAX.responseHandler);
         });
     });
 

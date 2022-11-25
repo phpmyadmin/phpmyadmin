@@ -1,31 +1,33 @@
 import $ from 'jquery';
+import { AJAX } from './ajax.js';
+import { Functions } from './functions.js';
+import { Navigation } from './navigation.js';
 
 /* global Indexes */
-/* global Navigation */
 
-window.AJAX.registerOnload('functions.js', () => window.AJAX.removeSubmitEvents());
-$(window.AJAX.loadEventHandler());
+AJAX.registerOnload('main.js', () => AJAX.removeSubmitEvents());
+$(AJAX.loadEventHandler());
 
 /**
  * Attach a generic event handler to clicks on pages and submissions of forms.
  */
-$(document).on('click', 'a', window.AJAX.requestHandler);
-$(document).on('submit', 'form', window.AJAX.requestHandler);
+$(document).on('click', 'a', AJAX.requestHandler);
+$(document).on('submit', 'form', AJAX.requestHandler);
 
-$(document).on('ajaxError', window.AJAX.getFatalErrorHandler());
+$(document).on('ajaxError', AJAX.getFatalErrorHandler());
 
-window.AJAX.registerTeardown('keyhandler.js', window.KeyHandlerEvents.off());
-window.AJAX.registerOnload('keyhandler.js', window.KeyHandlerEvents.on());
+AJAX.registerTeardown('keyhandler.js', window.KeyHandlerEvents.off());
+AJAX.registerOnload('keyhandler.js', window.KeyHandlerEvents.on());
 
 window.crossFramingProtection();
 
-window.AJAX.registerTeardown('config.js', window.Config.off());
-window.AJAX.registerOnload('config.js', window.Config.on());
+AJAX.registerTeardown('config.js', window.Config.off());
+AJAX.registerOnload('config.js', window.Config.on());
 
 $.ajaxPrefilter(Functions.addNoCacheToAjaxRequests());
 
-window.AJAX.registerTeardown('functions.js', Functions.off());
-window.AJAX.registerOnload('functions.js', Functions.on());
+AJAX.registerTeardown('main.js', Functions.off());
+AJAX.registerOnload('main.js', Functions.on());
 
 $(Functions.dismissNotifications());
 $(Functions.initializeMenuResizer());
@@ -34,10 +36,10 @@ $(Functions.breadcrumbScrollToTop());
 
 $(Navigation.onload());
 
-window.AJAX.registerTeardown('indexes.js', Indexes.off());
-window.AJAX.registerOnload('indexes.js', Indexes.on());
+AJAX.registerTeardown('indexes.js', Indexes.off());
+AJAX.registerOnload('indexes.js', Indexes.on());
 
 $(() => Functions.checkNumberOfFields());
 
-window.AJAX.registerTeardown('page_settings.js', window.PageSettings.off());
-window.AJAX.registerOnload('page_settings.js', window.PageSettings.on());
+AJAX.registerTeardown('page_settings.js', window.PageSettings.off());
+AJAX.registerOnload('page_settings.js', window.PageSettings.on());

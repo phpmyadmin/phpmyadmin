@@ -1,8 +1,10 @@
 import $ from 'jquery';
+import { AJAX } from '../ajax.js';
+import { Functions } from '../functions.js';
 
 /* global Navigation */
 
-window.AJAX.registerTeardown('database/triggers.js', function () {
+AJAX.registerTeardown('database/triggers.js', function () {
     $(document).off('click', 'a.ajax.add_anchor, a.ajax.edit_anchor');
     $(document).off('click', 'a.ajax.export_anchor');
     $(document).off('click', '#bulkActionExportButton');
@@ -508,7 +510,7 @@ const DatabaseTriggers = {
     }
 };
 
-window.AJAX.registerOnload('database/triggers.js', function () {
+AJAX.registerOnload('database/triggers.js', function () {
     /**
      * Attach Ajax event handlers for the Add/Edit functionality.
      */

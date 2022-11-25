@@ -1,4 +1,6 @@
 import $ from 'jquery';
+import { AJAX } from '../ajax.js';
+import { Functions } from '../functions.js';
 import { CommonParams } from '../common.js';
 
 /* global Navigation */
@@ -485,7 +487,7 @@ const selectPasswordRadioWhenChangingPassword = () => {
 /**
  * Unbind all event handlers before tearing down a page
  */
-window.AJAX.registerTeardown('server/privileges.js', function () {
+AJAX.registerTeardown('server/privileges.js', function () {
     $('#fieldset_add_user_login').off('change', 'input[name=\'username\']');
     $(document).off('click', '#deleteUserCard .btn.ajax');
     $('#text_pma_change_pw').off('keyup');
@@ -507,7 +509,7 @@ window.AJAX.registerTeardown('server/privileges.js', function () {
     $(document).off('change', '#select_authentication_plugin');
 });
 
-window.AJAX.registerOnload('server/privileges.js', function () {
+AJAX.registerOnload('server/privileges.js', function () {
     $('#fieldset_add_user_login').on('change', 'input[name=\'username\']', AddUserLoginCheckUsername.handleEvent);
     $('#text_pma_pw').on('keyup', PasswordStrength.handleEvent);
     $('#text_pma_pw').on('input', SwitchToUseTextField.handleEvent);
