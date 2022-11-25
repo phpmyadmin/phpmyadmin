@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-11-23 22:47+0000\n"
+"PO-Revision-Date: 2022-11-27 12:48+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -323,7 +323,7 @@ msgstr "Датабазата %1$s беше преименувана во %2$s."
 #: db_operations.php:168
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
-msgstr "Датабазата %s беше копирана во %2$s."
+msgstr "Датабазата %1$s беше копирана во %2$s."
 
 #: db_operations.php:297
 #, php-format
@@ -1433,24 +1433,21 @@ msgstr ""
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:243
-#, fuzzy, php-format
-#| msgid "Save as file"
+#, php-format
 msgid "Set log_output to %s"
-msgstr "Сочувај како податотека"
+msgstr "Подеси log_output во %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:245
-#, fuzzy, php-format
-#| msgid "Enabled"
+#, php-format
 msgid "Enable %s"
-msgstr "Овозможено"
+msgstr "Вклучи %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:247
-#, fuzzy, php-format
-#| msgid "Disable"
+#, php-format
 msgid "Disable %s"
-msgstr "Оневозможено"
+msgstr "Исклучи %s"
 
 #. l10n: %d seconds
 #: js/messages.php:249
