@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-02-17 10:36+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2022-11-27 12:48+0000\n"
+"Last-Translator: Jon Ander Gainzarain <jonandergainzarain@gmail.com>\n"
 "Language-Team: Basque <https://hosted.weblate.org/projects/phpmyadmin/4-9/eu/"
 ">\n"
 "Language: eu\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -328,21 +328,19 @@ msgstr "%1$s datu-basea %2$s(e)ra kopiatua izan da."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
+"PhpMyAdmin-eko konfigurazio biltegia ezgaitu egin da. %sIkusi zergatia%s."
 
 #: db_qbe.php:133
 msgid "You have to choose at least one column to display!"
 msgstr "Gutxienez bistaratzeko Zutabe bat hautatu duzu!"
 
 #: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "in query"
 msgid "Multi-table query"
-msgstr "kontsultan"
+msgstr "Taula anitzeko kontsulta"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
-#, fuzzy
 msgid "Query by example"
-msgstr "Kontsulta mota"
+msgstr "Adibidetan oinarritutako kontsulta"
 
 #: db_qbe.php:168
 #, php-format
@@ -538,16 +536,12 @@ msgid "Output"
 msgstr "Irteera"
 
 #: gis_data_editor.php:423
-#, fuzzy
-#| msgid ""
-#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-#| "below into the \"Value\" field."
 msgid ""
 "Choose \"ST_GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"\"funtzio\" zutabetik \"GeomFromText\" hauta eta peko katea \"balorea\" "
-"eremuan itsatsi."
+"\"Function\" zutabetik \"ST_GeomFromText\" aukeratu eta itsatsi ondorengo "
+"katea \"Value\" gelaxkan."
 
 #: import.php:73
 msgid "Succeeded"
@@ -591,20 +585,19 @@ msgstr ""
 #: import.php:547 libraries/classes/Display/Import.php:56
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
+"Ezin izan dira gehigarriak inportatu, mesedez, begiratu zure instalazioa!"
 
 #: import.php:587 libraries/classes/Sql.php:827 libraries/classes/Sql.php:1631
-#, fuzzy, php-format
-#| msgid "Bookmark %s created"
+#, php-format
 msgid "Bookmark %s has been created."
-msgstr "%s laster-marka sortu da"
+msgstr "%s laster-marka sortu da."
 
 #: import.php:597
-#, fuzzy, php-format
-#| msgid "Import has been successfully finished, %d queries executed."
+#, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Inportatzea zuzen burutu da, %d kontsulta exekutatuta_."
-msgstr[1] "Inportatzea zuzen burutu da, %d kontsulta exekutatuta_."
+msgstr[1] "Inportatzea zuzen burutu da, %d kontsultak exekutatuta_."
 
 #: import.php:628
 #, php-format
@@ -612,6 +605,8 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
+"Script-eko denbora muga gainditu da, inportatzea amaitu nahi baduzu, "
+"mesedez, %sbirbidali fitxategi berdina%s eta inportatzeak jarraituko du."
 
 #: import.php:638
 msgid ""
