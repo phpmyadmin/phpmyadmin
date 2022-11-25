@@ -1011,7 +1011,7 @@ final class Export
     private function setCsvColumns(array $export): bool
     {
         if (! isset($export['csv_columns'])) {
-            return false;
+            return true;
         }
 
         return (bool) $export['csv_columns'];
