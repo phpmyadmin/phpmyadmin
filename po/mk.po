@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-11-20 00:22+0000\n"
-"PO-Revision-Date: 2022-11-23 22:48+0000\n"
+"PO-Revision-Date: 2022-11-26 05:48+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -4818,7 +4818,7 @@ msgstr "Датабазата %1$s беше преименувана во %2$s."
 #: libraries/classes/Controllers/Database/OperationsController.php:225
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
-msgstr "Датабазата %s беше копирана во %2$s."
+msgstr "Датабазата %1$s беше копирана во %2$s."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:330
 #, php-format
@@ -5844,21 +5844,21 @@ msgstr ""
 
 #. l10n: %s is FILE or TABLE
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:249
-#, fuzzy, php-format
+#, php-format
 msgid "Set log_output to %s"
-msgstr "Сочувај како податотека"
+msgstr "Подеси log_output во %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:251
-#, fuzzy, php-format
+#, php-format
 msgid "Enable %s"
-msgstr "Овозможено"
+msgstr "Вклучи %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:253
-#, fuzzy, php-format
+#, php-format
 msgid "Disable %s"
-msgstr "Оневозможено"
+msgstr "Исклучи %s"
 
 #. l10n: %d seconds
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:255
