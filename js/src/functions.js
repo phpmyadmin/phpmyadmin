@@ -2183,6 +2183,7 @@ Functions.confirm = function (question, url, callbackFn, openCallback) {
 
     $('#functionConfirmModal').modal('show');
     $('#functionConfirmModal').find('.modal-body').first().html(question);
+    $('#functionConfirmOkButton').off('click');// Un-register previous modals
     $('#functionConfirmOkButton').on('click', function () {
         if (typeof callbackFn === 'function') {
             callbackFn.call(this, url);
