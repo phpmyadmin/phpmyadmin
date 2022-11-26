@@ -7,7 +7,7 @@
   "license": "GPL-2.0",
   "private": true,
   "engines": {
-    "node": ">=14"
+    "node": ">=10"
   },
   "type": "module",
   "dependencies": {
