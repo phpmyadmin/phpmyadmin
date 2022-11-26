@@ -188,6 +188,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             'server_options' => $serversOptions,
             'server' => $GLOBALS['server'],
             'lang' => $GLOBALS['lang'],
+            'text_dir' => $GLOBALS['text_dir'],
             'has_captcha' => ! empty($GLOBALS['cfg']['CaptchaApi'])
                 && ! empty($GLOBALS['cfg']['CaptchaRequestParam'])
                 && ! empty($GLOBALS['cfg']['CaptchaResponseParam'])
