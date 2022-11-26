@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-11-20 00:22+0000\n"
-"PO-Revision-Date: 2022-08-04 19:16+0000\n"
+"PO-Revision-Date: 2022-11-27 00:22+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:240
 #, php-format
@@ -5067,7 +5067,8 @@ msgstr "ユーザを管理する権限がありません!"
 msgid ""
 "Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
 "code] configuration."
-msgstr ""
+msgstr "データベース内の検索は、設定 [code]$cfg['UseDbSearch'][/code] "
+"により無効化されています。"
 
 #: libraries/classes/Controllers/Database/Structure/AddPrefixController.php:20
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:45
@@ -5368,10 +5369,8 @@ msgstr ""
 "ついては %sドキュメント%s をご覧ください。"
 
 #: libraries/classes/Controllers/Import/ImportController.php:249
-#, fuzzy
-#| msgid "Incorrect form specified!"
 msgid "Incorrect format parameter"
-msgstr "不正なフォームが指定された！"
+msgstr "不正なフォーマット引数"
 
 #: libraries/classes/Controllers/Import/ImportController.php:379
 #: libraries/classes/Controllers/Import/ImportController.php:622
@@ -11169,7 +11168,7 @@ msgstr "テーブルのデータのダンプ"
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/zoom_search/result_form.twig:36
 msgid "Null"
-msgstr "NULL"
+msgstr "Null"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:279
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:372
@@ -14188,10 +14187,8 @@ msgstr "現在のデータベースの主要カラムリストは空です"
 
 #: templates/database/central_columns/main.twig:168
 #: templates/display/results/table.twig:139
-#, fuzzy
-#| msgid "Filter rows"
 msgid "Filter rows:"
-msgstr "行フィルタ"
+msgstr "行フィルタ:"
 
 #: templates/database/central_columns/main.twig:171
 #: templates/display/results/table.twig:143
@@ -15483,10 +15480,8 @@ msgid "Send error report"
 msgstr "エラーレポートの送信"
 
 #: templates/error/simple.twig:2
-#, fuzzy
-#| msgid "Something went wrong."
 msgid "Something went wrong"
-msgstr "何かがうまくいかなかった。"
+msgstr "問題が発生しました"
 
 #: templates/error/simple.twig:7 templates/modals/index_dialog_modal.twig:30
 msgid "Go back"
