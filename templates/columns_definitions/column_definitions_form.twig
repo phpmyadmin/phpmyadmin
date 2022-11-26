@@ -94,7 +94,7 @@
                 </td>
                 <td width="25">&nbsp;</td>
                 <td>
-                  <select lang="en" dir="ltr" name="tbl_collation">
+                  <select lang="{{ lang }}" dir="{{ text_dir }}" name="tbl_collation">
                     <option value=""></option>
                     {% for charset in charsets %}
                       <optgroup label="{{ charset.name }}" title="{{ charset.description }}">

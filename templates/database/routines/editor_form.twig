@@ -86,7 +86,7 @@
           <td>{% trans 'Return options' %}</td>
           <td>
             <div>
-              <select lang="en" dir="ltr" name="item_returnopts_text">
+              <select lang="{{ lang }}" dir="{{ text_dir }}" name="item_returnopts_text">
                 <option value="">{% trans 'Charset' %}</option>
                 <option value=""></option>
                 {% for charset in charsets %}

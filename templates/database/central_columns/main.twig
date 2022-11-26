@@ -85,7 +85,7 @@
                           {% endif %}
                         </td>
                         <td name="collation" class="text-nowrap">
-                          <select lang="en" dir="ltr" name="field_collation[0]" id="field_0_4">
+                          <select lang="{{ lang }}" dir="{{ text_dir }}" name="field_collation[0]" id="field_0_4">
                             <option value=""></option>
                             {% for charset in charsets %}
                               <optgroup label="{{ charset.name }}" title="{{ charset.description }}">
@@ -326,7 +326,7 @@
                             </td>
                             <td name="collation" class="text-nowrap">
                                 <span>{{ row['col_collation'] }}</span>
-                                <select lang="en" dir="ltr" name="field_collation[{{ row_num }}]" id="field_{{ row_num }}_4">
+                                <select lang="{{ lang }}" dir="{{ text_dir }}" name="field_collation[{{ row_num }}]" id="field_{{ row_num }}_4">
                                   <option value=""></option>
                                   {% for charset in charsets %}
                                     <optgroup label="{{ charset.name }}" title="{{ charset.description }}">

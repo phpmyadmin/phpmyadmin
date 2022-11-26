@@ -26,7 +26,7 @@
 
             {% if charsets is not empty %}
               <div class="col-12">
-                <select lang="en" dir="ltr" name="db_collation" class="form-select" aria-label="{% trans 'Collation' %}">
+                <select lang="{{ lang }}" dir="{{ text_dir }}" name="db_collation" class="form-select" aria-label="{% trans 'Collation' %}">
                   <option value="">{% trans 'Collation' %}</option>
                   <option value=""></option>
                   {% for charset in charsets %}

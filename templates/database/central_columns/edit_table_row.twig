@@ -47,7 +47,7 @@
   </td>
 
   <td name="collation" class="text-nowrap">
-    <select lang="en" dir="ltr" name="field_collation[{{ row_num }}]" id="field_{{ row_num }}_4">
+    <select lang="{{ lang }}" dir="{{ text_dir }}" name="field_collation[{{ row_num }}]" id="field_{{ row_num }}_4">
       <option value=""></option>
       {% for charset in charsets %}
         <optgroup label="{{ charset.getName() }}" title="{{ charset.getDescription() }}">

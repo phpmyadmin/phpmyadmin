@@ -60,7 +60,7 @@
                       </div>
                       {% if charsets is not empty %}
                       <div class="col-12">
-                        <select lang="en" dir="ltr" name="collation_connection" id="collationConnectionSelect" class="form-select autosubmit">
+                        <select lang="{{ lang }}" dir="{{ text_dir }}" name="collation_connection" id="collationConnectionSelect" class="form-select autosubmit">
                           <option value="">{% trans 'Collation' %}</option>
                           <option value=""></option>
                           {% for charset in charsets %}
@@ -110,7 +110,7 @@
                         </label>
                       </div>
                       <div class="col-12">
-                        <select name="lang" class="form-select autosubmit w-auto" lang="en" dir="ltr" id="languageSelect">
+                        <select name="lang" class="form-select autosubmit w-auto" lang="{{ lang }}" dir="{{ text_dir }}" id="languageSelect">
                           {% for language in available_languages %}
                             <option value="{{ language.getCode()|lower }}"{{ language.isActive() ? ' selected' }}>
                               {{- language.getName()|raw -}}
@@ -133,7 +133,7 @@
                       </div>
                       <div class="col-12">
                         <div class="input-group">
-                          <select name="set_theme" class="form-select autosubmit" lang="en" dir="ltr" id="themeSelect">
+                          <select name="set_theme" class="form-select autosubmit" lang="{{ lang }}" dir="{{ text_dir }}" id="themeSelect">
                             {% for theme in themes %}
                               <option value="{{ theme.id }}"{{ theme.is_active ? ' selected' }}>{{ theme.name }}</option>
                             {% endfor %}

@@ -61,7 +61,7 @@
 </td>
 <td class="text-center">
   {# column collation #}
-  <select lang="en" dir="ltr" name="field_collation[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}">
+  <select lang="{{ lang }}" dir="{{ text_dir }}" name="field_collation[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}">
     <option value=""></option>
     {% for charset in charsets %}
       <optgroup label="{{ charset.name }}" title="{{ charset.description }}">
