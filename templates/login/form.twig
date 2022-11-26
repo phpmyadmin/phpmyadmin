@@ -31,7 +31,7 @@
       <div class="card-body">
         <form method="get" action="{{ url('/') }}" class="disableAjax">
           {{ get_hidden_inputs(form_params) }}
-          <select name="lang" class="form-select autosubmit" lang="{{ lang }}" dir="{{ text_dir }}" id="languageSelect" aria-labelledby="languageSelectLabel">
+          <select name="lang" class="form-select autosubmit" lang="en" dir="ltr" id="languageSelect" aria-labelledby="languageSelectLabel">
             {% for language in available_languages %}
               <option value="{{ language.getCode()|lower }}"{{ language.isActive() ? ' selected' }}>
                 {{- language.getName()|raw -}}
