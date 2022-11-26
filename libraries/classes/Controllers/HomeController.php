@@ -221,6 +221,8 @@ class HomeController extends AbstractController
         $git = new Git($this->config->get('ShowGitRevision') ?? true);
 
         $this->render('home/index', [
+            'lang' => $GLOBALS['lang'],
+            'text_dir' => $GLOBALS['text_dir'],
             'db' => $db,
             'table' => $table,
             'message' => $displayMessage ?? '',

@@ -166,7 +166,7 @@ class Language
      */
     public function isRTL(): bool
     {
-        return in_array($this->code, ['ar', 'fa', 'he', 'ur']);
+        return in_array($this->code, ['ar', 'ar_LY', 'fa', 'he', 'ur']);
     }
 
     /**
