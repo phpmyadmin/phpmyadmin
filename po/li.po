@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-11-20 00:22+0000\n"
+"POT-Creation-Date: 2022-11-27 00:21+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Limburgish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1149,7 +1149,7 @@ msgstr ""
 #: templates/preferences/manage/main.twig:46
 #: templates/preferences/manage/main.twig:108
 #: templates/server/binlog/index.twig:34
-#: templates/server/privileges/change_password.twig:78
+#: templates/server/privileges/change_password.twig:79
 #: templates/server/privileges/edit_routine_privileges.twig:106
 #: templates/server/privileges/privileges_summary.twig:104
 #: templates/server/privileges/user_properties.twig:154
@@ -2949,8 +2949,8 @@ msgid "Save on server"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:701
-#: libraries/classes/Config/Descriptions.php:704 templates/export.twig:182
-#: templates/export.twig:377
+#: libraries/classes/Config/Descriptions.php:704 templates/export.twig:178
+#: templates/export.twig:373
 msgid "Overwrite existing file(s)"
 msgstr ""
 
@@ -3848,7 +3848,7 @@ msgstr ""
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:405
 #: libraries/classes/Display/Results.php:2749
 #: libraries/classes/Html/Generator.php:660
-#: libraries/classes/Html/Generator.php:909
+#: libraries/classes/Html/Generator.php:914
 #: templates/console/bookmark_content.twig:10 templates/console/display.twig:41
 #: templates/console/display.twig:199
 #: templates/database/central_columns/main.twig:271
@@ -4218,7 +4218,7 @@ msgstr ""
 #: templates/display/results/table.twig:321
 #: templates/display/results/table.twig:322
 #: templates/display/results/table.twig:354 templates/export.twig:3
-#: templates/export.twig:499 templates/preferences/header.twig:42
+#: templates/export.twig:495 templates/preferences/header.twig:42
 #: templates/preferences/manage/main.twig:68
 #: templates/server/privileges/new_user_ajax.twig:63
 #: templates/server/privileges/users_overview.twig:95
@@ -4245,7 +4245,7 @@ msgstr ""
 #: libraries/classes/Menu.php:284 libraries/classes/Menu.php:387
 #: libraries/classes/Menu.php:510 libraries/classes/Util.php:1881
 #: libraries/classes/Util.php:1896 libraries/classes/Util.php:1913
-#: templates/import.twig:3 templates/import.twig:199
+#: templates/import.twig:3 templates/import.twig:195
 #: templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
 #: templates/server/status/monitor/index.twig:78
@@ -4553,7 +4553,7 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 
 #: libraries/classes/Controllers/Database/ImportController.php:79
-#: libraries/classes/Controllers/Import/ImportController.php:582
+#: libraries/classes/Controllers/Import/ImportController.php:579
 #: libraries/classes/Controllers/Server/ImportController.php:60
 #: libraries/classes/Controllers/Table/ImportController.php:71
 msgid "Could not load import plugins, please check your installation!"
@@ -4866,44 +4866,44 @@ msgstr ""
 msgid "Incorrect format parameter"
 msgstr ""
 
-#: libraries/classes/Controllers/Import/ImportController.php:379
-#: libraries/classes/Controllers/Import/ImportController.php:622
+#: libraries/classes/Controllers/Import/ImportController.php:376
+#: libraries/classes/Controllers/Import/ImportController.php:619
 msgid "Showing bookmark"
 msgstr ""
 
-#: libraries/classes/Controllers/Import/ImportController.php:405
-#: libraries/classes/Controllers/Import/ImportController.php:618
+#: libraries/classes/Controllers/Import/ImportController.php:402
+#: libraries/classes/Controllers/Import/ImportController.php:615
 msgid "The bookmark has been deleted."
 msgstr ""
 
-#: libraries/classes/Controllers/Import/ImportController.php:528
+#: libraries/classes/Controllers/Import/ImportController.php:525
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 
-#: libraries/classes/Controllers/Import/ImportController.php:630
+#: libraries/classes/Controllers/Import/ImportController.php:627
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] ""
 msgstr[1] ""
 
-#: libraries/classes/Controllers/Import/ImportController.php:667
+#: libraries/classes/Controllers/Import/ImportController.php:664
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
 
-#: libraries/classes/Controllers/Import/ImportController.php:677
+#: libraries/classes/Controllers/Import/ImportController.php:674
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
 
-#: libraries/classes/Controllers/Import/ImportController.php:745
+#: libraries/classes/Controllers/Import/ImportController.php:742
 #: libraries/classes/Controllers/Sql/SqlController.php:177
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr ""
@@ -5061,7 +5061,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:114
-#: templates/export.twig:324
+#: templates/export.twig:320
 msgid "Save & close"
 msgstr ""
 
@@ -5150,7 +5150,7 @@ msgid "Matched rows:"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:139
-#: libraries/classes/Html/Generator.php:881 templates/export.twig:67
+#: libraries/classes/Html/Generator.php:886 templates/export.twig:67
 msgid "SQL query:"
 msgstr ""
 
@@ -5193,7 +5193,7 @@ msgstr ""
 #: templates/columns_definitions/column_definitions_form.twig:180
 #: templates/error/report_modal.twig:14 templates/export_modal.twig:6
 #: templates/export_modal.twig:10 templates/export.twig:82
-#: templates/export.twig:92 templates/export.twig:194
+#: templates/export.twig:92 templates/export.twig:190
 #: templates/home/index.twig:296 templates/home/index.twig:304
 #: templates/modals/add_index.twig:6 templates/modals/build_query.twig:6
 #: templates/modals/build_query.twig:16 templates/modals/change_password.twig:6
@@ -5470,10 +5470,10 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportSql.php:2169
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:100
 #: libraries/config.values.php:111
-#: templates/columns_definitions/column_attributes.twig:213
-#: templates/columns_definitions/column_attributes.twig:236
+#: templates/columns_definitions/column_attributes.twig:217
+#: templates/columns_definitions/column_attributes.twig:240
 #: templates/database/central_columns/main.twig:311
-#: templates/database/designer/main.twig:588 templates/export.twig:433
+#: templates/database/designer/main.twig:588 templates/export.twig:429
 #: templates/server/privileges/privileges_summary.twig:31
 #: templates/server/status/monitor/index.twig:211
 #: templates/server/status/processes/list.twig:72
@@ -5707,7 +5707,7 @@ msgid "Chart"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:299
-#: templates/export.twig:210
+#: templates/export.twig:206
 #, fuzzy
 #| msgid "Database"
 msgctxt "Alias"
@@ -5715,13 +5715,13 @@ msgid "Database"
 msgstr "Database"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:300
-#: templates/export.twig:224
+#: templates/export.twig:220
 msgctxt "Alias"
 msgid "Table"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:301
-#: templates/export.twig:237
+#: templates/export.twig:233
 msgctxt "Alias"
 msgid "Column"
 msgstr ""
@@ -6175,7 +6175,7 @@ msgid "No partial dependencies selected!"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:440
-#: libraries/classes/Export.php:1318 libraries/classes/Html/Generator.php:981
+#: libraries/classes/Export.php:1318 libraries/classes/Html/Generator.php:986
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:286
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -8121,7 +8121,7 @@ msgstr ""
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:61
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:61
 #: libraries/classes/Controllers/View/OperationsController.php:94
-#: libraries/classes/Html/Generator.php:857 libraries/classes/Import.php:138
+#: libraries/classes/Html/Generator.php:862 libraries/classes/Import.php:138
 #: libraries/classes/InsertEdit.php:740 libraries/classes/Message.php:192
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:355
@@ -8212,8 +8212,10 @@ msgstr ""
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr ""
 
-#: libraries/classes/Controllers/UserPasswordController.php:103
+#: libraries/classes/Controllers/UserPasswordController.php:104
 #: templates/home/index.twig:46 templates/modals/change_password.twig:5
+#: templates/server/privileges/change_password.twig:10
+#: templates/server/privileges/change_password.twig:11
 msgid "Change password"
 msgstr ""
 
@@ -8341,7 +8343,7 @@ msgstr ""
 #: libraries/classes/Database/Triggers.php:134
 #: libraries/classes/Database/Triggers.php:161
 #: libraries/classes/Database/Triggers.php:443
-#: libraries/classes/Html/Generator.php:925
+#: libraries/classes/Html/Generator.php:930
 msgid "MySQL said: "
 msgstr ""
 
@@ -9079,7 +9081,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:169
-#: libraries/classes/Html/Generator.php:788
+#: libraries/classes/Html/Generator.php:793
 #: libraries/classes/Html/MySQLDocumentation.php:49
 #: libraries/classes/Sanitize.php:202
 #: templates/config/form_display/input.twig:10 templates/home/index.twig:244
@@ -9262,11 +9264,11 @@ msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:864
+#: libraries/classes/Html/Generator.php:869
 msgid "Static analysis:"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:867
+#: libraries/classes/Html/Generator.php:872
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr ""
@@ -12710,16 +12712,16 @@ msgstr ""
 msgid "Spatial"
 msgstr ""
 
-#: templates/columns_definitions/column_attributes.twig:161
+#: templates/columns_definitions/column_attributes.twig:165
 #: templates/table/structure/display_partitions.twig:27
 msgid "Expression"
 msgstr ""
 
-#: templates/columns_definitions/column_attributes.twig:182
+#: templates/columns_definitions/column_attributes.twig:186
 msgid "first"
 msgstr ""
 
-#: templates/columns_definitions/column_attributes.twig:187
+#: templates/columns_definitions/column_attributes.twig:191
 #: templates/table/structure/display_structure.twig:433
 #, php-format
 msgid "after %s"
@@ -12733,8 +12735,8 @@ msgstr ""
 
 #: templates/columns_definitions/column_definitions_form.twig:31
 #: templates/console/display.twig:124
-#: templates/database/central_columns/main.twig:202 templates/export.twig:285
-#: templates/export.twig:301 templates/export.twig:317
+#: templates/database/central_columns/main.twig:202 templates/export.twig:281
+#: templates/export.twig:297 templates/export.twig:313
 msgid "Add"
 msgstr ""
 
@@ -13707,7 +13709,7 @@ msgstr ""
 msgid "Rename database to"
 msgstr ""
 
-#: templates/database/operations/index.twig:58 templates/export.twig:282
+#: templates/database/operations/index.twig:58 templates/export.twig:278
 msgid "New database name"
 msgstr ""
 
@@ -14370,7 +14372,7 @@ msgstr ""
 msgid "Restore column order"
 msgstr ""
 
-#: templates/display/results/table.twig:124 templates/export.twig:149
+#: templates/display/results/table.twig:124 templates/export.twig:145
 #: templates/table/start_and_number_of_rows_fieldset.twig:9
 msgid "Number of rows:"
 msgstr ""
@@ -14524,88 +14526,88 @@ msgstr ""
 msgid "File format to export"
 msgstr ""
 
-#: templates/export.twig:137
+#: templates/export.twig:133
 msgid "Rows:"
 msgstr ""
 
-#: templates/export.twig:141
+#: templates/export.twig:137
 msgid "Dump all rows"
 msgstr ""
 
-#: templates/export.twig:145
+#: templates/export.twig:141
 msgid "Dump some row(s)"
 msgstr ""
 
-#: templates/export.twig:160
+#: templates/export.twig:156
 msgid "Row to begin at:"
 msgstr ""
 
-#: templates/export.twig:170 templates/export.twig:332
+#: templates/export.twig:166 templates/export.twig:328
 msgid "Output:"
 msgstr ""
 
-#: templates/export.twig:175 templates/export.twig:370
+#: templates/export.twig:171 templates/export.twig:366
 #, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
 msgstr ""
 
-#: templates/export.twig:193 templates/export.twig:337
+#: templates/export.twig:189 templates/export.twig:333
 msgid "Rename exported databases/tables/columns"
 msgstr ""
 
-#: templates/export.twig:201
+#: templates/export.twig:197
 msgid "Defined aliases"
 msgstr ""
 
-#: templates/export.twig:216 templates/export.twig:230
-#: templates/export.twig:243 templates/export.twig:260
+#: templates/export.twig:212 templates/export.twig:226
+#: templates/export.twig:239 templates/export.twig:256
 msgid "Remove"
 msgstr ""
 
-#: templates/export.twig:269
+#: templates/export.twig:265
 msgid "Define new aliases"
 msgstr ""
 
-#: templates/export.twig:274
+#: templates/export.twig:270
 #, fuzzy
 #| msgid "Database:"
 msgid "Select database:"
 msgstr "Database:"
 
-#: templates/export.twig:290
+#: templates/export.twig:286
 msgid "Select table:"
 msgstr ""
 
-#: templates/export.twig:298
+#: templates/export.twig:294
 msgid "New table name"
 msgstr ""
 
-#: templates/export.twig:306
+#: templates/export.twig:302
 msgid "Select column:"
 msgstr ""
 
-#: templates/export.twig:314
+#: templates/export.twig:310
 msgid "New column name"
 msgstr ""
 
-#: templates/export.twig:347
+#: templates/export.twig:343
 #, php-format
 msgid "Use %s statement"
 msgstr ""
 
-#: templates/export.twig:356
+#: templates/export.twig:352
 msgid "View output as text"
 msgstr ""
 
-#: templates/export.twig:360
+#: templates/export.twig:356
 msgid "Save output to a file"
 msgstr ""
 
-#: templates/export.twig:387
+#: templates/export.twig:383
 msgid "File name template:"
 msgstr ""
 
-#: templates/export.twig:388
+#: templates/export.twig:384
 #, php-format
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
@@ -14613,47 +14615,47 @@ msgid ""
 "%s Other text will be kept as is. See the FAQ 6.27 for details."
 msgstr ""
 
-#: templates/export.twig:398
+#: templates/export.twig:394
 msgid "Use this for future exports"
 msgstr ""
 
-#: templates/export.twig:409 templates/import.twig:103
+#: templates/export.twig:405 templates/import.twig:103
 msgid "Character set of the file:"
 msgstr ""
 
-#: templates/export.twig:429
+#: templates/export.twig:425
 msgid "Compression:"
 msgstr ""
 
-#: templates/export.twig:437
+#: templates/export.twig:433
 msgid "zipped"
 msgstr ""
 
-#: templates/export.twig:443
+#: templates/export.twig:439
 msgid "gzipped"
 msgstr ""
 
-#: templates/export.twig:461
+#: templates/export.twig:457
 msgid "Export databases as separate files"
 msgstr ""
 
-#: templates/export.twig:463
+#: templates/export.twig:459
 msgid "Export tables as separate files"
 msgstr ""
 
-#: templates/export.twig:474
+#: templates/export.twig:470
 msgid "Skip tables larger than:"
 msgstr ""
 
-#: templates/export.twig:476
+#: templates/export.twig:472
 msgid "The size is measured in MiB."
 msgstr ""
 
-#: templates/export.twig:482 templates/import.twig:182
+#: templates/export.twig:478 templates/import.twig:178
 msgid "Format-specific options:"
 msgstr ""
 
-#: templates/export.twig:491 templates/import.twig:191
+#: templates/export.twig:487 templates/import.twig:187
 msgid "Encoding Conversion:"
 msgstr ""
 
@@ -15073,7 +15075,7 @@ msgid "Username:"
 msgstr ""
 
 #: templates/login/form.twig:85
-#: templates/server/privileges/change_password.twig:21
+#: templates/server/privileges/change_password.twig:24
 #: templates/server/privileges/login_information_fields.twig:44
 #: templates/server/replication/change_primary.twig:18
 #: templates/server/replication/primary_add_replica_user.twig:49
@@ -15746,31 +15748,31 @@ msgstr ""
 msgid "Create user"
 msgstr ""
 
-#: templates/server/privileges/change_password.twig:15
+#: templates/server/privileges/change_password.twig:18
 msgid "No Password"
 msgstr ""
 
-#: templates/server/privileges/change_password.twig:25
+#: templates/server/privileges/change_password.twig:28
 msgid "Enter:"
 msgstr ""
 
-#: templates/server/privileges/change_password.twig:31
+#: templates/server/privileges/change_password.twig:32
 #: templates/server/privileges/login_information_fields.twig:61
 #: templates/server/replication/primary_add_replica_user.twig:62
 msgid "Re-type:"
 msgstr ""
 
-#: templates/server/privileges/change_password.twig:37
+#: templates/server/privileges/change_password.twig:38
 #: templates/server/privileges/login_information_fields.twig:55
 msgctxt "Password strength"
 msgid "Strength:"
 msgstr ""
 
-#: templates/server/privileges/change_password.twig:47
+#: templates/server/privileges/change_password.twig:48
 msgid "Password Hashing:"
 msgstr ""
 
-#: templates/server/privileges/change_password.twig:65
+#: templates/server/privileges/change_password.twig:66
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "

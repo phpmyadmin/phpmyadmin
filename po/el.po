@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-11-20 00:22+0000\n"
+"POT-Creation-Date: 2022-11-27 00:21+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1481,7 +1481,7 @@ msgstr "Αναζήτηση:"
 #: templates/preferences/manage/main.twig:46
 #: templates/preferences/manage/main.twig:108
 #: templates/server/binlog/index.twig:34
-#: templates/server/privileges/change_password.twig:78
+#: templates/server/privileges/change_password.twig:79
 #: templates/server/privileges/edit_routine_privileges.twig:106
 #: templates/server/privileges/privileges_summary.twig:104
 #: templates/server/privileges/user_properties.twig:154
@@ -3582,8 +3582,8 @@ msgid "Save on server"
 msgstr "Αποθήκευση στο διακομιστή"
 
 #: libraries/classes/Config/Descriptions.php:701
-#: libraries/classes/Config/Descriptions.php:704 templates/export.twig:182
-#: templates/export.twig:377
+#: libraries/classes/Config/Descriptions.php:704 templates/export.twig:178
+#: templates/export.twig:373
 msgid "Overwrite existing file(s)"
 msgstr "Αντικατάσταση αρχείου(ων)"
 
@@ -4490,7 +4490,7 @@ msgstr "Παράβλεψη κλειδωμένων πινάκων"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:405
 #: libraries/classes/Display/Results.php:2749
 #: libraries/classes/Html/Generator.php:660
-#: libraries/classes/Html/Generator.php:909
+#: libraries/classes/Html/Generator.php:914
 #: templates/console/bookmark_content.twig:10 templates/console/display.twig:41
 #: templates/console/display.twig:199
 #: templates/database/central_columns/main.twig:271
@@ -4871,7 +4871,7 @@ msgstr "Έγγραφο Κειμένου Ανοιχτού Κώδικα - ODΤ"
 #: templates/display/results/table.twig:321
 #: templates/display/results/table.twig:322
 #: templates/display/results/table.twig:354 templates/export.twig:3
-#: templates/export.twig:499 templates/preferences/header.twig:42
+#: templates/export.twig:495 templates/preferences/header.twig:42
 #: templates/preferences/manage/main.twig:68
 #: templates/server/privileges/new_user_ajax.twig:63
 #: templates/server/privileges/users_overview.twig:95
@@ -4898,7 +4898,7 @@ msgstr "CSV με χρήση LOAD DATA"
 #: libraries/classes/Menu.php:284 libraries/classes/Menu.php:387
 #: libraries/classes/Menu.php:510 libraries/classes/Util.php:1881
 #: libraries/classes/Util.php:1896 libraries/classes/Util.php:1913
-#: templates/import.twig:3 templates/import.twig:199
+#: templates/import.twig:3 templates/import.twig:195
 #: templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
 #: templates/server/status/monitor/index.twig:78
@@ -5269,7 +5269,7 @@ msgstr ""
 "Αδύνατη η φόρτωση προσθέτων εξαγωγής, για αυτό εξέξτε την εγκατάστασή σας!"
 
 #: libraries/classes/Controllers/Database/ImportController.php:79
-#: libraries/classes/Controllers/Import/ImportController.php:582
+#: libraries/classes/Controllers/Import/ImportController.php:579
 #: libraries/classes/Controllers/Server/ImportController.php:60
 #: libraries/classes/Controllers/Table/ImportController.php:71
 msgid "Could not load import plugins, please check your installation!"
@@ -5634,17 +5634,17 @@ msgstr ""
 msgid "Incorrect format parameter"
 msgstr "Ορίστηκε λάθος φόρμα!"
 
-#: libraries/classes/Controllers/Import/ImportController.php:379
-#: libraries/classes/Controllers/Import/ImportController.php:622
+#: libraries/classes/Controllers/Import/ImportController.php:376
+#: libraries/classes/Controllers/Import/ImportController.php:619
 msgid "Showing bookmark"
 msgstr "Εμφάνιση σελιδοδείκτη"
 
-#: libraries/classes/Controllers/Import/ImportController.php:405
-#: libraries/classes/Controllers/Import/ImportController.php:618
+#: libraries/classes/Controllers/Import/ImportController.php:402
+#: libraries/classes/Controllers/Import/ImportController.php:615
 msgid "The bookmark has been deleted."
 msgstr "Η ετικέτα διεγράφη."
 
-#: libraries/classes/Controllers/Import/ImportController.php:528
+#: libraries/classes/Controllers/Import/ImportController.php:525
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5654,14 +5654,14 @@ msgstr ""
 "μέγεθος του αρχείου υπερβαίνει το μέγιστο επιτρεπτό μέγεθος από τη ρύθμιση "
 "της ΡΗΡ. Δείτε τις [doc@faq1-16]ΣΑΕ 1.16[/doc]."
 
-#: libraries/classes/Controllers/Import/ImportController.php:630
+#: libraries/classes/Controllers/Import/ImportController.php:627
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Η εισαγωγή ολοκληρώθηκε επιτυχώς, %d ερώτημα εκτελέστηκε."
 msgstr[1] "Η εισαγωγή ολοκληρώθηκε επιτυχώς, %d ερωτήματα εκτελέστηκαν."
 
-#: libraries/classes/Controllers/Import/ImportController.php:667
+#: libraries/classes/Controllers/Import/ImportController.php:664
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5670,7 +5670,7 @@ msgstr ""
 "Το χρονικό όριο του κώδικα εξαντλήθηκε, οπότε αν θέλετε να τελειώσετε την "
 "εισαγωγή, %sεπανυποβάλτε το ίδιο αρχείο%s και η εισαγωγή θα συνεχίσει."
 
-#: libraries/classes/Controllers/Import/ImportController.php:677
+#: libraries/classes/Controllers/Import/ImportController.php:674
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5679,7 +5679,7 @@ msgstr ""
 "σημαίνει ότι το phpMyAdmin δεν θα μπορέσει να τελειώσει την εισαγωγή εκτός "
 "και αν αυξήσετε τα χρονικά όρια της php."
 
-#: libraries/classes/Controllers/Import/ImportController.php:745
+#: libraries/classes/Controllers/Import/ImportController.php:742
 #: libraries/classes/Controllers/Sql/SqlController.php:177
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Οι εντολές «DROP DATABASE» έχουν απενεργοποιηθεί."
@@ -5862,7 +5862,7 @@ msgstr ""
 "δεδομενα;"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:114
-#: templates/export.twig:324
+#: templates/export.twig:320
 msgid "Save & close"
 msgstr "Αποθήκευση & κλείσιμο"
 
@@ -5953,7 +5953,7 @@ msgid "Matched rows:"
 msgstr "Εγγραφές που ταιριάζουν:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:139
-#: libraries/classes/Html/Generator.php:881 templates/export.twig:67
+#: libraries/classes/Html/Generator.php:886 templates/export.twig:67
 msgid "SQL query:"
 msgstr "Εντολή SQL:"
 
@@ -5998,7 +5998,7 @@ msgstr "Διαγραφή των επιλεγμένων χρηστών"
 #: templates/columns_definitions/column_definitions_form.twig:180
 #: templates/error/report_modal.twig:14 templates/export_modal.twig:6
 #: templates/export_modal.twig:10 templates/export.twig:82
-#: templates/export.twig:92 templates/export.twig:194
+#: templates/export.twig:92 templates/export.twig:190
 #: templates/home/index.twig:296 templates/home/index.twig:304
 #: templates/modals/add_index.twig:6 templates/modals/build_query.twig:6
 #: templates/modals/build_query.twig:16 templates/modals/change_password.twig:6
@@ -6283,10 +6283,10 @@ msgstr "Εισάγετε τουλάχιστον μια μεταβλητή στι
 #: libraries/classes/Plugins/Export/ExportSql.php:2169
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:100
 #: libraries/config.values.php:111
-#: templates/columns_definitions/column_attributes.twig:213
-#: templates/columns_definitions/column_attributes.twig:236
+#: templates/columns_definitions/column_attributes.twig:217
+#: templates/columns_definitions/column_attributes.twig:240
 #: templates/database/central_columns/main.twig:311
-#: templates/database/designer/main.twig:588 templates/export.twig:433
+#: templates/database/designer/main.twig:588 templates/export.twig:429
 #: templates/server/privileges/privileges_summary.twig:31
 #: templates/server/status/monitor/index.twig:211
 #: templates/server/status/processes/list.twig:72
@@ -6542,19 +6542,19 @@ msgid "Chart"
 msgstr "Διάγραμμα"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:299
-#: templates/export.twig:210
+#: templates/export.twig:206
 msgctxt "Alias"
 msgid "Database"
 msgstr "Βάση δεδομένων"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:300
-#: templates/export.twig:224
+#: templates/export.twig:220
 msgctxt "Alias"
 msgid "Table"
 msgstr "Πίνακας"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:301
-#: templates/export.twig:237
+#: templates/export.twig:233
 msgctxt "Alias"
 msgid "Column"
 msgstr "Στήλη"
@@ -7030,7 +7030,7 @@ msgid "No partial dependencies selected!"
 msgstr "Δεν έχετε επιλέξει μερικές εξαρτήσεις!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:440
-#: libraries/classes/Export.php:1318 libraries/classes/Html/Generator.php:981
+#: libraries/classes/Export.php:1318 libraries/classes/Html/Generator.php:986
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:286
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -9231,7 +9231,7 @@ msgstr "Το όνομα του πίνακα είναι κενό!"
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:61
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:61
 #: libraries/classes/Controllers/View/OperationsController.php:94
-#: libraries/classes/Html/Generator.php:857 libraries/classes/Import.php:138
+#: libraries/classes/Html/Generator.php:862 libraries/classes/Import.php:138
 #: libraries/classes/InsertEdit.php:740 libraries/classes/Message.php:192
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:355
@@ -9322,8 +9322,10 @@ msgstr "Οι δηλώσεις SQL εκτελέστηκαν."
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Δεν έχετε αρκετά δικαιώματα να είσαστε εδώ τώρα!"
 
-#: libraries/classes/Controllers/UserPasswordController.php:103
+#: libraries/classes/Controllers/UserPasswordController.php:104
 #: templates/home/index.twig:46 templates/modals/change_password.twig:5
+#: templates/server/privileges/change_password.twig:10
+#: templates/server/privileges/change_password.twig:11
 msgid "Change password"
 msgstr "Αλλαγή κωδικού πρόσβασης"
 
@@ -9462,7 +9464,7 @@ msgstr "Το ακόλουθο ερώτημα έχει αποτύχει: «%s»"
 #: libraries/classes/Database/Triggers.php:134
 #: libraries/classes/Database/Triggers.php:161
 #: libraries/classes/Database/Triggers.php:443
-#: libraries/classes/Html/Generator.php:925
+#: libraries/classes/Html/Generator.php:930
 msgid "MySQL said: "
 msgstr "Η MySQL επέστρεψε το μήνυμα: "
 
@@ -10284,7 +10286,7 @@ msgstr ""
 "τους δίδεται ο επόμενος αύξων αριθμός."
 
 #: libraries/classes/Engines/Pbxt.php:169
-#: libraries/classes/Html/Generator.php:788
+#: libraries/classes/Html/Generator.php:793
 #: libraries/classes/Html/MySQLDocumentation.php:49
 #: libraries/classes/Sanitize.php:202
 #: templates/config/form_display/input.twig:10 templates/home/index.twig:244
@@ -10483,11 +10485,11 @@ msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Επεξεργασία εσωτερικά"
 
-#: libraries/classes/Html/Generator.php:864
+#: libraries/classes/Html/Generator.php:869
 msgid "Static analysis:"
 msgstr "Στατική ανάλυση:"
 
-#: libraries/classes/Html/Generator.php:867
+#: libraries/classes/Html/Generator.php:872
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "%d σφάλματα βρέθηκαν κατά την ανάλυση."
@@ -14279,16 +14281,16 @@ msgstr "Πλήρες κείμενο"
 msgid "Spatial"
 msgstr "Χωρική"
 
-#: templates/columns_definitions/column_attributes.twig:161
+#: templates/columns_definitions/column_attributes.twig:165
 #: templates/table/structure/display_partitions.twig:27
 msgid "Expression"
 msgstr "Έκφραση"
 
-#: templates/columns_definitions/column_attributes.twig:182
+#: templates/columns_definitions/column_attributes.twig:186
 msgid "first"
 msgstr "πρώτη"
 
-#: templates/columns_definitions/column_attributes.twig:187
+#: templates/columns_definitions/column_attributes.twig:191
 #: templates/table/structure/display_structure.twig:433
 #, php-format
 msgid "after %s"
@@ -14302,8 +14304,8 @@ msgstr "Ονομασία πίνακα"
 
 #: templates/columns_definitions/column_definitions_form.twig:31
 #: templates/console/display.twig:124
-#: templates/database/central_columns/main.twig:202 templates/export.twig:285
-#: templates/export.twig:301 templates/export.twig:317
+#: templates/database/central_columns/main.twig:202 templates/export.twig:281
+#: templates/export.twig:297 templates/export.twig:313
 msgid "Add"
 msgstr "Προσθήκη"
 
@@ -15323,7 +15325,7 @@ msgstr "Σχόλιο βάσης δεδομένων"
 msgid "Rename database to"
 msgstr "Μετονομασία βάσης δεδομένων σε"
 
-#: templates/database/operations/index.twig:58 templates/export.twig:282
+#: templates/database/operations/index.twig:58 templates/export.twig:278
 msgid "New database name"
 msgstr "Νέο όνομα βάσης δεδομένων"
 
@@ -16027,7 +16029,7 @@ msgstr "Αποθήκευση επεξεργασμένων δεδομένων"
 msgid "Restore column order"
 msgstr "Επαναφορά κατανομής στηλών"
 
-#: templates/display/results/table.twig:124 templates/export.twig:149
+#: templates/display/results/table.twig:124 templates/export.twig:145
 #: templates/table/start_and_number_of_rows_fieldset.twig:9
 msgid "Number of rows:"
 msgstr "Αριθμός εγγραφών:"
@@ -16194,86 +16196,86 @@ msgstr "Προσαρμογή - προβολή όλων των πιθανών ε�
 msgid "File format to export"
 msgstr "Αρχείο για εισαγωγή:"
 
-#: templates/export.twig:137
+#: templates/export.twig:133
 msgid "Rows:"
 msgstr "Εγγραφές:"
 
-#: templates/export.twig:141
+#: templates/export.twig:137
 msgid "Dump all rows"
 msgstr "Μετατροπή όλων των γραμμών"
 
-#: templates/export.twig:145
+#: templates/export.twig:141
 msgid "Dump some row(s)"
 msgstr "Μετατροπή εγγραφής(ών)"
 
-#: templates/export.twig:160
+#: templates/export.twig:156
 msgid "Row to begin at:"
 msgstr "Η εγγραφή θα ξεκινάει στο:"
 
-#: templates/export.twig:170 templates/export.twig:332
+#: templates/export.twig:166 templates/export.twig:328
 msgid "Output:"
 msgstr "Εξαγόμενο:"
 
-#: templates/export.twig:175 templates/export.twig:370
+#: templates/export.twig:171 templates/export.twig:366
 #, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
 msgstr "Αποθήκευση στον διακομιστή στον κατάλογο <strong>%s</strong>"
 
-#: templates/export.twig:193 templates/export.twig:337
+#: templates/export.twig:189 templates/export.twig:333
 msgid "Rename exported databases/tables/columns"
 msgstr "Μετονομασία εξαγόμενων βάσεων δεδομένων/πινάκων/στηλών"
 
-#: templates/export.twig:201
+#: templates/export.twig:197
 msgid "Defined aliases"
 msgstr "Ορισμένες ετικέτες"
 
-#: templates/export.twig:216 templates/export.twig:230
-#: templates/export.twig:243 templates/export.twig:260
+#: templates/export.twig:212 templates/export.twig:226
+#: templates/export.twig:239 templates/export.twig:256
 msgid "Remove"
 msgstr "Αφαίρεση"
 
-#: templates/export.twig:269
+#: templates/export.twig:265
 msgid "Define new aliases"
 msgstr "Ορισμός νεών ετικετών"
 
-#: templates/export.twig:274
+#: templates/export.twig:270
 msgid "Select database:"
 msgstr "Επιλογή βάσης δεδομένων:"
 
-#: templates/export.twig:290
+#: templates/export.twig:286
 msgid "Select table:"
 msgstr "Επιλογή πίνακα:"
 
-#: templates/export.twig:298
+#: templates/export.twig:294
 msgid "New table name"
 msgstr "Νέο όνομα πίνακα"
 
-#: templates/export.twig:306
+#: templates/export.twig:302
 msgid "Select column:"
 msgstr "Επιλογή στήλης:"
 
-#: templates/export.twig:314
+#: templates/export.twig:310
 msgid "New column name"
 msgstr "Νέο ονόμα στήλης"
 
-#: templates/export.twig:347
+#: templates/export.twig:343
 #, php-format
 msgid "Use %s statement"
 msgstr "Χρήση δήλωσης %s"
 
-#: templates/export.twig:356
+#: templates/export.twig:352
 msgid "View output as text"
 msgstr "Προβολή εξαγόμενου ως κείμενο"
 
-#: templates/export.twig:360
+#: templates/export.twig:356
 msgid "Save output to a file"
 msgstr "Αποθήκευση εξαγόμενου σε αρχείο"
 
-#: templates/export.twig:387
+#: templates/export.twig:383
 msgid "File name template:"
 msgstr "Πρότυπο ονόματος αρχείου:"
 
-#: templates/export.twig:388
+#: templates/export.twig:384
 #, fuzzy, php-format
 #| msgid ""
 #| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
@@ -16290,51 +16292,51 @@ msgstr ""
 "και οι ακόλουθες μετατροπές: %3$s. Το υπόλοιπο κείμενο θα παραμείνει όπως "
 "είναι. Δείτε τις %4$sΣΑΕ%5$s για λεπτομέρειες."
 
-#: templates/export.twig:398
+#: templates/export.twig:394
 #, fuzzy
 #| msgid "use this for future exports"
 msgid "Use this for future exports"
 msgstr "χρησιμοποιήστε το για μελλοντικές εξαγωγές"
 
-#: templates/export.twig:409 templates/import.twig:103
+#: templates/export.twig:405 templates/import.twig:103
 msgid "Character set of the file:"
 msgstr "Σύνολο χαρακτήρων του αρχείου:"
 
-#: templates/export.twig:429
+#: templates/export.twig:425
 msgid "Compression:"
 msgstr "Συμπίεση:"
 
-#: templates/export.twig:437
+#: templates/export.twig:433
 msgid "zipped"
 msgstr "συμπίεση «zip»"
 
-#: templates/export.twig:443
+#: templates/export.twig:439
 msgid "gzipped"
 msgstr "συμπίεση «gzip»"
 
-#: templates/export.twig:461
+#: templates/export.twig:457
 msgid "Export databases as separate files"
 msgstr "Εξαγωγή βάσεων δεδομένων ως χωριστά αρχεία"
 
-#: templates/export.twig:463
+#: templates/export.twig:459
 msgid "Export tables as separate files"
 msgstr "Εξαγωγή πινάκων ως χωριστά αρχεία"
 
-#: templates/export.twig:474
+#: templates/export.twig:470
 #, fuzzy
 #| msgid "Skip tables larger than %s MiB"
 msgid "Skip tables larger than:"
 msgstr "Αγνόηση πινάκων μεγαλύτερων από %s MiB"
 
-#: templates/export.twig:476
+#: templates/export.twig:472
 msgid "The size is measured in MiB."
 msgstr ""
 
-#: templates/export.twig:482 templates/import.twig:182
+#: templates/export.twig:478 templates/import.twig:178
 msgid "Format-specific options:"
 msgstr "Επιλογές ορισμένης μορφής:"
 
-#: templates/export.twig:491 templates/import.twig:191
+#: templates/export.twig:487 templates/import.twig:187
 msgid "Encoding Conversion:"
 msgstr "Μετατροπή κωδικοποίησης:"
 
@@ -16810,7 +16812,7 @@ msgid "Username:"
 msgstr "Όνομα χρήστη:"
 
 #: templates/login/form.twig:85
-#: templates/server/privileges/change_password.twig:21
+#: templates/server/privileges/change_password.twig:24
 #: templates/server/privileges/login_information_fields.twig:44
 #: templates/server/replication/change_primary.twig:18
 #: templates/server/replication/primary_add_replica_user.twig:49
@@ -17611,21 +17613,21 @@ msgstr "Πλήρη δικαιώματα στη βάση δεδομένων %s."
 msgid "Create user"
 msgstr "Δημιουργία %s"
 
-#: templates/server/privileges/change_password.twig:15
+#: templates/server/privileges/change_password.twig:18
 msgid "No Password"
 msgstr "Χωρίς Κωδικό Πρόσβασης"
 
-#: templates/server/privileges/change_password.twig:25
+#: templates/server/privileges/change_password.twig:28
 msgid "Enter:"
 msgstr "Εισαγωγή:"
 
-#: templates/server/privileges/change_password.twig:31
+#: templates/server/privileges/change_password.twig:32
 #: templates/server/privileges/login_information_fields.twig:61
 #: templates/server/replication/primary_add_replica_user.twig:62
 msgid "Re-type:"
 msgstr "Επαναεισαγωγή:"
 
-#: templates/server/privileges/change_password.twig:37
+#: templates/server/privileges/change_password.twig:38
 #: templates/server/privileges/login_information_fields.twig:55
 #, fuzzy
 #| msgid "Data length"
@@ -17633,11 +17635,11 @@ msgctxt "Password strength"
 msgid "Strength:"
 msgstr "Μέγεθος δεδομένων"
 
-#: templates/server/privileges/change_password.twig:47
+#: templates/server/privileges/change_password.twig:48
 msgid "Password Hashing:"
 msgstr "Μείγμα κωδικού πρόσβασης:"
 
-#: templates/server/privileges/change_password.twig:65
+#: templates/server/privileges/change_password.twig:66
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "
