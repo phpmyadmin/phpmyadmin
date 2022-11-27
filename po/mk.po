@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-11-27 00:21+0000\n"
-"PO-Revision-Date: 2022-11-26 05:48+0000\n"
+"PO-Revision-Date: 2022-11-28 18:47+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -5202,14 +5202,12 @@ msgid "Delete tracking data for this version?"
 msgstr "Избришете ги податоците за тракирање за оваа верзија?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:68
-#, fuzzy
 msgid "Delete tracking data for these versions?"
-msgstr "Избришете го податоците за тракирање од табелава"
+msgstr "Избришете ги податоците за тракирање од овие верзии?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:69
-#, fuzzy
 msgid "Delete entry from tracking report?"
-msgstr "Дозволува вметнување и замена на података."
+msgstr "Избришете запис од извештајот за тракирање?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:70
 #, fuzzy
@@ -6308,9 +6306,9 @@ msgid "Deleting"
 msgstr "Бришење"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:386
-#, fuzzy, php-format
+#, php-format
 msgid "Delete the matches for the %s table?"
-msgstr "Приказ на податоци од табелата"
+msgstr "Избришете ги совпаѓањата за табелата %s?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
 msgid "The definition of a stored function must contain a RETURN statement!"
@@ -7049,9 +7047,8 @@ msgid "Copying failed!"
 msgstr "Копирањето не успеа!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:660
-#, fuzzy
 msgid "Execute this query again?"
-msgstr "Прикажи го повторно овој упит"
+msgstr "Извршите го барањето повторно?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:661
 msgid "Do you really want to delete this bookmark?"
