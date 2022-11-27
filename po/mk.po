@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-11-27 12:48+0000\n"
+"PO-Revision-Date: 2022-11-28 18:47+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -887,16 +887,12 @@ msgid "Delete tracking data for this version?"
 msgstr "Избришете ги податоците за тракирање за оваа верзија?"
 
 #: js/messages.php:58
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these versions?"
-msgstr "Избришете го податоците за тракирање од табелава"
+msgstr "Избришете ги податоците за тракирање од овие верзии?"
 
 #: js/messages.php:59
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
 msgid "Delete entry from tracking report?"
-msgstr "Дозволува вметнување и замена на података."
+msgstr "Избришете запис од извештајот за тракирање?"
 
 #: js/messages.php:60
 #, fuzzy
@@ -1906,10 +1902,9 @@ msgid "Deleting"
 msgstr "Бришење"
 
 #: js/messages.php:398
-#, fuzzy, php-format
-#| msgid "Dumping data for table"
+#, php-format
 msgid "Delete the matches for the %s table?"
-msgstr "Приказ на податоци од табелата"
+msgstr "Избришете ги совпаѓањата за табелата %s?"
 
 #: js/messages.php:402
 msgid "The definition of a stored function must contain a RETURN statement!"
@@ -2704,10 +2699,8 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:725
-#, fuzzy
-#| msgid "Show this query here again"
 msgid "Execute this query again?"
-msgstr "Прикажи го повторно овој упит"
+msgstr "Извршите го барањето повторно?"
 
 #: js/messages.php:727
 msgid "Do you really want to delete this bookmark?"
