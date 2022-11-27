@@ -1413,6 +1413,7 @@ msgstr "検索："
 #: templates/table/structure/display_structure.twig:437
 #: templates/table/structure/display_structure.twig:555
 #: templates/table/zoom_search/index.twig:152 templates/view_create.twig:116
+#: templates/server/privileges/change_password.twig:78
 msgid "Go"
 msgstr "実行"
 
@@ -3361,7 +3362,8 @@ msgstr "サーバ上に保存する"
 
 #: libraries/classes/Config/Descriptions.php:701
 #: libraries/classes/Config/Descriptions.php:704 templates/export.twig:178
-#: templates/export.twig:373
+#: templates/export.twig:373 templates/export.twig:182
+#: templates/export.twig:377
 msgid "Overwrite existing file(s)"
 msgstr "既存のファイルは上書きする"
 
@@ -4280,6 +4282,7 @@ msgstr "ロックされているテーブルをスキップする"
 #: templates/server/variables/index.twig:41
 #: templates/server/variables/index.twig:44 templates/setup/home/index.twig:63
 #: templates/table/structure/display_structure.twig:480
+#: libraries/classes/Html/Generator.php:909
 msgid "Edit"
 msgstr "編集"
 
@@ -4640,7 +4643,7 @@ msgstr "OpenDocument テキスト"
 #: templates/server/status/monitor/index.twig:81
 #: templates/table/privileges/index.twig:95
 #: templates/table/privileges/index.twig:120
-#: templates/table/privileges/index.twig:121
+#: templates/table/privileges/index.twig:121 templates/export.twig:499
 msgid "Export"
 msgstr "エクスポート"
 
@@ -4661,7 +4664,7 @@ msgstr "LOAD DATA 文を使用した CSV の読み込み"
 #: templates/import.twig:3 templates/import.twig:195
 #: templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
-#: templates/server/status/monitor/index.twig:78
+#: templates/server/status/monitor/index.twig:78 templates/import.twig:199
 msgid "Import"
 msgstr "インポート"
 
@@ -5016,6 +5019,7 @@ msgstr ""
 #: libraries/classes/Controllers/Import/ImportController.php:579
 #: libraries/classes/Controllers/Server/ImportController.php:60
 #: libraries/classes/Controllers/Table/ImportController.php:71
+#: libraries/classes/Controllers/Import/ImportController.php:582
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "インポートプラグインが読み込めません。正しくインストールされているか確認して"
@@ -5068,6 +5072,8 @@ msgid ""
 "Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
 "code] configuration."
 msgstr ""
+"データベース内の検索は、設定 [code]$cfg['UseDbSearch'][/code] により無効化さ"
+"れています。"
 
 #: libraries/classes/Controllers/Database/Structure/AddPrefixController.php:20
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:45
@@ -5368,22 +5374,25 @@ msgstr ""
 "ついては %sドキュメント%s をご覧ください。"
 
 #: libraries/classes/Controllers/Import/ImportController.php:249
-#, fuzzy
-#| msgid "Incorrect form specified!"
 msgid "Incorrect format parameter"
-msgstr "不正なフォームが指定された！"
+msgstr "不正なフォーマット引数"
 
 #: libraries/classes/Controllers/Import/ImportController.php:376
 #: libraries/classes/Controllers/Import/ImportController.php:619
+#: libraries/classes/Controllers/Import/ImportController.php:379
+#: libraries/classes/Controllers/Import/ImportController.php:622
 msgid "Showing bookmark"
 msgstr "表示中のブックマーク"
 
 #: libraries/classes/Controllers/Import/ImportController.php:402
 #: libraries/classes/Controllers/Import/ImportController.php:615
+#: libraries/classes/Controllers/Import/ImportController.php:405
+#: libraries/classes/Controllers/Import/ImportController.php:618
 msgid "The bookmark has been deleted."
 msgstr "ブックマークを削除しました。"
 
 #: libraries/classes/Controllers/Import/ImportController.php:525
+#: libraries/classes/Controllers/Import/ImportController.php:528
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5394,12 +5403,14 @@ msgstr ""
 "[doc@faq1-16]FAQ 1.16[/doc] をご覧ください。"
 
 #: libraries/classes/Controllers/Import/ImportController.php:627
+#: libraries/classes/Controllers/Import/ImportController.php:630
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "インポートは正常に終了しました。%d 個のクエリを実行しました。"
 
 #: libraries/classes/Controllers/Import/ImportController.php:664
+#: libraries/classes/Controllers/Import/ImportController.php:667
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5409,6 +5420,7 @@ msgstr ""
 "ファイルを再送信%sすればインポートが再開されます。"
 
 #: libraries/classes/Controllers/Import/ImportController.php:674
+#: libraries/classes/Controllers/Import/ImportController.php:677
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5418,6 +5430,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Import/ImportController.php:742
 #: libraries/classes/Controllers/Sql/SqlController.php:177
+#: libraries/classes/Controllers/Import/ImportController.php:745
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "DROP DATABASE 文は無効にされています。"
 
@@ -5589,7 +5602,7 @@ msgid ""
 msgstr "すべての列の照合順序を変更し、データを変換してもよろしいです?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:114
-#: templates/export.twig:320
+#: templates/export.twig:320 templates/export.twig:324
 msgid "Save & close"
 msgstr "保存して閉じる"
 
@@ -5679,6 +5692,7 @@ msgstr "一致した行:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:139
 #: libraries/classes/Html/Generator.php:886 templates/export.twig:67
+#: libraries/classes/Html/Generator.php:881
 msgid "SQL query:"
 msgstr "SQL クエリ:"
 
@@ -5759,7 +5773,7 @@ msgstr "選択したユーザを削除する"
 #: templates/table/structure/display_structure.twig:356
 #: templates/table/zoom_search/result_form.twig:27
 #: templates/table/zoom_search/result_form.twig:80
-#: templates/table/zoom_search/result_form.twig:97
+#: templates/table/zoom_search/result_form.twig:97 templates/export.twig:194
 msgid "Close"
 msgstr "閉じる"
 
@@ -6010,6 +6024,9 @@ msgstr "少なくとも１つの系列を追加してください!"
 #: templates/server/status/processes/list.twig:72
 #: templates/table/zoom_search/index.twig:62
 #: templates/table/zoom_search/index.twig:122
+#: templates/columns_definitions/column_attributes.twig:213
+#: templates/columns_definitions/column_attributes.twig:236
+#: templates/export.twig:433
 msgid "None"
 msgstr "なし"
 
@@ -6253,19 +6270,19 @@ msgid "Chart"
 msgstr "グラフ"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:299
-#: templates/export.twig:206
+#: templates/export.twig:206 templates/export.twig:210
 msgctxt "Alias"
 msgid "Database"
 msgstr "データベース"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:300
-#: templates/export.twig:220
+#: templates/export.twig:220 templates/export.twig:224
 msgctxt "Alias"
 msgid "Table"
 msgstr "テーブル"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:301
-#: templates/export.twig:233
+#: templates/export.twig:233 templates/export.twig:237
 msgctxt "Alias"
 msgid "Column"
 msgstr "カラム"
@@ -6740,6 +6757,7 @@ msgstr "部分的な依存が選択されていません!"
 #: libraries/classes/Export.php:1318 libraries/classes/Html/Generator.php:986
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:286
 #: templates/import_status.twig:2 templates/user_password.twig:2
+#: libraries/classes/Html/Generator.php:981
 msgid "Back"
 msgstr "戻る"
 
@@ -8822,6 +8840,7 @@ msgstr "パーティション名を空文字列にすることはできません
 #: libraries/classes/InsertEdit.php:740 libraries/classes/Message.php:192
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:355
+#: libraries/classes/Html/Generator.php:857
 msgid "Error"
 msgstr "エラー"
 
@@ -8912,6 +8931,7 @@ msgstr "権限不足でアクセスできません!"
 #: templates/home/index.twig:46 templates/modals/change_password.twig:5
 #: templates/server/privileges/change_password.twig:10
 #: templates/server/privileges/change_password.twig:11
+#: libraries/classes/Controllers/UserPasswordController.php:103
 msgid "Change password"
 msgstr "パスワードを変更する"
 
@@ -9042,6 +9062,7 @@ msgstr "クエリの実行に失敗しました：『%s』"
 #: libraries/classes/Database/Triggers.php:161
 #: libraries/classes/Database/Triggers.php:443
 #: libraries/classes/Html/Generator.php:930
+#: libraries/classes/Html/Generator.php:925
 msgid "MySQL said: "
 msgstr "MySQL のメッセージ: "
 
@@ -9842,7 +9863,7 @@ msgstr ""
 #: libraries/classes/Sanitize.php:202
 #: templates/config/form_display/input.twig:10 templates/home/index.twig:244
 #: templates/server/variables/index.twig:17 templates/setup/home/index.twig:113
-#: templates/setup/home/index.twig:131
+#: templates/setup/home/index.twig:131 libraries/classes/Html/Generator.php:788
 msgid "Documentation"
 msgstr "ドキュメント"
 
@@ -10034,10 +10055,12 @@ msgid "Edit inline"
 msgstr "インライン編集"
 
 #: libraries/classes/Html/Generator.php:869
+#: libraries/classes/Html/Generator.php:864
 msgid "Static analysis:"
 msgstr "静的解析:"
 
 #: libraries/classes/Html/Generator.php:872
+#: libraries/classes/Html/Generator.php:867
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "解析中に %d 個のエラーが見つかりました。"
@@ -11171,7 +11194,7 @@ msgstr "テーブルのデータのダンプ"
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/zoom_search/result_form.twig:36
 msgid "Null"
-msgstr "NULL"
+msgstr "Null"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:279
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:372
@@ -13714,15 +13737,18 @@ msgstr "空間"
 
 #: templates/columns_definitions/column_attributes.twig:165
 #: templates/table/structure/display_partitions.twig:27
+#: templates/columns_definitions/column_attributes.twig:161
 msgid "Expression"
 msgstr "式"
 
 #: templates/columns_definitions/column_attributes.twig:186
+#: templates/columns_definitions/column_attributes.twig:182
 msgid "first"
 msgstr "最初へ"
 
 #: templates/columns_definitions/column_attributes.twig:191
 #: templates/table/structure/display_structure.twig:433
+#: templates/columns_definitions/column_attributes.twig:187
 #, php-format
 msgid "after %s"
 msgstr "%s の後へ"
@@ -13737,6 +13763,8 @@ msgstr "テーブル名"
 #: templates/console/display.twig:124
 #: templates/database/central_columns/main.twig:202 templates/export.twig:281
 #: templates/export.twig:297 templates/export.twig:313
+#: templates/export.twig:285 templates/export.twig:301
+#: templates/export.twig:317
 msgid "Add"
 msgstr "追加"
 
@@ -14190,10 +14218,8 @@ msgstr "現在のデータベースの主要カラムリストは空です"
 
 #: templates/database/central_columns/main.twig:168
 #: templates/display/results/table.twig:139
-#, fuzzy
-#| msgid "Filter rows"
 msgid "Filter rows:"
-msgstr "行フィルタ"
+msgstr "行フィルタ:"
 
 #: templates/database/central_columns/main.twig:171
 #: templates/display/results/table.twig:143
@@ -14720,6 +14746,7 @@ msgid "Rename database to"
 msgstr "データベース名の変更"
 
 #: templates/database/operations/index.twig:58 templates/export.twig:278
+#: templates/export.twig:282
 msgid "New database name"
 msgstr "新しいデータベース名"
 
@@ -15385,6 +15412,7 @@ msgstr "カラムの順番を元に戻す"
 
 #: templates/display/results/table.twig:124 templates/export.twig:145
 #: templates/table/start_and_number_of_rows_fieldset.twig:9
+#: templates/export.twig:149
 msgid "Number of rows:"
 msgstr "行数:"
 
@@ -15485,10 +15513,8 @@ msgid "Send error report"
 msgstr "エラーレポートの送信"
 
 #: templates/error/simple.twig:2
-#, fuzzy
-#| msgid "Something went wrong."
 msgid "Something went wrong"
-msgstr "何かがうまくいかなかった。"
+msgstr "問題が発生しました"
 
 #: templates/error/simple.twig:7 templates/modals/index_dialog_modal.twig:30
 msgid "Go back"
@@ -15542,86 +15568,91 @@ msgstr "詳細 - 可能なオプションをすべて表示"
 msgid "File format to export"
 msgstr "エクスポートするファイル形式"
 
-#: templates/export.twig:133
+#: templates/export.twig:133 templates/export.twig:137
 msgid "Rows:"
 msgstr "行:"
 
-#: templates/export.twig:137
+#: templates/export.twig:137 templates/export.twig:141
 msgid "Dump all rows"
 msgstr "すべての行をダンプする"
 
-#: templates/export.twig:141
+#: templates/export.twig:141 templates/export.twig:145
 msgid "Dump some row(s)"
 msgstr "ダンプする行"
 
-#: templates/export.twig:156
+#: templates/export.twig:156 templates/export.twig:160
 msgid "Row to begin at:"
 msgstr "開始行:"
 
 #: templates/export.twig:166 templates/export.twig:328
+#: templates/export.twig:170 templates/export.twig:332
 msgid "Output:"
 msgstr "出力:"
 
 #: templates/export.twig:171 templates/export.twig:366
+#: templates/export.twig:175 templates/export.twig:370
 #, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
 msgstr "サーバ上のディレクトリ <strong>%s</strong> に保存する"
 
 #: templates/export.twig:189 templates/export.twig:333
+#: templates/export.twig:193 templates/export.twig:337
 msgid "Rename exported databases/tables/columns"
 msgstr "エクスポートされた データベース・テーブル・カラムの名前を変更"
 
-#: templates/export.twig:197
+#: templates/export.twig:197 templates/export.twig:201
 msgid "Defined aliases"
 msgstr "定義されたエイリアス"
 
 #: templates/export.twig:212 templates/export.twig:226
 #: templates/export.twig:239 templates/export.twig:256
+#: templates/export.twig:216 templates/export.twig:230
+#: templates/export.twig:243 templates/export.twig:260
 msgid "Remove"
 msgstr "削除"
 
-#: templates/export.twig:265
+#: templates/export.twig:265 templates/export.twig:269
 msgid "Define new aliases"
 msgstr "新しいエイリアスを定義する"
 
-#: templates/export.twig:270
+#: templates/export.twig:270 templates/export.twig:274
 msgid "Select database:"
 msgstr "データベースを選択してください:"
 
-#: templates/export.twig:286
+#: templates/export.twig:286 templates/export.twig:290
 msgid "Select table:"
 msgstr "テーブルを選択してください:"
 
-#: templates/export.twig:294
+#: templates/export.twig:294 templates/export.twig:298
 msgid "New table name"
 msgstr "新しいテーブル名"
 
-#: templates/export.twig:302
+#: templates/export.twig:302 templates/export.twig:306
 msgid "Select column:"
 msgstr "カラムを選択:"
 
-#: templates/export.twig:310
+#: templates/export.twig:310 templates/export.twig:314
 msgid "New column name"
 msgstr "新しいカラム名"
 
-#: templates/export.twig:343
+#: templates/export.twig:343 templates/export.twig:347
 #, php-format
 msgid "Use %s statement"
 msgstr "「%s」 コマンドを使用する"
 
-#: templates/export.twig:352
+#: templates/export.twig:352 templates/export.twig:356
 msgid "View output as text"
 msgstr "出力をテキストで表示する"
 
-#: templates/export.twig:356
+#: templates/export.twig:356 templates/export.twig:360
 msgid "Save output to a file"
 msgstr "出力をファイルに保存する"
 
-#: templates/export.twig:383
+#: templates/export.twig:383 templates/export.twig:387
 msgid "File name template:"
 msgstr "ファイル名のテンプレート:"
 
-#: templates/export.twig:384
+#: templates/export.twig:384 templates/export.twig:388
 #, php-format
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
@@ -15632,47 +15663,50 @@ msgstr ""
 "ます。さらに、次の変換が行われます：%s その他のテキストはそのまま使用されま"
 "す。詳細については、FAQ 6.27 を参照してください。"
 
-#: templates/export.twig:394
+#: templates/export.twig:394 templates/export.twig:398
 msgid "Use this for future exports"
 msgstr "今後のエクスポートでこれを使用する"
 
 #: templates/export.twig:405 templates/import.twig:103
+#: templates/export.twig:409
 msgid "Character set of the file:"
 msgstr "ファイルの文字セット:"
 
-#: templates/export.twig:425
+#: templates/export.twig:425 templates/export.twig:429
 msgid "Compression:"
 msgstr "圧縮:"
 
-#: templates/export.twig:433
+#: templates/export.twig:433 templates/export.twig:437
 msgid "zipped"
 msgstr "zip 形式"
 
-#: templates/export.twig:439
+#: templates/export.twig:439 templates/export.twig:443
 msgid "gzipped"
 msgstr "gzip 形式"
 
-#: templates/export.twig:457
+#: templates/export.twig:457 templates/export.twig:461
 msgid "Export databases as separate files"
 msgstr "データベースを別々のファイルとしてエクスポートする"
 
-#: templates/export.twig:459
+#: templates/export.twig:459 templates/export.twig:463
 msgid "Export tables as separate files"
 msgstr "テーブルを別々のファイルとしてエクスポートする"
 
-#: templates/export.twig:470
+#: templates/export.twig:470 templates/export.twig:474
 msgid "Skip tables larger than:"
 msgstr "これより大きなテーブルをスキップ:"
 
-#: templates/export.twig:472
+#: templates/export.twig:472 templates/export.twig:476
 msgid "The size is measured in MiB."
 msgstr "大きさは MiB 単位です。"
 
 #: templates/export.twig:478 templates/import.twig:178
+#: templates/export.twig:482 templates/import.twig:182
 msgid "Format-specific options:"
 msgstr "フォーマット特有のオプション:"
 
 #: templates/export.twig:487 templates/import.twig:187
+#: templates/export.twig:491 templates/import.twig:191
 msgid "Encoding Conversion:"
 msgstr "エンコーディングへの変換:"
 
@@ -16114,6 +16148,7 @@ msgstr "ユーザ名:"
 #: templates/server/privileges/login_information_fields.twig:44
 #: templates/server/replication/change_primary.twig:18
 #: templates/server/replication/primary_add_replica_user.twig:49
+#: templates/server/privileges/change_password.twig:21
 msgid "Password:"
 msgstr "パスワード:"
 
@@ -16824,30 +16859,36 @@ msgid "Create user"
 msgstr "ユーザを作成"
 
 #: templates/server/privileges/change_password.twig:18
+#: templates/server/privileges/change_password.twig:15
 msgid "No Password"
 msgstr "パスワード無し"
 
 #: templates/server/privileges/change_password.twig:28
+#: templates/server/privileges/change_password.twig:25
 msgid "Enter:"
 msgstr "パスワード："
 
 #: templates/server/privileges/change_password.twig:32
 #: templates/server/privileges/login_information_fields.twig:61
 #: templates/server/replication/primary_add_replica_user.twig:62
+#: templates/server/privileges/change_password.twig:31
 msgid "Re-type:"
 msgstr "再入力："
 
 #: templates/server/privileges/change_password.twig:38
 #: templates/server/privileges/login_information_fields.twig:55
+#: templates/server/privileges/change_password.twig:37
 msgctxt "Password strength"
 msgid "Strength:"
 msgstr "強度："
 
 #: templates/server/privileges/change_password.twig:48
+#: templates/server/privileges/change_password.twig:47
 msgid "Password Hashing:"
 msgstr "パスワードハッシュ："
 
 #: templates/server/privileges/change_password.twig:66
+#: templates/server/privileges/change_password.twig:65
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "
