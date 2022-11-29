@@ -1,9 +1,8 @@
 import $ from 'jquery';
 import { AJAX } from '../ajax.js';
 import { Functions } from '../functions.js';
+import { Navigation } from '../navigation.js';
 import { CommonParams } from '../common.js';
-
-/* global Navigation */
 
 /**
  * @fileoverview    functions used on the database structure page

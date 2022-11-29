@@ -7,9 +7,7 @@ import { CommonParams } from './common.js';
  *
  * @package phpMyAdmin-Navigation
  */
-
-var Navigation = {};
-window.Navigation = Navigation;
+const Navigation = {};
 
 /**
  * updates the tree state in sessionStorage

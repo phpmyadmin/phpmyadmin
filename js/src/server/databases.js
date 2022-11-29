@@ -1,9 +1,8 @@
 import $ from 'jquery';
 import { AJAX } from '../ajax.js';
 import { Functions } from '../functions.js';
+import { Navigation } from '../navigation.js';
 import { CommonActions, CommonParams } from '../common.js';
-
-/* global Navigation */
 
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener

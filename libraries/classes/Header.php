@@ -144,7 +144,6 @@ class Header
         $this->scripts->addFile('menu_resizer.js');
         $this->scripts->addFile('cross_framing_protection.js');
         $this->scripts->addFile('config.js');
-        $this->scripts->addFile('navigation.js');
         $this->scripts->addFile('indexes.js');
         $this->scripts->addFile('common.js');
         $this->scripts->addFile('main.js');

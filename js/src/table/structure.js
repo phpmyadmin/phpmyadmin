@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import { AJAX } from '../ajax.js';
 import { Functions } from '../functions.js';
+import { Navigation } from '../navigation.js';
 import { CommonActions, CommonParams } from '../common.js';
 
 /**
@@ -9,8 +10,6 @@ import { CommonActions, CommonParams } from '../common.js';
  *
  * @requires    jQueryUI
  */
-
-/* global Navigation */
 
 /**
  * AJAX scripts for /table/structure

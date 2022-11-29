@@ -1,8 +1,7 @@
 import $ from 'jquery';
 import { AJAX } from '../ajax.js';
 import { Functions } from '../functions.js';
-
-/* global Navigation */
+import { Navigation } from '../navigation.js';
 
 AJAX.registerTeardown('database/triggers.js', function () {
     $(document).off('click', 'a.ajax.add_anchor, a.ajax.edit_anchor');

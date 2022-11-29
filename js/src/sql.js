@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import { AJAX } from './ajax.js';
 import { Functions } from './functions.js';
+import { Navigation } from './navigation.js';
 import { CommonActions, CommonParams } from './common.js';
 
 /**
@@ -9,7 +10,6 @@ import { CommonActions, CommonParams } from './common.js';
  * @test-module Sql
  */
 
-/* global Navigation */
 /* global themeImagePath */ // templates/javascript/variables.twig
 
 var Sql = {};

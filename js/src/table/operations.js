@@ -1,9 +1,8 @@
 import $ from 'jquery';
 import { AJAX } from '../ajax.js';
 import { Functions } from '../functions.js';
+import { Navigation } from '../navigation.js';
 import { CommonActions, CommonParams } from '../common.js';
-
-/* global Navigation */
 
 /**
  * Unbind all event handlers before tearing down a page

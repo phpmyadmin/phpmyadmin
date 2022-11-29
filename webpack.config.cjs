@@ -51,7 +51,6 @@ module.exports = [
             'menu_resizer': './js/src/menu_resizer.js',
             'multi_column_sort': './js/src/multi_column_sort.js',
             'name-conflict-fixes': './js/src/name-conflict-fixes.js',
-            'navigation': './js/src/navigation.js',
             'normalization': './js/src/normalization.js',
             'replication': './js/src/replication.js',
             'server/databases': './js/src/server/databases.js',
