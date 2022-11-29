@@ -4,6 +4,7 @@ import { Functions } from './functions.js';
 import { KeyHandlerEvents } from './keyhandler.js';
 import { Navigation } from './navigation.js';
 import { PageSettings } from './page_settings.js';
+import { crossFramingProtection } from './cross_framing_protection.js';
 
 /* global Indexes */
 
@@ -21,7 +22,7 @@ $(document).on('ajaxError', AJAX.getFatalErrorHandler());
 AJAX.registerTeardown('main.js', KeyHandlerEvents.off());
 AJAX.registerOnload('main.js', KeyHandlerEvents.on());
 
-window.crossFramingProtection();
+crossFramingProtection();
 
 AJAX.registerTeardown('config.js', window.Config.off());
 AJAX.registerOnload('config.js', window.Config.on());

@@ -141,7 +141,6 @@ class Header
         $this->scripts->addFile('index.php', ['route' => '/messages', 'l' => $GLOBALS['lang']]);
         $this->scripts->addFile('shared.js');
         $this->scripts->addFile('menu_resizer.js');
-        $this->scripts->addFile('cross_framing_protection.js');
         $this->scripts->addFile('config.js');
         $this->scripts->addFile('indexes.js');
         $this->scripts->addFile('common.js');

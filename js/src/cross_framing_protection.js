@@ -2,7 +2,7 @@
  * Conditionally included if framing is not allowed.
  * @return {void}
  */
-window.crossFramingProtection = () => {
+const crossFramingProtection = () => {
     if (window.allowThirdPartyFraming) {
         return;
     }
@@ -20,3 +20,5 @@ window.crossFramingProtection = () => {
 
     styleElement.parentNode.removeChild(styleElement);
 };
+
+export { crossFramingProtection };
