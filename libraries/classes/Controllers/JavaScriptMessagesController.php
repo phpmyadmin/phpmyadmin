@@ -866,6 +866,12 @@ final class JavaScriptMessagesController
             'uploadProgressNoDetails' => __(
                 'Please be patient, the file is being uploaded. Details about the upload are not available.'
             ),
+
+            'configErrorInvalidPositiveNumber' => __('Not a positive number!'),
+            'configErrorInvalidNonNegativeNumber' => __('Not a non-negative number!'),
+            'configErrorInvalidPortNumber' => __('Not a valid port number!'),
+            'configErrorInvalidValue' => __('Incorrect value!'),
+            'configErrorInvalidUpperBound' => __('Value must be less than or equal to %s!'),
         ];
     }
 }

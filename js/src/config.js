@@ -254,7 +254,7 @@ window.validators = {
             return true;
         }
         var result = this.value !== '0' && window.validators.regExpNumeric.test(this.value);
-        return result ? true : window.Messages.error_nan_p;
+        return result ? true : window.Messages.configErrorInvalidPositiveNumber;
     },
     /**
      * Validates non-negative number
@@ -268,7 +268,7 @@ window.validators = {
             return true;
         }
         var result = window.validators.regExpNumeric.test(this.value);
-        return result ? true : window.Messages.error_nan_nneg;
+        return result ? true : window.Messages.configErrorInvalidNonNegativeNumber;
     },
     /**
      * Validates port number
@@ -280,7 +280,7 @@ window.validators = {
             return true;
         }
         var result = window.validators.regExpNumeric.test(this.value) && this.value !== '0';
-        return result && this.value <= 65535 ? true : window.Messages.error_incorrect_port;
+        return result && this.value <= 65535 ? true : window.Messages.configErrorInvalidPortNumber;
     },
     /**
      * Validates value according to given regular expression
@@ -297,7 +297,7 @@ window.validators = {
         // convert PCRE regexp
         var parts = regexp.match(window.validators.regExpPcreExtract);
         var valid = this.value.match(new RegExp(parts[2], parts[3])) !== null;
-        return valid ? true : window.Messages.error_invalid_value;
+        return valid ? true : window.Messages.configErrorInvalidValue;
     },
     /**
      * Validates upper bound for numeric inputs
@@ -312,7 +312,7 @@ window.validators = {
         if (isNaN(val)) {
             return true;
         }
-        return val <= maxValue ? true : Functions.sprintf(window.Messages.error_value_lte, maxValue);
+        return val <= maxValue ? true : Functions.sprintf(window.Messages.configErrorInvalidUpperBound, maxValue);
     },
     // field validators
     field: {},
