@@ -188,7 +188,7 @@ class AddFieldController extends AbstractController
 
         $GLOBALS['active_page'] = Url::getFromRoute('/table/structure');
 
-        $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js', 'indexes.js']);
+        $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
 
         $this->checkParameters(['server', 'db', 'table', 'num_fields']);
 

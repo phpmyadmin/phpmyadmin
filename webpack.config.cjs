@@ -40,7 +40,6 @@ module.exports = [
             'gis_data_editor': './js/src/gis_data_editor.js',
             'home': './js/src/home.js',
             'import': './js/src/import.js',
-            'indexes': './js/src/indexes.js',
             'jqplot/plugins/jqplot.byteFormatter': './js/src/jqplot/plugins/jqplot.byteFormatter.js',
             'jquery.sortable-table': './js/src/jquery.sortable-table.js',
             'main': './js/src/main.js',

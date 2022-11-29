@@ -77,7 +77,6 @@ class SqlController extends AbstractController
         $this->addScriptFiles([
             'vendor/jquery/jquery.uitablefilter.js',
             'table/change.js',
-            'indexes.js',
             'gis_data_editor.js',
             'multi_column_sort.js',
         ]);

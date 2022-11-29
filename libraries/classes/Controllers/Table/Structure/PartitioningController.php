@@ -66,7 +66,7 @@ final class PartitioningController extends AbstractController
         $this->response->addHTML($pageSettings->getErrorHTML());
         $this->response->addHTML($pageSettings->getHTML());
 
-        $this->addScriptFiles(['table/structure.js', 'indexes.js']);
+        $this->addScriptFiles(['table/structure.js']);
 
         $partitionDetails = null;
         if (! isset($_POST['partition_by'])) {

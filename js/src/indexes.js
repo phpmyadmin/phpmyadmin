@@ -10,9 +10,7 @@ import { CommonActions, CommonParams } from './common.js';
  *
  * @requires    jQueryUI
  */
-
-var Indexes = {};
-window.Indexes = Indexes;
+const Indexes = {};
 
 /**
  * Returns the array of indexes based on the index choice
@@ -803,3 +801,5 @@ Indexes.on = () => function () {
         }
     });
 };
+
+export { Indexes };

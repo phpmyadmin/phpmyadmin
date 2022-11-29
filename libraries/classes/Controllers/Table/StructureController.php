@@ -121,7 +121,7 @@ class StructureController extends AbstractController
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
         $checkUserPrivileges->getPrivileges();
 
-        $this->addScriptFiles(['table/structure.js', 'indexes.js']);
+        $this->addScriptFiles(['table/structure.js']);
 
         $relationParameters = $this->relation->getRelationParameters();
 

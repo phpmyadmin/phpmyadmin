@@ -5,8 +5,7 @@ import { KeyHandlerEvents } from './keyhandler.js';
 import { Navigation } from './navigation.js';
 import { PageSettings } from './page_settings.js';
 import { crossFramingProtection } from './cross_framing_protection.js';
-
-/* global Indexes */
+import { Indexes } from './indexes.js';
 
 AJAX.registerOnload('main.js', () => AJAX.removeSubmitEvents());
 $(AJAX.loadEventHandler());
@@ -39,8 +38,8 @@ $(Functions.breadcrumbScrollToTop());
 
 $(Navigation.onload());
 
-AJAX.registerTeardown('indexes.js', Indexes.off());
-AJAX.registerOnload('indexes.js', Indexes.on());
+AJAX.registerTeardown('main.js', Indexes.off());
+AJAX.registerOnload('main.js', Indexes.on());
 
 $(() => Functions.checkNumberOfFields());
 

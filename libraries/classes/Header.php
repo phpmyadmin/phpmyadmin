@@ -142,7 +142,6 @@ class Header
         $this->scripts->addFile('shared.js');
         $this->scripts->addFile('menu_resizer.js');
         $this->scripts->addFile('config.js');
-        $this->scripts->addFile('indexes.js');
         $this->scripts->addFile('main.js');
 
         $this->scripts->addCode($this->getJsParamsCode());

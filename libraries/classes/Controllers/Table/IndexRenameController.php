@@ -91,8 +91,6 @@ final class IndexRenameController extends AbstractController
             $formParams['old_index'] = $_POST['index'];
         }
 
-        $this->addScriptFiles(['indexes.js']);
-
         $this->render('table/index_rename_form', [
             'index' => $index,
             'form_params' => $formParams,

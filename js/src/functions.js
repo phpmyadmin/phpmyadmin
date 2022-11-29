@@ -3,10 +3,10 @@ import { AJAX } from './ajax.js';
 import { Navigation } from './navigation.js';
 import { CommonActions, CommonParams } from './common.js';
 import { mysqlDocKeyword, mysqlDocBuiltin } from './modules/doc-links.js';
+import { Indexes } from './indexes.js';
 
 /* global ChartType, ColumnType, DataTable, JQPlotChartFactory */ // js/chart.js
 /* global DatabaseStructure */ // js/database/structure.js
-/* global Indexes */ // js/indexes.js
 /* global firstDayOfCalendar, maxInputVars, mysqlDocTemplate, themeImagePath */ // templates/javascript/variables.twig
 
 /**

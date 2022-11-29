@@ -90,7 +90,7 @@ final class ChangeController extends AbstractController
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
         $checkUserPrivileges->getPrivileges();
 
-        $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js', 'indexes.js']);
+        $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
 
         $this->checkParameters(['server', 'db', 'table', 'num_fields']);
 
