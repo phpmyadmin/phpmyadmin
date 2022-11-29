@@ -1,6 +1,10 @@
 import $ from 'jquery';
 import { AJAX } from './ajax.js';
 import { Functions } from './functions.js';
+import { Navigation } from './navigation.js';
+import { CommonParams } from './common.js';
+
+/* global themeImagePath */ // templates/javascript/variables.twig
 
 /**
  * Functions used in the import tab
@@ -58,6 +62,7 @@ AJAX.registerTeardown('import.js', function () {
     $('#input_import_file').off('change').off('focus');
     $('#select_local_import_file').off('focus');
     $('#text_csv_enclosed').add('#text_csv_escaped').off('keyup');
+    $('#importmain #buttonGo').off('click');
 });
 
 AJAX.registerOnload('import.js', function () {
@@ -154,5 +159,134 @@ AJAX.registerOnload('import.js', function () {
             return false;
         }
         return true;
+    });
+
+    $('#importmain #buttonGo').on('click', function () {
+        const uploadProgressInfo = document.getElementById('upload_progress_info');
+        const uploadId = uploadProgressInfo.dataset.uploadId;
+        const handler = uploadProgressInfo.dataset.handler;
+
+        $('#upload_form_form').css('display', 'none');
+
+        const clockImage = '<img src="' + themeImagePath + 'ajax_clock_small.gif" width="16" height="16" alt="ajax clock">';
+
+        if (handler !== 'PhpMyAdmin\\Plugins\\Import\\Upload\\UploadNoplugin') {
+            var finished = false;
+            var percent = 0.0;
+            var total = 0;
+            var complete = 0;
+            var originalTitle = parent && parent.document ? parent.document.title : false;
+            var importStart;
+
+            var performUpload = function () {
+                $.getJSON(
+                    'index.php?route=/import-status',
+                    { 'id': uploadId, 'import_status': 1, 'server': CommonParams.get('server') },
+                    function (response) {
+                        finished = response.finished;
+                        percent = response.percent;
+                        total = response.total;
+                        complete = response.complete;
+
+                        if (total === 0 && complete === 0 && percent === 0) {
+                            $('#upload_form_status_info').html(clockImage + ' ' + window.Messages.uploadProgressMaximumAllowedSize);
+                            $('#upload_form_status').css('display', 'none');
+                        } else {
+                            var now = new Date();
+                            now = Date.UTC(
+                                now.getFullYear(),
+                                now.getMonth(),
+                                now.getDate(),
+                                now.getHours(),
+                                now.getMinutes(),
+                                now.getSeconds()
+                            ) + now.getMilliseconds() - 1000;
+                            var statusText = Functions.sprintf(
+                                window.Messages.uploadProgressStatusText,
+                                Functions.formatBytes(
+                                    complete, 1, window.Messages.strDecimalSeparator
+                                ),
+                                Functions.formatBytes(
+                                    total, 1, window.Messages.strDecimalSeparator
+                                )
+                            );
+
+                            if ($('#importmain').is(':visible')) {
+                                // Show progress UI
+                                $('#importmain').hide();
+                                const uploadProgressDiv = '<div class="upload_progress">'
+                                    + '<div class="upload_progress_bar_outer">'
+                                    + '<div class="percentage"></div>'
+                                    + '<div id="status" class="upload_progress_bar_inner">'
+                                    + '<div class="percentage"></div></div></div>'
+                                    + '<div>' + clockImage + ' ' + window.Messages.uploadProgressUploading + '</div>'
+                                    + '<div id="statustext"></div></div>';
+                                $('#import_form_status').html(uploadProgressDiv).show();
+                                importStart = now;
+                            } else if (percent > 9 || complete > 2000000) {
+                                // Calculate estimated time
+                                var usedTime = now - importStart;
+                                var seconds = parseInt(((total - complete) / complete) * usedTime / 1000);
+                                var speed = Functions.sprintf(
+                                    window.Messages.uploadProgressPerSecond,
+                                    Functions.formatBytes(complete / usedTime * 1000, 1, window.Messages.strDecimalSeparator)
+                                );
+
+                                var minutes = parseInt(seconds / 60);
+                                seconds %= 60;
+                                var estimatedTime;
+                                if (minutes > 0) {
+                                    estimatedTime = window.Messages.uploadProgressRemainingMin
+                                        .replace('%MIN', minutes)
+                                        .replace('%SEC', seconds);
+                                } else {
+                                    estimatedTime = window.Messages.uploadProgressRemainingSec
+                                        .replace('%SEC', seconds);
+                                }
+
+                                statusText += '<br>' + speed + '<br><br>' + estimatedTime;
+                            }
+
+                            var percentString = Math.round(percent) + '%';
+                            $('#status').animate({ width: percentString }, 150);
+                            $('.percentage').text(percentString);
+
+                            // Show percent in window title
+                            if (originalTitle !== false) {
+                                parent.document.title
+                                    = percentString + ' - ' + originalTitle;
+                            } else {
+                                document.title
+                                    = percentString + ' - ' + originalTitle;
+                            }
+                            $('#statustext').html(statusText);
+                        }
+
+                        if (finished) {
+                            if (originalTitle !== false) {
+                                parent.document.title = originalTitle;
+                            } else {
+                                document.title = originalTitle;
+                            }
+                            $('#importmain').hide();
+                            // Loads the message, either success or mysql error
+                            $('#import_form_status')
+                                .html(clockImage + ' ' + window.Messages.uploadProgressBeingProcessed)
+                                .show();
+                            $('#import_form_status').load(
+                                'index.php?route=/import-status&message=1&import_status=1&server=' + CommonParams.get('server')
+                            );
+                            Navigation.reload();
+                        } else {
+                            setTimeout(performUpload, 1000);
+                        }
+                    });
+            };
+            setTimeout(performUpload, 1000);
+        } else {
+            // No plugin available
+            $('#upload_form_status_info').html(clockImage + ' ' + window.Messages.uploadProgressNoDetails);
+            $('#upload_form_status').css('display', 'none');
+        }
     });
 });
