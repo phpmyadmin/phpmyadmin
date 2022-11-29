@@ -2217,6 +2217,7 @@ textarea {
     border-top: solid 1px #ccc;
     background: #fff;
     padding-top: 0.4em;
+    pointer-events: auto;
 
     &.console_dark_theme {
       background: #000;
