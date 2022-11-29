@@ -13,7 +13,6 @@ module.exports = [
         entry: {
             'chart': './js/src/chart.js',
             'codemirror/addon/lint/sql-lint': './js/src/codemirror/addon/lint/sql-lint.js',
-            'common': './js/src/common.js',
             'config': './js/src/config.js',
             'console': { import: './js/src/console.js', library: { name: 'Console', type: 'window', export: 'Console' } },
             'datetimepicker': './js/src/datetimepicker.js',
