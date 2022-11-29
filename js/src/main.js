@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import { AJAX } from './ajax.js';
 import { Functions } from './functions.js';
+import { KeyHandlerEvents } from './keyhandler.js';
 import { Navigation } from './navigation.js';
 import { PageSettings } from './page_settings.js';
 
@@ -17,8 +18,8 @@ $(document).on('submit', 'form', AJAX.requestHandler);
 
 $(document).on('ajaxError', AJAX.getFatalErrorHandler());
 
-AJAX.registerTeardown('keyhandler.js', window.KeyHandlerEvents.off());
-AJAX.registerOnload('keyhandler.js', window.KeyHandlerEvents.on());
+AJAX.registerTeardown('main.js', KeyHandlerEvents.off());
+AJAX.registerOnload('main.js', KeyHandlerEvents.on());
 
 window.crossFramingProtection();
 

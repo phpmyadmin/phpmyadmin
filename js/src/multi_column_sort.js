@@ -11,7 +11,7 @@ import { CommonParams } from './common.js';
  * @requires    jQuery
  */
 
-AJAX.registerOnload('keyhandler.js', function () {
+AJAX.registerOnload('multi_column_sort.js', function () {
     $('th.draggable.column_heading.pointer.marker a').on('click', function (event) {
         var orderUrlRemove = $(this).parent().find('input[name="url-remove-order"]').val();
         var orderUrlAdd = $(this).parent().find('input[name="url-add-order"]').val();
@@ -32,6 +32,6 @@ AJAX.registerOnload('keyhandler.js', function () {
     });
 });
 
-AJAX.registerTeardown('keyhandler.js', function () {
+AJAX.registerTeardown('multi_column_sort.js', function () {
     $(document).off('click', 'th.draggable.column_heading.pointer.marker a');
 });

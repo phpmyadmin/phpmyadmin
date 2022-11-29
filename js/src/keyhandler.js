@@ -151,4 +151,4 @@ const KeyHandlerEvents = {
     }
 };
 
-window.KeyHandlerEvents = KeyHandlerEvents;
+export { KeyHandlerEvents };
