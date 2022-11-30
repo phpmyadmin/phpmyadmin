@@ -13168,54 +13168,6 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Table.php">
-    <DeprecatedMethod occurrences="46">
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <InvalidArgument occurrences="5">
       <code>$newDb</code>
       <code>$sourceDb</code>
@@ -13493,15 +13445,11 @@
     <RedundantCast occurrences="1">
       <code>(int) $GLOBALS['cfg']['Server']['MaxTableUiprefs']</code>
     </RedundantCast>
-    <RedundantCastGivenDocblockType occurrences="9">
-      <code>(string) $db</code>
+    <RedundantCastGivenDocblockType occurrences="5">
       <code>(string) $defaultValue</code>
       <code>(string) $defaultValue</code>
       <code>(string) $defaultValue</code>
       <code>(string) $defaultValue</code>
-      <code>(string) $defaultValue</code>
-      <code>(string) $sourceTable</code>
-      <code>(string) $table</code>
       <code>(string) $tableName</code>
     </RedundantCastGivenDocblockType>
     <ReferenceConstraintViolation occurrences="1">
