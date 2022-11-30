@@ -14,12 +14,12 @@ use function array_merge;
 use function array_slice;
 use function count;
 use function explode;
-use function hexdec;
 use function json_encode;
 use function max;
 use function mb_substr;
 use function min;
 use function round;
+use function sprintf;
 use function sqrt;
 use function str_contains;
 use function trim;
@@ -82,22 +82,19 @@ class GisPolygon extends GisGeometry
      *
      * @param string      $spatial    GIS POLYGON object
      * @param string|null $label      Label for the GIS POLYGON object
-     * @param string      $fill_color Color for the GIS POLYGON object
+     * @param int[]       $color      Color for the GIS POLYGON object
      * @param array       $scale_data Array containing data related to scaling
      */
     public function prepareRowAsPng(
         $spatial,
         ?string $label,
-        $fill_color,
+        array $color,
         array $scale_data,
         ImageWrapper $image
     ): ImageWrapper {
         // allocate colors
         $black = $image->colorAllocate(0, 0, 0);
-        $red = (int) hexdec(mb_substr($fill_color, 1, 2));
-        $green = (int) hexdec(mb_substr($fill_color, 3, 2));
-        $blue = (int) hexdec(mb_substr($fill_color, 4, 2));
-        $color = $image->colorAllocate($red, $green, $blue);
+        $fill_color = $image->colorAllocate(...$color);
 
         $label = trim($label ?? '');
 
@@ -124,7 +121,7 @@ class GisPolygon extends GisGeometry
         }
 
         // draw polygon
-        $image->filledPolygon($points_arr, $color);
+        $image->filledPolygon($points_arr, $fill_color);
         // print label if applicable
         if ($label !== '') {
             $image->string(
@@ -144,24 +141,14 @@ class GisPolygon extends GisGeometry
      *
      * @param string      $spatial    GIS POLYGON object
      * @param string|null $label      Label for the GIS POLYGON object
-     * @param string      $fill_color Color for the GIS POLYGON object
+     * @param int[]       $color      Color for the GIS POLYGON object
      * @param array       $scale_data Array containing data related to scaling
      * @param TCPDF       $pdf        TCPDF instance
      *
      * @return TCPDF the modified TCPDF instance
      */
-    public function prepareRowAsPdf($spatial, ?string $label, $fill_color, array $scale_data, $pdf)
+    public function prepareRowAsPdf($spatial, ?string $label, array $color, array $scale_data, $pdf)
     {
-        // allocate colors
-        $red = hexdec(mb_substr($fill_color, 1, 2));
-        $green = hexdec(mb_substr($fill_color, 3, 2));
-        $blue = hexdec(mb_substr($fill_color, 4, 2));
-        $color = [
-            $red,
-            $green,
-            $blue,
-        ];
-
         $label = trim($label ?? '');
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
@@ -203,12 +190,12 @@ class GisPolygon extends GisGeometry
      *
      * @param string $spatial    GIS POLYGON object
      * @param string $label      Label for the GIS POLYGON object
-     * @param string $fill_color Color for the GIS POLYGON object
+     * @param int[]  $color      Color for the GIS POLYGON object
      * @param array  $scale_data Array containing data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg($spatial, $label, $fill_color, array $scale_data)
+    public function prepareRowAsSvg($spatial, $label, array $color, array $scale_data)
     {
         $polygon_options = [
             'name' => $label,
@@ -216,7 +203,7 @@ class GisPolygon extends GisGeometry
             'class' => 'polygon vector',
             'stroke' => 'black',
             'stroke-width' => 0.5,
-            'fill' => $fill_color,
+            'fill' => sprintf('#%02x%02x%02x', ...$color),
             'fill-rule' => 'evenodd',
             'fill-opacity' => 0.8,
         ];
@@ -259,17 +246,17 @@ class GisPolygon extends GisGeometry
      * @param string $spatial    GIS POLYGON object
      * @param int    $srid       Spatial reference ID
      * @param string $label      Label for the GIS POLYGON object
-     * @param array  $fill_color Color for the GIS POLYGON object
+     * @param int[]  $color      Color for the GIS POLYGON object
      * @param array  $scale_data Array containing data related to scaling
      *
      * @return string JavaScript related to a row in the GIS dataset
      */
-    public function prepareRowAsOl($spatial, int $srid, $label, $fill_color, array $scale_data)
+    public function prepareRowAsOl($spatial, int $srid, $label, array $color, array $scale_data)
     {
-        $fill_color[] = 0.8;
-        $fill_style = ['color' => $fill_color];
+        $color[] = 0.8;
+        $fill_style = ['color' => $color];
         $stroke_style = [
-            'color' => [0,0,0],
+            'color' => [0, 0, 0],
             'width' => 0.5,
         ];
         $row = 'var style = new ol.style.Style({'

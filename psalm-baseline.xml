@@ -6815,15 +6815,9 @@
       <code>$point[0]</code>
       <code>$point[1]</code>
     </MixedOperand>
-    <ParamNameMismatch occurrences="4">
-      <code>$line_color</code>
-      <code>$line_color</code>
-      <code>$line_color</code>
-      <code>$line_color</code>
-    </ParamNameMismatch>
     <PossiblyFalseArgument occurrences="2">
       <code>$black</code>
-      <code>$color</code>
+      <code>$line_color</code>
     </PossiblyFalseArgument>
     <RedundantPropertyInitializationCheck occurrences="1">
       <code>isset(self::$instance)</code>
@@ -6896,15 +6890,9 @@
       <code>$point[0]</code>
       <code>$point[1]</code>
     </MixedOperand>
-    <ParamNameMismatch occurrences="4">
-      <code>$line_color</code>
-      <code>$line_color</code>
-      <code>$line_color</code>
-      <code>$line_color</code>
-    </ParamNameMismatch>
     <PossiblyFalseArgument occurrences="2">
       <code>$black</code>
-      <code>$color</code>
+      <code>$line_color</code>
     </PossiblyFalseArgument>
     <RedundantPropertyInitializationCheck occurrences="1">
       <code>isset(self::$instance)</code>
@@ -6970,15 +6958,9 @@
       <code>$row_data['points'][$i]['x']</code>
       <code>$row_data['points'][$i]['y']</code>
     </MixedOperand>
-    <ParamNameMismatch occurrences="4">
-      <code>$point_color</code>
-      <code>$point_color</code>
-      <code>$point_color</code>
-      <code>$point_color</code>
-    </ParamNameMismatch>
     <PossiblyFalseArgument occurrences="2">
       <code>$black</code>
-      <code>$color</code>
+      <code>$point_color</code>
     </PossiblyFalseArgument>
     <RedundantPropertyInitializationCheck occurrences="1">
       <code>isset(self::$instance)</code>
@@ -7095,15 +7077,9 @@
       <code>$points_arr[0][0]</code>
       <code>$points_arr[0][1]</code>
     </MixedOperand>
-    <ParamNameMismatch occurrences="4">
-      <code>$fill_color</code>
-      <code>$fill_color</code>
-      <code>$fill_color</code>
-      <code>$fill_color</code>
-    </ParamNameMismatch>
     <PossiblyFalseArgument occurrences="2">
       <code>$black</code>
-      <code>$color</code>
+      <code>$fill_color</code>
     </PossiblyFalseArgument>
     <RedundantPropertyInitializationCheck occurrences="1">
       <code>isset(self::$instance)</code>
@@ -7156,15 +7132,9 @@
       <code>$row_data['x'] ?? ''</code>
       <code>$row_data['y'] ?? ''</code>
     </MixedOperand>
-    <ParamNameMismatch occurrences="4">
-      <code>$point_color</code>
-      <code>$point_color</code>
-      <code>$point_color</code>
-      <code>$point_color</code>
-    </ParamNameMismatch>
     <PossiblyFalseArgument occurrences="2">
       <code>$black</code>
-      <code>$color</code>
+      <code>$point_color</code>
     </PossiblyFalseArgument>
     <RedundantPropertyInitializationCheck occurrences="1">
       <code>isset(self::$instance)</code>
@@ -7298,15 +7268,9 @@
     <MixedReturnStatement occurrences="1">
       <code>$area</code>
     </MixedReturnStatement>
-    <ParamNameMismatch occurrences="4">
-      <code>$fill_color</code>
-      <code>$fill_color</code>
-      <code>$fill_color</code>
-      <code>$fill_color</code>
-    </ParamNameMismatch>
     <PossiblyFalseArgument occurrences="2">
       <code>$black</code>
-      <code>$color</code>
+      <code>$fill_color</code>
     </PossiblyFalseArgument>
     <PossiblyNullOperand occurrences="16">
       <code>$x1</code>
@@ -7334,7 +7298,7 @@
     <DocblockTypeContradiction occurrences="1">
       <code>$this-&gt;userSpecifiedSettings === null</code>
     </DocblockTypeContradiction>
-    <MixedArgument occurrences="20">
+    <MixedArgument occurrences="15">
       <code>$label</code>
       <code>$label</code>
       <code>$label</code>
@@ -7344,11 +7308,6 @@
       <code>$row[$this-&gt;settings['spatialColumn']]</code>
       <code>$row[$this-&gt;settings['spatialColumn']]</code>
       <code>$row[$this-&gt;settings['spatialColumn']]</code>
-      <code>$this-&gt;settings['colors']</code>
-      <code>$this-&gt;settings['colors'][$index]</code>
-      <code>$this-&gt;settings['colors'][$index]</code>
-      <code>$this-&gt;settings['colors'][$index]</code>
-      <code>$this-&gt;settings['colors_hex'][$index]</code>
       <code>$this-&gt;settings['height']</code>
       <code>$this-&gt;settings['width']</code>
       <code>$this-&gt;userSpecifiedSettings['labelColumn']</code>
@@ -7356,7 +7315,7 @@
       <code>$this-&gt;userSpecifiedSettings['spatialColumn']</code>
       <code>$this-&gt;userSpecifiedSettings['spatialColumn']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="14">
+    <MixedArrayAccess occurrences="10">
       <code>$row[$this-&gt;settings['labelColumn']]</code>
       <code>$row[$this-&gt;settings['spatialColumn']]</code>
       <code>$row[$this-&gt;settings['spatialColumn']]</code>
@@ -7367,10 +7326,6 @@
       <code>$row[$this-&gt;settings['spatialColumn']]</code>
       <code>$row['srid']</code>
       <code>$row['srid']</code>
-      <code>$this-&gt;settings['colors'][$index]</code>
-      <code>$this-&gt;settings['colors'][$index]</code>
-      <code>$this-&gt;settings['colors'][$index]</code>
-      <code>$this-&gt;settings['colors_hex'][$index]</code>
     </MixedArrayAccess>
     <MixedArrayOffset occurrences="9">
       <code>$row[$this-&gt;settings['labelColumn']]</code>

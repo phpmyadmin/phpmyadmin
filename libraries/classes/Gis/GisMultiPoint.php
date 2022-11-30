@@ -11,10 +11,10 @@ use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
 use function count;
-use function hexdec;
 use function json_encode;
 use function mb_substr;
 use function round;
+use function sprintf;
 use function trim;
 
 /**
@@ -64,24 +64,21 @@ class GisMultiPoint extends GisGeometry
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string      $spatial     GIS POLYGON object
-     * @param string|null $label       Label for the GIS POLYGON object
-     * @param string      $point_color Color for the GIS POLYGON object
-     * @param array       $scale_data  Array containing data related to scaling
+     * @param string      $spatial    GIS POLYGON object
+     * @param string|null $label      Label for the GIS POLYGON object
+     * @param int[]       $color      Color for the GIS POLYGON object
+     * @param array       $scale_data Array containing data related to scaling
      */
     public function prepareRowAsPng(
         $spatial,
         ?string $label,
-        $point_color,
+        array $color,
         array $scale_data,
         ImageWrapper $image
     ): ImageWrapper {
         // allocate colors
         $black = $image->colorAllocate(0, 0, 0);
-        $red = (int) hexdec(mb_substr($point_color, 1, 2));
-        $green = (int) hexdec(mb_substr($point_color, 3, 2));
-        $blue = (int) hexdec(mb_substr($point_color, 4, 2));
-        $color = $image->colorAllocate($red, $green, $blue);
+        $point_color = $image->colorAllocate(...$color);
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
         $multipoint = mb_substr($spatial, 11, -1);
@@ -100,7 +97,7 @@ class GisMultiPoint extends GisGeometry
                 7,
                 0,
                 360,
-                $color
+                $point_color
             );
         }
 
@@ -121,32 +118,24 @@ class GisMultiPoint extends GisGeometry
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string      $spatial     GIS MULTIPOINT object
-     * @param string|null $label       Label for the GIS MULTIPOINT object
-     * @param string      $point_color Color for the GIS MULTIPOINT object
-     * @param array       $scale_data  Array containing data related to scaling
-     * @param TCPDF       $pdf         TCPDF instance
+     * @param string      $spatial    GIS MULTIPOINT object
+     * @param string|null $label      Label for the GIS MULTIPOINT object
+     * @param int[]       $color      Color for the GIS MULTIPOINT object
+     * @param array       $scale_data Array containing data related to scaling
+     * @param TCPDF       $pdf        TCPDF instance
      *
      * @return TCPDF the modified TCPDF instance
      */
     public function prepareRowAsPdf(
         $spatial,
         ?string $label,
-        $point_color,
+        array $color,
         array $scale_data,
         $pdf
     ) {
-        // allocate colors
-        $red = hexdec(mb_substr($point_color, 1, 2));
-        $green = hexdec(mb_substr($point_color, 3, 2));
-        $blue = hexdec(mb_substr($point_color, 4, 2));
         $line = [
             'width' => 1.25,
-            'color' => [
-                $red,
-                $green,
-                $blue,
-            ],
+            'color' => $color,
         ];
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
@@ -175,20 +164,20 @@ class GisMultiPoint extends GisGeometry
     /**
      * Prepares and returns the code related to a row in the GIS dataset as SVG.
      *
-     * @param string $spatial     GIS MULTIPOINT object
-     * @param string $label       Label for the GIS MULTIPOINT object
-     * @param string $point_color Color for the GIS MULTIPOINT object
-     * @param array  $scale_data  Array containing data related to scaling
+     * @param string $spatial    GIS MULTIPOINT object
+     * @param string $label      Label for the GIS MULTIPOINT object
+     * @param int[]  $color      Color for the GIS MULTIPOINT object
+     * @param array  $scale_data Array containing data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg($spatial, $label, $point_color, array $scale_data)
+    public function prepareRowAsSvg($spatial, $label, array $color, array $scale_data)
     {
         $point_options = [
             'name' => $label,
             'class' => 'multipoint vector',
             'fill' => 'white',
-            'stroke' => $point_color,
+            'stroke' => sprintf('#%02x%02x%02x', ...$color),
             'stroke-width' => 2,
         ];
 
@@ -219,11 +208,11 @@ class GisMultiPoint extends GisGeometry
      * Prepares JavaScript related to a row in the GIS dataset
      * to visualize it with OpenLayers.
      *
-     * @param string $spatial     GIS MULTIPOINT object
-     * @param int    $srid        Spatial reference ID
-     * @param string $label       Label for the GIS MULTIPOINT object
-     * @param array  $point_color Color for the GIS MULTIPOINT object
-     * @param array  $scale_data  Array containing data related to scaling
+     * @param string $spatial    GIS MULTIPOINT object
+     * @param int    $srid       Spatial reference ID
+     * @param string $label      Label for the GIS MULTIPOINT object
+     * @param int[]  $color      Color for the GIS MULTIPOINT object
+     * @param array  $scale_data Array containing data related to scaling
      *
      * @return string JavaScript related to a row in the GIS dataset
      */
@@ -231,12 +220,12 @@ class GisMultiPoint extends GisGeometry
         $spatial,
         int $srid,
         $label,
-        $point_color,
+        array $color,
         array $scale_data
     ) {
         $fill_style = ['color' => 'white'];
         $stroke_style = [
-            'color' => $point_color,
+            'color' => $color,
             'width' => 2,
         ];
         $result = 'var fill = new ol.style.Fill(' . json_encode($fill_style) . ');'

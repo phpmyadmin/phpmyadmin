@@ -213,7 +213,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
                 "'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 0.47))',124",
                 null,
                 [
-                    'srid' => '124',
+                    'srid' => 124,
                     0 => $temp,
                 ],
             ],
@@ -255,7 +255,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
         $return = $this->object->prepareRowAsPng(
             'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',
             'image',
-            '#B02EE0',
+            [176, 46, 224],
             ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
             $image
         );
@@ -268,7 +268,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @param string $spatial    GIS MULTILINESTRING object
      * @param string $label      label for the GIS MULTILINESTRING object
-     * @param string $line_color color for the GIS MULTILINESTRING object
+     * @param int[]  $color      color for the GIS MULTILINESTRING object
      * @param array  $scale_data array containing data related to scaling
      * @param TCPDF  $pdf        TCPDF instance
      *
@@ -277,11 +277,11 @@ class GisMultiLineStringTest extends GisGeomTestCase
     public function testPrepareRowAsPdf(
         string $spatial,
         string $label,
-        string $line_color,
+        array $color,
         array $scale_data,
         TCPDF $pdf
     ): void {
-        $return = $this->object->prepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf);
+        $return = $this->object->prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
         $this->assertInstanceOf(TCPDF::class, $return);
     }
 
@@ -296,7 +296,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
             [
                 'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',
                 'pdf',
-                '#B02EE0',
+                [176, 46, 224],
                 [
                     'x' => 12,
                     'y' => 69,
@@ -313,7 +313,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @param string $spatial   GIS MULTILINESTRING object
      * @param string $label     label for the GIS MULTILINESTRING object
-     * @param string $lineColor color for the GIS MULTILINESTRING object
+     * @param int[]  $color     color for the GIS MULTILINESTRING object
      * @param array  $scaleData array containing data related to scaling
      * @param string $output    expected output
      *
@@ -322,11 +322,11 @@ class GisMultiLineStringTest extends GisGeomTestCase
     public function testPrepareRowAsSvg(
         string $spatial,
         string $label,
-        string $lineColor,
+        array $color,
         array $scaleData,
         string $output
     ): void {
-        $svg = $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData);
+        $svg = $this->object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
         $this->assertMatchesRegularExpression($output, $svg);
     }
 
@@ -341,7 +341,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
             [
                 'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',
                 'svg',
-                '#B02EE0',
+                [176, 46, 224],
                 [
                     'x' => 12,
                     'y' => 69,
@@ -349,10 +349,10 @@ class GisMultiLineStringTest extends GisGeomTestCase
                     'height' => 150,
                 ],
                 '/^(<polyline points="48,260 70,242 100,138 " name="svg" '
-                . 'class="linestring vector" fill="none" stroke="#B02EE0" '
+                . 'class="linestring vector" fill="none" stroke="#b02ee0" '
                 . 'stroke-width="2" id="svg)(\d+)("\/><polyline points="48,268 10,'
                 . '242 332,182 " name="svg" class="linestring vector" fill="none" '
-                . 'stroke="#B02EE0" stroke-width="2" id="svg)(\d+)("\/>)$/',
+                . 'stroke="#b02ee0" stroke-width="2" id="svg)(\d+)("\/>)$/',
             ],
         ];
     }
@@ -363,7 +363,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      * @param string $spatial    GIS MULTILINESTRING object
      * @param int    $srid       spatial reference ID
      * @param string $label      label for the GIS MULTILINESTRING object
-     * @param array  $line_color color for the GIS MULTILINESTRING object
+     * @param int[]  $color      color for the GIS MULTILINESTRING object
      * @param array  $scale_data array containing data related to scaling
      * @param string $output     expected output
      *
@@ -373,7 +373,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
         string $spatial,
         int $srid,
         string $label,
-        array $line_color,
+        array $color,
         array $scale_data,
         string $output
     ): void {
@@ -383,7 +383,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
                 $spatial,
                 $srid,
                 $label,
-                $line_color,
+                $color,
                 $scale_data
             )
         );
