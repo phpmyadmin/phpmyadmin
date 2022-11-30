@@ -8,6 +8,7 @@ use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
@@ -113,5 +114,20 @@ final class Indexes
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $error);
         }
+    }
+
+    /**
+     * @param string|DatabaseName $db
+     */
+    public function executeAddIndexSql($db, string $sql): Message
+    {
+        $this->dbi->selectDb($db);
+        $result = $this->dbi->tryQuery($sql);
+
+        if (! $result) {
+            return Message::error($this->dbi->getError());
+        }
+
+        return Message::success();
     }
 }

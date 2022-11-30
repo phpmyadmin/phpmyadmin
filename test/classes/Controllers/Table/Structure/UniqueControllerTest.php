@@ -8,6 +8,7 @@ use PhpMyAdmin\Controllers\Table\Structure\UniqueController;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Table\Indexes;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -36,7 +37,8 @@ class UniqueControllerTest extends AbstractTestCase
         $controllerStub = $this->createMock(StructureController::class);
         $controllerStub->expects($this->once())->method('__invoke')->with($request);
 
-        $controller = new UniqueController(new ResponseRenderer(), new Template(), $dbi, $controllerStub);
+        $indexes = new Indexes(new ResponseRenderer(), new Template(), $GLOBALS['dbi']);
+        $controller = new UniqueController(new ResponseRenderer(), new Template(), $controllerStub, $indexes);
         $controller($request);
 
         $this->assertEquals(Message::success(), $GLOBALS['message']);
@@ -65,7 +67,8 @@ class UniqueControllerTest extends AbstractTestCase
         $controllerStub = $this->createMock(StructureController::class);
         $controllerStub->expects($this->once())->method('__invoke')->with($request);
 
-        $controller = new UniqueController(new ResponseRenderer(), new Template(), $dbi, $controllerStub);
+        $indexes = new Indexes(new ResponseRenderer(), new Template(), $GLOBALS['dbi']);
+        $controller = new UniqueController(new ResponseRenderer(), new Template(), $controllerStub, $indexes);
         $controller($request);
 
         $this->assertEquals(Message::success(), $GLOBALS['message']);
@@ -92,7 +95,8 @@ class UniqueControllerTest extends AbstractTestCase
         $controllerStub->expects($this->never())->method('__invoke');
         $response = new ResponseRenderer();
 
-        $controller = new UniqueController($response, new Template(), $dbi, $controllerStub);
+        $indexes = new Indexes(new ResponseRenderer(), new Template(), $GLOBALS['dbi']);
+        $controller = new UniqueController($response, new Template(), $controllerStub, $indexes);
         $controller($request);
 
         $this->assertFalse($response->hasSuccessState());
@@ -123,7 +127,8 @@ class UniqueControllerTest extends AbstractTestCase
         $controllerStub = $this->createMock(StructureController::class);
         $controllerStub->expects($this->once())->method('__invoke')->with($request);
 
-        $controller = new UniqueController(new ResponseRenderer(), new Template(), $dbi, $controllerStub);
+        $indexes = new Indexes(new ResponseRenderer(), new Template(), $GLOBALS['dbi']);
+        $controller = new UniqueController(new ResponseRenderer(), new Template(), $controllerStub, $indexes);
         $controller($request);
 
         $this->assertEquals(
