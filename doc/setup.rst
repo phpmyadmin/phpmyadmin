@@ -83,6 +83,12 @@ which include phpMyAdmin together with a database and web server such as
 
 You can find more of such options at `Wikipedia <https://en.wikipedia.org/wiki/List_of_AMP_packages>`_.
 
+You may also find a walkthrough guide under the `getting_started directory <getting_started/windows_setup.rst>`__.
+
+Installing on Mac OS
+++++++++++++++++++++
+You may also find a walkthrough guide under the `getting_started directory <getting_started/osx_setup.rst>`__.
+
 Installing from Git
 +++++++++++++++++++
 
