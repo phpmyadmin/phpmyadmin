@@ -9,7 +9,6 @@ use PhpMyAdmin\Util;
 use function array_map;
 use function count;
 use function implode;
-use function is_array;
 use function sprintf;
 
 /**
@@ -18,34 +17,49 @@ use function sprintf;
 class Generator
 {
     /**
-     * returns a segment of the SQL WHERE clause regarding table name and type
+     * returns a segment of the SQL WHERE clause regarding table name
      *
-     * @param array|string $escapedTableOrTables table(s)
-     * @param bool         $tblIsGroup           $table is a table group
-     * @param string|null  $tableType            whether table or view
+     * @param bool $tblIsGroup $table is a table group
      *
      * @return string a segment of the WHERE clause
      */
-    public static function getTableCondition(
-        $escapedTableOrTables,
-        bool $tblIsGroup,
+    public static function getTableNameCondition(
+        string $escapedTabletable,
+        bool $tblIsGroup
+    ): string {
+        $sqlWhereTable = 'AND t.`TABLE_NAME` ';
+        if ($tblIsGroup === true) {
+            $sqlWhereTable .= 'LIKE ' . $escapedTabletable . '%';
+        } else {
+            $sqlWhereTable .= Util::getCollateForIS() . ' = ' . $escapedTabletable;
+        }
+
+        return $sqlWhereTable;
+    }
+
+    /**
+     * returns a segment of the SQL WHERE clause regarding table name
+     *
+     * @param string[] $escapedTables tables
+     *
+     * @return string a segment of the WHERE clause
+     */
+    public static function getTableNameConditionForMultiple(array $escapedTables): string
+    {
+        return 'AND t.`TABLE_NAME` ' . Util::getCollateForIS() . ' IN (' . implode(', ', $escapedTables) . ')';
+    }
+
+    /**
+     * returns a segment of the SQL WHERE clause regarding table type
+     *
+     * @param string|null $tableType whether table or view
+     *
+     * @return string a segment of the WHERE clause
+     */
+    public static function getTableTypeCondition(
         ?string $tableType
     ): string {
-        // get table information from information_schema
-        if ($escapedTableOrTables !== [] && $escapedTableOrTables !== '') {
-            $sqlWhereTable = 'AND t.`TABLE_NAME` ';
-            if (is_array($escapedTableOrTables)) {
-                $sqlWhereTable .= Util::getCollateForIS() . ' IN (\''
-                    . implode('\', \'', $escapedTableOrTables)
-                    . '\')';
-            } elseif ($tblIsGroup === true) {
-                $sqlWhereTable .= 'LIKE \'' . Util::escapeMysqlWildcards($escapedTableOrTables) . '%\'';
-            } else {
-                $sqlWhereTable .= Util::getCollateForIS() . ' = \'' . $escapedTableOrTables . '\'';
-            }
-        } else {
-            $sqlWhereTable = '';
-        }
+        $sqlWhereTable = '';
 
         if ($tableType === 'view') {
             $sqlWhereTable .= " AND t.`TABLE_TYPE` NOT IN ('BASE TABLE', 'SYSTEM VERSIONED')";
@@ -59,12 +73,12 @@ class Generator
     /**
      * returns the beginning of the SQL statement to fetch the list of tables
      *
-     * @param string[] $thisDatabases databases to list
-     * @param string   $sqlWhereTable additional condition
+     * @param string $thisDatabases databases to list
+     * @param string $sqlWhereTable additional condition
      *
      * @return string the SQL statement
      */
-    public static function getSqlForTablesFull(array $thisDatabases, string $sqlWhereTable): string
+    public static function getSqlForTablesFull(string $thisDatabases, string $sqlWhereTable): string
     {
         return 'SELECT *,'
             . ' `TABLE_SCHEMA`       AS `Db`,'
@@ -90,7 +104,7 @@ class Generator
             . ' `TABLE_COMMENT`      AS `Comment`'
             . ' FROM `information_schema`.`TABLES` t'
             . ' WHERE `TABLE_SCHEMA` ' . Util::getCollateForIS()
-            . ' IN (\'' . implode("', '", $thisDatabases) . '\')'
+            . ' IN (' . $thisDatabases . ')'
             . ' ' . $sqlWhereTable;
     }
 

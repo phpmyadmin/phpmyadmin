@@ -391,11 +391,21 @@ class DatabaseInterface implements DbalInterface
         $tables = [];
 
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            $sqlWhereTable = QueryGenerator::getTableCondition(
-                is_array($table) ? array_map([$this, 'escapeString'], $table) : $this->escapeString($table),
-                $tableIsGroup,
-                $tableType
-            );
+            $sqlWhereTable = '';
+            if ($table !== [] && $table !== '') {
+                if (is_array($table)) {
+                    $sqlWhereTable = QueryGenerator::getTableNameConditionForMultiple(
+                        array_map([$this, 'quoteString'], $table)
+                    );
+                } else {
+                    $sqlWhereTable = QueryGenerator::getTableNameCondition(
+                        $this->quoteString($tableIsGroup ? $this->escapeMysqlWildcards($table) : $table),
+                        $tableIsGroup
+                    );
+                }
+            }
+
+            $sqlWhereTable .= QueryGenerator::getTableTypeCondition($tableType);
 
             // for PMA bc:
             // `SCHEMA_FIELD_NAME` AS `SHOW_TABLE_STATUS_FIELD_NAME`
@@ -405,7 +415,7 @@ class DatabaseInterface implements DbalInterface
             // comparison (if we are looking for the db Aa we don't want
             // to find the db aa)
 
-            $sql = QueryGenerator::getSqlForTablesFull([$this->escapeString($database)], $sqlWhereTable);
+            $sql = QueryGenerator::getSqlForTablesFull($this->quoteString($database), $sqlWhereTable);
 
             // Sort the tables
             $sql .= ' ORDER BY ' . $sortBy . ' ' . $sortOrder;
@@ -504,9 +514,7 @@ class DatabaseInterface implements DbalInterface
                                 )
                             ) . ')';
                     } else {
-                        $sql .= " `Name` LIKE '"
-                            . $this->escapeMysqlLikeString($table, $link)
-                            . "%'";
+                        $sql .= ' `Name` LIKE ' . $this->quoteString($this->escapeMysqlWildcards($table) . '%', $link);
                     }
 
                     $needAnd = true;
@@ -903,7 +911,7 @@ class DatabaseInterface implements DbalInterface
         $sql = QueryGenerator::getColumnsSql(
             $database,
             $table,
-            $this->escapeMysqlLikeString($column),
+            $this->escapeString($this->escapeMysqlWildcards($column)),
             $full
         );
         /** @var array<string, array> $fields */
@@ -1931,16 +1939,16 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * returns properly escaped string for use in MySQL LIKE clauses
+     * Returns properly escaped string for use in MySQL LIKE clauses.
+     * This method escapes only _, %, and /. It does not escape quotes or any other characters.
      *
-     * @param string $str  string to be escaped
-     * @param int    $link optional database link to use
+     * @param string $str string to be escaped
      *
      * @return string a MySQL escaped LIKE string
      */
-    public function escapeMysqlLikeString(string $str, int $link = self::CONNECT_USER)
+    public function escapeMysqlWildcards(string $str): string
     {
-        return $this->escapeString(strtr($str, ['\\' => '\\\\', '_' => '\\_', '%' => '\\%']), $link);
+        return strtr($str, ['\\' => '\\\\', '_' => '\\_', '%' => '\\%']);
     }
 
     /**
