@@ -66,7 +66,6 @@ class NavigationController extends AbstractController
 
         $relationParameters = $this->relation->getRelationParameters();
         if ($relationParameters->navigationItemsHidingFeature !== null) {
-
             $itemName = $request->getParsedBodyParam('itemName', '');
             $itemType = $request->getParsedBodyParam('itemType', '');
             $dbName = $request->getParsedBodyParam('dbName', '');

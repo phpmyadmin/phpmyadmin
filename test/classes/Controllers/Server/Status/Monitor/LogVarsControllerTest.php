@@ -73,7 +73,6 @@ class LogVarsControllerTest extends AbstractTestCase
             ['varName', null, 'varName'],
         ]);
 
-
         $this->dummyDbi->addSelectDb('mysql');
         $controller($request);
         $this->dummyDbi->assertAllSelectsConsumed();

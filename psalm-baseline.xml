@@ -2310,26 +2310,24 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/NavigationController.php">
-    <PossiblyInvalidArgument occurrences="9">
-      <code>! empty($_POST['tableName']) ? $_POST['tableName'] : null</code>
-      <code>! empty($_POST['tableName']) ? $_POST['tableName'] : null</code>
-      <code>$_POST['dbName']</code>
-      <code>$_POST['dbName']</code>
-      <code>$_POST['dbName']</code>
-      <code>$_POST['itemName']</code>
-      <code>$_POST['itemName']</code>
-      <code>$_POST['itemType']</code>
-      <code>$_POST['itemType']</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="7">
-      <code>$_POST['dbName']</code>
-      <code>$_POST['dbName']</code>
-      <code>$_POST['dbName']</code>
-      <code>$_POST['itemName']</code>
-      <code>$_POST['itemName']</code>
-      <code>$_POST['itemType']</code>
-      <code>$_POST['itemType']</code>
-    </PossiblyInvalidCast>
+    <MixedArgument occurrences="9">
+      <code>! empty($tableName) ? $tableName : null</code>
+      <code>! empty($tableName) ? $tableName : null</code>
+      <code>$dbName</code>
+      <code>$dbName</code>
+      <code>$dbName</code>
+      <code>$itemName</code>
+      <code>$itemName</code>
+      <code>$itemType</code>
+      <code>$itemType</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="5">
+      <code>$dbName</code>
+      <code>$getNaviSettings</code>
+      <code>$itemName</code>
+      <code>$itemType</code>
+      <code>$tableName</code>
+    </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Normalization/FirstNormalForm/FirstStepController.php">
     <MixedArgument occurrences="1">
@@ -2748,55 +2746,40 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Server/Status/Monitor/ChartingDataController.php">
+    <MixedArgument occurrences="1">
+      <code>$params['requiredData'] ?? ''</code>
+    </MixedArgument>
     <MixedAssignment occurrences="1">
       <code>$GLOBALS['errorUrl']</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$params['requiredData'] ?? ''</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="1">
-      <code>$params['requiredData'] ?? ''</code>
-    </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Controllers/Server/Status/Monitor/GeneralLogController.php">
     <MixedAssignment occurrences="1">
       <code>$GLOBALS['errorUrl']</code>
     </MixedAssignment>
-    <RiskyCast occurrences="2">
-      <code>$params['time_end']</code>
-      <code>$params['time_start']</code>
-    </RiskyCast>
   </file>
   <file src="libraries/classes/Controllers/Server/Status/Monitor/LogVarsController.php">
-    <MixedAssignment occurrences="1">
-      <code>$GLOBALS['errorUrl']</code>
-    </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="2">
+    <MixedArgument occurrences="2">
       <code>$params['varName']</code>
       <code>$params['varValue']</code>
-    </PossiblyInvalidArgument>
-  </file>
-  <file src="libraries/classes/Controllers/Server/Status/Monitor/QueryAnalyzerController.php">
+    </MixedArgument>
     <MixedAssignment occurrences="1">
       <code>$GLOBALS['errorUrl']</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="2">
+  </file>
+  <file src="libraries/classes/Controllers/Server/Status/Monitor/QueryAnalyzerController.php">
+    <MixedArgument occurrences="2">
       <code>$params['database'] ?? ''</code>
       <code>$params['query'] ?? ''</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="2">
-      <code>$params['database'] ?? ''</code>
-      <code>$params['query'] ?? ''</code>
-    </PossiblyInvalidCast>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$GLOBALS['errorUrl']</code>
+    </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Server/Status/Monitor/SlowLogController.php">
     <MixedAssignment occurrences="1">
       <code>$GLOBALS['errorUrl']</code>
     </MixedAssignment>
-    <RiskyCast occurrences="2">
-      <code>$params['time_end']</code>
-      <code>$params['time_start']</code>
-    </RiskyCast>
   </file>
   <file src="libraries/classes/Controllers/Server/Status/QueriesController.php">
     <MixedArgumentTypeCoercion occurrences="1">
@@ -2820,7 +2803,9 @@
     </MixedOperand>
   </file>
   <file src="libraries/classes/Controllers/Server/Status/StatusController.php">
-    <MixedArgument occurrences="17">
+    <MixedArgument occurrences="19">
+      <code>$primaryConnection</code>
+      <code>$primaryConnection</code>
       <code>$this-&gt;data-&gt;status['Aborted_clients']</code>
       <code>$this-&gt;data-&gt;status['Aborted_clients'] * $hourFactor</code>
       <code>$this-&gt;data-&gt;status['Aborted_clients'] * 100 / $this-&gt;data-&gt;status['Connections']</code>
@@ -2839,9 +2824,10 @@
       <code>$this-&gt;data-&gt;status['Uptime']</code>
       <code>($this-&gt;data-&gt;status['Bytes_received'] + $this-&gt;data-&gt;status['Bytes_sent']) * $hourFactor</code>
     </MixedArgument>
-    <MixedAssignment occurrences="2">
+    <MixedAssignment occurrences="3">
       <code>$hourFactor</code>
       <code>$hourFactor</code>
+      <code>$primaryConnection</code>
     </MixedAssignment>
     <MixedOperand occurrences="13">
       <code>$this-&gt;data-&gt;status['Aborted_clients']</code>
@@ -2858,12 +2844,11 @@
       <code>$this-&gt;data-&gt;status['Uptime']</code>
       <code>$this-&gt;data-&gt;status['Uptime']</code>
     </MixedOperand>
-    <PossiblyInvalidArgument occurrences="2">
-      <code>$_POST['primary_connection'] ?? null</code>
-      <code>$_POST['primary_connection'] ?? null</code>
-    </PossiblyInvalidArgument>
   </file>
   <file src="libraries/classes/Controllers/Server/Status/VariablesController.php">
+    <MixedArgument occurrences="1">
+      <code>$params['flush']</code>
+    </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="2">
       <code>$name</code>
       <code>$name</code>
@@ -2882,12 +2867,6 @@
       <code>$this-&gt;data-&gt;status['Qcache_total_blocks']</code>
       <code>$this-&gt;data-&gt;variables['thread_cache_size']</code>
     </MixedOperand>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$params['flush']</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="1">
-      <code>$params['flush']</code>
-    </PossiblyInvalidCast>
     <UnusedForeachValue occurrences="3">
       <code>$linkUrl</code>
       <code>$sectionLinks</code>

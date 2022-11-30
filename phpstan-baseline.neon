@@ -1356,6 +1356,51 @@ parameters:
 			path: libraries/classes/Controllers/HomeController.php
 
 		-
+			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\Navigation\\\\Navigation\\:\\:getItemUnhideDialog\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/NavigationController.php
+
+		-
+			message: "#^Parameter \\#1 \\$itemName of method PhpMyAdmin\\\\Navigation\\\\Navigation\\:\\:hideNavigationItem\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/NavigationController.php
+
+		-
+			message: "#^Parameter \\#1 \\$itemName of method PhpMyAdmin\\\\Navigation\\\\Navigation\\:\\:unhideNavigationItem\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/NavigationController.php
+
+		-
+			message: "#^Parameter \\#2 \\$itemType of method PhpMyAdmin\\\\Navigation\\\\Navigation\\:\\:hideNavigationItem\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/NavigationController.php
+
+		-
+			message: "#^Parameter \\#2 \\$itemType of method PhpMyAdmin\\\\Navigation\\\\Navigation\\:\\:unhideNavigationItem\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/NavigationController.php
+
+		-
+			message: "#^Parameter \\#3 \\$dbName of method PhpMyAdmin\\\\Navigation\\\\Navigation\\:\\:hideNavigationItem\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/NavigationController.php
+
+		-
+			message: "#^Parameter \\#3 \\$dbName of method PhpMyAdmin\\\\Navigation\\\\Navigation\\:\\:unhideNavigationItem\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/NavigationController.php
+
+		-
+			message: "#^Parameter \\#4 \\$tableName of method PhpMyAdmin\\\\Navigation\\\\Navigation\\:\\:hideNavigationItem\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/NavigationController.php
+
+		-
+			message: "#^Parameter \\#4 \\$tableName of method PhpMyAdmin\\\\Navigation\\\\Navigation\\:\\:unhideNavigationItem\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/NavigationController.php
+
+		-
 			message: "#^Parameter \\#3 \\$normalizedTo of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlFor1NFStep1\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Normalization/FirstNormalForm/FirstStepController.php
@@ -1516,6 +1561,41 @@ parameters:
 			path: libraries/classes/Controllers/Server/ReplicationController.php
 
 		-
+			message: "#^Parameter \\#1 \\$requiredData of method PhpMyAdmin\\\\Server\\\\Status\\\\Monitor\\:\\:getJsonForChartingData\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/Status/Monitor/ChartingDataController.php
+
+		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Server/Status/Monitor/GeneralLogController.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\Server\\\\Status\\\\Monitor\\:\\:getJsonForLoggingVars\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/Status/Monitor/LogVarsController.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of method PhpMyAdmin\\\\Server\\\\Status\\\\Monitor\\:\\:getJsonForLoggingVars\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/Status/Monitor/LogVarsController.php
+
+		-
+			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\Server\\\\Status\\\\Monitor\\:\\:getJsonForQueryAnalyzer\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/Status/Monitor/QueryAnalyzerController.php
+
+		-
+			message: "#^Parameter \\#2 \\$query of method PhpMyAdmin\\\\Server\\\\Status\\\\Monitor\\:\\:getJsonForQueryAnalyzer\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/Status/Monitor/QueryAnalyzerController.php
+
+		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Server/Status/Monitor/SlowLogController.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Server\\\\Status\\\\Processes\\\\KillController\\:\\:__invoke\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/Status/Processes/KillController.php
@@ -1541,12 +1621,22 @@ parameters:
 			path: libraries/classes/Controllers/Server/Status/StatusController.php
 
 		-
+			message: "#^Parameter \\#1 \\$connection of method PhpMyAdmin\\\\ReplicationGui\\:\\:getHtmlForReplicationStatusTable\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Server/Status/StatusController.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Server\\\\Status\\\\VariablesController\\:\\:getAlerts\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/Status/VariablesController.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Server\\\\Status\\\\VariablesController\\:\\:getDescriptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/Status/VariablesController.php
+
+		-
+			message: "#^Parameter \\#1 \\$flush of method PhpMyAdmin\\\\Controllers\\\\Server\\\\Status\\\\VariablesController\\:\\:flush\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/Status/VariablesController.php
 
