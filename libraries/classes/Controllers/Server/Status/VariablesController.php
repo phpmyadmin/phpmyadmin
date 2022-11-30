@@ -35,13 +35,10 @@ class VariablesController extends AbstractController
     {
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
-        $params = [
-            'flush' => $request->getParsedBodyParam('flush'),
-            'filterAlert' => $request->getParsedBodyParam('filterAlert'),
-            'filterText' => $request->getParsedBodyParam('filterText'),
-            'filterCategory' => $request->getParsedBodyParam('filterCategory'),
-            'dontFormat' => $request->getParsedBodyParam('dontFormat'),
-        ];
+        $filterAlert = $request->getParsedBodyParam('filterAlert');
+        $filterText = $request->getParsedBodyParam('filterText');
+        $filterCategory = $request->getParsedBodyParam('filterCategory');
+        $dontFormat = $request->getParsedBodyParam('dontFormat');
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
@@ -54,8 +51,9 @@ class VariablesController extends AbstractController
             'server/status/sorter.js',
         ]);
 
-        if (isset($params['flush'])) {
-            $this->flush($params['flush']);
+        $flush = $request->getParsedBodyParam('flush');
+        if ($flush !== null) {
+            $this->flush($flush);
         }
 
         if ($this->data->dataLoaded) {
@@ -70,7 +68,7 @@ class VariablesController extends AbstractController
                     'name' => $sectionName,
                     'is_selected' => false,
                 ];
-                if (empty($params['filterCategory']) || $params['filterCategory'] !== $sectionId) {
+                if (! $filterCategory || $filterCategory !== $sectionId) {
                     continue;
                 }
 
@@ -133,9 +131,9 @@ class VariablesController extends AbstractController
 
         $this->render('server/status/variables/index', [
             'is_data_loaded' => $this->data->dataLoaded,
-            'filter_text' => ! empty($params['filterText']) ? $params['filterText'] : '',
-            'is_only_alerts' => ! empty($params['filterAlert']),
-            'is_not_formatted' => ! empty($params['dontFormat']),
+            'filter_text' => $filterText ?: '',
+            'is_only_alerts' => (bool) $filterAlert,
+            'is_not_formatted' => (bool) $dontFormat,
             'categories' => $categories ?? [],
             'links' => $links ?? [],
             'variables' => $variables ?? [],

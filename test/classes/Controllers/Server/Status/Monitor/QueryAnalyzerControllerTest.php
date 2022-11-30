@@ -48,8 +48,8 @@ class QueryAnalyzerControllerTest extends AbstractTestCase
 
         $request = $this->createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
-            ['database', null, 'database'],
-            ['query', null, 'query'],
+            ['database', '', 'database'],
+            ['query', '', 'query'],
         ]);
 
         $dummyDbi->addSelectDb('mysql');

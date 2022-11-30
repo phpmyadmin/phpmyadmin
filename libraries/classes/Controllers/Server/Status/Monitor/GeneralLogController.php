@@ -37,12 +37,6 @@ final class GeneralLogController extends AbstractController
     {
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
-        $params = [
-            'time_start' => $request->getParsedBodyParam('time_start'),
-            'time_end' => $request->getParsedBodyParam('time_end'),
-            'limitTypes' => $request->getParsedBodyParam('limitTypes'),
-            'removeVariables' => $request->getParsedBodyParam('removeVariables'),
-        ];
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
@@ -55,10 +49,10 @@ final class GeneralLogController extends AbstractController
 
         $this->response->addJSON([
             'message' => $this->monitor->getJsonForLogDataTypeGeneral(
-                (int) $params['time_start'],
-                (int) $params['time_end'],
-                (bool) $params['limitTypes'],
-                (bool) $params['removeVariables']
+                (int) $request->getParsedBodyParam('time_start'),
+                (int) $request->getParsedBodyParam('time_end'),
+                (bool) $request->getParsedBodyParam('limitTypes'),
+                (bool) $request->getParsedBodyParam('removeVariables')
             ),
         ]);
     }
