@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-11-28 18:47+0000\n"
+"PO-Revision-Date: 2022-12-01 01:49+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -1447,10 +1447,9 @@ msgstr "Исклучи %s"
 
 #. l10n: %d seconds
 #: js/messages.php:249
-#, fuzzy, php-format
-#| msgid "Query took %01.4f sec"
+#, php-format
 msgid "Set long_query_time to %d seconds."
-msgstr "време на извршување на упитот %01.4f секунди"
+msgstr "Подеси long_query_time на %d секунди."
 
 #: js/messages.php:251
 msgid ""
@@ -1937,10 +1936,9 @@ msgid "ENUM/SET editor"
 msgstr ""
 
 #: js/messages.php:409
-#, fuzzy, php-format
-#| msgid "Number of rows per page"
+#, php-format
 msgid "Values for column %s"
-msgstr "Број на записи на страница"
+msgstr "Вредности за колона %s"
 
 #: js/messages.php:410
 msgid "Values for a new column"
@@ -1951,9 +1949,9 @@ msgid "Enter each value in a separate field."
 msgstr ""
 
 #: js/messages.php:412
-#, fuzzy, php-format
+#, php-format
 msgid "Add %d value(s)"
-msgstr "Додади нов корисник"
+msgstr "Додади %d вредност(и)"
 
 #: js/messages.php:416
 msgid ""
@@ -2711,9 +2709,9 @@ msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
 #: js/messages.php:731
-#, fuzzy, php-format
+#, php-format
 msgid "%s queries executed %s times in %s seconds."
-msgstr "SQL упит"
+msgstr "%s барања извршени %s пати во %s секунди."
 
 #: js/messages.php:732
 #, php-format
@@ -6905,9 +6903,9 @@ msgstr "Базата на податоци не постои"
 #: libraries/classes/Controllers/Table/TableStructureController.php:760
 #: libraries/classes/Controllers/Table/TableStructureController.php:1018
 #: tbl_addfield.php:96
-#, fuzzy, php-format
+#, php-format
 msgid "Table %1$s has been altered successfully."
-msgstr "Изабраните корисници успешно се избришани."
+msgstr "Табелата %1$s беше успешно променета."
 
 #: libraries/classes/Controllers/Table/TableRelationController.php:228
 #, fuzzy
@@ -6982,10 +6980,10 @@ msgid "Query error"
 msgstr "Вид на упит"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1012
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "Изабраните корисници успешно се избришани."
+msgstr "Табелата %1$s беше успешно променета. Привилегиите се прилагодени."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1228
 #: templates/table/structure/check_all_table_column.twig:17
@@ -11136,15 +11134,14 @@ msgid "Sorry, we failed to restore the dropped event."
 msgstr ""
 
 #: libraries/classes/Rte/Events.php:149
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Event %1$s has been modified."
-msgstr "Табелата %s е избришана"
+msgstr "Настанот %1$s беше променет."
 
 #: libraries/classes/Rte/Events.php:169
-#, fuzzy, php-format
+#, php-format
 msgid "Event %1$s has been created."
-msgstr "Табелата %s е избришана"
+msgstr "Настанот %1$s беше создаден"
 
 #: libraries/classes/Rte/Events.php:183 libraries/classes/Rte/Routines.php:287
 #: libraries/classes/Rte/Triggers.php:159
@@ -11276,9 +11273,9 @@ msgid "Invalid routine type: \"%s\""
 msgstr ""
 
 #: libraries/classes/Rte/Routines.php:274
-#, fuzzy, php-format
+#, php-format
 msgid "Routine %1$s has been created."
-msgstr "Табелата %s е избришана"
+msgstr "Рутината %1$s беше создадена."
 
 #: libraries/classes/Rte/Routines.php:393
 msgid "Sorry, we failed to restore the dropped routine."
@@ -11556,10 +11553,9 @@ msgid "Add event"
 msgstr "Додади нов корисник"
 
 #: libraries/classes/Rte/Words.php:70
-#, fuzzy, php-format
-#| msgid "No rows selected"
+#, php-format
 msgid "Export of event %s"
-msgstr "Нема селектирани записи"
+msgstr "Извоз на настан %s"
 
 #: libraries/classes/Rte/Words.php:71
 #, fuzzy
@@ -11573,10 +11569,9 @@ msgid "You do not have the necessary privileges to create an event."
 msgstr "Немате право на пристап овде!"
 
 #: libraries/classes/Rte/Words.php:75
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "Табелите не се пронајдени во базата на податоци."
+msgstr "Нема настан со име %1$s најден во датабазата %2$s."
 
 #: libraries/classes/Rte/Words.php:76
 msgid "There are no events to display."
