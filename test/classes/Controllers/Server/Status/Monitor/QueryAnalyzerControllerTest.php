@@ -46,12 +46,15 @@ class QueryAnalyzerControllerTest extends AbstractTestCase
 
         $controller = new QueryAnalyzerController($response, new Template(), new Data($dbi), new Monitor($dbi), $dbi);
 
-        $_POST['database'] = 'database';
-        $_POST['query'] = 'query';
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['database', null, 'database'],
+            ['query', null, 'query'],
+        ]);
 
         $dummyDbi->addSelectDb('mysql');
         $dummyDbi->addSelectDb('database');
-        $controller($this->createStub(ServerRequest::class));
+        $controller($request);
         $dummyDbi->assertAllSelectsConsumed();
         $ret = $response->getJSONResult();
 

@@ -38,8 +38,8 @@ final class LogVarsController extends AbstractController
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
         $params = [
-            'varName' => $_POST['varName'] ?? null,
-            'varValue' => $_POST['varValue'] ?? null,
+            'varName' => $request->getParsedBodyParam('varName'),
+            'varValue' => $request->getParsedBodyParam('varValue'),
         ];
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 

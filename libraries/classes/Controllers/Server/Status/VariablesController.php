@@ -36,11 +36,11 @@ class VariablesController extends AbstractController
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
         $params = [
-            'flush' => $_POST['flush'] ?? null,
-            'filterAlert' => $_POST['filterAlert'] ?? null,
-            'filterText' => $_POST['filterText'] ?? null,
-            'filterCategory' => $_POST['filterCategory'] ?? null,
-            'dontFormat' => $_POST['dontFormat'] ?? null,
+            'flush' => $request->getParsedBodyParam('flush'),
+            'filterAlert' => $request->getParsedBodyParam('filterAlert'),
+            'filterText' => $request->getParsedBodyParam('filterText'),
+            'filterCategory' => $request->getParsedBodyParam('filterCategory'),
+            'dontFormat' => $request->getParsedBodyParam('dontFormat'),
         ];
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
