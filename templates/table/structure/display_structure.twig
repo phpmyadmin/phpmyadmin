@@ -340,14 +340,31 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" id="designerModalGoButton">{% trans 'Go' %}</button>
-        <button type="button" class="btn btn-secondary" id="designerModalPreviewButton">{% trans 'Preview SQL' %}</button>
+        <button type="button" class="btn btn-primary" id="designerModalGoButton">{% trans 'Go' %}</button>
+        <button type="button" class="btn btn-secondary" id="designerModalPreviewButton" data-bs-target="#designerModalPreviewModal" data-bs-toggle="modal">{% trans 'Preview SQL' %}</button>
         <button type="button" class="btn btn-secondary" id="designerModalCloseButton" data-bs-dismiss="modal">{% trans 'Close' %}</button>
       </div>
     </div>
   </div>
 </div>
-
+<div class="modal fade" id="designerModalPreviewModal" aria-hidden="true" aria-labelledby="designerModalPreviewModalLabel" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="designerModalPreviewModalLabel">{% trans 'Preview SQL' %}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+      </div>
+      <div class="modal-body">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">{% trans 'Loading…' %}</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-bs-target="#moveColumnsModal" data-bs-toggle="modal">{% trans 'Go back' %}</button>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="modal fade" id="moveColumnsErrorModal" tabindex="-1" aria-labelledby="moveColumnsErrorModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
