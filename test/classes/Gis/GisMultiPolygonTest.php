@@ -335,17 +335,24 @@ class GisMultiPolygonTest extends GisGeomTestCase
      */
     public function testPrepareRowAsPng(): void
     {
-        $image = ImageWrapper::create(120, 150);
+        $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
         $this->assertNotNull($image);
         $return = $this->object->prepareRowAsPng(
-            'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),((105 0,56 20,78 73,105 0)))',
+            'MULTIPOLYGON(((5 5,95 5,95 95,5 95,5 5),(10 10,10 40,40 40,40 10,10 10),(60 60,90 60,90 90,60 90,6'
+            . '0 60)),((-5 -5,-95 -5,-95 -95,-5 -95,-5 -5),(-10 -10,-10 -40,-40 -40,-40 -10,-10 -10),(-60 -60,-90'
+            . ' -60,-90 -90,-60 -90,-60 -60)))',
             'image',
             [176, 46, 224],
-            ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
+            ['x' => -202, 'y' => -125, 'scale' => 0.50, 'height' => 124],
             $image
         );
-        $this->assertEquals(120, $return->width());
-        $this->assertEquals(150, $return->height());
+        $this->assertEquals(200, $return->width());
+        $this->assertEquals(124, $return->height());
+
+        $fileExpected = $this->testDir . '/multipolygon-expected.png';
+        $fileActual = $this->testDir . '/multipolygon-actual.png';
+        $this->assertTrue($image->png($fileActual));
+        $this->assertFileEquals($fileExpected, $fileActual);
     }
 
     /**
@@ -367,7 +374,11 @@ class GisMultiPolygonTest extends GisGeomTestCase
         TCPDF $pdf
     ): void {
         $return = $this->object->prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
-        $this->assertInstanceOf(TCPDF::class, $return);
+
+        $fileExpected = $this->testDir . '/multipolygon-expected.pdf';
+        $fileActual = $this->testDir . '/multipolygon-actual.pdf';
+        $return->Output($fileActual, 'F');
+        $this->assertFileEquals($fileExpected, $fileActual);
     }
 
     /**
@@ -379,16 +390,13 @@ class GisMultiPolygonTest extends GisGeomTestCase
     {
         return [
             [
-                'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),((105 0,56 20,78 73,105 0)))',
+                'MULTIPOLYGON(((5 5,95 5,95 95,5 95,5 5),(10 10,10 40,40 40,40 10,10 10),(60 60,90 60,90 90,60 90,6'
+                . '0 60)),((-5 -5,-95 -5,-95 -95,-5 -95,-5 -5),(-10 -10,-10 -40,-40 -40,-40 -10,-10 -10),(-60 -60,-90'
+                . ' -60,-90 -90,-60 -90,-60 -60)))',
                 'pdf',
                 [176, 46, 224],
-                [
-                    'x' => 12,
-                    'y' => 69,
-                    'scale' => 2,
-                    'height' => 150,
-                ],
-                new TCPDF(),
+                ['x' => -110, 'y' => -157, 'scale' => 0.95, 'height' => 297],
+                $this->createEmptyPdf('MULTIPOLYGON'),
             ],
         ];
     }
@@ -430,18 +438,17 @@ class GisMultiPolygonTest extends GisGeomTestCase
                 'svg',
                 [176, 46, 224],
                 [
-                    'x' => 12,
-                    'y' => 69,
+                    'x' => -50,
+                    'y' => -50,
                     'scale' => 2,
-                    'height' => 150,
+                    'height' => 400,
                 ],
-                '<path d=" M -14, 278 L 166, 278 L 166, 98 L -14, 98 Z  M -4, 268 L -4, 208 L 56, 208 L 56, 268 Z  M'
-                . ' 96, 168 L 156, 168 L 156, 108 L 96, 108 Z " name="svg" class="multipolygon vector" stroke="black" '
-                . 'stroke-width="0.5" fill="#b02ee0" fill-rule="evenodd" fill-opacity="0.8" id="svg1234567890"/><path '
-                . 'd=" M -34, 298 L -214, 298 L -214, 478 L -34, 478 Z  M -44, 308 L -44, 368 L -104, 368 L -104, 308 '
-                . 'Z  M -144, 408 L -204, 408 L -204, 468 L -144, 468 Z " name="svg" class="multipolygon vector" strok'
-                . 'e="black" stroke-width="0.5" fill="#b02ee0" fill-rule="evenodd" fill-opacity="0.8" id="svg123456789'
-                . '0"/>',
+                '<path d=" M 110, 290 L 290, 290 L 290, 110 L 110, 110 Z  M 120, 280 L 120, 220 L 180, 220 L 180, 28'
+                . '0 Z  M 220, 180 L 280, 180 L 280, 120 L 220, 120 Z " name="svg" class="multipolygon vector" stroke='
+                . '"black" stroke-width="0.5" fill="#b02ee0" fill-rule="evenodd" fill-opacity="0.8" id="svg1234567890"'
+                . '/><path d=" M 90, 310 L -90, 310 L -90, 490 L 90, 490 Z  M 80, 320 L 80, 380 L 20, 380 L 20, 320 Z '
+                . ' M -20, 420 L -80, 420 L -80, 480 L -20, 480 Z " name="svg" class="multipolygon vector" stroke="bla'
+                . 'ck" stroke-width="0.5" fill="#b02ee0" fill-rule="evenodd" fill-opacity="0.8" id="svg1234567890"/>',
             ],
         ];
     }

@@ -186,17 +186,22 @@ class GisPointTest extends GisGeomTestCase
      */
     public function testPrepareRowAsPng(): void
     {
-        $image = ImageWrapper::create(120, 150);
+        $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
         $this->assertNotNull($image);
         $return = $this->object->prepareRowAsPng(
             'POINT(12 35)',
             'image',
             [176, 46, 224],
-            ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
+            ['x' => -88, 'y' => -27, 'scale' => 1, 'height' => 124],
             $image
         );
-        $this->assertEquals(120, $return->width());
-        $this->assertEquals(150, $return->height());
+        $this->assertEquals(200, $return->width());
+        $this->assertEquals(124, $return->height());
+
+        $fileExpected = $this->testDir . '/point-expected.png';
+        $fileActual = $this->testDir . '/point-actual.png';
+        $this->assertTrue($image->png($fileActual));
+        $this->assertFileEquals($fileExpected, $fileActual);
     }
 
     /**
@@ -218,13 +223,17 @@ class GisPointTest extends GisGeomTestCase
         TCPDF $pdf
     ): void {
         $return = $this->object->prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
-        $this->assertInstanceOf(TCPDF::class, $return);
+
+        $fileExpected = $this->testDir . '/point-expected.pdf';
+        $fileActual = $this->testDir . '/point-actual.pdf';
+        $return->Output($fileActual, 'F');
+        $this->assertFileEquals($fileExpected, $fileActual);
     }
 
     /**
-     * data provider for prepareRowAsPdf() test case
+     * data provider for testPrepareRowAsPdf() test case
      *
-     * @return array test data for prepareRowAsPdf() test case
+     * @return array test data for testPrepareRowAsPdf() test case
      */
     public function providerForPrepareRowAsPdf(): array
     {
@@ -233,13 +242,8 @@ class GisPointTest extends GisGeomTestCase
                 'POINT(12 35)',
                 'pdf',
                 [176, 46, 224],
-                [
-                    'x' => 12,
-                    'y' => 69,
-                    'scale' => 2,
-                    'height' => 150,
-                ],
-                new TCPDF(),
+                ['x' => -93, 'y' => -114, 'scale' => 1, 'height' => 297],
+                $this->createEmptyPdf('POINT'),
             ],
         ];
     }

@@ -15213,14 +15213,15 @@
     </UndefinedMethod>
   </file>
   <file src="test/classes/Gis/GisGeometryCollectionTest.php">
-    <MixedInferredReturnType occurrences="6">
-      <code>array</code>
-      <code>array</code>
+    <MixedInferredReturnType occurrences="4">
       <code>array</code>
       <code>array</code>
       <code>array</code>
       <code>array</code>
     </MixedInferredReturnType>
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$object</code>
+    </NonInvariantDocblockPropertyType>
   </file>
   <file src="test/classes/Gis/GisGeometryTest.php">
     <MixedInferredReturnType occurrences="5">

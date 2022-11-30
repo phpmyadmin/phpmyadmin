@@ -170,17 +170,22 @@ class GisMultiPointTest extends GisGeomTestCase
      */
     public function testPrepareRowAsPng(): void
     {
-        $image = ImageWrapper::create(120, 150);
+        $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
         $this->assertNotNull($image);
         $return = $this->object->prepareRowAsPng(
             'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
             'image',
             [176, 46, 224],
-            ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
+            ['x' => -18, 'y' => 14, 'scale' => 1.71, 'height' => 124],
             $image
         );
-        $this->assertEquals(120, $return->width());
-        $this->assertEquals(150, $return->height());
+        $this->assertEquals(200, $return->width());
+        $this->assertEquals(124, $return->height());
+
+        $fileExpected = $this->testDir . '/multipoint-expected.png';
+        $fileActual = $this->testDir . '/multipoint-actual.png';
+        $this->assertTrue($image->png($fileActual));
+        $this->assertFileEquals($fileExpected, $fileActual);
     }
 
     /**
@@ -202,7 +207,11 @@ class GisMultiPointTest extends GisGeomTestCase
         TCPDF $pdf
     ): void {
         $return = $this->object->prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
-        $this->assertInstanceOf(TCPDF::class, $return);
+
+        $fileExpected = $this->testDir . '/multipoint-expected.pdf';
+        $fileActual = $this->testDir . '/multipoint-actual.pdf';
+        $return->Output($fileActual, 'F');
+        $this->assertFileEquals($fileExpected, $fileActual);
     }
 
     /**
@@ -217,13 +226,8 @@ class GisMultiPointTest extends GisGeomTestCase
                 'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
                 'pdf',
                 [176, 46, 224],
-                [
-                    'x' => 12,
-                    'y' => 69,
-                    'scale' => 2,
-                    'height' => 150,
-                ],
-                new TCPDF(),
+                ['x' => 7, 'y' => 3, 'scale' => 3.16, 'height' => 297],
+                $this->createEmptyPdf('MULTIPOINT'),
             ],
         ];
     }

@@ -250,17 +250,22 @@ class GisMultiLineStringTest extends GisGeomTestCase
      */
     public function testPrepareRowAsPng(): void
     {
-        $image = ImageWrapper::create(120, 150);
+        $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
         $this->assertNotNull($image);
         $return = $this->object->prepareRowAsPng(
             'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',
             'image',
             [176, 46, 224],
-            ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
+            ['x' => 3, 'y' => -16, 'scale' => 1.06, 'height' => 124],
             $image
         );
-        $this->assertEquals(120, $return->width());
-        $this->assertEquals(150, $return->height());
+        $this->assertEquals(200, $return->width());
+        $this->assertEquals(124, $return->height());
+
+        $fileExpected = $this->testDir . '/multilinestring-expected.png';
+        $fileActual = $this->testDir . '/multilinestring-actual.png';
+        $this->assertTrue($image->png($fileActual));
+        $this->assertFileEquals($fileExpected, $fileActual);
     }
 
     /**
@@ -282,7 +287,11 @@ class GisMultiLineStringTest extends GisGeomTestCase
         TCPDF $pdf
     ): void {
         $return = $this->object->prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
-        $this->assertInstanceOf(TCPDF::class, $return);
+
+        $fileExpected = $this->testDir . '/multilinestring-expected.pdf';
+        $fileActual = $this->testDir . '/multilinestring-actual.pdf';
+        $return->Output($fileActual, 'F');
+        $this->assertFileEquals($fileExpected, $fileActual);
     }
 
     /**
@@ -297,13 +306,8 @@ class GisMultiLineStringTest extends GisGeomTestCase
                 'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',
                 'pdf',
                 [176, 46, 224],
-                [
-                    'x' => 12,
-                    'y' => 69,
-                    'scale' => 2,
-                    'height' => 150,
-                ],
-                new TCPDF(),
+                ['x' => 4, 'y' => -90, 'scale' => 1.12, 'height' => 297],
+                $this->createEmptyPdf('MULTILINESTRING'),
             ],
         ];
     }

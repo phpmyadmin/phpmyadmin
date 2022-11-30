@@ -10,14 +10,28 @@ namespace PhpMyAdmin\Tests\Gis;
 use PhpMyAdmin\Gis\GisGeometry;
 use PhpMyAdmin\Gis\GisPolygon;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use ReflectionProperty;
+use TCPDF;
+
+use function getcwd;
+use function md5;
 
 /**
  * Abstract parent class for all Gis<Geom_type> test classes
  */
 abstract class GisGeomTestCase extends AbstractTestCase
 {
+    /** @var string */
+    protected $testDir = '';
+
     /** @var GisGeometry */
     protected $object;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->testDir = 'file://' . getcwd() . '/test/test_data/gis';
+    }
 
     /**
      * test generateParams method
@@ -61,5 +75,29 @@ abstract class GisGeomTestCase extends AbstractTestCase
             $min_max,
             $this->object->scaleRow($spatial)
         );
+    }
+
+    /**
+     * Create a new pdf document with predictable timestamps and ids.
+     *
+     * @param string $id Used as a seed for the internal file_id
+     *
+     * @return TCPDF A pdf document with an empty page
+     */
+    protected function createEmptyPdf(string $id): TCPDF
+    {
+        $pdf = new TCPDF();
+        $prop = new ReflectionProperty($pdf, 'file_id');
+        $prop->setAccessible(true);
+        $prop->setValue($pdf, md5($id));
+        $pdf->setDocCreationTimestamp(1600000000);
+        $pdf->setDocModificationTimestamp(1600000000);
+        $pdf->setAutoPageBreak(false);
+        $pdf->setCompression(false);
+        $pdf->setPrintFooter(false);
+        $pdf->setPrintHeader(false);
+        $pdf->AddPage();
+
+        return $pdf;
     }
 }
