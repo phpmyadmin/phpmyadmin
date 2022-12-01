@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import { AJAX } from './modules/ajax.js';
 import { Functions } from './modules/functions.js';
-import { KeyHandlerEvents } from './keyhandler.js';
+import { KeyHandlerEvents } from './modules/keyhandler.js';
 import { Navigation } from './navigation.js';
 import { PageSettings } from './page_settings.js';
 import { crossFramingProtection } from './modules/cross_framing_protection.js';
