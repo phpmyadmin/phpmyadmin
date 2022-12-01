@@ -327,7 +327,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
         string $output
     ): void {
         $svg = $this->object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
-        $this->assertMatchesRegularExpression($output, $svg);
+        $this->assertEquals($output, $svg);
     }
 
     /**
@@ -348,11 +348,11 @@ class GisMultiLineStringTest extends GisGeomTestCase
                     'scale' => 2,
                     'height' => 150,
                 ],
-                '/^(<polyline points="48,260 70,242 100,138 " name="svg" '
+                '<polyline points="48,260 70,242 100,138 " name="svg" '
                 . 'class="linestring vector" fill="none" stroke="#b02ee0" '
-                . 'stroke-width="2" id="svg)(\d+)("\/><polyline points="48,268 10,'
+                . 'stroke-width="2" id="svg1234567890"/><polyline points="48,268 10,'
                 . '242 332,182 " name="svg" class="linestring vector" fill="none" '
-                . 'stroke="#b02ee0" stroke-width="2" id="svg)(\d+)("\/>)$/',
+                . 'stroke="#b02ee0" stroke-width="2" id="svg1234567890"/>',
             ],
         ];
     }

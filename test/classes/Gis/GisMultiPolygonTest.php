@@ -412,7 +412,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
         string $output
     ): void {
         $svg = $this->object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
-        $this->assertMatchesRegularExpression($output, $svg);
+        $this->assertEquals($output, $svg);
     }
 
     /**
@@ -424,7 +424,9 @@ class GisMultiPolygonTest extends GisGeomTestCase
     {
         return [
             [
-                'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),((105 0,56 20,78 73,105 0)))',
+                'MULTIPOLYGON(((5 5,95 5,95 95,5 95,5 5),(10 10,10 40,40 40,40 10,10 10),(60 60,90 60,90 90,60 90,6'
+                . '0 60)),((-5 -5,-95 -5,-95 -95,-5 -95,-5 -5),(-10 -10,-10 -40,-40 -40,-40 -10,-10 -10),(-60 -60,-90'
+                . ' -60,-90 -90,-60 -90,-60 -60)))',
                 'svg',
                 [176, 46, 224],
                 [
@@ -433,13 +435,13 @@ class GisMultiPolygonTest extends GisGeomTestCase
                     'scale' => 2,
                     'height' => 150,
                 ],
-                '/^(<path d=" M 248, 208 L 270, 122 L 8, 138 Z " name="svg" class="'
-                . 'multipolygon vector" stroke="black" stroke-width="0.5" fill="'
-                . '#b02ee0" fill-rule="evenodd" fill-opacity="0.8" id="svg)(\d+)'
-                . '("\/><path d=" M 186, 288 L 88, 248 L 132, 142 Z " name="svg" '
-                . 'class="multipolygon vector" stroke="black" stroke-width="0.5" '
-                . 'fill="#b02ee0" fill-rule="evenodd" fill-opacity="0.8" id="svg)'
-                . '(\d+)("\/>)$/',
+                '<path d=" M -14, 278 L 166, 278 L 166, 98 L -14, 98 Z  M -4, 268 L -4, 208 L 56, 208 L 56, 268 Z  M'
+                . ' 96, 168 L 156, 168 L 156, 108 L 96, 108 Z " name="svg" class="multipolygon vector" stroke="black" '
+                . 'stroke-width="0.5" fill="#b02ee0" fill-rule="evenodd" fill-opacity="0.8" id="svg1234567890"/><path '
+                . 'd=" M -34, 298 L -214, 298 L -214, 478 L -34, 478 Z  M -44, 308 L -44, 368 L -104, 368 L -104, 308 '
+                . 'Z  M -144, 408 L -204, 408 L -204, 468 L -144, 468 Z " name="svg" class="multipolygon vector" strok'
+                . 'e="black" stroke-width="0.5" fill="#b02ee0" fill-rule="evenodd" fill-opacity="0.8" id="svg123456789'
+                . '0"/>',
             ],
         ];
     }

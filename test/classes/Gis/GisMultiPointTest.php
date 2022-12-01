@@ -247,7 +247,7 @@ class GisMultiPointTest extends GisGeomTestCase
         string $output
     ): void {
         $svg = $this->object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
-        $this->assertMatchesRegularExpression($output, $svg);
+        $this->assertEquals($output, $svg);
     }
 
     /**
@@ -268,17 +268,17 @@ class GisMultiPointTest extends GisGeomTestCase
                     'scale' => 2,
                     'height' => 150,
                 ],
-                '/^(<circle cx="72" cy="138" r="3" name="svg" class="multipoint '
-                . 'vector" fill="white" stroke="#b02ee0" stroke-width="2" id="svg)'
-                . '(\d+)("\/><circle cx="114" cy="242" r="3" name="svg" class="mult'
+                '<circle cx="72" cy="138" r="3" name="svg" class="multipoint '
+                . 'vector" fill="white" stroke="#b02ee0" stroke-width="2" id="'
+                . 'svg1234567890"/><circle cx="114" cy="242" r="3" name="svg" class="mult'
                 . 'ipoint vector" fill="white" stroke="#b02ee0" stroke-width="2" id'
-                . '="svg)(\d+)("\/><circle cx="26" cy="198" r="3" name="svg" class='
+                . '="svg1234567890"/><circle cx="26" cy="198" r="3" name="svg" class='
                 . '"multipoint vector" fill="white" stroke="#b02ee0" stroke-width='
-                . '"2" id="svg)(\d+)("\/><circle cx="4" cy="182" r="3" name="svg" '
+                . '"2" id="svg1234567890"/><circle cx="4" cy="182" r="3" name="svg" '
                 . 'class="multipoint vector" fill="white" stroke="#b02ee0" stroke-'
-                . 'width="2" id="svg)(\d+)("\/><circle cx="46" cy="132" r="3" name='
+                . 'width="2" id="svg1234567890"/><circle cx="46" cy="132" r="3" name='
                 . '"svg" class="multipoint vector" fill="white" stroke="#b02ee0" '
-                . 'stroke-width="2" id="svg)(\d+)("\/>)$/',
+                . 'stroke-width="2" id="svg1234567890"/>',
             ],
         ];
     }
