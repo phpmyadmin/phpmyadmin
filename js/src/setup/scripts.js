@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { Config } from '../config.js';
+import { Config } from '../modules/config.js';
 
 /**
  * Functions used in Setup configuration forms

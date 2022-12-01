@@ -2,7 +2,7 @@ import $ from 'jquery';
 import { AJAX } from '../../modules/ajax.js';
 import { Functions } from '../../modules/functions.js';
 import { CommonParams } from '../../common.js';
-import { Config } from '../../config.js';
+import { Config } from '../../modules/config.js';
 
 /**
  * @fileoverview    Javascript functions used in server status monitor page

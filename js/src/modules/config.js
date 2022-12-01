@@ -1,6 +1,6 @@
 import $ from 'jquery';
-import { Functions } from './modules/functions.js';
-import { CommonParams } from './common.js';
+import { Functions } from './functions.js';
+import { CommonParams } from '../common.js';
 
 /**
  * Functions used in configuration forms and on user preferences pages

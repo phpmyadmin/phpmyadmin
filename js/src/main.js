@@ -6,7 +6,7 @@ import { Navigation } from './modules/navigation.js';
 import { PageSettings } from './modules/page_settings.js';
 import { crossFramingProtection } from './modules/cross_framing_protection.js';
 import { Indexes } from './modules/indexes.js';
-import { Config } from './config.js';
+import { Config } from './modules/config.js';
 
 AJAX.registerOnload('main.js', () => AJAX.removeSubmitEvents());
 $(AJAX.loadEventHandler());

@@ -3,7 +3,7 @@ import { AJAX } from './modules/ajax.js';
 import { Functions } from './modules/functions.js';
 import { Navigation } from './modules/navigation.js';
 import { CommonActions, CommonParams } from './common.js';
-import { Config } from './config.js';
+import { Config } from './modules/config.js';
 
 /**
  * @fileoverview    functions used wherever an sql query form is used

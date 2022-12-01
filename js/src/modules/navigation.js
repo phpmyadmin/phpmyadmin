@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import { Functions } from './functions.js';
 import { CommonParams } from '../common.js';
-import { Config } from '../config.js';
+import { Config } from './config.js';
 
 /**
  * function used in or for navigation panel
