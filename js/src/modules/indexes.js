@@ -2,7 +2,7 @@ import $ from 'jquery';
 import { AJAX } from './ajax.js';
 import { Functions } from './functions.js';
 import { Navigation } from './navigation.js';
-import { CommonActions, CommonParams } from '../common.js';
+import { CommonActions, CommonParams } from './common.js';
 
 /**
  * @fileoverview    function used for index manipulation pages

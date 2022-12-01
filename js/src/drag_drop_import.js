@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import { AJAX } from './modules/ajax.js';
 import { Functions } from './modules/functions.js';
-import { CommonParams } from './common.js';
+import { CommonParams } from './modules/common.js';
 
 /* This script handles PMA Drag Drop Import, loaded only when configuration is enabled.*/
 

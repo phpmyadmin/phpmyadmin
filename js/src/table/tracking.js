@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.js';
 import { Functions } from '../modules/functions.js';
-import { CommonParams } from '../common.js';
+import { CommonParams } from '../modules/common.js';
 
 /**
  * Unbind all event handlers before tearing down the page

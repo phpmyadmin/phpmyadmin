@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import { AJAX } from './ajax.js';
 import { Navigation } from './navigation.js';
-import { CommonActions, CommonParams } from '../common.js';
+import { CommonActions, CommonParams } from './common.js';
 import { mysqlDocKeyword, mysqlDocBuiltin } from './doc-links.js';
 import { Indexes } from './indexes.js';
 import { Config } from './config.js';

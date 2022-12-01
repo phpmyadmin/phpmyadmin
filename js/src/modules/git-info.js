@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { Functions } from './functions.js';
-import { CommonParams } from '../common.js';
+import { CommonParams } from './common.js';
 
 const GitInfo = {
     /**

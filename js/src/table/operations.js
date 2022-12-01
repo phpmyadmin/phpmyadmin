@@ -2,7 +2,7 @@ import $ from 'jquery';
 import { AJAX } from '../modules/ajax.js';
 import { Functions } from '../modules/functions.js';
 import { Navigation } from '../modules/navigation.js';
-import { CommonActions, CommonParams } from '../common.js';
+import { CommonActions, CommonParams } from '../modules/common.js';
 
 /**
  * Unbind all event handlers before tearing down a page

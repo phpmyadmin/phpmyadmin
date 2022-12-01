@@ -1,7 +1,7 @@
 import $ from 'jquery';
-import { AJAX } from './modules/ajax.js';
-import { Functions } from './modules/functions.js';
-import { Navigation } from './modules/navigation.js';
+import { AJAX } from './ajax.js';
+import { Functions } from './functions.js';
+import { Navigation } from './navigation.js';
 
 /**
  * Holds common parameters such as server, db, table, etc
