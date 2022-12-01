@@ -4,7 +4,7 @@ import { Functions } from './functions.js';
 import { KeyHandlerEvents } from './keyhandler.js';
 import { Navigation } from './navigation.js';
 import { PageSettings } from './page_settings.js';
-import { crossFramingProtection } from './cross_framing_protection.js';
+import { crossFramingProtection } from './modules/cross_framing_protection.js';
 import { Indexes } from './indexes.js';
 import { Config } from './config.js';
 
