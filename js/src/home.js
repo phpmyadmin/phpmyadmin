@@ -1,4 +1,4 @@
-import { AJAX } from './ajax.js';
+import { AJAX } from './modules/ajax.js';
 import { showGitVersion } from './modules/git-info.js';
 import { ThemesManager } from './modules/themes-manager.js';
 

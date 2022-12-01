@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { AJAX } from '../ajax.js';
+import { AJAX } from '../modules/ajax.js';
 
 /**
  * XML editor plugin

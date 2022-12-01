@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import CodeMirror from 'codemirror';
-import { AJAX } from '../ajax.js';
+import { AJAX } from './ajax.js';
 import { Functions } from '../functions.js';
 import { CommonParams } from '../common.js';
 import { Navigation } from '../navigation.js';
