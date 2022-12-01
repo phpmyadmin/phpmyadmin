@@ -1993,9 +1993,6 @@ class Results
 
             $displayParams['emptyafter'] = ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE) ? 4 : 1;
-
-            $rightColumnHtml .= "\n" . '<td class="d-print-none"' . $colspan
-                . '></td>';
         }
 
         $this->properties['display_params'] = $displayParams;
