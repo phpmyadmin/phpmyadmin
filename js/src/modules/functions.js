@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from './ajax.js';
-import { Navigation } from '../navigation.js';
+import { Navigation } from './navigation.js';
 import { CommonActions, CommonParams } from '../common.js';
 import { mysqlDocKeyword, mysqlDocBuiltin } from './doc-links.js';
 import { Indexes } from '../indexes.js';

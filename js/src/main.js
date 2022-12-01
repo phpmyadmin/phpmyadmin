@@ -2,7 +2,7 @@ import $ from 'jquery';
 import { AJAX } from './modules/ajax.js';
 import { Functions } from './modules/functions.js';
 import { KeyHandlerEvents } from './modules/keyhandler.js';
-import { Navigation } from './navigation.js';
+import { Navigation } from './modules/navigation.js';
 import { PageSettings } from './page_settings.js';
 import { crossFramingProtection } from './modules/cross_framing_protection.js';
 import { Indexes } from './indexes.js';
