@@ -312,7 +312,7 @@ window.validators = {
         if (isNaN(val)) {
             return true;
         }
-        return val <= maxValue ? true : Functions.sprintf(window.Messages.configErrorInvalidUpperBound, maxValue);
+        return val <= maxValue ? true : window.sprintf(window.Messages.configErrorInvalidUpperBound, maxValue);
     },
     // field validators
     field: {},

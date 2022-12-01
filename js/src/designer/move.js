@@ -676,7 +676,7 @@ DesignerMove.addOtherDbTables = function () {
         var $table = $('[id="' + encodeURIComponent(db) + '.' + encodeURIComponent(table) + '"]');
         if ($table.length !== 0) {
             Functions.ajaxShowMessage(
-                Functions.sprintf(window.Messages.strTableAlreadyExists, db + '.' + table),
+                window.sprintf(window.Messages.strTableAlreadyExists, db + '.' + table),
                 undefined,
                 'error'
             );
@@ -1913,7 +1913,7 @@ DesignerMove.addObject = function (dbName, tableName, colName, dbTableNameUrl) {
     var init = historyArray.length;
     if (rel.value !== '--') {
         if (document.getElementById('Query').value === '') {
-            Functions.ajaxShowMessage(Functions.sprintf(window.Messages.strQueryEmpty));
+            Functions.ajaxShowMessage(window.sprintf(window.Messages.strQueryEmpty));
             return;
         }
         p = document.getElementById('Query');
@@ -1956,7 +1956,7 @@ DesignerMove.addObject = function (dbName, tableName, colName, dbTableNameUrl) {
         sum = sum + 1;
         // make orderby
     }
-    Functions.ajaxShowMessage(Functions.sprintf(window.Messages.strObjectsCreated, sum));
+    Functions.ajaxShowMessage(window.sprintf(window.Messages.strObjectsCreated, sum));
     // output sum new objects created
     var existingDiv = document.getElementById('ab');
     existingDiv.innerHTML = DesignerHistory.display(init, historyArray.length);

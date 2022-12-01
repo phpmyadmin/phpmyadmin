@@ -38,7 +38,7 @@ const DropDatabases = {
          * @var question    String containing the question to be asked for confirmation
          */
         var question = window.Messages.strDropDatabaseStrongWarning + ' ' +
-            Functions.sprintf(window.Messages.strDoYouReally, selectedDbs.join('<br>'));
+            window.sprintf(window.Messages.strDoYouReally, selectedDbs.join('<br>'));
 
         const modal = $('#dropDatabaseModal');
         modal.find('.modal-body').html(question);

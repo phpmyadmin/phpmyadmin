@@ -163,7 +163,7 @@ AJAX.registerOnload('database/search.js', function () {
         $('#sqlqueryform').hide();
         $('#togglequerybox').hide();
         /** Conformation message for deletion */
-        var msg = Functions.sprintf(
+        var msg = window.sprintf(
             window.Messages.strConfirmDeleteResults,
             $(this).data('table-name')
         );

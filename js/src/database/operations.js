@@ -152,7 +152,7 @@ AJAX.registerOnload('database/operations.js', function () {
          * @var {String} question String containing the question to be asked for confirmation
          */
         var question = window.Messages.strDropDatabaseStrongWarning + ' ';
-        question += Functions.sprintf(
+        question += window.sprintf(
             window.Messages.strDoYouReally,
             'DROP DATABASE `' + Functions.escapeHtml(CommonParams.get('db') + '`')
         );

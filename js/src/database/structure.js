@@ -133,7 +133,7 @@ DatabaseStructure.adjustTotals = function () {
 
     // Update summary with new data
     var $summary = $('#tbl_summary_row');
-    $summary.find('.tbl_num').text(Functions.sprintf(window.Messages.strNTables, tableSum));
+    $summary.find('.tbl_num').text(window.sprintf(window.Messages.strNTables, tableSum));
     if (rowSumApproximated) {
         $summary.find('.row_count_sum').text(strRowSum);
     } else {
@@ -327,7 +327,7 @@ AJAX.registerOnload('database/structure.js', function () {
          * @var question    String containing the question to be asked for confirmation
          */
         var question = window.Messages.strTruncateTableStrongWarning + ' ' +
-            Functions.sprintf(window.Messages.strDoYouReally, 'TRUNCATE `' + Functions.escapeHtml(currTableName) + '`') +
+            window.sprintf(window.Messages.strDoYouReally, 'TRUNCATE `' + Functions.escapeHtml(currTableName) + '`') +
             Functions.getForeignKeyCheckboxLoader();
 
         $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
@@ -377,10 +377,10 @@ AJAX.registerOnload('database/structure.js', function () {
         var question;
         if (! isView) {
             question = window.Messages.strDropTableStrongWarning + ' ' +
-                Functions.sprintf(window.Messages.strDoYouReally, 'DROP TABLE `' + Functions.escapeHtml(currTableName) + '`');
+                window.sprintf(window.Messages.strDoYouReally, 'DROP TABLE `' + Functions.escapeHtml(currTableName) + '`');
         } else {
             question =
-                Functions.sprintf(window.Messages.strDoYouReally, 'DROP VIEW `' + Functions.escapeHtml(currTableName) + '`');
+                window.sprintf(window.Messages.strDoYouReally, 'DROP VIEW `' + Functions.escapeHtml(currTableName) + '`');
         }
         question += Functions.getForeignKeyCheckboxLoader();
 

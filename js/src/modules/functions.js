@@ -442,10 +442,6 @@ Functions.escapeSingleQuote = function (s) {
     return s.replace('\\', '\\\\').replace('\'', '\\\'');
 };
 
-Functions.sprintf = function () {
-    return window.sprintf.apply(this, arguments);
-};
-
 /**
  * Hides/shows the default value input field, depending on the default type
  * Ticks the NULL checkbox if NULL is chosen as default value.
@@ -651,7 +647,7 @@ Functions.confirmLink = function (theLink, theSqlQuery) {
         return true;
     }
 
-    var isConfirmed = confirm(Functions.sprintf(window.Messages.strDoYouReally, theSqlQuery));
+    var isConfirmed = confirm(window.sprintf(window.Messages.strDoYouReally, theSqlQuery));
     if (isConfirmed) {
         if (typeof (theLink.href) !== 'undefined') {
             theLink.href += CommonParams.get('arg_separator') + 'is_js_confirmed=1';
@@ -705,7 +701,7 @@ Functions.confirmQuery = function (theForm1, sqlQuery1) {
         } else {
             message = sqlQuery1;
         }
-        var isConfirmed = confirm(Functions.sprintf(window.Messages.strDoYouReally, message));
+        var isConfirmed = confirm(window.sprintf(window.Messages.strDoYouReally, message));
         // statement is confirmed -> update the
         // "is_js_confirmed" form field so the confirm test won't be
         // run on the server side and allows to submit the form
@@ -813,7 +809,7 @@ Functions.checkFormElementInRange = function (theForm, theFieldName, message, mi
         return false;
     } else if (val < min || val > max) {
         theField.select();
-        alert(Functions.sprintf(message, val));
+        alert(window.sprintf(message, val));
         theField.focus();
         return false;
     } else {
@@ -1418,7 +1414,7 @@ Functions.documentationAdd = function ($elm, params) {
         return;
     }
 
-    var url = Functions.sprintf(
+    var url = window.sprintf(
         decodeURIComponent(mysqlDocTemplate),
         params[0]
     );
@@ -2846,7 +2842,7 @@ Functions.onloadEnumSetEditor = function () {
             '<div class=\'slider\'></div>' +
             '</td><td>' +
             '<form><div><input type=\'submit\' class=\'add_value btn btn-primary\' value=\'' +
-            Functions.sprintf(window.Messages.enum_addValue, 1) +
+            window.sprintf(window.Messages.enum_addValue, 1) +
             '\'></div></form>' +
             '</td></tr></table>' +
             '<input type=\'hidden\' value=\'' + // So we know which column's data is being edited
@@ -2885,7 +2881,7 @@ Functions.onloadEnumSetEditor = function () {
             max: 9,
             slide: function (event, ui) {
                 $(this).closest('table').find('input[type=submit]').val(
-                    Functions.sprintf(window.Messages.enum_addValue, ui.value)
+                    window.sprintf(window.Messages.enum_addValue, ui.value)
                 );
             }
         });
@@ -2949,7 +2945,7 @@ Functions.onloadEnumSetEditor = function () {
         var resultPointer = i;
         var searchIn = '<input type="text" class="filter_rows" placeholder="' + window.Messages.searchList + '">';
         if (fields === '') {
-            fields = Functions.sprintf(window.Messages.strEmptyCentralList, '\'' + Functions.escapeHtml(db) + '\'');
+            fields = window.sprintf(window.Messages.strEmptyCentralList, '\'' + Functions.escapeHtml(db) + '\'');
             searchIn = '';
         }
         var seeMore = '';
@@ -3260,7 +3256,7 @@ Functions.showIndexEditDialog = function ($outer) {
         max: 16,
         slide: function (event, ui) {
             $(this).closest('fieldset').find('input[type=submit]').val(
-                Functions.sprintf(window.Messages.strAddToIndex, ui.value)
+                window.sprintf(window.Messages.strAddToIndex, ui.value)
             );
         }
     });
@@ -4059,7 +4055,7 @@ Functions.checkNumberOfFields = function () {
     $('form').each(function () {
         var nbInputs = $(this).find(':input').length;
         if (nbInputs > maxInputVars) {
-            var warning = Functions.sprintf(window.Messages.strTooManyInputs, maxInputVars);
+            var warning = window.sprintf(window.Messages.strTooManyInputs, maxInputVars);
             Functions.ajaxShowMessage(warning);
             return false;
         }

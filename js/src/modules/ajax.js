@@ -924,9 +924,9 @@ const AJAX = {
                 }
 
                 if (request.status !== 0) {
-                    details += '<div>' + Functions.escapeHtml(Functions.sprintf(window.Messages.strErrorCode, request.status)) + '</div>';
+                    details += '<div>' + Functions.escapeHtml(window.sprintf(window.Messages.strErrorCode, request.status)) + '</div>';
                 }
-                details += '<div>' + Functions.escapeHtml(Functions.sprintf(window.Messages.strErrorText, request.statusText + ' (' + state + ')')) + '</div>';
+                details += '<div>' + Functions.escapeHtml(window.sprintf(window.Messages.strErrorText, request.statusText + ' (' + state + ')')) + '</div>';
                 if (state === 'rejected' || state === 'timeout') {
                     details += '<div>' + Functions.escapeHtml(window.Messages.strErrorConnection) + '</div>';
                 }

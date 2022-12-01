@@ -201,7 +201,7 @@ AJAX.registerOnload('import.js', function () {
                                 now.getMinutes(),
                                 now.getSeconds()
                             ) + now.getMilliseconds() - 1000;
-                            var statusText = Functions.sprintf(
+                            var statusText = window.sprintf(
                                 window.Messages.uploadProgressStatusText,
                                 Functions.formatBytes(
                                     complete, 1, window.Messages.strDecimalSeparator
@@ -227,7 +227,7 @@ AJAX.registerOnload('import.js', function () {
                                 // Calculate estimated time
                                 var usedTime = now - importStart;
                                 var seconds = parseInt(((total - complete) / complete) * usedTime / 1000);
-                                var speed = Functions.sprintf(
+                                var speed = window.sprintf(
                                     window.Messages.uploadProgressPerSecond,
                                     Functions.formatBytes(complete / usedTime * 1000, 1, window.Messages.strDecimalSeparator)
                                 );

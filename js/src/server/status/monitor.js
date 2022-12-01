@@ -833,13 +833,13 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                     if (logVars.slow_query_log === 'ON') {
                         if (logVars.long_query_time > 2) {
                             str += Functions.getImage('s_attention') + ' ';
-                            str += Functions.sprintf(window.Messages.strSmallerLongQueryTimeAdvice, logVars.long_query_time);
+                            str += window.sprintf(window.Messages.strSmallerLongQueryTimeAdvice, logVars.long_query_time);
                             str += '<br>';
                         }
 
                         if (logVars.long_query_time < 2) {
                             str += Functions.getImage('s_success') + ' ';
-                            str += Functions.sprintf(window.Messages.strLongQueryTimeSet, logVars.long_query_time);
+                            str += window.sprintf(window.Messages.strLongQueryTimeSet, logVars.long_query_time);
                             str += '<br>';
                         }
                     }
@@ -857,26 +857,26 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                         }
 
                         str += '- <a class="set" href="#log_output-' + varValue + '">';
-                        str += Functions.sprintf(window.Messages.strSetLogOutput, varValue);
+                        str += window.sprintf(window.Messages.strSetLogOutput, varValue);
                         str += ' </a><br>';
 
                         if (logVars.general_log !== 'ON') {
                             str += '- <a class="set" href="#general_log-ON">';
-                            str += Functions.sprintf(window.Messages.strEnableVar, 'general_log');
+                            str += window.sprintf(window.Messages.strEnableVar, 'general_log');
                             str += ' </a><br>';
                         } else {
                             str += '- <a class="set" href="#general_log-OFF">';
-                            str += Functions.sprintf(window.Messages.strDisableVar, 'general_log');
+                            str += window.sprintf(window.Messages.strDisableVar, 'general_log');
                             str += ' </a><br>';
                         }
 
                         if (logVars.slow_query_log !== 'ON') {
                             str += '- <a class="set" href="#slow_query_log-ON">';
-                            str +=  Functions.sprintf(window.Messages.strEnableVar, 'slow_query_log');
+                            str +=  window.sprintf(window.Messages.strEnableVar, 'slow_query_log');
                             str += ' </a><br>';
                         } else {
                             str += '- <a class="set" href="#slow_query_log-OFF">';
-                            str +=  Functions.sprintf(window.Messages.strDisableVar, 'slow_query_log');
+                            str +=  window.sprintf(window.Messages.strDisableVar, 'slow_query_log');
                             str += ' </a><br>';
                         }
 
@@ -886,7 +886,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                         }
 
                         str += '- <a class="set" href="#long_query_time-' + varValue + '">';
-                        str += Functions.sprintf(window.Messages.setSetLongQueryTime, varValue);
+                        str += window.sprintf(window.Messages.setSetLongQueryTime, varValue);
                         str += ' </a><br>';
                     } else {
                         str += window.Messages.strNoSuperUser + '<br>';
@@ -1001,7 +1001,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         }
 
         var str = serie.display === 'differential' ? ', ' + window.Messages.strDifferential : '';
-        str += serie.valueDivisor ? (', ' + Functions.sprintf(window.Messages.strDividedBy, serie.valueDivisor)) : '';
+        str += serie.valueDivisor ? (', ' + window.sprintf(window.Messages.strDividedBy, serie.valueDivisor)) : '';
         str += serie.unit ? (', ' + window.Messages.strUnit + ': ' + serie.unit) : '';
 
         var newSeries = {
@@ -1299,7 +1299,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 } else if (plot.series[0]._yaxis.tickOptions.formatString) { // eslint-disable-line no-underscore-dangle
                     // using format string
                     // eslint-disable-next-line no-underscore-dangle
-                    seriesValue = Functions.sprintf(plot.series[0]._yaxis.tickOptions.formatString, seriesValue);
+                    seriesValue = window.sprintf(plot.series[0]._yaxis.tickOptions.formatString, seriesValue);
                 }
                 tooltipHtml += '<br><span style="color:' + seriesColor + '">' +
                     seriesLabel + ': ' + seriesValue + '</span>';

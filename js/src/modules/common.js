@@ -1,6 +1,5 @@
 import $ from 'jquery';
 import { AJAX } from './ajax.js';
-import { Functions } from './functions.js';
 import { Navigation } from './navigation.js';
 
 /**
@@ -94,7 +93,7 @@ const CommonParams = (function () {
                 common = common.endsWith(argsep) ? common : common + argsep;
             }
 
-            return Functions.sprintf(
+            return window.sprintf(
                 '%s%sserver=%s' + argsep + 'db=%s' + argsep + 'table=%s',
                 sep,
                 common,

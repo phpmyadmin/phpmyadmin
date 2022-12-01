@@ -1210,7 +1210,7 @@ var ConsoleDebug = {
                 .append(
                     $('<div class="message welcome">')
                         .text(
-                            Functions.sprintf(
+                            window.sprintf(
                                 window.Messages.strConsoleDebugArgsSummary,
                                 dbgStep.args.length
                             )
@@ -1424,7 +1424,7 @@ var ConsoleDebug = {
         // Show summary
         $('#debug_console').find('.debug>.welcome').append(
             $('<span class="debug_summary">').text(
-                Functions.sprintf(
+                window.sprintf(
                     window.Messages.strConsoleDebugSummary,
                     totalUnique,
                     totalExec,
