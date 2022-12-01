@@ -5,7 +5,7 @@ import { KeyHandlerEvents } from './modules/keyhandler.js';
 import { Navigation } from './modules/navigation.js';
 import { PageSettings } from './modules/page_settings.js';
 import { crossFramingProtection } from './modules/cross_framing_protection.js';
-import { Indexes } from './indexes.js';
+import { Indexes } from './modules/indexes.js';
 import { Config } from './config.js';
 
 AJAX.registerOnload('main.js', () => AJAX.removeSubmitEvents());
