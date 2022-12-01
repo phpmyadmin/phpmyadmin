@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-09-29 00:17-0300\n"
-"PO-Revision-Date: 2022-12-01 01:48+0000\n"
+"PO-Revision-Date: 2022-12-02 04:48+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/mk/>\n"
@@ -11017,10 +11017,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:265
-#, fuzzy
-#| msgid "Statements"
 msgid "Add statements:"
-msgstr "Име"
+msgstr "Додај изјави:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:273
 #: libraries/classes/Plugins/Export/ExportSql.php:282
@@ -11160,23 +11158,18 @@ msgstr "Создадено:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1468
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:642
-#, fuzzy
-#| msgid "Last update"
 msgid "Last update:"
-msgstr "Последна измена"
+msgstr "Последна измена:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1478
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:653
-#, fuzzy
-#| msgid "Last check"
 msgid "Last check:"
-msgstr "Последна проверка"
+msgstr "Последна проверка:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1529
-#, fuzzy, php-format
-#| msgid "Table structure for table"
+#, php-format
 msgid "Error reading structure for table %s:"
-msgstr "Структура на табелата"
+msgstr "Грешка при читање на структура на табелата %s:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1611
 msgid "It appears your database uses views;"
@@ -11197,10 +11190,8 @@ msgid "Indexes for dumped tables"
 msgstr "Ограничувања за извезените табели"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1807
-#, fuzzy
-#| msgid "Inside table(s):"
 msgid "Indexes for table"
-msgstr "во табела(и):"
+msgstr "Индекси за табелата"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1843
 #, fuzzy
@@ -11240,10 +11231,9 @@ msgid "(See below for the actual view)"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2237
-#, fuzzy, php-format
-#| msgid "Allows reading data."
+#, php-format
 msgid "Error reading data for table %s:"
-msgstr "Дозволува читање на податоци."
+msgstr "Грешка при читање на податоци за табелата %s:"
 
 #: libraries/classes/Plugins/Export/ExportXml.php:94
 msgid "Object creation options (all are recommended)"
@@ -11255,10 +11245,8 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:202
 #: templates/menu/breadcrumbs.twig:29
-#, fuzzy
-#| msgid "Table"
 msgid "Table:"
-msgstr "Табела"
+msgstr "Табела:"
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:203
 msgid "Purpose:"
@@ -11297,10 +11285,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:134
-#, fuzzy
-#| msgid "Column names"
 msgid "Column names:"
-msgstr "Имиња на колони"
+msgstr "Имиња на колони:"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:272
 #: libraries/classes/Plugins/Import/ImportCsv.php:631
@@ -11387,10 +11373,8 @@ msgid "The imported file does not contain any data!"
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportSql.php:65
-#, fuzzy
-#| msgid "MySQL&nbsp;4.0 compatible"
 msgid "SQL compatibility mode:"
-msgstr "MySQL&nbsp;4.0 компатибилно"
+msgstr "SQL компатибилен мод:"
 
 #: libraries/classes/Plugins/Import/ImportSql.php:77
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
@@ -12631,10 +12615,8 @@ msgid "Problems with indexes of table `%s`"
 msgstr "Проблем при индексирање на табелата `%s`"
 
 #: libraries/classes/Table.php:348
-#, fuzzy
-#| msgid "Show tables"
 msgid "Unknown table status:"
-msgstr "Прикажи табели"
+msgstr "Непознат статус на табела:"
 
 #: libraries/classes/Table.php:1006
 #, fuzzy, php-format
@@ -12647,9 +12629,8 @@ msgid "Target database `%s` was not found!"
 msgstr "Пребарување низ базата на податоци"
 
 #: libraries/classes/Table.php:1473
-#, fuzzy
 msgid "Invalid database:"
-msgstr "Базата на податоци не постои"
+msgstr "Невалидна датабаза:"
 
 #: libraries/classes/Table.php:1491
 #, fuzzy
@@ -13583,22 +13564,16 @@ msgid "column(s)"
 msgstr "Имиња на колони"
 
 #: templates/columns_definitions/column_definitions_form.twig:74
-#, fuzzy
-#| msgid "Collation"
 msgid "Collation:"
-msgstr "Подредување"
+msgstr "Подредување:"
 
 #: templates/columns_definitions/column_definitions_form.twig:77
-#, fuzzy
-#| msgid "Storage Engine"
 msgid "Storage Engine:"
-msgstr "Вид на складиште"
+msgstr "Мотор на складиште:"
 
 #: templates/columns_definitions/column_definitions_form.twig:82
-#, fuzzy
-#| msgid "Connections"
 msgid "Connection:"
-msgstr "Конекции"
+msgstr "Конекциja:"
 
 #: templates/columns_definitions/column_definitions_form.twig:113
 #: templates/columns_definitions/partitions.twig:137
