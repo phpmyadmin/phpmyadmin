@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.js';
-import { Functions } from '../functions.js';
+import { Functions } from '../modules/functions.js';
 
 /* global ColumnType, DataTable, JQPlotChartFactory */ // js/chart.js
 

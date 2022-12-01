@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { Functions } from '../functions.js';
+import { Functions } from '../modules/functions.js';
 
 /* global DesignerOfflineDB */ // js/designer/database.js
 /* global DesignerMove */ // js/designer/move.js

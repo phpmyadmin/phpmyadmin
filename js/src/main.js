@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from './modules/ajax.js';
-import { Functions } from './functions.js';
+import { Functions } from './modules/functions.js';
 import { KeyHandlerEvents } from './keyhandler.js';
 import { Navigation } from './navigation.js';
 import { PageSettings } from './page_settings.js';

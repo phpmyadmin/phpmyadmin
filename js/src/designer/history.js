@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.js';
-import { Functions } from '../functions.js';
+import { Functions } from '../modules/functions.js';
 
 /**
  * @fileoverview    function used in this file builds history tab and generates query.

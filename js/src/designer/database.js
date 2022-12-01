@@ -1,4 +1,4 @@
-import { Functions } from '../functions.js';
+import { Functions } from '../modules/functions.js';
 
 var designerTables = [
     {

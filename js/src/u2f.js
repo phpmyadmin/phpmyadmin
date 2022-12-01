@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from './modules/ajax.js';
-import { Functions } from './functions.js';
+import { Functions } from './modules/functions.js';
 
 AJAX.registerOnload('u2f.js', function () {
     var $inputReg = $('#u2f_registration_response');

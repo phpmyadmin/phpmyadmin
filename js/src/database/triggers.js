@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.js';
-import { Functions } from '../functions.js';
+import { Functions } from '../modules/functions.js';
 import { Navigation } from '../navigation.js';
 
 AJAX.registerTeardown('database/triggers.js', function () {
