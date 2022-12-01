@@ -13,7 +13,6 @@ module.exports = [
         entry: {
             'chart': './js/src/chart.js',
             'codemirror/addon/lint/sql-lint': './js/src/codemirror/addon/lint/sql-lint.js',
-            'config': './js/src/config.js',
             'console': { import: './js/src/console.js', library: { name: 'Console', type: 'window', export: 'Console' } },
             'datetimepicker': './js/src/datetimepicker.js',
             'database/central_columns': './js/src/database/central_columns.js',
@@ -59,7 +58,6 @@ module.exports = [
             'server/status/variables': './js/src/server/status/variables.js',
             'server/user_groups': './js/src/server/user_groups.js',
             'server/variables': './js/src/server/variables.js',
-            'setup/ajax': './js/src/setup/ajax.js',
             'setup/scripts': './js/src/setup/scripts.js',
             'shortcuts_handler': './js/src/shortcuts_handler.js',
             'sql': './js/src/sql.js',

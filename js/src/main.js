@@ -6,6 +6,7 @@ import { Navigation } from './navigation.js';
 import { PageSettings } from './page_settings.js';
 import { crossFramingProtection } from './cross_framing_protection.js';
 import { Indexes } from './indexes.js';
+import { Config } from './config.js';
 
 AJAX.registerOnload('main.js', () => AJAX.removeSubmitEvents());
 $(AJAX.loadEventHandler());
@@ -23,8 +24,8 @@ AJAX.registerOnload('main.js', KeyHandlerEvents.on());
 
 crossFramingProtection();
 
-AJAX.registerTeardown('config.js', window.Config.off());
-AJAX.registerOnload('config.js', window.Config.on());
+AJAX.registerTeardown('main.js', Config.off());
+AJAX.registerOnload('main.js', Config.on());
 
 $.ajaxPrefilter(Functions.addNoCacheToAjaxRequests());
 

@@ -85,8 +85,6 @@ class NavigationController extends AbstractController
             $GLOBALS['error'] = $result;
         }
 
-        $this->addScriptFiles(['config.js']);
-
         $relationParameters = $this->relation->getRelationParameters();
 
         $this->render('preferences/header', [

@@ -2,6 +2,7 @@ import $ from 'jquery';
 import { AJAX } from '../../ajax.js';
 import { Functions } from '../../functions.js';
 import { CommonParams } from '../../common.js';
+import { Config } from '../../config.js';
 
 /**
  * @fileoverview    Javascript functions used in server status monitor page
@@ -700,7 +701,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
                 // If json ok, try applying config
                 try {
-                    if (window.Config.isStorageSupported('localStorage')) {
+                    if (Config.isStorageSupported('localStorage')) {
                         window.localStorage.monitorCharts = JSON.stringify(json.monitorCharts);
                         window.localStorage.monitorSettings = JSON.stringify(json.monitorSettings);
                     }
@@ -708,7 +709,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 } catch (err) {
                     alert(window.Messages.strFailedBuildingGrid);
                     // If an exception is thrown, load default again
-                    if (window.Config.isStorageSupported('localStorage')) {
+                    if (Config.isStorageSupported('localStorage')) {
                         window.localStorage.removeItem('monitorCharts');
                         window.localStorage.removeItem('monitorSettings');
                     }
@@ -736,7 +737,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
     $('a[href="#clearMonitorConfig"]').on('click', function (event) {
         event.preventDefault();
-        if (window.Config.isStorageSupported('localStorage')) {
+        if (Config.isStorageSupported('localStorage')) {
             window.localStorage.removeItem('monitorCharts');
             window.localStorage.removeItem('monitorSettings');
             window.localStorage.removeItem('monitorVersion');
@@ -1031,7 +1032,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         var i;
 
         /* Apply default values & config */
-        if (window.Config.isStorageSupported('localStorage')) {
+        if (Config.isStorageSupported('localStorage')) {
             if (typeof window.localStorage.monitorCharts !== 'undefined') {
                 runtime.charts = JSON.parse(window.localStorage.monitorCharts);
             }
@@ -2310,7 +2311,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             gridCopy[key].maxYLabel = elem.maxYLabel;
         });
 
-        if (window.Config.isStorageSupported('localStorage')) {
+        if (Config.isStorageSupported('localStorage')) {
             window.localStorage.monitorCharts = JSON.stringify(gridCopy);
             window.localStorage.monitorSettings = JSON.stringify(monitorSettings);
             window.localStorage.monitorVersion = monitorProtocolVersion;

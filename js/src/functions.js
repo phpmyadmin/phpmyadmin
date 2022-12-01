@@ -4,6 +4,7 @@ import { Navigation } from './navigation.js';
 import { CommonActions, CommonParams } from './common.js';
 import { mysqlDocKeyword, mysqlDocBuiltin } from './modules/doc-links.js';
 import { Indexes } from './indexes.js';
+import { Config } from './config.js';
 
 /* global ChartType, ColumnType, DataTable, JQPlotChartFactory */ // js/chart.js
 /* global DatabaseStructure */ // js/database/structure.js
@@ -934,7 +935,7 @@ Functions.onloadIdleEvent = function () {
     function UpdateIdleTime () {
         var href = 'index.php?route=/';
         var guid = 'default';
-        if (window.Config.isStorageSupported('sessionStorage')) {
+        if (Config.isStorageSupported('sessionStorage')) {
             guid = window.sessionStorage.guid;
         }
         var params = {
@@ -969,7 +970,7 @@ Functions.onloadIdleEvent = function () {
                     updateTimeout = window.setTimeout(UpdateIdleTime, interval);
                 } else { // timeout occurred
                     clearInterval(incInterval);
-                    if (window.Config.isStorageSupported('sessionStorage')) {
+                    if (Config.isStorageSupported('sessionStorage')) {
                         window.sessionStorage.clear();
                     }
                     // append the login form on the page, disable all the forms which were not disabled already, close all the open jqueryui modal boxes
@@ -997,7 +998,7 @@ Functions.onloadIdleEvent = function () {
             CommonParams.get('LoginCookieValidity'),
             CommonParams.get('session_gc_maxlifetime')
         );
-        if (window.Config.isStorageSupported('sessionStorage')) {
+        if (Config.isStorageSupported('sessionStorage')) {
             window.sessionStorage.setItem('guid', guid());
         }
         var interval = (sessionTimeout - 5) * 1000;
@@ -3518,7 +3519,7 @@ Functions.onloadRecentFavoriteTables = () => {
             cache: false,
             type: 'POST',
             data: {
-                'favoriteTables': (window.Config.isStorageSupported('localStorage') && typeof window.localStorage.favoriteTables !== 'undefined')
+                'favoriteTables': (Config.isStorageSupported('localStorage') && typeof window.localStorage.favoriteTables !== 'undefined')
                     ? window.localStorage.favoriteTables
                     : '',
                 'server': CommonParams.get('server'),
@@ -3526,7 +3527,7 @@ Functions.onloadRecentFavoriteTables = () => {
             },
             success: function (data) {
                 // Update localStorage.
-                if (window.Config.isStorageSupported('localStorage')) {
+                if (Config.isStorageSupported('localStorage')) {
                     window.localStorage.favoriteTables = data.favoriteTables;
                 }
                 $('#pma_favorite_list').html(data.list);

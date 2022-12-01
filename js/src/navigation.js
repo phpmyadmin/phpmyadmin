@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import { Functions } from './functions.js';
 import { CommonParams } from './common.js';
+import { Config } from './config.js';
 
 /**
  * function used in or for navigation panel
@@ -16,7 +17,7 @@ const Navigation = {};
  */
 Navigation.treeStateUpdate = function () {
     // update if session storage is supported
-    if (window.Config.isStorageSupported('sessionStorage')) {
+    if (Config.isStorageSupported('sessionStorage')) {
         var storage = window.sessionStorage;
         // try catch necessary here to detect whether
         // content to be stored exceeds storage capacity
@@ -43,7 +44,7 @@ Navigation.treeStateUpdate = function () {
  * @return {void}
  */
 Navigation.filterStateUpdate = function (filterName, filterValue) {
-    if (window.Config.isStorageSupported('sessionStorage')) {
+    if (Config.isStorageSupported('sessionStorage')) {
         var storage = window.sessionStorage;
         try {
             var currentFilter = $.extend({}, JSON.parse(storage.getItem('navTreeSearchFilters')));
@@ -63,7 +64,7 @@ Navigation.filterStateUpdate = function (filterName, filterValue) {
  * @return {void}
  */
 Navigation.filterStateRestore = function () {
-    if (window.Config.isStorageSupported('sessionStorage')
+    if (Config.isStorageSupported('sessionStorage')
         && typeof window.sessionStorage.navTreeSearchFilters !== 'undefined'
     ) {
         var searchClauses = JSON.parse(window.sessionStorage.navTreeSearchFilters);
@@ -531,7 +532,7 @@ Navigation.onload = () => function () {
             }
         }
 
-        var hasLocalStorage = window.Config.isStorageSupported('localStorage') &&
+        var hasLocalStorage = Config.isStorageSupported('localStorage') &&
             typeof window.localStorage.favoriteTables !== 'undefined';
         $.ajax({
             url: $self.attr('href'),
@@ -551,7 +552,7 @@ Navigation.onload = () => function () {
                         $('#' + anchorId).attr('title')
                     );
                     // Update localStorage.
-                    if (window.Config.isStorageSupported('localStorage')) {
+                    if (Config.isStorageSupported('localStorage')) {
                         window.localStorage.favoriteTables = data.favoriteTables;
                     }
                 } else {
@@ -561,7 +562,7 @@ Navigation.onload = () => function () {
         });
     });
     // Check if session storage is supported
-    if (window.Config.isStorageSupported('sessionStorage')) {
+    if (Config.isStorageSupported('sessionStorage')) {
         var storage = window.sessionStorage;
         // remove tree from storage if Navi_panel config form is submitted
         $(document).on('submit', 'form.config-form', function () {
@@ -903,8 +904,8 @@ Navigation.ensureSettings = function (selflink) {
         $.post('index.php?route=/navigation&ajax_request=1', params, function (data) {
             if (typeof data !== 'undefined' && data.success) {
                 $('#pma_navi_settings_container').html(data.message);
-                window.Config.setupRestoreField();
-                window.Config.setupValidation();
+                Config.setupRestoreField();
+                Config.setupValidation();
                 $('#pma_navigation_settings').find('form').attr('action', selflink);
             } else {
                 Functions.ajaxShowMessage(data.error);

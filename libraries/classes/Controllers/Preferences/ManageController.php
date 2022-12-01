@@ -262,8 +262,6 @@ class ManageController extends AbstractController
             return;
         }
 
-        $this->addScriptFiles(['config.js']);
-
         $relationParameters = $this->relation->getRelationParameters();
 
         echo $this->template->render('preferences/header', [

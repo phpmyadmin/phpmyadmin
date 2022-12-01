@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { Config } from '../config.js';
 
 /**
  * Functions used in Setup configuration forms
@@ -107,7 +108,7 @@ function ajaxValidate (parent, id, values) {
                     error[key] = Array.isArray(value) ? value : [value];
                 }
             }
-            window.Config.displayErrors(error);
+            Config.displayErrors(error);
         },
         complete: function () {
             $parent.removeData('ajax');
@@ -169,7 +170,7 @@ $.extend(true, window.validators, {
          */
         Server: function (isKeyUp) {
             if (!isKeyUp) {
-                ajaxValidate(this, 'Server', window.Config.getAllValues());
+                ajaxValidate(this, 'Server', Config.getAllValues());
             }
             return true;
         },
@@ -195,9 +196,9 @@ $.extend(true, window.validators, {
                 return true;
             }
 
-            var prefix = window.Config.getIdPrefix($(this).find('input'));
+            var prefix = Config.getIdPrefix($(this).find('input'));
             if ($('#' + prefix + 'pmadb').val() !== '') {
-                ajaxValidate(this, 'Server_pmadb', window.Config.getAllValues());
+                ajaxValidate(this, 'Server_pmadb', Config.getAllValues());
             }
 
             return true;

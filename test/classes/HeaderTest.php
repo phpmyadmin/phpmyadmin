@@ -263,7 +263,6 @@ class HeaderTest extends AbstractTestCase
             ['name' => 'index.php', 'fire' => 0],
             ['name' => 'shared.js', 'fire' => 0],
             ['name' => 'menu_resizer.js', 'fire' => 1],
-            ['name' => 'config.js', 'fire' => 1],
             ['name' => 'main.js', 'fire' => 1],
         ];
         $this->assertSame($expected, $scripts->getFiles());

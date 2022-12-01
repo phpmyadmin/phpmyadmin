@@ -141,7 +141,6 @@ class Header
         $this->scripts->addFile('index.php', ['route' => '/messages', 'l' => $GLOBALS['lang']]);
         $this->scripts->addFile('shared.js');
         $this->scripts->addFile('menu_resizer.js');
-        $this->scripts->addFile('config.js');
         $this->scripts->addFile('main.js');
 
         $this->scripts->addCode($this->getJsParamsCode());
@@ -336,21 +335,6 @@ class Header
         $this->scripts->addCode('ConsoleEnterExecutes=' . ($GLOBALS['cfg']['ConsoleEnterExecutes'] ? 'true' : 'false'));
         $this->scripts->addFiles($this->console->getScripts());
 
-        // if database storage for user preferences is transient,
-        // offer to load exported settings from localStorage
-        // (detection will be done in JavaScript)
-        $userprefsOfferImport = false;
-        if (
-            $GLOBALS['config']->get('user_preferences') === 'session'
-            && ! isset($_SESSION['userprefs_autoload'])
-        ) {
-            $userprefsOfferImport = true;
-        }
-
-        if ($userprefsOfferImport) {
-            $this->scripts->addFile('config.js');
-        }
-
         if ($this->menuEnabled && $GLOBALS['server'] > 0) {
             $nav = new Navigation(
                 $this->template,
@@ -363,7 +347,10 @@ class Header
         $customHeader = Config::renderHeader();
 
         // offer to load user preferences from localStorage
-        if ($userprefsOfferImport) {
+        if (
+            $GLOBALS['config']->get('user_preferences') === 'session'
+            && ! isset($_SESSION['userprefs_autoload'])
+        ) {
             $loadUserPreferences = $this->userPreferences->autoloadGetHeader();
         }
 
