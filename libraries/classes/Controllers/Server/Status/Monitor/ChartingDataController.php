@@ -37,7 +37,7 @@ final class ChartingDataController extends AbstractController
     {
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
-        $params = ['requiredData' => $request->getParsedBodyParam('requiredData')];
+        $requiredData = $request->getParsedBodyParam('requiredData', '');
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
@@ -49,9 +49,7 @@ final class ChartingDataController extends AbstractController
         }
 
         $this->response->addJSON([
-            'message' => $this->monitor->getJsonForChartingData(
-                $params['requiredData'] ?? ''
-            ),
+            'message' => $this->monitor->getJsonForChartingData($requiredData),
         ]);
     }
 }

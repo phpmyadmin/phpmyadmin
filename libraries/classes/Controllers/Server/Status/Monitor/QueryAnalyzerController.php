@@ -37,10 +37,6 @@ final class QueryAnalyzerController extends AbstractController
     {
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
-        $params = [
-            'database' => $request->getParsedBodyParam('database'),
-            'query' => $request->getParsedBodyParam('query'),
-        ];
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
@@ -53,8 +49,8 @@ final class QueryAnalyzerController extends AbstractController
 
         $this->response->addJSON([
             'message' => $this->monitor->getJsonForQueryAnalyzer(
-                $params['database'] ?? '',
-                $params['query'] ?? ''
+                $request->getParsedBodyParam('database', ''),
+                $request->getParsedBodyParam('query', '')
             ),
         ]);
     }

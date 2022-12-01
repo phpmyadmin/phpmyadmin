@@ -2747,10 +2747,11 @@
   </file>
   <file src="libraries/classes/Controllers/Server/Status/Monitor/ChartingDataController.php">
     <MixedArgument occurrences="1">
-      <code>$params['requiredData'] ?? ''</code>
+      <code>$requiredData</code>
     </MixedArgument>
-    <MixedAssignment occurrences="1">
+    <MixedAssignment occurrences="2">
       <code>$GLOBALS['errorUrl']</code>
+      <code>$requiredData</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Server/Status/Monitor/GeneralLogController.php">
@@ -2760,8 +2761,8 @@
   </file>
   <file src="libraries/classes/Controllers/Server/Status/Monitor/LogVarsController.php">
     <MixedArgument occurrences="2">
-      <code>$params['varName']</code>
-      <code>$params['varValue']</code>
+      <code>$request-&gt;getParsedBodyParam('varName')</code>
+      <code>$request-&gt;getParsedBodyParam('varValue')</code>
     </MixedArgument>
     <MixedAssignment occurrences="1">
       <code>$GLOBALS['errorUrl']</code>
@@ -2769,8 +2770,8 @@
   </file>
   <file src="libraries/classes/Controllers/Server/Status/Monitor/QueryAnalyzerController.php">
     <MixedArgument occurrences="2">
-      <code>$params['database'] ?? ''</code>
-      <code>$params['query'] ?? ''</code>
+      <code>$request-&gt;getParsedBodyParam('database', '')</code>
+      <code>$request-&gt;getParsedBodyParam('query', '')</code>
     </MixedArgument>
     <MixedAssignment occurrences="1">
       <code>$GLOBALS['errorUrl']</code>
@@ -2847,14 +2848,19 @@
   </file>
   <file src="libraries/classes/Controllers/Server/Status/VariablesController.php">
     <MixedArgument occurrences="1">
-      <code>$params['flush']</code>
+      <code>$flush</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="2">
       <code>$name</code>
       <code>$name</code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="6">
+    <MixedAssignment occurrences="11">
       <code>$GLOBALS['errorUrl']</code>
+      <code>$dontFormat</code>
+      <code>$filterAlert</code>
+      <code>$filterCategory</code>
+      <code>$filterText</code>
+      <code>$flush</code>
       <code>$linkName</code>
       <code>$linkUrl</code>
       <code>$sectionLinks</code>
