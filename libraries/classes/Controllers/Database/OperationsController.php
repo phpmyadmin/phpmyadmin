@@ -24,7 +24,6 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function __;
-use function count;
 use function mb_strtolower;
 use function strlen;
 
@@ -68,23 +67,15 @@ class OperationsController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['server'] = $GLOBALS['server'] ?? null;
-        $GLOBALS['move'] = $GLOBALS['move'] ?? null;
         $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-        $GLOBALS['tables_full'] = $GLOBALS['tables_full'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
-        $GLOBALS['export_sql_plugin'] = $GLOBALS['export_sql_plugin'] ?? null;
-        $GLOBALS['views'] = $GLOBALS['views'] ?? null;
-        $GLOBALS['sqlConstratints'] = $GLOBALS['sqlConstratints'] ?? null;
-        $GLOBALS['local_query'] = $GLOBALS['local_query'] ?? null;
         $GLOBALS['reload'] = $GLOBALS['reload'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
         $GLOBALS['tooltip_truename'] = $GLOBALS['tooltip_truename'] ?? null;
-        $GLOBALS['db_collation'] = $GLOBALS['db_collation'] ?? null;
         $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
         $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
-        $GLOBALS['is_information_schema'] = $GLOBALS['is_information_schema'] ?? null;
         $GLOBALS['single_table'] = $GLOBALS['single_table'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
 
@@ -98,11 +89,7 @@ class OperationsController extends AbstractController
          * Rename/move or copy database
          */
         if (strlen($GLOBALS['db']) > 0 && (! empty($_POST['db_rename']) || ! empty($_POST['db_copy']))) {
-            if (! empty($_POST['db_rename'])) {
-                $GLOBALS['move'] = true;
-            } else {
-                $GLOBALS['move'] = false;
-            }
+            $move = ! empty($_POST['db_rename']);
 
             try {
                 $newDatabaseName = DatabaseName::fromValue($request->getParsedBodyParam('newname'));
@@ -121,7 +108,7 @@ class OperationsController extends AbstractController
                     );
                 } else {
                     $_error = false;
-                    if ($GLOBALS['move'] || ! empty($_POST['create_database_before_copying'])) {
+                    if ($move || ! empty($_POST['create_database_before_copying'])) {
                         $this->operations->createDbBeforeCopy($newDatabaseName);
                     }
 
@@ -136,26 +123,26 @@ class OperationsController extends AbstractController
                     // go back to current db, just in case
                     $this->dbi->selectDb($GLOBALS['db']);
 
-                    $GLOBALS['tables_full'] = $this->dbi->getTablesFull($GLOBALS['db']);
+                    $tablesFull = $this->dbi->getTablesFull($GLOBALS['db']);
 
                     // remove all foreign key constraints, otherwise we can get errors
-                    $GLOBALS['export_sql_plugin'] = Plugins::getPlugin('export', 'sql', [
+                    $exportSqlPlugin = Plugins::getPlugin('export', 'sql', [
                         'export_type' => 'database',
                         'single_table' => isset($GLOBALS['single_table']),
                     ]);
 
                     // create stand-in tables for views
-                    $GLOBALS['views'] = $this->operations->getViewsAndCreateSqlViewStandIn(
-                        $GLOBALS['tables_full'],
-                        $GLOBALS['export_sql_plugin'],
+                    $views = $this->operations->getViewsAndCreateSqlViewStandIn(
+                        $tablesFull,
+                        $exportSqlPlugin,
                         $GLOBALS['db'],
                         $newDatabaseName
                     );
 
                     // copy tables
-                    $GLOBALS['sqlConstratints'] = $this->operations->copyTables(
-                        $GLOBALS['tables_full'],
-                        $GLOBALS['move'],
+                    $sqlConstraints = $this->operations->copyTables(
+                        $tablesFull,
+                        $move,
                         $GLOBALS['db'],
                         $newDatabaseName
                     );
@@ -163,24 +150,20 @@ class OperationsController extends AbstractController
                     // handle the views
                     if (! $_error) {
                         $this->operations->handleTheViews(
-                            $GLOBALS['views'],
-                            $GLOBALS['move'],
+                            $views,
+                            $move,
                             $GLOBALS['db'],
                             $newDatabaseName
                         );
                     }
 
-                    unset($GLOBALS['views']);
-
                     // now that all tables exist, create all the accumulated constraints
-                    if (! $_error && count($GLOBALS['sqlConstratints']) > 0) {
+                    if (! $_error && $sqlConstraints !== []) {
                         $this->operations->createAllAccumulatedConstraints(
-                            $GLOBALS['sqlConstratints'],
+                            $sqlConstraints,
                             $newDatabaseName
                         );
                     }
-
-                    unset($GLOBALS['sqlConstratints']);
 
                     if ($this->dbi->getVersion() >= 50100) {
                         // here DELIMITER is not used because it's not part of the
@@ -195,7 +178,7 @@ class OperationsController extends AbstractController
                     // Duplicate the bookmarks for this db (done once for each db)
                     $this->operations->duplicateBookmarks($_error, $GLOBALS['db'], $newDatabaseName);
 
-                    if (! $_error && $GLOBALS['move']) {
+                    if (! $_error && $move) {
                         if (isset($_POST['adjust_privileges']) && ! empty($_POST['adjust_privileges'])) {
                             $this->operations->adjustPrivilegesMoveDb($GLOBALS['db'], $newDatabaseName);
                         }
@@ -206,10 +189,9 @@ class OperationsController extends AbstractController
                         $this->relationCleanup->database($GLOBALS['db']);
 
                         // if someday the RENAME DATABASE reappears, do not DROP
-                        $GLOBALS['local_query'] = 'DROP DATABASE '
-                            . Util::backquote($GLOBALS['db']) . ';';
-                        $GLOBALS['sql_query'] .= "\n" . $GLOBALS['local_query'];
-                        $this->dbi->query($GLOBALS['local_query']);
+                        $localQuery = 'DROP DATABASE ' . Util::backquote($GLOBALS['db']) . ';';
+                        $GLOBALS['sql_query'] .= "\n" . $localQuery;
+                        $this->dbi->query($localQuery);
 
                         $GLOBALS['message'] = Message::success(
                             __('Database %1$s has been renamed to %2$s.')
@@ -233,7 +215,7 @@ class OperationsController extends AbstractController
                     $GLOBALS['reload'] = true;
 
                     /* Change database to be used */
-                    if (! $_error && $GLOBALS['move']) {
+                    if (! $_error && $move) {
                         $GLOBALS['db'] = $newDatabaseName->getName();
                     } elseif (! $_error) {
                         if (isset($_POST['switch_to_new']) && $_POST['switch_to_new'] === 'true') {
@@ -301,10 +283,9 @@ class OperationsController extends AbstractController
             unset($GLOBALS['message']);
         }
 
-        $GLOBALS['db_collation'] = $this->dbi->getDbCollation($GLOBALS['db']);
-        $GLOBALS['is_information_schema'] = Utilities::isSystemSchema($GLOBALS['db']);
+        $dbCollation = $this->dbi->getDbCollation($GLOBALS['db']);
 
-        if ($GLOBALS['is_information_schema']) {
+        if (Utilities::isSystemSchema($GLOBALS['db'])) {
             return;
         }
 
@@ -346,7 +327,7 @@ class OperationsController extends AbstractController
             'db' => $GLOBALS['db'],
             'has_comment' => $relationParameters->columnCommentsFeature !== null,
             'db_comment' => $databaseComment,
-            'db_collation' => $GLOBALS['db_collation'],
+            'db_collation' => $dbCollation,
             'has_adjust_privileges' => $hasAdjustPrivileges,
             'is_drop_database_allowed' => $isDropDatabaseAllowed,
             'switch_to_new' => $switchToNew,

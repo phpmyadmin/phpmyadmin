@@ -1296,30 +1296,22 @@
   </file>
   <file src="libraries/classes/Controllers/Database/OperationsController.php">
     <ArgumentTypeCoercion occurrences="1">
-      <code>$GLOBALS['export_sql_plugin']</code>
+      <code>$exportSqlPlugin</code>
     </ArgumentTypeCoercion>
     <InvalidArrayOffset occurrences="2">
       <code>$GLOBALS['cfg']['AllowUserDropDatabase']</code>
       <code>$GLOBALS['cfg']['PmaNoRelation_DisableWarning']</code>
     </InvalidArrayOffset>
-    <MixedAssignment occurrences="17">
-      <code>$GLOBALS['db_collation']</code>
+    <MixedAssignment occurrences="9">
       <code>$GLOBALS['errorUrl']</code>
-      <code>$GLOBALS['export_sql_plugin']</code>
-      <code>$GLOBALS['is_information_schema']</code>
-      <code>$GLOBALS['local_query']</code>
-      <code>$GLOBALS['move']</code>
       <code>$GLOBALS['num_tables']</code>
       <code>$GLOBALS['pos']</code>
       <code>$GLOBALS['reload']</code>
       <code>$GLOBALS['single_table']</code>
-      <code>$GLOBALS['sqlConstratints']</code>
       <code>$GLOBALS['tables']</code>
-      <code>$GLOBALS['tables_full']</code>
       <code>$GLOBALS['tooltip_aliasname']</code>
       <code>$GLOBALS['tooltip_truename']</code>
       <code>$GLOBALS['total_num_tables']</code>
-      <code>$GLOBALS['views']</code>
     </MixedAssignment>
     <PossiblyInvalidArgument occurrences="1">
       <code>$_POST['comment']</code>
@@ -1328,7 +1320,7 @@
       <code>$_POST['comment']</code>
     </PossiblyInvalidCast>
     <PossiblyNullArgument occurrences="1">
-      <code>$GLOBALS['export_sql_plugin']</code>
+      <code>$exportSqlPlugin</code>
     </PossiblyNullArgument>
     <PossiblyNullReference occurrences="1">
       <code>isSuccess</code>
