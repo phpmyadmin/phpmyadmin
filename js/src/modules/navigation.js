@@ -2,6 +2,7 @@ import $ from 'jquery';
 import { Functions } from './functions.js';
 import { CommonParams } from './common.js';
 import { Config } from './config.js';
+import { resizeTopMenu } from './menu-resizer.js';
 
 /**
  * function used in or for navigation panel
@@ -1197,7 +1198,7 @@ Navigation.ResizeHandler = function () {
     this.mouseup = function (event) {
         $('body').css('cursor', '');
         Functions.configSet('NavigationWidth', event.data.resize_handler.getPos(event));
-        $('#topmenu').menuResizer('resize');
+        resizeTopMenu();
         $(document)
             .off('mousemove')
             .off('mouseup');
@@ -1284,7 +1285,7 @@ Navigation.ResizeHandler = function () {
         this.treeResize();
         const callbackSuccessGetConfigValue = (data) => {
             this.setWidth(data);
-            $('#topmenu').menuResizer('resize');
+            resizeTopMenu();
         };
         // Skip mobile
         if (isLoadedOnMobile === false) {

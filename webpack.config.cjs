@@ -43,7 +43,6 @@ module.exports = [
             'jquery.sortable-table': './js/src/jquery.sortable-table.js',
             'main': './js/src/main.js',
             'makegrid': './js/src/makegrid.js',
-            'menu_resizer': './js/src/menu_resizer.js',
             'multi_column_sort': './js/src/multi_column_sort.js',
             'name-conflict-fixes': './js/src/name-conflict-fixes.js',
             'normalization': './js/src/normalization.js',

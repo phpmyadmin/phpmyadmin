@@ -7,6 +7,7 @@ import { PageSettings } from './modules/page_settings.js';
 import { crossFramingProtection } from './modules/cross_framing_protection.js';
 import { Indexes } from './modules/indexes.js';
 import { Config } from './modules/config.js';
+import { initializeMenuResizer } from './modules/menu-resizer.js';
 
 AJAX.registerOnload('main.js', () => AJAX.removeSubmitEvents());
 $(AJAX.loadEventHandler());
@@ -33,7 +34,7 @@ AJAX.registerTeardown('main.js', Functions.off());
 AJAX.registerOnload('main.js', Functions.on());
 
 $(Functions.dismissNotifications());
-$(Functions.initializeMenuResizer());
+$(initializeMenuResizer());
 $(Functions.floatingMenuBar());
 $(Functions.breadcrumbScrollToTop());
 

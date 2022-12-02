@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { Functions } from './modules/functions.js';
+import { Functions } from './functions.js';
 
 /**
  * Handles the resizing of a menu according to the available screen width
@@ -174,7 +174,7 @@ import { Functions } from './modules/functions.js';
     /**
      * Extend jQuery
      *
-     * @param {string} method
+     * @param {string|Function} method
      *
      * @return {any}
      */
@@ -188,3 +188,33 @@ import { Functions } from './modules/functions.js';
         }
     };
 }($));
+
+/**
+ * @return {void}
+ */
+function resizeTopMenu () {
+    $('#topmenu').menuResizer('resize');
+}
+
+/**
+ * @return {void}
+ */
+function initializeTopMenuResizer () {
+    $('#topmenu').menuResizer(() => $(document.body).width() - 5);
+}
+
+/**
+ * @return {function}
+ */
+function initializeMenuResizer () {
+    return function () {
+        // Initialise the menu resize plugin
+        initializeTopMenuResizer();
+        // register resize event
+        $(window).on('resize', function () {
+            resizeTopMenu();
+        });
+    };
+}
+
+export { initializeMenuResizer, initializeTopMenuResizer, resizeTopMenu };
