@@ -1051,7 +1051,7 @@ parameters:
 			path: libraries/classes/Controllers/Database/Operations/CollationController.php
 
 		-
-			message: "#^Parameter \\#3 \\$tbl_collation of method PhpMyAdmin\\\\Operations\\:\\:changeAllColumnsCollation\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#3 \\$tableCollation of method PhpMyAdmin\\\\Operations\\:\\:changeAllColumnsCollation\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/Operations/CollationController.php
 
@@ -1061,7 +1061,7 @@ parameters:
 			path: libraries/classes/Controllers/Database/OperationsController.php
 
 		-
-			message: "#^Parameter \\#2 \\$export_sql_plugin of method PhpMyAdmin\\\\Operations\\:\\:getViewsAndCreateSqlViewStandIn\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql, object\\|null given\\.$#"
+			message: "#^Parameter \\#2 \\$exportSqlPlugin of method PhpMyAdmin\\\\Operations\\:\\:getViewsAndCreateSqlViewStandIn\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql, object\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/OperationsController.php
 
@@ -5541,7 +5541,7 @@ parameters:
 			path: libraries/classes/Operations.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Operations\\:\\:copyTables\\(\\) has parameter \\$tables_full with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Operations\\:\\:copyTables\\(\\) has parameter \\$tablesFull with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Operations.php
 
@@ -5551,7 +5551,7 @@ parameters:
 			path: libraries/classes/Operations.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Operations\\:\\:createAllAccumulatedConstraints\\(\\) has parameter \\$sqlConstratints with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Operations\\:\\:createAllAccumulatedConstraints\\(\\) has parameter \\$sqlConstraints with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Operations.php
 
@@ -5576,7 +5576,7 @@ parameters:
 			path: libraries/classes/Operations.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Operations\\:\\:getViewsAndCreateSqlViewStandIn\\(\\) has parameter \\$tables_full with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Operations\\:\\:getViewsAndCreateSqlViewStandIn\\(\\) has parameter \\$tablesFull with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Operations.php
 
