@@ -399,7 +399,7 @@ class CreateAddField
 
         // Adds table type, character set, comments and partition definition
         if (! empty($_POST['tbl_storage_engine']) && ($_POST['tbl_storage_engine'] !== 'Default')) {
-            $sqlQuery .= ' ENGINE = ' . $this->dbi->escapeString($_POST['tbl_storage_engine']);
+            $sqlQuery .= ' ENGINE = ' . $_POST['tbl_storage_engine'];
         }
 
         if (! empty($_POST['tbl_collation'])) {
@@ -411,13 +411,11 @@ class CreateAddField
             && ! empty($_POST['tbl_storage_engine'])
             && $_POST['tbl_storage_engine'] === 'FEDERATED'
         ) {
-            $sqlQuery .= " CONNECTION = '"
-                . $this->dbi->escapeString($_POST['connection']) . "'";
+            $sqlQuery .= ' CONNECTION = ' . $this->dbi->quoteString($_POST['connection']);
         }
 
         if (! empty($_POST['comment'])) {
-            $sqlQuery .= ' COMMENT = \''
-                . $this->dbi->escapeString($_POST['comment']) . '\'';
+            $sqlQuery .= ' COMMENT = ' . $this->dbi->quoteString($_POST['comment']);
         }
 
         $sqlQuery .= $this->getPartitionsDefinition();

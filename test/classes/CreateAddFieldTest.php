@@ -264,7 +264,7 @@ class CreateAddFieldTest extends AbstractTestCase
                 ],
             ],
             [
-                'CREATE TABLE `db`.`table` () ENGINE = Inno\\\'DB CHARSET=armscii8 COMMENT = \'my \\\'table\';',
+                'CREATE TABLE `db`.`table` () ENGINE = Inno\'DB CHARSET=armscii8 COMMENT = \'my \\\'table\';',
                 'db',
                 'table',
                 [

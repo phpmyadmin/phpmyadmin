@@ -522,9 +522,7 @@ class ImportCsv extends AbstractImportCsv
                         if ($val === null) {
                             $sql .= 'NULL';
                         } else {
-                            $sql .= '\''
-                                . $GLOBALS['dbi']->escapeString($val)
-                                . '\'';
+                            $sql .= $GLOBALS['dbi']->quoteString($val);
                         }
 
                         $first = false;

@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Schema\Pdf;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Pdf as PdfLib;
 use PhpMyAdmin\Util;
 
@@ -271,8 +272,8 @@ class Pdf extends PdfLib
             $test_query = 'SELECT * FROM '
                 . Util::backquote($pdfFeature->database) . '.'
                 . Util::backquote($pdfFeature->pdfPages)
-                . ' WHERE db_name = \'' . $GLOBALS['dbi']->escapeString($this->db)
-                . '\' AND page_nr = \'' . $this->pageNumber . '\'';
+                . ' WHERE db_name = ' . $GLOBALS['dbi']->quoteString($this->db, DatabaseInterface::CONNECT_CONTROL)
+                . ' AND page_nr = ' . $this->pageNumber;
             $test_rs = $GLOBALS['dbi']->queryAsControlUser($test_query);
             $pageDesc = (string) $test_rs->fetchValue('page_descr');
 

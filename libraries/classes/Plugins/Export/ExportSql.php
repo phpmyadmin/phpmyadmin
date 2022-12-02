@@ -981,8 +981,7 @@ class ExportSql extends ExportPlugin
 
         $eventNames = $GLOBALS['dbi']->fetchResult(
             'SELECT EVENT_NAME FROM information_schema.EVENTS WHERE'
-            . " EVENT_SCHEMA= '" . $GLOBALS['dbi']->escapeString($db)
-            . "';"
+            . ' EVENT_SCHEMA= ' . $GLOBALS['dbi']->quoteString($db)
         );
 
         if ($eventNames) {
@@ -1141,7 +1140,7 @@ class ExportSql extends ExportPlugin
                 $sqlQuery = 'SELECT `page_nr`, `page_descr` FROM '
                     . Util::backquote($relationParameters->pdfFeature->database)
                     . '.' . Util::backquote($relationParameters->pdfFeature->pdfPages)
-                    . ' WHERE `db_name` = \'' . $GLOBALS['dbi']->escapeString($db) . "'";
+                    . ' WHERE `db_name` = ' . $GLOBALS['dbi']->quoteString($db);
 
                 $result = $GLOBALS['dbi']->fetchResult($sqlQuery, 'page_nr', 'page_descr');
 
@@ -1150,8 +1149,8 @@ class ExportSql extends ExportPlugin
                     $sqlQueryRow = 'SELECT `db_name`, `page_descr` FROM '
                         . Util::backquote($relationParameters->pdfFeature->database)
                         . '.' . Util::backquote($relationParameters->pdfFeature->pdfPages)
-                        . ' WHERE `db_name` = \'' . $GLOBALS['dbi']->escapeString($db) . "'"
-                        . " AND `page_nr` = '" . intval($page) . "'";
+                        . ' WHERE `db_name` = ' . $GLOBALS['dbi']->quoteString($db)
+                        . ' AND `page_nr` = ' . intval($page);
 
                     if (
                         ! $this->exportData(
@@ -1216,10 +1215,9 @@ class ExportSql extends ExportPlugin
             $sqlQuery .= Util::backquote($relationParameters->db)
                 . '.' . Util::backquote((string) $relationParams[$type])
                 . ' WHERE ' . Util::backquote($dbNameColumn)
-                . " = '" . $GLOBALS['dbi']->escapeString($db) . "'";
+                . ' = ' . $GLOBALS['dbi']->quoteString($db);
             if (isset($table)) {
-                $sqlQuery .= " AND `table_name` = '"
-                    . $GLOBALS['dbi']->escapeString($table) . "'";
+                $sqlQuery .= ' AND `table_name` = ' . $GLOBALS['dbi']->quoteString($table);
             }
 
             if (
@@ -1330,8 +1328,7 @@ class ExportSql extends ExportPlugin
             }
 
             if (isset($column['Default'])) {
-                $createQuery .= " DEFAULT '"
-                    . $GLOBALS['dbi']->escapeString($column['Default']) . "'";
+                $createQuery .= ' DEFAULT ' . $GLOBALS['dbi']->quoteString($column['Default']);
             } else {
                 if ($column['Null'] === 'YES') {
                     $createQuery .= ' DEFAULT NULL';
@@ -1339,8 +1336,7 @@ class ExportSql extends ExportPlugin
             }
 
             if (! empty($column['Comment'])) {
-                $createQuery .= " COMMENT '"
-                    . $GLOBALS['dbi']->escapeString($column['Comment']) . "'";
+                $createQuery .= ' COMMENT ' . $GLOBALS['dbi']->quoteString($column['Comment']);
             }
 
             $firstCol = false;
@@ -1405,7 +1401,7 @@ class ExportSql extends ExportPlugin
 
         $result = $GLOBALS['dbi']->tryQuery(
             'SHOW TABLE STATUS FROM ' . Util::backquote($db)
-            . ' WHERE Name = \'' . $GLOBALS['dbi']->escapeString((string) $table) . '\''
+            . ' WHERE Name = ' . $GLOBALS['dbi']->quoteString((string) $table)
         );
         if ($result != false) {
             if ($result->numRows() > 0) {
@@ -2362,7 +2358,7 @@ class ExportSql extends ExportPlugin
                     $values[] = "''";
                 } else {
                     // something else -> treat as a string
-                    $values[] = '\'' . $GLOBALS['dbi']->escapeString($row[$j]) . '\'';
+                    $values[] = $GLOBALS['dbi']->quoteString($row[$j]);
                 }
             }
 

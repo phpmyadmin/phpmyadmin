@@ -125,8 +125,10 @@ class ImportLdiTest extends AbstractTestCase
 
         $GLOBALS['sql_query_disabled'] = false;
         $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi->expects($this->any())->method('quoteString')
+            ->will($this->returnCallback(static function (string $string) {
+                return "'" . $string . "'";
+            }));
         $GLOBALS['dbi'] = $dbi;
 
         $importHandle = new File($GLOBALS['import_file']);
@@ -176,8 +178,10 @@ class ImportLdiTest extends AbstractTestCase
 
         $GLOBALS['sql_query_disabled'] = false;
         $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi->expects($this->any())->method('quoteString')
+            ->will($this->returnCallback(static function (string $string) {
+                return "'" . $string . "'";
+            }));
         $GLOBALS['dbi'] = $dbi;
 
         $GLOBALS['ldi_local_option'] = true;
