@@ -8776,22 +8776,22 @@
       <code>$arr['foreign_field']</code>
       <code>$arr['foreign_field']</code>
       <code>$arr['foreign_table']</code>
-      <code>$event_name</code>
+      <code>$eventName</code>
       <code>$foreignTable</code>
       <code>$foreignTable</code>
-      <code>$old_priv</code>
-      <code>$one_query</code>
+      <code>$oldPriv</code>
+      <code>$query</code>
       <code>$trigger['create']</code>
       <code>$view</code>
       <code>$view</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="6">
-      <code>$each_table</code>
-      <code>$each_table</code>
-      <code>$each_table</code>
-      <code>$each_table</code>
       <code>$master</code>
       <code>$master</code>
+      <code>$tableName</code>
+      <code>$tableName</code>
+      <code>$tableName</code>
+      <code>$tableName</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="46">
       <code>$arr['foreign_db']</code>
@@ -8805,91 +8805,91 @@
       <code>$arr['foreign_table']</code>
       <code>$arr['foreign_table']</code>
       <code>$arr['foreign_table']</code>
-      <code>$old_priv[$i]</code>
-      <code>$old_priv[0]</code>
-      <code>$old_priv[0]</code>
-      <code>$old_priv[0]</code>
-      <code>$old_priv[0]</code>
-      <code>$old_priv[0]</code>
-      <code>$old_priv[0]</code>
-      <code>$old_priv[2]</code>
-      <code>$old_priv[2]</code>
-      <code>$old_priv[2]</code>
-      <code>$old_priv[2]</code>
-      <code>$old_priv[2]</code>
-      <code>$old_priv[3]</code>
-      <code>$old_priv[3]</code>
-      <code>$old_priv[3]</code>
-      <code>$old_priv[4]</code>
-      <code>$old_priv[4]</code>
-      <code>$old_priv[4]</code>
-      <code>$old_priv[4]</code>
-      <code>$old_priv[4]</code>
-      <code>$old_priv[5]</code>
-      <code>$old_priv[5]</code>
-      <code>$old_priv[5]</code>
-      <code>$old_priv[5]</code>
-      <code>$old_priv[5]</code>
-      <code>$old_priv[6]</code>
-      <code>$old_priv[6]</code>
-      <code>$old_priv[6]</code>
-      <code>$old_priv[6]</code>
-      <code>$old_priv[6]</code>
-      <code>$old_priv[7]</code>
-      <code>$old_priv[7]</code>
-      <code>$old_priv[7]</code>
+      <code>$oldPriv[$i]</code>
+      <code>$oldPriv[0]</code>
+      <code>$oldPriv[0]</code>
+      <code>$oldPriv[0]</code>
+      <code>$oldPriv[0]</code>
+      <code>$oldPriv[0]</code>
+      <code>$oldPriv[0]</code>
+      <code>$oldPriv[2]</code>
+      <code>$oldPriv[2]</code>
+      <code>$oldPriv[2]</code>
+      <code>$oldPriv[2]</code>
+      <code>$oldPriv[2]</code>
+      <code>$oldPriv[3]</code>
+      <code>$oldPriv[3]</code>
+      <code>$oldPriv[3]</code>
+      <code>$oldPriv[4]</code>
+      <code>$oldPriv[4]</code>
+      <code>$oldPriv[4]</code>
+      <code>$oldPriv[4]</code>
+      <code>$oldPriv[4]</code>
+      <code>$oldPriv[5]</code>
+      <code>$oldPriv[5]</code>
+      <code>$oldPriv[5]</code>
+      <code>$oldPriv[5]</code>
+      <code>$oldPriv[5]</code>
+      <code>$oldPriv[6]</code>
+      <code>$oldPriv[6]</code>
+      <code>$oldPriv[6]</code>
+      <code>$oldPriv[6]</code>
+      <code>$oldPriv[6]</code>
+      <code>$oldPriv[7]</code>
+      <code>$oldPriv[7]</code>
+      <code>$oldPriv[7]</code>
       <code>$trigger['create']</code>
       <code>$trigger['create']</code>
     </MixedArrayAccess>
     <MixedAssignment occurrences="13">
       <code>$GLOBALS['auto_increment']</code>
       <code>$arr</code>
-      <code>$event_name</code>
+      <code>$eventName</code>
       <code>$foreignTable</code>
-      <code>$old_priv</code>
-      <code>$old_priv</code>
-      <code>$old_priv</code>
-      <code>$old_priv</code>
-      <code>$old_priv</code>
-      <code>$old_priv</code>
-      <code>$one_query</code>
+      <code>$oldPriv</code>
+      <code>$oldPriv</code>
+      <code>$oldPriv</code>
+      <code>$oldPriv</code>
+      <code>$oldPriv</code>
+      <code>$oldPriv</code>
+      <code>$query</code>
       <code>$trigger</code>
       <code>$view</code>
     </MixedAssignment>
     <MixedOperand occurrences="34">
-      <code>$old_priv[$i]</code>
-      <code>$old_priv[0]</code>
-      <code>$old_priv[0]</code>
-      <code>$old_priv[0]</code>
-      <code>$old_priv[0]</code>
-      <code>$old_priv[0]</code>
-      <code>$old_priv[0]</code>
-      <code>$old_priv[2]</code>
-      <code>$old_priv[2]</code>
-      <code>$old_priv[2]</code>
-      <code>$old_priv[2]</code>
-      <code>$old_priv[2]</code>
-      <code>$old_priv[3]</code>
-      <code>$old_priv[3]</code>
-      <code>$old_priv[3]</code>
-      <code>$old_priv[4]</code>
-      <code>$old_priv[4]</code>
-      <code>$old_priv[4]</code>
-      <code>$old_priv[4]</code>
-      <code>$old_priv[4]</code>
-      <code>$old_priv[5]</code>
-      <code>$old_priv[5]</code>
-      <code>$old_priv[5]</code>
-      <code>$old_priv[5]</code>
-      <code>$old_priv[5]</code>
-      <code>$old_priv[6]</code>
-      <code>$old_priv[6]</code>
-      <code>$old_priv[6]</code>
-      <code>$old_priv[6]</code>
-      <code>$old_priv[6]</code>
-      <code>$old_priv[7]</code>
-      <code>$old_priv[7]</code>
-      <code>$old_priv[7]</code>
+      <code>$oldPriv[$i]</code>
+      <code>$oldPriv[0]</code>
+      <code>$oldPriv[0]</code>
+      <code>$oldPriv[0]</code>
+      <code>$oldPriv[0]</code>
+      <code>$oldPriv[0]</code>
+      <code>$oldPriv[0]</code>
+      <code>$oldPriv[2]</code>
+      <code>$oldPriv[2]</code>
+      <code>$oldPriv[2]</code>
+      <code>$oldPriv[2]</code>
+      <code>$oldPriv[2]</code>
+      <code>$oldPriv[3]</code>
+      <code>$oldPriv[3]</code>
+      <code>$oldPriv[3]</code>
+      <code>$oldPriv[4]</code>
+      <code>$oldPriv[4]</code>
+      <code>$oldPriv[4]</code>
+      <code>$oldPriv[4]</code>
+      <code>$oldPriv[4]</code>
+      <code>$oldPriv[5]</code>
+      <code>$oldPriv[5]</code>
+      <code>$oldPriv[5]</code>
+      <code>$oldPriv[5]</code>
+      <code>$oldPriv[5]</code>
+      <code>$oldPriv[6]</code>
+      <code>$oldPriv[6]</code>
+      <code>$oldPriv[6]</code>
+      <code>$oldPriv[6]</code>
+      <code>$oldPriv[6]</code>
+      <code>$oldPriv[7]</code>
+      <code>$oldPriv[7]</code>
+      <code>$oldPriv[7]</code>
       <code>$trigger['create']</code>
     </MixedOperand>
     <PossiblyInvalidArgument occurrences="9">
@@ -8899,9 +8899,9 @@
       <code>$_POST['prev_comment']</code>
       <code>$_POST['tbl_collation'] ?? ''</code>
       <code>$_POST['what']</code>
+      <code>$copyMode ?? 'data'</code>
       <code>$newRowFormat</code>
       <code>$newRowFormat</code>
-      <code>$this_what ?? 'data'</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast occurrences="9">
       <code>$_POST['comment']</code>
@@ -8910,18 +8910,18 @@
       <code>$_POST['prev_comment']</code>
       <code>$_POST['tbl_collation'] ?? ''</code>
       <code>$_POST['what']</code>
+      <code>$copyMode ?? 'data'</code>
       <code>$newRowFormat</code>
       <code>$newRowFormat</code>
-      <code>$this_what ?? 'data'</code>
     </PossiblyInvalidCast>
     <PossiblyInvalidOperand occurrences="1">
       <code>$_POST['new_pack_keys']</code>
     </PossiblyInvalidOperand>
     <PossiblyNullArgument occurrences="1">
-      <code>$tmp_query</code>
+      <code>$query</code>
     </PossiblyNullArgument>
     <PossiblyNullOperand occurrences="1">
-      <code>$tmp_query</code>
+      <code>$query</code>
     </PossiblyNullOperand>
     <RedundantCast occurrences="5">
       <code>(string) $_POST['new_name']</code>
@@ -8931,10 +8931,10 @@
       <code>(string) $_POST['new_name']</code>
     </RedundantCast>
     <RedundantCastGivenDocblockType occurrences="1">
-      <code>(string) $pack_keys</code>
+      <code>(string) $packKeys</code>
     </RedundantCastGivenDocblockType>
     <RedundantCondition occurrences="1">
-      <code>$this_what</code>
+      <code>$copyMode</code>
     </RedundantCondition>
     <TypeDoesNotContainNull occurrences="1">
       <code>'data'</code>
