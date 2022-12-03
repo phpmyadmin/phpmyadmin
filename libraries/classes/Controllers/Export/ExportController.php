@@ -67,7 +67,6 @@ final class ExportController extends AbstractController
         $GLOBALS['table_select'] = $GLOBALS['table_select'] ?? null;
         $GLOBALS['time_start'] = $GLOBALS['time_start'] ?? null;
         $GLOBALS['charset'] = $GLOBALS['charset'] ?? null;
-        $GLOBALS['mime_type'] = $GLOBALS['mime_type'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
         $GLOBALS['do_relation'] = $GLOBALS['do_relation'] ?? null;
@@ -260,20 +259,19 @@ final class ExportController extends AbstractController
         }
 
         // Generate filename and mime type if needed
+        $mimeType = '';
         if ($GLOBALS['asfile']) {
             if (empty($rememberTemplate)) {
                 $rememberTemplate = '';
             }
 
-            [$GLOBALS['filename'], $GLOBALS['mime_type']] = $this->export->getFilenameAndMimetype(
+            [$GLOBALS['filename'], $mimeType] = $this->export->getFilenameAndMimetype(
                 $GLOBALS['export_type'],
                 $rememberTemplate,
                 $exportPlugin,
                 $GLOBALS['compression'],
                 $request->getParsedBodyParam('filename_template')
             );
-        } else {
-            $GLOBALS['mime_type'] = '';
         }
 
         // For raw query export, filename will be export.extension
@@ -311,7 +309,7 @@ final class ExportController extends AbstractController
                 ini_set('url_rewriter.tags', '');
                 $GLOBALS['filename'] = Sanitize::sanitizeFilename($GLOBALS['filename']);
 
-                Core::downloadHeader($GLOBALS['filename'], $GLOBALS['mime_type']);
+                Core::downloadHeader($GLOBALS['filename'], $mimeType);
             } else {
                 // HTML
                 if ($GLOBALS['export_type'] === 'database') {
