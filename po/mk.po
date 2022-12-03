@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-11-27 00:21+0000\n"
-"PO-Revision-Date: 2022-12-02 14:48+0000\n"
+"PO-Revision-Date: 2022-12-03 19:53+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -8930,14 +8930,14 @@ msgid "Routine %1$s has been created."
 msgstr "Рутината %1$s беше создадена."
 
 #: libraries/classes/Database/Routines.php:412
-#, fuzzy, php-format
+#, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr "Табелата %s е избришана"
+msgstr "Рутината %1$s беше променета. Привилегиите се прилагодени."
 
 #: libraries/classes/Database/Routines.php:417
-#, fuzzy, php-format
+#, php-format
 msgid "Routine %1$s has been modified."
-msgstr "Табелата %s е избришана"
+msgstr "Рутината %1$s беше променета."
 
 #: libraries/classes/Database/Routines.php:829
 msgid "You must provide a name and a type for each routine parameter."
@@ -8969,14 +8969,14 @@ msgstr ""
 
 #: libraries/classes/Database/Routines.php:1147
 #: libraries/classes/Database/Routines.php:1314
-#, fuzzy, php-format
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "Табелите не се пронајдени во базата на податоци."
+msgstr "Не се најде рутина со име %1$s во датабаза %2$s."
 
 #: libraries/classes/Database/Routines.php:1186
-#, fuzzy, php-format
+#, php-format
 msgid "Execution results of routine %s"
-msgstr "Дозволува извршување на stored рутини."
+msgstr "Резултати на извршување на рутина %s"
 
 #: libraries/classes/Database/Routines.php:1234
 #, php-format
