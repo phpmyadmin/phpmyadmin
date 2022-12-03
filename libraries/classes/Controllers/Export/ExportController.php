@@ -69,7 +69,6 @@ final class ExportController extends AbstractController
         $GLOBALS['charset'] = $GLOBALS['charset'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
-        $GLOBALS['table_structure'] = $GLOBALS['table_structure'] ?? null;
         $GLOBALS['table_data'] = $GLOBALS['table_data'] ?? null;
         $GLOBALS['lock_tables'] = $GLOBALS['lock_tables'] ?? null;
         $GLOBALS['allrows'] = $GLOBALS['allrows'] ?? null;
@@ -98,6 +97,7 @@ final class ExportController extends AbstractController
         $structureOrDataForced = $request->hasBodyParam('structure_or_data_forced');
         $rememberTemplate = $request->getParsedBodyParam('remember_template');
         $dbSelect = $request->getParsedBodyParam('db_select');
+        $tableStructure = $request->getParsedBodyParam('table_structure');
 
         $this->addScriptFiles(['export_output.js']);
 
@@ -376,8 +376,8 @@ final class ExportController extends AbstractController
                     $separateFiles
                 );
             } elseif ($GLOBALS['export_type'] === 'database') {
-                if (! isset($GLOBALS['table_structure']) || ! is_array($GLOBALS['table_structure'])) {
-                    $GLOBALS['table_structure'] = [];
+                if (! is_array($tableStructure)) {
+                    $tableStructure = [];
                 }
 
                 if (! isset($GLOBALS['table_data']) || ! is_array($GLOBALS['table_data'])) {
@@ -385,7 +385,7 @@ final class ExportController extends AbstractController
                 }
 
                 if ($structureOrDataForced) {
-                    $GLOBALS['table_structure'] = $GLOBALS['tables'];
+                    $tableStructure = $GLOBALS['tables'];
                     $GLOBALS['table_data'] = $GLOBALS['tables'];
                 }
 
@@ -396,7 +396,7 @@ final class ExportController extends AbstractController
                             DatabaseName::fromValue($GLOBALS['db']),
                             $GLOBALS['tables'],
                             $whatStrucOrData,
-                            $GLOBALS['table_structure'],
+                            $tableStructure,
                             $GLOBALS['table_data'],
                             $exportPlugin,
                             $GLOBALS['errorUrl'],
@@ -416,7 +416,7 @@ final class ExportController extends AbstractController
                         DatabaseName::fromValue($GLOBALS['db']),
                         $GLOBALS['tables'],
                         $whatStrucOrData,
-                        $GLOBALS['table_structure'],
+                        $tableStructure,
                         $GLOBALS['table_data'],
                         $exportPlugin,
                         $GLOBALS['errorUrl'],
@@ -589,10 +589,6 @@ final class ExportController extends AbstractController
 
         if (isset($postParams['table_select'])) {
             $GLOBALS['table_select'] = $postParams['table_select'];
-        }
-
-        if (isset($postParams['table_structure'])) {
-            $GLOBALS['table_structure'] = $postParams['table_structure'];
         }
 
         if (isset($postParams['table_data'])) {
