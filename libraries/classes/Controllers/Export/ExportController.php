@@ -70,7 +70,6 @@ final class ExportController extends AbstractController
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
         $GLOBALS['table_data'] = $GLOBALS['table_data'] ?? null;
-        $GLOBALS['limit_to'] = $GLOBALS['limit_to'] ?? null;
         $GLOBALS['limit_from'] = $GLOBALS['limit_from'] ?? null;
 
         /** @var array<string, string> $postParams */
@@ -440,10 +439,7 @@ final class ExportController extends AbstractController
                 // We export just one table
 
                 $allrows = $request->getParsedBodyParam('allrows', '');
-                if (! isset($GLOBALS['limit_to'])) {
-                    $GLOBALS['limit_to'] = '0';
-                }
-
+                $limitTo = $request->getParsedBodyParam('limit_to', '0');
                 if (! isset($GLOBALS['limit_from'])) {
                     $GLOBALS['limit_from'] = '0';
                 }
@@ -463,7 +459,7 @@ final class ExportController extends AbstractController
                             $doMime,
                             $doDates,
                             $allrows,
-                            $GLOBALS['limit_to'],
+                            $limitTo,
                             $GLOBALS['limit_from'],
                             $GLOBALS['sql_query'],
                             $aliases
@@ -484,7 +480,7 @@ final class ExportController extends AbstractController
                         $doMime,
                         $doDates,
                         $allrows,
-                        $GLOBALS['limit_to'],
+                        $limitTo,
                         $GLOBALS['limit_from'],
                         $GLOBALS['sql_query'],
                         $aliases
@@ -589,10 +585,6 @@ final class ExportController extends AbstractController
 
         if (isset($postParams['table_data'])) {
             $GLOBALS['table_data'] = $postParams['table_data'];
-        }
-
-        if (isset($postParams['limit_to'])) {
-            $GLOBALS['limit_to'] = $postParams['limit_to'];
         }
 
         if (isset($postParams['limit_from'])) {
