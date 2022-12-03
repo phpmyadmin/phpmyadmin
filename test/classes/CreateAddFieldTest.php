@@ -264,7 +264,24 @@ class CreateAddFieldTest extends AbstractTestCase
                 ],
             ],
             [
-                'CREATE TABLE `db`.`table` () ENGINE = Inno\'DB CHARSET=armscii8 COMMENT = \'my \\\'table\';',
+                'CREATE TABLE `db`.`table` () ENGINE = dummy CHARSET=armscii8 COMMENT = \'my \\\'table\';',
+                'db',
+                'table',
+                [
+                    'field_name' => [],
+                    'primary_indexes' => '{}',
+                    'indexes' => '{}',
+                    'unique_indexes' => '{}',
+                    'fulltext_indexes' => '{}',
+                    'spatial_indexes' => '{}',
+                    'tbl_storage_engine' => 'dummy',
+                    'tbl_collation' => 'armscii8',
+                    'connection' => 'aaaa',
+                    'comment' => 'my \'table',
+                ],
+            ],
+            [
+                'CREATE TABLE `db`.`table` () CHARSET=armscii8 COMMENT = \'my \\\'table\';',
                 'db',
                 'table',
                 [
