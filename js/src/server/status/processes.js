@@ -2,6 +2,7 @@ import $ from 'jquery';
 import { AJAX } from '../../modules/ajax.js';
 import { Functions } from '../../modules/functions.js';
 import { CommonParams } from '../../modules/common.js';
+import highlightSql from '../../modules/sql-highlight.js';
 
 /**
  * Server Status Processes
@@ -101,7 +102,7 @@ var processList = {
                     if (data.hasOwnProperty('success') && data.success) {
                         var $newTable = $(data.message);
                         $('#tableprocesslist').html($newTable.html());
-                        Functions.highlightSql($('#tableprocesslist'));
+                        highlightSql($('#tableprocesslist'));
                     }
                     processList.refreshTimeout = setTimeout(
                         processList.refresh,

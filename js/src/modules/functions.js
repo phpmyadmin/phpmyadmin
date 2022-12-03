@@ -2,15 +2,15 @@ import $ from 'jquery';
 import { AJAX } from './ajax.js';
 import { Navigation } from './navigation.js';
 import { CommonActions, CommonParams } from './common.js';
-import { mysqlDocKeyword, mysqlDocBuiltin } from './doc-links.js';
 import { Indexes } from './indexes.js';
 import { Config } from './config.js';
 import { resizeTopMenu } from './menu-resizer.js';
 import tooltip from './tooltip.js';
+import highlightSql from './sql-highlight.js';
 
 /* global ChartType, ColumnType, DataTable, JQPlotChartFactory */ // js/chart.js
 /* global DatabaseStructure */ // js/database/structure.js
-/* global firstDayOfCalendar, maxInputVars, mysqlDocTemplate, themeImagePath */ // templates/javascript/variables.twig
+/* global firstDayOfCalendar, maxInputVars, themeImagePath */ // templates/javascript/variables.twig
 
 /**
  * General functions, usually for data manipulation pages.
@@ -1379,108 +1379,6 @@ Functions.catchKeypressesFromSqlInlineEdit = function (event) {
 };
 
 /**
- * Adds doc link to single highlighted SQL element
- *
- * @param $elm
- * @param params
- */
-Functions.documentationAdd = function ($elm, params) {
-    if (typeof mysqlDocTemplate === 'undefined') {
-        return;
-    }
-
-    var url = window.sprintf(
-        decodeURIComponent(mysqlDocTemplate),
-        params[0]
-    );
-    if (params.length > 1) {
-        // The # needs to be escaped to be part of the destination URL
-        url += encodeURIComponent('#') + params[1];
-    }
-    var content = $elm.text();
-    $elm.text('');
-    $elm.append('<a target="mysql_doc" class="cm-sql-doc" href="' + url + '">' + content + '</a>');
-};
-
-/**
- * Generates doc links for keywords inside highlighted SQL
- *
- * @param idx
- * @param elm
- */
-Functions.documentationKeyword = function (idx, elm) {
-    var $elm = $(elm);
-    /* Skip already processed ones */
-    if ($elm.find('a').length > 0) {
-        return;
-    }
-    var keyword = $elm.text().toUpperCase();
-    var $next = $elm.next('.cm-keyword');
-    if ($next) {
-        var nextKeyword = $next.text().toUpperCase();
-        var full = keyword + ' ' + nextKeyword;
-
-        var $next2 = $next.next('.cm-keyword');
-        if ($next2) {
-            var next2Keyword = $next2.text().toUpperCase();
-            var full2 = full + ' ' + next2Keyword;
-            if (full2 in mysqlDocKeyword) {
-                Functions.documentationAdd($elm, mysqlDocKeyword[full2]);
-                Functions.documentationAdd($next, mysqlDocKeyword[full2]);
-                Functions.documentationAdd($next2, mysqlDocKeyword[full2]);
-                return;
-            }
-        }
-        if (full in mysqlDocKeyword) {
-            Functions.documentationAdd($elm, mysqlDocKeyword[full]);
-            Functions.documentationAdd($next, mysqlDocKeyword[full]);
-            return;
-        }
-    }
-    if (keyword in mysqlDocKeyword) {
-        Functions.documentationAdd($elm, mysqlDocKeyword[keyword]);
-    }
-};
-
-/**
- * Generates doc links for builtins inside highlighted SQL
- *
- * @param idx
- * @param elm
- */
-Functions.documentationBuiltin = function (idx, elm) {
-    var $elm = $(elm);
-    var builtin = $elm.text().toUpperCase();
-    if (builtin in mysqlDocBuiltin) {
-        Functions.documentationAdd($elm, mysqlDocBuiltin[builtin]);
-    }
-};
-
-/**
- * Higlights SQL using CodeMirror.
- *
- * @param $base
- */
-Functions.highlightSql = function ($base) {
-    var $elm = $base.find('code.sql');
-    $elm.each(function () {
-        var $sql = $(this);
-        var $pre = $sql.find('pre');
-        /* We only care about visible elements to avoid double processing */
-        if ($pre.is(':visible')) {
-            var $highlight = $('<div class="sql-highlight cm-s-default"></div>');
-            $sql.append($highlight);
-            if (typeof window.CodeMirror !== 'undefined') {
-                window.CodeMirror.runMode($sql.text(), 'text/x-mysql', $highlight[0]);
-                $pre.hide();
-                $highlight.find('.cm-keyword').each(Functions.documentationKeyword);
-                $highlight.find('.cm-builtin').each(Functions.documentationBuiltin);
-            }
-        }
-    });
-};
-
-/**
  * Updates an element containing code.
  *
  * @param {JQuery} $base     base element which contains the raw and the
@@ -1655,7 +1553,7 @@ Functions.ajaxShowMessage = function (message = null, timeout = null, type = nul
     if (msg !== window.Messages.strLoading) {
         $retval.css('background-image', 'none');
     }
-    Functions.highlightSql($retval);
+    highlightSql($retval);
 
     return $retval;
 };
@@ -1706,7 +1604,7 @@ Functions.previewSql = function ($form) {
                 $('#previewSqlModal').find('.modal-body').first().html(response.sql_data);
                 $('#previewSqlModalLabel').first().html(window.Messages.strPreviewSQL);
                 $('#previewSqlModal').on('shown.bs.modal', function () {
-                    Functions.highlightSql($('#previewSqlModal'));
+                    highlightSql($('#previewSqlModal'));
                 });
             } else {
                 Functions.ajaxShowMessage(response.message);
@@ -1738,7 +1636,7 @@ Functions.confirmPreviewSql = function (sqlData, url, callback) {
     $('#previewSqlConfirmModalLabel').first().html(window.Messages.strPreviewSQL);
     $('#previewSqlConfirmCode').first().text(sqlData);
     $('#previewSqlConfirmModal').on('shown.bs.modal', function () {
-        Functions.highlightSql($('#previewSqlConfirmModal'));
+        highlightSql($('#previewSqlConfirmModal'));
     });
     $('#previewSQLConfirmOkButton').on('click', function () {
         callback(url);
@@ -2341,7 +2239,7 @@ Functions.onloadCreateTableEvents = function () {
             if (typeof data !== 'undefined' && data.success) {
                 var $pageContent = $('#page_content');
                 $pageContent.html(data.message);
-                Functions.highlightSql($pageContent);
+                highlightSql($pageContent);
                 Functions.verifyColumnsProperties();
                 Functions.hideShowConnection($('.create_table_form select[name=tbl_storage_engine]'));
                 Functions.ajaxRemoveMessage($msgbox);
@@ -2547,7 +2445,7 @@ Functions.onloadChangePasswordEvents = function () {
 
                 var $pageContent = $('#page_content');
                 $pageContent.prepend(data.message);
-                Functions.highlightSql($pageContent);
+                highlightSql($pageContent);
                 $('#change_password_dialog').hide().remove();
                 $('#edit_user_dialog').dialog('close').remove();
                 Functions.ajaxRemoveMessage($msgbox);
@@ -3118,7 +3016,7 @@ Functions.indexDialogModal = function (routeUrl, url, title, callbackSuccess, ca
                 }
 
                 modalBody.innerHTML = response.sql_data;
-                Functions.highlightSql($('#indexDialogPreviewModal'));
+                highlightSql($('#indexDialogPreviewModal'));
             },
             error: () => {
                 modalBody.innerHTML = '<div class="alert alert-danger" role="alert">' + window.Messages.strErrorProcessingRequest + '</div>';
@@ -3147,7 +3045,7 @@ Functions.indexDialogModal = function (routeUrl, url, title, callbackSuccess, ca
             }
             if (typeof data !== 'undefined' && data.success === true) {
                 Functions.ajaxShowMessage(data.message);
-                Functions.highlightSql($('.result_query'));
+                highlightSql($('.result_query'));
                 $('.result_query .alert').remove();
                 /* Reload the field form*/
                 $('#table_index').remove();
@@ -3523,7 +3421,7 @@ Functions.slidingMessage = function (msg, $object) {
                 $obj
                     .append('<div>' + msg + '</div>');
                 // highlight any sql before taking height;
-                Functions.highlightSql($obj);
+                highlightSql($obj);
                 $obj.find('div')
                     .first()
                     .hide();
@@ -3541,7 +3439,7 @@ Functions.slidingMessage = function (msg, $object) {
         $obj.width('100%')
             .html('<div>' + msg + '</div>');
         // highlight any sql before taking height;
-        Functions.highlightSql($obj);
+        highlightSql($obj);
         var h = $obj
             .find('div')
             .first()
@@ -3588,7 +3486,7 @@ Functions.onloadCodeMirrorEditor = () => {
             $elm.trigger('focus').on('blur', Functions.updateQueryParameters);
         }
     }
-    Functions.highlightSql($('body'));
+    highlightSql($('body'));
 };
 
 /**

@@ -2,6 +2,7 @@ import $ from 'jquery';
 import { AJAX } from '../modules/ajax.js';
 import { Functions } from '../modules/functions.js';
 import { CommonParams } from '../modules/common.js';
+import highlightSql from '../modules/sql-highlight.js';
 
 /**
  * JavaScript functions used on Database Search page
@@ -142,7 +143,7 @@ AJAX.registerOnload('database/search.js', function () {
                     window.makeGrid(this, true, true, true, true);
                 });
                 $('#browse-results').show();
-                Functions.highlightSql($('#browse-results'));
+                highlightSql($('#browse-results'));
                 $('html, body')
                     .animate({
                         scrollTop: $('#browse-results').offset().top

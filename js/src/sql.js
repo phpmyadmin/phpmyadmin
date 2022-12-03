@@ -4,6 +4,7 @@ import { Functions } from './modules/functions.js';
 import { Navigation } from './modules/navigation.js';
 import { CommonActions, CommonParams } from './modules/common.js';
 import { Config } from './modules/config.js';
+import highlightSql from './modules/sql-highlight.js';
 
 /**
  * @fileoverview    functions used wherever an sql query form is used
@@ -800,7 +801,7 @@ AJAX.registerOnload('sql.js', function () {
                 $sqlqueryresultsouter
                     .show()
                     .html(data.message);
-                Functions.highlightSql($sqlqueryresultsouter);
+                highlightSql($sqlqueryresultsouter);
 
                 if (data.menu) {
                     history.replaceState({
@@ -841,7 +842,7 @@ AJAX.registerOnload('sql.js', function () {
                         $('#sqlqueryresultsouter')
                             .show()
                             .html(data.message);
-                        Functions.highlightSql($('#sqlqueryresultsouter'));
+                        highlightSql($('#sqlqueryresultsouter'));
                     });
                 }
 
@@ -884,7 +885,7 @@ AJAX.registerOnload('sql.js', function () {
             $sqlqueryresults
                 .html(data.message)
                 .trigger('makegrid');
-            Functions.highlightSql($sqlqueryresults);
+            highlightSql($sqlqueryresults);
         }); // end $.post()
     }); // end displayOptionsForm handler
 
@@ -997,7 +998,7 @@ AJAX.registerOnload('sql.js', function () {
                     modal.modal('show');
                     modal.find('.modal-body').first().html($dialogContent);
                     modal.on('shown.bs.modal', function () {
-                        Functions.highlightSql(modal);
+                        highlightSql(modal);
                     });
                 } else {
                     Functions.ajaxShowMessage(response.error);

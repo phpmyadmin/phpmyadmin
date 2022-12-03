@@ -2,6 +2,7 @@ import $ from 'jquery';
 import { AJAX } from './modules/ajax.js';
 import { Functions } from './modules/functions.js';
 import { CommonParams } from './modules/common.js';
+import highlightSql from './modules/sql-highlight.js';
 
 /**
  * Functions used in the export tab
@@ -239,7 +240,7 @@ AJAX.registerOnload('export.js', function () {
         modal.modal('show');
         modal.on('shown.bs.modal', function () {
             $('#showSqlQueryModalLabel').first().html(window.Messages.strQuery);
-            Functions.highlightSql(modal);
+            highlightSql(modal);
         });
     });
 

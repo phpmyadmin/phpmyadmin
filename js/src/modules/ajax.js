@@ -3,6 +3,7 @@ import { Functions } from './functions.js';
 import { Navigation } from './navigation.js';
 import { CommonParams } from './common.js';
 import { initializeTopMenuResizer } from './menu-resizer.js';
+import highlightSql from './sql-highlight.js';
 
 /**
  * This object handles ajax requests for pages. It also
@@ -375,7 +376,7 @@ const AJAX = {
 
         if (data.displayMessage) {
             $('#page_content').prepend(data.displayMessage);
-            Functions.highlightSql($('#page_content'));
+            highlightSql($('#page_content'));
         }
 
         $('#pma_errors').remove();
@@ -532,7 +533,7 @@ const AJAX = {
                     $('#page_content').replaceWith(
                         '<div id=\'page_content\'>' + data.message + '</div>'
                     );
-                    Functions.highlightSql($('#page_content'));
+                    highlightSql($('#page_content'));
                     Functions.checkNumberOfFields();
                 }
 
@@ -558,7 +559,7 @@ const AJAX = {
                 }
                 if (data.displayMessage) {
                     $('#page_content').prepend(data.displayMessage);
-                    Functions.highlightSql($('#page_content'));
+                    highlightSql($('#page_content'));
                 }
 
                 $('#pma_errors').remove();

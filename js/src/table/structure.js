@@ -3,6 +3,7 @@ import { AJAX } from '../modules/ajax.js';
 import { Functions } from '../modules/functions.js';
 import { Navigation } from '../modules/navigation.js';
 import { CommonActions, CommonParams } from '../modules/common.js';
+import highlightSql from '../modules/sql-highlight.js';
 
 /**
  * @fileoverview    functions used on the table structure page
@@ -87,7 +88,7 @@ AJAX.registerOnload('table/structure.js', function () {
                         .empty()
                         .append(data.message)
                         .show();
-                    Functions.highlightSql($('#page_content'));
+                    highlightSql($('#page_content'));
                     $('.result_query .alert-primary').remove();
                     if (typeof data.structure_refresh_route !== 'string') {
                         // Do not reload the form when the code below freshly filled it
@@ -208,7 +209,7 @@ AJAX.registerOnload('table/structure.js', function () {
                         $('<div class="result_query"></div>')
                             .html(data.sql_query)
                             .prependTo('#structure_content');
-                        Functions.highlightSql($('#page_content'));
+                        highlightSql($('#page_content'));
                     }
                     // Adjust the row numbers
                     for (var $row = $currRow.next(); $row.length > 0; $row = $row.next()) {
@@ -337,7 +338,7 @@ AJAX.registerOnload('table/structure.js', function () {
                     }
 
                     modalBody.innerHTML = response.sql_data;
-                    Functions.highlightSql($('#designerModalPreviewModal'));
+                    highlightSql($('#designerModalPreviewModal'));
                 },
                 error: () => {
                     modalBody.innerHTML = '<div class="alert alert-danger" role="alert">' + window.Messages.strErrorProcessingRequest + '</div>';

@@ -2,6 +2,7 @@ import $ from 'jquery';
 import { AJAX } from '../modules/ajax.js';
 import { Functions } from '../modules/functions.js';
 import { CommonParams } from '../modules/common.js';
+import highlightSql from '../modules/sql-highlight.js';
 
 // TODO: change the axis
 /**
@@ -401,7 +402,7 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
             }, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     $('#sqlqueryresultsouter').html(data.sql_query);
-                    Functions.highlightSql($('#sqlqueryresultsouter'));
+                    highlightSql($('#sqlqueryresultsouter'));
                 } else {
                     Functions.ajaxShowMessage(data.error, false);
                 }

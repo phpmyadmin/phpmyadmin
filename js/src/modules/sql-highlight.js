@@ -1,8 +1,11 @@
+import $ from 'jquery';
+
+/* global mysqlDocTemplate */ // templates/javascript/variables.twig
+
 /**
  * Definition of links to MySQL documentation.
  */
-
-export const mysqlDocKeyword = {
+const mysqlDocKeyword = {
     /* Multi word */
     'CHARACTER SET': ['charset'],
     'SHOW AUTHORS': ['show-authors'],
@@ -331,7 +334,7 @@ export const mysqlDocKeyword = {
     'NOT_IN': ['comparison-operators', 'function_not-in']
 };
 
-export const mysqlDocBuiltin = {
+const mysqlDocBuiltin = {
     'TINYINT': ['numeric-types'],
     'SMALLINT': ['numeric-types'],
     'MEDIUMINT': ['numeric-types'],
@@ -364,3 +367,105 @@ export const mysqlDocBuiltin = {
     'ENUM': ['string-types'],
     'SET': ['string-types']
 };
+
+/**
+ * Adds doc link to single highlighted SQL element
+ *
+ * @param $elm
+ * @param params
+ */
+function documentationAdd ($elm, params) {
+    if (typeof mysqlDocTemplate === 'undefined') {
+        return;
+    }
+
+    var url = window.sprintf(
+        decodeURIComponent(mysqlDocTemplate),
+        params[0]
+    );
+    if (params.length > 1) {
+        // The # needs to be escaped to be part of the destination URL
+        url += encodeURIComponent('#') + params[1];
+    }
+    var content = $elm.text();
+    $elm.text('');
+    $elm.append('<a target="mysql_doc" class="cm-sql-doc" href="' + url + '">' + content + '</a>');
+}
+
+/**
+ * Generates doc links for keywords inside highlighted SQL
+ *
+ * @param idx
+ * @param elm
+ */
+function documentationKeyword (idx, elm) {
+    var $elm = $(elm);
+    /* Skip already processed ones */
+    if ($elm.find('a').length > 0) {
+        return;
+    }
+    var keyword = $elm.text().toUpperCase();
+    var $next = $elm.next('.cm-keyword');
+    if ($next) {
+        var nextKeyword = $next.text().toUpperCase();
+        var full = keyword + ' ' + nextKeyword;
+
+        var $next2 = $next.next('.cm-keyword');
+        if ($next2) {
+            var next2Keyword = $next2.text().toUpperCase();
+            var full2 = full + ' ' + next2Keyword;
+            if (full2 in mysqlDocKeyword) {
+                documentationAdd($elm, mysqlDocKeyword[full2]);
+                documentationAdd($next, mysqlDocKeyword[full2]);
+                documentationAdd($next2, mysqlDocKeyword[full2]);
+                return;
+            }
+        }
+        if (full in mysqlDocKeyword) {
+            documentationAdd($elm, mysqlDocKeyword[full]);
+            documentationAdd($next, mysqlDocKeyword[full]);
+            return;
+        }
+    }
+    if (keyword in mysqlDocKeyword) {
+        documentationAdd($elm, mysqlDocKeyword[keyword]);
+    }
+}
+
+/**
+ * Generates doc links for builtins inside highlighted SQL
+ *
+ * @param idx
+ * @param elm
+ */
+function documentationBuiltin (idx, elm) {
+    var $elm = $(elm);
+    var builtin = $elm.text().toUpperCase();
+    if (builtin in mysqlDocBuiltin) {
+        documentationAdd($elm, mysqlDocBuiltin[builtin]);
+    }
+}
+
+/**
+ * Higlights SQL using CodeMirror.
+ *
+ * @param $base
+ */
+export default function highlightSql ($base) {
+    var $elm = $base.find('code.sql');
+    $elm.each(function () {
+        var $sql = $(this);
+        var $pre = $sql.find('pre');
+        /* We only care about visible elements to avoid double processing */
+        if ($pre.is(':visible')) {
+            var $highlight = $('<div class="sql-highlight cm-s-default"></div>');
+            $sql.append($highlight);
+            if (typeof window.CodeMirror !== 'undefined') {
+                window.CodeMirror.runMode($sql.text(), 'text/x-mysql', $highlight[0]);
+                $pre.hide();
+                $highlight.find('.cm-keyword').each(documentationKeyword);
+                $highlight.find('.cm-builtin').each(documentationBuiltin);
+            }
+        }
+    });
+}

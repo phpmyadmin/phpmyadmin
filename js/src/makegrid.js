@@ -3,6 +3,7 @@ import { AJAX } from './modules/ajax.js';
 import { Functions } from './modules/functions.js';
 import { CommonParams } from './modules/common.js';
 import tooltip from './modules/tooltip.js';
+import highlightSql from './modules/sql-highlight.js';
 
 /* global Sql */
 /* global firstDayOfCalendar */ // templates/javascript/variables.twig
@@ -1424,7 +1425,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                                     } else {
                                         $existingQuery.append(sqlOuter + tools);
                                     }
-                                    Functions.highlightSql($existingQuery);
+                                    highlightSql($existingQuery);
                                 }
                             }
                             // hide and/or update the successfully saved cells

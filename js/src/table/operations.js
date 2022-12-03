@@ -3,6 +3,7 @@ import { AJAX } from '../modules/ajax.js';
 import { Functions } from '../modules/functions.js';
 import { Navigation } from '../modules/navigation.js';
 import { CommonActions, CommonParams } from '../modules/common.js';
+import highlightSql from '../modules/sql-highlight.js';
 
 /**
  * Unbind all event handlers before tearing down a page
@@ -55,7 +56,7 @@ var confirmAndPost = function (linkObject, action) {
                 Functions.ajaxShowMessage(data.message);
                 $('<div class="sqlqueryresults ajax"></div>').prependTo('#page_content');
                 $('.sqlqueryresults').html(data.sql_query);
-                Functions.highlightSql($('#page_content'));
+                highlightSql($('#page_content'));
             } else {
                 Functions.ajaxShowMessage(data.error, false);
             }
@@ -164,7 +165,7 @@ AJAX.registerOnload('table/operations.js', function () {
                     CommonParams.set('table', data.params.table);
                     CommonActions.refreshMain(false, function () {
                         $('#page_content').html(data.message);
-                        Functions.highlightSql($('#page_content'));
+                        highlightSql($('#page_content'));
                     });
                     // Refresh navigation when the table is renamed
                     Navigation.reload();
@@ -207,7 +208,7 @@ AJAX.registerOnload('table/operations.js', function () {
                 Functions.ajaxShowMessage(data.message);
                 $('<div class=\'sqlqueryresults ajax\'></div>').prependTo('#page_content');
                 $('.sqlqueryresults').html(data.sql_query);
-                Functions.highlightSql($('#page_content'));
+                highlightSql($('#page_content'));
                 scrollToTop();
             } else if (typeof data !== 'undefined' && data.success === true) {
                 $tempDiv = $('<div id=\'temp_div\'></div>');
@@ -216,7 +217,7 @@ AJAX.registerOnload('table/operations.js', function () {
                 Functions.ajaxShowMessage($success);
                 $('<div class=\'sqlqueryresults ajax\'></div>').prependTo('#page_content');
                 $('.sqlqueryresults').html(data.message);
-                Functions.highlightSql($('#page_content'));
+                highlightSql($('#page_content'));
                 $('.sqlqueryresults').children('fieldset,br').remove();
                 scrollToTop();
             } else {

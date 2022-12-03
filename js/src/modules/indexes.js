@@ -3,6 +3,7 @@ import { AJAX } from './ajax.js';
 import { Functions } from './functions.js';
 import { Navigation } from './navigation.js';
 import { CommonActions, CommonParams } from './common.js';
+import highlightSql from './sql-highlight.js';
 
 /**
  * @fileoverview    function used for index manipulation pages
@@ -656,7 +657,7 @@ Indexes.on = () => function () {
                         $('<div class="result_query"></div>')
                             .html(data.sql_query)
                             .prependTo('#structure_content');
-                        Functions.highlightSql($('#page_content'));
+                        highlightSql($('#page_content'));
                     }
                     Navigation.reload();
                     CommonActions.refreshMain('index.php?route=/table/structure');

@@ -2,6 +2,7 @@ import $ from 'jquery';
 import { AJAX } from '../modules/ajax.js';
 import { Functions } from '../modules/functions.js';
 import { CommonParams } from '../modules/common.js';
+import highlightSql from '../modules/sql-highlight.js';
 
 /**
  * @fileoverview JavaScript functions used on /table/search
@@ -179,7 +180,7 @@ AJAX.registerOnload('table/select.js', function () {
             } else {
                 $('#sqlqueryresultsouter').html(data.error);
             }
-            Functions.highlightSql($('#sqlqueryresultsouter'));
+            highlightSql($('#sqlqueryresultsouter'));
         }); // end $.post()
     });
 
