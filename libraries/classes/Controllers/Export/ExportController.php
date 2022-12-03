@@ -70,7 +70,6 @@ final class ExportController extends AbstractController
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
         $GLOBALS['table_data'] = $GLOBALS['table_data'] ?? null;
-        $GLOBALS['lock_tables'] = $GLOBALS['lock_tables'] ?? null;
         $GLOBALS['allrows'] = $GLOBALS['allrows'] ?? null;
         $GLOBALS['limit_to'] = $GLOBALS['limit_to'] ?? null;
         $GLOBALS['limit_from'] = $GLOBALS['limit_from'] ?? null;
@@ -98,6 +97,7 @@ final class ExportController extends AbstractController
         $rememberTemplate = $request->getParsedBodyParam('remember_template');
         $dbSelect = $request->getParsedBodyParam('db_select');
         $tableStructure = $request->getParsedBodyParam('table_structure');
+        $lockTables = $request->hasBodyParam('lock_tables');
 
         $this->addScriptFiles(['export_output.js']);
 
@@ -389,7 +389,7 @@ final class ExportController extends AbstractController
                     $GLOBALS['table_data'] = $GLOBALS['tables'];
                 }
 
-                if (isset($GLOBALS['lock_tables'])) {
+                if ($lockTables) {
                     $this->export->lockTables(DatabaseName::fromValue($GLOBALS['db']), $GLOBALS['tables'], 'READ');
                     try {
                         $this->export->exportDatabase(
@@ -452,7 +452,7 @@ final class ExportController extends AbstractController
                     $GLOBALS['limit_from'] = '0';
                 }
 
-                if (isset($GLOBALS['lock_tables'])) {
+                if ($lockTables) {
                     try {
                         $this->export->lockTables(DatabaseName::fromValue($GLOBALS['db']), [$GLOBALS['table']], 'READ');
                         $this->export->exportTable(
@@ -605,10 +605,6 @@ final class ExportController extends AbstractController
 
         if (isset($postParams['allrows'])) {
             $GLOBALS['allrows'] = $postParams['allrows'];
-        }
-
-        if (isset($postParams['lock_tables'])) {
-            $GLOBALS['lock_tables'] = $postParams['lock_tables'];
         }
 
         if (isset($postParams['output_format'])) {
