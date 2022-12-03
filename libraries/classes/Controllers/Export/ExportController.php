@@ -70,7 +70,6 @@ final class ExportController extends AbstractController
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
         $GLOBALS['table_data'] = $GLOBALS['table_data'] ?? null;
-        $GLOBALS['allrows'] = $GLOBALS['allrows'] ?? null;
         $GLOBALS['limit_to'] = $GLOBALS['limit_to'] ?? null;
         $GLOBALS['limit_from'] = $GLOBALS['limit_from'] ?? null;
 
@@ -439,11 +438,8 @@ final class ExportController extends AbstractController
                 );
             } else {
                 // We export just one table
-                // $allrows comes from the form when "Dump all rows" has been selected
-                if (! isset($GLOBALS['allrows'])) {
-                    $GLOBALS['allrows'] = '';
-                }
 
+                $allrows = $request->getParsedBodyParam('allrows', '');
                 if (! isset($GLOBALS['limit_to'])) {
                     $GLOBALS['limit_to'] = '0';
                 }
@@ -466,7 +462,7 @@ final class ExportController extends AbstractController
                             $doComments,
                             $doMime,
                             $doDates,
-                            $GLOBALS['allrows'],
+                            $allrows,
                             $GLOBALS['limit_to'],
                             $GLOBALS['limit_from'],
                             $GLOBALS['sql_query'],
@@ -487,7 +483,7 @@ final class ExportController extends AbstractController
                         $doComments,
                         $doMime,
                         $doDates,
-                        $GLOBALS['allrows'],
+                        $allrows,
                         $GLOBALS['limit_to'],
                         $GLOBALS['limit_from'],
                         $GLOBALS['sql_query'],
@@ -601,10 +597,6 @@ final class ExportController extends AbstractController
 
         if (isset($postParams['limit_from'])) {
             $GLOBALS['limit_from'] = $postParams['limit_from'];
-        }
-
-        if (isset($postParams['allrows'])) {
-            $GLOBALS['allrows'] = $postParams['allrows'];
         }
 
         if (isset($postParams['output_format'])) {
