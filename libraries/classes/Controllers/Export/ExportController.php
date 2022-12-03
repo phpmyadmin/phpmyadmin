@@ -69,7 +69,6 @@ final class ExportController extends AbstractController
         $GLOBALS['charset'] = $GLOBALS['charset'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
-        $GLOBALS['whatStrucOrData'] = $GLOBALS['whatStrucOrData'] ?? null;
         $GLOBALS['db_select'] = $GLOBALS['db_select'] ?? null;
         $GLOBALS['table_structure'] = $GLOBALS['table_structure'] ?? null;
         $GLOBALS['table_data'] = $GLOBALS['table_data'] ?? null;
@@ -349,10 +348,10 @@ final class ExportController extends AbstractController
             // Include dates in export?
             $doDates = isset($GLOBALS[$GLOBALS['what'] . '_dates']);
 
-            $GLOBALS['whatStrucOrData'] = $GLOBALS[$GLOBALS['what'] . '_structure_or_data'];
+            $whatStrucOrData = $GLOBALS[$GLOBALS['what'] . '_structure_or_data'];
 
             if ($GLOBALS['export_type'] === 'raw') {
-                $GLOBALS['whatStrucOrData'] = 'raw';
+                $whatStrucOrData = 'raw';
             }
 
             /**
@@ -365,7 +364,7 @@ final class ExportController extends AbstractController
 
                 $this->export->exportServer(
                     $GLOBALS['db_select'],
-                    $GLOBALS['whatStrucOrData'],
+                    $whatStrucOrData,
                     $exportPlugin,
                     $GLOBALS['errorUrl'],
                     $GLOBALS['export_type'],
@@ -396,7 +395,7 @@ final class ExportController extends AbstractController
                         $this->export->exportDatabase(
                             DatabaseName::fromValue($GLOBALS['db']),
                             $GLOBALS['tables'],
-                            $GLOBALS['whatStrucOrData'],
+                            $whatStrucOrData,
                             $GLOBALS['table_structure'],
                             $GLOBALS['table_data'],
                             $exportPlugin,
@@ -416,7 +415,7 @@ final class ExportController extends AbstractController
                     $this->export->exportDatabase(
                         DatabaseName::fromValue($GLOBALS['db']),
                         $GLOBALS['tables'],
-                        $GLOBALS['whatStrucOrData'],
+                        $whatStrucOrData,
                         $GLOBALS['table_structure'],
                         $GLOBALS['table_data'],
                         $exportPlugin,
@@ -432,7 +431,7 @@ final class ExportController extends AbstractController
                 }
             } elseif ($GLOBALS['export_type'] === 'raw') {
                 Export::exportRaw(
-                    $GLOBALS['whatStrucOrData'],
+                    $whatStrucOrData,
                     $exportPlugin,
                     $GLOBALS['errorUrl'],
                     $GLOBALS['sql_query'],
@@ -459,7 +458,7 @@ final class ExportController extends AbstractController
                         $this->export->exportTable(
                             $GLOBALS['db'],
                             $GLOBALS['table'],
-                            $GLOBALS['whatStrucOrData'],
+                            $whatStrucOrData,
                             $exportPlugin,
                             $GLOBALS['errorUrl'],
                             $GLOBALS['export_type'],
@@ -480,7 +479,7 @@ final class ExportController extends AbstractController
                     $this->export->exportTable(
                         $GLOBALS['db'],
                         $GLOBALS['table'],
-                        $GLOBALS['whatStrucOrData'],
+                        $whatStrucOrData,
                         $exportPlugin,
                         $GLOBALS['errorUrl'],
                         $GLOBALS['export_type'],
