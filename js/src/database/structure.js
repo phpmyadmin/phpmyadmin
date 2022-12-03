@@ -3,6 +3,7 @@ import { AJAX } from '../modules/ajax.js';
 import { Functions } from '../modules/functions.js';
 import { Navigation } from '../modules/navigation.js';
 import { CommonParams } from '../modules/common.js';
+import tooltip from '../modules/tooltip.js';
 
 /**
  * @fileoverview    functions used on the database structure page
@@ -424,11 +425,7 @@ AJAX.registerOnload('database/structure.js', function () {
 
     // Add tooltip to favorite icons.
     $('.favorite_table_anchor').each(function () {
-        Functions.tooltip(
-            $(this),
-            'a',
-            $(this).attr('title')
-        );
+        tooltip($(this), 'a', $(this).attr('title'));
     });
 
     // Get real row count via Ajax.

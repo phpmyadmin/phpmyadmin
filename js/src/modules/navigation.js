@@ -3,6 +3,7 @@ import { Functions } from './functions.js';
 import { CommonParams } from './common.js';
 import { Config } from './config.js';
 import { resizeTopMenu } from './menu-resizer.js';
+import tooltip from './tooltip.js';
 
 /**
  * function used in or for navigation panel
@@ -547,11 +548,7 @@ Navigation.onload = () => function () {
                 if (data.changes) {
                     $('#pma_favorite_list').html(data.list);
                     $('#' + anchorId).parent().html(data.anchor);
-                    Functions.tooltip(
-                        $('#' + anchorId),
-                        'a',
-                        $('#' + anchorId).attr('title')
-                    );
+                    tooltip($('#' + anchorId), 'a', $('#' + anchorId).attr('title'));
                     // Update localStorage.
                     if (Config.isStorageSupported('localStorage')) {
                         window.localStorage.favoriteTables = data.favoriteTables;

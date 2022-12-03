@@ -6,6 +6,7 @@ import { mysqlDocKeyword, mysqlDocBuiltin } from './doc-links.js';
 import { Indexes } from './indexes.js';
 import { Config } from './config.js';
 import { resizeTopMenu } from './menu-resizer.js';
+import tooltip from './tooltip.js';
 
 /* global ChartType, ColumnType, DataTable, JQPlotChartFactory */ // js/chart.js
 /* global DatabaseStructure */ // js/database/structure.js
@@ -198,7 +199,7 @@ Functions.addDatepicker = function ($thisElement, type, options) {
     if (type === 'time') {
         $thisElement.timepicker($.extend(defaultOptions, options));
         // Add a tip regarding entering MySQL allowed-values for TIME data-type
-        Functions.tooltip($thisElement, 'input', window.Messages.strMysqlAllowedValuesTipTime);
+        tooltip($thisElement, 'input', window.Messages.strMysqlAllowedValuesTipTime);
     } else {
         $thisElement.datetimepicker($.extend(defaultOptions, options));
     }
@@ -242,9 +243,9 @@ Functions.addDateTimePicker = function () {
             // Add a tip regarding entering MySQL allowed-values
             // for TIME and DATE data-type
             if ($(this).hasClass('timefield')) {
-                Functions.tooltip($(this), 'input', window.Messages.strMysqlAllowedValuesTipTime);
+                tooltip($(this), 'input', window.Messages.strMysqlAllowedValuesTipTime);
             } else if ($(this).hasClass('datefield')) {
-                Functions.tooltip($(this), 'input', window.Messages.strMysqlAllowedValuesTipDate);
+                tooltip($(this), 'input', window.Messages.strMysqlAllowedValuesTipDate);
             }
         });
     }
@@ -362,33 +363,6 @@ Functions.clearSelection = function () {
             sel.removeAllRanges();
         }
     }
-};
-
-/**
- * Create a jQuery UI tooltip
- *
- * @param $elements     jQuery object representing the elements
- * @param item          the item
- *                      (see https://api.jqueryui.com/tooltip/#option-items)
- * @param myContent     content of the tooltip
- * @param additionalOptions to override the default options
- *
- */
-Functions.tooltip = function ($elements, item, myContent, additionalOptions) {
-    if ($('#no_hint').length > 0) {
-        return;
-    }
-
-    var defaultOptions = {
-        content: myContent,
-        items: item,
-        tooltipClass: 'tooltip',
-        track: true,
-        show: false,
-        hide: false
-    };
-
-    $elements.uiTooltip($.extend(true, defaultOptions, additionalOptions));
 };
 
 /**
@@ -1675,11 +1649,7 @@ Functions.ajaxShowMessage = function (message = null, timeout = null, type = nul
          * Add a tooltip to the notification to let the user know that they
          * can dismiss the ajax notification by clicking on it.
          */
-        Functions.tooltip(
-            $retval,
-            'span',
-            window.Messages.strDismiss
-        );
+        tooltip($retval, 'span', window.Messages.strDismiss);
     }
     // Hide spinner if this is not a loading message
     if (msg !== window.Messages.strLoading) {
@@ -3293,11 +3263,7 @@ Functions.showHints = function ($div) {
         $newDiv = $('body');
     }
     $newDiv.find('.pma_hint').each(function () {
-        Functions.tooltip(
-            $(this).children('img'),
-            'img',
-            $(this).children('span').html()
-        );
+        tooltip($(this).children('img'), 'img', $(this).children('span').html());
     });
 };
 

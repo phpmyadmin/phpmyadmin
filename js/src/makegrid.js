@@ -2,6 +2,7 @@ import $ from 'jquery';
 import { AJAX } from './modules/ajax.js';
 import { Functions } from './modules/functions.js';
 import { CommonParams } from './modules/common.js';
+import tooltip from './modules/tooltip.js';
 
 /* global Sql */
 /* global firstDayOfCalendar */ // templates/javascript/variables.twig
@@ -1738,11 +1739,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
             // make sure we have more than one column
             if ($firstRowCols.length > 1) {
                 var $colVisibTh = $(g.t).find('th:not(.draggable)').slice(0, 1);
-                Functions.tooltip(
-                    $colVisibTh,
-                    'th',
-                    window.Messages.strColVisibHint
-                );
+                tooltip($colVisibTh, 'th', window.Messages.strColVisibHint);
 
                 // create column visibility drop-down arrow(s)
                 $colVisibTh.each(function () {
@@ -2252,11 +2249,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
     }
 
     // create tooltip for each <th> with draggable class
-    Functions.tooltip(
-        $(t).find('th.draggable'),
-        'th',
-        g.updateHint()
-    );
+    tooltip($(t).find('th.draggable'), 'th', g.updateHint());
 
     // register events for hint tooltip (anchors inside draggable th)
     $(t).find('th.draggable a')

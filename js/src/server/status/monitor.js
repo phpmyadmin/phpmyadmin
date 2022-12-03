@@ -3,6 +3,7 @@ import { AJAX } from '../../modules/ajax.js';
 import { Functions } from '../../modules/functions.js';
 import { CommonParams } from '../../modules/common.js';
 import { Config } from '../../modules/config.js';
+import tooltip from '../../modules/tooltip.js';
 
 /**
  * @fileoverview    Javascript functions used in server status monitor page
@@ -2089,11 +2090,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 tooltipContent += '<p>' + window.Messages.strMoreCountColumnExplanation + '</p>';
             }
 
-            Functions.tooltip(
-                $('img.qroupedQueryInfoIcon'),
-                'img',
-                tooltipContent
-            );
+            tooltip($('img.qroupedQueryInfoIcon'), 'img', tooltipContent);
         }
 
         $('#logTable').find('table').tablesorter({
