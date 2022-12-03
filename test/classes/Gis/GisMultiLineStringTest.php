@@ -165,8 +165,8 @@ class GisMultiLineStringTest extends GisGeomTestCase
         ];
 
         $this->assertEquals(
-            $this->object->getShape($row_data),
-            'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 0.47))'
+            'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 0.47))',
+            $this->object->getShape($row_data)
         );
     }
 
@@ -377,16 +377,8 @@ class GisMultiLineStringTest extends GisGeomTestCase
         array $scale_data,
         string $output
     ): void {
-        $this->assertEquals(
-            $output,
-            $this->object->prepareRowAsOl(
-                $spatial,
-                $srid,
-                $label,
-                $color,
-                $scale_data
-            )
-        );
+        $ol = $this->object->prepareRowAsOl($spatial, $srid, $label, $color, $scale_data);
+        $this->assertEquals($output, $ol);
     }
 
     /**

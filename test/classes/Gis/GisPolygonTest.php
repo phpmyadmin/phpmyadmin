@@ -198,7 +198,7 @@ class GisPolygonTest extends GisGeomTestCase
      */
     public function testArea(array $ring, float $area): void
     {
-        $this->assertEquals($this->object->area($ring), $area);
+        $this->assertEquals($area, $this->object->area($ring));
     }
 
     /**
@@ -281,8 +281,8 @@ class GisPolygonTest extends GisGeomTestCase
     public function testIsPointInsidePolygon(array $point, array $polygon, bool $isInside): void
     {
         $this->assertEquals(
-            $this->object->isPointInsidePolygon($point, $polygon),
-            $isInside
+            $isInside,
+            $this->object->isPointInsidePolygon($point, $polygon)
         );
     }
 
@@ -547,16 +547,8 @@ class GisPolygonTest extends GisGeomTestCase
         array $scale_data,
         string $output
     ): void {
-        $this->assertEquals(
-            $output,
-            $this->object->prepareRowAsOl(
-                $spatial,
-                $srid,
-                $label,
-                $color,
-                $scale_data
-            )
-        );
+        $ol = $this->object->prepareRowAsOl($spatial, $srid, $label, $color, $scale_data);
+        $this->assertEquals($output, $ol);
     }
 
     /**

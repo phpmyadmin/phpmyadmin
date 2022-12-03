@@ -100,8 +100,8 @@ class GisMultiPointTest extends GisGeomTestCase
         ];
 
         $this->assertEquals(
-            $this->object->getShape($gis_data),
-            'MULTIPOINT(5.02 8.45,6.14 0.15)'
+            'MULTIPOINT(5.02 8.45,6.14 0.15)',
+            $this->object->getShape($gis_data)
         );
     }
 
@@ -303,16 +303,8 @@ class GisMultiPointTest extends GisGeomTestCase
         array $scale_data,
         string $output
     ): void {
-        $this->assertEquals(
-            $output,
-            $this->object->prepareRowAsOl(
-                $spatial,
-                $srid,
-                $label,
-                $color,
-                $scale_data
-            )
-        );
+        $ol = $this->object->prepareRowAsOl($spatial, $srid, $label, $color, $scale_data);
+        $this->assertEquals($output, $ol);
     }
 
     /**
