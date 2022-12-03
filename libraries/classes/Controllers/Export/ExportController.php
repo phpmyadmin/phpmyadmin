@@ -67,7 +67,6 @@ final class ExportController extends AbstractController
         $GLOBALS['table_select'] = $GLOBALS['table_select'] ?? null;
         $GLOBALS['time_start'] = $GLOBALS['time_start'] ?? null;
         $GLOBALS['charset'] = $GLOBALS['charset'] ?? null;
-        $GLOBALS['remember_template'] = $GLOBALS['remember_template'] ?? null;
         $GLOBALS['mime_type'] = $GLOBALS['mime_type'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
@@ -104,6 +103,7 @@ final class ExportController extends AbstractController
         /** @var array|null $aliasesParam */
         $aliasesParam = $request->getParsedBodyParam('aliases');
         $structureOrDataForced = $request->hasBodyParam('structure_or_data_forced');
+        $rememberTemplate = $request->getParsedBodyParam('remember_template');
 
         $this->addScriptFiles(['export_output.js']);
 
@@ -261,13 +261,13 @@ final class ExportController extends AbstractController
 
         // Generate filename and mime type if needed
         if ($GLOBALS['asfile']) {
-            if (empty($GLOBALS['remember_template'])) {
-                $GLOBALS['remember_template'] = '';
+            if (empty($rememberTemplate)) {
+                $rememberTemplate = '';
             }
 
             [$GLOBALS['filename'], $GLOBALS['mime_type']] = $this->export->getFilenameAndMimetype(
                 $GLOBALS['export_type'],
-                $GLOBALS['remember_template'],
+                $rememberTemplate,
                 $exportPlugin,
                 $GLOBALS['compression'],
                 $request->getParsedBodyParam('filename_template')
@@ -632,10 +632,6 @@ final class ExportController extends AbstractController
 
         if (isset($postParams['maxsize'])) {
             $GLOBALS['maxsize'] = $postParams['maxsize'];
-        }
-
-        if (isset($postParams['remember_template'])) {
-            $GLOBALS['remember_template'] = $postParams['remember_template'];
         }
 
         if (isset($postParams['charset'])) {
