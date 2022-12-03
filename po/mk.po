@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-12-02 04:47+0000\n"
+"PO-Revision-Date: 2022-12-03 19:53+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -11268,16 +11268,14 @@ msgid "Sorry, we failed to restore the dropped routine."
 msgstr ""
 
 #: libraries/classes/Rte/Routines.php:449
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr "Табелата %s е избришана"
+msgstr "Рутината %1$s беше променета. Привилегиите се прилагодени."
 
 #: libraries/classes/Rte/Routines.php:454
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Routine %1$s has been modified."
-msgstr "Табелата %s е избришана"
+msgstr "Рутината %1$s беше променета."
 
 #: libraries/classes/Rte/Routines.php:909
 #, fuzzy
@@ -11372,10 +11370,9 @@ msgid "You must provide a routine definition."
 msgstr ""
 
 #: libraries/classes/Rte/Routines.php:1418
-#, fuzzy, php-format
-#| msgid "Allows executing stored routines."
+#, php-format
 msgid "Execution results of routine %s"
-msgstr "Дозволува извршување на stored рутини."
+msgstr "Резултати на извршување на рутина %s"
 
 #: libraries/classes/Rte/Routines.php:1473
 #, php-format
@@ -11493,10 +11490,9 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Rte/Words.php:47
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "Табелите не се пронајдени во базата на податоци."
+msgstr "Не се најде рутина со име %1$s во датабаза %2$s."
 
 #: libraries/classes/Rte/Words.php:48
 msgid "There are no routines to display."
