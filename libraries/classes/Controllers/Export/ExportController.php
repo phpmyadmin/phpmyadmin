@@ -69,7 +69,6 @@ final class ExportController extends AbstractController
         $GLOBALS['charset'] = $GLOBALS['charset'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
-        $GLOBALS['db_select'] = $GLOBALS['db_select'] ?? null;
         $GLOBALS['table_structure'] = $GLOBALS['table_structure'] ?? null;
         $GLOBALS['table_data'] = $GLOBALS['table_data'] ?? null;
         $GLOBALS['lock_tables'] = $GLOBALS['lock_tables'] ?? null;
@@ -98,6 +97,7 @@ final class ExportController extends AbstractController
         $aliasesParam = $request->getParsedBodyParam('aliases');
         $structureOrDataForced = $request->hasBodyParam('structure_or_data_forced');
         $rememberTemplate = $request->getParsedBodyParam('remember_template');
+        $dbSelect = $request->getParsedBodyParam('db_select');
 
         $this->addScriptFiles(['export_output.js']);
 
@@ -358,12 +358,12 @@ final class ExportController extends AbstractController
              * Builds the dump
              */
             if ($GLOBALS['export_type'] === 'server') {
-                if (! isset($GLOBALS['db_select'])) {
-                    $GLOBALS['db_select'] = '';
+                if ($dbSelect === null) {
+                    $dbSelect = '';
                 }
 
                 $this->export->exportServer(
-                    $GLOBALS['db_select'],
+                    $dbSelect,
                     $whatStrucOrData,
                     $exportPlugin,
                     $GLOBALS['errorUrl'],
@@ -585,10 +585,6 @@ final class ExportController extends AbstractController
 
         if (isset($postParams['quick_or_custom'])) {
             $GLOBALS['quick_or_custom'] = $postParams['quick_or_custom'];
-        }
-
-        if (isset($postParams['db_select'])) {
-            $GLOBALS['db_select'] = $postParams['db_select'];
         }
 
         if (isset($postParams['table_select'])) {
