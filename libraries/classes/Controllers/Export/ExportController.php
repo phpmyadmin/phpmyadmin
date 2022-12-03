@@ -61,7 +61,6 @@ final class ExportController extends AbstractController
         $GLOBALS['output_kanji_conversion'] = $GLOBALS['output_kanji_conversion'] ?? null;
         $GLOBALS['what'] = $GLOBALS['what'] ?? null;
         $GLOBALS['single_table'] = $GLOBALS['single_table'] ?? null;
-        $GLOBALS['onserver'] = $GLOBALS['onserver'] ?? null;
         $GLOBALS['save_filename'] = $GLOBALS['save_filename'] ?? null;
         $GLOBALS['filename'] = $GLOBALS['filename'] ?? null;
         $GLOBALS['quick_export'] = $GLOBALS['quick_export'] ?? null;
@@ -146,7 +145,6 @@ final class ExportController extends AbstractController
          * init and variable checking
          */
         $GLOBALS['compression'] = '';
-        $GLOBALS['onserver'] = false;
         $GLOBALS['save_on_server'] = false;
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['save_filename'] = '';
@@ -176,12 +174,6 @@ final class ExportController extends AbstractController
             }
 
             if (($GLOBALS['quick_export'] && $quickExportOnServer) || (! $GLOBALS['quick_export'] && $onServerParam)) {
-                if ($GLOBALS['quick_export']) {
-                    $GLOBALS['onserver'] = $quickExportOnServer;
-                } else {
-                    $GLOBALS['onserver'] = $onServerParam;
-                }
-
                 // Will we save dump on server?
                 $GLOBALS['save_on_server'] = ! empty($GLOBALS['cfg']['SaveDir']);
             }
