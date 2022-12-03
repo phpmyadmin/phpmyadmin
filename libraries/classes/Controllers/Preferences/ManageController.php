@@ -71,7 +71,6 @@ class ManageController extends AbstractController
     {
         $GLOBALS['cf'] = $GLOBALS['cf'] ?? null;
         $GLOBALS['error'] = $GLOBALS['error'] ?? null;
-        $GLOBALS['filename'] = $GLOBALS['filename'] ?? null;
         $GLOBALS['json'] = $GLOBALS['json'] ?? null;
         $GLOBALS['lang'] = $GLOBALS['lang'] ?? null;
         $GLOBALS['new_config'] = $GLOBALS['new_config'] ?? null;
@@ -90,8 +89,8 @@ class ManageController extends AbstractController
         if (isset($_POST['submit_export'], $_POST['export_type']) && $_POST['export_type'] === 'text_file') {
             // export to JSON file
             $this->response->disable();
-            $GLOBALS['filename'] = 'phpMyAdmin-config-' . urlencode(Core::getenv('HTTP_HOST')) . '.json';
-            Core::downloadHeader($GLOBALS['filename'], 'application/json');
+            $filename = 'phpMyAdmin-config-' . urlencode(Core::getenv('HTTP_HOST')) . '.json';
+            Core::downloadHeader($filename, 'application/json');
             $settings = $this->userPreferences->load();
             echo json_encode($settings['config_data'], JSON_PRETTY_PRINT);
 
@@ -101,8 +100,8 @@ class ManageController extends AbstractController
         if (isset($_POST['submit_export'], $_POST['export_type']) && $_POST['export_type'] === 'php_file') {
             // export to JSON file
             $this->response->disable();
-            $GLOBALS['filename'] = 'phpMyAdmin-config-' . urlencode(Core::getenv('HTTP_HOST')) . '.php';
-            Core::downloadHeader($GLOBALS['filename'], 'application/php');
+            $filename = 'phpMyAdmin-config-' . urlencode(Core::getenv('HTTP_HOST')) . '.php';
+            Core::downloadHeader($filename, 'application/php');
             $settings = $this->userPreferences->load();
             echo '/* ' . __('phpMyAdmin configuration snippet') . " */\n\n";
             echo '/* ' . __('Paste it to your config.inc.php') . " */\n\n";
