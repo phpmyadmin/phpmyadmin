@@ -69,7 +69,6 @@ final class ExportController extends AbstractController
         $GLOBALS['charset'] = $GLOBALS['charset'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
-        $GLOBALS['do_comments'] = $GLOBALS['do_comments'] ?? null;
         $GLOBALS['do_mime'] = $GLOBALS['do_mime'] ?? null;
         $GLOBALS['do_dates'] = $GLOBALS['do_dates'] ?? null;
         $GLOBALS['whatStrucOrData'] = $GLOBALS['whatStrucOrData'] ?? null;
@@ -345,7 +344,7 @@ final class ExportController extends AbstractController
 
             // Will we need relation & co. setup?
             $doRelation = isset($GLOBALS[$GLOBALS['what'] . '_relation']);
-            $GLOBALS['do_comments'] = isset($GLOBALS[$GLOBALS['what'] . '_include_comments'])
+            $doComments = isset($GLOBALS[$GLOBALS['what'] . '_include_comments'])
                 || isset($GLOBALS[$GLOBALS['what'] . '_comments']);
             $GLOBALS['do_mime'] = isset($GLOBALS[$GLOBALS['what'] . '_mime']);
 
@@ -373,7 +372,7 @@ final class ExportController extends AbstractController
                     $GLOBALS['errorUrl'],
                     $GLOBALS['export_type'],
                     $doRelation,
-                    $GLOBALS['do_comments'],
+                    $doComments,
                     $GLOBALS['do_mime'],
                     $GLOBALS['do_dates'],
                     $aliases,
@@ -406,7 +405,7 @@ final class ExportController extends AbstractController
                             $GLOBALS['errorUrl'],
                             $GLOBALS['export_type'],
                             $doRelation,
-                            $GLOBALS['do_comments'],
+                            $doComments,
                             $GLOBALS['do_mime'],
                             $GLOBALS['do_dates'],
                             $aliases,
@@ -426,7 +425,7 @@ final class ExportController extends AbstractController
                         $GLOBALS['errorUrl'],
                         $GLOBALS['export_type'],
                         $doRelation,
-                        $GLOBALS['do_comments'],
+                        $doComments,
                         $GLOBALS['do_mime'],
                         $GLOBALS['do_dates'],
                         $aliases,
@@ -467,7 +466,7 @@ final class ExportController extends AbstractController
                             $GLOBALS['errorUrl'],
                             $GLOBALS['export_type'],
                             $doRelation,
-                            $GLOBALS['do_comments'],
+                            $doComments,
                             $GLOBALS['do_mime'],
                             $GLOBALS['do_dates'],
                             $GLOBALS['allrows'],
@@ -488,7 +487,7 @@ final class ExportController extends AbstractController
                         $GLOBALS['errorUrl'],
                         $GLOBALS['export_type'],
                         $doRelation,
-                        $GLOBALS['do_comments'],
+                        $doComments,
                         $GLOBALS['do_mime'],
                         $GLOBALS['do_dates'],
                         $GLOBALS['allrows'],
