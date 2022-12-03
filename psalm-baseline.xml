@@ -7569,11 +7569,9 @@
     <MixedOperand occurrences="15">
       <code>$border / $scale</code>
       <code>$border / $scale</code>
-      <code>$min_max['maxX'] + $min_max['minX'] - $plot_width / $scale</code>
-      <code>$min_max['maxY'] + $min_max['minY'] - $plot_height / $scale</code>
+      <code>$min_max['maxX'] + $min_max['minX'] - $this-&gt;settings['width'] / $scale</code>
+      <code>$min_max['maxY'] + $min_max['minY'] - $this-&gt;settings['height'] / $scale</code>
       <code>$plot_height</code>
-      <code>$plot_height</code>
-      <code>$plot_width</code>
       <code>$plot_width</code>
       <code>$ratio</code>
       <code>$scale</code>
@@ -7581,6 +7579,8 @@
       <code>$this-&gt;prepareDataSet($this-&gt;data, $scale_data, 'ol', '')</code>
       <code>$this-&gt;prepareDataSet($this-&gt;data, $scale_data, 'svg', '')</code>
       <code>$this-&gt;settings['height']</code>
+      <code>$this-&gt;settings['height']</code>
+      <code>$this-&gt;settings['width']</code>
       <code>$this-&gt;settings['width']</code>
     </MixedOperand>
     <NullArgument occurrences="3">

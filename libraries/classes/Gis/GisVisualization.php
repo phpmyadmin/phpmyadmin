@@ -608,14 +608,14 @@ class GisVisualization
 
         if ($x_ratio < $y_ratio) {
             // center horizontally
-            $x = ($min_max['maxX'] + $min_max['minX'] - $plot_width / $scale) / 2;
+            $x = ($min_max['maxX'] + $min_max['minX'] - $this->settings['width'] / $scale) / 2;
             // fit vertically
             $y = $min_max['minY'] - ($border / $scale);
         } else {
             // fit horizontally
             $x = $min_max['minX'] - ($border / $scale);
             // center vertically
-            $y = ($min_max['maxY'] + $min_max['minY'] - $plot_height / $scale) / 2;
+            $y = ($min_max['maxY'] + $min_max['minY'] - $this->settings['height'] / $scale) / 2;
         }
 
         return [
