@@ -62,7 +62,6 @@ final class ExportController extends AbstractController
         $GLOBALS['what'] = $GLOBALS['what'] ?? null;
         $GLOBALS['single_table'] = $GLOBALS['single_table'] ?? null;
         $GLOBALS['save_filename'] = $GLOBALS['save_filename'] ?? null;
-        $GLOBALS['filename'] = $GLOBALS['filename'] ?? null;
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['table_select'] = $GLOBALS['table_select'] ?? null;
         $GLOBALS['time_start'] = $GLOBALS['time_start'] ?? null;
@@ -140,7 +139,7 @@ final class ExportController extends AbstractController
         $GLOBALS['save_filename'] = '';
         $GLOBALS['file_handle'] = '';
         $GLOBALS['errorUrl'] = '';
-        $GLOBALS['filename'] = '';
+        $filename = '';
         $separateFiles = '';
 
         // Is it a quick or custom export?
@@ -257,7 +256,7 @@ final class ExportController extends AbstractController
                 $rememberTemplate = '';
             }
 
-            [$GLOBALS['filename'], $mimeType] = $this->export->getFilenameAndMimetype(
+            [$filename, $mimeType] = $this->export->getFilenameAndMimetype(
                 $GLOBALS['export_type'],
                 $rememberTemplate,
                 $exportPlugin,
@@ -268,7 +267,7 @@ final class ExportController extends AbstractController
 
         // For raw query export, filename will be export.extension
         if ($GLOBALS['export_type'] === 'raw') {
-            [$GLOBALS['filename']] = $this->export->getFinalFilenameAndMimetypeForFilename(
+            [$filename] = $this->export->getFinalFilenameAndMimetypeForFilename(
                 $exportPlugin,
                 $GLOBALS['compression'],
                 'export'
@@ -281,7 +280,7 @@ final class ExportController extends AbstractController
                 $GLOBALS['save_filename'],
                 $GLOBALS['message'],
                 $GLOBALS['file_handle'],
-            ] = $this->export->openFile($GLOBALS['filename'], $isQuickExport);
+            ] = $this->export->openFile($filename, $isQuickExport);
 
             // problem opening export file on server?
             if (! empty($GLOBALS['message'])) {
@@ -299,9 +298,9 @@ final class ExportController extends AbstractController
                 // (avoid rewriting data containing HTML with anchors and forms;
                 // this was reported to happen under Plesk)
                 ini_set('url_rewriter.tags', '');
-                $GLOBALS['filename'] = Sanitize::sanitizeFilename($GLOBALS['filename']);
+                $filename = Sanitize::sanitizeFilename($filename);
 
-                Core::downloadHeader($GLOBALS['filename'], $mimeType);
+                Core::downloadHeader($filename, $mimeType);
             } else {
                 // HTML
                 if ($GLOBALS['export_type'] === 'database') {
@@ -526,13 +525,13 @@ final class ExportController extends AbstractController
                 $this->export->dumpBuffer = $this->export->compress(
                     $this->export->dumpBufferObjects,
                     $GLOBALS['compression'],
-                    $GLOBALS['filename']
+                    $filename
                 );
             } else {
                 $this->export->dumpBuffer = $this->export->compress(
                     $this->export->dumpBuffer,
                     $GLOBALS['compression'],
-                    $GLOBALS['filename']
+                    $filename
                 );
             }
         }
