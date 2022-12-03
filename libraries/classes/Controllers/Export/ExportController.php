@@ -70,7 +70,6 @@ final class ExportController extends AbstractController
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
         $GLOBALS['table_data'] = $GLOBALS['table_data'] ?? null;
-        $GLOBALS['limit_from'] = $GLOBALS['limit_from'] ?? null;
 
         /** @var array<string, string> $postParams */
         $postParams = $request->getParsedBody();
@@ -440,9 +439,7 @@ final class ExportController extends AbstractController
 
                 $allrows = $request->getParsedBodyParam('allrows', '');
                 $limitTo = $request->getParsedBodyParam('limit_to', '0');
-                if (! isset($GLOBALS['limit_from'])) {
-                    $GLOBALS['limit_from'] = '0';
-                }
+                $limitFrom = $request->getParsedBodyParam('limit_from', '0');
 
                 if ($lockTables) {
                     try {
@@ -460,7 +457,7 @@ final class ExportController extends AbstractController
                             $doDates,
                             $allrows,
                             $limitTo,
-                            $GLOBALS['limit_from'],
+                            $limitFrom,
                             $GLOBALS['sql_query'],
                             $aliases
                         );
@@ -481,7 +478,7 @@ final class ExportController extends AbstractController
                         $doDates,
                         $allrows,
                         $limitTo,
-                        $GLOBALS['limit_from'],
+                        $limitFrom,
                         $GLOBALS['sql_query'],
                         $aliases
                     );
@@ -585,10 +582,6 @@ final class ExportController extends AbstractController
 
         if (isset($postParams['table_data'])) {
             $GLOBALS['table_data'] = $postParams['table_data'];
-        }
-
-        if (isset($postParams['limit_from'])) {
-            $GLOBALS['limit_from'] = $postParams['limit_from'];
         }
 
         if (isset($postParams['output_format'])) {
