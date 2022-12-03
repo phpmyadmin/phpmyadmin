@@ -58,7 +58,6 @@ final class ExportController extends AbstractController
         $GLOBALS['buffer_needed'] = $GLOBALS['buffer_needed'] ?? null;
         $GLOBALS['save_on_server'] = $GLOBALS['save_on_server'] ?? null;
         $GLOBALS['file_handle'] = $GLOBALS['file_handle'] ?? null;
-        $GLOBALS['separate_files'] = $GLOBALS['separate_files'] ?? null;
         $GLOBALS['output_charset_conversion'] = $GLOBALS['output_charset_conversion'] ?? null;
         $GLOBALS['output_kanji_conversion'] = $GLOBALS['output_kanji_conversion'] ?? null;
         $GLOBALS['what'] = $GLOBALS['what'] ?? null;
@@ -157,7 +156,7 @@ final class ExportController extends AbstractController
         $GLOBALS['file_handle'] = '';
         $GLOBALS['errorUrl'] = '';
         $GLOBALS['filename'] = '';
-        $GLOBALS['separate_files'] = '';
+        $separateFiles = '';
 
         // Is it a quick or custom export?
         if ($quickOrCustom === 'quick') {
@@ -171,7 +170,7 @@ final class ExportController extends AbstractController
         } else {
             $GLOBALS['asfile'] = true;
             if ($asSeparateFiles && $compressionParam === 'zip') {
-                $GLOBALS['separate_files'] = $asSeparateFiles;
+                $separateFiles = $asSeparateFiles;
             }
 
             if (in_array($compressionParam, $GLOBALS['compression_methods'])) {
@@ -397,7 +396,7 @@ final class ExportController extends AbstractController
                     $GLOBALS['do_mime'],
                     $GLOBALS['do_dates'],
                     $aliases,
-                    $GLOBALS['separate_files']
+                    $separateFiles
                 );
             } elseif ($GLOBALS['export_type'] === 'database') {
                 if (! isset($GLOBALS['table_structure']) || ! is_array($GLOBALS['table_structure'])) {
@@ -430,7 +429,7 @@ final class ExportController extends AbstractController
                             $GLOBALS['do_mime'],
                             $GLOBALS['do_dates'],
                             $aliases,
-                            $GLOBALS['separate_files']
+                            $separateFiles
                         );
                     } finally {
                         $this->export->unlockTables();
@@ -450,7 +449,7 @@ final class ExportController extends AbstractController
                         $GLOBALS['do_mime'],
                         $GLOBALS['do_dates'],
                         $aliases,
-                        $GLOBALS['separate_files']
+                        $separateFiles
                     );
                 }
             } elseif ($GLOBALS['export_type'] === 'raw') {
@@ -557,7 +556,7 @@ final class ExportController extends AbstractController
 
         // Compression needed?
         if ($GLOBALS['compression']) {
-            if (! empty($GLOBALS['separate_files'])) {
+            if ($separateFiles) {
                 $this->export->dumpBuffer = $this->export->compress(
                     $this->export->dumpBufferObjects,
                     $GLOBALS['compression'],
