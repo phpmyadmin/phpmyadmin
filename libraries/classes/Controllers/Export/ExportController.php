@@ -50,7 +50,6 @@ final class ExportController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['export_type'] = $GLOBALS['export_type'] ?? null;
-        $GLOBALS['filename_template'] = $GLOBALS['filename_template'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
         $GLOBALS['message'] = $GLOBALS['message'] ?? null;
         $GLOBALS['compression'] = $GLOBALS['compression'] ?? null;
@@ -286,7 +285,7 @@ final class ExportController extends AbstractController
                 $GLOBALS['remember_template'],
                 $GLOBALS['export_plugin'],
                 $GLOBALS['compression'],
-                $GLOBALS['filename_template']
+                $request->getParsedBodyParam('filename_template')
             );
         } else {
             $GLOBALS['mime_type'] = '';
@@ -644,10 +643,6 @@ final class ExportController extends AbstractController
 
         if (isset($postParams['output_format'])) {
             $GLOBALS['output_format'] = $postParams['output_format'];
-        }
-
-        if (isset($postParams['filename_template'])) {
-            $GLOBALS['filename_template'] = $postParams['filename_template'];
         }
 
         if (isset($postParams['maxsize'])) {
