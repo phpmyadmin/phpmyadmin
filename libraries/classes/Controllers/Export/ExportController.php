@@ -60,7 +60,6 @@ final class ExportController extends AbstractController
         $GLOBALS['output_charset_conversion'] = $GLOBALS['output_charset_conversion'] ?? null;
         $GLOBALS['output_kanji_conversion'] = $GLOBALS['output_kanji_conversion'] ?? null;
         $GLOBALS['what'] = $GLOBALS['what'] ?? null;
-        $GLOBALS['export_plugin'] = $GLOBALS['export_plugin'] ?? null;
         $GLOBALS['single_table'] = $GLOBALS['single_table'] ?? null;
         $GLOBALS['compression_methods'] = $GLOBALS['compression_methods'] ?? null;
         $GLOBALS['onserver'] = $GLOBALS['onserver'] ?? null;
@@ -119,13 +118,13 @@ final class ExportController extends AbstractController
         $this->checkParameters(['what', 'export_type']);
 
         // export class instance, not array of properties, as before
-        $GLOBALS['export_plugin'] = Plugins::getPlugin('export', $GLOBALS['what'], [
+        $exportPlugin = Plugins::getPlugin('export', $GLOBALS['what'], [
             'export_type' => (string) $GLOBALS['export_type'],
             'single_table' => isset($GLOBALS['single_table']),
         ]);
 
         // Check export type
-        if (empty($GLOBALS['export_plugin'])) {
+        if ($exportPlugin === null) {
             $this->response->setRequestStatus(false);
             $this->response->addHTML(Message::error(__('Bad type!'))->getDisplay());
 
@@ -283,7 +282,7 @@ final class ExportController extends AbstractController
             [$GLOBALS['filename'], $GLOBALS['mime_type']] = $this->export->getFilenameAndMimetype(
                 $GLOBALS['export_type'],
                 $GLOBALS['remember_template'],
-                $GLOBALS['export_plugin'],
+                $exportPlugin,
                 $GLOBALS['compression'],
                 $request->getParsedBodyParam('filename_template')
             );
@@ -294,7 +293,7 @@ final class ExportController extends AbstractController
         // For raw query export, filename will be export.extension
         if ($GLOBALS['export_type'] === 'raw') {
             [$GLOBALS['filename']] = $this->export->getFinalFilenameAndMimetypeForFilename(
-                $GLOBALS['export_plugin'],
+                $exportPlugin,
                 $GLOBALS['compression'],
                 'export'
             );
@@ -357,7 +356,7 @@ final class ExportController extends AbstractController
             $this->export->dumpBufferLength = 0;
 
             // Add possibly some comments to export
-            if (! $GLOBALS['export_plugin']->exportHeader()) {
+            if (! $exportPlugin->exportHeader()) {
                 throw new ExportException('Failure during header export.');
             }
 
@@ -387,7 +386,7 @@ final class ExportController extends AbstractController
                 $this->export->exportServer(
                     $GLOBALS['db_select'],
                     $GLOBALS['whatStrucOrData'],
-                    $GLOBALS['export_plugin'],
+                    $exportPlugin,
                     $GLOBALS['errorUrl'],
                     $GLOBALS['export_type'],
                     $GLOBALS['do_relation'],
@@ -420,7 +419,7 @@ final class ExportController extends AbstractController
                             $GLOBALS['whatStrucOrData'],
                             $GLOBALS['table_structure'],
                             $GLOBALS['table_data'],
-                            $GLOBALS['export_plugin'],
+                            $exportPlugin,
                             $GLOBALS['errorUrl'],
                             $GLOBALS['export_type'],
                             $GLOBALS['do_relation'],
@@ -440,7 +439,7 @@ final class ExportController extends AbstractController
                         $GLOBALS['whatStrucOrData'],
                         $GLOBALS['table_structure'],
                         $GLOBALS['table_data'],
-                        $GLOBALS['export_plugin'],
+                        $exportPlugin,
                         $GLOBALS['errorUrl'],
                         $GLOBALS['export_type'],
                         $GLOBALS['do_relation'],
@@ -454,7 +453,7 @@ final class ExportController extends AbstractController
             } elseif ($GLOBALS['export_type'] === 'raw') {
                 Export::exportRaw(
                     $GLOBALS['whatStrucOrData'],
-                    $GLOBALS['export_plugin'],
+                    $exportPlugin,
                     $GLOBALS['errorUrl'],
                     $GLOBALS['sql_query'],
                     $GLOBALS['export_type']
@@ -481,7 +480,7 @@ final class ExportController extends AbstractController
                             $GLOBALS['db'],
                             $GLOBALS['table'],
                             $GLOBALS['whatStrucOrData'],
-                            $GLOBALS['export_plugin'],
+                            $exportPlugin,
                             $GLOBALS['errorUrl'],
                             $GLOBALS['export_type'],
                             $GLOBALS['do_relation'],
@@ -502,7 +501,7 @@ final class ExportController extends AbstractController
                         $GLOBALS['db'],
                         $GLOBALS['table'],
                         $GLOBALS['whatStrucOrData'],
-                        $GLOBALS['export_plugin'],
+                        $exportPlugin,
                         $GLOBALS['errorUrl'],
                         $GLOBALS['export_type'],
                         $GLOBALS['do_relation'],
@@ -518,7 +517,7 @@ final class ExportController extends AbstractController
                 }
             }
 
-            if (! $GLOBALS['export_plugin']->exportFooter()) {
+            if (! $exportPlugin->exportFooter()) {
                 throw new ExportException('Failure during footer export.');
             }
         } catch (ExportException $e) {
