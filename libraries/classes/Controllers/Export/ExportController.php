@@ -69,7 +69,6 @@ final class ExportController extends AbstractController
         $GLOBALS['charset'] = $GLOBALS['charset'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
-        $GLOBALS['do_dates'] = $GLOBALS['do_dates'] ?? null;
         $GLOBALS['whatStrucOrData'] = $GLOBALS['whatStrucOrData'] ?? null;
         $GLOBALS['db_select'] = $GLOBALS['db_select'] ?? null;
         $GLOBALS['table_structure'] = $GLOBALS['table_structure'] ?? null;
@@ -348,7 +347,7 @@ final class ExportController extends AbstractController
             $doMime = isset($GLOBALS[$GLOBALS['what'] . '_mime']);
 
             // Include dates in export?
-            $GLOBALS['do_dates'] = isset($GLOBALS[$GLOBALS['what'] . '_dates']);
+            $doDates = isset($GLOBALS[$GLOBALS['what'] . '_dates']);
 
             $GLOBALS['whatStrucOrData'] = $GLOBALS[$GLOBALS['what'] . '_structure_or_data'];
 
@@ -373,7 +372,7 @@ final class ExportController extends AbstractController
                     $doRelation,
                     $doComments,
                     $doMime,
-                    $GLOBALS['do_dates'],
+                    $doDates,
                     $aliases,
                     $separateFiles
                 );
@@ -406,7 +405,7 @@ final class ExportController extends AbstractController
                             $doRelation,
                             $doComments,
                             $doMime,
-                            $GLOBALS['do_dates'],
+                            $doDates,
                             $aliases,
                             $separateFiles
                         );
@@ -426,7 +425,7 @@ final class ExportController extends AbstractController
                         $doRelation,
                         $doComments,
                         $doMime,
-                        $GLOBALS['do_dates'],
+                        $doDates,
                         $aliases,
                         $separateFiles
                     );
@@ -467,7 +466,7 @@ final class ExportController extends AbstractController
                             $doRelation,
                             $doComments,
                             $doMime,
-                            $GLOBALS['do_dates'],
+                            $doDates,
                             $GLOBALS['allrows'],
                             $GLOBALS['limit_to'],
                             $GLOBALS['limit_from'],
@@ -488,7 +487,7 @@ final class ExportController extends AbstractController
                         $doRelation,
                         $doComments,
                         $doMime,
-                        $GLOBALS['do_dates'],
+                        $doDates,
                         $GLOBALS['allrows'],
                         $GLOBALS['limit_to'],
                         $GLOBALS['limit_from'],
