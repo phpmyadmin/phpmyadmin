@@ -61,7 +61,6 @@ final class ExportController extends AbstractController
         $GLOBALS['output_kanji_conversion'] = $GLOBALS['output_kanji_conversion'] ?? null;
         $GLOBALS['what'] = $GLOBALS['what'] ?? null;
         $GLOBALS['single_table'] = $GLOBALS['single_table'] ?? null;
-        $GLOBALS['compression_methods'] = $GLOBALS['compression_methods'] ?? null;
         $GLOBALS['onserver'] = $GLOBALS['onserver'] ?? null;
         $GLOBALS['save_filename'] = $GLOBALS['save_filename'] ?? null;
         $GLOBALS['filename'] = $GLOBALS['filename'] ?? null;
@@ -134,13 +133,13 @@ final class ExportController extends AbstractController
         /**
          * valid compression methods
          */
-        $GLOBALS['compression_methods'] = [];
+        $compressionMethods = [];
         if ($GLOBALS['cfg']['ZipDump'] && function_exists('gzcompress')) {
-            $GLOBALS['compression_methods'][] = 'zip';
+            $compressionMethods[] = 'zip';
         }
 
         if ($GLOBALS['cfg']['GZipDump'] && function_exists('gzencode')) {
-            $GLOBALS['compression_methods'][] = 'gzip';
+            $compressionMethods[] = 'gzip';
         }
 
         /**
@@ -171,7 +170,7 @@ final class ExportController extends AbstractController
                 $separateFiles = $asSeparateFiles;
             }
 
-            if (in_array($compressionParam, $GLOBALS['compression_methods'])) {
+            if (in_array($compressionParam, $compressionMethods)) {
                 $GLOBALS['compression'] = $compressionParam;
                 $GLOBALS['buffer_needed'] = true;
             }
