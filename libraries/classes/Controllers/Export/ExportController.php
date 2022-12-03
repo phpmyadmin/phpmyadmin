@@ -69,7 +69,6 @@ final class ExportController extends AbstractController
         $GLOBALS['charset'] = $GLOBALS['charset'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
-        $GLOBALS['do_mime'] = $GLOBALS['do_mime'] ?? null;
         $GLOBALS['do_dates'] = $GLOBALS['do_dates'] ?? null;
         $GLOBALS['whatStrucOrData'] = $GLOBALS['whatStrucOrData'] ?? null;
         $GLOBALS['db_select'] = $GLOBALS['db_select'] ?? null;
@@ -346,7 +345,7 @@ final class ExportController extends AbstractController
             $doRelation = isset($GLOBALS[$GLOBALS['what'] . '_relation']);
             $doComments = isset($GLOBALS[$GLOBALS['what'] . '_include_comments'])
                 || isset($GLOBALS[$GLOBALS['what'] . '_comments']);
-            $GLOBALS['do_mime'] = isset($GLOBALS[$GLOBALS['what'] . '_mime']);
+            $doMime = isset($GLOBALS[$GLOBALS['what'] . '_mime']);
 
             // Include dates in export?
             $GLOBALS['do_dates'] = isset($GLOBALS[$GLOBALS['what'] . '_dates']);
@@ -373,7 +372,7 @@ final class ExportController extends AbstractController
                     $GLOBALS['export_type'],
                     $doRelation,
                     $doComments,
-                    $GLOBALS['do_mime'],
+                    $doMime,
                     $GLOBALS['do_dates'],
                     $aliases,
                     $separateFiles
@@ -406,7 +405,7 @@ final class ExportController extends AbstractController
                             $GLOBALS['export_type'],
                             $doRelation,
                             $doComments,
-                            $GLOBALS['do_mime'],
+                            $doMime,
                             $GLOBALS['do_dates'],
                             $aliases,
                             $separateFiles
@@ -426,7 +425,7 @@ final class ExportController extends AbstractController
                         $GLOBALS['export_type'],
                         $doRelation,
                         $doComments,
-                        $GLOBALS['do_mime'],
+                        $doMime,
                         $GLOBALS['do_dates'],
                         $aliases,
                         $separateFiles
@@ -467,7 +466,7 @@ final class ExportController extends AbstractController
                             $GLOBALS['export_type'],
                             $doRelation,
                             $doComments,
-                            $GLOBALS['do_mime'],
+                            $doMime,
                             $GLOBALS['do_dates'],
                             $GLOBALS['allrows'],
                             $GLOBALS['limit_to'],
@@ -488,7 +487,7 @@ final class ExportController extends AbstractController
                         $GLOBALS['export_type'],
                         $doRelation,
                         $doComments,
-                        $GLOBALS['do_mime'],
+                        $doMime,
                         $GLOBALS['do_dates'],
                         $GLOBALS['allrows'],
                         $GLOBALS['limit_to'],
