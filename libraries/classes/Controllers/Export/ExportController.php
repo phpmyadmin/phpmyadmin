@@ -63,7 +63,6 @@ final class ExportController extends AbstractController
         $GLOBALS['single_table'] = $GLOBALS['single_table'] ?? null;
         $GLOBALS['save_filename'] = $GLOBALS['save_filename'] ?? null;
         $GLOBALS['filename'] = $GLOBALS['filename'] ?? null;
-        $GLOBALS['quick_export'] = $GLOBALS['quick_export'] ?? null;
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['table_select'] = $GLOBALS['table_select'] ?? null;
         $GLOBALS['time_start'] = $GLOBALS['time_start'] ?? null;
@@ -154,11 +153,7 @@ final class ExportController extends AbstractController
         $separateFiles = '';
 
         // Is it a quick or custom export?
-        if ($quickOrCustom === 'quick') {
-            $GLOBALS['quick_export'] = true;
-        } else {
-            $GLOBALS['quick_export'] = false;
-        }
+        $isQuickExport = $quickOrCustom === 'quick';
 
         if ($outputFormat === 'astext') {
             $GLOBALS['asfile'] = false;
@@ -173,7 +168,7 @@ final class ExportController extends AbstractController
                 $GLOBALS['buffer_needed'] = true;
             }
 
-            if (($GLOBALS['quick_export'] && $quickExportOnServer) || (! $GLOBALS['quick_export'] && $onServerParam)) {
+            if (($isQuickExport && $quickExportOnServer) || (! $isQuickExport && $onServerParam)) {
                 // Will we save dump on server?
                 $GLOBALS['save_on_server'] = ! empty($GLOBALS['cfg']['SaveDir']);
             }
@@ -296,7 +291,7 @@ final class ExportController extends AbstractController
                 $GLOBALS['save_filename'],
                 $GLOBALS['message'],
                 $GLOBALS['file_handle'],
-            ] = $this->export->openFile($GLOBALS['filename'], $GLOBALS['quick_export']);
+            ] = $this->export->openFile($GLOBALS['filename'], $isQuickExport);
 
             // problem opening export file on server?
             if (! empty($GLOBALS['message'])) {
