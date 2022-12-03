@@ -568,24 +568,12 @@ final class ExportController extends AbstractController
             $GLOBALS['export_type'] = $postParams['export_type'];
         }
 
-        if (isset($postParams['export_method'])) {
-            $GLOBALS['export_method'] = $postParams['export_method'];
-        }
-
-        if (isset($postParams['quick_or_custom'])) {
-            $GLOBALS['quick_or_custom'] = $postParams['quick_or_custom'];
-        }
-
         if (isset($postParams['table_select'])) {
             $GLOBALS['table_select'] = $postParams['table_select'];
         }
 
         if (isset($postParams['table_data'])) {
             $GLOBALS['table_data'] = $postParams['table_data'];
-        }
-
-        if (isset($postParams['output_format'])) {
-            $GLOBALS['output_format'] = $postParams['output_format'];
         }
 
         if (isset($postParams['maxsize'])) {
@@ -598,10 +586,6 @@ final class ExportController extends AbstractController
 
         if (isset($postParams['compression'])) {
             $GLOBALS['compression'] = $postParams['compression'];
-        }
-
-        if (isset($postParams['as_separate_files'])) {
-            $GLOBALS['as_separate_files'] = $postParams['as_separate_files'];
         }
 
         if (isset($postParams['knjenc'])) {
