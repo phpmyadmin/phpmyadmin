@@ -109,7 +109,7 @@ jobs:
         run: composer run phpunit -- ${{ matrix.phpunit-options }}
 
       - name: Send coverage
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v3
         with:
           flags: unit-${{ matrix.php-version }}-${{ matrix.os }}
           name: phpunit-${{ matrix.php-version }}-${{ matrix.os }}
@@ -168,7 +168,7 @@ jobs:
         run: composer run phpunit -- --testsuite unit
 
       - name: Send coverage
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v3
         with:
           flags: ${{ matrix.extension }}-extension
           name: php-7.2-${{ matrix.extension }}-enabled
@@ -204,7 +204,7 @@ jobs:
 
       - name: Get Yarn cache directory path
         id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
 
       - name: Cache Yarn dependencies
         uses: actions/cache@v3

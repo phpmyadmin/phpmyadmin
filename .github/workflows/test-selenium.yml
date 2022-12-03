@@ -88,7 +88,7 @@ jobs:
 
       - name: Get Yarn cache directory path
         id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
 
       - name: Cache Yarn dependencies
         uses: actions/cache@v3
@@ -111,7 +111,7 @@ jobs:
           SKIP_STANDALONE: 1
         run: |
           ./test/start-local-server
-          echo ::set-output name=SELENIUM_TEMPDIR::"$(cat /tmp/last_temp_dir_phpMyAdminTests)"
+          echo "SELENIUM_TEMPDIR=$(cat /tmp/last_temp_dir_phpMyAdminTests)" >> $GITHUB_OUTPUT
         id: start-local-server
 
       - name: Run Selenium tests
