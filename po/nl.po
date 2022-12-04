@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-12-04 00:17+0000\n"
-"PO-Revision-Date: 2022-11-13 16:26+0000\n"
+"PO-Revision-Date: 2022-12-06 00:47+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -7991,17 +7991,9 @@ msgstr ""
 "te voorkomen moet u deze opslaan in een BINARY, VARBINARY of BLOB kolom."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:858
-#, fuzzy
-#| msgid ""
-#| "The file being uploaded is probably larger than the maximum allowed size "
-#| "or this is a known bug in webkit based (Safari, Google Chrome, Arora "
-#| "etc.) browsers."
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size."
-msgstr ""
-"Het geüploade bestand is mogelijk groter dan de limiet toestaat, of u heeft "
-"last van een bekende bug in op webkit gebaseerde browsers (Safari, Google "
-"Chrome, Arora, enz.)."
+msgstr "Het geüploade bestand is mogelijk groter dan de limiet toestaat."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:860
 #, php-format
@@ -14539,10 +14531,8 @@ msgstr "De centrale lijst met kolommen voor de huidige database is leeg"
 
 #: templates/database/central_columns/main.twig:168
 #: templates/display/results/table.twig:139
-#, fuzzy
-#| msgid "Filter rows"
 msgid "Filter rows:"
-msgstr "Filter rijen"
+msgstr "Filter rijen:"
 
 #: templates/database/central_columns/main.twig:171
 #: templates/display/results/table.twig:143
