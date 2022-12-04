@@ -77,7 +77,7 @@ jobs:
           extensions: mbstring, iconv, mysqli, zip, gd, bz2
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v1
+        uses: ramsey/composer-install@v2
         with:
           dependency-versions: highest
 

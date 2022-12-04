@@ -100,7 +100,7 @@ jobs:
           coverage: xdebug
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v1
+        uses: ramsey/composer-install@v2
         with:
           dependency-versions: highest
           composer-options: ${{ matrix.composer-options }}
@@ -160,7 +160,7 @@ jobs:
           coverage: xdebug
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v1
+        uses: ramsey/composer-install@v2
         with:
           dependency-versions: highest
 

@@ -47,7 +47,7 @@ jobs:
           phive --no-progress install --target ./build/tools --trust-gpg-keys C5095986493B4AA0 infection
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v1
+        uses: ramsey/composer-install@v2
         with:
           dependency-versions: highest
 
