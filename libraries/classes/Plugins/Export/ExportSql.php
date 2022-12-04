@@ -540,7 +540,7 @@ class ExportSql extends ExportPlugin
         $name,
         array $routines,
         $delimiter
-    ) {
+    ): string {
         $text = $this->exportComment()
             . $this->exportComment($name)
             . $this->exportComment();
@@ -682,7 +682,7 @@ class ExportSql extends ExportPlugin
      *
      * @return string crlf or nothing
      */
-    private function possibleCRLF()
+    private function possibleCRLF(): string
     {
         if (isset($GLOBALS['sql_include_comments']) && $GLOBALS['sql_include_comments']) {
             return "\n";
@@ -1245,7 +1245,7 @@ class ExportSql extends ExportPlugin
      *
      * @return string resulting definition
      */
-    public function getTableDefStandIn($db, $view, $aliases = [])
+    public function getTableDefStandIn($db, $view, $aliases = []): string
     {
         $dbAlias = $db;
         $viewAlias = $view;
@@ -1291,7 +1291,7 @@ class ExportSql extends ExportPlugin
         $db,
         $view,
         array $aliases = []
-    ) {
+    ): string {
         $dbAlias = $db;
         $viewAlias = $view;
         $this->initAlias($aliases, $dbAlias, $viewAlias);
@@ -1377,7 +1377,7 @@ class ExportSql extends ExportPlugin
         $view = false,
         $updateIndexesIncrements = true,
         array $aliases = []
-    ) {
+    ): string {
         $GLOBALS['sql_drop_table'] = $GLOBALS['sql_drop_table'] ?? null;
         $GLOBALS['sql_backquotes'] = $GLOBALS['sql_backquotes'] ?? null;
         $GLOBALS['sql_constraints'] = $GLOBALS['sql_constraints'] ?? null;
@@ -1795,7 +1795,7 @@ class ExportSql extends ExportPlugin
         $doRelation = false,
         $doMime = false,
         array $aliases = []
-    ) {
+    ): string {
         $GLOBALS['sql_backquotes'] = $GLOBALS['sql_backquotes'] ?? null;
 
         $dbAlias = $db;
@@ -2406,7 +2406,7 @@ class ExportSql extends ExportPlugin
      *
      * @return string MSSQL compatible create table statement
      */
-    private function makeCreateTableMSSQLCompatible(string $createQuery)
+    private function makeCreateTableMSSQLCompatible(string $createQuery): string
     {
         // In MSSQL
         // 1. No 'IF NOT EXISTS' in CREATE TABLE
@@ -2507,7 +2507,7 @@ class ExportSql extends ExportPlugin
         array $aliases,
         $db,
         &$flag = null
-    ) {
+    ): string {
         $flag = false;
 
         /**
@@ -2692,8 +2692,6 @@ class ExportSql extends ExportPlugin
      * @param string      $comment2     Comment for current table
      * @param string      $tableAlias   Table alias
      * @param string      $compat       Compatibility mode
-     *
-     * @return string
      */
     protected function generateComment(
         ?string $sqlStatement,
@@ -2701,8 +2699,8 @@ class ExportSql extends ExportPlugin
         $comment2,
         $tableAlias,
         $compat
-    ) {
-        if (! isset($sqlStatement)) {
+    ): string {
+        if ($sqlStatement === null) {
             if (isset($GLOBALS['no_constraints_comments'])) {
                 $sqlStatement = '';
             } else {
