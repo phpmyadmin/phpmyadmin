@@ -892,10 +892,10 @@ class ExportSql extends ExportPlugin
      * @param string $db     db to use
      * @param string $compat sql compatibility
      */
-    private function exportUseStatement($db, $compat): bool
+    private function exportUseStatement(string $db, string $compat): bool
     {
-        if (isset($GLOBALS['sql_compatibility']) && $GLOBALS['sql_compatibility'] === 'NONE') {
-            $result = $this->export->outputHandler(
+        if ($compat === 'NONE') {
+            return $this->export->outputHandler(
                 'USE '
                 . Util::backquoteCompat(
                     $db,
@@ -904,11 +904,9 @@ class ExportSql extends ExportPlugin
                 )
                 . ';' . "\n"
             );
-        } else {
-            $result = $this->export->outputHandler('USE ' . $db . ';' . "\n");
         }
 
-        return $result;
+        return $this->export->outputHandler('USE ' . $db . ';' . "\n");
     }
 
     /**
