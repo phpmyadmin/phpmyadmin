@@ -1022,9 +1022,9 @@ class ExportSql extends ExportPlugin
     /**
      * Exports metadata from Configuration Storage
      *
-     * @param string       $db            database being exported
-     * @param string|array $tables        table(s) being exported
-     * @param array        $metadataTypes types of metadata to export
+     * @param string          $db            database being exported
+     * @param string|string[] $tables        table(s) being exported
+     * @param string[]        $metadataTypes types of metadata to export
      */
     public function exportMetadata(
         $db,
@@ -1071,11 +1071,11 @@ class ExportSql extends ExportPlugin
      *
      * @param string      $db            database being exported
      * @param string|null $table         table being exported
-     * @param array       $metadataTypes types of metadata to export
+     * @param string[]    $metadataTypes types of metadata to export
      */
     private function exportConfigurationMetadata(
-        $db,
-        $table,
+        string $db,
+        ?string $table,
         array $metadataTypes
     ): bool {
         $relationParameters = $this->relation->getRelationParameters();
@@ -1099,10 +1099,9 @@ class ExportSql extends ExportPlugin
 
         $aliases = [];
 
-        $comment = $this->possibleCRLF()
-            . $this->exportComment();
+        $comment = $this->possibleCRLF() . $this->exportComment();
 
-        if (isset($table)) {
+        if ($table !== null) {
             $comment .= $this->exportComment(
                 sprintf(
                     __('Metadata for table %s'),
