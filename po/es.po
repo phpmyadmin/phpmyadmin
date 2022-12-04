@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-12-04 00:17+0000\n"
-"PO-Revision-Date: 2022-11-13 16:26+0000\n"
+"PO-Revision-Date: 2022-12-04 10:16+0000\n"
 "Last-Translator: Luis Méndez Alejo <gnumax@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/es/>\n"
@@ -8025,17 +8025,11 @@ msgstr ""
 "VARBINARY o BLOB."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:858
-#, fuzzy
-#| msgid ""
-#| "The file being uploaded is probably larger than the maximum allowed size "
-#| "or this is a known bug in webkit based (Safari, Google Chrome, Arora "
-#| "etc.) browsers."
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size."
 msgstr ""
-"El archivo que está siendo importado probablemente es más grande que el "
-"tamaño máximo permitido o este es un fallo conocido en los navegadores "
-"basados en WebKit (Safari, Google Chrome, Arora etc.)."
+"El archivo que se está subiendo es probablemente mayor que el tamaño máximo "
+"permitido."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:860
 #, php-format
@@ -14609,10 +14603,8 @@ msgstr "La lista central de columnas para la base de datos actual está vacía"
 
 #: templates/database/central_columns/main.twig:168
 #: templates/display/results/table.twig:139
-#, fuzzy
-#| msgid "Filter rows"
 msgid "Filter rows:"
-msgstr "Filtrar filas"
+msgstr "Filtrar filas:"
 
 #: templates/database/central_columns/main.twig:171
 #: templates/display/results/table.twig:143
@@ -15926,10 +15918,8 @@ msgid "Send error report"
 msgstr "Enviar informe de error"
 
 #: templates/error/simple.twig:2
-#, fuzzy
-#| msgid "Something went wrong."
 msgid "Something went wrong"
-msgstr "Algo salió mal."
+msgstr "Algo salió mal"
 
 #: templates/error/simple.twig:7 templates/modals/index_dialog_modal.twig:30
 #: templates/table/structure/display_structure.twig:363
