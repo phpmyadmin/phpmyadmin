@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-12-04 00:17+0000\n"
-"PO-Revision-Date: 2022-08-15 07:17+0000\n"
+"PO-Revision-Date: 2022-12-04 10:16+0000\n"
 "Last-Translator: yangyangdaji <1504305527@qq.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hans/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:240
 #, php-format
@@ -4760,7 +4760,7 @@ msgstr "您没有权限管理用户！"
 msgid ""
 "Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
 "code] configuration."
-msgstr ""
+msgstr "[code]$cfg['UseDbSearch'][/code] 配置禁用了数据库内部搜索。"
 
 #: libraries/classes/Controllers/Database/Structure/AddPrefixController.php:20
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:45
@@ -5044,10 +5044,8 @@ msgid ""
 msgstr "您想要上传的文件可能太大了，请参考%s文档%s来寻找解决方法。"
 
 #: libraries/classes/Controllers/Import/ImportController.php:249
-#, fuzzy
-#| msgid "Incorrect form specified!"
 msgid "Incorrect format parameter"
-msgstr "指定的表单不正确！"
+msgstr "格式参数不正确"
 
 #: libraries/classes/Controllers/Import/ImportController.php:376
 #: libraries/classes/Controllers/Import/ImportController.php:619
@@ -7465,16 +7463,9 @@ msgstr ""
 "VARBINARY或BLOB字段中。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:858
-#, fuzzy
-#| msgid ""
-#| "The file being uploaded is probably larger than the maximum allowed size "
-#| "or this is a known bug in webkit based (Safari, Google Chrome, Arora "
-#| "etc.) browsers."
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size."
-msgstr ""
-"上传的文件可能超过了最大大小，也可能是一个基于 webkit 浏览器 (Safari, Google "
-"Chrome, Arora 等) 的已知缺陷 (bug) 。"
+msgstr "上传的文件可能超过了最大大小。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:860
 #, php-format
@@ -12905,9 +12896,8 @@ msgid ""
 msgstr "旨在存储IPv6地址以及假定IPv4地址到IPv6地址的常规映射的IPv4地址"
 
 #: libraries/classes/Types.php:445
-#, fuzzy
 msgid "128-bit UUID (Universally Unique Identifier)"
-msgstr "存储一个通用唯一识别码（UUID）"
+msgstr "128 位 UUID (通用唯一标识符)"
 
 #: libraries/classes/Types.php:801
 msgctxt "numeric types"
@@ -13648,10 +13638,8 @@ msgstr "当前数据库的列的中央列表是空的"
 
 #: templates/database/central_columns/main.twig:168
 #: templates/display/results/table.twig:139
-#, fuzzy
-#| msgid "Filter rows"
 msgid "Filter rows:"
-msgstr "过滤行"
+msgstr "过滤行："
 
 #: templates/database/central_columns/main.twig:171
 #: templates/display/results/table.twig:143
@@ -14938,10 +14926,8 @@ msgid "Send error report"
 msgstr "发送错误报告"
 
 #: templates/error/simple.twig:2
-#, fuzzy
-#| msgid "Something went wrong."
 msgid "Something went wrong"
-msgstr "出了点问题。"
+msgstr "出了点问题"
 
 #: templates/error/simple.twig:7 templates/modals/index_dialog_modal.twig:30
 #: templates/table/structure/display_structure.twig:363
