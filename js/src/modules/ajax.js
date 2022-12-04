@@ -2,7 +2,6 @@ import $ from 'jquery';
 import { Functions } from './functions.js';
 import { Navigation } from './navigation.js';
 import { CommonParams } from './common.js';
-import { initializeTopMenuResizer } from './menu-resizer.js';
 import highlightSql from './sql-highlight.js';
 
 /**
@@ -223,7 +222,7 @@ const AJAX = {
                 // Remove duplicate wrapper
                 // TODO: don't send it in the response
                 .children().first().remove();
-            initializeTopMenuResizer();
+            $('#topmenu').menuResizer(Functions.mainMenuResizerCallback);
         }
     },
     /**

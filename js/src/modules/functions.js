@@ -4,7 +4,6 @@ import { Navigation } from './navigation.js';
 import { CommonActions, CommonParams } from './common.js';
 import { Indexes } from './indexes.js';
 import { Config } from './config.js';
-import { resizeTopMenu } from './menu-resizer.js';
 import tooltip from './tooltip.js';
 import highlightSql from './sql-highlight.js';
 
@@ -3166,6 +3165,24 @@ Functions.showHints = function ($div) {
     });
 };
 
+Functions.mainMenuResizerCallback = function () {
+    // 5 px margin for jumping menu in Chrome
+    // eslint-disable-next-line compat/compat
+    return $(document.body).width() - 5;
+};
+
+/**
+ * @return {function}
+ */
+Functions.initializeMenuResizer = () => function () {
+    // Initialise the menu resize plugin
+    $('#topmenu').menuResizer(Functions.mainMenuResizerCallback);
+    // register resize event
+    $(window).on('resize', function () {
+        $('#topmenu').menuResizer('resize');
+    });
+};
+
 /**
  * var  toggleButton  This is a function that creates a toggle
  *                    sliding button given a jQuery reference
@@ -3688,7 +3705,7 @@ Functions.floatingMenuBar = () => function () {
                 'padding-top',
                 $('#floating_menubar').outerHeight(true)
             );
-            resizeTopMenu();
+            $('#topmenu').menuResizer('resize');
         }, 4);
     }
 };
