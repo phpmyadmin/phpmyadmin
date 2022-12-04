@@ -8,6 +8,8 @@ use PhpMyAdmin\Gis\GisMultiPoint;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
+use function file_exists;
+
 /**
  * @covers \PhpMyAdmin\Gis\GisMultiPoint
  * @runTestsInSeparateProcesses
@@ -208,7 +210,9 @@ class GisMultiPointTest extends GisGeomTestCase
     ): void {
         $return = $this->object->prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
 
-        $fileExpected = $this->testDir . '/multipoint-expected.pdf';
+        $fileExpectedArch = $this->testDir . '/multipoint-expected-' . $this->getArch() . '.pdf';
+        $fileExpectedGeneric = $this->testDir . '/multipoint-expected.pdf';
+        $fileExpected = file_exists($fileExpectedArch) ? $fileExpectedArch : $fileExpectedGeneric;
         $fileActual = $this->testDir . '/multipoint-actual.pdf';
         $return->Output($fileActual, 'F');
         $this->assertFileEquals($fileExpected, $fileActual);
