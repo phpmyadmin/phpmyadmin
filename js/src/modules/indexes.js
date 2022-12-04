@@ -120,7 +120,7 @@ Indexes.checkIndexType = function () {
     }
 
     if ($selectIndexChoice.val() === 'SPATIAL' ||
-            $selectIndexChoice.val() === 'FULLTEXT') {
+        $selectIndexChoice.val() === 'FULLTEXT') {
         $selectIndexType.val('').prop('disabled', true);
     } else {
         $selectIndexType.prop('disabled', false);
@@ -228,7 +228,7 @@ Indexes.addColumnToIndex = function (sourceArray, arrayIndex, indexChoice, colIn
     if (displayName === '') {
         var columnNames = [];
         $.each(columns, function () {
-            columnNames.push($('input[name="field_name[' +  this.col_index + ']"]').val());
+            columnNames.push($('input[name="field_name[' + this.col_index + ']"]').val());
         });
         displayName = '[' + columnNames.join(', ') + ']';
     }
@@ -421,9 +421,9 @@ Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, c
             } else {
                 $div
                     .append(data.message);
-                $div.css({ 'display' : 'none' });
+                $div.css({ 'display': 'none' });
                 $div.appendTo($('body'));
-                $div.attr({ 'id' : 'addIndex' });
+                $div.attr({ 'id': 'addIndex' });
                 var isMissingValue = false;
                 $('select[name="index[columns][names][]"]').each(function () {
                     if ($(this).val() === '') {

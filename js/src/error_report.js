@@ -55,7 +55,7 @@ var ErrorReport = {
         if (JSON.stringify(ErrorReport.lastException) === JSON.stringify(exception)) {
             return;
         }
-        if (exception.name === null || typeof(exception.name) === 'undefined') {
+        if (exception.name === null || typeof (exception.name) === 'undefined') {
             exception.name = ErrorReport.extractExceptionName(exception);
         }
         ErrorReport.lastException = exception;
@@ -135,7 +135,7 @@ var ErrorReport = {
         );
 
         var $buttons = $('<div class="float-end"></div>');
-        var buttonHtml  = '<button class="btn btn-primary" id="show_error_report_' + key + '">';
+        var buttonHtml = '<button class="btn btn-primary" id="show_error_report_' + key + '">';
         buttonHtml += window.Messages.strShowReportDetails;
         buttonHtml += '</button>';
 
@@ -178,7 +178,7 @@ var ErrorReport = {
      * @return {string}
      */
     extractExceptionName: function (exception) {
-        if (exception.message === null || typeof(exception.message) === 'undefined') {
+        if (exception.message === null || typeof (exception.message) === 'undefined') {
             return '';
         }
 
@@ -212,7 +212,7 @@ var ErrorReport = {
                 var stack = exception.stack[i];
                 if (stack.context && stack.context.length) {
                     for (var j = 0; j < stack.context.length; j++) {
-                        if (stack.context[j].length >  80) {
+                        if (stack.context[j].length > 80) {
                             stack.context[j] = stack.context[j].substring(-1, 75) + '//...';
                         }
                     }
@@ -243,7 +243,7 @@ var ErrorReport = {
      * @return {Function}
      */
     wrapFunction: function (func) {
-        if (!func.wrapped) {
+        if (! func.wrapped) {
             var newFunc = function () {
                 try {
                     return func.apply(this, arguments);
@@ -281,7 +281,7 @@ var ErrorReport = {
         var oldOn = $.fn.on;
         $.fn.on = function () {
             for (var i = 1; i <= 3; i++) {
-                if (typeof(arguments[i]) === 'function') {
+                if (typeof (arguments[i]) === 'function') {
                     arguments[i] = ErrorReport.wrapFunction(arguments[i]);
                     break;
                 }

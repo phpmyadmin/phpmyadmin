@@ -135,7 +135,7 @@ Navigation.loadChildNodes = function (isNode, $expandElem, callback) {
     var params = null;
 
     if (isNode) {
-        if (!$expandElem.hasClass('expander')) {
+        if (! $expandElem.hasClass('expander')) {
             return;
         }
         $destination = $expandElem.closest('li');
@@ -182,7 +182,7 @@ Navigation.loadChildNodes = function (isNode, $expandElem, callback) {
                     .css({
                         border: '0px',
                         margin: '0em',
-                        padding : '0em'
+                        padding: '0em'
                     })
                     .slideDown('slow');
             }
@@ -680,7 +680,7 @@ Navigation.showCurrent = function () {
     var $dbItem;
     if (db) {
         $dbItem = findLoadedItem(
-            $('#pma_navigation_tree').find('> div'), db, 'database', !table
+            $('#pma_navigation_tree').find('> div'), db, 'database', ! table
         );
         if ($('#navi_db_select').length &&
             $('option:selected', $('#navi_db_select')).length
@@ -713,13 +713,13 @@ Navigation.showCurrent = function () {
 
         $('#pma_navigation_tree_content > ul > li.database').children('a').each(function () {
             var name = $(this).text();
-            if (!dbItemName && name.trim()) { // if the name is not empty, it is the desired element
+            if (! dbItemName && name.trim()) { // if the name is not empty, it is the desired element
                 dbItemName = name;
             }
         });
 
         $dbItem = findLoadedItem(
-            $('#pma_navigation_tree').find('> div'), dbItemName, 'database', !table
+            $('#pma_navigation_tree').find('> div'), dbItemName, 'database', ! table
         );
 
         fullExpand(table, $dbItem);
@@ -775,7 +775,7 @@ Navigation.showCurrent = function () {
             } else { // this is a real navigation item
                 // name and class matches
                 if (((clazz && $li.is('.' + clazz)) || ! clazz) &&
-                        $li.children('a').text() === name) {
+                    $li.children('a').text() === name) {
                     if (doSelect) {
                         $li.addClass('selected');
                     }
@@ -813,7 +813,7 @@ Navigation.showCurrent = function () {
             );
             // Show directly
             showTableOrView($whichItem, $relatedContainer.children('div').first().children('a.expander'));
-        // else if item not there, try loading once
+            // else if item not there, try loading once
         } else {
             var $subContainers = $dbItem.find('.subContainer');
             // If there are subContainers i.e. tableContainer or viewContainer
@@ -828,7 +828,7 @@ Navigation.showCurrent = function () {
                         loadAndShowTableOrView($expander, $containers[index], itemName);
                     }
                 });
-            // else if no subContainers
+                // else if no subContainers
             } else {
                 $expander = $dbItem
                     .children('div').first()
@@ -894,7 +894,7 @@ Navigation.disableSettings = function () {
 Navigation.ensureSettings = function (selflink) {
     $('#pma_navigation_settings_icon').removeClass('hide');
 
-    if (!$('#pma_navigation_settings').length) {
+    if (! $('#pma_navigation_settings').length) {
         var params = {
             getNaviSettings: true,
             server: CommonParams.get('server'),
@@ -960,7 +960,7 @@ Navigation.reload = function (callback, paths) {
 Navigation.selectCurrentDatabase = function () {
     var $naviDbSelect = $('#navi_db_select');
 
-    if (!$naviDbSelect.length) {
+    if (! $naviDbSelect.length) {
         return false;
     }
 
@@ -1621,7 +1621,7 @@ Navigation.showFullName = function ($containerELem) {
         }
         var $parent = $this.parent();
         if (($parent.offset().left + $parent.outerWidth())
-           < (thisOffset.left + $this.outerWidth())) {
+            < (thisOffset.left + $this.outerWidth())) {
             var $fullNameLayer = $('#full_name_layer');
             if ($fullNameLayer.length === 0) {
                 $('body').append('<div id="full_name_layer" class="hide"></div>');

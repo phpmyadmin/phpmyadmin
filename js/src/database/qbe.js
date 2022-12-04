@@ -75,7 +75,7 @@ AJAX.registerOnload('database/qbe.js', function () {
      */
     $(document).on('click', '#deleteSearch', function () {
         var question = window.sprintf(window.Messages.strConfirmDeleteQBESearch, $('#searchId').find('option:selected').text());
-        if (!confirm(question)) {
+        if (! confirm(question)) {
             return false;
         }
 

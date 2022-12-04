@@ -52,7 +52,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
                 columns[columns.length - 1].push(columnAlias);
 
                 if ($(this).val() in tableAliases) {
-                    if (!(tableAliases[$(this).val()].includes(tableAlias))) {
+                    if (! (tableAliases[$(this).val()].includes(tableAlias))) {
                         tableAliases[$(this).val()].push(tableAlias);
                     }
                 } else {
@@ -183,11 +183,11 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
             $(this).on('click', function (event, from) {
                 if (from === null) {
                     var $checkbox = $(this).siblings('.criteria_col').first();
-                    $checkbox.prop('checked', !$checkbox.prop('checked'));
+                    $checkbox.prop('checked', ! $checkbox.prop('checked'));
                 }
                 var $criteriaColCount = $('.criteria_col:checked').length;
                 if ($criteriaColCount > 1) {
-                    $(this).siblings('.jsCriteriaOptions').first().find('.logical_operator').first().css('display','table-row');
+                    $(this).siblings('.jsCriteriaOptions').first().find('.logical_operator').first().css('display', 'table-row');
                 }
             });
         });

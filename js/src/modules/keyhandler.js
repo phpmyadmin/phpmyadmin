@@ -4,15 +4,15 @@ import $ from 'jquery';
 let ctrlKeyHistory = 0;
 
 /**
-  * Allows moving around inputs/select by Ctrl+arrows
-  *
-  * @param {object} event data
-  */
+ * Allows moving around inputs/select by Ctrl+arrows
+ *
+ * @param {object} event data
+ */
 const onKeyDownArrowsHandler = function (event) {
     var e = event || window.event;
 
     var o = (e.srcElement || e.target);
-    if (!o) {
+    if (! o) {
         return;
     }
     if (o.tagName !== 'TEXTAREA' && o.tagName !== 'INPUT' && o.tagName !== 'SELECT') {
@@ -21,7 +21,7 @@ const onKeyDownArrowsHandler = function (event) {
     if ((e.which !== 17) && (e.which !== 37) && (e.which !== 38) && (e.which !== 39) && (e.which !== 40)) {
         return;
     }
-    if (!o.id) {
+    if (! o.id) {
         return;
     }
 
@@ -74,13 +74,13 @@ const onKeyDownArrowsHandler = function (event) {
     var id = 'field_' + y + '_' + x;
 
     var nO = document.getElementById(id);
-    if (!nO) {
+    if (! nO) {
         id = 'field_' + y + '_' + x + '_0';
         nO = document.getElementById(id);
     }
 
     // skip non existent fields
-    if (!nO) {
+    if (! nO) {
         return;
     }
 

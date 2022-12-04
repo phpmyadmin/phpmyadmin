@@ -53,13 +53,13 @@ TableRelation.getDropdownValues = function ($dropdown) {
     // if the changed dropdown is for foreign key constraints
     if ($dropdown.is('select[name^="destination_foreign"]')) {
         $databaseDd = $dropdown.parent().parent().parent().find('select[name^="destination_foreign_db"]');
-        $tableDd    = $dropdown.parent().parent().parent().find('select[name^="destination_foreign_table"]');
-        $columnDd   = $dropdown.parent().parent().parent().find('select[name^="destination_foreign_column"]');
+        $tableDd = $dropdown.parent().parent().parent().find('select[name^="destination_foreign_table"]');
+        $columnDd = $dropdown.parent().parent().parent().find('select[name^="destination_foreign_column"]');
         foreign = '_foreign';
     } else { // internal relations
         $databaseDd = $dropdown.parent().find('select[name^="destination_db"]');
-        $tableDd    = $dropdown.parent().find('select[name^="destination_table"]');
-        $columnDd   = $dropdown.parent().find('select[name^="destination_column"]');
+        $tableDd = $dropdown.parent().find('select[name^="destination_table"]');
+        $columnDd = $dropdown.parent().find('select[name^="destination_column"]');
     }
 
     // if the changed dropdown is a database selector

@@ -42,6 +42,7 @@ function checkFirst () {
         $('input[name=field_where]').val('after');
     }
 }
+
 /**
  * Unbind all event handlers before tearing down a page
  */
@@ -226,7 +227,7 @@ AJAX.registerOnload('table/structure.js', function () {
 
                     // by default select the (new) last option to add new column
                     // (in case last column is dropped)
-                    $('select[name=after_field] option').last().attr('selected','selected');
+                    $('select[name=after_field] option').last().attr('selected', 'selected');
 
                     // refresh table stats
                     if (data.tableStat) {
@@ -265,7 +266,7 @@ AJAX.registerOnload('table/structure.js', function () {
             addClause = 'ADD FULLTEXT';
         }
         var question = window.sprintf(window.Messages.strDoYouReally, 'ALTER TABLE `' +
-                Functions.escapeHtml(currTableName) + '` ' + addClause + '(`' + Functions.escapeHtml(currColumnName) + '`);');
+            Functions.escapeHtml(currTableName) + '` ' + addClause + '(`' + Functions.escapeHtml(currColumnName) + '`);');
 
         var $thisAnchor = $(this);
 
@@ -281,7 +282,7 @@ AJAX.registerOnload('table/structure.js', function () {
 
     /**
      * Inline move columns
-    **/
+     **/
     $(document).on('click', '#move_columns_anchor', function (e) {
         e.preventDefault();
 
@@ -451,8 +452,8 @@ AJAX.registerOnload('table/structure.js', function () {
         var question = window.Messages.strRemovePartitioningWarning;
         $link.confirm(question, $link.attr('href'), function (url) {
             var params = Functions.getJsConfirmCommonParam({
-                'ajax_request' : true,
-                'ajax_page_request' : true
+                'ajax_request': true,
+                'ajax_page_request': true
             }, $link.getPostData());
             Functions.ajaxShowMessage();
             AJAX.source = $link;

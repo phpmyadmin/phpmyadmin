@@ -101,7 +101,7 @@ function tryJoinTable (table, tableAliases, usedTables, foreignKeys) {
 }
 
 function appendTable (table, tableAliases, usedTables, foreignKeys) {
-    var query = tryJoinTable (table, tableAliases, usedTables, foreignKeys);
+    var query = tryJoinTable(table, tableAliases, usedTables, foreignKeys);
     if (query === '') {
         if (usedTables.length > 0) {
             query += '\n\t, ';

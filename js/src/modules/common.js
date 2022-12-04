@@ -37,7 +37,7 @@ const CommonParams = (function () {
                 params[i] = obj[i];
             }
             if (updateNavigation &&
-                    $('#pma_navigation_tree').hasClass('synced')
+                $('#pma_navigation_tree').hasClass('synced')
             ) {
                 Navigation.showCurrent();
             }
@@ -70,7 +70,7 @@ const CommonParams = (function () {
             }
             params[name] = value;
             if (updateNavigation &&
-                    $('#pma_navigation_tree').hasClass('synced')
+                $('#pma_navigation_tree').hasClass('synced')
             ) {
                 Navigation.showCurrent();
             }

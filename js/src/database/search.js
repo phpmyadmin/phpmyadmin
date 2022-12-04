@@ -48,7 +48,7 @@ AJAX.registerOnload('database/search.js', function () {
      * Prepare a div containing a link for toggle the search results
      */
     $('#togglesearchresultsdiv')
-    /** don't show it until we have results on-screen */
+        /** don't show it until we have results on-screen */
         .hide();
 
     /**
@@ -126,14 +126,14 @@ AJAX.registerOnload('database/search.js', function () {
         /**  Load the browse results to the page */
         $('#table-info').show();
         var tableName = $(this).data('table-name');
-        $('#table-link').attr({ 'href' : $(this).attr('href') }).text(tableName);
+        $('#table-link').attr({ 'href': $(this).attr('href') }).text(tableName);
 
         var url = $(this).attr('href') + '#searchresults';
         var browseSql = $(this).data('browse-sql');
         var params = {
             'ajax_request': true,
             'is_js_confirmed': true,
-            'sql_query' : browseSql
+            'sql_query': browseSql
         };
         $.post(url, params, function (data) {
             if (typeof data !== 'undefined' && data.success) {
@@ -180,7 +180,7 @@ AJAX.registerOnload('database/search.js', function () {
             var url = $(this).attr('href');
 
             $.post(url, params, function (data) {
-                if (typeof data === 'undefined' || !data.success) {
+                if (typeof data === 'undefined' || ! data.success) {
                     Functions.ajaxShowMessage(data.error, false);
                     return;
                 }
@@ -224,10 +224,10 @@ AJAX.registerOnload('database/search.js', function () {
                 $('#searchresults').html(data.message);
 
                 $('#togglesearchresultlink')
-                // always start with the Show message
+                    // always start with the Show message
                     .text(window.Messages.strHideSearchResults);
                 $('#togglesearchresultsdiv')
-                // now it's time to show the div containing the link
+                    // now it's time to show the div containing the link
                     .show();
                 $('#searchresults').show();
 

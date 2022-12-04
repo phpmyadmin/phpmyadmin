@@ -147,11 +147,12 @@ function goToStep4 () {
             $('#mainContent #newCols').html('');
             $('.tblFooters').html('');
             for (var pk in primaryKey) {
-                $('#extra input[value=\'' + Functions.escapeJsString(primaryKey[pk]) + '\']').attr('disabled','disabled');
+                $('#extra input[value=\'' + Functions.escapeJsString(primaryKey[pk]) + '\']').attr('disabled', 'disabled');
             }
         }
     );
 }
+
 window.goToStep4 = goToStep4;
 
 function goToStep3 () {
@@ -171,7 +172,7 @@ function goToStep3 () {
             $('.tblFooters').html('');
             primaryKey = JSON.parse(data.primary_key);
             for (var pk in primaryKey) {
-                $('#extra input[value=\'' + Functions.escapeJsString(primaryKey[pk]) + '\']').attr('disabled','disabled');
+                $('#extra input[value=\'' + Functions.escapeJsString(primaryKey[pk]) + '\']').attr('disabled', 'disabled');
             }
         }
     );
@@ -228,7 +229,7 @@ function goTo2NFFinish (pd) {
         type: 'POST',
         url: 'index.php?route=/normalization/2nf/create-new-tables',
         data: datastring,
-        async:false,
+        async: false,
         success: function (data) {
             if (data.success === true) {
                 if (data.queryError === false) {
@@ -273,7 +274,7 @@ function goTo3NFFinish (newTables) {
         type: 'POST',
         url: 'index.php?route=/normalization/3nf/create-new-tables',
         data: datastring,
-        async:false,
+        async: false,
         success: function (data) {
             if (data.success === true) {
                 if (data.queryError === false) {
@@ -308,7 +309,7 @@ function goTo2NFStep2 (pd, primaryKey) {
             extra += '<p class="d-block m-1">' + Functions.escapeHtml(dependson) + ' -> ' + Functions.escapeHtml(pd[dependson].toString()) + '</p>';
         }
     }
-    if (!pdFound) {
+    if (! pdFound) {
         extra += '<p class="d-block m-1">' + window.Messages.strNoPdSelected + '</p>';
         extra += '</div>';
     } else {
@@ -324,7 +325,7 @@ function goTo2NFStep2 (pd, primaryKey) {
             type: 'POST',
             url: 'index.php?route=/normalization/2nf/new-tables',
             data: datastring,
-            async:false,
+            async: false,
             success: function (data) {
                 if (data.success === true) {
                     extra += data.message;
@@ -357,7 +358,7 @@ function goTo3NFStep2 (pd, tablesTds) {
             }
         }
     }
-    if (!pdFound) {
+    if (! pdFound) {
         extra += '<p class="d-block m-1">' + window.Messages.strNoTdSelected + '</p>';
         extra += '</div>';
     } else {
@@ -373,7 +374,7 @@ function goTo3NFStep2 (pd, tablesTds) {
             type: 'POST',
             url: 'index.php?route=/normalization/3nf/new-tables',
             data: datastring,
-            async:false,
+            async: false,
             success: function (data) {
                 dataParsed = data;
                 if (data.success === true) {
@@ -387,13 +388,14 @@ function goTo3NFStep2 (pd, tablesTds) {
     $('#mainContent #extra').html(extra);
     $('.tblFooters').html('<input type="button" class="btn btn-primary" value="' + window.Messages.strBack + '" id="backEditPd"><input type="button" class="btn btn-primary" id="goTo3NFFinish" value="' + window.Messages.strGo + '">');
     $('#goTo3NFFinish').on('click', function () {
-        if (!pdFound) {
+        if (! pdFound) {
             goTo3NFFinish([]);
         } else {
             goTo3NFFinish(dataParsed.newTables);
         }
     });
 }
+
 function processDependencies (primaryKey, isTransitive) {
     var pk = primaryKey;
     var pd = {};
@@ -405,7 +407,7 @@ function processDependencies (primaryKey, isTransitive) {
         if (isTransitive === true) {
             tblname = $(this).data('tablename');
             pk = tblname;
-            if (!(tblname in tablesTds)) {
+            if (! (tblname in tablesTds)) {
                 tablesTds[tblname] = [];
             }
             tablesTds[tblname].push(pk);
@@ -415,7 +417,7 @@ function processDependencies (primaryKey, isTransitive) {
         dependsOn = '';
         $('#' + formId + ' input[type=checkbox]:checked').each(function () {
             dependsOn += $(this).val() + ', ';
-            $(this).attr('checked','checked');
+            $(this).attr('checked', 'checked');
         });
         if (dependsOn === '') {
             dependsOn = pk;
@@ -427,7 +429,7 @@ function processDependencies (primaryKey, isTransitive) {
         }
         pd[dependsOn].push($(this).data('colname'));
         if (isTransitive === true) {
-            if (!(tblname in tablesTds)) {
+            if (! (tblname in tablesTds)) {
                 tablesTds[tblname] = [];
             }
             if ($.inArray(dependsOn, tablesTds[tblname]) === -1) {
@@ -447,11 +449,11 @@ function processDependencies (primaryKey, isTransitive) {
 function moveRepeatingGroup (repeatingCols) {
     var newTable = $('input[name=repeatGroupTable]').val();
     var newColumn = $('input[name=repeatGroupColumn]').val();
-    if (!newTable) {
+    if (! newTable) {
         $('input[name=repeatGroupTable]').trigger('focus');
         return false;
     }
-    if (!newColumn) {
+    if (! newColumn) {
         $('input[name=repeatGroupColumn]').trigger('focus');
         return false;
     }
@@ -461,15 +463,15 @@ function moveRepeatingGroup (repeatingCols) {
         'table': CommonParams.get('table'),
         'server': CommonParams.get('server'),
         'repeatingColumns': repeatingCols,
-        'newTable':newTable,
-        'newColumn':newColumn,
-        'primary_columns':primaryKey.toString()
+        'newTable': newTable,
+        'newColumn': newColumn,
+        'primary_columns': primaryKey.toString()
     };
     $.ajax({
         type: 'POST',
         url: 'index.php?route=/normalization/move-repeating-group',
         data: datastring,
-        async:false,
+        async: false,
         success: function (data) {
             if (data.success === true) {
                 if (data.queryError === false) {
@@ -483,6 +485,7 @@ function moveRepeatingGroup (repeatingCols) {
         }
     });
 }
+
 AJAX.registerTeardown('normalization.js', function () {
     $('#extra').off('click', '#selectNonAtomicCol');
     $('#splitGo').off('click');
@@ -508,7 +511,7 @@ AJAX.registerOnload('normalization.js', function () {
     });
 
     $('#splitGo').on('click', function () {
-        if (!selectedCol || selectedCol === '') {
+        if (! selectedCol || selectedCol === '') {
             return false;
         }
         var numField = $('#numField').val();
@@ -553,7 +556,7 @@ AJAX.registerOnload('normalization.js', function () {
         );
         return false;
     });
-    $('.tblFooters').on('click','#saveSplit', function () {
+    $('.tblFooters').on('click', '#saveSplit', function () {
         window.centralColumnList = [];
         if ($('#newCols #field_0_1').val() === '') {
             $('#newCols #field_0_1').trigger('focus');
@@ -572,7 +575,7 @@ AJAX.registerOnload('normalization.js', function () {
                         'table': CommonParams.get('table'),
                         'server': CommonParams.get('server'),
                         'dropped_column': selectedCol,
-                        'purge' : 1,
+                        'purge': 1,
                         'sql_query': 'ALTER TABLE `' + CommonParams.get('table') + '` DROP `' + selectedCol + '`;',
                         'is_js_confirmed': 1
                     },
@@ -721,12 +724,12 @@ AJAX.registerOnload('normalization.js', function () {
         event.preventDefault();
         var url = {
             'create_index': 1,
-            'server':  CommonParams.get('server'),
+            'server': CommonParams.get('server'),
             'db': CommonParams.get('db'),
             'table': CommonParams.get('table'),
             'added_fields': 1,
-            'add_fields':1,
-            'index': { 'Key_name':'PRIMARY' },
+            'add_fields': 1,
+            'index': { 'Key_name': 'PRIMARY' },
             'ajax_request': true
         };
         var title = window.Messages.strAddPrimaryKey;

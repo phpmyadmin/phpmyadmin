@@ -141,10 +141,10 @@ const AddUserLoginCheckUsername = {
         if ($('#select_pred_username').val() === 'userdefined' && username !== '') {
             var href = $('form[name=\'usersForm\']').attr('action');
             var params = {
-                'ajax_request' : true,
-                'server' : CommonParams.get('server'),
-                'validate_username' : true,
-                'username' : username
+                'ajax_request': true,
+                'server': CommonParams.get('server'),
+                'validate_username': true,
+                'username': username
             };
             $.get(href, params, function (data) {
                 if (data.user_exists) {

@@ -167,9 +167,9 @@ DesignerHistory.historyDelete = function (index) {
  */
 DesignerHistory.changeStyle = function (elementId) {
     var element = document.getElementById(elementId);
-    element.style.left =  '530px';
-    element.style.top  = '130px';
-    element.style.position  = 'absolute';
+    element.style.left = '530px';
+    element.style.top = '130px';
+    element.style.position = 'absolute';
     element.style.zIndex = '103';
     element.style.visibility = 'visible';
     element.style.display = 'block';
@@ -618,11 +618,11 @@ DesignerHistory.checkRename = function (idThis) {
 };
 
 /**
-  * This function builds from clause of query
-  * makes automatic joins.
-  *
-  * @return {string}
-  */
+ * This function builds from clause of query
+ * makes automatic joins.
+ *
+ * @return {string}
+ */
 DesignerHistory.queryFrom = function () {
     var i;
     var tabLeft = [];
@@ -832,5 +832,5 @@ AJAX.registerOnload('designer/history.js', function () {
     $('#ok_edit_where').on('click', function () {
         DesignerHistory.edit('Where');
     });
-    $('#ab').accordion({ collapsible : true, active : 'none' });
+    $('#ab').accordion({ collapsible: true, active: 'none' });
 });

@@ -31,7 +31,7 @@ var map;
  */
 function zoomAndPan () {
     var g = gisSvg.getElementById('groupPanel');
-    if (!g) {
+    if (! g) {
         return;
     }
 
@@ -41,6 +41,7 @@ function zoomAndPan () {
     $('polyline.vector', gisSvg).attr('stroke-width', 2 / scale);
     $('path.vector', gisSvg).attr('stroke-width', 0.5 / scale);
 }
+
 window.zoomAndPan = zoomAndPan;
 
 /**
@@ -53,6 +54,7 @@ function selectVisualization () {
         $('#placeholder').hide();
     }
 }
+
 window.selectVisualization = selectVisualization;
 
 /**
@@ -61,13 +63,14 @@ window.selectVisualization = selectVisualization;
 function styleOSM () {
     var $placeholder = $('#placeholder');
     var cssObj = {
-        'border' : '1px solid #aaa',
-        'width' : $placeholder.width(),
-        'height' : $placeholder.height(),
-        'float' : 'right'
+        'border': '1px solid #aaa',
+        'width': $placeholder.width(),
+        'height': $placeholder.height(),
+        'float': 'right'
     };
     $('#openlayersmap').css(cssObj);
 }
+
 window.styleOSM = styleOSM;
 
 /**
@@ -76,13 +79,14 @@ window.styleOSM = styleOSM;
 function storeGisSvgRef () {
     gisSvg = $('#placeholder').find('svg').get(0);
 }
+
 window.storeGisSvgRef = storeGisSvgRef;
 
 /**
  * Adds controls for zooming and panning.
  */
 function addZoomPanControllers () {
-    if (!gisSvg) {
+    if (! gisSvg) {
         return;
     }
     var themeImagePath = $('#themeImagePath').val();
@@ -98,6 +102,7 @@ function addZoomPanControllers () {
         '<img class="button" id="zoom_out" src="' + themeImagePath + 'zoom-minus-mini.png">'
     );
 }
+
 window.addZoomPanControllers = addZoomPanControllers;
 
 /**
@@ -151,8 +156,8 @@ function drawOpenLayerMap () {
 function getRelativeCoords (e) {
     var position = $('#placeholder').offset();
     return {
-        x : e.pageX - position.left,
-        y : e.pageY - position.top
+        x: e.pageX - position.left,
+        y: e.pageY - position.top
     };
 }
 
@@ -257,10 +262,10 @@ AJAX.registerOnload('table/gis_visualization.js', function () {
 
     $(document).on('drag', 'svg', function (event, dd) {
         var newX = Math.round(dd.offset.left);
-        x +=  newX - dragX;
+        x += newX - dragX;
         dragX = newX;
         var newY = Math.round(dd.offset.top);
-        y +=  newY - dragY;
+        y += newY - dragY;
         dragY = newY;
         zoomAndPan();
     });
@@ -343,13 +348,13 @@ AJAX.registerOnload('table/gis_visualization.js', function () {
         $('#tooltip').remove();
         if (contents !== '') {
             $('<div id="tooltip">' + contents + '</div>').css({
-                position : 'absolute',
-                top : event.pageY + 10,
-                left : event.pageX + 10,
-                border : '1px solid #fdd',
-                padding : '2px',
-                'background-color' : '#fee',
-                opacity : 0.90
+                position: 'absolute',
+                top: event.pageY + 10,
+                left: event.pageX + 10,
+                border: '1px solid #fdd',
+                padding: '2px',
+                'background-color': '#fee',
+                opacity: 0.90
             }).appendTo('body').fadeIn(200);
         }
     });

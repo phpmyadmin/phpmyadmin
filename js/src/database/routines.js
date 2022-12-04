@@ -702,7 +702,7 @@ const DatabaseRoutines = {
          *             to an element to be displayed when no
          *             "length/values" field is available
          */
-        var $noLen  = $len.parent().parent().find('.no_len');
+        var $noLen = $len.parent().parent().find('.no_len');
 
         // Process for parameter options
         switch ($type.val()) {

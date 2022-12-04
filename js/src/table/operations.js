@@ -203,6 +203,7 @@ AJAX.registerOnload('table/operations.js', function () {
             function scrollToTop () {
                 $('html, body').animate({ scrollTop: 0 });
             }
+
             var $tempDiv;
             if (typeof data !== 'undefined' && data.success === true && data.sql_query !== undefined) {
                 Functions.ajaxShowMessage(data.message);

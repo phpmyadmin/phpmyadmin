@@ -178,7 +178,7 @@ AJAX.registerOnload('server/status/processes.js', function () {
     // Bind event handler for toggling refresh of process list
     $('a#toggleRefresh').on('click', function (event) {
         event.preventDefault();
-        processList.autoRefresh = !processList.autoRefresh;
+        processList.autoRefresh = ! processList.autoRefresh;
         processList.setRefreshLabel();
     });
     // Bind event handler for change in refresh rate

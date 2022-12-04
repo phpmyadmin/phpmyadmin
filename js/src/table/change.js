@@ -24,16 +24,16 @@ import { Functions } from '../modules/functions.js';
 function nullify (theType, urlField, md5Field, multiEdit) {
     var rowForm = document.forms.insertForm;
 
-    if (typeof(rowForm.elements['funcs' + multiEdit + '[' + md5Field + ']']) !== 'undefined') {
+    if (typeof (rowForm.elements['funcs' + multiEdit + '[' + md5Field + ']']) !== 'undefined') {
         rowForm.elements['funcs' + multiEdit + '[' + md5Field + ']'].selectedIndex = -1;
     }
 
     // "ENUM" field with more than 20 characters
     if (Number(theType) === 1) {
-        rowForm.elements['fields' + multiEdit + '[' + md5Field +  ']'][1].selectedIndex = -1;
-    // Other "ENUM" field
+        rowForm.elements['fields' + multiEdit + '[' + md5Field + ']'][1].selectedIndex = -1;
+        // Other "ENUM" field
     } else if (Number(theType) === 2) {
-        var elts     = rowForm.elements['fields' + multiEdit + '[' + md5Field + ']'];
+        var elts = rowForm.elements['fields' + multiEdit + '[' + md5Field + ']'];
         // when there is just one option in ENUM:
         if (elts.checked) {
             elts.checked = false;
@@ -43,16 +43,16 @@ function nullify (theType, urlField, md5Field, multiEdit) {
                 elts[i].checked = false;
             } // end for
         } // end if
-    // "SET" field
+        // "SET" field
     } else if (Number(theType) === 3) {
-        rowForm.elements['fields' + multiEdit + '[' + md5Field +  '][]'].selectedIndex = -1;
-    // Foreign key field (drop-down)
+        rowForm.elements['fields' + multiEdit + '[' + md5Field + '][]'].selectedIndex = -1;
+        // Foreign key field (drop-down)
     } else if (Number(theType) === 4) {
-        rowForm.elements['fields' + multiEdit + '[' + md5Field +  ']'].selectedIndex = -1;
-    // foreign key field (with browsing icon for foreign values)
+        rowForm.elements['fields' + multiEdit + '[' + md5Field + ']'].selectedIndex = -1;
+        // foreign key field (with browsing icon for foreign values)
     } else if (Number(theType) === 6) {
         rowForm.elements['fields' + multiEdit + '[' + md5Field + ']'].value = '';
-    // Other field types
+        // Other field types
     } else /* if (theType === 5)*/ {
         rowForm.elements['fields' + multiEdit + '[' + md5Field + ']'].value = '';
     } // end if... else if... else
@@ -69,6 +69,7 @@ function nullify (theType, urlField, md5Field, multiEdit) {
 function daysInFebruary (year) {
     return (((year % 4 === 0) && (((year % 100 !== 0)) || (year % 400 === 0))) ? 29 : 28);
 }
+
 // function to convert single digit to double digit
 function fractionReplace (number) {
     var num = parseInt(number, 10);
@@ -208,6 +209,7 @@ function verifyAfterSearchFieldChange (index, searchFormId) {
         $thisInput.valid();
     }
 }
+
 window.verifyAfterSearchFieldChange = verifyAfterSearchFieldChange;
 
 /**
@@ -314,12 +316,12 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
 
     // If encrypting or decrypting functions that take salt as input is selected append the new textbox for salt
     if (target.value === 'AES_ENCRYPT' ||
-            target.value === 'AES_DECRYPT' ||
-            target.value === 'DES_ENCRYPT' ||
-            target.value === 'DES_DECRYPT' ||
-            target.value === 'ENCRYPT' ||
-            target.value === 'SHA2') {
-        if (!($('#salt_' + target.id).length)) {
+        target.value === 'AES_DECRYPT' ||
+        target.value === 'DES_ENCRYPT' ||
+        target.value === 'DES_DECRYPT' ||
+        target.value === 'ENCRYPT' ||
+        target.value === 'SHA2') {
+        if (! ($('#salt_' + target.id).length)) {
             $thisInput.after(newSaltBox);
         }
     } else {
@@ -356,8 +358,8 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
 
     if (target.value === 'HEX' && theType.startsWith('int')) {
         // Add note when HEX function is selected on a int
-        var newHexInfo = '<br><p id="note' +  target.id + '">' + window.Messages.HexConversionInfo + '</p>';
-        if (!$('#note' + target.id).length) {
+        var newHexInfo = '<br><p id="note' + target.id + '">' + window.Messages.HexConversionInfo + '</p>';
+        if (! $('#note' + target.id).length) {
             $thisInput.after(newHexInfo);
         }
     } else {
@@ -441,6 +443,7 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
         $thisInput.data('rulesadded', null);
     }
 }
+
 window.verificationsAfterFieldChange = verificationsAfterFieldChange;
 /* End of fields validation*/
 
@@ -472,7 +475,7 @@ AJAX.registerOnload('table/change.js', function () {
         });
 
         $.validator.addMethod('validationFunctionForMd5', function (value, element, options) {
-            return !(value.startsWith('MD5') &&
+            return ! (value.startsWith('MD5') &&
                 typeof options.data('maxlength') !== 'undefined' &&
                 options.data('maxlength') < 32);
         });
@@ -554,7 +557,7 @@ AJAX.registerOnload('table/change.js', function () {
     /**
      * Forced validation check of fields
      */
-    $(document).on('click','input[name^=\'insert_ignore_\']', function () {
+    $(document).on('click', 'input[name^=\'insert_ignore_\']', function () {
         $('#insertForm').valid();
     });
 
@@ -692,7 +695,7 @@ function addNewContinueInsertionFields (event) {
                 $thisElement.attr('id', newId);
                 $thisElement.find('option').filter(function () {
                     return $(this).text() === prevSelectedValue;
-                }).attr('selected','selected');
+                }).attr('selected', 'selected');
 
                 // If salt field is there then update its id.
                 var nextSaltInput = $thisElement.parent().next('td').next('td').find('input[name*=\'salt\']');
@@ -729,8 +732,8 @@ function addNewContinueInsertionFields (event) {
 
             if ($thisElement.is('.checkbox_null')) {
                 $thisElement
-                // this event was bound earlier by jQuery but
-                // to the original row, not the cloned one, so unbind()
+                    // this event was bound earlier by jQuery but
+                    // to the original row, not the cloned one, so unbind()
                     .off('click')
                     // Keep these values to be used when the element
                     // will be clicked
@@ -908,4 +911,5 @@ function changeValueFieldType (elem, searchIndex) {
         $('#fieldID_' + searchIndex).prop('multiple', false);
     }
 }
+
 window.changeValueFieldType = changeValueFieldType;

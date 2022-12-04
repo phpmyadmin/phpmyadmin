@@ -2588,7 +2588,8 @@ Functions.autoPopulate = function (inputId, offset) {
         }
         $input4.val(colDefault);
         $input4.siblings('.default_value').hide();
-    } if (colDefault === '') {
+    }
+    if (colDefault === '') {
         $input4.val('NONE');
         $input4.siblings('.default_value').hide();
     } else {

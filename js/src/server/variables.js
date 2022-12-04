@@ -91,7 +91,7 @@ AJAX.registerOnload('server/variables.js', function () {
                             $('<input>', { type: 'text', 'class': 'form-control form-control-sm' }).val(data.message)
                         )
                     );
-                    // Save and replace content
+                // Save and replace content
                 $cell
                     .html($links)
                     .children()

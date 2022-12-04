@@ -136,7 +136,7 @@ $.extend(true, window.validators, {
          * @return {true}
          */
         hide_db: function (isKeyUp) { // eslint-disable-line camelcase
-            if (!isKeyUp && this.value !== '') {
+            if (! isKeyUp && this.value !== '') {
                 var data = {};
                 data[this.id] = this.value;
                 ajaxValidate(this, 'Servers/1/hide_db', data);
@@ -151,7 +151,7 @@ $.extend(true, window.validators, {
          * @return {true}
          */
         TrustedProxies: function (isKeyUp) {
-            if (!isKeyUp && this.value !== '') {
+            if (! isKeyUp && this.value !== '') {
                 var data = {};
                 data[this.id] = this.value;
                 ajaxValidate(this, 'TrustedProxies', data);
@@ -169,7 +169,7 @@ $.extend(true, window.validators, {
          * @return {true}
          */
         Server: function (isKeyUp) {
-            if (!isKeyUp) {
+            if (! isKeyUp) {
                 ajaxValidate(this, 'Server', Config.getAllValues());
             }
             return true;
@@ -223,7 +223,7 @@ $(function () {
         if (el.prop('disabled')) {
             return;
         }
-        el.prop('checked', !el.prop('checked'));
+        el.prop('checked', ! el.prop('checked'));
     });
 });
 

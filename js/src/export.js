@@ -352,7 +352,7 @@ Export.setupTableStructureOrData = function () {
     }
     var pluginName = $('#plugins').find('option:selected').val();
     var formElemName = pluginName + '_structure_or_data';
-    var forceStructureOrData = !($('input[name=\'' + formElemName + '_default\']').length);
+    var forceStructureOrData = ! ($('input[name=\'' + formElemName + '_default\']').length);
 
     if (forceStructureOrData === true) {
         $('input[name="structure_or_data_forced"]').val(1);
@@ -375,7 +375,7 @@ Export.setupTableStructureOrData = function () {
                 .prop('checked', false);
         }
         if (structureOrData === 'structure' || structureOrData === 'structure_and_data') {
-            if (!$('.export_structure input[type="checkbox"]:checked').length) {
+            if (! $('.export_structure input[type="checkbox"]:checked').length) {
                 $('input[name="table_select[]"]:checked')
                     .closest('tr')
                     .find('.export_structure input[type="checkbox"]')
@@ -383,7 +383,7 @@ Export.setupTableStructureOrData = function () {
             }
         }
         if (structureOrData === 'data' || structureOrData === 'structure_and_data') {
-            if (!$('.export_data input[type="checkbox"]:checked').length) {
+            if (! $('.export_data input[type="checkbox"]:checked').length) {
                 $('input[name="table_select[]"]:checked')
                     .closest('tr')
                     .find('.export_data input[type="checkbox"]')
@@ -427,7 +427,7 @@ Export.toggleStructureDataOpts = function () {
  */
 Export.toggleSaveToFile = function () {
     var $ulSaveAsfile = $('#ul_save_asfile');
-    if (!$('#radio_dump_asfile').prop('checked')) {
+    if (! $('#radio_dump_asfile').prop('checked')) {
         $ulSaveAsfile.find('> li').fadeTo('fast', 0.4);
         $ulSaveAsfile.find('> li > input').prop('disabled', true);
         $ulSaveAsfile.find('> li > select').prop('disabled', true);
@@ -449,7 +449,7 @@ AJAX.registerOnload('export.js', function () {
 Export.toggleSqlIncludeComments = function () {
     $('#checkbox_sql_include_comments').on('change', function () {
         var $ulIncludeComments = $('#ul_include_comments');
-        if (!$('#checkbox_sql_include_comments').prop('checked')) {
+        if (! $('#checkbox_sql_include_comments').prop('checked')) {
             $ulIncludeComments.find('> li').fadeTo('fast', 0.4);
             $ulIncludeComments.find('> li > input').prop('disabled', true);
         } else {
@@ -662,7 +662,7 @@ AJAX.registerOnload('export.js', function () {
             var name = $this.prop('name');
             var val = $('input[name="' + name + '"]:checked').val();
             var nameDefault = name + '_default';
-            if (!$('input[name="' + nameDefault + '"]').length) {
+            if (! $('input[name="' + nameDefault + '"]').length) {
                 $this
                     .after(
                         $('<input type="hidden" name="' + nameDefault + '" value="' + val + '" disabled>')
@@ -825,7 +825,7 @@ Export.createAliasModal = function (event) {
             }
         });
         // Toggle checkbox based on aliases
-        $('input#btn_alias_config').prop('checked', !isEmpty);
+        $('input#btn_alias_config').prop('checked', ! isEmpty);
     });
     $('#saveAndCloseBtn').on('click', function () {
         $('#alias_modal').parent().appendTo($('form[name="dump"]'));

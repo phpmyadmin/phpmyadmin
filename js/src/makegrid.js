@@ -70,7 +70,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
         saveCellsAtOnce: false,     // $cfg[saveCellsAtOnce]
         isCellEdited: false,        // true if at least one cell has been edited
         saveCellWarning: '',        // string, warning text when user want to leave a page with unsaved edited data
-        lastXHR : null,             // last XHR object used in AJAX request
+        lastXHR: null,             // last XHR object used in AJAX request
         isSaving: false,            // true when currently saving edited data, used to handle double posting caused by pressing ENTER in grid edit text box in Chrome browser
         alertNonUnique: '',         // string, alert shown when saving edited nonunique table
 
@@ -447,7 +447,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
          */
         updateHint: function () {
             var text = '';
-            if (!g.colRsz && !g.colReorder) {     // if not resizing or dragging
+            if (! g.colRsz && ! g.colReorder) {     // if not resizing or dragging
                 if (g.visibleHeadersCount > 1) {
                     g.showReorderHint = true;
                 }
@@ -551,7 +551,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
          */
         showColList: function (obj) {
             // only show when not resizing or reordering
-            if (!g.colRsz && !g.colReorder) {
+            if (! g.colRsz && ! g.colReorder) {
                 var pos = $(obj).position();
                 $(g.cList).css({
                     top: pos.top + $(obj).outerHeight(true)
@@ -589,7 +589,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
          */
         showAllColumns: function () {
             for (var i = 0; i < g.colVisib.length; i++) {
-                if (!g.colVisib[i]) {
+                if (! g.colVisib[i]) {
                     g.toggleCol(i);
                 }
             }
@@ -609,8 +609,8 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
             }
 
             if ($(cell).is('.grid_edit') &&
-                !g.colRsz && !g.colReorder) {
-                if (!g.isCellEditActive) {
+                ! g.colRsz && ! g.colReorder) {
+                if (! g.isCellEditActive) {
                     var $cell = $(cell);
 
                     if ('string' === $cell.attr('data-type') ||
@@ -674,7 +674,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
          *                and a <td> to which the grid_edit should move
          */
         hideEditCell: function (force, data, field, options) {
-            if (g.isCellEditActive && !force) {
+            if (g.isCellEditActive && ! force) {
                 // cell is being edited, save or post the edited data
                 if (options !== undefined) {
                     g.saveOrPostEditedCell(options);
@@ -734,7 +734,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
 
                         // Updates the code keeping highlighting (if any).
                         var $target = $thisField.find(selector);
-                        if (!Functions.updateCode($target, newHtml, value)) {
+                        if (! Functions.updateCode($target, newHtml, value)) {
                             $target.html(newHtml);
                         }
                     }
@@ -782,7 +782,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
          * Show drop-down edit area when edit cell is focused.
          */
         showEditArea: function () {
-            if (!g.isCellEditActive) {   // make sure the edit area has not been shown
+            if (! g.isCellEditActive) {   // make sure the edit area has not been shown
                 g.isCellEditActive = true;
                 g.isEditCellTextEditable = false;
                 /**
@@ -898,7 +898,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                 }
 
                 // reset the position of the edit_area div after closing datetime picker
-                $(g.cEdit).find('.edit_area').css({ 'top' :'0','position':'' });
+                $(g.cEdit).find('.edit_area').css({ 'top': '0', 'position': '' });
 
                 var postParams;
                 if ($td.is('.relation')) {
@@ -912,13 +912,13 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                      * @var postParams Object containing parameters for the POST request
                      */
                     postParams = {
-                        'ajax_request' : true,
-                        'server' : g.server,
-                        'db' : g.db,
-                        'table' : g.table,
-                        'column' : fieldName,
-                        'curr_value' : relationCurrValue,
-                        'relation_key_or_display_column' : relationKeyOrDisplayColumn
+                        'ajax_request': true,
+                        'server': g.server,
+                        'db': g.db,
+                        'table': g.table,
+                        'column': fieldName,
+                        'curr_value': relationCurrValue,
+                        'relation_key_or_display_column': relationKeyOrDisplayColumn
                     };
 
                     g.lastXHR = $.post('index.php?route=/sql/get-relational-values', postParams, function (data) {
@@ -957,12 +957,12 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                      * @var postParams Object containing parameters for the POST request
                      */
                     postParams = {
-                        'ajax_request' : true,
-                        'server' : g.server,
-                        'db' : g.db,
-                        'table' : g.table,
-                        'column' : fieldName,
-                        'curr_value' : currValue
+                        'ajax_request': true,
+                        'server': g.server,
+                        'db': g.db,
+                        'table': g.table,
+                        'column': fieldName,
+                        'curr_value': currValue
                     };
                     g.lastXHR = $.post('index.php?route=/sql/get-enum-values', postParams, function (data) {
                         g.lastXHR = null;
@@ -1050,11 +1050,11 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
 
                         // Make the Ajax call and get the data, wrap it and insert it
                         g.lastXHR = $.post('index.php?route=/sql', {
-                            'server' : g.server,
-                            'db' : g.db,
-                            'ajax_request' : true,
-                            'sql_query' : sqlQuery,
-                            'grid_edit' : true
+                            'server': g.server,
+                            'db': g.db,
+                            'ajax_request': true,
+                            'sql_query': sqlQuery,
+                            'grid_edit': true
                         }, function (data) {
                             g.lastXHR = null;
                             $editArea.removeClass('edit_area_loading');
@@ -1078,7 +1078,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                     var $inputField = $(g.cEdit).find('.edit_box');
 
                     // remember current datetime value in $input_field, if it is not null
-                    var datetimeValue = !isNull ? $inputField.val() : '';
+                    var datetimeValue = ! isNull ? $inputField.val() : '';
 
                     var showMillisec = false;
                     var showMicrosec = false;
@@ -1218,7 +1218,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
             var multiEditFieldsNull = [];
 
             // alert user if edited table is not unique
-            if (!isUnique) {
+            if (! isUnique) {
                 alert(g.alertNonUnique);
             }
 
@@ -1260,7 +1260,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                     var thisFieldParams = {};
 
                     if ($thisField.is('.transformed')) {
-                        transformationFields =  true;
+                        transformationFields = true;
                     }
                     thisFieldParams[fieldName] = $thisField.data('value');
 
@@ -1329,26 +1329,27 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
             /**
              * @var postParams Object containing parameters for the POST request
              */
-            var postParams = { 'ajax_request' : true,
-                'sql_query' : fullSqlQuery,
-                'server' : g.server,
-                'db' : g.db,
-                'table' : g.table,
-                'clause_is_unique' : isUnique,
-                'where_clause' : fullWhereClause,
-                'fields[multi_edit]' : multiEditFields,
-                'fields_name[multi_edit]' : multiEditFieldsName,
-                'fields_type[multi_edit]' : multiEditFieldsType,
-                'fields_null[multi_edit]' : multiEditFieldsNull,
-                'rel_fields_list' : relFieldsList,
-                'do_transformations' : transformationFields,
-                'transform_fields_list' : transformFieldsList,
-                'relational_display' : relationalDisplay,
-                'goto' : encodeURIComponent('index.php?route=/sql'),
-                'submit_type' : 'save'
+            var postParams = {
+                'ajax_request': true,
+                'sql_query': fullSqlQuery,
+                'server': g.server,
+                'db': g.db,
+                'table': g.table,
+                'clause_is_unique': isUnique,
+                'where_clause': fullWhereClause,
+                'fields[multi_edit]': multiEditFields,
+                'fields_name[multi_edit]': multiEditFieldsName,
+                'fields_type[multi_edit]': multiEditFieldsType,
+                'fields_null[multi_edit]': multiEditFieldsNull,
+                'rel_fields_list': relFieldsList,
+                'do_transformations': transformationFields,
+                'transform_fields_list': transformFieldsList,
+                'relational_display': relationalDisplay,
+                'goto': encodeURIComponent('index.php?route=/sql'),
+                'submit_type': 'save'
             };
 
-            if (!g.saveCellsAtOnce) {
+            if (! g.saveCellsAtOnce) {
                 $(g.cEdit).find('*').prop('disabled', true);
                 $(g.cEdit).find('.edit_box').addClass('edit_box_posting');
             } else {
@@ -1363,7 +1364,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                 success:
                     function (data) {
                         g.isSaving = false;
-                        if (!g.saveCellsAtOnce) {
+                        if (! g.saveCellsAtOnce) {
                             $(g.cEdit).find('*').prop('disabled', false);
                             $(g.cEdit).find('.edit_box').removeClass('edit_box_posting');
                         } else {
@@ -1393,7 +1394,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                                             .off('click')
                                             .on('click', function () {
                                                 return Functions.confirmLink(this, 'DELETE FROM `' + g.db + '`.`' + g.table + '` WHERE ' +
-                                                       decodedNewClause + (isUnique ? '' : ' LIMIT 1'));
+                                                    decodedNewClause + (isUnique ? '' : ' LIMIT 1'));
                                             });
                                     }
                                 });
@@ -1442,7 +1443,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                             g.isCellEdited = false;
                         } else {
                             Functions.ajaxShowMessage(data.error, false);
-                            if (!g.saveCellsAtOnce) {
+                            if (! g.saveCellsAtOnce) {
                                 $(g.t).find('.to_be_saved')
                                     .removeClass('to_be_saved');
                             }
@@ -1489,7 +1490,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                 // the edit area is still loading (retrieving cell data), no need to post
                 needToPost = false;
             } else if (isNull) {
-                if (!g.wasEditedCellNull) {
+                if (! g.wasEditedCellNull) {
                     thisFieldParams[fieldName] = null;
                     needToPost = true;
                 }
@@ -1543,7 +1544,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
         saveOrPostEditedCell: function (options) {
             var saved = g.saveEditedCell();
             // Check if $cfg['SaveCellsAtOnce'] is false
-            if (!g.saveCellsAtOnce) {
+            if (! g.saveCellsAtOnce) {
                 // Check if need_to_post is true
                 if (saved) {
                     // Check if this function called from 'move' functions
@@ -1552,18 +1553,18 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                     } else {
                         g.postEditedCell();
                     }
-                // need_to_post is false
+                    // need_to_post is false
                 } else {
                     // Check if this function called from 'move' functions
                     if (options !== undefined && options.move) {
                         g.hideEditCell(true);
                         g.showEditCell(options.cell);
-                    // NOT called from 'move' functions
+                        // NOT called from 'move' functions
                     } else {
                         g.hideEditCell(true);
                     }
                 }
-            // $cfg['SaveCellsAtOnce'] is true
+                // $cfg['SaveCellsAtOnce'] is true
             } else {
                 // If need_to_post
                 if (saved) {
@@ -1571,7 +1572,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                     if (options !== undefined && options.move) {
                         g.hideEditCell(true, true, false, options);
                         g.showEditCell(options.cell);
-                    // NOT called from 'move' functions
+                        // NOT called from 'move' functions
                     } else {
                         g.hideEditCell(true, true);
                     }
@@ -1580,7 +1581,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                     if (options !== undefined && options.move) {
                         g.hideEditCell(true, false, false, options);
                         g.showEditCell(options.cell);
-                    // NOT called from 'move' functions
+                        // NOT called from 'move' functions
                     } else {
                         g.hideEditCell(true);
                     }
@@ -1829,7 +1830,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                 if ($(this).find('.where_clause').val() === whereClause) {
                     found = true;
                 }
-                if (!found) {
+                if (! found) {
                     $prevRow = $(this);
                 }
             });
@@ -1845,7 +1846,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
             }
 
             if (newCell) {
-                g.hideEditCell(false, false, false, { move : true, cell : newCell });
+                g.hideEditCell(false, false, false, { move: true, cell: newCell });
             }
         },
 
@@ -1893,7 +1894,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
             }
 
             if (newCell) {
-                g.hideEditCell(false, false, false, { move : true, cell : newCell });
+                g.hideEditCell(false, false, false, { move: true, cell: newCell });
             }
         },
 
@@ -1929,14 +1930,14 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                     if (Sql.getFieldName($(g.t), $(this)) === fieldName) {
                         cellFound = true;
                     }
-                    if (!cellFound) {
+                    if (! cellFound) {
                         leftCell = this;
                     }
                 });
             }
 
             if (leftCell) {
-                g.hideEditCell(false, false, false, { move : true, cell : leftCell });
+                g.hideEditCell(false, false, false, { move: true, cell: leftCell });
             }
         },
 
@@ -1986,7 +1987,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
             }
 
             if (rightCell) {
-                g.hideEditCell(false, false, false, { move : true, cell : rightCell });
+                g.hideEditCell(false, false, false, { move: true, cell: rightCell });
             }
         },
 
@@ -2006,11 +2007,11 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
             function handleCtrlNavigation (e) {
                 if ((e.ctrlKey && e.which === 38) || (e.altKey && e.which === 38)) {
                     g.moveUp(e);
-                } else if ((e.ctrlKey && e.which === 40)  || (e.altKey && e.which === 40)) {
+                } else if ((e.ctrlKey && e.which === 40) || (e.altKey && e.which === 40)) {
                     g.moveDown(e);
                 } else if ((e.ctrlKey && e.which === 37) || (e.altKey && e.which === 37)) {
                     g.moveLeft(e);
-                } else if ((e.ctrlKey && e.which === 39)  || (e.altKey && e.which === 39)) {
+                } else if ((e.ctrlKey && e.which === 39) || (e.altKey && e.which === 39)) {
                     g.moveRight(e);
                 }
             }
@@ -2106,7 +2107,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                 }
             });
             $(g.cEditStd).on('keydown', function (e) {
-                if (!g.isEditCellTextEditable) {
+                if (! g.isEditCellTextEditable) {
                     // prevent text editing
                     e.preventDefault();
                 }
@@ -2118,14 +2119,14 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                 g.showEditArea();
             });
             $(g.cEditTextarea).on('keydown', '.edit_box, select', function (e) {
-                if (e.which === 13 && !e.shiftKey) {
+                if (e.which === 13 && ! e.shiftKey) {
                     // post on pressing "Enter"
                     e.preventDefault();
                     g.saveOrPostEditedCell();
                 }
             });
             $(g.cEditTextarea).on('keydown', function (e) {
-                if (!g.isEditCellTextEditable) {
+                if (! g.isEditCellTextEditable) {
                     // prevent text editing
                     e.preventDefault();
                 }
@@ -2133,9 +2134,9 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
             $('html').on('click', function (e) {
                 // hide edit cell if the click is not fromDat edit area
                 if ($(e.target).parents().index($(g.cEdit)) === -1 &&
-                    !$(e.target).parents('.ui-datepicker-header').length &&
-                    !$('.browse_foreign_modal.ui-dialog:visible').length &&
-                    !$(e.target).closest('.dismissable').length
+                    ! $(e.target).parents('.ui-datepicker-header').length &&
+                    ! $('.browse_foreign_modal.ui-dialog:visible').length &&
+                    ! $(e.target).closest('.dismissable').length
                 ) {
                     g.hideEditCell();
                 }
@@ -2292,7 +2293,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
     $.fn.noSelect = function (p) { // no select plugin by Paulo P.Marinas
         var prevent = (p === null) ? true : p;
         /* eslint-disable compat/compat */
-        var isMsie = navigator.userAgent.indexOf('MSIE') > -1 || !!window.navigator.userAgent.match(/Trident.*rv:11\./);
+        var isMsie = navigator.userAgent.indexOf('MSIE') > -1 || !! window.navigator.userAgent.match(/Trident.*rv:11\./);
         var isFirefox = navigator.userAgent.indexOf('Firefox') > -1;
         var isSafari = navigator.userAgent.indexOf('Safari') > -1;
         var isOpera = navigator.userAgent.indexOf('Presto') > -1;

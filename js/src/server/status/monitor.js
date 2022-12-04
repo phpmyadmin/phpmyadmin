@@ -248,7 +248,10 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 label: window.Messages.strQueryCacheUsed
             }],
             nodes: [{
-                dataPoints: [{ type: 'statusvar', name: 'Qcache_free_memory' }, { type: 'servervar', name: 'query_cache_size' }],
+                dataPoints: [{ type: 'statusvar', name: 'Qcache_free_memory' }, {
+                    type: 'servervar',
+                    name: 'query_cache_size'
+                }],
                 transformFn: 'qcu'
             }],
             maxYLabel: 0
@@ -330,7 +333,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 nodes: [
                     { dataPoints: [{ type: 'memory', name: 'Buffers' }], valueDivisor: 1024 },
                     { dataPoints: [{ type: 'memory', name: 'MemUsed' }], valueDivisor: 1024 },
-                    { dataPoints: [{ type: 'memory', name: 'Cached' }],  valueDivisor: 1024 },
+                    { dataPoints: [{ type: 'memory', name: 'Cached' }], valueDivisor: 1024 },
                     { dataPoints: [{ type: 'memory', name: 'MemFree' }], valueDivisor: 1024 }
                 ],
                 maxYLabel: 0
@@ -423,8 +426,16 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 { label: window.Messages.strBytesReceived }
             ],
             nodes: [
-                { dataPoints: [{ type: 'statusvar', name: 'Bytes_sent' }], display: 'differential', valueDivisor: 1024 },
-                { dataPoints: [{ type: 'statusvar', name: 'Bytes_received' }], display: 'differential', valueDivisor: 1024 }
+                {
+                    dataPoints: [{ type: 'statusvar', name: 'Bytes_sent' }],
+                    display: 'differential',
+                    valueDivisor: 1024
+                },
+                {
+                    dataPoints: [{ type: 'statusvar', name: 'Bytes_received' }],
+                    display: 'differential',
+                    valueDivisor: 1024
+                }
             ],
             maxYLabel: 0
         }
@@ -439,7 +450,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
     $('a[href="#rearrangeCharts"], a[href="#endChartEditMode"]').on('click', function (event) {
         event.preventDefault();
-        editMode = !editMode;
+        editMode = ! editMode;
         if ($(this).attr('href') === '#endChartEditMode') {
             editMode = false;
         }
@@ -694,7 +705,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 }
 
                 // Basic check, is this a monitor config json?
-                if (!json || ! json.monitorCharts || ! json.monitorCharts) {
+                if (! json || ! json.monitorCharts || ! json.monitorCharts) {
                     alert(window.Messages.strFailedParsingConfig);
                     $('#emptyDialog').dialog('close');
                     return;
@@ -873,11 +884,11 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
                         if (logVars.slow_query_log !== 'ON') {
                             str += '- <a class="set" href="#slow_query_log-ON">';
-                            str +=  window.sprintf(window.Messages.strEnableVar, 'slow_query_log');
+                            str += window.sprintf(window.Messages.strEnableVar, 'slow_query_log');
                             str += ' </a><br>';
                         } else {
                             str += '- <a class="set" href="#slow_query_log-OFF">';
-                            str +=  window.sprintf(window.Messages.strDisableVar, 'slow_query_log');
+                            str += window.sprintf(window.Messages.strDisableVar, 'slow_query_log');
                             str += ' </a><br>';
                         }
 
@@ -1100,7 +1111,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             width: $('#chartGrid').find('td').eq(1).offset().left -
                 $('#chartGrid').find('td').eq(0).offset().left,
             height: $('#chartGrid').find('tr').eq(1).find('td').eq(1).offset().top -
-               $('#chartGrid').find('tr').eq(0).find('td').eq(0).offset().top
+                $('#chartGrid').find('tr').eq(0).find('td').eq(0).offset().top
         };
         $('#chartGrid').html('');
 
@@ -1254,7 +1265,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 $('#chartGrid').append('<tr></tr>');
             }
 
-            if (!chartSize) {
+            if (! chartSize) {
                 calculateChartSize();
             }
             $('#chartGrid').find('tr').last().append(
@@ -1543,8 +1554,8 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                             )
                         );
 
-                    // Otherwise use original value and apply differential and divisor if given,
-                    // in this case we have only one data point per series - located at chartData[key][j][0]
+                        // Otherwise use original value and apply differential and divisor if given,
+                        // in this case we have only one data point per series - located at chartData[key][j][0]
                     } else {
                         value = parseFloat(chartData[key][j][0].value);
 
@@ -1651,7 +1662,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             var diffIdle = newCur.idle - newPrev.idle;
             return 100 * (diffTotal - diffIdle) / diffTotal;
 
-        // Query cache efficiency (%)
+            // Query cache efficiency (%)
         case 'qce':
             if (prev === null) {
                 return undefined;
@@ -1665,7 +1676,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
             return diffQHits / (cur[1].value - prev[1].value + diffQHits) * 100;
 
-        // Query cache usage (%)
+            // Query cache usage (%)
         case 'qcu':
             if (cur[1].value === 0) {
                 return 0;
@@ -1712,8 +1723,8 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             title: window.Messages.strAnalysingLogsTitle
         });
         $('#emptyDialog').html(window.Messages.strAnalysingLogs +
-                                ' <img class="ajaxIcon" src="' + themeImagePath +
-                                'ajax_clock_small.gif" alt="">');
+            ' <img class="ajaxIcon" src="' + themeImagePath +
+            'ajax_clock_small.gif" alt="">');
 
         var dlgBtns = {
             [window.Messages.strCancelRequest]: {
@@ -1888,7 +1899,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             // For the slow log we have to count many columns (query_time, lock_time, rows_examined, rows_sent, etc.)
             var countRow = function (query, row) {
                 var cells = row.match(/<td>(.*?)<\/td>/gi);
-                if (!columnSums[query]) {
+                if (! columnSums[query]) {
                     columnSums[query] = [0, 0, 0, 0];
                 }
 
@@ -1975,7 +1986,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                             return;
                         }
 
-                        row =  $table.children('tr').eq(value);
+                        row = $table.children('tr').eq(value);
                         numCol = row.children().eq(runtime.logDataCols.length - 1);
                         numCol.text(filteredQueries[key]);
 
@@ -1997,8 +2008,8 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             // Display some stats at the bottom of the table
             $('#logTable').find('table tfoot tr')
                 .html('<th colspan="' + (runtime.logDataCols.length - 1) + '">' +
-                      window.Messages.strSumRows + ' ' + rowSum + '<span class="float-end">' +
-                      window.Messages.strTotal + '</span></th><th class="text-end">' + totalSum + '</th>');
+                    window.Messages.strSumRows + ' ' + rowSum + '<span class="float-end">' +
+                    window.Messages.strTotal + '</span></th><th class="text-end">' + totalSum + '</th>');
         }
     }
 
@@ -2055,8 +2066,8 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             if (i === 0) {
                 $.each(rows[0], tempPushKey);
                 $table.append('<thead>' +
-                              '<tr><th class="text-nowrap">' + cols.join('</th><th class="text-nowrap">') + '</th></tr>' +
-                              '</thead>'
+                    '<tr><th class="text-nowrap">' + cols.join('</th><th class="text-nowrap">') + '</th></tr>' +
+                    '</thead>'
                 );
 
                 $table.append($tBody = $('<tbody></tbody>'));
@@ -2077,9 +2088,9 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         }
 
         $table.append('<tfoot>' +
-                    '<tr><th colspan="' + (cols.length - 1) + '">' + window.Messages.strSumRows +
-                    ' ' + data.numRows + '<span class="float-end">' + window.Messages.strTotal +
-                    '</span></th><th class="text-end">' + data.sum.TOTAL + '</th></tr></tfoot>');
+            '<tr><th colspan="' + (cols.length - 1) + '">' + window.Messages.strSumRows +
+            ' ' + data.numRows + '<span class="float-end">' + window.Messages.strTotal +
+            '</span></th><th class="text-end">' + data.sum.TOTAL + '</th></tr></tfoot>');
 
         // Append a tooltip to the count column, if there exist one
         if ($('#logTable').find('tr').first().find('th').last().text().indexOf('#') > -1) {
@@ -2222,7 +2233,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             };
 
             for (i = 0, l = data.explain.length; i < l; i++) {
-                explain += '<div class="explain-' + i + '"' + (i > 0 ?  'style="display:none;"' : '') + '>';
+                explain += '<div class="explain-' + i + '"' + (i > 0 ? 'style="display:none;"' : '') + '>';
                 $.each(data.explain[i], tempExplain);
                 explain += '</div>';
             }

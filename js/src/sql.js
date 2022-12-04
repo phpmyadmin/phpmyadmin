@@ -152,7 +152,7 @@ Sql.getFieldName = function ($tableResults, $thisField) {
     var thisFieldIndex = $thisField.index();
     // ltr or rtl direction does not impact how the DOM was generated
     // check if the action column in the left exist
-    var leftActionExist = !$tableResults.find('th').first().hasClass('draggable');
+    var leftActionExist = ! $tableResults.find('th').first().hasClass('draggable');
     // number of column span for checkbox and Actions
     var leftActionSkip = leftActionExist ? $tableResults.find('th').first().attr('colspan') - 1 : 0;
 
@@ -490,7 +490,7 @@ AJAX.registerOnload('sql.js', function () {
     // Delete row from SQL results
     $(document).on('click', 'a.delete_row.ajax', function (e) {
         e.preventDefault();
-        var question =  window.sprintf(window.Messages.strDoYouReally, Functions.escapeHtml($(this).closest('td').find('div').text()));
+        var question = window.sprintf(window.Messages.strDoYouReally, Functions.escapeHtml($(this).closest('td').find('div').text()));
         var $link = $(this);
         $link.confirm(question, $link.attr('href'), function (url) {
             Functions.ajaxShowMessage();
@@ -643,8 +643,8 @@ AJAX.registerOnload('sql.js', function () {
         $('<button class="btn btn-secondary" id="togglequerybox"></button>')
             .html(window.Messages.strHideQueryBox)
             .appendTo('#sqlqueryform')
-        // initially hidden because at this point, nothing else
-        // appears under the link
+            // initially hidden because at this point, nothing else
+            // appears under the link
             .hide();
 
         // Attach the toggling of the query box visibility to a click
@@ -680,7 +680,7 @@ AJAX.registerOnload('sql.js', function () {
         // id_bookmark selector to avoid misinterpretation in
         // /import about what needs to be done
         $form.find('select[name=id_bookmark]').val('');
-        var isShowQuery =  $('input[name="show_query"]').is(':checked');
+        var isShowQuery = $('input[name="show_query"]').is(':checked');
         if (isShowQuery) {
             window.localStorage.showThisQuery = '1';
             var db = $('input[name="db"]').val();
@@ -743,7 +743,7 @@ AJAX.registerOnload('sql.js', function () {
             // same action as the Go button in that section.
             $('#button_submit_bookmark').trigger('click');
             return false;
-        } else  {
+        } else {
             return true;
         }
     });
@@ -805,7 +805,7 @@ AJAX.registerOnload('sql.js', function () {
 
                 if (data.menu) {
                     history.replaceState({
-                        menu : data.menu
+                        menu: data.menu
                     },
                     null
                     );
@@ -1261,7 +1261,7 @@ AJAX.registerOnload('sql.js', function () {
 Sql.makeProfilingChart = function () {
     if ($('#profilingchart').length === 0 ||
         $('#profilingchart').html().length !== 0 ||
-        !$.jqplot || !$.jqplot.Highlighter || !$.jqplot.PieRenderer
+        ! $.jqplot || ! $.jqplot.Highlighter || ! $.jqplot.PieRenderer
     ) {
         return;
     }
@@ -1282,7 +1282,7 @@ Sql.makeProfilingChart = function () {
  * initialize profiling data tables
  */
 Sql.initProfilingTables = function () {
-    if (!$.tablesorter) {
+    if (! $.tablesorter) {
         return;
     }
     // Added to allow two direction sorting

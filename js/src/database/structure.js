@@ -81,11 +81,11 @@ DatabaseStructure.adjustTotals = function () {
             rowsSum += intRow;
         }
         // Extract the size and overhead
-        var valSize         = 0;
-        var valOverhead     = 0;
-        var strSize         = $this.find('.tbl_size span:not(.unit)').text().trim();
-        var strSizeUnit     = $this.find('.tbl_size span.unit').text().trim();
-        var strOverhead     = $this.find('.tbl_overhead span:not(.unit)').text().trim();
+        var valSize = 0;
+        var valOverhead = 0;
+        var strSize = $this.find('.tbl_size span:not(.unit)').text().trim();
+        var strSizeUnit = $this.find('.tbl_size span.unit').text().trim();
+        var strOverhead = $this.find('.tbl_overhead span:not(.unit)').text().trim();
         var strOverheadUnit = $this.find('.tbl_overhead span.unit').text().trim();
         // Given a value and a unit, such as 100 and KiB, for the table size
         // and overhead calculate their numeric values in bytes, such as 102400

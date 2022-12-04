@@ -9,7 +9,7 @@ const GitInfo = {
      * @return {number | false}
      */
     parseVersionString: str => {
-        if (typeof(str) !== 'string') {
+        if (typeof (str) !== 'string') {
             return false;
         }
         let add = 0;
@@ -17,11 +17,11 @@ const GitInfo = {
         const state = str.split('-');
         if (state.length >= 2) {
             if (state[1].startsWith('rc')) {
-                add = - 20 - parseInt(state[1].substring(2), 10);
+                add = -20 - parseInt(state[1].substring(2), 10);
             } else if (state[1].startsWith('beta')) {
-                add =  - 40 - parseInt(state[1].substring(4), 10);
+                add = -40 - parseInt(state[1].substring(4), 10);
             } else if (state[1].startsWith('alpha')) {
-                add =  - 60 - parseInt(state[1].substring(5), 10);
+                add = -60 - parseInt(state[1].substring(5), 10);
             } else if (state[1].startsWith('dev')) {
                 /* We don't handle dev, it's git snapshot */
                 add = 0;

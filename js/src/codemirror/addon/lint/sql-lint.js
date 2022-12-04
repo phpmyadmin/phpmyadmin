@@ -21,7 +21,7 @@ window.CodeMirror.sqlLint = function (text, updateLinting, options, cm) {
                     response[idx].toLine, response[idx].toColumn
                 ),
                 messageHTML: response[idx].message,
-                severity : response[idx].severity
+                severity: response[idx].severity
             });
         }
 

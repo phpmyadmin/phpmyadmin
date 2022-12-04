@@ -126,6 +126,7 @@ function loadJSAndGISEditor (value, field, type, inputName) {
 
     window.gisEditorLoaded = true;
 }
+
 window.loadJSAndGISEditor = loadJSAndGISEditor;
 
 /**
@@ -139,11 +140,11 @@ window.loadJSAndGISEditor = loadJSAndGISEditor;
 function loadGISEditor (value, field, type, inputName) {
     var $gisEditor = $('#gis_editor');
     $.post('index.php?route=/gis-data-editor', {
-        'field' : field,
-        'value' : value,
-        'type' : type,
-        'input_name' : inputName,
-        'get_gis_editor' : true,
+        'field': field,
+        'value': value,
+        'type': type,
+        'input_name': inputName,
+        'get_gis_editor': true,
         'ajax_request': true,
         'server': CommonParams.get('server')
     }, function (data) {
@@ -156,6 +157,7 @@ function loadGISEditor (value, field, type, inputName) {
         }
     }, 'json');
 }
+
 window.loadGISEditor = loadGISEditor;
 
 /**
@@ -174,7 +176,7 @@ function openGISEditor () {
     var $background = $('#popup_background');
 
     $gisEditor.css({ 'top': popupOffsetTop, 'left': popupOffsetLeft, 'width': popupWidth, 'height': popupHeight });
-    $background.css({ 'opacity' : '0.7' });
+    $background.css({ 'opacity': '0.7' });
 
     $gisEditor.append(
         '<div id="gis_data_editor">' +
@@ -187,6 +189,7 @@ function openGISEditor () {
     $background.fadeIn('fast');
     $gisEditor.fadeIn('fast');
 }
+
 window.openGISEditor = openGISEditor;
 
 /**

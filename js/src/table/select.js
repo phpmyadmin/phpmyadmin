@@ -315,12 +315,12 @@ AJAX.registerOnload('table/select.js', function () {
                         // Get the column min value.
                         var min = response.column_data.min
                             ? '(' + window.Messages.strColumnMin +
-                                ' ' + response.column_data.min + ')'
+                            ' ' + response.column_data.min + ')'
                             : '';
                         // Get the column max value.
                         var max = response.column_data.max
                             ? '(' + window.Messages.strColumnMax +
-                                ' ' + response.column_data.max + ')'
+                            ' ' + response.column_data.max + ')'
                             : '';
                         $('#rangeSearchModal').modal('show');
                         $('#rangeSearchLegend').first().html(operator);
@@ -332,7 +332,7 @@ AJAX.registerOnload('table/select.js', function () {
                         // Add datepicker wherever required.
                         Functions.addDatepicker($('#min_value'), dataType);
                         Functions.addDatepicker($('#max_value'), dataType);
-                        $('#rangeSearchModalGo').on('click',  function () {
+                        $('#rangeSearchModalGo').on('click', function () {
                             var minValue = $('#min_value').val();
                             var maxValue = $('#max_value').val();
                             var finalValue = '';

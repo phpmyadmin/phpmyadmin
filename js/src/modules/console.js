@@ -231,7 +231,7 @@ var Console = {
      * @return {void}
      */
     execute: function (queryString, options) {
-        if (typeof(queryString) !== 'string' || ! /[a-z]|[A-Z]/.test(queryString)) {
+        if (typeof (queryString) !== 'string' || ! /[a-z]|[A-Z]/.test(queryString)) {
             return;
         }
         Console.$requestForm.children('textarea').val(queryString);
@@ -285,7 +285,7 @@ var Console = {
         Console.$consoleContent.stop();
         Console.$consoleContent.animate({ 'margin-bottom': -1 * Console.$consoleContent.outerHeight() + 'px' },
             'fast', 'easeOutQuart', function () {
-                Console.$consoleContent.css({ display:'none' });
+                Console.$consoleContent.css({ display: 'none' });
                 $(window).trigger('resize');
             });
         Console.hideCard();
@@ -302,7 +302,7 @@ var Console = {
         var pmaConsoleHeight = Math.max(92, Config.Height);
         // eslint-disable-next-line compat/compat
         pmaConsoleHeight = Math.min(Config.Height, (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) - 25);
-        Console.$consoleContent.css({ display:'block' });
+        Console.$consoleContent.css({ display: 'block' });
         if (Console.$consoleToolbar.hasClass('collapsed')) {
             Console.$consoleToolbar.removeClass('collapsed');
         }
@@ -358,7 +358,7 @@ var Console = {
      */
     showCard: function (cardSelector) {
         var $card = null;
-        if (typeof(cardSelector) !== 'string') {
+        if (typeof (cardSelector) !== 'string') {
             if (cardSelector.length > 0) {
                 $card = cardSelector;
             } else {
@@ -633,7 +633,7 @@ var ConsoleInput = {
         // Execute command
         if (Config.EnterExecutes) {
             // Enter, but not in combination with Shift (which writes a new line).
-            if (!event.shiftKey && event.keyCode === 13) {
+            if (! event.shiftKey && event.keyCode === 13) {
                 ConsoleInput.execute();
             }
         } else {
@@ -778,7 +778,7 @@ var ConsoleMessages = {
         var $queries = $('#pma_console').find('.content .console_message_container .query');
         var length = $queries.length;
         var $query = $queries.eq(length - nthLast);
-        if (!$query || (length - nthLast) < 0) {
+        if (! $query || (length - nthLast) < 0) {
             return false;
         } else {
             return $query.text();
@@ -805,7 +805,7 @@ var ConsoleMessages = {
      * @return {object | false}, {message_id, $message}
      */
     append: function (msgString, msgType) {
-        if (typeof(msgString) !== 'string') {
+        if (typeof (msgString) !== 'string') {
             return false;
         }
         // Generate an ID for each message, we can find them later
@@ -935,19 +935,23 @@ var ConsoleMessages = {
         $targetMessage.find('.action.profiling').on('click', function () {
             var $message = $(this).closest('.message');
             Console.execute($(this).parent().siblings('.query').text(),
-                { db: $message.attr('targetdb'),
+                {
+                    db: $message.attr('targetdb'),
                     table: $message.attr('targettable'),
-                    profiling: true });
+                    profiling: true
+                });
         });
         $targetMessage.find('.action.explain').on('click', function () {
             var $message = $(this).closest('.message');
             Console.execute('EXPLAIN ' + $(this).parent().siblings('.query').text(),
-                { db: $message.attr('targetdb'),
-                    table: $message.attr('targettable') });
+                {
+                    db: $message.attr('targetdb'),
+                    table: $message.attr('targettable')
+                });
         });
         $targetMessage.find('.action.dbg_show_trace').on('click', function () {
             var $message = $(this).closest('.message');
-            if (!$message.find('.trace').length) {
+            if (! $message.find('.trace').length) {
                 ConsoleDebug.getQueryDetails(
                     $message.data('queryInfo'),
                     $message.data('totalTime'),
@@ -983,7 +987,7 @@ var ConsoleMessages = {
     },
     msgAppend: function (msgId, msgString) {
         var $targetMessage = $('#pma_console').find('.content .console_message_container .message[msgid=' + msgId + ']');
-        if ($targetMessage.length === 0 || isNaN(parseInt(msgId)) || typeof(msgString) !== 'string') {
+        if ($targetMessage.length === 0 || isNaN(parseInt(msgId)) || typeof (msgString) !== 'string') {
             return false;
         }
         $targetMessage.append('<div>' + msgString + '</div>');
@@ -1221,8 +1225,8 @@ var ConsoleDebug = {
                     $('<div class="message">')
                         .html(
                             '<pre>' +
-                        Functions.escapeHtml(JSON.stringify(dbgStep.args[i], null, '  ')) +
-                        '</pre>'
+                            Functions.escapeHtml(JSON.stringify(dbgStep.args[i], null, '  ')) +
+                            '</pre>'
                         )
                 );
             }
@@ -1247,7 +1251,7 @@ var ConsoleDebug = {
         for (var stepId in dbgTrace) {
             if (dbgTrace.hasOwnProperty(stepId)) {
                 step = dbgTrace[stepId];
-                if (!Array.isArray(step) && typeof step !== 'object') {
+                if (! Array.isArray(step) && typeof step !== 'object') {
                     $stepElem =
                         $('<div class="message traceStep collapsed hide_args">')
                             .append(
@@ -1274,13 +1278,13 @@ var ConsoleDebug = {
                                 $('<div class="action_content">')
                                     .append(
                                         '<span class="action dbg_show_args">' +
-                                window.Messages.strConsoleDebugShowArgs +
-                                '</span> '
+                                        window.Messages.strConsoleDebugShowArgs +
+                                        '</span> '
                                     )
                                     .append(
                                         '<span class="action dbg_hide_args">' +
-                                window.Messages.strConsoleDebugHideArgs +
-                                '</span> '
+                                        window.Messages.strConsoleDebugHideArgs +
+                                        '</span> '
                                     )
                             );
                     }
@@ -1373,7 +1377,7 @@ var ConsoleDebug = {
         var i;
         if (typeof debugInfo === 'object' && 'queries' in debugInfo) {
             // Copy it to debugJson, so that it doesn't get changed
-            if (!('queries' in debugInfo)) {
+            if (! ('queries' in debugInfo)) {
                 debugJson = false;
             } else {
                 debugJson = { queries: [] };
@@ -1387,7 +1391,7 @@ var ConsoleDebug = {
             } catch (e) {
                 debugJson = false;
             }
-            if (debugJson && !('queries' in debugJson)) {
+            if (debugJson && ! ('queries' in debugJson)) {
                 debugJson = false;
             }
         }
@@ -1406,7 +1410,7 @@ var ConsoleDebug = {
         var totalTime = 0;
         for (i = 0; i < totalExec; ++i) {
             totalTime += allQueries[i].time;
-            if (!(allQueries[i].hash in uniqueQueries)) {
+            if (! (allQueries[i].hash in uniqueQueries)) {
                 uniqueQueries[allQueries[i].hash] = [];
             }
             uniqueQueries[allQueries[i].hash].push(allQueries[i]);

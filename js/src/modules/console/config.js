@@ -50,14 +50,14 @@ export const Config = {
      * @return {void}
      */
     init: function (data) {
-        this.StartHistory = !!data.StartHistory;
-        this.AlwaysExpand = !!data.AlwaysExpand;
-        this.CurrentQuery = data.CurrentQuery !== undefined ? !!data.CurrentQuery : true;
-        this.EnterExecutes = !!data.EnterExecutes;
-        this.DarkTheme = !!data.DarkTheme;
+        this.StartHistory = !! data.StartHistory;
+        this.AlwaysExpand = !! data.AlwaysExpand;
+        this.CurrentQuery = data.CurrentQuery !== undefined ? !! data.CurrentQuery : true;
+        this.EnterExecutes = !! data.EnterExecutes;
+        this.DarkTheme = !! data.DarkTheme;
         this.Mode = data.Mode === 'show' || data.Mode === 'collapse' ? data.Mode : 'info';
         this.Height = data.Height > 0 ? Number(data.Height) : 92;
-        this.GroupQueries = !!data.GroupQueries;
+        this.GroupQueries = !! data.GroupQueries;
         this.OrderBy = data.OrderBy === 'time' || data.OrderBy === 'count' ? data.OrderBy : 'exec';
         this.Order = data.Order === 'desc' ? 'desc' : 'asc';
     },
@@ -78,11 +78,11 @@ export const Config = {
      * @return {void}
      */
     update: function () {
-        this.set('AlwaysExpand', !!document.getElementById('consoleOptionsAlwaysExpandCheckbox').checked);
-        this.set('StartHistory', !!document.getElementById('consoleOptionsStartHistoryCheckbox').checked);
-        this.set('CurrentQuery', !!document.getElementById('consoleOptionsCurrentQueryCheckbox').checked);
-        this.set('EnterExecutes', !!document.getElementById('consoleOptionsEnterExecutesCheckbox').checked);
-        this.set('DarkTheme', !!document.getElementById('consoleOptionsDarkThemeCheckbox').checked);
+        this.set('AlwaysExpand', !! document.getElementById('consoleOptionsAlwaysExpandCheckbox').checked);
+        this.set('StartHistory', !! document.getElementById('consoleOptionsStartHistoryCheckbox').checked);
+        this.set('CurrentQuery', !! document.getElementById('consoleOptionsCurrentQueryCheckbox').checked);
+        this.set('EnterExecutes', !! document.getElementById('consoleOptionsEnterExecutesCheckbox').checked);
+        this.set('DarkTheme', !! document.getElementById('consoleOptionsDarkThemeCheckbox').checked);
         /* Setting the dark theme of the console*/
         const consoleContent = document.getElementById('pma_console').querySelector('.content');
         if (this.DarkTheme) {
