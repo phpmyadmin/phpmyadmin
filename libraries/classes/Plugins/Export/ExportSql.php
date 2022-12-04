@@ -561,7 +561,7 @@ class ExportSql extends ExportPlugin
                 $definition = Routines::getProcedureDefinition($GLOBALS['dbi'], $db, $routine);
             }
 
-            $createQuery = $this->replaceWithAliases($definition, $aliases, $db, '', $flag);
+            $createQuery = $this->replaceWithAliases($definition, $aliases, $db, $flag);
             if (! empty($createQuery) && $GLOBALS['cfg']['Export']['remove_definer_from_definitions']) {
                 // Remove definer clause from routine definitions
                 $parser = new Parser($createQuery);
@@ -1513,7 +1513,7 @@ class ExportSql extends ExportPlugin
             }
 
             // Substitute aliases in `CREATE` query.
-            $createQuery = $this->replaceWithAliases($createQuery, $aliases, $db, $table, $flag);
+            $createQuery = $this->replaceWithAliases($createQuery, $aliases, $db, $flag);
 
             // One warning per view.
             if ($flag && $view) {
@@ -2004,7 +2004,7 @@ class ExportSql extends ExportPlugin
                         }
 
                         $triggerQuery .= 'DELIMITER ' . $delimiter . "\n";
-                        $triggerQuery .= $this->replaceWithAliases($trigger['create'], $aliases, $db, $table, $flag);
+                        $triggerQuery .= $this->replaceWithAliases($trigger['create'], $aliases, $db, $flag);
                         if ($flag) {
                             $usedAlias = true;
                         }
@@ -2498,7 +2498,6 @@ class ExportSql extends ExportPlugin
      * @param string $sqlQuery SQL query in which aliases are to be substituted
      * @param array  $aliases  Alias information for db/table/column
      * @param string $db       the database name
-     * @param string $table    the tablename
      * @param string $flag     the flag denoting whether any replacement was done
      *
      * @return string query replaced with aliases
@@ -2507,7 +2506,6 @@ class ExportSql extends ExportPlugin
         $sqlQuery,
         array $aliases,
         $db,
-        $table = '',
         &$flag = null
     ) {
         $flag = false;
