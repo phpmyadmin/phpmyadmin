@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import { AJAX } from './modules/ajax.js';
-import { Functions } from './modules/functions.js';
 import { CommonParams } from './modules/common.js';
+import { ajaxShowMessage } from './modules/ajax-message.js';
 
 /**
  * @fileoverview    Implements the shiftkey + click remove column
@@ -19,13 +19,13 @@ AJAX.registerOnload('multi_column_sort.js', function () {
         if (event.ctrlKey || event.altKey) {
             event.preventDefault();
             AJAX.source = $(this);
-            Functions.ajaxShowMessage();
+            ajaxShowMessage();
             orderUrlRemove += argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
             $.post('index.php?route=/sql', orderUrlRemove, AJAX.responseHandler);
         } else if (event.shiftKey) {
             event.preventDefault();
             AJAX.source = $(this);
-            Functions.ajaxShowMessage();
+            ajaxShowMessage();
             orderUrlAdd += argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
             $.post('index.php?route=/sql', orderUrlAdd, AJAX.responseHandler);
         }

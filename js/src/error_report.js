@@ -2,6 +2,7 @@ import $ from 'jquery';
 import { AJAX } from './modules/ajax.js';
 import { Functions } from './modules/functions.js';
 import { CommonParams } from './modules/common.js';
+import { ajaxShowMessage } from './modules/ajax-message.js';
 
 /**
  * general function, usually for data manipulation pages
@@ -29,7 +30,7 @@ var ErrorReport = {
      */
     errorDataHandler: function (data, exception) {
         if (data.success !== true) {
-            Functions.ajaxShowMessage(data.error, false);
+            ajaxShowMessage(data.error, false);
             return;
         }
         if (data.report_setting === 'ask') {
@@ -43,9 +44,9 @@ var ErrorReport = {
             $.post('index.php?route=/error-report', postData, function (data) {
                 if (data.success === false) {
                     // in the case of an error, show the error message returned.
-                    Functions.ajaxShowMessage(data.error, false);
+                    ajaxShowMessage(data.error, false);
                 } else {
-                    Functions.ajaxShowMessage(data.message, false);
+                    ajaxShowMessage(data.message, false);
                 }
             });
         }
@@ -91,9 +92,9 @@ var ErrorReport = {
             });
             $.post('index.php?route=/error-report', postData, function (data) {
                 if (data.success === false) {
-                    Functions.ajaxShowMessage(data.error, false);
+                    ajaxShowMessage(data.error, false);
                 } else {
-                    Functions.ajaxShowMessage(data.message, 3000);
+                    ajaxShowMessage(data.message, 3000);
                 }
             });
             $('#errorReportModal').modal('hide');

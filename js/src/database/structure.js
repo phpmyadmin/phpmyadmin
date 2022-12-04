@@ -4,6 +4,7 @@ import { Functions } from '../modules/functions.js';
 import { Navigation } from '../modules/navigation.js';
 import { CommonParams } from '../modules/common.js';
 import tooltip from '../modules/tooltip.js';
+import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
 
 /**
  * @fileoverview    functions used on the database structure page
@@ -180,11 +181,11 @@ DatabaseStructure.fetchRealRowCount = function ($target) {
                 // Adjust the 'Sum' displayed at the bottom.
                 DatabaseStructure.adjustTotals();
             } else {
-                Functions.ajaxShowMessage(window.Messages.strErrorRealRowCount);
+                ajaxShowMessage(window.Messages.strErrorRealRowCount);
             }
         },
         error: function () {
-            Functions.ajaxShowMessage(window.Messages.strErrorRealRowCount);
+            ajaxShowMessage(window.Messages.strErrorRealRowCount);
         }
     });
 };
@@ -207,7 +208,7 @@ AJAX.registerOnload('database/structure.js', function () {
                     const argSep = CommonParams.get('arg_separator');
                     const data = $form.serialize() + argSep + 'ajax_request=true' + argSep + 'ajax_page_request=true';
 
-                    Functions.ajaxShowMessage();
+                    ajaxShowMessage();
                     AJAX.source = $form;
 
                     $.post(
@@ -302,7 +303,7 @@ AJAX.registerOnload('database/structure.js', function () {
         var argsep = CommonParams.get('arg_separator');
         var data = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
 
-        Functions.ajaxShowMessage();
+        ajaxShowMessage();
         AJAX.source = $form;
 
         $.post(url, data, AJAX.responseHandler);
@@ -332,20 +333,20 @@ AJAX.registerOnload('database/structure.js', function () {
             Functions.getForeignKeyCheckboxLoader();
 
         $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
-            Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
+            ajaxShowMessage(window.Messages.strProcessingRequest);
 
             var params = Functions.getJsConfirmCommonParam(this, $thisAnchor.getPostData());
 
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
-                    Functions.ajaxShowMessage(data.message);
+                    ajaxShowMessage(data.message);
                     // Adjust table statistics
                     var $tr = $thisAnchor.closest('tr');
                     $tr.find('.tbl_rows').text('0');
                     $tr.find('.tbl_size, .tbl_overhead').text('-');
                     DatabaseStructure.adjustTotals();
                 } else {
-                    Functions.ajaxShowMessage(window.Messages.strErrorProcessingRequest + ' : ' + data.error, false);
+                    ajaxShowMessage(window.Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
             }); // end $.post()
         }, Functions.loadForeignKeyCheckbox);
@@ -386,19 +387,19 @@ AJAX.registerOnload('database/structure.js', function () {
         question += Functions.getForeignKeyCheckboxLoader();
 
         $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
-            var $msg = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
+            var $msg = ajaxShowMessage(window.Messages.strProcessingRequest);
 
             var params = Functions.getJsConfirmCommonParam(this, $thisAnchor.getPostData());
 
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
-                    Functions.ajaxShowMessage(data.message);
+                    ajaxShowMessage(data.message);
                     $currRow.hide('medium').remove();
                     DatabaseStructure.adjustTotals();
                     Navigation.reload();
-                    Functions.ajaxRemoveMessage($msg);
+                    ajaxRemoveMessage($msg);
                 } else {
-                    Functions.ajaxShowMessage(window.Messages.strErrorProcessingRequest + ' : ' + data.error, false);
+                    ajaxShowMessage(window.Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
             }); // end $.post()
         }, Functions.loadForeignKeyCheckbox);

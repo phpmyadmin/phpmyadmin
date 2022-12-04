@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.js';
 import { Functions } from '../modules/functions.js';
+import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
 
 /**
  * Unbind all event handlers before tearing down a page
@@ -35,9 +36,9 @@ AJAX.registerOnload('table/find_replace.js', function () {
         e.preventDefault();
         var findReplaceForm = $('#find_replace_form');
         Functions.prepareForAjaxRequest(findReplaceForm);
-        var $msgbox = Functions.ajaxShowMessage();
+        var $msgbox = ajaxShowMessage();
         $.post(findReplaceForm.attr('action'), findReplaceForm.serialize(), function (data) {
-            Functions.ajaxRemoveMessage($msgbox);
+            ajaxRemoveMessage($msgbox);
             if (data.success === true) {
                 $('#toggle_find_div').show();
                 $('#toggle_find').trigger('click');

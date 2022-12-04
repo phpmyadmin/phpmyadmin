@@ -3,6 +3,7 @@ import { AJAX } from '../modules/ajax.js';
 import { Functions } from '../modules/functions.js';
 import { Navigation } from '../modules/navigation.js';
 import { CommonActions, CommonParams } from '../modules/common.js';
+import { ajaxShowMessage } from '../modules/ajax-message.js';
 
 /**
  * @fileoverview    function used in server privilege pages
@@ -39,7 +40,7 @@ AJAX.registerOnload('database/operations.js', function () {
         event.preventDefault();
 
         if (Functions.emptyCheckTheField(this, 'newname')) {
-            Functions.ajaxShowMessage(window.Messages.strFormEmpty, false, 'error');
+            ajaxShowMessage(window.Messages.strFormEmpty, false, 'error');
             return false;
         }
 
@@ -47,7 +48,7 @@ AJAX.registerOnload('database/operations.js', function () {
         var newDbName = $('#new_db_name').val();
 
         if (newDbName === oldDbName) {
-            Functions.ajaxShowMessage(window.Messages.strDatabaseRenameToSameName, false, 'error');
+            ajaxShowMessage(window.Messages.strDatabaseRenameToSameName, false, 'error');
             return false;
         }
 
@@ -58,10 +59,10 @@ AJAX.registerOnload('database/operations.js', function () {
         Functions.prepareForAjaxRequest($form);
 
         $form.confirm(question, $form.attr('action'), function (url) {
-            Functions.ajaxShowMessage(window.Messages.strRenamingDatabases, false);
+            ajaxShowMessage(window.Messages.strRenamingDatabases, false);
             $.post(url, $('#rename_db_form').serialize() + CommonParams.get('arg_separator') + 'is_js_confirmed=1', function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
-                    Functions.ajaxShowMessage(data.message);
+                    ajaxShowMessage(data.message);
                     CommonParams.set('db', data.newname);
 
                     Navigation.reload(function () {
@@ -77,7 +78,7 @@ AJAX.registerOnload('database/operations.js', function () {
                             });
                     });
                 } else {
-                    Functions.ajaxShowMessage(data.error, false);
+                    ajaxShowMessage(data.error, false);
                 }
             }); // end $.post()
         });
@@ -90,11 +91,11 @@ AJAX.registerOnload('database/operations.js', function () {
         event.preventDefault();
 
         if (Functions.emptyCheckTheField(this, 'newname')) {
-            Functions.ajaxShowMessage(window.Messages.strFormEmpty, false, 'error');
+            ajaxShowMessage(window.Messages.strFormEmpty, false, 'error');
             return false;
         }
 
-        Functions.ajaxShowMessage(window.Messages.strCopyingDatabase, false);
+        ajaxShowMessage(window.Messages.strCopyingDatabase, false);
         var $form = $(this);
         Functions.prepareForAjaxRequest($form);
         $.post($form.attr('action'), $form.serialize(), function (data) {
@@ -104,15 +105,15 @@ AJAX.registerOnload('database/operations.js', function () {
                 if ($('#checkbox_switch').is(':checked')) {
                     CommonParams.set('db', data.newname);
                     CommonActions.refreshMain(false, function () {
-                        Functions.ajaxShowMessage(data.message);
+                        ajaxShowMessage(data.message);
                     });
                 } else {
                     CommonParams.set('db', data.db);
-                    Functions.ajaxShowMessage(data.message);
+                    ajaxShowMessage(data.message);
                 }
                 Navigation.reload();
             } else {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         }); // end $.post()
     }); // end copy database
@@ -132,12 +133,12 @@ AJAX.registerOnload('database/operations.js', function () {
         event.preventDefault();
         var $form = $(this);
         Functions.prepareForAjaxRequest($form);
-        Functions.ajaxShowMessage(window.Messages.strChangingCharset);
+        ajaxShowMessage(window.Messages.strChangingCharset);
         $.post($form.attr('action'), $form.serialize(), function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
-                Functions.ajaxShowMessage(data.message);
+                ajaxShowMessage(data.message);
             } else {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         }); // end $.post()
     }); // end change charset
@@ -159,7 +160,7 @@ AJAX.registerOnload('database/operations.js', function () {
         var params = Functions.getJsConfirmCommonParam(this, $link.getPostData());
 
         $(this).confirm(question, $(this).attr('href'), function (url) {
-            Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
+            ajaxShowMessage(window.Messages.strProcessingRequest);
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success) {
                     // Database deleted successfully, refresh both the frames
@@ -168,11 +169,11 @@ AJAX.registerOnload('database/operations.js', function () {
                     CommonActions.refreshMain(
                         'index.php?route=/server/databases',
                         function () {
-                            Functions.ajaxShowMessage(data.message);
+                            ajaxShowMessage(data.message);
                         }
                     );
                 } else {
-                    Functions.ajaxShowMessage(data.error, false);
+                    ajaxShowMessage(data.error, false);
                 }
             });
         });

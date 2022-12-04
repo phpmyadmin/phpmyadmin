@@ -4,6 +4,7 @@ import { Functions } from './functions.js';
 import { Navigation } from './navigation.js';
 import { CommonActions, CommonParams } from './common.js';
 import highlightSql from './sql-highlight.js';
+import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.js';
 
 /**
  * @fileoverview    function used for index manipulation pages
@@ -318,7 +319,7 @@ var addIndexGo = function (sourceArray, arrayIndex, index, colIndex) {
             colIndex
         );
     } else {
-        Functions.ajaxShowMessage(
+        ajaxShowMessage(
             '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt=""' +
             ' class="icon ic_s_error"> ' + window.Messages.strMissingColumn +
             ' </div>', false
@@ -384,13 +385,13 @@ Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, c
     $('#addIndexModalCloseButton').on('click', function () {
         $('#addIndexModal').modal('hide');
     });
-    var $msgbox = Functions.ajaxShowMessage();
+    var $msgbox = ajaxShowMessage();
     $.post('index.php?route=/table/indexes', postData, function (data) {
         if (data.success === false) {
             // in the case of an error, show the error message returned.
-            Functions.ajaxShowMessage(data.error, false);
+            ajaxShowMessage(data.error, false);
         } else {
-            Functions.ajaxRemoveMessage($msgbox);
+            ajaxRemoveMessage($msgbox);
             var $div = $('<div></div>');
             if (showDialogLocal) {
                 // Show dialog if the request was successful
@@ -439,7 +440,7 @@ Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, c
                         colIndex
                     );
                 } else {
-                    Functions.ajaxShowMessage(
+                    ajaxShowMessage(
                         '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt=""' +
                         ' class="icon ic_s_error"> ' + window.Messages.strMissingColumn +
                         ' </div>', false
@@ -495,7 +496,7 @@ Indexes.indexTypeSelectionDialog = function (sourceArray, indexChoice, colIndex)
         if ($('#composite_index').is(':checked')) {
             if ($('input[name="composite_with"]').length !== 0 && $('input[name="composite_with"]:checked').length === 0
             ) {
-                Functions.ajaxShowMessage(
+                ajaxShowMessage(
                     '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title=""' +
                     ' alt="" class="icon ic_s_error"> ' +
                     window.Messages.strFormEmpty +
@@ -592,7 +593,7 @@ Indexes.on = () => function () {
         var $form = $('#index_frm');
         var argsep = CommonParams.get('arg_separator');
         var submitData = $form.serialize() + argsep + 'do_save_data=1' + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
-        Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
+        ajaxShowMessage(window.Messages.strProcessingRequest);
         AJAX.source = $form;
         $.post($form.attr('action'), submitData, AJAX.responseHandler);
     });
@@ -631,11 +632,11 @@ Indexes.on = () => function () {
             .val();
 
         Functions.confirmPreviewSql(question, $anchor.attr('href'), function (url) {
-            var $msg = Functions.ajaxShowMessage(window.Messages.strDroppingPrimaryKeyIndex, false);
+            var $msg = ajaxShowMessage(window.Messages.strDroppingPrimaryKeyIndex, false);
             var params = Functions.getJsConfirmCommonParam(this, $anchor.getPostData());
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
-                    Functions.ajaxRemoveMessage($msg);
+                    ajaxRemoveMessage($msg);
                     var $tableRef = $rowsToHide.closest('table');
                     if ($rowsToHide.length === $tableRef.find('tbody > tr').length) {
                         // We are about to remove all rows from the table
@@ -662,7 +663,7 @@ Indexes.on = () => function () {
                     Navigation.reload();
                     CommonActions.refreshMain('index.php?route=/table/structure');
                 } else {
-                    Functions.ajaxShowMessage(window.Messages.strErrorProcessingRequest + ' : ' + data.error, false);
+                    ajaxShowMessage(window.Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
             }); // end $.post()
         });

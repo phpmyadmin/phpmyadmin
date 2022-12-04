@@ -3,6 +3,7 @@ import { AJAX } from '../modules/ajax.js';
 import { Functions } from '../modules/functions.js';
 import { CommonParams } from '../modules/common.js';
 import highlightSql from '../modules/sql-highlight.js';
+import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
 
 /**
  * @fileoverview JavaScript functions used on /table/search
@@ -112,7 +113,7 @@ AJAX.registerOnload('table/select.js', function () {
 
         // empty previous search results while we are waiting for new results
         $('#sqlqueryresultsouter').empty();
-        var $msgbox = Functions.ajaxShowMessage(window.Messages.strSearching, false);
+        var $msgbox = ajaxShowMessage(window.Messages.strSearching, false);
 
         Functions.prepareForAjaxRequest($searchForm);
 
@@ -158,7 +159,7 @@ AJAX.registerOnload('table/select.js', function () {
         }
 
         $.post($searchForm.attr('action'), values, function (data) {
-            Functions.ajaxRemoveMessage($msgbox);
+            ajaxRemoveMessage($msgbox);
             if (typeof data !== 'undefined' && data.success === true) {
                 if (typeof data.sql_query !== 'undefined') { // zero rows
                     $('#sqlqueryresultsouter').html(data.sql_query);
@@ -297,7 +298,7 @@ AJAX.registerOnload('table/select.js', function () {
         var operator = $(this).val();
 
         if ((operator === 'BETWEEN' || operator === 'NOT BETWEEN') && dataType) {
-            var $msgbox = Functions.ajaxShowMessage();
+            var $msgbox = ajaxShowMessage();
             $.ajax({
                 url: 'index.php?route=/table/search',
                 type: 'POST',
@@ -310,7 +311,7 @@ AJAX.registerOnload('table/select.js', function () {
                     'range_search': 1
                 },
                 success: function (response) {
-                    Functions.ajaxRemoveMessage($msgbox);
+                    ajaxRemoveMessage($msgbox);
                     if (response.success) {
                         // Get the column min value.
                         var min = response.column_data.min
@@ -374,11 +375,11 @@ AJAX.registerOnload('table/select.js', function () {
                             $('#rangeSearchModal').modal('hide');
                         });
                     } else {
-                        Functions.ajaxShowMessage(response.error);
+                        ajaxShowMessage(response.error);
                     }
                 },
                 error: function () {
-                    Functions.ajaxShowMessage(window.Messages.strErrorProcessingRequest);
+                    ajaxShowMessage(window.Messages.strErrorProcessingRequest);
                 }
             });
         }

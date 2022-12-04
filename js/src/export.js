@@ -3,6 +3,7 @@ import { AJAX } from './modules/ajax.js';
 import { Functions } from './modules/functions.js';
 import { CommonParams } from './modules/common.js';
 import highlightSql from './modules/sql-highlight.js';
+import { ajaxShowMessage } from './modules/ajax-message.js';
 
 /**
  * Functions used in the export tab
@@ -88,7 +89,7 @@ Export.createTemplate = function (name) {
         'templateData': JSON.stringify(templateData)
     };
 
-    Functions.ajaxShowMessage();
+    ajaxShowMessage();
     $.post('index.php?route=/export/template/create', params, function (response) {
         if (response.success === true) {
             $('#templateName').val('');
@@ -98,9 +99,9 @@ Export.createTemplate = function (name) {
                     $(this).prop('selected', true);
                 }
             });
-            Functions.ajaxShowMessage(window.Messages.strTemplateCreated);
+            ajaxShowMessage(window.Messages.strTemplateCreated);
         } else {
-            Functions.ajaxShowMessage(response.error, false);
+            ajaxShowMessage(response.error, false);
         }
     });
 };
@@ -120,7 +121,7 @@ Export.loadTemplate = function (id) {
         'templateId': id,
     };
 
-    Functions.ajaxShowMessage();
+    ajaxShowMessage();
     $.post('index.php?route=/export/template/load', params, function (response) {
         if (response.success === true) {
             var $form = $('form[name="dump"]');
@@ -145,9 +146,9 @@ Export.loadTemplate = function (id) {
                 }
             });
             $('input[name="template_id"]').val(id);
-            Functions.ajaxShowMessage(window.Messages.strTemplateLoaded);
+            ajaxShowMessage(window.Messages.strTemplateLoaded);
         } else {
-            Functions.ajaxShowMessage(response.error, false);
+            ajaxShowMessage(response.error, false);
         }
     });
 };
@@ -170,12 +171,12 @@ Export.updateTemplate = function (id) {
         'templateData': JSON.stringify(templateData)
     };
 
-    Functions.ajaxShowMessage();
+    ajaxShowMessage();
     $.post('index.php?route=/export/template/update', params, function (response) {
         if (response.success === true) {
-            Functions.ajaxShowMessage(window.Messages.strTemplateUpdated);
+            ajaxShowMessage(window.Messages.strTemplateUpdated);
         } else {
-            Functions.ajaxShowMessage(response.error, false);
+            ajaxShowMessage(response.error, false);
         }
     });
 };
@@ -195,13 +196,13 @@ Export.deleteTemplate = function (id) {
         'templateId': id,
     };
 
-    Functions.ajaxShowMessage();
+    ajaxShowMessage();
     $.post('index.php?route=/export/template/delete', params, function (response) {
         if (response.success === true) {
             $('#template').find('option[value="' + id + '"]').remove();
-            Functions.ajaxShowMessage(window.Messages.strTemplateDeleted);
+            ajaxShowMessage(window.Messages.strTemplateDeleted);
         } else {
-            Functions.ajaxShowMessage(response.error, false);
+            ajaxShowMessage(response.error, false);
         }
     });
 };
@@ -765,7 +766,7 @@ Export.checkTimeOut = function (timeLimit) {
     timeOut = setTimeout(function () {
         $.get('index.php?route=/export/check-time-out', { 'ajax_request': true }, function (data) {
             if (data.message === 'timeout') {
-                Functions.ajaxShowMessage(
+                ajaxShowMessage(
                     '<div class="alert alert-danger" role="alert">' +
                     window.Messages.strTimeOutError +
                     '</div>',
@@ -809,7 +810,7 @@ Export.createAliasModal = function (event) {
                         $('#db_alias_select').append(option);
                     });
                 } else {
-                    Functions.ajaxShowMessage(response.error, false);
+                    ajaxShowMessage(response.error, false);
                 }
             });
         }
@@ -927,7 +928,7 @@ AJAX.registerOnload('export.js', function () {
                         $('#table_alias_select').append(option);
                     });
                 } else {
-                    Functions.ajaxShowMessage(response.error, false);
+                    ajaxShowMessage(response.error, false);
                 }
             });
         }
@@ -952,7 +953,7 @@ AJAX.registerOnload('export.js', function () {
                     $('#column_alias_select').append(option);
                 });
             } else {
-                Functions.ajaxShowMessage(response.error, false);
+                ajaxShowMessage(response.error, false);
             }
         });
     });

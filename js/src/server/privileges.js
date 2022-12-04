@@ -3,6 +3,7 @@ import { AJAX } from '../modules/ajax.js';
 import { Functions } from '../modules/functions.js';
 import { CommonParams } from '../modules/common.js';
 import { Navigation } from '../modules/navigation.js';
+import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
 
 /**
  * Export privileges modal handler
@@ -22,13 +23,13 @@ function exportPrivilegesModalHandler (data, msgbox) {
         modal.on('shown.bs.modal', function () {
             modal.find('.modal-body').first().html(data.message);
             $('#exportPrivilegesModalLabel').first().html(data.title);
-            Functions.ajaxRemoveMessage(msgbox);
+            ajaxRemoveMessage(msgbox);
             // Attach syntax highlighted editor to export dialog
             Functions.getSqlEditor(modal.find('textarea'));
         });
         return;
     }
-    Functions.ajaxShowMessage(data.error, false);
+    ajaxShowMessage(data.error, false);
 }
 
 /**
@@ -51,7 +52,7 @@ const EditUserGroup = {
             },
             data => {
                 if (typeof data === 'undefined' || data.success !== true) {
-                    Functions.ajaxShowMessage(data.error, false, 'error');
+                    ajaxShowMessage(data.error, false, 'error');
 
                     return;
                 }
@@ -70,7 +71,7 @@ const EditUserGroup = {
                         form.serialize() + CommonParams.get('arg_separator') + 'ajax_request=1',
                         data => {
                             if (typeof data === 'undefined' || data.success !== true) {
-                                Functions.ajaxShowMessage(data.error, false, 'error');
+                                ajaxShowMessage(data.error, false, 'error');
 
                                 return;
                             }
@@ -108,7 +109,7 @@ const AccountLocking = {
 
         $.post(url, params, data => {
             if (data.success === false) {
-                Functions.ajaxShowMessage(data.error);
+                ajaxShowMessage(data.error);
                 return;
             }
 
@@ -124,7 +125,7 @@ const AccountLocking = {
                 button.dataset.isLocked = 'true';
             }
 
-            Functions.ajaxShowMessage(data.message);
+            ajaxShowMessage(data.message);
         });
     }
 };
@@ -237,12 +238,12 @@ const RevokeUser = {
                 }
             }
 
-            Functions.ajaxShowMessage(window.Messages.strRemovingSelectedUsers);
+            ajaxShowMessage(window.Messages.strRemovingSelectedUsers);
 
             var argsep = CommonParams.get('arg_separator');
             $.post(url, $form.serialize() + argsep + 'delete=' + $thisButton.val() + argsep + 'ajax_request=true', function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
-                    Functions.ajaxShowMessage(data.message);
+                    ajaxShowMessage(data.message);
                     // Refresh navigation, if we dropped some databases with the name
                     // that is the same as the username of the deleted user
                     if ($('#dropUsersDbCheckbox:checked').length) {
@@ -275,7 +276,7 @@ const RevokeUser = {
                         $(Functions.checkboxesSel).trigger('change');
                     });
                 } else {
-                    Functions.ajaxShowMessage(data.error, false);
+                    ajaxShowMessage(data.error, false);
                 }
             }); // end $.post()
         });
@@ -293,10 +294,10 @@ const ExportPrivileges = {
         event.preventDefault();
         // can't export if no users checked
         if ($(this.form).find('input:checked').length === 0) {
-            Functions.ajaxShowMessage(window.Messages.strNoAccountSelected, 2000, 'success');
+            ajaxShowMessage(window.Messages.strNoAccountSelected, 2000, 'success');
             return;
         }
-        var msgbox = Functions.ajaxShowMessage();
+        var msgbox = ajaxShowMessage();
         var argsep = CommonParams.get('arg_separator');
         var serverId = CommonParams.get('server');
         var selectedUsers = $('#usersForm input[name*=\'selected_usr\']:checkbox').serialize();
@@ -317,7 +318,7 @@ const ExportUser = {
      */
     handleEvent: function (event) {
         event.preventDefault();
-        var msgbox = Functions.ajaxShowMessage();
+        var msgbox = ajaxShowMessage();
         $.get($(this).attr('href'), { 'ajax_request': true }, function (data) {
             exportPrivilegesModalHandler(data, msgbox);
         });

@@ -3,6 +3,7 @@ import { AJAX } from '../modules/ajax.js';
 import { Functions } from '../modules/functions.js';
 import { Navigation } from '../modules/navigation.js';
 import { CommonActions, CommonParams } from '../modules/common.js';
+import { ajaxShowMessage } from '../modules/ajax-message.js';
 
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
@@ -26,7 +27,7 @@ const DropDatabases = {
             selectedDbs[selectedDbs.length] = 'DROP DATABASE `' + Functions.escapeHtml($(this).val()) + '`;';
         });
         if (! selectedDbs.length) {
-            Functions.ajaxShowMessage(
+            ajaxShowMessage(
                 $('<div class="alert alert-warning" role="alert"></div>').text(
                     window.Messages.strNoDatabasesSelected
                 ),
@@ -47,14 +48,14 @@ const DropDatabases = {
         const url = 'index.php?route=/server/databases/destroy&' + $(this).serialize();
 
         $('#dropDatabaseModalDropButton').on('click', function () {
-            Functions.ajaxShowMessage(window.Messages.strProcessingRequest, false);
+            ajaxShowMessage(window.Messages.strProcessingRequest, false);
 
             var parts = url.split('?');
             var params = Functions.getJsConfirmCommonParam(this, parts[1]);
 
             $.post(parts[0], params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
-                    Functions.ajaxShowMessage(data.message);
+                    ajaxShowMessage(data.message);
 
                     var $rowsToRemove = $form.find('tr.removeMe');
                     var $databasesCount = $('#filter-rows-count');
@@ -70,7 +71,7 @@ const DropDatabases = {
                     Navigation.reload();
                 } else {
                     $form.find('tr.removeMe').removeClass('removeMe');
-                    Functions.ajaxShowMessage(data.error, false);
+                    ajaxShowMessage(data.error, false);
                 }
             });
 
@@ -101,12 +102,12 @@ const CreateDatabase = {
         }
         // end remove
 
-        Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
+        ajaxShowMessage(window.Messages.strProcessingRequest);
         Functions.prepareForAjaxRequest($form);
 
         $.post($form.attr('action'), $form.serialize(), function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
-                Functions.ajaxShowMessage(data.message);
+                ajaxShowMessage(data.message);
 
                 var $databasesCountObject = $('#filter-rows-count');
                 var databasesCount = parseInt($databasesCountObject.text(), 10) + 1;
@@ -119,7 +120,7 @@ const CreateDatabase = {
                 var params = 'ajax_request=true' + CommonParams.get('arg_separator') + 'ajax_page_request=true';
                 $.get(dbStructUrl, params, AJAX.responseHandler);
             } else {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         });
     }

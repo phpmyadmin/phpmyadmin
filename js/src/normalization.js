@@ -2,6 +2,7 @@ import $ from 'jquery';
 import { AJAX } from './modules/ajax.js';
 import { Functions } from './modules/functions.js';
 import { CommonParams } from './modules/common.js';
+import { ajaxShowMessage } from './modules/ajax-message.js';
 
 /**
  * @fileoverview   events handling from normalization page
@@ -244,11 +245,11 @@ function goTo2NFFinish (pd) {
                     $('#mainContent #extra').html('');
                     $('.tblFooters').html('');
                 } else {
-                    Functions.ajaxShowMessage(data.extra, false);
+                    ajaxShowMessage(data.extra, false);
                 }
                 $('#pma_navigation_reload').trigger('click');
             } else {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         }
     });
@@ -284,11 +285,11 @@ function goTo3NFFinish (newTables) {
                     $('#mainContent #extra').html('');
                     $('.tblFooters').html('');
                 } else {
-                    Functions.ajaxShowMessage(data.extra, false);
+                    ajaxShowMessage(data.extra, false);
                 }
                 $('#pma_navigation_reload').trigger('click');
             } else {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         }
     });
@@ -330,7 +331,7 @@ function goTo2NFStep2 (pd, primaryKey) {
                 if (data.success === true) {
                     extra += data.message;
                 } else {
-                    Functions.ajaxShowMessage(data.error, false);
+                    ajaxShowMessage(data.error, false);
                 }
             }
         });
@@ -380,7 +381,7 @@ function goTo3NFStep2 (pd, tablesTds) {
                 if (data.success === true) {
                     extra += dataParsed.html;
                 } else {
-                    Functions.ajaxShowMessage(data.error, false);
+                    ajaxShowMessage(data.error, false);
                 }
             }
         });
@@ -477,10 +478,10 @@ function moveRepeatingGroup (repeatingCols) {
                 if (data.queryError === false) {
                     goToStep3();
                 }
-                Functions.ajaxShowMessage(data.message, false);
+                ajaxShowMessage(data.message, false);
                 $('#pma_navigation_reload').trigger('click');
             } else {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         }
     });
@@ -585,13 +586,13 @@ AJAX.registerOnload('normalization.js', function () {
                             $('#newCols').html('');
                             $('.tblFooters').html('');
                         } else {
-                            Functions.ajaxShowMessage(data.error, false);
+                            ajaxShowMessage(data.error, false);
                         }
                         selectedCol = '';
                     }
                 );
             } else {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         });
     });
@@ -632,7 +633,7 @@ AJAX.registerOnload('normalization.js', function () {
                         })
                         .appendTo('.tblFooters');
                 } else {
-                    Functions.ajaxShowMessage(data.error, false);
+                    ajaxShowMessage(data.error, false);
                 }
             }
         );
@@ -653,7 +654,7 @@ AJAX.registerOnload('normalization.js', function () {
                     goToStep3();
                 }, 2000);
             } else {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         });
     });
@@ -677,7 +678,7 @@ AJAX.registerOnload('normalization.js', function () {
                 if (data.success === true) {
                     goToStep2('goToFinish1NF');
                 } else {
-                    Functions.ajaxShowMessage(data.error, false);
+                    ajaxShowMessage(data.error, false);
                 }
             }
         );

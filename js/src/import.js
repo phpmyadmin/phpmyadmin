@@ -3,6 +3,7 @@ import { AJAX } from './modules/ajax.js';
 import { Functions } from './modules/functions.js';
 import { Navigation } from './modules/navigation.js';
 import { CommonParams } from './modules/common.js';
+import { ajaxShowMessage } from './modules/ajax-message.js';
 
 /* global themeImagePath */ // templates/javascript/variables.twig
 
@@ -79,19 +80,19 @@ AJAX.registerOnload('import.js', function () {
 
             if (radioImport.hasClass('active') && $('#input_import_file').val() === '') {
                 $('#input_import_file').trigger('focus');
-                Functions.ajaxShowMessage(fileMsg, false);
+                ajaxShowMessage(fileMsg, false);
                 return false;
             }
 
             if (radioLocalImport.hasClass('active')) {
                 if ($('#select_local_import_file').length === 0) {
-                    Functions.ajaxShowMessage('<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> ' + window.Messages.strNoImportFile + ' </div>', false);
+                    ajaxShowMessage('<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> ' + window.Messages.strNoImportFile + ' </div>', false);
                     return false;
                 }
 
                 if ($('#select_local_import_file').val() === '') {
                     $('#select_local_import_file').trigger('focus');
-                    Functions.ajaxShowMessage(fileMsg, false);
+                    ajaxShowMessage(fileMsg, false);
                     return false;
                 }
             }
@@ -99,20 +100,20 @@ AJAX.registerOnload('import.js', function () {
             // local upload.
             if ($('#input_import_file').val() === '') {
                 $('#input_import_file').trigger('focus');
-                Functions.ajaxShowMessage(fileMsg, false);
+                ajaxShowMessage(fileMsg, false);
                 return false;
             }
             if ($('#text_csv_new_tbl_name').length > 0) {
                 var newTblName = $('#text_csv_new_tbl_name').val();
                 if (newTblName.length > 0 && newTblName.trim().length === 0) {
-                    Functions.ajaxShowMessage(wrongTblNameMsg, false);
+                    ajaxShowMessage(wrongTblNameMsg, false);
                     return false;
                 }
             }
             if ($('#text_csv_new_db_name').length > 0) {
                 var newDBName = $('#text_csv_new_db_name').val();
                 if (newDBName.length > 0 && newDBName.trim().length === 0) {
-                    Functions.ajaxShowMessage(wrongDBNameMsg, false);
+                    ajaxShowMessage(wrongDBNameMsg, false);
                     return false;
                 }
             }

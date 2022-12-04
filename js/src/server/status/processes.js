@@ -3,6 +3,7 @@ import { AJAX } from '../../modules/ajax.js';
 import { Functions } from '../../modules/functions.js';
 import { CommonParams } from '../../modules/common.js';
 import highlightSql from '../../modules/sql-highlight.js';
+import { ajaxShowMessage } from '../../modules/ajax-message.js';
 
 /**
  * Server Status Processes
@@ -72,10 +73,10 @@ var processList = {
                     }
                 });
                 // Show process killed message
-                Functions.ajaxShowMessage(data.message, false);
+                ajaxShowMessage(data.message, false);
             } else {
                 // Show process error message
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         }, 'json');
     },

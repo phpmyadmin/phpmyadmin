@@ -3,6 +3,7 @@ import { AJAX } from '../modules/ajax.js';
 import { Functions } from '../modules/functions.js';
 import { CommonParams } from '../modules/common.js';
 import highlightSql from '../modules/sql-highlight.js';
+import { ajaxShowMessage } from '../modules/ajax-message.js';
 
 // TODO: change the axis
 /**
@@ -250,9 +251,9 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
      **/
     $('#inputFormSubmitId').on('click', function () {
         if ($('#tableid_0').get(0).selectedIndex === 0 || $('#tableid_1').get(0).selectedIndex === 0) {
-            Functions.ajaxShowMessage(window.Messages.strInputNull);
+            ajaxShowMessage(window.Messages.strInputNull);
         } else if (xLabel === yLabel) {
-            Functions.ajaxShowMessage(window.Messages.strSameInputs);
+            ajaxShowMessage(window.Messages.strSameInputs);
         }
     });
 
@@ -404,7 +405,7 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
                     $('#sqlqueryresultsouter').html(data.sql_query);
                     highlightSql($('#sqlqueryresultsouter'));
                 } else {
-                    Functions.ajaxShowMessage(data.error, false);
+                    ajaxShowMessage(data.error, false);
                 }
             }); // End $.post
         }// End database update

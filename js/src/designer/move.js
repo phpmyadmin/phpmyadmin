@@ -2,6 +2,7 @@ import $ from 'jquery';
 import { AJAX } from '../modules/ajax.js';
 import { Functions } from '../modules/functions.js';
 import { CommonActions, CommonParams } from '../modules/common.js';
+import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
 
 /**
  * @package PhpMyAdmin-Designer
@@ -675,7 +676,7 @@ DesignerMove.addOtherDbTables = function () {
         // Check if table already imported or not.
         var $table = $('[id="' + encodeURIComponent(db) + '.' + encodeURIComponent(table) + '"]');
         if ($table.length !== 0) {
-            Functions.ajaxShowMessage(
+            ajaxShowMessage(
                 window.sprintf(window.Messages.strTableAlreadyExists, db + '.' + table),
                 undefined,
                 'error'
@@ -792,13 +793,13 @@ DesignerMove.save2 = function (callback) {
         poststr += argsep + 'server=' + window.server + argsep + 'db=' + encodeURIComponent(window.db) + argsep + 'selected_page=' + window.selectedPage;
         poststr += DesignerMove.getUrlPos();
 
-        var $msgbox = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
+        var $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
         $.post('index.php?route=/database/designer', poststr, function (data) {
             if (data.success === false) {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             } else {
-                Functions.ajaxRemoveMessage($msgbox);
-                Functions.ajaxShowMessage(window.Messages.strModificationSaved);
+                ajaxRemoveMessage($msgbox);
+                ajaxShowMessage(window.Messages.strModificationSaved);
                 DesignerMove.markSaved();
                 if (typeof callback !== 'undefined') {
                     callback();
@@ -820,19 +821,19 @@ DesignerMove.submitSaveDialogAndClose = function (callback, modal) {
     var $form = $('#save_page');
     var name = $form.find('input[name="selected_value"]').val().trim();
     if (name === '') {
-        Functions.ajaxShowMessage(window.Messages.strEnterValidPageName, false);
+        ajaxShowMessage(window.Messages.strEnterValidPageName, false);
         return;
     }
     modal.modal('hide');
 
     if (window.designerTablesEnabled) {
-        var $msgbox = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
+        var $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
         Functions.prepareForAjaxRequest($form);
         $.post($form.attr('action'), $form.serialize() + DesignerMove.getUrlPos(), function (data) {
             if (data.success === false) {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             } else {
-                Functions.ajaxRemoveMessage($msgbox);
+                ajaxRemoveMessage($msgbox);
                 DesignerMove.markSaved();
                 if (data.id) {
                     window.selectedPage = data.id;
@@ -886,7 +887,7 @@ DesignerMove.save3 = function (callback) {
 // ------------------------------ EDIT PAGES ------------------------------------------
 DesignerMove.editPages = function () {
     DesignerMove.promptToSaveCurrentPage(function () {
-        var $msgbox = Functions.ajaxShowMessage();
+        var $msgbox = ajaxShowMessage();
         $.post('index.php?route=/database/designer', {
             'ajax_request': true,
             'server': window.server,
@@ -894,9 +895,9 @@ DesignerMove.editPages = function () {
             'dialog': 'edit'
         }, function (data) {
             if (data.success === false) {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             } else {
-                Functions.ajaxRemoveMessage($msgbox);
+                ajaxRemoveMessage($msgbox);
 
                 if (! window.designerTablesEnabled) {
                     DesignerPage.createPageList(window.db, function (options) {
@@ -908,7 +909,7 @@ DesignerMove.editPages = function () {
                     var $form = $('#edit_delete_pages');
                     var selected = $form.find('select[name="selected_page"]').val();
                     if (selected === '0') {
-                        Functions.ajaxShowMessage(window.Messages.strSelectPage, 2000);
+                        ajaxShowMessage(window.Messages.strSelectPage, 2000);
                         return;
                     }
 
@@ -923,7 +924,7 @@ DesignerMove.editPages = function () {
 
 // -----------------------------  DELETE PAGES ---------------------------------------
 DesignerMove.deletePages = function () {
-    var $msgbox = Functions.ajaxShowMessage();
+    var $msgbox = ajaxShowMessage();
     $.post('index.php?route=/database/designer', {
         'ajax_request': true,
         'server': window.server,
@@ -931,9 +932,9 @@ DesignerMove.deletePages = function () {
         'dialog': 'delete'
     }, function (data) {
         if (data.success === false) {
-            Functions.ajaxShowMessage(data.error, false);
+            ajaxShowMessage(data.error, false);
         } else {
-            Functions.ajaxRemoveMessage($msgbox);
+            ajaxRemoveMessage($msgbox);
 
             if (! window.designerTablesEnabled) {
                 DesignerPage.createPageList(window.db, function (options) {
@@ -946,37 +947,37 @@ DesignerMove.deletePages = function () {
                 var $form = $('#edit_delete_pages');
                 var selected = $form.find('select[name="selected_page"]').val();
                 if (selected === '0') {
-                    Functions.ajaxShowMessage(window.Messages.strSelectPage, 2000);
+                    ajaxShowMessage(window.Messages.strSelectPage, 2000);
                     return;
                 }
 
-                var $messageBox = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
+                var $messageBox = ajaxShowMessage(window.Messages.strProcessingRequest);
                 var deletingCurrentPage = parseInt(selected) === window.selectedPage;
                 Functions.prepareForAjaxRequest($form);
 
                 if (window.designerTablesEnabled) {
                     $.post($form.attr('action'), $form.serialize(), function (data) {
                         if (data.success === false) {
-                            Functions.ajaxShowMessage(data.error, false);
+                            ajaxShowMessage(data.error, false);
                         } else {
-                            Functions.ajaxRemoveMessage($messageBox);
+                            ajaxRemoveMessage($messageBox);
                             if (deletingCurrentPage) {
                                 DesignerMove.loadPage(null);
                             } else {
-                                Functions.ajaxShowMessage(window.Messages.strSuccessfulPageDelete);
+                                ajaxShowMessage(window.Messages.strSuccessfulPageDelete);
                             }
                         }
                     }); // end $.post()
                 } else {
                     DesignerPage.deletePage(selected, function (success) {
                         if (! success) {
-                            Functions.ajaxShowMessage('Error', false);
+                            ajaxShowMessage('Error', false);
                         } else {
-                            Functions.ajaxRemoveMessage($messageBox);
+                            ajaxRemoveMessage($messageBox);
                             if (deletingCurrentPage) {
                                 DesignerMove.loadPage(null);
                             } else {
-                                Functions.ajaxShowMessage(window.Messages.strSuccessfulPageDelete);
+                                ajaxShowMessage(window.Messages.strSuccessfulPageDelete);
                             }
                         }
                     });
@@ -991,7 +992,7 @@ DesignerMove.deletePages = function () {
 
 // ------------------------------ SAVE AS PAGES ---------------------------------------
 DesignerMove.saveAs = function () {
-    var $msgbox = Functions.ajaxShowMessage();
+    var $msgbox = ajaxShowMessage();
     $.post('index.php?route=/database/designer', {
         'ajax_request': true,
         'server': window.server,
@@ -999,9 +1000,9 @@ DesignerMove.saveAs = function () {
         'dialog': 'save_as'
     }, function (data) {
         if (data.success === false) {
-            Functions.ajaxShowMessage(data.error, false);
+            ajaxShowMessage(data.error, false);
         } else {
-            Functions.ajaxRemoveMessage($msgbox);
+            ajaxRemoveMessage($msgbox);
 
             if (! window.designerTablesEnabled) {
                 DesignerPage.createPageList(window.db, function (options) {
@@ -1019,26 +1020,26 @@ DesignerMove.saveAs = function () {
 
                 if (choice === 'same') {
                     if ($selectedPage.val() === '0') {
-                        Functions.ajaxShowMessage(window.Messages.strSelectPage, 2000);
+                        ajaxShowMessage(window.Messages.strSelectPage, 2000);
                         return;
                     }
                     name = $selectedPage.find('option:selected').text();
                 } else if (choice === 'new') {
                     if (selectedValue === '') {
-                        Functions.ajaxShowMessage(window.Messages.strEnterValidPageName, 2000);
+                        ajaxShowMessage(window.Messages.strEnterValidPageName, 2000);
                         return;
                     }
                     name = selectedValue;
                 }
 
-                var $msgbox = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
+                var $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
                 if (window.designerTablesEnabled) {
                     Functions.prepareForAjaxRequest($form);
                     $.post($form.attr('action'), $form.serialize() + DesignerMove.getUrlPos(), function (data) {
                         if (data.success === false) {
-                            Functions.ajaxShowMessage(data.error, false);
+                            ajaxShowMessage(data.error, false);
                         } else {
-                            Functions.ajaxRemoveMessage($msgbox);
+                            ajaxRemoveMessage($msgbox);
                             DesignerMove.markSaved();
                             if (data.id) {
                                 window.selectedPage = data.id;
@@ -1050,7 +1051,7 @@ DesignerMove.saveAs = function () {
                     if (choice === 'same') {
                         var selectedPageId = $selectedPage.find('option:selected').val();
                         DesignerPage.saveToSelectedPage(window.db, selectedPageId, name, DesignerMove.getUrlPos(), function (page) {
-                            Functions.ajaxRemoveMessage($msgbox);
+                            ajaxRemoveMessage($msgbox);
                             DesignerMove.markSaved();
                             if (page.pgNr) {
                                 window.selectedPage = page.pgNr;
@@ -1059,7 +1060,7 @@ DesignerMove.saveAs = function () {
                         });
                     } else if (choice === 'new') {
                         DesignerPage.saveToNewPage(window.db, name, DesignerMove.getUrlPos(), function (page) {
-                            Functions.ajaxRemoveMessage($msgbox);
+                            ajaxRemoveMessage($msgbox);
                             DesignerMove.markSaved();
                             if (page.pgNr) {
                                 window.selectedPage = page.pgNr;
@@ -1099,7 +1100,7 @@ DesignerMove.promptToSaveCurrentPage = function (callback) {
 
 // ------------------------------ EXPORT PAGES ---------------------------------------
 DesignerMove.exportPages = function () {
-    var $msgbox = Functions.ajaxShowMessage();
+    var $msgbox = ajaxShowMessage();
     var argsep = CommonParams.get('arg_separator');
 
     $.post('index.php?route=/database/designer', {
@@ -1110,9 +1111,9 @@ DesignerMove.exportPages = function () {
         'selected_page': window.selectedPage
     }, function (data) {
         if (data.success === false) {
-            Functions.ajaxShowMessage(data.error, false);
+            ajaxShowMessage(data.error, false);
         } else {
-            Functions.ajaxRemoveMessage($msgbox);
+            ajaxRemoveMessage($msgbox);
 
             var $form = $(data.message);
             if (! window.designerTablesEnabled) {
@@ -1204,7 +1205,7 @@ DesignerMove.saveValueInConfig = function (indexSent, valueSent) {
         },
         function (data) {
             if (data.success === false) {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         });
 };
@@ -1296,7 +1297,7 @@ DesignerMove.clickField = function (db, T, f, pk) {
         document.getElementById('designer_hint').style.display = 'none';
         document.getElementById('display_field_button').className = 'M_butt';
 
-        var $msgbox = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
+        var $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
         $.post('index.php?route=/database/designer',
             {
                 'operation': 'setDisplayField',
@@ -1308,10 +1309,10 @@ DesignerMove.clickField = function (db, T, f, pk) {
             },
             function (data) {
                 if (data.success === false) {
-                    Functions.ajaxShowMessage(data.error, false);
+                    ajaxShowMessage(data.error, false);
                 } else {
-                    Functions.ajaxRemoveMessage($msgbox);
-                    Functions.ajaxShowMessage(window.Messages.strModificationSaved);
+                    ajaxRemoveMessage($msgbox);
+                    ajaxShowMessage(window.Messages.strModificationSaved);
                 }
             });
     }
@@ -1324,13 +1325,13 @@ DesignerMove.newRelation = function () {
     linkRelation += argsep + 'on_delete=' + document.getElementById('on_delete').value + argsep + 'on_update=' + document.getElementById('on_update').value;
     linkRelation += argsep + 'operation=addNewRelation' + argsep + 'ajax_request=true';
 
-    var $msgbox = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
+    var $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
     $.post('index.php?route=/database/designer', linkRelation, function (data) {
         if (data.success === false) {
-            Functions.ajaxShowMessage(data.error, false);
+            ajaxShowMessage(data.error, false);
         } else {
-            Functions.ajaxRemoveMessage($msgbox);
-            Functions.ajaxShowMessage(data.message);
+            ajaxRemoveMessage($msgbox);
+            ajaxShowMessage(data.message);
             DesignerMove.loadPage(window.selectedPage);
         }
     }); // end $.post()
@@ -1550,13 +1551,13 @@ DesignerMove.updRelation = function () {
     linkRelation += argsep + 'server=' + window.server + argsep + 'db=' + window.db;
     linkRelation += argsep + 'operation=removeRelation' + argsep + 'ajax_request=true';
 
-    var $msgbox = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
+    var $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
     $.post('index.php?route=/database/designer', linkRelation, function (data) {
         if (data.success === false) {
-            Functions.ajaxShowMessage(data.error, false);
+            ajaxShowMessage(data.error, false);
         } else {
-            Functions.ajaxRemoveMessage($msgbox);
-            Functions.ajaxShowMessage(data.message);
+            ajaxRemoveMessage($msgbox);
+            ajaxShowMessage(data.message);
             DesignerMove.loadPage(window.selectedPage);
         }
     }); // end $.post()
@@ -1913,7 +1914,7 @@ DesignerMove.addObject = function (dbName, tableName, colName, dbTableNameUrl) {
     var init = historyArray.length;
     if (rel.value !== '--') {
         if (document.getElementById('Query').value === '') {
-            Functions.ajaxShowMessage(window.sprintf(window.Messages.strQueryEmpty));
+            ajaxShowMessage(window.sprintf(window.Messages.strQueryEmpty));
             return;
         }
         p = document.getElementById('Query');
@@ -1956,7 +1957,7 @@ DesignerMove.addObject = function (dbName, tableName, colName, dbTableNameUrl) {
         sum = sum + 1;
         // make orderby
     }
-    Functions.ajaxShowMessage(window.sprintf(window.Messages.strObjectsCreated, sum));
+    ajaxShowMessage(window.sprintf(window.Messages.strObjectsCreated, sum));
     // output sum new objects created
     var existingDiv = document.getElementById('ab');
     existingDiv.innerHTML = DesignerHistory.display(init, historyArray.length);

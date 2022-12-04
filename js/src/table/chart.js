@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.js';
 import { Functions } from '../modules/functions.js';
+import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
 
 /* global ColumnType, DataTable, JQPlotChartFactory */ // js/chart.js
 
@@ -177,7 +178,7 @@ function drawChart () {
             $('#saveChart').attr('href', currentChart.toImageString());
         }
     } catch (err) {
-        Functions.ajaxShowMessage(err.message, false);
+        ajaxShowMessage(err.message, false);
     }
 }
 
@@ -371,7 +372,7 @@ AJAX.registerOnload('table/chart.js', function () {
             return false;
         }
 
-        var $msgbox = Functions.ajaxShowMessage();
+        var $msgbox = ajaxShowMessage();
         Functions.prepareForAjaxRequest($form);
         $.post($form.attr('action'), $form.serialize(), function (data) {
             if (typeof data !== 'undefined' &&
@@ -379,9 +380,9 @@ AJAX.registerOnload('table/chart.js', function () {
                 typeof data.chartData !== 'undefined') {
                 chartData = JSON.parse(data.chartData);
                 drawChart();
-                Functions.ajaxRemoveMessage($msgbox);
+                ajaxRemoveMessage($msgbox);
             } else {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         }, 'json'); // end $.post()
 

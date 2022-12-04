@@ -6,6 +6,7 @@ import { Indexes } from './indexes.js';
 import { Config } from './config.js';
 import tooltip from './tooltip.js';
 import highlightSql from './sql-highlight.js';
+import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.js';
 
 /* global ChartType, ColumnType, DataTable, JQPlotChartFactory */ // js/chart.js
 /* global DatabaseStructure */ // js/database/structure.js
@@ -17,12 +18,6 @@ import highlightSql from './sql-highlight.js';
  */
 const Functions = {};
 window.Functions = Functions;
-
-/**
- * Number of AJAX messages shown since page load.
- * @type {number}
- */
-let ajaxMessageCount = 0;
 
 /**
  * Object containing CodeMirror editor of the query editor in SQL tab.
@@ -104,13 +99,6 @@ Functions.addNoCacheToAjaxRequests = () => function (options, originalOptions) {
             'token': CommonParams.get('token')
         });
     }
-};
-
-/**
- * @return {number}
- */
-Functions.getAjaxMessageCount = function () {
-    return ajaxMessageCount;
 };
 
 /**
@@ -1429,155 +1417,6 @@ Functions.updateCode = function ($base, htmlValue, rawValue) {
 };
 
 /**
- * Show a message on the top of the page for an Ajax request
- *
- * Sample usage:
- *
- * 1) var $msg = Functions.ajaxShowMessage();
- * This will show a message that reads "Loading...". Such a message will not
- * disappear automatically and cannot be dismissed by the user. To remove this
- * message either the Functions.ajaxRemoveMessage($msg) function must be called or
- * another message must be show with Functions.ajaxShowMessage() function.
- *
- * 2) var $msg = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
- * This is a special case. The behaviour is same as above,
- * just with a different message
- *
- * 3) var $msg = Functions.ajaxShowMessage('The operation was successful');
- * This will show a message that will disappear automatically and it can also
- * be dismissed by the user.
- *
- * 4) var $msg = Functions.ajaxShowMessage('Some error', false);
- * This will show a message that will not disappear automatically, but it
- * can be dismissed by the user after they have finished reading it.
- *
- * @param {string|null} message string containing the message to be shown.
- *                              optional, defaults to 'Loading...'
- * @param {any} timeout         number of milliseconds for the message to be visible
- *                              optional, defaults to 5000. If set to 'false', the
- *                              notification will never disappear
- * @param {string|null} type    string to dictate the type of message shown.
- *                              optional, defaults to normal notification.
- *                              If set to 'error', the notification will show message
- *                              with red background.
- *                              If set to 'success', the notification will show with
- *                              a green background.
- * @return {JQuery<Element>}   jQuery Element that holds the message div
- *                              this object can be passed to Functions.ajaxRemoveMessage()
- *                              to remove the notification
- */
-Functions.ajaxShowMessage = function (message = null, timeout = null, type = null) {
-    var msg = message;
-    var newTimeOut = timeout;
-    /**
-     * @var self_closing Whether the notification will automatically disappear
-     */
-    var selfClosing = true;
-    /**
-     * @var dismissable Whether the user will be able to remove
-     *                  the notification by clicking on it
-     */
-    var dismissable = true;
-    // Handle the case when a empty data.message is passed.
-    // We don't want the empty message
-    if (msg === '') {
-        return true;
-    } else if (! msg) {
-        // If the message is undefined, show the default
-        msg = window.Messages.strLoading;
-        dismissable = false;
-        selfClosing = false;
-    } else if (msg === window.Messages.strProcessingRequest) {
-        // This is another case where the message should not disappear
-        dismissable = false;
-        selfClosing = false;
-    }
-    // Figure out whether (or after how long) to remove the notification
-    if (newTimeOut === undefined || newTimeOut === null) {
-        newTimeOut = 5000;
-    } else if (newTimeOut === false) {
-        selfClosing = false;
-    }
-    // Determine type of message, add styling as required
-    if (type === 'error') {
-        msg = '<div class="alert alert-danger" role="alert">' + msg + '</div>';
-    } else if (type === 'success') {
-        msg = '<div class="alert alert-success" role="alert">' + msg + '</div>';
-    }
-    // Create a parent element for the AJAX messages, if necessary
-    if ($('#loading_parent').length === 0) {
-        $('<div id="loading_parent"></div>')
-            .prependTo('#page_content');
-    }
-    // Update message count to create distinct message elements every time
-    ajaxMessageCount++;
-    // Remove all old messages, if any
-    $('span.ajax_notification[id^=ajax_message_num]').remove();
-    /**
-     * @var $retval    a jQuery object containing the reference
-     *                 to the created AJAX message
-     */
-    var $retval = $(
-        '<span class="ajax_notification" id="ajax_message_num_' +
-        ajaxMessageCount +
-        '"></span>'
-    )
-        .hide()
-        .appendTo('#loading_parent')
-        .html(msg)
-        .show();
-    // If the notification is self-closing we should create a callback to remove it
-    if (selfClosing) {
-        $retval
-            .delay(newTimeOut)
-            .fadeOut('medium', function () {
-                if ($(this).is(':data(tooltip)')) {
-                    $(this).uiTooltip('destroy');
-                }
-                // Remove the notification
-                $(this).remove();
-            });
-    }
-    // If the notification is dismissable we need to add the relevant class to it
-    // and add a tooltip so that the users know that it can be removed
-    if (dismissable) {
-        $retval.addClass('dismissable').css('cursor', 'pointer');
-        /**
-         * Add a tooltip to the notification to let the user know that they
-         * can dismiss the ajax notification by clicking on it.
-         */
-        tooltip($retval, 'span', window.Messages.strDismiss);
-    }
-    // Hide spinner if this is not a loading message
-    if (msg !== window.Messages.strLoading) {
-        $retval.css('background-image', 'none');
-    }
-    highlightSql($retval);
-
-    return $retval;
-};
-
-/**
- * Removes the message shown for an Ajax operation when it's completed
- *
- * @param {JQuery} $thisMessageBox Element that holds the notification
- *
- * @return {void}
- */
-Functions.ajaxRemoveMessage = function ($thisMessageBox) {
-    if ($thisMessageBox !== undefined && $thisMessageBox instanceof $) {
-        $thisMessageBox
-            .stop(true, true)
-            .fadeOut('medium');
-        if ($thisMessageBox.is(':data(tooltip)')) {
-            $thisMessageBox.uiTooltip('destroy');
-        } else {
-            $thisMessageBox.remove();
-        }
-    }
-};
-
-/**
  * Requests SQL for previewing before executing.
  *
  * @param {JQuery<HTMLElement>} $form Form containing query data
@@ -1591,13 +1430,13 @@ Functions.previewSql = function ($form) {
         sep + 'do_save_data=1' +
         sep + 'preview_sql=1' +
         sep + 'ajax_request=1';
-    var $messageBox = Functions.ajaxShowMessage();
+    var $messageBox = ajaxShowMessage();
     $.ajax({
         type: 'POST',
         url: formUrl,
         data: formData,
         success: function (response) {
-            Functions.ajaxRemoveMessage($messageBox);
+            ajaxRemoveMessage($messageBox);
             if (response.success) {
                 $('#previewSqlModal').modal('show');
                 $('#previewSqlModal').find('.modal-body').first().html(response.sql_data);
@@ -1606,11 +1445,11 @@ Functions.previewSql = function ($form) {
                     highlightSql($('#previewSqlModal'));
                 });
             } else {
-                Functions.ajaxShowMessage(response.message);
+                ajaxShowMessage(response.message);
             }
         },
         error: function () {
-            Functions.ajaxShowMessage(window.Messages.strErrorProcessingRequest);
+            ajaxShowMessage(window.Messages.strErrorProcessingRequest);
         }
     });
 };
@@ -1672,7 +1511,7 @@ Functions.checkReservedWordColumns = function ($form) {
 Functions.dismissNotifications = () => function () {
     /**
      * Allows the user to dismiss a notification
-     * created with Functions.ajaxShowMessage()
+     * created with ajaxShowMessage()
      */
     var holdStarter = null;
     $(document).on('mousedown', 'span.ajax_notification.dismissable', function () {
@@ -1684,7 +1523,7 @@ Functions.dismissNotifications = () => function () {
     $(document).on('mouseup', 'span.ajax_notification.dismissable', function (event) {
         if (holdStarter && event.which === 1) {
             clearTimeout(holdStarter);
-            Functions.ajaxRemoveMessage($(this));
+            ajaxRemoveMessage($(this));
         }
     });
     /**
@@ -2140,14 +1979,14 @@ Functions.onloadCreateTableEvents = function () {
         if (Functions.checkTableEditForm($form[0], $form.find('input[name=orig_num_fields]').val())) {
             Functions.prepareForAjaxRequest($form);
             if (Functions.checkReservedWordColumns($form)) {
-                Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
+                ajaxShowMessage(window.Messages.strProcessingRequest);
                 // User wants to submit the form
                 $.post($form.attr('action'), $form.serialize() + CommonParams.get('arg_separator') + 'do_save_data=1', function (data) {
                     if (typeof data !== 'undefined' && data.success === true) {
                         $('#properties_message')
                             .removeClass('alert-danger')
                             .html('');
-                        Functions.ajaxShowMessage(data.message);
+                        ajaxShowMessage(data.message);
                         // Only if the create table dialog (distinct panel) exists
                         var $createTableDialog = $('#create_table_dialog');
                         if ($createTableDialog.length > 0) {
@@ -2208,7 +2047,7 @@ Functions.onloadCreateTableEvents = function () {
                             argsep + 'goto=' + encodeURIComponent('index.php?route=/database/structure') + argsep + 'table=' + data.params.table + '';
                         $.get(tableStructureUrl, params12, AJAX.responseHandler);
                     } else {
-                        Functions.ajaxShowMessage(
+                        ajaxShowMessage(
                             '<div class="alert alert-danger" role="alert">' + data.error + '</div>',
                             false
                         );
@@ -2230,7 +2069,7 @@ Functions.onloadCreateTableEvents = function () {
          */
         var $form = $('form.create_table_form.ajax');
 
-        var $msgbox = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
+        var $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
         Functions.prepareForAjaxRequest($form);
 
         // User wants to add more fields to the table
@@ -2241,9 +2080,9 @@ Functions.onloadCreateTableEvents = function () {
                 highlightSql($pageContent);
                 Functions.verifyColumnsProperties();
                 Functions.hideShowConnection($('.create_table_form select[name=tbl_storage_engine]'));
-                Functions.ajaxRemoveMessage($msgbox);
+                ajaxRemoveMessage($msgbox);
             } else {
-                Functions.ajaxShowMessage(data.error);
+                ajaxShowMessage(data.error);
             }
         }); // end $.post()
     }
@@ -2412,7 +2251,7 @@ Functions.onloadChangePasswordEvents = function () {
     $(document).on('click', '#change_password_anchor.ajax', function (event) {
         event.preventDefault();
 
-        var $msgbox = Functions.ajaxShowMessage();
+        var $msgbox = ajaxShowMessage();
 
         $('#changePasswordGoButton').on('click', function () {
             event.preventDefault();
@@ -2433,12 +2272,12 @@ Functions.onloadChangePasswordEvents = function () {
              */
             var thisValue = $(this).val();
 
-            var $msgbox = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
+            var $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
             $theForm.append('<input type="hidden" name="ajax_request" value="true">');
 
             $.post($theForm.attr('action'), $theForm.serialize() + CommonParams.get('arg_separator') + 'change_pw=' + thisValue, function (data) {
                 if (typeof data === 'undefined' || data.success !== true) {
-                    Functions.ajaxShowMessage(data.error, false);
+                    ajaxShowMessage(data.error, false);
                     return;
                 }
 
@@ -2447,14 +2286,14 @@ Functions.onloadChangePasswordEvents = function () {
                 highlightSql($pageContent);
                 $('#change_password_dialog').hide().remove();
                 $('#edit_user_dialog').dialog('close').remove();
-                Functions.ajaxRemoveMessage($msgbox);
+                ajaxRemoveMessage($msgbox);
             }); // end $.post()
             $('#changePasswordModal').modal('hide');
         });
 
         $.get($(this).attr('href'), { 'ajax_request': true }, function (data) {
             if (typeof data === 'undefined' || ! data.success) {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
                 return;
             }
 
@@ -2470,7 +2309,7 @@ Functions.onloadChangePasswordEvents = function () {
                 .find('table.table').unwrap().addClass('m-3')
                 .find('input#text_pma_pw').trigger('focus');
             $('#fieldset_change_password_footer').hide();
-            Functions.ajaxRemoveMessage($msgbox);
+            ajaxRemoveMessage($msgbox);
             Functions.displayPasswordGenerateButton();
             $('#change_password_form').on('submit', function (e) {
                 e.preventDefault();
@@ -3035,7 +2874,7 @@ Functions.indexDialogModal = function (routeUrl, url, title, callbackSuccess, ca
          * @var the_form object referring to the export form
          */
         var $form = $('#index_frm');
-        Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
+        ajaxShowMessage(window.Messages.strProcessingRequest);
         Functions.prepareForAjaxRequest($form);
         // User wants to submit the form
         $.post($form.attr('action'), $form.serialize() + CommonParams.get('arg_separator') + 'do_save_data=1', function (data) {
@@ -3044,7 +2883,7 @@ Functions.indexDialogModal = function (routeUrl, url, title, callbackSuccess, ca
                 $sqlqueryresults.remove();
             }
             if (typeof data !== 'undefined' && data.success === true) {
-                Functions.ajaxShowMessage(data.message);
+                ajaxShowMessage(data.message);
                 highlightSql($('.result_query'));
                 $('.result_query .alert').remove();
                 /* Reload the field form*/
@@ -3073,18 +2912,18 @@ Functions.indexDialogModal = function (routeUrl, url, title, callbackSuccess, ca
                 if (callbackFailure) {
                     callbackFailure();
                 }
-                Functions.ajaxShowMessage($error, false);
+                ajaxShowMessage($error, false);
             }
         }); // end $.post()
     });
 
-    var $msgbox = Functions.ajaxShowMessage();
+    var $msgbox = ajaxShowMessage();
     $.post(routeUrl, url, function (data) {
         if (typeof data !== 'undefined' && data.success === false) {
             // in the case of an error, show the error message returned.
-            Functions.ajaxShowMessage(data.error, false);
+            ajaxShowMessage(data.error, false);
         } else {
-            Functions.ajaxRemoveMessage($msgbox);
+            ajaxRemoveMessage($msgbox);
             // Show dialog if the request was successful
             modal.modal('show');
             modal.find('.modal-body').first().html(data.message);
@@ -3264,7 +3103,7 @@ Functions.toggleButton = function ($obj) {
         } else {
             $(this).addClass('isActive');
         }
-        var $msg = Functions.ajaxShowMessage();
+        var $msg = ajaxShowMessage();
         var $container = $(this);
         var callback = $('span.callback', this).text();
         var operator;
@@ -3295,7 +3134,7 @@ Functions.toggleButton = function ($obj) {
         var parts = url.split('?');
         $.post(parts[0], parts[1] + '&ajax_request=true', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
-                Functions.ajaxRemoveMessage($msg);
+                ajaxRemoveMessage($msg);
                 $container
                     .removeClass(removeClass)
                     .addClass(addClass)
@@ -3305,7 +3144,7 @@ Functions.toggleButton = function ($obj) {
                 // eslint-disable-next-line no-eval
                 eval(callback);
             } else {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
                 $container.removeClass('isActive');
             }
         });
@@ -3644,26 +3483,26 @@ Functions.onloadCreateView = function () {
 };
 
 Functions.createViewModal = function ($this) {
-    var $msg = Functions.ajaxShowMessage();
+    var $msg = ajaxShowMessage();
     var sep = CommonParams.get('arg_separator');
     var params = Functions.getJsConfirmCommonParam(this, $this.getPostData());
     params += sep + 'ajax_dialog=1';
     $.post($this.attr('href'), params, function (data) {
         if (typeof data !== 'undefined' && data.success === true) {
-            Functions.ajaxRemoveMessage($msg);
+            ajaxRemoveMessage($msg);
             $('#createViewModalGoButton').on('click', function () {
                 if (typeof window.CodeMirror !== 'undefined') {
                     window.codeMirrorEditor.save();
                 }
-                $msg = Functions.ajaxShowMessage();
+                $msg = ajaxShowMessage();
                 $.post('index.php?route=/view/create', $('#createViewModal').find('form').serialize(), function (data) {
-                    Functions.ajaxRemoveMessage($msg);
+                    ajaxRemoveMessage($msg);
                     if (typeof data !== 'undefined' && data.success === true) {
                         $('#createViewModal').modal('hide');
                         $('.result_query').html(data.message);
                         Navigation.reload();
                     } else {
-                        Functions.ajaxShowMessage(data.error);
+                        ajaxShowMessage(data.error);
                     }
                 });
             });
@@ -3676,7 +3515,7 @@ Functions.createViewModal = function ($this) {
             });
             $('#createViewModal').modal('show');
         } else {
-            Functions.ajaxShowMessage(data.error);
+            ajaxShowMessage(data.error);
         }
     });
 };
@@ -3921,7 +3760,7 @@ Functions.checkNumberOfFields = function () {
         var nbInputs = $(this).find(':input').length;
         if (nbInputs > maxInputVars) {
             var warning = window.sprintf(window.Messages.strTooManyInputs, maxInputVars);
-            Functions.ajaxShowMessage(warning);
+            ajaxShowMessage(warning);
             return false;
         }
         return true;
@@ -4155,7 +3994,7 @@ Functions.configSet = function (key, value) {
             if (data.success !== true) {
                 // Try to find a message to display
                 if (data.error || data.message || false) {
-                    Functions.ajaxShowMessage(data.error || data.message);
+                    ajaxShowMessage(data.error || data.message);
                 }
             }
         }
@@ -4199,7 +4038,7 @@ Functions.configGet = function (key, cached, successCallback, failureCallback) {
             if (data.success !== true) {
                 // Try to find a message to display
                 if (data.error || data.message || false) {
-                    Functions.ajaxShowMessage(data.error || data.message);
+                    ajaxShowMessage(data.error || data.message);
                 }
 
                 // Call the callback if it is defined

@@ -2,6 +2,7 @@ import $ from 'jquery';
 import { AJAX } from '../modules/ajax.js';
 import { Functions } from '../modules/functions.js';
 import { CommonParams } from '../modules/common.js';
+import { ajaxShowMessage } from '../modules/ajax-message.js';
 
 /**
  * Unbind all event handlers before tearing down the page
@@ -54,12 +55,12 @@ AJAX.registerOnload('database/tracking.js', function () {
         if ($button.val() === 'delete_tracking') {
             var question = window.Messages.strDeleteTrackingDataMultiple;
             $button.confirm(question, $form.attr('action'), function (url) {
-                Functions.ajaxShowMessage(window.Messages.strDeletingTrackingData);
+                ajaxShowMessage(window.Messages.strDeletingTrackingData);
                 AJAX.source = $form;
                 $.post(url, submitData, AJAX.responseHandler);
             });
         } else {
-            Functions.ajaxShowMessage();
+            ajaxShowMessage();
             AJAX.source = $form;
             $.post($form.attr('action'), submitData, AJAX.responseHandler);
         }
@@ -74,7 +75,7 @@ AJAX.registerOnload('database/tracking.js', function () {
         var $form = $button.parent('form');
         var argsep = CommonParams.get('arg_separator');
         var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + $button.val();
-        Functions.ajaxShowMessage();
+        ajaxShowMessage();
         AJAX.source = $form;
         $.post($form.attr('action'), submitData, AJAX.responseHandler);
     });
@@ -87,7 +88,7 @@ AJAX.registerOnload('database/tracking.js', function () {
         var $anchor = $(this);
         var question = window.Messages.strDeleteTrackingData;
         $anchor.confirm(question, $anchor.attr('href'), function (url) {
-            Functions.ajaxShowMessage(window.Messages.strDeletingTrackingData);
+            ajaxShowMessage(window.Messages.strDeletingTrackingData);
             AJAX.source = $anchor;
             var argSep = CommonParams.get('arg_separator');
             var params = Functions.getJsConfirmCommonParam(this, $anchor.getPostData());
