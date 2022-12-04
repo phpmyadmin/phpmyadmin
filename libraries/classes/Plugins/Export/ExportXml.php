@@ -238,7 +238,7 @@ class ExportXml extends ExportPlugin
             $result = $GLOBALS['dbi']->fetchResult(
                 'SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME`'
                 . ' FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`'
-                . ' = \'' . $GLOBALS['dbi']->escapeString($GLOBALS['db']) . '\' LIMIT 1'
+                . ' = ' . $GLOBALS['dbi']->quoteString($GLOBALS['db']) . ' LIMIT 1'
             );
             $db_collation = $result[0]['DEFAULT_COLLATION_NAME'];
             $db_charset = $result[0]['DEFAULT_CHARACTER_SET_NAME'];
@@ -337,8 +337,7 @@ class ExportXml extends ExportPlugin
                 // Export events
                 $events = $GLOBALS['dbi']->fetchResult(
                     'SELECT EVENT_NAME FROM information_schema.EVENTS '
-                    . "WHERE EVENT_SCHEMA='" . $GLOBALS['dbi']->escapeString($GLOBALS['db'])
-                    . "'"
+                    . 'WHERE EVENT_SCHEMA=' . $GLOBALS['dbi']->quoteString($GLOBALS['db'])
                 );
                 $head .= $this->exportDefinitions($GLOBALS['db'], 'event', $events);
             }

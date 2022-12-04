@@ -569,7 +569,7 @@ class ExportSqlTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('fetchResult')
-            ->with('SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \'db\';')
+            ->with('SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \'db\'')
             ->will($this->returnValue(['f1', 'f2']));
 
         $dbi->expects($this->exactly(2))
@@ -578,8 +578,10 @@ class ExportSqlTest extends AbstractTestCase
                 ['SHOW CREATE EVENT `db`.`f1`', 'Create Event', DatabaseInterface::CONNECT_USER, 'f1event'],
                 ['SHOW CREATE EVENT `db`.`f2`', 'Create Event', DatabaseInterface::CONNECT_USER, 'f2event'],
             ]));
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi->expects($this->any())->method('quoteString')
+            ->will($this->returnCallback(static function (string $string) {
+                return "'" . $string . "'";
+            }));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -663,8 +665,10 @@ class ExportSqlTest extends AbstractTestCase
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi->expects($this->any())->method('quoteString')
+            ->will($this->returnCallback(static function (string $string) {
+                return "'" . $string . "'";
+            }));
 
         $dbi->expects($this->any())
             ->method('getColumns')
@@ -704,8 +708,10 @@ class ExportSqlTest extends AbstractTestCase
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi->expects($this->any())->method('quoteString')
+            ->will($this->returnCallback(static function (string $string) {
+                return "'" . $string . "'";
+            }));
 
         $dbi->expects($this->any())
             ->method('getColumns')
@@ -825,8 +831,10 @@ class ExportSqlTest extends AbstractTestCase
         $dbi->expects($this->exactly(2))
             ->method('getTable')
             ->will($this->returnValue(new Table('table', 'db', $dbi)));
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi->expects($this->any())->method('quoteString')
+            ->will($this->returnCallback(static function (string $string) {
+                return "'" . $string . "'";
+            }));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -925,9 +933,10 @@ class ExportSqlTest extends AbstractTestCase
         $dbi->expects($this->exactly(2))
             ->method('getTable')
             ->will($this->returnValue(new Table('table', 'db', $dbi)));
-        $dbi->expects($this->any())
-            ->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi->expects($this->any())->method('quoteString')
+            ->will($this->returnCallback(static function (string $string) {
+                return "'" . $string . "'";
+            }));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -1178,8 +1187,10 @@ class ExportSqlTest extends AbstractTestCase
                 ],
                 []
             );
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi->expects($this->any())->method('quoteString')
+            ->will($this->returnCallback(static function (string $string) {
+                return "'" . $string . "'";
+            }));
 
         $_table = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()

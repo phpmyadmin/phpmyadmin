@@ -4353,17 +4353,13 @@
     </RedundantCondition>
   </file>
   <file src="libraries/classes/CreateAddField.php">
-    <DeprecatedMethod occurrences="6">
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
+    <DeprecatedMethod occurrences="3">
       <code>escapeString</code>
       <code>escapeString</code>
       <code>escapeString</code>
     </DeprecatedMethod>
     <LessSpecificReturnStatement occurrences="1"/>
-    <MixedArgument occurrences="13">
-      <code>$_POST['comment']</code>
+    <MixedArgument occurrences="12">
       <code>$_POST['field_name'][$column['col_index']]</code>
       <code>$fieldPrimary[0]</code>
       <code>$index</code>
@@ -4477,13 +4473,14 @@
     <PossiblyInvalidIterator occurrences="1">
       <code>$_POST['partitions']</code>
     </PossiblyInvalidIterator>
-    <PossiblyInvalidOperand occurrences="6">
+    <PossiblyInvalidOperand occurrences="7">
       <code>$_POST['partition_by']</code>
       <code>$_POST['partition_count']</code>
       <code>$_POST['partition_expr']</code>
       <code>$_POST['subpartition_by']</code>
       <code>$_POST['subpartition_count']</code>
       <code>$_POST['subpartition_expr']</code>
+      <code>$_POST['tbl_storage_engine']</code>
     </PossiblyInvalidOperand>
   </file>
   <file src="libraries/classes/Crypto/Crypto.php">
@@ -8965,14 +8962,6 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Partitioning/Partition.php">
-    <DeprecatedMethod occurrences="6">
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <MixedArrayAccess occurrences="1">
       <code>$value['Name']</code>
     </MixedArrayAccess>
@@ -9660,17 +9649,6 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportSql.php">
-    <DeprecatedMethod occurrences="9">
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <InvalidArgument occurrences="2">
       <code>$GLOBALS['asfile']</code>
       <code>$GLOBALS['sql_if_not_exists']</code>
@@ -9949,10 +9927,6 @@
     </PossiblyUndefinedVariable>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportXml.php">
-    <DeprecatedMethod occurrences="2">
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <MixedArgument occurrences="7">
       <code>$code</code>
       <code>$col_as</code>
@@ -10352,9 +10326,6 @@
     </MixedReturnStatement>
   </file>
   <file src="libraries/classes/Plugins/Import/ImportCsv.php">
-    <DeprecatedMethod occurrences="1">
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <DocblockTypeContradiction occurrences="2">
       <code>$nameArray === false</code>
       <code>$nameArray === false</code>
@@ -10447,11 +10418,6 @@
     </RedundantCast>
   </file>
   <file src="libraries/classes/Plugins/Import/ImportLdi.php">
-    <DeprecatedMethod occurrences="3">
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <MixedArgument occurrences="3">
       <code>$GLOBALS['ldi_columns']</code>
       <code>$GLOBALS['ldi_enclosed']</code>
@@ -11033,9 +10999,6 @@
     </RiskyCast>
   </file>
   <file src="libraries/classes/Plugins/Schema/Pdf/Pdf.php">
-    <DeprecatedMethod occurrences="1">
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <MixedArgument occurrences="12">
       <code>$data[$i]</code>
       <code>$data[$i]</code>
@@ -12743,9 +12706,6 @@
     </RedundantCast>
   </file>
   <file src="libraries/classes/Server/Status/Monitor.php">
-    <DeprecatedMethod occurrences="1">
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <InvalidArrayAccess occurrences="1">
       <code>$temp[strlen($temp) - 1]</code>
     </InvalidArrayAccess>

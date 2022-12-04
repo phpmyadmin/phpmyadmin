@@ -15,7 +15,6 @@ use PhpMyAdmin\Util;
 use function array_sum;
 use function count;
 use function implode;
-use function is_numeric;
 use function json_decode;
 use function mb_strlen;
 use function mb_strpos;
@@ -480,13 +479,8 @@ class Monitor
     public function getJsonForLoggingVars(?string $name, ?string $value): array
     {
         if (isset($name, $value)) {
-            $escapedValue = $this->dbi->escapeString($value);
-            if (! is_numeric($escapedValue)) {
-                $escapedValue = "'" . $escapedValue . "'";
-            }
-
             if (! preg_match('/[^a-zA-Z0-9_]+/', $name)) {
-                $this->dbi->query('SET GLOBAL ' . $name . ' = ' . $escapedValue);
+                $this->dbi->query('SET GLOBAL ' . $name . ' = ' . $this->dbi->quoteString($value));
             }
         }
 

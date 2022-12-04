@@ -147,8 +147,8 @@ class Partition extends SubPartition
         if (self::havePartitioning()) {
             $result = $GLOBALS['dbi']->fetchResult(
                 'SELECT * FROM `information_schema`.`PARTITIONS`'
-                . " WHERE `TABLE_SCHEMA` = '" . $GLOBALS['dbi']->escapeString($db)
-                . "' AND `TABLE_NAME` = '" . $GLOBALS['dbi']->escapeString($table) . "'"
+                . ' WHERE `TABLE_SCHEMA` = ' . $GLOBALS['dbi']->quoteString($db)
+                . ' AND `TABLE_NAME` = ' . $GLOBALS['dbi']->quoteString($table)
             );
             if ($result) {
                 $partitionMap = [];
@@ -192,8 +192,8 @@ class Partition extends SubPartition
         if (self::havePartitioning()) {
             return $GLOBALS['dbi']->fetchResult(
                 'SELECT DISTINCT `PARTITION_NAME` FROM `information_schema`.`PARTITIONS`'
-                . " WHERE `TABLE_SCHEMA` = '" . $GLOBALS['dbi']->escapeString($db)
-                . "' AND `TABLE_NAME` = '" . $GLOBALS['dbi']->escapeString($table) . "'"
+                . ' WHERE `TABLE_SCHEMA` = ' . $GLOBALS['dbi']->quoteString($db)
+                . ' AND `TABLE_NAME` = ' . $GLOBALS['dbi']->quoteString($table)
             );
         }
 
@@ -213,8 +213,8 @@ class Partition extends SubPartition
         if (self::havePartitioning()) {
             $partition_method = $GLOBALS['dbi']->fetchResult(
                 'SELECT `PARTITION_METHOD` FROM `information_schema`.`PARTITIONS`'
-                . " WHERE `TABLE_SCHEMA` = '" . $GLOBALS['dbi']->escapeString($db) . "'"
-                . " AND `TABLE_NAME` = '" . $GLOBALS['dbi']->escapeString($table) . "'"
+                . ' WHERE `TABLE_SCHEMA` = ' . $GLOBALS['dbi']->quoteString($db)
+                . ' AND `TABLE_NAME` = ' . $GLOBALS['dbi']->quoteString($table)
                 . ' LIMIT 1'
             );
             if (! empty($partition_method)) {
