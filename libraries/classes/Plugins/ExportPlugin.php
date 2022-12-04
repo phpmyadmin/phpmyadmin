@@ -39,9 +39,6 @@ abstract class ExportPlugin implements Plugin
     /** @var Transformations */
     protected $transformations;
 
-    /**
-     * @psalm-suppress InvalidArrayOffset, MixedAssignment, MixedMethodCall
-     */
     final public function __construct(Relation $relation, Export $export, Transformations $transformations)
     {
         $this->relation = $relation;
