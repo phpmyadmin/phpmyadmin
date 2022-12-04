@@ -1285,8 +1285,8 @@ class ExportSql extends ExportPlugin
      * @return string resulting schema
      */
     private function getTableDefForView(
-        $db,
-        $view,
+        string $db,
+        string $view,
         array $aliases = []
     ): string {
         $dbAlias = $db;
