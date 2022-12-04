@@ -1358,8 +1358,6 @@ class ExportSql extends ExportPlugin
      *
      * @param string $db                      the database name
      * @param string $table                   the table name
-     * @param string $errorUrl                the url to go back in case
-     *                                         of error
      * @param bool   $showDates               whether to include creation/
      *                                         update/check dates
      * @param bool   $addSemicolon            whether to add semicolon and
@@ -1374,7 +1372,6 @@ class ExportSql extends ExportPlugin
     public function getTableDef(
         $db,
         $table,
-        $errorUrl,
         $showDates = false,
         $addSemicolon = true,
         $view = false,
@@ -1985,7 +1982,7 @@ class ExportSql extends ExportPlugin
                     __('Table structure for table') . ' ' . $formattedTableName
                 );
                 $dump .= $this->exportComment();
-                $dump .= $this->getTableDef($db, $table, $errorUrl, $dates, true, false, true, $aliases);
+                $dump .= $this->getTableDef($db, $table, $dates, true, false, true, $aliases);
                 $dump .= $this->getTableComments($db, $table, $relation, $mime, $aliases);
                 break;
             case 'triggers':
@@ -2044,7 +2041,7 @@ class ExportSql extends ExportPlugin
                             . Util::backquote($tableAlias) . ';' . "\n";
                     }
 
-                    $dump .= $this->getTableDef($db, $table, $errorUrl, $dates, true, true, true, $aliases);
+                    $dump .= $this->getTableDef($db, $table, $dates, true, true, true, $aliases);
                 } else {
                     $dump .= $this->exportComment(
                         sprintf(

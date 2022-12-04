@@ -839,7 +839,7 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-        $result = $this->object->getTableDef('db', 'table', 'example.com/err', true, true, false);
+        $result = $this->object->getTableDef('db', 'table', true, true, false);
 
         $this->assertStringContainsString('-- Creation: Jan 01, 2000 at 10:00 AM', $result);
 
@@ -941,7 +941,7 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-        $result = $this->object->getTableDef('db', 'table', 'example.com/err', true, true, false);
+        $result = $this->object->getTableDef('db', 'table', true, true, false);
 
         $this->assertStringContainsString('-- Error reading structure for table db.table: error occurred', $result);
     }
