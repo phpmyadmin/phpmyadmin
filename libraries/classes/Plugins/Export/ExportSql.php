@@ -1394,52 +1394,9 @@ class ExportSql extends ExportPlugin
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
 
-        $schemaCreate = '';
-        $newCrlf = "\n";
-
         $compat = $GLOBALS['sql_compatibility'] ?? 'NONE';
 
-        $result = $GLOBALS['dbi']->tryQuery(
-            'SHOW TABLE STATUS FROM ' . Util::backquote($db)
-            . ' WHERE Name = ' . $GLOBALS['dbi']->quoteString((string) $table)
-        );
-        if ($result != false) {
-            if ($result->numRows() > 0) {
-                $tmpres = $result->fetchAssoc();
-
-                if ($showDates && isset($tmpres['Create_time']) && ! empty($tmpres['Create_time'])) {
-                    $schemaCreate .= $this->exportComment(
-                        __('Creation:') . ' '
-                        . Util::localisedDate(
-                            strtotime($tmpres['Create_time'])
-                        )
-                    );
-                    $newCrlf = $this->exportComment() . "\n";
-                }
-
-                if ($showDates && isset($tmpres['Update_time']) && ! empty($tmpres['Update_time'])) {
-                    $schemaCreate .= $this->exportComment(
-                        __('Last update:') . ' '
-                        . Util::localisedDate(
-                            strtotime($tmpres['Update_time'])
-                        )
-                    );
-                    $newCrlf = $this->exportComment() . "\n";
-                }
-
-                if ($showDates && isset($tmpres['Check_time']) && ! empty($tmpres['Check_time'])) {
-                    $schemaCreate .= $this->exportComment(
-                        __('Last check:') . ' '
-                        . Util::localisedDate(
-                            strtotime($tmpres['Check_time'])
-                        )
-                    );
-                    $newCrlf = $this->exportComment() . "\n";
-                }
-            }
-        }
-
-        $schemaCreate .= $newCrlf;
+        $schemaCreate = $this->getTableStatus($db, $table, $showDates);
 
         if (! empty($GLOBALS['sql_drop_table']) && $GLOBALS['dbi']->getTable($db, $table)->isView()) {
             $schemaCreate .= 'DROP VIEW IF EXISTS '
@@ -2776,5 +2733,51 @@ class ExportSql extends ExportPlugin
         }
 
         return $sqlStatement;
+    }
+
+    private function getTableStatus(string $db, string $table, bool $showDates): string
+    {
+        $newCrlf = "\n";
+        $schemaCreate = '';
+
+        $result = $GLOBALS['dbi']->tryQuery(
+            'SHOW TABLE STATUS FROM ' . Util::backquote($db)
+            . ' WHERE Name = ' . $GLOBALS['dbi']->quoteString((string) $table)
+        );
+        if ($result !== false && $result->numRows() > 0) {
+            $tmpres = $result->fetchAssoc();
+
+            if ($showDates && isset($tmpres['Create_time']) && ! empty($tmpres['Create_time'])) {
+                $schemaCreate .= $this->exportComment(
+                    __('Creation:') . ' '
+                    . Util::localisedDate(
+                        strtotime($tmpres['Create_time'])
+                    )
+                );
+                $newCrlf = $this->exportComment() . "\n";
+            }
+
+            if ($showDates && isset($tmpres['Update_time']) && ! empty($tmpres['Update_time'])) {
+                $schemaCreate .= $this->exportComment(
+                    __('Last update:') . ' '
+                    . Util::localisedDate(
+                        strtotime($tmpres['Update_time'])
+                    )
+                );
+                $newCrlf = $this->exportComment() . "\n";
+            }
+
+            if ($showDates && isset($tmpres['Check_time']) && ! empty($tmpres['Check_time'])) {
+                $schemaCreate .= $this->exportComment(
+                    __('Last check:') . ' '
+                    . Util::localisedDate(
+                        strtotime($tmpres['Check_time'])
+                    )
+                );
+                $newCrlf = $this->exportComment() . "\n";
+            }
+        }
+
+        return $schemaCreate . $newCrlf;
     }
 }
