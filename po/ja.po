@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-11-27 00:21+0000\n"
+"POT-Creation-Date: 2022-12-04 00:17+0000\n"
 "PO-Revision-Date: 2022-08-04 19:16+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -921,9 +921,9 @@ msgstr "中断された接続が多いです。"
 #: libraries/classes/Advisory/Rules.php:580
 #: libraries/classes/Advisory/Rules.php:594
 msgid ""
-"Connections are usually aborted when they cannot be authorized. <a href="
-"\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
-"aborted_connects/\">This article</a> might help you track down the source."
+"Connections are usually aborted when they cannot be authorized. <a "
+"href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
+"of-aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
 "接続は中断されたというのは、一般的に、認証できなかった場合のことです。<a "
 "href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
@@ -1062,12 +1062,12 @@ msgstr "InnoDB ログファイルの大きさが、十分にありません。"
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25% of the size of "
 "{innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down the "
-"recovery time after a database crash considerably. See also <a href="
-"\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
+"recovery time after a database crash considerably. See also <a "
+"href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
 "innodb_log_file_size/\">this Article</a>. You need to shutdown the server, "
 "remove the InnoDB log files, set the new value in my.cnf, start the server, "
-"then check the error logs if everything went fine. See also <a href="
-"\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"then check the error logs if everything went fine. See also <a "
+"href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "一般的には、innodb_log_file_size に {innodb_buffer_pool_size} の 25 % の値を"
@@ -1077,8 +1077,8 @@ msgstr ""
 "記事 (英語)</a> も参照してください。なお、この変数を変更するには、サーバを停"
 "止させ、InnoDB ログファイルを削除し、my.cnf に新しい値を設定してから、サーバ"
 "を起動し直す必要があります。それから、全ての設定が正しく行えたかを確認するた"
-"めに、エラーログを確認しなければなりません。設定に関しては、<a href="
-"\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"めに、エラーログを確認しなければなりません。設定に関しては、<a "
+"href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">こちらのブログ記事 (英語)</a> もご覧くだ"
 "さい"
 
@@ -1105,9 +1105,9 @@ msgid ""
 "available memory. If that is not the case, you need to carefully assess the "
 "memory consumption of your other services and non-InnoDB-Tables and set this "
 "variable accordingly. If it is set too high, your system will start "
-"swapping, which decreases performance significantly. See also <a href="
-"\"https://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/"
-"\">this article</a>"
+"swapping, which decreases performance significantly. See also <a "
+"href=\"https://www.percona.com/blog/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
 "InnoDB のバッファプールは、InnoDB テーブルのパフォーマンスに対して強い影響力"
 "を持っています。使用されていないメモリを全てこのバッファに割り当ててくださ"
@@ -1221,8 +1221,8 @@ msgstr ""
 #: libraries/classes/Advisory/Rules.php:808
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is "
+"%s%%. It should be above 80%%"
 msgstr ""
 "クエリキャッシュの総量に対するクエリキャッシュの空きメモリの割合は %s%% で"
 "す。この値は 80%% よりも大きくあるべきです"
@@ -1361,7 +1361,7 @@ msgstr "検索："
 
 #: libraries/classes/BrowseForeigners.php:204
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:341
-#: libraries/classes/Controllers/Server/PrivilegesController.php:340
+#: libraries/classes/Controllers/Server/PrivilegesController.php:339
 #: libraries/classes/Normalization.php:254 libraries/classes/Tracking.php:327
 #: libraries/classes/Tracking.php:482
 #: templates/columns_definitions/column_definitions_form.twig:42
@@ -1410,17 +1410,16 @@ msgstr "検索："
 #: templates/table/search/index.twig:172 templates/table/search/index.twig:196
 #: templates/table/start_and_number_of_rows_fieldset.twig:15
 #: templates/table/structure/display_structure.twig:343
-#: templates/table/structure/display_structure.twig:437
-#: templates/table/structure/display_structure.twig:555
+#: templates/table/structure/display_structure.twig:454
+#: templates/table/structure/display_structure.twig:572
 #: templates/table/zoom_search/index.twig:152 templates/view_create.twig:116
-#: templates/server/privileges/change_password.twig:78
 msgid "Go"
 msgstr "実行"
 
 #: libraries/classes/BrowseForeigners.php:219
 #: libraries/classes/BrowseForeigners.php:223
 #: templates/database/data_dictionary/index.twig:73 templates/indexes.twig:16
-#: templates/table/structure/display_structure.twig:458
+#: templates/table/structure/display_structure.twig:475
 #: templates/table/tracking/structure_snapshot_indexes.twig:5
 msgid "Keyname"
 msgstr "キー名"
@@ -3197,8 +3196,8 @@ msgid "Character set of the file"
 msgstr "ファイルの文字セット"
 
 #: libraries/classes/Config/Descriptions.php:658
-#: libraries/classes/Config/Descriptions.php:674 templates/import.twig:165
-#: templates/import.twig:167 templates/sql/query.twig:40
+#: libraries/classes/Config/Descriptions.php:674 templates/import.twig:162
+#: templates/import.twig:164 templates/sql/query.twig:40
 #: templates/table/structure/display_table_stats.twig:84
 msgid "Format"
 msgstr "フォーマット"
@@ -3362,8 +3361,7 @@ msgstr "サーバ上に保存する"
 
 #: libraries/classes/Config/Descriptions.php:701
 #: libraries/classes/Config/Descriptions.php:704 templates/export.twig:178
-#: templates/export.twig:373 templates/export.twig:182
-#: templates/export.twig:377
+#: templates/export.twig:373
 msgid "Overwrite existing file(s)"
 msgstr "既存のファイルは上書きする"
 
@@ -3492,7 +3490,7 @@ msgstr "カレンダーの最初の曜日"
 
 #: libraries/classes/Config/Descriptions.php:748
 #: libraries/classes/Config/Descriptions.php:759 libraries/classes/Menu.php:473
-#: libraries/classes/Util.php:1876 libraries/config.values.php:155
+#: libraries/classes/Util.php:1849 libraries/config.values.php:155
 #: templates/navigation/tree/database_select.twig:10
 #: templates/server/databases/index.twig:3 templates/server/export/index.twig:7
 #: templates/server/export/index.twig:14
@@ -3609,8 +3607,8 @@ msgstr "変更追跡機能"
 #: libraries/classes/Config/Descriptions.php:775 libraries/classes/Menu.php:253
 #: libraries/classes/Menu.php:357 libraries/classes/Menu.php:478
 #: libraries/classes/Navigation/Nodes/NodeTable.php:305
-#: libraries/classes/Util.php:1429 libraries/classes/Util.php:1877
-#: libraries/classes/Util.php:1892 libraries/classes/Util.php:1909
+#: libraries/classes/Util.php:1402 libraries/classes/Util.php:1850
+#: libraries/classes/Util.php:1865 libraries/classes/Util.php:1882
 #: libraries/config.values.php:62 libraries/config.values.php:76
 #: libraries/config.values.php:167 libraries/config.values.php:177
 msgid "SQL"
@@ -4262,8 +4260,8 @@ msgstr "ロックされているテーブルをスキップする"
 #: libraries/classes/ConfigStorage/UserGroups.php:120
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:405
 #: libraries/classes/Display/Results.php:2749
-#: libraries/classes/Html/Generator.php:660
-#: libraries/classes/Html/Generator.php:914
+#: libraries/classes/Html/Generator.php:658
+#: libraries/classes/Html/Generator.php:912
 #: templates/console/bookmark_content.twig:10 templates/console/display.twig:41
 #: templates/console/display.twig:199
 #: templates/database/central_columns/main.twig:271
@@ -4281,18 +4279,17 @@ msgstr "ロックされているテーブルをスキップする"
 #: templates/display/results/table.twig:309 templates/indexes.twig:34
 #: templates/server/variables/index.twig:41
 #: templates/server/variables/index.twig:44 templates/setup/home/index.twig:63
-#: templates/table/structure/display_structure.twig:480
-#: libraries/classes/Html/Generator.php:909
+#: templates/table/structure/display_structure.twig:497
 msgid "Edit"
 msgstr "編集"
 
 #: libraries/classes/Config/Descriptions.php:947
-#: libraries/classes/Html/Generator.php:628
+#: libraries/classes/Html/Generator.php:626
 msgid "Explain SQL"
 msgstr "EXPLAIN で確認"
 
 #: libraries/classes/Config/Descriptions.php:948
-#: libraries/classes/Export.php:1278 libraries/classes/Html/Generator.php:708
+#: libraries/classes/Export.php:1278 libraries/classes/Html/Generator.php:706
 #: templates/console/display.twig:121
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
@@ -4300,7 +4297,7 @@ msgid "Refresh"
 msgstr "更新"
 
 #: libraries/classes/Config/Descriptions.php:949
-#: libraries/classes/Html/Generator.php:692
+#: libraries/classes/Html/Generator.php:690
 msgid "Create PHP code"
 msgstr "PHP コードの作成"
 
@@ -4324,8 +4321,8 @@ msgstr "textarea の行数"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:141
 #: libraries/classes/Plugins/Export/ExportOdt.php:186
 #: libraries/classes/Plugins/Export/ExportTexytext.php:125
-#: libraries/classes/Server/Privileges.php:1810
-#: libraries/classes/Server/Privileges.php:1812
+#: libraries/classes/Server/Privileges.php:1837
+#: libraries/classes/Server/Privileges.php:1839
 #: libraries/classes/Server/Status/Processes.php:118
 #: templates/console/bookmark_content.twig:12 templates/console/display.twig:48
 #: templates/console/display.twig:206 templates/server/databases/index.twig:106
@@ -4354,8 +4351,8 @@ msgstr "サーバ"
 
 #: libraries/classes/Config/Descriptions.php:957
 #: libraries/classes/Plugins/Export/ExportXml.php:454
-#: libraries/classes/Server/Privileges.php:1816
-#: libraries/classes/Server/Privileges.php:1818
+#: libraries/classes/Server/Privileges.php:1843
+#: libraries/classes/Server/Privileges.php:1845
 #: templates/database/structure/show_create.twig:10
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
@@ -4511,7 +4508,7 @@ msgstr "%s ためのデータがありません"
 
 #: libraries/classes/Config/FormDisplay.php:642
 #: libraries/classes/Config/Validator.php:590
-#: templates/config/form_display/display.twig:67
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:873
 msgid "Incorrect value!"
 msgstr "不正な値です!"
 
@@ -4570,8 +4567,8 @@ msgstr "詳細"
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:50
 #: libraries/classes/Navigation/Nodes/NodeTable.php:296
-#: libraries/classes/Util.php:1428 libraries/classes/Util.php:1891
-#: libraries/classes/Util.php:1908 libraries/config.values.php:60
+#: libraries/classes/Util.php:1401 libraries/classes/Util.php:1864
+#: libraries/classes/Util.php:1881 libraries/config.values.php:60
 #: libraries/config.values.php:74 libraries/config.values.php:165
 #: libraries/config.values.php:175
 #: templates/columns_definitions/table_fields_definitions.twig:4
@@ -4614,9 +4611,9 @@ msgstr "OpenDocument テキスト"
 #: libraries/classes/Config/Forms/User/ExportForm.php:153
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:390
 #: libraries/classes/Menu.php:275 libraries/classes/Menu.php:377
-#: libraries/classes/Menu.php:505 libraries/classes/Server/Privileges.php:1505
-#: libraries/classes/Util.php:1880 libraries/classes/Util.php:1895
-#: libraries/classes/Util.php:1912 templates/database/events/index.twig:16
+#: libraries/classes/Menu.php:505 libraries/classes/Server/Privileges.php:1532
+#: libraries/classes/Util.php:1853 libraries/classes/Util.php:1868
+#: libraries/classes/Util.php:1885 templates/database/events/index.twig:16
 #: templates/database/events/index.twig:17
 #: templates/database/events/index.twig:86
 #: templates/database/events/row.twig:36
@@ -4643,7 +4640,7 @@ msgstr "OpenDocument テキスト"
 #: templates/server/status/monitor/index.twig:81
 #: templates/table/privileges/index.twig:95
 #: templates/table/privileges/index.twig:120
-#: templates/table/privileges/index.twig:121 templates/export.twig:499
+#: templates/table/privileges/index.twig:121
 msgid "Export"
 msgstr "エクスポート"
 
@@ -4659,12 +4656,12 @@ msgstr "LOAD DATA 文を使用した CSV の読み込み"
 #: libraries/classes/Config/Forms/User/ImportForm.php:67
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:327
 #: libraries/classes/Menu.php:284 libraries/classes/Menu.php:387
-#: libraries/classes/Menu.php:510 libraries/classes/Util.php:1881
-#: libraries/classes/Util.php:1896 libraries/classes/Util.php:1913
-#: templates/import.twig:3 templates/import.twig:195
+#: libraries/classes/Menu.php:510 libraries/classes/Util.php:1854
+#: libraries/classes/Util.php:1869 libraries/classes/Util.php:1886
+#: templates/import.twig:3 templates/import.twig:192
 #: templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
-#: templates/server/status/monitor/index.twig:78 templates/import.twig:199
+#: templates/server/status/monitor/index.twig:78
 msgid "Import"
 msgstr "インポート"
 
@@ -4920,22 +4917,22 @@ msgid "Incorrect IP address: %s"
 msgstr "不正な IP アドレス：%s"
 
 #: libraries/classes/Config/Validator.php:523
-#: templates/config/form_display/display.twig:66
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:872
 msgid "Not a valid port number!"
 msgstr "有効なポート番号ではありません!"
 
 #: libraries/classes/Config/Validator.php:545
-#: templates/config/form_display/display.twig:64
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:870
 msgid "Not a positive number!"
 msgstr "正の値ではありません!"
 
 #: libraries/classes/Config/Validator.php:567
-#: templates/config/form_display/display.twig:65
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:871
 msgid "Not a non-negative number!"
 msgstr "負でない値ではありません!"
 
 #: libraries/classes/Config/Validator.php:608
-#: templates/config/form_display/display.twig:68
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:874
 #, php-format
 msgid "Value must be less than or equal to %s!"
 msgstr "値は %s 以下でなければいけません!"
@@ -5019,7 +5016,6 @@ msgstr ""
 #: libraries/classes/Controllers/Import/ImportController.php:579
 #: libraries/classes/Controllers/Server/ImportController.php:60
 #: libraries/classes/Controllers/Table/ImportController.php:71
-#: libraries/classes/Controllers/Import/ImportController.php:582
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "インポートプラグインが読み込めません。正しくインストールされているか確認して"
@@ -5055,14 +5051,14 @@ msgstr ""
 "ださい。"
 
 #: libraries/classes/Controllers/Database/PrivilegesController.php:79
-#: libraries/classes/Controllers/Server/PrivilegesController.php:152
+#: libraries/classes/Controllers/Server/PrivilegesController.php:151
 #: libraries/classes/Controllers/Server/UserGroupsController.php:54
 #: libraries/classes/Controllers/Table/PrivilegesController.php:80
 msgid "No Privileges"
 msgstr "権限がありません"
 
 #: libraries/classes/Controllers/Database/PrivilegesController.php:88
-#: libraries/classes/Controllers/Server/PrivilegesController.php:161
+#: libraries/classes/Controllers/Server/PrivilegesController.php:160
 #: libraries/classes/Controllers/Table/PrivilegesController.php:89
 msgid "You do not have the privileges to administrate the users!"
 msgstr "ユーザを管理する権限がありません!"
@@ -5124,8 +5120,8 @@ msgstr "テーブル %s を空にしました。"
 #: libraries/classes/Display/Results.php:3761
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to "
+"%sdocumentation%s."
 msgstr "このビューの最低行数。詳しくは%sドキュメント%sをご覧ください。"
 
 #: libraries/classes/Controllers/Database/StructureController.php:765
@@ -5164,7 +5160,7 @@ msgstr "不明"
 #: templates/table/delete/confirm.twig:28
 #: templates/table/privileges/index.twig:73
 #: templates/table/structure/display_structure.twig:80
-#: templates/table/structure/display_structure.twig:515
+#: templates/table/structure/display_structure.twig:532
 #: templates/table/structure/drop_confirm.twig:19
 #: templates/table/structure/primary.twig:19
 #: templates/table/tracking/structure_snapshot_columns.twig:33
@@ -5379,20 +5375,15 @@ msgstr "不正なフォーマット引数"
 
 #: libraries/classes/Controllers/Import/ImportController.php:376
 #: libraries/classes/Controllers/Import/ImportController.php:619
-#: libraries/classes/Controllers/Import/ImportController.php:379
-#: libraries/classes/Controllers/Import/ImportController.php:622
 msgid "Showing bookmark"
 msgstr "表示中のブックマーク"
 
 #: libraries/classes/Controllers/Import/ImportController.php:402
 #: libraries/classes/Controllers/Import/ImportController.php:615
-#: libraries/classes/Controllers/Import/ImportController.php:405
-#: libraries/classes/Controllers/Import/ImportController.php:618
 msgid "The bookmark has been deleted."
 msgstr "ブックマークを削除しました。"
 
 #: libraries/classes/Controllers/Import/ImportController.php:525
-#: libraries/classes/Controllers/Import/ImportController.php:528
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5403,14 +5394,12 @@ msgstr ""
 "[doc@faq1-16]FAQ 1.16[/doc] をご覧ください。"
 
 #: libraries/classes/Controllers/Import/ImportController.php:627
-#: libraries/classes/Controllers/Import/ImportController.php:630
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "インポートは正常に終了しました。%d 個のクエリを実行しました。"
 
 #: libraries/classes/Controllers/Import/ImportController.php:664
-#: libraries/classes/Controllers/Import/ImportController.php:667
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5420,7 +5409,6 @@ msgstr ""
 "ファイルを再送信%sすればインポートが再開されます。"
 
 #: libraries/classes/Controllers/Import/ImportController.php:674
-#: libraries/classes/Controllers/Import/ImportController.php:677
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5429,8 +5417,7 @@ msgstr ""
 "の時間制限を伸ばさない限りこのデータのインポートはできません。"
 
 #: libraries/classes/Controllers/Import/ImportController.php:742
-#: libraries/classes/Controllers/Sql/SqlController.php:177
-#: libraries/classes/Controllers/Import/ImportController.php:745
+#: libraries/classes/Controllers/Sql/SqlController.php:176
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "DROP DATABASE 文は無効にされています。"
 
@@ -5602,7 +5589,7 @@ msgid ""
 msgstr "すべての列の照合順序を変更し、データを変換してもよろしいです?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:114
-#: templates/export.twig:320 templates/export.twig:324
+#: templates/export.twig:320
 msgid "Save & close"
 msgstr "保存して閉じる"
 
@@ -5678,6 +5665,7 @@ msgstr "インデックスに使用するカラムを選択してください。
 #: templates/table/insert/actions_panel.twig:35
 #: templates/table/relation/common_form.twig:174
 #: templates/table/structure/display_structure.twig:344
+#: templates/table/structure/display_structure.twig:354
 msgid "Preview SQL"
 msgstr "SQLのプレビュー"
 
@@ -5691,8 +5679,7 @@ msgid "Matched rows:"
 msgstr "一致した行:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:139
-#: libraries/classes/Html/Generator.php:886 templates/export.twig:67
-#: libraries/classes/Html/Generator.php:881
+#: libraries/classes/Html/Generator.php:884 templates/export.twig:67
 msgid "SQL query:"
 msgstr "SQL クエリ:"
 
@@ -5714,13 +5701,13 @@ msgid "The user name is empty!"
 msgstr "ユーザ名が空です!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:151
-#: libraries/classes/Server/Privileges.php:946
+#: libraries/classes/Server/Privileges.php:973
 #: libraries/classes/UserPassword.php:44
 msgid "The password is empty!"
 msgstr "パスワードが空です!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:152
-#: libraries/classes/Server/Privileges.php:944
+#: libraries/classes/Server/Privileges.php:971
 #: libraries/classes/UserPassword.php:48
 msgid "The passwords aren't the same!"
 msgstr "パスワードが異なっています!"
@@ -5770,10 +5757,11 @@ msgstr "選択したユーザを削除する"
 #: templates/table/search/index.twig:182
 #: templates/table/structure/display_structure.twig:329
 #: templates/table/structure/display_structure.twig:345
-#: templates/table/structure/display_structure.twig:356
+#: templates/table/structure/display_structure.twig:355
+#: templates/table/structure/display_structure.twig:373
 #: templates/table/zoom_search/result_form.twig:27
 #: templates/table/zoom_search/result_form.twig:80
-#: templates/table/zoom_search/result_form.twig:97 templates/export.twig:194
+#: templates/table/zoom_search/result_form.twig:97
 msgid "Close"
 msgstr "閉じる"
 
@@ -5824,13 +5812,13 @@ msgstr "その他"
 
 #. l10n: Thousands separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:169
-#: libraries/classes/Util.php:542 libraries/classes/Util.php:574
+#: libraries/classes/Util.php:515 libraries/classes/Util.php:547
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:171
-#: libraries/classes/Util.php:540 libraries/classes/Util.php:572
+#: libraries/classes/Util.php:513 libraries/classes/Util.php:545
 msgid "."
 msgstr "."
 
@@ -5938,45 +5926,45 @@ msgstr "プロセス"
 
 #. l10n: shortcuts for Byte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:210
-#: libraries/classes/Util.php:450
+#: libraries/classes/Util.php:423
 msgid "B"
 msgstr "バイト"
 
 #. l10n: shortcuts for Kilobyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:211
-#: libraries/classes/Util.php:452
+#: libraries/classes/Util.php:425
 #: templates/server/status/monitor/index.twig:186
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:212
-#: libraries/classes/Util.php:454
+#: libraries/classes/Util.php:427
 #: templates/server/status/monitor/index.twig:187
 msgid "MiB"
 msgstr "MiB"
 
 #. l10n: shortcuts for Gigabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:213
-#: libraries/classes/Util.php:456
+#: libraries/classes/Util.php:429
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:214
-#: libraries/classes/Util.php:458
+#: libraries/classes/Util.php:431
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:215
-#: libraries/classes/Util.php:460
+#: libraries/classes/Util.php:433
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:216
-#: libraries/classes/Util.php:462
+#: libraries/classes/Util.php:435
 msgid "EiB"
 msgstr "EiB"
 
@@ -5996,7 +5984,7 @@ msgid "Traffic"
 msgstr "トラフィック"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:222
-#: libraries/classes/Menu.php:515 libraries/classes/Util.php:1882
+#: libraries/classes/Menu.php:515 libraries/classes/Util.php:1855
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "設定"
@@ -6024,9 +6012,6 @@ msgstr "少なくとも１つの系列を追加してください!"
 #: templates/server/status/processes/list.twig:72
 #: templates/table/zoom_search/index.twig:62
 #: templates/table/zoom_search/index.twig:122
-#: templates/columns_definitions/column_attributes.twig:213
-#: templates/columns_definitions/column_attributes.twig:236
-#: templates/export.twig:433
 msgid "None"
 msgstr "なし"
 
@@ -6231,7 +6216,7 @@ msgstr "EXPLAIN の結果"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:292
 #: libraries/classes/Menu.php:483
 #: libraries/classes/Server/Status/Processes.php:130
-#: libraries/classes/Util.php:1878 libraries/config.values.php:157
+#: libraries/classes/Util.php:1851 libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:25
 #: templates/database/events/index.twig:44
 #: templates/database/tracking/tables.twig:17
@@ -6270,19 +6255,19 @@ msgid "Chart"
 msgstr "グラフ"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:299
-#: templates/export.twig:206 templates/export.twig:210
+#: templates/export.twig:206
 msgctxt "Alias"
 msgid "Database"
 msgstr "データベース"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:300
-#: templates/export.twig:220 templates/export.twig:224
+#: templates/export.twig:220
 msgctxt "Alias"
 msgid "Table"
 msgstr "テーブル"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:301
-#: templates/export.twig:233 templates/export.twig:237
+#: templates/export.twig:233
 msgctxt "Alias"
 msgid "Column"
 msgstr "カラム"
@@ -6428,6 +6413,7 @@ msgstr "適用"
 #: templates/navigation/main.twig:58
 #: templates/server/privileges/users_overview.twig:173
 #: templates/server/status/monitor/index.twig:95
+#: templates/table/structure/display_structure.twig:359
 msgid "Loading…"
 msgstr "読み込み中…"
 
@@ -6487,7 +6473,7 @@ msgstr "主キーを追加する"
 #: templates/database/designer/main.twig:954
 #: templates/database/designer/main.twig:1061
 #: templates/modals/preview_sql_confirmation.twig:14
-#: templates/table/structure/display_structure.twig:361
+#: templates/table/structure/display_structure.twig:378
 msgid "OK"
 msgstr "OK"
 
@@ -6535,7 +6521,7 @@ msgstr "文字セットを変更しています"
 #: templates/table/delete/confirm.twig:29
 #: templates/table/privileges/index.twig:73
 #: templates/table/structure/display_structure.twig:80
-#: templates/table/structure/display_structure.twig:515
+#: templates/table/structure/display_structure.twig:532
 #: templates/table/structure/drop_confirm.twig:20
 #: templates/table/structure/primary.twig:20
 #: templates/table/tracking/structure_snapshot_columns.twig:33
@@ -6546,7 +6532,7 @@ msgstr "いいえ"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:375
 #: templates/database/structure/drop_form.twig:16
-#: templates/database/structure/empty_form.twig:16 templates/import.twig:159
+#: templates/database/structure/empty_form.twig:16 templates/import.twig:156
 #: templates/sql/query.twig:142 templates/table/delete/confirm.twig:25
 msgid "Enable foreign key checks"
 msgstr "外部キーのチェックを有効にする"
@@ -6754,10 +6740,9 @@ msgid "No partial dependencies selected!"
 msgstr "部分的な依存が選択されていません!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:440
-#: libraries/classes/Export.php:1318 libraries/classes/Html/Generator.php:986
+#: libraries/classes/Export.php:1318 libraries/classes/Html/Generator.php:984
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:286
 #: templates/import_status.twig:2 templates/user_password.twig:2
-#: libraries/classes/Html/Generator.php:981
 msgid "Back"
 msgstr "戻る"
 
@@ -7174,7 +7159,7 @@ msgid "cancel"
 msgstr "キャンセル"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:591
-#: libraries/classes/Controllers/Server/Status/StatusController.php:198
+#: libraries/classes/Controllers/Server/Status/StatusController.php:199
 msgid "Aborted"
 msgstr "中断"
 
@@ -7532,77 +7517,77 @@ msgstr "12 月"
 #. l10n: Short month name for January
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:741
-#: libraries/classes/Util.php:652
+#: libraries/classes/Util.php:625
 msgid "Jan"
 msgstr "1 月"
 
 #. l10n: Short month name for February
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:743
-#: libraries/classes/Util.php:654
+#: libraries/classes/Util.php:627
 msgid "Feb"
 msgstr "2 月"
 
 #. l10n: Short month name for March
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:745
-#: libraries/classes/Util.php:656
+#: libraries/classes/Util.php:629
 msgid "Mar"
 msgstr "3 月"
 
 #. l10n: Short month name for April
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:747
-#: libraries/classes/Util.php:658
+#: libraries/classes/Util.php:631
 msgid "Apr"
 msgstr "4 月"
 
 #. l10n: Short month name for June
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:751
-#: libraries/classes/Util.php:662
+#: libraries/classes/Util.php:635
 msgid "Jun"
 msgstr "6 月"
 
 #. l10n: Short month name for July
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:753
-#: libraries/classes/Util.php:664
+#: libraries/classes/Util.php:637
 msgid "Jul"
 msgstr "7 月"
 
 #. l10n: Short month name for August
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:755
-#: libraries/classes/Util.php:666
+#: libraries/classes/Util.php:639
 msgid "Aug"
 msgstr "8 月"
 
 #. l10n: Short month name for September
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:757
-#: libraries/classes/Util.php:668
+#: libraries/classes/Util.php:641
 msgid "Sep"
 msgstr "9 月"
 
 #. l10n: Short month name for October
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:759
-#: libraries/classes/Util.php:670
+#: libraries/classes/Util.php:643
 msgid "Oct"
 msgstr "10 月"
 
 #. l10n: Short month name for November
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:761
-#: libraries/classes/Util.php:672
+#: libraries/classes/Util.php:645
 msgid "Nov"
 msgstr "11 月"
 
 #. l10n: Short month name for December
 #. l10n: Short month name
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:763
-#: libraries/classes/Util.php:674
+#: libraries/classes/Util.php:647
 msgid "Dec"
 msgstr "12 月"
 
@@ -7655,37 +7640,37 @@ msgstr "日"
 
 #. l10n: Short week day name for Monday
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:781
-#: libraries/classes/Util.php:680
+#: libraries/classes/Util.php:653
 msgid "Mon"
 msgstr "月"
 
 #. l10n: Short week day name for Tuesday
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:783
-#: libraries/classes/Util.php:682
+#: libraries/classes/Util.php:655
 msgid "Tue"
 msgstr "火"
 
 #. l10n: Short week day name for Wednesday
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:785
-#: libraries/classes/Util.php:684
+#: libraries/classes/Util.php:657
 msgid "Wed"
 msgstr "水"
 
 #. l10n: Short week day name for Thursday
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:787
-#: libraries/classes/Util.php:686
+#: libraries/classes/Util.php:659
 msgid "Thu"
 msgstr "木"
 
 #. l10n: Short week day name for Friday
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:789
-#: libraries/classes/Util.php:688
+#: libraries/classes/Util.php:661
 msgid "Fri"
 msgstr "金"
 
 #. l10n: Short week day name for Saturday
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:791
-#: libraries/classes/Util.php:690
+#: libraries/classes/Util.php:663
 msgid "Sat"
 msgstr "土"
 
@@ -7854,6 +7839,53 @@ msgstr ""
 "これらの関数はバイナリの結果を返します。一貫性のない結果にならないよう、この"
 "値は BINARY, VARBINARY, BLOB のいずれかのカラムに格納してください。"
 
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:858
+#, fuzzy
+#| msgid ""
+#| "The file being uploaded is probably larger than the maximum allowed size "
+#| "or this is a known bug in webkit based (Safari, Google Chrome, Arora "
+#| "etc.) browsers."
+msgid ""
+"The file being uploaded is probably larger than the maximum allowed size."
+msgstr ""
+"アップロードされているファイルが最大許容サイズよりもおそらく大きい、もしく"
+"は、WebKit がベースのブラウザ (Safari、Google Chrome、Arora など) の既知のバ"
+"グです。"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:860
+#, php-format
+msgid "%s of %s"
+msgstr "%s of %s"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:861
+#, php-format
+msgid "%s/sec."
+msgstr "%s/秒。"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:862
+msgid "About %MIN min. %SEC sec. remaining."
+msgstr "残り時間 約 %MIN 分 %SEC 秒。"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:863
+msgid "About %SEC sec. remaining."
+msgstr "残り時間 約 %SEC 秒。"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:864
+msgid "The file is being processed, please be patient."
+msgstr "ファイルが処理されています。しばらくお待ちください。"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:865
+msgid "Uploading your import file…"
+msgstr "インポートファイルをアップロードしています…"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:867
+msgid ""
+"Please be patient, the file is being uploaded. Details about the upload are "
+"not available."
+msgstr ""
+"しばらくお待ちください。ファイルがアップロードされています。アップロードに関"
+"する機能は利用できません。"
+
 #: libraries/classes/Controllers/NavigationController.php:47
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "致命的なエラー：ナビゲーションへのアクセスに使用できるのはAjaxだけです"
@@ -7907,14 +7939,14 @@ msgstr "行"
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:26
 #: templates/database/data_dictionary/index.twig:68 templates/indexes.twig:3
-#: templates/table/structure/display_structure.twig:444
+#: templates/table/structure/display_structure.twig:461
 #: templates/table/tracking/structure_snapshot_indexes.twig:1
 msgid "Indexes"
 msgstr "インデックス"
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:329
-#: libraries/classes/Controllers/Server/Status/StatusController.php:152
-#: libraries/classes/Controllers/Server/Status/StatusController.php:204
+#: libraries/classes/Controllers/Server/Status/StatusController.php:153
+#: libraries/classes/Controllers/Server/Status/StatusController.php:205
 #: templates/table/structure/display_table_stats.twig:45
 msgid "Total"
 msgstr "合計"
@@ -7946,7 +7978,7 @@ msgstr "アカウント %s@%s がロックされました。"
 msgid "The account %s@%s has been successfully unlocked."
 msgstr "アカウント %s@%s のロックが解除されました。"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:176
+#: libraries/classes/Controllers/Server/PrivilegesController.php:175
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
@@ -7965,33 +7997,33 @@ msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr "スレッド %s の終了に失敗しました。すでに閉じているようです。"
 
-#: libraries/classes/Controllers/Server/Status/StatusController.php:142
+#: libraries/classes/Controllers/Server/Status/StatusController.php:143
 msgid "Received"
 msgstr "受信済"
 
-#: libraries/classes/Controllers/Server/Status/StatusController.php:147
+#: libraries/classes/Controllers/Server/Status/StatusController.php:148
 msgid "Sent"
 msgstr "送信済"
 
-#: libraries/classes/Controllers/Server/Status/StatusController.php:186
+#: libraries/classes/Controllers/Server/Status/StatusController.php:187
 msgid "Max. concurrent connections"
 msgstr "最大同時接続数"
 
-#: libraries/classes/Controllers/Server/Status/StatusController.php:192
+#: libraries/classes/Controllers/Server/Status/StatusController.php:193
 msgid "Failed attempts"
 msgstr "失敗回数"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:239
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:237
 msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
 msgstr "クライアントが適切に接続を閉じなかったために中断された接続数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:242
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:240
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "MySQL サーバへの接続を試みて失敗した回数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:244
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:242
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -8000,16 +8032,16 @@ msgstr ""
 "一時バイナリログキャッシュを利用したものの binlog_cache_size の値を超過したた"
 "め一時ファイルにステートメントを保存したトランザクション数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:248
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:246
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr "一時バイナリログキャッシュを使用したトランザクション数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:249
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:247
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr "MySQL サーバへの接続試行回数 (成否に関わらず)。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:251
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:249
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -8020,24 +8052,24 @@ msgstr ""
 "Created_tmp_disk_tables の値が大きい場合は tmp_table_size の値を増やしてディ"
 "スク上ではなくメモリ上に一時テーブルを構築した方がよいかもしれません。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:257
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:255
 msgid "How many temporary files mysqld has created."
 msgstr "mysqld が生成した一時ファイル数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:259
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:257
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
 msgstr "ステートメント実行中にサーバが自動生成したメモリ上の一時テーブル数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:263
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:261
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
 msgstr ""
 "何らかのエラー (たぶんキーの重複) が発生したため INSERT DELAYED された行数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:267
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:265
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
@@ -8045,23 +8077,23 @@ msgstr ""
 "使用中の INSERT DELAYED ハンドラのスレッド数。INSERT DELAYED を適用するテーブ"
 "ルの数だけ固有のスレッドが用意されます。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:271
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:269
 msgid "The number of INSERT DELAYED rows written."
 msgstr "INSERT DELAYED で書き込まれた行数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:272
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:270
 msgid "The number of executed FLUSH statements."
 msgstr "FLUSH 文の実行回数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:273
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:271
 msgid "The number of internal COMMIT statements."
 msgstr "内部で COMMIT 文を実行した回数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:274
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:272
 msgid "The number of times a row was deleted from a table."
 msgstr "テーブルから行を削除した回数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:276
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:274
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
@@ -8071,7 +8103,7 @@ msgstr ""
 "ての情報を持っているか問い合わせることができます。これを開示と言いますが、"
 "Handler_discover はその開示されたタイムテーブルの数です。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:282
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:280
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -8081,7 +8113,7 @@ msgstr ""
 "もインデックスの全スキャンを実行しているものと思われます。例えば SELECT col1 "
 "FROM foo を実行した場合 (col1 はインデックスに含まれているものとします)。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:288
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:286
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -8089,7 +8121,7 @@ msgstr ""
 "キーに基づいて行を読み込んだリクエストの数。この値が高い場合はクエリとテーブ"
 "ルが適切にインデックスされているものと考えられます。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:293
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:291
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -8099,7 +8131,7 @@ msgstr ""
 "エリに範囲指定をしているか、インデックススキャンを行っているときに増加しま"
 "す。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:298
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:296
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY … DESC."
@@ -8107,7 +8139,7 @@ msgstr ""
 "キーの順序通りに前の行を読み込んだリクエストの数。この読み込みは主に ORDER "
 "BY … DESC の最適化に利用されます。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:302
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:300
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -8119,7 +8151,7 @@ msgstr ""
 "キャンしなければならないクエリを大量に行っているか、結合の際のキーの使い方に"
 "不適切なところがあります。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:309
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:307
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -8130,36 +8162,36 @@ msgstr ""
 "キャンを大量に実行しているためです。一般にこれはテーブルのインデックスが不適"
 "切か、クエリがインデックスを利用するように書かれていないことを意味します。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:315
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:313
 msgid "The number of internal ROLLBACK statements."
 msgstr "内部で ROLLBACK 文を実行した回数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:316
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:314
 msgid "The number of requests to update a row in a table."
 msgstr "テーブル内の行を更新したリクエストの数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:317
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:315
 msgid "The number of requests to insert a row in a table."
 msgstr "テーブル内に行を挿入したリクエストの数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:318
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:316
 msgid "The number of pages containing data (dirty or clean)."
 msgstr ""
 "データが含まれるページの数 (ダーティページ、クリーンページの別を問わず)。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:319
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:317
 msgid "The number of pages currently dirty."
 msgstr "現在のダーティページの数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:321
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:319
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr "フラッシュリクエストを受けたバッファプールのページ数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:323
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:321
 msgid "The number of free pages."
 msgstr "空きページ数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:325
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:323
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -8169,7 +8201,7 @@ msgstr ""
 "るいは書き込んでいるページ、あるいは他の何らかの理由でフラッシュしたり削除し"
 "たりできなくなっているページの数です。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:330
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:328
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -8181,11 +8213,11 @@ msgstr ""
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data という式でも計"
 "算できます。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:336
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:334
 msgid "Total size of buffer pool, in pages."
 msgstr "ページのバッファプールサイズの合計。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:338
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:336
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
@@ -8193,7 +8225,7 @@ msgstr ""
 "InnoDB が開始したランダム読み込みの回数。これはクエリがテーブルの大部分をラン"
 "ダムな順番でスキャンするときに発生します。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:343
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:341
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
@@ -8201,11 +8233,11 @@ msgstr ""
 "InnoDB が開始したシーケンシャル読み込みの回数。これは InnoDB がシーケンシャル"
 "なテーブル全スキャンを行うときに発生します。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:346
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:344
 msgid "The number of logical read requests InnoDB has done."
 msgstr "InnoDB が実行した論理読み込みリクエストの数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:348
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:346
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
@@ -8213,7 +8245,7 @@ msgstr ""
 "InnoDB がバッファプールの内容を利用できず、シングルページ読み込みを行わなけれ"
 "ばならなかった論理読み込みの回数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:352
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:350
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -8227,51 +8259,51 @@ msgstr ""
 "そのウェイトの回数をカウントするものです。バッファプールの値が適切に設定され"
 "ていれば、この値は小さいはずです。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:359
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:357
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "InnoDB バッファプールへの書き込み回数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:360
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:358
 msgid "The number of fsync() operations so far."
 msgstr "これまでに fsync() を実行した回数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:361
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:359
 msgid "The current number of pending fsync() operations."
 msgstr "現在保留されている fsync() の回数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:362
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:360
 msgid "The current number of pending reads."
 msgstr "現在保留されている読み込みの数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:363
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:361
 msgid "The current number of pending writes."
 msgstr "現在保留されている書き込みの数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:364
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:362
 msgid "The amount of data read so far, in bytes."
 msgstr "これまでのデータ読み込み量 (単位:バイト)。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:365
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:363
 msgid "The total number of data reads."
 msgstr "データ読み込み回数の合計。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:366
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:364
 msgid "The total number of data writes."
 msgstr "データ書き込み回数の合計。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:367
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:365
 msgid "The amount of data written so far, in bytes."
 msgstr "これまでのデータの書き込み量 (単位:バイト)。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:369
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:367
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr "二重書き込みの実行回数と二重書き込みが発生したページ数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:371
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:369
 msgid "The number of doublewrite operations that have been performed."
 msgstr "二重書き込みの実行回数と二重書き込みが発生したページ数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:373
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:371
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
@@ -8279,35 +8311,35 @@ msgstr ""
 "ログバッファが小さすぎてフラッシュしないと作業を続行できなくなったために発生"
 "したウェイトの回数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:376
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:374
 msgid "The number of log write requests."
 msgstr "ログ書き込みリクエストの数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:377
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:375
 msgid "The number of physical writes to the log file."
 msgstr "ログファイルへの物理書き込みの回数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:378
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:376
 msgid "The number of fsync() writes done to the log file."
 msgstr "ログファイルへの fsync 書き込みの回数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:379
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:377
 msgid "The number of pending log file fsyncs."
 msgstr "保留中のログファイルへの fsync 回数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:380
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:378
 msgid "Pending log file writes."
 msgstr "保留中のログファイルへの書き込み回数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:381
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:379
 msgid "The number of bytes written to the log file."
 msgstr "ログファイルに書き込んだバイト数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:382
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:380
 msgid "The number of pages created."
 msgstr "作成されたページ数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:384
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:382
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
@@ -8315,51 +8347,51 @@ msgstr ""
 "コンパイル時の InnoDB のページサイズ (デフォルト:16KB)。多くの値がページ単位"
 "で計算されますが、この値を使えば簡単にバイト単位に変換できます。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:388
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:386
 msgid "The number of pages read."
 msgstr "読み込んだページ数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:389
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:387
 msgid "The number of pages written."
 msgstr "書き込んだページ数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:390
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:388
 msgid "The number of row locks currently being waited for."
 msgstr "現在待機中の行ロックの数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:391
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:389
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr "行ロック取得に要した平均時間 (単位:ミリ秒)。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:392
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:390
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr "行ロック取得に要した時間の合計 (単位:ミリ秒)。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:393
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:391
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr "行ロック取得に要した時間の最大値 (単位:ミリ秒)。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:394
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:392
 msgid "The number of times a row lock had to be waited for."
 msgstr "行ロック取得時に待機した回数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:395
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:393
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "InnoDB テーブルから削除した行数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:396
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:394
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "InnoDB テーブルに挿入した行数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:397
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:395
 msgid "The number of rows read from InnoDB tables."
 msgstr "InnoDB テーブルから読み込んだ行数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:398
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:396
 msgid "The number of rows updated in InnoDB tables."
 msgstr "InnoDB テーブルで更新された行数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:400
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:398
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
@@ -8367,7 +8399,7 @@ msgstr ""
 "変更されてからディスクにフラッシュされていないキーキャッシュのキーブロックの"
 "数。以前は Not_flushed_key_blocks でした。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:405
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:403
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
@@ -8375,7 +8407,7 @@ msgstr ""
 "キーキャッシュの未使用ブロックの数。キーキャッシュの使用率を調べるときに使え"
 "ます。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:409
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:407
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
@@ -8384,15 +8416,15 @@ msgstr ""
 "キーキャッシュの使用済みブロックの数。この値はこれまで一度に使用されたブロッ"
 "クの最大数です。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:413
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:411
 msgid "Percentage of used key cache (calculated value)"
 msgstr "使われているキーキャッシュの比率 (計算値)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:414
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:412
 msgid "The number of requests to read a key block from the cache."
 msgstr "キャッシュからキーブロックを読み込んだリクエストの数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:416
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:414
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -8402,7 +8434,7 @@ msgstr ""
 "く key_buffer_size が小さすぎるためです。キャッシュミスの割合は Key_reads/"
 "Key_read_requests で計算できます。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:422
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:420
 msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
@@ -8410,20 +8442,20 @@ msgstr ""
 "キーキャッシュミスの割合。読み込みリクエストに対する物理読み込みで算出。(計算"
 "値)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:424
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:422
 msgid "The number of requests to write a key block to the cache."
 msgstr "キャッシュにキーブロックを書き込んだリクエストの数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:425
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:423
 msgid "The number of physical writes of a key block to disk."
 msgstr "ディスクにキーブロックを物理書き込みした回数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:426
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:424
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr "書き込みリクエストに対する物理書き込みの比率 (計算値)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:428
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:426
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -8433,17 +8465,17 @@ msgstr ""
 "クエリのプランを変えたときにコストがどう変わるか比較するときに便利です。デ"
 "フォルト値の 0 はまだ一度もクエリをコンパイルしていないという意味です。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:434
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:432
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr "サーバが起動してからの同時接続の最大数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:436
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:434
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr "INSERT DELAYED キューの中で書き込まれるのを待っている行数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:438
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:436
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table_open_cache value is probably too small."
@@ -8451,19 +8483,19 @@ msgstr ""
 "開いているテーブルの数。開いているテーブルが多い場合はおそらく "
 "table_open_cache の値が小さすぎます。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:441
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:439
 msgid "The number of files that are open."
 msgstr "開いているファイルの数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:442
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:440
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr "開いているストリームの数 (主にログの記録用です)。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:443
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:441
 msgid "The number of tables that are open."
 msgstr "開いているテーブルの数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:445
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:443
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
@@ -8473,19 +8505,19 @@ msgstr ""
 "ていることを示しています。FLUSH QUERY CACHE 文を発行することによって解消され"
 "るかもしれません。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:449
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:447
 msgid "The amount of free memory for query cache."
 msgstr "クエリキャッシュの空きメモリ量。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:450
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:448
 msgid "The number of cache hits."
 msgstr "キャッシュのヒット数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:451
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:449
 msgid "The number of queries added to the cache."
 msgstr "キャッシュに追加されたクエリの数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:453
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:451
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -8497,7 +8529,7 @@ msgstr ""
 "エリキャッシュは最後に使われた時刻が最も古いものから削除する (LRU) 戦略に従っ"
 "て削除するクエリを決めます。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:460
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:458
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -8505,19 +8537,19 @@ msgstr ""
 "キャッシュされなかった (キャッシュできないか query_cache_type の設定でキャッ"
 "シュしないことになっている) クエリの数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:462
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:460
 msgid "The number of queries registered in the cache."
 msgstr "キャッシュに登録されているクエリの数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:463
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:461
 msgid "The total number of blocks in the query cache."
 msgstr "クエリキャッシュの総ブロック数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:464
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:462
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr "フェイルセーフレプリケーションの状態 (未実装)。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:466
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:464
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -8525,11 +8557,11 @@ msgstr ""
 "インデックスを利用しなかった結合の数。この値が 0 でない場合はテーブルのイン"
 "デックスをよく確認してください。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:469
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:467
 msgid "The number of joins that used a range search on a reference table."
 msgstr "参照テーブルで範囲検索をした結合の数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:471
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:469
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -8537,7 +8569,7 @@ msgstr ""
 "キーが指定されていなかったため一行ずつキーが使われているか確認した結合の数"
 "（0 でない場合はテーブルのインデックスをよく確認してください）"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:476
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:474
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -8545,16 +8577,16 @@ msgstr ""
 "最初のテーブルで範囲指定された結合の数 (この値は大きくてもふつう問題ありませ"
 "ん)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:479
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:477
 msgid "The number of joins that did a full scan of the first table."
 msgstr "最初のテーブルを全スキャンした結合の数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:480
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:478
 msgid ""
 "The number of temporary tables currently open by the replica SQL thread."
 msgstr "レプリカの SQL スレッドが現在開いている一時テーブルの数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:482
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:480
 msgid ""
 "Total (since startup) number of times the replication replica SQL thread has "
 "retried transactions."
@@ -8562,23 +8594,23 @@ msgstr ""
 "レプリケーションレプリカの SQL スレッドがトランザクションを再試行した回数(起"
 "動時からの合計)。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:484
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:482
 msgid "This is ON if this server is a replica that is connected to a primary."
 msgstr "このサーバがプライマリに接続するレプリカである場合は ON になります。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:486
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:484
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
 msgstr ""
 "slow_launch_time で指定された秒数以上に作成時間がかかったスレッドの数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:488
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:486
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr "long_query_time で指定された秒数以上に時間のかかったクエリの数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:490
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:488
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
@@ -8587,23 +8619,23 @@ msgstr ""
 "ソートアルゴリズムが実行しなければならなかったマージの回数。この値が高い場合"
 "は sort_buffer_size システム変数の値を増やした方がよいでしょう。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:494
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:492
 msgid "The number of sorts that were done with ranges."
 msgstr "範囲指定付きでソートが行われた回数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:495
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:493
 msgid "The number of sorted rows."
 msgstr "ソート済の行数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:496
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:494
 msgid "The number of sorts that were done by scanning the table."
 msgstr "テーブルをスキャンしたときに実行されたソートの回数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:497
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:495
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "テーブルロックをすぐに取得できた回数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:499
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:497
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -8614,7 +8646,7 @@ msgstr ""
 "フォーマンスに問題が生じている場合は、まずクエリを最適化してください。それで"
 "もだめならテーブルを分割するか、レプリケーションを利用してください。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:505
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:503
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -8624,11 +8656,11 @@ msgstr ""
 "Connections で計算できます。この値が赤くなっている場合は thread_cache_size を"
 "大きくしてください。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:509
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:507
 msgid "The number of currently open connections."
 msgstr "現在開いている接続の数。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:511
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:509
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -8639,11 +8671,11 @@ msgstr ""
 "thread_cache_size の値を増やした方がよいかもしれません (スレッドの実装に問題"
 "がない場合はふつうあまりパフォーマンスは向上しません)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:517
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:515
 msgid "Thread cache hit rate (calculated value)"
 msgstr "スレッドキャッシュのヒット割合 (計算値)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:518
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:516
 msgid "The number of threads that are not sleeping."
 msgstr "スリープしていないスレッドの数。"
 
@@ -8692,20 +8724,20 @@ msgstr "データが正しくありません"
 msgid "Wrong data or no validation for %s"
 msgstr "「%s」のデータが間違っているか、検証されていません"
 
-#: libraries/classes/Controllers/Sql/SqlController.php:255
+#: libraries/classes/Controllers/Sql/SqlController.php:254
 #: libraries/classes/Sql.php:1121
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "ブックマーク %s を作成しました。"
 
-#: libraries/classes/Controllers/Sql/SqlController.php:262
+#: libraries/classes/Controllers/Sql/SqlController.php:261
 msgid "Bookmark not created!"
 msgstr "ブックマークが作成されていません!"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:162
 #: libraries/classes/Controllers/Table/Structure/PartitioningController.php:274
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:222
-#: libraries/classes/Table/Indexes.php:85
+#: libraries/classes/Table/Indexes.php:86
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "テーブル %1$s は正常に変更されました。"
@@ -8769,15 +8801,12 @@ msgstr "SQL は正常に実行されました。"
 
 #: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:32
 #: libraries/classes/Controllers/Table/DropColumnController.php:51
-#: libraries/classes/Controllers/Table/Structure/AddIndexController.php:47
+#: libraries/classes/Controllers/Table/Structure/AbstractIndexController.php:45
 #: libraries/classes/Controllers/Table/Structure/BrowseController.php:35
 #: libraries/classes/Controllers/Table/Structure/CentralColumnsAddController.php:45
 #: libraries/classes/Controllers/Table/Structure/CentralColumnsRemoveController.php:45
 #: libraries/classes/Controllers/Table/Structure/ChangeController.php:51
-#: libraries/classes/Controllers/Table/Structure/FulltextController.php:47
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:52
-#: libraries/classes/Controllers/Table/Structure/SpatialController.php:47
-#: libraries/classes/Controllers/Table/Structure/UniqueController.php:47
 msgid "No column selected."
 msgstr "カラムが選択されていません。"
 
@@ -8836,11 +8865,10 @@ msgstr "パーティション名を空文字列にすることはできません
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:61
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:61
 #: libraries/classes/Controllers/View/OperationsController.php:94
-#: libraries/classes/Html/Generator.php:862 libraries/classes/Import.php:138
+#: libraries/classes/Html/Generator.php:860 libraries/classes/Import.php:138
 #: libraries/classes/InsertEdit.php:740 libraries/classes/Message.php:192
 #: templates/error/generic.twig:37
-#: templates/table/structure/display_structure.twig:355
-#: libraries/classes/Html/Generator.php:857
+#: templates/table/structure/display_structure.twig:372
 msgid "Error"
 msgstr "エラー"
 
@@ -8931,7 +8959,6 @@ msgstr "権限不足でアクセスできません!"
 #: templates/home/index.twig:46 templates/modals/change_password.twig:5
 #: templates/server/privileges/change_password.twig:10
 #: templates/server/privileges/change_password.twig:11
-#: libraries/classes/Controllers/UserPasswordController.php:103
 msgid "Change password"
 msgstr "パスワードを変更する"
 
@@ -9061,8 +9088,7 @@ msgstr "クエリの実行に失敗しました：『%s』"
 #: libraries/classes/Database/Triggers.php:134
 #: libraries/classes/Database/Triggers.php:161
 #: libraries/classes/Database/Triggers.php:443
-#: libraries/classes/Html/Generator.php:930
-#: libraries/classes/Html/Generator.php:925
+#: libraries/classes/Html/Generator.php:928
 msgid "MySQL said: "
 msgstr "MySQL のメッセージ: "
 
@@ -9152,7 +9178,7 @@ msgstr ""
 "リクエストの処理中にエラーが発生しました：データベース %2$s に %1$s という名"
 "前のイベントはありません。"
 
-#: libraries/classes/DatabaseInterface.php:1136
+#: libraries/classes/DatabaseInterface.php:1144
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -9163,15 +9189,15 @@ msgstr ""
 "['SessionTimeZone'][/em]の設定を確認してください。phpMyAdminは現在データベー"
 "スサーバのデフォルトのタイムゾーンを使用しています。"
 
-#: libraries/classes/DatabaseInterface.php:1178
+#: libraries/classes/DatabaseInterface.php:1186
 msgid "Failed to set configured collation connection!"
 msgstr "照合順序接続の設定に失敗しました!"
 
-#: libraries/classes/DatabaseInterface.php:1643
+#: libraries/classes/DatabaseInterface.php:1651
 msgid "Missing connection parameters!"
 msgstr "接続パラメータが不足しています！"
 
-#: libraries/classes/DatabaseInterface.php:1670
+#: libraries/classes/DatabaseInterface.php:1678
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "設定ファイルに定義されている管理ユーザ(controluser)での接続に失敗しました。"
@@ -9461,8 +9487,8 @@ msgid "Full texts"
 msgstr "全文"
 
 #: libraries/classes/Display/Results.php:1611
-#: libraries/classes/Display/Results.php:1637 libraries/classes/Util.php:2491
-#: libraries/classes/Util.php:2514 libraries/config.values.php:113
+#: libraries/classes/Display/Results.php:1637 libraries/classes/Util.php:2463
+#: libraries/classes/Util.php:2486 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:111
@@ -9475,8 +9501,8 @@ msgid "Descending"
 msgstr "降順"
 
 #: libraries/classes/Display/Results.php:1619
-#: libraries/classes/Display/Results.php:1629 libraries/classes/Util.php:2483
-#: libraries/classes/Util.php:2506 libraries/config.values.php:112
+#: libraries/classes/Display/Results.php:1629 libraries/classes/Util.php:2455
+#: libraries/classes/Util.php:2478 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:109
@@ -9858,12 +9884,12 @@ msgstr ""
 "ファイル名の変更が行われ、最大番号の 1 つ次の番号が付けられます。"
 
 #: libraries/classes/Engines/Pbxt.php:169
-#: libraries/classes/Html/Generator.php:793
+#: libraries/classes/Html/Generator.php:791
 #: libraries/classes/Html/MySQLDocumentation.php:49
 #: libraries/classes/Sanitize.php:202
 #: templates/config/form_display/input.twig:10 templates/home/index.twig:244
 #: templates/server/variables/index.twig:17 templates/setup/home/index.twig:113
-#: templates/setup/home/index.twig:131 libraries/classes/Html/Generator.php:788
+#: templates/setup/home/index.twig:131
 msgid "Documentation"
 msgstr "ドキュメント"
 
@@ -9991,76 +10017,74 @@ msgstr ""
 msgid "Session not found."
 msgstr "セッションが見つかりません。"
 
-#: libraries/classes/Html/Generator.php:149
+#: libraries/classes/Html/Generator.php:147
 #, php-format
 msgid "Jump to database “%s”."
 msgstr "データベース「%s」に移動します。"
 
-#: libraries/classes/Html/Generator.php:175
+#: libraries/classes/Html/Generator.php:173
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s の機能には既知のバグがあります。%s をご覧ください"
 
-#: libraries/classes/Html/Generator.php:243
+#: libraries/classes/Html/Generator.php:241
 msgid "SSL is not being used"
 msgstr "SSLは使用されていません"
 
-#: libraries/classes/Html/Generator.php:248
+#: libraries/classes/Html/Generator.php:246
 msgid "SSL is used with disabled verification"
 msgstr "SSLは無効な検証で使用されます"
 
-#: libraries/classes/Html/Generator.php:250
+#: libraries/classes/Html/Generator.php:248
 msgid "SSL is used without certification authority"
 msgstr "SSLはCAなしで使用されます"
 
-#: libraries/classes/Html/Generator.php:253
+#: libraries/classes/Html/Generator.php:251
 msgid "SSL is used"
 msgstr "SSLを使用されています"
 
-#: libraries/classes/Html/Generator.php:358
+#: libraries/classes/Html/Generator.php:356
 msgid "The PHP function password_hash() with default options."
 msgstr "PHP 関数 password_hash() にデフォルトのオプションを指定します。"
 
-#: libraries/classes/Html/Generator.php:359
+#: libraries/classes/Html/Generator.php:357
 msgid "password_hash() PHP function"
 msgstr "password_hash() PHP 関数"
 
-#: libraries/classes/Html/Generator.php:636
+#: libraries/classes/Html/Generator.php:634
 msgid "Skip Explain SQL"
 msgstr "SQL の EXPLAIN 解析をスキップ"
 
-#: libraries/classes/Html/Generator.php:645
+#: libraries/classes/Html/Generator.php:643
 #, php-format
 msgid "Analyze Explain at %s"
 msgstr "「%s」のEXPLAINを分析"
 
-#: libraries/classes/Html/Generator.php:674
+#: libraries/classes/Html/Generator.php:672
 msgid "Without PHP code"
 msgstr "PHP コードを省略"
 
-#: libraries/classes/Html/Generator.php:682
+#: libraries/classes/Html/Generator.php:680
 #: templates/database/multi_table_query/form.twig:175
 #: templates/database/qbe/selection_form.twig:115
 msgid "Submit query"
 msgstr "クエリを実行する"
 
-#: libraries/classes/Html/Generator.php:729 templates/console/display.twig:43
+#: libraries/classes/Html/Generator.php:727 templates/console/display.twig:43
 #: templates/console/display.twig:201 templates/sql/profiling_chart.twig:2
 msgid "Profiling"
 msgstr "プロファイリング"
 
-#: libraries/classes/Html/Generator.php:742
+#: libraries/classes/Html/Generator.php:740
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "インライン編集"
 
-#: libraries/classes/Html/Generator.php:869
-#: libraries/classes/Html/Generator.php:864
+#: libraries/classes/Html/Generator.php:867
 msgid "Static analysis:"
 msgstr "静的解析:"
 
-#: libraries/classes/Html/Generator.php:872
-#: libraries/classes/Html/Generator.php:867
+#: libraries/classes/Html/Generator.php:870
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "解析中に %d 個のエラーが見つかりました。"
@@ -10196,15 +10220,15 @@ msgstr "関数"
 #: templates/table/privileges/index.twig:21
 #: templates/table/search/index.twig:39
 #: templates/table/structure/display_structure.twig:22
-#: templates/table/structure/display_structure.twig:459
+#: templates/table/structure/display_structure.twig:476
 #: templates/table/tracking/structure_snapshot_columns.twig:7
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/table/zoom_search/index.twig:37
 msgid "Type"
 msgstr "タイプ"
 
-#: libraries/classes/InsertEdit.php:741 templates/import.twig:60
-#: templates/import.twig:85
+#: libraries/classes/InsertEdit.php:741 templates/import.twig:57
+#: templates/import.twig:82
 msgid "The directory you set for upload work cannot be reached."
 msgstr "指定したアップロードディレクトリが利用できません。"
 
@@ -10249,7 +10273,7 @@ msgstr "%1$s （もしかして <code>%2$s</code>）"
 
 #: libraries/classes/Menu.php:238
 #: libraries/classes/Navigation/Nodes/NodeTable.php:308
-#: libraries/classes/Util.php:1432 libraries/classes/Util.php:1907
+#: libraries/classes/Util.php:1405 libraries/classes/Util.php:1880
 #: libraries/config.values.php:68 libraries/config.values.php:82
 #: libraries/config.values.php:183 templates/database/search/results.twig:34
 #: templates/database/structure/structure_table_row.twig:43
@@ -10259,8 +10283,8 @@ msgstr "表示"
 
 #: libraries/classes/Menu.php:257 libraries/classes/Menu.php:361
 #: libraries/classes/Navigation/Nodes/NodeTable.php:299
-#: libraries/classes/Util.php:1430 libraries/classes/Util.php:1893
-#: libraries/classes/Util.php:1910 libraries/config.values.php:64
+#: libraries/classes/Util.php:1403 libraries/classes/Util.php:1866
+#: libraries/classes/Util.php:1883 libraries/config.values.php:64
 #: libraries/config.values.php:78 libraries/config.values.php:169
 #: libraries/config.values.php:179 templates/database/routines/index.twig:27
 #: templates/database/routines/index.twig:28
@@ -10272,7 +10296,7 @@ msgstr "検索"
 
 #: libraries/classes/Menu.php:268
 #: libraries/classes/Navigation/Nodes/NodeTable.php:302
-#: libraries/classes/Util.php:1431 libraries/classes/Util.php:1911
+#: libraries/classes/Util.php:1404 libraries/classes/Util.php:1884
 #: libraries/config.values.php:66 libraries/config.values.php:80
 #: libraries/config.values.php:181
 #: templates/database/qbe/ins_del_and_or_cell.twig:6
@@ -10282,8 +10306,8 @@ msgid "Insert"
 msgstr "挿入"
 
 #: libraries/classes/Menu.php:291 libraries/classes/Menu.php:399
-#: libraries/classes/Server/Privileges.php:2837 libraries/classes/Util.php:1898
-#: libraries/classes/Util.php:1914 libraries/config.values.php:161
+#: libraries/classes/Server/Privileges.php:2865 libraries/classes/Util.php:1871
+#: libraries/classes/Util.php:1887 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:16
 #: templates/server/sub_page_header.twig:2
@@ -10292,14 +10316,14 @@ msgid "Privileges"
 msgstr "権限"
 
 #: libraries/classes/Menu.php:302 libraries/classes/Menu.php:312
-#: libraries/classes/Menu.php:392 libraries/classes/Util.php:1433
-#: libraries/classes/Util.php:1897 libraries/classes/Util.php:1915
+#: libraries/classes/Menu.php:392 libraries/classes/Util.php:1406
+#: libraries/classes/Util.php:1870 libraries/classes/Util.php:1888
 #: libraries/config.values.php:171 templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr "操作"
 
 #: libraries/classes/Menu.php:318 libraries/classes/Menu.php:425
-#: libraries/classes/Util.php:1902 libraries/classes/Util.php:1916
+#: libraries/classes/Util.php:1875 libraries/classes/Util.php:1889
 msgid "Tracking"
 msgstr "SQL コマンドの追跡"
 
@@ -10312,7 +10336,7 @@ msgstr "SQL コマンドの追跡"
 #: libraries/classes/Plugins/Export/ExportSql.php:2046
 #: libraries/classes/Plugins/Export/ExportTexytext.php:522
 #: libraries/classes/Plugins/Export/ExportXml.php:124
-#: libraries/classes/Util.php:1901 libraries/classes/Util.php:1917
+#: libraries/classes/Util.php:1874 libraries/classes/Util.php:1890
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
 msgstr "トリガ"
@@ -10322,11 +10346,11 @@ msgstr "トリガ"
 msgid "Database seems to be empty!"
 msgstr "データベースが空のようです!"
 
-#: libraries/classes/Menu.php:369 libraries/classes/Util.php:1894
+#: libraries/classes/Menu.php:369 libraries/classes/Util.php:1867
 msgid "Query"
 msgstr "クエリ"
 
-#: libraries/classes/Menu.php:405 libraries/classes/Util.php:1899
+#: libraries/classes/Menu.php:405 libraries/classes/Util.php:1872
 #: templates/database/routines/index.twig:3
 msgid "Routines"
 msgstr "ルーチン"
@@ -10336,15 +10360,15 @@ msgstr "ルーチン"
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:993
 #: libraries/classes/Plugins/Export/ExportXml.php:104
-#: libraries/classes/Util.php:1900 templates/database/events/index.twig:3
+#: libraries/classes/Util.php:1873 templates/database/events/index.twig:3
 msgid "Events"
 msgstr "イベント"
 
-#: libraries/classes/Menu.php:432 libraries/classes/Util.php:1903
+#: libraries/classes/Menu.php:432 libraries/classes/Util.php:1876
 msgid "Designer"
 msgstr "デザイナ"
 
-#: libraries/classes/Menu.php:439 libraries/classes/Util.php:1904
+#: libraries/classes/Menu.php:439 libraries/classes/Util.php:1877
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "主要カラム"
@@ -10354,12 +10378,12 @@ msgid "User accounts"
 msgstr "ユーザアカウント"
 
 #: libraries/classes/Menu.php:530 libraries/classes/Server/Status/Data.php:156
-#: libraries/classes/Util.php:1883 templates/server/binlog/index.twig:3
+#: libraries/classes/Util.php:1856 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "バイナリログ"
 
 #: libraries/classes/Menu.php:537 libraries/classes/Server/Status/Data.php:161
-#: libraries/classes/Util.php:1884
+#: libraries/classes/Util.php:1857
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
 #: templates/server/replication/index.twig:5
@@ -10367,21 +10391,21 @@ msgid "Replication"
 msgstr "レプリケーション"
 
 #: libraries/classes/Menu.php:543 libraries/classes/Server/Status/Data.php:233
-#: libraries/classes/Util.php:1885 libraries/config.values.php:159
+#: libraries/classes/Util.php:1858 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:191
 msgid "Variables"
 msgstr "変数"
 
-#: libraries/classes/Menu.php:548 libraries/classes/Util.php:1886
+#: libraries/classes/Menu.php:548 libraries/classes/Util.php:1859
 msgid "Charsets"
 msgstr "文字セット"
 
-#: libraries/classes/Menu.php:553 libraries/classes/Util.php:1888
+#: libraries/classes/Menu.php:553 libraries/classes/Util.php:1861
 msgid "Engines"
 msgstr "エンジン"
 
-#: libraries/classes/Menu.php:558 libraries/classes/Util.php:1887
+#: libraries/classes/Menu.php:558 libraries/classes/Util.php:1860
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr "プラグイン"
@@ -10499,7 +10523,7 @@ msgstr "新規作成"
 #: templates/table/relation/foreign_key_row.twig:114
 #: templates/table/relation/foreign_key_row.twig:124
 #: templates/table/search/index.twig:38
-#: templates/table/structure/display_structure.twig:462
+#: templates/table/structure/display_structure.twig:479
 #: templates/table/tracking/structure_snapshot_columns.twig:6
 #: templates/table/tracking/structure_snapshot_indexes.twig:9
 #: templates/table/zoom_search/index.twig:36
@@ -10920,7 +10944,7 @@ msgstr "切り捨て"
 #: templates/table/structure/display_partitions.twig:146
 #: templates/table/structure/display_structure.twig:120
 #: templates/table/structure/display_structure.twig:290
-#: templates/table/structure/display_structure.twig:508
+#: templates/table/structure/display_structure.twig:525
 msgid "Drop"
 msgstr "削除"
 
@@ -11189,7 +11213,7 @@ msgstr "テーブルのデータのダンプ"
 #: templates/database/data_dictionary/index.twig:80 templates/indexes.twig:23
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:8
 #: templates/table/structure/display_structure.twig:25
-#: templates/table/structure/display_structure.twig:465
+#: templates/table/structure/display_structure.twig:482
 #: templates/table/tracking/structure_snapshot_columns.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/zoom_search/result_form.twig:36
@@ -11959,7 +11983,7 @@ msgstr ""
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:72
-#: libraries/classes/Util.php:695
+#: libraries/classes/Util.php:668
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%Y 年 %B %d 日 %H:%M"
 
@@ -12368,8 +12392,8 @@ msgid "Error while loading the search."
 msgstr "検索の読み込み中にエラーが発生しました。"
 
 #: libraries/classes/Server/Plugins.php:66
-#: libraries/classes/Server/Privileges.php:795
-#: libraries/classes/Server/Privileges.php:3714
+#: libraries/classes/Server/Privileges.php:822
+#: libraries/classes/Server/Privileges.php:3742
 msgid "Native MySQL authentication"
 msgstr "ネイティブMySQL認証"
 
@@ -12394,16 +12418,16 @@ msgstr "旧 MySQL 4.0 認証"
 msgid "Account locking is not supported."
 msgstr "アカウントのロックに対応していません。"
 
-#: libraries/classes/Server/Privileges.php:265
+#: libraries/classes/Server/Privileges.php:292
 msgid "No privileges."
 msgstr "権限がありません。"
 
-#: libraries/classes/Server/Privileges.php:273
+#: libraries/classes/Server/Privileges.php:300
 msgid "Includes all privileges except GRANT."
 msgstr "GRANT 以外のすべての権限を付与する。"
 
-#: libraries/classes/Server/Privileges.php:295
-#: libraries/classes/Server/Privileges.php:362
+#: libraries/classes/Server/Privileges.php:322
+#: libraries/classes/Server/Privileges.php:389
 #: templates/server/privileges/privileges_table.twig:125
 #: templates/server/privileges/privileges_table.twig:128
 #: templates/server/privileges/privileges_table.twig:326
@@ -12411,7 +12435,7 @@ msgstr "GRANT 以外のすべての権限を付与する。"
 msgid "Allows deleting data."
 msgstr "データの削除を許可する。"
 
-#: libraries/classes/Server/Privileges.php:300
+#: libraries/classes/Server/Privileges.php:327
 #: templates/server/privileges/privileges_table.twig:137
 #: templates/server/privileges/privileges_table.twig:140
 #: templates/server/privileges/privileges_table.twig:367
@@ -12419,7 +12443,7 @@ msgstr "データの削除を許可する。"
 msgid "Allows creating new tables."
 msgstr "新しいテーブルの作成を許可する。"
 
-#: libraries/classes/Server/Privileges.php:305
+#: libraries/classes/Server/Privileges.php:332
 #: templates/server/privileges/privileges_table.twig:149
 #: templates/server/privileges/privileges_table.twig:152
 #: templates/server/privileges/privileges_table.twig:415
@@ -12427,8 +12451,8 @@ msgstr "新しいテーブルの作成を許可する。"
 msgid "Allows dropping tables."
 msgstr "テーブルの削除を許可する。"
 
-#: libraries/classes/Server/Privileges.php:310
-#: libraries/classes/Server/Privileges.php:402
+#: libraries/classes/Server/Privileges.php:337
+#: libraries/classes/Server/Privileges.php:429
 #: templates/server/privileges/privileges_table.twig:174
 #: templates/server/privileges/privileges_table.twig:177
 #: templates/server/privileges/privileges_table.twig:399
@@ -12436,8 +12460,8 @@ msgstr "テーブルの削除を許可する。"
 msgid "Allows creating and dropping indexes."
 msgstr "インデックスの作成、削除を許可する。"
 
-#: libraries/classes/Server/Privileges.php:315
-#: libraries/classes/Server/Privileges.php:407
+#: libraries/classes/Server/Privileges.php:342
+#: libraries/classes/Server/Privileges.php:434
 #: templates/server/privileges/privileges_table.twig:186
 #: templates/server/privileges/privileges_table.twig:189
 #: templates/server/privileges/privileges_table.twig:386
@@ -12445,9 +12469,9 @@ msgstr "インデックスの作成、削除を許可する。"
 msgid "Allows altering the structure of existing tables."
 msgstr "既存のテーブル構造の変更を許可する。"
 
-#: libraries/classes/Server/Privileges.php:320
-#: libraries/classes/Server/Privileges.php:446
-#: libraries/classes/Server/Privileges.php:462
+#: libraries/classes/Server/Privileges.php:347
+#: libraries/classes/Server/Privileges.php:473
+#: libraries/classes/Server/Privileges.php:489
 #: templates/server/privileges/privileges_table.twig:198
 #: templates/server/privileges/privileges_table.twig:201
 #: templates/server/privileges/privileges_table.twig:500
@@ -12457,9 +12481,9 @@ msgstr "既存のテーブル構造の変更を許可する。"
 msgid "Allows creating new views."
 msgstr "新しいビューの作成を許可する。"
 
-#: libraries/classes/Server/Privileges.php:325
-#: libraries/classes/Server/Privileges.php:467
-#: libraries/classes/Server/Privileges.php:473
+#: libraries/classes/Server/Privileges.php:352
+#: libraries/classes/Server/Privileges.php:494
+#: libraries/classes/Server/Privileges.php:500
 #: templates/server/privileges/privileges_table.twig:210
 #: templates/server/privileges/privileges_table.twig:213
 #: templates/server/privileges/privileges_table.twig:447
@@ -12467,8 +12491,8 @@ msgstr "新しいビューの作成を許可する。"
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "SHOW CREATE VIEW クエリの実行を許可する。"
 
-#: libraries/classes/Server/Privileges.php:330
-#: libraries/classes/Server/Privileges.php:456
+#: libraries/classes/Server/Privileges.php:357
+#: libraries/classes/Server/Privileges.php:483
 #: templates/server/privileges/privileges_table.twig:222
 #: templates/server/privileges/privileges_table.twig:225
 #: templates/server/privileges/privileges_table.twig:543
@@ -12476,76 +12500,76 @@ msgstr "SHOW CREATE VIEW クエリの実行を許可する。"
 msgid "Allows creating and dropping triggers."
 msgstr "トリガの作成・削除を許可する。"
 
-#: libraries/classes/Server/Privileges.php:347
+#: libraries/classes/Server/Privileges.php:374
 #: templates/server/privileges/privileges_table.twig:16
 #: templates/server/privileges/privileges_table.twig:287
 #: templates/server/privileges/privileges_table.twig:290
 msgid "Allows reading data."
 msgstr "データの読み込みを許可する。"
 
-#: libraries/classes/Server/Privileges.php:352
+#: libraries/classes/Server/Privileges.php:379
 #: templates/server/privileges/privileges_table.twig:43
 #: templates/server/privileges/privileges_table.twig:300
 #: templates/server/privileges/privileges_table.twig:303
 msgid "Allows inserting and replacing data."
 msgstr "データの挿入、置換を許可する。"
 
-#: libraries/classes/Server/Privileges.php:357
+#: libraries/classes/Server/Privileges.php:384
 #: templates/server/privileges/privileges_table.twig:70
 #: templates/server/privileges/privileges_table.twig:313
 #: templates/server/privileges/privileges_table.twig:316
 msgid "Allows changing data."
 msgstr "データの修正を許可する。"
 
-#: libraries/classes/Server/Privileges.php:367
+#: libraries/classes/Server/Privileges.php:394
 #: templates/server/privileges/privileges_table.twig:365
 #: templates/server/privileges/privileges_table.twig:373
 msgid "Allows creating new databases and tables."
 msgstr "新しいデータベースやテーブルの作成を許可する。"
 
-#: libraries/classes/Server/Privileges.php:372
+#: libraries/classes/Server/Privileges.php:399
 #: templates/server/privileges/privileges_table.twig:413
 #: templates/server/privileges/privileges_table.twig:421
 msgid "Allows dropping databases and tables."
 msgstr "データベースとテーブルの削除を許可する。"
 
-#: libraries/classes/Server/Privileges.php:377
+#: libraries/classes/Server/Privileges.php:404
 #: templates/server/privileges/privileges_table.twig:610
 #: templates/server/privileges/privileges_table.twig:613
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr "サーバ設定の再読み込み、サーバキャッシュのフラッシュを許可する。"
 
-#: libraries/classes/Server/Privileges.php:382
+#: libraries/classes/Server/Privileges.php:409
 #: templates/server/privileges/privileges_table.twig:623
 #: templates/server/privileges/privileges_table.twig:626
 msgid "Allows shutting down the server."
 msgstr "サーバのシャットダウンを許可する。"
 
-#: libraries/classes/Server/Privileges.php:387
+#: libraries/classes/Server/Privileges.php:414
 #: templates/server/privileges/privileges_table.twig:597
 #: templates/server/privileges/privileges_table.twig:600
 msgid "Allows viewing processes of all users."
 msgstr "全ユーザのプロセスを閲覧できるようにする。"
 
-#: libraries/classes/Server/Privileges.php:392
+#: libraries/classes/Server/Privileges.php:419
 #: templates/server/privileges/privileges_table.twig:340
 #: templates/server/privileges/privileges_table.twig:343
 msgid "Allows importing data from and exporting data into files."
 msgstr "データのインポート、エクスポートを許可する。"
 
-#: libraries/classes/Server/Privileges.php:397
+#: libraries/classes/Server/Privileges.php:424
 #: templates/server/privileges/privileges_table.twig:97
 #: templates/server/privileges/privileges_table.twig:677
 msgid "Has no effect in this MySQL version."
 msgstr "このバージョンの MySQL では無効です。"
 
-#: libraries/classes/Server/Privileges.php:412
+#: libraries/classes/Server/Privileges.php:439
 #: templates/server/privileges/privileges_table.twig:636
 #: templates/server/privileges/privileges_table.twig:639
 msgid "Gives access to the complete list of databases."
 msgstr "データベース総一覧へのアクセスを許可する。"
 
-#: libraries/classes/Server/Privileges.php:418
+#: libraries/classes/Server/Privileges.php:445
 #: templates/server/privileges/privileges_table.twig:583
 #: templates/server/privileges/privileges_table.twig:587
 msgid ""
@@ -12557,85 +12581,85 @@ msgstr ""
 "ザのスレッドを停止するといった管理操作をする場合はたいていこの設定が必要にな"
 "ります。"
 
-#: libraries/classes/Server/Privileges.php:426
+#: libraries/classes/Server/Privileges.php:453
 #: templates/server/privileges/privileges_table.twig:434
 #: templates/server/privileges/privileges_table.twig:437
 msgid "Allows creating temporary tables."
 msgstr "一時テーブルの作成を許可する。"
 
-#: libraries/classes/Server/Privileges.php:431
+#: libraries/classes/Server/Privileges.php:458
 #: templates/server/privileges/privileges_table.twig:664
 #: templates/server/privileges/privileges_table.twig:667
 msgid "Allows locking tables for the current thread."
 msgstr "現在のスレッドのテーブルロックを許可する。"
 
-#: libraries/classes/Server/Privileges.php:436
+#: libraries/classes/Server/Privileges.php:463
 #: templates/server/privileges/privileges_table.twig:705
 #: templates/server/privileges/privileges_table.twig:708
 msgid "Needed for the replication replicas."
 msgstr "レプリケーションレプリカでは必要です。"
 
-#: libraries/classes/Server/Privileges.php:441
+#: libraries/classes/Server/Privileges.php:468
 #: templates/server/privileges/privileges_table.twig:692
 #: templates/server/privileges/privileges_table.twig:695
 msgid "Allows the user to ask where the replicas / primaries are."
 msgstr "プライマリ/レプリカの照会を許可する。"
 
-#: libraries/classes/Server/Privileges.php:451
+#: libraries/classes/Server/Privileges.php:478
 #: templates/server/privileges/privileges_table.twig:530
 #: templates/server/privileges/privileges_table.twig:533
 msgid "Allows to set up events for the event scheduler."
 msgstr "イベントスケジューラにイベントを設定できるようにする。"
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
-#: libraries/classes/Server/Privileges.php:480
-#: libraries/classes/Server/Privileges.php:489
+#: libraries/classes/Server/Privileges.php:507
+#: libraries/classes/Server/Privileges.php:516
 #: templates/server/privileges/privileges_table.twig:235
 #: templates/server/privileges/privileges_table.twig:239
 msgid "Allows deleting historical rows."
 msgstr "実績行の削除を許可する。"
 
-#: libraries/classes/Server/Privileges.php:494
+#: libraries/classes/Server/Privileges.php:521
 #: templates/server/privileges/privileges_table.twig:460
 #: templates/server/privileges/privileges_table.twig:463
 msgid "Allows creating stored routines."
 msgstr "ストアドルーチンの作成を許可する。"
 
-#: libraries/classes/Server/Privileges.php:499
+#: libraries/classes/Server/Privileges.php:526
 #: templates/server/privileges/privileges_table.twig:473
 #: templates/server/privileges/privileges_table.twig:476
 msgid "Allows altering and dropping stored routines."
 msgstr "ストアドルーチンの修正と削除を許可する。"
 
-#: libraries/classes/Server/Privileges.php:504
+#: libraries/classes/Server/Privileges.php:531
 #: templates/server/privileges/privileges_table.twig:718
 #: templates/server/privileges/privileges_table.twig:721
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "ユーザアカウントの作成・削除・名前の変更を許可する。"
 
-#: libraries/classes/Server/Privileges.php:509
+#: libraries/classes/Server/Privileges.php:536
 #: templates/server/privileges/privileges_table.twig:486
 #: templates/server/privileges/privileges_table.twig:489
 msgid "Allows executing stored routines."
 msgstr "ストアドルーチンの実行を許可する。"
 
-#: libraries/classes/Server/Privileges.php:1079
+#: libraries/classes/Server/Privileges.php:1106
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "%s のパスワードは正しく変更されました。"
 
-#: libraries/classes/Server/Privileges.php:1127
+#: libraries/classes/Server/Privileges.php:1154
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "%s の権限を取り消しました。"
 
-#: libraries/classes/Server/Privileges.php:1435
+#: libraries/classes/Server/Privileges.php:1462
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
 msgid "Not enough privilege to view users."
 msgstr "ユーザを表示するために十分な権限がありません。"
 
-#: libraries/classes/Server/Privileges.php:1497
+#: libraries/classes/Server/Privileges.php:1524
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:75
@@ -12643,84 +12667,84 @@ msgstr "ユーザを表示するために十分な権限がありません。"
 msgid "Edit privileges"
 msgstr "権限を編集"
 
-#: libraries/classes/Server/Privileges.php:1501
+#: libraries/classes/Server/Privileges.php:1528
 msgid "Revoke"
 msgstr "取り消し"
 
-#: libraries/classes/Server/Privileges.php:1811
+#: libraries/classes/Server/Privileges.php:1838
 #: templates/server/privileges/privileges_table.twig:265
 msgid "Database-specific privileges"
 msgstr "データベース固有の権限"
 
-#: libraries/classes/Server/Privileges.php:1817
+#: libraries/classes/Server/Privileges.php:1844
 #: templates/server/privileges/privileges_summary.twig:19
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:267
 msgid "Table-specific privileges"
 msgstr "テーブル固有の権限"
 
-#: libraries/classes/Server/Privileges.php:1822
-#: libraries/classes/Server/Privileges.php:1824
+#: libraries/classes/Server/Privileges.php:1849
+#: libraries/classes/Server/Privileges.php:1851
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:59
 msgid "Routine"
 msgstr "ルーチン"
 
-#: libraries/classes/Server/Privileges.php:1823
+#: libraries/classes/Server/Privileges.php:1850
 #: templates/server/privileges/edit_routine_privileges.twig:47
 msgid "Routine-specific privileges"
 msgstr "ルーチン固有の権限"
 
-#: libraries/classes/Server/Privileges.php:2165
+#: libraries/classes/Server/Privileges.php:2193
 msgid "No users selected for deleting!"
 msgstr "削除するユーザが選択されていません!"
 
-#: libraries/classes/Server/Privileges.php:2168
+#: libraries/classes/Server/Privileges.php:2196
 msgid "Reloading the privileges"
 msgstr "権限を再読み込みしています"
 
-#: libraries/classes/Server/Privileges.php:2193
+#: libraries/classes/Server/Privileges.php:2221
 msgid "The selected users have been deleted successfully."
 msgstr "選択されたユーザは正常に削除されました。"
 
-#: libraries/classes/Server/Privileges.php:2270
+#: libraries/classes/Server/Privileges.php:2298
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "%s の権限を更新しました。"
 
-#: libraries/classes/Server/Privileges.php:2357
+#: libraries/classes/Server/Privileges.php:2385
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "ユーザが存在しません。"
 
-#: libraries/classes/Server/Privileges.php:2444
+#: libraries/classes/Server/Privileges.php:2472
 #, php-format
 msgid "Deleting %s"
 msgstr "%s を削除中です"
 
-#: libraries/classes/Server/Privileges.php:2475
+#: libraries/classes/Server/Privileges.php:2503
 msgid "The privileges were reloaded successfully."
 msgstr "権限を正常に再読み込みしました。"
 
-#: libraries/classes/Server/Privileges.php:2579
+#: libraries/classes/Server/Privileges.php:2607
 #, php-format
 msgid "The user %s already exists!"
 msgstr "ユーザ %s は既に存在します!"
 
-#: libraries/classes/Server/Privileges.php:2854
+#: libraries/classes/Server/Privileges.php:2882
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s に対する権限"
 
-#: libraries/classes/Server/Privileges.php:2863
+#: libraries/classes/Server/Privileges.php:2891
 #: libraries/classes/Server/Status/Processes.php:110
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "ユーザ"
 
-#: libraries/classes/Server/Privileges.php:2972
+#: libraries/classes/Server/Privileges.php:3000
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -12730,7 +12754,7 @@ msgstr ""
 "のアカウントのホスト部分で任意ホスト（％）からの接続が許可されている場合、他"
 "のユーザは接続できなくなります。"
 
-#: libraries/classes/Server/Privileges.php:3006
+#: libraries/classes/Server/Privileges.php:3034
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -12743,7 +12767,7 @@ msgstr ""
 "限の内容が一致しなくなることがありますので、作業を続ける前に %s権限の再読み込"
 "み%s をしてください。"
 
-#: libraries/classes/Server/Privileges.php:3022
+#: libraries/classes/Server/Privileges.php:3050
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12756,7 +12780,7 @@ msgstr ""
 "致しなくなることがあります。この場合、権限を再読み込みする必要がありますが、"
 "あなたは RELOAD 権限を持っていません。"
 
-#: libraries/classes/Server/Privileges.php:3336
+#: libraries/classes/Server/Privileges.php:3364
 msgid "You have added a new user."
 msgstr "新しいユーザを追加しました。"
 
@@ -12948,7 +12972,7 @@ msgstr "%s は無効になっています。"
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "この MySQL サーバは %s ストレージエンジンをサポートしていません。"
 
-#: libraries/classes/Table/Indexes.php:58 libraries/classes/Table.php:2085
+#: libraries/classes/Table/Indexes.php:59 libraries/classes/Table.php:2085
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "主キーの名前は PRIMARY でなければなりません!"
 
@@ -13243,8 +13267,8 @@ msgid ""
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 "倍精度浮動小数、有効範囲は -1.7976931348623157E+308 から "
-"-2.2250738585072014E-308、0、2.2250738585072014E-308 から 1.7976931348623157E"
-"+308"
+"-2.2250738585072014E-308、0、2.2250738585072014E-308 から "
+"1.7976931348623157E+308"
 
 #: libraries/classes/Types.php:277
 msgid ""
@@ -13506,37 +13530,37 @@ msgid "Max: %s%s"
 msgstr "最長: %s%s"
 
 #. l10n: Short month name
-#: libraries/classes/Util.php:660
+#: libraries/classes/Util.php:633
 msgctxt "Short month name"
 msgid "May"
 msgstr "5 月"
 
 #. l10n: Short week day name for Sunday
-#: libraries/classes/Util.php:678
+#: libraries/classes/Util.php:651
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "日"
 
-#: libraries/classes/Util.php:716
+#: libraries/classes/Util.php:689
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr "午後"
 
-#: libraries/classes/Util.php:718
+#: libraries/classes/Util.php:691
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr "午前"
 
-#: libraries/classes/Util.php:789
+#: libraries/classes/Util.php:762
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s 日 %s 時間 %s 分 %s 秒"
 
-#: libraries/classes/Util.php:1879
+#: libraries/classes/Util.php:1852
 msgid "Users"
 msgstr "ユーザ"
 
-#: libraries/classes/Util.php:2475
+#: libraries/classes/Util.php:2447
 #: templates/database/multi_table_query/form.twig:67
 msgid "Sort"
 msgstr "ソート"
@@ -13716,7 +13740,7 @@ msgstr ""
 #: templates/table/structure/display_structure.twig:152
 #: templates/table/structure/display_structure.twig:160
 #: templates/table/structure/display_structure.twig:298
-#: templates/table/structure/display_structure.twig:460
+#: templates/table/structure/display_structure.twig:477
 #: templates/table/tracking/structure_snapshot_indexes.twig:7
 msgid "Unique"
 msgstr "ユニーク"
@@ -13737,18 +13761,15 @@ msgstr "空間"
 
 #: templates/columns_definitions/column_attributes.twig:165
 #: templates/table/structure/display_partitions.twig:27
-#: templates/columns_definitions/column_attributes.twig:161
 msgid "Expression"
 msgstr "式"
 
 #: templates/columns_definitions/column_attributes.twig:186
-#: templates/columns_definitions/column_attributes.twig:182
 msgid "first"
 msgstr "最初へ"
 
 #: templates/columns_definitions/column_attributes.twig:191
-#: templates/table/structure/display_structure.twig:433
-#: templates/columns_definitions/column_attributes.twig:187
+#: templates/table/structure/display_structure.twig:450
 #, php-format
 msgid "after %s"
 msgstr "%s の後へ"
@@ -13763,8 +13784,6 @@ msgstr "テーブル名"
 #: templates/console/display.twig:124
 #: templates/database/central_columns/main.twig:202 templates/export.twig:281
 #: templates/export.twig:297 templates/export.twig:313
-#: templates/export.twig:285 templates/export.twig:301
-#: templates/export.twig:317
 msgid "Add"
 msgstr "追加"
 
@@ -13881,7 +13900,7 @@ msgstr "エンジン"
 #: templates/database/routines/editor_form.twig:163
 #: templates/database/structure/table_header.twig:46 templates/indexes.twig:24
 #: templates/table/structure/display_partitions.twig:32
-#: templates/table/structure/display_structure.twig:466
+#: templates/table/structure/display_structure.twig:483
 #: templates/table/tracking/structure_snapshot_columns.twig:12
 #: templates/table/tracking/structure_snapshot_indexes.twig:13
 msgid "Comment"
@@ -13951,7 +13970,7 @@ msgstr ""
 #: templates/table/operations/index.twig:151
 #: templates/table/search/index.twig:40
 #: templates/table/structure/display_structure.twig:23
-#: templates/table/structure/display_structure.twig:464
+#: templates/table/structure/display_structure.twig:481
 #: templates/table/structure/display_table_stats.twig:108
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
@@ -14227,7 +14246,7 @@ msgid "Search this table"
 msgstr "このテーブルを検索"
 
 #: templates/database/central_columns/main.twig:184
-#: templates/table/structure/display_structure.twig:418
+#: templates/table/structure/display_structure.twig:435
 msgid "Add column"
 msgstr "カラムを追加する"
 
@@ -14256,7 +14275,7 @@ msgstr "クリックでソート。"
 #: templates/table/privileges/index.twig:24
 #: templates/table/structure/display_partitions.twig:34
 #: templates/table/structure/display_structure.twig:34
-#: templates/table/structure/display_structure.twig:457
+#: templates/table/structure/display_structure.twig:474
 #: templates/table/tracking/main.twig:32
 #: templates/table/tracking/report_table.twig:8
 msgid "Action"
@@ -14286,24 +14305,24 @@ msgstr "データベースのコメント:"
 #: templates/database/data_dictionary/index.twig:124
 #: templates/database/structure/index.twig:19
 #: templates/display/results/table.twig:340
-#: templates/table/structure/display_structure.twig:376
+#: templates/table/structure/display_structure.twig:393
 msgid "Print"
 msgstr "印刷"
 
 #: templates/database/data_dictionary/index.twig:76 templates/indexes.twig:19
-#: templates/table/structure/display_structure.twig:461
+#: templates/table/structure/display_structure.twig:478
 #: templates/table/tracking/structure_snapshot_indexes.twig:8
 msgid "Packed"
 msgstr "圧縮"
 
 #: templates/database/data_dictionary/index.twig:78 templates/indexes.twig:21
-#: templates/table/structure/display_structure.twig:463
+#: templates/table/structure/display_structure.twig:480
 #: templates/table/tracking/structure_snapshot_indexes.twig:10
 msgid "Cardinality"
 msgstr "一意な値の数"
 
 #: templates/database/data_dictionary/index.twig:117 templates/indexes.twig:92
-#: templates/table/structure/display_structure.twig:542
+#: templates/table/structure/display_structure.twig:559
 msgid "No index defined!"
 msgstr "インデックスが定義されていません!"
 
@@ -14746,7 +14765,6 @@ msgid "Rename database to"
 msgstr "データベース名の変更"
 
 #: templates/database/operations/index.twig:58 templates/export.twig:278
-#: templates/export.twig:282
 msgid "New database name"
 msgstr "新しいデータベース名"
 
@@ -15341,7 +15359,7 @@ msgstr "SQL コマンドを追跡していないテーブル"
 #: templates/database/tracking/tables.twig:176
 #: templates/database/tracking/tables.twig:188
 #: templates/database/tracking/tables.twig:189
-#: templates/table/structure/display_structure.twig:396
+#: templates/table/structure/display_structure.twig:413
 msgid "Track table"
 msgstr "テーブルを追跡する"
 
@@ -15412,7 +15430,6 @@ msgstr "カラムの順番を元に戻す"
 
 #: templates/display/results/table.twig:124 templates/export.twig:145
 #: templates/table/start_and_number_of_rows_fieldset.twig:9
-#: templates/export.twig:149
 msgid "Number of rows:"
 msgstr "行数:"
 
@@ -15517,6 +15534,7 @@ msgid "Something went wrong"
 msgstr "問題が発生しました"
 
 #: templates/error/simple.twig:7 templates/modals/index_dialog_modal.twig:30
+#: templates/table/structure/display_structure.twig:363
 msgid "Go back"
 msgstr "戻る"
 
@@ -15568,91 +15586,86 @@ msgstr "詳細 - 可能なオプションをすべて表示"
 msgid "File format to export"
 msgstr "エクスポートするファイル形式"
 
-#: templates/export.twig:133 templates/export.twig:137
+#: templates/export.twig:133
 msgid "Rows:"
 msgstr "行:"
 
-#: templates/export.twig:137 templates/export.twig:141
+#: templates/export.twig:137
 msgid "Dump all rows"
 msgstr "すべての行をダンプする"
 
-#: templates/export.twig:141 templates/export.twig:145
+#: templates/export.twig:141
 msgid "Dump some row(s)"
 msgstr "ダンプする行"
 
-#: templates/export.twig:156 templates/export.twig:160
+#: templates/export.twig:156
 msgid "Row to begin at:"
 msgstr "開始行:"
 
 #: templates/export.twig:166 templates/export.twig:328
-#: templates/export.twig:170 templates/export.twig:332
 msgid "Output:"
 msgstr "出力:"
 
 #: templates/export.twig:171 templates/export.twig:366
-#: templates/export.twig:175 templates/export.twig:370
 #, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
 msgstr "サーバ上のディレクトリ <strong>%s</strong> に保存する"
 
 #: templates/export.twig:189 templates/export.twig:333
-#: templates/export.twig:193 templates/export.twig:337
 msgid "Rename exported databases/tables/columns"
 msgstr "エクスポートされた データベース・テーブル・カラムの名前を変更"
 
-#: templates/export.twig:197 templates/export.twig:201
+#: templates/export.twig:197
 msgid "Defined aliases"
 msgstr "定義されたエイリアス"
 
 #: templates/export.twig:212 templates/export.twig:226
 #: templates/export.twig:239 templates/export.twig:256
-#: templates/export.twig:216 templates/export.twig:230
-#: templates/export.twig:243 templates/export.twig:260
 msgid "Remove"
 msgstr "削除"
 
-#: templates/export.twig:265 templates/export.twig:269
+#: templates/export.twig:265
 msgid "Define new aliases"
 msgstr "新しいエイリアスを定義する"
 
-#: templates/export.twig:270 templates/export.twig:274
+#: templates/export.twig:270
 msgid "Select database:"
 msgstr "データベースを選択してください:"
 
-#: templates/export.twig:286 templates/export.twig:290
+#: templates/export.twig:286
 msgid "Select table:"
 msgstr "テーブルを選択してください:"
 
-#: templates/export.twig:294 templates/export.twig:298
+#: templates/export.twig:294
 msgid "New table name"
 msgstr "新しいテーブル名"
 
-#: templates/export.twig:302 templates/export.twig:306
+#: templates/export.twig:302
 msgid "Select column:"
 msgstr "カラムを選択:"
 
-#: templates/export.twig:310 templates/export.twig:314
+#: templates/export.twig:310
 msgid "New column name"
 msgstr "新しいカラム名"
 
-#: templates/export.twig:343 templates/export.twig:347
+#: templates/export.twig:343
 #, php-format
 msgid "Use %s statement"
 msgstr "「%s」 コマンドを使用する"
 
-#: templates/export.twig:352 templates/export.twig:356
+#: templates/export.twig:352
 msgid "View output as text"
 msgstr "出力をテキストで表示する"
 
-#: templates/export.twig:356 templates/export.twig:360
+#: templates/export.twig:356
 msgid "Save output to a file"
 msgstr "出力をファイルに保存する"
 
-#: templates/export.twig:383 templates/export.twig:387
+#: templates/export.twig:383
 msgid "File name template:"
 msgstr "ファイル名のテンプレート:"
 
-#: templates/export.twig:384 templates/export.twig:388
+#: templates/export.twig:384
 #, php-format
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
@@ -15663,50 +15676,47 @@ msgstr ""
 "ます。さらに、次の変換が行われます：%s その他のテキストはそのまま使用されま"
 "す。詳細については、FAQ 6.27 を参照してください。"
 
-#: templates/export.twig:394 templates/export.twig:398
+#: templates/export.twig:394
 msgid "Use this for future exports"
 msgstr "今後のエクスポートでこれを使用する"
 
-#: templates/export.twig:405 templates/import.twig:103
-#: templates/export.twig:409
+#: templates/export.twig:405 templates/import.twig:100
 msgid "Character set of the file:"
 msgstr "ファイルの文字セット:"
 
-#: templates/export.twig:425 templates/export.twig:429
+#: templates/export.twig:425
 msgid "Compression:"
 msgstr "圧縮:"
 
-#: templates/export.twig:433 templates/export.twig:437
+#: templates/export.twig:433
 msgid "zipped"
 msgstr "zip 形式"
 
-#: templates/export.twig:439 templates/export.twig:443
+#: templates/export.twig:439
 msgid "gzipped"
 msgstr "gzip 形式"
 
-#: templates/export.twig:457 templates/export.twig:461
+#: templates/export.twig:457
 msgid "Export databases as separate files"
 msgstr "データベースを別々のファイルとしてエクスポートする"
 
-#: templates/export.twig:459 templates/export.twig:463
+#: templates/export.twig:459
 msgid "Export tables as separate files"
 msgstr "テーブルを別々のファイルとしてエクスポートする"
 
-#: templates/export.twig:470 templates/export.twig:474
+#: templates/export.twig:470
 msgid "Skip tables larger than:"
 msgstr "これより大きなテーブルをスキップ:"
 
-#: templates/export.twig:472 templates/export.twig:476
+#: templates/export.twig:472
 msgid "The size is measured in MiB."
 msgstr "大きさは MiB 単位です。"
 
-#: templates/export.twig:478 templates/import.twig:178
-#: templates/export.twig:482 templates/import.twig:182
+#: templates/export.twig:478 templates/import.twig:175
 msgid "Format-specific options:"
 msgstr "フォーマット特有のオプション:"
 
-#: templates/export.twig:487 templates/import.twig:187
-#: templates/export.twig:491 templates/import.twig:191
+#: templates/export.twig:487 templates/import.twig:184
 msgid "Encoding Conversion:"
 msgstr "エンコーディングへの変換:"
 
@@ -15985,60 +15995,16 @@ msgstr "%s テーマのスクリーンショットです。"
 msgid "Take it"
 msgstr "これにする"
 
-#: templates/import/javascript.twig:12
-msgid ""
-"The file being uploaded is probably larger than the maximum allowed size or "
-"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
-"browsers."
-msgstr ""
-"アップロードされているファイルが最大許容サイズよりもおそらく大きい、もしく"
-"は、WebKit がベースのブラウザ (Safari、Google Chrome、Arora など) の既知のバ"
-"グです。"
-
-#: templates/import/javascript.twig:13
-#, php-format
-msgid "%s of %s"
-msgstr "%s of %s"
-
-#: templates/import/javascript.twig:14
-#, php-format
-msgid "%s/sec."
-msgstr "%s/秒。"
-
-#: templates/import/javascript.twig:15
-msgid "About %MIN min. %SEC sec. remaining."
-msgstr "残り時間 約 %MIN 分 %SEC 秒。"
-
-#: templates/import/javascript.twig:16
-msgid "About %SEC sec. remaining."
-msgstr "残り時間 約 %SEC 秒。"
-
-#: templates/import/javascript.twig:17
-msgid "The file is being processed, please be patient."
-msgstr "ファイルが処理されています。しばらくお待ちください。"
-
-#: templates/import/javascript.twig:29
-msgid "Uploading your import file…"
-msgstr "インポートファイルをアップロードしています…"
-
-#: templates/import/javascript.twig:152
-msgid ""
-"Please be patient, the file is being uploaded. Details about the upload are "
-"not available."
-msgstr ""
-"しばらくお待ちください。ファイルがアップロードされています。アップロードに関"
-"する機能は利用できません。"
-
-#: templates/import.twig:26
+#: templates/import.twig:23
 msgid "File to import:"
 msgstr "インポートするファイル:"
 
-#: templates/import.twig:31
+#: templates/import.twig:28
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
 msgstr "ファイルは圧縮されていないもの、もしくは、%s で圧縮されているもの。"
 
-#: templates/import.twig:32
+#: templates/import.twig:29
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
@@ -16046,42 +16012,42 @@ msgstr ""
 "圧縮ファイルの名前は<strong>.[フォーマット].[圧縮形式]</strong>で終わっている"
 "こと。例：<strong>.sql.zip</strong>"
 
-#: templates/import.twig:40
+#: templates/import.twig:37
 msgid "Upload a file"
 msgstr "ファイルをアップロード"
 
-#: templates/import.twig:43
+#: templates/import.twig:40
 msgid "Select file to import"
 msgstr "インポートするファイルの選択"
 
-#: templates/import.twig:50 templates/import.twig:77
+#: templates/import.twig:47 templates/import.twig:74
 #: templates/preferences/manage/main.twig:22
 msgid "Browse your computer:"
 msgstr "アップロードファイル:"
 
-#: templates/import.twig:55 templates/import.twig:82
+#: templates/import.twig:52 templates/import.twig:79
 msgid "You may also drag and drop a file on any page."
 msgstr "ファイルを任意のページにドラッグアンドドロップすることもできます。"
 
-#: templates/import.twig:62 templates/import.twig:88
+#: templates/import.twig:59 templates/import.twig:85
 #, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
 msgstr ""
 "ウェブサーバ上のアップロード ディレクトリ [strong]%s[/strong] から選択："
 
-#: templates/import.twig:69 templates/import.twig:96
+#: templates/import.twig:66 templates/import.twig:93
 msgid "There are no files to import!"
 msgstr "インポートするファイルがありません！"
 
-#: templates/import.twig:100
+#: templates/import.twig:97
 msgid "File uploads are not allowed on this server."
 msgstr "このサーバではファイルのアップロードはできません。"
 
-#: templates/import.twig:126
+#: templates/import.twig:123
 msgid "Partial import:"
 msgstr "部分インポート:"
 
-#: templates/import.twig:131
+#: templates/import.twig:128
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
@@ -16089,7 +16055,7 @@ msgstr ""
 "直前のインポートはタイムアウトしました。再送信すると位置 %d から再開されま"
 "す。"
 
-#: templates/import.twig:138
+#: templates/import.twig:135
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit."
@@ -16097,7 +16063,7 @@ msgstr ""
 "PHP タイムアウト制限に近づいたことをスクリプトが検出した場合にインポートを中"
 "断できるようにします。"
 
-#: templates/import.twig:140
+#: templates/import.twig:137
 msgid ""
 "This might be a good way to import large files, however it can break "
 "transactions."
@@ -16105,26 +16071,26 @@ msgstr ""
 "これは、大きなファイルをインポートするのに適した方法かもしれませんが、トラン"
 "ザクションが壊れる可能性があります。"
 
-#: templates/import.twig:144
+#: templates/import.twig:141
 msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr "先頭から数えたスキップするSQLクエリの数:"
 
-#: templates/import.twig:154
+#: templates/import.twig:151
 msgid "Other options"
 msgstr "その他のオプション"
 
 #: templates/indexes.twig:39
-#: templates/table/structure/display_structure.twig:489
+#: templates/table/structure/display_structure.twig:506
 msgid "Rename"
 msgstr "名前の変更"
 
 #: templates/indexes.twig:45
-#: templates/table/structure/display_structure.twig:495
+#: templates/table/structure/display_structure.twig:512
 msgid "The primary key has been dropped."
 msgstr "主キーを削除しました。"
 
 #: templates/indexes.twig:50
-#: templates/table/structure/display_structure.twig:500
+#: templates/table/structure/display_structure.twig:517
 #, php-format
 msgid "Index %s has been dropped."
 msgstr "インデックス %s を削除しました。"
@@ -16148,7 +16114,6 @@ msgstr "ユーザ名:"
 #: templates/server/privileges/login_information_fields.twig:44
 #: templates/server/replication/change_primary.twig:18
 #: templates/server/replication/primary_add_replica_user.twig:49
-#: templates/server/privileges/change_password.twig:21
 msgid "Password:"
 msgstr "パスワード:"
 
@@ -16859,36 +16824,30 @@ msgid "Create user"
 msgstr "ユーザを作成"
 
 #: templates/server/privileges/change_password.twig:18
-#: templates/server/privileges/change_password.twig:15
 msgid "No Password"
 msgstr "パスワード無し"
 
 #: templates/server/privileges/change_password.twig:28
-#: templates/server/privileges/change_password.twig:25
 msgid "Enter:"
 msgstr "パスワード："
 
 #: templates/server/privileges/change_password.twig:32
 #: templates/server/privileges/login_information_fields.twig:61
 #: templates/server/replication/primary_add_replica_user.twig:62
-#: templates/server/privileges/change_password.twig:31
 msgid "Re-type:"
 msgstr "再入力："
 
 #: templates/server/privileges/change_password.twig:38
 #: templates/server/privileges/login_information_fields.twig:55
-#: templates/server/privileges/change_password.twig:37
 msgctxt "Password strength"
 msgid "Strength:"
 msgstr "強度："
 
 #: templates/server/privileges/change_password.twig:48
-#: templates/server/privileges/change_password.twig:47
 msgid "Password Hashing:"
 msgstr "パスワードハッシュ："
 
 #: templates/server/privileges/change_password.twig:66
-#: templates/server/privileges/change_password.twig:65
 msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "
@@ -17942,7 +17901,7 @@ msgstr "セッション値"
 msgid "Not enough privilege to view server variables and settings. %s"
 msgstr "サーバ変数と設定を表示するのに十分な権限がありません。%s"
 
-#: templates/setup/base.twig:29 templates/setup/home/index.twig:20
+#: templates/setup/base.twig:28 templates/setup/home/index.twig:20
 msgid "Overview"
 msgstr "一般"
 
@@ -18647,7 +18606,7 @@ msgid "Start row:"
 msgstr "開始行:"
 
 #: templates/table/structure/display_partitions.twig:3
-#: templates/table/structure/display_structure.twig:580
+#: templates/table/structure/display_structure.twig:597
 msgid "Partitions"
 msgstr "パーティション"
 
@@ -18729,7 +18688,7 @@ msgstr "主要カラムに追加"
 
 #: templates/table/structure/display_structure.twig:328
 #: templates/table/structure/display_structure.twig:332
-#: templates/table/structure/display_structure.twig:400
+#: templates/table/structure/display_structure.twig:417
 msgid "Move columns"
 msgstr "カラムを移動させる"
 
@@ -18737,33 +18696,33 @@ msgstr "カラムを移動させる"
 msgid "Move the columns by dragging them up and down."
 msgstr "ドラックして上下させ、カラムを移動させてください。"
 
-#: templates/table/structure/display_structure.twig:372
+#: templates/table/structure/display_structure.twig:389
 #: templates/view_create.twig:13
 msgid "Edit view"
 msgstr "ビューを編集する"
 
-#: templates/table/structure/display_structure.twig:386
+#: templates/table/structure/display_structure.twig:403
 msgid "Propose table structure"
 msgstr "テーブル構造を確認する"
 
-#: templates/table/structure/display_structure.twig:403
+#: templates/table/structure/display_structure.twig:420
 msgid "Normalize"
 msgstr "正規化"
 
-#: templates/table/structure/display_structure.twig:409
+#: templates/table/structure/display_structure.twig:426
 msgid "Track view"
 msgstr "追跡の閲覧"
 
-#: templates/table/structure/display_structure.twig:423
+#: templates/table/structure/display_structure.twig:440
 #, php-format
 msgid "Add %s column(s)"
 msgstr "%s 個のカラムを追加する"
 
-#: templates/table/structure/display_structure.twig:428
+#: templates/table/structure/display_structure.twig:445
 msgid "at beginning of table"
 msgstr "テーブルの先頭"
 
-#: templates/table/structure/display_structure.twig:552
+#: templates/table/structure/display_structure.twig:569
 #, php-format
 msgid "Create an index on %s columns"
 msgstr "%s カラムにインデックスを作成する"
@@ -19478,9 +19437,9 @@ msgstr "カラム名"
 #~ "compression for import and export operations."
 #~ msgstr ""
 #~ "インポートおよびエクスポートの操作に対して [a@https://ja.wikipedia.org/"
-#~ "wiki/ZIP_%28%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB"
-#~ "%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%83%E3%83%88%29]ZIP[/a] 圧縮を有"
-#~ "効にします。"
+#~ "wiki/"
+#~ "ZIP_%28%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%83%E3%83%88%29]ZIP[/"
+#~ "a] 圧縮を有効にします。"
 
 #~ msgid "Related Links"
 #~ msgstr "関連リンク"
@@ -20217,8 +20176,8 @@ msgstr "カラム名"
 
 #~ msgid ""
 #~ "The SQL validator could not be initialized. Please check if you have "
-#~ "installed the necessary PHP extensions as described in the %sdocumentation"
-#~ "%s."
+#~ "installed the necessary PHP extensions as described in the "
+#~ "%sdocumentation%s."
 #~ msgstr ""
 #~ "SQL の検証機能を初期化できません。%sドキュメント%s の記載通りに必要な PHP "
 #~ "拡張がインストールされているか確認してください。"
@@ -20389,8 +20348,8 @@ msgstr "カラム名"
 #~ "For further information about replication status on the server, please "
 #~ "visit the <a href=\"#replication\">replication section</a>."
 #~ msgstr ""
-#~ "サーバ上のレプリケーションステータスの詳細については、<a href="
-#~ "\"#replication\">レプリケーションの節</a>を参照してください。"
+#~ "サーバ上のレプリケーションステータスの詳細については、<a "
+#~ "href=\"#replication\">レプリケーションの節</a>を参照してください。"
 
 #~ msgid "Table seems to be empty!"
 #~ msgstr "テーブルが空のようです!"
@@ -21188,8 +21147,8 @@ msgstr "カラム名"
 #~ msgid ""
 #~ "Enter each value in a separate field, enclosed in single quotes. If you "
 #~ "ever need to put a backslash (\"\\\") or a single quote (\"'\") amongst "
-#~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
-#~ "\\'b')."
+#~ "those values, precede it with a backslash (for example '\\\\xyz' or "
+#~ "'a\\'b')."
 #~ msgstr ""
 #~ "変換オプションの値の書式: 'a','b','c'…<br />バックスラッシュ (\"\\\") やシ"
 #~ "ングルクォート (\"'\") を値に含める必要がある場合は ( \\\\xyz や a\\'b の"
