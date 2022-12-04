@@ -1787,10 +1787,10 @@ class ExportSql extends ExportPlugin
      * @return string resulting comments
      */
     private function getTableComments(
-        $db,
-        $table,
-        $doRelation = false,
-        $doMime = false,
+        string $db,
+        string $table,
+        bool $doRelation = false,
+        bool $doMime = false,
         array $aliases = []
     ): string {
         $GLOBALS['sql_backquotes'] = $GLOBALS['sql_backquotes'] ?? null;
