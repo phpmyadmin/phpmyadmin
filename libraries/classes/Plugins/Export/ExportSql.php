@@ -206,27 +206,7 @@ class ExportSql extends ExportPlugin
         // compatibility maximization
         $compats = $GLOBALS['dbi']->getCompatibilities();
         if ($compats !== []) {
-            $values = [];
-            foreach ($compats as $val) {
-                $values[$val] = $val;
-            }
-
-            $leaf = new SelectPropertyItem(
-                'compatibility',
-                __(
-                    'Database system or older MySQL server to maximize output compatibility with:'
-                )
-            );
-            $leaf->setValues($values);
-            $leaf->setDoc(
-                [
-                    'manual_MySQL_Database_Administration',
-                    'Server_SQL_mode',
-                ]
-            );
-            $generalOptions->addProperty($leaf);
-
-            unset($values);
+            $this->addCompatOptions($compats, $generalOptions);
         }
 
         // what to dump (structure/data/both)
@@ -2762,5 +2742,31 @@ class ExportSql extends ExportPlugin
         }
 
         return $schemaCreate . $newCrlf;
+    }
+
+    /**
+     * @param string[] $compats
+     */
+    private function addCompatOptions(array $compats, OptionsPropertyMainGroup $generalOptions): void
+    {
+        $values = [];
+        foreach ($compats as $val) {
+            $values[$val] = $val;
+        }
+
+        $leaf = new SelectPropertyItem(
+            'compatibility',
+            __(
+                'Database system or older MySQL server to maximize output compatibility with:'
+            )
+        );
+        $leaf->setValues($values);
+        $leaf->setDoc(
+            [
+                'manual_MySQL_Database_Administration',
+                'Server_SQL_mode',
+            ]
+        );
+        $generalOptions->addProperty($leaf);
     }
 }
