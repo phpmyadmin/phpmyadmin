@@ -100,7 +100,7 @@ jobs:
           coverage: xdebug
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v1
+        uses: ramsey/composer-install@v2
         with:
           dependency-versions: highest
           composer-options: ${{ matrix.composer-options }}
@@ -109,7 +109,7 @@ jobs:
         run: composer run phpunit -- ${{ matrix.phpunit-options }}
 
       - name: Send coverage
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v3
         with:
           flags: unit-${{ matrix.php-version }}-${{ matrix.os }}
           name: phpunit-${{ matrix.php-version }}-${{ matrix.os }}
@@ -160,7 +160,7 @@ jobs:
           coverage: xdebug
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v1
+        uses: ramsey/composer-install@v2
         with:
           dependency-versions: highest
 
@@ -168,7 +168,7 @@ jobs:
         run: composer run phpunit -- --testsuite unit
 
       - name: Send coverage
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v3
         with:
           flags: ${{ matrix.extension }}-extension
           name: php-7.2-${{ matrix.extension }}-enabled

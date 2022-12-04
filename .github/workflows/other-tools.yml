@@ -49,7 +49,7 @@ jobs:
           tools: composer:v2
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v1
+        uses: ramsey/composer-install@v2
         with:
           dependency-versions: highest
 

@@ -102,7 +102,7 @@ jobs:
           extensions: mbstring, iconv, mysqli, zip, gd, bz2
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v1
+        uses: ramsey/composer-install@v2
         with:
           dependency-versions: highest
 
@@ -125,7 +125,7 @@ jobs:
           SKIP_STANDALONE: 1
         run: |
           ./test/start-local-server
-          echo ::set-output name=SELENIUM_TEMPDIR::"$(cat /tmp/last_temp_dir_phpMyAdminTests)"
+          echo "SELENIUM_TEMPDIR=$(cat /tmp/last_temp_dir_phpMyAdminTests)" >> $GITHUB_OUTPUT
         id: start-local-server
 
       - name: Run Selenium tests
