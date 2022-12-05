@@ -25,7 +25,7 @@ final class TablesController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        if ($request->getParsedBodyParam('selected_tbl') === null) {
+        if (! $request->hasBodyParam('selected_tbl')) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 

@@ -140,7 +140,7 @@ final class ImportController extends AbstractController
             // apply values for parameters
             /** @var array<string, string> $parameters */
             $parameters = $request->getParsedBodyParam('parameters');
-            if ($request->hasBodyParam('parameterized') && $parameters !== null && is_array($parameters)) {
+            if ($request->hasBodyParam('parameterized') && is_array($parameters)) {
                 foreach ($parameters as $parameter => $replacementValue) {
                     if (! is_numeric($replacementValue)) {
                         $replacementValue = $this->dbi->quoteString($replacementValue);
@@ -169,7 +169,7 @@ final class ImportController extends AbstractController
             $_SESSION['sql_from_query_box'] = true;
 
             // If there is a request to ROLLBACK when finished.
-            if ($request->getParsedBodyParam('rollback_query') !== null) {
+            if ($request->hasBodyParam('rollback_query')) {
                 $this->import->handleRollbackRequest($GLOBALS['import_text']);
             }
 
@@ -214,7 +214,7 @@ final class ImportController extends AbstractController
         // upload limit has been reached, let's assume the second possibility.
         $getParams = $request->getQueryParams();
         $postParams = $request->getParsedBody();
-        if (is_array($postParams) && $postParams == [] && is_array($getParams) && $getParams == []) {
+        if ($postParams === [] && $getParams === []) {
             $GLOBALS['message'] = Message::error(
                 __(
                     'You probably tried to upload a file that is too large. Please refer ' .
@@ -329,10 +329,9 @@ final class ImportController extends AbstractController
         $GLOBALS['result'] = false;
 
         // Bookmark Support: get a query back from bookmark if required
-        $id_bookmark = $request->getParsedBodyParam('id_bookmark');
-        if (! empty($id_bookmark)) {
-            $id_bookmark = (int) $id_bookmark;
-            $action_bookmark = (int) $request->getParsedBodyParam('action_bookmark');
+        $id_bookmark = (int) $request->getParsedBodyParam('id_bookmark');
+        $action_bookmark = (int) $request->getParsedBodyParam('action_bookmark');
+        if ($id_bookmark !== 0) {
             switch ($action_bookmark) {
                 case 0: // bookmarked query that have to be run
                     $bookmark = Bookmark::get(
@@ -341,15 +340,15 @@ final class ImportController extends AbstractController
                         DatabaseName::fromValue($GLOBALS['db']),
                         $id_bookmark,
                         'id',
-                        $request->getParsedBodyParam('action_bookmark_all') !== null
+                        $request->hasBodyParam('action_bookmark_all')
                     );
                     if (! $bookmark instanceof Bookmark) {
                         break;
                     }
 
-                    $bookmark_variable = $request->getParsedBodyParam('bookmark_variable');
-                    if (! empty($bookmark_variable)) {
-                        $GLOBALS['import_text'] = $bookmark->applyVariables($bookmark_variable);
+                    $bookmark_variables = $request->getParsedBodyParam('bookmark_variable');
+                    if (is_array($bookmark_variables)) {
+                        $GLOBALS['import_text'] = $bookmark->applyVariables($bookmark_variables);
                     } else {
                         $GLOBALS['import_text'] = $bookmark->getQuery();
                     }
@@ -556,7 +555,7 @@ final class ImportController extends AbstractController
         }
 
         // Something to skip? (because timeout has passed)
-        if (! $GLOBALS['error'] && $request->getParsedBodyParam('skip') !== null) {
+        if (! $GLOBALS['error'] && $request->hasBodyParam('skip')) {
             $original_skip = $skip = intval($request->getParsedBodyParam('skip'));
             while ($skip > 0 && ! $GLOBALS['finished']) {
                 $this->import->getNextChunk(
@@ -617,11 +616,11 @@ final class ImportController extends AbstractController
         }
 
         // Show correct message
-        if (! empty($id_bookmark) && $action_bookmark == 2) {
+        if ($id_bookmark !== 0 && $action_bookmark === 2) {
             $GLOBALS['message'] = Message::success(__('The bookmark has been deleted.'));
             $GLOBALS['display_query'] = $GLOBALS['import_text'];
             $GLOBALS['error'] = false; // unset error marker, it was used just to skip processing
-        } elseif (! empty($id_bookmark) && $action_bookmark == 1) {
+        } elseif ($id_bookmark !== 0 && $action_bookmark === 1) {
             $GLOBALS['message'] = Message::notice(__('Showing bookmark'));
         } elseif ($GLOBALS['finished'] && ! $GLOBALS['error']) {
             // Do not display the query with message, we do it separately
@@ -788,7 +787,7 @@ final class ImportController extends AbstractController
                     $GLOBALS['cfg']['Server']['user'],
                     $request->getParsedBodyParam('sql_query'),
                     $request->getParsedBodyParam('bkm_label'),
-                    $request->getParsedBodyParam('bkm_replace') !== null
+                    $request->hasBodyParam('bkm_replace')
                 );
             }
 
@@ -809,7 +808,7 @@ final class ImportController extends AbstractController
                     $GLOBALS['cfg']['Server']['user'],
                     $request->getParsedBodyParam('sql_query'),
                     $request->getParsedBodyParam('bkm_label'),
-                    $request->getParsedBodyParam('bkm_replace') !== null
+                    $request->hasBodyParam('bkm_replace')
                 );
             }
 
@@ -829,7 +828,7 @@ final class ImportController extends AbstractController
         }
 
         // If there is request for ROLLBACK in the end.
-        if ($request->getParsedBodyParam('rollback_query') === null) {
+        if (! $request->hasBodyParam('rollback_query')) {
             return;
         }
 
