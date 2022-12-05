@@ -330,7 +330,7 @@ final class ImportController extends AbstractController
 
         // Bookmark Support: get a query back from bookmark if required
         $id_bookmark = $request->getParsedBodyParam('id_bookmark');
-        if (!empty($id_bookmark)) {
+        if (! empty($id_bookmark)) {
             $id_bookmark = (int) $id_bookmark;
             $action_bookmark = (int) $request->getParsedBodyParam('action_bookmark');
             switch ($action_bookmark) {
@@ -347,8 +347,9 @@ final class ImportController extends AbstractController
                         break;
                     }
 
-                    if (! empty($request->getParsedBodyParam('bookmark_variable'))) {
-                        $GLOBALS['import_text'] = $bookmark->applyVariables($request->getParsedBodyParam('bookmark_variable'));
+                    $bookmark_variable = $request->getParsedBodyParam('bookmark_variable');
+                    if (! empty($bookmark_variable)) {
+                        $GLOBALS['import_text'] = $bookmark->applyVariables($bookmark_variable);
                     } else {
                         $GLOBALS['import_text'] = $bookmark->getQuery();
                     }

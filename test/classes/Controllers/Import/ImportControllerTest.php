@@ -55,7 +55,7 @@ class ImportControllerTest extends AbstractTestCase
             ['table', null, $GLOBALS['table']],
             ['parameterized', null, 'on'],
             ['parameters', null, [':nomEta' => 'Saint-Louis - Châteaulin', ':1' => '4']],
-            ['sql_query', null, $GLOBALS['sql_query']]
+            ['sql_query', null, $GLOBALS['sql_query']],
         ]);
 
         $this->dummyDbi->addResult(
