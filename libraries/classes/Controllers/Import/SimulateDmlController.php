@@ -38,7 +38,7 @@ final class SimulateDmlController extends AbstractController
         $error = '';
         $errorMsg = __('Only single-table UPDATE and DELETE queries can be simulated.');
         /** @var string $sqlDelimiter */
-        $sqlDelimiter = $_POST['sql_delimiter'];
+        $sqlDelimiter = $request->getParsedBodyParam('sql_delimiter', '');
         $sqlData = [];
         /** @var string[] $queries */
         $queries = explode($sqlDelimiter, $GLOBALS['sql_query']);

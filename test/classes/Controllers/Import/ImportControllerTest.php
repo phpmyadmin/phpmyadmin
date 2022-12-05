@@ -43,16 +43,20 @@ class ImportControllerTest extends AbstractTestCase
         parent::loadResponseIntoContainerBuilder();
 
         // Some params where not added as they where not required for this test
-        $_POST['db'] = 'pma_test';
-        $_POST['table'] = 'table1';
-        $GLOBALS['db'] = $_POST['db'];
-        $GLOBALS['table'] = $_POST['table'];
-        $_POST['parameterized'] = 'on';
-        $_POST['parameters'] = [':nomEta' => 'Saint-Louis - Châteaulin', ':1' => '4'];
-        $_POST['sql_query'] = 'SELECT A.*' . "\n"
+        $GLOBALS['db'] = 'pma_test';
+        $GLOBALS['table'] = 'table1';
+        $GLOBALS['sql_query'] = 'SELECT A.*' . "\n"
             . 'FROM table1 A' . "\n"
             . 'WHERE A.nomEtablissement = :nomEta AND foo = :1 AND `:a` IS NULL';
-        $GLOBALS['sql_query'] = $_POST['sql_query'];
+
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['db', null, $GLOBALS['db']],
+            ['table', null, $GLOBALS['table']],
+            ['parameterized', null, 'on'],
+            ['parameters', null, [':nomEta' => 'Saint-Louis - Châteaulin', ':1' => '4']],
+            ['sql_query', null, $GLOBALS['sql_query']]
+        ]);
 
         $this->dummyDbi->addResult(
             'SELECT A.* FROM table1 A WHERE A.nomEtablissement = \'Saint-Louis - Châteaulin\''
@@ -74,7 +78,7 @@ class ImportControllerTest extends AbstractTestCase
         $importController = $GLOBALS['containerBuilder']->get(ImportController::class);
         $this->dummyDbi->addSelectDb('pma_test');
         $this->dummyDbi->addSelectDb('pma_test');
-        $importController($this->createStub(ServerRequest::class));
+        $importController($request);
         $this->dummyDbi->assertAllSelectsConsumed();
         $this->assertResponseWasSuccessfull();
 
