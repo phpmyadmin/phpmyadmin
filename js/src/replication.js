@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import { AJAX } from './modules/ajax.js';
 import { Functions } from './modules/functions.js';
+import { ajaxShowMessage } from './modules/ajax-message.js';
 
 /**
  * @fileoverview    Javascript functions used in server replication page
@@ -85,7 +86,7 @@ AJAX.registerOnload('replication.js', function () {
         var $anchor = $(this);
         var question = window.Messages.strResetReplicaWarning;
         $anchor.confirm(question, $anchor.attr('href'), function (url) {
-            Functions.ajaxShowMessage();
+            ajaxShowMessage();
             AJAX.source = $anchor;
             var params = Functions.getJsConfirmCommonParam({
                 'ajax_page_request': true,

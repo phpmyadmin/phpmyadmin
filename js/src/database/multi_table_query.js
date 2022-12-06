@@ -2,6 +2,7 @@ import $ from 'jquery';
 import { AJAX } from '../modules/ajax.js';
 import { Functions } from '../modules/functions.js';
 import { CommonParams } from '../modules/common.js';
+import { ajaxShowMessage } from '../modules/ajax-message.js';
 
 /**
  * @fileoverview    function used in QBE for DB
@@ -61,7 +62,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
             }
         });
         if (Object.keys(tableAliases).length === 0) {
-            Functions.ajaxShowMessage('Nothing selected', false, 'error');
+            ajaxShowMessage('Nothing selected', false, 'error');
             return;
         }
 
@@ -120,7 +121,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         var query = editor.getDoc().getValue();
         // Verifying that the query is not empty
         if (query === '') {
-            Functions.ajaxShowMessage(window.Messages.strEmptyQuery, false, 'error');
+            ajaxShowMessage(window.Messages.strEmptyQuery, false, 'error');
             return;
         }
         var data = {

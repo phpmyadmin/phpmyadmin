@@ -4,6 +4,7 @@ import { Functions } from './modules/functions.js';
 import { CommonParams } from './modules/common.js';
 import tooltip from './modules/tooltip.js';
 import highlightSql from './modules/sql-highlight.js';
+import { ajaxShowMessage } from './modules/ajax-message.js';
 
 /* global Sql */
 /* global firstDayOfCalendar */ // templates/javascript/variables.twig
@@ -410,7 +411,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                         var $tempDiv = $(document.createElement('div'));
                         $tempDiv.html(data.error);
                         $tempDiv.addClass('alert alert-danger');
-                        Functions.ajaxShowMessage($tempDiv, false);
+                        ajaxShowMessage($tempDiv, false);
                     }
                 });
             }
@@ -967,7 +968,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                     g.lastXHR = $.post('index.php?route=/sql/get-enum-values', postParams, function (data) {
                         g.lastXHR = null;
                         if (typeof data === 'object' && data.success === false) {
-                            Functions.ajaxShowMessage(data.error, undefined, 'error');
+                            ajaxShowMessage(data.error, undefined, 'error');
                             return;
                         }
                         $editArea.removeClass('edit_area_loading');
@@ -1009,7 +1010,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                     g.lastXHR = $.post('index.php?route=/sql/get-set-values', postParams, function (data) {
                         g.lastXHR = null;
                         if (typeof data === 'object' && data.success === false) {
-                            Functions.ajaxShowMessage(data.error, undefined, 'error');
+                            ajaxShowMessage(data.error, undefined, 'error');
                             return;
                         }
                         $editArea.removeClass('edit_area_loading');
@@ -1069,7 +1070,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                                 $td.data('original_data', data.value);
                                 $(g.cEdit).find('.edit_box').val(data.value);
                             } else {
-                                Functions.ajaxShowMessage(data.error, false);
+                                ajaxShowMessage(data.error, false);
                             }
                         }); // end $.post()
                     }
@@ -1373,7 +1374,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                         }
                         if (typeof data !== 'undefined' && data.success === true) {
                             if (typeof options === 'undefined' || ! options.move) {
-                                Functions.ajaxShowMessage(data.message);
+                                ajaxShowMessage(data.message);
                             }
 
                             // update where_clause related data in each edited row
@@ -1442,7 +1443,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
 
                             g.isCellEdited = false;
                         } else {
-                            Functions.ajaxShowMessage(data.error, false);
+                            ajaxShowMessage(data.error, false);
                             if (! g.saveCellsAtOnce) {
                                 $(g.t).find('.to_be_saved')
                                     .removeClass('to_be_saved');
@@ -1512,7 +1513,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                         thisFieldParams[fieldName] = $(g.cEdit).find('.edit_box').val();
                     } else {
                         var hexError = '<div class="alert alert-danger" role="alert">' + window.Messages.strEnterValidHex + '</div>';
-                        Functions.ajaxShowMessage(hexError, false);
+                        ajaxShowMessage(hexError, false);
                         thisFieldParams[fieldName] = Functions.getCellValue(g.currentEditCell);
                     }
                 } else {
@@ -1676,9 +1677,9 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                     e.preventDefault();
                     var res = Functions.copyToClipboard($(this).data('column'));
                     if (res) {
-                        Functions.ajaxShowMessage(window.Messages.strCopyColumnSuccess, false, 'success');
+                        ajaxShowMessage(window.Messages.strCopyColumnSuccess, false, 'success');
                     } else {
-                        Functions.ajaxShowMessage(window.Messages.strCopyColumnFailure, false, 'error');
+                        ajaxShowMessage(window.Messages.strCopyColumnFailure, false, 'error');
                     }
                 });
             $(g.t).find('th.draggable a')

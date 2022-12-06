@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import { Functions } from './functions.js';
 import { CommonParams } from './common.js';
+import { ajaxShowMessage } from './ajax-message.js';
 
 /**
  * Functions used in configuration forms and on user preferences pages
@@ -30,7 +31,7 @@ Config.isStorageSupported = (type, warn = false) => {
     } catch (error) {
         // Not supported
         if (warn) {
-            Functions.ajaxShowMessage(window.Messages.strNoLocalStorage, false);
+            ajaxShowMessage(window.Messages.strNoLocalStorage, false);
         }
     }
     return false;
@@ -668,7 +669,7 @@ function savePrefsToLocalStorage (form) {
                 $form.hide('fast');
                 $form.prev('.click-hide-message').show('fast');
             } else {
-                Functions.ajaxShowMessage(data.error);
+                ajaxShowMessage(data.error);
             }
         },
         complete: function () {

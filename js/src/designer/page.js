@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import { Functions } from '../modules/functions.js';
+import { ajaxShowMessage } from '../modules/ajax-message.js';
 
 /* global DesignerOfflineDB */ // js/designer/database.js
 /* global DesignerMove */ // js/designer/move.js
@@ -151,7 +152,7 @@ DesignerPage.loadHtmlForPage = function (pageId) {
         DesignerMove.markSaved();
         if (tableMissing === true) {
             DesignerMove.markUnsaved();
-            Functions.ajaxShowMessage(window.Messages.strSavedPageTableMissing);
+            ajaxShowMessage(window.Messages.strSavedPageTableMissing);
         }
         window.selectedPage = page.pgNr;
     });

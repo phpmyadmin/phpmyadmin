@@ -3,6 +3,7 @@ import { AJAX } from '../modules/ajax.js';
 import { Functions } from '../modules/functions.js';
 import { CommonParams } from '../modules/common.js';
 import highlightSql from '../modules/sql-highlight.js';
+import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
 
 /**
  * JavaScript functions used on Database Search page
@@ -120,7 +121,7 @@ AJAX.registerOnload('database/search.js', function () {
     $(document).on('click', 'a.browse_results', function (e) {
         e.preventDefault();
         /**   Hides the results shown by the delete criteria */
-        var $msg = Functions.ajaxShowMessage(window.Messages.strBrowsing, false);
+        var $msg = ajaxShowMessage(window.Messages.strBrowsing, false);
         $('#sqlqueryform').hide();
         $('#togglequerybox').hide();
         /**  Load the browse results to the page */
@@ -138,7 +139,7 @@ AJAX.registerOnload('database/search.js', function () {
         $.post(url, params, function (data) {
             if (typeof data !== 'undefined' && data.success) {
                 $('#browse-results').html(data.message);
-                Functions.ajaxRemoveMessage($msg);
+                ajaxRemoveMessage($msg);
                 $('.table_results').each(function () {
                     window.makeGrid(this, true, true, true, true);
                 });
@@ -149,7 +150,7 @@ AJAX.registerOnload('database/search.js', function () {
                         scrollTop: $('#browse-results').offset().top
                     }, 1000);
             } else {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         });
     });
@@ -169,7 +170,7 @@ AJAX.registerOnload('database/search.js', function () {
             $(this).data('table-name')
         );
         if (confirm(msg)) {
-            var $msg = Functions.ajaxShowMessage(window.Messages.strDeleting, false);
+            var $msg = ajaxShowMessage(window.Messages.strDeleting, false);
             /** Load the deleted option to the page*/
             $('#sqlqueryform').html('');
             var params = {
@@ -181,7 +182,7 @@ AJAX.registerOnload('database/search.js', function () {
 
             $.post(url, params, function (data) {
                 if (typeof data === 'undefined' || ! data.success) {
-                    Functions.ajaxShowMessage(data.error, false);
+                    ajaxShowMessage(data.error, false);
                     return;
                 }
 
@@ -197,7 +198,7 @@ AJAX.registerOnload('database/search.js', function () {
                     .animate({
                         scrollTop: $('#browse-results').offset().top
                     }, 1000);
-                Functions.ajaxRemoveMessage($msg);
+                ajaxRemoveMessage($msg);
             });
         }
     });
@@ -208,10 +209,10 @@ AJAX.registerOnload('database/search.js', function () {
     $(document).on('submit', '#db_search_form.ajax', function (event) {
         event.preventDefault();
         if ($('#criteriaTables :selected').length === 0) {
-            Functions.ajaxShowMessage(window.Messages.strNoTableSelected);
+            ajaxShowMessage(window.Messages.strNoTableSelected);
             return;
         }
-        var $msgbox = Functions.ajaxShowMessage(window.Messages.strSearching, false);
+        var $msgbox = ajaxShowMessage(window.Messages.strSearching, false);
         // jQuery object to reuse
         var $form = $(this);
 
@@ -247,7 +248,7 @@ AJAX.registerOnload('database/search.js', function () {
                 $('#searchresults').html(data.error).show();
             }
 
-            Functions.ajaxRemoveMessage($msgbox);
+            ajaxRemoveMessage($msgbox);
         });
     });
 

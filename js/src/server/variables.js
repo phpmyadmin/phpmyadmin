@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.js';
-import { Functions } from '../modules/functions.js';
 import { CommonParams } from '../modules/common.js';
+import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
 
 /**
  * @fileoverview    Javascript functions used in server variables page
@@ -40,13 +40,13 @@ AJAX.registerOnload('server/variables.js', function () {
 
         var $mySaveLink = $saveLink.clone().css('display', 'inline-block');
         var $myCancelLink = $cancelLink.clone().css('display', 'inline-block');
-        var $msgbox = Functions.ajaxShowMessage();
+        var $msgbox = ajaxShowMessage();
         var $myEditLink = $cell.find('a.editLink');
         $cell.addClass('edit'); // variable is being edited
         $myEditLink.remove(); // remove edit link
 
         $mySaveLink.on('click', function () {
-            var $msgbox = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
+            var $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
             $.post('index.php?route=/server/variables/set/' + encodeURIComponent(varName), {
                 'ajax_request': true,
                 'server': CommonParams.get('server'),
@@ -56,12 +56,12 @@ AJAX.registerOnload('server/variables.js', function () {
                     $valueCell
                         .html(data.variable)
                         .data('content', data.variable);
-                    Functions.ajaxRemoveMessage($msgbox);
+                    ajaxRemoveMessage($msgbox);
                 } else {
                     if (data.error === '') {
-                        Functions.ajaxShowMessage(window.Messages.strRequestFailed, false);
+                        ajaxShowMessage(window.Messages.strRequestFailed, false);
                     } else {
-                        Functions.ajaxShowMessage(data.error, false);
+                        ajaxShowMessage(data.error, false);
                     }
                     $valueCell.html($valueCell.data('content'));
                 }
@@ -108,10 +108,10 @@ AJAX.registerOnload('server/variables.js', function () {
                             $myCancelLink.trigger('click');
                         }
                     });
-                Functions.ajaxRemoveMessage($msgbox);
+                ajaxRemoveMessage($msgbox);
             } else {
                 $cell.removeClass('edit').html($myEditLink);
-                Functions.ajaxShowMessage(data.error);
+                ajaxShowMessage(data.error);
             }
         });
     }

@@ -3,6 +3,7 @@ import { Functions } from './functions.js';
 import { CommonParams } from './common.js';
 import { Config } from './config.js';
 import tooltip from './tooltip.js';
+import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.js';
 
 /**
  * function used in or for navigation panel
@@ -206,7 +207,7 @@ Navigation.loadChildNodes = function (isNode, $expandElem, callback) {
             $throbber.hide();
             var $icon = $expandElem.find('img.ic_b_plus');
             $icon.show();
-            Functions.ajaxShowMessage(data.error, false);
+            ajaxShowMessage(data.error, false);
         }
     });
 };
@@ -467,7 +468,7 @@ Navigation.onload = () => function () {
                 if (typeof data !== 'undefined' && data.success === true) {
                     Navigation.reload();
                 } else {
-                    Functions.ajaxShowMessage(data.error);
+                    ajaxShowMessage(data.error);
                 }
             }
         });
@@ -476,17 +477,17 @@ Navigation.onload = () => function () {
     /** Display a dialog to choose hidden navigation items to show */
     $(document).on('click', 'a.showUnhide.ajax', function (event) {
         event.preventDefault();
-        var $msg = Functions.ajaxShowMessage();
+        var $msg = ajaxShowMessage();
         var argSep = CommonParams.get('arg_separator');
         var params = $(this).getPostData();
         params += argSep + 'ajax_request=true';
         $.post($(this).attr('href'), params, function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
-                Functions.ajaxRemoveMessage($msg);
+                ajaxRemoveMessage($msg);
                 $('#unhideNavItemModal').modal('show');
                 $('#unhideNavItemModal').find('.modal-body').first().html(data.message);
             } else {
-                Functions.ajaxShowMessage(data.error);
+                ajaxShowMessage(data.error);
             }
         });
     });
@@ -497,7 +498,7 @@ Navigation.onload = () => function () {
         var $tr = $(this).parents('tr');
         var $hiddenTableCount = $tr.parents('tbody').children().length;
         var $hideDialogBox = $tr.closest('div.ui-dialog');
-        var $msg = Functions.ajaxShowMessage();
+        var $msg = ajaxShowMessage();
         var argSep = CommonParams.get('arg_separator');
         var params = $(this).getPostData();
         params += argSep + 'ajax_request=true' + argSep + 'server=' + CommonParams.get('server');
@@ -506,7 +507,7 @@ Navigation.onload = () => function () {
             data: params,
             url: $(this).attr('href'),
             success: function (data) {
-                Functions.ajaxRemoveMessage($msg);
+                ajaxRemoveMessage($msg);
                 if (typeof data !== 'undefined' && data.success === true) {
                     $tr.remove();
                     if ($hiddenTableCount === 1) {
@@ -514,7 +515,7 @@ Navigation.onload = () => function () {
                     }
                     Navigation.reload();
                 } else {
-                    Functions.ajaxShowMessage(data.error);
+                    ajaxShowMessage(data.error);
                 }
             }
         });
@@ -553,7 +554,7 @@ Navigation.onload = () => function () {
                         window.localStorage.favoriteTables = data.favoriteTables;
                     }
                 } else {
-                    Functions.ajaxShowMessage(data.message);
+                    ajaxShowMessage(data.message);
                 }
             }
         });
@@ -628,7 +629,7 @@ Navigation.expandTreeNode = function ($expandElem, callback) {
                 }
                 Navigation.showFullName($destination);
             } else {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
             $icon.show();
             $throbber.remove();
@@ -905,7 +906,7 @@ Navigation.ensureSettings = function (selflink) {
                 Config.setupValidation();
                 $('#pma_navigation_settings').find('form').attr('action', selflink);
             } else {
-                Functions.ajaxShowMessage(data.error);
+                ajaxShowMessage(data.error);
             }
         });
     } else {
@@ -950,7 +951,7 @@ Navigation.reload = function (callback, paths) {
                 }
                 Navigation.treeStateUpdate();
             } else {
-                Functions.ajaxShowMessage(data.error);
+                ajaxShowMessage(data.error);
             }
         });
     }
@@ -982,7 +983,7 @@ Navigation.selectCurrentDatabase = function () {
  * @return {void}
  */
 Navigation.treePagination = function ($this) {
-    var $msgbox = Functions.ajaxShowMessage();
+    var $msgbox = ajaxShowMessage();
     var isDbSelector = $this.closest('div.pageselector').is('.dbselector');
     var url = 'index.php?route=/navigation';
     var params = 'ajax_request=true';
@@ -1005,7 +1006,7 @@ Navigation.treePagination = function ($this) {
     }
     $.post(url, params, function (data) {
         if (typeof data !== 'undefined' && data.success) {
-            Functions.ajaxRemoveMessage($msgbox);
+            ajaxRemoveMessage($msgbox);
             var val;
             if (isDbSelector) {
                 val = Navigation.FastFilter.getSearchClause();
@@ -1035,7 +1036,7 @@ Navigation.treePagination = function ($this) {
                 );
             }
         } else {
-            Functions.ajaxShowMessage(data.error);
+            ajaxShowMessage(data.error);
             Functions.handleRedirectAndReload(data);
         }
         Navigation.treeStateUpdate();

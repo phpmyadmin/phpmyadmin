@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import { AJAX } from './modules/ajax.js';
-import { Functions } from './modules/functions.js';
 import { CommonParams } from './modules/common.js';
+import { ajaxShowMessage } from './modules/ajax-message.js';
 
 /**
  * @fileoverview    functions used in GIS data editor
@@ -153,7 +153,7 @@ function loadGISEditor (value, field, type, inputName) {
             initGISEditorVisualization();
             prepareJSVersion();
         } else {
-            Functions.ajaxShowMessage(data.error, false);
+            ajaxShowMessage(data.error, false);
         }
     }, 'json');
 }
@@ -205,7 +205,7 @@ function insertDataAndClose () {
         if (typeof data !== 'undefined' && data.success === true) {
             $('input[name=\'' + inputName + '\']').val(data.result);
         } else {
-            Functions.ajaxShowMessage(data.error, false);
+            ajaxShowMessage(data.error, false);
         }
     }, 'json');
     closeGISEditor();
@@ -259,7 +259,7 @@ AJAX.registerOnload('gis_data_editor.js', function () {
                 eval(data.openLayers);
                 initGISEditorVisualization();
             } else {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         }, 'json');
     });
@@ -278,7 +278,7 @@ AJAX.registerOnload('gis_data_editor.js', function () {
                 initGISEditorVisualization();
                 prepareJSVersion();
             } else {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         }, 'json');
     });

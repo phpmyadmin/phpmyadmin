@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.js';
-import { Functions } from '../modules/functions.js';
 import { CommonParams } from '../modules/common.js';
+import { ajaxShowMessage } from '../modules/ajax-message.js';
 
 /**
  * @fileoverview   events handling from central columns page
@@ -54,10 +54,10 @@ AJAX.registerOnload('database/central_columns.js', function () {
         event.preventDefault();
         var multiDeleteColumns = $('.checkall:checkbox:checked').serialize();
         if (multiDeleteColumns === '') {
-            Functions.ajaxShowMessage(window.Messages.strRadioUnchecked);
+            ajaxShowMessage(window.Messages.strRadioUnchecked);
             return false;
         }
-        Functions.ajaxShowMessage();
+        ajaxShowMessage();
         $('#del_col_name').val(multiDeleteColumns);
         $('#del_form').trigger('submit');
     });
@@ -65,12 +65,12 @@ AJAX.registerOnload('database/central_columns.js', function () {
         event.preventDefault();
         var editColumnList = $('.checkall:checkbox:checked').serialize();
         if (editColumnList === '') {
-            Functions.ajaxShowMessage(window.Messages.strRadioUnchecked);
+            ajaxShowMessage(window.Messages.strRadioUnchecked);
             return false;
         }
         var argsep = CommonParams.get('arg_separator');
         var editColumnData = editColumnList + '' + argsep + 'edit_central_columns_page=true' + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'db=' + encodeURIComponent(CommonParams.get('db')) + argsep + 'server=' + CommonParams.get('server');
-        Functions.ajaxShowMessage();
+        ajaxShowMessage();
         AJAX.source = $(this);
         $.post('index.php?route=/database/central-columns', editColumnData, AJAX.responseHandler);
     });
@@ -79,7 +79,7 @@ AJAX.registerOnload('database/central_columns.js', function () {
         event.stopPropagation();
         var argsep = CommonParams.get('arg_separator');
         var multiColumnEditData = $('#multi_edit_central_columns').serialize() + argsep + 'multi_edit_central_column_save=true' + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'db=' + encodeURIComponent(CommonParams.get('db')) + argsep + 'server=' + CommonParams.get('server');
-        Functions.ajaxShowMessage();
+        ajaxShowMessage();
         AJAX.source = $(this);
         $.post('index.php?route=/database/central-columns', multiColumnEditData, AJAX.responseHandler);
     });
@@ -162,7 +162,7 @@ AJAX.registerOnload('database/central_columns.js', function () {
             dataType: 'json',
             success: function (data) {
                 if (data.message !== '1') {
-                    Functions.ajaxShowMessage(
+                    ajaxShowMessage(
                         '<div class="alert alert-danger" role="alert">' +
                         data.message +
                         '</div>',
@@ -186,7 +186,7 @@ AJAX.registerOnload('database/central_columns.js', function () {
                 $('#tableslistcontainer').find('.checkall').show();
             },
             error: function () {
-                Functions.ajaxShowMessage(
+                ajaxShowMessage(
                     '<div class="alert alert-danger" role="alert">' +
                     window.Messages.strErrorProcessingRequest +
                     '</div>',
