@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-12-04 00:17+0000\n"
-"PO-Revision-Date: 2022-12-03 19:53+0000\n"
+"PO-Revision-Date: 2022-12-08 08:48+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -13492,9 +13492,8 @@ msgid "Pick from Central Columns"
 msgstr "Избриши ја базата на податоци."
 
 #: templates/columns_definitions/partitions.twig:17
-#, fuzzy
 msgid "Partition by:"
-msgstr "Позиција"
+msgstr "Подели партиции по:"
 
 #: templates/columns_definitions/partitions.twig:32
 #: templates/columns_definitions/partitions.twig:60
@@ -13503,19 +13502,16 @@ msgid "Expression or column list"
 msgstr "Број на записи на страница"
 
 #: templates/columns_definitions/partitions.twig:37
-#, fuzzy
 msgid "Partitions:"
-msgstr "Позиција"
+msgstr "Партиции:"
 
 #: templates/columns_definitions/partitions.twig:45
-#, fuzzy
 msgid "Subpartition by:"
-msgstr "Позиција"
+msgstr "Подпартицирај по:"
 
 #: templates/columns_definitions/partitions.twig:65
-#, fuzzy
 msgid "Subpartitions:"
-msgstr "Позиција"
+msgstr "Подпартиции:"
 
 #: templates/columns_definitions/partitions.twig:76
 #: templates/table/operations/index.twig:480
@@ -13834,9 +13830,8 @@ msgid "Hide trace"
 msgstr "Додади ново поле"
 
 #: templates/console/display.twig:108
-#, fuzzy
 msgid "Count:"
-msgstr "Имиња на колони"
+msgstr "Број:"
 
 #: templates/console/display.twig:135
 #, fuzzy
