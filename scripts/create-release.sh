@@ -253,7 +253,7 @@ create_phpunit_sandbox() {
     PHPUNIT_VERSION="$(get_composer_package_version 'phpunit/phpunit')"
     TEMP_PHPUNIT_FOLDER="$(mktemp -d /tmp/phpMyAdmin-phpunit.XXXXXXXXX)"
     cd "${TEMP_PHPUNIT_FOLDER}"
-    composer require "phpunit/phpunit:${PHPUNIT_VERSION}"
+    composer require --no-interaction --dev "phpunit/phpunit:${PHPUNIT_VERSION}"
     cd -
 }
 
