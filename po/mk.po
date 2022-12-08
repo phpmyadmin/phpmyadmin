@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-12-04 00:17+0000\n"
-"PO-Revision-Date: 2022-12-08 08:48+0000\n"
+"PO-Revision-Date: 2022-12-09 22:50+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -9073,14 +9073,14 @@ msgid "as regular expression"
 msgstr "како регуларен израз"
 
 #: libraries/classes/Database/Triggers.php:144
-#, fuzzy, php-format
+#, php-format
 msgid "Trigger %1$s has been modified."
-msgstr "Табелата %s е избришана"
+msgstr "Прекинувачот %1$s беше променет."
 
 #: libraries/classes/Database/Triggers.php:164
-#, fuzzy, php-format
+#, php-format
 msgid "Trigger %1$s has been created."
-msgstr "Табелата %s е избришана"
+msgstr "Прекинувачот %1$s беше создаден."
 
 #: libraries/classes/Database/Triggers.php:263
 #, fuzzy
@@ -9117,9 +9117,9 @@ msgid "Sorry, we failed to restore the dropped trigger."
 msgstr ""
 
 #: libraries/classes/Database/Triggers.php:474
-#, fuzzy, php-format
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "Табелите не се пронајдени во базата на податоци."
+msgstr "Немаше прекинувач со име %1$s во датабазата %2$s."
 
 #: libraries/classes/Database/Triggers.php:506
 #: templates/database/triggers/export.twig:2
@@ -9128,11 +9128,13 @@ msgid "Export of trigger %s"
 msgstr ""
 
 #: libraries/classes/Database/Triggers.php:524
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
 "%2$s."
-msgstr "Табелите не се пронајдени во базата на податоци."
+msgstr ""
+"Грешка при процесирање на барањето: Нема прекинувач со име %1$s во "
+"датабазата %2$s."
 
 #: libraries/classes/Dbal/DbiMysqli.php:134
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -9234,9 +9236,9 @@ msgstr ""
 "[doc@faq3-11]FAQ 3.11[/doc]"
 
 #: libraries/classes/Display/Results.php:3770
-#, fuzzy, php-format
+#, php-format
 msgid "Showing rows %1s - %2s"
-msgstr "Приказ на записи од"
+msgstr "Приказ на редови %1s - %2s"
 
 #: libraries/classes/Display/Results.php:3784
 #, php-format
@@ -9244,9 +9246,9 @@ msgid "%1$d total, %2$d in query"
 msgstr ""
 
 #: libraries/classes/Display/Results.php:3789
-#, fuzzy, php-format
+#, php-format
 msgid "%d total"
-msgstr "вкупно"
+msgstr "%d вкупно"
 
 #: libraries/classes/Display/Results.php:3802 libraries/classes/Sql.php:942
 #, fuzzy, php-format
