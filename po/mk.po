@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-12-08 08:47+0000\n"
+"PO-Revision-Date: 2022-12-09 22:49+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -7568,10 +7568,9 @@ msgstr ""
 "[doc@faq3-11]FAQ 3.11[/doc]"
 
 #: libraries/classes/Display/Results.php:4558
-#, fuzzy, php-format
-#| msgid "Showing rows"
+#, php-format
 msgid "Showing rows %1s - %2s"
-msgstr "Приказ на записи од"
+msgstr "Приказ на редови %1s - %2s"
 
 #: libraries/classes/Display/Results.php:4573
 #, php-format
@@ -7579,10 +7578,9 @@ msgid "%1$d total, %2$d in query"
 msgstr ""
 
 #: libraries/classes/Display/Results.php:4578
-#, fuzzy, php-format
-#| msgid "total"
+#, php-format
 msgid "%d total"
-msgstr "вкупно"
+msgstr "%d вкупно"
 
 #: libraries/classes/Display/Results.php:4590 libraries/classes/Sql.php:1435
 #, fuzzy, php-format
@@ -11404,15 +11402,14 @@ msgid "Sorry, we failed to restore the dropped trigger."
 msgstr ""
 
 #: libraries/classes/Rte/Triggers.php:125
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Trigger %1$s has been modified."
-msgstr "Табелата %s е избришана"
+msgstr "Прекинувачот %1$s беше променет."
 
 #: libraries/classes/Rte/Triggers.php:145
-#, fuzzy, php-format
+#, php-format
 msgid "Trigger %1$s has been created."
-msgstr "Табелата %s е избришана"
+msgstr "Прекинувачот %1$s беше создаден."
 
 #: libraries/classes/Rte/Triggers.php:221
 #, fuzzy
@@ -11520,10 +11517,9 @@ msgid "You do not have the necessary privileges to create a trigger."
 msgstr "Немате право на пристап овде!"
 
 #: libraries/classes/Rte/Words.php:61
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "Табелите не се пронајдени во базата на податоци."
+msgstr "Немаше прекинувач со име %1$s во датабазата %2$s."
 
 #: libraries/classes/Rte/Words.php:62
 msgid "There are no triggers to display."
