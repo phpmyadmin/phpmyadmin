@@ -5,6 +5,7 @@ import { Navigation } from './navigation.js';
 import { CommonActions, CommonParams } from './common.js';
 import highlightSql from './sql-highlight.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.js';
+import getJsConfirmCommonParam from './functions/getJsConfirmCommonParam.js';
 
 /**
  * @fileoverview    function used for index manipulation pages
@@ -669,7 +670,7 @@ Indexes.on = () => function () {
 
         Functions.confirmPreviewSql(question, $anchor.attr('href'), function (url) {
             var $msg = ajaxShowMessage(window.Messages.strDroppingPrimaryKeyIndex, false);
-            var params = Functions.getJsConfirmCommonParam(this, $anchor.getPostData());
+            var params = getJsConfirmCommonParam(this, $anchor.getPostData());
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     ajaxRemoveMessage($msg);

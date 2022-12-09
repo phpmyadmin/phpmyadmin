@@ -6,6 +6,7 @@ import { CommonActions, CommonParams } from '../modules/common.js';
 import highlightSql from '../modules/sql-highlight.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
 import { Indexes } from '../modules/indexes.js';
+import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.js';
 
 /**
  * @fileoverview    functions used on the table structure page
@@ -196,7 +197,7 @@ AJAX.registerOnload('table/structure.js', function () {
         var $thisAnchor = $(this);
         $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
             var $msg = ajaxShowMessage(window.Messages.strDroppingColumn, false);
-            var params = Functions.getJsConfirmCommonParam(this, $thisAnchor.getPostData());
+            var params = getJsConfirmCommonParam(this, $thisAnchor.getPostData());
             params += CommonParams.get('arg_separator') + 'ajax_page_request=1';
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -272,7 +273,7 @@ AJAX.registerOnload('table/structure.js', function () {
             ajaxShowMessage();
             AJAX.source = $this;
 
-            var params = Functions.getJsConfirmCommonParam(this, $thisAnchor.getPostData());
+            var params = getJsConfirmCommonParam(this, $thisAnchor.getPostData());
             params += CommonParams.get('arg_separator') + 'ajax_page_request=1';
             $.post(url, params, AJAX.responseHandler);
         });
@@ -449,7 +450,7 @@ AJAX.registerOnload('table/structure.js', function () {
         var $link = $(this);
         var question = window.Messages.strRemovePartitioningWarning;
         $link.confirm(question, $link.attr('href'), function (url) {
-            var params = Functions.getJsConfirmCommonParam({
+            var params = getJsConfirmCommonParam({
                 'ajax_request': true,
                 'ajax_page_request': true
             }, $link.getPostData());

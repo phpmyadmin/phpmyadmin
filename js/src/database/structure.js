@@ -5,6 +5,7 @@ import { Navigation } from '../modules/navigation.js';
 import { CommonParams } from '../modules/common.js';
 import tooltip from '../modules/tooltip.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
+import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.js';
 
 /**
  * @fileoverview    functions used on the database structure page
@@ -335,7 +336,7 @@ AJAX.registerOnload('database/structure.js', function () {
         $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
             ajaxShowMessage(window.Messages.strProcessingRequest);
 
-            var params = Functions.getJsConfirmCommonParam(this, $thisAnchor.getPostData());
+            var params = getJsConfirmCommonParam(this, $thisAnchor.getPostData());
 
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -389,7 +390,7 @@ AJAX.registerOnload('database/structure.js', function () {
         $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
             var $msg = ajaxShowMessage(window.Messages.strProcessingRequest);
 
-            var params = Functions.getJsConfirmCommonParam(this, $thisAnchor.getPostData());
+            var params = getJsConfirmCommonParam(this, $thisAnchor.getPostData());
 
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {

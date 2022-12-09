@@ -1091,23 +1091,6 @@ Functions.loadForeignKeyCheckbox = function () {
     });
 };
 
-Functions.getJsConfirmCommonParam = function (elem, parameters) {
-    var $elem = $(elem);
-    var params = parameters;
-    var sep = CommonParams.get('arg_separator');
-    if (params) {
-        // Strip possible leading ?
-        if (params.startsWith('?')) {
-            params = params.substring(1);
-        }
-        params += sep;
-    } else {
-        params = '';
-    }
-    params += 'is_js_confirmed=1' + sep + 'ajax_request=true' + sep + 'fk_checks=' + ($elem.find('#fk_checks').is(':checked') ? 1 : 0);
-    return params;
-};
-
 Functions.teardownSqlQueryEditEvents = () => {
     $(document).off('click', 'a.inline_edit_sql');
     $(document).off('click', 'input#sql_query_edit_save');

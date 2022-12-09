@@ -3,6 +3,7 @@ import { AJAX } from '../modules/ajax.js';
 import { Functions } from '../modules/functions.js';
 import { Navigation } from '../modules/navigation.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
+import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.js';
 
 AJAX.registerTeardown('database/routines.js', function () {
     $(document).off('click', 'a.ajax.add_anchor');
@@ -384,7 +385,7 @@ const DatabaseRoutines = {
              *          the AJAX message shown to the user
              */
             var $msg = ajaxShowMessage(window.Messages.strProcessingRequest);
-            var params = Functions.getJsConfirmCommonParam(this, $this.getPostData());
+            var params = getJsConfirmCommonParam(this, $this.getPostData());
             $.post(url, params, function (data) {
                 if (data.success === true) {
                     /**
@@ -459,7 +460,7 @@ const DatabaseRoutines = {
                  * @var $curr_row Object containing reference to the current row
                  */
                 var $currRow = $anchor.parents('tr');
-                var params = Functions.getJsConfirmCommonParam(this, $anchor.getPostData());
+                var params = getJsConfirmCommonParam(this, $anchor.getPostData());
                 $.post($anchor.attr('href'), params, function (data) {
                     returnCount++;
                     if (data.success === true) {
@@ -770,7 +771,7 @@ const DatabaseRoutines = {
          *          the AJAX message shown to the user
          */
         var $msg = ajaxShowMessage();
-        var params = Functions.getJsConfirmCommonParam($this[0], $this.getPostData());
+        var params = getJsConfirmCommonParam($this[0], $this.getPostData());
         $.post($this.attr('href'), params, function (data) {
             if (data.success === true) {
                 ajaxRemoveMessage($msg);

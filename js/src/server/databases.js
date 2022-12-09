@@ -4,6 +4,7 @@ import { Functions } from '../modules/functions.js';
 import { Navigation } from '../modules/navigation.js';
 import { CommonActions, CommonParams } from '../modules/common.js';
 import { ajaxShowMessage } from '../modules/ajax-message.js';
+import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.js';
 
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
@@ -51,7 +52,7 @@ const DropDatabases = {
             ajaxShowMessage(window.Messages.strProcessingRequest, false);
 
             var parts = url.split('?');
-            var params = Functions.getJsConfirmCommonParam(this, parts[1]);
+            var params = getJsConfirmCommonParam(this, parts[1]);
 
             $.post(parts[0], params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {

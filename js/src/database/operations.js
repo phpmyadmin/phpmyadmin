@@ -4,6 +4,7 @@ import { Functions } from '../modules/functions.js';
 import { Navigation } from '../modules/navigation.js';
 import { CommonActions, CommonParams } from '../modules/common.js';
 import { ajaxShowMessage } from '../modules/ajax-message.js';
+import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.js';
 
 /**
  * @fileoverview    function used in server privilege pages
@@ -157,7 +158,7 @@ AJAX.registerOnload('database/operations.js', function () {
             window.Messages.strDoYouReally,
             'DROP DATABASE `' + Functions.escapeHtml(CommonParams.get('db') + '`')
         );
-        var params = Functions.getJsConfirmCommonParam(this, $link.getPostData());
+        var params = getJsConfirmCommonParam(this, $link.getPostData());
 
         $(this).confirm(question, $(this).attr('href'), function (url) {
             ajaxShowMessage(window.Messages.strProcessingRequest);

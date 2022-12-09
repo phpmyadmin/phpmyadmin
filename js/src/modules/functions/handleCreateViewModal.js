@@ -3,6 +3,7 @@ import { ajaxRemoveMessage, ajaxShowMessage } from '../ajax-message.js';
 import { CommonParams } from '../common.js';
 import { Functions } from '../functions.js';
 import { Navigation } from '../navigation.js';
+import getJsConfirmCommonParam from './getJsConfirmCommonParam.js';
 
 /**
  * @param {JQuery<HTMLElement>} $this
@@ -12,7 +13,7 @@ import { Navigation } from '../navigation.js';
 export default function handleCreateViewModal ($this) {
     var $msg = ajaxShowMessage();
     var sep = CommonParams.get('arg_separator');
-    var params = Functions.getJsConfirmCommonParam(this, $this.getPostData());
+    var params = getJsConfirmCommonParam(this, $this.getPostData());
     params += sep + 'ajax_dialog=1';
     $.post($this.attr('href'), params, function (data) {
         if (typeof data !== 'undefined' && data.success === true) {

@@ -5,6 +5,7 @@ import { Navigation } from '../modules/navigation.js';
 import { CommonActions, CommonParams } from '../modules/common.js';
 import highlightSql from '../modules/sql-highlight.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
+import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.js';
 
 /**
  * Unbind all event handlers before tearing down a page
@@ -44,7 +45,7 @@ var confirmAndPost = function (linkObject, action) {
     linkObject.confirm(question, linkObject.attr('href'), function (url) {
         ajaxShowMessage(window.Messages.strProcessingRequest);
 
-        var params = Functions.getJsConfirmCommonParam(this, linkObject.getPostData());
+        var params = getJsConfirmCommonParam(this, linkObject.getPostData());
 
         $.post(url, params, function (data) {
             if ($('.sqlqueryresults').length !== 0) {
@@ -280,7 +281,7 @@ AJAX.registerOnload('table/operations.js', function () {
         $(this).confirm(question, $(this).attr('href'), function (url) {
             var $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
 
-            var params = Functions.getJsConfirmCommonParam(this, $link.getPostData());
+            var params = getJsConfirmCommonParam(this, $link.getPostData());
 
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -315,7 +316,7 @@ AJAX.registerOnload('table/operations.js', function () {
 
         $(this).confirm(question, $(this).attr('href'), function (url) {
             var $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
-            var params = Functions.getJsConfirmCommonParam(this, $link.getPostData());
+            var params = getJsConfirmCommonParam(this, $link.getPostData());
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     ajaxRemoveMessage($msgbox);

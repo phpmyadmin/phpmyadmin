@@ -1,8 +1,8 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.js';
-import { Functions } from '../modules/functions.js';
 import { CommonParams } from '../modules/common.js';
 import { ajaxShowMessage } from '../modules/ajax-message.js';
+import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.js';
 
 /**
  * Unbind all event handlers before tearing down the page
@@ -87,7 +87,7 @@ AJAX.registerOnload('table/tracking.js', function () {
             ajaxShowMessage();
             AJAX.source = $anchor;
             var argSep = CommonParams.get('arg_separator');
-            var params = Functions.getJsConfirmCommonParam(this, $anchor.getPostData());
+            var params = getJsConfirmCommonParam(this, $anchor.getPostData());
             params += argSep + 'ajax_page_request=1';
             $.post(url, params, AJAX.responseHandler);
         });
@@ -104,7 +104,7 @@ AJAX.registerOnload('table/tracking.js', function () {
             ajaxShowMessage();
             AJAX.source = $anchor;
             var argSep = CommonParams.get('arg_separator');
-            var params = Functions.getJsConfirmCommonParam(this, $anchor.getPostData());
+            var params = getJsConfirmCommonParam(this, $anchor.getPostData());
             params += argSep + 'ajax_page_request=1';
             $.post(url, params, AJAX.responseHandler);
         });

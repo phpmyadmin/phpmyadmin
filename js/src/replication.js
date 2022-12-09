@@ -2,6 +2,7 @@ import $ from 'jquery';
 import { AJAX } from './modules/ajax.js';
 import { Functions } from './modules/functions.js';
 import { ajaxShowMessage } from './modules/ajax-message.js';
+import getJsConfirmCommonParam from './modules/functions/getJsConfirmCommonParam.js';
 
 /**
  * @fileoverview    Javascript functions used in server replication page
@@ -88,7 +89,7 @@ AJAX.registerOnload('replication.js', function () {
         $anchor.confirm(question, $anchor.attr('href'), function (url) {
             ajaxShowMessage();
             AJAX.source = $anchor;
-            var params = Functions.getJsConfirmCommonParam({
+            var params = getJsConfirmCommonParam({
                 'ajax_page_request': true,
                 'ajax_request': true
             }, $anchor.getPostData());

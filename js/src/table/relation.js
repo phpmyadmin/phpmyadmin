@@ -3,6 +3,7 @@ import { AJAX } from '../modules/ajax.js';
 import { Functions } from '../modules/functions.js';
 import { CommonActions, CommonParams } from '../modules/common.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
+import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.js';
 
 /**
  * for table relation
@@ -242,7 +243,7 @@ AJAX.registerOnload('table/relation.js', function () {
 
         $anchor.confirm(question, $anchor.attr('href'), function (url) {
             var $msg = ajaxShowMessage(window.Messages.strDroppingForeignKey, false);
-            var params = Functions.getJsConfirmCommonParam(this, $anchor.getPostData());
+            var params = getJsConfirmCommonParam(this, $anchor.getPostData());
             $.post(url, params, function (data) {
                 if (data.success === true) {
                     ajaxRemoveMessage($msg);
