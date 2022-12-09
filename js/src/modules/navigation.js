@@ -5,6 +5,7 @@ import { Config } from './config.js';
 import tooltip from './tooltip.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.js';
 import handleCreateViewModal from './functions/handleCreateViewModal.js';
+import { getConfigValue, setConfigValue } from './functions/config.js';
 
 /**
  * function used in or for navigation panel
@@ -1195,7 +1196,7 @@ Navigation.ResizeHandler = function () {
      */
     this.mouseup = function (event) {
         $('body').css('cursor', '');
-        Functions.configSet('NavigationWidth', event.data.resize_handler.getPos(event));
+        setConfigValue('NavigationWidth', event.data.resize_handler.getPos(event));
         $('#topmenu').menuResizer('resize');
         $(document)
             .off('mousemove')
@@ -1229,7 +1230,7 @@ Navigation.ResizeHandler = function () {
         if (width === 0 && panelWidth === 0) {
             panelWidth = 240;
         }
-        Functions.configSet('NavigationWidth', panelWidth);
+        setConfigValue('NavigationWidth', panelWidth);
         event.data.resize_handler.setWidth(panelWidth);
         event.data.resize_handler.panelWidth = width;
     };
@@ -1291,7 +1292,7 @@ Navigation.ResizeHandler = function () {
             const initialResizeValue = $('#pma_navigation').data('config-navigation-width');
             callbackSuccessGetConfigValue(initialResizeValue);
         }
-        Functions.configGet('NavigationWidth', false, callbackSuccessGetConfigValue);
+        getConfigValue('NavigationWidth', false, callbackSuccessGetConfigValue);
     };
     this.treeInit();
 };

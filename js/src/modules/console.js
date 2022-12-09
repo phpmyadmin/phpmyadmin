@@ -5,6 +5,7 @@ import { Functions } from './functions.js';
 import { CommonParams } from './common.js';
 import { Navigation } from './navigation.js';
 import { Config } from './console/config.js';
+import { getConfigValue } from './functions/config.js';
 
 /**
  * Console object
@@ -62,7 +63,7 @@ var Console = {
             return;
         }
 
-        Functions.configGet('Console', false, (data) => {
+        getConfigValue('Console', false, (data) => {
             Config.init(data);
             Console.setupAfterInit();
         }, () => {

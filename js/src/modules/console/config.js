@@ -1,4 +1,4 @@
-import { Functions } from '../functions.js';
+import { setConfigValue } from '../functions/config.js';
 
 /**
  * @link https://docs.phpmyadmin.net/en/latest/config.html#console-settings
@@ -69,7 +69,7 @@ export const Config = {
      */
     set: function (key, value) {
         this[key] = value;
-        Functions.configSet('Console/' + key, value);
+        setConfigValue('Console/' + key, value);
     },
 
     /**
