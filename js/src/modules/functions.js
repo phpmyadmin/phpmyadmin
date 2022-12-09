@@ -57,36 +57,6 @@ let sqlAutoCompleteDefaultTable = '';
 window.centralColumnList = [];
 
 /**
- * Array to hold 'Primary' index columns.
- * @type {array}
- */
-window.primaryIndexes = [];
-
-/**
- * Array to hold 'Unique' index columns.
- * @type {array}
- */
-window.uniqueIndexes = [];
-
-/**
- * Array to hold 'Index' columns.
- * @type {array}
- */
-window.indexes = [];
-
-/**
- * Array to hold 'Fulltext' columns.
- * @type {array}
- */
-window.fulltextIndexes = [];
-
-/**
- * Array to hold 'Spatial' columns.
- * @type {array}
- */
-window.spatialIndexes = [];
-
-/**
  * Make sure that ajax requests will not be cached by appending a random variable to their parameters.
  * @return {function}
  */

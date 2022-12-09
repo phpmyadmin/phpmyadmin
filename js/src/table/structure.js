@@ -5,6 +5,7 @@ import { Navigation } from '../modules/navigation.js';
 import { CommonActions, CommonParams } from '../modules/common.js';
 import highlightSql from '../modules/sql-highlight.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
+import { Indexes } from '../modules/indexes.js';
 
 /**
  * @fileoverview    functions used on the table structure page
@@ -58,11 +59,7 @@ AJAX.registerTeardown('table/structure.js', function () {
 });
 
 AJAX.registerOnload('table/structure.js', function () {
-    // Re-initialize variables.
-    window.primaryIndexes = [];
-    window.indexes = [];
-    window.fulltextIndexes = [];
-    window.spatialIndexes = [];
+    Indexes.resetColumnLists();
 
     /**
      *Ajax action for submitting the "Column Change" and "Add Column" form

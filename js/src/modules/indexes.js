@@ -15,6 +15,47 @@ import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.js';
 const Indexes = {};
 
 /**
+ * Array to hold 'Primary' index columns.
+ * @type {array}
+ */
+let primaryColumns = [];
+
+/**
+ * Array to hold 'Unique' index columns.
+ * @type {array}
+ */
+let uniqueColumns = [];
+
+/**
+ * Array to hold 'Index' columns.
+ * @type {array}
+ */
+let indexColumns = [];
+
+/**
+ * Array to hold 'Fulltext' columns.
+ * @type {array}
+ */
+let fulltextColumns = [];
+
+/**
+ * Array to hold 'Spatial' columns.
+ * @type {array}
+ */
+let spatialColumns = [];
+
+/**
+ * @return {void}
+ */
+Indexes.resetColumnLists = () => {
+    primaryColumns = [];
+    uniqueColumns = [];
+    indexColumns = [];
+    fulltextColumns = [];
+    spatialColumns = [];
+};
+
+/**
  * Returns the array of indexes based on the index choice
  *
  * @param {string} indexChoice index choice
@@ -22,23 +63,23 @@ const Indexes = {};
  * @return {null|object}
  */
 Indexes.getIndexArray = function (indexChoice) {
-    var sourceArray = null;
+    let sourceArray = null;
 
     switch (indexChoice.toLowerCase()) {
     case 'primary':
-        sourceArray = window.primaryIndexes;
+        sourceArray = primaryColumns;
         break;
     case 'unique':
-        sourceArray = window.uniqueIndexes;
+        sourceArray = uniqueColumns;
         break;
     case 'index':
-        sourceArray = window.indexes;
+        sourceArray = indexColumns;
         break;
     case 'fulltext':
-        sourceArray = window.fulltextIndexes;
+        sourceArray = fulltextColumns;
         break;
     case 'spatial':
-        sourceArray = window.spatialIndexes;
+        sourceArray = spatialColumns;
         break;
     default:
         return null;
@@ -570,12 +611,7 @@ Indexes.off = () => function () {
  * @return {function}
  */
 Indexes.on = () => function () {
-    // Re-initialize variables.
-    window.primaryIndexes = [];
-    window.uniqueIndexes = [];
-    window.indexes = [];
-    window.fulltextIndexes = [];
-    window.spatialIndexes = [];
+    Indexes.resetColumnLists();
 
     // for table creation form
     var $engineSelector = $('.create_table_form select[name=tbl_storage_engine]');
