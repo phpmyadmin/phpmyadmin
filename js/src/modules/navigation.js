@@ -4,6 +4,7 @@ import { CommonParams } from './common.js';
 import { Config } from './config.js';
 import tooltip from './tooltip.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.js';
+import handleCreateViewModal from './functions/handleCreateViewModal.js';
 
 /**
  * function used in or for navigation panel
@@ -451,7 +452,7 @@ Navigation.onload = () => function () {
     /** New view */
     $(document).on('click', 'li.new_view a.ajax', function (event) {
         event.preventDefault();
-        Functions.createViewModal($(this));
+        handleCreateViewModal($(this));
     });
 
     /** Hide navigation tree item */
