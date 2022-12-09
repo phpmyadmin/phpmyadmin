@@ -4,6 +4,7 @@ import { Functions } from '../../modules/functions.js';
 import { CommonParams } from '../../modules/common.js';
 import { Config } from '../../modules/config.js';
 import tooltip from '../../modules/tooltip.js';
+import createProfilingChart from '../../modules/functions/createProfilingChart.js';
 
 /**
  * @fileoverview    Javascript functions used in server status monitor page
@@ -2297,10 +2298,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                     return false;
                 });
 
-                profilingChart = Functions.createProfilingChart(
-                    'queryProfiling',
-                    chartData
-                );
+                profilingChart = createProfilingChart('queryProfiling', chartData);
             }
         });
         return profilingChart;

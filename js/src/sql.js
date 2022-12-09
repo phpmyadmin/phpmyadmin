@@ -6,6 +6,7 @@ import { CommonActions, CommonParams } from './modules/common.js';
 import { Config } from './modules/config.js';
 import highlightSql from './modules/sql-highlight.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from './modules/ajax-message.js';
+import createProfilingChart from './modules/functions/createProfilingChart.js';
 
 /**
  * @fileoverview    functions used wherever an sql query form is used
@@ -1276,7 +1277,7 @@ Sql.makeProfilingChart = function () {
     $('#profilingchart').html('').show();
     $('#profilingChartData').html('');
 
-    Functions.createProfilingChart('profilingchart', data);
+    createProfilingChart('profilingchart', data);
 };
 
 /**

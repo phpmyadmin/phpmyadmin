@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../../modules/ajax.js';
-import { Functions } from '../../modules/functions.js';
+import createProfilingChart from '../../modules/functions/createProfilingChart.js';
 
 /**
  * @fileoverview    Javascript functions used in server status query page
@@ -33,10 +33,7 @@ AJAX.registerOnload('server/status/queries.js', function () {
             });
             $('#serverstatusquerieschart').data(
                 'queryPieChart',
-                Functions.createProfilingChart(
-                    'serverstatusquerieschart',
-                    cdata
-                )
+                createProfilingChart('serverstatusquerieschart', cdata)
             );
         }
     } catch (exception) {
