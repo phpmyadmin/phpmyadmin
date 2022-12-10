@@ -7546,7 +7546,7 @@
       <code>$row[$this-&gt;settings['spatialColumn']]</code>
       <code>$row[$this-&gt;settings['spatialColumn']]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="15">
+    <MixedAssignment occurrences="13">
       <code>$label</code>
       <code>$pdf</code>
       <code>$plot_height</code>
@@ -7557,9 +7557,7 @@
       <code>$row</code>
       <code>$scale</code>
       <code>$x</code>
-      <code>$x</code>
       <code>$x_ratio</code>
-      <code>$y</code>
       <code>$y</code>
       <code>$y_ratio</code>
     </MixedAssignment>
