@@ -2462,18 +2462,18 @@ class ExportSql extends ExportPlugin
     /**
      * replaces db/table/column names with their aliases
      *
-     * @param string $sqlQuery SQL query in which aliases are to be substituted
-     * @param array  $aliases  Alias information for db/table/column
-     * @param string $db       the database name
-     * @param string $flag     the flag denoting whether any replacement was done
+     * @param string    $sqlQuery SQL query in which aliases are to be substituted
+     * @param array     $aliases  Alias information for db/table/column
+     * @param string    $db       the database name
+     * @param bool|null $flag     the flag denoting whether any replacement was done
      *
      * @return string query replaced with aliases
      */
     public function replaceWithAliases(
-        $sqlQuery,
+        string $sqlQuery,
         array $aliases,
-        $db,
-        &$flag = null
+        string $db,
+        ?bool &$flag = null
     ): string {
         $flag = false;
 
