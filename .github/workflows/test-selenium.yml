@@ -138,8 +138,8 @@ jobs:
           ./test/stop-local-server
 
       - name: Upload screenshots
-        uses: actions/upload-artifact@v2
-        if: ${{ success() || failure() }}
+        uses: actions/upload-artifact@v3
+        if: ${{ failure() }}
         with:
           name: selenium-screenshots
           path: ${{ github.workspace }}/build/selenium/**/*
