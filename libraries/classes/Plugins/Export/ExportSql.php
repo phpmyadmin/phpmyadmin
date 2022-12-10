@@ -509,12 +509,12 @@ class ExportSql extends ExportPlugin
      * @return string SQL query
      */
     protected function exportRoutineSQL(
-        $db,
+        string $db,
         array $aliases,
         string $type,
-        $name,
+        string $name,
         array $routines,
-        $delimiter
+        string $delimiter
     ): string {
         $text = $this->exportComment()
             . $this->exportComment($name)
