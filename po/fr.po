@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-12-04 00:17+0000\n"
-"PO-Revision-Date: 2022-11-21 20:48+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2022-12-11 00:21+0000\n"
+"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -8026,17 +8026,10 @@ msgstr ""
 "VARBINARY ou BLOB."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:858
-#, fuzzy
-#| msgid ""
-#| "The file being uploaded is probably larger than the maximum allowed size "
-#| "or this is a known bug in webkit based (Safari, Google Chrome, Arora "
-#| "etc.) browsers."
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size."
 msgstr ""
-"Le fichier téléchargé est probablement plus grand que le maximum alloué, ou "
-"bien il s'agit d'une anomalie connue dans les navigateurs basés sur webkit "
-"(Safari, Google Chrome, Arora, etc)."
+"Le fichier téléchargé est probablement plus grand que le maximum alloué."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:860
 #, php-format
