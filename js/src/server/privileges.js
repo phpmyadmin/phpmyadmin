@@ -4,6 +4,7 @@ import { Functions } from '../modules/functions.js';
 import { CommonParams } from '../modules/common.js';
 import { Navigation } from '../modules/navigation.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
+import getImageTag from '../modules/functions/getImageTag.js';
 
 /**
  * Export privileges modal handler
@@ -114,12 +115,12 @@ const AccountLocking = {
             }
 
             if (isLocked) {
-                const lockIcon = Functions.getImage('s_lock', window.Messages.strLock, {}).toString();
+                const lockIcon = getImageTag('s_lock', window.Messages.strLock, {}).toString();
                 button.innerHTML = '<span class="text-nowrap">' + lockIcon + ' ' + window.Messages.strLock + '</span>';
                 button.title = window.Messages.strLockAccount;
                 button.dataset.isLocked = 'false';
             } else {
-                const unlockIcon = Functions.getImage('s_unlock', window.Messages.strUnlock, {}).toString();
+                const unlockIcon = getImageTag('s_unlock', window.Messages.strUnlock, {}).toString();
                 button.innerHTML = '<span class="text-nowrap">' + unlockIcon + ' ' + window.Messages.strUnlock + '</span>';
                 button.title = window.Messages.strUnlockAccount;
                 button.dataset.isLocked = 'true';

@@ -5,6 +5,7 @@ import { CommonParams } from './common.js';
 import highlightSql from './sql-highlight.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.js';
 import { escapeHtml } from './functions/escape.js';
+import getImageTag from './functions/getImageTag.js';
 
 /**
  * This object handles ajax requests for pages. It also
@@ -204,7 +205,7 @@ const AJAX = {
         // Show lock icon if locked targets is not empty.
         // otherwise remove lock icon
         if (! $.isEmptyObject(AJAX.lockedTargets)) {
-            $('#lock_page_icon').html(Functions.getImage('s_lock', window.Messages.strLockToolTip).toString());
+            $('#lock_page_icon').html(getImageTag('s_lock', window.Messages.strLockToolTip).toString());
         } else {
             $('#lock_page_icon').html('');
         }

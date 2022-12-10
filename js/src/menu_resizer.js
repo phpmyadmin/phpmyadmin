@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { Functions } from './modules/functions.js';
+import getImageTag from './modules/functions/getImageTag.js';
 
 /**
  * Handles the resizing of a menu according to the available screen width
@@ -45,7 +45,7 @@ import { Functions } from './modules/functions.js';
 
         var img = $container.find('li img');
         if (img.length) {
-            $(Functions.getImage('b_more').toString()).prependTo(link);
+            $(getImageTag('b_more').toString()).prependTo(link);
         }
         var $submenu = $('<li></li>', { 'class': 'nav-item dropdown d-none' })
             .append(link)

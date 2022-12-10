@@ -9,6 +9,7 @@ import highlightSql from './sql-highlight.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.js';
 import handleCreateViewModal from './functions/handleCreateViewModal.js';
 import { escapeHtml } from './functions/escape.js';
+import getImageTag from './functions/getImageTag.js';
 
 /* global DatabaseStructure */ // js/database/structure.js
 /* global firstDayOfCalendar, maxInputVars, themeImagePath */ // templates/javascript/variables.twig
@@ -1019,7 +1020,7 @@ Functions.getForeignKeyCheckboxLoader = function () {
     var html = '';
     html += '<div class="mt-1 mb-2">';
     html += '<div class="load-default-fk-check-value">';
-    html += Functions.getImage('ajax_clock_small');
+    html += getImageTag('ajax_clock_small');
     html += '</div>';
     html += '</div>';
     return html;
@@ -2360,7 +2361,7 @@ Functions.onloadEnumSetEditor = function () {
             values.push('', '', '', '');
         }
         // Add the parsed values to the editor
-        var dropIcon = Functions.getImage('b_drop');
+        var dropIcon = getImageTag('b_drop');
         for (i = 0; i < values.length; i++) {
             fields += '<tr><td>' +
                 '<input type=\'text\' value=\'' + values[i] + '\'>' +
@@ -2374,7 +2375,7 @@ Functions.onloadEnumSetEditor = function () {
         var dialog = '<div id=\'enum_editor\'>' +
             '<fieldset class="pma-fieldset">' +
             '<legend>' + title + '</legend>' +
-            '<p>' + Functions.getImage('s_notice') +
+            '<p>' + getImageTag('s_notice') +
             window.Messages.enum_hint + '</p>' +
             '<table class="table table-borderless values">' + fields + '</table>' +
             '</fieldset><fieldset class="pma-fieldset tblFooters">' +
@@ -2576,7 +2577,7 @@ Functions.onloadEnumSetEditor = function () {
                     '<tr class=\'hide\'><td>' +
                     '<input type=\'text\'>' +
                     '</td><td class=\'drop\'>' +
-                    Functions.getImage('b_drop') +
+                    getImageTag('b_drop') +
                     '</td></tr>'
                 )
                 .find('tr').last()
@@ -3675,86 +3676,6 @@ Functions.onloadSortLinkMouseEvent = function () {
     $(document).on('mouseout', '.sortlink', function () {
         $(this).find('.soimg').toggle();
     });
-};
-
-/**
- * Returns an HTML IMG tag for a particular image from a theme,
- * which may be an actual file or an icon from a sprite
- *
- * @param {string} image      The name of the file to get
- * @param {string} alternate  Used to set 'alt' and 'title' attributes of the image
- * @param {object} attributes An associative array of other attributes
- *
- * @return {object} The requested image, this object has two methods:
- *                  .toString()        - Returns the IMG tag for the requested image
- *                  .attr(name)        - Returns a particular attribute of the IMG
- *                                       tag given it's name
- *                  .attr(name, value) - Sets a particular attribute of the IMG
- *                                       tag to the given value
- */
-Functions.getImage = function (image, alternate, attributes) {
-    var alt = alternate;
-    var attr = attributes;
-    // custom image object, it will eventually be returned by this functions
-    var retval = {
-        data: {
-            // this is private
-            alt: '',
-            title: '',
-            src: 'themes/dot.gif',
-        },
-        attr: function (name, value) {
-            if (value === undefined) {
-                if (this.data[name] === undefined) {
-                    return '';
-                } else {
-                    return this.data[name];
-                }
-            } else {
-                this.data[name] = value;
-            }
-        },
-        toString: function () {
-            var retval = '<' + 'img';
-            for (var i in this.data) {
-                retval += ' ' + i + '="' + this.data[i] + '"';
-            }
-            retval += ' /' + '>';
-            return retval;
-        }
-    };
-    // initialise missing parameters
-    if (attr === undefined) {
-        attr = {};
-    }
-    if (alt === undefined) {
-        alt = '';
-    }
-    // set alt
-    if (attr.alt !== undefined) {
-        retval.attr('alt', escapeHtml(attr.alt));
-    } else {
-        retval.attr('alt', escapeHtml(alt));
-    }
-    // set title
-    if (attr.title !== undefined) {
-        retval.attr('title', escapeHtml(attr.title));
-    } else {
-        retval.attr('title', escapeHtml(alt));
-    }
-    // set css classes
-    retval.attr('class', 'icon ic_' + image);
-    // set all other attributes
-    for (var i in attr) {
-        if (i === 'src') {
-            // do not allow to override the 'src' attribute
-            continue;
-        }
-
-        retval.attr(i, attr[i]);
-    }
-
-    return retval;
 };
 
 /**

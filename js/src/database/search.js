@@ -4,6 +4,7 @@ import { Functions } from '../modules/functions.js';
 import { CommonParams } from '../modules/common.js';
 import highlightSql from '../modules/sql-highlight.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
+import getImageTag from '../modules/functions/getImageTag.js';
 
 /**
  * JavaScript functions used on Database Search page
@@ -35,7 +36,7 @@ AJAX.registerTeardown('database/search.js', function () {
 
 AJAX.registerOnload('database/search.js', function () {
     /** Hide the table link in the initial search result */
-    var icon = Functions.getImage('s_tbl', '', { 'id': 'table-image' }).toString();
+    var icon = getImageTag('s_tbl', '', { 'id': 'table-image' }).toString();
     $('#table-info').prepend(icon).hide();
 
     /** Hide the browse and deleted results in the new search criteria */

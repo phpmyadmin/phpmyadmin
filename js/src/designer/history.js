@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.js';
 import { Functions } from '../modules/functions.js';
+import getImageTag from '../modules/functions/getImageTag.js';
 
 /**
  * @fileoverview    function used in this file builds history tab and generates query.
@@ -96,19 +97,19 @@ DesignerHistory.display = function (init, finit) {
             } else {
                 str += '<img src="' + themeImagePath + 'designer/and_icon.png" onclick="DesignerHistory.andOr(' + i + ')" title="AND"></td>';
             }
-            str += '<td style="padding-left: 5px;" class="text-end">' + Functions.getImage('b_sbrowse', window.Messages.strColumnName) + '</td>' +
+            str += '<td style="padding-left: 5px;" class="text-end">' + getImageTag('b_sbrowse', window.Messages.strColumnName) + '</td>' +
                 '<td width="175" style="padding-left: 5px">' + $('<div/>').text(historyArray[i].getColumnName()).html() + '<td>';
             if (historyArray[i].getType() === 'GroupBy' || historyArray[i].getType() === 'OrderBy') {
                 var detailDescGroupBy = $('<div/>').text(DesignerHistory.detail(i)).html();
-                str += '<td class="text-center">' + Functions.getImage('s_info', DesignerHistory.detail(i)) + '</td>' +
+                str += '<td class="text-center">' + getImageTag('s_info', DesignerHistory.detail(i)) + '</td>' +
                     '<td title="' + detailDescGroupBy + '">' + historyArray[i].getType() + '</td>' +
-                    '<td onclick=DesignerHistory.historyDelete(' + i + ')>' + Functions.getImage('b_drop', window.Messages.strDelete) + '</td>';
+                    '<td onclick=DesignerHistory.historyDelete(' + i + ')>' + getImageTag('b_drop', window.Messages.strDelete) + '</td>';
             } else {
                 var detailDesc = $('<div/>').text(DesignerHistory.detail(i)).html();
-                str += '<td class="text-center">' + Functions.getImage('s_info', DesignerHistory.detail(i)) + '</td>' +
+                str += '<td class="text-center">' + getImageTag('s_info', DesignerHistory.detail(i)) + '</td>' +
                     '<td title="' + detailDesc + '">' + historyArray[i].getType() + '</td>' +
-                    '<td onclick=DesignerHistory.historyEdit(' + i + ')>' + Functions.getImage('b_edit', window.Messages.strEdit) + '</td>' +
-                    '<td onclick=DesignerHistory.historyDelete(' + i + ')>' + Functions.getImage('b_drop', window.Messages.strDelete) + '</td>';
+                    '<td onclick=DesignerHistory.historyEdit(' + i + ')>' + getImageTag('b_edit', window.Messages.strEdit) + '</td>' +
+                    '<td onclick=DesignerHistory.historyDelete(' + i + ')>' + getImageTag('b_drop', window.Messages.strDelete) + '</td>';
             }
             str += '</tr></thead>';
             i++;

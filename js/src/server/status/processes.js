@@ -1,10 +1,10 @@
 import $ from 'jquery';
 import { AJAX } from '../../modules/ajax.js';
-import { Functions } from '../../modules/functions.js';
 import { CommonParams } from '../../modules/common.js';
 import highlightSql from '../../modules/sql-highlight.js';
 import { ajaxShowMessage } from '../../modules/ajax-message.js';
 import { escapeHtml } from '../../modules/functions/escape.js';
+import getImageTag from '../../modules/functions/getImageTag.js';
 
 /**
  * Server Status Processes
@@ -141,7 +141,7 @@ var processList = {
             label = window.Messages.strStopRefresh;
             processList.refresh();
         }
-        $('a#toggleRefresh').html(Functions.getImage(img) + escapeHtml(label));
+        $('a#toggleRefresh').html(getImageTag(img) + escapeHtml(label));
     },
 
     /**
