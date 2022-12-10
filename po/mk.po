@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-12-04 00:17+0000\n"
-"PO-Revision-Date: 2022-12-09 22:50+0000\n"
+"PO-Revision-Date: 2022-12-11 00:21+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -1921,9 +1921,8 @@ msgid "Choose how you want tabs to work."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:236
-#, fuzzy
 msgid "Customize text input fields."
-msgstr "Опции за извоз на бази на податоци"
+msgstr "Подесувања на текст полиња."
 
 #: libraries/classes/Config/Descriptions.php:237
 #, fuzzy
@@ -2055,19 +2054,17 @@ msgid "Whether to show procedures under database in the navigation tree"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:313
-#, fuzzy
 msgid "Whether to expand single database in the navigation tree automatically."
-msgstr "Прикажи мрежа"
+msgstr ""
+"Дали да се автоматски рашири единствената датабаза во дрвото за навигација."
 
 #: libraries/classes/Config/Descriptions.php:315
-#, fuzzy
 msgid "Set to 0 to collapse navigation panel."
-msgstr "Опции за извоз на бази на податоци"
+msgstr "Подеси на 0 за да се собере панелот за навигација."
 
 #: libraries/classes/Config/Descriptions.php:316
-#, fuzzy
 msgid "Show logo in navigation panel."
-msgstr "Опции за извоз на бази на податоци"
+msgstr "Покажи лого на панелот за навигација."
 
 #: libraries/classes/Config/Descriptions.php:317
 msgid "URL where logo in the navigation panel will point to."
@@ -2347,14 +2344,12 @@ msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:469
-#, fuzzy
 msgid "Authentication method to use."
-msgstr "Документација"
+msgstr "Употребливи методи за автентикација."
 
 #: libraries/classes/Config/Descriptions.php:470
-#, fuzzy
 msgid "Compress connection to MySQL server."
-msgstr "Не можам да се пријавам на MySQL серверот"
+msgstr "Компресија при конекција на MySQL сервер."
 
 #: libraries/classes/Config/Descriptions.php:471
 msgid "Hide databases matching regular expression (PCRE)."
