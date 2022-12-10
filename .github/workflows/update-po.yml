@@ -18,7 +18,7 @@ jobs:
     if: (github.event_name == 'schedule' && github.repository == 'phpmyadmin/phpmyadmin') || (github.event_name != 'schedule')
     strategy:
       matrix:
-        php-version: ["8.0"]
+        php-version: ["8.1"]
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
