@@ -899,7 +899,7 @@ And then this hexadecimal value can be used in the configuration file.
 
     $cfg['blowfish_secret'] = sodium_hex2bin('f16ce59f45714194371b48fe362072dc3b019da7861558cd4ad29e4d6fb13851');
 
-The `sodium_hex2bin <https://www.php.net/sodium_hex2bin>`_ is used here to convert the hexadecimal value back to the
+The `sodium_hex2bin <https://www.php.net/sodium_hex2bin>`_ function is used here to convert the hexadecimal value back to the
 binary format.
 
 .. _faqlimitations:
