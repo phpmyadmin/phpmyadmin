@@ -8,6 +8,8 @@ use PhpMyAdmin\Gis\GisMultiPoint;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
+use function file_exists;
+
 /**
  * @covers \PhpMyAdmin\Gis\GisMultiPoint
  * @runTestsInSeparateProcesses
@@ -100,8 +102,8 @@ class GisMultiPointTest extends GisGeomTestCase
         ];
 
         $this->assertEquals(
-            $this->object->getShape($gis_data),
-            'MULTIPOINT(5.02 8.45,6.14 0.15)'
+            'MULTIPOINT(5.02 8.45,6.14 0.15)',
+            $this->object->getShape($gis_data)
         );
     }
 
@@ -170,17 +172,22 @@ class GisMultiPointTest extends GisGeomTestCase
      */
     public function testPrepareRowAsPng(): void
     {
-        $image = ImageWrapper::create(120, 150);
+        $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
         $this->assertNotNull($image);
         $return = $this->object->prepareRowAsPng(
             'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
             'image',
             [176, 46, 224],
-            ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
+            ['x' => -18, 'y' => 14, 'scale' => 1.71, 'height' => 124],
             $image
         );
-        $this->assertEquals(120, $return->width());
-        $this->assertEquals(150, $return->height());
+        $this->assertEquals(200, $return->width());
+        $this->assertEquals(124, $return->height());
+
+        $fileExpected = $this->testDir . '/multipoint-expected.png';
+        $fileActual = $this->testDir . '/multipoint-actual.png';
+        $this->assertTrue($image->png($fileActual));
+        $this->assertFileEquals($fileExpected, $fileActual);
     }
 
     /**
@@ -202,7 +209,13 @@ class GisMultiPointTest extends GisGeomTestCase
         TCPDF $pdf
     ): void {
         $return = $this->object->prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
-        $this->assertInstanceOf(TCPDF::class, $return);
+
+        $fileExpectedArch = $this->testDir . '/multipoint-expected-' . $this->getArch() . '.pdf';
+        $fileExpectedGeneric = $this->testDir . '/multipoint-expected.pdf';
+        $fileExpected = file_exists($fileExpectedArch) ? $fileExpectedArch : $fileExpectedGeneric;
+        $fileActual = $this->testDir . '/multipoint-actual.pdf';
+        $return->Output($fileActual, 'F');
+        $this->assertFileEquals($fileExpected, $fileActual);
     }
 
     /**
@@ -217,13 +230,8 @@ class GisMultiPointTest extends GisGeomTestCase
                 'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
                 'pdf',
                 [176, 46, 224],
-                [
-                    'x' => 12,
-                    'y' => 69,
-                    'scale' => 2,
-                    'height' => 150,
-                ],
-                new TCPDF(),
+                ['x' => 7, 'y' => 3, 'scale' => 3.16, 'height' => 297],
+                $this->createEmptyPdf('MULTIPOINT'),
             ],
         ];
     }
@@ -247,7 +255,7 @@ class GisMultiPointTest extends GisGeomTestCase
         string $output
     ): void {
         $svg = $this->object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
-        $this->assertMatchesRegularExpression($output, $svg);
+        $this->assertEquals($output, $svg);
     }
 
     /**
@@ -268,17 +276,17 @@ class GisMultiPointTest extends GisGeomTestCase
                     'scale' => 2,
                     'height' => 150,
                 ],
-                '/^(<circle cx="72" cy="138" r="3" name="svg" class="multipoint '
-                . 'vector" fill="white" stroke="#b02ee0" stroke-width="2" id="svg)'
-                . '(\d+)("\/><circle cx="114" cy="242" r="3" name="svg" class="mult'
+                '<circle cx="72" cy="138" r="3" name="svg" class="multipoint '
+                . 'vector" fill="white" stroke="#b02ee0" stroke-width="2" id="'
+                . 'svg1234567890"/><circle cx="114" cy="242" r="3" name="svg" class="mult'
                 . 'ipoint vector" fill="white" stroke="#b02ee0" stroke-width="2" id'
-                . '="svg)(\d+)("\/><circle cx="26" cy="198" r="3" name="svg" class='
+                . '="svg1234567890"/><circle cx="26" cy="198" r="3" name="svg" class='
                 . '"multipoint vector" fill="white" stroke="#b02ee0" stroke-width='
-                . '"2" id="svg)(\d+)("\/><circle cx="4" cy="182" r="3" name="svg" '
+                . '"2" id="svg1234567890"/><circle cx="4" cy="182" r="3" name="svg" '
                 . 'class="multipoint vector" fill="white" stroke="#b02ee0" stroke-'
-                . 'width="2" id="svg)(\d+)("\/><circle cx="46" cy="132" r="3" name='
+                . 'width="2" id="svg1234567890"/><circle cx="46" cy="132" r="3" name='
                 . '"svg" class="multipoint vector" fill="white" stroke="#b02ee0" '
-                . 'stroke-width="2" id="svg)(\d+)("\/>)$/',
+                . 'stroke-width="2" id="svg1234567890"/>',
             ],
         ];
     }
@@ -303,16 +311,8 @@ class GisMultiPointTest extends GisGeomTestCase
         array $scale_data,
         string $output
     ): void {
-        $this->assertEquals(
-            $output,
-            $this->object->prepareRowAsOl(
-                $spatial,
-                $srid,
-                $label,
-                $color,
-                $scale_data
-            )
-        );
+        $ol = $this->object->prepareRowAsOl($spatial, $srid, $label, $color, $scale_data);
+        $this->assertEquals($output, $ol);
     }
 
     /**

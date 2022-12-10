@@ -198,7 +198,7 @@ class GisPolygonTest extends GisGeomTestCase
      */
     public function testArea(array $ring, float $area): void
     {
-        $this->assertEquals($this->object->area($ring), $area);
+        $this->assertEquals($area, $this->object->area($ring));
     }
 
     /**
@@ -281,8 +281,8 @@ class GisPolygonTest extends GisGeomTestCase
     public function testIsPointInsidePolygon(array $point, array $polygon, bool $isInside): void
     {
         $this->assertEquals(
-            $this->object->isPointInsidePolygon($point, $polygon),
-            $isInside
+            $isInside,
+            $this->object->isPointInsidePolygon($point, $polygon)
         );
     }
 
@@ -421,17 +421,22 @@ class GisPolygonTest extends GisGeomTestCase
      */
     public function testPrepareRowAsPng(): void
     {
-        $image = ImageWrapper::create(120, 150);
+        $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
         $this->assertNotNull($image);
         $return = $this->object->prepareRowAsPng(
-            'POLYGON((123 0,23 30,17 63,123 0))',
+            'POLYGON((0 0,100 0,100 100,0 100,0 0),(10 10,10 40,40 40,40 10,10 10),(60 60,90 60,90 90,60 90,60 60))',
             'image',
             [176, 46, 224],
-            ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
+            ['x' => -56, 'y' => -16, 'scale' => 0.94, 'height' => 124],
             $image
         );
-        $this->assertEquals(120, $return->width());
-        $this->assertEquals(150, $return->height());
+        $this->assertEquals(200, $return->width());
+        $this->assertEquals(124, $return->height());
+
+        $fileExpected = $this->testDir . '/polygon-expected.png';
+        $fileActual = $this->testDir . '/polygon-actual.png';
+        $this->assertTrue($image->png($fileActual));
+        $this->assertFileEquals($fileExpected, $fileActual);
     }
 
     /**
@@ -453,7 +458,11 @@ class GisPolygonTest extends GisGeomTestCase
         TCPDF $pdf
     ): void {
         $return = $this->object->prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
-        $this->assertInstanceOf(TCPDF::class, $return);
+
+        $fileExpected = $this->testDir . '/polygon-expected.pdf';
+        $fileActual = $this->testDir . '/polygon-actual.pdf';
+        $return->Output($fileActual, 'F');
+        $this->assertFileEquals($fileExpected, $fileActual);
     }
 
     /**
@@ -465,16 +474,12 @@ class GisPolygonTest extends GisGeomTestCase
     {
         return [
             [
-                'POLYGON((123 0,23 30,17 63,123 0))',
+                'POLYGON((0 0,100 0,100 100,0 100,0 0),(10 10,10 40,40 40,40 10,10 10),(60 60,90 60,90 90,60 90,60 6'
+                . '0))',
                 'pdf',
                 [176, 46, 224],
-                [
-                    'x' => 12,
-                    'y' => 69,
-                    'scale' => 2,
-                    'height' => 150,
-                ],
-                new TCPDF(),
+                ['x' => -8, 'y' => -32, 'scale' => 1.80, 'height' => 297],
+                $this->createEmptyPdf('POLYGON'),
             ],
         ];
     }
@@ -498,7 +503,7 @@ class GisPolygonTest extends GisGeomTestCase
         string $output
     ): void {
         $svg = $this->object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
-        $this->assertMatchesRegularExpression($output, $svg);
+        $this->assertEquals($output, $svg);
     }
 
     /**
@@ -510,7 +515,7 @@ class GisPolygonTest extends GisGeomTestCase
     {
         return [
             [
-                'POLYGON((123 0,23 30,17 63,123 0))',
+                'POLYGON((123 0,23 30,17 63,123 0),(99 12,30 35,25 55,99 12))',
                 'svg',
                 [176, 46, 224],
                 [
@@ -519,10 +524,9 @@ class GisPolygonTest extends GisGeomTestCase
                     'scale' => 2,
                     'height' => 150,
                 ],
-                '/^(<path d=" M 222, 288 L 22, 228 L 10, 162 Z " name="svg" '
-                . 'id="svg)(\d+)(" class="polygon vector" stroke="black" '
-                . 'stroke-width="0.5" fill="#b02ee0" fill-rule="evenodd" '
-                . 'fill-opacity="0.8"\/>)$/',
+                '<path d=" M 222, 288 L 22, 228 L 10, 162 Z  M 174, 264 L 36, 218 L 26, 178 Z " name="svg" id="svg12'
+                . '34567890" class="polygon vector" stroke="black" stroke-width="0.5" fill="#b02ee0" fill-rule="evenod'
+                . 'd" fill-opacity="0.8"/>',
             ],
         ];
     }
@@ -547,16 +551,8 @@ class GisPolygonTest extends GisGeomTestCase
         array $scale_data,
         string $output
     ): void {
-        $this->assertEquals(
-            $output,
-            $this->object->prepareRowAsOl(
-                $spatial,
-                $srid,
-                $label,
-                $color,
-                $scale_data
-            )
-        );
+        $ol = $this->object->prepareRowAsOl($spatial, $srid, $label, $color, $scale_data);
+        $this->assertEquals($output, $ol);
     }
 
     /**

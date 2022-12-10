@@ -21,7 +21,6 @@ use function min;
 use function round;
 use function sprintf;
 use function sqrt;
-use function str_contains;
 use function trim;
 
 /**
@@ -64,17 +63,9 @@ class GisPolygon extends GisGeometry
     {
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = mb_substr($spatial, 9, -2);
+        $wkt_outer_ring = explode('),(', $polygon)[0];
 
-        // If the polygon doesn't have an inner ring, use polygon itself
-        if (! str_contains($polygon, '),(')) {
-            $ring = $polygon;
-        } else {
-            // Separate outer ring and use it to determine min-max
-            $parts = explode('),(', $polygon);
-            $ring = $parts[0];
-        }
-
-        return $this->setMinMax($ring, []);
+        return $this->setMinMax($wkt_outer_ring, []);
     }
 
     /**
@@ -101,23 +92,11 @@ class GisPolygon extends GisGeometry
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = mb_substr($spatial, 9, -2);
 
-        // If the polygon doesn't have an inner polygon
-        if (! str_contains($polygon, '),(')) {
-            $points_arr = $this->extractPoints($polygon, $scale_data, true);
-        } else {
-            // Separate outer and inner polygons
-            $parts = explode('),(', $polygon);
-            $outer = $parts[0];
-            $inner = array_slice($parts, 1);
-
-            $points_arr = $this->extractPoints($outer, $scale_data, true);
-
-            foreach ($inner as $inner_poly) {
-                $points_arr = array_merge(
-                    $points_arr,
-                    $this->extractPoints($inner_poly, $scale_data, true)
-                );
-            }
+        $points_arr = [];
+        $wkt_rings = explode('),(', $polygon);
+        foreach ($wkt_rings as $wkt_ring) {
+            $ring = $this->extractPoints($wkt_ring, $scale_data, true);
+            $points_arr = array_merge($points_arr, $ring);
         }
 
         // draw polygon
@@ -154,23 +133,13 @@ class GisPolygon extends GisGeometry
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = mb_substr($spatial, 9, -2);
 
-        // If the polygon doesn't have an inner polygon
-        if (! str_contains($polygon, '),(')) {
-            $points_arr = $this->extractPoints($polygon, $scale_data, true);
-        } else {
-            // Separate outer and inner polygons
-            $parts = explode('),(', $polygon);
-            $outer = $parts[0];
-            $inner = array_slice($parts, 1);
+        $wkt_rings = explode('),(', $polygon);
 
-            $points_arr = $this->extractPoints($outer, $scale_data, true);
+        $points_arr = [];
 
-            foreach ($inner as $inner_poly) {
-                $points_arr = array_merge(
-                    $points_arr,
-                    $this->extractPoints($inner_poly, $scale_data, true)
-                );
-            }
+        foreach ($wkt_rings as $wkt_ring) {
+            $ring = $this->extractPoints($wkt_ring, $scale_data, true);
+            $points_arr = array_merge($points_arr, $ring);
         }
 
         // draw polygon
@@ -213,20 +182,9 @@ class GisPolygon extends GisGeometry
 
         $row = '<path d="';
 
-        // If the polygon doesn't have an inner polygon
-        if (! str_contains($polygon, '),(')) {
-            $row .= $this->drawPath($polygon, $scale_data);
-        } else {
-            // Separate outer and inner polygons
-            $parts = explode('),(', $polygon);
-            $outer = $parts[0];
-            $inner = array_slice($parts, 1);
-
-            $row .= $this->drawPath($outer, $scale_data);
-
-            foreach ($inner as $inner_poly) {
-                $row .= $this->drawPath($inner_poly, $scale_data);
-            }
+        $wkt_rings = explode('),(', $polygon);
+        foreach ($wkt_rings as $wkt_ring) {
+            $row .= $this->drawPath($wkt_ring, $scale_data);
         }
 
         $row .= '"';
