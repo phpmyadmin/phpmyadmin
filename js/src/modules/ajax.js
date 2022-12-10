@@ -6,6 +6,7 @@ import highlightSql from './sql-highlight.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.js';
 import { escapeHtml } from './functions/escape.js';
 import getImageTag from './functions/getImageTag.js';
+import { ignorePhpErrors } from './functions/ignorePhpErrors.js';
 
 /**
  * This object handles ajax requests for pages. It also
@@ -394,11 +395,11 @@ const AJAX = {
             // bind for php error reporting forms (bottom)
             $('#pma_ignore_errors_bottom').on('click', function (e) {
                 e.preventDefault();
-                Functions.ignorePhpErrors();
+                ignorePhpErrors();
             });
             $('#pma_ignore_all_errors_bottom').on('click', function (e) {
                 e.preventDefault();
-                Functions.ignorePhpErrors(false);
+                ignorePhpErrors(false);
             });
             // In case of 'sendErrorReport'='always'
             // submit the hidden error reporting form.
@@ -419,10 +420,10 @@ const AJAX = {
         ajaxShowMessage(msg, false);
         // bind for php error reporting forms (popup)
         $('#pma_ignore_errors_popup').on('click', function () {
-            Functions.ignorePhpErrors();
+            ignorePhpErrors();
         });
         $('#pma_ignore_all_errors_popup').on('click', function () {
-            Functions.ignorePhpErrors(false);
+            ignorePhpErrors(false);
         });
 
         if (typeof data.success !== 'undefined' && data.success) {
@@ -577,11 +578,11 @@ const AJAX = {
                     // bind for php error reporting forms (bottom)
                     $('#pma_ignore_errors_bottom').on('click', function (e) {
                         e.preventDefault();
-                        Functions.ignorePhpErrors();
+                        ignorePhpErrors();
                     });
                     $('#pma_ignore_all_errors_bottom').on('click', function (e) {
                         e.preventDefault();
-                        Functions.ignorePhpErrors(false);
+                        ignorePhpErrors(false);
                     });
                     // In case of 'sendErrorReport'='always'
                     // submit the hidden error reporting form.
@@ -601,10 +602,10 @@ const AJAX = {
                 ajaxShowMessage(msg, false);
                 // bind for php error reporting forms (popup)
                 $('#pma_ignore_errors_popup').on('click', function () {
-                    Functions.ignorePhpErrors();
+                    ignorePhpErrors();
                 });
                 $('#pma_ignore_all_errors_popup').on('click', function () {
-                    Functions.ignorePhpErrors(false);
+                    ignorePhpErrors(false);
                 });
 
                 if (typeof AJAX.callback === 'function') {

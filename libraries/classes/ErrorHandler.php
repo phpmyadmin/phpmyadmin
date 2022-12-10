@@ -614,20 +614,20 @@ class ErrorHandler
                 // js code to show appropriate msgs, event binding & focusing.
                 $jsCode = 'window.ajaxShowMessage(window.Messages.phpErrorsFound);'
                         . '$("#pma_ignore_errors_popup").on("click", function() {
-                            Functions.ignorePhpErrors()
+                            window.ignorePhpErrors()
                         });'
                         . '$("#pma_ignore_all_errors_popup").on("click",
                             function() {
-                                Functions.ignorePhpErrors(false)
+                                window.ignorePhpErrors(false)
                             });'
                         . '$("#pma_ignore_errors_bottom").on("click", function(e) {
                             e.preventDefault();
-                            Functions.ignorePhpErrors()
+                            window.ignorePhpErrors()
                         });'
                         . '$("#pma_ignore_all_errors_bottom").on("click",
                             function(e) {
                                 e.preventDefault();
-                                Functions.ignorePhpErrors(false)
+                                window.ignorePhpErrors(false)
                             });'
                         . '$("html, body").animate({
                             scrollTop:$(document).height()

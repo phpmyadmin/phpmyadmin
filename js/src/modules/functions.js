@@ -3565,35 +3565,6 @@ Functions.checkNumberOfFields = function () {
 };
 
 /**
- * Ignore the displayed php errors.
- * Simply removes the displayed errors.
- *
- * @param clearPrevErrors whether to clear errors stored
- *             in $_SESSION['prev_errors'] at server
- *
- */
-Functions.ignorePhpErrors = function (clearPrevErrors) {
-    var clearPrevious = clearPrevErrors;
-    if (typeof (clearPrevious) === 'undefined' ||
-        clearPrevious === null
-    ) {
-        clearPrevious = false;
-    }
-    // send AJAX request to /error-report with send_error_report=0, exception_type=php & token.
-    // It clears the prev_errors stored in session.
-    if (clearPrevious) {
-        var $pmaReportErrorsForm = $('#pma_report_errors_form');
-        $pmaReportErrorsForm.find('input[name="send_error_report"]').val(0); // change send_error_report to '0'
-        $pmaReportErrorsForm.trigger('submit');
-    }
-
-    // remove displayed errors
-    var $pmaErrors = $('#pma_errors');
-    $pmaErrors.fadeOut('slow');
-    $pmaErrors.remove();
-};
-
-/**
  * Toggle the Datetimepicker UI if the date value entered
  * by the user in the 'text box' is not going to be accepted
  * by the Datetimepicker plugin (but is accepted by MySQL)
