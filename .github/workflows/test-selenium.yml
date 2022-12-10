@@ -153,7 +153,7 @@ jobs:
 
       - name: Upload screenshots
         uses: actions/upload-artifact@v2
-        if: ${{ success() || failure() }}
+        if: ${{ failure() }}
         with:
           name: selenium-screenshots
           path: ${{ github.workspace }}/build/selenium/**/*
