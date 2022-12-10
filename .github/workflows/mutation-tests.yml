@@ -15,7 +15,7 @@ jobs:
     runs-on: ${{ matrix.operating-system }}
     strategy:
       matrix:
-        php-version: ["8.0"]
+        php-version: ["8.1"]
         operating-system: [ubuntu-latest]
     steps:
       - name: Checkout code
