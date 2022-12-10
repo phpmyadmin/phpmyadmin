@@ -1618,11 +1618,9 @@ class ExportSql extends ExportPlugin
                     }
 
                     // Creating the parts that drop foreign keys.
-                    if ($field->key !== null) {
-                        if ($field->key->type === 'FOREIGN KEY') {
-                            $dropped[] = 'FOREIGN KEY ' . Context::escape($field->name);
-                            unset($statement->fields[$key]);
-                        }
+                    if ($field->key !== null && $field->key->type === 'FOREIGN KEY') {
+                        $dropped[] = 'FOREIGN KEY ' . Context::escape($field->name);
+                        unset($statement->fields[$key]);
                     }
 
                     // Dropping AUTO_INCREMENT.
@@ -1709,11 +1707,10 @@ class ExportSql extends ExportPlugin
                     if (
                         isset($GLOBALS['sql_auto_increment'])
                         && ($statement->entityOptions->has('AUTO_INCREMENT') !== false)
+                        && (! isset($GLOBALS['table_data']) || in_array($table, $GLOBALS['table_data']))
                     ) {
-                        if (! isset($GLOBALS['table_data']) || in_array($table, $GLOBALS['table_data'])) {
-                            $sqlAutoIncrementsQuery .= ', AUTO_INCREMENT='
-                                . $statement->entityOptions->has('AUTO_INCREMENT');
-                        }
+                        $sqlAutoIncrementsQuery .= ', AUTO_INCREMENT='
+                            . $statement->entityOptions->has('AUTO_INCREMENT');
                     }
 
                     $sqlAutoIncrementsQuery .= ';' . "\n";
@@ -2542,11 +2539,12 @@ class ExportSql extends ExportPlugin
             $fields = $statement->fields;
             foreach ($fields as $field) {
                 // Column name.
-                if ($field->type !== null) {
-                    if (! empty($aliases[$oldDatabase]['tables'][$oldTable]['columns'][$field->name])) {
-                        $field->name = $aliases[$oldDatabase]['tables'][$oldTable]['columns'][$field->name];
-                        $flag = true;
-                    }
+                if (
+                    $field->type !== null
+                    && ! empty($aliases[$oldDatabase]['tables'][$oldTable]['columns'][$field->name])
+                ) {
+                    $field->name = $aliases[$oldDatabase]['tables'][$oldTable]['columns'][$field->name];
+                    $flag = true;
                 }
 
                 // Key's columns.
