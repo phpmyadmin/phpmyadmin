@@ -2663,10 +2663,10 @@ class ExportSql extends ExportPlugin
      */
     protected function generateComment(
         ?string $sqlStatement,
-        $comment1,
-        $comment2,
-        $tableAlias,
-        $compat
+        string $comment1,
+        string $comment2,
+        string $tableAlias,
+        string $compat
     ): string {
         if ($sqlStatement === null) {
             if (isset($GLOBALS['no_constraints_comments'])) {
