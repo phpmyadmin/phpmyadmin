@@ -7,6 +7,7 @@ import highlightSql from '../modules/sql-highlight.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
 import { Indexes } from '../modules/indexes.js';
 import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.js';
+import { escapeHtml } from '../modules/functions/escape.js';
 
 /**
  * @fileoverview    functions used on the table structure page
@@ -185,7 +186,7 @@ AJAX.registerOnload('table/structure.js', function () {
          * @var currColumnName    String containing name of the field referred to by {@link curr_row}
          */
         var currColumnName = $currRow.children('th').children('label').text().trim();
-        currColumnName = Functions.escapeHtml(currColumnName);
+        currColumnName = escapeHtml(currColumnName);
         /**
          * @var $afterFieldItem    Corresponding entry in the 'After' field.
          */
@@ -265,7 +266,7 @@ AJAX.registerOnload('table/structure.js', function () {
             addClause = 'ADD FULLTEXT';
         }
         var question = window.sprintf(window.Messages.strDoYouReally, 'ALTER TABLE `' +
-            Functions.escapeHtml(currTableName) + '` ' + addClause + '(`' + Functions.escapeHtml(currColumnName) + '`);');
+            escapeHtml(currTableName) + '` ' + addClause + '(`' + escapeHtml(currColumnName) + '`);');
 
         var $thisAnchor = $(this);
 

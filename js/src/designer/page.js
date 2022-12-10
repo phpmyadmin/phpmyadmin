@@ -1,6 +1,6 @@
 import $ from 'jquery';
-import { Functions } from '../modules/functions.js';
 import { ajaxShowMessage } from '../modules/ajax-message.js';
+import { escapeHtml } from '../modules/functions/escape.js';
 
 /* global DesignerOfflineDB */ // js/designer/database.js
 /* global DesignerMove */ // js/designer/move.js
@@ -73,7 +73,7 @@ DesignerPage.createPageList = function (db, callback) {
             var page = pages[p];
             if (page.dbName === db) {
                 html += '<option value="' + page.pgNr + '">';
-                html += Functions.escapeHtml(page.pageDescr) + '</option>';
+                html += escapeHtml(page.pageDescr) + '</option>';
             }
         }
         if (typeof callback !== 'undefined') {

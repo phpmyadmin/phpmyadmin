@@ -1,6 +1,6 @@
 import $ from 'jquery';
-import { Functions } from './functions.js';
 import { CommonParams } from './common.js';
+import { escapeHtml } from './functions/escape.js';
 
 const GitInfo = {
     /**
@@ -45,7 +45,7 @@ const GitInfo = {
         if (data && data.version && data.date) {
             const current = GitInfo.parseVersionString($('span.version').text());
             const latest = GitInfo.parseVersionString(data.version);
-            const url = 'index.php?route=/url&url=https://www.phpmyadmin.net/files/' + Functions.escapeHtml(encodeURIComponent(data.version)) + '/';
+            const url = 'index.php?route=/url&url=https://www.phpmyadmin.net/files/' + escapeHtml(encodeURIComponent(data.version)) + '/';
             let versionInformationMessage = document.createElement('span');
             versionInformationMessage.className = 'latest';
             const versionInformationMessageLink = document.createElement('a');
@@ -61,8 +61,8 @@ const GitInfo = {
             if (latest > current) {
                 const message = window.sprintf(
                     window.Messages.strNewerVersion,
-                    Functions.escapeHtml(data.version),
-                    Functions.escapeHtml(data.date)
+                    escapeHtml(data.version),
+                    escapeHtml(data.date)
                 );
                 let htmlClass = 'alert alert-primary';
                 if (Math.floor(latest / 10000) === Math.floor(current / 10000)) {

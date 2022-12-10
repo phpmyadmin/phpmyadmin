@@ -3,6 +3,7 @@ import { AJAX } from '../modules/ajax.js';
 import { Functions } from '../modules/functions.js';
 import { CommonParams } from '../modules/common.js';
 import { ajaxShowMessage } from '../modules/ajax-message.js';
+import { escapeBacktick } from '../modules/functions/escape.js';
 
 /**
  * @fileoverview    function used in QBE for DB
@@ -83,24 +84,24 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
             }
         });
 
-        var query = 'SELECT ' + '`' + Functions.escapeBacktick(columns[0][0]) + '`.';
+        var query = 'SELECT ' + '`' + escapeBacktick(columns[0][0]) + '`.';
         if (columns[0][1] === '*') {
             query += '*';
         } else {
-            query += '`' + Functions.escapeBacktick(columns[0][1]) + '`';
+            query += '`' + escapeBacktick(columns[0][1]) + '`';
         }
         if (columns[0][2] !== '') {
-            query += ' AS `' + Functions.escapeBacktick(columns[0][2]) + '`';
+            query += ' AS `' + escapeBacktick(columns[0][2]) + '`';
         }
         for (var i = 1; i < columns.length; i++) {
-            query += ', `' + Functions.escapeBacktick(columns[i][0]) + '`.';
+            query += ', `' + escapeBacktick(columns[i][0]) + '`.';
             if (columns[i][1] === '*') {
                 query += '*';
             } else {
-                query += '`' + Functions.escapeBacktick(columns[i][1]) + '`';
+                query += '`' + escapeBacktick(columns[i][1]) + '`';
             }
             if (columns[i][2] !== '') {
-                query += ' AS `' + Functions.escapeBacktick(columns[i][2]) + '`';
+                query += ' AS `' + escapeBacktick(columns[i][2]) + '`';
             }
         }
         query += '\nFROM ';

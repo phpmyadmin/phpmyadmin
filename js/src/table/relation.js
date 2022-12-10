@@ -1,9 +1,9 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.js';
-import { Functions } from '../modules/functions.js';
 import { CommonActions, CommonParams } from '../modules/common.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
 import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.js';
+import { escapeHtml } from '../modules/functions/escape.js';
 
 /**
  * for table relation
@@ -34,7 +34,7 @@ TableRelation.setDropdownValues = function ($dropdown, values, selectedValue) {
     // add an empty string to the beginning for empty selection
     values.unshift('');
     $.each(values, function () {
-        optionsAsString += '<option value=\'' + Functions.escapeHtml(this) + '\'' + (selectedValue === Functions.escapeHtml(this) ? ' selected=\'selected\'' : '') + '>' + Functions.escapeHtml(this) + '</option>';
+        optionsAsString += '<option value=\'' + escapeHtml(this) + '\'' + (selectedValue === escapeHtml(this) ? ' selected=\'selected\'' : '') + '>' + escapeHtml(this) + '</option>';
     });
     $dropdown.append($(optionsAsString));
 };
@@ -233,7 +233,7 @@ AJAX.registerOnload('table/relation.js', function () {
         // Object containing reference to the current field's row
         var $currRow = $anchor.parents('tr');
 
-        var dropQuery = Functions.escapeHtml(
+        var dropQuery = escapeHtml(
             $currRow.children('td')
                 .children('.drop_foreign_key_msg')
                 .val()

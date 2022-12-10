@@ -2,6 +2,7 @@ import $ from 'jquery';
 import { AJAX } from '../modules/ajax.js';
 import { Functions } from '../modules/functions.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
+import { escapeHtml } from '../modules/functions/escape.js';
 
 /* global ColumnType, DataTable, JQPlotChartFactory */ // js/chart.js
 
@@ -59,7 +60,7 @@ function queryChart (data, columnNames, settings) {
         },
         axes: {
             xaxis: {
-                label: Functions.escapeHtml(settings.xaxisLabel)
+                label: escapeHtml(settings.xaxisLabel)
             },
             yaxis: {
                 label: settings.yaxisLabel
@@ -170,7 +171,7 @@ function drawChart () {
 
     var columnNames = [];
     $('#chartXAxisSelect option').each(function () {
-        columnNames.push(Functions.escapeHtml($(this).text()));
+        columnNames.push(escapeHtml($(this).text()));
     });
     try {
         currentChart = queryChart(chartData, columnNames, currentSettings);

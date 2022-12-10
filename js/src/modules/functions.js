@@ -8,6 +8,7 @@ import tooltip from './tooltip.js';
 import highlightSql from './sql-highlight.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.js';
 import handleCreateViewModal from './functions/handleCreateViewModal.js';
+import { escapeHtml } from './functions/escape.js';
 
 /* global DatabaseStructure */ // js/database/structure.js
 /* global firstDayOfCalendar, maxInputVars, themeImagePath */ // templates/javascript/variables.twig
@@ -320,58 +321,6 @@ Functions.clearSelection = function () {
             sel.removeAllRanges();
         }
     }
-};
-
-/**
- * @param {string} value
- * @return {string}
- */
-const escapeHtml = (value = '') => {
-    const element = document.createElement('span');
-    element.appendChild(document.createTextNode(value));
-    return element.innerHTML;
-};
-
-Functions.escapeHtml = escapeHtml;
-
-/**
- * JavaScript escaping
- *
- * @param {any} unsafe
- * @return {string | false}
- */
-Functions.escapeJsString = function (unsafe) {
-    if (typeof (unsafe) !== 'undefined') {
-        return unsafe
-            .toString()
-            .replace('\x00', '')
-            .replace('\\', '\\\\')
-            .replace('\'', '\\\'')
-            .replace('&#039;', '\\&#039;')
-            .replace('"', '\\"')
-            .replace('&quot;', '\\&quot;')
-            .replace('\n', '\n')
-            .replace('\r', '\r')
-            .replace(/<\/script/gi, '</\' + \'script');
-    } else {
-        return false;
-    }
-};
-
-/**
- * @param {string} s
- * @return {string}
- */
-Functions.escapeBacktick = function (s) {
-    return s.replace('`', '``');
-};
-
-/**
- * @param {string} s
- * @return {string}
- */
-Functions.escapeSingleQuote = function (s) {
-    return s.replace('\\', '\\\\').replace('\'', '\\\'');
 };
 
 /**
@@ -1131,7 +1080,7 @@ Functions.onloadSqlQueryEditEvents = function () {
         var sqlQuery = $form.find('input[name=\'sql_query\']').val().trim();
         var $innerSql = $(this).parent().prev().find('code.sql');
 
-        var newContent = '<textarea name="sql_query_edit" id="sql_query_edit">' + Functions.escapeHtml(sqlQuery) + '</textarea>\n';
+        var newContent = '<textarea name="sql_query_edit" id="sql_query_edit">' + escapeHtml(sqlQuery) + '</textarea>\n';
         newContent += Functions.getForeignKeyCheckboxLoader();
         newContent += '<input type="submit" id="sql_query_edit_save" class="btn btn-secondary button btnSave" value="' + window.Messages.strGo + '">\n';
         newContent += '<input type="button" id="sql_query_edit_discard" class="btn btn-secondary button btnDiscard" value="' + window.Messages.strCancel + '">\n';
@@ -2362,7 +2311,7 @@ Functions.onloadEnumSetEditor = function () {
         } else {
             title = window.Messages.enum_columnVals.replace(
                 /%s/,
-                '"' + Functions.escapeHtml(decodeURIComponent(colname)) + '"'
+                '"' + escapeHtml(decodeURIComponent(colname)) + '"'
             );
         }
         // Get the values as a string
@@ -2516,16 +2465,16 @@ Functions.onloadEnumSetEditor = function () {
         var min = (listSize <= maxRows) ? listSize : maxRows;
         for (i = 0; i < min; i++) {
             fields += '<tr><td><div><span class="fw-bold">' +
-                Functions.escapeHtml(window.centralColumnList[db + '_' + table][i].col_name) +
+                escapeHtml(window.centralColumnList[db + '_' + table][i].col_name) +
                 '</span><br><span class="color_gray">' + window.centralColumnList[db + '_' + table][i].col_type;
 
             if (window.centralColumnList[db + '_' + table][i].col_attribute !== '') {
-                fields += '(' + Functions.escapeHtml(window.centralColumnList[db + '_' + table][i].col_attribute) + ') ';
+                fields += '(' + escapeHtml(window.centralColumnList[db + '_' + table][i].col_attribute) + ') ';
             }
             if (window.centralColumnList[db + '_' + table][i].col_length !== '') {
-                fields += '(' + Functions.escapeHtml(window.centralColumnList[db + '_' + table][i].col_length) + ') ';
+                fields += '(' + escapeHtml(window.centralColumnList[db + '_' + table][i].col_length) + ') ';
             }
-            fields += Functions.escapeHtml(window.centralColumnList[db + '_' + table][i].col_extra) + '</span>' +
+            fields += escapeHtml(window.centralColumnList[db + '_' + table][i].col_extra) + '</span>' +
                 '</div></td>';
             if (pick) {
                 fields += '<td><input class="btn btn-secondary pick w-100" type="submit" value="' +
@@ -2536,7 +2485,7 @@ Functions.onloadEnumSetEditor = function () {
         var resultPointer = i;
         var searchIn = '<input type="text" class="filter_rows" placeholder="' + window.Messages.searchList + '">';
         if (fields === '') {
-            fields = window.sprintf(window.Messages.strEmptyCentralList, '\'' + Functions.escapeHtml(db) + '\'');
+            fields = window.sprintf(window.Messages.strEmptyCentralList, '\'' + escapeHtml(db) + '\'');
             searchIn = '';
         }
         var seeMore = '';
@@ -3327,7 +3276,7 @@ Functions.onloadCreateView = function () {
     $('.logout').on('click', function () {
         var form = $(
             '<form method="POST" action="' + $(this).attr('href') + '" class="disableAjax">' +
-            '<input type="hidden" name="token" value="' + Functions.escapeHtml(CommonParams.get('token')) + '">' +
+            '<input type="hidden" name="token" value="' + escapeHtml(CommonParams.get('token')) + '">' +
             '</form>'
         );
         $('body').append(form);
@@ -3783,15 +3732,15 @@ Functions.getImage = function (image, alternate, attributes) {
     }
     // set alt
     if (attr.alt !== undefined) {
-        retval.attr('alt', Functions.escapeHtml(attr.alt));
+        retval.attr('alt', escapeHtml(attr.alt));
     } else {
-        retval.attr('alt', Functions.escapeHtml(alt));
+        retval.attr('alt', escapeHtml(alt));
     }
     // set title
     if (attr.title !== undefined) {
-        retval.attr('title', Functions.escapeHtml(attr.title));
+        retval.attr('title', escapeHtml(attr.title));
     } else {
-        retval.attr('title', Functions.escapeHtml(alt));
+        retval.attr('title', escapeHtml(alt));
     }
     // set css classes
     retval.attr('class', 'icon ic_' + image);

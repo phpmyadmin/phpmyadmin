@@ -6,6 +6,7 @@ import { CommonParams } from './common.js';
 import { Navigation } from './navigation.js';
 import { Config } from './console/config.js';
 import { getConfigValue } from './functions/config.js';
+import { escapeHtml } from './functions/escape.js';
 
 /**
  * Console object
@@ -1226,7 +1227,7 @@ var ConsoleDebug = {
                     $('<div class="message">')
                         .html(
                             '<pre>' +
-                            Functions.escapeHtml(JSON.stringify(dbgStep.args[i], null, '  ')) +
+                            escapeHtml(JSON.stringify(dbgStep.args[i], null, '  ')) +
                             '</pre>'
                         )
                 );

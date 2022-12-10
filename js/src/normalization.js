@@ -3,6 +3,7 @@ import { AJAX } from './modules/ajax.js';
 import { Functions } from './modules/functions.js';
 import { CommonParams } from './modules/common.js';
 import { ajaxShowMessage } from './modules/ajax-message.js';
+import { escapeHtml, escapeJsString } from './modules/functions/escape.js';
 
 /**
  * @fileoverview   events handling from normalization page
@@ -124,7 +125,7 @@ function goToFinish1NF () {
     }
     $('#mainContent legend').html(window.Messages.strEndStep);
     $('#mainContent h4').html(
-        '<h3>' + window.sprintf(window.Messages.strFinishMsg, Functions.escapeHtml(CommonParams.get('table'))) + '</h3>'
+        '<h3>' + window.sprintf(window.Messages.strFinishMsg, escapeHtml(CommonParams.get('table'))) + '</h3>'
     );
     $('#mainContent p').html('');
     $('#mainContent #extra').html('');
@@ -148,7 +149,7 @@ function goToStep4 () {
             $('#mainContent #newCols').html('');
             $('.tblFooters').html('');
             for (var pk in primaryKey) {
-                $('#extra input[value=\'' + Functions.escapeJsString(primaryKey[pk]) + '\']').attr('disabled', 'disabled');
+                $('#extra input[value=\'' + escapeJsString(primaryKey[pk]) + '\']').attr('disabled', 'disabled');
             }
         }
     );
@@ -173,7 +174,7 @@ function goToStep3 () {
             $('.tblFooters').html('');
             primaryKey = JSON.parse(data.primary_key);
             for (var pk in primaryKey) {
-                $('#extra input[value=\'' + Functions.escapeJsString(primaryKey[pk]) + '\']').attr('disabled', 'disabled');
+                $('#extra input[value=\'' + escapeJsString(primaryKey[pk]) + '\']').attr('disabled', 'disabled');
             }
         }
     );
@@ -307,7 +308,7 @@ function goTo2NFStep2 (pd, primaryKey) {
     for (var dependson in pd) {
         if (dependson !== primaryKey) {
             pdFound = true;
-            extra += '<p class="d-block m-1">' + Functions.escapeHtml(dependson) + ' -> ' + Functions.escapeHtml(pd[dependson].toString()) + '</p>';
+            extra += '<p class="d-block m-1">' + escapeHtml(dependson) + ' -> ' + escapeHtml(pd[dependson].toString()) + '</p>';
         }
     }
     if (! pdFound) {
@@ -355,7 +356,7 @@ function goTo3NFStep2 (pd, tablesTds) {
             var dependson = tablesTds[table][i];
             if (dependson !== '' && dependson !== table) {
                 pdFound = true;
-                extra += '<p class="d-block m-1">' + Functions.escapeHtml(dependson) + ' -> ' + Functions.escapeHtml(pd[dependson].toString()) + '</p>';
+                extra += '<p class="d-block m-1">' + escapeHtml(dependson) + ' -> ' + escapeHtml(pd[dependson].toString()) + '</p>';
             }
         }
     }
@@ -692,9 +693,9 @@ AJAX.registerOnload('normalization.js', function () {
         if (repeatingCols !== '') {
             var newColName = $('#extra input[type=checkbox]:checked').first().val();
             repeatingCols = repeatingCols.slice(0, -2);
-            var confirmStr = window.sprintf(window.Messages.strMoveRepeatingGroup, Functions.escapeHtml(repeatingCols), Functions.escapeHtml(CommonParams.get('table')));
+            var confirmStr = window.sprintf(window.Messages.strMoveRepeatingGroup, escapeHtml(repeatingCols), escapeHtml(CommonParams.get('table')));
             confirmStr += '<input type="text" name="repeatGroupTable" placeholder="' + window.Messages.strNewTablePlaceholder + '">' +
-                '( ' + Functions.escapeHtml(primaryKey.toString()) + ', <input type="text" name="repeatGroupColumn" placeholder="' + window.Messages.strNewColumnPlaceholder + '" value="' + Functions.escapeHtml(newColName) + '">)' +
+                '( ' + escapeHtml(primaryKey.toString()) + ', <input type="text" name="repeatGroupColumn" placeholder="' + window.Messages.strNewColumnPlaceholder + '" value="' + escapeHtml(newColName) + '">)' +
                 '</ol>';
             $('#newCols').html(confirmStr);
 

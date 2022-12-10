@@ -5,6 +5,7 @@ import { Navigation } from '../modules/navigation.js';
 import { CommonActions, CommonParams } from '../modules/common.js';
 import { ajaxShowMessage } from '../modules/ajax-message.js';
 import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.js';
+import { escapeHtml } from '../modules/functions/escape.js';
 
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
@@ -25,7 +26,7 @@ const DropDatabases = {
         // loop over all checked checkboxes, except the .checkall_box checkbox
         $form.find('input:checkbox:checked:not(.checkall_box)').each(function () {
             $(this).closest('tr').addClass('removeMe');
-            selectedDbs[selectedDbs.length] = 'DROP DATABASE `' + Functions.escapeHtml($(this).val()) + '`;';
+            selectedDbs[selectedDbs.length] = 'DROP DATABASE `' + escapeHtml($(this).val()) + '`;';
         });
         if (! selectedDbs.length) {
             ajaxShowMessage(

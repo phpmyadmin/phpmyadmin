@@ -5,6 +5,7 @@ import { CommonParams } from '../../modules/common.js';
 import { Config } from '../../modules/config.js';
 import tooltip from '../../modules/tooltip.js';
 import createProfilingChart from '../../modules/functions/createProfilingChart.js';
+import { escapeHtml } from '../../modules/functions/escape.js';
 
 /**
  * @fileoverview    Javascript functions used in server status monitor page
@@ -1021,7 +1022,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             label: $('#variableInput').val().replace(/_/g, ' ')
         };
         newChart.series.push(newSeries);
-        $('#seriesPreview').append('- ' + Functions.escapeHtml(newSeries.label + str) + '<br>');
+        $('#seriesPreview').append('- ' + escapeHtml(newSeries.label + str) + '<br>');
         newChart.nodes.push(serie);
         $('#variableInput').val('');
         $('input[name="differentialValue"]').prop('checked', true);
@@ -1187,7 +1188,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     function addChart (chartObj, initialize) {
         var i;
         var settings = {
-            title: Functions.escapeHtml(chartObj.title),
+            title: escapeHtml(chartObj.title),
             grid: {
                 drawBorder: false,
                 shadow: false,
@@ -2060,7 +2061,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             if (name === 'user_host') {
                 return value.replace(/(\[.*?\])+/g, '');
             }
-            return Functions.escapeHtml(value);
+            return escapeHtml(value);
         };
 
         for (var i = 0, l = rows.length; i < l; i++) {
@@ -2222,7 +2223,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             explain += '<p></p>';
 
             var tempExplain = function (key, value) {
-                var newValue = (value === null) ? 'null' : Functions.escapeHtml(value);
+                var newValue = (value === null) ? 'null' : escapeHtml(value);
 
                 if (key === 'type' && newValue.toLowerCase() === 'all') {
                     newValue = '<span class="text-danger">' + newValue + '</span>';

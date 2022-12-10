@@ -7,6 +7,7 @@ import { Config } from './modules/config.js';
 import highlightSql from './modules/sql-highlight.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from './modules/ajax-message.js';
 import createProfilingChart from './modules/functions/createProfilingChart.js';
+import { escapeHtml } from './modules/functions/escape.js';
 
 /**
  * @fileoverview    functions used wherever an sql query form is used
@@ -492,7 +493,7 @@ AJAX.registerOnload('sql.js', function () {
     // Delete row from SQL results
     $(document).on('click', 'a.delete_row.ajax', function (e) {
         e.preventDefault();
-        var question = window.sprintf(window.Messages.strDoYouReally, Functions.escapeHtml($(this).closest('td').find('div').text()));
+        var question = window.sprintf(window.Messages.strDoYouReally, escapeHtml($(this).closest('td').find('div').text()));
         var $link = $(this);
         $link.confirm(question, $link.attr('href'), function (url) {
             ajaxShowMessage();

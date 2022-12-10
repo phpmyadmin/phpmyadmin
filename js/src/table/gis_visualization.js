@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.js';
-import { Functions } from '../modules/functions.js';
+import { escapeHtml } from '../modules/functions/escape.js';
 
 /**
  * @fileoverview    functions used for visualizing GIS data
@@ -344,7 +344,7 @@ AJAX.registerOnload('table/gis_visualization.js', function () {
      * Detect the mousemove event and show tooltips.
      */
     $('.vector').on('mousemove', function (event) {
-        var contents = Functions.escapeHtml($(this).attr('name')).trim();
+        var contents = escapeHtml($(this).attr('name')).trim();
         $('#tooltip').remove();
         if (contents !== '') {
             $('<div id="tooltip">' + contents + '</div>').css({

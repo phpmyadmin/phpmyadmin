@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import { AJAX } from './modules/ajax.js';
-import { Functions } from './modules/functions.js';
 import { CommonParams } from './modules/common.js';
+import { escapeHtml } from './modules/functions/escape.js';
 
 /* This script handles PMA Drag Drop Import, loaded only when configuration is enabled.*/
 
@@ -303,8 +303,8 @@ var DragDropImport = {
                 var $sqlImportStatusDiv = $('.pma_sql_import_status div');
                 $sqlImportStatusDiv.append('<li data-hash="' + hash + '">' +
                     ((ext !== '') ? '' : '<img src="./themes/dot.gif" title="invalid format" class="icon ic_s_notice"> ') +
-                    Functions.escapeHtml(files[i].name) + '<span class="filesize" data-filename="' +
-                    Functions.escapeHtml(files[i].name) + '">' + (files[i].size / 1024).toFixed(2) +
+                    escapeHtml(files[i].name) + '<span class="filesize" data-filename="' +
+                    escapeHtml(files[i].name) + '">' + (files[i].size / 1024).toFixed(2) +
                     ' kb</span></li>');
 
                 // scroll the UI to bottom

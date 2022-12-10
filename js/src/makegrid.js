@@ -5,6 +5,7 @@ import { CommonParams } from './modules/common.js';
 import tooltip from './modules/tooltip.js';
 import highlightSql from './modules/sql-highlight.js';
 import { ajaxShowMessage } from './modules/ajax-message.js';
+import { escapeHtml } from './modules/functions/escape.js';
 
 /* global Sql */
 /* global firstDayOfCalendar */ // templates/javascript/variables.twig
@@ -713,7 +714,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
                         }
 
                         // Add <br> before carriage return.
-                        var newHtml = Functions.escapeHtml(value);
+                        var newHtml = escapeHtml(value);
                         newHtml = newHtml.replace(/\n/g, '<br>\n');
 
                         var decimals = parseInt($thisField.attr('data-decimals'));

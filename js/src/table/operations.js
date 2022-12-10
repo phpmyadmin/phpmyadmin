@@ -6,6 +6,7 @@ import { CommonActions, CommonParams } from '../modules/common.js';
 import highlightSql from '../modules/sql-highlight.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
 import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.js';
+import { escapeHtml } from '../modules/functions/escape.js';
 
 /**
  * Unbind all event handlers before tearing down a page
@@ -311,7 +312,7 @@ AJAX.registerOnload('table/operations.js', function () {
         var question = window.Messages.strDropTableStrongWarning + ' ';
         question += window.sprintf(
             window.Messages.strDoYouReally,
-            'DROP VIEW `' + Functions.escapeHtml(CommonParams.get('table') + '`')
+            'DROP VIEW `' + escapeHtml(CommonParams.get('table') + '`')
         );
 
         $(this).confirm(question, $(this).attr('href'), function (url) {

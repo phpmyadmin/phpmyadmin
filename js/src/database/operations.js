@@ -5,6 +5,7 @@ import { Navigation } from '../modules/navigation.js';
 import { CommonActions, CommonParams } from '../modules/common.js';
 import { ajaxShowMessage } from '../modules/ajax-message.js';
 import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.js';
+import { escapeHtml } from '../modules/functions/escape.js';
 
 /**
  * @fileoverview    function used in server privilege pages
@@ -55,7 +56,7 @@ AJAX.registerOnload('database/operations.js', function () {
 
         var $form = $(this);
 
-        var question = Functions.escapeHtml('CREATE DATABASE ' + newDbName + ' / DROP DATABASE ' + oldDbName);
+        var question = escapeHtml('CREATE DATABASE ' + newDbName + ' / DROP DATABASE ' + oldDbName);
 
         Functions.prepareForAjaxRequest($form);
 
@@ -156,7 +157,7 @@ AJAX.registerOnload('database/operations.js', function () {
         var question = window.Messages.strDropDatabaseStrongWarning + ' ';
         question += window.sprintf(
             window.Messages.strDoYouReally,
-            'DROP DATABASE `' + Functions.escapeHtml(CommonParams.get('db') + '`')
+            'DROP DATABASE `' + escapeHtml(CommonParams.get('db') + '`')
         );
         var params = getJsConfirmCommonParam(this, $link.getPostData());
 

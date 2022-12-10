@@ -4,6 +4,7 @@ import { Navigation } from './navigation.js';
 import { CommonParams } from './common.js';
 import highlightSql from './sql-highlight.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.js';
+import { escapeHtml } from './functions/escape.js';
 
 /**
  * This object handles ajax requests for pages. It also
@@ -915,7 +916,7 @@ const AJAX = {
                 ) {
                     ajaxShowMessage(
                         '<div class="alert alert-danger" role="alert">' +
-                        Functions.escapeHtml(request.responseJSON.error) +
+                        escapeHtml(request.responseJSON.error) +
                         '</div>',
                         false
                     );
@@ -926,11 +927,11 @@ const AJAX = {
                 }
 
                 if (request.status !== 0) {
-                    details += '<div>' + Functions.escapeHtml(window.sprintf(window.Messages.strErrorCode, request.status)) + '</div>';
+                    details += '<div>' + escapeHtml(window.sprintf(window.Messages.strErrorCode, request.status)) + '</div>';
                 }
-                details += '<div>' + Functions.escapeHtml(window.sprintf(window.Messages.strErrorText, request.statusText + ' (' + state + ')')) + '</div>';
+                details += '<div>' + escapeHtml(window.sprintf(window.Messages.strErrorText, request.statusText + ' (' + state + ')')) + '</div>';
                 if (state === 'rejected' || state === 'timeout') {
-                    details += '<div>' + Functions.escapeHtml(window.Messages.strErrorConnection) + '</div>';
+                    details += '<div>' + escapeHtml(window.Messages.strErrorConnection) + '</div>';
                 }
                 ajaxShowMessage(
                     '<div class="alert alert-danger" role="alert">' +
