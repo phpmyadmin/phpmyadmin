@@ -126,21 +126,6 @@ const CommonActions = {
         }
     },
     /**
-     * Opens a database in the main part of the page
-     *
-     * @param {string} newDb The name of the new database
-     *
-     * @return {void}
-     */
-    openDb: function (newDb) {
-        CommonParams
-            .set('db', newDb)
-            .set('table', '');
-        this.refreshMain(
-            CommonParams.get('opendb_url')
-        );
-    },
-    /**
      * Refreshes the main frame
      *
      * @param {any} url Undefined to refresh to the same page
