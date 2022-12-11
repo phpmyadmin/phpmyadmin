@@ -1,5 +1,4 @@
 import $ from 'jquery';
-import { AJAX } from './ajax.js';
 import { Navigation } from './navigation.js';
 
 /**
@@ -130,11 +129,10 @@ const CommonActions = {
      *
      * @param {any} url Undefined to refresh to the same page
      *                  String to go to a different page, e.g: 'index.php'
-     * @param {function | undefined} callback
      *
      * @return {void}
      */
-    refreshMain: function (url, callback = undefined) {
+    refreshMain: function (url) {
         var newUrl = url;
         if (! newUrl) {
             newUrl = $('#selflink').find('a').attr('href') || window.location.pathname;
@@ -149,9 +147,6 @@ const CommonActions = {
             .appendTo('body')
             .trigger('click')
             .remove();
-        if (typeof callback !== 'undefined') {
-            AJAX.callback = callback;
-        }
     }
 };
 

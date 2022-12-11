@@ -841,12 +841,13 @@ AJAX.registerOnload('sql.js', function () {
                     } else {
                         url = 'index.php?route=/server/sql';
                     }
-                    CommonActions.refreshMain(url, function () {
+                    CommonActions.refreshMain(url);
+                    AJAX.callback = () => {
                         $('#sqlqueryresultsouter')
                             .show()
                             .html(data.message);
                         highlightSql($('#sqlqueryresultsouter'));
-                    });
+                    };
                 }
 
                 $('.sqlqueryresults').trigger('makegrid');

@@ -91,9 +91,10 @@ AJAX.registerOnload('table/operations.js', function () {
                         'table',
                         $form.find('input[name=\'new_name\']').val()
                     );
-                    CommonActions.refreshMain(false, function () {
+                    CommonActions.refreshMain(false);
+                    AJAX.callback = () => {
                         ajaxShowMessage(data.message);
-                    });
+                    };
                 } else {
                     ajaxShowMessage(data.message);
                 }
@@ -117,9 +118,10 @@ AJAX.registerOnload('table/operations.js', function () {
             if (typeof data !== 'undefined' && data.success === true) {
                 CommonParams.set('db', data.params.db);
                 CommonParams.set('table', data.params.table);
-                CommonActions.refreshMain('index.php?route=/table/sql', function () {
+                CommonActions.refreshMain('index.php?route=/table/sql');
+                AJAX.callback = () => {
                     ajaxShowMessage(data.message);
-                });
+                };
                 // Refresh navigation when the table is copied
                 Navigation.reload();
             } else {
@@ -166,10 +168,11 @@ AJAX.registerOnload('table/operations.js', function () {
             $.post($form.attr('action'), $form.serialize(), function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     CommonParams.set('table', data.params.table);
-                    CommonActions.refreshMain(false, function () {
+                    CommonActions.refreshMain(false);
+                    AJAX.callback = () => {
                         $('#page_content').html(data.message);
                         highlightSql($('#page_content'));
-                    });
+                    };
                     // Refresh navigation when the table is renamed
                     Navigation.reload();
                 } else {
@@ -290,12 +293,10 @@ AJAX.registerOnload('table/operations.js', function () {
                     // Table deleted successfully, refresh both the frames
                     Navigation.reload();
                     CommonParams.set('table', '');
-                    CommonActions.refreshMain(
-                        CommonParams.get('opendb_url'),
-                        function () {
-                            ajaxShowMessage(data.message);
-                        }
-                    );
+                    CommonActions.refreshMain(CommonParams.get('opendb_url'));
+                    AJAX.callback = () => {
+                        ajaxShowMessage(data.message);
+                    };
                 } else {
                     ajaxShowMessage(data.error, false);
                 }
@@ -324,12 +325,10 @@ AJAX.registerOnload('table/operations.js', function () {
                     // Table deleted successfully, refresh both the frames
                     Navigation.reload();
                     CommonParams.set('table', '');
-                    CommonActions.refreshMain(
-                        CommonParams.get('opendb_url'),
-                        function () {
-                            ajaxShowMessage(data.message);
-                        }
-                    );
+                    CommonActions.refreshMain(CommonParams.get('opendb_url'));
+                    AJAX.callback = () => {
+                        ajaxShowMessage(data.message);
+                    };
                 } else {
                     ajaxShowMessage(data.error, false);
                 }

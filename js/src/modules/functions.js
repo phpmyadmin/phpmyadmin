@@ -1833,9 +1833,7 @@ Functions.onloadCreateTableEvents = function () {
                         var tablesTable = $('#tablesForm').find('tbody').not('#tbl_summary_row');
                         // this is the first table created in this db
                         if (tablesTable.length === 0) {
-                            CommonActions.refreshMain(
-                                CommonParams.get('opendb_url')
-                            );
+                            CommonActions.refreshMain(CommonParams.get('opendb_url'));
                         } else {
                             /**
                              * @var curr_last_row   Object referring to the last <tr> element in {@link tablesTable}

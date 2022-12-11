@@ -106,9 +106,10 @@ AJAX.registerOnload('database/operations.js', function () {
             if (typeof data !== 'undefined' && data.success === true) {
                 if ($('#checkbox_switch').is(':checked')) {
                     CommonParams.set('db', data.newname);
-                    CommonActions.refreshMain(false, function () {
+                    CommonActions.refreshMain(false);
+                    AJAX.callback = () => {
                         ajaxShowMessage(data.message);
-                    });
+                    };
                 } else {
                     CommonParams.set('db', data.db);
                     ajaxShowMessage(data.message);
@@ -168,12 +169,10 @@ AJAX.registerOnload('database/operations.js', function () {
                     // Database deleted successfully, refresh both the frames
                     Navigation.reload();
                     CommonParams.set('db', '');
-                    CommonActions.refreshMain(
-                        'index.php?route=/server/databases',
-                        function () {
-                            ajaxShowMessage(data.message);
-                        }
-                    );
+                    CommonActions.refreshMain('index.php?route=/server/databases');
+                    AJAX.callback = () => {
+                        ajaxShowMessage(data.message);
+                    };
                 } else {
                     ajaxShowMessage(data.error, false);
                 }
