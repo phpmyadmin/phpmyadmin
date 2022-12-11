@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-12-04 00:17+0000\n"
+"POT-Creation-Date: 2022-12-11 00:20+0000\n"
 "PO-Revision-Date: 2022-12-06 00:47+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -3309,14 +3309,14 @@ msgstr "Kolomnamen in de eerste rij plaatsen"
 #: libraries/classes/Config/Descriptions.php:661
 #: libraries/classes/Config/Descriptions.php:794
 #: libraries/classes/Config/Descriptions.php:800
-#: libraries/classes/Plugins/Import/ImportCsv.php:684
+#: libraries/classes/Plugins/Import/ImportCsv.php:682
 msgid "Columns enclosed with"
 msgstr "Kolommen ingesloten door"
 
 #: libraries/classes/Config/Descriptions.php:662
 #: libraries/classes/Config/Descriptions.php:795
 #: libraries/classes/Config/Descriptions.php:801
-#: libraries/classes/Plugins/Import/ImportCsv.php:695
+#: libraries/classes/Plugins/Import/ImportCsv.php:693
 msgid "Columns escaped with"
 msgstr "Kolommen omgezet met wisselteken"
 
@@ -3338,13 +3338,13 @@ msgstr "Verwijder CRLF-tekens uit kolommen"
 #: libraries/classes/Config/Descriptions.php:665
 #: libraries/classes/Config/Descriptions.php:798
 #: libraries/classes/Config/Descriptions.php:805
-#: libraries/classes/Plugins/Import/ImportCsv.php:669
+#: libraries/classes/Plugins/Import/ImportCsv.php:667
 msgid "Columns terminated with"
 msgstr "Kolommen beëindigd met"
 
 #: libraries/classes/Config/Descriptions.php:666
 #: libraries/classes/Config/Descriptions.php:793
-#: libraries/classes/Plugins/Import/ImportCsv.php:702
+#: libraries/classes/Plugins/Import/ImportCsv.php:700
 msgid "Lines terminated with"
 msgstr "Regels beëindigd door"
 
@@ -4435,7 +4435,7 @@ msgid "Server"
 msgstr "Server"
 
 #: libraries/classes/Config/Descriptions.php:957
-#: libraries/classes/Plugins/Export/ExportXml.php:454
+#: libraries/classes/Plugins/Export/ExportXml.php:453
 #: libraries/classes/Server/Privileges.php:1843
 #: libraries/classes/Server/Privileges.php:1845
 #: templates/database/structure/show_create.twig:10
@@ -6123,7 +6123,7 @@ msgstr "Voeg tenminste één variabele toe aan de reeks!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:225
 #: libraries/classes/Display/Results.php:1068
-#: libraries/classes/Plugins/Export/ExportSql.php:2169
+#: libraries/classes/Plugins/Export/ExportSql.php:2165
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:100
 #: libraries/config.values.php:111
 #: templates/columns_definitions/column_attributes.twig:217
@@ -10543,7 +10543,7 @@ msgstr "Traceren"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:548
 #: libraries/classes/Plugins/Export/ExportOdt.php:687
 #: libraries/classes/Plugins/Export/ExportPdf.php:256
-#: libraries/classes/Plugins/Export/ExportSql.php:2046
+#: libraries/classes/Plugins/Export/ExportSql.php:2042
 #: libraries/classes/Plugins/Export/ExportTexytext.php:522
 #: libraries/classes/Plugins/Export/ExportXml.php:124
 #: libraries/classes/Util.php:1874 libraries/classes/Util.php:1890
@@ -10568,7 +10568,7 @@ msgstr "Routines"
 #: libraries/classes/Menu.php:411
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:993
+#: libraries/classes/Plugins/Export/ExportSql.php:992
 #: libraries/classes/Plugins/Export/ExportXml.php:104
 #: libraries/classes/Util.php:1873 templates/database/events/index.twig:3
 msgid "Events"
@@ -11427,7 +11427,7 @@ msgstr "Dataexport-opties"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:192
 #: libraries/classes/Plugins/Export/ExportOdt.php:248
-#: libraries/classes/Plugins/Export/ExportSql.php:2293
+#: libraries/classes/Plugins/Export/ExportSql.php:2289
 #: libraries/classes/Plugins/Export/ExportTexytext.php:176
 msgid "Dumping data for table"
 msgstr "Gegevens worden geëxporteerd voor tabel"
@@ -11519,21 +11519,21 @@ msgstr "Definitie"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:538
 #: libraries/classes/Plugins/Export/ExportOdt.php:666
-#: libraries/classes/Plugins/Export/ExportSql.php:2032
+#: libraries/classes/Plugins/Export/ExportSql.php:2028
 #: libraries/classes/Plugins/Export/ExportTexytext.php:503
 msgid "Table structure for table"
 msgstr "Tabelstructuur voor tabel"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:556
 #: libraries/classes/Plugins/Export/ExportOdt.php:697
-#: libraries/classes/Plugins/Export/ExportSql.php:2083
+#: libraries/classes/Plugins/Export/ExportSql.php:2079
 #: libraries/classes/Plugins/Export/ExportTexytext.php:528
 msgid "Structure for view"
 msgstr "Structuur voor de view"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:562
 #: libraries/classes/Plugins/Export/ExportOdt.php:716
-#: libraries/classes/Plugins/Export/ExportSql.php:2115
+#: libraries/classes/Plugins/Export/ExportSql.php:2111
 #: libraries/classes/Plugins/Export/ExportTexytext.php:543
 msgid "Stand-in structure for view"
 msgstr "Stand-in structuur voor view"
@@ -11630,7 +11630,7 @@ msgstr "PHP-versie:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:244
 #: libraries/classes/Plugins/Export/ExportSql.php:930
-#: libraries/classes/Plugins/Export/ExportXml.php:383
+#: libraries/classes/Plugins/Export/ExportXml.php:382
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:201
 #: templates/database/structure/copy_form.twig:5
 #: templates/menu/breadcrumbs.twig:16
@@ -11638,7 +11638,7 @@ msgid "Database:"
 msgstr "Database:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:310
-#: libraries/classes/Plugins/Export/ExportSql.php:2169
+#: libraries/classes/Plugins/Export/ExportSql.php:2165
 msgid "Data:"
 msgstr "Gegevens:"
 
@@ -11754,7 +11754,7 @@ msgid "Data creation options"
 msgstr "Data-aanmaakopties"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:401
-#: libraries/classes/Plugins/Export/ExportSql.php:2251
+#: libraries/classes/Plugins/Export/ExportSql.php:2247
 msgid "Truncate table before insert"
 msgstr "Tabel leegmaken voor invoegen"
 
@@ -11837,95 +11837,95 @@ msgid "It appears your database uses routines;"
 msgstr "Het lijkt erop dat uw database programmaroutines gebruikt;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:586
-#: libraries/classes/Plugins/Export/ExportSql.php:1575
-#: libraries/classes/Plugins/Export/ExportSql.php:2071
+#: libraries/classes/Plugins/Export/ExportSql.php:1571
+#: libraries/classes/Plugins/Export/ExportSql.php:2067
 msgid "alias export may not work reliably in all cases."
 msgstr "alias uitvoer mogelijk niet betrouwbaar in alle gevallen."
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1045
+#: libraries/classes/Plugins/Export/ExportSql.php:1044
 msgid "Metadata"
 msgstr "Metadata"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1111
+#: libraries/classes/Plugins/Export/ExportSql.php:1110
 #, php-format
 msgid "Metadata for table %s"
 msgstr "Metadata voor tabel %s"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1118
+#: libraries/classes/Plugins/Export/ExportSql.php:1117
 #, php-format
 msgid "Metadata for database %s"
 msgstr "Metadata voor database %s"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1416
+#: libraries/classes/Plugins/Export/ExportSql.php:1412
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:629
 msgid "Creation:"
 msgstr "Aangemaakt:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1426
+#: libraries/classes/Plugins/Export/ExportSql.php:1422
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:640
 msgid "Last update:"
 msgstr "Laatst bijgewerkt:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1436
+#: libraries/classes/Plugins/Export/ExportSql.php:1432
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:651
 msgid "Last check:"
 msgstr "Laatst gecontroleerd:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1487
+#: libraries/classes/Plugins/Export/ExportSql.php:1483
 #, php-format
 msgid "Error reading structure for table %s:"
 msgstr "Fout bij lezen van tabelstructuur van tabel %s:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1572
+#: libraries/classes/Plugins/Export/ExportSql.php:1568
 msgid "It appears your database uses views;"
 msgstr "Het lijkt erop dat uw databaseviews gebruikt;"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1737
+#: libraries/classes/Plugins/Export/ExportSql.php:1733
 msgid "Constraints for dumped tables"
 msgstr "Beperkingen voor geëxporteerde tabellen"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1738
+#: libraries/classes/Plugins/Export/ExportSql.php:1734
 msgid "Constraints for table"
 msgstr "Beperkingen voor tabel"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1765
+#: libraries/classes/Plugins/Export/ExportSql.php:1761
 msgid "Indexes for dumped tables"
 msgstr "Indexen voor geëxporteerde tabellen"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1766
+#: libraries/classes/Plugins/Export/ExportSql.php:1762
 msgid "Indexes for table"
 msgstr "Indexen voor tabel"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1801
+#: libraries/classes/Plugins/Export/ExportSql.php:1797
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT voor geëxporteerde tabellen"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1802
+#: libraries/classes/Plugins/Export/ExportSql.php:1798
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT voor een tabel"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1877
+#: libraries/classes/Plugins/Export/ExportSql.php:1873
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "MEDIA TYPEN VOOR TABEL"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1902
+#: libraries/classes/Plugins/Export/ExportSql.php:1898
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "RELATIES VOOR TABEL"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2068
+#: libraries/classes/Plugins/Export/ExportSql.php:2064
 msgid "It appears your table uses triggers;"
 msgstr "Het lijkt erop dat uw tabel triggers gebruikt;"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2098
+#: libraries/classes/Plugins/Export/ExportSql.php:2094
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Structuur voor view %s geëxporteerd als tabel"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2118
+#: libraries/classes/Plugins/Export/ExportSql.php:2114
 msgid "(See below for the actual view)"
 msgstr "(Zie onder voor de actuele view)"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2184
+#: libraries/classes/Plugins/Export/ExportSql.php:2180
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr "Fout bij het lezen van gegevens voor tabel %s:"
@@ -11992,7 +11992,7 @@ msgid "Column names:"
 msgstr "Kolomnamen:"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:286
-#: libraries/classes/Plugins/Import/ImportCsv.php:646
+#: libraries/classes/Plugins/Import/ImportCsv.php:644
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Ongeldig formaat van CSV-invoer op regel %d."
@@ -12002,15 +12002,15 @@ msgstr "Ongeldig formaat van CSV-invoer op regel %d."
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Verkeerd aantal kolommen in CSV-invoer op regel %d."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:667
-#: libraries/classes/Plugins/Import/ImportCsv.php:682
-#: libraries/classes/Plugins/Import/ImportCsv.php:693
-#: libraries/classes/Plugins/Import/ImportCsv.php:700
+#: libraries/classes/Plugins/Import/ImportCsv.php:665
+#: libraries/classes/Plugins/Import/ImportCsv.php:680
+#: libraries/classes/Plugins/Import/ImportCsv.php:691
+#: libraries/classes/Plugins/Import/ImportCsv.php:698
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Ongeldige parameter voor CSV-import: %s"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:832
+#: libraries/classes/Plugins/Import/ImportCsv.php:830
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -12113,7 +12113,7 @@ msgstr "Schema van de database %s - Pagina %s"
 msgid "SCHEMA ERROR: "
 msgstr "SCHEMA ERROR: "
 
-#: libraries/classes/Plugins/Schema/Pdf/Pdf.php:269
+#: libraries/classes/Plugins/Schema/Pdf/Pdf.php:270
 msgid "PDF export page"
 msgstr "PDF export pagina"
 
@@ -13246,7 +13246,7 @@ msgstr "%s is uitgeschakeld op deze MySQL-server."
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Deze MySQL-server ondersteund de %s opslag-engine niet."
 
-#: libraries/classes/Table/Indexes.php:59 libraries/classes/Table.php:2085
+#: libraries/classes/Table/Indexes.php:59 libraries/classes/Table.php:2087
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "De naam van de primaire sleutel moet \"PRIMARY\" zijn!"
 
@@ -13259,39 +13259,39 @@ msgstr "Problemen met de indexen van de tabel `%s`"
 msgid "Unknown table status:"
 msgstr "Onbekende tabelstatus:"
 
-#: libraries/classes/Table.php:992
+#: libraries/classes/Table.php:990
 #, php-format
 msgid "Source database `%s` was not found!"
 msgstr "Brondatabase `%s` is niet gevonden!"
 
-#: libraries/classes/Table.php:1001
+#: libraries/classes/Table.php:999
 #, php-format
 msgid "Target database `%s` was not found!"
 msgstr "Doeldatabase `%s` niet gevonden!"
 
-#: libraries/classes/Table.php:1466
+#: libraries/classes/Table.php:1469
 msgid "Invalid database:"
 msgstr "Ongeldige database:"
 
-#: libraries/classes/Table.php:1484
+#: libraries/classes/Table.php:1487
 msgid "Invalid table name:"
 msgstr "Ongeldige tabelnaam:"
 
-#: libraries/classes/Table.php:1518
+#: libraries/classes/Table.php:1521
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "Fout bij hernoemen van tabel %1$s naar %2$s!"
 
-#: libraries/classes/Table.php:1535
+#: libraries/classes/Table.php:1538
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabel %1$s is hernoemd naar %2$s."
 
-#: libraries/classes/Table.php:1779
+#: libraries/classes/Table.php:1781
 msgid "Could not save table UI preferences!"
 msgstr "Tabelinterfacevoorkeuren konden niet worden opgeslagen!"
 
-#: libraries/classes/Table.php:1803
+#: libraries/classes/Table.php:1805
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -13300,7 +13300,7 @@ msgstr ""
 "Opkuisen van tabelinterfacevoorkeuren is mislukt (zie $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: libraries/classes/Table.php:1938
+#: libraries/classes/Table.php:1940
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -13311,11 +13311,11 @@ msgstr ""
 "wijzigingen zullen verdwijnen na verversen van deze pagina. Controleer of de "
 "tabelstructuur is gewijzigd."
 
-#: libraries/classes/Table.php:2097
+#: libraries/classes/Table.php:2099
 msgid "Can't rename index to PRIMARY!"
 msgstr "Kan index niet naar PRIMARY hernoemen!"
 
-#: libraries/classes/Table.php:2123
+#: libraries/classes/Table.php:2125
 msgid "No index parts defined!"
 msgstr "Geen index-delen gedefinieerd!"
 

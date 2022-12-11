@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-12-04 00:17+0000\n"
+"POT-Creation-Date: 2022-12-11 00:20+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -3390,14 +3390,14 @@ msgstr "තීර නම් පළමු පේළියේ යොදන්න"
 #: libraries/classes/Config/Descriptions.php:661
 #: libraries/classes/Config/Descriptions.php:794
 #: libraries/classes/Config/Descriptions.php:800
-#: libraries/classes/Plugins/Import/ImportCsv.php:684
+#: libraries/classes/Plugins/Import/ImportCsv.php:682
 msgid "Columns enclosed with"
 msgstr "තීර ඇවුරුම් සළකුණ"
 
 #: libraries/classes/Config/Descriptions.php:662
 #: libraries/classes/Config/Descriptions.php:795
 #: libraries/classes/Config/Descriptions.php:801
-#: libraries/classes/Plugins/Import/ImportCsv.php:695
+#: libraries/classes/Plugins/Import/ImportCsv.php:693
 msgid "Columns escaped with"
 msgstr "තීර මගහැරීමේ සළකුණ"
 
@@ -3419,13 +3419,13 @@ msgstr "තීර තුල ඇති CRLF අනුලකුණු ඉවත්
 #: libraries/classes/Config/Descriptions.php:665
 #: libraries/classes/Config/Descriptions.php:798
 #: libraries/classes/Config/Descriptions.php:805
-#: libraries/classes/Plugins/Import/ImportCsv.php:669
+#: libraries/classes/Plugins/Import/ImportCsv.php:667
 msgid "Columns terminated with"
 msgstr "තීර වෙන් කිරීමේ සළකුණ"
 
 #: libraries/classes/Config/Descriptions.php:666
 #: libraries/classes/Config/Descriptions.php:793
-#: libraries/classes/Plugins/Import/ImportCsv.php:702
+#: libraries/classes/Plugins/Import/ImportCsv.php:700
 msgid "Lines terminated with"
 msgstr "පේළි අවසන් කිරීමේ සළකුණ"
 
@@ -4590,7 +4590,7 @@ msgid "Server"
 msgstr "සේවාදායකය"
 
 #: libraries/classes/Config/Descriptions.php:957
-#: libraries/classes/Plugins/Export/ExportXml.php:454
+#: libraries/classes/Plugins/Export/ExportXml.php:453
 #: libraries/classes/Server/Privileges.php:1843
 #: libraries/classes/Server/Privileges.php:1845
 #: templates/database/structure/show_create.twig:10
@@ -6278,7 +6278,7 @@ msgstr "කරුණාකර ශ්‍රේණියට අවම වශයෙ
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:225
 #: libraries/classes/Display/Results.php:1068
-#: libraries/classes/Plugins/Export/ExportSql.php:2169
+#: libraries/classes/Plugins/Export/ExportSql.php:2165
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:100
 #: libraries/config.values.php:111
 #: templates/columns_definitions/column_attributes.twig:217
@@ -10692,7 +10692,7 @@ msgstr "අවධානය"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:548
 #: libraries/classes/Plugins/Export/ExportOdt.php:687
 #: libraries/classes/Plugins/Export/ExportPdf.php:256
-#: libraries/classes/Plugins/Export/ExportSql.php:2046
+#: libraries/classes/Plugins/Export/ExportSql.php:2042
 #: libraries/classes/Plugins/Export/ExportTexytext.php:522
 #: libraries/classes/Plugins/Export/ExportXml.php:124
 #: libraries/classes/Util.php:1874 libraries/classes/Util.php:1890
@@ -10717,7 +10717,7 @@ msgstr "නෛත්‍යක"
 #: libraries/classes/Menu.php:411
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:993
+#: libraries/classes/Plugins/Export/ExportSql.php:992
 #: libraries/classes/Plugins/Export/ExportXml.php:104
 #: libraries/classes/Util.php:1873 templates/database/events/index.twig:3
 msgid "Events"
@@ -11562,7 +11562,7 @@ msgstr "දත්ත නික්ෂේපන විකල්ප"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:192
 #: libraries/classes/Plugins/Export/ExportOdt.php:248
-#: libraries/classes/Plugins/Export/ExportSql.php:2293
+#: libraries/classes/Plugins/Export/ExportSql.php:2289
 #: libraries/classes/Plugins/Export/ExportTexytext.php:176
 msgid "Dumping data for table"
 msgstr "වගු සඳහා නික්ෂේප දත්ත"
@@ -11654,21 +11654,21 @@ msgstr "අර්ථ දැක්වීම"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:538
 #: libraries/classes/Plugins/Export/ExportOdt.php:666
-#: libraries/classes/Plugins/Export/ExportSql.php:2032
+#: libraries/classes/Plugins/Export/ExportSql.php:2028
 #: libraries/classes/Plugins/Export/ExportTexytext.php:503
 msgid "Table structure for table"
 msgstr "වගුවක් සඳහා වගු සැකිල්ල"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:556
 #: libraries/classes/Plugins/Export/ExportOdt.php:697
-#: libraries/classes/Plugins/Export/ExportSql.php:2083
+#: libraries/classes/Plugins/Export/ExportSql.php:2079
 #: libraries/classes/Plugins/Export/ExportTexytext.php:528
 msgid "Structure for view"
 msgstr "දසුන සඳහා සැකිල්ල"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:562
 #: libraries/classes/Plugins/Export/ExportOdt.php:716
-#: libraries/classes/Plugins/Export/ExportSql.php:2115
+#: libraries/classes/Plugins/Export/ExportSql.php:2111
 #: libraries/classes/Plugins/Export/ExportTexytext.php:543
 msgid "Stand-in structure for view"
 msgstr "දසුන සැදීම සඳහා තාවකාලික සැකිල්ල"
@@ -11766,7 +11766,7 @@ msgstr "PHP අනුවාදය:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:244
 #: libraries/classes/Plugins/Export/ExportSql.php:930
-#: libraries/classes/Plugins/Export/ExportXml.php:383
+#: libraries/classes/Plugins/Export/ExportXml.php:382
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:201
 #: templates/database/structure/copy_form.twig:5
 #: templates/menu/breadcrumbs.twig:16
@@ -11774,7 +11774,7 @@ msgid "Database:"
 msgstr "දත්තගබඩාව:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:310
-#: libraries/classes/Plugins/Export/ExportSql.php:2169
+#: libraries/classes/Plugins/Export/ExportSql.php:2165
 msgid "Data:"
 msgstr "දත්ත:"
 
@@ -11898,7 +11898,7 @@ msgid "Data creation options"
 msgstr "දත්ත සෑදීමේ විකල්ප"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:401
-#: libraries/classes/Plugins/Export/ExportSql.php:2251
+#: libraries/classes/Plugins/Export/ExportSql.php:2247
 msgid "Truncate table before insert"
 msgstr "ඇතුල් කිරීම් වලට පෙර වගුව හිස් කරන්න"
 
@@ -11978,113 +11978,113 @@ msgid "It appears your database uses routines;"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:586
-#: libraries/classes/Plugins/Export/ExportSql.php:1575
-#: libraries/classes/Plugins/Export/ExportSql.php:2071
+#: libraries/classes/Plugins/Export/ExportSql.php:1571
+#: libraries/classes/Plugins/Export/ExportSql.php:2067
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1045
+#: libraries/classes/Plugins/Export/ExportSql.php:1044
 #, fuzzy
 #| msgid "Missing data for %s"
 msgid "Metadata"
 msgstr "%s සඳහා දත්ත නොමැත"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1111
+#: libraries/classes/Plugins/Export/ExportSql.php:1110
 #, fuzzy, php-format
 #| msgid "Missing data for %s"
 msgid "Metadata for table %s"
 msgstr "%s සඳහා දත්ත නොමැත"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1118
+#: libraries/classes/Plugins/Export/ExportSql.php:1117
 #, fuzzy, php-format
 #| msgid "Missing data for %s"
 msgid "Metadata for database %s"
 msgstr "%s සඳහා දත්ත නොමැත"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1416
+#: libraries/classes/Plugins/Export/ExportSql.php:1412
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:629
 msgid "Creation:"
 msgstr "සෑදීම:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1426
+#: libraries/classes/Plugins/Export/ExportSql.php:1422
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:640
 msgid "Last update:"
 msgstr "අවසන් යාවත්කාලීන කිරීම:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1436
+#: libraries/classes/Plugins/Export/ExportSql.php:1432
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:651
 msgid "Last check:"
 msgstr "අවසන් පරීක්ෂාව:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1487
+#: libraries/classes/Plugins/Export/ExportSql.php:1483
 #, fuzzy, php-format
 #| msgid "Table structure for table"
 msgid "Error reading structure for table %s:"
 msgstr "වගුවක් සඳහා වගු සැකිල්ල"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1572
+#: libraries/classes/Plugins/Export/ExportSql.php:1568
 msgid "It appears your database uses views;"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1737
+#: libraries/classes/Plugins/Export/ExportSql.php:1733
 msgid "Constraints for dumped tables"
 msgstr "නික්ෂේපනය කරන ලද වගු සඳහා සීමා බාධක"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1738
+#: libraries/classes/Plugins/Export/ExportSql.php:1734
 msgid "Constraints for table"
 msgstr "වගුව සඳහා සීමා බාධක"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1765
+#: libraries/classes/Plugins/Export/ExportSql.php:1761
 #, fuzzy
 #| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
 msgstr "නික්ෂේපනය කරන ලද වගු සඳහා සීමා බාධක"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1766
+#: libraries/classes/Plugins/Export/ExportSql.php:1762
 #, fuzzy
 #| msgid "Inside tables:"
 msgid "Indexes for table"
 msgstr "වගු තුල:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1801
+#: libraries/classes/Plugins/Export/ExportSql.php:1797
 #, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "ශුන්‍ය අගයන් සඳහා AUTO_INCREMENT භාවිතා නොකරන්න"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1802
+#: libraries/classes/Plugins/Export/ExportSql.php:1798
 #, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT අගයක් එක් කරන්න"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1877
+#: libraries/classes/Plugins/Export/ExportSql.php:1873
 #, fuzzy
 #| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "MIME TYPES FOR TABLE"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1902
+#: libraries/classes/Plugins/Export/ExportSql.php:1898
 #, fuzzy
 #| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "RELATIONS FOR TABLE"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2068
+#: libraries/classes/Plugins/Export/ExportSql.php:2064
 msgid "It appears your table uses triggers;"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2098
+#: libraries/classes/Plugins/Export/ExportSql.php:2094
 #, fuzzy, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
 msgstr "දසුන සඳහා සැකිල්ල"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2118
+#: libraries/classes/Plugins/Export/ExportSql.php:2114
 msgid "(See below for the actual view)"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2184
+#: libraries/classes/Plugins/Export/ExportSql.php:2180
 #, fuzzy, php-format
 #| msgid "Error reading data:"
 msgid "Error reading data for table %s:"
@@ -12150,7 +12150,7 @@ msgid "Column names:"
 msgstr "තීර නම්: "
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:286
-#: libraries/classes/Plugins/Import/ImportCsv.php:646
+#: libraries/classes/Plugins/Import/ImportCsv.php:644
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "CSV ආනයනයේ %d පේළියේ වැරදි ආකෘතියක්."
@@ -12160,15 +12160,15 @@ msgstr "CSV ආනයනයේ %d පේළියේ වැරදි ආකෘ�
 msgid "Invalid column count in CSV input on line %d."
 msgstr "CSV අදානයේ %d පේළියේ වැරදි තීර ගණනකි."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:667
-#: libraries/classes/Plugins/Import/ImportCsv.php:682
-#: libraries/classes/Plugins/Import/ImportCsv.php:693
-#: libraries/classes/Plugins/Import/ImportCsv.php:700
+#: libraries/classes/Plugins/Import/ImportCsv.php:665
+#: libraries/classes/Plugins/Import/ImportCsv.php:680
+#: libraries/classes/Plugins/Import/ImportCsv.php:691
+#: libraries/classes/Plugins/Import/ImportCsv.php:698
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "CSV ආනයනය සඳහා වැරදි පරාමිතියක්: %s"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:832
+#: libraries/classes/Plugins/Import/ImportCsv.php:830
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -12270,7 +12270,7 @@ msgstr "%s දත්තගබඩාවේ ක්‍රමානුරූපය -
 msgid "SCHEMA ERROR: "
 msgstr "ක්‍රමානුරූප දෝෂය: "
 
-#: libraries/classes/Plugins/Schema/Pdf/Pdf.php:269
+#: libraries/classes/Plugins/Schema/Pdf/Pdf.php:270
 #, fuzzy
 #| msgid "Invalid export type"
 msgid "PDF export page"
@@ -13425,7 +13425,7 @@ msgstr "මෙම MySQL සේවාදායකයේ %s අක්‍රීය 
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "මෙම MySQL සේවාදායකයේ %s ගබඩා යන්ත්‍රය භාවිත කල නොහැක."
 
-#: libraries/classes/Table/Indexes.php:59 libraries/classes/Table.php:2085
+#: libraries/classes/Table/Indexes.php:59 libraries/classes/Table.php:2087
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr ""
 
@@ -13440,40 +13440,40 @@ msgstr ""
 msgid "Unknown table status:"
 msgstr "වගු තත්වය සඳහා නොහඳුනන අගයක්: "
 
-#: libraries/classes/Table.php:992
+#: libraries/classes/Table.php:990
 #, php-format
 msgid "Source database `%s` was not found!"
 msgstr "`%s` මූලාශ්‍ර දත්තගබඩාව හමු නොවිණි!"
 
-#: libraries/classes/Table.php:1001
+#: libraries/classes/Table.php:999
 #, php-format
 msgid "Target database `%s` was not found!"
 msgstr "`%s` ඉලක්කගත දත්තගබඩාව හමු නොවිණි!"
 
-#: libraries/classes/Table.php:1466
+#: libraries/classes/Table.php:1469
 msgid "Invalid database:"
 msgstr "වලංගු නොවන දත්තගබඩාව:"
 
-#: libraries/classes/Table.php:1484
+#: libraries/classes/Table.php:1487
 msgid "Invalid table name:"
 msgstr "වලංගු නොවන වගු නම:"
 
-#: libraries/classes/Table.php:1518
+#: libraries/classes/Table.php:1521
 #, fuzzy, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "%1$s සිට %2$s දක්වා වගුවේ නම් වෙනස් කිරීමේ දෝෂයක් ඇත"
 
-#: libraries/classes/Table.php:1535
+#: libraries/classes/Table.php:1538
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "%1$s වගුව %2$s ලෙසට නම වෙනස් කරන ලදි."
 
-#: libraries/classes/Table.php:1779
+#: libraries/classes/Table.php:1781
 msgid "Could not save table UI preferences!"
 msgstr "වගු පරිශීලක අතුරුමුහුණත් සඳහා අභිමතයන් සුරැකීම අසමත් විය!"
 
-#: libraries/classes/Table.php:1803
+#: libraries/classes/Table.php:1805
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -13482,7 +13482,7 @@ msgstr ""
 "අතුරුමුහුණත සඳහා තේරීම් අඩංගු ගොනුව පවිත්‍ර කිරීම අසමත් විය ($cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s බලන්න)"
 
-#: libraries/classes/Table.php:1938
+#: libraries/classes/Table.php:1940
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -13492,11 +13492,11 @@ msgstr ""
 "අතුරුමුහුණත් විචල්‍යය \"%s\" සුරැකිය නොහැක. මෙම පිටුව ප්‍රතිපූර්ණයෙන් පසු සිදුකල වෙනස්කම් අහිමි වනු "
 "ඇත. අදාල වගුවේ සැකිල්ල වෙනස් වී ඇත්දැයි පරීක්ෂාකර බලන්න."
 
-#: libraries/classes/Table.php:2097
+#: libraries/classes/Table.php:2099
 msgid "Can't rename index to PRIMARY!"
 msgstr ""
 
-#: libraries/classes/Table.php:2123
+#: libraries/classes/Table.php:2125
 msgid "No index parts defined!"
 msgstr ""
 
