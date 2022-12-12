@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import { AJAX } from './ajax.js';
 import { Navigation } from './navigation.js';
-import { CommonActions, CommonParams } from './common.js';
+import { CommonParams } from './common.js';
 import { Indexes } from './indexes.js';
 import { Config } from './config.js';
 import tooltip from './tooltip.js';
@@ -11,6 +11,7 @@ import handleCreateViewModal from './functions/handleCreateViewModal.js';
 import { escapeHtml } from './functions/escape.js';
 import getImageTag from './functions/getImageTag.js';
 import handleRedirectAndReload from './functions/handleRedirectAndReload.js';
+import refreshMainContent from './functions/refreshMainContent.js';
 
 /* global DatabaseStructure */ // js/database/structure.js
 /* global firstDayOfCalendar, themeImagePath */ // templates/javascript/variables.twig
@@ -1815,7 +1816,7 @@ Functions.onloadCreateTableEvents = function () {
                         var tablesTable = $('#tablesForm').find('tbody').not('#tbl_summary_row');
                         // this is the first table created in this db
                         if (tablesTable.length === 0) {
-                            CommonActions.refreshMain(CommonParams.get('opendb_url'));
+                            refreshMainContent(CommonParams.get('opendb_url'));
                         } else {
                             /**
                              * @var curr_last_row   Object referring to the last <tr> element in {@link tablesTable}

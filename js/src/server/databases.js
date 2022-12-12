@@ -2,10 +2,11 @@ import $ from 'jquery';
 import { AJAX } from '../modules/ajax.js';
 import { Functions } from '../modules/functions.js';
 import { Navigation } from '../modules/navigation.js';
-import { CommonActions, CommonParams } from '../modules/common.js';
+import { CommonParams } from '../modules/common.js';
 import { ajaxShowMessage } from '../modules/ajax-message.js';
 import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.js';
 import { escapeHtml } from '../modules/functions/escape.js';
+import refreshMainContent from '../modules/functions/refreshMainContent.js';
 
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
@@ -68,7 +69,7 @@ const DropDatabases = {
                     $form.find('tbody').sortTable('.name');
                     if ($form.find('tbody').find('tr').length === 0) {
                         // user just dropped the last db on this page
-                        CommonActions.refreshMain();
+                        refreshMainContent();
                     }
                     Navigation.reload();
                 } else {
@@ -132,7 +133,10 @@ function checkPrivilegesForDatabase () {
     var tableRows = $('.server_databases');
     $.each(tableRows, function () {
         $(this).on('click', function () {
-            CommonActions.setDb($(this).attr('data'));
+            const db = $(this).attr('data');
+            if (db !== CommonParams.get('db')) {
+                CommonParams.setAll({ 'db': db, 'table': '' });
+            }
         });
     });
 }

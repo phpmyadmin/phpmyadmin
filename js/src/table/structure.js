@@ -2,12 +2,13 @@ import $ from 'jquery';
 import { AJAX } from '../modules/ajax.js';
 import { Functions } from '../modules/functions.js';
 import { Navigation } from '../modules/navigation.js';
-import { CommonActions, CommonParams } from '../modules/common.js';
+import { CommonParams } from '../modules/common.js';
 import highlightSql from '../modules/sql-highlight.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
 import { Indexes } from '../modules/indexes.js';
 import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.js';
 import { escapeHtml } from '../modules/functions/escape.js';
+import refreshMainContent from '../modules/functions/refreshMainContent.js';
 
 /**
  * @fileoverview    functions used on the table structure page
@@ -106,7 +107,7 @@ AJAX.registerOnload('table/structure.js', function () {
                             }
                         });
                     } else {
-                        CommonActions.refreshMain('index.php?route=/table/structure');
+                        refreshMainContent('index.php?route=/table/structure');
                     }
                 } else {
                     ajaxShowMessage(data.error, false);

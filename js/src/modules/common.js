@@ -104,52 +104,6 @@ const CommonParams = (function () {
     };
 }());
 
-/**
- * Holds common parameters such as server, db, table, etc
- *
- * The content for this is normally loaded from Header.php or
- * Response.php and executed by ajax.js
- */
-const CommonActions = {
-    /**
-     * Saves the database name when it's changed
-     * and reloads the query window, if necessary
-     *
-     * @param {string} newDb new_db The name of the new database
-     *
-     * @return {void}
-     */
-    setDb: function (newDb) {
-        if (newDb !== CommonParams.get('db')) {
-            CommonParams.setAll({ 'db': newDb, 'table': '' });
-        }
-    },
-    /**
-     * Refreshes the main frame
-     *
-     * @param {any} url Undefined to refresh to the same page
-     *                  String to go to a different page, e.g: 'index.php'
-     *
-     * @return {void}
-     */
-    refreshMain: function (url) {
-        var newUrl = url;
-        if (! newUrl) {
-            newUrl = $('#selflink').find('a').attr('href') || window.location.pathname;
-            newUrl = newUrl.substring(0, newUrl.indexOf('?'));
-        }
-        if (newUrl.indexOf('?') !== -1) {
-            newUrl += CommonParams.getUrlQuery(CommonParams.get('arg_separator'));
-        } else {
-            newUrl += CommonParams.getUrlQuery('?');
-        }
-        $('<a></a>', { href: newUrl })
-            .appendTo('body')
-            .trigger('click')
-            .remove();
-    }
-};
-
 window.CommonParams = CommonParams;
 
-export { CommonActions, CommonParams };
+export { CommonParams };

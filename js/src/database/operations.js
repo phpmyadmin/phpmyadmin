@@ -2,10 +2,11 @@ import $ from 'jquery';
 import { AJAX } from '../modules/ajax.js';
 import { Functions } from '../modules/functions.js';
 import { Navigation } from '../modules/navigation.js';
-import { CommonActions, CommonParams } from '../modules/common.js';
+import { CommonParams } from '../modules/common.js';
 import { ajaxShowMessage } from '../modules/ajax-message.js';
 import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.js';
 import { escapeHtml } from '../modules/functions/escape.js';
+import refreshMainContent from '../modules/functions/refreshMainContent.js';
 
 /**
  * @fileoverview    function used in server privilege pages
@@ -106,7 +107,7 @@ AJAX.registerOnload('database/operations.js', function () {
             if (typeof data !== 'undefined' && data.success === true) {
                 if ($('#checkbox_switch').is(':checked')) {
                     CommonParams.set('db', data.newname);
-                    CommonActions.refreshMain(false);
+                    refreshMainContent(false);
                     AJAX.callback = () => {
                         ajaxShowMessage(data.message);
                     };
@@ -169,7 +170,7 @@ AJAX.registerOnload('database/operations.js', function () {
                     // Database deleted successfully, refresh both the frames
                     Navigation.reload();
                     CommonParams.set('db', '');
-                    CommonActions.refreshMain('index.php?route=/server/databases');
+                    refreshMainContent('index.php?route=/server/databases');
                     AJAX.callback = () => {
                         ajaxShowMessage(data.message);
                     };

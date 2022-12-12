@@ -2,10 +2,11 @@ import $ from 'jquery';
 import { AJAX } from './ajax.js';
 import { Functions } from './functions.js';
 import { Navigation } from './navigation.js';
-import { CommonActions, CommonParams } from './common.js';
+import { CommonParams } from './common.js';
 import highlightSql from './sql-highlight.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.js';
 import getJsConfirmCommonParam from './functions/getJsConfirmCommonParam.js';
+import refreshMainContent from './functions/refreshMainContent.js';
 
 /**
  * @fileoverview    function used for index manipulation pages
@@ -698,7 +699,7 @@ Indexes.on = () => function () {
                         highlightSql($('#page_content'));
                     }
                     Navigation.reload();
-                    CommonActions.refreshMain('index.php?route=/table/structure');
+                    refreshMainContent('index.php?route=/table/structure');
                 } else {
                     ajaxShowMessage(window.Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
@@ -734,7 +735,7 @@ Indexes.on = () => function () {
         Functions.indexEditorDialog(url, title, function (data) {
             CommonParams.set('db', data.params.db);
             CommonParams.set('table', data.params.table);
-            CommonActions.refreshMain('index.php?route=/table/structure');
+            refreshMainContent('index.php?route=/table/structure');
         });
     });
 
@@ -749,7 +750,7 @@ Indexes.on = () => function () {
         Functions.indexRenameDialog(url, title, function (data) {
             CommonParams.set('db', data.params.db);
             CommonParams.set('table', data.params.table);
-            CommonActions.refreshMain('index.php?route=/table/structure');
+            refreshMainContent('index.php?route=/table/structure');
         });
     });
 

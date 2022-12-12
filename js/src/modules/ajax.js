@@ -36,7 +36,6 @@ const AJAX = {
     // eslint-disable-next-line valid-jsdoc
     /**
      * @var {Function} callback Callback to execute after a successful request
-     *                          Used by CommonActions from common.js
      */
     callback: function () {
     },

@@ -1,9 +1,10 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.js';
-import { CommonActions, CommonParams } from '../modules/common.js';
+import { CommonParams } from '../modules/common.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
 import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.js';
 import { escapeHtml } from '../modules/functions/escape.js';
+import refreshMainContent from '../modules/functions/refreshMainContent.js';
 
 /**
  * for table relation
@@ -247,7 +248,7 @@ AJAX.registerOnload('table/relation.js', function () {
             $.post(url, params, function (data) {
                 if (data.success === true) {
                     ajaxRemoveMessage($msg);
-                    CommonActions.refreshMain(false);
+                    refreshMainContent(false);
                     AJAX.callback = () => {
                         // Do nothing
                     };

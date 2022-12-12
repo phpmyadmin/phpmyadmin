@@ -2,11 +2,12 @@ import $ from 'jquery';
 import { AJAX } from '../modules/ajax.js';
 import { Functions } from '../modules/functions.js';
 import { Navigation } from '../modules/navigation.js';
-import { CommonActions, CommonParams } from '../modules/common.js';
+import { CommonParams } from '../modules/common.js';
 import highlightSql from '../modules/sql-highlight.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
 import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.js';
 import { escapeHtml } from '../modules/functions/escape.js';
+import refreshMainContent from '../modules/functions/refreshMainContent.js';
 
 /**
  * Unbind all event handlers before tearing down a page
@@ -91,7 +92,7 @@ AJAX.registerOnload('table/operations.js', function () {
                         'table',
                         $form.find('input[name=\'new_name\']').val()
                     );
-                    CommonActions.refreshMain(false);
+                    refreshMainContent(false);
                     AJAX.callback = () => {
                         ajaxShowMessage(data.message);
                     };
@@ -118,7 +119,7 @@ AJAX.registerOnload('table/operations.js', function () {
             if (typeof data !== 'undefined' && data.success === true) {
                 CommonParams.set('db', data.params.db);
                 CommonParams.set('table', data.params.table);
-                CommonActions.refreshMain('index.php?route=/table/sql');
+                refreshMainContent('index.php?route=/table/sql');
                 AJAX.callback = () => {
                     ajaxShowMessage(data.message);
                 };
@@ -168,7 +169,7 @@ AJAX.registerOnload('table/operations.js', function () {
             $.post($form.attr('action'), $form.serialize(), function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     CommonParams.set('table', data.params.table);
-                    CommonActions.refreshMain(false);
+                    refreshMainContent(false);
                     AJAX.callback = () => {
                         $('#page_content').html(data.message);
                         highlightSql($('#page_content'));
@@ -293,7 +294,7 @@ AJAX.registerOnload('table/operations.js', function () {
                     // Table deleted successfully, refresh both the frames
                     Navigation.reload();
                     CommonParams.set('table', '');
-                    CommonActions.refreshMain(CommonParams.get('opendb_url'));
+                    refreshMainContent(CommonParams.get('opendb_url'));
                     AJAX.callback = () => {
                         ajaxShowMessage(data.message);
                     };
@@ -325,7 +326,7 @@ AJAX.registerOnload('table/operations.js', function () {
                     // Table deleted successfully, refresh both the frames
                     Navigation.reload();
                     CommonParams.set('table', '');
-                    CommonActions.refreshMain(CommonParams.get('opendb_url'));
+                    refreshMainContent(CommonParams.get('opendb_url'));
                     AJAX.callback = () => {
                         ajaxShowMessage(data.message);
                     };

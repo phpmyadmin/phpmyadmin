@@ -1,8 +1,9 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.js';
 import { Functions } from '../modules/functions.js';
-import { CommonActions, CommonParams } from '../modules/common.js';
+import { CommonParams } from '../modules/common.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
+import refreshMainContent from '../modules/functions/refreshMainContent.js';
 
 /**
  * @package PhpMyAdmin-Designer
@@ -1340,13 +1341,13 @@ DesignerMove.newRelation = function () {
 // -------------------------- create tables -------------------------------------
 DesignerMove.startTableNew = function () {
     CommonParams.set('table', '');
-    CommonActions.refreshMain('index.php?route=/table/create');
+    refreshMainContent('index.php?route=/table/create');
 };
 
 DesignerMove.startTabUpd = function (db, table) {
     CommonParams.set('db', db);
     CommonParams.set('table', table);
-    CommonActions.refreshMain('index.php?route=/table/structure');
+    refreshMainContent('index.php?route=/table/structure');
 };
 
 // --------------------------- hide tables --------------------------------------
