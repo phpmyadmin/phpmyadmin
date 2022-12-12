@@ -1,11 +1,11 @@
 import $ from 'jquery';
-import { Functions } from './functions.js';
 import { CommonParams } from './common.js';
 import { Config } from './config.js';
 import tooltip from './tooltip.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.js';
 import handleCreateViewModal from './functions/handleCreateViewModal.js';
 import { getConfigValue, setConfigValue } from './functions/config.js';
+import handleRedirectAndReload from './functions/handleRedirectAndReload.js';
 
 /**
  * function used in or for navigation panel
@@ -1039,7 +1039,7 @@ Navigation.treePagination = function ($this) {
             }
         } else {
             ajaxShowMessage(data.error);
-            Functions.handleRedirectAndReload(data);
+            handleRedirectAndReload(data);
         }
         Navigation.treeStateUpdate();
     });

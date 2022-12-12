@@ -10,6 +10,7 @@ import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.js';
 import handleCreateViewModal from './functions/handleCreateViewModal.js';
 import { escapeHtml } from './functions/escape.js';
 import getImageTag from './functions/getImageTag.js';
+import handleRedirectAndReload from './functions/handleRedirectAndReload.js';
 
 /* global DatabaseStructure */ // js/database/structure.js
 /* global firstDayOfCalendar, maxInputVars, themeImagePath */ // templates/javascript/variables.twig
@@ -207,25 +208,6 @@ Functions.addDateTimePicker = function () {
                 tooltip($(this), 'input', window.Messages.strMysqlAllowedValuesTipDate);
             }
         });
-    }
-};
-
-/**
- * Handle redirect and reload flags sent as part of AJAX requests
- *
- * @param data ajax response data
- */
-Functions.handleRedirectAndReload = function (data) {
-    if (parseInt(data.redirect_flag) === 1) {
-        // add one more GET param to display session expiry msg
-        if (window.location.href.indexOf('?') === -1) {
-            window.location.href += '?session_expired=1';
-        } else {
-            window.location.href += CommonParams.get('arg_separator') + 'session_expired=1';
-        }
-        window.location.reload();
-    } else if (parseInt(data.reload_flag) === 1) {
-        window.location.reload();
     }
 };
 
@@ -864,7 +846,7 @@ Functions.onloadIdleEvent = function () {
                         $('input[name=token]').val(data.new_token);
                     }
                     idleSecondsCounter = 0;
-                    Functions.handleRedirectAndReload(data);
+                    handleRedirectAndReload(data);
                 }
             }
         });

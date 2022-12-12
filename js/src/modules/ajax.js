@@ -7,6 +7,7 @@ import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.js';
 import { escapeHtml } from './functions/escape.js';
 import getImageTag from './functions/getImageTag.js';
 import { ignorePhpErrors } from './functions/ignorePhpErrors.js';
+import handleRedirectAndReload from './functions/handleRedirectAndReload.js';
 
 /**
  * This object handles ajax requests for pages. It also
@@ -453,7 +454,7 @@ const AJAX = {
             ajaxShowMessage(data.error, false);
             AJAX.active = false;
             AJAX.xhr = null;
-            Functions.handleRedirectAndReload(data);
+            handleRedirectAndReload(data);
             if (data.fieldWithError) {
                 $(':input.error').removeClass('error');
                 $('#' + data.fieldWithError).addClass('error');
@@ -624,7 +625,7 @@ const AJAX = {
             $('html, body').animate({ scrollTop: $(document).height() }, 200);
             AJAX.active = false;
             AJAX.xhr = null;
-            Functions.handleRedirectAndReload(data);
+            handleRedirectAndReload(data);
             if (data.fieldWithError) {
                 $(':input.error').removeClass('error');
                 $('#' + data.fieldWithError).addClass('error');
