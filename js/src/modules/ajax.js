@@ -8,6 +8,7 @@ import { escapeHtml } from './functions/escape.js';
 import getImageTag from './functions/getImageTag.js';
 import { ignorePhpErrors } from './functions/ignorePhpErrors.js';
 import handleRedirectAndReload from './functions/handleRedirectAndReload.js';
+import checkNumberOfFields from './functions/checkNumberOfFields.js';
 
 /**
  * This object handles ajax requests for pages. It also
@@ -538,7 +539,7 @@ const AJAX = {
                         '<div id=\'page_content\'>' + data.message + '</div>'
                     );
                     highlightSql($('#page_content'));
-                    Functions.checkNumberOfFields();
+                    checkNumberOfFields();
                 }
 
                 if (data.selflink) {

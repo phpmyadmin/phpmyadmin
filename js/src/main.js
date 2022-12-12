@@ -7,6 +7,7 @@ import { PageSettings } from './modules/page_settings.js';
 import { crossFramingProtection } from './modules/cross_framing_protection.js';
 import { Indexes } from './modules/indexes.js';
 import { Config } from './modules/config.js';
+import checkNumberOfFields from './modules/functions/checkNumberOfFields.js';
 
 AJAX.registerOnload('main.js', () => AJAX.removeSubmitEvents());
 $(AJAX.loadEventHandler());
@@ -42,7 +43,7 @@ $(Navigation.onload());
 AJAX.registerTeardown('main.js', Indexes.off());
 AJAX.registerOnload('main.js', Indexes.on());
 
-$(() => Functions.checkNumberOfFields());
+$(() => checkNumberOfFields());
 
 AJAX.registerTeardown('main.js', () => {
     PageSettings.off();

@@ -13,7 +13,7 @@ import getImageTag from './functions/getImageTag.js';
 import handleRedirectAndReload from './functions/handleRedirectAndReload.js';
 
 /* global DatabaseStructure */ // js/database/structure.js
-/* global firstDayOfCalendar, maxInputVars, themeImagePath */ // templates/javascript/variables.twig
+/* global firstDayOfCalendar, themeImagePath */ // templates/javascript/variables.twig
 
 /**
  * General functions, usually for data manipulation pages.
@@ -3518,30 +3518,6 @@ Functions.formatDateTime = function (date, seconds) {
             second: date.getSeconds()
         }
     );
-};
-
-/**
- * Check than forms have less fields than max allowed by PHP.
- * @return {boolean}
- */
-Functions.checkNumberOfFields = function () {
-    if (typeof maxInputVars === 'undefined') {
-        return false;
-    }
-    if (false === maxInputVars) {
-        return false;
-    }
-    $('form').each(function () {
-        var nbInputs = $(this).find(':input').length;
-        if (nbInputs > maxInputVars) {
-            var warning = window.sprintf(window.Messages.strTooManyInputs, maxInputVars);
-            ajaxShowMessage(warning);
-            return false;
-        }
-        return true;
-    });
-
-    return true;
 };
 
 /**
