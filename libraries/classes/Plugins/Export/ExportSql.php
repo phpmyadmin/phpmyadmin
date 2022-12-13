@@ -2023,7 +2023,7 @@ class ExportSql extends ExportPlugin
      */
     public function exportRawQuery(string $errorUrl, string $sqlQuery, string $crlf): bool
     {
-        return $this->export->outputHandler($sqlQuery);
+        return $this->exportData('', '', $crlf, $errorUrl, $sqlQuery);
     }
 
     /**
