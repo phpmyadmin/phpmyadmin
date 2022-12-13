@@ -117,4 +117,6 @@ jobs:
         run: composer phpstan -- --memory-limit 2G
 
       - name: Analyse files with Psalm
+        # Allow the previous check to fail but not abort
+        if: always()
         run: composer psalm -- --shepherd
