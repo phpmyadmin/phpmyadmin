@@ -62,6 +62,8 @@ jobs:
         run: composer validate --strict
 
       - name: Install Composer dependencies
+        # Allow the previous check to fail but not abort
+        if: always()
         uses: ramsey/composer-install@v2
         with:
           dependency-versions: highest
@@ -69,18 +71,26 @@ jobs:
           composer-options: "--ignore-platform-req=ext-zip"
 
       - name: Cache coding-standard
+        # Allow the previous check to fail but not abort
+        if: always()
         uses: actions/cache@v3
         with:
           path: .phpcs-cache
           key: phpcs-cache
 
       - name: Lint PHP files
+        # Allow the previous check to fail but not abort
+        if: always()
         run: ./test/ci-phplint
 
       - name: Check coding-standard
+        # Allow the previous check to fail but not abort
+        if: always()
         run: composer phpcs
 
       - name: Check Twig templates
+        # Allow the previous check to fail but not abort
+        if: always()
         run: composer run twig-lint
 
   analyse-php:
