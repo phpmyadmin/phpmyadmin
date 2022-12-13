@@ -135,7 +135,7 @@ abstract class ExportPlugin implements Plugin
      *
      * @param string $errorUrl the url to go back in case of error
      * @param string $sqlQuery the rawquery to output
-     * @param string $crlf     the seperator for a file
+     * @param string $crlf     the separator for a file
      */
     public function exportRawQuery(
         string $errorUrl,
