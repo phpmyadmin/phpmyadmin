@@ -1998,10 +1998,11 @@
       <code>$whatStrucOrData</code>
       <code>$whatStrucOrData</code>
     </InvalidArgument>
-    <MixedArgument occurrences="46">
+    <MixedArgument occurrences="47">
       <code>$allrows</code>
       <code>$allrows</code>
       <code>$cfg['MemoryLimit']</code>
+      <code>$db</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>

@@ -133,12 +133,14 @@ abstract class ExportPlugin implements Plugin
     /**
      * Outputs for raw query
      *
-     * @param string $errorUrl the url to go back in case of error
-     * @param string $sqlQuery the rawquery to output
-     * @param string $crlf     the separator for a file
+     * @param string      $errorUrl the url to go back in case of error
+     * @param string|null $db       the database where the query is executed
+     * @param string      $sqlQuery the rawquery to output
+     * @param string      $crlf     the end of line sequence
      */
     public function exportRawQuery(
         string $errorUrl,
+        ?string $db,
         string $sqlQuery,
         string $crlf
     ): bool {
