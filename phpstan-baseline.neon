@@ -1311,8 +1311,78 @@ parameters:
 			path: libraries/classes/Controllers/ErrorReportController.php
 
 		-
+			message: "#^Call to an undefined method object\\:\\:exportFooter\\(\\)\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Export/ExportController.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:exportHeader\\(\\)\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Export/ExportController.php
+
+		-
 			message: "#^PHPDoc tag @var for variable \\$aliasesParam has no value type specified in iterable type array\\.$#"
 			count: 1
+			path: libraries/classes/Controllers/Export/ExportController.php
+
+		-
+			message: "#^Parameter \\#1 \\$dbSelect of method PhpMyAdmin\\\\Export\\:\\:exportServer\\(\\) expects array\\|string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Export/ExportController.php
+
+		-
+			message: "#^Parameter \\#1 \\$exportPlugin of method PhpMyAdmin\\\\Export\\:\\:getFinalFilenameAndMimetypeForFilename\\(\\) expects PhpMyAdmin\\\\Plugins\\\\ExportPlugin, object given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Export/ExportController.php
+
+		-
+			message: "#^Parameter \\#11 \\$allrows of method PhpMyAdmin\\\\Export\\:\\:exportTable\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Export/ExportController.php
+
+		-
+			message: "#^Parameter \\#12 \\$limitTo of method PhpMyAdmin\\\\Export\\:\\:exportTable\\(\\) expects string, mixed given\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Export/ExportController.php
+
+		-
+			message: "#^Parameter \\#13 \\$limitFrom of method PhpMyAdmin\\\\Export\\:\\:exportTable\\(\\) expects string, mixed given\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Export/ExportController.php
+
+		-
+			message: "#^Parameter \\#2 \\$exportPlugin of static method PhpMyAdmin\\\\Export\\:\\:exportRaw\\(\\) expects PhpMyAdmin\\\\Plugins\\\\ExportPlugin, object given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Export/ExportController.php
+
+		-
+			message: "#^Parameter \\#2 \\$rememberTemplate of method PhpMyAdmin\\\\Export\\:\\:getFilenameAndMimetype\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Export/ExportController.php
+
+		-
+			message: "#^Parameter \\#3 \\$exportPlugin of method PhpMyAdmin\\\\Export\\:\\:exportServer\\(\\) expects PhpMyAdmin\\\\Plugins\\\\ExportPlugin, object given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Export/ExportController.php
+
+		-
+			message: "#^Parameter \\#3 \\$exportPlugin of method PhpMyAdmin\\\\Export\\:\\:getFilenameAndMimetype\\(\\) expects PhpMyAdmin\\\\Plugins\\\\ExportPlugin, object given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Export/ExportController.php
+
+		-
+			message: "#^Parameter \\#4 \\$exportPlugin of method PhpMyAdmin\\\\Export\\:\\:exportTable\\(\\) expects PhpMyAdmin\\\\Plugins\\\\ExportPlugin, object given\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Export/ExportController.php
+
+		-
+			message: "#^Parameter \\#5 \\$filenameTemplate of method PhpMyAdmin\\\\Export\\:\\:getFilenameAndMimetype\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Export/ExportController.php
+
+		-
+			message: "#^Parameter \\#6 \\$exportPlugin of method PhpMyAdmin\\\\Export\\:\\:exportDatabase\\(\\) expects PhpMyAdmin\\\\Plugins\\\\ExportPlugin, object given\\.$#"
+			count: 2
 			path: libraries/classes/Controllers/Export/ExportController.php
 
 		-

@@ -1862,24 +1862,21 @@
   </file>
   <file src="libraries/classes/Controllers/Export/ExportController.php">
     <ArgumentTypeCoercion occurrences="8">
-      <code>$GLOBALS['export_plugin']</code>
-      <code>$GLOBALS['export_plugin']</code>
-      <code>$GLOBALS['export_plugin']</code>
-      <code>$GLOBALS['export_plugin']</code>
-      <code>$GLOBALS['export_plugin']</code>
-      <code>$GLOBALS['export_plugin']</code>
-      <code>$GLOBALS['export_plugin']</code>
-      <code>$GLOBALS['export_plugin']</code>
+      <code>$exportPlugin</code>
+      <code>$exportPlugin</code>
+      <code>$exportPlugin</code>
+      <code>$exportPlugin</code>
+      <code>$exportPlugin</code>
+      <code>$exportPlugin</code>
+      <code>$exportPlugin</code>
+      <code>$exportPlugin</code>
     </ArgumentTypeCoercion>
     <InvalidArgument occurrences="2">
       <code>$GLOBALS['asfile']</code>
       <code>$GLOBALS['file_handle']</code>
     </InvalidArgument>
     <MixedArgument occurrences="32">
-      <code>$GLOBALS['allrows']</code>
-      <code>$GLOBALS['allrows']</code>
       <code>$GLOBALS['cfg']['MemoryLimit']</code>
-      <code>$GLOBALS['db_select']</code>
       <code>$GLOBALS['export_type']</code>
       <code>$GLOBALS['export_type']</code>
       <code>$GLOBALS['export_type']</code>
@@ -1888,40 +1885,39 @@
       <code>$GLOBALS['export_type']</code>
       <code>$GLOBALS['export_type']</code>
       <code>$GLOBALS['export_type']</code>
-      <code>$GLOBALS['filename_template']</code>
-      <code>$GLOBALS['limit_from']</code>
-      <code>$GLOBALS['limit_from']</code>
-      <code>$GLOBALS['limit_to']</code>
-      <code>$GLOBALS['limit_to']</code>
-      <code>$GLOBALS['remember_template']</code>
       <code>$GLOBALS['table_data']</code>
       <code>$GLOBALS['table_data']</code>
-      <code>$GLOBALS['table_structure']</code>
-      <code>$GLOBALS['table_structure']</code>
       <code>$GLOBALS['tables']</code>
       <code>$GLOBALS['tables']</code>
       <code>$GLOBALS['tables']</code>
       <code>$GLOBALS['tables']</code>
-      <code>$GLOBALS['whatStrucOrData']</code>
-      <code>$GLOBALS['whatStrucOrData']</code>
-      <code>$GLOBALS['whatStrucOrData']</code>
-      <code>$GLOBALS['whatStrucOrData']</code>
-      <code>$GLOBALS['whatStrucOrData']</code>
-      <code>$GLOBALS['whatStrucOrData']</code>
+      <code>$allrows</code>
+      <code>$allrows</code>
+      <code>$dbSelect</code>
+      <code>$limitFrom</code>
+      <code>$limitFrom</code>
+      <code>$limitTo</code>
+      <code>$limitTo</code>
+      <code>$rememberTemplate</code>
+      <code>$request-&gt;getParsedBodyParam('filename_template')</code>
+      <code>$tableStructure</code>
+      <code>$tableStructure</code>
+      <code>$whatStrucOrData</code>
+      <code>$whatStrucOrData</code>
+      <code>$whatStrucOrData</code>
+      <code>$whatStrucOrData</code>
+      <code>$whatStrucOrData</code>
+      <code>$whatStrucOrData</code>
     </MixedArgument>
     <MixedArrayAssignment occurrences="1">
       <code>$_SESSION['tmpval']['aliases']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="148">
+    <MixedAssignment occurrences="122">
       <code>$GLOBALS['active_page']</code>
-      <code>$GLOBALS['allrows']</code>
-      <code>$GLOBALS['allrows']</code>
-      <code>$GLOBALS['as_separate_files']</code>
       <code>$GLOBALS['charset']</code>
       <code>$GLOBALS['codegen_format']</code>
       <code>$GLOBALS['codegen_structure_or_data']</code>
       <code>$GLOBALS['compression']</code>
-      <code>$GLOBALS['compression_methods']</code>
       <code>$GLOBALS['csv_columns']</code>
       <code>$GLOBALS['csv_enclosed']</code>
       <code>$GLOBALS['csv_escaped']</code>
@@ -1930,25 +1926,14 @@
       <code>$GLOBALS['csv_separator']</code>
       <code>$GLOBALS['csv_structure_or_data']</code>
       <code>$GLOBALS['csv_terminated']</code>
-      <code>$GLOBALS['db_select']</code>
-      <code>$GLOBALS['db_select']</code>
-      <code>$GLOBALS['do_comments']</code>
-      <code>$GLOBALS['do_dates']</code>
-      <code>$GLOBALS['do_mime']</code>
-      <code>$GLOBALS['do_relation']</code>
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['excel_columns']</code>
       <code>$GLOBALS['excel_edition']</code>
       <code>$GLOBALS['excel_null']</code>
       <code>$GLOBALS['excel_removeCRLF']</code>
       <code>$GLOBALS['excel_structure_or_data']</code>
-      <code>$GLOBALS['export_method']</code>
-      <code>$GLOBALS['export_plugin']</code>
       <code>$GLOBALS['export_type']</code>
       <code>$GLOBALS['export_type']</code>
-      <code>$GLOBALS['filename']</code>
-      <code>$GLOBALS['filename_template']</code>
-      <code>$GLOBALS['filename_template']</code>
       <code>$GLOBALS['htmlword_columns']</code>
       <code>$GLOBALS['htmlword_null']</code>
       <code>$GLOBALS['htmlword_structure_or_data']</code>
@@ -1969,17 +1954,10 @@
       <code>$GLOBALS['latex_structure_continued_caption']</code>
       <code>$GLOBALS['latex_structure_label']</code>
       <code>$GLOBALS['latex_structure_or_data']</code>
-      <code>$GLOBALS['limit_from']</code>
-      <code>$GLOBALS['limit_from']</code>
-      <code>$GLOBALS['limit_to']</code>
-      <code>$GLOBALS['limit_to']</code>
-      <code>$GLOBALS['lock_tables']</code>
-      <code>$GLOBALS['lock_tables']</code>
       <code>$GLOBALS['maxsize']</code>
       <code>$GLOBALS['mediawiki_caption']</code>
       <code>$GLOBALS['mediawiki_headers']</code>
       <code>$GLOBALS['mediawiki_structure_or_data']</code>
-      <code>$GLOBALS['mime_type']</code>
       <code>$GLOBALS['num_tables']</code>
       <code>$GLOBALS['ods_columns']</code>
       <code>$GLOBALS['ods_null']</code>
@@ -1990,16 +1968,9 @@
       <code>$GLOBALS['odt_null']</code>
       <code>$GLOBALS['odt_relation']</code>
       <code>$GLOBALS['odt_structure_or_data']</code>
-      <code>$GLOBALS['onserver']</code>
-      <code>$GLOBALS['output_format']</code>
       <code>$GLOBALS['pdf_structure_or_data']</code>
       <code>$GLOBALS['phparray_structure_or_data']</code>
-      <code>$GLOBALS['quick_export']</code>
-      <code>$GLOBALS['quick_or_custom']</code>
-      <code>$GLOBALS['remember_template']</code>
-      <code>$GLOBALS['remember_template']</code>
       <code>$GLOBALS['save_filename']</code>
-      <code>$GLOBALS['separate_files']</code>
       <code>$GLOBALS['single_table']</code>
       <code>$GLOBALS['single_table']</code>
       <code>$GLOBALS['sql_auto_increment']</code>
@@ -2039,9 +2010,6 @@
       <code>$GLOBALS['table_data']</code>
       <code>$GLOBALS['table_select']</code>
       <code>$GLOBALS['table_select']</code>
-      <code>$GLOBALS['table_structure']</code>
-      <code>$GLOBALS['table_structure']</code>
-      <code>$GLOBALS['table_structure']</code>
       <code>$GLOBALS['tables']</code>
       <code>$GLOBALS['tables']</code>
       <code>$GLOBALS['texytext_columns']</code>
@@ -2049,8 +2017,6 @@
       <code>$GLOBALS['texytext_structure_or_data']</code>
       <code>$GLOBALS['time_start']</code>
       <code>$GLOBALS['what']</code>
-      <code>$GLOBALS['whatStrucOrData']</code>
-      <code>$GLOBALS['whatStrucOrData']</code>
       <code>$GLOBALS['xkana']</code>
       <code>$GLOBALS['xml_export_contents']</code>
       <code>$GLOBALS['xml_export_events']</code>
@@ -2061,29 +2027,37 @@
       <code>$GLOBALS['xml_export_views']</code>
       <code>$GLOBALS['xml_structure_or_data']</code>
       <code>$GLOBALS['yaml_structure_or_data']</code>
+      <code>$allrows</code>
+      <code>$dbSelect</code>
+      <code>$limitFrom</code>
+      <code>$limitTo</code>
+      <code>$rememberTemplate</code>
+      <code>$tableStructure</code>
+      <code>$tableStructure</code>
+      <code>$whatStrucOrData</code>
     </MixedAssignment>
     <MixedMethodCall occurrences="2">
       <code>exportFooter</code>
       <code>exportHeader</code>
     </MixedMethodCall>
     <PossiblyInvalidArgument occurrences="6">
-      <code>$GLOBALS['whatStrucOrData']</code>
-      <code>$GLOBALS['whatStrucOrData']</code>
-      <code>$GLOBALS['whatStrucOrData']</code>
-      <code>$GLOBALS['whatStrucOrData']</code>
-      <code>$GLOBALS['whatStrucOrData']</code>
-      <code>$GLOBALS['whatStrucOrData']</code>
+      <code>$whatStrucOrData</code>
+      <code>$whatStrucOrData</code>
+      <code>$whatStrucOrData</code>
+      <code>$whatStrucOrData</code>
+      <code>$whatStrucOrData</code>
+      <code>$whatStrucOrData</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast occurrences="6">
-      <code>$GLOBALS['whatStrucOrData']</code>
-      <code>$GLOBALS['whatStrucOrData']</code>
-      <code>$GLOBALS['whatStrucOrData']</code>
-      <code>$GLOBALS['whatStrucOrData']</code>
-      <code>$GLOBALS['whatStrucOrData']</code>
-      <code>$GLOBALS['whatStrucOrData']</code>
+      <code>$whatStrucOrData</code>
+      <code>$whatStrucOrData</code>
+      <code>$whatStrucOrData</code>
+      <code>$whatStrucOrData</code>
+      <code>$whatStrucOrData</code>
+      <code>$whatStrucOrData</code>
     </PossiblyInvalidCast>
     <PossiblyInvalidPropertyAssignmentValue occurrences="2"/>
-    <PossiblyNullArgument occurrences="10">
+    <PossiblyNullArgument occurrences="9">
       <code>$GLOBALS['charset']</code>
       <code>$GLOBALS['export_type']</code>
       <code>$GLOBALS['export_type']</code>
@@ -2093,7 +2067,6 @@
       <code>$GLOBALS['export_type']</code>
       <code>$GLOBALS['export_type']</code>
       <code>$GLOBALS['export_type']</code>
-      <code>$GLOBALS['filename_template']</code>
     </PossiblyNullArgument>
     <RedundantCondition occurrences="2">
       <code>! $GLOBALS['save_on_server']</code>
@@ -2447,10 +2420,9 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$key</code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="14">
+    <MixedAssignment occurrences="13">
       <code>$GLOBALS['all_ok']</code>
       <code>$GLOBALS['cf']</code>
-      <code>$GLOBALS['filename']</code>
       <code>$GLOBALS['form_display']</code>
       <code>$GLOBALS['json']</code>
       <code>$GLOBALS['new_config']</code>
