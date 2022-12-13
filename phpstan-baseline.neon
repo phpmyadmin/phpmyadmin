@@ -2066,22 +2066,22 @@ parameters:
 			path: libraries/classes/Database/Designer/Common.php
 
 		-
-			message: "#^Offset 'DCN' does not exist on array\\{C_NAME\\: array\\{\\}\\}\\|array\\{C_NAME\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DCN\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DTN\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>, SCN\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, STN\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>\\}\\.$#"
+			message: "#^Offset 'DCN' does not exist on array\\{C_NAME\\: array\\<int\\<0, max\\>, string\\>, DCN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DTN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>, SCN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, STN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>\\}\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer/Common.php
 
 		-
-			message: "#^Offset 'DTN' does not exist on array\\{C_NAME\\: array\\{\\}\\}\\|array\\{C_NAME\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DCN\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DTN\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>, SCN\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, STN\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>\\}\\.$#"
+			message: "#^Offset 'DTN' does not exist on array\\{C_NAME\\: array\\<int\\<0, max\\>, string\\>, DCN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DTN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>, SCN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, STN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>\\}\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer/Common.php
 
 		-
-			message: "#^Offset 'SCN' does not exist on array\\{C_NAME\\: array\\{\\}\\}\\|array\\{C_NAME\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DCN\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DTN\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>, SCN\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, STN\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>\\}\\.$#"
+			message: "#^Offset 'SCN' does not exist on array\\{C_NAME\\: array\\<int\\<0, max\\>, string\\>, DCN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DTN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>, SCN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, STN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>\\}\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer/Common.php
 
 		-
-			message: "#^Offset 'STN' does not exist on array\\{C_NAME\\: array\\{\\}\\}\\|array\\{C_NAME\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DCN\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DTN\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>, SCN\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, STN\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>\\}\\.$#"
+			message: "#^Offset 'STN' does not exist on array\\{C_NAME\\: array\\<int\\<0, max\\>, string\\>, DCN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DTN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>, SCN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, STN\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>\\}\\.$#"
 			count: 2
 			path: libraries/classes/Database/Designer/Common.php
 
