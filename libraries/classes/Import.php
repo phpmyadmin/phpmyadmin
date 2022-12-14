@@ -398,10 +398,9 @@ class Import
         // UTF-8
         if (str_starts_with($contents, "\xEF\xBB\xBF")) {
             return substr($contents, 3);
-
-            // UTF-16 BE, LE
         }
 
+        // UTF-16 BE, LE
         if (str_starts_with($contents, "\xFE\xFF") || str_starts_with($contents, "\xFF\xFE")) {
             return substr($contents, 2);
         }

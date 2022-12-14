@@ -17,11 +17,6 @@
     <MixedArrayAccess occurrences="1">
       <code>$rule['id']</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;runResult[$type][]</code>
-      <code>$this-&gt;runResult[$type][]</code>
-      <code>$this-&gt;runResult['errors'][]</code>
-    </MixedArrayAssignment>
     <MixedAssignment occurrences="4">
       <code>$params</code>
       <code>$precondition</code>
@@ -31,8 +26,7 @@
     <MixedOperand occurrences="1">
       <code>$rule['justification_formula']</code>
     </MixedOperand>
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>$runResult</code>
+    <PropertyNotSetInConstructor occurrences="1">
       <code>$variables</code>
     </PropertyNotSetInConstructor>
     <UnusedClosureParam occurrences="7">

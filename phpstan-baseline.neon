@@ -7,7 +7,7 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Advisory\\\\Advisor\\:\\:getRunResult\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
+			count: 4
 			path: libraries/classes/Advisory/Advisor.php
 
 		-
@@ -22,7 +22,7 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Advisory\\\\Advisor\\:\\:run\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
+			count: 4
 			path: libraries/classes/Advisory/Advisor.php
 
 		-
@@ -37,7 +37,7 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Advisory\\\\Advisor\\:\\:\\$runResult type has no value type specified in iterable type array\\.$#"
-			count: 1
+			count: 4
 			path: libraries/classes/Advisory/Advisor.php
 
 		-
