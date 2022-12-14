@@ -2148,21 +2148,27 @@
     <DocblockTypeContradiction occurrences="1">
       <code>$import_plugin == null</code>
     </DocblockTypeContradiction>
-    <InvalidArgument occurrences="1">
-      <code>$GLOBALS['urlParams']</code>
-    </InvalidArgument>
     <InvalidArrayOffset occurrences="1">
       <code>$GLOBALS['cfg']['AllowUserDropDatabase']</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="7">
+    <MixedArgument occurrences="13">
       <code>$GLOBALS['cfg']['AllowUserDropDatabase']</code>
       <code>$GLOBALS['cfg']['MemoryLimit']</code>
+      <code>$GLOBALS['format']</code>
       <code>$GLOBALS['import_notice']</code>
+      <code>$GLOBALS['local_import_file']</code>
       <code>$_SESSION['Import_message']['go_back_url']</code>
       <code>$die['error']</code>
       <code>$die['sql']</code>
       <code>$importHandle ?? null</code>
+      <code>$request-&gt;getParsedBodyParam('bkm_label')</code>
+      <code>$request-&gt;getParsedBodyParam('bkm_label')</code>
+      <code>$request-&gt;getParsedBodyParam('sql_query')</code>
+      <code>$request-&gt;getParsedBodyParam('sql_query')</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$GLOBALS['urlParams']</code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="3">
       <code>$_SESSION['Import_message']['go_back_url']</code>
       <code>$die['error']</code>
@@ -2180,56 +2186,54 @@
       <code>$_SESSION['Import_message']['message']</code>
       <code>$_SESSION['Import_message']['message']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="22">
+    <MixedAssignment occurrences="35">
+      <code>$GLOBALS['MAX_FILE_SIZE']</code>
       <code>$GLOBALS['active_page']</code>
       <code>$GLOBALS['ajax_reload']</code>
       <code>$GLOBALS['charset_conversion']</code>
+      <code>$GLOBALS['charset_of_file']</code>
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['executed_queries']</code>
+      <code>$GLOBALS['format']</code>
       <code>$GLOBALS['go_sql']</code>
       <code>$GLOBALS['import_file']</code>
       <code>$GLOBALS['import_notice']</code>
+      <code>$GLOBALS['import_type']</code>
+      <code>$GLOBALS['is_js_confirmed']</code>
+      <code>$GLOBALS['local_import_file']</code>
       <code>$GLOBALS['max_sql_len']</code>
       <code>$GLOBALS['maximum_time']</code>
+      <code>$GLOBALS['message_to_show']</code>
       <code>$GLOBALS['msg']</code>
       <code>$GLOBALS['my_die']</code>
+      <code>$GLOBALS['noplugin']</code>
       <code>$GLOBALS['read_multiply']</code>
       <code>$GLOBALS['reload']</code>
       <code>$GLOBALS['reset_charset']</code>
       <code>$GLOBALS['result']</code>
       <code>$GLOBALS['run_query']</code>
+      <code>$GLOBALS['show_as_php']</code>
+      <code>$GLOBALS['skip_queries']</code>
       <code>$GLOBALS['sql_file']</code>
       <code>$GLOBALS['sql_query_disabled']</code>
       <code>$GLOBALS['timeout_passed']</code>
       <code>$GLOBALS['timestamp']</code>
+      <code>$GLOBALS['urlParams']['local_import_file']</code>
+      <code>$bookmark_variables</code>
+      <code>$console_message_id</code>
       <code>$die</code>
     </MixedAssignment>
     <MixedMethodCall occurrences="1">
       <code>close</code>
     </MixedMethodCall>
-    <PossiblyInvalidArgument occurrences="8">
-      <code>$GLOBALS['format']</code>
-      <code>$GLOBALS['local_import_file']</code>
-      <code>$_POST['bkm_label']</code>
-      <code>$_POST['bkm_label']</code>
-      <code>$_POST['bookmark_variable']</code>
-      <code>$_POST['sql_query']</code>
-      <code>$_POST['sql_query']</code>
-      <code>$skip &lt; $GLOBALS['read_limit'] ? $skip : $GLOBALS['read_limit']</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="6">
-      <code>$GLOBALS['format']</code>
-      <code>$GLOBALS['local_import_file']</code>
-      <code>$_POST['bkm_label']</code>
-      <code>$_POST['bkm_label']</code>
-      <code>$_POST['sql_query']</code>
-      <code>$_POST['sql_query']</code>
-    </PossiblyInvalidCast>
-    <PossiblyInvalidOperand occurrences="3">
+    <MixedOperand occurrences="3">
       <code>$GLOBALS['charset_of_file']</code>
       <code>$GLOBALS['format']</code>
       <code>$GLOBALS['local_import_file']</code>
-    </PossiblyInvalidOperand>
+    </MixedOperand>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$skip &lt; $GLOBALS['read_limit'] ? $skip : $GLOBALS['read_limit']</code>
+    </PossiblyInvalidArgument>
     <PossiblyNullArgument occurrences="1">
       <code>$GLOBALS['collation_connection']</code>
     </PossiblyNullArgument>
@@ -2241,9 +2245,6 @@
       <code>$GLOBALS['offset'] == 0</code>
       <code>$GLOBALS['result'] === false</code>
     </RedundantCondition>
-    <RiskyCast occurrences="1">
-      <code>$_POST['id_bookmark']</code>
-    </RiskyCast>
     <TypeDoesNotContainType occurrences="3">
       <code>$GLOBALS['finished']</code>
       <code>$GLOBALS['result']</code>
@@ -2251,8 +2252,9 @@
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Controllers/Import/StatusController.php">
-    <MixedArgument occurrences="1">
+    <MixedArgument occurrences="2">
       <code>$_SESSION['Import_message']['message'] ?? ''</code>
+      <code>$request-&gt;getQueryParam('id')</code>
     </MixedArgument>
     <MixedArrayAssignment occurrences="1">
       <code>$_SESSION['Import_message']['message']</code>
@@ -2262,12 +2264,6 @@
       <code>$GLOBALS['timestamp']</code>
       <code>$GLOBALS['upload_id']</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$_GET['id']</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="1">
-      <code>$_GET['id']</code>
-    </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Controllers/LintController.php">
     <MixedAssignment occurrences="1">
@@ -4861,12 +4857,6 @@
       <code>$index_array1</code>
       <code>$index_array2</code>
     </PossiblyNullArrayOffset>
-    <PossiblyUndefinedArrayOffset occurrences="4">
-      <code>$con['DCN']</code>
-      <code>$con['DTN']</code>
-      <code>$con['SCN']</code>
-      <code>$con['STN']</code>
-    </PossiblyUndefinedArrayOffset>
   </file>
   <file src="libraries/classes/Database/Events.php">
     <DeprecatedMethod occurrences="9">

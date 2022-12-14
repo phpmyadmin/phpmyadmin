@@ -138,7 +138,7 @@ final class ImportController extends AbstractController
         // (eg. non import, but query box/window run)
         if (! empty($GLOBALS['sql_query'])) {
             // apply values for parameters
-            /** @var array<string, string> $parameters */
+            /** @var array<string, string>|null $parameters */
             $parameters = $request->getParsedBodyParam('parameters');
             if ($request->hasBodyParam('parameterized') && is_array($parameters)) {
                 foreach ($parameters as $parameter => $replacementValue) {

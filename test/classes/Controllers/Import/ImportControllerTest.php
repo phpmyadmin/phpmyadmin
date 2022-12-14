@@ -53,9 +53,14 @@ class ImportControllerTest extends AbstractTestCase
         $request->method('getParsedBodyParam')->willReturnMap([
             ['db', null, $GLOBALS['db']],
             ['table', null, $GLOBALS['table']],
-            ['parameterized', null, 'on'],
             ['parameters', null, [':nomEta' => 'Saint-Louis - Châteaulin', ':1' => '4']],
             ['sql_query', null, $GLOBALS['sql_query']],
+        ]);
+        $request->method('hasBodyParam')->willReturnMap([
+            ['parameterized', true],
+            ['rollback_query', false],
+            ['allow_interrupt', false],
+            ['skip', false],
         ]);
 
         $this->dummyDbi->addResult(

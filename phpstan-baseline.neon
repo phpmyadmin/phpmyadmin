@@ -1426,6 +1426,26 @@ parameters:
 			path: libraries/classes/Controllers/HomeController.php
 
 		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Import/ImportController.php
+
+		-
+			message: "#^Parameter \\#4 \\$sqlQueryForBookmark of method PhpMyAdmin\\\\Sql\\:\\:storeTheQueryAsBookmark\\(\\) expects string, mixed given\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Import/ImportController.php
+
+		-
+			message: "#^Parameter \\#5 \\$bookmarkLabel of method PhpMyAdmin\\\\Sql\\:\\:storeTheQueryAsBookmark\\(\\) expects string, mixed given\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Import/ImportController.php
+
+		-
+			message: "#^Parameter \\#1 \\$id of static method PhpMyAdmin\\\\Import\\\\Ajax\\:\\:status\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Import/StatusController.php
+
+		-
 			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\Navigation\\\\Navigation\\:\\:getItemUnhideDialog\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/NavigationController.php
@@ -2393,26 +2413,6 @@ parameters:
 		-
 			message: "#^Method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:removeRelation\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
-			message: "#^Offset 'DCN' does not exist on array\\{C_NAME\\: array\\{\\}\\}\\|array\\{C_NAME\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DCN\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DTN\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>, SCN\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, STN\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>\\}\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
-			message: "#^Offset 'DTN' does not exist on array\\{C_NAME\\: array\\{\\}\\}\\|array\\{C_NAME\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DCN\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DTN\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>, SCN\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, STN\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>\\}\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
-			message: "#^Offset 'SCN' does not exist on array\\{C_NAME\\: array\\{\\}\\}\\|array\\{C_NAME\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DCN\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DTN\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>, SCN\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, STN\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>\\}\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
-			message: "#^Offset 'STN' does not exist on array\\{C_NAME\\: array\\{\\}\\}\\|array\\{C_NAME\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DCN\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, DTN\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>, SCN\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, STN\\: non\\-empty\\-array\\<int\\<0, max\\>, non\\-falsy\\-string\\>\\}\\.$#"
-			count: 2
 			path: libraries/classes/Database/Designer/Common.php
 
 		-
@@ -5981,6 +5981,11 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Export/ExportSql.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql\\:\\:exportData\\(\\) has parameter \\$aliases with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
@@ -9044,11 +9049,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\VersionInformation\\:\\:getLatestVersion\\(\\) should return stdClass\\|null but returns object\\.$#"
 			count: 1
 			path: libraries/classes/VersionInformation.php
-
-		-
-			message: "#^Call to function is_array\\(\\) with array will always evaluate to true\\.$#"
-			count: 1
-			path: libraries/classes/ZipExtension.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\ZipExtension\\:\\:createFile\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
