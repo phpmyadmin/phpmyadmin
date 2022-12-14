@@ -13168,7 +13168,7 @@
       <code>$optionsArray[$existrelForeign[$masterFieldMd5]['on_delete'] ?? '']</code>
       <code>$optionsArray[$existrelForeign[$masterFieldMd5]['on_update'] ?? '']</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="48">
+    <MixedAssignment occurrences="49">
       <code>$GLOBALS['errorUrl']</code>
       <code>$altered</code>
       <code>$altered</code>
@@ -13182,6 +13182,7 @@
       <code>$createTable</code>
       <code>$currCreateTime</code>
       <code>$eachCol</code>
+      <code>$exactRowsCached</code>
       <code>$foreignDb</code>
       <code>$foreignDb</code>
       <code>$foreignField</code>

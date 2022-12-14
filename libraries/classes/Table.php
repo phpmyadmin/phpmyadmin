@@ -714,46 +714,24 @@ class Table implements Stringable
     public function countRecords($forceExact = false)
     {
         $isView = $this->isView();
-        $db = $this->dbName;
-        $table = $this->name;
+        $cache = $this->dbi->getCache();
 
-        if ($this->dbi->getCache()->getCachedTableContent([$db, $table, 'ExactRows']) != null) {
-            return $this->dbi->getCache()->getCachedTableContent(
-                [
-                    $db,
-                    $table,
-                    'ExactRows',
-                ]
-            );
+        $exactRowsCached = $cache->getCachedTableContent([$this->dbName, $this->name, 'ExactRows']);
+        if ($exactRowsCached != null) {
+            return $exactRowsCached;
         }
 
         $rowCount = false;
 
         if (! $forceExact) {
-            if (($this->dbi->getCache()->getCachedTableContent([$db, $table, 'Rows']) == null) && ! $isView) {
-                $tmpTables = $this->dbi->getTablesFull($db, $table);
-                if (isset($tmpTables[$table])) {
-                    $this->dbi->getCache()->cacheTableContent(
-                        [
-                            $db,
-                            $table,
-                        ],
-                        $tmpTables[$table]
-                    );
+            if (($cache->getCachedTableContent([$this->dbName, $this->name, 'Rows']) == null) && ! $isView) {
+                $tmpTables = $this->dbi->getTablesFull($this->dbName, $this->name);
+                if (isset($tmpTables[$this->name])) {
+                    $cache->cacheTableContent([$this->dbName, $this->name], $tmpTables[$this->name]);
                 }
             }
 
-            if ($this->dbi->getCache()->getCachedTableContent([$db, $table, 'Rows']) != null) {
-                $rowCount = $this->dbi->getCache()->getCachedTableContent(
-                    [
-                        $db,
-                        $table,
-                        'Rows',
-                    ]
-                );
-            } else {
-                $rowCount = false;
-            }
+            $rowCount = $cache->getCachedTableContent([$this->dbName, $this->name, 'Rows']) ?? false;
         }
 
         // for a VIEW, $row_count is always false at this point
@@ -763,8 +741,7 @@ class Table implements Stringable
 
         if (! $isView) {
             $rowCount = $this->dbi->fetchValue(
-                'SELECT COUNT(*) FROM ' . Util::backquote($db) . '.'
-                . Util::backquote($table)
+                'SELECT COUNT(*) FROM ' . Util::backquote($this->dbName) . '.' . Util::backquote($this->name)
             );
         } else {
             // For complex views, even trying to get a partial record
@@ -780,8 +757,8 @@ class Table implements Stringable
                 // Use try_query because it can fail (when a VIEW is
                 // based on a table that no longer exists)
                 $result = $this->dbi->tryQuery(
-                    'SELECT 1 FROM ' . Util::backquote($db) . '.'
-                    . Util::backquote($table) . ' LIMIT '
+                    'SELECT 1 FROM ' . Util::backquote($this->dbName) . '.'
+                    . Util::backquote($this->name) . ' LIMIT '
                     . $GLOBALS['cfg']['MaxExactCountViews']
                 );
                 if ($result) {
@@ -791,7 +768,7 @@ class Table implements Stringable
         }
 
         if ($rowCount) {
-            $this->dbi->getCache()->cacheTableContent([$db, $table, 'ExactRows'], $rowCount);
+            $cache->cacheTableContent([$this->dbName, $this->name, 'ExactRows'], $rowCount);
         }
 
         return $rowCount;
