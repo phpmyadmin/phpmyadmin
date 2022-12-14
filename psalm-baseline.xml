@@ -5147,14 +5147,7 @@
     <PossiblyNullOperand occurrences="1">
       <code>$index['Column_name']</code>
     </PossiblyNullOperand>
-    <PossiblyNullPropertyAssignmentValue occurrences="1">
-      <code>null</code>
-    </PossiblyNullPropertyAssignmentValue>
-    <PropertyNotSetInConstructor occurrences="6">
-      <code>$columnNames</code>
-      <code>$criteriaTables</code>
-      <code>$formAliases</code>
-      <code>$formSortOrders</code>
+    <PropertyNotSetInConstructor occurrences="2">
       <code>$newColumnCount</code>
       <code>$newRowCount</code>
     </PropertyNotSetInConstructor>

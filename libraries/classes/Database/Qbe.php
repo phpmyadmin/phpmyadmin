@@ -56,13 +56,13 @@ class Qbe
      *
      * @var array
      */
-    private $criteriaTables;
+    private $criteriaTables = [];
     /**
      * Column Names
      *
      * @var array
      */
-    private $columnNames;
+    private $columnNames = [];
     /**
      * Number of columns
      *
@@ -140,37 +140,37 @@ class Qbe
      *
      * @var array
      */
-    private $formColumns;
+    private $formColumns = [];
     /**
      * Entered aliases in the form
      *
      * @var array
      */
-    private $formAliases;
+    private $formAliases = [];
     /**
      * Chosen sort options in the form
      *
      * @var array
      */
-    private $formSorts;
+    private $formSorts = [];
     /**
      * Chosen sort orders in the form
      *
      * @var array
      */
-    private $formSortOrders;
+    private $formSortOrders = [];
     /**
      * Show checkboxes in the form
      *
      * @var array
      */
-    private $formShows;
+    private $formShows = [];
     /**
      * Entered criteria values in the form
      *
      * @var array
      */
-    private $formCriterions;
+    private $formCriterions = [];
     /**
      * AND/OR column radio buttons in the form
      *
@@ -200,7 +200,7 @@ class Qbe
      *
      * @var array
      */
-    private $savedSearchList = null;
+    private $savedSearchList = [];
     /**
      * Current search
      *
@@ -961,8 +961,7 @@ class Qbe
 
             $select = $this->formColumns[$columnIndex];
             if (! empty($this->formAliases[$columnIndex])) {
-                $select .= ' AS '
-                    . Util::backquote($this->formAliases[$columnIndex]);
+                $select .= ' AS ' . Util::backquote($this->formAliases[$columnIndex]);
             }
 
             $selectClauses[] = $select;
@@ -1077,7 +1076,7 @@ class Qbe
         $columns = $this->formColumns;
         $sort = $this->formSorts;
         $sortOrder = $this->formSortOrders;
-        if (! empty($sortOrder) && count($sortOrder) == count($sort) && count($sortOrder) == count($columns)) {
+        if ($sortOrder !== [] && count($sortOrder) === count($sort) && count($sortOrder) === count($columns)) {
             // Sort all three arrays based on sort order
             array_multisort($sortOrder, $sort, $columns);
         }
@@ -1360,7 +1359,7 @@ class Qbe
     private function getFromClause(array $formColumns)
     {
         $fromClause = '';
-        if (empty($formColumns)) {
+        if ($formColumns === []) {
             return $fromClause;
         }
 
@@ -1639,10 +1638,6 @@ class Qbe
         $urlParams['db'] = $this->db;
         $urlParams['criteriaColumnCount'] = $this->newColumnCount;
         $urlParams['rows'] = $this->newRowCount;
-
-        if (empty($this->formColumns)) {
-            $this->formColumns = [];
-        }
 
         $sqlQuery = $this->getSQLQuery($this->formColumns);
 
