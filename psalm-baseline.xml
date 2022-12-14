@@ -3276,10 +3276,10 @@
       <code>$column</code>
       <code>$column</code>
       <code>$column</code>
-      <code>$column_types[$i]</code>
       <code>$row[0]</code>
       <code>$row[0]</code>
       <code>$row[1]</code>
+      <code>$this-&gt;columnTypes[$i]</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="3">
       <code>$row[0]</code>
@@ -3290,13 +3290,14 @@
       <code>$result[$index][1]</code>
     </MixedArrayAssignment>
     <MixedArrayOffset occurrences="1">
-      <code>$types[$column_names[$i]]</code>
+      <code>$types[$columnName]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="6">
+    <MixedAssignment occurrences="7">
       <code>$GLOBALS['errorUrl']</code>
       <code>$column</code>
       <code>$column</code>
       <code>$column</code>
+      <code>$columnName</code>
       <code>$row</code>
       <code>$row</code>
     </MixedAssignment>

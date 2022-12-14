@@ -132,19 +132,16 @@ class FindReplaceController extends AbstractController
             $GLOBALS['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
         }
 
-        $column_names = $this->columnNames;
-        $column_types = $this->columnTypes;
         $types = [];
-        $num_cols = count($column_names);
-        for ($i = 0; $i < $num_cols; $i++) {
-            $types[$column_names[$i]] = preg_replace('@\\(.*@s', '', $column_types[$i]);
+        foreach ($this->columnNames as $i => $columnName) {
+            $types[$columnName] = preg_replace('@\\(.*@s', '', $this->columnTypes[$i]);
         }
 
         $this->render('table/find_replace/index', [
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
             'goto' => $GLOBALS['goto'],
-            'column_names' => $column_names,
+            'column_names' => $this->columnNames,
             'types' => $types,
             'sql_types' => $this->dbi->types,
         ]);
