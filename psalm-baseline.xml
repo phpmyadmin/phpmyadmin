@@ -5133,7 +5133,7 @@
       <code>$this-&gt;criteriaTables</code>
       <code>$this-&gt;criteriaTables</code>
     </InvalidPropertyAssignmentValue>
-    <MixedArgument occurrences="29">
+    <MixedArgument occurrences="28">
       <code>$column</code>
       <code>$columns[$columnIndex]</code>
       <code>$eachColumn['Field']</code>
@@ -5156,7 +5156,6 @@
       <code>$this-&gt;formAndOrCols[$lastOrWhere]</code>
       <code>$this-&gt;formAndOrCols[$lastWhere]</code>
       <code>$this-&gt;formCriterions[$newColumnCount]</code>
-      <code>$tmpCriteria</code>
       <code>$tmpCriteria</code>
       <code>$unfinalized</code>
       <code>$uniqueColumns</code>
