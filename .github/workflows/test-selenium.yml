@@ -30,7 +30,7 @@ jobs:
           --health-retries=3
 
       selenium-server:
-        image: selenium/standalone-chrome:3.141.59
+        image: selenium/standalone-chrome:4
         volumes:
           - /dev/shm:/dev/shm
         options: >-
