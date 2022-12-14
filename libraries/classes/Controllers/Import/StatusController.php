@@ -46,7 +46,7 @@ class StatusController
         ] = Ajax::uploadProgressSetup();
 
         // $_GET["message"] is used for asking for an import message
-        if (isset($_GET['message']) && $_GET['message']) {
+        if ($request->hasQueryParam('message')) {
             // AJAX requests can't be cached!
             foreach (Core::getNoCacheHeaders() as $name => $value) {
                 header(sprintf('%s: %s', $name, $value));
@@ -84,7 +84,7 @@ class StatusController
                 ]);
             }
         } else {
-            Ajax::status($_GET['id']);
+            Ajax::status($request->getQueryParam('id'));
         }
     }
 }
