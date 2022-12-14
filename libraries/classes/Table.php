@@ -221,15 +221,13 @@ class Table implements Stringable
      */
     public function isView(): bool
     {
-        $db = $this->dbName;
-        $table = $this->name;
-        if (empty($db) || empty($table)) {
+        if ($this->dbName === '' || $this->name === '') {
             return false;
         }
 
         // use cached data or load information with SHOW command
         if (
-            $this->dbi->getCache()->getCachedTableContent([$db, $table]) != null
+            $this->dbi->getCache()->getCachedTableContent([$this->dbName, $this->name]) != null
             || $GLOBALS['cfg']['Server']['DisableIS']
         ) {
             $type = $this->getStatusInfo('TABLE_TYPE');
@@ -238,7 +236,7 @@ class Table implements Stringable
         }
 
         // information_schema tables are 'SYSTEM VIEW's
-        if ($db === 'information_schema') {
+        if ($this->dbName === 'information_schema') {
             return true;
         }
 
@@ -246,8 +244,8 @@ class Table implements Stringable
         $result = $this->dbi->fetchResult(
             'SELECT TABLE_NAME'
             . ' FROM information_schema.VIEWS'
-            . ' WHERE TABLE_SCHEMA = ' . $this->dbi->quoteString($db)
-            . ' AND TABLE_NAME = ' . $this->dbi->quoteString($table)
+            . ' WHERE TABLE_SCHEMA = ' . $this->dbi->quoteString($this->dbName)
+            . ' AND TABLE_NAME = ' . $this->dbi->quoteString($this->name)
         );
 
         return (bool) $result;
@@ -258,7 +256,7 @@ class Table implements Stringable
      */
     public function isUpdatableView(): bool
     {
-        if (empty($this->dbName) || empty($this->name)) {
+        if ($this->dbName === '' || $this->name === '') {
             return false;
         }
 
@@ -302,20 +300,17 @@ class Table implements Stringable
         $forceRead = false,
         $disableError = false
     ) {
-        $db = $this->dbName;
-        $table = $this->name;
-
         if (! empty($_SESSION['is_multi_query'])) {
             $disableError = true;
         }
 
-        $cachedResult = $this->dbi->getCache()->getCachedTableContent([$db, $table]);
+        $cachedResult = $this->dbi->getCache()->getCachedTableContent([$this->dbName, $this->name]);
 
         // sometimes there is only one entry (ExactRows) so
         // we have to get the table's details
         if ($cachedResult === null || $forceRead || count($cachedResult) === 1) {
-            $this->dbi->getTablesFull($db, $table);
-            $cachedResult = $this->dbi->getCache()->getCachedTableContent([$db, $table]);
+            $this->dbi->getTablesFull($this->dbName, $this->name);
+            $cachedResult = $this->dbi->getCache()->getCachedTableContent([$this->dbName, $this->name]);
         }
 
         if ($cachedResult === null) {
@@ -341,7 +336,7 @@ class Table implements Stringable
             return false;
         }
 
-        return $this->dbi->getCache()->getCachedTableContent([$db, $table, $info]);
+        return $this->dbi->getCache()->getCachedTableContent([$this->dbName, $this->name, $info]);
     }
 
     /**
@@ -1802,13 +1797,12 @@ class Table implements Stringable
      */
     protected function loadUiPrefs(): void
     {
-        $uiPreferencesFeature = $this->relation->getRelationParameters()->uiPreferencesFeature;
         $serverId = $GLOBALS['server'];
 
         // set session variable if it's still undefined
         if (! isset($_SESSION['tmpval']['table_uiprefs'][$serverId][$this->dbName][$this->name])) {
             // check whether we can get from pmadb
-            $uiPrefs = $this->getUiPrefsFromDb($uiPreferencesFeature);
+            $uiPrefs = $this->getUiPrefsFromDb($this->relation->getRelationParameters()->uiPreferencesFeature);
             $_SESSION['tmpval']['table_uiprefs'][$serverId][$this->dbName][$this->name] = $uiPrefs;
         }
 
