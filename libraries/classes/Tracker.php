@@ -245,7 +245,7 @@ class Tracker
                 . 'DROP VIEW IF EXISTS ' . Util::backquote($tableName) . ";\n";
         }
 
-        $createSql .= self::getLogComment() . $exportSqlPlugin->getTableDef($dbName, $tableName, '');
+        $createSql .= self::getLogComment() . $exportSqlPlugin->getTableDef($dbName, $tableName);
 
         // Save version
         $trackingFeature = $relation->getRelationParameters()->trackingFeature;

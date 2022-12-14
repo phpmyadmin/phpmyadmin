@@ -1056,7 +1056,6 @@ class Table implements Stringable
             $sqlStructure = $exportSqlPlugin->getTableDef(
                 $sourceDb,
                 $sourceTable,
-                "\n",
                 $GLOBALS['errorUrl'],
                 false,
                 false

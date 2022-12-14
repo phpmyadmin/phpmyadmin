@@ -39,9 +39,6 @@ abstract class ExportPlugin implements Plugin
     /** @var Transformations */
     protected $transformations;
 
-    /**
-     * @psalm-suppress InvalidArrayOffset, MixedAssignment, MixedMethodCall
-     */
     final public function __construct(Relation $relation, Export $export, Transformations $transformations)
     {
         $this->relation = $relation;
@@ -176,9 +173,9 @@ abstract class ExportPlugin implements Plugin
     /**
      * Exports metadata from Configuration Storage
      *
-     * @param string       $db            database being exported
-     * @param string|array $tables        table(s) being exported
-     * @param array        $metadataTypes types of metadata to export
+     * @param string          $db            database being exported
+     * @param string|string[] $tables        table(s) being exported
+     * @param string[]        $metadataTypes types of metadata to export
      */
     public function exportMetadata(
         $db,

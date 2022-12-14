@@ -6403,10 +6403,11 @@
       <code>$table</code>
       <code>$view</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="3">
+    <MixedArgumentTypeCoercion occurrences="4">
       <code>$dbSelect</code>
       <code>$nonGeneratedCols</code>
       <code>$nonGeneratedCols</code>
+      <code>$tables</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="1">
       <code>$aliases[$db-&gt;getName()]['alias']</code>
@@ -9611,7 +9612,7 @@
       <code>$GLOBALS['cfg']['Export']</code>
       <code>$GLOBALS['cfg']['Export']</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="51">
+    <MixedArgument occurrences="44">
       <code>$GLOBALS['sql_auto_increments']</code>
       <code>$GLOBALS['sql_auto_increments']</code>
       <code>$GLOBALS['sql_backquotes']</code>
@@ -9648,37 +9649,30 @@
       <code>$engine</code>
       <code>$eventName</code>
       <code>$eventName</code>
-      <code>$mimeField</code>
-      <code>$mimeMap</code>
-      <code>$mime['mimetype']</code>
       <code>$oneKey['ref_index_list'][$index]</code>
       <code>$oneKey['ref_table_name']</code>
       <code>$relFieldAlias</code>
       <code>$relFieldAlias</code>
       <code>$rel['foreign_field']</code>
       <code>$rel['foreign_table']</code>
-      <code>$routine</code>
-      <code>$routine</code>
-      <code>$routine</code>
-      <code>$table</code>
       <code>$token-&gt;value</code>
       <code>$trigger['create']</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="5">
+    <MixedArgumentTypeCoercion occurrences="6">
       <code>$autoIncrement</code>
+      <code>$compats</code>
       <code>$constraints</code>
       <code>$dropped</code>
       <code>$indexes</code>
       <code>$indexesFulltext</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="14">
+    <MixedArrayAccess occurrences="13">
       <code>$GLOBALS['cfg']['Export']['remove_definer_from_definitions']</code>
       <code>$GLOBALS['cfg']['Export']['remove_definer_from_definitions']</code>
       <code>$GLOBALS['cfg']['Export']['remove_definer_from_definitions']</code>
       <code>$aliases[$oldDatabase]['tables']</code>
       <code>$columnAliases[$column['name']]</code>
       <code>$definition['Type']</code>
-      <code>$mime['mimetype']</code>
       <code>$oneKey['index_list']</code>
       <code>$oneKey['ref_index_list']</code>
       <code>$oneKey['ref_table_name']</code>
@@ -9687,17 +9681,17 @@
       <code>$trigger['create']</code>
       <code>$trigger['drop']</code>
     </MixedArrayAccess>
-    <MixedArrayOffset occurrences="4">
+    <MixedArrayOffset occurrences="3">
       <code>$aliases[$db]['tables'][$table]['columns'][$field]</code>
       <code>$aliases[$db]['tables'][$view]['columns'][$colAlias]</code>
       <code>$oneKey['ref_index_list'][$index]</code>
-      <code>$values[$val]</code>
     </MixedArrayOffset>
     <MixedArrayTypeCoercion occurrences="1">
       <code>$row[$j]</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="35">
+    <MixedAssignment occurrences="30">
       <code>$GLOBALS['sql_auto_increments']</code>
+      <code>$GLOBALS['sql_backquotes']</code>
       <code>$GLOBALS['sql_backquotes']</code>
       <code>$GLOBALS['sql_backquotes']</code>
       <code>$GLOBALS['sql_backquotes']</code>
@@ -9716,22 +9710,16 @@
       <code>$field-&gt;name</code>
       <code>$field-&gt;references-&gt;table-&gt;table</code>
       <code>$index</code>
-      <code>$mime</code>
-      <code>$mimeField</code>
       <code>$newDatabase</code>
       <code>$newTable</code>
       <code>$oneKey</code>
       <code>$rel</code>
       <code>$relFieldAlias</code>
       <code>$relFieldAlias</code>
-      <code>$routine</code>
       <code>$statement-&gt;name-&gt;database</code>
       <code>$statement-&gt;name-&gt;table</code>
       <code>$statement-&gt;table-&gt;table</code>
-      <code>$table</code>
       <code>$trigger</code>
-      <code>$val</code>
-      <code>$values[$val]</code>
     </MixedAssignment>
     <MixedOperand occurrences="6">
       <code>$column['Collation']</code>
@@ -9785,7 +9773,8 @@
       <code>$statement-&gt;name-&gt;table</code>
       <code>$statement-&gt;table-&gt;table</code>
     </PossiblyNullPropertyFetch>
-    <PossiblyNullReference occurrences="6">
+    <PossiblyNullReference occurrences="7">
+      <code>has</code>
       <code>has</code>
       <code>has</code>
       <code>remove</code>
@@ -9796,13 +9785,6 @@
     <PropertyTypeCoercion occurrences="1">
       <code>$field-&gt;key-&gt;columns</code>
     </PropertyTypeCoercion>
-    <RedundantCastGivenDocblockType occurrences="1">
-      <code>(string) $table</code>
-    </RedundantCastGivenDocblockType>
-    <ReferenceConstraintViolation occurrences="2">
-      <code>return $sqlQuery;</code>
-      <code>return $statement-&gt;build();</code>
-    </ReferenceConstraintViolation>
     <UnnecessaryVarAnnotation occurrences="2">
       <code>CreateDefinition</code>
       <code>FieldMetadata[]</code>

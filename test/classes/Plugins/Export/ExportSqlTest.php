@@ -839,7 +839,7 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-        $result = $this->object->getTableDef('db', 'table', 'example.com/err', true, true, false);
+        $result = $this->object->getTableDef('db', 'table', true, true, false);
 
         $this->assertStringContainsString('-- Creation: Jan 01, 2000 at 10:00 AM', $result);
 
@@ -941,7 +941,7 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-        $result = $this->object->getTableDef('db', 'table', 'example.com/err', true, true, false);
+        $result = $this->object->getTableDef('db', 'table', true, true, false);
 
         $this->assertStringContainsString('-- Error reading structure for table db.table: error occurred', $result);
     }
@@ -1566,7 +1566,6 @@ class ExportSqlTest extends AbstractTestCase
         ];
 
         $db = 'a';
-        $table = 'foo';
         $sql_query = "CREATE TABLE IF NOT EXISTS foo (\n"
             . "baz tinyint(3) unsigned NOT NULL COMMENT 'Primary Key',\n"
             . 'xyz varchar(255) COLLATE latin1_general_ci NOT NULL '
@@ -1577,7 +1576,7 @@ class ExportSqlTest extends AbstractTestCase
             . "REFERENCES dept_master (baz)\n"
             . ') ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE='
             . "latin1_general_ci COMMENT='List' AUTO_INCREMENT=5";
-        $result = $this->object->replaceWithAliases($sql_query, $aliases, $db, $table);
+        $result = $this->object->replaceWithAliases($sql_query, $aliases, $db);
 
         $this->assertEquals(
             "CREATE TABLE IF NOT EXISTS `bartest` (\n" .
@@ -1589,7 +1588,7 @@ class ExportSqlTest extends AbstractTestCase
             $result
         );
 
-        $result = $this->object->replaceWithAliases($sql_query, [], '', '');
+        $result = $this->object->replaceWithAliases($sql_query, [], '');
 
         $this->assertEquals(
             "CREATE TABLE IF NOT EXISTS foo (\n" .
@@ -1601,7 +1600,6 @@ class ExportSqlTest extends AbstractTestCase
             $result
         );
 
-        $table = 'bar';
         $sql_query = 'CREATE TRIGGER `BEFORE_bar_INSERT` '
             . 'BEFORE INSERT ON `bar` '
             . 'FOR EACH ROW BEGIN '
@@ -1611,7 +1609,7 @@ class ExportSqlTest extends AbstractTestCase
             . 'IF @cnt<>0 THEN '
             . 'SET NEW.xy=1; '
             . 'END IF; END';
-        $result = $this->object->replaceWithAliases($sql_query, $aliases, $db, $table);
+        $result = $this->object->replaceWithAliases($sql_query, $aliases, $db);
 
         $this->assertEquals(
             'CREATE TRIGGER `BEFORE_bar_INSERT` BEFORE INSERT ON `f` FOR EACH ROW BEGIN ' .
