@@ -2131,11 +2131,6 @@ parameters:
 			path: libraries/classes/Controllers/UserPasswordController.php
 
 		-
-			message: "#^Call to function is_array\\(\\) with array will always evaluate to true\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/View/CreateController.php
-
-		-
 			message: "#^PHPDoc tag @var for variable \\$view has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/View/CreateController.php

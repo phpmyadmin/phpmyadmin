@@ -24,7 +24,6 @@ use function array_merge;
 use function explode;
 use function htmlspecialchars;
 use function in_array;
-use function is_array;
 use function is_string;
 use function sprintf;
 use function str_contains;
@@ -281,9 +280,7 @@ class CreateController extends AbstractController
             }
         }
 
-        if (is_array($view)) {
-            $GLOBALS['view'] = array_merge($GLOBALS['view'], $view);
-        }
+        $GLOBALS['view'] = array_merge($GLOBALS['view'], $view);
 
         $GLOBALS['urlParams']['db'] = $GLOBALS['db'];
         $GLOBALS['urlParams']['reload'] = 1;

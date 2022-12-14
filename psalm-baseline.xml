@@ -4196,9 +4196,8 @@
       <code>$_GET['table']</code>
       <code>$_GET['table']</code>
     </PossiblyInvalidCast>
-    <RedundantCondition occurrences="3">
+    <RedundantCondition occurrences="2">
       <code>empty($GLOBALS['view']['as']) &amp;&amp; is_string($createView)</code>
-      <code>is_array($view)</code>
       <code>is_string($createView)</code>
     </RedundantCondition>
     <RedundantConditionGivenDocblockType occurrences="1">
