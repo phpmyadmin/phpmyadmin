@@ -71,7 +71,7 @@ class Search
     /**
      * Criteria Tables to search in
      *
-     * @var array
+     * @var string[]
      */
     private $criteriaTables;
 
@@ -154,35 +154,25 @@ class Search
      *
      * @param string $table The table name
      *
-     * @return array 3 SQL queries (for count, display and delete results)
+     * @return string[] 3 SQL queries (for count, display and delete results)
      *
      * @todo    can we make use of fulltextsearch IN BOOLEAN MODE for this?
-     * PMA_backquote
-     * DatabaseInterface::fetchAssoc
-     * $GLOBALS['db']
-     * explode
-     * count
-     * strlen
      */
-    private function getSearchSqls($table)
+    private function getSearchSqls(string $table): array
     {
         // Statement types
         $sqlstr_select = 'SELECT';
         $sqlstr_delete = 'DELETE';
         // Table to use
-        $sqlstr_from = ' FROM '
-            . Util::backquote($GLOBALS['db']) . '.'
-            . Util::backquote($table);
+        $sqlstr_from = ' FROM ' . Util::backquote($GLOBALS['db']) . '.' . Util::backquote($table);
         // Gets where clause for the query
         $where_clause = $this->getWhereClause($table);
         // Builds complete queries
         $sql = [];
-        $sql['select_columns'] = $sqlstr_select . ' * ' . $sqlstr_from
-            . $where_clause;
+        $sql['select_columns'] = $sqlstr_select . ' * ' . $sqlstr_from . $where_clause;
         // here, I think we need to still use the COUNT clause, even for
         // VIEWs, anyway we have a WHERE clause that should limit results
-        $sql['select_count'] = $sqlstr_select . ' COUNT(*) AS `count`'
-            . $sqlstr_from . $where_clause;
+        $sql['select_count'] = $sqlstr_select . ' COUNT(*) AS `count`' . $sqlstr_from . $where_clause;
         $sql['delete'] = $sqlstr_delete . $sqlstr_from . $where_clause;
 
         return $sql;
