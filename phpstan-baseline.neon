@@ -1056,11 +1056,6 @@ parameters:
 			path: libraries/classes/Controllers/Database/Operations/CollationController.php
 
 		-
-			message: "#^Negated boolean expression is always true\\.$#"
-			count: 6
-			path: libraries/classes/Controllers/Database/OperationsController.php
-
-		-
 			message: "#^Parameter \\#2 \\$exportSqlPlugin of method PhpMyAdmin\\\\Operations\\:\\:getViewsAndCreateSqlViewStandIn\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql, object\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/OperationsController.php

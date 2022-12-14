@@ -1325,18 +1325,6 @@
     <PossiblyNullReference occurrences="1">
       <code>isSuccess</code>
     </PossiblyNullReference>
-    <RedundantCondition occurrences="10">
-      <code>! $_error</code>
-      <code>! $_error</code>
-      <code>! $_error</code>
-      <code>! $_error</code>
-      <code>! $_error</code>
-      <code>! $_error</code>
-      <code>! $_error</code>
-      <code>! $_error</code>
-      <code>! $_error</code>
-      <code>$_error</code>
-    </RedundantCondition>
   </file>
   <file src="libraries/classes/Controllers/Database/QueryByExampleController.php">
     <InvalidArgument occurrences="1">
