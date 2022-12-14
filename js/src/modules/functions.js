@@ -843,7 +843,7 @@ Functions.onloadIdleEvent = function () {
                         });
                         $('#input_username').trigger('focus');
                     } else {
-                        CommonParams.set('token', data.new_token);
+                        Navigation.update(CommonParams.set('token', data.new_token));
                         $('input[name=token]').val(data.new_token);
                     }
                     idleSecondsCounter = 0;

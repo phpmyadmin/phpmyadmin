@@ -374,7 +374,7 @@ const AJAX = {
         }
         ajaxRemoveMessage(AJAX.$msgbox);
 
-        CommonParams.set('token', data.new_token);
+        Navigation.update(CommonParams.set('token', data.new_token));
 
         AJAX.scriptHandler.load([]);
 
@@ -556,7 +556,7 @@ const AJAX = {
                     $('#selflink').find('> a').attr('href', data.selflink);
                 }
                 if (data.params) {
-                    CommonParams.setAll(data.params);
+                    Navigation.update(CommonParams.setAll(data.params));
                 }
                 if (data.scripts) {
                     AJAX.scriptHandler.load(data.scripts);

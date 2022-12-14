@@ -1,6 +1,3 @@
-import $ from 'jquery';
-import { Navigation } from './navigation.js';
-
 /**
  * Holds common parameters such as server, db, table, etc
  *
@@ -23,10 +20,10 @@ const CommonParams = (function () {
          *
          * @param obj hash The input array
          *
-         * @return {void}
+         * @return {boolean}
          */
         setAll: function (obj) {
-            var updateNavigation = false;
+            let updateNavigation = false;
             for (var i in obj) {
                 if (params[i] !== undefined && params[i] !== obj[i]) {
                     if (i === 'db' || i === 'table') {
@@ -35,11 +32,8 @@ const CommonParams = (function () {
                 }
                 params[i] = obj[i];
             }
-            if (updateNavigation &&
-                $('#pma_navigation_tree').hasClass('synced')
-            ) {
-                Navigation.showCurrent();
-            }
+
+            return updateNavigation;
         },
         /**
          * Retrieves a value given its key
@@ -58,22 +52,18 @@ const CommonParams = (function () {
          * @param {string} name  The key
          * @param {string} value The value
          *
-         * @return {CommonParams} For chainability
+         * @return {boolean}
          */
         set: function (name, value) {
-            var updateNavigation = false;
+            let updateNavigation = false;
             if (name === 'db' || name === 'table' &&
                 params[name] !== value
             ) {
                 updateNavigation = true;
             }
             params[name] = value;
-            if (updateNavigation &&
-                $('#pma_navigation_tree').hasClass('synced')
-            ) {
-                Navigation.showCurrent();
-            }
-            return this;
+
+            return updateNavigation;
         },
         /**
          * Returns the url query string using the saved parameters

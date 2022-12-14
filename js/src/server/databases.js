@@ -135,7 +135,7 @@ function checkPrivilegesForDatabase () {
         $(this).on('click', function () {
             const db = $(this).attr('data');
             if (db !== CommonParams.get('db')) {
-                CommonParams.setAll({ 'db': db, 'table': '' });
+                Navigation.update(CommonParams.setAll({ 'db': db, 'table': '' }));
             }
         });
     });

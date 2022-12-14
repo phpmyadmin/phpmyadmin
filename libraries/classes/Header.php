@@ -195,7 +195,7 @@ class Header
     {
         $params = $this->getJsParams();
 
-        return 'window.CommonParams.setAll(' . json_encode($params, JSON_HEX_TAG) . ');';
+        return 'window.Navigation.update(window.CommonParams.setAll(' . json_encode($params, JSON_HEX_TAG) . '));';
     }
 
     /**

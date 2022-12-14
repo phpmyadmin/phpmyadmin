@@ -733,8 +733,8 @@ Indexes.on = () => function () {
         }
         url += CommonParams.get('arg_separator') + 'ajax_request=true';
         Functions.indexEditorDialog(url, title, function (data) {
-            CommonParams.set('db', data.params.db);
-            CommonParams.set('table', data.params.table);
+            Navigation.update(CommonParams.set('db', data.params.db));
+            Navigation.update(CommonParams.set('table', data.params.table));
             refreshMainContent('index.php?route=/table/structure');
         });
     });
@@ -748,8 +748,8 @@ Indexes.on = () => function () {
         var title = window.Messages.strRenameIndex;
         url += CommonParams.get('arg_separator') + 'ajax_request=true';
         Functions.indexRenameDialog(url, title, function (data) {
-            CommonParams.set('db', data.params.db);
-            CommonParams.set('table', data.params.table);
+            Navigation.update(CommonParams.set('db', data.params.db));
+            Navigation.update(CommonParams.set('table', data.params.table));
             refreshMainContent('index.php?route=/table/structure');
         });
     });

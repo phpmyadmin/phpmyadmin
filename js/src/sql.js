@@ -817,13 +817,13 @@ AJAX.registerOnload('sql.js', function () {
                 }
 
                 if (data.params) {
-                    CommonParams.setAll(data.params);
+                    Navigation.update(CommonParams.setAll(data.params));
                 }
 
                 if (typeof data.ajax_reload !== 'undefined') {
                     if (data.ajax_reload.reload) {
                         if (data.ajax_reload.table_name) {
-                            CommonParams.set('table', data.ajax_reload.table_name);
+                            Navigation.update(CommonParams.set('table', data.ajax_reload.table_name));
                             refreshMainContent();
                         } else {
                             Navigation.reload();
@@ -832,7 +832,7 @@ AJAX.registerOnload('sql.js', function () {
                 } else if (typeof data.reload !== 'undefined') {
                     // this happens if a USE or DROP command was typed
                     if (data.db !== CommonParams.get('db')) {
-                        CommonParams.setAll({ 'db': data.db, 'table': '' });
+                        Navigation.update(CommonParams.setAll({ 'db': data.db, 'table': '' }));
                     }
 
                     var url;

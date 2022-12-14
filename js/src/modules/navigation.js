@@ -335,7 +335,7 @@ Navigation.onload = () => function () {
 
     $(document).on('change', '#navi_db_select', function () {
         if (! $(this).val()) {
-            CommonParams.set('db', '');
+            Navigation.update(CommonParams.set('db', ''));
             Navigation.reload();
         }
         $(this).closest('form').trigger('submit');
@@ -1648,5 +1648,17 @@ Navigation.showFullName = function ($containerELem) {
         }
     });
 };
+
+/**
+ * @param {boolean} update
+ * @return {void}
+ */
+Navigation.update = update => {
+    if (update && $('#pma_navigation_tree').hasClass('synced')) {
+        Navigation.showCurrent();
+    }
+};
+
+window.Navigation = Navigation;
 
 export { Navigation };

@@ -94,14 +94,11 @@ class HeaderTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for Get JsParamsCode
-     */
     public function testGetJsParamsCode(): void
     {
         $header = new Header();
         $this->assertStringContainsString(
-            'window.CommonParams.setAll',
+            'window.Navigation.update(window.CommonParams.setAll(',
             $header->getJsParamsCode()
         );
     }

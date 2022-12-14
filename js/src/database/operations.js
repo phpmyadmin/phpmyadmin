@@ -66,8 +66,7 @@ AJAX.registerOnload('database/operations.js', function () {
             $.post(url, $('#rename_db_form').serialize() + CommonParams.get('arg_separator') + 'is_js_confirmed=1', function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     ajaxShowMessage(data.message);
-                    CommonParams.set('db', data.newname);
-
+                    Navigation.update(CommonParams.set('db', data.newname));
                     Navigation.reload(function () {
                         $('#pma_navigation_tree')
                             .find('a:not(\'.expander\')')
@@ -106,13 +105,13 @@ AJAX.registerOnload('database/operations.js', function () {
             $('.alert-success, .alert-danger').fadeOut();
             if (typeof data !== 'undefined' && data.success === true) {
                 if ($('#checkbox_switch').is(':checked')) {
-                    CommonParams.set('db', data.newname);
+                    Navigation.update(CommonParams.set('db', data.newname));
                     refreshMainContent(false);
                     AJAX.callback = () => {
                         ajaxShowMessage(data.message);
                     };
                 } else {
-                    CommonParams.set('db', data.db);
+                    Navigation.update(CommonParams.set('db', data.db));
                     ajaxShowMessage(data.message);
                 }
                 Navigation.reload();
@@ -169,7 +168,7 @@ AJAX.registerOnload('database/operations.js', function () {
                 if (typeof data !== 'undefined' && data.success) {
                     // Database deleted successfully, refresh both the frames
                     Navigation.reload();
-                    CommonParams.set('db', '');
+                    Navigation.update(CommonParams.set('db', ''));
                     refreshMainContent('index.php?route=/server/databases');
                     AJAX.callback = () => {
                         ajaxShowMessage(data.message);

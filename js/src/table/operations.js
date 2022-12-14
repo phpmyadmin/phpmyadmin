@@ -84,14 +84,14 @@ AJAX.registerOnload('table/operations.js', function () {
         $.post($form.attr('action'), $form.serialize() + argsep + 'submit_copy=Go', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 if ($form.find('input[name=\'switch_to_new\']').prop('checked')) {
-                    CommonParams.set(
+                    Navigation.update(CommonParams.set(
                         'db',
                         $form.find('select[name=\'target_db\'],input[name=\'target_db\']').val()
-                    );
-                    CommonParams.set(
+                    ));
+                    Navigation.update(CommonParams.set(
                         'table',
                         $form.find('input[name=\'new_name\']').val()
-                    );
+                    ));
                     refreshMainContent(false);
                     AJAX.callback = () => {
                         ajaxShowMessage(data.message);
@@ -117,8 +117,8 @@ AJAX.registerOnload('table/operations.js', function () {
         var argsep = CommonParams.get('arg_separator');
         $.post($form.attr('action'), $form.serialize() + argsep + 'submit_move=1', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
-                CommonParams.set('db', data.params.db);
-                CommonParams.set('table', data.params.table);
+                Navigation.update(CommonParams.set('db', data.params.db));
+                Navigation.update(CommonParams.set('table', data.params.table));
                 refreshMainContent('index.php?route=/table/sql');
                 AJAX.callback = () => {
                     ajaxShowMessage(data.message);
@@ -168,7 +168,7 @@ AJAX.registerOnload('table/operations.js', function () {
         function submitOptionsForm () {
             $.post($form.attr('action'), $form.serialize(), function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
-                    CommonParams.set('table', data.params.table);
+                    Navigation.update(CommonParams.set('table', data.params.table));
                     refreshMainContent(false);
                     AJAX.callback = () => {
                         $('#page_content').html(data.message);
@@ -293,7 +293,7 @@ AJAX.registerOnload('table/operations.js', function () {
                     ajaxRemoveMessage($msgbox);
                     // Table deleted successfully, refresh both the frames
                     Navigation.reload();
-                    CommonParams.set('table', '');
+                    Navigation.update(CommonParams.set('table', ''));
                     refreshMainContent(CommonParams.get('opendb_url'));
                     AJAX.callback = () => {
                         ajaxShowMessage(data.message);
@@ -325,7 +325,7 @@ AJAX.registerOnload('table/operations.js', function () {
                     ajaxRemoveMessage($msgbox);
                     // Table deleted successfully, refresh both the frames
                     Navigation.reload();
-                    CommonParams.set('table', '');
+                    Navigation.update(CommonParams.set('table', ''));
                     refreshMainContent(CommonParams.get('opendb_url'));
                     AJAX.callback = () => {
                         ajaxShowMessage(data.message);
