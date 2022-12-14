@@ -12769,10 +12769,10 @@
     <MixedArgument occurrences="6">
       <code>$date</code>
       <code>$date</code>
-      <code>$releases</code>
       <code>$version</code>
       <code>$version</code>
       <code>$version</code>
+      <code>$version_data-&gt;releases</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="5">
       <code>$messages[$id]</code>
@@ -12789,7 +12789,7 @@
     <MixedArrayOffset occurrences="1">
       <code>$messages[$id]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="16">
+    <MixedAssignment occurrences="15">
       <code>$date</code>
       <code>$id</code>
       <code>$id</code>
@@ -12800,7 +12800,6 @@
       <code>$msg</code>
       <code>$msg</code>
       <code>$msg</code>
-      <code>$releases</code>
       <code>$remove_ids[]</code>
       <code>$type</code>
       <code>$version</code>
