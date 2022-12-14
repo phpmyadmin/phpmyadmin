@@ -513,14 +513,13 @@ class FormDisplay
             return;
         }
 
-        $cf = $this->configFile;
         foreach (array_keys($this->errors) as $workPath) {
             if (! isset($this->systemPaths[$workPath])) {
                 continue;
             }
 
             $canonicalPath = $this->systemPaths[$workPath];
-            $cf->set($workPath, $cf->getDefault($canonicalPath));
+            $this->configFile->set($workPath, $this->configFile->getDefault($canonicalPath));
         }
     }
 
