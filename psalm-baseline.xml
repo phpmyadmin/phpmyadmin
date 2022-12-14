@@ -8387,32 +8387,11 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeDatabase.php">
-    <DeprecatedMethod occurrences="19">
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <InvalidReturnStatement occurrences="4">
-      <code>$retval</code>
-      <code>$retval</code>
-      <code>$retval</code>
-      <code>$retval</code>
+      <code>$GLOBALS['dbi']-&gt;queryAndGetNumRows($query)</code>
+      <code>$GLOBALS['dbi']-&gt;queryAndGetNumRows($query)</code>
+      <code>$GLOBALS['dbi']-&gt;queryAndGetNumRows($query)</code>
+      <code>$GLOBALS['dbi']-&gt;queryAndGetNumRows($query)</code>
     </InvalidReturnStatement>
     <InvalidReturnType occurrences="4">
       <code>int</code>
