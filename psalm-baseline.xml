@@ -13069,8 +13069,7 @@
     <InvalidReturnStatement occurrences="1">
       <code>$tableAutoIncrement ?? ''</code>
     </InvalidReturnStatement>
-    <MixedArgument occurrences="50">
-      <code>$GLOBALS['errorUrl']</code>
+    <MixedArgument occurrences="49">
       <code>$GLOBALS['sql_auto_increments']</code>
       <code>$GLOBALS['sql_indexes']</code>
       <code>$_POST['constraint_name'][$masterFieldMd5]</code>
@@ -13289,8 +13288,7 @@
       <code>$_POST['on_update'][$masterFieldMd5]</code>
       <code>$_POST['on_update'][$masterFieldMd5]</code>
     </PossiblyInvalidArrayOffset>
-    <PossiblyNullArgument occurrences="11">
-      <code>$GLOBALS['errorUrl']</code>
+    <PossiblyNullArgument occurrences="10">
       <code>$GLOBALS['showtable']['Name']</code>
       <code>$commentsCopyRow['column_name']</code>
       <code>$commentsCopyRow['comment']</code>
