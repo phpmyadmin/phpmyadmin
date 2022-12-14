@@ -88,7 +88,7 @@ class Utilities
     {
         $error_message = htmlspecialchars($error_message);
 
-        $error = '#' . ((string) $error_number);
+        $error = '#' . $error_number;
         $separator = ' &mdash; ';
 
         if ($error_number == 2002) {
