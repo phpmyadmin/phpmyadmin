@@ -14,14 +14,12 @@ use PhpMyAdmin\Util;
 use function __;
 use function array_intersect;
 use function array_key_exists;
-use function count;
 use function explode;
 use function htmlspecialchars;
 use function implode;
 use function intval;
 use function is_array;
 use function is_string;
-use function strlen;
 
 /**
  * Class to handle database search
@@ -145,9 +143,9 @@ class Search
         }
 
         if (empty($_POST['criteriaColumnName']) || ! is_string($_POST['criteriaColumnName'])) {
-            unset($this->criteriaColumnName);
+            $this->criteriaColumnName = '';
         } else {
-            $this->criteriaColumnName = $this->dbi->escapeString($_POST['criteriaColumnName']);
+            $this->criteriaColumnName = $_POST['criteriaColumnName'];
         }
     }
 
@@ -197,7 +195,7 @@ class Search
      *
      * @return string The generated where clause
      */
-    private function getWhereClause($table)
+    private function getWhereClause(string $table): string
     {
         // Columns to select
         $allColumns = $this->dbi->getColumns($GLOBALS['db'], $table);
@@ -208,15 +206,14 @@ class Search
         // For "as regular expression" (search option 5), LIKE won't be used
         // Usage example: If user is searching for a literal $ in a regexp search,
         // they should enter \$ as the value.
-        $criteriaSearchStringEscaped = $this->dbi->escapeString($this->criteriaSearchString);
         // Extract search words or pattern
         $search_words = $this->criteriaSearchType > 2
-            ? [$criteriaSearchStringEscaped]
-            : explode(' ', $criteriaSearchStringEscaped);
+            ? [$this->criteriaSearchString]
+            : explode(' ', $this->criteriaSearchString);
 
         foreach ($search_words as $search_word) {
             // Eliminates empty values
-            if (strlen($search_word) === 0) {
+            if ($search_word === '') {
                 continue;
             }
 
@@ -224,41 +221,34 @@ class Search
             // for each column in the table
             foreach ($allColumns as $column) {
                 if (
-                    isset($this->criteriaColumnName)
-                    && strlen($this->criteriaColumnName) !== 0
+                    $this->criteriaColumnName !== ''
                     && $column['Field'] != $this->criteriaColumnName
                 ) {
                     continue;
                 }
 
-                $column = 'CONVERT(' . Util::backquote($column['Field'])
-                        . ' USING utf8)';
+                $column = 'CONVERT(' . Util::backquote($column['Field']) . ' USING utf8)';
                 $likeClausesPerColumn[] = $column . ' ' . $like_or_regex . ' '
-                    . "'"
-                    . $automatic_wildcard . $search_word . $automatic_wildcard
-                    . "'";
+                    . $this->dbi->quoteString($automatic_wildcard . $search_word . $automatic_wildcard);
             }
 
-            if (count($likeClausesPerColumn) <= 0) {
+            if ($likeClausesPerColumn === []) {
                 continue;
             }
 
             $likeClauses[] = implode(' OR ', $likeClausesPerColumn);
         }
 
-        // Use 'OR' if 'at least one word' is to be searched, else use 'AND'
-        $implode_str = ($this->criteriaSearchType == 1 ? ' OR ' : ' AND ');
-        if (empty($likeClauses)) {
+        if ($likeClauses === []) {
             // this could happen when the "inside column" does not exist
             // in any selected tables
-            $where_clause = ' WHERE FALSE';
-        } else {
-            $where_clause = ' WHERE ('
-                . implode(') ' . $implode_str . ' (', $likeClauses)
-                . ')';
+            return ' WHERE FALSE';
         }
 
-        return $where_clause;
+        // Use 'OR' if 'at least one word' is to be searched, else use 'AND'
+        $implode_str = ($this->criteriaSearchType == 1 ? ' OR ' : ' AND ');
+
+        return ' WHERE (' . implode(') ' . $implode_str . ' (', $likeClauses) . ')';
     }
 
     /**
@@ -310,7 +300,7 @@ class Search
             'criteria_search_type' => $this->criteriaSearchType,
             'criteria_tables' => $this->criteriaTables,
             'tables_names_only' => $this->tablesNamesOnly,
-            'criteria_column_name' => $this->criteriaColumnName ?? null,
+            'criteria_column_name' => $this->criteriaColumnName,
         ]);
     }
 }
