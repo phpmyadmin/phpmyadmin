@@ -3510,13 +3510,12 @@
       <code>$column_array[$column['Field']]</code>
       <code>$column_hash_array[$column['Field']]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="7">
+    <MixedAssignment occurrences="6">
       <code>$GLOBALS['display_query']</code>
       <code>$column_array[$column['Field']]</code>
       <code>$existrelForeign</code>
       <code>$foreignDb</code>
       <code>$foreignTable</code>
-      <code>$key</code>
       <code>$oneKey</code>
     </MixedAssignment>
     <PossiblyInvalidArgument occurrences="15">
@@ -3543,9 +3542,6 @@
       <code>$foreignTable</code>
       <code>$foreignTable</code>
     </PossiblyInvalidCast>
-    <UnusedVariable occurrences="1">
-      <code>$key</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/ReplaceController.php">
     <InvalidArgument occurrences="1">
