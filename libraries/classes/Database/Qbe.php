@@ -710,7 +710,7 @@ class Qbe
             if (
                 (empty($this->prevCriteria)
                 || ! isset($this->prevCriteria[$columnIndex]))
-                || $this->prevCriteria[$columnIndex] != htmlspecialchars($tmpCriteria)
+                || $this->prevCriteria[$columnIndex] != $tmpCriteria
             ) {
                 $this->formCriterions[$newColumnCount] = $tmpCriteria;
             } else {
@@ -968,8 +968,7 @@ class Qbe
         }
 
         if (! empty($selectClauses)) {
-            $selectClause = 'SELECT '
-                . htmlspecialchars(implode(', ', $selectClauses)) . "\n";
+            $selectClause = 'SELECT ' . implode(', ', $selectClauses) . "\n";
         }
 
         return $selectClause;
@@ -1102,8 +1101,7 @@ class Qbe
         }
 
         if (! empty($orderByClauses)) {
-            $orderByClause = 'ORDER BY '
-                . htmlspecialchars(implode(', ', $orderByClauses)) . "\n";
+            $orderByClause = 'ORDER BY ' . implode(', ', $orderByClauses) . "\n";
         }
 
         return $orderByClause;
@@ -1605,8 +1603,8 @@ class Qbe
         $sqlQuery .= $this->getSelectClause();
         // get FROM clause
         $fromClause = $this->getFromClause($formColumns);
-        if (! empty($fromClause)) {
-            $sqlQuery .= 'FROM ' . htmlspecialchars($fromClause) . "\n";
+        if ($fromClause !== '') {
+            $sqlQuery .= 'FROM ' . $fromClause . "\n";
         }
 
         // get WHERE clause
