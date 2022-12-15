@@ -16,7 +16,6 @@ use function array_intersect;
 use function array_key_exists;
 use function explode;
 use function implode;
-use function intval;
 use function is_array;
 use function is_string;
 
@@ -245,7 +244,7 @@ class Search
      *
      * @return string HTML for search results
      */
-    public function getSearchResults()
+    public function getSearchResults(): string
     {
         $resultTotal = 0;
         $rows = [];
@@ -254,9 +253,7 @@ class Search
             // Gets the SQL statements
             $newSearchSqls = $this->getSearchSqls($eachTable);
             // Executes the "COUNT" statement
-            $resultCount = intval($this->dbi->fetchValue(
-                $newSearchSqls['select_count']
-            ));
+            $resultCount = (int) $this->dbi->fetchValue($newSearchSqls['select_count']);
             $resultTotal += $resultCount;
             // Gets the result row's HTML for a table
             $rows[] = [
