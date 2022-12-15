@@ -248,22 +248,21 @@ class Sql
                 'field' => $column,
             ];
 
-            $dropdown = $this->template->render('sql/relational_column_dropdown', [
+            return $this->template->render('sql/relational_column_dropdown', [
                 'current_value' => $_POST['curr_value'],
                 'params' => $urlParams,
             ]);
-        } else {
-            $dropdown = $this->relation->foreignDropdown(
-                $foreignData['disp_row'],
-                $foreignData['foreign_field'],
-                $foreignData['foreign_display'],
-                $currentValue,
-                $GLOBALS['cfg']['ForeignKeyMaxLimit']
-            );
-            $dropdown = '<select>' . $dropdown . '</select>';
         }
 
-        return $dropdown;
+        $dropdown = $this->relation->foreignDropdown(
+            $foreignData['disp_row'],
+            $foreignData['foreign_field'],
+            $foreignData['foreign_display'],
+            $currentValue,
+            $GLOBALS['cfg']['ForeignKeyMaxLimit']
+        );
+
+        return '<select>' . $dropdown . '</select>';
     }
 
     /** @return array<string, int|array> */

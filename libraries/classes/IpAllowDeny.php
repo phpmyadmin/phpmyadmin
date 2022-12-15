@@ -39,12 +39,10 @@ class IpAllowDeny
     {
         if (mb_strpos($testRange, ':') > -1 || mb_strpos($ipToTest, ':') > -1) {
             // assume IPv6
-            $result = $this->ipv6MaskTest($testRange, $ipToTest);
-        } else {
-            $result = $this->ipv4MaskTest($testRange, $ipToTest);
+            return $this->ipv6MaskTest($testRange, $ipToTest);
         }
 
-        return $result;
+        return $this->ipv4MaskTest($testRange, $ipToTest);
     }
 
     /**

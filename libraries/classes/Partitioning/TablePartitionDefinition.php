@@ -85,12 +85,10 @@ final class TablePartitionDefinition
         if (isset($_POST[$paramLabel]) && is_numeric($_POST[$paramLabel])) {
             // MySQL's limit is 8192, so do not allow more
             // @see https://dev.mysql.com/doc/refman/en/partitioning-limitations.html
-            $count = min((int) $_POST[$paramLabel], 8192);
-        } else {
-            $count = 0;
+            return min((int) $_POST[$paramLabel], 8192);
         }
 
-        return $count;
+        return 0;
     }
 
     /**
