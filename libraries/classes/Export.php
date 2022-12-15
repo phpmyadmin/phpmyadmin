@@ -471,21 +471,19 @@ class Export
         fclose($fileHandle);
         // Here, use strlen rather than mb_strlen to get the length
         // in bytes to compare against the number of bytes written.
-        if (strlen($dumpBuffer) > 0 && (! $writeResult || $writeResult != strlen($dumpBuffer))) {
-            $message = new Message(
+        if ($dumpBuffer !== '' && $writeResult !== strlen($dumpBuffer)) {
+            return new Message(
                 __('Insufficient space to save the file %s.'),
                 Message::ERROR,
                 [$saveFilename]
             );
-        } else {
-            $message = new Message(
-                __('Dump has been saved to file %s.'),
-                Message::SUCCESS,
-                [$saveFilename]
-            );
         }
 
-        return $message;
+        return new Message(
+            __('Dump has been saved to file %s.'),
+            Message::SUCCESS,
+            [$saveFilename]
+        );
     }
 
     /**
