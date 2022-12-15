@@ -261,11 +261,7 @@ class ImportMediawiki extends ImportPlugin
 
                         // Delete the beginning of the column, if there is one
                         $cell = trim($cell);
-                        $col_start_chars = [
-                            '|',
-                            '!',
-                        ];
-                        foreach ($col_start_chars as $col_start_char) {
+                        foreach (['|', '!'] as $col_start_char) {
                             $cell = $this->getCellContent($cell, $col_start_char);
                         }
 
@@ -579,13 +575,11 @@ class ImportMediawiki extends ImportPlugin
      *
      * @param string $cell           Cell
      * @param string $col_start_char Start char
-     *
-     * @return string
      */
-    private function getCellContent($cell, $col_start_char)
+    private function getCellContent(string $cell, string $col_start_char): string
     {
         if (mb_strpos($cell, $col_start_char) === 0) {
-            $cell = trim(mb_substr($cell, 1));
+            return trim(mb_substr($cell, 1));
         }
 
         return $cell;
