@@ -28,6 +28,7 @@ use function class_exists;
 use function count;
 use function get_class;
 use function htmlspecialchars;
+use function is_array;
 use function is_subclass_of;
 use function mb_strpos;
 use function mb_strtolower;
@@ -289,12 +290,12 @@ class Plugins
      *
      * @return string  table row with option
      */
-    public static function getOneOption(
-        $section,
-        $plugin_name,
-        &$propertyGroup,
-        $is_subgroup = false
-    ) {
+    private static function getOneOption(
+        string $section,
+        string $plugin_name,
+        OptionsPropertyItem $propertyGroup,
+        bool $is_subgroup = false
+    ): string {
         $ret = "\n";
 
         $properties = null;
@@ -320,7 +321,7 @@ class Plugins
         }
 
         $not_subgroup_header = false;
-        if (! isset($properties)) {
+        if ($properties === null) {
             $not_subgroup_header = true;
             if (method_exists($propertyGroup, 'getProperties')) {
                 $properties = $propertyGroup->getProperties();
@@ -328,7 +329,7 @@ class Plugins
         }
 
         $property_class = null;
-        if (isset($properties)) {
+        if ($properties !== null) {
             /** @var OptionsPropertySubgroup $propertyItem */
             foreach ($properties as $propertyItem) {
                 $property_class = get_class($propertyItem);
@@ -368,7 +369,7 @@ class Plugins
 
         if (method_exists($propertyGroup, 'getDoc')) {
             $doc = $propertyGroup->getDoc();
-            if ($doc != null) {
+            if (is_array($doc)) {
                 if (count($doc) === 3) {
                     $ret .= MySQLDocumentation::show($doc[1], false, null, null, $doc[2]);
                 } elseif (count($doc) === 1) {
@@ -380,15 +381,13 @@ class Plugins
         }
 
         // Close the list element after $doc link is displayed
-        if ($property_class !== null) {
-            if (
-                $property_class == BoolPropertyItem::class
-                || $property_class == MessageOnlyPropertyItem::class
-                || $property_class == SelectPropertyItem::class
-                || $property_class == TextPropertyItem::class
-            ) {
-                $ret .= '</li>';
-            }
+        if (
+            $property_class === BoolPropertyItem::class
+            || $property_class === MessageOnlyPropertyItem::class
+            || $property_class === SelectPropertyItem::class
+            || $property_class === TextPropertyItem::class
+        ) {
+            $ret .= '</li>';
         }
 
         return $ret . "\n";
@@ -573,18 +572,14 @@ class Plugins
      *
      * @return string  html fieldset with plugin options
      */
-    public static function getOptions($section, array $list)
+    public static function getOptions(string $section, array $list): string
     {
         $ret = '';
         // Options for plugins that support them
         foreach ($list as $plugin) {
             $properties = $plugin->getProperties();
-            $text = null;
-            $options = null;
-            if ($properties != null) {
-                $text = $properties->getText();
-                $options = $properties->getOptions();
-            }
+            $text = $properties->getText();
+            $options = $properties->getOptions();
 
             $plugin_name = $plugin->getName();
 

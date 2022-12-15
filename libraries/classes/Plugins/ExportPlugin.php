@@ -341,7 +341,6 @@ abstract class ExportPlugin implements Plugin
         $db,
         array $aliases = []
     ) {
-        $relation = '';
         $foreigner = $this->relation->searchColumnInForeigners($foreigners, $fieldName);
         if ($foreigner) {
             $ftable = $foreigner['foreign_table'];
@@ -354,10 +353,10 @@ abstract class ExportPlugin implements Plugin
                 $ftable = $aliases[$db]['tables'][$ftable]['alias'];
             }
 
-            $relation = $ftable . ' (' . $ffield . ')';
+            return $ftable . ' (' . $ffield . ')';
         }
 
-        return $relation;
+        return '';
     }
 
     public static function isAvailable(): bool
