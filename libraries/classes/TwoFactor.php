@@ -108,9 +108,7 @@ class TwoFactor
 
     public function showSubmit(): bool
     {
-        $backend = $this->backend;
-
-        return $backend::$showSubmit;
+        return $this->backend::$showSubmit;
     }
 
     /**

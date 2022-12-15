@@ -221,15 +221,13 @@ class Table implements Stringable
      */
     public function isView(): bool
     {
-        $db = $this->dbName;
-        $table = $this->name;
-        if (empty($db) || empty($table)) {
+        if ($this->dbName === '' || $this->name === '') {
             return false;
         }
 
         // use cached data or load information with SHOW command
         if (
-            $this->dbi->getCache()->getCachedTableContent([$db, $table]) != null
+            $this->dbi->getCache()->getCachedTableContent([$this->dbName, $this->name]) != null
             || $GLOBALS['cfg']['Server']['DisableIS']
         ) {
             $type = $this->getStatusInfo('TABLE_TYPE');
@@ -238,7 +236,7 @@ class Table implements Stringable
         }
 
         // information_schema tables are 'SYSTEM VIEW's
-        if ($db === 'information_schema') {
+        if ($this->dbName === 'information_schema') {
             return true;
         }
 
@@ -246,8 +244,8 @@ class Table implements Stringable
         $result = $this->dbi->fetchResult(
             'SELECT TABLE_NAME'
             . ' FROM information_schema.VIEWS'
-            . ' WHERE TABLE_SCHEMA = ' . $this->dbi->quoteString($db)
-            . ' AND TABLE_NAME = ' . $this->dbi->quoteString($table)
+            . ' WHERE TABLE_SCHEMA = ' . $this->dbi->quoteString($this->dbName)
+            . ' AND TABLE_NAME = ' . $this->dbi->quoteString($this->name)
         );
 
         return (bool) $result;
@@ -258,7 +256,7 @@ class Table implements Stringable
      */
     public function isUpdatableView(): bool
     {
-        if (empty($this->dbName) || empty($this->name)) {
+        if ($this->dbName === '' || $this->name === '') {
             return false;
         }
 
@@ -302,20 +300,17 @@ class Table implements Stringable
         $forceRead = false,
         $disableError = false
     ) {
-        $db = $this->dbName;
-        $table = $this->name;
-
         if (! empty($_SESSION['is_multi_query'])) {
             $disableError = true;
         }
 
-        $cachedResult = $this->dbi->getCache()->getCachedTableContent([$db, $table]);
+        $cachedResult = $this->dbi->getCache()->getCachedTableContent([$this->dbName, $this->name]);
 
         // sometimes there is only one entry (ExactRows) so
         // we have to get the table's details
         if ($cachedResult === null || $forceRead || count($cachedResult) === 1) {
-            $this->dbi->getTablesFull($db, $table);
-            $cachedResult = $this->dbi->getCache()->getCachedTableContent([$db, $table]);
+            $this->dbi->getTablesFull($this->dbName, $this->name);
+            $cachedResult = $this->dbi->getCache()->getCachedTableContent([$this->dbName, $this->name]);
         }
 
         if ($cachedResult === null) {
@@ -341,7 +336,7 @@ class Table implements Stringable
             return false;
         }
 
-        return $this->dbi->getCache()->getCachedTableContent([$db, $table, $info]);
+        return $this->dbi->getCache()->getCachedTableContent([$this->dbName, $this->name, $info]);
     }
 
     /**
@@ -714,46 +709,24 @@ class Table implements Stringable
     public function countRecords($forceExact = false)
     {
         $isView = $this->isView();
-        $db = $this->dbName;
-        $table = $this->name;
+        $cache = $this->dbi->getCache();
 
-        if ($this->dbi->getCache()->getCachedTableContent([$db, $table, 'ExactRows']) != null) {
-            return $this->dbi->getCache()->getCachedTableContent(
-                [
-                    $db,
-                    $table,
-                    'ExactRows',
-                ]
-            );
+        $exactRowsCached = $cache->getCachedTableContent([$this->dbName, $this->name, 'ExactRows']);
+        if ($exactRowsCached != null) {
+            return $exactRowsCached;
         }
 
         $rowCount = false;
 
         if (! $forceExact) {
-            if (($this->dbi->getCache()->getCachedTableContent([$db, $table, 'Rows']) == null) && ! $isView) {
-                $tmpTables = $this->dbi->getTablesFull($db, $table);
-                if (isset($tmpTables[$table])) {
-                    $this->dbi->getCache()->cacheTableContent(
-                        [
-                            $db,
-                            $table,
-                        ],
-                        $tmpTables[$table]
-                    );
+            if (($cache->getCachedTableContent([$this->dbName, $this->name, 'Rows']) == null) && ! $isView) {
+                $tmpTables = $this->dbi->getTablesFull($this->dbName, $this->name);
+                if (isset($tmpTables[$this->name])) {
+                    $cache->cacheTableContent([$this->dbName, $this->name], $tmpTables[$this->name]);
                 }
             }
 
-            if ($this->dbi->getCache()->getCachedTableContent([$db, $table, 'Rows']) != null) {
-                $rowCount = $this->dbi->getCache()->getCachedTableContent(
-                    [
-                        $db,
-                        $table,
-                        'Rows',
-                    ]
-                );
-            } else {
-                $rowCount = false;
-            }
+            $rowCount = $cache->getCachedTableContent([$this->dbName, $this->name, 'Rows']) ?? false;
         }
 
         // for a VIEW, $row_count is always false at this point
@@ -763,8 +736,7 @@ class Table implements Stringable
 
         if (! $isView) {
             $rowCount = $this->dbi->fetchValue(
-                'SELECT COUNT(*) FROM ' . Util::backquote($db) . '.'
-                . Util::backquote($table)
+                'SELECT COUNT(*) FROM ' . Util::backquote($this->dbName) . '.' . Util::backquote($this->name)
             );
         } else {
             // For complex views, even trying to get a partial record
@@ -780,8 +752,8 @@ class Table implements Stringable
                 // Use try_query because it can fail (when a VIEW is
                 // based on a table that no longer exists)
                 $result = $this->dbi->tryQuery(
-                    'SELECT 1 FROM ' . Util::backquote($db) . '.'
-                    . Util::backquote($table) . ' LIMIT '
+                    'SELECT 1 FROM ' . Util::backquote($this->dbName) . '.'
+                    . Util::backquote($this->name) . ' LIMIT '
                     . $GLOBALS['cfg']['MaxExactCountViews']
                 );
                 if ($result) {
@@ -791,7 +763,7 @@ class Table implements Stringable
         }
 
         if ($rowCount) {
-            $this->dbi->getCache()->cacheTableContent([$db, $table, 'ExactRows'], $rowCount);
+            $cache->cacheTableContent([$this->dbName, $this->name, 'ExactRows'], $rowCount);
         }
 
         return $rowCount;
@@ -1819,13 +1791,12 @@ class Table implements Stringable
      */
     protected function loadUiPrefs(): void
     {
-        $uiPreferencesFeature = $this->relation->getRelationParameters()->uiPreferencesFeature;
         $serverId = $GLOBALS['server'];
 
         // set session variable if it's still undefined
         if (! isset($_SESSION['tmpval']['table_uiprefs'][$serverId][$this->dbName][$this->name])) {
             // check whether we can get from pmadb
-            $uiPrefs = $this->getUiPrefsFromDb($uiPreferencesFeature);
+            $uiPrefs = $this->getUiPrefsFromDb($this->relation->getRelationParameters()->uiPreferencesFeature);
             $_SESSION['tmpval']['table_uiprefs'][$serverId][$this->dbName][$this->name] = $uiPrefs;
         }
 

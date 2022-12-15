@@ -251,18 +251,17 @@ class Form
      */
     protected function readTypes(): void
     {
-        $cf = $this->configFile;
         foreach ($this->fields as $name => $path) {
             if (mb_strpos((string) $name, ':group:') === 0) {
                 $this->fieldsTypes[$name] = 'group';
                 continue;
             }
 
-            $v = $cf->getDbEntry($path);
+            $v = $this->configFile->getDbEntry($path);
             if ($v !== null) {
                 $type = is_array($v) ? 'select' : $v;
             } else {
-                $type = gettype($cf->getDefault($path));
+                $type = gettype($this->configFile->getDefault($path));
             }
 
             $this->fieldsTypes[$name] = $type;

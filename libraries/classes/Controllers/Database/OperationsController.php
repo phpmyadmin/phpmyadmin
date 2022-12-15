@@ -107,7 +107,6 @@ class OperationsController extends AbstractController
                         __('Cannot copy database to the same name. Change the name and try again.')
                     );
                 } else {
-                    $_error = false;
                     if ($move || ! empty($_POST['create_database_before_copying'])) {
                         $this->operations->createDbBeforeCopy($newDatabaseName);
                     }
@@ -148,17 +147,15 @@ class OperationsController extends AbstractController
                     );
 
                     // handle the views
-                    if (! $_error) {
-                        $this->operations->handleTheViews(
-                            $views,
-                            $move,
-                            $GLOBALS['db'],
-                            $newDatabaseName
-                        );
-                    }
+                    $this->operations->handleTheViews(
+                        $views,
+                        $move,
+                        $GLOBALS['db'],
+                        $newDatabaseName
+                    );
 
                     // now that all tables exist, create all the accumulated constraints
-                    if (! $_error && $sqlConstraints !== []) {
+                    if ($sqlConstraints !== []) {
                         $this->operations->createAllAccumulatedConstraints(
                             $sqlConstraints,
                             $newDatabaseName
@@ -176,9 +173,9 @@ class OperationsController extends AbstractController
                     $this->dbi->selectDb($GLOBALS['db']);
 
                     // Duplicate the bookmarks for this db (done once for each db)
-                    $this->operations->duplicateBookmarks($_error, $GLOBALS['db'], $newDatabaseName);
+                    $this->operations->duplicateBookmarks(false, $GLOBALS['db'], $newDatabaseName);
 
-                    if (! $_error && $move) {
+                    if ($move) {
                         if (isset($_POST['adjust_privileges']) && ! empty($_POST['adjust_privileges'])) {
                             $this->operations->adjustPrivilegesMoveDb($GLOBALS['db'], $newDatabaseName);
                         }
@@ -198,7 +195,7 @@ class OperationsController extends AbstractController
                         );
                         $GLOBALS['message']->addParam($GLOBALS['db']);
                         $GLOBALS['message']->addParam($newDatabaseName->getName());
-                    } elseif (! $_error) {
+                    } else {
                         if (isset($_POST['adjust_privileges']) && ! empty($_POST['adjust_privileges'])) {
                             $this->operations->adjustPrivilegesCopyDb($GLOBALS['db'], $newDatabaseName);
                         }
@@ -208,16 +205,14 @@ class OperationsController extends AbstractController
                         );
                         $GLOBALS['message']->addParam($GLOBALS['db']);
                         $GLOBALS['message']->addParam($newDatabaseName->getName());
-                    } else {
-                        $GLOBALS['message'] = Message::error();
                     }
 
                     $GLOBALS['reload'] = true;
 
                     /* Change database to be used */
-                    if (! $_error && $move) {
+                    if ($move) {
                         $GLOBALS['db'] = $newDatabaseName->getName();
-                    } elseif (! $_error) {
+                    } else {
                         if (isset($_POST['switch_to_new']) && $_POST['switch_to_new'] === 'true') {
                             $_SESSION['pma_switch_to_new'] = true;
                             $GLOBALS['db'] = $newDatabaseName->getName();

@@ -1325,18 +1325,6 @@
     <PossiblyNullReference occurrences="1">
       <code>isSuccess</code>
     </PossiblyNullReference>
-    <RedundantCondition occurrences="10">
-      <code>! $_error</code>
-      <code>! $_error</code>
-      <code>! $_error</code>
-      <code>! $_error</code>
-      <code>! $_error</code>
-      <code>! $_error</code>
-      <code>! $_error</code>
-      <code>! $_error</code>
-      <code>! $_error</code>
-      <code>$_error</code>
-    </RedundantCondition>
   </file>
   <file src="libraries/classes/Controllers/Database/QueryByExampleController.php">
     <InvalidArgument occurrences="1">
@@ -3288,10 +3276,10 @@
       <code>$column</code>
       <code>$column</code>
       <code>$column</code>
-      <code>$column_types[$i]</code>
       <code>$row[0]</code>
       <code>$row[0]</code>
       <code>$row[1]</code>
+      <code>$this-&gt;columnTypes[$i]</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="3">
       <code>$row[0]</code>
@@ -3302,13 +3290,14 @@
       <code>$result[$index][1]</code>
     </MixedArrayAssignment>
     <MixedArrayOffset occurrences="1">
-      <code>$types[$column_names[$i]]</code>
+      <code>$types[$columnName]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="6">
+    <MixedAssignment occurrences="7">
       <code>$GLOBALS['errorUrl']</code>
       <code>$column</code>
       <code>$column</code>
       <code>$column</code>
+      <code>$columnName</code>
       <code>$row</code>
       <code>$row</code>
     </MixedAssignment>
@@ -4208,9 +4197,8 @@
       <code>$_GET['table']</code>
       <code>$_GET['table']</code>
     </PossiblyInvalidCast>
-    <RedundantCondition occurrences="3">
+    <RedundantCondition occurrences="2">
       <code>empty($GLOBALS['view']['as']) &amp;&amp; is_string($createView)</code>
-      <code>is_array($view)</code>
       <code>is_string($createView)</code>
     </RedundantCondition>
     <RedundantConditionGivenDocblockType occurrences="1">
@@ -4989,7 +4977,7 @@
       <code>$this-&gt;criteriaTables</code>
       <code>$this-&gt;criteriaTables</code>
     </InvalidPropertyAssignmentValue>
-    <MixedArgument occurrences="29">
+    <MixedArgument occurrences="28">
       <code>$column</code>
       <code>$columns[$columnIndex]</code>
       <code>$eachColumn['Field']</code>
@@ -5012,7 +5000,6 @@
       <code>$this-&gt;formAndOrCols[$lastOrWhere]</code>
       <code>$this-&gt;formAndOrCols[$lastWhere]</code>
       <code>$this-&gt;formCriterions[$newColumnCount]</code>
-      <code>$tmpCriteria</code>
       <code>$tmpCriteria</code>
       <code>$unfinalized</code>
       <code>$uniqueColumns</code>
@@ -5159,14 +5146,7 @@
     <PossiblyNullOperand occurrences="1">
       <code>$index['Column_name']</code>
     </PossiblyNullOperand>
-    <PossiblyNullPropertyAssignmentValue occurrences="1">
-      <code>null</code>
-    </PossiblyNullPropertyAssignmentValue>
-    <PropertyNotSetInConstructor occurrences="6">
-      <code>$columnNames</code>
-      <code>$criteriaTables</code>
-      <code>$formAliases</code>
-      <code>$formSortOrders</code>
+    <PropertyNotSetInConstructor occurrences="2">
       <code>$newColumnCount</code>
       <code>$newRowCount</code>
     </PropertyNotSetInConstructor>
@@ -12789,10 +12769,10 @@
     <MixedArgument occurrences="6">
       <code>$date</code>
       <code>$date</code>
-      <code>$releases</code>
       <code>$version</code>
       <code>$version</code>
       <code>$version</code>
+      <code>$version_data-&gt;releases</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="5">
       <code>$messages[$id]</code>
@@ -12809,7 +12789,7 @@
     <MixedArrayOffset occurrences="1">
       <code>$messages[$id]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="16">
+    <MixedAssignment occurrences="15">
       <code>$date</code>
       <code>$id</code>
       <code>$id</code>
@@ -12820,7 +12800,6 @@
       <code>$msg</code>
       <code>$msg</code>
       <code>$msg</code>
-      <code>$releases</code>
       <code>$remove_ids[]</code>
       <code>$type</code>
       <code>$version</code>
@@ -13188,7 +13167,7 @@
       <code>$optionsArray[$existrelForeign[$masterFieldMd5]['on_delete'] ?? '']</code>
       <code>$optionsArray[$existrelForeign[$masterFieldMd5]['on_update'] ?? '']</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="48">
+    <MixedAssignment occurrences="49">
       <code>$GLOBALS['errorUrl']</code>
       <code>$altered</code>
       <code>$altered</code>
@@ -13202,6 +13181,7 @@
       <code>$createTable</code>
       <code>$currCreateTime</code>
       <code>$eachCol</code>
+      <code>$exactRowsCached</code>
       <code>$foreignDb</code>
       <code>$foreignDb</code>
       <code>$foreignField</code>

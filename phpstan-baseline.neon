@@ -1056,11 +1056,6 @@ parameters:
 			path: libraries/classes/Controllers/Database/Operations/CollationController.php
 
 		-
-			message: "#^Negated boolean expression is always true\\.$#"
-			count: 6
-			path: libraries/classes/Controllers/Database/OperationsController.php
-
-		-
 			message: "#^Parameter \\#2 \\$exportSqlPlugin of method PhpMyAdmin\\\\Operations\\:\\:getViewsAndCreateSqlViewStandIn\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql, object\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/OperationsController.php
@@ -2134,11 +2129,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$pmaPw2 of method PhpMyAdmin\\\\UserPassword\\:\\:setChangePasswordMsg\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/UserPasswordController.php
-
-		-
-			message: "#^Call to function is_array\\(\\) with array will always evaluate to true\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/View/CreateController.php
 
 		-
 			message: "#^PHPDoc tag @var for variable \\$view has no value type specified in iterable type array\\.$#"

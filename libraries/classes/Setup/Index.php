@@ -134,8 +134,7 @@ class Index
             return;
         }
 
-        $releases = $version_data->releases;
-        $latestCompatible = $versionInformation->getLatestCompatibleVersion($releases);
+        $latestCompatible = $versionInformation->getLatestCompatibleVersion($version_data->releases);
         if ($latestCompatible == null) {
             return;
         }

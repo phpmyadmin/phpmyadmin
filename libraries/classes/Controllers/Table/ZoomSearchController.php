@@ -233,7 +233,6 @@ class ZoomSearchController extends AbstractController
             $GLOBALS['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
         }
 
-        $column_names = $this->columnNames;
         $criteria_column_names = $_POST['criteriaColumnNames'] ?? null;
         $keys = [];
         for ($i = 0; $i < 4; $i++) {
@@ -245,7 +244,7 @@ class ZoomSearchController extends AbstractController
                 continue;
             }
 
-            $keys[$criteria_column_names[$i]] = array_search($criteria_column_names[$i], $column_names);
+            $keys[$criteria_column_names[$i]] = array_search($criteria_column_names[$i], $this->columnNames);
         }
 
         $this->render('table/zoom_search/index', [
@@ -254,7 +253,7 @@ class ZoomSearchController extends AbstractController
             'goto' => $GLOBALS['goto'],
             'self' => $this,
             'geom_column_flag' => $this->geomColumnFlag,
-            'column_names' => $column_names,
+            'column_names' => $this->columnNames,
             'data_label' => $dataLabel,
             'keys' => $keys,
             'criteria_column_names' => $criteria_column_names,
