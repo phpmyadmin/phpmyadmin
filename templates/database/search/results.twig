@@ -1,52 +1,46 @@
 <table class="table table-striped caption-top w-auto">
     <caption class="tblHeaders">
-        {{ 'Search results for "<em>%s</em>" %s:'|format(
-            criteria_search_string,
+        {{- 'Search results for "<em>%s</em>" %s:'|format(
+            criteria_search_string|e,
             search_type_description
-        )|raw }}
+        )|raw -}}
     </caption>
     {% for row in rows %}
         <tr class="noclick">
             <td>
-                {% set result_message %}
+                {%- set result_message -%}
                     {% trans %}
                         %1$s match in <strong>%2$s</strong>
                     {% plural row.result_count %}
                         %1$s matches in <strong>%2$s</strong>
                     {% endtrans %}
-                {% endset %}
-                {{ result_message|format(row.result_count, row.table)|raw }}
+                {%- endset -%}
+                {{- result_message|format(row.result_count, row.table|e)|raw -}}
             </td>
-            {% if row.result_count > 0 %}
-                {% set url_params = {
+            {%- if row.result_count > 0 -%}
+                {%- set url_params = {
                     'db': db,
                     'table': row.table,
                     'goto': url('/database/sql'),
                     'pos': 0,
                     'is_js_confirmed': 0
-                } %}
-                <td>
-                    <a name="browse_search"
-                        class="ajax browse_results"
-                        href="{{ url('/sql', url_params) }}"
+                } -%}
+                <td><button
+                        class="btn btn-link p-0 ajax browse_results"
+                        data-href="{{ url('/sql', url_params) }}"
                         data-browse-sql="{{ row.new_search_sqls.select_columns }}"
-                        data-table-name="{{ row.table }}">
-                        {% trans 'Browse' %}
-                    </a>
+                        data-table-name="{{ row.table }}">{% trans 'Browse' %}</button>
                 </td>
-                <td>
-                    <a name="delete_search"
-                        class="ajax delete_results"
-                        href="{{ url('/sql', url_params) }}"
+                <td><button
+                        class="btn btn-link p-0 ajax delete_results"
+                        data-href="{{ url('/sql', url_params) }}"
                         data-delete-sql="{{ row.new_search_sqls.delete }}"
-                        data-table-name="{{ row.table }}">
-                        {% trans 'Delete' %}
-                    </a>
+                        data-table-name="{{ row.table }}">{% trans 'Delete' %}</button>
                 </td>
-            {% else %}
+            {%- else -%}
                 <td></td>
                 <td></td>
-            {% endif %}
+            {%- endif -%}
         </tr>
     {% endfor %}
 </table>

@@ -2876,26 +2876,6 @@ parameters:
 			path: libraries/classes/Database/Routines.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Database\\\\Search\\:\\:getSearchSqls\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Database/Search.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Database\\\\Search\\:\\:\\$criteriaColumnName \\(string\\) in isset\\(\\) is not nullable\\.$#"
-			count: 1
-			path: libraries/classes/Database/Search.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Database\\\\Search\\:\\:\\$criteriaColumnName \\(string\\) on left side of \\?\\? is not nullable\\.$#"
-			count: 1
-			path: libraries/classes/Database/Search.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Database\\\\Search\\:\\:\\$criteriaTables type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Database/Search.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Database\\\\Search\\:\\:\\$searchTypes type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Database/Search.php

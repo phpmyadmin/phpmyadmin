@@ -43,8 +43,10 @@ class SearchTest extends AbstractTestCase
             ]));
 
         $dbi->expects($this->any())
-            ->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->method('quoteString')
+            ->will($this->returnCallback(static function (string $string) {
+                return "'" . $string . "'";
+            }));
 
         $GLOBALS['dbi'] = $dbi;
         $this->object = new Search($dbi, 'pma_test', new Template());
@@ -132,7 +134,7 @@ class SearchTest extends AbstractTestCase
     {
         $this->assertEquals(
             [
-                'select_columns' => 'SELECT *  FROM `pma`.`table1` WHERE FALSE',
+                'select_columns' => 'SELECT * FROM `pma`.`table1` WHERE FALSE',
                 'select_count' => 'SELECT COUNT(*) AS `count` FROM `pma`.`table1` WHERE FALSE',
                 'delete' => 'DELETE FROM `pma`.`table1` WHERE FALSE',
             ],
@@ -165,7 +167,10 @@ class SearchTest extends AbstractTestCase
 
         // test selection form
         $this->assertStringContainsString('<form', $main);
-        $this->assertStringContainsString('<a id="togglesearchformlink">', $main);
+        $this->assertStringContainsString(
+            '<button id="togglesearchformlink" class="btn btn-primary my-1"></button>',
+            $main
+        );
         $this->assertStringContainsString('criteriaSearchType', $main);
 
         // test result divs

@@ -5467,31 +5467,18 @@
     </PossiblyUndefinedArrayOffset>
   </file>
   <file src="libraries/classes/Database/Search.php">
-    <DeprecatedMethod occurrences="2">
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
-    <MixedArgument occurrences="4">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>array_intersect($_POST['criteriaTables'], $this-&gt;tablesNamesOnly)</code>
+    </InvalidPropertyAssignmentValue>
+    <MixedArgument occurrences="1">
       <code>$column['Field']</code>
-      <code>$eachTable</code>
-      <code>$eachTable</code>
-      <code>$newSearchSqls['select_count']</code>
     </MixedArgument>
-    <MixedAssignment occurrences="2">
-      <code>$eachTable</code>
+    <MixedAssignment occurrences="1">
       <code>$this-&gt;searchTypeDescription</code>
     </MixedAssignment>
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>$criteriaColumnName</code>
+    <PropertyNotSetInConstructor occurrences="1">
       <code>$searchTypeDescription</code>
     </PropertyNotSetInConstructor>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>isset($this-&gt;criteriaColumnName)</code>
-    </RedundantConditionGivenDocblockType>
-    <RedundantPropertyInitializationCheck occurrences="2">
-      <code>$this-&gt;criteriaColumnName</code>
-      <code>null</code>
-    </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Database/Triggers.php">
     <DeprecatedMethod occurrences="4">
