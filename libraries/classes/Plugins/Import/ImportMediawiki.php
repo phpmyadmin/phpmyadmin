@@ -175,7 +175,7 @@ class ImportMediawiki extends ImportPlugin
                             $cur_table_name = $match_table_name[1];
                             $inside_data_comment = true;
 
-                            $inside_structure_comment = $this->mngInsideStructComm($inside_structure_comment);
+                            $inside_structure_comment = false;
                         } elseif (preg_match('/^Table structure for `(.*)`$/', $cur_buffer_line, $match_table_name)) {
                             // The structure comments will be ignored
                             $inside_structure_comment = true;
@@ -553,21 +553,6 @@ class ImportMediawiki extends ImportPlugin
         }
 
         return $cell_data[1];
-    }
-
-    /**
-     * Manage $inside_structure_comment
-     *
-     * @param bool $inside_structure_comment Value to test
-     */
-    private function mngInsideStructComm($inside_structure_comment): bool
-    {
-        // End ignoring structure rows
-        if ($inside_structure_comment) {
-            $inside_structure_comment = false;
-        }
-
-        return $inside_structure_comment;
     }
 
     /**
