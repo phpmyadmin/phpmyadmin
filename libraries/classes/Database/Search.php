@@ -15,7 +15,6 @@ use function __;
 use function array_intersect;
 use function array_key_exists;
 use function explode;
-use function htmlspecialchars;
 use function implode;
 use function intval;
 use function is_array;
@@ -169,7 +168,7 @@ class Search
         $where_clause = $this->getWhereClause($table);
         // Builds complete queries
         $sql = [];
-        $sql['select_columns'] = $sqlstr_select . ' * ' . $sqlstr_from . $where_clause;
+        $sql['select_columns'] = $sqlstr_select . ' *' . $sqlstr_from . $where_clause;
         // here, I think we need to still use the COUNT clause, even for
         // VIEWs, anyway we have a WHERE clause that should limit results
         $sql['select_count'] = $sqlstr_select . ' COUNT(*) AS `count`' . $sqlstr_from . $where_clause;
@@ -261,7 +260,7 @@ class Search
             $resultTotal += $resultCount;
             // Gets the result row's HTML for a table
             $rows[] = [
-                'table' => htmlspecialchars($eachTable),
+                'table' => $eachTable,
                 'new_search_sqls' => $newSearchSqls,
                 'result_count' => $resultCount,
             ];
@@ -272,7 +271,7 @@ class Search
             'rows' => $rows,
             'result_total' => $resultTotal,
             'criteria_tables' => $this->criteriaTables,
-            'criteria_search_string' => htmlspecialchars($this->criteriaSearchString),
+            'criteria_search_string' => $this->criteriaSearchString,
             'search_type_description' => $this->searchTypeDescription,
         ]);
     }
