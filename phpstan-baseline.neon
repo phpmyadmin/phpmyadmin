@@ -5706,16 +5706,6 @@ parameters:
 			path: libraries/classes/Partitioning/TablePartitionDefinition.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Partitioning\\\\TablePartitionDefinition\\:\\:generateDetails\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Partitioning/TablePartitionDefinition.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Partitioning\\\\TablePartitionDefinition\\:\\:getDetails\\(\\) has parameter \\$details with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Partitioning/TablePartitionDefinition.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Partitioning\\\\TablePartitionDefinition\\:\\:getDetails\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Partitioning/TablePartitionDefinition.php

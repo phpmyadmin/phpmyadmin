@@ -234,9 +234,6 @@ class TablePartitionDefinitionTest extends TestCase
             'value_enabled' => false,
         ];
 
-        $actual = TablePartitionDefinition::getDetails($expected);
-        $this->assertEquals($expected, $actual);
-
         $actual = TablePartitionDefinition::getDetails();
         $this->assertEquals($expected, $actual);
     }

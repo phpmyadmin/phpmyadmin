@@ -75,7 +75,10 @@ final class PartitioningController extends AbstractController
 
         $storageEngines = StorageEngine::getArray();
 
-        $partitionDetails = TablePartitionDefinition::getDetails($partitionDetails);
+        if ($partitionDetails === null) {
+            $partitionDetails = TablePartitionDefinition::getDetails();
+        }
+
         $this->render('table/structure/partition_definition_form', [
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],

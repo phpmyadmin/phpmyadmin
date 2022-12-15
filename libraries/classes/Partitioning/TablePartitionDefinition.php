@@ -12,24 +12,7 @@ use function min;
 
 final class TablePartitionDefinition
 {
-    /**
-     * @param array|null $details Details that may be pre-filled
-     *
-     * @return array
-     */
-    public static function getDetails(?array $details = null): array
-    {
-        if (! isset($details)) {
-            $details = self::generateDetails();
-        }
-
-        return $details;
-    }
-
-    /**
-     * @return array
-     */
-    private static function generateDetails(): array
+    public static function getDetails(): array
     {
         $partitionDetails = self::extractDetailsFromRequest();
 
