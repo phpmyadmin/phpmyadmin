@@ -23,8 +23,8 @@ import getImageTag from '../modules/functions/getImageTag.js';
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('database/search.js', function () {
-    $('a.browse_results').off('click');
-    $('a.delete_results').off('click');
+    $('.browse_results').off('click');
+    $('.delete_results').off('click');
     $('#buttonGo').off('click');
     $('#togglesearchresultlink').off('click');
     $('#togglequerybox').off('click');
@@ -119,7 +119,7 @@ AJAX.registerOnload('database/search.js', function () {
     /*
      * Ajax Event handler for retrieving the results from a table
      */
-    $(document).on('click', 'a.browse_results', function (e) {
+    $(document).on('click', '.browse_results', function (e) {
         e.preventDefault();
         /**   Hides the results shown by the delete criteria */
         var $msg = ajaxShowMessage(window.Messages.strBrowsing, false);
@@ -128,9 +128,9 @@ AJAX.registerOnload('database/search.js', function () {
         /**  Load the browse results to the page */
         $('#table-info').show();
         var tableName = $(this).data('table-name');
-        $('#table-link').attr({ 'href': $(this).attr('href') }).text(tableName);
+        $('#table-link').attr({ 'href': $(this).data('href') }).text(tableName);
 
-        var url = $(this).attr('href') + '#searchresults';
+        var url = $(this).data('href') + '#searchresults';
         var browseSql = $(this).data('browse-sql');
         var params = {
             'ajax_request': true,
@@ -159,7 +159,7 @@ AJAX.registerOnload('database/search.js', function () {
     /*
      * Ajax Event handler for deleting the results from a table
      */
-    $(document).on('click', 'a.delete_results', function (e) {
+    $(document).on('click', '.delete_results', function (e) {
         e.preventDefault();
         /**  Hides the results shown by the browse criteria */
         $('#table-info').hide();
@@ -179,7 +179,7 @@ AJAX.registerOnload('database/search.js', function () {
                 'is_js_confirmed': true,
                 'sql_query': $(this).data('delete-sql')
             };
-            var url = $(this).attr('href');
+            var url = $(this).data('href');
 
             $.post(url, params, function (data) {
                 if (typeof data === 'undefined' || ! data.success) {

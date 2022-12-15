@@ -167,7 +167,10 @@ class SearchTest extends AbstractTestCase
 
         // test selection form
         $this->assertStringContainsString('<form', $main);
-        $this->assertStringContainsString('<a id="togglesearchformlink">', $main);
+        $this->assertStringContainsString(
+            '<button id="togglesearchformlink" class="btn btn-primary my-1"></button>',
+            $main
+        );
         $this->assertStringContainsString('criteriaSearchType', $main);
 
         // test result divs
