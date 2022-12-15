@@ -376,7 +376,7 @@ class Import
          * @todo BOM could be used for charset autodetection
          */
         if ($GLOBALS['offset'] == $size) {
-            $result = $this->skipByteOrderMarksFromContents($result);
+            return $this->skipByteOrderMarksFromContents($result);
         }
 
         return $result;

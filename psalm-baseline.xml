@@ -7418,9 +7418,8 @@
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="8">
+    <MixedAssignment occurrences="7">
       <code>$alt</code>
-      <code>$defaultFunction</code>
       <code>$defaultFunction</code>
       <code>$defaultFunction</code>
       <code>$subvalue</code>
@@ -7439,7 +7438,8 @@
       <code>$attributes['class']</code>
       <code>$value</code>
     </MixedOperand>
-    <MixedReturnStatement occurrences="1">
+    <MixedReturnStatement occurrences="2">
+      <code>$GLOBALS['cfg']['DefaultFunctions']['FUNC_UUID']</code>
       <code>$defaultFunction</code>
     </MixedReturnStatement>
     <PossiblyUndefinedArrayOffset occurrences="2">

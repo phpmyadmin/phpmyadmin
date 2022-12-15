@@ -182,7 +182,7 @@ class Types
         }
 
         if ($null) {
-            $ret = array_merge($ret, $this->getNullOperators());
+            return array_merge($ret, $this->getNullOperators());
         }
 
         return $ret;

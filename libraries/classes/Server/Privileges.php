@@ -2505,7 +2505,7 @@ class Privileges
         }
 
         if (isset($_GET['validate_username'])) {
-            $message = Message::success();
+            return Message::success();
         }
 
         return $message;

@@ -319,7 +319,7 @@ class Generator
             && $field['Key'] === 'PRI'
             && ($field['Type'] === 'char(36)' || $field['Type'] === 'varchar(36)')
         ) {
-            $defaultFunction = $GLOBALS['cfg']['DefaultFunctions']['FUNC_UUID'];
+            return $GLOBALS['cfg']['DefaultFunctions']['FUNC_UUID'];
         }
 
         return $defaultFunction;

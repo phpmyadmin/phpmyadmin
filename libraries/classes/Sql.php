@@ -1267,12 +1267,11 @@ class Sql
         array $sqlData,
         $displayMessage
     ): string {
-        $output = '';
         if ($displayQuery !== null && $showSql && $sqlData === []) {
-            $output = Generator::getMessage($displayMessage, $displayQuery, 'success');
+            return Generator::getMessage($displayMessage, $displayQuery, 'success');
         }
 
-        return $output;
+        return '';
     }
 
     /**
@@ -1760,7 +1759,7 @@ class Sql
         $unlimNumRows = $tableObject->countRecords(true);
         //If position is higher than number of rows
         if ($unlimNumRows <= $pos && $pos != 0) {
-            $pos = $this->getStartPosToDisplayRow($unlimNumRows);
+            return $this->getStartPosToDisplayRow($unlimNumRows);
         }
 
         return $pos;

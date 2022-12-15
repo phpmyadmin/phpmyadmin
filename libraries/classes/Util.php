@@ -515,7 +515,7 @@ class Util
                 __(',')
             );
             if (($originalValue != 0) && (floatval($value) == 0)) {
-                $value = ' <' . (1 / 10 ** $digitsRight);
+                return ' <' . (1 / 10 ** $digitsRight);
             }
 
             return $value;
@@ -699,7 +699,7 @@ class Util
         // Some OSes such as Win8.1 Traditional Chinese version did not produce UTF-8
         // output here. See https://github.com/phpmyadmin/phpmyadmin/issues/10598
         if ($ret === false || mb_detect_encoding($ret, 'UTF-8', true) !== 'UTF-8') {
-            $ret = date('Y-m-d H:i:s', (int) $timestamp);
+            return date('Y-m-d H:i:s', (int) $timestamp);
         }
 
         return $ret;
@@ -1379,7 +1379,7 @@ class Util
     {
         $firstOccurrence = mb_strpos($string, "\r\n");
         if ($firstOccurrence === 0) {
-            $string = "\n" . $string;
+            return "\n" . $string;
         }
 
         return $string;

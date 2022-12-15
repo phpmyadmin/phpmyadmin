@@ -1323,7 +1323,7 @@ class ExportSql extends ExportPlugin
         $compat = $GLOBALS['sql_compatibility'] ?? 'NONE';
 
         if ($compat === 'MSSQL') {
-            $createQuery = $this->makeCreateTableMSSQLCompatible($createQuery);
+            return $this->makeCreateTableMSSQLCompatible($createQuery);
         }
 
         return $createQuery;

@@ -224,7 +224,7 @@ class Sanitize
 
         /* Possibly escape result */
         if ($escape) {
-            $message = htmlspecialchars($message);
+            return htmlspecialchars($message);
         }
 
         return $message;
