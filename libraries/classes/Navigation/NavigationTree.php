@@ -519,7 +519,7 @@ class NavigationTree
     private function addTableContainers(NodeTable $table, int $pos2, string $type3, int $pos3): array
     {
         $retval = [];
-        if ($table->hasChildren(true) == 0) {
+        if ($table->hasChildren() == 0) {
             if ($table->getPresence('columns')) {
                 $retval['columns'] = NodeFactory::getInstance('NodeColumnContainer');
             }
@@ -594,7 +594,7 @@ class NavigationTree
         }
 
         $retval = [];
-        if ($db->hasChildren(true) == 0) {
+        if ($db->hasChildren() == 0) {
             if (! in_array('tables', $hidden) && $db->getPresence('tables')) {
                 $retval['tables'] = NodeFactory::getInstance('NodeTableContainer');
             }
@@ -1207,7 +1207,7 @@ class NavigationTree
 
         // Provide for pagination in database select
         $listNavigator = Generator::getListNavigator(
-            $this->tree->getPresence('databases', ''),
+            $this->tree->getPresence('databases'),
             $this->pos,
             ['server' => $GLOBALS['server']],
             Url::getFromRoute('/navigation'),
