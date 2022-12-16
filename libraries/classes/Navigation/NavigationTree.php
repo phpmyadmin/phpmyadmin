@@ -199,8 +199,7 @@ class NavigationTree
         }
 
         // Initialize the tree by creating a root node
-        $node = NodeFactory::getInstance('NodeDatabaseContainer', 'root');
-        $this->tree = $node;
+        $this->tree = NodeFactory::getInstance('NodeDatabaseContainer', 'root');
         if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping'] || ! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
             return;
         }
