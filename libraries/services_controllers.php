@@ -1606,10 +1606,7 @@ return [
                 '$template' => '@template',
                 '$relation' => '@relation',
                 '$transformations' => '@transformations',
-                '$createAddField' => '@create_add_field',
-                '$relationCleanup' => '@relation_cleanup',
                 '$dbi' => '@dbi',
-                '$flash' => '@flash',
             ],
         ],
         Table\TrackingController::class => [

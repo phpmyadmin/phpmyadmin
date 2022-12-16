@@ -6,11 +6,8 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Table\StructureController;
-use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\FlashMessages;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Template;
@@ -95,10 +92,7 @@ class StructureControllerTest extends AbstractTestCase
             $template,
             $relation,
             new Transformations(),
-            new CreateAddField($this->dbi),
-            new RelationCleanup($this->dbi, $relation),
-            $this->dbi,
-            new FlashMessages()
+            $this->dbi
         ))($request);
 
         $expected = $pageSettings->getHTML();

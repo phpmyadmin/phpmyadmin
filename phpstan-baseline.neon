@@ -2031,21 +2031,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/StructureController.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Table\\\\StructureController\\:\\:\\$createAddField is never read, only written\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Table\\\\StructureController\\:\\:\\$flash is never read, only written\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Table\\\\StructureController\\:\\:\\$relationCleanup is never read, only written\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/StructureController.php
-
-		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
