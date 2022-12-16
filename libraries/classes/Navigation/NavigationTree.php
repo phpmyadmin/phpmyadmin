@@ -434,7 +434,7 @@ class NavigationTree
         }
 
         array_shift($path); // remove container
-        if (count($path) <= 0) {
+        if ($path === []) {
             return $container;
         }
 
@@ -743,7 +743,7 @@ class NavigationTree
             }
         }
 
-        if (! count($prefixes)) {
+        if ($prefixes === []) {
             return;
         }
 
@@ -805,7 +805,7 @@ class NavigationTree
                 }
             }
 
-            if (count($newChildren) === 0) {
+            if ($newChildren === []) {
                 continue;
             }
 
@@ -852,7 +852,7 @@ class NavigationTree
         }
 
         foreach ($groups as $group) {
-            if (count($group->children) === 0) {
+            if ($group->children === []) {
                 continue;
             }
 
@@ -1052,7 +1052,7 @@ class NavigationTree
 
         // Whether to show the node in the tree (true for all nodes but root)
         // If false, the node's children will still be shown, but as children of the node's parent
-        $showNode = $node->hasSiblings() || count($node->parents(false, true)) > 0;
+        $showNode = $node->hasSiblings() || $node->parents(false, true) !== [];
 
         // Don't show the 'Tables' node under each database unless it has 'Views', etc. as a sibling
         if ($node instanceof NodeTableContainer && ! $node->hasSiblings()) {
@@ -1061,7 +1061,7 @@ class NavigationTree
 
         if ($showNode) {
             $response = ResponseRenderer::getInstance();
-            if ($nodeIsContainer && count($node->children) === 0 && ! $response->isAjax()) {
+            if ($nodeIsContainer && $node->children === [] && ! $response->isAjax()) {
                 return '';
             }
 
@@ -1069,7 +1069,7 @@ class NavigationTree
             $sterile = ['events', 'triggers', 'functions', 'procedures', 'views', 'columns', 'indexes'];
             $parentName = '';
             $parents = $node->parents(false, true);
-            if (count($parents)) {
+            if ($parents !== []) {
                 $parentName = $parents[0]->realName;
             }
 
