@@ -639,7 +639,7 @@ class NavigationTree
     /**
      * Recursively groups tree nodes given a separator
      *
-     * @param Node $node The node to group or null
+     * @param Node|null $node The node to group or null
      *                   to group the whole tree. If
      *                   passed as an argument, $node
      *                   must be of type CONTAINER
