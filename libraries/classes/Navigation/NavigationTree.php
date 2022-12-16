@@ -519,7 +519,7 @@ class NavigationTree
     private function addTableContainers(NodeTable $table, int $pos2, string $type3, int $pos3): array
     {
         $retval = [];
-        if ($table->hasChildren() == 0) {
+        if (! $table->hasChildren()) {
             if ($table->getPresence('columns')) {
                 $retval['columns'] = NodeFactory::getInstance('NodeColumnContainer');
             }
@@ -594,7 +594,7 @@ class NavigationTree
         }
 
         $retval = [];
-        if ($db->hasChildren() == 0) {
+        if (! $db->hasChildren()) {
             if (! in_array('tables', $hidden) && $db->getPresence('tables')) {
                 $retval['tables'] = NodeFactory::getInstance('NodeTableContainer');
             }
