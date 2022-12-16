@@ -853,8 +853,6 @@ return [
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
-                '$transformations' => '@transformations',
-                '$relationCleanup' => '@relation_cleanup',
                 '$dbi' => '@dbi',
             ],
         ],

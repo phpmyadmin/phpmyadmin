@@ -1601,16 +1601,6 @@ parameters:
 			path: libraries/classes/Controllers/Server/DatabasesController.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Server\\\\DatabasesController\\:\\:\\$relationCleanup is never read, only written\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/DatabasesController.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Server\\\\DatabasesController\\:\\:\\$transformations is never read, only written\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/DatabasesController.php
-
-		-
 			message: "#^Cannot cast mixed to int\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/ReplicationController.php
