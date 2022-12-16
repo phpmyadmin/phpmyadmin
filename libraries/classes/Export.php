@@ -892,6 +892,7 @@ class Export
      * @param string       $whatStrucOrData whether to export structure for each table or raw
      * @param ExportPlugin $exportPlugin    the selected export plugin
      * @param string       $errorUrl        the URL in case of error
+     * @param string|null  $db              the database where the query is executed
      * @param string       $sqlQuery        the query to be executed
      * @param string       $exportType      the export type
      */
@@ -899,6 +900,7 @@ class Export
         string $whatStrucOrData,
         ExportPlugin $exportPlugin,
         string $errorUrl,
+        ?string $db,
         string $sqlQuery,
         string $exportType
     ): void {
@@ -907,7 +909,7 @@ class Export
             return;
         }
 
-        if (! $exportPlugin->exportRawQuery($errorUrl, $sqlQuery)) {
+        if (! $exportPlugin->exportRawQuery($errorUrl, $db, $sqlQuery)) {
             $GLOBALS['message'] = Message::error(
                 // phpcs:disable Generic.Files.LineLength.TooLong
                 /* l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular */

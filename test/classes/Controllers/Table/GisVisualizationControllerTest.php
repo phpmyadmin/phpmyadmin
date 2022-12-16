@@ -91,7 +91,7 @@ class GisVisualizationControllerTest extends AbstractTestCase
             ],
             'visualization' => '<?xml version="1.0" encoding="UTF-8" standalone="no"?>' . "\n"
                 . '<svg version="1.1" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg"'
-                . ' width="600" height="450"><g id="groupPanel"><circle cx="15" cy="240" r="3" name=""'
+                . ' width="600" height="450"><g id="groupPanel"><circle cx="300" cy="225" r="3" name=""'
                 . ' id="1234567890" class="point vector" fill="white" stroke="#b02ee0" stroke-width="2"/></g></svg>',
             'draw_ol' => 'function drawOpenLayers() {if (typeof ol !== "undefined") {var olCss ='
                 . ' "js/vendor/openlayers/theme/ol.css";$(\'head\').append(\'<link rel="stylesheet" type="text/css"'

@@ -75,6 +75,9 @@ phpMyAdmin - ChangeLog
 - issue        Fix column names option for CSV Export
 - issue #17177 Fix preview SQL when reordering columns doesn't work on move columns
 - issue #15887 Fixed DROP TABLE errors ignored on multi table select for DROP
+- issue #17944 Fix unable to create a view from tree view button
+- issue #17927 Fix key navigation between select inputs (drop an old Firefox workaround)
+- issue #17967 Fix missing icon for collapse all button
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5

@@ -7231,7 +7231,7 @@
       <code>$row[$this-&gt;settings['spatialColumn']]</code>
       <code>$row[$this-&gt;settings['spatialColumn']]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="15">
+    <MixedAssignment occurrences="13">
       <code>$label</code>
       <code>$pdf</code>
       <code>$plot_height</code>
@@ -7242,9 +7242,7 @@
       <code>$row</code>
       <code>$scale</code>
       <code>$x</code>
-      <code>$x</code>
       <code>$x_ratio</code>
-      <code>$y</code>
       <code>$y</code>
       <code>$y_ratio</code>
     </MixedAssignment>
@@ -7254,11 +7252,9 @@
     <MixedOperand occurrences="15">
       <code>$border / $scale</code>
       <code>$border / $scale</code>
-      <code>$min_max['maxX'] + $min_max['minX'] - $plot_width / $scale</code>
-      <code>$min_max['maxY'] + $min_max['minY'] - $plot_height / $scale</code>
+      <code>$min_max['maxX'] + $min_max['minX'] - $this-&gt;settings['width'] / $scale</code>
+      <code>$min_max['maxY'] + $min_max['minY'] - $this-&gt;settings['height'] / $scale</code>
       <code>$plot_height</code>
-      <code>$plot_height</code>
-      <code>$plot_width</code>
       <code>$plot_width</code>
       <code>$ratio</code>
       <code>$scale</code>
@@ -7266,6 +7262,8 @@
       <code>$this-&gt;prepareDataSet($this-&gt;data, $scale_data, 'ol', '')</code>
       <code>$this-&gt;prepareDataSet($this-&gt;data, $scale_data, 'svg', '')</code>
       <code>$this-&gt;settings['height']</code>
+      <code>$this-&gt;settings['height']</code>
+      <code>$this-&gt;settings['width']</code>
       <code>$this-&gt;settings['width']</code>
     </MixedOperand>
     <NullArgument occurrences="3">
@@ -11616,15 +11614,15 @@
     </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Plugins/TwoFactor/Key.php">
+    <InvalidArgument occurrences="3">
+      <code>$this-&gt;getRegistrations()</code>
+      <code>$this-&gt;getRegistrations()</code>
+      <code>$this-&gt;getRegistrations()</code>
+    </InvalidArgument>
     <MixedArgument occurrences="2">
       <code>$_SESSION['authenticationRequest']</code>
       <code>$_SESSION['registrationRequest']</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="3">
-      <code>$this-&gt;getRegistrations()</code>
-      <code>$this-&gt;getRegistrations()</code>
-      <code>$this-&gt;getRegistrations()</code>
-    </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="5">
       <code>$data['certificate']</code>
       <code>$data['counter']</code>

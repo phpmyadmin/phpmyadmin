@@ -51,7 +51,7 @@ class Key extends TwoFactorPlugin
     /**
      * Returns array of U2F registration objects
      *
-     * @return array
+     * @return stdClass[]
      */
     public function getRegistrations()
     {

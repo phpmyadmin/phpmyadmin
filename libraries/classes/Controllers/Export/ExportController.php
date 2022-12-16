@@ -430,6 +430,7 @@ final class ExportController extends AbstractController
                     $whatStrucOrData,
                     $exportPlugin,
                     $GLOBALS['errorUrl'],
+                    $GLOBALS['db'],
                     $GLOBALS['sql_query'],
                     $GLOBALS['export_type']
                 );

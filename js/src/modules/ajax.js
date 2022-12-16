@@ -521,6 +521,7 @@ const AJAX = {
                 // Remove all containers that may have
                 // been added outside of #page_content
                 $('body').children()
+                    .not('div.modal')
                     .not('#pma_navigation')
                     .not('#floating_menubar')
                     .not('#page_nav_icons')
