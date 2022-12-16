@@ -12044,15 +12044,15 @@
     </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Plugins/TwoFactor/Key.php">
+    <InvalidArgument occurrences="3">
+      <code>$this-&gt;getRegistrations()</code>
+      <code>$this-&gt;getRegistrations()</code>
+      <code>$this-&gt;getRegistrations()</code>
+    </InvalidArgument>
     <MixedArgument occurrences="2">
       <code>$_SESSION['authenticationRequest']</code>
       <code>$_SESSION['registrationRequest']</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="3">
-      <code>$this-&gt;getRegistrations()</code>
-      <code>$this-&gt;getRegistrations()</code>
-      <code>$this-&gt;getRegistrations()</code>
-    </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="5">
       <code>$data['certificate']</code>
       <code>$data['counter']</code>
