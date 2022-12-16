@@ -683,9 +683,9 @@ class NavigationTree
                 foreach ($separators as $separator) {
                     $sepPos = mb_strpos((string) $child->name, $separator);
                     if (
-                        $sepPos == false
-                        || $sepPos == mb_strlen($child->name)
-                        || $sepPos == 0
+                        $sepPos === false
+                        || $sepPos === mb_strlen($child->name)
+                        || $sepPos === 0
                         || ($prefixPos !== false && $sepPos >= $prefixPos)
                     ) {
                         continue;
