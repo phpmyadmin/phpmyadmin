@@ -421,10 +421,7 @@ return [
                 '$template' => '@template',
                 '$relation' => '@relation',
                 '$replication' => '@replication',
-                '$relationCleanup' => '@relation_cleanup',
-                '$operations' => '@operations',
                 '$dbi' => '@dbi',
-                '$flash' => '@flash',
             ],
         ],
         Database\TrackingController::class => [

@@ -1271,21 +1271,6 @@ parameters:
 			path: libraries/classes/Controllers/Database/StructureController.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:\\$flash is never read, only written\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:\\$operations is never read, only written\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:\\$relationCleanup is never read, only written\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/StructureController.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:\\$tables type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/StructureController.php
