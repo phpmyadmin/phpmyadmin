@@ -222,14 +222,13 @@ class NavigationTree
          * @todo describe a scenario where this code is executed
          */
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            $dbSeparator = $this->dbi->escapeString($GLOBALS['cfg']['NavigationTreeDbSeparator']);
             $query = 'SELECT (COUNT(DB_first_level) DIV %d) * %d ';
             $query .= 'from ( ';
             $query .= ' SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, ';
-            $query .= " '%s', 1) ";
+            $query .= ' %s, 1) ';
             $query .= ' DB_first_level ';
             $query .= ' FROM INFORMATION_SCHEMA.SCHEMATA ';
-            $query .= " WHERE `SCHEMA_NAME` < '%s' ";
+            $query .= ' WHERE `SCHEMA_NAME` < %s ';
             $query .= ') t ';
 
             return (int) $this->dbi->fetchValue(
@@ -237,8 +236,8 @@ class NavigationTree
                     $query,
                     (int) $GLOBALS['cfg']['FirstLevelNavigationItems'],
                     (int) $GLOBALS['cfg']['FirstLevelNavigationItems'],
-                    $dbSeparator,
-                    $this->dbi->escapeString($GLOBALS['db'])
+                    $this->dbi->quoteString($GLOBALS['cfg']['NavigationTreeDbSeparator']),
+                    $this->dbi->quoteString($GLOBALS['db'])
                 )
             );
         }
