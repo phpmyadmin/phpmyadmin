@@ -1418,6 +1418,11 @@
   dependencies:
     "@types/yargs-parser" "*"
 
+"@web-auth/webauthn-helper@^0.0.13":
+  version "0.0.13"
+  resolved "https://registry.yarnpkg.com/@web-auth/webauthn-helper/-/webauthn-helper-0.0.13.tgz#2e9e6f421a3238bee233fe97c6801a6c6354cf7b"
+  integrity sha512-yEXWTiZSGFYnCVEwOqWgZFrQ4MiW9WGAiAvdRD6NQRlp7sr39THZiGIix/x3y3zmnsUsZZ0iXQA8zG/gPESwzQ==
+
 "@zxcvbn-ts/core@^2.0.1":
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/@zxcvbn-ts/core/-/core-2.0.3.tgz#fbe92b3607e20f634f26fc68695eaf03813d1638"

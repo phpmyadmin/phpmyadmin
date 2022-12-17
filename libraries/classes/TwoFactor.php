@@ -13,13 +13,16 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Plugins\TwoFactor\Application;
 use PhpMyAdmin\Plugins\TwoFactor\Invalid;
 use PhpMyAdmin\Plugins\TwoFactor\Key;
+use PhpMyAdmin\Plugins\TwoFactor\WebAuthn;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
 use PragmaRX\Google2FAQRCode\Google2FA;
+use Webauthn\Server;
 use XMLWriter;
 
 use function array_merge;
 use function class_exists;
 use function extension_loaded;
+use function function_exists;
 use function in_array;
 use function ucfirst;
 
@@ -135,6 +138,10 @@ class TwoFactor
             $result[] = 'application';
         }
 
+        if (class_exists(Server::class) && (function_exists('gmp_add') || function_exists('bcadd'))) {
+            $result[] = 'WebAuthn';
+        }
+
         if (class_exists(U2FServer::class)) {
             $result[] = 'key';
         }
@@ -161,6 +168,20 @@ class TwoFactor
             $result[] = [
                 'class' => Application::getName(),
                 'dep' => 'bacon/bacon-qr-code',
+            ];
+        }
+
+        if (! class_exists(Server::class)) {
+            $result[] = [
+                'class' => WebAuthn::getName(),
+                'dep' => 'web-auth/webauthn-lib',
+            ];
+        }
+
+        if (! function_exists('gmp_add') && ! function_exists('bcadd')) {
+            $result[] = [
+                'class' => WebAuthn::getName(),
+                'dep' => 'ext-gmp || ext-bcmath || phpseclib/bcmath_compat',
             ];
         }
 

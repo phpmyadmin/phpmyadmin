@@ -14,6 +14,7 @@
     "@babel/core": "^7.18.9",
     "@babel/preset-env": "^7.18.9",
     "@popperjs/core": "^2.11.5",
+    "@web-auth/webauthn-helper": "^0.0.13",
     "@zxcvbn-ts/core": "^2.0.1",
     "autoprefixer": "^10.4.7",
     "bootstrap": "5.2.0",

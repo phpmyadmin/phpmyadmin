@@ -12081,6 +12081,24 @@
       <code>$_POST['u2f_registration_response']</code>
     </PossiblyInvalidCast>
   </file>
+  <file src="libraries/classes/Plugins/TwoFactor/WebAuthn.php">
+    <MixedArrayAccess occurrences="1">
+      <code>$this-&gt;twoFactor-&gt;config['settings']['WebAuthn']</code>
+    </MixedArrayAccess>
+    <MixedArrayAssignment occurrences="2">
+      <code>$this-&gt;twoFactor-&gt;config['settings']['WebAuthn']</code>
+      <code>$this-&gt;twofactor-&gt;config['settings']['WebAuthn']</code>
+    </MixedArrayAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>mixed[][]</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>$this-&gt;twoFactor-&gt;config['settings']['WebAuthn']</code>
+    </MixedReturnStatement>
+    <UnusedVariable occurrences="1">
+      <code>$publicKeyCredentialSource</code>
+    </UnusedVariable>
+  </file>
   <file src="libraries/classes/Plugins/TwoFactorPlugin.php">
     <MixedArgument occurrences="1">
       <code>$url</code>

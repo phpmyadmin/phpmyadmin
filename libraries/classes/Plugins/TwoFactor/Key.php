@@ -211,6 +211,6 @@ class Key extends TwoFactorPlugin
      */
     public static function getDescription()
     {
-        return __('Provides authentication using hardware security tokens supporting FIDO U2F, such as a Yubikey.');
+        return __('Provides authentication using hardware security tokens supporting FIDO U2F, such as a YubiKey.');
     }
 }
