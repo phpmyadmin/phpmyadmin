@@ -38,6 +38,7 @@ use function in_array;
 use function is_array;
 use function is_bool;
 use function is_object;
+use function is_string;
 use function mb_strlen;
 use function mb_strpos;
 use function mb_substr;
@@ -668,10 +669,8 @@ class NavigationTree
         $separators = [];
         if (is_array($node->separator)) {
             $separators = $node->separator;
-        } else {
-            if (strlen($node->separator)) {
-                $separators[] = $node->separator;
-            }
+        } elseif (is_string($node->separator) && $node->separator !== '') {
+            $separators[] = $node->separator;
         }
 
         $prefixes = [];
