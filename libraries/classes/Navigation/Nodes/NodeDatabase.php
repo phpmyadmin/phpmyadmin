@@ -64,29 +64,27 @@ class NodeDatabase extends Node
      *                             ('tables', 'views', etc)
      * @param string $searchClause A string used to filter the results of
      *                             the query
-     * @param bool   $singleItem   Whether to get presence of a single known
-     *                             item or false in none
      *
      * @return int
      */
-    public function getPresence($type = '', $searchClause = '', $singleItem = false)
+    public function getPresence($type = '', $searchClause = '')
     {
         $retval = 0;
         switch ($type) {
             case 'tables':
-                $retval = $this->getTableCount($searchClause, $singleItem);
+                $retval = $this->getTableCount($searchClause);
                 break;
             case 'views':
-                $retval = $this->getViewCount($searchClause, $singleItem);
+                $retval = $this->getViewCount($searchClause);
                 break;
             case 'procedures':
-                $retval = $this->getProcedureCount($searchClause, $singleItem);
+                $retval = $this->getProcedureCount($searchClause);
                 break;
             case 'functions':
-                $retval = $this->getFunctionCount($searchClause, $singleItem);
+                $retval = $this->getFunctionCount($searchClause);
                 break;
             case 'events':
-                $retval = $this->getEventCount($searchClause, $singleItem);
+                $retval = $this->getEventCount($searchClause);
                 break;
             default:
                 break;
@@ -101,12 +99,10 @@ class NodeDatabase extends Node
      * @param string $which        tables|views
      * @param string $searchClause A string used to filter the results of
      *                             the query
-     * @param bool   $singleItem   Whether to get presence of a single known
-     *                             item or false in none
      *
      * @return int
      */
-    private function getTableOrViewCount($which, string $searchClause, $singleItem)
+    private function getTableOrViewCount($which, string $searchClause)
     {
         if ($which === 'tables') {
             $condition = 'IN';
@@ -120,7 +116,7 @@ class NodeDatabase extends Node
             $query .= 'WHERE `TABLE_SCHEMA`=' . $GLOBALS['dbi']->quoteString($this->realName) . ' ';
             $query .= 'AND `TABLE_TYPE` ' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
             if ($searchClause !== '') {
-                $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, $singleItem, 'TABLE_NAME');
+                $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, 'TABLE_NAME');
             }
 
             return (int) $GLOBALS['dbi']->fetchValue($query);
@@ -132,7 +128,6 @@ class NodeDatabase extends Node
         if ($searchClause !== '') {
             $query .= 'AND ' . $this->getWhereClauseForSearch(
                 $searchClause,
-                $singleItem,
                 'Tables_in_' . $this->realName
             );
         }
@@ -145,14 +140,12 @@ class NodeDatabase extends Node
      *
      * @param string $searchClause A string used to filter the results of
      *                             the query
-     * @param bool   $singleItem   Whether to get presence of a single known
-     *                             item or false in none
      *
      * @return int
      */
-    private function getTableCount(string $searchClause, $singleItem)
+    private function getTableCount(string $searchClause)
     {
-        return $this->getTableOrViewCount('tables', $searchClause, $singleItem);
+        return $this->getTableOrViewCount('tables', $searchClause);
     }
 
     /**
@@ -160,14 +153,12 @@ class NodeDatabase extends Node
      *
      * @param string $searchClause A string used to filter the results of
      *                             the query
-     * @param bool   $singleItem   Whether to get presence of a single known
-     *                             item or false in none
      *
      * @return int
      */
-    private function getViewCount(string $searchClause, $singleItem)
+    private function getViewCount(string $searchClause)
     {
-        return $this->getTableOrViewCount('views', $searchClause, $singleItem);
+        return $this->getTableOrViewCount('views', $searchClause);
     }
 
     /**
@@ -175,12 +166,10 @@ class NodeDatabase extends Node
      *
      * @param string $searchClause A string used to filter the results of
      *                             the query
-     * @param bool   $singleItem   Whether to get presence of a single known
-     *                             item or false in none
      *
      * @return int
      */
-    private function getProcedureCount(string $searchClause, $singleItem)
+    private function getProcedureCount(string $searchClause)
     {
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $query = 'SELECT COUNT(*) ';
@@ -189,7 +178,7 @@ class NodeDatabase extends Node
                 . Util::getCollateForIS() . '=' . $GLOBALS['dbi']->quoteString($this->realName);
             $query .= "AND `ROUTINE_TYPE`='PROCEDURE' ";
             if ($searchClause !== '') {
-                $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, $singleItem, 'ROUTINE_NAME');
+                $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, 'ROUTINE_NAME');
             }
 
             return (int) $GLOBALS['dbi']->fetchValue($query);
@@ -197,7 +186,7 @@ class NodeDatabase extends Node
 
         $query = 'SHOW PROCEDURE STATUS WHERE `Db`=' . $GLOBALS['dbi']->quoteString($this->realName) . ' ';
         if ($searchClause !== '') {
-            $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, $singleItem, 'Name');
+            $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, 'Name');
         }
 
         return $GLOBALS['dbi']->queryAndGetNumRows($query);
@@ -208,12 +197,10 @@ class NodeDatabase extends Node
      *
      * @param string $searchClause A string used to filter the results of
      *                             the query
-     * @param bool   $singleItem   Whether to get presence of a single known
-     *                             item or false in none
      *
      * @return int
      */
-    private function getFunctionCount(string $searchClause, $singleItem)
+    private function getFunctionCount(string $searchClause)
     {
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $query = 'SELECT COUNT(*) ';
@@ -222,7 +209,7 @@ class NodeDatabase extends Node
                 . Util::getCollateForIS() . '=' . $GLOBALS['dbi']->quoteString($this->realName) . ' ';
             $query .= "AND `ROUTINE_TYPE`='FUNCTION' ";
             if ($searchClause !== '') {
-                $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, $singleItem, 'ROUTINE_NAME');
+                $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, 'ROUTINE_NAME');
             }
 
             return (int) $GLOBALS['dbi']->fetchValue($query);
@@ -230,7 +217,7 @@ class NodeDatabase extends Node
 
         $query = 'SHOW FUNCTION STATUS WHERE `Db`=' . $GLOBALS['dbi']->quoteString($this->realName) . ' ';
         if ($searchClause !== '') {
-            $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, $singleItem, 'Name');
+            $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, 'Name');
         }
 
         return $GLOBALS['dbi']->queryAndGetNumRows($query);
@@ -241,12 +228,10 @@ class NodeDatabase extends Node
      *
      * @param string $searchClause A string used to filter the results of
      *                             the query
-     * @param bool   $singleItem   Whether to get presence of a single known
-     *                             item or false in none
      *
      * @return int
      */
-    private function getEventCount(string $searchClause, $singleItem)
+    private function getEventCount(string $searchClause)
     {
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $query = 'SELECT COUNT(*) ';
@@ -254,7 +239,7 @@ class NodeDatabase extends Node
             $query .= 'WHERE `EVENT_SCHEMA` '
                 . Util::getCollateForIS() . '=' . $GLOBALS['dbi']->quoteString($this->realName) . ' ';
             if ($searchClause !== '') {
-                $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, $singleItem, 'EVENT_NAME');
+                $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, 'EVENT_NAME');
             }
 
             return (int) $GLOBALS['dbi']->fetchValue($query);
@@ -262,7 +247,7 @@ class NodeDatabase extends Node
 
         $query = 'SHOW EVENTS FROM ' . Util::backquote($this->realName) . ' ';
         if ($searchClause !== '') {
-            $query .= 'WHERE ' . $this->getWhereClauseForSearch($searchClause, $singleItem, 'Name');
+            $query .= 'WHERE ' . $this->getWhereClauseForSearch($searchClause, 'Name');
         }
 
         return $GLOBALS['dbi']->queryAndGetNumRows($query);
@@ -272,20 +257,14 @@ class NodeDatabase extends Node
      * Returns the WHERE clause for searching inside a database
      *
      * @param string $searchClause A string used to filter the results of the query
-     * @param bool   $singleItem   Whether to get presence of a single known item
      * @param string $columnName   Name of the column in the result set to match
      *
      * @return string WHERE clause for searching
      */
     private function getWhereClauseForSearch(
         string $searchClause,
-        $singleItem,
         $columnName
     ) {
-        if ($singleItem) {
-            return Util::backquote($columnName) . ' = ' . $GLOBALS['dbi']->quoteString($searchClause);
-        }
-
         return Util::backquote($columnName) . ' LIKE '
             . $GLOBALS['dbi']->quoteString('%' . $GLOBALS['dbi']->escapeMysqlWildcards($searchClause) . '%');
     }
