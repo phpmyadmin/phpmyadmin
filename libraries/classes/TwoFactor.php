@@ -141,6 +141,8 @@ class TwoFactor
             $result[] = 'application';
         }
 
+        $result[] = 'WebAuthn';
+
         if (class_exists(U2FServer::class)) {
             $result[] = 'key';
         }
