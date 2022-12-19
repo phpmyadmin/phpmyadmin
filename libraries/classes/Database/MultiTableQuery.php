@@ -49,7 +49,7 @@ class MultiTableQuery
     /**
      * Table names
      *
-     * @var array
+     * @var array<int, string>
      */
     private $tables;
 

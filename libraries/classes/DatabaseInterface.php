@@ -324,7 +324,7 @@ class DatabaseInterface implements DbalInterface
      * @param string $database name of database
      * @param int    $link     mysql link resource|object
      *
-     * @return array   tables names
+     * @return array<int, string>   tables names
      */
     public function getTables(string $database, int $link = self::CONNECT_USER): array
     {
@@ -332,6 +332,7 @@ class DatabaseInterface implements DbalInterface
             return [];
         }
 
+        /** @var array<int, string> $tables */
         $tables = $this->fetchResult(
             'SHOW TABLES FROM ' . Util::backquote($database) . ';',
             null,

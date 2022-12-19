@@ -2446,11 +2446,6 @@ parameters:
 			path: libraries/classes/Database/Events.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Database\\\\MultiTableQuery\\:\\:\\$tables type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Database/MultiTableQuery.php
-
-		-
 			message: "#^Casting to string something that's already string\\.$#"
 			count: 1
 			path: libraries/classes/Database/Qbe.php
@@ -3031,11 +3026,6 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTables\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTablesFull\\(\\) has parameter \\$table with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
@@ -3112,11 +3102,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbalInterface\\:\\:getDatabasesFull\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbalInterface.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbalInterface\\:\\:getTables\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Dbal/DbalInterface.php
 

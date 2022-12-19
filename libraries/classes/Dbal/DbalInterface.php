@@ -67,7 +67,7 @@ interface DbalInterface
      * @param string $database name of database
      * @param int    $link     mysql link resource|object
      *
-     * @return array   tables names
+     * @return array<int, string>   tables names
      */
     public function getTables(string $database, int $link = DatabaseInterface::CONNECT_USER): array;
 
