@@ -44,7 +44,7 @@ class DeleteRowsControllerTest extends AbstractTestCase
             ['id', 'name', 'datetimefield']
         );
         $dummyDbi->addResult(
-            'SELECT TABLE_NAME FROM information_schema.VIEWS WHERE TABLE_SCHEMA = \'test_db\''
+            'SELECT 1 FROM information_schema.VIEWS WHERE TABLE_SCHEMA = \'test_db\''
             . ' AND TABLE_NAME = \'test_table\' AND IS_UPDATABLE = \'YES\'',
             [],
             ['TABLE_NAME']

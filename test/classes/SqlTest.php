@@ -745,7 +745,7 @@ class SqlTest extends AbstractTestCase
             ['Table', 'Non_unique', 'Key_name', 'Column_name']
         );
         $this->dummyDbi->addResult(
-            'SELECT TABLE_NAME FROM information_schema.VIEWS'
+            'SELECT 1 FROM information_schema.VIEWS'
             . ' WHERE TABLE_SCHEMA = \'sakila\' AND TABLE_NAME = \'country\' AND IS_UPDATABLE = \'YES\'',
             []
         );

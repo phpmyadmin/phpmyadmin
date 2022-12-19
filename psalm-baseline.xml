@@ -2889,22 +2889,8 @@
     </PossiblyNullArrayAccess>
   </file>
   <file src="libraries/classes/Controllers/Server/VariablesController.php">
-    <MixedArgument occurrences="1">
-      <code>$value</code>
-    </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="5">
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-    </MixedArgumentTypeCoercion>
-    <MixedArrayTypeCoercion occurrences="1">
-      <code>$serverVarsSession[$name]</code>
-    </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="2">
+    <MixedAssignment occurrences="1">
       <code>$filterValue</code>
-      <code>$value</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Setup/HomeController.php">
@@ -8656,14 +8642,13 @@
       <code>escapeString</code>
       <code>escapeString</code>
     </DeprecatedMethod>
-    <MixedArgument occurrences="14">
+    <MixedArgument occurrences="13">
       <code>$arr['foreign_db']</code>
       <code>$arr['foreign_db']</code>
       <code>$arr['foreign_db']</code>
       <code>$arr['foreign_field']</code>
       <code>$arr['foreign_field']</code>
       <code>$arr['foreign_table']</code>
-      <code>$eventName</code>
       <code>$foreignTable</code>
       <code>$foreignTable</code>
       <code>$oldPriv</code>
@@ -8728,10 +8713,9 @@
       <code>$trigger['create']</code>
       <code>$trigger['create']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="13">
+    <MixedAssignment occurrences="12">
       <code>$GLOBALS['auto_increment']</code>
       <code>$arr</code>
-      <code>$eventName</code>
       <code>$foreignTable</code>
       <code>$oldPriv</code>
       <code>$oldPriv</code>

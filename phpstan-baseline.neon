@@ -1761,11 +1761,6 @@ parameters:
 			path: libraries/classes/Controllers/Server/VariablesController.php
 
 		-
-			message: "#^Parameter \\#2 \\$value of method PhpMyAdmin\\\\Controllers\\\\Server\\\\VariablesController\\:\\:formatVariable\\(\\) expects int\\|string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/VariablesController.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Setup\\\\AbstractController\\:\\:getPages\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Setup/AbstractController.php
