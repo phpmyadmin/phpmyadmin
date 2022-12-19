@@ -334,7 +334,7 @@ class PrivilegesController extends AbstractController
             $this->response->isAjax()
             && empty($_REQUEST['ajax_page_request'])
             && ! $request->hasQueryParam('export')
-            && (! $request->hasBodyParam('submit_mult') || $request->getParsedBodyParam('submit_mult') !== 'export')
+            && $request->getParsedBodyParam('submit_mult') !== 'export'
             && ((! $request->hasQueryParam('initial') || $request->getQueryParam('initial') === '')
                 || $request->getParsedBodyParam('delete') === __('Go'))
             && ! $request->hasQueryParam('showall')
@@ -364,7 +364,7 @@ class PrivilegesController extends AbstractController
         }
 
         // export user definition
-        if ($request->getParsedBodyParam('submit_mult') === 'export') {
+        if ($request->hasQueryParam('export') || $request->getParsedBodyParam('submit_mult') === 'export') {
             [$GLOBALS['title'], $GLOBALS['export']] = $serverPrivileges->getListForExportUserDefinition(
                 $GLOBALS['username'] ?? '',
                 $GLOBALS['hostname'] ?? ''
