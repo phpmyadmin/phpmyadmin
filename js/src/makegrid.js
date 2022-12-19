@@ -1274,7 +1274,12 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                             fieldsType.push('hex');
                         }
                         fieldsNull.push('');
-                        fields.push($thisField.data('value'));
+
+                        if ($thisField.attr('data-type') !== 'json') {
+                            fields.push($thisField.data('value'));
+                        } else {
+                            fields.push(JSON.stringify(JSON.parse($thisField.data('value'))));
+                        }
 
                         var cellIndex = $thisField.index('.to_be_saved');
                         if ($thisField.is(':not(.relation, .enum, .set, .bit)')) {
@@ -1510,7 +1515,15 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 } else {
                     thisFieldParams[fieldName] = $(g.cEdit).find('.edit_box').val();
                 }
-                if (g.wasEditedCellNull || thisFieldParams[fieldName] !== Functions.getCellValue(g.currentEditCell)) {
+
+                var isValueUpdated;
+                if ($thisField.attr('data-type') !== 'json') {
+                    isValueUpdated = thisFieldParams[fieldName] !== Functions.getCellValue(g.currentEditCell);
+                } else {
+                    isValueUpdated = JSON.stringify(JSON.parse(thisFieldParams[fieldName])) !== JSON.stringify(JSON.parse(Functions.getCellValue(g.currentEditCell)));
+                }
+
+                if (g.wasEditedCellNull || isValueUpdated) {
                     needToPost = true;
                 }
             }
