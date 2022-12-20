@@ -312,7 +312,7 @@ class Designer
      * @param bool            $visualBuilderMode    whether this is visual query builder
      * @param string          $selectedPage         name of the selected page
      * @param array           $paramsArray          array with class name for various buttons on side menu
-     * @param array|null      $tabPos               table positions
+     * @param array           $tablePositions       table positions
      * @param array           $tabColumn            table column info
      * @param array           $tablesAllKeys        all indices
      * @param array           $tablesPkOrUniqueKeys unique or primary indices
@@ -330,7 +330,7 @@ class Designer
         bool $visualBuilderMode,
         $selectedPage,
         array $paramsArray,
-        ?array $tabPos,
+        array $tablePositions,
         array $tabColumn,
         array $tablesAllKeys,
         array $tablesPkOrUniqueKeys
@@ -399,7 +399,7 @@ class Designer
             'visual_builder' => $visualBuilderMode,
             'selected_page' => $selectedPage,
             'params_array' => $paramsArray,
-            'tab_pos' => $tabPos,
+            'tab_pos' => $tablePositions,
             'tab_column' => $tabColumn,
             'tables_all_keys' => $tablesAllKeys,
             'tables_pk_or_unique_keys' => $tablesPkOrUniqueKeys,

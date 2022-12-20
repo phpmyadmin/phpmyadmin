@@ -2321,7 +2321,7 @@ parameters:
 			path: libraries/classes/Database/Designer.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getHtmlForMain\\(\\) has parameter \\$tabPos with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getHtmlForMain\\(\\) has parameter \\$tablePositions with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer.php
 

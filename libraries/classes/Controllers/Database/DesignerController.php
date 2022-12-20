@@ -47,7 +47,6 @@ class DesignerController extends AbstractController
         $GLOBALS['page'] = $GLOBALS['page'] ?? null;
         $GLOBALS['message'] = $GLOBALS['message'] ?? null;
         $GLOBALS['selected_page'] = $GLOBALS['selected_page'] ?? null;
-        $GLOBALS['tab_pos'] = $GLOBALS['tab_pos'] ?? null;
         $GLOBALS['fullTableNames'] = $GLOBALS['fullTableNames'] ?? null;
         $GLOBALS['script_tables'] = $GLOBALS['script_tables'] ?? null;
         $GLOBALS['script_contr'] = $GLOBALS['script_contr'] ?? null;
@@ -188,7 +187,7 @@ class DesignerController extends AbstractController
             $GLOBALS['selected_page'] = $this->designerCommon->getPageName($displayPage);
         }
 
-        $GLOBALS['tab_pos'] = $this->designerCommon->getTablePositions($displayPage);
+        $tablePositions = $this->designerCommon->getTablePositions($displayPage);
 
         $GLOBALS['fullTableNames'] = [];
 
@@ -196,7 +195,7 @@ class DesignerController extends AbstractController
             $GLOBALS['fullTableNames'][] = $designerTable->getDbTableString();
         }
 
-        foreach ($GLOBALS['tab_pos'] as $position) {
+        foreach ($tablePositions as $position) {
             if (in_array($position['dbName'] . '.' . $position['tableName'], $GLOBALS['fullTableNames'])) {
                 continue;
             }
@@ -258,7 +257,7 @@ class DesignerController extends AbstractController
                 $visualBuilderMode,
                 $GLOBALS['selected_page'],
                 $GLOBALS['classes_side_menu'],
-                $GLOBALS['tab_pos'],
+                $tablePositions,
                 $GLOBALS['tab_column'],
                 $GLOBALS['tables_all_keys'],
                 $GLOBALS['tables_pk_or_unique_keys']

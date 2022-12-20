@@ -1088,7 +1088,7 @@
       <code>$position['tableName']</code>
       <code>$position['tableName']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="21">
+    <MixedAssignment occurrences="20">
       <code>$GLOBALS['classes_side_menu']</code>
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['fullTableNames']</code>
@@ -1102,7 +1102,6 @@
       <code>$GLOBALS['selected_page']</code>
       <code>$GLOBALS['success']</code>
       <code>$GLOBALS['tab_column']</code>
-      <code>$GLOBALS['tab_pos']</code>
       <code>$GLOBALS['tables']</code>
       <code>$GLOBALS['tables_all_keys']</code>
       <code>$GLOBALS['tables_pk_or_unique_keys']</code>
