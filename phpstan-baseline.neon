@@ -1621,9 +1621,9 @@ parameters:
 			path: libraries/classes/Controllers/Preferences/ManageController.php
 
 		-
-			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\TwoFactor\\:\\:configure\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$file_name of method PhpMyAdmin\\\\UserPreferences\\:\\:redirect\\(\\) expects string, string\\|false given\\.$#"
 			count: 1
-			path: libraries/classes/Controllers/Preferences/TwoFactorController.php
+			path: libraries/classes/Controllers/Preferences/ManageController.php
 
 		-
 			message: "#^Cannot cast mixed to int\\.$#"

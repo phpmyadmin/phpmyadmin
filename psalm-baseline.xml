@@ -2380,20 +2380,19 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$key</code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="15">
+    <MixedAssignment occurrences="14">
       <code>$GLOBALS['all_ok']</code>
       <code>$GLOBALS['cf']</code>
       <code>$GLOBALS['form_display']</code>
       <code>$GLOBALS['json']</code>
       <code>$GLOBALS['json']</code>
       <code>$GLOBALS['new_config']</code>
-      <code>$GLOBALS['params']</code>
-      <code>$GLOBALS['params']['lang']</code>
       <code>$GLOBALS['query']</code>
       <code>$GLOBALS['return_url']</code>
       <code>$GLOBALS['return_url']</code>
       <code>$_POST[str_replace('/', '-', (string) $k)]</code>
       <code>$configuration</code>
+      <code>$redirectParams['lang']</code>
       <code>$v</code>
       <code>$val</code>
     </MixedAssignment>

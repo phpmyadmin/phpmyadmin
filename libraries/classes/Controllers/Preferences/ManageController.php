@@ -77,7 +77,6 @@ class ManageController extends AbstractController
         $GLOBALS['return_url'] = $GLOBALS['return_url'] ?? null;
         $GLOBALS['form_display'] = $GLOBALS['form_display'] ?? null;
         $GLOBALS['all_ok'] = $GLOBALS['all_ok'] ?? null;
-        $GLOBALS['params'] = $GLOBALS['params'] ?? null;
         $GLOBALS['query'] = $GLOBALS['query'] ?? null;
 
         $route = $request->getRoute();
@@ -202,7 +201,7 @@ class ManageController extends AbstractController
                 }
 
                 // check for ThemeDefault
-                $GLOBALS['params'] = [];
+                $redirectParams = [];
                 $tmanager = ThemeManager::getInstance();
                 if (
                     isset($configuration['ThemeDefault'])
@@ -214,7 +213,7 @@ class ManageController extends AbstractController
                 }
 
                 if (isset($configuration['lang']) && $configuration['lang'] != $GLOBALS['lang']) {
-                    $GLOBALS['params']['lang'] = $configuration['lang'];
+                    $redirectParams['lang'] = $configuration['lang'];
                 }
 
                 // save settings
@@ -231,7 +230,7 @@ class ManageController extends AbstractController
                                 continue;
                             }
 
-                            $GLOBALS['params'][$k] = mb_substr($q, $pos + 1);
+                            $redirectParams[$k] = mb_substr($q, $pos + 1);
                         }
                     } else {
                         $GLOBALS['return_url'] = 'index.php?route=/preferences/manage';
@@ -239,7 +238,7 @@ class ManageController extends AbstractController
 
                     // reload config
                     $this->config->loadUserPreferences();
-                    $this->userPreferences->redirect($GLOBALS['return_url'] ?? '', $GLOBALS['params']);
+                    $this->userPreferences->redirect($GLOBALS['return_url'] ?? '', $redirectParams);
 
                     return;
                 }
@@ -249,10 +248,9 @@ class ManageController extends AbstractController
         } elseif ($request->hasBodyParam('submit_clear')) {
             $result = $this->userPreferences->save([]);
             if ($result === true) {
-                $GLOBALS['params'] = [];
                 $this->config->removeCookie('pma_collaction_connection');
                 $this->config->removeCookie('pma_lang');
-                $this->userPreferences->redirect('index.php?route=/preferences/manage', $GLOBALS['params']);
+                $this->userPreferences->redirect('index.php?route=/preferences/manage');
 
                 return;
             }
