@@ -1088,16 +1088,14 @@
       <code>$position['tableName']</code>
       <code>$position['tableName']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="20">
+    <MixedAssignment occurrences="18">
       <code>$GLOBALS['classes_side_menu']</code>
       <code>$GLOBALS['errorUrl']</code>
-      <code>$GLOBALS['fullTableNames']</code>
       <code>$GLOBALS['num_tables']</code>
       <code>$GLOBALS['page']</code>
       <code>$GLOBALS['params']</code>
       <code>$GLOBALS['pos']</code>
       <code>$GLOBALS['script_contr']</code>
-      <code>$GLOBALS['script_display_field']</code>
       <code>$GLOBALS['script_tables']</code>
       <code>$GLOBALS['selected_page']</code>
       <code>$GLOBALS['success']</code>
