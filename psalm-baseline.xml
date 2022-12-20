@@ -1069,10 +1069,10 @@
       <code>$_POST['selected_page']</code>
     </InvalidScalarArgument>
     <MixedArgument occurrences="4">
-      <code>$GLOBALS['success']</code>
       <code>$html</code>
       <code>$position['dbName']</code>
       <code>$position['tableName']</code>
+      <code>$success</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="4">
       <code>$position['dbName']</code>
@@ -1080,21 +1080,12 @@
       <code>$position['tableName']</code>
       <code>$position['tableName']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="18">
-      <code>$GLOBALS['classes_side_menu']</code>
+    <MixedAssignment occurrences="8">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['num_tables']</code>
-      <code>$GLOBALS['page']</code>
       <code>$GLOBALS['params']</code>
       <code>$GLOBALS['pos']</code>
-      <code>$GLOBALS['script_contr']</code>
-      <code>$GLOBALS['script_tables']</code>
-      <code>$GLOBALS['selected_page']</code>
-      <code>$GLOBALS['success']</code>
-      <code>$GLOBALS['tab_column']</code>
       <code>$GLOBALS['tables']</code>
-      <code>$GLOBALS['tables_all_keys']</code>
-      <code>$GLOBALS['tables_pk_or_unique_keys']</code>
       <code>$GLOBALS['tooltip_aliasname']</code>
       <code>$GLOBALS['tooltip_truename']</code>
       <code>$GLOBALS['total_num_tables']</code>
@@ -1105,7 +1096,6 @@
       <code>$position['tableName']</code>
     </MixedOperand>
     <PossiblyInvalidArgument occurrences="33">
-      <code>$GLOBALS['page']</code>
       <code>$_GET['db']</code>
       <code>$_GET['db']</code>
       <code>$_GET['db']</code>
@@ -1138,6 +1128,7 @@
       <code>$_POST['table']</code>
       <code>$_POST['table']</code>
       <code>$_POST['value']</code>
+      <code>$page</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast occurrences="29">
       <code>$_GET['db']</code>
@@ -1170,9 +1161,6 @@
       <code>$_POST['table']</code>
       <code>$_POST['value']</code>
     </PossiblyInvalidCast>
-    <PossiblyNullArgument occurrences="1">
-      <code>$GLOBALS['selected_page']</code>
-    </PossiblyNullArgument>
     <RiskyCast occurrences="1">
       <code>$_GET['page']</code>
     </RiskyCast>

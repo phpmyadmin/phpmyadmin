@@ -39,15 +39,7 @@ class DesignerController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['tab_column'] = $GLOBALS['tab_column'] ?? null;
-        $GLOBALS['tables_all_keys'] = $GLOBALS['tables_all_keys'] ?? null;
-        $GLOBALS['tables_pk_or_unique_keys'] = $GLOBALS['tables_pk_or_unique_keys'] ?? null;
-        $GLOBALS['success'] = $GLOBALS['success'] ?? null;
-        $GLOBALS['page'] = $GLOBALS['page'] ?? null;
         $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-        $GLOBALS['selected_page'] = $GLOBALS['selected_page'] ?? null;
-        $GLOBALS['script_tables'] = $GLOBALS['script_tables'] ?? null;
-        $GLOBALS['script_contr'] = $GLOBALS['script_contr'] ?? null;
         $GLOBALS['params'] = $GLOBALS['params'] ?? null;
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
@@ -55,7 +47,6 @@ class DesignerController extends AbstractController
         $GLOBALS['tooltip_truename'] = $GLOBALS['tooltip_truename'] ?? null;
         $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
         $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
-        $GLOBALS['classes_side_menu'] = $GLOBALS['classes_side_menu'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
         if (isset($_POST['dialog'])) {
@@ -70,20 +61,18 @@ class DesignerController extends AbstractController
             } elseif ($_POST['dialog'] === 'add_table') {
                 // Pass the db and table to the getTablesInfo so we only have the table we asked for
                 $scriptDisplayField = $this->designerCommon->getTablesInfo($_POST['db'], $_POST['table']);
-                $GLOBALS['tab_column'] = $this->designerCommon->getColumnsInfo($scriptDisplayField);
-                $GLOBALS['tables_all_keys'] = $this->designerCommon->getAllKeys($scriptDisplayField);
-                $GLOBALS['tables_pk_or_unique_keys'] = $this->designerCommon->getPkOrUniqueKeys(
-                    $scriptDisplayField
-                );
+                $tableColumn = $this->designerCommon->getColumnsInfo($scriptDisplayField);
+                $tablesAllKeys = $this->designerCommon->getAllKeys($scriptDisplayField);
+                $tablesPkOrUniqueKeys = $this->designerCommon->getPkOrUniqueKeys($scriptDisplayField);
 
                 $html = $this->databaseDesigner->getDatabaseTables(
                     $_POST['db'],
                     $scriptDisplayField,
                     [],
                     -1,
-                    $GLOBALS['tab_column'],
-                    $GLOBALS['tables_all_keys'],
-                    $GLOBALS['tables_pk_or_unique_keys']
+                    $tableColumn,
+                    $tablesAllKeys,
+                    $tablesPkOrUniqueKeys
                 );
             }
 
@@ -96,11 +85,11 @@ class DesignerController extends AbstractController
 
         if (isset($_POST['operation'])) {
             if ($_POST['operation'] === 'deletePage') {
-                $GLOBALS['success'] = $this->designerCommon->deletePage($_POST['selected_page']);
-                $this->response->setRequestStatus($GLOBALS['success']);
+                $success = $this->designerCommon->deletePage($_POST['selected_page']);
+                $this->response->setRequestStatus($success);
             } elseif ($_POST['operation'] === 'savePage') {
                 if ($_POST['save_page'] === 'same') {
-                    $GLOBALS['page'] = $_POST['selected_page'];
+                    $page = $_POST['selected_page'];
                 } elseif ($this->designerCommon->getPageExists($_POST['selected_value'])) {
                     $this->response->addJSON(
                         'message',
@@ -114,21 +103,21 @@ class DesignerController extends AbstractController
 
                     return;
                 } else {
-                    $GLOBALS['page'] = $this->designerCommon->createNewPage($_POST['selected_value'], $_POST['db']);
-                    $this->response->addJSON('id', $GLOBALS['page']);
+                    $page = $this->designerCommon->createNewPage($_POST['selected_value'], $_POST['db']);
+                    $this->response->addJSON('id', $page);
                 }
 
-                $GLOBALS['success'] = $this->designerCommon->saveTablePositions($GLOBALS['page']);
-                $this->response->setRequestStatus($GLOBALS['success']);
+                $success = $this->designerCommon->saveTablePositions($page);
+                $this->response->setRequestStatus($success);
             } elseif ($_POST['operation'] === 'setDisplayField') {
                 [
-                    $GLOBALS['success'],
+                    $success,
                     $GLOBALS['message'],
                 ] = $this->designerCommon->saveDisplayField($_POST['db'], $_POST['table'], $_POST['field']);
-                $this->response->setRequestStatus($GLOBALS['success']);
+                $this->response->setRequestStatus($success);
                 $this->response->addJSON('message', $GLOBALS['message']);
             } elseif ($_POST['operation'] === 'addNewRelation') {
-                [$GLOBALS['success'], $GLOBALS['message']] = $this->designerCommon->addNewRelation(
+                [$success, $GLOBALS['message']] = $this->designerCommon->addNewRelation(
                     $_POST['db'],
                     $_POST['T1'],
                     $_POST['F1'],
@@ -139,20 +128,20 @@ class DesignerController extends AbstractController
                     $_POST['DB1'],
                     $_POST['DB2']
                 );
-                $this->response->setRequestStatus($GLOBALS['success']);
+                $this->response->setRequestStatus($success);
                 $this->response->addJSON('message', $GLOBALS['message']);
             } elseif ($_POST['operation'] === 'removeRelation') {
-                [$GLOBALS['success'], $GLOBALS['message']] = $this->designerCommon->removeRelation(
+                [$success, $GLOBALS['message']] = $this->designerCommon->removeRelation(
                     $_POST['T1'],
                     $_POST['F1'],
                     $_POST['T2'],
                     $_POST['F2']
                 );
-                $this->response->setRequestStatus($GLOBALS['success']);
+                $this->response->setRequestStatus($success);
                 $this->response->addJSON('message', $GLOBALS['message']);
             } elseif ($_POST['operation'] === 'save_setting_value') {
-                $GLOBALS['success'] = $this->designerCommon->saveSetting($_POST['index'], $_POST['value']);
-                $this->response->setRequestStatus($GLOBALS['success']);
+                $success = $this->designerCommon->saveSetting($_POST['index'], $_POST['value']);
+                $this->response->setRequestStatus($success);
             }
 
             return;
@@ -169,8 +158,6 @@ class DesignerController extends AbstractController
 
         $scriptDisplayField = $this->designerCommon->getTablesInfo();
 
-        $GLOBALS['selected_page'] = null;
-
         $visualBuilderMode = isset($_GET['query']);
 
         if ($visualBuilderMode) {
@@ -181,8 +168,9 @@ class DesignerController extends AbstractController
             $displayPage = $this->designerCommon->getLoadingPage($_GET['db']);
         }
 
+        $selectedPage = null;
         if ($displayPage != -1) {
-            $GLOBALS['selected_page'] = $this->designerCommon->getPageName($displayPage);
+            $selectedPage = $this->designerCommon->getPageName($displayPage);
         }
 
         $tablePositions = $this->designerCommon->getTablePositions($displayPage);
@@ -203,15 +191,13 @@ class DesignerController extends AbstractController
             }
         }
 
-        $GLOBALS['tab_column'] = $this->designerCommon->getColumnsInfo($scriptDisplayField);
-        $GLOBALS['script_tables'] = $this->designerCommon->getScriptTabs($scriptDisplayField);
-        $GLOBALS['tables_pk_or_unique_keys'] = $this->designerCommon->getPkOrUniqueKeys(
-            $scriptDisplayField
-        );
-        $GLOBALS['tables_all_keys'] = $this->designerCommon->getAllKeys($scriptDisplayField);
-        $GLOBALS['classes_side_menu'] = $this->databaseDesigner->returnClassNamesFromMenuButtons();
+        $tableColumn = $this->designerCommon->getColumnsInfo($scriptDisplayField);
+        $scriptTables = $this->designerCommon->getScriptTabs($scriptDisplayField);
+        $tablesPkOrUniqueKeys = $this->designerCommon->getPkOrUniqueKeys($scriptDisplayField);
+        $tablesAllKeys = $this->designerCommon->getAllKeys($scriptDisplayField);
+        $classesSideMenu = $this->databaseDesigner->returnClassNamesFromMenuButtons();
 
-        $GLOBALS['script_contr'] = $this->designerCommon->getScriptContr($scriptDisplayField);
+        $scriptContr = $this->designerCommon->getScriptContr($scriptDisplayField);
 
         $GLOBALS['params'] = ['lang' => $GLOBALS['lang']];
         if (isset($_GET['db'])) {
@@ -247,17 +233,17 @@ class DesignerController extends AbstractController
                 $GLOBALS['db'],
                 $_GET['db'],
                 $scriptDisplayField,
-                $GLOBALS['script_tables'],
-                $GLOBALS['script_contr'],
+                $scriptTables,
+                $scriptContr,
                 $scriptDisplayField,
                 $displayPage,
                 $visualBuilderMode,
-                $GLOBALS['selected_page'],
-                $GLOBALS['classes_side_menu'],
+                $selectedPage,
+                $classesSideMenu,
                 $tablePositions,
-                $GLOBALS['tab_column'],
-                $GLOBALS['tables_all_keys'],
-                $GLOBALS['tables_pk_or_unique_keys']
+                $tableColumn,
+                $tablesAllKeys,
+                $tablesPkOrUniqueKeys
             )
         );
 
