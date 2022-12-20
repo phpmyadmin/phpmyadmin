@@ -1646,7 +1646,8 @@ class InsertEdit
                 'SELECT ' . Util::backquote($editField->columnName)
                 . ' FROM ' . Util::backquote($GLOBALS['table'])
                 . ' WHERE ' . $whereClause
-            ) ?: '';
+            );
+            $protectedValue = is_string($protectedValue) ? $protectedValue : '';
         }
 
         return $this->getValueFormattedAsSql($editField, $protectedValue);
