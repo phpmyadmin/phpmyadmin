@@ -1083,7 +1083,6 @@
     <MixedAssignment occurrences="8">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['num_tables']</code>
-      <code>$GLOBALS['params']</code>
       <code>$GLOBALS['pos']</code>
       <code>$GLOBALS['tables']</code>
       <code>$GLOBALS['tooltip_aliasname']</code>

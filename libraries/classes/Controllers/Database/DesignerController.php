@@ -40,7 +40,6 @@ class DesignerController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-        $GLOBALS['params'] = $GLOBALS['params'] ?? null;
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
@@ -198,11 +197,6 @@ class DesignerController extends AbstractController
         $classesSideMenu = $this->databaseDesigner->returnClassNamesFromMenuButtons();
 
         $scriptContr = $this->designerCommon->getScriptContr($scriptDisplayField);
-
-        $GLOBALS['params'] = ['lang' => $GLOBALS['lang']];
-        if (isset($_GET['db'])) {
-            $GLOBALS['params']['db'] = $_GET['db'];
-        }
 
         $this->response->setMinimalFooter();
         $header = $this->response->getHeader();
