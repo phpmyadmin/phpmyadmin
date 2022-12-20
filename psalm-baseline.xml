@@ -1184,9 +1184,6 @@
     <PossiblyNullArgument occurrences="1">
       <code>$GLOBALS['selected_page']</code>
     </PossiblyNullArgument>
-    <PossiblyNullIterator occurrences="1">
-      <code>$GLOBALS['tab_pos']</code>
-    </PossiblyNullIterator>
     <RiskyCast occurrences="1">
       <code>$_GET['page']</code>
     </RiskyCast>
@@ -4778,7 +4775,7 @@
     <MixedArrayOffset occurrences="1">
       <code>$one_key['ref_index_list'][$index]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="10">
+    <MixedAssignment occurrences="9">
       <code>$DB</code>
       <code>$TAB</code>
       <code>$index</code>
@@ -4786,22 +4783,15 @@
       <code>$one_key</code>
       <code>$one_table</code>
       <code>$orig_data</code>
-      <code>$page_no</code>
       <code>$value</code>
       <code>$value</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>string|null</code>
-    </MixedInferredReturnType>
     <MixedOperand occurrences="4">
       <code>$one_key['ref_db_name'] ?? $GLOBALS['db']</code>
       <code>$one_key['ref_table_name']</code>
       <code>$value['foreign_db']</code>
       <code>$value['foreign_table']</code>
     </MixedOperand>
-    <MixedReturnStatement occurrences="1">
-      <code>$page_name[0] ?? null</code>
-    </MixedReturnStatement>
     <PossiblyInvalidArgument occurrences="4">
       <code>$DB</code>
       <code>$TAB</code>
