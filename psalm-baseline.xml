@@ -2588,61 +2588,35 @@
     <InvalidArgument occurrences="1">
       <code>$GLOBALS['sql_query']</code>
     </InvalidArgument>
-    <MixedArgument occurrences="11">
+    <MixedArgument occurrences="9">
       <code>$GLOBALS['message']</code>
-      <code>$GLOBALS['password'] ?? ''</code>
-      <code>$GLOBALS['password'] ?? null</code>
+      <code>$db_name ?? ''</code>
       <code>$queries</code>
       <code>$queries</code>
       <code>$queries</code>
       <code>$queriesForDisplay</code>
-      <code>$urlDbname ?? ''</code>
-      <code>$urlDbname ?? ''</code>
-      <code>$db_name ?? ''</code>
       <code>$request-&gt;getParsedBodyParam('userGroup')</code>
+      <code>$urlDbname ?? ''</code>
+      <code>$urlDbname ?? ''</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$queries</code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="28">
-      <code>$addUserError</code>
+    <MixedAssignment occurrences="10">
       <code>$GLOBALS['dbname']</code>
-      <code>$dbnameIsWildcard</code>
       <code>$GLOBALS['errorUrl']</code>
-      <code>$export</code>
-      <code>$GLOBALS['grants']</code>
-      <code>$itemType</code>
       <code>$GLOBALS['message']</code>
       <code>$GLOBALS['num_tables']</code>
-      <code>$GLOBALS['one_grant']</code>
-      <code>$GLOBALS['password']</code>
       <code>$GLOBALS['pos']</code>
-      <code>$GLOBALS['post_patterns']</code>
-      <code>$queries</code>
-      <code>$queries</code>
-      <code>$queriesForDisplay</code>
-      <code>$retMessage</code>
-      <code>$retQueries</code>
-      <code>$routinename</code>
-      <code>$tablename</code>
       <code>$GLOBALS['tables']</code>
-      <code>$title</code>
       <code>$GLOBALS['tooltip_aliasname']</code>
       <code>$GLOBALS['tooltip_truename']</code>
       <code>$GLOBALS['total_num_tables']</code>
-      <code>$urlDbname</code>
       <code>$db_name</code>
     </MixedAssignment>
-    <MixedOperand occurrences="2">
-      <code>$export</code>
-      <code>$title</code>
-    </MixedOperand>
     <PossiblyNullArgument occurrences="1">
       <code>$GLOBALS['text_dir']</code>
     </PossiblyNullArgument>
-    <TypeDoesNotContainType occurrences="1">
-      <code>$addUserError === true</code>
-    </TypeDoesNotContainType>
     <UnusedVariable occurrences="1">
       <code>$key</code>
     </UnusedVariable>
@@ -4059,18 +4033,17 @@
       <code>$GLOBALS['change_password_message']['msg']</code>
       <code>$GLOBALS['msg']</code>
       <code>$GLOBALS['msg']-&gt;getDisplay()</code>
-      <code>$GLOBALS['password']</code>
+      <code>$password</code>
       <code>$pmaPw</code>
       <code>$pmaPw2</code>
       <code>$request-&gt;getParsedBodyParam('authentication_plugin')</code>
     </MixedArgument>
-    <MixedAssignment occurrences="8">
+    <MixedAssignment occurrences="7">
       <code>$GLOBALS['change_password_message']</code>
       <code>$GLOBALS['msg']</code>
       <code>$GLOBALS['msg']</code>
-      <code>$GLOBALS['password']</code>
-      <code>$GLOBALS['password']</code>
       <code>$noPass</code>
+      <code>$password</code>
       <code>$pmaPw</code>
       <code>$pmaPw2</code>
     </MixedAssignment>
@@ -12182,7 +12155,7 @@
       <code>$specificPrivileges[$grant[0]]</code>
       <code>$specificPrivileges[$grant[0]]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="54">
+    <MixedAssignment occurrences="53">
       <code>$GLOBALS[$key]</code>
       <code>$GLOBALS['new_username']</code>
       <code>$GLOBALS['pred_hostname']</code>
@@ -12207,7 +12180,6 @@
       <code>$paramDbName</code>
       <code>$paramRoutineName</code>
       <code>$paramTableName</code>
-      <code>$password</code>
       <code>$privilege</code>
       <code>$privilege['routine']</code>
       <code>$privilege['table']</code>
@@ -12238,10 +12210,11 @@
       <code>$val</code>
       <code>$value</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="3">
+    <MixedInferredReturnType occurrences="4">
       <code>string</code>
       <code>string</code>
       <code>string</code>
+      <code>string|null</code>
     </MixedInferredReturnType>
     <MixedOperand occurrences="13">
       <code>$createUserShow</code>
@@ -12258,10 +12231,11 @@
       <code>$privilege['User']</code>
       <code>$sqlQuery</code>
     </MixedOperand>
-    <MixedReturnStatement occurrences="3">
+    <MixedReturnStatement occurrences="4">
       <code>$authenticationPlugin</code>
       <code>$result['password']</code>
       <code>$routine['type']</code>
+      <code>$row['password']</code>
     </MixedReturnStatement>
     <NullArgument occurrences="2">
       <code>null</code>
@@ -12338,7 +12312,7 @@
       <code>$eachUser</code>
       <code>$oldUserGroup</code>
     </PossiblyInvalidCast>
-    <PossiblyInvalidOperand occurrences="8">
+    <PossiblyInvalidOperand occurrences="7">
       <code>$_POST['authentication_plugin']</code>
       <code>$_POST['authentication_plugin']</code>
       <code>$_POST['old_hostname']</code>
@@ -12346,7 +12320,6 @@
       <code>$authenticationPlugin</code>
       <code>$authenticationPlugin</code>
       <code>$authenticationPlugin</code>
-      <code>$dbAndTable[$key]</code>
     </PossiblyInvalidOperand>
     <PossiblyNullArgument occurrences="13">
       <code>$privileges</code>
@@ -15677,14 +15650,12 @@
       <code>escapeString</code>
       <code>escapeString</code>
     </DeprecatedMethod>
-    <MixedArgument occurrences="7">
-      <code>$export</code>
+    <MixedArgument occurrences="5">
       <code>$extra_data['new_privileges']</code>
       <code>$extra_data['new_user_string']</code>
       <code>$extra_data['new_user_string']</code>
       <code>$real_sql_query</code>
       <code>$sql_query</code>
-      <code>$title</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$serverPrivileges-&gt;extractPrivInfo(null, true)</code>
