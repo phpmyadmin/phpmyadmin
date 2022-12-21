@@ -93,8 +93,7 @@ class PrivilegesController extends AbstractController
 
         [
             $GLOBALS['tables'],
-            $GLOBALS['num_tables'],
-            $GLOBALS['total_num_tables'],,,
+            $GLOBALS['num_tables'],,,,
             $GLOBALS['tooltip_truename'],
             $GLOBALS['tooltip_aliasname'],
             $GLOBALS['pos'],

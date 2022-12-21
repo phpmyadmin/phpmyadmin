@@ -50,7 +50,7 @@ class TrackingController extends AbstractController
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
-        $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
+
         $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
         $GLOBALS['tooltip_truename'] = $GLOBALS['tooltip_truename'] ?? null;
         $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
@@ -72,8 +72,7 @@ class TrackingController extends AbstractController
 
         [
             $GLOBALS['tables'],
-            $GLOBALS['num_tables'],
-            $GLOBALS['total_num_tables'],,
+            $GLOBALS['num_tables'],,,
             $isSystemSchema,
             $GLOBALS['tooltip_truename'],
             $GLOBALS['tooltip_aliasname'],

@@ -2171,8 +2171,7 @@ class Util
                 // all tables in db
                 // - get the total number of tables
                 //  (needed for proper working of the MaxTableList feature)
-                $tables = $GLOBALS['dbi']->getTables($db);
-                $totalNumTables = count($tables);
+                $totalNumTables = count($GLOBALS['dbi']->getTables($db));
                 if ($isResultLimited) {
                     // fetch the details for a possible limited subset
                     $limitOffset = $pos;
@@ -2195,9 +2194,7 @@ class Util
 
         $numTables = count($tables);
         //  (needed for proper working of the MaxTableList feature)
-        if (! isset($totalNumTables)) {
-            $totalNumTables = $numTables;
-        }
+        $totalNumTables = $totalNumTables ?? $numTables;
 
         return [
             $tables,
