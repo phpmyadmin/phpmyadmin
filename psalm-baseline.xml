@@ -2606,7 +2606,6 @@
     </MixedArgumentTypeCoercion>
     <MixedAssignment occurrences="28">
       <code>$addUserError</code>
-      <code>$GLOBALS['db_and_table']</code>
       <code>$GLOBALS['dbname']</code>
       <code>$dbnameIsWildcard</code>
       <code>$GLOBALS['errorUrl']</code>

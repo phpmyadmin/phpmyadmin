@@ -28,7 +28,6 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function array_filter;
-use function array_keys;
 use function array_map;
 use function array_merge;
 use function array_unique;
@@ -2729,7 +2728,7 @@ class Privileges
      * Update DB information: DB, Table, isWildcard
      *
      * @return array
-     * @psalm-return array{?string, ?string, array|string|null, ?string, ?string, array|string, bool}
+     * @psalm-return array{?string, ?string, array|string|null, ?string, ?string, bool}
      */
     public function getDataForDBInfo()
     {
@@ -2803,27 +2802,6 @@ class Privileges
             }
         }
 
-        $dbAndTable = '*.*';
-        if ($dbname === null) {
-            $tablename = null;
-        } else {
-            if (is_array($dbname)) {
-                $dbAndTable = $dbname;
-                foreach (array_keys($dbAndTable) as $key) {
-                    $dbAndTable[$key] .= '.*';
-                }
-            } else {
-                $unescapedDb = $this->unescapeGrantWildcards($dbname);
-                $dbAndTable = Util::backquote($unescapedDb) . '.';
-
-                if ($tablename !== null) {
-                    $dbAndTable .= Util::backquote($tablename);
-                } else {
-                    $dbAndTable .= '*';
-                }
-            }
-        }
-
         // check if given $dbname is a wildcard or not
         $databaseNameIsWildcard = is_string($dbname) && preg_match('/(?<!\\\\)(?:_|%)/', $dbname);
 
@@ -2833,7 +2811,6 @@ class Privileges
             $dbname,
             $tablename,
             $routinename,
-            $dbAndTable,
             $databaseNameIsWildcard,
         ];
     }

@@ -61,14 +61,12 @@ class PrivilegesTest extends AbstractTestCase
             $dbname,
             $tablename,
             $routinename,
-            $db_and_table,
             $dbname_is_wildcard,
         ] = $serverPrivileges->getDataForDBInfo();
         $this->assertEquals('PMA_username', $username);
         $this->assertEquals('PMA_hostname', $hostname);
         $this->assertEquals('PMA_dbname', $dbname);
         $this->assertEquals('PMA_tablename', $tablename);
-        $this->assertEquals('`PMA_dbname`.`PMA_tablename`', $db_and_table);
         $this->assertTrue($dbname_is_wildcard);
 
         //pre variable have been defined
@@ -78,12 +76,10 @@ class PrivilegesTest extends AbstractTestCase
             $dbname,
             $tablename,
             $routinename,
-            $db_and_table,
             $dbname_is_wildcard,
         ] = $serverPrivileges->getDataForDBInfo();
         $this->assertEquals('PMA_pred_dbname', $dbname);
         $this->assertEquals('PMA_pred__tablename', $tablename);
-        $this->assertEquals('`PMA_pred_dbname`.`PMA_pred__tablename`', $db_and_table);
         $this->assertTrue($dbname_is_wildcard);
 
         // Escaped database
@@ -93,12 +89,10 @@ class PrivilegesTest extends AbstractTestCase
             $dbname,
             $tablename,
             $routinename,
-            $db_and_table,
             $dbname_is_wildcard,
         ] = $serverPrivileges->getDataForDBInfo();
         $this->assertEquals('PMA\_pred\_dbname', $dbname);
         $this->assertEquals('PMA_pred__tablename', $tablename);
-        $this->assertEquals('`PMA_pred_dbname`.`PMA_pred__tablename`', $db_and_table);
         $this->assertEquals(false, $dbname_is_wildcard);
 
         // Multiselect database - pred
@@ -107,12 +101,10 @@ class PrivilegesTest extends AbstractTestCase
         [,,
             $dbname,
             $tablename,,
-            $db_and_table,
             $dbname_is_wildcard,
         ] = $serverPrivileges->getDataForDBInfo();
         $this->assertEquals(['PMA\_pred\_dbname', 'PMADbname2'], $dbname);
         $this->assertEquals(null, $tablename);
-        $this->assertEquals(['PMA\_pred\_dbname.*', 'PMADbname2.*'], $db_and_table);
         $this->assertEquals(false, $dbname_is_wildcard);
 
         // Multiselect database
@@ -121,12 +113,10 @@ class PrivilegesTest extends AbstractTestCase
         [,,
             $dbname,
             $tablename,,
-            $db_and_table,
             $dbname_is_wildcard,
         ] = $serverPrivileges->getDataForDBInfo();
         $this->assertEquals(['PMA\_dbname', 'PMADbname2'], $dbname);
         $this->assertEquals(null, $tablename);
-        $this->assertEquals(['PMA\_dbname.*', 'PMADbname2.*'], $db_and_table);
         $this->assertEquals(false, $dbname_is_wildcard);
     }
 

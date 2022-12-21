@@ -7452,7 +7452,7 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getDataForDBInfo\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Server/Privileges.php
 
 		-

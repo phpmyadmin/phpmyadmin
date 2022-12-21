@@ -60,7 +60,6 @@ class PrivilegesController extends AbstractController
         $GLOBALS['dbname'] = $GLOBALS['dbname'] ?? null;
         $GLOBALS['tablename'] = $GLOBALS['tablename'] ?? null;
         $GLOBALS['routinename'] = $GLOBALS['routinename'] ?? null;
-        $GLOBALS['db_and_table'] = $GLOBALS['db_and_table'] ?? null;
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
@@ -118,7 +117,6 @@ class PrivilegesController extends AbstractController
             $GLOBALS['dbname'],
             $GLOBALS['tablename'],
             $GLOBALS['routinename'],
-            $GLOBALS['db_and_table'],
             $dbnameIsWildcard,
         ] = $serverPrivileges->getDataForDBInfo();
 
