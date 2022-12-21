@@ -2045,7 +2045,8 @@ class Util
     /**
      * Gets the list of tables in the current db and information about these tables if possible.
      *
-     * @return array
+     * @return array<int, array|int>
+     * @psalm-return array{array, int, int}
      */
     public static function getDbInfo(ServerRequest $request, string $db, bool $isResultLimited = true): array
     {
@@ -2066,7 +2067,8 @@ class Util
             }
         }
 
-        if (empty($tables)) {
+        $totalNumTables = null;
+        if ($tables === []) {
             // Set some sorting defaults
             $sort = 'Name';
             $sortOrder = 'ASC';
@@ -2117,21 +2119,18 @@ class Util
 
                 if (is_string($tableGroupParam) && $tableGroupParam !== '') {
                     // only tables for selected group
-                    $tableGroup = $tableGroupParam;
-                    // include the table with the exact name of the group if such
-                    // exists
+                    // include the table with the exact name of the group if such exists
                     $groupTable = $GLOBALS['dbi']->getTablesFull(
                         $db,
-                        $tableGroup,
+                        $tableGroupParam,
                         false,
-                        $limitOffset,
-                        $limitCount,
+                        0,
+                        false,
                         $sort,
                         $sortOrder,
                         $tableType
                     );
-                    $groupWithSeparator = $tableGroup
-                        . $GLOBALS['cfg']['NavigationTreeTableSeparator'];
+                    $groupWithSeparator = $tableGroupParam . $GLOBALS['cfg']['NavigationTreeTableSeparator'];
                 }
             } else {
                 // all tables in db
@@ -2159,13 +2158,11 @@ class Util
         }
 
         $numTables = count($tables);
-        //  (needed for proper working of the MaxTableList feature)
-        $totalNumTables = $totalNumTables ?? $numTables;
 
         return [
             $tables,
             $numTables,
-            $totalNumTables,
+            $totalNumTables ?? $numTables, // needed for proper working of the MaxTableList feature
         ];
     }
 

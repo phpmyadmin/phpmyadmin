@@ -1164,11 +1164,7 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Database/ExportController.php">
-    <InvalidArrayOffset occurrences="1">
-      <code>$GLOBALS['num_tables']</code>
-    </InvalidArrayOffset>
-    <MixedArgument occurrences="7">
-      <code>$GLOBALS['num_tables']</code>
+    <MixedArgument occurrences="6">
       <code>$GLOBALS['table_select']</code>
       <code>$GLOBALS['unlim_num_rows']</code>
       <code>$each_table['Name']</code>
@@ -1191,9 +1187,6 @@
       <code>$GLOBALS['unlim_num_rows']</code>
       <code>$each_table</code>
     </MixedAssignment>
-    <PossiblyNullIterator occurrences="1">
-      <code>$GLOBALS['tables']</code>
-    </PossiblyNullIterator>
   </file>
   <file src="libraries/classes/Controllers/Database/ImportController.php">
     <MixedArrayAccess occurrences="2">
@@ -1633,7 +1626,7 @@
     <MixedArrayAssignment occurrences="1">
       <code>$currentTable['TABLE_ROWS']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="25">
+    <MixedAssignment occurrences="22">
       <code>$GLOBALS['errorUrl']</code>
       <code>$charset</code>
       <code>$checkTime</code>
@@ -1652,9 +1645,6 @@
       <code>$searchDoDBInTruename</code>
       <code>$searchTable</code>
       <code>$sumEntries</code>
-      <code>$this-&gt;numTables</code>
-      <code>$this-&gt;tables</code>
-      <code>$this-&gt;totalNumTables</code>
       <code>$truename</code>
       <code>$updateTime</code>
       <code>$updateTimeAll</code>
@@ -13692,7 +13682,7 @@
     <MixedArrayTypeCoercion occurrences="1">
       <code>$array[$p]</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="25">
+    <MixedAssignment occurrences="24">
       <code>$array</code>
       <code>$columnNames[]</code>
       <code>$columnNames[]</code>
@@ -13714,7 +13704,6 @@
       <code>$subvalue</code>
       <code>$table</code>
       <code>$table['disp_name']</code>
-      <code>$totalNumTables</code>
       <code>$unit</code>
       <code>$value</code>
       <code>$value</code>
