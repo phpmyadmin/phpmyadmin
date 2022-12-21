@@ -77,8 +77,6 @@ class PrivilegesController extends AbstractController
         $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
         $GLOBALS['title'] = $GLOBALS['title'] ?? null;
         $GLOBALS['export'] = $GLOBALS['export'] ?? null;
-        $GLOBALS['grants'] = $GLOBALS['grants'] ?? null;
-        $GLOBALS['one_grant'] = $GLOBALS['one_grant'] ?? null;
 
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
         $checkUserPrivileges->getPrivileges();
@@ -373,7 +371,7 @@ class PrivilegesController extends AbstractController
                 $GLOBALS['hostname'] ?? ''
             );
 
-            unset($GLOBALS['username'], $GLOBALS['hostname'], $GLOBALS['grants'], $GLOBALS['one_grant']);
+            unset($GLOBALS['username'], $GLOBALS['hostname']);
 
             if ($this->response->isAjax()) {
                 $this->response->addJSON('message', $GLOBALS['export']);
