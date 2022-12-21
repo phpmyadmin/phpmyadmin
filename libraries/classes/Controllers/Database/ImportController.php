@@ -41,7 +41,7 @@ final class ImportController extends AbstractController
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
 
 
-        $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
+
         $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
         $GLOBALS['SESSION_KEY'] = $GLOBALS['SESSION_KEY'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
@@ -63,8 +63,7 @@ final class ImportController extends AbstractController
 
         [
             $GLOBALS['tables'],
-            $GLOBALS['num_tables'],,,,,
-            $GLOBALS['tooltip_aliasname'],
+            $GLOBALS['num_tables'],,,,,,
             $GLOBALS['pos'],
         ] = Util::getDbInfo($request, $GLOBALS['db']);
 

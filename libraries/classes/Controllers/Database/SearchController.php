@@ -36,7 +36,7 @@ class SearchController extends AbstractController
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
 
 
-        $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
+
         $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
 
         $this->addScriptFiles(['database/search.js', 'sql.js', 'makegrid.js']);
@@ -76,8 +76,7 @@ class SearchController extends AbstractController
         if (! $this->response->isAjax()) {
             [
                 $GLOBALS['tables'],
-                $GLOBALS['num_tables'],,,,,
-                $GLOBALS['tooltip_aliasname'],
+                $GLOBALS['num_tables'],,,,,,
                 $GLOBALS['pos'],
             ] = Util::getDbInfo($request, $GLOBALS['db']);
         }

@@ -74,7 +74,7 @@ class OperationsController extends AbstractController
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
 
 
-        $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
+
         $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
         $GLOBALS['single_table'] = $GLOBALS['single_table'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
@@ -265,8 +265,7 @@ class OperationsController extends AbstractController
         [
             $GLOBALS['tables'],
             $GLOBALS['num_tables'],,,
-            $isSystemSchema,,
-            $GLOBALS['tooltip_aliasname'],
+            $isSystemSchema,,,
             $GLOBALS['pos'],
         ] = Util::getDbInfo($request, $GLOBALS['db']);
 

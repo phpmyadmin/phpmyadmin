@@ -46,7 +46,7 @@ final class ExportController extends AbstractController
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
 
 
-        $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
+
         $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
         $GLOBALS['table_select'] = $GLOBALS['table_select'] ?? null;
         $GLOBALS['unlim_num_rows'] = $GLOBALS['unlim_num_rows'] ?? null;
@@ -71,8 +71,7 @@ final class ExportController extends AbstractController
 
         [
             $GLOBALS['tables'],
-            $GLOBALS['num_tables'],,,,,
-            $GLOBALS['tooltip_aliasname'],
+            $GLOBALS['num_tables'],,,,,,
             $GLOBALS['pos'],
         ] = Util::getDbInfo($request, $GLOBALS['db'], false);
 

@@ -1080,12 +1080,11 @@
       <code>$position['tableName']</code>
       <code>$position['tableName']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="6">
+    <MixedAssignment occurrences="5">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['num_tables']</code>
       <code>$GLOBALS['pos']</code>
       <code>$GLOBALS['tables']</code>
-      <code>$GLOBALS['tooltip_aliasname']</code>
       <code>$position</code>
     </MixedAssignment>
     <MixedOperand occurrences="2">
@@ -1163,13 +1162,12 @@
     </RiskyCast>
   </file>
   <file src="libraries/classes/Controllers/Database/EventsController.php">
-    <MixedAssignment occurrences="6">
+    <MixedAssignment occurrences="5">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['errors']</code>
       <code>$GLOBALS['num_tables']</code>
       <code>$GLOBALS['pos']</code>
       <code>$GLOBALS['tables']</code>
-      <code>$GLOBALS['tooltip_aliasname']</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Database/ExportController.php">
@@ -1189,14 +1187,13 @@
       <code>$each_table['Name']</code>
       <code>$each_table['Name']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="9">
+    <MixedAssignment occurrences="8">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['num_tables']</code>
       <code>$GLOBALS['pos']</code>
       <code>$GLOBALS['single_table']</code>
       <code>$GLOBALS['table_select']</code>
       <code>$GLOBALS['tables']</code>
-      <code>$GLOBALS['tooltip_aliasname']</code>
       <code>$GLOBALS['unlim_num_rows']</code>
       <code>$each_table</code>
     </MixedAssignment>
@@ -1216,12 +1213,11 @@
       <code>$_SESSION[$GLOBALS['SESSION_KEY']]</code>
       <code>$_SESSION[$GLOBALS['SESSION_KEY']]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="6">
+    <MixedAssignment occurrences="5">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['num_tables']</code>
       <code>$GLOBALS['pos']</code>
       <code>$GLOBALS['tables']</code>
-      <code>$GLOBALS['tooltip_aliasname']</code>
       <code>$idKey</code>
     </MixedAssignment>
     <MixedMethodCall occurrences="1">
@@ -1265,14 +1261,13 @@
       <code>$GLOBALS['cfg']['AllowUserDropDatabase']</code>
       <code>$GLOBALS['cfg']['PmaNoRelation_DisableWarning']</code>
     </InvalidArrayOffset>
-    <MixedAssignment occurrences="7">
+    <MixedAssignment occurrences="6">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['num_tables']</code>
       <code>$GLOBALS['pos']</code>
       <code>$GLOBALS['reload']</code>
       <code>$GLOBALS['single_table']</code>
       <code>$GLOBALS['tables']</code>
-      <code>$GLOBALS['tooltip_aliasname']</code>
     </MixedAssignment>
     <PossiblyInvalidArgument occurrences="1">
       <code>$_POST['comment']</code>
@@ -1291,7 +1286,7 @@
     <InvalidArgument occurrences="1">
       <code>$_POST['searchId']</code>
     </InvalidArgument>
-    <MixedAssignment occurrences="8">
+    <MixedAssignment occurrences="7">
       <code>$GLOBALS['currentSearchId']</code>
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['num_tables']</code>
@@ -1299,7 +1294,6 @@
       <code>$GLOBALS['savedSearch']</code>
       <code>$GLOBALS['savedSearchList']</code>
       <code>$GLOBALS['tables']</code>
-      <code>$GLOBALS['tooltip_aliasname']</code>
     </MixedAssignment>
     <PossiblyInvalidArgument occurrences="2">
       <code>$_POST['db']</code>
@@ -1314,13 +1308,12 @@
     <MixedArgument occurrences="1">
       <code>$item</code>
     </MixedArgument>
-    <MixedAssignment occurrences="7">
+    <MixedAssignment occurrences="6">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['errors']</code>
       <code>$GLOBALS['num_tables']</code>
       <code>$GLOBALS['pos']</code>
       <code>$GLOBALS['tables']</code>
-      <code>$GLOBALS['tooltip_aliasname']</code>
       <code>$item</code>
     </MixedAssignment>
     <PossiblyInvalidArgument occurrences="1">
@@ -1331,12 +1324,11 @@
     <InvalidArrayOffset occurrences="1">
       <code>$GLOBALS['cfg']['UseDbSearch']</code>
     </InvalidArrayOffset>
-    <MixedAssignment occurrences="5">
+    <MixedAssignment occurrences="4">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['num_tables']</code>
       <code>$GLOBALS['pos']</code>
       <code>$GLOBALS['tables']</code>
-      <code>$GLOBALS['tooltip_aliasname']</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Database/SqlAutoCompleteController.php">
@@ -1737,12 +1729,11 @@
       <code>$entry['statement']</code>
       <code>$entry['username']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="7">
+    <MixedAssignment occurrences="6">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['num_tables']</code>
       <code>$GLOBALS['pos']</code>
       <code>$GLOBALS['tables']</code>
-      <code>$GLOBALS['tooltip_aliasname']</code>
       <code>$entry</code>
       <code>$table</code>
     </MixedAssignment>
@@ -1774,13 +1765,12 @@
     </PossiblyNullIterator>
   </file>
   <file src="libraries/classes/Controllers/Database/TriggersController.php">
-    <MixedAssignment occurrences="6">
+    <MixedAssignment occurrences="5">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['errors']</code>
       <code>$GLOBALS['num_tables']</code>
       <code>$GLOBALS['pos']</code>
       <code>$GLOBALS['tables']</code>
-      <code>$GLOBALS['tooltip_aliasname']</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/ErrorReportController.php">
@@ -2565,14 +2555,13 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$queries</code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="8">
+    <MixedAssignment occurrences="7">
       <code>$GLOBALS['dbname']</code>
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['message']</code>
       <code>$GLOBALS['num_tables']</code>
       <code>$GLOBALS['pos']</code>
       <code>$GLOBALS['tables']</code>
-      <code>$GLOBALS['tooltip_aliasname']</code>
       <code>$db_name</code>
     </MixedAssignment>
     <PossiblyNullArgument occurrences="1">
@@ -3877,13 +3866,12 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Controllers/Table/TriggersController.php">
-    <MixedAssignment occurrences="6">
+    <MixedAssignment occurrences="5">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['errors']</code>
       <code>$GLOBALS['num_tables']</code>
       <code>$GLOBALS['pos']</code>
       <code>$GLOBALS['tables']</code>
-      <code>$GLOBALS['tooltip_aliasname']</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/ZoomSearchController.php">

@@ -93,8 +93,7 @@ class PrivilegesController extends AbstractController
 
         [
             $GLOBALS['tables'],
-            $GLOBALS['num_tables'],,,,,
-            $GLOBALS['tooltip_aliasname'],
+            $GLOBALS['num_tables'],,,,,,
             $GLOBALS['pos'],
         ] = Util::getDbInfo($request, $db->getName());
 

@@ -53,7 +53,7 @@ class TrackingController extends AbstractController
 
         $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
 
-        $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
+
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
         $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'database/tracking.js']);
@@ -73,8 +73,7 @@ class TrackingController extends AbstractController
         [
             $GLOBALS['tables'],
             $GLOBALS['num_tables'],,,
-            $isSystemSchema,,
-            $GLOBALS['tooltip_aliasname'],
+            $isSystemSchema,,,
             $GLOBALS['pos'],
         ] = Util::getDbInfo($request, $GLOBALS['db']);
 

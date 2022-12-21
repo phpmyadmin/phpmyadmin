@@ -52,7 +52,7 @@ class QueryByExampleController extends AbstractController
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
 
 
-        $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
+
         $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
@@ -192,8 +192,7 @@ class QueryByExampleController extends AbstractController
 
         [
             $GLOBALS['tables'],
-            $GLOBALS['num_tables'],,,,,
-            $GLOBALS['tooltip_aliasname'],
+            $GLOBALS['num_tables'],,,,,,
             $GLOBALS['pos'],
         ] = Util::getDbInfo($request, $GLOBALS['db']);
 
