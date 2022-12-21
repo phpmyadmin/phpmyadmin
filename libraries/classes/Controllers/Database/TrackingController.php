@@ -52,7 +52,7 @@ class TrackingController extends AbstractController
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
 
         $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
-        $GLOBALS['tooltip_truename'] = $GLOBALS['tooltip_truename'] ?? null;
+
         $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
@@ -73,8 +73,7 @@ class TrackingController extends AbstractController
         [
             $GLOBALS['tables'],
             $GLOBALS['num_tables'],,,
-            $isSystemSchema,
-            $GLOBALS['tooltip_truename'],
+            $isSystemSchema,,
             $GLOBALS['tooltip_aliasname'],
             $GLOBALS['pos'],
         ] = Util::getDbInfo($request, $GLOBALS['db']);

@@ -41,7 +41,7 @@ final class EventsController extends AbstractController
 
         $GLOBALS['errors'] = $GLOBALS['errors'] ?? null;
         $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
-        $GLOBALS['tooltip_truename'] = $GLOBALS['tooltip_truename'] ?? null;
+
         $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
         $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
@@ -60,8 +60,7 @@ final class EventsController extends AbstractController
 
             [
                 $GLOBALS['tables'],
-                $GLOBALS['num_tables'],,,,
-                $GLOBALS['tooltip_truename'],
+                $GLOBALS['num_tables'],,,,,
                 $GLOBALS['tooltip_aliasname'],
                 $GLOBALS['pos'],
             ] = Util::getDbInfo($request, $GLOBALS['db']);
