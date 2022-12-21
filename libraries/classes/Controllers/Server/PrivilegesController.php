@@ -65,7 +65,6 @@ class PrivilegesController extends AbstractController
         $GLOBALS['queries'] = $GLOBALS['queries'] ?? null;
         $GLOBALS['password'] = $GLOBALS['password'] ?? null;
         $GLOBALS['ret_message'] = $GLOBALS['ret_message'] ?? null;
-        $GLOBALS['ret_queries'] = $GLOBALS['ret_queries'] ?? null;
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
@@ -186,7 +185,7 @@ class PrivilegesController extends AbstractController
          */
         [
             $GLOBALS['ret_message'],
-            $GLOBALS['ret_queries'],
+            $retQueries,
             $queriesForDisplay,
             $GLOBALS['sql_query'],
             $addUserError,
@@ -198,9 +197,9 @@ class PrivilegesController extends AbstractController
             $relationParameters->configurableMenusFeature !== null
         );
         //update the old variables
-        if (isset($GLOBALS['ret_queries'])) {
-            $GLOBALS['queries'] = $GLOBALS['ret_queries'];
-            unset($GLOBALS['ret_queries']);
+        if (isset($retQueries)) {
+            $GLOBALS['queries'] = $retQueries;
+            unset($retQueries);
         }
 
         if (isset($GLOBALS['ret_message'])) {
