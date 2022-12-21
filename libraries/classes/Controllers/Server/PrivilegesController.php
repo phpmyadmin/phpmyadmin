@@ -79,7 +79,6 @@ class PrivilegesController extends AbstractController
         $GLOBALS['export'] = $GLOBALS['export'] ?? null;
         $GLOBALS['grants'] = $GLOBALS['grants'] ?? null;
         $GLOBALS['one_grant'] = $GLOBALS['one_grant'] ?? null;
-        $GLOBALS['url_dbname'] = $GLOBALS['url_dbname'] ?? null;
 
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
         $checkUserPrivileges->getPrivileges();
@@ -394,7 +393,7 @@ class PrivilegesController extends AbstractController
             ));
         } else {
             if (isset($GLOBALS['dbname']) && ! is_array($GLOBALS['dbname'])) {
-                $GLOBALS['url_dbname'] = urlencode(
+                $urlDbname = urlencode(
                     str_replace(
                         [
                             '\_',
@@ -421,7 +420,7 @@ class PrivilegesController extends AbstractController
                         $GLOBALS['hostname'] ?? '',
                         is_string($GLOBALS['dbname']) ? $GLOBALS['dbname'] : '',
                         $GLOBALS['routinename'],
-                        $serverPrivileges->escapeGrantWildcards($GLOBALS['url_dbname'] ?? '')
+                        $serverPrivileges->escapeGrantWildcards($urlDbname ?? '')
                     )
                 );
             } else {
@@ -434,7 +433,7 @@ class PrivilegesController extends AbstractController
                 $this->response->addHTML(
                     $serverPrivileges->getHtmlForUserProperties(
                         $GLOBALS['dbname_is_wildcard'],
-                        $serverPrivileges->escapeGrantWildcards($GLOBALS['url_dbname'] ?? ''),
+                        $serverPrivileges->escapeGrantWildcards($urlDbname ?? ''),
                         $GLOBALS['username'],
                         $GLOBALS['hostname'] ?? '',
                         $GLOBALS['dbname'] ?? '',

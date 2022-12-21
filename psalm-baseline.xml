@@ -2596,8 +2596,8 @@
       <code>$GLOBALS['queries']</code>
       <code>$GLOBALS['queries']</code>
       <code>$GLOBALS['queries_for_display']</code>
-      <code>$GLOBALS['url_dbname'] ?? ''</code>
-      <code>$GLOBALS['url_dbname'] ?? ''</code>
+      <code>$urlDbname ?? ''</code>
+      <code>$urlDbname ?? ''</code>
       <code>$db_name ?? ''</code>
       <code>$request-&gt;getParsedBodyParam('userGroup')</code>
     </MixedArgument>
@@ -2631,7 +2631,7 @@
       <code>$GLOBALS['tooltip_aliasname']</code>
       <code>$GLOBALS['tooltip_truename']</code>
       <code>$GLOBALS['total_num_tables']</code>
-      <code>$GLOBALS['url_dbname']</code>
+      <code>$urlDbname</code>
       <code>$db_name</code>
     </MixedAssignment>
     <MixedOperand occurrences="2">
