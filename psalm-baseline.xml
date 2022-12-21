@@ -2610,7 +2610,7 @@
       <code>$GLOBALS['dbname']</code>
       <code>$GLOBALS['dbname_is_wildcard']</code>
       <code>$GLOBALS['errorUrl']</code>
-      <code>$GLOBALS['export']</code>
+      <code>$export</code>
       <code>$GLOBALS['grants']</code>
       <code>$GLOBALS['itemType']</code>
       <code>$GLOBALS['message']</code>
@@ -2635,7 +2635,7 @@
       <code>$db_name</code>
     </MixedAssignment>
     <MixedOperand occurrences="2">
-      <code>$GLOBALS['export']</code>
+      <code>$export</code>
       <code>$GLOBALS['title']</code>
     </MixedOperand>
     <PossiblyNullArgument occurrences="1">

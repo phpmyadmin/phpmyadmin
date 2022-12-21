@@ -76,7 +76,6 @@ class PrivilegesController extends AbstractController
         $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
         $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
         $GLOBALS['title'] = $GLOBALS['title'] ?? null;
-        $GLOBALS['export'] = $GLOBALS['export'] ?? null;
 
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
         $checkUserPrivileges->getPrivileges();
@@ -366,7 +365,7 @@ class PrivilegesController extends AbstractController
 
         // export user definition
         if ($request->hasQueryParam('export') || $request->getParsedBodyParam('submit_mult') === 'export') {
-            [$GLOBALS['title'], $GLOBALS['export']] = $serverPrivileges->getListForExportUserDefinition(
+            [$GLOBALS['title'], $export] = $serverPrivileges->getListForExportUserDefinition(
                 $GLOBALS['username'] ?? '',
                 $GLOBALS['hostname'] ?? ''
             );
@@ -374,13 +373,13 @@ class PrivilegesController extends AbstractController
             unset($GLOBALS['username'], $GLOBALS['hostname']);
 
             if ($this->response->isAjax()) {
-                $this->response->addJSON('message', $GLOBALS['export']);
+                $this->response->addJSON('message', $export);
                 $this->response->addJSON('title', $GLOBALS['title']);
 
                 return;
             }
 
-            $this->response->addHTML('<h2>' . $GLOBALS['title'] . '</h2>' . $GLOBALS['export']);
+            $this->response->addHTML('<h2>' . $GLOBALS['title'] . '</h2>' . $export);
         }
 
         // Show back the form if an error occurred

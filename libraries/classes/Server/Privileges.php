@@ -2851,7 +2851,7 @@ class Privileges
      * @param string $username username
      * @param string $hostname host name
      *
-     * @return array ($title, $export)
+     * @return string[] ($title, $export)
      */
     public function getListForExportUserDefinition(string $username, string $hostname)
     {
