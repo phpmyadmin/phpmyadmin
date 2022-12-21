@@ -61,7 +61,6 @@ class PrivilegesController extends AbstractController
         $GLOBALS['tablename'] = $GLOBALS['tablename'] ?? null;
         $GLOBALS['routinename'] = $GLOBALS['routinename'] ?? null;
         $GLOBALS['db_and_table'] = $GLOBALS['db_and_table'] ?? null;
-        $GLOBALS['dbname_is_wildcard'] = $GLOBALS['dbname_is_wildcard'] ?? null;
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
@@ -120,7 +119,7 @@ class PrivilegesController extends AbstractController
             $GLOBALS['tablename'],
             $GLOBALS['routinename'],
             $GLOBALS['db_and_table'],
-            $GLOBALS['dbname_is_wildcard'],
+            $dbnameIsWildcard,
         ] = $serverPrivileges->getDataForDBInfo();
 
         /**
@@ -415,7 +414,7 @@ class PrivilegesController extends AbstractController
 
                 $this->response->addHTML(
                     $serverPrivileges->getHtmlForUserProperties(
-                        $GLOBALS['dbname_is_wildcard'],
+                        $dbnameIsWildcard,
                         $serverPrivileges->escapeGrantWildcards($urlDbname ?? ''),
                         $GLOBALS['username'],
                         $GLOBALS['hostname'] ?? '',
