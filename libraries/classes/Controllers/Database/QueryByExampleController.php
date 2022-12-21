@@ -48,8 +48,6 @@ class QueryByExampleController extends AbstractController
         $GLOBALS['savedSearch'] = $GLOBALS['savedSearch'] ?? null;
         $GLOBALS['currentSearchId'] = $GLOBALS['currentSearchId'] ?? null;
         $GLOBALS['goto'] = $GLOBALS['goto'] ?? null;
-
-        $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
@@ -186,8 +184,7 @@ class QueryByExampleController extends AbstractController
 
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/qbe');
 
-        [,
-            $GLOBALS['num_tables'],
+        [,,
         ] = Util::getDbInfo($request, $GLOBALS['db']);
 
         $databaseQbe = new Qbe(

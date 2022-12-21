@@ -48,8 +48,6 @@ class TrackingController extends AbstractController
     {
         $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-
-        $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
         $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'database/tracking.js']);
@@ -67,7 +65,7 @@ class TrackingController extends AbstractController
         $GLOBALS['urlParams']['back'] = Url::getFromRoute('/database/tracking');
 
         [,
-            $GLOBALS['num_tables'],,,
+            $numTables,,,
             $isSystemSchema,
         ] = Util::getDbInfo($request, $GLOBALS['db']);
 
@@ -120,7 +118,7 @@ class TrackingController extends AbstractController
         $trackedData = Tracker::getTrackedData($GLOBALS['db'], '', '1');
 
         // No tables present and no log exist
-        if ($GLOBALS['num_tables'] == 0 && count($trackedData['ddlog']) === 0) {
+        if ($numTables == 0 && count($trackedData['ddlog']) === 0) {
             echo '<p>' , __('No tables found in database.') , '</p>' , "\n";
 
             if (empty($isSystemSchema)) {

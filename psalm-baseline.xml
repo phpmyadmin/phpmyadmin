@@ -1079,9 +1079,8 @@
       <code>$position['tableName']</code>
       <code>$position['tableName']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="3">
+    <MixedAssignment occurrences="2">
       <code>$GLOBALS['errorUrl']</code>
-      <code>$GLOBALS['num_tables']</code>
       <code>$position</code>
     </MixedAssignment>
     <MixedOperand occurrences="2">
@@ -1159,13 +1158,15 @@
     </RiskyCast>
   </file>
   <file src="libraries/classes/Controllers/Database/EventsController.php">
-    <MixedAssignment occurrences="3">
+    <MixedAssignment occurrences="2">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['errors']</code>
-      <code>$GLOBALS['num_tables']</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Database/ExportController.php">
+    <InvalidArrayOffset occurrences="1">
+      <code>$GLOBALS['num_tables']</code>
+    </InvalidArrayOffset>
     <MixedArgument occurrences="7">
       <code>$GLOBALS['num_tables']</code>
       <code>$GLOBALS['table_select']</code>
@@ -1184,16 +1185,12 @@
     </MixedArrayAccess>
     <MixedAssignment occurrences="6">
       <code>$GLOBALS['errorUrl']</code>
-      <code>$GLOBALS['num_tables']</code>
       <code>$GLOBALS['single_table']</code>
       <code>$GLOBALS['table_select']</code>
       <code>$GLOBALS['tables']</code>
       <code>$GLOBALS['unlim_num_rows']</code>
       <code>$each_table</code>
     </MixedAssignment>
-    <PossiblyNullArgument occurrences="1">
-      <code>$GLOBALS['num_tables']</code>
-    </PossiblyNullArgument>
     <PossiblyNullIterator occurrences="1">
       <code>$GLOBALS['tables']</code>
     </PossiblyNullIterator>
@@ -1207,9 +1204,8 @@
       <code>$_SESSION[$GLOBALS['SESSION_KEY']]</code>
       <code>$_SESSION[$GLOBALS['SESSION_KEY']]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="3">
+    <MixedAssignment occurrences="2">
       <code>$GLOBALS['errorUrl']</code>
-      <code>$GLOBALS['num_tables']</code>
       <code>$idKey</code>
     </MixedAssignment>
     <MixedMethodCall occurrences="1">
@@ -1253,9 +1249,8 @@
       <code>$GLOBALS['cfg']['AllowUserDropDatabase']</code>
       <code>$GLOBALS['cfg']['PmaNoRelation_DisableWarning']</code>
     </InvalidArrayOffset>
-    <MixedAssignment occurrences="4">
+    <MixedAssignment occurrences="3">
       <code>$GLOBALS['errorUrl']</code>
-      <code>$GLOBALS['num_tables']</code>
       <code>$GLOBALS['reload']</code>
       <code>$GLOBALS['single_table']</code>
     </MixedAssignment>
@@ -1276,10 +1271,9 @@
     <InvalidArgument occurrences="1">
       <code>$_POST['searchId']</code>
     </InvalidArgument>
-    <MixedAssignment occurrences="5">
+    <MixedAssignment occurrences="4">
       <code>$GLOBALS['currentSearchId']</code>
       <code>$GLOBALS['errorUrl']</code>
-      <code>$GLOBALS['num_tables']</code>
       <code>$GLOBALS['savedSearch']</code>
       <code>$GLOBALS['savedSearchList']</code>
     </MixedAssignment>
@@ -1296,10 +1290,9 @@
     <MixedArgument occurrences="1">
       <code>$item</code>
     </MixedArgument>
-    <MixedAssignment occurrences="4">
+    <MixedAssignment occurrences="3">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['errors']</code>
-      <code>$GLOBALS['num_tables']</code>
       <code>$item</code>
     </MixedAssignment>
     <PossiblyInvalidArgument occurrences="1">
@@ -1310,9 +1303,8 @@
     <InvalidArrayOffset occurrences="1">
       <code>$GLOBALS['cfg']['UseDbSearch']</code>
     </InvalidArrayOffset>
-    <MixedAssignment occurrences="2">
+    <MixedAssignment occurrences="1">
       <code>$GLOBALS['errorUrl']</code>
-      <code>$GLOBALS['num_tables']</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Database/SqlAutoCompleteController.php">
@@ -1713,9 +1705,8 @@
       <code>$entry['statement']</code>
       <code>$entry['username']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="4">
+    <MixedAssignment occurrences="3">
       <code>$GLOBALS['errorUrl']</code>
-      <code>$GLOBALS['num_tables']</code>
       <code>$entry</code>
       <code>$table</code>
     </MixedAssignment>
@@ -1747,10 +1738,9 @@
     </PossiblyNullIterator>
   </file>
   <file src="libraries/classes/Controllers/Database/TriggersController.php">
-    <MixedAssignment occurrences="3">
+    <MixedAssignment occurrences="2">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['errors']</code>
-      <code>$GLOBALS['num_tables']</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/ErrorReportController.php">
@@ -1819,7 +1809,7 @@
     <MixedArrayAssignment occurrences="1">
       <code>$_SESSION['tmpval']['aliases']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="122">
+    <MixedAssignment occurrences="121">
       <code>$GLOBALS['active_page']</code>
       <code>$GLOBALS['charset']</code>
       <code>$GLOBALS['codegen_format']</code>
@@ -1865,7 +1855,6 @@
       <code>$GLOBALS['mediawiki_caption']</code>
       <code>$GLOBALS['mediawiki_headers']</code>
       <code>$GLOBALS['mediawiki_structure_or_data']</code>
-      <code>$GLOBALS['num_tables']</code>
       <code>$GLOBALS['ods_columns']</code>
       <code>$GLOBALS['ods_null']</code>
       <code>$GLOBALS['ods_structure_or_data']</code>
@@ -2488,8 +2477,7 @@
       <code>$GLOBALS['select_item']</code>
       <code>$GLOBALS['unlim_num_rows']</code>
     </MixedArgument>
-    <MixedAssignment occurrences="6">
-      <code>$GLOBALS['num_tables']</code>
+    <MixedAssignment occurrences="5">
       <code>$GLOBALS['select_item']</code>
       <code>$GLOBALS['select_item']</code>
       <code>$GLOBALS['single_table']</code>
@@ -2535,11 +2523,10 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$queries</code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="5">
+    <MixedAssignment occurrences="4">
       <code>$GLOBALS['dbname']</code>
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['message']</code>
-      <code>$GLOBALS['num_tables']</code>
       <code>$db_name</code>
     </MixedAssignment>
     <PossiblyNullArgument occurrences="1">
@@ -3076,9 +3063,8 @@
       <code>$GLOBALS['replaces'][]</code>
       <code>$GLOBALS['replaces'][]</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="6">
+    <MixedAssignment occurrences="5">
       <code>$GLOBALS['errorUrl']</code>
-      <code>$GLOBALS['num_tables']</code>
       <code>$GLOBALS['replaces']</code>
       <code>$GLOBALS['single_table']</code>
       <code>$GLOBALS['unlim_num_rows']</code>
@@ -3844,10 +3830,9 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Controllers/Table/TriggersController.php">
-    <MixedAssignment occurrences="3">
+    <MixedAssignment occurrences="2">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['errors']</code>
-      <code>$GLOBALS['num_tables']</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/ZoomSearchController.php">

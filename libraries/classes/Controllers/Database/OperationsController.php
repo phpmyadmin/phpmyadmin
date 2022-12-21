@@ -71,9 +71,7 @@ class OperationsController extends AbstractController
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
         $GLOBALS['reload'] = $GLOBALS['reload'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-
         $GLOBALS['single_table'] = $GLOBALS['single_table'] ?? null;
-        $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
 
         $this->checkUserPrivileges->getPrivileges();
 
@@ -258,8 +256,7 @@ class OperationsController extends AbstractController
 
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/operations');
 
-        [,
-            $GLOBALS['num_tables'],,,
+        [,,,,
             $isSystemSchema,
         ] = Util::getDbInfo($request, $GLOBALS['db']);
 

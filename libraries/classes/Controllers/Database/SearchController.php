@@ -33,8 +33,6 @@ class SearchController extends AbstractController
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
 
-        $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
-
         $this->addScriptFiles(['database/search.js', 'sql.js', 'makegrid.js']);
 
         $this->checkParameters(['db']);
@@ -70,8 +68,7 @@ class SearchController extends AbstractController
 
         // Display top links if we are not in an Ajax request
         if (! $this->response->isAjax()) {
-            [,
-                $GLOBALS['num_tables'],
+            [,,
             ] = Util::getDbInfo($request, $GLOBALS['db']);
         }
 

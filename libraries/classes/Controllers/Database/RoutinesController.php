@@ -47,7 +47,6 @@ class RoutinesController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['errors'] = $GLOBALS['errors'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
@@ -82,8 +81,7 @@ class RoutinesController extends AbstractController
                     return;
                 }
 
-                [,
-                    $GLOBALS['num_tables'],
+                [,,
                 ] = Util::getDbInfo($request, $GLOBALS['db']);
             }
         } elseif (strlen($GLOBALS['db']) > 0) {

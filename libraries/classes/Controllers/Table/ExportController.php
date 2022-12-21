@@ -43,7 +43,6 @@ class ExportController extends AbstractController
         $GLOBALS['replaces'] = $GLOBALS['replaces'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
         $GLOBALS['where_clause'] = $GLOBALS['where_clause'] ?? null;
-        $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['unlim_num_rows'] = $GLOBALS['unlim_num_rows'] ?? null;
 
         $pageSettings = new PageSettings('Export');

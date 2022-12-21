@@ -40,8 +40,6 @@ class DesignerController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-
-        $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
         if (isset($_POST['dialog'])) {
@@ -207,8 +205,7 @@ class DesignerController extends AbstractController
             'designer/init.js',
         ]);
 
-        [,
-            $GLOBALS['num_tables'],
+        [,,
         ] = Util::getDbInfo($request, $GLOBALS['db']);
 
         // Embed some data into HTML, later it will be read
