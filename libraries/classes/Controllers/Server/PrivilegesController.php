@@ -60,10 +60,6 @@ class PrivilegesController extends AbstractController
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
 
-
-
-        $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
-
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
         $checkUserPrivileges->getPrivileges();
 

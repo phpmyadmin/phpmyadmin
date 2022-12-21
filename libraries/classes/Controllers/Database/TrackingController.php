@@ -50,10 +50,6 @@ class TrackingController extends AbstractController
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
-
-        $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
-
-
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
         $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'database/tracking.js']);
@@ -73,8 +69,7 @@ class TrackingController extends AbstractController
         [
             $GLOBALS['tables'],
             $GLOBALS['num_tables'],,,
-            $isSystemSchema,,,
-            $GLOBALS['pos'],
+            $isSystemSchema,
         ] = Util::getDbInfo($request, $GLOBALS['db']);
 
         if (isset($_POST['delete_tracking'], $_POST['table'])) {

@@ -49,10 +49,6 @@ class RoutinesController extends AbstractController
     {
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
-
-
-
-        $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
         $GLOBALS['errors'] = $GLOBALS['errors'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
@@ -89,8 +85,7 @@ class RoutinesController extends AbstractController
 
                 [
                     $GLOBALS['tables'],
-                    $GLOBALS['num_tables'],,,,,,
-                    $GLOBALS['pos'],
+                    $GLOBALS['num_tables'],
                 ] = Util::getDbInfo($request, $GLOBALS['db']);
             }
         } elseif (strlen($GLOBALS['db']) > 0) {

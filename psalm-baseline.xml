@@ -1029,10 +1029,9 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$variables</code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="5">
+    <MixedAssignment occurrences="4">
       <code>$GLOBALS['message']</code>
       <code>$GLOBALS['num_cols']</code>
-      <code>$GLOBALS['pos']</code>
       <code>$columnDefault</code>
       <code>$columnDefault</code>
     </MixedAssignment>
@@ -1080,10 +1079,9 @@
       <code>$position['tableName']</code>
       <code>$position['tableName']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="5">
+    <MixedAssignment occurrences="4">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['num_tables']</code>
-      <code>$GLOBALS['pos']</code>
       <code>$GLOBALS['tables']</code>
       <code>$position</code>
     </MixedAssignment>
@@ -1162,11 +1160,10 @@
     </RiskyCast>
   </file>
   <file src="libraries/classes/Controllers/Database/EventsController.php">
-    <MixedAssignment occurrences="5">
+    <MixedAssignment occurrences="4">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['errors']</code>
       <code>$GLOBALS['num_tables']</code>
-      <code>$GLOBALS['pos']</code>
       <code>$GLOBALS['tables']</code>
     </MixedAssignment>
   </file>
@@ -1187,10 +1184,9 @@
       <code>$each_table['Name']</code>
       <code>$each_table['Name']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="8">
+    <MixedAssignment occurrences="7">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['num_tables']</code>
-      <code>$GLOBALS['pos']</code>
       <code>$GLOBALS['single_table']</code>
       <code>$GLOBALS['table_select']</code>
       <code>$GLOBALS['tables']</code>
@@ -1213,10 +1209,9 @@
       <code>$_SESSION[$GLOBALS['SESSION_KEY']]</code>
       <code>$_SESSION[$GLOBALS['SESSION_KEY']]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="5">
+    <MixedAssignment occurrences="4">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['num_tables']</code>
-      <code>$GLOBALS['pos']</code>
       <code>$GLOBALS['tables']</code>
       <code>$idKey</code>
     </MixedAssignment>
@@ -1261,10 +1256,9 @@
       <code>$GLOBALS['cfg']['AllowUserDropDatabase']</code>
       <code>$GLOBALS['cfg']['PmaNoRelation_DisableWarning']</code>
     </InvalidArrayOffset>
-    <MixedAssignment occurrences="6">
+    <MixedAssignment occurrences="5">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['num_tables']</code>
-      <code>$GLOBALS['pos']</code>
       <code>$GLOBALS['reload']</code>
       <code>$GLOBALS['single_table']</code>
       <code>$GLOBALS['tables']</code>
@@ -1286,11 +1280,10 @@
     <InvalidArgument occurrences="1">
       <code>$_POST['searchId']</code>
     </InvalidArgument>
-    <MixedAssignment occurrences="7">
+    <MixedAssignment occurrences="6">
       <code>$GLOBALS['currentSearchId']</code>
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['num_tables']</code>
-      <code>$GLOBALS['pos']</code>
       <code>$GLOBALS['savedSearch']</code>
       <code>$GLOBALS['savedSearchList']</code>
       <code>$GLOBALS['tables']</code>
@@ -1308,11 +1301,10 @@
     <MixedArgument occurrences="1">
       <code>$item</code>
     </MixedArgument>
-    <MixedAssignment occurrences="6">
+    <MixedAssignment occurrences="5">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['errors']</code>
       <code>$GLOBALS['num_tables']</code>
-      <code>$GLOBALS['pos']</code>
       <code>$GLOBALS['tables']</code>
       <code>$item</code>
     </MixedAssignment>
@@ -1324,10 +1316,9 @@
     <InvalidArrayOffset occurrences="1">
       <code>$GLOBALS['cfg']['UseDbSearch']</code>
     </InvalidArrayOffset>
-    <MixedAssignment occurrences="4">
+    <MixedAssignment occurrences="3">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['num_tables']</code>
-      <code>$GLOBALS['pos']</code>
       <code>$GLOBALS['tables']</code>
     </MixedAssignment>
   </file>
@@ -1729,10 +1720,9 @@
       <code>$entry['statement']</code>
       <code>$entry['username']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="6">
+    <MixedAssignment occurrences="5">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['num_tables']</code>
-      <code>$GLOBALS['pos']</code>
       <code>$GLOBALS['tables']</code>
       <code>$entry</code>
       <code>$table</code>
@@ -1765,11 +1755,10 @@
     </PossiblyNullIterator>
   </file>
   <file src="libraries/classes/Controllers/Database/TriggersController.php">
-    <MixedAssignment occurrences="5">
+    <MixedAssignment occurrences="4">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['errors']</code>
       <code>$GLOBALS['num_tables']</code>
-      <code>$GLOBALS['pos']</code>
       <code>$GLOBALS['tables']</code>
     </MixedAssignment>
   </file>
@@ -2555,12 +2544,11 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$queries</code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="7">
+    <MixedAssignment occurrences="6">
       <code>$GLOBALS['dbname']</code>
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['message']</code>
       <code>$GLOBALS['num_tables']</code>
-      <code>$GLOBALS['pos']</code>
       <code>$GLOBALS['tables']</code>
       <code>$db_name</code>
     </MixedAssignment>
@@ -3866,11 +3854,10 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Controllers/Table/TriggersController.php">
-    <MixedAssignment occurrences="5">
+    <MixedAssignment occurrences="4">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['errors']</code>
       <code>$GLOBALS['num_tables']</code>
-      <code>$GLOBALS['pos']</code>
       <code>$GLOBALS['tables']</code>
     </MixedAssignment>
   </file>

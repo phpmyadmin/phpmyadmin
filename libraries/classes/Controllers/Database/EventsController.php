@@ -38,12 +38,8 @@ final class EventsController extends AbstractController
     {
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
-
         $GLOBALS['errors'] = $GLOBALS['errors'] ?? null;
         $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
-
-
-        $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
         $this->addScriptFiles(['database/events.js']);
@@ -60,8 +56,7 @@ final class EventsController extends AbstractController
 
             [
                 $GLOBALS['tables'],
-                $GLOBALS['num_tables'],,,,,,
-                $GLOBALS['pos'],
+                $GLOBALS['num_tables'],
             ] = Util::getDbInfo($request, $GLOBALS['db']);
         } elseif (strlen($GLOBALS['db']) > 0) {
             $this->dbi->selectDb($GLOBALS['db']);

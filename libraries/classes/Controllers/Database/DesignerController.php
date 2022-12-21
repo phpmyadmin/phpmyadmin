@@ -42,10 +42,6 @@ class DesignerController extends AbstractController
         $GLOBALS['message'] = $GLOBALS['message'] ?? null;
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
-
-
-
-        $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
         if (isset($_POST['dialog'])) {
@@ -213,8 +209,7 @@ class DesignerController extends AbstractController
 
         [
             $GLOBALS['tables'],
-            $GLOBALS['num_tables'],,,,,,
-            $GLOBALS['pos'],
+            $GLOBALS['num_tables'],
         ] = Util::getDbInfo($request, $GLOBALS['db']);
 
         // Embed some data into HTML, later it will be read

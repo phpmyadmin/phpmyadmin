@@ -72,10 +72,6 @@ class OperationsController extends AbstractController
         $GLOBALS['reload'] = $GLOBALS['reload'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
-
-
-
-        $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
         $GLOBALS['single_table'] = $GLOBALS['single_table'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
 
@@ -265,8 +261,7 @@ class OperationsController extends AbstractController
         [
             $GLOBALS['tables'],
             $GLOBALS['num_tables'],,,
-            $isSystemSchema,,,
-            $GLOBALS['pos'],
+            $isSystemSchema,
         ] = Util::getDbInfo($request, $GLOBALS['db']);
 
         $oldMessage = '';

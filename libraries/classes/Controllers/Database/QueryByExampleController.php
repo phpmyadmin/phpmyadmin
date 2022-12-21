@@ -50,10 +50,6 @@ class QueryByExampleController extends AbstractController
         $GLOBALS['goto'] = $GLOBALS['goto'] ?? null;
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
-
-
-
-        $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
@@ -192,8 +188,7 @@ class QueryByExampleController extends AbstractController
 
         [
             $GLOBALS['tables'],
-            $GLOBALS['num_tables'],,,,,,
-            $GLOBALS['pos'],
+            $GLOBALS['num_tables'],
         ] = Util::getDbInfo($request, $GLOBALS['db']);
 
         $databaseQbe = new Qbe(
