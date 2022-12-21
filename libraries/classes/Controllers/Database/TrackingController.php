@@ -10,6 +10,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracker;
@@ -64,10 +65,8 @@ class TrackingController extends AbstractController
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/table/tracking');
         $GLOBALS['urlParams']['back'] = Url::getFromRoute('/database/tracking');
 
-        [,
-            $numTables,,,
-            $isSystemSchema,
-        ] = Util::getDbInfo($request, $GLOBALS['db']);
+        [, $numTables] = Util::getDbInfo($request, $GLOBALS['db']);
+        $isSystemSchema = Utilities::isSystemSchema($GLOBALS['db']);
 
         if (isset($_POST['delete_tracking'], $_POST['table'])) {
             Tracker::deleteTracking($GLOBALS['db'], $_POST['table']);
@@ -121,7 +120,7 @@ class TrackingController extends AbstractController
         if ($numTables == 0 && count($trackedData['ddlog']) === 0) {
             echo '<p>' , __('No tables found in database.') , '</p>' , "\n";
 
-            if (empty($isSystemSchema)) {
+            if (! $isSystemSchema) {
                 $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
                 $checkUserPrivileges->getPrivileges();
 

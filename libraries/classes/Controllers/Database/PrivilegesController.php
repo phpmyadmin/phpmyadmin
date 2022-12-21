@@ -21,8 +21,6 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function mb_strtolower;
-use function ob_get_clean;
-use function ob_start;
 
 /**
  * Controller for database privileges
@@ -88,14 +86,6 @@ class PrivilegesController extends AbstractController
                 __('You do not have the privileges to administrate the users!')
             )->getDisplay());
         }
-
-        ob_start();
-
-        [,,
-        ] = Util::getDbInfo($request, $db->getName());
-
-        $content = ob_get_clean();
-        $this->response->addHTML($content . "\n");
 
         $scriptName = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
 

@@ -205,9 +205,6 @@ class DesignerController extends AbstractController
             'designer/init.js',
         ]);
 
-        [,,
-        ] = Util::getDbInfo($request, $GLOBALS['db']);
-
         // Embed some data into HTML, later it will be read
         // by designer/init.js and converted to JS variables.
         $this->response->addHTML(

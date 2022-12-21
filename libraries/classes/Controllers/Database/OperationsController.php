@@ -256,10 +256,6 @@ class OperationsController extends AbstractController
 
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/operations');
 
-        [,,,,
-            $isSystemSchema,
-        ] = Util::getDbInfo($request, $GLOBALS['db']);
-
         $oldMessage = '';
         if (isset($GLOBALS['message'])) {
             $oldMessage = Generator::getMessage($GLOBALS['message'], $GLOBALS['sql_query']);
@@ -281,7 +277,7 @@ class OperationsController extends AbstractController
             && $GLOBALS['col_priv'] && $GLOBALS['proc_priv'] && $GLOBALS['is_reload_priv'];
 
         $isDropDatabaseAllowed = ($this->dbi->isSuperUser() || $GLOBALS['cfg']['AllowUserDropDatabase'])
-            && ! $isSystemSchema && $GLOBALS['db'] !== 'mysql';
+            && $GLOBALS['db'] !== 'mysql';
 
         $switchToNew = isset($_SESSION['pma_switch_to_new']) && $_SESSION['pma_switch_to_new'];
 

@@ -184,9 +184,6 @@ class QueryByExampleController extends AbstractController
 
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/qbe');
 
-        [,,
-        ] = Util::getDbInfo($request, $GLOBALS['db']);
-
         $databaseQbe = new Qbe(
             $this->relation,
             $this->template,

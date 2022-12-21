@@ -66,12 +66,6 @@ class SearchController extends AbstractController
         // Create a database search instance
         $databaseSearch = new Search($this->dbi, $GLOBALS['db'], $this->template);
 
-        // Display top links if we are not in an Ajax request
-        if (! $this->response->isAjax()) {
-            [,,
-            ] = Util::getDbInfo($request, $GLOBALS['db']);
-        }
-
         // Main search form has been submitted, get results
         if ($request->hasBodyParam('submit_search')) {
             $this->response->addHTML($databaseSearch->getSearchResults());

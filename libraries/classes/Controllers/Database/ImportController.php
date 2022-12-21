@@ -55,9 +55,6 @@ final class ImportController extends AbstractController
             return;
         }
 
-        [,,
-        ] = Util::getDbInfo($request, $GLOBALS['db']);
-
         [$GLOBALS['SESSION_KEY'], $uploadId] = Ajax::uploadProgressSetup();
 
         $importList = Plugins::getImport('database');

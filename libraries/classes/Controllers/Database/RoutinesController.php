@@ -80,9 +80,6 @@ class RoutinesController extends AbstractController
                 if (! $this->hasDatabase()) {
                     return;
                 }
-
-                [,,
-                ] = Util::getDbInfo($request, $GLOBALS['db']);
             }
         } elseif (strlen($GLOBALS['db']) > 0) {
             $this->dbi->selectDb($GLOBALS['db']);
