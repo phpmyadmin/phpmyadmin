@@ -2627,7 +2627,7 @@
       <code>$GLOBALS['routinename']</code>
       <code>$GLOBALS['tablename']</code>
       <code>$GLOBALS['tables']</code>
-      <code>$GLOBALS['title']</code>
+      <code>$title</code>
       <code>$GLOBALS['tooltip_aliasname']</code>
       <code>$GLOBALS['tooltip_truename']</code>
       <code>$GLOBALS['total_num_tables']</code>
@@ -2636,7 +2636,7 @@
     </MixedAssignment>
     <MixedOperand occurrences="2">
       <code>$export</code>
-      <code>$GLOBALS['title']</code>
+      <code>$title</code>
     </MixedOperand>
     <PossiblyNullArgument occurrences="1">
       <code>$GLOBALS['text_dir']</code>
