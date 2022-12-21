@@ -62,7 +62,6 @@ class PrivilegesController extends AbstractController
         $GLOBALS['routinename'] = $GLOBALS['routinename'] ?? null;
         $GLOBALS['db_and_table'] = $GLOBALS['db_and_table'] ?? null;
         $GLOBALS['dbname_is_wildcard'] = $GLOBALS['dbname_is_wildcard'] ?? null;
-        $GLOBALS['queries'] = $GLOBALS['queries'] ?? null;
         $GLOBALS['password'] = $GLOBALS['password'] ?? null;
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
@@ -176,7 +175,7 @@ class PrivilegesController extends AbstractController
         /**
          * Changes / copies a user, part I
          */
-        [$GLOBALS['queries'], $GLOBALS['password']] = $serverPrivileges->getDataForChangeOrCopyUser();
+        [$queries, $GLOBALS['password']] = $serverPrivileges->getDataForChangeOrCopyUser();
 
         /**
          * Adds a user
@@ -197,7 +196,7 @@ class PrivilegesController extends AbstractController
         );
         //update the old variables
         if (isset($retQueries)) {
-            $GLOBALS['queries'] = $retQueries;
+            $queries = $retQueries;
             unset($retQueries);
         }
 
@@ -210,8 +209,8 @@ class PrivilegesController extends AbstractController
          * Changes / copies a user, part III
          */
         if ($request->hasBodyParam('change_copy') && $GLOBALS['username'] !== null && $GLOBALS['hostname'] !== null) {
-            $GLOBALS['queries'] = $serverPrivileges->getDbSpecificPrivsQueriesForChangeOrCopyUser(
-                $GLOBALS['queries'],
+            $queries = $serverPrivileges->getDbSpecificPrivsQueriesForChangeOrCopyUser(
+                $queries,
                 $GLOBALS['username'],
                 $GLOBALS['hostname']
             );
@@ -292,9 +291,9 @@ class PrivilegesController extends AbstractController
             $request->hasBodyParam('delete')
             || ($request->hasBodyParam('change_copy') && $request->getParsedBodyParam('mode') < 4)
         ) {
-            $GLOBALS['queries'] = $serverPrivileges->getDataForDeleteUsers($GLOBALS['queries']);
+            $queries = $serverPrivileges->getDataForDeleteUsers($queries);
             if (! $request->hasBodyParam('change_copy')) {
-                [$GLOBALS['sql_query'], $GLOBALS['message']] = $serverPrivileges->deleteUser($GLOBALS['queries']);
+                [$GLOBALS['sql_query'], $GLOBALS['message']] = $serverPrivileges->deleteUser($queries);
             }
         }
 
@@ -302,12 +301,12 @@ class PrivilegesController extends AbstractController
          * Changes / copies a user, part V
          */
         if ($request->hasBodyParam('change_copy')) {
-            $GLOBALS['queries'] = $serverPrivileges->getDataForQueries(
-                $GLOBALS['queries'],
+            $queries = $serverPrivileges->getDataForQueries(
+                $queries,
                 $queriesForDisplay
             );
             $GLOBALS['message'] = Message::success();
-            $GLOBALS['sql_query'] = implode("\n", $GLOBALS['queries']);
+            $GLOBALS['sql_query'] = implode("\n", $queries);
         }
 
         /**

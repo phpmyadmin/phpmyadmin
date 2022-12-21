@@ -2592,9 +2592,9 @@
       <code>$GLOBALS['message']</code>
       <code>$GLOBALS['password'] ?? ''</code>
       <code>$GLOBALS['password'] ?? null</code>
-      <code>$GLOBALS['queries']</code>
-      <code>$GLOBALS['queries']</code>
-      <code>$GLOBALS['queries']</code>
+      <code>$queries</code>
+      <code>$queries</code>
+      <code>$queries</code>
       <code>$queriesForDisplay</code>
       <code>$urlDbname ?? ''</code>
       <code>$urlDbname ?? ''</code>
@@ -2602,7 +2602,7 @@
       <code>$request-&gt;getParsedBodyParam('userGroup')</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
-      <code>$GLOBALS['queries']</code>
+      <code>$queries</code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment occurrences="28">
       <code>$addUserError</code>
@@ -2619,8 +2619,8 @@
       <code>$GLOBALS['password']</code>
       <code>$GLOBALS['pos']</code>
       <code>$GLOBALS['post_patterns']</code>
-      <code>$GLOBALS['queries']</code>
-      <code>$GLOBALS['queries']</code>
+      <code>$queries</code>
+      <code>$queries</code>
       <code>$queriesForDisplay</code>
       <code>$retMessage</code>
       <code>$retQueries</code>
