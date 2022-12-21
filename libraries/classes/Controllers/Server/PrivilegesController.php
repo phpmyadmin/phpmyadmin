@@ -54,7 +54,6 @@ class PrivilegesController extends AbstractController
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
         $GLOBALS['message'] = $GLOBALS['message'] ?? null;
         $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
-        $GLOBALS['post_patterns'] = $GLOBALS['post_patterns'] ?? null;
         $GLOBALS['username'] = $GLOBALS['username'] ?? null;
         $GLOBALS['hostname'] = $GLOBALS['hostname'] ?? null;
         $GLOBALS['dbname'] = $GLOBALS['dbname'] ?? null;
@@ -92,12 +91,10 @@ class PrivilegesController extends AbstractController
         /**
          * Sets globals from $_POST patterns, for privileges and max_* vars
          */
-        $GLOBALS['post_patterns'] = [
+        Core::setPostAsGlobal([
             '/_priv$/i',
             '/^max_/i',
-        ];
-
-        Core::setPostAsGlobal($GLOBALS['post_patterns']);
+        ]);
 
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
