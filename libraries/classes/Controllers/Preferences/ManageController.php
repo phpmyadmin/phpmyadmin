@@ -125,7 +125,7 @@ class ManageController extends AbstractController
             // load from JSON file
             $GLOBALS['json'] = '';
             if (
-                $request->hasBodyParam('import_type') 
+                $request->hasBodyParam('import_type')
                 && $request->getParsedBodyParam('import_type') === 'text_file'
                 && isset($_FILES['import_file'])
                 && is_array($_FILES['import_file'])
