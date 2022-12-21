@@ -68,7 +68,6 @@ class PrivilegesController extends AbstractController
         $GLOBALS['ret_queries'] = $GLOBALS['ret_queries'] ?? null;
         $GLOBALS['queries_for_display'] = $GLOBALS['queries_for_display'] ?? null;
         $GLOBALS['_add_user_error'] = $GLOBALS['_add_user_error'] ?? null;
-        $GLOBALS['itemType'] = $GLOBALS['itemType'] ?? null;
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
@@ -223,9 +222,9 @@ class PrivilegesController extends AbstractController
             );
         }
 
-        $GLOBALS['itemType'] = '';
+        $itemType = '';
         if (! empty($GLOBALS['routinename']) && is_string($GLOBALS['dbname'])) {
-            $GLOBALS['itemType'] = $serverPrivileges->getRoutineType($GLOBALS['dbname'], $GLOBALS['routinename']);
+            $itemType = $serverPrivileges->getRoutineType($GLOBALS['dbname'], $GLOBALS['routinename']);
         }
 
         /**
@@ -239,7 +238,7 @@ class PrivilegesController extends AbstractController
                         ($GLOBALS['hostname'] ?? ''),
                         ($GLOBALS['tablename'] ?? ($GLOBALS['routinename'] ?? '')),
                         ($db_name ?? ''),
-                        $GLOBALS['itemType']
+                        $itemType
                     );
                 }
 
@@ -250,7 +249,7 @@ class PrivilegesController extends AbstractController
                     ($GLOBALS['hostname'] ?? ''),
                     ($GLOBALS['tablename'] ?? ($GLOBALS['routinename'] ?? '')),
                     ($GLOBALS['dbname'] ?? ''),
-                    $GLOBALS['itemType']
+                    $itemType
                 );
             }
         }
@@ -275,7 +274,7 @@ class PrivilegesController extends AbstractController
                 ($GLOBALS['tablename'] ?? ($GLOBALS['routinename'] ?? '')),
                 $GLOBALS['username'] ?? '',
                 $GLOBALS['hostname'] ?? '',
-                $GLOBALS['itemType']
+                $itemType
             );
         }
 

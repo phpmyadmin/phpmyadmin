@@ -2612,7 +2612,7 @@
       <code>$GLOBALS['errorUrl']</code>
       <code>$export</code>
       <code>$GLOBALS['grants']</code>
-      <code>$GLOBALS['itemType']</code>
+      <code>$itemType</code>
       <code>$GLOBALS['message']</code>
       <code>$GLOBALS['num_tables']</code>
       <code>$GLOBALS['one_grant']</code>
