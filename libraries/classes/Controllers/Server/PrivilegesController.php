@@ -175,7 +175,7 @@ class PrivilegesController extends AbstractController
         /**
          * Changes / copies a user, part I
          */
-        [$queries, $GLOBALS['password']] = $serverPrivileges->getDataForChangeOrCopyUser();
+        $GLOBALS['password'] = $serverPrivileges->getDataForChangeOrCopyUser();
 
         /**
          * Adds a user
@@ -183,7 +183,7 @@ class PrivilegesController extends AbstractController
          */
         [
             $retMessage,
-            $retQueries,
+            $queries,
             $queriesForDisplay,
             $GLOBALS['sql_query'],
             $addUserError,
@@ -191,15 +191,10 @@ class PrivilegesController extends AbstractController
             $GLOBALS['dbname'] ?? null,
             $GLOBALS['username'] ?? '',
             $GLOBALS['hostname'] ?? '',
-            $GLOBALS['password'] ?? null,
+            $GLOBALS['password'],
             $relationParameters->configurableMenusFeature !== null
         );
         //update the old variables
-        if (isset($retQueries)) {
-            $queries = $retQueries;
-            unset($retQueries);
-        }
-
         if (isset($retMessage)) {
             $GLOBALS['message'] = $retMessage;
             unset($retMessage);

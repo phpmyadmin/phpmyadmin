@@ -2366,13 +2366,10 @@ class Privileges
     /**
      * Get List of information: Changes / copies a user
      *
-     * @return array
+     * @return string|null
      */
     public function getDataForChangeOrCopyUser()
     {
-        $queries = null;
-        $password = null;
-
         if (isset($_POST['change_copy'])) {
             $userHostCondition = ' WHERE `User` = '
                 . "'" . $this->dbi->escapeString($_POST['old_username']) . "'"
@@ -2430,15 +2427,11 @@ class Privileges
                     $row['password'] = $row['authentication_string'];
                 }
 
-                $password = $row['password'];
-                $queries = [];
+                return $row['password'];
             }
         }
 
-        return [
-            $queries,
-            $password,
-        ];
+        return null;
     }
 
     /**

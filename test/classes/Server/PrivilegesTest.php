@@ -278,20 +278,14 @@ class PrivilegesTest extends AbstractTestCase
         $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
 
         //$_POST['change_copy'] not set
-        [$queries, $password] = $serverPrivileges->getDataForChangeOrCopyUser();
-        $this->assertEquals(null, $queries);
-        $this->assertEquals(null, $queries);
+        $password = $serverPrivileges->getDataForChangeOrCopyUser();
 
         //$_POST['change_copy'] is set
         $_POST['change_copy'] = true;
         $_POST['old_username'] = 'PMA_old_username';
         $_POST['old_hostname'] = 'PMA_old_hostname';
-        [$queries, $password] = $serverPrivileges->getDataForChangeOrCopyUser();
+        $password = $serverPrivileges->getDataForChangeOrCopyUser();
         $this->assertEquals('pma_password', $password);
-        $this->assertEquals(
-            [],
-            $queries
-        );
         unset($_POST['change_copy']);
     }
 
