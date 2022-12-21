@@ -64,7 +64,6 @@ class PrivilegesController extends AbstractController
         $GLOBALS['dbname_is_wildcard'] = $GLOBALS['dbname_is_wildcard'] ?? null;
         $GLOBALS['queries'] = $GLOBALS['queries'] ?? null;
         $GLOBALS['password'] = $GLOBALS['password'] ?? null;
-        $GLOBALS['ret_message'] = $GLOBALS['ret_message'] ?? null;
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
@@ -184,7 +183,7 @@ class PrivilegesController extends AbstractController
          *   (Changes / copies a user, part II)
          */
         [
-            $GLOBALS['ret_message'],
+            $retMessage,
             $retQueries,
             $queriesForDisplay,
             $GLOBALS['sql_query'],
@@ -202,9 +201,9 @@ class PrivilegesController extends AbstractController
             unset($retQueries);
         }
 
-        if (isset($GLOBALS['ret_message'])) {
-            $GLOBALS['message'] = $GLOBALS['ret_message'];
-            unset($GLOBALS['ret_message']);
+        if (isset($retMessage)) {
+            $GLOBALS['message'] = $retMessage;
+            unset($retMessage);
         }
 
         /**

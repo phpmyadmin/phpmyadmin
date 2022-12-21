@@ -2622,7 +2622,7 @@
       <code>$GLOBALS['queries']</code>
       <code>$GLOBALS['queries']</code>
       <code>$queriesForDisplay</code>
-      <code>$GLOBALS['ret_message']</code>
+      <code>$retMessage</code>
       <code>$retQueries</code>
       <code>$GLOBALS['routinename']</code>
       <code>$GLOBALS['tablename']</code>
