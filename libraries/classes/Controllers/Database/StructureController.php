@@ -12,6 +12,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Replication;
 use PhpMyAdmin\ReplicationInfo;
@@ -101,17 +102,30 @@ class StructureController extends AbstractController
             $tables,
             $numTables,
             $totalNumTables,
-            $isShowStats,
-            $dbIsSystemSchema,,,
             $position,
         ] = Util::getDbInfo($request, $GLOBALS['db']);
 
         $this->tables = $tables;
         $this->numTables = $numTables;
         $this->position = $position;
-        $this->dbIsSystemSchema = $dbIsSystemSchema;
         $this->totalNumTables = $totalNumTables;
-        $this->isShowStats = $isShowStats;
+
+        /**
+         * whether to display extended stats
+         */
+        $this->isShowStats = $GLOBALS['cfg']['ShowStats'];
+
+        /**
+         * whether selected db is information_schema
+         */
+        $this->dbIsSystemSchema = false;
+
+        if (! Utilities::isSystemSchema($GLOBALS['db'])) {
+            return;
+        }
+
+        $this->isShowStats = false;
+        $this->dbIsSystemSchema = true;
     }
 
     public function __invoke(ServerRequest $request): void

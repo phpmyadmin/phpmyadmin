@@ -58,6 +58,8 @@ class Utilities
      * @param string $schema_name        Name of schema (database) to test
      * @param bool   $testForMysqlSchema Whether 'mysql' schema should
      *                                   be treated the same as IS and DD
+     *
+     * @psalm-pure
      */
     public static function isSystemSchema(
         string $schema_name,

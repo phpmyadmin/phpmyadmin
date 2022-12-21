@@ -1633,7 +1633,7 @@
     <MixedArrayAssignment occurrences="1">
       <code>$currentTable['TABLE_ROWS']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="28">
+    <MixedAssignment occurrences="26">
       <code>$GLOBALS['errorUrl']</code>
       <code>$charset</code>
       <code>$checkTime</code>
@@ -1652,8 +1652,6 @@
       <code>$searchDoDBInTruename</code>
       <code>$searchTable</code>
       <code>$sumEntries</code>
-      <code>$this-&gt;dbIsSystemSchema</code>
-      <code>$this-&gt;isShowStats</code>
       <code>$this-&gt;numTables</code>
       <code>$this-&gt;position</code>
       <code>$this-&gt;tables</code>

@@ -2066,27 +2066,9 @@ class Util
         $pos = $_SESSION['tmpval']['table_limit_offset'];
 
         /**
-         * whether to display extended stats
-         */
-        $isShowStats = $GLOBALS['cfg']['ShowStats'];
-
-        /**
-         * whether selected db is information_schema
-         */
-        $isSystemSchema = false;
-
-        if (Utilities::isSystemSchema($db)) {
-            $isShowStats = false;
-            $isSystemSchema = true;
-        }
-
-        /**
          * information about tables in db
          */
         $tables = [];
-
-        $tooltipTrueName = [];
-        $tooltipAliasName = [];
 
         // Special speedup for newer MySQL Versions (in 4.0 format changed)
         if ($GLOBALS['cfg']['SkipLockedTables'] === true) {
@@ -2200,10 +2182,6 @@ class Util
             $tables,
             $numTables,
             $totalNumTables,
-            $isShowStats,
-            $isSystemSchema,
-            $tooltipTrueName,
-            $tooltipAliasName,
             $pos,
         ];
     }
