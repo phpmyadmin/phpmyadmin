@@ -59,7 +59,6 @@ class PrivilegesController extends AbstractController
         $GLOBALS['hostname'] = $GLOBALS['hostname'] ?? null;
         $GLOBALS['dbname'] = $GLOBALS['dbname'] ?? null;
         $GLOBALS['tablename'] = $GLOBALS['tablename'] ?? null;
-        $GLOBALS['routinename'] = $GLOBALS['routinename'] ?? null;
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
@@ -116,7 +115,7 @@ class PrivilegesController extends AbstractController
             $GLOBALS['hostname'],
             $GLOBALS['dbname'],
             $GLOBALS['tablename'],
-            $GLOBALS['routinename'],
+            $routinename,
             $dbnameIsWildcard,
         ] = $serverPrivileges->getDataForDBInfo();
 
@@ -208,8 +207,8 @@ class PrivilegesController extends AbstractController
         }
 
         $itemType = '';
-        if (! empty($GLOBALS['routinename']) && is_string($GLOBALS['dbname'])) {
-            $itemType = $serverPrivileges->getRoutineType($GLOBALS['dbname'], $GLOBALS['routinename']);
+        if (! empty($routinename) && is_string($GLOBALS['dbname'])) {
+            $itemType = $serverPrivileges->getRoutineType($GLOBALS['dbname'], $routinename);
         }
 
         /**
@@ -221,7 +220,7 @@ class PrivilegesController extends AbstractController
                     [$GLOBALS['sql_query'][$key], $GLOBALS['message']] = $serverPrivileges->updatePrivileges(
                         ($GLOBALS['username'] ?? ''),
                         ($GLOBALS['hostname'] ?? ''),
-                        ($GLOBALS['tablename'] ?? ($GLOBALS['routinename'] ?? '')),
+                        ($GLOBALS['tablename'] ?? ($routinename ?? '')),
                         ($db_name ?? ''),
                         $itemType
                     );
@@ -232,7 +231,7 @@ class PrivilegesController extends AbstractController
                 [$GLOBALS['sql_query'], $GLOBALS['message']] = $serverPrivileges->updatePrivileges(
                     ($GLOBALS['username'] ?? ''),
                     ($GLOBALS['hostname'] ?? ''),
-                    ($GLOBALS['tablename'] ?? ($GLOBALS['routinename'] ?? '')),
+                    ($GLOBALS['tablename'] ?? ($routinename ?? '')),
                     ($GLOBALS['dbname'] ?? ''),
                     $itemType
                 );
@@ -256,7 +255,7 @@ class PrivilegesController extends AbstractController
         if ($request->hasBodyParam('revokeall')) {
             [$GLOBALS['message'], $GLOBALS['sql_query']] = $serverPrivileges->getMessageAndSqlQueryForPrivilegesRevoke(
                 (is_string($GLOBALS['dbname']) ? $GLOBALS['dbname'] : ''),
-                ($GLOBALS['tablename'] ?? ($GLOBALS['routinename'] ?? '')),
+                ($GLOBALS['tablename'] ?? ($routinename ?? '')),
                 $GLOBALS['username'] ?? '',
                 $GLOBALS['hostname'] ?? '',
                 $itemType
@@ -393,13 +392,13 @@ class PrivilegesController extends AbstractController
                 $this->response->addHTML(
                     $serverPrivileges->getHtmlForUserOverview($GLOBALS['text_dir'])
                 );
-            } elseif (! empty($GLOBALS['routinename'])) {
+            } elseif (! empty($routinename)) {
                 $this->response->addHTML(
                     $serverPrivileges->getHtmlForRoutineSpecificPrivileges(
                         $GLOBALS['username'],
                         $GLOBALS['hostname'] ?? '',
                         is_string($GLOBALS['dbname']) ? $GLOBALS['dbname'] : '',
-                        $GLOBALS['routinename'],
+                        $routinename,
                         $serverPrivileges->escapeGrantWildcards($urlDbname ?? '')
                     )
                 );

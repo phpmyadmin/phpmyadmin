@@ -2623,7 +2623,7 @@
       <code>$queriesForDisplay</code>
       <code>$retMessage</code>
       <code>$retQueries</code>
-      <code>$GLOBALS['routinename']</code>
+      <code>$routinename</code>
       <code>$GLOBALS['tablename']</code>
       <code>$GLOBALS['tables']</code>
       <code>$title</code>
