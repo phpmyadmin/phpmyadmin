@@ -1364,28 +1364,6 @@ class PrivilegesTest extends AbstractTestCase
         $this->assertEquals($item, $ret);
     }
 
-    public function testGetAddUserHtmlFieldset(): void
-    {
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
-
-        $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface());
-
-        $html = $serverPrivileges->getAddUserHtmlFieldset();
-
-        $this->assertStringContainsString(
-            Url::getCommon(['adduser' => 1], ''),
-            $html
-        );
-        $this->assertStringContainsString(
-            Generator::getIcon('b_usradd'),
-            $html
-        );
-        $this->assertStringContainsString(
-            __('Add user'),
-            $html
-        );
-    }
-
     public function testGetHtmlHeaderForUserProperties(): void
     {
         $dummyDbi = $this->createDbiDummy();

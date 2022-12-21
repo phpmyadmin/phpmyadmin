@@ -2803,27 +2803,15 @@ class Privileges
     /**
      * Get HTML for display Add userfieldset
      *
-     * @param string $db    the database
-     * @param string $table the table name
-     *
      * @return string html output
      */
-    public function getAddUserHtmlFieldset($db = '', $table = ''): string
+    private function getAddUserHtmlFieldset(): string
     {
         if (! $this->dbi->isCreateUser()) {
             return '';
         }
 
-        $urlParams = ['adduser' => 1];
-        if (! empty($db)) {
-            $urlParams['dbname'] = $db;
-        }
-
-        if (! empty($table)) {
-            $urlParams['tablename'] = $table;
-        }
-
-        return $this->template->render('server/privileges/add_user_fieldset', ['url_params' => $urlParams]);
+        return $this->template->render('server/privileges/add_user_fieldset', ['url_params' => ['adduser' => 1]]);
     }
 
     private function checkStructureOfPrivilegeTable(): string
