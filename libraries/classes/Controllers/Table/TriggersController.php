@@ -41,7 +41,6 @@ class TriggersController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['errors'] = $GLOBALS['errors'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
@@ -73,8 +72,7 @@ class TriggersController extends AbstractController
                     return;
                 }
 
-                [
-                    $GLOBALS['tables'],
+                [,
                     $GLOBALS['num_tables'],
                 ] = Util::getDbInfo($request, $GLOBALS['db']);
             }

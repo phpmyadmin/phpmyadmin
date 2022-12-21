@@ -37,7 +37,6 @@ final class ImportController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['SESSION_KEY'] = $GLOBALS['SESSION_KEY'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
@@ -57,8 +56,7 @@ final class ImportController extends AbstractController
             return;
         }
 
-        [
-            $GLOBALS['tables'],
+        [,
             $GLOBALS['num_tables'],
         ] = Util::getDbInfo($request, $GLOBALS['db']);
 

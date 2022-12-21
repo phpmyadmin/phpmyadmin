@@ -48,7 +48,7 @@ class TrackingController extends AbstractController
     {
         $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-        $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
+
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
@@ -66,8 +66,7 @@ class TrackingController extends AbstractController
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/table/tracking');
         $GLOBALS['urlParams']['back'] = Url::getFromRoute('/database/tracking');
 
-        [
-            $GLOBALS['tables'],
+        [,
             $GLOBALS['num_tables'],,,
             $isSystemSchema,
         ] = Util::getDbInfo($request, $GLOBALS['db']);

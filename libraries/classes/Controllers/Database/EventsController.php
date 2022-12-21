@@ -36,7 +36,6 @@ final class EventsController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['errors'] = $GLOBALS['errors'] ?? null;
         $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
@@ -54,8 +53,7 @@ final class EventsController extends AbstractController
                 return;
             }
 
-            [
-                $GLOBALS['tables'],
+            [,
                 $GLOBALS['num_tables'],
             ] = Util::getDbInfo($request, $GLOBALS['db']);
         } elseif (strlen($GLOBALS['db']) > 0) {

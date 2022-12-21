@@ -71,7 +71,7 @@ class OperationsController extends AbstractController
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
         $GLOBALS['reload'] = $GLOBALS['reload'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-        $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
+
         $GLOBALS['single_table'] = $GLOBALS['single_table'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
 
@@ -258,8 +258,7 @@ class OperationsController extends AbstractController
 
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/operations');
 
-        [
-            $GLOBALS['tables'],
+        [,
             $GLOBALS['num_tables'],,,
             $isSystemSchema,
         ] = Util::getDbInfo($request, $GLOBALS['db']);

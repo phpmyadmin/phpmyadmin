@@ -40,7 +40,7 @@ class DesignerController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-        $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
+
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
@@ -207,8 +207,7 @@ class DesignerController extends AbstractController
             'designer/init.js',
         ]);
 
-        [
-            $GLOBALS['tables'],
+        [,
             $GLOBALS['num_tables'],
         ] = Util::getDbInfo($request, $GLOBALS['db']);
 

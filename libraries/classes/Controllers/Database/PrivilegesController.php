@@ -91,8 +91,7 @@ class PrivilegesController extends AbstractController
 
         ob_start();
 
-        [
-            $GLOBALS['tables'],
+        [,
             $GLOBALS['num_tables'],
         ] = Util::getDbInfo($request, $db->getName());
 
