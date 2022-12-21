@@ -67,7 +67,6 @@ class PrivilegesController extends AbstractController
         $GLOBALS['ret_message'] = $GLOBALS['ret_message'] ?? null;
         $GLOBALS['ret_queries'] = $GLOBALS['ret_queries'] ?? null;
         $GLOBALS['queries_for_display'] = $GLOBALS['queries_for_display'] ?? null;
-        $GLOBALS['_add_user_error'] = $GLOBALS['_add_user_error'] ?? null;
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
@@ -115,7 +114,6 @@ class PrivilegesController extends AbstractController
             $this->dbi->selectDb('mysql');
         }
 
-        $GLOBALS['_add_user_error'] = false;
         /**
          * Get DB information: username, hostname, dbname,
          * tablename, db_and_table, dbname_is_wildcard
@@ -192,7 +190,7 @@ class PrivilegesController extends AbstractController
             $GLOBALS['ret_queries'],
             $GLOBALS['queries_for_display'],
             $GLOBALS['sql_query'],
-            $GLOBALS['_add_user_error'],
+            $addUserError,
         ] = $serverPrivileges->addUser(
             $GLOBALS['dbname'] ?? null,
             $GLOBALS['username'] ?? '',
@@ -381,7 +379,7 @@ class PrivilegesController extends AbstractController
         }
 
         // Show back the form if an error occurred
-        if ($request->hasQueryParam('adduser') || $GLOBALS['_add_user_error'] === true) {
+        if ($request->hasQueryParam('adduser') || $addUserError === true) {
             // Add user
             $this->response->addHTML($serverPrivileges->getHtmlForAddUser(
                 $serverPrivileges->escapeGrantWildcards(is_string($GLOBALS['dbname']) ? $GLOBALS['dbname'] : '')

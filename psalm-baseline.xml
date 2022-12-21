@@ -2605,7 +2605,7 @@
       <code>$GLOBALS['queries']</code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment occurrences="28">
-      <code>$GLOBALS['_add_user_error']</code>
+      <code>$addUserError</code>
       <code>$GLOBALS['db_and_table']</code>
       <code>$GLOBALS['dbname']</code>
       <code>$GLOBALS['dbname_is_wildcard']</code>
@@ -2642,7 +2642,7 @@
       <code>$GLOBALS['text_dir']</code>
     </PossiblyNullArgument>
     <TypeDoesNotContainType occurrences="1">
-      <code>$GLOBALS['_add_user_error'] === true</code>
+      <code>$addUserError === true</code>
     </TypeDoesNotContainType>
     <UnusedVariable occurrences="1">
       <code>$key</code>
