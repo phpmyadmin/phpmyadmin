@@ -102,12 +102,11 @@ class StructureController extends AbstractController
             $tables,
             $numTables,
             $totalNumTables,
-            $position,
         ] = Util::getDbInfo($request, $GLOBALS['db']);
 
         $this->tables = $tables;
         $this->numTables = $numTables;
-        $this->position = $position;
+        $this->position = Util::getTableListPosition($request, $GLOBALS['db']);
         $this->totalNumTables = $totalNumTables;
 
         /**

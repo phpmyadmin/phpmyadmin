@@ -2050,22 +2050,6 @@ class Util
     public static function getDbInfo(ServerRequest $request, string $db, bool $isResultLimited = true): array
     {
         /**
-         * limits for table list
-         */
-        if (! isset($_SESSION['tmpval']['table_limit_offset']) || $_SESSION['tmpval']['table_limit_offset_db'] != $db) {
-            $_SESSION['tmpval']['table_limit_offset'] = 0;
-            $_SESSION['tmpval']['table_limit_offset_db'] = $db;
-        }
-
-        /** @var mixed $posParam */
-        $posParam = $request->getParam('pos');
-        if (is_numeric($posParam)) {
-            $_SESSION['tmpval']['table_limit_offset'] = (int) $posParam;
-        }
-
-        $pos = $_SESSION['tmpval']['table_limit_offset'];
-
-        /**
          * information about tables in db
          */
         $tables = [];
@@ -2156,7 +2140,7 @@ class Util
                 $totalNumTables = count($GLOBALS['dbi']->getTables($db));
                 if ($isResultLimited) {
                     // fetch the details for a possible limited subset
-                    $limitOffset = $pos;
+                    $limitOffset = self::getTableListPosition($request, $db);
                     $limitCount = true;
                 }
             }
@@ -2182,7 +2166,6 @@ class Util
             $tables,
             $numTables,
             $totalNumTables,
-            $pos,
         ];
     }
 
@@ -2552,5 +2535,21 @@ class Util
         }
 
         return function_exists('error_reporting');
+    }
+
+    public static function getTableListPosition(ServerRequest $request, string $db): int
+    {
+        if (! isset($_SESSION['tmpval']['table_limit_offset']) || $_SESSION['tmpval']['table_limit_offset_db'] != $db) {
+            $_SESSION['tmpval']['table_limit_offset'] = 0;
+            $_SESSION['tmpval']['table_limit_offset_db'] = $db;
+        }
+
+        /** @var string|null $posParam */
+        $posParam = $request->getParam('pos');
+        if (is_numeric($posParam)) {
+            $_SESSION['tmpval']['table_limit_offset'] = (int) $posParam;
+        }
+
+        return $_SESSION['tmpval']['table_limit_offset'];
     }
 }

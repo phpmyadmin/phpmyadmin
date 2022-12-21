@@ -1633,7 +1633,7 @@
     <MixedArrayAssignment occurrences="1">
       <code>$currentTable['TABLE_ROWS']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="26">
+    <MixedAssignment occurrences="25">
       <code>$GLOBALS['errorUrl']</code>
       <code>$charset</code>
       <code>$checkTime</code>
@@ -1653,7 +1653,6 @@
       <code>$searchTable</code>
       <code>$sumEntries</code>
       <code>$this-&gt;numTables</code>
-      <code>$this-&gt;position</code>
       <code>$this-&gt;tables</code>
       <code>$this-&gt;totalNumTables</code>
       <code>$truename</code>
@@ -13638,8 +13637,7 @@
       <code>$table['disp_name']</code>
       <code>$units[$d]</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="6">
-      <code>$limitOffset</code>
+    <MixedArgument occurrences="5">
       <code>$maxSize</code>
       <code>$maxUnit</code>
       <code>$row[$i] ?? null</code>
@@ -13694,7 +13692,7 @@
     <MixedArrayTypeCoercion occurrences="1">
       <code>$array[$p]</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="27">
+    <MixedAssignment occurrences="25">
       <code>$array</code>
       <code>$columnNames[]</code>
       <code>$columnNames[]</code>
@@ -13707,10 +13705,8 @@
       <code>$indexesInfo[$row['Key_name']]['Sequences'][]</code>
       <code>$indexes[]</code>
       <code>$lastIndex</code>
-      <code>$limitOffset</code>
       <code>$p</code>
       <code>$p</code>
-      <code>$pos</code>
       <code>$retval[]</code>
       <code>$retval[]</code>
       <code>$row</code>
@@ -13723,7 +13719,8 @@
       <code>$value</code>
       <code>$value</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
+    <MixedInferredReturnType occurrences="2">
+      <code>int</code>
       <code>int</code>
     </MixedInferredReturnType>
     <MixedOperand occurrences="4">
@@ -13732,7 +13729,8 @@
       <code>$unit</code>
       <code>$unit</code>
     </MixedOperand>
-    <MixedReturnStatement occurrences="1">
+    <MixedReturnStatement occurrences="2">
+      <code>$_SESSION['tmpval']['table_limit_offset']</code>
       <code>$rowCount</code>
     </MixedReturnStatement>
     <MixedStringOffsetAssignment occurrences="2">
