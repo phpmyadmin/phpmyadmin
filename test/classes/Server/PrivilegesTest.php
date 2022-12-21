@@ -268,13 +268,11 @@ class PrivilegesTest extends AbstractTestCase
         $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
 
         //$_POST['change_copy'] not set
-        $password = $serverPrivileges->getDataForChangeOrCopyUser();
+        $password = $serverPrivileges->getDataForChangeOrCopyUser('', '');
 
         //$_POST['change_copy'] is set
         $_POST['change_copy'] = true;
-        $_POST['old_username'] = 'PMA_old_username';
-        $_POST['old_hostname'] = 'PMA_old_hostname';
-        $password = $serverPrivileges->getDataForChangeOrCopyUser();
+        $password = $serverPrivileges->getDataForChangeOrCopyUser('PMA_old_username', 'PMA_old_hostname');
         $this->assertEquals('pma_password', $password);
         unset($_POST['change_copy']);
     }
@@ -544,8 +542,10 @@ class PrivilegesTest extends AbstractTestCase
         $dbi->expects($this->any())->method('getVersion')
             ->will($this->returnValue(8003));
         $dbi->expects($this->any())
-            ->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->method('quoteString')
+            ->will($this->returnCallback(static function (string $string) {
+                return "'" . $string . "'";
+            }));
 
         $serverPrivileges->dbi = $dbi;
 
@@ -594,8 +594,10 @@ class PrivilegesTest extends AbstractTestCase
         $dbi->expects($this->any())->method('getVersion')
             ->will($this->returnValue(80011));
         $dbi->expects($this->any())
-            ->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->method('quoteString')
+            ->will($this->returnCallback(static function (string $string) {
+                return "'" . $string . "'";
+            }));
 
         $serverPrivileges->dbi = $dbi;
 
@@ -918,8 +920,10 @@ class PrivilegesTest extends AbstractTestCase
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValue($fields_info));
         $dbi->expects($this->any())
-            ->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->method('quoteString')
+            ->will($this->returnCallback(static function (string $string) {
+                return "'" . $string . "'";
+            }));
 
         $serverPrivileges->dbi = $dbi;
 
@@ -992,8 +996,10 @@ class PrivilegesTest extends AbstractTestCase
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValue($fields_info));
         $dbi->expects($this->any())
-            ->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->method('quoteString')
+            ->will($this->returnCallback(static function (string $string) {
+                return "'" . $string . "'";
+            }));
         $dbi->expects($this->any())->method('isGrantUser')
             ->will($this->returnValue(true));
 
@@ -1761,8 +1767,10 @@ class PrivilegesTest extends AbstractTestCase
                 )
             );
         $dbi->expects($this->any())
-            ->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->method('quoteString')
+            ->will($this->returnCallback(static function (string $string) {
+                return "'" . $string . "'";
+            }));
 
         $_GET['initial'] = 'A';
         $serverPrivileges->dbi = $dbi;
@@ -1800,8 +1808,10 @@ class PrivilegesTest extends AbstractTestCase
             ->method('getError')
             ->will($this->returnValue('Some error occurred!'));
         $dbi->expects($this->any())
-            ->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->method('quoteString')
+            ->will($this->returnCallback(static function (string $string) {
+                return "'" . $string . "'";
+            }));
 
         $serverPrivileges->dbi = $dbi;
 

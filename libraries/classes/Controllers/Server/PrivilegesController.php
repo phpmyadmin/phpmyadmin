@@ -160,7 +160,10 @@ class PrivilegesController extends AbstractController
         /**
          * Changes / copies a user, part I
          */
-        $password = $serverPrivileges->getDataForChangeOrCopyUser();
+        $password = $serverPrivileges->getDataForChangeOrCopyUser(
+            $request->getParsedBodyParam('old_username', ''),
+            $request->getParsedBodyParam('old_hostname', '')
+        );
 
         /**
          * Adds a user
@@ -192,7 +195,9 @@ class PrivilegesController extends AbstractController
             $queries = $serverPrivileges->getDbSpecificPrivsQueriesForChangeOrCopyUser(
                 $queries,
                 $GLOBALS['username'],
-                $GLOBALS['hostname']
+                $GLOBALS['hostname'],
+                $request->getParsedBodyParam('old_username'),
+                $request->getParsedBodyParam('old_hostname')
             );
         }
 
