@@ -1201,6 +1201,7 @@ class PrivilegesTest extends AbstractTestCase
         );
 
         //new_user_string
+        $this->assertIsString($extra_data['new_user_string']);
         $this->assertStringContainsString(
             htmlspecialchars($hostname),
             $extra_data['new_user_string']
@@ -1211,6 +1212,7 @@ class PrivilegesTest extends AbstractTestCase
         );
 
         //new_privileges
+        $this->assertIsString($extra_data['new_privileges']);
         $this->assertStringContainsString(
             implode(', ', $serverPrivileges->extractPrivInfo(null, true)),
             $extra_data['new_privileges']

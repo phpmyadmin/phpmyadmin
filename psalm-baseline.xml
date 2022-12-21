@@ -11875,24 +11875,8 @@
       <code>$tmpPrivs1</code>
       <code>uksort($arrayInitials, 'strnatcasecmp')</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="49">
+    <MixedArrayAccess occurrences="33">
       <code>$account['Host']</code>
-      <code>$columns[$row1[0]]</code>
-      <code>$currentGrant[0]</code>
-      <code>$currentGrant[0]</code>
-      <code>$currentGrant[0]</code>
-      <code>$currentGrant[0]</code>
-      <code>$currentGrant[0]</code>
-      <code>$currentGrant[0]</code>
-      <code>$currentGrant[1]</code>
-      <code>$currentGrant[1]</code>
-      <code>$currentGrant[1]</code>
-      <code>$currentGrant[1]</code>
-      <code>$currentGrant[2]</code>
-      <code>$currentGrant[2]</code>
-      <code>$grant[0]</code>
-      <code>$grant[0]</code>
-      <code>$grant[0]</code>
       <code>$groupAssignment[$host['User']]</code>
       <code>$host['Grant_priv']</code>
       <code>$host['Host']</code>
@@ -11926,23 +11910,11 @@
       <code>$val['COLUMN_NAME']</code>
       <code>$val['COLUMN_NAME']</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="2">
-      <code>$columns[$row1[0]]</code>
+    <MixedArrayAssignment occurrences="1">
       <code>$dbRights[$row['User']][$row['Host']]</code>
     </MixedArrayAssignment>
-    <MixedArrayOffset occurrences="12">
-      <code>$GLOBALS[$currentGrant[0]]</code>
-      <code>$GLOBALS[$currentGrant[0]]</code>
-      <code>$GLOBALS[$currentGrant[0]]</code>
-      <code>$GLOBALS[$currentGrant[0]]</code>
-      <code>$GLOBALS[$currentGrant[0]]</code>
-      <code>$GLOBALS[$currentGrant[0]]</code>
-      <code>$GLOBALS[$currentGrant[0]]</code>
+    <MixedArrayOffset occurrences="1">
       <code>$groupAssignment[$host['User']]</code>
-      <code>$row[$currentGrant[0]]</code>
-      <code>$row[$currentGrant[0]]</code>
-      <code>$specificPrivileges[$grant[0]]</code>
-      <code>$specificPrivileges[$grant[0]]</code>
     </MixedArrayOffset>
     <MixedAssignment occurrences="53">
       <code>$GLOBALS[$key]</code>
@@ -11953,11 +11925,9 @@
       <code>$authenticationPlugin</code>
       <code>$authenticationPlugin</code>
       <code>$authenticationPlugin</code>
-      <code>$currentGrant</code>
       <code>$exportUser</code>
       <code>$extraData['db_wildcard_privs']</code>
       <code>$foundRows[]</code>
-      <code>$grant</code>
       <code>$host</code>
       <code>$hostnameLength</code>
       <code>$name</code>
@@ -11972,7 +11942,6 @@
       <code>$privilege</code>
       <code>$privilege['routine']</code>
       <code>$privilege['table']</code>
-      <code>$privs[]</code>
       <code>$queriesForDisplay[$tmpCount - 1]</code>
       <code>$queriesForDisplay[$tmpCount - 1]</code>
       <code>$queriesForDisplay[$tmpCount - 2]</code>
@@ -11994,7 +11963,6 @@
       <code>$sqlQuery</code>
       <code>$sqlQuery</code>
       <code>$user</code>
-      <code>$userGroup</code>
       <code>$usernameLength</code>
       <code>$val</code>
       <code>$value</code>
@@ -12005,15 +11973,8 @@
       <code>string</code>
       <code>string|null</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="13">
+    <MixedOperand occurrences="6">
       <code>$createUserShow</code>
-      <code>$currentGrant[0]</code>
-      <code>$currentGrant[0]</code>
-      <code>$currentGrant[1]</code>
-      <code>$currentGrant[1]</code>
-      <code>$currentGrant[1]</code>
-      <code>$currentGrant[2]</code>
-      <code>$currentGrant[2]</code>
       <code>$oneGrant</code>
       <code>$origValue</code>
       <code>$privilege['Host']</code>
@@ -15437,10 +15398,7 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$serverPrivileges-&gt;extractPrivInfo(null, true)</code>
     </MixedArgumentTypeCoercion>
-    <MixedMethodCall occurrences="9">
-      <code>getMessage</code>
-      <code>getMessage</code>
-      <code>getMessage</code>
+    <MixedMethodCall occurrences="6">
       <code>getMessage</code>
       <code>getMessage</code>
       <code>getMessage</code>
