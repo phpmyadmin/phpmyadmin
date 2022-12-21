@@ -62,7 +62,6 @@ class PrivilegesController extends AbstractController
         $GLOBALS['routinename'] = $GLOBALS['routinename'] ?? null;
         $GLOBALS['db_and_table'] = $GLOBALS['db_and_table'] ?? null;
         $GLOBALS['dbname_is_wildcard'] = $GLOBALS['dbname_is_wildcard'] ?? null;
-        $GLOBALS['password'] = $GLOBALS['password'] ?? null;
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
@@ -175,7 +174,7 @@ class PrivilegesController extends AbstractController
         /**
          * Changes / copies a user, part I
          */
-        $GLOBALS['password'] = $serverPrivileges->getDataForChangeOrCopyUser();
+        $password = $serverPrivileges->getDataForChangeOrCopyUser();
 
         /**
          * Adds a user
@@ -191,7 +190,7 @@ class PrivilegesController extends AbstractController
             $GLOBALS['dbname'] ?? null,
             $GLOBALS['username'] ?? '',
             $GLOBALS['hostname'] ?? '',
-            $GLOBALS['password'],
+            $password,
             $relationParameters->configurableMenusFeature !== null
         );
         //update the old variables
@@ -327,7 +326,7 @@ class PrivilegesController extends AbstractController
             && ! $request->hasQueryParam('showall')
         ) {
             $extra_data = $serverPrivileges->getExtraDataForAjaxBehavior(
-                ($GLOBALS['password'] ?? ''),
+                ($password ?? ''),
                 ($GLOBALS['sql_query'] ?? ''),
                 ($GLOBALS['hostname'] ?? ''),
                 ($GLOBALS['username'] ?? '')

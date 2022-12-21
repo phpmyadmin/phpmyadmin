@@ -40,7 +40,6 @@ class UserPasswordController extends AbstractController
     {
         $GLOBALS['hostname'] = $GLOBALS['hostname'] ?? null;
         $GLOBALS['username'] = $GLOBALS['username'] ?? null;
-        $GLOBALS['password'] = $GLOBALS['password'] ?? null;
         $GLOBALS['change_password_message'] = $GLOBALS['change_password_message'] ?? null;
         $GLOBALS['msg'] = $GLOBALS['msg'] ?? null;
 
@@ -72,9 +71,9 @@ class UserPasswordController extends AbstractController
          */
         if ($noPass !== null) {
             if ($noPass == '1') {
-                $GLOBALS['password'] = '';
+                $password = '';
             } else {
-                $GLOBALS['password'] = $pmaPw;
+                $password = $pmaPw;
             }
 
             $GLOBALS['change_password_message'] = $this->userPassword->setChangePasswordMsg(
@@ -86,7 +85,7 @@ class UserPasswordController extends AbstractController
 
             if (! $GLOBALS['change_password_message']['error']) {
                 $sql_query = $this->userPassword->changePassword(
-                    $GLOBALS['password'],
+                    $password,
                     $request->getParsedBodyParam('authentication_plugin')
                 );
 
