@@ -66,7 +66,6 @@ class PrivilegesController extends AbstractController
         $GLOBALS['password'] = $GLOBALS['password'] ?? null;
         $GLOBALS['ret_message'] = $GLOBALS['ret_message'] ?? null;
         $GLOBALS['ret_queries'] = $GLOBALS['ret_queries'] ?? null;
-        $GLOBALS['queries_for_display'] = $GLOBALS['queries_for_display'] ?? null;
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
@@ -188,7 +187,7 @@ class PrivilegesController extends AbstractController
         [
             $GLOBALS['ret_message'],
             $GLOBALS['ret_queries'],
-            $GLOBALS['queries_for_display'],
+            $queriesForDisplay,
             $GLOBALS['sql_query'],
             $addUserError,
         ] = $serverPrivileges->addUser(
@@ -307,7 +306,7 @@ class PrivilegesController extends AbstractController
         if ($request->hasBodyParam('change_copy')) {
             $GLOBALS['queries'] = $serverPrivileges->getDataForQueries(
                 $GLOBALS['queries'],
-                $GLOBALS['queries_for_display']
+                $queriesForDisplay
             );
             $GLOBALS['message'] = Message::success();
             $GLOBALS['sql_query'] = implode("\n", $GLOBALS['queries']);

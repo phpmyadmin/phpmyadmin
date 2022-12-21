@@ -2595,7 +2595,7 @@
       <code>$GLOBALS['queries']</code>
       <code>$GLOBALS['queries']</code>
       <code>$GLOBALS['queries']</code>
-      <code>$GLOBALS['queries_for_display']</code>
+      <code>$queriesForDisplay</code>
       <code>$urlDbname ?? ''</code>
       <code>$urlDbname ?? ''</code>
       <code>$db_name ?? ''</code>
@@ -2621,7 +2621,7 @@
       <code>$GLOBALS['post_patterns']</code>
       <code>$GLOBALS['queries']</code>
       <code>$GLOBALS['queries']</code>
-      <code>$GLOBALS['queries_for_display']</code>
+      <code>$queriesForDisplay</code>
       <code>$GLOBALS['ret_message']</code>
       <code>$GLOBALS['ret_queries']</code>
       <code>$GLOBALS['routinename']</code>
