@@ -58,7 +58,6 @@ class PrivilegesController extends AbstractController
         $GLOBALS['username'] = $GLOBALS['username'] ?? null;
         $GLOBALS['hostname'] = $GLOBALS['hostname'] ?? null;
         $GLOBALS['dbname'] = $GLOBALS['dbname'] ?? null;
-        $GLOBALS['tablename'] = $GLOBALS['tablename'] ?? null;
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
@@ -114,7 +113,7 @@ class PrivilegesController extends AbstractController
             $GLOBALS['username'],
             $GLOBALS['hostname'],
             $GLOBALS['dbname'],
-            $GLOBALS['tablename'],
+            $tablename,
             $routinename,
             $dbnameIsWildcard,
         ] = $serverPrivileges->getDataForDBInfo();
@@ -220,7 +219,7 @@ class PrivilegesController extends AbstractController
                     [$GLOBALS['sql_query'][$key], $GLOBALS['message']] = $serverPrivileges->updatePrivileges(
                         ($GLOBALS['username'] ?? ''),
                         ($GLOBALS['hostname'] ?? ''),
-                        ($GLOBALS['tablename'] ?? ($routinename ?? '')),
+                        ($tablename ?? ($routinename ?? '')),
                         ($db_name ?? ''),
                         $itemType
                     );
@@ -231,7 +230,7 @@ class PrivilegesController extends AbstractController
                 [$GLOBALS['sql_query'], $GLOBALS['message']] = $serverPrivileges->updatePrivileges(
                     ($GLOBALS['username'] ?? ''),
                     ($GLOBALS['hostname'] ?? ''),
-                    ($GLOBALS['tablename'] ?? ($routinename ?? '')),
+                    ($tablename ?? ($routinename ?? '')),
                     ($GLOBALS['dbname'] ?? ''),
                     $itemType
                 );
@@ -255,7 +254,7 @@ class PrivilegesController extends AbstractController
         if ($request->hasBodyParam('revokeall')) {
             [$GLOBALS['message'], $GLOBALS['sql_query']] = $serverPrivileges->getMessageAndSqlQueryForPrivilegesRevoke(
                 (is_string($GLOBALS['dbname']) ? $GLOBALS['dbname'] : ''),
-                ($GLOBALS['tablename'] ?? ($routinename ?? '')),
+                ($tablename ?? ($routinename ?? '')),
                 $GLOBALS['username'] ?? '',
                 $GLOBALS['hostname'] ?? '',
                 $itemType
@@ -416,7 +415,7 @@ class PrivilegesController extends AbstractController
                         $GLOBALS['username'],
                         $GLOBALS['hostname'] ?? '',
                         $GLOBALS['dbname'] ?? '',
-                        $GLOBALS['tablename'] ?? '',
+                        $tablename ?? '',
                         $request->getRoute()
                     )
                 );

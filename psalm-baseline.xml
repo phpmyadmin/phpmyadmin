@@ -2624,7 +2624,7 @@
       <code>$retMessage</code>
       <code>$retQueries</code>
       <code>$routinename</code>
-      <code>$GLOBALS['tablename']</code>
+      <code>$tablename</code>
       <code>$GLOBALS['tables']</code>
       <code>$title</code>
       <code>$GLOBALS['tooltip_aliasname']</code>
