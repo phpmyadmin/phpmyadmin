@@ -42,24 +42,31 @@ class DesignerController extends AbstractController
         $GLOBALS['message'] = $GLOBALS['message'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
-        if (isset($_POST['dialog'])) {
-            if ($_POST['dialog'] === 'edit') {
-                $html = $this->databaseDesigner->getHtmlForEditOrDeletePages($_POST['db'], 'editPage');
-            } elseif ($_POST['dialog'] === 'delete') {
-                $html = $this->databaseDesigner->getHtmlForEditOrDeletePages($_POST['db'], 'deletePage');
-            } elseif ($_POST['dialog'] === 'save_as') {
-                $html = $this->databaseDesigner->getHtmlForPageSaveAs($_POST['db']);
-            } elseif ($_POST['dialog'] === 'export') {
-                $html = $this->databaseDesigner->getHtmlForSchemaExport($_POST['db'], $_POST['selected_page']);
-            } elseif ($_POST['dialog'] === 'add_table') {
+        $db = $request->getParsedBodyParam('db');
+        $table = $request->getParsedBodyParam('table');
+
+        if ($request->hasBodyParam('dialog')) {
+            $dialog = $request->getParsedBodyParam('dialog');
+            if ($dialog === 'edit') {
+                $html = $this->databaseDesigner->getHtmlForEditOrDeletePages($db, 'editPage');
+            } elseif ($dialog === 'delete') {
+                $html = $this->databaseDesigner->getHtmlForEditOrDeletePages($db, 'deletePage');
+            } elseif ($dialog === 'save_as') {
+                $html = $this->databaseDesigner->getHtmlForPageSaveAs($db);
+            } elseif ($dialog === 'export') {
+                $html = $this->databaseDesigner->getHtmlForSchemaExport(
+                    $db,
+                    $request->getParsedBodyParam('selected_page')
+                );
+            } elseif ($dialog === 'add_table') {
                 // Pass the db and table to the getTablesInfo so we only have the table we asked for
-                $scriptDisplayField = $this->designerCommon->getTablesInfo($_POST['db'], $_POST['table']);
+                $scriptDisplayField = $this->designerCommon->getTablesInfo($db, $table);
                 $tableColumn = $this->designerCommon->getColumnsInfo($scriptDisplayField);
                 $tablesAllKeys = $this->designerCommon->getAllKeys($scriptDisplayField);
                 $tablesPkOrUniqueKeys = $this->designerCommon->getPkOrUniqueKeys($scriptDisplayField);
 
                 $html = $this->databaseDesigner->getDatabaseTables(
-                    $_POST['db'],
+                    $db,
                     $scriptDisplayField,
                     [],
                     -1,
@@ -76,64 +83,68 @@ class DesignerController extends AbstractController
             return;
         }
 
-        if (isset($_POST['operation'])) {
-            if ($_POST['operation'] === 'deletePage') {
-                $success = $this->designerCommon->deletePage($_POST['selected_page']);
+        if ($request->hasBodyParam('operation')) {
+            $operation = $request->getParsedBodyParam('operation');
+            if ($operation === 'deletePage') {
+                $success = $this->designerCommon->deletePage($request->getParsedBodyParam('selected_page'));
                 $this->response->setRequestStatus($success);
-            } elseif ($_POST['operation'] === 'savePage') {
-                if ($_POST['save_page'] === 'same') {
-                    $page = $_POST['selected_page'];
-                } elseif ($this->designerCommon->getPageExists($_POST['selected_value'])) {
+            } elseif ($operation === 'savePage') {
+                if ($request->getParsedBodyParam('save_page') === 'same') {
+                    $page = $request->getParsedBodyParam('selected_page');
+                } elseif ($this->designerCommon->getPageExists($request->getParsedBodyParam('selected_value'))) {
                     $this->response->addJSON(
                         'message',
                         sprintf(
                             /* l10n: The user tries to save a page with an existing name in Designer */
                             __('There already exists a page named "%s" please rename it to something else.'),
-                            htmlspecialchars($_POST['selected_value'])
+                            htmlspecialchars($request->getParsedBodyParam('selected_value'))
                         )
                     );
                     $this->response->setRequestStatus(false);
 
                     return;
                 } else {
-                    $page = $this->designerCommon->createNewPage($_POST['selected_value'], $_POST['db']);
+                    $page = $this->designerCommon->createNewPage($request->getParsedBodyParam('selected_value'), $db);
                     $this->response->addJSON('id', $page);
                 }
 
                 $success = $this->designerCommon->saveTablePositions($page);
                 $this->response->setRequestStatus($success);
-            } elseif ($_POST['operation'] === 'setDisplayField') {
+            } elseif ($operation === 'setDisplayField') {
                 [
                     $success,
                     $GLOBALS['message'],
-                ] = $this->designerCommon->saveDisplayField($_POST['db'], $_POST['table'], $_POST['field']);
+                ] = $this->designerCommon->saveDisplayField($db, $table, $request->getParsedBodyParam('field'));
                 $this->response->setRequestStatus($success);
                 $this->response->addJSON('message', $GLOBALS['message']);
-            } elseif ($_POST['operation'] === 'addNewRelation') {
+            } elseif ($operation === 'addNewRelation') {
                 [$success, $GLOBALS['message']] = $this->designerCommon->addNewRelation(
-                    $_POST['db'],
-                    $_POST['T1'],
-                    $_POST['F1'],
-                    $_POST['T2'],
-                    $_POST['F2'],
-                    $_POST['on_delete'],
-                    $_POST['on_update'],
-                    $_POST['DB1'],
-                    $_POST['DB2']
+                    $db,
+                    $request->getParsedBodyParam('T1'),
+                    $request->getParsedBodyParam('F1'),
+                    $request->getParsedBodyParam('T2'),
+                    $request->getParsedBodyParam('F2'),
+                    $request->getParsedBodyParam('on_delete'),
+                    $request->getParsedBodyParam('on_update'),
+                    $request->getParsedBodyParam('DB1'),
+                    $request->getParsedBodyParam('DB2')
                 );
                 $this->response->setRequestStatus($success);
                 $this->response->addJSON('message', $GLOBALS['message']);
-            } elseif ($_POST['operation'] === 'removeRelation') {
+            } elseif ($operation === 'removeRelation') {
                 [$success, $GLOBALS['message']] = $this->designerCommon->removeRelation(
-                    $_POST['T1'],
-                    $_POST['F1'],
-                    $_POST['T2'],
-                    $_POST['F2']
+                    $request->getParsedBodyParam('T1'),
+                    $request->getParsedBodyParam('F1'),
+                    $request->getParsedBodyParam('T2'),
+                    $request->getParsedBodyParam('F2')
                 );
                 $this->response->setRequestStatus($success);
                 $this->response->addJSON('message', $GLOBALS['message']);
-            } elseif ($_POST['operation'] === 'save_setting_value') {
-                $success = $this->designerCommon->saveSetting($_POST['index'], $_POST['value']);
+            } elseif ($operation === 'save_setting_value') {
+                $success = $this->designerCommon->saveSetting(
+                    $request->getParsedBodyParam('index'),
+                    $request->getParsedBodyParam('value')
+                );
                 $this->response->setRequestStatus($success);
             }
 
@@ -151,14 +162,14 @@ class DesignerController extends AbstractController
 
         $scriptDisplayField = $this->designerCommon->getTablesInfo();
 
-        $visualBuilderMode = isset($_GET['query']);
+        $visualBuilderMode = $request->hasQueryParam('query');
 
         if ($visualBuilderMode) {
-            $displayPage = $this->designerCommon->getDefaultPage($_GET['db']);
-        } elseif (! empty($_GET['page'])) {
-            $displayPage = (int) $_GET['page'];
+            $displayPage = $this->designerCommon->getDefaultPage($request->getQueryParam('db'));
+        } elseif ($request->hasQueryParam('page')) {
+            $displayPage = (int) $request->getQueryParam('page');
         } else {
-            $displayPage = $this->designerCommon->getLoadingPage($_GET['db']);
+            $displayPage = $this->designerCommon->getLoadingPage($request->getQueryParam('db'));
         }
 
         $selectedPage = null;
@@ -210,7 +221,7 @@ class DesignerController extends AbstractController
         $this->response->addHTML(
             $this->databaseDesigner->getHtmlForMain(
                 $GLOBALS['db'],
-                $_GET['db'],
+                $request->getQueryParam('db'),
                 $scriptDisplayField,
                 $scriptTables,
                 $scriptContr,

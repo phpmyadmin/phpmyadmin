@@ -1043,15 +1043,45 @@
     </MixedOperand>
   </file>
   <file src="libraries/classes/Controllers/Database/DesignerController.php">
-    <InvalidScalarArgument occurrences="2">
-      <code>$_POST['selected_page']</code>
-      <code>$_POST['selected_page']</code>
-    </InvalidScalarArgument>
-    <MixedArgument occurrences="4">
+    <MixedArgument occurrences="38">
+      <code>$db</code>
+      <code>$db</code>
+      <code>$db</code>
+      <code>$db</code>
+      <code>$db</code>
+      <code>$db</code>
+      <code>$db</code>
+      <code>$db</code>
       <code>$html</code>
+      <code>$page</code>
       <code>$position['dbName']</code>
       <code>$position['tableName']</code>
+      <code>$request-&gt;getParsedBodyParam('DB1')</code>
+      <code>$request-&gt;getParsedBodyParam('DB2')</code>
+      <code>$request-&gt;getParsedBodyParam('F1')</code>
+      <code>$request-&gt;getParsedBodyParam('F1')</code>
+      <code>$request-&gt;getParsedBodyParam('F2')</code>
+      <code>$request-&gt;getParsedBodyParam('F2')</code>
+      <code>$request-&gt;getParsedBodyParam('T1')</code>
+      <code>$request-&gt;getParsedBodyParam('T1')</code>
+      <code>$request-&gt;getParsedBodyParam('T2')</code>
+      <code>$request-&gt;getParsedBodyParam('T2')</code>
+      <code>$request-&gt;getParsedBodyParam('field')</code>
+      <code>$request-&gt;getParsedBodyParam('index')</code>
+      <code>$request-&gt;getParsedBodyParam('on_delete')</code>
+      <code>$request-&gt;getParsedBodyParam('on_update')</code>
+      <code>$request-&gt;getParsedBodyParam('selected_page')</code>
+      <code>$request-&gt;getParsedBodyParam('selected_page')</code>
+      <code>$request-&gt;getParsedBodyParam('selected_value')</code>
+      <code>$request-&gt;getParsedBodyParam('selected_value')</code>
+      <code>$request-&gt;getParsedBodyParam('selected_value')</code>
+      <code>$request-&gt;getParsedBodyParam('value')</code>
+      <code>$request-&gt;getQueryParam('db')</code>
+      <code>$request-&gt;getQueryParam('db')</code>
+      <code>$request-&gt;getQueryParam('db')</code>
       <code>$success</code>
+      <code>$table</code>
+      <code>$table</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="4">
       <code>$position['dbName']</code>
@@ -1059,83 +1089,22 @@
       <code>$position['tableName']</code>
       <code>$position['tableName']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="2">
+    <MixedAssignment occurrences="7">
       <code>$GLOBALS['errorUrl']</code>
+      <code>$db</code>
+      <code>$dialog</code>
+      <code>$operation</code>
+      <code>$page</code>
       <code>$position</code>
+      <code>$table</code>
     </MixedAssignment>
     <MixedOperand occurrences="2">
       <code>$position['dbName']</code>
       <code>$position['tableName']</code>
     </MixedOperand>
-    <PossiblyInvalidArgument occurrences="33">
-      <code>$_GET['db']</code>
-      <code>$_GET['db']</code>
-      <code>$_GET['db']</code>
-      <code>$_POST['DB1']</code>
-      <code>$_POST['DB2']</code>
-      <code>$_POST['F1']</code>
-      <code>$_POST['F1']</code>
-      <code>$_POST['F2']</code>
-      <code>$_POST['F2']</code>
-      <code>$_POST['T1']</code>
-      <code>$_POST['T1']</code>
-      <code>$_POST['T2']</code>
-      <code>$_POST['T2']</code>
-      <code>$_POST['db']</code>
-      <code>$_POST['db']</code>
-      <code>$_POST['db']</code>
-      <code>$_POST['db']</code>
-      <code>$_POST['db']</code>
-      <code>$_POST['db']</code>
-      <code>$_POST['db']</code>
-      <code>$_POST['db']</code>
-      <code>$_POST['db']</code>
-      <code>$_POST['field']</code>
-      <code>$_POST['index']</code>
-      <code>$_POST['on_delete']</code>
-      <code>$_POST['on_update']</code>
-      <code>$_POST['selected_value']</code>
-      <code>$_POST['selected_value']</code>
-      <code>$_POST['selected_value']</code>
-      <code>$_POST['table']</code>
-      <code>$_POST['table']</code>
-      <code>$_POST['value']</code>
+    <PossiblyNullArgument occurrences="1">
       <code>$page</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="29">
-      <code>$_GET['db']</code>
-      <code>$_GET['db']</code>
-      <code>$_GET['db']</code>
-      <code>$_POST['DB1']</code>
-      <code>$_POST['DB2']</code>
-      <code>$_POST['F1']</code>
-      <code>$_POST['F1']</code>
-      <code>$_POST['F2']</code>
-      <code>$_POST['F2']</code>
-      <code>$_POST['T1']</code>
-      <code>$_POST['T1']</code>
-      <code>$_POST['T2']</code>
-      <code>$_POST['T2']</code>
-      <code>$_POST['db']</code>
-      <code>$_POST['db']</code>
-      <code>$_POST['db']</code>
-      <code>$_POST['db']</code>
-      <code>$_POST['db']</code>
-      <code>$_POST['db']</code>
-      <code>$_POST['db']</code>
-      <code>$_POST['db']</code>
-      <code>$_POST['field']</code>
-      <code>$_POST['index']</code>
-      <code>$_POST['on_delete']</code>
-      <code>$_POST['on_update']</code>
-      <code>$_POST['selected_value']</code>
-      <code>$_POST['selected_value']</code>
-      <code>$_POST['table']</code>
-      <code>$_POST['value']</code>
-    </PossiblyInvalidCast>
-    <RiskyCast occurrences="1">
-      <code>$_GET['page']</code>
-    </RiskyCast>
+    </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Controllers/Database/EventsController.php">
     <MixedAssignment occurrences="2">

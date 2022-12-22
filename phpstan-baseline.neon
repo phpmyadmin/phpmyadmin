@@ -1026,6 +1026,181 @@ parameters:
 			path: libraries/classes/Controllers/Database/DataDictionaryController.php
 
 		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#1 \\$T1 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:removeRelation\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getDatabaseTables\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getHtmlForEditOrDeletePages\\(\\) expects string, mixed given\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getHtmlForPageSaveAs\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getHtmlForSchemaExport\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:addNewRelation\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:getDefaultPage\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:getLoadingPage\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:getTablesInfo\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:saveDisplayField\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#1 \\$index of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:saveSetting\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#1 \\$pageName of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:createNewPage\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#1 \\$pg of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:deletePage\\(\\) expects int, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#1 \\$pg of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:getPageExists\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#1 \\$pg of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:saveTablePositions\\(\\) expects int, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#2 \\$F1 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:removeRelation\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#2 \\$T1 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:addNewRelation\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#2 \\$db of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:createNewPage\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#2 \\$getDb of method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getHtmlForMain\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#2 \\$page of method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getHtmlForSchemaExport\\(\\) expects int, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:getTablesInfo\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:saveDisplayField\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:saveSetting\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#3 \\$F1 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:addNewRelation\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#3 \\$T2 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:removeRelation\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#3 \\$field of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:saveDisplayField\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#4 \\$F2 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:removeRelation\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#4 \\$T2 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:addNewRelation\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#5 \\$F2 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:addNewRelation\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#6 \\$on_delete of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:addNewRelation\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#7 \\$on_update of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:addNewRelation\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#8 \\$DB1 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:addNewRelation\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
+			message: "#^Parameter \\#9 \\$DB2 of method PhpMyAdmin\\\\Database\\\\Designer\\\\Common\\:\\:addNewRelation\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/DesignerController.php
+
+		-
 			message: "#^Parameter \\#1 \\$sqlQuery of static method PhpMyAdmin\\\\Database\\\\MultiTableQuery\\:\\:displayResults\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/MultiTableQuery/QueryController.php
