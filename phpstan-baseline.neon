@@ -10521,6 +10521,26 @@ parameters:
 			path: test/classes/Html/GeneratorTest.php
 
 		-
+			message: "#^Class GuzzleHttp\\\\Psr7\\\\HttpFactory not found\\.$#"
+			count: 1
+			path: test/classes/Http/Factory/ServerRequestFactoryTest.php
+
+		-
+			message: "#^Class Laminas\\\\Diactoros\\\\ServerRequestFactory not found\\.$#"
+			count: 1
+			path: test/classes/Http/Factory/ServerRequestFactoryTest.php
+
+		-
+			message: "#^Class Nyholm\\\\Psr7\\\\Factory\\\\Psr17Factory not found\\.$#"
+			count: 1
+			path: test/classes/Http/Factory/ServerRequestFactoryTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Http\\\\Factory\\\\ServerRequestFactoryTest\\:\\:dataProviderPsr7Implementations\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: test/classes/Http/Factory/ServerRequestFactoryTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\ImportTest\\:\\:provDetectType\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/ImportTest.php
