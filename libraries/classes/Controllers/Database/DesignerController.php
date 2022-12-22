@@ -160,7 +160,7 @@ class DesignerController extends AbstractController
                 $this->response->addJSON('message', $GLOBALS['message']);
             } elseif ($operation === 'save_setting_value') {
                 $GLOBALS['success'] = $this->designerCommon->saveSetting(
-                    $request->getParsedBodyParam('index'), 
+                    $request->getParsedBodyParam('index'),
                     $request->getParsedBodyParam('value')
                 );
                 $this->response->setRequestStatus($GLOBALS['success']);
