@@ -79,8 +79,33 @@ class ServerRequestFactoryTest extends AbstractTestCase
         $_GET['foo'] = 'bar';
         $_SERVER['QUERY_STRING'] = 'foo=bar&blob=baz';
         $_SERVER['REQUEST_URI'] = '/test-page.php';
+        $_SERVER['REQUEST_METHOD'] = 'PATCH';
+        $_SERVER['HTTP_HOST'] = 'phpmyadmin.local';
 
         $request = ServerRequestFactory::createFromGlobals();
+        $this->assertSame(
+            'PATCH',
+            $request->getMethod()
+        );
+        $this->assertSame(
+            'http://phpmyadmin.local/test-page.php?foo=bar&blob=baz',
+            $request->getUri()->__toString()
+        );
+        $this->assertFalse(
+            $request->isPost()
+        );
+        $this->assertSame(
+            'default',
+            $request->getParam('not-exists', 'default')
+        );
+        $this->assertSame(
+            'bar',
+            $request->getParam('foo')
+        );
+        $this->assertSame(
+            'baz',
+            $request->getParam('blob')
+        );
         $this->assertSame([
             'foo' => 'bar',
             'blob' => 'baz',
