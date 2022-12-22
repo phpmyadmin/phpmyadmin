@@ -87,29 +87,29 @@ final class ExportController extends AbstractController
             return;
         }
 
-        if (! empty($_POST['selected_tbl']) && empty($GLOBALS['table_select'])) {
-            $GLOBALS['table_select'] = $_POST['selected_tbl'];
+        if ($request->hasBodyParam('selected_tbl') && empty($GLOBALS['table_select'])) {
+            $GLOBALS['table_select'] = $request->getParsedBodyParam('selected_tbl');
         }
 
         $tablesForMultiValues = [];
 
         foreach ($GLOBALS['tables'] as $each_table) {
-            if (isset($_POST['table_select']) && is_array($_POST['table_select'])) {
-                $is_checked = $this->export->getCheckedClause($each_table['Name'], $_POST['table_select']);
+            if (is_array($request->getParsedBodyParam('table_select'))) {
+                $is_checked = $this->export->getCheckedClause($each_table['Name'], $request->getParsedBodyParam('table_select'));
             } elseif (isset($GLOBALS['table_select'])) {
                 $is_checked = $this->export->getCheckedClause($each_table['Name'], $GLOBALS['table_select']);
             } else {
                 $is_checked = true;
             }
 
-            if (isset($_POST['table_structure']) && is_array($_POST['table_structure'])) {
-                $structure_checked = $this->export->getCheckedClause($each_table['Name'], $_POST['table_structure']);
+            if (is_array($request->getParsedBodyParam('table_structure'))) {
+                $structure_checked = $this->export->getCheckedClause($each_table['Name'], $request->getParsedBodyParam('table_structure'));
             } else {
                 $structure_checked = $is_checked;
             }
 
-            if (isset($_POST['table_data']) && is_array($_POST['table_data'])) {
-                $data_checked = $this->export->getCheckedClause($each_table['Name'], $_POST['table_data']);
+            if (is_array($request->getParsedBodyParam('table_data'))) {
+                $data_checked = $this->export->getCheckedClause($each_table['Name'], $request->getParsedBodyParam('table_data'));
             } else {
                 $data_checked = $is_checked;
             }
@@ -130,14 +130,14 @@ final class ExportController extends AbstractController
             $GLOBALS['unlim_num_rows'] = 0;
         }
 
-        $isReturnBackFromRawExport = isset($_POST['export_type']) && $_POST['export_type'] === 'raw';
-        if (isset($_POST['raw_query']) || $isReturnBackFromRawExport) {
+        $isReturnBackFromRawExport = $request->getParsedBodyParam('export_type') === 'raw';
+        if ($request->hasBodyParam('raw_query') || $isReturnBackFromRawExport) {
             $export_type = 'raw';
         } else {
             $export_type = 'database';
         }
 
-        $GLOBALS['single_table'] = $_POST['single_table'] ?? $_GET['single_table'] ?? $GLOBALS['single_table'] ?? null;
+        $GLOBALS['single_table'] = $request->getParam('single_table') ?? $GLOBALS['single_table'] ?? null;
 
         $exportList = Plugins::getExport($export_type, isset($GLOBALS['single_table']));
 
@@ -162,7 +162,7 @@ final class ExportController extends AbstractController
         $this->render('database/export/index', array_merge($options, [
             'page_settings_error_html' => $pageSettingsErrorHtml,
             'page_settings_html' => $pageSettingsHtml,
-            'structure_or_data_forced' => $_POST['structure_or_data_forced'] ?? 0,
+            'structure_or_data_forced' => $request->getParsedBodyParam('structure_or_data_forced', 0),
             'tables' => $tablesForMultiValues,
         ]));
     }
