@@ -2547,8 +2547,7 @@ class Privileges
                 break;
         }
 
-        $sql = "SELECT '1' FROM `mysql`.`user`" . $this->getUserHostCondition($username, $hostname) . ';';
-        if ($this->dbi->fetchValue($sql) == 1) {
+        if ($this->userExists($username, $hostname)) {
             $message = Message::error(__('The user %s already exists!'));
             $message->addParam('[em]\'' . $username . '\'@\'' . $hostname . '\'[/em]');
             $_GET['adduser'] = true;
@@ -3022,9 +3021,7 @@ class Privileges
         $tablename,
         string $route
     ): string {
-        $sql = "SELECT '1' FROM `mysql`.`user`" . $this->getUserHostCondition($username, $hostname) . ';';
-
-        $userDoesNotExists = ! $this->dbi->fetchValue($sql);
+        $userDoesNotExists = ! $this->userExists($username, $hostname);
 
         $loginInformationFields = '';
         if ($userDoesNotExists) {
@@ -3706,5 +3703,12 @@ class Privileges
     {
         return ' WHERE `User` = ' . $this->dbi->quoteString($username)
             . ' AND `Host` = ' . $this->dbi->quoteString($hostname);
+    }
+
+    private function userExists(string $username, string $hostname): bool
+    {
+        $sql = "SELECT '1' FROM `mysql`.`user`" . $this->getUserHostCondition($username, $hostname) . ';';
+
+        return (bool) $this->dbi->fetchValue($sql);
     }
 }
