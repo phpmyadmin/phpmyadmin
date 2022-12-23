@@ -385,7 +385,10 @@ class PrivilegesController extends AbstractController
             if (! isset($GLOBALS['username'])) {
                 // No username is given --> display the overview
                 $this->response->addHTML(
-                    $serverPrivileges->getHtmlForUserOverview($GLOBALS['text_dir'])
+                    $serverPrivileges->getHtmlForUserOverview(
+                        $GLOBALS['text_dir'],
+                        $request->getQueryParam('initial', '')
+                    )
                 );
             } elseif (! empty($routinename)) {
                 $this->response->addHTML(

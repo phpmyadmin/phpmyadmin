@@ -147,7 +147,7 @@ class PrivilegesTest extends AbstractTestCase
         $ret = $serverPrivileges->rangeOfUsers('INIT');
         $this->assertEquals(' WHERE `User` LIKE \'INIT%\' OR `User` LIKE \'init%\'', $ret);
 
-        $ret = $serverPrivileges->rangeOfUsers();
+        $ret = $serverPrivileges->rangeOfUsers('');
         $this->assertEquals('', $ret);
     }
 
@@ -1631,7 +1631,7 @@ class PrivilegesTest extends AbstractTestCase
         $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
 
         $_REQUEST = ['ajax_page_request' => '1'];
-        $actual = $serverPrivileges->getHtmlForUserOverview('ltr');
+        $actual = $serverPrivileges->getHtmlForUserOverview('ltr', '');
         $this->assertStringContainsString('Note: MySQL privilege names are expressed in English.', $actual);
         $this->assertStringContainsString(
             'Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege tables.',
@@ -1772,7 +1772,6 @@ class PrivilegesTest extends AbstractTestCase
                 return "'" . $string . "'";
             }));
 
-        $_GET['initial'] = 'A';
         $serverPrivileges->dbi = $dbi;
 
         $expected = [
@@ -1786,7 +1785,7 @@ class PrivilegesTest extends AbstractTestCase
                 ],
             ],
         ];
-        $actual = $serverPrivileges->getDbRightsForUserOverview();
+        $actual = $serverPrivileges->getDbRightsForUserOverview('A');
         $this->assertEquals($expected, $actual);
     }
 

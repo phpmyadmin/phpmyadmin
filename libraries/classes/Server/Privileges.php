@@ -155,15 +155,15 @@ class Privileges
     /**
      * Generates a condition on the user name
      *
-     * @param string|null $initial the user's initial
+     * @param string $initial the user's initial
      *
      * @return string   the generated condition
      */
-    public function rangeOfUsers($initial = ''): string
+    public function rangeOfUsers(string $initial): string
     {
         // strtolower() is used because the User field
         // might be BINARY, so LIKE would be case sensitive
-        if ($initial === null || $initial === '') {
+        if ($initial === '') {
             return '';
         }
 
@@ -2082,7 +2082,7 @@ class Privileges
      *
      * @return array    database rights array
      */
-    public function getDbRightsForUserOverview(): array
+    public function getDbRightsForUserOverview(string $initial): array
     {
         // we also want users not in table `user` but in other table
         $tables = $this->dbi->fetchResult('SHOW TABLES FROM `mysql`;');
@@ -2102,10 +2102,7 @@ class Privileges
             }
 
             $dbRightsSqls[] = 'SELECT DISTINCT `User`, `Host` FROM `mysql`.`'
-                . $tableSearchIn . '` '
-                . (isset($_GET['initial'])
-                ? $this->rangeOfUsers($_GET['initial'])
-                : '');
+                . $tableSearchIn . '` ' . $this->rangeOfUsers($initial);
         }
 
         $userDefaults = [
@@ -2855,7 +2852,7 @@ class Privileges
      *
      * @param string $textDir text directory
      */
-    public function getHtmlForUserOverview($textDir): string
+    public function getHtmlForUserOverview($textDir, string $initial): string
     {
         $passwordColumn = 'Password';
         $serverVersion = $this->dbi->getVersion();
@@ -2869,9 +2866,7 @@ class Privileges
         $sqlQuery = $sqlQueryAll = 'SELECT *, IF(`' . $passwordColumn
             . "` = _latin1 '', 'N', 'Y') AS 'Password' FROM `mysql`.`user`";
 
-        $sqlQuery .= (isset($_GET['initial'])
-            ? $this->rangeOfUsers($_GET['initial'])
-            : '');
+        $sqlQuery .= $this->rangeOfUsers($initial);
 
         $sqlQuery .= ' ORDER BY `User` ASC, `Host` ASC;';
         $sqlQueryAll .= ' ;';
@@ -2906,7 +2901,7 @@ class Privileges
 
             unset($res);
         } else {
-            $dbRights = $this->getDbRightsForUserOverview();
+            $dbRights = $this->getDbRightsForUserOverview($initial);
             // for all initials, even non A-Z
             $arrayInitials = [];
 
