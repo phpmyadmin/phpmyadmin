@@ -593,18 +593,14 @@ class Privileges
             $updQuery = 'INSERT INTO ' . $userTable . '(`username`, `usergroup`)'
                 . ' VALUES (' . $this->dbi->quoteString($username, Connection::TYPE_CONTROL) . ', '
                 . $this->dbi->quoteString($userGroup, Connection::TYPE_CONTROL) . ')';
+        } elseif ($userGroup === '') {
+            $updQuery = 'DELETE FROM ' . $userTable
+                . ' WHERE `username`=' . $this->dbi->quoteString($username, Connection::TYPE_CONTROL);
+        } elseif ($oldUserGroup != $userGroup) {
+            $updQuery = 'UPDATE ' . $userTable
+                . ' SET `usergroup`=' . $this->dbi->quoteString($userGroup, Connection::TYPE_CONTROL)
+                . ' WHERE `username`=' . $this->dbi->quoteString($username, Connection::TYPE_CONTROL);
         } else {
-            if ($userGroup === '') {
-                $updQuery = 'DELETE FROM ' . $userTable
-                    . ' WHERE `username`=' . $this->dbi->quoteString($username, Connection::TYPE_CONTROL);
-            } elseif ($oldUserGroup != $userGroup) {
-                $updQuery = 'UPDATE ' . $userTable
-                    . ' SET `usergroup`=' . $this->dbi->quoteString($userGroup, Connection::TYPE_CONTROL)
-                    . ' WHERE `username`=' . $this->dbi->quoteString($username, Connection::TYPE_CONTROL);
-            }
-        }
-
-        if (! isset($updQuery)) {
             return;
         }
 
