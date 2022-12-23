@@ -277,7 +277,7 @@ class PrivilegesTest extends AbstractTestCase
         unset($_POST['change_copy']);
     }
 
-    public function testGetHtmlForExportUserDefinition(): void
+    public function testGetExportUserDefinitionTextarea(): void
     {
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addResult(
@@ -290,17 +290,11 @@ class PrivilegesTest extends AbstractTestCase
         $username = 'PMA_username';
         $hostname = 'PMA_hostname';
 
-        [$title, $export] = $serverPrivileges->getListForExportUserDefinition($username, $hostname);
+        $export = $serverPrivileges->getExportUserDefinitionTextarea($username, $hostname, null);
 
-        //validate 1: $export
         $this->assertStringContainsString('grant user2 delete', $export);
         $this->assertStringContainsString('grant user1 select', $export);
         $this->assertStringContainsString('<textarea class="export"', $export);
-
-        //validate 2: $title
-        $title_user = __('User') . ' `' . htmlspecialchars($username)
-            . '`@`' . htmlspecialchars($hostname) . '`';
-        $this->assertStringContainsString($title_user, $title);
     }
 
     public function testAddUser(): void

@@ -21,6 +21,7 @@ use PhpMyAdmin\Url;
 
 use function __;
 use function header;
+use function htmlspecialchars;
 use function implode;
 use function is_array;
 use function is_string;
@@ -342,9 +343,19 @@ class PrivilegesController extends AbstractController
 
         // export user definition
         if ($request->hasQueryParam('export') || $request->getParsedBodyParam('submit_mult') === 'export') {
-            [$title, $export] = $serverPrivileges->getListForExportUserDefinition(
+            /** @var string[]|null $selectedUsers */
+            $selectedUsers = $request->getParsedBodyParam('selected_usr');
+
+            $title = $this->getExportPageTitle(
                 $GLOBALS['username'] ?? '',
-                $GLOBALS['hostname'] ?? ''
+                $GLOBALS['hostname'] ?? '',
+                $selectedUsers
+            );
+
+            $export = $serverPrivileges->getExportUserDefinitionTextarea(
+                $GLOBALS['username'] ?? '',
+                $GLOBALS['hostname'] ?? '',
+                $selectedUsers
             );
 
             unset($GLOBALS['username'], $GLOBALS['hostname']);
@@ -426,5 +437,15 @@ class PrivilegesController extends AbstractController
         }
 
         $this->response->addHTML('</div>');
+    }
+
+    private function getExportPageTitle(string $username, string $hostname, ?array $selectedUsers): string
+    {
+        if ($selectedUsers !== null) {
+            return __('Privileges');
+        }
+
+        return __('User') . ' `' . htmlspecialchars($username)
+            . '`@`' . htmlspecialchars($hostname) . '`';
     }
 }

@@ -2765,22 +2765,15 @@ class Privileges
     /**
      * Get title and textarea for export user definition in Privileges
      *
-     * @param string $username username
-     * @param string $hostname host name
-     *
-     * @return string[] ($title, $export)
+     * @param string        $username      username
+     * @param string        $hostname      host name
+     * @param string[]|null $selectedUsers
      */
-    public function getListForExportUserDefinition(string $username, string $hostname): array
+    public function getExportUserDefinitionTextarea(string $username, string $hostname, ?array $selectedUsers): string
     {
         $export = '<textarea class="export" cols="60" rows="15">';
 
-        /** @var array|null $selectedUsers */
-        $selectedUsers = $_POST['selected_usr'] ?? null;
-
-        if (isset($selectedUsers)) {
-            // export privileges for selected users
-            $title = __('Privileges');
-
+        if ($selectedUsers !== null) {
             //For removing duplicate entries of users
             $selectedUsers = array_unique($selectedUsers);
 
@@ -2805,20 +2798,13 @@ class Privileges
             }
         } else {
             // export privileges for a single user
-            $title = __('User') . ' `' . htmlspecialchars($username)
-                . '`@`' . htmlspecialchars($hostname) . '`';
             $export .= $this->getGrants($username, $hostname);
         }
 
         // remove trailing whitespace
         $export = trim($export);
 
-        $export .= '</textarea>';
-
-        return [
-            $title,
-            $export,
-        ];
+        return $export . '</textarea>';
     }
 
     /**
