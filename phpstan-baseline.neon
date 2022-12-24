@@ -5296,11 +5296,6 @@ parameters:
 			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
 			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\Navigation\\\\NavigationTree\\:\\:addTableContainers\\(\\) expects PhpMyAdmin\\\\Navigation\\\\Nodes\\\\NodeTable, PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node given\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/NavigationTree.php
@@ -5311,22 +5306,12 @@ parameters:
 			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Navigation\\\\NavigationTree\\:\\:\\$pos \\(int\\) in isset\\(\\) is not nullable\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Navigation\\\\NavigationTree\\:\\:\\$vPath type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\:\\:\\$title \\(string\\) on left side of \\?\\? is not nullable\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Right side of \\|\\| is always false\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/NavigationTree.php
 

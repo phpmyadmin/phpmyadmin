@@ -257,23 +257,19 @@ class Node
      * @param bool $countEmptyContainers Whether to count empty child
      *                                   containers as valid children
      */
-    public function hasChildren($countEmptyContainers = true): bool
+    public function hasChildren(bool $countEmptyContainers = true): bool
     {
-        $retval = false;
         if ($countEmptyContainers) {
-            if (count($this->children)) {
-                $retval = true;
-            }
-        } else {
-            foreach ($this->children as $child) {
-                if ($child->type == self::OBJECT || $child->hasChildren(false)) {
-                    $retval = true;
-                    break;
-                }
+            return $this->children !== [];
+        }
+
+        foreach ($this->children as $child) {
+            if ($child->type == self::OBJECT || $child->hasChildren(false)) {
+                return true;
             }
         }
 
-        return $retval;
+        return false;
     }
 
     /**

@@ -8138,13 +8138,8 @@
     <ArgumentTypeCoercion occurrences="1">
       <code>$table</code>
     </ArgumentTypeCoercion>
-    <DeprecatedMethod occurrences="2">
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
-    <DocblockTypeContradiction occurrences="2">
+    <DocblockTypeContradiction occurrences="1">
       <code>''</code>
-      <code>isset($this-&gt;pos)</code>
     </DocblockTypeContradiction>
     <InvalidPropertyAssignmentValue occurrences="4">
       <code>$this-&gt;pos2Name</code>
@@ -8152,7 +8147,7 @@
       <code>$this-&gt;pos3Name</code>
       <code>$this-&gt;pos3Name</code>
     </InvalidPropertyAssignmentValue>
-    <MixedArgument occurrences="27">
+    <MixedArgument occurrences="26">
       <code>$db</code>
       <code>$hiddenCounts[$db]</code>
       <code>$item</code>
@@ -8165,7 +8160,6 @@
       <code>$item</code>
       <code>$node</code>
       <code>$node</code>
-      <code>$node-&gt;separator</code>
       <code>$path</code>
       <code>$path[0]</code>
       <code>$path[0]</code>
@@ -8263,6 +8257,9 @@
       <code>(string) $key</code>
       <code>(string) $key</code>
     </RedundantCastGivenDocblockType>
+    <RedundantCondition occurrences="1">
+      <code>$path === []</code>
+    </RedundantCondition>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>$node-&gt;title</code>
     </RedundantConditionGivenDocblockType>
