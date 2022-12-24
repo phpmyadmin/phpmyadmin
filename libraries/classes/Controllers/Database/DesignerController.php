@@ -39,7 +39,6 @@ class DesignerController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['script_display_field'] = $GLOBALS['script_display_field'] ?? null;
         $GLOBALS['tab_column'] = $GLOBALS['tab_column'] ?? null;
         $GLOBALS['tables_all_keys'] = $GLOBALS['tables_all_keys'] ?? null;
         $GLOBALS['tables_pk_or_unique_keys'] = $GLOBALS['tables_pk_or_unique_keys'] ?? null;
@@ -47,8 +46,6 @@ class DesignerController extends AbstractController
         $GLOBALS['page'] = $GLOBALS['page'] ?? null;
         $GLOBALS['message'] = $GLOBALS['message'] ?? null;
         $GLOBALS['selected_page'] = $GLOBALS['selected_page'] ?? null;
-        $GLOBALS['tab_pos'] = $GLOBALS['tab_pos'] ?? null;
-        $GLOBALS['fullTableNames'] = $GLOBALS['fullTableNames'] ?? null;
         $GLOBALS['script_tables'] = $GLOBALS['script_tables'] ?? null;
         $GLOBALS['script_contr'] = $GLOBALS['script_contr'] ?? null;
         $GLOBALS['params'] = $GLOBALS['params'] ?? null;
@@ -72,16 +69,16 @@ class DesignerController extends AbstractController
                 $html = $this->databaseDesigner->getHtmlForSchemaExport($_POST['db'], $_POST['selected_page']);
             } elseif ($_POST['dialog'] === 'add_table') {
                 // Pass the db and table to the getTablesInfo so we only have the table we asked for
-                $GLOBALS['script_display_field'] = $this->designerCommon->getTablesInfo($_POST['db'], $_POST['table']);
-                $GLOBALS['tab_column'] = $this->designerCommon->getColumnsInfo($GLOBALS['script_display_field']);
-                $GLOBALS['tables_all_keys'] = $this->designerCommon->getAllKeys($GLOBALS['script_display_field']);
+                $scriptDisplayField = $this->designerCommon->getTablesInfo($_POST['db'], $_POST['table']);
+                $GLOBALS['tab_column'] = $this->designerCommon->getColumnsInfo($scriptDisplayField);
+                $GLOBALS['tables_all_keys'] = $this->designerCommon->getAllKeys($scriptDisplayField);
                 $GLOBALS['tables_pk_or_unique_keys'] = $this->designerCommon->getPkOrUniqueKeys(
-                    $GLOBALS['script_display_field']
+                    $scriptDisplayField
                 );
 
                 $html = $this->databaseDesigner->getDatabaseTables(
                     $_POST['db'],
-                    $GLOBALS['script_display_field'],
+                    $scriptDisplayField,
                     [],
                     -1,
                     $GLOBALS['tab_column'],
@@ -170,7 +167,7 @@ class DesignerController extends AbstractController
             return;
         }
 
-        $GLOBALS['script_display_field'] = $this->designerCommon->getTablesInfo();
+        $scriptDisplayField = $this->designerCommon->getTablesInfo();
 
         $GLOBALS['selected_page'] = null;
 
@@ -188,34 +185,33 @@ class DesignerController extends AbstractController
             $GLOBALS['selected_page'] = $this->designerCommon->getPageName($displayPage);
         }
 
-        $GLOBALS['tab_pos'] = $this->designerCommon->getTablePositions($displayPage);
+        $tablePositions = $this->designerCommon->getTablePositions($displayPage);
 
-        $GLOBALS['fullTableNames'] = [];
-
-        foreach ($GLOBALS['script_display_field'] as $designerTable) {
-            $GLOBALS['fullTableNames'][] = $designerTable->getDbTableString();
+        $fullTableNames = [];
+        foreach ($scriptDisplayField as $designerTable) {
+            $fullTableNames[] = $designerTable->getDbTableString();
         }
 
-        foreach ($GLOBALS['tab_pos'] as $position) {
-            if (in_array($position['dbName'] . '.' . $position['tableName'], $GLOBALS['fullTableNames'])) {
+        foreach ($tablePositions as $position) {
+            if (in_array($position['dbName'] . '.' . $position['tableName'], $fullTableNames)) {
                 continue;
             }
 
             $designerTables = $this->designerCommon->getTablesInfo($position['dbName'], $position['tableName']);
             foreach ($designerTables as $designerTable) {
-                $GLOBALS['script_display_field'][] = $designerTable;
+                $scriptDisplayField[] = $designerTable;
             }
         }
 
-        $GLOBALS['tab_column'] = $this->designerCommon->getColumnsInfo($GLOBALS['script_display_field']);
-        $GLOBALS['script_tables'] = $this->designerCommon->getScriptTabs($GLOBALS['script_display_field']);
+        $GLOBALS['tab_column'] = $this->designerCommon->getColumnsInfo($scriptDisplayField);
+        $GLOBALS['script_tables'] = $this->designerCommon->getScriptTabs($scriptDisplayField);
         $GLOBALS['tables_pk_or_unique_keys'] = $this->designerCommon->getPkOrUniqueKeys(
-            $GLOBALS['script_display_field']
+            $scriptDisplayField
         );
-        $GLOBALS['tables_all_keys'] = $this->designerCommon->getAllKeys($GLOBALS['script_display_field']);
+        $GLOBALS['tables_all_keys'] = $this->designerCommon->getAllKeys($scriptDisplayField);
         $GLOBALS['classes_side_menu'] = $this->databaseDesigner->returnClassNamesFromMenuButtons();
 
-        $GLOBALS['script_contr'] = $this->designerCommon->getScriptContr($GLOBALS['script_display_field']);
+        $GLOBALS['script_contr'] = $this->designerCommon->getScriptContr($scriptDisplayField);
 
         $GLOBALS['params'] = ['lang' => $GLOBALS['lang']];
         if (isset($_GET['db'])) {
@@ -250,15 +246,15 @@ class DesignerController extends AbstractController
             $this->databaseDesigner->getHtmlForMain(
                 $GLOBALS['db'],
                 $_GET['db'],
-                $GLOBALS['script_display_field'],
+                $scriptDisplayField,
                 $GLOBALS['script_tables'],
                 $GLOBALS['script_contr'],
-                $GLOBALS['script_display_field'],
+                $scriptDisplayField,
                 $displayPage,
                 $visualBuilderMode,
                 $GLOBALS['selected_page'],
                 $GLOBALS['classes_side_menu'],
-                $GLOBALS['tab_pos'],
+                $tablePositions,
                 $GLOBALS['tab_column'],
                 $GLOBALS['tables_all_keys'],
                 $GLOBALS['tables_pk_or_unique_keys']

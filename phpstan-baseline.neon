@@ -1736,11 +1736,6 @@ parameters:
 			path: libraries/classes/Controllers/Server/VariablesController.php
 
 		-
-			message: "#^Parameter \\#2 \\$value of method PhpMyAdmin\\\\Controllers\\\\Server\\\\VariablesController\\:\\:formatVariable\\(\\) expects int\\|string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/VariablesController.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Setup\\\\AbstractController\\:\\:getPages\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Setup/AbstractController.php
@@ -2286,7 +2281,7 @@ parameters:
 			path: libraries/classes/Database/Designer.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getHtmlForMain\\(\\) has parameter \\$tabPos with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getHtmlForMain\\(\\) has parameter \\$tablePositions with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer.php
 
@@ -2404,11 +2399,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:tryQuery\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Database/Events.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Database\\\\MultiTableQuery\\:\\:\\$tables type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Database/MultiTableQuery.php
 
 		-
 			message: "#^Casting to string something that's already string\\.$#"
@@ -2991,11 +2981,6 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTables\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTablesFull\\(\\) has parameter \\$table with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
@@ -3072,11 +3057,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbalInterface\\:\\:getDatabasesFull\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbalInterface.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbalInterface\\:\\:getTables\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Dbal/DbalInterface.php
 

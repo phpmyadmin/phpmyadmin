@@ -38,23 +38,23 @@ class TableTest extends AbstractTestCase
         $GLOBALS['sql_drop_table'] = true;
         $GLOBALS['cfg']['Server']['table_uiprefs'] = 'pma__table_uiprefs';
 
-        $sql_isView_true = 'SELECT TABLE_NAME'
+        $sql_isView_true = 'SELECT 1'
             . ' FROM information_schema.VIEWS'
             . ' WHERE TABLE_SCHEMA = \'PMA\''
             . ' AND TABLE_NAME = \'PMA_BookMark\'';
 
-        $sql_isView_false = 'SELECT TABLE_NAME'
+        $sql_isView_false = 'SELECT 1'
             . ' FROM information_schema.VIEWS'
             . ' WHERE TABLE_SCHEMA = \'PMA\''
             . ' AND TABLE_NAME = \'PMA_BookMark_2\'';
 
-        $sql_isUpdatableView_true = 'SELECT TABLE_NAME'
+        $sql_isUpdatableView_true = 'SELECT 1'
             . ' FROM information_schema.VIEWS'
             . ' WHERE TABLE_SCHEMA = \'PMA\''
             . ' AND TABLE_NAME = \'PMA_BookMark\''
             . ' AND IS_UPDATABLE = \'YES\'';
 
-        $sql_isUpdatableView_false = 'SELECT TABLE_NAME'
+        $sql_isUpdatableView_false = 'SELECT 1'
             . ' FROM information_schema.VIEWS'
             . ' WHERE TABLE_SCHEMA = \'PMA\''
             . ' AND TABLE_NAME = \'PMA_BookMark_2\''
@@ -65,7 +65,7 @@ class TableTest extends AbstractTestCase
             . ' WHERE TABLE_SCHEMA = \'PMA\''
             . ' AND TABLE_NAME = \'PMA_BookMark\'';
 
-        $sql_copy_data = 'SELECT TABLE_NAME'
+        $sql_copy_data = 'SELECT 1'
             . ' FROM information_schema.VIEWS'
             . ' WHERE TABLE_SCHEMA = \'PMA_new\''
             . ' AND TABLE_NAME = \'PMA_BookMark_new\'';
@@ -73,41 +73,6 @@ class TableTest extends AbstractTestCase
         $getUniqueColumns_sql = 'SHOW INDEXES FROM `PMA`.`PMA_BookMark`';
 
         $fetchResult = [
-            [
-                $sql_isView_true,
-                null,
-                null,
-                DatabaseInterface::CONNECT_USER,
-                ['PMA_BookMark'],
-            ],
-            [
-                $sql_copy_data,
-                null,
-                null,
-                DatabaseInterface::CONNECT_USER,
-                [],
-            ],
-            [
-                $sql_isView_false,
-                null,
-                null,
-                DatabaseInterface::CONNECT_USER,
-                [],
-            ],
-            [
-                $sql_isUpdatableView_true,
-                null,
-                null,
-                DatabaseInterface::CONNECT_USER,
-                ['PMA_BookMark'],
-            ],
-            [
-                $sql_isUpdatableView_false,
-                null,
-                null,
-                DatabaseInterface::CONNECT_USER,
-                [],
-            ],
             [
                 $sql_analyzeStructure_true,
                 null,
@@ -252,6 +217,39 @@ class TableTest extends AbstractTestCase
             ],
         ];
 
+        $fetchValue = [
+            [
+                $sql_isView_true,
+                0,
+                DatabaseInterface::CONNECT_USER,
+                ['PMA_BookMark'],
+            ],
+            [
+                $sql_copy_data,
+                0,
+                DatabaseInterface::CONNECT_USER,
+                [],
+            ],
+            [
+                $sql_isView_false,
+                0,
+                DatabaseInterface::CONNECT_USER,
+                [],
+            ],
+            [
+                $sql_isUpdatableView_true,
+                0,
+                DatabaseInterface::CONNECT_USER,
+                ['PMA_BookMark'],
+            ],
+            [
+                $sql_isUpdatableView_false,
+                0,
+                DatabaseInterface::CONNECT_USER,
+                [],
+            ],
+        ];
+
         $resultStub = $this->createMock(DummyResult::class);
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -266,14 +264,7 @@ class TableTest extends AbstractTestCase
             ->will($this->returnValueMap($fetchResult));
 
         $dbi->expects($this->any())->method('fetchValue')
-            ->will(
-                $this->returnValue(
-                    'CREATE TABLE `PMA`.`PMA_BookMark_2` (
-                    `id` int(11) NOT NULL AUTO_INCREMENT,
-                    `username` text NOT NULL
-                    )'
-                )
-            );
+            ->will($this->returnValueMap($fetchValue));
 
         $cache = new Cache();
         $dbi->expects($this->any())->method('getCache')

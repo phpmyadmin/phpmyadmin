@@ -264,9 +264,9 @@ class Common
      *
      * @param int $pg pdf page id
      *
-     * @return array|null of table positions
+     * @return array of table positions
      */
-    public function getTablePositions(int $pg): ?array
+    public function getTablePositions(int $pg): array
     {
         $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
         if ($pdfFeature === null) {
@@ -310,14 +310,13 @@ class Common
             . ' FROM ' . Util::backquote($pdfFeature->database)
             . '.' . Util::backquote($pdfFeature->pdfPages)
             . ' WHERE ' . Util::backquote('page_nr') . ' = ' . intval($pg);
-        $page_name = $this->dbi->fetchResult(
+        $page_name = $this->dbi->fetchValue(
             $query,
-            null,
-            null,
+            0,
             DatabaseInterface::CONNECT_CONTROL
         );
 
-        return $page_name[0] ?? null;
+        return $page_name !== false ? $page_name : null;
     }
 
     /**
@@ -366,18 +365,13 @@ class Common
             . " WHERE `db_name` = '" . $this->dbi->escapeString($db) . "'"
             . " AND `page_descr` = '" . $this->dbi->escapeString($db) . "'";
 
-        $default_page_no = $this->dbi->fetchResult(
+        $default_page_no = $this->dbi->fetchValue(
             $query,
-            null,
-            null,
+            0,
             DatabaseInterface::CONNECT_CONTROL
         );
 
-        if (isset($default_page_no[0])) {
-            return intval($default_page_no[0]);
-        }
-
-        return -1;
+        return is_string($default_page_no) ? intval($default_page_no) : -1;
     }
 
     /**
@@ -404,7 +398,7 @@ class Common
             DatabaseInterface::CONNECT_CONTROL
         );
 
-        return count($pageNos) > 0;
+        return $pageNos !== [];
     }
 
     /**
@@ -432,15 +426,13 @@ class Common
             . '.' . Util::backquote($pdfFeature->pdfPages)
             . " WHERE `db_name` = '" . $this->dbi->escapeString($db) . "'";
 
-        $min_page_no = $this->dbi->fetchResult(
+        $min_page_no = $this->dbi->fetchValue(
             $query,
-            null,
-            null,
+            0,
             DatabaseInterface::CONNECT_CONTROL
         );
-        $page_no = $min_page_no[0] ?? -1;
 
-        return intval($page_no);
+        return is_string($min_page_no) ? intval($min_page_no) : -1;
     }
 
     /**

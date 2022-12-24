@@ -258,7 +258,7 @@ class ImportCsvTest extends AbstractTestCase
         );
 
         $this->dummyDbi->addResult(
-            'SELECT TABLE_NAME FROM information_schema.VIEWS'
+            'SELECT 1 FROM information_schema.VIEWS'
             . ' WHERE TABLE_SCHEMA = \'CSV_DB 1\' AND TABLE_NAME = \'db_test\'',
             []
         );
@@ -304,7 +304,7 @@ class ImportCsvTest extends AbstractTestCase
         );
 
         $this->dummyDbi->addResult(
-            'SELECT TABLE_NAME FROM information_schema.VIEWS'
+            'SELECT 1 FROM information_schema.VIEWS'
             . ' WHERE TABLE_SCHEMA = \'CSV_DB 1\' AND TABLE_NAME = \'db_test\'',
             []
         );

@@ -50,10 +50,12 @@ class VariablesController extends AbstractController
         $variables = [];
         $serverVarsResult = $this->dbi->tryQuery('SHOW SESSION VARIABLES;');
         if ($serverVarsResult !== false) {
+            /** @var array<string, string> $serverVarsSession */
             $serverVarsSession = $serverVarsResult->fetchAllKeyPair();
 
             unset($serverVarsResult);
 
+            /** @var array<string, string> $serverVars */
             $serverVars = $this->dbi->fetchResult('SHOW GLOBAL VARIABLES;', 0, 1);
 
             // list of static (i.e. non-editable) system variables

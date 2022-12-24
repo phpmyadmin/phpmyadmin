@@ -216,13 +216,13 @@ class ExportXmlTest extends AbstractTestCase
         $functions = [['Db' => 'd<"b', 'Name' => 'fn', 'Type' => 'FUNCTION']];
         $procedures = [['Db' => 'd<"b', 'Name' => 'pr', 'Type' => 'PROCEDURE']];
 
-        $dbi->expects($this->exactly(6))
+        $dbi->expects($this->exactly(5))
             ->method('fetchResult')
-            ->willReturnOnConsecutiveCalls($result, $result, [], $triggers, $functions, $procedures);
+            ->willReturnOnConsecutiveCalls($result, $result, $triggers, $functions, $procedures);
 
-        $dbi->expects($this->exactly(2))
+        $dbi->expects($this->exactly(3))
             ->method('fetchValue')
-            ->willReturnOnConsecutiveCalls('fndef', 'prdef');
+            ->willReturnOnConsecutiveCalls(false, 'fndef', 'prdef');
 
         $dbi->expects($this->once())
             ->method('getTable')
@@ -305,9 +305,13 @@ class ExportXmlTest extends AbstractTestCase
             ],
         ];
 
-        $dbi->expects($this->exactly(5))
+        $dbi->expects($this->exactly(3))
             ->method('fetchResult')
-            ->willReturnOnConsecutiveCalls($result_1, $result_2, ['table'], $result_3, []);
+            ->willReturnOnConsecutiveCalls($result_1, $result_2, $result_3);
+
+        $dbi->expects($this->exactly(2))
+            ->method('fetchValue')
+            ->willReturnOnConsecutiveCalls('table', false);
 
         $dbi->expects($this->any())
             ->method('getTable')

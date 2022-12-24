@@ -1092,22 +1092,22 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
-                'query' => 'SELECT TABLE_NAME FROM information_schema.VIEWS'
+                'query' => 'SELECT 1 FROM information_schema.VIEWS'
                     . ' WHERE TABLE_SCHEMA = \'pma_test\' AND TABLE_NAME = \'table1\'',
                 'result' => [],
             ],
             [
-                'query' => 'SELECT TABLE_NAME FROM information_schema.VIEWS'
+                'query' => 'SELECT 1 FROM information_schema.VIEWS'
                     . ' WHERE TABLE_SCHEMA = \'ODS_DB\' AND TABLE_NAME = \'Shop\'',
                 'result' => [],
             ],
             [
-                'query' => 'SELECT TABLE_NAME FROM information_schema.VIEWS'
+                'query' => 'SELECT 1 FROM information_schema.VIEWS'
                     . ' WHERE TABLE_SCHEMA = \'ODS_DB\' AND TABLE_NAME = \'pma_bookmark\'',
                 'result' => [],
             ],
             [
-                'query'  => 'SELECT TABLE_NAME FROM information_schema.VIEWS'
+                'query'  => 'SELECT 1 FROM information_schema.VIEWS'
                 . ' WHERE TABLE_SCHEMA = \'ODS_DB\' AND TABLE_NAME = \'Feuille 1\'',
                 'result' => [],
             ],
@@ -1117,7 +1117,7 @@ class DbiDummy implements DbiExtension
                 'result' => [],
             ],
             [
-                'query' => 'SELECT TABLE_NAME FROM information_schema.VIEWS'
+                'query' => 'SELECT 1 FROM information_schema.VIEWS'
                     . ' WHERE TABLE_SCHEMA = \'my_db\' '
                     . 'AND TABLE_NAME = \'test_tbl\' AND IS_UPDATABLE = \'YES\'',
                 'result' => [],
@@ -2707,7 +2707,7 @@ class DbiDummy implements DbiExtension
                 'result' => [],
             ],
             [
-                'query' => 'SELECT TABLE_NAME FROM information_schema.VIEWS'
+                'query' => 'SELECT 1 FROM information_schema.VIEWS'
                     . ' WHERE TABLE_SCHEMA = \'my_db\' AND TABLE_NAME = \'test_tbl\'',
                 'result' => [],
             ],
