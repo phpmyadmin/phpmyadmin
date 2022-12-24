@@ -5636,7 +5636,7 @@
       <code>$row[$keyIndex]</code>
       <code>$row[$keyIndex]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="13">
+    <MixedAssignment occurrences="12">
       <code>$aLength</code>
       <code>$bLength</code>
       <code>$keyIndex</code>
