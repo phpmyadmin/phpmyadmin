@@ -362,17 +362,15 @@ class StorageEngine
         }
 
         if (! $ret) {
-            $ret = '<p>' . "\n"
+            return '<p>' . "\n"
                 . '    '
                 . __('There is no detailed status information available for this storage engine.')
                 . "\n"
                 . '</p>' . "\n";
-        } else {
-            $ret = '<table class="table table-striped table-hover w-auto">'
-                . "\n" . $ret . '</table>' . "\n";
         }
 
-        return $ret;
+        return '<table class="table table-striped table-hover w-auto">'
+            . "\n" . $ret . '</table>' . "\n";
     }
 
     /**

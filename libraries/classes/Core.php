@@ -900,7 +900,7 @@ class Core
         if ($decryptedQuery === null) {
             $request = $request->withQueryParams($queryParams);
             if (is_array($parsedBody)) {
-                $request = $request->withParsedBody($parsedBody);
+                return $request->withParsedBody($parsedBody);
             }
 
             return $request;
@@ -921,7 +921,7 @@ class Core
 
         $request = $request->withQueryParams($queryParams);
         if (is_array($parsedBody)) {
-            $request = $request->withParsedBody($parsedBody);
+            return $request->withParsedBody($parsedBody);
         }
 
         return $request;

@@ -964,7 +964,7 @@ class DatabaseInterface implements DbalInterface
         string $table,
         array $fields
     ): array {
-        if (! $fields) {
+        if ($fields === []) {
             return [];
         }
 

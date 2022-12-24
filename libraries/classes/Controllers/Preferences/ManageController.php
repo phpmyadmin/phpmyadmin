@@ -254,9 +254,9 @@ class ManageController extends AbstractController
                 $this->userPreferences->redirect('index.php?route=/preferences/manage', $GLOBALS['params']);
 
                 return;
-            } else {
-                $GLOBALS['error'] = $result;
             }
+
+            $GLOBALS['error'] = $result;
 
             return;
         }

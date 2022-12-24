@@ -346,21 +346,21 @@ class ZoomSearchController extends AbstractController
             $tmpRow = array_values($row);
 
             //Get unique condition on each row (will be needed for row update)
-            $uniqueCondition = Util::getUniqueCondition(
+            [$uniqueCondition] = Util::getUniqueCondition(
                 count($this->columnNames),
                 $fields_meta,
                 $tmpRow,
                 true
             );
             //Append it to row array as where_clause
-            $row['where_clause'] = $uniqueCondition[0];
-            $row['where_clause_sign'] = Core::signSqlQuery($uniqueCondition[0]);
+            $row['where_clause'] = $uniqueCondition;
+            $row['where_clause_sign'] = Core::signSqlQuery($uniqueCondition);
 
             $tmpData = [
                 $_POST['criteriaColumnNames'][0] => $row[$_POST['criteriaColumnNames'][0]],
                 $_POST['criteriaColumnNames'][1] => $row[$_POST['criteriaColumnNames'][1]],
-                'where_clause' => $uniqueCondition[0],
-                'where_clause_sign' => Core::signSqlQuery($uniqueCondition[0]),
+                'where_clause' => $uniqueCondition,
+                'where_clause_sign' => Core::signSqlQuery($uniqueCondition),
             ];
             $tmpData[$dataLabel] = $dataLabel ? $row[$dataLabel] : '';
             $data[] = $tmpData;

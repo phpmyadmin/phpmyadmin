@@ -570,18 +570,16 @@ class ReplicationGui
             $qReset = $GLOBALS['dbi']->tryQuery('RESET SLAVE;');
             $qStart = $this->replication->replicaControl('START', null, DatabaseInterface::CONNECT_USER);
 
-            $result = $qStop !== false && $qStop !== -1 && $qReset !== false && $qStart !== false && $qStart !== -1;
-        } else {
-            $qControl = $this->replication->replicaControl(
-                $srReplicaAction,
-                $control,
-                DatabaseInterface::CONNECT_USER
-            );
-
-            $result = $qControl !== false && $qControl !== -1;
+            return $qStop !== false && $qStop !== -1 && $qReset !== false && $qStart !== false && $qStart !== -1;
         }
 
-        return $result;
+        $qControl = $this->replication->replicaControl(
+            $srReplicaAction,
+            $control,
+            DatabaseInterface::CONNECT_USER
+        );
+
+        return $qControl !== false && $qControl !== -1;
     }
 
     public function handleRequestForReplicaSkipError(int $srSkipErrorsCount): bool

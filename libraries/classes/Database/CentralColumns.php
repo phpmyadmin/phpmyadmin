@@ -361,15 +361,13 @@ class CentralColumns
         }
 
         $this->dbi->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
-        if (! empty($insQuery)) {
-            foreach ($insQuery as $query) {
-                if (! $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
-                    $message = Message::error(__('Could not add columns!'));
-                    $message->addMessage(
-                        Message::rawError($this->dbi->getError(DatabaseInterface::CONNECT_CONTROL))
-                    );
-                    break;
-                }
+        foreach ($insQuery as $query) {
+            if (! $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
+                $message = Message::error(__('Could not add columns!'));
+                $message->addMessage(
+                    Message::rawError($this->dbi->getError(DatabaseInterface::CONNECT_CONTROL))
+                );
+                break;
             }
         }
 

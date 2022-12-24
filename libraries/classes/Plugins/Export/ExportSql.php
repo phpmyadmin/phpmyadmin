@@ -1323,7 +1323,7 @@ class ExportSql extends ExportPlugin
         $compat = $GLOBALS['sql_compatibility'] ?? 'NONE';
 
         if ($compat === 'MSSQL') {
-            $createQuery = $this->makeCreateTableMSSQLCompatible($createQuery);
+            return $this->makeCreateTableMSSQLCompatible($createQuery);
         }
 
         return $createQuery;
@@ -2304,13 +2304,13 @@ class ExportSql extends ExportPlugin
                     $insertLine .= $fieldSet[$i] . ' = ' . $values[$i];
                 }
 
-                [$tmpUniqueCondition, $tmpClauseIsUnique] = Util::getUniqueCondition(
+                [$tmpUniqueCondition] = Util::getUniqueCondition(
                     $fieldsCnt,
                     $fieldsMeta,
                     $row
                 );
                 $insertLine .= ' WHERE ' . $tmpUniqueCondition;
-                unset($tmpUniqueCondition, $tmpClauseIsUnique);
+                unset($tmpUniqueCondition);
             } elseif ($GLOBALS['sql_insert_syntax'] === 'extended' || $GLOBALS['sql_insert_syntax'] === 'both') {
                 // Extended inserts case
                 if ($current_row === 1) {

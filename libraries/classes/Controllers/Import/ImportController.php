@@ -385,10 +385,9 @@ final class ImportController extends AbstractController
                         $this->response->addJSON('action_bookmark', $action_bookmark);
 
                         return;
-                    } else {
-                        $GLOBALS['run_query'] = false;
                     }
 
+                    $GLOBALS['run_query'] = false;
                     break;
                 case 2: // bookmarked query that have to be deleted
                     $bookmark = Bookmark::get(
@@ -412,11 +411,10 @@ final class ImportController extends AbstractController
                         $this->response->addJSON('id_bookmark', $id_bookmark);
 
                         return;
-                    } else {
-                        $GLOBALS['run_query'] = false;
-                        $GLOBALS['error'] = true; // this is kind of hack to skip processing the query
                     }
 
+                    $GLOBALS['run_query'] = false;
+                    $GLOBALS['error'] = true; // this is kind of hack to skip processing the query
                     break;
             }
         }

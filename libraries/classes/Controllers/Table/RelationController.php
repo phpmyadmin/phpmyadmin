@@ -150,7 +150,7 @@ final class RelationController extends AbstractController
             : [];
         $i = 0;
 
-        foreach ($existrelForeign as $key => $oneKey) {
+        foreach ($existrelForeign as $oneKey) {
             $foreignDb = $oneKey['ref_db_name'] ?? $GLOBALS['db'];
             $foreignTable = false;
             if ($foreignDb) {

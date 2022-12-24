@@ -165,20 +165,19 @@ class ZipExtension
      *
      * @return int the number of files in the zip archive or 0, either if there weren't any files or an error occurred.
      */
-    public function getNumberOfFiles($file)
+    public function getNumberOfFiles($file): int
     {
         if ($this->zip === null) {
             return 0;
         }
 
-        $num = 0;
         $res = $this->zip->open($file);
 
         if ($res === true) {
-            $num = $this->zip->numFiles;
+            return $this->zip->numFiles;
         }
 
-        return $num;
+        return 0;
     }
 
     /**

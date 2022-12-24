@@ -601,18 +601,16 @@ class Header
      */
     private function addRecentTable(string $db, string $table): string
     {
-        $retval = '';
-        if ($this->menuEnabled && strlen($table) > 0 && $GLOBALS['cfg']['NumRecentTables'] > 0) {
-            $tmpResult = RecentFavoriteTable::getInstance('recent')->add($db, $table);
-            if ($tmpResult === true) {
-                $retval = RecentFavoriteTable::getHtmlUpdateRecentTables();
-            } else {
-                $error = $tmpResult;
-                $retval = $error->getDisplay();
+        if ($this->menuEnabled && $table !== '' && $GLOBALS['cfg']['NumRecentTables'] > 0) {
+            $error = RecentFavoriteTable::getInstance('recent')->add($db, $table);
+            if ($error === true) {
+                return RecentFavoriteTable::getHtmlUpdateRecentTables();
             }
+
+            return $error->getDisplay();
         }
 
-        return $retval;
+        return '';
     }
 
     /**

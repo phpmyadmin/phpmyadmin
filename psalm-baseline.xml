@@ -17,11 +17,6 @@
     <MixedArrayAccess occurrences="1">
       <code>$rule['id']</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;runResult[$type][]</code>
-      <code>$this-&gt;runResult[$type][]</code>
-      <code>$this-&gt;runResult['errors'][]</code>
-    </MixedArrayAssignment>
     <MixedAssignment occurrences="4">
       <code>$params</code>
       <code>$precondition</code>
@@ -31,8 +26,7 @@
     <MixedOperand occurrences="1">
       <code>$rule['justification_formula']</code>
     </MixedOperand>
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>$runResult</code>
+    <PropertyNotSetInConstructor occurrences="1">
       <code>$variables</code>
     </PropertyNotSetInConstructor>
     <UnusedClosureParam occurrences="7">
@@ -3516,13 +3510,12 @@
       <code>$column_array[$column['Field']]</code>
       <code>$column_hash_array[$column['Field']]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="7">
+    <MixedAssignment occurrences="6">
       <code>$GLOBALS['display_query']</code>
       <code>$column_array[$column['Field']]</code>
       <code>$existrelForeign</code>
       <code>$foreignDb</code>
       <code>$foreignTable</code>
-      <code>$key</code>
       <code>$oneKey</code>
     </MixedAssignment>
     <PossiblyInvalidArgument occurrences="15">
@@ -3549,9 +3542,6 @@
       <code>$foreignTable</code>
       <code>$foreignTable</code>
     </PossiblyInvalidCast>
-    <UnusedVariable occurrences="1">
-      <code>$key</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/ReplaceController.php">
     <InvalidArgument occurrences="1">
@@ -4031,8 +4021,8 @@
       <code>$this-&gt;columnNullFlags[$column_index]</code>
       <code>$this-&gt;originalColumnTypes[$column_index]</code>
       <code>$type</code>
-      <code>$uniqueCondition[0]</code>
-      <code>$uniqueCondition[0]</code>
+      <code>$uniqueCondition</code>
+      <code>$uniqueCondition</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$key</code>
@@ -7426,9 +7416,8 @@
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="8">
+    <MixedAssignment occurrences="7">
       <code>$alt</code>
-      <code>$defaultFunction</code>
       <code>$defaultFunction</code>
       <code>$defaultFunction</code>
       <code>$subvalue</code>
@@ -7447,7 +7436,8 @@
       <code>$attributes['class']</code>
       <code>$value</code>
     </MixedOperand>
-    <MixedReturnStatement occurrences="1">
+    <MixedReturnStatement occurrences="2">
+      <code>$GLOBALS['cfg']['DefaultFunctions']['FUNC_UUID']</code>
       <code>$defaultFunction</code>
     </MixedReturnStatement>
     <PossiblyUndefinedArrayOffset occurrences="2">

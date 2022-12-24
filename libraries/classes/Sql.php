@@ -248,22 +248,21 @@ class Sql
                 'field' => $column,
             ];
 
-            $dropdown = $this->template->render('sql/relational_column_dropdown', [
+            return $this->template->render('sql/relational_column_dropdown', [
                 'current_value' => $_POST['curr_value'],
                 'params' => $urlParams,
             ]);
-        } else {
-            $dropdown = $this->relation->foreignDropdown(
-                $foreignData['disp_row'],
-                $foreignData['foreign_field'],
-                $foreignData['foreign_display'],
-                $currentValue,
-                $GLOBALS['cfg']['ForeignKeyMaxLimit']
-            );
-            $dropdown = '<select>' . $dropdown . '</select>';
         }
 
-        return $dropdown;
+        $dropdown = $this->relation->foreignDropdown(
+            $foreignData['disp_row'],
+            $foreignData['foreign_field'],
+            $foreignData['foreign_display'],
+            $currentValue,
+            $GLOBALS['cfg']['ForeignKeyMaxLimit']
+        );
+
+        return '<select>' . $dropdown . '</select>';
     }
 
     /** @return array<string, int|array> */
@@ -1268,12 +1267,11 @@ class Sql
         array $sqlData,
         $displayMessage
     ): string {
-        $output = '';
         if ($displayQuery !== null && $showSql && $sqlData === []) {
-            $output = Generator::getMessage($displayMessage, $displayQuery, 'success');
+            return Generator::getMessage($displayMessage, $displayQuery, 'success');
         }
 
-        return $output;
+        return '';
     }
 
     /**
@@ -1761,7 +1759,7 @@ class Sql
         $unlimNumRows = $tableObject->countRecords(true);
         //If position is higher than number of rows
         if ($unlimNumRows <= $pos && $pos != 0) {
-            $pos = $this->getStartPosToDisplayRow($unlimNumRows);
+            return $this->getStartPosToDisplayRow($unlimNumRows);
         }
 
         return $pos;

@@ -46,8 +46,13 @@ class Advisor
      */
     private $rules = [];
 
-    /** @var array */
-    private $runResult;
+    /** @var array{fired:array, notfired:array, unchecked:array, errors:array} */
+    private $runResult = [
+        'fired' => [],
+        'notfired' => [],
+        'unchecked' => [],
+        'errors' => [],
+    ];
 
     /** @var ExpressionLanguage */
     private $expression;
@@ -151,10 +156,6 @@ class Advisor
              * @param int $value
              */
             function ($arguments, $value) {
-                if (! isset($this->runResult['fired'])) {
-                    return 0;
-                }
-
                 // Did matching rule fire?
                 foreach ($this->runResult['fired'] as $rule) {
                     if ($rule['id'] == $value) {
@@ -209,7 +210,7 @@ class Advisor
     }
 
     /**
-     * @return array
+     * @return array{fired: array, notfired: array, unchecked: array, errors: array}
      */
     public function getRunResult(): array
     {
@@ -217,7 +218,7 @@ class Advisor
     }
 
     /**
-     * @return array
+     * @psalm-return array{fired:array, notfired:array, unchecked:array, errors:array}
      */
     public function run(): array
     {
@@ -317,6 +318,7 @@ class Advisor
      *
      * @param string $type type of rule
      * @param array  $rule rule itself
+     * @psalm-param 'notfired'|'fired'|'unchecked'|'errors' $type
      */
     public function addRule(string $type, array $rule): void
     {

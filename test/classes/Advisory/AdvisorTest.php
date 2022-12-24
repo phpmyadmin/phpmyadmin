@@ -77,11 +77,11 @@ class AdvisorTest extends AbstractTestCase
         $advisor->setVariable('value', 0);
         $advisor->addRule('fired', $rule);
         $runResult = $advisor->getRunResult();
-        if (isset($runResult['errors']) || $error !== null) {
+        if ($error !== null) {
             $this->assertEquals([$error], $runResult['errors']);
         }
 
-        if (! isset($runResult['fired']) && $expected == []) {
+        if ($runResult['fired'] === [] && $expected == []) {
             return;
         }
 

@@ -224,7 +224,7 @@ class Sanitize
 
         /* Possibly escape result */
         if ($escape) {
-            $message = htmlspecialchars($message);
+            return htmlspecialchars($message);
         }
 
         return $message;
@@ -254,9 +254,8 @@ class Sanitize
         }
 
         $pattern .= '-]/';
-        $filename = preg_replace($pattern, '_', $filename);
 
-        return $filename;
+        return preg_replace($pattern, '_', $filename);
     }
 
     /**
