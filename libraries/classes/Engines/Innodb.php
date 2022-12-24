@@ -284,7 +284,7 @@ class Innodb extends StorageEngine
      */
     public function getInnodbPluginVersion()
     {
-        return $GLOBALS['dbi']->fetchValue('SELECT @@innodb_version;') ?: '';
+        return (string) $GLOBALS['dbi']->fetchValue('SELECT @@innodb_version;');
     }
 
     /**

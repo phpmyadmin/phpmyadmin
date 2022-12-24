@@ -1560,7 +1560,7 @@ class Sql
             // Parse and analyze the query
             [$statementInfo, $db, $tableFromSql] = ParseAnalyze::sqlQuery($sqlQuery, $db);
 
-            $table = $tableFromSql ?: $table;
+            $table = $tableFromSql !== '' ? $tableFromSql : $table;
         }
 
         return $this->executeQueryAndGetQueryResponse(

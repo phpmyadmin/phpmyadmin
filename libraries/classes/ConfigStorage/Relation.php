@@ -1066,7 +1066,7 @@ class Relation
                     . Util::backquote($foreign_table) . '.'
                     . Util::backquote($foreign_display);
 
-                $f_query_limit = $foreign_limit ?: '';
+                $f_query_limit = $foreign_limit !== '' ? $foreign_limit : '';
 
                 if ($foreign_filter !== '') {
                     $the_total = $this->dbi->fetchValue('SELECT COUNT(*)' . $f_query_from . $f_query_filter);
@@ -1106,7 +1106,7 @@ class Relation
         return [
             'foreign_link' => $foreign_link,
             'the_total' => $the_total,
-            'foreign_display' => $foreign_display ?: '',
+            'foreign_display' => is_string($foreign_display) ? $foreign_display : '',
             'disp_row' => $disp_row,
             'foreign_field' => $foreign_field,
         ];
