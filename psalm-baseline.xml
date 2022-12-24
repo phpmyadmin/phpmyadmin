@@ -15060,6 +15060,19 @@
       <code>array</code>
     </MixedInferredReturnType>
   </file>
+  <file src="test/classes/Http/Factory/ServerRequestFactoryTest.php">
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+    <MixedMethodCall occurrences="1">
+      <code>new $className()</code>
+    </MixedMethodCall>
+    <UndefinedClass occurrences="3">
+      <code>GuzzleHttpFactory</code>
+      <code>LaminasServerRequestFactory</code>
+      <code>NyholmPsr17Factory</code>
+    </UndefinedClass>
+  </file>
   <file src="test/classes/ImportTest.php">
     <DocblockTypeContradiction occurrences="6">
       <code>assertSame</code>
