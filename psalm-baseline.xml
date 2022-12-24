@@ -5675,22 +5675,18 @@
       <code>$tableData['Engine']</code>
       <code>$tableData['Index_length']</code>
     </MixedArrayAccess>
-    <MixedArrayOffset occurrences="7">
+    <MixedArrayOffset occurrences="4">
       <code>$resultRows[$row[$key]]</code>
-      <code>$resultTarget[$row[$keyIndex]]</code>
-      <code>$resultTarget[$row[$keyIndex]]</code>
-      <code>$resultTarget[$row[$keyIndex]]</code>
       <code>$row[$keyIndex]</code>
       <code>$row[$keyIndex]</code>
       <code>$row[$keyIndex]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="14">
+    <MixedAssignment occurrences="13">
       <code>$aLength</code>
       <code>$bLength</code>
       <code>$keyIndex</code>
       <code>$map['real_column']</code>
       <code>$resultRows[$row[$key]]</code>
-      <code>$resultRows[]</code>
       <code>$resultTarget</code>
       <code>$table</code>
       <code>$tableData</code>
@@ -5728,6 +5724,10 @@
     <PossiblyInvalidArrayOffset occurrences="1">
       <code>$row[$value]</code>
     </PossiblyInvalidArrayOffset>
+    <PossiblyNullArrayOffset occurrences="2">
+      <code>$resultTarget</code>
+      <code>$resultTarget</code>
+    </PossiblyNullArrayOffset>
     <PossiblyNullOperand occurrences="7">
       <code>$row['Data_free']</code>
       <code>$row['Data_length']</code>

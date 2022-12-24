@@ -25,6 +25,7 @@ use PhpMyAdmin\Utils\SessionCache;
 use stdClass;
 
 use function __;
+use function array_column;
 use function array_diff;
 use function array_keys;
 use function array_map;
@@ -1293,11 +1294,7 @@ class DatabaseInterface implements DbalInterface
      */
     private function fetchByMode(ResultInterface $result, string $mode): array
     {
-        if ($mode === self::FETCH_NUM) {
-            return $result->fetchRow();
-        }
-
-        return $result->fetchAssoc();
+        return $mode === self::FETCH_NUM ? $result->fetchRow() : $result->fetchAssoc();
     }
 
     /**
@@ -1364,23 +1361,20 @@ class DatabaseInterface implements DbalInterface
 
         // return empty array if result is empty or false
         if ($result === false) {
-            return $resultRows;
+            return [];
         }
-
-        $fetchFunction = self::FETCH_ASSOC;
 
         if ($key === null) {
             // no nested array if only one field is in result
-            if ($result->numFields() === 1) {
-                $value = 0;
-                $fetchFunction = self::FETCH_NUM;
+            if ($value === 0 || $result->numFields() === 1) {
+                return $result->fetchAllColumn();
             }
 
-            while ($row = $this->fetchByMode($result, $fetchFunction)) {
-                $resultRows[] = $this->fetchValueOrValueByIndex($row, $value);
-            }
-        } elseif (is_array($key)) {
-            while ($row = $this->fetchByMode($result, $fetchFunction)) {
+            return $value === null ? $result->fetchAllAssoc() : array_column($result->fetchAllAssoc(), $value);
+        }
+
+        if (is_array($key)) {
+            while ($row = $result->fetchAssoc()) {
                 $resultTarget =& $resultRows;
                 foreach ($key as $keyIndex) {
                     if ($keyIndex === null) {
@@ -1397,15 +1391,19 @@ class DatabaseInterface implements DbalInterface
 
                 $resultTarget = $this->fetchValueOrValueByIndex($row, $value);
             }
-        } else {
-            // if $key is an integer use non associative mysql fetch function
-            if (is_int($key)) {
-                $fetchFunction = self::FETCH_NUM;
-            }
 
-            while ($row = $this->fetchByMode($result, $fetchFunction)) {
-                $resultRows[$row[$key]] = $this->fetchValueOrValueByIndex($row, $value);
-            }
+            return $resultRows;
+        }
+
+        if ($key === 0 && $value === 1) {
+            return $result->fetchAllKeyPair();
+        }
+
+        // if $key is an integer use non associative mysql fetch function
+        $fetchFunction = is_int($key) ? self::FETCH_NUM : self::FETCH_ASSOC;
+
+        while ($row = $this->fetchByMode($result, $fetchFunction)) {
+            $resultRows[$row[$key]] = $this->fetchValueOrValueByIndex($row, $value);
         }
 
         return $resultRows;
