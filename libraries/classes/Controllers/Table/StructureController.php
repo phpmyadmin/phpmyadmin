@@ -8,15 +8,12 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Controllers\AbstractController;
-use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Engines\Innodb;
-use PhpMyAdmin\FlashMessages;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Index;
@@ -47,41 +44,26 @@ class StructureController extends AbstractController
     /** @var Table  The table object */
     protected $tableObj;
 
-    /** @var CreateAddField */
-    private $createAddField;
-
     /** @var Relation */
     private $relation;
 
     /** @var Transformations */
     private $transformations;
 
-    /** @var RelationCleanup */
-    private $relationCleanup;
-
     /** @var DatabaseInterface */
     private $dbi;
-
-    /** @var FlashMessages */
-    private $flash;
 
     public function __construct(
         ResponseRenderer $response,
         Template $template,
         Relation $relation,
         Transformations $transformations,
-        CreateAddField $createAddField,
-        RelationCleanup $relationCleanup,
-        DatabaseInterface $dbi,
-        FlashMessages $flash
+        DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->createAddField = $createAddField;
         $this->relation = $relation;
         $this->transformations = $transformations;
-        $this->relationCleanup = $relationCleanup;
         $this->dbi = $dbi;
-        $this->flash = $flash;
 
         $this->tableObj = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
     }

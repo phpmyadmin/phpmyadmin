@@ -421,10 +421,7 @@ return [
                 '$template' => '@template',
                 '$relation' => '@relation',
                 '$replication' => '@replication',
-                '$relationCleanup' => '@relation_cleanup',
-                '$operations' => '@operations',
                 '$dbi' => '@dbi',
-                '$flash' => '@flash',
             ],
         ],
         Database\TrackingController::class => [
@@ -856,8 +853,6 @@ return [
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
-                '$transformations' => '@transformations',
-                '$relationCleanup' => '@relation_cleanup',
                 '$dbi' => '@dbi',
             ],
         ],
@@ -1609,10 +1604,7 @@ return [
                 '$template' => '@template',
                 '$relation' => '@relation',
                 '$transformations' => '@transformations',
-                '$createAddField' => '@create_add_field',
-                '$relationCleanup' => '@relation_cleanup',
                 '$dbi' => '@dbi',
-                '$flash' => '@flash',
             ],
         ],
         Table\TrackingController::class => [

@@ -8,13 +8,10 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\FlashMessages;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Operations;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Replication;
 use PhpMyAdmin\ReplicationInfo;
@@ -74,38 +71,23 @@ class StructureController extends AbstractController
     /** @var Replication */
     private $replication;
 
-    /** @var RelationCleanup */
-    private $relationCleanup;
-
-    /** @var Operations */
-    private $operations;
-
     /** @var ReplicationInfo */
     private $replicationInfo;
 
     /** @var DatabaseInterface */
     private $dbi;
 
-    /** @var FlashMessages */
-    private $flash;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
         Relation $relation,
         Replication $replication,
-        RelationCleanup $relationCleanup,
-        Operations $operations,
-        DatabaseInterface $dbi,
-        FlashMessages $flash
+        DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
         $this->relation = $relation;
         $this->replication = $replication;
-        $this->relationCleanup = $relationCleanup;
-        $this->operations = $operations;
         $this->dbi = $dbi;
-        $this->flash = $flash;
 
         $this->replicationInfo = new ReplicationInfo($this->dbi);
     }

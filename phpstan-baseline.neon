@@ -1271,21 +1271,6 @@ parameters:
 			path: libraries/classes/Controllers/Database/StructureController.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:\\$flash is never read, only written\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:\\$operations is never read, only written\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:\\$relationCleanup is never read, only written\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/StructureController.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:\\$tables type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/StructureController.php
@@ -1612,16 +1597,6 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Server\\\\DatabasesController\\:\\:\\$databases type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/DatabasesController.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Server\\\\DatabasesController\\:\\:\\$relationCleanup is never read, only written\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/DatabasesController.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Server\\\\DatabasesController\\:\\:\\$transformations is never read, only written\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/DatabasesController.php
 
@@ -2042,21 +2017,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\StructureController\\:\\:displayStructure\\(\\) has parameter \\$fields with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Table\\\\StructureController\\:\\:\\$createAddField is never read, only written\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Table\\\\StructureController\\:\\:\\$flash is never read, only written\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Table\\\\StructureController\\:\\:\\$relationCleanup is never read, only written\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/StructureController.php
 

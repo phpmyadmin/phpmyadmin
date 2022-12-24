@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
-use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
@@ -14,7 +13,6 @@ use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -50,25 +48,15 @@ class DatabasesController extends AbstractController
     /** @var int position in list navigation */
     private $position;
 
-    /** @var Transformations */
-    private $transformations;
-
-    /** @var RelationCleanup */
-    private $relationCleanup;
-
     /** @var DatabaseInterface */
     private $dbi;
 
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Transformations $transformations,
-        RelationCleanup $relationCleanup,
         DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->transformations = $transformations;
-        $this->relationCleanup = $relationCleanup;
         $this->dbi = $dbi;
 
         $checkUserPrivileges = new CheckUserPrivileges($dbi);
