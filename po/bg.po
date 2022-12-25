@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2022-12-18 00:18+0000\n"
+"POT-Creation-Date: 2022-12-25 00:19+0000\n"
 "PO-Revision-Date: 2022-08-19 10:18+0000\n"
 "Last-Translator: Пламен <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -15,44 +15,44 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.14-dev\n"
 
-#: libraries/classes/Advisory/Advisor.php:240
+#: libraries/classes/Advisory/Advisor.php:241
 #, php-format
 msgid "Error when evaluating: %s"
 msgstr "Грешка при оценяване: %s"
 
-#: libraries/classes/Advisory/Advisor.php:267
+#: libraries/classes/Advisory/Advisor.php:268
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
 msgstr "Неуспешно оценяване условието за правилото '%s'."
 
-#: libraries/classes/Advisory/Advisor.php:287
+#: libraries/classes/Advisory/Advisor.php:288
 #, php-format
 msgid "Failed calculating value for rule '%s'."
 msgstr "Неуспешно изчисляване стойността за правилото '%s'."
 
-#: libraries/classes/Advisory/Advisor.php:306
+#: libraries/classes/Advisory/Advisor.php:307
 #, php-format
 msgid "Failed running test for rule '%s'."
 msgstr "Неуспешно пускане на тест за правилото '%s'."
 
-#: libraries/classes/Advisory/Advisor.php:334
+#: libraries/classes/Advisory/Advisor.php:336
 #, php-format
 msgid "Failed formatting string for rule '%s'."
 msgstr "Неуспешно форматиране низ за правилото '%s'."
 
-#: libraries/classes/Advisory/Advisor.php:419
+#: libraries/classes/Advisory/Advisor.php:421
 msgid "per second"
 msgstr "на секунда"
 
-#: libraries/classes/Advisory/Advisor.php:422
+#: libraries/classes/Advisory/Advisor.php:424
 msgid "per minute"
 msgstr "на минута"
 
-#: libraries/classes/Advisory/Advisor.php:425
+#: libraries/classes/Advisory/Advisor.php:427
 msgid "per hour"
 msgstr "на час"
 
-#: libraries/classes/Advisory/Advisor.php:428
+#: libraries/classes/Advisory/Advisor.php:430
 msgid "per day"
 msgstr "на ден"
 
@@ -1333,7 +1333,7 @@ msgstr "Име на ключ"
 msgid "Description"
 msgstr "Описание"
 
-#: libraries/classes/BrowseForeigners.php:319
+#: libraries/classes/BrowseForeigners.php:318
 #: libraries/classes/Language.php:204 libraries/classes/Pdf.php:80
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:494
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:528
@@ -1341,7 +1341,7 @@ msgstr "Описание"
 msgid "Page number:"
 msgstr "Страница:"
 
-#: libraries/classes/BrowseForeigners.php:333
+#: libraries/classes/BrowseForeigners.php:332
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:578
 #: templates/display/results/table.twig:99
 #: templates/server/privileges/initials_row.twig:17
@@ -3537,7 +3537,7 @@ msgid "Servers"
 msgstr "Сървъри"
 
 #: libraries/classes/Config/Descriptions.php:763
-#: libraries/classes/Controllers/Server/DatabasesController.php:309
+#: libraries/classes/Controllers/Server/DatabasesController.php:297
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
 #: libraries/classes/Plugins/Export/ExportXml.php:119
@@ -3789,7 +3789,7 @@ msgstr "Ширина на навигационния панел"
 
 #: libraries/classes/Config/Descriptions.php:831
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:610
-#: libraries/classes/Navigation/NavigationTree.php:1351
+#: libraries/classes/Navigation/NavigationTree.php:1347
 msgid "Link with main panel"
 msgstr "Свързване с главния панел"
 
@@ -4319,7 +4319,7 @@ msgid "Explain SQL"
 msgstr "Обяснение на SQL"
 
 #: libraries/classes/Config/Descriptions.php:948
-#: libraries/classes/Export.php:1280 libraries/classes/Html/Generator.php:706
+#: libraries/classes/Export.php:1278 libraries/classes/Html/Generator.php:706
 #: templates/console/display.twig:121
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
@@ -4612,10 +4612,10 @@ msgstr "Потребителски"
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:713
-#: libraries/classes/Import.php:1254 libraries/classes/Menu.php:245
+#: libraries/classes/Import.php:1253 libraries/classes/Menu.php:245
 #: libraries/classes/Menu.php:352
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
-#: libraries/classes/Navigation/Nodes/NodeDatabase.php:50
+#: libraries/classes/Navigation/Nodes/NodeDatabase.php:51
 #: libraries/classes/Navigation/Nodes/NodeTable.php:296
 #: libraries/classes/Util.php:1401 libraries/classes/Util.php:1864
 #: libraries/classes/Util.php:1881 libraries/config.values.php:60
@@ -4634,7 +4634,7 @@ msgstr "Структура"
 #: libraries/classes/Config/Forms/User/ExportForm.php:108
 #: libraries/classes/Config/Forms/User/ExportForm.php:133
 #: libraries/classes/Config/Forms/User/ExportForm.php:139
-#: libraries/classes/Controllers/Server/DatabasesController.php:319
+#: libraries/classes/Controllers/Server/DatabasesController.php:307
 #: templates/database/export/index.twig:24
 #: templates/server/privileges/privileges_table.twig:280
 #: templates/table/structure/display_table_stats.twig:17
@@ -4731,22 +4731,22 @@ msgstr ""
 "Промените не бяха запазени, изпратеният конфигурационен формуляр съдържа "
 "грешки!"
 
-#: libraries/classes/Config.php:647
+#: libraries/classes/Config.php:646
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Текущия файл с настройки (%s) е недостъпен."
 
-#: libraries/classes/Config.php:683
+#: libraries/classes/Config.php:682
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Неподходящи права на файлът с настройки, в него не трябва да може да пише "
 "всеки!"
 
-#: libraries/classes/Config.php:697
+#: libraries/classes/Config.php:696
 msgid "Failed to read configuration file!"
 msgstr "Неуспешно прочитане на кофигурационен файл!"
 
-#: libraries/classes/Config.php:699
+#: libraries/classes/Config.php:698
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -4754,12 +4754,12 @@ msgstr ""
 "Това обикновено означава, че има синтактична грешка в него, моля, проверете "
 "всички грешки, показани по-долу."
 
-#: libraries/classes/Config.php:1200
+#: libraries/classes/Config.php:1191
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Невалиден индекс на сървър: %s"
 
-#: libraries/classes/Config.php:1213
+#: libraries/classes/Config.php:1204
 #, php-format
 msgid "Server %d"
 msgstr "Сървър %d"
@@ -5025,7 +5025,7 @@ msgid "Showing rows %1$s - %2$s."
 msgstr "Показване на редове %1$s - %2$s."
 
 #. l10n: The user tries to save a page with an existing name in Designer
-#: libraries/classes/Controllers/Database/DesignerController.php:112
+#: libraries/classes/Controllers/Database/DesignerController.php:109
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
@@ -5049,7 +5049,7 @@ msgstr ""
 "инсталацията!"
 
 #: libraries/classes/Controllers/Database/ImportController.php:79
-#: libraries/classes/Controllers/Import/ImportController.php:584
+#: libraries/classes/Controllers/Import/ImportController.php:582
 #: libraries/classes/Controllers/Server/ImportController.php:60
 #: libraries/classes/Controllers/Table/ImportController.php:71
 msgid "Could not load import plugins, please check your installation!"
@@ -5132,7 +5132,7 @@ msgstr "Няма избрани таблици."
 msgid "Success!"
 msgstr ""
 
-#: libraries/classes/Controllers/Database/StructureController.php:365
+#: libraries/classes/Controllers/Database/StructureController.php:347
 #: templates/table/operations/index.twig:451
 #: templates/table/operations/view.twig:32
 #, fuzzy, php-format
@@ -5140,21 +5140,21 @@ msgstr ""
 msgid "View %s has been dropped."
 msgstr "Изглед %s беше изтрит"
 
-#: libraries/classes/Controllers/Database/StructureController.php:366
+#: libraries/classes/Controllers/Database/StructureController.php:348
 #: templates/table/operations/index.twig:451
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
 msgstr "Таблицата %s беше изтрита"
 
-#: libraries/classes/Controllers/Database/StructureController.php:413
+#: libraries/classes/Controllers/Database/StructureController.php:395
 #: templates/table/operations/index.twig:410
 #: templates/table/operations/index.twig:428
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Таблицата %s беше изчистена."
 
-#: libraries/classes/Controllers/Database/StructureController.php:576
+#: libraries/classes/Controllers/Database/StructureController.php:558
 #: libraries/classes/Display/Results.php:3761
 #, php-format
 msgid ""
@@ -5162,7 +5162,7 @@ msgid ""
 "%sdocumentation%s."
 msgstr "Този изглед има поне толкова реда. Погледнете %sдокументацията%s."
 
-#: libraries/classes/Controllers/Database/StructureController.php:765
+#: libraries/classes/Controllers/Database/StructureController.php:747
 msgid "unknown"
 msgstr "непознат"
 
@@ -5269,7 +5269,7 @@ msgid "You may want to refresh the page."
 msgstr "Препоръчва се да презаредите страницата."
 
 #: libraries/classes/Controllers/Export/ExportController.php:116
-#: libraries/classes/Export.php:1266
+#: libraries/classes/Export.php:1264
 msgid "Bad type!"
 msgstr "Типът е неправилен!"
 
@@ -5408,16 +5408,16 @@ msgid "Incorrect format parameter"
 msgstr "Изтриване на последен параметър"
 
 #: libraries/classes/Controllers/Import/ImportController.php:381
-#: libraries/classes/Controllers/Import/ImportController.php:624
+#: libraries/classes/Controllers/Import/ImportController.php:622
 msgid "Showing bookmark"
 msgstr "Показване на белязка"
 
-#: libraries/classes/Controllers/Import/ImportController.php:407
-#: libraries/classes/Controllers/Import/ImportController.php:620
+#: libraries/classes/Controllers/Import/ImportController.php:406
+#: libraries/classes/Controllers/Import/ImportController.php:618
 msgid "The bookmark has been deleted."
 msgstr "Белязката беше изтрита."
 
-#: libraries/classes/Controllers/Import/ImportController.php:530
+#: libraries/classes/Controllers/Import/ImportController.php:528
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5427,14 +5427,14 @@ msgstr ""
 "по-голям от разрешеното в конфигурацията на PHP. Вижте [doc@faq1-16]ЧЗВ "
 "1.16[/doc]."
 
-#: libraries/classes/Controllers/Import/ImportController.php:632
+#: libraries/classes/Controllers/Import/ImportController.php:630
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Импортирането приключи успешно, беше изпълнена %d заявка."
 msgstr[1] "Импортирането приключи успешно, бяха изпълнени %d заявки."
 
-#: libraries/classes/Controllers/Import/ImportController.php:669
+#: libraries/classes/Controllers/Import/ImportController.php:667
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5443,7 +5443,7 @@ msgstr ""
 "Времето за изчакване на скрипта изтече, ако искате да завършите импорта,моля "
 "пуснете (%s) отново същия файл (%s) и той ще си продължи."
 
-#: libraries/classes/Controllers/Import/ImportController.php:679
+#: libraries/classes/Controllers/Import/ImportController.php:677
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5452,7 +5452,7 @@ msgstr ""
 "обикновено означава, че phpMyAdmin няма да бъде в състояние да завърши този "
 "импорт, освен ако не бъдат увеличени времевите ограничения в PHP."
 
-#: libraries/classes/Controllers/Import/ImportController.php:747
+#: libraries/classes/Controllers/Import/ImportController.php:745
 #: libraries/classes/Controllers/Sql/SqlController.php:176
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" заявката е забранена."
@@ -6790,7 +6790,7 @@ msgid "No partial dependencies selected!"
 msgstr "Няма избрани частични зависимости!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:440
-#: libraries/classes/Export.php:1320 libraries/classes/Html/Generator.php:984
+#: libraries/classes/Export.php:1318 libraries/classes/Html/Generator.php:984
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:286
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -6926,7 +6926,7 @@ msgstr "Съдържание на точката с данни"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:492
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:640
-#: libraries/classes/ErrorHandler.php:448 libraries/classes/InsertEdit.php:1946
+#: libraries/classes/ErrorHandler.php:448 libraries/classes/InsertEdit.php:1947
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Игнориране"
@@ -7269,7 +7269,7 @@ msgid "Hide panel"
 msgstr "Скриване на панела"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:611
-#: libraries/classes/Navigation/NavigationTree.php:1354
+#: libraries/classes/Navigation/NavigationTree.php:1350
 msgid "Unlink from main panel"
 msgstr "Премахване от главния панел"
 
@@ -7998,7 +7998,7 @@ msgstr "Добавена е вътрешна релация"
 msgid "Two-factor authentication has been configured."
 msgstr "Двуфакторната идентификация е конфигурирана."
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:314
+#: libraries/classes/Controllers/Server/DatabasesController.php:302
 #: libraries/classes/Import.php:149
 #: templates/database/structure/table_header.twig:26
 #: templates/table/structure/display_partitions.twig:29
@@ -8007,7 +8007,7 @@ msgstr "Двуфакторната идентификация е конфигу�
 msgid "Rows"
 msgstr "Редове"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:324
+#: libraries/classes/Controllers/Server/DatabasesController.php:312
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:26
 #: templates/database/data_dictionary/index.twig:68 templates/indexes.twig:3
@@ -8016,14 +8016,14 @@ msgstr "Редове"
 msgid "Indexes"
 msgstr "Индекси"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:329
+#: libraries/classes/Controllers/Server/DatabasesController.php:317
 #: libraries/classes/Controllers/Server/Status/StatusController.php:153
 #: libraries/classes/Controllers/Server/Status/StatusController.php:205
 #: templates/table/structure/display_table_stats.twig:45
 msgid "Total"
 msgstr "Общо"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:334
+#: libraries/classes/Controllers/Server/DatabasesController.php:322
 #: templates/database/structure/table_header.twig:38
 #: templates/table/structure/display_table_stats.twig:32
 msgid "Overhead"
@@ -8719,7 +8719,7 @@ msgid "Wrong data or no validation for %s"
 msgstr ""
 
 #: libraries/classes/Controllers/Sql/SqlController.php:254
-#: libraries/classes/Sql.php:1121
+#: libraries/classes/Sql.php:1120
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Отметката %s беше създадена."
@@ -8729,7 +8729,7 @@ msgid "Bookmark not created!"
 msgstr "Отметката не беше създадена!"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:162
-#: libraries/classes/Controllers/Table/Structure/PartitioningController.php:274
+#: libraries/classes/Controllers/Table/Structure/PartitioningController.php:277
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:222
 #: libraries/classes/Table/Indexes.php:86
 #, php-format
@@ -8791,7 +8791,7 @@ msgstr "Таблица %s вече съществува!"
 #: libraries/classes/Controllers/Table/RelationController.php:300
 #: libraries/classes/Controllers/View/OperationsController.php:91
 #: libraries/classes/Database/Routines.php:1226
-#: libraries/classes/Display/Results.php:3470 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3470 libraries/classes/Message.php:171
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL заявката беше изпълнена успешно."
@@ -8831,7 +8831,7 @@ msgstr "Има твърде много JOIN без индекси."
 #: libraries/classes/Controllers/Table/GetFieldController.php:82
 #: libraries/classes/Database/Routines.php:1245
 #: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:242
-#: libraries/classes/Sql.php:936
+#: libraries/classes/Sql.php:935
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL върна празен резултат (т.е. нула редове)."
 
@@ -8845,7 +8845,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Table/OperationsController.php:128
 #: libraries/classes/Controllers/Table/OperationsController.php:345
-#: libraries/classes/Controllers/Table/StructureController.php:108
+#: libraries/classes/Controllers/Table/StructureController.php:90
 #: libraries/classes/Navigation/Nodes/NodeView.php:28
 #: templates/database/structure/show_create.twig:32
 #: templates/database/structure/structure_table_row.twig:122
@@ -8870,7 +8870,7 @@ msgstr "Името на таблицата е празно!"
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:61
 #: libraries/classes/Controllers/View/OperationsController.php:94
 #: libraries/classes/Html/Generator.php:860 libraries/classes/Import.php:138
-#: libraries/classes/InsertEdit.php:740 libraries/classes/Message.php:192
+#: libraries/classes/InsertEdit.php:740 libraries/classes/Message.php:191
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:372
 msgid "Error"
@@ -8898,7 +8898,7 @@ msgstr ""
 msgid "Failed to get description of column %s!"
 msgstr "Неуспешно получаване на описание на колона %s!"
 
-#: libraries/classes/Controllers/Table/StructureController.php:237
+#: libraries/classes/Controllers/Table/StructureController.php:219
 #: templates/columns_definitions/column_attributes.twig:112
 #: templates/database/data_dictionary/index.twig:41
 #: templates/table/structure/display_structure.twig:137
@@ -8908,7 +8908,7 @@ msgstr "Неуспешно получаване на описание на ко�
 msgid "Primary"
 msgstr "Първичен"
 
-#: libraries/classes/Controllers/Table/StructureController.php:241
+#: libraries/classes/Controllers/Table/StructureController.php:223
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:28
 #: templates/columns_definitions/column_attributes.twig:120
 #: templates/columns_definitions/table_fields_definitions.twig:46
@@ -8924,7 +8924,7 @@ msgstr "Индекс"
 msgid "The columns have been moved successfully."
 msgstr "Колоните бяха преместени упешно."
 
-#: libraries/classes/Controllers/Table/Structure/PartitioningController.php:266
+#: libraries/classes/Controllers/Table/Structure/PartitioningController.php:269
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:272
 #: libraries/classes/Tracking.php:791
 msgid "Query error"
@@ -8986,8 +8986,8 @@ msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Разширението %s липсва. Проверете конфигурацията на PHP."
 
 #: libraries/classes/Database/CentralColumns.php:293
-#: libraries/classes/Database/CentralColumns.php:399
-#: libraries/classes/Database/CentralColumns.php:607
+#: libraries/classes/Database/CentralColumns.php:397
+#: libraries/classes/Database/CentralColumns.php:605
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
@@ -8999,11 +8999,11 @@ msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
 "%1$s не може да се добави, тъй като вече съществува в централния списък!"
 
-#: libraries/classes/Database/CentralColumns.php:367
+#: libraries/classes/Database/CentralColumns.php:366
 msgid "Could not add columns!"
 msgstr "Колона неможе да бъде добавена!"
 
-#: libraries/classes/Database/CentralColumns.php:451
+#: libraries/classes/Database/CentralColumns.php:449
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
@@ -9011,19 +9011,19 @@ msgstr ""
 "Колона(ите) %1$s не можаха да бъдат премахнати, тъй като те не съществуват в "
 "списъка с централни колони!"
 
-#: libraries/classes/Database/CentralColumns.php:464
+#: libraries/classes/Database/CentralColumns.php:462
 msgid "Could not remove columns!"
 msgstr "Колоните немога да бъдат изтрити!"
 
-#: libraries/classes/Database/CentralColumns.php:621
+#: libraries/classes/Database/CentralColumns.php:619
 msgid "YES"
 msgstr "Да"
 
-#: libraries/classes/Database/CentralColumns.php:621
+#: libraries/classes/Database/CentralColumns.php:619
 msgid "NO"
 msgstr "НЕ"
 
-#: libraries/classes/Database/Designer/Common.php:528
+#: libraries/classes/Database/Designer/Common.php:520
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgctxt ""
@@ -9033,52 +9033,52 @@ msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr "Липсват таблици от хранилището за конфигурация на phpMyAdmin"
 
-#: libraries/classes/Database/Designer/Common.php:573
+#: libraries/classes/Database/Designer/Common.php:565
 #, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
 msgstr "Грешка: Релацията вече съществува."
 
-#: libraries/classes/Database/Designer/Common.php:625
+#: libraries/classes/Database/Designer/Common.php:617
 #, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been added."
 msgstr "FOREIGN KEY релация е добавена"
 
-#: libraries/classes/Database/Designer/Common.php:633
+#: libraries/classes/Database/Designer/Common.php:625
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Грешка: Не може да бъде добавена релация FOREIGN KEY !"
 
-#: libraries/classes/Database/Designer/Common.php:640
+#: libraries/classes/Database/Designer/Common.php:632
 msgid "Error: Missing index on column(s)."
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:648
-#: libraries/classes/Database/Designer/Common.php:727
+#: libraries/classes/Database/Designer/Common.php:640
+#: libraries/classes/Database/Designer/Common.php:719
 msgid "Error: Relational features are disabled!"
 msgstr "Грешка: Релацията е изключена!"
 
-#: libraries/classes/Database/Designer/Common.php:672
+#: libraries/classes/Database/Designer/Common.php:664
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationship has been added."
 msgstr "Добавена е вътрешна релация"
 
-#: libraries/classes/Database/Designer/Common.php:680
+#: libraries/classes/Database/Designer/Common.php:672
 msgid "Error: Internal relationship could not be added!"
 msgstr "Грешка: Вътрешната релация не може да бъде добавена!"
 
-#: libraries/classes/Database/Designer/Common.php:718
+#: libraries/classes/Database/Designer/Common.php:710
 #, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "FOREIGN KEY релация е добавена"
 
-#: libraries/classes/Database/Designer/Common.php:749
+#: libraries/classes/Database/Designer/Common.php:741
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Грешка: Вътрешната релация не можа да бъде премахната!"
 
-#: libraries/classes/Database/Designer/Common.php:755
+#: libraries/classes/Database/Designer/Common.php:747
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationship has been removed."
@@ -9209,7 +9209,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "Няма събитие с име %1$s в БД %2$s"
 
-#: libraries/classes/DatabaseInterface.php:1144
+#: libraries/classes/DatabaseInterface.php:1146
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -9217,15 +9217,15 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:1186
+#: libraries/classes/DatabaseInterface.php:1188
 msgid "Failed to set configured collation connection!"
 msgstr "Неуспешно установяване на конфигурираната връзка за колация!"
 
-#: libraries/classes/DatabaseInterface.php:1651
+#: libraries/classes/DatabaseInterface.php:1650
 msgid "Missing connection parameters!"
 msgstr "Липсват свързващи параметри!"
 
-#: libraries/classes/DatabaseInterface.php:1678
+#: libraries/classes/DatabaseInterface.php:1677
 #, fuzzy
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "Грешка при указване на свръзка за controluser в конфигурацията."
@@ -9248,23 +9248,23 @@ msgstr "Вмъкни"
 msgid "Del"
 msgstr "Изтрий"
 
-#: libraries/classes/Database/Qbe.php:1667
+#: libraries/classes/Database/Qbe.php:1664
 msgid "Saved bookmarked search:"
 msgstr "Запазени отметки търсене:"
 
-#: libraries/classes/Database/Qbe.php:1669
+#: libraries/classes/Database/Qbe.php:1666
 msgid "New bookmark"
 msgstr "Нова отбелязка"
 
-#: libraries/classes/Database/Qbe.php:1696
+#: libraries/classes/Database/Qbe.php:1693
 msgid "Create bookmark"
 msgstr "Изтриване на отбелязка"
 
-#: libraries/classes/Database/Qbe.php:1699
+#: libraries/classes/Database/Qbe.php:1696
 msgid "Update bookmark"
 msgstr "Обновяване на отбелязка"
 
-#: libraries/classes/Database/Qbe.php:1701
+#: libraries/classes/Database/Qbe.php:1698
 msgid "Delete bookmark"
 msgstr "Изтриване отбелязка"
 
@@ -9585,7 +9585,7 @@ msgstr "%1$d общо, %2$d в питане"
 msgid "%d total"
 msgstr "%d общо"
 
-#: libraries/classes/Display/Results.php:3802 libraries/classes/Sql.php:942
+#: libraries/classes/Display/Results.php:3802 libraries/classes/Sql.php:941
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Заявката отне %01.4f секунди."
@@ -9934,13 +9934,13 @@ msgstr ""
 msgid "The web server does not have permission to save the file %s."
 msgstr "Web сървърът няма права за писане върху файла %s."
 
-#: libraries/classes/Export.php:482
+#: libraries/classes/Export.php:483
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Схемата беше запазена във файл %s."
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: libraries/classes/Export.php:916
+#: libraries/classes/Export.php:914
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
@@ -10088,29 +10088,29 @@ msgstr "Статичен анализ:"
 msgid "%d errors were found during analysis."
 msgstr ""
 
-#: libraries/classes/Import.php:276 libraries/classes/Sql.php:950
+#: libraries/classes/Import.php:276 libraries/classes/Sql.php:949
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
-#: libraries/classes/Import.php:1213
+#: libraries/classes/Import.php:1212
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: libraries/classes/Import.php:1215
+#: libraries/classes/Import.php:1214
 msgid "View a structure's contents by clicking on its name."
 msgstr ""
 
-#: libraries/classes/Import.php:1216
+#: libraries/classes/Import.php:1215
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 
-#: libraries/classes/Import.php:1217
+#: libraries/classes/Import.php:1216
 msgid "Edit structure by following the \"Structure\" link."
 msgstr ""
 
-#: libraries/classes/Import.php:1221 libraries/classes/Import.php:1255
+#: libraries/classes/Import.php:1220 libraries/classes/Import.php:1254
 #: libraries/classes/Plugins/Export/ExportCodegen.php:68
 #: libraries/classes/Plugins/Export/ExportCsv.php:47
 #: libraries/classes/Plugins/Export/ExportExcel.php:39
@@ -10140,32 +10140,32 @@ msgstr ""
 msgid "Options"
 msgstr "Настройки"
 
-#: libraries/classes/Import.php:1224
+#: libraries/classes/Import.php:1223
 #, php-format
 msgid "Go to database: %s"
 msgstr "Към БД: %s"
 
-#: libraries/classes/Import.php:1230 libraries/classes/Import.php:1273
+#: libraries/classes/Import.php:1229 libraries/classes/Import.php:1272
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Редактиране настройките на %s"
 
-#: libraries/classes/Import.php:1258
+#: libraries/classes/Import.php:1257
 #, php-format
 msgid "Go to table: %s"
 msgstr "Към таблица: %s"
 
-#: libraries/classes/Import.php:1266
+#: libraries/classes/Import.php:1265
 #, php-format
 msgid "Structure of %s"
 msgstr "Структурата на %s"
 
-#: libraries/classes/Import.php:1284
+#: libraries/classes/Import.php:1283
 #, php-format
 msgid "Go to view: %s"
 msgstr ""
 
-#: libraries/classes/Import.php:1310
+#: libraries/classes/Import.php:1309
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -10241,11 +10241,11 @@ msgstr "Или"
 msgid "web server upload directory:"
 msgstr "директория за качване на уеб сървър:"
 
-#: libraries/classes/InsertEdit.php:1335 libraries/classes/Sql.php:933
+#: libraries/classes/InsertEdit.php:1335 libraries/classes/Sql.php:932
 msgid "Showing SQL query"
 msgstr "Показване на SQL заявкa"
 
-#: libraries/classes/InsertEdit.php:1359 libraries/classes/Sql.php:913
+#: libraries/classes/InsertEdit.php:1359 libraries/classes/Sql.php:912
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -10404,21 +10404,21 @@ msgstr "Хранилища"
 msgid "Plugins"
 msgstr "Добавки"
 
-#: libraries/classes/Message.php:252
+#: libraries/classes/Message.php:251
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
 msgstr[0] "%1$d повлиян ред."
 msgstr[1] "%1$d повлияни реда."
 
-#: libraries/classes/Message.php:273
+#: libraries/classes/Message.php:272
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
 msgstr[0] "%1$d ред изтрит."
 msgstr[1] "%1$d реда изтрити."
 
-#: libraries/classes/Message.php:294
+#: libraries/classes/Message.php:293
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
@@ -10450,26 +10450,26 @@ msgstr "Таблици:"
 msgid "Views:"
 msgstr "Изгледи:"
 
-#: libraries/classes/Navigation/NavigationTree.php:757
+#: libraries/classes/Navigation/NavigationTree.php:753
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
 
-#: libraries/classes/Navigation/NavigationTree.php:831
+#: libraries/classes/Navigation/NavigationTree.php:827
 #, fuzzy
 #| msgid "Column names: "
 msgid "Groups"
 msgstr "Имена на колони: "
 
-#: libraries/classes/Navigation/NavigationTree.php:944
+#: libraries/classes/Navigation/NavigationTree.php:940
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libraries/classes/Navigation/NavigationTree.php:1345
+#: libraries/classes/Navigation/NavigationTree.php:1341
 msgid "Collapse all"
 msgstr ""
 
@@ -10537,13 +10537,13 @@ msgctxt "Create new database"
 msgid "New"
 msgstr "Нов"
 
-#: libraries/classes/Navigation/Nodes/NodeDatabase.php:42
+#: libraries/classes/Navigation/Nodes/NodeDatabase.php:43
 #, fuzzy
 #| msgid "Database export options"
 msgid "Database operations"
 msgstr "Опции за експорт на БД"
 
-#: libraries/classes/Navigation/Nodes/NodeDatabase.php:645
+#: libraries/classes/Navigation/Nodes/NodeDatabase.php:628
 #, fuzzy
 #| msgid "Show hint"
 msgid "Show hidden items"
@@ -10587,7 +10587,7 @@ msgctxt "Create new index"
 msgid "New"
 msgstr "Нов"
 
-#: libraries/classes/Navigation/Nodes/Node.php:622
+#: libraries/classes/Navigation/Nodes/Node.php:618
 msgid "Expand/Collapse"
 msgstr ""
 
@@ -10896,37 +10896,37 @@ msgstr ""
 msgid "No partial dependencies found!"
 msgstr ""
 
-#: libraries/classes/Operations.php:547
+#: libraries/classes/Operations.php:540
 #: templates/table/structure/display_partitions.twig:85
 msgid "Analyze"
 msgstr "Анализиране"
 
-#: libraries/classes/Operations.php:548
+#: libraries/classes/Operations.php:541
 #: templates/table/structure/display_partitions.twig:95
 msgid "Check"
 msgstr "Проверка"
 
-#: libraries/classes/Operations.php:549
+#: libraries/classes/Operations.php:542
 #: templates/table/structure/display_partitions.twig:105
 msgid "Optimize"
 msgstr "Оптимизиране"
 
-#: libraries/classes/Operations.php:550
+#: libraries/classes/Operations.php:543
 #: templates/table/structure/display_partitions.twig:115
 msgid "Rebuild"
 msgstr ""
 
-#: libraries/classes/Operations.php:551
+#: libraries/classes/Operations.php:544
 #: templates/table/structure/display_partitions.twig:125
 msgid "Repair"
 msgstr "Поправяне"
 
-#: libraries/classes/Operations.php:552
+#: libraries/classes/Operations.php:545
 #: templates/table/structure/display_partitions.twig:135
 msgid "Truncate"
 msgstr ""
 
-#: libraries/classes/Operations.php:564 templates/database/events/index.twig:19
+#: libraries/classes/Operations.php:557 templates/database/events/index.twig:19
 #: templates/database/events/index.twig:20
 #: templates/database/events/index.twig:96
 #: templates/database/events/index.twig:102
@@ -10952,43 +10952,43 @@ msgstr ""
 msgid "Drop"
 msgstr "Изтриване"
 
-#: libraries/classes/Operations.php:566
+#: libraries/classes/Operations.php:559
 #, fuzzy
 #| msgid "Close"
 msgid "Coalesce"
 msgstr "Затваряне"
 
-#: libraries/classes/Operations.php:915
+#: libraries/classes/Operations.php:908
 msgid "Can't move table to same one!"
 msgstr "Не може да се премести таблицата към себе си!"
 
-#: libraries/classes/Operations.php:917
+#: libraries/classes/Operations.php:910
 msgid "Can't copy table to same one!"
 msgstr "Не може да се копира таблицата към себе си!"
 
-#: libraries/classes/Operations.php:941
+#: libraries/classes/Operations.php:934
 #, fuzzy, php-format
 #| msgid "Table %s has been moved to %s."
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Таблицата %s беше преместена към %s."
 
-#: libraries/classes/Operations.php:947
+#: libraries/classes/Operations.php:940
 #, fuzzy, php-format
 #| msgid "Table %s has been copied to %s."
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Таблица %s беше копирана в %s."
 
-#: libraries/classes/Operations.php:954
+#: libraries/classes/Operations.php:947
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Таблицата %s беше преместена към %s."
 
-#: libraries/classes/Operations.php:958
+#: libraries/classes/Operations.php:951
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Таблица %s беше копирана в %s."
 
-#: libraries/classes/Operations.php:982
+#: libraries/classes/Operations.php:975
 msgid "The table name is empty!"
 msgstr "Името на таблицата е празно!"
 
@@ -11805,7 +11805,7 @@ msgstr ""
 msgid "MediaWiki Table"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportMediawiki.php:279
+#: libraries/classes/Plugins/Import/ImportMediawiki.php:275
 #, fuzzy, php-format
 #| msgid "Invalid rule declaration on line %s."
 msgid "Invalid format of mediawiki input on line: <br>%s."
@@ -12994,16 +12994,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Няма по-нова стабилна версия"
 
-#: libraries/classes/Sql.php:470
+#: libraries/classes/Sql.php:469
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/classes/Sql.php:930
+#: libraries/classes/Sql.php:929
 msgid "Showing as PHP code"
 msgstr "Показване като PHP-код"
 
-#: libraries/classes/Sql.php:1302
+#: libraries/classes/Sql.php:1300
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -13012,7 +13012,7 @@ msgstr ""
 "Тази таблица не съдържа уникална колона. Редактирането на мрежа, поставянето "
 "на отметки, функциите редактиране, копиране и изтриване не са достъпни. %s"
 
-#: libraries/classes/Sql.php:1316
+#: libraries/classes/Sql.php:1314
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -13044,28 +13044,28 @@ msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr "Няма детайлна информация за състоянието на това хранилище на данни."
 
-#: libraries/classes/StorageEngine.php:467
+#: libraries/classes/StorageEngine.php:465
 #: templates/database/structure/body_for_table_summary.twig:46
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s е хранилището на данни по подразбиране на този MySQL сървър."
 
-#: libraries/classes/StorageEngine.php:470
+#: libraries/classes/StorageEngine.php:468
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s е разрешен на този MySQL сървър."
 
-#: libraries/classes/StorageEngine.php:473
+#: libraries/classes/StorageEngine.php:471
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s е забранено за този MySQL сървър."
 
-#: libraries/classes/StorageEngine.php:477
+#: libraries/classes/StorageEngine.php:475
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Този MySQL сървър не поддържа хранилището на данни %s."
 
-#: libraries/classes/Table/Indexes.php:59 libraries/classes/Table.php:2051
+#: libraries/classes/Table/Indexes.php:59 libraries/classes/Table.php:2045
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Името на първичния ключ трябва да е \"PRIMARY\"!"
 
@@ -13074,43 +13074,43 @@ msgstr "Името на първичния ключ трябва да е \"PRIMA
 msgid "Problems with indexes of table `%s`"
 msgstr "Проблем с индексите на таблица `%s`"
 
-#: libraries/classes/Table.php:331
+#: libraries/classes/Table.php:327
 msgid "Unknown table status:"
 msgstr "Неизвестно състояние на таблица:"
 
-#: libraries/classes/Table.php:962
+#: libraries/classes/Table.php:958
 #, php-format
 msgid "Source database `%s` was not found!"
 msgstr "БД-източник `%s` не е намерена!"
 
-#: libraries/classes/Table.php:971
+#: libraries/classes/Table.php:967
 #, php-format
 msgid "Target database `%s` was not found!"
 msgstr "Целевата БД `%s` не е намерена!"
 
-#: libraries/classes/Table.php:1434
+#: libraries/classes/Table.php:1430
 msgid "Invalid database:"
 msgstr "Невалидна БД:"
 
-#: libraries/classes/Table.php:1452
+#: libraries/classes/Table.php:1448
 msgid "Invalid table name:"
 msgstr "Невалидно име на таблица:"
 
-#: libraries/classes/Table.php:1486
+#: libraries/classes/Table.php:1482
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "Грешка при преименуване на таблица %1$s в %2$s!"
 
-#: libraries/classes/Table.php:1503
+#: libraries/classes/Table.php:1499
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Таблица %1$s беше преименувана на %2$s."
 
-#: libraries/classes/Table.php:1746
+#: libraries/classes/Table.php:1742
 msgid "Could not save table UI preferences!"
 msgstr "Таблицата с визуалните настройки не може да бъде запазена!"
 
-#: libraries/classes/Table.php:1770
+#: libraries/classes/Table.php:1766
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -13119,7 +13119,7 @@ msgstr ""
 "Неуспех при почистването на предпочитанията за потребителския интерфейс на "
 "таблицата (вижте $cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
-#: libraries/classes/Table.php:1904
+#: libraries/classes/Table.php:1900
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -13130,15 +13130,15 @@ msgstr ""
 "Извършените промени няма да бъдат устойчиви, след като опресните тази "
 "страница. Моля, проверете дали структурата на таблицата е променена."
 
-#: libraries/classes/Table.php:2063
+#: libraries/classes/Table.php:2057
 msgid "Can't rename index to PRIMARY!"
 msgstr "Индексът не може да бъде преименуван на PRIMARY!"
 
-#: libraries/classes/Table.php:2089
+#: libraries/classes/Table.php:2083
 msgid "No index parts defined!"
 msgstr "Не са дефинирани части на индекс!"
 
-#: libraries/classes/Table.php:2380
+#: libraries/classes/Table.php:2374
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
