@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-12-12 08:47+0000\n"
+"PO-Revision-Date: 2022-12-28 01:53+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -3313,10 +3313,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/CentralColumns.php:466
-#, fuzzy
-#| msgid "Documentation"
 msgid "Could not remove columns!"
-msgstr "Документација"
+msgstr "Не можеше да се отстранат колоните!"
 
 #: libraries/classes/CentralColumns.php:626
 msgid "YES"
@@ -5132,11 +5130,11 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:808
 msgid "Minimum number of items to display the filter box"
-msgstr ""
+msgstr "Минимум број на елементи за да се покажат филтрите"
 
 #: libraries/classes/Config/Descriptions.php:810
 msgid "Minimum number of databases to display the database filter box"
-msgstr ""
+msgstr "Минимум број на датабази за да се покажат филтрите за датабази"
 
 #: libraries/classes/Config/Descriptions.php:813
 msgid ""
@@ -5146,7 +5144,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:817
 msgid "Group items in the tree"
-msgstr ""
+msgstr "Групирај елементи во дрвото"
 
 #: libraries/classes/Config/Descriptions.php:819
 msgid "String that separates databases into different tree levels."
@@ -5166,7 +5164,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:827
 msgid "Maximum table tree depth"
-msgstr ""
+msgstr "Максимална длабочина на дрво за табели"
 
 #: libraries/classes/Config/Descriptions.php:829
 msgid "Highlight server under the mouse cursor."
@@ -5174,7 +5172,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:831
 msgid "Enable highlighting"
-msgstr ""
+msgstr "Вклучи истакнување"
 
 #: libraries/classes/Config/Descriptions.php:833
 msgid ""
@@ -5182,10 +5180,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:835
-#, fuzzy
-#| msgid "Table caption"
 msgid "Enable navigation tree expansion"
-msgstr "Коментар на табела"
+msgstr "Вклучи експанзија на навигационо дрво"
 
 #: libraries/classes/Config/Descriptions.php:837
 #, fuzzy
@@ -7169,10 +7165,8 @@ msgid "Sort:"
 msgstr "Подредување:"
 
 #: libraries/classes/Database/Qbe.php:616
-#, fuzzy
-#| msgid "Sort"
 msgid "Sort order:"
-msgstr "Подредуваање"
+msgstr "Подредување:"
 
 #: libraries/classes/Database/Qbe.php:665
 msgid "Show:"
@@ -8141,9 +8135,9 @@ msgid "Options"
 msgstr "Операции"
 
 #: libraries/classes/Import.php:1228
-#, fuzzy, php-format
+#, php-format
 msgid "Go to database: %s"
-msgstr "Базата на податоци не постои"
+msgstr "Оди на датабаза: %s"
 
 #: libraries/classes/Import.php:1234 libraries/classes/Import.php:1278
 #, php-format
@@ -8151,15 +8145,14 @@ msgid "Edit settings for %s"
 msgstr ""
 
 #: libraries/classes/Import.php:1263
-#, fuzzy, php-format
+#, php-format
 msgid "Go to table: %s"
-msgstr "Базата на податоци не постои"
+msgstr "Оди на табела: %s"
 
 #: libraries/classes/Import.php:1271
-#, fuzzy, php-format
-#| msgid "Structure only"
+#, php-format
 msgid "Structure of %s"
-msgstr "Само структура"
+msgstr "Структура на %s"
 
 #: libraries/classes/Import.php:1289
 #, php-format
@@ -8684,10 +8677,9 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr ""
 
 #: libraries/classes/Navigation/NodeFactory.php:61
-#, fuzzy, php-format
-#| msgid "Add %s field(s)"
+#, php-format
 msgid "Could not load class \"%1$s\""
-msgstr "Додади %s полиња"
+msgstr "Не може да се вчита класа \"%1$s\""
 
 #: libraries/classes/Navigation/Nodes/Node.php:802
 msgid "Expand/Collapse"
@@ -9766,20 +9758,18 @@ msgstr "Додај изјави:"
 #: libraries/classes/Plugins/Export/ExportSql.php:307
 #: libraries/classes/Plugins/Export/ExportSql.php:314
 #: libraries/classes/Plugins/Export/ExportSql.php:323
-#, fuzzy, php-format
-#| msgid "Statements"
+#, php-format
 msgid "Add %s statement"
-msgstr "Име"
+msgstr "Додади %s израз"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:290
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:298
-#, fuzzy, php-format
-#| msgid "Session value"
+#, php-format
 msgid "%s value"
-msgstr "Вредност на сесијата"
+msgstr "%s вредност"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:332
 msgid ""
@@ -9874,10 +9864,9 @@ msgid "Metadata"
 msgstr "Тип на извоз"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1080
-#, fuzzy, php-format
-#| msgid "Dumping data for table"
+#, php-format
 msgid "Metadata for table %s"
-msgstr "Приказ на податоци од табелата"
+msgstr "Метадата за табела %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1087
 #, fuzzy, php-format
@@ -9954,9 +9943,9 @@ msgid "It appears your table uses triggers;"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2106
-#, fuzzy, php-format
+#, php-format
 msgid "Structure for view %s exported as a table"
-msgstr "Само структура"
+msgstr "Структура за поглед %s извезена како табела"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2130
 msgid "(See below for the actual view)"
@@ -15718,10 +15707,8 @@ msgid "Add to Favorites"
 msgstr "Додади нов корисник"
 
 #: templates/database/designer/edit_delete_pages.twig:6
-#, fuzzy
-#| msgid "Page number:"
 msgid "Page to open"
-msgstr "Број на страници:"
+msgstr "Страна да се отвори"
 
 #: templates/database/designer/edit_delete_pages.twig:6
 #, fuzzy
@@ -16753,10 +16740,8 @@ msgid "Hide/Show tables with no relationship"
 msgstr "Предложи структура на табелата"
 
 #: templates/database/designer/table_list.twig:25
-#, fuzzy
-#| msgid "Number of rows per page"
 msgid "Number of tables:"
-msgstr "Број на записи на страница"
+msgstr "Број на табели:"
 
 #: templates/database/multi_table_query/form.twig:16
 msgid "Query window"
