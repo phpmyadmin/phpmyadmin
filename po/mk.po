@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-12-25 00:19+0000\n"
-"PO-Revision-Date: 2022-12-12 08:47+0000\n"
+"PO-Revision-Date: 2022-12-28 01:57+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:241
 #, php-format
@@ -3579,15 +3579,15 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:838
 msgid "Minimum number of items to display the filter box"
-msgstr ""
+msgstr "Минимум број на елементи за да се покажат филтрите"
 
 #: libraries/classes/Config/Descriptions.php:840
 msgid "Minimum number of databases to display the database filter box"
-msgstr ""
+msgstr "Минимум број на датабази за да се покажат филтрите за датабази"
 
 #: libraries/classes/Config/Descriptions.php:842
 msgid "Group items in the tree"
-msgstr ""
+msgstr "Групирај елементи во дрвото"
 
 #: libraries/classes/Config/Descriptions.php:843
 msgid "Database tree separator"
@@ -3599,16 +3599,15 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:845
 msgid "Maximum table tree depth"
-msgstr ""
+msgstr "Максимална длабочина на дрво за табели"
 
 #: libraries/classes/Config/Descriptions.php:846
 msgid "Enable highlighting"
-msgstr ""
+msgstr "Вклучи истакнување"
 
 #: libraries/classes/Config/Descriptions.php:847
-#, fuzzy
 msgid "Enable navigation tree expansion"
-msgstr "Коментар на табела"
+msgstr "Вклучи експанзија на навигационо дрво"
 
 #: libraries/classes/Config/Descriptions.php:848
 #, fuzzy
@@ -8532,9 +8531,8 @@ msgstr "Поглед"
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:41
 #: libraries/classes/Controllers/Table/Partition/RepairController.php:41
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:41
-#, fuzzy
 msgid "The partition name must be a non-empty string."
-msgstr "Името на табелата е празно!"
+msgstr "Името на партицијата мора да биде непразна низа на карактери."
 
 #: libraries/classes/Controllers/Table/Partition/DropController.php:61
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:61
@@ -8677,9 +8675,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Database/CentralColumns.php:462
-#, fuzzy
 msgid "Could not remove columns!"
-msgstr "Документација"
+msgstr "Не можеше да се отстранат колоните!"
 
 #: libraries/classes/Database/CentralColumns.php:619
 msgid "YES"
@@ -9826,9 +9823,9 @@ msgid "Options"
 msgstr "Операции"
 
 #: libraries/classes/Import.php:1223
-#, fuzzy, php-format
+#, php-format
 msgid "Go to database: %s"
-msgstr "Базата на податоци не постои"
+msgstr "Оди на датабаза: %s"
 
 #: libraries/classes/Import.php:1229 libraries/classes/Import.php:1272
 #, php-format
@@ -9836,14 +9833,14 @@ msgid "Edit settings for %s"
 msgstr ""
 
 #: libraries/classes/Import.php:1257
-#, fuzzy, php-format
+#, php-format
 msgid "Go to table: %s"
-msgstr "Базата на податоци не постои"
+msgstr "Оди на табела: %s"
 
 #: libraries/classes/Import.php:1265
-#, fuzzy, php-format
+#, php-format
 msgid "Structure of %s"
-msgstr "Само структура"
+msgstr "Структура на %s"
 
 #: libraries/classes/Import.php:1283
 #, php-format
@@ -10166,9 +10163,9 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr ""
 
 #: libraries/classes/Navigation/NodeFactory.php:73
-#, fuzzy, php-format
+#, php-format
 msgid "Could not load class \"%1$s\""
-msgstr "Додади %s полиња"
+msgstr "Не може да се вчита класа \"%1$s\""
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:26
@@ -11152,18 +11149,18 @@ msgstr "Додај изјави:"
 #: libraries/classes/Plugins/Export/ExportSql.php:310
 #: libraries/classes/Plugins/Export/ExportSql.php:338
 #: libraries/classes/Plugins/Export/ExportSql.php:347
-#, fuzzy, php-format
+#, php-format
 msgid "Add %s statement"
-msgstr "Име"
+msgstr "Додади %s израз"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:293
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:300
-#, fuzzy, php-format
+#, php-format
 msgid "%s value"
-msgstr "Вредност на сесијата"
+msgstr "%s вредност"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
 #: libraries/classes/Plugins/Export/ExportSql.php:317
@@ -11261,9 +11258,9 @@ msgid "Metadata"
 msgstr "Тип на извоз"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1086
-#, fuzzy, php-format
+#, php-format
 msgid "Metadata for table %s"
-msgstr "Приказ на податоци од табелата"
+msgstr "Метадата за табела %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1093
 #, fuzzy, php-format
@@ -11321,9 +11318,9 @@ msgid "It appears your table uses triggers;"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2020
-#, fuzzy, php-format
+#, php-format
 msgid "Structure for view %s exported as a table"
-msgstr "Само структура"
+msgstr "Структура за поглед %s извезена како табела"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2040
 msgid "(See below for the actual view)"
@@ -13920,9 +13917,8 @@ msgstr "Главната листа на колони за тековната б
 
 #: templates/database/central_columns/main.twig:168
 #: templates/display/results/table.twig:139
-#, fuzzy
 msgid "Filter rows:"
-msgstr "Полиња"
+msgstr "Филтер на редови:"
 
 #: templates/database/central_columns/main.twig:171
 #: templates/display/results/table.twig:143
@@ -13988,9 +13984,8 @@ msgid "Create"
 msgstr "Креирај"
 
 #: templates/database/data_dictionary/index.twig:4
-#, fuzzy
 msgid "Database comment:"
-msgstr "Коментар на базата на податоци"
+msgstr "Коментар на базата на податоци:"
 
 #: templates/database/data_dictionary/index.twig:8
 #: templates/database/data_dictionary/index.twig:124
@@ -14049,9 +14044,8 @@ msgid "Add an option for column \"%s\"."
 msgstr "Број на записи на страница"
 
 #: templates/database/designer/edit_delete_pages.twig:6
-#, fuzzy
 msgid "Page to open"
-msgstr "Број на страници:"
+msgstr "Страна да се отвори"
 
 #: templates/database/designer/edit_delete_pages.twig:6
 #, fuzzy
@@ -14175,9 +14169,8 @@ msgid "Hide/Show tables with no relationship"
 msgstr "Предложи структура на табелата"
 
 #: templates/database/designer/main.twig:223
-#, fuzzy
 msgid "Number of tables:"
-msgstr "Број на записи на страница"
+msgstr "Број на табели:"
 
 #: templates/database/designer/main.twig:381
 #, fuzzy
@@ -14694,9 +14687,8 @@ msgid "Sort:"
 msgstr "Подредување:"
 
 #: templates/database/qbe/selection_form.twig:32
-#, fuzzy
 msgid "Sort order:"
-msgstr "Подредуваање"
+msgstr "Подредување:"
 
 #: templates/database/qbe/selection_form.twig:37
 msgid "Criteria:"
@@ -14707,14 +14699,12 @@ msgid "Modify:"
 msgstr "Измени:"
 
 #: templates/database/qbe/selection_form.twig:54
-#, fuzzy
 msgid "Add/Delete criteria rows:"
-msgstr "Додади/избриши поле за критериум"
+msgstr "Додади/отстрани полиња за критериуми:"
 
 #: templates/database/qbe/selection_form.twig:67
-#, fuzzy
 msgid "Add/Delete columns:"
-msgstr "Додади/избриши колона"
+msgstr "Додади/отстрани колони:"
 
 #: templates/database/qbe/selection_form.twig:86
 #: templates/database/qbe/selection_form.twig:88
@@ -15002,9 +14992,8 @@ msgid ""
 msgstr ""
 
 #: templates/database/structure/copy_form.twig:14
-#, fuzzy
 msgid "Options:"
-msgstr "Операции"
+msgstr "Опции:"
 
 #: templates/database/structure/copy_form.twig:39
 #, fuzzy
