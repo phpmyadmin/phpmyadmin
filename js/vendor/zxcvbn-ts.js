@@ -731,7 +731,7 @@ this.zxcvbnts.core = (function (exports) {
 
       addMatcher(name, matcher) {
         if (this.matchers[name]) {
-          console.info('Matcher already exists');
+          console.info(`Matcher ${name} already exists`);
         } else {
           this.matchers[name] = matcher;
         }
