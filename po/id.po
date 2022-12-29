@@ -3,16 +3,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-09-29 00:17-0300\n"
-"PO-Revision-Date: 2022-08-11 21:20+0000\n"
-"Last-Translator: Holiq Ibrahim <holiq.ibrahim376@gmail.com>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/"
-"phpmyadmin/5-2/id/>\n"
+"PO-Revision-Date: 2022-12-30 07:48+0000\n"
+"Last-Translator: Iwan Haryatno <iwnharry61@gmail.com>\n"
+"Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
+"5-2/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: libraries/advisory_rules_generic.php:9
@@ -338,22 +338,16 @@ msgid "Rate of sorts that cause temporary tables"
 msgstr "Laju pengurutan yang menyebabkan tabel temporer"
 
 #: libraries/advisory_rules_generic.php:226
-#, fuzzy, php-format
-#| msgid ""
-#| "Rate of temporary tables being written to disk: %s, this value should be "
-#| "less than 1 per hour"
+#, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
-msgstr ""
-"Tingkat pembuatan tabel temporer ke diska: %s, nilai ini hasul kurang dari 1 "
-"per jam"
+msgstr "Rata-rata tabel sementara: %s, nilai ini harus kurang dari 1 per jam."
 
 #: libraries/advisory_rules_generic.php:231
 msgid "Sort rows"
 msgstr "Urutkan baris"
 
 #: libraries/advisory_rules_generic.php:234
-#, fuzzy
 msgid "There are lots of rows being sorted."
 msgstr "Ada banyak baris yang diurutkan."
 
@@ -2472,8 +2466,8 @@ msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words."
 msgstr ""
-"Nonaktifkan peringatan bawaan yang ditampilkan sewaktu nama kolom dalam "
-"tabel tabel telah dipesan oleh MySQL."
+"Nonaktifkan peringatan bawaan yang ditampilkan di halaman Struktur sewaktu "
+"nama kolom dalam tabel telah dipesan oleh MySQL."
 
 #: libraries/classes/Config/Descriptions.php:340
 msgid ""
@@ -2913,7 +2907,7 @@ msgid ""
 "[/a] output."
 msgstr ""
 "Tampilkan tautan sebagai keluaran [a@https://www.php.net/manual/function."
-"phpinfo.php]phpinfo()[/a]"
+"phpinfo.php]phpinfo()[/a]."
 
 #: libraries/classes/Config/Descriptions.php:498
 #, fuzzy
@@ -6041,10 +6035,8 @@ msgid "Y values"
 msgstr "Nilai Y"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:129
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "Silakan masukkan lagi nilai yang sama"
+msgstr "Silakan masukkan kueri SQL dulu."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:132
 msgid "The host name is empty!"
@@ -6991,7 +6983,7 @@ msgstr "Menjelajahi nilai luar"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:392
 msgid "No previously auto-saved query is available. Loading default query."
-msgstr "Auto-save kueri sebelumnya tidak ditemukan. Menggunakan kueri bawaan"
+msgstr "Auto-save kueri sebelumnya tidak ditemukan. Memuat kueri bawaan."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:394
 msgid ""
@@ -7810,11 +7802,9 @@ msgstr "Gagal mengaktivasi kunci keamanan (%s)."
 
 #. l10n: error code 4 (from U2F API) on authanticate
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:693
-#, fuzzy
-#| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
-msgstr "Jenis ekspor invalid"
+msgstr "Kunci keamanan invalid."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:697
 msgid ""
@@ -9358,16 +9348,13 @@ msgid "Edit routine"
 msgstr "Edit rutinitas"
 
 #: libraries/classes/Database/Routines.php:154
-#, fuzzy, php-format
-#| msgid ""
-#| "No routine with name %1$s found in database %2$s. You might be lacking "
-#| "the necessary privileges to edit this routine"
+#, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
 "Tidak ada rutinitas ditemukan dengan nama %1$s dalam database %2$s. Anda "
-"mungkin tidak memiliki otoritas untuk menyunting rutinitas ini"
+"mungkin tidak memiliki otoritas untuk menyunting rutinitas ini."
 
 #: libraries/classes/Database/Routines.php:206
 #: libraries/classes/Database/Routines.php:992
@@ -9425,10 +9412,9 @@ msgstr "Anda harus memasukkan definisi routine."
 
 #: libraries/classes/Database/Routines.php:1145
 #: libraries/classes/Database/Routines.php:1314
-#, fuzzy, php-format
-#| msgid "No routine with name %1$s found in database %2$s"
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "Routine dengan nama %1$s tidak ditemukan dalam basis data %2$s"
+msgstr "Routine dengan nama %1$s tidak ditemukan dalam basis data %2$s."
 
 #: libraries/classes/Database/Routines.php:1184
 #, php-format
@@ -12429,12 +12415,12 @@ msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgstr "Mengkonversi alamat jaringan internet di (IPv4/IPv6) ke format biner"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptolong.php:29
-#, fuzzy
-#| msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgid ""
 "Converts an Internet network address in (IPv4/IPv6) format into a long "
 "integer."
-msgstr "Mengkonversi alamat jaringan internet di (IPv4/IPv6) ke format biner"
+msgstr ""
+"Mengkonversi alamat jaringan internet di (IPv4/IPv6) ke bilangan bulat "
+"panjang."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:26
 #, fuzzy
@@ -12499,22 +12485,17 @@ msgstr ""
 "mendukung FIDO U2F."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:73
-#, fuzzy, php-format
-#| msgid "Hardware authentication failed!"
+#, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr "Autentikasi perangkat keras gagal!"
+msgstr "Autentikasi dua-faktor gagal: %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:78
-#, fuzzy
-#| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
-msgstr "Autentikasi perangkat keras gagal!"
+msgstr "Autentikasi dua-faktor gagal."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:128
-#, fuzzy
-#| msgid "Config authentication"
 msgid "No Two-Factor Authentication"
-msgstr "Konfigurasi Autentikasi"
+msgstr "Tidak ada Autentikasi Dua-Faktor"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:138
 msgid "Login using password only."
@@ -14350,10 +14331,8 @@ msgstr ""
 #: templates/table/relation/common_form.twig:233
 #: templates/table/zoom_search/result_form.twig:26
 #: templates/table/zoom_search/result_form.twig:95
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
-msgstr "Memproses…"
+msgstr "Memproses"
 
 #: templates/columns_definitions/column_name.twig:4
 #, fuzzy, php-format
@@ -16352,15 +16331,16 @@ msgid "File name template:"
 msgstr "Templat nama berkas:"
 
 #: templates/export.twig:388
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
 "formatting strings. Additionally the following transformations will happen: "
 "%s Other text will be kept as is. See the FAQ 6.27 for details."
 msgstr ""
-"Nilai ini ditafsir menggunakan %1$sstrftime%2$s, sehingga Anda dapat "
-"menggunakan format string waktu. Tambahan ditransformasi  sehingga menjadi: "
-"%3$s. Teks lain akan disimpan seperti biasa. Lihat %4$sFAQ%5$s untuk rincian."
+"Nilai ini ditafsir menggunakan fungsi 'sstrftime', sehingga Anda dapat "
+"menggunakan format string waktu. Sebagai tambahan transformasi berikut akan "
+"terjadi: %s. Teks lain akan disimpan seperti biasa. Lihat FAQ 6.27 untuk "
+"rincian."
 
 #: templates/export.twig:398
 #, fuzzy
@@ -18405,10 +18385,8 @@ msgstr ""
 "Apakah Anda ingin %smengonfigurasikannya%s?"
 
 #: templates/server/replication/index.twig:43
-#, fuzzy
-#| msgid "No privileges."
 msgid "No privileges"
-msgstr "Tanpa hak akses."
+msgstr "Tanpa hak akses"
 
 #: templates/server/replication/primary_add_replica_user.twig:6
 #: templates/server/replication/primary_replication.twig:44
