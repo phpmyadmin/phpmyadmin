@@ -303,6 +303,7 @@ final class ImportController extends AbstractController
         $timestamp = time();
         if (isset($_POST['allow_interrupt'])) {
             $maximum_time = ini_get('max_execution_time');
+            $maximum_time -= 1;// Give 1 second for phpMyAdmin to exit nicely
         } else {
             $maximum_time = 0;
         }
