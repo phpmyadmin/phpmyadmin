@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-01-01 00:20+0000\n"
-"PO-Revision-Date: 2022-03-29 23:08+0000\n"
-"Last-Translator: Eotones <eotones@gmail.com>\n"
+"PO-Revision-Date: 2023-01-03 10:35+0000\n"
+"Last-Translator: yangyangdaji <1504305527@qq.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hant/>\n"
 "Language: zh_TW\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:241
 #, php-format
@@ -584,17 +584,15 @@ msgid "key_buffer_size is 0"
 msgstr "key_buffer_size 為 0"
 
 #: libraries/classes/Advisory/Rules.php:402
-#, fuzzy, no-php-format
-#| msgid "Max %% MyISAM key buffer ever used"
+#, no-php-format
 msgid "Max % MyISAM key buffer ever used"
-msgstr "MyISAM 鍵值緩衝區最大使用 %%"
+msgstr "MyISAM 鍵值緩衝區最大使用 %"
 
 #: libraries/classes/Advisory/Rules.php:407
 #: libraries/classes/Advisory/Rules.php:424
-#, fuzzy, no-php-format
-#| msgid "MyISAM key buffer (index cache) %% used is low."
+#, no-php-format
 msgid "MyISAM key buffer (index cache) % used is low."
-msgstr "MyISAM 鍵值緩衝區 (索引快取) %% 使用率過低。"
+msgstr "MyISAM 鍵值緩衝區 (索引快取) % 使用率過低。"
 
 #: libraries/classes/Advisory/Rules.php:409
 #: libraries/classes/Advisory/Rules.php:426
@@ -626,8 +624,7 @@ msgid "Percentage of index reads from memory"
 msgstr "從記憶體中讀取索引的比率"
 
 #: libraries/classes/Advisory/Rules.php:440
-#, fuzzy, no-php-format
-#| msgid "The %% of indexes that use the MyISAM key buffer is low."
+#, no-php-format
 msgid "The % of indexes that use the MyISAM key buffer is low."
 msgstr "索引使用 MyISAM 鍵值緩衝區的比率太低。"
 
@@ -664,16 +661,11 @@ msgid "Percentage of used open files limit"
 msgstr "已使用檔案開啟限制比率"
 
 #: libraries/classes/Advisory/Rules.php:464
-#, fuzzy
-#| msgid ""
-#| "The number of open files is approaching the max number of open files.  "
-#| "You may get a \"Too many open files\" error."
 msgid ""
 "The number of open files is approaching the max number of open files. You "
 "may get a \"Too many open files\" error."
-msgstr ""
-"檔案開啟的數量已接近上限，可能會發生「開啟過多檔案(Too many open files)」的錯"
-"誤。"
+msgstr "檔案開啟的數量已接近上限，可能會發生「開啟過多檔案(Too many open "
+"files)」的錯誤。"
 
 #: libraries/classes/Advisory/Rules.php:468
 #: libraries/classes/Advisory/Rules.php:481
@@ -704,10 +696,9 @@ msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr "檔案開啟次數：%s，此值應該低於每小時 5 次"
 
 #: libraries/classes/Advisory/Rules.php:490
-#, fuzzy, no-php-format
-#| msgid "Immediate table locks %%"
+#, no-php-format
 msgid "Immediate table locks %"
-msgstr "立即資料表鎖定 %%"
+msgstr "立即資料表鎖定 %"
 
 #: libraries/classes/Advisory/Rules.php:494
 #: libraries/classes/Advisory/Rules.php:504
@@ -752,10 +743,9 @@ msgid "The thread cache is set to 0"
 msgstr "執行緒快取目前設定為 0"
 
 #: libraries/classes/Advisory/Rules.php:521
-#, fuzzy, no-php-format
-#| msgid "Thread cache hit rate %%"
+#, no-php-format
 msgid "Thread cache hit rate %"
-msgstr "執行緒快取命中率 %%"
+msgstr "執行緒快取命中率 %"
 
 #: libraries/classes/Advisory/Rules.php:525
 msgid "Thread cache is not efficient."
@@ -934,18 +924,7 @@ msgstr "不適當的 InnoDB 記錄檔大小，應與 InnoDB 緩衝池呈比例�
 
 #: libraries/classes/Advisory/Rules.php:650
 #: libraries/classes/Advisory/Rules.php:680
-#, fuzzy, no-php-format
-#| msgid ""
-#| "Especially on a system with a lot of writes to InnoDB tables you should "
-#| "set {innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However "
-#| "the bigger this value, the longer the recovery time will be when database "
-#| "crashes, so this value should not be set much higher than 256 MiB. Please "
-#| "note however that you cannot simply change the value of this variable. "
-#| "You need to shutdown the server, remove the InnoDB log files, set the new "
-#| "value in my.cnf, start the server, then check the error logs if "
-#| "everything went fine. See also <a href=\"https://"
-#| "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-#| "innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, no-php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
 "{innodb_log_file_size} to 25% of {innodb_buffer_pool_size}. However the "
@@ -958,11 +937,12 @@ msgid ""
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "特別在某些會大量寫入資料到 InnoDB 資料表的系統上，應設定 "
-"{innodb_log_file_size} 為 {innodb_buffer_pool_size} 的 25%%。不論如何，這個值"
-"越大，在資料庫當機時還原資料庫的時間將越長，所以這個值不應該高於 256 MB。請注"
-"意，若要修改這個值，必須先關閉伺服器並刪除所有已有的 InnoDB 的記錄檔，再在 "
-"my.cnf 設定新的值，然後啟動伺服器並檢查錯誤記錄查看是否一切順利。請參閱<a "
-"href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"{innodb_log_file_size} 為 {innodb_buffer_pool_size} 的 "
+"25%。不論如何，這個值越大，在資料庫當機時還原資料庫的時間將越長，"
+"所以這個值不應該高於 256 MB。請注意，若要修改這個值，"
+"必須先關閉伺服器並刪除所有已有的 InnoDB 的記錄檔，再在 my.cnf "
+"設定新的值，然後啟動伺服器並檢查錯誤記錄查看是否一切順利。請參閱<a href="
+"\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">此部落格文章</a>"
 
 #: libraries/classes/Advisory/Rules.php:662
@@ -982,17 +962,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "InnoDB 記錄檔不夠大。"
 
 #: libraries/classes/Advisory/Rules.php:706
-#, fuzzy, no-php-format
-#| msgid ""
-#| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
-#| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
-#| "slows down the recovery time after a database crash considerably. See "
-#| "also <a href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
-#| "innodb_log_file_size/\">this Article</a>. You need to shutdown the "
-#| "server, remove the InnoDB log files, set the new value in my.cnf, start "
-#| "the server, then check the error logs if everything went fine. See also "
-#| "<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/"
-#| "increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, no-php-format
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25% of the size of "
 "{innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down the "
@@ -1004,14 +974,14 @@ msgid ""
 "href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"通常將 {innodb_log_file_size} 設為 {innodb_buffer_pool_size} 的 25%% 就足夠。"
+"通常將 {innodb_log_file_size} 設為 {innodb_buffer_pool_size} 的 25% 就足夠。"
 "過大的 {innodb_log_file_size} 會增加資料庫當機後資料還原的時間，請參閱<a "
-"href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\">此篇文章</a>。若要修改這個值，必須先關閉伺服器並刪除"
-"所有已有的 InnoDB 的記錄檔，再在 my.cnf 設定新的值，然後啟動伺服器並檢查錯誤"
-"記錄查看是否一切順利。請參閱<a href=\"https://mysqldatabaseadministration."
-"blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html\">此部落格文"
-"章</a>"
+"href=\"https://www.percona.com/blog/2006/07/03/"
+"choosing-proper-innodb_log_file_size/\">此篇文章</a>。若要修改這個值，"
+"必須先關閉伺服器並刪除所有已有的 InnoDB 的記錄檔，再在 my.cnf "
+"設定新的值，然後啟動伺服器並檢查錯誤記錄查看是否一切順利。請參閱<a href="
+"\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">此部落格文章</a>"
 
 #: libraries/classes/Advisory/Rules.php:717
 #, php-format
@@ -1027,18 +997,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "InnoDB 緩衝池太小了。"
 
 #: libraries/classes/Advisory/Rules.php:728
-#, fuzzy, no-php-format
-#| msgid ""
-#| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
-#| "tables. Assign all your remaining memory to this buffer. For database "
-#| "servers that use solely InnoDB as storage engine and have no other "
-#| "services (e.g. a web server) running, you may set this as high as 80%% of "
-#| "your available memory. If that is not the case, you need to carefully "
-#| "assess the memory consumption of your other services and non-InnoDB-"
-#| "Tables and set this variable accordingly. If it is set too high, your "
-#| "system will start swapping, which decreases performance significantly. "
-#| "See also <a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
-#| "innodb_buffer_pool_size/\">this article</a>"
+#, no-php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 "tables. Assign all your remaining memory to this buffer. For database "
@@ -1051,13 +1010,14 @@ msgid ""
 "href=\"https://www.percona.com/blog/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
-"InnoDB 緩衝池對 InnoDB 資料表的效能有重大影響。請將剩餘的記憶體分配給此緩衝"
-"區。如果資料庫伺服器僅以 InnoDB 作為儲存引擎，又沒有運行其他服務 (如網頁伺服"
-"器)，可以將最高 80%% 的可用記憶體分配給它。如果情況並非如此，請仔細評估其他服"
-"務和非 InnoDB 資料表的記憶體消耗狀況，並相對應地設定此數值。如果將之定得太"
-"高，系統會開始將記憶體資料置換到磁碟，因而大大降低效能。請參閱<a "
-"href=\"https://www.mysqlperformanceblog.com/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\">這篇文章</a>"
+"InnoDB 緩衝池對 InnoDB "
+"資料表的效能有重大影響。請將剩餘的記憶體分配給此緩衝區。如果資料庫伺服器僅以 "
+"InnoDB 作為儲存引擎，又沒有運行其他服務 (如網頁伺服器)，可以將最高 80% "
+"的可用記憶體分配給它。如果情況並非如此，請仔細評估其他服務和非 InnoDB 資料表"
+"的記憶體消耗狀況，並相對應地設定此數值。如果將之定得太高，系統會開始將記憶體"
+"資料置換到磁碟，因而大大降低效能。請參閱<a href=\"https://www."
+"mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/\""
+">這篇文章</a>"
 
 #: libraries/classes/Advisory/Rules.php:738
 #, php-format
@@ -1117,10 +1077,9 @@ msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr "query_cache_size 已設為 0 或 query_cache_type 已設為 OFF"
 
 #: libraries/classes/Advisory/Rules.php:786
-#, fuzzy, no-php-format
-#| msgid "Query cache efficiency (%%)"
+#, no-php-format
 msgid "Query cache efficiency (%)"
-msgstr "查詢快取效能(%%)"
+msgstr "查詢快取效能(%)"
 
 #: libraries/classes/Advisory/Rules.php:790
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -1140,10 +1099,9 @@ msgid "Query Cache usage"
 msgstr "查詢快取使用狀況"
 
 #: libraries/classes/Advisory/Rules.php:802
-#, fuzzy, no-php-format
-#| msgid "Less than 80%% of the query cache is being utilized."
+#, no-php-format
 msgid "Less than 80% of the query cache is being utilized."
-msgstr "查詢快取的使用比例低於 80%%。"
+msgstr "查詢快取的使用比例低於 80%。"
 
 #: libraries/classes/Advisory/Rules.php:804
 msgid ""
