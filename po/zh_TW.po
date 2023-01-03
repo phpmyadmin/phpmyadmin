@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-09-29 00:17-0300\n"
-"PO-Revision-Date: 2022-03-29 23:06+0000\n"
-"Last-Translator: Eotones <eotones@gmail.com>\n"
+"PO-Revision-Date: 2023-01-04 00:55+0000\n"
+"Last-Translator: yangyangdaji <1504305527@qq.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-2/zh_Hant/>\n"
 "Language: zh_TW\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -537,16 +537,15 @@ msgid "key_buffer_size is 0"
 msgstr "key_buffer_size 為 0"
 
 #: libraries/advisory_rules_generic.php:371
-#, fuzzy, no-php-format
-#| msgid "Max %% MyISAM key buffer ever used"
+#, no-php-format
 msgid "Max % MyISAM key buffer ever used"
-msgstr "MyISAM 鍵值緩衝區最大使用 %%"
+msgstr "MyISAM 鍵值緩衝區最大使用 %"
 
 #: libraries/advisory_rules_generic.php:376
 #: libraries/advisory_rules_generic.php:393
 #, no-php-format
 msgid "MyISAM key buffer (index cache) % used is low."
-msgstr "MyISAM 索引緩衝區 %% 使用率過低。"
+msgstr "MyISAM 鍵值緩衝區 (索引快取) % 使用率過低。"
 
 #: libraries/advisory_rules_generic.php:378
 #: libraries/advisory_rules_generic.php:395
@@ -580,7 +579,7 @@ msgstr "從記憶體中讀取索引的比率"
 #: libraries/advisory_rules_generic.php:409
 #, no-php-format
 msgid "The % of indexes that use the MyISAM key buffer is low."
-msgstr "使用 MyISAM 索引緩衝區的比率太低。"
+msgstr "索引使用 MyISAM 鍵值緩衝區的比率太低。"
 
 #: libraries/advisory_rules_generic.php:410
 msgid "You may need to increase {key_buffer_size}."
@@ -618,8 +617,8 @@ msgstr "已使用檔案開啟限制比率"
 msgid ""
 "The number of open files is approaching the max number of open files. You "
 "may get a \"Too many open files\" error."
-msgstr ""
-"檔案開啟數量接近上限，可能會收到「開啟過多檔案(Too many open files)」的錯誤。"
+msgstr "檔案開啟的數量已接近上限，可能會發生「開啟過多檔案(Too many open "
+"files)」的錯誤。"
 
 #: libraries/advisory_rules_generic.php:437
 #: libraries/advisory_rules_generic.php:450
@@ -652,7 +651,7 @@ msgstr "檔案開啟次數：%s，此值應該低於每小時 5 次"
 #: libraries/advisory_rules_generic.php:459
 #, no-php-format
 msgid "Immediate table locks %"
-msgstr "立即鎖定資料表 %%"
+msgstr "立即資料表鎖定 %"
 
 #: libraries/advisory_rules_generic.php:463
 #: libraries/advisory_rules_generic.php:473
@@ -697,10 +696,9 @@ msgid "The thread cache is set to 0"
 msgstr "執行緒快取目前設定為 0"
 
 #: libraries/advisory_rules_generic.php:490
-#, fuzzy, no-php-format
-#| msgid "Thread cache hit rate %%"
+#, no-php-format
 msgid "Thread cache hit rate %"
-msgstr "執行緒快取命中率 %%"
+msgstr "執行緒快取命中率 %"
 
 #: libraries/advisory_rules_generic.php:494
 msgid "Thread cache is not efficient."
@@ -891,13 +889,14 @@ msgid ""
 "fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"在某些會大量寫入資料到 InnoDB 資料表的系統上，應設定 {innodb_log_file_size} "
-"為 {innodb_buffer_pool_size} 的 25%%。在資料庫當機時，值大小與還原資料庫的使"
-"用時間相關聯，所以這個值不應該高於 256 MB。請注意，若要修改這個值，必須先關閉"
-"伺服器並刪除所有已有的 InnoDB 的記錄檔，再在 my.cnf 設定新的值，然後啟動伺服"
-"器並檢查錯誤記錄查看是否一切順利。請參閱<a href=\"https://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">此部落格文章</a>"
+"特別在某些會大量寫入資料到 InnoDB 資料表的系統上，應設定 "
+"{innodb_log_file_size} 為 {innodb_buffer_pool_size} 的 "
+"25%。不論如何，這個值越大，在資料庫當機時還原資料庫的時間將越長，"
+"所以這個值不應該高於 256 MB。請注意，若要修改這個值，"
+"必須先關閉伺服器並刪除所有已有的 InnoDB 的記錄檔，再在 my.cnf "
+"設定新的值，然後啟動伺服器並檢查錯誤記錄查看是否一切順利。請參閱<a href="
+"\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">此部落格文章</a>"
 
 #: libraries/advisory_rules_generic.php:626
 #: libraries/advisory_rules_generic.php:653
@@ -928,14 +927,14 @@ msgid ""
 "href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"通常將 {innodb_log_file_size} 設為 {innodb_buffer_pool_size} 的 25%% 就足夠。"
+"通常將 {innodb_log_file_size} 設為 {innodb_buffer_pool_size} 的 25% 就足夠。"
 "過大的 {innodb_log_file_size} 會增加資料庫當機後資料還原的時間，請參閱<a "
-"href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\">此篇文章</a>。若要修改這個值，必須先關閉伺服器並刪除"
-"所有已有的 InnoDB 的記錄檔，再在 my.cnf 設定新的值，然後啟動伺服器並檢查錯誤"
-"記錄查看是否一切順利。請參閱<a href=\"https://mysqldatabaseadministration."
-"blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html\">此部落格文"
-"章</a>"
+"href=\"https://www.percona.com/blog/2006/07/03/"
+"choosing-proper-innodb_log_file_size/\">此篇文章</a>。若要修改這個值，"
+"必須先關閉伺服器並刪除所有已有的 InnoDB 的記錄檔，再在 my.cnf "
+"設定新的值，然後啟動伺服器並檢查錯誤記錄查看是否一切順利。請參閱<a href="
+"\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">此部落格文章</a>"
 
 #: libraries/advisory_rules_generic.php:676
 #, php-format
@@ -964,13 +963,14 @@ msgid ""
 "href=\"https://www.percona.com/blog/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
-"InnoDB 緩衝區對 InnoDB 資料表的效能有重大影響。請將剩餘的記憶體分配給此緩衝"
-"區。如果資料庫伺服器僅以 InnoDB 作為儲存引擎，又沒有運行其他服務 (如網頁伺服"
-"器)，可以將最高 80%% 的可用記憶體分配給它。如果情況並非如此，請仔細評估其他服"
-"務和非 InnoDB 資料表的記憶體消耗狀況，並相對應地設定此數值。如果將之定得太"
-"高，系統會開始將記憶體資料置換到磁碟，因而大大降低效能。請參閱<a "
-"href=\"https://www.mysqlperformanceblog.com/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\">這篇文章</a>"
+"InnoDB 緩衝池對 InnoDB "
+"資料表的效能有重大影響。請將剩餘的記憶體分配給此緩衝區。如果資料庫伺服器僅以 "
+"InnoDB 作為儲存引擎，又沒有運行其他服務 (如網頁伺服器)，可以將最高 80% "
+"的可用記憶體分配給它。如果情況並非如此，請仔細評估其他服務和非 InnoDB 資料表"
+"的記憶體消耗狀況，並相對應地設定此數值。如果將之定得太高，系統會開始將記憶體"
+"資料置換到磁碟，因而大大降低效能。請參閱<a href=\"https://www."
+"mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/\""
+">這篇文章</a>"
 
 #: libraries/advisory_rules_generic.php:697
 #, php-format
@@ -1054,7 +1054,7 @@ msgstr "查詢快取使用狀況"
 #: libraries/advisory_rules_mysql_before80003.php:39
 #, no-php-format
 msgid "Less than 80% of the query cache is being utilized."
-msgstr "查詢快取的使用低於 80%。"
+msgstr "查詢快取的使用比例低於 80%。"
 
 #: libraries/advisory_rules_mysql_before80003.php:41
 msgid ""
