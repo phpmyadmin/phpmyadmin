@@ -381,6 +381,7 @@ class Header
             'show_hint' => $GLOBALS['cfg']['ShowHint'],
             'is_warnings_enabled' => $this->warningsEnabled,
             'is_menu_enabled' => $this->menuEnabled,
+            'is_logged_in' => isset($GLOBALS['dbi']) ? $GLOBALS['dbi']->isConnected() : false,
             'menu' => $menu ?? '',
             'console' => $console,
             'messages' => $messages,

@@ -17,6 +17,7 @@ class KeyTest extends AbstractTestCase
     {
         $twoFactor = $this->createStub(TwoFactor::class);
         $twoFactor->config = [
+            'backend' => 'key',
             'settings' => [
                 'registrations' => [
                     [

@@ -2123,6 +2123,9 @@
     <InvalidArrayOffset occurrences="1">
       <code>$GLOBALS['cfg']['AllowUserDropDatabase']</code>
     </InvalidArrayOffset>
+    <InvalidOperand occurrences="1">
+      <code>$GLOBALS['maximum_time']</code>
+    </InvalidOperand>
     <MixedArgument occurrences="13">
       <code>$GLOBALS['cfg']['AllowUserDropDatabase']</code>
       <code>$GLOBALS['cfg']['MemoryLimit']</code>
@@ -11513,14 +11516,6 @@
       <code>$secret</code>
       <code>$this-&gt;twofactor-&gt;config['settings']['secret']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="2">
-      <code>$this-&gt;twofactor-&gt;config['settings']['secret']</code>
-      <code>$this-&gt;twofactor-&gt;config['settings']['secret']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;twofactor-&gt;config['settings']['secret']</code>
-      <code>$this-&gt;twofactor-&gt;config['settings']['secret']</code>
-    </MixedArrayAssignment>
     <MixedAssignment occurrences="1">
       <code>$secret</code>
     </MixedAssignment>
@@ -11541,17 +11536,15 @@
       <code>$_SESSION['authenticationRequest']</code>
       <code>$_SESSION['registrationRequest']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="5">
+    <MixedArrayAccess occurrences="4">
       <code>$data['certificate']</code>
       <code>$data['counter']</code>
       <code>$data['keyHandle']</code>
       <code>$data['publicKey']</code>
-      <code>$this-&gt;twofactor-&gt;config['settings']['registrations']</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$this-&gt;twofactor-&gt;config['settings']['registrations']</code>
-      <code>$this-&gt;twofactor-&gt;config['settings']['registrations']</code>
-      <code>$this-&gt;twofactor-&gt;config['settings']['registrations']</code>
+    <MixedArrayAssignment occurrences="2">
+      <code>$this-&gt;twofactor-&gt;config['settings']['registrations'][$auth-&gt;index]</code>
+      <code>$this-&gt;twofactor-&gt;config['settings']['registrations'][]</code>
     </MixedArrayAssignment>
     <MixedArrayOffset occurrences="1">
       <code>$this-&gt;twofactor-&gt;config['settings']['registrations'][$auth-&gt;index]</code>
@@ -13731,22 +13724,12 @@
     <LessSpecificReturnStatement occurrences="1">
       <code>new $name($this)</code>
     </LessSpecificReturnStatement>
-    <MixedArgument occurrences="2">
+    <MixedArgument occurrences="1">
       <code>$name</code>
-      <code>$this-&gt;config['backend']</code>
     </MixedArgument>
-    <MixedArrayAssignment occurrences="3">
-      <code>$result['backend']</code>
-      <code>$result['settings']</code>
-      <code>$result['type']</code>
-    </MixedArrayAssignment>
-    <MixedAssignment occurrences="2">
+    <MixedAssignment occurrences="1">
       <code>$name</code>
-      <code>$result</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>array</code>
-    </MixedInferredReturnType>
     <MixedMethodCall occurrences="6">
       <code>$cls::getDescription()</code>
       <code>$cls::getName()</code>
@@ -13755,9 +13738,6 @@
       <code>new $cls($this)</code>
       <code>new $name($this)</code>
     </MixedMethodCall>
-    <MixedReturnStatement occurrences="1">
-      <code>$result</code>
-    </MixedReturnStatement>
     <MoreSpecificReturnType occurrences="1">
       <code>TwoFactorPlugin</code>
     </MoreSpecificReturnType>
@@ -15979,11 +15959,6 @@
       <code>$object-&gt;config['settings']['secret']</code>
       <code>$object-&gt;config['settings']['secret']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="3">
-      <code>$object-&gt;config['settings']['secret']</code>
-      <code>$object-&gt;config['settings']['secret']</code>
-      <code>$object-&gt;config['settings']['secret']</code>
-    </MixedArrayAccess>
   </file>
   <file src="test/classes/TypesTest.php">
     <MixedInferredReturnType occurrences="5">

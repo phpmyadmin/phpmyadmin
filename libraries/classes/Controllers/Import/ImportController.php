@@ -306,6 +306,7 @@ final class ImportController extends AbstractController
         $GLOBALS['timestamp'] = time();
         if ($request->hasBodyParam('allow_interrupt')) {
             $GLOBALS['maximum_time'] = ini_get('max_execution_time');
+            $GLOBALS['maximum_time'] -= 1; // Give 1 second for phpMyAdmin to exit nicely
         } else {
             $GLOBALS['maximum_time'] = 0;
         }

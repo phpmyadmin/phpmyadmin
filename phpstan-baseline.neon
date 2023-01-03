@@ -1406,6 +1406,11 @@ parameters:
 			path: libraries/classes/Controllers/HomeController.php
 
 		-
+			message: "#^Binary operation \"\\-\\=\" between string\\|false and 1 results in an error\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Import/ImportController.php
+
+		-
 			message: "#^Cannot cast mixed to int\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Import/ImportController.php
@@ -6841,6 +6846,46 @@ parameters:
 			path: libraries/classes/Plugins/TransformationsPlugin.php
 
 		-
+			message: "#^Parameter \\#1 \\$secret of method PragmaRX\\\\Google2FA\\\\Google2FA\\:\\:verifyKey\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/TwoFactor/Application.php
+
+		-
+			message: "#^Parameter \\#3 \\$secret of method PragmaRX\\\\Google2FAQRCode\\\\Google2FA\\:\\:getQRCodeInline\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/TwoFactor/Application.php
+
+		-
+			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/TwoFactor/Key.php
+
+		-
+			message: "#^Cannot access an offset on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/TwoFactor/Key.php
+
+		-
+			message: "#^Cannot access offset 'certificate' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/TwoFactor/Key.php
+
+		-
+			message: "#^Cannot access offset 'counter' on mixed\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/TwoFactor/Key.php
+
+		-
+			message: "#^Cannot access offset 'keyHandle' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/TwoFactor/Key.php
+
+		-
+			message: "#^Cannot access offset 'publicKey' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/TwoFactor/Key.php
+
+		-
 			message: "#^Parameter \\#1 \\$registrations of static method CodeLts\\\\U2F\\\\U2FServer\\\\U2FServer\\:\\:makeAuthentication\\(\\) expects array\\<CodeLts\\\\U2F\\\\U2FServer\\\\stdClass\\>, array\\<stdClass\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/TwoFactor/Key.php
@@ -7806,11 +7851,6 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Sql\\:\\:getDetailedProfilingStats\\(\\) should return array\\<string, array\\|int\\> but returns array\\<string, array\\<int\\|string, mixed\\>\\|float\\|int\\>\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Sql\\:\\:getHtmlForPreviousUpdateQuery\\(\\) has parameter \\$sqlData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
@@ -8676,11 +8716,6 @@ parameters:
 			path: libraries/classes/TwoFactor.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\TwoFactor\\:\\:readConfig\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/TwoFactor.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\TwoFactor\\:\\:\\$available type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/TwoFactor.php
@@ -8688,11 +8723,6 @@ parameters:
 		-
 			message: "#^Property PhpMyAdmin\\\\TwoFactor\\:\\:\\$backend \\(PhpMyAdmin\\\\Plugins\\\\TwoFactorPlugin\\) does not accept object\\.$#"
 			count: 2
-			path: libraries/classes/TwoFactor.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\TwoFactor\\:\\:\\$config type has no value type specified in iterable type array\\.$#"
-			count: 1
 			path: libraries/classes/TwoFactor.php
 
 		-
@@ -8742,11 +8772,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\UserPreferences\\:\\:apply\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/UserPreferences.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\UserPreferences\\:\\:load\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/UserPreferences.php
 
@@ -11313,6 +11338,11 @@ parameters:
 		-
 			message: "#^Missing call to parent\\:\\:tearDown\\(\\) method\\.$#"
 			count: 1
+			path: test/classes/TwoFactorTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$secret of method PragmaRX\\\\Google2FA\\\\Google2FA\\:\\:oathTotp\\(\\) expects string, mixed given\\.$#"
+			count: 2
 			path: test/classes/TwoFactorTest.php
 
 		-

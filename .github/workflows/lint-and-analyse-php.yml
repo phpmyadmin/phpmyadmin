@@ -27,7 +27,7 @@ jobs:
           php-version: ${{ matrix.php-version }}
 
       - name: Validate composer.json and composer.lock
-        run: composer validate
+        run: composer validate --strict
 
       - name: Install Composer dependencies
         # Allow the previous check to fail but not abort
