@@ -399,6 +399,7 @@
             xml_export_triggers: bool,
             xml_export_views: bool
         }"/>
+        <var name="maximum_time" type="0|positive-int"/>
         <var name="PMA_PHP_SELF" type="string"/>
     </globals>
 </psalm>

@@ -8011,11 +8011,6 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Sql\\:\\:getDetailedProfilingStats\\(\\) should return array\\<string, array\\|int\\> but returns array\\<string, array\\<int\\|string, mixed\\>\\|float\\|int\\>\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Sql\\:\\:getHtmlForPreviousUpdateQuery\\(\\) has parameter \\$sqlData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php

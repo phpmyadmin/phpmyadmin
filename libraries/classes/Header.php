@@ -398,6 +398,7 @@ class Header
 
         $console = $this->console->getDisplay();
         $messages = $this->getMessage();
+        $isLoggedIn = isset($GLOBALS['dbi']) && $GLOBALS['dbi']->isConnected();
 
         return $this->template->render('header', [
             'lang' => $GLOBALS['lang'],
@@ -416,7 +417,7 @@ class Header
             'show_hint' => $GLOBALS['cfg']['ShowHint'],
             'is_warnings_enabled' => $this->warningsEnabled,
             'is_menu_enabled' => $this->menuEnabled,
-            'is_logged_in' => isset($dbi) ? $dbi->isConnected() : false,
+            'is_logged_in' => $isLoggedIn,
             'menu' => $menu ?? '',
             'console' => $console,
             'messages' => $messages,

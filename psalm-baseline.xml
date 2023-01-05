@@ -7907,7 +7907,7 @@
       <code>getExtension</code>
       <code>getProperties</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="24">
+    <MixedOperand occurrences="23">
       <code>$charset</code>
       <code>$charset</code>
       <code>$collation</code>
@@ -7916,7 +7916,6 @@
       <code>$display_query</code>
       <code>$executed_queries</code>
       <code>$importPlugin-&gt;getProperties()-&gt;getExtension()</code>
-      <code>$maximum_time</code>
       <code>$msg</code>
       <code>$read_multiply</code>
       <code>$read_multiply</code>
