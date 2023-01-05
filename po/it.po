@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-01-01 00:20+0000\n"
-"PO-Revision-Date: 2022-09-28 09:22+0000\n"
-"Last-Translator: Giovanni Vella <giovanni.vella98@gmail.com>\n"
+"PO-Revision-Date: 2023-01-07 14:25+0000\n"
+"Last-Translator: Marco Marchiò <marcomarchi89@hotmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/it/>\n"
 "Language: it\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:241
 #, php-format
@@ -3496,10 +3496,8 @@ msgid "Remember filename template"
 msgstr "Ricorda il modello per i nomi dei file"
 
 #: libraries/classes/Config/Descriptions.php:706
-#, fuzzy
-#| msgid "Remove columns from central list"
 msgid "Remove DEFINER clause from definitions"
-msgstr "Rimuove campi dalla lista centrale"
+msgstr "Rimuovi la clausola DEFINER dalle definizioni"
 
 #: libraries/classes/Config/Descriptions.php:707
 #: templates/database/operations/index.twig:160
@@ -5142,7 +5140,7 @@ msgstr "Mostro le righe %1$s - %2$s."
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
-msgstr ""
+msgstr "Esiste già una pagina chiamata \"%s\" per favore scegli un altro nome."
 
 #: libraries/classes/Controllers/Database/ExportController.php:84
 #: libraries/classes/Controllers/Database/TrackingController.php:133
@@ -5216,6 +5214,8 @@ msgid ""
 "Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
 "code] configuration."
 msgstr ""
+"La ricerca all'interno del database è disabilitata dalla configurazione "
+"[code]$cfg['UseDbSearch'][/code]."
 
 #: libraries/classes/Controllers/Database/Structure/AddPrefixController.php:20
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:45
@@ -5451,6 +5451,9 @@ msgid ""
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"Il file di configurazione necessita una chiave valida per criptare i "
+"cookies. Una chiave temporanea è stata generata automaticamente per te. Per "
+"favore consulta la [doc@cfg_blowfish_secret]documentazione[/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:335
 #, php-format
@@ -5459,6 +5462,9 @@ msgid ""
 "necessary. It should only be %d bytes long. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"La chiave per criptare i cookie nel file di configurazione è più lunga del "
+"necessario. Deve essere lunga al massimo %d bytes. Per favore consulta la "
+"[doc@cfg_blowfish_secret]documentazione[/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:353
 msgid ""
@@ -5521,10 +5527,8 @@ msgstr ""
 "Fai riferimento alla %sdocumentazione%s se desideri aggirare questo limite."
 
 #: libraries/classes/Controllers/Import/ImportController.php:252
-#, fuzzy
-#| msgid "Incorrect form specified!"
 msgid "Incorrect format parameter"
-msgstr "Modulo errato!"
+msgstr "Parametro formato incorretto."
 
 #: libraries/classes/Controllers/Import/ImportController.php:381
 #: libraries/classes/Controllers/Import/ImportController.php:622
@@ -7636,9 +7640,9 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
-"Non puoi aprire, salvare o eliminare il tuo layout di pagina in quanto "
-"IndexedDB non funziona nel tuo browser e la tua configurazione di phpMyAdmin "
-"non lo consente."
+"Non puoi aprire, salvare o eliminare il tuo layout di pagina perchè "
+"IndexedDB non funziona sul tuo browser e la tua modalità di memorizzazione "
+"della configurazione di phpMyAdmin  non è configurata per questo."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:709
 #, php-format
@@ -8050,17 +8054,11 @@ msgstr ""
 "tipo BINARY, VARBINARY, o BLOB."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:858
-#, fuzzy
-#| msgid ""
-#| "The file being uploaded is probably larger than the maximum allowed size "
-#| "or this is a known bug in webkit based (Safari, Google Chrome, Arora "
-#| "etc.) browsers."
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size."
 msgstr ""
 "Il file che viene caricato è probabilmente più grande della dimensione "
-"massima consentita o questo è un bug noto in browser basati su WebKit "
-"(Safari, Google Chrome, Arora, ecc.)."
+"massima consentita."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:860
 #, php-format
@@ -9121,10 +9119,8 @@ msgstr "Vista"
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:41
 #: libraries/classes/Controllers/Table/Partition/RepairController.php:41
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:41
-#, fuzzy
-#| msgid "The table name must be a non-empty string."
 msgid "The partition name must be a non-empty string."
-msgstr "Il nome della tabella deve essere una stringa non vuota."
+msgstr "Il nome della partizione deve essere una stringa non vuota."
 
 #: libraries/classes/Controllers/Table/Partition/DropController.php:61
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:61
@@ -13860,10 +13856,8 @@ msgstr ""
 "di indirizzi IPv6"
 
 #: libraries/classes/Types.php:445
-#, fuzzy
-#| msgid "Stores a Universally Unique Identifier (UUID)"
 msgid "128-bit UUID (Universally Unique Identifier)"
-msgstr "Archivia un identificatore univoco universale (UUID)"
+msgstr "128-bit UUID (Identificatore Univoco Universale)"
 
 #: libraries/classes/Types.php:801
 msgctxt "numeric types"
@@ -13899,8 +13893,8 @@ msgstr "Impossibile salvare la configurazione"
 #: libraries/classes/UserPreferences.php:193
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr ""
-"Impossibile accedere al database di memorizzazione della configurazione di "
-"phpMyAdmin."
+"Non è possibile accedere al database di memorizzazione della configurazione "
+"di phpMyAdmin."
 
 #: libraries/classes/Util.php:131
 #, php-format
@@ -14619,10 +14613,8 @@ msgstr "L'elenco centrale di colonne per il database corrente è vuoto"
 
 #: templates/database/central_columns/main.twig:168
 #: templates/display/results/table.twig:139
-#, fuzzy
-#| msgid "Filter rows"
 msgid "Filter rows:"
-msgstr "Filtra righe"
+msgstr "Filtra righe:"
 
 #: templates/database/central_columns/main.twig:171
 #: templates/display/results/table.twig:143
@@ -15927,15 +15919,13 @@ msgid "Send error report"
 msgstr "Invia rapporto di errore"
 
 #: templates/error/simple.twig:2
-#, fuzzy
-#| msgid "Something went wrong."
 msgid "Something went wrong"
-msgstr "Qualcosa è andata storta."
+msgstr "Qualcosa è andato storto"
 
 #: templates/error/simple.twig:7 templates/modals/index_dialog_modal.twig:30
 #: templates/table/structure/display_structure.twig:363
 msgid "Go back"
-msgstr ""
+msgstr "Indietro"
 
 #: templates/export/template_options.twig:1 templates/export.twig:42
 msgid "Select a template"
@@ -16375,7 +16365,7 @@ msgstr "Attenzione"
 
 #: templates/home/index.twig:282
 msgid "Notice"
-msgstr ""
+msgstr "Avviso"
 
 #: templates/home/index.twig:295
 msgid "phpMyAdmin Themes"
@@ -17231,10 +17221,8 @@ msgid "Grant all privileges on database %s."
 msgstr "Garantisci tutti i privilegi per il database %s."
 
 #: templates/server/privileges/add_user.twig:38
-#, fuzzy
-#| msgid "Create %s"
 msgid "Create user"
-msgstr "Crea %s"
+msgstr "Crea utente"
 
 #: templates/server/privileges/change_password.twig:18
 msgid "No Password"
@@ -17577,10 +17565,8 @@ msgstr ""
 "soggetto."
 
 #: templates/server/privileges/privileges_table.twig:878
-#, fuzzy
-#| msgid "Adjust privileges"
 msgid "Update user privileges"
-msgstr "Adatta Privilegi"
+msgstr "Aggiorna privilegi utente"
 
 #: templates/server/privileges/subnav.twig:5
 #: templates/server/privileges/user_overview.twig:5
@@ -18948,7 +18934,7 @@ msgstr "specifico di tabella"
 
 #: templates/table/relation/common_form.twig:9
 msgid "Foreign key constraints"
-msgstr "Vincoli della foreign key"
+msgstr "Vincoli di chiave esterna"
 
 #: templates/table/relation/common_form.twig:14
 msgid "Actions"
@@ -18977,7 +18963,7 @@ msgstr ""
 
 #: templates/table/relation/common_form.twig:28
 msgid "Foreign key constraint"
-msgstr "Vincolo della chiave esterna"
+msgstr "Vincolo di chiave esterna"
 
 #: templates/table/relation/common_form.twig:44
 msgid "+ Add constraint"
