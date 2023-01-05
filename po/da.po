@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-11-18 12:59+0000\n"
+"PO-Revision-Date: 2023-01-07 14:24+0000\n"
 "Last-Translator: Henrik Dankvardt <dankvardt@gmail.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/4-9/da/"
 ">\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -14728,10 +14728,9 @@ msgid "See table structure"
 msgstr "Se tabelstruktur"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Vælg alt"
+msgstr "Vælg \"%s\""
 
 #: templates/database/designer/database_tables.twig:126
 #, php-format
@@ -14740,10 +14739,9 @@ msgstr "Tilføj mulighed for kolonnen \"%s\"."
 
 #: templates/display/export/options_output_save_dir.twig:5
 #: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Gem på serveren i mappen <b>%s</b>"
+msgstr "Gem på serveren i mappen <strong>%s</strong>"
 
 #: templates/login/twofactor.twig:5
 msgid "Verify"
