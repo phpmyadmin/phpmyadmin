@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-09-29 00:17-0300\n"
-"PO-Revision-Date: 2022-12-28 01:56+0000\n"
+"PO-Revision-Date: 2023-01-06 10:46+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/mk/>\n"
@@ -572,9 +572,8 @@ msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr "Индекс читања од меморија: %s%%, оваа вредност треба да биде над 95%%"
 
 #: libraries/advisory_rules_generic.php:417
-#, fuzzy
 msgid "Rate of table open"
-msgstr "Направи нова страница"
+msgstr "Рата на отварање на табели"
 
 #: libraries/advisory_rules_generic.php:420
 msgid "The rate of opening tables is high."
@@ -664,9 +663,8 @@ msgstr ""
 "помала од 1 на саат"
 
 #: libraries/advisory_rules_generic.php:480
-#, fuzzy
 msgid "Thread cache"
-msgstr "Вид на упит"
+msgstr "Кеш за тредови"
 
 #: libraries/advisory_rules_generic.php:483
 msgid ""
@@ -11398,10 +11396,9 @@ msgid "PDF export page"
 msgstr "Тип на извоз"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:135
-#, fuzzy, php-format
-#| msgid "Schema of the \"%s\" database - Page %s"
+#, php-format
 msgid "Schema of the %s database"
-msgstr "Шема на базата \"%s\" - Страница %s"
+msgstr "Шема на %s датабаза"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:163
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:541
@@ -11906,11 +11903,9 @@ msgid "Unknown error"
 msgstr ""
 
 #: libraries/classes/ReplicationGui.php:520
-#, fuzzy, php-format
+#, php-format
 msgid "Unable to connect to primary %s."
-msgstr ""
-"Го ограничува бројот на нови конекции кои корисникот може да ги отвори за "
-"еден час."
+msgstr "Не успеа да се конектира со главниот %s."
 
 #: libraries/classes/ReplicationGui.php:530
 msgid ""
@@ -11922,10 +11917,9 @@ msgid "Unable to change primary!"
 msgstr ""
 
 #: libraries/classes/ReplicationGui.php:552
-#, fuzzy, php-format
-#| msgid "The privileges were reloaded successfully."
+#, php-format
 msgid "Primary server changed successfully to %s."
-msgstr "Привилегиите се успешно вчитани."
+msgstr "Главниот сервер успешно се промени во %s."
 
 #: libraries/classes/Routing.php:103
 #, php-format
