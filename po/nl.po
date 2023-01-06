@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-09-29 00:17-0300\n"
-"PO-Revision-Date: 2022-11-14 11:47+0000\n"
-"Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
+"PO-Revision-Date: 2023-01-06 10:46+0000\n"
+"Last-Translator: theking2 <theking2@king.ma>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/5-2/nl/>"
 "\n"
 "Language: nl\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -8865,8 +8865,10 @@ msgstr "Gebeurtenis bewerken"
 #: libraries/classes/Database/Events.php:404
 #: libraries/classes/Database/Routines.php:984
 #: libraries/classes/Database/Triggers.php:381
+#, fuzzy
 msgid "The definer must be in the \"username@hostname\" format!"
-msgstr "De naam moet het formaat \"gebruikersnaam@computernaam\" hebben!"
+msgstr ""
+"De gebruikersnaam moet het formaat \"gebruikersnaam@computernaam\" hebben!"
 
 #: libraries/classes/Database/Events.php:412
 msgid "You must provide an event name!"
@@ -14598,8 +14600,9 @@ msgstr "Na afloop behouden"
 #: templates/database/routines/editor_form.twig:138
 #: templates/database/triggers/editor_form.twig:61
 #: templates/view_create.twig:45
+#, fuzzy
 msgid "Definer"
-msgstr "Naam"
+msgstr "Gebruikersnaam"
 
 #: templates/database/events/index.twig:13
 #: templates/database/privileges/index.twig:113
@@ -18720,7 +18723,7 @@ msgstr "tabel-specifiek"
 
 #: templates/table/relation/common_form.twig:9
 msgid "Foreign key constraints"
-msgstr "Externe sleutel beperkingen"
+msgstr "Externe sleutelbeperkingen"
 
 #: templates/table/relation/common_form.twig:14
 msgid "Actions"
@@ -18749,7 +18752,7 @@ msgstr ""
 
 #: templates/table/relation/common_form.twig:28
 msgid "Foreign key constraint"
-msgstr "Externe sleutel beperking"
+msgstr "Externe sleutelbeperking"
 
 #: templates/table/relation/common_form.twig:93
 msgid "+ Add constraint"
