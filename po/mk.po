@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-12-28 01:53+0000\n"
+"PO-Revision-Date: 2023-01-07 14:25+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -10120,10 +10120,9 @@ msgid "PDF export page"
 msgstr "Тип на извоз"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:102
-#, fuzzy, php-format
-#| msgid "Schema of the \"%s\" database - Page %s"
+#, php-format
 msgid "Schema of the %s database"
-msgstr "Шема на базата \"%s\" - Страница %s"
+msgstr "Шема на %s датабаза"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:130
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:525
@@ -12119,10 +12118,9 @@ msgid "The user %s already exists!"
 msgstr "Корисник %s веќе постои!"
 
 #: libraries/classes/Server/Privileges.php:4469
-#, fuzzy, php-format
-#| msgid "Privileges"
+#, php-format
 msgid "Privileges for %s"
-msgstr "Привилегии"
+msgstr "Привилегии на %s"
 
 #: libraries/classes/Server/Privileges.php:4478
 #: libraries/classes/Server/Status/Processes.php:69
@@ -13500,14 +13498,14 @@ msgid "Unknown table status:"
 msgstr "Непознат статус на табела:"
 
 #: libraries/classes/Table.php:911
-#, fuzzy, php-format
+#, php-format
 msgid "Source database `%s` was not found!"
-msgstr "Пребарување низ базата на податоци"
+msgstr "Изворната датабаза `%s` не се најде!"
 
 #: libraries/classes/Table.php:919
-#, fuzzy, php-format
+#, php-format
 msgid "Target database `%s` was not found!"
-msgstr "Пребарување низ базата на податоци"
+msgstr "Целната датабаза `%s` не се најде!"
 
 #: libraries/classes/Table.php:1462
 msgid "Invalid database:"
@@ -13520,15 +13518,14 @@ msgid "Invalid table name:"
 msgstr "во табела(и):"
 
 #: libraries/classes/Table.php:1514
-#, fuzzy, php-format
+#, php-format
 msgid "Failed to rename table %1$s to %2$s!"
-msgstr "Верзија на серверот"
+msgstr "Не успеа да се преимени табелата %1$s во %2$s!"
 
 #: libraries/classes/Table.php:1533
-#, fuzzy, php-format
-#| msgid "Table %s has been renamed to %s."
+#, php-format
 msgid "Table %1$s has been renamed to %2$s."
-msgstr "Табелата %s е преименувана во %s"
+msgstr "Табелата %1$s беше преименувана во %2$s."
 
 #: libraries/classes/Table.php:1767
 msgid "Could not save table UI preferences!"
@@ -13567,10 +13564,9 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 
 #: libraries/classes/Template.php:127
-#, fuzzy, php-format
-#| msgid "Allows reading data."
+#, php-format
 msgid "Error while working with template cache: %s"
-msgstr "Дозволува читање на податоци."
+msgstr "Грешка при работење со кеш шаблон: %s"
 
 #: libraries/classes/Theme.php:186
 #, php-format
@@ -13720,9 +13716,9 @@ msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr ""
 
 #: libraries/classes/Tracking.php:986
-#, fuzzy, php-format
+#, php-format
 msgid "Version %1$s of %2$s was deleted."
-msgstr "Верзија на серверот"
+msgstr "Верзијата %1$s на %2$s беше избришана."
 
 #: libraries/classes/Tracking.php:1017
 #, php-format
@@ -17584,9 +17580,8 @@ msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr "Индекс читања од меморија: %s%%, оваа вредност треба да биде над 95%%"
 
 #: libraries/advisory_rules_generic.txt:259
-#, fuzzy
 msgid "Rate of table open"
-msgstr "Направи нова страница"
+msgstr "Рата на отварање на табели"
 
 #: libraries/advisory_rules_generic.txt:262
 msgid "The rate of opening tables is high."
@@ -17677,9 +17672,8 @@ msgstr ""
 "помала од 1 на саат"
 
 #: libraries/advisory_rules_generic.txt:294
-#, fuzzy
 msgid "Thread cache"
-msgstr "Вид на упит"
+msgstr "Кеш за тредови"
 
 #: libraries/advisory_rules_generic.txt:297
 msgid ""
