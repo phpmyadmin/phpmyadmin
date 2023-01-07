@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-09-29 00:17-0300\n"
-"PO-Revision-Date: 2023-01-06 10:46+0000\n"
+"PO-Revision-Date: 2023-01-07 14:25+0000\n"
 "Last-Translator: theking2 <theking2@king.ma>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/5-2/nl/>"
 "\n"
@@ -8865,7 +8865,6 @@ msgstr "Gebeurtenis bewerken"
 #: libraries/classes/Database/Events.php:404
 #: libraries/classes/Database/Routines.php:984
 #: libraries/classes/Database/Triggers.php:381
-#, fuzzy
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr ""
 "De gebruikersnaam moet het formaat \"gebruikersnaam@computernaam\" hebben!"
