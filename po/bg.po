@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-01-01 00:20+0000\n"
+"POT-Creation-Date: 2023-01-08 00:20+0000\n"
 "PO-Revision-Date: 2022-08-19 10:18+0000\n"
 "Last-Translator: Пламен <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -5049,7 +5049,7 @@ msgstr ""
 "инсталацията!"
 
 #: libraries/classes/Controllers/Database/ImportController.php:79
-#: libraries/classes/Controllers/Import/ImportController.php:582
+#: libraries/classes/Controllers/Import/ImportController.php:583
 #: libraries/classes/Controllers/Server/ImportController.php:60
 #: libraries/classes/Controllers/Table/ImportController.php:71
 msgid "Could not load import plugins, please check your installation!"
@@ -5407,17 +5407,17 @@ msgstr ""
 msgid "Incorrect format parameter"
 msgstr "Изтриване на последен параметър"
 
-#: libraries/classes/Controllers/Import/ImportController.php:381
-#: libraries/classes/Controllers/Import/ImportController.php:622
+#: libraries/classes/Controllers/Import/ImportController.php:382
+#: libraries/classes/Controllers/Import/ImportController.php:623
 msgid "Showing bookmark"
 msgstr "Показване на белязка"
 
-#: libraries/classes/Controllers/Import/ImportController.php:406
-#: libraries/classes/Controllers/Import/ImportController.php:618
+#: libraries/classes/Controllers/Import/ImportController.php:407
+#: libraries/classes/Controllers/Import/ImportController.php:619
 msgid "The bookmark has been deleted."
 msgstr "Белязката беше изтрита."
 
-#: libraries/classes/Controllers/Import/ImportController.php:528
+#: libraries/classes/Controllers/Import/ImportController.php:529
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5427,14 +5427,14 @@ msgstr ""
 "по-голям от разрешеното в конфигурацията на PHP. Вижте [doc@faq1-16]ЧЗВ "
 "1.16[/doc]."
 
-#: libraries/classes/Controllers/Import/ImportController.php:630
+#: libraries/classes/Controllers/Import/ImportController.php:631
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Импортирането приключи успешно, беше изпълнена %d заявка."
 msgstr[1] "Импортирането приключи успешно, бяха изпълнени %d заявки."
 
-#: libraries/classes/Controllers/Import/ImportController.php:667
+#: libraries/classes/Controllers/Import/ImportController.php:668
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5443,7 +5443,7 @@ msgstr ""
 "Времето за изчакване на скрипта изтече, ако искате да завършите импорта,моля "
 "пуснете (%s) отново същия файл (%s) и той ще си продължи."
 
-#: libraries/classes/Controllers/Import/ImportController.php:677
+#: libraries/classes/Controllers/Import/ImportController.php:678
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5452,7 +5452,7 @@ msgstr ""
 "обикновено означава, че phpMyAdmin няма да бъде в състояние да завърши този "
 "импорт, освен ако не бъдат увеличени времевите ограничения в PHP."
 
-#: libraries/classes/Controllers/Import/ImportController.php:745
+#: libraries/classes/Controllers/Import/ImportController.php:746
 #: libraries/classes/Controllers/Sql/SqlController.php:176
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" заявката е забранена."
@@ -12238,11 +12238,11 @@ msgid ""
 "Google Authenticator or Authy."
 msgstr ""
 
-#: libraries/classes/Plugins/TwoFactor/Key.php:204
+#: libraries/classes/Plugins/TwoFactor/Key.php:208
 msgid "Hardware Security Key (FIDO U2F)"
 msgstr ""
 
-#: libraries/classes/Plugins/TwoFactor/Key.php:214
+#: libraries/classes/Plugins/TwoFactor/Key.php:218
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a Yubikey."

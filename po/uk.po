@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-01-01 00:20+0000\n"
+"POT-Creation-Date: 2023-01-08 00:20+0000\n"
 "PO-Revision-Date: 2022-11-12 14:50+0000\n"
 "Last-Translator: Tlsn <developer216@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -5063,7 +5063,7 @@ msgstr ""
 "Відсутні плагіни експорту. Будь ласка, перевірте правильність установки!"
 
 #: libraries/classes/Controllers/Database/ImportController.php:79
-#: libraries/classes/Controllers/Import/ImportController.php:582
+#: libraries/classes/Controllers/Import/ImportController.php:583
 #: libraries/classes/Controllers/Server/ImportController.php:60
 #: libraries/classes/Controllers/Table/ImportController.php:71
 msgid "Could not load import plugins, please check your installation!"
@@ -5421,17 +5421,17 @@ msgstr ""
 msgid "Incorrect format parameter"
 msgstr "Неправильний параметр формату"
 
-#: libraries/classes/Controllers/Import/ImportController.php:381
-#: libraries/classes/Controllers/Import/ImportController.php:622
+#: libraries/classes/Controllers/Import/ImportController.php:382
+#: libraries/classes/Controllers/Import/ImportController.php:623
 msgid "Showing bookmark"
 msgstr "Показані закладки"
 
-#: libraries/classes/Controllers/Import/ImportController.php:406
-#: libraries/classes/Controllers/Import/ImportController.php:618
+#: libraries/classes/Controllers/Import/ImportController.php:407
+#: libraries/classes/Controllers/Import/ImportController.php:619
 msgid "The bookmark has been deleted."
 msgstr "Закладка видалена."
 
-#: libraries/classes/Controllers/Import/ImportController.php:528
+#: libraries/classes/Controllers/Import/ImportController.php:529
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5441,7 +5441,7 @@ msgstr ""
 "допустимий максимум для вашої PHP конфігурації. Дивіться [doc@faq1-16]FAQ "
 "1.16[/doc]."
 
-#: libraries/classes/Controllers/Import/ImportController.php:630
+#: libraries/classes/Controllers/Import/ImportController.php:631
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
@@ -5449,7 +5449,7 @@ msgstr[0] "Імпорт завершився вдало, %d запит вико�
 msgstr[1] "Імпорт завершився вдало, %d запити виконано."
 msgstr[2] "Імпорт завершився вдало, %d запитів виконано."
 
-#: libraries/classes/Controllers/Import/ImportController.php:667
+#: libraries/classes/Controllers/Import/ImportController.php:668
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5458,7 +5458,7 @@ msgstr ""
 "Вийшов час очікування виконання сценарію. Якщо Ви бажаєте завершити імпорт, "
 "будь ласка %s повторно відправте файл %s і імпорт буде відновлено."
 
-#: libraries/classes/Controllers/Import/ImportController.php:677
+#: libraries/classes/Controllers/Import/ImportController.php:678
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5467,7 +5467,7 @@ msgstr ""
 "що phpMyAdmin не зможе завершити процес імпорту до тих пір, поки не буде "
 "збільшено обмеження часу виконання php скриптів."
 
-#: libraries/classes/Controllers/Import/ImportController.php:745
+#: libraries/classes/Controllers/Import/ImportController.php:746
 #: libraries/classes/Controllers/Sql/SqlController.php:176
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Оператор \"DROP DATABASE\" вимкнений."
@@ -12341,11 +12341,11 @@ msgstr ""
 "Забезпечує автентифікацію за допомогою програм HOTP та TOTP, таких як "
 "FreeOTP, Google Authenticator або Authy."
 
-#: libraries/classes/Plugins/TwoFactor/Key.php:204
+#: libraries/classes/Plugins/TwoFactor/Key.php:208
 msgid "Hardware Security Key (FIDO U2F)"
 msgstr "Ключ безпеки устаткування (FIDO U2F)"
 
-#: libraries/classes/Plugins/TwoFactor/Key.php:214
+#: libraries/classes/Plugins/TwoFactor/Key.php:218
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a Yubikey."

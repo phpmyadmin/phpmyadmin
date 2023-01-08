@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-01-01 00:20+0000\n"
+"POT-Creation-Date: 2023-01-08 00:20+0000\n"
 "PO-Revision-Date: 2022-02-17 10:35+0000\n"
 "Last-Translator: Péter Báthory <bathory86p@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -5260,7 +5260,7 @@ msgstr ""
 "telepítését!"
 
 #: libraries/classes/Controllers/Database/ImportController.php:79
-#: libraries/classes/Controllers/Import/ImportController.php:582
+#: libraries/classes/Controllers/Import/ImportController.php:583
 #: libraries/classes/Controllers/Server/ImportController.php:60
 #: libraries/classes/Controllers/Table/ImportController.php:71
 msgid "Could not load import plugins, please check your installation!"
@@ -5618,17 +5618,17 @@ msgstr ""
 msgid "Incorrect format parameter"
 msgstr "Utolsó paraméter eltávolítása"
 
-#: libraries/classes/Controllers/Import/ImportController.php:381
-#: libraries/classes/Controllers/Import/ImportController.php:622
+#: libraries/classes/Controllers/Import/ImportController.php:382
+#: libraries/classes/Controllers/Import/ImportController.php:623
 msgid "Showing bookmark"
 msgstr "Könyvjelző megjelenítése"
 
-#: libraries/classes/Controllers/Import/ImportController.php:406
-#: libraries/classes/Controllers/Import/ImportController.php:618
+#: libraries/classes/Controllers/Import/ImportController.php:407
+#: libraries/classes/Controllers/Import/ImportController.php:619
 msgid "The bookmark has been deleted."
 msgstr "A könyvjelző törlése megtörtént."
 
-#: libraries/classes/Controllers/Import/ImportController.php:528
+#: libraries/classes/Controllers/Import/ImportController.php:529
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5638,7 +5638,7 @@ msgstr ""
 "vagy a fájlméret túllépte a PHP beállításokban engedélyezett legnagyobb "
 "méretet. Lásd [doc@faq1-16]GYIK 1.16.[/doc].."
 
-#: libraries/classes/Controllers/Import/ImportController.php:630
+#: libraries/classes/Controllers/Import/ImportController.php:631
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
@@ -5647,7 +5647,7 @@ msgstr[0] ""
 msgstr[1] ""
 "Az importálás sikeresen befejeződött, %d lekérdezés került végrehajtásra."
 
-#: libraries/classes/Controllers/Import/ImportController.php:667
+#: libraries/classes/Controllers/Import/ImportController.php:668
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5656,7 +5656,7 @@ msgstr ""
 "Parancsfájl időtúllépés átadva, ha be akarja fejezni az importálást, akkor "
 "%sküldje újra ugyanazt a fájlt%s, és az importálás folytatódni fog."
 
-#: libraries/classes/Controllers/Import/ImportController.php:677
+#: libraries/classes/Controllers/Import/ImportController.php:678
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5665,7 +5665,7 @@ msgstr ""
 "jelenti, hogy a phpMyAdmin nem tudja befejezni ezt az importálást, ha Ön nem "
 "növeli meg a PHP időkorlátozását."
 
-#: libraries/classes/Controllers/Import/ImportController.php:745
+#: libraries/classes/Controllers/Import/ImportController.php:746
 #: libraries/classes/Controllers/Sql/SqlController.php:176
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "A \"DROP DATABASE\" utasítást letiltották."
@@ -12664,11 +12664,11 @@ msgid ""
 "Google Authenticator or Authy."
 msgstr ""
 
-#: libraries/classes/Plugins/TwoFactor/Key.php:204
+#: libraries/classes/Plugins/TwoFactor/Key.php:208
 msgid "Hardware Security Key (FIDO U2F)"
 msgstr ""
 
-#: libraries/classes/Plugins/TwoFactor/Key.php:214
+#: libraries/classes/Plugins/TwoFactor/Key.php:218
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a Yubikey."

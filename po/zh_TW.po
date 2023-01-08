@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-01-01 00:20+0000\n"
+"POT-Creation-Date: 2023-01-08 00:20+0000\n"
 "PO-Revision-Date: 2023-01-03 10:35+0000\n"
 "Last-Translator: yangyangdaji <1504305527@qq.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -664,8 +664,9 @@ msgstr "已使用檔案開啟限制比率"
 msgid ""
 "The number of open files is approaching the max number of open files. You "
 "may get a \"Too many open files\" error."
-msgstr "檔案開啟的數量已接近上限，可能會發生「開啟過多檔案(Too many open "
-"files)」的錯誤。"
+msgstr ""
+"檔案開啟的數量已接近上限，可能會發生「開啟過多檔案(Too many open files)」的錯"
+"誤。"
 
 #: libraries/classes/Advisory/Rules.php:468
 #: libraries/classes/Advisory/Rules.php:481
@@ -937,12 +938,11 @@ msgid ""
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "特別在某些會大量寫入資料到 InnoDB 資料表的系統上，應設定 "
-"{innodb_log_file_size} 為 {innodb_buffer_pool_size} 的 "
-"25%。不論如何，這個值越大，在資料庫當機時還原資料庫的時間將越長，"
-"所以這個值不應該高於 256 MB。請注意，若要修改這個值，"
-"必須先關閉伺服器並刪除所有已有的 InnoDB 的記錄檔，再在 my.cnf "
-"設定新的值，然後啟動伺服器並檢查錯誤記錄查看是否一切順利。請參閱<a href="
-"\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"{innodb_log_file_size} 為 {innodb_buffer_pool_size} 的 25%。不論如何，這個值"
+"越大，在資料庫當機時還原資料庫的時間將越長，所以這個值不應該高於 256 MB。請注"
+"意，若要修改這個值，必須先關閉伺服器並刪除所有已有的 InnoDB 的記錄檔，再在 "
+"my.cnf 設定新的值，然後啟動伺服器並檢查錯誤記錄查看是否一切順利。請參閱<a "
+"href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">此部落格文章</a>"
 
 #: libraries/classes/Advisory/Rules.php:662
@@ -976,12 +976,12 @@ msgid ""
 msgstr ""
 "通常將 {innodb_log_file_size} 設為 {innodb_buffer_pool_size} 的 25% 就足夠。"
 "過大的 {innodb_log_file_size} 會增加資料庫當機後資料還原的時間，請參閱<a "
-"href=\"https://www.percona.com/blog/2006/07/03/"
-"choosing-proper-innodb_log_file_size/\">此篇文章</a>。若要修改這個值，"
-"必須先關閉伺服器並刪除所有已有的 InnoDB 的記錄檔，再在 my.cnf "
-"設定新的值，然後啟動伺服器並檢查錯誤記錄查看是否一切順利。請參閱<a href="
-"\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">此部落格文章</a>"
+"href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">此篇文章</a>。若要修改這個值，必須先關閉伺服器並刪除"
+"所有已有的 InnoDB 的記錄檔，再在 my.cnf 設定新的值，然後啟動伺服器並檢查錯誤"
+"記錄查看是否一切順利。請參閱<a href=\"https://mysqldatabaseadministration."
+"blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html\">此部落格文"
+"章</a>"
 
 #: libraries/classes/Advisory/Rules.php:717
 #, php-format
@@ -1010,14 +1010,13 @@ msgid ""
 "href=\"https://www.percona.com/blog/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
-"InnoDB 緩衝池對 InnoDB "
-"資料表的效能有重大影響。請將剩餘的記憶體分配給此緩衝區。如果資料庫伺服器僅以 "
-"InnoDB 作為儲存引擎，又沒有運行其他服務 (如網頁伺服器)，可以將最高 80% "
-"的可用記憶體分配給它。如果情況並非如此，請仔細評估其他服務和非 InnoDB 資料表"
-"的記憶體消耗狀況，並相對應地設定此數值。如果將之定得太高，系統會開始將記憶體"
-"資料置換到磁碟，因而大大降低效能。請參閱<a href=\"https://www."
-"mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/\""
-">這篇文章</a>"
+"InnoDB 緩衝池對 InnoDB 資料表的效能有重大影響。請將剩餘的記憶體分配給此緩衝"
+"區。如果資料庫伺服器僅以 InnoDB 作為儲存引擎，又沒有運行其他服務 (如網頁伺服"
+"器)，可以將最高 80% 的可用記憶體分配給它。如果情況並非如此，請仔細評估其他服"
+"務和非 InnoDB 資料表的記憶體消耗狀況，並相對應地設定此數值。如果將之定得太"
+"高，系統會開始將記憶體資料置換到磁碟，因而大大降低效能。請參閱<a "
+"href=\"https://www.mysqlperformanceblog.com/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\">這篇文章</a>"
 
 #: libraries/classes/Advisory/Rules.php:738
 #, php-format
@@ -4790,7 +4789,7 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "無法載入匯出外掛程式，請檢查安裝！"
 
 #: libraries/classes/Controllers/Database/ImportController.php:79
-#: libraries/classes/Controllers/Import/ImportController.php:582
+#: libraries/classes/Controllers/Import/ImportController.php:583
 #: libraries/classes/Controllers/Server/ImportController.php:60
 #: libraries/classes/Controllers/Table/ImportController.php:71
 msgid "Could not load import plugins, please check your installation!"
@@ -5123,17 +5122,17 @@ msgstr "上傳的檔案過大，請參閱%s說明文件%s了解如何解決此�
 msgid "Incorrect format parameter"
 msgstr "指定了不正確的表單！"
 
-#: libraries/classes/Controllers/Import/ImportController.php:381
-#: libraries/classes/Controllers/Import/ImportController.php:622
+#: libraries/classes/Controllers/Import/ImportController.php:382
+#: libraries/classes/Controllers/Import/ImportController.php:623
 msgid "Showing bookmark"
 msgstr "顯示書籤"
 
-#: libraries/classes/Controllers/Import/ImportController.php:406
-#: libraries/classes/Controllers/Import/ImportController.php:618
+#: libraries/classes/Controllers/Import/ImportController.php:407
+#: libraries/classes/Controllers/Import/ImportController.php:619
 msgid "The bookmark has been deleted."
 msgstr "書籤已被刪除。"
 
-#: libraries/classes/Controllers/Import/ImportController.php:528
+#: libraries/classes/Controllers/Import/ImportController.php:529
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5142,13 +5141,13 @@ msgstr ""
 "沒有接收到要匯入的資料。可能是因為未附上檔案名稱，或是檔案大小超出 PHP 限"
 "制。 請參閱 [doc@faq1-16]FAQ 1.16[/doc]。"
 
-#: libraries/classes/Controllers/Import/ImportController.php:630
+#: libraries/classes/Controllers/Import/ImportController.php:631
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "完成匯入，共執行了 %d 個查詢指令。"
 
-#: libraries/classes/Controllers/Import/ImportController.php:667
+#: libraries/classes/Controllers/Import/ImportController.php:668
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5156,7 +5155,7 @@ msgid ""
 msgstr ""
 "Script 執行已逾時，若要完成匯入，請%s重新上傳原來的檔案%s，匯入會繼續進行。"
 
-#: libraries/classes/Controllers/Import/ImportController.php:677
+#: libraries/classes/Controllers/Import/ImportController.php:678
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5164,7 +5163,7 @@ msgstr ""
 "最近一次執行的匯入沒有資料可以解析，通常是因為 phpMyAdmin 無法在指定時間內完"
 "成匯入。可試試增加 PHP 執行時間上限。"
 
-#: libraries/classes/Controllers/Import/ImportController.php:745
+#: libraries/classes/Controllers/Import/ImportController.php:746
 #: libraries/classes/Controllers/Sql/SqlController.php:176
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "刪除資料庫 DROP DATABASE 指令已經被停用。"
@@ -11807,11 +11806,11 @@ msgstr ""
 "以 HOTP 及 TOTP 應用程式，為 FreeOTP、Google Authenticator 或 AuthyProvides "
 "提供認證。"
 
-#: libraries/classes/Plugins/TwoFactor/Key.php:204
+#: libraries/classes/Plugins/TwoFactor/Key.php:208
 msgid "Hardware Security Key (FIDO U2F)"
 msgstr "硬體安全鍵 (FIDO U2F)"
 
-#: libraries/classes/Plugins/TwoFactor/Key.php:214
+#: libraries/classes/Plugins/TwoFactor/Key.php:218
 #, fuzzy
 #| msgid ""
 #| "Provides authentication using hardware security tokens supporting FIDO "

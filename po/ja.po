@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-01-01 00:20+0000\n"
+"POT-Creation-Date: 2023-01-08 00:20+0000\n"
 "PO-Revision-Date: 2022-08-04 19:16+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -5013,7 +5013,7 @@ msgstr ""
 "してください!"
 
 #: libraries/classes/Controllers/Database/ImportController.php:79
-#: libraries/classes/Controllers/Import/ImportController.php:582
+#: libraries/classes/Controllers/Import/ImportController.php:583
 #: libraries/classes/Controllers/Server/ImportController.php:60
 #: libraries/classes/Controllers/Table/ImportController.php:71
 msgid "Could not load import plugins, please check your installation!"
@@ -5373,17 +5373,17 @@ msgstr ""
 msgid "Incorrect format parameter"
 msgstr "不正なフォーマット引数"
 
-#: libraries/classes/Controllers/Import/ImportController.php:381
-#: libraries/classes/Controllers/Import/ImportController.php:622
+#: libraries/classes/Controllers/Import/ImportController.php:382
+#: libraries/classes/Controllers/Import/ImportController.php:623
 msgid "Showing bookmark"
 msgstr "表示中のブックマーク"
 
-#: libraries/classes/Controllers/Import/ImportController.php:406
-#: libraries/classes/Controllers/Import/ImportController.php:618
+#: libraries/classes/Controllers/Import/ImportController.php:407
+#: libraries/classes/Controllers/Import/ImportController.php:619
 msgid "The bookmark has been deleted."
 msgstr "ブックマークを削除しました。"
 
-#: libraries/classes/Controllers/Import/ImportController.php:528
+#: libraries/classes/Controllers/Import/ImportController.php:529
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5393,13 +5393,13 @@ msgstr ""
 "ファイルサイズが PHP の設定で許可された最大値を超えています。"
 "[doc@faq1-16]FAQ 1.16[/doc] をご覧ください。"
 
-#: libraries/classes/Controllers/Import/ImportController.php:630
+#: libraries/classes/Controllers/Import/ImportController.php:631
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "インポートは正常に終了しました。%d 個のクエリを実行しました。"
 
-#: libraries/classes/Controllers/Import/ImportController.php:667
+#: libraries/classes/Controllers/Import/ImportController.php:668
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5408,7 +5408,7 @@ msgstr ""
 "スクリプトがタイムアウトしました。インポートを完了させたいのであれば%s同じ"
 "ファイルを再送信%sすればインポートが再開されます。"
 
-#: libraries/classes/Controllers/Import/ImportController.php:677
+#: libraries/classes/Controllers/Import/ImportController.php:678
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5416,7 +5416,7 @@ msgstr ""
 "ただし、最後に実行したときはまったくデータを解析できませんでした。通常、PHP "
 "の時間制限を伸ばさない限りこのデータのインポートはできません。"
 
-#: libraries/classes/Controllers/Import/ImportController.php:745
+#: libraries/classes/Controllers/Import/ImportController.php:746
 #: libraries/classes/Controllers/Sql/SqlController.php:176
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "DROP DATABASE 文は無効にされています。"
@@ -12202,11 +12202,11 @@ msgstr ""
 "FreeOTP、Google Authenticator、AuthyなどのHOTPおよびTOTPアプリケーションを使"
 "用した認証を提供します。"
 
-#: libraries/classes/Plugins/TwoFactor/Key.php:204
+#: libraries/classes/Plugins/TwoFactor/Key.php:208
 msgid "Hardware Security Key (FIDO U2F)"
 msgstr "ハードウェアセキュリティキー (FIDO U2F)"
 
-#: libraries/classes/Plugins/TwoFactor/Key.php:214
+#: libraries/classes/Plugins/TwoFactor/Key.php:218
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a Yubikey."
