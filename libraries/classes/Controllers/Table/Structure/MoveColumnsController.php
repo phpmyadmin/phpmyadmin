@@ -81,11 +81,17 @@ final class MoveColumnsController extends AbstractController
             $timeDefault = $data['Default'] === 'CURRENT_TIMESTAMP' || $data['Default'] === 'current_timestamp()';
             $current_timestamp = $timeType && $timeDefault;
 
+            $uuidType = $data['Type'] === 'uuid';
+            $uuidDefault = $data['Default'] === 'UUID' || $data['Default'] === 'uuid()';
+            $uuid = $uuidType && $uuidDefault;
+
             // @see https://mariadb.com/kb/en/library/information-schema-columns-table/#examples
             if ($data['Null'] === 'YES' && in_array($data['Default'], [$defaultNullValue, null])) {
                 $default_type = 'NULL';
             } elseif ($current_timestamp) {
                 $default_type = 'CURRENT_TIMESTAMP';
+            } elseif ($uuid) {
+                $default_type = 'UUID';
             } elseif ($data['Default'] === null) {
                 $default_type = 'NONE';
             } else {
