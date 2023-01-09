@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-01-08 00:20+0000\n"
-"PO-Revision-Date: 2022-08-04 19:16+0000\n"
+"PO-Revision-Date: 2023-01-10 09:48+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:241
 #, php-format
@@ -7840,17 +7840,9 @@ msgstr ""
 "値は BINARY, VARBINARY, BLOB のいずれかのカラムに格納してください。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:858
-#, fuzzy
-#| msgid ""
-#| "The file being uploaded is probably larger than the maximum allowed size "
-#| "or this is a known bug in webkit based (Safari, Google Chrome, Arora "
-#| "etc.) browsers."
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size."
-msgstr ""
-"アップロードされているファイルが最大許容サイズよりもおそらく大きい、もしく"
-"は、WebKit がベースのブラウザ (Safari、Google Chrome、Arora など) の既知のバ"
-"グです。"
+msgstr "アップロードされているファイルが、おそらく最大許容サイズよりも大きい。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:860
 #, php-format
