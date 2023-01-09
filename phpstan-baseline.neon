@@ -111,6 +111,11 @@ parameters:
 			path: libraries/classes/Charsets.php
 
 		-
+			message: "#^Cannot access an offset on array\\|true\\.$#"
+			count: 1
+			path: libraries/classes/CheckUserPrivileges.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\CheckUserPrivileges\\:\\:getItemsFromShowGrantsRow\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/CheckUserPrivileges.php
@@ -1056,6 +1061,11 @@ parameters:
 			path: libraries/classes/Controllers/Database/DesignerController.php
 
 		-
+			message: "#^Offset 'db_collation' on array\\<string, mixed\\> on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Database/Operations/CollationController.php
+
+		-
 			message: "#^Negated boolean expression is always true\\.$#"
 			count: 6
 			path: libraries/classes/Controllers/Database/OperationsController.php
@@ -1496,6 +1506,11 @@ parameters:
 			path: libraries/classes/Controllers/Table/ChangeController.php
 
 		-
+			message: "#^Offset 'goto' on array\\<string, mixed\\> on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ChangeController.php
+
+		-
 			message: "#^Parameter \\#2 \\$list of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:replaceClauses\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\TokensList, PhpMyAdmin\\\\SqlParser\\\\TokensList\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ExportController.php
@@ -1519,6 +1534,11 @@ parameters:
 			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/IndexesController.php
+
+		-
+			message: "#^Cannot access offset 'Row_format' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/OperationsController.php
 
 		-
 			message: "#^Comparison operation \"\\>\" between int\\<1, max\\> and 0 is always true\\.$#"
@@ -1872,6 +1892,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\CreateAddField\\:\\:getPartitionDefinition\\(\\) has parameter \\$partition with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/CreateAddField.php
+
+		-
+			message: "#^Offset 'tbl_collation' on array\\<string, mixed\\> on left side of \\?\\? always exists and is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/CreateAddField.php
 
@@ -5346,6 +5371,11 @@ parameters:
 			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
+			message: "#^Offset 'pos3_name' on array\\<string, mixed\\> on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Navigation/NavigationTree.php
+
+		-
 			message: "#^Offset 'text' on array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/NavigationTree.php
@@ -5636,6 +5666,16 @@ parameters:
 			path: libraries/classes/Operations.php
 
 		-
+			message: "#^Offset 'db_collation' on array\\<string, mixed\\> on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Operations.php
+
+		-
+			message: "#^Offset 'tbl_collation' on array\\<string, mixed\\> on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Operations.php
+
+		-
 			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:query\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Operations.php
@@ -5784,6 +5824,11 @@ parameters:
 			message: "#^Right side of \\|\\| is always false\\.$#"
 			count: 3
 			path: libraries/classes/Plugins.php
+
+		-
+			message: "#^Offset 'errno' on array\\<string, mixed\\> in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Auth/AuthenticationConfig.php
 
 		-
 			message: "#^Parameter \\#2 \\$remoteIp of method ReCaptcha\\\\ReCaptcha\\:\\:verify\\(\\) expects string\\|null, bool\\|string given\\.$#"
@@ -6037,6 +6082,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql\\:\\:replaceWithAliases\\(\\) has parameter \\$aliases with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Export/ExportSql.php
+
+		-
+			message: "#^Offset 'table_data' on array\\<string, mixed\\> in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
@@ -8421,6 +8471,11 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
+			message: "#^Offset 'sql_constraints…' on non\\-empty\\-array\\<string, mixed\\> in empty\\(\\) always exists and is always falsy\\.$#"
+			count: 1
+			path: libraries/classes/Table.php
+
+		-
 			message: "#^Parameter \\#1 \\$list of class PhpMyAdmin\\\\SqlParser\\\\Parser constructor expects PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
@@ -8457,6 +8512,11 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Table\\:\\:\\$uiprefs type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Table.php
+
+		-
+			message: "#^Result of && is always false\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
 
@@ -9331,6 +9391,21 @@ parameters:
 			path: test/classes/Config/SettingsTest.php
 
 		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with arguments 0, array\\{\\} and 'The cache is…' will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/ConfigStorage/RelationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with arguments 1, array\\{\\} and 'The cache is…' will always evaluate to false\\.$#"
+			count: 5
+			path: test/classes/ConfigStorage/RelationTest.php
+
+		-
+			message: "#^Cannot unset offset 1 on array\\{\\}\\.$#"
+			count: 1
+			path: test/classes/ConfigStorage/RelationTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\ConfigTest\\:\\:configPaths\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/ConfigTest.php
@@ -9539,6 +9614,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\CreateAddFieldTest\\:\\:testGetTableCreationQuery\\(\\) has parameter \\$request with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/CreateAddFieldTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'URLQueryEncryptionS…' and array\\{\\} will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/Crypto/CryptoTest.php
 
 		-
 			message: "#^Cannot access offset 0 on mixed\\.$#"
@@ -11106,6 +11186,11 @@ parameters:
 			path: test/classes/TypesTest.php
 
 		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with false will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/UserPreferencesTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\UtilTest\\:\\:charsetQueryData\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/UtilTest.php
@@ -11274,6 +11359,16 @@ parameters:
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: test/classes/Utils/HttpRequestTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'cache' and array\\{\\} will always evaluate to false\\.$#"
+			count: 2
+			path: test/classes/Utils/SessionCacheTest.php
+
+		-
+			message: "#^Offset 'cache' does not exist on array\\{\\}\\.$#"
+			count: 4
+			path: test/classes/Utils/SessionCacheTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\VersionInformationTest\\:\\:dataProviderVersionConditions\\(\\) return type has no value type specified in iterable type array\\.$#"
