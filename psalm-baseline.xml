@@ -2123,9 +2123,6 @@
     <InvalidArrayOffset occurrences="1">
       <code>$GLOBALS['cfg']['AllowUserDropDatabase']</code>
     </InvalidArrayOffset>
-    <InvalidOperand occurrences="1">
-      <code>$GLOBALS['maximum_time']</code>
-    </InvalidOperand>
     <MixedArgument occurrences="13">
       <code>$GLOBALS['cfg']['AllowUserDropDatabase']</code>
       <code>$GLOBALS['cfg']['MemoryLimit']</code>
@@ -2161,7 +2158,7 @@
       <code>$_SESSION['Import_message']['message']</code>
       <code>$_SESSION['Import_message']['message']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="35">
+    <MixedAssignment occurrences="34">
       <code>$GLOBALS['MAX_FILE_SIZE']</code>
       <code>$GLOBALS['active_page']</code>
       <code>$GLOBALS['ajax_reload']</code>
@@ -2177,7 +2174,6 @@
       <code>$GLOBALS['is_js_confirmed']</code>
       <code>$GLOBALS['local_import_file']</code>
       <code>$GLOBALS['max_sql_len']</code>
-      <code>$GLOBALS['maximum_time']</code>
       <code>$GLOBALS['message_to_show']</code>
       <code>$GLOBALS['msg']</code>
       <code>$GLOBALS['my_die']</code>
@@ -7477,7 +7473,7 @@
     <MixedArrayOffset occurrences="1">
       <code>$typeArray[$analyses[$i][self::TYPES][$j]]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="32">
+    <MixedAssignment occurrences="31">
       <code>$GLOBALS['charset_conversion']</code>
       <code>$GLOBALS['charset_of_file']</code>
       <code>$GLOBALS['executed_queries']</code>
@@ -7486,7 +7482,6 @@
       <code>$GLOBALS['import_notice']</code>
       <code>$GLOBALS['max_sql_len']</code>
       <code>$GLOBALS['max_sql_len']</code>
-      <code>$GLOBALS['maximum_time']</code>
       <code>$GLOBALS['msg']</code>
       <code>$GLOBALS['msg']</code>
       <code>$GLOBALS['my_die']</code>
@@ -7518,9 +7513,8 @@
       <code>getExtension</code>
       <code>getProperties</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="17">
+    <MixedOperand occurrences="16">
       <code>$GLOBALS['executed_queries']</code>
-      <code>$GLOBALS['maximum_time']</code>
       <code>$GLOBALS['msg']</code>
       <code>$GLOBALS['read_multiply']</code>
       <code>$GLOBALS['read_multiply']</code>

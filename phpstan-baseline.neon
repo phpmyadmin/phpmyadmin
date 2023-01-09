@@ -96,6 +96,11 @@ parameters:
 			path: libraries/classes/Charsets.php
 
 		-
+			message: "#^Cannot access an offset on array\\<string\\>\\|true\\.$#"
+			count: 1
+			path: libraries/classes/CheckUserPrivileges.php
+
+		-
 			message: "#^Only numeric types are allowed in \\+, int\\<0, max\\>\\|false given on the left side\\.$#"
 			count: 2
 			path: libraries/classes/CheckUserPrivileges.php
@@ -1406,11 +1411,6 @@ parameters:
 			path: libraries/classes/Controllers/HomeController.php
 
 		-
-			message: "#^Binary operation \"\\-\\=\" between string\\|false and 1 results in an error\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Import/ImportController.php
-
-		-
 			message: "#^Cannot cast mixed to int\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Import/ImportController.php
@@ -1557,6 +1557,11 @@ parameters:
 
 		-
 			message: "#^Only numeric types are allowed in \\+, int\\<0, max\\>\\|false given on the left side\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Preferences/ManageController.php
+
+		-
+			message: "#^Parameter \\#1 \\$file_name of method PhpMyAdmin\\\\UserPreferences\\:\\:redirect\\(\\) expects string, string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Preferences/ManageController.php
 
@@ -1866,6 +1871,11 @@ parameters:
 			path: libraries/classes/Controllers/Table/ReplaceController.php
 
 		-
+			message: "#^Parameter \\#1 \\$messages of method PhpMyAdmin\\\\Message\\:\\:addMessagesString\\(\\) expects array\\<string\\>, array\\<int, PhpMyAdmin\\\\Message\\|string\\|null\\> given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ReplaceController.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\SearchController\\:\\:getColumnMinMax\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/SearchController.php
@@ -2076,6 +2086,11 @@ parameters:
 			path: libraries/classes/Controllers/TableController.php
 
 		-
+			message: "#^Parameter \\#1 \\$password of method PhpMyAdmin\\\\UserPassword\\:\\:changePassword\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/UserPasswordController.php
+
+		-
 			message: "#^Parameter \\#1 \\$pmaPw of method PhpMyAdmin\\\\UserPassword\\:\\:setChangePasswordMsg\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/UserPasswordController.php
@@ -2167,6 +2182,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\CreateAddField\\:\\:getPartitionDefinition\\(\\) has parameter \\$partition with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/CreateAddField.php
+
+		-
+			message: "#^Offset 'tbl_collation' on array\\<string, mixed\\> on left side of \\?\\? always exists and is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/CreateAddField.php
 
@@ -5256,6 +5276,11 @@ parameters:
 			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
+			message: "#^Offset 'pos3_name' on array\\<string, mixed\\> on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Navigation/NavigationTree.php
+
+		-
 			message: "#^Offset 'text' on array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/NavigationTree.php
@@ -5556,6 +5581,16 @@ parameters:
 			path: libraries/classes/Operations.php
 
 		-
+			message: "#^Offset 'db_collation' on array\\<string, mixed\\> on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Operations.php
+
+		-
+			message: "#^Offset 'tbl_collation' on array\\<string, mixed\\> on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Operations.php
+
+		-
 			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:query\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Operations.php
@@ -5679,6 +5714,11 @@ parameters:
 			message: "#^Strict comparison using \\=\\=\\= between class\\-string\\<PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\>\\|null and 'PhpMyAdmin\\\\\\\\Properties\\\\\\\\Options\\\\\\\\Items\\\\\\\\TextPropertyItem' will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Plugins.php
+
+		-
+			message: "#^Offset 'errno' on array\\<string, mixed\\> in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Auth/AuthenticationConfig.php
 
 		-
 			message: "#^Foreach overwrites \\$value with its value variable\\.$#"
@@ -8226,6 +8266,11 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
+			message: "#^Offset 'sql_constraints…' on non\\-empty\\-array\\<string, mixed\\> in empty\\(\\) always exists and is always falsy\\.$#"
+			count: 1
+			path: libraries/classes/Table.php
+
+		-
 			message: "#^Parameter \\#1 \\$list of class PhpMyAdmin\\\\SqlParser\\\\Parser constructor expects PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
@@ -8262,6 +8307,11 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Table\\:\\:\\$uiprefs type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Table.php
+
+		-
+			message: "#^Result of && is always false\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
 
@@ -9131,6 +9181,11 @@ parameters:
 			path: test/classes/Command/TwigLintCommandTest.php
 
 		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'test' and non\\-empty\\-array\\<string, mixed\\> will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/CommonTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\CommonTest\\:\\:providerForTestCleanupPathInfo\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/CommonTest.php
@@ -9259,6 +9314,31 @@ parameters:
 			message: "#^Variable property access on PhpMyAdmin\\\\Config\\\\Settings\\.$#"
 			count: 1
 			path: test/classes/Config/SettingsTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with arguments 'relation', non\\-empty\\-array\\<string, mixed\\> and 'The cache is…' will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/ConfigStorage/RelationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with arguments 0, array\\{\\} and 'The cache is…' will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/ConfigStorage/RelationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with arguments 1, array\\{\\} and 'The cache is…' will always evaluate to false\\.$#"
+			count: 5
+			path: test/classes/ConfigStorage/RelationTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with array\\{\\} and array\\{\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/ConfigStorage/RelationTest.php
+
+		-
+			message: "#^Cannot unset offset 1 on array\\{\\}\\.$#"
+			count: 1
+			path: test/classes/ConfigStorage/RelationTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\ConfigTest\\:\\:configPaths\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -9396,6 +9476,41 @@ parameters:
 			path: test/classes/Controllers/Server/VariablesControllerTest.php
 
 		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'flashMessages' and array\\{ PMA_token \\: 'token'\\} will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/Controllers/Table/DropColumnControllerTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNull\\(\\) with null will always evaluate to true\\.$#"
+			count: 2
+			path: test/classes/Controllers/Table/Structure/SpatialControllerTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with 'ALTER TABLE `test…' and null will always evaluate to false\\.$#"
+			count: 3
+			path: test/classes/Controllers/Table/Structure/SpatialControllerTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNull\\(\\) with null will always evaluate to true\\.$#"
+			count: 2
+			path: test/classes/Controllers/Table/Structure/UniqueControllerTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with 'ALTER TABLE `test…' and null will always evaluate to false\\.$#"
+			count: 3
+			path: test/classes/Controllers/Table/Structure/UniqueControllerTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with false will always evaluate to false\\.$#"
+			count: 3
+			path: test/classes/Controllers/VersionCheckControllerTest.php
+
+		-
+			message: "#^Offset 'ajax_request' on array\\{\\} in isset\\(\\) does not exist\\.$#"
+			count: 3
+			path: test/classes/Controllers/VersionCheckControllerTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\CoreTest\\:\\:provideTestSafeUnserialize\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/CoreTest.php
@@ -9464,6 +9579,16 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\CreateAddFieldTest\\:\\:testGetTableCreationQuery\\(\\) has parameter \\$request with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/CreateAddFieldTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'URLQueryEncryptionS…' and array\\{URLQueryEncryptionSecretKey\\: 'aaaaaaaaaaaaaaaaaaa…'\\} will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Crypto/CryptoTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'URLQueryEncryptionS…' and array\\{\\} will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/Crypto/CryptoTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<string\\> will always evaluate to true\\.$#"
@@ -10946,6 +11071,16 @@ parameters:
 			path: test/classes/ParseAnalyzeTest.php
 
 		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with 'SELECT \\* FROM …' and '' will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/ParseAnalyzeTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\) with 'SELECT `first_name`…' and '' will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/ParseAnalyzeTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Partitioning\\\\TablePartitionDefinitionTest\\:\\:testGetDetails\\(\\) has parameter \\$partitions with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Partitioning/TablePartitionDefinitionTest.php
@@ -11021,6 +11156,11 @@ parameters:
 			path: test/classes/Plugins/Import/ImportOdsTest.php
 
 		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertFalse\\(\\) with false will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Plugins/Import/ImportShpTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Plugins\\\\Transformations\\\\TransformationPluginsTest\\:\\:multiDataProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Plugins/Transformations/TransformationPluginsTest.php
@@ -11089,6 +11229,11 @@ parameters:
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'FastRoute\\\\\\\\Dispatcher' and FastRoute\\\\Dispatcher will always evaluate to true\\.$#"
 			count: 4
 			path: test/classes/RoutingTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'allow' and non\\-empty\\-array\\<string, mixed\\> will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/SanitizeTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\SanitizeTest\\:\\:dataProviderCheckLinks\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -11386,6 +11531,11 @@ parameters:
 			path: test/classes/UserPasswordTest.php
 
 		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\) with false will always evaluate to false\\.$#"
+			count: 1
+			path: test/classes/UserPreferencesTest.php
+
+		-
 			message: "#^Casting to string something that's already string\\.$#"
 			count: 1
 			path: test/classes/UtilTest.php
@@ -11554,6 +11704,16 @@ parameters:
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: test/classes/Utils/HttpRequestTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'cache' and array\\{\\} will always evaluate to false\\.$#"
+			count: 2
+			path: test/classes/Utils/SessionCacheTest.php
+
+		-
+			message: "#^Offset 'cache' does not exist on array\\{\\}\\.$#"
+			count: 4
+			path: test/classes/Utils/SessionCacheTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\VersionInformationTest\\:\\:dataProviderVersionConditions\\(\\) return type has no value type specified in iterable type array\\.$#"

@@ -360,6 +360,7 @@ class Header
 
         $console = $this->console->getDisplay();
         $messages = $this->getMessage();
+        $isLoggedIn = isset($GLOBALS['dbi']) && $GLOBALS['dbi']->isConnected();
 
         $this->scripts->addFile('datetimepicker.js');
         $this->scripts->addFile('validator-messages.js');
@@ -381,7 +382,7 @@ class Header
             'show_hint' => $GLOBALS['cfg']['ShowHint'],
             'is_warnings_enabled' => $this->warningsEnabled,
             'is_menu_enabled' => $this->menuEnabled,
-            'is_logged_in' => isset($GLOBALS['dbi']) ? $GLOBALS['dbi']->isConnected() : false,
+            'is_logged_in' => $isLoggedIn,
             'menu' => $menu ?? '',
             'console' => $console,
             'messages' => $messages,
