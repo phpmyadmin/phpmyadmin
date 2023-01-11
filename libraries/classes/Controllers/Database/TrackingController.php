@@ -116,7 +116,7 @@ class TrackingController extends AbstractController
                         'url_params' => $GLOBALS['urlParams'],
                         'last_version' => 0,
                         'db' => $GLOBALS['db'],
-                        'selected' => $request->getParsedBodyParam('selected_tbl'),
+                        'selected' => $selectedTable,
                         'type' => 'both',
                         'default_statements' => $GLOBALS['cfg']['Server']['tracking_default_statements'],
                     ]);
