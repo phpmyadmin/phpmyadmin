@@ -82,7 +82,7 @@ class QueryByExampleController extends AbstractController
                 if ($action === 'create') {
                     try {
                         $GLOBALS['savedSearch']->setId(null)
-                            ->setCriterias($this->getParsedBody())
+                            ->setCriterias($request->getParsedBody())
                             ->save($savedQbeSearchesFeature);
                     } catch (SavedSearchesException $exception) {
                         $this->response->setRequestStatus(false);
