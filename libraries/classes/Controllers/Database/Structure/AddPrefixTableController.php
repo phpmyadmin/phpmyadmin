@@ -36,13 +36,13 @@ final class AddPrefixTableController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $selected = $_POST['selected'] ?? [];
+        $selected = $request->getParsedBodyParam('selected', []);
 
         $GLOBALS['sql_query'] = '';
         $selectedCount = count($selected);
 
         for ($i = 0; $i < $selectedCount; $i++) {
-            $newTableName = $_POST['add_prefix'] . $selected[$i];
+            $newTableName = $request->getParsedBodyParam('add_prefix', '') . $selected[$i];
             $aQuery = 'ALTER TABLE ' . Util::backquote($selected[$i])
                 . ' RENAME ' . Util::backquote($newTableName);
 

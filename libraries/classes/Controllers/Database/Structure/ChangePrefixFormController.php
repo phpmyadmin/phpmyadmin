@@ -13,8 +13,7 @@ final class ChangePrefixFormController extends AbstractController
 {
     public function __invoke(ServerRequest $request): void
     {
-        $selected = $_POST['selected_tbl'] ?? [];
-        $submitMult = $_POST['submit_mult'] ?? '';
+        $selected = $request->getParsedBodyParam('selected_tbl', []);
 
         if (empty($selected)) {
             $this->response->setRequestStatus(false);
@@ -24,7 +23,7 @@ final class ChangePrefixFormController extends AbstractController
         }
 
         $route = '/database/structure/replace-prefix';
-        if ($submitMult === 'copy_tbl_change_prefix') {
+        if ($request->getParsedBodyParam('submit_mult', '') === 'copy_tbl_change_prefix') {
             $route = '/database/structure/copy-table-with-prefix';
         }
 
