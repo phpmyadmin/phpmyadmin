@@ -50,7 +50,7 @@ final class DestroyController extends AbstractController
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
         $GLOBALS['reload'] = $GLOBALS['reload'] ?? null;
 
-        $selected_dbs = $_POST['selected_dbs'] ?? null;
+        $selected_dbs = $request->getParsedBodyParam('selected_dbs');
 
         if (
             ! $this->response->isAjax()

@@ -66,40 +66,40 @@ class UserGroupsController extends AbstractController
         /**
          * Delete user group
          */
-        if (! empty($_POST['deleteUserGroup'])) {
-            UserGroups::delete($configurableMenusFeature, $_POST['userGroup']);
+        if ($request->hasBodyParam('deleteUserGroup')) {
+            UserGroups::delete($configurableMenusFeature, $request->getParsedBodyParam('userGroup'));
         }
 
         /**
          * Add a new user group
          */
-        if (! empty($_POST['addUserGroupSubmit'])) {
-            UserGroups::edit($configurableMenusFeature, $_POST['userGroup'], true);
+        if ($request->hasBodyParam('addUserGroupSubmit')) {
+            UserGroups::edit($configurableMenusFeature, $request->getParsedBodyParam('userGroup'), true);
         }
 
         /**
          * Update a user group
          */
-        if (! empty($_POST['editUserGroupSubmit'])) {
-            UserGroups::edit($configurableMenusFeature, $_POST['userGroup']);
+        if ($request->hasBodyParam('editUserGroupSubmit')) {
+            UserGroups::edit($configurableMenusFeature, $request->getParsedBodyParam('userGroup'));
         }
 
-        if (isset($_POST['viewUsers'])) {
+        if ($request->hasBodyParam('viewUsers')) {
             // Display users belonging to a user group
             $this->response->addHTML(UserGroups::getHtmlForListingUsersofAGroup(
                 $configurableMenusFeature,
-                $_POST['userGroup']
+                $request->getParsedBodyParam('userGroup')
             ));
         }
 
-        if (isset($_GET['addUserGroup'])) {
+        if ($request->hasQueryParam('addUserGroup')) {
             // Display add user group dialog
             $this->response->addHTML(UserGroups::getHtmlToEditUserGroup($configurableMenusFeature));
-        } elseif (isset($_POST['editUserGroup'])) {
+        } elseif ($request->hasBodyParam('editUserGroup')) {
             // Display edit user group dialog
             $this->response->addHTML(UserGroups::getHtmlToEditUserGroup(
                 $configurableMenusFeature,
-                $_POST['userGroup']
+                $request->getParsedBodyParam('userGroup')
             ));
         } else {
             // Display user groups table
