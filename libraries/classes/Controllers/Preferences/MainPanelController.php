@@ -56,7 +56,7 @@ class MainPanelController extends AbstractController
 
         $formDisplay = new MainForm($GLOBALS['cf'], 1);
 
-        if (isset($_POST['revert'])) {
+        if ($request->hasBodyParam('revert')) {
             // revert erroneous fields to their default values
             $formDisplay->fixErrors();
             $this->redirect('/preferences/main-panel');
@@ -75,7 +75,7 @@ class MainPanelController extends AbstractController
             if ($result === true) {
                 // reload config
                 $this->config->loadUserPreferences();
-                $GLOBALS['tabHash'] = $_POST['tab_hash'] ?? null;
+                $GLOBALS['tabHash'] = $request->getParsedBodyParam('tab_hash');
                 $GLOBALS['hash'] = ltrim($GLOBALS['tabHash'], '#');
                 $this->userPreferences->redirect('index.php?route=/preferences/main-panel', null, $GLOBALS['hash']);
 
@@ -89,7 +89,7 @@ class MainPanelController extends AbstractController
 
         $this->render('preferences/header', [
             'route' => $request->getRoute(),
-            'is_saved' => ! empty($_GET['saved']),
+            'is_saved' => $request->hasQueryParam('saved'),
             'has_config_storage' => $relationParameters->userPreferencesFeature !== null,
         ]);
 
