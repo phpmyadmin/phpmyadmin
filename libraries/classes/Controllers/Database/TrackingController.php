@@ -100,9 +100,10 @@ class TrackingController extends AbstractController
                 )
             )->getDisplay();
         } elseif ($request->hasBodyParam('submit_mult')) {
-            if ($request->hasBodyParam('selected_tbl')) {
+            $selectedTable = $request->getParsedBodyParam('selected_tbl');
+            if (! empty($selectedTable)) {
                 if ($request->getParsedBodyParam('submit_mult') === 'delete_tracking') {
-                    foreach ($request->getParsedBodyParam('selected_tbl') as $table) {
+                    foreach ($selectedTable as $table) {
                         Tracker::deleteTracking($GLOBALS['db'], $table);
                     }
 
