@@ -119,7 +119,7 @@ class QueryByExampleController extends AbstractController
                         ->setDbname($GLOBALS['db']);
                     $_POST = [];
                 } elseif ($action === 'load') {
-                    if (! $request->hasBodyParam('searchId')) {
+                    if (empty($searchId)) {
                         //when not loading a search, reset the object.
                         $GLOBALS['savedSearch'] = new SavedSearches();
                         $GLOBALS['savedSearch']->setUsername($GLOBALS['cfg']['Server']['user'])
