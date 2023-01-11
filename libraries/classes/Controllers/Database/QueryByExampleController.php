@@ -93,7 +93,7 @@ class QueryByExampleController extends AbstractController
                     }
                 } elseif ($action === 'update') {
                     try {
-                        $GLOBALS['savedSearch']->setCriterias($this->getParsedBody())
+                        $GLOBALS['savedSearch']->setCriterias($request->getParsedBody())
                             ->save($savedQbeSearchesFeature);
                     } catch (SavedSearchesException $exception) {
                         $this->response->setRequestStatus(false);
