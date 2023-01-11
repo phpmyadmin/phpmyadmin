@@ -69,8 +69,9 @@ class QueryByExampleController extends AbstractController
             $GLOBALS['savedSearch']->setUsername($GLOBALS['cfg']['Server']['user'])
                 ->setDbname($GLOBALS['db']);
 
-            if ($request->hasBodyParam('searchId')) {
-                $GLOBALS['savedSearch']->setId($request->getParsedBodyParam('searchId'));
+            $searchId = $request->getParsedBodyParam('searchId');
+            if (! empty($searchId)) {
+                $GLOBALS['savedSearch']->setId($searchId);
             }
 
             //Action field is sent.
