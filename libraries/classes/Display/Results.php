@@ -3460,9 +3460,7 @@ class Results
 
         $query['sql'] = $this->properties['sql_query'];
 
-        if (empty($query['repeat_cells'])) {
-            $query['repeat_cells'] = $GLOBALS['cfg']['RepeatCells'];
-        }
+        $query['repeat_cells'] = $GLOBALS['cfg']['RepeatCells'];
 
         // The value can also be from _GET as described on issue #16146 when sorting results
         $sessionMaxRows = $_GET['session_max_rows'] ?? $_POST['session_max_rows'] ?? '';
