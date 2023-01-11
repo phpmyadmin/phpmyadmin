@@ -166,8 +166,8 @@ class PrivilegesController extends AbstractController
          * only to update the password
          */
         if (
-            isset($_POST['change_copy']) && $GLOBALS['username'] == $_POST['old_username']
-            && $GLOBALS['hostname'] == $_POST['old_hostname']
+            $request->hasBodyParam('change_copy') && $GLOBALS['username'] == $request->getParsedBodyParam('old_username')
+            && $GLOBALS['hostname'] == $request->getParsedBodyParam('old_hostname')
         ) {
             $this->response->addHTML(
                 Message::error(
@@ -219,7 +219,7 @@ class PrivilegesController extends AbstractController
         /**
          * Changes / copies a user, part III
          */
-        if (isset($_POST['change_copy']) && $GLOBALS['username'] !== null && $GLOBALS['hostname'] !== null) {
+        if ($request->hasBodyParam('change_copy') && $GLOBALS['username'] !== null && $GLOBALS['hostname'] !== null) {
             $GLOBALS['queries'] = $serverPrivileges->getDbSpecificPrivsQueriesForChangeOrCopyUser(
                 $GLOBALS['queries'],
                 $GLOBALS['username'],
@@ -235,7 +235,7 @@ class PrivilegesController extends AbstractController
         /**
          * Updates privileges
          */
-        if (! empty($_POST['update_privs'])) {
+        if ($request->hasBodyParam('update_privs')) {
             if (is_array($GLOBALS['dbname'])) {
                 foreach ($GLOBALS['dbname'] as $key => $db_name) {
                     [$GLOBALS['sql_query'][$key], $GLOBALS['message']] = $serverPrivileges->updatePrivileges(
@@ -263,17 +263,17 @@ class PrivilegesController extends AbstractController
          * Assign users to user groups
          */
         if (
-            ! empty($_POST['changeUserGroup']) && $relationParameters->configurableMenusFeature !== null
+            $request->hasBodyParam('changeUserGroup') && $relationParameters->configurableMenusFeature !== null
             && $this->dbi->isSuperUser() && $this->dbi->isCreateUser()
         ) {
-            $serverPrivileges->setUserGroup($GLOBALS['username'] ?? '', $_POST['userGroup']);
+            $serverPrivileges->setUserGroup($GLOBALS['username'] ?? '', $request->getParsedBodyParam('userGroup'));
             $GLOBALS['message'] = Message::success();
         }
 
         /**
          * Revokes Privileges
          */
-        if (isset($_POST['revokeall'])) {
+        if ($request->hasBodyParam('revokeall')) {
             [$GLOBALS['message'], $GLOBALS['sql_query']] = $serverPrivileges->getMessageAndSqlQueryForPrivilegesRevoke(
                 (is_string($GLOBALS['dbname']) ? $GLOBALS['dbname'] : ''),
                 ($GLOBALS['tablename'] ?? ($GLOBALS['routinename'] ?? '')),
@@ -286,7 +286,7 @@ class PrivilegesController extends AbstractController
         /**
          * Updates the password
          */
-        if (isset($_POST['change_pw'])) {
+        if ($request->hasBodyParam('change_pw')) {
             $GLOBALS['message'] = $serverPrivileges->updatePassword(
                 $GLOBALS['errorUrl'],
                 $GLOBALS['username'] ?? '',
@@ -298,9 +298,9 @@ class PrivilegesController extends AbstractController
          * Deletes users
          *   (Changes / copies a user, part IV)
          */
-        if (isset($_POST['delete']) || (isset($_POST['change_copy']) && $_POST['mode'] < 4)) {
+        if ($request->hasBodyParam('delete') || ($request->hasBodyParam('change_copy') && $request->getParsedBodyParam('mode') < 4)) {
             $GLOBALS['queries'] = $serverPrivileges->getDataForDeleteUsers($GLOBALS['queries']);
-            if (empty($_POST['change_copy'])) {
+            if (! $request->hasBodyParam('change_copy')) {
                 [$GLOBALS['sql_query'], $GLOBALS['message']] = $serverPrivileges->deleteUser($GLOBALS['queries']);
             }
         }
@@ -308,7 +308,7 @@ class PrivilegesController extends AbstractController
         /**
          * Changes / copies a user, part V
          */
-        if (isset($_POST['change_copy'])) {
+        if ($request->hasBodyParam('change_copy')) {
             $GLOBALS['queries'] = $serverPrivileges->getDataForQueries(
                 $GLOBALS['queries'],
                 $GLOBALS['queries_for_display']
@@ -333,11 +333,11 @@ class PrivilegesController extends AbstractController
         if (
             $this->response->isAjax()
             && empty($_REQUEST['ajax_page_request'])
-            && ! isset($_GET['export'])
-            && (! isset($_POST['submit_mult']) || $_POST['submit_mult'] !== 'export')
-            && ((! isset($_GET['initial']) || $_GET['initial'] === '')
-                || (isset($_POST['delete']) && $_POST['delete'] === __('Go')))
-            && ! isset($_GET['showall'])
+            && ! $request->hasQueryParam('export')
+            && $request->getParsedBodyParam('submit_mult') !== 'export'
+            && ((! $request->hasQueryParam('initial') || $request->getQueryParam('initial') === '')
+                || $request->getParsedBodyParam('delete') === __('Go'))
+            && ! $request->hasQueryParam('showall')
         ) {
             $extra_data = $serverPrivileges->getExtraDataForAjaxBehavior(
                 ($GLOBALS['password'] ?? ''),
@@ -364,7 +364,7 @@ class PrivilegesController extends AbstractController
         }
 
         // export user definition
-        if (isset($_GET['export']) || (isset($_POST['submit_mult']) && $_POST['submit_mult'] === 'export')) {
+        if ($request->hasQueryParam('export') || $request->getParsedBodyParam('submit_mult') === 'export') {
             [$GLOBALS['title'], $GLOBALS['export']] = $serverPrivileges->getListForExportUserDefinition(
                 $GLOBALS['username'] ?? '',
                 $GLOBALS['hostname'] ?? ''
@@ -383,7 +383,7 @@ class PrivilegesController extends AbstractController
         }
 
         // Show back the form if an error occurred
-        if (isset($_GET['adduser']) || $GLOBALS['_add_user_error'] === true) {
+        if ($request->hasQueryParam('adduser') || $GLOBALS['_add_user_error'] === true) {
             // Add user
             $this->response->addHTML($serverPrivileges->getHtmlForAddUser(
                 $serverPrivileges->escapeGrantWildcards(is_string($GLOBALS['dbname']) ? $GLOBALS['dbname'] : '')
