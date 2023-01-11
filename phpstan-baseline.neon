@@ -1081,6 +1081,81 @@ parameters:
 			path: libraries/classes/Controllers/Database/SqlController.php
 
 		-
+			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/Structure/AddPrefixController.php
+
+		-
+			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Database/Structure/AddPrefixTableController.php
+
+		-
+			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/Structure/AddPrefixTableController.php
+
+		-
+			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/Structure/AddPrefixTableController.php
+
+		-
+			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/Structure/ChangePrefixFormController.php
+
+		-
+			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/Structure/CopyFormController.php
+
+		-
+			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
+			count: 4
+			path: libraries/classes/Controllers/Database/Structure/CopyTableController.php
+
+		-
+			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/Structure/CopyTableController.php
+
+		-
+			message: "#^Parameter \\#2 \\$oldTable of method PhpMyAdmin\\\\Operations\\:\\:adjustPrivilegesCopyTable\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/Structure/CopyTableController.php
+
+		-
+			message: "#^Parameter \\#2 \\$sourceTable of static method PhpMyAdmin\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/Structure/CopyTableController.php
+
+		-
+			message: "#^Parameter \\#3 \\$newDb of method PhpMyAdmin\\\\Operations\\:\\:adjustPrivilegesCopyTable\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/Structure/CopyTableController.php
+
+		-
+			message: "#^Parameter \\#3 \\$targetDb of static method PhpMyAdmin\\\\Table\\:\\:moveCopy\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/Structure/CopyTableController.php
+
+		-
+			message: "#^Parameter \\#4 \\$newTable of method PhpMyAdmin\\\\Operations\\:\\:adjustPrivilegesCopyTable\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/Structure/CopyTableController.php
+
+		-
+			message: "#^Parameter \\#4 \\$targetTable of static method PhpMyAdmin\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/Structure/CopyTableController.php
+
+		-
+			message: "#^Parameter \\#5 \\$what of static method PhpMyAdmin\\\\Table\\:\\:moveCopy\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/Structure/CopyTableController.php
+
+		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/Structure/CopyTableWithPrefixController.php
@@ -1556,6 +1631,26 @@ parameters:
 			path: libraries/classes/Controllers/Normalization/ThirdNormalForm/NewTablesController.php
 
 		-
+			message: "#^Parameter \\#1 \\$str of function ltrim expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Preferences/ExportController.php
+
+		-
+			message: "#^Parameter \\#1 \\$str of function ltrim expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Preferences/FeaturesController.php
+
+		-
+			message: "#^Parameter \\#1 \\$str of function ltrim expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Preferences/ImportController.php
+
+		-
+			message: "#^Parameter \\#1 \\$str of function ltrim expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Preferences/MainPanelController.php
+
+		-
 			message: "#^Only numeric types are allowed in \\+, int\\<0, max\\>\\|false given on the left side\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Preferences/ManageController.php
@@ -1564,6 +1659,36 @@ parameters:
 			message: "#^Parameter \\#1 \\$file_name of method PhpMyAdmin\\\\UserPreferences\\:\\:redirect\\(\\) expects string, string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Preferences/ManageController.php
+
+		-
+			message: "#^Parameter \\#1 \\$json of function json_decode expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Preferences/ManageController.php
+
+		-
+			message: "#^Parameter \\#1 \\$url of function parse_url expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Preferences/ManageController.php
+
+		-
+			message: "#^Parameter \\#1 \\$url of static method PhpMyAdmin\\\\Util\\:\\:splitURLQuery\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Preferences/ManageController.php
+
+		-
+			message: "#^Parameter \\#1 \\$str of function ltrim expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Preferences/NavigationController.php
+
+		-
+			message: "#^Parameter \\#1 \\$str of function ltrim expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Preferences/SqlController.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\TwoFactor\\:\\:configure\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Preferences/TwoFactorController.php
 
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
@@ -1606,9 +1731,19 @@ parameters:
 			path: libraries/classes/Controllers/Server/DatabasesController.php
 
 		-
+			message: "#^Parameter \\#1 \\$connection of method PhpMyAdmin\\\\ReplicationInfo\\:\\:load\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/DatabasesController.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Server\\\\DatabasesController\\:\\:\\$databases type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/DatabasesController.php
+
+		-
+			message: "#^Parameter \\#2 \\$userGroup of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:setUserGroup\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/PrivilegesController.php
 
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
@@ -1709,6 +1844,26 @@ parameters:
 			message: "#^Parameter \\#1 \\$flush of method PhpMyAdmin\\\\Controllers\\\\Server\\\\Status\\\\VariablesController\\:\\:flush\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/Status/VariablesController.php
+
+		-
+			message: "#^Parameter \\#2 \\$userGroup of static method PhpMyAdmin\\\\ConfigStorage\\\\UserGroups\\:\\:delete\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/UserGroupsController.php
+
+		-
+			message: "#^Parameter \\#2 \\$userGroup of static method PhpMyAdmin\\\\ConfigStorage\\\\UserGroups\\:\\:edit\\(\\) expects string, mixed given\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Server/UserGroupsController.php
+
+		-
+			message: "#^Parameter \\#2 \\$userGroup of static method PhpMyAdmin\\\\ConfigStorage\\\\UserGroups\\:\\:getHtmlForListingUsersofAGroup\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/UserGroupsController.php
+
+		-
+			message: "#^Parameter \\#2 \\$userGroup of static method PhpMyAdmin\\\\ConfigStorage\\\\UserGroups\\:\\:getHtmlToEditUserGroup\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/UserGroupsController.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Server\\\\Variables\\\\GetVariableController\\:\\:__invoke\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"

@@ -1392,23 +1392,27 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/AddPrefixController.php">
-    <MixedAssignment occurrences="2">
+    <MixedAssignment occurrences="3">
       <code>$params['selected'][]</code>
+      <code>$selected</code>
       <code>$selectedValue</code>
     </MixedAssignment>
-    <PossiblyInvalidIterator occurrences="1">
-      <code>$selected</code>
-    </PossiblyInvalidIterator>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/AddPrefixTableController.php">
-    <PossiblyInvalidArgument occurrences="2">
+    <MixedArgument occurrences="2">
       <code>$selected</code>
       <code>$selected[$i]</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidOperand occurrences="2">
-      <code>$_POST['add_prefix']</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="2">
       <code>$selected[$i]</code>
-    </PossiblyInvalidOperand>
+      <code>$selected[$i]</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="1">
+      <code>$selected</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="1">
+      <code>$request-&gt;getParsedBodyParam('add_prefix', '')</code>
+    </MixedOperand>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php">
     <PossiblyInvalidArgument occurrences="1">
@@ -1430,42 +1434,39 @@
     </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/ChangePrefixFormController.php">
-    <MixedAssignment occurrences="2">
+    <MixedAssignment occurrences="3">
+      <code>$selected</code>
       <code>$selectedValue</code>
       <code>$urlParams['selected'][]</code>
     </MixedAssignment>
-    <PossiblyInvalidIterator occurrences="1">
-      <code>$selected</code>
-    </PossiblyInvalidIterator>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/CopyFormController.php">
-    <MixedAssignment occurrences="2">
+    <MixedAssignment occurrences="3">
+      <code>$selected</code>
       <code>$selectedValue</code>
       <code>$urlParams['selected'][]</code>
     </MixedAssignment>
-    <PossiblyInvalidIterator occurrences="1">
-      <code>$selected</code>
-    </PossiblyInvalidIterator>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/CopyTableController.php">
-    <PossiblyInvalidArgument occurrences="8">
-      <code>$_POST['what']</code>
+    <MixedArgument occurrences="7">
+      <code>$request-&gt;getParsedBodyParam('what')</code>
       <code>$selected</code>
       <code>$selected[$i]</code>
       <code>$selected[$i]</code>
       <code>$selected[$i]</code>
       <code>$selected[$i]</code>
       <code>$targetDb</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="4">
+      <code>$selected[$i]</code>
+      <code>$selected[$i]</code>
+      <code>$selected[$i]</code>
+      <code>$selected[$i]</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="2">
+      <code>$selected</code>
       <code>$targetDb</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="6">
-      <code>$_POST['what']</code>
-      <code>$selected[$i]</code>
-      <code>$selected[$i]</code>
-      <code>$selected[$i]</code>
-      <code>$selected[$i]</code>
-      <code>$targetDb</code>
-    </PossiblyInvalidCast>
+    </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/CopyTableWithPrefixController.php">
     <MixedArgument occurrences="3">
@@ -2340,109 +2341,110 @@
     </InvalidArrayOffset>
   </file>
   <file src="libraries/classes/Controllers/Preferences/ExportController.php">
-    <MixedAssignment occurrences="3">
+    <MixedArgument occurrences="1">
+      <code>$GLOBALS['tabHash']</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="4">
       <code>$GLOBALS['cf']</code>
       <code>$GLOBALS['hash']</code>
       <code>$GLOBALS['tabHash']</code>
-    </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="1">
       <code>$GLOBALS['tabHash']</code>
-    </PossiblyInvalidArgument>
+    </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Preferences/FeaturesController.php">
-    <MixedAssignment occurrences="3">
+    <MixedArgument occurrences="1">
+      <code>$GLOBALS['tabHash']</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="4">
       <code>$GLOBALS['cf']</code>
       <code>$GLOBALS['hash']</code>
       <code>$GLOBALS['tabHash']</code>
-    </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="1">
       <code>$GLOBALS['tabHash']</code>
-    </PossiblyInvalidArgument>
+    </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Preferences/ImportController.php">
-    <MixedAssignment occurrences="3">
+    <MixedArgument occurrences="1">
+      <code>$GLOBALS['tabHash']</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="4">
       <code>$GLOBALS['cf']</code>
       <code>$GLOBALS['hash']</code>
       <code>$GLOBALS['tabHash']</code>
-    </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="1">
       <code>$GLOBALS['tabHash']</code>
-    </PossiblyInvalidArgument>
+    </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Preferences/MainPanelController.php">
-    <MixedAssignment occurrences="3">
+    <MixedArgument occurrences="1">
+      <code>$GLOBALS['tabHash']</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="4">
       <code>$GLOBALS['cf']</code>
       <code>$GLOBALS['hash']</code>
       <code>$GLOBALS['tabHash']</code>
-    </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="1">
       <code>$GLOBALS['tabHash']</code>
-    </PossiblyInvalidArgument>
+    </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Preferences/ManageController.php">
-    <MixedArgument occurrences="2">
+    <MixedArgument occurrences="5">
+      <code>$GLOBALS['json']</code>
+      <code>$GLOBALS['return_url']</code>
+      <code>$GLOBALS['return_url']</code>
       <code>$configuration['ThemeDefault']</code>
       <code>$configuration['ThemeDefault']</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$key</code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="13">
+    <MixedAssignment occurrences="15">
       <code>$GLOBALS['all_ok']</code>
       <code>$GLOBALS['cf']</code>
       <code>$GLOBALS['form_display']</code>
+      <code>$GLOBALS['json']</code>
       <code>$GLOBALS['json']</code>
       <code>$GLOBALS['new_config']</code>
       <code>$GLOBALS['params']</code>
       <code>$GLOBALS['params']['lang']</code>
       <code>$GLOBALS['query']</code>
       <code>$GLOBALS['return_url']</code>
+      <code>$GLOBALS['return_url']</code>
       <code>$_POST[str_replace('/', '-', (string) $k)]</code>
       <code>$configuration</code>
       <code>$v</code>
       <code>$val</code>
     </MixedAssignment>
+    <PossiblyFalseArgument occurrences="1">
+      <code>$GLOBALS['json']</code>
+    </PossiblyFalseArgument>
     <PossiblyFalseOperand occurrences="1">
       <code>$pos</code>
     </PossiblyFalseOperand>
-    <PossiblyInvalidArgument occurrences="3">
-      <code>$GLOBALS['json']</code>
-      <code>$GLOBALS['return_url']</code>
-      <code>$GLOBALS['return_url']</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="3">
-      <code>$GLOBALS['json']</code>
-      <code>$GLOBALS['return_url']</code>
-      <code>$GLOBALS['return_url']</code>
-    </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Controllers/Preferences/NavigationController.php">
-    <MixedAssignment occurrences="3">
+    <MixedArgument occurrences="1">
+      <code>$GLOBALS['tabHash']</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="4">
       <code>$GLOBALS['cf']</code>
       <code>$GLOBALS['hash']</code>
       <code>$GLOBALS['tabHash']</code>
-    </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="1">
       <code>$GLOBALS['tabHash']</code>
-    </PossiblyInvalidArgument>
+    </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Preferences/SqlController.php">
-    <MixedAssignment occurrences="3">
+    <MixedArgument occurrences="1">
+      <code>$GLOBALS['tabHash']</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="4">
       <code>$GLOBALS['cf']</code>
       <code>$GLOBALS['hash']</code>
       <code>$GLOBALS['tabHash']</code>
-    </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="1">
       <code>$GLOBALS['tabHash']</code>
-    </PossiblyInvalidArgument>
+    </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Preferences/TwoFactorController.php">
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$_POST['2fa_configure']</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="1">
-      <code>$_POST['2fa_configure']</code>
-    </PossiblyInvalidCast>
+    <MixedArgument occurrences="1">
+      <code>$request-&gt;getParsedBodyParam('2fa_configure')</code>
+    </MixedArgument>
   </file>
   <file src="libraries/classes/Controllers/Server/BinlogController.php">
     <MixedArgument occurrences="2">
@@ -2466,29 +2468,23 @@
     <InvalidArrayOffset occurrences="1">
       <code>$GLOBALS['cfg']['AllowUserDropDatabase']</code>
     </InvalidArrayOffset>
-    <MixedAssignment occurrences="3">
+    <MixedArgument occurrences="3">
+      <code>$database</code>
+      <code>$database</code>
+      <code>$database</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="4">
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['reload']</code>
       <code>$GLOBALS['selected']</code>
+      <code>$database</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="3">
-      <code>$database</code>
-      <code>$database</code>
-      <code>$database</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="2">
-      <code>$database</code>
-      <code>$database</code>
-    </PossiblyInvalidCast>
-    <TypeDoesNotContainType occurrences="1">
-      <code>$selected_dbs === []</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Controllers/Server/DatabasesController.php">
     <InvalidArrayOffset occurrences="1">
       <code>$GLOBALS['cfg']['AllowUserDropDatabase']</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="8">
+    <MixedArgument occurrences="9">
       <code>$database['DEFAULT_COLLATION_NAME']</code>
       <code>$database['SCHEMA_NAME']</code>
       <code>$primaryInfo['Do_DB']</code>
@@ -2497,6 +2493,7 @@
       <code>$replicaInfo['Do_DB']</code>
       <code>$replicaInfo['Do_DB']</code>
       <code>$replicaInfo['Ignore_DB']</code>
+      <code>$request-&gt;getParsedBodyParam('primary_connection')</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>['db' =&gt; $database['SCHEMA_NAME']]</code>
@@ -2538,8 +2535,7 @@
     <MixedOperand occurrences="1">
       <code>$totalStatistics[$key]['raw']</code>
     </MixedOperand>
-    <PossiblyInvalidArgument occurrences="3">
-      <code>$_POST['primary_connection'] ?? null</code>
+    <PossiblyInvalidArgument occurrences="2">
       <code>$params['sort_by']</code>
       <code>$params['sort_order']</code>
     </PossiblyInvalidArgument>
@@ -2592,7 +2588,7 @@
     <InvalidArgument occurrences="1">
       <code>$GLOBALS['sql_query']</code>
     </InvalidArgument>
-    <MixedArgument occurrences="10">
+    <MixedArgument occurrences="11">
       <code>$GLOBALS['message']</code>
       <code>$GLOBALS['password'] ?? ''</code>
       <code>$GLOBALS['password'] ?? null</code>
@@ -2603,6 +2599,7 @@
       <code>$GLOBALS['url_dbname'] ?? ''</code>
       <code>$GLOBALS['url_dbname'] ?? ''</code>
       <code>$db_name ?? ''</code>
+      <code>$request-&gt;getParsedBodyParam('userGroup')</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$GLOBALS['queries']</code>
@@ -2641,12 +2638,6 @@
       <code>$GLOBALS['export']</code>
       <code>$GLOBALS['title']</code>
     </MixedOperand>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$_POST['userGroup']</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="1">
-      <code>$_POST['userGroup']</code>
-    </PossiblyInvalidCast>
     <PossiblyNullArgument occurrences="1">
       <code>$GLOBALS['text_dir']</code>
     </PossiblyNullArgument>
@@ -2814,19 +2805,13 @@
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Server/UserGroupsController.php">
-    <PossiblyInvalidArgument occurrences="5">
-      <code>$_POST['userGroup']</code>
-      <code>$_POST['userGroup']</code>
-      <code>$_POST['userGroup']</code>
-      <code>$_POST['userGroup']</code>
-      <code>$_POST['userGroup']</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="4">
-      <code>$_POST['userGroup']</code>
-      <code>$_POST['userGroup']</code>
-      <code>$_POST['userGroup']</code>
-      <code>$_POST['userGroup']</code>
-    </PossiblyInvalidCast>
+    <MixedArgument occurrences="5">
+      <code>$request-&gt;getParsedBodyParam('userGroup')</code>
+      <code>$request-&gt;getParsedBodyParam('userGroup')</code>
+      <code>$request-&gt;getParsedBodyParam('userGroup')</code>
+      <code>$request-&gt;getParsedBodyParam('userGroup')</code>
+      <code>$request-&gt;getParsedBodyParam('userGroup')</code>
+    </MixedArgument>
   </file>
   <file src="libraries/classes/Controllers/Server/UserGroupsFormController.php">
     <DeprecatedMethod occurrences="1">

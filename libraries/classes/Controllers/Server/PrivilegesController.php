@@ -166,7 +166,8 @@ class PrivilegesController extends AbstractController
          * only to update the password
          */
         if (
-            $request->hasBodyParam('change_copy') && $GLOBALS['username'] == $request->getParsedBodyParam('old_username')
+            $request->hasBodyParam('change_copy')
+            && $GLOBALS['username'] == $request->getParsedBodyParam('old_username')
             && $GLOBALS['hostname'] == $request->getParsedBodyParam('old_hostname')
         ) {
             $this->response->addHTML(
@@ -298,7 +299,10 @@ class PrivilegesController extends AbstractController
          * Deletes users
          *   (Changes / copies a user, part IV)
          */
-        if ($request->hasBodyParam('delete') || ($request->hasBodyParam('change_copy') && $request->getParsedBodyParam('mode') < 4)) {
+        if (
+            $request->hasBodyParam('delete')
+            || ($request->hasBodyParam('change_copy') && $request->getParsedBodyParam('mode') < 4)
+        ) {
             $GLOBALS['queries'] = $serverPrivileges->getDataForDeleteUsers($GLOBALS['queries']);
             if (! $request->hasBodyParam('change_copy')) {
                 [$GLOBALS['sql_query'], $GLOBALS['message']] = $serverPrivileges->deleteUser($GLOBALS['queries']);
