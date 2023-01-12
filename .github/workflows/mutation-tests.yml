@@ -39,12 +39,7 @@ jobs:
           php-version: ${{ matrix.php-version }}
           coverage: pcov
           ini-values: memory_limit=-1
-          tools: composer:v2, phive
-
-      - name: Install Infection
-        # The GPG key can be found at https://infection.github.io/guide/installation.html
-        run: |
-          phive --no-progress install --target ./build/tools --trust-gpg-keys C5095986493B4AA0 infection
+          tools: composer:v2, infection
 
       - name: Install Composer dependencies
         uses: ramsey/composer-install@v2
@@ -59,7 +54,7 @@ jobs:
         if: ${{ github.base_ref != '' }}
         run: |
           CHANGED_FILES=$(git diff origin/$GITHUB_BASE_REF --diff-filter=AM --name-only | grep libraries/classes/ | paste -sd "," -);
-          ./build/tools/infection -j$(nproc) --skip-initial-tests --no-interaction --no-progress --coverage=build/logs \
+          infection -j$(nproc) --skip-initial-tests --no-interaction --no-progress --coverage=build/logs \
             --ignore-msi-with-no-mutations \
             --filter=$CHANGED_FILES
         env:
@@ -68,6 +63,6 @@ jobs:
       - name: Infection
         if: ${{ github.base_ref == '' }}
         run: |
-          ./build/tools/infection -j$(nproc) --skip-initial-tests --no-interaction --no-progress --coverage=build/logs
+          infection -j$(nproc) --skip-initial-tests --no-interaction --no-progress --coverage=build/logs
         env:
           INFECTION_BADGE_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
