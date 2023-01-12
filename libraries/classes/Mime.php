@@ -15,7 +15,7 @@ use function mb_substr;
 use function substr;
 
 /**
- * PhpMyAdmin\Mime class;
+ * Handles mime type detection
  */
 class Mime
 {
