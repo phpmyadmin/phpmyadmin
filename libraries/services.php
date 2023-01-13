@@ -149,6 +149,7 @@ return [
         ],
         'replication' => [
             'class' => PhpMyAdmin\Replication::class,
+            'arguments' => ['$dbi' => '@dbi'],
         ],
         'replication_gui' => [
             'class' => PhpMyAdmin\ReplicationGui::class,

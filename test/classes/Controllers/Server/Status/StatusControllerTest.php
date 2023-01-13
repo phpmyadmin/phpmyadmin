@@ -67,7 +67,7 @@ class StatusControllerTest extends AbstractTestCase
             $response,
             $template,
             $data,
-            new ReplicationGui(new Replication(), $template),
+            new ReplicationGui(new Replication($GLOBALS['dbi']), $template),
             $GLOBALS['dbi']
         );
 

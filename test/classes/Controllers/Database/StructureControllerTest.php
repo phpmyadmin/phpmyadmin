@@ -67,7 +67,7 @@ class StructureControllerTest extends AbstractTestCase
         $this->template = new Template();
         $this->response = new ResponseStub();
         $this->relation = new Relation($dbi);
-        $this->replication = new Replication();
+        $this->replication = new Replication($dbi);
     }
 
     /**

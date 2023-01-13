@@ -11821,9 +11821,8 @@
       <code>$_SESSION['replication']['sr_action_status']</code>
       <code>$_SESSION['replication']['sr_action_status']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="5">
+    <MixedAssignment occurrences="4">
       <code>$errorMessage</code>
-      <code>$linkToPrimary</code>
       <code>$serverReplicationVariable</code>
       <code>$successMessage</code>
       <code>$username</code>

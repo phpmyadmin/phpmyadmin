@@ -1,7 +1,4 @@
 <?php
-/**
- * Replication helpers
- */
 
 declare(strict_types=1);
 
@@ -13,10 +10,18 @@ use function explode;
 use function mb_strtoupper;
 
 /**
- * PhpMyAdmin\Replication class
+ * Replication helpers
  */
 class Replication
 {
+    /** @var DatabaseInterface */
+    private $dbi;
+
+    public function __construct(DatabaseInterface $dbi)
+    {
+        $this->dbi = $dbi;
+    }
+
     /**
      * Extracts database or table name from string
      *
@@ -60,7 +65,7 @@ class Replication
             return -1;
         }
 
-        return $GLOBALS['dbi']->tryQuery($action . ' SLAVE ' . $control . ';', $link);
+        return $this->dbi->tryQuery($action . ' SLAVE ' . $control . ';', $link);
     }
 
     /**
@@ -91,13 +96,13 @@ class Replication
             $this->replicaControl('STOP', null, $link);
         }
 
-        $out = $GLOBALS['dbi']->tryQuery(
+        $out = $this->dbi->tryQuery(
             'CHANGE MASTER TO ' .
-            'MASTER_HOST=' . $GLOBALS['dbi']->quoteString($host) . ',' .
+            'MASTER_HOST=' . $this->dbi->quoteString($host) . ',' .
             'MASTER_PORT=' . $port . ',' .
-            'MASTER_USER=' . $GLOBALS['dbi']->quoteString($user) . ',' .
-            'MASTER_PASSWORD=' . $GLOBALS['dbi']->quoteString($password) . ',' .
-            'MASTER_LOG_FILE=' . $GLOBALS['dbi']->quoteString($pos['File']) . ',' .
+            'MASTER_USER=' . $this->dbi->quoteString($user) . ',' .
+            'MASTER_PASSWORD=' . $this->dbi->quoteString($password) . ',' .
+            'MASTER_LOG_FILE=' . $this->dbi->quoteString($pos['File']) . ',' .
             'MASTER_LOG_POS=' . $pos['Position'] . ';',
             $link
         );
@@ -118,7 +123,7 @@ class Replication
      * @param int    $port     mysql remote port
      * @param string $socket   path to unix socket
      *
-     * @return mixed mysql link on success
+     * @return object|false
      */
     public function connectToPrimary(
         $user,
@@ -136,7 +141,7 @@ class Replication
 
         // 5th parameter set to true means that it's an auxiliary connection
         // and we must not go back to login page if it fails
-        return $GLOBALS['dbi']->connect(DatabaseInterface::CONNECT_AUXILIARY, $server);
+        return $this->dbi->connect(DatabaseInterface::CONNECT_AUXILIARY, $server);
     }
 
     /**
@@ -150,7 +155,7 @@ class Replication
      */
     public function replicaBinLogPrimary(int $link): array
     {
-        $data = $GLOBALS['dbi']->fetchResult('SHOW MASTER STATUS', null, null, $link);
+        $data = $this->dbi->fetchResult('SHOW MASTER STATUS', null, null, $link);
         $output = [];
 
         if (! empty($data)) {
