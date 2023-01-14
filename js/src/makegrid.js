@@ -1509,7 +1509,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     thisFieldParams[fieldName] = $(g.cEdit).find('.edit_box').val();
                 }
 
-                var isValueUpdated;
+                let isValueUpdated;
                 if ($thisField.attr('data-type') !== 'json') {
                     isValueUpdated = thisFieldParams[fieldName] !== Functions.getCellValue(g.currentEditCell);
                 } else {
