@@ -3989,10 +3989,13 @@ Functions.getCellValue = function (td) {
  * @return {string}
  */
 Functions.stringifyJSON = function (json, replacer = null, space = 0) {
+    let stringifiedJSON = json;
     try {
-        json = JSON.stringify(JSON.parse(json), replacer, space);
-    } catch (e) { }
-    return json;
+        stringifiedJSON = JSON.stringify(JSON.parse(json), replacer, space);
+    } catch (e) {
+        // will be returned as it's
+    }
+    return stringifiedJSON;
 };
 
 /**
