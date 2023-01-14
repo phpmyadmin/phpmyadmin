@@ -631,11 +631,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     // fill the cell edit with text from <td>
                     var value = Functions.getCellValue(cell);
                     if ($cell.attr('data-type') === 'json' && $cell.is('.truncated') === false) {
-                        try {
-                            value = JSON.stringify(JSON.parse(value), null, 4);
-                        } catch (e) {
-                            // Show as is
-                        }
+                        value = Functions.stringifyJSON(value, null, 4);
                     }
                     $(g.cEdit).find('.edit_box').val(value);
 
@@ -1053,11 +1049,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                             $editArea.removeClass('edit_area_loading');
                             if (typeof data !== 'undefined' && data.success === true) {
                                 if ($td.attr('data-type') === 'json') {
-                                    try {
-                                        data.value = JSON.stringify(JSON.parse(data.value), null, 4);
-                                    } catch (e) {
-                                        // Show as is
-                                    }
+                                    data.value = Functions.stringifyJSON(data.value, null, 4);
                                 }
                                 $td.data('original_data', data.value);
                                 $(g.cEdit).find('.edit_box').val(data.value);
@@ -1278,7 +1270,8 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                         if ($thisField.attr('data-type') !== 'json') {
                             fields.push($thisField.data('value'));
                         } else {
-                            fields.push(JSON.stringify(JSON.parse($thisField.data('value'))));
+                            const JSONString = Functions.stringifyJSON($thisField.data('value'));
+                            fields.push(JSONString);
                         }
 
                         var cellIndex = $thisField.index('.to_be_saved');
@@ -1520,7 +1513,8 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 if ($thisField.attr('data-type') !== 'json') {
                     isValueUpdated = thisFieldParams[fieldName] !== Functions.getCellValue(g.currentEditCell);
                 } else {
-                    isValueUpdated = JSON.stringify(JSON.parse(thisFieldParams[fieldName])) !== JSON.stringify(JSON.parse(Functions.getCellValue(g.currentEditCell)));
+                    const JSONString = Functions.stringifyJSON(thisFieldParams[fieldName]);
+                    isValueUpdated = JSONString !== JSON.stringify(JSON.parse(Functions.getCellValue(g.currentEditCell)));
                 }
 
                 if (g.wasEditedCellNull || isValueUpdated) {
