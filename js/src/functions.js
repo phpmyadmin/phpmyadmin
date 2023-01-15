@@ -10,7 +10,7 @@
 
 /**
  * general function, usually for data manipulation pages
- *
+ * @test-module Functions
  */
 var Functions = {};
 
@@ -3989,13 +3989,11 @@ Functions.getCellValue = function (td) {
  * @return {string}
  */
 Functions.stringifyJSON = function (json, replacer = null, space = 0) {
-    let stringifiedJSON = json;
     try {
-        stringifiedJSON = JSON.stringify(JSON.parse(json), replacer, space);
+        return JSON.stringify(JSON.parse(json), replacer, space);
     } catch (e) {
-        // will be returned as it's
+        return json;
     }
-    return stringifiedJSON;
 };
 
 /**
