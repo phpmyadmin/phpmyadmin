@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-01-08 00:20+0000\n"
+"POT-Creation-Date: 2023-01-15 00:20+0000\n"
 "PO-Revision-Date: 2023-01-07 14:25+0000\n"
 "Last-Translator: theking2 <theking2@king.ma>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -340,9 +340,9 @@ msgid ""
 "cache, especially if you have multiple replicas."
 msgstr ""
 "U gebruikt MySQL-querycache op een druk gebruikte database. U kan overwegen "
-"om <a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-memcached.html"
-"\">memcached</a> te gebruiken in plaats van MySQL-querycache, vooral als u "
-"verschillende replica's heeft."
+"om <a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-memcached."
+"html\">memcached</a> te gebruiken in plaats van MySQL-querycache, vooral als "
+"u verschillende replica's heeft."
 
 #: libraries/classes/Advisory/Rules.php:223
 #, php-format
@@ -931,9 +931,9 @@ msgstr "Te veel verbindingen werden afgebroken."
 #: libraries/classes/Advisory/Rules.php:580
 #: libraries/classes/Advisory/Rules.php:594
 msgid ""
-"Connections are usually aborted when they cannot be authorized. <a href="
-"\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
-"aborted_connects/\">This article</a> might help you track down the source."
+"Connections are usually aborted when they cannot be authorized. <a "
+"href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
+"of-aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
 "Verbindingen worden meestal afgebroken wanneer deze niet toegelaten zijn. <a "
 "href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
@@ -1049,8 +1049,8 @@ msgstr ""
 "zondermeer ingesteld kan worden. De server moet uitgeschakeld worden, de "
 "InnoDB-logbestanden moeten worden verwijderd, de nieuwe waarde moet worden "
 "ingesteld in my.cnf, de server herstart en dan moeten de foutlogboeken "
-"bekeken worden om te zien of alles goed gegaan is. Bekijk ook <a href="
-"\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"bekeken worden om te zien of alles goed gegaan is. Bekijk ook <a "
+"href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">deze blog</a>"
 
 #: libraries/classes/Advisory/Rules.php:662
@@ -1076,12 +1076,12 @@ msgstr "Het InnoDB-logboek is veel te groot."
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25% of the size of "
 "{innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down the "
-"recovery time after a database crash considerably. See also <a href="
-"\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
+"recovery time after a database crash considerably. See also <a "
+"href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
 "innodb_log_file_size/\">this Article</a>. You need to shutdown the server, "
 "remove the InnoDB log files, set the new value in my.cnf, start the server, "
-"then check the error logs if everything went fine. See also <a href="
-"\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"then check the error logs if everything went fine. See also <a "
+"href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "Doorgaans is het voldoende om {innodb_log_file_size} in te stellen op 25% "
@@ -1118,9 +1118,9 @@ msgid ""
 "available memory. If that is not the case, you need to carefully assess the "
 "memory consumption of your other services and non-InnoDB-Tables and set this "
 "variable accordingly. If it is set too high, your system will start "
-"swapping, which decreases performance significantly. See also <a href="
-"\"https://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/"
-"\">this article</a>"
+"swapping, which decreases performance significantly. See also <a "
+"href=\"https://www.percona.com/blog/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
 "De InnoDB-bufferpool heeft grote invloed op de prestaties van InnoDB-"
 "tabellen. Wijs alle overblijvend geheugen toe aan deze buffer. Voor database-"
@@ -1231,8 +1231,8 @@ msgstr ""
 #: libraries/classes/Advisory/Rules.php:808
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is "
+"%s%%. It should be above 80%%"
 msgstr ""
 "De huidige verhouding van vrij querycachegeheugen tot de totale "
 "querycachegrootte is %s%%. Dit zou meer dan 80%% moeten zijn"
@@ -1376,7 +1376,7 @@ msgstr "Zoeken:"
 
 #: libraries/classes/BrowseForeigners.php:204
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:341
-#: libraries/classes/Controllers/Server/PrivilegesController.php:339
+#: libraries/classes/Controllers/Server/PrivilegesController.php:343
 #: libraries/classes/Normalization.php:254 libraries/classes/Tracking.php:327
 #: libraries/classes/Tracking.php:482
 #: templates/columns_definitions/column_definitions_form.twig:42
@@ -2495,8 +2495,8 @@ msgid ""
 "[kbd]'my_db'[/kbd]."
 msgstr ""
 "U kunt gebruik maken van MySQL-jokertekens (% en _), laat ze voorafgaan door "
-"een \\ indien u ze letterlijk wil gebruiken. Gebruik bijvoorbeeld [kbd]'mijn"
-"\\_db'[/kbd] en niet [kbd]'mijn_db'[/kbd]."
+"een \\ indien u ze letterlijk wil gebruiken. Gebruik bijvoorbeeld "
+"[kbd]'mijn\\_db'[/kbd] en niet [kbd]'mijn_db'[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:391
 msgid ""
@@ -2882,8 +2882,9 @@ msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr ""
-"Queries worden uitgevoerd door op Enter te drukken (in plaats van Ctrl"
-"+Enter). Nieuwe regels worden ingevoegd met de toetscombinatie Shift+Enter."
+"Queries worden uitgevoerd door op Enter te drukken (in plaats van "
+"Ctrl+Enter). Nieuwe regels worden ingevoegd met de toetscombinatie "
+"Shift+Enter."
 
 #: libraries/classes/Config/Descriptions.php:548
 msgid ""
@@ -4890,9 +4891,9 @@ msgid ""
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%1$sAanmeldingscookiegeldigheid%2$s groter dan %3$ssession.gc_maxlifetime"
-"%4$s kan willekeurige sessieproblemen veroorzaken (huidige waarde van "
-"session.gc_maxlifetime is %5$d)."
+"%1$sAanmeldingscookiegeldigheid%2$s groter dan %3$ssession."
+"gc_maxlifetime%4$s kan willekeurige sessieproblemen veroorzaken (huidige "
+"waarde van session.gc_maxlifetime is %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:346
 #, php-format
@@ -5113,10 +5114,9 @@ msgstr ""
 "installatie!"
 
 #: libraries/classes/Controllers/Database/ImportController.php:79
-#: libraries/classes/Controllers/Import/ImportController.php:583
+#: libraries/classes/Controllers/Import/ImportController.php:582
 #: libraries/classes/Controllers/Server/ImportController.php:60
 #: libraries/classes/Controllers/Table/ImportController.php:71
-#: libraries/classes/Controllers/Import/ImportController.php:582
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "De importeerplugins konden niet worden geladen, controleer de installatie!"
@@ -5174,7 +5174,7 @@ msgstr ""
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:45
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:45
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/RemoveController.php:45
-#: libraries/classes/Controllers/Database/Structure/ChangePrefixFormController.php:21
+#: libraries/classes/Controllers/Database/Structure/ChangePrefixFormController.php:20
 #: libraries/classes/Controllers/Database/Structure/CopyFormController.php:20
 #: libraries/classes/Controllers/Database/Structure/DropFormController.php:36
 #: libraries/classes/Controllers/Database/Structure/EmptyFormController.php:23
@@ -5219,8 +5219,8 @@ msgstr "Tabel %s is leeggemaakt."
 #: libraries/classes/Display/Results.php:3761
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to "
+"%sdocumentation%s."
 msgstr ""
 "Deze view heeft minimaal deze hoeveelheid aan rijen. Zie de %sdocumentatie%s."
 
@@ -5479,21 +5479,16 @@ msgstr ""
 msgid "Incorrect format parameter"
 msgstr "Onjuist parameterformaat"
 
-#: libraries/classes/Controllers/Import/ImportController.php:382
-#: libraries/classes/Controllers/Import/ImportController.php:623
 #: libraries/classes/Controllers/Import/ImportController.php:381
 #: libraries/classes/Controllers/Import/ImportController.php:622
 msgid "Showing bookmark"
 msgstr "Toon bladwijzer"
 
-#: libraries/classes/Controllers/Import/ImportController.php:407
-#: libraries/classes/Controllers/Import/ImportController.php:619
 #: libraries/classes/Controllers/Import/ImportController.php:406
 #: libraries/classes/Controllers/Import/ImportController.php:618
 msgid "The bookmark has been deleted."
 msgstr "De bladwijzer is verwijderd."
 
-#: libraries/classes/Controllers/Import/ImportController.php:529
 #: libraries/classes/Controllers/Import/ImportController.php:528
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
@@ -5505,7 +5500,6 @@ msgstr ""
 "bestandsgrootte zoals opgegeven in de PHP-configuratie. Zie [doc@faq1-16]FAQ "
 "1.16[/doc]."
 
-#: libraries/classes/Controllers/Import/ImportController.php:631
 #: libraries/classes/Controllers/Import/ImportController.php:630
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
@@ -5513,7 +5507,6 @@ msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Het importeren is geslaagd, %d query uitgevoerd."
 msgstr[1] "Het importeren is geslaagd, %d queries uitgevoerd."
 
-#: libraries/classes/Controllers/Import/ImportController.php:668
 #: libraries/classes/Controllers/Import/ImportController.php:667
 #, php-format
 msgid ""
@@ -5523,7 +5516,6 @@ msgstr ""
 "De maximale uitvoertijd is verstreken, als u het importeren wilt afmaken, "
 "%sresubmit dezelfde file%s opnieuw en de import zal hervat worden."
 
-#: libraries/classes/Controllers/Import/ImportController.php:678
 #: libraries/classes/Controllers/Import/ImportController.php:677
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
@@ -5533,9 +5525,8 @@ msgstr ""
 "dit dat phpMyAdmin het importeren niet kan afmaken, tenzij de "
 "tijdsbeperkingen van PHP worden versoepeld."
 
-#: libraries/classes/Controllers/Import/ImportController.php:746
-#: libraries/classes/Controllers/Sql/SqlController.php:176
 #: libraries/classes/Controllers/Import/ImportController.php:745
+#: libraries/classes/Controllers/Sql/SqlController.php:176
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" opdrachten zijn uitgeschakeld."
 
@@ -8066,7 +8057,7 @@ msgstr "phpMyAdmin configuratie fragment"
 msgid "Paste it to your config.inc.php"
 msgstr "Plak het in uw config.inc.php"
 
-#: libraries/classes/Controllers/Preferences/ManageController.php:156
+#: libraries/classes/Controllers/Preferences/ManageController.php:157
 msgid "Could not import configuration"
 msgstr "Standaard configuratiebestand kon niet geladen worden"
 
@@ -8131,7 +8122,7 @@ msgstr "Het gebruikersaccount %s@2%s is succesvol vergrendeld."
 msgid "The account %s@%s has been successfully unlocked."
 msgstr "Het gebruikersaccount %s@%s is succesvol ontgrendeld."
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:175
+#: libraries/classes/Controllers/Server/PrivilegesController.php:176
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
@@ -9109,7 +9100,7 @@ msgstr "Primaire sleutel"
 msgid "Index"
 msgstr "Index"
 
-#: libraries/classes/Controllers/Table/Structure/MoveColumnsController.php:172
+#: libraries/classes/Controllers/Table/Structure/MoveColumnsController.php:178
 msgid "The columns have been moved successfully."
 msgstr "De geselecteerde kolommen zijn met succes verplaatst."
 
@@ -12077,8 +12068,8 @@ msgstr "ESRI vormbestand"
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr ""
-"Er is een fout opgetreden bij het importeren van het ESRI-vormbestand: \"%s"
-"\"."
+"Er is een fout opgetreden bij het importeren van het ESRI-vormbestand: "
+"\"%s\"."
 
 #: libraries/classes/Plugins/Import/ImportShp.php:199
 #, php-format
@@ -12471,12 +12462,10 @@ msgstr ""
 "Authenticator of Authy."
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:208
-#: libraries/classes/Plugins/TwoFactor/Key.php:204
 msgid "Hardware Security Key (FIDO U2F)"
 msgstr "Hardwarematige beveiligingssleutel (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:218
-#: libraries/classes/Plugins/TwoFactor/Key.php:214
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a Yubikey."
@@ -13547,8 +13536,8 @@ msgid ""
 "-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Een klein getal met variabele kommapositie, toegelaten waarden zijn "
-"-3,402823466E+38 tot -1,175494351E-38, 0, en 1,175494351E-38 tot 3.402823466E"
-"+38"
+"-3,402823466E+38 tot -1,175494351E-38, 0, en 1,175494351E-38 tot "
+"3.402823466E+38"
 
 #: libraries/classes/Types.php:271
 msgid ""
@@ -14324,8 +14313,8 @@ msgid ""
 msgstr ""
 "Vul de waardes voor de transformatieoptie in het volgende formaat in: 'a', "
 "100, b,'c'…<br>Wanneer u een backslash (\"\\\") of een enkele quote (\"'\") "
-"moet invoegen plaats er dan een backslash voor (bijvoorbeeld '\\\\xyz' of 'a"
-"\\'b')."
+"moet invoegen plaats er dan een backslash voor (bijvoorbeeld '\\\\xyz' of "
+"'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:88
 #: templates/transformation_overview.twig:37
@@ -14488,8 +14477,8 @@ msgid ""
 "Execute queries on Enter and insert new line with Shift+Enter. To make this "
 "permanent, view settings."
 msgstr ""
-"Voer queries uit met de Enter toets en voeg een nieuwe regel toe met Shift"
-"+Enter. Om dit permanent te maken, bekijk het instellingenmenu."
+"Voer queries uit met de Enter toets en voeg een nieuwe regel toe met "
+"Shift+Enter. Om dit permanent te maken, bekijk het instellingenmenu."
 
 #: templates/create_tracking_version.twig:10
 #, php-format
@@ -20597,8 +20586,8 @@ msgstr "Kolomnamen"
 
 #~ msgid ""
 #~ "The SQL validator could not be initialized. Please check if you have "
-#~ "installed the necessary PHP extensions as described in the %sdocumentation"
-#~ "%s."
+#~ "installed the necessary PHP extensions as described in the "
+#~ "%sdocumentation%s."
 #~ msgstr ""
 #~ "De SQL-validatie kon niet worden geïnitialiseerd. Controleer of u de "
 #~ "nodige PHP-uitbreidingen heeft geïnstalleerd, zoals beschreven in de "
@@ -21561,8 +21550,8 @@ msgstr "Kolomnamen"
 #~ "Documentation.html#faq6-29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
 #~ "Merk op dat niet elke resultaattabel omgevormd kan worden tot een "
-#~ "grafiek. Zie <a href=\"./Documentation.html#faq6-29\" target="
-#~ "\"Documentation\">FAQ 6.29</a>"
+#~ "grafiek. Zie <a href=\"./Documentation.html#faq6-29\" "
+#~ "target=\"Documentation\">FAQ 6.29</a>"
 
 #~ msgid "Add a New User"
 #~ msgstr "Voeg een nieuwe gebruiker toe"
