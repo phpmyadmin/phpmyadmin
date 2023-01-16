@@ -8,7 +8,7 @@
         <option value="userdefined"{{ pred_username is null or pred_username == 'userdefined' ? ' selected' }}>{% trans 'Use text field' %}</option>
       </select>
     </span>
-    <input type="text" name="username" id="pma_username" class="autofocus" maxlength="{{ username_length }}" title="{% trans 'User name' %}"
+    <input type="text" name="username" id="pma_username" class="autofocus" spellcheck="false" maxlength="{{ username_length }}" title="{% trans 'User name' %}"
       {%- if username is not empty %} value="{{ new_username is not null ? new_username : username }}"{% endif -%}
       {{- pred_username is null or pred_username == 'userdefined' ? ' required' }}>
 
