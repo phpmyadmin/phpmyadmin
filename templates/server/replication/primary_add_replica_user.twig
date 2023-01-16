@@ -54,7 +54,7 @@
             <option value="userdefined"{{ not has_username ? ' selected' }}>{% trans 'Use text field:' %}</option>
           </select>
         </span>
-        <input type="password" id="text_pma_pw" name="pma_pw" title="{% trans 'Password' %}">
+        <input type="password" id="text_pma_pw" name="pma_pw" title="{% trans 'Password' %}" spellcheck="false">
       </div>
 
       <div class="item">
@@ -62,7 +62,7 @@
           {% trans 'Re-type:' %}
         </label>
         <span class="options"></span>
-        <input type="password" id="text_pma_pw2" name="pma_pw2" title="{% trans 'Re-type' %}">
+        <input type="password" id="text_pma_pw2" name="pma_pw2" title="{% trans 'Re-type' %}" spellcheck="false">
       </div>
 
       <div class="item">
