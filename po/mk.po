@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-01-07 14:25+0000\n"
+"PO-Revision-Date: 2023-01-17 01:50+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -11130,10 +11130,9 @@ msgid "Event name"
 msgstr "Вид на настан"
 
 #: libraries/classes/Rte/Events.php:450 libraries/classes/Rte/Routines.php:929
-#, fuzzy, php-format
-#| msgid "Change"
+#, php-format
 msgid "Change to %s"
-msgstr "Промени"
+msgstr "Промени во %s"
 
 #: libraries/classes/Rte/Events.php:456
 msgid "Execute at"
@@ -13806,9 +13805,9 @@ msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr ""
 
 #: libraries/classes/Types.php:265
-#, fuzzy, php-format
+#, php-format
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "Верзија на серверот"
+msgstr "Датум, поддржан опсег од %1$s до %2$s"
 
 #: libraries/classes/Types.php:270
 #, php-format
@@ -13822,9 +13821,9 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Types.php:281
-#, fuzzy, php-format
+#, php-format
 msgid "A time, range is %1$s to %2$s"
-msgstr "Верзија на серверот"
+msgstr "Време, опсег од %1$s до %2$s"
 
 #: libraries/classes/Types.php:285
 msgid ""
@@ -15132,17 +15131,14 @@ msgid "See table structure"
 msgstr "База на податоци"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgctxt "Create SELECT … query"
-#| msgid "Select"
+#, php-format
 msgid "Select \"%s\""
-msgstr "избери се"
+msgstr "Избери \"%s\""
 
 #: templates/database/designer/database_tables.twig:126
-#, fuzzy, php-format
-#| msgid "Number of rows per page"
+#, php-format
 msgid "Add an option for column \"%s\"."
-msgstr "Број на записи на страница"
+msgstr "Додади опција за колона \"%s\"."
 
 #: templates/display/export/options_output_save_dir.twig:5
 #: templates/display/export/options_quick_export.twig:8
@@ -15601,14 +15597,14 @@ msgid "Add/Delete columns"
 msgstr "Додади/избриши колона"
 
 #: templates/table/tracking/create_version.twig:11
-#, fuzzy, php-format
+#, php-format
 msgid "Create version %1$s of %2$s"
-msgstr "Верзија на серверот"
+msgstr "Создади верзија %1$s од %2$s"
 
 #: templates/table/tracking/create_version.twig:16
-#, fuzzy, php-format
+#, php-format
 msgid "Create version %1$s"
-msgstr "Верзија на серверот"
+msgstr "Создади верзија %1$s"
 
 #: templates/table/tracking/create_version.twig:20
 msgid "Track these data definition statements:"
