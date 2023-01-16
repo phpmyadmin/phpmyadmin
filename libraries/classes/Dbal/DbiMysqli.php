@@ -16,8 +16,6 @@ use PhpMyAdmin\Query\Utilities;
 
 use function __;
 use function defined;
-use function mysqli_connect_errno;
-use function mysqli_connect_error;
 use function mysqli_get_client_info;
 use function mysqli_init;
 use function mysqli_report;
@@ -43,19 +41,14 @@ use const MYSQLI_USE_RESULT;
  */
 class DbiMysqli implements DbiExtension
 {
-    /**
-     * Connects to the database server.
-     *
-     * @return object|false A connection object on success or false on failure.
-     */
-    public function connect(string $user, string $password, Server $server)
+    public function connect(string $user, string $password, Server $server): ?Connection
     {
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
         $mysqli = mysqli_init();
 
         if ($mysqli === false) {
-            return false;
+            return null;
         }
 
         $client_flags = 0;
@@ -156,7 +149,7 @@ class DbiMysqli implements DbiExtension
 
             mysqli_report(MYSQLI_REPORT_OFF);
 
-            return false;
+            return null;
         }
 
         // phpcs:enable
@@ -165,37 +158,41 @@ class DbiMysqli implements DbiExtension
 
         mysqli_report(MYSQLI_REPORT_OFF);
 
-        return $mysqli;
+        return new Connection($mysqli);
     }
 
     /**
      * selects given database
      *
      * @param string|DatabaseName $databaseName database name to select
-     * @param mysqli              $link         the mysqli object
      */
-    public function selectDb($databaseName, $link): bool
+    public function selectDb($databaseName, Connection $connection): bool
     {
-        return $link->select_db((string) $databaseName);
+        /** @var mysqli $mysqli */
+        $mysqli = $connection->connection;
+
+        return $mysqli->select_db((string) $databaseName);
     }
 
     /**
      * runs a query and returns the result
      *
      * @param string $query   query to execute
-     * @param mysqli $link    mysqli object
      * @param int    $options query options
      *
      * @return MysqliResult|false
      */
-    public function realQuery(string $query, $link, int $options)
+    public function realQuery(string $query, Connection $connection, int $options)
     {
         $method = MYSQLI_STORE_RESULT;
         if ($options == ($options | DatabaseInterface::QUERY_UNBUFFERED)) {
             $method = MYSQLI_USE_RESULT;
         }
 
-        $result = $link->query($query, $method);
+        /** @var mysqli $mysqli */
+        $mysqli = $connection->connection;
+
+        $result = $mysqli->query($query, $method);
         if ($result === false) {
             return false;
         }
@@ -206,44 +203,49 @@ class DbiMysqli implements DbiExtension
     /**
      * Run the multi query and output the results
      *
-     * @param mysqli $link  mysqli object
      * @param string $query multi query statement to execute
      */
-    public function realMultiQuery($link, $query): bool
+    public function realMultiQuery(Connection $connection, $query): bool
     {
-        return $link->multi_query($query);
+        /** @var mysqli $mysqli */
+        $mysqli = $connection->connection;
+
+        return $mysqli->multi_query($query);
     }
 
     /**
      * Check if there are any more query results from a multi query
-     *
-     * @param mysqli $link the mysqli object
      */
-    public function moreResults($link): bool
+    public function moreResults(Connection $connection): bool
     {
-        return $link->more_results();
+        /** @var mysqli $mysqli */
+        $mysqli = $connection->connection;
+
+        return $mysqli->more_results();
     }
 
     /**
      * Prepare next result from multi_query
-     *
-     * @param mysqli $link the mysqli object
      */
-    public function nextResult($link): bool
+    public function nextResult(Connection $connection): bool
     {
-        return $link->next_result();
+        /** @var mysqli $mysqli */
+        $mysqli = $connection->connection;
+
+        return $mysqli->next_result();
     }
 
     /**
      * Store the result returned from multi query
      *
-     * @param mysqli $link the mysqli object
-     *
      * @return MysqliResult|false false when empty results / result set when not empty
      */
-    public function storeResult($link)
+    public function storeResult(Connection $connection)
     {
-        $result = $link->store_result();
+        /** @var mysqli $mysqli */
+        $mysqli = $connection->connection;
+
+        $result = $mysqli->store_result();
 
         return $result === false ? false : new MysqliResult($result);
     }
@@ -251,27 +253,29 @@ class DbiMysqli implements DbiExtension
     /**
      * Returns a string representing the type of connection used
      *
-     * @param mysqli $link mysql link
-     *
      * @return string type of connection used
      */
-    public function getHostInfo($link)
+    public function getHostInfo(Connection $connection)
     {
+        /** @var mysqli $mysqli */
+        $mysqli = $connection->connection;
+
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        return $link->host_info;
+        return $mysqli->host_info;
     }
 
     /**
      * Returns the version of the MySQL protocol used
      *
-     * @param mysqli $link mysql link
-     *
-     * @return string version of the MySQL protocol used
+     * @return int version of the MySQL protocol used
      */
-    public function getProtoInfo($link)
+    public function getProtoInfo(Connection $connection)
     {
+        /** @var mysqli $mysqli */
+        $mysqli = $connection->connection;
+
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        return $link->protocol_version;
+        return (int) $mysqli->protocol_version;
     }
 
     /**
@@ -286,20 +290,16 @@ class DbiMysqli implements DbiExtension
 
     /**
      * Returns last error message or an empty string if no errors occurred.
-     *
-     * @param mysqli|false|null $link mysql link
      */
-    public function getError($link): string
+    public function getError(Connection $connection): string
     {
         $GLOBALS['errno'] = 0;
 
-        if ($link !== null && $link !== false) {
-            $error_number = $link->errno;
-            $error_message = $link->error;
-        } else {
-            $error_number = mysqli_connect_errno();
-            $error_message = (string) mysqli_connect_error();
-        }
+        /** @var mysqli $mysqli */
+        $mysqli = $connection->connection;
+
+        $error_number = $mysqli->errno;
+        $error_message = $mysqli->error;
 
         if ($error_number === 0 || $error_message === '') {
             return '';
@@ -315,52 +315,55 @@ class DbiMysqli implements DbiExtension
     /**
      * returns the number of rows affected by last query
      *
-     * @param mysqli $link the mysqli object
-     *
      * @return int|string
      * @psalm-return int|numeric-string
      */
-    public function affectedRows($link)
+    public function affectedRows(Connection $connection)
     {
+        /** @var mysqli $mysqli */
+        $mysqli = $connection->connection;
+
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        return $link->affected_rows;
+        return $mysqli->affected_rows;
     }
 
     /**
      * returns properly escaped string for use in MySQL queries
      *
-     * @param mysqli $link   database link
      * @param string $string string to be escaped
      *
      * @return string a MySQL escaped string
      */
-    public function escapeString($link, $string)
+    public function escapeString(Connection $connection, $string)
     {
-        return $link->real_escape_string($string);
+        /** @var mysqli $mysqli */
+        $mysqli = $connection->connection;
+
+        return $mysqli->real_escape_string($string);
     }
 
     /**
      * Prepare an SQL statement for execution.
      *
-     * @param mysqli $link  database link
      * @param string $query The query, as a string.
      *
      * @return mysqli_stmt|false A statement object or false.
      */
-    public function prepare($link, string $query)
+    public function prepare(Connection $connection, string $query)
     {
-        return $link->prepare($query);
+        /** @var mysqli $mysqli */
+        $mysqli = $connection->connection;
+
+        return $mysqli->prepare($query);
     }
 
     /**
      * Returns the number of warnings from the last query.
-     *
-     * @param object $link
      */
-    public function getWarningCount($link): int
+    public function getWarningCount(Connection $connection): int
     {
         /** @var mysqli $mysqli */
-        $mysqli = $link;
+        $mysqli = $connection->connection;
 
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         return $mysqli->warning_count;

@@ -511,14 +511,14 @@ class ReplicationGui
         $_SESSION['replication']['sr_action_info'] = __('Unknown error');
 
         // Attempt to connect to the new primary server
-        $linkToPrimary = $this->replication->connectToPrimary(
+        $connectionToPrimary = $this->replication->connectToPrimary(
             $username,
             $pmaPassword,
             $hostname,
             $port
         );
 
-        if (! $linkToPrimary) {
+        if ($connectionToPrimary === null) {
             $_SESSION['replication']['sr_action_status'] = 'error';
             $_SESSION['replication']['sr_action_info'] = sprintf(
                 __('Unable to connect to primary %s.'),
