@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Stubs;
 
 use PhpMyAdmin\Config\Settings\Server;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\ResultInterface;
@@ -95,23 +96,17 @@ class DbiDummy implements DbiExtension
         $this->init();
     }
 
-    /**
-     * Connects to the database server.
-     *
-     * @return object|false A connection object on success or false on failure.
-     */
-    public function connect(string $user, string $password, Server $server)
+    public function connect(string $user, string $password, Server $server): ?Connection
     {
-        return new stdClass();
+        return new Connection(new stdClass());
     }
 
     /**
      * selects given database
      *
      * @param string|DatabaseName $databaseName name of db to select
-     * @param object              $link         mysql link resource
      */
-    public function selectDb($databaseName, $link): bool
+    public function selectDb($databaseName, Connection $connection): bool
     {
         $databaseName = $databaseName instanceof DatabaseName
                         ? $databaseName->getName() : $databaseName;
@@ -196,12 +191,11 @@ class DbiDummy implements DbiExtension
      * runs a query and returns the result
      *
      * @param string $query   query to run
-     * @param object $link    mysql link resource
      * @param int    $options query options
      *
      * @return DummyResult|false
      */
-    public function realQuery(string $query, $link, int $options)
+    public function realQuery(string $query, Connection $connection, int $options)
     {
         $query = trim((string) preg_replace('/  */', ' ', str_replace("\n", ' ', $query)));
         $filoQuery = $this->findFiloQuery($query);
@@ -232,12 +226,11 @@ class DbiDummy implements DbiExtension
     /**
      * Run the multi query and output the results
      *
-     * @param object $link  connection object
      * @param string $query multi query statement to execute
      *
      * @return bool
      */
-    public function realMultiQuery($link, $query)
+    public function realMultiQuery(Connection $connection, $query)
     {
         return false;
     }
@@ -311,20 +304,16 @@ class DbiDummy implements DbiExtension
 
     /**
      * Check if there are any more query results from a multi query
-     *
-     * @param object $link the connection object
      */
-    public function moreResults($link): bool
+    public function moreResults(Connection $connection): bool
     {
         return false;
     }
 
     /**
      * Prepare next result from multi_query
-     *
-     * @param object $link the connection object
      */
-    public function nextResult($link): bool
+    public function nextResult(Connection $connection): bool
     {
         return false;
     }
@@ -332,11 +321,9 @@ class DbiDummy implements DbiExtension
     /**
      * Store the result returned from multi query
      *
-     * @param object $link the connection object
-     *
      * @return ResultInterface|false false when empty results / result set when not empty
      */
-    public function storeResult($link)
+    public function storeResult(Connection $connection)
     {
         return false;
     }
@@ -344,11 +331,9 @@ class DbiDummy implements DbiExtension
     /**
      * Returns a string representing the type of connection used
      *
-     * @param object $link mysql link
-     *
      * @return string type of connection used
      */
-    public function getHostInfo($link)
+    public function getHostInfo(Connection $connection)
     {
         return '';
     }
@@ -356,11 +341,9 @@ class DbiDummy implements DbiExtension
     /**
      * Returns the version of the MySQL protocol used
      *
-     * @param object $link mysql link
-     *
      * @return int version of the MySQL protocol used
      */
-    public function getProtoInfo($link)
+    public function getProtoInfo(Connection $connection)
     {
         return -1;
     }
@@ -377,10 +360,8 @@ class DbiDummy implements DbiExtension
 
     /**
      * Returns last error message or an empty string if no errors occurred.
-     *
-     * @param object $link connection link
      */
-    public function getError($link): string
+    public function getError(Connection $connection): string
     {
         foreach ($this->fifoErrorCodes as $i => $code) {
             unset($this->fifoErrorCodes[$i]);
@@ -413,13 +394,10 @@ class DbiDummy implements DbiExtension
     /**
      * returns the number of rows affected by last query
      *
-     * @param object $link           the mysql object
-     * @param bool   $get_from_cache whether to retrieve from cache
-     *
      * @return int|string
      * @psalm-return int|numeric-string
      */
-    public function affectedRows($link = null, $get_from_cache = true)
+    public function affectedRows(Connection $connection)
     {
         return $GLOBALS['cached_affected_rows'] ?? 0;
     }
@@ -469,12 +447,11 @@ class DbiDummy implements DbiExtension
     /**
      * returns properly escaped string for use in MySQL queries
      *
-     * @param object $link   database link
      * @param string $string string to be escaped
      *
      * @return string a MySQL escaped string
      */
-    public function escapeString($link, $string)
+    public function escapeString(Connection $connection, $string)
     {
         return addslashes($string);
     }
@@ -519,22 +496,19 @@ class DbiDummy implements DbiExtension
     }
 
     /**
-     * @param object $link  link
      * @param string $query query
      *
      * @return object|false
      */
-    public function prepare($link, string $query)
+    public function prepare(Connection $connection, string $query)
     {
         return false;
     }
 
     /**
      * Returns the number of warnings from the last query.
-     *
-     * @param object $link
      */
-    public function getWarningCount($link): int
+    public function getWarningCount(Connection $connection): int
     {
         return 0;
     }

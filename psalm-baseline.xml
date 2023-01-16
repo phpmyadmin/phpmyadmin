@@ -5571,12 +5571,6 @@
     <EmptyArrayAccess occurrences="1">
       <code>$resultTarget[]</code>
     </EmptyArrayAccess>
-    <InvalidArgument occurrences="1">
-      <code>$link</code>
-    </InvalidArgument>
-    <InvalidArrayAccess occurrences="1">
-      <code>$link</code>
-    </InvalidArrayAccess>
     <InvalidOperand occurrences="6">
       <code>$row['Data_free']</code>
       <code>$row['Data_length']</code>
@@ -5585,18 +5579,10 @@
       <code>$row['Max_data_length']</code>
       <code>$row['Rows']</code>
     </InvalidOperand>
-    <InvalidReturnStatement occurrences="1">
-      <code>$this-&gt;extension-&gt;getProtoInfo($this-&gt;links[$link])</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType occurrences="1">
-      <code>int|bool</code>
-    </InvalidReturnType>
-    <MixedArgument occurrences="10">
+    <MixedArgument occurrences="8">
       <code>$a</code>
       <code>$b</code>
-      <code>$link</code>
       <code>$password</code>
-      <code>$table</code>
       <code>$table</code>
       <code>$tableData[$sortBy] ?? ''</code>
       <code>$this-&gt;versionComment</code>
@@ -5646,8 +5632,8 @@
       <code>reset($columns)</code>
     </MixedReturnStatement>
     <MixedReturnTypeCoercion occurrences="4">
-      <code>$this-&gt;fetchResult($sql, null, 'Field', $link)</code>
-      <code>$this-&gt;fetchResult($sql, null, null, $link)</code>
+      <code>$this-&gt;fetchResult($sql, null, 'Field', $connectionType)</code>
+      <code>$this-&gt;fetchResult($sql, null, null, $connectionType)</code>
       <code>string[]</code>
     </MixedReturnTypeCoercion>
     <NullableReturnStatement occurrences="2">
@@ -5698,20 +5684,6 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Dbal/DbiMysqli.php">
-    <MoreSpecificImplementedParamType occurrences="12">
-      <code>$link</code>
-      <code>$link</code>
-      <code>$link</code>
-      <code>$link</code>
-      <code>$link</code>
-      <code>$link</code>
-      <code>$link</code>
-      <code>$link</code>
-      <code>$link</code>
-      <code>$link</code>
-      <code>$link</code>
-      <code>$link</code>
-    </MoreSpecificImplementedParamType>
     <PossiblyNullArgument occurrences="1">
       <code>$error_message</code>
     </PossiblyNullArgument>

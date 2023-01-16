@@ -3156,11 +3156,6 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getProtoInfo\\(\\) should return bool\\|int but returns int\\|string\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTablesFull\\(\\) has parameter \\$table with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
@@ -3177,11 +3172,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Query\\\\Cache\\:\\:cacheTableData\\(\\) expects bool\\|string, array\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
-			message: "#^Parameter \\#3 \\.\\.\\.\\$args of function array_map expects array, int given\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
 
@@ -3254,66 +3244,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbalInterface\\:\\:getWarnings\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Dbal/DbalInterface.php
-
-		-
-			message: "#^Parameter \\#1 \\$link \\(mysqli\\) of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:affectedRows\\(\\) should be contravariant with parameter \\$link \\(object\\) of method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:affectedRows\\(\\)$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Parameter \\#1 \\$link \\(mysqli\\) of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:escapeString\\(\\) should be contravariant with parameter \\$link \\(object\\) of method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:escapeString\\(\\)$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Parameter \\#1 \\$link \\(mysqli\\) of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:getHostInfo\\(\\) should be contravariant with parameter \\$link \\(object\\) of method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:getHostInfo\\(\\)$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Parameter \\#1 \\$link \\(mysqli\\) of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:getProtoInfo\\(\\) should be contravariant with parameter \\$link \\(object\\) of method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:getProtoInfo\\(\\)$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Parameter \\#1 \\$link \\(mysqli\\) of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:moreResults\\(\\) should be contravariant with parameter \\$link \\(object\\) of method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:moreResults\\(\\)$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Parameter \\#1 \\$link \\(mysqli\\) of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:nextResult\\(\\) should be contravariant with parameter \\$link \\(object\\) of method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:nextResult\\(\\)$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Parameter \\#1 \\$link \\(mysqli\\) of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:prepare\\(\\) should be contravariant with parameter \\$link \\(object\\) of method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:prepare\\(\\)$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Parameter \\#1 \\$link \\(mysqli\\) of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:realMultiQuery\\(\\) should be contravariant with parameter \\$link \\(object\\) of method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:realMultiQuery\\(\\)$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Parameter \\#1 \\$link \\(mysqli\\) of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:storeResult\\(\\) should be contravariant with parameter \\$link \\(object\\) of method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:storeResult\\(\\)$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Parameter \\#1 \\$link \\(mysqli\\|false\\|null\\) of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:getError\\(\\) should be contravariant with parameter \\$link \\(object\\) of method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:getError\\(\\)$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Parameter \\#2 \\$link \\(mysqli\\) of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:realQuery\\(\\) should be contravariant with parameter \\$link \\(object\\) of method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:realQuery\\(\\)$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Parameter \\#2 \\$link \\(mysqli\\) of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:selectDb\\(\\) should be contravariant with parameter \\$link \\(object\\) of method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:selectDb\\(\\)$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
 
 		-
 			message: "#^Call to function method_exists\\(\\) with mysqli_result and 'fetch_all' will always evaluate to true\\.$#"

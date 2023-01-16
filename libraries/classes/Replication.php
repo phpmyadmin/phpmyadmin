@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\ResultInterface;
 
 use function explode;
@@ -122,8 +123,6 @@ class Replication
      * @param string $host     mysql server's hostname or IP
      * @param int    $port     mysql remote port
      * @param string $socket   path to unix socket
-     *
-     * @return object|false
      */
     public function connectToPrimary(
         $user,
@@ -131,7 +130,7 @@ class Replication
         $host = null,
         $port = null,
         $socket = null
-    ) {
+    ): ?Connection {
         $server = [];
         $server['user'] = $user;
         $server['password'] = $password;

@@ -609,19 +609,18 @@ final class Common
          * Try to connect MySQL with the control user profile (will be used to get the privileges list for the current
          * user but the true user link must be open after this one so it would be default one for all the scripts).
          */
-        $controlLink = false;
+        $controlConnection = null;
         if ($GLOBALS['cfg']['Server']['controluser'] !== '') {
-            $controlLink = $dbi->connect(DatabaseInterface::CONNECT_CONTROL);
+            $controlConnection = $dbi->connect(DatabaseInterface::CONNECT_CONTROL);
         }
 
         // Connects to the server (validates user's login)
-        $userLink = $dbi->connect(DatabaseInterface::CONNECT_USER);
-
-        if ($userLink === false) {
+        $userConnection = $dbi->connect(DatabaseInterface::CONNECT_USER);
+        if ($userConnection === null) {
             $auth->showFailure('mysql-denied');
         }
 
-        if ($controlLink) {
+        if ($controlConnection !== null) {
             return;
         }
 
