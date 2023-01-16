@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-09-29 00:17-0300\n"
-"PO-Revision-Date: 2023-01-07 14:25+0000\n"
+"PO-Revision-Date: 2023-01-16 21:39+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/mk/>\n"
@@ -12878,9 +12878,9 @@ msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr ""
 
 #: libraries/classes/Types.php:268
-#, fuzzy, php-format
+#, php-format
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "Верзија на серверот"
+msgstr "Датум, поддржан опсег од %1$s до %2$s"
 
 #: libraries/classes/Types.php:275
 #, php-format
@@ -12894,9 +12894,9 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Types.php:289
-#, fuzzy, php-format
+#, php-format
 msgid "A time, range is %1$s to %2$s"
-msgstr "Верзија на серверот"
+msgstr "Време, опсег од %1$s до %2$s"
 
 #: libraries/classes/Types.php:296
 msgid ""
@@ -14009,14 +14009,14 @@ msgid ""
 msgstr ""
 
 #: templates/create_tracking_version.twig:10
-#, fuzzy, php-format
+#, php-format
 msgid "Create version %1$s of %2$s"
-msgstr "Верзија на серверот"
+msgstr "Создади верзија %1$s од %2$s"
 
 #: templates/create_tracking_version.twig:15
-#, fuzzy, php-format
+#, php-format
 msgid "Create version %1$s"
-msgstr "Верзија на серверот"
+msgstr "Создади верзија %1$s"
 
 #: templates/create_tracking_version.twig:21
 msgid "Track these data definition statements:"
@@ -14194,17 +14194,14 @@ msgid "See table structure"
 msgstr "База на податоци"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgctxt "Create SELECT … query"
-#| msgid "Select"
+#, php-format
 msgid "Select \"%s\""
-msgstr "избери се"
+msgstr "Избери \"%s\""
 
 #: templates/database/designer/database_tables.twig:109
-#, fuzzy, php-format
-#| msgid "Number of rows per page"
+#, php-format
 msgid "Add an option for column \"%s\"."
-msgstr "Број на записи на страница"
+msgstr "Додади опција за колона \"%s\"."
 
 #: templates/database/designer/edit_delete_pages.twig:6
 msgid "Page to open"
@@ -14471,10 +14468,9 @@ msgstr "Вид на настан"
 
 #: templates/database/events/editor_form.twig:48
 #: templates/database/routines/editor_form.twig:38
-#, fuzzy, php-format
-#| msgid "Change"
+#, php-format
 msgid "Change to %s"
-msgstr "Промени"
+msgstr "Промени во %s"
 
 #: templates/database/events/editor_form.twig:53
 msgid "Execute at"
