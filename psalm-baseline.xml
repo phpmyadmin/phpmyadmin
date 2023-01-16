@@ -5591,7 +5591,7 @@
     <InvalidReturnType occurrences="1">
       <code>int|bool</code>
     </InvalidReturnType>
-    <MixedArgument occurrences="11">
+    <MixedArgument occurrences="10">
       <code>$a</code>
       <code>$b</code>
       <code>$link</code>
@@ -5602,7 +5602,6 @@
       <code>$this-&gt;versionComment</code>
       <code>$this-&gt;versionString</code>
       <code>$user</code>
-      <code>$warningsCount</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="2">
       <code>$tableName</code>
@@ -5620,7 +5619,7 @@
       <code>$row[$keyIndex]</code>
       <code>$row[$keyIndex]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="12">
+    <MixedAssignment occurrences="11">
       <code>$aLength</code>
       <code>$bLength</code>
       <code>$keyIndex</code>
@@ -5632,7 +5631,6 @@
       <code>$tableData</code>
       <code>$this-&gt;versionComment</code>
       <code>$this-&gt;versionString</code>
-      <code>$warningsCount</code>
     </MixedAssignment>
     <MixedInferredReturnType occurrences="2">
       <code>array</code>

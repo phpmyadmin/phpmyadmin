@@ -351,4 +351,18 @@ class DbiMysqli implements DbiExtension
     {
         return $link->prepare($query);
     }
+
+    /**
+     * Returns the number of warnings from the last query.
+     *
+     * @param object $link
+     */
+    public function getWarningCount($link): int
+    {
+        /** @var mysqli $mysqli */
+        $mysqli = $link;
+
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+        return $mysqli->warning_count;
+    }
 }

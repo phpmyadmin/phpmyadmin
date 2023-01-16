@@ -530,6 +530,16 @@ class DbiDummy implements DbiExtension
     }
 
     /**
+     * Returns the number of warnings from the last query.
+     *
+     * @param object $link
+     */
+    public function getWarningCount($link): int
+    {
+        return 0;
+    }
+
+    /**
      * Return query data for ID
      *
      * @param object|int $result result set identifier

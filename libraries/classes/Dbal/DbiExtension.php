@@ -134,4 +134,11 @@ interface DbiExtension
      * @return object|false A statement object or false.
      */
     public function prepare($link, string $query);
+
+    /**
+     * Returns the number of warnings from the last query.
+     *
+     * @param object $link
+     */
+    public function getWarningCount($link): int;
 }

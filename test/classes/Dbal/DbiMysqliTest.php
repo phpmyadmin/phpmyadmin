@@ -132,4 +132,10 @@ class DbiMysqliTest extends AbstractTestCase
 
         $this->assertEquals($string, $this->object->escapeString($mysqli, $string));
     }
+
+    public function testGetWarningCount(): void
+    {
+        $mysqli = (object) ['warning_count' => 30];
+        $this->assertSame(30, $this->object->getWarningCount($mysqli));
+    }
 }

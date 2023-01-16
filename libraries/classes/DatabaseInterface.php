@@ -237,11 +237,6 @@ class DatabaseInterface implements DbalInterface
                 $this->lastQueryExecutionTime
             );
             if ($GLOBALS['cfg']['DBG']['sqllog']) {
-                $warningsCount = 0;
-                if (isset($this->links[$link]->warning_count)) {
-                    $warningsCount = $this->links[$link]->warning_count;
-                }
-
                 openlog('phpMyAdmin', LOG_NDELAY | LOG_PID, LOG_USER);
 
                 syslog(
@@ -251,7 +246,7 @@ class DatabaseInterface implements DbalInterface
                         basename($_SERVER['SCRIPT_NAME']),
                         Common::getRequest()->getRoute(),
                         $this->lastQueryExecutionTime,
-                        $warningsCount,
+                        $this->getWarningCount($link),
                         $cacheAffectedRows ? 'y' : 'n',
                         $link,
                         $query
@@ -2133,5 +2128,17 @@ class DatabaseInterface implements DbalInterface
         }
 
         return $this->databaseList;
+    }
+
+    /**
+     * Returns the number of warnings from the last query.
+     */
+    private function getWarningCount(int $link): int
+    {
+        if (! isset($this->links[$link])) {
+            return 0;
+        }
+
+        return $this->extension->getWarningCount($this->links[$link]);
     }
 }
