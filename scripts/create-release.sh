@@ -244,7 +244,18 @@ cleanup_composer_vendors() {
         vendor/phpmyadmin/shapefile/CONTRIBUTING.md \
         vendor/phpmyadmin/shapefile/CODE_OF_CONDUCT.md \
         vendor/phpmyadmin/sql-parser/CODE_OF_CONDUCT.md \
-        vendor/phpmyadmin/sql-parser/CONTRIBUTING.md
+        vendor/phpmyadmin/sql-parser/CONTRIBUTING.md \
+        vendor/beberlei/assert/.github/ \
+        vendor/brick/math/SECURITY.md \
+        vendor/brick/math/psalm-baseline.xml \
+        vendor/brick/math/psalm.xml \
+        vendor/ramsey/collection/SECURITY.md \
+        vendor/spomky-labs/base64url/.github/ \
+        vendor/spomky-labs/cbor-php/.php_cs.dist \
+        vendor/spomky-labs/cbor-php/CODE_OF_CONDUCT.md \
+        vendor/spomky-labs/cbor-php/infection.json.dist \
+        vendor/spomky-labs/cbor-php/phpstan.neon \
+        vendor/thecodingmachine/safe/generated/Exceptions/.gitkeep
     find vendor/tecnickcom/tcpdf/fonts/ -maxdepth 1 -type f \
         -not -name 'dejavusans.*' \
         -not -name 'dejavusansb.*' \
@@ -290,6 +301,10 @@ delete_phpunit_sandbox() {
 security_checkup() {
     if [ ! -f vendor/tecnickcom/tcpdf/tcpdf.php ]; then
         echo 'TCPDF should be installed, detection failed !'
+        exit 1;
+    fi
+    if [ ! -f vendor/web-auth/webauthn-lib/src/Server.php ]; then
+        echo 'Webauthn-lib should be installed, detection failed !'
         exit 1;
     fi
     if [ ! -f vendor/code-lts/u2f-php-server/src/U2FServer.php ]; then
@@ -500,7 +515,7 @@ composer update --no-interaction --no-dev
 
 # Parse the required versions from composer.json
 PACKAGES_VERSIONS=''
-PACKAGE_LIST='tecnickcom/tcpdf pragmarx/google2fa-qrcode bacon/bacon-qr-code code-lts/u2f-php-server'
+PACKAGE_LIST='tecnickcom/tcpdf pragmarx/google2fa-qrcode bacon/bacon-qr-code code-lts/u2f-php-server web-auth/webauthn-lib'
 
 for PACKAGES in $PACKAGE_LIST
 do
