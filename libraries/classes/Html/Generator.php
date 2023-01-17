@@ -54,7 +54,6 @@ use function strlen;
 use function strtoupper;
 use function substr;
 use function trim;
-use function urlencode;
 
 use const ENT_COMPAT;
 
@@ -645,18 +644,6 @@ class Generator
                             $explainParams,
                             __('Skip Explain SQL')
                         ) . ']';
-                    $url = 'https://mariadb.org/explain_analyzer/analyze/'
-                        . '?client=phpMyAdmin&raw_explain='
-                        . urlencode(self::generateRowQueryOutput($sqlQuery));
-                    $explainLink .= ' ['
-                        . self::linkOrButton(
-                            htmlspecialchars('url.php?url=' . urlencode($url)),
-                            null,
-                            sprintf(__('Analyze Explain at %s'), 'mariadb.org'),
-                            [],
-                            '_blank',
-                            false
-                        ) . '&nbsp;]';
                 }
             }
 
