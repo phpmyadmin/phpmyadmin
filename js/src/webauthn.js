@@ -1,3 +1,7 @@
+import $ from 'jquery';
+import { AJAX } from './modules/ajax.js';
+import { ajaxShowMessage } from './modules/ajax-message.js';
+
 /**
  * @param {ArrayBuffer} buffer
  *
@@ -62,7 +66,7 @@ const handleCreation = $input => {
             $input.val(credentialJson);
             $form.trigger('submit');
         })
-        .catch((error) => Functions.ajaxShowMessage(error, false, 'error'));
+        .catch((error) => ajaxShowMessage(error, false, 'error'));
 };
 
 /**
@@ -106,7 +110,7 @@ const handleRequest = $input => {
             $input.val(credentialJson);
             $form.trigger('submit');
         })
-        .catch((error) => Functions.ajaxShowMessage(error, false, 'error'));
+        .catch((error) => ajaxShowMessage(error, false, 'error'));
 };
 
 AJAX.registerOnload('webauthn.js', function () {
@@ -116,7 +120,7 @@ AJAX.registerOnload('webauthn.js', function () {
         || ! navigator.credentials.get
         || ! window.PublicKeyCredential
     ) {
-        Functions.ajaxShowMessage(Messages.webAuthnNotSupported, false, 'error');
+        ajaxShowMessage(window.Messages.webAuthnNotSupported, false, 'error');
 
         return;
     }

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\TwoFactor;
 
+use PhpMyAdmin\Common;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\TwoFactor;
@@ -39,6 +41,9 @@ class WebAuthn extends TwoFactorPlugin
     /** @var Server */
     private $server;
 
+    /** @var ServerRequest|null */
+    public $serverRequest = null;
+
     public function __construct(TwoFactor $twofactor)
     {
         parent::__construct($twofactor);
@@ -69,9 +74,18 @@ class WebAuthn extends TwoFactorPlugin
         $this->server = $server;
     }
 
+    private function getRequest(): ServerRequest
+    {
+        if ($this->serverRequest === null) {
+            $this->serverRequest = Common::getRequest();
+        }
+
+        return $this->serverRequest;
+    }
+
     public function render(): string
     {
-        $request = $GLOBALS['request'];
+        $request = $this->getRequest();
         $userHandle = sodium_base642bin($this->getUserHandleFromSettings(), SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING);
         $requestOptions = $this->server->getCredentialRequestOptions(
             $this->twofactor->user,
@@ -92,7 +106,7 @@ class WebAuthn extends TwoFactorPlugin
     public function check(): bool
     {
         $this->provided = false;
-        $request = $GLOBALS['request'];
+        $request = $this->getRequest();
         $authenticatorResponse = $request->getParsedBodyParam('webauthn_request_response', '');
         if ($authenticatorResponse === '' || ! isset($_SESSION['WebAuthnCredentialRequestOptions'])) {
             return false;
@@ -128,7 +142,7 @@ class WebAuthn extends TwoFactorPlugin
 
     public function setup(): string
     {
-        $request = $GLOBALS['request'];
+        $request = $this->getRequest();
         $userId = sodium_bin2base64(random_bytes(32), SODIUM_BASE64_VARIANT_ORIGINAL);
         $host = $request->getUri()->getHost();
         $creationOptions = $this->server->getCredentialCreationOptions($this->twofactor->user, $userId, $host);
@@ -145,7 +159,7 @@ class WebAuthn extends TwoFactorPlugin
     public function configure(): bool
     {
         $this->provided = false;
-        $request = $GLOBALS['request'];
+        $request = $this->getRequest();
         $authenticatorResponse = $request->getParsedBodyParam('webauthn_creation_response', '');
         if ($authenticatorResponse === '' || ! isset($_SESSION['WebAuthnCredentialCreationOptions'])) {
             return false;

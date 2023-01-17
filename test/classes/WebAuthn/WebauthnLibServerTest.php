@@ -31,11 +31,8 @@ class WebauthnLibServerTest extends TestCase
     {
         $server = new WebauthnLibServer($this->createStub(TwoFactor::class));
         $options = $server->getCredentialCreationOptions('user_name', 'user_id', 'test.localhost');
-        $this->assertArrayHasKey('challenge', $options);
         $this->assertNotEmpty($options['challenge']);
-        $this->assertArrayHasKey('pubKeyCredParams', $options);
         $this->assertNotEmpty($options['pubKeyCredParams']);
-        $this->assertArrayHasKey('attestation', $options);
         $this->assertNotEmpty($options['attestation']);
         $this->assertSame('phpMyAdmin (test.localhost)', $options['rp']['name']);
         $this->assertSame('test.localhost', $options['rp']['id']);
