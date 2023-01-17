@@ -9,6 +9,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Features\BookmarkFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\DatabaseName;
 
 use function count;
@@ -125,7 +126,7 @@ class Bookmark
             . $this->dbi->quoteString($this->query) . ', '
             . $this->dbi->quoteString($this->label) . ')';
 
-        return (bool) $this->dbi->query($query, DatabaseInterface::CONNECT_CONTROL);
+        return (bool) $this->dbi->query($query, Connection::TYPE_CONTROL);
     }
 
     /**
@@ -142,7 +143,7 @@ class Bookmark
             . '.' . Util::backquote($bookmarkFeature->bookmark)
             . ' WHERE id = ' . $this->id;
 
-        return (bool) $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL);
+        return (bool) $this->dbi->tryQuery($query, Connection::TYPE_CONTROL);
     }
 
     /**
@@ -260,7 +261,7 @@ class Bookmark
             $query,
             null,
             null,
-            DatabaseInterface::CONNECT_CONTROL
+            Connection::TYPE_CONTROL
         );
 
         $bookmarks = [];
@@ -315,7 +316,7 @@ class Bookmark
         $query .= ' AND ' . Util::backquote($id_field)
             . ' = ' . $dbi->quoteString((string) $id) . ' LIMIT 1';
 
-        $result = $dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, DatabaseInterface::CONNECT_CONTROL);
+        $result = $dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, Connection::TYPE_CONTROL);
         if ($result !== null) {
             return self::createFromRow($dbi, $result);
         }

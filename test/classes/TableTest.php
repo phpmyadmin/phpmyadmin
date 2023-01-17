@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\ListDatabase;
 use PhpMyAdmin\Query\Cache;
@@ -77,7 +78,7 @@ class TableTest extends AbstractTestCase
                 $sql_analyzeStructure_true,
                 null,
                 null,
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 [
                     [
                         'COLUMN_NAME' => 'COLUMN_NAME',
@@ -92,7 +93,7 @@ class TableTest extends AbstractTestCase
                     null,
                 ],
                 'Column_name',
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 [
                     ['index1'],
                     ['index3'],
@@ -103,7 +104,7 @@ class TableTest extends AbstractTestCase
                 $getUniqueColumns_sql,
                 'Column_name',
                 'Column_name',
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 [
                     'column1',
                     'column3',
@@ -117,7 +118,7 @@ class TableTest extends AbstractTestCase
                 'SHOW COLUMNS FROM `PMA`.`PMA_BookMark`',
                 'Field',
                 'Field',
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 [
                     'column1',
                     'column3',
@@ -131,7 +132,7 @@ class TableTest extends AbstractTestCase
                 'SHOW COLUMNS FROM `PMA`.`PMA_BookMark`',
                 null,
                 null,
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 [
                     [
                         'Field' => 'COLUMN_NAME1',
@@ -155,7 +156,7 @@ class TableTest extends AbstractTestCase
                 'SHOW TRIGGERS FROM `PMA` LIKE \'PMA_BookMark\';',
                 null,
                 null,
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 [
                     [
                         'Trigger' => 'name1',
@@ -187,7 +188,7 @@ class TableTest extends AbstractTestCase
                 'SHOW TRIGGERS FROM `PMA` LIKE \'PMA_.BookMark\';',
                 null,
                 null,
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 [
                     [
                         'Trigger' => 'name1',
@@ -221,31 +222,31 @@ class TableTest extends AbstractTestCase
             [
                 $sql_isView_true,
                 0,
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 ['PMA_BookMark'],
             ],
             [
                 $sql_copy_data,
                 0,
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 [],
             ],
             [
                 $sql_isView_false,
                 0,
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 [],
             ],
             [
                 $sql_isUpdatableView_true,
                 0,
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 ['PMA_BookMark'],
             ],
             [
                 $sql_isUpdatableView_false,
                 0,
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 [],
             ],
         ];

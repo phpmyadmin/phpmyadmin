@@ -18,6 +18,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Plugins\TransformationsInterface;
 
 use function array_shift;
@@ -327,7 +328,7 @@ class Transformations
          *     input_transformation_options: string
          * }> $result
          */
-        $result = $GLOBALS['dbi']->fetchResult($com_qry, 'column_name', null, DatabaseInterface::CONNECT_CONTROL);
+        $result = $GLOBALS['dbi']->fetchResult($com_qry, 'column_name', null, Connection::TYPE_CONTROL);
 
         foreach ($result as $column => $values) {
             // convert mimetype to new format (f.e. Text_Plain, etc)

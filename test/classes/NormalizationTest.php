@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Template;
@@ -82,13 +83,13 @@ class NormalizationTest extends AbstractTestCase
             [
                 'PMA_db',
                 'PMA_table1',
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 [],
             ],
             [
                 'PMA_db',
                 'PMA_table',
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 [
                     [
                         'Key_name' => 'PRIMARY',
@@ -99,7 +100,7 @@ class NormalizationTest extends AbstractTestCase
             [
                 'PMA_db',
                 'PMA_table2',
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 [
                     [
                         'Key_name' => 'PRIMARY',

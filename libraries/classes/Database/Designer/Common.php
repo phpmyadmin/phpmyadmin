@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Database\Designer;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Table;
@@ -288,7 +289,7 @@ class Common
             $query,
             'name',
             null,
-            DatabaseInterface::CONNECT_CONTROL
+            Connection::TYPE_CONTROL
         );
     }
 
@@ -313,7 +314,7 @@ class Common
         $page_name = $this->dbi->fetchValue(
             $query,
             0,
-            DatabaseInterface::CONNECT_CONTROL
+            Connection::TYPE_CONTROL
         );
 
         return $page_name !== false ? $page_name : null;
@@ -368,7 +369,7 @@ class Common
         $default_page_no = $this->dbi->fetchValue(
             $query,
             0,
-            DatabaseInterface::CONNECT_CONTROL
+            Connection::TYPE_CONTROL
         );
 
         return is_string($default_page_no) ? intval($default_page_no) : -1;
@@ -395,7 +396,7 @@ class Common
             $query,
             null,
             null,
-            DatabaseInterface::CONNECT_CONTROL
+            Connection::TYPE_CONTROL
         );
 
         return $pageNos !== [];
@@ -429,7 +430,7 @@ class Common
         $min_page_no = $this->dbi->fetchValue(
             $query,
             0,
-            DatabaseInterface::CONNECT_CONTROL
+            Connection::TYPE_CONTROL
         );
 
         return is_string($min_page_no) ? intval($min_page_no) : -1;
@@ -665,7 +666,7 @@ class Common
             ];
         }
 
-        $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+        $error = $this->dbi->getError(Connection::TYPE_CONTROL);
 
         return [
             false,
@@ -734,7 +735,7 @@ class Common
         $result = $this->dbi->tryQueryAsControlUser($delete_query);
 
         if (! $result) {
-            $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+            $error = $this->dbi->getError(Connection::TYPE_CONTROL);
 
             return [
                 false,
@@ -773,7 +774,7 @@ class Common
             $orig_data = $this->dbi->fetchSingleRow(
                 $orig_data_query,
                 DatabaseInterface::FETCH_ASSOC,
-                DatabaseInterface::CONNECT_CONTROL
+                Connection::TYPE_CONTROL
             );
 
             if (! empty($orig_data)) {

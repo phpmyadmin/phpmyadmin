@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -183,7 +184,7 @@ class ExportTexytext extends ExportPlugin
         // Gets the data from the database
         $result = $GLOBALS['dbi']->query(
             $sqlQuery,
-            DatabaseInterface::CONNECT_USER,
+            Connection::TYPE_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
         $fields_cnt = $result->numFields();

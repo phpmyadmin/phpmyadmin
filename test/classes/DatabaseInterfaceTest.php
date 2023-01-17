@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests;
 use mysqli_stmt;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\LanguageManager;
@@ -787,7 +788,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $databaseList = $dbi->getDatabasesFull(
             null,
             true,
-            DatabaseInterface::CONNECT_USER,
+            Connection::TYPE_USER,
             'SCHEMA_DATA_LENGTH',
             'ASC',
             0,
@@ -831,7 +832,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
             ->with($this->isType('object'), $this->equalTo($query))
             ->willReturn($stmtStub);
         $dbi = $this->createDatabaseInterface($dummyDbi);
-        $stmt = $dbi->prepare($query, DatabaseInterface::CONNECT_CONTROL);
+        $stmt = $dbi->prepare($query, Connection::TYPE_CONTROL);
         $this->assertSame($stmtStub, $stmt);
     }
 

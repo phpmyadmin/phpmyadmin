@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 
 use function array_merge;
 use function array_replace_recursive;
@@ -38,6 +38,7 @@ use const PHP_OS;
 
 /**
  * @covers \PhpMyAdmin\Config
+ * @psalm-import-type ConnectionType from Connection
  */
 class ConfigTest extends AbstractTestCase
 {
@@ -1201,9 +1202,9 @@ class ConfigTest extends AbstractTestCase
      * Test for getConnectionParams
      *
      * @param array      $server_cfg Server configuration
-     * @param int        $mode       Mode to test
      * @param array|null $server     Server array to test
      * @param array      $expected   Expected result
+     * @psalm-param ConnectionType $mode
      *
      * @dataProvider connectionParams
      */
@@ -1251,7 +1252,7 @@ class ConfigTest extends AbstractTestCase
         return [
             [
                 $cfg_basic,
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 null,
                 [
                     'u',
@@ -1272,7 +1273,7 @@ class ConfigTest extends AbstractTestCase
             ],
             [
                 $cfg_basic,
-                DatabaseInterface::CONNECT_CONTROL,
+                Connection::TYPE_CONTROL,
                 null,
                 [
                     'u2',
@@ -1289,7 +1290,7 @@ class ConfigTest extends AbstractTestCase
             ],
             [
                 $cfg_ssl,
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 null,
                 [
                     'u',
@@ -1310,7 +1311,7 @@ class ConfigTest extends AbstractTestCase
             ],
             [
                 $cfg_ssl,
-                DatabaseInterface::CONNECT_CONTROL,
+                Connection::TYPE_CONTROL,
                 null,
                 [
                     'u2',
@@ -1327,7 +1328,7 @@ class ConfigTest extends AbstractTestCase
             ],
             [
                 $cfg_control_ssl,
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 null,
                 [
                     'u',
@@ -1349,7 +1350,7 @@ class ConfigTest extends AbstractTestCase
             ],
             [
                 $cfg_control_ssl,
-                DatabaseInterface::CONNECT_CONTROL,
+                Connection::TYPE_CONTROL,
                 null,
                 [
                     'u2',

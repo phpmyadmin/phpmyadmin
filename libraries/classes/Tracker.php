@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\AlterStatement;
@@ -153,7 +154,7 @@ class Tracker
             $GLOBALS['dbi']->escapeString($tableName)
         );
 
-        $result = $GLOBALS['dbi']->fetchValue($sqlQuery, 0, DatabaseInterface::CONNECT_CONTROL) == 1;
+        $result = $GLOBALS['dbi']->fetchValue($sqlQuery, 0, Connection::TYPE_CONTROL) == 1;
 
         self::$trackingCache[$dbName][$tableName] = $result;
 

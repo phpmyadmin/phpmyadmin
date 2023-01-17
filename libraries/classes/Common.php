@@ -6,6 +6,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Exceptions\AuthenticationPluginException;
@@ -611,11 +612,11 @@ final class Common
          */
         $controlConnection = null;
         if ($GLOBALS['cfg']['Server']['controluser'] !== '') {
-            $controlConnection = $dbi->connect(DatabaseInterface::CONNECT_CONTROL);
+            $controlConnection = $dbi->connect(Connection::TYPE_CONTROL);
         }
 
         // Connects to the server (validates user's login)
-        $userConnection = $dbi->connect(DatabaseInterface::CONNECT_USER);
+        $userConnection = $dbi->connect(Connection::TYPE_USER);
         if ($userConnection === null) {
             $auth->showFailure('mysql-denied');
         }
@@ -628,7 +629,7 @@ final class Common
          * Open separate connection for control queries, this is needed to avoid problems with table locking used in
          * main connection and phpMyAdmin issuing queries to configuration storage, which is not locked by that time.
          */
-        $dbi->connect(DatabaseInterface::CONNECT_USER, null, DatabaseInterface::CONNECT_CONTROL);
+        $dbi->connect(Connection::TYPE_USER, null, Connection::TYPE_CONTROL);
     }
 
     public static function getRequest(): ServerRequest

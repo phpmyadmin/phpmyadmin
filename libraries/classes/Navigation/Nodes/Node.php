@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Util;
 
@@ -634,7 +634,7 @@ class Node
                 . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']) . "'"
                 . ' GROUP BY `db_name`';
 
-            return $GLOBALS['dbi']->fetchResult($sqlQuery, 'db_name', 'count', DatabaseInterface::CONNECT_CONTROL);
+            return $GLOBALS['dbi']->fetchResult($sqlQuery, 'db_name', 'count', Connection::TYPE_CONTROL);
         }
 
         return null;

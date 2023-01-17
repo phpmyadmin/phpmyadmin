@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Dbal\Connection;
 
 use function __;
 use function array_key_exists;
@@ -142,7 +143,7 @@ class RecentFavoriteTable
             . ' VALUES (' . $GLOBALS['dbi']->quoteString($username) . ', '
             . $GLOBALS['dbi']->quoteString(json_encode($this->tables)) . ')';
 
-        $success = $GLOBALS['dbi']->tryQuery($sql_query, DatabaseInterface::CONNECT_CONTROL);
+        $success = $GLOBALS['dbi']->tryQuery($sql_query, Connection::TYPE_CONTROL);
 
         if (! $success) {
             $error_msg = '';
@@ -158,7 +159,7 @@ class RecentFavoriteTable
 
             $message = Message::error($error_msg);
             $message->addMessage(
-                Message::rawError($GLOBALS['dbi']->getError(DatabaseInterface::CONNECT_CONTROL)),
+                Message::rawError($GLOBALS['dbi']->getError(Connection::TYPE_CONTROL)),
                 '<br><br>'
             );
 

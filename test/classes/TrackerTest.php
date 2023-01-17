@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Cache;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Util;
@@ -506,17 +507,17 @@ class TrackerTest extends AbstractTestCase
                     [
                         [
                             "pma'db",
-                            DatabaseInterface::CONNECT_USER,
+                            Connection::TYPE_USER,
                             "pma\'db",
                         ],
                         [
                             "pma'table",
-                            DatabaseInterface::CONNECT_USER,
+                            Connection::TYPE_USER,
                             "pma\'table",
                         ],
                         [
                             '1.0',
-                            DatabaseInterface::CONNECT_USER,
+                            Connection::TYPE_USER,
                             '1.0',
                         ],
                     ]
