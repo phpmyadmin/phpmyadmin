@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-01-15 00:20+0000\n"
+"POT-Creation-Date: 2023-01-17 03:57+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -4760,7 +4760,7 @@ msgstr "Falten dades a %s"
 
 #: libraries/classes/Config/FormDisplay.php:641
 #: libraries/classes/Config/Validator.php:590
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:873
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:877
 msgid "Incorrect value!"
 msgstr "Valor incorrecte!"
 
@@ -4813,7 +4813,7 @@ msgstr "Personalitzat"
 #: libraries/classes/Config/Forms/User/ExportForm.php:55
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:713
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:717
 #: libraries/classes/Import.php:1253 libraries/classes/Menu.php:245
 #: libraries/classes/Menu.php:352
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
@@ -5187,22 +5187,22 @@ msgid "Incorrect IP address: %s"
 msgstr "Adreça IP incorrecta: %s"
 
 #: libraries/classes/Config/Validator.php:523
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:872
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:876
 msgid "Not a valid port number!"
 msgstr "No és un número de port vàlid!"
 
 #: libraries/classes/Config/Validator.php:545
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:870
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:874
 msgid "Not a positive number!"
 msgstr "No és un nombre positiu!"
 
 #: libraries/classes/Config/Validator.php:567
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:871
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:875
 msgid "Not a non-negative number!"
 msgstr "No és un nombre no-negatiu!"
 
 #: libraries/classes/Config/Validator.php:608
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:874
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:878
 #, php-format
 msgid "Value must be less than or equal to %s!"
 msgstr "El valor ha de ser igual o menor que %s!"
@@ -6532,7 +6532,7 @@ msgstr "Estat"
 
 #. l10n: A specific point in the day, as shown on a clock.
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:293
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:814
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:818
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:468
 #: libraries/classes/Plugins/Export/ExportOdt.php:591
 #: libraries/classes/Plugins/Export/ExportTexytext.php:451
@@ -7024,7 +7024,7 @@ msgstr "Segon pas de la normalització (2NF)"
 
 #. l10n: Display text for calendar close link
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:432
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:822
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:826
 #: libraries/classes/Normalization.php:374
 msgid "Done"
 msgstr "Fet"
@@ -7757,27 +7757,33 @@ msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "Tipus d'exportació incorrecte"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:703
+msgid ""
+"WebAuthn is not available. Please use a supported browser in a secure "
+"context (HTTPS)."
+msgstr ""
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:708
 msgid ""
 "You can not open, save or delete your page layout, as IndexedDB is not "
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:709
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:713
 #, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
 msgstr "La taula %s ja existeix!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:711
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:715
 #: libraries/classes/InsertEdit.php:349
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Oculta"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:712
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:716
 #: libraries/classes/Controllers/Table/ChangeController.php:212
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
@@ -7786,275 +7792,275 @@ msgid "Show"
 msgstr "Mostra"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:717
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:721
 msgid "January"
 msgstr "Gener"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:719
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:723
 msgid "February"
 msgstr "Febrer"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:721
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:725
 msgid "March"
 msgstr "Març"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:723
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:727
 msgid "April"
 msgstr "Abril"
 
 #. l10n: Month name
 #. l10n: Short month name for May
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:725
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:749
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:729
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:753
 msgid "May"
 msgstr "Maig"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:727
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:731
 msgid "June"
 msgstr "Juny"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:729
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:733
 msgid "July"
 msgstr "Juliol"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:731
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:735
 msgid "August"
 msgstr "Agost"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:733
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:737
 msgid "September"
 msgstr "Setembre"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:735
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:739
 msgid "October"
 msgstr "Octubre"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:737
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:741
 msgid "November"
 msgstr "Novembre"
 
 #. l10n: Month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:739
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:743
 msgid "December"
 msgstr "Desembre"
 
 #. l10n: Short month name for January
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:741
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:745
 #: libraries/classes/Util.php:625
 msgid "Jan"
 msgstr "gen."
 
 #. l10n: Short month name for February
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:743
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:747
 #: libraries/classes/Util.php:627
 msgid "Feb"
 msgstr "febr."
 
 #. l10n: Short month name for March
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:745
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:749
 #: libraries/classes/Util.php:629
 msgid "Mar"
 msgstr "març"
 
 #. l10n: Short month name for April
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:747
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:751
 #: libraries/classes/Util.php:631
 msgid "Apr"
 msgstr "abr."
 
 #. l10n: Short month name for June
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:751
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:755
 #: libraries/classes/Util.php:635
 msgid "Jun"
 msgstr "juny"
 
 #. l10n: Short month name for July
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:753
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:757
 #: libraries/classes/Util.php:637
 msgid "Jul"
 msgstr "jul."
 
 #. l10n: Short month name for August
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:755
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:759
 #: libraries/classes/Util.php:639
 msgid "Aug"
 msgstr "ag."
 
 #. l10n: Short month name for September
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:757
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:761
 #: libraries/classes/Util.php:641
 msgid "Sep"
 msgstr "set."
 
 #. l10n: Short month name for October
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:759
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:763
 #: libraries/classes/Util.php:643
 msgid "Oct"
 msgstr "oct."
 
 #. l10n: Short month name for November
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:761
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:765
 #: libraries/classes/Util.php:645
 msgid "Nov"
 msgstr "nov."
 
 #. l10n: Short month name for December
 #. l10n: Short month name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:763
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:767
 #: libraries/classes/Util.php:647
 msgid "Dec"
 msgstr "des."
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:765
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:769
 #: libraries/config.values.php:197
 msgid "Sunday"
 msgstr "Diumenge"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:767
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:771
 #: libraries/config.values.php:191
 msgid "Monday"
 msgstr "Dilluns"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:769
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:773
 #: libraries/config.values.php:192
 msgid "Tuesday"
 msgstr "Dimarts"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:771
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:775
 #: libraries/config.values.php:193
 msgid "Wednesday"
 msgstr "Dimecres"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:773
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:777
 #: libraries/config.values.php:194
 msgid "Thursday"
 msgstr "Dijous"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:775
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:779
 #: libraries/config.values.php:195
 msgid "Friday"
 msgstr "Divendres"
 
 #. l10n: Week day name
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:777
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:781
 #: libraries/config.values.php:196
 msgid "Saturday"
 msgstr "Dissabte"
 
 #. l10n: Short week day name for Sunday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:779
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:783
 msgid "Sun"
 msgstr "dg."
 
 #. l10n: Short week day name for Monday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:781
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:785
 #: libraries/classes/Util.php:653
 msgid "Mon"
 msgstr "dl."
 
 #. l10n: Short week day name for Tuesday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:783
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:787
 #: libraries/classes/Util.php:655
 msgid "Tue"
 msgstr "dt."
 
 #. l10n: Short week day name for Wednesday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:785
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:789
 #: libraries/classes/Util.php:657
 msgid "Wed"
 msgstr "dc."
 
 #. l10n: Short week day name for Thursday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:787
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:791
 #: libraries/classes/Util.php:659
 msgid "Thu"
 msgstr "dj."
 
 #. l10n: Short week day name for Friday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:789
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:793
 #: libraries/classes/Util.php:661
 msgid "Fri"
 msgstr "dv."
 
 #. l10n: Short week day name for Saturday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:791
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:795
 #: libraries/classes/Util.php:663
 msgid "Sat"
 msgstr "ds."
 
 #. l10n: Minimal week day name for Sunday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:793
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:797
 msgid "Su"
 msgstr "dg."
 
 #. l10n: Minimal week day name for Monday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:795
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:799
 msgid "Mo"
 msgstr "dl."
 
 #. l10n: Minimal week day name for Tuesday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:797
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:801
 msgid "Tu"
 msgstr "dt."
 
 #. l10n: Minimal week day name for Wednesday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:799
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:803
 msgid "We"
 msgstr "dc."
 
 #. l10n: Minimal week day name for Thursday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:801
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:805
 msgid "Th"
 msgstr "dj."
 
 #. l10n: Minimal week day name for Friday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:803
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:807
 msgid "Fr"
 msgstr "dv."
 
 #. l10n: Minimal week day name for Saturday
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:805
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:809
 msgid "Sa"
 msgstr "ds."
 
 #. l10n: Column header for week of the year in calendar
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:807
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:811
 msgid "Wk"
 msgstr "Se"
 
 #. l10n: The month-year order in a calendar. Do not translate! Use either "calendar-month-year" or "calendar-year-month".
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:810
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:814
 #, fuzzy
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:812
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:816
 #, fuzzy
 #| msgctxt "Year suffix"
 #| msgid "none"
@@ -8062,22 +8068,22 @@ msgid "none"
 msgstr "Sufix de l'any"
 
 #. l10n: Period of time.
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:816
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:820
 msgid "Hour"
 msgstr "Hora"
 
 #. l10n: Period of time.
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:818
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:822
 msgid "Minute"
 msgstr "Minut"
 
 #. l10n: Period of time.
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:820
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:824
 msgid "Second"
 msgstr "Segon"
 
 #. l10n: Previous month. Display text for previous month link in calendar
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:824
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:828
 #, fuzzy
 #| msgctxt "Previous month"
 #| msgid "Prev"
@@ -8085,99 +8091,99 @@ msgid "Prev"
 msgstr "Anterior"
 
 #. l10n: Next month. Display text for next month link in calendar
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:826
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:830
 msgid "Next"
 msgstr "Següent"
 
 #. l10n: Display text for current month link in calendar
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:828
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:832
 msgid "Today"
 msgstr "Avui"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:831
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:835
 msgid "This field is required"
 msgstr "Aquest camp és obligatori"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:832
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:836
 msgid "Please fix this field"
 msgstr "Corregiu aquest camp"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:833
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:837
 msgid "Please enter a valid email address"
 msgstr "Introduïu una adreça de correu electrònic vàlida"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:834
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:838
 msgid "Please enter a valid URL"
 msgstr "Introduïu un URL vàlid"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:835
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:839
 msgid "Please enter a valid date"
 msgstr "Introduïu una data vàlida"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:836
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:840
 msgid "Please enter a valid date ( ISO )"
 msgstr "Introduïu una data vàlida (ISO)"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:837
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:841
 msgid "Please enter a valid number"
 msgstr "Introduïu un número vàlid"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:838
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:842
 msgid "Please enter a valid credit card number"
 msgstr "Introduïu un número vàlid de targeta de crèdit"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:839
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:843
 msgid "Please enter only digits"
 msgstr "Introduïu només dígits"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:840
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:844
 msgid "Please enter the same value again"
 msgstr "Introduïu el mateix valor un altre cop"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:841
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:845
 msgid "Please enter no more than {0} characters"
 msgstr "Introduïu no més de {0} caràcters"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:842
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:846
 msgid "Please enter at least {0} characters"
 msgstr "Introduïu com a mínim {0} caràcters"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:843
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:847
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr "Introduïu un valor d'entre {0} i {1} caràcters de longitud"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:844
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:848
 msgid "Please enter a value between {0} and {1}"
 msgstr "Introduïu un valor entre {0} i {1}"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:845
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:849
 msgid "Please enter a value less than or equal to {0}"
 msgstr "Introduïu un valor menor o igual a {0}"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:846
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:850
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "Introduïu un valor més gran o igual a {0}"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:847
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:851
 msgid "Please enter a valid date or time"
 msgstr "Introduïu una hora o data vàlida"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:848
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:852
 msgid "Please enter a valid HEX input"
 msgstr "Introduïu un valor HEX correcte"
 
 #. l10n: To validate the usage of a MD5 function on the column
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:850
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:854
 msgid "This column can not contain a 32 chars value"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:853
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:857
 msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:858
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:862
 #, fuzzy
 #| msgid ""
 #| "The file being uploaded is probably larger than the maximum allowed size "
@@ -8190,33 +8196,33 @@ msgstr ""
 "permesa o es tracta d'un error conegut dels navegadors basats en WebKit "
 "(Safari, Google Chrome, Arora, etc.)."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:860
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:864
 #, php-format
 msgid "%s of %s"
 msgstr "%s de %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:861
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:865
 #, php-format
 msgid "%s/sec."
 msgstr "%s/s."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:862
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:866
 msgid "About %MIN min. %SEC sec. remaining."
 msgstr "Aproximadament queden %MIN min. %SEC s."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:863
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:867
 msgid "About %SEC sec. remaining."
 msgstr "Aproximadament queden %SEC s."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:864
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:868
 msgid "The file is being processed, please be patient."
 msgstr "L'arxiu s'està processant, per favor, sigues pacient."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:865
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:869
 msgid "Uploading your import file…"
 msgstr "S'està pujant el vostre fitxer d'importació…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:867
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:871
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
@@ -9599,7 +9605,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "No s'ha trobat un esdeveniment amb nom %1$s a la base de dades %2$s."
 
-#: libraries/classes/DatabaseInterface.php:1146
+#: libraries/classes/DatabaseInterface.php:1124
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -9611,15 +9617,15 @@ msgstr ""
 "['SessionTimeZone'][/em]. phpMyAdmin utilitza actualment la zona horària "
 "predeterminada del servidor de base de dades."
 
-#: libraries/classes/DatabaseInterface.php:1188
+#: libraries/classes/DatabaseInterface.php:1166
 msgid "Failed to set configured collation connection!"
 msgstr "No es pot establir la col·lació de connexió configurada!"
 
-#: libraries/classes/DatabaseInterface.php:1650
+#: libraries/classes/DatabaseInterface.php:1621
 msgid "Missing connection parameters!"
 msgstr "Falten paràmetres de connexió!"
 
-#: libraries/classes/DatabaseInterface.php:1677
+#: libraries/classes/DatabaseInterface.php:1648
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "La connexió de l'usuari de control ha fallat, tal com està definida ara a la "
@@ -9863,11 +9869,11 @@ msgid ""
 "%2$s."
 msgstr "No s'ha trobat un disparador amb nom %1$s a la base de dades %2$s."
 
-#: libraries/classes/Dbal/DbiMysqli.php:134
+#: libraries/classes/Dbal/DbiMysqli.php:127
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "Connexió SSL forçada pel servidor, habilitant-la automàticament."
 
-#: libraries/classes/Dbal/DbiMysqli.php:145
+#: libraries/classes/Dbal/DbiMysqli.php:138
 #, php-format
 msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
@@ -12722,7 +12728,7 @@ msgstr "Clau de seguretat per maquinari (FIDO U2F)"
 #| "U2F."
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
-"such as a Yubikey."
+"such as a YubiKey."
 msgstr ""
 "Proporciona autenticació mitjançant els testimonis de seguretat per "
 "maquinari que admeten FIDO U2F."
@@ -12751,6 +12757,24 @@ msgstr "Autenticació senzilla en dos passos"
 #: libraries/classes/Plugins/TwoFactor/Simple.php:59
 msgid "For testing purposes only!"
 msgstr "Només per a propòsits de proves!"
+
+#: libraries/classes/Plugins/TwoFactor/WebAuthn.php:194
+#, fuzzy
+#| msgid "Hardware Security Key (FIDO U2F)"
+msgid "Hardware Security Key (WebAuthn/FIDO2)"
+msgstr "Clau de seguretat per maquinari (FIDO U2F)"
+
+#: libraries/classes/Plugins/TwoFactor/WebAuthn.php:200
+#, fuzzy
+#| msgid ""
+#| "Provides authentication using hardware security tokens supporting FIDO "
+#| "U2F."
+msgid ""
+"Provides authentication using hardware security tokens supporting the "
+"WebAuthn/FIDO2 protocol, such as a YubiKey."
+msgstr ""
+"Proporciona autenticació mitjançant els testimonis de seguretat per "
+"maquinari que admeten FIDO U2F."
 
 #: libraries/classes/Query/Utilities.php:97
 msgid ""
@@ -16877,6 +16901,29 @@ msgstr ""
 msgid "Verify"
 msgstr "Verifica"
 
+#: templates/login/twofactor/webauthn_creation.twig:1
+#, fuzzy
+#| msgid ""
+#| "Please connect your FIDO U2F device into your computer's USB port. Then "
+#| "confirm registration on the device."
+msgid ""
+"Please connect your WebAuthn/FIDO2 device. Then confirm registration on the "
+"device."
+msgstr ""
+"Connecteu el vostre dispositiu FIDO U2F al port USB de l'ordinador. A "
+"continuació, confirmeu la inscripció al dispositiu."
+
+#: templates/login/twofactor/webauthn_request.twig:1
+#, fuzzy
+#| msgid ""
+#| "Please connect your FIDO U2F device into your computer's USB port. Then "
+#| "confirm login on the device."
+msgid ""
+"Please connect your WebAuthn/FIDO2 device. Then confirm login on the device."
+msgstr ""
+"Connecteu el vostre dispositiu FIDO U2F al port USB de l'ordinador. A "
+"continuació, confirmeu la identificació al dispositiu."
+
 #: templates/menu/breadcrumbs.twig:27
 #, fuzzy
 #| msgid "Views:"
@@ -17070,8 +17117,8 @@ msgid "You can reset all your settings and restore them to default values."
 msgstr "Podeu restablir tots els vostres paràmetres als valors predeterminats."
 
 #: templates/preferences/two_factor/configure.twig:5
-#: templates/preferences/two_factor/main.twig:57
-#: templates/preferences/two_factor/main.twig:70
+#: templates/preferences/two_factor/main.twig:68
+#: templates/preferences/two_factor/main.twig:81
 msgid "Configure two-factor authentication"
 msgstr "Configura l'autenticació en dos passos"
 
@@ -17092,7 +17139,7 @@ msgstr ""
 "vos només amb la contrasenya."
 
 #: templates/preferences/two_factor/confirm.twig:13
-#: templates/preferences/two_factor/main.twig:46
+#: templates/preferences/two_factor/main.twig:57
 msgid "Disable two-factor authentication"
 msgstr "Inhabilita l'autenticació en dos passos"
 
@@ -17109,6 +17156,7 @@ msgstr ""
 "opcionals per habilitar els dorsals d'autenticació."
 
 #: templates/preferences/two_factor/main.twig:12
+#: templates/preferences/two_factor/main.twig:27
 msgid "Following composer packages are missing:"
 msgstr "Falten els paquets següents de composer:"
 
@@ -17126,6 +17174,17 @@ msgstr ""
 "aquest compte."
 
 #: templates/preferences/two_factor/main.twig:26
+#, fuzzy
+#| msgid ""
+#| "Two-factor authentication is not available, please install optional "
+#| "dependencies to enable authentication backends."
+msgid ""
+"Please install optional dependencies to enable more authentication backends."
+msgstr ""
+"No està disponible l'autenticació en dos passos, instal·leu les dependències "
+"opcionals per habilitar els dorsals d'autenticació."
+
+#: templates/preferences/two_factor/main.twig:37
 msgid ""
 "Two-factor authentication is not available, enable phpMyAdmin configuration "
 "storage to use it."
@@ -17133,7 +17192,7 @@ msgstr ""
 "No està disponible l'autenticació en dos passos, habiliteu l'emmagatzematge "
 "de la configuració de phpMyAdmin per utilitzar-la."
 
-#: templates/preferences/two_factor/main.twig:41
+#: templates/preferences/two_factor/main.twig:52
 msgid "You have enabled two factor authentication."
 msgstr "Heu habilitat l'autenticació de dos factors."
 
