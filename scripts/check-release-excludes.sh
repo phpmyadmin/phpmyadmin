@@ -205,6 +205,10 @@ validateExtension() {
 for filePath in ${FILE_LIST}; do
     validateExtension
     case $filePath in
+        */rector*.php)
+        foundFile;;
+        */.gitkeep)
+        foundFile;;
         */.editorconfig)
         foundFile;;
         */easy-coding-standard.neon)
