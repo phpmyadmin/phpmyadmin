@@ -699,6 +699,10 @@ final class JavaScriptMessagesController
             // l10n: error code 4 (from U2F API) on authanticate
             'strU2FErrorAuthenticate' => _pgettext('U2F error', 'Invalid security key.'),
 
+            'webAuthnNotSupported' => __(
+                'WebAuthn is not available. Please use a supported browser in a secure context (HTTPS).'
+            ),
+
             /* Designer */
             'strIndexedDBNotWorking' => __(
                 'You can not open, save or delete your page layout, as IndexedDB is not working'

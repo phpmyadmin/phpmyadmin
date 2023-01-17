@@ -211,13 +211,13 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $this->assertStringContainsString(
             '<input type="text" name="pma_username" id="input_username" ' .
-            'value="pmauser" class="form-control" autocomplete="username" autofocus>',
+            'value="pmauser" class="form-control" autocomplete="username" spellcheck="false" autofocus>',
             $result
         );
 
         $this->assertStringContainsString(
             '<input type="password" name="pma_password" id="input_password" ' .
-            'value="" class="form-control" autocomplete="current-password">',
+            'value="" class="form-control" autocomplete="current-password" spellcheck="false">',
             $result
         );
 
