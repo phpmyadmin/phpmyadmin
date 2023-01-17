@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-01-16 18:38-0300\n"
-"PO-Revision-Date: 2022-10-21 08:39+0000\n"
+"PO-Revision-Date: 2023-01-17 11:10+0000\n"
 "Last-Translator: mixeros <mixer@mixercz.cz>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/5-2/cs/"
-">\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/5-2/cs/>"
+"\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.14.2-dev\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -7426,6 +7426,8 @@ msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
+"WebAuth není dostupný. Prosím, použijte podporovaný prohlížeč v zabezpečeném "
+"kontextu (HTTPS)."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:701
 msgid ""
@@ -11816,16 +11818,12 @@ msgid "Hardware Security Key (FIDO U2F)"
 msgstr "Hardwarový bezpečnostní klíč (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:218
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F, such as a Yubikey."
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a YubiKey."
 msgstr ""
 "Poskytuje ověření pomocí hardwarových bezpečnostních tokenů podporujících "
-"FIDO U2F, například Yubikey."
+"FIDO U2F, například YubiKey."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:73
 #, php-format
@@ -11853,22 +11851,16 @@ msgid "For testing purposes only!"
 msgstr "Pouze pro testovací účely!"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:180
-#, fuzzy
-#| msgid "Hardware Security Key (FIDO U2F)"
 msgid "Hardware Security Key (WebAuthn/FIDO2)"
-msgstr "Hardwarový bezpečnostní klíč (FIDO U2F)"
+msgstr "Hardwarový bezpečnostní klíč (WebAuthn/FIDO2)"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:186
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F, such as a Yubikey."
 msgid ""
 "Provides authentication using hardware security tokens supporting the "
 "WebAuthn/FIDO2 protocol, such as a YubiKey."
 msgstr ""
 "Poskytuje ověření pomocí hardwarových bezpečnostních tokenů podporujících "
-"FIDO U2F, například Yubikey."
+"WebAuthn/FIDO protokol, například YubiKey."
 
 #: libraries/classes/Query/Utilities.php:97
 msgid ""
@@ -13113,10 +13105,8 @@ msgstr ""
 "mapování adres IPv4 na adresy IPv6"
 
 #: libraries/classes/Types.php:445
-#, fuzzy
-#| msgid "Stores a Universally Unique Identifier (UUID)"
 msgid "128-bit UUID (Universally Unique Identifier)"
-msgstr "Univerzální Unikátní Identifikátor (UUID)"
+msgstr "128 bitový UUID (Univerzální Unikátní Identifikátor)"
 
 #: libraries/classes/Types.php:800
 msgctxt "numeric types"
@@ -16171,27 +16161,19 @@ msgid "Verify"
 msgstr "Ověřit"
 
 #: templates/login/twofactor/webauthn_creation.twig:1
-#, fuzzy
-#| msgid ""
-#| "Please connect your FIDO U2F device into your computer's USB port. Then "
-#| "confirm registration on the device."
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm registration on the "
 "device."
 msgstr ""
-"Připojte zařízení FIDO U2F k USB portu počítače. Poté na zařízení potvrďte "
-"registraci."
+"Připojte zařízení WebAuthn/FIDO2 k USB portu počítače. Poté na zařízení "
+"potvrďte registraci."
 
 #: templates/login/twofactor/webauthn_request.twig:1
-#, fuzzy
-#| msgid ""
-#| "Please connect your FIDO U2F device into your computer's USB port. Then "
-#| "confirm login on the device."
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm login on the device."
 msgstr ""
-"Připojte zařízení FIDO U2F k portu USB počítače. Poté v zařízení potvrďte "
-"přihlášení."
+"Připojte zařízení WebAuthn/FIDO2 k portu USB počítače. Poté v zařízení "
+"potvrďte přihlášení."
 
 #: templates/menu/breadcrumbs.twig:27
 msgid "View:"
@@ -16422,15 +16404,11 @@ msgid ""
 msgstr "Pro tento účet je dostupné dvoustupňové ověřování, ale není nastavené."
 
 #: templates/preferences/two_factor/main.twig:26
-#, fuzzy
-#| msgid ""
-#| "Two-factor authentication is not available, please install optional "
-#| "dependencies to enable authentication backends."
 msgid ""
 "Please install optional dependencies to enable more authentication backends."
 msgstr ""
-"Dvoustupňové ověřování není k dispozici. Abyste ho mohli povolit, "
-"nainstalujte prosím volitelné závislosti."
+"Nainstalujte prosím volitelné závislosti, abyste povolili více způsobů "
+"ověřování."
 
 #: templates/preferences/two_factor/main.twig:37
 msgid ""
