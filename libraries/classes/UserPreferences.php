@@ -7,6 +7,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\DatabaseName;
 
 use function __;
@@ -101,7 +102,7 @@ class UserPreferences
         $row = $GLOBALS['dbi']->fetchSingleRow(
             $query,
             DatabaseInterface::FETCH_ASSOC,
-            DatabaseInterface::CONNECT_CONTROL
+            Connection::TYPE_CONTROL
         );
         if (! is_array($row) || ! isset($row['config_data']) || ! isset($row['ts'])) {
             return ['config_data' => [], 'mtime' => time(), 'type' => 'db'];
@@ -153,7 +154,7 @@ class UserPreferences
             . $GLOBALS['dbi']->escapeString($relationParameters->user)
             . '\'';
 
-        $has_config = $GLOBALS['dbi']->fetchValue($query, 0, DatabaseInterface::CONNECT_CONTROL);
+        $has_config = $GLOBALS['dbi']->fetchValue($query, 0, Connection::TYPE_CONTROL);
         $config_data = json_encode($config_array);
         if ($has_config) {
             $query = 'UPDATE ' . $query_table
@@ -175,10 +176,10 @@ class UserPreferences
             unset($_SESSION['cache'][$cache_key]['userprefs']);
         }
 
-        if (! $GLOBALS['dbi']->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
+        if (! $GLOBALS['dbi']->tryQuery($query, Connection::TYPE_CONTROL)) {
             $message = Message::error(__('Could not save configuration'));
             $message->addMessage(
-                Message::error($GLOBALS['dbi']->getError(DatabaseInterface::CONNECT_CONTROL)),
+                Message::error($GLOBALS['dbi']->getError(Connection::TYPE_CONTROL)),
                 '<br><br>'
             );
             if (! $this->hasAccessToDatabase($relationParameters->db)) {
@@ -211,7 +212,7 @@ class UserPreferences
                 );
         }
 
-        return (bool) $GLOBALS['dbi']->fetchSingleRow($query, 'ASSOC', DatabaseInterface::CONNECT_CONTROL);
+        return (bool) $GLOBALS['dbi']->fetchSingleRow($query, 'ASSOC', Connection::TYPE_CONTROL);
     }
 
     /**

@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins\Export\Helpers;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Pdf as PdfLib;
@@ -716,7 +717,7 @@ class Pdf extends PdfLib
          */
         $this->results = $GLOBALS['dbi']->query(
             $query,
-            DatabaseInterface::CONNECT_USER,
+            Connection::TYPE_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
         $this->numFields = $this->results->numFields();
@@ -849,7 +850,7 @@ class Pdf extends PdfLib
 
         $this->results = $GLOBALS['dbi']->query(
             $query,
-            DatabaseInterface::CONNECT_USER,
+            Connection::TYPE_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
         $this->setY($this->tMargin);

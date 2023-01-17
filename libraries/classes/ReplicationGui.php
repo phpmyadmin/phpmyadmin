@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Query\Utilities;
 
 use function __;
@@ -526,7 +527,7 @@ class ReplicationGui
             );
         } else {
             // Read the current primary position
-            $position = $this->replication->replicaBinLogPrimary(DatabaseInterface::CONNECT_AUXILIARY);
+            $position = $this->replication->replicaBinLogPrimary(Connection::TYPE_AUXILIARY);
 
             if (empty($position)) {
                 $_SESSION['replication']['sr_action_status'] = 'error';
@@ -545,7 +546,7 @@ class ReplicationGui
                         $position,
                         true,
                         false,
-                        DatabaseInterface::CONNECT_USER
+                        Connection::TYPE_USER
                     )
                 ) {
                     $_SESSION['replication']['sr_action_status'] = 'error';
@@ -566,9 +567,9 @@ class ReplicationGui
     public function handleRequestForReplicaServerControl(?string $srReplicaAction, ?string $control): bool
     {
         if ($srReplicaAction === 'reset') {
-            $qStop = $this->replication->replicaControl('STOP', null, DatabaseInterface::CONNECT_USER);
+            $qStop = $this->replication->replicaControl('STOP', null, Connection::TYPE_USER);
             $qReset = $GLOBALS['dbi']->tryQuery('RESET SLAVE;');
-            $qStart = $this->replication->replicaControl('START', null, DatabaseInterface::CONNECT_USER);
+            $qStart = $this->replication->replicaControl('START', null, Connection::TYPE_USER);
 
             return $qStop !== false && $qStop !== -1 && $qReset !== false && $qStart !== false && $qStart !== -1;
         }
@@ -576,7 +577,7 @@ class ReplicationGui
         $qControl = $this->replication->replicaControl(
             $srReplicaAction,
             $control,
-            DatabaseInterface::CONNECT_USER
+            Connection::TYPE_USER
         );
 
         return $qControl !== false && $qControl !== -1;
@@ -584,9 +585,9 @@ class ReplicationGui
 
     public function handleRequestForReplicaSkipError(int $srSkipErrorsCount): bool
     {
-        $qStop = $this->replication->replicaControl('STOP', null, DatabaseInterface::CONNECT_USER);
+        $qStop = $this->replication->replicaControl('STOP', null, Connection::TYPE_USER);
         $qSkip = $GLOBALS['dbi']->tryQuery('SET GLOBAL SQL_SLAVE_SKIP_COUNTER = ' . $srSkipErrorsCount . ';');
-        $qStart = $this->replication->replicaControl('START', null, DatabaseInterface::CONNECT_USER);
+        $qStart = $this->replication->replicaControl('START', null, Connection::TYPE_USER);
 
         return $qStop !== false && $qStop !== -1 && $qSkip !== false && $qStart !== false && $qStart !== -1;
     }

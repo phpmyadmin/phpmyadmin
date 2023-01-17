@@ -6,6 +6,7 @@ namespace PhpMyAdmin\ConfigStorage;
 
 use PhpMyAdmin\ConfigStorage\Features\PdfFeature;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\InternalRelations;
@@ -268,7 +269,7 @@ class Relation
         if (
             $GLOBALS['server'] == 0
             || empty($GLOBALS['cfg']['Server']['pmadb'])
-            || ! $this->dbi->selectDb($GLOBALS['cfg']['Server']['pmadb'], DatabaseInterface::CONNECT_CONTROL)
+            || ! $this->dbi->selectDb($GLOBALS['cfg']['Server']['pmadb'], Connection::TYPE_CONTROL)
         ) {
             // No server selected -> no bookmark table
             // we return the array with the falses in it,
@@ -387,16 +388,16 @@ class Relation
                 ],
                 (string) $query
             );
-            $this->dbi->tryMultiQuery($query, DatabaseInterface::CONNECT_CONTROL);
+            $this->dbi->tryMultiQuery($query, Connection::TYPE_CONTROL);
             // skips result sets of query as we are not interested in it
             do {
                 $hasResult = (
-                    $this->dbi->moreResults(DatabaseInterface::CONNECT_CONTROL)
-                    && $this->dbi->nextResult(DatabaseInterface::CONNECT_CONTROL)
+                    $this->dbi->moreResults(Connection::TYPE_CONTROL)
+                    && $this->dbi->nextResult(Connection::TYPE_CONTROL)
                 );
             } while ($hasResult);
 
-            $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+            $error = $this->dbi->getError(Connection::TYPE_CONTROL);
 
             // return true if no error exists otherwise false
             return empty($error);
@@ -434,7 +435,7 @@ class Relation
                 $rel_query .= ' AND `master_field` = ' . $this->dbi->quoteString($column);
             }
 
-            $foreign = $this->dbi->fetchResult($rel_query, 'master_field', null, DatabaseInterface::CONNECT_CONTROL);
+            $foreign = $this->dbi->fetchResult($rel_query, 'master_field', null, Connection::TYPE_CONTROL);
         }
 
         if (($source === 'both' || $source === 'foreign') && strlen($table) > 0) {
@@ -505,7 +506,7 @@ class Relation
             $row = $this->dbi->fetchSingleRow(
                 $disp_query,
                 DatabaseInterface::FETCH_ASSOC,
-                DatabaseInterface::CONNECT_CONTROL
+                Connection::TYPE_CONTROL
             );
             if (isset($row['display_field'])) {
                 return $row['display_field'];
@@ -751,7 +752,7 @@ class Relation
               WHERE `username` = ' . $this->dbi->quoteString($username) . '
            ORDER BY `id` DESC';
 
-        return $this->dbi->fetchResult($hist_query, null, null, DatabaseInterface::CONNECT_CONTROL);
+        return $this->dbi->fetchResult($hist_query, null, null, Connection::TYPE_CONTROL);
     }
 
     /**
@@ -777,7 +778,7 @@ class Relation
             ORDER BY `timevalue` DESC
             LIMIT ' . $GLOBALS['cfg']['QueryHistoryMax'] . ', 1';
 
-        $max_time = $this->dbi->fetchValue($search_query, 0, DatabaseInterface::CONNECT_CONTROL);
+        $max_time = $this->dbi->fetchValue($search_query, 0, Connection::TYPE_CONTROL);
 
         if (! $max_time) {
             return;
@@ -1346,7 +1347,7 @@ class Relation
             . $this->dbi->quoteString($newpage ?: __('no description')) . ')';
         $this->dbi->tryQueryAsControlUser($ins_query);
 
-        return $this->dbi->insertId(DatabaseInterface::CONNECT_CONTROL);
+        return $this->dbi->insertId(Connection::TYPE_CONTROL);
     }
 
     /**
@@ -1526,10 +1527,10 @@ class Relation
     {
         $this->dbi->tryQuery(
             'CREATE DATABASE IF NOT EXISTS ' . Util::backquote($configurationStorageDbName),
-            DatabaseInterface::CONNECT_CONTROL
+            Connection::TYPE_CONTROL
         );
 
-        $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+        $error = $this->dbi->getError(Connection::TYPE_CONTROL);
         if (! $error) {
             // Re-build the cache to show the list of tables created or not
             // This is the case when the DB could be created but no tables just after
@@ -1586,7 +1587,7 @@ class Relation
             'pma__export_templates' => 'export_templates',
         ];
 
-        $existingTables = $this->dbi->getTables($db, DatabaseInterface::CONNECT_CONTROL);
+        $existingTables = $this->dbi->getTables($db, Connection::TYPE_CONTROL);
 
         /** @var array<string, string> $tableNameReplacements */
         $tableNameReplacements = [];
@@ -1617,16 +1618,16 @@ class Relation
                 if ($create) {
                     if ($createQueries == null) { // first create
                         $createQueries = $this->getDefaultPmaTableNames($tableNameReplacements);
-                        if (! $this->dbi->selectDb($db, DatabaseInterface::CONNECT_CONTROL)) {
-                            $GLOBALS['message'] = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+                        if (! $this->dbi->selectDb($db, Connection::TYPE_CONTROL)) {
+                            $GLOBALS['message'] = $this->dbi->getError(Connection::TYPE_CONTROL);
 
                             return;
                         }
                     }
 
-                    $this->dbi->tryQuery($createQueries[$table], DatabaseInterface::CONNECT_CONTROL);
+                    $this->dbi->tryQuery($createQueries[$table], Connection::TYPE_CONTROL);
 
-                    $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+                    $error = $this->dbi->getError(Connection::TYPE_CONTROL);
                     if ($error) {
                         $GLOBALS['message'] = $error;
 

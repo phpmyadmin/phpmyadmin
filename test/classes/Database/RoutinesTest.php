@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Database;
 
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -1153,17 +1154,17 @@ class RoutinesTest extends AbstractTestCase
                     [
                         [
                             'foo',
-                            DatabaseInterface::CONNECT_USER,
+                            Connection::TYPE_USER,
                             'foo',
                         ],
                         [
                             "foo's bar",
-                            DatabaseInterface::CONNECT_USER,
+                            Connection::TYPE_USER,
                             "foo\'s bar",
                         ],
                         [
                             '',
-                            DatabaseInterface::CONNECT_USER,
+                            Connection::TYPE_USER,
                             '',
                         ],
                     ]

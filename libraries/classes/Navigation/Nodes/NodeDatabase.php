@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -360,11 +360,11 @@ class NodeDatabase extends Node
             . '.' . Util::backquote($relationParameters->navigationItemsHidingFeature->navigationHiding);
         $sqlQuery = 'SELECT `item_name` FROM ' . $navTable
             . ' WHERE `username`='
-            . $GLOBALS['dbi']->quoteString($relationParameters->user, DatabaseInterface::CONNECT_CONTROL)
+            . $GLOBALS['dbi']->quoteString($relationParameters->user, Connection::TYPE_CONTROL)
             . ' AND `item_type`='
-            . $GLOBALS['dbi']->quoteString($type, DatabaseInterface::CONNECT_CONTROL)
+            . $GLOBALS['dbi']->quoteString($type, Connection::TYPE_CONTROL)
             . ' AND `db_name`='
-            . $GLOBALS['dbi']->quoteString($this->realName, DatabaseInterface::CONNECT_CONTROL);
+            . $GLOBALS['dbi']->quoteString($this->realName, Connection::TYPE_CONTROL);
         $result = $GLOBALS['dbi']->tryQueryAsControlUser($sqlQuery);
         if ($result) {
             return $result->fetchAllColumn();

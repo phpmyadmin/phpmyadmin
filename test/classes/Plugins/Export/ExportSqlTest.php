@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\Export\ExportSql;
@@ -575,8 +576,8 @@ class ExportSqlTest extends AbstractTestCase
         $dbi->expects($this->exactly(2))
             ->method('fetchValue')
             ->will($this->returnValueMap([
-                ['SHOW CREATE EVENT `db`.`f1`', 'Create Event', DatabaseInterface::CONNECT_USER, 'f1event'],
-                ['SHOW CREATE EVENT `db`.`f2`', 'Create Event', DatabaseInterface::CONNECT_USER, 'f2event'],
+                ['SHOW CREATE EVENT `db`.`f1`', 'Create Event', Connection::TYPE_USER, 'f1event'],
+                ['SHOW CREATE EVENT `db`.`f2`', 'Create Event', Connection::TYPE_USER, 'f2event'],
             ]));
         $dbi->expects($this->any())->method('quoteString')
             ->will($this->returnCallback(static function (string $string) {
@@ -1168,7 +1169,7 @@ class ExportSqlTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('tryQuery')
-            ->with('SELECT a FROM b WHERE 1', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('SELECT a FROM b WHERE 1', Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue($resultStub));
 
         $resultStub->expects($this->once())
@@ -1276,7 +1277,7 @@ class ExportSqlTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('tryQuery')
-            ->with('SELECT a FROM b WHERE 1', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('SELECT a FROM b WHERE 1', Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue($resultStub));
 
         $resultStub->expects($this->once())

@@ -69,6 +69,8 @@ use const SORT_DESC;
 
 /**
  * Main interface for database interactions
+ *
+ * @psalm-import-type ConnectionType from Connection
  */
 class DatabaseInterface implements DbalInterface
 {
@@ -89,21 +91,6 @@ class DatabaseInterface implements DbalInterface
      */
     public const GETVAR_GLOBAL = 2;
 
-    /**
-     * User connection.
-     */
-    public const CONNECT_USER = 0x100;
-    /**
-     * Control user connection.
-     */
-    public const CONNECT_CONTROL = 0x101;
-    /**
-     * Auxiliary connection.
-     *
-     * Used for example for replication setup.
-     */
-    public const CONNECT_AUXILIARY = 0x102;
-
     /** @var DbiExtension */
     private $extension;
 
@@ -111,6 +98,7 @@ class DatabaseInterface implements DbalInterface
      * Opened database connections.
      *
      * @var array<int, Connection>
+     * @psalm-var array<ConnectionType, Connection>
      */
     private $connections;
 
@@ -154,8 +142,8 @@ class DatabaseInterface implements DbalInterface
         $this->extension = $ext;
         $this->connections = [];
         if (defined('TESTSUITE')) {
-            $this->connections[self::CONNECT_USER] = new Connection(new stdClass());
-            $this->connections[self::CONNECT_CONTROL] = new Connection(new stdClass());
+            $this->connections[Connection::TYPE_USER] = new Connection(new stdClass());
+            $this->connections[Connection::TYPE_CONTROL] = new Connection(new stdClass());
         }
 
         $this->cache = new Cache();
@@ -168,10 +156,11 @@ class DatabaseInterface implements DbalInterface
      * @param string $query             SQL query to execute
      * @param int    $options           optional query options
      * @param bool   $cacheAffectedRows whether to cache affected rows
+     * @psalm-param ConnectionType $connectionType
      */
     public function query(
         string $query,
-        int $connectionType = self::CONNECT_USER,
+        int $connectionType = Connection::TYPE_USER,
         int $options = self::QUERY_BUFFERED,
         bool $cacheAffectedRows = true
     ): ResultInterface {
@@ -200,12 +189,13 @@ class DatabaseInterface implements DbalInterface
      *                                  is provided, it will instruct the extension
      *                                  to use unbuffered mode
      * @param bool   $cacheAffectedRows whether to cache affected row
+     * @psalm-param ConnectionType $connectionType
      *
      * @return ResultInterface|false
      */
     public function tryQuery(
         string $query,
-        int $connectionType = self::CONNECT_USER,
+        int $connectionType = Connection::TYPE_USER,
         int $options = self::QUERY_BUFFERED,
         bool $cacheAffectedRows = true
     ) {
@@ -262,10 +252,11 @@ class DatabaseInterface implements DbalInterface
      * Send multiple SQL queries to the database server and execute the first one
      *
      * @param string $multiQuery multi query statement to execute
+     * @psalm-param ConnectionType $connectionType
      */
     public function tryMultiQuery(
         string $multiQuery = '',
-        int $connectionType = self::CONNECT_USER
+        int $connectionType = Connection::TYPE_USER
     ): bool {
         if (! isset($this->connections[$connectionType])) {
             return false;
@@ -288,7 +279,7 @@ class DatabaseInterface implements DbalInterface
         // is called for tracking purposes but we want to display the correct number
         // of rows affected by the original query, not by the query generated for
         // tracking.
-        return $this->query($sql, self::CONNECT_CONTROL, self::QUERY_BUFFERED, false);
+        return $this->query($sql, Connection::TYPE_CONTROL, self::QUERY_BUFFERED, false);
     }
 
     /**
@@ -305,17 +296,18 @@ class DatabaseInterface implements DbalInterface
         // is called for tracking purposes but we want to display the correct number
         // of rows affected by the original query, not by the query generated for
         // tracking.
-        return $this->tryQuery($sql, self::CONNECT_CONTROL, self::QUERY_BUFFERED, false);
+        return $this->tryQuery($sql, Connection::TYPE_CONTROL, self::QUERY_BUFFERED, false);
     }
 
     /**
      * returns array with table names for given db
      *
      * @param string $database name of database
+     * @psalm-param ConnectionType $connectionType
      *
      * @return array<int, string>   tables names
      */
-    public function getTables(string $database, int $connectionType = self::CONNECT_USER): array
+    public function getTables(string $database, int $connectionType = Connection::TYPE_USER): array
     {
         if ($database === '') {
             return [];
@@ -357,6 +349,7 @@ class DatabaseInterface implements DbalInterface
      * @param string       $sortBy       table attribute to sort by
      * @param string       $sortOrder    direction to sort (ASC or DESC)
      * @param string|null  $tableType    whether table or view
+     * @psalm-param ConnectionType $connectionType
      *
      * @return array           list of tables in given db(s)
      *
@@ -371,7 +364,7 @@ class DatabaseInterface implements DbalInterface
         string $sortBy = 'Name',
         string $sortOrder = 'ASC',
         ?string $tableType = null,
-        int $connectionType = self::CONNECT_USER
+        int $connectionType = Connection::TYPE_USER
     ): array {
         if ($limitCount === true) {
             $limitCount = $GLOBALS['cfg']['MaxTableList'];
@@ -639,6 +632,7 @@ class DatabaseInterface implements DbalInterface
      * @param string      $sortOrder   ASC or DESC
      * @param int         $limitOffset starting offset for LIMIT
      * @param bool|int    $limitCount  row count for LIMIT or true for $GLOBALS['cfg']['MaxDbList']
+     * @psalm-param ConnectionType $connectionType
      *
      * @return array
      *
@@ -647,7 +641,7 @@ class DatabaseInterface implements DbalInterface
     public function getDatabasesFull(
         ?string $database = null,
         bool $forceStats = false,
-        int $connectionType = self::CONNECT_USER,
+        int $connectionType = Connection::TYPE_USER,
         string $sortBy = 'SCHEMA_NAME',
         string $sortOrder = 'ASC',
         int $limitOffset = 0,
@@ -821,6 +815,7 @@ class DatabaseInterface implements DbalInterface
      * @param string|null $database name of database
      * @param string|null $table    name of table to retrieve columns from
      * @param string|null $column   name of specific column
+     * @psalm-param ConnectionType $connectionType
      *
      * @return array
      */
@@ -828,7 +823,7 @@ class DatabaseInterface implements DbalInterface
         ?string $database = null,
         ?string $table = null,
         ?string $column = null,
-        int $connectionType = self::CONNECT_USER
+        int $connectionType = Connection::TYPE_USER
     ): array {
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $sql = QueryGenerator::getInformationSchemaColumnsFullRequest(
@@ -883,6 +878,7 @@ class DatabaseInterface implements DbalInterface
      * @param string $table    name of table to retrieve columns from
      * @param string $column   name of column
      * @param bool   $full     whether to return full info or only column names
+     * @psalm-param ConnectionType $connectionType
      *
      * @return array flat array description
      */
@@ -891,7 +887,7 @@ class DatabaseInterface implements DbalInterface
         string $table,
         string $column,
         bool $full = false,
-        int $connectionType = self::CONNECT_USER
+        int $connectionType = Connection::TYPE_USER
     ): array {
         $sql = QueryGenerator::getColumnsSql(
             $database,
@@ -913,6 +909,7 @@ class DatabaseInterface implements DbalInterface
      * @param string $database name of database
      * @param string $table    name of table to retrieve columns from
      * @param bool   $full     whether to return full info or only column names
+     * @psalm-param ConnectionType $connectionType
      *
      * @return array<string, array> array indexed by column names
      */
@@ -920,7 +917,7 @@ class DatabaseInterface implements DbalInterface
         string $database,
         string $table,
         bool $full = false,
-        int $connectionType = self::CONNECT_USER
+        int $connectionType = Connection::TYPE_USER
     ): array {
         $sql = QueryGenerator::getColumnsSql(
             $database,
@@ -985,13 +982,14 @@ class DatabaseInterface implements DbalInterface
      *
      * @param string $database name of database
      * @param string $table    name of table to retrieve columns from
+     * @psalm-param ConnectionType $connectionType
      *
      * @return string[]
      */
     public function getColumnNames(
         string $database,
         string $table,
-        int $connectionType = self::CONNECT_USER
+        int $connectionType = Connection::TYPE_USER
     ): array {
         $sql = QueryGenerator::getColumnsSql($database, $table);
 
@@ -1004,6 +1002,7 @@ class DatabaseInterface implements DbalInterface
      *
      * @param string $database name of database
      * @param string $table    name of the table whose indexes are to be retrieved
+     * @psalm-param ConnectionType $connectionType
      *
      * @return array<int, array<string, string|null>>
      * @psalm-return array<int, array{
@@ -1028,7 +1027,7 @@ class DatabaseInterface implements DbalInterface
     public function getTableIndexes(
         string $database,
         string $table,
-        int $connectionType = self::CONNECT_USER
+        int $connectionType = Connection::TYPE_USER
     ): array {
         $sql = QueryGenerator::getTableIndexesSql($database, $table);
 
@@ -1039,15 +1038,15 @@ class DatabaseInterface implements DbalInterface
      * returns value of given mysql server variable
      *
      * @param string $var  mysql server variable name
-     * @param int    $type DatabaseInterface::GETVAR_SESSION |
-     *                     DatabaseInterface::GETVAR_GLOBAL
+     * @param int    $type DatabaseInterface::GETVAR_SESSION | DatabaseInterface::GETVAR_GLOBAL
+     * @psalm-param ConnectionType $connectionType
      *
      * @return false|string|null value for mysql server variable
      */
     public function getVariable(
         string $var,
         int $type = self::GETVAR_SESSION,
-        int $connectionType = self::CONNECT_USER
+        int $connectionType = Connection::TYPE_USER
     ) {
         switch ($type) {
             case self::GETVAR_SESSION:
@@ -1068,11 +1067,12 @@ class DatabaseInterface implements DbalInterface
      *
      * @param string $var   variable name
      * @param string $value value to set
+     * @psalm-param ConnectionType $connectionType
      */
     public function setVariable(
         string $var,
         string $value,
-        int $connectionType = self::CONNECT_USER
+        int $connectionType = Connection::TYPE_USER
     ): bool {
         $currentValue = $this->getVariable($var, self::GETVAR_SESSION, $connectionType);
         if ($currentValue == $value) {
@@ -1203,15 +1203,15 @@ class DatabaseInterface implements DbalInterface
      * </code>
      *
      * @param string     $query The query to execute
-     * @param int|string $field field to fetch the value from,
-     *                          starting at 0, with 0 being default
+     * @param int|string $field field to fetch the value from, starting at 0, with 0 being default
+     * @psalm-param ConnectionType $connectionType
      *
      * @return string|false|null value of first field in first row from result or false if not found
      */
     public function fetchValue(
         string $query,
         $field = 0,
-        int $connectionType = self::CONNECT_USER
+        int $connectionType = Connection::TYPE_USER
     ) {
         $result = $this->tryQuery($query, $connectionType, self::QUERY_BUFFERED, false);
         if ($result === false) {
@@ -1232,14 +1232,14 @@ class DatabaseInterface implements DbalInterface
      * </code>
      *
      * @param string $query The query to execute
-     * @param string $type  NUM|ASSOC|BOTH returned array should either numeric
-     *                      associative or both
-     * @psalm-param  DatabaseInterface::FETCH_NUM|DatabaseInterface::FETCH_ASSOC $type
+     * @param string $type  NUM|ASSOC|BOTH returned array should either numeric associative or both
+     * @psalm-param DatabaseInterface::FETCH_NUM|DatabaseInterface::FETCH_ASSOC $type
+     * @psalm-param ConnectionType $connectionType
      */
     public function fetchSingleRow(
         string $query,
         string $type = DbalInterface::FETCH_ASSOC,
-        int $connectionType = self::CONNECT_USER
+        int $connectionType = Connection::TYPE_USER
     ): ?array {
         $result = $this->tryQuery($query, $connectionType, self::QUERY_BUFFERED, false);
         if ($result === false) {
@@ -1320,8 +1320,8 @@ class DatabaseInterface implements DbalInterface
      * @param string|int|array|null $key   field-name or offset
      *                                     used as key for array
      *                                     or array of those
-     * @param string|int|null       $value value-name or offset
-     *                                     used as value for array
+     * @param string|int|null       $value value-name or offset used as value for array
+     * @psalm-param ConnectionType $connectionType
      *
      * @return array resultrows or values indexed by $key
      */
@@ -1329,7 +1329,7 @@ class DatabaseInterface implements DbalInterface
         string $query,
         $key = null,
         $value = null,
-        int $connectionType = self::CONNECT_USER
+        int $connectionType = Connection::TYPE_USER
     ): array {
         $resultRows = [];
 
@@ -1411,9 +1411,11 @@ class DatabaseInterface implements DbalInterface
     /**
      * returns warnings for last query
      *
+     * @psalm-param ConnectionType $connectionType
+     *
      * @return Warning[] warnings
      */
-    public function getWarnings(int $connectionType = self::CONNECT_USER): array
+    public function getWarnings(int $connectionType = Connection::TYPE_USER): array
     {
         $result = $this->tryQuery('SHOW WARNINGS', $connectionType, 0, false);
         if ($result === false) {
@@ -1553,7 +1555,7 @@ class DatabaseInterface implements DbalInterface
 
     public function isConnected(): bool
     {
-        return isset($this->connections[self::CONNECT_USER]);
+        return isset($this->connections[Connection::TYPE_USER]);
     }
 
     /**
@@ -1603,10 +1605,11 @@ class DatabaseInterface implements DbalInterface
     /**
      * Connects to the database server.
      *
-     * @param int        $mode   Connection mode on of CONNECT_USER, CONNECT_CONTROL
-     *                           or CONNECT_AUXILIARY.
+     * @param int        $mode   Connection mode.
      * @param array|null $server Server information like host/port/socket/persistent
      * @param int|null   $target How to store connection link, defaults to $mode
+     * @psalm-param ConnectionType $mode
+     * @psalm-param ConnectionType|null $target
      */
     public function connect(int $mode, ?array $server = null, ?int $target = null): ?Connection
     {
@@ -1635,14 +1638,14 @@ class DatabaseInterface implements DbalInterface
         if ($result !== null) {
             $this->connections[$target] = $result;
             /* Run post connect for user connections */
-            if ($target == self::CONNECT_USER) {
+            if ($target == Connection::TYPE_USER) {
                 $this->postConnect();
             }
 
             return $result;
         }
 
-        if ($mode == self::CONNECT_CONTROL) {
+        if ($mode == Connection::TYPE_CONTROL) {
             trigger_error(
                 __(
                     'Connection for controluser as defined in your configuration failed.'
@@ -1653,7 +1656,7 @@ class DatabaseInterface implements DbalInterface
             return null;
         }
 
-        if ($mode == self::CONNECT_AUXILIARY) {
+        if ($mode === Connection::TYPE_AUXILIARY) {
             // Do not go back to main login if connection failed
             // (currently used only in unit testing)
             return null;
@@ -1666,8 +1669,9 @@ class DatabaseInterface implements DbalInterface
      * selects given database
      *
      * @param string|DatabaseName $dbname database name to select
+     * @psalm-param ConnectionType $connectionType
      */
-    public function selectDb($dbname, int $connectionType = self::CONNECT_USER): bool
+    public function selectDb($dbname, int $connectionType = Connection::TYPE_USER): bool
     {
         if (! isset($this->connections[$connectionType])) {
             return false;
@@ -1678,8 +1682,10 @@ class DatabaseInterface implements DbalInterface
 
     /**
      * Check if there are any more query results from a multi query
+     *
+     * @psalm-param ConnectionType $connectionType
      */
-    public function moreResults(int $connectionType = self::CONNECT_USER): bool
+    public function moreResults(int $connectionType = Connection::TYPE_USER): bool
     {
         if (! isset($this->connections[$connectionType])) {
             return false;
@@ -1690,8 +1696,10 @@ class DatabaseInterface implements DbalInterface
 
     /**
      * Prepare next result from multi_query
+     *
+     * @psalm-param ConnectionType $connectionType
      */
-    public function nextResult(int $connectionType = self::CONNECT_USER): bool
+    public function nextResult(int $connectionType = Connection::TYPE_USER): bool
     {
         if (! isset($this->connections[$connectionType])) {
             return false;
@@ -1703,9 +1711,11 @@ class DatabaseInterface implements DbalInterface
     /**
      * Store the result returned from multi query
      *
+     * @psalm-param ConnectionType $connectionType
+     *
      * @return ResultInterface|false false when empty results / result set when not empty
      */
-    public function storeResult(int $connectionType = self::CONNECT_USER)
+    public function storeResult(int $connectionType = Connection::TYPE_USER)
     {
         if (! isset($this->connections[$connectionType])) {
             return false;
@@ -1717,9 +1727,11 @@ class DatabaseInterface implements DbalInterface
     /**
      * Returns a string representing the type of connection used
      *
+     * @psalm-param ConnectionType $connectionType
+     *
      * @return string|bool type of connection used
      */
-    public function getHostInfo(int $connectionType = self::CONNECT_USER)
+    public function getHostInfo(int $connectionType = Connection::TYPE_USER)
     {
         if (! isset($this->connections[$connectionType])) {
             return false;
@@ -1731,9 +1743,11 @@ class DatabaseInterface implements DbalInterface
     /**
      * Returns the version of the MySQL protocol used
      *
+     * @psalm-param ConnectionType $connectionType
+     *
      * @return int|bool version of the MySQL protocol used
      */
-    public function getProtoInfo(int $connectionType = self::CONNECT_USER)
+    public function getProtoInfo(int $connectionType = Connection::TYPE_USER)
     {
         if (! isset($this->connections[$connectionType])) {
             return false;
@@ -1754,8 +1768,10 @@ class DatabaseInterface implements DbalInterface
 
     /**
      * Returns last error message or an empty string if no errors occurred.
+     *
+     * @psalm-param ConnectionType $connectionType
      */
-    public function getError(int $connectionType = self::CONNECT_USER): string
+    public function getError(int $connectionType = Connection::TYPE_USER): string
     {
         if (! isset($this->connections[$connectionType])) {
             return '';
@@ -1787,8 +1803,10 @@ class DatabaseInterface implements DbalInterface
     /**
      * returns last inserted auto_increment id for given $link
      * or $GLOBALS['userlink']
+     *
+     * @psalm-param ConnectionType $connectionType
      */
-    public function insertId(int $connectionType = self::CONNECT_USER): int
+    public function insertId(int $connectionType = Connection::TYPE_USER): int
     {
         // If the primary key is BIGINT we get an incorrect result
         // (sometimes negative, sometimes positive)
@@ -1805,12 +1823,13 @@ class DatabaseInterface implements DbalInterface
      * returns the number of rows affected by last query
      *
      * @param bool $getFromCache whether to retrieve from cache
+     * @psalm-param ConnectionType $connectionType
      *
      * @return int|string
      * @psalm-return int|numeric-string
      */
     public function affectedRows(
-        int $connectionType = self::CONNECT_USER,
+        int $connectionType = Connection::TYPE_USER,
         bool $getFromCache = true
     ) {
         if (! isset($this->connections[$connectionType])) {
@@ -1862,12 +1881,13 @@ class DatabaseInterface implements DbalInterface
      * Returns properly quoted string for use in MySQL queries.
      *
      * @param string $str string to be quoted
+     * @psalm-param ConnectionType $connectionType
      *
      * @psalm-return non-empty-string
      *
      * @psalm-taint-escape sql
      */
-    public function quoteString(string $str, int $connectionType = self::CONNECT_USER): string
+    public function quoteString(string $str, int $connectionType = Connection::TYPE_USER): string
     {
         return "'" . $this->extension->escapeString($this->connections[$connectionType], $str) . "'";
     }
@@ -1878,10 +1898,11 @@ class DatabaseInterface implements DbalInterface
      * @deprecated Use {@see quoteString()} instead.
      *
      * @param string $str string to be escaped
+     * @psalm-param ConnectionType $connectionType
      *
      * @return string a MySQL escaped string
      */
-    public function escapeString(string $str, int $connectionType = self::CONNECT_USER): string
+    public function escapeString(string $str, int $connectionType = Connection::TYPE_USER): string
     {
         if (isset($this->connections[$connectionType])) {
             return $this->extension->escapeString($this->connections[$connectionType], $str);
@@ -2070,10 +2091,11 @@ class DatabaseInterface implements DbalInterface
      * Prepare an SQL statement for execution.
      *
      * @param string $query The query, as a string.
+     * @psalm-param ConnectionType $connectionType
      *
      * @return object|false A statement object or false.
      */
-    public function prepare(string $query, int $connectionType = self::CONNECT_USER)
+    public function prepare(string $query, int $connectionType = Connection::TYPE_USER)
     {
         return $this->extension->prepare($this->connections[$connectionType], $query);
     }
@@ -2089,6 +2111,8 @@ class DatabaseInterface implements DbalInterface
 
     /**
      * Returns the number of warnings from the last query.
+     *
+     * @psalm-param ConnectionType $connectionType
      */
     private function getWarningCount(int $connectionType): int
     {

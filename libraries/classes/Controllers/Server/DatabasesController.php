@@ -8,6 +8,7 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ReplicationInfo;
@@ -102,7 +103,7 @@ class DatabasesController extends AbstractController
             $this->databases = $this->dbi->getDatabasesFull(
                 null,
                 $this->hasStatistics,
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 $this->sortBy,
                 $this->sortOrder,
                 $this->position,

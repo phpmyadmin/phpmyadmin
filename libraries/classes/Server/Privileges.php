@@ -13,6 +13,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\MysqliResult;
 use PhpMyAdmin\Dbal\ResultInterface;
@@ -590,7 +591,7 @@ class Privileges
 
         $sqlQuery = 'SELECT `usergroup` FROM ' . $userTable
             . " WHERE `username` = '" . $this->dbi->escapeString($username) . "'";
-        $oldUserGroup = $this->dbi->fetchValue($sqlQuery, 0, DatabaseInterface::CONNECT_CONTROL);
+        $oldUserGroup = $this->dbi->fetchValue($sqlQuery, 0, Connection::TYPE_CONTROL);
 
         if ($oldUserGroup === false) {
             $updQuery = 'INSERT INTO ' . $userTable . '(`username`, `usergroup`)'
@@ -1550,7 +1551,7 @@ class Privileges
             . '.' . Util::backquote($configurableMenusFeature->userGroups);
         $sqlQuery = 'SELECT COUNT(*) FROM ' . $userGroupTable;
 
-        return (int) $this->dbi->fetchValue($sqlQuery, 0, DatabaseInterface::CONNECT_CONTROL);
+        return (int) $this->dbi->fetchValue($sqlQuery, 0, Connection::TYPE_CONTROL);
     }
 
     /**
@@ -1573,7 +1574,7 @@ class Privileges
             . ' WHERE `username` = \'' . $username . '\''
             . ' LIMIT 1';
 
-        $usergroup = $this->dbi->fetchValue($sqlQuery, 0, DatabaseInterface::CONNECT_CONTROL);
+        $usergroup = $this->dbi->fetchValue($sqlQuery, 0, Connection::TYPE_CONTROL);
 
         if ($usergroup === false) {
             return null;

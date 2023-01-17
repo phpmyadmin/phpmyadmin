@@ -8,6 +8,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Database\Designer\Common;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
@@ -79,7 +80,7 @@ class CommonTest extends AbstractTestCase
             WHERE pdf_page_number = " . $pg,
                 'name',
                 null,
-                DatabaseInterface::CONNECT_CONTROL
+                Connection::TYPE_CONTROL
             );
         $GLOBALS['dbi'] = $dbi;
 
@@ -108,7 +109,7 @@ class CommonTest extends AbstractTestCase
                 'SELECT `page_descr` FROM `pmadb`.`pdf_pages`'
                 . ' WHERE `page_nr` = ' . $pg,
                 0,
-                DatabaseInterface::CONNECT_CONTROL
+                Connection::TYPE_CONTROL
             )
             ->will($this->returnValue($pageName));
         $GLOBALS['dbi'] = $dbi;
@@ -166,7 +167,7 @@ class CommonTest extends AbstractTestCase
                 . " WHERE `db_name` = '" . $db . "'"
                 . " AND `page_descr` = '" . $db . "'",
                 0,
-                DatabaseInterface::CONNECT_CONTROL
+                Connection::TYPE_CONTROL
             )
             ->will($this->returnValue($default_pg));
         $dbi->expects($this->any())->method('escapeString')
@@ -197,7 +198,7 @@ class CommonTest extends AbstractTestCase
                 . " WHERE `db_name` = '" . $db . "'"
                 . " AND `page_descr` = '" . $db . "'",
                 0,
-                DatabaseInterface::CONNECT_CONTROL
+                Connection::TYPE_CONTROL
             )
             ->will($this->returnValue(false));
         $dbi->expects($this->any())->method('escapeString')
@@ -229,7 +230,7 @@ class CommonTest extends AbstractTestCase
                 . " WHERE `db_name` = '" . $db . "'"
                 . " AND `page_descr` = '" . $db . "'",
                 0,
-                DatabaseInterface::CONNECT_CONTROL
+                Connection::TYPE_CONTROL
             )
             ->will($this->returnValue($default_pg));
         $dbi->expects($this->any())->method('escapeString')

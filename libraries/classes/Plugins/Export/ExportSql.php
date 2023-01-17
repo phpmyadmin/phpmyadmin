@@ -12,6 +12,7 @@ use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -2097,7 +2098,7 @@ class ExportSql extends ExportPlugin
 
         $result = $GLOBALS['dbi']->tryQuery(
             $sqlQuery,
-            DatabaseInterface::CONNECT_USER,
+            Connection::TYPE_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
         // a possible error: the table has crashed

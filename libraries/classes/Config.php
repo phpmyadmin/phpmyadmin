@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Config\Settings;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Exceptions\ConfigException;
 use Throwable;
 
@@ -69,6 +70,8 @@ use const PHP_VERSION_ID;
 
 /**
  * Configuration handling
+ *
+ * @psalm-import-type ConnectionType from Connection
  */
 class Config
 {
@@ -1213,9 +1216,9 @@ class Config
     /**
      * Return connection parameters for the database server
      *
-     * @param int        $mode   Connection mode on of CONNECT_USER, CONNECT_CONTROL
-     *                           or CONNECT_AUXILIARY.
+     * @param int        $mode   Connection mode.
      * @param array|null $server Server information like host/port/socket/persistent
+     * @psalm-param ConnectionType $mode
      *
      * @return array user, host and server settings array
      */
@@ -1224,11 +1227,11 @@ class Config
         $user = null;
         $password = null;
 
-        if ($mode == DatabaseInterface::CONNECT_USER) {
+        if ($mode == Connection::TYPE_USER) {
             $user = $GLOBALS['cfg']['Server']['user'];
             $password = $GLOBALS['cfg']['Server']['password'];
             $server = $GLOBALS['cfg']['Server'];
-        } elseif ($mode == DatabaseInterface::CONNECT_CONTROL) {
+        } elseif ($mode == Connection::TYPE_CONTROL) {
             $user = $GLOBALS['cfg']['Server']['controluser'];
             $password = $GLOBALS['cfg']['Server']['controlpass'];
 

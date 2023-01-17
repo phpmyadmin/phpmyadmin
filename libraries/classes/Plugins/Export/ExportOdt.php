@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\OpenDocument;
 use PhpMyAdmin\Plugins\ExportPlugin;
@@ -235,7 +236,7 @@ class ExportOdt extends ExportPlugin
         // Gets the data from the database
         $result = $GLOBALS['dbi']->query(
             $sqlQuery,
-            DatabaseInterface::CONNECT_USER,
+            Connection::TYPE_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
         $fields_cnt = $result->numFields();

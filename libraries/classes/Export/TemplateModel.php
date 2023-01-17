@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Export;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Util;
@@ -38,7 +39,7 @@ final class TemplateModel
             return '';
         }
 
-        return $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+        return $this->dbi->getError(Connection::TYPE_CONTROL);
     }
 
     public function delete(DatabaseName $db, TableName $table, string $user, int $id): string
@@ -55,7 +56,7 @@ final class TemplateModel
             return '';
         }
 
-        return $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+        return $this->dbi->getError(Connection::TYPE_CONTROL);
     }
 
     /**
@@ -72,7 +73,7 @@ final class TemplateModel
         );
         $result = $this->dbi->tryQueryAsControlUser($query);
         if ($result === false) {
-            return $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+            return $this->dbi->getError(Connection::TYPE_CONTROL);
         }
 
         $data = [];
@@ -104,7 +105,7 @@ final class TemplateModel
             return '';
         }
 
-        return $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+        return $this->dbi->getError(Connection::TYPE_CONTROL);
     }
 
     /**
@@ -121,7 +122,7 @@ final class TemplateModel
         );
         $result = $this->dbi->tryQueryAsControlUser($query);
         if ($result === false) {
-            return $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+            return $this->dbi->getError(Connection::TYPE_CONTROL);
         }
 
         $templates = [];
