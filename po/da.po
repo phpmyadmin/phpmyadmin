@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-01-07 14:24+0000\n"
+"PO-Revision-Date: 2023-01-19 03:17+0000\n"
 "Last-Translator: Henrik Dankvardt <dankvardt@gmail.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/4-9/da/"
 ">\n"
@@ -335,10 +335,8 @@ msgid "You have to choose at least one column to display!"
 msgstr "Du skal vælge mindst en kolonne der skal vises!"
 
 #: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Simulér forespørgsel"
+msgstr "Multi-table forespørgsel"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
 msgid "Query by example"
