@@ -7713,7 +7713,7 @@
       <code>$server['ssl']</code>
       <code>$server['ssl_verify']</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="20">
+    <MixedArgument occurrences="19">
       <code>$GLOBALS['special_message']</code>
       <code>$GLOBALS['special_message']</code>
       <code>$alt</code>
@@ -7723,7 +7723,6 @@
       <code>$queryBase</code>
       <code>$queryBase</code>
       <code>$queryBase</code>
-      <code>$sqlQuery</code>
       <code>$sqlQuery</code>
       <code>$sqlQuery</code>
       <code>$sqlQuery</code>
