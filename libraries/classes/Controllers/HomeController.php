@@ -109,7 +109,7 @@ class HomeController extends AbstractController
         if ($hasServer) {
             $hasServerSelection = $cfg['ServerDefault'] == 0
                 || (
-                    ! $cfg['NavigationDisplayServers']
+                    $cfg['NavigationDisplayServers']
                     && (
                         count($cfg['Servers']) > 1
                         || ($server == 0 && count($cfg['Servers']) === 1)
