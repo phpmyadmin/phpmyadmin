@@ -3922,7 +3922,7 @@ download the CA server certificate and tell phpMyAdmin to use it:
 .. code-block:: php
 
     // Address of your instance
-    $cfg['Servers'][$i]['host'] = 'replace-me-custer-name.cluster-replace-me-id.replace-me-region.rds.amazonaws.com';
+    $cfg['Servers'][$i]['host'] = 'replace-me-cluster-name.cluster-replace-me-id.replace-me-region.rds.amazonaws.com';
     // Use SSL for connection
     $cfg['Servers'][$i]['ssl'] = true;
     // You need to have the region CA file and the authority CA file (2019 edition CA for example) in the PEM bundle for it to work

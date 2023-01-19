@@ -80,6 +80,8 @@ phpMyAdmin - ChangeLog
 - issue #17967 Fix missing icon for collapse all button
 - issue #18006 Fixed UUID columns can't be moved
 - issue        Add `spellcheck="false"` to all password fields and some text fields to avoid spell-jacking data leaks
+- issue        Remove non working "Analyze Explain at MariaDB.org" button (MariaDB stopped this service)
+- issue #17229 Add support for Web Authentication API because Chrome removed support for the U2F API
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5
