@@ -80,6 +80,7 @@ phpMyAdmin - ChangeLog
 - issue #17229 Add support for Web Authentication API because Chrome removed support for the U2F API
 - issue #18019 Fix "Call to a member function fetchAssoc() on bool" with SQL mode ONLY_FULL_GROUP_BY on monitor search logs
 - issue        Add back UUID and UUID_SHORT to functions on MySQL and all MariaDB versions
+- issue #17398 Fix clicking on JSON columns triggers update query
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5
