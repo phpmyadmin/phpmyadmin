@@ -10561,6 +10561,11 @@ parameters:
 			path: test/classes/Http/Factory/ServerRequestFactoryTest.php
 
 		-
+			message: "#^Parameter \\#1 \\$serverRequest of class PhpMyAdmin\\\\Http\\\\ServerRequest constructor expects Psr\\\\Http\\\\Message\\\\ServerRequestInterface, mixed given\\.$#"
+			count: 1
+			path: test/classes/Http/Factory/ServerRequestFactoryTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\ImportTest\\:\\:provDetectType\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/ImportTest.php
