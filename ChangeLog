@@ -78,6 +78,7 @@ phpMyAdmin - ChangeLog
 - issue        Add `spellcheck="false"` to all password fields and some text fields to avoid spell-jacking data leaks
 - issue        Remove non working "Analyze Explain at MariaDB.org" button (MariaDB stopped this service)
 - issue #17229 Add support for Web Authentication API because Chrome removed support for the U2F API
+- issue #18019 Fix "Call to a member function fetchAssoc() on bool" with SQL mode ONLY_FULL_GROUP_BY on monitor search logs
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5
