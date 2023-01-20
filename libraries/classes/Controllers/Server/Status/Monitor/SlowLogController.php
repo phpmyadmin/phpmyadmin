@@ -50,11 +50,17 @@ final class SlowLogController extends AbstractController
             return;
         }
 
-        $this->response->addJSON([
-            'message' => $this->monitor->getJsonForLogDataTypeSlow(
-                (int) $params['time_start'],
-                (int) $params['time_end']
-            ),
-        ]);
+        $data = $this->monitor->getJsonForLogDataTypeSlow(
+            (int) $params['time_start'],
+            (int) $params['time_end']
+        );
+
+        if ($data === null) {
+            $this->response->setRequestStatus(false);
+
+            return;
+        }
+
+        $this->response->addJSON(['message' => $data]);
     }
 }
