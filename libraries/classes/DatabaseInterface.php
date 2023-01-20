@@ -12,6 +12,7 @@ use PhpMyAdmin\Dbal\DbalInterface;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\DbiMysqli;
 use PhpMyAdmin\Dbal\ResultInterface;
+use PhpMyAdmin\Dbal\Statement;
 use PhpMyAdmin\Dbal\Warning;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Query\Cache;
@@ -2092,10 +2093,8 @@ class DatabaseInterface implements DbalInterface
      *
      * @param string $query The query, as a string.
      * @psalm-param ConnectionType $connectionType
-     *
-     * @return object|false A statement object or false.
      */
-    public function prepare(string $query, int $connectionType = Connection::TYPE_USER)
+    public function prepare(string $query, int $connectionType = Connection::TYPE_USER): ?Statement
     {
         return $this->extension->prepare($this->connections[$connectionType], $query);
     }

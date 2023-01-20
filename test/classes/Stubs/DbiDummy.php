@@ -16,6 +16,7 @@ use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\ResultInterface;
+use PhpMyAdmin\Dbal\Statement;
 use PhpMyAdmin\FieldMetadata;
 use PHPUnit\Framework\Assert;
 use stdClass;
@@ -495,14 +496,9 @@ class DbiDummy implements DbiExtension
         $this->dummyQueries = [];
     }
 
-    /**
-     * @param string $query query
-     *
-     * @return object|false
-     */
-    public function prepare(Connection $connection, string $query)
+    public function prepare(Connection $connection, string $query): ?Statement
     {
-        return false;
+        return null;
     }
 
     /**

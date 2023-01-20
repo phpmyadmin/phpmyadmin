@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Server;
 
-use mysqli_stmt;
 use PhpMyAdmin\ConfigStorage\Features\ConfigurableMenusFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
@@ -15,7 +14,6 @@ use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\DatabaseName;
-use PhpMyAdmin\Dbal\MysqliResult;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Html\Generator;
@@ -1425,13 +1423,12 @@ class Privileges
                 NOT (`Table_priv` = \'\' AND Column_priv = \'\')
             ORDER BY `User` ASC, `Host` ASC, `Db` ASC, `Table_priv` ASC;
         ';
-        /** @var mysqli_stmt|false $statement */
         $statement = $this->dbi->prepare($query);
-        if ($statement === false || ! $statement->bind_param('ss', $db, $table) || ! $statement->execute()) {
+        if ($statement === null || ! $statement->execute([$db->getName(), $table->getName()])) {
             return [];
         }
 
-        $result = new MysqliResult($statement->get_result());
+        $result = $statement->getResult();
 
         return $result->fetchAllAssoc();
     }
@@ -3769,13 +3766,12 @@ class Privileges
     private function getUserPrivileges(string $user, string $host, bool $hasAccountLocking): ?array
     {
         $query = 'SELECT * FROM `mysql`.`user` WHERE `User` = ? AND `Host` = ?;';
-        /** @var mysqli_stmt|false $statement */
         $statement = $this->dbi->prepare($query);
-        if ($statement === false || ! $statement->bind_param('ss', $user, $host) || ! $statement->execute()) {
+        if ($statement === null || ! $statement->execute([$user, $host])) {
             return null;
         }
 
-        $result = new MysqliResult($statement->get_result());
+        $result = $statement->getResult();
         /** @var array<string, string|null>|null $userPrivileges */
         $userPrivileges = $result->fetchAssoc();
         if ($userPrivileges === []) {
@@ -3789,13 +3785,12 @@ class Privileges
         $userPrivileges['account_locked'] = 'N';
 
         $query = 'SELECT * FROM `mysql`.`global_priv` WHERE `User` = ? AND `Host` = ?;';
-        /** @var mysqli_stmt|false $statement */
         $statement = $this->dbi->prepare($query);
-        if ($statement === false || ! $statement->bind_param('ss', $user, $host) || ! $statement->execute()) {
+        if ($statement === null || ! $statement->execute([$user, $host])) {
             return $userPrivileges;
         }
 
-        $result = new MysqliResult($statement->get_result());
+        $result = $statement->getResult();
         /** @var array<string, string|null>|null $globalPrivileges */
         $globalPrivileges = $result->fetchAssoc();
         if ($globalPrivileges === []) {

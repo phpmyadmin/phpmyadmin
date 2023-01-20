@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Server;
 
-use mysqli_result;
-use mysqli_stmt;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\ResultInterface;
+use PhpMyAdmin\Dbal\Statement;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Server\Plugins;
@@ -1906,13 +1906,10 @@ class PrivilegesTest extends AbstractTestCase
 
     public function testGetUserPrivileges(): void
     {
-        $mysqliResultStub = $this->createMock(mysqli_result::class);
-        $mysqliStmtStub = $this->createMock(mysqli_stmt::class);
-        $mysqliStmtStub->expects($this->exactly(2))->method('bind_param')->willReturn(true);
+        $mysqliResultStub = $this->createMock(ResultInterface::class);
+        $mysqliStmtStub = $this->createMock(Statement::class);
         $mysqliStmtStub->expects($this->exactly(2))->method('execute')->willReturn(true);
-        $mysqliStmtStub->expects($this->exactly(2))
-            ->method('get_result')
-            ->willReturn($mysqliResultStub);
+        $mysqliStmtStub->expects($this->exactly(2))->method('getResult')->willReturn($mysqliResultStub);
 
         $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())->method('isMariaDB')->willReturn(true);
@@ -1924,7 +1921,7 @@ class PrivilegesTest extends AbstractTestCase
             )
             ->willReturn($mysqliStmtStub);
         $mysqliResultStub->expects($this->exactly(2))
-            ->method('fetch_assoc')
+            ->method('fetchAssoc')
             ->willReturnOnConsecutiveCalls(
                 ['Host' => 'test.host', 'User' => 'test.user'],
                 ['Host' => 'test.host', 'User' => 'test.user', 'Priv' => '{"account_locked":true}']

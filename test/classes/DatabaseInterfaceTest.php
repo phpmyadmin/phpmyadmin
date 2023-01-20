@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use mysqli_stmt;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\ResultInterface;
+use PhpMyAdmin\Dbal\Statement;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Context;
@@ -826,7 +826,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
     public function testPrepare(): void
     {
         $query = 'SELECT * FROM `mysql`.`user` WHERE `User` = ? AND `Host` = ?;';
-        $stmtStub = $this->createStub(mysqli_stmt::class);
+        $stmtStub = $this->createStub(Statement::class);
         $dummyDbi = $this->createMock(DbiExtension::class);
         $dummyDbi->expects($this->once())->method('prepare')
             ->with($this->isType('object'), $this->equalTo($query))
