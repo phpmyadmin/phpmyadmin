@@ -529,7 +529,6 @@ class Types
     {
         $isMariaDB = $this->dbi->isMariaDB();
         $serverVersion = $this->dbi->getVersion();
-        $isUUIDSupported = Compatibility::isUUIDSupported($this->dbi);
 
         switch ($class) {
             case 'CHAR':
@@ -572,10 +571,6 @@ class Types
 
                 if (($isMariaDB && $serverVersion < 100012) || $serverVersion < 50603) {
                     $ret = array_diff($ret, ['INET6_NTOA']);
-                }
-
-                if (! $isUUIDSupported) {
-                    $ret = array_diff($ret, ['UUID']);
                 }
 
                 return array_values($ret);
@@ -657,10 +652,6 @@ class Types
 
                 if (($isMariaDB && $serverVersion < 100012) || $serverVersion < 50603) {
                     $ret = array_diff($ret, ['INET6_ATON']);
-                }
-
-                if (! $isUUIDSupported) {
-                    $ret = array_diff($ret, ['UUID_SHORT']);
                 }
 
                 return array_values($ret);
