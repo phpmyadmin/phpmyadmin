@@ -9,7 +9,6 @@ namespace PhpMyAdmin\Dbal;
 
 use mysqli;
 use mysqli_sql_exception;
-use mysqli_stmt;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Query\Utilities;
@@ -346,15 +345,17 @@ class DbiMysqli implements DbiExtension
      * Prepare an SQL statement for execution.
      *
      * @param string $query The query, as a string.
-     *
-     * @return mysqli_stmt|false A statement object or false.
      */
-    public function prepare(Connection $connection, string $query)
+    public function prepare(Connection $connection, string $query): ?Statement
     {
         /** @var mysqli $mysqli */
         $mysqli = $connection->connection;
+        $statement = $mysqli->prepare($query);
+        if ($statement === false) {
+            return null;
+        }
 
-        return $mysqli->prepare($query);
+        return new MysqliStatement($statement);
     }
 
     /**

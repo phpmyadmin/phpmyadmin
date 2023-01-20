@@ -109,10 +109,8 @@ interface DbiExtension
      * Prepare an SQL statement for execution.
      *
      * @param string $query The query, as a string.
-     *
-     * @return object|false A statement object or false.
      */
-    public function prepare(Connection $connection, string $query);
+    public function prepare(Connection $connection, string $query): ?Statement;
 
     /**
      * Returns the number of warnings from the last query.

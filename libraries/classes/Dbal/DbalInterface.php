@@ -679,8 +679,6 @@ interface DbalInterface
      *
      * @param string $query The query, as a string.
      * @psalm-param ConnectionType $connectionType
-     *
-     * @return object|false A statement object or false.
      */
-    public function prepare(string $query, int $connectionType = Connection::TYPE_USER);
+    public function prepare(string $query, int $connectionType = Connection::TYPE_USER): ?Statement;
 }
