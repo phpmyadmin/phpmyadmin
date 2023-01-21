@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-01-16 18:38-0300\n"
+"POT-Creation-Date: 2023-01-21 15:49+0000\n"
 "PO-Revision-Date: 2022-11-27 12:48+0000\n"
 "Last-Translator: Justin Nogossek <justmegaliga10000@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/5-2/de/"
@@ -4357,8 +4357,8 @@ msgstr "Überspringe gesperrte Tabellen"
 #: libraries/classes/ConfigStorage/UserGroups.php:124
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
 #: libraries/classes/Display/Results.php:2967
-#: libraries/classes/Html/Generator.php:670
-#: libraries/classes/Html/Generator.php:921
+#: libraries/classes/Html/Generator.php:657
+#: libraries/classes/Html/Generator.php:908
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:175
 #: templates/database/central_columns/main.twig:265
@@ -4381,12 +4381,12 @@ msgid "Edit"
 msgstr "Bearbeiten"
 
 #: libraries/classes/Config/Descriptions.php:947
-#: libraries/classes/Html/Generator.php:638
+#: libraries/classes/Html/Generator.php:637
 msgid "Explain SQL"
 msgstr "SQL erklären"
 
 #: libraries/classes/Config/Descriptions.php:948
-#: libraries/classes/Export.php:594 libraries/classes/Html/Generator.php:718
+#: libraries/classes/Export.php:594 libraries/classes/Html/Generator.php:705
 #: templates/console/display.twig:99
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
@@ -4394,7 +4394,7 @@ msgid "Refresh"
 msgstr "Aktualisieren"
 
 #: libraries/classes/Config/Descriptions.php:949
-#: libraries/classes/Html/Generator.php:702
+#: libraries/classes/Html/Generator.php:689
 msgid "Create PHP code"
 msgstr "PHP-Code erzeugen"
 
@@ -5821,7 +5821,7 @@ msgid "Matched rows:"
 msgstr "Gefundene Zeilen:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:122
-#: libraries/classes/Html/Generator.php:893 templates/export.twig:67
+#: libraries/classes/Html/Generator.php:880 templates/export.twig:67
 msgid "SQL query:"
 msgstr "SQL-Befehl:"
 
@@ -6884,7 +6884,7 @@ msgid "No partial dependencies selected!"
 msgstr "Es wurden keine teilweisen Abhängigkeiten ausgewählt!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:423
-#: libraries/classes/Export.php:589 libraries/classes/Html/Generator.php:993
+#: libraries/classes/Export.php:589 libraries/classes/Html/Generator.php:980
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:292
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -7029,7 +7029,7 @@ msgstr "Ignorieren"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:476
 #: libraries/classes/Display/Results.php:2971
-#: libraries/classes/Html/Generator.php:76
+#: libraries/classes/Html/Generator.php:75
 #: templates/display/results/table.twig:231
 #: templates/display/results/table.twig:232
 msgid "Copy"
@@ -7666,7 +7666,7 @@ msgid "No such column"
 msgstr "Keine solche Spalte"
 
 #: libraries/classes/Controllers/NormalizationController.php:46
-#: libraries/classes/Normalization.php:250 libraries/classes/Types.php:852
+#: libraries/classes/Normalization.php:250 libraries/classes/Types.php:843
 msgctxt "string types"
 msgid "String"
 msgstr "Zeichenkette"
@@ -8686,7 +8686,7 @@ msgstr "Ansicht"
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:62
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:62
 #: libraries/classes/Controllers/View/OperationsController.php:90
-#: libraries/classes/Html/Generator.php:869 libraries/classes/Import.php:133
+#: libraries/classes/Html/Generator.php:856 libraries/classes/Import.php:133
 #: libraries/classes/InsertEdit.php:715 libraries/classes/Message.php:192
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:372
@@ -8913,7 +8913,7 @@ msgstr "Die folgende Abfrage ist fehlgeschlagen: \"%s\""
 #: libraries/classes/Database/Triggers.php:130
 #: libraries/classes/Database/Triggers.php:157
 #: libraries/classes/Database/Triggers.php:437
-#: libraries/classes/Html/Generator.php:937
+#: libraries/classes/Html/Generator.php:924
 msgid "MySQL said: "
 msgstr "MySQL meldet: "
 
@@ -9734,7 +9734,7 @@ msgstr ""
 "ansonsten werden sie umbenannt und bekommen die nächsthöhere Nummer."
 
 #: libraries/classes/Engines/Pbxt.php:169
-#: libraries/classes/Html/Generator.php:798
+#: libraries/classes/Html/Generator.php:785
 #: libraries/classes/Html/MySQLDocumentation.php:50
 #: libraries/classes/Sanitize.php:203
 #: templates/config/form_display/input.twig:10 templates/home/index.twig:244
@@ -9871,75 +9871,70 @@ msgstr ""
 msgid "Session not found."
 msgstr "Sitzung nicht gefunden."
 
-#: libraries/classes/Html/Generator.php:147
+#: libraries/classes/Html/Generator.php:146
 #, php-format
 msgid "Jump to database “%s”."
 msgstr "Zur Datenbank “%s“ springen."
 
-#: libraries/classes/Html/Generator.php:175
+#: libraries/classes/Html/Generator.php:174
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 "Die Funktion %s wird durch einen bekannten Fehler beeinträchtigt, siehe %s"
 
-#: libraries/classes/Html/Generator.php:243
+#: libraries/classes/Html/Generator.php:242
 msgid "SSL is not being used"
 msgstr "SSL wird nicht verwendet"
 
-#: libraries/classes/Html/Generator.php:248
+#: libraries/classes/Html/Generator.php:247
 msgid "SSL is used with disabled verification"
 msgstr "SSL wird bei deaktivierter Verifizierung verwendet"
 
-#: libraries/classes/Html/Generator.php:250
+#: libraries/classes/Html/Generator.php:249
 msgid "SSL is used without certification authority"
 msgstr "SSL wird ohne Zertifizierungsstelle verwendet"
 
-#: libraries/classes/Html/Generator.php:253
+#: libraries/classes/Html/Generator.php:252
 msgid "SSL is used"
 msgstr "SSL wird verwendet"
 
-#: libraries/classes/Html/Generator.php:363
+#: libraries/classes/Html/Generator.php:362
 msgid "The PHP function password_hash() with default options."
 msgstr "Die PHP-Funktion password_hash() mit Standardoptionen."
 
-#: libraries/classes/Html/Generator.php:364
+#: libraries/classes/Html/Generator.php:363
 msgid "password_hash() PHP function"
 msgstr "password_hash() PHP-Funktion"
 
-#: libraries/classes/Html/Generator.php:646
+#: libraries/classes/Html/Generator.php:645
 msgid "Skip Explain SQL"
 msgstr "SQL-Erklärung umgehen"
 
-#: libraries/classes/Html/Generator.php:655
-#, php-format
-msgid "Analyze Explain at %s"
-msgstr "Explain auf %s analysieren"
-
-#: libraries/classes/Html/Generator.php:684
+#: libraries/classes/Html/Generator.php:671
 msgid "Without PHP code"
 msgstr "ohne PHP-Code"
 
-#: libraries/classes/Html/Generator.php:692
+#: libraries/classes/Html/Generator.php:679
 #: templates/database/multi_table_query/form.twig:175
 #: templates/database/qbe/selection_form.twig:115
 msgid "Submit query"
 msgstr "SQL-Befehl ausführen"
 
-#: libraries/classes/Html/Generator.php:739 templates/console/display.twig:31
+#: libraries/classes/Html/Generator.php:726 templates/console/display.twig:31
 #: templates/console/display.twig:175 templates/sql/profiling_chart.twig:2
 msgid "Profiling"
 msgstr "Messen"
 
-#: libraries/classes/Html/Generator.php:752
+#: libraries/classes/Html/Generator.php:739
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Inline bearbeiten"
 
-#: libraries/classes/Html/Generator.php:876
+#: libraries/classes/Html/Generator.php:863
 msgid "Static analysis:"
 msgstr "Statische Analyse:"
 
-#: libraries/classes/Html/Generator.php:879
+#: libraries/classes/Html/Generator.php:866
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "%d Fehler wurden während der Analyse gefunden."
@@ -13480,17 +13475,17 @@ msgstr ""
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr "Speichert einen universell eindeutigen Identifizierer (UUID)"
 
-#: libraries/classes/Types.php:800
+#: libraries/classes/Types.php:791
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "Numerisch"
 
-#: libraries/classes/Types.php:818
+#: libraries/classes/Types.php:809
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Datum und Uhrzeit"
 
-#: libraries/classes/Types.php:854
+#: libraries/classes/Types.php:845
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Räumlich"
@@ -16518,6 +16513,32 @@ msgstr ""
 "installieren Sie fehlende Abhängigkeiten."
 
 #: templates/login/twofactor/key_configure.twig:3
+#: templates/login/twofactor/key.twig:3
+#: templates/preferences/two_factor/main.twig:56
+#, fuzzy
+#| msgid "Replicated"
+msgid "Deprecated!"
+msgstr "Repliziert"
+
+#: templates/login/twofactor/key_configure.twig:4
+#: templates/login/twofactor/key.twig:4
+#: templates/preferences/two_factor/main.twig:57
+#: templates/preferences/two_factor/main.twig:90
+msgid ""
+"The FIDO U2F API has been deprecated in favor of the Web Authentication API "
+"(WebAuthn)."
+msgstr ""
+
+#: templates/login/twofactor/key_configure.twig:6
+#: templates/login/twofactor/key.twig:6
+#: templates/preferences/two_factor/main.twig:59
+msgid ""
+"You can still use Firefox to authenticate your account using the FIDO U2F "
+"API, however it's recommended that you use the WebAuthn authentication "
+"instead."
+msgstr ""
+
+#: templates/login/twofactor/key_configure.twig:10
 msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm registration on the device."
@@ -16533,7 +16554,7 @@ msgstr ""
 "Sie verwenden https nicht, um auf phpMyAdmin zuzugreifen, daher wird das "
 "FIDO U2F-Gerät Sie höchstwahrscheinlich nicht authentifizieren."
 
-#: templates/login/twofactor/key.twig:3
+#: templates/login/twofactor/key.twig:10
 msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm login on the device."
@@ -16746,8 +16767,8 @@ msgid "You can reset all your settings and restore them to default values."
 msgstr "Sie können alle Einstellungen auf die Standardwerte zurücksetzen."
 
 #: templates/preferences/two_factor/configure.twig:5
-#: templates/preferences/two_factor/main.twig:68
-#: templates/preferences/two_factor/main.twig:81
+#: templates/preferences/two_factor/main.twig:77
+#: templates/preferences/two_factor/main.twig:98
 msgid "Configure two-factor authentication"
 msgstr "Zwei-Faktor-Authentifizierung konfigurieren"
 
@@ -16768,7 +16789,7 @@ msgstr ""
 "wieder nur mit einem Passwort anmelden."
 
 #: templates/preferences/two_factor/confirm.twig:13
-#: templates/preferences/two_factor/main.twig:57
+#: templates/preferences/two_factor/main.twig:66
 msgid "Disable two-factor authentication"
 msgstr "Zwei-Faktor-Authentifizierung deaktivieren"
 
@@ -19256,6 +19277,10 @@ msgstr "VIEW Name"
 #: templates/view_create.twig:79
 msgid "Column names"
 msgstr "Spaltennamen"
+
+#, php-format
+#~ msgid "Analyze Explain at %s"
+#~ msgstr "Explain auf %s analysieren"
 
 #~ msgid "Key is too short, it should have at least 32 characters."
 #~ msgstr ""

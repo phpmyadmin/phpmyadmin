@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-01-16 18:38-0300\n"
+"POT-Creation-Date: 2023-01-21 15:49+0000\n"
 "PO-Revision-Date: 2022-11-27 12:48+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
@@ -4256,8 +4256,8 @@ msgstr "ロックされているテーブルをスキップする"
 #: libraries/classes/ConfigStorage/UserGroups.php:124
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
 #: libraries/classes/Display/Results.php:2967
-#: libraries/classes/Html/Generator.php:670
-#: libraries/classes/Html/Generator.php:921
+#: libraries/classes/Html/Generator.php:657
+#: libraries/classes/Html/Generator.php:908
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:175
 #: templates/database/central_columns/main.twig:265
@@ -4280,12 +4280,12 @@ msgid "Edit"
 msgstr "編集"
 
 #: libraries/classes/Config/Descriptions.php:947
-#: libraries/classes/Html/Generator.php:638
+#: libraries/classes/Html/Generator.php:637
 msgid "Explain SQL"
 msgstr "EXPLAIN で確認"
 
 #: libraries/classes/Config/Descriptions.php:948
-#: libraries/classes/Export.php:594 libraries/classes/Html/Generator.php:718
+#: libraries/classes/Export.php:594 libraries/classes/Html/Generator.php:705
 #: templates/console/display.twig:99
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
@@ -4293,7 +4293,7 @@ msgid "Refresh"
 msgstr "更新"
 
 #: libraries/classes/Config/Descriptions.php:949
-#: libraries/classes/Html/Generator.php:702
+#: libraries/classes/Html/Generator.php:689
 msgid "Create PHP code"
 msgstr "PHP コードの作成"
 
@@ -5667,7 +5667,7 @@ msgid "Matched rows:"
 msgstr "一致した行:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:122
-#: libraries/classes/Html/Generator.php:893 templates/export.twig:67
+#: libraries/classes/Html/Generator.php:880 templates/export.twig:67
 msgid "SQL query:"
 msgstr "SQL クエリ:"
 
@@ -6718,7 +6718,7 @@ msgid "No partial dependencies selected!"
 msgstr "部分的な依存が選択されていません!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:423
-#: libraries/classes/Export.php:589 libraries/classes/Html/Generator.php:993
+#: libraries/classes/Export.php:589 libraries/classes/Html/Generator.php:980
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:292
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -6856,7 +6856,7 @@ msgstr "無視"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:476
 #: libraries/classes/Display/Results.php:2971
-#: libraries/classes/Html/Generator.php:76
+#: libraries/classes/Html/Generator.php:75
 #: templates/display/results/table.twig:231
 #: templates/display/results/table.twig:232
 msgid "Copy"
@@ -7465,7 +7465,7 @@ msgid "No such column"
 msgstr "カラムはありません"
 
 #: libraries/classes/Controllers/NormalizationController.php:46
-#: libraries/classes/Normalization.php:250 libraries/classes/Types.php:852
+#: libraries/classes/Normalization.php:250 libraries/classes/Types.php:843
 msgctxt "string types"
 msgid "String"
 msgstr "文字列"
@@ -8423,7 +8423,7 @@ msgstr "ビュー"
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:62
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:62
 #: libraries/classes/Controllers/View/OperationsController.php:90
-#: libraries/classes/Html/Generator.php:869 libraries/classes/Import.php:133
+#: libraries/classes/Html/Generator.php:856 libraries/classes/Import.php:133
 #: libraries/classes/InsertEdit.php:715 libraries/classes/Message.php:192
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:372
@@ -8639,7 +8639,7 @@ msgstr "クエリの実行に失敗しました：『%s』"
 #: libraries/classes/Database/Triggers.php:130
 #: libraries/classes/Database/Triggers.php:157
 #: libraries/classes/Database/Triggers.php:437
-#: libraries/classes/Html/Generator.php:937
+#: libraries/classes/Html/Generator.php:924
 msgid "MySQL said: "
 msgstr "MySQL のメッセージ: "
 
@@ -9440,7 +9440,7 @@ msgstr ""
 "ファイル名の変更が行われ、最大番号の 1 つ次の番号が付けられます。"
 
 #: libraries/classes/Engines/Pbxt.php:169
-#: libraries/classes/Html/Generator.php:798
+#: libraries/classes/Html/Generator.php:785
 #: libraries/classes/Html/MySQLDocumentation.php:50
 #: libraries/classes/Sanitize.php:203
 #: templates/config/form_display/input.twig:10 templates/home/index.twig:244
@@ -9573,74 +9573,69 @@ msgstr ""
 msgid "Session not found."
 msgstr "セッションが見つかりません。"
 
-#: libraries/classes/Html/Generator.php:147
+#: libraries/classes/Html/Generator.php:146
 #, php-format
 msgid "Jump to database “%s”."
 msgstr "データベース「%s」に移動します。"
 
-#: libraries/classes/Html/Generator.php:175
+#: libraries/classes/Html/Generator.php:174
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s の機能には既知のバグがあります。%s をご覧ください"
 
-#: libraries/classes/Html/Generator.php:243
+#: libraries/classes/Html/Generator.php:242
 msgid "SSL is not being used"
 msgstr "SSLは使用されていません"
 
-#: libraries/classes/Html/Generator.php:248
+#: libraries/classes/Html/Generator.php:247
 msgid "SSL is used with disabled verification"
 msgstr "SSLは無効な検証で使用されます"
 
-#: libraries/classes/Html/Generator.php:250
+#: libraries/classes/Html/Generator.php:249
 msgid "SSL is used without certification authority"
 msgstr "SSLはCAなしで使用されます"
 
-#: libraries/classes/Html/Generator.php:253
+#: libraries/classes/Html/Generator.php:252
 msgid "SSL is used"
 msgstr "SSLを使用されています"
 
-#: libraries/classes/Html/Generator.php:363
+#: libraries/classes/Html/Generator.php:362
 msgid "The PHP function password_hash() with default options."
 msgstr "PHP 関数 password_hash() にデフォルトのオプションを指定します。"
 
-#: libraries/classes/Html/Generator.php:364
+#: libraries/classes/Html/Generator.php:363
 msgid "password_hash() PHP function"
 msgstr "password_hash() PHP 関数"
 
-#: libraries/classes/Html/Generator.php:646
+#: libraries/classes/Html/Generator.php:645
 msgid "Skip Explain SQL"
 msgstr "SQL の EXPLAIN 解析をスキップ"
 
-#: libraries/classes/Html/Generator.php:655
-#, php-format
-msgid "Analyze Explain at %s"
-msgstr "「%s」のEXPLAINを分析"
-
-#: libraries/classes/Html/Generator.php:684
+#: libraries/classes/Html/Generator.php:671
 msgid "Without PHP code"
 msgstr "PHP コードを省略"
 
-#: libraries/classes/Html/Generator.php:692
+#: libraries/classes/Html/Generator.php:679
 #: templates/database/multi_table_query/form.twig:175
 #: templates/database/qbe/selection_form.twig:115
 msgid "Submit query"
 msgstr "クエリを実行する"
 
-#: libraries/classes/Html/Generator.php:739 templates/console/display.twig:31
+#: libraries/classes/Html/Generator.php:726 templates/console/display.twig:31
 #: templates/console/display.twig:175 templates/sql/profiling_chart.twig:2
 msgid "Profiling"
 msgstr "プロファイリング"
 
-#: libraries/classes/Html/Generator.php:752
+#: libraries/classes/Html/Generator.php:739
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "インライン編集"
 
-#: libraries/classes/Html/Generator.php:876
+#: libraries/classes/Html/Generator.php:863
 msgid "Static analysis:"
 msgstr "静的解析:"
 
-#: libraries/classes/Html/Generator.php:879
+#: libraries/classes/Html/Generator.php:866
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "解析中に %d 個のエラーが見つかりました。"
@@ -13084,17 +13079,17 @@ msgstr ""
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr "汎用一意識別子 (UUID) 保存用"
 
-#: libraries/classes/Types.php:800
+#: libraries/classes/Types.php:791
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "数値"
 
-#: libraries/classes/Types.php:818
+#: libraries/classes/Types.php:809
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "日付・時刻"
 
-#: libraries/classes/Types.php:854
+#: libraries/classes/Types.php:845
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "空間データ"
@@ -16100,6 +16095,32 @@ msgstr ""
 "さい。"
 
 #: templates/login/twofactor/key_configure.twig:3
+#: templates/login/twofactor/key.twig:3
+#: templates/preferences/two_factor/main.twig:56
+#, fuzzy
+#| msgid "Replicated"
+msgid "Deprecated!"
+msgstr "レプリケーションしている"
+
+#: templates/login/twofactor/key_configure.twig:4
+#: templates/login/twofactor/key.twig:4
+#: templates/preferences/two_factor/main.twig:57
+#: templates/preferences/two_factor/main.twig:90
+msgid ""
+"The FIDO U2F API has been deprecated in favor of the Web Authentication API "
+"(WebAuthn)."
+msgstr ""
+
+#: templates/login/twofactor/key_configure.twig:6
+#: templates/login/twofactor/key.twig:6
+#: templates/preferences/two_factor/main.twig:59
+msgid ""
+"You can still use Firefox to authenticate your account using the FIDO U2F "
+"API, however it's recommended that you use the WebAuthn authentication "
+"instead."
+msgstr ""
+
+#: templates/login/twofactor/key_configure.twig:10
 msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm registration on the device."
@@ -16115,7 +16136,7 @@ msgstr ""
 "PHPMyAdminにアクセスするためにHTTPSを使用していないので、Fido U2Fデバイスは認"
 "証するのを拒否するでしょう。"
 
-#: templates/login/twofactor/key.twig:3
+#: templates/login/twofactor/key.twig:10
 msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm login on the device."
@@ -16332,8 +16353,8 @@ msgid "You can reset all your settings and restore them to default values."
 msgstr "すべての設定をリセットして、デフォルト値に復元します。"
 
 #: templates/preferences/two_factor/configure.twig:5
-#: templates/preferences/two_factor/main.twig:68
-#: templates/preferences/two_factor/main.twig:81
+#: templates/preferences/two_factor/main.twig:77
+#: templates/preferences/two_factor/main.twig:98
 msgid "Configure two-factor authentication"
 msgstr "二要素認証を設定する"
 
@@ -16354,7 +16375,7 @@ msgstr ""
 "す。"
 
 #: templates/preferences/two_factor/confirm.twig:13
-#: templates/preferences/two_factor/main.twig:57
+#: templates/preferences/two_factor/main.twig:66
 msgid "Disable two-factor authentication"
 msgstr "二要素認証が無効にする"
 
@@ -18796,6 +18817,10 @@ msgstr "ビューの名前"
 #: templates/view_create.twig:79
 msgid "Column names"
 msgstr "カラム名"
+
+#, php-format
+#~ msgid "Analyze Explain at %s"
+#~ msgstr "「%s」のEXPLAINを分析"
 
 #~ msgid "Key is too short, it should have at least 32 characters."
 #~ msgstr "キーが短すぎます。少なくとも 32 文字は必要です。"
