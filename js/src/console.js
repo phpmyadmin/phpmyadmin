@@ -183,7 +183,8 @@ var Console = {
             });
 
             $(document).on('ajaxComplete', function (event, xhr, ajaxOptions) {
-                if (ajaxOptions.dataType && ajaxOptions.dataType.indexOf('json') !== -1) {
+                // Not a json body, then skip
+                if (ajaxOptions.dataType && ajaxOptions.dataType.indexOf('json') === -1) {
                     return;
                 }
                 if (xhr.status !== 200) {
