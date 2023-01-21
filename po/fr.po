@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-01-17 03:57+0000\n"
-"PO-Revision-Date: 2022-11-21 20:48+0000\n"
+"PO-Revision-Date: 2023-01-22 00:22+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 4.15.1\n"
 
 #: libraries/classes/Advisory/Advisor.php:241
 #, php-format
@@ -7611,6 +7611,8 @@ msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
+"WebAuthn n'est pas disponible. Veuillez utiliser un navigateur supporté dans "
+"un contexte sécurisé (HTTPS)."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:708
 msgid ""
@@ -12525,16 +12527,12 @@ msgid "Hardware Security Key (FIDO U2F)"
 msgstr "Clé de sécurité matérielle (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:218
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F, such as a Yubikey."
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a YubiKey."
 msgstr ""
 "Fournit une authentification avec des jetons de sécurité matériels prenant "
-"en charge FIDO U2F, tel qu'un Yubikey."
+"en charge FIDO U2F, tel qu'un YubiKey."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:73
 #, php-format
@@ -12562,22 +12560,16 @@ msgid "For testing purposes only!"
 msgstr "Seulement pour test !"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:194
-#, fuzzy
-#| msgid "Hardware Security Key (FIDO U2F)"
 msgid "Hardware Security Key (WebAuthn/FIDO2)"
-msgstr "Clé de sécurité matérielle (FIDO U2F)"
+msgstr "Clé de sécurité matérielle (WebAuthn/FIDO2)"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:200
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F, such as a Yubikey."
 msgid ""
 "Provides authentication using hardware security tokens supporting the "
 "WebAuthn/FIDO2 protocol, such as a YubiKey."
 msgstr ""
 "Fournit une authentification avec des jetons de sécurité matériels prenant "
-"en charge FIDO U2F, tel qu'un Yubikey."
+"en charge WebAuthn ou FIDO2 tel qu'une YubiKey."
 
 #: libraries/classes/Query/Utilities.php:97
 msgid ""
@@ -16594,27 +16586,19 @@ msgid "Verify"
 msgstr "Vérifier"
 
 #: templates/login/twofactor/webauthn_creation.twig:1
-#, fuzzy
-#| msgid ""
-#| "Please connect your FIDO U2F device into your computer's USB port. Then "
-#| "confirm registration on the device."
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm registration on the "
 "device."
 msgstr ""
-"Merci de connecter le périphérique FIDO U2F à un port USB de l'ordinateur, "
-"puis de confirmer l'enregistrement sur l'appareil."
+"Merci de connecter votre périphérique WebAuthn/FIDO2 à un port USB de "
+"l'ordinateur, puis de confirmer l'enregistrement sur l'appareil."
 
 #: templates/login/twofactor/webauthn_request.twig:1
-#, fuzzy
-#| msgid ""
-#| "Please connect your FIDO U2F device into your computer's USB port. Then "
-#| "confirm login on the device."
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm login on the device."
 msgstr ""
-"Merci de connecter le périphérique FIDO U2F à un port USB de l'ordinateur, "
-"puis de confirmer l'identification sur l'appareil."
+"Merci de connecter votre périphérique WebAuthn/FIDO2 à un port USB de "
+"l'ordinateur, puis de confirmer l'identification sur l'appareil."
 
 #: templates/menu/breadcrumbs.twig:27
 msgid "View:"
@@ -16859,15 +16843,11 @@ msgstr ""
 "ce compte."
 
 #: templates/preferences/two_factor/main.twig:26
-#, fuzzy
-#| msgid ""
-#| "Two-factor authentication is not available, please install optional "
-#| "dependencies to enable authentication backends."
 msgid ""
 "Please install optional dependencies to enable more authentication backends."
 msgstr ""
-"L'authentification à deux facteurs n'est pas disponible, merci d'installer "
-"les dépendances optionnelles pour activer les services d'authentification."
+"Merci d'installer les dépendances optionnelles pour activer d'autres "
+"services d'authentification."
 
 #: templates/preferences/two_factor/main.twig:37
 msgid ""
