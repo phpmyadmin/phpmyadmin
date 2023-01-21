@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-01-17 03:57+0000\n"
-"PO-Revision-Date: 2022-12-04 10:16+0000\n"
-"Last-Translator: Oğuz Ersen <oguz@ersen.moe>\n"
+"PO-Revision-Date: 2023-01-21 17:35+0000\n"
+"Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
 "Language: tr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 4.15.1\n"
 
 #: libraries/classes/Advisory/Advisor.php:241
 #, php-format
@@ -7506,6 +7506,8 @@ msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
+"WebAuthn kullanılamıyor. Lütfen desteklenen bir tarayıcıyı güvenli bir "
+"bağlamda (HTTPS) kullanın."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:708
 msgid ""
@@ -12357,15 +12359,11 @@ msgid "Hardware Security Key (FIDO U2F)"
 msgstr "Donanım Güvenlik Anahtarı (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:218
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F, such as a Yubikey."
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a YubiKey."
 msgstr ""
-"Yubikey gibi FIDO U2F'yi destekleyen donanım güvenlik belirteçlerini "
+"YubiKey gibi FIDO U2F'yi destekleyen donanım güvenlik belirteçlerini "
 "kullanarak kimlik doğrulaması sağlar."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:73
@@ -12394,22 +12392,16 @@ msgid "For testing purposes only!"
 msgstr "Yalnızca deneme amaçlı!"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:194
-#, fuzzy
-#| msgid "Hardware Security Key (FIDO U2F)"
 msgid "Hardware Security Key (WebAuthn/FIDO2)"
-msgstr "Donanım Güvenlik Anahtarı (FIDO U2F)"
+msgstr "Donanım Güvenlik Anahtarı (WebAuthn/FIDO2)"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:200
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F, such as a Yubikey."
 msgid ""
 "Provides authentication using hardware security tokens supporting the "
 "WebAuthn/FIDO2 protocol, such as a YubiKey."
 msgstr ""
-"Yubikey gibi FIDO U2F'yi destekleyen donanım güvenlik belirteçlerini "
-"kullanarak kimlik doğrulaması sağlar."
+"YubiKey gibi WebAuthn/FIDO2 protokolünü destekleyen donanım güvenlik "
+"belirteçlerini kullanarak kimlik doğrulaması sağlar."
 
 #: libraries/classes/Query/Utilities.php:97
 msgid ""
@@ -16395,27 +16387,19 @@ msgid "Verify"
 msgstr "Doğrula"
 
 #: templates/login/twofactor/webauthn_creation.twig:1
-#, fuzzy
-#| msgid ""
-#| "Please connect your FIDO U2F device into your computer's USB port. Then "
-#| "confirm registration on the device."
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm registration on the "
 "device."
 msgstr ""
-"Lütfen FIDO U2F aygıtınızı bilgisayarınızın USB bağlantı noktasına bağlayın. "
-"Ondan sonra aygıta kaydolmayı onaylayın."
+"Lütfen WebAuthn/FIDO2 aygıtınızı bağlayın. Ardından aygıta kaydolmayı "
+"onaylayın."
 
 #: templates/login/twofactor/webauthn_request.twig:1
-#, fuzzy
-#| msgid ""
-#| "Please connect your FIDO U2F device into your computer's USB port. Then "
-#| "confirm login on the device."
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm login on the device."
 msgstr ""
-"Lütfen FIDO U2F aygıtınızı bilgisayarınızın USB bağlantı noktasına bağlayın. "
-"Ondan sonra aygıta oturum açmayı onaylayın."
+"Lütfen WebAuthn/FIDO2 aygıtınızı bağlayın. Ardından aygıta oturum açmayı "
+"onaylayın."
 
 #: templates/menu/breadcrumbs.twig:27
 msgid "View:"
@@ -16656,15 +16640,11 @@ msgstr ""
 "yapılandırılmamış."
 
 #: templates/preferences/two_factor/main.twig:26
-#, fuzzy
-#| msgid ""
-#| "Two-factor authentication is not available, please install optional "
-#| "dependencies to enable authentication backends."
 msgid ""
 "Please install optional dependencies to enable more authentication backends."
 msgstr ""
-"İki etkenli kimlik doğrulaması kullanılamaz, lütfen kimlik doğrulaması arka "
-"uçlarını etkinleştirmek için isteğe bağlı bağımlılıklar yükleyin."
+"Lütfen daha fazla kimlik doğrulaması arka uçlarını etkinleştirmek için "
+"isteğe bağlı bağımlılıklar yükleyin."
 
 #: templates/preferences/two_factor/main.twig:37
 msgid ""
