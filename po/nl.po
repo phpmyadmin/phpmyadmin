@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-01-22 00:21+0000\n"
-"PO-Revision-Date: 2023-01-07 14:25+0000\n"
-"Last-Translator: theking2 <theking2@king.ma>\n"
+"PO-Revision-Date: 2023-01-24 21:42+0000\n"
+"Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
 "Language: nl\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 4.16-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:241
 #, php-format
@@ -7577,6 +7577,8 @@ msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
+"WebAuthn is niet beschikbaar. Gebruik a.u.b. een ondersteunde webbrowser met "
+"een beveiligde verbinding (HTTPS)."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:708
 msgid ""
@@ -12467,16 +12469,12 @@ msgid "Hardware Security Key (FIDO U2F)"
 msgstr "Hardwarematige beveiligingssleutel (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:218
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F, such as a Yubikey."
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a YubiKey."
 msgstr ""
 "Levert authentificatie door hardwarematige beveiligingssleutels met FIDO U2F "
-"ondersteuning, zoals een Yubikey."
+"ondersteuning, zoals een YubiKey."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:73
 #, php-format
@@ -12504,22 +12502,16 @@ msgid "For testing purposes only!"
 msgstr "Alleen voor testdoeleinden!"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:194
-#, fuzzy
-#| msgid "Hardware Security Key (FIDO U2F)"
 msgid "Hardware Security Key (WebAuthn/FIDO2)"
-msgstr "Hardwarematige beveiligingssleutel (FIDO U2F)"
+msgstr "Hardwarematige beveiligingssleutel (WebAuthn/FIDO2)"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:200
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F, such as a Yubikey."
 msgid ""
 "Provides authentication using hardware security tokens supporting the "
 "WebAuthn/FIDO2 protocol, such as a YubiKey."
 msgstr ""
-"Levert authentificatie door hardwarematige beveiligingssleutels met FIDO U2F "
-"ondersteuning, zoals een Yubikey."
+"Levert authentificatie door hardwarematige beveiligingssleutels met "
+"ondersteuning voor het WebAuthn/FIDO2 protocol, zoals een YubiKey."
 
 #: libraries/classes/Query/Utilities.php:97
 msgid ""
@@ -13800,7 +13792,7 @@ msgstr ""
 
 #: libraries/classes/Types.php:445
 msgid "128-bit UUID (Universally Unique Identifier)"
-msgstr "128-bit UUID (Universeel Unieke Identificatie)"
+msgstr "128-bit UUID (Universele Unieke Identificatie)"
 
 #: libraries/classes/Types.php:801
 msgctxt "numeric types"
@@ -16523,27 +16515,19 @@ msgid "Verify"
 msgstr "Verifieer"
 
 #: templates/login/twofactor/webauthn_creation.twig:1
-#, fuzzy
-#| msgid ""
-#| "Please connect your FIDO U2F device into your computer's USB port. Then "
-#| "confirm registration on the device."
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm registration on the "
 "device."
 msgstr ""
-"Sluit a.u.b. uw FIDO U2F apparaat aan op uw computer USB-poort. Bevestig dan "
-"uw registratie op het apparaat."
+"Sluit a.u.b. uw WebAuthn/FIDO2 apparaat aan op uw computer USB-poort. "
+"Bevestig dan uw registratie op het apparaat."
 
 #: templates/login/twofactor/webauthn_request.twig:1
-#, fuzzy
-#| msgid ""
-#| "Please connect your FIDO U2F device into your computer's USB port. Then "
-#| "confirm login on the device."
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm login on the device."
 msgstr ""
-"Sluit a.u.b. uw FIDO U2F apparaat aan op uw computer USB-poort. Bevestig dan "
-"uw aanmelding op het apparaat."
+"Sluit a.u.b. uw WebAuthn/FIDO2 apparaat. Bevestig dan uw aanmelding op het "
+"apparaat."
 
 #: templates/menu/breadcrumbs.twig:27
 msgid "View:"
@@ -16786,15 +16770,11 @@ msgstr ""
 "account."
 
 #: templates/preferences/two_factor/main.twig:26
-#, fuzzy
-#| msgid ""
-#| "Two-factor authentication is not available, please install optional "
-#| "dependencies to enable authentication backends."
 msgid ""
 "Please install optional dependencies to enable more authentication backends."
 msgstr ""
-"Tweeweg authentificatie is niet beschikbaar, installeer a.u.b. de optionele "
-"afhankelijkheden om authentificatie backends beschikbaar te maken."
+"Installeer a.u.b. de optionele afhankelijkheden om meer authentificatie "
+"backends beschikbaar te maken."
 
 #: templates/preferences/two_factor/main.twig:37
 msgid ""
