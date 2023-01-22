@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-01-17 03:57+0000\n"
+"POT-Creation-Date: 2023-01-22 00:21+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Serbian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1751,27 +1751,27 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Назив табеле"
 
-#: libraries/classes/Common.php:268
+#: libraries/classes/Common.php:269
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Требало би да унапредите ваш %s сервер на верзију %s или новију."
 
-#: libraries/classes/Common.php:300
+#: libraries/classes/Common.php:301
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/classes/Common.php:361
+#: libraries/classes/Common.php:362
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
 
-#: libraries/classes/Common.php:521
+#: libraries/classes/Common.php:522
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/classes/Common.php:568
+#: libraries/classes/Common.php:569
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1780,17 +1780,17 @@ msgstr ""
 "У PHP подешавањима Вам је укључена mbstring.func_overload опција. Ова опција "
 "је некомпатибилна са phpMyAdmin и може довести до грешака у неким подацима!"
 
-#: libraries/classes/Common.php:583
+#: libraries/classes/Common.php:584
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Common.php:593
+#: libraries/classes/Common.php:594
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/classes/Common.php:603
+#: libraries/classes/Common.php:604
 msgid "possible exploit"
 msgstr ""
 
@@ -1936,7 +1936,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:184
 #: libraries/classes/Config/Descriptions.php:728
-#: libraries/classes/Plugins/Export/ExportSql.php:323
+#: libraries/classes/Plugins/Export/ExportSql.php:324
 msgid "Exclude definition of current user"
 msgstr ""
 
@@ -3130,12 +3130,12 @@ msgstr "Компресија"
 #: libraries/classes/Config/Descriptions.php:692
 #: libraries/classes/Config/Descriptions.php:694
 #: libraries/classes/Config/Descriptions.php:741
-#: libraries/classes/Plugins/Export/ExportCsv.php:89
+#: libraries/classes/Plugins/Export/ExportCsv.php:90
 #: libraries/classes/Plugins/Export/ExportExcel.php:61
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:85
-#: libraries/classes/Plugins/Export/ExportOds.php:69
-#: libraries/classes/Plugins/Export/ExportOdt.php:128
-#: libraries/classes/Plugins/Export/ExportTexytext.php:79
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:86
+#: libraries/classes/Plugins/Export/ExportOds.php:70
+#: libraries/classes/Plugins/Export/ExportOdt.php:129
+#: libraries/classes/Plugins/Export/ExportTexytext.php:80
 #, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row"
@@ -3219,32 +3219,32 @@ msgstr "Шаблон имена датотеке"
 #: libraries/classes/Config/Descriptions.php:699
 #: libraries/classes/Config/Descriptions.php:737
 #: libraries/classes/Config/Descriptions.php:743
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:56
-#: libraries/classes/Plugins/Export/ExportLatex.php:89
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:55
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:61
-#: libraries/classes/Plugins/Export/ExportOdt.php:70
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:57
+#: libraries/classes/Plugins/Export/ExportLatex.php:90
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:56
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:62
+#: libraries/classes/Plugins/Export/ExportOdt.php:71
 #: libraries/classes/Plugins/Export/ExportPdf.php:86
-#: libraries/classes/Plugins/Export/ExportSql.php:215
-#: libraries/classes/Plugins/Export/ExportTexytext.php:55
+#: libraries/classes/Plugins/Export/ExportSql.php:216
+#: libraries/classes/Plugins/Export/ExportTexytext.php:56
 #, fuzzy
 #| msgid "%s table(s)"
 msgid "Dump table"
 msgstr "%s табела"
 
 #: libraries/classes/Config/Descriptions.php:678
-#: libraries/classes/Plugins/Export/ExportLatex.php:80
+#: libraries/classes/Plugins/Export/ExportLatex.php:81
 msgid "Include table caption"
 msgstr "Укључи коментар табеле"
 
 #: libraries/classes/Config/Descriptions.php:680
 #: libraries/classes/Config/Descriptions.php:695
 #: libraries/classes/Config/Descriptions.php:731
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:382
-#: libraries/classes/Plugins/Export/ExportLatex.php:528
-#: libraries/classes/Plugins/Export/ExportOdt.php:486
-#: libraries/classes/Plugins/Export/ExportTexytext.php:386
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:544
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:383
+#: libraries/classes/Plugins/Export/ExportLatex.php:529
+#: libraries/classes/Plugins/Export/ExportOdt.php:487
+#: libraries/classes/Plugins/Export/ExportTexytext.php:387
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:545
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:683
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:706
 #: templates/columns_definitions/table_fields_definitions.twig:54
@@ -3271,10 +3271,10 @@ msgstr "Ознака кључа"
 #: libraries/classes/Config/Descriptions.php:684
 #: libraries/classes/Config/Descriptions.php:696
 #: libraries/classes/Config/Descriptions.php:734
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:389
-#: libraries/classes/Plugins/Export/ExportOdt.php:493
-#: libraries/classes/Plugins/Export/ExportTexytext.php:391
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:552
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:390
+#: libraries/classes/Plugins/Export/ExportOdt.php:494
+#: libraries/classes/Plugins/Export/ExportTexytext.php:392
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:553
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #: templates/database/data_dictionary/index.twig:31
 #, fuzzy
@@ -3349,12 +3349,12 @@ msgid "Use delayed inserts"
 msgstr "Користи одложена уметања"
 
 #: libraries/classes/Config/Descriptions.php:712
-#: libraries/classes/Plugins/Export/ExportSql.php:181
+#: libraries/classes/Plugins/Export/ExportSql.php:182
 msgid "Disable foreign key checks"
 msgstr "Искључи провере страних кључева"
 
 #: libraries/classes/Config/Descriptions.php:713
-#: libraries/classes/Plugins/Export/ExportSql.php:195
+#: libraries/classes/Plugins/Export/ExportSql.php:196
 #, fuzzy
 #| msgid "Create table on database %s"
 msgid "Export views as tables"
@@ -3390,7 +3390,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:729
-#: libraries/classes/Plugins/Export/ExportSql.php:329
+#: libraries/classes/Plugins/Export/ExportSql.php:330
 #, fuzzy, php-format
 #| msgid "Session value"
 msgid "%s view"
@@ -3405,7 +3405,7 @@ msgid "Syntax to use when inserting data"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:733
-#: libraries/classes/Plugins/Export/ExportSql.php:466
+#: libraries/classes/Plugins/Export/ExportSql.php:467
 msgid "Maximal length of created query"
 msgstr "Максимална дужина направљеног упита"
 
@@ -3415,7 +3415,7 @@ msgid "Export type"
 msgstr "Тип извоза"
 
 #: libraries/classes/Config/Descriptions.php:739
-#: libraries/classes/Plugins/Export/ExportSql.php:167
+#: libraries/classes/Plugins/Export/ExportSql.php:168
 msgid "Enclose export in a transaction"
 msgstr "Обави извоз у трансакцији"
 
@@ -3511,10 +3511,10 @@ msgid "Servers"
 msgstr "Сервери"
 
 #: libraries/classes/Config/Descriptions.php:763
-#: libraries/classes/Controllers/Server/DatabasesController.php:297
+#: libraries/classes/Controllers/Server/DatabasesController.php:298
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
-#: libraries/classes/Plugins/Export/ExportXml.php:119
+#: libraries/classes/Plugins/Export/ExportXml.php:120
 #: libraries/classes/Server/Status/Data.php:163
 #: templates/database/export/index.twig:22
 #: templates/database/structure/show_create.twig:6
@@ -3904,7 +3904,7 @@ msgid "Recently used tables"
 msgstr "Провери табелу"
 
 #: libraries/classes/Config/Descriptions.php:855
-#: libraries/classes/RecentFavoriteTable.php:243
+#: libraries/classes/RecentFavoriteTable.php:244
 #, fuzzy
 #| msgid "Variables"
 msgid "Favorite tables"
@@ -4336,8 +4336,8 @@ msgstr "Прикажи отворене табеле"
 #: libraries/classes/ConfigStorage/UserGroups.php:120
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:405
 #: libraries/classes/Display/Results.php:2749
-#: libraries/classes/Html/Generator.php:658
-#: libraries/classes/Html/Generator.php:912
+#: libraries/classes/Html/Generator.php:645
+#: libraries/classes/Html/Generator.php:899
 #: templates/console/bookmark_content.twig:10 templates/console/display.twig:41
 #: templates/console/display.twig:199
 #: templates/database/central_columns/main.twig:271
@@ -4360,12 +4360,12 @@ msgid "Edit"
 msgstr "Промени"
 
 #: libraries/classes/Config/Descriptions.php:947
-#: libraries/classes/Html/Generator.php:626
+#: libraries/classes/Html/Generator.php:625
 msgid "Explain SQL"
 msgstr "Објасни SQL"
 
 #: libraries/classes/Config/Descriptions.php:948
-#: libraries/classes/Export.php:1278 libraries/classes/Html/Generator.php:706
+#: libraries/classes/Export.php:1278 libraries/classes/Html/Generator.php:693
 #: templates/console/display.twig:121
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
@@ -4373,7 +4373,7 @@ msgid "Refresh"
 msgstr "Освежи"
 
 #: libraries/classes/Config/Descriptions.php:949
-#: libraries/classes/Html/Generator.php:690
+#: libraries/classes/Html/Generator.php:677
 #, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
@@ -4398,11 +4398,11 @@ msgid "Textarea rows"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:954
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:141
-#: libraries/classes/Plugins/Export/ExportOdt.php:186
-#: libraries/classes/Plugins/Export/ExportTexytext.php:125
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:142
+#: libraries/classes/Plugins/Export/ExportOdt.php:187
+#: libraries/classes/Plugins/Export/ExportTexytext.php:126
+#: libraries/classes/Server/Privileges.php:1835
 #: libraries/classes/Server/Privileges.php:1837
-#: libraries/classes/Server/Privileges.php:1839
 #: libraries/classes/Server/Status/Processes.php:118
 #: templates/console/bookmark_content.twig:12 templates/console/display.twig:48
 #: templates/console/display.twig:206 templates/server/databases/index.twig:106
@@ -4431,9 +4431,9 @@ msgid "Server"
 msgstr "Сервер"
 
 #: libraries/classes/Config/Descriptions.php:957
-#: libraries/classes/Plugins/Export/ExportXml.php:453
+#: libraries/classes/Plugins/Export/ExportXml.php:454
+#: libraries/classes/Server/Privileges.php:1841
 #: libraries/classes/Server/Privileges.php:1843
-#: libraries/classes/Server/Privileges.php:1845
 #: templates/database/structure/show_create.twig:10
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
@@ -4681,7 +4681,7 @@ msgstr "Структура"
 #: libraries/classes/Config/Forms/User/ExportForm.php:108
 #: libraries/classes/Config/Forms/User/ExportForm.php:133
 #: libraries/classes/Config/Forms/User/ExportForm.php:139
-#: libraries/classes/Controllers/Server/DatabasesController.php:307
+#: libraries/classes/Controllers/Server/DatabasesController.php:308
 #: templates/database/export/index.twig:24
 #: templates/server/privileges/privileges_table.twig:280
 #: templates/table/structure/display_table_stats.twig:17
@@ -4712,7 +4712,7 @@ msgstr "Open Document Text"
 #: libraries/classes/Config/Forms/User/ExportForm.php:153
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:390
 #: libraries/classes/Menu.php:275 libraries/classes/Menu.php:377
-#: libraries/classes/Menu.php:505 libraries/classes/Server/Privileges.php:1532
+#: libraries/classes/Menu.php:505 libraries/classes/Server/Privileges.php:1530
 #: libraries/classes/Util.php:1853 libraries/classes/Util.php:1868
 #: libraries/classes/Util.php:1885 templates/database/events/index.twig:16
 #: templates/database/events/index.twig:17
@@ -4776,34 +4776,34 @@ msgstr "Транформације читача"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
 
-#: libraries/classes/Config.php:646
+#: libraries/classes/Config.php:649
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr ""
 
-#: libraries/classes/Config.php:682
+#: libraries/classes/Config.php:685
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 
-#: libraries/classes/Config.php:696
+#: libraries/classes/Config.php:699
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Failed to read configuration file!"
 msgstr "Не могу да учитам подразумевану конфигурацију из: \"%1$s\""
 
-#: libraries/classes/Config.php:698
+#: libraries/classes/Config.php:701
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
 
-#: libraries/classes/Config.php:1191
+#: libraries/classes/Config.php:1194
 #, fuzzy, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "Неисправан индекс сервера: \"%s\""
 
-#: libraries/classes/Config.php:1204
+#: libraries/classes/Config.php:1207
 #, fuzzy, php-format
 #| msgid "Server"
 msgid "Server %d"
@@ -4909,11 +4909,11 @@ msgid ""
 "are unavailable on this system."
 msgstr ""
 
-#: libraries/classes/ConfigStorage/Relation.php:1346
+#: libraries/classes/ConfigStorage/Relation.php:1347
 msgid "no description"
 msgstr "нема описа"
 
-#: libraries/classes/ConfigStorage/Relation.php:1548
+#: libraries/classes/ConfigStorage/Relation.php:1549
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -5035,7 +5035,7 @@ msgstr "Није изабрана ни једна база."
 
 #: libraries/classes/Controllers/AbstractController.php:137
 #: libraries/classes/Controllers/SchemaExportController.php:43
-#: libraries/classes/Controllers/Server/UserGroupsFormController.php:47
+#: libraries/classes/Controllers/Server/UserGroupsFormController.php:48
 #, fuzzy
 #| msgid "Routines"
 msgid "Missing parameter:"
@@ -5224,10 +5224,10 @@ msgstr "непознат"
 #: libraries/classes/Controllers/Table/DropColumnController.php:57
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:81
 #: libraries/classes/IndexColumn.php:164 libraries/classes/Index.php:503
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:623
-#: libraries/classes/Plugins/Export/ExportLatex.php:597
-#: libraries/classes/Plugins/Export/ExportOdt.php:771
-#: libraries/classes/Plugins/Export/ExportTexytext.php:604
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:624
+#: libraries/classes/Plugins/Export/ExportLatex.php:598
+#: libraries/classes/Plugins/Export/ExportOdt.php:772
+#: libraries/classes/Plugins/Export/ExportTexytext.php:605
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:752
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:362
@@ -5803,7 +5803,7 @@ msgid "Matched rows:"
 msgstr "Забрављене стране"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:139
-#: libraries/classes/Html/Generator.php:884 templates/export.twig:67
+#: libraries/classes/Html/Generator.php:871 templates/export.twig:67
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
@@ -5831,13 +5831,13 @@ msgid "The user name is empty!"
 msgstr "Име корисника није унето!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:151
-#: libraries/classes/Server/Privileges.php:973
+#: libraries/classes/Server/Privileges.php:972
 #: libraries/classes/UserPassword.php:44
 msgid "The password is empty!"
 msgstr "Лозинка је празна!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:152
-#: libraries/classes/Server/Privileges.php:971
+#: libraries/classes/Server/Privileges.php:970
 #: libraries/classes/UserPassword.php:48
 msgid "The passwords aren't the same!"
 msgstr "Лозинке нису идентичне!"
@@ -6169,7 +6169,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:225
 #: libraries/classes/Display/Results.php:1068
-#: libraries/classes/Plugins/Export/ExportSql.php:2091
+#: libraries/classes/Plugins/Export/ExportSql.php:2092
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:100
 #: libraries/config.values.php:111
 #: templates/columns_definitions/column_attributes.twig:217
@@ -6401,10 +6401,10 @@ msgstr "Статус"
 #. l10n: A specific point in the day, as shown on a clock.
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:293
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:818
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:468
-#: libraries/classes/Plugins/Export/ExportOdt.php:591
-#: libraries/classes/Plugins/Export/ExportTexytext.php:451
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:359
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:469
+#: libraries/classes/Plugins/Export/ExportOdt.php:592
+#: libraries/classes/Plugins/Export/ExportTexytext.php:452
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:360
 #: libraries/classes/Server/Status/Processes.php:126
 #: templates/database/triggers/list.twig:47
 #: templates/sql/profiling_chart.twig:17
@@ -6717,10 +6717,10 @@ msgstr "Карактер сет"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:372
 #: libraries/classes/IndexColumn.php:161 libraries/classes/Index.php:476
 #: libraries/classes/Index.php:504
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:622
-#: libraries/classes/Plugins/Export/ExportLatex.php:597
-#: libraries/classes/Plugins/Export/ExportOdt.php:770
-#: libraries/classes/Plugins/Export/ExportTexytext.php:604
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:623
+#: libraries/classes/Plugins/Export/ExportLatex.php:598
+#: libraries/classes/Plugins/Export/ExportOdt.php:771
+#: libraries/classes/Plugins/Export/ExportTexytext.php:605
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:751
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:362
@@ -6981,7 +6981,7 @@ msgid "No partial dependencies selected!"
 msgstr "Није изабрана ни једна база."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:440
-#: libraries/classes/Export.php:1318 libraries/classes/Html/Generator.php:984
+#: libraries/classes/Export.php:1318 libraries/classes/Html/Generator.php:971
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:286
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -7133,7 +7133,7 @@ msgstr "Игнориши"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:493
 #: libraries/classes/Display/Results.php:2753
-#: libraries/classes/Html/Generator.php:79
+#: libraries/classes/Html/Generator.php:78
 #: templates/display/results/table.twig:312
 #: templates/display/results/table.twig:313
 msgid "Copy"
@@ -8321,7 +8321,7 @@ msgstr "Додата интерна релација"
 msgid "Two-factor authentication has been configured."
 msgstr "Неисправан метод аутентикације је задат у конфигурацији:"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:302
+#: libraries/classes/Controllers/Server/DatabasesController.php:303
 #: libraries/classes/Import.php:149
 #: templates/database/structure/table_header.twig:26
 #: templates/table/structure/display_partitions.twig:29
@@ -8330,7 +8330,7 @@ msgstr "Неисправан метод аутентикације је зада
 msgid "Rows"
 msgstr "Редова"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:312
+#: libraries/classes/Controllers/Server/DatabasesController.php:313
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:26
 #: templates/database/data_dictionary/index.twig:68 templates/indexes.twig:3
@@ -8339,14 +8339,14 @@ msgstr "Редова"
 msgid "Indexes"
 msgstr "Кључеви"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:317
+#: libraries/classes/Controllers/Server/DatabasesController.php:318
 #: libraries/classes/Controllers/Server/Status/StatusController.php:153
 #: libraries/classes/Controllers/Server/Status/StatusController.php:205
 #: templates/table/structure/display_table_stats.twig:45
 msgid "Total"
 msgstr "Укупно"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:322
+#: libraries/classes/Controllers/Server/DatabasesController.php:323
 #: templates/database/structure/table_header.twig:38
 #: templates/table/structure/display_table_stats.twig:32
 msgid "Overhead"
@@ -9109,7 +9109,7 @@ msgstr "Кеш кључева"
 msgid "The number of threads that are not sleeping."
 msgstr "Број нити које нису успаване."
 
-#: libraries/classes/Controllers/Server/UserGroupsFormController.php:61
+#: libraries/classes/Controllers/Server/UserGroupsFormController.php:62
 #, fuzzy
 #| msgid "The server is not responding"
 msgid "User groups management is not enabled."
@@ -9311,7 +9311,7 @@ msgstr "Има табеле је празно!"
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:61
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:61
 #: libraries/classes/Controllers/View/OperationsController.php:94
-#: libraries/classes/Html/Generator.php:860 libraries/classes/Import.php:138
+#: libraries/classes/Html/Generator.php:847 libraries/classes/Import.php:138
 #: libraries/classes/InsertEdit.php:740 libraries/classes/Message.php:191
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:372
@@ -9432,46 +9432,46 @@ msgstr ""
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
 
-#: libraries/classes/Database/CentralColumns.php:293
-#: libraries/classes/Database/CentralColumns.php:397
-#: libraries/classes/Database/CentralColumns.php:605
+#: libraries/classes/Database/CentralColumns.php:294
+#: libraries/classes/Database/CentralColumns.php:398
+#: libraries/classes/Database/CentralColumns.php:606
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
 msgstr ""
 
-#: libraries/classes/Database/CentralColumns.php:351
+#: libraries/classes/Database/CentralColumns.php:352
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
 
-#: libraries/classes/Database/CentralColumns.php:366
+#: libraries/classes/Database/CentralColumns.php:367
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not add columns!"
 msgstr "Не могу да учитам подразумевану конфигурацију из: \"%1$s\""
 
-#: libraries/classes/Database/CentralColumns.php:449
+#: libraries/classes/Database/CentralColumns.php:450
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
 
-#: libraries/classes/Database/CentralColumns.php:462
+#: libraries/classes/Database/CentralColumns.php:463
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not remove columns!"
 msgstr "Не могу да учитам подразумевану конфигурацију из: \"%1$s\""
 
-#: libraries/classes/Database/CentralColumns.php:619
+#: libraries/classes/Database/CentralColumns.php:620
 msgid "YES"
 msgstr ""
 
-#: libraries/classes/Database/CentralColumns.php:619
+#: libraries/classes/Database/CentralColumns.php:620
 msgid "NO"
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:520
+#: libraries/classes/Database/Designer/Common.php:521
 #, fuzzy
 #| msgid ""
 #| "ditional features for working with linked tables have been ctivated. To d "
@@ -9485,60 +9485,60 @@ msgstr ""
 "Додатне могућности за рад са повезаним табелама су искључене. Да бисте "
 "сазнали зашто, кликните %sовде%s."
 
-#: libraries/classes/Database/Designer/Common.php:565
+#: libraries/classes/Database/Designer/Common.php:566
 #, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
 msgstr "Грешка: релација већ постоји."
 
-#: libraries/classes/Database/Designer/Common.php:617
+#: libraries/classes/Database/Designer/Common.php:618
 #, fuzzy
 #| msgid "Modifications have been saved"
 msgid "FOREIGN KEY relationship has been added."
 msgstr "Измене су сачуване"
 
-#: libraries/classes/Database/Designer/Common.php:625
+#: libraries/classes/Database/Designer/Common.php:626
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Грешка: релација није додата."
 
-#: libraries/classes/Database/Designer/Common.php:632
+#: libraries/classes/Database/Designer/Common.php:633
 msgid "Error: Missing index on column(s)."
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:640
-#: libraries/classes/Database/Designer/Common.php:719
+#: libraries/classes/Database/Designer/Common.php:641
+#: libraries/classes/Database/Designer/Common.php:720
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relational features are disabled!"
 msgstr "Грешка: релација није додата."
 
-#: libraries/classes/Database/Designer/Common.php:664
+#: libraries/classes/Database/Designer/Common.php:665
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationship has been added."
 msgstr "Додата интерна релација"
 
-#: libraries/classes/Database/Designer/Common.php:672
+#: libraries/classes/Database/Designer/Common.php:673
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be added!"
 msgstr "Грешка: релација није додата."
 
-#: libraries/classes/Database/Designer/Common.php:710
+#: libraries/classes/Database/Designer/Common.php:711
 #, fuzzy
 #| msgid "Modifications have been saved"
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "Измене су сачуване"
 
-#: libraries/classes/Database/Designer/Common.php:741
+#: libraries/classes/Database/Designer/Common.php:742
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Грешка: релација није додата."
 
-#: libraries/classes/Database/Designer/Common.php:747
+#: libraries/classes/Database/Designer/Common.php:748
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationship has been removed."
@@ -9577,7 +9577,7 @@ msgstr ""
 #: libraries/classes/Database/Triggers.php:134
 #: libraries/classes/Database/Triggers.php:161
 #: libraries/classes/Database/Triggers.php:443
-#: libraries/classes/Html/Generator.php:928
+#: libraries/classes/Html/Generator.php:915
 msgid "MySQL said: "
 msgstr "MySQL рече: "
 
@@ -9675,7 +9675,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "Табеле нису пронађене у бази."
 
-#: libraries/classes/DatabaseInterface.php:1124
+#: libraries/classes/DatabaseInterface.php:1125
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -9683,19 +9683,19 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:1166
+#: libraries/classes/DatabaseInterface.php:1167
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Failed to set configured collation connection!"
 msgstr "Не могу да учитам подразумевану конфигурацију из: \"%1$s\""
 
-#: libraries/classes/DatabaseInterface.php:1621
+#: libraries/classes/DatabaseInterface.php:1625
 #, fuzzy
 #| msgid "Routines"
 msgid "Missing connection parameters!"
 msgstr "Рутине"
 
-#: libraries/classes/DatabaseInterface.php:1648
+#: libraries/classes/DatabaseInterface.php:1652
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Конекција за controluser-а, онако како је дефинисана у вашој конфигурацији, "
@@ -9971,11 +9971,11 @@ msgid ""
 "%2$s."
 msgstr "Табеле нису пронађене у бази."
 
-#: libraries/classes/Dbal/DbiMysqli.php:127
+#: libraries/classes/Dbal/DbiMysqli.php:126
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
-#: libraries/classes/Dbal/DbiMysqli.php:138
+#: libraries/classes/Dbal/DbiMysqli.php:137
 #, php-format
 msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
@@ -10416,7 +10416,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:169
-#: libraries/classes/Html/Generator.php:791
+#: libraries/classes/Html/Generator.php:778
 #: libraries/classes/Html/MySQLDocumentation.php:49
 #: libraries/classes/Sanitize.php:202
 #: templates/config/form_display/input.twig:10 templates/home/index.twig:244
@@ -10554,57 +10554,52 @@ msgstr ""
 msgid "Session not found."
 msgstr "верзија PHP-a"
 
-#: libraries/classes/Html/Generator.php:147
+#: libraries/classes/Html/Generator.php:146
 #, fuzzy, php-format
 #| msgid "Jump to database \"%s\"."
 msgid "Jump to database “%s”."
 msgstr "Пређи на базу \"%s\"."
 
-#: libraries/classes/Html/Generator.php:173
+#: libraries/classes/Html/Generator.php:172
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Ова функционалност %s је погођена познатом грешком, видите %s"
 
-#: libraries/classes/Html/Generator.php:241
+#: libraries/classes/Html/Generator.php:240
 msgid "SSL is not being used"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:246
+#: libraries/classes/Html/Generator.php:245
 msgid "SSL is used with disabled verification"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:248
+#: libraries/classes/Html/Generator.php:247
 msgid "SSL is used without certification authority"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:251
+#: libraries/classes/Html/Generator.php:250
 msgid "SSL is used"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:356
+#: libraries/classes/Html/Generator.php:355
 msgid "The PHP function password_hash() with default options."
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:357
+#: libraries/classes/Html/Generator.php:356
 msgid "password_hash() PHP function"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:634
+#: libraries/classes/Html/Generator.php:633
 msgid "Skip Explain SQL"
 msgstr "Прескочи објашњавање SQL-a"
 
-#: libraries/classes/Html/Generator.php:643
-#, php-format
-msgid "Analyze Explain at %s"
-msgstr ""
-
-#: libraries/classes/Html/Generator.php:672
+#: libraries/classes/Html/Generator.php:659
 #, fuzzy
 #| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "без PHP кода"
 
-#: libraries/classes/Html/Generator.php:680
+#: libraries/classes/Html/Generator.php:667
 #: templates/database/multi_table_query/form.twig:175
 #: templates/database/qbe/selection_form.twig:115
 #, fuzzy
@@ -10612,23 +10607,23 @@ msgstr "без PHP кода"
 msgid "Submit query"
 msgstr "Изврши SQL упит"
 
-#: libraries/classes/Html/Generator.php:727 templates/console/display.twig:43
+#: libraries/classes/Html/Generator.php:714 templates/console/display.twig:43
 #: templates/console/display.twig:201 templates/sql/profiling_chart.twig:2
 msgid "Profiling"
 msgstr "Профилисање"
 
-#: libraries/classes/Html/Generator.php:740
+#: libraries/classes/Html/Generator.php:727
 #, fuzzy
 #| msgid "Add new field"
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Додај ново поље"
 
-#: libraries/classes/Html/Generator.php:867
+#: libraries/classes/Html/Generator.php:854
 msgid "Static analysis:"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:870
+#: libraries/classes/Html/Generator.php:857
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr ""
@@ -10657,20 +10652,20 @@ msgstr ""
 
 #: libraries/classes/Import.php:1220 libraries/classes/Import.php:1254
 #: libraries/classes/Plugins/Export/ExportCodegen.php:68
-#: libraries/classes/Plugins/Export/ExportCsv.php:47
+#: libraries/classes/Plugins/Export/ExportCsv.php:48
 #: libraries/classes/Plugins/Export/ExportExcel.php:39
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:46
-#: libraries/classes/Plugins/Export/ExportJson.php:72
-#: libraries/classes/Plugins/Export/ExportLatex.php:68
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:45
-#: libraries/classes/Plugins/Export/ExportOds.php:52
-#: libraries/classes/Plugins/Export/ExportOdt.php:60
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:47
+#: libraries/classes/Plugins/Export/ExportJson.php:73
+#: libraries/classes/Plugins/Export/ExportLatex.php:69
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:46
+#: libraries/classes/Plugins/Export/ExportOds.php:53
+#: libraries/classes/Plugins/Export/ExportOdt.php:61
 #: libraries/classes/Plugins/Export/ExportPdf.php:65
-#: libraries/classes/Plugins/Export/ExportPhparray.php:46
-#: libraries/classes/Plugins/Export/ExportSql.php:113
-#: libraries/classes/Plugins/Export/ExportTexytext.php:45
-#: libraries/classes/Plugins/Export/ExportXml.php:80
-#: libraries/classes/Plugins/Export/ExportYaml.php:45
+#: libraries/classes/Plugins/Export/ExportPhparray.php:47
+#: libraries/classes/Plugins/Export/ExportSql.php:114
+#: libraries/classes/Plugins/Export/ExportTexytext.php:46
+#: libraries/classes/Plugins/Export/ExportXml.php:81
+#: libraries/classes/Plugins/Export/ExportYaml.php:46
 #: libraries/classes/Plugins/Import/ImportCsv.php:70
 #: libraries/classes/Plugins/Import/ImportLdi.php:51
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:59
@@ -10733,14 +10728,14 @@ msgid "Function"
 msgstr "Функција"
 
 #: libraries/classes/InsertEdit.php:368
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:273
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:366
-#: libraries/classes/Plugins/Export/ExportLatex.php:520
-#: libraries/classes/Plugins/Export/ExportOdt.php:370
-#: libraries/classes/Plugins/Export/ExportOdt.php:470
-#: libraries/classes/Plugins/Export/ExportTexytext.php:290
-#: libraries/classes/Plugins/Export/ExportTexytext.php:378
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:523
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:274
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:367
+#: libraries/classes/Plugins/Export/ExportLatex.php:521
+#: libraries/classes/Plugins/Export/ExportOdt.php:371
+#: libraries/classes/Plugins/Export/ExportOdt.php:471
+#: libraries/classes/Plugins/Export/ExportTexytext.php:291
+#: libraries/classes/Plugins/Export/ExportTexytext.php:379
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:524
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:666
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:700
 #: templates/columns_definitions/table_fields_definitions.twig:12
@@ -10845,7 +10840,7 @@ msgid "Insert"
 msgstr "Нови запис"
 
 #: libraries/classes/Menu.php:291 libraries/classes/Menu.php:399
-#: libraries/classes/Server/Privileges.php:2865 libraries/classes/Util.php:1871
+#: libraries/classes/Server/Privileges.php:2863 libraries/classes/Util.php:1871
 #: libraries/classes/Util.php:1887 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:16
@@ -10869,12 +10864,12 @@ msgstr ""
 #: libraries/classes/Menu.php:325 libraries/classes/Menu.php:418
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:26
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:548
-#: libraries/classes/Plugins/Export/ExportOdt.php:692
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:549
+#: libraries/classes/Plugins/Export/ExportOdt.php:693
 #: libraries/classes/Plugins/Export/ExportPdf.php:263
-#: libraries/classes/Plugins/Export/ExportSql.php:1968
-#: libraries/classes/Plugins/Export/ExportTexytext.php:527
-#: libraries/classes/Plugins/Export/ExportXml.php:124
+#: libraries/classes/Plugins/Export/ExportSql.php:1969
+#: libraries/classes/Plugins/Export/ExportTexytext.php:528
+#: libraries/classes/Plugins/Export/ExportXml.php:125
 #: libraries/classes/Util.php:1874 libraries/classes/Util.php:1890
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
@@ -10897,8 +10892,8 @@ msgstr "Рутине"
 #: libraries/classes/Menu.php:411
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:965
-#: libraries/classes/Plugins/Export/ExportXml.php:104
+#: libraries/classes/Plugins/Export/ExportSql.php:966
+#: libraries/classes/Plugins/Export/ExportXml.php:105
 #: libraries/classes/Util.php:1873 templates/database/events/index.twig:3
 #, fuzzy
 msgid "Events"
@@ -11063,14 +11058,14 @@ msgid "New"
 msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:32
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:270
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:363
-#: libraries/classes/Plugins/Export/ExportLatex.php:519
-#: libraries/classes/Plugins/Export/ExportOdt.php:367
-#: libraries/classes/Plugins/Export/ExportOdt.php:467
-#: libraries/classes/Plugins/Export/ExportTexytext.php:289
-#: libraries/classes/Plugins/Export/ExportTexytext.php:377
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:521
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:271
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:364
+#: libraries/classes/Plugins/Export/ExportLatex.php:520
+#: libraries/classes/Plugins/Export/ExportOdt.php:368
+#: libraries/classes/Plugins/Export/ExportOdt.php:468
+#: libraries/classes/Plugins/Export/ExportTexytext.php:290
+#: libraries/classes/Plugins/Export/ExportTexytext.php:378
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:522
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:665
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:699
 #: templates/columns_definitions/column_name.twig:16
@@ -11118,10 +11113,10 @@ msgid "New"
 msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeEvent.php:28
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:469
-#: libraries/classes/Plugins/Export/ExportOdt.php:594
-#: libraries/classes/Plugins/Export/ExportTexytext.php:452
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:361
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:470
+#: libraries/classes/Plugins/Export/ExportOdt.php:595
+#: libraries/classes/Plugins/Export/ExportTexytext.php:453
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:362
 #: templates/database/triggers/editor_form.twig:47
 #: templates/database/triggers/list.twig:48
 msgid "Event"
@@ -11129,8 +11124,8 @@ msgstr "Догађаји"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:608
-#: libraries/classes/Plugins/Export/ExportXml.php:109
+#: libraries/classes/Plugins/Export/ExportSql.php:609
+#: libraries/classes/Plugins/Export/ExportXml.php:110
 msgid "Functions"
 msgstr "Функције"
 
@@ -11150,8 +11145,8 @@ msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:597
-#: libraries/classes/Plugins/Export/ExportXml.php:114
+#: libraries/classes/Plugins/Export/ExportSql.php:598
+#: libraries/classes/Plugins/Export/ExportXml.php:115
 msgid "Procedures"
 msgstr "Процедуре"
 
@@ -11184,7 +11179,7 @@ msgstr "Окидачи"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:26
-#: libraries/classes/Plugins/Export/ExportXml.php:129
+#: libraries/classes/Plugins/Export/ExportXml.php:130
 #: templates/database/structure/show_create.twig:28
 #, fuzzy
 #| msgid "View"
@@ -11663,47 +11658,47 @@ msgstr ""
 msgid "Format:"
 msgstr "Формат"
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:59
+#: libraries/classes/Plugins/Export/ExportCsv.php:60
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:36
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns separated with:"
 msgstr "Линије се завршавају са"
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:64
+#: libraries/classes/Plugins/Export/ExportCsv.php:65
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:42
 #, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed with:"
 msgstr "Поља ограничена са"
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:69
+#: libraries/classes/Plugins/Export/ExportCsv.php:70
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:49
 #, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped with:"
 msgstr "Ескејп карактер &nbsp; &nbsp; &nbsp;"
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:74
+#: libraries/classes/Plugins/Export/ExportCsv.php:75
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:56
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Lines terminated with:"
 msgstr "Линије се завршавају са"
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:79
+#: libraries/classes/Plugins/Export/ExportCsv.php:80
 #: libraries/classes/Plugins/Export/ExportExcel.php:51
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:80
-#: libraries/classes/Plugins/Export/ExportLatex.php:188
-#: libraries/classes/Plugins/Export/ExportOds.php:64
-#: libraries/classes/Plugins/Export/ExportOdt.php:133
-#: libraries/classes/Plugins/Export/ExportTexytext.php:84
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:81
+#: libraries/classes/Plugins/Export/ExportLatex.php:189
+#: libraries/classes/Plugins/Export/ExportOds.php:65
+#: libraries/classes/Plugins/Export/ExportOdt.php:134
+#: libraries/classes/Plugins/Export/ExportTexytext.php:85
 #, fuzzy
 #| msgid "Replace NULL by"
 msgid "Replace NULL with:"
 msgstr "Замени NULL са"
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:84
+#: libraries/classes/Plugins/Export/ExportCsv.php:85
 #: libraries/classes/Plugins/Export/ExportExcel.php:56
 msgid "Remove carriage return/line feed characters within columns"
 msgstr ""
@@ -11714,13 +11709,13 @@ msgstr ""
 msgid "Excel edition:"
 msgstr "Excel издање"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:62
-#: libraries/classes/Plugins/Export/ExportLatex.php:95
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:66
-#: libraries/classes/Plugins/Export/ExportOdt.php:76
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:63
+#: libraries/classes/Plugins/Export/ExportLatex.php:96
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:67
+#: libraries/classes/Plugins/Export/ExportOdt.php:77
 #: libraries/classes/Plugins/Export/ExportPdf.php:91
-#: libraries/classes/Plugins/Export/ExportSql.php:220
-#: libraries/classes/Plugins/Export/ExportTexytext.php:61
+#: libraries/classes/Plugins/Export/ExportSql.php:221
+#: libraries/classes/Plugins/Export/ExportTexytext.php:62
 #: libraries/config.values.php:251 libraries/config.values.php:312
 #: libraries/config.values.php:328 libraries/config.values.php:336
 #: libraries/config.values.php:341
@@ -11728,26 +11723,26 @@ msgstr "Excel издање"
 msgid "structure"
 msgstr "Структура"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:63
-#: libraries/classes/Plugins/Export/ExportLatex.php:96
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:67
-#: libraries/classes/Plugins/Export/ExportOdt.php:77
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:64
+#: libraries/classes/Plugins/Export/ExportLatex.php:97
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:68
+#: libraries/classes/Plugins/Export/ExportOdt.php:78
 #: libraries/classes/Plugins/Export/ExportPdf.php:92
-#: libraries/classes/Plugins/Export/ExportSql.php:221
-#: libraries/classes/Plugins/Export/ExportTexytext.php:62
+#: libraries/classes/Plugins/Export/ExportSql.php:222
+#: libraries/classes/Plugins/Export/ExportTexytext.php:63
 #: libraries/config.values.php:252 libraries/config.values.php:313
 #: libraries/config.values.php:329 libraries/config.values.php:337
 #: libraries/config.values.php:342
 msgid "data"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:64
-#: libraries/classes/Plugins/Export/ExportLatex.php:97
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:68
-#: libraries/classes/Plugins/Export/ExportOdt.php:78
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:65
+#: libraries/classes/Plugins/Export/ExportLatex.php:98
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:69
+#: libraries/classes/Plugins/Export/ExportOdt.php:79
 #: libraries/classes/Plugins/Export/ExportPdf.php:93
-#: libraries/classes/Plugins/Export/ExportSql.php:222
-#: libraries/classes/Plugins/Export/ExportTexytext.php:63
+#: libraries/classes/Plugins/Export/ExportSql.php:223
+#: libraries/classes/Plugins/Export/ExportTexytext.php:64
 #: libraries/config.values.php:253 libraries/config.values.php:314
 #: libraries/config.values.php:330 libraries/config.values.php:338
 #: libraries/config.values.php:343
@@ -11756,30 +11751,30 @@ msgstr ""
 msgid "structure and data"
 msgstr "Структура и подаци"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:74
-#: libraries/classes/Plugins/Export/ExportLatex.php:159
-#: libraries/classes/Plugins/Export/ExportOdt.php:122
-#: libraries/classes/Plugins/Export/ExportTexytext.php:73
-#: libraries/classes/Plugins/Export/ExportXml.php:137
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:75
+#: libraries/classes/Plugins/Export/ExportLatex.php:160
+#: libraries/classes/Plugins/Export/ExportOdt.php:123
+#: libraries/classes/Plugins/Export/ExportTexytext.php:74
+#: libraries/classes/Plugins/Export/ExportXml.php:138
 #, fuzzy
 msgid "Data dump options"
 msgstr "Опције за извоз базе"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:192
-#: libraries/classes/Plugins/Export/ExportOdt.php:248
-#: libraries/classes/Plugins/Export/ExportSql.php:2215
-#: libraries/classes/Plugins/Export/ExportTexytext.php:176
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:193
+#: libraries/classes/Plugins/Export/ExportOdt.php:249
+#: libraries/classes/Plugins/Export/ExportSql.php:2216
+#: libraries/classes/Plugins/Export/ExportTexytext.php:177
 msgid "Dumping data for table"
 msgstr "Приказ података табеле"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:276
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:369
-#: libraries/classes/Plugins/Export/ExportLatex.php:521
-#: libraries/classes/Plugins/Export/ExportOdt.php:373
-#: libraries/classes/Plugins/Export/ExportOdt.php:473
-#: libraries/classes/Plugins/Export/ExportTexytext.php:291
-#: libraries/classes/Plugins/Export/ExportTexytext.php:379
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:525
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:277
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:370
+#: libraries/classes/Plugins/Export/ExportLatex.php:522
+#: libraries/classes/Plugins/Export/ExportOdt.php:374
+#: libraries/classes/Plugins/Export/ExportOdt.php:474
+#: libraries/classes/Plugins/Export/ExportTexytext.php:292
+#: libraries/classes/Plugins/Export/ExportTexytext.php:380
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:526
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:668
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:702
 #: templates/columns_definitions/table_fields_definitions.twig:30
@@ -11797,14 +11792,14 @@ msgstr "Приказ података табеле"
 msgid "Null"
 msgstr "Null"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:279
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:372
-#: libraries/classes/Plugins/Export/ExportLatex.php:522
-#: libraries/classes/Plugins/Export/ExportOdt.php:376
-#: libraries/classes/Plugins/Export/ExportOdt.php:476
-#: libraries/classes/Plugins/Export/ExportTexytext.php:292
-#: libraries/classes/Plugins/Export/ExportTexytext.php:380
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:527
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:280
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:373
+#: libraries/classes/Plugins/Export/ExportLatex.php:523
+#: libraries/classes/Plugins/Export/ExportOdt.php:377
+#: libraries/classes/Plugins/Export/ExportOdt.php:477
+#: libraries/classes/Plugins/Export/ExportTexytext.php:293
+#: libraries/classes/Plugins/Export/ExportTexytext.php:381
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:528
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:669
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:703
 #: templates/columns_definitions/table_fields_definitions.twig:20
@@ -11819,21 +11814,21 @@ msgstr "Null"
 msgid "Default"
 msgstr "Подразумевано"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:376
-#: libraries/classes/Plugins/Export/ExportLatex.php:524
-#: libraries/classes/Plugins/Export/ExportOdt.php:480
-#: libraries/classes/Plugins/Export/ExportTexytext.php:382
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:536
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:377
+#: libraries/classes/Plugins/Export/ExportLatex.php:525
+#: libraries/classes/Plugins/Export/ExportOdt.php:481
+#: libraries/classes/Plugins/Export/ExportTexytext.php:383
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:537
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:671
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:705
 #: templates/database/data_dictionary/index.twig:27
 msgid "Links to"
 msgstr "Везе ка"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:467
-#: libraries/classes/Plugins/Export/ExportOdt.php:588
-#: libraries/classes/Plugins/Export/ExportTexytext.php:450
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:357
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:468
+#: libraries/classes/Plugins/Export/ExportOdt.php:589
+#: libraries/classes/Plugins/Export/ExportTexytext.php:451
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:358
 #: templates/columns_definitions/table_fields_definitions.twig:9
 #: templates/database/central_columns/edit.twig:8
 #: templates/database/central_columns/main.twig:16
@@ -11847,10 +11842,10 @@ msgstr "Везе ка"
 msgid "Name"
 msgstr "Име"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:470
-#: libraries/classes/Plugins/Export/ExportOdt.php:597
-#: libraries/classes/Plugins/Export/ExportTexytext.php:453
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:363
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:471
+#: libraries/classes/Plugins/Export/ExportOdt.php:598
+#: libraries/classes/Plugins/Export/ExportTexytext.php:454
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:364
 #: templates/database/events/editor_form.twig:82
 #: templates/database/routines/editor_form.twig:109
 #: templates/database/triggers/editor_form.twig:57
@@ -11859,112 +11854,112 @@ msgstr "Име"
 msgid "Definition"
 msgstr "Опис"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:538
-#: libraries/classes/Plugins/Export/ExportOdt.php:671
-#: libraries/classes/Plugins/Export/ExportSql.php:1954
-#: libraries/classes/Plugins/Export/ExportTexytext.php:508
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:539
+#: libraries/classes/Plugins/Export/ExportOdt.php:672
+#: libraries/classes/Plugins/Export/ExportSql.php:1955
+#: libraries/classes/Plugins/Export/ExportTexytext.php:509
 msgid "Table structure for table"
 msgstr "Структура табеле"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:556
-#: libraries/classes/Plugins/Export/ExportOdt.php:702
-#: libraries/classes/Plugins/Export/ExportSql.php:2005
-#: libraries/classes/Plugins/Export/ExportTexytext.php:533
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:557
+#: libraries/classes/Plugins/Export/ExportOdt.php:703
+#: libraries/classes/Plugins/Export/ExportSql.php:2006
+#: libraries/classes/Plugins/Export/ExportTexytext.php:534
 msgid "Structure for view"
 msgstr "Структура за поглед (view)"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:562
-#: libraries/classes/Plugins/Export/ExportOdt.php:721
-#: libraries/classes/Plugins/Export/ExportSql.php:2037
-#: libraries/classes/Plugins/Export/ExportTexytext.php:548
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:563
+#: libraries/classes/Plugins/Export/ExportOdt.php:722
+#: libraries/classes/Plugins/Export/ExportSql.php:2038
+#: libraries/classes/Plugins/Export/ExportTexytext.php:549
 msgid "Stand-in structure for view"
 msgstr "Структура која замењује поглед"
 
-#: libraries/classes/Plugins/Export/ExportJson.php:87
+#: libraries/classes/Plugins/Export/ExportJson.php:88
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportJson.php:93
+#: libraries/classes/Plugins/Export/ExportJson.php:94
 msgid "Output unicode characters unescaped"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:50
+#: libraries/classes/Plugins/Export/ExportLatex.php:51
 #, fuzzy
 #| msgid "Content of table __TABLE__"
 msgid "Content of table @TABLE@"
 msgstr "Садржај табеле __TABLE__"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:51
+#: libraries/classes/Plugins/Export/ExportLatex.php:52
 msgid "(continued)"
 msgstr "(настављено)"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:52
+#: libraries/classes/Plugins/Export/ExportLatex.php:53
 #, fuzzy
 #| msgid "Structure of table __TABLE__"
 msgid "Structure of table @TABLE@"
 msgstr "Структура табеле __TABLE__"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:108
-#: libraries/classes/Plugins/Export/ExportOdt.php:89
-#: libraries/classes/Plugins/Export/ExportSql.php:235
+#: libraries/classes/Plugins/Export/ExportLatex.php:109
+#: libraries/classes/Plugins/Export/ExportOdt.php:90
+#: libraries/classes/Plugins/Export/ExportSql.php:236
 #, fuzzy
 #| msgid "Transformation options"
 msgid "Object creation options"
 msgstr "Опције трансформације"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:114
-#: libraries/classes/Plugins/Export/ExportLatex.php:170
+#: libraries/classes/Plugins/Export/ExportLatex.php:115
+#: libraries/classes/Plugins/Export/ExportLatex.php:171
 #, fuzzy
 #| msgid "Table caption"
 msgid "Table caption:"
 msgstr "Коментар табеле"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:120
-#: libraries/classes/Plugins/Export/ExportLatex.php:176
+#: libraries/classes/Plugins/Export/ExportLatex.php:121
+#: libraries/classes/Plugins/Export/ExportLatex.php:177
 #, fuzzy
 #| msgid "Table caption"
 msgid "Table caption (continued):"
 msgstr "Коментар табеле"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:126
-#: libraries/classes/Plugins/Export/ExportLatex.php:182
+#: libraries/classes/Plugins/Export/ExportLatex.php:127
+#: libraries/classes/Plugins/Export/ExportLatex.php:183
 #, fuzzy
 #| msgid "Label key"
 msgid "Label key:"
 msgstr "Ознака кључа"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:134
-#: libraries/classes/Plugins/Export/ExportOdt.php:97
-#: libraries/classes/Plugins/Export/ExportSql.php:149
+#: libraries/classes/Plugins/Export/ExportLatex.php:135
+#: libraries/classes/Plugins/Export/ExportOdt.php:98
+#: libraries/classes/Plugins/Export/ExportSql.php:150
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Display foreign key relationships"
 msgstr "Искључи провере страних кључева"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:141
-#: libraries/classes/Plugins/Export/ExportOdt.php:104
+#: libraries/classes/Plugins/Export/ExportLatex.php:142
+#: libraries/classes/Plugins/Export/ExportOdt.php:105
 #, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display comments"
 msgstr "Приказујем коментаре колоне"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:147
-#: libraries/classes/Plugins/Export/ExportOdt.php:110
-#: libraries/classes/Plugins/Export/ExportSql.php:157
+#: libraries/classes/Plugins/Export/ExportLatex.php:148
+#: libraries/classes/Plugins/Export/ExportOdt.php:111
+#: libraries/classes/Plugins/Export/ExportSql.php:158
 #, fuzzy
 #| msgid "Available MIME types"
 msgid "Display media types"
 msgstr "Доступни MIME-типови"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:165
+#: libraries/classes/Plugins/Export/ExportLatex.php:166
 #, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row:"
 msgstr "Стави имена поља у први ред"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:209
-#: libraries/classes/Plugins/Export/ExportSql.php:724
-#: libraries/classes/Plugins/Export/ExportXml.php:219
+#: libraries/classes/Plugins/Export/ExportLatex.php:210
+#: libraries/classes/Plugins/Export/ExportSql.php:725
+#: libraries/classes/Plugins/Export/ExportXml.php:220
 #: templates/server/replication/change_primary.twig:22
 #: templates/server/replication/primary_add_replica_user.twig:29
 #, fuzzy
@@ -11972,35 +11967,35 @@ msgstr "Стави имена поља у први ред"
 msgid "Host:"
 msgstr "Домаћин"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:215
-#: libraries/classes/Plugins/Export/ExportSql.php:731
-#: libraries/classes/Plugins/Export/ExportXml.php:225
+#: libraries/classes/Plugins/Export/ExportLatex.php:216
+#: libraries/classes/Plugins/Export/ExportSql.php:732
+#: libraries/classes/Plugins/Export/ExportXml.php:226
 #, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
 msgstr "Време креирања"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:217
-#: libraries/classes/Plugins/Export/ExportSql.php:735
-#: libraries/classes/Plugins/Export/ExportXml.php:227
+#: libraries/classes/Plugins/Export/ExportLatex.php:218
+#: libraries/classes/Plugins/Export/ExportSql.php:736
+#: libraries/classes/Plugins/Export/ExportXml.php:228
 #: templates/home/index.twig:173
 #, fuzzy
 #| msgid "Server version"
 msgid "Server version:"
 msgstr "Верзија сервера"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:218
-#: libraries/classes/Plugins/Export/ExportSql.php:737
-#: libraries/classes/Plugins/Export/ExportXml.php:228
+#: libraries/classes/Plugins/Export/ExportLatex.php:219
+#: libraries/classes/Plugins/Export/ExportSql.php:738
+#: libraries/classes/Plugins/Export/ExportXml.php:229
 #, fuzzy
 #| msgid "PHP Version"
 msgid "PHP Version:"
 msgstr "верзија PHP-a"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:244
-#: libraries/classes/Plugins/Export/ExportSql.php:903
-#: libraries/classes/Plugins/Export/ExportXml.php:382
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:201
+#: libraries/classes/Plugins/Export/ExportLatex.php:245
+#: libraries/classes/Plugins/Export/ExportSql.php:904
+#: libraries/classes/Plugins/Export/ExportXml.php:383
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:202
 #: templates/database/structure/copy_form.twig:5
 #: templates/menu/breadcrumbs.twig:16
 #, fuzzy
@@ -12008,32 +12003,32 @@ msgstr "верзија PHP-a"
 msgid "Database:"
 msgstr "База података"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:310
-#: libraries/classes/Plugins/Export/ExportSql.php:2091
+#: libraries/classes/Plugins/Export/ExportLatex.php:311
+#: libraries/classes/Plugins/Export/ExportSql.php:2092
 #, fuzzy
 #| msgid "Data"
 msgid "Data:"
 msgstr "Подаци"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:497
+#: libraries/classes/Plugins/Export/ExportLatex.php:498
 #, fuzzy
 #| msgid "Structure"
 msgid "Structure:"
 msgstr "Структура"
 
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:77
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:78
 #, fuzzy
 msgid "Export table names"
 msgstr "Тип извоза"
 
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:84
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:85
 #, fuzzy
 #| msgid "horizontal (rotated headers)"
 msgid "Export table headers"
 msgstr "хоризонталном (ротирана заглавља)"
 
-#: libraries/classes/Plugins/Export/ExportOdt.php:249
-#: libraries/classes/Plugins/Export/ExportTexytext.php:177
+#: libraries/classes/Plugins/Export/ExportOdt.php:250
+#: libraries/classes/Plugins/Export/ExportTexytext.php:178
 #, fuzzy
 #| msgid "Dumping data for table"
 msgid "Dumping data for query result"
@@ -12068,284 +12063,284 @@ msgstr "Структура"
 msgid "Stand in"
 msgstr "и онда"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:128
+#: libraries/classes/Plugins/Export/ExportSql.php:129
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:135
+#: libraries/classes/Plugins/Export/ExportSql.php:136
 #, fuzzy
 #| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr "Додај коментар у заглавље (\\n раздваја линије)"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:141
+#: libraries/classes/Plugins/Export/ExportSql.php:142
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:202
+#: libraries/classes/Plugins/Export/ExportSql.php:203
 #, fuzzy
 #| msgid "Export type"
 msgid "Export metadata"
 msgstr "Тип извоза"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:243
+#: libraries/classes/Plugins/Export/ExportSql.php:244
 #, fuzzy
 #| msgid "Statements"
 msgid "Add statements:"
 msgstr "Име"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:251
-#: libraries/classes/Plugins/Export/ExportSql.php:260
-#: libraries/classes/Plugins/Export/ExportSql.php:277
-#: libraries/classes/Plugins/Export/ExportSql.php:286
-#: libraries/classes/Plugins/Export/ExportSql.php:310
-#: libraries/classes/Plugins/Export/ExportSql.php:338
-#: libraries/classes/Plugins/Export/ExportSql.php:347
+#: libraries/classes/Plugins/Export/ExportSql.php:252
+#: libraries/classes/Plugins/Export/ExportSql.php:261
+#: libraries/classes/Plugins/Export/ExportSql.php:278
+#: libraries/classes/Plugins/Export/ExportSql.php:287
+#: libraries/classes/Plugins/Export/ExportSql.php:311
+#: libraries/classes/Plugins/Export/ExportSql.php:339
+#: libraries/classes/Plugins/Export/ExportSql.php:348
 #, fuzzy, php-format
 #| msgid "Statements"
 msgid "Add %s statement"
 msgstr "Име"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:293
+#: libraries/classes/Plugins/Export/ExportSql.php:294
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:300
+#: libraries/classes/Plugins/Export/ExportSql.php:301
 #, fuzzy, php-format
 #| msgid "Session value"
 msgid "%s value"
 msgstr "Вредност сесије"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
-#: libraries/classes/Plugins/Export/ExportSql.php:317
+#: libraries/classes/Plugins/Export/ExportSql.php:318
 msgid "Use simple view export"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:356
+#: libraries/classes/Plugins/Export/ExportSql.php:357
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:371
+#: libraries/classes/Plugins/Export/ExportSql.php:372
 #, fuzzy
 #| msgid "Transformation options"
 msgid "Data creation options"
 msgstr "Опције трансформације"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:376
-#: libraries/classes/Plugins/Export/ExportSql.php:2173
+#: libraries/classes/Plugins/Export/ExportSql.php:377
+#: libraries/classes/Plugins/Export/ExportSql.php:2174
 msgid "Truncate table before insert"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:383
+#: libraries/classes/Plugins/Export/ExportSql.php:384
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:389
+#: libraries/classes/Plugins/Export/ExportSql.php:390
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:401
-#: libraries/classes/Plugins/Export/ExportSql.php:435
+#: libraries/classes/Plugins/Export/ExportSql.php:402
+#: libraries/classes/Plugins/Export/ExportSql.php:436
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:415
+#: libraries/classes/Plugins/Export/ExportSql.php:416
 msgid "Function to use when dumping data:"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:430
+#: libraries/classes/Plugins/Export/ExportSql.php:431
 msgid "Syntax to use when inserting data:"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:440
+#: libraries/classes/Plugins/Export/ExportSql.php:441
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:445
+#: libraries/classes/Plugins/Export/ExportSql.php:446
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:450
+#: libraries/classes/Plugins/Export/ExportSql.php:451
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:455
+#: libraries/classes/Plugins/Export/ExportSql.php:456
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:474
+#: libraries/classes/Plugins/Export/ExportSql.php:475
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:483
+#: libraries/classes/Plugins/Export/ExportSql.php:484
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:558
+#: libraries/classes/Plugins/Export/ExportSql.php:559
 msgid "It appears your database uses routines;"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:561
-#: libraries/classes/Plugins/Export/ExportSql.php:1501
-#: libraries/classes/Plugins/Export/ExportSql.php:1993
+#: libraries/classes/Plugins/Export/ExportSql.php:562
+#: libraries/classes/Plugins/Export/ExportSql.php:1502
+#: libraries/classes/Plugins/Export/ExportSql.php:1994
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1021
+#: libraries/classes/Plugins/Export/ExportSql.php:1022
 #, fuzzy
 #| msgid "Export type"
 msgid "Metadata"
 msgstr "Тип извоза"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1086
+#: libraries/classes/Plugins/Export/ExportSql.php:1087
 #, fuzzy, php-format
 #| msgid "Dumping data for table"
 msgid "Metadata for table %s"
 msgstr "Приказ података табеле"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1093
+#: libraries/classes/Plugins/Export/ExportSql.php:1094
 #, fuzzy, php-format
 #| msgid "Create table on database %s"
 msgid "Metadata for database %s"
 msgstr "Направи нову табелу у бази %s"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1413
+#: libraries/classes/Plugins/Export/ExportSql.php:1414
 #, fuzzy, php-format
 #| msgid "Table structure for table"
 msgid "Error reading structure for table %s:"
 msgstr "Структура табеле"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1498
+#: libraries/classes/Plugins/Export/ExportSql.php:1499
 msgid "It appears your database uses views;"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1661
+#: libraries/classes/Plugins/Export/ExportSql.php:1662
 msgid "Constraints for dumped tables"
 msgstr "Ограничења за извезене табеле"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1662
+#: libraries/classes/Plugins/Export/ExportSql.php:1663
 msgid "Constraints for table"
 msgstr "Ограничења за табеле"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1689
+#: libraries/classes/Plugins/Export/ExportSql.php:1690
 #, fuzzy
 #| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
 msgstr "Ограничења за извезене табеле"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1690
+#: libraries/classes/Plugins/Export/ExportSql.php:1691
 #, fuzzy
 #| msgid "Inside table(s):"
 msgid "Indexes for table"
 msgstr "Унутар табела:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1720
+#: libraries/classes/Plugins/Export/ExportSql.php:1721
 #, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "Додај AUTO_INCREMENT вредност"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1721
+#: libraries/classes/Plugins/Export/ExportSql.php:1722
 #, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
 msgstr "Додај AUTO_INCREMENT вредност"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1794
+#: libraries/classes/Plugins/Export/ExportSql.php:1795
 #, fuzzy
 #| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "MIME ТИПОВИ ЗА ТАБЕЛУ"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1819
+#: libraries/classes/Plugins/Export/ExportSql.php:1820
 #, fuzzy
 #| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "РЕЛАЦИЈЕ ТАБЕЛЕ"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1990
+#: libraries/classes/Plugins/Export/ExportSql.php:1991
 msgid "It appears your table uses triggers;"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2020
+#: libraries/classes/Plugins/Export/ExportSql.php:2021
 #, fuzzy, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
 msgstr "Структура за поглед (view)"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2040
+#: libraries/classes/Plugins/Export/ExportSql.php:2041
 msgid "(See below for the actual view)"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2106
+#: libraries/classes/Plugins/Export/ExportSql.php:2107
 #, fuzzy, php-format
 #| msgid "Allows reading data."
 msgid "Error reading data for table %s:"
 msgstr "Дозвољава читање података."
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2718
+#: libraries/classes/Plugins/Export/ExportSql.php:2719
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:629
 #, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
 msgstr "Направљено"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2728
+#: libraries/classes/Plugins/Export/ExportSql.php:2729
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:640
 #, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
 msgstr "Последња измена"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2738
+#: libraries/classes/Plugins/Export/ExportSql.php:2739
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:651
 #, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
 msgstr "Последња провера"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2763
+#: libraries/classes/Plugins/Export/ExportSql.php:2764
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportXml.php:98
+#: libraries/classes/Plugins/Export/ExportXml.php:99
 msgid "Object creation options (all are recommended)"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportXml.php:142
+#: libraries/classes/Plugins/Export/ExportXml.php:143
 #, fuzzy
 msgid "Export contents"
 msgstr "Тип извоза"
 
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:202
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:203
 #: templates/menu/breadcrumbs.twig:29
 #, fuzzy
 #| msgid "Table"
 msgid "Table:"
 msgstr "Табела"
 
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:203
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:204
 msgid "Purpose:"
 msgstr ""
 
@@ -12964,99 +12959,99 @@ msgstr ""
 msgid "Details…"
 msgstr ""
 
-#: libraries/classes/RecentFavoriteTable.php:151
+#: libraries/classes/RecentFavoriteTable.php:152
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not save recent table!"
 msgstr "Не могу да учитам подразумевану конфигурацију из: \"%1$s\""
 
-#: libraries/classes/RecentFavoriteTable.php:155
+#: libraries/classes/RecentFavoriteTable.php:156
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not save favorite table!"
 msgstr "Не могу да учитам подразумевану конфигурацију из: \"%1$s\""
 
-#: libraries/classes/RecentFavoriteTable.php:239
+#: libraries/classes/RecentFavoriteTable.php:240
 #, fuzzy
 msgid "Recent tables"
 msgstr "Нема табела"
 
-#: libraries/classes/RecentFavoriteTable.php:241
+#: libraries/classes/RecentFavoriteTable.php:242
 #, fuzzy
 #| msgid "Reset"
 msgid "Recent"
 msgstr "Поништи"
 
-#: libraries/classes/RecentFavoriteTable.php:245
+#: libraries/classes/RecentFavoriteTable.php:246
 #, fuzzy
 #| msgid "Variables"
 msgid "Favorites"
 msgstr "Променљиве"
 
-#: libraries/classes/ReplicationGui.php:447
+#: libraries/classes/ReplicationGui.php:448
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
 
-#: libraries/classes/ReplicationGui.php:458
+#: libraries/classes/ReplicationGui.php:459
 #, fuzzy
 msgid "Replication started successfully."
 msgstr "Репликација"
 
-#: libraries/classes/ReplicationGui.php:459
+#: libraries/classes/ReplicationGui.php:460
 msgid "Error starting replication."
 msgstr ""
 
-#: libraries/classes/ReplicationGui.php:462
+#: libraries/classes/ReplicationGui.php:463
 #, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
 msgstr "Привилегије су успешно поново учитане."
 
-#: libraries/classes/ReplicationGui.php:463
+#: libraries/classes/ReplicationGui.php:464
 msgid "Error stopping replication."
 msgstr ""
 
-#: libraries/classes/ReplicationGui.php:466
+#: libraries/classes/ReplicationGui.php:467
 #, fuzzy
 msgid "Replication resetting successfully."
 msgstr "Репликација"
 
-#: libraries/classes/ReplicationGui.php:467
+#: libraries/classes/ReplicationGui.php:468
 msgid "Error resetting replication."
 msgstr ""
 
-#: libraries/classes/ReplicationGui.php:470
+#: libraries/classes/ReplicationGui.php:471
 msgid "Success."
 msgstr ""
 
-#: libraries/classes/ReplicationGui.php:471
+#: libraries/classes/ReplicationGui.php:472
 #, fuzzy
 #| msgid "Error"
 msgid "Error."
 msgstr "Грешка"
 
-#: libraries/classes/ReplicationGui.php:511
+#: libraries/classes/ReplicationGui.php:512
 msgid "Unknown error"
 msgstr ""
 
-#: libraries/classes/ReplicationGui.php:524
+#: libraries/classes/ReplicationGui.php:525
 #, fuzzy, php-format
 #| msgid "The number of fsync() writes done to the log file."
 msgid "Unable to connect to primary %s."
 msgstr "Број fsyncs уписа начињених у датотеку дневника."
 
-#: libraries/classes/ReplicationGui.php:534
+#: libraries/classes/ReplicationGui.php:535
 msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
 msgstr ""
 
-#: libraries/classes/ReplicationGui.php:552
+#: libraries/classes/ReplicationGui.php:553
 msgid "Unable to change primary!"
 msgstr ""
 
-#: libraries/classes/ReplicationGui.php:556
+#: libraries/classes/ReplicationGui.php:557
 #, fuzzy, php-format
 #| msgid "The privileges were reloaded successfully."
 msgid "Primary server changed successfully to %s."
@@ -13107,8 +13102,8 @@ msgid "Error while loading the search."
 msgstr "Непозната грешка при слању датотеке."
 
 #: libraries/classes/Server/Plugins.php:66
-#: libraries/classes/Server/Privileges.php:822
-#: libraries/classes/Server/Privileges.php:3742
+#: libraries/classes/Server/Privileges.php:821
+#: libraries/classes/Server/Privileges.php:3740
 #, fuzzy
 #| msgid "Documentation"
 msgid "Native MySQL authentication"
@@ -13143,16 +13138,16 @@ msgstr "Документација"
 msgid "Account locking is not supported."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:292
+#: libraries/classes/Server/Privileges.php:291
 msgid "No privileges."
 msgstr "Нема привилегија."
 
-#: libraries/classes/Server/Privileges.php:300
+#: libraries/classes/Server/Privileges.php:299
 msgid "Includes all privileges except GRANT."
 msgstr "Укључује све привилегије осим GRANT."
 
-#: libraries/classes/Server/Privileges.php:322
-#: libraries/classes/Server/Privileges.php:389
+#: libraries/classes/Server/Privileges.php:321
+#: libraries/classes/Server/Privileges.php:388
 #: templates/server/privileges/privileges_table.twig:125
 #: templates/server/privileges/privileges_table.twig:128
 #: templates/server/privileges/privileges_table.twig:326
@@ -13160,7 +13155,7 @@ msgstr "Укључује све привилегије осим GRANT."
 msgid "Allows deleting data."
 msgstr "Дозвољава брисање података."
 
-#: libraries/classes/Server/Privileges.php:327
+#: libraries/classes/Server/Privileges.php:326
 #: templates/server/privileges/privileges_table.twig:137
 #: templates/server/privileges/privileges_table.twig:140
 #: templates/server/privileges/privileges_table.twig:367
@@ -13168,7 +13163,7 @@ msgstr "Дозвољава брисање података."
 msgid "Allows creating new tables."
 msgstr "Дозвољава креирање нових табела."
 
-#: libraries/classes/Server/Privileges.php:332
+#: libraries/classes/Server/Privileges.php:331
 #: templates/server/privileges/privileges_table.twig:149
 #: templates/server/privileges/privileges_table.twig:152
 #: templates/server/privileges/privileges_table.twig:415
@@ -13176,8 +13171,8 @@ msgstr "Дозвољава креирање нових табела."
 msgid "Allows dropping tables."
 msgstr "Дозвољава одбацивање табела."
 
-#: libraries/classes/Server/Privileges.php:337
-#: libraries/classes/Server/Privileges.php:429
+#: libraries/classes/Server/Privileges.php:336
+#: libraries/classes/Server/Privileges.php:428
 #: templates/server/privileges/privileges_table.twig:174
 #: templates/server/privileges/privileges_table.twig:177
 #: templates/server/privileges/privileges_table.twig:399
@@ -13185,8 +13180,8 @@ msgstr "Дозвољава одбацивање табела."
 msgid "Allows creating and dropping indexes."
 msgstr "Дозвољава креирање и брисање кључева."
 
-#: libraries/classes/Server/Privileges.php:342
-#: libraries/classes/Server/Privileges.php:434
+#: libraries/classes/Server/Privileges.php:341
+#: libraries/classes/Server/Privileges.php:433
 #: templates/server/privileges/privileges_table.twig:186
 #: templates/server/privileges/privileges_table.twig:189
 #: templates/server/privileges/privileges_table.twig:386
@@ -13194,9 +13189,9 @@ msgstr "Дозвољава креирање и брисање кључева."
 msgid "Allows altering the structure of existing tables."
 msgstr "Дозвољава измену структура постојећих табела."
 
-#: libraries/classes/Server/Privileges.php:347
-#: libraries/classes/Server/Privileges.php:473
-#: libraries/classes/Server/Privileges.php:489
+#: libraries/classes/Server/Privileges.php:346
+#: libraries/classes/Server/Privileges.php:472
+#: libraries/classes/Server/Privileges.php:488
 #: templates/server/privileges/privileges_table.twig:198
 #: templates/server/privileges/privileges_table.twig:201
 #: templates/server/privileges/privileges_table.twig:500
@@ -13206,9 +13201,9 @@ msgstr "Дозвољава измену структура постојећих 
 msgid "Allows creating new views."
 msgstr "Дозволи креирање нових погледа."
 
-#: libraries/classes/Server/Privileges.php:352
-#: libraries/classes/Server/Privileges.php:494
-#: libraries/classes/Server/Privileges.php:500
+#: libraries/classes/Server/Privileges.php:351
+#: libraries/classes/Server/Privileges.php:493
+#: libraries/classes/Server/Privileges.php:499
 #: templates/server/privileges/privileges_table.twig:210
 #: templates/server/privileges/privileges_table.twig:213
 #: templates/server/privileges/privileges_table.twig:447
@@ -13216,8 +13211,8 @@ msgstr "Дозволи креирање нових погледа."
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Дозвољава извршавање SHOW CREATE VIEW упита."
 
-#: libraries/classes/Server/Privileges.php:357
-#: libraries/classes/Server/Privileges.php:483
+#: libraries/classes/Server/Privileges.php:356
+#: libraries/classes/Server/Privileges.php:482
 #: templates/server/privileges/privileges_table.twig:222
 #: templates/server/privileges/privileges_table.twig:225
 #: templates/server/privileges/privileges_table.twig:543
@@ -13226,77 +13221,77 @@ msgstr "Дозвољава извршавање SHOW CREATE VIEW упита."
 msgid "Allows creating and dropping triggers."
 msgstr "Дозвољава креирање и брисање кључева."
 
-#: libraries/classes/Server/Privileges.php:374
+#: libraries/classes/Server/Privileges.php:373
 #: templates/server/privileges/privileges_table.twig:16
 #: templates/server/privileges/privileges_table.twig:287
 #: templates/server/privileges/privileges_table.twig:290
 msgid "Allows reading data."
 msgstr "Дозвољава читање података."
 
-#: libraries/classes/Server/Privileges.php:379
+#: libraries/classes/Server/Privileges.php:378
 #: templates/server/privileges/privileges_table.twig:43
 #: templates/server/privileges/privileges_table.twig:300
 #: templates/server/privileges/privileges_table.twig:303
 msgid "Allows inserting and replacing data."
 msgstr "Дозвољава уметање и замену података."
 
-#: libraries/classes/Server/Privileges.php:384
+#: libraries/classes/Server/Privileges.php:383
 #: templates/server/privileges/privileges_table.twig:70
 #: templates/server/privileges/privileges_table.twig:313
 #: templates/server/privileges/privileges_table.twig:316
 msgid "Allows changing data."
 msgstr "Дозвољава измену података."
 
-#: libraries/classes/Server/Privileges.php:394
+#: libraries/classes/Server/Privileges.php:393
 #: templates/server/privileges/privileges_table.twig:365
 #: templates/server/privileges/privileges_table.twig:373
 msgid "Allows creating new databases and tables."
 msgstr "Дозвољава креирање нових база и табела."
 
-#: libraries/classes/Server/Privileges.php:399
+#: libraries/classes/Server/Privileges.php:398
 #: templates/server/privileges/privileges_table.twig:413
 #: templates/server/privileges/privileges_table.twig:421
 msgid "Allows dropping databases and tables."
 msgstr "Дозвољава одбацивање база и табела."
 
-#: libraries/classes/Server/Privileges.php:404
+#: libraries/classes/Server/Privileges.php:403
 #: templates/server/privileges/privileges_table.twig:610
 #: templates/server/privileges/privileges_table.twig:613
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Дозвољава поновно учитавање подешавања сервера и пражњење кеша сервера."
 
-#: libraries/classes/Server/Privileges.php:409
+#: libraries/classes/Server/Privileges.php:408
 #: templates/server/privileges/privileges_table.twig:623
 #: templates/server/privileges/privileges_table.twig:626
 msgid "Allows shutting down the server."
 msgstr "Дозвољава гашење сервера."
 
-#: libraries/classes/Server/Privileges.php:414
+#: libraries/classes/Server/Privileges.php:413
 #: templates/server/privileges/privileges_table.twig:597
 #: templates/server/privileges/privileges_table.twig:600
 msgid "Allows viewing processes of all users."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:419
+#: libraries/classes/Server/Privileges.php:418
 #: templates/server/privileges/privileges_table.twig:340
 #: templates/server/privileges/privileges_table.twig:343
 msgid "Allows importing data from and exporting data into files."
 msgstr "Дозвољава увоз података и њихов извоз у датотеке."
 
-#: libraries/classes/Server/Privileges.php:424
+#: libraries/classes/Server/Privileges.php:423
 #: templates/server/privileges/privileges_table.twig:97
 #: templates/server/privileges/privileges_table.twig:677
 msgid "Has no effect in this MySQL version."
 msgstr "Нема ефекта у овој верзији MySQL-a."
 
-#: libraries/classes/Server/Privileges.php:439
+#: libraries/classes/Server/Privileges.php:438
 #: templates/server/privileges/privileges_table.twig:636
 #: templates/server/privileges/privileges_table.twig:639
 msgid "Gives access to the complete list of databases."
 msgstr "Даје приступ комплетној листи база."
 
-#: libraries/classes/Server/Privileges.php:445
+#: libraries/classes/Server/Privileges.php:444
 #: templates/server/privileges/privileges_table.twig:583
 #: templates/server/privileges/privileges_table.twig:587
 msgid ""
@@ -13308,19 +13303,19 @@ msgstr ""
 "Неопходно за већину административних опција као што су подешавање глобалних "
 "променљивих или прекидање процеса осталих корисника."
 
-#: libraries/classes/Server/Privileges.php:453
+#: libraries/classes/Server/Privileges.php:452
 #: templates/server/privileges/privileges_table.twig:434
 #: templates/server/privileges/privileges_table.twig:437
 msgid "Allows creating temporary tables."
 msgstr "Дозвољава креирање привремених табела.."
 
-#: libraries/classes/Server/Privileges.php:458
+#: libraries/classes/Server/Privileges.php:457
 #: templates/server/privileges/privileges_table.twig:664
 #: templates/server/privileges/privileges_table.twig:667
 msgid "Allows locking tables for the current thread."
 msgstr "Дозвољава закључавање табела текућим процесима."
 
-#: libraries/classes/Server/Privileges.php:463
+#: libraries/classes/Server/Privileges.php:462
 #: templates/server/privileges/privileges_table.twig:705
 #: templates/server/privileges/privileges_table.twig:708
 #, fuzzy
@@ -13328,7 +13323,7 @@ msgstr "Дозвољава закључавање табела текућим п
 msgid "Needed for the replication replicas."
 msgstr "Потребно због помоћних сервера за репликацију."
 
-#: libraries/classes/Server/Privileges.php:468
+#: libraries/classes/Server/Privileges.php:467
 #: templates/server/privileges/privileges_table.twig:692
 #: templates/server/privileges/privileges_table.twig:695
 #, fuzzy
@@ -13336,7 +13331,7 @@ msgstr "Потребно због помоћних сервера за репл�
 msgid "Allows the user to ask where the replicas / primaries are."
 msgstr "Даје право кориснику да пита где су главни/помоћни сервери."
 
-#: libraries/classes/Server/Privileges.php:478
+#: libraries/classes/Server/Privileges.php:477
 #: templates/server/privileges/privileges_table.twig:530
 #: templates/server/privileges/privileges_table.twig:533
 #, fuzzy
@@ -13345,8 +13340,8 @@ msgid "Allows to set up events for the event scheduler."
 msgstr "Дозвољава закључавање табела текућим процесима."
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
-#: libraries/classes/Server/Privileges.php:507
-#: libraries/classes/Server/Privileges.php:516
+#: libraries/classes/Server/Privileges.php:506
+#: libraries/classes/Server/Privileges.php:515
 #: templates/server/privileges/privileges_table.twig:235
 #: templates/server/privileges/privileges_table.twig:239
 #, fuzzy
@@ -13354,47 +13349,47 @@ msgstr "Дозвољава закључавање табела текућим п
 msgid "Allows deleting historical rows."
 msgstr "Дозвољава брисање података."
 
-#: libraries/classes/Server/Privileges.php:521
+#: libraries/classes/Server/Privileges.php:520
 #: templates/server/privileges/privileges_table.twig:460
 #: templates/server/privileges/privileges_table.twig:463
 msgid "Allows creating stored routines."
 msgstr "Дозвољава прављење сачуваних рутина."
 
-#: libraries/classes/Server/Privileges.php:526
+#: libraries/classes/Server/Privileges.php:525
 #: templates/server/privileges/privileges_table.twig:473
 #: templates/server/privileges/privileges_table.twig:476
 msgid "Allows altering and dropping stored routines."
 msgstr "Дозвољава измену и одбацивање сачуваних рутина."
 
-#: libraries/classes/Server/Privileges.php:531
+#: libraries/classes/Server/Privileges.php:530
 #: templates/server/privileges/privileges_table.twig:718
 #: templates/server/privileges/privileges_table.twig:721
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Дозвољава прављење, одбацивање и преименовање корисничких налога."
 
-#: libraries/classes/Server/Privileges.php:536
+#: libraries/classes/Server/Privileges.php:535
 #: templates/server/privileges/privileges_table.twig:486
 #: templates/server/privileges/privileges_table.twig:489
 msgid "Allows executing stored routines."
 msgstr "Дозвољава извршавање сачуваних рутина."
 
-#: libraries/classes/Server/Privileges.php:1106
+#: libraries/classes/Server/Privileges.php:1105
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Лозинка за %s је успешно промењена."
 
-#: libraries/classes/Server/Privileges.php:1154
+#: libraries/classes/Server/Privileges.php:1153
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Забранили сте привилегије за %s."
 
-#: libraries/classes/Server/Privileges.php:1462
+#: libraries/classes/Server/Privileges.php:1460
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
 msgid "Not enough privilege to view users."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1524
+#: libraries/classes/Server/Privileges.php:1522
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:75
@@ -13404,24 +13399,24 @@ msgstr ""
 msgid "Edit privileges"
 msgstr "Промени привилегије"
 
-#: libraries/classes/Server/Privileges.php:1528
+#: libraries/classes/Server/Privileges.php:1526
 msgid "Revoke"
 msgstr "Забрани"
 
-#: libraries/classes/Server/Privileges.php:1838
+#: libraries/classes/Server/Privileges.php:1836
 #: templates/server/privileges/privileges_table.twig:265
 msgid "Database-specific privileges"
 msgstr "Привилегије везане за базу"
 
-#: libraries/classes/Server/Privileges.php:1844
+#: libraries/classes/Server/Privileges.php:1842
 #: templates/server/privileges/privileges_summary.twig:19
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:267
 msgid "Table-specific privileges"
 msgstr "Привилегије везане за табеле"
 
+#: libraries/classes/Server/Privileges.php:1847
 #: libraries/classes/Server/Privileges.php:1849
-#: libraries/classes/Server/Privileges.php:1851
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:59
@@ -13430,31 +13425,31 @@ msgstr "Привилегије везане за табеле"
 msgid "Routine"
 msgstr "Рутине"
 
-#: libraries/classes/Server/Privileges.php:1850
+#: libraries/classes/Server/Privileges.php:1848
 #: templates/server/privileges/edit_routine_privileges.twig:47
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
 msgstr "Привилегије везане за колоне"
 
-#: libraries/classes/Server/Privileges.php:2193
+#: libraries/classes/Server/Privileges.php:2191
 msgid "No users selected for deleting!"
 msgstr "Ниједан корисник није одабран за брисање!"
 
-#: libraries/classes/Server/Privileges.php:2196
+#: libraries/classes/Server/Privileges.php:2194
 msgid "Reloading the privileges"
 msgstr "Поново учитавам привилегије"
 
-#: libraries/classes/Server/Privileges.php:2221
+#: libraries/classes/Server/Privileges.php:2219
 msgid "The selected users have been deleted successfully."
 msgstr "Изабрани корисници су успешно обрисани."
 
-#: libraries/classes/Server/Privileges.php:2298
+#: libraries/classes/Server/Privileges.php:2296
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Ажурирали сте привилегије за %s."
 
-#: libraries/classes/Server/Privileges.php:2385
+#: libraries/classes/Server/Privileges.php:2383
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 #, fuzzy
@@ -13462,40 +13457,40 @@ msgstr "Ажурирали сте привилегије за %s."
 msgid "No user found."
 msgstr "Корисник није нађен."
 
-#: libraries/classes/Server/Privileges.php:2472
+#: libraries/classes/Server/Privileges.php:2470
 #, php-format
 msgid "Deleting %s"
 msgstr "Бришем %s"
 
-#: libraries/classes/Server/Privileges.php:2503
+#: libraries/classes/Server/Privileges.php:2501
 msgid "The privileges were reloaded successfully."
 msgstr "Привилегије су успешно поново учитане."
 
-#: libraries/classes/Server/Privileges.php:2607
+#: libraries/classes/Server/Privileges.php:2605
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Корисник %s већ постоји!"
 
-#: libraries/classes/Server/Privileges.php:2882
+#: libraries/classes/Server/Privileges.php:2880
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "Привилегије"
 
-#: libraries/classes/Server/Privileges.php:2891
+#: libraries/classes/Server/Privileges.php:2889
 #: libraries/classes/Server/Status/Processes.php:110
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Корисник"
 
-#: libraries/classes/Server/Privileges.php:3000
+#: libraries/classes/Server/Privileges.php:2998
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:3034
+#: libraries/classes/Server/Privileges.php:3032
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -13513,7 +13508,7 @@ msgstr ""
 "сервер користи ако су вршене ручне измене. У том случају %sпоново учитајте "
 "привилегије%s пре него што наставите."
 
-#: libraries/classes/Server/Privileges.php:3050
+#: libraries/classes/Server/Privileges.php:3048
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -13532,7 +13527,7 @@ msgstr ""
 "сервер користи ако су вршене ручне измене. У том случају %sпоново учитајте "
 "привилегије%s пре него што наставите."
 
-#: libraries/classes/Server/Privileges.php:3364
+#: libraries/classes/Server/Privileges.php:3362
 msgid "You have added a new user."
 msgstr "Додали сте новог корисника."
 
@@ -13723,7 +13718,7 @@ msgstr "%s је онемогућен на овом MySQL серверу."
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Овај MySQL сервер не подржава %s погон складиштења."
 
-#: libraries/classes/Table/Indexes.php:59 libraries/classes/Table.php:2045
+#: libraries/classes/Table/Indexes.php:59 libraries/classes/Table.php:2046
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Име примарног кључа мора да буде \"PRIMARY\"!"
 
@@ -13732,61 +13727,61 @@ msgstr "Име примарног кључа мора да буде \"PRIMARY\"!
 msgid "Problems with indexes of table `%s`"
 msgstr "Проблем при индексирању табеле `%s`"
 
-#: libraries/classes/Table.php:327
+#: libraries/classes/Table.php:328
 #, fuzzy
 #| msgid "Show slave status"
 msgid "Unknown table status:"
 msgstr "Прикажи статус подређених сервера"
 
-#: libraries/classes/Table.php:958
+#: libraries/classes/Table.php:959
 #, fuzzy, php-format
 msgid "Source database `%s` was not found!"
 msgstr "Претраживање базе"
 
-#: libraries/classes/Table.php:967
+#: libraries/classes/Table.php:968
 #, fuzzy, php-format
 #| msgid "Theme %s not found!"
 msgid "Target database `%s` was not found!"
 msgstr "Није пронађена тема %s!"
 
-#: libraries/classes/Table.php:1430
+#: libraries/classes/Table.php:1431
 #, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
 msgstr "Неисправна база података"
 
-#: libraries/classes/Table.php:1448
+#: libraries/classes/Table.php:1449
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
 msgstr "Неисправан назив табеле"
 
-#: libraries/classes/Table.php:1482
+#: libraries/classes/Table.php:1483
 #, fuzzy, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "Грешка при преименовању табеле %1$s у %2$s"
 
-#: libraries/classes/Table.php:1499
+#: libraries/classes/Table.php:1500
 #, fuzzy, php-format
 #| msgid "Table %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Табели %s промењено име у %s"
 
-#: libraries/classes/Table.php:1742
+#: libraries/classes/Table.php:1743
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not save table UI preferences!"
 msgstr "Не могу да учитам подразумевану конфигурацију из: \"%1$s\""
 
-#: libraries/classes/Table.php:1766
+#: libraries/classes/Table.php:1767
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: libraries/classes/Table.php:1900
+#: libraries/classes/Table.php:1901
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -13794,15 +13789,15 @@ msgid ""
 "changed."
 msgstr ""
 
-#: libraries/classes/Table.php:2057
+#: libraries/classes/Table.php:2058
 msgid "Can't rename index to PRIMARY!"
 msgstr "Не могу да променим кључ у PRIMARY (примарни) !"
 
-#: libraries/classes/Table.php:2083
+#: libraries/classes/Table.php:2084
 msgid "No index parts defined!"
 msgstr "Делови кључа нису дефинисани!"
 
-#: libraries/classes/Table.php:2374
+#: libraries/classes/Table.php:2375
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -14229,13 +14224,13 @@ msgstr "Профил је промењен."
 msgid "Password is too long!"
 msgstr "Хеширање лозинке"
 
-#: libraries/classes/UserPreferences.php:179
+#: libraries/classes/UserPreferences.php:180
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not save configuration"
 msgstr "Не могу да учитам подразумевану конфигурацију из: \"%1$s\""
 
-#: libraries/classes/UserPreferences.php:193
+#: libraries/classes/UserPreferences.php:194
 #, fuzzy
 #| msgid ""
 #| "ditional features for working with linked tables have been ctivated. To d "
