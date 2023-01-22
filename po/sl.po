@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-01-21 15:49+0000\n"
-"PO-Revision-Date: 2022-10-05 05:19+0000\n"
+"PO-Revision-Date: 2023-01-24 22:08+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "sl/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.16-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -7473,6 +7473,8 @@ msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
+"WebAuthn ni na voljo. Prosimo, da uporabite podprt brskalnik v varnem okolju "
+"(HTTPS)."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:701
 msgid ""
@@ -11892,16 +11894,12 @@ msgid "Hardware Security Key (FIDO U2F)"
 msgstr "Varnostni ključ strojne opreme (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:218
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F, such as a Yubikey."
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a YubiKey."
 msgstr ""
 "Nudi overovitev z žetoni varnosti strojne opreme, ki podpirajo FIDO U2F, kot "
-"je npr. Yubikey."
+"je npr. YubiKey."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:73
 #, php-format
@@ -11929,22 +11927,16 @@ msgid "For testing purposes only!"
 msgstr "Samo za namene preizkušanja!"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:180
-#, fuzzy
-#| msgid "Hardware Security Key (FIDO U2F)"
 msgid "Hardware Security Key (WebAuthn/FIDO2)"
-msgstr "Varnostni ključ strojne opreme (FIDO U2F)"
+msgstr "Varnostni ključ strojne opreme (WebAuthn/FIDO2)"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:186
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F, such as a Yubikey."
 msgid ""
 "Provides authentication using hardware security tokens supporting the "
 "WebAuthn/FIDO2 protocol, such as a YubiKey."
 msgstr ""
-"Nudi overovitev z žetoni varnosti strojne opreme, ki podpirajo FIDO U2F, kot "
-"je npr. Yubikey."
+"Nudi overovitev z žetoni varnosti strojne opreme, ki podpirajo protokol "
+"WebAuthn/FIDO2, kot je npr. YubiKey."
 
 #: libraries/classes/Query/Utilities.php:97
 msgid ""
@@ -16304,27 +16296,19 @@ msgid "Verify"
 msgstr "Preveri"
 
 #: templates/login/twofactor/webauthn_creation.twig:1
-#, fuzzy
-#| msgid ""
-#| "Please connect your FIDO U2F device into your computer's USB port. Then "
-#| "confirm registration on the device."
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm registration on the "
 "device."
 msgstr ""
-"Prosimo, povežite svojo napravo FIDO U2F v USB-vrata vašega računalnika. "
-"Nato potrdite registracijo na napravi."
+"Prosimo, povežite svojo napravo WebAuthn/FIDO2. Nato potrdite registracijo "
+"na napravi."
 
 #: templates/login/twofactor/webauthn_request.twig:1
-#, fuzzy
-#| msgid ""
-#| "Please connect your FIDO U2F device into your computer's USB port. Then "
-#| "confirm login on the device."
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm login on the device."
 msgstr ""
-"Prosimo, povežite svojo napravo FIDO U2F v USB-vrata vašega računalnika. "
-"Nato potrdite prijavo na napravi."
+"Prosimo, povežite svojo napravo WebAuthn/FIDO2. Nato potrdite prijavo na "
+"napravi."
 
 #: templates/menu/breadcrumbs.twig:27
 msgid "View:"
@@ -16558,15 +16542,11 @@ msgstr ""
 "Dvostopenjska overovitev je na voljo, ampak ni nastavljena za ta račun."
 
 #: templates/preferences/two_factor/main.twig:26
-#, fuzzy
-#| msgid ""
-#| "Two-factor authentication is not available, please install optional "
-#| "dependencies to enable authentication backends."
 msgid ""
 "Please install optional dependencies to enable more authentication backends."
 msgstr ""
-"Dvostopenjska overovitev ni na voljo; prosimo, namestite izbirne odvisnosti, "
-"da omogočite overovitveno zaledje."
+"Prosimo, namestite izbirne odvisnosti, da omogočite več overovitvenih "
+"zaledij."
 
 #: templates/preferences/two_factor/main.twig:37
 msgid ""
