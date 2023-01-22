@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-01-22 04:26+0000\n"
+"PO-Revision-Date: 2023-01-24 22:40+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.15.1\n"
+"X-Generator: Weblate 4.16-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -895,10 +895,8 @@ msgid "Delete entry from tracking report?"
 msgstr "Избришете запис од извештајот за тракирање?"
 
 #: js/messages.php:60
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
-msgstr "Дозволува вметнување и замена на података."
+msgstr "Се бришат податоци за следење"
 
 #: js/messages.php:61
 msgid "Dropping Primary Key/Index"
@@ -4048,10 +4046,8 @@ msgid "Enable autocomplete for table and column names"
 msgstr "Името на полето стави го во '"
 
 #: libraries/classes/Config/Descriptions.php:187
-#, fuzzy
-#| msgid "Propose table structure"
 msgid "Whether the table structure actions should be hidden."
-msgstr "Предложи структура на табелата"
+msgstr "Криење на акциите за структура на табели."
 
 #: libraries/classes/Config/Descriptions.php:189
 #, fuzzy
@@ -5405,10 +5401,8 @@ msgid "Default sort order for tables with a primary key."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:951
-#, fuzzy
-#| msgid "A primary key has been added on %s."
 msgid "Primary key default sort order"
-msgstr "Примарниот клуч %s е додаден."
+msgstr "Стандардно подредување на примарен клуч"
 
 #: libraries/classes/Config/Descriptions.php:953
 msgid ""
@@ -6726,17 +6720,15 @@ msgstr "Табелата %s е испразнета."
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:588
 #: tbl_operations.php:453 view_operations.php:130
-#, fuzzy, php-format
-#| msgid "View %s has been dropped."
+#, php-format
 msgid "View %s has been dropped."
-msgstr "Прегледот %s е избришан"
+msgstr "Прегледот %s беше отфрлен."
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:589
 #: tbl_operations.php:454
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Table %s has been dropped."
-msgstr "Табелата %s е избришана"
+msgstr "Табелата %s е отфрлена."
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:797
 #: libraries/classes/Display/Results.php:4545
@@ -7496,17 +7488,13 @@ msgstr "Подредување по клуч"
 
 #: libraries/classes/Display/Results.php:1729
 #: templates/display/results/options_block.twig:14
-#, fuzzy
-#| msgid "Partial Texts"
 msgid "Partial texts"
-msgstr "Дел на текстот"
+msgstr "Деловни текстови"
 
 #: libraries/classes/Display/Results.php:1733
 #: templates/display/results/options_block.twig:14
-#, fuzzy
-#| msgid "Full Texts"
 msgid "Full texts"
-msgstr "Полн текст"
+msgstr "Полни текстови"
 
 #: libraries/classes/Display/Results.php:2121
 #: libraries/classes/Display/Results.php:2135
@@ -17681,9 +17669,8 @@ msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:299
-#, fuzzy
 msgid "The thread cache is set to 0"
-msgstr "Вид на упит"
+msgstr "Кеш на тредови е подесен на 0"
 
 #: libraries/advisory_rules_generic.txt:301
 #, fuzzy, php-format
