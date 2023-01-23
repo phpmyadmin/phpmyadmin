@@ -49,9 +49,6 @@ class Data
     /** @var bool */
     public $dbIsLocal;
 
-    /** @var mixed */
-    public $section;
-
     /** @var array */
     public $sectionUsed;
 

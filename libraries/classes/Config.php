@@ -90,21 +90,11 @@ class Config
     /** @var int     source modification time */
     public $sourceMtime = 0;
 
-    /** @var int */
-    public $setMtime = 0;
-
     /** @var bool */
     public $errorConfigFile = false;
 
     /** @var array */
     public $defaultServer = [];
-
-    /**
-     * @var bool whether init is done or not
-     * set this to false to force some initial checks
-     * like checking for required functions
-     */
-    public $done = false;
 
     /**
      * @param string|null $source source to read config from
@@ -730,7 +720,6 @@ class Config
         }
 
         $this->settings[$setting] = $value;
-        $this->setMtime = time();
     }
 
     /**

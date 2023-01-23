@@ -8773,17 +8773,15 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Partitioning/SubPartition.php">
-    <MixedAssignment occurrences="10">
+    <MixedAssignment occurrences="8">
       <code>$this-&gt;comment</code>
       <code>$this-&gt;dataLength</code>
-      <code>$this-&gt;db</code>
       <code>$this-&gt;expression</code>
       <code>$this-&gt;indexLength</code>
       <code>$this-&gt;method</code>
       <code>$this-&gt;name</code>
       <code>$this-&gt;ordinal</code>
       <code>$this-&gt;rows</code>
-      <code>$this-&gt;table</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Partitioning/TablePartitionDefinition.php">
