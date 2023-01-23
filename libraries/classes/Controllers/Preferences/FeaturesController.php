@@ -93,14 +93,12 @@ class FeaturesController extends AbstractController
             'has_config_storage' => $relationParameters->userPreferencesFeature !== null,
         ]);
 
-        if ($formDisplay->hasErrors()) {
-            $formErrors = $formDisplay->displayErrors();
-        }
+        $formErrors = $formDisplay->displayErrors();
 
         $this->render('preferences/forms/main', [
             'error' => $GLOBALS['error'] ? $GLOBALS['error']->getDisplay() : '',
             'has_errors' => $formDisplay->hasErrors(),
-            'errors' => $formErrors ?? null,
+            'errors' => $formErrors,
             'form' => $formDisplay->getDisplay(
                 true,
                 Url::getFromRoute('/preferences/features'),
