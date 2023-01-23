@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-01-21 15:49+0000\n"
 "PO-Revision-Date: 2023-01-24 22:08+0000\n"
-"Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
+"Last-Translator: theking2 <theking2@king.ma>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/5-2/nl/>"
 "\n"
 "Language: nl\n"
@@ -8877,8 +8877,7 @@ msgstr "Gebeurtenis bewerken"
 #: libraries/classes/Database/Routines.php:984
 #: libraries/classes/Database/Triggers.php:381
 msgid "The definer must be in the \"username@hostname\" format!"
-msgstr ""
-"De omschrijving moet het formaat \"gebruikersnaam@computernaam\" hebben!"
+msgstr "De definer moet het formaat \"gebruikersnaam@computernaam\" hebben!"
 
 #: libraries/classes/Database/Events.php:412
 msgid "You must provide an event name!"
@@ -14621,8 +14620,9 @@ msgstr "Na afloop behouden"
 #: templates/database/routines/editor_form.twig:138
 #: templates/database/triggers/editor_form.twig:61
 #: templates/view_create.twig:45
+#, fuzzy
 msgid "Definer"
-msgstr "Omschrijving"
+msgstr "Gebruikersnaam"
 
 #: templates/database/events/index.twig:13
 #: templates/database/privileges/index.twig:113
