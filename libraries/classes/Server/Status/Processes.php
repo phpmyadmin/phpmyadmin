@@ -10,7 +10,6 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function array_keys;
-use function count;
 use function mb_strtolower;
 use function strlen;
 use function ucfirst;
@@ -144,8 +143,6 @@ final class Processes
             'order_by_field' => 'Info',
         ];
 
-        $sortableColCount = count($sortableColumns);
-
         $columns = [];
         foreach ($sortableColumns as $columnKey => $column) {
             $is_sorted = $orderByField !== ''
@@ -169,10 +166,6 @@ final class Processes
                 'has_full_query' => false,
                 'is_full' => false,
             ];
-
-            if (0 !== --$sortableColCount) {
-                continue;
-            }
 
             $columns[$columnKey]['has_full_query'] = true;
             if (! $showFullSql) {

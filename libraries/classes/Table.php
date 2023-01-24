@@ -2540,12 +2540,10 @@ class Table implements Stringable
 
     /**
      * Returns the CREATE statement for this table
-     *
-     * @return mixed
      */
-    public function showCreate()
+    public function showCreate(): string
     {
-        return $this->dbi->fetchValue(
+        return (string) $this->dbi->fetchValue(
             'SHOW CREATE TABLE ' . Util::backquote($this->dbName) . '.'
             . Util::backquote($this->name),
             1

@@ -139,7 +139,7 @@ final class SimulateDml
             $diff[] = $set->column . $notEqualOperator . $set->value;
         }
 
-        if (! empty($diff)) {
+        if ($diff !== []) {
             $where .= ' AND (' . implode(' OR ', $diff) . ')';
         }
 
