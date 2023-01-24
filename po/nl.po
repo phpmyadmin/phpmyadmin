@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-01-21 15:49+0000\n"
-"PO-Revision-Date: 2023-01-24 22:08+0000\n"
-"Last-Translator: theking2 <theking2@king.ma>\n"
+"PO-Revision-Date: 2023-01-28 03:53+0000\n"
+"Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/5-2/nl/>"
 "\n"
 "Language: nl\n"
@@ -8877,7 +8877,7 @@ msgstr "Gebeurtenis bewerken"
 #: libraries/classes/Database/Routines.php:984
 #: libraries/classes/Database/Triggers.php:381
 msgid "The definer must be in the \"username@hostname\" format!"
-msgstr "De definer moet het formaat \"gebruikersnaam@computernaam\" hebben!"
+msgstr "DEFINER moet het formaat \"gebruikersnaam@computernaam\" hebben!"
 
 #: libraries/classes/Database/Events.php:412
 msgid "You must provide an event name!"
@@ -14620,9 +14620,8 @@ msgstr "Na afloop behouden"
 #: templates/database/routines/editor_form.twig:138
 #: templates/database/triggers/editor_form.twig:61
 #: templates/view_create.twig:45
-#, fuzzy
 msgid "Definer"
-msgstr "Gebruikersnaam"
+msgstr "DEFINER"
 
 #: templates/database/events/index.twig:13
 #: templates/database/privileges/index.twig:113
@@ -16416,7 +16415,7 @@ msgid ""
 "The FIDO U2F API has been deprecated in favor of the Web Authentication API "
 "(WebAuthn)."
 msgstr ""
-"De FIDO U2F API wordt uitgefaseerd ten gunste van de Web Authentication API "
+"De FIDO U2F API wordt verlaten ten gunste van de Web Authenticatie API "
 "(WebAuthn)."
 
 #: templates/login/twofactor/key_configure.twig:6
@@ -16427,8 +16426,8 @@ msgid ""
 "API, however it's recommended that you use the WebAuthn authentication "
 "instead."
 msgstr ""
-"U kunt Firefox blijven om u te authentificeren door middel van de FIDO U2F "
-"API, maar het gebruik van WebAuthn voor authenticatie wordt aanbevolen."
+"U kunt nog steeds Firefox gebruiken om uzelf te autoriseren met de FIDO U2F "
+"API, maar het wordt aangeraden om WebAuthn authenticatie gebruiken."
 
 #: templates/login/twofactor/key_configure.twig:10
 msgid ""
