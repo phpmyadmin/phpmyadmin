@@ -111,7 +111,7 @@ class EventsTest extends TestBase
                 ->click()// Click to free the mouse
                 ->perform();
 
-        $this->byXPath("//button[contains(., 'Go')]")->click();
+        $this->byCssSelector('div.ui-dialog-buttonset button:nth-child(1)')->click();
 
         $this->waitForElement(
             'xpath',
@@ -174,7 +174,7 @@ class EventsTest extends TestBase
         $this->byName('item_interval_value')->clear();
         $this->byName('item_interval_value')->sendKeys('2');
 
-        $this->byXPath("//button[contains(., 'Go')]")->click();
+        $this->byCssSelector('div.ui-dialog-buttonset button:nth-child(1)')->click();
 
         $this->waitForElement(
             'xpath',
