@@ -12521,10 +12521,6 @@
       <code>loadavg</code>
       <code>memory</code>
     </MixedMethodCall>
-    <PossiblyFalseReference occurrences="2">
-      <code>fetchAssoc</code>
-      <code>fetchAssoc</code>
-    </PossiblyFalseReference>
     <PossiblyInvalidArgument occurrences="1">
       <code>$temp</code>
     </PossiblyInvalidArgument>
@@ -14989,6 +14985,9 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/Http/Factory/ServerRequestFactoryTest.php">
+    <DeprecatedMethod occurrences="1">
+      <code>setMethods</code>
+    </DeprecatedMethod>
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>

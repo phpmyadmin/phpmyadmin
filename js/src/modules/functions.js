@@ -19,6 +19,7 @@ import refreshMainContent from './functions/refreshMainContent.js';
 /**
  * General functions, usually for data manipulation pages.
  * @type {object}
+ * @test-module Functions
  */
 const Functions = {};
 window.Functions = Functions;
@@ -3226,6 +3227,22 @@ Functions.getCellValue = function (td) {
         return $td.data('original_data');
     } else {
         return $td.text();
+    }
+};
+
+/**
+ * Validate and return stringified JSON inputs, or plain if invalid.
+ *
+ * @param json the json input to be validated and stringified
+ * @param replacer An array of strings and numbers that acts as an approved list for selecting the object properties that will be stringified.
+ * @param space Adds indentation, white space, and line break characters to the return-value JSON text to make it easier to read.
+ * @return {string}
+ */
+Functions.stringifyJSON = function (json, replacer = null, space = 0) {
+    try {
+        return JSON.stringify(JSON.parse(json), replacer, space);
+    } catch (e) {
+        return json;
     }
 };
 

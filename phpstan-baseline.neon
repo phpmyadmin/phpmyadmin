@@ -7641,11 +7641,6 @@ parameters:
 			path: libraries/classes/Server/Status/Monitor.php
 
 		-
-			message: "#^Cannot call method fetchAssoc\\(\\) on PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false\\.$#"
-			count: 2
-			path: libraries/classes/Server/Status/Monitor.php
-
-		-
 			message: "#^Cannot call method loadavg\\(\\) on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Server/Status/Monitor.php

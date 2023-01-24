@@ -94,26 +94,37 @@ class ServerRequestFactory
             /** @var ServerRequestInterface $serverRequest */
             $serverRequest = LaminasServerRequestFactory::fromGlobals();
         } else {
-            $serverRequest = self::createServerRequestFromGlobals();
+            $creator = new self();
+            $serverRequest = self::createServerRequestFromGlobals($creator);
         }
 
         return new ServerRequest($serverRequest);
     }
 
-    private static function createServerRequestFromGlobals(): ServerRequestInterface
+    /**
+     * @return array<string, string>
+     */
+    protected function getallheaders(): array
     {
-        $creator = new self();
+        /** @var array<string, string> $headers */
+        $headers = function_exists('getallheaders') ? getallheaders() : [];
+
+        return $headers;
+    }
+
+    private static function createServerRequestFromGlobals(self $creator): ServerRequestInterface
+    {
         $serverRequest = $creator->serverRequestFactory->createServerRequest(
             $_SERVER['REQUEST_METHOD'] ?? 'GET',
             $creator->createUriFromGlobals($_SERVER),
             $_SERVER
         );
 
-        /** @var array<string, string> $headers */
-        $headers = function_exists('getallheaders') ? getallheaders() : [];
-        foreach ($headers as $name => $value) {
+        foreach ($creator->getallheaders() as $name => $value) {
             $serverRequest = $serverRequest->withAddedHeader($name, $value);
         }
+
+        $serverRequest = $serverRequest->withQueryParams($_GET);
 
         if ($serverRequest->getMethod() !== 'POST') {
             return $serverRequest;

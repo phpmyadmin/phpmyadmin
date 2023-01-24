@@ -207,6 +207,7 @@ class Compatibility
      */
     public static function isUUIDSupported(DatabaseInterface $dbi): bool
     {
+        // @see: https://mariadb.com/kb/en/mariadb-1070-release-notes/#uuid
         return $dbi->isMariaDB() && $dbi->getVersion() >= 100700; // 10.7.0
     }
 
