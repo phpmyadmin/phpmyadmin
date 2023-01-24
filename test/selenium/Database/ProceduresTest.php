@@ -132,7 +132,7 @@ class ProceduresTest extends TestBase
         );
         $this->byName('item_param_length[0]')->sendKeys('20');
 
-        $this->byCssSelector("input[value='Add parameter']")->click();
+        $this->byId('addRoutineParameterButton')->click();
 
         $this->selectByLabel(
             $this->byName('item_param_dir[1]'),
@@ -149,7 +149,7 @@ class ProceduresTest extends TestBase
             'READS SQL DATA'
         );
 
-        $this->byXPath("//button[contains(., 'Go')]")->click();
+        $this->byCssSelector('div.ui-dialog-buttonset button:nth-child(1)')->click();
 
         $this->waitForElement(
             'xpath',
@@ -185,7 +185,7 @@ class ProceduresTest extends TestBase
         $this->byName('item_param_length[0]')->clear();
         $this->byName('item_param_length[0]')->sendKeys('30');
 
-        $this->byXPath("//button[contains(., 'Go')]")->click();
+        $this->byCssSelector('div.ui-dialog-buttonset button:nth-child(1)')->click();
 
         $this->waitForElement(
             'xpath',
