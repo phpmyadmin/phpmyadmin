@@ -86,6 +86,7 @@ phpMyAdmin - ChangeLog
 - issue        Add back UUID and UUID_SHORT to functions on MySQL and all MariaDB versions
 - issue #17398 Fix clicking on JSON columns triggers update query
 - issue        Fix silent JSON parse error on upload progress
+- issue #17833 Fix "Add Parameter" button not working for Add Routine Screen
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5
