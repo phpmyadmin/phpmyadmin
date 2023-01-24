@@ -760,11 +760,7 @@ class RoutinesTest extends AbstractTestCase
             ],
             [
                 $data,
-                'name="routine_addparameter"',
-            ],
-            [
-                $data,
-                'name="routine_removeparameter"',
+                'id="addRoutineParameterButton"',
             ],
             [
                 $data,
