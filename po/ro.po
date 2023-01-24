@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-01-22 00:21+0000\n"
+"POT-Creation-Date: 2023-01-24 21:44+0000\n"
 "PO-Revision-Date: 2022-12-08 08:48+0000\n"
 "Last-Translator: Emanuel <emanuel12m@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1384,7 +1384,7 @@ msgstr "Caută:"
 #: templates/database/operations/index.twig:75
 #: templates/database/operations/index.twig:185
 #: templates/database/operations/index.twig:225
-#: templates/database/routines/editor_form.twig:176
+#: templates/database/routines/editor_form.twig:180
 #: templates/database/routines/execute_form.twig:55
 #: templates/database/search/main.twig:74
 #: templates/database/triggers/editor_form.twig:69
@@ -8034,7 +8034,7 @@ msgid "No such column"
 msgstr "Nicio astfel de coloană"
 
 #: libraries/classes/Controllers/Normalization/GetColumnsController.php:35
-#: libraries/classes/Normalization.php:249 libraries/classes/Types.php:853
+#: libraries/classes/Normalization.php:249 libraries/classes/Types.php:844
 msgctxt "string types"
 msgid "String"
 msgstr "Șir"
@@ -11441,7 +11441,7 @@ msgstr "Nume"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:454
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:364
 #: templates/database/events/editor_form.twig:82
-#: templates/database/routines/editor_form.twig:109
+#: templates/database/routines/editor_form.twig:113
 #: templates/database/triggers/editor_form.twig:57
 msgid "Definition"
 msgstr "Definiție"
@@ -13701,17 +13701,17 @@ msgstr ""
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr "Stochează un Identificator Universal Unic (IDUU)"
 
-#: libraries/classes/Types.php:801
+#: libraries/classes/Types.php:792
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "Numeric"
 
-#: libraries/classes/Types.php:819
+#: libraries/classes/Types.php:810
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Dată și oră"
 
-#: libraries/classes/Types.php:855
+#: libraries/classes/Types.php:846
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Spațial"
@@ -14115,7 +14115,7 @@ msgstr "Motor"
 #: templates/config/form_display/input.twig:53
 #: templates/database/data_dictionary/index.twig:81
 #: templates/database/events/editor_form.twig:102
-#: templates/database/routines/editor_form.twig:163
+#: templates/database/routines/editor_form.twig:167
 #: templates/database/structure/table_header.twig:46 templates/indexes.twig:24
 #: templates/table/structure/display_partitions.twig:32
 #: templates/table/structure/display_structure.twig:483
@@ -14201,7 +14201,7 @@ msgstr "Colaționare"
 #: templates/columns_definitions/table_fields_definitions.twig:36
 #: templates/database/operations/index.twig:68
 #: templates/database/operations/index.twig:173
-#: templates/database/routines/editor_form.twig:124
+#: templates/database/routines/editor_form.twig:128
 #: templates/database/structure/copy_form.twig:50
 #: templates/table/operations/index.twig:79
 #: templates/table/operations/index.twig:115
@@ -14832,7 +14832,7 @@ msgid "On completion preserve"
 msgstr "Păstrare definitivă"
 
 #: templates/database/events/editor_form.twig:96
-#: templates/database/routines/editor_form.twig:138
+#: templates/database/routines/editor_form.twig:142
 #: templates/database/triggers/editor_form.twig:61
 #: templates/view_create.twig:45
 #, fuzzy
@@ -15226,37 +15226,38 @@ msgstr "Parametri"
 msgid "Direction"
 msgstr "Direcție"
 
-#: templates/database/routines/editor_form.twig:66
+#: templates/database/routines/editor_form.twig:67
+#: templates/database/routines/editor_form.twig:69
 msgid "Add parameter"
 msgstr "Adaugă parametru"
 
-#: templates/database/routines/editor_form.twig:67
+#: templates/database/routines/editor_form.twig:70
 msgid "Remove last parameter"
 msgstr "Înlătură ultimul parametru"
 
-#: templates/database/routines/editor_form.twig:71
+#: templates/database/routines/editor_form.twig:75
 msgid "Return type"
 msgstr "Tip de revenire"
 
-#: templates/database/routines/editor_form.twig:79
+#: templates/database/routines/editor_form.twig:83
 msgid "Return length/values"
 msgstr "Lungime/valori revenire"
 
-#: templates/database/routines/editor_form.twig:86
+#: templates/database/routines/editor_form.twig:90
 msgid "Return options"
 msgstr "Opțiuni revenire"
 
-#: templates/database/routines/editor_form.twig:90
+#: templates/database/routines/editor_form.twig:94
 #: templates/database/routines/parameter_row.twig:31
 #: templates/database/structure/table_header.twig:42
 msgid "Charset"
 msgstr "Set de caractere"
 
-#: templates/database/routines/editor_form.twig:115
+#: templates/database/routines/editor_form.twig:119
 msgid "Is deterministic"
 msgstr "Este determinat"
 
-#: templates/database/routines/editor_form.twig:131
+#: templates/database/routines/editor_form.twig:135
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details."
@@ -15264,11 +15265,11 @@ msgstr ""
 "Nu ai suficiente privilegii pentru a efectua această operațiune; Te rog "
 "consultă documentația pentru mai multe detalii."
 
-#: templates/database/routines/editor_form.twig:144
+#: templates/database/routines/editor_form.twig:148
 msgid "Security type"
 msgstr "Tip de securitate"
 
-#: templates/database/routines/editor_form.twig:153
+#: templates/database/routines/editor_form.twig:157
 msgid "SQL data access"
 msgstr "Acces la date SQL"
 
@@ -16436,6 +16437,32 @@ msgstr ""
 "instalează dependențe care lipsesc."
 
 #: templates/login/twofactor/key_configure.twig:3
+#: templates/login/twofactor/key.twig:3
+#: templates/preferences/two_factor/main.twig:56
+#, fuzzy
+#| msgid "Replicated"
+msgid "Deprecated!"
+msgstr "Reprodus"
+
+#: templates/login/twofactor/key_configure.twig:4
+#: templates/login/twofactor/key.twig:4
+#: templates/preferences/two_factor/main.twig:57
+#: templates/preferences/two_factor/main.twig:90
+msgid ""
+"The FIDO U2F API has been deprecated in favor of the Web Authentication API "
+"(WebAuthn)."
+msgstr ""
+
+#: templates/login/twofactor/key_configure.twig:6
+#: templates/login/twofactor/key.twig:6
+#: templates/preferences/two_factor/main.twig:59
+msgid ""
+"You can still use Firefox to authenticate your account using the FIDO U2F "
+"API, however it's recommended that you use the WebAuthn authentication "
+"instead."
+msgstr ""
+
+#: templates/login/twofactor/key_configure.twig:10
 msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm registration on the device."
@@ -16451,7 +16478,7 @@ msgstr ""
 "Nu folosești https pentru a accesa phpMyAdmin, prin urmare, dispozitivul "
 "FIDO U2F probabil va refuza să te autentifice."
 
-#: templates/login/twofactor/key.twig:3
+#: templates/login/twofactor/key.twig:10
 msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm login on the device."
@@ -16673,8 +16700,8 @@ msgstr ""
 "Poți să resetezi toate setările și să le restaurezi la valorile implicite."
 
 #: templates/preferences/two_factor/configure.twig:5
-#: templates/preferences/two_factor/main.twig:68
-#: templates/preferences/two_factor/main.twig:81
+#: templates/preferences/two_factor/main.twig:77
+#: templates/preferences/two_factor/main.twig:98
 msgid "Configure two-factor authentication"
 msgstr "Configurează autentificarea pe două niveluri"
 
@@ -16695,7 +16722,7 @@ msgstr ""
 "autentifici din nou folosind numai parola."
 
 #: templates/preferences/two_factor/confirm.twig:13
-#: templates/preferences/two_factor/main.twig:57
+#: templates/preferences/two_factor/main.twig:66
 msgid "Disable two-factor authentication"
 msgstr "Dezactivează autentificarea pe două niveluri"
 
