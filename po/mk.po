@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-01-22 00:21+0000\n"
-"PO-Revision-Date: 2023-01-17 01:51+0000\n"
+"PO-Revision-Date: 2023-01-24 21:42+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 4.16-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:241
 #, php-format
@@ -718,9 +718,8 @@ msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
 
 #: libraries/classes/Advisory/Rules.php:516
-#, fuzzy
 msgid "The thread cache is set to 0"
-msgstr "Вид на упит"
+msgstr "Кеш на тредови е подесен на 0"
 
 #: libraries/classes/Advisory/Rules.php:521
 #, fuzzy, no-php-format
@@ -2546,9 +2545,8 @@ msgid "Tab that is displayed when entering a table."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:559
-#, fuzzy
 msgid "Whether the table structure actions should be hidden."
-msgstr "Предложи структура на табелата"
+msgstr "Криење на акциите за структура на табели."
 
 #: libraries/classes/Config/Descriptions.php:560
 msgid "Whether column comments should be shown in table structure view"
@@ -3714,9 +3712,8 @@ msgid "Remember table's sorting"
 msgstr "Запомнете го сортирањето на табелата"
 
 #: libraries/classes/Config/Descriptions.php:873
-#, fuzzy
 msgid "Primary key default sort order"
-msgstr "Примарниот клуч %s е додаден."
+msgstr "Стандардно подредување на примарен клуч"
 
 #: libraries/classes/Config/Descriptions.php:874
 #, fuzzy
@@ -4856,15 +4853,15 @@ msgstr ""
 #: libraries/classes/Controllers/Database/StructureController.php:347
 #: templates/table/operations/index.twig:451
 #: templates/table/operations/view.twig:32
-#, fuzzy, php-format
+#, php-format
 msgid "View %s has been dropped."
-msgstr "Прегледот %s е избришан"
+msgstr "Прегледот %s беше отфрлен."
 
 #: libraries/classes/Controllers/Database/StructureController.php:348
 #: templates/table/operations/index.twig:451
-#, fuzzy, php-format
+#, php-format
 msgid "Table %s has been dropped."
-msgstr "Табелата %s е избришана"
+msgstr "Табелата %s е отфрлена."
 
 #: libraries/classes/Controllers/Database/StructureController.php:395
 #: templates/table/operations/index.twig:410
@@ -5102,9 +5099,8 @@ msgstr ""
 "граница."
 
 #: libraries/classes/Controllers/Import/ImportController.php:252
-#, fuzzy
 msgid "Incorrect format parameter"
-msgstr "Избриши ја базата на податоци."
+msgstr "Неточни параметри за форматирање"
 
 #: libraries/classes/Controllers/Import/ImportController.php:381
 #: libraries/classes/Controllers/Import/ImportController.php:622
@@ -5204,9 +5200,8 @@ msgid "Delete entry from tracking report?"
 msgstr "Избришете запис од извештајот за тракирање?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:70
-#, fuzzy
 msgid "Deleting tracking data"
-msgstr "Дозволува вметнување и замена на података."
+msgstr "Се бришат податоци за следење"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:71
 msgid "Dropping Primary Key/Index"
@@ -9146,9 +9141,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:14
-#, fuzzy
 msgid "The database name must be a non-empty string."
-msgstr "Името на базата на податоци е празно!"
+msgstr "Името на датабазата мора да биде не-празна низа на карактери."
 
 #: libraries/classes/Dbal/InvalidDatabaseName.php:22
 #, php-format
@@ -9177,15 +9171,13 @@ msgstr "Зборовите се одвојуваат со празно мест�
 
 #: libraries/classes/Display/Results.php:1266
 #: templates/display/results/table.twig:210
-#, fuzzy
 msgid "Partial texts"
-msgstr "Дел на текстот"
+msgstr "Деловни текстови"
 
 #: libraries/classes/Display/Results.php:1270
 #: templates/display/results/table.twig:214
-#, fuzzy
 msgid "Full texts"
-msgstr "Полн текст"
+msgstr "Полни текстови"
 
 #: libraries/classes/Display/Results.php:1611
 #: libraries/classes/Display/Results.php:1637 libraries/classes/Util.php:2463
@@ -14411,9 +14403,9 @@ msgid "Export the data of all tables."
 msgstr "Креирај нова табела во базата на податоци %s"
 
 #: templates/database/import/index.twig:3
-#, fuzzy, php-format
+#, php-format
 msgid "Importing into the database \"%s\""
-msgstr "Базата на податоци не постои"
+msgstr "Увоз во датабаза \"%s\""
 
 #: templates/database/multi_table_query/form.twig:4
 #: templates/database/qbe/index.twig:4
@@ -15460,9 +15452,9 @@ msgid "New column name"
 msgstr "Имиња на колони"
 
 #: templates/export.twig:343
-#, fuzzy, php-format
+#, php-format
 msgid "Use %s statement"
-msgstr "Име"
+msgstr "Користи %s изјава"
 
 #: templates/export.twig:352
 #, fuzzy
