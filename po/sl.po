@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-01-24 21:44+0000\n"
-"PO-Revision-Date: 2023-01-24 21:42+0000\n"
+"PO-Revision-Date: 2023-01-28 03:50+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -16328,10 +16328,8 @@ msgstr ""
 #: templates/login/twofactor/key_configure.twig:3
 #: templates/login/twofactor/key.twig:3
 #: templates/preferences/two_factor/main.twig:56
-#, fuzzy
-#| msgid "Replicated"
 msgid "Deprecated!"
-msgstr "Podvojeno"
+msgstr "Opuščeno!"
 
 #: templates/login/twofactor/key_configure.twig:4
 #: templates/login/twofactor/key.twig:4
@@ -16341,6 +16339,8 @@ msgid ""
 "The FIDO U2F API has been deprecated in favor of the Web Authentication API "
 "(WebAuthn)."
 msgstr ""
+"API FIDO U2F je bil opuščen in zamenjan z API-jem Web Authentication "
+"(WebAuthn)."
 
 #: templates/login/twofactor/key_configure.twig:6
 #: templates/login/twofactor/key.twig:6
@@ -16350,6 +16350,8 @@ msgid ""
 "API, however it's recommended that you use the WebAuthn authentication "
 "instead."
 msgstr ""
+"Še vedno lahko uporabljate Firefox za overitev svojega računa z API-jem FIDO "
+"U2F, vendar namesto tega priporočamo uporabo overitve WebAuthn."
 
 #: templates/login/twofactor/key_configure.twig:10
 msgid ""
