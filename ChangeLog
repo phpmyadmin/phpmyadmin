@@ -83,6 +83,7 @@ phpMyAdmin - ChangeLog
 - issue #17398 Fix clicking on JSON columns triggers update query
 - issue        Fix silent JSON parse error on upload progress
 - issue #17833 Fix "Add Parameter" button not working for Add Routine Screen
+- issue #17365 Fixed "Uncaught Error: regexp too big" on server status variables page
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5
