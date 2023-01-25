@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-01-24 21:44+0000\n"
-"PO-Revision-Date: 2022-12-08 08:48+0000\n"
-"Last-Translator: Emanuel <emanuel12m@gmail.com>\n"
+"PO-Revision-Date: 2023-01-28 03:50+0000\n"
+"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ro/>\n"
 "Language: ro\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 4.16-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:241
 #, php-format
@@ -729,7 +729,6 @@ msgid "Percentage of used open files limit"
 msgstr "Procentul limitei de fișiere deschise folosite"
 
 #: libraries/classes/Advisory/Rules.php:464
-#, fuzzy
 msgid ""
 "The number of open files is approaching the max number of open files. You "
 "may get a \"Too many open files\" error."
@@ -1101,7 +1100,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Buffer pool InnoDB este destul de mic."
 
 #: libraries/classes/Advisory/Rules.php:728
-#, fuzzy, no-php-format
+#, no-php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 "tables. Assign all your remaining memory to this buffer. For database "
@@ -1122,8 +1121,8 @@ msgstr ""
 "cu atenție consumul de memorie al celorlalte servicii și tabelele non-InnoDB "
 "și să setezi această variabilă în consecință. Dacă este setată o valoare "
 "prea mare, sistemul tău va începe să se schimbe, ceea ce scade semnificativ "
-"performanța. De asemenea, vezi <a href=\"https://www.percona.com/"
-"blog/2007/11/03/choosing-innodb_buffer_pool_size/\">acest articol</a>"
+"performanța. De asemenea, vezi <a href=\"https://www.percona.com/blog/2007/"
+"11/03/choosing-innodb_buffer_pool_size/\">acest articol</a>"
 
 #: libraries/classes/Advisory/Rules.php:738
 #, php-format
@@ -1855,6 +1854,7 @@ msgid "Enter the URL for your reCAPTCHA v2 compatible API."
 msgstr "Introduceți adresa URL pentru API-ul compatibil cu reCAPTCHA v2."
 
 #: libraries/classes/Config/Descriptions.php:106
+#, fuzzy
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
@@ -1865,27 +1865,27 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:107
 #, fuzzy
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
-msgstr "Introdu cheia ta privată pentru serviciul tău reCaptcha."
+msgstr "Introdu cheia ta privată pentru serviciul tău reCAPTCHA."
 
 #: libraries/classes/Config/Descriptions.php:108
 #, fuzzy
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
-msgstr "Introdu cheia ta privată pentru serviciul tău reCaptcha."
+msgstr "Introdu cheia ta privată pentru serviciul tău reCAPTCHA."
 
 #: libraries/classes/Config/Descriptions.php:109
 #, fuzzy
 msgid "Enter your public key for the reCAPTCHA service on your domain."
-msgstr "Introdu cheia publică pentru serviciul tău reCaptcha."
+msgstr "Introdu cheia publică pentru serviciul tău reCAPTCHA."
 
 #: libraries/classes/Config/Descriptions.php:110
 #, fuzzy
 msgid "Enter your private key for your domain reCAPTCHA service."
-msgstr "Introdu cheia ta privată pentru serviciul tău reCaptcha."
+msgstr "Introdu cheia ta privată pentru serviciul tău reCAPTCHA."
 
 #: libraries/classes/Config/Descriptions.php:111
 #, fuzzy
 msgid "Enter your siteverify URL for your reCAPTCHA service."
-msgstr "Introdu cheia ta privată pentru serviciul tău reCaptcha."
+msgstr "Introdu cheia ta privată pentru serviciul tău reCAPTCHA."
 
 #: libraries/classes/Config/Descriptions.php:113
 msgid ""
@@ -2250,14 +2250,13 @@ msgstr ""
 "„Următor”."
 
 #: libraries/classes/Config/Descriptions.php:287
-#, fuzzy
 msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"Numărul de octeți pe care un script poate să-l aloce, de exemplu: [kbd]32M[/"
-"kbd] ([kbd]-1[/kbd] pentru nicio limită și ([kbd]0[/kbd] pentru nicio "
-"modificare)."
+"Numărul de octeți pe care un script poate să-l aloce, de exemplu: "
+"[kbd]32M[/kbd] ([kbd]-1[/kbd] pentru nicio limită și ([kbd]0[/kbd] pentru "
+"nicio modificare)."
 
 #: libraries/classes/Config/Descriptions.php:291
 msgid "In the navigation panel, replaces the database tree with a selector"
@@ -2500,7 +2499,7 @@ msgid ""
 "[kbd]'my_db'[/kbd]."
 msgstr ""
 "Poți folosi metacaractere MySQL (% și _), să le escapezi dacă vrei să "
-"folosești instanțele lor literale, adică folosește  [kbd]'my\\_db'[/kbd] și "
+"folosești instanțele lor literale, adică folosește [kbd]'my\\_db'[/kbd] și "
 "nu [kbd]'my_db'[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:391
@@ -12384,13 +12383,12 @@ msgid "Hardware Security Key (FIDO U2F)"
 msgstr "Cheie de securitate hardware (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:218
-#, fuzzy
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a YubiKey."
 msgstr ""
 "Furnizează autentificare folosind tokenuri de securitate hardware care "
-"suportă FIDO U2F."
+"suportă FIDO U2F, cum ar fi YubiKey."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:73
 #, php-format
@@ -12425,13 +12423,12 @@ msgid "Hardware Security Key (WebAuthn/FIDO2)"
 msgstr "Cheie de securitate hardware (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:200
-#, fuzzy
 msgid ""
 "Provides authentication using hardware security tokens supporting the "
 "WebAuthn/FIDO2 protocol, such as a YubiKey."
 msgstr ""
 "Furnizează autentificare folosind tokenuri de securitate hardware care "
-"suportă FIDO U2F."
+"suportă protocolul WebAuthn/FIDO2, cum ar fi YubiKey."
 
 #: libraries/classes/Query/Utilities.php:97
 msgid ""
