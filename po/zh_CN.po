@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-01-24 21:44+0000\n"
-"PO-Revision-Date: 2022-12-04 10:16+0000\n"
-"Last-Translator: yangyangdaji <1504305527@qq.com>\n"
+"PO-Revision-Date: 2023-01-28 03:50+0000\n"
+"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 4.16-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:241
 #, php-format
@@ -11663,14 +11663,10 @@ msgid "Hardware Security Key (FIDO U2F)"
 msgstr "硬件安全密钥（FIDO U2F）"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:218
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F, such as a Yubikey."
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a YubiKey."
-msgstr "使用支持FIDO U2F的硬件安全令牌（如Yubikey）提供身份验证。"
+msgstr "使用支持FIDO U2F的硬件安全令牌（如YubiKey）提供身份验证。"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:73
 #, php-format
@@ -11698,10 +11694,8 @@ msgid "For testing purposes only!"
 msgstr "仅用于测试目的！"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:194
-#, fuzzy
-#| msgid "Hardware Security Key (FIDO U2F)"
 msgid "Hardware Security Key (WebAuthn/FIDO2)"
-msgstr "硬件安全密钥（FIDO U2F）"
+msgstr "硬件安全密钥（WebAuthn/FIDO2）"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:200
 #, fuzzy
