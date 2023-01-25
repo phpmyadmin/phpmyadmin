@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-01-24 21:44+0000\n"
-"PO-Revision-Date: 2022-10-25 08:01+0000\n"
-"Last-Translator: mixeros <mixer@mixercz.cz>\n"
+"PO-Revision-Date: 2023-01-28 03:50+0000\n"
+"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "cs/>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.14.2-dev\n"
+"X-Generator: Weblate 4.16-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:241
 #, php-format
@@ -12284,10 +12284,8 @@ msgid "For testing purposes only!"
 msgstr "Pouze pro testovací účely!"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:194
-#, fuzzy
-#| msgid "Hardware Security Key (FIDO U2F)"
 msgid "Hardware Security Key (WebAuthn/FIDO2)"
-msgstr "Hardwarový bezpečnostní klíč (FIDO U2F)"
+msgstr "Hardwarový bezpečnostní klíč (WebAuthn/FIDO2)"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:200
 #, fuzzy
@@ -16237,10 +16235,8 @@ msgstr ""
 #: templates/login/twofactor/key_configure.twig:3
 #: templates/login/twofactor/key.twig:3
 #: templates/preferences/two_factor/main.twig:56
-#, fuzzy
-#| msgid "Replicated"
 msgid "Deprecated!"
-msgstr "Replikováno"
+msgstr "Zastaralé!"
 
 #: templates/login/twofactor/key_configure.twig:4
 #: templates/login/twofactor/key.twig:4
