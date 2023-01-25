@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-01-24 21:44+0000\n"
-"PO-Revision-Date: 2022-10-20 10:02+0000\n"
-"Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
+"PO-Revision-Date: 2023-01-28 03:50+0000\n"
+"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/et/>\n"
 "Language: et\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.2-dev\n"
+"X-Generator: Weblate 4.16-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:241
 #, php-format
@@ -12253,15 +12253,11 @@ msgid "Hardware Security Key (FIDO U2F)"
 msgstr "Riistvaraline turvavõti (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:218
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F, such as a Yubikey."
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a YubiKey."
 msgstr ""
-"Võimaldab autentimist FIDO U2F toega riistvaralise pääsmikuga (nt Yubikey)."
+"Võimaldab autentimist FIDO U2F toega riistvaralise pääsmikuga (nt YubiKey)."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:73
 #, php-format
@@ -12289,10 +12285,8 @@ msgid "For testing purposes only!"
 msgstr "Ainult testimiseks!"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:194
-#, fuzzy
-#| msgid "Hardware Security Key (FIDO U2F)"
 msgid "Hardware Security Key (WebAuthn/FIDO2)"
-msgstr "Riistvaraline turvavõti (FIDO U2F)"
+msgstr "Riistvaraline turvavõti (WebAuthn/FIDO2)"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:200
 #, fuzzy
@@ -12303,7 +12297,7 @@ msgid ""
 "Provides authentication using hardware security tokens supporting the "
 "WebAuthn/FIDO2 protocol, such as a YubiKey."
 msgstr ""
-"Võimaldab autentimist FIDO U2F toega riistvaralise pääsmikuga (nt Yubikey)."
+"Võimaldab autentimist FIDO U2F toega riistvaralise pääsmikuga (nt YubiKey)."
 
 #: libraries/classes/Query/Utilities.php:97
 msgid ""
