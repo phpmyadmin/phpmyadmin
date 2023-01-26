@@ -2585,62 +2585,35 @@
     <InvalidArgument occurrences="1">
       <code>$GLOBALS['sql_query']</code>
     </InvalidArgument>
-    <MixedArgument occurrences="11">
+    <MixedArgument occurrences="9">
       <code>$GLOBALS['message']</code>
-      <code>$GLOBALS['password'] ?? ''</code>
-      <code>$GLOBALS['password'] ?? null</code>
-      <code>$GLOBALS['queries']</code>
-      <code>$GLOBALS['queries']</code>
-      <code>$GLOBALS['queries']</code>
-      <code>$GLOBALS['queries_for_display']</code>
-      <code>$GLOBALS['url_dbname'] ?? ''</code>
-      <code>$GLOBALS['url_dbname'] ?? ''</code>
       <code>$db_name ?? ''</code>
+      <code>$queries</code>
+      <code>$queries</code>
+      <code>$queries</code>
+      <code>$queriesForDisplay</code>
       <code>$request-&gt;getParsedBodyParam('userGroup')</code>
+      <code>$urlDbname ?? ''</code>
+      <code>$urlDbname ?? ''</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
-      <code>$GLOBALS['queries']</code>
+      <code>$queries</code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="28">
-      <code>$GLOBALS['_add_user_error']</code>
-      <code>$GLOBALS['db_and_table']</code>
+    <MixedAssignment occurrences="10">
       <code>$GLOBALS['dbname']</code>
-      <code>$GLOBALS['dbname_is_wildcard']</code>
       <code>$GLOBALS['errorUrl']</code>
-      <code>$GLOBALS['export']</code>
-      <code>$GLOBALS['grants']</code>
-      <code>$GLOBALS['itemType']</code>
       <code>$GLOBALS['message']</code>
       <code>$GLOBALS['num_tables']</code>
-      <code>$GLOBALS['one_grant']</code>
-      <code>$GLOBALS['password']</code>
       <code>$GLOBALS['pos']</code>
-      <code>$GLOBALS['post_patterns']</code>
-      <code>$GLOBALS['queries']</code>
-      <code>$GLOBALS['queries']</code>
-      <code>$GLOBALS['queries_for_display']</code>
-      <code>$GLOBALS['ret_message']</code>
-      <code>$GLOBALS['ret_queries']</code>
-      <code>$GLOBALS['routinename']</code>
-      <code>$GLOBALS['tablename']</code>
       <code>$GLOBALS['tables']</code>
-      <code>$GLOBALS['title']</code>
       <code>$GLOBALS['tooltip_aliasname']</code>
       <code>$GLOBALS['tooltip_truename']</code>
       <code>$GLOBALS['total_num_tables']</code>
-      <code>$GLOBALS['url_dbname']</code>
       <code>$db_name</code>
     </MixedAssignment>
-    <MixedOperand occurrences="2">
-      <code>$GLOBALS['export']</code>
-      <code>$GLOBALS['title']</code>
-    </MixedOperand>
     <PossiblyNullArgument occurrences="1">
       <code>$GLOBALS['text_dir']</code>
     </PossiblyNullArgument>
-    <TypeDoesNotContainType occurrences="1">
-      <code>$GLOBALS['_add_user_error'] === true</code>
-    </TypeDoesNotContainType>
     <UnusedVariable occurrences="1">
       <code>$key</code>
     </UnusedVariable>
@@ -4044,18 +4017,17 @@
       <code>$GLOBALS['change_password_message']['msg']</code>
       <code>$GLOBALS['msg']</code>
       <code>$GLOBALS['msg']-&gt;getDisplay()</code>
-      <code>$GLOBALS['password']</code>
+      <code>$password</code>
       <code>$pmaPw</code>
       <code>$pmaPw2</code>
       <code>$request-&gt;getParsedBodyParam('authentication_plugin')</code>
     </MixedArgument>
-    <MixedAssignment occurrences="8">
+    <MixedAssignment occurrences="7">
       <code>$GLOBALS['change_password_message']</code>
       <code>$GLOBALS['msg']</code>
       <code>$GLOBALS['msg']</code>
-      <code>$GLOBALS['password']</code>
-      <code>$GLOBALS['password']</code>
       <code>$noPass</code>
+      <code>$password</code>
       <code>$pmaPw</code>
       <code>$pmaPw2</code>
     </MixedAssignment>
@@ -12125,7 +12097,7 @@
       <code>$specificPrivileges[$grant[0]]</code>
       <code>$specificPrivileges[$grant[0]]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="54">
+    <MixedAssignment occurrences="53">
       <code>$GLOBALS[$key]</code>
       <code>$GLOBALS['new_username']</code>
       <code>$GLOBALS['pred_hostname']</code>
@@ -12150,7 +12122,6 @@
       <code>$paramDbName</code>
       <code>$paramRoutineName</code>
       <code>$paramTableName</code>
-      <code>$password</code>
       <code>$privilege</code>
       <code>$privilege['routine']</code>
       <code>$privilege['table']</code>
@@ -12181,10 +12152,11 @@
       <code>$val</code>
       <code>$value</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="3">
+    <MixedInferredReturnType occurrences="4">
       <code>string</code>
       <code>string</code>
       <code>string</code>
+      <code>string|null</code>
     </MixedInferredReturnType>
     <MixedOperand occurrences="13">
       <code>$createUserShow</code>
@@ -12201,10 +12173,11 @@
       <code>$privilege['User']</code>
       <code>$sqlQuery</code>
     </MixedOperand>
-    <MixedReturnStatement occurrences="3">
+    <MixedReturnStatement occurrences="4">
       <code>$authenticationPlugin</code>
       <code>$result['password']</code>
       <code>$routine['type']</code>
+      <code>$row['password']</code>
     </MixedReturnStatement>
     <NullArgument occurrences="2">
       <code>null</code>
@@ -12281,7 +12254,7 @@
       <code>$eachUser</code>
       <code>$oldUserGroup</code>
     </PossiblyInvalidCast>
-    <PossiblyInvalidOperand occurrences="8">
+    <PossiblyInvalidOperand occurrences="7">
       <code>$_POST['authentication_plugin']</code>
       <code>$_POST['authentication_plugin']</code>
       <code>$_POST['old_hostname']</code>
@@ -12289,7 +12262,6 @@
       <code>$authenticationPlugin</code>
       <code>$authenticationPlugin</code>
       <code>$authenticationPlugin</code>
-      <code>$dbAndTable[$key]</code>
     </PossiblyInvalidOperand>
     <PossiblyNullArgument occurrences="13">
       <code>$privileges</code>
@@ -15612,14 +15584,12 @@
       <code>escapeString</code>
       <code>escapeString</code>
     </DeprecatedMethod>
-    <MixedArgument occurrences="7">
-      <code>$export</code>
+    <MixedArgument occurrences="5">
       <code>$extra_data['new_privileges']</code>
       <code>$extra_data['new_user_string']</code>
       <code>$extra_data['new_user_string']</code>
       <code>$real_sql_query</code>
       <code>$sql_query</code>
-      <code>$title</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$serverPrivileges-&gt;extractPrivInfo(null, true)</code>

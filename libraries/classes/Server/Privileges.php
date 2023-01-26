@@ -27,7 +27,6 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function array_filter;
-use function array_keys;
 use function array_map;
 use function array_merge;
 use function array_unique;
@@ -2364,13 +2363,10 @@ class Privileges
     /**
      * Get List of information: Changes / copies a user
      *
-     * @return array
+     * @return string|null
      */
     public function getDataForChangeOrCopyUser()
     {
-        $queries = null;
-        $password = null;
-
         if (isset($_POST['change_copy'])) {
             $userHostCondition = ' WHERE `User` = '
                 . "'" . $this->dbi->escapeString($_POST['old_username']) . "'"
@@ -2428,15 +2424,11 @@ class Privileges
                     $row['password'] = $row['authentication_string'];
                 }
 
-                $password = $row['password'];
-                $queries = [];
+                return $row['password'];
             }
         }
 
-        return [
-            $queries,
-            $password,
-        ];
+        return null;
     }
 
     /**
@@ -2734,7 +2726,7 @@ class Privileges
      * Update DB information: DB, Table, isWildcard
      *
      * @return array
-     * @psalm-return array{?string, ?string, array|string|null, ?string, ?string, array|string, bool}
+     * @psalm-return array{?string, ?string, array|string|null, ?string, ?string, bool}
      */
     public function getDataForDBInfo()
     {
@@ -2808,27 +2800,6 @@ class Privileges
             }
         }
 
-        $dbAndTable = '*.*';
-        if ($dbname === null) {
-            $tablename = null;
-        } else {
-            if (is_array($dbname)) {
-                $dbAndTable = $dbname;
-                foreach (array_keys($dbAndTable) as $key) {
-                    $dbAndTable[$key] .= '.*';
-                }
-            } else {
-                $unescapedDb = $this->unescapeGrantWildcards($dbname);
-                $dbAndTable = Util::backquote($unescapedDb) . '.';
-
-                if ($tablename !== null) {
-                    $dbAndTable .= Util::backquote($tablename);
-                } else {
-                    $dbAndTable .= '*';
-                }
-            }
-        }
-
         // check if given $dbname is a wildcard or not
         $databaseNameIsWildcard = is_string($dbname) && preg_match('/(?<!\\\\)(?:_|%)/', $dbname);
 
@@ -2838,7 +2809,6 @@ class Privileges
             $dbname,
             $tablename,
             $routinename,
-            $dbAndTable,
             $databaseNameIsWildcard,
         ];
     }
@@ -2849,7 +2819,7 @@ class Privileges
      * @param string $username username
      * @param string $hostname host name
      *
-     * @return array ($title, $export)
+     * @return string[] ($title, $export)
      */
     public function getListForExportUserDefinition(string $username, string $hostname)
     {
