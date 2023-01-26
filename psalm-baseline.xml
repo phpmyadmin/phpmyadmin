@@ -13895,9 +13895,6 @@
       <code>(int) $timestamp</code>
       <code>(int) $timestamp</code>
     </RedundantCastGivenDocblockType>
-    <RedundantCondition occurrences="1">
-      <code>$columnsList !== null</code>
-    </RedundantCondition>
   </file>
   <file src="libraries/classes/Utils/ForeignKey.php">
     <RedundantCastGivenDocblockType occurrences="1">

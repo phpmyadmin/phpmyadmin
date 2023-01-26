@@ -1581,21 +1581,16 @@ class Util
         if (str_contains($string, '@COLUMNS@')) {
             $columnsList = $GLOBALS['dbi']->getColumns($GLOBALS['db'], $GLOBALS['table']);
 
-            // sometimes the table no longer exists at this point
-            if ($columnsList !== null) {
-                $columnNames = [];
-                foreach ($columnsList as $column) {
-                    if ($escape !== null) {
-                        $columnNames[] = self::$escape($column['Field']);
-                    } else {
-                        $columnNames[] = $column['Field'];
-                    }
+            $columnNames = [];
+            foreach ($columnsList as $column) {
+                if ($escape !== null) {
+                    $columnNames[] = self::$escape($column['Field']);
+                } else {
+                    $columnNames[] = $column['Field'];
                 }
-
-                $replace['@COLUMNS@'] = implode(',', $columnNames);
-            } else {
-                $replace['@COLUMNS@'] = '*';
             }
+
+            $replace['@COLUMNS@'] = implode(',', $columnNames);
         }
 
         /* Do the replacement */
