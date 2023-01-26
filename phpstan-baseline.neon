@@ -1866,11 +1866,6 @@ parameters:
 			path: libraries/classes/Controllers/Setup/ServersController.php
 
 		-
-			message: "#^Constructor of class PhpMyAdmin\\\\Controllers\\\\Sql\\\\ColumnPreferencesController has an unused parameter \\$sql\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Sql/ColumnPreferencesController.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function htmlentities expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Sql/SetValuesController.php
