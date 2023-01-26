@@ -936,11 +936,6 @@ parameters:
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
-			message: "#^Parameter \\#1 \\$list of class PhpMyAdmin\\\\SqlParser\\\\Parser constructor expects PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string\\|null, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
 			message: "#^Parameter \\#2 \\$callback of function usort expects callable\\(string\\|null, string\\|null\\)\\: int, 'strnatcasecmp' given\\.$#"
 			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
@@ -1244,11 +1239,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/Structure/ReplacePrefixController.php
-
-		-
-			message: "#^Parameter \\#1 \\$buffer of static method PhpMyAdmin\\\\Core\\:\\:mimeDefaultFunction\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/Structure/ShowCreateController.php
 
 		-
 			message: "#^Parameter \\#1 \\$selected of method PhpMyAdmin\\\\Controllers\\\\Database\\\\Structure\\\\ShowCreateController\\:\\:getShowCreateTables\\(\\) expects array\\<string\\>, mixed given\\.$#"
@@ -2036,11 +2026,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/Structure/PartitioningController.php
 
 		-
-			message: "#^Parameter \\#1 \\$list of class PhpMyAdmin\\\\SqlParser\\\\Parser constructor expects PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string\\|null, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/Structure/PartitioningController.php
-
-		-
 			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\>\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/Structure/PartitioningController.php
@@ -2197,11 +2182,6 @@ parameters:
 
 		-
 			message: "#^PHPDoc tag @var for variable \\$view has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/View/CreateController.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function substr expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/View/CreateController.php
 
@@ -5726,11 +5706,6 @@ parameters:
 			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\AuthenticationPlugin\\:\\:\\$user \\(string\\) in isset\\(\\) is not nullable\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationHttp.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Auth\\\\AuthenticationSignon\\:\\:setCookieParams\\(\\) has parameter \\$sessionCookieParams with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
@@ -8252,11 +8227,6 @@ parameters:
 
 		-
 			message: "#^Negated boolean expression is always false\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Parameter \\#1 \\$list of class PhpMyAdmin\\\\SqlParser\\\\Parser constructor expects PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
 

@@ -3246,7 +3246,7 @@ class Results
         // The value can also be from _GET as described on issue #16146 when sorting results
         $sessionMaxRows = $_GET['session_max_rows'] ?? $_POST['session_max_rows'] ?? '';
 
-        if (isset($sessionMaxRows) && is_numeric($sessionMaxRows)) {
+        if (is_numeric($sessionMaxRows)) {
             $query['max_rows'] = (int) $sessionMaxRows;
             unset($_GET['session_max_rows'], $_POST['session_max_rows']);
         } elseif ($sessionMaxRows === self::ALL_ROWS) {

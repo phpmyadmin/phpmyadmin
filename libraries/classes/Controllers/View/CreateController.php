@@ -24,7 +24,6 @@ use function array_merge;
 use function explode;
 use function htmlspecialchars;
 use function in_array;
-use function is_string;
 use function sprintf;
 use function str_contains;
 use function substr;
@@ -270,7 +269,7 @@ class CreateController extends AbstractController
             $GLOBALS['view']['algorithm'] = $GLOBALS['item']['ALGORITHM'];
 
             // MySQL 8.0+ - issue #16194
-            if (empty($GLOBALS['view']['as']) && is_string($createView)) {
+            if (empty($GLOBALS['view']['as'])) {
                 $parser = new Parser($createView);
                 /**
                  * @var CreateStatement $stmt

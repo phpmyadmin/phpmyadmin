@@ -768,7 +768,7 @@
     </InvalidArgument>
     <InvalidReturnStatement occurrences="1"/>
     <InvalidReturnType occurrences="1"/>
-    <MixedArgument occurrences="18">
+    <MixedArgument occurrences="17">
       <code>$_SESSION['sql_history']</code>
       <code>$_SESSION['sql_history']</code>
       <code>$_SESSION['sql_history']</code>
@@ -785,7 +785,6 @@
       <code>$foreign_table</code>
       <code>$foreign_table</code>
       <code>$one_key['index_list']</code>
-      <code>$show_create_table</code>
       <code>$tableNameReplacements[$tableName]</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
@@ -818,7 +817,7 @@
       <code>$foreign[$key]</code>
       <code>$one_key['ref_index_list'][$column_index]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="25">
+    <MixedAssignment occurrences="24">
       <code>$child_references</code>
       <code>$column</code>
       <code>$columns</code>
@@ -840,7 +839,6 @@
       <code>$key</code>
       <code>$one_key</code>
       <code>$relations</code>
-      <code>$show_create_table</code>
       <code>$the_total</code>
       <code>$value</code>
       <code>$value</code>
@@ -1621,8 +1619,7 @@
     </RedundantCast>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/ShowCreateController.php">
-    <MixedArgument occurrences="2">
-      <code>$object-&gt;showCreate()</code>
+    <MixedArgument occurrences="1">
       <code>$selected</code>
     </MixedArgument>
     <MixedAssignment occurrences="1">
@@ -3122,32 +3119,25 @@
     <InvalidArgument occurrences="1">
       <code>$_REQUEST['pos']</code>
     </InvalidArgument>
-    <MixedArgument occurrences="3">
+    <MixedArgument occurrences="4">
       <code>$GLOBALS['disp_message'] ?? null</code>
       <code>$GLOBALS['disp_query'] ?? null</code>
+      <code>$GLOBALS['sql_query']</code>
       <code>$row</code>
     </MixedArgument>
-    <MixedAssignment occurrences="4">
+    <MixedAssignment occurrences="5">
       <code>$GLOBALS['active_page']</code>
       <code>$GLOBALS['disp_message']</code>
       <code>$GLOBALS['disp_query']</code>
+      <code>$GLOBALS['sql_query']</code>
       <code>$row</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$GLOBALS['sql_query']</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="1">
-      <code>$GLOBALS['sql_query']</code>
-    </PossiblyInvalidCast>
     <PossiblyInvalidIterator occurrences="1">
       <code>$selected</code>
     </PossiblyInvalidIterator>
     <PossiblyNullArgument occurrences="1">
       <code>$GLOBALS['goto']</code>
     </PossiblyNullArgument>
-    <RedundantCondition occurrences="1">
-      <code>isset($original_sql_query)</code>
-    </RedundantCondition>
   </file>
   <file src="libraries/classes/Controllers/Table/DropColumnController.php">
     <MixedArgument occurrences="3">
@@ -3741,12 +3731,6 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/PartitioningController.php">
-    <MixedArgument occurrences="1">
-      <code>$createTable</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$createTable</code>
-    </MixedAssignment>
     <PossiblyNullArgument occurrences="2">
       <code>$stmt-&gt;partitions</code>
       <code>$stmt-&gt;partitions[0]-&gt;subpartitions</code>
@@ -4096,8 +4080,7 @@
     <DocblockTypeContradiction occurrences="1">
       <code>$GLOBALS['view']['as']</code>
     </DocblockTypeContradiction>
-    <MixedArgument occurrences="8">
-      <code>$createView</code>
+    <MixedArgument occurrences="7">
       <code>$view['as']</code>
       <code>$view['column_names']</code>
       <code>$view['definer']</code>
@@ -4106,7 +4089,7 @@
       <code>$view['name']</code>
       <code>$view['name']</code>
     </MixedArgument>
-    <MixedAssignment occurrences="20">
+    <MixedAssignment occurrences="19">
       <code>$GLOBALS['arr']</code>
       <code>$GLOBALS['column_map']</code>
       <code>$GLOBALS['item']</code>
@@ -4126,7 +4109,6 @@
       <code>$GLOBALS['view_columns']</code>
       <code>$GLOBALS['view_security_options']</code>
       <code>$GLOBALS['view_with_options']</code>
-      <code>$createView</code>
     </MixedAssignment>
     <MixedOperand occurrences="5">
       <code>$view['algorithm']</code>
@@ -4147,10 +4129,6 @@
       <code>$_GET['table']</code>
       <code>$_GET['table']</code>
     </PossiblyInvalidCast>
-    <RedundantCondition occurrences="2">
-      <code>empty($GLOBALS['view']['as']) &amp;&amp; is_string($createView)</code>
-      <code>is_string($createView)</code>
-    </RedundantCondition>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>isset($stmt-&gt;body)</code>
     </RedundantConditionGivenDocblockType>
@@ -6031,9 +6009,8 @@
       <code>(int) $GLOBALS['cfg']['LimitChars']</code>
       <code>(int) $GLOBALS['cfg']['LimitChars']</code>
     </RedundantCast>
-    <RedundantCondition occurrences="2">
+    <RedundantCondition occurrences="1">
       <code>empty($statementInfo-&gt;statement-&gt;from)</code>
-      <code>isset($sessionMaxRows)</code>
     </RedundantCondition>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>isset($meta-&gt;internalMediaType)</code>
@@ -7562,8 +7539,9 @@
     <PossiblyNullIterator occurrences="1">
       <code>$statement-&gt;set</code>
     </PossiblyNullIterator>
-    <RedundantCondition occurrences="1">
-      <code>empty($diff)</code>
+    <RedundantCondition occurrences="2">
+      <code>$diff !== []</code>
+      <code>$diff !== []</code>
     </RedundantCondition>
   </file>
   <file src="libraries/classes/Index.php">
@@ -9013,9 +8991,6 @@
     <PossiblyInvalidCast occurrences="1">
       <code>$old_usr</code>
     </PossiblyInvalidCast>
-    <RedundantCondition occurrences="1">
-      <code>isset($this-&gt;user)</code>
-    </RedundantCondition>
   </file>
   <file src="libraries/classes/Plugins/Auth/AuthenticationSignon.php">
     <MixedArgument occurrences="6">
@@ -12546,11 +12521,6 @@
       <code>$row['#']</code>
     </PossiblyNullOperand>
   </file>
-  <file src="libraries/classes/Server/Status/Processes.php">
-    <RedundantCondition occurrences="1">
-      <code>0 !== --$sortableColCount</code>
-    </RedundantCondition>
-  </file>
   <file src="libraries/classes/Session.php">
     <MixedArgument occurrences="3">
       <code>$config-&gt;getCookie('phpMyAdmin')</code>
@@ -12883,7 +12853,7 @@
     <InvalidReturnStatement occurrences="1">
       <code>$tableAutoIncrement ?? ''</code>
     </InvalidReturnStatement>
-    <MixedArgument occurrences="49">
+    <MixedArgument occurrences="48">
       <code>$GLOBALS['sql_auto_increments']</code>
       <code>$GLOBALS['sql_indexes']</code>
       <code>$_POST['constraint_name'][$masterFieldMd5]</code>
@@ -12894,7 +12864,6 @@
       <code>$column['Extra']</code>
       <code>$column['Extra']</code>
       <code>$column['Extra']</code>
-      <code>$createTable</code>
       <code>$eachCol</code>
       <code>$eachCol</code>
       <code>$existrelForeign[$masterFieldMd5]['constraint']</code>
@@ -13002,7 +12971,7 @@
       <code>$optionsArray[$existrelForeign[$masterFieldMd5]['on_delete'] ?? '']</code>
       <code>$optionsArray[$existrelForeign[$masterFieldMd5]['on_update'] ?? '']</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="49">
+    <MixedAssignment occurrences="48">
       <code>$GLOBALS['errorUrl']</code>
       <code>$altered</code>
       <code>$altered</code>
@@ -13013,7 +12982,6 @@
       <code>$column</code>
       <code>$columns[$row['Field']]</code>
       <code>$constraintName</code>
-      <code>$createTable</code>
       <code>$currCreateTime</code>
       <code>$eachCol</code>
       <code>$exactRowsCached</code>

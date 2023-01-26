@@ -180,12 +180,12 @@ class AuthenticationHttp extends AuthenticationPlugin
 
         // User logged out -> ensure the new username is not the same
         $old_usr = $_REQUEST['old_usr'] ?? '';
-        if (! empty($old_usr) && (isset($this->user) && hash_equals($old_usr, $this->user))) {
+        if (! empty($old_usr) && hash_equals($old_usr, $this->user)) {
             $this->user = '';
         }
 
         // Returns whether we get authentication settings or not
-        return ! empty($this->user);
+        return $this->user !== '';
     }
 
     /**
