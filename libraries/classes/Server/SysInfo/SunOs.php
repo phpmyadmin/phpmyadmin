@@ -15,13 +15,6 @@ use function trim;
 class SunOs extends Base
 {
     /**
-     * The OS name
-     *
-     * @var string
-     */
-    public $os = 'SunOS';
-
-    /**
      * Read value from kstat
      *
      * @param string $key Key to read

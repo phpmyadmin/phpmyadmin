@@ -21,13 +21,6 @@ class WindowsNt extends Base
     private $wmiService = null;
 
     /**
-     * The OS name
-     *
-     * @var string
-     */
-    public $os = 'WINNT';
-
-    /**
      * Constructor to access to wmi database.
      */
     public function __construct()
