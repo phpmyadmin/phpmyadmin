@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-01-24 21:44+0000\n"
-"PO-Revision-Date: 2023-01-24 21:42+0000\n"
+"PO-Revision-Date: 2023-01-28 03:50+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -5208,9 +5208,8 @@ msgid "Dropping Primary Key/Index"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:72
-#, fuzzy
 msgid "Dropping Foreign key."
-msgstr "Исклучи проверка на надворешни клучеви"
+msgstr "Отфрли Странски клуч."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:73
 msgid "This operation could take a long time. Proceed anyway?"
@@ -5370,9 +5369,8 @@ msgid "Composite with:"
 msgstr "Kомбиниранo со:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:131
-#, fuzzy
 msgid "Please select column(s) for the index."
-msgstr "Додади %s полиња"
+msgstr "Молиме одберете колон(а/и) за индексот."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:134
 #: templates/columns_definitions/column_definitions_form.twig:156
@@ -5509,9 +5507,8 @@ msgid "Unlock this account."
 msgstr "Вклучи го овој корисник."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:161
-#, fuzzy
 msgid "Template was created."
-msgstr "Табелата %s е избришана"
+msgstr "Шаблонот беше создаден."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:162
 msgid "Template was loaded."
@@ -5523,9 +5520,8 @@ msgid "Template was updated."
 msgstr "Профилот е променет."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:164
-#, fuzzy
 msgid "Template was deleted."
-msgstr "Записот е избришан"
+msgstr "Шаблонот беше избришан."
 
 #. l10n: Other, small valued, queries
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:167
@@ -6182,9 +6178,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:362
-#, fuzzy
 msgid "No accounts selected."
-msgstr "Нема селектирани записи"
+msgstr "Не се одберени акаунти."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:363
 msgid "Dropping column"
@@ -6747,9 +6742,8 @@ msgstr ""
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:541
 #: templates/database/designer/main.twig:40
 #: templates/database/designer/main.twig:43
-#, fuzzy
 msgid "Add tables from other databases"
-msgstr "Табелите не се пронајдени во базата на податоци."
+msgstr "Додади табели од други датабази"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:542
 msgid "Page name"
@@ -6862,9 +6856,8 @@ msgid "Click to mark/unmark."
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:576
-#, fuzzy
 msgid "Double-click to copy column name."
-msgstr "Имиња на колони"
+msgstr "Дупло-кликнете за до го копирате името на колоната."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:577
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
@@ -7680,9 +7673,8 @@ msgid "Could not import configuration"
 msgstr ""
 
 #: libraries/classes/Controllers/Preferences/TwoFactorController.php:51
-#, fuzzy
 msgid "Two-factor authentication has been removed."
-msgstr "Внатрешни релации"
+msgstr "Дво-факторната автентикација се отстрани."
 
 #: libraries/classes/Controllers/Preferences/TwoFactorController.php:62
 msgid "Two-factor authentication has been configured."
@@ -15591,9 +15583,9 @@ msgid "Point %d:"
 msgstr "Точка %d"
 
 #: templates/gis_data_editor_form.twig:113
-#, fuzzy, php-format
+#, php-format
 msgid "Linestring %d:"
-msgstr "Линиите се завршуваат со"
+msgstr "Линија текст %d:"
 
 #: templates/gis_data_editor_form.twig:115
 #: templates/gis_data_editor_form.twig:170
@@ -15657,14 +15649,14 @@ msgid "from %s branch"
 msgstr ""
 
 #: templates/home/git_info.twig:25
-#, fuzzy, php-format
+#, php-format
 msgid "committed on %s by %s"
-msgstr "Верзија на серверот"
+msgstr "комитирано на %s од %s"
 
 #: templates/home/git_info.twig:32
-#, fuzzy, php-format
+#, php-format
 msgid "authored on %s by %s"
-msgstr "Верзија на серверот"
+msgstr "напишано на %s од %s"
 
 #: templates/home/index.twig:22 templates/login/form.twig:8
 #, php-format
@@ -15803,9 +15795,9 @@ msgid "Get more themes!"
 msgstr ""
 
 #: templates/home/themes.twig:8
-#, fuzzy, php-format
+#, php-format
 msgid "Screenshot of the %s theme."
-msgstr "Шема на базата \"%s\" - Страница %s"
+msgstr "Слика од екранот на темата %s."
 
 #. l10n: Choose the theme button in the themes list modal
 #: templates/home/themes.twig:14
@@ -16588,9 +16580,9 @@ msgid "Replica replication"
 msgstr "Релации"
 
 #: templates/server/databases/index.twig:181
-#, fuzzy, php-format
+#, php-format
 msgid "Jump to database '%s'"
-msgstr "Базата на податоци не постои"
+msgstr "Прескокни во базата на податоци '%s'"
 
 #: templates/server/databases/index.twig:239
 #, php-format
@@ -17450,27 +17442,27 @@ msgstr "Освежи"
 
 #: templates/server/status/monitor/index.twig:43
 #: templates/server/status/processes/index.twig:40
-#, fuzzy, php-format
+#, php-format
 msgid "%d second"
-msgstr "во секунда"
+msgstr "%d секунда"
 
 #: templates/server/status/monitor/index.twig:45
 #: templates/server/status/processes/index.twig:42
-#, fuzzy, php-format
+#, php-format
 msgid "%d seconds"
-msgstr "во секунда"
+msgstr "%d секунди"
 
 #: templates/server/status/monitor/index.twig:49
 #: templates/server/status/processes/index.twig:46
-#, fuzzy, php-format
+#, php-format
 msgid "%d minute"
-msgstr "во минута"
+msgstr "%d минута"
 
 #: templates/server/status/monitor/index.twig:51
 #: templates/server/status/processes/index.twig:48
-#, fuzzy, php-format
+#, php-format
 msgid "%d minutes"
-msgstr "во минута"
+msgstr "%d минути"
 
 #: templates/server/status/monitor/index.twig:61
 #, fuzzy
