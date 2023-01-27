@@ -628,23 +628,6 @@
       <code>string[]</code>
     </MixedReturnTypeCoercion>
   </file>
-  <file src="libraries/classes/Config/Forms/BaseFormList.php">
-    <MixedAssignment occurrences="4">
-      <code>$form</code>
-      <code>$form</code>
-      <code>$form</code>
-      <code>$form</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="4">
-      <code>displayErrors</code>
-      <code>fixErrors</code>
-      <code>hasErrors</code>
-      <code>process</code>
-    </MixedMethodCall>
-    <MixedOperand occurrences="1">
-      <code>$form-&gt;displayErrors()</code>
-    </MixedOperand>
-  </file>
   <file src="libraries/classes/Config/Forms/Setup/FeaturesForm.php">
     <MixedArgument occurrences="1">
       <code>$result['Databases']</code>
@@ -665,9 +648,6 @@
     <PossiblyNullArgument occurrences="1">
       <code>$error</code>
     </PossiblyNullArgument>
-    <PossiblyNullOperand occurrences="1">
-      <code>$formDisplay-&gt;displayErrors()</code>
-    </PossiblyNullOperand>
     <ReferenceConstraintViolation occurrences="1">
       <code>return $retval;</code>
     </ReferenceConstraintViolation>

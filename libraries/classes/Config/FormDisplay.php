@@ -479,14 +479,11 @@ class FormDisplay
     /**
      * Displays errors
      *
-     * @return string|null HTML for errors
+     * @return string HTML for errors
      */
-    public function displayErrors()
+    public function displayErrors(): string
     {
         $this->validate();
-        if (count($this->errors) === 0) {
-            return null;
-        }
 
         $htmlOutput = '';
 
@@ -509,7 +506,7 @@ class FormDisplay
     public function fixErrors(): void
     {
         $this->validate();
-        if (count($this->errors) === 0) {
+        if ($this->errors === []) {
             return;
         }
 
@@ -674,7 +671,7 @@ class FormDisplay
         }
 
         // save forms
-        if (! $allowPartialSave && ! empty($this->errors)) {
+        if (! $allowPartialSave && $this->errors !== []) {
             // don't look for non-critical errors
             $this->validate();
 
@@ -724,7 +721,7 @@ class FormDisplay
      */
     public function hasErrors(): bool
     {
-        return count($this->errors) > 0;
+        return $this->errors !== [];
     }
 
     /**

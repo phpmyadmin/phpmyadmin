@@ -35,7 +35,7 @@ abstract class AbstractController
             'Servers',
         ];
         $pages = [];
-        foreach (SetupFormList::getAll() as $formset) {
+        foreach (SetupFormList::getAllFormNames() as $formset) {
             if (in_array($formset, $ignored)) {
                 continue;
             }

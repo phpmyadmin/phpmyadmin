@@ -44,7 +44,7 @@ class FormListTest extends AbstractTestCase
         /* Static API */
         $this->assertTrue($class::isValid('Export'));
         $this->assertEquals($prefix, $class::get('Export'));
-        foreach ($class::getAll() as $form) {
+        foreach ($class::getAllFormNames() as $form) {
             $form_class = $class::get($form);
             $this->assertNotNull($form_class);
             $this->assertNotNull($form_class::getName());

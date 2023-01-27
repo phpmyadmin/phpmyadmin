@@ -7,19 +7,18 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Config\Forms\User;
 
+use PhpMyAdmin\Config\Forms\BaseForm;
 use PhpMyAdmin\Config\Forms\BaseFormList;
 
 class UserFormList extends BaseFormList
 {
-    /** @var string[] */
+    /** @var array<string, class-string<BaseForm>> */
     protected static $all = [
-        'Features',
-        'Sql',
-        'Navi',
-        'Main',
-        'Export',
-        'Import',
+        'Features' => FeaturesForm::class,
+        'Sql' => SqlForm::class,
+        'Navi' => NaviForm::class,
+        'Main' => MainForm::class,
+        'Export' => ExportForm::class,
+        'Import' => ImportForm::class,
     ];
-    /** @var string */
-    protected static $ns = 'PhpMyAdmin\\Config\\Forms\\User\\';
 }
