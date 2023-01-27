@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-01-24 22:40+0000\n"
+"PO-Revision-Date: 2023-01-28 03:53+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -455,10 +455,9 @@ msgid "Add a point"
 msgstr "Додади точка"
 
 #: gis_data_editor.php:277
-#, fuzzy, php-format
-#| msgid "Lines terminated by"
+#, php-format
 msgid "Linestring %d:"
-msgstr "Линиите се завршуваат со"
+msgstr "Линија текст %d:"
 
 #: gis_data_editor.php:280 gis_data_editor.php:357
 msgid "Outer ring:"
@@ -903,10 +902,8 @@ msgid "Dropping Primary Key/Index"
 msgstr ""
 
 #: js/messages.php:62
-#, fuzzy
-#| msgid "Disable foreign key checks"
 msgid "Dropping Foreign key."
-msgstr "Исклучи проверка на надворешни клучеви"
+msgstr "Отфрли Странски клуч."
 
 #: js/messages.php:64
 msgid "This operation could take a long time. Proceed anyway?"
@@ -1066,10 +1063,8 @@ msgid "Composite with:"
 msgstr "Kомбиниранo со:"
 
 #: js/messages.php:127
-#, fuzzy
-#| msgid "Add %s field(s)"
 msgid "Please select column(s) for the index."
-msgstr "Додади %s полиња"
+msgstr "Молиме одберете колон(а/и) за индексот."
 
 #: js/messages.php:130 libraries/classes/InsertEdit.php:1893
 #: templates/columns_definitions/column_definitions_form.twig:146
@@ -1133,9 +1128,8 @@ msgid "Close"
 msgstr "Затвори"
 
 #: js/messages.php:153
-#, fuzzy
 msgid "Template was created."
-msgstr "Табелата %s е избришана"
+msgstr "Шаблонот беше создаден."
 
 #: js/messages.php:154
 msgid "Template was loaded."
@@ -1148,10 +1142,8 @@ msgid "Template was updated."
 msgstr "Профилот е променет."
 
 #: js/messages.php:156
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "Template was deleted."
-msgstr "Записот е избришан"
+msgstr "Шаблонот беше избришан."
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:159 libraries/classes/Server/Status/Data.php:132
@@ -1819,10 +1811,8 @@ msgid "No databases selected."
 msgstr "Не е избрана ни една база на податоци."
 
 #: js/messages.php:374
-#, fuzzy
-#| msgid "No rows selected"
 msgid "No accounts selected."
-msgstr "Нема селектирани записи"
+msgstr "Не се одберени акаунти."
 
 #: js/messages.php:375
 msgid "Dropping column"
@@ -2353,10 +2343,8 @@ msgstr ""
 
 #: js/messages.php:565 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "Табелите не се пронајдени во базата на податоци."
+msgstr "Додади табели од други датабази"
 
 #: js/messages.php:566
 msgid "Page name"
@@ -2466,10 +2454,8 @@ msgid "Click to mark/unmark."
 msgstr ""
 
 #: js/messages.php:599
-#, fuzzy
-#| msgid "Column names"
 msgid "Double-click to copy column name."
-msgstr "Имиња на колони"
+msgstr "Дупло-кликнете за до го копирате името на колоната."
 
 #: js/messages.php:601
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
@@ -14392,9 +14378,8 @@ msgid "You can reset all your settings and restore them to default values."
 msgstr ""
 
 #: prefs_twofactor.php:29
-#, fuzzy
 msgid "Two-factor authentication has been removed."
-msgstr "Внатрешни релации"
+msgstr "Дво-факторната автентикација се отстрани."
 
 #: prefs_twofactor.php:39
 msgid "Two-factor authentication has been configured."
@@ -15631,9 +15616,9 @@ msgid "As defined:"
 msgstr ""
 
 #: templates/server/databases/table_row.twig:13
-#, fuzzy, php-format
+#, php-format
 msgid "Jump to database '%s'"
-msgstr "Базата на податоци не постои"
+msgstr "Прескокни во базата на податоци '%s'"
 
 #: templates/server/databases/table_row.twig:63
 #, php-format
