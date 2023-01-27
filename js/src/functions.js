@@ -553,7 +553,7 @@ Functions.suggestPassword = function (passwordForm) {
     var passwordlength = 16;    // do we want that to be dynamic?  no, keep it simple :)
 
     if (typeof passwordForm === 'undefined' || passwordForm === null) {
-      return false;
+        return false;
     }
 
     var passwd = passwordForm.generated_pw;
