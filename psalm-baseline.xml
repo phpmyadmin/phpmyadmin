@@ -11819,15 +11819,12 @@
     <MixedArrayOffset occurrences="1">
       <code>$groupAssignment[$host['User']]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="48">
+    <MixedAssignment occurrences="45">
       <code>$GLOBALS[$key]</code>
       <code>$GLOBALS['new_username']</code>
       <code>$GLOBALS['pred_hostname']</code>
       <code>$GLOBALS['pred_username']</code>
       <code>$account</code>
-      <code>$authenticationPlugin</code>
-      <code>$authenticationPlugin</code>
-      <code>$authenticationPlugin</code>
       <code>$extraData['db_wildcard_privs']</code>
       <code>$foundRows[]</code>
       <code>$host</code>
@@ -11869,9 +11866,8 @@
       <code>$val</code>
       <code>$value</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="3">
+    <MixedInferredReturnType occurrences="2">
       <code>?string</code>
-      <code>string</code>
       <code>string</code>
     </MixedInferredReturnType>
     <MixedOperand occurrences="6">
@@ -11882,8 +11878,7 @@
       <code>$privilege['User']</code>
       <code>$sqlQuery</code>
     </MixedOperand>
-    <MixedReturnStatement occurrences="3">
-      <code>$authenticationPlugin</code>
+    <MixedReturnStatement occurrences="2">
       <code>$routine['type']</code>
       <code>$row['password']</code>
     </MixedReturnStatement>
@@ -11895,9 +11890,6 @@
       <code>null</code>
       <code>null</code>
     </NullArgument>
-    <NullableReturnStatement occurrences="1">
-      <code>$authenticationPlugin</code>
-    </NullableReturnStatement>
     <PossiblyFalseOperand occurrences="6">
       <code>mb_strpos($row1['Type'], '(')</code>
       <code>mb_strpos($row1['Type'], '(')</code>

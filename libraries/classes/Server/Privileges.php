@@ -745,17 +745,14 @@ class Privileges
      * Displays the fields used by the "new user" form as well as the
      * "change login information / copy user" form.
      *
-     * @param string $mode are we creating a new user or are we just
-     *                     changing  one? (allowed values: 'new', 'change')
-     * @param string $user User name
-     * @param string $host Host name
+     * @param string|null $user User name
+     * @param string|null $host Host name
      *
      * @return string  a HTML snippet
      */
     public function getHtmlForLoginInformationFields(
-        $mode = 'new',
-        $user = null,
-        $host = null
+        ?string $user = null,
+        ?string $host = null
     ): string {
         $GLOBALS['pred_username'] = $GLOBALS['pred_username'] ?? null;
         $GLOBALS['pred_hostname'] = $GLOBALS['pred_hostname'] ?? null;
@@ -798,7 +795,11 @@ class Privileges
         }
 
         $serverVersion = $this->dbi->getVersion();
-        $authPlugin = $this->getCurrentAuthenticationPlugin($mode, $user, $host);
+        if ($user !== null && $host !== null) {
+            $authPlugin = $this->getCurrentAuthenticationPlugin($user, $host);
+        } else {
+            $authPlugin = $this->getDefaultAuthenticationPlugin();
+        }
 
         $isNew = (Compatibility::isMySqlOrPerconaDb() && $serverVersion >= 50507)
             || (Compatibility::isMariaDb() && $serverVersion >= 50200);
@@ -820,7 +821,7 @@ class Privileges
             'new_username' => $GLOBALS['new_username'] ?? null,
             'hostname' => $GLOBALS['hostname'] ?? null,
             'this_host' => $thisHost,
-            'is_change' => $mode === 'change',
+            'is_change' => $user !== null && $host !== null,
             'auth_plugin' => $authPlugin,
             'active_auth_plugins' => $activeAuthPlugins,
             'is_new' => $isNew,
@@ -860,48 +861,41 @@ class Privileges
     }
 
     /**
-     * Get current authentication plugin in use - for a user or globally
+     * Get current authentication plugin in use for a user
      *
-     * @param string $mode     are we creating a new user or are we just
-     *                         changing  one? (allowed values: 'new', 'change')
      * @param string $username User name
      * @param string $hostname Host name
      *
      * @return string authentication plugin in use
      */
     public function getCurrentAuthenticationPlugin(
-        $mode = 'new',
-        $username = null,
-        $hostname = null
-    ) {
-        /* Fallback (standard) value */
-        $authenticationPlugin = 'mysql_native_password';
-        $serverVersion = $this->dbi->getVersion();
+        string $username,
+        string $hostname
+    ): string {
+        $plugin = $this->dbi->fetchValue(
+            'SELECT `plugin` FROM `mysql`.`user`' . $this->getUserHostCondition($username, $hostname) . ' LIMIT 1'
+        );
 
-        if (isset($username, $hostname) && $mode === 'change') {
-            $row = $this->dbi->fetchSingleRow(
-                'SELECT `plugin` FROM `mysql`.`user`' . $this->getUserHostCondition($username, $hostname) . ' LIMIT 1'
-            );
-            // Table 'mysql'.'user' may not exist for some previous
-            // versions of MySQL - in that case consider fallback value
-            if (is_array($row) && isset($row['plugin'])) {
-                $authenticationPlugin = $row['plugin'];
-            }
-        } elseif ($mode === 'change') {
-            [$username, $hostname] = $this->dbi->getCurrentUserAndHost();
+        // Table 'mysql'.'user' may not exist for some previous
+        // versions of MySQL - in that case consider fallback value
+        return is_string($plugin) ? $plugin : 'mysql_native_password';
+    }
 
-            $row = $this->dbi->fetchSingleRow(
-                'SELECT `plugin` FROM `mysql`.`user`' . $this->getUserHostCondition($username, $hostname)
-            );
-            if (is_array($row) && isset($row['plugin'])) {
-                $authenticationPlugin = $row['plugin'];
-            }
-        } elseif ($serverVersion >= 50702) {
-            $row = $this->dbi->fetchSingleRow('SELECT @@default_authentication_plugin');
-            $authenticationPlugin = is_array($row) ? $row['@@default_authentication_plugin'] : null;
+    /**
+     * Get the default authentication plugin
+     *
+     * @return string|null authentication plugin
+     */
+    public function getDefaultAuthenticationPlugin(): ?string
+    {
+        if ($this->dbi->getVersion() >= 50702) {
+            $plugin = $this->dbi->fetchValue('SELECT @@default_authentication_plugin');
+
+            return is_string($plugin) ? $plugin : null;
         }
 
-        return $authenticationPlugin;
+        /* Fallback (standard) value */
+        return 'mysql_native_password';
     }
 
     /**
@@ -937,7 +931,7 @@ class Privileges
      *
      * @return Message success or error message after updating password
      */
-    public function updatePassword($errorUrl, $username, $hostname): Message
+    public function updatePassword($errorUrl, string $username, string $hostname): Message
     {
         // similar logic in /user-password
         $message = null;
@@ -955,7 +949,6 @@ class Privileges
             $hashingFunction = 'PASSWORD';
             $serverVersion = $this->dbi->getVersion();
             $authenticationPlugin = ($_POST['authentication_plugin'] ?? $this->getCurrentAuthenticationPlugin(
-                'change',
                 $username,
                 $hostname
             ));
@@ -2992,8 +2985,8 @@ class Privileges
     public function getHtmlForUserProperties(
         $dbnameIsWildcard,
         $urlDbname,
-        $username,
-        $hostname,
+        string $username,
+        string $hostname,
         $dbname,
         $tablename,
         string $route
@@ -3061,7 +3054,7 @@ class Privileges
             //change login information
             $changePassword = $this->getFormForChangePassword($username, $hostname, true, $route);
             $userGroup = $this->getUserGroupForUser($username);
-            $changeLoginInfoFields = $this->getHtmlForLoginInformationFields('change', $username, $hostname);
+            $changeLoginInfoFields = $this->getHtmlForLoginInformationFields($username, $hostname);
         }
 
         return $this->template->render('server/privileges/user_properties', [
@@ -3597,7 +3590,7 @@ class Privileges
         $isPrivileges = $route === '/server/privileges';
 
         $serverVersion = $this->dbi->getVersion();
-        $origAuthPlugin = $this->getCurrentAuthenticationPlugin('change', $username, $hostname);
+        $origAuthPlugin = $this->getCurrentAuthenticationPlugin($username, $hostname);
 
         $isNew = (Compatibility::isMySqlOrPerconaDb() && $serverVersion >= 50507)
             || (Compatibility::isMariaDb() && $serverVersion >= 50200);

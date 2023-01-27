@@ -1011,7 +1011,7 @@ class PrivilegesTest extends AbstractTestCase
 
         //validate 2: getHtmlForLoginInformationFields
         $this->assertStringContainsString(
-            $serverPrivileges->getHtmlForLoginInformationFields('new'),
+            $serverPrivileges->getHtmlForLoginInformationFields(),
             $html
         );
 
