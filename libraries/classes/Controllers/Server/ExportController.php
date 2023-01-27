@@ -35,10 +35,8 @@ final class ExportController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['unlim_num_rows'] = $GLOBALS['unlim_num_rows'] ?? null;
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
-
         $GLOBALS['tmp_select'] = $GLOBALS['tmp_select'] ?? null;
         $GLOBALS['select_item'] = $GLOBALS['select_item'] ?? null;
 

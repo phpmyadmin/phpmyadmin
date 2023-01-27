@@ -71,13 +71,7 @@ class OperationsController extends AbstractController
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
         $GLOBALS['reload'] = $GLOBALS['reload'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-        $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
-        $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
-        $GLOBALS['tooltip_truename'] = $GLOBALS['tooltip_truename'] ?? null;
-        $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
-        $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
         $GLOBALS['single_table'] = $GLOBALS['single_table'] ?? null;
-        $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
 
         $this->checkUserPrivileges->getPrivileges();
 
@@ -262,16 +256,6 @@ class OperationsController extends AbstractController
 
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/operations');
 
-        [
-            $GLOBALS['tables'],
-            $GLOBALS['num_tables'],
-            $GLOBALS['total_num_tables'],,
-            $isSystemSchema,
-            $GLOBALS['tooltip_truename'],
-            $GLOBALS['tooltip_aliasname'],
-            $GLOBALS['pos'],
-        ] = Util::getDbInfo($request, $GLOBALS['db']);
-
         $oldMessage = '';
         if (isset($GLOBALS['message'])) {
             $oldMessage = Generator::getMessage($GLOBALS['message'], $GLOBALS['sql_query']);
@@ -293,7 +277,7 @@ class OperationsController extends AbstractController
             && $GLOBALS['col_priv'] && $GLOBALS['proc_priv'] && $GLOBALS['is_reload_priv'];
 
         $isDropDatabaseAllowed = ($this->dbi->isSuperUser() || $GLOBALS['cfg']['AllowUserDropDatabase'])
-            && ! $isSystemSchema && $GLOBALS['db'] !== 'mysql';
+            && $GLOBALS['db'] !== 'mysql';
 
         $switchToNew = isset($_SESSION['pma_switch_to_new']) && $_SESSION['pma_switch_to_new'];
 

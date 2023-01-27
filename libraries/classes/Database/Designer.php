@@ -310,7 +310,7 @@ class Designer
      * @param DesignerTable[] $scriptDisplayField   displayed tables in designer with their display fields
      * @param int             $displayPage          page number of the selected page
      * @param bool            $visualBuilderMode    whether this is visual query builder
-     * @param string          $selectedPage         name of the selected page
+     * @param string|null     $selectedPage         name of the selected page
      * @param array           $paramsArray          array with class name for various buttons on side menu
      * @param array           $tablePositions       table positions
      * @param array           $tabColumn            table column info
@@ -328,7 +328,7 @@ class Designer
         array $scriptDisplayField,
         int $displayPage,
         bool $visualBuilderMode,
-        $selectedPage,
+        ?string $selectedPage,
         array $paramsArray,
         array $tablePositions,
         array $tabColumn,

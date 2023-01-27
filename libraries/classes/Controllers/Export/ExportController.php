@@ -66,7 +66,6 @@ final class ExportController extends AbstractController
         $GLOBALS['table_select'] = $GLOBALS['table_select'] ?? null;
         $GLOBALS['time_start'] = $GLOBALS['time_start'] ?? null;
         $GLOBALS['charset'] = $GLOBALS['charset'] ?? null;
-        $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
         $GLOBALS['table_data'] = $GLOBALS['table_data'] ?? null;
 

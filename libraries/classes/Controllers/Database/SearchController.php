@@ -32,12 +32,6 @@ class SearchController extends AbstractController
     {
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-        $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
-        $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
-        $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
-        $GLOBALS['tooltip_truename'] = $GLOBALS['tooltip_truename'] ?? null;
-        $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
-        $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
 
         $this->addScriptFiles(['database/search.js', 'sql.js', 'makegrid.js']);
 
@@ -71,18 +65,6 @@ class SearchController extends AbstractController
 
         // Create a database search instance
         $databaseSearch = new Search($this->dbi, $GLOBALS['db'], $this->template);
-
-        // Display top links if we are not in an Ajax request
-        if (! $this->response->isAjax()) {
-            [
-                $GLOBALS['tables'],
-                $GLOBALS['num_tables'],
-                $GLOBALS['total_num_tables'],,,
-                $GLOBALS['tooltip_truename'],
-                $GLOBALS['tooltip_aliasname'],
-                $GLOBALS['pos'],
-            ] = Util::getDbInfo($request, $GLOBALS['db']);
-        }
 
         // Main search form has been submitted, get results
         if ($request->hasBodyParam('submit_search')) {

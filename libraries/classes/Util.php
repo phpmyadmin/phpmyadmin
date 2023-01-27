@@ -2040,48 +2040,15 @@ class Util
     /**
      * Gets the list of tables in the current db and information about these tables if possible.
      *
-     * @return array
+     * @return array<int, array|int>
+     * @psalm-return array{array, int, int}
      */
     public static function getDbInfo(ServerRequest $request, string $db, bool $isResultLimited = true): array
     {
         /**
-         * limits for table list
-         */
-        if (! isset($_SESSION['tmpval']['table_limit_offset']) || $_SESSION['tmpval']['table_limit_offset_db'] != $db) {
-            $_SESSION['tmpval']['table_limit_offset'] = 0;
-            $_SESSION['tmpval']['table_limit_offset_db'] = $db;
-        }
-
-        /** @var mixed $posParam */
-        $posParam = $request->getParam('pos');
-        if (is_numeric($posParam)) {
-            $_SESSION['tmpval']['table_limit_offset'] = (int) $posParam;
-        }
-
-        $pos = $_SESSION['tmpval']['table_limit_offset'];
-
-        /**
-         * whether to display extended stats
-         */
-        $isShowStats = $GLOBALS['cfg']['ShowStats'];
-
-        /**
-         * whether selected db is information_schema
-         */
-        $isSystemSchema = false;
-
-        if (Utilities::isSystemSchema($db)) {
-            $isShowStats = false;
-            $isSystemSchema = true;
-        }
-
-        /**
          * information about tables in db
          */
         $tables = [];
-
-        $tooltipTrueName = [];
-        $tooltipAliasName = [];
 
         // Special speedup for newer MySQL Versions (in 4.0 format changed)
         if ($GLOBALS['cfg']['SkipLockedTables'] === true) {
@@ -2095,7 +2062,8 @@ class Util
             }
         }
 
-        if (empty($tables)) {
+        $totalNumTables = null;
+        if ($tables === []) {
             // Set some sorting defaults
             $sort = 'Name';
             $sortOrder = 'ASC';
@@ -2146,31 +2114,27 @@ class Util
 
                 if (is_string($tableGroupParam) && $tableGroupParam !== '') {
                     // only tables for selected group
-                    $tableGroup = $tableGroupParam;
-                    // include the table with the exact name of the group if such
-                    // exists
+                    // include the table with the exact name of the group if such exists
                     $groupTable = $GLOBALS['dbi']->getTablesFull(
                         $db,
-                        $tableGroup,
+                        $tableGroupParam,
                         false,
-                        $limitOffset,
-                        $limitCount,
+                        0,
+                        false,
                         $sort,
                         $sortOrder,
                         $tableType
                     );
-                    $groupWithSeparator = $tableGroup
-                        . $GLOBALS['cfg']['NavigationTreeTableSeparator'];
+                    $groupWithSeparator = $tableGroupParam . $GLOBALS['cfg']['NavigationTreeTableSeparator'];
                 }
             } else {
                 // all tables in db
                 // - get the total number of tables
                 //  (needed for proper working of the MaxTableList feature)
-                $tables = $GLOBALS['dbi']->getTables($db);
-                $totalNumTables = count($tables);
+                $totalNumTables = count($GLOBALS['dbi']->getTables($db));
                 if ($isResultLimited) {
                     // fetch the details for a possible limited subset
-                    $limitOffset = $pos;
+                    $limitOffset = self::getTableListPosition($request, $db);
                     $limitCount = true;
                 }
             }
@@ -2189,20 +2153,11 @@ class Util
         }
 
         $numTables = count($tables);
-        //  (needed for proper working of the MaxTableList feature)
-        if (! isset($totalNumTables)) {
-            $totalNumTables = $numTables;
-        }
 
         return [
             $tables,
             $numTables,
-            $totalNumTables,
-            $isShowStats,
-            $isSystemSchema,
-            $tooltipTrueName,
-            $tooltipAliasName,
-            $pos,
+            $totalNumTables ?? $numTables, // needed for proper working of the MaxTableList feature
         ];
     }
 
@@ -2572,5 +2527,21 @@ class Util
         }
 
         return function_exists('error_reporting');
+    }
+
+    public static function getTableListPosition(ServerRequest $request, string $db): int
+    {
+        if (! isset($_SESSION['tmpval']['table_limit_offset']) || $_SESSION['tmpval']['table_limit_offset_db'] != $db) {
+            $_SESSION['tmpval']['table_limit_offset'] = 0;
+            $_SESSION['tmpval']['table_limit_offset_db'] = $db;
+        }
+
+        /** @var string|null $posParam */
+        $posParam = $request->getParam('pos');
+        if (is_numeric($posParam)) {
+            $_SESSION['tmpval']['table_limit_offset'] = (int) $posParam;
+        }
+
+        return $_SESSION['tmpval']['table_limit_offset'];
     }
 }

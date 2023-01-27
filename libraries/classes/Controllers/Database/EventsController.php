@@ -36,14 +36,8 @@ final class EventsController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
-        $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
-        $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
         $GLOBALS['errors'] = $GLOBALS['errors'] ?? null;
         $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
-        $GLOBALS['tooltip_truename'] = $GLOBALS['tooltip_truename'] ?? null;
-        $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
-        $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
         $this->addScriptFiles(['database/events.js']);
@@ -57,15 +51,6 @@ final class EventsController extends AbstractController
             if (! $this->hasDatabase()) {
                 return;
             }
-
-            [
-                $GLOBALS['tables'],
-                $GLOBALS['num_tables'],
-                $GLOBALS['total_num_tables'],,,
-                $GLOBALS['tooltip_truename'],
-                $GLOBALS['tooltip_aliasname'],
-                $GLOBALS['pos'],
-            ] = Util::getDbInfo($request, $GLOBALS['db']);
         } elseif (strlen($GLOBALS['db']) > 0) {
             $this->dbi->selectDb($GLOBALS['db']);
         }

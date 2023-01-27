@@ -57,12 +57,6 @@ class PrivilegesController extends AbstractController
         $GLOBALS['username'] = $GLOBALS['username'] ?? null;
         $GLOBALS['hostname'] = $GLOBALS['hostname'] ?? null;
         $GLOBALS['dbname'] = $GLOBALS['dbname'] ?? null;
-        $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
-        $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
-        $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
-        $GLOBALS['tooltip_truename'] = $GLOBALS['tooltip_truename'] ?? null;
-        $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
-        $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
 
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
         $checkUserPrivileges->getPrivileges();

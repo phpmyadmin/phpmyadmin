@@ -13,6 +13,7 @@ use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\SessionCache;
 use PhpMyAdmin\Version;
+use Psr\Http\Message\ServerRequestInterface;
 
 use function __;
 use function _setlocale;
@@ -2473,9 +2474,28 @@ class UtilTest extends AbstractTestCase
             'TABLE_COMMENT' => '',
             'TABLE_TYPE' => 'BASE TABLE',
         ];
-        $expected = [['test_table' => $tableInfo], 1, 1, true, false, [], [], 0];
+        $expected = [['test_table' => $tableInfo], 1, 1];
         $actual = Util::getDbInfo($this->createStub(ServerRequest::class), 'test_db');
         $this->assertSame($expected, $actual);
+    }
+
+    public function testGetTableListPosition(): void
+    {
+        // Default 0
+        $actual = Util::getTableListPosition($this->createStub(ServerRequest::class), 'test_db');
+        $this->assertSame(0, $actual);
+
+        // From POST
+        $requestStub = $this->createStub(ServerRequestInterface::class);
+        $requestStub->method('getQueryParams')->willReturn([]);
+        $requestStub->method('getParsedBody')->willReturn(['pos' => '250']);
+        $request = new ServerRequest($requestStub);
+        $actual = Util::getTableListPosition($request, 'test_db');
+        $this->assertSame(250, $actual);
+
+        // From SESSION
+        $actual = Util::getTableListPosition($this->createStub(ServerRequest::class), 'test_db');
+        $this->assertSame(250, $actual);
     }
 
     /**
