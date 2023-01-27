@@ -4636,11 +4636,6 @@ parameters:
 			path: libraries/classes/Html/Generator.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Html\\\\Generator\\:\\:getNavigationLink\\(\\) has parameter \\$classes with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Html/Generator.php
-
-		-
 			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommon\\(\\) expects array\\<string, bool\\|int\\|string\\>, array\\<int\\|string, mixed\\> given\\.$#"
 			count: 2
 			path: libraries/classes/Html/Generator.php

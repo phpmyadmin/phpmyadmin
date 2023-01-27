@@ -1330,15 +1330,9 @@ class NavigationTree
      */
     private function controls(): string
     {
-        // always iconic
-        $showIcon = true;
-        $showText = false;
-
         $collapseAll = Generator::getNavigationLink(
             '#',
-            $showText,
             __('Collapse all'),
-            $showIcon,
             's_collapseall',
             'pma_navigation_collapse'
         );
@@ -1349,7 +1343,7 @@ class NavigationTree
             $title = __('Unlink from main panel');
         }
 
-        $unlink = Generator::getNavigationLink('#', $showText, $title, $showIcon, $syncImage, 'pma_navigation_sync');
+        $unlink = Generator::getNavigationLink('#', $title, $syncImage, 'pma_navigation_sync');
 
         return $this->template->render('navigation/tree/controls', [
             'collapse_all' => $collapseAll,
