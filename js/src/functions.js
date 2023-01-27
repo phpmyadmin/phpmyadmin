@@ -551,6 +551,11 @@ Functions.suggestPassword = function (passwordForm) {
     // things like double click no longer work"
     var pwchars = 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWYXZ@!_.*/()[]-';
     var passwordlength = 16;    // do we want that to be dynamic?  no, keep it simple :)
+
+    if (typeof passwordForm === 'undefined' || passwordForm === null) {
+      return false;
+    }
+
     var passwd = passwordForm.generated_pw;
     // eslint-disable-next-line compat/compat
     var randomWords = new Int32Array(passwordlength);
