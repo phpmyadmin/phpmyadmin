@@ -29,6 +29,9 @@ class NodeDatabase extends Node
      */
     protected $hiddenCount = 0;
 
+    /** @var int[][] $presenceCounts */
+    private $presenceCounts = [];
+
     /**
      * Initialises the class
      *
@@ -69,28 +72,29 @@ class NodeDatabase extends Node
      */
     public function getPresence($type = '', $searchClause = '')
     {
-        $retval = 0;
-        switch ($type) {
-            case 'tables':
-                $retval = $this->getTableCount($searchClause);
-                break;
-            case 'views':
-                $retval = $this->getViewCount($searchClause);
-                break;
-            case 'procedures':
-                $retval = $this->getProcedureCount($searchClause);
-                break;
-            case 'functions':
-                $retval = $this->getFunctionCount($searchClause);
-                break;
-            case 'events':
-                $retval = $this->getEventCount($searchClause);
-                break;
-            default:
-                break;
+        if (isset($this->presenceCounts[$type][$searchClause])) {
+            return $this->presenceCounts[$type][$searchClause];
         }
 
-        return $retval;
+        switch ($type) {
+            case 'tables':
+                return $this->presenceCounts[$type][$searchClause] = $this->getTableCount($searchClause);
+
+            case 'views':
+                return $this->presenceCounts[$type][$searchClause] = $this->getViewCount($searchClause);
+
+            case 'procedures':
+                return $this->presenceCounts[$type][$searchClause] = $this->getProcedureCount($searchClause);
+
+            case 'functions':
+                return $this->presenceCounts[$type][$searchClause] = $this->getFunctionCount($searchClause);
+
+            case 'events':
+                return $this->presenceCounts[$type][$searchClause] = $this->getEventCount($searchClause);
+
+            default:
+                return 0;
+        }
     }
 
     /**
