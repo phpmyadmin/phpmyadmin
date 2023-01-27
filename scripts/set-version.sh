@@ -68,8 +68,9 @@ do
     sed -i "s/${oldVersion}/${newVersion}/g" "${dir}${f}"
 done
 
-
 echo
-echo "Next, you need to manually edit ChangeLog to manually change the version number and set the release date, and verify the changes with 'git diff'."
-echo "You will probably want to call: \"./scripts/console set-version ${newVersion}\" afterwards"
-echo "Suggested commit message: Prepare for version ${newVersion}"
+echo "- Next, you need to manually edit ChangeLog to manually change the version number and set the release date, and verify the changes with 'git diff'."
+echo "- You will probably want to call: \"./scripts/console set-version ${newVersion}\" afterwards"
+echo "- You should check if you need to change the composer.json file and the theme.json file for each bundled theme."
+echo "  To change the composer.json file you can call something like: \"composer config extra.branch-alias.dev-master \"5.2.x-dev\"\""
+echo "- Suggested commit message: Prepare for version ${newVersion}"
