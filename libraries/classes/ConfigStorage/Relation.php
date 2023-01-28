@@ -1471,12 +1471,15 @@ class Relation
             return false;
         }
 
+        $db = DatabaseName::tryFromValue($GLOBALS['db']);
+        $dbName = $db ? $db->getName() : '';
+
         $foreigner = [];
         foreach ($foreigners['foreign_keys_data'] as $one_key) {
             $column_index = array_search($column, $one_key['index_list']);
             if ($column_index !== false) {
                 $foreigner['foreign_field'] = $one_key['ref_index_list'][$column_index];
-                $foreigner['foreign_db'] = $one_key['ref_db_name'] ?? $GLOBALS['db'];
+                $foreigner['foreign_db'] = $one_key['ref_db_name'] ?? $dbName;
                 $foreigner['foreign_table'] = $one_key['ref_table_name'];
                 $foreigner['constraint'] = $one_key['constraint'];
                 $foreigner['on_update'] = $one_key['on_update'] ?? 'RESTRICT';
