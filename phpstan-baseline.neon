@@ -1851,7 +1851,37 @@ parameters:
 			path: libraries/classes/Controllers/Server/DatabasesController.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Server\\\\PrivilegesController\\:\\:getExportPageTitle\\(\\) has parameter \\$selectedUsers with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/PrivilegesController.php
+
+		-
+			message: "#^Parameter \\#1 \\$oldUsername of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getDataForChangeOrCopyUser\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/PrivilegesController.php
+
+		-
+			message: "#^Parameter \\#2 \\$initial of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getHtmlForUserOverview\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/PrivilegesController.php
+
+		-
+			message: "#^Parameter \\#2 \\$oldHostname of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getDataForChangeOrCopyUser\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/PrivilegesController.php
+
+		-
 			message: "#^Parameter \\#2 \\$userGroup of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:setUserGroup\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/PrivilegesController.php
+
+		-
+			message: "#^Parameter \\#4 \\$oldUsername of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getDbSpecificPrivsQueriesForChangeOrCopyUser\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/PrivilegesController.php
+
+		-
+			message: "#^Parameter \\#5 \\$oldHostname of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getDbSpecificPrivsQueriesForChangeOrCopyUser\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/PrivilegesController.php
 
@@ -7416,11 +7446,6 @@ parameters:
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:deleteUser\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:extractPrivInfo\\(\\) has parameter \\$row with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
@@ -7471,11 +7496,6 @@ parameters:
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getDbRightsForUserOverview\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getDbSpecificPrivsQueriesForChangeOrCopyUser\\(\\) has parameter \\$queries with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
@@ -7486,17 +7506,7 @@ parameters:
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getExtraDataForAjaxBehavior\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getGlobalAndDatabasePrivileges\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getGrantsArray\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
 
@@ -7541,11 +7551,6 @@ parameters:
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getTableGrantsArray\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getTablePrivileges\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
@@ -7576,11 +7581,6 @@ parameters:
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:parseProcPriv\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:updatePrivileges\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
@@ -7593,11 +7593,6 @@ parameters:
 		-
 			message: "#^Offset 'Type' does not exist on array\\|null\\.$#"
 			count: 4
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Offset 'password' does not exist on array\\|null\\.$#"
-			count: 1
 			path: libraries/classes/Server/Privileges.php
 
 		-
@@ -7616,17 +7611,7 @@ parameters:
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^PHPDoc tag @var for variable \\$selectedUsers has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
 			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:escapeGrantWildcards\\(\\) expects string, array\\<int, string\\>\\|string\\|true\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Parameter \\#1 \\$privs of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:parseProcPriv\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
 
@@ -7636,7 +7621,7 @@ parameters:
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, string\\|null given\\.$#"
 			count: 2
 			path: libraries/classes/Server/Privileges.php
 
@@ -11289,6 +11274,16 @@ parameters:
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int\\|string, string\\> will always evaluate to true\\.$#"
 			count: 1
 			path: test/classes/Server/PluginsTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 0 and array\\{string, PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
+			count: 3
+			path: test/classes/Server/PrivilegesTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 1 and array\\{string, PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
+			count: 3
+			path: test/classes/Server/PrivilegesTest.php
 
 		-
 			message: "#^PHPDoc tag @var for variable \\$actual has no value type specified in iterable type array\\.$#"

@@ -21,6 +21,7 @@ use PhpMyAdmin\Url;
 
 use function __;
 use function header;
+use function htmlspecialchars;
 use function implode;
 use function is_array;
 use function is_string;
@@ -160,7 +161,10 @@ class PrivilegesController extends AbstractController
         /**
          * Changes / copies a user, part I
          */
-        $password = $serverPrivileges->getDataForChangeOrCopyUser();
+        $password = $serverPrivileges->getDataForChangeOrCopyUser(
+            $request->getParsedBodyParam('old_username', ''),
+            $request->getParsedBodyParam('old_hostname', '')
+        );
 
         /**
          * Adds a user
@@ -192,7 +196,9 @@ class PrivilegesController extends AbstractController
             $queries = $serverPrivileges->getDbSpecificPrivsQueriesForChangeOrCopyUser(
                 $queries,
                 $GLOBALS['username'],
-                $GLOBALS['hostname']
+                $GLOBALS['hostname'],
+                $request->getParsedBodyParam('old_username'),
+                $request->getParsedBodyParam('old_hostname')
             );
         }
 
@@ -337,9 +343,19 @@ class PrivilegesController extends AbstractController
 
         // export user definition
         if ($request->hasQueryParam('export') || $request->getParsedBodyParam('submit_mult') === 'export') {
-            [$title, $export] = $serverPrivileges->getListForExportUserDefinition(
+            /** @var string[]|null $selectedUsers */
+            $selectedUsers = $request->getParsedBodyParam('selected_usr');
+
+            $title = $this->getExportPageTitle(
                 $GLOBALS['username'] ?? '',
-                $GLOBALS['hostname'] ?? ''
+                $GLOBALS['hostname'] ?? '',
+                $selectedUsers
+            );
+
+            $export = $serverPrivileges->getExportUserDefinitionTextarea(
+                $GLOBALS['username'] ?? '',
+                $GLOBALS['hostname'] ?? '',
+                $selectedUsers
             );
 
             unset($GLOBALS['username'], $GLOBALS['hostname']);
@@ -380,7 +396,10 @@ class PrivilegesController extends AbstractController
             if (! isset($GLOBALS['username'])) {
                 // No username is given --> display the overview
                 $this->response->addHTML(
-                    $serverPrivileges->getHtmlForUserOverview($GLOBALS['text_dir'])
+                    $serverPrivileges->getHtmlForUserOverview(
+                        $GLOBALS['text_dir'],
+                        $request->getQueryParam('initial', '')
+                    )
                 );
             } elseif (! empty($routinename)) {
                 $this->response->addHTML(
@@ -418,5 +437,15 @@ class PrivilegesController extends AbstractController
         }
 
         $this->response->addHTML('</div>');
+    }
+
+    private function getExportPageTitle(string $username, string $hostname, ?array $selectedUsers): string
+    {
+        if ($selectedUsers !== null) {
+            return __('Privileges');
+        }
+
+        return __('User') . ' `' . htmlspecialchars($username)
+            . '`@`' . htmlspecialchars($hostname) . '`';
     }
 }

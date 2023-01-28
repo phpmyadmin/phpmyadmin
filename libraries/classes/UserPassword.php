@@ -76,7 +76,7 @@ class UserPassword
         if ($authenticationPlugin !== null && $authenticationPlugin !== '' && $authenticationPlugin !== '0') {
             $orig_auth_plugin = $authenticationPlugin;
         } else {
-            $orig_auth_plugin = $this->serverPrivileges->getCurrentAuthenticationPlugin('change', $username, $hostname);
+            $orig_auth_plugin = $this->serverPrivileges->getCurrentAuthenticationPlugin($username, $hostname);
         }
 
         $sql_query = 'SET password = '

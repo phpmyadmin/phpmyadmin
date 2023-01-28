@@ -1712,7 +1712,7 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query' => 'SELECT `plugin` FROM `mysql`.`user` WHERE '
-                    . '`User` = "pma_username" AND `Host` = "pma_hostname" LIMIT 1',
+                    . '`User` = \'pma_username\' AND `Host` = \'pma_hostname\' LIMIT 1',
                 'result' => [],
             ],
             [

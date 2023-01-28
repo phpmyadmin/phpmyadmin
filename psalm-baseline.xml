@@ -2445,14 +2445,19 @@
     <InvalidArgument occurrences="1">
       <code>$GLOBALS['sql_query']</code>
     </InvalidArgument>
-    <MixedArgument occurrences="9">
+    <MixedArgument occurrences="14">
       <code>$GLOBALS['message']</code>
       <code>$db_name ?? ''</code>
       <code>$queries</code>
       <code>$queries</code>
       <code>$queries</code>
       <code>$queriesForDisplay</code>
+      <code>$request-&gt;getParsedBodyParam('old_hostname')</code>
+      <code>$request-&gt;getParsedBodyParam('old_hostname', '')</code>
+      <code>$request-&gt;getParsedBodyParam('old_username')</code>
+      <code>$request-&gt;getParsedBodyParam('old_username', '')</code>
       <code>$request-&gt;getParsedBodyParam('userGroup')</code>
+      <code>$request-&gt;getQueryParam('initial', '')</code>
       <code>$urlDbname ?? ''</code>
       <code>$urlDbname ?? ''</code>
     </MixedArgument>
@@ -11711,104 +11716,7 @@
     </PossiblyNullArrayOffset>
   </file>
   <file src="libraries/classes/Server/Privileges.php">
-    <DeprecatedMethod occurrences="100">
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
+    <DeprecatedMethod occurrences="3">
       <code>escapeString</code>
       <code>escapeString</code>
       <code>escapeString</code>
@@ -11822,15 +11730,11 @@
     <InvalidReturnType occurrences="1">
       <code>array</code>
     </InvalidReturnType>
-    <MixedArgument occurrences="37">
+    <MixedArgument occurrences="32">
       <code>$GLOBALS['dbname']</code>
       <code>$alterRealSqlQuery</code>
       <code>$alterSqlQuery</code>
       <code>$createUserReal</code>
-      <code>$exportUser</code>
-      <code>$exportUser</code>
-      <code>$exportUser</code>
-      <code>$exportUser</code>
       <code>$paramDbName</code>
       <code>$paramDbName</code>
       <code>$paramRoutineName</code>
@@ -11858,7 +11762,6 @@
       <code>$sqlQuery</code>
       <code>$sqlQuery</code>
       <code>$sqlQuery</code>
-      <code>$updQuery</code>
       <code>$user</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="12">
@@ -11875,24 +11778,7 @@
       <code>$tmpPrivs1</code>
       <code>uksort($arrayInitials, 'strnatcasecmp')</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="49">
-      <code>$account['Host']</code>
-      <code>$columns[$row1[0]]</code>
-      <code>$currentGrant[0]</code>
-      <code>$currentGrant[0]</code>
-      <code>$currentGrant[0]</code>
-      <code>$currentGrant[0]</code>
-      <code>$currentGrant[0]</code>
-      <code>$currentGrant[0]</code>
-      <code>$currentGrant[1]</code>
-      <code>$currentGrant[1]</code>
-      <code>$currentGrant[1]</code>
-      <code>$currentGrant[1]</code>
-      <code>$currentGrant[2]</code>
-      <code>$currentGrant[2]</code>
-      <code>$grant[0]</code>
-      <code>$grant[0]</code>
-      <code>$grant[0]</code>
+    <MixedArrayAccess occurrences="32">
       <code>$groupAssignment[$host['User']]</code>
       <code>$host['Grant_priv']</code>
       <code>$host['Host']</code>
@@ -11926,38 +11812,19 @@
       <code>$val['COLUMN_NAME']</code>
       <code>$val['COLUMN_NAME']</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="2">
-      <code>$columns[$row1[0]]</code>
+    <MixedArrayAssignment occurrences="1">
       <code>$dbRights[$row['User']][$row['Host']]</code>
     </MixedArrayAssignment>
-    <MixedArrayOffset occurrences="12">
-      <code>$GLOBALS[$currentGrant[0]]</code>
-      <code>$GLOBALS[$currentGrant[0]]</code>
-      <code>$GLOBALS[$currentGrant[0]]</code>
-      <code>$GLOBALS[$currentGrant[0]]</code>
-      <code>$GLOBALS[$currentGrant[0]]</code>
-      <code>$GLOBALS[$currentGrant[0]]</code>
-      <code>$GLOBALS[$currentGrant[0]]</code>
+    <MixedArrayOffset occurrences="1">
       <code>$groupAssignment[$host['User']]</code>
-      <code>$row[$currentGrant[0]]</code>
-      <code>$row[$currentGrant[0]]</code>
-      <code>$specificPrivileges[$grant[0]]</code>
-      <code>$specificPrivileges[$grant[0]]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="53">
+    <MixedAssignment occurrences="43">
       <code>$GLOBALS[$key]</code>
       <code>$GLOBALS['new_username']</code>
       <code>$GLOBALS['pred_hostname']</code>
       <code>$GLOBALS['pred_username']</code>
-      <code>$account</code>
-      <code>$authenticationPlugin</code>
-      <code>$authenticationPlugin</code>
-      <code>$authenticationPlugin</code>
-      <code>$currentGrant</code>
-      <code>$exportUser</code>
       <code>$extraData['db_wildcard_privs']</code>
       <code>$foundRows[]</code>
-      <code>$grant</code>
       <code>$host</code>
       <code>$hostnameLength</code>
       <code>$name</code>
@@ -11972,7 +11839,6 @@
       <code>$privilege</code>
       <code>$privilege['routine']</code>
       <code>$privilege['table']</code>
-      <code>$privs[]</code>
       <code>$queriesForDisplay[$tmpCount - 1]</code>
       <code>$queriesForDisplay[$tmpCount - 1]</code>
       <code>$queriesForDisplay[$tmpCount - 2]</code>
@@ -11982,7 +11848,6 @@
       <code>$queries[]</code>
       <code>$queries[]</code>
       <code>$queries[]</code>
-      <code>$right</code>
       <code>$routine</code>
       <code>$routine</code>
       <code>$routines[]</code>
@@ -11994,46 +11859,34 @@
       <code>$sqlQuery</code>
       <code>$sqlQuery</code>
       <code>$user</code>
-      <code>$userGroup</code>
       <code>$usernameLength</code>
       <code>$val</code>
       <code>$value</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="4">
+    <MixedInferredReturnType occurrences="2">
+      <code>?string</code>
       <code>string</code>
-      <code>string</code>
-      <code>string</code>
-      <code>string|null</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="13">
+    <MixedOperand occurrences="6">
       <code>$createUserShow</code>
-      <code>$currentGrant[0]</code>
-      <code>$currentGrant[0]</code>
-      <code>$currentGrant[1]</code>
-      <code>$currentGrant[1]</code>
-      <code>$currentGrant[1]</code>
-      <code>$currentGrant[2]</code>
-      <code>$currentGrant[2]</code>
       <code>$oneGrant</code>
       <code>$origValue</code>
       <code>$privilege['Host']</code>
       <code>$privilege['User']</code>
       <code>$sqlQuery</code>
     </MixedOperand>
-    <MixedReturnStatement occurrences="4">
-      <code>$authenticationPlugin</code>
-      <code>$result['password']</code>
+    <MixedReturnStatement occurrences="2">
       <code>$routine['type']</code>
       <code>$row['password']</code>
     </MixedReturnStatement>
+    <MixedReturnTypeCoercion occurrences="2">
+      <code>$extraData</code>
+      <code>(string|bool)[]</code>
+    </MixedReturnTypeCoercion>
     <NullArgument occurrences="2">
       <code>null</code>
       <code>null</code>
     </NullArgument>
-    <NullableReturnStatement occurrences="2">
-      <code>$authenticationPlugin</code>
-      <code>$result['password']</code>
-    </NullableReturnStatement>
     <PossiblyFalseOperand occurrences="6">
       <code>mb_strpos($row1['Type'], '(')</code>
       <code>mb_strpos($row1['Type'], '(')</code>
@@ -12042,21 +11895,13 @@
       <code>mb_strrpos($currentUserName, '@')</code>
       <code>mb_strrpos($exportUser, ';')</code>
     </PossiblyFalseOperand>
-    <PossiblyInvalidArgument occurrences="30">
+    <PossiblyInvalidArgument occurrences="22">
       <code>$GLOBALS[$currentGrant[0]]</code>
       <code>$GLOBALS[$currentGrant[0]]</code>
-      <code>$_GET['initial']</code>
-      <code>$_GET['initial']</code>
       <code>$_GET['username']</code>
       <code>$_POST['authentication_plugin']</code>
       <code>$_POST['authentication_plugin']</code>
       <code>$_POST['authentication_plugin']</code>
-      <code>$_POST['old_hostname']</code>
-      <code>$_POST['old_hostname']</code>
-      <code>$_POST['old_username']</code>
-      <code>$_POST['old_username']</code>
-      <code>$_POST['old_username']</code>
-      <code>$_POST['old_username']</code>
       <code>$_POST['pma_pw']</code>
       <code>$_POST['pma_pw']</code>
       <code>$_POST['pma_pw']</code>
@@ -12074,17 +11919,11 @@
       <code>$oldUserGroup</code>
       <code>$user</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="25">
+    <PossiblyInvalidCast occurrences="19">
       <code>$_GET['username']</code>
       <code>$_POST['authentication_plugin']</code>
       <code>$_POST['authentication_plugin']</code>
       <code>$_POST['authentication_plugin']</code>
-      <code>$_POST['old_hostname']</code>
-      <code>$_POST['old_hostname']</code>
-      <code>$_POST['old_username']</code>
-      <code>$_POST['old_username']</code>
-      <code>$_POST['old_username']</code>
-      <code>$_POST['old_username']</code>
       <code>$_POST['pma_pw']</code>
       <code>$_POST['pma_pw']</code>
       <code>$_POST['pma_pw']</code>
@@ -12110,8 +11949,7 @@
       <code>$authenticationPlugin</code>
       <code>$authenticationPlugin</code>
     </PossiblyInvalidOperand>
-    <PossiblyNullArgument occurrences="13">
-      <code>$privileges</code>
+    <PossiblyNullArgument occurrences="12">
       <code>$row1['Type']</code>
       <code>$row1['Type']</code>
       <code>$row1['Type']</code>
@@ -12125,8 +11963,7 @@
       <code>$row['Table_name']</code>
       <code>$row['Table_priv']</code>
     </PossiblyNullArgument>
-    <PossiblyNullArrayAccess occurrences="3">
-      <code>$result['password']</code>
+    <PossiblyNullArrayAccess occurrences="2">
       <code>$row1['Type']</code>
       <code>$row['@@old_passwords']</code>
     </PossiblyNullArrayAccess>
@@ -15427,20 +15264,14 @@
       <code>escapeString</code>
       <code>escapeString</code>
     </DeprecatedMethod>
-    <MixedArgument occurrences="5">
-      <code>$extra_data['new_privileges']</code>
-      <code>$extra_data['new_user_string']</code>
-      <code>$extra_data['new_user_string']</code>
+    <MixedArgument occurrences="2">
       <code>$real_sql_query</code>
       <code>$sql_query</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$serverPrivileges-&gt;extractPrivInfo(null, true)</code>
     </MixedArgumentTypeCoercion>
-    <MixedMethodCall occurrences="9">
-      <code>getMessage</code>
-      <code>getMessage</code>
-      <code>getMessage</code>
+    <MixedMethodCall occurrences="6">
       <code>getMessage</code>
       <code>getMessage</code>
       <code>getMessage</code>
