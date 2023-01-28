@@ -3908,8 +3908,7 @@
       <code>$view['name']</code>
       <code>$view['name']</code>
     </MixedArgument>
-    <MixedAssignment occurrences="7">
-      <code>$GLOBALS['parts']</code>
+    <MixedAssignment occurrences="6">
       <code>$GLOBALS['sql_query']</code>
       <code>$viewData['as']</code>
       <code>$viewData['as']</code>

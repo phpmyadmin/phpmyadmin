@@ -63,9 +63,7 @@ class CreateController extends AbstractController
         $this->checkParameters(['db']);
         $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-
         $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-        $GLOBALS['parts'] = $GLOBALS['parts'] ?? null;
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
         $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
@@ -243,8 +241,7 @@ class CreateController extends AbstractController
                 ->showCreate();
 
             // CREATE ALGORITHM=<ALGORITHM> DE...
-            $GLOBALS['parts'] = explode(' ', substr($createView, 17));
-            $item['ALGORITHM'] = $GLOBALS['parts'][0];
+            $item['ALGORITHM'] = explode(' ', substr($createView, 17))[0];
 
             $viewData['operation'] = 'alter';
             $viewData['definer'] = $item['DEFINER'];
