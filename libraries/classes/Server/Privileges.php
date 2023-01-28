@@ -2826,6 +2826,27 @@ class Privileges
         return $this->template->render('server/privileges/add_user_fieldset', ['url_params' => $urlParams]);
     }
 
+    private function checkStructureOfPrivilegeTable(): string
+    {
+        // the query failed! This may have two reasons:
+        // - the user does not have enough privileges
+        // - the privilege tables use a structure of an earlier version.
+        // so let's try a more simple query
+        if (! $this->dbi->tryQuery('SELECT 1 FROM `mysql`.`user`')) {
+            return $this->getHtmlForViewUsersError() . $this->getAddUserHtmlFieldset();
+        }
+
+        // This message is hardcoded because I will replace it by
+        // a automatic repair feature soon.
+        $raw = 'Your privilege table structure seems to be older than'
+            . ' this MySQL version!<br>'
+            . 'Please run the <code>mysql_upgrade</code> command'
+            . ' that should be included in your MySQL server distribution'
+            . ' to solve this problem!';
+
+        return Message::rawError($raw)->getDisplay();
+    }
+
     /**
      * Get HTML snippet for display user overview page
      *
@@ -2855,23 +2876,7 @@ class Privileges
 
         $errorMessages = '';
         if (! $res) {
-            // the query failed! This may have two reasons:
-            // - the user does not have enough privileges
-            // - the privilege tables use a structure of an earlier version.
-            // so let's try a more simple query
-            if (! $this->dbi->tryQuery('SELECT * FROM `mysql`.`user`')) {
-                $errorMessages .= $this->getHtmlForViewUsersError();
-                $errorMessages .= $this->getAddUserHtmlFieldset();
-            } else {
-                // This message is hardcoded because I will replace it by
-                // a automatic repair feature soon.
-                $raw = 'Your privilege table structure seems to be older than'
-                    . ' this MySQL version!<br>'
-                    . 'Please run the <code>mysql_upgrade</code> command'
-                    . ' that should be included in your MySQL server distribution'
-                    . ' to solve this problem!';
-                $errorMessages .= Message::rawError($raw)->getDisplay();
-            }
+            $errorMessages = $this->checkStructureOfPrivilegeTable();
         } else {
             $dbRights = $this->getDbRightsForUserOverview($initial);
             // for all initials, even non A-Z
