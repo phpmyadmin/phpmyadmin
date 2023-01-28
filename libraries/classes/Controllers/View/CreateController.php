@@ -65,7 +65,6 @@ class CreateController extends AbstractController
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
 
         $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-        $GLOBALS['sep'] = $GLOBALS['sep'] ?? null;
         $GLOBALS['arr'] = $GLOBALS['arr'] ?? null;
         $GLOBALS['view_columns'] = $GLOBALS['view_columns'] ?? null;
         $GLOBALS['systemDb'] = $GLOBALS['systemDb'] ?? null;
@@ -105,7 +104,7 @@ class CreateController extends AbstractController
             /**
              * Creates the view
              */
-            $GLOBALS['sep'] = "\r\n";
+            $separator = "\r\n";
 
             if ($createview) {
                 $GLOBALS['sql_query'] = 'CREATE';
@@ -120,16 +119,16 @@ class CreateController extends AbstractController
                 isset($view['algorithm'])
                 && in_array($view['algorithm'], self::VIEW_ALGORITHM_OPTIONS)
             ) {
-                $GLOBALS['sql_query'] .= $GLOBALS['sep'] . ' ALGORITHM = ' . $view['algorithm'];
+                $GLOBALS['sql_query'] .= $separator . ' ALGORITHM = ' . $view['algorithm'];
             }
 
             if (! empty($view['definer'])) {
                 if (! str_contains($view['definer'], '@')) {
-                    $GLOBALS['sql_query'] .= $GLOBALS['sep'] . 'DEFINER='
+                    $GLOBALS['sql_query'] .= $separator . 'DEFINER='
                         . Util::backquote($view['definer']);
                 } else {
                     $GLOBALS['arr'] = explode('@', $view['definer']);
-                    $GLOBALS['sql_query'] .= $GLOBALS['sep'] . 'DEFINER=' . Util::backquote($GLOBALS['arr'][0]);
+                    $GLOBALS['sql_query'] .= $separator . 'DEFINER=' . Util::backquote($GLOBALS['arr'][0]);
                     $GLOBALS['sql_query'] .= '@' . Util::backquote($GLOBALS['arr'][1]) . ' ';
                 }
             }
@@ -138,21 +137,21 @@ class CreateController extends AbstractController
                 isset($view['sql_security'])
                 && in_array($view['sql_security'], self::VIEW_SECURITY_OPTIONS)
             ) {
-                $GLOBALS['sql_query'] .= $GLOBALS['sep'] . ' SQL SECURITY '
+                $GLOBALS['sql_query'] .= $separator . ' SQL SECURITY '
                     . $view['sql_security'];
             }
 
-            $GLOBALS['sql_query'] .= $GLOBALS['sep'] . ' VIEW '
+            $GLOBALS['sql_query'] .= $separator . ' VIEW '
                 . Util::backquote($view['name']);
 
             if (! empty($view['column_names'])) {
-                $GLOBALS['sql_query'] .= $GLOBALS['sep'] . ' (' . $view['column_names'] . ')';
+                $GLOBALS['sql_query'] .= $separator . ' (' . $view['column_names'] . ')';
             }
 
-            $GLOBALS['sql_query'] .= $GLOBALS['sep'] . ' AS ' . $view['as'];
+            $GLOBALS['sql_query'] .= $separator . ' AS ' . $view['as'];
 
             if (isset($view['with']) && in_array($view['with'], self::VIEW_WITH_OPTIONS)) {
-                $GLOBALS['sql_query'] .= $GLOBALS['sep'] . ' WITH ' . $view['with'] . '  CHECK OPTION';
+                $GLOBALS['sql_query'] .= $separator . ' WITH ' . $view['with'] . '  CHECK OPTION';
             }
 
             if (! $this->dbi->tryQuery($GLOBALS['sql_query'])) {

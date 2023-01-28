@@ -3908,13 +3908,12 @@
       <code>$view['name']</code>
       <code>$view['name']</code>
     </MixedArgument>
-    <MixedAssignment occurrences="15">
+    <MixedAssignment occurrences="14">
       <code>$GLOBALS['arr']</code>
       <code>$GLOBALS['item']</code>
       <code>$GLOBALS['new_transformations_sql']</code>
       <code>$GLOBALS['parts']</code>
       <code>$GLOBALS['pma_transformation_data']</code>
-      <code>$GLOBALS['sep']</code>
       <code>$GLOBALS['sql_query']</code>
       <code>$GLOBALS['systemDb']</code>
       <code>$GLOBALS['view']</code>
