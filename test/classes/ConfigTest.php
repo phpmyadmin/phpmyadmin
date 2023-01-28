@@ -35,6 +35,7 @@ use const DIRECTORY_SEPARATOR;
 use const INFO_MODULES;
 use const PHP_EOL;
 use const PHP_OS;
+use const TEST_PATH;
 
 /**
  * @covers \PhpMyAdmin\Config

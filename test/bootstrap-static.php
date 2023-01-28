@@ -15,6 +15,12 @@ if (! defined('ROOT_PATH')) {
     // phpcs:enable
 }
 
+if (! defined('TEST_PATH')) {
+    // phpcs:disable PSR1.Files.SideEffects
+    define('TEST_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
+    // phpcs:enable
+}
+
 // phpcs:disable PSR1.Files.SideEffects
 if (! defined('PHPMYADMIN')) {
     define('PHPMYADMIN', true);

@@ -10,6 +10,8 @@ use function array_values;
 use function extension_loaded;
 use function is_bool;
 
+use const TEST_PATH;
+
 /**
  * @covers \PhpMyAdmin\FileListing
  */

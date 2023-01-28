@@ -10,6 +10,7 @@ use PhpMyAdmin\ThemeManager;
 use function filemtime;
 
 use const DIRECTORY_SEPARATOR;
+use const TEST_PATH;
 
 /**
  * @covers \PhpMyAdmin\Theme
