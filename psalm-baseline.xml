@@ -3912,7 +3912,6 @@
       <code>$GLOBALS['item']</code>
       <code>$GLOBALS['new_transformations_sql']</code>
       <code>$GLOBALS['parts']</code>
-      <code>$GLOBALS['pma_transformation_data']</code>
       <code>$GLOBALS['sql_query']</code>
       <code>$GLOBALS['view']</code>
       <code>$GLOBALS['view']['as']</code>
