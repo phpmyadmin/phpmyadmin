@@ -7496,11 +7496,6 @@ parameters:
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getDbRightsForUserOverview\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getDbSpecificPrivsQueriesForChangeOrCopyUser\\(\\) has parameter \\$queries with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php

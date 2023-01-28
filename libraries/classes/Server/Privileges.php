@@ -2073,7 +2073,7 @@ class Privileges
     /**
      * Get the database rights array for Display user overview
      *
-     * @return array    database rights array
+     * @return (string|string[]|null)[][][]    database rights array
      */
     public function getDbRightsForUserOverview(string $initial): array
     {
@@ -2884,22 +2884,7 @@ class Privileges
             // for all initials, even non A-Z
             $arrayInitials = [];
 
-            foreach ($dbRights as $right) {
-                foreach ($right as $account) {
-                    if (empty($account['User']) && $account['Host'] === 'localhost') {
-                        $emptyUserNotice = Message::notice(
-                            __(
-                                'A user account allowing any user from localhost to '
-                                . 'connect is present. This will prevent other users '
-                                . 'from connecting if the host part of their account '
-                                . 'allows a connection from any (%) host.'
-                            )
-                            . MySQLDocumentation::show('problems-connecting')
-                        )->getDisplay();
-                        break 2;
-                    }
-                }
-            }
+            $emptyUserNotice = $this->getEmptyUserNotice($dbRights);
 
             /**
              * Displays the initials
@@ -3680,5 +3665,29 @@ class Privileges
         $sql = "SELECT '1' FROM `mysql`.`user`" . $this->getUserHostCondition($username, $hostname) . ';';
 
         return (bool) $this->dbi->fetchValue($sql);
+    }
+
+    /**
+     * @param (string|string[]|null)[][][] $dbRights
+     */
+    private function getEmptyUserNotice(array $dbRights): string
+    {
+        foreach ($dbRights as $right) {
+            foreach ($right as $account) {
+                if (empty($account['User']) && $account['Host'] === 'localhost') {
+                    return Message::notice(
+                        __(
+                            'A user account allowing any user from localhost to '
+                            . 'connect is present. This will prevent other users '
+                            . 'from connecting if the host part of their account '
+                            . 'allows a connection from any (%) host.'
+                        )
+                        . MySQLDocumentation::show('problems-connecting')
+                    )->getDisplay();
+                }
+            }
+        }
+
+        return '';
     }
 }

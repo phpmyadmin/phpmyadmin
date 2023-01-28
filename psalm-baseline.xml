@@ -11778,8 +11778,7 @@
       <code>$tmpPrivs1</code>
       <code>uksort($arrayInitials, 'strnatcasecmp')</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="33">
-      <code>$account['Host']</code>
+    <MixedArrayAccess occurrences="32">
       <code>$groupAssignment[$host['User']]</code>
       <code>$host['Grant_priv']</code>
       <code>$host['Host']</code>
@@ -11819,12 +11818,11 @@
     <MixedArrayOffset occurrences="1">
       <code>$groupAssignment[$host['User']]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="45">
+    <MixedAssignment occurrences="43">
       <code>$GLOBALS[$key]</code>
       <code>$GLOBALS['new_username']</code>
       <code>$GLOBALS['pred_hostname']</code>
       <code>$GLOBALS['pred_username']</code>
-      <code>$account</code>
       <code>$extraData['db_wildcard_privs']</code>
       <code>$foundRows[]</code>
       <code>$host</code>
@@ -11850,7 +11848,6 @@
       <code>$queries[]</code>
       <code>$queries[]</code>
       <code>$queries[]</code>
-      <code>$right</code>
       <code>$routine</code>
       <code>$routine</code>
       <code>$routines[]</code>
