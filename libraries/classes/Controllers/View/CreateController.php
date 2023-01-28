@@ -65,7 +65,6 @@ class CreateController extends AbstractController
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
 
         $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-        $GLOBALS['new_transformations_sql'] = $GLOBALS['new_transformations_sql'] ?? null;
         $GLOBALS['view'] = $GLOBALS['view'] ?? null;
         $GLOBALS['item'] = $GLOBALS['item'] ?? null;
         $GLOBALS['parts'] = $GLOBALS['parts'] ?? null;
@@ -182,7 +181,7 @@ class CreateController extends AbstractController
 
             if ($pmaTransformationData !== false) {
                 // SQL for store new transformation details of VIEW
-                $GLOBALS['new_transformations_sql'] = $systemDb->getNewTransformationDataSql(
+                $newTransformationsSql = $systemDb->getNewTransformationDataSql(
                     $pmaTransformationData,
                     $columnMap,
                     $view['name'],
@@ -190,8 +189,8 @@ class CreateController extends AbstractController
                 );
 
                 // Store new transformations
-                if ($GLOBALS['new_transformations_sql'] != '') {
-                    $this->dbi->tryQuery($GLOBALS['new_transformations_sql']);
+                if ($newTransformationsSql !== '') {
+                    $this->dbi->tryQuery($newTransformationsSql);
                 }
             }
 

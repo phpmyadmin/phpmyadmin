@@ -3910,7 +3910,6 @@
     </MixedArgument>
     <MixedAssignment occurrences="13">
       <code>$GLOBALS['item']</code>
-      <code>$GLOBALS['new_transformations_sql']</code>
       <code>$GLOBALS['parts']</code>
       <code>$GLOBALS['sql_query']</code>
       <code>$GLOBALS['view']</code>
