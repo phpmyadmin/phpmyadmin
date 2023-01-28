@@ -1414,7 +1414,7 @@ class Privileges
      * Get HTML error for View Users form
      * For non superusers such as grant/create users
      */
-    public function getHtmlForViewUsersError(): string
+    private function getHtmlForViewUsersError(): string
     {
         return Message::error(
             __('Not enough privilege to view users.')

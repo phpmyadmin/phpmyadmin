@@ -1467,16 +1467,6 @@ class PrivilegesTest extends AbstractTestCase
         $this->assertStringContainsString($dbname, $html);
     }
 
-    public function testGetHtmlForViewUsersError(): void
-    {
-        $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface());
-
-        $this->assertStringContainsString(
-            'Not enough privilege to view users.',
-            $serverPrivileges->getHtmlForViewUsersError()
-        );
-    }
-
     public function testGetHtmlForUserProperties(): void
     {
         $this->dummyDbi->addResult(
