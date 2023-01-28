@@ -65,7 +65,6 @@ class CreateController extends AbstractController
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
 
         $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-        $GLOBALS['view'] = $GLOBALS['view'] ?? null;
         $GLOBALS['item'] = $GLOBALS['item'] ?? null;
         $GLOBALS['parts'] = $GLOBALS['parts'] ?? null;
 
@@ -216,7 +215,7 @@ class CreateController extends AbstractController
         $GLOBALS['sql_query'] = $request->getParsedBodyParam('sql_query', '');
 
         // prefill values if not already filled from former submission
-        $GLOBALS['view'] = [
+        $viewData = [
             'operation' => 'create',
             'or_replace' => '',
             'algorithm' => '',
@@ -248,26 +247,26 @@ class CreateController extends AbstractController
             $GLOBALS['parts'] = explode(' ', substr($createView, 17));
             $GLOBALS['item']['ALGORITHM'] = $GLOBALS['parts'][0];
 
-            $GLOBALS['view']['operation'] = 'alter';
-            $GLOBALS['view']['definer'] = $GLOBALS['item']['DEFINER'];
-            $GLOBALS['view']['sql_security'] = $GLOBALS['item']['SECURITY_TYPE'];
-            $GLOBALS['view']['name'] = $_GET['table'];
-            $GLOBALS['view']['as'] = $GLOBALS['item']['VIEW_DEFINITION'];
-            $GLOBALS['view']['with'] = $GLOBALS['item']['CHECK_OPTION'];
-            $GLOBALS['view']['algorithm'] = $GLOBALS['item']['ALGORITHM'];
+            $viewData['operation'] = 'alter';
+            $viewData['definer'] = $GLOBALS['item']['DEFINER'];
+            $viewData['sql_security'] = $GLOBALS['item']['SECURITY_TYPE'];
+            $viewData['name'] = $_GET['table'];
+            $viewData['as'] = $GLOBALS['item']['VIEW_DEFINITION'];
+            $viewData['with'] = $GLOBALS['item']['CHECK_OPTION'];
+            $viewData['algorithm'] = $GLOBALS['item']['ALGORITHM'];
 
             // MySQL 8.0+ - issue #16194
-            if (empty($GLOBALS['view']['as'])) {
+            if (empty($viewData['as'])) {
                 $parser = new Parser($createView);
                 /**
                  * @var CreateStatement $stmt
                  */
                 $stmt = $parser->statements[0];
-                $GLOBALS['view']['as'] = isset($stmt->body) ? TokensList::build($stmt->body) : $GLOBALS['view']['as'];
+                $viewData['as'] = isset($stmt->body) ? TokensList::build($stmt->body) : $viewData['as'];
             }
         }
 
-        $GLOBALS['view'] = array_merge($GLOBALS['view'], $view);
+        $viewData = array_merge($viewData, $view);
 
         $GLOBALS['urlParams']['db'] = $GLOBALS['db'];
         $GLOBALS['urlParams']['reload'] = 1;
@@ -278,7 +277,7 @@ class CreateController extends AbstractController
             'ajax_dialog' => $ajaxdialog,
             'text_dir' => $GLOBALS['text_dir'],
             'url_params' => $GLOBALS['urlParams'],
-            'view' => $GLOBALS['view'],
+            'view' => $viewData,
             'view_algorithm_options' => self::VIEW_ALGORITHM_OPTIONS,
             'view_with_options' => self::VIEW_WITH_OPTIONS,
             'view_security_options' => self::VIEW_SECURITY_OPTIONS,
