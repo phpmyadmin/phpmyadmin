@@ -65,7 +65,6 @@ class CreateController extends AbstractController
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
 
         $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-        $GLOBALS['item'] = $GLOBALS['item'] ?? null;
         $GLOBALS['parts'] = $GLOBALS['parts'] ?? null;
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
@@ -229,7 +228,7 @@ class CreateController extends AbstractController
 
         // Used to prefill the fields when editing a view
         if (isset($_GET['db'], $_GET['table'])) {
-            $GLOBALS['item'] = $this->dbi->fetchSingleRow(
+            $item = $this->dbi->fetchSingleRow(
                 sprintf(
                     "SELECT `VIEW_DEFINITION`, `CHECK_OPTION`, `DEFINER`,
             `SECURITY_TYPE`
@@ -245,15 +244,15 @@ class CreateController extends AbstractController
 
             // CREATE ALGORITHM=<ALGORITHM> DE...
             $GLOBALS['parts'] = explode(' ', substr($createView, 17));
-            $GLOBALS['item']['ALGORITHM'] = $GLOBALS['parts'][0];
+            $item['ALGORITHM'] = $GLOBALS['parts'][0];
 
             $viewData['operation'] = 'alter';
-            $viewData['definer'] = $GLOBALS['item']['DEFINER'];
-            $viewData['sql_security'] = $GLOBALS['item']['SECURITY_TYPE'];
+            $viewData['definer'] = $item['DEFINER'];
+            $viewData['sql_security'] = $item['SECURITY_TYPE'];
             $viewData['name'] = $_GET['table'];
-            $viewData['as'] = $GLOBALS['item']['VIEW_DEFINITION'];
-            $viewData['with'] = $GLOBALS['item']['CHECK_OPTION'];
-            $viewData['algorithm'] = $GLOBALS['item']['ALGORITHM'];
+            $viewData['as'] = $item['VIEW_DEFINITION'];
+            $viewData['with'] = $item['CHECK_OPTION'];
+            $viewData['algorithm'] = $item['ALGORITHM'];
 
             // MySQL 8.0+ - issue #16194
             if (empty($viewData['as'])) {
