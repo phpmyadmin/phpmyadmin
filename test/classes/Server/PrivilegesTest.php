@@ -1599,6 +1599,63 @@ class PrivilegesTest extends AbstractTestCase
             'Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege tables.',
             $actual
         );
+
+        // the user does not have enough privileges
+        $dummyDbi = $this->createDbiDummy();
+        // phpcs:disable Generic.Files.LineLength.TooLong
+        $dummyDbi->addResult(
+            'SELECT *, IF(`authentication_string` = _latin1 \'\', \'N\', \'Y\') AS \'Password\' FROM `mysql`.`user` ORDER BY `User` ASC, `Host` ASC;',
+            false
+        );
+        $dummyDbi->addResult(
+            'SELECT *, IF(`authentication_string` = _latin1 \'\', \'N\', \'Y\') AS \'Password\' FROM `mysql`.`user` ;',
+            false
+        );
+        $dummyDbi->addResult(
+            'SELECT 1 FROM `mysql`.`user`',
+            false
+        );
+        $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
+        $html = $serverPrivileges->getHtmlForUserOverview('ltr', '');
+
+        $this->assertStringContainsString(
+            Url::getCommon(['adduser' => 1], ''),
+            $html
+        );
+        $this->assertStringContainsString(
+            Generator::getIcon('b_usradd'),
+            $html
+        );
+        $this->assertStringContainsString(
+            __('Add user'),
+            $html
+        );
+
+        // MySQL has older table structure
+        $dummyDbi = $this->createDbiDummy();
+        // phpcs:disable Generic.Files.LineLength.TooLong
+        $dummyDbi->addResult(
+            'SELECT *, IF(`authentication_string` = _latin1 \'\', \'N\', \'Y\') AS \'Password\' FROM `mysql`.`user` ORDER BY `User` ASC, `Host` ASC;',
+            false
+        );
+        $dummyDbi->addResult(
+            'SELECT *, IF(`authentication_string` = _latin1 \'\', \'N\', \'Y\') AS \'Password\' FROM `mysql`.`user` ;',
+            false
+        );
+        $dummyDbi->addResult(
+            'SELECT 1 FROM `mysql`.`user`',
+            [
+                ['1'],
+            ]
+        );
+        $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
+        $actual = $serverPrivileges->getHtmlForUserOverview('ltr', '');
+
+        $this->assertStringContainsString('Your privilege table structure seems to be older than'
+            . ' this MySQL version!<br>'
+            . 'Please run the <code>mysql_upgrade</code> command'
+            . ' that should be included in your MySQL server distribution'
+            . ' to solve this problem!', $actual);
     }
 
     public function testGetHtmlForAllTableSpecificRights(): void
