@@ -170,12 +170,11 @@ class CreateController extends AbstractController
                 $viewColumns = explode(',', $view['column_names']);
             }
 
-            $columnMap = $this->dbi->getColumnMapFromSql($view['as'], $viewColumns);
-
             $systemDb = $this->dbi->getSystemDatabase();
             $pmaTransformationData = $systemDb->getExistingTransformationData($GLOBALS['db']);
 
             if ($pmaTransformationData !== false) {
+                $columnMap = $systemDb->getColumnMapFromSql($view['as'], $viewColumns);
                 // SQL for store new transformation details of VIEW
                 $newTransformationsSql = $systemDb->getNewTransformationDataSql(
                     $pmaTransformationData,

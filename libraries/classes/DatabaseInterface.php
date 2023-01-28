@@ -766,44 +766,6 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * returns detailed array with all columns for sql
-     *
-     * @param string $sqlQuery    target SQL query to get columns
-     * @param array  $viewColumns alias for columns
-     *
-     * @return array
-     * @psalm-return list<array<string, mixed>>
-     */
-    public function getColumnMapFromSql(string $sqlQuery, array $viewColumns = []): array
-    {
-        $result = $this->tryQuery($sqlQuery);
-
-        if ($result === false) {
-            return [];
-        }
-
-        $meta = $this->getFieldsMeta($result);
-
-        $columnMap = [];
-        $nbColumns = count($viewColumns);
-
-        foreach ($meta as $i => $field) {
-            $map = [
-                'table_name' => $field->table,
-                'refering_column' => $field->name,
-            ];
-
-            if ($nbColumns >= $i) {
-                $map['real_column'] = $viewColumns[$i];
-            }
-
-            $columnMap[] = $map;
-        }
-
-        return $columnMap;
-    }
-
-    /**
      * returns detailed array with all columns for given table in database,
      * or all tables/databases
      *

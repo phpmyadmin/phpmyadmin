@@ -107,58 +107,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
     }
 
     /**
-     * Tests for DBI::getColumnMapFromSql() method.
-     */
-    public function testPMAGetColumnMap(): void
-    {
-        $dummyDbi = $this->createDbiDummy();
-        $dbi = $this->createDatabaseInterface($dummyDbi);
-
-        $dummyDbi->addResult(
-            'PMA_sql_query',
-            [true],
-            [],
-            [
-                (object) [
-                    'table' => 'meta1_table',
-                    'name' => 'meta1_name',
-                ],
-                (object) [
-                    'table' => 'meta2_table',
-                    'name' => 'meta2_name',
-                ],
-            ]
-        );
-
-        $sql_query = 'PMA_sql_query';
-        $view_columns = [
-            'view_columns1',
-            'view_columns2',
-        ];
-
-        $column_map = $dbi->getColumnMapFromSql($sql_query, $view_columns);
-
-        $this->assertEquals(
-            [
-                'table_name' => 'meta1_table',
-                'refering_column' => 'meta1_name',
-                'real_column' => 'view_columns1',
-            ],
-            $column_map[0]
-        );
-        $this->assertEquals(
-            [
-                'table_name' => 'meta2_table',
-                'refering_column' => 'meta2_name',
-                'real_column' => 'view_columns2',
-            ],
-            $column_map[1]
-        );
-
-        $dummyDbi->assertAllQueriesConsumed();
-    }
-
-    /**
      * Tests for DBI::getSystemDatabase() method.
      */
     public function testGetSystemDatabase(): void
