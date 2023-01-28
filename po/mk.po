@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-01-21 15:49+0000\n"
-"PO-Revision-Date: 2023-01-28 07:50+0000\n"
+"PO-Revision-Date: 2023-01-29 23:12+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/mk/>\n"
@@ -7955,9 +7955,8 @@ msgstr "Табелата %1$s беше успешно променета."
 #: libraries/classes/Controllers/Table/ChangeRowsController.php:36
 #: libraries/classes/Controllers/Table/DeleteConfirmController.php:25
 #: libraries/classes/Controllers/Table/ExportRowsController.php:36
-#, fuzzy
 msgid "No row selected."
-msgstr "Нема селектирани записи"
+msgstr "Нема избран ред."
 
 #: libraries/classes/Controllers/Table/ChartController.php:60
 #: libraries/classes/Controllers/Table/GisVisualizationController.php:70
@@ -8221,9 +8220,8 @@ msgstr ""
 "дознаете зошто, кликнете %sовде%s."
 
 #: libraries/classes/Database/Designer/Common.php:573
-#, fuzzy
 msgid "Error: relationship already exists."
-msgstr "Корисник %s веќе постои!"
+msgstr "Грешка: врската веќе постои."
 
 #: libraries/classes/Database/Designer/Common.php:625
 #, fuzzy
@@ -14846,18 +14844,16 @@ msgstr "Додади/избриши колона"
 
 #: templates/display/results/table.twig:49 templates/export.twig:149
 #: templates/table/start_and_number_of_rows_fieldset.twig:9
-#, fuzzy
 msgid "Number of rows:"
-msgstr "Број на записи на страница"
+msgstr "Број на редови:"
 
 #: templates/display/results/table.twig:52
 msgid "All"
 msgstr "Се"
 
 #: templates/display/results/table.twig:70
-#, fuzzy
 msgid "Sort by key:"
-msgstr "Подредување по клуч"
+msgstr "Подредување по клуч:"
 
 #: templates/display/results/table.twig:119
 #: templates/table/search/index.twig:102
@@ -14958,9 +14954,8 @@ msgid "Select a template"
 msgstr "Избери табели"
 
 #: templates/export.twig:14
-#, fuzzy
 msgid "Export templates:"
-msgstr "Тип на извоз"
+msgstr "Шаблони за извоз:"
 
 #: templates/export.twig:18
 #, fuzzy
@@ -17570,9 +17565,9 @@ msgid "Network traffic since startup: %s"
 msgstr ""
 
 #: templates/server/status/status/index.twig:7
-#, fuzzy, php-format
+#, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "Овој MySQL сервер работи %s. Стартуван е на %s."
+msgstr "Овој MySQL сервер работи %1$s. Стартуван е на %2$s."
 
 #: templates/server/status/status/index.twig:15
 msgid ""
