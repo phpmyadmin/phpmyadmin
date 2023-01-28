@@ -2859,12 +2859,7 @@ class Privileges
             // - the user does not have enough privileges
             // - the privilege tables use a structure of an earlier version.
             // so let's try a more simple query
-
-            unset($resAll);
-            $sqlQuery = 'SELECT * FROM `mysql`.`user`';
-            $res = $this->dbi->tryQuery($sqlQuery);
-
-            if (! $res) {
+            if (! $this->dbi->tryQuery('SELECT * FROM `mysql`.`user`')) {
                 $errorMessages .= $this->getHtmlForViewUsersError();
                 $errorMessages .= $this->getAddUserHtmlFieldset();
             } else {
@@ -2877,8 +2872,6 @@ class Privileges
                     . ' to solve this problem!';
                 $errorMessages .= Message::rawError($raw)->getDisplay();
             }
-
-            unset($res);
         } else {
             $dbRights = $this->getDbRightsForUserOverview($initial);
             // for all initials, even non A-Z
