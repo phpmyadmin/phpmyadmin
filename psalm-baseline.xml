@@ -3908,7 +3908,7 @@
       <code>$view['name']</code>
       <code>$view['name']</code>
     </MixedArgument>
-    <MixedAssignment occurrences="19">
+    <MixedAssignment occurrences="15">
       <code>$GLOBALS['arr']</code>
       <code>$GLOBALS['item']</code>
       <code>$GLOBALS['new_transformations_sql']</code>
@@ -3923,10 +3923,7 @@
       <code>$GLOBALS['view']['definer']</code>
       <code>$GLOBALS['view']['sql_security']</code>
       <code>$GLOBALS['view']['with']</code>
-      <code>$GLOBALS['view_algorithm_options']</code>
       <code>$GLOBALS['view_columns']</code>
-      <code>$GLOBALS['view_security_options']</code>
-      <code>$GLOBALS['view_with_options']</code>
     </MixedAssignment>
     <MixedOperand occurrences="5">
       <code>$view['algorithm']</code>

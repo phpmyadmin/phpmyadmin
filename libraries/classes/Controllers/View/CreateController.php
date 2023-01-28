@@ -36,6 +36,22 @@ class CreateController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
+    private const VIEW_SECURITY_OPTIONS = [
+        'DEFINER',
+        'INVOKER',
+    ];
+
+    private const VIEW_ALGORITHM_OPTIONS = [
+        'UNDEFINED',
+        'MERGE',
+        'TEMPTABLE',
+    ];
+
+    private const VIEW_WITH_OPTIONS = [
+        'CASCADED',
+        'LOCAL',
+    ];
+
     public function __construct(ResponseRenderer $response, Template $template, DatabaseInterface $dbi)
     {
         parent::__construct($response, $template);
@@ -47,9 +63,6 @@ class CreateController extends AbstractController
         $this->checkParameters(['db']);
         $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-        $GLOBALS['view_algorithm_options'] = $GLOBALS['view_algorithm_options'] ?? null;
-        $GLOBALS['view_with_options'] = $GLOBALS['view_with_options'] ?? null;
-        $GLOBALS['view_security_options'] = $GLOBALS['view_security_options'] ?? null;
 
         $GLOBALS['message'] = $GLOBALS['message'] ?? null;
         $GLOBALS['sep'] = $GLOBALS['sep'] ?? null;
@@ -71,22 +84,6 @@ class CreateController extends AbstractController
 
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/table/structure');
         $GLOBALS['urlParams']['back'] = Url::getFromRoute('/view/create');
-
-        $GLOBALS['view_algorithm_options'] = [
-            'UNDEFINED',
-            'MERGE',
-            'TEMPTABLE',
-        ];
-
-        $GLOBALS['view_with_options'] = [
-            'CASCADED',
-            'LOCAL',
-        ];
-
-        $GLOBALS['view_security_options'] = [
-            'DEFINER',
-            'INVOKER',
-        ];
 
         /** @var array|null $view */
         $view = $request->getParsedBodyParam('view');
@@ -121,7 +118,7 @@ class CreateController extends AbstractController
 
             if (
                 isset($view['algorithm'])
-                && in_array($view['algorithm'], $GLOBALS['view_algorithm_options'])
+                && in_array($view['algorithm'], self::VIEW_ALGORITHM_OPTIONS)
             ) {
                 $GLOBALS['sql_query'] .= $GLOBALS['sep'] . ' ALGORITHM = ' . $view['algorithm'];
             }
@@ -139,7 +136,7 @@ class CreateController extends AbstractController
 
             if (
                 isset($view['sql_security'])
-                && in_array($view['sql_security'], $GLOBALS['view_security_options'])
+                && in_array($view['sql_security'], self::VIEW_SECURITY_OPTIONS)
             ) {
                 $GLOBALS['sql_query'] .= $GLOBALS['sep'] . ' SQL SECURITY '
                     . $view['sql_security'];
@@ -154,7 +151,7 @@ class CreateController extends AbstractController
 
             $GLOBALS['sql_query'] .= $GLOBALS['sep'] . ' AS ' . $view['as'];
 
-            if (isset($view['with']) && in_array($view['with'], $GLOBALS['view_with_options'])) {
+            if (isset($view['with']) && in_array($view['with'], self::VIEW_WITH_OPTIONS)) {
                 $GLOBALS['sql_query'] .= $GLOBALS['sep'] . ' WITH ' . $view['with'] . '  CHECK OPTION';
             }
 
@@ -290,9 +287,9 @@ class CreateController extends AbstractController
             'text_dir' => $GLOBALS['text_dir'],
             'url_params' => $GLOBALS['urlParams'],
             'view' => $GLOBALS['view'],
-            'view_algorithm_options' => $GLOBALS['view_algorithm_options'],
-            'view_with_options' => $GLOBALS['view_with_options'],
-            'view_security_options' => $GLOBALS['view_security_options'],
+            'view_algorithm_options' => self::VIEW_ALGORITHM_OPTIONS,
+            'view_with_options' => self::VIEW_WITH_OPTIONS,
+            'view_security_options' => self::VIEW_SECURITY_OPTIONS,
         ]);
     }
 }
