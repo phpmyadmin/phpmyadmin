@@ -933,11 +933,11 @@ class ConfigTest extends AbstractTestCase
     {
         return [
             [
-                ROOT_PATH . 'test/test_data/config.inc.php',
+                TEST_PATH . 'test/test_data/config.inc.php',
                 true,
             ],
             [
-                ROOT_PATH . 'test/test_data/config-nonexisting.inc.php',
+                TEST_PATH . 'test/test_data/config-nonexisting.inc.php',
                 false,
             ],
         ];
