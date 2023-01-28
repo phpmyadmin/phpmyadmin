@@ -8,6 +8,14 @@ if (! defined('ROOT_PATH')) {
     // phpcs:enable
 }
 
+if (! defined('TEST_PATH')) {
+    // This is used at Debian because tests
+    // can be in a different place than the source code
+    // phpcs:disable PSR1.Files.SideEffects
+    define('TEST_PATH', ROOT_PATH);
+    // phpcs:enable
+}
+
 /**
  * Set precision to sane value, with higher values
  * things behave slightly unexpectedly, for example
