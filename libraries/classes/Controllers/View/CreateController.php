@@ -65,7 +65,6 @@ class CreateController extends AbstractController
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
 
         $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-        $GLOBALS['arr'] = $GLOBALS['arr'] ?? null;
         $GLOBALS['view_columns'] = $GLOBALS['view_columns'] ?? null;
         $GLOBALS['systemDb'] = $GLOBALS['systemDb'] ?? null;
         $GLOBALS['pma_transformation_data'] = $GLOBALS['pma_transformation_data'] ?? null;
@@ -127,9 +126,9 @@ class CreateController extends AbstractController
                     $GLOBALS['sql_query'] .= $separator . 'DEFINER='
                         . Util::backquote($view['definer']);
                 } else {
-                    $GLOBALS['arr'] = explode('@', $view['definer']);
-                    $GLOBALS['sql_query'] .= $separator . 'DEFINER=' . Util::backquote($GLOBALS['arr'][0]);
-                    $GLOBALS['sql_query'] .= '@' . Util::backquote($GLOBALS['arr'][1]) . ' ';
+                    $definerArray = explode('@', $view['definer']);
+                    $GLOBALS['sql_query'] .= $separator . 'DEFINER=' . Util::backquote($definerArray[0]);
+                    $GLOBALS['sql_query'] .= '@' . Util::backquote($definerArray[1]) . ' ';
                 }
             }
 
