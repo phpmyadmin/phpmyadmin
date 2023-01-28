@@ -1003,6 +1003,7 @@ class CoreTest extends AbstractNetworkTestCase
      * @runInSeparateProcess
      * @preserveGlobalState disabled
      * @requires extension xdebug
+     * @group ext-xdebug
      */
     public function testDownloadHeader(): void
     {
@@ -1029,6 +1030,7 @@ class CoreTest extends AbstractNetworkTestCase
      * @runInSeparateProcess
      * @preserveGlobalState disabled
      * @requires extension xdebug
+     * @group ext-xdebug
      */
     public function testDownloadHeader2(): void
     {
