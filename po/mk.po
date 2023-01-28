@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-01-28 07:50+0000\n"
+"PO-Revision-Date: 2023-01-29 23:12+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -7070,9 +7070,8 @@ msgstr ""
 "дознаете зошто, кликнете %sовде%s."
 
 #: libraries/classes/Database/Designer/Common.php:565
-#, fuzzy
 msgid "Error: relationship already exists."
-msgstr "Корисник %s веќе постои!"
+msgstr "Грешка: врската веќе постои."
 
 #: libraries/classes/Database/Designer/Common.php:611
 #, fuzzy
@@ -12176,10 +12175,9 @@ msgid "Network traffic since startup: %s"
 msgstr ""
 
 #: libraries/classes/Server/Status.php:81
-#, fuzzy, php-format
-#| msgid "This MySQL server has been running for %s. It started up on %s."
+#, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "Овој MySQL сервер работи %s. Стартуван е на %s."
+msgstr "Овој MySQL сервер работи %1$s. Стартуван е на %2$s."
 
 #: libraries/classes/Server/Status.php:102
 msgid ""
@@ -14645,10 +14643,8 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
 
 #: tbl_row_action.php:73
-#, fuzzy
-#| msgid "No rows selected"
 msgid "No row selected."
-msgstr "Нема селектирани записи"
+msgstr "Нема избран ред."
 
 #: tbl_tracking.php:34
 #, php-format
@@ -14725,10 +14721,8 @@ msgstr "Саб"
 #: templates/start_and_number_of_rows_panel.twig:10
 #: templates/display/results/additional_fields.twig:6
 #: templates/display/export/options_rows.twig:10
-#, fuzzy
-#| msgid "Number of rows per page"
 msgid "Number of rows:"
-msgstr "Број на записи на страница"
+msgstr "Број на редови:"
 
 #: templates/toggle_button.twig:3
 msgid "Click to toggle"
@@ -16126,9 +16120,8 @@ msgid "None"
 msgstr "нема"
 
 #: templates/display/export/template_loading.twig:2
-#, fuzzy
 msgid "Export templates:"
-msgstr "Тип на извоз"
+msgstr "Шаблони за извоз:"
 
 #: templates/display/export/template_loading.twig:6
 #, fuzzy
