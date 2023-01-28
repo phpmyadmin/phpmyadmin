@@ -3921,7 +3921,6 @@
       <code>$GLOBALS['view']['definer']</code>
       <code>$GLOBALS['view']['sql_security']</code>
       <code>$GLOBALS['view']['with']</code>
-      <code>$GLOBALS['view_columns']</code>
     </MixedAssignment>
     <MixedOperand occurrences="5">
       <code>$view['algorithm']</code>

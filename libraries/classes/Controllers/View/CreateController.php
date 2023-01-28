@@ -65,7 +65,6 @@ class CreateController extends AbstractController
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
 
         $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-        $GLOBALS['view_columns'] = $GLOBALS['view_columns'] ?? null;
         $GLOBALS['systemDb'] = $GLOBALS['systemDb'] ?? null;
         $GLOBALS['pma_transformation_data'] = $GLOBALS['pma_transformation_data'] ?? null;
         $GLOBALS['new_transformations_sql'] = $GLOBALS['new_transformations_sql'] ?? null;
@@ -173,12 +172,12 @@ class CreateController extends AbstractController
             }
 
             // If different column names defined for VIEW
-            $GLOBALS['view_columns'] = [];
+            $viewColumns = [];
             if (isset($view['column_names'])) {
-                $GLOBALS['view_columns'] = explode(',', $view['column_names']);
+                $viewColumns = explode(',', $view['column_names']);
             }
 
-            $columnMap = $this->dbi->getColumnMapFromSql($view['as'], $GLOBALS['view_columns']);
+            $columnMap = $this->dbi->getColumnMapFromSql($view['as'], $viewColumns);
 
             $GLOBALS['systemDb'] = $this->dbi->getSystemDatabase();
             $GLOBALS['pma_transformation_data'] = $GLOBALS['systemDb']->getExistingTransformationData($GLOBALS['db']);
