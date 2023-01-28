@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-01-21 15:49+0000\n"
-"PO-Revision-Date: 2023-01-28 03:53+0000\n"
+"PO-Revision-Date: 2023-01-28 07:50+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/mk/>\n"
@@ -8031,7 +8031,7 @@ msgstr[1] "%1$d колони беа успешно отпуштени."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:63
 msgid "Invalid table name"
-msgstr ""
+msgstr "Невалидно име на табела"
 
 #. l10n: In case a SQL query did not pass a security check
 #: libraries/classes/Controllers/Table/GetFieldController.php:72
