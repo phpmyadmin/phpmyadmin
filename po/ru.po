@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-01-24 21:44+0000\n"
+"POT-Creation-Date: 2023-01-29 00:20+0000\n"
 "PO-Revision-Date: 2022-09-15 13:15+0000\n"
 "Last-Translator: Андрей <platon436@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1382,7 +1382,7 @@ msgstr "Поиск:"
 
 #: libraries/classes/BrowseForeigners.php:204
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:341
-#: libraries/classes/Controllers/Server/PrivilegesController.php:343
+#: libraries/classes/Controllers/Server/PrivilegesController.php:317
 #: libraries/classes/Normalization.php:254 libraries/classes/Tracking.php:327
 #: libraries/classes/Tracking.php:482
 #: templates/columns_definitions/column_definitions_form.twig:42
@@ -3565,7 +3565,7 @@ msgstr "Первый день календаря"
 
 #: libraries/classes/Config/Descriptions.php:748
 #: libraries/classes/Config/Descriptions.php:759 libraries/classes/Menu.php:473
-#: libraries/classes/Util.php:1849 libraries/config.values.php:155
+#: libraries/classes/Util.php:1844 libraries/config.values.php:155
 #: templates/navigation/tree/database_select.twig:10
 #: templates/server/databases/index.twig:3 templates/server/export/index.twig:7
 #: templates/server/export/index.twig:14
@@ -3631,7 +3631,7 @@ msgstr "Сервера"
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
 #: libraries/classes/Plugins/Export/ExportXml.php:120
-#: libraries/classes/Server/Status/Data.php:163
+#: libraries/classes/Server/Status/Data.php:160
 #: templates/database/export/index.twig:22
 #: templates/database/structure/show_create.twig:6
 msgid "Tables"
@@ -3682,8 +3682,8 @@ msgstr "Слежение за изменениями"
 #: libraries/classes/Config/Descriptions.php:775 libraries/classes/Menu.php:253
 #: libraries/classes/Menu.php:357 libraries/classes/Menu.php:478
 #: libraries/classes/Navigation/Nodes/NodeTable.php:305
-#: libraries/classes/Util.php:1402 libraries/classes/Util.php:1850
-#: libraries/classes/Util.php:1865 libraries/classes/Util.php:1882
+#: libraries/classes/Util.php:1402 libraries/classes/Util.php:1845
+#: libraries/classes/Util.php:1860 libraries/classes/Util.php:1877
 #: libraries/config.values.php:62 libraries/config.values.php:76
 #: libraries/config.values.php:167 libraries/config.values.php:177
 msgid "SQL"
@@ -4396,9 +4396,9 @@ msgstr "Строк в текстовом поле"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:142
 #: libraries/classes/Plugins/Export/ExportOdt.php:187
 #: libraries/classes/Plugins/Export/ExportTexytext.php:126
-#: libraries/classes/Server/Privileges.php:1835
-#: libraries/classes/Server/Privileges.php:1837
-#: libraries/classes/Server/Status/Processes.php:118
+#: libraries/classes/Server/Privileges.php:1785
+#: libraries/classes/Server/Privileges.php:1787
+#: libraries/classes/Server/Status/Processes.php:117
 #: templates/console/bookmark_content.twig:12 templates/console/display.twig:48
 #: templates/console/display.twig:206 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4426,8 +4426,8 @@ msgstr "Сервер"
 
 #: libraries/classes/Config/Descriptions.php:957
 #: libraries/classes/Plugins/Export/ExportXml.php:454
-#: libraries/classes/Server/Privileges.php:1841
-#: libraries/classes/Server/Privileges.php:1843
+#: libraries/classes/Server/Privileges.php:1791
+#: libraries/classes/Server/Privileges.php:1793
 #: templates/database/structure/show_create.twig:10
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
@@ -4577,39 +4577,39 @@ msgstr "Сортировки по"
 msgid "Server connection collation"
 msgstr "Сопоставление кодировки соединения"
 
-#: libraries/classes/Config/FormDisplay.php:600
+#: libraries/classes/Config/FormDisplay.php:597
 #, php-format
 msgid "Missing data for %s"
 msgstr "Отсутствуют данные для %s"
 
-#: libraries/classes/Config/FormDisplay.php:641
+#: libraries/classes/Config/FormDisplay.php:638
 #: libraries/classes/Config/Validator.php:590
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:877
 msgid "Incorrect value!"
 msgstr "Некорректное значение!"
 
-#: libraries/classes/Config/FormDisplay.php:792
-#: libraries/classes/Config/FormDisplay.php:801
+#: libraries/classes/Config/FormDisplay.php:789
+#: libraries/classes/Config/FormDisplay.php:798
 msgid "unavailable"
 msgstr "недоступно"
 
-#: libraries/classes/Config/FormDisplay.php:794
-#: libraries/classes/Config/FormDisplay.php:803
+#: libraries/classes/Config/FormDisplay.php:791
+#: libraries/classes/Config/FormDisplay.php:800
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "Для \"%s\" требуется расширение %s"
 
-#: libraries/classes/Config/FormDisplay.php:834
+#: libraries/classes/Config/FormDisplay.php:831
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr "Импорт архива не будет функционировать из-за отсутствия функции %s."
 
-#: libraries/classes/Config/FormDisplay.php:843
+#: libraries/classes/Config/FormDisplay.php:840
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr "Экспорт в сжатом виде не будет работать без функции %s."
 
-#: libraries/classes/Config/FormDisplay.php:862
+#: libraries/classes/Config/FormDisplay.php:859
 #, php-format
 msgid "maximum %s"
 msgstr "максимум %s"
@@ -4641,10 +4641,10 @@ msgstr "Обычно"
 #: libraries/classes/Import.php:1253 libraries/classes/Menu.php:245
 #: libraries/classes/Menu.php:352
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
-#: libraries/classes/Navigation/Nodes/NodeDatabase.php:51
+#: libraries/classes/Navigation/Nodes/NodeDatabase.php:54
 #: libraries/classes/Navigation/Nodes/NodeTable.php:296
-#: libraries/classes/Util.php:1401 libraries/classes/Util.php:1864
-#: libraries/classes/Util.php:1881 libraries/config.values.php:60
+#: libraries/classes/Util.php:1401 libraries/classes/Util.php:1859
+#: libraries/classes/Util.php:1876 libraries/config.values.php:60
 #: libraries/config.values.php:74 libraries/config.values.php:165
 #: libraries/config.values.php:175
 #: templates/columns_definitions/table_fields_definitions.twig:4
@@ -4687,9 +4687,9 @@ msgstr "Текст OpenDocument"
 #: libraries/classes/Config/Forms/User/ExportForm.php:153
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:390
 #: libraries/classes/Menu.php:275 libraries/classes/Menu.php:377
-#: libraries/classes/Menu.php:505 libraries/classes/Server/Privileges.php:1530
-#: libraries/classes/Util.php:1853 libraries/classes/Util.php:1868
-#: libraries/classes/Util.php:1885 templates/database/events/index.twig:16
+#: libraries/classes/Menu.php:505 libraries/classes/Server/Privileges.php:1487
+#: libraries/classes/Util.php:1848 libraries/classes/Util.php:1863
+#: libraries/classes/Util.php:1880 templates/database/events/index.twig:16
 #: templates/database/events/index.twig:17
 #: templates/database/events/index.twig:86
 #: templates/database/events/row.twig:36
@@ -4732,8 +4732,8 @@ msgstr "CSV, используя LOAD DATA"
 #: libraries/classes/Config/Forms/User/ImportForm.php:67
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:327
 #: libraries/classes/Menu.php:284 libraries/classes/Menu.php:387
-#: libraries/classes/Menu.php:510 libraries/classes/Util.php:1854
-#: libraries/classes/Util.php:1869 libraries/classes/Util.php:1886
+#: libraries/classes/Menu.php:510 libraries/classes/Util.php:1849
+#: libraries/classes/Util.php:1864 libraries/classes/Util.php:1881
 #: templates/import.twig:3 templates/import.twig:192
 #: templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
@@ -4751,22 +4751,22 @@ msgstr ""
 "Невозможно сохранить настройки, отправленная форма конфигурации содержит "
 "ошибки!"
 
-#: libraries/classes/Config.php:649
+#: libraries/classes/Config.php:639
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Невозможно прочесть существующий конфигурационный файл (%s)."
 
-#: libraries/classes/Config.php:685
+#: libraries/classes/Config.php:675
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "На конфигурационный файл выставлены неверные права разрешающие запись для "
 "всех!"
 
-#: libraries/classes/Config.php:699
+#: libraries/classes/Config.php:689
 msgid "Failed to read configuration file!"
 msgstr "Ошибка при чтении конфигурационного файла!"
 
-#: libraries/classes/Config.php:701
+#: libraries/classes/Config.php:691
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -4774,12 +4774,12 @@ msgstr ""
 "Обычно это означает наличие синтаксических ошибок, пожалуйста, проверьте "
 "выведенные ниже ошибки."
 
-#: libraries/classes/Config.php:1194
+#: libraries/classes/Config.php:1183
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Неверный индекс сервера: %s"
 
-#: libraries/classes/Config.php:1207
+#: libraries/classes/Config.php:1196
 #, php-format
 msgid "Server %d"
 msgstr "Сервер %d"
@@ -5071,37 +5071,37 @@ msgstr "Ошибка"
 msgid "Succeeded"
 msgstr "Удалось"
 
-#: libraries/classes/Controllers/Database/CentralColumnsController.php:147
+#: libraries/classes/Controllers/Database/CentralColumnsController.php:146
 #, php-format
 msgid "Showing rows %1$s - %2$s."
 msgstr "Отображение строк %1$s - %2$s."
 
 #. l10n: The user tries to save a page with an existing name in Designer
-#: libraries/classes/Controllers/Database/DesignerController.php:109
+#: libraries/classes/Controllers/Database/DesignerController.php:99
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
 "Страница с именем \"%s\" уже существует, укажите другое имя, пожалуйста."
 
-#: libraries/classes/Controllers/Database/ExportController.php:84
-#: libraries/classes/Controllers/Database/TrackingController.php:133
-#: libraries/classes/Controllers/Export/ExportController.php:310
+#: libraries/classes/Controllers/Database/ExportController.php:75
+#: libraries/classes/Controllers/Database/TrackingController.php:121
+#: libraries/classes/Controllers/Export/ExportController.php:309
 #: libraries/classes/Database/Qbe.php:322
 #: templates/database/structure/index.twig:25
 #: templates/navigation/tree/path.twig:9
 msgid "No tables found in database."
 msgstr "Таблиц в базе данных не обнаружено."
 
-#: libraries/classes/Controllers/Database/ExportController.php:146
-#: libraries/classes/Controllers/Server/ExportController.php:76
-#: libraries/classes/Controllers/Table/ExportController.php:112
+#: libraries/classes/Controllers/Database/ExportController.php:137
+#: libraries/classes/Controllers/Server/ExportController.php:74
+#: libraries/classes/Controllers/Table/ExportController.php:111
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 "Отсутствуют плагины экспорта. Проверьте содержимое установленной копии "
 "phpMyAdmin!"
 
-#: libraries/classes/Controllers/Database/ImportController.php:79
+#: libraries/classes/Controllers/Database/ImportController.php:64
 #: libraries/classes/Controllers/Import/ImportController.php:582
 #: libraries/classes/Controllers/Server/ImportController.php:60
 #: libraries/classes/Controllers/Table/ImportController.php:71
@@ -5113,42 +5113,42 @@ msgstr "Не удалось загрузить плагины импорта. П
 msgid "No collation provided."
 msgstr "Не предоставлено сопоставление."
 
-#: libraries/classes/Controllers/Database/OperationsController.php:107
+#: libraries/classes/Controllers/Database/OperationsController.php:101
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 "Невозможно скопировать базу данных с тем же именем. Измените имя и повторите "
 "попытку."
 
-#: libraries/classes/Controllers/Database/OperationsController.php:194
+#: libraries/classes/Controllers/Database/OperationsController.php:188
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "База данных %1$s переименована в %2$s."
 
-#: libraries/classes/Controllers/Database/OperationsController.php:204
+#: libraries/classes/Controllers/Database/OperationsController.php:198
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "База данных %1$s скопирована в %2$s."
 
-#: libraries/classes/Controllers/Database/OperationsController.php:306
+#: libraries/classes/Controllers/Database/OperationsController.php:290
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr "Хранилище конфигурации phpMyAdmin неактивно. %sУзнайте причину%s."
 
-#: libraries/classes/Controllers/Database/PrivilegesController.php:79
-#: libraries/classes/Controllers/Server/PrivilegesController.php:151
+#: libraries/classes/Controllers/Database/PrivilegesController.php:77
+#: libraries/classes/Controllers/Server/PrivilegesController.php:125
 #: libraries/classes/Controllers/Server/UserGroupsController.php:54
 #: libraries/classes/Controllers/Table/PrivilegesController.php:80
 msgid "No Privileges"
 msgstr "Нет привилегий"
 
-#: libraries/classes/Controllers/Database/PrivilegesController.php:88
-#: libraries/classes/Controllers/Server/PrivilegesController.php:160
+#: libraries/classes/Controllers/Database/PrivilegesController.php:86
+#: libraries/classes/Controllers/Server/PrivilegesController.php:134
 #: libraries/classes/Controllers/Table/PrivilegesController.php:89
 msgid "You do not have the privileges to administrate the users!"
 msgstr "У вас нет прав администрировать пользователей!"
 
-#: libraries/classes/Controllers/Database/SearchController.php:55
+#: libraries/classes/Controllers/Database/SearchController.php:49
 msgid ""
 "Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
 "code] configuration."
@@ -5179,27 +5179,27 @@ msgstr "Ни одна таблица не выбрана."
 msgid "Success!"
 msgstr "Успех!"
 
-#: libraries/classes/Controllers/Database/StructureController.php:347
+#: libraries/classes/Controllers/Database/StructureController.php:360
 #: templates/table/operations/index.twig:451
 #: templates/table/operations/view.twig:32
 #, php-format
 msgid "View %s has been dropped."
 msgstr "Представление %s было удалено."
 
-#: libraries/classes/Controllers/Database/StructureController.php:348
+#: libraries/classes/Controllers/Database/StructureController.php:361
 #: templates/table/operations/index.twig:451
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "Таблица %s была удалена."
 
-#: libraries/classes/Controllers/Database/StructureController.php:395
+#: libraries/classes/Controllers/Database/StructureController.php:408
 #: templates/table/operations/index.twig:410
 #: templates/table/operations/index.twig:428
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Таблица %s была очищена."
 
-#: libraries/classes/Controllers/Database/StructureController.php:558
+#: libraries/classes/Controllers/Database/StructureController.php:571
 #: libraries/classes/Display/Results.php:3761
 #, php-format
 msgid ""
@@ -5209,14 +5209,14 @@ msgstr ""
 "Данное представление имеет, по меньшей мере, указанное количество строк. "
 "Пожалуйста, обратитесь к %sдокументации%s."
 
-#: libraries/classes/Controllers/Database/StructureController.php:747
+#: libraries/classes/Controllers/Database/StructureController.php:760
 msgid "unknown"
 msgstr "неизвестно"
 
 #: libraries/classes/Controllers/Database/Structure/DropTableController.php:54
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:70
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:505
-#: libraries/classes/Controllers/Table/DeleteRowsController.php:59
+#: libraries/classes/Controllers/Table/DeleteRowsController.php:58
 #: libraries/classes/Controllers/Table/DropColumnController.php:57
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:81
 #: libraries/classes/IndexColumn.php:164 libraries/classes/Index.php:503
@@ -5267,22 +5267,22 @@ msgstr "Нет изменений"
 msgid "Favorite List is full!"
 msgstr "Список избранного полностью заполнен!"
 
-#: libraries/classes/Controllers/Database/TrackingController.php:86
-#: libraries/classes/Controllers/Database/TrackingController.php:106
+#: libraries/classes/Controllers/Database/TrackingController.php:74
+#: libraries/classes/Controllers/Database/TrackingController.php:94
 msgid "Tracking data deleted successfully."
 msgstr "Данные слежения успешно удалены."
 
-#: libraries/classes/Controllers/Database/TrackingController.php:93
+#: libraries/classes/Controllers/Database/TrackingController.php:81
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr "Версия %1$s для выбранных таблиц создана, отслеживание включено."
 
-#: libraries/classes/Controllers/Database/TrackingController.php:123
+#: libraries/classes/Controllers/Database/TrackingController.php:111
 msgid "No tables selected."
 msgstr "Ни одна таблица не выбрана."
 
-#: libraries/classes/Controllers/Database/TrackingController.php:158
+#: libraries/classes/Controllers/Database/TrackingController.php:146
 msgid "Database Log"
 msgstr "Журнал базы данных"
 
@@ -5312,12 +5312,12 @@ msgstr "Если у вас возникают проблемы, отправьт
 msgid "You may want to refresh the page."
 msgstr "Возможно вы хотите перезагрузить страницу."
 
-#: libraries/classes/Controllers/Export/ExportController.php:116
+#: libraries/classes/Controllers/Export/ExportController.php:115
 #: libraries/classes/Export.php:1264
 msgid "Bad type!"
 msgstr "Неучтённый тип!"
 
-#: libraries/classes/Controllers/Export/ExportController.php:200
+#: libraries/classes/Controllers/Export/ExportController.php:199
 msgid "Bad parameters!"
 msgstr "Ошибочные параметры!"
 
@@ -5797,13 +5797,13 @@ msgid "The user name is empty!"
 msgstr "Пустое имя пользователя!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:151
-#: libraries/classes/Server/Privileges.php:972
+#: libraries/classes/Server/Privileges.php:943
 #: libraries/classes/UserPassword.php:44
 msgid "The password is empty!"
 msgstr "Пустой пароль!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:152
-#: libraries/classes/Server/Privileges.php:970
+#: libraries/classes/Server/Privileges.php:941
 #: libraries/classes/UserPassword.php:48
 msgid "The passwords aren't the same!"
 msgstr "Некорректное подтверждение пароля!"
@@ -5902,7 +5902,7 @@ msgstr "Шаблон удален."
 #. l10n: Other, small valued, queries
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:167
 #: libraries/classes/Controllers/Server/Status/QueriesController.php:94
-#: libraries/classes/Server/Status/Data.php:167
+#: libraries/classes/Server/Status/Data.php:164
 msgid "Other"
 msgstr "Другое"
 
@@ -6081,7 +6081,7 @@ msgid "Traffic"
 msgstr "Трафик"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:222
-#: libraries/classes/Menu.php:515 libraries/classes/Util.php:1855
+#: libraries/classes/Menu.php:515 libraries/classes/Util.php:1850
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "Настройки"
@@ -6314,8 +6314,8 @@ msgstr "Анализ результатов"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:292
 #: libraries/classes/Menu.php:483
-#: libraries/classes/Server/Status/Processes.php:130
-#: libraries/classes/Util.php:1851 libraries/config.values.php:157
+#: libraries/classes/Server/Status/Processes.php:129
+#: libraries/classes/Util.php:1846 libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:25
 #: templates/database/events/index.twig:44
 #: templates/database/tracking/tables.twig:17
@@ -6330,7 +6330,7 @@ msgstr "Состояние"
 #: libraries/classes/Plugins/Export/ExportOdt.php:592
 #: libraries/classes/Plugins/Export/ExportTexytext.php:452
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:360
-#: libraries/classes/Server/Status/Processes.php:126
+#: libraries/classes/Server/Status/Processes.php:125
 #: templates/database/triggers/list.twig:47
 #: templates/sql/profiling_chart.twig:17
 msgid "Time"
@@ -8024,15 +8024,15 @@ msgctxt "string types"
 msgid "String"
 msgstr "Символьные"
 
-#: libraries/classes/Controllers/Preferences/ManageController.php:106
+#: libraries/classes/Controllers/Preferences/ManageController.php:105
 msgid "phpMyAdmin configuration snippet"
 msgstr "Фрагмент настройки phpMyAdmin"
 
-#: libraries/classes/Controllers/Preferences/ManageController.php:107
+#: libraries/classes/Controllers/Preferences/ManageController.php:106
 msgid "Paste it to your config.inc.php"
 msgstr "Вставьте это в свой config.inc.php"
 
-#: libraries/classes/Controllers/Preferences/ManageController.php:157
+#: libraries/classes/Controllers/Preferences/ManageController.php:156
 msgid "Could not import configuration"
 msgstr "Не получилось импортировать настройки"
 
@@ -8100,13 +8100,29 @@ msgstr "Поля были успешно перемещены."
 msgid "The account %s@%s has been successfully unlocked."
 msgstr "Поля были успешно перемещены."
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:176
+#: libraries/classes/Controllers/Server/PrivilegesController.php:150
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr ""
 "Имя пользователя и имя хоста не изменились. Если вы хотите изменить пароль, "
 "следует использовать вкладку «Изменить пароль»."
+
+#: libraries/classes/Controllers/Server/PrivilegesController.php:445
+#: libraries/classes/Menu.php:291 libraries/classes/Menu.php:399
+#: libraries/classes/Util.php:1866 libraries/classes/Util.php:1882
+#: libraries/config.values.php:161 templates/database/privileges/index.twig:20
+#: templates/server/privileges/privileges_summary.twig:16
+#: templates/server/sub_page_header.twig:2
+#: templates/table/privileges/index.twig:22
+msgid "Privileges"
+msgstr "Привилегии"
+
+#: libraries/classes/Controllers/Server/PrivilegesController.php:448
+#: libraries/classes/Server/Status/Processes.php:109
+#: templates/server/user_groups/user_listings.twig:9
+msgid "User"
+msgstr "Пользователь"
 
 #: libraries/classes/Controllers/Server/Status/Processes/KillController.php:42
 #, php-format
@@ -8952,7 +8968,7 @@ msgstr "База данных '%s' не существует."
 msgid "Table %s already exists!"
 msgstr "Таблица %s уже существует!"
 
-#: libraries/classes/Controllers/Table/DeleteRowsController.php:80
+#: libraries/classes/Controllers/Table/DeleteRowsController.php:79
 #: libraries/classes/Controllers/Table/FindReplaceController.php:176
 #: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:82
 #: libraries/classes/Controllers/Table/Maintenance/CheckController.php:82
@@ -9136,18 +9152,18 @@ msgstr "Версии не выбраны."
 msgid "SQL statements executed."
 msgstr "Выполненные SQL запросы."
 
-#: libraries/classes/Controllers/UserPasswordController.php:59
+#: libraries/classes/Controllers/UserPasswordController.php:58
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Для доступа к данной странице у вас недостаточно прав!"
 
-#: libraries/classes/Controllers/UserPasswordController.php:104
+#: libraries/classes/Controllers/UserPasswordController.php:103
 #: templates/home/index.twig:46 templates/modals/change_password.twig:5
 #: templates/server/privileges/change_password.twig:10
 #: templates/server/privileges/change_password.twig:11
 msgid "Change password"
 msgstr "Изменить пароль"
 
-#: libraries/classes/Controllers/View/CreateController.php:98
+#: libraries/classes/Controllers/View/CreateController.php:97
 msgid "View name can not be empty!"
 msgstr "Имя вида не может быть пустым!"
 
@@ -9687,8 +9703,8 @@ msgid "Full texts"
 msgstr "Полные тексты"
 
 #: libraries/classes/Display/Results.php:1611
-#: libraries/classes/Display/Results.php:1637 libraries/classes/Util.php:2463
-#: libraries/classes/Util.php:2486 libraries/config.values.php:113
+#: libraries/classes/Display/Results.php:1637 libraries/classes/Util.php:2413
+#: libraries/classes/Util.php:2436 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:111
@@ -9701,8 +9717,8 @@ msgid "Descending"
 msgstr "По убыванию"
 
 #: libraries/classes/Display/Results.php:1619
-#: libraries/classes/Display/Results.php:1629 libraries/classes/Util.php:2455
-#: libraries/classes/Util.php:2478 libraries/config.values.php:112
+#: libraries/classes/Display/Results.php:1629 libraries/classes/Util.php:2405
+#: libraries/classes/Util.php:2428 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:109
@@ -9797,7 +9813,7 @@ msgid "Buffer Pool"
 msgstr "Буферный пул"
 
 #: libraries/classes/Engines/Innodb.php:108
-#: libraries/classes/Server/Status/Data.php:237
+#: libraries/classes/Server/Status/Data.php:234
 msgid "InnoDB Status"
 msgstr "Состояние InnoDB"
 
@@ -10474,7 +10490,7 @@ msgstr "%1$s (около <code>%2$s</code>)"
 
 #: libraries/classes/Menu.php:238
 #: libraries/classes/Navigation/Nodes/NodeTable.php:308
-#: libraries/classes/Util.php:1405 libraries/classes/Util.php:1880
+#: libraries/classes/Util.php:1405 libraries/classes/Util.php:1875
 #: libraries/config.values.php:68 libraries/config.values.php:82
 #: libraries/config.values.php:183 templates/database/search/results.twig:32
 #: templates/database/structure/structure_table_row.twig:43
@@ -10484,8 +10500,8 @@ msgstr "Обзор"
 
 #: libraries/classes/Menu.php:257 libraries/classes/Menu.php:361
 #: libraries/classes/Navigation/Nodes/NodeTable.php:299
-#: libraries/classes/Util.php:1403 libraries/classes/Util.php:1866
-#: libraries/classes/Util.php:1883 libraries/config.values.php:64
+#: libraries/classes/Util.php:1403 libraries/classes/Util.php:1861
+#: libraries/classes/Util.php:1878 libraries/config.values.php:64
 #: libraries/config.values.php:78 libraries/config.values.php:169
 #: libraries/config.values.php:179 templates/database/routines/index.twig:27
 #: templates/database/routines/index.twig:28
@@ -10497,7 +10513,7 @@ msgstr "Поиск"
 
 #: libraries/classes/Menu.php:268
 #: libraries/classes/Navigation/Nodes/NodeTable.php:302
-#: libraries/classes/Util.php:1404 libraries/classes/Util.php:1884
+#: libraries/classes/Util.php:1404 libraries/classes/Util.php:1879
 #: libraries/config.values.php:66 libraries/config.values.php:80
 #: libraries/config.values.php:181
 #: templates/database/qbe/ins_del_and_or_cell.twig:6
@@ -10506,25 +10522,15 @@ msgstr "Поиск"
 msgid "Insert"
 msgstr "Вставить"
 
-#: libraries/classes/Menu.php:291 libraries/classes/Menu.php:399
-#: libraries/classes/Server/Privileges.php:2863 libraries/classes/Util.php:1871
-#: libraries/classes/Util.php:1887 libraries/config.values.php:161
-#: templates/database/privileges/index.twig:20
-#: templates/server/privileges/privileges_summary.twig:16
-#: templates/server/sub_page_header.twig:2
-#: templates/table/privileges/index.twig:22
-msgid "Privileges"
-msgstr "Привилегии"
-
 #: libraries/classes/Menu.php:302 libraries/classes/Menu.php:312
 #: libraries/classes/Menu.php:392 libraries/classes/Util.php:1406
-#: libraries/classes/Util.php:1870 libraries/classes/Util.php:1888
+#: libraries/classes/Util.php:1865 libraries/classes/Util.php:1883
 #: libraries/config.values.php:171 templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr "Операции"
 
 #: libraries/classes/Menu.php:318 libraries/classes/Menu.php:425
-#: libraries/classes/Util.php:1875 libraries/classes/Util.php:1889
+#: libraries/classes/Util.php:1870 libraries/classes/Util.php:1884
 msgid "Tracking"
 msgstr "Слежение"
 
@@ -10537,7 +10543,7 @@ msgstr "Слежение"
 #: libraries/classes/Plugins/Export/ExportSql.php:1969
 #: libraries/classes/Plugins/Export/ExportTexytext.php:528
 #: libraries/classes/Plugins/Export/ExportXml.php:125
-#: libraries/classes/Util.php:1874 libraries/classes/Util.php:1890
+#: libraries/classes/Util.php:1869 libraries/classes/Util.php:1885
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
 msgstr "Триггеры"
@@ -10547,11 +10553,11 @@ msgstr "Триггеры"
 msgid "Database seems to be empty!"
 msgstr "Пустая база данных!"
 
-#: libraries/classes/Menu.php:369 libraries/classes/Util.php:1867
+#: libraries/classes/Menu.php:369 libraries/classes/Util.php:1862
 msgid "Query"
 msgstr "Запрос&nbsp;по&nbsp;шаблону"
 
-#: libraries/classes/Menu.php:405 libraries/classes/Util.php:1872
+#: libraries/classes/Menu.php:405 libraries/classes/Util.php:1867
 #: templates/database/routines/index.twig:3
 msgid "Routines"
 msgstr "Процедуры"
@@ -10561,15 +10567,15 @@ msgstr "Процедуры"
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:966
 #: libraries/classes/Plugins/Export/ExportXml.php:105
-#: libraries/classes/Util.php:1873 templates/database/events/index.twig:3
+#: libraries/classes/Util.php:1868 templates/database/events/index.twig:3
 msgid "Events"
 msgstr "События"
 
-#: libraries/classes/Menu.php:432 libraries/classes/Util.php:1876
+#: libraries/classes/Menu.php:432 libraries/classes/Util.php:1871
 msgid "Designer"
 msgstr "Дизайнер"
 
-#: libraries/classes/Menu.php:439 libraries/classes/Util.php:1877
+#: libraries/classes/Menu.php:439 libraries/classes/Util.php:1872
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "Центральные столбцы"
@@ -10578,35 +10584,35 @@ msgstr "Центральные столбцы"
 msgid "User accounts"
 msgstr "Учетные записи пользователей"
 
-#: libraries/classes/Menu.php:530 libraries/classes/Server/Status/Data.php:156
-#: libraries/classes/Util.php:1856 templates/server/binlog/index.twig:3
+#: libraries/classes/Menu.php:530 libraries/classes/Server/Status/Data.php:153
+#: libraries/classes/Util.php:1851 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "Бинарный журнал"
 
-#: libraries/classes/Menu.php:537 libraries/classes/Server/Status/Data.php:161
-#: libraries/classes/Util.php:1857
+#: libraries/classes/Menu.php:537 libraries/classes/Server/Status/Data.php:158
+#: libraries/classes/Util.php:1852
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
 #: templates/server/replication/index.twig:5
 msgid "Replication"
 msgstr "Репликация"
 
-#: libraries/classes/Menu.php:543 libraries/classes/Server/Status/Data.php:233
-#: libraries/classes/Util.php:1858 libraries/config.values.php:159
+#: libraries/classes/Menu.php:543 libraries/classes/Server/Status/Data.php:230
+#: libraries/classes/Util.php:1853 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:191
 msgid "Variables"
 msgstr "Переменные"
 
-#: libraries/classes/Menu.php:548 libraries/classes/Util.php:1859
+#: libraries/classes/Menu.php:548 libraries/classes/Util.php:1854
 msgid "Charsets"
 msgstr "Кодировки"
 
-#: libraries/classes/Menu.php:553 libraries/classes/Util.php:1861
+#: libraries/classes/Menu.php:553 libraries/classes/Util.php:1856
 msgid "Engines"
 msgstr "Типы таблиц"
 
-#: libraries/classes/Menu.php:558 libraries/classes/Util.php:1860
+#: libraries/classes/Menu.php:558 libraries/classes/Util.php:1855
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr "Плагины"
@@ -10745,11 +10751,11 @@ msgctxt "Create new database"
 msgid "New"
 msgstr "Создать БД"
 
-#: libraries/classes/Navigation/Nodes/NodeDatabase.php:43
+#: libraries/classes/Navigation/Nodes/NodeDatabase.php:46
 msgid "Database operations"
 msgstr "Операции с базой данных"
 
-#: libraries/classes/Navigation/Nodes/NodeDatabase.php:628
+#: libraries/classes/Navigation/Nodes/NodeDatabase.php:611
 msgid "Show hidden items"
 msgstr "Показать скрытые пункты"
 
@@ -12496,26 +12502,26 @@ msgstr ""
 "Обеспечивает аутентификацию с помощью аппаратных токенов безопасности, "
 "поддерживающих FIDO U2F, таких, как Yubikey."
 
-#: libraries/classes/Query/Utilities.php:97
+#: libraries/classes/Query/Utilities.php:99
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
 "Сервер не отвечает (либо локальный сокет сервера MySQL неверно настроен)."
 
-#: libraries/classes/Query/Utilities.php:100
+#: libraries/classes/Query/Utilities.php:102
 msgid "The server is not responding."
 msgstr "Сервер не отвечает."
 
-#: libraries/classes/Query/Utilities.php:104
+#: libraries/classes/Query/Utilities.php:106
 msgid "Logout and try as another user."
 msgstr "Выйдите из системы и попробуйте другим пользователем."
 
-#: libraries/classes/Query/Utilities.php:109
+#: libraries/classes/Query/Utilities.php:111
 msgid "Please check privileges of directory containing database."
 msgstr "Пожалуйста, проверьте привилегии каталога содержащего базу данных."
 
-#: libraries/classes/Query/Utilities.php:117
+#: libraries/classes/Query/Utilities.php:119
 msgid "Details…"
 msgstr "Детали…"
 
@@ -12647,8 +12653,8 @@ msgid "Error while loading the search."
 msgstr "Ошибка при загрузке поиска."
 
 #: libraries/classes/Server/Plugins.php:66
-#: libraries/classes/Server/Privileges.php:821
-#: libraries/classes/Server/Privileges.php:3740
+#: libraries/classes/Server/Privileges.php:807
+#: libraries/classes/Server/Privileges.php:3571
 msgid "Native MySQL authentication"
 msgstr "Собственная проверка подлинности MySQL"
 
@@ -12679,16 +12685,16 @@ msgstr "Собственная проверка подлинности MySQL"
 msgid "Account locking is not supported."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:291
+#: libraries/classes/Server/Privileges.php:288
 msgid "No privileges."
 msgstr "Нет привилегий."
 
-#: libraries/classes/Server/Privileges.php:299
+#: libraries/classes/Server/Privileges.php:296
 msgid "Includes all privileges except GRANT."
 msgstr "Содержит все привилегии, за исключением GRANT."
 
-#: libraries/classes/Server/Privileges.php:321
-#: libraries/classes/Server/Privileges.php:388
+#: libraries/classes/Server/Privileges.php:318
+#: libraries/classes/Server/Privileges.php:385
 #: templates/server/privileges/privileges_table.twig:125
 #: templates/server/privileges/privileges_table.twig:128
 #: templates/server/privileges/privileges_table.twig:326
@@ -12696,7 +12702,7 @@ msgstr "Содержит все привилегии, за исключение�
 msgid "Allows deleting data."
 msgstr "Разрешает удаление данных."
 
-#: libraries/classes/Server/Privileges.php:326
+#: libraries/classes/Server/Privileges.php:323
 #: templates/server/privileges/privileges_table.twig:137
 #: templates/server/privileges/privileges_table.twig:140
 #: templates/server/privileges/privileges_table.twig:367
@@ -12704,7 +12710,7 @@ msgstr "Разрешает удаление данных."
 msgid "Allows creating new tables."
 msgstr "Разрешает создание новых таблиц."
 
-#: libraries/classes/Server/Privileges.php:331
+#: libraries/classes/Server/Privileges.php:328
 #: templates/server/privileges/privileges_table.twig:149
 #: templates/server/privileges/privileges_table.twig:152
 #: templates/server/privileges/privileges_table.twig:415
@@ -12712,8 +12718,8 @@ msgstr "Разрешает создание новых таблиц."
 msgid "Allows dropping tables."
 msgstr "Разрешает удаление таблиц."
 
-#: libraries/classes/Server/Privileges.php:336
-#: libraries/classes/Server/Privileges.php:428
+#: libraries/classes/Server/Privileges.php:333
+#: libraries/classes/Server/Privileges.php:425
 #: templates/server/privileges/privileges_table.twig:174
 #: templates/server/privileges/privileges_table.twig:177
 #: templates/server/privileges/privileges_table.twig:399
@@ -12721,8 +12727,8 @@ msgstr "Разрешает удаление таблиц."
 msgid "Allows creating and dropping indexes."
 msgstr "Разрешает создание и удаление индексов."
 
-#: libraries/classes/Server/Privileges.php:341
-#: libraries/classes/Server/Privileges.php:433
+#: libraries/classes/Server/Privileges.php:338
+#: libraries/classes/Server/Privileges.php:430
 #: templates/server/privileges/privileges_table.twig:186
 #: templates/server/privileges/privileges_table.twig:189
 #: templates/server/privileges/privileges_table.twig:386
@@ -12730,9 +12736,9 @@ msgstr "Разрешает создание и удаление индексов
 msgid "Allows altering the structure of existing tables."
 msgstr "Разрешает изменение структуры существующих таблиц."
 
-#: libraries/classes/Server/Privileges.php:346
-#: libraries/classes/Server/Privileges.php:472
-#: libraries/classes/Server/Privileges.php:488
+#: libraries/classes/Server/Privileges.php:343
+#: libraries/classes/Server/Privileges.php:469
+#: libraries/classes/Server/Privileges.php:485
 #: templates/server/privileges/privileges_table.twig:198
 #: templates/server/privileges/privileges_table.twig:201
 #: templates/server/privileges/privileges_table.twig:500
@@ -12742,9 +12748,9 @@ msgstr "Разрешает изменение структуры существ�
 msgid "Allows creating new views."
 msgstr "Разрешает создание новых представлений (CREATE VIEW)."
 
-#: libraries/classes/Server/Privileges.php:351
-#: libraries/classes/Server/Privileges.php:493
-#: libraries/classes/Server/Privileges.php:499
+#: libraries/classes/Server/Privileges.php:348
+#: libraries/classes/Server/Privileges.php:490
+#: libraries/classes/Server/Privileges.php:496
 #: templates/server/privileges/privileges_table.twig:210
 #: templates/server/privileges/privileges_table.twig:213
 #: templates/server/privileges/privileges_table.twig:447
@@ -12752,8 +12758,8 @@ msgstr "Разрешает создание новых представлени�
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Разрешает вывод запроса создающего представление (SHOW CREATE VIEW)."
 
-#: libraries/classes/Server/Privileges.php:356
-#: libraries/classes/Server/Privileges.php:482
+#: libraries/classes/Server/Privileges.php:353
+#: libraries/classes/Server/Privileges.php:479
 #: templates/server/privileges/privileges_table.twig:222
 #: templates/server/privileges/privileges_table.twig:225
 #: templates/server/privileges/privileges_table.twig:543
@@ -12761,76 +12767,76 @@ msgstr "Разрешает вывод запроса создающего пре
 msgid "Allows creating and dropping triggers."
 msgstr "Разрешает создание и удаление триггеров."
 
-#: libraries/classes/Server/Privileges.php:373
+#: libraries/classes/Server/Privileges.php:370
 #: templates/server/privileges/privileges_table.twig:16
 #: templates/server/privileges/privileges_table.twig:287
 #: templates/server/privileges/privileges_table.twig:290
 msgid "Allows reading data."
 msgstr "Разрешает выборку данных."
 
-#: libraries/classes/Server/Privileges.php:378
+#: libraries/classes/Server/Privileges.php:375
 #: templates/server/privileges/privileges_table.twig:43
 #: templates/server/privileges/privileges_table.twig:300
 #: templates/server/privileges/privileges_table.twig:303
 msgid "Allows inserting and replacing data."
 msgstr "Разрешает вставку и замену данных."
 
-#: libraries/classes/Server/Privileges.php:383
+#: libraries/classes/Server/Privileges.php:380
 #: templates/server/privileges/privileges_table.twig:70
 #: templates/server/privileges/privileges_table.twig:313
 #: templates/server/privileges/privileges_table.twig:316
 msgid "Allows changing data."
 msgstr "Разрешает изменение данных."
 
-#: libraries/classes/Server/Privileges.php:393
+#: libraries/classes/Server/Privileges.php:390
 #: templates/server/privileges/privileges_table.twig:365
 #: templates/server/privileges/privileges_table.twig:373
 msgid "Allows creating new databases and tables."
 msgstr "Разрешает создание новых баз данных и таблиц."
 
-#: libraries/classes/Server/Privileges.php:398
+#: libraries/classes/Server/Privileges.php:395
 #: templates/server/privileges/privileges_table.twig:413
 #: templates/server/privileges/privileges_table.twig:421
 msgid "Allows dropping databases and tables."
 msgstr "Разрешает удаление баз данных и таблиц."
 
-#: libraries/classes/Server/Privileges.php:403
+#: libraries/classes/Server/Privileges.php:400
 #: templates/server/privileges/privileges_table.twig:610
 #: templates/server/privileges/privileges_table.twig:613
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr "Разрешает перезагрузку настроек сервера и очистку его кешей."
 
-#: libraries/classes/Server/Privileges.php:408
+#: libraries/classes/Server/Privileges.php:405
 #: templates/server/privileges/privileges_table.twig:623
 #: templates/server/privileges/privileges_table.twig:626
 msgid "Allows shutting down the server."
 msgstr "Разрешает остановку сервера."
 
-#: libraries/classes/Server/Privileges.php:413
+#: libraries/classes/Server/Privileges.php:410
 #: templates/server/privileges/privileges_table.twig:597
 #: templates/server/privileges/privileges_table.twig:600
 msgid "Allows viewing processes of all users."
 msgstr "Разрешает просмотр процессов всех пользователей."
 
-#: libraries/classes/Server/Privileges.php:418
+#: libraries/classes/Server/Privileges.php:415
 #: templates/server/privileges/privileges_table.twig:340
 #: templates/server/privileges/privileges_table.twig:343
 msgid "Allows importing data from and exporting data into files."
 msgstr "Разрешает импорт и экспорт данных в файлы."
 
-#: libraries/classes/Server/Privileges.php:423
+#: libraries/classes/Server/Privileges.php:420
 #: templates/server/privileges/privileges_table.twig:97
 #: templates/server/privileges/privileges_table.twig:677
 msgid "Has no effect in this MySQL version."
 msgstr "Не доступно в данной версии MySQL."
 
-#: libraries/classes/Server/Privileges.php:438
+#: libraries/classes/Server/Privileges.php:435
 #: templates/server/privileges/privileges_table.twig:636
 #: templates/server/privileges/privileges_table.twig:639
 msgid "Gives access to the complete list of databases."
 msgstr "Разрешает доступ к полному списку баз данных."
 
-#: libraries/classes/Server/Privileges.php:444
+#: libraries/classes/Server/Privileges.php:441
 #: templates/server/privileges/privileges_table.twig:583
 #: templates/server/privileges/privileges_table.twig:587
 msgid ""
@@ -12843,87 +12849,87 @@ msgstr ""
 "установка глобальных переменных или завершение процессов других "
 "пользователей)."
 
-#: libraries/classes/Server/Privileges.php:452
+#: libraries/classes/Server/Privileges.php:449
 #: templates/server/privileges/privileges_table.twig:434
 #: templates/server/privileges/privileges_table.twig:437
 msgid "Allows creating temporary tables."
 msgstr "Разрешает создание временных таблиц."
 
-#: libraries/classes/Server/Privileges.php:457
+#: libraries/classes/Server/Privileges.php:454
 #: templates/server/privileges/privileges_table.twig:664
 #: templates/server/privileges/privileges_table.twig:667
 msgid "Allows locking tables for the current thread."
 msgstr "Разрешает блокировку таблиц для текущего потока."
 
-#: libraries/classes/Server/Privileges.php:462
+#: libraries/classes/Server/Privileges.php:459
 #: templates/server/privileges/privileges_table.twig:705
 #: templates/server/privileges/privileges_table.twig:708
 msgid "Needed for the replication replicas."
 msgstr "Необходимо для подчиненных серверов при репликации."
 
-#: libraries/classes/Server/Privileges.php:467
+#: libraries/classes/Server/Privileges.php:464
 #: templates/server/privileges/privileges_table.twig:692
 #: templates/server/privileges/privileges_table.twig:695
 msgid "Allows the user to ask where the replicas / primaries are."
 msgstr ""
 "Разрешает запрашивать местонахождение головного и подчиненных серверов."
 
-#: libraries/classes/Server/Privileges.php:477
+#: libraries/classes/Server/Privileges.php:474
 #: templates/server/privileges/privileges_table.twig:530
 #: templates/server/privileges/privileges_table.twig:533
 msgid "Allows to set up events for the event scheduler."
 msgstr "Разрешает настройку отложенных событий."
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
-#: libraries/classes/Server/Privileges.php:506
-#: libraries/classes/Server/Privileges.php:515
+#: libraries/classes/Server/Privileges.php:503
+#: libraries/classes/Server/Privileges.php:512
 #: templates/server/privileges/privileges_table.twig:235
 #: templates/server/privileges/privileges_table.twig:239
 msgid "Allows deleting historical rows."
 msgstr "Разрешает удаление исторических строк."
 
-#: libraries/classes/Server/Privileges.php:520
+#: libraries/classes/Server/Privileges.php:517
 #: templates/server/privileges/privileges_table.twig:460
 #: templates/server/privileges/privileges_table.twig:463
 msgid "Allows creating stored routines."
 msgstr "Разрешает создание хранимых процедур."
 
-#: libraries/classes/Server/Privileges.php:525
+#: libraries/classes/Server/Privileges.php:522
 #: templates/server/privileges/privileges_table.twig:473
 #: templates/server/privileges/privileges_table.twig:476
 msgid "Allows altering and dropping stored routines."
 msgstr "Разрешает изменение и удаление хранимых процедур."
 
-#: libraries/classes/Server/Privileges.php:530
+#: libraries/classes/Server/Privileges.php:527
 #: templates/server/privileges/privileges_table.twig:718
 #: templates/server/privileges/privileges_table.twig:721
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
 "Разрешает создание, удаление и переименование учетных записей пользователей."
 
-#: libraries/classes/Server/Privileges.php:535
+#: libraries/classes/Server/Privileges.php:532
 #: templates/server/privileges/privileges_table.twig:486
 #: templates/server/privileges/privileges_table.twig:489
 msgid "Allows executing stored routines."
 msgstr "Разрешает выполнение хранимых процедур."
 
-#: libraries/classes/Server/Privileges.php:1105
+#: libraries/classes/Server/Privileges.php:1070
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Пароль для %s был успешно изменён."
 
-#: libraries/classes/Server/Privileges.php:1153
+#: libraries/classes/Server/Privileges.php:1118
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Вы отменили привилегии для %s."
 
-#: libraries/classes/Server/Privileges.php:1460
+#: libraries/classes/Server/Privileges.php:1420
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
 msgid "Not enough privilege to view users."
 msgstr "Недостаточно прав для просмотра пользователей."
 
-#: libraries/classes/Server/Privileges.php:1522
+#: libraries/classes/Server/Privileges.php:1479
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:75
@@ -12931,95 +12937,78 @@ msgstr "Недостаточно прав для просмотра пользо
 msgid "Edit privileges"
 msgstr "Редактировать привилегии"
 
-#: libraries/classes/Server/Privileges.php:1526
+#: libraries/classes/Server/Privileges.php:1483
 msgid "Revoke"
 msgstr "Отменить"
 
-#: libraries/classes/Server/Privileges.php:1836
+#: libraries/classes/Server/Privileges.php:1786
 #: templates/server/privileges/privileges_table.twig:265
 msgid "Database-specific privileges"
 msgstr "Привилегии уровня базы данных"
 
-#: libraries/classes/Server/Privileges.php:1842
+#: libraries/classes/Server/Privileges.php:1792
 #: templates/server/privileges/privileges_summary.twig:19
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:267
 msgid "Table-specific privileges"
 msgstr "Привилегии уровня таблицы"
 
-#: libraries/classes/Server/Privileges.php:1847
-#: libraries/classes/Server/Privileges.php:1849
+#: libraries/classes/Server/Privileges.php:1797
+#: libraries/classes/Server/Privileges.php:1799
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:59
 msgid "Routine"
 msgstr "Процедура"
 
-#: libraries/classes/Server/Privileges.php:1848
+#: libraries/classes/Server/Privileges.php:1798
 #: templates/server/privileges/edit_routine_privileges.twig:47
 msgid "Routine-specific privileges"
 msgstr "Привилегии процедур"
 
-#: libraries/classes/Server/Privileges.php:2191
+#: libraries/classes/Server/Privileges.php:2138
 msgid "No users selected for deleting!"
 msgstr "Не выбраны пользователи, подлежащие удалению!"
 
-#: libraries/classes/Server/Privileges.php:2194
+#: libraries/classes/Server/Privileges.php:2141
 msgid "Reloading the privileges"
 msgstr "Перезагрузка привилегий"
 
-#: libraries/classes/Server/Privileges.php:2219
+#: libraries/classes/Server/Privileges.php:2166
 msgid "The selected users have been deleted successfully."
 msgstr "Выбранные пользователи были успешно удалены."
 
-#: libraries/classes/Server/Privileges.php:2296
+#: libraries/classes/Server/Privileges.php:2243
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Вы обновили привилегии для %s."
 
-#: libraries/classes/Server/Privileges.php:2383
+#: libraries/classes/Server/Privileges.php:2322
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "Пользователь не найден."
 
-#: libraries/classes/Server/Privileges.php:2470
+#: libraries/classes/Server/Privileges.php:2405
 #, php-format
 msgid "Deleting %s"
 msgstr "Удаление %s"
 
-#: libraries/classes/Server/Privileges.php:2501
+#: libraries/classes/Server/Privileges.php:2436
 msgid "The privileges were reloaded successfully."
 msgstr "Привилегии были успешно перезагружены."
 
-#: libraries/classes/Server/Privileges.php:2605
+#: libraries/classes/Server/Privileges.php:2537
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Пользователь %s уже существует!"
 
-#: libraries/classes/Server/Privileges.php:2880
+#: libraries/classes/Server/Privileges.php:2785
 #, php-format
 msgid "Privileges for %s"
 msgstr "Привилегии для %s"
 
-#: libraries/classes/Server/Privileges.php:2889
-#: libraries/classes/Server/Status/Processes.php:110
-#: templates/server/user_groups/user_listings.twig:9
-msgid "User"
-msgstr "Пользователь"
-
-#: libraries/classes/Server/Privileges.php:2998
-msgid ""
-"A user account allowing any user from localhost to connect is present. This "
-"will prevent other users from connecting if the host part of their account "
-"allows a connection from any (%) host."
-msgstr ""
-"Имеется учетная запись пользователя, позволяющая любому пользователю "
-"подключиться к локальному хосту. Это предотвратит подключение других "
-"пользователей, если хост-часть их учетной записи разрешает соединение с "
-"любым (%) хостом."
-
-#: libraries/classes/Server/Privileges.php:3032
+#: libraries/classes/Server/Privileges.php:2897
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -13032,7 +13021,7 @@ msgstr ""
 "отличаться от привилегий, используемых сервером, если они были изменены "
 "вручную. В этом случае необходимо %sперезагрузить привилегии%s."
 
-#: libraries/classes/Server/Privileges.php:3048
+#: libraries/classes/Server/Privileges.php:2913
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -13046,98 +13035,109 @@ msgstr ""
 "вручную. В этом случае требуется перезагрузка привилегий, но привилегия "
 "RELOAD Вам не предоставлена."
 
-#: libraries/classes/Server/Privileges.php:3362
+#: libraries/classes/Server/Privileges.php:3208
 msgid "You have added a new user."
 msgstr "Вы добавили нового пользователя."
 
-#: libraries/classes/Server/Status/Data.php:150
-#: libraries/classes/Server/Status/Processes.php:143
+#: libraries/classes/Server/Privileges.php:3666
+msgid ""
+"A user account allowing any user from localhost to connect is present. This "
+"will prevent other users from connecting if the host part of their account "
+"allows a connection from any (%) host."
+msgstr ""
+"Имеется учетная запись пользователя, позволяющая любому пользователю "
+"подключиться к локальному хосту. Это предотвратит подключение других "
+"пользователей, если хост-часть их учетной записи разрешает соединение с "
+"любым (%) хостом."
+
+#: libraries/classes/Server/Status/Data.php:147
+#: libraries/classes/Server/Status/Processes.php:142
 #: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:20
 msgid "SQL query"
 msgstr "SQL-запрос"
 
-#: libraries/classes/Server/Status/Data.php:153
+#: libraries/classes/Server/Status/Data.php:150
 msgid "Handler"
 msgstr "Обработчик"
 
-#: libraries/classes/Server/Status/Data.php:154
+#: libraries/classes/Server/Status/Data.php:151
 msgid "Query cache"
 msgstr "Кеш запросов"
 
-#: libraries/classes/Server/Status/Data.php:155
+#: libraries/classes/Server/Status/Data.php:152
 msgid "Threads"
 msgstr "Потоки"
 
-#: libraries/classes/Server/Status/Data.php:157
+#: libraries/classes/Server/Status/Data.php:154
 msgid "Temporary data"
 msgstr "Временные данные"
 
-#: libraries/classes/Server/Status/Data.php:158
+#: libraries/classes/Server/Status/Data.php:155
 msgid "Delayed inserts"
 msgstr "Отложенные вставки"
 
-#: libraries/classes/Server/Status/Data.php:159
+#: libraries/classes/Server/Status/Data.php:156
 msgid "Key cache"
 msgstr "Кеш индекса"
 
-#: libraries/classes/Server/Status/Data.php:160
+#: libraries/classes/Server/Status/Data.php:157
 msgid "Joins"
 msgstr "Объединения"
 
-#: libraries/classes/Server/Status/Data.php:162
+#: libraries/classes/Server/Status/Data.php:159
 msgid "Sorting"
 msgstr "Сортировка"
 
-#: libraries/classes/Server/Status/Data.php:164
+#: libraries/classes/Server/Status/Data.php:161
 msgid "Transaction coordinator"
 msgstr "Координатор транзакций"
 
-#: libraries/classes/Server/Status/Data.php:165
+#: libraries/classes/Server/Status/Data.php:162
 #: templates/server/binlog/index.twig:27
 msgid "Files"
 msgstr "Файлов"
 
-#: libraries/classes/Server/Status/Data.php:184
+#: libraries/classes/Server/Status/Data.php:181
 msgid "Flush (close) all tables"
 msgstr "Закрыть все таблицы"
 
-#: libraries/classes/Server/Status/Data.php:188
+#: libraries/classes/Server/Status/Data.php:185
 msgid "Show open tables"
 msgstr "Список открытых таблиц"
 
-#: libraries/classes/Server/Status/Data.php:197
+#: libraries/classes/Server/Status/Data.php:194
 msgid "Show replica hosts"
 msgstr "Информация о подчиненных серверах"
 
-#: libraries/classes/Server/Status/Data.php:204
+#: libraries/classes/Server/Status/Data.php:201
 #: templates/server/replication/primary_replication.twig:9
 msgid "Show primary status"
 msgstr "Показать состояние головного сервера"
 
-#: libraries/classes/Server/Status/Data.php:211
+#: libraries/classes/Server/Status/Data.php:208
 msgid "Show replica status"
 msgstr "Информация о состоянии сервера репликации"
 
-#: libraries/classes/Server/Status/Data.php:219
+#: libraries/classes/Server/Status/Data.php:216
 msgid "Flush query cache"
 msgstr "Дефрагментировать кеш запросов"
 
-#: libraries/classes/Server/Status/Processes.php:106
+#: libraries/classes/Server/Status/Processes.php:105
 msgid "ID"
 msgstr "ID"
 
-#: libraries/classes/Server/Status/Processes.php:114
+#: libraries/classes/Server/Status/Processes.php:113
 #: templates/server/replication/primary_add_replica_user.twig:32
 #: templates/server/replication/primary_add_replica_user.twig:43
 #: templates/server/replication/primary_replication.twig:25
 msgid "Host"
 msgstr "Хост"
 
-#: libraries/classes/Server/Status/Processes.php:122
+#: libraries/classes/Server/Status/Processes.php:121
 msgid "Command"
 msgstr "Команда"
 
-#: libraries/classes/Server/Status/Processes.php:137
+#: libraries/classes/Server/Status/Processes.php:136
 msgid "Progress"
 msgstr "Прогресс"
 
@@ -13832,11 +13832,11 @@ msgstr "AM"
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s дней, %s часов, %s минут и %s секунд"
 
-#: libraries/classes/Util.php:1852
+#: libraries/classes/Util.php:1847
 msgid "Users"
 msgstr "Пользователи"
 
-#: libraries/classes/Util.php:2447
+#: libraries/classes/Util.php:2397
 #: templates/database/multi_table_query/form.twig:67
 msgid "Sort"
 msgstr "Отсортировать"
