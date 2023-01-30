@@ -37,9 +37,13 @@ class UserPreferences
     /** @var Template */
     public $template;
 
-    public function __construct()
+    /** @var DatabaseInterface */
+    private $dbi;
+
+    public function __construct(DatabaseInterface $dbi)
     {
-        $this->relation = new Relation($GLOBALS['dbi']);
+        $this->dbi = $dbi;
+        $this->relation = new Relation($this->dbi);
         $this->template = new Template();
     }
 
@@ -97,9 +101,9 @@ class UserPreferences
         $query = 'SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts'
             . ' FROM ' . $query_table
             . ' WHERE `username` = \''
-            . $GLOBALS['dbi']->escapeString((string) $relationParameters->user)
+            . $this->dbi->escapeString((string) $relationParameters->user)
             . '\'';
-        $row = $GLOBALS['dbi']->fetchSingleRow(
+        $row = $this->dbi->fetchSingleRow(
             $query,
             DatabaseInterface::FETCH_ASSOC,
             Connection::TYPE_CONTROL
@@ -151,35 +155,35 @@ class UserPreferences
             . Util::backquote($relationParameters->userPreferencesFeature->userConfig);
         $query = 'SELECT `username` FROM ' . $query_table
             . ' WHERE `username` = \''
-            . $GLOBALS['dbi']->escapeString($relationParameters->user)
+            . $this->dbi->escapeString($relationParameters->user)
             . '\'';
 
-        $has_config = $GLOBALS['dbi']->fetchValue($query, 0, Connection::TYPE_CONTROL);
+        $has_config = $this->dbi->fetchValue($query, 0, Connection::TYPE_CONTROL);
         $config_data = json_encode($config_array);
         if ($has_config) {
             $query = 'UPDATE ' . $query_table
                 . ' SET `timevalue` = NOW(), `config_data` = \''
-                . $GLOBALS['dbi']->escapeString($config_data)
+                . $this->dbi->escapeString($config_data)
                 . '\''
                 . ' WHERE `username` = \''
-                . $GLOBALS['dbi']->escapeString($relationParameters->user)
+                . $this->dbi->escapeString($relationParameters->user)
                 . '\'';
         } else {
             $query = 'INSERT INTO ' . $query_table
                 . ' (`username`, `timevalue`,`config_data`) '
                 . 'VALUES (\''
-                . $GLOBALS['dbi']->escapeString($relationParameters->user) . '\', NOW(), '
-                . '\'' . $GLOBALS['dbi']->escapeString($config_data) . '\')';
+                . $this->dbi->escapeString($relationParameters->user) . '\', NOW(), '
+                . '\'' . $this->dbi->escapeString($config_data) . '\')';
         }
 
         if (isset($_SESSION['cache'][$cache_key]['userprefs'])) {
             unset($_SESSION['cache'][$cache_key]['userprefs']);
         }
 
-        if (! $GLOBALS['dbi']->tryQuery($query, Connection::TYPE_CONTROL)) {
+        if (! $this->dbi->tryQuery($query, Connection::TYPE_CONTROL)) {
             $message = Message::error(__('Could not save configuration'));
             $message->addMessage(
-                Message::error($GLOBALS['dbi']->getError(Connection::TYPE_CONTROL)),
+                Message::error($this->dbi->getError(Connection::TYPE_CONTROL)),
                 '<br><br>'
             );
             if (! $this->hasAccessToDatabase($relationParameters->db)) {
@@ -204,15 +208,15 @@ class UserPreferences
     private function hasAccessToDatabase(DatabaseName $database): bool
     {
         $query = 'SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '
-            . $GLOBALS['dbi']->quoteString($database->getName());
+            . $this->dbi->quoteString($database->getName());
         if ($GLOBALS['cfg']['Server']['DisableIS']) {
             $query = 'SHOW DATABASES LIKE '
-                . $GLOBALS['dbi']->quoteString(
-                    $GLOBALS['dbi']->escapeMysqlWildcards($database->getName())
+                . $this->dbi->quoteString(
+                    $this->dbi->escapeMysqlWildcards($database->getName())
                 );
         }
 
-        return (bool) $GLOBALS['dbi']->fetchSingleRow($query, 'ASSOC', Connection::TYPE_CONTROL);
+        return (bool) $this->dbi->fetchSingleRow($query, 'ASSOC', Connection::TYPE_CONTROL);
     }
 
     /**

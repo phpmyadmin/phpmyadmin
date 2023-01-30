@@ -120,7 +120,7 @@ class Header
         $this->addDefaultScripts();
         $this->headerIsSent = false;
 
-        $this->userPreferences = new UserPreferences();
+        $this->userPreferences = new UserPreferences($GLOBALS['dbi']);
     }
 
     /**

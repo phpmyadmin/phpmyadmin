@@ -260,6 +260,7 @@ return [
         ],
         'user_preferences' => [
             'class' => PhpMyAdmin\UserPreferences::class,
+            'arguments' => ['@dbi'],
         ],
         'version_information' => [
             'class' => PhpMyAdmin\VersionInformation::class,

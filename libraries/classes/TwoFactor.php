@@ -60,7 +60,7 @@ class TwoFactor
     {
         (new Relation($GLOBALS['dbi']))->initRelationParamsCache();
 
-        $this->userPreferences = new UserPreferences();
+        $this->userPreferences = new UserPreferences($GLOBALS['dbi']);
         $this->user = $user;
         $this->available = $this->getAvailableBackends();
         $this->config = $this->readConfig();

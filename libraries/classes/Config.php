@@ -438,7 +438,7 @@ class Config
                 ! isset($_SESSION['cache'][$cache_key]['userprefs'])
                 || $_SESSION['cache'][$cache_key]['config_mtime'] < $this->sourceMtime
             ) {
-                $userPreferences = new UserPreferences();
+                $userPreferences = new UserPreferences($GLOBALS['dbi']);
                 $prefs = $userPreferences->load();
                 $_SESSION['cache'][$cache_key]['userprefs'] = $userPreferences->apply($prefs['config_data']);
                 $_SESSION['cache'][$cache_key]['userprefs_mtime'] = $prefs['mtime'];
@@ -542,7 +542,7 @@ class Config
         $new_cfg_value,
         $default_value = null
     ) {
-        $userPreferences = new UserPreferences();
+        $userPreferences = new UserPreferences($GLOBALS['dbi']);
         $result = true;
         // use permanent user preferences if possible
         $prefs_type = $this->get('user_preferences');

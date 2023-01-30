@@ -456,6 +456,7 @@ return [
                 '$template' => '@template',
                 '$errorReport' => '@error_report',
                 '$errorHandler' => '@error_handler',
+                '$dbi' => '@dbi',
             ],
         ],
         Export\CheckTimeOutController::class => [
