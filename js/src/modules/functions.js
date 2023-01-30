@@ -2,7 +2,6 @@ import $ from 'jquery';
 import { AJAX } from './ajax.js';
 import { Navigation } from './navigation.js';
 import { CommonParams } from './common.js';
-import { Indexes } from './indexes.js';
 import { Config } from './config.js';
 import tooltip from './tooltip.js';
 import highlightSql from './sql-highlight.js';
@@ -12,6 +11,7 @@ import { escapeHtml } from './functions/escape.js';
 import getImageTag from './functions/getImageTag.js';
 import handleRedirectAndReload from './functions/handleRedirectAndReload.js';
 import refreshMainContent from './functions/refreshMainContent.js';
+import checkIndexType from './indexes/checkIndexType.js';
 
 /* global DatabaseStructure */ // js/database/structure.js
 /* global firstDayOfCalendar, themeImagePath */ // templates/javascript/variables.twig
@@ -2759,7 +2759,7 @@ Functions.indexRenameDialog = function (url, title, callbackSuccess, callbackFai
 };
 
 Functions.showIndexEditDialog = function ($outer) {
-    Indexes.checkIndexType();
+    checkIndexType();
     Functions.checkIndexName('index_frm');
     var $indexColumns = $('#index_columns');
     $indexColumns.find('td').each(function () {
