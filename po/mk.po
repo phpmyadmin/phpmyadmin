@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-01-29 23:12+0000\n"
+"PO-Revision-Date: 2023-01-31 02:41+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -6841,10 +6841,11 @@ msgid "Replicated"
 msgstr "Релации"
 
 #: libraries/classes/Controllers/Server/ServerVariablesController.php:116
-#, fuzzy, php-format
-#| msgid "Server variables and settings"
+#, php-format
 msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "Серверски променливи и подесувања"
+msgstr ""
+"Немате доволно привилегија за прегледување на варијабили и подесувањата на "
+"серверот. %s"
 
 #: libraries/classes/Controllers/Server/ServerVariablesController.php:234
 msgid "Setting variable failed"
@@ -6885,10 +6886,8 @@ msgstr "Процесот %s е успешно прекинат."
 #: libraries/classes/Rte/Routines.php:1465
 #: libraries/classes/SqlQueryForm.php:93 tbl_row_action.php:142
 #: view_operations.php:69
-#, fuzzy
-#| msgid "Your SQL query has been executed successfully."
 msgid "Your SQL query has been executed successfully."
-msgstr "Вашиот SQL упит успешно е извршен"
+msgstr "Вашето SQL барање беше успешно егзекутирано."
 
 #: libraries/classes/Controllers/Table/TableRelationController.php:304
 #, fuzzy
@@ -6921,10 +6920,8 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:273
-#, fuzzy
-#| msgid "No rows selected"
 msgid "No column selected."
-msgstr "Нема селектирани записи"
+msgstr "Нема избрана колона."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:499
 #, fuzzy
@@ -7080,10 +7077,8 @@ msgid "FOREIGN KEY relationship has been added."
 msgstr "Измените се сочувани"
 
 #: libraries/classes/Database/Designer/Common.php:617
-#, fuzzy
-#| msgid "File could not be read"
 msgid "Error: FOREIGN KEY relationship could not be added!"
-msgstr "Податотеката не е можно да се прочита"
+msgstr "Грешка: FOREIGN KEY врска не може да се додаде!"
 
 #: libraries/classes/Database/Designer/Common.php:622
 msgid "Error: Missing index on column(s)."
@@ -16012,9 +16007,9 @@ msgid "Importing into the database \"%s\""
 msgstr "Увоз во датабаза \"%s\""
 
 #: templates/display/import/import.twig:44
-#, fuzzy, php-format
+#, php-format
 msgid "Importing into the table \"%s\""
-msgstr "Базата на податоци не постои"
+msgstr "Увозување во табелата \"%s\""
 
 #: templates/display/import/import.twig:50
 #, fuzzy
@@ -16124,10 +16119,8 @@ msgid "Export templates:"
 msgstr "Шаблони за извоз:"
 
 #: templates/display/export/template_loading.twig:6
-#, fuzzy
-#| msgid "File name template"
 msgid "New template:"
-msgstr "Шаблон на име на податотека"
+msgstr "Нов шаблон:"
 
 #: templates/display/export/template_loading.twig:8
 #, fuzzy
