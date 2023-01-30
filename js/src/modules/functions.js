@@ -2,7 +2,6 @@ import $ from 'jquery';
 import { AJAX } from './ajax.js';
 import { Navigation } from './navigation.js';
 import { CommonParams } from './common.js';
-import { Config } from './config.js';
 import tooltip from './tooltip.js';
 import highlightSql from './sql-highlight.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.js';
@@ -14,6 +13,7 @@ import refreshMainContent from './functions/refreshMainContent.js';
 import checkIndexType from './indexes/checkIndexType.js';
 import checkIndexName from './indexes/checkIndexName.js';
 import mainMenuResizerCallback from './functions/mainMenuResizerCallback.js';
+import isStorageSupported from './functions/isStorageSupported.js';
 
 /* global DatabaseStructure */ // js/database/structure.js
 /* global firstDayOfCalendar, themeImagePath */ // templates/javascript/variables.twig
@@ -799,7 +799,7 @@ Functions.onloadIdleEvent = function () {
     function UpdateIdleTime () {
         var href = 'index.php?route=/';
         var guid = 'default';
-        if (Config.isStorageSupported('sessionStorage')) {
+        if (isStorageSupported('sessionStorage')) {
             guid = window.sessionStorage.guid;
         }
         var params = {
@@ -834,7 +834,7 @@ Functions.onloadIdleEvent = function () {
                     updateTimeout = window.setTimeout(UpdateIdleTime, interval);
                 } else { // timeout occurred
                     clearInterval(incInterval);
-                    if (Config.isStorageSupported('sessionStorage')) {
+                    if (isStorageSupported('sessionStorage')) {
                         window.sessionStorage.clear();
                     }
                     // append the login form on the page, disable all the forms which were not disabled already, close all the open jqueryui modal boxes
@@ -862,7 +862,7 @@ Functions.onloadIdleEvent = function () {
             CommonParams.get('LoginCookieValidity'),
             CommonParams.get('session_gc_maxlifetime')
         );
-        if (Config.isStorageSupported('sessionStorage')) {
+        if (isStorageSupported('sessionStorage')) {
             window.sessionStorage.setItem('guid', guid());
         }
         var interval = (sessionTimeout - 5) * 1000;
@@ -3000,7 +3000,7 @@ Functions.onloadRecentFavoriteTables = () => {
             cache: false,
             type: 'POST',
             data: {
-                'favoriteTables': (Config.isStorageSupported('localStorage') && typeof window.localStorage.favoriteTables !== 'undefined')
+                'favoriteTables': (isStorageSupported('localStorage') && typeof window.localStorage.favoriteTables !== 'undefined')
                     ? window.localStorage.favoriteTables
                     : '',
                 'server': CommonParams.get('server'),
@@ -3008,7 +3008,7 @@ Functions.onloadRecentFavoriteTables = () => {
             },
             success: function (data) {
                 // Update localStorage.
-                if (Config.isStorageSupported('localStorage')) {
+                if (isStorageSupported('localStorage')) {
                     window.localStorage.favoriteTables = data.favoriteTables;
                 }
                 $('#pma_favorite_list').html(data.list);

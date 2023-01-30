@@ -6,6 +6,7 @@ import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.js';
 import handleCreateViewModal from './functions/handleCreateViewModal.js';
 import { getConfigValue, setConfigValue } from './functions/config.js';
 import handleRedirectAndReload from './functions/handleRedirectAndReload.js';
+import isStorageSupported from './functions/isStorageSupported.js';
 
 /**
  * function used in or for navigation panel
@@ -21,7 +22,7 @@ const Navigation = {};
  */
 Navigation.treeStateUpdate = function () {
     // update if session storage is supported
-    if (Config.isStorageSupported('sessionStorage')) {
+    if (isStorageSupported('sessionStorage')) {
         var storage = window.sessionStorage;
         // try catch necessary here to detect whether
         // content to be stored exceeds storage capacity
@@ -48,7 +49,7 @@ Navigation.treeStateUpdate = function () {
  * @return {void}
  */
 Navigation.filterStateUpdate = function (filterName, filterValue) {
-    if (Config.isStorageSupported('sessionStorage')) {
+    if (isStorageSupported('sessionStorage')) {
         var storage = window.sessionStorage;
         try {
             var currentFilter = $.extend({}, JSON.parse(storage.getItem('navTreeSearchFilters')));
@@ -68,7 +69,7 @@ Navigation.filterStateUpdate = function (filterName, filterValue) {
  * @return {void}
  */
 Navigation.filterStateRestore = function () {
-    if (Config.isStorageSupported('sessionStorage')
+    if (isStorageSupported('sessionStorage')
         && typeof window.sessionStorage.navTreeSearchFilters !== 'undefined'
     ) {
         var searchClauses = JSON.parse(window.sessionStorage.navTreeSearchFilters);
@@ -536,7 +537,7 @@ Navigation.onload = () => function () {
             }
         }
 
-        var hasLocalStorage = Config.isStorageSupported('localStorage') &&
+        var hasLocalStorage = isStorageSupported('localStorage') &&
             typeof window.localStorage.favoriteTables !== 'undefined';
         $.ajax({
             url: $self.attr('href'),
@@ -552,7 +553,7 @@ Navigation.onload = () => function () {
                     $('#' + anchorId).parent().html(data.anchor);
                     tooltip($('#' + anchorId), 'a', $('#' + anchorId).attr('title'));
                     // Update localStorage.
-                    if (Config.isStorageSupported('localStorage')) {
+                    if (isStorageSupported('localStorage')) {
                         window.localStorage.favoriteTables = data.favoriteTables;
                     }
                 } else {
@@ -562,7 +563,7 @@ Navigation.onload = () => function () {
         });
     });
     // Check if session storage is supported
-    if (Config.isStorageSupported('sessionStorage')) {
+    if (isStorageSupported('sessionStorage')) {
         var storage = window.sessionStorage;
         // remove tree from storage if Navi_panel config form is submitted
         $(document).on('submit', 'form.config-form', function () {
