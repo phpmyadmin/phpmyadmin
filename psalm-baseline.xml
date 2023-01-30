@@ -13368,14 +13368,6 @@
     </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/UserPreferences.php">
-    <DeprecatedMethod occurrences="6">
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <MixedArgumentTypeCoercion occurrences="2">
       <code>$path</code>
       <code>$url_params</code>

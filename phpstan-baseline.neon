@@ -8936,6 +8936,11 @@ parameters:
 			path: libraries/classes/UserPreferences.php
 
 		-
+			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, string\\|false given\\.$#"
+			count: 2
+			path: libraries/classes/UserPreferences.php
+
+		-
 			message: "#^Cannot use array destructuring on array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Util.php

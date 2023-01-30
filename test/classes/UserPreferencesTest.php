@@ -114,8 +114,10 @@ class UserPreferencesTest extends AbstractNetworkTestCase
                 )
             );
         $dbi->expects($this->any())
-            ->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->method('quoteString')
+            ->will($this->returnCallback(static function (string $string) {
+                return "'" . $string . "'";
+            }));
 
         $userPreferences = new UserPreferences($dbi);
         $result = $userPreferences->load();
@@ -202,8 +204,10 @@ class UserPreferencesTest extends AbstractNetworkTestCase
             ->will($this->returnValue(true));
 
         $dbi->expects($this->any())
-            ->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->method('quoteString')
+            ->will($this->returnCallback(static function (string $string) {
+                return "'" . $string . "'";
+            }));
 
         $userPreferences = new UserPreferences($dbi);
         $result = $userPreferences->save([1]);
@@ -236,8 +240,10 @@ class UserPreferencesTest extends AbstractNetworkTestCase
             ->with(Connection::TYPE_CONTROL)
             ->will($this->returnValue('err1'));
         $dbi->expects($this->any())
-            ->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->method('quoteString')
+            ->will($this->returnCallback(static function (string $string) {
+                return "'" . $string . "'";
+            }));
 
         $userPreferences = new UserPreferences($dbi);
         $result = $userPreferences->save([1]);
