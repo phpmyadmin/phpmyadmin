@@ -100,9 +100,8 @@ class UserPreferences
             . Util::backquote($relationParameters->userPreferencesFeature->userConfig);
         $query = 'SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts'
             . ' FROM ' . $query_table
-            . ' WHERE `username` = \''
-            . $this->dbi->escapeString((string) $relationParameters->user)
-            . '\'';
+            . ' WHERE `username` = '
+            . $this->dbi->quoteString((string) $relationParameters->user);
         $row = $this->dbi->fetchSingleRow(
             $query,
             DatabaseInterface::FETCH_ASSOC,
@@ -154,26 +153,23 @@ class UserPreferences
         $query_table = Util::backquote($relationParameters->userPreferencesFeature->database) . '.'
             . Util::backquote($relationParameters->userPreferencesFeature->userConfig);
         $query = 'SELECT `username` FROM ' . $query_table
-            . ' WHERE `username` = \''
-            . $this->dbi->escapeString($relationParameters->user)
-            . '\'';
+            . ' WHERE `username` = '
+            . $this->dbi->quoteString($relationParameters->user);
 
         $has_config = $this->dbi->fetchValue($query, 0, Connection::TYPE_CONTROL);
         $config_data = json_encode($config_array);
         if ($has_config) {
             $query = 'UPDATE ' . $query_table
-                . ' SET `timevalue` = NOW(), `config_data` = \''
-                . $this->dbi->escapeString($config_data)
-                . '\''
-                . ' WHERE `username` = \''
-                . $this->dbi->escapeString($relationParameters->user)
-                . '\'';
+                . ' SET `timevalue` = NOW(), `config_data` = '
+                . $this->dbi->quoteString($config_data)
+                . ' WHERE `username` = '
+                . $this->dbi->quoteString($relationParameters->user);
         } else {
             $query = 'INSERT INTO ' . $query_table
                 . ' (`username`, `timevalue`,`config_data`) '
-                . 'VALUES (\''
-                . $this->dbi->escapeString($relationParameters->user) . '\', NOW(), '
-                . '\'' . $this->dbi->escapeString($config_data) . '\')';
+                . 'VALUES ('
+                . $this->dbi->quoteString($relationParameters->user) . ', NOW(), '
+                . $this->dbi->quoteString($config_data) . ')';
         }
 
         if (isset($_SESSION['cache'][$cache_key]['userprefs'])) {
