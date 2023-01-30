@@ -8,6 +8,7 @@ import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.js';
 import getJsConfirmCommonParam from './functions/getJsConfirmCommonParam.js';
 import refreshMainContent from './functions/refreshMainContent.js';
 import checkIndexType from './indexes/checkIndexType.js';
+import checkIndexName from './indexes/checkIndexName.js';
 
 /**
  * @fileoverview    function used for index manipulation pages
@@ -371,7 +372,7 @@ Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, c
                 $('#addIndexModal').modal('show');
                 $('#addIndexModalLabel').first().text(window.Messages.strAddIndex);
                 $('#addIndexModal').find('.modal-body').first().html(data.message);
-                Functions.checkIndexName('index_frm');
+                checkIndexName('index_frm');
                 Functions.showHints($div);
                 $('#index_columns').find('td').each(function () {
                     $(this).css('width', $(this).width() + 'px');
@@ -563,7 +564,7 @@ Indexes.on = () => function () {
     $(document).on('change', '#select_index_choice', function (event) {
         event.preventDefault();
         checkIndexType();
-        Functions.checkIndexName('index_frm');
+        checkIndexName('index_frm');
     });
 
     /**
