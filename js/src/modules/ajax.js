@@ -1,5 +1,4 @@
 import $ from 'jquery';
-import { Functions } from './functions.js';
 import { Navigation } from './navigation.js';
 import { CommonParams } from './common.js';
 import highlightSql from './sql-highlight.js';
@@ -9,6 +8,7 @@ import getImageTag from './functions/getImageTag.js';
 import { ignorePhpErrors } from './functions/ignorePhpErrors.js';
 import handleRedirectAndReload from './functions/handleRedirectAndReload.js';
 import checkNumberOfFields from './functions/checkNumberOfFields.js';
+import mainMenuResizerCallback from './functions/mainMenuResizerCallback.js';
 
 /**
  * This object handles ajax requests for pages. It also
@@ -227,7 +227,7 @@ const AJAX = {
                 // Remove duplicate wrapper
                 // TODO: don't send it in the response
                 .children().first().remove();
-            $('#topmenu').menuResizer(Functions.mainMenuResizerCallback);
+            $('#topmenu').menuResizer(mainMenuResizerCallback);
         }
     },
     /**

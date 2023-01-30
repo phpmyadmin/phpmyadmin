@@ -13,6 +13,7 @@ import handleRedirectAndReload from './functions/handleRedirectAndReload.js';
 import refreshMainContent from './functions/refreshMainContent.js';
 import checkIndexType from './indexes/checkIndexType.js';
 import checkIndexName from './indexes/checkIndexName.js';
+import mainMenuResizerCallback from './functions/mainMenuResizerCallback.js';
 
 /* global DatabaseStructure */ // js/database/structure.js
 /* global firstDayOfCalendar, themeImagePath */ // templates/javascript/variables.twig
@@ -2790,18 +2791,12 @@ Functions.showHints = function ($div) {
     });
 };
 
-Functions.mainMenuResizerCallback = function () {
-    // 5 px margin for jumping menu in Chrome
-    // eslint-disable-next-line compat/compat
-    return $(document.body).width() - 5;
-};
-
 /**
  * @return {function}
  */
 Functions.initializeMenuResizer = () => function () {
     // Initialise the menu resize plugin
-    $('#topmenu').menuResizer(Functions.mainMenuResizerCallback);
+    $('#topmenu').menuResizer(mainMenuResizerCallback);
     // register resize event
     $(window).on('resize', function () {
         $('#topmenu').menuResizer('resize');
