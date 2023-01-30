@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-01-21 15:49+0000\n"
-"PO-Revision-Date: 2023-01-29 23:12+0000\n"
+"PO-Revision-Date: 2023-01-31 02:41+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/mk/>\n"
@@ -8002,9 +8002,8 @@ msgstr "Корисник %s веќе постои!"
 #: libraries/classes/Database/Routines.php:1224
 #: libraries/classes/Display/Results.php:3693 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
-#, fuzzy
 msgid "Your SQL query has been executed successfully."
-msgstr "Вашиот SQL упит успешно е извршен"
+msgstr "Вашето SQL барање беше успешно егзекутирано."
 
 #: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:23
 #: libraries/classes/Controllers/Table/DropColumnController.php:51
@@ -8017,9 +8016,8 @@ msgstr "Вашиот SQL упит успешно е извршен"
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:50
 #: libraries/classes/Controllers/Table/Structure/SpatialController.php:47
 #: libraries/classes/Controllers/Table/Structure/UniqueController.php:47
-#, fuzzy
 msgid "No column selected."
-msgstr "Нема селектирани записи"
+msgstr "Нема избрана колона."
 
 #: libraries/classes/Controllers/Table/DropColumnController.php:80
 #, php-format
@@ -8229,9 +8227,8 @@ msgid "FOREIGN KEY relationship has been added."
 msgstr "Измените се сочувани"
 
 #: libraries/classes/Database/Designer/Common.php:633
-#, fuzzy
 msgid "Error: FOREIGN KEY relationship could not be added!"
-msgstr "Податотеката не е можно да се прочита"
+msgstr "Грешка: FOREIGN KEY врска не може да се додаде!"
 
 #: libraries/classes/Database/Designer/Common.php:640
 msgid "Error: Missing index on column(s)."
@@ -14958,9 +14955,8 @@ msgid "Export templates:"
 msgstr "Шаблони за извоз:"
 
 #: templates/export.twig:18
-#, fuzzy
 msgid "New template:"
-msgstr "Шаблон на име на податотека"
+msgstr "Нов шаблон:"
 
 #: templates/export.twig:21 templates/export.twig:24
 #, fuzzy
@@ -17686,9 +17682,11 @@ msgid "Session value"
 msgstr "Вредност на сесијата"
 
 #: templates/server/variables/index.twig:80
-#, fuzzy, php-format
+#, php-format
 msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "Серверски променливи и подесувања"
+msgstr ""
+"Немате доволно привилегија за прегледување на варијабили и подесувањата на "
+"серверот. %s"
 
 #: templates/setup/base.twig:29 templates/setup/home/index.twig:20
 msgid "Overview"
@@ -18070,9 +18068,9 @@ msgid "Spatial column"
 msgstr "Вкупно"
 
 #: templates/table/import/index.twig:3
-#, fuzzy, php-format
+#, php-format
 msgid "Importing into the table \"%s\""
-msgstr "Базата на податоци не постои"
+msgstr "Увозување во табелата \"%s\""
 
 #: templates/table/index_form.twig:18 templates/table/index_rename_form.twig:11
 msgid "Index name:"
