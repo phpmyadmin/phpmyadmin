@@ -256,7 +256,11 @@ return [
         ],
         'user_password' => [
             'class' => PhpMyAdmin\UserPassword::class,
-            'arguments' => ['@server_privileges', '@' . AuthenticationPluginFactory::class],
+            'arguments' => [
+                '@server_privileges',
+                '@' . AuthenticationPluginFactory::class,
+                '@dbi',
+            ],
         ],
         'user_preferences' => [
             'class' => PhpMyAdmin\UserPreferences::class,
