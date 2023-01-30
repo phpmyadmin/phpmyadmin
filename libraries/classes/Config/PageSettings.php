@@ -57,7 +57,7 @@ class PageSettings
      */
     public function __construct($formGroupName, $elemId = null)
     {
-        $this->userPreferences = new UserPreferences();
+        $this->userPreferences = new UserPreferences($GLOBALS['dbi']);
 
         $formClass = PageFormList::get($formGroupName);
         if ($formClass === null) {

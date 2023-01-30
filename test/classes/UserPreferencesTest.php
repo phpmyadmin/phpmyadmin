@@ -20,9 +20,6 @@ use function time;
  */
 class UserPreferencesTest extends AbstractNetworkTestCase
 {
-    /** @var UserPreferences */
-    private $userPreferences;
-
     /**
      * Setup various pre conditions
      */
@@ -33,8 +30,6 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         $GLOBALS['server'] = 0;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = '/phpmyadmin/';
-
-        $this->userPreferences = new UserPreferences();
     }
 
     /**
@@ -49,7 +44,8 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         $GLOBALS['cfg']['AvailableCharsets'] = [];
         $GLOBALS['cfg']['UserprefsDeveloperTab'] = null;
 
-        $this->userPreferences->pageInit(new ConfigFile());
+        $userPreferences = new UserPreferences($GLOBALS['dbi']);
+        $userPreferences->pageInit(new ConfigFile());
 
         $this->assertEquals(
             [
@@ -71,7 +67,8 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
         unset($_SESSION['userconfig']);
 
-        $result = $this->userPreferences->load();
+        $userPreferences = new UserPreferences($GLOBALS['dbi']);
+        $result = $userPreferences->load();
 
         $this->assertCount(3, $result);
 
@@ -120,9 +117,8 @@ class UserPreferencesTest extends AbstractNetworkTestCase
             ->method('escapeString')
             ->will($this->returnArgument(0));
 
-        $GLOBALS['dbi'] = $dbi;
-
-        $result = $this->userPreferences->load();
+        $userPreferences = new UserPreferences($dbi);
+        $result = $userPreferences->load();
 
         $this->assertEquals(
             [
@@ -149,7 +145,8 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
         unset($_SESSION['userconfig']);
 
-        $result = $this->userPreferences->save([1]);
+        $userPreferences = new UserPreferences($GLOBALS['dbi']);
+        $result = $userPreferences->save([1]);
 
         $this->assertTrue($result);
 
@@ -208,9 +205,8 @@ class UserPreferencesTest extends AbstractNetworkTestCase
             ->method('escapeString')
             ->will($this->returnArgument(0));
 
-        $GLOBALS['dbi'] = $dbi;
-
-        $result = $this->userPreferences->save([1]);
+        $userPreferences = new UserPreferences($dbi);
+        $result = $userPreferences->save([1]);
 
         $this->assertTrue($result);
 
@@ -243,9 +239,8 @@ class UserPreferencesTest extends AbstractNetworkTestCase
             ->method('escapeString')
             ->will($this->returnArgument(0));
 
-        $GLOBALS['dbi'] = $dbi;
-
-        $result = $this->userPreferences->save([1]);
+        $userPreferences = new UserPreferences($dbi);
+        $result = $userPreferences->save([1]);
 
         $this->assertInstanceOf(Message::class, $result);
         $this->assertEquals(
@@ -265,7 +260,9 @@ class UserPreferencesTest extends AbstractNetworkTestCase
             'foo' => 'bar',
         ];
         $GLOBALS['cfg']['UserprefsDeveloperTab'] = null;
-        $result = $this->userPreferences->apply(
+
+        $userPreferences = new UserPreferences($GLOBALS['dbi']);
+        $result = $userPreferences->apply(
             [
                 'DBG/sql' => true,
                 'ErrorHandler/display' => true,
@@ -289,7 +286,9 @@ class UserPreferencesTest extends AbstractNetworkTestCase
     public function testApplyDevel(): void
     {
         $GLOBALS['cfg']['UserprefsDeveloperTab'] = true;
-        $result = $this->userPreferences->apply(
+
+        $userPreferences = new UserPreferences($GLOBALS['dbi']);
+        $result = $userPreferences->apply(
             ['DBG/sql' => true]
         );
 
@@ -319,16 +318,17 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         $GLOBALS['server'] = 2;
         $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([])->toArray();
 
+        $userPreferences = new UserPreferences($GLOBALS['dbi']);
         $this->assertTrue(
-            $this->userPreferences->persistOption('Server/hide_db', 'val', 'val')
+            $userPreferences->persistOption('Server/hide_db', 'val', 'val')
         );
 
         $this->assertTrue(
-            $this->userPreferences->persistOption('Server/hide_db', 'val2', 'val')
+            $userPreferences->persistOption('Server/hide_db', 'val2', 'val')
         );
 
         $this->assertTrue(
-            $this->userPreferences->persistOption('Server/hide_db2', 'val', 'val')
+            $userPreferences->persistOption('Server/hide_db2', 'val', 'val')
         );
     }
 
@@ -346,7 +346,8 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         $GLOBALS['config']->set('PmaAbsoluteUri', '');
         $GLOBALS['config']->set('PMA_IS_IIS', false);
 
-        $this->userPreferences->redirect(
+        $userPreferences = new UserPreferences($GLOBALS['dbi']);
+        $userPreferences->redirect(
             'file.html',
             ['a' => 'b'],
             'h ash'
@@ -361,9 +362,10 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         $_SESSION['userprefs_autoload'] = false;
         $_REQUEST['prefs_autoload'] = 'hide';
 
+        $userPreferences = new UserPreferences($GLOBALS['dbi']);
         $this->assertEquals(
             '',
-            $this->userPreferences->autoloadGetHeader()
+            $userPreferences->autoloadGetHeader()
         );
 
         $this->assertTrue($_SESSION['userprefs_autoload']);
@@ -371,7 +373,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         $_REQUEST['prefs_autoload'] = 'nohide';
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
-        $result = $this->userPreferences->autoloadGetHeader();
+        $result = $userPreferences->autoloadGetHeader();
 
         $this->assertStringContainsString(
             '<form action="' . Url::getFromRoute('/preferences/manage') . '" method="post" class="disableAjax">',

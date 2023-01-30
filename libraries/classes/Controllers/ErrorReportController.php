@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\ErrorReport;
 use PhpMyAdmin\Http\ServerRequest;
@@ -33,15 +34,20 @@ class ErrorReportController extends AbstractController
     /** @var ErrorHandler */
     private $errorHandler;
 
+    /** @var DatabaseInterface */
+    private $dbi;
+
     public function __construct(
         ResponseRenderer $response,
         Template $template,
         ErrorReport $errorReport,
-        ErrorHandler $errorHandler
+        ErrorHandler $errorHandler,
+        DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
         $this->errorReport = $errorReport;
         $this->errorHandler = $errorHandler;
+        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void
@@ -140,7 +146,7 @@ class ErrorReportController extends AbstractController
 
                 /* Persist always send settings */
                 if ($alwaysSend === 'true') {
-                    $userPreferences = new UserPreferences();
+                    $userPreferences = new UserPreferences($this->dbi);
                     $userPreferences->persistOption('SendErrorReports', 'always', 'ask');
                 }
             }
