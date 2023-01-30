@@ -13366,16 +13366,6 @@
     </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/UserPassword.php">
-    <DeprecatedMethod occurrences="8">
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <PossiblyInvalidArgument occurrences="1">
       <code>$_POST['pma_pw']</code>
     </PossiblyInvalidArgument>

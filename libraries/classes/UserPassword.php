@@ -91,9 +91,9 @@ class UserPassword
 
         $isPerconaOrMySql = Compatibility::isMySqlOrPerconaDb();
         if ($isPerconaOrMySql && $serverVersion >= 50706) {
-            $sql_query = 'ALTER USER \'' . $this->dbi->escapeString($username)
-                . '\'@\'' . $this->dbi->escapeString($hostname)
-                . '\' IDENTIFIED WITH ' . $orig_auth_plugin . ' BY '
+            $sql_query = 'ALTER USER ' . $this->dbi->quoteString($username)
+                . '@' . $this->dbi->quoteString($hostname)
+                . ' IDENTIFIED WITH ' . $orig_auth_plugin . ' BY '
                 . ($password == '' ? '\'\'' : '\'***\'');
         } elseif (
             ($isPerconaOrMySql && $serverVersion >= 50507)
@@ -159,12 +159,10 @@ class UserPassword
         $serverVersion = $this->dbi->getVersion();
 
         if (Compatibility::isMySqlOrPerconaDb() && $serverVersion >= 50706) {
-            $local_query = 'ALTER USER \'' . $this->dbi->escapeString($username)
-                . '\'@\'' . $this->dbi->escapeString($hostname) . '\''
+            $local_query = 'ALTER USER ' . $this->dbi->quoteString($username)
+                . '@' . $this->dbi->quoteString($hostname)
                 . ' IDENTIFIED with ' . $orig_auth_plugin . ' BY '
-                . ($password == ''
-                ? '\'\''
-                : '\'' . $this->dbi->escapeString($password) . '\'');
+                . $this->dbi->quoteString($password);
         } elseif (
             Compatibility::isMariaDb()
             && $serverVersion >= 50200
@@ -186,14 +184,13 @@ class UserPassword
             $local_query = 'UPDATE `mysql`.`user` SET'
                 . " `authentication_string` = '" . $hashedPassword
                 . "', `Password` = '', "
-                . " `plugin` = '" . $orig_auth_plugin . "'"
-                . " WHERE `User` = '" . $this->dbi->escapeString($username)
-                . "' AND Host = '" . $this->dbi->escapeString($hostname) . "';";
+                . ' `plugin` = ' . $this->dbi->quoteString($orig_auth_plugin)
+                . ' WHERE `User` = ' . $this->dbi->quoteString($username)
+                . ' AND Host = ' . $this->dbi->quoteString($hostname) . ';';
         } else {
             $local_query = 'SET password = ' . ($password == ''
                 ? '\'\''
-                : $hashing_function . '(\''
-                    . $this->dbi->escapeString($password) . '\')');
+                : $hashing_function . '(' . $this->dbi->quoteString($password) . ')');
         }
 
         if (! @$this->dbi->tryQuery($local_query)) {
