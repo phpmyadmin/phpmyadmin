@@ -922,7 +922,7 @@ class Sql
         array $analyzedSqlResults,
         $numRows
     ): Message {
-        if ($analyzedSqlResults['querytype'] === 'DELETE"') {
+        if ($analyzedSqlResults['querytype'] === 'DELETE') {
             $message = Message::getMessageForDeletedRows($numRows);
         } elseif ($analyzedSqlResults['is_insert']) {
             if ($analyzedSqlResults['querytype'] === 'REPLACE') {
