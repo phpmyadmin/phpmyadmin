@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-01-21 15:49+0000\n"
-"PO-Revision-Date: 2023-01-31 02:41+0000\n"
+"PO-Revision-Date: 2023-02-02 11:39+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/mk/>\n"
@@ -114,6 +114,8 @@ msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
+"{long_query_time} е подесено на 10 секунди или повеќе, така што се логираат "
+"само бавните барања што траат над 10 секунди."
 
 #: libraries/advisory_rules_generic.php:71
 msgid ""
@@ -8245,9 +8247,8 @@ msgid "Internal relationship has been added."
 msgstr "Внатрешни релации"
 
 #: libraries/classes/Database/Designer/Common.php:680
-#, fuzzy
 msgid "Error: Internal relationship could not be added!"
-msgstr "Податотеката не е можно да се прочита"
+msgstr "Грешка: Внатрешната врска не може да се додаде!"
 
 #: libraries/classes/Database/Designer/Common.php:718
 #, fuzzy
@@ -8255,9 +8256,8 @@ msgid "FOREIGN KEY relationship has been removed."
 msgstr "Измените се сочувани"
 
 #: libraries/classes/Database/Designer/Common.php:749
-#, fuzzy
 msgid "Error: Internal relationship could not be removed!"
-msgstr "Податотеката не е можно да се прочита"
+msgstr "Грешка: Внатрешната врска не може да се отстрани!"
 
 #: libraries/classes/Database/Designer/Common.php:755
 #, fuzzy
@@ -8400,9 +8400,8 @@ msgid "Failed to set configured collation connection!"
 msgstr ""
 
 #: libraries/classes/DatabaseInterface.php:1859
-#, fuzzy
 msgid "Missing connection parameters!"
-msgstr "Рутини"
+msgstr "Недостасуваат параметрите за конекција!"
 
 #: libraries/classes/DatabaseInterface.php:1884
 msgid "Connection for controluser as defined in your configuration failed."
@@ -8771,9 +8770,8 @@ msgid "Query took %01.4f seconds."
 msgstr "време на извршување на упитот %01.4f секунди"
 
 #: libraries/classes/Display/Results.php:4352
-#, fuzzy
 msgid "Link not found!"
-msgstr "Врската не е пронајдена"
+msgstr "Врската не е пронајдена!"
 
 #: libraries/classes/Engines/Bdb.php:28
 msgid "Version information"
@@ -9867,9 +9865,8 @@ msgid "Have a primary key"
 msgstr ""
 
 #: libraries/classes/Normalization.php:281
-#, fuzzy
 msgid "Primary key already exists."
-msgstr "Корисник %s веќе постои!"
+msgstr "Примарниот клуч веќе постои."
 
 #: libraries/classes/Normalization.php:286
 msgid ""
@@ -10015,9 +10012,8 @@ msgstr ""
 #: libraries/classes/Normalization.php:591
 #: libraries/classes/Normalization.php:764
 #: libraries/classes/Normalization.php:842
-#, fuzzy
 msgid "Error in processing!"
-msgstr "Листа на процеси"
+msgstr "Грешка во процесирање!"
 
 #: libraries/classes/Normalization.php:638
 #, php-format
