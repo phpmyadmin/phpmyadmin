@@ -1,8 +1,8 @@
 import $ from 'jquery';
-import { Functions } from './functions.js';
 import { CommonParams } from './common.js';
 import { ajaxShowMessage } from './ajax-message.js';
 import isStorageSupported from './functions/isStorageSupported.js';
+import formatDateTime from './functions/formatDateTime.js';
 
 /**
  * Functions used in configuration forms and on user preferences pages
@@ -658,10 +658,7 @@ function savePrefsToLocalStorage (form) {
  */
 function updatePrefsDate () {
     var d = new Date(window.localStorage.configMtimeLocal);
-    var msg = window.Messages.strSavedOn.replace(
-        '@DATE@',
-        Functions.formatDateTime(d)
-    );
+    var msg = window.Messages.strSavedOn.replace('@DATE@', formatDateTime(d));
     $('#opts_import_local_storage').find('div.localStorage-exists').html(msg);
 }
 

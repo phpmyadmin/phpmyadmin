@@ -3483,28 +3483,6 @@ Functions.onloadLoginForm = () => {
 };
 
 /**
- * Formats timestamp for display
- *
- * @param {string} date
- * @param {bool} seconds
- * @return {string}
- */
-Functions.formatDateTime = function (date, seconds) {
-    var result = $.datepicker.formatDate('yy-mm-dd', date);
-    var timefmt = 'HH:mm';
-    if (seconds) {
-        timefmt = 'HH:mm:ss';
-    }
-    return result + ' ' + $.datepicker.formatTime(
-        timefmt, {
-            hour: date.getHours(),
-            minute: date.getMinutes(),
-            second: date.getSeconds()
-        }
-    );
-};
-
-/**
  * Toggle the Datetimepicker UI if the date value entered
  * by the user in the 'text box' is not going to be accepted
  * by the Datetimepicker plugin (but is accepted by MySQL)
