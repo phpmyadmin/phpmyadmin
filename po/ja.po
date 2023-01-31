@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-01-21 15:49+0000\n"
-"PO-Revision-Date: 2022-11-27 12:48+0000\n"
+"PO-Revision-Date: 2023-02-02 11:39+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 4.16-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -7417,7 +7417,8 @@ msgstr "セキュリティキーが無効です。"
 msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
-msgstr ""
+msgstr "WebAuthn は使用できません。セキュアコンテキスト (HTTPS) "
+"で対応しているブラウザを使用してください。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:701
 msgid ""
@@ -11773,16 +11774,11 @@ msgid "Hardware Security Key (FIDO U2F)"
 msgstr "ハードウェアセキュリティキー (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:218
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F, such as a Yubikey."
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a YubiKey."
-msgstr ""
-"YubikeyなどのFIDO U2Fをサポートするハードウェアセキュリティトークンを使用して"
-"認証を行います。"
+msgstr "YubiKey などの FIDO U2F "
+"をサポートするハードウェアセキュリティトークンを使用して認証を行います。"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:73
 #, php-format
@@ -11810,22 +11806,15 @@ msgid "For testing purposes only!"
 msgstr "テスト目的のみ！"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:180
-#, fuzzy
-#| msgid "Hardware Security Key (FIDO U2F)"
 msgid "Hardware Security Key (WebAuthn/FIDO2)"
-msgstr "ハードウェアセキュリティキー (FIDO U2F)"
+msgstr "ハードウェアセキュリティキー (WebAuthn/FIDO2)"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:186
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F, such as a Yubikey."
 msgid ""
 "Provides authentication using hardware security tokens supporting the "
 "WebAuthn/FIDO2 protocol, such as a YubiKey."
-msgstr ""
-"YubikeyなどのFIDO U2Fをサポートするハードウェアセキュリティトークンを使用して"
-"認証を行います。"
+msgstr "YubiKey などの WebAuthn/FIDO2 プロトコルに対応したハードウェアセキュリティト"
+"ークンを使用して認証を行います。"
 
 #: libraries/classes/Query/Utilities.php:97
 msgid ""
@@ -13074,10 +13063,8 @@ msgstr ""
 "スおよび IPv 4 アドレスの格納を目的としています"
 
 #: libraries/classes/Types.php:445
-#, fuzzy
-#| msgid "Stores a Universally Unique Identifier (UUID)"
 msgid "128-bit UUID (Universally Unique Identifier)"
-msgstr "汎用一意識別子 (UUID) 保存用"
+msgstr "128 ビット UUID (Universally Unique Identifier)"
 
 #: libraries/classes/Types.php:791
 msgctxt "numeric types"
@@ -16097,10 +16084,8 @@ msgstr ""
 #: templates/login/twofactor/key_configure.twig:3
 #: templates/login/twofactor/key.twig:3
 #: templates/preferences/two_factor/main.twig:56
-#, fuzzy
-#| msgid "Replicated"
 msgid "Deprecated!"
-msgstr "レプリケーションしている"
+msgstr "非推奨です！"
 
 #: templates/login/twofactor/key_configure.twig:4
 #: templates/login/twofactor/key.twig:4
@@ -16109,7 +16094,8 @@ msgstr "レプリケーションしている"
 msgid ""
 "The FIDO U2F API has been deprecated in favor of the Web Authentication API "
 "(WebAuthn)."
-msgstr ""
+msgstr "FIDO U2F API は非推奨となり、 Web Authentication API (WebAuthn) "
+"に置き換えられました。"
 
 #: templates/login/twofactor/key_configure.twig:6
 #: templates/login/twofactor/key.twig:6
@@ -16119,6 +16105,9 @@ msgid ""
 "API, however it's recommended that you use the WebAuthn authentication "
 "instead."
 msgstr ""
+"Firefox を使用して FIDO U2F API "
+"を使用したアカウント認証を行うことはできますが、代わりに WebAuthn "
+"認証を使用することをお勧めします。"
 
 #: templates/login/twofactor/key_configure.twig:10
 msgid ""
@@ -16149,27 +16138,17 @@ msgid "Verify"
 msgstr "検証"
 
 #: templates/login/twofactor/webauthn_creation.twig:1
-#, fuzzy
-#| msgid ""
-#| "Please connect your FIDO U2F device into your computer's USB port. Then "
-#| "confirm registration on the device."
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm registration on the "
 "device."
-msgstr ""
-"FIDO U2FデバイスをコンピューターのUSBポートに接続してください。 その後、装置"
-"の登録を確認して下さい。"
+msgstr "WebAuthn/FIDO2 機器を接続してください。 "
+"その後、その機器での登録を確認してください。"
 
 #: templates/login/twofactor/webauthn_request.twig:1
-#, fuzzy
-#| msgid ""
-#| "Please connect your FIDO U2F device into your computer's USB port. Then "
-#| "confirm login on the device."
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm login on the device."
-msgstr ""
-"FIDO U2FデバイスをコンピューターのUSBポートに接続してください。 その後、装置"
-"のログインを確認して下さい。"
+msgstr "WebAuthn/FIDO2 機器を接続してください。 "
+"その後、その機器でログインを確認してください。"
 
 #: templates/menu/breadcrumbs.twig:27
 msgid "View:"
@@ -16407,15 +16386,10 @@ msgid ""
 msgstr "このユーザアカウントは二要素認証が設定されていないが、設定は可能です。"
 
 #: templates/preferences/two_factor/main.twig:26
-#, fuzzy
-#| msgid ""
-#| "Two-factor authentication is not available, please install optional "
-#| "dependencies to enable authentication backends."
 msgid ""
 "Please install optional dependencies to enable more authentication backends."
-msgstr ""
-"二要素認証を関係している依存パッケージがインストールされていないので、二要素"
-"認証は使用不可能です。"
+msgstr "より多くの認証バックエンドを有効にするために、オプションの依存関係をインスト"
+"ールしてください。"
 
 #: templates/preferences/two_factor/main.twig:37
 msgid ""
