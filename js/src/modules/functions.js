@@ -62,7 +62,7 @@ window.centralColumnList = [];
 
 /**
  * Make sure that ajax requests will not be cached by appending a random variable to their parameters.
- * @return {function}
+ * @return {function(JQuery.AjaxSettings, JQuery.AjaxSettings): void}
  */
 Functions.addNoCacheToAjaxRequests = () => function (options, originalOptions) {
     var nocache = new Date().getTime() + '' + Math.floor(Math.random() * 1000000);

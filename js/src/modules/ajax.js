@@ -233,7 +233,7 @@ const AJAX = {
     /**
      * Event handler for clicks on links and form submissions
      *
-     * @param {KeyboardEvent} event Event data
+     * @param {JQuery.Event} event Event data
      *
      * @return {boolean | void}
      */
@@ -900,7 +900,7 @@ const AJAX = {
 
     /**
      * Gracefully handle fatal server errors (e.g: 500 - Internal server error)
-     * @return {function}
+     * @return {function(JQuery.Event, JQuery.jqXHR): void}
      */
     getFatalErrorHandler: function () {
         return function (event, request) {
