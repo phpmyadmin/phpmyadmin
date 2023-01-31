@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-01-29 00:20+0000\n"
-"PO-Revision-Date: 2023-01-31 02:39+0000\n"
+"PO-Revision-Date: 2023-02-01 12:10+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -155,6 +155,8 @@ msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
+"{long_query_time} е подесено на 10 секунди или повеќе, така што се логираат "
+"само бавните барања што траат над 10 секунди."
 
 #: libraries/classes/Advisory/Rules.php:98
 msgid ""
@@ -8804,9 +8806,8 @@ msgid "Internal relationship has been added."
 msgstr "Внатрешни релации"
 
 #: libraries/classes/Database/Designer/Common.php:673
-#, fuzzy
 msgid "Error: Internal relationship could not be added!"
-msgstr "Податотеката не е можно да се прочита"
+msgstr "Грешка: Внатрешната врска не може да се додаде!"
 
 #: libraries/classes/Database/Designer/Common.php:711
 #, fuzzy
@@ -8814,9 +8815,8 @@ msgid "FOREIGN KEY relationship has been removed."
 msgstr "Измените се сочувани"
 
 #: libraries/classes/Database/Designer/Common.php:742
-#, fuzzy
 msgid "Error: Internal relationship could not be removed!"
-msgstr "Податотеката не е можно да се прочита"
+msgstr "Грешка: Внатрешната врска не може да се отстрани!"
 
 #: libraries/classes/Database/Designer/Common.php:748
 #, fuzzy
@@ -8959,9 +8959,8 @@ msgid "Failed to set configured collation connection!"
 msgstr ""
 
 #: libraries/classes/DatabaseInterface.php:1625
-#, fuzzy
 msgid "Missing connection parameters!"
-msgstr "Рутини"
+msgstr "Недостасуваат параметрите за конекција!"
 
 #: libraries/classes/DatabaseInterface.php:1652
 msgid "Connection for controluser as defined in your configuration failed."
@@ -9233,9 +9232,8 @@ msgid "The database name cannot end with a space character."
 msgstr "Зборовите се одвојуваат со празно место (\" \")."
 
 #: libraries/classes/Dbal/InvalidTableName.php:14
-#, fuzzy
 msgid "The table name must be a non-empty string."
-msgstr "Името на табелата е празно!"
+msgstr "Името на табелата мора да биде непразна низа на карактери."
 
 #: libraries/classes/Dbal/InvalidTableName.php:22
 #, php-format
@@ -9326,9 +9324,8 @@ msgid "Query took %01.4f seconds."
 msgstr "време на извршување на упитот %01.4f секунди"
 
 #: libraries/classes/Display/Results.php:4129
-#, fuzzy
 msgid "Link not found!"
-msgstr "Врската не е пронајдена"
+msgstr "Врската не е пронајдена!"
 
 #: libraries/classes/Engines/Bdb.php:28
 msgid "Version information"
@@ -10429,9 +10426,8 @@ msgid "Have a primary key"
 msgstr ""
 
 #: libraries/classes/Normalization.php:280
-#, fuzzy
 msgid "Primary key already exists."
-msgstr "Корисник %s веќе постои!"
+msgstr "Примарниот клуч веќе постои."
 
 #: libraries/classes/Normalization.php:285
 msgid ""
@@ -10577,9 +10573,8 @@ msgstr ""
 #: libraries/classes/Normalization.php:590
 #: libraries/classes/Normalization.php:761
 #: libraries/classes/Normalization.php:839
-#, fuzzy
 msgid "Error in processing!"
-msgstr "Листа на процеси"
+msgstr "Грешка во процесирање!"
 
 #: libraries/classes/Normalization.php:637
 #, php-format
