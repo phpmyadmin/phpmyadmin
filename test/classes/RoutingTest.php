@@ -27,8 +27,8 @@ class RoutingTest extends AbstractTestCase
     {
         $expected = [Dispatcher::FOUND, HomeController::class, []];
         $cacheFilename = CACHE_DIR . 'routes.cache.php';
-        $validCacheFilename = ROOT_PATH . 'test/test_data/routes/routes-valid.cache.txt';
-        $invalidCacheFilename = ROOT_PATH . 'test/test_data/routes/routes-invalid.cache.txt';
+        $validCacheFilename = TEST_PATH . 'test/test_data/routes/routes-valid.cache.txt';
+        $invalidCacheFilename = TEST_PATH . 'test/test_data/routes/routes-invalid.cache.txt';
         $GLOBALS['cfg']['environment'] = null;
 
         $this->assertDirectoryIsWritable(CACHE_DIR);
