@@ -8,6 +8,7 @@ import { Indexes } from './modules/indexes.js';
 import { Config } from './modules/config.js';
 import checkNumberOfFields from './modules/functions/checkNumberOfFields.js';
 import onloadNavigation from './modules/navigation/event-loader.js';
+import { onloadFunctions, teardownFunctions } from './modules/functions/event-loader.js';
 
 AJAX.registerOnload('main.js', () => AJAX.removeSubmitEvents());
 $(AJAX.loadEventHandler());
@@ -30,8 +31,8 @@ AJAX.registerOnload('main.js', Config.on());
 
 $.ajaxPrefilter(Functions.addNoCacheToAjaxRequests());
 
-AJAX.registerTeardown('main.js', Functions.off());
-AJAX.registerOnload('main.js', Functions.on());
+AJAX.registerTeardown('main.js', teardownFunctions());
+AJAX.registerOnload('main.js', onloadFunctions());
 
 $(Functions.dismissNotifications());
 $(Functions.initializeMenuResizer());

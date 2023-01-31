@@ -5,7 +5,6 @@ import { CommonParams } from './common.js';
 import tooltip from './tooltip.js';
 import highlightSql from './sql-highlight.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.js';
-import handleCreateViewModal from './functions/handleCreateViewModal.js';
 import { escapeHtml } from './functions/escape.js';
 import getImageTag from './functions/getImageTag.js';
 import handleRedirectAndReload from './functions/handleRedirectAndReload.js';
@@ -3222,17 +3221,7 @@ Functions.getAutoSubmitEventHandler = function () {
     };
 };
 
-/**
- * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
- */
-const PrintPage = {
-    handleEvent: () => {
-        window.print();
-    }
-};
-
 Functions.teardownCreateView = () => {
-    $(document).off('click', 'a.create_view.ajax');
     $(document).off('keydown', '#createViewModal input, #createViewModal select');
     $(document).off('change', '#fkc_checkbox');
 };
@@ -3248,13 +3237,6 @@ Functions.onloadCreateView = function () {
         form.submit();
         sessionStorage.clear();
         return false;
-    });
-    /**
-     * Ajaxification for the "Create View" action
-     */
-    $(document).on('click', 'a.create_view.ajax', function (e) {
-        e.preventDefault();
-        handleCreateViewModal($(this));
     });
     /**
      * Attach Ajax event handlers for input fields in the editor
@@ -3581,80 +3563,5 @@ Functions.getPostData = function () {
     return dataPost;
 };
 $.fn.getPostData = Functions.getPostData;
-
-/**
- * @return {function}
- */
-Functions.off = function () {
-    return function () {
-        Functions.teardownIdleEvent();
-        $(document).off('click', 'input:checkbox.checkall');
-        Functions.teardownSqlQueryEditEvents();
-        Functions.removeAutocompleteInfo();
-        Functions.teardownCreateTableEvents();
-        Functions.teardownEnumSetEditorMessage();
-        Functions.teardownEnumSetEditor();
-        $(document).off('click', '#index_frm input[type=submit]');
-        $('div.toggle-container').off('click');
-        $(document).off('change', 'select.pageselector');
-        Functions.teardownRecentFavoriteTables();
-        Functions.teardownCodeMirrorEditor();
-        $(document).off('change', '.autosubmit');
-        document.querySelectorAll('.jsPrintButton').forEach(item => {
-            item.removeEventListener('click', PrintPage);
-        });
-        Functions.teardownCreateView();
-        $(document).off('keydown', 'form input, form textarea, form select');
-        $(document).off('change', 'input[type=radio][name="pw_hash"]');
-        Functions.teardownSortLinkMouseEvent();
-    };
-};
-
-/**
- * @return {function}
- */
-Functions.on = function () {
-    return function () {
-        Functions.onloadIdleEvent();
-        $(document).on('click', 'input:checkbox.checkall', Functions.getCheckAllCheckboxEventHandler());
-        Functions.addDateTimePicker();
-
-        /**
-         * Add attribute to text boxes for iOS devices (based on bugID: 3508912)
-         */
-        if (navigator.userAgent.match(/(iphone|ipod|ipad)/i)) {
-            $('input[type=text]').attr('autocapitalize', 'off').attr('autocorrect', 'off');
-        }
-
-        Functions.onloadSqlQueryEditEvents();
-        Functions.onloadCreateTableEvents();
-        Functions.onloadChangePasswordEvents();
-        Functions.onloadEnumSetEditorMessage();
-        Functions.onloadEnumSetEditor();
-        $(document).on('click', '#index_frm input[type=submit]', Functions.getAddIndexEventHandler());
-        Functions.showHints();
-        Functions.initializeToggleButtons();
-        $(document).on('change', 'select.pageselector', Functions.getPageSelectorEventHandler());
-        Functions.onloadRecentFavoriteTables();
-        Functions.onloadCodeMirrorEditor();
-        Functions.onloadLockPage();
-        $(document).on('change', '.autosubmit', Functions.getAutoSubmitEventHandler());
-        document.querySelectorAll('.jsPrintButton').forEach(item => {
-            item.addEventListener('click', PrintPage);
-        });
-        Functions.onloadCreateView();
-        $(document).on('change', checkboxesSel, Functions.checkboxesChanged);
-        $(document).on('change', 'input.checkall_box', Functions.getCheckAllBoxEventHandler());
-        $(document).on('click', '.checkall-filter', Functions.getCheckAllFilterEventHandler());
-        $(document).on('change', checkboxesSel + ', input.checkall_box:checkbox:enabled', Functions.subCheckboxesChanged);
-        $(document).on('change', 'input.sub_checkall_box', Functions.getSubCheckAllBoxEventHandler());
-        $(document).on('keyup', '#filterText', Functions.getFilterTextEventHandler());
-        Functions.onloadFilterText();
-        Functions.onloadLoginForm();
-        $('form input, form textarea, form select').on('keydown', Functions.getKeyboardFormSubmitEventHandler());
-        $(document).on('change', 'select#select_authentication_plugin_cp', Functions.getSslPasswordEventHandler());
-        Functions.onloadSortLinkMouseEvent();
-    };
-};
 
 export { Functions };
