@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-01-31 02:41+0000\n"
+"PO-Revision-Date: 2023-02-01 06:49+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -7094,10 +7094,8 @@ msgid "Internal relationship has been added."
 msgstr "Внатрешни релации"
 
 #: libraries/classes/Database/Designer/Common.php:655
-#, fuzzy
-#| msgid "File could not be read"
 msgid "Error: Internal relationship could not be added!"
-msgstr "Податотеката не е можно да се прочита"
+msgstr "Грешка: Внатрешната врска не може да се додаде!"
 
 #: libraries/classes/Database/Designer/Common.php:693
 #, fuzzy
@@ -7112,10 +7110,8 @@ msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "Податотеката не е можно да се прочита"
 
 #: libraries/classes/Database/Designer/Common.php:726
-#, fuzzy
-#| msgid "File could not be read"
 msgid "Error: Internal relationship could not be removed!"
-msgstr "Податотеката не е можно да се прочита"
+msgstr "Грешка: Внатрешната врска не може да се отстрани!"
 
 #: libraries/classes/Database/Designer/Common.php:730
 #, fuzzy
@@ -7293,10 +7289,8 @@ msgid "Details…"
 msgstr ""
 
 #: libraries/classes/DatabaseInterface.php:2507
-#, fuzzy
-#| msgid "Routines"
 msgid "Missing connection parameters!"
-msgstr "Рутини"
+msgstr "Недостасуваат параметрите за конекција!"
 
 #: libraries/classes/DatabaseInterface.php:2532
 msgid "Connection for controluser as defined in your configuration failed."
@@ -7584,10 +7578,8 @@ msgid "Visualize GIS data"
 msgstr ""
 
 #: libraries/classes/Display/Results.php:5213
-#, fuzzy
-#| msgid "Link not found"
 msgid "Link not found!"
-msgstr "Врската не е пронајдена"
+msgstr "Врската не е пронајдена!"
 
 #: libraries/classes/Engines/Bdb.php:28
 msgid "Version information"
@@ -8806,9 +8798,8 @@ msgid "Have a primary key"
 msgstr ""
 
 #: libraries/classes/Normalization.php:241
-#, fuzzy
 msgid "Primary key already exists."
-msgstr "Корисник %s веќе постои!"
+msgstr "Примарниот клуч веќе постои."
 
 #: libraries/classes/Normalization.php:246
 msgid ""
@@ -8958,9 +8949,8 @@ msgstr ""
 #: libraries/classes/Normalization.php:545
 #: libraries/classes/Normalization.php:695
 #: libraries/classes/Normalization.php:767
-#, fuzzy
 msgid "Error in processing!"
-msgstr "Листа на процеси"
+msgstr "Грешка во процесирање!"
 
 #: libraries/classes/Normalization.php:591
 #, php-format
