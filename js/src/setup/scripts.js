@@ -67,7 +67,7 @@ $(function () {
  * @param {String}  id      validator id
  * @param {object}  values  values hash {element1_id: value, ...}
  *
- * @return {bool|void}
+ * @return {boolean|void}
  */
 function ajaxValidate (parent, id, values) {
     var $parent = $(parent);

@@ -1459,7 +1459,7 @@ window.makeGrid = function (t, enableResize, enableReorder, enableVisib, enableG
         /**
          * Save edited cell, so it can be posted later.
          *
-         * @return {bool}
+         * @return {boolean}
          */
         saveEditedCell: function () {
             /**

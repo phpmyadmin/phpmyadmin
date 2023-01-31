@@ -337,7 +337,7 @@ Navigation.expandTreeNode = function ($expandElem, callback) {
  * Auto-scrolls the newly chosen database
  *
  * @param {object} $element    The element to set to view
- * @param {bool}   $forceToTop Whether to force scroll to top
+ * @param {boolean}   $forceToTop Whether to force scroll to top
  *
  */
 Navigation.scrollToView = function ($element, $forceToTop) {
@@ -616,7 +616,7 @@ Navigation.ensureSettings = function (selflink) {
  *
  * @return {void}
  */
-Navigation.reload = function (callback, paths) {
+Navigation.reload = function (callback = null, paths = null) {
     var params = {
         'reload': true,
         'no_debug': true,

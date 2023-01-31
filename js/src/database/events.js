@@ -27,7 +27,7 @@ const DatabaseEvents = {
     /**
      * Validate editor form fields.
      *
-     * @return {bool}
+     * @return {boolean}
      */
     validate: function () {
         /**
@@ -507,7 +507,7 @@ const DatabaseEvents = {
     /**
      * Validate custom editor form fields.
      *
-     * @return {bool}
+     * @return {boolean}
      */
     validateCustom: function () {
         /**

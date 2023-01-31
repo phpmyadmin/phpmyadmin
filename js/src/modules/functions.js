@@ -19,7 +19,6 @@ import isStorageSupported from './functions/isStorageSupported.js';
 
 /**
  * General functions, usually for data manipulation pages.
- * @type {object}
  * @test-module Functions
  */
 const Functions = {};
@@ -1688,7 +1687,7 @@ Functions.sqlPrettyPrint = function (string) {
  * @param {Function} callbackFn   callback to execute after user clicks on OK
  * @param {Function} openCallback optional callback to run when dialog is shown
  *
- * @return {bool}
+ * @return {boolean}
  */
 Functions.confirm = function (question, url, callbackFn, openCallback) {
     var confirmState = CommonParams.get('confirm');

@@ -37,7 +37,7 @@ const DatabaseRoutines = {
     /**
      * Validate editor form fields.
      *
-     * @return {bool}
+     * @return {boolean}
      */
     validate: function () {
         /**
@@ -597,7 +597,7 @@ const DatabaseRoutines = {
     /**
      * Validate custom editor form fields.
      *
-     * @return {bool}
+     * @return {boolean}
      */
     validateCustom: function () {
         /**
