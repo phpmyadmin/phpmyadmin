@@ -13,7 +13,7 @@ use function method_exists;
 use function unlink;
 
 use const CACHE_DIR;
-use const ROOT_PATH;
+use const TEST_PATH;
 
 /**
  * @covers \PhpMyAdmin\Routing
