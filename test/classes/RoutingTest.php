@@ -12,7 +12,7 @@ use function copy;
 use function unlink;
 
 use const CACHE_DIR;
-use const ROOT_PATH;
+use const TEST_PATH;
 
 /**
  * @covers \PhpMyAdmin\Routing
@@ -26,8 +26,8 @@ class RoutingTest extends AbstractTestCase
     {
         $expected = [Dispatcher::FOUND, HomeController::class, []];
         $cacheFilename = CACHE_DIR . 'routes.cache.php';
-        $validCacheFilename = ROOT_PATH . 'test/test_data/routes/routes-valid.cache.txt';
-        $invalidCacheFilename = ROOT_PATH . 'test/test_data/routes/routes-invalid.cache.txt';
+        $validCacheFilename = TEST_PATH . 'test/test_data/routes/routes-valid.cache.txt';
+        $invalidCacheFilename = TEST_PATH . 'test/test_data/routes/routes-invalid.cache.txt';
         $GLOBALS['cfg']['environment'] = null;
 
         $this->assertDirectoryIsWritable(CACHE_DIR);

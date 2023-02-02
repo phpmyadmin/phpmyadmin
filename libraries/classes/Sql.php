@@ -890,7 +890,7 @@ class Sql
         StatementInfo $statementInfo,
         $numRows
     ): Message {
-        if ($statementInfo->queryType === 'DELETE"') {
+        if ($statementInfo->queryType === 'DELETE') {
             $message = Message::getMessageForDeletedRows($numRows);
         } elseif ($statementInfo->isInsert) {
             if ($statementInfo->queryType === 'REPLACE') {

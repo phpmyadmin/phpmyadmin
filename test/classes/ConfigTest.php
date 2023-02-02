@@ -501,7 +501,7 @@ class ConfigTest extends AbstractTestCase
         $this->assertFalse($this->object->checkConfigSource());
         $this->assertEquals(0, $this->object->sourceMtime);
 
-        $this->object->setSource(ROOT_PATH . 'test/test_data/config.inc.php');
+        $this->object->setSource(TEST_PATH . 'test/test_data/config.inc.php');
 
         $this->assertNotEmpty($this->object->getSource());
         $this->assertTrue($this->object->checkConfigSource());
