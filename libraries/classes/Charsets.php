@@ -138,12 +138,12 @@ class Charsets
         }
     }
 
-     /**
-      * Get current server charset
-      *
-      * @param DatabaseInterface $dbi       DatabaseInterface instance
-      * @param bool              $disableIs Disable use of INFORMATION_SCHEMA
-      */
+    /**
+     * Get current server charset
+     *
+     * @param DatabaseInterface $dbi       DatabaseInterface instance
+     * @param bool              $disableIs Disable use of INFORMATION_SCHEMA
+     */
     public static function getServerCharset(DatabaseInterface $dbi, bool $disableIs): Charset
     {
         if (self::$serverCharset !== null) {

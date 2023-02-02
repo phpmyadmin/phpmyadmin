@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Server\Status\Processes;
 
 use PhpMyAdmin\Controllers\Server\Status\Processes\RefreshController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Processes;
 use PhpMyAdmin\Template;
@@ -38,7 +39,7 @@ class RefreshControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
 
-        $this->data = new Data();
+        $this->data = new Data($GLOBALS['dbi']);
     }
 
     public function testRefresh(): void
@@ -65,11 +66,18 @@ class RefreshControllerTest extends AbstractTestCase
             new Processes($GLOBALS['dbi'])
         );
 
-        $_POST['full'] = '1';
-        $_POST['order_by_field'] = 'process';
-        $_POST['sort_order'] = 'DESC';
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['column_name', '', ''],
+            ['order_by_field', '', 'process'],
+            ['sort_order', '', 'DESC'],
+        ]);
+        $request->method('hasBodyParam')->willReturnMap([
+            ['full', true],
+            ['showExecuting', false],
+        ]);
 
-        $controller();
+        $controller($request);
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString('index.php?route=/server/status/processes', $html);

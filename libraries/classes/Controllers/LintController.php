@@ -8,22 +8,21 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Linter;
 
+use function header;
+use function is_array;
 use function json_encode;
+use function sprintf;
 
 /**
  * Represents the interface between the linter and the query editor.
  */
 class LintController extends AbstractController
 {
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        $params = [
-            'sql_query' => $_POST['sql_query'] ?? null,
-            'options' => $_POST['options'] ?? null,
-        ];
-
         /**
          * The SQL query to be analyzed.
          *
@@ -35,18 +34,19 @@ class LintController extends AbstractController
          *
          * @var string
          */
-        $sqlQuery = ! empty($params['sql_query']) ? $params['sql_query'] : '';
+        $sqlQuery = $request->getParsedBodyParam('sql_query', '');
 
         $this->response->setAjax(true);
 
         // Disabling standard response.
         $this->response->disable();
 
-        Core::headerJSON();
+        foreach (Core::headerJSON() as $name => $value) {
+            header(sprintf('%s: %s', $name, $value));
+        }
 
-        if (! empty($params['options'])) {
-            $options = $params['options'];
-
+        $options = $request->getParsedBodyParam('options');
+        if (is_array($options)) {
             if (! empty($options['routineEditor'])) {
                 $sqlQuery = 'CREATE PROCEDURE `a`() ' . $sqlQuery;
             } elseif (! empty($options['triggerEditor'])) {

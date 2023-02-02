@@ -250,10 +250,11 @@
       }
     }
 
+    // Bottom segment for the tree element connections
     b {
       display: block;
       height: 0.75em;
-      bottom: 0;
+      bottom: -0.5rem;// Compensate for vertical-align: sub; of hover_show_full
       left: 0.75em;
       border-left: 1px solid #666;
     }

@@ -1,4 +1,6 @@
 import $ from 'jquery';
+import { ajaxShowMessage } from '../modules/ajax-message.js';
+import { escapeHtml } from '../modules/functions/escape.js';
 
 /* global DesignerOfflineDB */ // js/designer/database.js
 /* global DesignerMove */ // js/designer/move.js
@@ -51,7 +53,7 @@ DesignerPage.saveToSelectedPage = function (db, pageId, pageName, tablePositions
 };
 
 DesignerPage.createNewPage = function (db, pageName, callback) {
-    var newPage = new DesignerObjects.PdfPage(db, pageName);
+    var newPage = new DesignerObjects.PdfPage(db, pageName, []);
     DesignerOfflineDB.addObject('pdf_pages', newPage, function (pgNr) {
         newPage.pgNr = pgNr;
         if (typeof callback !== 'undefined') {
@@ -71,7 +73,7 @@ DesignerPage.createPageList = function (db, callback) {
             var page = pages[p];
             if (page.dbName === db) {
                 html += '<option value="' + page.pgNr + '">';
-                html += Functions.escapeHtml(page.pageDescr) + '</option>';
+                html += escapeHtml(page.pageDescr) + '</option>';
             }
         }
         if (typeof callback !== 'undefined') {
@@ -150,7 +152,7 @@ DesignerPage.loadHtmlForPage = function (pageId) {
         DesignerMove.markSaved();
         if (tableMissing === true) {
             DesignerMove.markUnsaved();
-            Functions.ajaxShowMessage(window.Messages.strSavedPageTableMissing);
+            ajaxShowMessage(window.Messages.strSavedPageTableMissing);
         }
         window.selectedPage = page.pgNr;
     });

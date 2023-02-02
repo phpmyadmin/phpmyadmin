@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
@@ -106,7 +107,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
         $dbi->expects($this->once())
             ->method('fetchSingleRow')
-            ->with($query, DatabaseInterface::FETCH_ASSOC, DatabaseInterface::CONNECT_CONTROL)
+            ->with($query, DatabaseInterface::FETCH_ASSOC, Connection::TYPE_CONTROL)
             ->will(
                 $this->returnValue(
                     [
@@ -195,12 +196,12 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
         $dbi->expects($this->once())
             ->method('fetchValue')
-            ->with($query1, 0, DatabaseInterface::CONNECT_CONTROL)
+            ->with($query1, 0, Connection::TYPE_CONTROL)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->once())
             ->method('tryQuery')
-            ->with($query2, DatabaseInterface::CONNECT_CONTROL)
+            ->with($query2, Connection::TYPE_CONTROL)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->any())
@@ -226,17 +227,17 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
         $dbi->expects($this->once())
             ->method('fetchValue')
-            ->with($query1, 0, DatabaseInterface::CONNECT_CONTROL)
+            ->with($query1, 0, Connection::TYPE_CONTROL)
             ->will($this->returnValue(false));
 
         $dbi->expects($this->once())
             ->method('tryQuery')
-            ->with($query2, DatabaseInterface::CONNECT_CONTROL)
+            ->with($query2, Connection::TYPE_CONTROL)
             ->will($this->returnValue(false));
 
         $dbi->expects($this->once())
             ->method('getError')
-            ->with(DatabaseInterface::CONNECT_CONTROL)
+            ->with(Connection::TYPE_CONTROL)
             ->will($this->returnValue('err1'));
         $dbi->expects($this->any())
             ->method('escapeString')

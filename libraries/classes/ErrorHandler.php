@@ -110,7 +110,7 @@ class ErrorHandler
                 break;
             }
 
-            if ((! ($error instanceof Error)) || $error->isDisplayed()) {
+            if ($error->isDisplayed()) {
                 continue;
             }
 
@@ -277,8 +277,11 @@ class ErrorHandler
         $error = new Error($errno, $errstr, $errfile, $errline);
         $error->setHideLocation($this->hideLocation);
 
-        // do not repeat errors
-        $this->errors[$error->getHash()] = $error;
+        // Deprecation errors will be shown in development environment, as they will have a different number.
+        if ($error->getNumber() !== E_DEPRECATED) {
+            // do not repeat errors
+            $this->errors[$error->getHash()] = $error;
+        }
 
         switch ($error->getNumber()) {
             case E_STRICT:
@@ -597,7 +600,7 @@ class ErrorHandler
             } else {
                 // send the error reports asynchronously & without asking user
                 $jsCode .= '$("#pma_report_errors_form").submit();'
-                        . 'Functions.ajaxShowMessage(
+                        . 'window.ajaxShowMessage(
                             window.Messages.phpErrorsBeingSubmitted, false
                         );';
                 // js code to appropriate focusing,
@@ -609,22 +612,22 @@ class ErrorHandler
             //ask user whether to submit errors or not.
             if (! $response->isAjax()) {
                 // js code to show appropriate msgs, event binding & focusing.
-                $jsCode = 'Functions.ajaxShowMessage(window.Messages.phpErrorsFound);'
+                $jsCode = 'window.ajaxShowMessage(window.Messages.phpErrorsFound);'
                         . '$("#pma_ignore_errors_popup").on("click", function() {
-                            Functions.ignorePhpErrors()
+                            window.ignorePhpErrors()
                         });'
                         . '$("#pma_ignore_all_errors_popup").on("click",
                             function() {
-                                Functions.ignorePhpErrors(false)
+                                window.ignorePhpErrors(false)
                             });'
                         . '$("#pma_ignore_errors_bottom").on("click", function(e) {
                             e.preventDefault();
-                            Functions.ignorePhpErrors()
+                            window.ignorePhpErrors()
                         });'
                         . '$("#pma_ignore_all_errors_bottom").on("click",
                             function(e) {
                                 e.preventDefault();
-                                Functions.ignorePhpErrors(false)
+                                window.ignorePhpErrors(false)
                             });'
                         . '$("html, body").animate({
                             scrollTop:$(document).height()

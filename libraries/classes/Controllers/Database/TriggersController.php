@@ -8,6 +8,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -24,21 +25,22 @@ class TriggersController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
-    public function __construct(ResponseRenderer $response, Template $template, DatabaseInterface $dbi)
-    {
+    /** @var Triggers */
+    private $triggers;
+
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        DatabaseInterface $dbi,
+        Triggers $triggers
+    ) {
         parent::__construct($response, $template);
         $this->dbi = $dbi;
+        $this->triggers = $triggers;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
-        $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
-        $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
-        $GLOBALS['sub_part'] = $GLOBALS['sub_part'] ?? null;
-        $GLOBALS['tooltip_truename'] = $GLOBALS['tooltip_truename'] ?? null;
-        $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
-        $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
         $GLOBALS['errors'] = $GLOBALS['errors'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
@@ -68,16 +70,6 @@ class TriggersController extends AbstractController
                 if (! $this->hasDatabase()) {
                     return;
                 }
-
-                [
-                    $GLOBALS['tables'],
-                    $GLOBALS['num_tables'],
-                    $GLOBALS['total_num_tables'],
-                    $GLOBALS['sub_part'],,,
-                    $GLOBALS['tooltip_truename'],
-                    $GLOBALS['tooltip_aliasname'],
-                    $GLOBALS['pos'],
-                ] = Util::getDbInfo($GLOBALS['db'], $GLOBALS['sub_part'] ?? '');
             }
         } elseif (strlen($GLOBALS['db']) > 0) {
             $this->dbi->selectDb($GLOBALS['db']);
@@ -89,7 +81,6 @@ class TriggersController extends AbstractController
          */
         $GLOBALS['errors'] = [];
 
-        $triggers = new Triggers($this->dbi, $this->template, $this->response);
-        $triggers->main();
+        $this->triggers->main();
     }
 }

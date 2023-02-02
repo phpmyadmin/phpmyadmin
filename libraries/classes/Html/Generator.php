@@ -39,6 +39,8 @@ use function in_array;
 use function ini_get;
 use function intval;
 use function is_array;
+use function is_string;
+use function json_encode;
 use function mb_strlen;
 use function mb_strstr;
 use function mb_strtolower;
@@ -54,9 +56,9 @@ use function strlen;
 use function strtoupper;
 use function substr;
 use function trim;
-use function urlencode;
 
 use const ENT_COMPAT;
+use const JSON_HEX_TAG;
 
 /**
  * HTML Generator
@@ -91,8 +93,8 @@ class Generator
         ?string $text = null
     ): string {
         $kbs = ServerVariablesProvider::getImplementation();
-        $link = $useMariaDB ? $kbs->getDocLinkByNameMariaDb($name) :
-                            $kbs->getDocLinkByNameMysql($name);
+        $link = $useMariaDB ? $kbs->getDocLinkByNameMariaDb($name) : $kbs->getDocLinkByNameMysql($name);
+        $link = $link !== null ? Core::linkURL($link) : $link;
 
         return MySQLDocumentation::show($name, false, $link, $text);
     }
@@ -131,8 +133,6 @@ class Generator
             }
 
             $database = $GLOBALS['db'];
-        } else {
-            $database = Util::unescapeMysqlWildcards($database);
         }
 
         $scriptName = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
@@ -272,8 +272,6 @@ class Generator
      */
     public static function getDefaultFunctionForField(array $field, $insertMode): string
     {
-        $GLOBALS['data'] = $GLOBALS['data'] ?? null;
-
         $defaultFunction = '';
 
         // Can we get field class based values?
@@ -301,11 +299,15 @@ class Generator
             ($field['True_Type'] === 'timestamp')
             && $field['first_timestamp']
             && empty($field['Default'])
-            && empty($GLOBALS['data'])
             && $field['Extra'] !== 'on update CURRENT_TIMESTAMP'
             && $field['Null'] === 'NO'
         ) {
             $defaultFunction = $GLOBALS['cfg']['DefaultFunctions']['first_timestamp'];
+        }
+
+        // For uuid field, no default function
+        if ($field['True_Type'] === 'uuid') {
+            return '';
         }
 
         // For primary keys of type char(36) or varchar(36) UUID if the default
@@ -316,7 +318,7 @@ class Generator
             && $field['Key'] === 'PRI'
             && ($field['Type'] === 'char(36)' || $field['Type'] === 'varchar(36)')
         ) {
-            $defaultFunction = $GLOBALS['cfg']['DefaultFunctions']['FUNC_UUID'];
+            return $GLOBALS['cfg']['DefaultFunctions']['FUNC_UUID'];
         }
 
         return $defaultFunction;
@@ -579,9 +581,8 @@ class Generator
                     . '$sql = "' . $queryBase . '";' . "\n"
                     . '</pre></code>';
             } elseif ($queryTooBig) {
-                $queryBase = '<code class="sql"><pre>' . "\n" .
-                    htmlspecialchars($queryBase, ENT_COMPAT) .
-                    '</pre></code>';
+                $queryBase = '<code class="sql"><pre>' . "\n"
+                    . htmlspecialchars($queryBase, ENT_COMPAT) . '</pre></code>';
             } else {
                 $queryBase = self::formatSql($queryBase);
             }
@@ -631,18 +632,6 @@ class Generator
                             $explainParams,
                             __('Skip Explain SQL')
                         ) . ']';
-                    $url = 'https://mariadb.org/explain_analyzer/analyze/'
-                        . '?client=phpMyAdmin&raw_explain='
-                        . urlencode(self::generateRowQueryOutput($sqlQuery));
-                    $explainLink .= ' ['
-                        . self::linkOrButton(
-                            htmlspecialchars('url.php?url=' . urlencode($url)),
-                            null,
-                            sprintf(__('Analyze Explain at %s'), 'mariadb.org'),
-                            [],
-                            '_blank',
-                            false
-                        ) . '&nbsp;]';
                 }
             }
 
@@ -768,19 +757,24 @@ class Generator
     /**
      * Displays a link to the documentation as an icon
      *
-     * @param string $link   documentation link
-     * @param string $target optional link target
-     * @param bool   $bbcode optional flag indicating whether to output bbcode
+     * @param string $link            documentation link
+     * @param string $target          optional link target
+     * @param bool   $bbcode          optional flag indicating whether to output bbcode
+     * @param bool   $disableTabIndex optional flag indicating that a negative tabindex should be set on the link
      *
      * @return string the html link
      */
-    public static function showDocumentationLink($link, $target = 'documentation', $bbcode = false): string
-    {
+    public static function showDocumentationLink(
+        $link,
+        $target = 'documentation',
+        $bbcode = false,
+        $disableTabIndex = false
+    ): string {
         if ($bbcode) {
             return '[a@' . $link . '@' . $target . '][dochelpicon][/a]';
         }
 
-        return '<a href="' . $link . '" target="' . $target . '">'
+        return '<a href="' . $link . '" target="' . $target . '"' . ($disableTabIndex ? ' tabindex="-1"' : '') . '>'
             . self::getImage('b_help', __('Documentation'))
             . '</a>';
     }
@@ -1056,29 +1050,22 @@ class Generator
             $url = $urlPath . Url::getCommon($urlParams, str_contains($urlPath, '?') ? '&' : '?', false);
         }
 
-        $urlLength = strlen($url);
-
-        if (! is_array($tagParams)) {
-            $tmp = $tagParams;
-            $tagParams = [];
-            if (! empty($tmp)) {
-                $tagParams['onclick'] = 'return Functions.confirmLink(this, \''
-                    . Sanitize::escapeJsString($tmp) . '\')';
-            }
-
-            unset($tmp);
+        if (is_string($tagParams)) {
+            $tagParams = $tagParams !== '' ?
+                ['onclick' => 'return Functions.confirmLink(this, ' . json_encode($tagParams, JSON_HEX_TAG) . ')'] :
+                [];
         }
 
-        if (! empty($target)) {
+        if ($target !== '') {
             $tagParams['target'] = $target;
-            if ($target === '_blank' && str_starts_with($url, 'url.php?')) {
+            if ($target === '_blank' && str_starts_with($url, 'index.php?route=/url&url=')) {
                 $tagParams['rel'] = 'noopener noreferrer';
             }
         }
 
         // Suhosin: Check that each query parameter is not above maximum
         $inSuhosinLimits = true;
-        if ($urlLength <= $GLOBALS['cfg']['LinkLengthLimit']) {
+        if (strlen($url) <= $GLOBALS['cfg']['LinkLengthLimit']) {
             $suhosinGetMaxValueLength = ini_get('suhosin.get.max_value_length');
             if ($suhosinGetMaxValueLength) {
                 $queryParts = Util::splitURLQuery($url);
@@ -1097,21 +1084,16 @@ class Generator
         }
 
         $tagParamsStrings = [];
-        $isDataPostFormatSupported = ($urlLength > $GLOBALS['cfg']['LinkLengthLimit'])
-                                || ! $inSuhosinLimits
-                                // Has as sql_query without a signature, to be accepted it needs
-                                // to be sent using POST
-                                || (
-                                    str_contains($url, 'sql_query=')
-                                    && ! str_contains($url, 'sql_signature=')
-                                )
-                                || str_contains($url, 'view[as]=');
+        $isDataPostFormatSupported = (strlen($url) > $GLOBALS['cfg']['LinkLengthLimit'])
+            || ! $inSuhosinLimits
+            || (
+                // Has as sql_query without a signature, to be accepted it needs to be sent using POST
+                str_contains($url, 'sql_query=') && ! str_contains($url, 'sql_signature=')
+            )
+            || str_contains($url, 'view[as]=');
         if ($respectUrlLengthLimit && $isDataPostFormatSupported) {
             $parts = explode('?', $url, 2);
-            /*
-             * The data-post indicates that client should do POST
-             * this is handled in js/ajax.js
-             */
+            // The data-post indicates that client should do POST this is handled in js/ajax.js
             $tagParamsStrings[] = 'data-post="' . ($parts[1] ?? '') . '"';
             $url = $parts[0];
             if (array_key_exists('class', $tagParams) && str_contains($tagParams['class'], 'create_view')) {

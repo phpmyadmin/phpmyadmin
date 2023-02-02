@@ -1,4 +1,10 @@
 import $ from 'jquery';
+import { AJAX } from '../modules/ajax.js';
+import { CommonParams } from '../modules/common.js';
+import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
+import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.js';
+import { escapeHtml } from '../modules/functions/escape.js';
+import refreshMainContent from '../modules/functions/refreshMainContent.js';
 
 /**
  * for table relation
@@ -29,7 +35,7 @@ TableRelation.setDropdownValues = function ($dropdown, values, selectedValue) {
     // add an empty string to the beginning for empty selection
     values.unshift('');
     $.each(values, function () {
-        optionsAsString += '<option value=\'' + Functions.escapeHtml(this) + '\'' + (selectedValue === Functions.escapeHtml(this) ? ' selected=\'selected\'' : '') + '>' + Functions.escapeHtml(this) + '</option>';
+        optionsAsString += '<option value=\'' + escapeHtml(this) + '\'' + (selectedValue === escapeHtml(this) ? ' selected=\'selected\'' : '') + '>' + escapeHtml(this) + '</option>';
     });
     $dropdown.append($(optionsAsString));
 };
@@ -50,13 +56,13 @@ TableRelation.getDropdownValues = function ($dropdown) {
     // if the changed dropdown is for foreign key constraints
     if ($dropdown.is('select[name^="destination_foreign"]')) {
         $databaseDd = $dropdown.parent().parent().parent().find('select[name^="destination_foreign_db"]');
-        $tableDd    = $dropdown.parent().parent().parent().find('select[name^="destination_foreign_table"]');
-        $columnDd   = $dropdown.parent().parent().parent().find('select[name^="destination_foreign_column"]');
+        $tableDd = $dropdown.parent().parent().parent().find('select[name^="destination_foreign_table"]');
+        $columnDd = $dropdown.parent().parent().parent().find('select[name^="destination_foreign_column"]');
         foreign = '_foreign';
     } else { // internal relations
         $databaseDd = $dropdown.parent().find('select[name^="destination_db"]');
-        $tableDd    = $dropdown.parent().find('select[name^="destination_table"]');
-        $columnDd   = $dropdown.parent().find('select[name^="destination_column"]');
+        $tableDd = $dropdown.parent().find('select[name^="destination_table"]');
+        $columnDd = $dropdown.parent().find('select[name^="destination_column"]');
     }
 
     // if the changed dropdown is a database selector
@@ -77,11 +83,11 @@ TableRelation.getDropdownValues = function ($dropdown) {
             return;
         }
     }
-    var $msgbox = Functions.ajaxShowMessage();
+    var $msgbox = ajaxShowMessage();
     var $form = $dropdown.parents('form');
     var $db = $form.find('input[name="db"]').val();
     var $table = $form.find('input[name="table"]').val();
-    var argsep = window.CommonParams.get('arg_separator');
+    var argsep = CommonParams.get('arg_separator');
     var params = 'getDropdownValues=true' + argsep + 'ajax_request=true' +
         argsep + 'db=' + encodeURIComponent($db) +
         argsep + 'table=' + encodeURIComponent($table) +
@@ -100,7 +106,7 @@ TableRelation.getDropdownValues = function ($dropdown) {
         data: params,
         dataType: 'json',
         success: function (data) {
-            Functions.ajaxRemoveMessage($msgbox);
+            ajaxRemoveMessage($msgbox);
             if (typeof data !== 'undefined' && data.success) {
                 // if the changed dropdown is a database selector
                 if (foreignTable === null) {
@@ -119,7 +125,7 @@ TableRelation.getDropdownValues = function ($dropdown) {
                     TableRelation.setDropdownValues($columnDd.slice(1), data.columns);
                 }
             } else {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         }
     });
@@ -128,7 +134,7 @@ TableRelation.getDropdownValues = function ($dropdown) {
 /**
  * Unbind all event handlers before tearing down a page
  */
-window.AJAX.registerTeardown('table/relation.js', function () {
+AJAX.registerTeardown('table/relation.js', function () {
     $('body').off('change',
         'select[name^="destination_db"], ' +
         'select[name^="destination_table"], ' +
@@ -140,7 +146,7 @@ window.AJAX.registerTeardown('table/relation.js', function () {
     $('a.drop_foreign_key_anchor.ajax').off('click');
 });
 
-window.AJAX.registerOnload('table/relation.js', function () {
+AJAX.registerOnload('table/relation.js', function () {
     /**
      * Ajax event handler to fetch table/column dropdown values.
      */
@@ -228,25 +234,26 @@ window.AJAX.registerOnload('table/relation.js', function () {
         // Object containing reference to the current field's row
         var $currRow = $anchor.parents('tr');
 
-        var dropQuery = Functions.escapeHtml(
+        var dropQuery = escapeHtml(
             $currRow.children('td')
                 .children('.drop_foreign_key_msg')
                 .val()
         );
 
-        var question = Functions.sprintf(window.Messages.strDoYouReally, dropQuery);
+        var question = window.sprintf(window.Messages.strDoYouReally, dropQuery);
 
         $anchor.confirm(question, $anchor.attr('href'), function (url) {
-            var $msg = Functions.ajaxShowMessage(window.Messages.strDroppingForeignKey, false);
-            var params = Functions.getJsConfirmCommonParam(this, $anchor.getPostData());
+            var $msg = ajaxShowMessage(window.Messages.strDroppingForeignKey, false);
+            var params = getJsConfirmCommonParam(this, $anchor.getPostData());
             $.post(url, params, function (data) {
                 if (data.success === true) {
-                    Functions.ajaxRemoveMessage($msg);
-                    window.CommonActions.refreshMain(false, function () {
+                    ajaxRemoveMessage($msg);
+                    refreshMainContent(false);
+                    AJAX.callback = () => {
                         // Do nothing
-                    });
+                    };
                 } else {
-                    Functions.ajaxShowMessage(window.Messages.strErrorProcessingRequest + ' : ' + data.error, false);
+                    ajaxShowMessage(window.Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
             }); // end $.post()
         });

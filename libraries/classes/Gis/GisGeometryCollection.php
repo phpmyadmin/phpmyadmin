@@ -109,13 +109,13 @@ class GisGeometryCollection extends GisGeometry
      *
      * @param string      $spatial    GIS POLYGON object
      * @param string|null $label      Label for the GIS POLYGON object
-     * @param string      $color      Color for the GIS POLYGON object
+     * @param int[]       $color      Color for the GIS POLYGON object
      * @param array       $scale_data Array containing data related to scaling
      */
     public function prepareRowAsPng(
         $spatial,
         ?string $label,
-        $color,
+        array $color,
         array $scale_data,
         ImageWrapper $image
     ): ImageWrapper {
@@ -148,13 +148,13 @@ class GisGeometryCollection extends GisGeometry
      *
      * @param string      $spatial    GIS GEOMETRYCOLLECTION object
      * @param string|null $label      label for the GIS GEOMETRYCOLLECTION object
-     * @param string      $color      color for the GIS GEOMETRYCOLLECTION object
+     * @param int[]       $color      color for the GIS GEOMETRYCOLLECTION object
      * @param array       $scale_data array containing data related to scaling
      * @param TCPDF       $pdf        TCPDF instance
      *
      * @return TCPDF the modified TCPDF instance
      */
-    public function prepareRowAsPdf($spatial, ?string $label, $color, array $scale_data, $pdf)
+    public function prepareRowAsPdf($spatial, ?string $label, array $color, array $scale_data, $pdf)
     {
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $goem_col = mb_substr($spatial, 19, -1);
@@ -185,12 +185,12 @@ class GisGeometryCollection extends GisGeometry
      *
      * @param string $spatial    GIS GEOMETRYCOLLECTION object
      * @param string $label      label for the GIS GEOMETRYCOLLECTION object
-     * @param string $color      color for the GIS GEOMETRYCOLLECTION object
+     * @param int[]  $color      color for the GIS GEOMETRYCOLLECTION object
      * @param array  $scale_data array containing data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg($spatial, $label, $color, array $scale_data)
+    public function prepareRowAsSvg($spatial, $label, array $color, array $scale_data)
     {
         $row = '';
 
@@ -225,12 +225,12 @@ class GisGeometryCollection extends GisGeometry
      * @param string $spatial    GIS GEOMETRYCOLLECTION object
      * @param int    $srid       spatial reference ID
      * @param string $label      label for the GIS GEOMETRYCOLLECTION object
-     * @param array  $color      color for the GIS GEOMETRYCOLLECTION object
+     * @param int[]  $color      color for the GIS GEOMETRYCOLLECTION object
      * @param array  $scale_data array containing data related to scaling
      *
      * @return string JavaScript related to a row in the GIS dataset
      */
-    public function prepareRowAsOl($spatial, int $srid, $label, $color, array $scale_data)
+    public function prepareRowAsOl($spatial, int $srid, $label, array $color, array $scale_data)
     {
         $row = '';
 

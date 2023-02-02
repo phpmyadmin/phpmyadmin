@@ -49,7 +49,6 @@ class ExportXmlTest extends AbstractTestCase
         $GLOBALS['plugin_param']['single_table'] = false;
         $GLOBALS['db'] = 'db';
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
-        $GLOBALS['crlf'] = "\n";
         $this->object = new ExportXml(
             new Relation($GLOBALS['dbi']),
             new Export($GLOBALS['dbi']),
@@ -185,7 +184,6 @@ class ExportXmlTest extends AbstractTestCase
         $GLOBALS['xml_export_triggers'] = 1;
         $GLOBALS['xml_export_procedures'] = 1;
         $GLOBALS['xml_export_functions'] = 1;
-        $GLOBALS['crlf'] = "\n";
         $GLOBALS['db'] = 'd<"b';
 
         $result = [
@@ -203,34 +201,28 @@ class ExportXmlTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->exactly(3))
+        $triggers = [
+            [
+                'TRIGGER_SCHEMA' => 'd<"b',
+                'TRIGGER_NAME' => 'trname',
+                'EVENT_MANIPULATION' => 'INSERT',
+                'EVENT_OBJECT_TABLE' => 'table',
+                'ACTION_TIMING' => 'AFTER',
+                'ACTION_STATEMENT' => 'BEGIN END',
+                'EVENT_OBJECT_SCHEMA' => 'd<"b',
+                'DEFINER' => 'test_user@localhost',
+            ],
+        ];
+        $functions = [['Db' => 'd<"b', 'Name' => 'fn', 'Type' => 'FUNCTION']];
+        $procedures = [['Db' => 'd<"b', 'Name' => 'pr', 'Type' => 'PROCEDURE']];
+
+        $dbi->expects($this->exactly(5))
             ->method('fetchResult')
-            ->willReturnOnConsecutiveCalls($result, $result, []);
+            ->willReturnOnConsecutiveCalls($result, $result, $triggers, $functions, $procedures);
 
-        $dbi->expects($this->once())
-            ->method('getTriggers')
-            ->with('d<"b', 'table')
-            ->will(
-                $this->returnValue(
-                    [
-                        [
-                            'create' => 'crt',
-                            'name' => 'trname',
-                        ],
-                    ]
-                )
-            );
-
-        $dbi->expects($this->exactly(2))
-            ->method('getProceduresOrFunctions')
-            ->willReturnOnConsecutiveCalls(
-                ['fn'],
-                ['pr']
-            );
-
-        $dbi->expects($this->exactly(2))
-            ->method('getDefinition')
-            ->willReturnOnConsecutiveCalls('fndef', 'prdef');
+        $dbi->expects($this->exactly(3))
+            ->method('fetchValue')
+            ->willReturnOnConsecutiveCalls(false, 'fndef', 'prdef');
 
         $dbi->expects($this->once())
             ->method('getTable')
@@ -265,7 +257,8 @@ class ExportXmlTest extends AbstractTestCase
             '                &amp;quot;tbl&amp;quot;;' . "\n" .
             '            &lt;/pma:table&gt;' . "\n" .
             '            &lt;pma:trigger name=&quot;trname&quot;&gt;' . "\n" .
-            '                ' . "\n" .
+            '                CREATE TRIGGER `trname` AFTER INSERT ON `table`' . "\n" .
+            '                 FOR EACH ROW BEGIN END' . "\n" .
             '            &lt;/pma:trigger&gt;' . "\n" .
             '            &lt;pma:function name=&quot;fn&quot;&gt;' . "\n" .
             '                fndef' . "\n" .
@@ -312,9 +305,13 @@ class ExportXmlTest extends AbstractTestCase
             ],
         ];
 
-        $dbi->expects($this->exactly(5))
+        $dbi->expects($this->exactly(3))
             ->method('fetchResult')
-            ->willReturnOnConsecutiveCalls($result_1, $result_2, ['table'], $result_3, []);
+            ->willReturnOnConsecutiveCalls($result_1, $result_2, $result_3);
+
+        $dbi->expects($this->exactly(2))
+            ->method('fetchValue')
+            ->willReturnOnConsecutiveCalls('table', false);
 
         $dbi->expects($this->any())
             ->method('getTable')
@@ -413,7 +410,6 @@ class ExportXmlTest extends AbstractTestCase
             $this->object->exportData(
                 'test_db',
                 'test_table',
-                "\n",
                 'localhost',
                 'SELECT * FROM `test_db`.`test_table`;'
             )

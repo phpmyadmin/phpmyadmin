@@ -6,14 +6,14 @@ namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
-use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -49,35 +49,24 @@ class DatabasesController extends AbstractController
     /** @var int position in list navigation */
     private $position;
 
-    /** @var Transformations */
-    private $transformations;
-
-    /** @var RelationCleanup */
-    private $relationCleanup;
-
     /** @var DatabaseInterface */
     private $dbi;
 
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Transformations $transformations,
-        RelationCleanup $relationCleanup,
         DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->transformations = $transformations;
-        $this->relationCleanup = $relationCleanup;
         $this->dbi = $dbi;
 
         $checkUserPrivileges = new CheckUserPrivileges($dbi);
         $checkUserPrivileges->getPrivileges();
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['server'] = $GLOBALS['server'] ?? null;
-        $GLOBALS['dblist'] = $GLOBALS['dblist'] ?? null;
         $GLOBALS['is_create_db_priv'] = $GLOBALS['is_create_db_priv'] ?? null;
         $GLOBALS['db_to_create'] = $GLOBALS['db_to_create'] ?? null;
         $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
@@ -98,7 +87,7 @@ class DatabasesController extends AbstractController
         }
 
         $replicationInfo = new ReplicationInfo($this->dbi);
-        $replicationInfo->load($_POST['primary_connection'] ?? null);
+        $replicationInfo->load($request->getParsedBodyParam('primary_connection'));
 
         $primaryInfo = $replicationInfo->getPrimaryInfo();
         $replicaInfo = $replicationInfo->getReplicaInfo();
@@ -114,13 +103,13 @@ class DatabasesController extends AbstractController
             $this->databases = $this->dbi->getDatabasesFull(
                 null,
                 $this->hasStatistics,
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 $this->sortBy,
                 $this->sortOrder,
                 $this->position,
                 true
             );
-            $this->databaseCount = count($GLOBALS['dblist']->databases);
+            $this->databaseCount = count($this->dbi->getDatabaseList());
         }
 
         $urlParams = [

@@ -47,10 +47,10 @@ class SystemDatabase
         // Get the existing transformation details of the same database
         // from pma__column_info table
         $transformationSql = sprintf(
-            "SELECT * FROM %s.%s WHERE `db_name` = '%s'",
+            'SELECT * FROM %s.%s WHERE `db_name` = %s',
             Util::backquote($browserTransformationFeature->database),
             Util::backquote($browserTransformationFeature->columnInfo),
-            $this->dbi->escapeString($db)
+            $this->dbi->quoteString($db)
         );
 
         return $this->dbi->tryQuery($transformationSql);
@@ -100,17 +100,15 @@ class SystemDatabase
                 }
 
                 $newTransformationsSql .= sprintf(
-                    "%s ('%s', '%s', '%s', '%s', '%s', '%s', '%s')",
+                    '%s (%s, %s, %s, %s, %s, %s, %s)',
                     $addComma ? ', ' : '',
-                    $db,
-                    $viewName,
-                    $column['real_column'] ?? $column['refering_column'],
-                    $dataRow['comment'],
-                    $dataRow['mimetype'],
-                    $dataRow['transformation'],
-                    $GLOBALS['dbi']->escapeString(
-                        $dataRow['transformation_options']
-                    )
+                    $this->dbi->quoteString($db),
+                    $this->dbi->quoteString($viewName),
+                    $this->dbi->quoteString($column['real_column'] ?? $column['refering_column']),
+                    $this->dbi->quoteString($dataRow['comment']),
+                    $this->dbi->quoteString($dataRow['mimetype']),
+                    $this->dbi->quoteString($dataRow['transformation']),
+                    $this->dbi->quoteString($dataRow['transformation_options'])
                 );
 
                 $addComma = true;

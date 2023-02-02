@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Database\Structure;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\StructureController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table;
@@ -29,15 +30,14 @@ final class CopyTableWithPrefixController extends AbstractController
         $this->structureController = $structureController;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-
-        $selected = $_POST['selected'] ?? [];
-        $fromPrefix = $_POST['from_prefix'] ?? null;
-        $toPrefix = $_POST['to_prefix'] ?? null;
+        $selected = $request->getParsedBodyParam('selected', []);
+        $fromPrefix = $request->getParsedBodyParam('from_prefix');
+        $toPrefix = $request->getParsedBodyParam('to_prefix');
 
         $selectedCount = count($selected);
+        $dropIfExists = $request->getParsedBodyParam('drop_if_exists') === 'true';
 
         for ($i = 0; $i < $selectedCount; $i++) {
             $current = $selected[$i];
@@ -51,16 +51,12 @@ final class CopyTableWithPrefixController extends AbstractController
                 'data',
                 false,
                 'one_table',
-                isset($_POST['drop_if_exists']) && $_POST['drop_if_exists'] === 'true'
+                $dropIfExists
             );
         }
 
         $GLOBALS['message'] = Message::success();
 
-        if (empty($_POST['message'])) {
-            $_POST['message'] = $GLOBALS['message'];
-        }
-
-        ($this->structureController)();
+        ($this->structureController)($request);
     }
 }

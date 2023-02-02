@@ -1,13 +1,12 @@
 import $ from 'jquery';
+import { AJAX } from '../modules/ajax.js';
+import { Functions } from '../modules/functions.js';
 
 /**
  * @fileoverview    function used in QBE for DB
  * @name            Database Operations
  *
- * @requires    jQuery
  * @requires    jQueryUI
- * @requires    js/functions.js
- *
  */
 
 /**
@@ -20,7 +19,7 @@ import $ from 'jquery';
 /**
  * Unbind all event handlers before tearing down a page
  */
-window.AJAX.registerTeardown('database/qbe.js', function () {
+AJAX.registerTeardown('database/qbe.js', function () {
     $(document).off('change', 'select[name^=criteriaColumn]');
     $(document).off('change', '#searchId');
     $(document).off('click', '#saveSearch');
@@ -28,7 +27,7 @@ window.AJAX.registerTeardown('database/qbe.js', function () {
     $(document).off('click', '#deleteSearch');
 });
 
-window.AJAX.registerOnload('database/qbe.js', function () {
+AJAX.registerOnload('database/qbe.js', function () {
     Functions.getSqlEditor($('#textSqlquery'), {}, 'none');
 
     $('#tblQbe').width($('#tblQbe').parent().width());
@@ -75,8 +74,8 @@ window.AJAX.registerOnload('database/qbe.js', function () {
      * Ajax event handlers for 'Delete bookmark'
      */
     $(document).on('click', '#deleteSearch', function () {
-        var question = Functions.sprintf(window.Messages.strConfirmDeleteQBESearch, $('#searchId').find('option:selected').text());
-        if (!confirm(question)) {
+        var question = window.sprintf(window.Messages.strConfirmDeleteQBESearch, $('#searchId').find('option:selected').text());
+        if (! confirm(question)) {
             return false;
         }
 

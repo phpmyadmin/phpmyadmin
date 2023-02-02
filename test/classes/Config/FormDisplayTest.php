@@ -146,7 +146,7 @@ class FormDisplayTest extends AbstractTestCase
 
         $result = $this->object->displayErrors();
 
-        $this->assertNull($result);
+        $this->assertSame($result, '');
 
         $arr = [
             'Servers/1/test' => ['e1'],
@@ -166,7 +166,6 @@ class FormDisplayTest extends AbstractTestCase
 
         $result = $this->object->displayErrors();
 
-        $this->assertIsString($result);
         $this->assertStringContainsString('<dt>Servers/1/test2</dt>', $result);
         $this->assertStringContainsString('<dd>e1</dd>', $result);
         $this->assertStringContainsString('<dt>Form_foobar</dt>', $result);
@@ -312,7 +311,8 @@ class FormDisplayTest extends AbstractTestCase
     public function testGetDocLink(): void
     {
         $this->assertEquals(
-            './url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_Servers_3_test_2_',
+            'index.php?route=/url&url='
+            . 'https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_Servers_3_test_2_',
             $this->object->getDocLink('Servers/3/test/2/')
         );
 
@@ -398,8 +398,7 @@ class FormDisplayTest extends AbstractTestCase
 
         if (! function_exists('recode_string')) {
             $expect['values']['recode'] .= ' (unavailable)';
-            $expect['comment'] .= ($expect['comment'] ? ', ' : '') .
-                '"recode" requires recode extension';
+            $expect['comment'] .= ($expect['comment'] ? ', ' : '') . '"recode" requires recode extension';
         }
 
         $expect['comment_warning'] = 1;

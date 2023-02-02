@@ -376,7 +376,7 @@ class Import
          * @todo BOM could be used for charset autodetection
          */
         if ($GLOBALS['offset'] == $size) {
-            $result = $this->skipByteOrderMarksFromContents($result);
+            return $this->skipByteOrderMarksFromContents($result);
         }
 
         return $result;
@@ -398,10 +398,9 @@ class Import
         // UTF-8
         if (str_starts_with($contents, "\xEF\xBB\xBF")) {
             return substr($contents, 3);
-
-            // UTF-16 BE, LE
         }
 
+        // UTF-16 BE, LE
         if (str_starts_with($contents, "\xFE\xFF") || str_starts_with($contents, "\xFF\xFE")) {
             return substr($contents, 2);
         }
@@ -1015,9 +1014,7 @@ class Import
             $pattern = '/CREATE [^`]*(TABLE)/';
             $replacement = 'CREATE \\1 IF NOT EXISTS';
 
-            /* Change CREATE statements to CREATE IF NOT EXISTS to support
-             * inserting into existing structures
-             */
+            // Change CREATE statements to CREATE IF NOT EXISTS to support inserting into existing structures.
             for ($i = 0; $i < $additionalSqlLength; ++$i) {
                 $additionalSql[$i] = preg_replace($pattern, $replacement, $additionalSql[$i]);
                 /* Execute the resulting statements */
@@ -1129,9 +1126,9 @@ class Import
                             $isVarchar = false;
                         }
 
-                        $tempSQLStr .= $isVarchar ? "'" : '';
-                        $tempSQLStr .= $GLOBALS['dbi']->escapeString((string) $tables[$i][self::ROWS][$j][$k]);
-                        $tempSQLStr .= $isVarchar ? "'" : '';
+                        $tempSQLStr .= $isVarchar
+                            ? $GLOBALS['dbi']->quoteString((string) $tables[$i][self::ROWS][$j][$k])
+                            : (string) $tables[$i][self::ROWS][$j][$k];
                     }
 
                     if ($k != $numCols - 1) {
@@ -1249,7 +1246,7 @@ class Import
 
             unset($params);
 
-            $tableObj = new Table($table[self::TBL_NAME], $dbName);
+            $tableObj = new Table($table[self::TBL_NAME], $dbName, $GLOBALS['dbi']);
             if (! $tableObj->isView()) {
                 $message .= sprintf(
                     '<li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">' . __(
@@ -1423,8 +1420,8 @@ class Import
 
         // Query to check if table is 'Transactional'.
         $checkQuery = 'SELECT `ENGINE` FROM `information_schema`.`tables` '
-            . 'WHERE `table_name` = "' . $GLOBALS['dbi']->escapeString($table) . '" '
-            . 'AND `table_schema` = "' . $GLOBALS['dbi']->escapeString($db) . '" '
+            . 'WHERE `table_name` = ' . $GLOBALS['dbi']->quoteString($table) . ' '
+            . 'AND `table_schema` = ' . $GLOBALS['dbi']->quoteString($db) . ' '
             . 'AND UPPER(`engine`) IN ("'
             . implode('", "', $transactionalEngines)
             . '")';

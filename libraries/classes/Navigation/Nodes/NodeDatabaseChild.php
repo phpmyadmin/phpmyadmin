@@ -36,14 +36,11 @@ abstract class NodeDatabaseChild extends Node
         $ret = '';
         $relationParameters = $this->relation->getRelationParameters();
         if ($relationParameters->navigationItemsHidingFeature !== null) {
-            $db = $this->realParent()->realName;
-            $item = $this->realName;
-
             $params = [
                 'hideNavItem' => true,
                 'itemType' => $this->getItemType(),
-                'itemName' => $item,
-                'dbName' => $db,
+                'itemName' => $this->realName,
+                'dbName' => $this->realParent()->realName,
             ];
 
             $ret = '<span class="navItemControls">'

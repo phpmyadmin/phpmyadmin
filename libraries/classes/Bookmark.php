@@ -9,6 +9,8 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Features\BookmarkFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\DatabaseName;
 
 use function count;
 use function preg_match_all;
@@ -71,7 +73,7 @@ class Bookmark
      */
     public function getId(): int
     {
-        return (int) $this->id;
+        return $this->id;
     }
 
     /**
@@ -119,12 +121,12 @@ class Bookmark
         $query = 'INSERT INTO ' . Util::backquote($bookmarkFeature->database)
             . '.' . Util::backquote($bookmarkFeature->bookmark)
             . ' (id, dbase, user, query, label) VALUES (NULL, '
-            . "'" . $this->dbi->escapeString($this->database) . "', "
-            . "'" . $this->dbi->escapeString($this->currentUser) . "', "
-            . "'" . $this->dbi->escapeString($this->query) . "', "
-            . "'" . $this->dbi->escapeString($this->label) . "')";
+            . $this->dbi->quoteString($this->database) . ', '
+            . $this->dbi->quoteString($this->currentUser) . ', '
+            . $this->dbi->quoteString($this->query) . ', '
+            . $this->dbi->quoteString($this->label) . ')';
 
-        return (bool) $this->dbi->query($query, DatabaseInterface::CONNECT_CONTROL);
+        return (bool) $this->dbi->query($query, Connection::TYPE_CONTROL);
     }
 
     /**
@@ -141,7 +143,7 @@ class Bookmark
             . '.' . Util::backquote($bookmarkFeature->bookmark)
             . ' WHERE id = ' . $this->id;
 
-        return (bool) $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL);
+        return (bool) $this->dbi->tryQuery($query, Connection::TYPE_CONTROL);
     }
 
     /**
@@ -218,10 +220,10 @@ class Bookmark
     /**
      * @param array $row Resource used to build the bookmark
      */
-    protected static function createFromRow(DatabaseInterface $dbi, $row): Bookmark
+    protected static function createFromRow(DatabaseInterface $dbi, array $row): Bookmark
     {
         $bookmark = new Bookmark($dbi, new Relation($dbi));
-        $bookmark->id = $row['id'];
+        $bookmark->id = (int) $row['id'];
         $bookmark->database = $row['dbase'];
         $bookmark->currentUser = $row['user'];
         $bookmark->label = $row['label'];
@@ -248,9 +250,9 @@ class Bookmark
         $query = 'SELECT * FROM ' . Util::backquote($bookmarkFeature->database)
             . '.' . Util::backquote($bookmarkFeature->bookmark)
             . " WHERE ( `user` = ''"
-            . " OR `user` = '" . $dbi->escapeString($user) . "' )";
+            . ' OR `user` = ' . $dbi->quoteString($user) . ' )';
         if ($db !== false) {
-            $query .= " AND dbase = '" . $dbi->escapeString($db) . "'";
+            $query .= ' AND dbase = ' . $dbi->quoteString($db);
         }
 
         $query .= ' ORDER BY label ASC';
@@ -259,19 +261,15 @@ class Bookmark
             $query,
             null,
             null,
-            DatabaseInterface::CONNECT_CONTROL
+            Connection::TYPE_CONTROL
         );
 
-        if (! empty($result)) {
-            $bookmarks = [];
-            foreach ($result as $row) {
-                $bookmarks[] = self::createFromRow($dbi, $row);
-            }
-
-            return $bookmarks;
+        $bookmarks = [];
+        foreach ($result as $row) {
+            $bookmarks[] = self::createFromRow($dbi, $row);
         }
 
-        return [];
+        return $bookmarks;
     }
 
     /**
@@ -279,7 +277,7 @@ class Bookmark
      *
      * @param DatabaseInterface $dbi                 DatabaseInterface object
      * @param string            $user                Current user
-     * @param string            $db                  the current database name
+     * @param DatabaseName      $db                  the current database name
      * @param int|string        $id                  an identifier of the bookmark to get
      * @param string            $id_field            which field to look up the identifier
      * @param bool              $action_bookmark_all true: get all bookmarks regardless
@@ -291,7 +289,7 @@ class Bookmark
     public static function get(
         DatabaseInterface $dbi,
         string $user,
-        string $db,
+        DatabaseName $db,
         $id,
         string $id_field = 'id',
         bool $action_bookmark_all = false,
@@ -305,10 +303,9 @@ class Bookmark
 
         $query = 'SELECT * FROM ' . Util::backquote($bookmarkFeature->database)
             . '.' . Util::backquote($bookmarkFeature->bookmark)
-            . " WHERE dbase = '" . $dbi->escapeString($db) . "'";
+            . ' WHERE dbase = ' . $dbi->quoteString($db->getName());
         if (! $action_bookmark_all) {
-            $query .= " AND (user = '"
-                . $dbi->escapeString($user) . "'";
+            $query .= ' AND (user = ' . $dbi->quoteString($user);
             if (! $exact_user_match) {
                 $query .= " OR user = ''";
             }
@@ -317,10 +314,10 @@ class Bookmark
         }
 
         $query .= ' AND ' . Util::backquote($id_field)
-            . " = '" . $dbi->escapeString((string) $id) . "' LIMIT 1";
+            . ' = ' . $dbi->quoteString((string) $id) . ' LIMIT 1';
 
-        $result = $dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, DatabaseInterface::CONNECT_CONTROL);
-        if (! empty($result)) {
+        $result = $dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, Connection::TYPE_CONTROL);
+        if ($result !== null) {
             return self::createFromRow($dbi, $result);
         }
 

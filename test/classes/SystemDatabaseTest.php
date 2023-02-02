@@ -27,7 +27,6 @@ class SystemDatabaseTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         /**
          * SET these to avoid undefine d index error
          */
@@ -43,6 +42,12 @@ class SystemDatabaseTest extends AbstractTestCase
         $dbi->expects($this->any())
             ->method('tryQuery')
             ->will($this->returnValue($resultStub));
+
+        $dbi->expects($this->any())
+            ->method('quoteString')
+            ->will($this->returnCallback(static function (string $string) {
+                return "'" . $string . "'";
+            }));
 
         $_SESSION['relation'] = [];
         $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([

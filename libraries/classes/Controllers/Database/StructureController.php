@@ -8,12 +8,11 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\FlashMessages;
 use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Operations;
+use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Replication;
 use PhpMyAdmin\ReplicationInfo;
@@ -73,67 +72,62 @@ class StructureController extends AbstractController
     /** @var Replication */
     private $replication;
 
-    /** @var RelationCleanup */
-    private $relationCleanup;
-
-    /** @var Operations */
-    private $operations;
-
     /** @var ReplicationInfo */
     private $replicationInfo;
 
     /** @var DatabaseInterface */
     private $dbi;
 
-    /** @var FlashMessages */
-    private $flash;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
         Relation $relation,
         Replication $replication,
-        RelationCleanup $relationCleanup,
-        Operations $operations,
-        DatabaseInterface $dbi,
-        FlashMessages $flash
+        DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
         $this->relation = $relation;
         $this->replication = $replication;
-        $this->relationCleanup = $relationCleanup;
-        $this->operations = $operations;
         $this->dbi = $dbi;
-        $this->flash = $flash;
 
         $this->replicationInfo = new ReplicationInfo($this->dbi);
     }
 
     /**
-     * Retrieves database information for further use
-     *
-     * @param string $subPart Page part name
+     * Retrieves database information for further use.
      */
-    private function getDatabaseInfo(string $subPart): void
+    private function getDatabaseInfo(ServerRequest $request): void
     {
         [
             $tables,
             $numTables,
-            $totalNumTables,,
-            $isShowStats,
-            $dbIsSystemSchema,,,
-            $position,
-        ] = Util::getDbInfo($GLOBALS['db'], $subPart);
+            $totalNumTables,
+        ] = Util::getDbInfo($request, $GLOBALS['db']);
 
         $this->tables = $tables;
         $this->numTables = $numTables;
-        $this->position = $position;
-        $this->dbIsSystemSchema = $dbIsSystemSchema;
+        $this->position = Util::getTableListPosition($request, $GLOBALS['db']);
         $this->totalNumTables = $totalNumTables;
-        $this->isShowStats = $isShowStats;
+
+        /**
+         * whether to display extended stats
+         */
+        $this->isShowStats = $GLOBALS['cfg']['ShowStats'];
+
+        /**
+         * whether selected db is information_schema
+         */
+        $this->dbIsSystemSchema = false;
+
+        if (! Utilities::isSystemSchema($GLOBALS['db'])) {
+            return;
+        }
+
+        $this->isShowStats = false;
+        $this->dbIsSystemSchema = true;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
@@ -154,7 +148,7 @@ class StructureController extends AbstractController
         $this->addScriptFiles(['database/structure.js', 'table/change.js']);
 
         // Gets the database structure
-        $this->getDatabaseInfo('_structure');
+        $this->getDatabaseInfo($request);
 
         // Checks if there are any tables to be shown on current page.
         // If there are no tables, the user is redirected to the last page
@@ -167,7 +161,7 @@ class StructureController extends AbstractController
             ]);
         }
 
-        $this->replicationInfo->load($_POST['primary_connection'] ?? null);
+        $this->replicationInfo->load($request->getParsedBodyParam('primary_connection'));
         $replicaInfo = $this->replicationInfo->getReplicaInfo();
 
         $pageSettings = new PageSettings('DbStructure');
@@ -340,7 +334,7 @@ class StructureController extends AbstractController
                     . htmlspecialchars($currentTable['TABLE_NAME']) . '">';
             }
 
-            /*
+            /**
              * Always activate links for Browse, Search and Empty, even if
              * the icons are greyed, because
              * 1. for views, we don't know the number of rows at this point
@@ -691,8 +685,8 @@ class StructureController extends AbstractController
         $tableIsView = false;
 
         switch ($currentTable['ENGINE']) {
-        // MyISAM, ISAM or Heap table: Row count, data size and index size
-        // are accurate; data size is accurate for ARCHIVE
+            // MyISAM, ISAM or Heap table: Row count, data size and index size
+            // are accurate; data size is accurate for ARCHIVE
             case 'MyISAM':
             case 'ISAM':
             case 'HEAP':
@@ -729,9 +723,9 @@ class StructureController extends AbstractController
                     $sumSize
                 );
                 break;
-        // Mysql 5.0.x (and lower) uses MRG_MyISAM
-        // and MySQL 5.1.x (and higher) uses MRG_MYISAM
-        // Both are aliases for MERGE
+            // Mysql 5.0.x (and lower) uses MRG_MyISAM
+            // and MySQL 5.1.x (and higher) uses MRG_MYISAM
+            // Both are aliases for MERGE
             case 'MRG_MyISAM':
             case 'MRG_MYISAM':
             case 'MERGE':
@@ -743,8 +737,8 @@ class StructureController extends AbstractController
                 }
 
                 break;
-        // for a view, the ENGINE is sometimes reported as null,
-        // or on some servers it's reported as "SYSTEM VIEW"
+            // for a view, the ENGINE is sometimes reported as null,
+            // or on some servers it's reported as "SYSTEM VIEW"
             case null:
             case 'SYSTEM VIEW':
                 // possibly a view, do nothing

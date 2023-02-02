@@ -8,6 +8,7 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Export\Options;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\ResponseRenderer;
@@ -38,16 +39,10 @@ final class ExportController extends AbstractController
         $this->exportOptions = $exportOptions;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['sub_part'] = $GLOBALS['sub_part'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
-        $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
-        $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
-        $GLOBALS['tooltip_truename'] = $GLOBALS['tooltip_truename'] ?? null;
-        $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
-        $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
         $GLOBALS['table_select'] = $GLOBALS['table_select'] ?? null;
         $GLOBALS['unlim_num_rows'] = $GLOBALS['unlim_num_rows'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
@@ -57,10 +52,6 @@ final class ExportController extends AbstractController
         $pageSettingsHtml = $pageSettings->getHTML();
 
         $this->addScriptFiles(['export.js']);
-
-        // $sub_part is used in Util::getDbInfo() to see if we are coming from
-        // /database/export, in which case we don't obey $cfg['MaxTableList']
-        $GLOBALS['sub_part'] = '_export';
 
         $this->checkParameters(['db']);
 
@@ -76,12 +67,7 @@ final class ExportController extends AbstractController
         [
             $GLOBALS['tables'],
             $GLOBALS['num_tables'],
-            $GLOBALS['total_num_tables'],
-            $GLOBALS['sub_part'],,,
-            $GLOBALS['tooltip_truename'],
-            $GLOBALS['tooltip_aliasname'],
-            $GLOBALS['pos'],
-        ] = Util::getDbInfo($GLOBALS['db'], $GLOBALS['sub_part']);
+        ] = Util::getDbInfo($request, $GLOBALS['db'], false);
 
         // exit if no tables in db found
         if ($GLOBALS['num_tables'] < 1) {

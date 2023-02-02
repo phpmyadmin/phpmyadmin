@@ -6,8 +6,11 @@ namespace PhpMyAdmin\Controllers;
 
 use function __;
 use function _pgettext;
+use function gmdate;
+use function header;
 use function json_encode;
 use function json_last_error_msg;
+use function time;
 
 /**
  * Exporting of translated messages from PHP to JavaScript.
@@ -24,6 +27,7 @@ final class JavaScriptMessagesController
 
     public function __invoke(): void
     {
+        $this->setHTTPHeaders();
         $messages = json_encode($this->messages);
         if ($messages === false) {
             echo '// Error when encoding messages: ' . json_last_error_msg();
@@ -32,6 +36,15 @@ final class JavaScriptMessagesController
         }
 
         echo 'window.Messages = ' . $messages . ';';
+    }
+
+    private function setHTTPHeaders(): void
+    {
+        // Send correct type.
+        header('Content-Type: text/javascript; charset=UTF-8');
+        // Cache output in client
+        // the nocache query parameter makes sure that this file is reloaded when config changes.
+        header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
     }
 
     /**
@@ -313,7 +326,7 @@ final class JavaScriptMessagesController
             ),
             'strImport' => __('Import'),
             'strImportDialogTitle' => __('Import monitor configuration'),
-            'strImportDialogMessage' => __('Please select the file you want to import.'),
+            'strImportDialogMessage' => __('Please select the file you want to import:'),
             'strTableNameDialogMessage' => __('Please enter a valid table name.'),
             'strDBNameDialogMessage' => __('Please enter a valid database name.'),
             'strNoImportFile' => __('No files available on server for import!'),
@@ -686,6 +699,10 @@ final class JavaScriptMessagesController
             // l10n: error code 4 (from U2F API) on authanticate
             'strU2FErrorAuthenticate' => _pgettext('U2F error', 'Invalid security key.'),
 
+            'webAuthnNotSupported' => __(
+                'WebAuthn is not available. Please use a supported browser in a secure context (HTTPS).'
+            ),
+
             /* Designer */
             'strIndexedDBNotWorking' => __(
                 'You can not open, save or delete your page layout, as IndexedDB is not working'
@@ -840,6 +857,25 @@ final class JavaScriptMessagesController
                 'These functions are meant to return a binary result; to avoid inconsistent results you should store'
                 . ' it in a BINARY, VARBINARY, or BLOB column.'
             ),
+
+            'uploadProgressMaximumAllowedSize' => __(
+                'The file being uploaded is probably larger than the maximum allowed size.'
+            ),
+            'uploadProgressStatusText' => __('%s of %s'),
+            'uploadProgressPerSecond' => __('%s/sec.'),
+            'uploadProgressRemainingMin' => __('About %MIN min. %SEC sec. remaining.'),
+            'uploadProgressRemainingSec' => __('About %SEC sec. remaining.'),
+            'uploadProgressBeingProcessed' => __('The file is being processed, please be patient.'),
+            'uploadProgressUploading' => __('Uploading your import file…'),
+            'uploadProgressNoDetails' => __(
+                'Please be patient, the file is being uploaded. Details about the upload are not available.'
+            ),
+
+            'configErrorInvalidPositiveNumber' => __('Not a positive number!'),
+            'configErrorInvalidNonNegativeNumber' => __('Not a non-negative number!'),
+            'configErrorInvalidPortNumber' => __('Not a valid port number!'),
+            'configErrorInvalidValue' => __('Incorrect value!'),
+            'configErrorInvalidUpperBound' => __('Value must be less than or equal to %s!'),
         ];
     }
 }

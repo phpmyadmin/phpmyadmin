@@ -5,11 +5,14 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\VersionInformation;
 
+use function header;
 use function json_encode;
+use function sprintf;
 
 /**
  * A caching proxy for retrieving version information from https://www.phpmyadmin.net/.
@@ -25,7 +28,7 @@ class VersionCheckController extends AbstractController
         $this->versionInformation = $versionInformation;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $_GET['ajax_request'] = 'true';
 
@@ -33,7 +36,9 @@ class VersionCheckController extends AbstractController
         $this->response->disable();
 
         // Always send the correct headers
-        Core::headerJSON();
+        foreach (Core::headerJSON() as $name => $value) {
+            header(sprintf('%s: %s', $name, $value));
+        }
 
         $versionDetails = $this->versionInformation->getLatestVersion();
 

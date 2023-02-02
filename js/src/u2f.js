@@ -1,6 +1,8 @@
 import $ from 'jquery';
+import { AJAX } from './modules/ajax.js';
+import { ajaxShowMessage } from './modules/ajax-message.js';
 
-window.AJAX.registerOnload('u2f.js', function () {
+AJAX.registerOnload('u2f.js', function () {
     var $inputReg = $('#u2f_registration_response');
     if ($inputReg.length > 0) {
         var $formReg = $inputReg.parents('form');
@@ -13,19 +15,19 @@ window.AJAX.registerOnload('u2f.js', function () {
                 if (data.errorCode && data.errorCode !== 0) {
                     switch (data.errorCode) {
                     case 5:
-                        Functions.ajaxShowMessage(window.Messages.strU2FTimeout, false, 'error');
+                        ajaxShowMessage(window.Messages.strU2FTimeout, false, 'error');
                         break;
                     case 4:
-                        Functions.ajaxShowMessage(window.Messages.strU2FErrorRegister, false, 'error');
+                        ajaxShowMessage(window.Messages.strU2FErrorRegister, false, 'error');
                         break;
                     case 3:
-                        Functions.ajaxShowMessage(window.Messages.strU2FInvalidClient, false, 'error');
+                        ajaxShowMessage(window.Messages.strU2FInvalidClient, false, 'error');
                         break;
                     case 2:
-                        Functions.ajaxShowMessage(window.Messages.strU2FBadRequest, false, 'error');
+                        ajaxShowMessage(window.Messages.strU2FBadRequest, false, 'error');
                         break;
                     default:
-                        Functions.ajaxShowMessage(window.Messages.strU2FUnknown, false, 'error');
+                        ajaxShowMessage(window.Messages.strU2FUnknown, false, 'error');
                         break;
                     }
                     return;
@@ -50,19 +52,19 @@ window.AJAX.registerOnload('u2f.js', function () {
                 if (data.errorCode && data.errorCode !== 0) {
                     switch (data.errorCode) {
                     case 5:
-                        Functions.ajaxShowMessage(window.Messages.strU2FTimeout, false, 'error');
+                        ajaxShowMessage(window.Messages.strU2FTimeout, false, 'error');
                         break;
                     case 4:
-                        Functions.ajaxShowMessage(window.Messages.strU2FErrorAuthenticate, false, 'error');
+                        ajaxShowMessage(window.Messages.strU2FErrorAuthenticate, false, 'error');
                         break;
                     case 3:
-                        Functions.ajaxShowMessage(window.Messages.strU2FInvalidClient, false, 'error');
+                        ajaxShowMessage(window.Messages.strU2FInvalidClient, false, 'error');
                         break;
                     case 2:
-                        Functions.ajaxShowMessage(window.Messages.strU2FBadRequest, false, 'error');
+                        ajaxShowMessage(window.Messages.strU2FBadRequest, false, 'error');
                         break;
                     default:
-                        Functions.ajaxShowMessage(window.Messages.strU2FUnknown, false, 'error');
+                        ajaxShowMessage(window.Messages.strU2FUnknown, false, 'error');
                         break;
                     }
                     return;

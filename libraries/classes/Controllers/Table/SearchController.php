@@ -10,6 +10,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
@@ -170,7 +171,7 @@ class SearchController extends AbstractController
     /**
      * Index action
      */
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $this->checkParameters(['db', 'table']);
 
@@ -224,7 +225,7 @@ class SearchController extends AbstractController
             $i = 0;
             foreach ($row as $col => $val) {
                 if (isset($fields_meta[$i]) && $fields_meta[$i]->isMappedTypeBit) {
-                    $row[$col] = Util::printableBitValue((int) $val, (int) $fields_meta[$i]->length);
+                    $row[$col] = Util::printableBitValue((int) $val, $fields_meta[$i]->length);
                 }
 
                 $i++;
@@ -361,7 +362,9 @@ class SearchController extends AbstractController
             ''
         );
         $htmlAttributes = '';
-        if (in_array($cleanType, $this->dbi->types->getIntegerTypes())) {
+        $isInteger = in_array($cleanType, $this->dbi->types->getIntegerTypes());
+        $isFloat = in_array($cleanType, $this->dbi->types->getFloatTypes());
+        if ($isInteger) {
             $extractedColumnspec = Util::extractColumnSpec($this->originalColumnTypes[$column_index]);
             $is_unsigned = $extractedColumnspec['unsigned'];
             $minMaxValues = $this->dbi->types->getIntegerRange($cleanType, ! $is_unsigned);
@@ -396,7 +399,7 @@ class SearchController extends AbstractController
         $value = $this->template->render('table/search/input_box', [
             'str' => '',
             'column_type' => (string) $type,
-            'column_data_type' => strtoupper($cleanType),
+            'column_data_type' => $isInteger ? 'INT' : ($isFloat ? 'FLOAT' : strtoupper($cleanType)),
             'html_attributes' => $htmlAttributes,
             'column_id' => 'fieldID_',
             'in_zoom_search_edit' => false,
@@ -411,6 +414,8 @@ class SearchController extends AbstractController
             'in_fbs' => true,
             'foreign_dropdown' => $foreignDropdown,
             'search_column_in_foreigners' => $searchColumnInForeigners,
+            'is_integer' => $isInteger,
+            'is_float' => $isFloat,
         ]);
 
         return [

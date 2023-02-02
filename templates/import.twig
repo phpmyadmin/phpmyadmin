@@ -9,14 +9,11 @@
 
   <iframe id="import_upload_iframe" name="import_upload_iframe" width="1" height="1" class="hide"></iframe>
   <div id="import_form_status" class="hide"></div>
+
+  <div class="d-none" id="upload_progress_info" data-upload-id="{{ upload_id|e('html_attr') }}" data-handler="{{ handler|e('html_attr') }}"></div>
+
   <div id="importmain">
     <img src="{{ image('ajax_clock_small.gif') }}" width="16" height="16" alt="ajax clock" class="hide">
-
-    <script type="text/javascript">
-//<![CDATA[
-{% include 'import/javascript.twig' with {'upload_id': upload_id, 'handler': handler} only %}
-//]]>
-    </script>
 
     <form id="import_file_form" action="{{ url('/import') }}" method="post" enctype="multipart/form-data" name="import" class="ajax"
       {%- if handler != 'PhpMyAdmin\\Plugins\\Import\\Upload\\UploadNoplugin' %} target="import_upload_iframe"{% endif %}>
@@ -169,10 +166,6 @@
               <option value="{{ option.name }}"{{ option.is_selected ? ' selected' }}>{{ option.text }}</option>
             {% endfor %}
           </select>
-
-          {% for option in plugins_choice %}
-            <input type="hidden" id="force_file_{{ option.name }}" value="true">
-          {% endfor %}
 
           <div id="import_notification"></div>
         </div>

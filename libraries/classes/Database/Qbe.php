@@ -56,13 +56,13 @@ class Qbe
      *
      * @var array
      */
-    private $criteriaTables;
+    private $criteriaTables = [];
     /**
      * Column Names
      *
      * @var array
      */
-    private $columnNames;
+    private $columnNames = [];
     /**
      * Number of columns
      *
@@ -140,37 +140,37 @@ class Qbe
      *
      * @var array
      */
-    private $formColumns;
+    private $formColumns = [];
     /**
      * Entered aliases in the form
      *
      * @var array
      */
-    private $formAliases;
+    private $formAliases = [];
     /**
      * Chosen sort options in the form
      *
      * @var array
      */
-    private $formSorts;
+    private $formSorts = [];
     /**
      * Chosen sort orders in the form
      *
      * @var array
      */
-    private $formSortOrders;
+    private $formSortOrders = [];
     /**
      * Show checkboxes in the form
      *
      * @var array
      */
-    private $formShows;
+    private $formShows = [];
     /**
      * Entered criteria values in the form
      *
      * @var array
      */
-    private $formCriterions;
+    private $formCriterions = [];
     /**
      * AND/OR column radio buttons in the form
      *
@@ -200,7 +200,7 @@ class Qbe
      *
      * @var array
      */
-    private $savedSearchList = null;
+    private $savedSearchList = [];
     /**
      * Current search
      *
@@ -710,7 +710,7 @@ class Qbe
             if (
                 (empty($this->prevCriteria)
                 || ! isset($this->prevCriteria[$columnIndex]))
-                || $this->prevCriteria[$columnIndex] != htmlspecialchars($tmpCriteria)
+                || $this->prevCriteria[$columnIndex] != $tmpCriteria
             ) {
                 $this->formCriterions[$newColumnCount] = $tmpCriteria;
             } else {
@@ -946,9 +946,8 @@ class Qbe
      *
      * @return string Select clause
      */
-    private function getSelectClause()
+    private function getSelectClause(): string
     {
-        $selectClause = '';
         $selectClauses = [];
         for ($columnIndex = 0; $columnIndex < $this->criteriaColumnCount; $columnIndex++) {
             if (
@@ -961,19 +960,17 @@ class Qbe
 
             $select = $this->formColumns[$columnIndex];
             if (! empty($this->formAliases[$columnIndex])) {
-                $select .= ' AS '
-                    . Util::backquote($this->formAliases[$columnIndex]);
+                $select .= ' AS ' . Util::backquote($this->formAliases[$columnIndex]);
             }
 
             $selectClauses[] = $select;
         }
 
-        if (! empty($selectClauses)) {
-            $selectClause = 'SELECT '
-                . htmlspecialchars(implode(', ', $selectClauses)) . "\n";
+        if ($selectClauses !== []) {
+            return 'SELECT ' . implode(', ', $selectClauses) . "\n";
         }
 
-        return $selectClause;
+        return '';
     }
 
     /**
@@ -981,7 +978,7 @@ class Qbe
      *
      * @return string Where clause
      */
-    private function getWhereClause()
+    private function getWhereClause(): string
     {
         $whereClause = '';
         $criteriaCount = 0;
@@ -1056,8 +1053,8 @@ class Qbe
                 . $queryOrWhere;
         }
 
-        if (! empty($whereClause) && $whereClause !== '()') {
-            $whereClause = 'WHERE ' . $whereClause . "\n";
+        if ($whereClause !== '' && $whereClause !== '()') {
+            return 'WHERE ' . $whereClause . "\n";
         }
 
         return $whereClause;
@@ -1068,16 +1065,15 @@ class Qbe
      *
      * @return string Order By clause
      */
-    private function getOrderByClause()
+    private function getOrderByClause(): string
     {
-        $orderByClause = '';
         $orderByClauses = [];
 
         // Create copy of instance variables
         $columns = $this->formColumns;
         $sort = $this->formSorts;
         $sortOrder = $this->formSortOrders;
-        if (! empty($sortOrder) && count($sortOrder) == count($sort) && count($sortOrder) == count($columns)) {
+        if ($sortOrder !== [] && count($sortOrder) === count($sort) && count($sortOrder) === count($columns)) {
             // Sort all three arrays based on sort order
             array_multisort($sortOrder, $sort, $columns);
         }
@@ -1102,12 +1098,11 @@ class Qbe
                 . $sort[$columnIndex];
         }
 
-        if (! empty($orderByClauses)) {
-            $orderByClause = 'ORDER BY '
-                . htmlspecialchars(implode(', ', $orderByClauses)) . "\n";
+        if ($orderByClauses !== []) {
+            return 'ORDER BY ' . implode(', ', $orderByClauses) . "\n";
         }
 
-        return $orderByClause;
+        return '';
     }
 
     /**
@@ -1290,7 +1285,7 @@ class Qbe
         $result = '';
         foreach ($candidateColumns as $table) {
             if ($checkedTables[$table] != 1) {
-                $tableObj = new Table($table, $this->db);
+                $tableObj = new Table($table, $this->db, $this->dbi);
                 $tsize[$table] = $tableObj->countRecords();
                 $checkedTables[$table] = 1;
             }
@@ -1357,11 +1352,10 @@ class Qbe
      *
      * @return string FROM clause
      */
-    private function getFromClause(array $formColumns)
+    private function getFromClause(array $formColumns): string
     {
-        $fromClause = '';
-        if (empty($formColumns)) {
-            return $fromClause;
+        if ($formColumns === []) {
+            return '';
         }
 
         // Initialize some variables
@@ -1384,9 +1378,9 @@ class Qbe
 
         // In case relations are not defined, just generate the FROM clause
         // from the list of tables, however we don't generate any JOIN
-        if (empty($fromClause)) {
+        if ($fromClause === '') {
             // Create cartesian product
-            $fromClause = implode(
+            return implode(
                 ', ',
                 array_map([Util::class, 'backquote'], $searchTables)
             );
@@ -1606,8 +1600,8 @@ class Qbe
         $sqlQuery .= $this->getSelectClause();
         // get FROM clause
         $fromClause = $this->getFromClause($formColumns);
-        if (! empty($fromClause)) {
-            $sqlQuery .= 'FROM ' . htmlspecialchars($fromClause) . "\n";
+        if ($fromClause !== '') {
+            $sqlQuery .= 'FROM ' . $fromClause . "\n";
         }
 
         // get WHERE clause
@@ -1639,10 +1633,6 @@ class Qbe
         $urlParams['db'] = $this->db;
         $urlParams['criteriaColumnCount'] = $this->newColumnCount;
         $urlParams['rows'] = $this->newRowCount;
-
-        if (empty($this->formColumns)) {
-            $this->formColumns = [];
-        }
 
         $sqlQuery = $this->getSQLQuery($this->formColumns);
 

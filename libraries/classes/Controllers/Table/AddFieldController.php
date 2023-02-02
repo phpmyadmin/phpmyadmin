@@ -9,6 +9,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
@@ -123,7 +124,7 @@ class AddFieldController extends AbstractController
             }
 
             $GLOBALS['result'] = $createAddField->tryColumnCreationQuery(
-                $GLOBALS['db'],
+                DatabaseName::fromValue($GLOBALS['db']),
                 $GLOBALS['sql_query'],
                 $GLOBALS['errorUrl']
             );
@@ -187,7 +188,7 @@ class AddFieldController extends AbstractController
 
         $GLOBALS['active_page'] = Url::getFromRoute('/table/structure');
 
-        $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js', 'indexes.js']);
+        $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
 
         $this->checkParameters(['server', 'db', 'table', 'num_fields']);
 

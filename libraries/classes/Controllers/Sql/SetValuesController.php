@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Sql;
 
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
@@ -37,14 +38,13 @@ final class SetValuesController extends AbstractController
     /**
      * Get possible values for SET fields during grid edit.
      */
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $this->checkUserPrivileges->getPrivileges();
 
-        $column = $_POST['column'];
-        $currentValue = $_POST['curr_value'];
-        $fullValues = $_POST['get_full_values'] ?? false;
-        $whereClause = $_POST['where_clause'] ?? null;
+        $column = $request->getParsedBodyParam('column');
+        $currentValue = $request->getParsedBodyParam('curr_value');
+        $whereClause = $request->getParsedBodyParam('where_clause');
 
         $values = $this->sql->getValuesForColumn($GLOBALS['db'], $GLOBALS['table'], $column);
 
@@ -56,7 +56,7 @@ final class SetValuesController extends AbstractController
         }
 
         // If the $currentValue was truncated, we should fetch the correct full values from the table.
-        if ($fullValues && ! empty($whereClause)) {
+        if ($request->hasBodyParam('get_full_values') && ! empty($whereClause)) {
             $currentValue = $this->sql->getFullValuesForSetColumn(
                 $GLOBALS['db'],
                 $GLOBALS['table'],

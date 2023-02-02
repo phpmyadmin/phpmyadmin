@@ -6,11 +6,8 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Table\StructureController;
-use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\FlashMessages;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Template;
@@ -95,10 +92,7 @@ class StructureControllerTest extends AbstractTestCase
             $template,
             $relation,
             new Transformations(),
-            new CreateAddField($this->dbi),
-            new RelationCleanup($this->dbi, $relation),
-            $this->dbi,
-            new FlashMessages()
+            $this->dbi
         ))($request);
 
         $expected = $pageSettings->getHTML();
@@ -110,7 +104,7 @@ class StructureControllerTest extends AbstractTestCase
                 ],
             ],
             'is_foreign_key_supported' => true,
-            'indexes' => Index::getFromTable($GLOBALS['table'], $GLOBALS['db']),
+            'indexes' => Index::getFromTable($this->dbi, $GLOBALS['table'], $GLOBALS['db']),
             'indexes_duplicates' => Index::findDuplicates($GLOBALS['table'], $GLOBALS['db']),
             'relation_parameters' => $relation->getRelationParameters(),
             'hide_structure_actions' => true,
@@ -120,7 +114,7 @@ class StructureControllerTest extends AbstractTestCase
             'tbl_is_view' => false,
             'mime_map' => [],
             'tbl_storage_engine' => 'INNODB',
-            'primary' => Index::getPrimary($GLOBALS['table'], $GLOBALS['db']),
+            'primary' => Index::getPrimary($this->dbi, $GLOBALS['table'], $GLOBALS['db']),
             'columns_with_unique_index' => [],
             'columns_list' => ['id', 'name', 'datetimefield'],
             'table_stats' => null,

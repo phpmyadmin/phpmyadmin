@@ -9,39 +9,36 @@ namespace PhpMyAdmin\Config\Forms;
 
 use PhpMyAdmin\Config\ConfigFile;
 
+use function array_key_exists;
+use function array_keys;
 use function array_merge;
-use function class_exists;
-use function in_array;
 
 class BaseFormList
 {
     /**
      * List of all forms
      *
-     * @var string[]
+     * @var array<string, class-string<BaseForm>>
      */
     protected static $all = [];
 
-    /** @var string */
-    protected static $ns = 'PhpMyAdmin\\Config\\Forms\\';
-
-    /** @var array */
+    /** @var BaseForm[] */
     private $forms;
 
     /**
      * @return string[]
      */
-    public static function getAll()
+    public static function getAllFormNames()
     {
-        return static::$all;
+        return array_keys(static::$all);
     }
 
     /**
      * @param string $name Name
      */
-    public static function isValid($name): bool
+    public static function isValid(string $name): bool
     {
-        return in_array($name, static::$all);
+        return array_key_exists($name, static::$all);
     }
 
     /**
@@ -50,13 +47,10 @@ class BaseFormList
      * @return string|null
      * @psalm-return class-string<BaseForm>|null
      */
-    public static function get($name)
+    public static function get(string $name)
     {
         if (static::isValid($name)) {
-            /** @var class-string<BaseForm> $class */
-            $class = static::$ns . $name . 'Form';
-
-            return $class;
+            return static::$all[$name];
         }
 
         return null;
@@ -68,12 +62,7 @@ class BaseFormList
     final public function __construct(ConfigFile $cf)
     {
         $this->forms = [];
-        foreach (static::$all as $form) {
-            $class = (string) static::get($form);
-            if (! class_exists($class)) {
-                continue;
-            }
-
+        foreach (static::$all as $class) {
             $this->forms[] = new $class($cf);
         }
     }
@@ -141,12 +130,7 @@ class BaseFormList
     public static function getFields()
     {
         $names = [];
-        foreach (static::$all as $form) {
-            $class = (string) static::get($form);
-            if (! class_exists($class)) {
-                continue;
-            }
-
+        foreach (static::$all as $class) {
             $names = array_merge($names, $class::getFields());
         }
 

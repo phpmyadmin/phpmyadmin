@@ -10,6 +10,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Template;
@@ -55,16 +56,14 @@ class CreateController extends AbstractController
         $this->columnsDefinition = $columnsDefinition;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['num_fields'] = $GLOBALS['num_fields'] ?? null;
-        $GLOBALS['result'] = $GLOBALS['result'] ?? null;
         $this->checkParameters(['db']);
 
         $cfg = $this->config->settings;
 
         /* Check if database name is empty */
-        if (strlen($GLOBALS['db']) === 0) {
+        if ($GLOBALS['db'] === '') {
             Generator::mysqlDie(
                 __('The database name is empty!'),
                 '',
@@ -97,14 +96,13 @@ class CreateController extends AbstractController
 
         $createAddField = new CreateAddField($this->dbi);
 
-        $GLOBALS['num_fields'] = $createAddField->getNumberOfFieldsFromRequest();
+        $numFields = $createAddField->getNumberOfFieldsFromRequest();
 
         /**
          * The form used to define the structure of the table has been submitted
          */
         if (isset($_POST['do_save_data'])) {
-            // lower_case_table_names=1 `DB` becomes `db`
-            if ($this->dbi->getLowerCaseNames() === '1') {
+            if ($this->dbi->getLowerCaseNames() === 1) {
                 $GLOBALS['db'] = mb_strtolower($GLOBALS['db']);
                 $GLOBALS['table'] = mb_strtolower($GLOBALS['table']);
             }
@@ -119,9 +117,9 @@ class CreateController extends AbstractController
             }
 
             // Executes the query
-            $GLOBALS['result'] = $this->dbi->tryQuery($GLOBALS['sql_query']);
+            $result = $this->dbi->tryQuery($GLOBALS['sql_query']);
 
-            if ($GLOBALS['result']) {
+            if ($result) {
                 // Update comment table for mime types [MIME]
                 if (isset($_POST['field_mimetype']) && is_array($_POST['field_mimetype']) && $cfg['BrowseMIME']) {
                     foreach ($_POST['field_mimetype'] as $fieldindex => $mimetype) {
@@ -155,11 +153,11 @@ class CreateController extends AbstractController
         // Do not display the table in the header since it hasn't been created yet
         $this->response->getHeader()->getMenu()->setTable('');
 
-        $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js', 'indexes.js']);
+        $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
 
-        $this->checkParameters(['server', 'db', 'table', 'num_fields']);
+        $this->checkParameters(['server', 'db']);
 
-        $templateData = $this->columnsDefinition->displayForm('/table/create', $GLOBALS['num_fields']);
+        $templateData = $this->columnsDefinition->displayForm('/table/create', $numFields);
 
         $this->render('columns_definitions/column_definitions_form', $templateData);
     }

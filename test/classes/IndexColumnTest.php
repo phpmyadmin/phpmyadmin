@@ -45,7 +45,7 @@ class IndexColumnTest extends TestCase
 
     public function testGetCompareData(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             ['Column_name' => '', 'Seq_in_index' => 1, 'Collation' => null, 'Sub_part' => null, 'Null' => ''],
             $this->object->getCompareData()
         );
@@ -56,7 +56,7 @@ class IndexColumnTest extends TestCase
             'Sub_part' => 2,
             'Null' => 'NO',
         ]);
-        $this->assertEquals(
+        $this->assertSame(
             [
                 'Column_name' => 'name',
                 'Seq_in_index' => 2,

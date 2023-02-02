@@ -33,12 +33,9 @@ class GisDataEditorController extends AbstractController
         $GLOBALS['start'] = $GLOBALS['start'] ?? null;
         $GLOBALS['geom_type'] = $GLOBALS['geom_type'] ?? null;
         $GLOBALS['gis_obj'] = $GLOBALS['gis_obj'] ?? null;
-        $GLOBALS['srid'] = $GLOBALS['srid'] ?? null;
         $GLOBALS['wkt'] = $GLOBALS['wkt'] ?? null;
-        $GLOBALS['wkt_with_zero'] = $GLOBALS['wkt_with_zero'] ?? null;
         $GLOBALS['result'] = $GLOBALS['result'] ?? null;
         $GLOBALS['visualizationSettings'] = $GLOBALS['visualizationSettings'] ?? null;
-        $GLOBALS['data'] = $GLOBALS['data'] ?? null;
         $GLOBALS['visualization'] = $GLOBALS['visualization'] ?? null;
         $GLOBALS['open_layers'] = $GLOBALS['open_layers'] ?? null;
         $GLOBALS['geom_count'] = $GLOBALS['geom_count'] ?? null;
@@ -51,8 +48,6 @@ class GisDataEditorController extends AbstractController
         $type = $request->getParsedBodyParam('type', '');
         /** @var string|null $value */
         $value = $request->getParsedBodyParam('value');
-        /** @var string|null $generate */
-        $generate = $request->getParsedBodyParam('generate');
         /** @var string|null $inputName */
         $inputName = $request->getParsedBodyParam('input_name');
 
@@ -116,11 +111,11 @@ class GisDataEditorController extends AbstractController
         }
 
         // Generate Well Known Text
-        $GLOBALS['srid'] = isset($GLOBALS['gis_data']['srid']) && $GLOBALS['gis_data']['srid'] != ''
+        $srid = isset($GLOBALS['gis_data']['srid']) && $GLOBALS['gis_data']['srid'] != ''
             ? (int) $GLOBALS['gis_data']['srid'] : 0;
         $GLOBALS['wkt'] = $GLOBALS['gis_obj']->generateWkt($GLOBALS['gis_data'], 0);
-        $GLOBALS['wkt_with_zero'] = $GLOBALS['gis_obj']->generateWkt($GLOBALS['gis_data'], 0, '0');
-        $GLOBALS['result'] = "'" . $GLOBALS['wkt'] . "'," . $GLOBALS['srid'];
+        $wktWithZero = $GLOBALS['gis_obj']->generateWkt($GLOBALS['gis_data'], 0, '0');
+        $GLOBALS['result'] = "'" . $GLOBALS['wkt'] . "'," . $srid;
 
         // Generate SVG based visualization
         $GLOBALS['visualizationSettings'] = [
@@ -130,20 +125,15 @@ class GisDataEditorController extends AbstractController
             'mysqlVersion' => $GLOBALS['dbi']->getVersion(),
             'isMariaDB' => $GLOBALS['dbi']->isMariaDB(),
         ];
-        $GLOBALS['data'] = [
-            [
-                'wkt' => $GLOBALS['wkt_with_zero'],
-                'srid' => $GLOBALS['srid'],
-            ],
-        ];
-        $GLOBALS['visualization'] = GisVisualization::getByData($GLOBALS['data'], $GLOBALS['visualizationSettings'])
+        $data = [['wkt' => $wktWithZero, 'srid' => $srid]];
+        $GLOBALS['visualization'] = GisVisualization::getByData($data, $GLOBALS['visualizationSettings'])
             ->toImage('svg');
 
-        $GLOBALS['open_layers'] = GisVisualization::getByData($GLOBALS['data'], $GLOBALS['visualizationSettings'])
+        $GLOBALS['open_layers'] = GisVisualization::getByData($data, $GLOBALS['visualizationSettings'])
             ->asOl();
 
         // If the call is to update the WKT and visualization make an AJAX response
-        if ($generate) {
+        if ($request->hasBodyParam('generate')) {
             $this->response->addJSON([
                 'result' => $GLOBALS['result'],
                 'visualization' => $GLOBALS['visualization'],
@@ -167,7 +157,7 @@ class GisDataEditorController extends AbstractController
             'height' => $GLOBALS['visualizationSettings']['height'],
             'field' => $field,
             'input_name' => $inputName,
-            'srid' => $GLOBALS['srid'],
+            'srid' => $srid,
             'visualization' => $GLOBALS['visualization'],
             'open_layers' => $GLOBALS['open_layers'],
             'gis_types' => $GLOBALS['gis_types'],

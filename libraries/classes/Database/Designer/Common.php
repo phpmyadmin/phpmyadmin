@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Database\Designer;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Table;
@@ -128,8 +129,8 @@ class Common
     public function getScriptContr(array $designerTables): array
     {
         $this->dbi->selectDb($GLOBALS['db']);
-        $con = [];
-        $con['C_NAME'] = [];
+        /** @var array{C_NAME: string[], DTN: string[], DCN: string[], STN: string[], SCN: string[]} $con */
+        $con = ['C_NAME' => [], 'DTN' => [], 'DCN' => [], 'STN' => [], 'SCN' => []];
         $i = 0;
         $alltab_rs = $this->dbi->query('SHOW TABLES FROM ' . Util::backquote($GLOBALS['db']));
         while ($val = $alltab_rs->fetchRow()) {
@@ -221,7 +222,7 @@ class Common
         foreach ($designerTables as $designerTable) {
             $schema = $designerTable->getDatabaseName();
             // for now, take into account only the first index segment
-            foreach (Index::getFromTable($designerTable->getTableName(), $schema) as $index) {
+            foreach (Index::getFromTable($this->dbi, $designerTable->getTableName(), $schema) as $index) {
                 if ($unique_only && ! $index->isUnique()) {
                     continue;
                 }
@@ -264,9 +265,9 @@ class Common
      *
      * @param int $pg pdf page id
      *
-     * @return array|null of table positions
+     * @return array of table positions
      */
-    public function getTablePositions($pg): ?array
+    public function getTablePositions(int $pg): array
     {
         $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
         if ($pdfFeature === null) {
@@ -288,7 +289,7 @@ class Common
             $query,
             'name',
             null,
-            DatabaseInterface::CONNECT_CONTROL
+            Connection::TYPE_CONTROL
         );
     }
 
@@ -299,7 +300,7 @@ class Common
      *
      * @return string|null table name
      */
-    public function getPageName($pg)
+    public function getPageName(int $pg)
     {
         $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
         if ($pdfFeature === null) {
@@ -310,14 +311,13 @@ class Common
             . ' FROM ' . Util::backquote($pdfFeature->database)
             . '.' . Util::backquote($pdfFeature->pdfPages)
             . ' WHERE ' . Util::backquote('page_nr') . ' = ' . intval($pg);
-        $page_name = $this->dbi->fetchResult(
+        $page_name = $this->dbi->fetchValue(
             $query,
-            null,
-            null,
-            DatabaseInterface::CONNECT_CONTROL
+            0,
+            Connection::TYPE_CONTROL
         );
 
-        return $page_name[0] ?? null;
+        return $page_name !== false ? $page_name : null;
     }
 
     /**
@@ -351,9 +351,9 @@ class Common
      *
      * @param string $db database
      *
-     * @return int|null id of the default pdf page for the database
+     * @return int id of the default pdf page for the database
      */
-    public function getDefaultPage($db): ?int
+    public function getDefaultPage($db): int
     {
         $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
         if ($pdfFeature === null) {
@@ -366,18 +366,13 @@ class Common
             . " WHERE `db_name` = '" . $this->dbi->escapeString($db) . "'"
             . " AND `page_descr` = '" . $this->dbi->escapeString($db) . "'";
 
-        $default_page_no = $this->dbi->fetchResult(
+        $default_page_no = $this->dbi->fetchValue(
             $query,
-            null,
-            null,
-            DatabaseInterface::CONNECT_CONTROL
+            0,
+            Connection::TYPE_CONTROL
         );
 
-        if (isset($default_page_no[0])) {
-            return intval($default_page_no[0]);
-        }
-
-        return -1;
+        return is_string($default_page_no) ? intval($default_page_no) : -1;
     }
 
     /**
@@ -401,10 +396,10 @@ class Common
             $query,
             null,
             null,
-            DatabaseInterface::CONNECT_CONTROL
+            Connection::TYPE_CONTROL
         );
 
-        return count($pageNos) > 0;
+        return $pageNos !== [];
     }
 
     /**
@@ -424,7 +419,7 @@ class Common
 
         $default_page_no = $this->getDefaultPage($db);
         if ($default_page_no != -1) {
-            return intval($default_page_no);
+            return $default_page_no;
         }
 
         $query = 'SELECT MIN(`page_nr`)'
@@ -432,15 +427,13 @@ class Common
             . '.' . Util::backquote($pdfFeature->pdfPages)
             . " WHERE `db_name` = '" . $this->dbi->escapeString($db) . "'";
 
-        $min_page_no = $this->dbi->fetchResult(
+        $min_page_no = $this->dbi->fetchValue(
             $query,
-            null,
-            null,
-            DatabaseInterface::CONNECT_CONTROL
+            0,
+            Connection::TYPE_CONTROL
         );
-        $page_no = $min_page_no[0] ?? -1;
 
-        return intval($page_no);
+        return is_string($min_page_no) ? intval($min_page_no) : -1;
     }
 
     /**
@@ -673,7 +666,7 @@ class Common
             ];
         }
 
-        $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+        $error = $this->dbi->getError(Connection::TYPE_CONTROL);
 
         return [
             false,
@@ -742,7 +735,7 @@ class Common
         $result = $this->dbi->tryQueryAsControlUser($delete_query);
 
         if (! $result) {
-            $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+            $error = $this->dbi->getError(Connection::TYPE_CONTROL);
 
             return [
                 false,
@@ -781,7 +774,7 @@ class Common
             $orig_data = $this->dbi->fetchSingleRow(
                 $orig_data_query,
                 DatabaseInterface::FETCH_ASSOC,
-                DatabaseInterface::CONNECT_CONTROL
+                Connection::TYPE_CONTROL
             );
 
             if (! empty($orig_data)) {

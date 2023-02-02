@@ -13,6 +13,7 @@ use function array_slice;
 use function debug_backtrace;
 use function explode;
 use function htmlspecialchars;
+use function htmlspecialchars_decode;
 use function intval;
 use function md5;
 use function sprintf;
@@ -57,6 +58,8 @@ class Utilities
      * @param string $schema_name        Name of schema (database) to test
      * @param bool   $testForMysqlSchema Whether 'mysql' schema should
      *                                   be treated the same as IS and DD
+     *
+     * @psalm-pure
      */
     public static function isSystemSchema(
         string $schema_name,
@@ -87,7 +90,7 @@ class Utilities
     {
         $error_message = htmlspecialchars($error_message);
 
-        $error = '#' . ((string) $error_number);
+        $error = '#' . $error_number;
         $separator = ' &mdash; ';
 
         if ($error_number == 2002) {
@@ -111,10 +114,9 @@ class Utilities
                  * InnoDB constraints, see
                  * https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html
                  */
-                $error .= ' - ' . $error_message .
-                    ' (<a href="' .
-                    Url::getFromRoute('/server/engines/InnoDB/Status') .
-                    '">' . __('Details…') . '</a>)';
+                $error .= ' - ' . $error_message . ' (<a href="'
+                    . Url::getFromRoute('/server/engines/InnoDB/Status')
+                    . '">' . __('Details…') . '</a>)';
             }
         } else {
             $error .= ' - ' . $error_message;
@@ -179,11 +181,11 @@ class Utilities
         $dbgInfo = [];
 
         if ($result === false && $errorMessage !== null) {
-            $dbgInfo['error'] = '<span class="text-danger">'
-                . htmlspecialchars($errorMessage) . '</span>';
+            // because Utilities::formatError is applied in DbiMysqli
+            $dbgInfo['error'] = htmlspecialchars_decode($errorMessage);
         }
 
-        $dbgInfo['query'] = htmlspecialchars($query);
+        $dbgInfo['query'] = $query;
         $dbgInfo['time'] = $time;
         // Get and slightly format backtrace, this is used
         // in the javascript console.

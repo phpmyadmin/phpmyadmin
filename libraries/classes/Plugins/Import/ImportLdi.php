@@ -125,8 +125,7 @@ class ImportLdi extends AbstractImportCsv
             $sql .= ' LOCAL';
         }
 
-        $sql .= ' INFILE \'' . $GLOBALS['dbi']->escapeString($GLOBALS['import_file'])
-            . '\'';
+        $sql .= ' INFILE ' . $GLOBALS['dbi']->quoteString($GLOBALS['import_file']);
         if (isset($GLOBALS['ldi_replace'])) {
             $sql .= ' REPLACE';
         } elseif (isset($GLOBALS['ldi_ignore'])) {
@@ -140,13 +139,11 @@ class ImportLdi extends AbstractImportCsv
         }
 
         if (strlen((string) $GLOBALS['ldi_enclosed']) > 0) {
-            $sql .= ' ENCLOSED BY \''
-                . $GLOBALS['dbi']->escapeString($GLOBALS['ldi_enclosed']) . '\'';
+            $sql .= ' ENCLOSED BY ' . $GLOBALS['dbi']->quoteString($GLOBALS['ldi_enclosed']);
         }
 
         if (strlen((string) $GLOBALS['ldi_escaped']) > 0) {
-            $sql .= ' ESCAPED BY \''
-                . $GLOBALS['dbi']->escapeString($GLOBALS['ldi_escaped']) . '\'';
+            $sql .= ' ESCAPED BY ' . $GLOBALS['dbi']->quoteString($GLOBALS['ldi_escaped']);
         }
 
         if (strlen((string) $GLOBALS['ldi_new_line']) > 0) {

@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Server\Databases;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -43,14 +44,13 @@ final class DestroyController extends AbstractController
         $this->relationCleanup = $relationCleanup;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['selected'] = $GLOBALS['selected'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
-        $GLOBALS['dblist'] = $GLOBALS['dblist'] ?? null;
         $GLOBALS['reload'] = $GLOBALS['reload'] ?? null;
 
-        $selected_dbs = $_POST['selected_dbs'] ?? null;
+        $selected_dbs = $request->getParsedBodyParam('selected_dbs');
 
         if (
             ! $this->response->isAjax()
@@ -89,7 +89,7 @@ final class DestroyController extends AbstractController
             $this->transformations->clear($database);
         }
 
-        $GLOBALS['dblist']->databases->build();
+        $this->dbi->getDatabaseList()->build();
 
         $message = Message::success(
             _ngettext(

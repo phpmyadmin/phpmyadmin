@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Database\Structure;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -27,7 +28,7 @@ final class RealRowCountController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
@@ -45,7 +46,7 @@ final class RealRowCountController extends AbstractController
             return;
         }
 
-        [$tables] = Util::getDbInfo($GLOBALS['db'], '_structure');
+        [$tables] = Util::getDbInfo($request, $GLOBALS['db']);
 
         // If there is a request to update all table's row count.
         if (! isset($parameters['real_row_count_all'])) {

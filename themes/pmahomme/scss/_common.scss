@@ -1790,6 +1790,7 @@ input#auto_increment_opt {
   .lDiv div {
     padding: 0.2em 0.5em 0.2em;
     padding-left: 0.2em;
+    white-space: nowrap;
 
     &:hover {
       background: #ddd;
@@ -2069,6 +2070,7 @@ table.show_create {
   bottom: 0;
   left: 0;
   z-index: 100;
+  pointer-events: none;
 }
 
 textarea {
@@ -2092,6 +2094,7 @@ textarea {
     background: #ccc;
     border-top: solid 1px #aaa;
     cursor: n-resize;
+    pointer-events: auto;
 
     span {
       vertical-align: middle;
@@ -2172,6 +2175,7 @@ textarea {
     border-top: solid 1px #aaa;
     background: #fff;
     padding-top: 0.4em;
+    pointer-events: auto;
 
     &.console_dark_theme {
       background: #000;
@@ -2874,4 +2878,8 @@ body .ui-dialog {
 #previewSqlModal {
   z-index: 1056;
   top: 100px;
+}
+
+.table-responsive-md .data {
+  z-index: 9;
 }

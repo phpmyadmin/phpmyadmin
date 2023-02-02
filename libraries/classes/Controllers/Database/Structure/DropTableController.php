@@ -8,6 +8,7 @@ use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -42,10 +43,8 @@ final class DropTableController extends AbstractController
         $this->structureController = $structureController;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-
         $GLOBALS['reload'] = $_POST['reload'] ?? $GLOBALS['reload'] ?? null;
         $multBtn = $_POST['mult_btn'] ?? '';
         $selected = $_POST['selected'] ?? [];
@@ -55,13 +54,9 @@ final class DropTableController extends AbstractController
         if ($multBtn !== __('Yes')) {
             $GLOBALS['message'] = Message::success(__('No change'));
 
-            if (empty($_POST['message'])) {
-                $_POST['message'] = Message::success();
-            }
-
             unset($_POST['mult_btn']);
 
-            ($this->structureController)();
+            ($this->structureController)($request);
 
             return;
         }
@@ -103,8 +98,14 @@ final class DropTableController extends AbstractController
             }
         }
 
+        $GLOBALS['message'] = Message::success();
+
         $this->dbi->selectDb($GLOBALS['db']);
         $result = $this->dbi->tryQuery($GLOBALS['sql_query']);
+
+        if (! $result) {
+            $GLOBALS['message'] = Message::error($this->dbi->getError());
+        }
 
         if ($result && ! empty($sqlQueryViews)) {
             $GLOBALS['sql_query'] .= ' ' . $sqlQueryViews . ';';
@@ -118,14 +119,8 @@ final class DropTableController extends AbstractController
 
         ForeignKey::handleDisableCheckCleanup($defaultFkCheckValue);
 
-        $GLOBALS['message'] = Message::success();
-
-        if (empty($_POST['message'])) {
-            $_POST['message'] = $GLOBALS['message'];
-        }
-
         unset($_POST['mult_btn']);
 
-        ($this->structureController)();
+        ($this->structureController)($request);
     }
 }

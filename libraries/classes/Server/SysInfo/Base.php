@@ -4,20 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Server\SysInfo;
 
-use const PHP_OS;
-
 /**
  * Basic SysInfo class not providing any real data.
  */
 class Base
 {
-    /**
-     * The OS name
-     *
-     * @var string
-     */
-    public $os = PHP_OS;
-
     /**
      * Gets load information
      *

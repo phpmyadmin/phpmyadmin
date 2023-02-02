@@ -7,21 +7,27 @@ namespace PhpMyAdmin\Database;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 use function __;
+use function array_column;
+use function array_multisort;
 use function count;
 use function explode;
 use function htmlspecialchars;
 use function in_array;
 use function intval;
+use function is_string;
 use function mb_strtoupper;
 use function sprintf;
 use function str_contains;
 use function strtoupper;
 use function trim;
+
+use const SORT_ASC;
 
 /**
  * Functions for event management.
@@ -95,7 +101,7 @@ class Events
                 // Execute the created query
                 if (! empty($_POST['editor_process_edit'])) {
                     // Backup the old trigger, in case something goes wrong
-                    $create_item = $this->dbi->getDefinition($GLOBALS['db'], 'EVENT', $_POST['item_original_name']);
+                    $create_item = self::getDefinition($this->dbi, $GLOBALS['db'], $_POST['item_original_name']);
                     $drop_item = 'DROP EVENT IF EXISTS '
                         . Util::backquote($_POST['item_original_name'])
                         . ";\n";
@@ -174,7 +180,7 @@ class Events
 
             if ($this->response->isAjax()) {
                 if ($GLOBALS['message']->isSuccess()) {
-                    $events = $this->dbi->getEvents($GLOBALS['db'], $_POST['item_name']);
+                    $events = $this->getDetails($GLOBALS['db'], $_POST['item_name']);
                     $event = $events[0];
                     $this->response->addJSON(
                         'name',
@@ -551,7 +557,7 @@ class Events
         }
 
         $itemName = $_GET['item_name'];
-        $exportData = $this->dbi->getDefinition($GLOBALS['db'], 'EVENT', $itemName);
+        $exportData = self::getDefinition($this->dbi, $GLOBALS['db'], $itemName);
 
         if (! $exportData) {
             $exportData = false;
@@ -595,5 +601,55 @@ class Events
         }
 
         $this->response->addHTML($message->getDisplay());
+    }
+
+    /**
+     * Returns details about the EVENTs for a specific database.
+     *
+     * @param string $db   db name
+     * @param string $name event name
+     *
+     * @return array information about EVENTs
+     */
+    public function getDetails(string $db, string $name = ''): array
+    {
+        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+            $query = QueryGenerator::getInformationSchemaEventsRequest(
+                $this->dbi->escapeString($db),
+                $name === '' ? null : $this->dbi->escapeString($name)
+            );
+        } else {
+            $query = 'SHOW EVENTS FROM ' . Util::backquote($db);
+            if ($name !== '') {
+                $query .= " WHERE `Name` = '" . $this->dbi->escapeString($name) . "'";
+            }
+        }
+
+        $result = [];
+        $events = $this->dbi->fetchResult($query);
+
+        foreach ($events as $event) {
+            $result[] = [
+                'name' => $event['Name'],
+                'type' => $event['Type'],
+                'status' => $event['Status'],
+            ];
+        }
+
+        // Sort results by name
+        $name = array_column($result, 'name');
+        array_multisort($name, SORT_ASC, $result);
+
+        return $result;
+    }
+
+    public static function getDefinition(DatabaseInterface $dbi, string $db, string $name): ?string
+    {
+        $result = $dbi->fetchValue(
+            'SHOW CREATE EVENT ' . Util::backquote($db) . '.' . Util::backquote($name),
+            'Create Event'
+        );
+
+        return is_string($result) ? $result : null;
     }
 }

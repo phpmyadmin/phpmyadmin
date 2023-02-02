@@ -1,12 +1,14 @@
 import $ from 'jquery';
+import { AJAX } from './modules/ajax.js';
+import { Functions } from './modules/functions.js';
+import { ajaxShowMessage } from './modules/ajax-message.js';
+import getJsConfirmCommonParam from './modules/functions/getJsConfirmCommonParam.js';
 
 /**
  * @fileoverview    Javascript functions used in server replication page
  * @name            Server Replication
  *
- * @requires    jQuery
  * @requires    jQueryUI
- * @requires    js/functions.js
  */
 
 var randomServerId = Math.floor(Math.random() * 10000000);
@@ -35,7 +37,7 @@ function updateConfig () {
 /**
  * Unbind all event handlers before tearing down a page
  */
-window.AJAX.registerTeardown('replication.js', function () {
+AJAX.registerTeardown('replication.js', function () {
     $('#db_type').off('change');
     $('#db_select').off('change');
     $('#primary_status_href').off('click');
@@ -49,7 +51,7 @@ window.AJAX.registerTeardown('replication.js', function () {
     $('#reset_replica').off('click');
 });
 
-window.AJAX.registerOnload('replication.js', function () {
+AJAX.registerOnload('replication.js', function () {
     $('#rep').text(confPrefix);
     $('#db_type').on('change', updateConfig);
     $('#db_select').on('change', updateConfig);
@@ -85,13 +87,13 @@ window.AJAX.registerOnload('replication.js', function () {
         var $anchor = $(this);
         var question = window.Messages.strResetReplicaWarning;
         $anchor.confirm(question, $anchor.attr('href'), function (url) {
-            Functions.ajaxShowMessage();
-            window.AJAX.source = $anchor;
-            var params = Functions.getJsConfirmCommonParam({
+            ajaxShowMessage();
+            AJAX.source = $anchor;
+            var params = getJsConfirmCommonParam({
                 'ajax_page_request': true,
                 'ajax_request': true
             }, $anchor.getPostData());
-            $.post(url, params, window.AJAX.responseHandler);
+            $.post(url, params, AJAX.responseHandler);
         });
     });
     $('#button_generate_password').on('click', function () {

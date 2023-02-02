@@ -9,6 +9,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
@@ -93,7 +94,7 @@ class ZoomSearchController extends AbstractController
         $this->loadTableInfo();
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['goto'] = $GLOBALS['goto'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
@@ -232,7 +233,6 @@ class ZoomSearchController extends AbstractController
             $GLOBALS['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
         }
 
-        $column_names = $this->columnNames;
         $criteria_column_names = $_POST['criteriaColumnNames'] ?? null;
         $keys = [];
         for ($i = 0; $i < 4; $i++) {
@@ -244,7 +244,7 @@ class ZoomSearchController extends AbstractController
                 continue;
             }
 
-            $keys[$criteria_column_names[$i]] = array_search($criteria_column_names[$i], $column_names);
+            $keys[$criteria_column_names[$i]] = array_search($criteria_column_names[$i], $this->columnNames);
         }
 
         $this->render('table/zoom_search/index', [
@@ -253,7 +253,7 @@ class ZoomSearchController extends AbstractController
             'goto' => $GLOBALS['goto'],
             'self' => $this,
             'geom_column_flag' => $this->geomColumnFlag,
-            'column_names' => $column_names,
+            'column_names' => $this->columnNames,
             'data_label' => $dataLabel,
             'keys' => $keys,
             'criteria_column_names' => $criteria_column_names,
@@ -283,7 +283,7 @@ class ZoomSearchController extends AbstractController
             $i = 0;
             foreach ($row as $col => $val) {
                 if ($fields_meta[$i]->isMappedTypeBit) {
-                    $row[$col] = Util::printableBitValue((int) $val, (int) $fields_meta[$i]->length);
+                    $row[$col] = Util::printableBitValue((int) $val, $fields_meta[$i]->length);
                 }
 
                 $i++;
@@ -346,21 +346,21 @@ class ZoomSearchController extends AbstractController
             $tmpRow = array_values($row);
 
             //Get unique condition on each row (will be needed for row update)
-            $uniqueCondition = Util::getUniqueCondition(
+            [$uniqueCondition] = Util::getUniqueCondition(
                 count($this->columnNames),
                 $fields_meta,
                 $tmpRow,
                 true
             );
             //Append it to row array as where_clause
-            $row['where_clause'] = $uniqueCondition[0];
-            $row['where_clause_sign'] = Core::signSqlQuery($uniqueCondition[0]);
+            $row['where_clause'] = $uniqueCondition;
+            $row['where_clause_sign'] = Core::signSqlQuery($uniqueCondition);
 
             $tmpData = [
                 $_POST['criteriaColumnNames'][0] => $row[$_POST['criteriaColumnNames'][0]],
                 $_POST['criteriaColumnNames'][1] => $row[$_POST['criteriaColumnNames'][1]],
-                'where_clause' => $uniqueCondition[0],
-                'where_clause_sign' => Core::signSqlQuery($uniqueCondition[0]),
+                'where_clause' => $uniqueCondition,
+                'where_clause_sign' => Core::signSqlQuery($uniqueCondition),
             ];
             $tmpData[$dataLabel] = $dataLabel ? $row[$dataLabel] : '';
             $data[] = $tmpData;
@@ -451,7 +451,9 @@ class ZoomSearchController extends AbstractController
             ''
         );
         $htmlAttributes = '';
-        if (in_array($cleanType, $this->dbi->types->getIntegerTypes())) {
+        $isInteger = in_array($cleanType, $this->dbi->types->getIntegerTypes());
+        $isFloat = in_array($cleanType, $this->dbi->types->getFloatTypes());
+        if ($isInteger) {
             $extractedColumnspec = Util::extractColumnSpec($this->originalColumnTypes[$column_index]);
             $is_unsigned = $extractedColumnspec['unsigned'];
             $minMaxValues = $this->dbi->types->getIntegerRange($cleanType, ! $is_unsigned);
@@ -481,7 +483,7 @@ class ZoomSearchController extends AbstractController
         $value = $this->template->render('table/search/input_box', [
             'str' => '',
             'column_type' => (string) $type,
-            'column_data_type' => strtoupper($cleanType),
+            'column_data_type' => $isInteger ? 'INT' : ($isFloat ? 'FLOAT' : strtoupper($cleanType)),
             'html_attributes' => $htmlAttributes,
             'column_id' => 'fieldID_',
             'in_zoom_search_edit' => false,
@@ -495,6 +497,8 @@ class ZoomSearchController extends AbstractController
             'db' => $GLOBALS['db'],
             'in_fbs' => true,
             'foreign_dropdown' => $foreignDropdown,
+            'is_integer' => $isInteger,
+            'is_float' => $isFloat,
         ]);
 
         return [

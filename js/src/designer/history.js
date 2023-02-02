@@ -1,4 +1,7 @@
 import $ from 'jquery';
+import { AJAX } from '../modules/ajax.js';
+import { Functions } from '../modules/functions.js';
+import getImageTag from '../modules/functions/getImageTag.js';
 
 /**
  * @fileoverview    function used in this file builds history tab and generates query.
@@ -94,19 +97,19 @@ DesignerHistory.display = function (init, finit) {
             } else {
                 str += '<img src="' + themeImagePath + 'designer/and_icon.png" onclick="DesignerHistory.andOr(' + i + ')" title="AND"></td>';
             }
-            str += '<td style="padding-left: 5px;" class="text-end">' + Functions.getImage('b_sbrowse', window.Messages.strColumnName) + '</td>' +
+            str += '<td style="padding-left: 5px;" class="text-end">' + getImageTag('b_sbrowse', window.Messages.strColumnName) + '</td>' +
                 '<td width="175" style="padding-left: 5px">' + $('<div/>').text(historyArray[i].getColumnName()).html() + '<td>';
             if (historyArray[i].getType() === 'GroupBy' || historyArray[i].getType() === 'OrderBy') {
                 var detailDescGroupBy = $('<div/>').text(DesignerHistory.detail(i)).html();
-                str += '<td class="text-center">' + Functions.getImage('s_info', DesignerHistory.detail(i)) + '</td>' +
+                str += '<td class="text-center">' + getImageTag('s_info', DesignerHistory.detail(i)) + '</td>' +
                     '<td title="' + detailDescGroupBy + '">' + historyArray[i].getType() + '</td>' +
-                    '<td onclick=DesignerHistory.historyDelete(' + i + ')>' + Functions.getImage('b_drop', window.Messages.strDelete) + '</td>';
+                    '<td onclick=DesignerHistory.historyDelete(' + i + ')>' + getImageTag('b_drop', window.Messages.strDelete) + '</td>';
             } else {
                 var detailDesc = $('<div/>').text(DesignerHistory.detail(i)).html();
-                str += '<td class="text-center">' + Functions.getImage('s_info', DesignerHistory.detail(i)) + '</td>' +
+                str += '<td class="text-center">' + getImageTag('s_info', DesignerHistory.detail(i)) + '</td>' +
                     '<td title="' + detailDesc + '">' + historyArray[i].getType() + '</td>' +
-                    '<td onclick=DesignerHistory.historyEdit(' + i + ')>' + Functions.getImage('b_edit', window.Messages.strEdit) + '</td>' +
-                    '<td onclick=DesignerHistory.historyDelete(' + i + ')>' + Functions.getImage('b_drop', window.Messages.strDelete) + '</td>';
+                    '<td onclick=DesignerHistory.historyEdit(' + i + ')>' + getImageTag('b_edit', window.Messages.strEdit) + '</td>' +
+                    '<td onclick=DesignerHistory.historyDelete(' + i + ')>' + getImageTag('b_drop', window.Messages.strDelete) + '</td>';
             }
             str += '</tr></thead>';
             i++;
@@ -165,9 +168,9 @@ DesignerHistory.historyDelete = function (index) {
  */
 DesignerHistory.changeStyle = function (elementId) {
     var element = document.getElementById(elementId);
-    element.style.left =  '530px';
-    element.style.top  = '130px';
-    element.style.position  = 'absolute';
+    element.style.left = '530px';
+    element.style.top = '130px';
+    element.style.position = 'absolute';
     element.style.zIndex = '103';
     element.style.visibility = 'visible';
     element.style.display = 'block';
@@ -616,11 +619,11 @@ DesignerHistory.checkRename = function (idThis) {
 };
 
 /**
-  * This function builds from clause of query
-  * makes automatic joins.
-  *
-  * @return {string}
-  */
+ * This function builds from clause of query
+ * makes automatic joins.
+ *
+ * @return {string}
+ */
 DesignerHistory.queryFrom = function () {
     var i;
     var tabLeft = [];
@@ -807,7 +810,7 @@ DesignerHistory.buildQuery = function () {
     });
 };
 
-window.AJAX.registerTeardown('designer/history.js', function () {
+AJAX.registerTeardown('designer/history.js', function () {
     vqbEditor = null;
     historyArray = [];
     selectField = [];
@@ -817,7 +820,7 @@ window.AJAX.registerTeardown('designer/history.js', function () {
     $('#ok_edit_where').off('click');
 });
 
-window.AJAX.registerOnload('designer/history.js', function () {
+AJAX.registerOnload('designer/history.js', function () {
     $('#ok_edit_rename').on('click', function () {
         DesignerHistory.edit('Rename');
     });
@@ -830,5 +833,5 @@ window.AJAX.registerOnload('designer/history.js', function () {
     $('#ok_edit_where').on('click', function () {
         DesignerHistory.edit('Where');
     });
-    $('#ab').accordion({ collapsible : true, active : 'none' });
+    $('#ab').accordion({ collapsible: true, active: 'none' });
 });

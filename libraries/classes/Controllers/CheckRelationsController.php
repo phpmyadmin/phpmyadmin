@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -27,27 +28,22 @@ class CheckRelationsController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        /** @var string|null $createPmaDb */
-        $createPmaDb = $request->getParsedBodyParam('create_pmadb');
-        /** @var string|null $fixAllPmaDb */
-        $fixAllPmaDb = $request->getParsedBodyParam('fixall_pmadb');
-        /** @var string|null $fixPmaDb */
-        $fixPmaDb = $request->getParsedBodyParam('fix_pmadb');
-
         $cfgStorageDbName = $this->relation->getConfigurationStorageDbName();
 
+        $db = DatabaseName::tryFromValue($GLOBALS['db']);
+
         // If request for creating the pmadb
-        if (isset($createPmaDb) && $this->relation->createPmaDatabase($cfgStorageDbName)) {
+        if ($request->hasBodyParam('create_pmadb') && $this->relation->createPmaDatabase($cfgStorageDbName)) {
             $this->relation->fixPmaTables($cfgStorageDbName);
         }
 
         // If request for creating all PMA tables.
-        if (isset($fixAllPmaDb)) {
-            $this->relation->fixPmaTables($GLOBALS['db']);
+        if ($request->hasBodyParam('fixall_pmadb') && $db !== null) {
+            $this->relation->fixPmaTables($db->getName());
         }
 
         // If request for creating missing PMA tables.
-        if (isset($fixPmaDb)) {
+        if ($request->hasBodyParam('fix_pmadb')) {
             $relationParameters = $this->relation->getRelationParameters();
             $this->relation->fixPmaTables((string) $relationParameters->db);
         }
@@ -56,7 +52,7 @@ class CheckRelationsController extends AbstractController
         $relationParameters = $this->relation->getRelationParameters();
 
         $this->render('relation/check_relations', [
-            'db' => $GLOBALS['db'],
+            'db' => $db !== null ? $db->getName() : '',
             'zero_conf' => $GLOBALS['cfg']['ZeroConf'],
             'relation_parameters' => $relationParameters->toArray(),
             'sql_dir' => SQL_DIR,

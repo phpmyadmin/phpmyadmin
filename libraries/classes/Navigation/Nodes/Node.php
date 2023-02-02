@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Util;
 
@@ -58,10 +58,10 @@ class Node
      */
     public $visible = false;
     /**
-     * @var Node A reference to the parent object of
+     * @var Node|null A reference to the parent object of
      *           this node, NULL for the root node.
      */
-    public $parent;
+    public $parent = null;
     /**
      * @var Node[] An array of Node objects that are
      *             direct children of this node
@@ -257,23 +257,19 @@ class Node
      * @param bool $countEmptyContainers Whether to count empty child
      *                                   containers as valid children
      */
-    public function hasChildren($countEmptyContainers = true): bool
+    public function hasChildren(bool $countEmptyContainers = true): bool
     {
-        $retval = false;
         if ($countEmptyContainers) {
-            if (count($this->children)) {
-                $retval = true;
-            }
-        } else {
-            foreach ($this->children as $child) {
-                if ($child->type == self::OBJECT || $child->hasChildren(false)) {
-                    $retval = true;
-                    break;
-                }
+            return $this->children !== [];
+        }
+
+        foreach ($this->children as $child) {
+            if ($child->type == self::OBJECT || $child->hasChildren(false)) {
+                return true;
             }
         }
 
-        return $retval;
+        return false;
     }
 
     /**
@@ -369,7 +365,7 @@ class Node
      *
      * @return array
      */
-    public function getData($type, $pos, $searchClause = '')
+    public function getData(string $type, int $pos, string $searchClause = ''): array
     {
         if (isset($GLOBALS['cfg']['Server']['DisableIS']) && ! $GLOBALS['cfg']['Server']['DisableIS']) {
             return $this->getDataFromInfoSchema($pos, $searchClause);
@@ -638,7 +634,7 @@ class Node
                 . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']) . "'"
                 . ' GROUP BY `db_name`';
 
-            return $GLOBALS['dbi']->fetchResult($sqlQuery, 'db_name', 'count', DatabaseInterface::CONNECT_CONTROL);
+            return $GLOBALS['dbi']->fetchResult($sqlQuery, 'db_name', 'count', Connection::TYPE_CONTROL);
         }
 
         return null;
@@ -650,7 +646,7 @@ class Node
      *
      * @return array
      */
-    private function getDataFromInfoSchema($pos, $searchClause)
+    private function getDataFromInfoSchema(int $pos, string $searchClause)
     {
         $maxItems = $GLOBALS['cfg']['FirstLevelNavigationItems'];
         if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping'] || ! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
@@ -687,7 +683,7 @@ class Node
      *
      * @return array
      */
-    private function getDataFromShowDatabases($pos, $searchClause)
+    private function getDataFromShowDatabases(int $pos, string $searchClause)
     {
         $maxItems = $GLOBALS['cfg']['FirstLevelNavigationItems'];
         if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping'] || ! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
@@ -738,7 +734,7 @@ class Node
                 }
             }
 
-            $prefixes = array_slice(array_keys($prefixMap), (int) $pos);
+            $prefixes = array_slice(array_keys($prefixMap), $pos);
         }
 
         $subClauses = [];
@@ -765,7 +761,7 @@ class Node
      *
      * @return array
      */
-    private function getDataFromShowDatabasesLike($pos, $searchClause)
+    private function getDataFromShowDatabasesLike(int $pos, string $searchClause)
     {
         $maxItems = $GLOBALS['cfg']['FirstLevelNavigationItems'];
         if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping'] || ! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {

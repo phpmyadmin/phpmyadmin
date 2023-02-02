@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { Config } from '../modules/config.js';
 
 /**
  * Functions used in Setup configuration forms
@@ -66,7 +67,7 @@ $(function () {
  * @param {String}  id      validator id
  * @param {object}  values  values hash {element1_id: value, ...}
  *
- * @return {bool|void}
+ * @return {boolean|void}
  */
 function ajaxValidate (parent, id, values) {
     var $parent = $(parent);
@@ -83,7 +84,7 @@ function ajaxValidate (parent, id, values) {
     }
 
     $parent.data('ajax', $.ajax({
-        url: 'validate.php',
+        url: '../setup/index.php?route=/setup/validate',
         cache: false,
         type: 'POST',
         data: {
@@ -107,7 +108,7 @@ function ajaxValidate (parent, id, values) {
                     error[key] = Array.isArray(value) ? value : [value];
                 }
             }
-            window.Config.displayErrors(error);
+            Config.displayErrors(error);
         },
         complete: function () {
             $parent.removeData('ajax');
@@ -135,7 +136,7 @@ $.extend(true, window.validators, {
          * @return {true}
          */
         hide_db: function (isKeyUp) { // eslint-disable-line camelcase
-            if (!isKeyUp && this.value !== '') {
+            if (! isKeyUp && this.value !== '') {
                 var data = {};
                 data[this.id] = this.value;
                 ajaxValidate(this, 'Servers/1/hide_db', data);
@@ -150,7 +151,7 @@ $.extend(true, window.validators, {
          * @return {true}
          */
         TrustedProxies: function (isKeyUp) {
-            if (!isKeyUp && this.value !== '') {
+            if (! isKeyUp && this.value !== '') {
                 var data = {};
                 data[this.id] = this.value;
                 ajaxValidate(this, 'TrustedProxies', data);
@@ -168,8 +169,8 @@ $.extend(true, window.validators, {
          * @return {true}
          */
         Server: function (isKeyUp) {
-            if (!isKeyUp) {
-                ajaxValidate(this, 'Server', window.Config.getAllValues());
+            if (! isKeyUp) {
+                ajaxValidate(this, 'Server', Config.getAllValues());
             }
             return true;
         },
@@ -195,9 +196,9 @@ $.extend(true, window.validators, {
                 return true;
             }
 
-            var prefix = window.Config.getIdPrefix($(this).find('input'));
+            var prefix = Config.getIdPrefix($(this).find('input'));
             if ($('#' + prefix + 'pmadb').val() !== '') {
-                ajaxValidate(this, 'Server_pmadb', window.Config.getAllValues());
+                ajaxValidate(this, 'Server_pmadb', Config.getAllValues());
             }
 
             return true;
@@ -222,7 +223,7 @@ $(function () {
         if (el.prop('disabled')) {
             return;
         }
-        el.prop('checked', !el.prop('checked'));
+        el.prop('checked', ! el.prop('checked'));
     });
 });
 
@@ -235,7 +236,7 @@ $(function () {
         e.preventDefault();
         var $this = $(this);
         $.post($this.attr('href'), $this.attr('data-post'), function () {
-            window.location.replace('index.php');
+            window.location.replace('../setup/index.php?route=/setup');
         });
     });
 });

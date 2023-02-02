@@ -56,7 +56,7 @@ class FormDisplay
     /**
      * Form list
      *
-     * @var Form[]
+     * @var array<string, Form>
      */
     private $forms = [];
 
@@ -436,22 +436,22 @@ class FormDisplay
         $this->setComments($systemPath, $opts);
 
         // send default value to form's JS
-        $jsLine = '\'' . $translatedPath . '\': ';
+        $jsLine = '';
         switch ($type) {
             case 'text':
             case 'short_text':
             case 'number_text':
             case 'password':
-                $jsLine .= '\'' . Sanitize::escapeJsString($valueDefault) . '\'';
+                $jsLine = (string) $valueDefault;
                 break;
             case 'checkbox':
-                $jsLine .= $valueDefault ? 'true' : 'false';
+                $jsLine = (bool) $valueDefault;
                 break;
             case 'select':
                 $valueDefaultJs = is_bool($valueDefault)
                 ? (int) $valueDefault
                 : $valueDefault;
-                $jsLine .= '[\'' . Sanitize::escapeJsString($valueDefaultJs) . '\']';
+                $jsLine = (array) $valueDefaultJs;
                 break;
             case 'list':
                 $val = $valueDefault;
@@ -459,12 +459,11 @@ class FormDisplay
                     unset($val['wrapper_params']);
                 }
 
-                $jsLine .= '\'' . Sanitize::escapeJsString(implode("\n", $val))
-                . '\'';
+                $jsLine = implode("\n", $val);
                 break;
         }
 
-        $jsDefault[] = $jsLine;
+        $jsDefault[$translatedPath] = $jsLine;
 
         return $this->formDisplayTemplate->displayInput(
             $translatedPath,
@@ -480,14 +479,11 @@ class FormDisplay
     /**
      * Displays errors
      *
-     * @return string|null HTML for errors
+     * @return string HTML for errors
      */
-    public function displayErrors()
+    public function displayErrors(): string
     {
         $this->validate();
-        if (count($this->errors) === 0) {
-            return null;
-        }
 
         $htmlOutput = '';
 
@@ -510,18 +506,17 @@ class FormDisplay
     public function fixErrors(): void
     {
         $this->validate();
-        if (count($this->errors) === 0) {
+        if ($this->errors === []) {
             return;
         }
 
-        $cf = $this->configFile;
         foreach (array_keys($this->errors) as $workPath) {
             if (! isset($this->systemPaths[$workPath])) {
                 continue;
             }
 
             $canonicalPath = $this->systemPaths[$workPath];
-            $cf->set($workPath, $cf->getDefault($canonicalPath));
+            $this->configFile->set($workPath, $this->configFile->getDefault($canonicalPath));
         }
     }
 
@@ -559,15 +554,12 @@ class FormDisplay
     /**
      * Validates and saves form data to session
      *
-     * @param array|string $forms            array of form names
-     * @param bool         $allowPartialSave allows for partial form saving on
-     *                                       failed validation
+     * @param string[] $forms            List of form names.
+     * @param bool     $allowPartialSave Allows for partial form saving on failed validation.
      */
-    public function save($forms, $allowPartialSave = true): bool
+    public function save(array $forms, bool $allowPartialSave = true): bool
     {
         $result = true;
-        $forms = (array) $forms;
-
         $values = [];
         $toSave = [];
         $isSetupScript = $GLOBALS['config']->get('is_setup');
@@ -679,7 +671,7 @@ class FormDisplay
         }
 
         // save forms
-        if (! $allowPartialSave && ! empty($this->errors)) {
+        if (! $allowPartialSave && $this->errors !== []) {
             // don't look for non-critical errors
             $this->validate();
 
@@ -729,7 +721,7 @@ class FormDisplay
      */
     public function hasErrors(): bool
     {
-        return count($this->errors) > 0;
+        return $this->errors !== [];
     }
 
     /**

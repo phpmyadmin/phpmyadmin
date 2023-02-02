@@ -11,10 +11,10 @@ use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
 use function count;
-use function hexdec;
 use function json_encode;
 use function mb_substr;
 use function round;
+use function sprintf;
 use function trim;
 
 /**
@@ -66,22 +66,19 @@ class GisLineString extends GisGeometry
      *
      * @param string      $spatial    GIS POLYGON object
      * @param string|null $label      Label for the GIS POLYGON object
-     * @param string      $line_color Color for the GIS POLYGON object
+     * @param int[]       $color      Color for the GIS POLYGON object
      * @param array       $scale_data Array containing data related to scaling
      */
     public function prepareRowAsPng(
         $spatial,
         ?string $label,
-        $line_color,
+        array $color,
         array $scale_data,
         ImageWrapper $image
     ): ImageWrapper {
         // allocate colors
         $black = $image->colorAllocate(0, 0, 0);
-        $red = (int) hexdec(mb_substr($line_color, 1, 2));
-        $green = (int) hexdec(mb_substr($line_color, 3, 2));
-        $blue = (int) hexdec(mb_substr($line_color, 4, 2));
-        $color = $image->colorAllocate($red, $green, $blue);
+        $line_color = $image->colorAllocate(...$color);
 
         $label = trim($label ?? '');
 
@@ -97,7 +94,7 @@ class GisLineString extends GisGeometry
                     (int) round($temp_point[1]),
                     (int) round($point[0]),
                     (int) round($point[1]),
-                    $color
+                    $line_color
                 );
             }
 
@@ -123,25 +120,17 @@ class GisLineString extends GisGeometry
      *
      * @param string      $spatial    GIS LINESTRING object
      * @param string|null $label      Label for the GIS LINESTRING object
-     * @param string      $line_color Color for the GIS LINESTRING object
+     * @param int[]       $color      Color for the GIS LINESTRING object
      * @param array       $scale_data Array containing data related to scaling
      * @param TCPDF       $pdf        TCPDF instance
      *
      * @return TCPDF the modified TCPDF instance
      */
-    public function prepareRowAsPdf($spatial, ?string $label, $line_color, array $scale_data, $pdf)
+    public function prepareRowAsPdf($spatial, ?string $label, array $color, array $scale_data, $pdf)
     {
-        // allocate colors
-        $red = hexdec(mb_substr($line_color, 1, 2));
-        $green = hexdec(mb_substr($line_color, 3, 2));
-        $blue = hexdec(mb_substr($line_color, 4, 2));
         $line = [
             'width' => 1.5,
-            'color' => [
-                $red,
-                $green,
-                $blue,
-            ],
+            'color' => $color,
         ];
 
         $label = trim($label ?? '');
@@ -161,8 +150,8 @@ class GisLineString extends GisGeometry
 
         // print label
         if ($label !== '') {
-            $pdf->SetXY($points_arr[1][0], $points_arr[1][1]);
-            $pdf->SetFontSize(5);
+            $pdf->setXY($points_arr[1][0], $points_arr[1][1]);
+            $pdf->setFontSize(5);
             $pdf->Cell(0, 0, $label);
         }
 
@@ -174,19 +163,19 @@ class GisLineString extends GisGeometry
      *
      * @param string $spatial    GIS LINESTRING object
      * @param string $label      Label for the GIS LINESTRING object
-     * @param string $line_color Color for the GIS LINESTRING object
+     * @param int[]  $color      Color for the GIS LINESTRING object
      * @param array  $scale_data Array containing data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg($spatial, $label, $line_color, array $scale_data)
+    public function prepareRowAsSvg($spatial, $label, array $color, array $scale_data)
     {
         $line_options = [
             'name' => $label,
             'id' => $label . $this->getRandomId(),
             'class' => 'linestring vector',
             'fill' => 'none',
-            'stroke' => $line_color,
+            'stroke' => sprintf('#%02x%02x%02x', ...$color),
             'stroke-width' => 2,
         ];
 
@@ -216,15 +205,15 @@ class GisLineString extends GisGeometry
      * @param string $spatial    GIS LINESTRING object
      * @param int    $srid       Spatial reference ID
      * @param string $label      Label for the GIS LINESTRING object
-     * @param array  $line_color Color for the GIS LINESTRING object
+     * @param int[]  $color      Color for the GIS LINESTRING object
      * @param array  $scale_data Array containing data related to scaling
      *
      * @return string JavaScript related to a row in the GIS dataset
      */
-    public function prepareRowAsOl($spatial, int $srid, $label, $line_color, array $scale_data)
+    public function prepareRowAsOl($spatial, int $srid, $label, array $color, array $scale_data)
     {
         $stroke_style = [
-            'color' => $line_color,
+            'color' => $color,
             'width' => 2,
         ];
 

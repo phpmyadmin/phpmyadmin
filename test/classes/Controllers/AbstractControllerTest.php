@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Tests\Controllers;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -47,16 +46,10 @@ class AbstractControllerTest extends AbstractTestCase
         $message = 'index.php: Missing parameter: param2';
         $message .= MySQLDocumentation::showDocumentation('faq', 'faqmissingparameters', true);
         $message .= '[br]';
-        $expected = $template->render('error/generic', [
-            'lang' => 'en',
-            'dir' => 'ltr',
-            'error_message' => Sanitize::sanitizeMessage($message),
-        ]);
-
-        $this->expectOutputString($expected);
+        $expected = Message::error($message)->getDisplay();
 
         $controller->testCheckParameters(['param1', 'param2']);
-
+        $this->assertSame($expected, $response->getHTMLResult());
         $this->assertSame(400, $response->getHttpResponseCode());
     }
 
@@ -79,8 +72,6 @@ class AbstractControllerTest extends AbstractTestCase
 
         $GLOBALS['param1'] = 'param1';
         $GLOBALS['param2'] = 'param2';
-
-        $this->expectOutputString('');
 
         $controller->testCheckParameters(['param1', 'param2']);
 

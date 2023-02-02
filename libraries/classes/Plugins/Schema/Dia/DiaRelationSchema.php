@@ -102,11 +102,8 @@ class DiaRelationSchema extends ExportRelationSchema
 
             $seen_a_relation = true;
             foreach ($exist_rel as $master_field => $rel) {
-                /* put the foreign table on the schema only if selected
-                 * by the user
-                 * (do not use array_search() because we would have to
-                 * to do a === false and this is not PHP3 compatible)
-                 */
+                // put the foreign table on the schema only if selected by the user
+                // (do not use array_search() because we would have to do a === false and this is not PHP3 compatible)
                 if ($master_field !== 'foreign_keys_data') {
                     if (in_array($rel['foreign_table'], $alltables)) {
                         $this->addRelation(
@@ -149,11 +146,11 @@ class DiaRelationSchema extends ExportRelationSchema
     }
 
     /**
-     * Output Dia Document for download
+     * @return array{fileName: non-empty-string, fileData: string}
      */
-    public function showOutput(): void
+    public function getExportInfo(): array
     {
-        $this->diagram->showOutput($this->getFileName('.dia'));
+        return ['fileName' => $this->getFileName('.dia'), 'fileData' => $this->diagram->getOutputData()];
     }
 
     /**

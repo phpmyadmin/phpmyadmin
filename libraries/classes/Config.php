@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Config\Settings;
+use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Exceptions\ConfigException;
+use Throwable;
 
 use function __;
 use function array_filter;
@@ -13,7 +16,6 @@ use function array_replace_recursive;
 use function array_slice;
 use function count;
 use function defined;
-use function error_get_last;
 use function error_reporting;
 use function explode;
 use function fclose;
@@ -51,7 +53,6 @@ use function sprintf;
 use function str_contains;
 use function str_replace;
 use function stripos;
-use function strlen;
 use function strtolower;
 use function substr;
 use function sys_get_temp_dir;
@@ -69,6 +70,8 @@ use const PHP_VERSION_ID;
 
 /**
  * Configuration handling
+ *
+ * @psalm-import-type ConnectionType from Connection
  */
 class Config
 {
@@ -87,9 +90,6 @@ class Config
     /** @var int     source modification time */
     public $sourceMtime = 0;
 
-    /** @var int */
-    public $setMtime = 0;
-
     /** @var bool */
     public $errorConfigFile = false;
 
@@ -97,24 +97,18 @@ class Config
     public $defaultServer = [];
 
     /**
-     * @var bool whether init is done or not
-     * set this to false to force some initial checks
-     * like checking for required functions
+     * @param string|null $source source to read config from
+     *
+     * @throws ConfigException
      */
-    public $done = false;
-
-    /**
-     * @param string $source source to read config from
-     */
-    public function __construct(?string $source = null)
+    public function loadAndCheck(?string $source = null): void
     {
         $this->settings = ['is_setup' => false];
 
-        // functions need to refresh in case of config file changed goes in
-        // PhpMyAdmin\Config::load()
+        // functions need to refresh in case of config file changed goes in PhpMyAdmin\Config::load()
         $this->load($source);
 
-        // other settings, independent from config file, comes in
+        // other settings, independent of config file, comes in
         $this->checkSystem();
 
         $this->baseSettings = $this->settings;
@@ -340,12 +334,12 @@ class Config
      * loads configuration from $source, usually the config file
      * should be called on object creation
      *
-     * @param string $source config file
+     * @param string|null $source config file
+     *
+     * @throws ConfigException
      */
     public function load(?string $source = null): bool
     {
-        $GLOBALS['isConfigLoading'] = $GLOBALS['isConfigLoading'] ?? null;
-
         $this->loadDefaults();
 
         if ($source !== null) {
@@ -369,10 +363,13 @@ class Config
         }
 
         ob_start();
-        $GLOBALS['isConfigLoading'] = true;
-        /** @psalm-suppress UnresolvableInclude */
-        $eval_result = include $this->getSource();
-        $GLOBALS['isConfigLoading'] = false;
+        try {
+            /** @psalm-suppress UnresolvableInclude */
+            $eval_result = include $this->getSource();
+        } catch (Throwable $exception) {
+            throw new ConfigException('Failed to load phpMyAdmin configuration.');
+        }
+
         ob_end_clean();
 
         if ($canUseErrorReporting) {
@@ -427,7 +424,7 @@ class Config
      * Loads user preferences and merges them with current config
      * must be called after control connection has been established
      */
-    public function loadUserPreferences(): void
+    public function loadUserPreferences(bool $isMinimumCommon = false): void
     {
         // index.php should load these settings, so that phpmyadmin.css.php
         // will have everything available in session cache
@@ -435,7 +432,7 @@ class Config
                 ? $GLOBALS['cfg']['ServerDefault']
                 : 0);
         $cache_key = 'server_' . $server;
-        if ($server > 0 && ! isset($GLOBALS['isMinimumCommon'])) {
+        if ($server > 0 && ! $isMinimumCommon) {
             // cache user preferences, use database only when needed
             if (
                 ! isset($_SESSION['cache'][$cache_key]['userprefs'])
@@ -463,7 +460,7 @@ class Config
         $this->settings = array_replace_recursive($this->settings, $config_data);
         $GLOBALS['cfg'] = array_replace_recursive($GLOBALS['cfg'], $config_data);
 
-        if (isset($GLOBALS['isMinimumCommon'])) {
+        if ($isMinimumCommon) {
             return;
         }
 
@@ -608,7 +605,7 @@ class Config
     }
 
     /**
-     * check config source
+     * @throws ConfigException
      */
     public function checkConfigSource(): bool
     {
@@ -636,16 +633,13 @@ class Config
 
             if ($contents === false) {
                 $this->sourceMtime = 0;
-                Core::fatalError(
-                    sprintf(
-                        function_exists('__')
+
+                throw new ConfigException(sprintf(
+                    function_exists('__')
                         ? __('Existing configuration file (%s) is not readable.')
                         : 'Existing configuration file (%s) is not readable.',
-                        $this->getSource()
-                    )
-                );
-
-                return false;
+                    $this->getSource()
+                ));
             }
         }
 
@@ -655,6 +649,8 @@ class Config
     /**
      * verifies the permissions on config file (if asked by configuration)
      * (must be called after config.inc.php has been merged)
+     *
+     * @throws ConfigException
      */
     public function checkPermissions(): void
     {
@@ -675,16 +671,14 @@ class Config
         }
 
         $this->sourceMtime = 0;
-        Core::fatalError(
-            __(
-                'Wrong permissions on configuration file, should not be world writable!'
-            )
-        );
+
+        throw new ConfigException(__('Wrong permissions on configuration file, should not be world writable!'));
     }
 
     /**
-     * Checks for errors
-     * (must be called after config.inc.php has been merged)
+     * Checks for errors (must be called after config.inc.php has been merged)
+     *
+     * @throws ConfigException
      */
     public function checkErrors(): void
     {
@@ -697,7 +691,8 @@ class Config
             . __('This usually means there is a syntax error in it, please check any errors shown below.')
             . '[br][br]'
             . '[conferr]';
-        trigger_error($error, E_USER_ERROR);
+
+        throw new ConfigException(Sanitize::sanitizeMessage($error));
     }
 
     /**
@@ -709,11 +704,7 @@ class Config
      */
     public function get(string $setting)
     {
-        if (isset($this->settings[$setting])) {
-            return $this->settings[$setting];
-        }
-
-        return null;
+        return $this->settings[$setting] ?? null;
     }
 
     /**
@@ -729,7 +720,6 @@ class Config
         }
 
         $this->settings[$setting] = $value;
-        $this->setMtime = time();
     }
 
     /**
@@ -923,7 +913,7 @@ class Config
         ?int $validity = null,
         bool $httponly = true
     ): bool {
-        if (strlen($value) > 0 && $default !== null && $value === $default) {
+        if ($value !== '' && $value === $default) {
             // default value is used
             if ($this->issetCookie($cookie)) {
                 // remove cookie
@@ -933,7 +923,7 @@ class Config
             return false;
         }
 
-        if (strlen($value) === 0 && $this->issetCookie($cookie)) {
+        if ($value === '' && $this->issetCookie($cookie)) {
             // remove cookie, value is empty
             return $this->removeCookie($cookie);
         }
@@ -999,11 +989,7 @@ class Config
      */
     public function getCookie(string $cookieName)
     {
-        if (isset($_COOKIE[$this->getCookieName($cookieName)])) {
-            return $_COOKIE[$this->getCookieName($cookieName)];
-        }
-
-        return null;
+        return $_COOKIE[$this->getCookieName($cookieName)] ?? null;
     }
 
     /**
@@ -1024,31 +1010,6 @@ class Config
     public function issetCookie(string $cookieName): bool
     {
         return isset($_COOKIE[$this->getCookieName($cookieName)]);
-    }
-
-    /**
-     * Error handler to catch fatal errors when loading configuration
-     * file
-     */
-    public static function fatalErrorHandler(): void
-    {
-        if (! isset($GLOBALS['isConfigLoading']) || ! $GLOBALS['isConfigLoading']) {
-            return;
-        }
-
-        $error = error_get_last();
-        if ($error === null) {
-            return;
-        }
-
-        Core::fatalError(
-            sprintf(
-                'Failed to load phpMyAdmin configuration (%s:%s): %s',
-                Error::relPath($error['file']),
-                $error['line'],
-                $error['message']
-            )
-        );
     }
 
     /**
@@ -1244,9 +1205,9 @@ class Config
     /**
      * Return connection parameters for the database server
      *
-     * @param int        $mode   Connection mode on of CONNECT_USER, CONNECT_CONTROL
-     *                           or CONNECT_AUXILIARY.
+     * @param int        $mode   Connection mode.
      * @param array|null $server Server information like host/port/socket/persistent
+     * @psalm-param ConnectionType $mode
      *
      * @return array user, host and server settings array
      */
@@ -1255,11 +1216,11 @@ class Config
         $user = null;
         $password = null;
 
-        if ($mode == DatabaseInterface::CONNECT_USER) {
+        if ($mode == Connection::TYPE_USER) {
             $user = $GLOBALS['cfg']['Server']['user'];
             $password = $GLOBALS['cfg']['Server']['password'];
             $server = $GLOBALS['cfg']['Server'];
-        } elseif ($mode == DatabaseInterface::CONNECT_CONTROL) {
+        } elseif ($mode == Connection::TYPE_CONTROL) {
             $user = $GLOBALS['cfg']['Server']['controluser'];
             $password = $GLOBALS['cfg']['Server']['controlpass'];
 

@@ -12,7 +12,6 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function in_array;
-use function intval;
 
 /**
  * Represents a columns node in the navigation tree
@@ -148,7 +147,7 @@ class NodeTable extends NodeDatabaseChild
      *
      * @return array
      */
-    public function getData($type, $pos, $searchClause = '')
+    public function getData(string $type, int $pos, string $searchClause = ''): array
     {
         $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
         $retval = [];
@@ -168,7 +167,7 @@ class NodeTable extends NodeDatabaseChild
                     $query .= "WHERE `TABLE_NAME`='" . $table . "' ";
                     $query .= "AND `TABLE_SCHEMA`='" . $db . "' ";
                     $query .= 'ORDER BY `COLUMN_NAME` ASC ';
-                    $query .= 'LIMIT ' . intval($pos) . ', ' . $maxItems;
+                    $query .= 'LIMIT ' . $pos . ', ' . $maxItems;
                     $retval = $GLOBALS['dbi']->fetchResult($query);
                     break;
                 }
@@ -235,7 +234,7 @@ class NodeTable extends NodeDatabaseChild
                     $query .= 'AND `EVENT_OBJECT_TABLE` '
                     . Util::getCollateForIS() . "='" . $table . "' ";
                     $query .= 'ORDER BY `TRIGGER_NAME` ASC ';
-                    $query .= 'LIMIT ' . intval($pos) . ', ' . $maxItems;
+                    $query .= 'LIMIT ' . $pos . ', ' . $maxItems;
                     $retval = $GLOBALS['dbi']->fetchResult($query);
                     break;
                 }

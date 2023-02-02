@@ -16,13 +16,14 @@ use function defined;
 use function gmdate;
 use function header;
 use function htmlspecialchars;
-use function implode;
 use function ini_get;
-use function is_bool;
+use function json_encode;
 use function sprintf;
 use function strlen;
 use function strtolower;
 use function urlencode;
+
+use const JSON_HEX_TAG;
 
 /**
  * Class used to output the HTTP and HTML headers
@@ -111,7 +112,7 @@ class Header
         $this->isAjax = false;
         $this->bodyId = '';
         $this->title = '';
-        $this->console = new Console();
+        $this->console = new Console(new Relation($GLOBALS['dbi']), $this->template);
         $this->menu = new Menu($GLOBALS['dbi'], $GLOBALS['db'] ?? '', $GLOBALS['table'] ?? '');
         $this->menuEnabled = true;
         $this->warningsEnabled = true;
@@ -129,25 +130,17 @@ class Header
     {
         $this->scripts->addFile('runtime.js');
         $this->scripts->addFile('vendor/jquery/jquery.min.js');
-        $this->scripts->addFile('vendor/jquery/jquery-migrate.js');
+        $this->scripts->addFile('vendor/jquery/jquery-migrate.min.js');
         $this->scripts->addFile('vendor/sprintf.js');
-        $this->scripts->addFile('ajax.js');
-        $this->scripts->addFile('keyhandler.js');
         $this->scripts->addFile('vendor/jquery/jquery-ui.min.js');
         $this->scripts->addFile('name-conflict-fixes.js');
         $this->scripts->addFile('vendor/bootstrap/bootstrap.bundle.min.js');
-        $this->scripts->addFile('vendor/js.cookie.js');
-        $this->scripts->addFile('vendor/jquery/jquery.validate.js');
+        $this->scripts->addFile('vendor/js.cookie.min.js');
+        $this->scripts->addFile('vendor/jquery/jquery.validate.min.js');
         $this->scripts->addFile('vendor/jquery/jquery-ui-timepicker-addon.js');
+        $this->scripts->addFile('index.php', ['route' => '/messages', 'l' => $GLOBALS['lang']]);
+        $this->scripts->addFile('shared.js');
         $this->scripts->addFile('menu_resizer.js');
-        $this->scripts->addFile('cross_framing_protection.js');
-        $this->scripts->addFile('messages.php', ['l' => $GLOBALS['lang']]);
-        $this->scripts->addFile('config.js');
-        $this->scripts->addFile('functions.js');
-        $this->scripts->addFile('navigation.js');
-        $this->scripts->addFile('indexes.js');
-        $this->scripts->addFile('common.js');
-        $this->scripts->addFile('page_settings.js');
         $this->scripts->addFile('main.js');
 
         $this->scripts->addCode($this->getJsParamsCode());
@@ -201,15 +194,8 @@ class Header
     public function getJsParamsCode(): string
     {
         $params = $this->getJsParams();
-        foreach ($params as $key => $value) {
-            if (is_bool($value)) {
-                $params[$key] = $key . ':' . ($value ? 'true' : 'false') . '';
-            } else {
-                $params[$key] = $key . ':"' . Sanitize::escapeJsString($value) . '"';
-            }
-        }
 
-        return 'window.CommonParams.setAll({' . implode(',', $params) . '});';
+        return 'window.Navigation.update(window.CommonParams.setAll(' . json_encode($params, JSON_HEX_TAG) . '));';
     }
 
     /**
@@ -349,21 +335,6 @@ class Header
         $this->scripts->addCode('ConsoleEnterExecutes=' . ($GLOBALS['cfg']['ConsoleEnterExecutes'] ? 'true' : 'false'));
         $this->scripts->addFiles($this->console->getScripts());
 
-        // if database storage for user preferences is transient,
-        // offer to load exported settings from localStorage
-        // (detection will be done in JavaScript)
-        $userprefsOfferImport = false;
-        if (
-            $GLOBALS['config']->get('user_preferences') === 'session'
-            && ! isset($_SESSION['userprefs_autoload'])
-        ) {
-            $userprefsOfferImport = true;
-        }
-
-        if ($userprefsOfferImport) {
-            $this->scripts->addFile('config.js');
-        }
-
         if ($this->menuEnabled && $GLOBALS['server'] > 0) {
             $nav = new Navigation(
                 $this->template,
@@ -376,7 +347,10 @@ class Header
         $customHeader = Config::renderHeader();
 
         // offer to load user preferences from localStorage
-        if ($userprefsOfferImport) {
+        if (
+            $GLOBALS['config']->get('user_preferences') === 'session'
+            && ! isset($_SESSION['userprefs_autoload'])
+        ) {
             $loadUserPreferences = $this->userPreferences->autoloadGetHeader();
         }
 
@@ -386,6 +360,7 @@ class Header
 
         $console = $this->console->getDisplay();
         $messages = $this->getMessage();
+        $isLoggedIn = isset($GLOBALS['dbi']) && $GLOBALS['dbi']->isConnected();
 
         $this->scripts->addFile('datetimepicker.js');
         $this->scripts->addFile('validator-messages.js');
@@ -407,6 +382,7 @@ class Header
             'show_hint' => $GLOBALS['cfg']['ShowHint'],
             'is_warnings_enabled' => $this->warningsEnabled,
             'is_menu_enabled' => $this->menuEnabled,
+            'is_logged_in' => $isLoggedIn,
             'menu' => $menu ?? '',
             'console' => $console,
             'messages' => $messages,
@@ -627,18 +603,16 @@ class Header
      */
     private function addRecentTable(string $db, string $table): string
     {
-        $retval = '';
-        if ($this->menuEnabled && strlen($table) > 0 && $GLOBALS['cfg']['NumRecentTables'] > 0) {
-            $tmpResult = RecentFavoriteTable::getInstance('recent')->add($db, $table);
-            if ($tmpResult === true) {
-                $retval = RecentFavoriteTable::getHtmlUpdateRecentTables();
-            } else {
-                $error = $tmpResult;
-                $retval = $error->getDisplay();
+        if ($this->menuEnabled && $table !== '' && $GLOBALS['cfg']['NumRecentTables'] > 0) {
+            $error = RecentFavoriteTable::getInstance('recent')->add($db, $table);
+            if ($error === true) {
+                return RecentFavoriteTable::getHtmlUpdateRecentTables();
             }
+
+            return $error->getDisplay();
         }
 
-        return $retval;
+        return '';
     }
 
     /**

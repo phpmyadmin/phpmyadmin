@@ -80,7 +80,7 @@ class SvgRelationSchema extends ExportRelationSchema
                 $this->pageNumber
             )
         );
-        $this->diagram->SetAuthor('phpMyAdmin ' . Version::VERSION);
+        $this->diagram->setAuthor('phpMyAdmin ' . Version::VERSION);
         $this->diagram->setFont('Arial');
         $this->diagram->setFontSize(16);
 
@@ -176,11 +176,11 @@ class SvgRelationSchema extends ExportRelationSchema
     }
 
     /**
-     * Output RelationStatsSvg Document for download
+     * @return array{fileName: non-empty-string, fileData: string}
      */
-    public function showOutput(): void
+    public function getExportInfo(): array
     {
-        $this->diagram->showOutput($this->getFileName('.svg'));
+        return ['fileName' => $this->getFileName('.svg'), 'fileData' => $this->diagram->getOutputData()];
     }
 
     /**

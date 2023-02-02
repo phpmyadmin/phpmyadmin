@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -14,7 +15,6 @@ use PhpMyAdmin\Url;
 use function __;
 use function basename;
 use function defined;
-use function strlen;
 
 abstract class AbstractController
 {
@@ -58,8 +58,10 @@ abstract class AbstractController
         }
 
         $GLOBALS['is_db'] = false;
-        if (strlen($GLOBALS['db']) > 0) {
-            $GLOBALS['is_db'] = $GLOBALS['dbi']->selectDb($GLOBALS['db']);
+        $db = DatabaseName::tryFromValue($GLOBALS['db']);
+
+        if ($db !== null) {
+            $GLOBALS['is_db'] = $GLOBALS['dbi']->selectDb($db->getName());
             // This "Command out of sync" 2014 error may happen, for example
             // after calling a MySQL procedure; at this point we can't select
             // the db but it's not necessarily wrong
@@ -69,7 +71,7 @@ abstract class AbstractController
             }
         }
 
-        if (strlen($GLOBALS['db']) === 0 || ! $GLOBALS['is_db']) {
+        if ($db === null || ! $GLOBALS['is_db']) {
             if ($this->response->isAjax()) {
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON(
@@ -144,7 +146,12 @@ abstract class AbstractController
         }
 
         $this->response->setHttpResponseCode(400);
-        Core::fatalError($errorMessage);
+        $this->response->setRequestStatus(false);
+        $this->response->addHTML(Message::error($errorMessage)->getDisplay());
+
+        if (! defined('TESTSUITE')) {
+            exit;
+        }
     }
 
     /**

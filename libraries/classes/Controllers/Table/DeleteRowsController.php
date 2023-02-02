@@ -8,6 +8,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
@@ -34,7 +35,7 @@ final class DeleteRowsController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['goto'] = $GLOBALS['goto'] ?? null;
         $GLOBALS['disp_message'] = $GLOBALS['disp_message'] ?? null;
@@ -42,7 +43,6 @@ final class DeleteRowsController extends AbstractController
         $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
 
         $mult_btn = $_POST['mult_btn'] ?? '';
-        $original_sql_query = $_POST['original_sql_query'] ?? '';
         $selected = $_POST['selected'] ?? [];
 
         $relation = new Relation($this->dbi);
@@ -80,11 +80,8 @@ final class DeleteRowsController extends AbstractController
             $GLOBALS['disp_query'] = $GLOBALS['sql_query'];
         }
 
-        $_url_params = $GLOBALS['urlParams'];
-        $_url_params['goto'] = Url::getFromRoute('/table/sql');
-
-        if (isset($original_sql_query)) {
-            $GLOBALS['sql_query'] = $original_sql_query;
+        if ($request->hasBodyParam('original_sql_query')) {
+            $GLOBALS['sql_query'] = $request->getParsedBodyParam('original_sql_query', '');
         }
 
         $GLOBALS['active_page'] = Url::getFromRoute('/sql');

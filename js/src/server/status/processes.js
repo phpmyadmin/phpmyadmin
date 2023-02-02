@@ -1,4 +1,10 @@
 import $ from 'jquery';
+import { AJAX } from '../../modules/ajax.js';
+import { CommonParams } from '../../modules/common.js';
+import highlightSql from '../../modules/sql-highlight.js';
+import { ajaxShowMessage } from '../../modules/ajax-message.js';
+import { escapeHtml } from '../../modules/functions/escape.js';
+import getImageTag from '../../modules/functions/getImageTag.js';
 
 /**
  * Server Status Processes
@@ -47,9 +53,9 @@ var processList = {
      */
     killProcessHandler: function (event) {
         event.preventDefault();
-        var argSep = window.CommonParams.get('arg_separator');
+        var argSep = CommonParams.get('arg_separator');
         var params = $(this).getPostData();
-        params += argSep + 'ajax_request=1' + argSep + 'server=' + window.CommonParams.get('server');
+        params += argSep + 'ajax_request=1' + argSep + 'server=' + CommonParams.get('server');
         // Get row element of the process to be killed.
         var $tr = $(this).closest('tr');
         $.post($(this).attr('href'), params, function (data) {
@@ -68,10 +74,10 @@ var processList = {
                     }
                 });
                 // Show process killed message
-                Functions.ajaxShowMessage(data.message, false);
+                ajaxShowMessage(data.message, false);
             } else {
                 // Show process error message
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         }, 'json');
     },
@@ -98,7 +104,7 @@ var processList = {
                     if (data.hasOwnProperty('success') && data.success) {
                         var $newTable = $(data.message);
                         $('#tableprocesslist').html($newTable.html());
-                        Functions.highlightSql($('#tableprocesslist'));
+                        highlightSql($('#tableprocesslist'));
                     }
                     processList.refreshTimeout = setTimeout(
                         processList.refresh,
@@ -135,7 +141,7 @@ var processList = {
             label = window.Messages.strStopRefresh;
             processList.refresh();
         }
-        $('a#toggleRefresh').html(Functions.getImage(img) + Functions.escapeHtml(label));
+        $('a#toggleRefresh').html(getImageTag(img) + escapeHtml(label));
     },
 
     /**
@@ -147,7 +153,7 @@ var processList = {
      */
     getUrlParams: function () {
         var urlParams = {
-            'server': window.CommonParams.get('server'),
+            'server': CommonParams.get('server'),
             'ajax_request': true,
             'refresh': true,
             'full': $('input[name="full"]').val(),
@@ -163,7 +169,7 @@ var processList = {
     }
 };
 
-window.AJAX.registerOnload('server/status/processes.js', function () {
+AJAX.registerOnload('server/status/processes.js', function () {
     processList.init();
     // Bind event handler for kill_process
     $('#tableprocesslist').on(
@@ -174,7 +180,7 @@ window.AJAX.registerOnload('server/status/processes.js', function () {
     // Bind event handler for toggling refresh of process list
     $('a#toggleRefresh').on('click', function (event) {
         event.preventDefault();
-        processList.autoRefresh = !processList.autoRefresh;
+        processList.autoRefresh = ! processList.autoRefresh;
         processList.setRefreshLabel();
     });
     // Bind event handler for change in refresh rate
@@ -191,7 +197,7 @@ window.AJAX.registerOnload('server/status/processes.js', function () {
 /**
  * Unbind all event handlers before tearing down a page
  */
-window.AJAX.registerTeardown('server/status/processes.js', function () {
+AJAX.registerTeardown('server/status/processes.js', function () {
     $('#tableprocesslist').off('click', 'a.kill_process');
     $('a#toggleRefresh').off('click');
     $('#id_refreshRate').off('change');

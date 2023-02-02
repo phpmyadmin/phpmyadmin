@@ -1,22 +1,30 @@
 <?php
-/**
- * Replication helpers
- */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\ResultInterface;
 
 use function explode;
 use function mb_strtoupper;
 
 /**
- * PhpMyAdmin\Replication class
+ * Replication helpers
+ *
+ * @psalm-import-type ConnectionType from Connection
  */
 class Replication
 {
+    /** @var DatabaseInterface */
+    private $dbi;
+
+    public function __construct(DatabaseInterface $dbi)
+    {
+        $this->dbi = $dbi;
+    }
+
     /**
      * Extracts database or table name from string
      *
@@ -43,11 +51,11 @@ class Replication
      *                             possible values: SQL_THREAD or IO_THREAD or null.
      *                             If it is set to null, it controls both
      *                             SQL_THREAD and IO_THREAD
-     * @param int         $link    mysql link
+     * @psalm-param ConnectionType $connectionType
      *
      * @return ResultInterface|false|int output of DatabaseInterface::tryQuery
      */
-    public function replicaControl(string $action, ?string $control, int $link)
+    public function replicaControl(string $action, ?string $control, int $connectionType)
     {
         $action = mb_strtoupper($action);
         $control = $control !== null ? mb_strtoupper($control) : '';
@@ -60,7 +68,7 @@ class Replication
             return -1;
         }
 
-        return $GLOBALS['dbi']->tryQuery($action . ' SLAVE ' . $control . ';', $link);
+        return $this->dbi->tryQuery($action . ' SLAVE ' . $control . ';', $connectionType);
     }
 
     /**
@@ -73,37 +81,37 @@ class Replication
      * @param array  $pos      position of mysql replication, array should contain fields File and Position
      * @param bool   $stop     shall we stop replica?
      * @param bool   $start    shall we start replica?
-     * @param int    $link     mysql link
+     * @psalm-param ConnectionType $connectionType
      *
      * @return ResultInterface|false output of CHANGE MASTER mysql command
      */
     public function replicaChangePrimary(
-        $user,
-        $password,
-        $host,
-        $port,
+        string $user,
+        string $password,
+        string $host,
+        int $port,
         array $pos,
         bool $stop,
         bool $start,
-        int $link
+        int $connectionType
     ) {
         if ($stop) {
-            $this->replicaControl('STOP', null, $link);
+            $this->replicaControl('STOP', null, $connectionType);
         }
 
-        $out = $GLOBALS['dbi']->tryQuery(
+        $out = $this->dbi->tryQuery(
             'CHANGE MASTER TO ' .
-            'MASTER_HOST=\'' . $host . '\',' .
-            'MASTER_PORT=' . ($port * 1) . ',' .
-            'MASTER_USER=\'' . $user . '\',' .
-            'MASTER_PASSWORD=\'' . $password . '\',' .
-            'MASTER_LOG_FILE=\'' . $pos['File'] . '\',' .
+            'MASTER_HOST=' . $this->dbi->quoteString($host) . ',' .
+            'MASTER_PORT=' . $port . ',' .
+            'MASTER_USER=' . $this->dbi->quoteString($user) . ',' .
+            'MASTER_PASSWORD=' . $this->dbi->quoteString($password) . ',' .
+            'MASTER_LOG_FILE=' . $this->dbi->quoteString($pos['File']) . ',' .
             'MASTER_LOG_POS=' . $pos['Position'] . ';',
-            $link
+            $connectionType
         );
 
         if ($start) {
-            $this->replicaControl('START', null, $link);
+            $this->replicaControl('START', null, $connectionType);
         }
 
         return $out;
@@ -117,8 +125,6 @@ class Replication
      * @param string $host     mysql server's hostname or IP
      * @param int    $port     mysql remote port
      * @param string $socket   path to unix socket
-     *
-     * @return mixed mysql link on success
      */
     public function connectToPrimary(
         $user,
@@ -126,7 +132,7 @@ class Replication
         $host = null,
         $port = null,
         $socket = null
-    ) {
+    ): ?Connection {
         $server = [];
         $server['user'] = $user;
         $server['password'] = $password;
@@ -136,21 +142,21 @@ class Replication
 
         // 5th parameter set to true means that it's an auxiliary connection
         // and we must not go back to login page if it fails
-        return $GLOBALS['dbi']->connect(DatabaseInterface::CONNECT_AUXILIARY, $server);
+        return $this->dbi->connect(Connection::TYPE_AUXILIARY, $server);
     }
 
     /**
      * Fetches position and file of current binary log on primary
      *
-     * @param int $link mysql link
+     * @psalm-param ConnectionType $connectionType
      *
      * @return array an array containing File and Position in MySQL replication
      * on primary server, useful for {@see Replication::replicaChangePrimary()}.
      * @phpstan-return array{'File'?: string, 'Position'?: string}
      */
-    public function replicaBinLogPrimary(int $link): array
+    public function replicaBinLogPrimary(int $connectionType): array
     {
-        $data = $GLOBALS['dbi']->fetchResult('SHOW MASTER STATUS', null, null, $link);
+        $data = $this->dbi->fetchResult('SHOW MASTER STATUS', null, null, $connectionType);
         $output = [];
 
         if (! empty($data)) {

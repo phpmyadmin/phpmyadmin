@@ -9,6 +9,8 @@ use PhpMyAdmin\ConfigStorage\Features\ConfigurableMenusFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
@@ -36,7 +38,7 @@ final class UserGroupsFormController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $this->response->setAjax(true);
 
@@ -84,7 +86,7 @@ final class UserGroupsFormController extends AbstractController
             $userTable,
             $this->dbi->escapeString($username)
         );
-        $userGroup = $this->dbi->fetchValue($sqlQuery, 0, DatabaseInterface::CONNECT_CONTROL);
+        $userGroup = $this->dbi->fetchValue($sqlQuery, 0, Connection::TYPE_CONTROL);
 
         $allUserGroups = [];
         $sqlQuery = 'SELECT DISTINCT `usergroup` FROM ' . $groupTable;

@@ -39,9 +39,28 @@ class SqlQueryFormTest extends AbstractTestCase
         parent::setUp();
         parent::setLanguage();
         $this->dummyDbi = $this->createDbiDummy();
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dummyDbi->addResult(
+            'SHOW FULL COLUMNS FROM `PMA_db`.`PMA_table`',
+            [
+                [
+                    'field1',
+                    'Comment1',
+                ],
+            ],
+            [
+                'Field',
+                'Comment',
+            ]
+        );
+
+        $this->dummyDbi->addResult(
+            'SHOW INDEXES FROM `PMA_db`.`PMA_table`',
+            []
+        );
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;
-        $this->sqlQueryForm = new SqlQueryForm(new Template());
+        $this->sqlQueryForm = new SqlQueryForm(new Template(), $this->dbi);
 
         //$GLOBALS
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
@@ -77,28 +96,6 @@ class SqlQueryFormTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['user'] = 'user';
         $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
         $GLOBALS['cfg']['Server']['bookmarktable'] = 'bookmarktable';
-
-        $this->dummyDbi = $this->createDbiDummy();
-        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        $GLOBALS['dbi'] = $this->dbi;
-        $this->dummyDbi->addResult(
-            'SHOW FULL COLUMNS FROM `PMA_db`.`PMA_table`',
-            [
-                [
-                    'field1',
-                    'Comment1',
-                ],
-            ],
-            [
-                'Field',
-                'Comment',
-            ]
-        );
-
-        $this->dummyDbi->addResult(
-            'SHOW INDEXES FROM `PMA_db`.`PMA_table`',
-            []
-        );
     }
 
     /**

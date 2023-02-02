@@ -5,13 +5,16 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Database\DatabaseList;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\ResultInterface;
+use PhpMyAdmin\Dbal\Statement;
+use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Query\Utilities;
+use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Utils\SessionCache;
-use stdClass;
 
 /**
  * @covers \PhpMyAdmin\DatabaseInterface
@@ -22,6 +25,18 @@ class DatabaseInterfaceTest extends AbstractTestCase
     {
         parent::setUp();
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
+    }
+
+    /**
+     * Tear down function for mockResponse method
+     */
+    protected function tearDown(): void
+    {
+        parent::tearDown();
+
+        unset($GLOBALS['lang']);
+        unset($GLOBALS['cfg']['Server']['SessionTimeZone']);
+        Context::load();
     }
 
     /**
@@ -153,22 +168,112 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $this->assertInstanceOf(SystemDatabase::class, $sd);
     }
 
-    /**
-     * Tests for DBI::postConnectControl() method.
-     */
-    public function testPostConnectControl(): void
+    public function testPostConnectControlWithZeroConf(): void
     {
-        $dummyDbi = $this->createDbiDummy();
-        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $GLOBALS['cfg']['ZeroConf'] = true;
+        $dbi = $this->createDatabaseInterface();
+        $relationMock = $this->createMock(Relation::class);
+        $relationMock->expects($this->once())->method('initRelationParamsCache');
+        $dbi->postConnectControl($relationMock);
+    }
 
-        $dummyDbi->addResult(
-            'SHOW TABLES FROM `phpmyadmin`;',
-            []
-        );
-        $GLOBALS['db'] = '';
-        $GLOBALS['cfg']['Server']['only_db'] = [];
-        $dbi->postConnectControl(new Relation($dbi));
-        $this->assertInstanceOf(DatabaseList::class, $GLOBALS['dblist']);
+    public function testPostConnectControlWithoutZeroConf(): void
+    {
+        $GLOBALS['cfg']['ZeroConf'] = false;
+        $dbi = $this->createDatabaseInterface();
+        $relationMock = $this->createMock(Relation::class);
+        $relationMock->expects($this->never())->method('initRelationParamsCache');
+        $dbi->postConnectControl($relationMock);
+    }
+
+    /**
+     * Tests for DBI::postConnect() method.
+     * should not call setVersion method if cannot fetch version
+     */
+    public function testPostConnectShouldNotCallSetVersionIfNoVersion(): void
+    {
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['cfg']['Server']['SessionTimeZone'] = '';
+        LanguageManager::getInstance()->availableLanguages();
+
+        $mock = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->onlyMethods(['fetchSingleRow', 'query', 'setVersion'])
+            ->getMock();
+
+        $mock->expects($this->once())
+            ->method('fetchSingleRow')
+            ->will($this->returnValue(null));
+
+        $mock->expects($this->never())->method('setVersion');
+
+        $mock->postConnect();
+    }
+
+    /**
+     * Tests for DBI::postConnect() method.
+     * should call setVersion method if $version has value
+     */
+    public function testPostConnectShouldCallSetVersionOnce(): void
+    {
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['cfg']['Server']['SessionTimeZone'] = '';
+        $versionQueryResult = [
+            '@@version' => '10.20.7-MariaDB-1:10.9.3+maria~ubu2204',
+            '@@version_comment' => 'mariadb.org binary distribution',
+        ];
+        LanguageManager::getInstance()->availableLanguages();
+
+        $mock = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->onlyMethods(['fetchSingleRow', 'query', 'setVersion'])
+            ->getMock();
+
+        $mock->expects($this->once())
+            ->method('fetchSingleRow')
+            ->will($this->returnValue($versionQueryResult));
+
+        $mock->expects($this->once())->method('setVersion')->with($versionQueryResult);
+
+        $mock->postConnect();
+    }
+
+    /**
+     * Tests for DBI::postConnect() method.
+     * should set version int, isMariaDB and isPercona
+     *
+     * @param array $version    Database version
+     * @param int   $versionInt Database version as integer
+     * @param bool  $isMariaDb  True if mariadb
+     * @param bool  $isPercona  True if percona
+     * @phpstan-param array<array-key, mixed> $version
+     *
+     * @dataProvider provideDatabaseVersionData
+     */
+    public function testPostConnectShouldSetVersion(
+        array $version,
+        int $versionInt,
+        bool $isMariaDb,
+        bool $isPercona
+    ): void {
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['cfg']['Server']['SessionTimeZone'] = '';
+        LanguageManager::getInstance()->availableLanguages();
+
+        $mock = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->onlyMethods(['fetchSingleRow', 'query'])
+            ->getMock();
+
+        $mock->expects($this->once())
+            ->method('fetchSingleRow')
+            ->will($this->returnValue($version));
+
+        $mock->postConnect();
+
+        $this->assertEquals($mock->getVersion(), $versionInt);
+        $this->assertEquals($mock->isMariaDB(), $isMariaDb);
+        $this->assertEquals($mock->isPercona(), $isPercona);
     }
 
     /**
@@ -523,18 +628,17 @@ class DatabaseInterfaceTest extends AbstractTestCase
     {
         $dummyDbi = $this->createDbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);
+        $GLOBALS['dbi'] = $dbi;
 
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        $GLOBALS['cfg']['Server']['only_db'] = '';
         $GLOBALS['cfg']['NaturalOrder'] = true;
-        $GLOBALS['dblist'] = new stdClass();
-        $GLOBALS['dblist']->databases = [
-            'db1',
-            'db2',
-        ];
         $dummyDbi->removeDefaultResults();
+        $dummyDbi->addResult('SELECT CURRENT_USER();', []);
+        $dummyDbi->addResult('SHOW DATABASES', [['db1'], ['db2']], ['Database']);
         $dummyDbi->addResult(
             'SELECT @@collation_database',
             [
@@ -684,7 +788,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $databaseList = $dbi->getDatabasesFull(
             null,
             true,
-            DatabaseInterface::CONNECT_USER,
+            Connection::TYPE_USER,
             'SCHEMA_DATA_LENGTH',
             'ASC',
             0,
@@ -717,5 +821,124 @@ class DatabaseInterfaceTest extends AbstractTestCase
         ], $databaseList);
 
         $dummyDbi->assertAllQueriesConsumed();
+    }
+
+    public function testPrepare(): void
+    {
+        $query = 'SELECT * FROM `mysql`.`user` WHERE `User` = ? AND `Host` = ?;';
+        $stmtStub = $this->createStub(Statement::class);
+        $dummyDbi = $this->createMock(DbiExtension::class);
+        $dummyDbi->expects($this->once())->method('prepare')
+            ->with($this->isType('object'), $this->equalTo($query))
+            ->willReturn($stmtStub);
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $stmt = $dbi->prepare($query, Connection::TYPE_CONTROL);
+        $this->assertSame($stmtStub, $stmt);
+    }
+
+    /**
+     * Tests for setVersion method.
+     *
+     * @param array $version    Database version
+     * @param int   $versionInt Database version as integer
+     * @param bool  $isMariaDb  True if mariadb
+     * @param bool  $isPercona  True if percona
+     * @phpstan-param array<array-key, mixed> $version
+     *
+     * @dataProvider provideDatabaseVersionData
+     */
+    public function testSetVersion(
+        array $version,
+        int $versionInt,
+        bool $isMariaDb,
+        bool $isPercona
+    ): void {
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+
+        $dbi->setVersion($version);
+
+        $this->assertEquals($versionInt, $dbi->getVersion());
+        $this->assertEquals($isMariaDb, $dbi->isMariaDB());
+        $this->assertEquals($isPercona, $dbi->isPercona());
+        $this->assertEquals($version['@@version'], $dbi->getVersionString());
+    }
+
+    /**
+     * Data provider for setVersion() tests.
+     *
+     * @return array
+     * @psalm-return array<int, array{array<array-key, mixed>, int, bool, bool}>
+     */
+    public function provideDatabaseVersionData(): array
+    {
+        return [
+            [
+                [
+                    '@@version' => '6.1.0',
+                    '@@version_comment' => "Percona Server (GPL), Release '11', Revision 'c1y2gr1df4a'",
+                ],
+                60100,
+                false,
+                true,
+            ],
+            [
+                [
+                    '@@version' => '10.01.40-MariaDB-1:10.01.40+maria~ubu2204',
+                    '@@version_comment' => 'mariadb.org binary distribution',
+                ],
+                100140,
+                true,
+                false,
+            ],
+            [
+                [
+                    '@@version' => '7.10.3',
+                    '@@version_comment' => 'MySQL Community Server (GPL)',
+                ],
+                71003,
+                false,
+                false,
+            ],
+            [
+                [
+                    '@@version' => '5.5.0',
+                    '@@version_comment' => '',
+                ],
+                50500,
+                false,
+                false,
+            ],
+        ];
+    }
+
+    /**
+     * @param string|false|null $result
+     *
+     * @dataProvider providerForTestGetLowerCaseNames
+     */
+    public function testGetLowerCaseNames($result, int $expected): void
+    {
+        $dbiDummy = $this->createDbiDummy();
+        $expectedResult = $result !== false ? [[$result]] : [];
+        $dbiDummy->addResult('SELECT @@lower_case_table_names', $expectedResult, ['@@lower_case_table_names']);
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+        $this->assertSame($expected, $dbi->getLowerCaseNames());
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
+    /**
+     * @return iterable<string, array{string|false|null, int}>
+     */
+    public function providerForTestGetLowerCaseNames(): iterable
+    {
+        yield 'string 0' => ['0', 0];
+        yield 'string 1' => ['1', 1];
+        yield 'string 2' => ['2', 2];
+        yield 'invalid lower value' => ['-1', 0];
+        yield 'invalid higher value' => ['3', 0];
+        yield 'empty string' => ['', 0];
+        yield 'null' => [null, 0];
+        yield 'false' => [false, 0];
     }
 }

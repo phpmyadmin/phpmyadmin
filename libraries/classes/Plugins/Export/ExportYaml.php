@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -19,6 +20,8 @@ use function __;
 use function array_key_exists;
 use function is_numeric;
 use function str_replace;
+
+use const PHP_EOL;
 
 /**
  * Handles the export for the YAML format
@@ -66,7 +69,7 @@ class ExportYaml extends ExportPlugin
      */
     public function exportHeader(): bool
     {
-        $this->export->outputHandler('%YAML 1.1' . $GLOBALS['crlf'] . '---' . $GLOBALS['crlf']);
+        $this->export->outputHandler('%YAML 1.1' . PHP_EOL . '---' . PHP_EOL);
 
         return true;
     }
@@ -76,7 +79,7 @@ class ExportYaml extends ExportPlugin
      */
     public function exportFooter(): bool
     {
-        $this->export->outputHandler('...' . $GLOBALS['crlf']);
+        $this->export->outputHandler('...' . PHP_EOL);
 
         return true;
     }
@@ -119,7 +122,6 @@ class ExportYaml extends ExportPlugin
      *
      * @param string $db       database name
      * @param string $table    table name
-     * @param string $crlf     the end of line sequence
      * @param string $errorUrl the url to go back in case of error
      * @param string $sqlQuery SQL query for obtaining data
      * @param array  $aliases  Aliases of db/table/columns
@@ -127,7 +129,6 @@ class ExportYaml extends ExportPlugin
     public function exportData(
         $db,
         $table,
-        $crlf,
         $errorUrl,
         $sqlQuery,
         array $aliases = []
@@ -137,7 +138,7 @@ class ExportYaml extends ExportPlugin
         $this->initAlias($aliases, $db_alias, $table_alias);
         $result = $GLOBALS['dbi']->query(
             $sqlQuery,
-            DatabaseInterface::CONNECT_USER,
+            Connection::TYPE_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
 
@@ -160,10 +161,10 @@ class ExportYaml extends ExportPlugin
 
             // Output table name as comment if this is the first record of the table
             if ($record_cnt == 1) {
-                $buffer = '# ' . $db_alias . '.' . $table_alias . $crlf;
-                $buffer .= '-' . $crlf;
+                $buffer = '# ' . $db_alias . '.' . $table_alias . PHP_EOL;
+                $buffer .= '-' . PHP_EOL;
             } else {
-                $buffer = '-' . $crlf;
+                $buffer = '-' . PHP_EOL;
             }
 
             for ($i = 0; $i < $columns_cnt; $i++) {
@@ -172,13 +173,13 @@ class ExportYaml extends ExportPlugin
                 }
 
                 if ($record[$i] === null) {
-                    $buffer .= '  ' . $columns[$i] . ': null' . $crlf;
+                    $buffer .= '  ' . $columns[$i] . ': null' . PHP_EOL;
                     continue;
                 }
 
                 $isNotString = isset($fieldsMeta[$i]) && $fieldsMeta[$i]->isNotType(FieldMetadata::TYPE_STRING);
                 if (is_numeric($record[$i]) && $isNotString) {
-                    $buffer .= '  ' . $columns[$i] . ': ' . $record[$i] . $crlf;
+                    $buffer .= '  ' . $columns[$i] . ': ' . $record[$i] . PHP_EOL;
                     continue;
                 }
 
@@ -197,7 +198,7 @@ class ExportYaml extends ExportPlugin
                     ],
                     $record[$i]
                 );
-                $buffer .= '  ' . $columns[$i] . ': "' . $record[$i] . '"' . $crlf;
+                $buffer .= '  ' . $columns[$i] . ': "' . $record[$i] . '"' . PHP_EOL;
             }
 
             if (! $this->export->outputHandler($buffer)) {
@@ -211,12 +212,16 @@ class ExportYaml extends ExportPlugin
     /**
      * Outputs result raw query in YAML format
      *
-     * @param string $errorUrl the url to go back in case of error
-     * @param string $sqlQuery the rawquery to output
-     * @param string $crlf     the end of line sequence
+     * @param string      $errorUrl the url to go back in case of error
+     * @param string|null $db       the database where the query is executed
+     * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string $errorUrl, string $sqlQuery, string $crlf): bool
+    public function exportRawQuery(string $errorUrl, ?string $db, string $sqlQuery): bool
     {
-        return $this->exportData('', '', $crlf, $errorUrl, $sqlQuery);
+        if ($db !== null) {
+            $GLOBALS['dbi']->selectDb($db);
+        }
+
+        return $this->exportData($db ?? '', '', $errorUrl, $sqlQuery);
     }
 }

@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
-use PHPUnit\Framework\AssertionFailedError;
-
-use function array_push;
 use function trim;
 
 /**
@@ -20,13 +17,6 @@ class ChangePasswordTest extends TestBase
      * @var bool
      */
     protected static $createDatabase = false;
-
-    /**
-     * Array of AssertionFailedError->toString
-     *
-     * @var string[]
-     */
-    private $verificationErrors;
 
     /**
      * Tests the changing of the password
@@ -43,26 +33,15 @@ class ChangePasswordTest extends TestBase
         $this->waitAjax();
 
         $this->waitForElement('xpath', "//span[contains(., 'Change password')]");
-        try {
-            $ele = $this->waitForElement('name', 'pma_pw');
-            $this->assertEquals('', $ele->getAttribute('value'));
-        } catch (AssertionFailedError $e) {
-            array_push($this->verificationErrors, $e->getMessage());
-        }
 
-        try {
-            $ele = $this->waitForElement('name', 'pma_pw2');
-            $this->assertEquals('', $ele->getAttribute('value'));
-        } catch (AssertionFailedError $e) {
-            array_push($this->verificationErrors, $e->getMessage());
-        }
+        $ele = $this->waitForElement('name', 'pma_pw');
+        $this->assertEquals('', $ele->getAttribute('value'));
 
-        try {
-            $ele = $this->waitForElement('name', 'generated_pw');
-            $this->assertEquals('', $ele->getAttribute('value'));
-        } catch (AssertionFailedError $e) {
-            array_push($this->verificationErrors, $e->getMessage());
-        }
+        $ele = $this->waitForElement('name', 'pma_pw2');
+        $this->assertEquals('', $ele->getAttribute('value'));
+
+        $ele = $this->waitForElement('name', 'generated_pw');
+        $this->assertEquals('', $ele->getAttribute('value'));
 
         $this->byId('button_generate_password')->click();
         $this->assertNotEquals('', $this->byName('pma_pw')->getAttribute('value'));

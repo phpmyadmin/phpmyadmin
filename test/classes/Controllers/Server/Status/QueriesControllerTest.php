@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 
 use PhpMyAdmin\Controllers\Server\Status\QueriesController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -48,7 +49,7 @@ class QueriesControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
 
-        $this->data = new Data();
+        $this->data = new Data($this->dbi);
         $this->data->status['Uptime'] = 36000;
         $this->data->usedQueries = [
             'Com_change_db' => '15',
@@ -67,7 +68,7 @@ class QueriesControllerTest extends AbstractTestCase
         $controller = new QueriesController($response, new Template(), $this->data, $GLOBALS['dbi']);
 
         $this->dummyDbi->addSelectDb('mysql');
-        $controller();
+        $controller($this->createStub(ServerRequest::class));
         $this->dummyDbi->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 

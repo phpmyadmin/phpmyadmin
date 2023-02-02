@@ -1,14 +1,16 @@
 import $ from 'jquery';
+import { AJAX } from '../modules/ajax.js';
+import { Functions } from '../modules/functions.js';
+import { CommonParams } from '../modules/common.js';
+import { ajaxShowMessage } from '../modules/ajax-message.js';
+import { escapeBacktick } from '../modules/functions/escape.js';
 
 /**
  * @fileoverview    function used in QBE for DB
  * @name            Database Operations
  *
- * @requires    jQuery
  * @requires    jQueryUI
- * @requires    js/functions.js
  * @requires    js/database/query_generator.js
- *
  */
 
 /**
@@ -18,7 +20,7 @@ import $ from 'jquery';
 /**
  * Unbind all event handlers before tearing down a page
  */
-window.AJAX.registerTeardown('database/multi_table_query.js', function () {
+AJAX.registerTeardown('database/multi_table_query.js', function () {
     $('.tableNameSelect').each(function () {
         $(this).off('change');
     });
@@ -26,7 +28,7 @@ window.AJAX.registerTeardown('database/multi_table_query.js', function () {
     $('#add_column_button').off('click');
 });
 
-window.AJAX.registerOnload('database/multi_table_query.js', function () {
+AJAX.registerOnload('database/multi_table_query.js', function () {
     var editor = Functions.getSqlEditor($('#MultiSqlquery'), {}, 'both');
     $('.CodeMirror-line').css('text-align', 'left');
     editor.setSize(-1, 50);
@@ -52,7 +54,7 @@ window.AJAX.registerOnload('database/multi_table_query.js', function () {
                 columns[columns.length - 1].push(columnAlias);
 
                 if ($(this).val() in tableAliases) {
-                    if (!(tableAliases[$(this).val()].includes(tableAlias))) {
+                    if (! (tableAliases[$(this).val()].includes(tableAlias))) {
                         tableAliases[$(this).val()].push(tableAlias);
                     }
                 } else {
@@ -61,7 +63,7 @@ window.AJAX.registerOnload('database/multi_table_query.js', function () {
             }
         });
         if (Object.keys(tableAliases).length === 0) {
-            Functions.ajaxShowMessage('Nothing selected', false, 'error');
+            ajaxShowMessage('Nothing selected', false, 'error');
             return;
         }
 
@@ -75,31 +77,31 @@ window.AJAX.registerOnload('database/multi_table_query.js', function () {
                 'db': $('#db_name').val(),
                 'tables': Object.keys(tableAliases),
                 'ajax_request': '1',
-                'token': window.CommonParams.get('token')
+                'token': CommonParams.get('token')
             },
             success: function (response) {
                 foreignKeys = response.foreignKeyConstrains;
             }
         });
 
-        var query = 'SELECT ' + '`' + Functions.escapeBacktick(columns[0][0]) + '`.';
+        var query = 'SELECT ' + '`' + escapeBacktick(columns[0][0]) + '`.';
         if (columns[0][1] === '*') {
             query += '*';
         } else {
-            query += '`' + Functions.escapeBacktick(columns[0][1]) + '`';
+            query += '`' + escapeBacktick(columns[0][1]) + '`';
         }
         if (columns[0][2] !== '') {
-            query += ' AS `' + Functions.escapeBacktick(columns[0][2]) + '`';
+            query += ' AS `' + escapeBacktick(columns[0][2]) + '`';
         }
         for (var i = 1; i < columns.length; i++) {
-            query += ', `' + Functions.escapeBacktick(columns[i][0]) + '`.';
+            query += ', `' + escapeBacktick(columns[i][0]) + '`.';
             if (columns[i][1] === '*') {
                 query += '*';
             } else {
-                query += '`' + Functions.escapeBacktick(columns[i][1]) + '`';
+                query += '`' + escapeBacktick(columns[i][1]) + '`';
             }
             if (columns[i][2] !== '') {
-                query += ' AS `' + Functions.escapeBacktick(columns[i][2]) + '`';
+                query += ' AS `' + escapeBacktick(columns[i][2]) + '`';
             }
         }
         query += '\nFROM ';
@@ -120,15 +122,15 @@ window.AJAX.registerOnload('database/multi_table_query.js', function () {
         var query = editor.getDoc().getValue();
         // Verifying that the query is not empty
         if (query === '') {
-            Functions.ajaxShowMessage(window.Messages.strEmptyQuery, false, 'error');
+            ajaxShowMessage(window.Messages.strEmptyQuery, false, 'error');
             return;
         }
         var data = {
             'db': $('#db_name').val(),
             'sql_query': query,
             'ajax_request': '1',
-            'server': window.CommonParams.get('server'),
-            'token': window.CommonParams.get('token')
+            'server': CommonParams.get('server'),
+            'token': CommonParams.get('token')
         };
         $.ajax({
             type: 'POST',
@@ -183,11 +185,11 @@ window.AJAX.registerOnload('database/multi_table_query.js', function () {
             $(this).on('click', function (event, from) {
                 if (from === null) {
                     var $checkbox = $(this).siblings('.criteria_col').first();
-                    $checkbox.prop('checked', !$checkbox.prop('checked'));
+                    $checkbox.prop('checked', ! $checkbox.prop('checked'));
                 }
                 var $criteriaColCount = $('.criteria_col:checked').length;
                 if ($criteriaColCount > 1) {
-                    $(this).siblings('.jsCriteriaOptions').first().find('.logical_operator').first().css('display','table-row');
+                    $(this).siblings('.jsCriteriaOptions').first().find('.logical_operator').first().css('display', 'table-row');
                 }
             });
         });
@@ -195,6 +197,11 @@ window.AJAX.registerOnload('database/multi_table_query.js', function () {
         $('.criteria_col').each(function () {
             $(this).on('change', function () {
                 var $anchor = $(this).siblings('.jsCriteriaButton').first();
+                if ($(this).is(':checked') && ! $anchor.hasClass('collapsed')) {
+                    // Do not collapse on checkbox tick as it does not make sense
+                    // The user has it open and wants to tick the box
+                    return;
+                }
                 $anchor.trigger('click', ['Trigger']);
             });
         });

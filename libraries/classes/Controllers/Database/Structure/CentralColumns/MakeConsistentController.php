@@ -8,6 +8,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -33,7 +34,7 @@ final class MakeConsistentController extends AbstractController
         $this->structureController = $structureController;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['message'] = $GLOBALS['message'] ?? null;
 
@@ -53,6 +54,6 @@ final class MakeConsistentController extends AbstractController
 
         unset($_POST['submit_mult']);
 
-        ($this->structureController)();
+        ($this->structureController)($request);
     }
 }

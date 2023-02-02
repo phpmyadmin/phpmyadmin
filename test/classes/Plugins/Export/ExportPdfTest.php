@@ -189,7 +189,8 @@ class ExportPdfTest extends AbstractTestCase
             ->getMock();
 
         $pdf->expects($this->once())
-            ->method('getPDFData');
+            ->method('getPDFData')
+            ->willReturn('');
 
         $attrPdf = new ReflectionProperty(ExportPdf::class, 'pdf');
         $attrPdf->setAccessible(true);
@@ -239,7 +240,6 @@ class ExportPdfTest extends AbstractTestCase
             $this->object->exportData(
                 'db',
                 'table',
-                "\n",
                 'phpmyadmin.net/err',
                 'SELECT'
             )

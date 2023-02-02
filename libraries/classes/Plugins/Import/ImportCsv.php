@@ -522,9 +522,7 @@ class ImportCsv extends AbstractImportCsv
                         if ($val === null) {
                             $sql .= 'NULL';
                         } else {
-                            $sql .= '\''
-                                . $GLOBALS['dbi']->escapeString($val)
-                                . '\'';
+                            $sql .= $GLOBALS['dbi']->quoteString($val);
                         }
 
                         $first = false;
@@ -611,7 +609,8 @@ class ImportCsv extends AbstractImportCsv
              * array $options = an associative array of options
              */
 
-            /* Set database name to the currently selected one, if applicable,
+            /**
+             * Set database name to the currently selected one, if applicable,
              * Otherwise, check if user provided the database name in the request,
              * if not, set the default name
              */

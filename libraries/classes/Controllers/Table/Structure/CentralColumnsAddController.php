@@ -13,6 +13,7 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
 use function __;
+use function is_array;
 
 final class CentralColumnsAddController extends AbstractController
 {
@@ -37,9 +38,9 @@ final class CentralColumnsAddController extends AbstractController
     {
         $GLOBALS['message'] = $GLOBALS['message'] ?? null;
 
-        $selected = $_POST['selected_fld'] ?? [];
+        $selected = $request->getParsedBodyParam('selected_fld', []);
 
-        if (empty($selected)) {
+        if (! is_array($selected) || $selected === []) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 

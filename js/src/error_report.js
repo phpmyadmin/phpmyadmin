@@ -1,4 +1,8 @@
 import $ from 'jquery';
+import { AJAX } from './modules/ajax.js';
+import { CommonParams } from './modules/common.js';
+import { ajaxShowMessage } from './modules/ajax-message.js';
+import getImageTag from './modules/functions/getImageTag.js';
 
 /**
  * general function, usually for data manipulation pages
@@ -26,7 +30,7 @@ var ErrorReport = {
      */
     errorDataHandler: function (data, exception) {
         if (data.success !== true) {
-            Functions.ajaxShowMessage(data.error, false);
+            ajaxShowMessage(data.error, false);
             return;
         }
         if (data.report_setting === 'ask') {
@@ -40,9 +44,9 @@ var ErrorReport = {
             $.post('index.php?route=/error-report', postData, function (data) {
                 if (data.success === false) {
                     // in the case of an error, show the error message returned.
-                    Functions.ajaxShowMessage(data.error, false);
+                    ajaxShowMessage(data.error, false);
                 } else {
-                    Functions.ajaxShowMessage(data.message, false);
+                    ajaxShowMessage(data.message, false);
                 }
             });
         }
@@ -52,14 +56,14 @@ var ErrorReport = {
         if (JSON.stringify(ErrorReport.lastException) === JSON.stringify(exception)) {
             return;
         }
-        if (exception.name === null || typeof(exception.name) === 'undefined') {
+        if (exception.name === null || typeof (exception.name) === 'undefined') {
             exception.name = ErrorReport.extractExceptionName(exception);
         }
         ErrorReport.lastException = exception;
         if (ErrorReport.errorReportData === null) {
             $.post('index.php?route=/error-report', {
                 'ajax_request': true,
-                'server': window.CommonParams.get('server'),
+                'server': CommonParams.get('server'),
                 'get_settings': true,
                 'exception_type': 'js'
             }, function (data) {
@@ -88,9 +92,9 @@ var ErrorReport = {
             });
             $.post('index.php?route=/error-report', postData, function (data) {
                 if (data.success === false) {
-                    Functions.ajaxShowMessage(data.error, false);
+                    ajaxShowMessage(data.error, false);
                 } else {
-                    Functions.ajaxShowMessage(data.message, 3000);
+                    ajaxShowMessage(data.message, 3000);
                 }
             });
             $('#errorReportModal').modal('hide');
@@ -128,21 +132,21 @@ var ErrorReport = {
         var $div = $(
             '<div class="alert alert-danger" role="alert" id="error_notification_' + key + '"></div>'
         ).append(
-            Functions.getImage('s_error') + window.Messages.strErrorOccurred
+            getImageTag('s_error') + window.Messages.strErrorOccurred
         );
 
         var $buttons = $('<div class="float-end"></div>');
-        var buttonHtml  = '<button class="btn btn-primary" id="show_error_report_' + key + '">';
+        var buttonHtml = '<button class="btn btn-primary" id="show_error_report_' + key + '">';
         buttonHtml += window.Messages.strShowReportDetails;
         buttonHtml += '</button>';
 
-        var settingsUrl = 'index.php?route=/preferences/features&server=' + window.CommonParams.get('server');
+        var settingsUrl = 'index.php?route=/preferences/features&server=' + CommonParams.get('server');
         buttonHtml += '<a class="ajax" href="' + settingsUrl + '">';
-        buttonHtml += Functions.getImage('s_cog', window.Messages.strChangeReportSettings);
+        buttonHtml += getImageTag('s_cog', window.Messages.strChangeReportSettings);
         buttonHtml += '</a>';
 
         buttonHtml += '<a href="#" id="ignore_error_' + key + '" data-notification-id="' + key + '">';
-        buttonHtml += Functions.getImage('b_close', window.Messages.strIgnore);
+        buttonHtml += getImageTag('b_close', window.Messages.strIgnore);
         buttonHtml += '</a>';
 
         $buttons.html(buttonHtml);
@@ -175,7 +179,7 @@ var ErrorReport = {
      * @return {string}
      */
     extractExceptionName: function (exception) {
-        if (exception.message === null || typeof(exception.message) === 'undefined') {
+        if (exception.message === null || typeof (exception.message) === 'undefined') {
             return '';
         }
 
@@ -209,7 +213,7 @@ var ErrorReport = {
                 var stack = exception.stack[i];
                 if (stack.context && stack.context.length) {
                     for (var j = 0; j < stack.context.length; j++) {
-                        if (stack.context[j].length >  80) {
+                        if (stack.context[j].length > 80) {
                             stack.context[j] = stack.context[j].substring(-1, 75) + '//...';
                         }
                     }
@@ -217,14 +221,14 @@ var ErrorReport = {
             }
         }
         var reportData = {
-            'server': window.CommonParams.get('server'),
+            'server': CommonParams.get('server'),
             'ajax_request': true,
             'exception': exception,
             'url': window.location.href,
             'exception_type': 'js'
         };
-        if (window.AJAX.scriptHandler.scripts.length > 0) {
-            reportData.scripts = window.AJAX.scriptHandler.scripts.map(
+        if (AJAX.scriptHandler.scripts.length > 0) {
+            reportData.scripts = AJAX.scriptHandler.scripts.map(
                 function (script) {
                     return script;
                 }
@@ -240,7 +244,7 @@ var ErrorReport = {
      * @return {Function}
      */
     wrapFunction: function (func) {
-        if (!func.wrapped) {
+        if (! func.wrapped) {
             var newFunc = function () {
                 try {
                     return func.apply(this, arguments);
@@ -258,13 +262,13 @@ var ErrorReport = {
         }
     },
     /**
-     * Automatically wraps the callback in window.AJAX.registerOnload
+     * Automatically wraps the callback in AJAX.registerOnload
      *
      * @return {void}
      */
     wrapAjaxOnloadCallback: function () {
-        var oldOnload = window.AJAX.registerOnload;
-        window.AJAX.registerOnload = function (file, func) {
+        var oldOnload = AJAX.registerOnload;
+        AJAX.registerOnload = function (file, func) {
             var wrappedFunction = ErrorReport.wrapFunction(func);
             oldOnload.call(this, file, wrappedFunction);
         };
@@ -278,7 +282,7 @@ var ErrorReport = {
         var oldOn = $.fn.on;
         $.fn.on = function () {
             for (var i = 1; i <= 3; i++) {
-                if (typeof(arguments[i]) === 'function') {
+                if (typeof (arguments[i]) === 'function') {
                     arguments[i] = ErrorReport.wrapFunction(arguments[i]);
                     break;
                 }
@@ -287,7 +291,7 @@ var ErrorReport = {
         };
     },
     /**
-     * Wraps the callback in window.AJAX.registerOnload automatically
+     * Wraps the callback in AJAX.registerOnload automatically
      *
      * @return {void}
      */
@@ -297,7 +301,7 @@ var ErrorReport = {
     }
 };
 
-window.AJAX.registerOnload('error_report.js', function () {
+AJAX.registerOnload('error_report.js', function () {
     window.TraceKit.report.subscribe(ErrorReport.errorHandler);
     ErrorReport.setUpErrorReporting();
 });

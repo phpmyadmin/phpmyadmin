@@ -12,10 +12,6 @@ namespace PhpMyAdmin\Partitioning;
  */
 class SubPartition
 {
-    /** @var string the database */
-    protected $db;
-    /** @var string the table */
-    protected $table;
     /** @var string partition name */
     protected $name;
     /** @var int ordinal */
@@ -40,8 +36,6 @@ class SubPartition
      */
     public function __construct(array $row)
     {
-        $this->db = $row['TABLE_SCHEMA'];
-        $this->table = $row['TABLE_NAME'];
         $this->loadData($row);
     }
 

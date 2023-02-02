@@ -97,7 +97,7 @@ class AuthenticationConfigTest extends AbstractTestCase
         );
 
         $this->assertStringContainsString(
-            '<strong>MySQL said: </strong><a href="./url.php?url=https%3A%2F%2F' .
+            '<strong>MySQL said: </strong><a href="index.php?route=/url&url=https%3A%2F%2F' .
             'dev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Fserver-error-reference.html"' .
             ' target="mysql_doc">' .
             '<img src="themes/dot.gif" title="Documentation" alt="Documentation" ' .

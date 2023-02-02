@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
-use function sleep;
+use function strtolower;
 
 /**
  * @coversNothing
@@ -33,8 +33,8 @@ class ExportTest extends TestBase
     /**
      * Test for server level export
      *
-     * @param string $plugin   Export format
-     * @param array  $expected Array of expected strings
+     * @param string   $plugin   Export format
+     * @param string[] $expected Array of expected strings
      *
      * @dataProvider exportDataProvider
      * @group large
@@ -51,8 +51,8 @@ class ExportTest extends TestBase
     /**
      * Test for db level export
      *
-     * @param string $plugin   Export format
-     * @param array  $expected Array of expected strings
+     * @param string   $plugin   Export format
+     * @param string[] $expected Array of expected strings
      *
      * @dataProvider exportDataProvider
      * @group large
@@ -71,8 +71,8 @@ class ExportTest extends TestBase
     /**
      * Test for table level export
      *
-     * @param string $plugin   Export format
-     * @param array  $expected Array of expected strings
+     * @param string   $plugin   Export format
+     * @param string[] $expected Array of expected strings
      *
      * @dataProvider exportDataProvider
      * @group large
@@ -91,7 +91,8 @@ class ExportTest extends TestBase
     }
 
     /**
-     * Data provider for testServerExport
+     * @return array<int, array<int, string|array<int, string>>>
+     * @psalm-return array<int, array{string, string[]}>
      */
     public function exportDataProvider(): array
     {
@@ -152,12 +153,19 @@ class ExportTest extends TestBase
         $this->scrollIntoView('radio_view_as_text');
         $this->byCssSelector('label[for=radio_view_as_text]')->click();
 
+        $this->waitUntilElementIsVisible('id', 'format_specific_opts');
+        $this->scrollIntoView('format_specific_opts');
+        $this->waitUntilElementIsVisible('id', strtolower($plugin) . '_options');
+        $this->scrollIntoView(strtolower($plugin) . '_options');
+
         if ($plugin === 'SQL') {
             if ($type !== 'db') {
+                $this->waitUntilElementIsVisible('id', 'radio_sql_structure_or_data_structure_and_data');
                 $this->scrollIntoView('radio_sql_structure_or_data_structure_and_data');
                 $this->byCssSelector('label[for=radio_sql_structure_or_data_structure_and_data]')->click();
             }
 
+            $this->waitUntilElementIsVisible('id', 'checkbox_sql_if_not_exists');
             $this->scrollIntoView('checkbox_sql_if_not_exists');
             $ele = $this->byId('checkbox_sql_if_not_exists');
             if (! $ele->isSelected()) {
@@ -165,8 +173,6 @@ class ExportTest extends TestBase
             }
         }
 
-        $this->scrollToBottom();
-        sleep(2);
         $this->scrollToBottom();
 
         $this->waitForElement('id', 'buttonGo')->click();

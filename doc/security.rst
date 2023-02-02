@@ -64,7 +64,7 @@ mysql control connection. This controlconnection can have additional privileges
 which the logged in user does not poses. E.g. access the :ref:`linked-tables`.
 
 User data that is included in (administrative) queries should always be run
-through DatabaseInterface::escapeString().
+through DatabaseInterface::quoteString().
 
 .. seealso::
 

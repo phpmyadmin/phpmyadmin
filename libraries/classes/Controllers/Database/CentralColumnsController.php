@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Database\CentralColumns;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -33,10 +34,9 @@ class CentralColumnsController extends AbstractController
         $this->centralColumns = $centralColumns;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-        $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
         $GLOBALS['num_cols'] = $GLOBALS['num_cols'] ?? null;
 
         if (isset($_POST['edit_save'])) {
@@ -132,18 +132,18 @@ class CentralColumnsController extends AbstractController
             'total_rows' => $_POST['total_rows'] ?? null,
         ]);
 
-        $GLOBALS['pos'] = 0;
+        $pos = 0;
         if (isset($_POST['pos']) && is_numeric($_POST['pos'])) {
-            $GLOBALS['pos'] = (int) $_POST['pos'];
+            $pos = (int) $_POST['pos'];
         }
 
         $GLOBALS['num_cols'] = $this->centralColumns->getColumnsCount(
             $GLOBALS['db'],
-            $GLOBALS['pos'],
+            $pos,
             (int) $GLOBALS['cfg']['MaxRows']
         );
         $GLOBALS['message'] = Message::success(
-            sprintf(__('Showing rows %1$s - %2$s.'), $GLOBALS['pos'] + 1, $GLOBALS['pos'] + $GLOBALS['num_cols'])
+            sprintf(__('Showing rows %1$s - %2$s.'), $pos + 1, $pos + $GLOBALS['num_cols'])
         );
         if (! isset($tmp_msg) || $tmp_msg === true) {
             return;

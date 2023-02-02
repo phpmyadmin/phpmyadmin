@@ -67,7 +67,7 @@ final class Options
         }
 
         $databases = [];
-        foreach ($GLOBALS['dblist']->databases as $currentDb) {
+        foreach ($GLOBALS['dbi']->getDatabaseList() as $currentDb) {
             if (Utilities::isSystemSchema($currentDb, true)) {
                 continue;
             }
@@ -131,7 +131,7 @@ final class Options
 
         $default = isset($_GET['what']) ? (string) $_GET['what'] : Plugins::getDefault('Export', 'format');
         $dropdown = Plugins::getChoice($exportList, $default);
-        $tableObject = new Table($table, $db);
+        $tableObject = new Table($table, $db, $GLOBALS['dbi']);
         $rows = [];
 
         if (strlen($table) > 0 && empty($numTables) && ! $tableObject->isMerge() && $exportType !== 'raw') {

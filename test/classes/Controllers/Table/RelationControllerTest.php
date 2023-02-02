@@ -13,7 +13,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
-use stdClass;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Table\RelationController
@@ -44,18 +43,6 @@ class RelationControllerTest extends AbstractTestCase
 
         $_POST['foreignDb'] = 'db';
         $_POST['foreignTable'] = 'table';
-
-        $GLOBALS['dblist'] = new stdClass();
-        $GLOBALS['dblist']->databases = new class
-        {
-            /**
-             * @param mixed $name name
-             */
-            public function exists($name): bool
-            {
-                return true;
-            }
-        };
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()

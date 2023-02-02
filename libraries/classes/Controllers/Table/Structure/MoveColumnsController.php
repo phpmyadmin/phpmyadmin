@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Table\Structure;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table;
@@ -41,9 +42,10 @@ final class MoveColumnsController extends AbstractController
         $this->tableObj = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        if (! isset($_POST['move_columns']) || ! is_array($_POST['move_columns']) || ! $this->response->isAjax()) {
+        $move_columns = $request->getParsedBodyParam('move_columns');
+        if (! is_array($move_columns) || ! $this->response->isAjax()) {
             return;
         }
 
@@ -60,8 +62,8 @@ final class MoveColumnsController extends AbstractController
         $usesLiteralNull = $this->dbi->isMariaDB() && $this->dbi->getVersion() >= 100200;
         $defaultNullValue = $usesLiteralNull ? 'NULL' : null;
         // move columns from first to last
-        for ($i = 0, $l = count($_POST['move_columns']); $i < $l; $i++) {
-            $column = $_POST['move_columns'][$i];
+        for ($i = 0, $l = count($move_columns); $i < $l; $i++) {
+            $column = $move_columns[$i];
             // is this column already correctly placed?
             if ($column_names[$i] == $column) {
                 continue;
@@ -79,11 +81,17 @@ final class MoveColumnsController extends AbstractController
             $timeDefault = $data['Default'] === 'CURRENT_TIMESTAMP' || $data['Default'] === 'current_timestamp()';
             $current_timestamp = $timeType && $timeDefault;
 
+            $uuidType = $data['Type'] === 'uuid';
+            $uuidDefault = $data['Default'] === 'UUID' || $data['Default'] === 'uuid()';
+            $uuid = $uuidType && $uuidDefault;
+
             // @see https://mariadb.com/kb/en/library/information-schema-columns-table/#examples
             if ($data['Null'] === 'YES' && in_array($data['Default'], [$defaultNullValue, null])) {
                 $default_type = 'NULL';
             } elseif ($current_timestamp) {
                 $default_type = 'CURRENT_TIMESTAMP';
+            } elseif ($uuid) {
+                $default_type = 'UUID';
             } elseif ($data['Default'] === null) {
                 $default_type = 'NONE';
             } else {

@@ -139,7 +139,7 @@ class ExportMediawikiTest extends AbstractTestCase
             $property->getText()
         );
 
-        $sgHeader = $property->getSubGroupHeader();
+        $sgHeader = $property->getSubgroupHeader();
 
         $this->assertInstanceOf(RadioPropertyItem::class, $sgHeader);
 
@@ -263,7 +263,6 @@ class ExportMediawikiTest extends AbstractTestCase
             $this->object->exportStructure(
                 'db',
                 'table',
-                "\n",
                 'example.com',
                 'create_table',
                 'test'
@@ -313,7 +312,6 @@ class ExportMediawikiTest extends AbstractTestCase
             $this->object->exportData(
                 'test_db',
                 'test_table',
-                "\n",
                 'localhost',
                 'SELECT * FROM `test_db`.`test_table`;'
             )

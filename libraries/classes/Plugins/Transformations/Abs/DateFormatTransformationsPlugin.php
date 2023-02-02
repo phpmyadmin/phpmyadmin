@@ -9,19 +9,21 @@ namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
-use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
 
 use function __;
 use function checkdate;
 use function gmdate;
 use function htmlspecialchars;
+use function json_encode;
 use function mb_strlen;
 use function mb_strtolower;
 use function mb_substr;
 use function mktime;
 use function preg_match;
 use function strtotime;
+
+use const ENT_COMPAT;
 
 /**
  * Provides common methods for all of the date format transformations plugins.
@@ -140,7 +142,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
                 $text = 'INVALID DATE TYPE';
             }
 
-            return '<dfn onclick="alert(\'' . Sanitize::jsFormat($source, false) . '\');" title="'
+            return '<dfn onclick="alert(' . htmlspecialchars((string) json_encode($source), ENT_COMPAT) . ');" title="'
                 . htmlspecialchars((string) $source) . '">' . htmlspecialchars((string) $text) . '</dfn>';
         }
 

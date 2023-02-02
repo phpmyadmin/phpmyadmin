@@ -7,12 +7,13 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Controllers\Sql\SqlController;
 use PhpMyAdmin\Controllers\Table\RecentFavoriteController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
-use Psr\Container\ContainerInterface;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Table\RecentFavoriteController
@@ -51,7 +52,7 @@ class RecentFavoriteControllerTest extends AbstractTestCase
         $controller = $this->createMock(SqlController::class);
         $controller->expects($this->once())->method('__invoke');
 
-        $container = $this->createMock(ContainerInterface::class);
+        $container = $this->createMock(ContainerBuilder::class);
         $container->expects($this->once())->method('get')->with(SqlController::class)->willReturn($controller);
         $GLOBALS['containerBuilder'] = $container;
 
@@ -61,7 +62,7 @@ class RecentFavoriteControllerTest extends AbstractTestCase
         $this->assertSame([['db' => 'test_db', 'table' => 'test_table']], $recent->getTables());
         $this->assertSame([['db' => 'test_db', 'table' => 'test_table']], $favorite->getTables());
 
-        (new RecentFavoriteController(new ResponseRenderer(), new Template()))();
+        (new RecentFavoriteController(new ResponseRenderer(), new Template()))($this->createStub(ServerRequest::class));
 
         $this->assertSame([['db' => 'test_db', 'table' => 'test_table']], $recent->getTables());
         $this->assertSame([['db' => 'test_db', 'table' => 'test_table']], $favorite->getTables());
@@ -86,7 +87,7 @@ class RecentFavoriteControllerTest extends AbstractTestCase
         $controller = $this->createMock(SqlController::class);
         $controller->expects($this->once())->method('__invoke');
 
-        $container = $this->createMock(ContainerInterface::class);
+        $container = $this->createMock(ContainerBuilder::class);
         $container->expects($this->once())->method('get')->with(SqlController::class)->willReturn($controller);
         $GLOBALS['containerBuilder'] = $container;
 
@@ -96,7 +97,7 @@ class RecentFavoriteControllerTest extends AbstractTestCase
         $this->assertSame([['db' => 'invalid_db', 'table' => 'invalid_table']], $recent->getTables());
         $this->assertSame([['db' => 'invalid_db', 'table' => 'invalid_table']], $favorite->getTables());
 
-        (new RecentFavoriteController(new ResponseRenderer(), new Template()))();
+        (new RecentFavoriteController(new ResponseRenderer(), new Template()))($this->createStub(ServerRequest::class));
 
         $this->assertSame([], $recent->getTables());
         $this->assertSame([], $favorite->getTables());

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server\Databases;
 
 use PhpMyAdmin\Controllers\Server\Databases\CreateController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
@@ -48,9 +49,13 @@ final class CreateControllerTest extends AbstractTestCase
         $template = new Template();
         $controller = new CreateController($response, $template, $this->dbi);
 
-        $_POST['new_db'] = 'test_db_error';
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['new_db', null, 'test_db_error'],
+            ['db_collation', null, null],
+        ]);
 
-        $controller();
+        $controller($request);
         $actual = $response->getJSONResult();
 
         $this->assertArrayHasKey('message', $actual);
@@ -61,10 +66,13 @@ final class CreateControllerTest extends AbstractTestCase
 
         $controller = new CreateController($response, $template, $this->dbi);
 
-        $_POST['new_db'] = 'test_db';
-        $_POST['db_collation'] = 'utf8_general_ci';
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['new_db', null, 'test_db'],
+            ['db_collation', null, 'utf8_general_ci'],
+        ]);
 
-        $controller();
+        $controller($request);
         $actual = $response->getJSONResult();
 
         $this->assertArrayHasKey('message', $actual);

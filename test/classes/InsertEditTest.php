@@ -8,6 +8,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Warning;
+use PhpMyAdmin\EditField;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\FileListing;
 use PhpMyAdmin\InsertEdit;
@@ -22,10 +23,14 @@ use ReflectionProperty;
 use stdClass;
 
 use function hash;
+use function is_object;
+use function is_scalar;
+use function is_string;
 use function mb_substr;
 use function md5;
 use function password_verify;
 use function sprintf;
+use function strval;
 
 use const MYSQLI_PRI_KEY_FLAG;
 use const MYSQLI_TYPE_DECIMAL;
@@ -93,6 +98,11 @@ class InsertEditTest extends AbstractTestCase
             new FileListing(),
             new Template()
         );
+
+        $this->dbi->setVersion([
+            '@@version' => '10.9.3-MariaDB-1:10.9.3+maria~ubu2204',
+            '@@version_comment' => 'mariadb.org binary distribution',
+        ]);
     }
 
     /**
@@ -568,6 +578,8 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
+        $result = $this->parseString($result);
+
         $this->assertStringContainsString('title="comment&gt;"', $result);
 
         $this->assertStringContainsString('f1&lt;', $result);
@@ -864,6 +876,8 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
+        $result = $this->parseString($result);
+
         $this->assertStringContainsString(
             '<textarea name="fieldsb" class="char charField" '
             . 'data-maxlength="10" rows="7" cols="1" dir="abc/" '
@@ -996,7 +1010,7 @@ class InsertEditTest extends AbstractTestCase
 
         $this->assertEquals(
             '<input type="text" name="fieldsa" value="b" size="30" data-type="DATE"'
-            . ' class="textfield datefield" c tabindex="25" id="field_0_3">',
+            . ' class="textfield datefield" onchange="c" tabindex="25" id="field_0_3">',
             $result
         );
 
@@ -1022,7 +1036,7 @@ class InsertEditTest extends AbstractTestCase
         );
         $this->assertEquals(
             '<input type="text" name="fieldsa" value="b" size="30" data-type="DATE"'
-            . ' class="textfield datetimefield" c tabindex="25" id="field_0_3">',
+            . ' class="textfield datetimefield" onchange="c" tabindex="25" id="field_0_3">',
             $result
         );
 
@@ -1048,7 +1062,34 @@ class InsertEditTest extends AbstractTestCase
         );
         $this->assertEquals(
             '<input type="text" name="fieldsa" value="b" size="30" data-type="DATE"'
-            . ' class="textfield datetimefield" c tabindex="25" id="field_0_3">',
+            . ' class="textfield datetimefield" onchange="c" tabindex="25" id="field_0_3">',
+            $result
+        );
+
+        // case 4 int
+        $column['pma_type'] = 'int';
+        $column['True_Type'] = 'int';
+        $column['Type'] = 'int(11)';
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getHtmlInput',
+            [
+                $column,
+                'a',
+                'b',
+                11,
+                'c',
+                23,
+                2,
+                0,
+                'INT',
+                false,
+            ]
+        );
+        $this->assertEquals(
+            '<input type="text" name="fieldsa" value="b" size="11" min="-2147483648" max="2147483647" data-type="INT"'
+            . ' class="textfield" onchange="c" tabindex="25" inputmode="numeric" id="field_0_3">',
             $result
         );
     }
@@ -1148,7 +1189,7 @@ class InsertEditTest extends AbstractTestCase
             "a\na\n"
             . '<textarea name="fieldsb" class="char charField" '
             . 'data-maxlength="25" rows="7" cols="1" dir="/" '
-            . 'id="field_1_3" c tabindex="34" data-type="CHAR">'
+            . 'id="field_1_3" onchange="c" tabindex="34" data-type="CHAR">'
             . '&lt;</textarea>',
             $result
         );
@@ -1183,7 +1224,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals(
             "a\n"
             . '<input type="text" name="fieldsb" value="&lt;" size="20" data-type="'
-            . 'DATE" class="textfield datetimefield" c tabindex="34" id="field_1_3"'
+            . 'DATE" class="textfield datetimefield" onchange="c" tabindex="34" id="field_1_3"'
             . '><input type="hidden" name="auto_incrementb" value="1">'
             . '<input type="hidden" name="fields_typeb" value="timestamp">',
             $result
@@ -1213,6 +1254,8 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
+        $result = $this->parseString($result);
+
         $this->assertStringContainsString('<input type="hidden" name="fields_typeb" value="datetime">', $result);
 
         // case 4: (else -> date)
@@ -1239,7 +1282,65 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
+        $result = $this->parseString($result);
+
         $this->assertStringContainsString('<input type="hidden" name="fields_typeb" value="date">', $result);
+
+        // case 5: (else -> bit)
+        $column['True_Type'] = 'bit';
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getValueColumnForOtherDatatypes',
+            [
+                $column,
+                'defchar',
+                'a',
+                'b',
+                'c',
+                22,
+                '&lt;',
+                12,
+                1,
+                '/',
+                '&lt;',
+                "foo\nbar",
+                $extracted_columnspec,
+                false,
+            ]
+        );
+
+        $result = $this->parseString($result);
+
+        $this->assertStringContainsString('<input type="hidden" name="fields_typeb" value="bit">', $result);
+
+        // case 6: (else -> uuid)
+        $column['True_Type'] = 'uuid';
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getValueColumnForOtherDatatypes',
+            [
+                $column,
+                'defchar',
+                'a',
+                'b',
+                'c',
+                22,
+                '&lt;',
+                12,
+                1,
+                '/',
+                '&lt;',
+                "foo\nbar",
+                $extracted_columnspec,
+                false,
+            ]
+        );
+
+        $result = $this->parseString($result);
+
+        $this->assertStringContainsString('<input type="hidden" name="fields_typeb" value="uuid">', $result);
     }
 
     /**
@@ -1345,6 +1446,8 @@ class InsertEditTest extends AbstractTestCase
             'getHeadAndFootOfInsertRowTable',
             [$url_params]
         );
+
+        $result = $this->parseString($result);
 
         $this->assertStringContainsString('index.php?route=/table/change', $result);
 
@@ -1556,17 +1659,22 @@ class InsertEditTest extends AbstractTestCase
 
     /**
      * Test for getSpecialCharsAndBackupFieldForInsertingMode
+     *
+     * @param array $column   Column parameters
+     * @param array $expected Expected result
+     * @psalm-param array<string, string|bool|null> $column
+     * @psalm-param array<bool|string> $expected
+     *
+     * @dataProvider providerForTestGetSpecialCharsAndBackupFieldForInsertingMode
      */
-    public function testGetSpecialCharsAndBackupFieldForInsertingMode(): void
-    {
-        $column = [];
-        $column['True_Type'] = 'bit';
-        $column['Default'] = 'b\'101\'';
-        $column['is_binary'] = true;
+    public function testGetSpecialCharsAndBackupFieldForInsertingMode(
+        array $column,
+        array $expected
+    ): void {
         $GLOBALS['cfg']['ProtectBinary'] = false;
         $GLOBALS['cfg']['ShowFunctionFields'] = true;
 
-        $result = $this->callFunction(
+        $result = (array) $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
             'getSpecialCharsAndBackupFieldForInsertingMode',
@@ -1574,37 +1682,126 @@ class InsertEditTest extends AbstractTestCase
         );
 
         $this->assertEquals(
-            [
-                false,
-                'b\'101\'',
-                '101',
-                '',
-                '101',
-            ],
+            $expected,
             $result
         );
+    }
 
-        // case 2
-        unset($column['Default']);
-        $column['True_Type'] = 'char';
-
-        $result = $this->callFunction(
-            $this->insertEdit,
-            InsertEdit::class,
-            'getSpecialCharsAndBackupFieldForInsertingMode',
-            [$column]
-        );
-
-        $this->assertEquals(
-            [
-                true,
-                '',
-                '',
-                '',
-                '',
+    /**
+     * Data provider for test getSpecialCharsAndBackupFieldForInsertingMode()
+     *
+     * @return array
+     * @psalm-return array<string, array{array<string, string|bool|null>, array<bool|string>}>
+     */
+    public function providerForTestGetSpecialCharsAndBackupFieldForInsertingMode(): array
+    {
+        return [
+            'bit' => [
+                [
+                    'True_Type' => 'bit',
+                    'Default' => 'b\'101\'',
+                    'is_binary' => true,
+                ],
+                [
+                    false,
+                    'b\'101\'',
+                    '101',
+                    '',
+                    '101',
+                ],
             ],
-            $result
-        );
+            'char' => [
+                [
+                    'True_Type' => 'char',
+                    'is_binary' => true,
+                ],
+                [
+                    true,
+                    '',
+                    '',
+                    '',
+                    '',
+                ],
+            ],
+            'time with CURRENT_TIMESTAMP value' => [
+                [
+                    'True_Type' => 'time',
+                    'Default' => 'CURRENT_TIMESTAMP',
+                ],
+                [
+                    false,
+                    'CURRENT_TIMESTAMP',
+                    'CURRENT_TIMESTAMP',
+                    '',
+                    'CURRENT_TIMESTAMP',
+                ],
+            ],
+            'time with current_timestamp() value' => [
+                [
+                    'True_Type' => 'time',
+                    'Default' => 'current_timestamp()',
+                ],
+                [
+                    false,
+                    'current_timestamp()',
+                    'current_timestamp()',
+                    '',
+                    'current_timestamp()',
+                ],
+            ],
+            'time with no dot value' => [
+                [
+                    'True_Type' => 'time',
+                    'Default' => '10',
+                ],
+                [
+                    false,
+                    '10',
+                    '10.000000',
+                    '',
+                    '10.000000',
+                ],
+            ],
+            'time with dot value' => [
+                [
+                    'True_Type' => 'time',
+                    'Default' => '10.08',
+                ],
+                [
+                    false,
+                    '10.08',
+                    '10.080000',
+                    '',
+                    '10.080000',
+                ],
+            ],
+            'any text with escape text default' => [
+                [
+                    'True_Type' => 'text',
+                    'Default' => '"lorem\"ipsem"',
+                ],
+                [
+                    false,
+                    '"lorem\"ipsem"',
+                    'lorem"ipsem',
+                    '',
+                    'lorem"ipsem',
+                ],
+            ],
+            'varchar with html special chars' => [
+                [
+                    'True_Type' => 'varchar',
+                    'Default' => 'hello world<br><b>lorem</b> ipsem',
+                ],
+                [
+                    false,
+                    'hello world<br><b>lorem</b> ipsem',
+                    'hello world&lt;br&gt;&lt;b&gt;lorem&lt;/b&gt; ipsem',
+                    '',
+                    'hello world&lt;br&gt;&lt;b&gt;lorem&lt;/b&gt; ipsem',
+                ],
+            ],
+        ];
     }
 
     /**
@@ -1858,7 +2055,7 @@ class InsertEditTest extends AbstractTestCase
             new Template()
         );
 
-        $result = $this->callFunction(
+        $result = (array) $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
             'getWarningMessages',
@@ -1988,125 +2185,53 @@ class InsertEditTest extends AbstractTestCase
     }
 
     /**
-     * Test for getQueryValuesForInsertAndUpdateInMultipleEdit
+     * Test for getQueryValuesForInsert
      */
-    public function testGetQueryValuesForInsertAndUpdateInMultipleEdit(): void
+    public function testGetQueryValuesForInsert(): void
     {
-        $multi_edit_columns_name = ['0' => 'fld'];
-
-        $result = $this->insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
-            $multi_edit_columns_name,
-            [],
-            '',
-            [],
-            [],
-            true,
-            [1],
-            [2],
-            'foo',
-            [],
-            '0',
-            []
-        );
-
-        $this->assertEquals(
-            [
-                [
-                    1,
-                    'foo',
-                ],
-                [
-                    2,
-                    '`fld`',
-                ],
-            ],
-            $result
-        );
-
-        $result = $this->insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
-            $multi_edit_columns_name,
-            [],
-            '',
-            [],
-            [],
+        // Simple insert
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                'fld',
+                'foo',
+                '',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false
+            ),
             false,
-            [1],
-            [2],
-            'foo',
-            [],
-            '0',
-            ['a']
+            ''
         );
-
         $this->assertEquals(
-            [
-                [
-                    1,
-                    '`fld` = foo',
-                ],
-                [2],
-            ],
+            "'foo'",
             $result
         );
 
-        $result = $this->insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
-            $multi_edit_columns_name,
-            ['b'],
-            "'`c`'",
-            ['c'],
-            [],
+        // Test for file upload
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '0x123',
+                '',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                true
+            ),
             false,
-            [1],
-            [2],
-            'foo',
-            [],
-            '0',
-            ['a']
+            ''
         );
 
-        $this->assertEquals(
-            [
-                [1],
-                [2],
-            ],
-            $result
-        );
+        $this->assertEquals('0x123', $result);
 
-        $result = $this->insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
-            $multi_edit_columns_name,
-            ['b'],
-            "'`c`'",
-            ['c'],
-            [3],
-            false,
-            [1],
-            [2],
-            'foo',
-            [],
-            '0',
-            []
-        );
-
-        $this->assertEquals(
-            [
-                [
-                    1,
-                    '`fld` = foo',
-                ],
-                [2],
-            ],
-            $result
-        );
-    }
-
-    /**
-     * Test for getCurrentValueAsAnArrayForMultipleEdit
-     */
-    public function testGetCurrentValueAsAnArrayForMultipleEdit(): void
-    {
-        // case 2
-        $multi_edit_function = 'UUID';
-
+        // Test functions
         $this->dummyDbi->addResult(
             'SELECT UUID()',
             [
@@ -2114,263 +2239,570 @@ class InsertEditTest extends AbstractTestCase
             ]
         );
 
-        $this->insertEdit = new InsertEdit(
-            $GLOBALS['dbi'],
-            new Relation($GLOBALS['dbi']),
-            new Transformations(),
-            new FileListing(),
-            new Template()
-        );
-
-        $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
-            $multi_edit_function,
-            null,
-            'currVal'
+        // case 1
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '',
+                '',
+                false,
+                false,
+                false,
+                'UUID',
+                null,
+                null,
+                false
+            ),
+            false,
+            ''
         );
 
         $this->assertEquals("'uuid1234'", $result);
 
-        // case 3
-        $multi_edit_function = 'AES_ENCRYPT';
-        $multi_edit_salt = '';
-        $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
-            $multi_edit_function,
-            $multi_edit_salt,
-            "'"
+        // case 2
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                "'",
+                '',
+                false,
+                false,
+                false,
+                'AES_ENCRYPT',
+                '',
+                null,
+                false
+            ),
+            false,
+            ''
         );
         $this->assertEquals("AES_ENCRYPT('\\'','')", $result);
 
-        // case 4
-        $multi_edit_function = 'ABS';
-        $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
-            $multi_edit_function,
-            null,
-            "'"
+        // case 3
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                "'",
+                '',
+                false,
+                false,
+                false,
+                'ABS',
+                null,
+                null,
+                false
+            ),
+            false,
+            ''
         );
         $this->assertEquals("ABS('\\'')", $result);
 
-        // case 5
-        $multi_edit_function = 'RAND';
-        $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
-            $multi_edit_function,
-            null,
+        // case 4
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '',
+                '',
+                false,
+                false,
+                false,
+                'RAND',
+                null,
+                null,
+                false
+            ),
+            false,
             ''
         );
         $this->assertEquals('RAND()', $result);
 
-        // case 6
-        $multi_edit_function = 'PHP_PASSWORD_HASH';
-        $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
-            $multi_edit_function,
-            null,
-            "a'c"
+        // case 5
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                "a'c",
+                '',
+                false,
+                false,
+                false,
+                'PHP_PASSWORD_HASH',
+                null,
+                null,
+                false
+            ),
+            false,
+            ''
         );
         $this->assertTrue(password_verify("a'c", mb_substr($result, 1, -1)));
+
+        // Test different data types
+
+        // Datatype: protected copied from the databse
+        $GLOBALS['table'] = 'test_table';
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                'name',
+                '',
+                'protected',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false
+            ),
+            true,
+            '`id` = 4'
+        );
+        $this->assertEquals('0x313031', $result);
+
+        // An empty value for auto increment column should be converted to NULL
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '', // empty for null
+                '',
+                true,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false
+            ),
+            false,
+            ''
+        );
+        $this->assertEquals('NULL', $result);
+
+        // Simple empty value
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '',
+                '',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false
+            ),
+            false,
+            ''
+        );
+        $this->assertEquals("''", $result);
+
+        // Datatype: set
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '', // doesn't matter what the value is
+                'set',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false
+            ),
+            false,
+            ''
+        );
+        $this->assertEquals("''", $result);
+
+        // Datatype: protected with no value should produce an empty string
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '',
+                'protected',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false
+            ),
+            false,
+            ''
+        );
+        $this->assertEquals('', $result);
+
+        // Datatype: protected with null flag set
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '',
+                'protected',
+                false,
+                true,
+                false,
+                '',
+                null,
+                null,
+                false
+            ),
+            false,
+            ''
+        );
+        $this->assertEquals('NULL', $result);
+
+        // Datatype: bit
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '20\'12',
+                'bit',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false
+            ),
+            false,
+            ''
+        );
+        $this->assertEquals("b'00010'", $result);
+
+        // Datatype: date
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '20\'12',
+                'date',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false
+            ),
+            false,
+            ''
+        );
+        $this->assertEquals("'20\\'12'", $result);
+
+        // A NULL checkbox
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '',
+                'set',
+                false,
+                true,
+                false,
+                '',
+                null,
+                null,
+                false
+            ),
+            false,
+            ''
+        );
+        $this->assertEquals('NULL', $result);
+
+        // Datatype: protected but NULL checkbox was unchecked without uploading a file
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '',
+                'protected',
+                false,
+                false,
+                true, // was previously NULL
+                '',
+                null,
+                null,
+                false // no upload
+            ),
+            false,
+            ''
+        );
+        $this->assertEquals("''", $result);
+
+        // Datatype: date with default value
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                'current_timestamp()',
+                'date',
+                false,
+                false,
+                true, // NULL should be ignored
+                '',
+                null,
+                null,
+                false
+            ),
+            false,
+            ''
+        );
+        $this->assertEquals('current_timestamp()', $result);
+
+        // Datatype: hex without 0x
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '222aaafff',
+                'hex',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false
+            ),
+            false,
+            ''
+        );
+        $this->assertEquals('0x222aaafff', $result);
+
+        // Datatype: hex with 0x
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '0x222aaafff',
+                'hex',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false
+            ),
+            false,
+            ''
+        );
+        $this->assertEquals('0x222aaafff', $result);
     }
 
     /**
-     * Test for getCurrentValueForDifferentTypes
+     * Test for getQueryValuesForUpdate
      */
-    public function testGetCurrentValueForDifferentTypes(): void
+    public function testGetQueryValuesForUpdate(): void
     {
-        $this->insertEdit = new InsertEdit(
-            $GLOBALS['dbi'],
-            new Relation($GLOBALS['dbi']),
-            new Transformations(),
-            new FileListing(),
-            new Template()
+        // Simple update
+        $result = $this->insertEdit->getQueryValueForUpdate(
+            new EditField(
+                'fld',
+                'foo',
+                '',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false
+            )
+        );
+        $this->assertEquals(
+            "`fld` = 'foo'",
+            $result
         );
 
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            '123',
-            '0',
-            [],
+        // Update of null when it was null previously
+        $result = $this->insertEdit->getQueryValueForUpdate(
+            new EditField(
+                'fld',
+                '', // null fields will have no value
+                '',
+                false,
+                true,
+                true,
+                '',
+                null,
+                null,
+                false
+            )
+        );
+        $this->assertEquals(
             '',
-            [],
-            0,
-            [],
-            [],
-            [],
-            true,
-            true,
-            '',
-            'test_table'
+            $result
         );
 
-        $this->assertEquals('123', $result);
-
-        // case 2
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            false,
-            '0',
-            ['test'],
-            '',
-            [1],
-            0,
-            [],
-            [],
-            [],
-            true,
-            true,
-            '',
-            'test_table'
+        // Update of null when it was NOT null previously
+        $result = $this->insertEdit->getQueryValueForUpdate(
+            new EditField(
+                'fld',
+                '', // null fields will have no value
+                '',
+                false,
+                true,
+                false,
+                '',
+                null,
+                '', // in edit mode the previous value will be empty string
+                false
+            )
+        );
+        $this->assertEquals(
+            '`fld` = NULL',
+            $result
         );
 
-        $this->assertEquals('NULL', $result);
-
-        // case 3
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            false,
-            '0',
-            ['test'],
-            '',
-            [],
-            0,
-            [],
-            [],
-            [],
-            true,
-            true,
-            '',
-            'test_table'
+        // Update to NOT null when it was null previously
+        $result = $this->insertEdit->getQueryValueForUpdate(
+            new EditField(
+                'fld',
+                "ab'c",
+                '',
+                false,
+                false,
+                true,
+                '',
+                null,
+                null,
+                false
+            )
+        );
+        $this->assertEquals(
+            "`fld` = 'ab\'c'",
+            $result
         );
 
-        $this->assertEquals("''", $result);
-
-        // case 4
-        $_POST['fields']['multi_edit'][0][0] = [];
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            false,
-            '0',
-            ['set'],
-            '',
-            [],
-            0,
-            [],
-            [],
-            [],
-            true,
-            true,
-            '',
-            'test_table'
+        // Test to see if a zero-string is not ignored
+        $result = $this->insertEdit->getQueryValueForUpdate(
+            new EditField(
+                'fld',
+                '0', // zero-string provided as value
+                '',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false
+            )
+        );
+        $this->assertEquals(
+            "`fld` = '0'",
+            $result
         );
 
-        $this->assertEquals("''", $result);
-
-        // case 5
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            false,
-            '0',
-            ['protected'],
+        // Test to check if blob field that was left unchanged during edit will be ignored
+        $result = $this->insertEdit->getQueryValueForUpdate(
+            new EditField(
+                'fld',
+                '', // no value
+                'protected',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false
+            )
+        );
+        $this->assertEquals(
             '',
-            [],
-            0,
-            ['name'],
-            [],
-            [],
-            true,
-            true,
-            '`id` = 4',
-            'test_table'
+            $result
         );
 
-        $this->assertEquals('0x313031', $result);
-
-        // case 6
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            false,
-            '0',
-            ['protected'],
-            '',
-            [],
-            0,
-            ['a'],
-            [],
-            [],
-            true,
-            true,
-            '',
-            'test_table'
+        // Test to see if a field will be ignored if it the value is unchanged
+        $result = $this->insertEdit->getQueryValueForUpdate(
+            new EditField(
+                'fld',
+                "a'b",
+                '',
+                false,
+                false,
+                false,
+                '',
+                null,
+                "a'b",
+                false
+            )
         );
 
-        $this->assertEquals('', $result);
-
-        // case 7
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            false,
-            '0',
-            ['bit'],
-            '20\'12',
-            [],
-            0,
-            ['a'],
-            [],
-            [],
-            true,
-            true,
+        $this->assertEquals(
             '',
-            'test_table'
+            $result
         );
 
-        $this->assertEquals("b'00010'", $result);
-
-        // case 7
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            false,
-            '0',
-            ['date'],
-            '20\'12',
-            [],
-            0,
-            ['a'],
-            [],
-            [],
-            true,
-            true,
-            '',
-            'test_table'
+        // Test that an empty value uses the uuid function to generate a value
+        $result = $this->insertEdit->getQueryValueForUpdate(
+            new EditField(
+                'fld',
+                "''",
+                'uuid',
+                false,
+                false,
+                false,
+                '',
+                null,
+                '',
+                false
+            )
         );
 
-        $this->assertEquals("'20\\'12'", $result);
+        $this->assertEquals('`fld` = uuid()', $result);
 
-        // case 8
-        $_POST['fields']['multi_edit'][0][0] = [];
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            false,
-            '0',
-            ['set'],
-            '',
-            [],
-            0,
-            [],
-            [1],
-            [],
-            true,
-            true,
-            '',
-            'test_table'
+        // Test that the uuid function as a value uses the uuid function to generate a value
+        $result = $this->insertEdit->getQueryValueForUpdate(
+            new EditField(
+                'fld',
+                "'uuid()'",
+                'uuid',
+                false,
+                false,
+                false,
+                '',
+                null,
+                '',
+                false
+            )
         );
 
-        $this->assertEquals('NULL', $result);
+        $this->assertEquals('`fld` = uuid()', $result);
 
-        // case 9
-        $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            false,
-            '0',
-            ['protected'],
-            '',
-            [],
-            0,
-            ['a'],
-            [],
-            [1],
-            true,
-            true,
-            '',
-            'test_table'
+        // Test that the uuid function as a value uses the uuid function to generate a value
+        $result = $this->insertEdit->getQueryValueForUpdate(
+            new EditField(
+                'fld',
+                'uuid()',
+                'uuid',
+                false,
+                false,
+                false,
+                '',
+                null,
+                '',
+                false
+            )
         );
 
-        $this->assertEquals("''", $result);
+        $this->assertEquals('`fld` = uuid()', $result);
+
+        // Test that the uuid type does not have a default value other than null when it is nullable
+        $result = $this->insertEdit->getQueryValueForUpdate(
+            new EditField(
+                'fld',
+                '',
+                'uuid',
+                false,
+                true,
+                false,
+                '',
+                null,
+                '',
+                false
+            )
+        );
+
+        $this->assertEquals('`fld` = NULL', $result);
     }
 
     /**
@@ -2585,7 +3017,7 @@ class InsertEditTest extends AbstractTestCase
             ->method('getTable')
             ->will(
                 $this->returnValue(
-                    new Table('table', 'db')
+                    new Table('table', 'db', $GLOBALS['dbi'])
                 )
             );
 
@@ -2671,7 +3103,6 @@ class InsertEditTest extends AbstractTestCase
                 $resultStub,
                 '',
                 '',
-                '',
                 false,
                 [],
                 &$o_rows,
@@ -2691,6 +3122,8 @@ class InsertEditTest extends AbstractTestCase
                 '',
             ]
         );
+
+        $actual = $this->parseString($actual);
 
         $this->assertStringContainsString('col', $actual);
         $this->assertStringContainsString('<option>AES_ENCRYPT</option>', $actual);
@@ -2729,7 +3162,6 @@ class InsertEditTest extends AbstractTestCase
                 false,
                 $resultStub,
                 '',
-                '',
                 '[a][0]',
                 true,
                 [],
@@ -2750,6 +3182,9 @@ class InsertEditTest extends AbstractTestCase
                 '',
             ]
         );
+
+        $actual = $this->parseString($actual);
+
         $this->assertStringContainsString('qwerty', $actual);
         $this->assertStringContainsString('<option>UUID</option>', $actual);
         $this->assertStringContainsString('<span class="column_type" dir="ltr">datetime</span>', $actual);
@@ -2836,7 +3271,6 @@ class InsertEditTest extends AbstractTestCase
             $resultStub,
             '',
             '',
-            '',
             false,
             [],
             $o_rows,
@@ -2916,7 +3350,6 @@ class InsertEditTest extends AbstractTestCase
             $resultStub,
             '',
             '',
-            '',
             false,
             [],
             $o_rows,
@@ -2977,7 +3410,6 @@ class InsertEditTest extends AbstractTestCase
             $resultStub,
             '',
             '',
-            '',
             true,
             [],
             $o_rows,
@@ -3005,5 +3437,25 @@ class InsertEditTest extends AbstractTestCase
             . '</span></a>',
             $actual
         );
+    }
+
+    /**
+     * Convert mixed type value to string
+     *
+     * @param mixed $value
+     *
+     * @return string
+     */
+    private function parseString($value)
+    {
+        if (is_string($value)) {
+            return $value;
+        }
+
+        if (is_object($value) || is_scalar($value)) {
+            return strval($value);
+        }
+
+        return '';
     }
 }

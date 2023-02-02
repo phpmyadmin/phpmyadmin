@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use function defined;
+use function header;
 use function headers_sent;
 use function http_response_code;
 use function is_array;
@@ -16,6 +17,7 @@ use function json_encode;
 use function json_last_error_msg;
 use function mb_strlen;
 use function register_shutdown_function;
+use function sprintf;
 use function strlen;
 
 use const PHP_SAPI;
@@ -26,12 +28,11 @@ use const PHP_SAPI;
 class ResponseRenderer
 {
     /**
-     * Response instance
-     *
      * @static
-     * @var ResponseRenderer
+     * @var ResponseRenderer|null
      */
-    private static $instance;
+    private static $instance = null;
+
     /**
      * Header instance
      *
@@ -68,7 +69,7 @@ class ResponseRenderer
      *
      * @var bool
      */
-    private $isDisabled;
+    protected $isDisabled;
     /**
      * Whether there were any errors during the processing of the request
      * Only used for ajax responses
@@ -154,14 +155,14 @@ class ResponseRenderer
         511 => 'Network Authentication Required',
     ];
 
-    /**
-     * Creates a new class instance
-     */
+    /** @var OutputBuffering */
+    private $buffer;
+
     private function __construct()
     {
+        $this->buffer = new OutputBuffering();
+        $this->buffer->start();
         if (! defined('TESTSUITE')) {
-            $buffer = OutputBuffering::getInstance();
-            $buffer->start();
             register_shutdown_function([$this, 'response']);
         }
 
@@ -189,13 +190,11 @@ class ResponseRenderer
     }
 
     /**
-     * Returns the singleton Response object
-     *
-     * @return ResponseRenderer object
+     * Returns the singleton object
      */
-    public static function getInstance()
+    public static function getInstance(): ResponseRenderer
     {
-        if (empty(self::$instance)) {
+        if (self::$instance === null) {
             self::$instance = new ResponseRenderer();
         }
 
@@ -370,7 +369,9 @@ class ResponseRenderer
 
         // Set the Content-Type header to JSON so that jQuery parses the
         // response correctly.
-        Core::headerJSON();
+        foreach (Core::headerJSON() as $name => $value) {
+            header(sprintf('%s: %s', $name, $value));
+        }
 
         $result = json_encode($this->JSON);
         if ($result === false) {
@@ -388,9 +389,9 @@ class ResponseRenderer
      */
     public function response(): void
     {
-        $buffer = OutputBuffering::getInstance();
+        $this->buffer->stop();
         if (empty($this->HTML)) {
-            $this->HTML = $buffer->getContents();
+            $this->HTML = $this->buffer->getContents();
         }
 
         if ($this->isAjax()) {
@@ -399,7 +400,7 @@ class ResponseRenderer
             echo $this->getDisplay();
         }
 
-        $buffer->flush();
+        $this->buffer->flush();
         exit;
     }
 

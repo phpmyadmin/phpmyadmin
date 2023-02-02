@@ -8,8 +8,10 @@ use PhpMyAdmin\Core;
 
 use function defined;
 use function function_exists;
+use function header;
 use function ini_get;
 use function json_encode;
+use function sprintf;
 use function ucwords;
 use function uniqid;
 
@@ -102,7 +104,10 @@ final class Ajax
      */
     public static function status($id): void
     {
-        Core::headerJSON();
+        foreach (Core::headerJSON() as $name => $value) {
+            header(sprintf('%s: %s', $name, $value));
+        }
+
         echo json_encode(
             $_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getUploadStatus($id)
         );

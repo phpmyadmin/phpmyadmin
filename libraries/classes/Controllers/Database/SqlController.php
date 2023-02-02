@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
@@ -28,7 +29,7 @@ class SqlController extends AbstractController
         $this->sqlQueryForm = $sqlQueryForm;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['goto'] = $GLOBALS['goto'] ?? null;
         $GLOBALS['back'] = $GLOBALS['back'] ?? null;
@@ -55,15 +56,14 @@ class SqlController extends AbstractController
          */
         $GLOBALS['goto'] = Url::getFromRoute('/database/sql');
         $GLOBALS['back'] = $GLOBALS['goto'];
+        $delimiter = $request->getParsedBodyParam('delimiter', ';');
 
         $this->response->addHTML($this->sqlQueryForm->getHtml(
             $GLOBALS['db'],
             '',
             true,
             false,
-            isset($_POST['delimiter'])
-                ? htmlspecialchars($_POST['delimiter'])
-                : ';'
+            htmlspecialchars($delimiter)
         ));
     }
 }

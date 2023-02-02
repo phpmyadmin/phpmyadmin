@@ -1,79 +1,32 @@
 <?php
-/**
- * Front controller for setup script
- */
 
 declare(strict_types=1);
 
-use PhpMyAdmin\Controllers\Setup\ConfigController;
-use PhpMyAdmin\Controllers\Setup\FormController;
-use PhpMyAdmin\Controllers\Setup\HomeController;
-use PhpMyAdmin\Controllers\Setup\ServersController;
-use PhpMyAdmin\Core;
-use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
-
-if (! defined('ROOT_PATH')) {
-    // phpcs:disable PSR1.Files.SideEffects
-    define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
-    // phpcs:enable
-}
+use PhpMyAdmin\Common;
 
 // phpcs:disable PSR1.Files.SideEffects
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
+}
+
 define('PHPMYADMIN', true);
 // phpcs:enable
 
-require ROOT_PATH . 'setup/lib/common.inc.php';
-
-if (@file_exists(CONFIG_FILE) && ! $GLOBALS['cfg']['DBG']['demo']) {
-    Core::fatalError(__('Configuration already exists, setup is disabled!'));
+if (PHP_VERSION_ID < 70205) {
+    die('<p>PHP 7.2.5+ is required.</p><p>Currently installed version is: ' . PHP_VERSION . '</p>');
 }
 
-$page = 'index';
-if (isset($_GET['page']) && in_array($_GET['page'], ['form', 'config', 'servers'], true)) {
-    $page = $_GET['page'];
+require_once ROOT_PATH . 'libraries/constants.php';
+
+if (! @is_readable(AUTOLOAD_FILE)) {
+    die(
+        '<p>File <samp>' . AUTOLOAD_FILE . '</samp> missing or not readable.</p>'
+        . '<p>Most likely you did not run Composer to '
+        . '<a href="https://docs.phpmyadmin.net/en/latest/setup.html#installing-from-git">'
+        . 'install library files</a>.</p>'
+    );
 }
 
-Core::noCacheHeader();
+require AUTOLOAD_FILE;
 
-if ($page === 'form') {
-    echo (new FormController($GLOBALS['ConfigFile'], new Template()))([
-        'formset' => $_GET['formset'] ?? null,
-    ]);
-
-    return;
-}
-
-if ($page === 'config') {
-    echo (new ConfigController($GLOBALS['ConfigFile'], new Template()))([
-        'formset' => $_GET['formset'] ?? null,
-        'eol' => $_GET['eol'] ?? null,
-    ]);
-
-    return;
-}
-
-if ($page === 'servers') {
-    $controller = new ServersController($GLOBALS['ConfigFile'], new Template());
-    if (isset($_GET['mode']) && $_GET['mode'] === 'remove' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
-        $controller->destroy([
-            'id' => $_GET['id'] ?? null,
-        ]);
-        header('Location: index.php' . Url::getCommonRaw());
-
-        return;
-    }
-
-    echo $controller->index([
-        'formset' => $_GET['formset'] ?? null,
-        'mode' => $_GET['mode'] ?? null,
-        'id' => $_GET['id'] ?? null,
-    ]);
-
-    return;
-}
-
-echo (new HomeController($GLOBALS['ConfigFile'], new Template()))([
-    'formset' => $_GET['formset'] ?? null,
-    'version_check' => $_GET['version_check'] ?? null,
-]);
+Common::run(true);

@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -41,35 +42,29 @@ class BinlogController extends AbstractController
         );
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $log = $request->getParsedBodyParam('log');
+        $position = (int) $request->getParsedBodyParam('pos', 0);
 
-        $params = [
-            'log' => $_POST['log'] ?? null,
-            'pos' => $_POST['pos'] ?? null,
-            'is_full_query' => $_POST['is_full_query'] ?? null,
-        ];
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
         }
 
-        $position = ! empty($params['pos']) ? (int) $params['pos'] : 0;
-
         $urlParams = [];
-        if (isset($params['log']) && array_key_exists($params['log'], $this->binaryLogs)) {
-            $urlParams['log'] = $params['log'];
+        if (array_key_exists($log, $this->binaryLogs)) {
+            $urlParams['log'] = $log;
         }
 
         $isFullQuery = false;
-        if (! empty($params['is_full_query'])) {
+        if ($request->hasBodyParam('is_full_query')) {
             $isFullQuery = true;
             $urlParams['is_full_query'] = 1;
         }
 
-        $sqlQuery = $this->getSqlQuery($params['log'] ?? '', $position, (int) $GLOBALS['cfg']['MaxRows']);
+        $sqlQuery = $this->getSqlQuery($log ?? '', $position, (int) $GLOBALS['cfg']['MaxRows']);
         $result = $this->dbi->query($sqlQuery);
 
         $numRows = $result->numRows();
@@ -98,7 +93,7 @@ class BinlogController extends AbstractController
         $this->render('server/binlog/index', [
             'url_params' => $urlParams,
             'binary_logs' => $this->binaryLogs,
-            'log' => $params['log'],
+            'log' => $log,
             'sql_message' => Generator::getMessage(Message::success(), $sqlQuery),
             'values' => $values,
             'has_previous' => $position > 0,
@@ -122,7 +117,7 @@ class BinlogController extends AbstractController
         int $maxRows
     ): string {
         $sqlQuery = 'SHOW BINLOG EVENTS';
-        if (! empty($log)) {
+        if ($log !== '') {
             $sqlQuery .= ' IN \'' . $log . '\'';
         }
 

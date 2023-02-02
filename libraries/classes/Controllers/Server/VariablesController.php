@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -34,28 +35,27 @@ class VariablesController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
-
-        $params = ['filter' => $_GET['filter'] ?? null];
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
         }
 
-        $filterValue = ! empty($params['filter']) ? $params['filter'] : '';
+        $filterValue = $request->getQueryParam('filter', '');
 
         $this->addScriptFiles(['server/variables.js']);
 
         $variables = [];
         $serverVarsResult = $this->dbi->tryQuery('SHOW SESSION VARIABLES;');
         if ($serverVarsResult !== false) {
+            /** @var array<string, string> $serverVarsSession */
             $serverVarsSession = $serverVarsResult->fetchAllKeyPair();
 
             unset($serverVarsResult);
 
+            /** @var array<string, string> $serverVars */
             $serverVars = $this->dbi->fetchResult('SHOW GLOBAL VARIABLES;', 0, 1);
 
             // list of static (i.e. non-editable) system variables

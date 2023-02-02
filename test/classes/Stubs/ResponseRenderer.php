@@ -46,6 +46,7 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
         $this->htmlString = '';
         $this->json = [];
         $this->isAjax = false;
+        $this->isDisabled = false;
 
         $GLOBALS['lang'] = 'en';
         $GLOBALS['server'] = $GLOBALS['server'] ?? 1;
@@ -172,5 +173,10 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
     public function getHttpResponseCode(): int
     {
         return $this->responseCode;
+    }
+
+    public function isDisabled(): bool
+    {
+        return $this->isDisabled;
     }
 }

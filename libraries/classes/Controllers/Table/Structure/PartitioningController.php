@@ -66,7 +66,7 @@ final class PartitioningController extends AbstractController
         $this->response->addHTML($pageSettings->getErrorHTML());
         $this->response->addHTML($pageSettings->getHTML());
 
-        $this->addScriptFiles(['table/structure.js', 'indexes.js']);
+        $this->addScriptFiles(['table/structure.js']);
 
         $partitionDetails = null;
         if (! isset($_POST['partition_by'])) {
@@ -75,7 +75,10 @@ final class PartitioningController extends AbstractController
 
         $storageEngines = StorageEngine::getArray();
 
-        $partitionDetails = TablePartitionDefinition::getDetails($partitionDetails);
+        if ($partitionDetails === null) {
+            $partitionDetails = TablePartitionDefinition::getDetails();
+        }
+
         $this->render('table/structure/partition_definition_form', [
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
@@ -91,7 +94,7 @@ final class PartitioningController extends AbstractController
      */
     private function extractPartitionDetails(): ?array
     {
-        $createTable = (new Table($GLOBALS['table'], $GLOBALS['db']))->showCreate();
+        $createTable = (new Table($GLOBALS['table'], $GLOBALS['db'], $this->dbi))->showCreate();
         if (! $createTable) {
             return null;
         }

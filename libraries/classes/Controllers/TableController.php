@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -20,15 +21,15 @@ final class TableController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        if (! isset($_POST['db'])) {
+        if (! $request->hasBodyParam('db')) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON(['message' => Message::error()]);
 
             return;
         }
 
-        $this->response->addJSON(['tables' => $this->dbi->getTables($_POST['db'])]);
+        $this->response->addJSON(['tables' => $this->dbi->getTables($request->getParsedBodyParam('db'))]);
     }
 }

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 
 use PhpMyAdmin\Controllers\Server\Status\MonitorController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -45,7 +46,7 @@ class MonitorControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
 
-        $this->data = new Data();
+        $this->data = new Data($this->dbi);
     }
 
     public function testIndex(): void
@@ -60,7 +61,7 @@ class MonitorControllerTest extends AbstractTestCase
         );
 
         $this->dummyDbi->addSelectDb('mysql');
-        $controller();
+        $controller($this->createStub(ServerRequest::class));
         $this->dummyDbi->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 

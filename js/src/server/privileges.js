@@ -1,6 +1,10 @@
 import $ from 'jquery';
-
-/* global Navigation */
+import { AJAX } from '../modules/ajax.js';
+import { Functions } from '../modules/functions.js';
+import { CommonParams } from '../modules/common.js';
+import { Navigation } from '../modules/navigation.js';
+import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
+import getImageTag from '../modules/functions/getImageTag.js';
 
 /**
  * Export privileges modal handler
@@ -20,17 +24,17 @@ function exportPrivilegesModalHandler (data, msgbox) {
         modal.on('shown.bs.modal', function () {
             modal.find('.modal-body').first().html(data.message);
             $('#exportPrivilegesModalLabel').first().html(data.title);
-            Functions.ajaxRemoveMessage(msgbox);
+            ajaxRemoveMessage(msgbox);
             // Attach syntax highlighted editor to export dialog
             Functions.getSqlEditor(modal.find('textarea'));
         });
         return;
     }
-    Functions.ajaxShowMessage(data.error, false);
+    ajaxShowMessage(data.error, false);
 }
 
 /**
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const EditUserGroup = {
     /**
@@ -45,11 +49,11 @@ const EditUserGroup = {
             'index.php?route=/server/user-groups/edit-form',
             {
                 'username': username,
-                'server': window.CommonParams.get('server')
+                'server': CommonParams.get('server')
             },
             data => {
                 if (typeof data === 'undefined' || data.success !== true) {
-                    Functions.ajaxShowMessage(data.error, false, 'error');
+                    ajaxShowMessage(data.error, false, 'error');
 
                     return;
                 }
@@ -65,10 +69,10 @@ const EditUserGroup = {
 
                     $.post(
                         'index.php?route=/server/privileges',
-                        form.serialize() + window.CommonParams.get('arg_separator') + 'ajax_request=1',
+                        form.serialize() + CommonParams.get('arg_separator') + 'ajax_request=1',
                         data => {
                             if (typeof data === 'undefined' || data.success !== true) {
-                                Functions.ajaxShowMessage(data.error, false, 'error');
+                                ajaxShowMessage(data.error, false, 'error');
 
                                 return;
                             }
@@ -88,7 +92,7 @@ const EditUserGroup = {
 };
 
 /**
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const AccountLocking = {
     handleEvent: function () {
@@ -101,28 +105,28 @@ const AccountLocking = {
             'username': button.dataset.userName,
             'hostname': button.dataset.hostName,
             'ajax_request': true,
-            'server': window.CommonParams.get('server'),
+            'server': CommonParams.get('server'),
         };
 
         $.post(url, params, data => {
             if (data.success === false) {
-                Functions.ajaxShowMessage(data.error);
+                ajaxShowMessage(data.error);
                 return;
             }
 
             if (isLocked) {
-                const lockIcon = Functions.getImage('s_lock', window.Messages.strLock, {}).toString();
+                const lockIcon = getImageTag('s_lock', window.Messages.strLock, {}).toString();
                 button.innerHTML = '<span class="text-nowrap">' + lockIcon + ' ' + window.Messages.strLock + '</span>';
                 button.title = window.Messages.strLockAccount;
                 button.dataset.isLocked = 'false';
             } else {
-                const unlockIcon = Functions.getImage('s_unlock', window.Messages.strUnlock, {}).toString();
+                const unlockIcon = getImageTag('s_unlock', window.Messages.strUnlock, {}).toString();
                 button.innerHTML = '<span class="text-nowrap">' + unlockIcon + ' ' + window.Messages.strUnlock + '</span>';
                 button.title = window.Messages.strUnlockAccount;
                 button.dataset.isLocked = 'true';
             }
 
-            Functions.ajaxShowMessage(data.message);
+            ajaxShowMessage(data.message);
         });
     }
 };
@@ -130,7 +134,7 @@ const AccountLocking = {
 /**
  * Display a warning if there is already a user by the name entered as the username.
  *
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const AddUserLoginCheckUsername = {
     handleEvent: function () {
@@ -139,10 +143,10 @@ const AddUserLoginCheckUsername = {
         if ($('#select_pred_username').val() === 'userdefined' && username !== '') {
             var href = $('form[name=\'usersForm\']').attr('action');
             var params = {
-                'ajax_request' : true,
-                'server' : window.CommonParams.get('server'),
-                'validate_username' : true,
-                'username' : username
+                'ajax_request': true,
+                'server': CommonParams.get('server'),
+                'validate_username': true,
+                'username': username
             };
             $.get(href, params, function (data) {
                 if (data.user_exists) {
@@ -160,7 +164,7 @@ const AddUserLoginCheckUsername = {
 /**
  * Indicating password strength
  *
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const PasswordStrength = {
     handleEvent: function () {
@@ -175,7 +179,7 @@ const PasswordStrength = {
 /**
  * Automatically switching to 'Use Text field' from 'No password' once start writing in text area
  *
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const SwitchToUseTextField = {
     handleEvent: function () {
@@ -186,20 +190,20 @@ const SwitchToUseTextField = {
 };
 
 /**
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const ChangePasswordStrength = {
     handleEvent: function () {
         var meterObj = $('#change_password_strength_meter');
         var meterObjLabel = $('#change_password_strength');
-        Functions.checkPasswordStrength($(this).val(), meterObj, meterObjLabel, window.CommonParams.get('user'));
+        Functions.checkPasswordStrength($(this).val(), meterObj, meterObjLabel, CommonParams.get('user'));
     }
 };
 
 /**
  * Display a notice if sha256_password is selected
  *
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const ShowSha256PasswordNotice = {
     handleEvent: function () {
@@ -213,7 +217,7 @@ const ShowSha256PasswordNotice = {
 };
 
 /**
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const RevokeUser = {
     /**
@@ -228,19 +232,19 @@ const RevokeUser = {
         $thisButton.confirm(window.Messages.strDropUserWarning, $form.attr('action'), function (url) {
             var $dropUsersDbCheckbox = $('#dropUsersDbCheckbox');
             if ($dropUsersDbCheckbox.is(':checked')) {
-                var isConfirmed = confirm(window.Messages.strDropDatabaseStrongWarning + '\n' + Functions.sprintf(window.Messages.strDoYouReally, 'DROP DATABASE'));
+                var isConfirmed = confirm(window.Messages.strDropDatabaseStrongWarning + '\n' + window.sprintf(window.Messages.strDoYouReally, 'DROP DATABASE'));
                 if (! isConfirmed) {
                     // Uncheck the drop users database checkbox
                     $dropUsersDbCheckbox.prop('checked', false);
                 }
             }
 
-            Functions.ajaxShowMessage(window.Messages.strRemovingSelectedUsers);
+            ajaxShowMessage(window.Messages.strRemovingSelectedUsers);
 
-            var argsep = window.CommonParams.get('arg_separator');
+            var argsep = CommonParams.get('arg_separator');
             $.post(url, $form.serialize() + argsep + 'delete=' + $thisButton.val() + argsep + 'ajax_request=true', function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
-                    Functions.ajaxShowMessage(data.message);
+                    ajaxShowMessage(data.message);
                     // Refresh navigation, if we dropped some databases with the name
                     // that is the same as the username of the deleted user
                     if ($('#dropUsersDbCheckbox:checked').length) {
@@ -273,7 +277,7 @@ const RevokeUser = {
                         $(Functions.checkboxesSel).trigger('change');
                     });
                 } else {
-                    Functions.ajaxShowMessage(data.error, false);
+                    ajaxShowMessage(data.error, false);
                 }
             }); // end $.post()
         });
@@ -281,7 +285,7 @@ const RevokeUser = {
 };
 
 /**
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const ExportPrivileges = {
     /**
@@ -291,12 +295,12 @@ const ExportPrivileges = {
         event.preventDefault();
         // can't export if no users checked
         if ($(this.form).find('input:checked').length === 0) {
-            Functions.ajaxShowMessage(window.Messages.strNoAccountSelected, 2000, 'success');
+            ajaxShowMessage(window.Messages.strNoAccountSelected, 2000, 'success');
             return;
         }
-        var msgbox = Functions.ajaxShowMessage();
-        var argsep = window.CommonParams.get('arg_separator');
-        var serverId = window.CommonParams.get('server');
+        var msgbox = ajaxShowMessage();
+        var argsep = CommonParams.get('arg_separator');
+        var serverId = CommonParams.get('server');
         var selectedUsers = $('#usersForm input[name*=\'selected_usr\']:checkbox').serialize();
         var postStr = selectedUsers + '&submit_mult=export' + argsep + 'ajax_request=true&server=' + serverId;
 
@@ -307,7 +311,7 @@ const ExportPrivileges = {
 };
 
 /**
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const ExportUser = {
     /**
@@ -315,7 +319,7 @@ const ExportUser = {
      */
     handleEvent: function (event) {
         event.preventDefault();
-        var msgbox = Functions.ajaxShowMessage();
+        var msgbox = ajaxShowMessage();
         $.get($(this).attr('href'), { 'ajax_request': true }, function (data) {
             exportPrivilegesModalHandler(data, msgbox);
         });
@@ -323,7 +327,7 @@ const ExportUser = {
 };
 
 /**
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const SslTypeToggle = {
     handleEvent: function () {
@@ -337,7 +341,7 @@ const SslTypeToggle = {
 };
 
 /**
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const SslPrivilegeToggle = {
     handleEvent: function () {
@@ -416,7 +420,7 @@ function addOrUpdateSubmenu () {
 }
 
 /**
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const SelectAllPrivileges = {
     /**
@@ -439,7 +443,7 @@ function setMaxWidth () {
 /**
  * Validates the "add a user" form
  *
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const CheckAddUser = {
     handleEvent: function () {
@@ -461,6 +465,10 @@ const CheckAddUser = {
     }
 };
 
+const selectPasswordRadioWhenChangingPassword = () => {
+    $('#nopass_0').prop('checked', true);
+};
+
 /**
  * AJAX scripts for /server/privileges page.
  *
@@ -480,9 +488,12 @@ const CheckAddUser = {
 /**
  * Unbind all event handlers before tearing down a page
  */
-window.AJAX.registerTeardown('server/privileges.js', function () {
+AJAX.registerTeardown('server/privileges.js', function () {
     $('#fieldset_add_user_login').off('change', 'input[name=\'username\']');
     $(document).off('click', '#deleteUserCard .btn.ajax');
+    $('#text_pma_change_pw').off('keyup');
+    $('#text_pma_change_pw').off('change');
+    $('#text_pma_change_pw2').off('change');
 
     const editUserGroupModal = document.getElementById('editUserGroupModal');
     if (editUserGroupModal) {
@@ -499,11 +510,13 @@ window.AJAX.registerTeardown('server/privileges.js', function () {
     $(document).off('change', '#select_authentication_plugin');
 });
 
-window.AJAX.registerOnload('server/privileges.js', function () {
+AJAX.registerOnload('server/privileges.js', function () {
     $('#fieldset_add_user_login').on('change', 'input[name=\'username\']', AddUserLoginCheckUsername.handleEvent);
     $('#text_pma_pw').on('keyup', PasswordStrength.handleEvent);
     $('#text_pma_pw').on('input', SwitchToUseTextField.handleEvent);
     $('#text_pma_change_pw').on('keyup', ChangePasswordStrength.handleEvent);
+    $('#text_pma_change_pw').on('change', selectPasswordRadioWhenChangingPassword);
+    $('#text_pma_change_pw2').on('change', selectPasswordRadioWhenChangingPassword);
     $(document).on('change', '#select_authentication_plugin', ShowSha256PasswordNotice.handleEvent);
     $(document).on('click', '#deleteUserCard .btn.ajax', RevokeUser.handleEvent);
 

@@ -11,6 +11,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
@@ -26,6 +27,8 @@ use PhpMyAdmin\Util;
 use function __;
 use function count;
 use function implode;
+use function is_array;
+use function is_string;
 use function mb_strstr;
 use function mb_strtolower;
 use function mb_strtoupper;
@@ -62,7 +65,7 @@ class OperationsController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
         $GLOBALS['reread_info'] = $GLOBALS['reread_info'] ?? null;
@@ -76,7 +79,6 @@ class OperationsController extends AbstractController
         $GLOBALS['create_options'] = $GLOBALS['create_options'] ?? null;
         $GLOBALS['table_alters'] = $GLOBALS['table_alters'] ?? null;
         $GLOBALS['warning_messages'] = $GLOBALS['warning_messages'] ?? null;
-        $GLOBALS['lowerCaseNames'] = $GLOBALS['lowerCaseNames'] ?? null;
         $GLOBALS['reload'] = $GLOBALS['reload'] ?? null;
         $GLOBALS['result'] = $GLOBALS['result'] ?? null;
         $GLOBALS['new_tbl_storage_engine'] = $GLOBALS['new_tbl_storage_engine'] ?? null;
@@ -90,10 +92,7 @@ class OperationsController extends AbstractController
 
         $this->checkUserPrivileges->getPrivileges();
 
-        // lower_case_table_names=1 `DB` becomes `db`
-        $GLOBALS['lowerCaseNames'] = $this->dbi->getLowerCaseNames() === '1';
-
-        if ($GLOBALS['lowerCaseNames']) {
+        if ($this->dbi->getLowerCaseNames() === 1) {
             $GLOBALS['table'] = mb_strtolower($GLOBALS['table']);
         }
 
@@ -160,7 +159,7 @@ class OperationsController extends AbstractController
         /**
          * If the table has to be moved to some other database
          */
-        if (isset($_POST['submit_move']) || isset($_POST['submit_copy'])) {
+        if ($request->hasBodyParam('submit_move') || $request->hasBodyParam('submit_copy')) {
             $message = $this->operations->moveOrCopyTable($GLOBALS['db'], $GLOBALS['table']);
 
             if (! $this->response->isAjax()) {
@@ -170,8 +169,10 @@ class OperationsController extends AbstractController
             $this->response->addJSON('message', $message);
 
             if ($message->isSuccess()) {
-                if (isset($_POST['submit_move'], $_POST['target_db'])) {
-                    $GLOBALS['db'] = $_POST['target_db'];// Used in Header::getJsParams()
+                /** @var mixed $targetDbParam */
+                $targetDbParam = $request->getParsedBodyParam('target_db');
+                if ($request->hasBodyParam('submit_move') && is_string($targetDbParam)) {
+                    $GLOBALS['db'] = $targetDbParam; // Used in Header::getJsParams()
                 }
 
                 $this->response->addJSON('db', $GLOBALS['db']);
@@ -187,27 +188,30 @@ class OperationsController extends AbstractController
         /**
          * Updates table comment, type and options if required
          */
-        if (isset($_POST['submitoptions'])) {
+        if ($request->hasBodyParam('submitoptions')) {
             $_message = '';
             $GLOBALS['warning_messages'] = [];
 
-            if (isset($_POST['new_name'])) {
-                // lower_case_table_names=1 `DB` becomes `db`
-                if ($GLOBALS['lowerCaseNames']) {
-                    $_POST['new_name'] = mb_strtolower($_POST['new_name']);
+            /** @var mixed $newName */
+            $newName = $request->getParsedBodyParam('new_name');
+            if (is_string($newName)) {
+                if ($this->dbi->getLowerCaseNames() === 1) {
+                    $newName = mb_strtolower($newName);
                 }
 
                 // Get original names before rename operation
                 $oldTable = $pma_table->getName();
                 $oldDb = $pma_table->getDbName();
 
-                if ($pma_table->rename($_POST['new_name'])) {
-                    if (isset($_POST['adjust_privileges']) && ! empty($_POST['adjust_privileges'])) {
+                if ($pma_table->rename($newName)) {
+                    if ($request->getParsedBodyParam('adjust_privileges')) {
+                        /** @var mixed $dbParam */
+                        $dbParam = $request->getParsedBodyParam('db');
                         $this->operations->adjustPrivilegesRenameOrMoveTable(
                             $oldDb,
                             $oldTable,
-                            $_POST['db'],
-                            $_POST['new_name']
+                            is_string($dbParam) ? $dbParam : '',
+                            $newName
                         );
                     }
 
@@ -225,11 +229,13 @@ class OperationsController extends AbstractController
                 }
             }
 
+            /** @var mixed $newTableStorageEngine */
+            $newTableStorageEngine = $request->getParsedBodyParam('new_tbl_storage_engine');
             if (
-                ! empty($_POST['new_tbl_storage_engine'])
-                && mb_strtoupper($_POST['new_tbl_storage_engine']) !== $GLOBALS['tbl_storage_engine']
+                is_string($newTableStorageEngine) && $newTableStorageEngine !== ''
+                && mb_strtoupper($newTableStorageEngine) !== $GLOBALS['tbl_storage_engine']
             ) {
-                $GLOBALS['new_tbl_storage_engine'] = mb_strtoupper($_POST['new_tbl_storage_engine']);
+                $GLOBALS['new_tbl_storage_engine'] = mb_strtoupper($newTableStorageEngine);
 
                 if ($pma_table->isEngine('ARIA')) {
                     $GLOBALS['create_options']['transactional'] = ($GLOBALS['create_options']['transactional'] ?? '')
@@ -266,15 +272,20 @@ class OperationsController extends AbstractController
                 $GLOBALS['warning_messages'] = $this->operations->getWarningMessagesArray();
             }
 
-            if (! empty($_POST['tbl_collation']) && ! empty($_POST['change_all_collations'])) {
+            /** @var mixed $tableCollationParam */
+            $tableCollationParam = $request->getParsedBodyParam('tbl_collation');
+            if (
+                is_string($tableCollationParam) && $tableCollationParam !== ''
+                && $request->getParsedBodyParam('change_all_collations')
+            ) {
                 $this->operations->changeAllColumnsCollation(
                     $GLOBALS['db'],
                     $GLOBALS['table'],
-                    $_POST['tbl_collation']
+                    $tableCollationParam
                 );
             }
 
-            if (isset($_POST['tbl_collation']) && empty($_POST['tbl_collation'])) {
+            if ($tableCollationParam !== null && (! is_string($tableCollationParam) || $tableCollationParam === '')) {
                 if ($this->response->isAjax()) {
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON(
@@ -287,26 +298,38 @@ class OperationsController extends AbstractController
             }
         }
 
+        /** @var mixed $orderField */
+        $orderField = $request->getParsedBodyParam('order_field');
+
         /**
          * Reordering the table has been requested by the user
          */
-        if (isset($_POST['submitorderby']) && ! empty($_POST['order_field'])) {
+        if ($request->hasBodyParam('submitorderby') && is_string($orderField) && $orderField !== '') {
+            /** @var mixed $orderOrder */
+            $orderOrder = $request->getParsedBodyParam('order_order');
             $GLOBALS['sql_query'] = QueryGenerator::getQueryForReorderingTable(
                 $GLOBALS['table'],
-                urldecode($_POST['order_field']),
-                $_POST['order_order'] ?? null
+                urldecode($orderField),
+                is_string($orderOrder) ? $orderOrder : ''
             );
             $GLOBALS['result'] = $this->dbi->query($GLOBALS['sql_query']);
         }
 
+        /** @var mixed $partitionOperation */
+        $partitionOperation = $request->getParsedBodyParam('partition_operation');
+
         /**
          * A partition operation has been requested by the user
          */
-        if (isset($_POST['submit_partition']) && ! empty($_POST['partition_operation'])) {
+        if (
+            $request->hasBodyParam('submit_partition') && is_string($partitionOperation) && $partitionOperation !== ''
+        ) {
+            /** @var mixed $partitionNames */
+            $partitionNames = $request->getParsedBodyParam('partition_name');
             $GLOBALS['sql_query'] = QueryGenerator::getQueryForPartitioningTable(
                 $GLOBALS['table'],
-                $_POST['partition_operation'],
-                $_POST['partition_name']
+                $partitionOperation,
+                is_array($partitionNames) ? $partitionNames : []
             );
             $GLOBALS['result'] = $this->dbi->query($GLOBALS['sql_query']);
         }
@@ -406,7 +429,7 @@ class OperationsController extends AbstractController
         // a user-defined clustered index (PRIMARY KEY or NOT NULL UNIQUE index).
         // InnoDB always orders table rows according to such an index if one is present.
         if ($GLOBALS['tbl_storage_engine'] === 'INNODB') {
-            $GLOBALS['indexes'] = Index::getFromTable($GLOBALS['table'], $GLOBALS['db']);
+            $GLOBALS['indexes'] = Index::getFromTable($this->dbi, $GLOBALS['table'], $GLOBALS['db']);
             foreach ($GLOBALS['indexes'] as $name => $idx) {
                 if ($name === 'PRIMARY') {
                     $GLOBALS['hideOrderTable'] = true;
@@ -461,8 +484,9 @@ class OperationsController extends AbstractController
         $possibleRowFormats = $this->operations->getPossibleRowFormat();
 
         $databaseList = [];
-        if (count($GLOBALS['dblist']->databases) <= $GLOBALS['cfg']['MaxDbList']) {
-            $databaseList = $GLOBALS['dblist']->databases->getList();
+        $listDatabase = $this->dbi->getDatabaseList();
+        if (count($listDatabase) <= $GLOBALS['cfg']['MaxDbList']) {
+            $databaseList = $listDatabase->getList();
         }
 
         $hasForeignKeys = ! empty($this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'foreign'));

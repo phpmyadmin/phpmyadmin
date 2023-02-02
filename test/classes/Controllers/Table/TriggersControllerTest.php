@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\TriggersController;
+use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
@@ -50,7 +52,13 @@ class TriggersControllerTest extends AbstractTestCase
         );
 
         $template = new Template();
-        (new TriggersController(new ResponseRenderer(), $template, $this->dbi))();
+        $response = new ResponseRenderer();
+        (new TriggersController(
+            $response,
+            $template,
+            $this->dbi,
+            new Triggers($this->dbi, $template, $response)
+        ))($this->createStub(ServerRequest::class));
 
         $items = [
             [

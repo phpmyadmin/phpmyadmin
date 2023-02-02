@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\ZoomSearchController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -53,7 +54,7 @@ class ZoomSearchControllerTest extends AbstractTestCase
             new Relation($this->dbi),
             $this->dbi
         );
-        $controller();
+        $controller($this->createStub(ServerRequest::class));
 
         $expected = $template->render('table/zoom_search/index', [
             'db' => $GLOBALS['db'],

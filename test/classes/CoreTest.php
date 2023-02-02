@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Url;
 use stdClass;
 
@@ -16,13 +15,11 @@ use function _pgettext;
 use function hash;
 use function header;
 use function htmlspecialchars;
-use function mb_strpos;
-use function ob_end_clean;
-use function ob_get_contents;
-use function ob_start;
-use function preg_quote;
 use function serialize;
 use function str_repeat;
+use function strtr;
+
+use const ENT_QUOTES;
 
 /**
  * @covers \PhpMyAdmin\Core
@@ -367,42 +364,6 @@ class CoreTest extends AbstractNetworkTestCase
     }
 
     /**
-     * Test for Core::fatalError
-     */
-    public function testFatalErrorMessage(): void
-    {
-        $_REQUEST = [];
-        ResponseRenderer::getInstance()->setAjax(false);
-
-        $this->expectOutputRegex('/FatalError!/');
-        Core::fatalError('FatalError!');
-    }
-
-    /**
-     * Test for Core::fatalError
-     */
-    public function testFatalErrorMessageWithArgs(): void
-    {
-        $_REQUEST = [];
-        ResponseRenderer::getInstance()->setAjax(false);
-
-        $message = 'Fatal error #%d in file %s.';
-        $params = [
-            1,
-            'error_file.php',
-        ];
-
-        $this->expectOutputRegex('/Fatal error #1 in file error_file.php./');
-        Core::fatalError($message, $params);
-
-        $message = 'Fatal error in file %s.';
-        $params = 'error_file.php';
-
-        $this->expectOutputRegex('/Fatal error in file error_file.php./');
-        Core::fatalError($message, $params);
-    }
-
-    /**
      * Test for Core::getRealSize
      *
      * @param string $size     Size
@@ -484,7 +445,7 @@ class CoreTest extends AbstractNetworkTestCase
         $lang = _pgettext('PHP documentation language', 'en');
         $this->assertEquals(
             Core::getPHPDocLink('function'),
-            './url.php?url=https%3A%2F%2Fwww.php.net%2Fmanual%2F'
+            'index.php?route=/url&url=https%3A%2F%2Fwww.php.net%2Fmanual%2F'
             . $lang . '%2Ffunction'
         );
     }
@@ -512,11 +473,11 @@ class CoreTest extends AbstractNetworkTestCase
         return [
             [
                 'https://wiki.phpmyadmin.net',
-                './url.php?url=https%3A%2F%2Fwiki.phpmyadmin.net',
+                'index.php?route=/url&url=https%3A%2F%2Fwiki.phpmyadmin.net',
             ],
             [
                 'https://wiki.phpmyadmin.net',
-                './url.php?url=https%3A%2F%2Fwiki.phpmyadmin.net',
+                'index.php?route=/url&url=https%3A%2F%2Fwiki.phpmyadmin.net',
             ],
             [
                 'wiki.phpmyadmin.net',
@@ -582,19 +543,24 @@ class CoreTest extends AbstractNetworkTestCase
             . '&test=test&test=test&test=test&test=test&test=test&test=test'
             . '&test=test&test=test&test=test&test=test&test=test&test=test'
             . '&test=test&test=test';
-        $testUri_html = htmlspecialchars($testUri);
-        $testUri_js = Sanitize::escapeJsString($testUri);
+        $testUri_js = strtr($testUri, [
+            ':' => '\u003A',
+            '/' => '\/', // Twig uses the short escape sequence
+            '?' => '\u003F',
+            '&' => '\u0026',
+            '=' => '\u003D',
+        ]);
 
         $header = "<html>\n<head>\n    <title>- - -</title>"
             . "\n    <meta http-equiv=\"expires\" content=\"0\">"
             . "\n    <meta http-equiv=\"Pragma\" content=\"no-cache\">"
             . "\n    <meta http-equiv=\"Cache-Control\" content=\"no-cache\">"
-            . "\n    <meta http-equiv=\"Refresh\" content=\"0;url=" . $testUri_html . '">'
+            . "\n    <meta http-equiv=\"Refresh\" content=\"0;url=" . htmlspecialchars($testUri, ENT_QUOTES) . '">'
             . "\n    <script type=\"text/javascript\">\n        //<![CDATA["
             . "\n        setTimeout(function() { window.location = decodeURI('" . $testUri_js . "'); }, 2000);"
             . "\n        //]]>\n    </script>\n</head>"
             . "\n<body>\n<script type=\"text/javascript\">\n    //<![CDATA["
-            . "\n    document.write('<p><a href=\"" . $testUri_html . '">' . __('Go') . "</a></p>');"
+            . "\n    document.write('<p><a href=\"" . $testUri_js . '">' . __('Go') . "</a></p>');"
             . "\n    //]]>\n</script>\n</body>\n</html>\n";
 
         $this->expectOutputString($header);
@@ -797,7 +763,7 @@ class CoreTest extends AbstractNetworkTestCase
             . '" target="Documentation"><em>' . $ext
             . '</em></a> extension is missing. Please check your PHP configuration.';
 
-        $this->expectOutputRegex('@' . preg_quote($warn, '@') . '@');
+        $this->expectExceptionMessage($warn);
 
         Core::warnMissingExtension($ext, true);
     }
@@ -818,12 +784,9 @@ class CoreTest extends AbstractNetworkTestCase
             . '</em></a> extension is missing. Please check your PHP configuration.'
             . ' ' . $extra;
 
-        ob_start();
-        Core::warnMissingExtension($ext, true, $extra);
-        $printed = ob_get_contents();
-        ob_end_clean();
+        $this->expectExceptionMessage($warn);
 
-        $this->assertGreaterThan(0, mb_strpos((string) $printed, $warn));
+        Core::warnMissingExtension($ext, true, $extra);
     }
 
     /**
@@ -986,6 +949,7 @@ class CoreTest extends AbstractNetworkTestCase
      * @runInSeparateProcess
      * @preserveGlobalState disabled
      * @requires extension xdebug
+     * @group ext-xdebug
      */
     public function testDownloadHeader(): void
     {
@@ -1012,6 +976,7 @@ class CoreTest extends AbstractNetworkTestCase
      * @runInSeparateProcess
      * @preserveGlobalState disabled
      * @requires extension xdebug
+     * @group ext-xdebug
      */
     public function testDownloadHeader2(): void
     {
@@ -1029,7 +994,7 @@ class CoreTest extends AbstractNetworkTestCase
         $this->assertContains('Content-Description: File Transfer', $headersList);
         $this->assertContains('Content-Disposition: attachment; filename="test.sql.gz"', $headersList);
         $this->assertContains('Content-Type: application/x-gzip', $headersList);
-        $this->assertContains('Content-Encoding: gzip', $headersList);
+        $this->assertNotContains('Content-Encoding: gzip', $headersList);
         $this->assertContains('Content-Transfer-Encoding: binary', $headersList);
         $this->assertNotContains('Content-Length: 0', $headersList);
     }

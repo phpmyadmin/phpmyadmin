@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Database;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
@@ -136,7 +137,7 @@ class CentralColumns
         }
 
         $pmadb = $cfgCentralColumns['db'];
-        $this->dbi->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
+        $this->dbi->selectDb($pmadb, Connection::TYPE_CONTROL);
         $central_list_table = $cfgCentralColumns['table'];
         //get current values of $db from central column list
         if ($num == 0) {
@@ -148,7 +149,7 @@ class CentralColumns
                 . 'LIMIT ' . $from . ', ' . $num . ';';
         }
 
-        $has_list = $this->dbi->fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL);
+        $has_list = $this->dbi->fetchResult($query, null, null, Connection::TYPE_CONTROL);
         $this->handleColumnExtra($has_list);
 
         return $has_list;
@@ -169,12 +170,12 @@ class CentralColumns
         }
 
         $pmadb = $cfgCentralColumns['db'];
-        $this->dbi->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
+        $this->dbi->selectDb($pmadb, Connection::TYPE_CONTROL);
         $central_list_table = $cfgCentralColumns['table'];
-        $query = 'SELECT count(db_name) FROM ' .
-            Util::backquote($central_list_table) . ' '
+        $query = 'SELECT count(db_name) FROM '
+            . Util::backquote($central_list_table) . ' '
             . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\';';
-        $res = $this->dbi->fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL);
+        $res = $this->dbi->fetchResult($query, null, null, Connection::TYPE_CONTROL);
         if (isset($res[0])) {
             return (int) $res[0];
         }
@@ -203,18 +204,18 @@ class CentralColumns
         }
 
         $pmadb = $cfgCentralColumns['db'];
-        $this->dbi->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
+        $this->dbi->selectDb($pmadb, Connection::TYPE_CONTROL);
         $central_list_table = $cfgCentralColumns['table'];
         if ($allFields) {
             $query = 'SELECT * FROM ' . Util::backquote($central_list_table) . ' '
                 . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\' AND col_name IN (' . $cols . ');';
-            $has_list = $this->dbi->fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL);
+            $has_list = $this->dbi->fetchResult($query, null, null, Connection::TYPE_CONTROL);
             $this->handleColumnExtra($has_list);
         } else {
             $query = 'SELECT col_name FROM '
                 . Util::backquote($central_list_table) . ' '
                 . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\' AND col_name IN (' . $cols . ');';
-            $has_list = $this->dbi->fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL);
+            $has_list = $this->dbi->fetchResult($query, null, null, Connection::TYPE_CONTROL);
         }
 
         return $has_list;
@@ -360,16 +361,14 @@ class CentralColumns
             );
         }
 
-        $this->dbi->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
-        if (! empty($insQuery)) {
-            foreach ($insQuery as $query) {
-                if (! $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
-                    $message = Message::error(__('Could not add columns!'));
-                    $message->addMessage(
-                        Message::rawError($this->dbi->getError(DatabaseInterface::CONNECT_CONTROL))
-                    );
-                    break;
-                }
+        $this->dbi->selectDb($pmadb, Connection::TYPE_CONTROL);
+        foreach ($insQuery as $query) {
+            if (! $this->dbi->tryQuery($query, Connection::TYPE_CONTROL)) {
+                $message = Message::error(__('Could not add columns!'));
+                $message->addMessage(
+                    Message::rawError($this->dbi->getError(Connection::TYPE_CONTROL))
+                );
+                break;
             }
         }
 
@@ -455,16 +454,16 @@ class CentralColumns
             );
         }
 
-        $this->dbi->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
+        $this->dbi->selectDb($pmadb, Connection::TYPE_CONTROL);
 
         $query = 'DELETE FROM ' . Util::backquote($central_list_table) . ' '
             . 'WHERE db_name = \'' . $this->dbi->escapeString($database) . '\' AND col_name IN (' . $cols . ');';
 
-        if (! $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
+        if (! $this->dbi->tryQuery($query, Connection::TYPE_CONTROL)) {
             $message = Message::error(__('Could not remove columns!'));
             $message->addHtml('<br>' . htmlspecialchars($cols) . '<br>');
             $message->addMessage(
-                Message::rawError($this->dbi->getError(DatabaseInterface::CONNECT_CONTROL))
+                Message::rawError($this->dbi->getError(Connection::TYPE_CONTROL))
             );
         }
 
@@ -557,7 +556,7 @@ class CentralColumns
         bool $allFields = false
     ): array {
         $cfgCentralColumns = $this->getParams();
-        if (empty($cfgCentralColumns)) {
+        if ($cfgCentralColumns === false || $cfgCentralColumns === []) {
             return [];
         }
 
@@ -569,12 +568,8 @@ class CentralColumns
         }
 
         $cols = trim($cols, ',');
-        $has_list = $this->findExistingColNames($db, $cols, $allFields);
-        if (! empty($has_list)) {
-            return (array) $has_list;
-        }
 
-        return [];
+        return $this->findExistingColNames($db, $cols, $allFields);
     }
 
     /**
@@ -613,7 +608,7 @@ class CentralColumns
         }
 
         $centralTable = $cfgCentralColumns['table'];
-        $this->dbi->selectDb($cfgCentralColumns['db'], DatabaseInterface::CONNECT_CONTROL);
+        $this->dbi->selectDb($cfgCentralColumns['db'], Connection::TYPE_CONTROL);
         if ($orig_col_name == '') {
             $def = [];
             $def['Type'] = $col_type;
@@ -642,8 +637,8 @@ class CentralColumns
                 . '\'';
         }
 
-        if (! $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
-            return Message::error($this->dbi->getError(DatabaseInterface::CONNECT_CONTROL));
+        if (! $this->dbi->tryQuery($query, Connection::TYPE_CONTROL)) {
+            return Message::error($this->dbi->getError(Connection::TYPE_CONTROL));
         }
 
         return true;
@@ -763,7 +758,7 @@ class CentralColumns
         }
 
         $centralTable = $cfgCentralColumns['table'];
-        if (empty($table) || $table == '') {
+        if ($table === '') {
             $query = 'SELECT * FROM ' . Util::backquote($centralTable) . ' '
                 . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\';';
         } else {
@@ -784,8 +779,8 @@ class CentralColumns
             $query .= ';';
         }
 
-        $this->dbi->selectDb($cfgCentralColumns['db'], DatabaseInterface::CONNECT_CONTROL);
-        $columns_list = $this->dbi->fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL);
+        $this->dbi->selectDb($cfgCentralColumns['db'], Connection::TYPE_CONTROL);
+        $columns_list = $this->dbi->fetchResult($query, null, null, Connection::TYPE_CONTROL);
         $this->handleColumnExtra($columns_list);
 
         return $columns_list;
@@ -870,13 +865,13 @@ class CentralColumns
         }
 
         $pmadb = $cfgCentralColumns['db'];
-        $this->dbi->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
+        $this->dbi->selectDb($pmadb, Connection::TYPE_CONTROL);
         $central_list_table = $cfgCentralColumns['table'];
         //get current values of $db from central column list
         $query = 'SELECT COUNT(db_name) FROM ' . Util::backquote($central_list_table) . ' '
-            . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\'' .
-            ($num === 0 ? '' : 'LIMIT ' . $from . ', ' . $num) . ';';
-        $result = $this->dbi->fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL);
+            . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\''
+            . ($num === 0 ? '' : 'LIMIT ' . $from . ', ' . $num) . ';';
+        $result = $this->dbi->fetchResult($query, null, null, Connection::TYPE_CONTROL);
 
         if (isset($result[0])) {
             return (int) $result[0];

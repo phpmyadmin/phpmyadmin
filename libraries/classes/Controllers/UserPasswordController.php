@@ -40,7 +40,6 @@ class UserPasswordController extends AbstractController
     {
         $GLOBALS['hostname'] = $GLOBALS['hostname'] ?? null;
         $GLOBALS['username'] = $GLOBALS['username'] ?? null;
-        $GLOBALS['password'] = $GLOBALS['password'] ?? null;
         $GLOBALS['change_password_message'] = $GLOBALS['change_password_message'] ?? null;
         $GLOBALS['msg'] = $GLOBALS['msg'] ?? null;
 
@@ -62,22 +61,33 @@ class UserPasswordController extends AbstractController
             return;
         }
 
+        $noPass = $request->getParsedBodyParam('nopass');
+        $pmaPw = $request->getParsedBodyParam('pma_pw');
+        $pmaPw2 = $request->getParsedBodyParam('pma_pw2');
+
         /**
          * If the "change password" form has been submitted, checks for valid values
          * and submit the query or logout
          */
-        if (isset($_POST['nopass'])) {
-            if ($_POST['nopass'] == '1') {
-                $GLOBALS['password'] = '';
+        if ($noPass !== null) {
+            if ($noPass == '1') {
+                $password = '';
             } else {
-                $GLOBALS['password'] = $_POST['pma_pw'];
+                $password = $pmaPw;
             }
 
-            $GLOBALS['change_password_message'] = $this->userPassword->setChangePasswordMsg();
+            $GLOBALS['change_password_message'] = $this->userPassword->setChangePasswordMsg(
+                $pmaPw,
+                $pmaPw2,
+                (bool) $noPass
+            );
             $GLOBALS['msg'] = $GLOBALS['change_password_message']['msg'];
 
             if (! $GLOBALS['change_password_message']['error']) {
-                $sql_query = $this->userPassword->changePassword($GLOBALS['password']);
+                $sql_query = $this->userPassword->changePassword(
+                    $password,
+                    $request->getParsedBodyParam('authentication_plugin')
+                );
 
                 if ($this->response->isAjax()) {
                     $sql_query = Generator::getMessage(

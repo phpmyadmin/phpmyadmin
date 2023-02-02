@@ -163,15 +163,21 @@
             {% endif %}
             <td class="navigation_separator"></td>
             <td>
-                <span>{% trans 'Filter rows' %}:</span>
-                <input type="text" class="filter_rows" placeholder="{% trans 'Search this table' %}">
+              <div class="row align-items-center">
+                <div class="col-auto">
+                  <label for="filterRows" class="col-form-label">{% trans 'Filter rows:' %}</label>
+                </div>
+                <div class="col-auto">
+                  <input type="text" id="filterRows" class="filter_rows form-control" placeholder="{% trans 'Search this table' %}">
+                </div>
+              </div>
             </td>
             <td class="navigation_separator"></td>
         </tr>
     </table>
 {% endif %}
 
-<table class="table table-borderless table-sm w-auto d-inline-block navigation">
+<table class="table table-borderless table-sm w-auto d-inline-block">
     <tr>
         <td class="navigation_separator largescreenonly"></td>
         <td class="central_columns_navigation">
@@ -285,7 +291,7 @@
                                     'max_rows': max_rows
                                 } only %}
                             </td>
-                            <td name = "col_type" class="text-nowrap">
+                            <td name="col_type" class="text-nowrap">
                               <span>{{ row['col_type'] }}</span>
                               <select class="column_type" name="field_type[{{ row_num }}]" id="field_{{ row_num }}_1">
                                 {{ get_supported_datatypes(true, types_upper[row_num]) }}

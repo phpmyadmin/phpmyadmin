@@ -10,6 +10,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FlashMessages;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\ResponseRenderer;
@@ -61,10 +62,8 @@ final class EmptyTableController extends AbstractController
         $this->structureController = $structureController;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-
         $multBtn = $_POST['mult_btn'] ?? '';
         $selected = $_POST['selected'] ?? [];
 
@@ -106,12 +105,8 @@ final class EmptyTableController extends AbstractController
 
         $GLOBALS['message'] = Message::success();
 
-        if (empty($_POST['message'])) {
-            $_POST['message'] = $GLOBALS['message'];
-        }
-
         unset($_POST['mult_btn']);
 
-        ($this->structureController)();
+        ($this->structureController)($request);
     }
 }

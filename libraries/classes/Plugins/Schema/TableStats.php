@@ -133,7 +133,7 @@ abstract class TableStats
         }
 
         if ($this->showKeys) {
-            $indexes = Index::getFromTable($this->tableName, $this->db);
+            $indexes = Index::getFromTable($GLOBALS['dbi'], $this->tableName, $this->db);
             $all_columns = [];
             foreach ($indexes as $index) {
                 $all_columns = array_merge(

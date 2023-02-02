@@ -93,7 +93,7 @@ final class RelationController extends AbstractController
             return;
         }
 
-        $this->addScriptFiles(['table/relation.js', 'indexes.js']);
+        $this->addScriptFiles(['table/relation.js']);
 
         // Set the database
         $this->dbi->selectDb($GLOBALS['db']);
@@ -150,7 +150,7 @@ final class RelationController extends AbstractController
             : [];
         $i = 0;
 
-        foreach ($existrelForeign as $key => $oneKey) {
+        foreach ($existrelForeign as $oneKey) {
             $foreignDb = $oneKey['ref_db_name'] ?? $GLOBALS['db'];
             $foreignTable = false;
             if ($foreignDb) {
@@ -162,9 +162,10 @@ final class RelationController extends AbstractController
 
             $uniqueColumns = [];
             if ($foreignDb && $foreignTable) {
-                $tableObject = Table::get(
+                $tableObject = new Table(
                     $foreignTable,
-                    $foreignDb
+                    $foreignDb,
+                    $this->dbi
                 );
                 $uniqueColumns = $tableObject->getUniqueColumns(false, false);
             }
@@ -178,7 +179,7 @@ final class RelationController extends AbstractController
                 'db' => $GLOBALS['db'],
                 'table' => $GLOBALS['table'],
                 'url_params' => $GLOBALS['urlParams'],
-                'databases' => $GLOBALS['dblist']->databases,
+                'databases' => $this->dbi->getDatabaseList(),
                 'foreign_db' => $foreignDb,
                 'foreign_table' => $foreignTable,
                 'unique_columns' => $uniqueColumns,
@@ -197,7 +198,7 @@ final class RelationController extends AbstractController
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
             'url_params' => $GLOBALS['urlParams'],
-            'databases' => $GLOBALS['dblist']->databases,
+            'databases' => $this->dbi->getDatabaseList(),
             'foreign_db' => false,
             'foreign_table' => false,
             'unique_columns' => [],
@@ -219,7 +220,7 @@ final class RelationController extends AbstractController
             'column_hash_array' => $column_hash_array,
             'save_row' => array_values($columns),
             'url_params' => $GLOBALS['urlParams'],
-            'databases' => $GLOBALS['dblist']->databases,
+            'databases' => $this->dbi->getDatabaseList(),
             'dbi' => $this->dbi,
             'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
             'route' => $request->getRoute(),
@@ -358,9 +359,8 @@ final class RelationController extends AbstractController
 
         $this->response->addJSON('columns', $columnList);
 
-        // @todo should be: $server->db($db)->table($table)->primary()
-        $primary = Index::getPrimary($foreignTable, $_POST['foreignDb']);
-        if ($primary === false) {
+        $primary = Index::getPrimary($this->dbi, $foreignTable, $_POST['foreignDb']);
+        if ($primary === null) {
             return;
         }
 

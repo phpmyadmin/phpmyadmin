@@ -6,6 +6,8 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Context;
@@ -42,6 +44,7 @@ use function implode;
 use function in_array;
 use function ini_get;
 use function is_array;
+use function is_numeric;
 use function is_object;
 use function is_scalar;
 use function is_string;
@@ -126,33 +129,6 @@ class Util
         [$maxSize, $maxUnit] = self::formatByteDown($maxUploadSize, 4);
 
         return '(' . sprintf(__('Max: %s%s'), $maxSize, $maxUnit) . ')';
-    }
-
-    /**
-     * Add slashes before "_" and "%" characters for using them in MySQL
-     * database, table and field names.
-     * Note: This function does not escape backslashes!
-     *
-     * @param string $name the string to escape
-     *
-     * @return string the escaped string
-     */
-    public static function escapeMysqlWildcards($name): string
-    {
-        return strtr($name, ['_' => '\\_', '%' => '\\%']);
-    }
-
-    /**
-     * removes slashes before "_" and "%" characters
-     * Note: This function does not unescape backslashes!
-     *
-     * @param string $name the string to escape
-     *
-     * @return string the escaped string
-     */
-    public static function unescapeMysqlWildcards($name): string
-    {
-        return strtr($name, ['\\_' => '_', '\\%' => '%']);
     }
 
     /**
@@ -539,7 +515,7 @@ class Util
                 __(',')
             );
             if (($originalValue != 0) && (floatval($value) == 0)) {
-                $value = ' <' . (1 / 10 ** $digitsRight);
+                return ' <' . (1 / 10 ** $digitsRight);
             }
 
             return $value;
@@ -580,16 +556,10 @@ class Util
 
         $dh = 10 ** $digitsRight;
 
-        /*
-         * This gives us the right SI prefix already,
-         * but $digits_left parameter not incorporated
-         */
+        // This gives us the right SI prefix already, but $digits_left parameter not incorporated
         $d = floor(log10((float) $value) / 3);
-        /*
-         * Lowering the SI prefix by 1 gives us an additional 3 zeros
-         * So if we have 3,6,9,12.. free digits ($digits_left - $cur_digits)
-         * to use, then lower the SI prefix
-         */
+        // Lowering the SI prefix by 1 gives us an additional 3 zeros
+        // So if we have 3,6,9,12.. free digits ($digits_left - $cur_digits) to use, then lower the SI prefix
         $curDigits = floor(log10($value / 1000 ** $d) + 1);
         if ($digitsLeft > $curDigits) {
             $d -= floor(($digitsLeft - $curDigits) / 3);
@@ -729,7 +699,7 @@ class Util
         // Some OSes such as Win8.1 Traditional Chinese version did not produce UTF-8
         // output here. See https://github.com/phpmyadmin/phpmyadmin/issues/10598
         if ($ret === false || mb_detect_encoding($ret, 'UTF-8', true) !== 'UTF-8') {
-            $ret = date('Y-m-d H:i:s', (int) $timestamp);
+            return date('Y-m-d H:i:s', (int) $timestamp);
         }
 
         return $ret;
@@ -824,11 +794,7 @@ class Util
         $isBinaryString = $meta->isType(FieldMetadata::TYPE_STRING) && $meta->isBinary();
         // 63 is the binary charset, see: https://dev.mysql.com/doc/internals/en/charsets.html
         $isBlobAndIsBinaryCharset = $meta->isType(FieldMetadata::TYPE_BLOB) && $meta->charsetnr === 63;
-        // timestamp is numeric on some MySQL 4.1
-        // for real we use CONCAT above and it should compare to string
-        // See commit: 049fc7fef7548c2ba603196937c6dcaf9ff9bf00
-        // See bug: https://sourceforge.net/p/phpmyadmin/bugs/3064/
-        if ($meta->isNumeric && ! $meta->isMappedTypeTimestamp && $meta->isNotType(FieldMetadata::TYPE_REAL)) {
+        if ($meta->isNumeric) {
             $conditionValue = '= ' . $row;
         } elseif ($isBlobAndIsBinaryCharset || (! empty($row) && $isBinaryString)) {
             // hexify only if this is a true not empty BLOB or a BINARY
@@ -860,7 +826,7 @@ class Util
                 . self::printableBitValue((int) $row, (int) $meta->length) . "'";
         } else {
             $conditionValue = '= \''
-                . $GLOBALS['dbi']->escapeString($row) . '\'';
+                . $GLOBALS['dbi']->escapeString((string) $row) . '\'';
         }
 
         return [$conditionValue, $condition];
@@ -894,7 +860,6 @@ class Util
         $primaryKeyArray = [];
         $uniqueKeyArray = [];
         $nonPrimaryConditionArray = [];
-        $conditionArray = [];
 
         for ($i = 0; $i < $fieldsCount; ++$i) {
             $meta = $fieldsMeta[$i];
@@ -979,6 +944,7 @@ class Util
         // but use conjunction of all values if no primary key
         $clauseIsUnique = true;
 
+        $conditionArray = [];
         if ($primaryKey) {
             $preferredCondition = $primaryKey;
             $conditionArray = $primaryKeyArray;
@@ -1320,6 +1286,7 @@ class Util
             $binary = false;
             $unsigned = false;
             $zerofill = false;
+            $compressed = false;
         } else {
             $enumSetValues = [];
 
@@ -1341,6 +1308,8 @@ class Util
             $zerofill = ($zerofillCount > 0);
             $printType = (string) preg_replace('@unsigned@', '', $printType, -1, $unsignedCount);
             $unsigned = ($unsignedCount > 0);
+            $printType = (string) preg_replace('@\/\*!100301 compressed\*\/@', '', $printType, -1, $compressedCount);
+            $compressed = ($compressedCount > 0);
             $printType = trim($printType);
         }
 
@@ -1355,6 +1324,14 @@ class Util
 
         if ($zerofill) {
             $attribute = 'UNSIGNED ZEROFILL';
+        }
+
+        if ($compressed) {
+            // With InnoDB page compression, multiple compression algorithms are supported.
+            // In contrast, with InnoDB's COMPRESSED row format, zlib is the only supported compression algorithm.
+            // This means that the COMPRESSED row format has less compression options than InnoDB page compression does.
+            // @see https://mariadb.com/kb/en/innodb-page-compression/#comparison-with-the-compressed-row-format
+            $attribute = 'COMPRESSED=zlib';
         }
 
         $canContainCollation = false;
@@ -1402,7 +1379,7 @@ class Util
     {
         $firstOccurrence = mb_strpos($string, "\r\n");
         if ($firstOccurrence === 0) {
-            $string = "\n" . $string;
+            return "\n" . $string;
         }
 
         return $string;
@@ -1572,10 +1549,10 @@ class Util
             $vars[$key] = $val;
         }
 
-        /* Replacement mapping */
-        /*
-         * The __VAR__ ones are for backward compatibility, because user
-         * might still have it in cookies.
+        /**
+         * Replacement mapping
+         *
+         * The __VAR__ ones are for backward compatibility, because user might still have it in cookies.
          */
         $replace = [
             '@HTTP_HOST@' => $vars['http_host'],
@@ -1604,21 +1581,16 @@ class Util
         if (str_contains($string, '@COLUMNS@')) {
             $columnsList = $GLOBALS['dbi']->getColumns($GLOBALS['db'], $GLOBALS['table']);
 
-            // sometimes the table no longer exists at this point
-            if ($columnsList !== null) {
-                $columnNames = [];
-                foreach ($columnsList as $column) {
-                    if ($escape !== null) {
-                        $columnNames[] = self::$escape($column['Field']);
-                    } else {
-                        $columnNames[] = $column['Field'];
-                    }
+            $columnNames = [];
+            foreach ($columnsList as $column) {
+                if ($escape !== null) {
+                    $columnNames[] = self::$escape($column['Field']);
+                } else {
+                    $columnNames[] = $column['Field'];
                 }
-
-                $replace['@COLUMNS@'] = implode(',', $columnNames);
-            } else {
-                $replace['@COLUMNS@'] = '*';
             }
+
+            $replace['@COLUMNS@'] = implode(',', $columnNames);
         }
 
         /* Do the replacement */
@@ -1671,6 +1643,14 @@ class Util
     public static function unsupportedDatatypes(): array
     {
         return [];
+    }
+
+    /**
+     * This function is to check whether database support UUID
+     */
+    public static function isUUIDSupported(): bool
+    {
+        return Compatibility::isUUIDSupported($GLOBALS['dbi']);
     }
 
     /**
@@ -1989,11 +1969,11 @@ class Util
     public static function getCollateForIS()
     {
         $names = $GLOBALS['dbi']->getLowerCaseNames();
-        if ($names === '0') {
+        if ($names === 0) {
             return 'COLLATE utf8_bin';
         }
 
-        if ($names === '2') {
+        if ($names === 2) {
             return 'COLLATE utf8_general_ci';
         }
 
@@ -2058,52 +2038,17 @@ class Util
     }
 
     /**
-     * Gets the list of tables in the current db and information about these
-     * tables if possible
+     * Gets the list of tables in the current db and information about these tables if possible.
      *
-     * @param string $db      database name
-     * @param string $subPart part of script name
-     *
-     * @return array
+     * @return array<int, array|int>
+     * @psalm-return array{array, int, int}
      */
-    public static function getDbInfo($db, string $subPart)
+    public static function getDbInfo(ServerRequest $request, string $db, bool $isResultLimited = true): array
     {
-        /**
-         * limits for table list
-         */
-        if (! isset($_SESSION['tmpval']['table_limit_offset']) || $_SESSION['tmpval']['table_limit_offset_db'] != $db) {
-            $_SESSION['tmpval']['table_limit_offset'] = 0;
-            $_SESSION['tmpval']['table_limit_offset_db'] = $db;
-        }
-
-        if (isset($_REQUEST['pos'])) {
-            $_SESSION['tmpval']['table_limit_offset'] = (int) $_REQUEST['pos'];
-        }
-
-        $pos = $_SESSION['tmpval']['table_limit_offset'];
-
-        /**
-         * whether to display extended stats
-         */
-        $isShowStats = $GLOBALS['cfg']['ShowStats'];
-
-        /**
-         * whether selected db is information_schema
-         */
-        $isSystemSchema = false;
-
-        if (Utilities::isSystemSchema($db)) {
-            $isShowStats = false;
-            $isSystemSchema = true;
-        }
-
         /**
          * information about tables in db
          */
         $tables = [];
-
-        $tooltipTrueName = [];
-        $tooltipAliasName = [];
 
         // Special speedup for newer MySQL Versions (in 4.0 format changed)
         if ($GLOBALS['cfg']['SkipLockedTables'] === true) {
@@ -2117,12 +2062,15 @@ class Util
             }
         }
 
-        if (empty($tables)) {
+        $totalNumTables = null;
+        if ($tables === []) {
             // Set some sorting defaults
             $sort = 'Name';
             $sortOrder = 'ASC';
 
-            if (isset($_REQUEST['sort'])) {
+            /** @var mixed $sortParam */
+            $sortParam = $request->getParam('sort');
+            if (is_string($sortParam)) {
                 $sortableNameMappings = [
                     'table' => 'Name',
                     'records' => 'Rows',
@@ -2137,9 +2085,9 @@ class Util
                 ];
 
                 // Make sure the sort type is implemented
-                if (isset($sortableNameMappings[$_REQUEST['sort']])) {
-                    $sort = $sortableNameMappings[$_REQUEST['sort']];
-                    if ($_REQUEST['sort_order'] === 'DESC') {
+                if (isset($sortableNameMappings[$sortParam])) {
+                    $sort = $sortableNameMappings[$sortParam];
+                    if ($request->getParam('sort_order') === 'DESC') {
                         $sortOrder = 'DESC';
                     }
                 }
@@ -2151,39 +2099,42 @@ class Util
             $limitCount = false;
             $groupTable = [];
 
-            if (! empty($_REQUEST['tbl_group']) || ! empty($_REQUEST['tbl_type'])) {
-                if (! empty($_REQUEST['tbl_type'])) {
+            /** @var mixed $tableGroupParam */
+            $tableGroupParam = $request->getParam('tbl_group');
+            /** @var mixed $tableTypeParam */
+            $tableTypeParam = $request->getParam('tbl_type');
+            if (
+                is_string($tableGroupParam) && $tableGroupParam !== ''
+                || is_string($tableTypeParam) && $tableTypeParam !== ''
+            ) {
+                if (is_string($tableTypeParam) && $tableTypeParam !== '') {
                     // only tables for selected type
-                    $tableType = $_REQUEST['tbl_type'];
+                    $tableType = $tableTypeParam;
                 }
 
-                if (! empty($_REQUEST['tbl_group'])) {
+                if (is_string($tableGroupParam) && $tableGroupParam !== '') {
                     // only tables for selected group
-                    $tableGroup = $_REQUEST['tbl_group'];
-                    // include the table with the exact name of the group if such
-                    // exists
+                    // include the table with the exact name of the group if such exists
                     $groupTable = $GLOBALS['dbi']->getTablesFull(
                         $db,
-                        $tableGroup,
+                        $tableGroupParam,
                         false,
-                        $limitOffset,
-                        $limitCount,
+                        0,
+                        false,
                         $sort,
                         $sortOrder,
                         $tableType
                     );
-                    $groupWithSeparator = $tableGroup
-                        . $GLOBALS['cfg']['NavigationTreeTableSeparator'];
+                    $groupWithSeparator = $tableGroupParam . $GLOBALS['cfg']['NavigationTreeTableSeparator'];
                 }
             } else {
                 // all tables in db
                 // - get the total number of tables
                 //  (needed for proper working of the MaxTableList feature)
-                $tables = $GLOBALS['dbi']->getTables($db);
-                $totalNumTables = count($tables);
-                if ($subPart !== '_export') {
+                $totalNumTables = count($GLOBALS['dbi']->getTables($db));
+                if ($isResultLimited) {
                     // fetch the details for a possible limited subset
-                    $limitOffset = $pos;
+                    $limitOffset = self::getTableListPosition($request, $db);
                     $limitCount = true;
                 }
             }
@@ -2202,29 +2153,11 @@ class Util
         }
 
         $numTables = count($tables);
-        //  (needed for proper working of the MaxTableList feature)
-        if (! isset($totalNumTables)) {
-            $totalNumTables = $numTables;
-        }
-
-        /**
-         * If coming from a Show MySQL link on the home page,
-         * put something in $sub_part
-         */
-        if ($subPart === '') {
-            $subPart = '_structure';
-        }
 
         return [
             $tables,
             $numTables,
-            $totalNumTables,
-            $subPart,
-            $isShowStats,
-            $isSystemSchema,
-            $tooltipTrueName,
-            $tooltipAliasName,
-            $pos,
+            $totalNumTables ?? $numTables, // needed for proper working of the MaxTableList feature
         ];
     }
 
@@ -2255,17 +2188,16 @@ class Util
                 && is_scalar($_REQUEST['tbl_group'])
                 && strlen((string) $_REQUEST['tbl_group']) > 0
             ) {
-                $group = $GLOBALS['dbi']->escapeMysqlLikeString((string) $_REQUEST['tbl_group']);
-                $groupWithSeparator = $GLOBALS['dbi']->escapeMysqlLikeString(
-                    $_REQUEST['tbl_group']
-                    . $GLOBALS['cfg']['NavigationTreeTableSeparator']
+                $group = $GLOBALS['dbi']->escapeMysqlWildcards((string) $_REQUEST['tbl_group']);
+                $groupWithSeparator = $GLOBALS['dbi']->escapeMysqlWildcards(
+                    $_REQUEST['tbl_group'] . $GLOBALS['cfg']['NavigationTreeTableSeparator']
                 );
                 $tblGroupSql .= ' WHERE ('
                     . self::backquote('Tables_in_' . $db)
-                    . " LIKE '" . $groupWithSeparator . "%'"
+                    . ' LIKE ' . $GLOBALS['dbi']->quoteString($groupWithSeparator . '%')
                     . ' OR '
                     . self::backquote('Tables_in_' . $db)
-                    . " LIKE '" . $group . "')";
+                    . ' LIKE ' . $GLOBALS['dbi']->quoteString($group) . ')';
                 $whereAdded = true;
             }
 
@@ -2316,16 +2248,6 @@ class Util
     }
 
     /**
-     * Checks whether database extension is loaded
-     *
-     * @param string $extension mysql extension to check
-     */
-    public static function checkDbExtension(string $extension = 'mysqli'): bool
-    {
-        return function_exists($extension . '_connect');
-    }
-
-    /**
      * Returns list of used PHP extensions.
      *
      * @return string[]
@@ -2333,7 +2255,7 @@ class Util
     public static function listPHPExtensions(): array
     {
         $result = [];
-        if (self::checkDbExtension('mysqli')) {
+        if (function_exists('mysqli_connect')) {
             $result[] = 'mysqli';
         }
 
@@ -2343,6 +2265,10 @@ class Util
 
         if (extension_loaded('mbstring')) {
             $result[] = 'mbstring';
+        }
+
+        if (extension_loaded('sodium')) {
+            $result[] = 'sodium';
         }
 
         return $result;
@@ -2601,5 +2527,21 @@ class Util
         }
 
         return function_exists('error_reporting');
+    }
+
+    public static function getTableListPosition(ServerRequest $request, string $db): int
+    {
+        if (! isset($_SESSION['tmpval']['table_limit_offset']) || $_SESSION['tmpval']['table_limit_offset_db'] != $db) {
+            $_SESSION['tmpval']['table_limit_offset'] = 0;
+            $_SESSION['tmpval']['table_limit_offset_db'] = $db;
+        }
+
+        /** @var string|null $posParam */
+        $posParam = $request->getParam('pos');
+        if (is_numeric($posParam)) {
+            $_SESSION['tmpval']['table_limit_offset'] = (int) $posParam;
+        }
+
+        return $_SESSION['tmpval']['table_limit_offset'];
     }
 }

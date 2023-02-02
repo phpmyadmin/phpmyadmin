@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Database\Structure;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -35,13 +36,11 @@ final class ReplacePrefixController extends AbstractController
         $this->structureController = $structureController;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-
-        $selected = $_POST['selected'] ?? [];
-        $fromPrefix = $_POST['from_prefix'] ?? '';
-        $toPrefix = $_POST['to_prefix'] ?? '';
+        $selected = $request->getParsedBodyParam('selected', []);
+        $fromPrefix = $request->getParsedBodyParam('from_prefix', '');
+        $toPrefix = $request->getParsedBodyParam('to_prefix', '');
 
         $GLOBALS['sql_query'] = '';
         $selectedCount = count($selected);
@@ -66,10 +65,6 @@ final class ReplacePrefixController extends AbstractController
 
         $GLOBALS['message'] = Message::success();
 
-        if (empty($_POST['message'])) {
-            $_POST['message'] = $GLOBALS['message'];
-        }
-
-        ($this->structureController)();
+        ($this->structureController)($request);
     }
 }

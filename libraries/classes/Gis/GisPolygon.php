@@ -14,14 +14,13 @@ use function array_merge;
 use function array_slice;
 use function count;
 use function explode;
-use function hexdec;
 use function json_encode;
 use function max;
 use function mb_substr;
 use function min;
 use function round;
+use function sprintf;
 use function sqrt;
-use function str_contains;
 use function trim;
 
 /**
@@ -64,17 +63,9 @@ class GisPolygon extends GisGeometry
     {
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = mb_substr($spatial, 9, -2);
+        $wkt_outer_ring = explode('),(', $polygon)[0];
 
-        // If the polygon doesn't have an inner ring, use polygon itself
-        if (! str_contains($polygon, '),(')) {
-            $ring = $polygon;
-        } else {
-            // Separate outer ring and use it to determine min-max
-            $parts = explode('),(', $polygon);
-            $ring = $parts[0];
-        }
-
-        return $this->setMinMax($ring, []);
+        return $this->setMinMax($wkt_outer_ring, []);
     }
 
     /**
@@ -82,49 +73,34 @@ class GisPolygon extends GisGeometry
      *
      * @param string      $spatial    GIS POLYGON object
      * @param string|null $label      Label for the GIS POLYGON object
-     * @param string      $fill_color Color for the GIS POLYGON object
+     * @param int[]       $color      Color for the GIS POLYGON object
      * @param array       $scale_data Array containing data related to scaling
      */
     public function prepareRowAsPng(
         $spatial,
         ?string $label,
-        $fill_color,
+        array $color,
         array $scale_data,
         ImageWrapper $image
     ): ImageWrapper {
         // allocate colors
         $black = $image->colorAllocate(0, 0, 0);
-        $red = (int) hexdec(mb_substr($fill_color, 1, 2));
-        $green = (int) hexdec(mb_substr($fill_color, 3, 2));
-        $blue = (int) hexdec(mb_substr($fill_color, 4, 2));
-        $color = $image->colorAllocate($red, $green, $blue);
+        $fill_color = $image->colorAllocate(...$color);
 
         $label = trim($label ?? '');
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = mb_substr($spatial, 9, -2);
 
-        // If the polygon doesn't have an inner polygon
-        if (! str_contains($polygon, '),(')) {
-            $points_arr = $this->extractPoints($polygon, $scale_data, true);
-        } else {
-            // Separate outer and inner polygons
-            $parts = explode('),(', $polygon);
-            $outer = $parts[0];
-            $inner = array_slice($parts, 1);
-
-            $points_arr = $this->extractPoints($outer, $scale_data, true);
-
-            foreach ($inner as $inner_poly) {
-                $points_arr = array_merge(
-                    $points_arr,
-                    $this->extractPoints($inner_poly, $scale_data, true)
-                );
-            }
+        $points_arr = [];
+        $wkt_rings = explode('),(', $polygon);
+        foreach ($wkt_rings as $wkt_ring) {
+            $ring = $this->extractPoints($wkt_ring, $scale_data, true);
+            $points_arr = array_merge($points_arr, $ring);
         }
 
         // draw polygon
-        $image->filledPolygon($points_arr, $color);
+        $image->filledPolygon($points_arr, $fill_color);
         // print label if applicable
         if ($label !== '') {
             $image->string(
@@ -144,54 +120,34 @@ class GisPolygon extends GisGeometry
      *
      * @param string      $spatial    GIS POLYGON object
      * @param string|null $label      Label for the GIS POLYGON object
-     * @param string      $fill_color Color for the GIS POLYGON object
+     * @param int[]       $color      Color for the GIS POLYGON object
      * @param array       $scale_data Array containing data related to scaling
      * @param TCPDF       $pdf        TCPDF instance
      *
      * @return TCPDF the modified TCPDF instance
      */
-    public function prepareRowAsPdf($spatial, ?string $label, $fill_color, array $scale_data, $pdf)
+    public function prepareRowAsPdf($spatial, ?string $label, array $color, array $scale_data, $pdf)
     {
-        // allocate colors
-        $red = hexdec(mb_substr($fill_color, 1, 2));
-        $green = hexdec(mb_substr($fill_color, 3, 2));
-        $blue = hexdec(mb_substr($fill_color, 4, 2));
-        $color = [
-            $red,
-            $green,
-            $blue,
-        ];
-
         $label = trim($label ?? '');
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = mb_substr($spatial, 9, -2);
 
-        // If the polygon doesn't have an inner polygon
-        if (! str_contains($polygon, '),(')) {
-            $points_arr = $this->extractPoints($polygon, $scale_data, true);
-        } else {
-            // Separate outer and inner polygons
-            $parts = explode('),(', $polygon);
-            $outer = $parts[0];
-            $inner = array_slice($parts, 1);
+        $wkt_rings = explode('),(', $polygon);
 
-            $points_arr = $this->extractPoints($outer, $scale_data, true);
+        $points_arr = [];
 
-            foreach ($inner as $inner_poly) {
-                $points_arr = array_merge(
-                    $points_arr,
-                    $this->extractPoints($inner_poly, $scale_data, true)
-                );
-            }
+        foreach ($wkt_rings as $wkt_ring) {
+            $ring = $this->extractPoints($wkt_ring, $scale_data, true);
+            $points_arr = array_merge($points_arr, $ring);
         }
 
         // draw polygon
         $pdf->Polygon($points_arr, 'F*', [], $color, true);
         // print label if applicable
         if ($label !== '') {
-            $pdf->SetXY($points_arr[2], $points_arr[3]);
-            $pdf->SetFontSize(5);
+            $pdf->setXY($points_arr[2], $points_arr[3]);
+            $pdf->setFontSize(5);
             $pdf->Cell(0, 0, $label);
         }
 
@@ -203,12 +159,12 @@ class GisPolygon extends GisGeometry
      *
      * @param string $spatial    GIS POLYGON object
      * @param string $label      Label for the GIS POLYGON object
-     * @param string $fill_color Color for the GIS POLYGON object
+     * @param int[]  $color      Color for the GIS POLYGON object
      * @param array  $scale_data Array containing data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg($spatial, $label, $fill_color, array $scale_data)
+    public function prepareRowAsSvg($spatial, $label, array $color, array $scale_data)
     {
         $polygon_options = [
             'name' => $label,
@@ -216,7 +172,7 @@ class GisPolygon extends GisGeometry
             'class' => 'polygon vector',
             'stroke' => 'black',
             'stroke-width' => 0.5,
-            'fill' => $fill_color,
+            'fill' => sprintf('#%02x%02x%02x', ...$color),
             'fill-rule' => 'evenodd',
             'fill-opacity' => 0.8,
         ];
@@ -226,20 +182,9 @@ class GisPolygon extends GisGeometry
 
         $row = '<path d="';
 
-        // If the polygon doesn't have an inner polygon
-        if (! str_contains($polygon, '),(')) {
-            $row .= $this->drawPath($polygon, $scale_data);
-        } else {
-            // Separate outer and inner polygons
-            $parts = explode('),(', $polygon);
-            $outer = $parts[0];
-            $inner = array_slice($parts, 1);
-
-            $row .= $this->drawPath($outer, $scale_data);
-
-            foreach ($inner as $inner_poly) {
-                $row .= $this->drawPath($inner_poly, $scale_data);
-            }
+        $wkt_rings = explode('),(', $polygon);
+        foreach ($wkt_rings as $wkt_ring) {
+            $row .= $this->drawPath($wkt_ring, $scale_data);
         }
 
         $row .= '"';
@@ -259,17 +204,17 @@ class GisPolygon extends GisGeometry
      * @param string $spatial    GIS POLYGON object
      * @param int    $srid       Spatial reference ID
      * @param string $label      Label for the GIS POLYGON object
-     * @param array  $fill_color Color for the GIS POLYGON object
+     * @param int[]  $color      Color for the GIS POLYGON object
      * @param array  $scale_data Array containing data related to scaling
      *
      * @return string JavaScript related to a row in the GIS dataset
      */
-    public function prepareRowAsOl($spatial, int $srid, $label, $fill_color, array $scale_data)
+    public function prepareRowAsOl($spatial, int $srid, $label, array $color, array $scale_data)
     {
-        $fill_color[] = 0.8;
-        $fill_style = ['color' => $fill_color];
+        $color[] = 0.8;
+        $fill_style = ['color' => $color];
         $stroke_style = [
-            'color' => [0,0,0],
+            'color' => [0, 0, 0],
             'width' => 0.5,
         ];
         $row = 'var style = new ol.style.Style({'

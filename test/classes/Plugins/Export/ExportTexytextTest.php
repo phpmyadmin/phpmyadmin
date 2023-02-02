@@ -214,7 +214,6 @@ class ExportTexytextTest extends AbstractTestCase
             $this->object->exportData(
                 'test_db',
                 'test_table',
-                "\n",
                 'localhost',
                 'SELECT * FROM `test_db`.`test_table`;'
             )
@@ -237,7 +236,7 @@ class ExportTexytextTest extends AbstractTestCase
     public function testGetTableDefStandIn(): void
     {
         $this->dummyDbi->addSelectDb('test_db');
-        $result = $this->object->getTableDefStandIn('test_db', 'test_table', "\n");
+        $result = $this->object->getTableDefStandIn('test_db', 'test_table');
         $this->dummyDbi->assertAllSelectsConsumed();
 
         $this->assertEquals(
@@ -334,30 +333,35 @@ class ExportTexytextTest extends AbstractTestCase
             'column_info' => 'col',
         ])->toArray();
 
-        $result = $this->object->getTableDef('db', 'table', "\n", 'example.com', true, true, true);
+        $result = $this->object->getTableDef('db', 'table', 'example.com', true, true, true);
 
         $this->assertStringContainsString('1|&lt;ftable (ffield&gt;)|comm|Test&lt;', $result);
     }
 
     public function testGetTriggers(): void
     {
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
         $triggers = [
             [
-                'name' => 'tna"me',
-                'action_timing' => 'ac>t',
-                'event_manipulation' => 'manip&',
-                'definition' => 'def',
+                'TRIGGER_SCHEMA' => 'database',
+                'TRIGGER_NAME' => 'tna"me',
+                'EVENT_MANIPULATION' => 'manip&',
+                'EVENT_OBJECT_TABLE' => 'ta<ble',
+                'ACTION_TIMING' => 'ac>t',
+                'ACTION_STATEMENT' => 'def',
+                'EVENT_OBJECT_SCHEMA' => 'database',
+                'DEFINER' => 'test_user@localhost',
             ],
         ];
 
         $dbi->expects($this->once())
-            ->method('getTriggers')
-            ->with('database', 'ta<ble')
-            ->will($this->returnValue($triggers));
+            ->method('fetchResult')
+            ->willReturnOnConsecutiveCalls($triggers);
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -377,7 +381,6 @@ class ExportTexytextTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                "\n",
                 'localhost',
                 'create_table',
                 'test'
@@ -404,7 +407,6 @@ class ExportTexytextTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                "\n",
                 'localhost',
                 'triggers',
                 'test'
@@ -428,7 +430,6 @@ class ExportTexytextTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                "\n",
                 'localhost',
                 'create_view',
                 'test'
@@ -455,7 +456,6 @@ class ExportTexytextTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                "\n",
                 'localhost',
                 'stand_in',
                 'test'

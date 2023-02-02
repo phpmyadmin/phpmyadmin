@@ -17,6 +17,7 @@ class PluginsTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $this->loadContainerBuilder();
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         parent::loadDbiIntoContainerBuilder();
     }
@@ -132,10 +133,10 @@ class PluginsTest extends AbstractTestCase
         ];
         $actual = Plugins::getChoice($exportList, 'xml');
         $expected = [
-            ['name' => 'json', 'text' => 'JSON', 'is_selected' => false, 'force_file' => false],
-            ['name' => 'ods', 'text' => 'OpenDocument Spreadsheet', 'is_selected' => false, 'force_file' => true],
-            ['name' => 'sql', 'text' => 'SQL', 'is_selected' => false, 'force_file' => false],
-            ['name' => 'xml', 'text' => 'XML', 'is_selected' => true, 'force_file' => false],
+            ['name' => 'json', 'text' => 'JSON', 'is_selected' => false, 'is_binary' => false],
+            ['name' => 'ods', 'text' => 'OpenDocument Spreadsheet', 'is_selected' => false, 'is_binary' => true],
+            ['name' => 'sql', 'text' => 'SQL', 'is_selected' => false, 'is_binary' => false],
+            ['name' => 'xml', 'text' => 'XML', 'is_selected' => true, 'is_binary' => false],
         ];
         $this->assertEquals($expected, $actual);
     }

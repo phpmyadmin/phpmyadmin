@@ -11,6 +11,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\ResponseRenderer;
@@ -49,7 +50,7 @@ class SqlController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['display_query'] = $GLOBALS['display_query'] ?? null;
         $GLOBALS['ajax_reload'] = $GLOBALS['ajax_reload'] ?? null;
@@ -76,7 +77,6 @@ class SqlController extends AbstractController
         $this->addScriptFiles([
             'vendor/jquery/jquery.uitablefilter.js',
             'table/change.js',
-            'indexes.js',
             'gis_data_editor.js',
             'multi_column_sort.js',
         ]);
@@ -115,11 +115,15 @@ class SqlController extends AbstractController
             }
         }
 
+        /** @var array<string>|null $bkm_fields */
+        $bkm_fields = $request->getParsedBodyParam('bkm_fields');
+        $sql_query = $request->getParsedBodyParam('sql_query');
+
         // Coming from a bookmark dialog
-        if (isset($_POST['bkm_fields']['bkm_sql_query'])) {
-            $GLOBALS['sql_query'] = $_POST['bkm_fields']['bkm_sql_query'];
-        } elseif (isset($_POST['sql_query'])) {
-            $GLOBALS['sql_query'] = $_POST['sql_query'];
+        if ($bkm_fields !== null && $bkm_fields['bkm_sql_query'] != null) {
+            $GLOBALS['sql_query'] = $bkm_fields['bkm_sql_query'];
+        } elseif ($sql_query !== null) {
+            $GLOBALS['sql_query'] = $sql_query;
         } elseif (isset($_GET['sql_query'], $_GET['sql_signature'])) {
             if (Core::checkSqlQuerySignature($_GET['sql_query'], $_GET['sql_signature'])) {
                 $GLOBALS['sql_query'] = $_GET['sql_query'];
@@ -127,8 +131,8 @@ class SqlController extends AbstractController
         }
 
         // This one is just to fill $db
-        if (isset($_POST['bkm_fields']['bkm_database'])) {
-            $GLOBALS['db'] = $_POST['bkm_fields']['bkm_database'];
+        if ($bkm_fields !== null && $bkm_fields['bkm_database'] != null) {
+            $GLOBALS['db'] = $bkm_fields['bkm_database'];
         }
 
         // Default to browse if no query set and we have table
@@ -186,8 +190,10 @@ class SqlController extends AbstractController
         /**
          * Bookmark add
          */
-        if (isset($_POST['store_bkm'])) {
-            $this->addBookmark($GLOBALS['goto']);
+        $store_bkm = $request->hasBodyParam('store_bkm');
+        $bkm_all_users = $request->getParsedBodyParam('bkm_all_users'); // Should this be hasBodyParam?
+        if ($store_bkm && $bkm_fields !== null) {
+            $this->addBookmark($GLOBALS['goto'], $bkm_fields, (bool) $bkm_all_users);
 
             return;
         }
@@ -222,12 +228,15 @@ class SqlController extends AbstractController
         ));
     }
 
-    private function addBookmark(string $goto): void
+    /**
+     * @param array<string> $bkm_fields
+     */
+    private function addBookmark(string $goto, array $bkm_fields, bool $bkm_all_users): void
     {
         $bookmark = Bookmark::createBookmark(
             $this->dbi,
-            $_POST['bkm_fields'],
-            isset($_POST['bkm_all_users']) && $_POST['bkm_all_users'] === 'true'
+            $bkm_fields,
+            $bkm_all_users
         );
 
         $result = null;
@@ -236,14 +245,14 @@ class SqlController extends AbstractController
         }
 
         if (! $this->response->isAjax()) {
-            Core::sendHeaderLocation('./' . $goto . '&label=' . $_POST['bkm_fields']['bkm_label']);
+            Core::sendHeaderLocation('./' . $goto . '&label=' . $bkm_fields['bkm_label']);
 
             return;
         }
 
         if ($result) {
             $msg = Message::success(__('Bookmark %s has been created.'));
-            $msg->addParam($_POST['bkm_fields']['bkm_label']);
+            $msg->addParam($bkm_fields['bkm_label']);
             $this->response->addJSON('message', $msg);
 
             return;

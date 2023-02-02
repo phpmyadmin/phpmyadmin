@@ -46,10 +46,10 @@ class ZipExtension
      * @param string $file          path to zip file
      * @param string $specificEntry regular expression to match a file
      *
-     * @return array ($error_message, $file_data); $error_message
-     *                  is empty if no error
+     * @return array<string, string>
+     * @psalm-return array{error: string, data: string}
      */
-    public function getContents($file, $specificEntry = null)
+    public function getContents($file, $specificEntry = null): array
     {
         /**
         * This function is used to "import" a SQL file which has been exported earlier
@@ -165,20 +165,19 @@ class ZipExtension
      *
      * @return int the number of files in the zip archive or 0, either if there weren't any files or an error occurred.
      */
-    public function getNumberOfFiles($file)
+    public function getNumberOfFiles($file): int
     {
         if ($this->zip === null) {
             return 0;
         }
 
-        $num = 0;
         $res = $this->zip->open($file);
 
         if ($res === true) {
-            $num = $this->zip->numFiles;
+            return $this->zip->numFiles;
         }
 
-        return $num;
+        return 0;
     }
 
     /**
@@ -308,7 +307,7 @@ class ZipExtension
                 . pack('v', 0) // disk number start
                 . pack('v', 0) // internal file attributes
                 . pack('V', 32) // external file attributes
-                                                 // - 'archive' bit set
+                // - 'archive' bit set
                 . pack('V', $oldOffset) // relative offset of local header
                 . $tempName; // filename
             $oldOffset += strlen($fr);
@@ -319,13 +318,12 @@ class ZipExtension
 
         /* Build string to return */
         $tempCtrlDir = implode('', $ctrlDir);
-        $header = $tempCtrlDir .
-            $eofCtrlDir .
-            pack('v', count($ctrlDir)) . //total #of entries "on this disk"
-            pack('v', count($ctrlDir)) . //total #of entries overall
-            pack('V', strlen($tempCtrlDir)) . //size of central dir
-            pack('V', $oldOffset) . //offset to start of central dir
-            "\x00\x00"; //.zip file comment length
+        $header = $tempCtrlDir . $eofCtrlDir
+            . pack('v', count($ctrlDir)) //total #of entries "on this disk"
+            . pack('v', count($ctrlDir)) //total #of entries overall
+            . pack('V', strlen($tempCtrlDir)) //size of central dir
+            . pack('V', $oldOffset) //offset to start of central dir
+            . "\x00\x00"; //.zip file comment length
 
         $data = implode('', $datasec);
 

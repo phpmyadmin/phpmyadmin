@@ -1,7 +1,4 @@
 <?php
-/**
- * Output buffering wrapper
- */
 
 declare(strict_types=1);
 
@@ -19,7 +16,6 @@ use function ob_get_length;
 use function ob_get_level;
 use function ob_get_status;
 use function ob_start;
-use function register_shutdown_function;
 use function sprintf;
 
 /**
@@ -27,25 +23,18 @@ use function sprintf;
  */
 class OutputBuffering
 {
-    /** @var self */
-    private static $instance;
-
     /** @var int */
     private $mode;
 
     /** @var string */
-    private $content;
+    private $content = '';
 
     /** @var bool */
-    private $on;
+    private $on = false;
 
-    /**
-     * Initializes class
-     */
-    private function __construct()
+    public function __construct()
     {
         $this->mode = $this->getMode();
-        $this->on = false;
     }
 
     /**
@@ -56,7 +45,7 @@ class OutputBuffering
     private function getMode()
     {
         $mode = 0;
-        if ($GLOBALS['cfg']['OBGzip'] && function_exists('ob_start')) {
+        if (! defined('TESTSUITE') && $GLOBALS['cfg']['OBGzip'] && function_exists('ob_start')) {
             if (ini_get('output_handler') === 'ob_gzhandler') {
                 // If a user sets the output_handler in php.ini to ob_gzhandler, then
                 // any right frame file in phpMyAdmin will not be handled properly by
@@ -80,27 +69,13 @@ class OutputBuffering
     }
 
     /**
-     * Returns the singleton OutputBuffering object
-     *
-     * @return OutputBuffering object
-     */
-    public static function getInstance()
-    {
-        if (empty(self::$instance)) {
-            self::$instance = new OutputBuffering();
-        }
-
-        return self::$instance;
-    }
-
-    /**
      * This function will need to run at the top of all pages if output
      * output buffering is turned on.  It also needs to be passed $mode from
      * the PMA_outBufferModeGet() function or it will be useless.
      */
     public function start(): void
     {
-        if ($this->on) {
+        if (defined('TESTSUITE') || $this->on) {
             return;
         }
 
@@ -111,12 +86,6 @@ class OutputBuffering
         ob_start();
         $this->sendHeader('X-ob_mode', (string) $this->mode);
 
-        register_shutdown_function(
-            [
-                self::class,
-                'stop',
-            ]
-        );
         $this->on = true;
     }
 
@@ -134,15 +103,14 @@ class OutputBuffering
      * buffering is turned on.  It also needs to be passed $mode from the
      * PMA_outBufferModeGet() function or it will be useless.
      */
-    public static function stop(): void
+    public function stop(): void
     {
-        $buffer = self::getInstance();
-        if (! $buffer->on) {
+        if (! $this->on) {
             return;
         }
 
-        $buffer->on = false;
-        $buffer->content = ob_get_contents();
+        $this->on = false;
+        $this->content = (string) ob_get_contents();
         if (ob_get_length() <= 0) {
             return;
         }

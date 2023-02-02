@@ -42,8 +42,8 @@ class GisVisualizationTest extends AbstractTestCase
         $this->assertSame(
             [
                 'scale' => 1,
-                'x' => -15.0,
-                'y' => -210.0,
+                'x' => -300.0,
+                'y' => -225.0,
                 'minX' => 0.0,
                 'maxX' => 0.0,
                 'minY' => 0.0,
@@ -69,7 +69,7 @@ class GisVisualizationTest extends AbstractTestCase
         $this->assertSame(
             [
                 'scale' => 2.1,
-                'x' => -38.21428571428572,
+                'x' => -45.35714285714286,
                 'y' => 42.85714285714286,
                 'minX' => 17.0,
                 'maxX' => 178.0,

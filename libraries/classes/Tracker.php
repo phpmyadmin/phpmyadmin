@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\AlterStatement;
@@ -153,7 +154,7 @@ class Tracker
             $GLOBALS['dbi']->escapeString($tableName)
         );
 
-        $result = $GLOBALS['dbi']->fetchValue($sqlQuery, 0, DatabaseInterface::CONNECT_CONTROL) == 1;
+        $result = $GLOBALS['dbi']->fetchValue($sqlQuery, 0, Connection::TYPE_CONTROL) == 1;
 
         self::$trackingCache[$dbName][$tableName] = $result;
 
@@ -245,8 +246,7 @@ class Tracker
                 . 'DROP VIEW IF EXISTS ' . Util::backquote($tableName) . ";\n";
         }
 
-        $createSql .= self::getLogComment() .
-            $exportSqlPlugin->getTableDef($dbName, $tableName, "\n", '');
+        $createSql .= self::getLogComment() . $exportSqlPlugin->getTableDef($dbName, $tableName);
 
         // Save version
         $trackingFeature = $relation->getRelationParameters()->trackingFeature;
@@ -532,12 +532,17 @@ class Tracker
      * @param string $tablename name of table
      * @param string $version   version number
      *
-     * @return mixed record DDM log, DDL log, structure snapshot, tracked
-     *         statements.
-     *
-     * @static
+     * @return array<string, array<int, array<string, string>>|string|null>
+     * @psalm-return array{
+     *   date_from: string,
+     *   date_to: string,
+     *   ddlog: list<array{date: string, username: string, statement: string}>,
+     *   dmlog: list<array{date: string, username: string, statement: string}>,
+     *   tracking: string|null,
+     *   schema_snapshot: string|null
+     * }|array<never, never>
      */
-    public static function getTrackedData($dbname, $tablename, $version)
+    public static function getTrackedData($dbname, $tablename, $version): array
     {
         $relation = new Relation($GLOBALS['dbi']);
         $trackingFeature = $relation->getRelationParameters()->trackingFeature;
@@ -703,9 +708,7 @@ class Tracker
             $statement = $parser->statements[0];
             $options = isset($statement->options) ? $statement->options->options : null;
 
-            /*
-             * DDL statements
-             */
+            // DDL statements
             $result['type'] = 'DDL';
 
             // Parse CREATE statement
@@ -776,9 +779,7 @@ class Tracker
                 return $result;
             }
 
-            /*
-             * DML statements
-             */
+            // DML statements
             $result['type'] = 'DML';
 
             // Parse UPDATE statement
@@ -929,7 +930,7 @@ class Tracker
         //     3. the statements
         // we want to track
         $sqlQuery .= " WHERE FIND_IN_SET('" . $result['identifier'] . "',tracking) > 0" .
-        " AND `db_name` = '" . $GLOBALS['dbi']->escapeString($dbname ?? '') . "' " .
+        " AND `db_name` = '" . $GLOBALS['dbi']->escapeString($dbname) . "' " .
         " AND `table_name` = '"
         . $GLOBALS['dbi']->escapeString($result['tablename']) . "' " .
         " AND `version` = '" . $GLOBALS['dbi']->escapeString((string) $version) . "' ";

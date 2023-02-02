@@ -4,16 +4,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
-use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Server\DatabasesController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
-use PhpMyAdmin\Transformations;
-use stdClass;
 
 use function __;
 
@@ -47,31 +44,24 @@ class DatabasesControllerTest extends AbstractTestCase
 
     public function testIndexAction(): void
     {
-        $GLOBALS['dblist'] = new stdClass();
-        $GLOBALS['dblist']->databases = [
-            'sakila',
-            'employees',
-        ];
-
+        $GLOBALS['cfg']['Server']['only_db'] = '';
         $template = new Template();
-        $transformations = new Transformations();
-        $relationCleanup = new RelationCleanup(
-            $GLOBALS['dbi'],
-            new Relation($GLOBALS['dbi'])
-        );
 
         $response = new ResponseRenderer();
 
         $controller = new DatabasesController(
             $response,
             $template,
-            $transformations,
-            $relationCleanup,
             $GLOBALS['dbi']
         );
 
+        $this->dummyDbi->addResult(
+            'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`',
+            [['sakila'], ['employees']],
+            ['SCHEMA_NAME']
+        );
         $this->dummyDbi->addSelectDb('mysql');
-        $controller();
+        $controller($this->createStub(ServerRequest::class));
         $this->dummyDbi->assertAllSelectsConsumed();
         $actual = $response->getHTMLResult();
 
@@ -96,8 +86,6 @@ class DatabasesControllerTest extends AbstractTestCase
         $controller = new DatabasesController(
             $response,
             $template,
-            $transformations,
-            $relationCleanup,
             $GLOBALS['dbi']
         );
 
@@ -108,7 +96,7 @@ class DatabasesControllerTest extends AbstractTestCase
         $_REQUEST['sort_order'] = 'desc';
 
         $this->dummyDbi->addSelectDb('mysql');
-        $controller();
+        $controller($this->createStub(ServerRequest::class));
         $this->dummyDbi->assertAllSelectsConsumed();
         $actual = $response->getHTMLResult();
 

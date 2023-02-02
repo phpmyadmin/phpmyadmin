@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
+use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 
 return [
     'services' => [
@@ -20,7 +21,6 @@ return [
         ],
         'config' => [
             'class' => PhpMyAdmin\Config::class,
-            'arguments' => [CONFIG_FILE],
         ],
         'central_columns' => [
             'class' => PhpMyAdmin\Database\CentralColumns::class,
@@ -133,6 +133,9 @@ return [
             'class' => PhpMyAdmin\Partitioning\Maintenance::class,
             'arguments' => ['$dbi' => '@dbi'],
         ],
+        AuthenticationPluginFactory::class => [
+            'class' => AuthenticationPluginFactory::class,
+        ],
         'relation' => [
             'class' => Relation::class,
             'arguments' => ['$dbi' => '@dbi'],
@@ -146,6 +149,7 @@ return [
         ],
         'replication' => [
             'class' => PhpMyAdmin\Replication::class,
+            'arguments' => ['$dbi' => '@dbi'],
         ],
         'replication_gui' => [
             'class' => PhpMyAdmin\ReplicationGui::class,
@@ -157,6 +161,14 @@ return [
         'response' => [
             'class' => PhpMyAdmin\ResponseRenderer::class,
             'factory' => [PhpMyAdmin\ResponseRenderer::class, 'getInstance'],
+        ],
+        'routines' => [
+            'class' => PhpMyAdmin\Database\Routines::class,
+            'arguments' => [
+                '@dbi',
+                '@template',
+                '@response',
+            ],
         ],
         'server_plugins' => [
             'class' => PhpMyAdmin\Server\Plugins::class,
@@ -189,10 +201,11 @@ return [
         ],
         'sql_query_form' => [
             'class' => PhpMyAdmin\SqlQueryForm::class,
-            'arguments' => ['$template' => '@template'],
+            'arguments' => ['$template' => '@template', '$dbi' => '@dbi'],
         ],
         'status_data' => [
             'class' => PhpMyAdmin\Server\Status\Data::class,
+            'arguments' => ['@dbi'],
         ],
         'status_monitor' => [
             'class' => PhpMyAdmin\Server\Status\Monitor::class,
@@ -233,9 +246,17 @@ return [
         'transformations' => [
             'class' => PhpMyAdmin\Transformations::class,
         ],
+        'triggers' => [
+            'class' => PhpMyAdmin\Database\Triggers::class,
+            'arguments' => [
+                '@dbi',
+                '@template',
+                '@response',
+            ],
+        ],
         'user_password' => [
             'class' => PhpMyAdmin\UserPassword::class,
-            'arguments' => ['@server_privileges'],
+            'arguments' => ['@server_privileges', '@' . AuthenticationPluginFactory::class],
         ],
         'user_preferences' => [
             'class' => PhpMyAdmin\UserPreferences::class,

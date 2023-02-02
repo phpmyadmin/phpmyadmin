@@ -335,6 +335,11 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <https://en.wikipedia.org/wiki/Server_(computing)>
 
+    Sodium
+      The Sodium PHP extension.
+
+      .. seealso:: `PHP manual for Sodium extension <https://www.php.net/manual/en/book.sodium.php>`_
+
     Storage Engines
       MySQL can use several different formats for storing data on disk, these
       are called storage engines or table types. phpMyAdmin allows a user to

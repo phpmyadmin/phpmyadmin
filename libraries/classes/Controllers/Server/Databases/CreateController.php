@@ -8,6 +8,7 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -17,7 +18,7 @@ use PhpMyAdmin\Util;
 use function __;
 use function array_key_exists;
 use function explode;
-use function mb_strlen;
+use function is_string;
 use function mb_strtolower;
 use function str_contains;
 
@@ -32,38 +33,35 @@ final class CreateController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        $params = [
-            'new_db' => $_POST['new_db'] ?? null,
-            'db_collation' => $_POST['db_collation'] ?? null,
-        ];
+        $newDb = $request->getParsedBodyParam('new_db');
+        $dbCollation = $request->getParsedBodyParam('db_collation');
 
-        if (! isset($params['new_db']) || mb_strlen($params['new_db']) === 0 || ! $this->response->isAjax()) {
+        if (! is_string($newDb) || $newDb === '' || ! $this->response->isAjax()) {
             $this->response->addJSON(['message' => Message::error()]);
 
             return;
         }
 
-        // lower_case_table_names=1 `DB` becomes `db`
-        if ($this->dbi->getLowerCaseNames() === '1') {
-            $params['new_db'] = mb_strtolower($params['new_db']);
+        if ($this->dbi->getLowerCaseNames() === 1) {
+            $newDb = mb_strtolower($newDb);
         }
 
         /**
          * Builds and executes the db creation sql query
          */
-        $sqlQuery = 'CREATE DATABASE ' . Util::backquote($params['new_db']);
-        if (! empty($params['db_collation'])) {
-            [$databaseCharset] = explode('_', $params['db_collation']);
+        $sqlQuery = 'CREATE DATABASE ' . Util::backquote($newDb);
+        if (is_string($dbCollation) && $dbCollation !== '') {
+            [$databaseCharset] = explode('_', $dbCollation);
             $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
             $collations = Charsets::getCollations($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
             if (
                 array_key_exists($databaseCharset, $charsets)
-                && array_key_exists($params['db_collation'], $collations[$databaseCharset])
+                && array_key_exists($dbCollation, $collations[$databaseCharset])
             ) {
                 $sqlQuery .= ' DEFAULT'
-                    . Util::getCharsetQueryPart($params['db_collation']);
+                    . Util::getCharsetQueryPart($dbCollation);
             }
         }
 
@@ -80,10 +78,10 @@ final class CreateController extends AbstractController
 
             $this->response->setRequestStatus(false);
         } else {
-            $GLOBALS['db'] = $params['new_db'];
+            $GLOBALS['db'] = $newDb;
 
             $message = Message::success(__('Database %1$s has been created.'));
-            $message->addParam($params['new_db']);
+            $message->addParam($newDb);
 
             $scriptName = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
 
@@ -91,7 +89,7 @@ final class CreateController extends AbstractController
                 'message' => $message,
                 'sql_query' => Generator::getMessage('', $sqlQuery, 'success'),
                 'url' => $scriptName . Url::getCommon(
-                    ['db' => $params['new_db']],
+                    ['db' => $newDb],
                     ! str_contains($scriptName, '?') ? '?' : '&'
                 ),
             ];

@@ -1,22 +1,23 @@
 import $ from 'jquery';
+import { AJAX } from '../modules/ajax.js';
+import { CommonParams } from '../modules/common.js';
+import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
 
 /**
  * @fileoverview    Javascript functions used in server variables page
  * @name            Server Replication
  *
- * @requires    jQuery
  * @requires    jQueryUI
- * @requires    js/functions.js
  */
 /**
  * Unbind all event handlers before tearing down a page
  */
-window.AJAX.registerTeardown('server/variables.js', function () {
+AJAX.registerTeardown('server/variables.js', function () {
     $(document).off('click', 'a.editLink');
     $('#serverVariables').find('.var-name').find('a img').remove();
 });
 
-window.AJAX.registerOnload('server/variables.js', function () {
+AJAX.registerOnload('server/variables.js', function () {
     var $saveLink = $('a.saveLink');
     var $cancelLink = $('a.cancelLink');
 
@@ -39,28 +40,28 @@ window.AJAX.registerOnload('server/variables.js', function () {
 
         var $mySaveLink = $saveLink.clone().css('display', 'inline-block');
         var $myCancelLink = $cancelLink.clone().css('display', 'inline-block');
-        var $msgbox = Functions.ajaxShowMessage();
+        var $msgbox = ajaxShowMessage();
         var $myEditLink = $cell.find('a.editLink');
         $cell.addClass('edit'); // variable is being edited
         $myEditLink.remove(); // remove edit link
 
         $mySaveLink.on('click', function () {
-            var $msgbox = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
+            var $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
             $.post('index.php?route=/server/variables/set/' + encodeURIComponent(varName), {
                 'ajax_request': true,
-                'server': window.CommonParams.get('server'),
+                'server': CommonParams.get('server'),
                 'varValue': $valueCell.find('input').val()
             }, function (data) {
                 if (data.success) {
                     $valueCell
                         .html(data.variable)
                         .data('content', data.variable);
-                    Functions.ajaxRemoveMessage($msgbox);
+                    ajaxRemoveMessage($msgbox);
                 } else {
                     if (data.error === '') {
-                        Functions.ajaxShowMessage(window.Messages.strRequestFailed, false);
+                        ajaxShowMessage(window.Messages.strRequestFailed, false);
                     } else {
-                        Functions.ajaxShowMessage(data.error, false);
+                        ajaxShowMessage(data.error, false);
                     }
                     $valueCell.html($valueCell.data('content'));
                 }
@@ -77,7 +78,7 @@ window.AJAX.registerOnload('server/variables.js', function () {
 
         $.get('index.php?route=/server/variables/get/' + encodeURIComponent(varName), {
             'ajax_request': true,
-            'server': window.CommonParams.get('server')
+            'server': CommonParams.get('server')
         }, function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 var $links = $('<div></div>')
@@ -90,7 +91,7 @@ window.AJAX.registerOnload('server/variables.js', function () {
                             $('<input>', { type: 'text', 'class': 'form-control form-control-sm' }).val(data.message)
                         )
                     );
-                    // Save and replace content
+                // Save and replace content
                 $cell
                     .html($links)
                     .children()
@@ -107,10 +108,10 @@ window.AJAX.registerOnload('server/variables.js', function () {
                             $myCancelLink.trigger('click');
                         }
                     });
-                Functions.ajaxRemoveMessage($msgbox);
+                ajaxRemoveMessage($msgbox);
             } else {
                 $cell.removeClass('edit').html($myEditLink);
-                Functions.ajaxShowMessage(data.error);
+                ajaxShowMessage(data.error);
             }
         });
     }

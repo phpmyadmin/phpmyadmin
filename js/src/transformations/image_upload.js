@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { AJAX } from '../modules/ajax.js';
 
 /**
  * Image upload transformations plugin js
@@ -6,7 +7,7 @@ import $ from 'jquery';
  * @package PhpMyAdmin
  */
 
-window.AJAX.registerOnload('transformations/image_upload.js', function () {
+AJAX.registerOnload('transformations/image_upload.js', function () {
     // Change thumbnail when image file is selected
     // through file upload dialog
     $('input.image-upload').on('change', function () {
@@ -24,6 +25,6 @@ window.AJAX.registerOnload('transformations/image_upload.js', function () {
 /**
  * Unbind all event handlers before tearing down a page
  */
-window.AJAX.registerTeardown('transformations/image_upload.js', function () {
+AJAX.registerTeardown('transformations/image_upload.js', function () {
     $('input.image-upload').off('change');
 });

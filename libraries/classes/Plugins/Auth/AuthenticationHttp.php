@@ -180,12 +180,12 @@ class AuthenticationHttp extends AuthenticationPlugin
 
         // User logged out -> ensure the new username is not the same
         $old_usr = $_REQUEST['old_usr'] ?? '';
-        if (! empty($old_usr) && (isset($this->user) && hash_equals($old_usr, $this->user))) {
+        if (! empty($old_usr) && hash_equals($old_usr, $this->user)) {
             $this->user = '';
         }
 
         // Returns whether we get authentication settings or not
-        return ! empty($this->user);
+        return $this->user !== '';
     }
 
     /**
@@ -198,10 +198,18 @@ class AuthenticationHttp extends AuthenticationPlugin
         parent::showFailure($failure);
         $error = $GLOBALS['dbi']->getError();
         if ($error && $GLOBALS['errno'] != 1045) {
-            Core::fatalError($error);
-        } else {
-            $this->authForm();
+            echo $this->template->render('error/generic', [
+                'lang' => $GLOBALS['lang'] ?? 'en',
+                'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+                'error_message' => $error,
+            ]);
+
+            if (! defined('TESTSUITE')) {
+                exit;
+            }
         }
+
+        $this->authForm();
     }
 
     /**

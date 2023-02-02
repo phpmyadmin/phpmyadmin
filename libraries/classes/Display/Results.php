@@ -50,6 +50,7 @@ use function implode;
 use function in_array;
 use function intval;
 use function is_array;
+use function is_int;
 use function is_numeric;
 use function json_encode;
 use function max;
@@ -516,7 +517,6 @@ class Results
         $fieldsMeta = $this->properties['fields_meta'];
         $previousTable = '';
         $numberOfColumns = $this->properties['fields_cnt'];
-        $hasTextButton = true;
         $hasEditLink = $displayParts->hasEditLink;
         $deleteLink = $displayParts->deleteLink;
         $hasPrintLink = $displayParts->hasPrintLink;
@@ -555,7 +555,7 @@ class Results
         return $displayParts->with([
             'hasEditLink' => $hasEditLink,
             'deleteLink' => $deleteLink,
-            'hasTextButton' => $hasTextButton,
+            'hasTextButton' => true,
             'hasPrintLink' => $hasPrintLink,
         ]);
     }
@@ -627,7 +627,7 @@ class Results
             // - For a VIEW we (probably) did not count the number of rows
             //   so don't test this number here, it would remove the possibility
             //   of sorting VIEW results.
-            $tableObject = new Table($table, $db);
+            $tableObject = new Table($table, $db, $this->dbi);
             if ($unlimNumRows < 2 && ! $tableObject->isView()) {
                 $displayParts = $displayParts->with(['hasSortLink' => false]);
             }
@@ -739,9 +739,12 @@ class Results
                 : 'false') . ';"';
 
         $hasRealEndInput = $isInnodb && $this->properties['unlim_num_rows'] > $GLOBALS['cfg']['MaxExactCount'];
-        $posLast = @((int) ceil(
-            (int) $this->properties['unlim_num_rows'] / $_SESSION['tmpval']['max_rows']
-        ) - 1) * intval($_SESSION['tmpval']['max_rows']);
+        $posLast = 0;
+        if (is_numeric($_SESSION['tmpval']['max_rows'])) {
+            $posLast = @((int) ceil(
+                (int) $this->properties['unlim_num_rows'] / $_SESSION['tmpval']['max_rows']
+            ) - 1) * intval($_SESSION['tmpval']['max_rows']);
+        }
 
         $hiddenFields = [
             'db' => $this->properties['db'],
@@ -871,9 +874,9 @@ class Results
                 $displayParams['desc'][] = '    <th '
                     . 'class="draggable'
                     . ($conditionField ? ' condition"' : '')
-                    . '" data-column="' . htmlspecialchars((string) $fieldsMeta[$i]->name)
+                    . '" data-column="' . htmlspecialchars($fieldsMeta[$i]->name)
                     . '">        '
-                    . htmlspecialchars((string) $fieldsMeta[$i]->name)
+                    . htmlspecialchars($fieldsMeta[$i]->name)
                     . $comments . '    </th>';
             }
 
@@ -997,7 +1000,7 @@ class Results
         string $unsortedSqlQuery
     ): array {
         // grab indexes data:
-        $indexes = Index::getFromTable($this->properties['table'], $this->properties['db']);
+        $indexes = Index::getFromTable($this->dbi, $this->properties['table'], $this->properties['db']);
 
         // do we have any index?
         if ($indexes === []) {
@@ -1194,7 +1197,7 @@ class Results
         [$columnOrder, $columnVisibility] = $this->getColumnParams($statementInfo);
 
         $tableCreateTime = '';
-        $table = new Table($this->properties['table'], $this->properties['db']);
+        $table = new Table($this->properties['table'], $this->properties['db'], $this->dbi);
         if (! $table->isView()) {
             $tableCreateTime = $this->dbi->getTable(
                 $this->properties['db'],
@@ -2339,30 +2342,29 @@ class Results
             $transformationPlugin = null;
             $transformOptions = [];
 
-            if ($relationParameters->browserTransformationFeature !== null && $GLOBALS['cfg']['BrowseMIME']) {
-                if (
-                    isset($mediaTypeMap[$orgFullColName]['mimetype'])
-                    && ! empty($mediaTypeMap[$orgFullColName]['transformation'])
-                ) {
-                    $file = $mediaTypeMap[$orgFullColName]['transformation'];
-                    $includeFile = 'libraries/classes/Plugins/Transformations/' . $file;
+            if (
+                $relationParameters->browserTransformationFeature !== null && $GLOBALS['cfg']['BrowseMIME']
+                && isset($mediaTypeMap[$orgFullColName]['mimetype'])
+                && ! empty($mediaTypeMap[$orgFullColName]['transformation'])
+            ) {
+                $file = $mediaTypeMap[$orgFullColName]['transformation'];
+                $includeFile = 'libraries/classes/Plugins/Transformations/' . $file;
 
-                    if (@file_exists(ROOT_PATH . $includeFile)) {
-                        $className = $this->transformations->getClassName($includeFile);
-                        if (class_exists($className)) {
-                            $plugin = new $className();
-                            if ($plugin instanceof TransformationsPlugin) {
-                                $transformationPlugin = $plugin;
-                                $transformOptions = $this->transformations->getOptions(
-                                    $mediaTypeMap[$orgFullColName]['transformation_options'] ?? ''
-                                );
+                if (@file_exists(ROOT_PATH . $includeFile)) {
+                    $className = $this->transformations->getClassName($includeFile);
+                    if (class_exists($className)) {
+                        $plugin = new $className();
+                        if ($plugin instanceof TransformationsPlugin) {
+                            $transformationPlugin = $plugin;
+                            $transformOptions = $this->transformations->getOptions(
+                                $mediaTypeMap[$orgFullColName]['transformation_options'] ?? ''
+                            );
 
-                                $meta->internalMediaType = str_replace(
-                                    '_',
-                                    '/',
-                                    $mediaTypeMap[$orgFullColName]['mimetype']
-                                );
-                            }
+                            $meta->internalMediaType = str_replace(
+                                '_',
+                                '/',
+                                $mediaTypeMap[$orgFullColName]['mimetype']
+                            );
                         }
                     }
                 }
@@ -2433,7 +2435,7 @@ class Results
              * the conditions for the current table.
              */
             if (! isset($whereClauseMap[$rowNumber][$meta->orgtable])) {
-                $uniqueConditions = Util::getUniqueCondition(
+                [$uniqueConditions] = Util::getUniqueCondition(
                     $this->properties['fields_cnt'],
                     $this->properties['fields_meta'],
                     $row,
@@ -2441,7 +2443,7 @@ class Results
                     $meta->orgtable,
                     $expressions
                 );
-                $whereClauseMap[$rowNumber][$meta->orgtable] = $uniqueConditions[0];
+                $whereClauseMap[$rowNumber][$meta->orgtable] = $uniqueConditions;
             }
 
             $urlParams = [
@@ -2461,16 +2463,7 @@ class Results
 
             $displayParams = $this->properties['display_params'] ?? [];
 
-            // in some situations (issue 11406), numeric returns 1
-            // even for a string type
-            // for decimal numeric is returning 1
-            // have to improve logic
-            // Nullable text fields and text fields have the blob flag (issue 16896)
-            $isNumericAndNotBlob = $meta->isNumeric && ! $meta->isBlob;
-            if (
-                ($isNumericAndNotBlob && $meta->isNotType(FieldMetadata::TYPE_STRING))
-                || $meta->isType(FieldMetadata::TYPE_REAL)
-            ) {
+            if ($meta->isNumeric) {
                 // n u m e r i c
 
                 $displayParams['data'][$rowNumber][$i] = $this->getDataCellForNumericColumns(
@@ -2647,7 +2640,7 @@ class Results
     private function getColumnParams(StatementInfo $statementInfo): array
     {
         if ($this->isSelect($statementInfo)) {
-            $pmatable = new Table($this->properties['table'], $this->properties['db']);
+            $pmatable = new Table($this->properties['table'], $this->properties['db'], $this->dbi);
             $colOrder = $pmatable->getUiProp(Table::PROP_COLUMN_ORDER);
             $fieldsCount = $this->properties['fields_cnt'];
             /* Validate the value */
@@ -2805,8 +2798,8 @@ class Results
 
             $deleteQuery = 'DELETE FROM '
                 . Util::backquote($this->properties['table'])
-                . ' WHERE ' . $whereClause .
-                ($clauseIsUnique ? '' : ' LIMIT 1');
+                . ' WHERE ' . $whereClause
+                . ($clauseIsUnique ? '' : ' LIMIT 1');
 
             $urlParams = [
                 'db' => $this->properties['db'],
@@ -3156,7 +3149,7 @@ class Results
         }
 
         if ($meta->isMappedTypeBit) {
-            $displayedColumn = Util::printableBitValue((int) $displayedColumn, (int) $meta->length);
+            $displayedColumn = Util::printableBitValue((int) $displayedColumn, $meta->length);
 
             // some results of PROCEDURE ANALYSE() are reported as
             // being BINARY but they are quite readable,
@@ -3229,12 +3222,14 @@ class Results
      * Checks the posted options for viewing query results
      * and sets appropriate values in the session.
      *
+     * @param StatementInfo $analyzedSqlResults the analyzed query results
+     *
      * @todo    make maximum remembered queries configurable
      * @todo    move/split into SQL class!?
      * @todo    currently this is called twice unnecessary
      * @todo    ignore LIMIT and ORDER in query!?
      */
-    public function setConfigParamsForDisplayTable(): void
+    public function setConfigParamsForDisplayTable(StatementInfo $analyzedSqlResults): void
     {
         $sqlMd5 = md5($this->properties['server'] . $this->properties['db'] . $this->properties['sql_query']);
         $query = [];
@@ -3251,7 +3246,7 @@ class Results
         // The value can also be from _GET as described on issue #16146 when sorting results
         $sessionMaxRows = $_GET['session_max_rows'] ?? $_POST['session_max_rows'] ?? '';
 
-        if (isset($sessionMaxRows) && is_numeric($sessionMaxRows)) {
+        if (is_numeric($sessionMaxRows)) {
             $query['max_rows'] = (int) $sessionMaxRows;
             unset($_GET['session_max_rows'], $_POST['session_max_rows']);
         } elseif ($sessionMaxRows === self::ALL_ROWS) {
@@ -3268,6 +3263,9 @@ class Results
             $query['pos'] = 0;
         }
 
+        // Full text is needed in case of explain statements, if not specified.
+        $fullText = $analyzedSqlResults->isExplain;
+
         if (
             isset($_REQUEST['pftext']) && in_array(
                 $_REQUEST['pftext'],
@@ -3276,6 +3274,8 @@ class Results
         ) {
             $query['pftext'] = $_REQUEST['pftext'];
             unset($_REQUEST['pftext']);
+        } elseif ($fullText) {
+            $query['pftext'] = self::DISPLAY_FULL_TEXT;
         } elseif (empty($query['pftext'])) {
             $query['pftext'] = self::DISPLAY_PARTIAL_TEXT;
         }
@@ -3583,22 +3583,22 @@ class Results
     }
 
     /**
-     * Get offsets for next page and previous page
+     * Gets offsets for next page and previous page.
      *
-     * @see    getTable()
-     *
-     * @return int[] array with two elements - $pos_next, $pos_prev
+     * @return array<int, int>
+     * @psalm-return array{int, int}
      */
-    private function getOffsets()
+    private function getOffsets(): array
     {
-        if ($_SESSION['tmpval']['max_rows'] === self::ALL_ROWS) {
+        $tempVal = isset($_SESSION['tmpval']) && is_array($_SESSION['tmpval']) ? $_SESSION['tmpval'] : [];
+        if (isset($tempVal['max_rows']) && $tempVal['max_rows'] === self::ALL_ROWS) {
             return [0, 0];
         }
 
-        return [
-            $_SESSION['tmpval']['pos'] + $_SESSION['tmpval']['max_rows'],
-            max(0, $_SESSION['tmpval']['pos'] - $_SESSION['tmpval']['max_rows']),
-        ];
+        $pos = isset($tempVal['pos']) && is_int($tempVal['pos']) ? $tempVal['pos'] : 0;
+        $maxRows = isset($tempVal['max_rows']) && is_int($tempVal['max_rows']) ? $tempVal['max_rows'] : 25;
+
+        return [$pos + $maxRows, max(0, $pos - $maxRows)];
     }
 
     /**
@@ -3754,7 +3754,7 @@ class Results
         }
 
         $messageViewWarning = false;
-        $table = new Table($this->properties['table'], $this->properties['db']);
+        $table = new Table($this->properties['table'], $this->properties['db'], $this->dbi);
         if ($table->isView() && ($total == $GLOBALS['cfg']['MaxExactCountViews'])) {
             $message = Message::notice(
                 __(
@@ -4050,7 +4050,7 @@ class Results
                 $transformationPlugin->getMIMESubtype(),
                 'Octetstream'
             );
-            $posMimeText = strpos($transformationPlugin->getMIMEtype(), 'Text');
+            $posMimeText = strpos($transformationPlugin->getMIMEType(), 'Text');
             if ($posMimeOctetstream || $posMimeText !== false) {
                 // Applying Transformations on hex string of binary data
                 // seems more appropriate
@@ -4110,7 +4110,7 @@ class Results
      * @param string[] $fieldInfo       the relation
      * @param string   $whereComparison data for the where clause
      *
-     * @return string  formatted data
+     * @return string|null  formatted data
      */
     private function getFromForeign(array $fieldInfo, string $whereComparison): ?string
     {
@@ -4128,6 +4128,13 @@ class Results
         if ($dispval === false) {
             return __('Link not found!');
         }
+
+        if ($dispval === null) {
+            return null;
+        }
+
+        // Truncate values that are too long, see: #17902
+        [, $dispval] = $this->getPartialText($dispval);
 
         return $dispval;
     }
@@ -4195,11 +4202,14 @@ class Results
         }
 
         if (isset($map[$meta->name])) {
-            /** @var array<int, string> $relation */
+            /** @var array{0: string, 1: string, 2: string|false, 3: string} $relation */
             $relation = $map[$meta->name];
             // Field to display from the foreign table?
             $dispval = '';
-            if ($relation[2] !== '') {
+
+            // Check that we have a valid column name
+            // Relation::getDisplayField() returns false by default
+            if ($relation[2] !== '' && $relation[2] !== false) {
                 $dispval = $this->getFromForeign($relation, $whereComparison);
             }
 

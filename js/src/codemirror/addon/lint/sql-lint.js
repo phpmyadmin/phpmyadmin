@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { CommonParams } from '../../../modules/common.js';
 
 window.CodeMirror.sqlLint = function (text, updateLinting, options, cm) {
     // Skipping check if text box is empty.
@@ -20,7 +21,7 @@ window.CodeMirror.sqlLint = function (text, updateLinting, options, cm) {
                     response[idx].toLine, response[idx].toColumn
                 ),
                 messageHTML: response[idx].message,
-                severity : response[idx].severity
+                severity: response[idx].severity
             });
         }
 
@@ -33,7 +34,7 @@ window.CodeMirror.sqlLint = function (text, updateLinting, options, cm) {
         dataType: 'json',
         data: {
             'sql_query': text,
-            'server': window.CommonParams.get('server'),
+            'server': CommonParams.get('server'),
             'options': options.lintOptions,
             'no_history': true,
         },

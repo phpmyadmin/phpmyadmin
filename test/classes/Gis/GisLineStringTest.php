@@ -8,8 +8,6 @@ use PhpMyAdmin\Gis\GisLineString;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
-use function preg_match;
-
 /**
  * @covers \PhpMyAdmin\Gis\GisLineString
  * @runTestsInSeparateProcesses
@@ -133,7 +131,7 @@ class GisLineStringTest extends GisGeomTestCase
                 "'LINESTRING(5.02 8.45,6.14 0.15)',124",
                 null,
                 [
-                    'srid' => '124',
+                    'srid' => 124,
                     0 => $temp,
                 ],
             ],
@@ -170,17 +168,22 @@ class GisLineStringTest extends GisGeomTestCase
      */
     public function testPrepareRowAsPng(): void
     {
-        $image = ImageWrapper::create(120, 150);
+        $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
         $this->assertNotNull($image);
         $return = $this->object->prepareRowAsPng(
             'LINESTRING(12 35,48 75,69 23,25 45,14 53,35 78)',
             'image',
-            '#B02EE0',
-            ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
+            [176, 46, 224],
+            ['x' => -18, 'y' => 14, 'scale' => 1.71, 'height' => 124],
             $image
         );
-        $this->assertEquals(120, $return->width());
-        $this->assertEquals(150, $return->height());
+        $this->assertEquals(200, $return->width());
+        $this->assertEquals(124, $return->height());
+
+        $fileExpected = $this->testDir . '/linestring-expected.png';
+        $fileActual = $this->testDir . '/linestring-actual.png';
+        $this->assertTrue($image->png($fileActual));
+        $this->assertFileEquals($fileExpected, $fileActual);
     }
 
     /**
@@ -188,7 +191,7 @@ class GisLineStringTest extends GisGeomTestCase
      *
      * @param string $spatial    GIS LINESTRING object
      * @param string $label      label for the GIS LINESTRING object
-     * @param string $line_color color for the GIS LINESTRING object
+     * @param int[]  $color      color for the GIS LINESTRING object
      * @param array  $scale_data array containing data related to scaling
      * @param TCPDF  $pdf        TCPDF instance
      *
@@ -197,12 +200,16 @@ class GisLineStringTest extends GisGeomTestCase
     public function testPrepareRowAsPdf(
         string $spatial,
         string $label,
-        string $line_color,
+        array $color,
         array $scale_data,
         TCPDF $pdf
     ): void {
-        $return = $this->object->prepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf);
-        $this->assertInstanceOf(TCPDF::class, $return);
+        $return = $this->object->prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
+
+        $fileExpected = $this->testDir . '/linestring-expected.pdf';
+        $fileActual = $this->testDir . '/linestring-actual.pdf';
+        $return->Output($fileActual, 'F');
+        $this->assertFileEquals($fileExpected, $fileActual);
     }
 
     /**
@@ -216,14 +223,9 @@ class GisLineStringTest extends GisGeomTestCase
             [
                 'LINESTRING(12 35,48 75,69 23,25 45,14 53,35 78)',
                 'pdf',
-                '#B02EE0',
-                [
-                    'x' => 12,
-                    'y' => 69,
-                    'scale' => 2,
-                    'height' => 150,
-                ],
-                new TCPDF(),
+                [176, 46, 224],
+                ['x' => 7, 'y' => 3, 'scale' => 3.15, 'height' => 297],
+                $this->createEmptyPdf('LINESTRING'),
             ],
         ];
     }
@@ -233,7 +235,7 @@ class GisLineStringTest extends GisGeomTestCase
      *
      * @param string $spatial   GIS LINESTRING object
      * @param string $label     label for the GIS LINESTRING object
-     * @param string $lineColor color for the GIS LINESTRING object
+     * @param int[]  $color     color for the GIS LINESTRING object
      * @param array  $scaleData array containing data related to scaling
      * @param string $output    expected output
      *
@@ -242,12 +244,12 @@ class GisLineStringTest extends GisGeomTestCase
     public function testPrepareRowAsSvg(
         string $spatial,
         string $label,
-        string $lineColor,
+        array $color,
         array $scaleData,
         string $output
     ): void {
-        $string = $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData);
-        $this->assertEquals(1, preg_match($output, $string));
+        $svg = $this->object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
+        $this->assertEquals($output, $svg);
     }
 
     /**
@@ -261,16 +263,16 @@ class GisLineStringTest extends GisGeomTestCase
             [
                 'LINESTRING(12 35,48 75,69 23,25 45,14 53,35 78)',
                 'svg',
-                '#B02EE0',
+                [176, 46, 224],
                 [
                     'x' => 12,
                     'y' => 69,
                     'scale' => 2,
                     'height' => 150,
                 ],
-                '/^(<polyline points="0,218 72,138 114,242 26,198 4,182 46,132 " '
-                . 'name="svg" id="svg)(\d+)(" class="linestring vector" fill="none" '
-                . 'stroke="#B02EE0" stroke-width="2"\/>)$/',
+                '<polyline points="0,218 72,138 114,242 26,198 4,182 46,132 " '
+                . 'name="svg" id="svg1234567890" class="linestring vector" fill="none" '
+                . 'stroke="#b02ee0" stroke-width="2"/>',
             ],
         ];
     }
@@ -281,7 +283,7 @@ class GisLineStringTest extends GisGeomTestCase
      * @param string $spatial    GIS LINESTRING object
      * @param int    $srid       spatial reference ID
      * @param string $label      label for the GIS LINESTRING object
-     * @param array  $line_color color for the GIS LINESTRING object
+     * @param int[]  $color      color for the GIS LINESTRING object
      * @param array  $scale_data array containing data related to scaling
      * @param string $output     expected output
      *
@@ -291,20 +293,12 @@ class GisLineStringTest extends GisGeomTestCase
         string $spatial,
         int $srid,
         string $label,
-        array $line_color,
+        array $color,
         array $scale_data,
         string $output
     ): void {
-        $this->assertEquals(
-            $this->object->prepareRowAsOl(
-                $spatial,
-                $srid,
-                $label,
-                $line_color,
-                $scale_data
-            ),
-            $output
-        );
+        $ol = $this->object->prepareRowAsOl($spatial, $srid, $label, $color, $scale_data);
+        $this->assertEquals($output, $ol);
     }
 
     /**

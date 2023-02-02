@@ -33,11 +33,13 @@ use function end;
 use function file_put_contents;
 use function getenv;
 use function is_bool;
+use function is_object;
 use function is_string;
 use function json_decode;
 use function json_encode;
 use function mb_strtolower;
 use function preg_match;
+use function property_exists;
 use function random_bytes;
 use function reset;
 use function sprintf;
@@ -138,7 +140,7 @@ abstract class TestBase extends TestCase
 
         // The session Id is only used by BrowserStack
         if ($this->hasBrowserstackConfig()) {
-            $this->sessionId = $this->webDriver->getSessionId();
+            $this->sessionId = $this->webDriver->getSessionID();
         }
 
         $this->navigateTo('');
@@ -569,12 +571,11 @@ abstract class TestBase extends TestCase
         return $this->webDriver->findElement(WebDriverBy::partialLinkText($partialLinkText));
     }
 
-    /**
-     * Returns true if the browser is safari
-     */
     public function isSafari(): bool
     {
-        return mb_strtolower($this->webDriver->getCapabilities()->getBrowserName()) === 'safari';
+        $capabilities = $this->webDriver->getCapabilities();
+
+        return $capabilities !== null && mb_strtolower($capabilities->getBrowserName()) === 'safari';
     }
 
     /**
@@ -732,9 +733,12 @@ abstract class TestBase extends TestCase
      */
     public function waitForElement(string $func, string $arg): RemoteWebElement
     {
-        return $this->webDriver->wait(30, 500)->until(
+        $element = $this->webDriver->wait(30, 500)->until(
             WebDriverExpectedCondition::presenceOfElementLocated(WebDriverBy::$func($arg))
         );
+        $this->assertInstanceOf(RemoteWebElement::class, $element);
+
+        return $element;
     }
 
     /**
@@ -746,9 +750,12 @@ abstract class TestBase extends TestCase
      */
     public function waitUntilElementIsPresent(string $func, string $arg, int $timeout): RemoteWebElement
     {
-        return $this->webDriver->wait($timeout, 500)->until(
+        $element = $this->webDriver->wait($timeout, 500)->until(
             WebDriverExpectedCondition::presenceOfElementLocated(WebDriverBy::$func($arg))
         );
+        $this->assertInstanceOf(RemoteWebElement::class, $element);
+
+        return $element;
     }
 
     /**
@@ -758,11 +765,14 @@ abstract class TestBase extends TestCase
      * @param string $arg     Selector
      * @param int    $timeout Timeout in seconds
      */
-    public function waitUntilElementIsVisible(string $func, string $arg, int $timeout): WebDriverElement
+    public function waitUntilElementIsVisible(string $func, string $arg, int $timeout = 10): WebDriverElement
     {
-        return $this->webDriver->wait($timeout, 500)->until(
+        $element = $this->webDriver->wait($timeout, 500)->until(
             WebDriverExpectedCondition::visibilityOfElementLocated(WebDriverBy::$func($arg))
         );
+        $this->assertInstanceOf(WebDriverElement::class, $element);
+
+        return $element;
     }
 
     /**
@@ -1089,7 +1099,7 @@ JS;
     public function waitAjaxMessage(): void
     {
         /* Get current message count */
-        $ajax_message_count = $this->webDriver->executeScript('return Functions.getAjaxMessageCount();');
+        $ajax_message_count = $this->webDriver->executeScript('return window.getAjaxMessageCount();');
         /* Ensure the popup is gone */
         $this->waitForElementNotPresent('id', 'ajax_message_num_' . $ajax_message_count);
     }
@@ -1181,8 +1191,7 @@ JS;
         }
 
         $proj = json_decode($result);
-        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        if (isset($proj->automation_session)) {
+        if (is_object($proj) && property_exists($proj, 'automation_session')) {
             // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
             echo 'Test failed, get more information here: ' . $proj->automation_session->public_url . PHP_EOL;
         }

@@ -56,7 +56,7 @@ class SqlController extends AbstractController
 
         $formDisplay = new SqlForm($GLOBALS['cf'], 1);
 
-        if (isset($_POST['revert'])) {
+        if ($request->hasBodyParam('revert')) {
             // revert erroneous fields to their default values
             $formDisplay->fixErrors();
             $this->redirect('/preferences/sql');
@@ -75,7 +75,7 @@ class SqlController extends AbstractController
             if ($result === true) {
                 // reload config
                 $this->config->loadUserPreferences();
-                $GLOBALS['tabHash'] = $_POST['tab_hash'] ?? null;
+                $GLOBALS['tabHash'] = $request->getParsedBodyParam('tab_hash');
                 $GLOBALS['hash'] = ltrim($GLOBALS['tabHash'], '#');
                 $this->userPreferences->redirect('index.php?route=/preferences/sql', null, $GLOBALS['hash']);
 
@@ -85,24 +85,20 @@ class SqlController extends AbstractController
             $GLOBALS['error'] = $result;
         }
 
-        $this->addScriptFiles(['config.js']);
-
         $relationParameters = $this->relation->getRelationParameters();
 
         $this->render('preferences/header', [
             'route' => $request->getRoute(),
-            'is_saved' => ! empty($_GET['saved']),
+            'is_saved' => $request->hasQueryParam('saved'),
             'has_config_storage' => $relationParameters->userPreferencesFeature !== null,
         ]);
 
-        if ($formDisplay->hasErrors()) {
-            $formErrors = $formDisplay->displayErrors();
-        }
+        $formErrors = $formDisplay->displayErrors();
 
         $this->render('preferences/forms/main', [
             'error' => $GLOBALS['error'] ? $GLOBALS['error']->getDisplay() : '',
             'has_errors' => $formDisplay->hasErrors(),
-            'errors' => $formErrors ?? null,
+            'errors' => $formErrors,
             'form' => $formDisplay->getDisplay(
                 true,
                 Url::getFromRoute('/preferences/sql'),

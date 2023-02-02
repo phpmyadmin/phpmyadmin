@@ -7,7 +7,9 @@ namespace PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -26,17 +28,10 @@ class SearchController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-        $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
-        $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
-        $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
-        $GLOBALS['sub_part'] = $GLOBALS['sub_part'] ?? null;
-        $GLOBALS['tooltip_truename'] = $GLOBALS['tooltip_truename'] ?? null;
-        $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
-        $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
 
         $this->addScriptFiles(['database/search.js', 'sql.js', 'makegrid.js']);
 
@@ -49,14 +44,21 @@ class SearchController extends AbstractController
             return;
         }
 
-        // If config variable $cfg['UseDbSearch'] is on false : exit.
         if (! $GLOBALS['cfg']['UseDbSearch']) {
-            Generator::mysqlDie(
-                __('Access denied!'),
-                '',
-                false,
-                $GLOBALS['errorUrl']
+            $errorMessage = __(
+                'Searching inside the database is disabled by the [code]$cfg[\'UseDbSearch\'][/code] configuration.'
             );
+            $errorMessage .= MySQLDocumentation::showDocumentation('config', 'cfg_UseDbSearch');
+            $this->response->setRequestStatus(false);
+            if ($this->response->isAjax()) {
+                $this->response->addJSON('message', Message::error($errorMessage)->getDisplay());
+
+                return;
+            }
+
+            $this->render('error/simple', ['error_message' => $errorMessage, 'back_url' => $GLOBALS['errorUrl']]);
+
+            return;
         }
 
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/search');
@@ -64,21 +66,8 @@ class SearchController extends AbstractController
         // Create a database search instance
         $databaseSearch = new Search($this->dbi, $GLOBALS['db'], $this->template);
 
-        // Display top links if we are not in an Ajax request
-        if (! $this->response->isAjax()) {
-            [
-                $GLOBALS['tables'],
-                $GLOBALS['num_tables'],
-                $GLOBALS['total_num_tables'],
-                $GLOBALS['sub_part'],,,
-                $GLOBALS['tooltip_truename'],
-                $GLOBALS['tooltip_aliasname'],
-                $GLOBALS['pos'],
-            ] = Util::getDbInfo($GLOBALS['db'], $GLOBALS['sub_part'] ?? '');
-        }
-
         // Main search form has been submitted, get results
-        if (isset($_POST['submit_search'])) {
+        if ($request->hasBodyParam('submit_search')) {
             $this->response->addHTML($databaseSearch->getSearchResults());
         }
 

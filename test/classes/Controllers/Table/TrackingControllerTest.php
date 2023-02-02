@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\TrackingController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -50,8 +51,8 @@ class TrackingControllerTest extends AbstractTestCase
         (new TrackingController(
             $response,
             $template,
-            new Tracking(new SqlQueryForm($template), $template, new Relation($this->dbi), $this->dbi)
-        ))();
+            new Tracking(new SqlQueryForm($template, $this->dbi), $template, new Relation($this->dbi), $this->dbi)
+        ))($this->createStub(ServerRequest::class));
 
         $main = $template->render('table/tracking/main', [
             'url_params' => [

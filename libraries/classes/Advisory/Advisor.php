@@ -46,8 +46,13 @@ class Advisor
      */
     private $rules = [];
 
-    /** @var array */
-    private $runResult;
+    /** @var array{fired:array, notfired:array, unchecked:array, errors:array} */
+    private $runResult = [
+        'fired' => [],
+        'notfired' => [],
+        'unchecked' => [],
+        'errors' => [],
+    ];
 
     /** @var ExpressionLanguage */
     private $expression;
@@ -60,7 +65,7 @@ class Advisor
     {
         $this->dbi = $dbi;
         $this->expression = $expression;
-        /*
+        /**
          * Register functions for ExpressionLanguage, we intentionally
          * do not implement support for compile as we do not use it.
          */
@@ -151,10 +156,6 @@ class Advisor
              * @param int $value
              */
             function ($arguments, $value) {
-                if (! isset($this->runResult['fired'])) {
-                    return 0;
-                }
-
                 // Did matching rule fire?
                 foreach ($this->runResult['fired'] as $rule) {
                     if ($rule['id'] == $value) {
@@ -209,7 +210,7 @@ class Advisor
     }
 
     /**
-     * @return array
+     * @return array{fired: array, notfired: array, unchecked: array, errors: array}
      */
     public function getRunResult(): array
     {
@@ -217,7 +218,7 @@ class Advisor
     }
 
     /**
-     * @return array
+     * @psalm-return array{fired:array, notfired:array, unchecked:array, errors:array}
      */
     public function run(): array
     {
@@ -260,7 +261,7 @@ class Advisor
 
             if (isset($rule['precondition'])) {
                 try {
-                     $precondition = $this->evaluateRuleExpression($rule['precondition']);
+                    $precondition = $this->evaluateRuleExpression($rule['precondition']);
                 } catch (Throwable $e) {
                     $this->storeError(
                         sprintf(
@@ -317,6 +318,7 @@ class Advisor
      *
      * @param string $type type of rule
      * @param array  $rule rule itself
+     * @psalm-param 'notfired'|'fired'|'unchecked'|'errors' $type
      */
     public function addRule(string $type, array $rule): void
     {

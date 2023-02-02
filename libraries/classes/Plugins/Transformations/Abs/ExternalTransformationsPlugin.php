@@ -152,12 +152,10 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
         }
 
         if ($options[2] == 1 || $options[2] == '2') {
-            $retstring = htmlspecialchars($newstring);
-        } else {
-            $retstring = $newstring;
+            return htmlspecialchars($newstring);
         }
 
-        return $retstring;
+        return $newstring;
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */

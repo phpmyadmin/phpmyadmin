@@ -9,6 +9,15 @@ $textarea-rows: 15;
   @include border-radius($card-border-radius);
 }
 
+// Code mirror default style (do not affect the console style)
+.CodeMirror.cm-s-default {
+  // @see: issue #17705
+  div.CodeMirror-scroll {
+    margin-right: 0;
+    padding-bottom: 0;
+  }
+}
+
 #inline_editor_outer .CodeMirror {
   height: ceil($textarea-rows * 0.4em);
 }

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Export;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\ExportController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
@@ -22,15 +23,15 @@ final class TablesController extends AbstractController
         $this->exportController = $exportController;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        if (empty($_POST['selected_tbl'])) {
+        if (! $request->hasBodyParam('selected_tbl')) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
             return;
         }
 
-        ($this->exportController)();
+        ($this->exportController)($request);
     }
 }

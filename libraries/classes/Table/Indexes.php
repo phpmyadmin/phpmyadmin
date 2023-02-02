@@ -6,7 +6,9 @@ namespace PhpMyAdmin\Table;
 
 use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\Table\StructureController;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
@@ -45,8 +47,6 @@ final class Indexes
      */
     public function doSaveData(Index $index, bool $renameMode, string $db, string $table): void
     {
-        $GLOBALS['containerBuilder'] = $GLOBALS['containerBuilder'] ?? null;
-
         $error = false;
         if ($renameMode && Compatibility::isCompatibleRenameIndex($this->dbi->getVersion())) {
             $oldIndexName = $_POST['old_index'];
@@ -91,7 +91,7 @@ final class Indexes
                     Generator::getMessage($message, $sql_query, 'success')
                 );
 
-                $indexes = Index::getFromTable($table, $db);
+                $indexes = Index::getFromTable($this->dbi, $table, $db);
                 $indexesDuplicates = Index::findDuplicates($table, $db);
 
                 $this->response->addJSON(
@@ -107,12 +107,27 @@ final class Indexes
                 );
             } else {
                 /** @var StructureController $controller */
-                $controller = $GLOBALS['containerBuilder']->get(StructureController::class);
+                $controller = Core::getContainerBuilder()->get(StructureController::class);
                 $controller(Common::getRequest());
             }
         } else {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $error);
         }
+    }
+
+    /**
+     * @param string|DatabaseName $db
+     */
+    public function executeAddIndexSql($db, string $sql): Message
+    {
+        $this->dbi->selectDb($db);
+        $result = $this->dbi->tryQuery($sql);
+
+        if (! $result) {
+            return Message::error($this->dbi->getError());
+        }
+
+        return Message::success();
     }
 }

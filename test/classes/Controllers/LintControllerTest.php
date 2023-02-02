@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers;
 
 use PhpMyAdmin\Controllers\LintController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -13,6 +14,7 @@ use function json_encode;
 
 /**
  * @covers \PhpMyAdmin\Controllers\LintController
+ * @runTestsInSeparateProcesses
  */
 class LintControllerTest extends AbstractTestCase
 {
@@ -24,9 +26,13 @@ class LintControllerTest extends AbstractTestCase
 
     public function testWithoutParams(): void
     {
-        $_POST = [];
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['sql_query', '', ''],
+            ['options', null, null],
+        ]);
 
-        $this->getLintController()();
+        $this->getLintController()($request);
 
         $output = $this->getActualOutputForAssertion();
         $this->assertJson($output);
@@ -35,9 +41,13 @@ class LintControllerTest extends AbstractTestCase
 
     public function testWithoutSqlErrors(): void
     {
-        $_POST['sql_query'] = 'SELECT * FROM `actor` WHERE `actor_id` = 1;';
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['sql_query', '', 'SELECT * FROM `actor` WHERE `actor_id` = 1;'],
+            ['options', null, null],
+        ]);
 
-        $this->getLintController()();
+        $this->getLintController()($request);
 
         $output = $this->getActualOutputForAssertion();
         $this->assertJson($output);
@@ -46,8 +56,6 @@ class LintControllerTest extends AbstractTestCase
 
     public function testWithSqlErrors(): void
     {
-        $_POST['sql_query'] = 'SELECT * FROM `actor` WHEREE `actor_id` = 1;';
-
         $expectedJson = json_encode([
             [
                 'message' => 'An alias was previously found. (near <code>`actor_id`</code>)',
@@ -84,7 +92,13 @@ class LintControllerTest extends AbstractTestCase
         ]);
         $this->assertNotFalse($expectedJson);
 
-        $this->getLintController()();
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['sql_query', '', 'SELECT * FROM `actor` WHEREE `actor_id` = 1;'],
+            ['options', null, null],
+        ]);
+
+        $this->getLintController()($request);
 
         $output = $this->getActualOutputForAssertion();
         $this->assertJson($output);

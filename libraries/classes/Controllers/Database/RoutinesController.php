@@ -9,6 +9,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -28,26 +29,24 @@ class RoutinesController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
+    /** @var Routines */
+    private $routines;
+
     public function __construct(
         ResponseRenderer $response,
         Template $template,
         CheckUserPrivileges $checkUserPrivileges,
-        DatabaseInterface $dbi
+        DatabaseInterface $dbi,
+        Routines $routines
     ) {
         parent::__construct($response, $template);
         $this->checkUserPrivileges = $checkUserPrivileges;
         $this->dbi = $dbi;
+        $this->routines = $routines;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
-        $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
-        $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
-        $GLOBALS['sub_part'] = $GLOBALS['sub_part'] ?? null;
-        $GLOBALS['tooltip_truename'] = $GLOBALS['tooltip_truename'] ?? null;
-        $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
-        $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
         $GLOBALS['errors'] = $GLOBALS['errors'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
@@ -81,16 +80,6 @@ class RoutinesController extends AbstractController
                 if (! $this->hasDatabase()) {
                     return;
                 }
-
-                [
-                    $GLOBALS['tables'],
-                    $GLOBALS['num_tables'],
-                    $GLOBALS['total_num_tables'],
-                    $GLOBALS['sub_part'],,,
-                    $GLOBALS['tooltip_truename'],
-                    $GLOBALS['tooltip_aliasname'],
-                    $GLOBALS['pos'],
-                ] = Util::getDbInfo($GLOBALS['db'], $GLOBALS['sub_part'] ?? '');
             }
         } elseif (strlen($GLOBALS['db']) > 0) {
             $this->dbi->selectDb($GLOBALS['db']);
@@ -102,22 +91,20 @@ class RoutinesController extends AbstractController
          */
         $GLOBALS['errors'] = [];
 
-        $routines = new Routines($this->dbi, $this->template, $this->response);
-
-        $routines->handleEditor();
-        $routines->handleExecute();
-        $routines->export();
+        $this->routines->handleEditor();
+        $this->routines->handleExecute();
+        $this->routines->export();
 
         if (! isset($type) || ! in_array($type, ['FUNCTION', 'PROCEDURE'])) {
             $type = null;
         }
 
-        $items = $this->dbi->getRoutines($GLOBALS['db'], $type);
+        $items = Routines::getDetails($this->dbi, $GLOBALS['db'], $type);
         $isAjax = $this->response->isAjax() && empty($_REQUEST['ajax_page_request']);
 
         $rows = '';
         foreach ($items as $item) {
-            $rows .= $routines->getRow($item, $isAjax ? 'ajaxInsert hide' : '');
+            $rows .= $this->routines->getRow($item, $isAjax ? 'ajaxInsert hide' : '');
         }
 
         $this->render('database/routines/index', [

@@ -223,13 +223,12 @@ class Normalization
         $stepTxt = __('Make all columns atomic');
         $html = "<h3 class='text-center'>"
             . __('First step of normalization (1NF)') . '</h3>';
-        $html .= "<div id='mainContent' data-normalizeto='" . $normalizedTo . "'>" .
-            '<fieldset class="pma-fieldset">' .
-            '<legend>' . __('Step 1.') . $step . ' ' . $stepTxt . '</legend>' .
-            '<h4>' . __(
-                'Do you have any column which can be split into more than'
-                . ' one column? '
-                . 'For example: address can be split into street, city, country and zip.'
+        $html .= "<div id='mainContent' data-normalizeto='" . $normalizedTo . "'>"
+            . '<fieldset class="pma-fieldset">'
+            . '<legend>' . __('Step 1.') . $step . ' ' . $stepTxt . '</legend>'
+            . '<h4>' . __(
+                'Do you have any column which can be split into more than one column?'
+                . ' For example: address can be split into street, city, country and zip.'
             )
             . "<br>(<a class='central_columns_dialog' data-maxrows='25' "
             . "data-pick=false href='#'> "
@@ -267,17 +266,17 @@ class Normalization
      * @param string $db    current database
      * @param string $table current table
      *
-     * @return string[] HTML contents for step 1.2
+     * @return array{legendText: string, headText: string, subText: string, hasPrimaryKey: string, extra: string}
      */
     public function getHtmlContentsFor1NFStep2($db, $table)
     {
         $step = 2;
         $stepTxt = __('Have a primary key');
-        $primary = Index::getPrimary($table, $db);
+        $primary = Index::getPrimary($this->dbi, $table, $db);
         $hasPrimaryKey = '0';
         $legendText = __('Step 1.') . $step . ' ' . $stepTxt;
         $extra = '';
-        if ($primary !== false) {
+        if ($primary !== null) {
             $headText = __('Primary key already exists.');
             $subText = __('Taking you to next step…');
             $hasPrimaryKey = '1';
@@ -315,7 +314,7 @@ class Normalization
      * @param string $db    current database
      * @param string $table current table
      *
-     * @return string[] HTML contents for step 1.4
+     * @return array{legendText: string, headText: string, subText: string, extra: string} HTML contents for step 1.4
      */
     public function getHtmlContentsFor1NFStep4($db, $table)
     {
@@ -352,7 +351,7 @@ class Normalization
      * @param string $db    current database
      * @param string $table current table
      *
-     * @return string[] HTML contents for step 1.3
+     * @return array{legendText: string, headText: string, subText: string, extra: string, primary_key: false|string}
      */
     public function getHtmlContentsFor1NFStep3($db, $table)
     {
@@ -375,8 +374,8 @@ class Normalization
             . __('Done') . '">'
             . '<input class="btn btn-secondary" type="submit" value="' . __('No repeating group')
             . '" onclick="goToStep4();">';
-        $primary = Index::getPrimary($table, $db);
-        $primarycols = $primary === false ? [] : $primary->getColumns();
+        $primary = Index::getPrimary($this->dbi, $table, $db);
+        $primarycols = $primary === null ? [] : $primary->getColumns();
         $pk = [];
         foreach ($primarycols as $col) {
             $pk[] = $col->getName();
@@ -397,13 +396,13 @@ class Normalization
      * @param string $db    current database
      * @param string $table current table
      *
-     * @return string[] HTML contents for 2NF step 2.1
+     * @return array{legendText: string, headText: string, subText: string, extra: string, primary_key: string}
      */
     public function getHtmlFor2NFstep1($db, $table)
     {
         $legendText = __('Step 2.') . '1 ' . __('Find partial dependencies');
-        $primary = Index::getPrimary($table, $db);
-        $primarycols = $primary === false ? [] : $primary->getColumns();
+        $primary = Index::getPrimary($this->dbi, $table, $db);
+        $primarycols = $primary === null ? [] : $primary->getColumns();
         $pk = [];
         $subText = '';
         $selectPkForm = '';
@@ -523,7 +522,7 @@ class Normalization
      * @param string $table               current table
      * @param string $db                  current database
      *
-     * @return array
+     * @return array{legendText: string, headText: string, queryError: bool, extra: Message}
      */
     public function createNewTablesFor2NF(array $partialDependencies, $tablesName, $table, $db)
     {
@@ -535,7 +534,7 @@ class Normalization
             __('The second step of normalization is complete for table \'%1$s\'.'),
             htmlspecialchars($table)
         ) . '</h3>';
-        if (count((array) $partialDependencies) === 1) {
+        if (count($partialDependencies) === 1) {
             return [
                 'legendText' => __('End of step'),
                 'headText' => $headText,
@@ -626,8 +625,8 @@ class Normalization
                 continue;
             }
 
-            $primary = Index::getPrimary($table, $db);
-            $primarycols = $primary === false ? [] : $primary->getColumns();
+            $primary = Index::getPrimary($this->dbi, $table, $db);
+            $primarycols = $primary === null ? [] : $primary->getColumns();
             $pk = [];
             foreach ($primarycols as $col) {
                 $pk[] = $col->getName();
@@ -656,18 +655,18 @@ class Normalization
                 }
 
                 $columnList[] = $tmpTableCols;
-                    $html .= '<p><input type="text" name="'
-                        . htmlspecialchars($tableName)
-                        . '" value="' . htmlspecialchars($tableName) . '">'
-                        . '( <u>' . htmlspecialchars($key) . '</u>'
-                        . (count($dependents) > 0 ? ', ' : '')
-                        . htmlspecialchars(implode(', ', $dependents)) . ' )';
-                    $newTables[$table][$tableName] = [
-                        'pk' => $key,
-                        'nonpk' => implode(', ', $dependents),
-                    ];
-                    $i++;
-                    $tableName = 'table' . $i;
+                $html .= '<p><input type="text" name="'
+                    . htmlspecialchars($tableName)
+                    . '" value="' . htmlspecialchars($tableName) . '">'
+                    . '( <u>' . htmlspecialchars($key) . '</u>'
+                    . (count($dependents) > 0 ? ', ' : '')
+                    . htmlspecialchars(implode(', ', $dependents)) . ' )';
+                $newTables[$table][$tableName] = [
+                    'pk' => $key,
+                    'nonpk' => implode(', ', $dependents),
+                ];
+                $i++;
+                $tableName = 'table' . $i;
             }
         }
 
@@ -684,16 +683,14 @@ class Normalization
      * @param array  $newTables list of new tables to be created
      * @param string $db        current database
      *
-     * @return array
+     * @return array{legendText: string, headText: string, queryError: string|false, extra?: string}
      */
     public function createNewTablesFor3NF(array $newTables, $db)
     {
         $queries = [];
         $dropCols = false;
         $error = false;
-        $headText = '<h3>' .
-            __('The third step of normalization is complete.')
-            . '</h3>';
+        $headText = '<h3>' . __('The third step of normalization is complete.') . '</h3>';
         if (count($newTables) === 0) {
             return [
                 'legendText' => __('End of step'),
@@ -790,7 +787,7 @@ class Normalization
      * @param string $table            current table
      * @param string $db               current database
      *
-     * @return array
+     * @return array{queryError: bool, message: Message}
      */
     public function moveRepeatingGroup(
         $repeatingColumns,
@@ -861,7 +858,7 @@ class Normalization
      * @param string $db     current database
      * @param array  $tables tables formed after 2NF and need to process for 3NF
      *
-     * @return string[]
+     * @return array{legendText: string, headText: string, subText: string, extra: string}
      */
     public function getHtmlFor3NFstep1($db, array $tables)
     {
@@ -878,8 +875,8 @@ class Normalization
         );
         $cnt = 0;
         foreach ($tables as $table) {
-            $primary = Index::getPrimary($table, $db);
-            $primarycols = $primary === false ? [] : $primary->getColumns();
+            $primary = Index::getPrimary($this->dbi, $table, $db);
+            $primarycols = $primary === null ? [] : $primary->getColumns();
             $selectTdForm = '';
             $pk = [];
             foreach ($primarycols as $col) {
@@ -938,52 +935,6 @@ class Normalization
     }
 
     /**
-     * get html for options to normalize table
-     *
-     * @return string HTML
-     */
-    public function getHtmlForNormalizeTable()
-    {
-        $htmlOutput = '<form method="post" action="' . Url::getFromRoute('/normalization')
-            . '" name="normalize" '
-            . 'id="normalizeTable" '
-            . '>'
-            . Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
-            . '<input type="hidden" name="step1" value="1">';
-        $htmlOutput .= '<fieldset class="pma-fieldset">';
-        $htmlOutput .= '<legend>'
-            . __('Improve table structure (Normalization):') . '</legend>';
-        $htmlOutput .= '<h3>' . __('Select up to what step you want to normalize')
-            . '</h3>';
-
-        $htmlOutput .= '<div><input type="radio" name="normalizeTo" id="normalizeToRadio1" value="1nf" checked>';
-        $htmlOutput .= ' <label for="normalizeToRadio1">';
-        $htmlOutput .= __('First step of normalization (1NF)');
-        $htmlOutput .= '</label></div>';
-
-        $htmlOutput .= '<div><input type="radio" name="normalizeTo" id="normalizeToRadio2" value="2nf">';
-        $htmlOutput .= ' <label for="normalizeToRadio2">';
-        $htmlOutput .= __('Second step of normalization (1NF+2NF)');
-        $htmlOutput .= '</label></div>';
-
-        $htmlOutput .= '<div><input type="radio" name="normalizeTo" id="normalizeToRadio3" value="3nf">';
-        $htmlOutput .= ' <label for="normalizeToRadio3">';
-        $htmlOutput .= __('Third step of normalization (1NF+2NF+3NF)');
-        $htmlOutput .= '</label></div>';
-
-        $htmlOutput .= '</fieldset><fieldset class="pma-fieldset tblFooters">'
-            . "<span class='float-start'>" . __(
-                'Hint: Please follow the procedure carefully in order to obtain correct normalization'
-            ) . '</span>'
-            . '<input class="btn btn-primary" type="submit" name="submit_normalize" value="' . __('Go') . '">'
-            . '</fieldset>'
-            . '</form>'
-            . '</div>';
-
-        return $htmlOutput;
-    }
-
-    /**
      * find all the possible partial dependencies based on data in the table.
      *
      * @param string $table current table
@@ -1006,8 +957,8 @@ class Normalization
             . Util::backquote($table) . ' LIMIT 500) as dt;'
         );
         $totalRows = $totalRowsRes[0];
-        $primary = Index::getPrimary($table, $db);
-        $primarycols = $primary === false ? [] : $primary->getColumns();
+        $primary = Index::getPrimary($this->dbi, $table, $db);
+        $primarycols = $primary === null ? [] : $primary->getColumns();
         $pk = [];
         foreach ($primarycols as $col) {
             $pk[] = Util::backquote($col->getName());

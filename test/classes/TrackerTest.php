@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Cache;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Util;
@@ -23,6 +24,7 @@ class TrackerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $this->loadContainerBuilder();
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         parent::loadDbiIntoContainerBuilder();
 
@@ -251,10 +253,12 @@ class TrackerTest extends AbstractTestCase
         $dbi->expects($this->any())->method('query')
             ->will($this->returnValue($resultStub));
 
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
         $dbi->expects($this->any())->method('getCompatibilities')
             ->will($this->returnValue([]));
+        $dbi->expects($this->any())->method('quoteString')
+            ->will($this->returnCallback(static function (string $string) {
+                return "'" . $string . "'";
+            }));
 
         $GLOBALS['dbi'] = $dbi;
         $this->assertTrue(Tracker::createVersion('pma_test', 'pma_tbl', '1', '11', true));
@@ -503,17 +507,17 @@ class TrackerTest extends AbstractTestCase
                     [
                         [
                             "pma'db",
-                            DatabaseInterface::CONNECT_USER,
+                            Connection::TYPE_USER,
                             "pma\'db",
                         ],
                         [
                             "pma'table",
-                            DatabaseInterface::CONNECT_USER,
+                            Connection::TYPE_USER,
                             "pma\'table",
                         ],
                         [
                             '1.0',
-                            DatabaseInterface::CONNECT_USER,
+                            Connection::TYPE_USER,
                             '1.0',
                         ],
                     ]

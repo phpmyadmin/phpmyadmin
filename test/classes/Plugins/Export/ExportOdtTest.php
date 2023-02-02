@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\Export\ExportOdt;
@@ -379,7 +380,7 @@ class ExportOdtTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('SELECT', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('SELECT', Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue($resultStub));
 
         $resultStub->expects($this->once())
@@ -407,7 +408,6 @@ class ExportOdtTest extends AbstractTestCase
             $this->object->exportData(
                 'db',
                 'ta<ble',
-                "\n",
                 'example.com',
                 'SELECT'
             )
@@ -454,7 +454,7 @@ class ExportOdtTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('SELECT', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('SELECT', Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue($resultStub));
 
         $resultStub->expects($this->once())
@@ -474,7 +474,6 @@ class ExportOdtTest extends AbstractTestCase
             $this->object->exportData(
                 'db',
                 'table',
-                "\n",
                 'example.com',
                 'SELECT'
             )
@@ -507,7 +506,7 @@ class ExportOdtTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('SELECT', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('SELECT', Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue($resultStub));
 
         $resultStub->expects($this->once())
@@ -529,7 +528,6 @@ class ExportOdtTest extends AbstractTestCase
             $this->object->exportData(
                 'db',
                 'table',
-                "\n",
                 'example.com',
                 'SELECT'
             )
@@ -549,7 +547,7 @@ class ExportOdtTest extends AbstractTestCase
     {
         $this->dummyDbi->addSelectDb('test_db');
         $this->assertSame(
-            $this->object->getTableDefStandIn('test_db', 'test_table', "\n"),
+            $this->object->getTableDefStandIn('test_db', 'test_table'),
             ''
         );
         $this->dummyDbi->assertAllSelectsConsumed();
@@ -649,7 +647,6 @@ class ExportOdtTest extends AbstractTestCase
             $this->object->getTableDef(
                 'database',
                 '',
-                "\n",
                 'example.com',
                 true,
                 true,
@@ -742,7 +739,6 @@ class ExportOdtTest extends AbstractTestCase
             $this->object->getTableDef(
                 'database',
                 '',
-                "\n",
                 'example.com',
                 true,
                 true,
@@ -755,23 +751,28 @@ class ExportOdtTest extends AbstractTestCase
 
     public function testGetTriggers(): void
     {
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
         $triggers = [
             [
-                'name' => 'tna"me',
-                'action_timing' => 'ac>t',
-                'event_manipulation' => 'manip&',
-                'definition' => 'def',
+                'TRIGGER_SCHEMA' => 'database',
+                'TRIGGER_NAME' => 'tna"me',
+                'EVENT_MANIPULATION' => 'manip&',
+                'EVENT_OBJECT_TABLE' => 'ta<ble',
+                'ACTION_TIMING' => 'ac>t',
+                'ACTION_STATEMENT' => 'def',
+                'EVENT_OBJECT_SCHEMA' => 'database',
+                'DEFINER' => 'test_user@localhost',
             ],
         ];
 
         $dbi->expects($this->once())
-            ->method('getTriggers')
-            ->with('database', 'ta<ble')
-            ->will($this->returnValue($triggers));
+            ->method('fetchResult')
+            ->willReturnOnConsecutiveCalls($triggers);
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -800,7 +801,6 @@ class ExportOdtTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                "\n",
                 'localhost',
                 'create_table',
                 'test'
@@ -842,7 +842,6 @@ class ExportOdtTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                "\n",
                 'localhost',
                 'triggers',
                 'test'
@@ -874,7 +873,6 @@ class ExportOdtTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                "\n",
                 'localhost',
                 'create_view',
                 'test'
@@ -916,7 +914,6 @@ class ExportOdtTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                "\n",
                 'localhost',
                 'stand_in',
                 'test'

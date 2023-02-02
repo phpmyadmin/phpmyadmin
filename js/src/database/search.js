@@ -1,10 +1,13 @@
 import $ from 'jquery';
+import { AJAX } from '../modules/ajax.js';
+import { Functions } from '../modules/functions.js';
+import { CommonParams } from '../modules/common.js';
+import highlightSql from '../modules/sql-highlight.js';
+import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
+import getImageTag from '../modules/functions/getImageTag.js';
 
 /**
  * JavaScript functions used on Database Search page
- *
- * @requires    jQuery
- * @requires    js/functions.js
  *
  * @package PhpMyAdmin
  */
@@ -19,9 +22,9 @@ import $ from 'jquery';
 /**
  * Unbind all event handlers before tearing down a page
  */
-window.AJAX.registerTeardown('database/search.js', function () {
-    $('a.browse_results').off('click');
-    $('a.delete_results').off('click');
+AJAX.registerTeardown('database/search.js', function () {
+    $('.browse_results').off('click');
+    $('.delete_results').off('click');
     $('#buttonGo').off('click');
     $('#togglesearchresultlink').off('click');
     $('#togglequerybox').off('click');
@@ -31,9 +34,9 @@ window.AJAX.registerTeardown('database/search.js', function () {
     $(document).off('submit', '#db_search_form.ajax');
 });
 
-window.AJAX.registerOnload('database/search.js', function () {
+AJAX.registerOnload('database/search.js', function () {
     /** Hide the table link in the initial search result */
-    var icon = Functions.getImage('s_tbl', '', { 'id': 'table-image' }).toString();
+    var icon = getImageTag('s_tbl', '', { 'id': 'table-image' }).toString();
     $('#table-info').prepend(icon).hide();
 
     /** Hide the browse and deleted results in the new search criteria */
@@ -47,7 +50,7 @@ window.AJAX.registerOnload('database/search.js', function () {
      * Prepare a div containing a link for toggle the search results
      */
     $('#togglesearchresultsdiv')
-    /** don't show it until we have results on-screen */
+        /** don't show it until we have results on-screen */
         .hide();
 
     /**
@@ -116,39 +119,39 @@ window.AJAX.registerOnload('database/search.js', function () {
     /*
      * Ajax Event handler for retrieving the results from a table
      */
-    $(document).on('click', 'a.browse_results', function (e) {
+    $(document).on('click', '.browse_results', function (e) {
         e.preventDefault();
         /**   Hides the results shown by the delete criteria */
-        var $msg = Functions.ajaxShowMessage(window.Messages.strBrowsing, false);
+        var $msg = ajaxShowMessage(window.Messages.strBrowsing, false);
         $('#sqlqueryform').hide();
         $('#togglequerybox').hide();
         /**  Load the browse results to the page */
         $('#table-info').show();
         var tableName = $(this).data('table-name');
-        $('#table-link').attr({ 'href' : $(this).attr('href') }).text(tableName);
+        $('#table-link').attr({ 'href': $(this).data('href') }).text(tableName);
 
-        var url = $(this).attr('href') + '#searchresults';
+        var url = $(this).data('href') + '#searchresults';
         var browseSql = $(this).data('browse-sql');
         var params = {
             'ajax_request': true,
             'is_js_confirmed': true,
-            'sql_query' : browseSql
+            'sql_query': browseSql
         };
         $.post(url, params, function (data) {
             if (typeof data !== 'undefined' && data.success) {
                 $('#browse-results').html(data.message);
-                Functions.ajaxRemoveMessage($msg);
+                ajaxRemoveMessage($msg);
                 $('.table_results').each(function () {
                     window.makeGrid(this, true, true, true, true);
                 });
                 $('#browse-results').show();
-                Functions.highlightSql($('#browse-results'));
+                highlightSql($('#browse-results'));
                 $('html, body')
                     .animate({
                         scrollTop: $('#browse-results').offset().top
                     }, 1000);
             } else {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         });
     });
@@ -156,19 +159,19 @@ window.AJAX.registerOnload('database/search.js', function () {
     /*
      * Ajax Event handler for deleting the results from a table
      */
-    $(document).on('click', 'a.delete_results', function (e) {
+    $(document).on('click', '.delete_results', function (e) {
         e.preventDefault();
         /**  Hides the results shown by the browse criteria */
         $('#table-info').hide();
         $('#sqlqueryform').hide();
         $('#togglequerybox').hide();
         /** Conformation message for deletion */
-        var msg = Functions.sprintf(
+        var msg = window.sprintf(
             window.Messages.strConfirmDeleteResults,
             $(this).data('table-name')
         );
         if (confirm(msg)) {
-            var $msg = Functions.ajaxShowMessage(window.Messages.strDeleting, false);
+            var $msg = ajaxShowMessage(window.Messages.strDeleting, false);
             /** Load the deleted option to the page*/
             $('#sqlqueryform').html('');
             var params = {
@@ -176,11 +179,11 @@ window.AJAX.registerOnload('database/search.js', function () {
                 'is_js_confirmed': true,
                 'sql_query': $(this).data('delete-sql')
             };
-            var url = $(this).attr('href');
+            var url = $(this).data('href');
 
             $.post(url, params, function (data) {
-                if (typeof data === 'undefined' || !data.success) {
-                    Functions.ajaxShowMessage(data.error, false);
+                if (typeof data === 'undefined' || ! data.success) {
+                    ajaxShowMessage(data.error, false);
                     return;
                 }
 
@@ -196,7 +199,7 @@ window.AJAX.registerOnload('database/search.js', function () {
                     .animate({
                         scrollTop: $('#browse-results').offset().top
                     }, 1000);
-                Functions.ajaxRemoveMessage($msg);
+                ajaxRemoveMessage($msg);
             });
         }
     });
@@ -207,26 +210,26 @@ window.AJAX.registerOnload('database/search.js', function () {
     $(document).on('submit', '#db_search_form.ajax', function (event) {
         event.preventDefault();
         if ($('#criteriaTables :selected').length === 0) {
-            Functions.ajaxShowMessage(window.Messages.strNoTableSelected);
+            ajaxShowMessage(window.Messages.strNoTableSelected);
             return;
         }
-        var $msgbox = Functions.ajaxShowMessage(window.Messages.strSearching, false);
+        var $msgbox = ajaxShowMessage(window.Messages.strSearching, false);
         // jQuery object to reuse
         var $form = $(this);
 
         Functions.prepareForAjaxRequest($form);
 
-        var url = $form.serialize() + window.CommonParams.get('arg_separator') + 'submit_search=' + $('#buttonGo').val();
+        var url = $form.serialize() + CommonParams.get('arg_separator') + 'submit_search=' + $('#buttonGo').val();
         $.post($form.attr('action'), url, function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 // found results
                 $('#searchresults').html(data.message);
 
                 $('#togglesearchresultlink')
-                // always start with the Show message
+                    // always start with the Show message
                     .text(window.Messages.strHideSearchResults);
                 $('#togglesearchresultsdiv')
-                // now it's time to show the div containing the link
+                    // now it's time to show the div containing the link
                     .show();
                 $('#searchresults').show();
 
@@ -246,7 +249,7 @@ window.AJAX.registerOnload('database/search.js', function () {
                 $('#searchresults').html(data.error).show();
             }
 
-            Functions.ajaxRemoveMessage($msgbox);
+            ajaxRemoveMessage($msgbox);
         });
     });
 

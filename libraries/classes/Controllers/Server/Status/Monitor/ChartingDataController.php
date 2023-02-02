@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Server\Status\Monitor;
 
 use PhpMyAdmin\Controllers\Server\Status\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
@@ -32,11 +33,11 @@ final class ChartingDataController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
-        $params = ['requiredData' => $_POST['requiredData'] ?? null];
+        $requiredData = $request->getParsedBodyParam('requiredData', '');
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
@@ -48,9 +49,7 @@ final class ChartingDataController extends AbstractController
         }
 
         $this->response->addJSON([
-            'message' => $this->monitor->getJsonForChartingData(
-                $params['requiredData'] ?? ''
-            ),
+            'message' => $this->monitor->getJsonForChartingData($requiredData),
         ]);
     }
 }

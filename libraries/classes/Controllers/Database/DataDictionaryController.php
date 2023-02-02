@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -40,7 +41,7 @@ class DataDictionaryController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $this->checkParameters(['db'], true);
 
@@ -109,7 +110,7 @@ class DataDictionaryController extends AbstractController
                 'has_relation' => $hasRelation,
                 'has_mime' => $relationParameters->browserTransformationFeature !== null,
                 'columns' => $rows,
-                'indexes' => Index::getFromTable($tableName, $GLOBALS['db']),
+                'indexes' => Index::getFromTable($this->dbi, $tableName, $GLOBALS['db']),
             ];
         }
 

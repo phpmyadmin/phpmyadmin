@@ -44,28 +44,6 @@ class GisVisualization
     private $settings = [
         // Array of colors to be used for GIS visualizations.
         'colors' => [
-            '#B02EE0',
-            '#E0642E',
-            '#E0D62E',
-            '#2E97E0',
-            '#BCE02E',
-            '#E02E75',
-            '#5CE02E',
-            '#E0B02E',
-            '#0022E0',
-            '#726CB1',
-            '#481A36',
-            '#BAC658',
-            '#127224',
-            '#825119',
-            '#238C74',
-            '#4C489B',
-            '#87C9BF',
-        ],
-
-
-        // Hex values for abovementioned colours
-        'colors_hex' => [
             [176, 46, 224],
             [224, 100, 46],
             [224, 214, 46],
@@ -604,17 +582,13 @@ class GisVisualization
 
         $scale = $ratio != 0 ? 1 / $ratio : 1;
 
-        if ($x_ratio < $y_ratio) {
-            // center horizontally
-            $x = ($min_max['maxX'] + $min_max['minX'] - $plot_width / $scale) / 2;
-            // fit vertically
-            $y = $min_max['minY'] - ($border / $scale);
-        } else {
-            // fit horizontally
-            $x = $min_max['minX'] - ($border / $scale);
-            // center vertically
-            $y = ($min_max['maxY'] + $min_max['minY'] - $plot_height / $scale) / 2;
-        }
+        // Center plot
+        $x = $ratio == 0 || $x_ratio < $y_ratio
+            ? ($min_max['maxX'] + $min_max['minX'] - $this->settings['width'] / $scale) / 2
+            : $min_max['minX'] - ($border / $scale);
+        $y = $ratio == 0 || $x_ratio >= $y_ratio
+            ? ($min_max['maxY'] + $min_max['minY'] - $this->settings['height'] / $scale) / 2
+            : $min_max['minY'] - ($border / $scale);
 
         return [
             'scale' => $scale,
@@ -641,12 +615,12 @@ class GisVisualization
      */
     private function prepareDataSet(array $data, array $scale_data, $format, $results)
     {
-        $color_number = 0;
+        /** @var int[][] $colors */
+        $colors = $this->settings['colors'];
+        $color_index = 0;
 
         // loop through the rows
         foreach ($data as $row) {
-            $index = $color_number % count($this->settings['colors']);
-
             // Figure out the data type
             $ref_data = $row[$this->settings['spatialColumn']];
             if (! is_string($ref_data)) {
@@ -665,6 +639,7 @@ class GisVisualization
                 continue;
             }
 
+            $color = $colors[$color_index];
             $label = '';
             if (isset($this->settings['labelColumn'], $row[$this->settings['labelColumn']])) {
                 $label = $row[$this->settings['labelColumn']];
@@ -674,14 +649,14 @@ class GisVisualization
                 $results .= $gis_obj->prepareRowAsSvg(
                     $row[$this->settings['spatialColumn']],
                     $label,
-                    $this->settings['colors'][$index],
+                    $color,
                     $scale_data
                 );
             } elseif ($format === 'png') {
                 $results = $gis_obj->prepareRowAsPng(
                     $row[$this->settings['spatialColumn']],
                     $label,
-                    $this->settings['colors'][$index],
+                    $color,
                     $scale_data,
                     $results
                 );
@@ -689,7 +664,7 @@ class GisVisualization
                 $results = $gis_obj->prepareRowAsPdf(
                     $row[$this->settings['spatialColumn']],
                     $label,
-                    $this->settings['colors'][$index],
+                    $color,
                     $scale_data,
                     $results
                 );
@@ -698,12 +673,12 @@ class GisVisualization
                     $row[$this->settings['spatialColumn']],
                     (int) $row['srid'],
                     $label,
-                    $this->settings['colors_hex'][$index],
+                    $color,
                     $scale_data
                 );
             }
 
-            $color_number++;
+            $color_index = ($color_index + 1) % count($colors);
         }
 
         return $results;

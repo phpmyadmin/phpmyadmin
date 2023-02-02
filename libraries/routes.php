@@ -9,6 +9,7 @@ use PhpMyAdmin\Controllers\CheckRelationsController;
 use PhpMyAdmin\Controllers\CollationConnectionController;
 use PhpMyAdmin\Controllers\ColumnController;
 use PhpMyAdmin\Controllers\Config;
+use PhpMyAdmin\Controllers\Console\Bookmark;
 use PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\Controllers\DatabaseController;
 use PhpMyAdmin\Controllers\ErrorReportController;
@@ -17,11 +18,12 @@ use PhpMyAdmin\Controllers\GisDataEditorController;
 use PhpMyAdmin\Controllers\GitInfoController;
 use PhpMyAdmin\Controllers\HomeController;
 use PhpMyAdmin\Controllers\Import;
+use PhpMyAdmin\Controllers\JavaScriptMessagesController;
 use PhpMyAdmin\Controllers\LicenseController;
 use PhpMyAdmin\Controllers\LintController;
 use PhpMyAdmin\Controllers\LogoutController;
 use PhpMyAdmin\Controllers\NavigationController;
-use PhpMyAdmin\Controllers\NormalizationController;
+use PhpMyAdmin\Controllers\Normalization;
 use PhpMyAdmin\Controllers\PhpInfoController;
 use PhpMyAdmin\Controllers\Preferences;
 use PhpMyAdmin\Controllers\RecentTablesListController;
@@ -51,6 +53,10 @@ return static function (RouteCollector $routes): void {
     $routes->addGroup('/config', static function (RouteCollector $routes): void {
         $routes->post('/get', Config\GetConfigController::class);
         $routes->post('/set', Config\SetConfigController::class);
+    });
+    $routes->addGroup('/console/bookmark', static function (RouteCollector $routes): void {
+        $routes->post('/add', Bookmark\AddController::class);
+        $routes->get('/refresh', Bookmark\RefreshController::class);
     });
     $routes->addGroup('/database', static function (RouteCollector $routes): void {
         $routes->addGroup('/central-columns', static function (RouteCollector $routes): void {
@@ -128,8 +134,26 @@ return static function (RouteCollector $routes): void {
     $routes->get('/license', LicenseController::class);
     $routes->addRoute(['GET', 'POST'], '/lint', LintController::class);
     $routes->addRoute(['GET', 'POST'], '/logout', LogoutController::class);
+    $routes->get('/messages', JavaScriptMessagesController::class);
     $routes->addRoute(['GET', 'POST'], '/navigation', NavigationController::class);
-    $routes->addRoute(['GET', 'POST'], '/normalization', NormalizationController::class);
+    $routes->addGroup('/normalization', static function (RouteCollector $routes): void {
+        $routes->addRoute(['GET', 'POST'], '', Normalization\MainController::class);
+        $routes->post('/1nf/step1', Normalization\FirstNormalForm\FirstStepController::class);
+        $routes->post('/1nf/step2', Normalization\FirstNormalForm\SecondStepController::class);
+        $routes->post('/1nf/step3', Normalization\FirstNormalForm\ThirdStepController::class);
+        $routes->post('/1nf/step4', Normalization\FirstNormalForm\FourthStepController::class);
+        $routes->post('/2nf/create-new-tables', Normalization\SecondNormalForm\CreateNewTablesController::class);
+        $routes->post('/2nf/new-tables', Normalization\SecondNormalForm\NewTablesController::class);
+        $routes->post('/2nf/step1', Normalization\SecondNormalForm\FirstStepController::class);
+        $routes->post('/3nf/create-new-tables', Normalization\ThirdNormalForm\CreateNewTablesController::class);
+        $routes->post('/3nf/new-tables', Normalization\ThirdNormalForm\NewTablesController::class);
+        $routes->post('/3nf/step1', Normalization\ThirdNormalForm\FirstStepController::class);
+        $routes->post('/add-new-primary', Normalization\AddNewPrimaryController::class);
+        $routes->post('/get-columns', Normalization\GetColumnsController::class);
+        $routes->post('/create-new-column', Normalization\CreateNewColumnController::class);
+        $routes->post('/move-repeating-group', Normalization\MoveRepeatingGroup::class);
+        $routes->post('/partial-dependencies', Normalization\PartialDependenciesController::class);
+    });
     $routes->get('/phpinfo', PhpInfoController::class);
     $routes->addGroup('/preferences', static function (RouteCollector $routes): void {
         $routes->addRoute(['GET', 'POST'], '/export', Preferences\ExportController::class);

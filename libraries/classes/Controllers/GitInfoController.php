@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Git;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
@@ -23,7 +24,7 @@ final class GitInfoController extends AbstractController
         $this->config = $config;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         if (! $this->response->isAjax()) {
             return;

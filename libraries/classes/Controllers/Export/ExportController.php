@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Export;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\ExportController as DatabaseExportController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Exceptions\ExportException;
 use PhpMyAdmin\Export;
@@ -35,8 +36,6 @@ use function register_shutdown_function;
 use function strlen;
 use function time;
 
-use const PHP_EOL;
-
 final class ExportController extends AbstractController
 {
     /** @var Export */
@@ -50,49 +49,25 @@ final class ExportController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['containerBuilder'] = $GLOBALS['containerBuilder'] ?? null;
         $GLOBALS['export_type'] = $GLOBALS['export_type'] ?? null;
-        $GLOBALS['filename_template'] = $GLOBALS['filename_template'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
         $GLOBALS['message'] = $GLOBALS['message'] ?? null;
         $GLOBALS['compression'] = $GLOBALS['compression'] ?? null;
-        $GLOBALS['crlf'] = $GLOBALS['crlf'] ?? null;
         $GLOBALS['asfile'] = $GLOBALS['asfile'] ?? null;
         $GLOBALS['buffer_needed'] = $GLOBALS['buffer_needed'] ?? null;
         $GLOBALS['save_on_server'] = $GLOBALS['save_on_server'] ?? null;
         $GLOBALS['file_handle'] = $GLOBALS['file_handle'] ?? null;
-        $GLOBALS['separate_files'] = $GLOBALS['separate_files'] ?? null;
         $GLOBALS['output_charset_conversion'] = $GLOBALS['output_charset_conversion'] ?? null;
         $GLOBALS['output_kanji_conversion'] = $GLOBALS['output_kanji_conversion'] ?? null;
         $GLOBALS['what'] = $GLOBALS['what'] ?? null;
-        $GLOBALS['export_plugin'] = $GLOBALS['export_plugin'] ?? null;
         $GLOBALS['single_table'] = $GLOBALS['single_table'] ?? null;
-        $GLOBALS['compression_methods'] = $GLOBALS['compression_methods'] ?? null;
-        $GLOBALS['onserver'] = $GLOBALS['onserver'] ?? null;
         $GLOBALS['save_filename'] = $GLOBALS['save_filename'] ?? null;
-        $GLOBALS['filename'] = $GLOBALS['filename'] ?? null;
-        $GLOBALS['quick_export'] = $GLOBALS['quick_export'] ?? null;
         $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
         $GLOBALS['table_select'] = $GLOBALS['table_select'] ?? null;
-        $GLOBALS['aliases'] = $GLOBALS['aliases'] ?? null;
         $GLOBALS['time_start'] = $GLOBALS['time_start'] ?? null;
         $GLOBALS['charset'] = $GLOBALS['charset'] ?? null;
-        $GLOBALS['remember_template'] = $GLOBALS['remember_template'] ?? null;
-        $GLOBALS['mime_type'] = $GLOBALS['mime_type'] ?? null;
-        $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
-        $GLOBALS['do_relation'] = $GLOBALS['do_relation'] ?? null;
-        $GLOBALS['do_comments'] = $GLOBALS['do_comments'] ?? null;
-        $GLOBALS['do_mime'] = $GLOBALS['do_mime'] ?? null;
-        $GLOBALS['do_dates'] = $GLOBALS['do_dates'] ?? null;
-        $GLOBALS['whatStrucOrData'] = $GLOBALS['whatStrucOrData'] ?? null;
-        $GLOBALS['db_select'] = $GLOBALS['db_select'] ?? null;
-        $GLOBALS['table_structure'] = $GLOBALS['table_structure'] ?? null;
         $GLOBALS['table_data'] = $GLOBALS['table_data'] ?? null;
-        $GLOBALS['lock_tables'] = $GLOBALS['lock_tables'] ?? null;
-        $GLOBALS['allrows'] = $GLOBALS['allrows'] ?? null;
-        $GLOBALS['limit_to'] = $GLOBALS['limit_to'] ?? null;
-        $GLOBALS['limit_from'] = $GLOBALS['limit_from'] ?? null;
 
         /** @var array<string, string> $postParams */
         $postParams = $request->getParsedBody();
@@ -113,8 +88,11 @@ final class ExportController extends AbstractController
         $onServerParam = $request->getParsedBodyParam('onserver');
         /** @var array|null $aliasesParam */
         $aliasesParam = $request->getParsedBodyParam('aliases');
-        /** @var string|null $structureOrDataForced */
-        $structureOrDataForced = $request->getParsedBodyParam('structure_or_data_forced');
+        $structureOrDataForced = $request->hasBodyParam('structure_or_data_forced');
+        $rememberTemplate = $request->getParsedBodyParam('remember_template');
+        $dbSelect = $request->getParsedBodyParam('db_select');
+        $tableStructure = $request->getParsedBodyParam('table_structure');
+        $lockTables = $request->hasBodyParam('lock_tables');
 
         $this->addScriptFiles(['export_output.js']);
 
@@ -126,68 +104,60 @@ final class ExportController extends AbstractController
         $this->checkParameters(['what', 'export_type']);
 
         // export class instance, not array of properties, as before
-        $GLOBALS['export_plugin'] = Plugins::getPlugin('export', $GLOBALS['what'], [
+        $exportPlugin = Plugins::getPlugin('export', $GLOBALS['what'], [
             'export_type' => (string) $GLOBALS['export_type'],
             'single_table' => isset($GLOBALS['single_table']),
         ]);
 
         // Check export type
-        if (empty($GLOBALS['export_plugin'])) {
-            Core::fatalError(__('Bad type!'));
+        if ($exportPlugin === null) {
+            $this->response->setRequestStatus(false);
+            $this->response->addHTML(Message::error(__('Bad type!'))->getDisplay());
+
+            return;
         }
 
         /**
          * valid compression methods
          */
-        $GLOBALS['compression_methods'] = [];
+        $compressionMethods = [];
         if ($GLOBALS['cfg']['ZipDump'] && function_exists('gzcompress')) {
-            $GLOBALS['compression_methods'][] = 'zip';
+            $compressionMethods[] = 'zip';
         }
 
         if ($GLOBALS['cfg']['GZipDump'] && function_exists('gzencode')) {
-            $GLOBALS['compression_methods'][] = 'gzip';
+            $compressionMethods[] = 'gzip';
         }
 
         /**
          * init and variable checking
          */
         $GLOBALS['compression'] = '';
-        $GLOBALS['onserver'] = false;
         $GLOBALS['save_on_server'] = false;
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['save_filename'] = '';
         $GLOBALS['file_handle'] = '';
         $GLOBALS['errorUrl'] = '';
-        $GLOBALS['filename'] = '';
-        $GLOBALS['separate_files'] = '';
+        $filename = '';
+        $separateFiles = '';
 
         // Is it a quick or custom export?
-        if ($quickOrCustom === 'quick') {
-            $GLOBALS['quick_export'] = true;
-        } else {
-            $GLOBALS['quick_export'] = false;
-        }
+        $isQuickExport = $quickOrCustom === 'quick';
 
         if ($outputFormat === 'astext') {
             $GLOBALS['asfile'] = false;
         } else {
             $GLOBALS['asfile'] = true;
             if ($asSeparateFiles && $compressionParam === 'zip') {
-                $GLOBALS['separate_files'] = $asSeparateFiles;
+                $separateFiles = $asSeparateFiles;
             }
 
-            if (in_array($compressionParam, $GLOBALS['compression_methods'])) {
+            if (in_array($compressionParam, $compressionMethods)) {
                 $GLOBALS['compression'] = $compressionParam;
                 $GLOBALS['buffer_needed'] = true;
             }
 
-            if (($GLOBALS['quick_export'] && $quickExportOnServer) || (! $GLOBALS['quick_export'] && $onServerParam)) {
-                if ($GLOBALS['quick_export']) {
-                    $GLOBALS['onserver'] = $quickExportOnServer;
-                } else {
-                    $GLOBALS['onserver'] = $onServerParam;
-                }
-
+            if (($isQuickExport && $quickExportOnServer) || (! $isQuickExport && $onServerParam)) {
                 // Will we save dump on server?
                 $GLOBALS['save_on_server'] = ! empty($GLOBALS['cfg']['SaveDir']);
             }
@@ -225,20 +195,23 @@ final class ExportController extends AbstractController
         } elseif ($GLOBALS['export_type'] === 'raw') {
             $GLOBALS['errorUrl'] = Url::getFromRoute('/server/export', ['sql_query' => $GLOBALS['sql_query']]);
         } else {
-            Core::fatalError(__('Bad parameters!'));
+            $this->response->setRequestStatus(false);
+            $this->response->addHTML(Message::error(__('Bad parameters!'))->getDisplay());
+
+            return;
         }
 
         // Merge SQL Query aliases with Export aliases from
         // export page, Export page aliases are given more
         // preference over SQL Query aliases.
         $parser = new Parser($GLOBALS['sql_query']);
-        $GLOBALS['aliases'] = [];
+        $aliases = [];
         if (! empty($parser->statements[0]) && ($parser->statements[0] instanceof SelectStatement)) {
-            $GLOBALS['aliases'] = Misc::getAliases($parser->statements[0], $GLOBALS['db']);
+            $aliases = Misc::getAliases($parser->statements[0], $GLOBALS['db']);
         }
 
-        if (! empty($aliasesParam)) {
-            $GLOBALS['aliases'] = $this->export->mergeAliases($GLOBALS['aliases'], $aliasesParam);
+        if ($aliasesParam !== null && $aliasesParam !== []) {
+            $aliases = $this->export->mergeAliases($aliases, $aliasesParam);
             $_SESSION['tmpval']['aliases'] = $aliasesParam;
         }
 
@@ -261,14 +234,6 @@ final class ExportController extends AbstractController
         // We send fake headers to avoid browser timeout when buffering
         $GLOBALS['time_start'] = time();
 
-        // Defines the default <CR><LF> format.
-        // For SQL always use \n as MySQL wants this on all platforms.
-        if ($GLOBALS['what'] === 'sql') {
-            $GLOBALS['crlf'] = "\n";
-        } else {
-            $GLOBALS['crlf'] = PHP_EOL;
-        }
-
         $GLOBALS['output_kanji_conversion'] = Encoding::canConvertKanji();
 
         // Do we need to convert charset?
@@ -284,26 +249,25 @@ final class ExportController extends AbstractController
         }
 
         // Generate filename and mime type if needed
+        $mimeType = '';
         if ($GLOBALS['asfile']) {
-            if (empty($GLOBALS['remember_template'])) {
-                $GLOBALS['remember_template'] = '';
+            if (empty($rememberTemplate)) {
+                $rememberTemplate = '';
             }
 
-            [$GLOBALS['filename'], $GLOBALS['mime_type']] = $this->export->getFilenameAndMimetype(
+            [$filename, $mimeType] = $this->export->getFilenameAndMimetype(
                 $GLOBALS['export_type'],
-                $GLOBALS['remember_template'],
-                $GLOBALS['export_plugin'],
+                $rememberTemplate,
+                $exportPlugin,
                 $GLOBALS['compression'],
-                $GLOBALS['filename_template']
+                $request->getParsedBodyParam('filename_template')
             );
-        } else {
-            $GLOBALS['mime_type'] = '';
         }
 
         // For raw query export, filename will be export.extension
         if ($GLOBALS['export_type'] === 'raw') {
-            [$GLOBALS['filename']] = $this->export->getFinalFilenameAndMimetypeForFilename(
-                $GLOBALS['export_plugin'],
+            [$filename] = $this->export->getFinalFilenameAndMimetypeForFilename(
+                $exportPlugin,
                 $GLOBALS['compression'],
                 'export'
             );
@@ -315,7 +279,7 @@ final class ExportController extends AbstractController
                 $GLOBALS['save_filename'],
                 $GLOBALS['message'],
                 $GLOBALS['file_handle'],
-            ] = $this->export->openFile($GLOBALS['filename'], $GLOBALS['quick_export']);
+            ] = $this->export->openFile($filename, $isQuickExport);
 
             // problem opening export file on server?
             if (! empty($GLOBALS['message'])) {
@@ -333,9 +297,9 @@ final class ExportController extends AbstractController
                 // (avoid rewriting data containing HTML with anchors and forms;
                 // this was reported to happen under Plesk)
                 ini_set('url_rewriter.tags', '');
-                $GLOBALS['filename'] = Sanitize::sanitizeFilename($GLOBALS['filename']);
+                $filename = Sanitize::sanitizeFilename($filename);
 
-                Core::downloadHeader($GLOBALS['filename'], $GLOBALS['mime_type']);
+                Core::downloadHeader($filename, $mimeType);
             } else {
                 // HTML
                 if ($GLOBALS['export_type'] === 'database') {
@@ -346,8 +310,8 @@ final class ExportController extends AbstractController
                         );
                         $GLOBALS['active_page'] = Url::getFromRoute('/database/export');
                         /** @var DatabaseExportController $controller */
-                        $controller = $GLOBALS['containerBuilder']->get(DatabaseExportController::class);
-                        $controller();
+                        $controller = Core::getContainerBuilder()->get(DatabaseExportController::class);
+                        $controller($request);
                         exit;
                     }
                 }
@@ -366,50 +330,49 @@ final class ExportController extends AbstractController
             $this->export->dumpBufferLength = 0;
 
             // Add possibly some comments to export
-            if (! $GLOBALS['export_plugin']->exportHeader()) {
+            if (! $exportPlugin->exportHeader()) {
                 throw new ExportException('Failure during header export.');
             }
 
             // Will we need relation & co. setup?
-            $GLOBALS['do_relation'] = isset($GLOBALS[$GLOBALS['what'] . '_relation']);
-            $GLOBALS['do_comments'] = isset($GLOBALS[$GLOBALS['what'] . '_include_comments'])
+            $doRelation = isset($GLOBALS[$GLOBALS['what'] . '_relation']);
+            $doComments = isset($GLOBALS[$GLOBALS['what'] . '_include_comments'])
                 || isset($GLOBALS[$GLOBALS['what'] . '_comments']);
-            $GLOBALS['do_mime'] = isset($GLOBALS[$GLOBALS['what'] . '_mime']);
+            $doMime = isset($GLOBALS[$GLOBALS['what'] . '_mime']);
 
             // Include dates in export?
-            $GLOBALS['do_dates'] = isset($GLOBALS[$GLOBALS['what'] . '_dates']);
+            $doDates = isset($GLOBALS[$GLOBALS['what'] . '_dates']);
 
-            $GLOBALS['whatStrucOrData'] = $GLOBALS[$GLOBALS['what'] . '_structure_or_data'];
+            $whatStrucOrData = $GLOBALS[$GLOBALS['what'] . '_structure_or_data'];
 
             if ($GLOBALS['export_type'] === 'raw') {
-                $GLOBALS['whatStrucOrData'] = 'raw';
+                $whatStrucOrData = 'raw';
             }
 
             /**
              * Builds the dump
              */
             if ($GLOBALS['export_type'] === 'server') {
-                if (! isset($GLOBALS['db_select'])) {
-                    $GLOBALS['db_select'] = '';
+                if ($dbSelect === null) {
+                    $dbSelect = '';
                 }
 
                 $this->export->exportServer(
-                    $GLOBALS['db_select'],
-                    $GLOBALS['whatStrucOrData'],
-                    $GLOBALS['export_plugin'],
-                    $GLOBALS['crlf'],
+                    $dbSelect,
+                    $whatStrucOrData,
+                    $exportPlugin,
                     $GLOBALS['errorUrl'],
                     $GLOBALS['export_type'],
-                    $GLOBALS['do_relation'],
-                    $GLOBALS['do_comments'],
-                    $GLOBALS['do_mime'],
-                    $GLOBALS['do_dates'],
-                    $GLOBALS['aliases'],
-                    $GLOBALS['separate_files']
+                    $doRelation,
+                    $doComments,
+                    $doMime,
+                    $doDates,
+                    $aliases,
+                    $separateFiles
                 );
             } elseif ($GLOBALS['export_type'] === 'database') {
-                if (! isset($GLOBALS['table_structure']) || ! is_array($GLOBALS['table_structure'])) {
-                    $GLOBALS['table_structure'] = [];
+                if (! is_array($tableStructure)) {
+                    $tableStructure = [];
                 }
 
                 if (! isset($GLOBALS['table_data']) || ! is_array($GLOBALS['table_data'])) {
@@ -417,96 +380,85 @@ final class ExportController extends AbstractController
                 }
 
                 if ($structureOrDataForced) {
-                    $GLOBALS['table_structure'] = $GLOBALS['tables'];
+                    $tableStructure = $GLOBALS['tables'];
                     $GLOBALS['table_data'] = $GLOBALS['tables'];
                 }
 
-                if (isset($GLOBALS['lock_tables'])) {
-                    $this->export->lockTables($GLOBALS['db'], $GLOBALS['tables'], 'READ');
+                if ($lockTables) {
+                    $this->export->lockTables(DatabaseName::fromValue($GLOBALS['db']), $GLOBALS['tables'], 'READ');
                     try {
                         $this->export->exportDatabase(
-                            $GLOBALS['db'],
+                            DatabaseName::fromValue($GLOBALS['db']),
                             $GLOBALS['tables'],
-                            $GLOBALS['whatStrucOrData'],
-                            $GLOBALS['table_structure'],
+                            $whatStrucOrData,
+                            $tableStructure,
                             $GLOBALS['table_data'],
-                            $GLOBALS['export_plugin'],
-                            $GLOBALS['crlf'],
+                            $exportPlugin,
                             $GLOBALS['errorUrl'],
                             $GLOBALS['export_type'],
-                            $GLOBALS['do_relation'],
-                            $GLOBALS['do_comments'],
-                            $GLOBALS['do_mime'],
-                            $GLOBALS['do_dates'],
-                            $GLOBALS['aliases'],
-                            $GLOBALS['separate_files']
+                            $doRelation,
+                            $doComments,
+                            $doMime,
+                            $doDates,
+                            $aliases,
+                            $separateFiles
                         );
                     } finally {
                         $this->export->unlockTables();
                     }
                 } else {
                     $this->export->exportDatabase(
-                        $GLOBALS['db'],
+                        DatabaseName::fromValue($GLOBALS['db']),
                         $GLOBALS['tables'],
-                        $GLOBALS['whatStrucOrData'],
-                        $GLOBALS['table_structure'],
+                        $whatStrucOrData,
+                        $tableStructure,
                         $GLOBALS['table_data'],
-                        $GLOBALS['export_plugin'],
-                        $GLOBALS['crlf'],
+                        $exportPlugin,
                         $GLOBALS['errorUrl'],
                         $GLOBALS['export_type'],
-                        $GLOBALS['do_relation'],
-                        $GLOBALS['do_comments'],
-                        $GLOBALS['do_mime'],
-                        $GLOBALS['do_dates'],
-                        $GLOBALS['aliases'],
-                        $GLOBALS['separate_files']
+                        $doRelation,
+                        $doComments,
+                        $doMime,
+                        $doDates,
+                        $aliases,
+                        $separateFiles
                     );
                 }
             } elseif ($GLOBALS['export_type'] === 'raw') {
                 Export::exportRaw(
-                    $GLOBALS['whatStrucOrData'],
-                    $GLOBALS['export_plugin'],
-                    $GLOBALS['crlf'],
+                    $whatStrucOrData,
+                    $exportPlugin,
                     $GLOBALS['errorUrl'],
+                    $GLOBALS['db'],
                     $GLOBALS['sql_query'],
                     $GLOBALS['export_type']
                 );
             } else {
                 // We export just one table
-                // $allrows comes from the form when "Dump all rows" has been selected
-                if (! isset($GLOBALS['allrows'])) {
-                    $GLOBALS['allrows'] = '';
-                }
 
-                if (! isset($GLOBALS['limit_to'])) {
-                    $GLOBALS['limit_to'] = '0';
-                }
+                $allrows = $request->getParsedBodyParam('allrows', '');
+                $limitTo = $request->getParsedBodyParam('limit_to', '0');
+                $limitFrom = $request->getParsedBodyParam('limit_from', '0');
 
-                if (! isset($GLOBALS['limit_from'])) {
-                    $GLOBALS['limit_from'] = '0';
-                }
-
-                if (isset($GLOBALS['lock_tables'])) {
+                if ($lockTables) {
                     try {
-                        $this->export->lockTables($GLOBALS['db'], [$GLOBALS['table']], 'READ');
+                        $this->export->lockTables(DatabaseName::fromValue($GLOBALS['db']), [$GLOBALS['table']], 'READ');
                         $this->export->exportTable(
                             $GLOBALS['db'],
                             $GLOBALS['table'],
-                            $GLOBALS['whatStrucOrData'],
-                            $GLOBALS['export_plugin'],
-                            $GLOBALS['crlf'],
+                            $whatStrucOrData,
+                            $exportPlugin,
                             $GLOBALS['errorUrl'],
                             $GLOBALS['export_type'],
-                            $GLOBALS['do_relation'],
-                            $GLOBALS['do_comments'],
-                            $GLOBALS['do_mime'],
-                            $GLOBALS['do_dates'],
-                            $GLOBALS['allrows'],
-                            $GLOBALS['limit_to'],
-                            $GLOBALS['limit_from'],
+                            $doRelation,
+                            $doComments,
+                            $doMime,
+                            $doDates,
+                            $allrows,
+                            $limitTo,
+                            $limitFrom,
                             $GLOBALS['sql_query'],
-                            $GLOBALS['aliases']
+                            $aliases
                         );
                     } finally {
                         $this->export->unlockTables();
@@ -515,25 +467,24 @@ final class ExportController extends AbstractController
                     $this->export->exportTable(
                         $GLOBALS['db'],
                         $GLOBALS['table'],
-                        $GLOBALS['whatStrucOrData'],
-                        $GLOBALS['export_plugin'],
-                        $GLOBALS['crlf'],
+                        $whatStrucOrData,
+                        $exportPlugin,
                         $GLOBALS['errorUrl'],
                         $GLOBALS['export_type'],
-                        $GLOBALS['do_relation'],
-                        $GLOBALS['do_comments'],
-                        $GLOBALS['do_mime'],
-                        $GLOBALS['do_dates'],
-                        $GLOBALS['allrows'],
-                        $GLOBALS['limit_to'],
-                        $GLOBALS['limit_from'],
+                        $doRelation,
+                        $doComments,
+                        $doMime,
+                        $doDates,
+                        $allrows,
+                        $limitTo,
+                        $limitFrom,
                         $GLOBALS['sql_query'],
-                        $GLOBALS['aliases']
+                        $aliases
                     );
                 }
             }
 
-            if (! $GLOBALS['export_plugin']->exportFooter()) {
+            if (! $exportPlugin->exportFooter()) {
                 throw new ExportException('Failure during footer export.');
             }
         } catch (ExportException $e) {
@@ -570,17 +521,17 @@ final class ExportController extends AbstractController
 
         // Compression needed?
         if ($GLOBALS['compression']) {
-            if (! empty($GLOBALS['separate_files'])) {
+            if ($separateFiles) {
                 $this->export->dumpBuffer = $this->export->compress(
                     $this->export->dumpBufferObjects,
                     $GLOBALS['compression'],
-                    $GLOBALS['filename']
+                    $filename
                 );
             } else {
                 $this->export->dumpBuffer = $this->export->compress(
                     $this->export->dumpBuffer,
                     $GLOBALS['compression'],
-                    $GLOBALS['filename']
+                    $filename
                 );
             }
         }
@@ -616,60 +567,16 @@ final class ExportController extends AbstractController
             $GLOBALS['export_type'] = $postParams['export_type'];
         }
 
-        if (isset($postParams['export_method'])) {
-            $GLOBALS['export_method'] = $postParams['export_method'];
-        }
-
-        if (isset($postParams['quick_or_custom'])) {
-            $GLOBALS['quick_or_custom'] = $postParams['quick_or_custom'];
-        }
-
-        if (isset($postParams['db_select'])) {
-            $GLOBALS['db_select'] = $postParams['db_select'];
-        }
-
         if (isset($postParams['table_select'])) {
             $GLOBALS['table_select'] = $postParams['table_select'];
-        }
-
-        if (isset($postParams['table_structure'])) {
-            $GLOBALS['table_structure'] = $postParams['table_structure'];
         }
 
         if (isset($postParams['table_data'])) {
             $GLOBALS['table_data'] = $postParams['table_data'];
         }
 
-        if (isset($postParams['limit_to'])) {
-            $GLOBALS['limit_to'] = $postParams['limit_to'];
-        }
-
-        if (isset($postParams['limit_from'])) {
-            $GLOBALS['limit_from'] = $postParams['limit_from'];
-        }
-
-        if (isset($postParams['allrows'])) {
-            $GLOBALS['allrows'] = $postParams['allrows'];
-        }
-
-        if (isset($postParams['lock_tables'])) {
-            $GLOBALS['lock_tables'] = $postParams['lock_tables'];
-        }
-
-        if (isset($postParams['output_format'])) {
-            $GLOBALS['output_format'] = $postParams['output_format'];
-        }
-
-        if (isset($postParams['filename_template'])) {
-            $GLOBALS['filename_template'] = $postParams['filename_template'];
-        }
-
         if (isset($postParams['maxsize'])) {
             $GLOBALS['maxsize'] = $postParams['maxsize'];
-        }
-
-        if (isset($postParams['remember_template'])) {
-            $GLOBALS['remember_template'] = $postParams['remember_template'];
         }
 
         if (isset($postParams['charset'])) {
@@ -678,10 +585,6 @@ final class ExportController extends AbstractController
 
         if (isset($postParams['compression'])) {
             $GLOBALS['compression'] = $postParams['compression'];
-        }
-
-        if (isset($postParams['as_separate_files'])) {
-            $GLOBALS['as_separate_files'] = $postParams['as_separate_files'];
         }
 
         if (isset($postParams['knjenc'])) {
@@ -1056,14 +959,9 @@ final class ExportController extends AbstractController
             $GLOBALS['latex_data_label'] = $postParams['latex_data_label'];
         }
 
+        // phpcs:ignore SlevomatCodingStandard.ControlStructures.EarlyExit.EarlyExitNotUsed
         if (isset($postParams['latex_null'])) {
             $GLOBALS['latex_null'] = $postParams['latex_null'];
         }
-
-        if (! isset($postParams['aliases'])) {
-            return;
-        }
-
-        $GLOBALS['aliases'] = $postParams['aliases'];
     }
 }

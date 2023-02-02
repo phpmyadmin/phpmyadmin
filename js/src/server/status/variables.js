@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { AJAX } from '../../modules/ajax.js';
 
 /**
  *
@@ -9,14 +10,14 @@ import $ from 'jquery';
 /**
  * Unbind all event handlers before tearing down a page
  */
-window.AJAX.registerTeardown('server/status/variables.js', function () {
+AJAX.registerTeardown('server/status/variables.js', function () {
     $('#filterAlert').off('change');
     $('#filterText').off('keyup');
     $('#filterCategory').off('change');
     $('#dontFormat').off('change');
 });
 
-window.AJAX.registerOnload('server/status/variables.js', function () {
+AJAX.registerOnload('server/status/variables.js', function () {
     // Filters for status variables
     var textFilter = null;
     var alertFilter = $('#filterAlert').prop('checked');
@@ -45,7 +46,7 @@ window.AJAX.registerOnload('server/status/variables.js', function () {
 
     $('#filterText').on('keyup', function () {
         var word = $(this).val().replace(/_/g, ' ');
-        if (word.length === 0) {
+        if (word.length === 0 || word.length >= 32768) {
             textFilter = null;
         } else {
             try {

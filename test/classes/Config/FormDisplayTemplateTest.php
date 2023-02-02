@@ -26,7 +26,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
     {
         parent::setUp();
         parent::setLanguage();
-        $this->config = new Config();
+        $this->config = $this->createConfig();
         $this->formDisplayTemplate = new FormDisplayTemplate($this->config);
     }
 
@@ -267,8 +267,8 @@ class FormDisplayTemplateTest extends AbstractTestCase
         $this->assertEquals(
             [
                 'window.Config.registerFieldValidator(\'testID\', \'\\\';\', true, '
-                . '[\'\\\\r\\\\n\\\\\\\''
-                . '<scrIpt></\\\' + \\\'script>\'])',
+                . '["\\\\r\\\\n\\\\\''
+                . '\u003CscrIpt\u003E\u003C\/\' + \'script\u003E"])',
                 'window.Config.registerFieldValidator(\'testID\', \'\', true)',
             ],
             $js

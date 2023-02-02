@@ -17,7 +17,7 @@
   {%- elseif column.pma_type starts with 'date' -%}
     <input type="hidden" name="fields_type{{ columnNameAppendix }}" value="date">
   {%- endif -%}
-  {%- if column.True_Type == 'bit' -%}
-    <input type="hidden" name="fields_type{{ columnNameAppendix }}" value="bit">
+  {%- if column.True_Type == 'bit' or column.True_Type == 'uuid' -%}
+    <input type="hidden" name="fields_type{{ columnNameAppendix }}" value="{{ column.True_Type }}">
   {%- endif -%}
 {% endif %}

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\ExportController;
 use PhpMyAdmin\Controllers\Table\ExportRowsController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -33,7 +34,11 @@ class ExportRowsControllerTest extends AbstractTestCase
         $controller = $this->createMock(ExportController::class);
         $controller->expects($this->once())->method('__invoke');
 
-        (new ExportRowsController(new ResponseRenderer(), new Template(), $controller))();
+        (new ExportRowsController(
+            new ResponseRenderer(),
+            new Template(),
+            $controller
+        ))($this->createStub(ServerRequest::class));
 
         /** @psalm-suppress InvalidArrayOffset */
         $this->assertSame('index.php?route=/table/export&server=2&lang=en', $GLOBALS['active_page']);
@@ -51,7 +56,11 @@ class ExportRowsControllerTest extends AbstractTestCase
         $controller->expects($this->never())->method('__invoke');
 
         $response = new ResponseRenderer();
-        (new ExportRowsController($response, new Template(), $controller))();
+        (new ExportRowsController(
+            $response,
+            new Template(),
+            $controller
+        ))($this->createStub(ServerRequest::class));
 
         $this->assertSame(['message' => 'No row selected.'], $response->getJSONResult());
         $this->assertFalse($response->hasSuccessState());
@@ -71,7 +80,11 @@ class ExportRowsControllerTest extends AbstractTestCase
         $controller = $this->createMock(ExportController::class);
         $controller->expects($this->once())->method('__invoke');
 
-        (new ExportRowsController(new ResponseRenderer(), new Template(), $controller))();
+        (new ExportRowsController(
+            new ResponseRenderer(),
+            new Template(),
+            $controller
+        ))($this->createStub(ServerRequest::class));
 
         /** @psalm-suppress InvalidArrayOffset */
         $this->assertSame('index.php?route=/table/export&server=2&lang=en', $GLOBALS['active_page']);

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server\Status\Monitor;
 
 use PhpMyAdmin\Controllers\Server\Status\Monitor\GeneralLogController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Template;
@@ -44,7 +45,7 @@ class GeneralLogControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
 
-        $this->data = new Data();
+        $this->data = new Data($this->dbi);
     }
 
     public function testGeneralLog(): void
@@ -72,12 +73,15 @@ class GeneralLogControllerTest extends AbstractTestCase
             $GLOBALS['dbi']
         );
 
-        $_POST['time_start'] = '0';
-        $_POST['time_end'] = '10';
-        $_POST['limitTypes'] = '1';
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['time_start', null, '0'],
+            ['time_end', null, '10'],
+            ['limitTypes', null, '1'],
+        ]);
 
         $this->dummyDbi->addSelectDb('mysql');
-        $controller();
+        $controller($request);
         $this->dummyDbi->assertAllSelectsConsumed();
         $ret = $response->getJSONResult();
 

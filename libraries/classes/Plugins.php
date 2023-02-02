@@ -6,7 +6,6 @@ namespace PhpMyAdmin;
 
 use FilesystemIterator;
 use PhpMyAdmin\Html\MySQLDocumentation;
-use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Plugins\Plugin;
@@ -29,6 +28,7 @@ use function class_exists;
 use function count;
 use function get_class;
 use function htmlspecialchars;
+use function is_array;
 use function is_subclass_of;
 use function mb_strpos;
 use function mb_strtolower;
@@ -41,8 +41,6 @@ use function str_replace;
 use function str_starts_with;
 use function strcasecmp;
 use function strcmp;
-use function strtolower;
-use function ucfirst;
 use function usort;
 
 class Plugins
@@ -68,13 +66,13 @@ class Plugins
         }
 
         if ($type === 'export') {
-            /**
-             * @psalm-suppress InvalidArrayOffset, MixedAssignment, MixedMethodCall
-             */
+            $container = Core::getContainerBuilder();
+
+            /** @psalm-suppress MixedMethodCall */
             return new $class(
-                $GLOBALS['containerBuilder']->get('relation'),
-                $GLOBALS['containerBuilder']->get('export'),
-                $GLOBALS['containerBuilder']->get('transformations')
+                $container->get('relation'),
+                $container->get('export'),
+                $container->get('transformations')
             );
         }
 
@@ -157,10 +155,11 @@ class Plugins
             }
 
             if ($type === 'Export' && is_subclass_of($class, ExportPlugin::class)) {
+                $container = Core::getContainerBuilder();
                 $plugins[] = new $class(
-                    $GLOBALS['containerBuilder']->get('relation'),
-                    $GLOBALS['containerBuilder']->get('export'),
-                    $GLOBALS['containerBuilder']->get('transformations')
+                    $container->get('relation'),
+                    $container->get('export'),
+                    $container->get('transformations')
                 );
             } elseif ($type === 'Import' && is_subclass_of($class, ImportPlugin::class)) {
                 $plugins[] = new $class();
@@ -261,7 +260,7 @@ class Plugins
      * @param ExportPlugin[]|ImportPlugin[]|SchemaPlugin[] $list
      *
      * @return array<int, array<string, bool|string>>
-     * @psalm-return list<array{name: non-empty-lowercase-string, text: string, is_selected: bool, force_file: bool}>
+     * @psalm-return list<array{name: non-empty-lowercase-string, text: string, is_selected: bool, is_binary: bool}>
      */
     public static function getChoice(array $list, string $default): array
     {
@@ -273,7 +272,7 @@ class Plugins
                 'name' => $pluginName,
                 'text' => self::getString($properties->getText()),
                 'is_selected' => $pluginName === $default,
-                'force_file' => $properties->getForceFile(),
+                'is_binary' => $properties->getForceFile(),
             ];
         }
 
@@ -291,12 +290,12 @@ class Plugins
      *
      * @return string  table row with option
      */
-    public static function getOneOption(
-        $section,
-        $plugin_name,
-        &$propertyGroup,
-        $is_subgroup = false
-    ) {
+    private static function getOneOption(
+        string $section,
+        string $plugin_name,
+        OptionsPropertyItem $propertyGroup,
+        bool $is_subgroup = false
+    ): string {
         $ret = "\n";
 
         $properties = null;
@@ -322,7 +321,7 @@ class Plugins
         }
 
         $not_subgroup_header = false;
-        if (! isset($properties)) {
+        if ($properties === null) {
             $not_subgroup_header = true;
             if (method_exists($propertyGroup, 'getProperties')) {
                 $properties = $propertyGroup->getProperties();
@@ -330,7 +329,7 @@ class Plugins
         }
 
         $property_class = null;
-        if (isset($properties)) {
+        if ($properties !== null) {
             /** @var OptionsPropertySubgroup $propertyItem */
             foreach ($properties as $propertyItem) {
                 $property_class = get_class($propertyItem);
@@ -370,7 +369,7 @@ class Plugins
 
         if (method_exists($propertyGroup, 'getDoc')) {
             $doc = $propertyGroup->getDoc();
-            if ($doc != null) {
+            if (is_array($doc)) {
                 if (count($doc) === 3) {
                     $ret .= MySQLDocumentation::show($doc[1], false, null, null, $doc[2]);
                 } elseif (count($doc) === 1) {
@@ -382,15 +381,13 @@ class Plugins
         }
 
         // Close the list element after $doc link is displayed
-        if ($property_class !== null) {
-            if (
-                $property_class == BoolPropertyItem::class
-                || $property_class == MessageOnlyPropertyItem::class
-                || $property_class == SelectPropertyItem::class
-                || $property_class == TextPropertyItem::class
-            ) {
-                $ret .= '</li>';
-            }
+        if (
+            $property_class === BoolPropertyItem::class
+            || $property_class === MessageOnlyPropertyItem::class
+            || $property_class === SelectPropertyItem::class
+            || $property_class === TextPropertyItem::class
+        ) {
+            $ret .= '</li>';
         }
 
         return $ret . "\n";
@@ -575,18 +572,14 @@ class Plugins
      *
      * @return string  html fieldset with plugin options
      */
-    public static function getOptions($section, array $list)
+    public static function getOptions(string $section, array $list): string
     {
         $ret = '';
         // Options for plugins that support them
         foreach ($list as $plugin) {
             $properties = $plugin->getProperties();
-            $text = null;
-            $options = null;
-            if ($properties != null) {
-                $text = $properties->getText();
-                $options = $properties->getOptions();
-            }
+            $text = $properties->getText();
+            $options = $properties->getOptions();
 
             $plugin_name = $plugin->getName();
 
@@ -618,24 +611,5 @@ class Plugins
         }
 
         return $ret;
-    }
-
-    public static function getAuthPlugin(): AuthenticationPlugin
-    {
-        /** @psalm-var class-string $class */
-        $class = 'PhpMyAdmin\\Plugins\\Auth\\Authentication'
-            . ucfirst(strtolower($GLOBALS['cfg']['Server']['auth_type']));
-
-        if (! class_exists($class)) {
-            Core::fatalError(
-                __('Invalid authentication method set in configuration:')
-                . ' ' . $GLOBALS['cfg']['Server']['auth_type']
-            );
-        }
-
-        /** @var AuthenticationPlugin $plugin */
-        $plugin = new $class();
-
-        return $plugin;
     }
 }

@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Html;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Types;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -177,7 +179,7 @@ class GeneratorTest extends AbstractTestCase
 
         $target = 'docu';
         $lang = _pgettext('PHP documentation language', 'en');
-        $expected = '<a href="./url.php?url=https%3A%2F%2Fwww.php.net%2Fmanual%2F' . $lang
+        $expected = '<a href="index.php?route=/url&url=https%3A%2F%2Fwww.php.net%2Fmanual%2F' . $lang
             . '%2F' . $target . '" target="documentation">'
             . '<img src="themes/dot.gif" title="' . __('Documentation') . '" alt="'
             . __('Documentation') . '" class="icon ic_b_help"></a>';
@@ -282,14 +284,15 @@ class GeneratorTest extends AbstractTestCase
             ],
             [
                 [
-                    'url.php?url=http://phpmyadmin.net/',
+                    'index.php?route=/url&url=http://phpmyadmin.net/',
                     null,
                     'text',
                     [],
                     '_blank',
                 ],
                 1000,
-                '<a href="url.php?url=http://phpmyadmin.net/" target="_blank" rel="noopener noreferrer">text</a>',
+                '<a href="index.php?route=/url&url=http://phpmyadmin.net/" target="_blank"'
+                . ' rel="noopener noreferrer">text</a>',
             ],
             [
                 [
@@ -355,12 +358,12 @@ class GeneratorTest extends AbstractTestCase
     public function testGetServerSSL(): void
     {
         $sslNotUsed = '<span class="">SSL is not being used</span>'
-        . ' <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
+        . ' <a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
         . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
         . ' class="icon ic_b_help"></a>';
 
         $sslNotUsedCaution = '<span class="text-danger">SSL is not being used</span>'
-        . ' <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
+        . ' <a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
         . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
         . ' class="icon ic_b_help"></a>';
 
@@ -414,7 +417,7 @@ class GeneratorTest extends AbstractTestCase
 
         $this->assertEquals(
             '<span class="text-danger">SSL is used with disabled verification</span>'
-            . ' <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
+            . ' <a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
             . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
             . ' class="icon ic_b_help"></a>',
             Generator::getServerSSL()
@@ -428,7 +431,7 @@ class GeneratorTest extends AbstractTestCase
 
         $this->assertEquals(
             '<span class="text-danger">SSL is used without certification authority</span>'
-            . ' <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
+            . ' <a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
             . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
             . ' class="icon ic_b_help"></a>',
             Generator::getServerSSL()
@@ -443,10 +446,92 @@ class GeneratorTest extends AbstractTestCase
 
         $this->assertEquals(
             '<span class="">SSL is used</span>'
-            . ' <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
+            . ' <a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
             . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
             . ' class="icon ic_b_help"></a>',
             Generator::getServerSSL()
         );
+    }
+
+    /**
+     * Test for Generator::getDefaultFunctionForField
+     *
+     * @param array  $field      field settings
+     * @param bool   $insertMode true if insert mode
+     * @param string $expected   expected result
+     * @psalm-param array<string, string|bool|null> $field
+     *
+     * @dataProvider providerForTestGetDefaultFunctionForField
+     */
+    public function testGetDefaultFunctionForField(
+        array $field,
+        bool $insertMode,
+        string $expected
+    ): void {
+        $dbiStub = $this->createStub(DatabaseInterface::class);
+        $dbiStub->types = new Types($dbiStub);
+        $dbiStub->method('getVersion')->willReturn(50700);
+
+        $GLOBALS['dbi'] = $dbiStub;
+
+        $result = Generator::getDefaultFunctionForField($field, $insertMode);
+
+        $this->assertEquals($expected, $result);
+    }
+
+    /**
+     * Data provider for Generator::getDefaultFunctionForField test
+     *
+     * @return array
+     * @psalm-return array<int, array{array<string, string|bool|null>, bool, string}>
+     */
+    public function providerForTestGetDefaultFunctionForField(): array
+    {
+        return [
+            [
+                [
+                    'True_Type' => 'GEOMETRY',
+                    'first_timestamp' => false,
+                    'Extra' => null,
+                    'Key' => '',
+                    'Type' => '',
+                    'Null' => 'NO',
+                ],
+                true,
+                'ST_GeomFromText',
+            ],
+            [
+                [
+                    'True_Type' => 'timestamp',
+                    'first_timestamp' => true,
+                    'Extra' => null,
+                    'Key' => '',
+                    'Type' => '',
+                    'Null' => 'NO',
+                ],
+                true,
+                'NOW',
+            ],
+            [
+                [
+                    'True_Type' => 'uuid',
+                    'first_timestamp' => false,
+                    'Key' => '',
+                    'Type' => '',
+                ],
+                true,
+                '',
+            ],
+            [
+                [
+                    'True_Type' => '',
+                    'first_timestamp' => false,
+                    'Key' => 'PRI',
+                    'Type' => 'char(36)',
+                ],
+                true,
+                'UUID',
+            ],
+        ];
     }
 }

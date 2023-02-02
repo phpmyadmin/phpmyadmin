@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
@@ -52,10 +53,13 @@ class BinlogControllerTest extends AbstractTestCase
 
         $controller = new BinlogController($response, new Template(), $GLOBALS['dbi']);
 
-        $_POST['log'] = 'index1';
-        $_POST['pos'] = '3';
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['log', null, 'index1'],
+            ['pos', 0, '3'],
+        ]);
         $this->dummyDbi->addSelectDb('mysql');
-        $controller();
+        $controller($request);
         $this->dummyDbi->assertAllSelectsConsumed();
         $actual = $response->getHTMLResult();
 

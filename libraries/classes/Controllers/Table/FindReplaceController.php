@@ -8,6 +8,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -58,7 +59,7 @@ class FindReplaceController extends AbstractController
         $this->connectionCharSet = (string) $this->dbi->fetchValue('SELECT @@character_set_connection');
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
@@ -131,19 +132,16 @@ class FindReplaceController extends AbstractController
             $GLOBALS['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
         }
 
-        $column_names = $this->columnNames;
-        $column_types = $this->columnTypes;
         $types = [];
-        $num_cols = count($column_names);
-        for ($i = 0; $i < $num_cols; $i++) {
-            $types[$column_names[$i]] = preg_replace('@\\(.*@s', '', $column_types[$i]);
+        foreach ($this->columnNames as $i => $columnName) {
+            $types[$columnName] = preg_replace('@\\(.*@s', '', $this->columnTypes[$i]);
         }
 
         $this->render('table/find_replace/index', [
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
             'goto' => $GLOBALS['goto'],
-            'column_names' => $column_names,
+            'column_names' => $this->columnNames,
             'types' => $types,
             'sql_types' => $this->dbi->types,
         ]);
@@ -281,24 +279,18 @@ class FindReplaceController extends AbstractController
             '&',
             '_',
         ];
-        $found = false;
-        for ($i = 0, $l = count($delimiters); $i < $l; $i++) {
-            if (! str_contains($find, $delimiters[$i])) {
-                $found = true;
-                break;
+
+        foreach ($delimiters as $delimiter) {
+            if (! str_contains($find, $delimiter)) {
+                foreach ($result as $index => $row) {
+                    $result[$index][1] = preg_replace($delimiter . $find . $delimiter, $replaceWith, $row[0]);
+                }
+
+                return $result;
             }
         }
 
-        if (! $found) {
-            return false;
-        }
-
-        $find = $delimiters[$i] . $find . $delimiters[$i];
-        foreach ($result as $index => $row) {
-            $result[$index][1] = preg_replace($find, $replaceWith, $row[0]);
-        }
-
-        return $result;
+        return false;
     }
 
     /**

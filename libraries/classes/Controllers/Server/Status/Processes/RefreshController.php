@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server\Status\Processes;
 
 use PhpMyAdmin\Controllers\Server\Status\AbstractController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Processes;
@@ -21,20 +22,17 @@ final class RefreshController extends AbstractController
         $this->processes = $processes;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        $params = [
-            'showExecuting' => $_POST['showExecuting'] ?? null,
-            'full' => $_POST['full'] ?? null,
-            'column_name' => $_POST['column_name'] ?? null,
-            'order_by_field' => $_POST['order_by_field'] ?? null,
-            'sort_order' => $_POST['sort_order'] ?? null,
-        ];
-
         if (! $this->response->isAjax()) {
             return;
         }
 
-        $this->render('server/status/processes/list', $this->processes->getList($params));
+        $this->render('server/status/processes/list', $this->processes->getList(
+            $request->hasBodyParam('showExecuting'),
+            $request->hasBodyParam('full'),
+            (string) $request->getParsedBodyParam('order_by_field', ''),
+            (string) $request->getParsedBodyParam('sort_order', '')
+        ));
     }
 }

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Server\Status\Monitor;
 
 use PhpMyAdmin\Controllers\Server\Status\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
@@ -32,14 +33,10 @@ final class QueryAnalyzerController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
-        $params = [
-            'database' => $_POST['database'] ?? null,
-            'query' => $_POST['query'] ?? null,
-        ];
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
@@ -52,8 +49,8 @@ final class QueryAnalyzerController extends AbstractController
 
         $this->response->addJSON([
             'message' => $this->monitor->getJsonForQueryAnalyzer(
-                $params['database'] ?? '',
-                $params['query'] ?? ''
+                $request->getParsedBodyParam('database', ''),
+                $request->getParsedBodyParam('query', '')
             ),
         ]);
     }

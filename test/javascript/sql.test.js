@@ -1,7 +1,6 @@
 /* eslint-env node, jest */
 /* global Sql */
 
-import 'phpmyadmin/ajax';
 import 'phpmyadmin/sql';
 
 describe('SQL', () => {

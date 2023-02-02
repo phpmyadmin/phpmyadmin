@@ -94,14 +94,11 @@ class HeaderTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for Get JsParamsCode
-     */
     public function testGetJsParamsCode(): void
     {
         $header = new Header();
         $this->assertStringContainsString(
-            'window.CommonParams.setAll',
+            'window.Navigation.update(window.CommonParams.setAll(',
             $header->getJsParamsCode()
         );
     }
@@ -243,5 +240,28 @@ class HeaderTest extends AbstractTestCase
                     . 'img-src \'self\' data:  *.tile.openstreetmap.org captcha.tld csp.tld ;object-src \'none\';',
             ],
         ];
+    }
+
+    public function testAddedDefaultScripts(): void
+    {
+        $header = new Header();
+        $scripts = $header->getScripts();
+        $expected = [
+            ['name' => 'runtime.js', 'fire' => 0],
+            ['name' => 'vendor/jquery/jquery.min.js', 'fire' => 0],
+            ['name' => 'vendor/jquery/jquery-migrate.min.js', 'fire' => 0],
+            ['name' => 'vendor/sprintf.js', 'fire' => 0],
+            ['name' => 'vendor/jquery/jquery-ui.min.js', 'fire' => 0],
+            ['name' => 'name-conflict-fixes.js', 'fire' => 0],
+            ['name' => 'vendor/bootstrap/bootstrap.bundle.min.js', 'fire' => 0],
+            ['name' => 'vendor/js.cookie.min.js', 'fire' => 0],
+            ['name' => 'vendor/jquery/jquery.validate.min.js', 'fire' => 0],
+            ['name' => 'vendor/jquery/jquery-ui-timepicker-addon.js', 'fire' => 0],
+            ['name' => 'index.php', 'fire' => 0],
+            ['name' => 'shared.js', 'fire' => 0],
+            ['name' => 'menu_resizer.js', 'fire' => 1],
+            ['name' => 'main.js', 'fire' => 1],
+        ];
+        $this->assertSame($expected, $scripts->getFiles());
     }
 }

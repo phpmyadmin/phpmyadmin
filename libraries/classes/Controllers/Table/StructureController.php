@@ -8,15 +8,12 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Controllers\AbstractController;
-use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Engines\Innodb;
-use PhpMyAdmin\FlashMessages;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Index;
@@ -47,41 +44,26 @@ class StructureController extends AbstractController
     /** @var Table  The table object */
     protected $tableObj;
 
-    /** @var CreateAddField */
-    private $createAddField;
-
     /** @var Relation */
     private $relation;
 
     /** @var Transformations */
     private $transformations;
 
-    /** @var RelationCleanup */
-    private $relationCleanup;
-
     /** @var DatabaseInterface */
     private $dbi;
-
-    /** @var FlashMessages */
-    private $flash;
 
     public function __construct(
         ResponseRenderer $response,
         Template $template,
         Relation $relation,
         Transformations $transformations,
-        CreateAddField $createAddField,
-        RelationCleanup $relationCleanup,
-        DatabaseInterface $dbi,
-        FlashMessages $flash
+        DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->createAddField = $createAddField;
         $this->relation = $relation;
         $this->transformations = $transformations;
-        $this->relationCleanup = $relationCleanup;
         $this->dbi = $dbi;
-        $this->flash = $flash;
 
         $this->tableObj = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
     }
@@ -121,7 +103,7 @@ class StructureController extends AbstractController
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
         $checkUserPrivileges->getPrivileges();
 
-        $this->addScriptFiles(['table/structure.js', 'indexes.js']);
+        $this->addScriptFiles(['table/structure.js']);
 
         $relationParameters = $this->relation->getRelationParameters();
 
@@ -134,7 +116,7 @@ class StructureController extends AbstractController
 
         DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
 
-        $primary = Index::getPrimary($GLOBALS['table'], $GLOBALS['db']);
+        $primary = Index::getPrimary($this->dbi, $GLOBALS['table'], $GLOBALS['db']);
         $columns_with_index = $this->dbi
             ->getTable($GLOBALS['db'], $GLOBALS['table'])
             ->getColumnsWithIndex(Index::UNIQUE | Index::INDEX | Index::SPATIAL | Index::FULLTEXT);
@@ -158,10 +140,9 @@ class StructureController extends AbstractController
     /**
      * Displays the table structure ('show table' works correct since 3.23.03)
      *
-     * @param array       $columns_with_unique_index Columns with unique index
-     * @param Index|false $primary_index             primary index or false if no one exists
-     * @param array       $fields                    Fields
-     * @param array       $columns_with_index        Columns with index
+     * @param array $columns_with_unique_index Columns with unique index
+     * @param array $fields                    Fields
+     * @param array $columns_with_index        Columns with index
      * @psalm-param non-empty-string $route
      *
      * @return string
@@ -169,7 +150,7 @@ class StructureController extends AbstractController
     protected function displayStructure(
         RelationParameters $relationParameters,
         array $columns_with_unique_index,
-        $primary_index,
+        ?Index $primaryIndex,
         array $fields,
         array $columns_with_index,
         bool $isSystemSchema,
@@ -234,7 +215,7 @@ class StructureController extends AbstractController
                 $row_comments[$rownum] = $comments_map[$field['Field']];
             }
 
-            if ($primary_index && $primary_index->hasColumn($field['Field'])) {
+            if ($primaryIndex !== null && $primaryIndex->hasColumn($field['Field'])) {
                 $displayed_fields[$rownum]->icon .= Generator::getImage('b_primary', __('Primary'));
             }
 
@@ -262,7 +243,7 @@ class StructureController extends AbstractController
         return $this->template->render('table/structure/display_structure', [
             'collations' => $collations,
             'is_foreign_key_supported' => ForeignKey::isSupported($engine),
-            'indexes' => Index::getFromTable($GLOBALS['table'], $GLOBALS['db']),
+            'indexes' => Index::getFromTable($this->dbi, $GLOBALS['table'], $GLOBALS['db']),
             'indexes_duplicates' => Index::findDuplicates($GLOBALS['table'], $GLOBALS['db']),
             'relation_parameters' => $relationParameters,
             'hide_structure_actions' => $GLOBALS['cfg']['HideStructureActions'] === true,
@@ -272,7 +253,7 @@ class StructureController extends AbstractController
             'tbl_is_view' => $GLOBALS['tbl_is_view'],
             'mime_map' => $mime_map,
             'tbl_storage_engine' => $GLOBALS['tbl_storage_engine'],
-            'primary' => $primary_index,
+            'primary' => $primaryIndex,
             'columns_with_unique_index' => $columns_with_unique_index,
             'columns_list' => $columns_list,
             'table_stats' => $tablestats ?? null,

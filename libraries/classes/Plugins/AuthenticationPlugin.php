@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Exceptions\SessionHandlerException;
 use PhpMyAdmin\IpAllowDeny;
 use PhpMyAdmin\Logging;
 use PhpMyAdmin\Message;
@@ -121,9 +122,7 @@ abstract class AuthenticationPlugin
         $this->user = '';
         $this->password = '';
 
-        /*
-         * Get a logged-in server count in case of LoginCookieDeleteAll is disabled.
-         */
+        // Get a logged-in server count in case of LoginCookieDeleteAll is disabled.
         $server = 0;
         if ($GLOBALS['cfg']['LoginCookieDeleteAll'] === false && $GLOBALS['cfg']['Server']['auth_type'] === 'cookie') {
             foreach (array_keys($GLOBALS['cfg']['Servers']) as $key) {
@@ -250,7 +249,18 @@ abstract class AuthenticationPlugin
         /* Show login form (this exits) */
         if (! $success) {
             /* Force generating of new session */
-            Session::secure();
+            try {
+                Session::secure();
+            } catch (SessionHandlerException $exception) {
+                echo (new Template())->render('error/generic', [
+                    'lang' => $GLOBALS['lang'] ?? 'en',
+                    'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+                    'error_message' => $exception->getMessage(),
+                ]);
+
+                exit;
+            }
+
             $this->showLoginForm();
         }
 

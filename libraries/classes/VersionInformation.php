@@ -109,7 +109,7 @@ class VersionInformation
         }
 
         if (count($parts) >= 4 && is_numeric($parts[3])) {
-            $result += 1 * (int) $parts[3];
+            $result += (int) $parts[3];
         }
 
         if (! empty($suffix)) {
@@ -133,7 +133,6 @@ class VersionInformation
                     $result += 10;
                     break;
                 case 'dev':
-                    $result += 0;
                     break;
             }
         } else {

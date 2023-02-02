@@ -5,11 +5,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Database;
 
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\FlashMessages;
-use PhpMyAdmin\Operations;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Replication;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
@@ -34,15 +32,6 @@ class StructureControllerTest extends AbstractTestCase
 
     /** @var Template */
     private $template;
-
-    /** @var RelationCleanup */
-    private $relationCleanup;
-
-    /** @var Operations */
-    private $operations;
-
-    /** @var FlashMessages */
-    private $flash;
 
     /**
      * Prepares environment for the test.
@@ -78,10 +67,7 @@ class StructureControllerTest extends AbstractTestCase
         $this->template = new Template();
         $this->response = new ResponseStub();
         $this->relation = new Relation($dbi);
-        $this->replication = new Replication();
-        $this->relationCleanup = new RelationCleanup($dbi, $this->relation);
-        $this->operations = new Operations($dbi, $this->relation);
-        $this->flash = new FlashMessages();
+        $this->replication = new Replication($dbi);
     }
 
     /**
@@ -97,10 +83,7 @@ class StructureControllerTest extends AbstractTestCase
             $this->template,
             $this->relation,
             $this->replication,
-            $this->relationCleanup,
-            $this->operations,
-            $GLOBALS['dbi'],
-            $this->flash
+            $GLOBALS['dbi']
         );
         // Showing statistics
         $property = $class->getProperty('isShowStats');
@@ -144,10 +127,7 @@ class StructureControllerTest extends AbstractTestCase
             $this->template,
             $this->relation,
             $this->replication,
-            $this->relationCleanup,
-            $this->operations,
-            $GLOBALS['dbi'],
-            $this->flash
+            $GLOBALS['dbi']
         );
 
         $currentTable['ENGINE'] = 'InnoDB';
@@ -175,10 +155,7 @@ class StructureControllerTest extends AbstractTestCase
             $this->template,
             $this->relation,
             $this->replication,
-            $this->relationCleanup,
-            $this->operations,
-            $GLOBALS['dbi'],
-            $this->flash
+            $GLOBALS['dbi']
         );
         // Showing statistics
         $property = $class->getProperty('isShowStats');
@@ -230,10 +207,7 @@ class StructureControllerTest extends AbstractTestCase
             $this->template,
             $this->relation,
             $this->replication,
-            $this->relationCleanup,
-            $this->operations,
-            $GLOBALS['dbi'],
-            $this->flash
+            $GLOBALS['dbi']
         );
         [$currentTable, , , , , , $sumSize] = $method->invokeArgs(
             $controller,
@@ -254,10 +228,7 @@ class StructureControllerTest extends AbstractTestCase
             $this->template,
             $this->relation,
             $this->replication,
-            $this->relationCleanup,
-            $this->operations,
-            $GLOBALS['dbi'],
-            $this->flash
+            $GLOBALS['dbi']
         );
         [$currentTable] = $method->invokeArgs(
             $controller,
@@ -288,10 +259,7 @@ class StructureControllerTest extends AbstractTestCase
             $this->template,
             $this->relation,
             $this->replication,
-            $this->relationCleanup,
-            $this->operations,
-            $GLOBALS['dbi'],
-            $this->flash
+            $GLOBALS['dbi']
         );
 
         // When parameter $db is empty
@@ -326,10 +294,7 @@ class StructureControllerTest extends AbstractTestCase
             $this->template,
             $this->relation,
             $this->replication,
-            $this->relationCleanup,
-            $this->operations,
-            $GLOBALS['dbi'],
-            $this->flash
+            $GLOBALS['dbi']
         );
 
         $_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']] = [
@@ -362,10 +327,7 @@ class StructureControllerTest extends AbstractTestCase
             $this->template,
             $this->relation,
             $this->replication,
-            $this->relationCleanup,
-            $this->operations,
-            $GLOBALS['dbi'],
-            $this->flash
+            $GLOBALS['dbi']
         );
         // Showing statistics
         $class = new ReflectionClass(StructureController::class);
@@ -448,7 +410,7 @@ class StructureControllerTest extends AbstractTestCase
             $structureController,
             StructureController::class,
             'getDatabaseInfo',
-            ['']
+            [$this->createStub(ServerRequest::class)]
         );
 
         $this->assertSame(

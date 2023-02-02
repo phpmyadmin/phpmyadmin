@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Processes;
@@ -31,18 +32,14 @@ class ProcessesController extends AbstractController
         $this->processes = $processes;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
-
-        $params = [
-            'showExecuting' => $_POST['showExecuting'] ?? null,
-            'full' => $_POST['full'] ?? null,
-            'column_name' => $_POST['column_name'] ?? null,
-            'order_by_field' => $_POST['order_by_field'] ?? null,
-            'sort_order' => $_POST['sort_order'] ?? null,
-        ];
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
+
+        $showExecuting = $request->hasBodyParam('showExecuting');
+        $full = $request->hasBodyParam('full');
+        $orderByField = (string) $request->getParsedBodyParam('order_by_field', '');
+        $sortOrder = (string) $request->getParsedBodyParam('sort_order', '');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
@@ -50,24 +47,24 @@ class ProcessesController extends AbstractController
 
         $this->addScriptFiles(['server/status/processes.js']);
 
-        $isChecked = false;
-        if (! empty($params['showExecuting'])) {
-            $isChecked = true;
-        }
+        $listHtml = $this->template->render('server/status/processes/list', $this->processes->getList(
+            $showExecuting,
+            $full,
+            $orderByField,
+            $sortOrder
+        ));
 
         $urlParams = [
             'ajax_request' => true,
-            'full' => $params['full'] ?? '',
-            'column_name' => $params['column_name'] ?? '',
-            'order_by_field' => $params['order_by_field'] ?? '',
-            'sort_order' => $params['sort_order'] ?? '',
+            'full' => $full,
+            'column_name' => $request->getParsedBodyParam('column_name', ''),
+            'order_by_field' => $orderByField,
+            'sort_order' => $sortOrder,
         ];
-
-        $listHtml = $this->template->render('server/status/processes/list', $this->processes->getList($params));
 
         $this->render('server/status/processes/index', [
             'url_params' => $urlParams,
-            'is_checked' => $isChecked,
+            'is_checked' => $showExecuting,
             'server_process_list' => $listHtml,
         ]);
     }

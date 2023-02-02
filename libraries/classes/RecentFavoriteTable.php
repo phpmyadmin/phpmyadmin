@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Dbal\Connection;
 
 use function __;
 use function array_key_exists;
@@ -116,8 +117,8 @@ class RecentFavoriteTable
     public function getFromDb(): array
     {
         // Read from phpMyAdmin database, if recent tables is not in session
-        $sql_query = ' SELECT `tables` FROM ' . $this->getPmaTable() .
-            " WHERE `username` = '" . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']) . "'";
+        $sql_query = ' SELECT `tables` FROM ' . $this->getPmaTable()
+            . ' WHERE `username` = ' . $GLOBALS['dbi']->quoteString($GLOBALS['cfg']['Server']['user']);
 
         $result = $GLOBALS['dbi']->tryQueryAsControlUser($sql_query);
         if ($result) {
@@ -138,13 +139,11 @@ class RecentFavoriteTable
     public function saveToDb()
     {
         $username = $GLOBALS['cfg']['Server']['user'];
-        $sql_query = ' REPLACE INTO ' . $this->getPmaTable() . ' (`username`, `tables`)' .
-                " VALUES ('" . $GLOBALS['dbi']->escapeString($username) . "', '"
-                . $GLOBALS['dbi']->escapeString(
-                    json_encode($this->tables)
-                ) . "')";
+        $sql_query = ' REPLACE INTO ' . $this->getPmaTable() . ' (`username`, `tables`)'
+            . ' VALUES (' . $GLOBALS['dbi']->quoteString($username) . ', '
+            . $GLOBALS['dbi']->quoteString(json_encode($this->tables)) . ')';
 
-        $success = $GLOBALS['dbi']->tryQuery($sql_query, DatabaseInterface::CONNECT_CONTROL);
+        $success = $GLOBALS['dbi']->tryQuery($sql_query, Connection::TYPE_CONTROL);
 
         if (! $success) {
             $error_msg = '';
@@ -160,7 +159,7 @@ class RecentFavoriteTable
 
             $message = Message::error($error_msg);
             $message->addMessage(
-                Message::rawError($GLOBALS['dbi']->getError(DatabaseInterface::CONNECT_CONTROL)),
+                Message::rawError($GLOBALS['dbi']->getError(Connection::TYPE_CONTROL)),
                 '<br><br>'
             );
 

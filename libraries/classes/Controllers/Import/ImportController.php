@@ -6,13 +6,14 @@ namespace PhpMyAdmin\Controllers\Import;
 
 use PhpMyAdmin\Bookmark;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Console;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ParseAnalyze;
@@ -35,6 +36,7 @@ use function intval;
 use function is_array;
 use function is_link;
 use function is_numeric;
+use function is_string;
 use function is_uploaded_file;
 use function mb_strlen;
 use function mb_strtolower;
@@ -70,7 +72,7 @@ final class ImportController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['collation_connection'] = $GLOBALS['collation_connection'] ?? null;
         $GLOBALS['goto'] = $GLOBALS['goto'] ?? null;
@@ -107,53 +109,16 @@ final class ImportController extends AbstractController
         $GLOBALS['reload'] = $GLOBALS['reload'] ?? null;
         $GLOBALS['charset_connection'] = $GLOBALS['charset_connection'] ?? null;
 
-        $GLOBALS['charset_of_file'] = $_POST['charset_of_file'] ?? null;
-        $GLOBALS['format'] = $_POST['format'] ?? '';
-        $GLOBALS['import_type'] = $_POST['import_type'] ?? null;
-        $GLOBALS['is_js_confirmed'] = $_POST['is_js_confirmed'] ?? null;
-        $GLOBALS['MAX_FILE_SIZE'] = $_POST['MAX_FILE_SIZE'] ?? null;
-        $GLOBALS['message_to_show'] = $_POST['message_to_show'] ?? null;
-        $GLOBALS['noplugin'] = $_POST['noplugin'] ?? null;
-        $GLOBALS['skip_queries'] = $_POST['skip_queries'] ?? null;
-        $GLOBALS['local_import_file'] = $_POST['local_import_file'] ?? null;
-        $GLOBALS['show_as_php'] = $_POST['show_as_php'] ?? null;
-
-        // If it's a refresh console bookmarks request
-        if (isset($_GET['console_bookmark_refresh'])) {
-            $this->response->addJSON(
-                'console_message_bookmark',
-                Console::getBookmarkContent()
-            );
-
-            return;
-        }
-
-        // If it's a console bookmark add request
-        if (isset($_POST['console_bookmark_add'])) {
-            if (! isset($_POST['label'], $_POST['db'], $_POST['bookmark_query'], $_POST['shared'])) {
-                $this->response->addJSON('message', __('Incomplete params'));
-
-                return;
-            }
-
-            $bookmarkFields = [
-                'bkm_database' => $_POST['db'],
-                'bkm_user' => $GLOBALS['cfg']['Server']['user'],
-                'bkm_sql_query' => $_POST['bookmark_query'],
-                'bkm_label' => $_POST['label'],
-            ];
-            $isShared = ($_POST['shared'] === 'true');
-            $bookmark = Bookmark::createBookmark($this->dbi, $bookmarkFields, $isShared);
-            if ($bookmark !== false && $bookmark->save()) {
-                $this->response->addJSON('message', __('Succeeded'));
-                $this->response->addJSON('data', $bookmarkFields);
-                $this->response->addJSON('isShared', $isShared);
-            } else {
-                $this->response->addJSON('message', __('Failed'));
-            }
-
-            return;
-        }
+        $GLOBALS['charset_of_file'] = $request->getParsedBodyParam('charset_of_file');
+        $GLOBALS['format'] = $request->getParsedBodyParam('format', '');
+        $GLOBALS['import_type'] = $request->getParsedBodyParam('import_type');
+        $GLOBALS['is_js_confirmed'] = $request->getParsedBodyParam('is_js_confirmed');
+        $GLOBALS['MAX_FILE_SIZE'] = $request->getParsedBodyParam('MAX_FILE_SIZE');
+        $GLOBALS['message_to_show'] = $request->getParsedBodyParam('message_to_show');
+        $GLOBALS['noplugin'] = $request->getParsedBodyParam('noplugin');
+        $GLOBALS['skip_queries'] = $request->getParsedBodyParam('skip_queries');
+        $GLOBALS['local_import_file'] = $request->getParsedBodyParam('local_import_file');
+        $GLOBALS['show_as_php'] = $request->getParsedBodyParam('show_as_php');
 
         // reset import messages for ajax request
         $_SESSION['Import_message']['message'] = null;
@@ -173,12 +138,12 @@ final class ImportController extends AbstractController
         // (eg. non import, but query box/window run)
         if (! empty($GLOBALS['sql_query'])) {
             // apply values for parameters
-            if (! empty($_POST['parameterized']) && ! empty($_POST['parameters']) && is_array($_POST['parameters'])) {
-                $parameters = $_POST['parameters'];
-                foreach ($parameters as $parameter => $replacement) {
-                    $replacementValue = $this->dbi->escapeString($replacement);
+            /** @var array<string, string>|null $parameters */
+            $parameters = $request->getParsedBodyParam('parameters');
+            if ($request->hasBodyParam('parameterized') && is_array($parameters)) {
+                foreach ($parameters as $parameter => $replacementValue) {
                     if (! is_numeric($replacementValue)) {
-                        $replacementValue = '\'' . $replacementValue . '\'';
+                        $replacementValue = $this->dbi->quoteString($replacementValue);
                     }
 
                     $quoted = preg_quote($parameter, '/');
@@ -204,7 +169,7 @@ final class ImportController extends AbstractController
             $_SESSION['sql_from_query_box'] = true;
 
             // If there is a request to ROLLBACK when finished.
-            if (isset($_POST['rollback_query'])) {
+            if ($request->hasBodyParam('rollback_query')) {
                 $this->import->handleRollbackRequest($GLOBALS['import_text']);
             }
 
@@ -239,7 +204,7 @@ final class ImportController extends AbstractController
             $GLOBALS['import_type'] = 'queryfile';
             $GLOBALS['format'] = 'sql';
             unset($GLOBALS['sql_file']);
-        } elseif (! empty($_POST['id_bookmark'])) {
+        } elseif ($request->hasBodyParam('id_bookmark')) {
             // run bookmark
             $GLOBALS['import_type'] = 'query';
             $GLOBALS['format'] = 'sql';
@@ -247,7 +212,9 @@ final class ImportController extends AbstractController
 
         // If we didn't get any parameters, either user called this directly, or
         // upload limit has been reached, let's assume the second possibility.
-        if ($_POST == [] && $_GET == []) {
+        $getParams = $request->getQueryParams();
+        $postParams = $request->getParsedBody();
+        if ($postParams === [] && $getParams === []) {
             $GLOBALS['message'] = Message::error(
                 __(
                     'You probably tried to upload a file that is too large. Please refer ' .
@@ -268,8 +235,9 @@ final class ImportController extends AbstractController
         }
 
         // Add console message id to response output
-        if (isset($_POST['console_message_id'])) {
-            $this->response->addJSON('console_message_id', $_POST['console_message_id']);
+        $console_message_id = $request->getParsedBodyParam('console_message_id');
+        if ($console_message_id !== null) {
+            $this->response->addJSON('console_message_id', $console_message_id);
         }
 
         /**
@@ -280,13 +248,13 @@ final class ImportController extends AbstractController
         if (! in_array($GLOBALS['format'], ['csv', 'ldi', 'mediawiki', 'ods', 'shp', 'sql', 'xml'])) {
             // this should not happen for a normal user
             // but only during an attack
-            Core::fatalError('Incorrect format parameter');
+            $this->response->setRequestStatus(false);
+            $this->response->addHTML(Message::error(__('Incorrect format parameter'))->getDisplay());
+
+            return;
         }
 
-        $post_patterns = [
-            '/^force_file_/',
-            '/^' . $GLOBALS['format'] . '_/',
-        ];
+        $post_patterns = ['/^' . $GLOBALS['format'] . '_/'];
 
         Core::setPostAsGlobal($post_patterns);
 
@@ -336,10 +304,10 @@ final class ImportController extends AbstractController
         }
 
         $GLOBALS['timestamp'] = time();
-        if (isset($_POST['allow_interrupt'])) {
-            $GLOBALS['maximum_time'] = ini_get('max_execution_time');
-        } else {
-            $GLOBALS['maximum_time'] = 0;
+        $GLOBALS['maximum_time'] = 0;
+        $maxExecutionTime = (int) ini_get('max_execution_time');
+        if ($request->hasBodyParam('allow_interrupt') && $maxExecutionTime >= 1) {
+            $GLOBALS['maximum_time'] = $maxExecutionTime - 1; // Give 1 second for phpMyAdmin to exit nicely
         }
 
         // set default values
@@ -361,24 +329,26 @@ final class ImportController extends AbstractController
         $GLOBALS['result'] = false;
 
         // Bookmark Support: get a query back from bookmark if required
-        if (! empty($_POST['id_bookmark'])) {
-            $id_bookmark = (int) $_POST['id_bookmark'];
-            switch ($_POST['action_bookmark']) {
+        $id_bookmark = (int) $request->getParsedBodyParam('id_bookmark');
+        $action_bookmark = (int) $request->getParsedBodyParam('action_bookmark');
+        if ($id_bookmark !== 0) {
+            switch ($action_bookmark) {
                 case 0: // bookmarked query that have to be run
                     $bookmark = Bookmark::get(
                         $this->dbi,
                         $GLOBALS['cfg']['Server']['user'],
-                        $GLOBALS['db'],
+                        DatabaseName::fromValue($GLOBALS['db']),
                         $id_bookmark,
                         'id',
-                        isset($_POST['action_bookmark_all'])
+                        $request->hasBodyParam('action_bookmark_all')
                     );
                     if (! $bookmark instanceof Bookmark) {
                         break;
                     }
 
-                    if (! empty($_POST['bookmark_variable'])) {
-                        $GLOBALS['import_text'] = $bookmark->applyVariables($_POST['bookmark_variable']);
+                    $bookmark_variables = $request->getParsedBodyParam('bookmark_variable');
+                    if (is_array($bookmark_variables)) {
+                        $GLOBALS['import_text'] = $bookmark->applyVariables($bookmark_variables);
                     } else {
                         $GLOBALS['import_text'] = $bookmark->getQuery();
                     }
@@ -399,7 +369,7 @@ final class ImportController extends AbstractController
                     $bookmark = Bookmark::get(
                         $this->dbi,
                         $GLOBALS['cfg']['Server']['user'],
-                        $GLOBALS['db'],
+                        DatabaseName::fromValue($GLOBALS['db']),
                         $id_bookmark
                     );
                     if (! $bookmark instanceof Bookmark) {
@@ -412,19 +382,18 @@ final class ImportController extends AbstractController
                         $this->response->setRequestStatus($GLOBALS['message']->isSuccess());
                         $this->response->addJSON('message', $GLOBALS['message']);
                         $this->response->addJSON('sql_query', $GLOBALS['import_text']);
-                        $this->response->addJSON('action_bookmark', $_POST['action_bookmark']);
+                        $this->response->addJSON('action_bookmark', $action_bookmark);
 
                         return;
-                    } else {
-                        $GLOBALS['run_query'] = false;
                     }
 
+                    $GLOBALS['run_query'] = false;
                     break;
                 case 2: // bookmarked query that have to be deleted
                     $bookmark = Bookmark::get(
                         $this->dbi,
                         $GLOBALS['cfg']['Server']['user'],
-                        $GLOBALS['db'],
+                        DatabaseName::fromValue($GLOBALS['db']),
                         $id_bookmark
                     );
                     if (! $bookmark instanceof Bookmark) {
@@ -438,15 +407,14 @@ final class ImportController extends AbstractController
                         );
                         $this->response->setRequestStatus($GLOBALS['message']->isSuccess());
                         $this->response->addJSON('message', $GLOBALS['message']);
-                        $this->response->addJSON('action_bookmark', $_POST['action_bookmark']);
+                        $this->response->addJSON('action_bookmark', $action_bookmark);
                         $this->response->addJSON('id_bookmark', $id_bookmark);
 
                         return;
-                    } else {
-                        $GLOBALS['run_query'] = false;
-                        $GLOBALS['error'] = true; // this is kind of hack to skip processing the query
                     }
 
+                    $GLOBALS['run_query'] = false;
+                    $GLOBALS['error'] = true; // this is kind of hack to skip processing the query
                     break;
             }
         }
@@ -485,7 +453,13 @@ final class ImportController extends AbstractController
         $GLOBALS['read_limit'] = $GLOBALS['memory_limit'] / 8;
 
         // handle filenames
-        if (isset($_FILES['import_file'])) {
+        if (
+            isset($_FILES['import_file'])
+            && is_array($_FILES['import_file'])
+            && isset($_FILES['import_file']['name'], $_FILES['import_file']['tmp_name'])
+            && is_string($_FILES['import_file']['name'])
+            && is_string($_FILES['import_file']['tmp_name'])
+        ) {
             $GLOBALS['import_file'] = $_FILES['import_file']['tmp_name'];
             $GLOBALS['import_file_name'] = $_FILES['import_file']['name'];
         }
@@ -497,7 +471,7 @@ final class ImportController extends AbstractController
             $GLOBALS['import_file'] = Util::userDir((string) $GLOBALS['cfg']['UploadDir'])
                 . $GLOBALS['local_import_file'];
 
-            /*
+            /**
              * Do not allow symlinks to avoid security issues
              * (user can create symlink to file they can not access,
              * but phpMyAdmin can).
@@ -579,8 +553,8 @@ final class ImportController extends AbstractController
         }
 
         // Something to skip? (because timeout has passed)
-        if (! $GLOBALS['error'] && isset($_POST['skip'])) {
-            $original_skip = $skip = intval($_POST['skip']);
+        if (! $GLOBALS['error'] && $request->hasBodyParam('skip')) {
+            $original_skip = $skip = intval($request->getParsedBodyParam('skip'));
             while ($skip > 0 && ! $GLOBALS['finished']) {
                 $this->import->getNextChunk(
                     $importHandle ?? null,
@@ -640,11 +614,11 @@ final class ImportController extends AbstractController
         }
 
         // Show correct message
-        if (! empty($id_bookmark) && $_POST['action_bookmark'] == 2) {
+        if ($id_bookmark !== 0 && $action_bookmark === 2) {
             $GLOBALS['message'] = Message::success(__('The bookmark has been deleted.'));
             $GLOBALS['display_query'] = $GLOBALS['import_text'];
             $GLOBALS['error'] = false; // unset error marker, it was used just to skip processing
-        } elseif (! empty($id_bookmark) && $_POST['action_bookmark'] == 1) {
+        } elseif ($id_bookmark !== 0 && $action_bookmark === 1) {
             $GLOBALS['message'] = Message::notice(__('Showing bookmark'));
         } elseif ($GLOBALS['finished'] && ! $GLOBALS['error']) {
             // Do not display the query with message, we do it separately
@@ -667,7 +641,12 @@ final class ImportController extends AbstractController
 
                 if (! empty($GLOBALS['local_import_file'])) {
                     $GLOBALS['message']->addText('(' . $GLOBALS['local_import_file'] . ')');
-                } else {
+                } elseif (
+                    isset($_FILES['import_file'])
+                    && is_array($_FILES['import_file'])
+                    && isset($_FILES['import_file']['name'])
+                    && is_string($_FILES['import_file']['name'])
+                ) {
                     $GLOBALS['message']->addText('(' . $_FILES['import_file']['name'] . ')');
                 }
             }
@@ -797,16 +776,16 @@ final class ImportController extends AbstractController
             // sql_query_for_bookmark is not included in Sql::executeQueryAndGetQueryResponse
             // since only one bookmark has to be added for all the queries submitted through
             // the SQL tab
-            if (! empty($_POST['bkm_label']) && ! empty($GLOBALS['import_text'])) {
+            if (! empty($request->getParsedBodyParam('bkm_label')) && ! empty($GLOBALS['import_text'])) {
                 $relation = new Relation($this->dbi);
 
                 $this->sql->storeTheQueryAsBookmark(
                     $relation->getRelationParameters()->bookmarkFeature,
                     $GLOBALS['db'],
                     $GLOBALS['cfg']['Server']['user'],
-                    $_POST['sql_query'],
-                    $_POST['bkm_label'],
-                    isset($_POST['bkm_replace'])
+                    $request->getParsedBodyParam('sql_query'),
+                    $request->getParsedBodyParam('bkm_label'),
+                    $request->hasBodyParam('bkm_replace')
                 );
             }
 
@@ -818,16 +797,16 @@ final class ImportController extends AbstractController
 
         if ($GLOBALS['result']) {
             // Save a Bookmark with more than one queries (if Bookmark label given).
-            if (! empty($_POST['bkm_label']) && ! empty($GLOBALS['import_text'])) {
+            if (! empty($request->getParsedBodyParam('bkm_label')) && ! empty($GLOBALS['import_text'])) {
                 $relation = new Relation($this->dbi);
 
                 $this->sql->storeTheQueryAsBookmark(
                     $relation->getRelationParameters()->bookmarkFeature,
                     $GLOBALS['db'],
                     $GLOBALS['cfg']['Server']['user'],
-                    $_POST['sql_query'],
-                    $_POST['bkm_label'],
-                    isset($_POST['bkm_replace'])
+                    $request->getParsedBodyParam('sql_query'),
+                    $request->getParsedBodyParam('bkm_label'),
+                    $request->hasBodyParam('bkm_replace')
                 );
             }
 
@@ -847,7 +826,7 @@ final class ImportController extends AbstractController
         }
 
         // If there is request for ROLLBACK in the end.
-        if (! isset($_POST['rollback_query'])) {
+        if (! $request->hasBodyParam('rollback_query')) {
             return;
         }
 

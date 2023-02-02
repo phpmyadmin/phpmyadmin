@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import getImageTag from './modules/functions/getImageTag.js';
 
 /**
  * Handles the resizing of a menu according to the available screen width
@@ -44,7 +45,7 @@ import $ from 'jquery';
 
         var img = $container.find('li img');
         if (img.length) {
-            $(Functions.getImage('b_more').toString()).prependTo(link);
+            $(getImageTag('b_more').toString()).prependTo(link);
         }
         var $submenu = $('<li></li>', { 'class': 'nav-item dropdown d-none' })
             .append(link)
@@ -57,6 +58,7 @@ import $ from 'jquery';
             self.resize();
         }, 4);
     }
+
     MenuResizer.prototype.resize = function () {
         var wmax = this.widthCalculator.call(this.$container);
         var windowWidth = $(window).width();
@@ -173,7 +175,7 @@ import $ from 'jquery';
     /**
      * Extend jQuery
      *
-     * @param {string} method
+     * @param {string|Function} method
      *
      * @return {any}
      */
@@ -183,7 +185,7 @@ import $ from 'jquery';
         } else if (typeof method === 'function') {
             return methods.init.apply(this, [method]);
         } else {
-            $.error('Method ' +  method + ' does not exist on jQuery.menuResizer');
+            $.error('Method ' + method + ' does not exist on jQuery.menuResizer');
         }
     };
 }($));

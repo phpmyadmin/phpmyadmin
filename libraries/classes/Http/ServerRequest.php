@@ -309,11 +309,7 @@ class ServerRequest implements ServerRequestInterface
             return $postParams->$param;
         }
 
-        if (isset($getParams[$param])) {
-            return $getParams[$param];
-        }
-
-        return $default;
+        return $getParams[$param] ?? $default;
     }
 
     /**
@@ -334,6 +330,18 @@ class ServerRequest implements ServerRequestInterface
         }
 
         return $default;
+    }
+
+    /**
+     * @param mixed $default
+     *
+     * @return mixed
+     */
+    public function getQueryParam(string $param, $default = null)
+    {
+        $getParams = $this->getQueryParams();
+
+        return $getParams[$param] ?? $default;
     }
 
     public function isPost(): bool
@@ -372,5 +380,25 @@ class ServerRequest implements ServerRequestInterface
         }
 
         return $route;
+    }
+
+    public function has(string $param): bool
+    {
+        return $this->hasBodyParam($param) || $this->hasQueryParam($param);
+    }
+
+    public function hasQueryParam(string $param): bool
+    {
+        $getParams = $this->getQueryParams();
+
+        return isset($getParams[$param]);
+    }
+
+    public function hasBodyParam(string $param): bool
+    {
+        $postParams = $this->getParsedBody();
+
+        return is_array($postParams) && isset($postParams[$param])
+            || is_object($postParams) && property_exists($postParams, $param);
     }
 }

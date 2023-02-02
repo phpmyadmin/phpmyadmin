@@ -8,6 +8,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\ResponseRenderer;
@@ -16,6 +17,7 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function __;
+use function is_string;
 
 /**
  * View manipulations
@@ -39,7 +41,7 @@ class OperationsController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
         $GLOBALS['reload'] = $GLOBALS['reload'] ?? null;
@@ -62,19 +64,19 @@ class OperationsController extends AbstractController
 
         $message = new Message();
         $type = 'success';
-        if (isset($_POST['submitoptions'])) {
-            if (isset($_POST['new_name'])) {
-                if ($tableObject->rename($_POST['new_name'])) {
-                    $message->addText($tableObject->getLastMessage());
-                    $GLOBALS['result'] = true;
-                    $GLOBALS['table'] = $tableObject->getName();
-                    /* Force reread after rename */
-                    $tableObject->getStatusInfo(null, true);
-                    $GLOBALS['reload'] = true;
-                } else {
+        $newname = $request->getParsedBodyParam('new_name');
+
+        if ($request->hasBodyParam('submitoptions')) {
+            if (is_string($newname) && $tableObject->rename($newname)) {
+                $message->addText($tableObject->getLastMessage());
+                $GLOBALS['result'] = true;
+                $GLOBALS['table'] = $tableObject->getName();
+                /* Force reread after rename */
+                $tableObject->getStatusInfo(null, true);
+                $GLOBALS['reload'] = true;
+            } else {
                     $message->addText($tableObject->getLastError());
                     $GLOBALS['result'] = false;
-                }
             }
 
             $GLOBALS['warning_messages'] = $this->operations->getWarningMessagesArray();

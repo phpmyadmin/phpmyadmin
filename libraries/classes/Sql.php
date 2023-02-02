@@ -7,6 +7,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\ConfigStorage\Features\BookmarkFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Display\DisplayParts;
 use PhpMyAdmin\Display\Results as DisplayResults;
@@ -22,12 +23,10 @@ use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
 use function array_keys;
-use function array_map;
 use function bin2hex;
 use function ceil;
 use function count;
 use function defined;
-use function explode;
 use function htmlspecialchars;
 use function in_array;
 use function is_array;
@@ -96,7 +95,7 @@ class Sql
             return $statementInfo;
         }
 
-        $tableObject = new Table($table, $db);
+        $tableObject = new Table($table, $db, $this->dbi);
 
         if (empty($statementInfo->order)) {
             // Retrieving the name of the column we should sort after.
@@ -195,7 +194,7 @@ class Sql
             $resultSetColumnNames[] = $oneMeta->name;
         }
 
-        foreach (Index::getFromTable($table, $db) as $index) {
+        foreach (Index::getFromTable($this->dbi, $table, $db) as $index) {
             if (! $index->isUnique()) {
                 continue;
             }
@@ -249,22 +248,21 @@ class Sql
                 'field' => $column,
             ];
 
-            $dropdown = $this->template->render('sql/relational_column_dropdown', [
+            return $this->template->render('sql/relational_column_dropdown', [
                 'current_value' => $_POST['curr_value'],
                 'params' => $urlParams,
             ]);
-        } else {
-            $dropdown = $this->relation->foreignDropdown(
-                $foreignData['disp_row'],
-                $foreignData['foreign_field'],
-                $foreignData['foreign_display'],
-                $currentValue,
-                $GLOBALS['cfg']['ForeignKeyMaxLimit']
-            );
-            $dropdown = '<select>' . $dropdown . '</select>';
         }
 
-        return $dropdown;
+        $dropdown = $this->relation->foreignDropdown(
+            $foreignData['disp_row'],
+            $foreignData['foreign_field'],
+            $foreignData['foreign_display'],
+            $currentValue,
+            $GLOBALS['cfg']['ForeignKeyMaxLimit']
+        );
+
+        return '<select>' . $dropdown . '</select>';
     }
 
     /** @return array<string, int|array> */
@@ -431,31 +429,6 @@ class Sql
     }
 
     /**
-     * Function to set a column property
-     *
-     * @param Table  $table        Table instance
-     * @param string $requestIndex col_order|col_visib
-     *
-     * @return bool|Message
-     */
-    public function setColumnProperty(Table $table, string $requestIndex)
-    {
-        $propertyValue = array_map('intval', explode(',', $_POST[$requestIndex]));
-        switch ($requestIndex) {
-            case 'col_order':
-                $propertyToSet = Table::PROP_COLUMN_ORDER;
-                break;
-            case 'col_visib':
-                $propertyToSet = Table::PROP_COLUMN_VISIB;
-                break;
-            default:
-                $propertyToSet = '';
-        }
-
-        return $table->setUiProp($propertyToSet, $propertyValue, $_POST['table_create_time'] ?? null);
-    }
-
-    /**
      * Function to find the real end of rows
      *
      * @param string $db    the current database
@@ -481,7 +454,15 @@ class Sql
      */
     public function getDefaultSqlQueryForBrowse($db, $table): string
     {
-        $bookmark = Bookmark::get($this->dbi, $GLOBALS['cfg']['Server']['user'], $db, $table, 'label', false, true);
+        $bookmark = Bookmark::get(
+            $this->dbi,
+            $GLOBALS['cfg']['Server']['user'],
+            DatabaseName::fromValue($db),
+            $table,
+            'label',
+            false,
+            true
+        );
 
         if ($bookmark !== null && $bookmark->getQuery() !== '') {
             $GLOBALS['using_bookmark_message'] = Message::notice(
@@ -502,9 +483,9 @@ class Sql
             && ($GLOBALS['cfg']['TablePrimaryKeyOrder'] !== 'NONE')
         ) {
             $primaryKey = null;
-            $primary = Index::getPrimary($table, $db);
+            $primary = Index::getPrimary($this->dbi, $table, $db);
 
-            if ($primary !== false) {
+            if ($primary !== null) {
                 $primarycols = $primary->getColumns();
 
                 foreach ($primarycols as $col) {
@@ -851,7 +832,7 @@ class Sql
             ) {
                 // to refresh the list of indexes (Ajax mode)
 
-                $indexes = Index::getFromTable($table, $db);
+                $indexes = Index::getFromTable($this->dbi, $table, $db);
                 $indexesDuplicates = Index::findDuplicates($table, $db);
                 $template = new Template();
 
@@ -909,7 +890,7 @@ class Sql
         StatementInfo $statementInfo,
         $numRows
     ): Message {
-        if ($statementInfo->queryType === 'DELETE"') {
+        if ($statementInfo->queryType === 'DELETE') {
             $message = Message::getMessageForDeletedRows($numRows);
         } elseif ($statementInfo->isInsert) {
             if ($statementInfo->queryType === 'REPLACE') {
@@ -1286,12 +1267,11 @@ class Sql
         array $sqlData,
         $displayMessage
     ): string {
-        $output = '';
         if ($displayQuery !== null && $showSql && $sqlData === []) {
-            $output = Generator::getMessage($displayMessage, $displayQuery, 'success');
+            return Generator::getMessage($displayMessage, $displayQuery, 'success');
         }
 
-        return $output;
+        return '';
     }
 
     /**
@@ -1418,7 +1398,7 @@ class Sql
         $statement = $statementInfo->statement;
         if ($statement instanceof SelectStatement) {
             if ($statement->expr && $statement->expr[0]->expr === '*' && $table) {
-                $_table = new Table($table, $db);
+                $_table = new Table($table, $db, $this->dbi);
                 $updatableView = $_table->isUpdatableView();
             }
 
@@ -1431,7 +1411,7 @@ class Sql
             }
         }
 
-        $hasUnique = $table && $this->resultSetContainsUniqueKey($db, $table, $fieldsMeta);
+        $hasUnique = $table !== null && $this->resultSetContainsUniqueKey($db, $table, $fieldsMeta);
 
         $editable = ($hasUnique
             || $GLOBALS['cfg']['RowActionLinksWithoutUnique']
@@ -1580,7 +1560,7 @@ class Sql
             // Parse and analyze the query
             [$statementInfo, $db, $tableFromSql] = ParseAnalyze::sqlQuery($sqlQuery, $db);
 
-            $table = $tableFromSql ?: $table;
+            $table = $tableFromSql !== '' ? $tableFromSql : $table;
         }
 
         return $this->executeQueryAndGetQueryResponse(
@@ -1657,14 +1637,14 @@ class Sql
         }
 
         $displayResultsObject = new DisplayResults(
-            $GLOBALS['dbi'],
+            $this->dbi,
             $GLOBALS['db'],
             $GLOBALS['table'],
             $GLOBALS['server'],
             $goto,
             $sqlQuery
         );
-        $displayResultsObject->setConfigParamsForDisplayTable();
+        $displayResultsObject->setConfigParamsForDisplayTable($statementInfo);
 
         // assign default full_sql_query
         $fullSqlQuery = $sqlQuery;
@@ -1775,11 +1755,11 @@ class Sql
             $pos = $_SESSION['tmpval']['pos'];
         }
 
-        $tableObject = new Table($table, $db);
+        $tableObject = new Table($table, $db, $this->dbi);
         $unlimNumRows = $tableObject->countRecords(true);
         //If position is higher than number of rows
         if ($unlimNumRows <= $pos && $pos != 0) {
-            $pos = $this->getStartPosToDisplayRow($unlimNumRows);
+            return $this->getStartPosToDisplayRow($unlimNumRows);
         }
 
         return $pos;

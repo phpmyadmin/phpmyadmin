@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server\Status\Monitor;
 
 use PhpMyAdmin\Controllers\Server\Status\Monitor\LogVarsController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Template;
@@ -44,7 +45,7 @@ class LogVarsControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
 
-        $this->data = new Data();
+        $this->data = new Data($this->dbi);
     }
 
     public function testLogVars(): void
@@ -67,10 +68,13 @@ class LogVarsControllerTest extends AbstractTestCase
             $GLOBALS['dbi']
         );
 
-        $_POST['varName'] = 'varName';
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['varName', null, 'varName'],
+        ]);
 
         $this->dummyDbi->addSelectDb('mysql');
-        $controller();
+        $controller($request);
         $this->dummyDbi->assertAllSelectsConsumed();
         $ret = $response->getJSONResult();
 

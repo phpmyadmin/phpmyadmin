@@ -1,8 +1,11 @@
 import $ from 'jquery';
+import { AJAX } from '../modules/ajax.js';
+import { Functions } from '../modules/functions.js';
+import { Navigation } from '../modules/navigation.js';
+import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
+import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.js';
 
-/* global Navigation */
-
-window.AJAX.registerTeardown('database/routines.js', function () {
+AJAX.registerTeardown('database/routines.js', function () {
     $(document).off('click', 'a.ajax.add_anchor');
     $(document).off('click', 'a.ajax.edit_anchor');
     $(document).off('click', 'a.ajax.exec_anchor');
@@ -13,7 +16,7 @@ window.AJAX.registerTeardown('database/routines.js', function () {
     $(document).off('change', 'select[name=item_type]');
     $(document).off('change', 'select[name^=item_param_type]');
     $(document).off('change', 'select[name=item_returntype]');
-    $(document).off('click', 'input[name=routine_addparameter]');
+    $(document).off('click', '#addRoutineParameterButton');
     $(document).off('click', 'a.routine_param_remove_anchor');
 });
 
@@ -32,14 +35,9 @@ const DatabaseRoutines = {
      */
     syntaxHiglighter: null,
     /**
-     * @var buttonOptions Object containing options for
-     *                    the jQueryUI dialog buttons
-     */
-    buttonOptions: {},
-    /**
      * Validate editor form fields.
      *
-     * @return {bool}
+     * @return {boolean}
      */
     validate: function () {
         /**
@@ -71,7 +69,7 @@ const DatabaseRoutines = {
     },
 
     exportDialog: function ($this) {
-        var $msg = Functions.ajaxShowMessage();
+        var $msg = ajaxShowMessage();
         if ($this.attr('id') === 'bulkActionExportButton') {
             var combined = {
                 success: true,
@@ -86,7 +84,7 @@ const DatabaseRoutines = {
 
             // No routine is exportable (due to privilege issues)
             if (count === 0) {
-                Functions.ajaxShowMessage(window.Messages.NoExportable);
+                ajaxShowMessage(window.Messages.NoExportable);
             }
             var p = $.when();
             exportAnchors.each(function () {
@@ -113,24 +111,32 @@ const DatabaseRoutines = {
         } else {
             $.get($this.attr('href'), { 'ajax_request': true }, showExport);
         }
-        Functions.ajaxRemoveMessage($msg);
+        ajaxRemoveMessage($msg);
 
         function showExport (data) {
             if (data.success === true) {
-                Functions.ajaxRemoveMessage($msg);
+                ajaxRemoveMessage($msg);
                 /**
-                 * @var button_options Object containing options
+                 * @var buttonOptions Object containing options
                  *                     for jQueryUI dialog buttons
                  */
-                var buttonOptions = {};
-                buttonOptions[window.Messages.strClose] = function () {
-                    $(this).dialog('close').remove();
+                var buttonOptions = {
+                    [window.Messages.strClose]: {
+                        text: window.Messages.strClose,
+                        class: 'btn btn-primary',
+                        click: function () {
+                            $(this).dialog('close').remove();
+                        }
+                    },
                 };
                 /**
                  * Display the dialog to the user
                  */
                 data.message = '<textarea cols="40" rows="15" class="w-100">' + data.message + '</textarea>';
                 var $ajaxDialog = $('<div>' + data.message + '</div>').dialog({
+                    classes: {
+                        'ui-dialog-titlebar-close': 'btn-close'
+                    },
                     width: 500,
                     buttons: buttonOptions,
                     title: data.title
@@ -143,7 +149,7 @@ const DatabaseRoutines = {
                 var $elm = $ajaxDialog.find('textarea');
                 Functions.getSqlEditor($elm);
             } else {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         } // end showExport()
     },  // end exportDialog()
@@ -165,14 +171,24 @@ const DatabaseRoutines = {
          * @var $msg jQuery object containing the reference to
          *           the AJAX message shown to the user
          */
-        var $msg = Functions.ajaxShowMessage();
+        var $msg = ajaxShowMessage();
         $.get($this.attr('href'), { 'ajax_request': true }, function (data) {
             if (data.success === true) {
+                var buttonOptions = {
+                    [window.Messages.strGo]: {
+                        text: window.Messages.strGo,
+                        class: 'btn btn-primary',
+                    },
+                    [window.Messages.strClose]: {
+                        text: window.Messages.strClose,
+                        class: 'btn btn-secondary',
+                    },
+                };
                 // We have successfully fetched the editor form
-                Functions.ajaxRemoveMessage($msg);
+                ajaxRemoveMessage($msg);
                 // Now define the function that is called when
                 // the user presses the "Go" button
-                that.buttonOptions[window.Messages.strGo] = function () {
+                buttonOptions[window.Messages.strGo].click = function () {
                     // Move the data from the codemirror editor back to the
                     // textarea, where it can be used in the form submission.
                     if (typeof window.CodeMirror !== 'undefined') {
@@ -184,14 +200,14 @@ const DatabaseRoutines = {
                          * @var data Form data to be sent in the AJAX request
                          */
                         var data = $('form.rte_form').last().serialize();
-                        $msg = Functions.ajaxShowMessage(
+                        $msg = ajaxShowMessage(
                             window.Messages.strProcessingRequest
                         );
                         var url = $('form.rte_form').last().attr('action');
                         $.post(url, data, function (data) {
                             if (data.success === true) {
                                 // Item created successfully
-                                Functions.ajaxRemoveMessage($msg);
+                                ajaxRemoveMessage($msg);
                                 Functions.slidingMessage(data.message);
                                 that.$ajaxDialog.dialog('close');
 
@@ -284,22 +300,25 @@ const DatabaseRoutines = {
                                 }
                                 Navigation.reload();
                             } else {
-                                Functions.ajaxShowMessage(data.error, false);
+                                ajaxShowMessage(data.error, false);
                             }
                         }); // end $.post()
                     } // end "if (that.validate())"
                 }; // end of function that handles the submission of the Editor
-                that.buttonOptions[window.Messages.strClose] = function () {
+                buttonOptions[window.Messages.strClose].click = function () {
                     $(this).dialog('close');
                 };
                 /**
                  * Display the dialog to the user
                  */
                 that.$ajaxDialog = $('<div id="rteDialog">' + data.message + '</div>').dialog({
+                    classes: {
+                        'ui-dialog-titlebar-close': 'btn-close'
+                    },
                     height: 400,
                     width: 700,
                     minWidth: 500,
-                    buttons: that.buttonOptions,
+                    buttons: buttonOptions,
                     // Issue #15810 - use button titles for modals (eg: new procedure)
                     // Respect the order: title on href tag, href content, title sent in response
                     title: $this.attr('title') || $this.text() || $(data.title).text(),
@@ -343,7 +362,7 @@ const DatabaseRoutines = {
                 // Execute item-specific code
                 that.postDialogShow(data);
             } else {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         }); // end $.get()
     },
@@ -365,8 +384,8 @@ const DatabaseRoutines = {
              * @var msg jQuery object containing the reference to
              *          the AJAX message shown to the user
              */
-            var $msg = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
-            var params = Functions.getJsConfirmCommonParam(this, $this.getPostData());
+            var $msg = ajaxShowMessage(window.Messages.strProcessingRequest);
+            var params = getJsConfirmCommonParam(this, $this.getPostData());
             $.post(url, params, function (data) {
                 if (data.success === true) {
                     /**
@@ -409,12 +428,12 @@ const DatabaseRoutines = {
                         });
                     }
                     // Get rid of the "Loading" message
-                    Functions.ajaxRemoveMessage($msg);
+                    ajaxRemoveMessage($msg);
                     // Show the query that we just executed
                     Functions.slidingMessage(data.sql_query);
                     Navigation.reload();
                 } else {
-                    Functions.ajaxShowMessage(data.error, false);
+                    ajaxShowMessage(data.error, false);
                 }
             }); // end $.post()
         });
@@ -427,7 +446,7 @@ const DatabaseRoutines = {
              * @var msg jQuery object containing the reference to
              *          the AJAX message shown to the user
              */
-            var $msg = Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
+            var $msg = ajaxShowMessage(window.Messages.strProcessingRequest);
 
             // drop anchors of all selected rows
             var dropAnchors = $('input.checkall:checked').parents('tr').find('.drop_anchor');
@@ -441,7 +460,7 @@ const DatabaseRoutines = {
                  * @var $curr_row Object containing reference to the current row
                  */
                 var $currRow = $anchor.parents('tr');
-                var params = Functions.getJsConfirmCommonParam(this, $anchor.getPostData());
+                var params = getJsConfirmCommonParam(this, $anchor.getPostData());
                 $.post($anchor.attr('href'), params, function (data) {
                     returnCount++;
                     if (data.success === true) {
@@ -486,13 +505,13 @@ const DatabaseRoutines = {
                         if (returnCount === count) {
                             if (success) {
                                 // Get rid of the "Loading" message
-                                Functions.ajaxRemoveMessage($msg);
+                                ajaxRemoveMessage($msg);
                                 $('#rteListForm_checkall').prop({ checked: false, indeterminate: false });
                             }
                             Navigation.reload();
                         }
                     } else {
-                        Functions.ajaxShowMessage(data.error, false);
+                        ajaxShowMessage(data.error, false);
                         success = false;
                         if (returnCount === count) {
                             Navigation.reload();
@@ -514,8 +533,6 @@ const DatabaseRoutines = {
         var that = this;
         // Make adjustments in the dialog to make it AJAX compatible
         $('td.routine_param_remove').show();
-        $('input[name=routine_removeparameter]').remove();
-        $('input[name=routine_addparameter]').css('width', '100%');
         // Enable/disable the 'options' dropdowns for parameters as necessary
         $('table.routine_params_table').last().find('th[colspan=2]').attr('colspan', '1');
         $('table.routine_params_table').last().find('tr').has('td').each(function () {
@@ -580,7 +597,7 @@ const DatabaseRoutines = {
     /**
      * Validate custom editor form fields.
      *
-     * @return {bool}
+     * @return {boolean}
      */
     validateCustom: function () {
         /**
@@ -685,7 +702,7 @@ const DatabaseRoutines = {
          *             to an element to be displayed when no
          *             "length/values" field is available
          */
-        var $noLen  = $len.parent().parent().find('.no_len');
+        var $noLen = $len.parent().parent().find('.no_len');
 
         // Process for parameter options
         switch ($type.val()) {
@@ -747,50 +764,62 @@ const DatabaseRoutines = {
         }
     },
     executeDialog: function ($this) {
-        var that = this;
         /**
          * @var msg jQuery object containing the reference to
          *          the AJAX message shown to the user
          */
-        var $msg = Functions.ajaxShowMessage();
-        var params = Functions.getJsConfirmCommonParam($this[0], $this.getPostData());
+        var $msg = ajaxShowMessage();
+        var params = getJsConfirmCommonParam($this[0], $this.getPostData());
         $.post($this.attr('href'), params, function (data) {
             if (data.success === true) {
-                Functions.ajaxRemoveMessage($msg);
+                ajaxRemoveMessage($msg);
                 // If 'data.dialog' is true we show a dialog with a form
                 // to get the input parameters for routine, otherwise
                 // we just show the results of the query
                 if (data.dialog) {
+                    var buttonOptions = {
+                        [window.Messages.strGo]: {
+                            text: window.Messages.strGo,
+                            class: 'btn btn-primary',
+                        },
+                        [window.Messages.strClose]: {
+                            text: window.Messages.strClose,
+                            class: 'btn btn-secondary',
+                        },
+                    };
                     // Define the function that is called when
                     // the user presses the "Go" button
-                    that.buttonOptions[window.Messages.strGo] = function () {
+                    buttonOptions[window.Messages.strGo].click = function () {
                         /**
                          * @var data Form data to be sent in the AJAX request
                          */
                         var data = $('form.rte_form').last().serialize();
-                        $msg = Functions.ajaxShowMessage(
+                        $msg = ajaxShowMessage(
                             window.Messages.strProcessingRequest
                         );
                         $.post('index.php?route=/database/routines', data, function (data) {
                             if (data.success === true) {
                                 // Routine executed successfully
-                                Functions.ajaxRemoveMessage($msg);
+                                ajaxRemoveMessage($msg);
                                 Functions.slidingMessage(data.message);
                                 $ajaxDialog.dialog('close');
                             } else {
-                                Functions.ajaxShowMessage(data.error, false);
+                                ajaxShowMessage(data.error, false);
                             }
                         });
                     };
-                    that.buttonOptions[window.Messages.strClose] = function () {
+                    buttonOptions[window.Messages.strClose].click = function () {
                         $(this).dialog('close');
                     };
                     /**
                      * Display the dialog to the user
                      */
                     var $ajaxDialog = $('<div>' + data.message + '</div>').dialog({
+                        classes: {
+                            'ui-dialog-titlebar-close': 'btn-close'
+                        },
                         width: 650,
-                        buttons: that.buttonOptions,
+                        buttons: buttonOptions,
                         title: data.title,
                         modal: true,
                         close: function () {
@@ -814,19 +843,19 @@ const DatabaseRoutines = {
                              * @var data Form data to be sent in the AJAX request
                              */
                             var data = $(this).serialize();
-                            $msg = Functions.ajaxShowMessage(
+                            $msg = ajaxShowMessage(
                                 window.Messages.strProcessingRequest
                             );
                             var url = $(this).attr('action');
                             $.post(url, data, function (data) {
                                 if (data.success === true) {
                                     // Routine executed successfully
-                                    Functions.ajaxRemoveMessage($msg);
+                                    ajaxRemoveMessage($msg);
                                     Functions.slidingMessage(data.message);
                                     $('form.rte_form').off('keyup');
                                     $ajaxDialog.remove();
                                 } else {
-                                    Functions.ajaxShowMessage(data.error, false);
+                                    ajaxShowMessage(data.error, false);
                                 }
                             });
                         }
@@ -836,13 +865,13 @@ const DatabaseRoutines = {
                     Functions.slidingMessage(data.message);
                 }
             } else {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         }); // end $.post()
     }
 };
 
-window.AJAX.registerOnload('database/routines.js', function () {
+AJAX.registerOnload('database/routines.js', function () {
     $(document).on('click', 'a.ajax.add_anchor', function (event) {
         event.preventDefault();
         $.datepicker.initialized = false;
@@ -899,7 +928,7 @@ window.AJAX.registerOnload('database/routines.js', function () {
         );
     });
 
-    $(document).on('click', 'input[name=routine_addparameter]', function (event) {
+    $(document).on('click', '#addRoutineParameterButton', function (event) {
         event.preventDefault();
         /**
          * @var routine_params_table jQuery object containing the reference

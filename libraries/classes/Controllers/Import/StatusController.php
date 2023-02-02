@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Import;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
@@ -14,6 +15,7 @@ use function header;
 use function ini_get;
 use function session_start;
 use function session_write_close;
+use function sprintf;
 use function time;
 use function usleep;
 
@@ -30,7 +32,7 @@ class StatusController
         $this->template = $template;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['SESSION_KEY'] = $GLOBALS['SESSION_KEY'] ?? null;
         $GLOBALS['upload_id'] = $GLOBALS['upload_id'] ?? null;
@@ -44,9 +46,11 @@ class StatusController
         ] = Ajax::uploadProgressSetup();
 
         // $_GET["message"] is used for asking for an import message
-        if (isset($_GET['message']) && $_GET['message']) {
+        if ($request->hasQueryParam('message')) {
             // AJAX requests can't be cached!
-            Core::noCacheHeader();
+            foreach (Core::getNoCacheHeaders() as $name => $value) {
+                header(sprintf('%s: %s', $name, $value));
+            }
 
             header('Content-type: text/html');
 
@@ -80,7 +84,7 @@ class StatusController
                 ]);
             }
         } else {
-            Ajax::status($_GET['id']);
+            Ajax::status($request->getQueryParam('id'));
         }
     }
 }

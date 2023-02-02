@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
@@ -30,17 +31,14 @@ class VariablesController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
-        $params = [
-            'flush' => $_POST['flush'] ?? null,
-            'filterAlert' => $_POST['filterAlert'] ?? null,
-            'filterText' => $_POST['filterText'] ?? null,
-            'filterCategory' => $_POST['filterCategory'] ?? null,
-            'dontFormat' => $_POST['dontFormat'] ?? null,
-        ];
+        $filterAlert = $request->getParsedBodyParam('filterAlert');
+        $filterText = $request->getParsedBodyParam('filterText');
+        $filterCategory = $request->getParsedBodyParam('filterCategory');
+        $dontFormat = $request->getParsedBodyParam('dontFormat');
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
@@ -53,8 +51,9 @@ class VariablesController extends AbstractController
             'server/status/sorter.js',
         ]);
 
-        if (isset($params['flush'])) {
-            $this->flush($params['flush']);
+        $flush = $request->getParsedBodyParam('flush');
+        if ($flush !== null) {
+            $this->flush($flush);
         }
 
         if ($this->data->dataLoaded) {
@@ -69,7 +68,7 @@ class VariablesController extends AbstractController
                     'name' => $sectionName,
                     'is_selected' => false,
                 ];
-                if (empty($params['filterCategory']) || $params['filterCategory'] !== $sectionId) {
+                if (! $filterCategory || $filterCategory !== $sectionId) {
                     continue;
                 }
 
@@ -132,9 +131,9 @@ class VariablesController extends AbstractController
 
         $this->render('server/status/variables/index', [
             'is_data_loaded' => $this->data->dataLoaded,
-            'filter_text' => ! empty($params['filterText']) ? $params['filterText'] : '',
-            'is_only_alerts' => ! empty($params['filterAlert']),
-            'is_not_formatted' => ! empty($params['dontFormat']),
+            'filter_text' => $filterText ?: '',
+            'is_only_alerts' => (bool) $filterAlert,
+            'is_not_formatted' => (bool) $dontFormat,
             'categories' => $categories ?? [],
             'links' => $links ?? [],
             'variables' => $variables ?? [],

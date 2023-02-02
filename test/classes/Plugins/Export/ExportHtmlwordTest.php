@@ -305,7 +305,6 @@ class ExportHtmlwordTest extends AbstractTestCase
         $this->assertTrue($this->object->exportData(
             'test_db',
             'test_table',
-            "\n",
             'localhost',
             'SELECT * FROM `test_db`.`test_table`;'
         ));
@@ -376,7 +375,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             '<td class="print"><strong>Null</strong></td>' .
             '<td class="print"><strong>Default</strong></td></tr>' .
             '1</tr></table>',
-            $this->object->getTableDefStandIn('database', 'view', "\n")
+            $this->object->getTableDefStandIn('database', 'view')
         );
     }
 
@@ -596,23 +595,28 @@ class ExportHtmlwordTest extends AbstractTestCase
 
     public function testGetTriggers(): void
     {
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
         $triggers = [
             [
-                'name' => 'tna"me',
-                'action_timing' => 'ac>t',
-                'event_manipulation' => 'manip&',
-                'definition' => 'def',
+                'TRIGGER_SCHEMA' => 'database',
+                'TRIGGER_NAME' => 'tna"me',
+                'EVENT_MANIPULATION' => 'manip&',
+                'EVENT_OBJECT_TABLE' => 'table',
+                'ACTION_TIMING' => 'ac>t',
+                'ACTION_STATEMENT' => 'def',
+                'EVENT_OBJECT_SCHEMA' => 'database',
+                'DEFINER' => 'test_user@localhost',
             ],
         ];
 
         $dbi->expects($this->once())
-            ->method('getTriggers')
-            ->with('database', 'table')
-            ->will($this->returnValue($triggers));
+            ->method('fetchResult')
+            ->willReturnOnConsecutiveCalls($triggers);
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -637,7 +641,6 @@ class ExportHtmlwordTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                "\n",
                 'localhost',
                 'create_table',
                 'test'
@@ -665,7 +668,6 @@ class ExportHtmlwordTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                "\n",
                 'localhost',
                 'triggers',
                 'test'
@@ -689,7 +691,6 @@ class ExportHtmlwordTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                "\n",
                 'localhost',
                 'create_view',
                 'test'
@@ -717,7 +718,6 @@ class ExportHtmlwordTest extends AbstractTestCase
             $this->object->exportStructure(
                 'test_db',
                 'test_table',
-                "\n",
                 'localhost',
                 'stand_in',
                 'test'

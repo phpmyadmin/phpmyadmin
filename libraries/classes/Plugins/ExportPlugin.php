@@ -39,9 +39,6 @@ abstract class ExportPlugin implements Plugin
     /** @var Transformations */
     protected $transformations;
 
-    /**
-     * @psalm-suppress InvalidArrayOffset, MixedAssignment, MixedMethodCall
-     */
     final public function __construct(Relation $relation, Export $export, Transformations $transformations)
     {
         $this->relation = $relation;
@@ -90,7 +87,6 @@ abstract class ExportPlugin implements Plugin
      *
      * @param string $db       database name
      * @param string $table    table name
-     * @param string $crlf     the end of line sequence
      * @param string $errorUrl the url to go back in case of error
      * @param string $sqlQuery SQL query for obtaining data
      * @param array  $aliases  Aliases of db/table/columns
@@ -98,7 +94,6 @@ abstract class ExportPlugin implements Plugin
     abstract public function exportData(
         $db,
         $table,
-        $crlf,
         $errorUrl,
         $sqlQuery,
         array $aliases = []
@@ -133,15 +128,12 @@ abstract class ExportPlugin implements Plugin
     /**
      * Outputs for raw query
      *
-     * @param string $errorUrl the url to go back in case of error
-     * @param string $sqlQuery the rawquery to output
-     * @param string $crlf     the seperator for a file
+     * @param string      $errorUrl the url to go back in case of error
+     * @param string|null $db       the database where the query is executed
+     * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(
-        string $errorUrl,
-        string $sqlQuery,
-        string $crlf
-    ): bool {
+    public function exportRawQuery(string $errorUrl, ?string $db, string $sqlQuery): bool
+    {
         return false;
     }
 
@@ -150,7 +142,6 @@ abstract class ExportPlugin implements Plugin
      *
      * @param string $db         database name
      * @param string $table      table name
-     * @param string $crlf       the end of line sequence
      * @param string $errorUrl   the url to go back in case of error
      * @param string $exportMode 'create_table','triggers','create_view',
      *                            'stand_in'
@@ -168,7 +159,6 @@ abstract class ExportPlugin implements Plugin
     public function exportStructure(
         $db,
         $table,
-        $crlf,
         $errorUrl,
         $exportMode,
         $exportType,
@@ -184,9 +174,9 @@ abstract class ExportPlugin implements Plugin
     /**
      * Exports metadata from Configuration Storage
      *
-     * @param string       $db            database being exported
-     * @param string|array $tables        table(s) being exported
-     * @param array        $metadataTypes types of metadata to export
+     * @param string          $db            database being exported
+     * @param string|string[] $tables        table(s) being exported
+     * @param string[]        $metadataTypes types of metadata to export
      */
     public function exportMetadata(
         $db,
@@ -201,12 +191,11 @@ abstract class ExportPlugin implements Plugin
      *
      * @param string $db      the database name
      * @param string $view    the view name
-     * @param string $crlf    the end of line sequence
      * @param array  $aliases Aliases of db/table/columns
      *
      * @return string resulting definition
      */
-    public function getTableDefStandIn($db, $view, $crlf, $aliases = [])
+    public function getTableDefStandIn($db, $view, $aliases = [])
     {
         return '';
     }
@@ -353,7 +342,6 @@ abstract class ExportPlugin implements Plugin
         $db,
         array $aliases = []
     ) {
-        $relation = '';
         $foreigner = $this->relation->searchColumnInForeigners($foreigners, $fieldName);
         if ($foreigner) {
             $ftable = $foreigner['foreign_table'];
@@ -366,10 +354,10 @@ abstract class ExportPlugin implements Plugin
                 $ftable = $aliases[$db]['tables'][$ftable]['alias'];
             }
 
-            $relation = $ftable . ' (' . $ffield . ')';
+            return $ftable . ' (' . $ffield . ')';
         }
 
-        return $relation;
+        return '';
     }
 
     public static function isAvailable(): bool

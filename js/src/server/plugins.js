@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { AJAX } from '../modules/ajax.js';
 
 /**
  * Make columns sortable, but only for tables with more than 1 data row.
@@ -15,6 +16,6 @@ function makeColumnsSortable () {
         .append('<div class="sorticon"></div>');
 }
 
-window.AJAX.registerOnload('server/plugins.js', function () {
+AJAX.registerOnload('server/plugins.js', function () {
     makeColumnsSortable();
 });

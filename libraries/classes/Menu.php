@@ -134,8 +134,8 @@ class Menu
                 . " WHERE `allowed` = 'N'"
                 . " AND `tab` LIKE '" . $level . "%'"
                 . ' AND `usergroup` = (SELECT usergroup FROM '
-                . $userTable . " WHERE `username` = '"
-                . $this->dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "')";
+                . $userTable . ' WHERE `username` = '
+                . $this->dbi->quoteString($GLOBALS['cfg']['Server']['user']) . ')';
 
             $result = $this->dbi->tryQueryAsControlUser($sqlQuery);
             if ($result) {

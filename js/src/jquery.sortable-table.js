@@ -58,7 +58,7 @@ import $ from 'jquery';
 
         if (methods[method]) {
             return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
-        } else if (typeof method === 'object' || !method) {
+        } else if (typeof method === 'object' || ! method) {
             return methods.init.apply(this, arguments);
         } else {
             $.error('Method ' + method + ' does not exist on jQuery.sortableTable');
@@ -81,7 +81,10 @@ import $ from 'jquery';
                 if ($draggedEl.length === 0) {
                     return;
                 }
-                if (options.ignoreRect && insideRect({ x: e.pageX - $draggedEl.offset().left, y: e.pageY - $draggedEl.offset().top }, options.ignoreRect)) {
+                if (options.ignoreRect && insideRect({
+                    x: e.pageX - $draggedEl.offset().left,
+                    y: e.pageY - $draggedEl.offset().top
+                }, options.ignoreRect)) {
                     return;
                 }
 
@@ -245,7 +248,7 @@ import $ from 'jquery';
             }
 
             function dropAt (x, y) {
-                if (!down) {
+                if (! down) {
                     return;
                 }
                 down = false;
@@ -259,7 +262,7 @@ import $ from 'jquery';
                     }
                 });
 
-                if (!switched) {
+                if (! switched) {
                     if (previewMove) {
                         moveTo(previewMove);
                     }
@@ -270,10 +273,10 @@ import $ from 'jquery';
             }
 
             function moveTo (elem, opts = {}) {
-                if (!opts.pos) {
+                if (! opts.pos) {
                     opts.pos = { left: 0, top: 0 };
                 }
-                if (!opts.duration) {
+                if (! opts.duration) {
                     opts.duration = 200;
                 }
 

@@ -24,4 +24,5 @@ function extendingValidatorMessages () {
         validationFunctionForAesDesEncrypt: $.validator.format(window.Messages.strValidationFunctionForAesDesEncrypt),
     });
 }
+
 window.extendingValidatorMessages = extendingValidatorMessages;

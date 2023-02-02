@@ -28,7 +28,6 @@ use Twig\RuntimeLoader\ContainerRuntimeLoader;
 use Twig\TemplateWrapper;
 
 use function __;
-use function is_array;
 use function sprintf;
 use function trigger_error;
 
@@ -63,8 +62,6 @@ class Template
 
     public static function getTwigEnvironment(?string $cacheDir): Environment
     {
-        $GLOBALS['containerBuilder'] = $GLOBALS['containerBuilder'] ?? null;
-
         /* Twig expects false when cache is not configured */
         if ($cacheDir === null) {
             $cacheDir = false;
@@ -76,17 +73,15 @@ class Template
             'cache' => $cacheDir,
         ]);
 
-        $twig->addRuntimeLoader(new ContainerRuntimeLoader($GLOBALS['containerBuilder']));
+        $twig->addRuntimeLoader(new ContainerRuntimeLoader(Core::getContainerBuilder()));
 
-        if (is_array($GLOBALS['cfg']) && ($GLOBALS['cfg']['environment'] ?? '') === 'development') {
+        if (($GLOBALS['cfg']['environment'] ?? '') === 'development') {
             $twig->enableDebug();
             $twig->addExtension(new DebugExtension());
             // This will enable debug for the extension to print lines
             // It is used in po file lines re-mapping
             TransNode::$enableAddDebugInfo = true;
-        }
-
-        if ($GLOBALS['cfg']['environment'] === 'production') {
+        } else {
             $twig->disableDebug();
             TransNode::$enableAddDebugInfo = false;
         }
@@ -123,11 +118,8 @@ class Template
             /* Retry with disabled cache */
             static::$twig->setCache(false);
             $template = static::$twig->load($templateName . '.twig');
-            /*
-             * The trigger error is intentionally after second load
-             * to avoid triggering error when disabling cache does not
-             * solve it.
-             */
+            // The trigger error is intentionally after second load
+            // to avoid triggering error when disabling cache does not solve it.
             trigger_error(
                 sprintf(
                     __('Error while working with template cache: %s'),

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Database\Structure;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\StructureController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\ResponseRenderer;
@@ -33,12 +34,10 @@ final class CopyTableController extends AbstractController
         $this->structureController = $structureController;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-
-        $selected = $_POST['selected'] ?? [];
-        $targetDb = $_POST['target_db'] ?? null;
+        $selected = $request->getParsedBodyParam('selected', []);
+        $targetDb = $request->getParsedBodyParam('target_db');
         $selectedCount = count($selected);
 
         for ($i = 0; $i < $selectedCount; $i++) {
@@ -47,13 +46,13 @@ final class CopyTableController extends AbstractController
                 $selected[$i],
                 $targetDb,
                 $selected[$i],
-                $_POST['what'],
+                $request->getParsedBodyParam('what'),
                 false,
                 'one_table',
-                isset($_POST['drop_if_exists']) && $_POST['drop_if_exists'] === 'true'
+                $request->getParsedBodyParam('drop_if_exists') === 'true'
             );
 
-            if (empty($_POST['adjust_privileges'])) {
+            if (! $request->hasBodyParam('adjust_privileges')) {
                 continue;
             }
 
@@ -62,10 +61,6 @@ final class CopyTableController extends AbstractController
 
         $GLOBALS['message'] = Message::success();
 
-        if (empty($_POST['message'])) {
-            $_POST['message'] = $GLOBALS['message'];
-        }
-
-        ($this->structureController)();
+        ($this->structureController)($request);
     }
 }

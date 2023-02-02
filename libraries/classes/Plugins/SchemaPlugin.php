@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins;
 
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
@@ -58,11 +59,9 @@ abstract class SchemaPlugin implements Plugin
     abstract protected function setProperties(): SchemaPluginProperties;
 
     /**
-     * Exports the schema into the specified format.
-     *
-     * @param string $db database name
+     * @return array{fileName: non-empty-string, mediaType: non-empty-string, fileData: string}
      */
-    abstract public function exportSchema($db): bool;
+    abstract public function getExportInfo(DatabaseName $db): array;
 
     /**
      * Adds export options common to all plugins.

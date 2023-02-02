@@ -25,6 +25,7 @@ class OptionsTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $this->loadContainerBuilder();
         parent::setLanguage();
         parent::setGlobalConfig();
         $GLOBALS['dbi'] = $this->createDatabaseInterface();

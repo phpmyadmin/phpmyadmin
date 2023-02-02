@@ -22,7 +22,7 @@ interface ResultInterface extends IteratorAggregate
      * Returns a generator that traverses through the whole result set
      * and returns each row as an associative array
      *
-     * @return Generator<int, array<string, string|null>, mixed, void>
+     * @psalm-return Generator<int, array<string, string|null>, mixed, void>
      */
     public function getIterator(): Generator;
 

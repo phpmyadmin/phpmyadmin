@@ -7,13 +7,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Dia;
 
-use PhpMyAdmin\Core;
-use PhpMyAdmin\ResponseRenderer;
 use XMLWriter;
 
-use function ob_end_clean;
-use function ob_get_clean;
-use function strlen;
+use function is_string;
 
 /**
  * This Class inherits the XMLwriter class and
@@ -33,15 +29,10 @@ class Dia extends XMLWriter
     public function __construct()
     {
         $this->openMemory();
-        /*
-         * Set indenting using three spaces,
-         * so output is formatted
-         */
+        // Set indenting using three spaces, so output is formatted
         $this->setIndent(true);
         $this->setIndentString('   ');
-        /*
-         * Create the XML document
-         */
+        // Create the XML document
         $this->startDocument('1.0', 'UTF-8');
     }
 
@@ -162,26 +153,10 @@ class Dia extends XMLWriter
         $this->endDocument();
     }
 
-    /**
-     * Output Dia Document for download
-     *
-     * @see    XMLWriter::flush()
-     *
-     * @param string $fileName name of the dia document
-     */
-    public function showOutput($fileName): void
+    public function getOutputData(): string
     {
-        if (ob_get_clean()) {
-            ob_end_clean();
-        }
+        $data = $this->flush();
 
-        $output = $this->flush();
-        ResponseRenderer::getInstance()->disable();
-        Core::downloadHeader(
-            $fileName,
-            'application/x-dia-diagram',
-            strlen($output)
-        );
-        print $output;
+        return is_string($data) ? $data : '';
     }
 }

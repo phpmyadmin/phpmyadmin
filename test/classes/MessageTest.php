@@ -352,7 +352,7 @@ class MessageTest extends AbstractTestCase
             ],
             [
                 '[a@https://example.com/@Documentation]link[/a]',
-                '<a href="./url.php?url=https%3A%2F%2Fexample.com%2F" target="Documentation">link</a>',
+                '<a href="index.php?route=/url&url=https%3A%2F%2Fexample.com%2F" target="Documentation">link</a>',
             ],
             [
                 '[a@./non-existing@Documentation]link[/a]',
@@ -360,19 +360,19 @@ class MessageTest extends AbstractTestCase
             ],
             [
                 '[doc@foo]link[/doc]',
-                '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2F'
+                '<a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2F'
                 . 'latest%2Fsetup.html%23foo" '
                 . 'target="documentation">link</a>',
             ],
             [
                 '[doc@page@anchor]link[/doc]',
-                '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2F'
+                '<a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2F'
                 . 'latest%2Fpage.html%23anchor" '
                 . 'target="documentation">link</a>',
             ],
             [
                 '[doc@faqmysql]link[/doc]',
-                '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2F'
+                '<a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2F'
                 . 'latest%2Ffaq.html%23faqmysql" '
                 . 'target="documentation">link</a>',
             ],
@@ -463,7 +463,7 @@ class MessageTest extends AbstractTestCase
     {
         $this->object->setMessage('[kbd]test[/kbd] [doc@cfg_Example]test[/doc]');
         $this->assertEquals(
-            '<kbd>test</kbd> <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.'
+            '<kbd>test</kbd> <a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.'
             . 'net%2Fen%2Flatest%2Fconfig.html%23cfg_Example"'
             . ' target="documentation">test</a>',
             $this->object->getMessage()

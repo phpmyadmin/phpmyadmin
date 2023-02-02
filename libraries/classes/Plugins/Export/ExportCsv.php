@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -22,6 +23,8 @@ use function mb_substr;
 use function preg_replace;
 use function str_replace;
 use function trim;
+
+use const PHP_EOL;
 
 /**
  * Handles the export for the CSV format
@@ -109,19 +112,11 @@ class ExportCsv extends ExportPlugin
         $GLOBALS['csv_enclosed'] = $GLOBALS['csv_enclosed'] ?? null;
         $GLOBALS['csv_escaped'] = $GLOBALS['csv_escaped'] ?? null;
 
-        //Enable columns names by default for CSV
-        if ($GLOBALS['what'] === 'csv') {
-            $GLOBALS['csv_columns'] = 'yes';
-        }
-
         // Here we just prepare some values for export
         if ($GLOBALS['what'] === 'excel') {
             $GLOBALS['csv_terminated'] = "\015\012";
             switch ($GLOBALS['excel_edition']) {
-                case 'win':
-                    // as tested on Windows with Excel 2002 and Excel 2007
-                    $GLOBALS['csv_separator'] = ';';
-                    break;
+                case 'win': // as tested on Windows with Excel 2002 and Excel 2007
                 case 'mac_excel2003':
                     $GLOBALS['csv_separator'] = ';';
                     break;
@@ -133,11 +128,11 @@ class ExportCsv extends ExportPlugin
             $GLOBALS['csv_enclosed'] = '"';
             $GLOBALS['csv_escaped'] = '"';
             if (isset($GLOBALS['excel_columns'])) {
-                $GLOBALS['csv_columns'] = 'yes';
+                $GLOBALS['csv_columns'] = true;
             }
         } else {
             if (empty($GLOBALS['csv_terminated']) || mb_strtolower($GLOBALS['csv_terminated']) === 'auto') {
-                $GLOBALS['csv_terminated'] = $GLOBALS['crlf'];
+                $GLOBALS['csv_terminated'] = PHP_EOL;
             } else {
                 $GLOBALS['csv_terminated'] = str_replace(
                     [
@@ -206,7 +201,6 @@ class ExportCsv extends ExportPlugin
      *
      * @param string $db       database name
      * @param string $table    table name
-     * @param string $crlf     the end of line sequence
      * @param string $errorUrl the url to go back in case of error
      * @param string $sqlQuery SQL query for obtaining data
      * @param array  $aliases  Aliases of db/table/columns
@@ -214,7 +208,6 @@ class ExportCsv extends ExportPlugin
     public function exportData(
         $db,
         $table,
-        $crlf,
         $errorUrl,
         $sqlQuery,
         array $aliases = []
@@ -232,13 +225,13 @@ class ExportCsv extends ExportPlugin
         // Gets the data from the database
         $result = $GLOBALS['dbi']->query(
             $sqlQuery,
-            DatabaseInterface::CONNECT_USER,
+            Connection::TYPE_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
         $fields_cnt = $result->numFields();
 
         // If required, get fields name at the first line
-        if (isset($GLOBALS['csv_columns'])) {
+        if (isset($GLOBALS['csv_columns']) && $GLOBALS['csv_columns']) {
             $schema_insert = '';
             foreach ($result->getFieldNames() as $col_as) {
                 if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
@@ -341,12 +334,16 @@ class ExportCsv extends ExportPlugin
     /**
      * Outputs result of raw query in CSV format
      *
-     * @param string $errorUrl the url to go back in case of error
-     * @param string $sqlQuery the rawquery to output
-     * @param string $crlf     the end of line sequence
+     * @param string      $errorUrl the url to go back in case of error
+     * @param string|null $db       the database where the query is executed
+     * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string $errorUrl, string $sqlQuery, string $crlf): bool
+    public function exportRawQuery(string $errorUrl, ?string $db, string $sqlQuery): bool
     {
-        return $this->exportData('', '', $crlf, $errorUrl, $sqlQuery);
+        if ($db !== null) {
+            $GLOBALS['dbi']->selectDb($db);
+        }
+
+        return $this->exportData($db ?? '', '', $errorUrl, $sqlQuery);
     }
 }

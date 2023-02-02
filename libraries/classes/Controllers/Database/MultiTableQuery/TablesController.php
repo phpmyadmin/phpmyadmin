@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Database\MultiTableQuery;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -23,15 +24,15 @@ final class TablesController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        $params = [
-            'tables' => $_GET['tables'] ?? [],
-            'db' => $_GET['db'] ?? '',
-        ];
+        /** @var string[] $tables */
+        $tables = $request->getQueryParam('tables', []);
+        /** @var string $db */
+        $db = $request->getQueryParam('db', '');
 
         $tablesListForQuery = '';
-        foreach ($params['tables'] as $table) {
+        foreach ($tables as $table) {
             $tablesListForQuery .= "'" . $this->dbi->escapeString($table) . "',";
         }
 
@@ -39,7 +40,7 @@ final class TablesController extends AbstractController
 
         $constrains = $this->dbi->fetchResult(
             QueryGenerator::getInformationSchemaForeignKeyConstraintsRequest(
-                $this->dbi->escapeString($params['db']),
+                $this->dbi->escapeString($db),
                 $tablesListForQuery
             )
         );

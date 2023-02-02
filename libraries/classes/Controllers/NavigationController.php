@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\ResponseRenderer;
@@ -38,7 +39,7 @@ class NavigationController extends AbstractController
         $this->relation = $relation;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         if (! $this->response->isAjax()) {
             $this->response->addHTML(
@@ -50,7 +51,8 @@ class NavigationController extends AbstractController
             return;
         }
 
-        if (isset($_POST['getNaviSettings']) && $_POST['getNaviSettings']) {
+        $getNaviSettings = $request->getParsedBodyParam('getNaviSettings');
+        if ($getNaviSettings !== null && $getNaviSettings) {
             $pageSettings = new PageSettings('Navi', 'pma_navigation_settings');
             $this->response->addHTML($pageSettings->getErrorHTML());
             $this->response->addJSON('message', $pageSettings->getHTML());
@@ -58,43 +60,48 @@ class NavigationController extends AbstractController
             return;
         }
 
-        if (isset($_POST['reload'])) {
+        if ($request->hasBodyParam('reload')) {
             SessionCache::set('dbs_to_test', false);// Empty database list cache, see #14252
         }
 
         $relationParameters = $this->relation->getRelationParameters();
         if ($relationParameters->navigationItemsHidingFeature !== null) {
-            if (isset($_POST['hideNavItem'])) {
-                if (! empty($_POST['itemName']) && ! empty($_POST['itemType']) && ! empty($_POST['dbName'])) {
+            $itemName = $request->getParsedBodyParam('itemName', '');
+            $itemType = $request->getParsedBodyParam('itemType', '');
+            $dbName = $request->getParsedBodyParam('dbName', '');
+            $tableName = $request->getParsedBodyParam('tableName', '');
+
+            if ($request->getParsedBodyParam('hideNavItem') !== null) {
+                if (! empty($itemName) && ! empty($itemType) && ! empty($dbName)) {
                     $this->navigation->hideNavigationItem(
-                        $_POST['itemName'],
-                        $_POST['itemType'],
-                        $_POST['dbName'],
-                        (! empty($_POST['tableName']) ? $_POST['tableName'] : null)
+                        $itemName,
+                        $itemType,
+                        $dbName,
+                        (! empty($tableName) ? $tableName : null)
                     );
                 }
 
                 return;
             }
 
-            if (isset($_POST['unhideNavItem'])) {
-                if (! empty($_POST['itemName']) && ! empty($_POST['itemType']) && ! empty($_POST['dbName'])) {
+            if ($request->hasBodyParam('unhideNavItem')) {
+                if (! empty($itemName) && ! empty($itemType) && ! empty($dbName)) {
                     $this->navigation->unhideNavigationItem(
-                        $_POST['itemName'],
-                        $_POST['itemType'],
-                        $_POST['dbName'],
-                        (! empty($_POST['tableName']) ? $_POST['tableName'] : null)
+                        $itemName,
+                        $itemType,
+                        $dbName,
+                        (! empty($tableName) ? $tableName : null)
                     );
                 }
 
                 return;
             }
 
-            if (isset($_POST['showUnhideDialog'])) {
-                if (! empty($_POST['dbName'])) {
+            if ($request->hasBodyParam('showUnhideDialog')) {
+                if (! empty($dbName)) {
                     $this->response->addJSON(
                         'message',
-                        $this->navigation->getItemUnhideDialog($_POST['dbName'])
+                        $this->navigation->getItemUnhideDialog($dbName)
                     );
                 }
 

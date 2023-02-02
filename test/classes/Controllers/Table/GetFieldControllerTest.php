@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\GetFieldController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -53,7 +54,7 @@ class GetFieldControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface($dummyDbi);
         $GLOBALS['dbi'] = $dbi;
 
-        (new GetFieldController(new ResponseRenderer(), new Template(), $dbi))();
+        (new GetFieldController(new ResponseRenderer(), new Template(), $dbi))($this->createStub(ServerRequest::class));
         $this->expectOutputString('46494c45');
     }
 }

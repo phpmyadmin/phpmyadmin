@@ -1,9 +1,15 @@
 import $ from 'jquery';
-
-/* global Navigation */
+import { AJAX } from '../modules/ajax.js';
+import { Functions } from '../modules/functions.js';
+import { Navigation } from '../modules/navigation.js';
+import { CommonParams } from '../modules/common.js';
+import { ajaxShowMessage } from '../modules/ajax-message.js';
+import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.js';
+import { escapeHtml } from '../modules/functions/escape.js';
+import refreshMainContent from '../modules/functions/refreshMainContent.js';
 
 /**
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const DropDatabases = {
     /**
@@ -21,10 +27,10 @@ const DropDatabases = {
         // loop over all checked checkboxes, except the .checkall_box checkbox
         $form.find('input:checkbox:checked:not(.checkall_box)').each(function () {
             $(this).closest('tr').addClass('removeMe');
-            selectedDbs[selectedDbs.length] = 'DROP DATABASE `' + Functions.escapeHtml($(this).val()) + '`;';
+            selectedDbs[selectedDbs.length] = 'DROP DATABASE `' + escapeHtml($(this).val()) + '`;';
         });
         if (! selectedDbs.length) {
-            Functions.ajaxShowMessage(
+            ajaxShowMessage(
                 $('<div class="alert alert-warning" role="alert"></div>').text(
                     window.Messages.strNoDatabasesSelected
                 ),
@@ -36,7 +42,7 @@ const DropDatabases = {
          * @var question    String containing the question to be asked for confirmation
          */
         var question = window.Messages.strDropDatabaseStrongWarning + ' ' +
-            Functions.sprintf(window.Messages.strDoYouReally, selectedDbs.join('<br>'));
+            window.sprintf(window.Messages.strDoYouReally, selectedDbs.join('<br>'));
 
         const modal = $('#dropDatabaseModal');
         modal.find('.modal-body').html(question);
@@ -45,14 +51,14 @@ const DropDatabases = {
         const url = 'index.php?route=/server/databases/destroy&' + $(this).serialize();
 
         $('#dropDatabaseModalDropButton').on('click', function () {
-            Functions.ajaxShowMessage(window.Messages.strProcessingRequest, false);
+            ajaxShowMessage(window.Messages.strProcessingRequest, false);
 
             var parts = url.split('?');
-            var params = Functions.getJsConfirmCommonParam(this, parts[1]);
+            var params = getJsConfirmCommonParam(this, parts[1]);
 
             $.post(parts[0], params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
-                    Functions.ajaxShowMessage(data.message);
+                    ajaxShowMessage(data.message);
 
                     var $rowsToRemove = $form.find('tr.removeMe');
                     var $databasesCount = $('#filter-rows-count');
@@ -63,12 +69,12 @@ const DropDatabases = {
                     $form.find('tbody').sortTable('.name');
                     if ($form.find('tbody').find('tr').length === 0) {
                         // user just dropped the last db on this page
-                        window.CommonActions.refreshMain();
+                        refreshMainContent();
                     }
                     Navigation.reload();
                 } else {
                     $form.find('tr.removeMe').removeClass('removeMe');
-                    Functions.ajaxShowMessage(data.error, false);
+                    ajaxShowMessage(data.error, false);
                 }
             });
 
@@ -79,7 +85,7 @@ const DropDatabases = {
 };
 
 /**
- * @implements EventListener
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
 const CreateDatabase = {
     /**
@@ -99,12 +105,12 @@ const CreateDatabase = {
         }
         // end remove
 
-        Functions.ajaxShowMessage(window.Messages.strProcessingRequest);
+        ajaxShowMessage(window.Messages.strProcessingRequest);
         Functions.prepareForAjaxRequest($form);
 
         $.post($form.attr('action'), $form.serialize(), function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
-                Functions.ajaxShowMessage(data.message);
+                ajaxShowMessage(data.message);
 
                 var $databasesCountObject = $('#filter-rows-count');
                 var databasesCount = parseInt($databasesCountObject.text(), 10) + 1;
@@ -114,10 +120,10 @@ const CreateDatabase = {
                 // make ajax request to load db structure page - taken from ajax.js
                 var dbStructUrl = data.url;
                 dbStructUrl = dbStructUrl.replace(/amp;/ig, '');
-                var params = 'ajax_request=true' + window.CommonParams.get('arg_separator') + 'ajax_page_request=true';
-                $.get(dbStructUrl, params, window.AJAX.responseHandler);
+                var params = 'ajax_request=true' + CommonParams.get('arg_separator') + 'ajax_page_request=true';
+                $.get(dbStructUrl, params, AJAX.responseHandler);
             } else {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         });
     }
@@ -127,17 +133,20 @@ function checkPrivilegesForDatabase () {
     var tableRows = $('.server_databases');
     $.each(tableRows, function () {
         $(this).on('click', function () {
-            window.CommonActions.setDb($(this).attr('data'));
+            const db = $(this).attr('data');
+            if (db !== CommonParams.get('db')) {
+                Navigation.update(CommonParams.setAll({ 'db': db, 'table': '' }));
+            }
         });
     });
 }
 
-window.AJAX.registerTeardown('server/databases.js', function () {
+AJAX.registerTeardown('server/databases.js', function () {
     $(document).off('submit', '#dbStatsForm');
     $(document).off('submit', '#create_database_form.ajax');
 });
 
-window.AJAX.registerOnload('server/databases.js', function () {
+AJAX.registerOnload('server/databases.js', function () {
     $(document).on('submit', '#dbStatsForm', DropDatabases.handleEvent);
     $(document).on('submit', '#create_database_form.ajax', CreateDatabase.handleEvent);
     checkPrivilegesForDatabase();

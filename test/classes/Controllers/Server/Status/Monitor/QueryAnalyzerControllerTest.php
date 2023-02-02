@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Server\Status\Monitor;
 
 use PhpMyAdmin\Controllers\Server\Status\Monitor\QueryAnalyzerController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Template;
@@ -43,14 +44,17 @@ class QueryAnalyzerControllerTest extends AbstractTestCase
         $dummyDbi = new DbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);
 
-        $controller = new QueryAnalyzerController($response, new Template(), new Data(), new Monitor($dbi), $dbi);
+        $controller = new QueryAnalyzerController($response, new Template(), new Data($dbi), new Monitor($dbi), $dbi);
 
-        $_POST['database'] = 'database';
-        $_POST['query'] = 'query';
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['database', '', 'database'],
+            ['query', '', 'query'],
+        ]);
 
         $dummyDbi->addSelectDb('mysql');
         $dummyDbi->addSelectDb('database');
-        $controller();
+        $controller($request);
         $dummyDbi->assertAllSelectsConsumed();
         $ret = $response->getJSONResult();
 

@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Database\Structure;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -33,17 +34,15 @@ final class AddPrefixTableController extends AbstractController
         $this->structureController = $structureController;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-
-        $selected = $_POST['selected'] ?? [];
+        $selected = $request->getParsedBodyParam('selected', []);
 
         $GLOBALS['sql_query'] = '';
         $selectedCount = count($selected);
 
         for ($i = 0; $i < $selectedCount; $i++) {
-            $newTableName = $_POST['add_prefix'] . $selected[$i];
+            $newTableName = $request->getParsedBodyParam('add_prefix', '') . $selected[$i];
             $aQuery = 'ALTER TABLE ' . Util::backquote($selected[$i])
                 . ' RENAME ' . Util::backquote($newTableName);
 
@@ -54,10 +53,6 @@ final class AddPrefixTableController extends AbstractController
 
         $GLOBALS['message'] = Message::success();
 
-        if (empty($_POST['message'])) {
-            $_POST['message'] = $GLOBALS['message'];
-        }
-
-        ($this->structureController)();
+        ($this->structureController)($request);
     }
 }

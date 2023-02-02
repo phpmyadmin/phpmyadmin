@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Transformation;
 
 use PhpMyAdmin\Controllers\Transformation\OverviewController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -40,7 +41,7 @@ class OverviewControllerTest extends AbstractTestCase
 
         $controller = new OverviewController($response, new Template(), new Transformations());
 
-        $controller();
+        $controller($this->createStub(ServerRequest::class));
         $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString(

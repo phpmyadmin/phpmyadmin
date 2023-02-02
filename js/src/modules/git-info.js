@@ -1,4 +1,6 @@
 import $ from 'jquery';
+import { CommonParams } from './common.js';
+import { escapeHtml } from './functions/escape.js';
 
 const GitInfo = {
     /**
@@ -7,7 +9,7 @@ const GitInfo = {
      * @return {number | false}
      */
     parseVersionString: str => {
-        if (typeof(str) !== 'string') {
+        if (typeof (str) !== 'string') {
             return false;
         }
         let add = 0;
@@ -15,11 +17,11 @@ const GitInfo = {
         const state = str.split('-');
         if (state.length >= 2) {
             if (state[1].startsWith('rc')) {
-                add = - 20 - parseInt(state[1].substring(2), 10);
+                add = -20 - parseInt(state[1].substring(2), 10);
             } else if (state[1].startsWith('beta')) {
-                add =  - 40 - parseInt(state[1].substring(4), 10);
+                add = -40 - parseInt(state[1].substring(4), 10);
             } else if (state[1].startsWith('alpha')) {
-                add =  - 60 - parseInt(state[1].substring(5), 10);
+                add = -60 - parseInt(state[1].substring(5), 10);
             } else if (state[1].startsWith('dev')) {
                 /* We don't handle dev, it's git snapshot */
                 add = 0;
@@ -43,7 +45,7 @@ const GitInfo = {
         if (data && data.version && data.date) {
             const current = GitInfo.parseVersionString($('span.version').text());
             const latest = GitInfo.parseVersionString(data.version);
-            const url = './url.php?url=https://www.phpmyadmin.net/files/' + Functions.escapeHtml(encodeURIComponent(data.version)) + '/';
+            const url = 'index.php?route=/url&url=https://www.phpmyadmin.net/files/' + escapeHtml(encodeURIComponent(data.version)) + '/';
             let versionInformationMessage = document.createElement('span');
             versionInformationMessage.className = 'latest';
             const versionInformationMessageLink = document.createElement('a');
@@ -57,10 +59,10 @@ const GitInfo = {
             versionInformationMessage.appendChild(prefixMessage);
             versionInformationMessage.appendChild(versionInformationMessageLink);
             if (latest > current) {
-                const message = Functions.sprintf(
+                const message = window.sprintf(
                     window.Messages.strNewerVersion,
-                    Functions.escapeHtml(data.version),
-                    Functions.escapeHtml(data.date)
+                    escapeHtml(data.version),
+                    escapeHtml(data.date)
                 );
                 let htmlClass = 'alert alert-primary';
                 if (Math.floor(latest / 10000) === Math.floor(current / 10000)) {
@@ -104,7 +106,7 @@ const GitInfo = {
         $.get(
             'index.php?route=/git-revision',
             {
-                'server': window.CommonParams.get('server'),
+                'server': CommonParams.get('server'),
                 'ajax_request': true,
                 'no_debug': true
             },
@@ -129,7 +131,7 @@ const GitInfo = {
             url: 'index.php?route=/version-check',
             method: 'POST',
             data: {
-                'server': window.CommonParams.get('server')
+                'server': CommonParams.get('server')
             },
             success: GitInfo.currentVersion
         });

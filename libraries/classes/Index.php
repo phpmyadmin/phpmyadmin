@@ -24,7 +24,7 @@ class Index
     /**
      * Class-wide storage container for indexes (caching, singleton)
      *
-     * @var array
+     * @var array<string, array<string, array<string, Index>>>
      */
     private static $registry = [];
 
@@ -40,7 +40,7 @@ class Index
     /**
      * Columns in index
      *
-     * @var array
+     * @var array<string, IndexColumn>
      */
     private $columns = [];
 
@@ -88,14 +88,14 @@ class Index
      *
      * @var int
      */
-    private $keyBlockSize = null;
+    private $keyBlockSize = 0;
 
     /**
      * Parser option for the index
      *
      * @var string
      */
-    private $parser = null;
+    private $parser = '';
 
     /**
      * @param array $params parameters
@@ -106,41 +106,38 @@ class Index
     }
 
     /**
-     * Creates(if not already created) and returns the corresponding Index object
-     *
-     * @param string $schema     database name
-     * @param string $table      table name
-     * @param string $index_name index name
+     * Creates (if not already created) and returns the corresponding Index object
      *
      * @return Index corresponding Index object
      */
-    public static function singleton($schema, $table, $index_name = '')
-    {
-        self::loadIndexes($table, $schema);
-        if (! isset(self::$registry[$schema][$table][$index_name])) {
-            $index = new Index();
-            if (strlen($index_name) > 0) {
-                $index->setName($index_name);
-                self::$registry[$schema][$table][$index->getName()] = $index;
-            }
-
-            return $index;
+    public static function singleton(
+        DatabaseInterface $dbi,
+        string $schema,
+        string $table,
+        string $index_name = ''
+    ): Index {
+        self::loadIndexes($dbi, $table, $schema);
+        if (isset(self::$registry[$schema][$table][$index_name])) {
+            return self::$registry[$schema][$table][$index_name];
         }
 
-        return self::$registry[$schema][$table][$index_name];
+        $index = new Index();
+        if ($index_name !== '') {
+            $index->setName($index_name);
+            self::$registry[$schema][$table][$index->getName()] = $index;
+        }
+
+        return $index;
     }
 
     /**
      * returns an array with all indexes from the given table
      *
-     * @param string $table  table
-     * @param string $schema schema
-     *
-     * @return Index[]  array of indexes
+     * @return Index[]
      */
-    public static function getFromTable($table, $schema)
+    public static function getFromTable(DatabaseInterface $dbi, string $table, string $schema): array
     {
-        self::loadIndexes($table, $schema);
+        self::loadIndexes($dbi, $table, $schema);
 
         if (isset(self::$registry[$schema][$table])) {
             return self::$registry[$schema][$table];
@@ -161,7 +158,7 @@ class Index
     public static function getFromTableByChoice($table, $schema, $choices = 31)
     {
         $indexes = [];
-        foreach (self::getFromTable($table, $schema) as $index) {
+        foreach (self::getFromTable($GLOBALS['dbi'], $table, $schema) as $index) {
             if (($choices & self::PRIMARY) && $index->getChoice() === 'PRIMARY') {
                 $indexes[] = $index;
             }
@@ -188,38 +185,23 @@ class Index
         return $indexes;
     }
 
-    /**
-     * return primary if set, false otherwise
-     *
-     * @param string $table  table
-     * @param string $schema schema
-     *
-     * @return Index|false primary index or false if no one exists
-     */
-    public static function getPrimary($table, $schema)
+    public static function getPrimary(DatabaseInterface $dbi, string $table, string $schema): ?Index
     {
-        self::loadIndexes($table, $schema);
+        self::loadIndexes($dbi, $table, $schema);
 
-        if (isset(self::$registry[$schema][$table]['PRIMARY'])) {
-            return self::$registry[$schema][$table]['PRIMARY'];
-        }
-
-        return false;
+        return self::$registry[$schema][$table]['PRIMARY'] ?? null;
     }
 
     /**
      * Load index data for table
-     *
-     * @param string $table  table
-     * @param string $schema schema
      */
-    private static function loadIndexes($table, $schema): bool
+    private static function loadIndexes(DatabaseInterface $dbi, string $table, string $schema): bool
     {
         if (isset(self::$registry[$schema][$table])) {
             return true;
         }
 
-        $_raw_indexes = $GLOBALS['dbi']->getTableIndexes($schema, $table);
+        $_raw_indexes = $dbi->getTableIndexes($schema, $table);
         foreach ($_raw_indexes as $_each_index) {
             $_each_index['Schema'] = $schema;
             $keyName = $_each_index['Key_name'];
@@ -239,7 +221,7 @@ class Index
     /**
      * Add column to index
      *
-     * @param array $params column params
+     * @param array<string, string|null> $params column params
      */
     public function addColumn(array $params): void
     {
@@ -359,7 +341,7 @@ class Index
         }
 
         if (isset($params['Key_block_size'])) {
-            $this->keyBlockSize = $params['Key_block_size'];
+            $this->keyBlockSize = (int) $params['Key_block_size'];
         }
 
         if (! isset($params['Parser'])) {
@@ -401,10 +383,8 @@ class Index
 
     /**
      * Return the key block size
-     *
-     * @return int
      */
-    public function getKeyBlockSize()
+    public function getKeyBlockSize(): int
     {
         return $this->keyBlockSize;
     }
@@ -471,7 +451,7 @@ class Index
 
     public function hasPrimary(): bool
     {
-        return (bool) self::getPrimary($this->table, $this->schema);
+        return self::getPrimary($GLOBALS['dbi'], $this->table, $this->schema) !== null;
     }
 
     /**
@@ -556,7 +536,7 @@ class Index
     /**
      * Returns the columns of the index
      *
-     * @return IndexColumn[] the columns of the index
+     * @return array<string, IndexColumn>
      */
     public function getColumns()
     {
@@ -566,9 +546,20 @@ class Index
     /**
      * Gets the properties in an array for comparison purposes
      *
-     * @return array an array containing the properties of the index
+     * @return array<string, array<int, array<string, int|string|null>>|string|null>
+     * @psalm-return array{
+     *   Packed: string|null,
+     *   Index_choice: string,
+     *   columns?: list<array{
+     *     Column_name: string,
+     *     Seq_in_index: int,
+     *     Collation: string|null,
+     *     Sub_part: int|null,
+     *     Null: string
+     *   }>
+     * }
      */
-    public function getCompareData()
+    public function getCompareData(): array
     {
         $data = [
             'Packed' => $this->packed,
@@ -592,7 +583,7 @@ class Index
      */
     public static function findDuplicates($table, $schema)
     {
-        $indexes = self::getFromTable($table, $schema);
+        $indexes = self::getFromTable($GLOBALS['dbi'], $table, $schema);
 
         $output = '';
 

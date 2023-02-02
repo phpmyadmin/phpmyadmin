@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Sql;
 
 use PhpMyAdmin\Controllers\Sql\EnumValuesController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 
@@ -38,21 +39,22 @@ class EnumValuesControllerTest extends AbstractTestCase
     {
         $this->dummyDbi->addResult('SHOW COLUMNS FROM `cvv`.`enums` LIKE \'set\'', false);
 
-        $_POST = [
-            'ajax_request' => true,
-            'db' => 'cvv',
-            'table' => 'enums',
-            'column' => 'set',
-            'curr_value' => 'b&c',
-        ];
-        $GLOBALS['db'] = $_POST['db'];
-        $GLOBALS['table'] = $_POST['table'];
+        $GLOBALS['db'] = 'cvv';
+        $GLOBALS['table'] = 'enums';
+
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['db', null, 'cvv'],
+            ['table', null, 'enums'],
+            ['column', null, 'set'],
+            ['curr_value', null, 'b&c'],
+        ]);
 
         $GLOBALS['containerBuilder']->setParameter('db', $GLOBALS['db']);
         $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
         /** @var EnumValuesController $sqlController */
         $sqlController = $GLOBALS['containerBuilder']->get(EnumValuesController::class);
-        $sqlController();
+        $sqlController($request);
 
         $this->assertResponseWasNotSuccessfull();
 
@@ -86,21 +88,22 @@ class EnumValuesControllerTest extends AbstractTestCase
             ]
         );
 
-        $_POST = [
-            'ajax_request' => true,
-            'db' => 'cvv',
-            'table' => 'enums',
-            'column' => 'set',
-            'curr_value' => 'b&c',
-        ];
-        $GLOBALS['db'] = $_POST['db'];
-        $GLOBALS['table'] = $_POST['table'];
+        $GLOBALS['db'] = 'cvv';
+        $GLOBALS['table'] = 'enums';
+
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['db', null, 'cvv'],
+            ['table', null, 'enums'],
+            ['column', null, 'set'],
+            ['curr_value', null, 'b&c'],
+        ]);
 
         $GLOBALS['containerBuilder']->setParameter('db', $GLOBALS['db']);
         $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
         /** @var EnumValuesController $sqlController */
         $sqlController = $GLOBALS['containerBuilder']->get(EnumValuesController::class);
-        $sqlController();
+        $sqlController($request);
 
         $this->assertResponseWasSuccessfull();
 

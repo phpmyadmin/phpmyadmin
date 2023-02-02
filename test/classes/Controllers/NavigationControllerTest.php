@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers;
 
 use PhpMyAdmin\Controllers\NavigationController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 
@@ -103,25 +104,24 @@ class NavigationControllerTest extends AbstractTestCase
             [[0]]
         );
 
-        $this->dummyDbi->addResult(
-            'SELECT @@lower_case_table_names',
-            []
-        );
+        $this->dummyDbi->addResult('SELECT @@lower_case_table_names', [['0']]);
 
         $this->dummyDbi->addResult(
             'SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE '
-            . '`ROUTINE_SCHEMA` =\'air-balloon_burner_dev2\' AND `ROUTINE_TYPE`=\'FUNCTION\'',
+            . '`ROUTINE_SCHEMA` COLLATE utf8_bin=\'air-balloon_burner_dev2\' AND `ROUTINE_TYPE`=\'FUNCTION\'',
             [[0]]
         );
 
         $this->dummyDbi->addResult(
-            'SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE `ROUTINE_SCHEMA` =\'air-balloon_burner_dev2\''
+            'SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`ROUTINES`'
+            . ' WHERE `ROUTINE_SCHEMA` COLLATE utf8_bin=\'air-balloon_burner_dev2\''
             . 'AND `ROUTINE_TYPE`=\'PROCEDURE\'',
             [[0]]
         );
 
         $this->dummyDbi->addResult(
-            'SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE `EVENT_SCHEMA` =\'air-balloon_burner_dev2\'',
+            'SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`EVENTS`'
+            . ' WHERE `EVENT_SCHEMA` COLLATE utf8_bin=\'air-balloon_burner_dev2\'',
             [[0]]
         );
 
@@ -129,7 +129,7 @@ class NavigationControllerTest extends AbstractTestCase
         $navigationController = $GLOBALS['containerBuilder']->get(NavigationController::class);
         $_POST['full'] = '1';
         $this->setResponseIsAjax();
-        $navigationController();
+        $navigationController($this->createStub(ServerRequest::class));
         $this->assertResponseWasSuccessfull();
 
         $responseMessage = $this->getResponseJsonResult()['message'];
@@ -257,25 +257,23 @@ class NavigationControllerTest extends AbstractTestCase
             [[0]]
         );
 
-        $this->dummyDbi->addResult(
-            'SELECT @@lower_case_table_names',
-            []
-        );
+        $this->dummyDbi->addResult('SELECT @@lower_case_table_names', [['0']]);
 
         $this->dummyDbi->addResult(
             'SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE '
-            . '`ROUTINE_SCHEMA` =\'air-balloon_burner_dev2\' AND `ROUTINE_TYPE`=\'FUNCTION\'',
+            . '`ROUTINE_SCHEMA` COLLATE utf8_bin=\'air-balloon_burner_dev2\' AND `ROUTINE_TYPE`=\'FUNCTION\'',
             [[0]]
         );
 
         $this->dummyDbi->addResult(
-            'SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE `EVENT_SCHEMA` =\'air-balloon_burner_dev2\'',
+            'SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE'
+            . ' `EVENT_SCHEMA` COLLATE utf8_bin=\'air-balloon_burner_dev2\'',
             [[0]]
         );
 
         $this->dummyDbi->addResult(
             'SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE '
-            . '`ROUTINE_SCHEMA` =\'air-balloon_burner_dev2\'AND `ROUTINE_TYPE`=\'PROCEDURE\'',
+            . '`ROUTINE_SCHEMA` COLLATE utf8_bin=\'air-balloon_burner_dev2\'AND `ROUTINE_TYPE`=\'PROCEDURE\'',
             [[0]]
         );
 
@@ -283,15 +281,14 @@ class NavigationControllerTest extends AbstractTestCase
         $navigationController = $GLOBALS['containerBuilder']->get(NavigationController::class);
         $_POST['full'] = '1';
         $this->setResponseIsAjax();
-        $navigationController();
+        $navigationController($this->createStub(ServerRequest::class));
         $this->assertResponseWasSuccessfull();
 
         $responseMessage = $this->getResponseJsonResult()['message'];
 
         $this->assertStringContainsString('<div id=\'pma_navigation_tree_content\'>', $responseMessage);
 
-        $dbTemplate =
-            '  <li class="database database">' . "\n"
+        $dbTemplate = '  <li class="database database">' . "\n"
             . '    <div class="block">' . "\n"
             . '      <i></i>' . "\n"
             . '              <b></b>' . "\n"
@@ -320,8 +317,7 @@ class NavigationControllerTest extends AbstractTestCase
             . "\n"
             . '  </li>';
 
-        $dbTemplateLast =
-            '  <li class="database last database">' . "\n"// "last" class added
+        $dbTemplateLast = '  <li class="database last database">' . "\n"// "last" class added
             . '    <div class="block">' . "\n"
             . '      <i></i>' . "\n"
             . '              ' . "\n"// <b> node is removed
@@ -349,8 +345,7 @@ class NavigationControllerTest extends AbstractTestCase
             . "\n"
             . "\n"
             . '  </li>';
-        $dbTemplateExpanded =
-            '  <li class="database database">' . "\n"
+        $dbTemplateExpanded = '  <li class="database database">' . "\n"
             . '    <div class="block">' . "\n"
             . '      <i></i>' . "\n"
             . '              <b></b>' . "\n"

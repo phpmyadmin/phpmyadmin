@@ -38,7 +38,7 @@ final class RebuildController extends AbstractController
         $partitionName = $request->getParsedBodyParam('partition_name');
 
         try {
-            Assert::stringNotEmpty($partitionName);
+            Assert::stringNotEmpty($partitionName, __('The partition name must be a non-empty string.'));
             $database = DatabaseName::fromValue($request->getParam('db'));
             $table = TableName::fromValue($request->getParam('table'));
         } catch (InvalidIdentifierName | InvalidArgumentException $exception) {

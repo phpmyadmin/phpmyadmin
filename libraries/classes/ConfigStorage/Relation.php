@@ -6,6 +6,7 @@ namespace PhpMyAdmin\ConfigStorage;
 
 use PhpMyAdmin\ConfigStorage\Features\PdfFeature;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\InternalRelations;
@@ -268,7 +269,7 @@ class Relation
         if (
             $GLOBALS['server'] == 0
             || empty($GLOBALS['cfg']['Server']['pmadb'])
-            || ! $this->dbi->selectDb($GLOBALS['cfg']['Server']['pmadb'], DatabaseInterface::CONNECT_CONTROL)
+            || ! $this->dbi->selectDb($GLOBALS['cfg']['Server']['pmadb'], Connection::TYPE_CONTROL)
         ) {
             // No server selected -> no bookmark table
             // we return the array with the falses in it,
@@ -387,16 +388,16 @@ class Relation
                 ],
                 (string) $query
             );
-            $this->dbi->tryMultiQuery($query, DatabaseInterface::CONNECT_CONTROL);
+            $this->dbi->tryMultiQuery($query, Connection::TYPE_CONTROL);
             // skips result sets of query as we are not interested in it
             do {
                 $hasResult = (
-                    $this->dbi->moreResults(DatabaseInterface::CONNECT_CONTROL)
-                    && $this->dbi->nextResult(DatabaseInterface::CONNECT_CONTROL)
+                    $this->dbi->moreResults(Connection::TYPE_CONTROL)
+                    && $this->dbi->nextResult(Connection::TYPE_CONTROL)
                 );
             } while ($hasResult);
 
-            $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+            $error = $this->dbi->getError(Connection::TYPE_CONTROL);
 
             // return true if no error exists otherwise false
             return empty($error);
@@ -428,18 +429,17 @@ class Relation
                 . '`foreign_table`, `foreign_field`'
                 . ' FROM ' . Util::backquote($relationFeature->database)
                 . '.' . Util::backquote($relationFeature->relation)
-                . ' WHERE `master_db` = \'' . $this->dbi->escapeString($db) . '\''
-                . ' AND `master_table` = \'' . $this->dbi->escapeString($table) . '\'';
+                . ' WHERE `master_db` = ' . $this->dbi->quoteString($db)
+                . ' AND `master_table` = ' . $this->dbi->quoteString($table);
             if (strlen($column) > 0) {
-                $rel_query .= ' AND `master_field` = '
-                    . '\'' . $this->dbi->escapeString($column) . '\'';
+                $rel_query .= ' AND `master_field` = ' . $this->dbi->quoteString($column);
             }
 
-            $foreign = $this->dbi->fetchResult($rel_query, 'master_field', null, DatabaseInterface::CONNECT_CONTROL);
+            $foreign = $this->dbi->fetchResult($rel_query, 'master_field', null, Connection::TYPE_CONTROL);
         }
 
         if (($source === 'both' || $source === 'foreign') && strlen($table) > 0) {
-            $tableObj = new Table($table, $db);
+            $tableObj = new Table($table, $db, $this->dbi);
             $show_create_table = $tableObj->showCreate();
             if ($show_create_table) {
                 $parser = new Parser($show_create_table);
@@ -500,13 +500,13 @@ class Relation
             $disp_query = 'SELECT `display_field`'
                     . ' FROM ' . Util::backquote($displayFeature->database)
                     . '.' . Util::backquote($displayFeature->tableInfo)
-                    . ' WHERE `db_name` = \'' . $this->dbi->escapeString((string) $db) . '\''
-                    . ' AND `table_name` = \'' . $this->dbi->escapeString((string) $table) . '\'';
+                    . ' WHERE `db_name` = ' . $this->dbi->quoteString((string) $db)
+                    . ' AND `table_name` = ' . $this->dbi->quoteString((string) $table);
 
             $row = $this->dbi->fetchSingleRow(
                 $disp_query,
                 DatabaseInterface::FETCH_ASSOC,
-                DatabaseInterface::CONNECT_CONTROL
+                Connection::TYPE_CONTROL
             );
             if (isset($row['display_field'])) {
                 return $row['display_field'];
@@ -581,7 +581,7 @@ class Relation
             $com_qry = 'SELECT `comment`'
                     . ' FROM ' . Util::backquote($columnCommentsFeature->database)
                     . '.' . Util::backquote($columnCommentsFeature->columnInfo)
-                    . ' WHERE db_name = \'' . $this->dbi->escapeString($db) . '\''
+                    . ' WHERE db_name = ' . $this->dbi->quoteString($db)
                     . ' AND table_name  = \'\''
                     . ' AND column_name = \'(db_comment)\'';
             $com_rs = $this->dbi->tryQueryAsControlUser($com_qry);
@@ -639,19 +639,19 @@ class Relation
                 . Util::backquote($columnCommentsFeature->database) . '.'
                 . Util::backquote($columnCommentsFeature->columnInfo)
                 . ' (`db_name`, `table_name`, `column_name`, `comment`)'
-                . ' VALUES (\''
-                . $this->dbi->escapeString($db)
-                . "', '', '(db_comment)', '"
-                . $this->dbi->escapeString($comment)
-                . "') "
+                . ' VALUES ('
+                . $this->dbi->quoteString($db)
+                . ", '', '(db_comment)', "
+                . $this->dbi->quoteString($comment)
+                . ') '
                 . ' ON DUPLICATE KEY UPDATE '
-                . "`comment` = '" . $this->dbi->escapeString($comment) . "'";
+                . '`comment` = ' . $this->dbi->quoteString($comment);
         } else {
             $upd_query = 'DELETE FROM '
                 . Util::backquote($columnCommentsFeature->database) . '.'
                 . Util::backquote($columnCommentsFeature->columnInfo)
-                . ' WHERE `db_name`     = \'' . $this->dbi->escapeString($db)
-                . '\'
+                . ' WHERE `db_name`     = ' . $this->dbi->quoteString($db)
+                . '
                     AND `table_name`  = \'\'
                     AND `column_name` = \'(db_comment)\'';
         }
@@ -706,11 +706,11 @@ class Relation
                     `timevalue`,
                     `sqlquery`)
             VALUES
-                  (\'' . $this->dbi->escapeString($username) . '\',
-                   \'' . $this->dbi->escapeString($db) . '\',
-                   \'' . $this->dbi->escapeString($table) . '\',
+                  (' . $this->dbi->quoteString($username) . ',
+                   ' . $this->dbi->quoteString($db) . ',
+                   ' . $this->dbi->quoteString($table) . ',
                    NOW(),
-                   \'' . $this->dbi->escapeString($sqlquery) . '\')'
+                   ' . $this->dbi->quoteString($sqlquery) . ')'
         );
 
         $this->purgeHistory($username);
@@ -749,10 +749,10 @@ class Relation
                     `timevalue`
                FROM ' . Util::backquote($sqlHistoryFeature->database)
                 . '.' . Util::backquote($sqlHistoryFeature->history) . '
-              WHERE `username` = \'' . $this->dbi->escapeString($username) . '\'
+              WHERE `username` = ' . $this->dbi->quoteString($username) . '
            ORDER BY `id` DESC';
 
-        return $this->dbi->fetchResult($hist_query, null, null, DatabaseInterface::CONNECT_CONTROL);
+        return $this->dbi->fetchResult($hist_query, null, null, Connection::TYPE_CONTROL);
     }
 
     /**
@@ -774,11 +774,11 @@ class Relation
             SELECT `timevalue`
             FROM ' . Util::backquote($sqlHistoryFeature->database)
                 . '.' . Util::backquote($sqlHistoryFeature->history) . '
-            WHERE `username` = \'' . $this->dbi->escapeString($username) . '\'
+            WHERE `username` = ' . $this->dbi->quoteString($username) . '
             ORDER BY `timevalue` DESC
             LIMIT ' . $GLOBALS['cfg']['QueryHistoryMax'] . ', 1';
 
-        $max_time = $this->dbi->fetchValue($search_query, 0, DatabaseInterface::CONNECT_CONTROL);
+        $max_time = $this->dbi->fetchValue($search_query, 0, Connection::TYPE_CONTROL);
 
         if (! $max_time) {
             return;
@@ -788,8 +788,8 @@ class Relation
             'DELETE FROM '
             . Util::backquote($sqlHistoryFeature->database) . '.'
             . Util::backquote($sqlHistoryFeature->history) . '
-              WHERE `username` = \'' . $this->dbi->escapeString($username)
-            . '\'
+              WHERE `username` = ' . $this->dbi->quoteString($username)
+            . '
                 AND `timevalue` <= \'' . $max_time . '\''
         );
     }
@@ -1067,7 +1067,7 @@ class Relation
                     . Util::backquote($foreign_table) . '.'
                     . Util::backquote($foreign_display);
 
-                $f_query_limit = $foreign_limit ?: '';
+                $f_query_limit = $foreign_limit !== '' ? $foreign_limit : '';
 
                 if ($foreign_filter !== '') {
                     $the_total = $this->dbi->fetchValue('SELECT COUNT(*)' . $f_query_from . $f_query_filter);
@@ -1107,7 +1107,7 @@ class Relation
         return [
             'foreign_link' => $foreign_link,
             'the_total' => $the_total,
-            'foreign_display' => $foreign_display ?: '',
+            'foreign_display' => is_string($foreign_display) ? $foreign_display : '',
             'disp_row' => $disp_row,
             'foreign_field' => $foreign_field,
         ];
@@ -1131,13 +1131,10 @@ class Relation
             $table_query = 'UPDATE '
                 . Util::backquote($relationParameters->displayFeature->database) . '.'
                 . Util::backquote($relationParameters->displayFeature->tableInfo)
-                . '   SET display_field = \'' . $this->dbi->escapeString($new_name) . '\''
-                . ' WHERE db_name       = \'' . $this->dbi->escapeString($db)
-                . '\''
-                . '   AND table_name    = \'' . $this->dbi->escapeString($table)
-                . '\''
-                . '   AND display_field = \'' . $this->dbi->escapeString($field)
-                . '\'';
+                . '   SET display_field = ' . $this->dbi->quoteString($new_name)
+                . ' WHERE db_name       = ' . $this->dbi->quoteString($db)
+                . '   AND table_name    = ' . $this->dbi->quoteString($table)
+                . '   AND display_field = ' . $this->dbi->quoteString($field);
             $this->dbi->queryAsControlUser($table_query);
         }
 
@@ -1148,25 +1145,19 @@ class Relation
         $table_query = 'UPDATE '
             . Util::backquote($relationParameters->relationFeature->database) . '.'
             . Util::backquote($relationParameters->relationFeature->relation)
-            . '   SET master_field = \'' . $this->dbi->escapeString($new_name) . '\''
-            . ' WHERE master_db    = \'' . $this->dbi->escapeString($db)
-            . '\''
-            . '   AND master_table = \'' . $this->dbi->escapeString($table)
-            . '\''
-            . '   AND master_field = \'' . $this->dbi->escapeString($field)
-            . '\'';
+            . '   SET master_field = ' . $this->dbi->quoteString($new_name)
+            . ' WHERE master_db    = ' . $this->dbi->quoteString($db)
+            . '   AND master_table = ' . $this->dbi->quoteString($table)
+            . '   AND master_field = ' . $this->dbi->quoteString($field);
         $this->dbi->queryAsControlUser($table_query);
 
         $table_query = 'UPDATE '
             . Util::backquote($relationParameters->relationFeature->database) . '.'
             . Util::backquote($relationParameters->relationFeature->relation)
-            . '   SET foreign_field = \'' . $this->dbi->escapeString($new_name) . '\''
-            . ' WHERE foreign_db    = \'' . $this->dbi->escapeString($db)
-            . '\''
-            . '   AND foreign_table = \'' . $this->dbi->escapeString($table)
-            . '\''
-            . '   AND foreign_field = \'' . $this->dbi->escapeString($field)
-            . '\'';
+            . '   SET foreign_field = ' . $this->dbi->quoteString($new_name)
+            . ' WHERE foreign_db    = ' . $this->dbi->quoteString($db)
+            . '   AND foreign_table = ' . $this->dbi->quoteString($table)
+            . '   AND foreign_field = ' . $this->dbi->quoteString($field);
         $this->dbi->queryAsControlUser($table_query);
     }
 
@@ -1194,15 +1185,13 @@ class Relation
             . Util::backquote($configStorageDatabase) . '.'
             . Util::backquote($configStorageTable)
             . ' SET '
-            . $db_field . ' = \'' . $this->dbi->escapeString($target_db)
-            . '\', '
-            . $table_field . ' = \'' . $this->dbi->escapeString($target_table)
-            . '\''
+            . $db_field . ' = ' . $this->dbi->quoteString($target_db)
+            . ', '
+            . $table_field . ' = ' . $this->dbi->quoteString($target_table)
             . ' WHERE '
-            . $db_field . '  = \'' . $this->dbi->escapeString($source_db) . '\''
+            . $db_field . '  = ' . $this->dbi->quoteString($source_db)
             . ' AND '
-            . $table_field . ' = \'' . $this->dbi->escapeString($source_table)
-            . '\'';
+            . $table_field . ' = ' . $this->dbi->quoteString($source_table);
         $this->dbi->queryAsControlUser($query);
     }
 
@@ -1293,9 +1282,8 @@ class Relation
                 $remove_query = 'DELETE FROM '
                     . Util::backquote($relationParameters->pdfFeature->database) . '.'
                     . Util::backquote($relationParameters->pdfFeature->tableCoords)
-                    . " WHERE db_name  = '" . $this->dbi->escapeString($source_db) . "'"
-                    . " AND table_name = '" . $this->dbi->escapeString($source_table)
-                    . "'";
+                    . ' WHERE db_name  = ' . $this->dbi->quoteString($source_db)
+                    . ' AND table_name = ' . $this->dbi->quoteString($source_table);
                 $this->dbi->queryAsControlUser($remove_query);
             }
         }
@@ -1333,14 +1321,11 @@ class Relation
         $query = 'UPDATE '
             . Util::backquote($relationParameters->navigationItemsHidingFeature->database) . '.'
             . Util::backquote($relationParameters->navigationItemsHidingFeature->navigationHiding)
-            . " SET db_name = '" . $this->dbi->escapeString($target_db)
-            . "',"
-            . " item_name = '" . $this->dbi->escapeString($target_table)
-            . "'"
-            . " WHERE db_name  = '" . $this->dbi->escapeString($source_db)
-            . "'"
-            . " AND item_name = '" . $this->dbi->escapeString($source_table)
-            . "'"
+            . ' SET db_name = ' . $this->dbi->quoteString($target_db)
+            . ','
+            . ' item_name = ' . $this->dbi->quoteString($target_table)
+            . ' WHERE db_name  = ' . $this->dbi->quoteString($source_db)
+            . ' AND item_name = ' . $this->dbi->quoteString($source_table)
             . " AND item_type = 'table'";
         $this->dbi->queryAsControlUser($query);
     }
@@ -1357,12 +1342,12 @@ class Relation
             . Util::backquote($pdfFeature->database) . '.'
             . Util::backquote($pdfFeature->pdfPages)
             . ' (db_name, page_descr)'
-            . ' VALUES (\''
-            . $this->dbi->escapeString($db) . '\', \''
-            . $this->dbi->escapeString($newpage ?: __('no description')) . '\')';
+            . ' VALUES ('
+            . $this->dbi->quoteString($db) . ', '
+            . $this->dbi->quoteString($newpage ?: __('no description')) . ')';
         $this->dbi->tryQueryAsControlUser($ins_query);
 
-        return $this->dbi->insertId(DatabaseInterface::CONNECT_CONTROL);
+        return $this->dbi->insertId(Connection::TYPE_CONTROL);
     }
 
     /**
@@ -1379,13 +1364,13 @@ class Relation
             $rel_query = 'SELECT `column_name`, `table_name`,'
                 . ' `table_schema`, `referenced_column_name`'
                 . ' FROM `information_schema`.`key_column_usage`'
-                . " WHERE `referenced_table_name` = '"
-                . $this->dbi->escapeString($table) . "'"
-                . " AND `referenced_table_schema` = '"
-                . $this->dbi->escapeString($db) . "'";
+                . ' WHERE `referenced_table_name` = '
+                . $this->dbi->quoteString($table)
+                . ' AND `referenced_table_schema` = '
+                . $this->dbi->quoteString($db);
             if ($column) {
-                $rel_query .= " AND `referenced_column_name` = '"
-                    . $this->dbi->escapeString($column) . "'";
+                $rel_query .= ' AND `referenced_column_name` = '
+                    . $this->dbi->quoteString($column);
             }
 
             return $this->dbi->fetchResult(
@@ -1542,10 +1527,10 @@ class Relation
     {
         $this->dbi->tryQuery(
             'CREATE DATABASE IF NOT EXISTS ' . Util::backquote($configurationStorageDbName),
-            DatabaseInterface::CONNECT_CONTROL
+            Connection::TYPE_CONTROL
         );
 
-        $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+        $error = $this->dbi->getError(Connection::TYPE_CONTROL);
         if (! $error) {
             // Re-build the cache to show the list of tables created or not
             // This is the case when the DB could be created but no tables just after
@@ -1602,7 +1587,7 @@ class Relation
             'pma__export_templates' => 'export_templates',
         ];
 
-        $existingTables = $this->dbi->getTables($db, DatabaseInterface::CONNECT_CONTROL);
+        $existingTables = $this->dbi->getTables($db, Connection::TYPE_CONTROL);
 
         /** @var array<string, string> $tableNameReplacements */
         $tableNameReplacements = [];
@@ -1633,16 +1618,16 @@ class Relation
                 if ($create) {
                     if ($createQueries == null) { // first create
                         $createQueries = $this->getDefaultPmaTableNames($tableNameReplacements);
-                        if (! $this->dbi->selectDb($db, DatabaseInterface::CONNECT_CONTROL)) {
-                            $GLOBALS['message'] = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+                        if (! $this->dbi->selectDb($db, Connection::TYPE_CONTROL)) {
+                            $GLOBALS['message'] = $this->dbi->getError(Connection::TYPE_CONTROL);
 
                             return;
                         }
                     }
 
-                    $this->dbi->tryQuery($createQueries[$table], DatabaseInterface::CONNECT_CONTROL);
+                    $this->dbi->tryQuery($createQueries[$table], Connection::TYPE_CONTROL);
 
-                    $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+                    $error = $this->dbi->getError(Connection::TYPE_CONTROL);
                     if ($error) {
                         $GLOBALS['message'] = $error;
 

@@ -26,7 +26,7 @@
     {% if type == 'text' %}
       <input type="text" name="{{ path }}" id="{{ path }}" value="{{ value }}" class="w-75{{ not value_is_default ? (has_errors ? ' custom field-error' : ' custom') }}">
     {% elseif type == 'password' %}
-      <input type="password" name="{{ path }}" id="{{ path }}" value="{{ value }}" class="w-75{{ not value_is_default ? (has_errors ? ' custom field-error' : ' custom') }}">
+      <input type="password" name="{{ path }}" id="{{ path }}" value="{{ value }}" class="w-75{{ not value_is_default ? (has_errors ? ' custom field-error' : ' custom') }}" spellcheck="false">
     {% elseif type == 'short_text' and value is not iterable %}
       {# https://github.com/phpmyadmin/phpmyadmin/issues/11505 #}
       <input type="text" size="25" name="{{ path }}" id="{{ path }}" value="{{ value }}" class="{{ not value_is_default ? (has_errors ? 'custom field-error' : 'custom') }}">

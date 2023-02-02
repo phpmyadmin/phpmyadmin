@@ -6,12 +6,14 @@ namespace PhpMyAdmin\Tests\Dbal;
 
 use mysqli;
 use mysqli_result;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\DbiMysqli;
 use PhpMyAdmin\Dbal\MysqliResult;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * @covers \PhpMyAdmin\Dbal\DbiMysqli
+ * @covers \PhpMyAdmin\Dbal\Connection
  */
 class DbiMysqliTest extends AbstractTestCase
 {
@@ -45,7 +47,7 @@ class DbiMysqliTest extends AbstractTestCase
             ->with($this->equalTo($databaseName))
             ->willReturn(true);
 
-        $this->assertTrue($this->object->selectDb($databaseName, $mysqli));
+        $this->assertTrue($this->object->selectDb($databaseName, new Connection($mysqli)));
     }
 
     /**
@@ -60,7 +62,7 @@ class DbiMysqliTest extends AbstractTestCase
             ->with($this->equalTo($query))
             ->willReturn(true);
 
-        $this->assertTrue($this->object->realMultiQuery($mysqli, $query));
+        $this->assertTrue($this->object->realMultiQuery(new Connection($mysqli), $query));
     }
 
     /**
@@ -76,7 +78,7 @@ class DbiMysqliTest extends AbstractTestCase
             ->with($this->equalTo($query))
             ->willReturn($mysqliResult);
 
-        $this->assertInstanceOf(MysqliResult::class, $this->object->realQuery($query, $mysqli, 0));
+        $this->assertInstanceOf(MysqliResult::class, $this->object->realQuery($query, new Connection($mysqli), 0));
     }
 
     /**
@@ -89,7 +91,7 @@ class DbiMysqliTest extends AbstractTestCase
             ->method('more_results')
             ->willReturn(true);
 
-        $this->assertTrue($this->object->moreResults($mysqli));
+        $this->assertTrue($this->object->moreResults(new Connection($mysqli)));
     }
 
     /**
@@ -102,7 +104,7 @@ class DbiMysqliTest extends AbstractTestCase
             ->method('next_result')
             ->willReturn(true);
 
-        $this->assertTrue($this->object->nextResult($mysqli));
+        $this->assertTrue($this->object->nextResult(new Connection($mysqli)));
     }
 
     /**
@@ -116,7 +118,7 @@ class DbiMysqliTest extends AbstractTestCase
             ->method('store_result')
             ->willReturn($mysqliResult);
 
-        $this->assertInstanceOf(MysqliResult::class, $this->object->storeResult($mysqli));
+        $this->assertInstanceOf(MysqliResult::class, $this->object->storeResult(new Connection($mysqli)));
     }
 
     /**
@@ -130,6 +132,12 @@ class DbiMysqliTest extends AbstractTestCase
             ->method('real_escape_string')
             ->willReturn($string);
 
-        $this->assertEquals($string, $this->object->escapeString($mysqli, $string));
+        $this->assertEquals($string, $this->object->escapeString(new Connection($mysqli), $string));
+    }
+
+    public function testGetWarningCount(): void
+    {
+        $mysqli = (object) ['warning_count' => 30];
+        $this->assertSame(30, $this->object->getWarningCount(new Connection($mysqli)));
     }
 }

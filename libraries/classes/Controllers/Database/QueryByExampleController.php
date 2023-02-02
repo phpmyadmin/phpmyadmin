@@ -9,6 +9,9 @@ use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Database\Qbe;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Exceptions\SavedSearchesException;
+use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SavedSearches;
@@ -39,19 +42,12 @@ class QueryByExampleController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['savedSearchList'] = $GLOBALS['savedSearchList'] ?? null;
         $GLOBALS['savedSearch'] = $GLOBALS['savedSearch'] ?? null;
         $GLOBALS['currentSearchId'] = $GLOBALS['currentSearchId'] ?? null;
         $GLOBALS['goto'] = $GLOBALS['goto'] ?? null;
-        $GLOBALS['sub_part'] = $GLOBALS['sub_part'] ?? null;
-        $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
-        $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
-        $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
-        $GLOBALS['tooltip_truename'] = $GLOBALS['tooltip_truename'] ?? null;
-        $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
-        $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
@@ -75,14 +71,39 @@ class QueryByExampleController extends AbstractController
             if (isset($_POST['action'])) {
                 $GLOBALS['savedSearch']->setSearchName($_POST['searchName']);
                 if ($_POST['action'] === 'create') {
-                    $GLOBALS['savedSearch']->setId(null)
-                        ->setCriterias($_POST)
-                        ->save($savedQbeSearchesFeature);
+                    try {
+                        $GLOBALS['savedSearch']->setId(null)
+                            ->setCriterias($_POST)
+                            ->save($savedQbeSearchesFeature);
+                    } catch (SavedSearchesException $exception) {
+                        $this->response->setRequestStatus(false);
+                        $this->response->addJSON('fieldWithError', 'searchName');
+                        $this->response->addJSON('message', Message::error($exception->getMessage())->getDisplay());
+
+                        return;
+                    }
                 } elseif ($_POST['action'] === 'update') {
-                    $GLOBALS['savedSearch']->setCriterias($_POST)
-                        ->save($savedQbeSearchesFeature);
+                    try {
+                        $GLOBALS['savedSearch']->setCriterias($_POST)
+                            ->save($savedQbeSearchesFeature);
+                    } catch (SavedSearchesException $exception) {
+                        $this->response->setRequestStatus(false);
+                        $this->response->addJSON('fieldWithError', 'searchName');
+                        $this->response->addJSON('message', Message::error($exception->getMessage())->getDisplay());
+
+                        return;
+                    }
                 } elseif ($_POST['action'] === 'delete') {
-                    $GLOBALS['savedSearch']->delete($savedQbeSearchesFeature);
+                    try {
+                        $GLOBALS['savedSearch']->delete($savedQbeSearchesFeature);
+                    } catch (SavedSearchesException $exception) {
+                        $this->response->setRequestStatus(false);
+                        $this->response->addJSON('fieldWithError', 'searchId');
+                        $this->response->addJSON('message', Message::error($exception->getMessage())->getDisplay());
+
+                        return;
+                    }
+
                     //After deletion, reset search.
                     $GLOBALS['savedSearch'] = new SavedSearches();
                     $GLOBALS['savedSearch']->setUsername($GLOBALS['cfg']['Server']['user'])
@@ -96,7 +117,15 @@ class QueryByExampleController extends AbstractController
                             ->setDbname($GLOBALS['db']);
                         $_POST = [];
                     } else {
-                        $GLOBALS['savedSearch']->load($savedQbeSearchesFeature);
+                        try {
+                            $GLOBALS['savedSearch']->load($savedQbeSearchesFeature);
+                        } catch (SavedSearchesException $exception) {
+                            $this->response->setRequestStatus(false);
+                            $this->response->addJSON('fieldWithError', 'searchId');
+                            $this->response->addJSON('message', Message::error($exception->getMessage())->getDisplay());
+
+                            return;
+                        }
                     }
                 }
                 //Else, it's an "update query"
@@ -144,8 +173,6 @@ class QueryByExampleController extends AbstractController
             }
         }
 
-        $GLOBALS['sub_part'] = '_qbe';
-
         $this->checkParameters(['db']);
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
@@ -156,16 +183,6 @@ class QueryByExampleController extends AbstractController
         }
 
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/qbe');
-
-        [
-            $GLOBALS['tables'],
-            $GLOBALS['num_tables'],
-            $GLOBALS['total_num_tables'],
-            $GLOBALS['sub_part'],,,
-            $GLOBALS['tooltip_truename'],
-            $GLOBALS['tooltip_aliasname'],
-            $GLOBALS['pos'],
-        ] = Util::getDbInfo($GLOBALS['db'], $GLOBALS['sub_part']);
 
         $databaseQbe = new Qbe(
             $this->relation,

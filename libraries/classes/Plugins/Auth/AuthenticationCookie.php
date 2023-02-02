@@ -10,12 +10,14 @@ namespace PhpMyAdmin\Plugins\Auth;
 use PhpMyAdmin\Common;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Exceptions\SessionHandlerException;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Session;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\SessionCache;
@@ -327,8 +329,18 @@ class AuthenticationCookie extends AuthenticationPlugin
                 $GLOBALS['pma_auth_server'] = Core::sanitizeMySQLHost($_REQUEST['pma_servername']);
             }
 
-            /* Secure current session on login to avoid session fixation */
-            Session::secure();
+            try {
+                /* Secure current session on login to avoid session fixation */
+                Session::secure();
+            } catch (SessionHandlerException $exception) {
+                echo (new Template())->render('error/generic', [
+                    'lang' => $GLOBALS['lang'] ?? 'en',
+                    'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+                    'error_message' => $exception->getMessage(),
+                ]);
+
+                exit;
+            }
 
             return true;
         }
@@ -592,9 +604,19 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     private function getEncryptionSecret(): string
     {
+        /** @var mixed $key */
         $key = $GLOBALS['cfg']['blowfish_secret'] ?? null;
-        if (is_string($key) && mb_strlen($key, '8bit') === SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
+        if (! is_string($key)) {
+            return $this->getSessionEncryptionSecret();
+        }
+
+        $length = mb_strlen($key, '8bit');
+        if ($length === SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
             return $key;
+        }
+
+        if ($length > SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
+            return mb_substr($key, 0, SODIUM_CRYPTO_SECRETBOX_KEYBYTES, '8bit');
         }
 
         return $this->getSessionEncryptionSecret();
@@ -605,6 +627,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     private function getSessionEncryptionSecret(): string
     {
+        /** @var mixed $key */
         $key = $_SESSION['encryption_key'] ?? null;
         if (is_string($key) && mb_strlen($key, '8bit') === SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
             return $key;

@@ -21,6 +21,7 @@ use ReflectionClass;
 
 use function array_keys;
 use function in_array;
+use function method_exists;
 
 use const DIRECTORY_SEPARATOR;
 
@@ -43,6 +44,32 @@ abstract class AbstractTestCase extends TestCase
         '__PHPUNIT_CONFIGURATION_FILE',
         '__PHPUNIT_BOOTSTRAP',
     ];
+
+    /**
+     * For PHPUnit < 9.1 compatibility
+     */
+    public static function assertMatchesRegularExpression(string $pattern, string $string, string $message = ''): void
+    {
+        if (method_exists(parent::class, 'assertMatchesRegularExpression')) {
+            parent::assertMatchesRegularExpression($pattern, $string, $message);
+        } else {
+            /** @psalm-suppress DeprecatedMethod */
+            parent::assertRegExp($pattern, $string, $message);
+        }
+    }
+
+    /**
+     * For PHPUnit < 9.1 compatibility
+     */
+    public static function assertFileDoesNotExist(string $filename, string $message = ''): void
+    {
+        if (method_exists(parent::class, 'assertFileDoesNotExist')) {
+            parent::assertFileDoesNotExist($filename, $message);
+        } else {
+            /** @psalm-suppress DeprecatedMethod */
+            parent::assertFileNotExists($filename, $message);
+        }
+    }
 
     /**
      * Prepares environment for the test.
@@ -82,8 +109,6 @@ abstract class AbstractTestCase extends TestCase
 
         // Config before DBI
         $this->setGlobalConfig();
-        $this->loadContainerBuilder();
-        $this->setTheme();
         Cache::purge();
     }
 
@@ -155,9 +180,17 @@ abstract class AbstractTestCase extends TestCase
         return new DbiDummy();
     }
 
+    protected function createConfig(): Config
+    {
+        $config = new Config();
+        $config->loadAndCheck();
+
+        return $config;
+    }
+
     protected function setGlobalConfig(): void
     {
-        $GLOBALS['config'] = new Config();
+        $GLOBALS['config'] = $this->createConfig();
         $GLOBALS['config']->checkServers();
         $GLOBALS['config']->set('environment', 'development');
         $GLOBALS['cfg'] = $GLOBALS['config']->settings;

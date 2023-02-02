@@ -41,12 +41,6 @@ class RelationStatsDia
     /** @var int */
     public $foreignTableId;
 
-    /** @var mixed */
-    public $masterTablePos;
-
-    /** @var mixed */
-    public $foreignTablePos;
-
     /** @var string */
     public $referenceColor = '#000000';
 
@@ -73,8 +67,6 @@ class RelationStatsDia
         $this->srcConnPointsRight = $src_pos[1];
         $this->destConnPointsLeft = $dest_pos[0];
         $this->destConnPointsRight = $dest_pos[1];
-        $this->masterTablePos = $src_pos[2];
-        $this->foreignTablePos = $dest_pos[2];
         $this->masterTableId = $master_table->tableId;
         $this->foreignTableId = $foreign_table->tableId;
     }
@@ -127,20 +119,15 @@ class RelationStatsDia
      *                        will be used to choose the random colors for
      *                        references lines. we can change/add more colors to
      *                        this
-     *
-     * @return bool|void
      */
-    public function relationDraw($showColor)
+    public function relationDraw($showColor): void
     {
         ++DiaRelationSchema::$objectId;
-        /*
-         * if source connection points and destination connection
-        * points are same then return it false and don't draw that
-        * relation
-        */
+        // if source connection points and destination connection points are same then
+        // don't draw that relation
         if ($this->srcConnPointsRight == $this->destConnPointsRight) {
             if ($this->srcConnPointsLeft == $this->destConnPointsLeft) {
-                return false;
+                return;
             }
         }
 

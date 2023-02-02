@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use DateTimeImmutable;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -13,14 +16,18 @@ use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Tracking;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Throwable;
+use Webmozart\Assert\Assert;
 
 use function __;
 use function array_map;
 use function define;
 use function explode;
 use function htmlspecialchars;
+use function in_array;
+use function is_array;
+use function mb_strlen;
 use function sprintf;
-use function strtotime;
 
 final class TrackingController extends AbstractController
 {
@@ -36,20 +43,14 @@ final class TrackingController extends AbstractController
         $this->tracking = $tracking;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
         $GLOBALS['msg'] = $GLOBALS['msg'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
-        $GLOBALS['data'] = $GLOBALS['data'] ?? null;
         $GLOBALS['entries'] = $GLOBALS['entries'] ?? null;
-        $GLOBALS['filter_ts_from'] = $GLOBALS['filter_ts_from'] ?? null;
-        $GLOBALS['filter_ts_to'] = $GLOBALS['filter_ts_to'] ?? null;
         $GLOBALS['filter_users'] = $GLOBALS['filter_users'] ?? null;
-        $GLOBALS['selection_schema'] = $GLOBALS['selection_schema'] ?? null;
-        $GLOBALS['selection_data'] = $GLOBALS['selection_data'] ?? null;
-        $GLOBALS['selection_both'] = $GLOBALS['selection_both'] ?? null;
 
         $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'table/tracking.js']);
 
@@ -64,13 +65,14 @@ final class TrackingController extends AbstractController
         DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
 
         $activeMessage = '';
+        $toggleActivation = $request->getParsedBodyParam('toggle_activation');
+        $reportExport = $request->getParsedBodyParam('report_export');
+
         if (
             Tracker::isActive()
             && Tracker::isTracked($GLOBALS['db'], $GLOBALS['table'])
-            && ! (isset($_POST['toggle_activation'])
-                && $_POST['toggle_activation'] === 'deactivate_now')
-            && ! (isset($_POST['report_export'])
-                && $_POST['export_type'] === 'sqldumpfile')
+            && $toggleActivation !== 'deactivate_now'
+            && $reportExport !== 'sqldumpfile'
         ) {
             $GLOBALS['msg'] = Message::notice(
                 sprintf(
@@ -84,68 +86,72 @@ final class TrackingController extends AbstractController
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/table/tracking');
         $GLOBALS['urlParams']['back'] = Url::getFromRoute('/table/tracking');
 
-        $GLOBALS['data'] = [];
+        $trackedData = [];
         $GLOBALS['entries'] = [];
-        $GLOBALS['filter_ts_from'] = null;
-        $GLOBALS['filter_ts_to'] = null;
         $GLOBALS['filter_users'] = [];
-        $GLOBALS['selection_schema'] = false;
-        $GLOBALS['selection_data'] = false;
-        $GLOBALS['selection_both'] = false;
+
+        $report = $request->hasBodyParam('report');
+        /** @var string $versionParam */
+        $versionParam = $request->getParsedBodyParam('version');
+        /** @var string $tableParam */
+        $tableParam = $request->getParsedBodyParam('table');
+
+        $logType = $this->validateLogTypeParam($request->getParsedBodyParam('log_type'));
+
+        $dateFrom = null;
+        $dateTo = null;
+        $users = '';
 
         // Init vars for tracking report
-        if (isset($_POST['report']) || isset($_POST['report_export'])) {
-            $GLOBALS['data'] = Tracker::getTrackedData($GLOBALS['db'], $GLOBALS['table'], $_POST['version']);
+        if ($report || $reportExport !== null) {
+            $trackedData = Tracker::getTrackedData(
+                $GLOBALS['db'],
+                $GLOBALS['table'],
+                $versionParam
+            );
 
-            if (! isset($_POST['logtype'])) {
-                $_POST['logtype'] = 'schema_and_data';
-            }
+            $dateFrom = $this->validateDateTimeParam(
+                $request->getParsedBodyParam('date_from', $trackedData['date_from'])
+            );
+            $dateTo = $this->validateDateTimeParam($request->getParsedBodyParam('date_to', $trackedData['date_to']));
 
-            if ($_POST['logtype'] === 'schema') {
-                $GLOBALS['selection_schema'] = true;
-            } elseif ($_POST['logtype'] === 'data') {
-                $GLOBALS['selection_data'] = true;
-            } else {
-                $GLOBALS['selection_both'] = true;
-            }
+            /** @var string $users */
+            $users = $request->getParsedBodyParam('users', '*');
 
-            if (! isset($_POST['date_from'])) {
-                $_POST['date_from'] = $GLOBALS['data']['date_from'];
-            }
-
-            if (! isset($_POST['date_to'])) {
-                $_POST['date_to'] = $GLOBALS['data']['date_to'];
-            }
-
-            if (! isset($_POST['users'])) {
-                $_POST['users'] = '*';
-            }
-
-            $GLOBALS['filter_ts_from'] = strtotime($_POST['date_from']);
-            $GLOBALS['filter_ts_to'] = strtotime($_POST['date_to']);
-            $GLOBALS['filter_users'] = array_map('trim', explode(',', $_POST['users']));
+            $GLOBALS['filter_users'] = array_map('trim', explode(',', $users));
         }
 
+        $dateFrom = $dateFrom ?? new DateTimeImmutable();
+        $dateTo = $dateTo ?? new DateTimeImmutable();
+
         // Prepare export
-        if (isset($_POST['report_export'])) {
+        if ($reportExport !== null) {
             $GLOBALS['entries'] = $this->tracking->getEntries(
-                $GLOBALS['data'],
-                (int) $GLOBALS['filter_ts_from'],
-                (int) $GLOBALS['filter_ts_to'],
-                $GLOBALS['filter_users']
+                $trackedData,
+                $GLOBALS['filter_users'],
+                $logType,
+                $dateFrom,
+                $dateTo
             );
         }
 
         // Export as file download
-        if (isset($_POST['report_export']) && $_POST['export_type'] === 'sqldumpfile') {
-            $this->tracking->exportAsFileDownload($GLOBALS['entries']);
+        if ($reportExport !== null && $request->getParsedBodyParam('export_type') === 'sqldumpfile') {
+            $downloadInfo = $this->tracking->getDownloadInfoForExport($tableParam, $GLOBALS['entries']);
+            $this->response->disable();
+            Core::downloadHeader($downloadInfo['filename'], 'text/x-sql', mb_strlen($downloadInfo['dump']));
+            echo $downloadInfo['dump'];
+
+            return;
         }
 
         $actionMessage = '';
-        if (isset($_POST['submit_mult'])) {
-            if (! empty($_POST['selected_versions'])) {
-                if ($_POST['submit_mult'] === 'delete_version') {
-                    foreach ($_POST['selected_versions'] as $version) {
+        $submitMult = $request->getParsedBodyParam('submit_mult');
+        $selectedVersions = $request->getParsedBodyParam('selected_versions');
+        if ($submitMult !== null) {
+            if (is_array($selectedVersions) && $selectedVersions !== []) {
+                if ($submitMult === 'delete_version') {
+                    foreach ($selectedVersions as $version) {
                         $this->tracking->deleteTrackingVersion($GLOBALS['db'], $GLOBALS['table'], $version);
                     }
 
@@ -161,68 +167,90 @@ final class TrackingController extends AbstractController
         }
 
         $deleteVersion = '';
-        if (isset($_POST['submit_delete_version'])) {
+        if ($request->hasBodyParam('submit_delete_version')) {
             $deleteVersion = $this->tracking->deleteTrackingVersion(
                 $GLOBALS['db'],
                 $GLOBALS['table'],
-                $_POST['version']
+                $versionParam
             );
         }
 
         $createVersion = '';
-        if (isset($_POST['submit_create_version'])) {
-            $createVersion = $this->tracking->createTrackingVersion($GLOBALS['db'], $GLOBALS['table']);
+        if ($request->hasBodyParam('submit_create_version')) {
+            $createVersion = $this->tracking->createTrackingVersion(
+                $GLOBALS['db'],
+                $GLOBALS['table'],
+                $versionParam
+            );
         }
 
         $deactivateTracking = '';
-        if (isset($_POST['toggle_activation']) && $_POST['toggle_activation'] === 'deactivate_now') {
-            $deactivateTracking = $this->tracking->changeTracking($GLOBALS['db'], $GLOBALS['table'], 'deactivate');
-        }
-
         $activateTracking = '';
-        if (isset($_POST['toggle_activation']) && $_POST['toggle_activation'] === 'activate_now') {
-            $activateTracking = $this->tracking->changeTracking($GLOBALS['db'], $GLOBALS['table'], 'activate');
+
+        if ($toggleActivation === 'deactivate_now') {
+            $deactivateTracking = $this->tracking->changeTracking(
+                $GLOBALS['db'],
+                $GLOBALS['table'],
+                $versionParam,
+                'deactivate'
+            );
+        } elseif ($toggleActivation === 'activate_now') {
+            $activateTracking = $this->tracking->changeTracking(
+                $GLOBALS['db'],
+                $GLOBALS['table'],
+                $versionParam,
+                'activate'
+            );
         }
 
         // Export as SQL execution
         $message = '';
-        if (isset($_POST['report_export']) && $_POST['export_type'] === 'execution') {
+        $sqlDump = '';
+
+        if ($reportExport === 'execution') {
             $this->tracking->exportAsSqlExecution($GLOBALS['entries']);
             $GLOBALS['msg'] = Message::success(__('SQL statements executed.'));
             $message = $GLOBALS['msg']->getDisplay();
-        }
-
-        $sqlDump = '';
-        if (isset($_POST['report_export']) && $_POST['export_type'] === 'sqldump') {
+        } elseif ($reportExport === 'sqldump') {
             $this->addScriptFiles(['sql.js']);
             $sqlDump = $this->tracking->exportAsSqlDump($GLOBALS['db'], $GLOBALS['table'], $GLOBALS['entries']);
         }
 
         $schemaSnapshot = '';
-        if (isset($_POST['snapshot'])) {
-            $schemaSnapshot = $this->tracking->getHtmlForSchemaSnapshot($GLOBALS['urlParams']);
+        if ($request->hasBodyParam('snapshot')) {
+            /** @var string $db */
+            $db = $request->getParsedBodyParam('db');
+            $schemaSnapshot = $this->tracking->getHtmlForSchemaSnapshot(
+                $db,
+                $tableParam,
+                $versionParam,
+                $GLOBALS['urlParams']
+            );
         }
 
         $trackingReportRows = '';
-        if (isset($_POST['report']) && (isset($_POST['delete_ddlog']) || isset($_POST['delete_dmlog']))) {
+        if ($report && ($request->hasBodyParam('delete_ddlog') || $request->hasBodyParam('delete_dmlog'))) {
             $trackingReportRows = $this->tracking->deleteTrackingReportRows(
                 $GLOBALS['db'],
                 $GLOBALS['table'],
-                $GLOBALS['data']
+                $versionParam,
+                $trackedData,
+                $request->hasBodyParam('delete_ddlog'),
+                $request->hasBodyParam('delete_dmlog')
             );
         }
 
         $trackingReport = '';
-        if (isset($_POST['report']) || isset($_POST['report_export'])) {
+        if ($report || $reportExport !== null) {
             $trackingReport = $this->tracking->getHtmlForTrackingReport(
-                $GLOBALS['data'],
+                $trackedData,
                 $GLOBALS['urlParams'],
-                $GLOBALS['selection_schema'],
-                $GLOBALS['selection_data'],
-                $GLOBALS['selection_both'],
-                (int) $GLOBALS['filter_ts_to'],
-                (int) $GLOBALS['filter_ts_from'],
-                $GLOBALS['filter_users']
+                $logType,
+                $GLOBALS['filter_users'],
+                $versionParam,
+                $dateFrom,
+                $dateTo,
+                $users
             );
         }
 
@@ -247,5 +275,29 @@ final class TrackingController extends AbstractController
             'tracking_report' => $trackingReport,
             'main' => $main,
         ]);
+    }
+
+    /**
+     * @param mixed $param
+     *
+     * @psalm-return 'schema'|'data'|'schema_and_data'
+     */
+    private function validateLogTypeParam($param): string
+    {
+        return in_array($param, ['schema', 'data'], true) ? $param : 'schema_and_data';
+    }
+
+    /**
+     * @param mixed $param
+     */
+    private function validateDateTimeParam($param): DateTimeImmutable
+    {
+        try {
+            Assert::stringNotEmpty($param);
+
+            return new DateTimeImmutable($param);
+        } catch (Throwable $exception) {
+            return new DateTimeImmutable();
+        }
     }
 }

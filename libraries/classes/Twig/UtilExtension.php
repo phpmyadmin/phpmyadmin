@@ -83,6 +83,10 @@ class UtilExtension extends AbstractExtension
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
+                'is_uuid_supported',
+                [Util::class, 'isUUIDSupported']
+            ),
+            new TwigFunction(
                 'is_foreign_key_supported',
                 [ForeignKey::class, 'isSupported']
             ),
@@ -157,10 +161,6 @@ class UtilExtension extends AbstractExtension
             new TwigFilter(
                 'convert_bit_default_value',
                 [Util::class, 'convertBitDefaultValue']
-            ),
-            new TwigFilter(
-                'escape_mysql_wildcards',
-                [Util::class, 'escapeMysqlWildcards']
             ),
         ];
     }

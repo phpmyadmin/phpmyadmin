@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Controllers\Server\EnginesController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
@@ -49,7 +50,7 @@ class EnginesControllerTest extends AbstractTestCase
         $controller = new EnginesController($response, new Template(), $GLOBALS['dbi']);
 
         $this->dummyDbi->addSelectDb('mysql');
-        $controller->__invoke();
+        $controller->__invoke($this->createStub(ServerRequest::class));
         $this->dummyDbi->assertAllSelectsConsumed();
 
         $actual = $response->getHTMLResult();

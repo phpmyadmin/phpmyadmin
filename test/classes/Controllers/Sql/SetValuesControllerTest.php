@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Sql;
 
 use PhpMyAdmin\Controllers\Sql\SetValuesController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 
@@ -38,21 +39,23 @@ class SetValuesControllerTest extends AbstractTestCase
     {
         $this->dummyDbi->addResult('SHOW COLUMNS FROM `cvv`.`enums` LIKE \'set\'', false);
 
-        $_POST = [
-            'ajax_request' => true,
-            'db' => 'cvv',
-            'table' => 'enums',
-            'column' => 'set',
-            'curr_value' => 'b&c',
-        ];
-        $GLOBALS['db'] = $_POST['db'];
-        $GLOBALS['table'] = $_POST['table'];
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['ajax_request', null, true],
+            ['db', null, 'cvv'],
+            ['table', null, 'enums'],
+            ['column', null, 'set'],
+            ['curr_value', null, 'b&c'],
+        ]);
+
+        $GLOBALS['db'] = 'cvv';
+        $GLOBALS['table'] = 'enums';
 
         $GLOBALS['containerBuilder']->setParameter('db', $GLOBALS['db']);
         $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
         /** @var SetValuesController $sqlController */
         $sqlController = $GLOBALS['containerBuilder']->get(SetValuesController::class);
-        $sqlController();
+        $sqlController($request);
 
         $this->assertResponseWasNotSuccessfull();
 
@@ -86,21 +89,23 @@ class SetValuesControllerTest extends AbstractTestCase
             ]
         );
 
-        $_POST = [
-            'ajax_request' => true,
-            'db' => 'cvv',
-            'table' => 'enums',
-            'column' => 'set',
-            'curr_value' => 'b&c',
-        ];
-        $GLOBALS['db'] = $_POST['db'];
-        $GLOBALS['table'] = $_POST['table'];
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['ajax_request', null, true],
+            ['db', null, 'cvv'],
+            ['table', null, 'enums'],
+            ['column', null, 'set'],
+            ['curr_value', null, 'b&c'],
+        ]);
+
+        $GLOBALS['db'] = 'cvv';
+        $GLOBALS['table'] = 'enums';
 
         $GLOBALS['containerBuilder']->setParameter('db', $GLOBALS['db']);
         $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
         /** @var SetValuesController $sqlController */
         $sqlController = $GLOBALS['containerBuilder']->get(SetValuesController::class);
-        $sqlController();
+        $sqlController($request);
 
         $this->assertResponseWasSuccessfull();
 
