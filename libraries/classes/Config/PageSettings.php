@@ -95,7 +95,7 @@ class PageSettings
      * @param FormDisplay $formDisplay Form
      * @param ConfigFile  $cf          Configuration file
      */
-    private function processPageSettings($formDisplay, $cf): ?Message
+    private function processPageSettings(FormDisplay $formDisplay, ConfigFile $cf): ?Message
     {
         if (! $formDisplay->process(false) || $formDisplay->hasErrors()) {
             return null;
@@ -119,7 +119,7 @@ class PageSettings
      * @param FormDisplay  $formDisplay Form
      * @param Message|null $error       Error message
      */
-    private function storeError($formDisplay, $error): void
+    private function storeError(FormDisplay $formDisplay, ?Message $error): void
     {
         $retval = '';
         if ($error) {
@@ -140,12 +140,10 @@ class PageSettings
     /**
      * Display page-related settings
      *
-     * @param FormDisplay $formDisplay Form
-     * @param Message     $error       Error message
-     *
-     * @return string
+     * @param FormDisplay  $formDisplay Form
+     * @param Message|null $error       Error message
      */
-    private function getPageSettingsDisplay($formDisplay, $error)
+    private function getPageSettingsDisplay(FormDisplay $formDisplay, ?Message $error): string
     {
         $response = ResponseRenderer::getInstance();
 
@@ -164,20 +162,16 @@ class PageSettings
 
     /**
      * Get HTML output
-     *
-     * @return string
      */
-    public function getHTML()
+    public function getHTML(): string
     {
         return $this->HTML;
     }
 
     /**
      * Get error HTML output
-     *
-     * @return string
      */
-    public function getErrorHTML()
+    public function getErrorHTML(): string
     {
         return $this->errorHTML;
     }
