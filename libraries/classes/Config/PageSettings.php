@@ -82,7 +82,7 @@ class PageSettings
         // Process form
         $error = null;
         if (isset($_POST['submit_save']) && $_POST['submit_save'] == $formGroupName) {
-            $this->processPageSettings($formDisplay, $cf, $error);
+            $error = $this->processPageSettings($formDisplay, $cf);
         }
 
         // Display forms
@@ -92,14 +92,13 @@ class PageSettings
     /**
      * Process response to form
      *
-     * @param FormDisplay  $formDisplay Form
-     * @param ConfigFile   $cf          Configuration file
-     * @param Message|null $error       Error message
+     * @param FormDisplay $formDisplay Form
+     * @param ConfigFile  $cf          Configuration file
      */
-    private function processPageSettings($formDisplay, $cf, &$error): void
+    private function processPageSettings($formDisplay, $cf): ?Message
     {
         if (! $formDisplay->process(false) || $formDisplay->hasErrors()) {
-            return;
+            return null;
         }
 
         // save settings
@@ -111,7 +110,7 @@ class PageSettings
             exit;
         }
 
-        $error = $result;
+        return $result;
     }
 
     /**
