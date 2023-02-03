@@ -180,69 +180,67 @@ class ExportMediawiki extends ExportPlugin
         $this->initAlias($aliases, $db_alias, $table_alias);
 
         $output = '';
-        switch ($exportMode) {
-            case 'create_table':
-                $columns = $GLOBALS['dbi']->getColumns($db, $table);
-                $columns = array_values($columns);
-                $row_cnt = count($columns);
+        if ($exportMode === 'create_table') {
+            $columns = $GLOBALS['dbi']->getColumns($db, $table);
+            $columns = array_values($columns);
+            $row_cnt = count($columns);
 
-                // Print structure comment
-                $output = $this->exportComment(
-                    'Table structure for '
-                    . Util::backquote($table_alias)
-                );
+            // Print structure comment
+            $output = $this->exportComment(
+                'Table structure for '
+                . Util::backquote($table_alias)
+            );
 
-                // Begin the table construction
-                $output .= '{| class="wikitable" style="text-align:center;"'
+            // Begin the table construction
+            $output .= '{| class="wikitable" style="text-align:center;"'
+                . $this->exportCRLF();
+
+            // Add the table name
+            if (isset($GLOBALS['mediawiki_caption'])) {
+                $output .= "|+'''" . $table_alias . "'''" . $this->exportCRLF();
+            }
+
+            // Add the table headers
+            if (isset($GLOBALS['mediawiki_headers'])) {
+                $output .= '|- style="background:#ffdead;"' . $this->exportCRLF();
+                $output .= '! style="background:#ffffff" | '
                     . $this->exportCRLF();
-
-                // Add the table name
-                if (isset($GLOBALS['mediawiki_caption'])) {
-                    $output .= "|+'''" . $table_alias . "'''" . $this->exportCRLF();
-                }
-
-                // Add the table headers
-                if (isset($GLOBALS['mediawiki_headers'])) {
-                    $output .= '|- style="background:#ffdead;"' . $this->exportCRLF();
-                    $output .= '! style="background:#ffffff" | '
-                    . $this->exportCRLF();
-                    for ($i = 0; $i < $row_cnt; ++$i) {
-                        $col_as = $columns[$i]['Field'];
-                        if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
-                            $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
-                        }
-
-                        $output .= ' | ' . $col_as . $this->exportCRLF();
+                for ($i = 0; $i < $row_cnt; ++$i) {
+                    $col_as = $columns[$i]['Field'];
+                    if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
+                        $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
                     }
-                }
 
-                // Add the table structure
-                $output .= '|-' . $this->exportCRLF();
-                $output .= '! Type' . $this->exportCRLF();
-                for ($i = 0; $i < $row_cnt; ++$i) {
-                    $output .= ' | ' . $columns[$i]['Type'] . $this->exportCRLF();
+                    $output .= ' | ' . $col_as . $this->exportCRLF();
                 }
+            }
 
-                $output .= '|-' . $this->exportCRLF();
-                $output .= '! Null' . $this->exportCRLF();
-                for ($i = 0; $i < $row_cnt; ++$i) {
-                    $output .= ' | ' . $columns[$i]['Null'] . $this->exportCRLF();
-                }
+            // Add the table structure
+            $output .= '|-' . $this->exportCRLF();
+            $output .= '! Type' . $this->exportCRLF();
+            for ($i = 0; $i < $row_cnt; ++$i) {
+                $output .= ' | ' . $columns[$i]['Type'] . $this->exportCRLF();
+            }
 
-                $output .= '|-' . $this->exportCRLF();
-                $output .= '! Default' . $this->exportCRLF();
-                for ($i = 0; $i < $row_cnt; ++$i) {
-                    $output .= ' | ' . $columns[$i]['Default'] . $this->exportCRLF();
-                }
+            $output .= '|-' . $this->exportCRLF();
+            $output .= '! Null' . $this->exportCRLF();
+            for ($i = 0; $i < $row_cnt; ++$i) {
+                $output .= ' | ' . $columns[$i]['Null'] . $this->exportCRLF();
+            }
 
-                $output .= '|-' . $this->exportCRLF();
-                $output .= '! Extra' . $this->exportCRLF();
-                for ($i = 0; $i < $row_cnt; ++$i) {
-                    $output .= ' | ' . $columns[$i]['Extra'] . $this->exportCRLF();
-                }
+            $output .= '|-' . $this->exportCRLF();
+            $output .= '! Default' . $this->exportCRLF();
+            for ($i = 0; $i < $row_cnt; ++$i) {
+                $output .= ' | ' . $columns[$i]['Default'] . $this->exportCRLF();
+            }
 
-                $output .= '|}' . str_repeat($this->exportCRLF(), 2);
-                break;
+            $output .= '|-' . $this->exportCRLF();
+            $output .= '! Extra' . $this->exportCRLF();
+            for ($i = 0; $i < $row_cnt; ++$i) {
+                $output .= ' | ' . $columns[$i]['Extra'] . $this->exportCRLF();
+            }
+
+            $output .= '|}' . str_repeat($this->exportCRLF(), 2);
         }
 
         return $this->export->outputHandler($output);
