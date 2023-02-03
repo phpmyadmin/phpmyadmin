@@ -24,6 +24,7 @@ use function count;
 use function in_array;
 use function mb_strpos;
 use function mb_substr;
+use function str_repeat;
 use function str_replace;
 
 use const PHP_EOL;
@@ -311,9 +312,7 @@ class ExportLatex extends ExportPlugin
         $buffer = PHP_EOL . '%' . PHP_EOL . '% ' . __('Data:') . ' ' . $table_alias
             . PHP_EOL . '%' . PHP_EOL . ' \\begin{longtable}{|';
 
-        for ($index = 0; $index < $columns_cnt; $index++) {
-            $buffer .= 'l|';
-        }
+        $buffer .= str_repeat('l|', $columns_cnt);
 
         $buffer .= '} ' . PHP_EOL;
 
