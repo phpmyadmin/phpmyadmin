@@ -406,7 +406,7 @@ class CreateAddField
         }
 
         if (! empty($_POST['tbl_collation'])) {
-            $sqlQuery .= Util::getCharsetQueryPart($_POST['tbl_collation'] ?? '');
+            $sqlQuery .= Util::getCharsetQueryPart($_POST['tbl_collation']);
         }
 
         if (

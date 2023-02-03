@@ -5582,7 +5582,7 @@
       <code>$_POST['indexes']</code>
       <code>$_POST['primary_indexes']</code>
       <code>$_POST['spatial_indexes']</code>
-      <code>$_POST['tbl_collation'] ?? ''</code>
+      <code>$_POST['tbl_collation']</code>
       <code>$_POST['tbl_storage_engine']</code>
       <code>$_POST['unique_indexes']</code>
     </PossiblyInvalidArgument>
@@ -5605,7 +5605,7 @@
       <code>$_POST['indexes']</code>
       <code>$_POST['primary_indexes']</code>
       <code>$_POST['spatial_indexes']</code>
-      <code>$_POST['tbl_collation'] ?? ''</code>
+      <code>$_POST['tbl_collation']</code>
       <code>$_POST['tbl_storage_engine']</code>
       <code>$_POST['unique_indexes']</code>
     </PossiblyInvalidCast>
@@ -10444,7 +10444,7 @@
       <code>$_POST['db_collation'] ?? ''</code>
       <code>$_POST['new_auto_increment']</code>
       <code>$_POST['prev_comment']</code>
-      <code>$_POST['tbl_collation'] ?? ''</code>
+      <code>$_POST['tbl_collation']</code>
       <code>$_POST['what']</code>
       <code>$copyMode ?? 'data'</code>
       <code>$newRowFormat</code>
@@ -10455,7 +10455,7 @@
       <code>$_POST['db_collation'] ?? ''</code>
       <code>$_POST['new_auto_increment']</code>
       <code>$_POST['prev_comment']</code>
-      <code>$_POST['tbl_collation'] ?? ''</code>
+      <code>$_POST['tbl_collation']</code>
       <code>$_POST['what']</code>
       <code>$copyMode ?? 'data'</code>
       <code>$newRowFormat</code>
