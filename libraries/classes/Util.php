@@ -155,11 +155,8 @@ class Util
 
         foreach ($quotes as $quote) {
             if (mb_substr($quotedString, 0, 1) === $quote && mb_substr($quotedString, -1, 1) === $quote) {
-                $unquotedString = mb_substr($quotedString, 1, -1);
                 // replace escaped quotes
-                $unquotedString = str_replace($quote . $quote, $quote, $unquotedString);
-
-                return $unquotedString;
+                return str_replace($quote . $quote, $quote, mb_substr($quotedString, 1, -1));
             }
         }
 
@@ -1227,9 +1224,7 @@ class Util
             $printable = strrev($printable);
         }
 
-        $printable = str_pad($printable, $length, '0', STR_PAD_LEFT);
-
-        return $printable;
+        return str_pad($printable, $length, '0', STR_PAD_LEFT);
     }
 
     /**
