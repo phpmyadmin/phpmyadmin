@@ -14016,6 +14016,9 @@
     <InvalidArrayOffset>
       <code>$GLOBALS['cfg']['environment']</code>
     </InvalidArrayOffset>
+    <MixedArrayAccess>
+      <code>$dispatchData[0]['GET']['/']</code>
+    </MixedArrayAccess>
   </file>
   <file src="libraries/classes/Sanitize.php">
     <MixedArgument>
