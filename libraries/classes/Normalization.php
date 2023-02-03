@@ -534,7 +534,7 @@ class Normalization
             return [
                 'legendText' => __('End of step'),
                 'headText' => $headText,
-                'queryError' => $error,
+                'queryError' => false,
             ];
         }
 
@@ -691,7 +691,7 @@ class Normalization
             return [
                 'legendText' => __('End of step'),
                 'headText' => $headText,
-                'queryError' => $error,
+                'queryError' => false,
             ];
         }
 

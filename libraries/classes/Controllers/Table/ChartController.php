@@ -159,7 +159,7 @@ class ChartController extends AbstractController
             'url_params' => $url_params,
             'keys' => $keys,
             'fields_meta' => $fields_meta,
-            'table_has_a_numeric_column' => $numericColumnFound,
+            'table_has_a_numeric_column' => true,
             'start_and_number_of_rows_fieldset' => $startAndNumberOfRowsFieldset,
         ]);
     }

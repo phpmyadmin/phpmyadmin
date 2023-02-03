@@ -452,11 +452,9 @@ class Git
 
     private function getHashFromHeadRef(string $gitFolder, string $refHead): array
     {
-        $branch = false;
-
         // are we on any branch?
         if (! str_contains($refHead, '/')) {
-            return [trim($refHead), $branch];
+            return [trim($refHead), false];
         }
 
         // remove ref: prefix
