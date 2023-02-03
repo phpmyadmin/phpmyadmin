@@ -37,9 +37,6 @@ class Pdf extends PdfLib
     /** @var int|float */
     private $dataY;
 
-    /** @var int|float */
-    private $cellFontSize;
-
     /** @var int */
     private $titleFontSize;
 
@@ -72,15 +69,6 @@ class Pdf extends PdfLib
 
     /** @var array */
     private $displayColumn;
-
-    /** @var int */
-    private $numFields;
-
-    /** @var FieldMetadata[] */
-    private $fields;
-
-    /** @var int|float */
-    private $sColWidth;
 
     /** @var string */
     private $currentDb;
@@ -189,10 +177,10 @@ class Pdf extends PdfLib
         // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         if (! isset($this->headerset[$this->page])) {
             $this->setY($this->tMargin - ($this->FontSizePt / $this->k) * 5);
-            $this->cellFontSize = $this->FontSizePt;
+            $cellFontSize = $this->FontSizePt;
             $this->setFont(PdfLib::PMA_PDF_FONT, '', ($this->titleFontSize ?: $this->FontSizePt));
             $this->Cell(0, $this->FontSizePt, $this->titleText, 0, 1, 'C');
-            $this->setFont(PdfLib::PMA_PDF_FONT, '', $this->cellFontSize);
+            $this->setFont(PdfLib::PMA_PDF_FONT, '', $cellFontSize);
             $this->setY($this->tMargin - ($this->FontSizePt / $this->k) * 2.5);
             $this->Cell(
                 0,
@@ -718,12 +706,12 @@ class Pdf extends PdfLib
             Connection::TYPE_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
-        $this->numFields = $this->results->numFields();
-        $this->fields = $GLOBALS['dbi']->getFieldsMeta($this->results);
+        $numFields = $this->results->numFields();
+        $fields = $GLOBALS['dbi']->getFieldsMeta($this->results);
 
         // sColWidth = starting col width (an average size width)
         $availableWidth = $this->w - $this->lMargin - $this->rMargin;
-        $this->sColWidth = $availableWidth / $this->numFields;
+        $sColWidth = $availableWidth / $numFields;
         $totalTitleWidth = 0;
 
         // loop through results header and set initial
@@ -732,8 +720,8 @@ class Pdf extends PdfLib
         // reduce that column size
         $colFits = [];
         $titleWidth = [];
-        for ($i = 0; $i < $this->numFields; $i++) {
-            $col_as = $this->fields[$i]->name;
+        for ($i = 0; $i < $numFields; $i++) {
+            $col_as = $fields[$i]->name;
             $db = $this->currentDb;
             $table = $this->currentTable;
             if (! empty($this->aliases[$db]['tables'][$table]['columns'][$col_as])) {
@@ -749,7 +737,7 @@ class Pdf extends PdfLib
 
             // set any column titles less than the start width to
             // the column title width
-            if ($stringWidth < $this->sColWidth) {
+            if ($stringWidth < $sColWidth) {
                 $colFits[$i] = $stringWidth;
             }
 
@@ -758,11 +746,11 @@ class Pdf extends PdfLib
 
             $this->colAlign[$i] = 'L';
 
-            if ($this->fields[$i]->isType(FieldMetadata::TYPE_INT)) {
+            if ($fields[$i]->isType(FieldMetadata::TYPE_INT)) {
                 $this->colAlign[$i] = 'R';
             }
 
-            if (! $this->fields[$i]->isType(FieldMetadata::TYPE_BLOB)) {
+            if (! $fields[$i]->isType(FieldMetadata::TYPE_BLOB)) {
                 continue;
             }
 
@@ -770,7 +758,7 @@ class Pdf extends PdfLib
              * @todo do not deactivate completely the display
              * but show the field's name and [BLOB]
              */
-            if ($this->fields[$i]->isBinary()) {
+            if ($fields[$i]->isBinary()) {
                 $this->displayColumn[$i] = false;
                 unset($this->colTitles[$i]);
             }
@@ -800,7 +788,7 @@ class Pdf extends PdfLib
                 /** @var float $stringWidth */
                 $stringWidth = $this->GetStringWidth($row[$key]);
                 $stringWidth += 6;
-                if ($adjustingMode && ($stringWidth > $this->sColWidth)) {
+                if ($adjustingMode && ($stringWidth > $sColWidth)) {
                     // any column whose data's width is bigger than
                     // the start width is now discarded
                     unset($colFits[$key]);
@@ -808,7 +796,7 @@ class Pdf extends PdfLib
                     // if data's width is bigger than the current column width,
                     // enlarge the column (but avoid enlarging it if the
                     // data's width is very big)
-                    if ($stringWidth > $val && $stringWidth < $this->sColWidth * 3) {
+                    if ($stringWidth > $val && $stringWidth < $sColWidth * 3) {
                         $colFits[$key] = $stringWidth;
                     }
                 }
@@ -824,15 +812,15 @@ class Pdf extends PdfLib
         }
 
         if ($adjustingMode) {
-            $surplus = (count($colFits) * $this->sColWidth) - $totAlreadyFitted;
-            $surplusToAdd = $surplus / ($this->numFields - count($colFits));
+            $surplus = (count($colFits) * $sColWidth) - $totAlreadyFitted;
+            $surplusToAdd = $surplus / ($numFields - count($colFits));
         } else {
             $surplusToAdd = 0;
         }
 
-        for ($i = 0; $i < $this->numFields; $i++) {
+        for ($i = 0; $i < $numFields; $i++) {
             if (! array_key_exists($i, $colFits)) {
-                $this->tablewidths[$i] = $this->sColWidth + $surplusToAdd;
+                $this->tablewidths[$i] = $sColWidth + $surplusToAdd;
             }
 
             if ($this->displayColumn[$i] != false) {

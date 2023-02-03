@@ -11670,6 +11670,7 @@
     </InvalidArrayOffset>
     <MixedArgument>
       <code>$GLOBALS['maxY'] - $this-&gt;tMargin</code>
+      <code>$cellFontSize</code>
       <code>$col_as</code>
       <code>$column['Type']</code>
       <code>$fullwidth + $l</code>
@@ -11722,7 +11723,6 @@
       <code>$this-&gt;FontSizePt</code>
       <code>$this-&gt;FontSizePt</code>
       <code>$this-&gt;FontSizePt</code>
-      <code>$this-&gt;cellFontSize</code>
       <code>$this-&gt;colAlign[$col]</code>
       <code>$this-&gt;colAlign[$col]</code>
       <code>$this-&gt;colAlign[$col]</code>
@@ -11786,6 +11786,7 @@
       <code>$GLOBALS['maxY']</code>
       <code>$GLOBALS['maxY']</code>
       <code>$availableWidth</code>
+      <code>$cellFontSize</code>
       <code>$col_as</code>
       <code>$current_page</code>
       <code>$currpage</code>
@@ -11844,6 +11845,7 @@
       <code>$old_page_olm</code>
       <code>$old_page_orm</code>
       <code>$oldpage</code>
+      <code>$sColWidth</code>
       <code>$startpage</code>
       <code>$startpage</code>
       <code>$startpage</code>
@@ -11852,9 +11854,7 @@
       <code>$t</code>
       <code>$t</code>
       <code>$t</code>
-      <code>$this-&gt;cellFontSize</code>
       <code>$this-&gt;dataY</code>
-      <code>$this-&gt;sColWidth</code>
       <code>$this_page_olm</code>
       <code>$this_page_orm</code>
       <code>$trigger</code>
@@ -11896,6 +11896,9 @@
       <code>$maxpage</code>
       <code>$res_rel[$field_name]['foreign_field']</code>
       <code>$res_rel[$field_name]['foreign_table']</code>
+      <code>$sColWidth</code>
+      <code>$sColWidth</code>
+      <code>$sColWidth</code>
       <code>$surplus</code>
       <code>$this-&gt;FontSizePt</code>
       <code>$this-&gt;FontSizePt</code>
@@ -11915,9 +11918,6 @@
       <code>$this-&gt;page</code>
       <code>$this-&gt;page</code>
       <code>$this-&gt;page</code>
-      <code>$this-&gt;sColWidth</code>
-      <code>$this-&gt;sColWidth</code>
-      <code>$this-&gt;sColWidth</code>
       <code>$this-&gt;tMargin</code>
       <code>$this-&gt;tMargin</code>
       <code>$this-&gt;tMargin</code>
@@ -11929,7 +11929,7 @@
       <code>$x</code>
       <code>$x</code>
       <code>$y</code>
-      <code>count($colFits) * $this-&gt;sColWidth</code>
+      <code>count($colFits) * $sColWidth</code>
     </MixedOperand>
     <ParamNameMismatch>
       <code>$topMargin</code>
@@ -11955,7 +11955,6 @@
     </PossiblyUnusedParam>
     <PropertyNotSetInConstructor>
       <code>$aliases</code>
-      <code>$cellFontSize</code>
       <code>$colAlign</code>
       <code>$colTitles</code>
       <code>$currentDb</code>
@@ -11963,12 +11962,9 @@
       <code>$dataY</code>
       <code>$dbAlias</code>
       <code>$displayColumn</code>
-      <code>$fields</code>
       <code>$headerset</code>
-      <code>$numFields</code>
       <code>$purpose</code>
       <code>$results</code>
-      <code>$sColWidth</code>
       <code>$tableAlias</code>
       <code>$tablewidths</code>
       <code>$titleFontSize</code>
