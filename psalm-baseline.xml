@@ -13966,8 +13966,6 @@
       <code>$_SESSION['replication']['sr_action_info']</code>
       <code>$_SESSION['replication']['sr_action_info']</code>
       <code>$_SESSION['replication']['sr_action_info']</code>
-      <code>$_SESSION['replication']['sr_action_info']</code>
-      <code>$_SESSION['replication']['sr_action_status']</code>
       <code>$_SESSION['replication']['sr_action_status']</code>
       <code>$_SESSION['replication']['sr_action_status']</code>
       <code>$_SESSION['replication']['sr_action_status']</code>
