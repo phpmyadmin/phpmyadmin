@@ -195,7 +195,7 @@ class StructureController extends AbstractController
         $row_comments = [];
         $extracted_columnspecs = [];
         $collations = [];
-        foreach ($fields as &$field) {
+        foreach ($fields as $field) {
             ++$rownum;
             $columns_list[] = $field['Field'];
 

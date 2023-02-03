@@ -126,7 +126,7 @@ class Validator
     public static function validate(
         ConfigFile $cf,
         $validatorId,
-        array &$values,
+        array $values,
         $isPostSource
     ) {
         // find validators

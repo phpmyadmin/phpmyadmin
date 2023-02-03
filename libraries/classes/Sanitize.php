@@ -277,7 +277,7 @@ class Sanitize
      *
      * @param string[] $allowList list of variables to allow
      */
-    public static function removeRequestVars(&$allowList): void
+    public static function removeRequestVars($allowList): void
     {
         // do not check only $_REQUEST because it could have been overwritten
         // and use type casting because the variables could have become

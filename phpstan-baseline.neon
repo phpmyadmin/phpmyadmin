@@ -2111,6 +2111,16 @@ parameters:
 			path: libraries/classes/Controllers/Table/FindReplaceController.php
 
 		-
+			message: "#^Parameter \\#1 \\$str of function mb_strlen expects string, string\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/GetFieldController.php
+
+		-
+			message: "#^Parameter \\#1 \\$test of static method PhpMyAdmin\\\\Mime\\:\\:detect\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/GetFieldController.php
+
+		-
 			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/IndexesController.php
@@ -9572,6 +9582,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\CoreTest\\:\\:testGotoNowhere\\(\\) has parameter \\$allowList with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: test/classes/CoreTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$page of static method PhpMyAdmin\\\\Core\\:\\:checkPageValidity\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: test/classes/CoreTest.php
 
