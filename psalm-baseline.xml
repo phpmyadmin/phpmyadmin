@@ -2403,7 +2403,6 @@
     <MixedAssignment>
       <code>$_SESSION['error_subm_count']</code>
       <code>$decoded_response</code>
-      <code>$success</code>
     </MixedAssignment>
     <MixedOperand>
       <code>$_SESSION['error_subm_count']</code>
