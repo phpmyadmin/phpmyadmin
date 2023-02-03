@@ -34,7 +34,7 @@ class Cache
         //  array_merge() renumbers numeric keys starting with 0, therefore
         //  we would lose a db name that consists only of numbers
 
-        foreach ($tables as $one_database => $_) {
+        foreach ($tables as $one_database => $tablesInDatabase) {
             if (isset($this->tableCache[$one_database])) {
                 // the + operator does not do the intended effect
                 // when the cache for one table already exists
@@ -42,9 +42,9 @@ class Cache
                     unset($this->tableCache[$one_database][$table]);
                 }
 
-                $this->tableCache[$one_database] += $tables[$one_database];
+                $this->tableCache[$one_database] += $tablesInDatabase;
             } else {
-                $this->tableCache[$one_database] = $tables[$one_database];
+                $this->tableCache[$one_database] = $tablesInDatabase;
             }
         }
     }

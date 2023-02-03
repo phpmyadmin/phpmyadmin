@@ -13781,6 +13781,7 @@
       <code>$key</code>
       <code>$loc</code>
       <code>$loc[array_shift($contentPath)]</code>
+      <code>$tablesInDatabase</code>
     </MixedAssignment>
     <MixedOperand>
       <code>$this-&gt;tableCache[$one_database]</code>
