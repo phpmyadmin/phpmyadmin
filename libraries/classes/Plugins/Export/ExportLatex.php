@@ -383,7 +383,7 @@ class ExportLatex extends ExportPlugin
             $buffer = '';
             // print each row
             for ($i = 0; $i < $columns_cnt; $i++) {
-                if ($record[$columns[$i]] !== null && isset($record[$columns[$i]])) {
+                if ($record[$columns[$i]] !== null) {
                     $column_value = self::texEscape($record[$columns[$i]]);
                 } else {
                     $column_value = $GLOBALS['latex_null'];
