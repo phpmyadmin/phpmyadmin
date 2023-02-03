@@ -544,7 +544,6 @@ class InsertEdit
      * @param string $specialCharsEncoded replaced char if the string starts
      *                                      with a \r\n pair (0x0d0a) add an extra \n
      * @param string $dataType            the html5 data-* attribute type
-     * @param bool   $readOnly            is column read only or not
      *
      * @return string                       an html snippet
      */
@@ -558,8 +557,7 @@ class InsertEdit
         $idindex,
         $textDir,
         $specialCharsEncoded,
-        $dataType,
-        $readOnly
+        $dataType
     ): string {
         $theClass = '';
         $textAreaRows = $GLOBALS['cfg']['TextareaRows'];
@@ -583,7 +581,6 @@ class InsertEdit
         return $backupField . "\n"
             . '<textarea name="fields' . $columnNameAppendix . '"'
             . ' class="' . $theClass . '"'
-            . ($readOnly ? ' readonly="readonly"' : '')
             . (isset($maxlength) ? ' data-maxlength="' . $maxlength . '"' : '')
             . ' rows="' . $textAreaRows . '"'
             . ' cols="' . $textareaCols . '"'
@@ -659,7 +656,6 @@ class InsertEdit
      * @param int    $tabindexForValue   offset for the values tabindex
      * @param int    $idindex            id index
      * @param string $dataType           the html5 data-* attribute type
-     * @param bool   $readOnly           is column read only or not
      *
      * @return string                       an html snippet
      */
@@ -672,19 +668,16 @@ class InsertEdit
         $tabindex,
         $tabindexForValue,
         $idindex,
-        $dataType,
-        $readOnly
+        $dataType
     ): string {
         $theClass = 'textfield';
         // verify True_Type which does not contain the parentheses and length
-        if (! $readOnly) {
-            if ($column['True_Type'] === 'date') {
-                $theClass .= ' datefield';
-            } elseif ($column['True_Type'] === 'time') {
-                $theClass .= ' timefield';
-            } elseif ($column['True_Type'] === 'datetime' || $column['True_Type'] === 'timestamp') {
-                $theClass .= ' datetimefield';
-            }
+        if ($column['True_Type'] === 'date') {
+            $theClass .= ' datefield';
+        } elseif ($column['True_Type'] === 'time') {
+            $theClass .= ' timefield';
+        } elseif ($column['True_Type'] === 'datetime' || $column['True_Type'] === 'timestamp') {
+            $theClass .= ' datetimefield';
         }
 
         $inputMinMax = '';
@@ -706,7 +699,6 @@ class InsertEdit
             . (isset($column['is_char']) && $column['is_char']
                 ? ' data-maxlength="' . $fieldsize . '"'
                 : '')
-            . ($readOnly ? ' readonly="readonly"' : '')
             . ($inputMinMax ? ' ' . $inputMinMax : '')
             . ' data-type="' . $dataType . '"'
             . ' class="' . $theClass . '" onchange="' . htmlspecialchars($onChangeClause, ENT_COMPAT) . '"'
@@ -810,7 +802,6 @@ class InsertEdit
      * @param array  $extractedColumnspec associative array containing type,
      *                                      spec_in_brackets and possibly
      *                                      enum_set_values (another array)
-     * @param bool   $readOnly            is column read only or not
      *
      * @return string an html snippet
      */
@@ -827,8 +818,7 @@ class InsertEdit
         $textDir,
         $specialCharsEncoded,
         $data,
-        array $extractedColumnspec,
-        $readOnly
+        array $extractedColumnspec
     ): string {
         // HTML5 data-* attribute data-type
         $dataType = $this->dbi->types->getTypeClass($column['True_Type']);
@@ -848,8 +838,7 @@ class InsertEdit
                 $idindex,
                 $textDir,
                 $specialCharsEncoded,
-                $dataType,
-                $readOnly
+                $dataType
             );
         } else {
             $htmlField = $this->getHtmlInput(
@@ -861,8 +850,7 @@ class InsertEdit
                 $tabindex,
                 $tabindexForValue,
                 $idindex,
-                $dataType,
-                $readOnly
+                $dataType
             );
         }
 
@@ -2013,8 +2001,6 @@ class InsertEdit
         array $columnMime,
         $whereClause
     ) {
-        $readOnly = false;
-
         if (! isset($column['processed'])) {
             $column = $this->analyzeTableColumnsArray($column, $commentsMap, $timestampSeen);
         }
@@ -2257,8 +2243,7 @@ class InsertEdit
                         $tabindex,
                         $tabindexForValue,
                         $idindex,
-                        'HEX',
-                        $readOnly
+                        'HEX'
                     );
                 }
             } else {
@@ -2275,8 +2260,7 @@ class InsertEdit
                     $textDir,
                     $specialCharsEncoded,
                     $data,
-                    $extractedColumnspec,
-                    $readOnly
+                    $extractedColumnspec
                 );
             }
         }
@@ -2290,7 +2274,6 @@ class InsertEdit
             'show_function_fields' => $GLOBALS['cfg']['ShowFunctionFields'],
             'is_column_binary' => $isColumnBinary,
             'function_options' => $functionOptions,
-            'read_only' => $readOnly,
             'nullify_code' => $nullifyCode,
             'real_null_value' => $realNullValue,
             'id_index' => $idindex,
