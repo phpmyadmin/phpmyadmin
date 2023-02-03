@@ -11651,9 +11651,6 @@
     <PropertyNotSetInConstructor>
       <code>$table</code>
     </PropertyNotSetInConstructor>
-    <RedundantCastGivenDocblockType>
-      <code>(string) $record[$i]</code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportYaml.php">
     <MixedAssignment>
@@ -13111,14 +13108,6 @@
     <PossiblyUnusedMethod>
       <code>isWithDataDictionary</code>
     </PossiblyUnusedMethod>
-    <RedundantCastGivenDocblockType>
-      <code>(string) sprintf(
-                '%.0f',
-                ($l * $gridSize + $topSpace - $this-&gt;topMargin)
-                * $this-&gt;scale + $this-&gt;yMin
-            )</code>
-      <code>(string) sprintf('%.0f', ($j * $gridSize - $this-&gt;leftMargin) * $this-&gt;scale + $this-&gt;xMin)</code>
-    </RedundantCastGivenDocblockType>
     <RedundantConditionGivenDocblockType>
       <code>isset($this-&gt;orientation)</code>
     </RedundantConditionGivenDocblockType>
@@ -13475,7 +13464,6 @@
     <RedundantCastGivenDocblockType>
       <code>(string) $buffer</code>
       <code>(string) $buffer</code>
-      <code>(string) $source</code>
       <code>(string) $text</code>
     </RedundantCastGivenDocblockType>
   </file>

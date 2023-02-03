@@ -281,7 +281,7 @@ class Common
                 1 AS `H`
             FROM " . Util::backquote($pdfFeature->database)
                 . '.' . Util::backquote($pdfFeature->tableCoords) . '
-            WHERE pdf_page_number = ' . intval($pg);
+            WHERE pdf_page_number = ' . $pg;
 
         return $this->dbi->fetchResult(
             $query,
@@ -308,7 +308,7 @@ class Common
         $query = 'SELECT `page_descr`'
             . ' FROM ' . Util::backquote($pdfFeature->database)
             . '.' . Util::backquote($pdfFeature->pdfPages)
-            . ' WHERE ' . Util::backquote('page_nr') . ' = ' . intval($pg);
+            . ' WHERE ' . Util::backquote('page_nr') . ' = ' . $pg;
         $page_name = $this->dbi->fetchValue(
             $query,
             0,
