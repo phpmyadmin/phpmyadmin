@@ -729,7 +729,6 @@ class StructureController extends AbstractController
                 // Merge or BerkleyDB table: Only row count is accurate.
                 if ($this->isShowStats) {
                     $formattedSize = ' - ';
-                    $unit = '';
                 }
 
                 break;
@@ -754,7 +753,6 @@ class StructureController extends AbstractController
                 // Unknown table type.
                 if ($this->isShowStats) {
                     $formattedSize = __('unknown');
-                    $unit = '';
                 }
         }
 

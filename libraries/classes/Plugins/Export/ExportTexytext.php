@@ -522,7 +522,6 @@ class ExportTexytext extends ExportPlugin
                 );
                 break;
             case 'triggers':
-                $dump = '';
                 $triggers = Triggers::getDetails($GLOBALS['dbi'], $db, $table);
                 if ($triggers) {
                     $dump .= '== ' . __('Triggers') . ' ' . $table_alias . "\n\n";
