@@ -634,7 +634,6 @@
                     $path,
                     $workPath,
                     $translatedPath,
-                    true,
                     $userPrefsAllow,
                     $jsDefault
                 )</code>
@@ -3391,7 +3390,6 @@
     </PossiblyInvalidArgument>
     <PropertyNotSetInConstructor>
       <code>$hasStatistics</code>
-      <code>$position</code>
       <code>$sortBy</code>
       <code>$sortOrder</code>
     </PropertyNotSetInConstructor>
