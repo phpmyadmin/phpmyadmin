@@ -256,7 +256,7 @@ final class SaveController extends AbstractController
 
                 $revert_query = 'ALTER TABLE ' . Util::backquote($GLOBALS['table'])
                     . ' ';
-                $revert_query .= implode(', ', $changes_revert) . '';
+                $revert_query .= implode(', ', $changes_revert);
                 $revert_query .= ';';
 
                 // Column reverted back to original

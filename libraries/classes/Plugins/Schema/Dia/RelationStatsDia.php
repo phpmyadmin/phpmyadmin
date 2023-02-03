@@ -138,7 +138,7 @@ class RelationStatsDia
                 '00FF00',
             ];
             shuffle($listOfColors);
-            $this->referenceColor = '#' . $listOfColors[0] . '';
+            $this->referenceColor = '#' . $listOfColors[0];
         } else {
             $this->referenceColor = '#000000';
         }

@@ -109,7 +109,7 @@ class Normalization
                     . htmlspecialchars($column) . ' [ '
                     . htmlspecialchars($def['Type']) . ' ]<br>';
             } else {
-                $selectColHtml .= '<option value="' . htmlspecialchars($column) . ''
+                $selectColHtml .= '<option value="' . htmlspecialchars($column)
                 . '">' . htmlspecialchars($column)
                 . ' [ ' . htmlspecialchars($def['Type']) . ' ]'
                 . '</option>';

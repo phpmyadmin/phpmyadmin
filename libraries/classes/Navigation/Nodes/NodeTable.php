@@ -98,7 +98,7 @@ class NodeTable extends NodeDatabaseChild
                 } else {
                     $db = Util::backquote($db);
                     $table = Util::backquote($table);
-                    $query = 'SHOW COLUMNS FROM ' . $table . ' FROM ' . $db . '';
+                    $query = 'SHOW COLUMNS FROM ' . $table . ' FROM ' . $db;
                     $retval = (int) $GLOBALS['dbi']->queryAndGetNumRows($query);
                 }
 

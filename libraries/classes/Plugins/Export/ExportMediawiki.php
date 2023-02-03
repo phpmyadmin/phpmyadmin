@@ -300,7 +300,7 @@ class ExportMediawiki extends ExportPlugin
                         $column = $aliases[$db]['tables'][$table]['columns'][$column];
                     }
 
-                    $output .= ' ! ' . $column . '' . $this->exportCRLF();
+                    $output .= ' ! ' . $column . $this->exportCRLF();
                 }
             }
         }
@@ -318,7 +318,7 @@ class ExportMediawiki extends ExportPlugin
 
             // Use '|' for separating table columns
             for ($i = 0; $i < $fields_cnt; ++$i) {
-                $output .= ' | ' . $row[$i] . '' . $this->exportCRLF();
+                $output .= ' | ' . $row[$i] . $this->exportCRLF();
             }
         }
 
