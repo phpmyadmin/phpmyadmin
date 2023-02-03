@@ -15955,7 +15955,6 @@
       <code>$row['Key_name']</code>
       <code>$row['Key_name']</code>
       <code>$row['Key_name']</code>
-      <code>$row['Key_name']</code>
       <code>$row['Non_unique']</code>
       <code>$row['Seq_in_index']</code>
       <code>$row['Seq_in_index']</code>
@@ -16007,7 +16006,6 @@
       <code>$indexesInfo[$row['Key_name']]['Comment']</code>
       <code>$indexesInfo[$row['Key_name']]['Non_unique']</code>
       <code>$indexesInfo[$row['Key_name']]['Sequences'][]</code>
-      <code>$indexes[]</code>
       <code>$lastIndex</code>
       <code>$p</code>
       <code>$p</code>

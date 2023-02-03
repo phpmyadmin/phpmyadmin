@@ -2005,7 +2005,6 @@ class Util
 
             // Retains keys informations
             if ($row['Key_name'] != $lastIndex) {
-                $indexes[] = $row['Key_name'];
                 $lastIndex = $row['Key_name'];
             }
 
