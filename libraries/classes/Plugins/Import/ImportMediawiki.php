@@ -380,7 +380,7 @@ class ImportMediawiki extends ImportPlugin
      *
      * @global string $db      name of the database to import in
      */
-    private function executeImportTables(array &$tables, array &$analyses, array &$sqlStatements): void
+    private function executeImportTables(array &$tables, array $analyses, array &$sqlStatements): void
     {
         // $db_name : The currently selected database name, if applicable
         //            No backquotes

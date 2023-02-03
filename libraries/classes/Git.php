@@ -415,7 +415,7 @@ class Git
      *
      * @return stdClass|null The commit body from the GitHub API
      */
-    private function isRemoteCommit(&$commit, bool &$isRemoteCommit, string $hash): ?stdClass
+    private function isRemoteCommit($commit, bool &$isRemoteCommit, string $hash): ?stdClass
     {
         $httpRequest = new HttpRequest();
 

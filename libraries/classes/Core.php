@@ -198,7 +198,7 @@ class Core
      * @param array  $allowList allow list to check page against
      * @param bool   $include   whether the page is going to be included
      */
-    public static function checkPageValidity(&$page, array $allowList = [], $include = false): bool
+    public static function checkPageValidity($page, array $allowList = [], $include = false): bool
     {
         if (empty($allowList)) {
             $allowList = ['index.php'];
