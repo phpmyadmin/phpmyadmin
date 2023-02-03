@@ -190,8 +190,6 @@ class Util
                 $mysql = '5.7';
             } elseif ($serverVersion >= 50600) {
                 $mysql = '5.6';
-            } elseif ($serverVersion >= 50500) {
-                $mysql = '5.5';
             }
         }
 
