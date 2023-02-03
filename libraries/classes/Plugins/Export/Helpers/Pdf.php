@@ -61,12 +61,6 @@ class Pdf extends PdfLib
     /** @var array */
     private $colAlign;
 
-    /** @var mixed */
-    private $titleWidth;
-
-    /** @var mixed */
-    private $colFits;
-
     /** @var array */
     private $displayColumn;
 
@@ -331,8 +325,6 @@ class Pdf extends PdfLib
         unset(
             $this->tablewidths,
             $this->colTitles,
-            $this->titleWidth,
-            $this->colFits,
             $this->displayColumn,
             $this->colAlign
         );
@@ -476,8 +468,6 @@ class Pdf extends PdfLib
         unset(
             $this->tablewidths,
             $this->colTitles,
-            $this->titleWidth,
-            $this->colFits,
             $this->displayColumn,
             $this->colAlign
         );
@@ -692,8 +682,6 @@ class Pdf extends PdfLib
         unset(
             $this->tablewidths,
             $this->colTitles,
-            $this->titleWidth,
-            $this->colFits,
             $this->displayColumn,
             $this->colAlign
         );
