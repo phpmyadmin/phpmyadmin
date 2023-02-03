@@ -2966,7 +2966,6 @@
     </MixedArgument>
     <MixedAssignment>
       <code>$dbName</code>
-      <code>$getNaviSettings</code>
       <code>$itemName</code>
       <code>$itemType</code>
       <code>$tableName</code>
@@ -10187,7 +10186,7 @@
       <code>[
                 'legendText' =&gt; __('End of step'),
                 'headText' =&gt; $headText,
-                'queryError' =&gt; $error,
+                'queryError' =&gt; false,
             ]</code>
       <code>[
             'legendText' =&gt; __('End of step'),
