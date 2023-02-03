@@ -814,7 +814,7 @@ class StructureController extends AbstractController
                 [$formattedOverhead, $overheadUnit] = Util::formatByteDown(
                     $currentTable['Data_free'],
                     3,
-                    ($currentTable['Data_free'] > 0 ? 1 : 0)
+                    1
                 );
                 $overheadSize += $currentTable['Data_free'];
             }
