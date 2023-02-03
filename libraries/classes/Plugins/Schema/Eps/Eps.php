@@ -33,8 +33,7 @@ class Eps
      */
     public function __construct()
     {
-        $this->stringCommands = '';
-        $this->stringCommands .= "%!PS-Adobe-3.0 EPSF-3.0 \n";
+        $this->stringCommands = "%!PS-Adobe-3.0 EPSF-3.0 \n";
     }
 
     /**
