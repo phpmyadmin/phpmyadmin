@@ -207,14 +207,7 @@ class DesignerController extends AbstractController
         $header = $this->response->getHeader();
         $header->setBodyId('designer_body');
 
-        $this->addScriptFiles([
-            'designer/database.js',
-            'designer/objects.js',
-            'designer/page.js',
-            'designer/history.js',
-            'designer/move.js',
-            'designer/init.js',
-        ]);
+        $this->addScriptFiles(['designer/init.js']);
 
         // Embed some data into HTML, later it will be read
         // by designer/init.js and converted to JS variables.

@@ -1,57 +1,20 @@
 import $ from 'jquery';
-import { AJAX } from '../modules/ajax.js';
 import { Functions } from '../modules/functions.js';
 import { CommonParams } from '../modules/common.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
 import refreshMainContent from '../modules/functions/refreshMainContent.js';
 import { Navigation } from '../modules/navigation.js';
+import { DesignerObjects } from './objects.js';
+import { DesignerHistory } from './history.js';
+import { DesignerPage } from './page.js';
 
-/**
- * @package PhpMyAdmin-Designer
- */
-
-/* global DesignerObjects */ // js/designer/objects.js
-/* global DesignerHistory, historyArray, selectField */ // js/designer/history.js
-/* global DesignerPage */ // js/designer/page.js
 /* global themeImagePath */ // templates/javascript/variables.twig
 
 var DesignerMove = {};
-window.DesignerMove = DesignerMove;
 
 var change = 0; // variable to track any change in designer layout.
 var showRelationLines = true;
 var alwaysShowText = false;
-
-AJAX.registerTeardown('designer/move.js', function () {
-    $(document).off('fullscreenchange');
-    $('#selflink').show();
-});
-
-AJAX.registerOnload('designer/move.js', function () {
-    var $content = $('#page_content');
-    var $img = $('#toggleFullscreen').find('img');
-    var $span = $img.siblings('span');
-
-    $content.css({ 'margin-left': '3px' });
-    $(document).on('fullscreenchange', function () {
-        if (! document.fullscreenElement) {
-            $content.removeClass('content_fullscreen')
-                .css({ 'width': 'auto', 'height': 'auto' });
-            $('#osn_tab').css({ 'width': 'auto', 'height': 'auto' });
-            $img.attr('src', $img.data('enter'))
-                .attr('title', $span.data('enter'));
-            $span.text($span.data('enter'));
-
-            // Saving the fullscreen state in config when
-            // designer exists fullscreen mode via ESC key
-
-            var valueSent = 'off';
-            DesignerMove.saveValueInConfig('full_screen', valueSent);
-        }
-    });
-
-    $('#selflink').hide();
-});
 
 DesignerMove.markSaved = function () {
     change = 0;
@@ -1832,13 +1795,13 @@ DesignerMove.selectAll = function (tableName, dbName, idSelectAll) {
         this.disabled = parentIsChecked;
     });
     if (parentIsChecked) {
-        selectField.push('`' + tableName + '`.*');
+        DesignerHistory.selectField.push('`' + tableName + '`.*');
         window.fromArray.push(tableName);
     } else {
         var i;
-        for (i = 0; i < selectField.length; i++) {
-            if (selectField[i] === ('`' + tableName + '`.*')) {
-                selectField.splice(i, 1);
+        for (i = 0; i < DesignerHistory.selectField.length; i++) {
+            if (DesignerHistory.selectField[i] === ('`' + tableName + '`.*')) {
+                DesignerHistory.selectField.splice(i, 1);
             }
         }
         var k;
@@ -1868,7 +1831,7 @@ DesignerMove.tableOnOver = function (idThis, val, buil) {
 };
 
 /**
- * This function stores selected column information in selectField[]
+ * This function stores selected column information in DesignerHistory.selectField[]
  * In case column is checked it add else it deletes
  *
  * @param {string} tableName
@@ -1880,12 +1843,12 @@ DesignerMove.storeColumn = function (tableName, colName, checkboxId) {
     var k;
     var selectKeyField = '`' + tableName + '`.`' + colName + '`';
     if (document.getElementById(checkboxId).checked === true) {
-        selectField.push(selectKeyField);
+        DesignerHistory.selectField.push(selectKeyField);
         window.fromArray.push(tableName);
     } else {
-        for (i = 0; i < selectField.length; i++) {
-            if (selectField[i] === selectKeyField) {
-                selectField.splice(i, 1);
+        for (i = 0; i < DesignerHistory.selectField.length; i++) {
+            if (DesignerHistory.selectField[i] === selectKeyField) {
+                DesignerHistory.selectField.splice(i, 1);
                 break;
             }
         }
@@ -1899,9 +1862,9 @@ DesignerMove.storeColumn = function (tableName, colName, checkboxId) {
 };
 
 /**
- * This function builds object and adds them to historyArray
+ * This function builds object and adds them to DesignerHistory.historyArray
  * first it does a few checks on each object, then makes an object(where,rename,groupby,aggregate,orderby)
- * then a new history object is made and finally all these history objects are added to historyArray[]
+ * then a new history object is made and finally all these history objects are added to DesignerHistory.historyArray[]
  *
  * @param {string} dbName
  * @param {string} tableName
@@ -1913,7 +1876,7 @@ DesignerMove.addObject = function (dbName, tableName, colName, dbTableNameUrl) {
     var whereObj;
     var rel = document.getElementById('rel_opt');
     var sum = 0;
-    var init = historyArray.length;
+    var init = DesignerHistory.historyArray.length;
     if (rel.value !== '--') {
         if (document.getElementById('Query').value === '') {
             ajaxShowMessage(window.sprintf(window.Messages.strQueryEmpty));
@@ -1921,22 +1884,22 @@ DesignerMove.addObject = function (dbName, tableName, colName, dbTableNameUrl) {
         }
         p = document.getElementById('Query');
         whereObj = new DesignerHistory.Where(rel.value, p.value);// make where object
-        historyArray.push(new DesignerHistory.HistoryObj(colName, whereObj, tableName, window.hTabs[dbTableNameUrl], 'Where'));
+        DesignerHistory.historyArray.push(new DesignerHistory.HistoryObj(colName, whereObj, tableName, window.hTabs[dbTableNameUrl], 'Where'));
         sum = sum + 1;
     }
     if (document.getElementById('new_name').value !== '') {
         var renameObj = new DesignerHistory.Rename(document.getElementById('new_name').value);// make Rename object
-        historyArray.push(new DesignerHistory.HistoryObj(colName, renameObj, tableName, window.hTabs[dbTableNameUrl], 'Rename'));
+        DesignerHistory.historyArray.push(new DesignerHistory.HistoryObj(colName, renameObj, tableName, window.hTabs[dbTableNameUrl], 'Rename'));
         sum = sum + 1;
     }
     if (document.getElementById('operator').value !== '---') {
         var aggregateObj = new DesignerHistory.Aggregate(document.getElementById('operator').value);
-        historyArray.push(new DesignerHistory.HistoryObj(colName, aggregateObj, tableName, window.hTabs[dbTableNameUrl], 'Aggregate'));
+        DesignerHistory.historyArray.push(new DesignerHistory.HistoryObj(colName, aggregateObj, tableName, window.hTabs[dbTableNameUrl], 'Aggregate'));
         sum = sum + 1;
         // make aggregate operator
     }
     if (document.getElementById('groupby').checked === true) {
-        historyArray.push(new DesignerHistory.HistoryObj(colName, 'GroupBy', tableName, window.hTabs[dbTableNameUrl], 'GroupBy'));
+        DesignerHistory.historyArray.push(new DesignerHistory.HistoryObj(colName, 'GroupBy', tableName, window.hTabs[dbTableNameUrl], 'GroupBy'));
         sum = sum + 1;
         // make groupby
     }
@@ -1949,20 +1912,20 @@ DesignerMove.addObject = function (dbName, tableName, colName, dbTableNameUrl) {
             document.getElementById('having').value,
             document.getElementById('h_operator').value
         );// make where object
-        historyArray.push(new DesignerHistory.HistoryObj(colName, whereObj, tableName, window.hTabs[dbTableNameUrl], 'Having'));
+        DesignerHistory.historyArray.push(new DesignerHistory.HistoryObj(colName, whereObj, tableName, window.hTabs[dbTableNameUrl], 'Having'));
         sum = sum + 1;
         // make having
     }
     if (document.getElementById('orderby').value !== '---') {
         var orderByObj = new DesignerHistory.OrderBy(document.getElementById('orderby').value);
-        historyArray.push(new DesignerHistory.HistoryObj(colName, orderByObj, tableName, window.hTabs[dbTableNameUrl], 'OrderBy'));
+        DesignerHistory.historyArray.push(new DesignerHistory.HistoryObj(colName, orderByObj, tableName, window.hTabs[dbTableNameUrl], 'OrderBy'));
         sum = sum + 1;
         // make orderby
     }
     ajaxShowMessage(window.sprintf(window.Messages.strObjectsCreated, sum));
     // output sum new objects created
     var existingDiv = document.getElementById('ab');
-    existingDiv.innerHTML = DesignerHistory.display(init, historyArray.length);
+    existingDiv.innerHTML = DesignerHistory.display(init, DesignerHistory.historyArray.length);
     DesignerMove.closeOption();
     $('#ab').accordion('refresh');
 };
@@ -2031,190 +1994,4 @@ DesignerMove.enableTableEvents = function (index, element) {
     DesignerMove.enablePageContentEvents();
 };
 
-AJAX.registerTeardown('designer/move.js', function () {
-    $('#side_menu').off('mouseenter mouseleave');
-    $('#key_Show_left_menu').off('click');
-    $('#toggleFullscreen').off('click');
-    $('#newPage').off('click');
-    $('#editPage').off('click');
-    $('#savePos').off('click');
-    $('#SaveAs').off('click');
-    $('#delPages').off('click');
-    $('#StartTableNew').off('click');
-    $('#rel_button').off('click');
-    $('#StartTableNew').off('click');
-    $('#display_field_button').off('click');
-    $('#reloadPage').off('click');
-    $('#angular_direct_button').off('click');
-    $('#grid_button').off('click');
-    $('#key_SB_all').off('click');
-    $('#SmallTabInvert').off('click');
-    $('#relLineInvert').off('click');
-    $('#exportPages').off('click');
-    $('#query_builder').off('click');
-    $('#key_Left_Right').off('click');
-    $('#pin_Text').off('click');
-    $('#canvas').off('click');
-    $('#key_HS_all').off('click');
-    $('#key_HS').off('click');
-    $('.scroll_tab_struct').off('click');
-    $('.scroll_tab_checkbox').off('click');
-    $('#id_scroll_tab').find('tr').off('click', '.designer_Tabs2,.designer_Tabs');
-    $('.designer_tab').off('click', '.select_all_1');
-    $('.designer_tab').off('click', '.small_tab,.small_tab2');
-    $('.designer_tab').off('click', '.small_tab_pref_1');
-    $('.tab_zag_noquery').off('mouseover');
-    $('.tab_zag_noquery').off('mouseout');
-    $('.tab_zag_query').off('mouseover');
-    $('.tab_zag_query').off('mouseout');
-    $('.designer_tab').off('click', '.tab_field_2,.tab_field_3,.tab_field');
-    $('.designer_tab').off('click', '.select_all_store_col');
-    $('.designer_tab').off('click', '.small_tab_pref_click_opt');
-    $('#del_button').off('click');
-    $('#cancel_button').off('click');
-    $('#ok_add_object').off('click');
-    $('#cancel_close_option').off('click');
-    $('#ok_new_rel_panel').off('click');
-    $('#cancel_new_rel_panel').off('click');
-    $('#page_content').off('mouseup');
-    $('#page_content').off('mousedown');
-    $('#page_content').off('mousemove');
-});
-
-AJAX.registerOnload('designer/move.js', function () {
-    $('#key_Show_left_menu').on('click', function () {
-        DesignerMove.showLeftMenu(this);
-        return false;
-    });
-    $('#toggleFullscreen').on('click', function () {
-        DesignerMove.toggleFullscreen();
-        return false;
-    });
-    $('#addOtherDbTables').on('click', function () {
-        DesignerMove.addOtherDbTables();
-        return false;
-    });
-    $('#newPage').on('click', function () {
-        DesignerMove.new();
-        return false;
-    });
-    $('#editPage').on('click', function () {
-        DesignerMove.editPages();
-        return false;
-    });
-    $('#savePos').on('click', function () {
-        DesignerMove.save3();
-        return false;
-    });
-    $('#SaveAs').on('click', function () {
-        DesignerMove.saveAs();
-        $(document).on('ajaxStop', function () {
-            $('#selected_value').on('click', function () {
-                $('#savePageNewRadio').prop('checked', true);
-            });
-        });
-        return false;
-    });
-    $('#delPages').on('click', function () {
-        DesignerMove.deletePages();
-        return false;
-    });
-    $('#StartTableNew').on('click', function () {
-        DesignerMove.startTableNew();
-        return false;
-    });
-    $('#rel_button').on('click', function () {
-        DesignerMove.startRelation();
-        return false;
-    });
-    $('#display_field_button').on('click', function () {
-        DesignerMove.startDisplayField();
-        return false;
-    });
-    $('#reloadPage').on('click', function () {
-        DesignerMove.loadPage(window.selectedPage);
-    });
-    $('#angular_direct_button').on('click', function () {
-        DesignerMove.angularDirect();
-        return false;
-    });
-    $('#grid_button').on('click', function () {
-        DesignerMove.grid();
-        return false;
-    });
-    $('#key_SB_all').on('click', function () {
-        DesignerMove.smallTabAll(this);
-        return false;
-    });
-    $('#SmallTabInvert').on('click', function () {
-        DesignerMove.smallTabInvert();
-        return false;
-    });
-    $('#relLineInvert').on('click', function () {
-        DesignerMove.relationLinesInvert();
-        return false;
-    });
-    $('#exportPages').on('click', function () {
-        DesignerMove.exportPages();
-        return false;
-    });
-    $('#query_builder').on('click', function () {
-        DesignerHistory.buildQuery('SQL Query on Database', 0);
-    });
-    $('#key_Left_Right').on('click', function () {
-        DesignerMove.sideMenuRight(this);
-        return false;
-    });
-    $('#side_menu').on('mouseenter', function () {
-        DesignerMove.showText();
-        return false;
-    });
-    $('#side_menu').on('mouseleave', function () {
-        DesignerMove.hideText();
-        return false;
-    });
-    $('#pin_Text').on('click', function () {
-        DesignerMove.pinText(this);
-        return false;
-    });
-    $('#canvas').on('click', function (event) {
-        DesignerMove.canvasClick(this, event);
-    });
-    $('#key_HS_all').on('click', function () {
-        DesignerMove.hideTabAll(this);
-        return false;
-    });
-    $('#key_HS').on('click', function () {
-        DesignerMove.noHaveConstr(this);
-        return false;
-    });
-
-    $('.designer_tab').each(DesignerMove.enableTableEvents);
-    $('.designer_tab').each(DesignerMove.addTableToTablesList);
-
-    $('input#del_button').on('click', function () {
-        DesignerMove.updRelation();
-    });
-    $('input#cancel_button').on('click', function () {
-        document.getElementById('layer_upd_relation').style.display = 'none';
-        DesignerMove.reload();
-    });
-    $('input#ok_add_object').on('click', function () {
-        DesignerMove.addObject(
-            $('#ok_add_object_db_name').val(),
-            $('#ok_add_object_table_name').val(),
-            $('#ok_add_object_col_name').val(),
-            $('#ok_add_object_db_and_table_name_url').val()
-        );
-    });
-    $('input#cancel_close_option').on('click', function () {
-        DesignerMove.closeOption();
-    });
-    $('input#ok_new_rel_panel').on('click', function () {
-        DesignerMove.newRelation();
-    });
-    $('input#cancel_new_rel_panel').on('click', function () {
-        document.getElementById('layer_new_relation').style.display = 'none';
-    });
-    DesignerMove.enablePageContentEvents();
-});
+export { DesignerMove };

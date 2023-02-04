@@ -1,13 +1,11 @@
 import $ from 'jquery';
 import { ajaxShowMessage } from '../modules/ajax-message.js';
 import { escapeHtml } from '../modules/functions/escape.js';
-
-/* global DesignerOfflineDB */ // js/designer/database.js
-/* global DesignerMove */ // js/designer/move.js
-/* global DesignerObjects */ // js/designer/objects.js
+import { DesignerOfflineDB } from './database.js';
+import { DesignerMove } from './move.js';
+import { DesignerObjects } from './objects.js';
 
 var DesignerPage = {};
-window.DesignerPage = DesignerPage;
 
 DesignerPage.showTablesInLandingPage = function (db) {
     DesignerPage.loadFirstPage(db, function (page) {
@@ -179,3 +177,5 @@ DesignerPage.getRandom = function (max, min) {
     var val = Math.random() * (max - min) + min;
     return Math.floor(val);
 };
+
+export { DesignerPage };
