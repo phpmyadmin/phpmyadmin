@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import { ajaxShowMessage } from '../modules/ajax-message.js';
 import { escapeHtml } from '../modules/functions/escape.js';
+import { DesignerConfig } from './config.js';
 import { DesignerOfflineDB } from './database.js';
 import { DesignerMove } from './move.js';
 import { DesignerObjects } from './objects.js';
@@ -11,7 +12,7 @@ DesignerPage.showTablesInLandingPage = function (db) {
     DesignerPage.loadFirstPage(db, function (page) {
         if (page) {
             DesignerPage.loadHtmlForPage(page.pgNr);
-            window.selectedPage = page.pgNr;
+            DesignerConfig.selectedPage = page.pgNr;
         } else {
             DesignerPage.showNewPageTables(true);
         }
@@ -46,7 +47,7 @@ DesignerPage.saveToSelectedPage = function (db, pageId, pageName, tablePositions
         if (typeof callback !== 'undefined') {
             callback(page);
         }
-        window.selectedPage = page.pgNr;
+        DesignerConfig.selectedPage = page.pgNr;
     });
 };
 
@@ -123,7 +124,7 @@ DesignerPage.showNewPageTables = function (check) {
             DesignerMove.visibleTab(input, input.value);
         }
     }
-    window.selectedPage = -1;
+    DesignerConfig.selectedPage = -1;
     $('#page_name').text(window.Messages.strUntitled);
     DesignerMove.markUnsaved();
 };
@@ -134,7 +135,7 @@ DesignerPage.loadHtmlForPage = function (pageId) {
         $('#name-panel').find('#page_name').text(page.pageDescr);
         var tableMissing = false;
         for (var t = 0; t < tblCords.length; t++) {
-            var tbId = window.db + '.' + tblCords[t].tableName;
+            var tbId = DesignerConfig.db + '.' + tblCords[t].tableName;
             var table = document.getElementById(tbId);
             if (table === null) {
                 tableMissing = true;
@@ -152,7 +153,7 @@ DesignerPage.loadHtmlForPage = function (pageId) {
             DesignerMove.markUnsaved();
             ajaxShowMessage(window.Messages.strSavedPageTableMissing);
         }
-        window.selectedPage = page.pgNr;
+        DesignerConfig.selectedPage = page.pgNr;
     });
 };
 

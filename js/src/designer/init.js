@@ -4,12 +4,11 @@ import { DesignerOfflineDB } from './database.js';
 import { DesignerHistory } from './history.js';
 import { DesignerMove } from './move.js';
 import { DesignerPage } from './page.js';
+import { DesignerConfig } from './config.js';
 
 /**
  * Initializes the data required to run Designer, then fires it up.
  */
-
-/* global designerConfig */ // templates/database/designer/main.twig
 
 AJAX.registerTeardown('designer/init.js', function () {
     DesignerHistory.vqbEditor = null;
@@ -169,7 +168,7 @@ AJAX.registerOnload('designer/init.js', function () {
         return false;
     });
     $('#reloadPage').on('click', function () {
-        DesignerMove.loadPage(window.selectedPage);
+        DesignerMove.loadPage(DesignerConfig.selectedPage);
     });
     $('#angular_direct_button').on('click', function () {
         DesignerMove.angularDirect();
@@ -268,21 +267,24 @@ AJAX.registerOnload('designer/init.js', function () {
         return false;
     });
 
-    window.jTabs = designerConfig.scriptTables.j_tabs;
-    window.hTabs = designerConfig.scriptTables.h_tabs;
-    window.contr = designerConfig.scriptContr;
-    window.displayField = designerConfig.scriptDisplayField;
-    window.server = designerConfig.server;
-    window.selectedPage = designerConfig.displayPage;
-    window.db = designerConfig.db;
-    window.designerTablesEnabled = designerConfig.tablesEnabled;
+    // @ts-ignore
+    const configValues = window.designerConfig;
+
+    DesignerConfig.jTabs = configValues.scriptTables.j_tabs;
+    DesignerConfig.hTabs = configValues.scriptTables.h_tabs;
+    DesignerConfig.contr = configValues.scriptContr;
+    DesignerConfig.displayField = configValues.scriptDisplayField;
+    DesignerConfig.server = configValues.server;
+    DesignerConfig.selectedPage = configValues.displayPage;
+    DesignerConfig.db = configValues.db;
+    DesignerConfig.designerTablesEnabled = configValues.tablesEnabled;
 
     DesignerMove.main();
 
-    if (! window.designerTablesEnabled) {
+    if (! DesignerConfig.designerTablesEnabled) {
         DesignerOfflineDB.open(function (success) {
             if (success) {
-                DesignerPage.showTablesInLandingPage(window.db);
+                DesignerPage.showTablesInLandingPage(DesignerConfig.db);
             }
         });
     }

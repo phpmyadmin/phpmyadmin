@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import { Functions } from '../modules/functions.js';
 import getImageTag from '../modules/functions/getImageTag.js';
+import { DesignerConfig } from './config.js';
 
 /**
  * @fileoverview    function used in this file builds history tab and generates query.
@@ -667,21 +668,21 @@ DesignerHistory.queryFrom = function () {
     // if master table (key2) matches with tab used get all keys and check if tab_left matches
     // after this check if master table (key2) matches with tab left then check if any foreign matches with master .
     for (i = 0; i < 2; i++) {
-        for (K in window.contr) {
-            for (key in window.contr[K]) {// contr name
-                for (key2 in window.contr[K][key]) {// table name
+        for (K in DesignerConfig.contr) {
+            for (key in DesignerConfig.contr[K]) {// contr name
+                for (key2 in DesignerConfig.contr[K][key]) {// table name
                     parts = key2.split('.');
                     if (DesignerHistory.found(tabUsed, parts[1]) > 0) {
-                        for (key3 in window.contr[K][key][key2]) {
-                            parts1 = window.contr[K][key][key2][key3][0].split('.');
+                        for (key3 in DesignerConfig.contr[K][key][key2]) {
+                            parts1 = DesignerConfig.contr[K][key][key2][key3][0].split('.');
                             if (DesignerHistory.found(tabLeft, parts1[1]) > 0) {
                                 if (DesignerHistory.found(constraintsAdded, key) > 0) {
                                     query += ' AND ' + '`' + parts[1] + '`.`' + key3 + '` = ';
-                                    query += '`' + parts1[1] + '`.`' + window.contr[K][key][key2][key3][1] + '` ';
+                                    query += '`' + parts1[1] + '`.`' + DesignerConfig.contr[K][key][key2][key3][1] + '` ';
                                 } else {
                                     query += '\n' + 'LEFT JOIN ';
                                     query += '`' + parts[1] + '` ON ';
-                                    query += '`' + parts1[1] + '`.`' + window.contr[K][key][key2][key3][1] + '` = ';
+                                    query += '`' + parts1[1] + '`.`' + DesignerConfig.contr[K][key][key2][key3][1] + '` = ';
                                     query += '`' + parts[1] + '`.`' + key3 + '` ';
 
                                     constraintsAdded.push(key);
@@ -698,21 +699,21 @@ DesignerHistory.queryFrom = function () {
         tabUsed = DesignerHistory.addArray(tTabLeft, tabUsed);
         tabLeft = DesignerHistory.removeArray(tTabLeft, tabLeft);
         tTabLeft = [];
-        for (K in window.contr) {
-            for (key in window.contr[K]) {
-                for (key2 in window.contr[K][key]) {// table name
+        for (K in DesignerConfig.contr) {
+            for (key in DesignerConfig.contr[K]) {
+                for (key2 in DesignerConfig.contr[K][key]) {// table name
                     parts = key2.split('.');
                     if (DesignerHistory.found(tabLeft, parts[1]) > 0) {
-                        for (key3 in window.contr[K][key][key2]) {
-                            parts1 = window.contr[K][key][key2][key3][0].split('.');
+                        for (key3 in DesignerConfig.contr[K][key][key2]) {
+                            parts1 = DesignerConfig.contr[K][key][key2][key3][0].split('.');
                             if (DesignerHistory.found(tabUsed, parts1[1]) > 0) {
                                 if (DesignerHistory.found(constraintsAdded, key) > 0) {
                                     query += ' AND ' + '`' + parts[1] + '`.`' + key3 + '` = ';
-                                    query += '`' + parts1[1] + '`.`' + window.contr[K][key][key2][key3][1] + '` ';
+                                    query += '`' + parts1[1] + '`.`' + DesignerConfig.contr[K][key][key2][key3][1] + '` ';
                                 } else {
                                     query += '\n' + 'LEFT JOIN ';
                                     query += '`' + parts[1] + '` ON ';
-                                    query += '`' + parts1[1] + '`.`' + window.contr[K][key][key2][key3][1] + '` = ';
+                                    query += '`' + parts1[1] + '`.`' + DesignerConfig.contr[K][key][key2][key3][1] + '` = ';
                                     query += '`' + parts[1] + '`.`' + key3 + '` ';
 
                                     constraintsAdded.push(key);
