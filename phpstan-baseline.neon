@@ -6261,6 +6261,11 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportCsv.php
 
 		-
+			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, string\\|null given\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Export/ExportCsv.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportHtmlword\\:\\:exportData\\(\\) has parameter \\$aliases with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportHtmlword.php

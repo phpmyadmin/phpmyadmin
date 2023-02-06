@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -18,11 +19,10 @@ use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 
 use function __;
+use function implode;
 use function mb_strtolower;
-use function mb_substr;
 use function preg_replace;
 use function str_replace;
-use function trim;
 
 use const PHP_EOL;
 
@@ -222,26 +222,30 @@ class ExportCsv extends ExportPlugin
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
 
-        // Gets the data from the database
+        /**
+         * Gets the data from the database
+         *
+         * @var ResultInterface $result
+         * @psalm-ignore-var
+         */
         $result = $GLOBALS['dbi']->query(
             $sqlQuery,
             Connection::TYPE_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
-        $fields_cnt = $result->numFields();
 
         // If required, get fields name at the first line
         if (isset($GLOBALS['csv_columns']) && $GLOBALS['csv_columns']) {
-            $schema_insert = '';
+            $insertFields = [];
             foreach ($result->getFieldNames() as $col_as) {
                 if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                     $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
                 }
 
                 if ($GLOBALS['csv_enclosed'] == '') {
-                    $schema_insert .= $col_as;
+                    $insertFields[] = $col_as;
                 } else {
-                    $schema_insert .= $GLOBALS['csv_enclosed']
+                    $insertFields[] = $GLOBALS['csv_enclosed']
                         . str_replace(
                             $GLOBALS['csv_enclosed'],
                             $GLOBALS['csv_escaped'] . $GLOBALS['csv_enclosed'],
@@ -249,11 +253,9 @@ class ExportCsv extends ExportPlugin
                         )
                         . $GLOBALS['csv_enclosed'];
                 }
-
-                $schema_insert .= $GLOBALS['csv_separator'];
             }
 
-            $schema_insert = trim(mb_substr($schema_insert, 0, -1));
+            $schema_insert = implode($GLOBALS['csv_separator'], $insertFields);
             if (! $this->export->outputHandler($schema_insert . $GLOBALS['csv_terminated'])) {
                 return false;
             }
@@ -261,68 +263,63 @@ class ExportCsv extends ExportPlugin
 
         // Format the data
         while ($row = $result->fetchRow()) {
-            $schema_insert = '';
-            for ($j = 0; $j < $fields_cnt; $j++) {
-                if (! isset($row[$j])) {
-                    $schema_insert .= $GLOBALS[$GLOBALS['what'] . '_null'];
-                } elseif ($row[$j] == '0' || $row[$j] != '') {
+            $insertValues = [];
+            foreach ($row as $field) {
+                if ($field === null) {
+                    $insertValues[] = $GLOBALS[$GLOBALS['what'] . '_null'];
+                } elseif ($field !== '') {
                     // always enclose fields
                     if ($GLOBALS['what'] === 'excel') {
-                        $row[$j] = preg_replace("/\015(\012)?/", "\012", $row[$j]);
+                        $field = preg_replace("/\015(\012)?/", "\012", $field);
                     }
 
                     // remove CRLF characters within field
                     if (
                         isset($GLOBALS[$GLOBALS['what'] . '_removeCRLF']) && $GLOBALS[$GLOBALS['what'] . '_removeCRLF']
                     ) {
-                        $row[$j] = str_replace(
+                        $field = str_replace(
                             [
                                 "\r",
                                 "\n",
                             ],
                             '',
-                            $row[$j]
+                            $field
                         );
                     }
 
                     if ($GLOBALS['csv_enclosed'] == '') {
-                        $schema_insert .= $row[$j];
+                        $insertValues[] = $field;
                     } else {
                         // also double the escape string if found in the data
                         if ($GLOBALS['csv_escaped'] != $GLOBALS['csv_enclosed']) {
-                            $schema_insert .= $GLOBALS['csv_enclosed']
+                            $insertValues[] = $GLOBALS['csv_enclosed']
                                 . str_replace(
                                     $GLOBALS['csv_enclosed'],
                                     $GLOBALS['csv_escaped'] . $GLOBALS['csv_enclosed'],
                                     str_replace(
                                         $GLOBALS['csv_escaped'],
                                         $GLOBALS['csv_escaped'] . $GLOBALS['csv_escaped'],
-                                        $row[$j]
+                                        $field
                                     )
                                 )
                                 . $GLOBALS['csv_enclosed'];
                         } else {
                             // avoid a problem when escape string equals enclose
-                            $schema_insert .= $GLOBALS['csv_enclosed']
+                            $insertValues[] = $GLOBALS['csv_enclosed']
                                 . str_replace(
                                     $GLOBALS['csv_enclosed'],
                                     $GLOBALS['csv_escaped'] . $GLOBALS['csv_enclosed'],
-                                    $row[$j]
+                                    $field
                                 )
                                 . $GLOBALS['csv_enclosed'];
                         }
                     }
                 } else {
-                    $schema_insert .= '';
+                    $insertValues[] = '';
                 }
-
-                if ($j >= $fields_cnt - 1) {
-                    continue;
-                }
-
-                $schema_insert .= $GLOBALS['csv_separator'];
             }
 
+            $schema_insert = implode($GLOBALS['csv_separator'], $insertValues);
             if (! $this->export->outputHandler($schema_insert . $GLOBALS['csv_terminated'])) {
                 return false;
             }
