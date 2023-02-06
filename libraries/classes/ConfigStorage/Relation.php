@@ -1055,13 +1055,16 @@ class Relation
                     . '.' . Util::backquote($foreign_table);
                 $f_query_filter = $foreign_filter === '' ? '' : ' WHERE '
                     . Util::backquote($foreign_field)
-                    . ' LIKE "%' . $this->dbi->escapeString($foreign_filter) . '%"'
+                    . ' LIKE ' . $this->dbi->quoteString(
+                        '%' . $this->dbi->escapeMysqlWildcards($foreign_filter) . '%'
+                    )
                     . (
                         $foreign_display === false
                         ? ''
                         : ' OR ' . Util::backquote($foreign_display)
-                        . ' LIKE "%' . $this->dbi->escapeString($foreign_filter)
-                        . '%"'
+                        . ' LIKE ' . $this->dbi->quoteString(
+                            '%' . $this->dbi->escapeMysqlWildcards($foreign_filter) . '%'
+                        )
                     );
                 $f_query_order = $foreign_display === false ? '' : ' ORDER BY '
                     . Util::backquote($foreign_table) . '.'

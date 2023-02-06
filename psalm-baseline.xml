@@ -731,10 +731,6 @@
     </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/ConfigStorage/Relation.php">
-    <DeprecatedMethod occurrences="2">
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <InvalidArgument occurrences="1">
       <code>usort($tables, 'strnatcasecmp')</code>
     </InvalidArgument>
