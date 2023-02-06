@@ -739,10 +739,6 @@
     </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/ConfigStorage/Relation.php">
-    <DeprecatedMethod occurrences="2">
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
     <InvalidArgument occurrences="1">
       <code>usort($tables, 'strnatcasecmp')</code>
     </InvalidArgument>
@@ -12174,6 +12170,11 @@
       <code>$row['#']</code>
       <code>$row['#']</code>
     </PossiblyNullOperand>
+  </file>
+  <file src="libraries/classes/Server/Status/Processes.php">
+    <RedundantCondition occurrences="1">
+      <code>0 !== --$sortableColCount</code>
+    </RedundantCondition>
   </file>
   <file src="libraries/classes/Session.php">
     <MixedArgument occurrences="3">
