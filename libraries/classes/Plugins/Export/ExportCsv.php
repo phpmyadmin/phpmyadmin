@@ -214,7 +214,7 @@ class ExportCsv extends ExportPlugin
     ): bool {
         $GLOBALS['what'] = $GLOBALS['what'] ?? null;
         $GLOBALS['csv_terminated'] = $GLOBALS['csv_terminated'] ?? null;
-        $GLOBALS['csv_separator'] = $GLOBALS['csv_separator'] ?? null;
+        $GLOBALS['csv_separator'] = $GLOBALS['csv_separator'] ?? '';
         $GLOBALS['csv_enclosed'] = $GLOBALS['csv_enclosed'] ?? null;
         $GLOBALS['csv_escaped'] = $GLOBALS['csv_escaped'] ?? null;
 

@@ -10935,8 +10935,6 @@
       <code>$GLOBALS['csv_enclosed']</code>
       <code>$GLOBALS['csv_escaped']</code>
       <code>$GLOBALS['csv_separator']</code>
-      <code>$GLOBALS['csv_separator']</code>
-      <code>$GLOBALS['csv_separator']</code>
     </PossiblyNullArgument>
     <PossiblyNullOperand>
       <code>$GLOBALS['csv_enclosed']</code>
