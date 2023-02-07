@@ -36,6 +36,7 @@ class CreateController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
+    /** @todo Move the whole view rebuilding logic to SQL parser */
     private const VIEW_SECURITY_OPTIONS = [
         'DEFINER',
         'INVOKER',
