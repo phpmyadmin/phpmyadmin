@@ -2217,7 +2217,7 @@ class DbiDummy implements DbiExtension
                     . 'as query_time, Sec_to_Time(Sum(Time_to_Sec(lock_time))) as lock_time,'
                     . ' SUM(rows_sent) AS rows_sent, SUM(rows_examined) AS rows_examined,'
                     . ' db, sql_text, COUNT(sql_text) AS \'#\' FROM `mysql`.`slow_log` WHERE'
-                    . ' start_time > FROM_UNIXTIME(0) AND start_time < FROM_UNIXTIME(10) GROUP BY sql_text',
+                    . ' start_time > FROM_UNIXTIME(0) AND start_time < FROM_UNIXTIME(10) GROUP BY start_time, user_host, db, sql_text',
                 'columns' => ['sql_text', '#'],
                 'result' => [
                     ['insert sql_text', 11],
@@ -2229,7 +2229,7 @@ class DbiDummy implements DbiExtension
                     . ' server_id, argument, count(argument) as \'#\' FROM `mysql`.`general_log`'
                     . ' WHERE command_type=\'Query\' AND event_time > FROM_UNIXTIME(0)'
                     . ' AND event_time < FROM_UNIXTIME(10) AND argument REGEXP \'^(INSERT'
-                    . '|SELECT|UPDATE|DELETE)\' GROUP by argument',
+                    . '|SELECT|UPDATE|DELETE)\' GROUP by event_time, user_host, thread_id, server_id, argument',
                 'columns' => ['sql_text', '#', 'argument'],
                 'result' => [
                     ['insert sql_text', 10, 'argument argument2'],
@@ -2331,7 +2331,7 @@ class DbiDummy implements DbiExtension
                 'result' => [['Id1', 'User1', 'Host1', 'db1', 'Command1', 'Time1', 'State1', 'Info1']],
             ],
             [
-                'query' => 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` ORDER BY `db` ASC',
+                'query' => 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` ORDER BY `Db` ASC',
                 'columns' => ['Id', 'User', 'Host', 'db', 'Command', 'Time', 'State', 'Info'],
                 'result' => [['Id1', 'User1', 'Host1', 'db1', 'Command1', 'Time1', 'State1', 'Info1']],
             ],

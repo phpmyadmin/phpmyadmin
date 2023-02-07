@@ -44,6 +44,7 @@ class ChangeControllerTest extends AbstractTestCase
         );
 
         $method->invokeArgs($ctrl, [null]);
+        $actual = $response->getHTMLResult();
         $this->assertStringContainsString(
             '<input id="field_0_1"' . "\n"
             . '        type="text"' . "\n"
@@ -53,7 +54,8 @@ class ChangeControllerTest extends AbstractTestCase
             . '    title="Column"' . "\n"
             . '    size="10"' . "\n"
             . '    value="_id">' . "\n",
-            $response->getHTMLResult()
+            $actual
         );
+        $this->assertStringContainsString('id="enumEditorModal"', $actual);
     }
 }

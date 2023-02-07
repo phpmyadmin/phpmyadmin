@@ -52,13 +52,19 @@ final class GeneralLogController extends AbstractController
             return;
         }
 
-        $this->response->addJSON([
-            'message' => $this->monitor->getJsonForLogDataTypeGeneral(
-                (int) $params['time_start'],
-                (int) $params['time_end'],
-                (bool) $params['limitTypes'],
-                (bool) $params['removeVariables']
-            ),
-        ]);
+        $data = $this->monitor->getJsonForLogDataTypeGeneral(
+            (int) $params['time_start'],
+            (int) $params['time_end'],
+            (bool) $params['limitTypes'],
+            (bool) $params['removeVariables']
+        );
+
+        if ($data === null) {
+            $this->response->setRequestStatus(false);
+
+            return;
+        }
+
+        $this->response->addJSON(['message' => $data]);
     }
 }

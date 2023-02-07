@@ -83,7 +83,7 @@
       {% elseif column.pma_type == 'set' %}
         {{ backup_field|raw }}
         <input type="hidden" name="fields_type[multi_edit][{{ row_id }}][{{ column.Field_md5 }}]" value="set">
-        <select name="fields[multi_edit][{{ row_id }}][{{ column.Field_md5 }}]" class="textfield" size="{{ set_select_size }}" id="field_{{ id_index }}_3" onchange="return verificationsAfterFieldChange('{{ column.Field_md5|escape_js_string }}', '{{ row_id|escape_js_string }}', '{{ column.pma_type }}')" multiple>
+        <select name="fields[multi_edit][{{ row_id }}][{{ column.Field_md5 }}][]" class="textfield" size="{{ set_select_size }}" id="field_{{ id_index }}_3" onchange="return verificationsAfterFieldChange('{{ column.Field_md5|escape_js_string }}', '{{ row_id|escape_js_string }}', '{{ column.pma_type }}')" multiple>
           {% for set_value in set_values %}
             <option value="{{ set_value.plain }}"{{ set_value.plain in data|split(',') ? ' selected' }}>{{ set_value.plain }}</option>
           {% endfor %}

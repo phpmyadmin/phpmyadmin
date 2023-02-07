@@ -466,6 +466,14 @@ var AJAX = {
         if (typeof data === 'undefined' || data === null) {
             return;
         }
+        // Can be a string when an error occurred and only HTML was returned.
+        if (typeof data === 'string') {
+            Functions.ajaxRemoveMessage(AJAX.$msgbox);
+            Functions.ajaxShowMessage($(data).text(), false, 'error');
+            AJAX.active = false;
+            AJAX.xhr = null;
+            return;
+        }
         if (typeof data.success !== 'undefined' && data.success) {
             $('html, body').animate({ scrollTop: 0 }, 'fast');
             Functions.ajaxRemoveMessage(AJAX.$msgbox);
@@ -501,6 +509,7 @@ var AJAX = {
                 // Remove all containers that may have
                 // been added outside of #page_content
                 $('body').children()
+                    .not('div.modal')
                     .not('#pma_navigation')
                     .not('#floating_menubar')
                     .not('#page_nav_icons')

@@ -202,7 +202,7 @@
 {% endif %}
 
   <div class="table-responsive-md">
-    <table class="table table-light table-striped table-hover table-sm table_results data ajax w-auto" data-uniqueId="{{ unique_id }}">
+    <table class="table table-striped table-hover table-sm table_results data ajax w-auto" data-uniqueId="{{ unique_id }}">
 
       {{ headers.button|raw }}
       {{ headers.table_headers_for_columns|raw }}
@@ -301,4 +301,7 @@
       </span>
     {% endif %}
   </fieldset>
+{% endif %}
+{% if operations is not empty and not operations.has_procedure %}
+{{ include('modals/create_view.twig') }}
 {% endif %}

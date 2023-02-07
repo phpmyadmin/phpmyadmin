@@ -62,5 +62,7 @@ phpstan.neon
 # Infection
 infection.json
 infection.log
+/js/vendor/js.cookie.min.js
 /js/vendor/openlayers/OpenLayers.js.LICENSE.txt
 /setup/styles.rtl.css
+/test/test_data/gis/

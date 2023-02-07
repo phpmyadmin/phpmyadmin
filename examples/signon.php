@@ -59,8 +59,8 @@ if (isset($_POST['user'])) {
     }
 
     echo '<form action="signon.php" method="post">
-Username: <input type="text" name="user" autocomplete="username"><br>
-Password: <input type="password" name="password" autocomplete="current-password"><br>
+Username: <input type="text" name="user" autocomplete="username" spellcheck="false"><br>
+Password: <input type="password" name="password" autocomplete="current-password" spellcheck="false"><br>
 Host: (will use the one from config.inc.php by default)
 <input type="text" name="host"><br>
 Port: (will use the one from config.inc.php by default)

@@ -1290,7 +1290,7 @@ class Results
         $displayParams = $this->properties['display_params'];
 
         // 1. Displays the full/partial text button (part 1)...
-        $buttonHtml = '<thead class="table-light"><tr>' . "\n";
+        $buttonHtml = '<thead><tr>' . "\n";
 
         $emptyPreCondition = $displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE
                            && $displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE;
@@ -2682,16 +2682,7 @@ class Results
 
             $displayParams = $this->properties['display_params'] ?? [];
 
-            // in some situations (issue 11406), numeric returns 1
-            // even for a string type
-            // for decimal numeric is returning 1
-            // have to improve logic
-            // Nullable text fields and text fields have the blob flag (issue 16896)
-            $isNumericAndNotBlob = $meta->isNumeric && ! $meta->isBlob;
-            if (
-                ($isNumericAndNotBlob && $meta->isNotType(FieldMetadata::TYPE_STRING))
-                || $meta->isType(FieldMetadata::TYPE_REAL)
-            ) {
+            if ($meta->isNumeric) {
                 // n u m e r i c
 
                 $displayParams['data'][$rowNumber][$i] = $this->getDataCellForNumericColumns(
@@ -3452,12 +3443,14 @@ class Results
      * Checks the posted options for viewing query results
      * and sets appropriate values in the session.
      *
+     * @param array $analyzedSqlResults the analyzed query results
+     *
      * @todo    make maximum remembered queries configurable
      * @todo    move/split into SQL class!?
      * @todo    currently this is called twice unnecessary
      * @todo    ignore LIMIT and ORDER in query!?
      */
-    public function setConfigParamsForDisplayTable(): void
+    public function setConfigParamsForDisplayTable(array $analyzedSqlResults): void
     {
         $sqlMd5 = md5($this->properties['server'] . $this->properties['db'] . $this->properties['sql_query']);
         $query = [];
@@ -3491,6 +3484,9 @@ class Results
             $query['pos'] = 0;
         }
 
+        // Full text is needed in case of explain statements, if not specified.
+        $fullText = $analyzedSqlResults['is_explain'];
+
         if (
             isset($_REQUEST['pftext']) && in_array(
                 $_REQUEST['pftext'],
@@ -3499,6 +3495,8 @@ class Results
         ) {
             $query['pftext'] = $_REQUEST['pftext'];
             unset($_REQUEST['pftext']);
+        } elseif ($fullText) {
+            $query['pftext'] = self::DISPLAY_FULL_TEXT;
         } elseif (empty($query['pftext'])) {
             $query['pftext'] = self::DISPLAY_PARTIAL_TEXT;
         }
@@ -3826,12 +3824,11 @@ class Results
      *
      * @see     getTable()
      *
-     * @param ResultInterface $dtResult                  the link id associated to the
-     *                                        query which results have to
-     *                                        be displayed
-     * @param string          $sortExpressionNoDirection sort expression without direction
+     * @param ResultInterface $dtResult                  the link id associated to the query
+     *                                                   which results have to be displayed
+     * @param string|null     $sortExpressionNoDirection sort expression without direction
      *
-     * @return string|null html content, null if not found sorted column
+     * @return string
      */
     private function getSortedColumnMessage(
         ResultInterface $dtResult,
@@ -3840,7 +3837,7 @@ class Results
         $fieldsMeta = $this->properties['fields_meta']; // To use array indexes
 
         if (empty($sortExpressionNoDirection)) {
-            return null;
+            return '';
         }
 
         if (! str_contains($sortExpressionNoDirection, '.')) {
@@ -3865,7 +3862,7 @@ class Results
         }
 
         if ($sortedColumnIndex === false) {
-            return null;
+            return '';
         }
 
         // fetch first row of the result set
@@ -4276,7 +4273,7 @@ class Results
                 $transformationPlugin->getMIMESubtype(),
                 'Octetstream'
             );
-            $posMimeText = strpos($transformationPlugin->getMIMEtype(), 'Text');
+            $posMimeText = strpos($transformationPlugin->getMIMEType(), 'Text');
             if ($posMimeOctetstream || $posMimeText !== false) {
                 // Applying Transformations on hex string of binary data
                 // seems more appropriate
@@ -4355,6 +4352,13 @@ class Results
             return __('Link not found!');
         }
 
+        if ($dispval === null) {
+            return null;
+        }
+
+        // Truncate values that are too long, see: #17902
+        [, $dispval] = $this->getPartialText($dispval);
+
         return $dispval;
     }
 
@@ -4422,11 +4426,14 @@ class Results
         }
 
         if (isset($map[$meta->name])) {
-            /** @var array<int, string> $relation */
+            /** @var array{0: string, 1: string, 2: string|false, 3: string} $relation */
             $relation = $map[$meta->name];
             // Field to display from the foreign table?
             $dispval = '';
-            if ($relation[2] !== '') {
+
+            // Check that we have a valid column name
+            // Relation::getDisplayField() returns false by default
+            if ($relation[2] !== '' && $relation[2] !== false) {
                 $dispval = $this->getFromForeign($relation, $whereComparison);
             }
 

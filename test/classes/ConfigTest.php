@@ -34,6 +34,7 @@ use const DIRECTORY_SEPARATOR;
 use const INFO_MODULES;
 use const PHP_EOL;
 use const PHP_OS;
+use const TEST_PATH;
 
 /**
  * @covers \PhpMyAdmin\Config
@@ -490,7 +491,7 @@ class ConfigTest extends AbstractTestCase
         $this->assertFalse($this->object->checkConfigSource());
         $this->assertEquals(0, $this->object->sourceMtime);
 
-        $this->object->setSource(ROOT_PATH . 'test/test_data/config.inc.php');
+        $this->object->setSource(TEST_PATH . 'test/test_data/config.inc.php');
 
         $this->assertNotEmpty($this->object->getSource());
         $this->assertTrue($this->object->checkConfigSource());
@@ -923,11 +924,11 @@ class ConfigTest extends AbstractTestCase
     {
         return [
             [
-                ROOT_PATH . 'test/test_data/config.inc.php',
+                TEST_PATH . 'test/test_data/config.inc.php',
                 true,
             ],
             [
-                ROOT_PATH . 'test/test_data/config-nonexisting.inc.php',
+                TEST_PATH . 'test/test_data/config-nonexisting.inc.php',
                 false,
             ],
         ];

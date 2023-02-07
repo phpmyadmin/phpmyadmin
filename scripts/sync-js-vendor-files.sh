@@ -34,12 +34,13 @@ cp ./node_modules/jquery/dist/jquery.min.js ./js/vendor/jquery/jquery.min.js
 cp ./node_modules/jquery/dist/jquery.min.map ./js/vendor/jquery/jquery.min.map
 cp ./node_modules/jquery/LICENSE.txt ./js/vendor/jquery/MIT-LICENSE.txt
 echo 'Updating jquery-migrate'
-cp ./node_modules/jquery-migrate/dist/jquery-migrate.js ./js/vendor/jquery/jquery-migrate.js
+cp ./node_modules/jquery-migrate/dist/jquery-migrate.min.js ./js/vendor/jquery/jquery-migrate.min.js
+cp ./node_modules/jquery-migrate/dist/jquery-migrate.min.map ./js/vendor/jquery/jquery-migrate.min.map
 echo 'Updating jquery-ui'
 cp ./node_modules/jquery-ui-dist/jquery-ui.min.js ./js/vendor/jquery/jquery-ui.min.js
 # https://github.com/devongovett/jquery.event.drag/commit/2db3b7865f31eee6a8145532554f8b02210180bf#diff-ab8497cedd384270de86ee2e9f06530e
 echo 'Updating jquery-validation'
-cp ./node_modules/jquery-validation/dist/jquery.validate.js ./js/vendor/jquery/jquery.validate.js
+cp ./node_modules/jquery-validation/dist/jquery.validate.min.js ./js/vendor/jquery/jquery.validate.min.js
 cp ./node_modules/jquery-validation/dist/additional-methods.js ./js/vendor/jquery/additional-methods.js
 echo 'Updating js-cookie'
 cp ./node_modules/js-cookie/src/js.cookie.js ./js/vendor/js.cookie.js
@@ -65,7 +66,7 @@ echo 'Updating OpenLayers'
 cp ./node_modules/ol/ol.css ./js/vendor/openlayers/theme/ol.css
 npx webpack-cli --config ./js/config/ol/webpack.config.js
 echo "/*!
-  * OpenLayers v$(yarn info -s ol version) (https://openlayers.org/)
+  * OpenLayers v$(php -r 'echo json_decode(file_get_contents("./node_modules/ol/package.json"))->version;') (https://openlayers.org/)
   * Copyright 2005-present, OpenLayers Contributors All rights reserved.
   * Licensed under BSD 2-Clause License (https://github.com/openlayers/openlayers/blob/main/LICENSE.md)
   *

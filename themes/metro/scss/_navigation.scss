@@ -312,7 +312,7 @@ img {
       b {
         display: block;
         height: 0.75em;
-        bottom: 0;
+        bottom: -0.5rem;// Compensate for vertical-align: sub; of hover_show_full
         left: 0.75em;
         border-left: 1px solid #616161;
       }
@@ -475,11 +475,13 @@ li.fast_filter {
     border: 1px solid #ddd;
     background: #f2f2f2;
     cursor: pointer;
+    color: #333;
   }
 
   .drop_list {
     &:hover .drop_button {
       background: #fff;
+      color: #333;
     }
 
     ul {

@@ -485,7 +485,7 @@ class Table implements Stringable
      * @param string      $collation        collation
      * @param bool|string $null             with 'NULL' or 'NOT NULL'
      * @param string      $defaultType      whether default is CURRENT_TIMESTAMP,
-     *                                       NULL, NONE, USER_DEFINED
+     *                                       NULL, NONE, USER_DEFINED, UUID
      * @param string      $defaultValue     default value for USER_DEFINED
      *                                       default type
      * @param string      $extra            'AUTO_INCREMENT'
@@ -617,7 +617,7 @@ class Table implements Stringable
                         }
 
                         break;
-                /** @noinspection PhpMissingBreakStatementInspection */
+                    /** @noinspection PhpMissingBreakStatementInspection */
                     case 'NULL':
                         // If user uncheck null checkbox and not change default value null,
                         // default value will be ignored.
@@ -636,6 +636,11 @@ class Table implements Stringable
                         ) {
                             $query .= '(' . $length . ')';
                         }
+
+                        break;
+                    case 'UUID':
+                    case 'uuid()':
+                        $query .= ' DEFAULT uuid()';
 
                         break;
                     case 'NONE':
@@ -1867,7 +1872,7 @@ class Table implements Stringable
      */
     public function getUiProp($property)
     {
-        if (! isset($this->uiprefs)) {
+        if (empty($this->uiprefs)) {
             $this->loadUiPrefs();
         }
 
@@ -1937,7 +1942,7 @@ class Table implements Stringable
      */
     public function setUiProp($property, $value, $tableCreateTime = null)
     {
-        if (! isset($this->uiprefs)) {
+        if (empty($this->uiprefs)) {
             $this->loadUiPrefs();
         }
 
@@ -1984,7 +1989,7 @@ class Table implements Stringable
      */
     public function removeUiProp($property)
     {
-        if (! isset($this->uiprefs)) {
+        if (empty($this->uiprefs)) {
             $this->loadUiPrefs();
         }
 

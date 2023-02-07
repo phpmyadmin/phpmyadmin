@@ -7,8 +7,8 @@
   <div class="row"><p>{{ 'This MySQL server has been running for %1$s. It started up on %2$s.'|trans|format(uptime, start_time) }}</p></div>
 
 <div class="row align-items-start">
-  <table class="table table-light table-striped table-hover col-12 col-md-5 w-auto">
-    <thead class="table-light">
+  <table class="table table-striped table-hover col-12 col-md-5 w-auto">
+    <thead>
       <tr>
         <th scope="col">
           {% trans 'Traffic' %}
@@ -30,8 +30,8 @@
     </tbody>
   </table>
 
-  <table class="table table-light table-striped table-hover col-12 col-md-6 w-auto">
-    <thead class="table-light">
+  <table class="table table-striped table-hover col-12 col-md-6 w-auto">
+    <thead>
       <tr>
         <th scope="col">{% trans 'Connections' %}</th>
         <th class="text-end" scope="col">#</th>

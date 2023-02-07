@@ -1129,6 +1129,28 @@ class ResultsTest extends AbstractTestCase
         );
     }
 
+    public function testPftextConfigParam(): void
+    {
+        $db = 'test_db';
+        $table = 'test_table';
+
+        $query = 'ANALYZE FORMAT=JSON SELECT * FROM test_table';
+        [$analyzedSqlResults] = ParseAnalyze::sqlQuery($query, $db);
+
+        $object = new DisplayResults($this->dbi, $db, $table, 1, '', $query);
+        $object->setConfigParamsForDisplayTable($analyzedSqlResults);
+
+        $this->assertSame('F', $_SESSION['tmpval']['pftext']);
+
+        $query = 'ANALYZE NO_WRITE_TO_BINLOG TABLE test_table';
+        [$analyzedSqlResults] = ParseAnalyze::sqlQuery($query, $db);
+
+        $object = new DisplayResults($this->dbi, $db, $table, 1, '', $query);
+        $object->setConfigParamsForDisplayTable($analyzedSqlResults);
+
+        $this->assertSame('P', $_SESSION['tmpval']['pftext']);
+    }
+
     /**
      * @dataProvider providerSetConfigParamsForDisplayTable
      */
@@ -1147,9 +1169,10 @@ class ResultsTest extends AbstractTestCase
         $db = 'test_db';
         $table = 'test_table';
         $query = 'SELECT * FROM `test_db`.`test_table`;';
+        [$analyzedSqlResults] = ParseAnalyze::sqlQuery($query, $db);
 
         $object = new DisplayResults($this->dbi, $db, $table, 1, '', $query);
-        $object->setConfigParamsForDisplayTable();
+        $object->setConfigParamsForDisplayTable($analyzedSqlResults);
 
         $this->assertArrayHasKey('tmpval', $_SESSION);
         $this->assertIsArray($_SESSION['tmpval']);
@@ -1162,7 +1185,7 @@ class ResultsTest extends AbstractTestCase
 
         return [
             'default values' => [
-                [],
+                [' PMA_token ' => 'token'],
                 [],
                 [],
                 [],
@@ -1216,6 +1239,7 @@ class ResultsTest extends AbstractTestCase
                             'j' => [],
                         ],
                     ],
+                    ' PMA_token ' => 'token',
                 ],
                 [],
                 [],
@@ -1254,7 +1278,7 @@ class ResultsTest extends AbstractTestCase
                 ],
             ],
             'default and request values' => [
-                [],
+                [' PMA_token ' => 'token'],
                 ['session_max_rows' => '27'],
                 ['session_max_rows' => '28'],
                 [
@@ -1317,6 +1341,7 @@ class ResultsTest extends AbstractTestCase
                             'i' => [],
                         ],
                     ],
+                    ' PMA_token ' => 'token',
                 ],
                 [],
                 ['session_max_rows' => DisplayResults::ALL_ROWS],
@@ -1584,7 +1609,7 @@ class ResultsTest extends AbstractTestCase
                 ],
                 'options' => '$optionsBlock',
                 'has_bulk_actions_form' => false,
-                'button' => '<thead class="table-light"><tr>' . "\n",
+                'button' => '<thead><tr>' . "\n",
                 'table_headers_for_columns' => $tableHeadersForColumns,
                 'column_at_right_side' => "\n" . '<td class="d-print-none"></td>',
             ],

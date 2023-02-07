@@ -1,8 +1,8 @@
 <form method="post" action="{{ url('/database/structure') }}" name="tablesForm" id="tablesForm">
 {{ get_hidden_inputs(db) }}
 <div class="table-responsive">
-<table class="table table-light table-striped table-hover table-sm w-auto data">
-    <thead class="table-light">
+<table class="table table-striped table-hover table-sm w-auto data">
+    <thead>
         <tr>
             <th class="d-print-none"></th>
             <th>{{ sortable_table_header('Table'|trans, 'table') }}</th>
@@ -73,6 +73,9 @@
 </table>
 </div>
 {% if check_all_tables %}
-    {% include 'database/structure/check_all_tables.twig' with check_all_tables only %}
+  {% include 'database/structure/check_all_tables.twig' with check_all_tables only %}
 {% endif %}
 </form>
+{% if check_all_tables %}
+  {% include 'database/structure/bulk_action_modal.twig' with check_all_tables only %}
+{% endif %}

@@ -189,12 +189,12 @@ class Pdf extends PdfLib
         // Check if header for this page already exists
         // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         if (! isset($this->headerset[$this->page])) {
-            $this->SetY($this->tMargin - ($this->FontSizePt / $this->k) * 5);
+            $this->setY($this->tMargin - ($this->FontSizePt / $this->k) * 5);
             $this->cellFontSize = $this->FontSizePt;
-            $this->SetFont(PdfLib::PMA_PDF_FONT, '', ($this->titleFontSize ?: $this->FontSizePt));
+            $this->setFont(PdfLib::PMA_PDF_FONT, '', ($this->titleFontSize ?: $this->FontSizePt));
             $this->Cell(0, $this->FontSizePt, $this->titleText, 0, 1, 'C');
-            $this->SetFont(PdfLib::PMA_PDF_FONT, '', $this->cellFontSize);
-            $this->SetY($this->tMargin - ($this->FontSizePt / $this->k) * 2.5);
+            $this->setFont(PdfLib::PMA_PDF_FONT, '', $this->cellFontSize);
+            $this->setY($this->tMargin - ($this->FontSizePt / $this->k) * 2.5);
             $this->Cell(
                 0,
                 $this->FontSizePt,
@@ -207,24 +207,24 @@ class Pdf extends PdfLib
             );
             $l = $this->lMargin;
             foreach ($this->colTitles as $col => $txt) {
-                $this->SetXY($l, $this->tMargin);
+                $this->setXY($l, $this->tMargin);
                 $this->MultiCell($this->tablewidths[$col], $this->FontSizePt, $txt);
                 $l += $this->tablewidths[$col];
                 $maxY = $maxY < $this->GetY() ? $this->GetY() : $maxY;
             }
 
-            $this->SetXY($this->lMargin, $this->tMargin);
-            $this->SetFillColor(200, 200, 200);
+            $this->setXY($this->lMargin, $this->tMargin);
+            $this->setFillColor(200, 200, 200);
             $l = $this->lMargin;
             foreach ($this->colTitles as $col => $txt) {
-                $this->SetXY($l, $this->tMargin);
+                $this->setXY($l, $this->tMargin);
                 $this->Cell($this->tablewidths[$col], $maxY - $this->tMargin, '', 1, 0, 'L', true);
-                $this->SetXY($l, $this->tMargin);
+                $this->setXY($l, $this->tMargin);
                 $this->MultiCell($this->tablewidths[$col], $this->FontSizePt, $txt, 0, 'C');
                 $l += $this->tablewidths[$col];
             }
 
-            $this->SetFillColor(255, 255, 255);
+            $this->setFillColor(255, 255, 255);
             // set headerset
             $this->headerset[$this->page] = 1;
         }
@@ -265,7 +265,7 @@ class Pdf extends PdfLib
             // write the content and remember the height of the highest col
             foreach ($data as $col => $txt) {
                 $this->page = $currpage;
-                $this->SetXY($l, $h);
+                $this->setXY($l, $h);
                 if ($this->tablewidths[$col] > 0) {
                     $this->MultiCell($this->tablewidths[$col], $lineheight, $txt, 0, $this->colAlign[$col]);
                     $l += $this->tablewidths[$col];
@@ -372,9 +372,9 @@ class Pdf extends PdfLib
 
         // Starting to fill table with required info
 
-        $this->SetY($this->tMargin);
+        $this->setY($this->tMargin);
         $this->AddPage();
-        $this->SetFont(PdfLib::PMA_PDF_FONT, '', 9);
+        $this->setFont(PdfLib::PMA_PDF_FONT, '', 9);
 
         $l = $this->lMargin;
         $startheight = $h = $this->dataY;
@@ -402,7 +402,7 @@ class Pdf extends PdfLib
             // write the content and remember the height of the highest col
             foreach ($data as $col => $txt) {
                 $this->page = $currpage;
-                $this->SetXY($l, $h);
+                $this->setXY($l, $h);
                 if ($this->tablewidths[$col] > 0) {
                     $this->MultiCell(
                         $this->tablewidths[$col],
@@ -561,9 +561,9 @@ class Pdf extends PdfLib
 
         // Starting to fill table with required info
 
-        $this->SetY($this->tMargin);
+        $this->setY($this->tMargin);
         $this->AddPage();
-        $this->SetFont(PdfLib::PMA_PDF_FONT, '', 9);
+        $this->setFont(PdfLib::PMA_PDF_FONT, '', 9);
 
         // Now let's start to write the table structure
 
@@ -640,7 +640,7 @@ class Pdf extends PdfLib
             // write the content and remember the height of the highest col
             foreach ($data as $col => $txt) {
                 $this->page = $currpage;
-                $this->SetXY($l, $h);
+                $this->setXY($l, $h);
                 if ($this->tablewidths[$col] > 0) {
                     $this->MultiCell(
                         $this->tablewidths[$col],
@@ -850,9 +850,9 @@ class Pdf extends PdfLib
         // Pass 2
 
         $this->results = $dbi->query($query, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED);
-        $this->SetY($this->tMargin);
+        $this->setY($this->tMargin);
         $this->AddPage();
-        $this->SetFont(PdfLib::PMA_PDF_FONT, '', 9);
+        $this->setFont(PdfLib::PMA_PDF_FONT, '', 9);
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->morepagestable($this->FontSizePt);
     }

@@ -58,7 +58,7 @@ while [ $# -gt 0 ] ; do
                 git branch ci
                 branch="ci"
             fi
-            version="ci"
+            version="${VERSION_SERIES}+ci"
             ;;
         --help)
             echo "Usages:"
@@ -195,19 +195,40 @@ cleanup_composer_vendors() {
         vendor/webmozart/assert/psalm.xml \
         vendor/twig/twig/src/Test/ \
         vendor/psr/log/Psr/Log/Test/ \
+        vendor/psr/http-factory/.pullapprove.yml \
+        vendor/slim/psr7/MAINTAINERS.md \
         vendor/paragonie/constant_time_encoding/tests/ \
         vendor/paragonie/constant_time_encoding/psalm.xml \
         vendor/paragonie/constant_time_encoding/phpunit.xml.dist \
         vendor/paragonie/constant_time_encoding/.travis.yml \
+        vendor/paragonie/random_compat/other/build_phar.php \
+        vendor/paragonie/random_compat/other \
         vendor/paragonie/random_compat/build-phar.sh \
         vendor/paragonie/random_compat/dist/random_compat.phar.pubkey \
         vendor/paragonie/random_compat/dist/random_compat.phar.pubkey.asc \
+        vendor/paragonie/random_compat/dist \
+        vendor/paragonie/random_compat/psalm-autoload.php \
         vendor/paragonie/random_compat/psalm.xml \
+        vendor/paragonie/sodium_compat/.github/ \
+        vendor/paragonie/sodium_compat/dist/ \
+        vendor/paragonie/sodium_compat/phpunit.xml.dist \
+        vendor/paragonie/sodium_compat/.gitignore \
+        vendor/paragonie/sodium_compat/psalm-above-3.xml \
+        vendor/paragonie/sodium_compat/psalm-below-3.xml \
+        vendor/paragonie/sodium_compat/build-phar.sh \
+        vendor/paragonie/sodium_compat/appveyor.yml \
+        vendor/paragonie/sodium_compat/autoload-phpunit.php \
+        vendor/paragonie/sodium_compat/autoload-pedantic.php \
+        vendor/paragonie/sodium_compat/autoload-fast.php \
+        vendor/paragonie/sodium_compat/composer-php52.json \
+        vendor/paragonie/sodium_compat/src/PHP52/SplFixedArray.php \
+        vendor/paragonie/sodium_compat/src/PHP52 \
         vendor/pragmarx/google2fa/phpstan.neon \
         vendor/pragmarx/google2fa-qrcode/.scrutinizer.yml \
         vendor/pragmarx/google2fa-qrcode/.travis.yml \
         vendor/pragmarx/google2fa-qrcode/phpunit.xml \
         vendor/pragmarx/google2fa-qrcode/tests \
+        vendor/google/recaptcha/src/autoload.php \
         vendor/google/recaptcha/app.yaml \
         vendor/google/recaptcha/.travis.yml \
         vendor/google/recaptcha/phpunit.xml.dist \
@@ -223,7 +244,19 @@ cleanup_composer_vendors() {
         vendor/phpmyadmin/shapefile/CONTRIBUTING.md \
         vendor/phpmyadmin/shapefile/CODE_OF_CONDUCT.md \
         vendor/phpmyadmin/sql-parser/CODE_OF_CONDUCT.md \
-        vendor/phpmyadmin/sql-parser/CONTRIBUTING.md
+        vendor/phpmyadmin/sql-parser/CONTRIBUTING.md \
+        vendor/beberlei/assert/.github/ \
+        vendor/brick/math/SECURITY.md \
+        vendor/brick/math/psalm-baseline.xml \
+        vendor/brick/math/psalm.xml \
+        vendor/ramsey/collection/SECURITY.md \
+        vendor/spomky-labs/base64url/.github/ \
+        vendor/spomky-labs/cbor-php/.php_cs.dist \
+        vendor/spomky-labs/cbor-php/CODE_OF_CONDUCT.md \
+        vendor/spomky-labs/cbor-php/infection.json.dist \
+        vendor/spomky-labs/cbor-php/phpstan.neon \
+        vendor/thecodingmachine/safe/generated/Exceptions/.gitkeep \
+        vendor/thecodingmachine/safe/rector-migrate-0.7.php
     find vendor/tecnickcom/tcpdf/fonts/ -maxdepth 1 -type f \
         -not -name 'dejavusans.*' \
         -not -name 'dejavusansb.*' \
@@ -241,7 +274,7 @@ restore_vendor_folder() {
         echo 'No backup to restore'
         exit 1;
     fi
-    rm -rf ./vendor
+    rm -r ./vendor
     mv "${TEMP_FOLDER}/vendor" ./vendor
     rmdir "${TEMP_FOLDER}"
 }
@@ -254,7 +287,7 @@ create_phpunit_sandbox() {
     PHPUNIT_VERSION="$(get_composer_package_version 'phpunit/phpunit')"
     TEMP_PHPUNIT_FOLDER="$(mktemp -d /tmp/phpMyAdmin-phpunit.XXXXXXXXX)"
     cd "${TEMP_PHPUNIT_FOLDER}"
-    composer require "phpunit/phpunit:${PHPUNIT_VERSION}"
+    composer require --no-interaction --dev "phpunit/phpunit:${PHPUNIT_VERSION}"
     cd -
 }
 
@@ -263,12 +296,16 @@ delete_phpunit_sandbox() {
         echo 'No phpunit sandbox to delete'
         exit 1;
     fi
-    rm -rf "${TEMP_PHPUNIT_FOLDER}"
+    rm -r "${TEMP_PHPUNIT_FOLDER}"
 }
 
 security_checkup() {
     if [ ! -f vendor/tecnickcom/tcpdf/tcpdf.php ]; then
         echo 'TCPDF should be installed, detection failed !'
+        exit 1;
+    fi
+    if [ ! -f vendor/web-auth/webauthn-lib/src/Server.php ]; then
+        echo 'Webauthn-lib should be installed, detection failed !'
         exit 1;
     fi
     if [ ! -f vendor/code-lts/u2f-php-server/src/U2FServer.php ]; then
@@ -279,6 +316,42 @@ security_checkup() {
         echo 'Google 2FA should be installed, detection failed !'
         exit 1;
     fi
+}
+
+autoload_checkup() {
+    php <<'CODE'
+<?php
+
+$classMapFiles = require __DIR__ . '/vendor/composer/autoload_classmap.php';
+
+$foundFiles = 0;
+$notFoundFiles = 0;
+
+foreach ($classMapFiles as $classMapFile) {
+        if (! file_exists($classMapFile)) {
+            echo 'Does not exist: ' . $classMapFile . PHP_EOL;
+            $notFoundFiles++;
+            continue;
+        }
+        $foundFiles++;
+}
+
+echo '[autoload class map checkup] Found files: ' . $foundFiles . PHP_EOL;
+echo '[autoload class map checkup] NOT found files: ' . $notFoundFiles . PHP_EOL;
+$minFilesToHave = 1100;// An arbitrary value based on how many files the autoload has on average
+
+if ($foundFiles < $minFilesToHave) {
+    echo '[autoload class map checkup] The project expects at least ' . $minFilesToHave . ' in the autoload class map' . PHP_EOL;
+    exit(1);
+}
+
+if ($notFoundFiles > 0) {
+    echo '[autoload class map checkup] There is some missing files documented in the class map' . PHP_EOL;
+    exit(1);
+}
+echo '[autoload class map checkup] The autoload class map seems okay' . PHP_EOL;
+CODE
+
 }
 
 # Ensure we have tracking branch
@@ -404,16 +477,16 @@ fi
 echo "* Removing unneeded files"
 
 # Remove developer information
-rm -rf .github CODE_OF_CONDUCT.md DCO
+rm -r .github CODE_OF_CONDUCT.md DCO
 
 # Testsuite setup
-rm -f .travis.yml .scrutinizer.yml .jshintrc .weblate codecov.yml
+rm .scrutinizer.yml .weblate codecov.yml
 
 # Remove Doctum config file
-rm -f test/doctum-config.php
+rm test/doctum-config.php
 
 # Remove readme for github
-rm -f README.rst
+rm README.rst
 
 if [ -f ./scripts/console ]; then
     # Update the vendors to have the dev vendors
@@ -428,6 +501,10 @@ if [ -z "$PHP_REQ" ] ; then
     echo "Failed to figure out required PHP version from composer.json"
     exit 2
 fi
+
+echo "* Writing the version to composer.json (version: $version)"
+composer config version "$version"
+
 # Okay, there is no way to tell composer to install
 # suggested package. Let's require it and then revert
 # composer.json to original state.
@@ -435,11 +512,11 @@ cp composer.json composer.json.backup
 COMPOSER_VERSION="$(composer --version)"
 echo "* Running composer (version: $COMPOSER_VERSION)"
 composer config platform.php "$PHP_REQ"
-composer update --no-interaction --no-dev --optimize-autoloader
+composer update --no-interaction --no-dev
 
 # Parse the required versions from composer.json
 PACKAGES_VERSIONS=''
-PACKAGE_LIST='tecnickcom/tcpdf pragmarx/google2fa-qrcode bacon/bacon-qr-code code-lts/u2f-php-server'
+PACKAGE_LIST='tecnickcom/tcpdf pragmarx/google2fa-qrcode bacon/bacon-qr-code code-lts/u2f-php-server web-auth/webauthn-lib'
 
 for PACKAGES in $PACKAGE_LIST
 do
@@ -447,15 +524,27 @@ do
     PACKAGES_VERSIONS="$PACKAGES_VERSIONS $PACKAGES:$PKG_VERSION"
 done
 
-echo "Installing composer packages '$PACKAGES_VERSIONS'"
+echo "* Installing composer packages '$PACKAGES_VERSIONS'"
 
-composer require --no-interaction --optimize-autoloader --update-no-dev $PACKAGES_VERSIONS
+composer require --no-interaction --update-no-dev $PACKAGES_VERSIONS
 
+echo "* Running a security checkup"
 security_checkup
 
+echo "* Cleaning up vendor folders"
 mv composer.json.backup composer.json
 cleanup_composer_vendors
 
+echo "* Re-generating the autoload class map"
+# https://getcomposer.org/doc/articles/autoloader-optimization.md#what-does-it-do-
+# We removed some files, we also need that composer removes them from autoload class maps
+# If the class is in the class map (as explained in the link above) then it is assumed to exist as a file
+composer dump-autoload --no-interaction --optimize --dev
+
+echo "* Running an autoload checkup"
+autoload_checkup
+
+echo "* Running a security checkup"
 security_checkup
 if [ $do_tag -eq 1 ] ; then
     echo "* Commiting composer.lock"
@@ -470,8 +559,8 @@ fi
 
 # Remove git metadata
 rm .git
-find . -name .gitignore -print0 | xargs -0 -r rm -f
-find . -name .gitattributes -print0 | xargs -0 -r rm -f
+find . -name .gitignore -print0 | xargs -0 -r rm
+find . -name .gitattributes -print0 | xargs -0 -r rm
 
 if [ $do_test -eq 1 ] ; then
     # Move the folder out and install dev vendors
@@ -484,7 +573,7 @@ if [ $do_test -eq 1 ] ; then
     test_ret=$?
     if [ $do_ci -eq 1 ] ; then
         cd ../..
-        rm -rf $workdir
+        rm -r $workdir
         git worktree prune
         if [ "$branch" = "ci" ] ; then
             git branch -D ci
@@ -499,7 +588,7 @@ if [ $do_test -eq 1 ] ; then
     # Generate an normal autoload (this is just a security, because normally the vendor folder will be restored)
     composer dump-autoload
     # Remove libs installed for testing
-    rm -rf build
+    rm -r build
     delete_phpunit_sandbox
     restore_vendor_folder
 fi
@@ -510,6 +599,7 @@ cd ..
 
 # Prepare all kits
 for kit in $KITS ; do
+    echo "* Building kit: $kit"
     # Copy all files
     name=phpMyAdmin-$version-$kit
     cp -r phpMyAdmin-$version $name
@@ -522,25 +612,27 @@ for kit in $KITS ; do
     if [ $kit != source ] ; then
         echo "* Removing source files"
         # Testsuite
-        rm -rf test/
+        rm -r test/
+        # Template test files
+        rm -r templates/test/
         rm phpunit.xml.* build.xml
-        rm -f .editorconfig .browserslistrc .eslintignore .jshintrc .eslintrc.json .stylelintrc.json psalm.xml psalm-baseline.xml phpstan.neon.dist phpstan-baseline.neon phpcs.xml.dist jest.config.js infection.json.dist
-        # Gettext po files
-        rm -rf po/
+        rm .editorconfig .browserslistrc .eslintignore .jshintrc .eslintrc.json .stylelintrc.json psalm.xml psalm-baseline.xml phpstan.neon.dist phpstan-baseline.neon phpcs.xml.dist jest.config.js infection.json.dist
+        # Gettext po files (if they where not removed by ./scripts/lang-cleanup.sh)
+        rm -rf po
         # Documentation source code
         mv doc/html htmldoc
-        rm -rf doc
+        rm -r doc
         mkdir doc
         mv htmldoc doc/html
         rm doc/html/.buildinfo doc/html/objects.inv
-        rm -rf node_modules
+        rm -r node_modules
         # Remove bin files for non source version
         # https://github.com/phpmyadmin/phpmyadmin/issues/16033
-        rm -rf vendor/bin
+        rm -r vendor/bin
     fi
 
     # Remove developer scripts
-    rm -rf scripts
+    rm -r scripts
 
     # Remove possible tmp folder
     rm -rf tmp
@@ -581,11 +673,11 @@ for kit in $KITS ; do
     # Cleanup
     rm -f $name.tar
     # Remove directory with current dist set
-    rm -rf $name
+    rm -r $name
 done
 
 # Cleanup
-rm -rf phpMyAdmin-${version}
+rm -r phpMyAdmin-${version}
 git worktree prune
 
 # Signing of files with default GPG key
@@ -634,7 +726,7 @@ if [ $do_tag -eq 1 ] ; then
     git rm --force composer.lock
     git commit -s -m "Removing composer.lock"
     cd ../..
-    rm -rf $workdir
+    rm -r $workdir
     git worktree prune
 fi
 

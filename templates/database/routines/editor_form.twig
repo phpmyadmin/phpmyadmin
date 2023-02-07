@@ -1,4 +1,4 @@
-<form class="rte_form" action="{{ url('/database/routines') }}" method="post">
+<form class="rte_form{{ not is_ajax ? ' disableAjax' }}" action="{{ url('/database/routines') }}" method="post">
   <input name="{{ is_edit_mode ? 'edit_item' : 'add_item' }}" type="hidden" value="1">
   {% if is_edit_mode %}
     <input name="item_original_name" type="hidden" value="{{ routine.item_original_name }}">
@@ -35,7 +35,7 @@
               <div class="fw-bold text-center w-50">
                 {{ routine['item_type'] }}
               </div>
-              <input type="submit" name="routine_changetype" value="{{ 'Change to %s'|trans|format(routine.item_type_toggle) }}">
+              <input type="submit" class="btn btn-secondary" name="routine_changetype" value="{{ 'Change to %s'|trans|format(routine.item_type_toggle) }}">
             {% endif %}
           </td>
         </tr>
@@ -63,8 +63,12 @@
         <tr>
           <td></td>
           <td>
-            <input type="button" class="btn btn-primary" name="routine_addparameter" value="{% trans 'Add parameter' %}">
-            <input type="submit" name="routine_removeparameter" value="{% trans 'Remove last parameter' %}"{{ not routine.item_num_params ? ' disabled' }}>
+            {% if is_ajax %}
+              <button type="button" class="btn btn-primary" id="addRoutineParameterButton">{% trans 'Add parameter' %}</button>
+            {% else %}
+              <input type="submit" class="btn btn-primary" name="routine_addparameter" value="{% trans 'Add parameter' %}">
+              <input type="submit" class="btn btn-secondary"  name="routine_removeparameter" value="{% trans 'Remove last parameter' %}"{{ not routine.item_num_params ? ' disabled' }}>
+            {% endif %}
           </td>
         </tr>
         <tr class="routine_return_row{{ routine.item_type == 'PROCEDURE' ? ' hide' }}">

@@ -66,7 +66,7 @@ class VariablesControllerTest extends AbstractTestCase
         $this->assertStringContainsString('<span class="status_binlog_cache">', $html);
 
         $this->assertStringContainsString(
-            '<table class="table table-light table-striped table-hover table-sm" id="serverStatusVariables">',
+            '<table class="table table-striped table-hover table-sm" id="serverStatusVariables">',
             $html
         );
         $this->assertStringContainsString('<th scope="col">Variable</th>', $html);

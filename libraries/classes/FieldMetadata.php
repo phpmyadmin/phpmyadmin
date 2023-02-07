@@ -12,7 +12,6 @@ use const MYSQLI_BLOB_FLAG;
 use const MYSQLI_ENUM_FLAG;
 use const MYSQLI_MULTIPLE_KEY_FLAG;
 use const MYSQLI_NOT_NULL_FLAG;
-use const MYSQLI_NUM_FLAG;
 use const MYSQLI_PRI_KEY_FLAG;
 use const MYSQLI_SET_FLAG;
 use const MYSQLI_TYPE_BIT;
@@ -227,43 +226,47 @@ final class FieldMetadata
 
     public function __construct(int $fieldType, int $fieldFlags, object $field)
     {
-            $this->isMultipleKey = (bool) ($fieldFlags & MYSQLI_MULTIPLE_KEY_FLAG);
-            $this->isPrimaryKey = (bool) ($fieldFlags & MYSQLI_PRI_KEY_FLAG);
-            $this->isUniqueKey = (bool) ($fieldFlags & MYSQLI_UNIQUE_KEY_FLAG);
-            $this->isNotNull = (bool) ($fieldFlags & MYSQLI_NOT_NULL_FLAG);
-            $this->isUnsigned = (bool) ($fieldFlags & MYSQLI_UNSIGNED_FLAG);
-            $this->isZerofill = (bool) ($fieldFlags & MYSQLI_ZEROFILL_FLAG);
-            $this->isNumeric = (bool) ($fieldFlags & MYSQLI_NUM_FLAG);
-            $this->isBlob = (bool) ($fieldFlags & MYSQLI_BLOB_FLAG);
-            $this->isEnum = (bool) ($fieldFlags & MYSQLI_ENUM_FLAG);
-            $this->isSet = (bool) ($fieldFlags & MYSQLI_SET_FLAG);
+        $this->mappedType = $this->getTypeMap()[$fieldType] ?? null;
 
-            /*
-                MYSQLI_PART_KEY_FLAG => 'part_key',
-                MYSQLI_TIMESTAMP_FLAG => 'timestamp',
-                MYSQLI_AUTO_INCREMENT_FLAG => 'auto_increment',
-            */
+        $this->isMultipleKey = (bool) ($fieldFlags & MYSQLI_MULTIPLE_KEY_FLAG);
+        $this->isPrimaryKey = (bool) ($fieldFlags & MYSQLI_PRI_KEY_FLAG);
+        $this->isUniqueKey = (bool) ($fieldFlags & MYSQLI_UNIQUE_KEY_FLAG);
+        $this->isNotNull = (bool) ($fieldFlags & MYSQLI_NOT_NULL_FLAG);
+        $this->isUnsigned = (bool) ($fieldFlags & MYSQLI_UNSIGNED_FLAG);
+        $this->isZerofill = (bool) ($fieldFlags & MYSQLI_ZEROFILL_FLAG);
+        $this->isBlob = (bool) ($fieldFlags & MYSQLI_BLOB_FLAG);
+        $this->isEnum = (bool) ($fieldFlags & MYSQLI_ENUM_FLAG);
+        $this->isSet = (bool) ($fieldFlags & MYSQLI_SET_FLAG);
 
-            $this->mappedType = $this->getTypeMap()[$fieldType] ?? null;
+        // as flags 32768 can be NUM_FLAG or GROUP_FLAG
+        // reference: https://www.php.net/manual/en/mysqli-result.fetch-fields.php
+        // so check field type instead of flags
+        $this->isNumeric = $this->isType(self::TYPE_INT) || $this->isType(self::TYPE_REAL);
 
-            $this->isMappedTypeBit = $this->isType(self::TYPE_BIT);
-            $this->isMappedTypeGeometry = $this->isType(self::TYPE_GEOMETRY);
-            $this->isMappedTypeTimestamp = $this->isType(self::TYPE_TIMESTAMP);
+        /*
+            MYSQLI_PART_KEY_FLAG => 'part_key',
+            MYSQLI_TIMESTAMP_FLAG => 'timestamp',
+            MYSQLI_AUTO_INCREMENT_FLAG => 'auto_increment',
+        */
 
-            $this->name = property_exists($field, 'name') ? $field->name : '';
-            $this->orgname = property_exists($field, 'orgname') ? $field->orgname : '';
-            $this->table = property_exists($field, 'table') ? $field->table : '';
-            $this->orgtable = property_exists($field, 'orgtable') ? $field->orgtable : '';
-            $this->charsetnr = property_exists($field, 'charsetnr') ? $field->charsetnr : -1;
-            $this->decimals = property_exists($field, 'decimals') ? $field->decimals : 0;
-            $this->length = property_exists($field, 'length') ? $field->length : 0;
+        $this->isMappedTypeBit = $this->isType(self::TYPE_BIT);
+        $this->isMappedTypeGeometry = $this->isType(self::TYPE_GEOMETRY);
+        $this->isMappedTypeTimestamp = $this->isType(self::TYPE_TIMESTAMP);
 
-            // 63 is the number for the MySQL charset "binary"
-            $this->isBinary = (
-                $fieldType === MYSQLI_TYPE_TINY_BLOB || $fieldType === MYSQLI_TYPE_BLOB
-                || $fieldType === MYSQLI_TYPE_MEDIUM_BLOB || $fieldType === MYSQLI_TYPE_LONG_BLOB
-                || $fieldType === MYSQLI_TYPE_VAR_STRING || $fieldType === MYSQLI_TYPE_STRING
-            ) && $this->charsetnr == 63;
+        $this->name = property_exists($field, 'name') ? $field->name : '';
+        $this->orgname = property_exists($field, 'orgname') ? $field->orgname : '';
+        $this->table = property_exists($field, 'table') ? $field->table : '';
+        $this->orgtable = property_exists($field, 'orgtable') ? $field->orgtable : '';
+        $this->charsetnr = property_exists($field, 'charsetnr') ? $field->charsetnr : -1;
+        $this->decimals = property_exists($field, 'decimals') ? $field->decimals : 0;
+        $this->length = property_exists($field, 'length') ? $field->length : 0;
+
+        // 63 is the number for the MySQL charset "binary"
+        $this->isBinary = (
+            $fieldType === MYSQLI_TYPE_TINY_BLOB || $fieldType === MYSQLI_TYPE_BLOB
+            || $fieldType === MYSQLI_TYPE_MEDIUM_BLOB || $fieldType === MYSQLI_TYPE_LONG_BLOB
+            || $fieldType === MYSQLI_TYPE_VAR_STRING || $fieldType === MYSQLI_TYPE_STRING
+        ) && $this->charsetnr == 63;
     }
 
     /**
@@ -368,14 +371,6 @@ final class FieldMetadata
     public function isSet(): bool
     {
         return $this->isSet;
-    }
-
-    /**
-     * Checks that it is type INT or type REAL
-     */
-    public function isNumericType(): bool
-    {
-        return $this->isType(self::TYPE_INT) || $this->isType(self::TYPE_REAL);
     }
 
     /**

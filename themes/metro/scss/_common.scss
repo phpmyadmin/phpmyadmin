@@ -104,10 +104,11 @@ body#loginform {
 
   select {
     margin: 0 !important;
-    border: 1px solid $navi-background;
-    background: $navi-background;
-    color: $navi-color;
-    padding-left: 0 !important;
+    border: 1px solid #ccc;
+    background: white;
+    color: #333;
+    padding-left: 5px;
+    padding-right: 5px;
     font-family: $font-family-base;
     min-width: 100%;
 
@@ -124,6 +125,15 @@ body#loginform {
     padding-top: 0;
     padding-left: 0;
     padding-right: 0;
+
+    .col-sm-8 {
+      // Force 100% because the form label is hidden
+      width: 100%;
+    }
+
+    a {
+      color: white;
+    }
   }
 
   .card,
@@ -263,6 +273,38 @@ button:not(.accordion-button) {
   color: $button-color;
   text-decoration: none;
   background-color: $button-background;
+
+  &:hover {
+    background-color: $button-hover;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+button.jsAccountLocking {
+  background: none;
+  color: var(--bs-link-color);
+  margin-left: 0;
+
+  &:hover {
+    background: none;
+    color: var(--bs-link-color);
+    text-decoration: underline;
+  }
+}
+
+button.jsPrintButton {
+  background: none;
+  color: #444;
+  margin-left: 0;
+  padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
+
+  &:hover {
+    background: none;
+    color: #444;
+    text-decoration: none;
+    border: 1px solid #444;
+  }
 }
 
 textarea {
@@ -1187,10 +1229,6 @@ input {
   overflow: hidden;
 }
 
-#tablestructure tbody label {
-  margin: 0.3rem 0;
-}
-
 #structure-action-links a {
   margin-right: 1em;
 }
@@ -1795,6 +1833,7 @@ form.append_fields_form .tblFooters {
   .lDiv div {
     padding: 0.2em 0.5em 0.2em;
     padding-left: 0.2em;
+    white-space: nowrap;
 
     &:hover {
       background: $navi-background;
@@ -2839,4 +2878,8 @@ body {
 
 .resize-vertical {
   resize: vertical;
+}
+
+.table-responsive-md .data {
+  z-index: 9;
 }

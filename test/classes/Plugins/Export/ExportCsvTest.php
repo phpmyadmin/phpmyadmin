@@ -233,13 +233,13 @@ class ExportCsvTest extends AbstractTestCase
 
         $this->assertEquals('"', $GLOBALS['csv_escaped']);
 
-        $this->assertEquals('yes', $GLOBALS['csv_columns']);
+        $this->assertEquals(true, $GLOBALS['csv_columns']);
 
         // case 2
 
         $GLOBALS['excel_edition'] = 'mac_excel2003';
         unset($GLOBALS['excel_columns']);
-        $GLOBALS['csv_columns'] = 'no';
+        $GLOBALS['csv_columns'] = false;
 
         $this->assertTrue(
             $this->object->exportHeader()
@@ -253,7 +253,7 @@ class ExportCsvTest extends AbstractTestCase
 
         $this->assertEquals('"', $GLOBALS['csv_escaped']);
 
-        $this->assertEquals('no', $GLOBALS['csv_columns']);
+        $this->assertEquals(false, $GLOBALS['csv_columns']);
 
         // case 3
 
@@ -271,7 +271,7 @@ class ExportCsvTest extends AbstractTestCase
 
         $this->assertEquals('"', $GLOBALS['csv_escaped']);
 
-        $this->assertEquals('no', $GLOBALS['csv_columns']);
+        $this->assertEquals(false, $GLOBALS['csv_columns']);
 
         // case 4
 
@@ -353,7 +353,7 @@ class ExportCsvTest extends AbstractTestCase
     public function testExportData(): void
     {
         // case 1
-        $GLOBALS['csv_columns'] = 'yes';
+        $GLOBALS['csv_columns'] = true;
         $GLOBALS['csv_terminated'] = ';';
 
         $GLOBALS['output_kanji_conversion'] = false;

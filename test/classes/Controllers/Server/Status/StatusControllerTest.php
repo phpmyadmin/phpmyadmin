@@ -79,7 +79,7 @@ class StatusControllerTest extends AbstractTestCase
         $this->assertStringContainsString($primaryHtml, $html);
 
         //validate 2: Status::getHtmlForServerStateTraffic
-        $trafficHtml = '<table class="table table-light table-striped table-hover col-12 col-md-5 w-auto">';
+        $trafficHtml = '<table class="table table-striped table-hover col-12 col-md-5 w-auto">';
         $this->assertStringContainsString($trafficHtml, $html);
         //traffic hint
         $trafficHtml = 'On a busy server, the byte counters may overrun';
@@ -93,7 +93,7 @@ class StatusControllerTest extends AbstractTestCase
         $this->assertStringContainsString('<th scope="col">Connections</th>', $html);
         $this->assertStringContainsString('<th class="text-end" scope="col">ø per hour</th>', $html);
         $this->assertStringContainsString(
-            '<table class="table table-light table-striped table-hover col-12 col-md-6 w-auto">',
+            '<table class="table table-striped table-hover col-12 col-md-6 w-auto">',
             $html
         );
         $this->assertStringContainsString('<th>Max. concurrent connections</th>', $html);

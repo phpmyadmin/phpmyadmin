@@ -125,7 +125,7 @@ class SchemaPdf extends SchemaPlugin
         return true;
     }
 
-    public function isAvailable(): bool
+    public static function isAvailable(): bool
     {
         return class_exists(TCPDF::class);
     }

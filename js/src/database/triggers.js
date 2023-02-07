@@ -17,11 +17,6 @@ const DatabaseTriggers = {
      */
     syntaxHiglighter: null,
     /**
-     * @var buttonOptions Object containing options for
-     *                    the jQueryUI dialog buttons
-     */
-    buttonOptions: {},
-    /**
      * Validate editor form fields.
      *
      * @return {bool}
@@ -109,11 +104,16 @@ const DatabaseTriggers = {
             if (data.success === true) {
                 Functions.ajaxRemoveMessage($msg);
                 /**
-                 * @var button_options Object containing options
+                 * @var buttonOptions Object containing options
                  *                     for jQueryUI dialog buttons
                  */
-                var buttonOptions = {};
-                buttonOptions[Messages.strClose] = function () {
+                var buttonOptions = {
+                    [Messages.strClose]: {
+                        text: Messages.strClose,
+                        class: 'btn btn-primary',
+                    },
+                };
+                buttonOptions[Messages.strClose].click = function () {
                     $(this).dialog('close').remove();
                 };
                 /**
@@ -121,6 +121,9 @@ const DatabaseTriggers = {
                  */
                 data.message = '<textarea cols="40" rows="15" class="w-100">' + data.message + '</textarea>';
                 var $ajaxDialog = $('<div>' + data.message + '</div>').dialog({
+                    classes: {
+                        'ui-dialog-titlebar-close': 'btn-close'
+                    },
                     width: 500,
                     buttons: buttonOptions,
                     title: data.title
@@ -158,11 +161,21 @@ const DatabaseTriggers = {
         var $msg = Functions.ajaxShowMessage();
         $.get($this.attr('href'), { 'ajax_request': true }, function (data) {
             if (data.success === true) {
+                var buttonOptions = {
+                    [Messages.strGo]: {
+                        text: Messages.strGo,
+                        class: 'btn btn-primary',
+                    },
+                    [Messages.strClose]: {
+                        text: Messages.strClose,
+                        class: 'btn btn-secondary',
+                    },
+                };
                 // We have successfully fetched the editor form
                 Functions.ajaxRemoveMessage($msg);
                 // Now define the function that is called when
                 // the user presses the "Go" button
-                that.buttonOptions[Messages.strGo] = function () {
+                buttonOptions[Messages.strGo].click = function () {
                     // Move the data from the codemirror editor back to the
                     // textarea, where it can be used in the form submission.
                     if (typeof CodeMirror !== 'undefined') {
@@ -277,16 +290,19 @@ const DatabaseTriggers = {
                         }); // end $.post()
                     } // end "if (that.validate())"
                 }; // end of function that handles the submission of the Editor
-                that.buttonOptions[Messages.strClose] = function () {
+                buttonOptions[Messages.strClose].click = function () {
                     $(this).dialog('close');
                 };
                 /**
                  * Display the dialog to the user
                  */
                 that.$ajaxDialog = $('<div id="rteDialog">' + data.message + '</div>').dialog({
+                    classes: {
+                        'ui-dialog-titlebar-close': 'btn-close'
+                    },
                     width: 700,
                     minWidth: 500,
-                    buttons: that.buttonOptions,
+                    buttons: buttonOptions,
                     // Issue #15810 - use button titles for modals (eg: new procedure)
                     // Respect the order: title on href tag, href content, title sent in response
                     title: $this.attr('title') || $this.text() || $(data.title).text(),

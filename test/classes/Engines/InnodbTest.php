@@ -137,11 +137,11 @@ class InnodbTest extends AbstractTestCase
     public function testGetPageBufferpool(): void
     {
         $this->assertEquals(
-            '<table class="table table-light table-striped table-hover w-auto float-start caption-top">' . "\n" .
+            '<table class="table table-striped table-hover w-auto float-start caption-top">' . "\n" .
             '    <caption>' . "\n" .
             '        Buffer Pool Usage' . "\n" .
             '    </caption>' . "\n" .
-            '    <tfoot class="table-light">' . "\n" .
+            '    <tfoot>' . "\n" .
             '        <tr>' . "\n" .
             '            <th colspan="2">' . "\n" .
             '                Total: 4,096&nbsp;pages / 65,536&nbsp;KiB' . "\n" .
@@ -173,7 +173,7 @@ class InnodbTest extends AbstractTestCase
             '</td>' . "\n" .
             '        </tr>    </tbody>' . "\n" .
             '</table>' . "\n\n" .
-            '<table class="table table-light table-striped table-hover w-auto ms-4 float-start caption-top">' . "\n" .
+            '<table class="table table-striped table-hover w-auto ms-4 float-start caption-top">' . "\n" .
             '    <caption>' . "\n" .
             '        Buffer Pool Activity' . "\n" .
             '    </caption>' . "\n" .

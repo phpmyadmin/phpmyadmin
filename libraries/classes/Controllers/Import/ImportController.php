@@ -35,6 +35,7 @@ use function intval;
 use function is_array;
 use function is_link;
 use function is_numeric;
+use function is_string;
 use function is_uploaded_file;
 use function mb_strlen;
 use function mb_strtolower;
@@ -149,10 +150,9 @@ final class ImportController extends AbstractController
             // apply values for parameters
             if (! empty($_POST['parameterized']) && ! empty($_POST['parameters']) && is_array($_POST['parameters'])) {
                 $parameters = $_POST['parameters'];
-                foreach ($parameters as $parameter => $replacement) {
-                    $replacementValue = $this->dbi->escapeString($replacement);
+                foreach ($parameters as $parameter => $replacementValue) {
                     if (! is_numeric($replacementValue)) {
-                        $replacementValue = '\'' . $replacementValue . '\'';
+                        $replacementValue = '\'' . $this->dbi->escapeString($replacementValue) . '\'';
                     }
 
                     $quoted = preg_quote($parameter, '/');
@@ -301,10 +301,10 @@ final class ImportController extends AbstractController
         }
 
         $timestamp = time();
-        if (isset($_POST['allow_interrupt'])) {
-            $maximum_time = ini_get('max_execution_time');
-        } else {
-            $maximum_time = 0;
+        $maximum_time = 0;
+        $maxExecutionTime = (int) ini_get('max_execution_time');
+        if (isset($_POST['allow_interrupt']) && $maxExecutionTime >= 1) {
+            $maximum_time = $maxExecutionTime - 1; // Give 1 second for phpMyAdmin to exit nicely
         }
 
         // set default values
@@ -441,7 +441,13 @@ final class ImportController extends AbstractController
         $read_limit = $memory_limit / 8;
 
         // handle filenames
-        if (isset($_FILES['import_file'])) {
+        if (
+            isset($_FILES['import_file'])
+            && is_array($_FILES['import_file'])
+            && isset($_FILES['import_file']['name'], $_FILES['import_file']['tmp_name'])
+            && is_string($_FILES['import_file']['name'])
+            && is_string($_FILES['import_file']['tmp_name'])
+        ) {
             $import_file = $_FILES['import_file']['tmp_name'];
             $import_file_name = $_FILES['import_file']['name'];
         }
@@ -623,7 +629,12 @@ final class ImportController extends AbstractController
 
                 if (! empty($local_import_file)) {
                     $message->addText('(' . $local_import_file . ')');
-                } else {
+                } elseif (
+                    isset($_FILES['import_file'])
+                    && is_array($_FILES['import_file'])
+                    && isset($_FILES['import_file']['name'])
+                    && is_string($_FILES['import_file']['name'])
+                ) {
                     $message->addText('(' . $_FILES['import_file']['name'] . ')');
                 }
             }

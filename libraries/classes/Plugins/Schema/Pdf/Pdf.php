@@ -198,7 +198,7 @@ class Pdf extends PdfLib
     /**
      * Sets x and y scaled positions
      *
-     * @see TCPDF::SetXY()
+     * @see TCPDF::setXY()
      *
      * @param float $x The x position
      * @param float $y The y position
@@ -207,26 +207,26 @@ class Pdf extends PdfLib
     {
         $x = ($x - $this->xMin) / $this->scale + $this->leftMargin;
         $y = ($y - $this->yMin) / $this->scale + $this->topMargin;
-        $this->SetXY($x, $y);
+        $this->setXY($x, $y);
     }
 
     /**
      * Sets the X scaled positions
      *
-     * @see TCPDF::SetX()
+     * @see TCPDF::setX()
      *
      * @param float $x The x position
      */
     public function setXScale($x): void
     {
         $x = ($x - $this->xMin) / $this->scale + $this->leftMargin;
-        $this->SetX($x);
+        $this->setX($x);
     }
 
     /**
      * Sets the scaled font size
      *
-     * @see TCPDF::SetFontSize()
+     * @see TCPDF::setFontSize()
      *
      * @param float $size The font size (in points)
      */
@@ -234,20 +234,20 @@ class Pdf extends PdfLib
     {
         // Set font size in points
         $size /= $this->scale;
-        $this->SetFontSize($size);
+        $this->setFontSize($size);
     }
 
     /**
      * Sets the scaled line width
      *
-     * @see TCPDF::SetLineWidth()
+     * @see TCPDF::setLineWidth()
      *
      * @param float $width The line width
      */
     public function setLineWidthScale($width): void
     {
         $width /= $this->scale;
-        $this->SetLineWidth($width);
+        $this->setLineWidth($width);
     }
 
     /**
@@ -282,9 +282,9 @@ class Pdf extends PdfLib
             $pg_name = ucfirst($pageDesc);
         }
 
-        $this->SetFont($this->ff, 'B', 14);
+        $this->setFont($this->ff, 'B', 14);
         $this->Cell(0, 6, $pg_name, 'B', 1, 'C');
-        $this->SetFont($this->ff, '');
+        $this->setFont($this->ff, '');
         $this->Ln();
     }
 
@@ -350,7 +350,7 @@ class Pdf extends PdfLib
             // print text
             $this->MultiCell($w, $il + 1, $data[$i], 0, 'L');
             // go to right side
-            $this->SetXY($x + $w, $y);
+            $this->setXY($x + $w, $y);
         }
 
         // go to line

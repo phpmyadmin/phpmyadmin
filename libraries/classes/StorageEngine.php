@@ -369,7 +369,7 @@ class StorageEngine
                 . "\n"
                 . '</p>' . "\n";
         } else {
-            $ret = '<table class="table table-light table-striped table-hover w-auto">'
+            $ret = '<table class="table table-striped table-hover w-auto">'
                 . "\n" . $ret . '</table>' . "\n";
         }
 

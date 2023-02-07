@@ -71,7 +71,7 @@ class UserPreferences
      * * mtime - last modification time
      * * type - 'db' (config read from pmadb) or 'session' (read from user session)
      *
-     * @psalm-return array{config_data: array, mtime: int, type: 'session'|'db'}
+     * @psalm-return array{config_data: mixed[], mtime: int, type: 'session'|'db'}
      */
     public function load(): array
     {

@@ -309,7 +309,7 @@ final class JavaScriptMessagesController
             ),
             'strImport' => __('Import'),
             'strImportDialogTitle' => __('Import monitor configuration'),
-            'strImportDialogMessage' => __('Please select the file you want to import.'),
+            'strImportDialogMessage' => __('Please select the file you want to import:'),
             'strTableNameDialogMessage' => __('Please enter a valid table name.'),
             'strDBNameDialogMessage' => __('Please enter a valid database name.'),
             'strNoImportFile' => __('No files available on server for import!'),
@@ -691,6 +691,10 @@ final class JavaScriptMessagesController
             'strU2FErrorRegister' => _pgettext('U2F error', 'Failed security key activation.'),
             // l10n: error code 4 (from U2F API) on authanticate
             'strU2FErrorAuthenticate' => _pgettext('U2F error', 'Invalid security key.'),
+
+            'webAuthnNotSupported' => __(
+                'WebAuthn is not available. Please use a supported browser in a secure context (HTTPS).'
+            ),
 
             /* Designer */
             'strIndexedDBNotWorking' => __(

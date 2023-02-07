@@ -124,7 +124,7 @@ validateExtension() {
                 foundFileExt
             fi
         ;;
-        vendor/phpseclib/phpseclib/phpseclib/openssl.cnf)
+        vendor/composer/ca-bundle/res/cacert.pem)
         ;;
         vendor/pragmarx/google2fa-qrcode/composer.lock)
         ;;
@@ -162,6 +162,8 @@ validateExtension() {
         RELEASE-DATE-[1-9].[0-9].[0-9])
         ;;
         RELEASE-DATE-[1-9].[0-9].[0-9]-dev)
+        ;;
+        RELEASE-DATE-[1-9].[0-9]+snapshot)
         ;;
         CONTRIBUTING.md)
         ;;
@@ -203,6 +205,10 @@ validateExtension() {
 for filePath in ${FILE_LIST}; do
     validateExtension
     case $filePath in
+        */rector*.php)
+        foundFile;;
+        */.gitkeep)
+        foundFile;;
         */.editorconfig)
         foundFile;;
         */easy-coding-standard.neon)
@@ -324,6 +330,8 @@ for filePath in ${FILE_LIST}; do
         *CODE_OF_CONDUCT.md*)
         foundFile;;
         *PERFORMANCE.md*)
+        foundFile;;
+        *phar*)
         foundFile;;
         *) ;;
     esac

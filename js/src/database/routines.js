@@ -9,7 +9,7 @@ AJAX.registerTeardown('database/routines.js', function () {
     $(document).off('change', 'select[name=item_type]');
     $(document).off('change', 'select[name^=item_param_type]');
     $(document).off('change', 'select[name=item_returntype]');
-    $(document).off('click', 'input[name=routine_addparameter]');
+    $(document).off('click', '#addRoutineParameterButton');
     $(document).off('click', 'a.routine_param_remove_anchor');
 });
 
@@ -27,11 +27,6 @@ const DatabaseRoutines = {
      * @var syntaxHiglighter Reference to the codemirror editor
      */
     syntaxHiglighter: null,
-    /**
-     * @var buttonOptions Object containing options for
-     *                    the jQueryUI dialog buttons
-     */
-    buttonOptions: {},
     /**
      * Validate editor form fields.
      *
@@ -115,18 +110,26 @@ const DatabaseRoutines = {
             if (data.success === true) {
                 Functions.ajaxRemoveMessage($msg);
                 /**
-                 * @var button_options Object containing options
+                 * @var buttonOptions Object containing options
                  *                     for jQueryUI dialog buttons
                  */
-                var buttonOptions = {};
-                buttonOptions[Messages.strClose] = function () {
-                    $(this).dialog('close').remove();
+                var buttonOptions = {
+                    [Messages.strClose]: {
+                        text: Messages.strClose,
+                        class: 'btn btn-primary',
+                        click: function () {
+                            $(this).dialog('close').remove();
+                        }
+                    },
                 };
                 /**
                  * Display the dialog to the user
                  */
                 data.message = '<textarea cols="40" rows="15" class="w-100">' + data.message + '</textarea>';
                 var $ajaxDialog = $('<div>' + data.message + '</div>').dialog({
+                    classes: {
+                        'ui-dialog-titlebar-close': 'btn-close'
+                    },
                     width: 500,
                     buttons: buttonOptions,
                     title: data.title
@@ -164,11 +167,21 @@ const DatabaseRoutines = {
         var $msg = Functions.ajaxShowMessage();
         $.get($this.attr('href'), { 'ajax_request': true }, function (data) {
             if (data.success === true) {
+                var buttonOptions = {
+                    [Messages.strGo]: {
+                        text: Messages.strGo,
+                        class: 'btn btn-primary',
+                    },
+                    [Messages.strClose]: {
+                        text: Messages.strClose,
+                        class: 'btn btn-secondary',
+                    },
+                };
                 // We have successfully fetched the editor form
                 Functions.ajaxRemoveMessage($msg);
                 // Now define the function that is called when
                 // the user presses the "Go" button
-                that.buttonOptions[Messages.strGo] = function () {
+                buttonOptions[Messages.strGo].click = function () {
                     // Move the data from the codemirror editor back to the
                     // textarea, where it can be used in the form submission.
                     if (typeof CodeMirror !== 'undefined') {
@@ -285,16 +298,20 @@ const DatabaseRoutines = {
                         }); // end $.post()
                     } // end "if (that.validate())"
                 }; // end of function that handles the submission of the Editor
-                that.buttonOptions[Messages.strClose] = function () {
+                buttonOptions[Messages.strClose].click = function () {
                     $(this).dialog('close');
                 };
                 /**
                  * Display the dialog to the user
                  */
                 that.$ajaxDialog = $('<div id="rteDialog">' + data.message + '</div>').dialog({
+                    classes: {
+                        'ui-dialog-titlebar-close': 'btn-close'
+                    },
+                    height: 400,
                     width: 700,
                     minWidth: 500,
-                    buttons: that.buttonOptions,
+                    buttons: buttonOptions,
                     // Issue #15810 - use button titles for modals (eg: new procedure)
                     // Respect the order: title on href tag, href content, title sent in response
                     title: $this.attr('title') || $this.text() || $(data.title).text(),
@@ -509,8 +526,6 @@ const DatabaseRoutines = {
         var that = this;
         // Make adjustments in the dialog to make it AJAX compatible
         $('td.routine_param_remove').show();
-        $('input[name=routine_removeparameter]').remove();
-        $('input[name=routine_addparameter]').css('width', '100%');
         // Enable/disable the 'options' dropdowns for parameters as necessary
         $('table.routine_params_table').last().find('th[colspan=2]').attr('colspan', '1');
         $('table.routine_params_table').last().find('tr').has('td').each(function () {
@@ -742,7 +757,6 @@ const DatabaseRoutines = {
         }
     },
     executeDialog: function ($this) {
-        var that = this;
         /**
          * @var msg jQuery object containing the reference to
          *          the AJAX message shown to the user
@@ -756,9 +770,19 @@ const DatabaseRoutines = {
                 // to get the input parameters for routine, otherwise
                 // we just show the results of the query
                 if (data.dialog) {
+                    var buttonOptions = {
+                        [Messages.strGo]: {
+                            text: Messages.strGo,
+                            class: 'btn btn-primary',
+                        },
+                        [Messages.strClose]: {
+                            text: Messages.strClose,
+                            class: 'btn btn-secondary',
+                        },
+                    };
                     // Define the function that is called when
                     // the user presses the "Go" button
-                    that.buttonOptions[Messages.strGo] = function () {
+                    buttonOptions[Messages.strGo].click = function () {
                         /**
                          * @var data Form data to be sent in the AJAX request
                          */
@@ -777,15 +801,18 @@ const DatabaseRoutines = {
                             }
                         });
                     };
-                    that.buttonOptions[Messages.strClose] = function () {
+                    buttonOptions[Messages.strClose].click = function () {
                         $(this).dialog('close');
                     };
                     /**
                      * Display the dialog to the user
                      */
                     var $ajaxDialog = $('<div>' + data.message + '</div>').dialog({
+                        classes: {
+                            'ui-dialog-titlebar-close': 'btn-close'
+                        },
                         width: 650,
-                        buttons: that.buttonOptions,
+                        buttons: buttonOptions,
                         title: data.title,
                         modal: true,
                         close: function () {
@@ -894,7 +921,7 @@ AJAX.registerOnload('database/routines.js', function () {
         );
     });
 
-    $(document).on('click', 'input[name=routine_addparameter]', function (event) {
+    $(document).on('click', '#addRoutineParameterButton', function (event) {
         event.preventDefault();
         /**
          * @var routine_params_table jQuery object containing the reference

@@ -110,7 +110,7 @@
                 </td>
                 <td width="25">&nbsp;</td>
                 <td>
-                  <select class="form-control" name="tbl_storage_engine" aria-label="{% trans 'Storage engine' %}">
+                  <select class="form-select" name="tbl_storage_engine" aria-label="{% trans 'Storage engine' %}">
                     {% for engine in storage_engines %}
                       <option value="{{ engine.name }}"{% if engine.comment is not empty %} title="{{ engine.comment }}"{% endif %}
                         {{- engine.name|lower == tbl_storage_engine|lower or (tbl_storage_engine is empty and engine.is_default) ? ' selected' }}>
@@ -183,3 +183,6 @@
     </div>
   </div>
 </div>
+
+{# Used by add new column of type ENUM/SET #}
+{{ include('modals/enum_set_editor.twig') }}

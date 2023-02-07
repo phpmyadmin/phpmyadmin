@@ -691,8 +691,8 @@ class StructureController extends AbstractController
         $tableIsView = false;
 
         switch ($currentTable['ENGINE']) {
-        // MyISAM, ISAM or Heap table: Row count, data size and index size
-        // are accurate; data size is accurate for ARCHIVE
+            // MyISAM, ISAM or Heap table: Row count, data size and index size
+            // are accurate; data size is accurate for ARCHIVE
             case 'MyISAM':
             case 'ISAM':
             case 'HEAP':
@@ -729,9 +729,9 @@ class StructureController extends AbstractController
                     $sumSize
                 );
                 break;
-        // Mysql 5.0.x (and lower) uses MRG_MyISAM
-        // and MySQL 5.1.x (and higher) uses MRG_MYISAM
-        // Both are aliases for MERGE
+            // Mysql 5.0.x (and lower) uses MRG_MyISAM
+            // and MySQL 5.1.x (and higher) uses MRG_MYISAM
+            // Both are aliases for MERGE
             case 'MRG_MyISAM':
             case 'MRG_MYISAM':
             case 'MERGE':
@@ -743,8 +743,8 @@ class StructureController extends AbstractController
                 }
 
                 break;
-        // for a view, the ENGINE is sometimes reported as null,
-        // or on some servers it's reported as "SYSTEM VIEW"
+            // for a view, the ENGINE is sometimes reported as null,
+            // or on some servers it's reported as "SYSTEM VIEW"
             case null:
             case 'SYSTEM VIEW':
                 // possibly a view, do nothing

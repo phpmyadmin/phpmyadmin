@@ -1197,10 +1197,6 @@ input#import_merge {
   overflow: hidden;
 }
 
-#tablestructure tbody label {
-  margin: 0.3rem 0;
-}
-
 #structure-action-links a {
   margin-right: 1em;
 }
@@ -1781,6 +1777,7 @@ input#auto_increment_opt {
   .lDiv div {
     padding: 0.2em 0.5em 0.2em;
     padding-left: 0.2em;
+    white-space: nowrap;
 
     &:hover {
       background: #ddd;
@@ -2865,4 +2862,8 @@ body .ui-dialog {
 #previewSqlModal {
   z-index: 1056;
   top: 100px;
+}
+
+.table-responsive-md .data {
+  z-index: 9;
 }

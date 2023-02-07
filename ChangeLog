@@ -1,6 +1,91 @@
 phpMyAdmin - ChangeLog
 ======================
 
+5.2.1 (2023-02-07)
+- issue #17522 Fix case where the routes cache file is invalid
+- issue #17506 Fix error when configuring 2FA without XMLWriter or Imagick
+- issue        Fix blank page when some error occurs
+- issue #17519 Fix Export pages not working in certain conditions
+- issue #17496 Fix error in table operation page when partitions are broken
+- issue #17386 Fix system memory and system swap values on Windows
+- issue #17517 Fix Database Server panel not getting hidden by ShowServerInfo configuration directive
+- issue #17271 Fix database names not showing on Processes tab
+- issue #17424 Fix export limit size calculation
+- issue #17366 Fix refresh rate popup on Monitor page
+- issue #17577 Fix monitor charts size on RTL languages
+- issue #17121 Fix password_hash function incorrectly adding single quotes to password before hashing
+- issue #17586 Fix statistics not showing for empty databases
+- issue #17592 Clicking on the New index link on the sidebar does not throw an error anymore
+- issue #17584 It's now possible to browse a database that includes two % in its name
+- issue        Fix PHP 8.2 deprecated string interpolation syntax
+- issue        Some languages are now correctly detected from the HTTP header
+- issue #17617 Sorting is correctly remembered when $cfg['RememberSorting'] is true
+- issue #17593 Table filtering now works when action buttons are on the right side of the row
+- issue #17388 Find and Replace using regex now makes a valid query if no matching result set found
+- issue #17551 Enum/Set editor will not fail to open when creating a new column
+- issue #17659 Fix error when a database group is named tables, views, functions, procedures or events
+- issue #17673 Allow empty values to be inserted into columns
+- issue #17620 Fix error handling at phpMyAdmin startup for the JS SQL console
+- issue        Fixed debug queries console broken UI for query time and group count
+- issue        Fixed escaping of SQL query and errors for the debug console
+- issue        Fix console toolbar UI when the bookmark feature is disabled and sql debug is enabled
+- issue #17543 Fix JS error on saving a new designer page
+- issue #17546 Fix JS error after using save as and open page operation on the designer
+- issue        Fix PHP warning on GIS visualization when there is only one GIS column
+- issue #17728 Some select HTML tags will now have the correct UI style
+- issue #17734 PHP deprecations will only be shown when in a development environment
+- issue #17369 Fix server error when blowfish_secret is not exactly 32 bytes long
+- issue #17736 Add utf8mb3 as an alias of utf8 on the charset description page
+- issue #16418 Fix FAQ 1.44 about manually removing vendor folders
+- issue #12359 Setup page now sends the Content-Security-Policy headers
+- issue #17747 The Column Visibility Toggle will not be hidden by other elements
+- issue #17756 Edit/Copy/Delete row now works when using GROUP BY
+- issue #17248 Support the UUID data type for MariaDB >= 10.7
+- issue #17656 Fix replace/change/set table prefix is not working
+- issue        Fix monitor page filter queries only filtering the first row
+- issue        Fix "Link not found!" on foreign columns for tables having no char column to show
+- issue #17390 Fix "Create view" modal doesn't show on results and empty results
+- issue #17772 Fix wrong styles for add button from central columns
+- issue #17389 Fix HTML disappears when exporting settings to browser's storage
+- issue #17166 Fix "Warning: #1287 'X' is deprecated [...] Please use ST_X instead." on search page
+- issue        Use jquery-migrate.min.js (14KB) instead of jquery-migrate.min.js (31KB)
+- issue #17842 Use jquery.validate.min.js (24 KB) instead of jquery.validate.js (50 KB)
+- issue #17281 Fix links to databases for information_schema.SCHEMATA
+- issue #17553 Fix Metro theme unreadable links above navigation tree
+- issue #17553 Metro theme UI fixes and improvements
+- issue #17553 Fix Metro theme login form with
+- issue #16042 Exported gzip file of database has first ~73 kB uncompressed and rest is gzip compressed in Firefox
+- issue #17705 Fix inline SQL query edit FK checkbox preventing submit buttons from working
+- issue #17777 Fix Uncaught TypeError: Cannot read properties of null (reading 'inline') on datepickers when re-opened
+- issue        Fix Original theme buttons style and login form width
+- issue #17892 Fix closing index edit modal and reopening causes it to fire twice
+- issue #17606 Fix preview SQL modal not working inside "Add Index" modal
+- issue        Fix PHP error on adding new column on create table form
+- issue #17482 Default to "Full texts" when running explain statements
+- issue        Fixed Chrome scrolling performance issue on a textarea of an "export as text" page
+- issue #17703 Fix datepicker appears on all fields, not just date
+- issue        Fix space in the tree line when a DB is expanded
+- issue #17340 Fix "New Table" page -> "VIRTUAL" attribute is lost when adding a new column
+- issue #17446 Fix missing option for STORED virtual column on MySQL and PERSISTENT is not supported on MySQL
+- issue #17446 Lower the check for virtual columns to MySQL>=5.7.6 nothing is supported on 5.7.5
+- issue        Fix column names option for CSV Export
+- issue #17177 Fix preview SQL when reordering columns doesn't work on move columns
+- issue #15887 Fixed DROP TABLE errors ignored on multi table select for DROP
+- issue #17944 Fix unable to create a view from tree view button
+- issue #17927 Fix key navigation between select inputs (drop an old Firefox workaround)
+- issue #17967 Fix missing icon for collapse all button
+- issue #18006 Fixed UUID columns can't be moved
+- issue        Add `spellcheck="false"` to all password fields and some text fields to avoid spell-jacking data leaks
+- issue        Remove non working "Analyze Explain at MariaDB.org" button (MariaDB stopped this service)
+- issue #17229 Add support for Web Authentication API because Chrome removed support for the U2F API
+- issue #18019 Fix "Call to a member function fetchAssoc() on bool" with SQL mode ONLY_FULL_GROUP_BY on monitor search logs
+- issue        Add back UUID and UUID_SHORT to functions on MySQL and all MariaDB versions
+- issue #17398 Fix clicking on JSON columns triggers update query
+- issue        Fix silent JSON parse error on upload progress
+- issue #17833 Fix "Add Parameter" button not working for Add Routine Screen
+- issue #17365 Fixed "Uncaught Error: regexp too big" on server status variables page
+- issue        [security] Fix an XSS attack through the drag-and-drop upload feature (PMASA-2023-01)
+
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5
 - issue #16521 Drop support for Internet Explorer and others

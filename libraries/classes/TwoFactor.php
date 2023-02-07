@@ -15,10 +15,14 @@ use PhpMyAdmin\Plugins\TwoFactor\Invalid;
 use PhpMyAdmin\Plugins\TwoFactor\Key;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
 use PragmaRX\Google2FAQRCode\Google2FA;
+use XMLWriter;
 
 use function array_merge;
 use function class_exists;
+use function extension_loaded;
 use function in_array;
+use function is_array;
+use function is_string;
 use function ucfirst;
 
 /**
@@ -29,7 +33,10 @@ class TwoFactor
     /** @var string */
     public $user;
 
-    /** @var array */
+    /**
+     * @var array
+     * @psalm-var array{backend: string, settings: mixed[], type?: 'session'|'db'}
+     */
     public $config;
 
     /** @var bool */
@@ -66,26 +73,27 @@ class TwoFactor
     /**
      * Reads the configuration
      *
-     * @return array
+     * @psalm-return array{backend: string, settings: mixed[], type: 'session'|'db'}
      */
-    public function readConfig()
+    public function readConfig(): array
     {
         $result = [];
         $config = $this->userPreferences->load();
-        if (isset($config['config_data']['2fa'])) {
+        if (isset($config['config_data']['2fa']) && is_array($config['config_data']['2fa'])) {
             $result = $config['config_data']['2fa'];
         }
 
-        $result['type'] = $config['type'];
-        if (! isset($result['backend'])) {
-            $result['backend'] = '';
+        $backend = '';
+        if (isset($result['backend']) && is_string($result['backend'])) {
+            $backend = $result['backend'];
         }
 
-        if (! isset($result['settings'])) {
-            $result['settings'] = [];
+        $settings = [];
+        if (isset($result['settings']) && is_array($result['settings'])) {
+            $settings = $result['settings'];
         }
 
-        return $result;
+        return ['backend' => $backend, 'settings' => $settings, 'type' => $config['type']];
     }
 
     public function isWritable(): bool
@@ -125,9 +133,15 @@ class TwoFactor
             $result[] = 'simple';
         }
 
-        if (class_exists(Google2FA::class) && class_exists(ImageRenderer::class)) {
+        if (
+            class_exists(Google2FA::class)
+            && class_exists(ImageRenderer::class)
+            && (class_exists(XMLWriter::class) || extension_loaded('imagick'))
+        ) {
             $result[] = 'application';
         }
+
+        $result[] = 'WebAuthn';
 
         if (class_exists(U2FServer::class)) {
             $result[] = 'key';
@@ -259,10 +273,9 @@ class TwoFactor
      */
     public function configure($name): bool
     {
-        $this->config = ['backend' => $name];
+        $this->config = ['backend' => $name, 'settings' => []];
         if ($name === '') {
             $cls = $this->getBackendClass($name);
-            $this->config['settings'] = [];
             $this->backend = new $cls($this);
         } else {
             if (! in_array($name, $this->available)) {
@@ -270,7 +283,6 @@ class TwoFactor
             }
 
             $cls = $this->getBackendClass($name);
-            $this->config['settings'] = [];
             $this->backend = new $cls($this);
             if (! $this->backend->configure()) {
                 return false;

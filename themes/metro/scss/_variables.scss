@@ -183,14 +183,18 @@ $headings-font-weight: normal;
 
 // Tables
 
-$table-cell-padding: 0.6em;
-$table-cell-padding-sm: $table-cell-padding;
+$table-cell-padding-y: 0.6em;
+$table-cell-padding-x: 0.6em;
+$table-cell-padding-y-sm: $table-cell-padding-y;
+$table-cell-padding-x-sm: $table-cell-padding-x;
+$table-bg: $bg-two;
 $table-head-bg: #fff;
 $table-head-color: $th-color;
 $table-striped-order: even;
 $table-hover-color: $th-pointer-color;
 $table-hover-bg: $browse-marker-background;
 $table-border-width: 0;
+$table-caption-color: $table-head-color;
 
 // Buttons
 

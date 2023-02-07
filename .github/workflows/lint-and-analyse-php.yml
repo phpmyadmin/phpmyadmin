@@ -8,6 +8,9 @@ on:
       - master
       - QA_**
 
+permissions:
+  contents: read
+
 jobs:
   lint-node:
     runs-on: ubuntu-latest
@@ -16,13 +19,13 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Set up Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: 12
 
       - name: Get Yarn cache directory path
         id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
 
       - name: Cache Yarn dependencies
         uses: actions/cache@v3
@@ -59,25 +62,35 @@ jobs:
         run: composer validate --strict
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v1
+        # Allow the previous check to fail but not abort
+        if: always()
+        uses: ramsey/composer-install@v2
         with:
           dependency-versions: highest
           # Ignore zip for php-webdriver/webdriver
           composer-options: "--ignore-platform-req=ext-zip"
 
       - name: Cache coding-standard
+        # Allow the previous check to fail but not abort
+        if: always()
         uses: actions/cache@v3
         with:
           path: .phpcs-cache
           key: phpcs-cache
 
       - name: Lint PHP files
+        # Allow the previous check to fail but not abort
+        if: always()
         run: ./test/ci-phplint
 
       - name: Check coding-standard
+        # Allow the previous check to fail but not abort
+        if: always()
         run: composer phpcs
 
       - name: Check Twig templates
+        # Allow the previous check to fail but not abort
+        if: always()
         run: composer run twig-lint
 
   analyse-php:
@@ -96,7 +109,7 @@ jobs:
           extensions: mbstring, iconv, mysqli, zip, gd, bz2
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v1
+        uses: ramsey/composer-install@v2
         with:
           dependency-versions: highest
 
@@ -104,4 +117,6 @@ jobs:
         run: composer phpstan -- --memory-limit 2G
 
       - name: Analyse files with Psalm
+        # Allow the previous check to fail but not abort
+        if: always()
         run: composer psalm -- --shepherd

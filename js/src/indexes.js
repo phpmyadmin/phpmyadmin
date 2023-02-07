@@ -334,8 +334,18 @@ Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, c
     }
     postData.columns = JSON.stringify(columns);
 
-    var buttonOptions = {};
-    buttonOptions[Messages.strGo] = function () {
+    var buttonOptions = {
+        [Messages.strGo]: {
+            text: Messages.strGo,
+            class: 'btn btn-primary',
+        },
+        [Messages.strCancel]: {
+            text: Messages.strCancel,
+            class: 'btn btn-secondary',
+        },
+    };
+
+    buttonOptions[Messages.strGo].click = function () {
         var isMissingValue = false;
         $('select[name="index[columns][names][]"]').each(function () {
             if ($(this).val() === '') {
@@ -362,7 +372,7 @@ Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, c
 
         $(this).remove();
     };
-    buttonOptions[Messages.strCancel] = function () {
+    buttonOptions[Messages.strCancel].click = function () {
         if (colIndex >= 0) {
             // Handle state on 'Cancel'.
             var $selectList = $('select[name="field_key[' + colIndex + ']"]');
@@ -392,6 +402,9 @@ Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, c
                 $div
                     .append(data.message)
                     .dialog({
+                        classes: {
+                            'ui-dialog-titlebar-close': 'btn-close'
+                        },
                         title: Messages.strAddIndex,
                         width: 450,
                         minHeight: 250,
@@ -480,9 +493,19 @@ Indexes.indexTypeSelectionDialog = function (sourceArray, indexChoice, colIndex)
     $dialogContent.append($singleColumnRadio);
     $dialogContent.append($compositeIndexRadio);
 
-    var buttonOptions = {};
+    var buttonOptions = {
+        [Messages.strGo]: {
+            text: Messages.strGo,
+            class: 'btn btn-primary',
+        },
+        [Messages.strCancel]: {
+            text: Messages.strCancel,
+            class: 'btn btn-secondary',
+        },
+    };
+
     // 'OK' operation.
-    buttonOptions[Messages.strGo] = function () {
+    buttonOptions[Messages.strGo].click = function () {
         if ($('#single_column').is(':checked')) {
             var index = {
                 'Key_name': (indexChoice === 'primary' ? 'PRIMARY' : ''),
@@ -518,7 +541,7 @@ Indexes.indexTypeSelectionDialog = function (sourceArray, indexChoice, colIndex)
 
         $(this).remove();
     };
-    buttonOptions[Messages.strCancel] = function () {
+    buttonOptions[Messages.strCancel].click = function () {
         // Handle state on 'Cancel'.
         var $selectList = $('select[name="field_key[' + colIndex + ']"]');
         if (! $selectList.attr('data-index').length) {
@@ -531,6 +554,9 @@ Indexes.indexTypeSelectionDialog = function (sourceArray, indexChoice, colIndex)
         $(this).remove();
     };
     $('<div></div>').append($dialogContent).dialog({
+        classes: {
+            'ui-dialog-titlebar-close': 'btn-close'
+        },
         minWidth: 525,
         minHeight: 200,
         modal: true,

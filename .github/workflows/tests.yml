@@ -8,6 +8,9 @@ on:
       - master
       - QA_**
 
+permissions:
+  contents: read
+
 jobs:
   multi-arch-tests-php:
     name: Test on PHP ${{ matrix.php-version }} (${{ matrix.arch }})
@@ -64,16 +67,18 @@ jobs:
     continue-on-error: ${{ matrix.experimental }}
     strategy:
       matrix:
-        php-version: ["7.2", "7.3", "7.4", "8.0", "8.1"]
+        php-version: ["7.2", "7.3", "7.4", "8.0", "8.1", "8.2"]
         experimental: [false]
         os: [ubuntu-latest]
         phpunit-options: ['--testsuite unit']
+        php-extensions: ['mbstring, iconv, mysqli, zip, gd, bz2']
         include:
           - php-version: 'nightly'
             experimental: true
             os: ubuntu-latest
             phpunit-options: '--configuration test/phpunit-php-nightly.xml'
             composer-options: '--ignore-platform-req=php+'
+            php-extensions: 'mbstring, iconv, mysqli, zip, bz2'
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -91,11 +96,11 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
-          extensions: mbstring, iconv, mysqli, zip, gd, bz2
+          extensions: ${{ matrix.php-extensions }}
           coverage: xdebug
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v1
+        uses: ramsey/composer-install@v2
         with:
           dependency-versions: highest
           composer-options: ${{ matrix.composer-options }}
@@ -104,7 +109,7 @@ jobs:
         run: composer run phpunit -- ${{ matrix.phpunit-options }}
 
       - name: Send coverage
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v3
         with:
           flags: unit-${{ matrix.php-version }}-${{ matrix.os }}
           name: phpunit-${{ matrix.php-version }}-${{ matrix.os }}
@@ -155,7 +160,7 @@ jobs:
           coverage: xdebug
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v1
+        uses: ramsey/composer-install@v2
         with:
           dependency-versions: highest
 
@@ -163,10 +168,77 @@ jobs:
         run: composer run phpunit -- --testsuite unit
 
       - name: Send coverage
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v3
         with:
           flags: ${{ matrix.extension }}-extension
           name: php-7.2-${{ matrix.extension }}-enabled
+
+      - name: Send coverage to Scrutinizer
+        uses: sudo-bot/action-scrutinizer@latest
+        # Do not run this step on forked versions of the main repository (example: contributor forks)
+        if: github.repository == 'phpmyadmin/phpmyadmin'
+        with:
+          cli-args: "--format=php-clover build/logs/clover.xml --revision=${{ github.event.pull_request.head.sha || github.sha }}"
+
+      - name: Send coverage to Codacy
+        uses: codacy/codacy-coverage-reporter-action@v1
+        # Do not run this step on forked versions of the main repository (example: contributor forks)
+        if: github.repository == 'phpmyadmin/phpmyadmin'
+        # Upload can fail on forks or if the secret is missing
+        continue-on-error: true
+        with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          coverage-reports: build/logs/clover.xml
+
+  test-php-psr7-implementations:
+    name: Test on PHP (+ psr7-${{ matrix.psr-7-library }}) ${{ matrix.php-version }} and ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version: ['7.3']
+        os: [ubuntu-latest]
+        php-extensions: ['mbstring, iconv, mysqli, zip, bz2']
+        psr-7-library: ['guzzlehttp/psr7', 'nyholm/psr7', 'laminas/laminas-diactoros']
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          # Fetch some commits for Scrutinizer coverage upload
+          fetch-depth: 15
+
+      - name: Install gettext
+        run: sudo apt-get install -y gettext
+
+      - name: Generate mo files
+        run: ./scripts/generate-mo --quiet
+
+      - name: Set up PHP ${{ matrix.php-version }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          extensions: ${{ matrix.php-extensions }}
+          coverage: pcov
+
+      - name: Install Composer dependencies
+        uses: ramsey/composer-install@v2
+        with:
+          dependency-versions: highest
+
+      - name: Remove default PSR-7 implementation
+        run: composer remove slim/psr7
+
+      - name: Add PSR-7 implementation
+        run: composer require ${{ matrix.psr-7-library }}
+
+      - name: Run PHP tests
+        run: composer run phpunit -- --testsuite unit
+
+      - name: Send coverage
+        uses: codecov/codecov-action@v3
+        with:
+          flags: ${{ matrix.psr-7-library }}-psr-7
+          name: php-7.2-psr-7
 
       - name: Send coverage to Scrutinizer
         uses: sudo-bot/action-scrutinizer@latest
@@ -193,13 +265,13 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Set up Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: 12
 
       - name: Get Yarn cache directory path
         id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
 
       - name: Cache Yarn dependencies
         uses: actions/cache@v3

@@ -699,6 +699,8 @@ DesignerMove.addOtherDbTables = function () {
                 DesignerMove.markUnsaved();
             }
         });
+
+        $('#designerModalGoButton').off('click');// Unregister the event for other modals to not call this one
         modal.modal('hide');
     });
     $('#add_table_from').on('change', function () {
@@ -869,6 +871,8 @@ DesignerMove.save3 = function (callback) {
         $('#designerModalGoButton').on('click', function () {
             var $form = $('#save_page');
             $form.trigger('submit');
+
+            $('#designerModalGoButton').off('click');// Unregister the event for other modals to not call this one
             modal.modal('hide');
         });
     }
@@ -902,6 +906,8 @@ DesignerMove.editPages = function () {
                         Functions.ajaxShowMessage(Messages.strSelectPage, 2000);
                         return;
                     }
+
+                    $('#designerModalGoButton').off('click');// Unregister the event for other modals to not call this one
                     modal.modal('hide');
                     DesignerMove.loadPage(selected);
                 });
@@ -970,6 +976,8 @@ DesignerMove.deletePages = function () {
                         }
                     });
                 }
+
+                $('#designerModalGoButton').off('click');// Unregister the event for other modals to not call this one
                 modal.modal('hide');
             });
         }
@@ -1056,6 +1064,7 @@ DesignerMove.saveAs = function () {
                     }
                 }
 
+                $('#designerModalGoButton').off('click');// Unregister the event for other modals to not call this one
                 modal.modal('hide');
             });
             // select current page by default
@@ -1121,6 +1130,7 @@ DesignerMove.exportPages = function () {
             var modal = DesignerMove.displayModal($form, Messages.strExportRelationalSchema, '#designerGoModal');
             $('#designerModalGoButton').on('click', function () {
                 $('#id_export_pages').trigger('submit');
+                $('#designerModalGoButton').off('click');// Unregister the event for other modals to not call this one
                 modal.modal('hide');
             });
         }

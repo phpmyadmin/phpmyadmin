@@ -7,10 +7,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Query\Compatibility;
+
 use function __;
 use function _pgettext;
 use function array_diff;
 use function array_merge;
+use function array_values;
 use function htmlspecialchars;
 use function in_array;
 use function mb_strtoupper;
@@ -137,6 +140,25 @@ class Types
     }
 
     /**
+     * UUID search operators
+     *
+     * @return string[]
+     */
+    public function getUUIDOperators()
+    {
+        return [
+            '=',
+            '!=',
+            'LIKE',
+            'LIKE %...%',
+            'NOT LIKE',
+            'NOT LIKE %...%',
+            'IN (...)',
+            'NOT IN (...)',
+        ];
+    }
+
+    /**
      * Returns operators for given type
      *
      * @param string $type Type of field
@@ -153,6 +175,8 @@ class Types
             $ret = array_merge($ret, $this->getEnumOperators());
         } elseif ($class === 'CHAR') {
             $ret = array_merge($ret, $this->getTextOperators());
+        } elseif ($class === 'UUID') {
+            $ret = array_merge($ret, $this->getUUIDOperators());
         } else {
             $ret = array_merge($ret, $this->getNumberOperators());
         }
@@ -416,6 +440,9 @@ class Types
                 return __('Intended for storage of IPv6 addresses, as well as IPv4 '
                     . 'addresses assuming conventional mapping of IPv4 addresses '
                     . 'into IPv6 addresses');
+
+            case 'UUID':
+                return __('128-bit UUID (Universally Unique Identifier)');
         }
 
         return '';
@@ -483,6 +510,9 @@ class Types
 
             case 'JSON':
                 return 'JSON';
+
+            case 'UUID':
+                return 'UUID';
         }
 
         return '';
@@ -543,7 +573,7 @@ class Types
                     $ret = array_diff($ret, ['INET6_NTOA']);
                 }
 
-                return $ret;
+                return array_values($ret);
 
             case 'DATE':
                 return [
@@ -619,11 +649,12 @@ class Types
                     'WEEKOFYEAR',
                     'YEARWEEK',
                 ];
+
                 if (($isMariaDB && $serverVersion < 100012) || $serverVersion < 50603) {
                     $ret = array_diff($ret, ['INET6_ATON']);
                 }
 
-                return $ret;
+                return array_values($ret);
 
             case 'SPATIAL':
                 if ($serverVersion >= 50600) {
@@ -713,13 +744,21 @@ class Types
      */
     public function getAttributes()
     {
-        return [
+        $serverVersion = $this->dbi->getVersion();
+
+        $attributes = [
             '',
             'BINARY',
             'UNSIGNED',
             'UNSIGNED ZEROFILL',
             'on update CURRENT_TIMESTAMP',
         ];
+
+        if (Compatibility::supportsCompressedColumns($serverVersion)) {
+            $attributes[] = 'COMPRESSED=zlib';
+        }
+
+        return $attributes;
     }
 
     /**
@@ -734,6 +773,7 @@ class Types
     {
         $isMariaDB = $this->dbi->isMariaDB();
         $serverVersion = $this->dbi->getVersion();
+        $isUUIDSupported = Compatibility::isUUIDSupported($this->dbi);
 
         // most used types
         $ret = [
@@ -742,6 +782,11 @@ class Types
             'TEXT',
             'DATE',
         ];
+
+        if ($isUUIDSupported) {
+            $ret[] = 'UUID';
+        }
+
         // numeric
         $ret[_pgettext('numeric types', 'Numeric')] = [
             'TINYINT',
@@ -810,6 +855,10 @@ class Types
 
         if (($isMariaDB && $serverVersion > 100207) || (! $isMariaDB && $serverVersion >= 50708)) {
             $ret['JSON'] = ['JSON'];
+        }
+
+        if ($isUUIDSupported) {
+            $ret['UUID'] = ['UUID'];
         }
 
         return $ret;

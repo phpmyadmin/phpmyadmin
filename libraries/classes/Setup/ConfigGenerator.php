@@ -15,12 +15,18 @@ use function count;
 use function gmdate;
 use function implode;
 use function is_array;
+use function is_string;
+use function mb_strlen;
 use function preg_replace;
+use function sodium_bin2hex;
+use function sodium_crypto_secretbox_keygen;
+use function sprintf;
 use function str_contains;
 use function strtr;
 use function var_export;
 
 use const DATE_RFC1123;
+use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 
 /**
  * Config file generation class
@@ -94,6 +100,12 @@ class ConfigGenerator
      */
     private static function getVarExport($var_name, $var_value, $crlf)
     {
+        if ($var_name === 'blowfish_secret') {
+            $secret = self::getBlowfishSecretKey($var_value);
+
+            return sprintf('$cfg[\'blowfish_secret\'] = \sodium_hex2bin(\'%s\');%s', sodium_bin2hex($secret), $crlf);
+        }
+
         if (! is_array($var_value) || empty($var_value)) {
             return "\$cfg['" . $var_name . "'] = "
                 . var_export($var_value, true) . ';' . $crlf;
@@ -198,5 +210,19 @@ class ConfigGenerator
         $ret .= '/* End of servers configuration */' . $crlf . $crlf;
 
         return $ret;
+    }
+
+    /**
+     * @param mixed $key
+     *
+     * @psalm-return non-empty-string
+     */
+    private static function getBlowfishSecretKey($key): string
+    {
+        if (is_string($key) && mb_strlen($key, '8bit') === SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
+            return $key;
+        }
+
+        return sodium_crypto_secretbox_keygen();
     }
 }

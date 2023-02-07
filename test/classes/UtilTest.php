@@ -40,6 +40,10 @@ use const MYSQLI_TYPE_SHORT;
 use const MYSQLI_TYPE_STRING;
 use const MYSQLI_UNIQUE_KEY_FLAG;
 
+const FIELD_TYPE_INTEGER = 1;
+const FIELD_TYPE_VARCHAR = 253;
+const FIELD_TYPE_UNKNOWN = -1;
+
 /**
  * @covers \PhpMyAdmin\Util
  */
@@ -61,6 +65,7 @@ class UtilTest extends AbstractTestCase
      * @requires extension mysqli
      * @requires extension curl
      * @requires extension mbstring
+     * @requires extension sodium
      */
     public function testListPHPExtensions(): void
     {
@@ -69,6 +74,7 @@ class UtilTest extends AbstractTestCase
                 'mysqli',
                 'curl',
                 'mbstring',
+                'sodium',
             ],
             Util::listPHPExtensions()
         );
@@ -257,6 +263,135 @@ class UtilTest extends AbstractTestCase
 
         $actual = Util::getUniqueCondition(count($meta), $meta, ['unique', 'value']);
         $this->assertEquals(['`table`.`id` = \'unique\'', true, ['`table`.`id`' => '= \'unique\'']], $actual);
+    }
+
+    /**
+     * Test for Util::getUniqueCondition
+     * note: GROUP_FLAG = MYSQLI_NUM_FLAG = 32769
+     *
+     * @param FieldMetadata[] $meta     Meta Information for Field
+     * @param array           $row      Current Ddata Row
+     * @param array           $expected Expected Result
+     * @psalm-param array<int, mixed> $row
+     * @psalm-param array{string, bool, array<string, string>} $expected
+     *
+     * @dataProvider providerGetUniqueConditionForGroupFlag
+     */
+    public function testGetUniqueConditionForGroupFlag(array $meta, array $row, array $expected): void
+    {
+        $fieldsCount = count($meta);
+        $actual = Util::getUniqueCondition($fieldsCount, $meta, $row);
+
+        $this->assertEquals($expected, $actual);
+    }
+
+    /**
+     * Provider for testGetUniqueConditionForGroupFlag
+     *
+     * @return array<string, array{FieldMetadata[], array<int, mixed>, array{string, bool, array<string, string>}}>
+     */
+    public function providerGetUniqueConditionForGroupFlag(): array
+    {
+        return [
+            'field type is integer, value is number - not escape string' => [
+                [
+                    new FieldMetadata(FIELD_TYPE_INTEGER, MYSQLI_NUM_FLAG, (object) [
+                        'name' => 'col',
+                        'table' => 'table',
+                        'orgtable' => 'table',
+                    ]),
+                ],
+                [123],
+                [
+                    '`table`.`col` = 123',
+                    false,
+                    ['`table`.`col`' => '= 123'],
+                ],
+            ],
+            'field type is unknown, value is string - escape string' => [
+                [
+                    new FieldMetadata(FIELD_TYPE_UNKNOWN, MYSQLI_NUM_FLAG, (object) [
+                        'name' => 'col',
+                        'table' => 'table',
+                        'orgtable' => 'table',
+                    ]),
+                ],
+                ['test'],
+                [
+                    "`table`.`col` = 'test'",
+                    false,
+                    ['`table`.`col`' => "= 'test'"],
+                ],
+            ],
+            'field type is varchar, value is string - escape string' => [
+                [
+                    new FieldMetadata(FIELD_TYPE_VARCHAR, MYSQLI_NUM_FLAG, (object) [
+                        'name' => 'col',
+                        'table' => 'table',
+                        'orgtable' => 'table',
+                    ]),
+                ],
+                ['test'],
+                [
+                    "`table`.`col` = 'test'",
+                    false,
+                    ['`table`.`col`' => "= 'test'"],
+                ],
+            ],
+            'field type is varchar, value is string with double quote - escape string' => [
+                [
+                    new FieldMetadata(FIELD_TYPE_VARCHAR, MYSQLI_NUM_FLAG, (object) [
+                        'name' => 'col',
+                        'table' => 'table',
+                        'orgtable' => 'table',
+                    ]),
+                ],
+                ['"test"'],
+                [
+                    "`table`.`col` = '\\\"test\\\"'",
+                    false,
+                    ['`table`.`col`' => "= '\\\"test\\\"'"],
+                ],
+            ],
+            'field type is varchar, value is string with single quote - escape string' => [
+                [
+                    new FieldMetadata(FIELD_TYPE_VARCHAR, MYSQLI_NUM_FLAG, (object) [
+                        'name' => 'col',
+                        'table' => 'table',
+                        'orgtable' => 'table',
+                    ]),
+                ],
+                ["'test'"],
+                [
+                    "`table`.`col` = '\'test\''",
+                    false,
+                    ['`table`.`col`' => "= '\'test\''"],
+                ],
+            ],
+            'group by multiple columns and field type is mixed' => [
+                [
+                    new FieldMetadata(FIELD_TYPE_VARCHAR, MYSQLI_NUM_FLAG, (object) [
+                        'name' => 'col',
+                        'table' => 'table',
+                        'orgtable' => 'table',
+                    ]),
+                    new FieldMetadata(FIELD_TYPE_INTEGER, MYSQLI_NUM_FLAG, (object) [
+                        'name' => 'status_id',
+                        'table' => 'table',
+                        'orgtable' => 'table',
+                    ]),
+                ],
+                ['test', 2],
+                [
+                    "`table`.`col` = 'test' AND `table`.`status_id` = 2",
+                    false,
+                    [
+                        '`table`.`col`' => "= 'test'",
+                        '`table`.`status_id`' => '= 2',
+                    ],
+                ],
+            ],
+        ];
     }
 
     /**
@@ -735,6 +870,21 @@ class UtilTest extends AbstractTestCase
                     'attribute' => ' ',
                     'can_contain_collation' => false,
                     'displayed_type' => 'varbinary(255)',
+                ],
+            ],
+            [
+                'varchar(11) /*!100301 COMPRESSED*/',
+                [
+                    'type' => 'varchar',
+                    'print_type' => 'varchar(11)',
+                    'binary' => false,
+                    'unsigned' => false,
+                    'zerofill' => false,
+                    'spec_in_brackets' => '11',
+                    'enum_set_values' => [],
+                    'attribute' => 'COMPRESSED=zlib',
+                    'can_contain_collation' => true,
+                    'displayed_type' => 'varchar(11)',
                 ],
             ],
         ];
@@ -2297,5 +2447,66 @@ class UtilTest extends AbstractTestCase
             $finalLink,
             Util::getScriptNameForOption($target, $location)
         );
+    }
+
+    /**
+     * Tests for Util::testIsUUIDSupported() method.
+     *
+     * @param bool $isMariaDB True if mariadb
+     * @param int  $version   Database version as integer
+     * @param bool $expected  Expected Result
+     *
+     * @dataProvider provideForTestIsUUIDSupported
+     */
+    public function testIsUUIDSupported(bool $isMariaDB, int $version, bool $expected): void
+    {
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->any())
+            ->method('isMariaDB')
+            ->will($this->returnValue($isMariaDB));
+
+        $dbi->expects($this->any())
+            ->method('getVersion')
+            ->will($this->returnValue($version));
+
+        $oldDbi = $GLOBALS['dbi'];
+        $GLOBALS['dbi'] = $dbi;
+        $this->assertEquals(Util::isUUIDSupported(), $expected);
+        $GLOBALS['dbi'] = $oldDbi;
+    }
+
+    /**
+     * Data provider for isUUIDSupported() tests.
+     *
+     * @return array
+     * @psalm-return array<int, array{bool, int, bool}>
+     */
+    public function provideForTestIsUUIDSupported(): array
+    {
+        return [
+            [
+                false,
+                60100,
+                false,
+            ],
+            [
+                false,
+                100700,
+                false,
+            ],
+            [
+                true,
+                60100,
+                false,
+            ],
+            [
+                true,
+                100700,
+                true,
+            ],
+        ];
     }
 }

@@ -60,7 +60,7 @@ class BinlogControllerTest extends AbstractTestCase
         $this->assertStringContainsString("SHOW BINLOG EVENTS IN 'index1' LIMIT 3, 10", $actual);
 
         $this->assertStringContainsString(
-            '<table class="table table-light table-striped table-hover align-middle" id="binlogTable">',
+            '<table class="table table-striped table-hover align-middle" id="binlogTable">',
             $actual
         );
 

@@ -88,7 +88,7 @@ Installing from Git
 
 In order to install from Git, you'll need a few supporting applications:
 
-* `Git <https://git-scm.com/downloads>`_ to download the source, or you can download the most recent source directly from `Github <https://codeload.github.com/phpmyadmin/phpmyadmin/zip/master>`_
+* `Git <https://git-scm.com/downloads>`_ to download the source, or you can download the most recent source directly from `Github <https://codeload.github.com/phpmyadmin/phpmyadmin/zip/QA_5_2>`_
 * `Composer <https://getcomposer.org/download/>`__
 * `Node.js <https://nodejs.org/en/download/>`_ (version 10 or higher)
 * `Yarn <https://classic.yarnpkg.com/en/docs/install>`_
@@ -229,6 +229,53 @@ You can configure several phpMyAdmin features using environment variables:
 
     .. seealso:: :config:option:`$cfg['PmaAbsoluteUri']`
 
+.. envvar:: PMA_QUERYHISTORYDB
+
+    When set to `true`, enables storing SQL history to :config:option:`$cfg['Servers'][$i]['pmadb']`.
+    When `false`, history is stored in the browser and is cleared when logging out.
+
+    .. seealso:: :config:option:`$cfg['Servers'][$i]['history']`
+    .. seealso:: :config:option:`$cfg['QueryHistoryDB']`
+
+.. envvar:: PMA_QUERYHISTORYMAX
+
+    When set to an integer, controls the number of history items.
+
+    .. seealso:: :config:option:`$cfg['QueryHistoryMax']`
+
+.. envvar:: PMA_CONTROLHOST
+
+    When set, this points to an alternate database host used for storing the ":ref:`linked-tables`" database.
+
+    .. seealso:: :config:option:`$cfg['Servers'][$i]['controlhost']`
+
+.. envvar:: PMA_CONTROLUSER
+
+    Defines the username for phpMyAdmin to use for the ":ref:`linked-tables`" database.
+
+    .. seealso:: :config:option:`$cfg['Servers'][$i]['controluser']`
+
+.. envvar:: PMA_CONTROLPASS
+
+    Defines the password for phpMyAdmin to use for the ":ref:`linked-tables`" database.
+
+    .. seealso:: :config:option:`$cfg['Servers'][$i]['controlpass']`
+
+.. envvar:: PMA_CONTROLPORT
+
+    When set, will override the default port (`3306`) for connecting to the control host.
+
+    .. seealso:: :config:option:`$cfg['Servers'][$i]['controlport']`
+
+.. envvar:: PMA_PMADB
+
+    When set, define the name of the database to be used for the ":ref:`linked-tables`" database.
+    When not set, the advanced features are not enabled by default: they can still potentially be enabled by the user when logging in with the :ref:`zeroconf` feature.
+
+    .. note:: Suggested values: `phpmyadmin` or `pmadb`
+
+    .. seealso:: :config:option:`$cfg['Servers'][$i]['pmadb']`
+
 .. envvar:: HIDE_PHP_VERSION
 
     If defined, this option will hide the PHP version (`expose_php = Off`).
@@ -240,6 +287,18 @@ You can configure several phpMyAdmin features using environment variables:
 
     .. note:: Format as `[0-9+](K,M,G)` default value is `2048K`
 
+.. envvar:: MEMORY_LIMIT
+
+    If set, this option will override the phpMyAdmin memory limit :config:option:`$cfg['MemoryLimit']` and PHP's `memory_limit`.
+
+    .. note:: Format as `[0-9+](K,M,G)` where `K` is for Kilobytes, `M` for Megabytes, `G` for Gigabytes and `1K` = 1024 bytes. Default value is `512M`.
+
+.. envvar:: MAX_EXECUTION_TIME
+
+    If set, this option will override the maximum execution time in seconds for phpMyAdmin :config:option:`$cfg['ExecTimeLimit']` and PHP's `max_execution_time`.
+
+    .. note:: Format as `[0-9+]`. Default value is `600`.
+
 .. envvar:: PMA_CONFIG_BASE64
 
     If set, this option will override the default `config.inc.php` with the base64 decoded contents of the variable.
@@ -248,6 +307,17 @@ You can configure several phpMyAdmin features using environment variables:
 
     If set, this option will override the default `config.user.inc.php` with the base64 decoded contents of the variable.
 
+.. envvar:: PMA_UPLOADDIR
+
+    If set, this option will set the path where files can be saved to be available to import (:config:option:`$cfg['UploadDir']`)
+
+.. envvar:: PMA_SAVEDIR
+
+    If set, this option will set the path where exported files can be saved (:config:option:`$cfg['SaveDir']`)
+
+.. envvar:: APACHE_PORT
+
+    If set, this option will change the default Apache port from `80` in case you want it to run on a different port like an unprivileged port. Set to any port value (such as `APACHE_PORT=8090`).
 
 By default, :ref:`cookie` is used, but if :envvar:`PMA_USER` and
 :envvar:`PMA_PASSWORD` are set, it is switched to :ref:`auth_config`.
@@ -335,37 +405,37 @@ To connect phpMyAdmin to a given server use:
 
 .. code-block:: sh
 
-    docker run --name myadmin -d -e PMA_HOST=dbhost -p 8080:80 phpmyadmin/phpmyadmin
+    docker run --name phpmyadmin -d -e PMA_HOST=dbhost -p 8080:80 phpmyadmin:latest
 
 To connect phpMyAdmin to more servers use:
 
 .. code-block:: sh
 
-    docker run --name myadmin -d -e PMA_HOSTS=dbhost1,dbhost2,dbhost3 -p 8080:80 phpmyadmin/phpmyadmin
+    docker run --name phpmyadmin -d -e PMA_HOSTS=dbhost1,dbhost2,dbhost3 -p 8080:80 phpmyadmin:latest
 
 To use arbitrary server option:
 
 .. code-block:: sh
 
-    docker run --name myadmin -d --link mysql_db_server:db -p 8080:80 -e PMA_ARBITRARY=1 phpmyadmin/phpmyadmin
+    docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:80 -e PMA_ARBITRARY=1 phpmyadmin:latest
 
 You can also link the database container using Docker:
 
 .. code-block:: sh
 
-    docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:80 phpmyadmin/phpmyadmin
+    docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:80 phpmyadmin:latest
 
 Running with additional configuration:
 
 .. code-block:: sh
 
-    docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:80 -v /some/local/directory/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php phpmyadmin/phpmyadmin
+    docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:80 -v /some/local/directory/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php phpmyadmin:latest
 
 Running with additional themes:
 
 .. code-block:: sh
 
-    docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:80 -v /custom/phpmyadmin/theme/:/www/themes/theme/ phpmyadmin/phpmyadmin
+    docker run --name phpmyadmin -d --link mysql_db_server:db -p 8080:80 -v /some/local/directory/custom/phpmyadmin/themeName/:/var/www/html/themes/themeName/ phpmyadmin:latest
 
 Using docker-compose
 --------------------
@@ -387,7 +457,7 @@ using the volumes directive:
 .. code-block:: yaml
 
     phpmyadmin:
-        image: phpmyadmin/phpmyadmin
+        image: phpmyadmin:latest
         container_name: phpmyadmin
         environment:
          - PMA_ARBITRARY=1
@@ -466,7 +536,7 @@ configuration:
     services:
       phpmyadmin:
         restart: always
-        image: phpmyadmin/phpmyadmin
+        image: phpmyadmin:latest
         container_name: phpmyadmin
         hostname: phpmyadmin
         domainname: example.com
@@ -528,8 +598,8 @@ simple configuration may look like this:
 .. code-block:: xml+php
 
     <?php
-    // use here a value of your choice at least 32 chars long
-    $cfg['blowfish_secret'] = '1{dd0`<Q),5XP_:R9UK%%8\"EEcyH#{o';
+    // The string is a hexadecimal representation of a 32-bytes long string of random bytes.
+    $cfg['blowfish_secret'] = sodium_hex2bin('f16ce59f45714194371b48fe362072dc3b019da7861558cd4ad29e4d6fb13851');
 
     $i=0;
     $i++;

@@ -46,6 +46,11 @@
     <option value="CURRENT_TIMESTAMP"{{ column_meta['DefaultType'] is defined and column_meta['DefaultType'] == 'CURRENT_TIMESTAMP' ? ' selected' }}>
       CURRENT_TIMESTAMP
     </option>
+    {% if is_uuid_supported() %}
+    <option value="UUID"{{ column_meta['DefaultType'] is defined and column_meta['DefaultType'] == 'UUID' ? ' selected' }}>
+      UUID
+    </option>
+    {% endif %}
   </select>
   {% if char_editing == 'textarea' %}
     <textarea name="field_default_value[{{ column_number }}]" cols="15" class="textfield default_value">{{ default_value }}</textarea>
@@ -144,7 +149,11 @@
     <td class="text-center">
       <select name="field_virtuality[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}" class="virtuality">
         {% for key, value in options %}
-          <option value="{{ key }}"{{ column_meta['Extra'] is defined and key != '' and column_meta['Extra']|slice(0, key|length) is same as (key) ? ' selected' }}>
+          {% set virtuality = column_meta['Extra'] is defined ? column_meta['Extra'] : null %}
+          {# Creating a new row on create table sends a Virtuality field #}
+          {% set virtuality = column_meta['Virtuality'] is defined ? column_meta['Virtuality'] : virtuality %}
+
+          <option value="{{ key }}"{{ virtuality is not null and key != '' and virtuality|slice(0, key|length) is same as (key) ? ' selected' }}>
             {{ value }}
           </option>
         {% endfor %}
@@ -210,7 +219,9 @@
           {% for mimekey, transform in available_mime['transformation'] %}
             {% set parts = transform|split(':') %}
             <option value="{{ available_mime['transformation_file'][mimekey] }}" title="{{ get_description(available_mime['transformation_file'][mimekey]) }}"
-              {{- column_meta['Field'] is defined and mime_map[column_meta['Field']]['transformation'] is defined
+              {{- column_meta['Field'] is defined
+                and mime_map[column_meta['Field']]['transformation'] is defined
+                and mime_map[column_meta['Field']]['transformation'] is not null
                 and mime_map[column_meta['Field']]['transformation'] matches '@' ~ available_mime['transformation_file_quoted'][mimekey] ~ '3?@i' ? ' selected'}}>
               {{ get_name(available_mime['transformation_file'][mimekey]) ~ ' (' ~ parts[0]|lower ~ ':' ~ parts[1] ~ ')' }}
             </option>

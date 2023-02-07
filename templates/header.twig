@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer">
-  <meta name="robots" content="noindex,nofollow">
+  <meta name="robots" content="noindex,nofollow,notranslate">
+  <meta name="google" content="notranslate">
   {% if not allow_third_party_framing -%}
     <style id="cfs-style">html{display: none;}</style>
   {%- endif %}
@@ -52,6 +53,8 @@
     {{ messages|raw }}
 
     {{ recent_table|raw }}
+    {%- if is_logged_in -%}
     {{ include('modals/preview_sql_modal.twig') }}
     {{ include('modals/enum_set_editor.twig') }}
     {{ include('modals/create_view.twig') }}
+    {%- endif -%}

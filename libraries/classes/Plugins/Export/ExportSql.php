@@ -2017,13 +2017,20 @@ class ExportSql extends ExportPlugin
     /**
      * Outputs a raw query
      *
-     * @param string $errorUrl the url to go back in case of error
-     * @param string $sqlQuery the rawquery to output
-     * @param string $crlf     the seperator for a file
+     * @param string      $errorUrl the url to go back in case of error
+     * @param string|null $db       the database where the query is executed
+     * @param string      $sqlQuery the rawquery to output
+     * @param string      $crlf     the end of line sequence
      */
-    public function exportRawQuery(string $errorUrl, string $sqlQuery, string $crlf): bool
+    public function exportRawQuery(string $errorUrl, ?string $db, string $sqlQuery, string $crlf): bool
     {
-        return $this->export->outputHandler($sqlQuery);
+        global $dbi;
+
+        if ($db !== null) {
+            $dbi->selectDb($db);
+        }
+
+        return $this->exportData($db ?? '', '', $crlf, $errorUrl, $sqlQuery);
     }
 
     /**
@@ -2383,12 +2390,8 @@ class ExportSql extends ExportPlugin
                     $values[] = 'NULL';
                 } elseif (
                     $fieldsMeta[$j]->isNumeric
-                    && ! $fieldsMeta[$j]->isMappedTypeTimestamp
-                    && ! $fieldsMeta[$j]->isBlob
                 ) {
                     // a number
-                    // timestamp is numeric on some MySQL 4.1, BLOBs are
-                    // sometimes numeric
                     $values[] = $row[$j];
                 } elseif ($fieldsMeta[$j]->isBinary && isset($GLOBALS['sql_hex_for_binary'])) {
                     // a true BLOB
@@ -2407,23 +2410,20 @@ class ExportSql extends ExportPlugin
                     }
                 } elseif ($fieldsMeta[$j]->isMappedTypeBit) {
                     // detection of 'bit' works only on mysqli extension
-                    $values[] = "b'" . $dbi->escapeString(
-                        Util::printableBitValue(
-                            (int) $row[$j],
-                            (int) $fieldsMeta[$j]->length
-                        )
-                    )
-                    . "'";
+                    $values[] = "b'" . Util::printableBitValue(
+                        (int) $row[$j],
+                        (int) $fieldsMeta[$j]->length
+                    ) . "'";
                 } elseif ($fieldsMeta[$j]->isMappedTypeGeometry) {
                     // export GIS types as hex
                     $values[] = '0x' . bin2hex($row[$j]);
                 } elseif (! empty($GLOBALS['exporting_metadata']) && $row[$j] === '@LAST_PAGE') {
                     $values[] = '@LAST_PAGE';
+                } elseif ($row[$j] === '') {
+                    $values[] = "''";
                 } else {
                     // something else -> treat as a string
-                    $values[] = '\''
-                        . $dbi->escapeString($row[$j])
-                        . '\'';
+                    $values[] = '\'' . $dbi->escapeString($row[$j]) . '\'';
                 }
             }
 

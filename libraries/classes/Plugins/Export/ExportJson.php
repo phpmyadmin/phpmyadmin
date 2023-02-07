@@ -320,11 +320,12 @@ class ExportJson extends ExportPlugin
     /**
      * Outputs result raw query in JSON format
      *
-     * @param string $errorUrl the url to go back in case of error
-     * @param string $sqlQuery the rawquery to output
-     * @param string $crlf     the end of line sequence
+     * @param string      $errorUrl the url to go back in case of error
+     * @param string|null $db       the database where the query is executed
+     * @param string      $sqlQuery the rawquery to output
+     * @param string      $crlf     the end of line sequence
      */
-    public function exportRawQuery(string $errorUrl, string $sqlQuery, string $crlf): bool
+    public function exportRawQuery(string $errorUrl, ?string $db, string $sqlQuery, string $crlf): bool
     {
         global $dbi;
 
@@ -336,6 +337,10 @@ class ExportJson extends ExportPlugin
             return false;
         }
 
-        return $this->doExportForQuery($dbi, $sqlQuery, $buffer, $crlf, null, null, null);
+        if ($db !== null) {
+            $dbi->selectDb($db);
+        }
+
+        return $this->doExportForQuery($dbi, $sqlQuery, $buffer, $crlf, null, $db, null);
     }
 }

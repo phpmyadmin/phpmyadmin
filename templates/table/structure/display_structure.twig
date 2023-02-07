@@ -12,7 +12,7 @@
             "table"
         {%- endif %}>
     <div class="table-responsive-md">
-    <table id="tablestructure" class="table table-light table-striped table-hover w-auto align-middle">
+    <table id="tablestructure" class="table table-striped table-hover w-auto align-middle">
         {# Table header #}
         <thead>
             <tr>
@@ -79,17 +79,17 @@
             <td class="column_attribute text-nowrap">{{ attributes[rownum] }}</td>
             <td>{{ row['Null'] == 'YES' ? 'Yes'|trans : 'No'|trans }}</td>
             <td class="text-nowrap">
-                {% if row['Default'] is not null %}
-                    {% if extracted_columnspec['type'] == 'bit' %}
-                        {{ row['Default']|convert_bit_default_value }}
-                    {% else %}
-                        {{ row['Default'] }}
-                    {% endif %}
-                {% elseif row['Null'] == 'YES' %}
+                {%- if row['Default'] is not null -%}
+                    {%- if extracted_columnspec['type'] == 'bit' -%}
+                        {{- row['Default']|convert_bit_default_value -}}
+                    {%- else -%}
+                        {{- row['Default'] -}}
+                    {%- endif -%}
+                {%- elseif row['Null'] == 'YES' -%}
                     <em>NULL</em>
-                {% else %}
+                {%- else -%}
                     <em>{% trans %}None{% context %}None for default{% endtrans %}</em>
-                {% endif %}
+                {%- endif -%}
             </td>
             {% if show_column_comments %}
                 <td>
@@ -340,14 +340,31 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" id="designerModalGoButton">{% trans 'Go' %}</button>
-        <button type="button" class="btn btn-secondary" id="designerModalPreviewButton">{% trans 'Preview SQL' %}</button>
+        <button type="button" class="btn btn-primary" id="designerModalGoButton">{% trans 'Go' %}</button>
+        <button type="button" class="btn btn-secondary" id="designerModalPreviewButton" data-bs-target="#designerModalPreviewModal" data-bs-toggle="modal">{% trans 'Preview SQL' %}</button>
         <button type="button" class="btn btn-secondary" id="designerModalCloseButton" data-bs-dismiss="modal">{% trans 'Close' %}</button>
       </div>
     </div>
   </div>
 </div>
-
+<div class="modal fade" id="designerModalPreviewModal" aria-hidden="true" aria-labelledby="designerModalPreviewModalLabel" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="designerModalPreviewModalLabel">{% trans 'Preview SQL' %}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+      </div>
+      <div class="modal-body">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">{% trans 'Loading…' %}</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-bs-target="#moveColumnsModal" data-bs-toggle="modal">{% trans 'Go back' %}</button>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="modal fade" id="moveColumnsErrorModal" tabindex="-1" aria-labelledby="moveColumnsErrorModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -451,8 +468,8 @@
 
         {{ include('modals/preview_sql_confirmation.twig') }}
         <div class="table-responsive jsresponsive">
-          <table class="table table-light table-striped table-hover table-sm w-auto align-middle" id="table_index">
-            <thead class="table-light">
+          <table class="table table-striped table-hover table-sm w-auto align-middle" id="table_index">
+            <thead>
               <tr>
                 <th colspan="3" class="d-print-none">{% trans 'Action' %}</th>
                 <th>{% trans 'Keyname' %}</th>
@@ -467,8 +484,8 @@
               </tr>
             </thead>
 
+          <tbody class="row_span">
             {% for index in indexes %}
-              <tbody class="row_span">
                 {% set columns_count = index.getColumnCount() %}
                 <tr class="noclick">
                 <td rowspan="{{ columns_count }}" class="edit_index d-print-none ajax">
@@ -534,8 +551,8 @@
                   {% endif %}
                   </tr>
                 {% endfor %}
-              </tbody>
-            {% endfor %}
+              {% endfor %}
+            </tbody>
           </table>
         </div>
       {% else %}

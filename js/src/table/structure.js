@@ -30,7 +30,6 @@ function reloadFieldForm () {
         $('#fieldsForm').replaceWith($tempDiv.find('#fieldsForm'));
         $('#addColumns').replaceWith($tempDiv.find('#addColumns'));
         $('#move_columns_dialog').find('ul').replaceWith($tempDiv.find('#move_columns_dialog ul'));
-        $('#moveColumns').removeClass('move-active');
     });
     $('#page_content').show();
 }
@@ -285,10 +284,6 @@ AJAX.registerOnload('table/structure.js', function () {
     $(document).on('click', '#move_columns_anchor', function (e) {
         e.preventDefault();
 
-        if ($(this).hasClass('move-active')) {
-            return;
-        }
-
         var buttonOptionsError = {};
         buttonOptionsError[Messages.strOK] = function () {
             $(this).dialog('close').remove();
@@ -323,10 +318,40 @@ AJAX.registerOnload('table/structure.js', function () {
         var $form = $('#move_columns_dialog').find('form');
         $form.data('serialized-unmoved', $form.serialize());
 
+        const designerModalPreviewModal = document.getElementById('designerModalPreviewModal');
+        designerModalPreviewModal.addEventListener('shown.bs.modal', () => {
+            const modalBody = designerModalPreviewModal.querySelector('.modal-body');
+            const $form = $('#move_column_form');
+            const formUrl = $form.attr('action');
+            const sep = CommonParams.get('arg_separator');
+            const formData = $form.serialize() +
+                sep + 'preview_sql=1' +
+                sep + 'ajax_request=1';
+            $.post({
+                url: formUrl,
+                data: formData,
+                success: response => {
+                    if (! response.success) {
+                        modalBody.innerHTML = '<div class="alert alert-danger" role="alert">' + Messages.strErrorProcessingRequest + '</div>';
+                        return;
+                    }
+
+                    modalBody.innerHTML = response.sql_data;
+                    Functions.highlightSql($('#designerModalPreviewModal'));
+                },
+                error: () => {
+                    modalBody.innerHTML = '<div class="alert alert-danger" role="alert">' + Messages.strErrorProcessingRequest + '</div>';
+                }
+            });
+        });
+        designerModalPreviewModal.addEventListener('hidden.bs.modal', () => {
+            designerModalPreviewModal.querySelector('.modal-body').innerHTML = '<div class="spinner-border" role="status">' +
+                '<span class="visually-hidden">' + Messages.strLoading + '</span></div>';
+        });
+
         $('#moveColumnsModal').modal('show');
+        $('#designerModalGoButton').off('click');// Unregister previous modals
         $('#designerModalGoButton').on('click', function () {
-            // Off event necessary, else the function fires multiple times
-            $('#designerModalGoButton').off('click');
             event.preventDefault();
             var $msgbox = Functions.ajaxShowMessage();
             var $this = $('#moveColumnsModal');
@@ -371,21 +396,6 @@ AJAX.registerOnload('table/structure.js', function () {
                     Functions.ajaxShowMessage(data.message);
                 }
             });
-        });
-
-        $('#designerModalPreviewButton').on('click', function () {
-            // Function for Previewing SQL
-            $('#moveColumnsModal').modal('hide');
-            var $form = $('#move_column_form');
-            Functions.previewSql($form);
-        });
-
-        $('#previewSQLCloseButton').on('click', function () {
-            $('#moveColumnsModal').modal('show');
-        });
-
-        $('#designerModalCloseButton').on('click', function () {
-            $('#move_columns_anchor').removeClass('move-active');
         });
     });
 

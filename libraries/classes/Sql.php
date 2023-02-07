@@ -922,7 +922,7 @@ class Sql
         array $analyzedSqlResults,
         $numRows
     ): Message {
-        if ($analyzedSqlResults['querytype'] === 'DELETE"') {
+        if ($analyzedSqlResults['querytype'] === 'DELETE') {
             $message = Message::getMessageForDeletedRows($numRows);
         } elseif ($analyzedSqlResults['is_insert']) {
             if ($analyzedSqlResults['querytype'] === 'REPLACE') {
@@ -1448,7 +1448,7 @@ class Sql
             }
         }
 
-        $hasUnique = $table && $this->resultSetContainsUniqueKey($db, $table, $fieldsMeta);
+        $hasUnique = $table !== null && $this->resultSetContainsUniqueKey($db, $table, $fieldsMeta);
 
         $editable = ($hasUnique
             || $GLOBALS['cfg']['RowActionLinksWithoutUnique']
@@ -1688,7 +1688,7 @@ class Sql
             $goto,
             $sqlQuery
         );
-        $displayResultsObject->setConfigParamsForDisplayTable();
+        $displayResultsObject->setConfigParamsForDisplayTable($analyzedSqlResults);
 
         // assign default full_sql_query
         $fullSqlQuery = $sqlQuery;

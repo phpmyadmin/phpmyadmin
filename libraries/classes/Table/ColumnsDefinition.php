@@ -84,7 +84,7 @@ final class ColumnsDefinition
                     ]
                 );
                 if (isset($_POST['field_where'])) {
-                    $form_params['after_field'] = $_POST['after_field'];
+                    $form_params['after_field'] = (string) $_POST['after_field'];
                 }
             }
 
@@ -168,47 +168,47 @@ final class ColumnsDefinition
                     [
                         'Field' => Util::getValueByKey(
                             $_POST,
-                            "field_name.${columnNumber}",
+                            'field_name.' . $columnNumber,
                             null
                         ),
                         'Type' => Util::getValueByKey(
                             $_POST,
-                            "field_type.${columnNumber}",
+                            'field_type.' . $columnNumber,
                             null
                         ),
                         'Collation' => Util::getValueByKey(
                             $_POST,
-                            "field_collation.${columnNumber}",
+                            'field_collation.' . $columnNumber,
                             ''
                         ),
                         'Null' => Util::getValueByKey(
                             $_POST,
-                            "field_null.${columnNumber}",
+                            'field_null.' . $columnNumber,
                             ''
                         ),
                         'DefaultType' => Util::getValueByKey(
                             $_POST,
-                            "field_default_type.${columnNumber}",
+                            'field_default_type.' . $columnNumber,
                             'NONE'
                         ),
                         'DefaultValue' => Util::getValueByKey(
                             $_POST,
-                            "field_default_value.${columnNumber}",
+                            'field_default_value.' . $columnNumber,
                             ''
                         ),
                         'Extra' => Util::getValueByKey(
                             $_POST,
-                            "field_extra.${columnNumber}",
+                            'field_extra.' . $columnNumber,
                             null
                         ),
                         'Virtuality' => Util::getValueByKey(
                             $_POST,
-                            "field_virtuality.${columnNumber}",
+                            'field_virtuality.' . $columnNumber,
                             ''
                         ),
                         'Expression' => Util::getValueByKey(
                             $_POST,
-                            "field_expression.${columnNumber}",
+                            'field_expression.' . $columnNumber,
                             ''
                         ),
                     ]
@@ -217,7 +217,7 @@ final class ColumnsDefinition
                 $columnMeta['Key'] = '';
                 $parts = explode(
                     '_',
-                    Util::getValueByKey($_POST, "field_key.${columnNumber}", ''),
+                    Util::getValueByKey($_POST, 'field_key.' . $columnNumber, ''),
                     2
                 );
                 if (count($parts) === 2 && $parts[1] == $columnNumber) {
@@ -246,25 +246,27 @@ final class ColumnsDefinition
                     case 'NULL':
                     case 'CURRENT_TIMESTAMP':
                     case 'current_timestamp()':
+                    case 'UUID':
+                    case 'uuid()':
                         $columnMeta['Default'] = $columnMeta['DefaultType'];
                         break;
                 }
 
-                $length = Util::getValueByKey($_POST, "field_length.${columnNumber}", $length);
-                $submit_attribute = Util::getValueByKey($_POST, "field_attribute.${columnNumber}", false);
-                $comments_map[$columnMeta['Field']] = Util::getValueByKey($_POST, "field_comments.${columnNumber}");
+                $length = Util::getValueByKey($_POST, 'field_length.' . $columnNumber, $length);
+                $submit_attribute = Util::getValueByKey($_POST, 'field_attribute.' . $columnNumber, false);
+                $comments_map[$columnMeta['Field']] = Util::getValueByKey($_POST, 'field_comments.' . $columnNumber);
 
                 $mime_map[$columnMeta['Field']] = array_merge(
                     $mime_map[$columnMeta['Field']] ?? [],
                     [
-                        'mimetype' => Util::getValueByKey($_POST, "field_mimetype.${columnNumber}"),
+                        'mimetype' => Util::getValueByKey($_POST, 'field_mimetype.' . $columnNumber),
                         'transformation' => Util::getValueByKey(
                             $_POST,
-                            "field_transformation.${columnNumber}"
+                            'field_transformation.' . $columnNumber
                         ),
                         'transformation_options' => Util::getValueByKey(
                             $_POST,
-                            "field_transformation_options.${columnNumber}"
+                            'field_transformation_options.' . $columnNumber
                         ),
                     ]
                 );
@@ -282,38 +284,8 @@ final class ColumnsDefinition
                     $columnMeta['Expression'] = is_array($expressions) ? $expressions[$columnMeta['Field']] : null;
                 }
 
-                switch ($columnMeta['Default']) {
-                    case null:
-                        if ($columnMeta['Default'] === null) {
-                            if ($columnMeta['Null'] === 'YES') {
-                                $columnMeta['DefaultType'] = 'NULL';
-                                $columnMeta['DefaultValue'] = '';
-                            } else {
-                                $columnMeta['DefaultType'] = 'NONE';
-                                $columnMeta['DefaultValue'] = '';
-                            }
-                        } else { // empty
-                            $columnMeta['DefaultType'] = 'USER_DEFINED';
-                            $columnMeta['DefaultValue'] = $columnMeta['Default'];
-                        }
-
-                        break;
-                    case 'CURRENT_TIMESTAMP':
-                    case 'current_timestamp()':
-                        $columnMeta['DefaultType'] = 'CURRENT_TIMESTAMP';
-                        $columnMeta['DefaultValue'] = '';
-                        break;
-                    default:
-                        $columnMeta['DefaultType'] = 'USER_DEFINED';
-                        $columnMeta['DefaultValue'] = $columnMeta['Default'];
-
-                        if (substr($columnMeta['Type'], -4) === 'text') {
-                            $textDefault = substr($columnMeta['Default'], 1, -1);
-                            $columnMeta['Default'] = stripcslashes($textDefault);
-                        }
-
-                        break;
-                }
+                $columnMetaDefault = self::decorateColumnMetaDefault($columnMeta);
+                $columnMeta = array_merge($columnMeta, $columnMetaDefault);
             }
 
             if (isset($columnMeta['Type'])) {
@@ -366,14 +338,10 @@ final class ColumnsDefinition
                 }
 
                 // old column type
-                if (isset($columnMeta['Type'])) {
-                    // keep in uppercase because the new type will be in uppercase
-                    $form_params['field_type_orig[' . $columnNumber . ']'] = mb_strtoupper($type);
-                    if (isset($columnMeta['column_status']) && ! $columnMeta['column_status']['isEditable']) {
-                        $form_params['field_type[' . $columnNumber . ']'] = mb_strtoupper($type);
-                    }
-                } else {
-                    $form_params['field_type_orig[' . $columnNumber . ']'] = '';
+                // keep in uppercase because the new type will be in uppercase
+                $form_params['field_type_orig[' . $columnNumber . ']'] = mb_strtoupper($type);
+                if (isset($columnMeta['column_status']) && ! $columnMeta['column_status']['isEditable']) {
+                    $form_params['field_type[' . $columnNumber . ']'] = mb_strtoupper($type);
                 }
 
                 // old column length
@@ -383,45 +351,45 @@ final class ColumnsDefinition
                 $form_params = array_merge(
                     $form_params,
                     [
-                        "field_default_value_orig[${columnNumber}]" => Util::getValueByKey(
+                        'field_default_value_orig[' . $columnNumber . ']' => Util::getValueByKey(
                             $columnMeta,
                             'Default',
                             ''
                         ),
-                        "field_default_type_orig[${columnNumber}]" => Util::getValueByKey(
+                        'field_default_type_orig[' . $columnNumber . ']' => Util::getValueByKey(
                             $columnMeta,
                             'DefaultType',
                             ''
                         ),
-                        "field_collation_orig[${columnNumber}]" => Util::getValueByKey(
+                        'field_collation_orig[' . $columnNumber . ']' => Util::getValueByKey(
                             $columnMeta,
                             'Collation',
                             ''
                         ),
-                        "field_attribute_orig[${columnNumber}]" => trim(
+                        'field_attribute_orig[' . $columnNumber . ']' => trim(
                             Util::getValueByKey($extracted_columnspec, 'attribute', '')
                         ),
-                        "field_null_orig[${columnNumber}]" => Util::getValueByKey(
+                        'field_null_orig[' . $columnNumber . ']' => Util::getValueByKey(
                             $columnMeta,
                             'Null',
                             ''
                         ),
-                        "field_extra_orig[${columnNumber}]" => Util::getValueByKey(
+                        'field_extra_orig[' . $columnNumber . ']' => Util::getValueByKey(
                             $columnMeta,
                             'Extra',
                             ''
                         ),
-                        "field_comments_orig[${columnNumber}]" => Util::getValueByKey(
+                        'field_comments_orig[' . $columnNumber . ']' => Util::getValueByKey(
                             $columnMeta,
                             'Comment',
                             ''
                         ),
-                        "field_virtuality_orig[${columnNumber}]" => Util::getValueByKey(
+                        'field_virtuality_orig[' . $columnNumber . ']' => Util::getValueByKey(
                             $columnMeta,
                             'Virtuality',
                             ''
                         ),
-                        "field_expression_orig[${columnNumber}]" => Util::getValueByKey(
+                        'field_expression_orig[' . $columnNumber . ']' => Util::getValueByKey(
                             $columnMeta,
                             'Expression',
                             ''
@@ -439,9 +407,11 @@ final class ColumnsDefinition
             }
 
             if ($type_upper === 'BIT') {
-                $default_value = Util::convertBitDefaultValue($columnMeta['DefaultValue']);
+                $default_value = ! empty($columnMeta['DefaultValue'])
+                    ? Util::convertBitDefaultValue($columnMeta['DefaultValue'])
+                    : '';
             } elseif ($type_upper === 'BINARY' || $type_upper === 'VARBINARY') {
-                $default_value = bin2hex($columnMeta['DefaultValue']);
+                $default_value = bin2hex((string) $columnMeta['DefaultValue']);
             }
 
             $content_cells[$columnNumber] = [
@@ -521,5 +491,53 @@ final class ColumnsDefinition
             'dbi' => $dbi,
             'disable_is' => $cfg['Server']['DisableIS'],
         ];
+    }
+
+    /**
+     * Set default type and default value according to the column metadata
+     *
+     * @param array $columnMeta Column Metadata
+     * @phpstan-param array<string, string|null> $columnMeta
+     *
+     * @return non-empty-array<array-key, mixed>
+     */
+    public static function decorateColumnMetaDefault(array $columnMeta): array
+    {
+        $metaDefault = [
+            'DefaultType' => 'USER_DEFINED',
+            'DefaultValue' => '',
+        ];
+
+        switch ($columnMeta['Default']) {
+            case null:
+                if ($columnMeta['Null'] === 'YES') {
+                    $metaDefault['DefaultType'] = 'NULL';
+                } else {
+                    $metaDefault['DefaultType'] = 'NONE';
+                }
+
+                break;
+            case 'CURRENT_TIMESTAMP':
+            case 'current_timestamp()':
+                $metaDefault['DefaultType'] = 'CURRENT_TIMESTAMP';
+
+                break;
+            case 'UUID':
+            case 'uuid()':
+                $metaDefault['DefaultType'] = 'UUID';
+
+                break;
+            default:
+                $metaDefault['DefaultValue'] = $columnMeta['Default'];
+
+                if (substr((string) $columnMeta['Type'], -4) === 'text') {
+                    $textDefault = substr($columnMeta['Default'], 1, -1);
+                    $metaDefault['Default'] = stripcslashes($textDefault);
+                }
+
+                break;
+        }
+
+        return $metaDefault;
     }
 }

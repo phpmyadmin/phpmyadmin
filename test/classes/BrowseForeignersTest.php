@@ -203,7 +203,7 @@ class BrowseForeignersTest extends AbstractTestCase
         );
 
         $this->assertStringContainsString(
-            '<table class="table table-light table-striped table-hover" id="browse_foreign_table">',
+            '<table class="table table-striped table-hover" id="browse_foreign_table">',
             $result
         );
 
@@ -219,7 +219,7 @@ class BrowseForeignersTest extends AbstractTestCase
         );
 
         $this->assertStringContainsString(
-            '<table class="table table-light table-striped table-hover" id="browse_foreign_table">',
+            '<table class="table table-striped table-hover" id="browse_foreign_table">',
             $result
         );
 

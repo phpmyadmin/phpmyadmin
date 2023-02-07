@@ -24,7 +24,15 @@
         "psr-4": {
             "PhpMyAdmin\\": "libraries/classes"
         },
-        "files": ["vendor/phpmyadmin/motranslator/src/functions.php"]
+        "files": ["vendor/phpmyadmin/motranslator/src/functions.php"],
+        "exclude-from-classmap": [
+            "/test/",
+            "/vendor/tecnickcom/tcpdf/tcpdf_barcodes_*.php",
+            "/vendor/tecnickcom/tcpdf/tcpdf_import.php",
+            "/vendor/tecnickcom/tcpdf/tcpdf_parser.php",
+            "/vendor/tecnickcom/tcpdf/include/tcpdf_filters.php",
+            "/vendor/tecnickcom/tcpdf/include/barcodes"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
@@ -53,7 +61,7 @@
         "paragonie/sodium_compat": "^1.17",
         "phpmyadmin/motranslator": "^5.0",
         "phpmyadmin/shapefile": "^3.0.1",
-        "phpmyadmin/sql-parser": "^5.5",
+        "phpmyadmin/sql-parser": "^5.6.0",
         "phpmyadmin/twig-i18n-extension": "^4.0",
         "psr/http-factory": "^1.0",
         "psr/http-message": "^1.0",
@@ -85,12 +93,13 @@
         "tecnickcom/tcpdf": "For PDF support",
         "pragmarx/google2fa-qrcode": "^2.1 - For 2FA authentication",
         "bacon/bacon-qr-code": "^2.0 - For 2FA authentication",
-        "code-lts/u2f-php-server": "For FIDO U2F authentication"
+        "code-lts/u2f-php-server": "For FIDO U2F authentication",
+        "web-auth/webauthn-lib": "For better WebAuthn/FIDO2 authentication support"
     },
     "require-dev": {
         "bacon/bacon-qr-code": "^2.0",
         "code-lts/u2f-php-server": "^1.2",
-        "php-webdriver/webdriver": "^1.11",
+        "php-webdriver/webdriver": "^1.13",
         "phpmyadmin/coding-standard": "^3.0.0",
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan": "^1.4.8",
@@ -100,9 +109,11 @@
         "pragmarx/google2fa-qrcode": "^2.1",
         "psalm/plugin-phpunit": "^0.16.1",
         "roave/security-advisories": "dev-latest",
+        "squizlabs/php_codesniffer": "~3.6.0",
         "symfony/console": "^5.2.3",
         "tecnickcom/tcpdf": "^6.4.4",
-        "vimeo/psalm": "^4.22"
+        "vimeo/psalm": "^4.22",
+        "web-auth/webauthn-lib": "^3.3"
     },
     "extra": {
         "branch-alias": {

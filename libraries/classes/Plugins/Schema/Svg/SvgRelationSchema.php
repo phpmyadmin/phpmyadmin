@@ -80,7 +80,7 @@ class SvgRelationSchema extends ExportRelationSchema
                 $this->pageNumber
             )
         );
-        $this->diagram->SetAuthor('phpMyAdmin ' . Version::VERSION);
+        $this->diagram->setAuthor('phpMyAdmin ' . Version::VERSION);
         $this->diagram->setFont('Arial');
         $this->diagram->setFontSize(16);
 

@@ -384,7 +384,7 @@ class Operations
                 $newDb_db_privs_query .= ', "' . $old_priv[$i] . '"';
             }
 
-                $newDb_db_privs_query .= ')';
+            $newDb_db_privs_query .= ')';
 
             $this->dbi->query($newDb_db_privs_query);
         }

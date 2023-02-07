@@ -55,6 +55,7 @@ $bg-two: #d5d5d5;
 
 $body-bg: #f5f5f5;
 $body-color: $main-color;
+$primary: $navi-pointer-background;
 
 // Links
 
@@ -62,6 +63,10 @@ $link-color: #00f;
 $link-decoration: none;
 $link-hover-color: #f00;
 $link-hover-decoration: underline;
+
+// Buttons
+
+$btn-border-color: black;
 
 // Components
 
@@ -82,14 +87,18 @@ $headings-font-weight: bold;
 
 // Tables
 
-$table-cell-padding: 0.1em 0.5em;
-$table-cell-padding-sm: $table-cell-padding;
+$table-cell-padding-y: 0.1em;
+$table-cell-padding-x: 0.5em;
+$table-cell-padding-y-sm: $table-cell-padding-y;
+$table-cell-padding-x-sm: $table-cell-padding-x;
+$table-bg: $bg-one;
 $table-striped-order: even;
-$table-bg: transparent;
+$table-striped-bg: $bg-two;
 $table-hover-bg: $browse-pointer-background;
 $table-hover-color: $browse-pointer-color;
 $table-head-color: $th-color;
 $table-head-bg: $th-background;
+$table-caption-color: $table-head-color;
 
 // Dropdowns
 

@@ -140,7 +140,7 @@ abstract class TestBase extends TestCase
 
         // The session Id is only used by BrowserStack
         if ($this->hasBrowserstackConfig()) {
-            $this->sessionId = $this->webDriver->getSessionId();
+            $this->sessionId = $this->webDriver->getSessionID();
         }
 
         $this->navigateTo('');
@@ -571,12 +571,11 @@ abstract class TestBase extends TestCase
         return $this->webDriver->findElement(WebDriverBy::partialLinkText($partialLinkText));
     }
 
-    /**
-     * Returns true if the browser is safari
-     */
     public function isSafari(): bool
     {
-        return mb_strtolower($this->webDriver->getCapabilities()->getBrowserName()) === 'safari';
+        $capabilities = $this->webDriver->getCapabilities();
+
+        return $capabilities !== null && mb_strtolower($capabilities->getBrowserName()) === 'safari';
     }
 
     /**
@@ -1109,10 +1108,11 @@ JS;
             $this->dbQuery('DROP DATABASE IF EXISTS `phpmyadmin`;');
         }
 
-        if (! $this->hasFailed()) {
-            $this->markTestAs('passed', '');
+        if ($this->hasFailed()) {
+            return;
         }
 
+        $this->markTestAs('passed', '');
         $this->sqlWindowHandle = null;
         $this->webDriver->quit();
     }

@@ -4,9 +4,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use Exception;
+use PhpMyAdmin\Error;
 use PhpMyAdmin\ErrorHandler;
 
 use function array_keys;
+use function array_pop;
 use function count;
 
 use const E_RECOVERABLE_ERROR;
@@ -303,5 +306,41 @@ class ErrorHandlerTest extends AbstractTestCase
     public function testHasDisplayErrors(): void
     {
         $this->assertFalse($this->object->hasDisplayErrors());
+    }
+
+    public function testHandleExceptionForDevEnv(): void
+    {
+        $GLOBALS['config']->set('environment', 'development');
+        $errorHandler = new ErrorHandler();
+        $this->assertSame([], $errorHandler->getCurrentErrors());
+        $errorHandler->handleException(new Exception('Exception message.'));
+        $output = $this->getActualOutputForAssertion();
+        $errors = $errorHandler->getCurrentErrors();
+        $this->assertCount(1, $errors);
+        $error = array_pop($errors);
+        $this->assertInstanceOf(Error::class, $error);
+        $this->assertSame('Exception: Exception message.', $error->getOnlyMessage());
+        $this->assertStringContainsString($error->getDisplay(), $output);
+        $this->assertStringContainsString('Internal error', $output);
+        $this->assertStringContainsString('ErrorHandlerTest.php#' . $error->getLine(), $output);
+        $this->assertStringContainsString('Exception: Exception message.', $output);
+    }
+
+    public function testHandleExceptionForProdEnv(): void
+    {
+        $GLOBALS['config']->set('environment', 'production');
+        $errorHandler = new ErrorHandler();
+        $this->assertSame([], $errorHandler->getCurrentErrors());
+        $errorHandler->handleException(new Exception('Exception message.'));
+        $output = $this->getActualOutputForAssertion();
+        $errors = $errorHandler->getCurrentErrors();
+        $this->assertCount(1, $errors);
+        $error = array_pop($errors);
+        $this->assertInstanceOf(Error::class, $error);
+        $this->assertSame('Exception: Exception message.', $error->getOnlyMessage());
+        $this->assertStringContainsString($error->getDisplay(), $output);
+        $this->assertStringContainsString('Exception: Exception message.', $output);
+        $this->assertStringNotContainsString('Internal error', $output);
+        $this->assertStringNotContainsString('ErrorHandlerTest.php#' . $error->getLine(), $output);
     }
 }

@@ -411,15 +411,15 @@ $(function () {
     /**
      * Bind all "fast filter" events
      */
-    $(document).on('click', '#pma_navigation_tree li.fast_filter button.searchClauseClear', Navigation.FastFilter.events.clear);
-    $(document).on('focus', '#pma_navigation_tree li.fast_filter input.searchClause', Navigation.FastFilter.events.focus);
-    $(document).on('blur', '#pma_navigation_tree li.fast_filter input.searchClause', Navigation.FastFilter.events.blur);
-    $(document).on('keyup', '#pma_navigation_tree li.fast_filter input.searchClause', Navigation.FastFilter.events.keyup);
+    $('#pma_navigation_tree').on('click', 'li.fast_filter button.searchClauseClear', Navigation.FastFilter.events.clear);
+    $('#pma_navigation_tree').on('focus', 'li.fast_filter input.searchClause', Navigation.FastFilter.events.focus);
+    $('#pma_navigation_tree').on('blur', 'li.fast_filter input.searchClause', Navigation.FastFilter.events.blur);
+    $('#pma_navigation_tree').on('keyup', 'li.fast_filter input.searchClause', Navigation.FastFilter.events.keyup);
 
     /**
      * Ajax handler for pagination
      */
-    $(document).on('click', '#pma_navigation_tree div.pageselector a.ajax', function (event) {
+    $('#pma_navigation_tree').on('click', 'div.pageselector a.ajax', function (event) {
         event.preventDefault();
         Navigation.treePagination($(this));
     });
@@ -427,42 +427,22 @@ $(function () {
     /**
      * Node highlighting
      */
-    $(document).on(
+    $('#pma_navigation_tree.highlight').on(
         'mouseover',
-        '#pma_navigation_tree.highlight li:not(.fast_filter)',
+        'li:not(.fast_filter)',
         function () {
             if ($('li:visible', this).length === 0) {
                 $(this).addClass('activePointer');
             }
         }
     );
-    $(document).on(
+    $('#pma_navigation_tree.highlight').on(
         'mouseout',
-        '#pma_navigation_tree.highlight li:not(.fast_filter)',
+        'li:not(.fast_filter)',
         function () {
             $(this).removeClass('activePointer');
         }
     );
-
-    /** New index */
-    $(document).on('click', '#pma_navigation_tree li.new_index a.ajax', function (event) {
-        event.preventDefault();
-        var url = $(this).attr('href').substr(
-            $(this).attr('href').indexOf('?') + 1
-        ) + CommonParams.get('arg_separator') + 'ajax_request=true';
-        var title = Messages.strAddIndex;
-        Functions.indexEditorDialog(url, title);
-    });
-
-    /** Edit index */
-    $(document).on('click', 'li.index a.ajax', function (event) {
-        event.preventDefault();
-        var url = $(this).attr('href').substr(
-            $(this).attr('href').indexOf('?') + 1
-        ) + CommonParams.get('arg_separator') + 'ajax_request=true';
-        var title = Messages.strEditIndex;
-        Functions.indexEditorDialog(url, title);
-    });
 
     /** New view */
     $(document).on('click', 'li.new_view a.ajax', function (event) {

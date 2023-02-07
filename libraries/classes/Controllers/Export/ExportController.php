@@ -563,7 +563,7 @@ final class ExportController extends AbstractController
                     );
                 }
             } elseif ($export_type === 'raw') {
-                Export::exportRaw($whatStrucOrData, $export_plugin, $crlf, $errorUrl, $sql_query, $export_type);
+                Export::exportRaw($whatStrucOrData, $export_plugin, $crlf, $errorUrl, $db, $sql_query, $export_type);
             } else {
                 // We export just one table
                 // $allrows comes from the form when "Dump all rows" has been selected

@@ -324,17 +324,24 @@ class FindReplaceController extends AbstractController
         if ($useRegex) {
             $toReplace = $this->getRegexReplaceRows($columnIndex, $find, $replaceWith, $charSet);
             $sql_query = 'UPDATE ' . Util::backquote($this->table)
-                . ' SET ' . Util::backquote($column) . ' = CASE';
+                . ' SET ' . Util::backquote($column);
+
             if (is_array($toReplace)) {
-                foreach ($toReplace as $row) {
-                    $sql_query .= "\n WHEN " . Util::backquote($column)
-                        . " = '" . $this->dbi->escapeString($row[0])
-                        . "' THEN '" . $this->dbi->escapeString($row[1]) . "'";
+                if (count($toReplace) > 0) {
+                    $sql_query .= ' = CASE';
+                    foreach ($toReplace as $row) {
+                        $sql_query .= "\n WHEN " . Util::backquote($column)
+                            . " = '" . $this->dbi->escapeString($row[0])
+                            . "' THEN '" . $this->dbi->escapeString($row[1]) . "'";
+                    }
+
+                    $sql_query .= ' END';
+                } else {
+                    $sql_query .= ' = ' . Util::backquote($column);
                 }
             }
 
-            $sql_query .= ' END'
-                . ' WHERE ' . Util::backquote($column)
+            $sql_query .= ' WHERE ' . Util::backquote($column)
                 . " RLIKE '" . $this->dbi->escapeString($find) . "' COLLATE "
                 . $charSet . '_bin'; // here we
             // change the collation of the 2nd operand to a case sensitive

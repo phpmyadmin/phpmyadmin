@@ -1,5 +1,5 @@
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
-// Distributed under an MIT license: https://codemirror.net/LICENSE
+// Distributed under an MIT license: https://codemirror.net/5/LICENSE
 
 (function(mod) {
   if (typeof exports == "object" && typeof module == "object") // CommonJS
@@ -23,16 +23,16 @@
 
   function isArray(val) { return Object.prototype.toString.call(val) == "[object Array]" }
 
+  function getModeConf(editor) {
+    return editor.getModeAt(editor.getCursor()).config || CodeMirror.resolveMode("text/x-sql")
+  }
+
   function getKeywords(editor) {
-    var mode = editor.doc.modeOption;
-    if (mode === "sql") mode = "text/x-sql";
-    return CodeMirror.resolveMode(mode).keywords;
+    return getModeConf(editor).keywords || []
   }
 
   function getIdentifierQuote(editor) {
-    var mode = editor.doc.modeOption;
-    if (mode === "sql") mode = "text/x-sql";
-    return CodeMirror.resolveMode(mode).identifierQuote || "`";
+    return getModeConf(editor).identifierQuote || "`";
   }
 
   function getText(item) {

@@ -226,6 +226,7 @@ class ExportJsonTest extends AbstractTestCase
         $this->assertTrue(
             $this->object->exportRawQuery(
                 'example.com',
+                null,
                 'SELECT * FROM `test_db`.`test_table_complex`;',
                 "\n"
             )

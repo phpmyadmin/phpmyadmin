@@ -100,10 +100,9 @@ $cfg['TranslationWarningThreshold'] = 80;
 $cfg['AllowThirdPartyFraming'] = false;
 
 /**
- * The 'cookie' auth_type uses AES algorithm to encrypt the password. If
- * at least one server configuration uses 'cookie' auth_type, enter here a
- * pass phrase that will be used by AES. The maximum length seems to be 46
- * characters.
+ * The 'cookie' auth_type uses the Sodium extension to encrypt the cookies. If at least one server configuration
+ * uses 'cookie' auth_type, enter here a generated string of random bytes to be used as an encryption key. The
+ * encryption key must be 32 bytes long.
  *
  * @global string $cfg['blowfish_secret']
  */
@@ -190,7 +189,7 @@ $cfg['Servers'][$i]['ssl_ciphers'] = null;
 
 /**
  * MySQL 5.6 or later triggers the mysqlnd driver in PHP to validate the
- * peer_name of the SSL certifcate
+ * peer_name of the SSL certificate
  * For most self-signed certificates this is a problem. Setting this to false
  * will disable the check and allow the connection (PHP 5.6.16 or later)
  *
@@ -800,7 +799,7 @@ $cfg['Confirm'] = true;
  *
  * @global string $cfg['CookieSameSite']
  */
- $cfg['CookieSameSite'] = 'Strict';
+$cfg['CookieSameSite'] = 'Strict';
 
 /**
  * recall previous login in cookie authentication mode or not
@@ -1678,7 +1677,7 @@ $cfg['Export']['texytext_null'] = 'NULL';
 /**
  * @global boolean $cfg['Export']['csv_columns']
  */
-$cfg['Export']['csv_columns'] = false;
+$cfg['Export']['csv_columns'] = true;
 
 /**
  * @global string $cfg['Export']['csv_structure_or_data']
@@ -2858,7 +2857,7 @@ $cfg['CheckConfigurationPermissions'] = true;
  * is replaced by form with button.
  * This is required as some web servers (IIS) have problems with long URLs.
  * The recommended limit is 2000
- * (see https://www.boutell.com/newfaq/misc/urllength.html) but we put
+ * (see https://stackoverflow.com/a/417184/5155484) but we put
  * 1000 to accommodate Suhosin, see bug #3358750.
  */
 $cfg['LinkLengthLimit'] = 1000;
@@ -2866,7 +2865,7 @@ $cfg['LinkLengthLimit'] = 1000;
 /**
  * Additional string to allow in CSP headers.
  */
- $cfg['CSPAllow'] = '';
+$cfg['CSPAllow'] = '';
 
 /**
  * Disable the table maintenance mass operations, like optimizing or

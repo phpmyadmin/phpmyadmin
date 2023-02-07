@@ -23,11 +23,19 @@ this.zxcvbnts.core = (function (exports) {
     };
 
     var dateSplits = {
-      4: [[1, 2], [2, 3]],
-      5: [[1, 3], [2, 3]],
-      6: [[1, 2], [2, 4], [4, 5]],
-      7: [[1, 3], [2, 3], [4, 5], [4, 6]],
-      8: [[2, 4], [4, 6]]
+      4: [// for length-4 strings, eg 1191 or 9111, two ways to split:
+      [1, 2], [2, 3] // 91 1 1
+      ],
+      5: [[1, 3], [2, 3], //  [2, 3], // 91 1 11    <- duplicate previous one
+      [2, 4] // 91 11 1    <- New and must be added as bug fix
+      ],
+      6: [[1, 2], [2, 4], [4, 5] // 1991 1 1
+      ],
+      //  1111991
+      7: [[1, 3], [2, 3], [4, 5], [4, 6] // 1991 11 1
+      ],
+      8: [[2, 4], [4, 6] // 1991 11 11
+      ]
     };
 
     const DATE_MAX_YEAR = 2050;
@@ -46,8 +54,8 @@ this.zxcvbnts.core = (function (exports) {
     const ALL_UPPER_INVERTED = /^[^a-z\xdf-\xff]+$/;
     const ALL_LOWER = /^[a-z\xdf-\xff]+$/;
     const ALL_LOWER_INVERTED = /^[^A-Z\xbf-\xdf]+$/;
-    const ONE_UPPER = /[a-z\xdf-\xff]/;
-    const ONE_LOWER = /[A-Z\xbf-\xdf]/;
+    const ONE_LOWER = /[a-z\xdf-\xff]/;
+    const ONE_UPPER = /[A-Z\xbf-\xdf]/;
     const ALPHA_INVERTED = /[^A-Za-z\xbf-\xdf]/gi;
     const ALL_DIGIT = /^\d+$/;
     const REFERENCE_YEAR = new Date().getFullYear();
@@ -353,151 +361,168 @@ this.zxcvbnts.core = (function (exports) {
 
     }
 
+    /**
+     * This code is from https://github.com/ka-weihe/fastest-levenshtein
+     * It was copied into this repo because it doesn't have an esm build which results in error for esm only project
+     * TODO if sometimes in the future it will get a esm build we can remove this file and use the original again
+     * https://github.com/ka-weihe/fastest-levenshtein/pull/18
+     */
     const peq = new Uint32Array(0x10000);
+
     const myers_32 = (a, b) => {
       const n = a.length;
       const m = b.length;
-      const lst = 1 << (n - 1);
+      const lst = 1 << n - 1;
       let pv = -1;
       let mv = 0;
       let sc = n;
       let i = n;
+
       while (i--) {
         peq[a.charCodeAt(i)] |= 1 << i;
       }
+
       for (i = 0; i < m; i++) {
         let eq = peq[b.charCodeAt(i)];
         const xv = eq | mv;
-        eq |= ((eq & pv) + pv) ^ pv;
+        eq |= (eq & pv) + pv ^ pv;
         mv |= ~(eq | pv);
         pv &= eq;
+
         if (mv & lst) {
           sc++;
         }
+
         if (pv & lst) {
           sc--;
         }
-        mv = (mv << 1) | 1;
-        pv = (pv << 1) | ~(xv | mv);
+
+        mv = mv << 1 | 1;
+        pv = pv << 1 | ~(xv | mv);
         mv &= xv;
       }
+
       i = n;
+
       while (i--) {
         peq[a.charCodeAt(i)] = 0;
       }
+
       return sc;
     };
 
-    const myers_x = (a, b) => {
+    const myers_x = (b, a) => {
       const n = a.length;
       const m = b.length;
       const mhc = [];
       const phc = [];
       const hsize = Math.ceil(n / 32);
       const vsize = Math.ceil(m / 32);
-      let score = m;
+
       for (let i = 0; i < hsize; i++) {
         phc[i] = -1;
         mhc[i] = 0;
       }
+
       let j = 0;
+
       for (; j < vsize - 1; j++) {
         let mv = 0;
         let pv = -1;
         const start = j * 32;
-        const end = Math.min(32, m) + start;
-        for (let k = start; k < end; k++) {
+        const vlen = Math.min(32, m) + start;
+
+        for (let k = start; k < vlen; k++) {
           peq[b.charCodeAt(k)] |= 1 << k;
         }
-        score = m;
+
         for (let i = 0; i < n; i++) {
           const eq = peq[a.charCodeAt(i)];
-          const pb = (phc[(i / 32) | 0] >>> i) & 1;
-          const mb = (mhc[(i / 32) | 0] >>> i) & 1;
+          const pb = phc[i / 32 | 0] >>> i % 32 & 1;
+          const mb = mhc[i / 32 | 0] >>> i % 32 & 1;
           const xv = eq | mv;
-          const xh = ((((eq | mb) & pv) + pv) ^ pv) | eq | mb;
+          const xh = ((eq | mb) & pv) + pv ^ pv | eq | mb;
           let ph = mv | ~(xh | pv);
           let mh = pv & xh;
-          if ((ph >>> 31) ^ pb) {
-            phc[(i / 32) | 0] ^= 1 << i;
+
+          if (ph >>> 31 ^ pb) {
+            phc[i / 32 | 0] ^= 1 << i % 32;
           }
-          if ((mh >>> 31) ^ mb) {
-            mhc[(i / 32) | 0] ^= 1 << i;
+
+          if (mh >>> 31 ^ mb) {
+            mhc[i / 32 | 0] ^= 1 << i % 32;
           }
-          ph = (ph << 1) | pb;
-          mh = (mh << 1) | mb;
+
+          ph = ph << 1 | pb;
+          mh = mh << 1 | mb;
           pv = mh | ~(xv | ph);
           mv = ph & xv;
         }
-        for (let k = start; k < end; k++) {
+
+        for (let k = start; k < vlen; k++) {
           peq[b.charCodeAt(k)] = 0;
         }
       }
+
       let mv = 0;
       let pv = -1;
       const start = j * 32;
-      const end = Math.min(32, m - start) + start;
-      for (let k = start; k < end; k++) {
+      const vlen = Math.min(32, m - start) + start;
+
+      for (let k = start; k < vlen; k++) {
         peq[b.charCodeAt(k)] |= 1 << k;
       }
-      score = m;
+
+      let score = m;
+
       for (let i = 0; i < n; i++) {
         const eq = peq[a.charCodeAt(i)];
-        const pb = (phc[(i / 32) | 0] >>> i) & 1;
-        const mb = (mhc[(i / 32) | 0] >>> i) & 1;
+        const pb = phc[i / 32 | 0] >>> i % 32 & 1;
+        const mb = mhc[i / 32 | 0] >>> i % 32 & 1;
         const xv = eq | mv;
-        const xh = ((((eq | mb) & pv) + pv) ^ pv) | eq | mb;
+        const xh = ((eq | mb) & pv) + pv ^ pv | eq | mb;
         let ph = mv | ~(xh | pv);
         let mh = pv & xh;
-        score += (ph >>> (m - 1)) & 1;
-        score -= (mh >>> (m - 1)) & 1;
-        if ((ph >>> 31) ^ pb) {
-          phc[(i / 32) | 0] ^= 1 << i;
+        score += ph >>> m % 32 - 1 & 1;
+        score -= mh >>> m % 32 - 1 & 1;
+
+        if (ph >>> 31 ^ pb) {
+          phc[i / 32 | 0] ^= 1 << i % 32;
         }
-        if ((mh >>> 31) ^ mb) {
-          mhc[(i / 32) | 0] ^= 1 << i;
+
+        if (mh >>> 31 ^ mb) {
+          mhc[i / 32 | 0] ^= 1 << i % 32;
         }
-        ph = (ph << 1) | pb;
-        mh = (mh << 1) | mb;
+
+        ph = ph << 1 | pb;
+        mh = mh << 1 | mb;
         pv = mh | ~(xv | ph);
         mv = ph & xv;
       }
-      for (let k = start; k < end; k++) {
+
+      for (let k = start; k < vlen; k++) {
         peq[b.charCodeAt(k)] = 0;
       }
+
       return score;
     };
 
     const distance = (a, b) => {
-      if (a.length > b.length) {
+      if (a.length < b.length) {
         const tmp = b;
         b = a;
         a = tmp;
       }
-      if (a.length === 0) {
-        return b.length;
+
+      if (b.length === 0) {
+        return a.length;
       }
+
       if (a.length <= 32) {
         return myers_32(a, b);
       }
+
       return myers_x(a, b);
-    };
-
-    const closest = (str, arr) => {
-      let min_distance = Infinity;
-      let min_index = 0;
-      for (let i = 0; i < arr.length; i++) {
-        const dist = distance(str, arr[i]);
-        if (dist < min_distance) {
-          min_distance = dist;
-          min_index = i;
-        }
-      }
-      return arr[min_index];
-    };
-
-    var fastestLevenshtein = {
-      closest, distance
     };
 
     const getUsedThreshold = (password, entry, threshold) => {
@@ -512,7 +537,7 @@ this.zxcvbnts.core = (function (exports) {
       let foundDistance = 0;
       const found = Object.keys(rankedDictionary).find(entry => {
         const usedThreshold = getUsedThreshold(password, entry, threshold);
-        const foundEntryDistance = fastestLevenshtein.distance(password, entry);
+        const foundEntryDistance = distance(password, entry);
         const isInThreshold = foundEntryDistance <= usedThreshold;
 
         if (isInThreshold) {
@@ -706,7 +731,7 @@ this.zxcvbnts.core = (function (exports) {
 
       addMatcher(name, matcher) {
         if (this.matchers[name]) {
-          console.info('Matcher already exists');
+          console.info(`Matcher ${name} already exists`);
         } else {
           this.matchers[name] = matcher;
         }

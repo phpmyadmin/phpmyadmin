@@ -10,6 +10,7 @@ use PhpMyAdmin\Controllers\Setup\FormController;
 use PhpMyAdmin\Controllers\Setup\HomeController;
 use PhpMyAdmin\Controllers\Setup\ServersController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Header;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
@@ -38,6 +39,9 @@ if (isset($_GET['page']) && in_array($_GET['page'], ['form', 'config', 'servers'
 }
 
 Core::noCacheHeader();
+
+// Sent security-related headers
+(new Header())->sendHttpHeaders();
 
 if ($page === 'form') {
     echo (new FormController($GLOBALS['ConfigFile'], new Template()))([

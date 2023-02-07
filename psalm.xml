@@ -373,6 +373,7 @@
             proc_priv: bool,
             querytime: float|int,
             read_limit: int,
+            request: PhpMyAdmin\Http\ServerRequest,
             save_on_server: bool,
             server: int,
             SESSION_KEY: string,
@@ -399,6 +400,7 @@
             xml_export_triggers: bool,
             xml_export_views: bool
         }"/>
+        <var name="maximum_time" type="0|positive-int"/>
         <var name="PMA_PHP_SELF" type="string"/>
     </globals>
 </psalm>

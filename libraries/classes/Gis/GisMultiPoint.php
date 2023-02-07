@@ -164,8 +164,8 @@ class GisMultiPoint extends GisGeometry
 
         // print label for each point
         if ((isset($label) && trim($label) != '') && ($points_arr[0][0] != '' && $points_arr[0][1] != '')) {
-            $pdf->SetXY($points_arr[0][0], $points_arr[0][1]);
-            $pdf->SetFontSize(5);
+            $pdf->setXY($points_arr[0][0], $points_arr[0][1]);
+            $pdf->setFontSize(5);
             $pdf->Cell(0, 0, trim($label));
         }
 

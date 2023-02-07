@@ -130,11 +130,11 @@ class Innodb extends StorageEngine
         /** @var string[] $bytes */
         $bytes = Util::formatByteDown($status['Innodb_buffer_pool_pages_total'] * $status['Innodb_page_size']);
 
-        $output = '<table class="table table-light table-striped table-hover w-auto float-start caption-top">' . "\n"
+        $output = '<table class="table table-striped table-hover w-auto float-start caption-top">' . "\n"
             . '    <caption>' . "\n"
             . '        ' . __('Buffer Pool Usage') . "\n"
             . '    </caption>' . "\n"
-            . '    <tfoot class="table-light">' . "\n"
+            . '    <tfoot>' . "\n"
             . '        <tr>' . "\n"
             . '            <th colspan="2">' . "\n"
             . '                ' . __('Total:') . ' '
@@ -189,7 +189,7 @@ class Innodb extends StorageEngine
 
         $output .= '    </tbody>' . "\n"
             . '</table>' . "\n\n"
-            . '<table class="table table-light table-striped table-hover w-auto ms-4 float-start caption-top">' . "\n"
+            . '<table class="table table-striped table-hover w-auto ms-4 float-start caption-top">' . "\n"
             . '    <caption>' . "\n"
             . '        ' . __('Buffer Pool Activity') . "\n"
             . '    </caption>' . "\n"

@@ -103,8 +103,14 @@ final class DropTableController extends AbstractController
             }
         }
 
+        $message = Message::success();
+
         $this->dbi->selectDb($db);
         $result = $this->dbi->tryQuery($sql_query);
+
+        if (! $result) {
+            $message = Message::error($this->dbi->getError());
+        }
 
         if ($result && ! empty($sqlQueryViews)) {
             $sql_query .= ' ' . $sqlQueryViews . ';';
@@ -117,8 +123,6 @@ final class DropTableController extends AbstractController
         }
 
         ForeignKey::handleDisableCheckCleanup($defaultFkCheckValue);
-
-        $message = Message::success();
 
         if (empty($_POST['message'])) {
             $_POST['message'] = $message;

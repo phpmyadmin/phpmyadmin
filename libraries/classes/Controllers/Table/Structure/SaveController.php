@@ -99,20 +99,20 @@ final class SaveController extends AbstractController
             }
 
             $changes[] = 'CHANGE ' . Table::generateAlter(
-                Util::getValueByKey($_POST, "field_orig.${i}", ''),
+                Util::getValueByKey($_POST, 'field_orig.' . $i, ''),
                 $_POST['field_name'][$i],
                 $_POST['field_type'][$i],
                 $_POST['field_length'][$i],
                 $_POST['field_attribute'][$i],
-                Util::getValueByKey($_POST, "field_collation.${i}", ''),
-                Util::getValueByKey($_POST, "field_null.${i}", 'NO'),
+                Util::getValueByKey($_POST, 'field_collation.' . $i, ''),
+                Util::getValueByKey($_POST, 'field_null.' . $i, 'NO'),
                 $_POST['field_default_type'][$i],
                 $_POST['field_default_value'][$i],
-                Util::getValueByKey($_POST, "field_extra.${i}", false),
-                Util::getValueByKey($_POST, "field_comments.${i}", ''),
-                Util::getValueByKey($_POST, "field_virtuality.${i}", ''),
-                Util::getValueByKey($_POST, "field_expression.${i}", ''),
-                Util::getValueByKey($_POST, "field_move_to.${i}", ''),
+                Util::getValueByKey($_POST, 'field_extra.' . $i, false),
+                Util::getValueByKey($_POST, 'field_comments.' . $i, ''),
+                Util::getValueByKey($_POST, 'field_virtuality.' . $i, ''),
+                Util::getValueByKey($_POST, 'field_expression.' . $i, ''),
+                Util::getValueByKey($_POST, 'field_move_to.' . $i, ''),
                 $columns_with_index
             );
 
@@ -243,20 +243,20 @@ final class SaveController extends AbstractController
                     }
 
                     $changes_revert[] = 'CHANGE ' . Table::generateAlter(
-                        Util::getValueByKey($_POST, "field_orig.${i}", ''),
+                        Util::getValueByKey($_POST, 'field_orig.' . $i, ''),
                         $_POST['field_name'][$i],
                         $_POST['field_type_orig'][$i],
                         $_POST['field_length_orig'][$i],
                         $_POST['field_attribute_orig'][$i],
-                        Util::getValueByKey($_POST, "field_collation_orig.${i}", ''),
-                        Util::getValueByKey($_POST, "field_null_orig.${i}", 'NO'),
+                        Util::getValueByKey($_POST, 'field_collation_orig.' . $i, ''),
+                        Util::getValueByKey($_POST, 'field_null_orig.' . $i, 'NO'),
                         $_POST['field_default_type_orig'][$i],
                         $_POST['field_default_value_orig'][$i],
-                        Util::getValueByKey($_POST, "field_extra_orig.${i}", false),
-                        Util::getValueByKey($_POST, "field_comments_orig.${i}", ''),
-                        Util::getValueByKey($_POST, "field_virtuality_orig.${i}", ''),
-                        Util::getValueByKey($_POST, "field_expression_orig.${i}", ''),
-                        Util::getValueByKey($_POST, "field_move_to_orig.${i}", '')
+                        Util::getValueByKey($_POST, 'field_extra_orig.' . $i, false),
+                        Util::getValueByKey($_POST, 'field_comments_orig.' . $i, ''),
+                        Util::getValueByKey($_POST, 'field_virtuality_orig.' . $i, ''),
+                        Util::getValueByKey($_POST, 'field_expression_orig.' . $i, ''),
+                        Util::getValueByKey($_POST, 'field_move_to_orig.' . $i, '')
                     );
                 }
 

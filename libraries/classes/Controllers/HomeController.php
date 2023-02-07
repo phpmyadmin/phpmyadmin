@@ -30,10 +30,7 @@ use function ini_get;
 use function mb_strlen;
 use function preg_match;
 use function sprintf;
-use function trigger_error;
 
-use const E_USER_NOTICE;
-use const E_USER_WARNING;
 use const PHP_VERSION;
 use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 
@@ -47,6 +44,12 @@ class HomeController extends AbstractController
 
     /** @var DatabaseInterface */
     private $dbi;
+
+    /**
+     * @var array<int, array<string, string>>
+     * @psalm-var list<array{message: string, severity: 'warning'|'notice'}>
+     */
+    private $errors = [];
 
     public function __construct(
         ResponseRenderer $response,
@@ -143,20 +146,16 @@ class HomeController extends AbstractController
         }
 
         $databaseServer = [];
-        if ($server > 0) {
+        if ($server > 0 && $cfg['ShowServerInfo']) {
             $hostInfo = '';
             if (! empty($cfg['Server']['verbose'])) {
                 $hostInfo .= $cfg['Server']['verbose'];
-                if ($cfg['ShowServerInfo']) {
-                    $hostInfo .= ' (';
-                }
+                $hostInfo .= ' (';
             }
 
-            if ($cfg['ShowServerInfo'] || empty($cfg['Server']['verbose'])) {
-                $hostInfo .= $this->dbi->getHostInfo();
-            }
+            $hostInfo .= $this->dbi->getHostInfo();
 
-            if (! empty($cfg['Server']['verbose']) && $cfg['ShowServerInfo']) {
+            if (! empty($cfg['Server']['verbose'])) {
                 $hostInfo .= ')';
             }
 
@@ -233,7 +232,7 @@ class HomeController extends AbstractController
             'is_demo' => $cfg['DBG']['demo'],
             'has_server_selection' => $hasServerSelection ?? false,
             'server_selection' => $serverSelection ?? '',
-            'has_change_password_link' => $cfg['Server']['auth_type'] !== 'config' && $cfg['ShowChgPassword'],
+            'has_change_password_link' => ($cfg['Server']['auth_type'] ?? '') !== 'config' && $cfg['ShowChgPassword'],
             'charsets' => $charsetsList ?? [],
             'available_languages' => $availableLanguages,
             'database_server' => $databaseServer,
@@ -245,6 +244,7 @@ class HomeController extends AbstractController
             'config_storage_message' => $configStorageMessage ?? '',
             'has_theme_manager' => $cfg['ThemeManager'],
             'themes' => $this->themeManager->getThemesArray(),
+            'errors' => $this->errors,
         ]);
     }
 
@@ -260,16 +260,16 @@ class HomeController extends AbstractController
              */
             $gc_time = (int) ini_get('session.gc_maxlifetime');
             if ($gc_time < $cfg['LoginCookieValidity']) {
-                trigger_error(
-                    __(
+                $this->errors[] = [
+                    'message' => __(
                         'Your PHP parameter [a@https://www.php.net/manual/en/session.' .
                         'configuration.php#ini.session.gc-maxlifetime@_blank]session.' .
                         'gc_maxlifetime[/a] is lower than cookie validity configured ' .
                         'in phpMyAdmin, because of this, your login might expire sooner ' .
                         'than configured in phpMyAdmin.'
                     ),
-                    E_USER_WARNING
-                );
+                    'severity' => 'warning',
+                ];
             }
         }
 
@@ -277,14 +277,14 @@ class HomeController extends AbstractController
          * Check whether LoginCookieValidity is limited by LoginCookieStore.
          */
         if ($cfg['LoginCookieStore'] != 0 && $cfg['LoginCookieStore'] < $cfg['LoginCookieValidity']) {
-            trigger_error(
-                __(
+            $this->errors[] = [
+                'message' => __(
                     'Login cookie store is lower than cookie validity configured in ' .
                     'phpMyAdmin, because of this, your login will expire sooner than ' .
                     'configured in phpMyAdmin.'
                 ),
-                E_USER_WARNING
-            );
+                'severity' => 'warning',
+            ];
         }
 
         /**
@@ -296,39 +296,43 @@ class HomeController extends AbstractController
             && $cfg['Server']['controluser'] === 'pma'
             && $cfg['Server']['controlpass'] === 'pmapass'
         ) {
-            trigger_error(
-                __(
+            $this->errors[] = [
+                'message' => __(
                     'Your server is running with default values for the ' .
                     'controluser and password (controlpass) and is open to ' .
                     'intrusion; you really should fix this security weakness' .
                     ' by changing the password for controluser \'pma\'.'
                 ),
-                E_USER_WARNING
-            );
+                'severity' => 'warning',
+            ];
         }
 
         /**
          * Check if user does not have defined blowfish secret and it is being used.
          */
         if (! empty($_SESSION['encryption_key'])) {
-            if (empty($cfg['blowfish_secret'])) {
-                trigger_error(
-                    __(
-                        'The configuration file now needs a secret passphrase (blowfish_secret).'
+            $encryptionKeyLength = mb_strlen($cfg['blowfish_secret'], '8bit');
+            if ($encryptionKeyLength < SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
+                $this->errors[] = [
+                    'message' => __(
+                        'The configuration file needs a valid key for cookie encryption.'
+                        . ' A temporary key was automatically generated for you.'
+                        . ' Please refer to the [doc@cfg_blowfish_secret]documentation[/doc].'
                     ),
-                    E_USER_WARNING
-                );
-            } elseif (mb_strlen($cfg['blowfish_secret'], '8bit') !== SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
-                trigger_error(
-                    sprintf(
+                    'severity' => 'warning',
+                ];
+            } elseif ($encryptionKeyLength > SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
+                $this->errors[] = [
+                    'message' => sprintf(
                         __(
-                            'The secret passphrase in configuration (blowfish_secret) is not the correct length.'
-                            . ' It should be %d bytes long.'
+                            'The cookie encryption key in the configuration file is longer than necessary.'
+                            . ' It should only be %d bytes long.'
+                            . ' Please refer to the [doc@cfg_blowfish_secret]documentation[/doc].'
                         ),
                         SODIUM_CRYPTO_SECRETBOX_KEYBYTES
                     ),
-                    E_USER_WARNING
-                );
+                    'severity' => 'warning',
+                ];
             }
         }
 
@@ -337,16 +341,16 @@ class HomeController extends AbstractController
          * production environment.
          */
         if (@file_exists(ROOT_PATH . 'config')) {
-            trigger_error(
-                __(
+            $this->errors[] = [
+                'message' => __(
                     'Directory [code]config[/code], which is used by the setup script, ' .
                     'still exists in your phpMyAdmin directory. It is strongly ' .
                     'recommended to remove it once phpMyAdmin has been configured. ' .
                     'Otherwise the security of your server may be compromised by ' .
                     'unauthorized people downloading your configuration.'
                 ),
-                E_USER_WARNING
-            );
+                'severity' => 'warning',
+            ];
         }
 
         /**
@@ -357,22 +361,22 @@ class HomeController extends AbstractController
             && ini_get('suhosin.request.max_value_length')
             && ini_get('suhosin.simulation') == '0'
         ) {
-            trigger_error(
-                sprintf(
+            $this->errors[] = [
+                'message' => sprintf(
                     __(
                         'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.'
                     ),
                     '[doc@faq1-38]',
                     '[/doc]'
                 ),
-                E_USER_WARNING
-            );
+                'severity' => 'warning',
+            ];
         }
 
         /* Missing template cache */
         if ($this->config->getTempDir('twig') === null) {
-            trigger_error(
-                sprintf(
+            $this->errors[] = [
+                'message' => sprintf(
                     __(
                         'The $cfg[\'TempDir\'] (%s) is not accessible. ' .
                         'phpMyAdmin is not able to cache templates and will ' .
@@ -380,8 +384,8 @@ class HomeController extends AbstractController
                     ),
                     $this->config->get('TempDir')
                 ),
-                E_USER_WARNING
-            );
+                'severity' => 'warning',
+            ];
         }
 
         $this->checkLanguageStats();
@@ -414,12 +418,12 @@ class HomeController extends AbstractController
             return;
         }
 
-        trigger_error(
-            'You are using an incomplete translation, please help to make it '
-            . 'better by [a@https://www.phpmyadmin.net/translate/'
-            . '@_blank]contributing[/a].',
-            E_USER_NOTICE
-        );
+        $this->errors[] = [
+            'message' => 'You are using an incomplete translation, please help to make it '
+                . 'better by [a@https://www.phpmyadmin.net/translate/'
+                . '@_blank]contributing[/a].',
+            'severity' => 'notice',
+        ];
     }
 
     private function checkPhpExtensionsRequirements(): void
@@ -429,15 +433,15 @@ class HomeController extends AbstractController
          * to tell user something might be broken without it, see bug #1063149.
          */
         if (! extension_loaded('mbstring')) {
-            trigger_error(
-                __(
+            $this->errors[] = [
+                'message' => __(
                     'The mbstring PHP extension was not found and you seem to be using'
                     . ' a multibyte charset. Without the mbstring extension phpMyAdmin'
                     . ' is unable to split strings correctly and it may result in'
                     . ' unexpected results.'
                 ),
-                E_USER_WARNING
-            );
+                'severity' => 'warning',
+            ];
         }
 
         /**
@@ -447,12 +451,13 @@ class HomeController extends AbstractController
             return;
         }
 
-        trigger_error(
-            __(
+        $this->errors[] = [
+            'message' =>  __(
                 'The curl extension was not found and allow_url_fopen is '
                 . 'disabled. Due to this some features such as error reporting '
                 . 'or version check are disabled.'
-            )
-        );
+            ),
+            'severity' => 'notice',
+        ];
     }
 }
