@@ -84,6 +84,7 @@ phpMyAdmin - ChangeLog
 - issue        Fix silent JSON parse error on upload progress
 - issue #17833 Fix "Add Parameter" button not working for Add Routine Screen
 - issue #17365 Fixed "Uncaught Error: regexp too big" on server status variables page
+- issue        [security] Fix an XSS attack through the drag-and-drop upload feature (PMASA-2023-01)
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5
