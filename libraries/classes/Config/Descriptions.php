@@ -362,9 +362,6 @@ class Descriptions
                 'Limits number of table preferences which are stored in database, the oldest '
                 . 'records are automatically removed.',
             ),
-            'Servers_savedsearches_desc' => __(
-                'Leave blank for no QBE saved searches support, suggested: [kbd]pma__savedsearches[/kbd].',
-            ),
             'Servers_export_templates_desc' => __(
                 'Leave blank for no export template support, suggested: [kbd]pma__export_templates[/kbd].',
             ),
@@ -884,7 +881,6 @@ class Descriptions
             'Servers_host_name' => __('Server hostname'),
             'Servers_LogoutURL_name' => __('Logout URL'),
             'Servers_MaxTableUiprefs_name' => __('Maximal number of table preferences to store'),
-            'Servers_savedsearches_name' => __('QBE saved searches table'),
             'Servers_export_templates_name' => __('Export templates table'),
             'Servers_central_columns_name' => __('Central columns table'),
             'Servers_only_db_name' => __('Show only listed databases'),

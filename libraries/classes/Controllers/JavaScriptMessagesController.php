@@ -70,7 +70,6 @@ final class JavaScriptMessagesController
             'strDroppingForeignKey' => __('Dropping Foreign key.'),
             'strOperationTakesLongTime' => __('This operation could take a long time. Proceed anyway?'),
             'strDropUserGroupWarning' => __('Do you really want to delete user group "%s"?'),
-            'strConfirmDeleteQBESearch' => __('Do you really want to delete the search "%s"?'),
             'strConfirmNavigation' => __('You have unsaved changes; are you sure you want to leave this page?'),
             'strConfirmRowChange' => __(
                 'You are trying to reduce the number of rows, but have already entered'
