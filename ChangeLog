@@ -1,6 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.9.11 (2023-02-07)
+- issue        [security] Fix an XSS attack through the drag-and-drop upload feature
+
 4.9.10 (2022-02-10)
 - issue #17308 Fix broken pagination links in the navigation sidebar
 
