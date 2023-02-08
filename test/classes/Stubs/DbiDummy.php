@@ -2742,17 +2742,17 @@ class DbiDummy implements DbiExtension
                 'result' => [['hostname', 'username', 'password']],
             ],
             [
-                'query' => 'SELECT COUNT(*) FROM (SELECT * FROM company_users WHERE not_working_count != 0 ) as cnt',
+                'query' => 'SELECT COUNT(*) FROM (SELECT 1 FROM company_users WHERE not_working_count != 0 ) as cnt',
                 'result' => false,
             ],
             [
-                'query' => 'SELECT COUNT(*) FROM (SELECT * FROM company_users ) as cnt',
+                'query' => 'SELECT COUNT(*) FROM (SELECT 1 FROM company_users ) as cnt',
                 'result' => [
                     [4],
                 ],
             ],
             [
-                'query' => 'SELECT COUNT(*) FROM (SELECT * FROM company_users WHERE working_count = 0 ) as cnt',
+                'query' => 'SELECT COUNT(*) FROM (SELECT 1 FROM company_users WHERE working_count = 0 ) as cnt',
                 'result' => [
                     [15],
                 ],
@@ -2765,8 +2765,8 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query' => 'SELECT COUNT(*) FROM ('
-                . 'SELECT *, 1, (SELECT COUNT(*) FROM tbl1) as c1, '
-                . '(SELECT 1 FROM tbl2) as c2 FROM company_users WHERE subquery_case = 0 ) as cnt',
+                . 'SELECT *, 1, (SELECT COUNT(*) FROM tbl1) AS `c1`, '
+                . '(SELECT 1 FROM tbl2) AS `c2` FROM company_users WHERE subquery_case = 0 ) as cnt',
                 'result' => [
                     [42],
                 ],

@@ -65,7 +65,7 @@ class ThemeTest extends AbstractTestCase
      */
     public function testCheckImgPathIncorrect(): void
     {
-        $this->object->setPath(ROOT_PATH . 'test/classes/_data/incorrect_theme');
+        $this->object->setPath(TEST_PATH . 'test/classes/_data/incorrect_theme');
         $this->assertFalse(
             $this->object->loadInfo(),
             'Theme name is not properly set'

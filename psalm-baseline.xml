@@ -2874,9 +2874,15 @@
     <MixedOperand occurrences="1">
       <code>$GLOBALS['biggest_max_file_size']</code>
     </MixedOperand>
-    <PossiblyInvalidArgument occurrences="1">
+    <PossiblyInvalidArgument occurrences="3">
       <code>$GLOBALS['current_result']</code>
+      <code>$_GET['where_clause']</code>
+      <code>$_GET['where_clause_signature']</code>
     </PossiblyInvalidArgument>
+    <PossiblyInvalidCast occurrences="2">
+      <code>$_GET['where_clause']</code>
+      <code>$_GET['where_clause_signature']</code>
+    </PossiblyInvalidCast>
     <PossiblyNullArgument occurrences="2">
       <code>$GLOBALS['text_dir']</code>
       <code>$isUpload</code>
@@ -2884,6 +2890,9 @@
     <TypeDoesNotContainType occurrences="1">
       <code>$GLOBALS['biggest_max_file_size'] &gt; 0</code>
     </TypeDoesNotContainType>
+    <UnusedVariable occurrences="1">
+      <code>$where_clause</code>
+    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/ChangeRowsController.php">
     <MixedAssignment occurrences="2">
@@ -7594,14 +7603,18 @@
     </MixedOperand>
     <MixedReturnStatement occurrences="1"/>
     <MoreSpecificReturnType occurrences="1"/>
-    <PossiblyInvalidArgument occurrences="2">
+    <PossiblyInvalidArgument occurrences="4">
+      <code>$_GET['sql_query']</code>
+      <code>$_GET['sql_signature']</code>
       <code>$whereClause</code>
       <code>$whereClause</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidArrayOffset occurrences="1">
       <code>$_POST['fields']['multi_edit']</code>
     </PossiblyInvalidArrayOffset>
-    <PossiblyInvalidCast occurrences="1">
+    <PossiblyInvalidCast occurrences="3">
+      <code>$_GET['sql_query']</code>
+      <code>$_GET['sql_signature']</code>
       <code>$whereClause</code>
     </PossiblyInvalidCast>
     <PossiblyInvalidOperand occurrences="1">
@@ -12175,6 +12188,11 @@
       <code>$row['#']</code>
     </PossiblyNullOperand>
   </file>
+  <file src="libraries/classes/Server/Status/Processes.php">
+    <RedundantCondition occurrences="1">
+      <code>0 !== --$sortableColCount</code>
+    </RedundantCondition>
+  </file>
   <file src="libraries/classes/Session.php">
     <MixedArgument occurrences="3">
       <code>$config-&gt;getCookie('phpMyAdmin')</code>
@@ -12276,7 +12294,7 @@
     <LessSpecificReturnStatement occurrences="1">
       <code>$unlimNumRows</code>
     </LessSpecificReturnStatement>
-    <MixedArgument occurrences="11">
+    <MixedArgument occurrences="12">
       <code>$columns[$indexColumnName]['Extra']</code>
       <code>$extraData['error']</code>
       <code>$fieldInfoResult[0]['Type']</code>
@@ -12285,6 +12303,7 @@
       <code>$oneResult['Duration']</code>
       <code>$oneResult['Status']</code>
       <code>$sortCol</code>
+      <code>$statement-&gt;expr</code>
       <code>$unlimNumRows</code>
       <code>$unlimNumRows</code>
       <code>Message::sanitize($warning)</code>
@@ -12311,9 +12330,10 @@
       <code>$oneResult['Status']</code>
       <code>$statementInfo-&gt;statement-&gt;where[0]</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="2">
+    <MixedArrayAssignment occurrences="3">
       <code>$_SESSION['tmpval']['pos']</code>
       <code>$_SESSION['tmpval']['possible_as_geometry']</code>
+      <code>$statement-&gt;expr[0]</code>
     </MixedArrayAssignment>
     <MixedAssignment occurrences="16">
       <code>$maxRows</code>
@@ -12384,18 +12404,28 @@
     <PossiblyInvalidPropertyFetch occurrences="1">
       <code>$statement-&gt;altered[0]-&gt;field-&gt;column</code>
     </PossiblyInvalidPropertyFetch>
-    <PossiblyNullArgument occurrences="7">
+    <PossiblyNullArgument occurrences="6">
       <code>$result</code>
       <code>$row[0]</code>
       <code>$statementInfo-&gt;parser-&gt;list</code>
       <code>$statementInfo-&gt;parser-&gt;list</code>
       <code>$statementInfo-&gt;parser-&gt;list</code>
       <code>$table</code>
-      <code>$tokenList</code>
     </PossiblyNullArgument>
     <RedundantCast occurrences="1">
       <code>(bool) $GLOBALS['cfg']['ShowSQL']</code>
     </RedundantCast>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>$statementInfo-&gt;limit !== null</code>
+    </RedundantConditionGivenDocblockType>
+    <UndefinedPropertyAssignment occurrences="3">
+      <code>$statement-&gt;expr</code>
+      <code>$statement-&gt;limit</code>
+      <code>$statement-&gt;order</code>
+    </UndefinedPropertyAssignment>
+    <UndefinedPropertyFetch occurrences="1">
+      <code>$statement-&gt;expr</code>
+    </UndefinedPropertyFetch>
   </file>
   <file src="libraries/classes/SqlQueryForm.php">
     <MixedArgument occurrences="1"/>
