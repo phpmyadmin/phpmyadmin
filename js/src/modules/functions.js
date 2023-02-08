@@ -44,7 +44,7 @@ let sqlAutoCompleteInProgress = false;
 
 /**
  * Object containing list of columns in each table.
- * @type {(array|boolean)}
+ * @type {(any[]|boolean)}
  */
 let sqlAutoComplete = false;
 
@@ -56,7 +56,7 @@ let sqlAutoCompleteDefaultTable = '';
 
 /**
  * Array to hold the columns in central list per db.
- * @type {array}
+ * @type {any[]}
  */
 window.centralColumnList = [];
 

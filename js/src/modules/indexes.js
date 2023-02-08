@@ -20,31 +20,31 @@ const Indexes = {};
 
 /**
  * Array to hold 'Primary' index columns.
- * @type {array}
+ * @type {any[]}
  */
 let primaryColumns = [];
 
 /**
  * Array to hold 'Unique' index columns.
- * @type {array}
+ * @type {any[]}
  */
 let uniqueColumns = [];
 
 /**
  * Array to hold 'Index' columns.
- * @type {array}
+ * @type {any[]}
  */
 let indexColumns = [];
 
 /**
  * Array to hold 'Fulltext' columns.
- * @type {array}
+ * @type {any[]}
  */
 let fulltextColumns = [];
 
 /**
  * Array to hold 'Spatial' columns.
- * @type {array}
+ * @type {any[]}
  */
 let spatialColumns = [];
 

@@ -302,7 +302,7 @@ window.validators = {
  * @param {string}  id       field id
  * @param {string}  type     validator (key in validators object)
  * @param {boolean} onKeyUp  whether fire on key up
- * @param {Array}   params   validation function parameters
+ * @param {any[]}   params   validation function parameters
  */
 Config.registerFieldValidator = (id, type, onKeyUp, params) => {
     if (typeof window.validators[type] === 'undefined') {

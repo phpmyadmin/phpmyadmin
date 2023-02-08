@@ -16,13 +16,13 @@ var DesignerHistory = {};
 
 /**
  * Global array to store history objects.
- * @type {Array}
+ * @type {any[]}
  */
 DesignerHistory.historyArray = [];
 
 /**
  * Global array to store information for columns which are used in select clause.
- * @type {Array}
+ * @type {any[]}
  */
 DesignerHistory.selectField = [];
 
