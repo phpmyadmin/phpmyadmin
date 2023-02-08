@@ -44,7 +44,7 @@ class TwigLintCommandTest extends AbstractTestCase
     public function testGetTemplateContents(): void
     {
         $contents = $this->callFunction($this->command, TwigLintCommand::class, 'getTemplateContents', [
-            ROOT_PATH . 'test/classes/_data/file_listing/subfolder/one.ini',
+            TEST_PATH . 'test/classes/_data/file_listing/subfolder/one.ini',
         ]);
 
         $this->assertSame('key=value' . "\n", $contents);
@@ -52,7 +52,7 @@ class TwigLintCommandTest extends AbstractTestCase
 
     public function testFindFiles(): void
     {
-        $path = ROOT_PATH . 'test/classes/_data/file_listing';
+        $path = TEST_PATH . 'test/classes/_data/file_listing';
         $filesFound = $this->callFunction($this->command, TwigLintCommand::class, 'findFiles', [$path]);
 
         // Sort results to avoid file system test specific failures
@@ -68,7 +68,7 @@ class TwigLintCommandTest extends AbstractTestCase
 
     public function testGetFilesInfo(): void
     {
-        $path = ROOT_PATH . 'test/classes/_data/file_listing';
+        $path = TEST_PATH . 'test/classes/_data/file_listing';
         $filesInfos = $this->callFunction($this->command, TwigLintCommand::class, 'getFilesInfo', [$path]);
 
         // Sort results to avoid file system test specific failures
@@ -122,7 +122,7 @@ class TwigLintCommandTest extends AbstractTestCase
             ->willReturnOnConsecutiveCalls('{{ file }}', '{{ file }');
 
         $filesFound = $this->callFunction($command, TwigLintCommand::class, 'getFilesInfo', [
-            ROOT_PATH . 'test/classes/_data/file_listing',
+            TEST_PATH . 'test/classes/_data/file_listing',
         ]);
 
         $this->assertEquals([
