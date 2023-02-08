@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
+"Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-01-21 15:49+0000\n"
+"POT-Creation-Date: 2023-02-08 15:09+0000\n"
 "PO-Revision-Date: 2023-02-02 11:39+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
@@ -1372,7 +1372,7 @@ msgstr "検索："
 #: templates/database/operations/index.twig:75
 #: templates/database/operations/index.twig:185
 #: templates/database/operations/index.twig:225
-#: templates/database/routines/editor_form.twig:176
+#: templates/database/routines/editor_form.twig:180
 #: templates/database/routines/execute_form.twig:55
 #: templates/database/search/main.twig:74
 #: templates/database/triggers/editor_form.twig:69
@@ -4255,7 +4255,7 @@ msgstr "ロックされているテーブルをスキップする"
 #: libraries/classes/Config/Descriptions.php:946
 #: libraries/classes/ConfigStorage/UserGroups.php:124
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
-#: libraries/classes/Display/Results.php:2967
+#: libraries/classes/Display/Results.php:2969
 #: libraries/classes/Html/Generator.php:657
 #: libraries/classes/Html/Generator.php:908
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
@@ -5090,7 +5090,7 @@ msgid "Table %s has been emptied."
 msgstr "テーブル %s を空にしました。"
 
 #: libraries/classes/Controllers/Database/StructureController.php:577
-#: libraries/classes/Display/Results.php:3980
+#: libraries/classes/Display/Results.php:3982
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -6589,7 +6589,7 @@ msgid "Show query box"
 msgstr "クエリボックスを表示"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
-#: libraries/classes/Display/Results.php:3035
+#: libraries/classes/Display/Results.php:3037
 #: libraries/classes/Tracking.php:260 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:268
 #: templates/database/central_columns/main.twig:380
@@ -6849,13 +6849,13 @@ msgstr "プロット点におけるデータ内容"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:631
-#: libraries/classes/ErrorHandler.php:446 libraries/classes/InsertEdit.php:1996
+#: libraries/classes/ErrorHandler.php:446 libraries/classes/InsertEdit.php:2005
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "無視"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:476
-#: libraries/classes/Display/Results.php:2971
+#: libraries/classes/Display/Results.php:2973
 #: libraries/classes/Html/Generator.php:75
 #: templates/display/results/table.twig:231
 #: templates/display/results/table.twig:232
@@ -7417,8 +7417,9 @@ msgstr "セキュリティキーが無効です。"
 msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
-msgstr "WebAuthn は使用できません。セキュアコンテキスト (HTTPS) "
-"で対応しているブラウザを使用してください。"
+msgstr ""
+"WebAuthn は使用できません。セキュアコンテキスト (HTTPS) で対応しているブラウ"
+"ザを使用してください。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:701
 msgid ""
@@ -7438,13 +7439,13 @@ msgid "Table %s already exists!"
 msgstr "テーブル %s は既に存在します!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:708
-#: libraries/classes/InsertEdit.php:326
+#: libraries/classes/InsertEdit.php:335
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "隠す"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:709
-#: libraries/classes/Controllers/Table/ChangeController.php:187
+#: libraries/classes/Controllers/Table/ChangeController.php:194
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
@@ -8295,7 +8296,7 @@ msgid "Insecure connection"
 msgstr "セキュリティで保護されていない接続"
 
 #: libraries/classes/Controllers/Sql/SqlController.php:235
-#: libraries/classes/Sql.php:1153
+#: libraries/classes/Sql.php:1154
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "ブックマーク %s を作成しました。"
@@ -8360,7 +8361,7 @@ msgstr "テーブル %s は既に存在します!"
 #: libraries/classes/Controllers/Table/RelationController.php:241
 #: libraries/classes/Controllers/View/OperationsController.php:87
 #: libraries/classes/Database/Routines.php:1224
-#: libraries/classes/Display/Results.php:3693 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3695 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL は正常に実行されました。"
@@ -8397,8 +8398,8 @@ msgstr "リクエストに問題があります。"
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:86
 #: libraries/classes/Database/Routines.php:1243
-#: libraries/classes/Import.php:149 libraries/classes/InsertEdit.php:220
-#: libraries/classes/Sql.php:967
+#: libraries/classes/Import.php:149 libraries/classes/InsertEdit.php:229
+#: libraries/classes/Sql.php:968
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "返り値が空でした (行数 0)。"
 
@@ -8425,7 +8426,7 @@ msgstr "ビュー"
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:62
 #: libraries/classes/Controllers/View/OperationsController.php:90
 #: libraries/classes/Html/Generator.php:856 libraries/classes/Import.php:133
-#: libraries/classes/InsertEdit.php:715 libraries/classes/Message.php:192
+#: libraries/classes/InsertEdit.php:724 libraries/classes/Message.php:192
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:372
 msgid "Error"
@@ -9071,41 +9072,41 @@ msgstr "降順"
 msgid "Ascending"
 msgstr "昇順"
 
-#: libraries/classes/Display/Results.php:3011
-#: libraries/classes/Display/Results.php:3026
+#: libraries/classes/Display/Results.php:3013
+#: libraries/classes/Display/Results.php:3028
 msgid "The row has been deleted."
 msgstr "行を削除しました。"
 
-#: libraries/classes/Display/Results.php:3058
+#: libraries/classes/Display/Results.php:3060
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "停止"
 
-#: libraries/classes/Display/Results.php:3626
+#: libraries/classes/Display/Results.php:3628
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "正確な数字とは限りません。[doc@faq3-11]FAQ 3.11[/doc] をご覧ください。"
 
-#: libraries/classes/Display/Results.php:3989
+#: libraries/classes/Display/Results.php:3991
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "行 %1s - %2s の表示"
 
-#: libraries/classes/Display/Results.php:4003
+#: libraries/classes/Display/Results.php:4005
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "合計 %1$d, クエリで %2$d"
 
-#: libraries/classes/Display/Results.php:4008
+#: libraries/classes/Display/Results.php:4010
 #, php-format
 msgid "%d total"
 msgstr "合計 %d"
 
-#: libraries/classes/Display/Results.php:4021 libraries/classes/Sql.php:973
+#: libraries/classes/Display/Results.php:4023 libraries/classes/Sql.php:974
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "クエリの実行時間： %01.4f 秒。"
 
-#: libraries/classes/Display/Results.php:4352
+#: libraries/classes/Display/Results.php:4354
 msgid "Link not found!"
 msgstr "リンクが見つかりません！"
 
@@ -9641,7 +9642,7 @@ msgstr "静的解析:"
 msgid "%d errors were found during analysis."
 msgstr "解析中に %d 個のエラーが見つかりました。"
 
-#: libraries/classes/Import.php:287 libraries/classes/Sql.php:981
+#: libraries/classes/Import.php:287 libraries/classes/Sql.php:982
 msgid "[ROLLBACK occurred.]"
 msgstr "[ロールバックが発生しました。]"
 
@@ -9737,7 +9738,7 @@ msgstr ""
 "インデックス %1$s と %2$s は同一のもののようです。一方は削除してもよいかもし"
 "れません。"
 
-#: libraries/classes/InsertEdit.php:342
+#: libraries/classes/InsertEdit.php:351
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:28
 #: templates/database/routines/execute_form.twig:18
 #: templates/table/search/index.twig:36
@@ -9745,7 +9746,7 @@ msgstr ""
 msgid "Function"
 msgstr "関数"
 
-#: libraries/classes/InsertEdit.php:345
+#: libraries/classes/InsertEdit.php:354
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:275
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:370
 #: libraries/classes/Plugins/Export/ExportLatex.php:543
@@ -9779,12 +9780,12 @@ msgstr "関数"
 msgid "Type"
 msgstr "タイプ"
 
-#: libraries/classes/InsertEdit.php:716 templates/import.twig:60
+#: libraries/classes/InsertEdit.php:725 templates/import.twig:60
 #: templates/import.twig:85
 msgid "The directory you set for upload work cannot be reached."
 msgstr "指定したアップロードディレクトリが利用できません。"
 
-#: libraries/classes/InsertEdit.php:724
+#: libraries/classes/InsertEdit.php:733
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:32
 #: templates/server/privileges/privileges_table.twig:59
@@ -9794,15 +9795,15 @@ msgstr "指定したアップロードディレクトリが利用できません
 msgid "Or"
 msgstr "または"
 
-#: libraries/classes/InsertEdit.php:725
+#: libraries/classes/InsertEdit.php:734
 msgid "web server upload directory:"
 msgstr "ウェブサーバ上のアップロードディレクトリ:"
 
-#: libraries/classes/InsertEdit.php:1332 libraries/classes/Sql.php:964
+#: libraries/classes/InsertEdit.php:1341 libraries/classes/Sql.php:965
 msgid "Showing SQL query"
 msgstr "SQL クエリを表示"
 
-#: libraries/classes/InsertEdit.php:1356 libraries/classes/Sql.php:944
+#: libraries/classes/InsertEdit.php:1365 libraries/classes/Sql.php:945
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "id %1$d の行を挿入しました"
@@ -10838,7 +10839,7 @@ msgstr "名前"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:464
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:365
 #: templates/database/events/editor_form.twig:82
-#: templates/database/routines/editor_form.twig:109
+#: templates/database/routines/editor_form.twig:113
 #: templates/database/triggers/editor_form.twig:57
 msgid "Definition"
 msgstr "定義"
@@ -11777,8 +11778,9 @@ msgstr "ハードウェアセキュリティキー (FIDO U2F)"
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a YubiKey."
-msgstr "YubiKey などの FIDO U2F "
-"をサポートするハードウェアセキュリティトークンを使用して認証を行います。"
+msgstr ""
+"YubiKey などの FIDO U2F をサポートするハードウェアセキュリティトークンを使用"
+"して認証を行います。"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:73
 #, php-format
@@ -11813,8 +11815,9 @@ msgstr "ハードウェアセキュリティキー (WebAuthn/FIDO2)"
 msgid ""
 "Provides authentication using hardware security tokens supporting the "
 "WebAuthn/FIDO2 protocol, such as a YubiKey."
-msgstr "YubiKey などの WebAuthn/FIDO2 プロトコルに対応したハードウェアセキュリティト"
-"ークンを使用して認証を行います。"
+msgstr ""
+"YubiKey などの WebAuthn/FIDO2 プロトコルに対応したハードウェアセキュリティ"
+"トークンを使用して認証を行います。"
 
 #: libraries/classes/Query/Utilities.php:97
 msgid ""
@@ -12481,16 +12484,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "入手可能な新しい安定バージョンはありません"
 
-#: libraries/classes/Sql.php:497
+#: libraries/classes/Sql.php:498
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "デフォルトの表示クエリとしてブックマーク \"%s\" を使用する。"
 
-#: libraries/classes/Sql.php:961
+#: libraries/classes/Sql.php:962
 msgid "Showing as PHP code"
 msgstr "PHP コードとして表示"
 
-#: libraries/classes/Sql.php:1336
+#: libraries/classes/Sql.php:1337
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -12499,7 +12502,7 @@ msgstr ""
 "現在の選択には、ユニークなカラムが含まれていません。グリッド編集、チェック"
 "ボックス、編集、コピー、削除機能は利用できません。%s"
 
-#: libraries/classes/Sql.php:1350
+#: libraries/classes/Sql.php:1351
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -13610,7 +13613,7 @@ msgstr "エンジン"
 #: templates/config/form_display/input.twig:53
 #: templates/database/data_dictionary/index.twig:81
 #: templates/database/events/editor_form.twig:102
-#: templates/database/routines/editor_form.twig:163
+#: templates/database/routines/editor_form.twig:167
 #: templates/database/structure/table_header.twig:46 templates/indexes.twig:24
 #: templates/table/structure/display_partitions.twig:31
 #: templates/table/structure/display_structure.twig:483
@@ -13694,7 +13697,7 @@ msgstr "照合順序"
 #: templates/columns_definitions/table_fields_definitions.twig:36
 #: templates/database/operations/index.twig:68
 #: templates/database/operations/index.twig:173
-#: templates/database/routines/editor_form.twig:124
+#: templates/database/routines/editor_form.twig:128
 #: templates/database/structure/copy_form.twig:50
 #: templates/table/operations/index.twig:79
 #: templates/table/operations/index.twig:115
@@ -14309,7 +14312,7 @@ msgid "On completion preserve"
 msgstr "完了後もイベントを残す"
 
 #: templates/database/events/editor_form.twig:96
-#: templates/database/routines/editor_form.twig:138
+#: templates/database/routines/editor_form.twig:142
 #: templates/database/triggers/editor_form.twig:61
 #: templates/view_create.twig:45
 msgid "Definer"
@@ -14695,37 +14698,38 @@ msgstr "パラメータ"
 msgid "Direction"
 msgstr "入出力"
 
-#: templates/database/routines/editor_form.twig:66
+#: templates/database/routines/editor_form.twig:67
+#: templates/database/routines/editor_form.twig:69
 msgid "Add parameter"
 msgstr "パラメータを追加する"
 
-#: templates/database/routines/editor_form.twig:67
+#: templates/database/routines/editor_form.twig:70
 msgid "Remove last parameter"
 msgstr "最後のパラメータを削除する"
 
-#: templates/database/routines/editor_form.twig:71
+#: templates/database/routines/editor_form.twig:75
 msgid "Return type"
 msgstr "返り値の種類"
 
-#: templates/database/routines/editor_form.twig:79
+#: templates/database/routines/editor_form.twig:83
 msgid "Return length/values"
 msgstr "返り値の長さ/値"
 
-#: templates/database/routines/editor_form.twig:86
+#: templates/database/routines/editor_form.twig:90
 msgid "Return options"
 msgstr "返り値のオプション"
 
-#: templates/database/routines/editor_form.twig:90
+#: templates/database/routines/editor_form.twig:94
 #: templates/database/routines/parameter_row.twig:31
 #: templates/database/structure/table_header.twig:42
 msgid "Charset"
 msgstr "文字セット"
 
-#: templates/database/routines/editor_form.twig:115
+#: templates/database/routines/editor_form.twig:119
 msgid "Is deterministic"
 msgstr "DETERMINISTIC"
 
-#: templates/database/routines/editor_form.twig:131
+#: templates/database/routines/editor_form.twig:135
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details."
@@ -14733,11 +14737,11 @@ msgstr ""
 "この操作を行うのに十分な権限がありません。詳細についてはドキュメンテーション"
 "を参照してください。"
 
-#: templates/database/routines/editor_form.twig:144
+#: templates/database/routines/editor_form.twig:148
 msgid "Security type"
 msgstr "SQL SECURITY"
 
-#: templates/database/routines/editor_form.twig:153
+#: templates/database/routines/editor_form.twig:157
 msgid "SQL data access"
 msgstr "データ干渉方式"
 
@@ -16094,8 +16098,9 @@ msgstr "非推奨です！"
 msgid ""
 "The FIDO U2F API has been deprecated in favor of the Web Authentication API "
 "(WebAuthn)."
-msgstr "FIDO U2F API は非推奨となり、 Web Authentication API (WebAuthn) "
-"に置き換えられました。"
+msgstr ""
+"FIDO U2F API は非推奨となり、 Web Authentication API (WebAuthn) に置き換えら"
+"れました。"
 
 #: templates/login/twofactor/key_configure.twig:6
 #: templates/login/twofactor/key.twig:6
@@ -16105,9 +16110,8 @@ msgid ""
 "API, however it's recommended that you use the WebAuthn authentication "
 "instead."
 msgstr ""
-"Firefox を使用して FIDO U2F API "
-"を使用したアカウント認証を行うことはできますが、代わりに WebAuthn "
-"認証を使用することをお勧めします。"
+"Firefox を使用して FIDO U2F API を使用したアカウント認証を行うことはできます"
+"が、代わりに WebAuthn 認証を使用することをお勧めします。"
 
 #: templates/login/twofactor/key_configure.twig:10
 msgid ""
@@ -16141,14 +16145,16 @@ msgstr "検証"
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm registration on the "
 "device."
-msgstr "WebAuthn/FIDO2 機器を接続してください。 "
-"その後、その機器での登録を確認してください。"
+msgstr ""
+"WebAuthn/FIDO2 機器を接続してください。 その後、その機器での登録を確認してく"
+"ださい。"
 
 #: templates/login/twofactor/webauthn_request.twig:1
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm login on the device."
-msgstr "WebAuthn/FIDO2 機器を接続してください。 "
-"その後、その機器でログインを確認してください。"
+msgstr ""
+"WebAuthn/FIDO2 機器を接続してください。 その後、その機器でログインを確認して"
+"ください。"
 
 #: templates/menu/breadcrumbs.twig:27
 msgid "View:"
@@ -16388,8 +16394,9 @@ msgstr "このユーザアカウントは二要素認証が設定されていな
 #: templates/preferences/two_factor/main.twig:26
 msgid ""
 "Please install optional dependencies to enable more authentication backends."
-msgstr "より多くの認証バックエンドを有効にするために、オプションの依存関係をインスト"
-"ールしてください。"
+msgstr ""
+"より多くの認証バックエンドを有効にするために、オプションの依存関係をインス"
+"トールしてください。"
 
 #: templates/preferences/two_factor/main.twig:37
 msgid ""

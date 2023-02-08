@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
+"Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-01-21 15:49+0000\n"
+"POT-Creation-Date: 2023-02-08 15:09+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1408,7 +1408,7 @@ msgstr "Izdeý:"
 #: templates/database/operations/index.twig:75
 #: templates/database/operations/index.twig:185
 #: templates/database/operations/index.twig:225
-#: templates/database/routines/editor_form.twig:176
+#: templates/database/routines/editor_form.twig:180
 #: templates/database/routines/execute_form.twig:55
 #: templates/database/search/main.twig:74
 #: templates/database/triggers/editor_form.twig:69
@@ -4375,7 +4375,7 @@ msgstr "Qulyptalǵan kestelerdi ótkizý"
 #: libraries/classes/Config/Descriptions.php:946
 #: libraries/classes/ConfigStorage/UserGroups.php:124
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
-#: libraries/classes/Display/Results.php:2967
+#: libraries/classes/Display/Results.php:2969
 #: libraries/classes/Html/Generator.php:657
 #: libraries/classes/Html/Generator.php:908
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
@@ -5229,7 +5229,7 @@ msgid "Table %s has been emptied."
 msgstr "%s kestesi bosatyldy."
 
 #: libraries/classes/Controllers/Database/StructureController.php:577
-#: libraries/classes/Display/Results.php:3980
+#: libraries/classes/Display/Results.php:3982
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -6750,7 +6750,7 @@ msgid "Show query box"
 msgstr "Saýal uıasyn kórsetý"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
-#: libraries/classes/Display/Results.php:3035
+#: libraries/classes/Display/Results.php:3037
 #: libraries/classes/Tracking.php:260 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:268
 #: templates/database/central_columns/main.twig:380
@@ -7014,13 +7014,13 @@ msgstr "Derekter núktesiniń mazmuny"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:631
-#: libraries/classes/ErrorHandler.php:446 libraries/classes/InsertEdit.php:1996
+#: libraries/classes/ErrorHandler.php:446 libraries/classes/InsertEdit.php:2005
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Elemeý"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:476
-#: libraries/classes/Display/Results.php:2971
+#: libraries/classes/Display/Results.php:2973
 #: libraries/classes/Html/Generator.php:75
 #: templates/display/results/table.twig:231
 #: templates/display/results/table.twig:232
@@ -7617,13 +7617,13 @@ msgid "Table %s already exists!"
 msgstr "%s kestesi áldeqashan bar!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:708
-#: libraries/classes/InsertEdit.php:326
+#: libraries/classes/InsertEdit.php:335
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "Jasyrý"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:709
-#: libraries/classes/Controllers/Table/ChangeController.php:187
+#: libraries/classes/Controllers/Table/ChangeController.php:194
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
@@ -8508,7 +8508,7 @@ msgid "Insecure connection"
 msgstr "Qorǵalmaǵan qosylym"
 
 #: libraries/classes/Controllers/Sql/SqlController.php:235
-#: libraries/classes/Sql.php:1153
+#: libraries/classes/Sql.php:1154
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Betbelgi %s jasaldy."
@@ -8572,7 +8572,7 @@ msgstr "%s kestesi áldeqashan bar!"
 #: libraries/classes/Controllers/Table/RelationController.php:241
 #: libraries/classes/Controllers/View/OperationsController.php:87
 #: libraries/classes/Database/Routines.php:1224
-#: libraries/classes/Display/Results.php:3693 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3695 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL-saýalyńyz sátti oryndaldy."
@@ -8614,8 +8614,8 @@ msgstr "Munda tym kóp ındekssiz jalǵasýlar bar."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:86
 #: libraries/classes/Database/Routines.php:1243
-#: libraries/classes/Import.php:149 libraries/classes/InsertEdit.php:220
-#: libraries/classes/Sql.php:967
+#: libraries/classes/Import.php:149 libraries/classes/InsertEdit.php:229
+#: libraries/classes/Sql.php:968
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL bos nátıje jıynyn qaıtardy (ıaǵnı nóldik joldar)."
 
@@ -8642,7 +8642,7 @@ msgstr "Kórinis"
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:62
 #: libraries/classes/Controllers/View/OperationsController.php:90
 #: libraries/classes/Html/Generator.php:856 libraries/classes/Import.php:133
-#: libraries/classes/InsertEdit.php:715 libraries/classes/Message.php:192
+#: libraries/classes/InsertEdit.php:724 libraries/classes/Message.php:192
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:372
 msgid "Error"
@@ -9296,41 +9296,41 @@ msgstr "Kemý boıynsha"
 msgid "Ascending"
 msgstr "Ósý boıynsha"
 
-#: libraries/classes/Display/Results.php:3011
-#: libraries/classes/Display/Results.php:3026
+#: libraries/classes/Display/Results.php:3013
+#: libraries/classes/Display/Results.php:3028
 msgid "The row has been deleted."
 msgstr "Jol joıyldy."
 
-#: libraries/classes/Display/Results.php:3058
+#: libraries/classes/Display/Results.php:3060
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Doǵarý"
 
-#: libraries/classes/Display/Results.php:3626
+#: libraries/classes/Display/Results.php:3628
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Shamamen bolýy múmkin. [doc@faq3-11]FAQ 3.11[/doc] qarańyz."
 
-#: libraries/classes/Display/Results.php:3989
+#: libraries/classes/Display/Results.php:3991
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "%1s - %2s joldardy kórsetýde"
 
-#: libraries/classes/Display/Results.php:4003
+#: libraries/classes/Display/Results.php:4005
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d qorytyndy, %2$d saýalda"
 
-#: libraries/classes/Display/Results.php:4008
+#: libraries/classes/Display/Results.php:4010
 #, php-format
 msgid "%d total"
 msgstr "%d qorytyndy"
 
-#: libraries/classes/Display/Results.php:4021 libraries/classes/Sql.php:973
+#: libraries/classes/Display/Results.php:4023 libraries/classes/Sql.php:974
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Saýal %01.4f sekýnt jumsady."
 
-#: libraries/classes/Display/Results.php:4352
+#: libraries/classes/Display/Results.php:4354
 msgid "Link not found!"
 msgstr "Silteme tabylmady!"
 
@@ -9868,7 +9868,7 @@ msgstr "Statıkalyq taldaý:"
 msgid "%d errors were found during analysis."
 msgstr "Taldaý kezinde %d qate tabyldy."
 
-#: libraries/classes/Import.php:287 libraries/classes/Sql.php:981
+#: libraries/classes/Import.php:287 libraries/classes/Sql.php:982
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK oryn aldy.]"
 
@@ -9963,7 +9963,7 @@ msgstr ""
 "%1$s men %2$s ındeksteri birdeı kórinedi jáne olardyń bireýi alastalýy "
 "múmkin."
 
-#: libraries/classes/InsertEdit.php:342
+#: libraries/classes/InsertEdit.php:351
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:28
 #: templates/database/routines/execute_form.twig:18
 #: templates/table/search/index.twig:36
@@ -9971,7 +9971,7 @@ msgstr ""
 msgid "Function"
 msgstr "Funksıa"
 
-#: libraries/classes/InsertEdit.php:345
+#: libraries/classes/InsertEdit.php:354
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:275
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:370
 #: libraries/classes/Plugins/Export/ExportLatex.php:543
@@ -10005,12 +10005,12 @@ msgstr "Funksıa"
 msgid "Type"
 msgstr "Túri"
 
-#: libraries/classes/InsertEdit.php:716 templates/import.twig:60
+#: libraries/classes/InsertEdit.php:725 templates/import.twig:60
 #: templates/import.twig:85
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Júktep salý jumysyna ornatylǵan katalogqa jetý múmkin emes."
 
-#: libraries/classes/InsertEdit.php:724
+#: libraries/classes/InsertEdit.php:733
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:32
 #: templates/server/privileges/privileges_table.twig:59
@@ -10020,15 +10020,15 @@ msgstr "Júktep salý jumysyna ornatylǵan katalogqa jetý múmkin emes."
 msgid "Or"
 msgstr "Nemese"
 
-#: libraries/classes/InsertEdit.php:725
+#: libraries/classes/InsertEdit.php:734
 msgid "web server upload directory:"
 msgstr "ýeb-serverdiń júktep salý katalogy:"
 
-#: libraries/classes/InsertEdit.php:1332 libraries/classes/Sql.php:964
+#: libraries/classes/InsertEdit.php:1341 libraries/classes/Sql.php:965
 msgid "Showing SQL query"
 msgstr "SQL-saýal kórsetý"
 
-#: libraries/classes/InsertEdit.php:1356 libraries/classes/Sql.php:944
+#: libraries/classes/InsertEdit.php:1365 libraries/classes/Sql.php:945
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Kiristirilgen jol uqsatqyshy: %1$d"
@@ -11078,7 +11078,7 @@ msgstr "Aty"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:464
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:365
 #: templates/database/events/editor_form.twig:82
-#: templates/database/routines/editor_form.twig:109
+#: templates/database/routines/editor_form.twig:113
 #: templates/database/triggers/editor_form.twig:57
 msgid "Definition"
 msgstr "Anyqtamasy"
@@ -12797,16 +12797,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Jańaraq turaqty nusqasy qoljetimdi emes"
 
-#: libraries/classes/Sql.php:497
+#: libraries/classes/Sql.php:498
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Ádepki sharlaý saýaly retinde «%s» betbelgisi paıdalanylady."
 
-#: libraries/classes/Sql.php:961
+#: libraries/classes/Sql.php:962
 msgid "Showing as PHP code"
 msgstr "PHP-kod retinde kórsetilýde"
 
-#: libraries/classes/Sql.php:1336
+#: libraries/classes/Sql.php:1337
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -12815,7 +12815,7 @@ msgstr ""
 "Aǵymdyq bólekteýde biregeı baǵan joq. Tor óńdeý, qusbelgi, Óńdeý, Kóshiriý "
 "jáne Joıý múmkindikter qoljetimdi emes. %s"
 
-#: libraries/classes/Sql.php:1350
+#: libraries/classes/Sql.php:1351
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -13942,7 +13942,7 @@ msgstr "Mehanızm"
 #: templates/config/form_display/input.twig:53
 #: templates/database/data_dictionary/index.twig:81
 #: templates/database/events/editor_form.twig:102
-#: templates/database/routines/editor_form.twig:163
+#: templates/database/routines/editor_form.twig:167
 #: templates/database/structure/table_header.twig:46 templates/indexes.twig:24
 #: templates/table/structure/display_partitions.twig:31
 #: templates/table/structure/display_structure.twig:483
@@ -14027,7 +14027,7 @@ msgstr "Kolasıa"
 #: templates/columns_definitions/table_fields_definitions.twig:36
 #: templates/database/operations/index.twig:68
 #: templates/database/operations/index.twig:173
-#: templates/database/routines/editor_form.twig:124
+#: templates/database/routines/editor_form.twig:128
 #: templates/database/structure/copy_form.twig:50
 #: templates/table/operations/index.twig:79
 #: templates/table/operations/index.twig:115
@@ -14652,7 +14652,7 @@ msgid "On completion preserve"
 msgstr "Aıaqtalǵannan keıin saqtap otyrý"
 
 #: templates/database/events/editor_form.twig:96
-#: templates/database/routines/editor_form.twig:138
+#: templates/database/routines/editor_form.twig:142
 #: templates/database/triggers/editor_form.twig:61
 #: templates/view_create.twig:45
 msgid "Definer"
@@ -15060,37 +15060,38 @@ msgstr "Parametrler"
 msgid "Direction"
 msgstr "Baǵyt"
 
-#: templates/database/routines/editor_form.twig:66
+#: templates/database/routines/editor_form.twig:67
+#: templates/database/routines/editor_form.twig:69
 msgid "Add parameter"
 msgstr "Parrametr ústeý"
 
-#: templates/database/routines/editor_form.twig:67
+#: templates/database/routines/editor_form.twig:70
 msgid "Remove last parameter"
 msgstr "Sońǵy parametrdi alastaý"
 
-#: templates/database/routines/editor_form.twig:71
+#: templates/database/routines/editor_form.twig:75
 msgid "Return type"
 msgstr "Qaıtarym túri"
 
-#: templates/database/routines/editor_form.twig:79
+#: templates/database/routines/editor_form.twig:83
 msgid "Return length/values"
 msgstr "Qaıtarym uzyndyǵy/mánderi"
 
-#: templates/database/routines/editor_form.twig:86
+#: templates/database/routines/editor_form.twig:90
 msgid "Return options"
 msgstr "Qaıtarym opsıalary"
 
-#: templates/database/routines/editor_form.twig:90
+#: templates/database/routines/editor_form.twig:94
 #: templates/database/routines/parameter_row.twig:31
 #: templates/database/structure/table_header.twig:42
 msgid "Charset"
 msgstr "Tańbalar jıyny"
 
-#: templates/database/routines/editor_form.twig:115
+#: templates/database/routines/editor_form.twig:119
 msgid "Is deterministic"
 msgstr "Sheshýshi"
 
-#: templates/database/routines/editor_form.twig:131
+#: templates/database/routines/editor_form.twig:135
 #, fuzzy
 #| msgid ""
 #| "You do not have sufficient privileges to perform this operation; Please "
@@ -15102,11 +15103,11 @@ msgstr ""
 "Bul áreketti oryndaý úshin jetkilikti artyqshylyqtaryńyz joq. Kóbirek "
 "egjeler úshin qujattamany qarańyz"
 
-#: templates/database/routines/editor_form.twig:144
+#: templates/database/routines/editor_form.twig:148
 msgid "Security type"
 msgstr "Qaýipsizdik túri"
 
-#: templates/database/routines/editor_form.twig:153
+#: templates/database/routines/editor_form.twig:157
 msgid "SQL data access"
 msgstr "SQL-derekterge qatynaý"
 

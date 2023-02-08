@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 5.2.1-dev\n"
+"Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-01-21 15:49+0000\n"
+"POT-Creation-Date: 2023-02-08 15:09+0000\n"
 "PO-Revision-Date: 2022-02-17 10:34+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/"
@@ -1157,7 +1157,7 @@ msgstr "Пошук:"
 #: templates/database/operations/index.twig:75
 #: templates/database/operations/index.twig:185
 #: templates/database/operations/index.twig:225
-#: templates/database/routines/editor_form.twig:176
+#: templates/database/routines/editor_form.twig:180
 #: templates/database/routines/execute_form.twig:55
 #: templates/database/search/main.twig:74
 #: templates/database/triggers/editor_form.twig:69
@@ -3872,7 +3872,7 @@ msgstr "Прапускаць заблакаваныя табліцы"
 #: libraries/classes/Config/Descriptions.php:946
 #: libraries/classes/ConfigStorage/UserGroups.php:124
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
-#: libraries/classes/Display/Results.php:2967
+#: libraries/classes/Display/Results.php:2969
 #: libraries/classes/Html/Generator.php:657
 #: libraries/classes/Html/Generator.php:908
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
@@ -4669,7 +4669,7 @@ msgid "Table %s has been emptied."
 msgstr "Табліца %s была ачышчаная."
 
 #: libraries/classes/Controllers/Database/StructureController.php:577
-#: libraries/classes/Display/Results.php:3980
+#: libraries/classes/Display/Results.php:3982
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -6118,7 +6118,7 @@ msgid "Show query box"
 msgstr "Паказаць акно запытаў"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
-#: libraries/classes/Display/Results.php:3035
+#: libraries/classes/Display/Results.php:3037
 #: libraries/classes/Tracking.php:260 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:268
 #: templates/database/central_columns/main.twig:380
@@ -6370,13 +6370,13 @@ msgstr "Змест кропкі даных"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:631
-#: libraries/classes/ErrorHandler.php:446 libraries/classes/InsertEdit.php:1996
+#: libraries/classes/ErrorHandler.php:446 libraries/classes/InsertEdit.php:2005
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Ігнараваць"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:476
-#: libraries/classes/Display/Results.php:2971
+#: libraries/classes/Display/Results.php:2973
 #: libraries/classes/Html/Generator.php:75
 #: templates/display/results/table.twig:231
 #: templates/display/results/table.twig:232
@@ -6933,13 +6933,13 @@ msgid "Table %s already exists!"
 msgstr "Табліца %s ужо існуе!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:708
-#: libraries/classes/InsertEdit.php:326
+#: libraries/classes/InsertEdit.php:335
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "Схаваць"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:709
-#: libraries/classes/Controllers/Table/ChangeController.php:187
+#: libraries/classes/Controllers/Table/ChangeController.php:194
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
@@ -7839,7 +7839,7 @@ msgid "Insecure connection"
 msgstr ""
 
 #: libraries/classes/Controllers/Sql/SqlController.php:235
-#: libraries/classes/Sql.php:1153
+#: libraries/classes/Sql.php:1154
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Закладка %s створаная."
@@ -7903,7 +7903,7 @@ msgstr "Табліца %s ужо існуе!"
 #: libraries/classes/Controllers/Table/RelationController.php:241
 #: libraries/classes/Controllers/View/OperationsController.php:87
 #: libraries/classes/Database/Routines.php:1224
-#: libraries/classes/Display/Results.php:3693 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3695 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "Ваш SQL-запыт быў паспяхова выкананы."
@@ -7946,8 +7946,8 @@ msgstr "Занадта шмат злучэнняў без індэксаў."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:86
 #: libraries/classes/Database/Routines.php:1243
-#: libraries/classes/Import.php:149 libraries/classes/InsertEdit.php:220
-#: libraries/classes/Sql.php:967
+#: libraries/classes/Import.php:149 libraries/classes/InsertEdit.php:229
+#: libraries/classes/Sql.php:968
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL вярнула пусты вынік (то бок нуль радкоў)."
 
@@ -7974,7 +7974,7 @@ msgstr "Выгляд"
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:62
 #: libraries/classes/Controllers/View/OperationsController.php:90
 #: libraries/classes/Html/Generator.php:856 libraries/classes/Import.php:133
-#: libraries/classes/InsertEdit.php:715 libraries/classes/Message.php:192
+#: libraries/classes/InsertEdit.php:724 libraries/classes/Message.php:192
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:372
 msgid "Error"
@@ -8613,41 +8613,41 @@ msgstr "адваротны"
 msgid "Ascending"
 msgstr "прамы"
 
-#: libraries/classes/Display/Results.php:3011
-#: libraries/classes/Display/Results.php:3026
+#: libraries/classes/Display/Results.php:3013
+#: libraries/classes/Display/Results.php:3028
 msgid "The row has been deleted."
 msgstr "Радок быў выдалены."
 
-#: libraries/classes/Display/Results.php:3058
+#: libraries/classes/Display/Results.php:3060
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Спыніць"
 
-#: libraries/classes/Display/Results.php:3626
+#: libraries/classes/Display/Results.php:3628
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Значэнне можа быць прыблізным. Гл. [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:3989
+#: libraries/classes/Display/Results.php:3991
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Паказаныя запісы %1s - %2s"
 
-#: libraries/classes/Display/Results.php:4003
+#: libraries/classes/Display/Results.php:4005
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:4008
+#: libraries/classes/Display/Results.php:4010
 #, php-format
 msgid "%d total"
 msgstr "%d усяго"
 
-#: libraries/classes/Display/Results.php:4021 libraries/classes/Sql.php:973
+#: libraries/classes/Display/Results.php:4023 libraries/classes/Sql.php:974
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Запыт выконваўся %01.4f секунд."
 
-#: libraries/classes/Display/Results.php:4352
+#: libraries/classes/Display/Results.php:4354
 msgid "Link not found!"
 msgstr "Сувязь ня знойдзеная!"
 
@@ -9189,7 +9189,7 @@ msgstr ""
 msgid "%d errors were found during analysis."
 msgstr ""
 
-#: libraries/classes/Import.php:287 libraries/classes/Sql.php:981
+#: libraries/classes/Import.php:287 libraries/classes/Sql.php:982
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -9281,7 +9281,7 @@ msgstr ""
 "Падобна, што індэксы %1$s і %2$s зьяўляюцца аднолькавымі, а таму адзін зь "
 "іх, магчыма, можна выдаліць."
 
-#: libraries/classes/InsertEdit.php:342
+#: libraries/classes/InsertEdit.php:351
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:28
 #: templates/database/routines/execute_form.twig:18
 #: templates/table/search/index.twig:36
@@ -9289,7 +9289,7 @@ msgstr ""
 msgid "Function"
 msgstr "Функцыя"
 
-#: libraries/classes/InsertEdit.php:345
+#: libraries/classes/InsertEdit.php:354
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:275
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:370
 #: libraries/classes/Plugins/Export/ExportLatex.php:543
@@ -9323,12 +9323,12 @@ msgstr "Функцыя"
 msgid "Type"
 msgstr "Тып"
 
-#: libraries/classes/InsertEdit.php:716 templates/import.twig:60
+#: libraries/classes/InsertEdit.php:725 templates/import.twig:60
 #: templates/import.twig:85
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Немагчыма адкрыць пазначаную вамі тэчку для загрузкі файлаў."
 
-#: libraries/classes/InsertEdit.php:724
+#: libraries/classes/InsertEdit.php:733
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:32
 #: templates/server/privileges/privileges_table.twig:59
@@ -9338,15 +9338,15 @@ msgstr "Немагчыма адкрыць пазначаную вамі тэчк
 msgid "Or"
 msgstr "Або"
 
-#: libraries/classes/InsertEdit.php:725
+#: libraries/classes/InsertEdit.php:734
 msgid "web server upload directory:"
 msgstr "каталог вэб-сервера для загрузкі:"
 
-#: libraries/classes/InsertEdit.php:1332 libraries/classes/Sql.php:964
+#: libraries/classes/InsertEdit.php:1341 libraries/classes/Sql.php:965
 msgid "Showing SQL query"
 msgstr "У выглядзе SQL-запыту"
 
-#: libraries/classes/InsertEdit.php:1356 libraries/classes/Sql.php:944
+#: libraries/classes/InsertEdit.php:1365 libraries/classes/Sql.php:945
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID устаўленага радку: %1$d"
@@ -10351,7 +10351,7 @@ msgstr "Назва"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:464
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:365
 #: templates/database/events/editor_form.twig:82
-#: templates/database/routines/editor_form.twig:109
+#: templates/database/routines/editor_form.twig:113
 #: templates/database/triggers/editor_form.twig:57
 msgid "Definition"
 msgstr "Азначэнне"
@@ -11982,23 +11982,23 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr ""
 
-#: libraries/classes/Sql.php:497
+#: libraries/classes/Sql.php:498
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/classes/Sql.php:961
+#: libraries/classes/Sql.php:962
 msgid "Showing as PHP code"
 msgstr "У выглядзе PHP-коду"
 
-#: libraries/classes/Sql.php:1336
+#: libraries/classes/Sql.php:1337
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
 
-#: libraries/classes/Sql.php:1350
+#: libraries/classes/Sql.php:1351
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -13056,7 +13056,7 @@ msgstr "Механізм"
 #: templates/config/form_display/input.twig:53
 #: templates/database/data_dictionary/index.twig:81
 #: templates/database/events/editor_form.twig:102
-#: templates/database/routines/editor_form.twig:163
+#: templates/database/routines/editor_form.twig:167
 #: templates/database/structure/table_header.twig:46 templates/indexes.twig:24
 #: templates/table/structure/display_partitions.twig:31
 #: templates/table/structure/display_structure.twig:483
@@ -13147,7 +13147,7 @@ msgstr "Параўноўванне"
 #: templates/columns_definitions/table_fields_definitions.twig:36
 #: templates/database/operations/index.twig:68
 #: templates/database/operations/index.twig:173
-#: templates/database/routines/editor_form.twig:124
+#: templates/database/routines/editor_form.twig:128
 #: templates/database/structure/copy_form.twig:50
 #: templates/table/operations/index.twig:79
 #: templates/table/operations/index.twig:115
@@ -13777,7 +13777,7 @@ msgid "On completion preserve"
 msgstr "Па завяршэнні захавання"
 
 #: templates/database/events/editor_form.twig:96
-#: templates/database/routines/editor_form.twig:138
+#: templates/database/routines/editor_form.twig:142
 #: templates/database/triggers/editor_form.twig:61
 #: templates/view_create.twig:45
 msgid "Definer"
@@ -14187,37 +14187,38 @@ msgstr ""
 msgid "Direction"
 msgstr "Напрамак"
 
-#: templates/database/routines/editor_form.twig:66
+#: templates/database/routines/editor_form.twig:67
+#: templates/database/routines/editor_form.twig:69
 msgid "Add parameter"
 msgstr "Дадаць параметр"
 
-#: templates/database/routines/editor_form.twig:67
+#: templates/database/routines/editor_form.twig:70
 msgid "Remove last parameter"
 msgstr "Выдаліць апошні параметр"
 
-#: templates/database/routines/editor_form.twig:71
+#: templates/database/routines/editor_form.twig:75
 msgid "Return type"
 msgstr "Тып працэдуры"
 
-#: templates/database/routines/editor_form.twig:79
+#: templates/database/routines/editor_form.twig:83
 msgid "Return length/values"
 msgstr "Вярнуць даўжыню/значэнні"
 
-#: templates/database/routines/editor_form.twig:86
+#: templates/database/routines/editor_form.twig:90
 msgid "Return options"
 msgstr "Вярнуць опцыі"
 
-#: templates/database/routines/editor_form.twig:90
+#: templates/database/routines/editor_form.twig:94
 #: templates/database/routines/parameter_row.twig:31
 #: templates/database/structure/table_header.twig:42
 msgid "Charset"
 msgstr "Знаказбор"
 
-#: templates/database/routines/editor_form.twig:115
+#: templates/database/routines/editor_form.twig:119
 msgid "Is deterministic"
 msgstr ""
 
-#: templates/database/routines/editor_form.twig:131
+#: templates/database/routines/editor_form.twig:135
 #, fuzzy
 #| msgid ""
 #| "You don't have sufficient privileges to perform this operation; Please "
@@ -14229,11 +14230,11 @@ msgstr ""
 "Вы не маеце дастатковых прывілеяў для выканання гэтай аперацыі. Калі ласка, "
 "звярніцеся да дакументацыі для дэтальнай інфармацыі"
 
-#: templates/database/routines/editor_form.twig:144
+#: templates/database/routines/editor_form.twig:148
 msgid "Security type"
 msgstr "Тып бяспекі"
 
-#: templates/database/routines/editor_form.twig:153
+#: templates/database/routines/editor_form.twig:157
 msgid "SQL data access"
 msgstr ""
 
