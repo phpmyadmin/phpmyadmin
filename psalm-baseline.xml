@@ -13235,7 +13235,7 @@
     <LessSpecificReturnStatement occurrences="1">
       <code>$unlimNumRows</code>
     </LessSpecificReturnStatement>
-    <MixedArgument occurrences="43">
+    <MixedArgument occurrences="42">
       <code>$analyzedSqlResults</code>
       <code>$analyzedSqlResults['is_affected']</code>
       <code>$analyzedSqlResults['is_analyse']</code>
@@ -13273,9 +13273,8 @@
       <code>$oneResult['Duration']</code>
       <code>$oneResult['Status']</code>
       <code>$sortCol</code>
-      <code>$statement</code>
+      <code>$statement-&gt;expr</code>
       <code>$table</code>
-      <code>$tokenList</code>
       <code>$unlimNumRows</code>
       <code>$unlimNumRows</code>
       <code>Message::sanitize($warning)</code>
@@ -13304,14 +13303,15 @@
       <code>$oneResult['Duration']</code>
       <code>$oneResult['Status']</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="2">
+    <MixedArrayAssignment occurrences="3">
       <code>$_SESSION['tmpval']['pos']</code>
       <code>$_SESSION['tmpval']['possible_as_geometry']</code>
+      <code>$statement-&gt;expr[0]</code>
     </MixedArrayAssignment>
     <MixedArrayTypeCoercion occurrences="1">
       <code>$columns[$indexColumnName]</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="21">
+    <MixedAssignment occurrences="20">
       <code>$maxRows</code>
       <code>$oneFieldMeta</code>
       <code>$oneMeta</code>
@@ -13327,7 +13327,6 @@
       <code>$statement</code>
       <code>$statement</code>
       <code>$table</code>
-      <code>$tokenList</code>
       <code>$unlimNumRows</code>
       <code>$unlimNumRows</code>
       <code>$unlimNumRows</code>
@@ -13340,7 +13339,10 @@
       <code>int|numeric-string</code>
       <code>string</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="8">
+    <MixedMethodCall occurrences="1">
+      <code>build</code>
+    </MixedMethodCall>
+    <MixedOperand occurrences="9">
       <code>$GLOBALS['cfg']['TablePrimaryKeyOrder']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos']</code>
@@ -13349,10 +13351,15 @@
       <code>$maxRows</code>
       <code>$oneResult['Duration']</code>
       <code>$profiling['chart'][$status]</code>
+      <code>$statement-&gt;build()</code>
     </MixedOperand>
+    <MixedPropertyAssignment occurrences="3">
+      <code>$statement</code>
+      <code>$statement</code>
+      <code>$statement</code>
+    </MixedPropertyAssignment>
     <MixedPropertyFetch occurrences="9">
       <code>$analyzedSqlResults['parser']-&gt;errors</code>
-      <code>$analyzedSqlResults['parser']-&gt;list</code>
       <code>$analyzedSqlResults['parser']-&gt;list</code>
       <code>$analyzedSqlResults['parser']-&gt;list</code>
       <code>$analyzedSqlResults['parser']-&gt;list</code>
@@ -13360,6 +13367,7 @@
       <code>$analyzedSqlResults['statement']-&gt;where[0]-&gt;expr</code>
       <code>$oneFieldMeta-&gt;table</code>
       <code>$oneMeta-&gt;name</code>
+      <code>$statement-&gt;expr</code>
     </MixedPropertyFetch>
     <MixedReturnStatement occurrences="4">
       <code>$pos</code>

@@ -14,9 +14,9 @@ use function class_exists;
 use function sort;
 
 use const DIRECTORY_SEPARATOR;
-use const ROOT_PATH;
 use const SORT_NATURAL;
 use const SORT_REGULAR;
+use const TEST_PATH;
 
 /**
  * @covers \PhpMyAdmin\Command\TwigLintCommand
