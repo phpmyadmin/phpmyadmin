@@ -1,6 +1,11 @@
 phpMyAdmin - ChangeLog
 ======================
 
+5.2.2 (not yet released)
+- issue #17028 Fix total count of rows in not accurate
+- issue #17683 Fix total count of rows in not accurate
+- issue #17766 Allow to open in a new tab copy and edit row actions
+
 5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid
 - issue #17506 Fix error when configuring 2FA without XMLWriter or Imagick
