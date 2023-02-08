@@ -5,7 +5,7 @@ phpMyAdmin - ChangeLog
 - issue #17842 Change js.cookie.js to js.cookie.min.js
 - issue #17632 Improve tab keypress to text fields on the login form
 
-5.2.1 (not yet released)
+5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid
 - issue #17506 Fix error when configuring 2FA without XMLWriter or Imagick
 - issue        Fix blank page when some error occurs
@@ -88,6 +88,7 @@ phpMyAdmin - ChangeLog
 - issue        Fix silent JSON parse error on upload progress
 - issue #17833 Fix "Add Parameter" button not working for Add Routine Screen
 - issue #17365 Fixed "Uncaught Error: regexp too big" on server status variables page
+- issue        [security] Fix an XSS attack through the drag-and-drop upload feature (PMASA-2023-01)
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5
