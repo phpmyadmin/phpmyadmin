@@ -136,6 +136,43 @@ class InsertEditTest extends AbstractTestCase
     }
 
     /**
+     * Test for getFormParametersForInsertForm
+     */
+    public function testGetFormParametersForInsertFormGet(): void
+    {
+        $where_clause = [
+            'foo' => 'bar ',
+            '1' => ' test',
+        ];
+        $_GET['clause_is_unique'] = false;
+        $_GET['sql_query'] = 'SELECT a';
+        $_GET['sql_signature'] = Core::signSqlQuery($_GET['sql_query']);
+        $GLOBALS['goto'] = 'index.php';
+
+        $result = $this->insertEdit->getFormParametersForInsertForm(
+            'dbname',
+            'tablename',
+            [],
+            $where_clause,
+            'localhost'
+        );
+
+        $this->assertEquals(
+            [
+                'db' => 'dbname',
+                'table' => 'tablename',
+                'goto' => 'index.php',
+                'err_url' => 'localhost',
+                'sql_query' => 'SELECT a',
+                'where_clause[foo]' => 'bar',
+                'where_clause[1]' => 'test',
+                'clause_is_unique' => false,
+            ],
+            $result
+        );
+    }
+
+    /**
      * Test for getWhereClauseArray
      */
     public function testGetWhereClauseArray(): void

@@ -2953,8 +2953,10 @@ class Results
             'db' => $this->properties['db'],
             'table' => $this->properties['table'],
             'where_clause' => $whereClause,
+            'where_clause_signature' => Core::signSqlQuery($whereClause),
             'clause_is_unique' => $clauseIsUnique,
             'sql_query' => $urlSqlQuery,
+            'sql_signature' => Core::signSqlQuery($urlSqlQuery),
             'goto' => Url::getFromRoute('/sql'),
         ];
 
