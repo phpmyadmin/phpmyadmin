@@ -663,10 +663,9 @@ const AJAX = {
          * Records that a file has been downloaded
          *
          * @param {string} file The filename
-         * @param {string} fire Whether this file will be registering
-         *                      onload/teardown events
+         * @param {boolean} fire Whether this file will be registering onload/teardown events
          *
-         * @return {self} For chaining
+         * @return {void}
          */
         add: function (file, fire) {
             this.scripts.push(file);
@@ -675,7 +674,6 @@ const AJAX = {
                 // This is necessary to correctly tear down the initial page
                 this.scriptsToBeFired.push(file);
             }
-            return this;
         },
         /**
          * Download a list of js files in one request
@@ -712,7 +710,7 @@ const AJAX = {
                 var script = files[i].name;
                 // Only for scripts that we don't already have
                 if ($.inArray(script, self.scripts) === -1) {
-                    this.add(script);
+                    this.add(script, false);
                     this.appendScript(script, callback);
                 } else {
                     self.done(script, callback);
