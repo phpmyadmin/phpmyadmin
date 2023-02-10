@@ -644,14 +644,6 @@
       <code>$result['Sql_queries'][]</code>
     </MixedArrayAssignment>
   </file>
-  <file src="libraries/classes/Config/PageSettings.php">
-    <PossiblyNullArgument occurrences="1">
-      <code>$error</code>
-    </PossiblyNullArgument>
-    <ReferenceConstraintViolation occurrences="1">
-      <code>return $retval;</code>
-    </ReferenceConstraintViolation>
-  </file>
   <file src="libraries/classes/Config/ServerConfigChecks.php">
     <MixedAssignment occurrences="1">
       <code>$loginCookieValidity</code>
