@@ -3911,7 +3911,7 @@
       <code>escapeString</code>
     </DeprecatedMethod>
     <DocblockTypeContradiction occurrences="1">
-      <code>$GLOBALS['view']['as']</code>
+      <code>$viewData['as']</code>
     </DocblockTypeContradiction>
     <MixedArgument occurrences="7">
       <code>$view['as']</code>
@@ -3922,26 +3922,13 @@
       <code>$view['name']</code>
       <code>$view['name']</code>
     </MixedArgument>
-    <MixedAssignment occurrences="19">
-      <code>$GLOBALS['arr']</code>
-      <code>$GLOBALS['column_map']</code>
-      <code>$GLOBALS['item']</code>
-      <code>$GLOBALS['new_transformations_sql']</code>
-      <code>$GLOBALS['parts']</code>
-      <code>$GLOBALS['pma_transformation_data']</code>
-      <code>$GLOBALS['sep']</code>
+    <MixedAssignment occurrences="6">
       <code>$GLOBALS['sql_query']</code>
-      <code>$GLOBALS['systemDb']</code>
-      <code>$GLOBALS['view']</code>
-      <code>$GLOBALS['view']['as']</code>
-      <code>$GLOBALS['view']['as']</code>
-      <code>$GLOBALS['view']['definer']</code>
-      <code>$GLOBALS['view']['sql_security']</code>
-      <code>$GLOBALS['view']['with']</code>
-      <code>$GLOBALS['view_algorithm_options']</code>
-      <code>$GLOBALS['view_columns']</code>
-      <code>$GLOBALS['view_security_options']</code>
-      <code>$GLOBALS['view_with_options']</code>
+      <code>$viewData['as']</code>
+      <code>$viewData['as']</code>
+      <code>$viewData['definer']</code>
+      <code>$viewData['sql_security']</code>
+      <code>$viewData['with']</code>
     </MixedAssignment>
     <MixedOperand occurrences="5">
       <code>$view['algorithm']</code>
