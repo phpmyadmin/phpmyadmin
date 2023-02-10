@@ -199,8 +199,7 @@ class NavigationTree
         }
 
         // Initialize the tree by creating a root node
-        $node = NodeFactory::getInstance('NodeDatabaseContainer', 'root');
-        $this->tree = $node;
+        $this->tree = NodeFactory::getInstance('NodeDatabaseContainer', 'root');
         if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping'] || ! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
             return;
         }
@@ -1331,15 +1330,9 @@ class NavigationTree
      */
     private function controls(): string
     {
-        // always iconic
-        $showIcon = true;
-        $showText = false;
-
         $collapseAll = Generator::getNavigationLink(
             '#',
-            $showText,
             __('Collapse all'),
-            $showIcon,
             's_collapseall',
             'pma_navigation_collapse'
         );
@@ -1350,7 +1343,7 @@ class NavigationTree
             $title = __('Unlink from main panel');
         }
 
-        $unlink = Generator::getNavigationLink('#', $showText, $title, $showIcon, $syncImage, 'pma_navigation_sync');
+        $unlink = Generator::getNavigationLink('#', $title, $syncImage, 'pma_navigation_sync');
 
         return $this->template->render('navigation/tree/controls', [
             'collapse_all' => $collapseAll,

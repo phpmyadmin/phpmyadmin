@@ -7119,8 +7119,7 @@
       <code>$title</code>
       <code>$value</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="2">
-      <code>$classes</code>
+    <MixedArgumentTypeCoercion occurrences="1">
       <code>$key</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="3">
