@@ -238,9 +238,6 @@
     </RedundantCast>
   </file>
   <file src="libraries/classes/Config.php">
-    <InvalidArgument occurrences="1">
-      <code>$optionalParams</code>
-    </InvalidArgument>
     <InvalidArrayOffset occurrences="3">
       <code>$GLOBALS['cfg']['Server']['controlpass']</code>
       <code>$GLOBALS['cfg']['Server']['controluser']</code>
@@ -4652,8 +4649,9 @@
       <code>$itemName</code>
       <code>$itemName</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="10">
+    <PossiblyInvalidCast occurrences="11">
       <code>$_POST['item_comment']</code>
+      <code>$_POST['item_definer']</code>
       <code>$_POST['item_definer']</code>
       <code>$_POST['item_ends']</code>
       <code>$_POST['item_execute_at']</code>
@@ -5112,7 +5110,7 @@
     <PossiblyInvalidArrayAccess occurrences="1">
       <code>$params['dir'][$i]</code>
     </PossiblyInvalidArrayAccess>
-    <PossiblyInvalidCast occurrences="23">
+    <PossiblyInvalidCast occurrences="24">
       <code>$_GET['item_name']</code>
       <code>$_GET['item_name']</code>
       <code>$_GET['item_name']</code>
@@ -5130,6 +5128,7 @@
       <code>$_POST['item_returnopts_num']</code>
       <code>$_POST['item_returnopts_text']</code>
       <code>$_POST['item_type']</code>
+      <code>$itemDefiner</code>
       <code>$itemDefiner</code>
       <code>$itemReturnType</code>
       <code>$itemReturnType</code>
@@ -5319,7 +5318,8 @@
       <code>$itemName</code>
       <code>$itemName</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="4">
+    <PossiblyInvalidCast occurrences="5">
+      <code>$_POST['item_definer']</code>
       <code>$_POST['item_definer']</code>
       <code>$_POST['item_name']</code>
       <code>$_POST['item_original_name']</code>
@@ -5520,11 +5520,13 @@
       <code>$statementInfo-&gt;statement-&gt;expr</code>
       <code>$statementInfo-&gt;statement-&gt;where</code>
     </InvalidIterator>
-    <MixedArgument occurrences="42">
+    <MixedArgument occurrences="44">
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos'] / $_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['query']</code>
       <code>$_SESSION['tmpval']['query']</code>
+      <code>$clause</code>
+      <code>$clause</code>
       <code>$clause</code>
       <code>$clauseIsUnique</code>
       <code>$clauseIsUnique</code>
@@ -7150,6 +7152,24 @@
     </RiskyCast>
   </file>
   <file src="libraries/classes/Image/ImageWrapper.php">
+    <InvalidArgument occurrences="16">
+      <code>$image</code>
+      <code>$image</code>
+      <code>$image</code>
+      <code>$sourceImage-&gt;getImage()</code>
+      <code>$this-&gt;image</code>
+      <code>$this-&gt;image</code>
+      <code>$this-&gt;image</code>
+      <code>$this-&gt;image</code>
+      <code>$this-&gt;image</code>
+      <code>$this-&gt;image</code>
+      <code>$this-&gt;image</code>
+      <code>$this-&gt;image</code>
+      <code>$this-&gt;image</code>
+      <code>$this-&gt;image</code>
+      <code>$this-&gt;image</code>
+      <code>$this-&gt;image</code>
+    </InvalidArgument>
     <TooFewArguments occurrences="1">
       <code>imagefilledpolygon($this-&gt;image, $points, $color)</code>
     </TooFewArguments>
@@ -7400,6 +7420,9 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/InsertEdit.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>$column['Default']</code>
+    </DocblockTypeContradiction>
     <InvalidArgument occurrences="1">
       <code>$urlParams</code>
     </InvalidArgument>
@@ -7602,6 +7625,9 @@
     <RedundantCast occurrences="1">
       <code>(int) $GLOBALS['cfg']['InsertRows']</code>
     </RedundantCast>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>$textDefault !== false</code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/IpAllowDeny.php">
     <InvalidOperand occurrences="1">
@@ -8810,6 +8836,9 @@
       <code>$sessionCookieParams['secure']</code>
       <code>$single_signon_cfgupdate</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$sessionCookieParams</code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment occurrences="13">
       <code>$GLOBALS['cfg']['Server']['host']</code>
       <code>$GLOBALS['cfg']['Server']['port']</code>
@@ -13693,6 +13722,12 @@
       <code>$newData[$newName]</code>
       <code>$value</code>
     </MixedAssignment>
+    <RedundantCastGivenDocblockType occurrences="1">
+      <code>(string) substr($zdata, 0, strlen($zdata) - 4)</code>
+    </RedundantCastGivenDocblockType>
+    <UnnecessaryVarAnnotation occurrences="1">
+      <code>array</code>
+    </UnnecessaryVarAnnotation>
   </file>
   <file src="libraries/config.default.php">
     <UnusedVariable occurrences="1">
@@ -13796,6 +13831,9 @@
     </PossiblyInvalidArgument>
   </file>
   <file src="test/classes/Command/TwigLintCommandTest.php">
+    <DeprecatedMethod occurrences="1">
+      <code>withConsecutive</code>
+    </DeprecatedMethod>
     <MixedArgument occurrences="2">
       <code>$filesFound</code>
       <code>$filesInfos</code>
@@ -13808,6 +13846,11 @@
       <code>$filesFound</code>
       <code>$filesInfos</code>
     </MixedAssignment>
+  </file>
+  <file src="test/classes/Command/WriteGitRevisionCommandTest.php">
+    <DeprecatedMethod occurrences="1">
+      <code>withConsecutive</code>
+    </DeprecatedMethod>
   </file>
   <file src="test/classes/CommonTest.php">
     <DocblockTypeContradiction occurrences="2">
@@ -13892,6 +13935,14 @@
       <code>$this-&gt;sessionID</code>
     </MixedAssignment>
   </file>
+  <file src="test/classes/ConfigStorage/RelationCleanupTest.php">
+    <DeprecatedMethod occurrences="4">
+      <code>withConsecutive</code>
+      <code>withConsecutive</code>
+      <code>withConsecutive</code>
+      <code>withConsecutive</code>
+    </DeprecatedMethod>
+  </file>
   <file src="test/classes/ConfigStorage/RelationTest.php">
     <DocblockTypeContradiction occurrences="1">
       <code>assertSame</code>
@@ -13916,7 +13967,16 @@
       <code>assertSame</code>
     </TypeDoesNotContainType>
   </file>
+  <file src="test/classes/ConfigStorage/UserGroupsTest.php">
+    <DeprecatedMethod occurrences="1">
+      <code>withConsecutive</code>
+    </DeprecatedMethod>
+  </file>
   <file src="test/classes/ConfigTest.php">
+    <DeprecatedMethod occurrences="2">
+      <code>expectError</code>
+      <code>expectErrorMessage</code>
+    </DeprecatedMethod>
     <InvalidArgument occurrences="1">
       <code>$v</code>
     </InvalidArgument>
@@ -14748,6 +14808,14 @@
       <code>array</code>
     </MixedInferredReturnType>
   </file>
+  <file src="test/classes/Navigation/NodeFactoryTest.php">
+    <DeprecatedMethod occurrences="4">
+      <code>expectError</code>
+      <code>expectError</code>
+      <code>expectErrorMessage</code>
+      <code>expectErrorMessage</code>
+    </DeprecatedMethod>
+  </file>
   <file src="test/classes/Navigation/Nodes/NodeColumnContainerTest.php">
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>assertIsArray</code>
@@ -15025,6 +15093,10 @@
     </MixedAssignment>
   </file>
   <file src="test/classes/Plugins/Export/ExportSqlTest.php">
+    <DeprecatedMethod occurrences="2">
+      <code>withConsecutive</code>
+      <code>withConsecutive</code>
+    </DeprecatedMethod>
     <InvalidArrayOffset occurrences="1">
       <code>$GLOBALS['sql_constraints']</code>
     </InvalidArrayOffset>
@@ -15240,8 +15312,16 @@
       <code>assertIsArray</code>
     </RedundantCondition>
   </file>
+  <file src="test/classes/Server/Privileges/AccountLockingTest.php">
+    <DeprecatedMethod occurrences="4">
+      <code>withConsecutive</code>
+      <code>withConsecutive</code>
+      <code>withConsecutive</code>
+      <code>withConsecutive</code>
+    </DeprecatedMethod>
+  </file>
   <file src="test/classes/Server/PrivilegesTest.php">
-    <DeprecatedMethod occurrences="7">
+    <DeprecatedMethod occurrences="8">
       <code>escapeString</code>
       <code>escapeString</code>
       <code>escapeString</code>
@@ -15249,6 +15329,7 @@
       <code>escapeString</code>
       <code>escapeString</code>
       <code>escapeString</code>
+      <code>withConsecutive</code>
     </DeprecatedMethod>
     <MixedArgument occurrences="2">
       <code>$real_sql_query</code>
@@ -15472,6 +15553,9 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/TrackerTest.php">
+    <DeprecatedMethod occurrences="1">
+      <code>withConsecutive</code>
+    </DeprecatedMethod>
     <MixedInferredReturnType occurrences="3">
       <code>array</code>
       <code>array</code>
@@ -15534,6 +15618,12 @@
     </TypeDoesNotContainType>
   </file>
   <file src="test/classes/UtilTest.php">
+    <DeprecatedMethod occurrences="4">
+      <code>withConsecutive</code>
+      <code>withConsecutive</code>
+      <code>withConsecutive</code>
+      <code>withConsecutive</code>
+    </DeprecatedMethod>
     <InvalidArgument occurrences="1">
       <code>testGetMySQLDocuURL</code>
     </InvalidArgument>
@@ -15646,6 +15736,12 @@
     </MixedArrayAccess>
   </file>
   <file src="test/classes/VersionInformationTest.php">
+    <DeprecatedMethod occurrences="4">
+      <code>withConsecutive</code>
+      <code>withConsecutive</code>
+      <code>withConsecutive</code>
+      <code>withConsecutive</code>
+    </DeprecatedMethod>
     <MixedAssignment occurrences="1">
       <code>$returnValues[]</code>
     </MixedAssignment>

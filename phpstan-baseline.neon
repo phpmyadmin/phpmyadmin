@@ -26,7 +26,7 @@ parameters:
 			path: libraries/classes/Advisory/Advisor.php
 
 		-
-			message: "#^Parameter \\#2 \\$args of function vsprintf expects array, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$values of function vsprintf expects array, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Advisory/Advisor.php
 
@@ -181,7 +181,7 @@ parameters:
 			path: libraries/classes/Config.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function rtrim expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$string of function rtrim expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Config.php
 
@@ -466,7 +466,7 @@ parameters:
 			path: libraries/classes/Config/FormDisplay.php
 
 		-
-			message: "#^Parameter \\#2 \\$pieces of function implode expects array, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$array of function implode expects array\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Config/FormDisplay.php
 
@@ -641,7 +641,7 @@ parameters:
 			path: libraries/classes/Config/Settings.php
 
 		-
-			message: "#^Parameter \\#1 \\$input of function array_keys expects array, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$array of function array_keys expects array, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Config/Settings.php
 
@@ -1256,7 +1256,7 @@ parameters:
 			path: libraries/classes/Controllers/Database/Structure/AddPrefixTableController.php
 
 		-
-			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/Structure/AddPrefixTableController.php
 
@@ -1276,7 +1276,7 @@ parameters:
 			path: libraries/classes/Controllers/Database/Structure/CopyTableController.php
 
 		-
-			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/Structure/CopyTableController.php
 
@@ -1326,12 +1326,12 @@ parameters:
 			path: libraries/classes/Controllers/Database/Structure/CopyTableWithPrefixController.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function mb_substr expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$string of function mb_substr expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/Structure/CopyTableWithPrefixController.php
 
 		-
-			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/Structure/CopyTableWithPrefixController.php
 
@@ -1401,12 +1401,12 @@ parameters:
 			path: libraries/classes/Controllers/Database/Structure/ReplacePrefixController.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function mb_substr expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$string of function mb_substr expects string, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Database/Structure/ReplacePrefixController.php
 
 		-
-			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/Structure/ReplacePrefixController.php
 
@@ -1516,7 +1516,7 @@ parameters:
 			path: libraries/classes/Controllers/Database/TrackingController.php
 
 		-
-			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, array\\<int, array\\<string, string\\>\\>\\|string\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, array\\<int, array\\<string, string\\>\\>\\|string\\|null given\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Database/TrackingController.php
 
@@ -1654,6 +1654,11 @@ parameters:
 			message: "#^Parameter \\#5 \\$bookmarkLabel of method PhpMyAdmin\\\\Sql\\:\\:storeTheQueryAsBookmark\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Import/ImportController.php
+
+		-
+			message: "#^Parameter \\#1 \\$separator of function explode expects non\\-empty\\-string, string given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Import/SimulateDmlController.php
 
 		-
 			message: "#^Parameter \\#1 \\$id of static method PhpMyAdmin\\\\Import\\\\Ajax\\:\\:status\\(\\) expects string, mixed given\\.$#"
@@ -2111,7 +2116,7 @@ parameters:
 			path: libraries/classes/Controllers/Table/FindReplaceController.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function mb_strlen expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$string of function mb_strlen expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/GetFieldController.php
 
@@ -2121,7 +2126,7 @@ parameters:
 			path: libraries/classes/Controllers/Table/GetFieldController.php
 
 		-
-			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/IndexesController.php
 
@@ -2236,7 +2241,7 @@ parameters:
 			path: libraries/classes/Controllers/Table/Structure/PartitioningController.php
 
 		-
-			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\>\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\>\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/Structure/PartitioningController.php
 
@@ -2246,7 +2251,7 @@ parameters:
 			path: libraries/classes/Controllers/Table/Structure/ReservedWordCheckController.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function trim expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$string of function trim expects string, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Table/Structure/ReservedWordCheckController.php
 
@@ -3371,6 +3376,21 @@ parameters:
 			path: libraries/classes/Dbal/DbalInterface.php
 
 		-
+			message: "#^Casting to int something that's already int\\.$#"
+			count: 1
+			path: libraries/classes/Dbal/DbiMysqli.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:affectedRows\\(\\) should return int\\|numeric\\-string but returns int\\|string\\.$#"
+			count: 1
+			path: libraries/classes/Dbal/DbiMysqli.php
+
+		-
+			message: "#^Parameter \\#1 \\$haystack of function stripos expects string, string\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Dbal/DbiMysqli.php
+
+		-
 			message: "#^Call to function method_exists\\(\\) with mysqli_result and 'fetch_all' will always evaluate to true\\.$#"
 			count: 3
 			path: libraries/classes/Dbal/MysqliResult.php
@@ -3378,6 +3398,11 @@ parameters:
 		-
 			message: "#^Method PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:fetchAllKeyPair\\(\\) should return array\\<string, string\\|null\\> but returns array\\<int\\|string, mixed\\>\\.$#"
 			count: 2
+			path: libraries/classes/Dbal/MysqliResult.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:numRows\\(\\) should return int\\|numeric\\-string but returns int\\|string\\.$#"
+			count: 1
 			path: libraries/classes/Dbal/MysqliResult.php
 
 		-
@@ -3621,6 +3646,11 @@ parameters:
 			path: libraries/classes/Encoding.php
 
 		-
+			message: "#^Function recode_string not found\\.$#"
+			count: 1
+			path: libraries/classes/Encoding.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Encoding\\:\\:convertString\\(\\) should return string but returns string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Encoding.php
@@ -3637,6 +3667,11 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Encoding\\:\\:\\$engineorder type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Encoding.php
+
+		-
+			message: "#^Used function recode_string not found\\.$#"
 			count: 1
 			path: libraries/classes/Encoding.php
 
@@ -3746,7 +3781,7 @@ parameters:
 			path: libraries/classes/Error.php
 
 		-
-			message: "#^Parameter \\#1 \\$callback of function set_error_handler expects \\(callable\\(int, string, string, int, array\\)\\: bool\\)\\|null, array\\{\\$this\\(PhpMyAdmin\\\\ErrorHandler\\), 'handleError'\\} given\\.$#"
+			message: "#^Parameter \\#1 \\$callback of function set_error_handler expects \\(callable\\(int, string, string, int\\)\\: bool\\)\\|null, array\\{\\$this\\(PhpMyAdmin\\\\ErrorHandler\\), 'handleError'\\} given\\.$#"
 			count: 1
 			path: libraries/classes/ErrorHandler.php
 
@@ -4736,22 +4771,72 @@ parameters:
 			path: libraries/classes/Http/ServerRequest.php
 
 		-
-			message: "#^Function imagefilledpolygon invoked with 3 parameters, 4 required\\.$#"
-			count: 1
-			path: libraries/classes/Image/ImageWrapper.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:filledPolygon\\(\\) has parameter \\$points with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Image/ImageWrapper.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:height\\(\\) should return int but returns int\\|false\\.$#"
+			message: "#^Parameter \\#1 \\$dst_image of function imagecopyresampled expects GdImage, resource given\\.$#"
 			count: 1
 			path: libraries/classes/Image/ImageWrapper.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:width\\(\\) should return int but returns int\\|false\\.$#"
+			message: "#^Parameter \\#1 \\$image of class PhpMyAdmin\\\\Image\\\\ImageWrapper constructor expects resource, GdImage given\\.$#"
+			count: 3
+			path: libraries/classes/Image/ImageWrapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$image of function imagearc expects GdImage, resource given\\.$#"
+			count: 1
+			path: libraries/classes/Image/ImageWrapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$image of function imagecolorallocate expects GdImage, resource given\\.$#"
+			count: 1
+			path: libraries/classes/Image/ImageWrapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$image of function imagedestroy expects GdImage, resource given\\.$#"
+			count: 1
+			path: libraries/classes/Image/ImageWrapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$image of function imagefilledpolygon expects GdImage, resource given\\.$#"
+			count: 2
+			path: libraries/classes/Image/ImageWrapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$image of function imagejpeg expects GdImage, resource given\\.$#"
+			count: 1
+			path: libraries/classes/Image/ImageWrapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$image of function imageline expects GdImage, resource given\\.$#"
+			count: 1
+			path: libraries/classes/Image/ImageWrapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$image of function imagepng expects GdImage, resource given\\.$#"
+			count: 1
+			path: libraries/classes/Image/ImageWrapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$image of function imagestring expects GdImage, resource given\\.$#"
+			count: 1
+			path: libraries/classes/Image/ImageWrapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$image of function imagesx expects GdImage, resource given\\.$#"
+			count: 1
+			path: libraries/classes/Image/ImageWrapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$image of function imagesy expects GdImage, resource given\\.$#"
+			count: 1
+			path: libraries/classes/Image/ImageWrapper.php
+
+		-
+			message: "#^Parameter \\#2 \\$src_image of function imagecopyresampled expects GdImage, resource given\\.$#"
 			count: 1
 			path: libraries/classes/Image/ImageWrapper.php
 
@@ -4879,6 +4964,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\IndexColumn\\:\\:set\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/IndexColumn.php
+
+		-
+			message: "#^Else branch is unreachable because ternary operator condition is always true\\.$#"
+			count: 1
+			path: libraries/classes/InsertEdit.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:analyzeTableColumnsArray\\(\\) has parameter \\$column with no value type specified in iterable type array\\.$#"
@@ -5141,11 +5231,6 @@ parameters:
 			path: libraries/classes/InsertEdit.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:loadFirstRow\\(\\) should return array\\{PhpMyAdmin\\\\Dbal\\\\ResultInterface, array\\<false\\>\\} but returns array\\{PhpMyAdmin\\\\Dbal\\\\ResultInterface, array\\<int, false\\>\\|false\\}\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:showEmptyResultMessageOrSetUniqueCondition\\(\\) has parameter \\$rows with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
@@ -5201,17 +5286,12 @@ parameters:
 			path: libraries/classes/InsertEdit.php
 
 		-
-			message: "#^Parameter \\#1 \\$data of function bin2hex expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$string of function bin2hex expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function stripslashes expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, string\\|false given\\.$#"
+			message: "#^Parameter \\#1 \\$string of function stripslashes expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
@@ -5232,6 +5312,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#4 \\$data of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:foreignDropdown\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/InsertEdit.php
+
+		-
+			message: "#^Strict comparison using \\!\\=\\= between string and false will always evaluate to true\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
@@ -5486,7 +5571,7 @@ parameters:
 			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
-			message: "#^Only numeric types are allowed in \\+, int\\<0, max\\>\\|false given on the left side\\.$#"
+			message: "#^Only numeric types are allowed in \\+, int\\|false given on the left side\\.$#"
 			count: 2
 			path: libraries/classes/Navigation/NavigationTree.php
 
@@ -5496,7 +5581,7 @@ parameters:
 			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
-			message: "#^Parameter \\#1 \\$str1 of function strcasecmp expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$string1 of function strcasecmp expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/NavigationTree.php
 
@@ -5876,7 +5961,7 @@ parameters:
 			path: libraries/classes/Plugins.php
 
 		-
-			message: "#^Parameter \\#2 \\$str2 of function strcmp expects string, class\\-string\\|false given\\.$#"
+			message: "#^Parameter \\#2 \\$string2 of function strcmp expects string, class\\-string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins.php
 
@@ -6161,12 +6246,12 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function strtoupper expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$str of static method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:escape\\(\\) expects array\\<string\\>\\|string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of static method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:escape\\(\\) expects array\\<string\\>\\|string, string\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$string of function strtoupper expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
@@ -6441,7 +6526,7 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportMediawiki.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function trim expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$string of function trim expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportMediawiki.php
 
@@ -6556,7 +6641,7 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportXml.php
 
 		-
-			message: "#^Parameter \\#1 \\$str1 of function strcmp expects string, array\\<int, array\\<int, string\\>\\|string\\>\\|string given\\.$#"
+			message: "#^Parameter \\#1 \\$string1 of function strcmp expects string, array\\<int, array\\<int, string\\>\\|string\\>\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportXml.php
 
@@ -7621,17 +7706,17 @@ parameters:
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function mb_substr expects string, string\\|null given\\.$#"
-			count: 3
-			path: libraries/classes/Server/Privileges.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, string\\|null given\\.$#"
 			count: 2
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Parameter \\#2 \\$str of function explode expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$string of function mb_substr expects string, string\\|null given\\.$#"
+			count: 3
+			path: libraries/classes/Server/Privileges.php
+
+		-
+			message: "#^Parameter \\#2 \\$string of function explode expects string, string\\|null given\\.$#"
 			count: 3
 			path: libraries/classes/Server/Privileges.php
 
@@ -7881,12 +7966,12 @@ parameters:
 			path: libraries/classes/Server/Status/Monitor.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function mb_strlen expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$string of function mb_strlen expects string, string\\|null given\\.$#"
 			count: 4
 			path: libraries/classes/Server/Status/Monitor.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function mb_substr expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$string of function mb_substr expects string, string\\|null given\\.$#"
 			count: 3
 			path: libraries/classes/Server/Status/Monitor.php
 
@@ -7921,12 +8006,12 @@ parameters:
 			path: libraries/classes/Session.php
 
 		-
-			message: "#^Parameter \\#1 \\$newid of function session_id expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$id of function session_id expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Session.php
 
 		-
-			message: "#^Parameter \\#1 \\$newname of function session_save_path expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$path of function session_save_path expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Session.php
 
@@ -8071,11 +8156,6 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#1 \\$data of function bin2hex expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Parameter \\#1 \\$dtResult of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTable\\(\\) expects PhpMyAdmin\\\\Dbal\\\\ResultInterface, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
@@ -8097,6 +8177,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$rows of static method PhpMyAdmin\\\\Message\\:\\:getMessageForInsertedRows\\(\\) expects int, int\\|string given\\.$#"
+			count: 1
+			path: libraries/classes/Sql.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function bin2hex expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
@@ -8401,17 +8486,17 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Parameter \\#2 \\$search of function array_key_exists expects array, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$array of function array_key_exists expects array, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Parameter \\#2 \\$str of function explode expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$string of function explode expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
 
@@ -8446,18 +8531,13 @@ parameters:
 			path: libraries/classes/Table/ColumnsDefinition.php
 
 		-
-			message: "#^Parameter \\#2 \\$str of function explode expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$string of function explode expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Table/ColumnsDefinition.php
 
 		-
 			message: "#^Parameter \\#1 \\$gisString of static method PhpMyAdmin\\\\Utils\\\\Gis\\:\\:createData\\(\\) expects string, mixed given\\.$#"
 			count: 2
-			path: libraries/classes/Table/Search.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function trim expects string, mixed given\\.$#"
-			count: 1
 			path: libraries/classes/Table/Search.php
 
 		-
@@ -8471,7 +8551,12 @@ parameters:
 			path: libraries/classes/Table/Search.php
 
 		-
-			message: "#^Parameter \\#2 \\$str of function explode expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$string of function trim expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Table/Search.php
+
+		-
+			message: "#^Parameter \\#2 \\$string of function explode expects string, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Table/Search.php
 
@@ -8836,7 +8921,7 @@ parameters:
 			path: libraries/classes/Tracking.php
 
 		-
-			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Tracking.php
 
@@ -9091,17 +9176,17 @@ parameters:
 			path: libraries/classes/Utils/FormatConverter.php
 
 		-
-			message: "#^Parameter \\#1 \\$data of function bin2hex expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Utils/FormatConverter.php
-
-		-
 			message: "#^Parameter \\#1 \\$haystack of function strpos expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Utils/FormatConverter.php
 
 		-
-			message: "#^Parameter \\#1 \\$ip_address of function inet_pton expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$ip of function inet_pton expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Utils/FormatConverter.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function bin2hex expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Utils/FormatConverter.php
 
@@ -9151,6 +9236,11 @@ parameters:
 			path: libraries/classes/VersionInformation.php
 
 		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 1
+			path: libraries/classes/ZipExtension.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\ZipExtension\\:\\:createFile\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/ZipExtension.php
@@ -9174,6 +9264,16 @@ parameters:
 			message: "#^PHPDoc tag @var for variable \\$data has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/ZipExtension.php
+
+		-
+			message: "#^Call to function method_exists\\(\\) with 'PHPUnit\\\\\\\\Framework\\\\\\\\TestCase' and 'assertFileDoesNotEx…' will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/AbstractTestCase.php
+
+		-
+			message: "#^Call to function method_exists\\(\\) with 'PHPUnit\\\\\\\\Framework\\\\\\\\TestCase' and 'assertMatchesRegula…' will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/AbstractTestCase.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\AbstractTestCase\\:\\:callFunction\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
@@ -9296,7 +9396,7 @@ parameters:
 			path: test/classes/Command/SetVersionCommandTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$array_arg of function sort expects TArray of array\\<T\\>, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$array of function sort expects TArray of array\\<T\\>, mixed given\\.$#"
 			count: 2
 			path: test/classes/Command/TwigLintCommandTest.php
 
@@ -11767,16 +11867,11 @@ parameters:
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsInt\\(\\) with 0 will always evaluate to true\\.$#"
-			count: 1
+			count: 2
 			path: test/classes/VersionTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsInt\\(\\) with 3 will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/VersionTest.php
-
-		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsInt\\(\\) with 5 will always evaluate to true\\.$#"
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsInt\\(\\) with 6 will always evaluate to true\\.$#"
 			count: 1
 			path: test/classes/VersionTest.php
 
