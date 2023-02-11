@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-05 00:20+0000\n"
-"PO-Revision-Date: 2022-09-04 23:40+0000\n"
-"Last-Translator: Kozioł Marcin <koziol.martin@gmail.com>\n"
+"PO-Revision-Date: 2023-02-12 00:21+0000\n"
+"Last-Translator: Bartosz Pazoła <mmmalfc@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "pl/>\n"
 "Language: pl\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.14.1-dev\n"
+"X-Generator: Weblate 4.16-dev\n"
 
 #: libraries/classes/Advisory/Advisor.php:241
 #, php-format
@@ -64,55 +64,53 @@ msgstr "Czas działania poniżej jednego dnia"
 #: libraries/classes/Advisory/Rules.php:37
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
-"Czas działania jest mniejszy niż 1 dzień, optymalizacja wydajności może nie "
-"być dokładna."
+"Czas działania poniżej 1 dnia, optymalizacja wydajności może być niedokładna."
 
 #: libraries/classes/Advisory/Rules.php:39
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
-"Aby mieć dokładniejsze średnie zalecane jest aby pozwolić serwerowi "
-"uruchomić na dłużej niż jeden dzień przed uruchomieniem tego analizatora"
+"Aby mieć dokładniejsze średnie zalecane jest, aby pozwolić serwerowi działać "
+"przez conajmniej jeden dzień przed uruchomieniem tego analizatora"
 
 #: libraries/classes/Advisory/Rules.php:42
 #, php-format
 msgid "The uptime is only %s"
-msgstr "Czas działania jest tylko %s"
+msgstr "Czas działania to tylko %s"
 
 #: libraries/classes/Advisory/Rules.php:47
 msgid "Questions below 1,000"
-msgstr "Poniższe pytania 1,000"
+msgstr "Liczba zapytań poniżej 1,000"
 
 #: libraries/classes/Advisory/Rules.php:51
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
-"Mniej niż 1,000 pytań zostały uruchomione przed tym serwerze. Zalecenia mogą "
-"nie być dokładne."
+"Mniej niż 1,000 zapytań zostało przetworzone przez ten serwer. Zalecenia "
+"mogą być niedokładne."
 
 #: libraries/classes/Advisory/Rules.php:55
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
-msgstr ""
-"Niech serwer będzie uruchomiony przez dłuższy czas, dopóki nie wykona "
-"większej ilości zapytań."
+msgstr "Pozwól serwerowi działać dłużej, aż przetworzy większą liczbę zapytań."
 
 #: libraries/classes/Advisory/Rules.php:57
 #, php-format
 msgid "Current amount of Questions: %s"
-msgstr "Aktualna ilość pytań: %s"
+msgstr "Aktualna liczba zapytań: %s"
 
 #: libraries/classes/Advisory/Rules.php:62
+#, fuzzy
 msgid "Percentage of slow queries"
 msgstr "Procent powolnych zapytań"
 
 #: libraries/classes/Advisory/Rules.php:66
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr "Jest dużo powolnych zapytań w stosunku do ogólnej sumy zapytań."
+msgstr "Jest dużo powolnych zapytań w stosunku do ogólnej liczby zapytań."
 
 #: libraries/classes/Advisory/Rules.php:68
 #: libraries/classes/Advisory/Rules.php:81
@@ -127,7 +125,8 @@ msgstr ""
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
-"Wolne tempo zapytanie powinna być niższa niż 5%%, twoja wartość to %s%%."
+"Procent powolnych zapytań nie powinien przekraczać 5%%, twoja wartość to "
+"%s%%."
 
 #: libraries/classes/Advisory/Rules.php:75
 msgid "Slow query rate"
@@ -3735,7 +3734,7 @@ msgstr "Włącz importowanie metodą „przeciągnij i upuść”"
 
 #: libraries/classes/Config/Descriptions.php:791
 msgid "Partial import: allow interrupt"
-msgstr "Import częściowy: pozwalaj przerwać"
+msgstr "Import częściowy: pozwalaj na przerwanie"
 
 #: libraries/classes/Config/Descriptions.php:796
 #: libraries/classes/Config/Descriptions.php:802
@@ -4738,7 +4737,7 @@ msgstr ""
 #: libraries/classes/Config.php:639
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr "Istniejący plik konfiguracyjny (%s) nie jest czytelny."
+msgstr "Istniejący plik konfiguracyjny (%s) jest nieczytelny."
 
 #: libraries/classes/Config.php:675
 msgid "Wrong permissions on configuration file, should not be world writable!"
@@ -5374,6 +5373,9 @@ msgid ""
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"Plik konfiguracyjny wymaga poprawnego klucza do szyfrowania ciasteczek. "
+"Wygenerowany został dla Ciebie klucz tymczasowy. Więcej informacji "
+"znajdziesz w [doc@cfg_blowfish_secret]dokumentacji[/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:335
 #, php-format
@@ -5382,6 +5384,9 @@ msgid ""
 "necessary. It should only be %d bytes long. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"Klucz szyfrujący ciasteczko w pliku konfiguracyjnym jest dłuższy niż jest to "
+"wymagane. Wymagane %d bajtów. Więcej informacji znajdziesz w "
+"[doc@cfg_blowfish_secret]dokumentacji[/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:353
 msgid ""
@@ -7529,6 +7534,8 @@ msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
+"WebAuthn jest niedostępny. Skorzystaj ze wspieranej przeglądarki i "
+"zabezpieczonego połączenia (HTTPS)."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:708
 msgid ""
@@ -16259,7 +16266,7 @@ msgstr "Ostrzeżenie"
 
 #: templates/home/index.twig:282
 msgid "Notice"
-msgstr "Uwaga"
+msgstr "Informacja"
 
 #: templates/home/index.twig:295
 #, fuzzy
@@ -16470,6 +16477,8 @@ msgid ""
 "The FIDO U2F API has been deprecated in favor of the Web Authentication API "
 "(WebAuthn)."
 msgstr ""
+"FIDO U2F API zostało oznaczone jako przestarzałe i zastąpione przez Web "
+"Authentication API (WebAuthn)."
 
 #: templates/login/twofactor/key_configure.twig:6
 #: templates/login/twofactor/key.twig:6
@@ -16479,6 +16488,8 @@ msgid ""
 "API, however it's recommended that you use the WebAuthn authentication "
 "instead."
 msgstr ""
+"Możesz dalej używać Firefoxa, aby autoryzować się przy pomocy FIDO U2F API, "
+"jednak polecane jest, aby korzystać z autoryzacji WebAuthn."
 
 #: templates/login/twofactor/key_configure.twig:10
 msgid ""
