@@ -80,7 +80,7 @@ class ThemeTest extends AbstractTestCase
         $this->object->setFsPath(TEST_PATH . 'test/classes/_data/gen_version_info/');
         $this->assertTrue($this->object->loadInfo());
         $this->assertEquals('Test Theme', $this->object->getName());
-        $this->assertEquals('5.3', $this->object->getVersion());
+        $this->assertEquals('6.0', $this->object->getVersion());
     }
 
     /**

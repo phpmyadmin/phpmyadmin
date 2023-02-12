@@ -7,9 +7,6 @@ namespace PhpMyAdmin\Dbal;
 use mysqli_stmt;
 
 use function count;
-use function str_repeat;
-
-use const PHP_VERSION_ID;
 
 final class MysqliStatement implements Statement
 {
@@ -33,20 +30,7 @@ final class MysqliStatement implements Statement
             return false;
         }
 
-        if (PHP_VERSION_ID >= 80100) {
-            /**
-             * @psalm-suppress TooManyArguments
-             * @phpstan-ignore-next-line
-             */
-            return $this->statement->execute($params);
-        }
-
-        $types = str_repeat('s', $paramCount);
-        if (! $this->statement->bind_param($types, ...$params)) {
-            return false;
-        }
-
-        return $this->statement->execute();
+        return $this->statement->execute($params);
     }
 
     /**

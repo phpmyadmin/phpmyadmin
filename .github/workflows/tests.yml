@@ -20,13 +20,13 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { php-version: '8', experimental: false, arch: 'amd64', exclude-phpunit-groups: 'extension-iconv' }
-          - { php-version: '8', experimental: false, arch: 'arm64v8', exclude-phpunit-groups: 'extension-iconv' }
-          - { php-version: '8', experimental: false, arch: 'arm32v7', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
-          - { php-version: '8', experimental: false, arch: 'arm32v6', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
-          - { php-version: '8', experimental: false, arch: 'i386', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
-          - { php-version: '8', experimental: true, arch: 'ppc64le', exclude-phpunit-groups: 'extension-iconv' }
-          - { php-version: '8', experimental: false, arch: 's390x', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+          - { php-version: '81', experimental: false, arch: 'amd64', exclude-phpunit-groups: 'extension-iconv' }
+          - { php-version: '81', experimental: false, arch: 'arm64v8', exclude-phpunit-groups: 'extension-iconv' }
+          - { php-version: '81', experimental: false, arch: 'arm32v7', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+          - { php-version: '81', experimental: false, arch: 'arm32v6', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+          - { php-version: '81', experimental: false, arch: 'i386', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+          - { php-version: '81', experimental: true, arch: 'ppc64le', exclude-phpunit-groups: 'extension-iconv' }
+          - { php-version: '81', experimental: false, arch: 's390x', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -56,10 +56,10 @@ jobs:
         run: docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 
       - name: Print arch
-        run: docker run --rm ${{ matrix.arch }}/alpine:3.15 uname -a
+        run: docker run --rm ${{ matrix.arch }}/alpine:3.17 uname -a
 
       - name: Run tests on php ${{ matrix.php-version }}
-        run: docker run -v $PWD:/app --workdir /app --rm ${{ matrix.arch }}/alpine:3.15 sh /app/do-tests.sh
+        run: docker run -v $PWD:/app --workdir /app --rm ${{ matrix.arch }}/alpine:3.17 sh /app/do-tests.sh
 
   test-php:
     name: Test on PHP ${{ matrix.php-version }} and ${{ matrix.os }}
@@ -67,7 +67,7 @@ jobs:
     continue-on-error: ${{ matrix.experimental }}
     strategy:
       matrix:
-        php-version: ["7.2", "7.3", "7.4", "8.0", "8.1", "8.2"]
+        php-version: ["8.1", "8.2"]
         experimental: [false]
         os: [ubuntu-latest]
         phpunit-options: ['--testsuite unit']
@@ -136,7 +136,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        php-version: ["7.2"]
+        php-version: ["8.1"]
         os: [ubuntu-latest]
         extension: ["dbase", "recode"]
     steps:
@@ -196,7 +196,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-version: ['7.3']
+        php-version: ['8.1']
         os: [ubuntu-latest]
         php-extensions: ['mbstring, iconv, mysqli, zip, bz2']
         psr-7-library: ['guzzlehttp/psr7', 'nyholm/psr7', 'laminas/laminas-diactoros']

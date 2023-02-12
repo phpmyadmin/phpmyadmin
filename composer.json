@@ -47,7 +47,7 @@
         }
     ],
     "require": {
-        "php": "^7.2.5 || ^8.0",
+        "php": "^8.1",
         "ext-hash": "*",
         "ext-iconv": "*",
         "ext-json": "*",
@@ -105,7 +105,7 @@
         "phpstan/phpstan-phpunit": "^1.0",
         "phpstan/phpstan-strict-rules": "^1.4",
         "phpstan/phpstan-webmozart-assert": "^1.0",
-        "phpunit/phpunit": "^8.5 || ^9.5",
+        "phpunit/phpunit": "^9.5",
         "pragmarx/google2fa-qrcode": "^2.1",
         "psalm/plugin-phpunit": "^0.16.1",
         "roave/security-advisories": "dev-latest",
@@ -117,7 +117,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "5.3.x-dev"
+            "dev-master": "6.0.x-dev"
         }
     },
     "scripts": {
