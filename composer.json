@@ -71,7 +71,6 @@
         "symfony/expression-language": "^5.2.3",
         "symfony/polyfill-ctype": "^1.17.0",
         "symfony/polyfill-mbstring": "^1.17.0",
-        "symfony/polyfill-php80": "^1.16",
         "twig/twig": "^3.3.5",
         "webmozart/assert": "^1.10",
         "williamdes/mariadb-mysql-kbs": "^1.2"
