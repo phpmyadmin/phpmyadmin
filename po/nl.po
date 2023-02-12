@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2023-02-05 00:20+0000\n"
+"POT-Creation-Date: 2023-02-12 00:20+0000\n"
 "PO-Revision-Date: 2023-01-28 03:50+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -3888,7 +3888,7 @@ msgstr "Navigatiepaneelbreedte"
 
 #: libraries/classes/Config/Descriptions.php:831
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:610
-#: libraries/classes/Navigation/NavigationTree.php:1347
+#: libraries/classes/Navigation/NavigationTree.php:1340
 msgid "Link with main panel"
 msgstr "Verbinden met hoofdpaneel"
 
@@ -4344,9 +4344,9 @@ msgstr "Herken vergrendelde tabellen"
 #: libraries/classes/Config/Descriptions.php:946
 #: libraries/classes/ConfigStorage/UserGroups.php:120
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:405
-#: libraries/classes/Display/Results.php:2749
-#: libraries/classes/Html/Generator.php:645
-#: libraries/classes/Html/Generator.php:899
+#: libraries/classes/Display/Results.php:2751
+#: libraries/classes/Html/Generator.php:612
+#: libraries/classes/Html/Generator.php:866
 #: templates/console/bookmark_content.twig:10 templates/console/display.twig:41
 #: templates/console/display.twig:199
 #: templates/database/central_columns/main.twig:271
@@ -4369,12 +4369,12 @@ msgid "Edit"
 msgstr "Wijzigen"
 
 #: libraries/classes/Config/Descriptions.php:947
-#: libraries/classes/Html/Generator.php:625
+#: libraries/classes/Html/Generator.php:592
 msgid "Explain SQL"
 msgstr "Verklaar SQL"
 
 #: libraries/classes/Config/Descriptions.php:948
-#: libraries/classes/Export.php:1278 libraries/classes/Html/Generator.php:693
+#: libraries/classes/Export.php:1278 libraries/classes/Html/Generator.php:660
 #: templates/console/display.twig:121
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
@@ -4382,7 +4382,7 @@ msgid "Refresh"
 msgstr "Ververs"
 
 #: libraries/classes/Config/Descriptions.php:949
-#: libraries/classes/Html/Generator.php:677
+#: libraries/classes/Html/Generator.php:644
 msgid "Create PHP code"
 msgstr "Genereer PHP-code"
 
@@ -4408,7 +4408,7 @@ msgstr "Tekstveldregels"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:126
 #: libraries/classes/Server/Privileges.php:1785
 #: libraries/classes/Server/Privileges.php:1787
-#: libraries/classes/Server/Status/Processes.php:117
+#: libraries/classes/Server/Status/Processes.php:118
 #: templates/console/bookmark_content.twig:12 templates/console/display.twig:48
 #: templates/console/display.twig:206 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4755,7 +4755,7 @@ msgstr "Importeren"
 msgid "Default transformations"
 msgstr "Standaard transformaties"
 
-#: libraries/classes/Config/PageSettings.php:133
+#: libraries/classes/Config/PageSettings.php:132
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
 "Instellingen kunnen niet worden opgeslagen, het verstuurde configuratie "
@@ -4933,11 +4933,11 @@ msgstr ""
 "%1$sGZip-compressie en decompressie%2$s vereisen functies (%3$s) welke niet "
 "beschikbaar zijn op dit systeem."
 
-#: libraries/classes/ConfigStorage/Relation.php:1347
+#: libraries/classes/ConfigStorage/Relation.php:1350
 msgid "no description"
 msgstr "Geen beschrijving aanwezig"
 
-#: libraries/classes/ConfigStorage/Relation.php:1549
+#: libraries/classes/ConfigStorage/Relation.php:1552
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -5216,7 +5216,7 @@ msgid "Table %s has been emptied."
 msgstr "Tabel %s is leeggemaakt."
 
 #: libraries/classes/Controllers/Database/StructureController.php:571
-#: libraries/classes/Display/Results.php:3761
+#: libraries/classes/Display/Results.php:3763
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -5303,7 +5303,7 @@ msgstr "Geen tabellen geselecteerd."
 msgid "Database Log"
 msgstr "Database-log"
 
-#: libraries/classes/Controllers/ErrorReportController.php:99
+#: libraries/classes/Controllers/ErrorReportController.php:105
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -5311,11 +5311,11 @@ msgstr ""
 "Er is een fout ontdekt en een foutmeldingsverslag is automatisch verstuurd "
 "op basis van je instellingen."
 
-#: libraries/classes/Controllers/ErrorReportController.php:103
+#: libraries/classes/Controllers/ErrorReportController.php:109
 msgid "Thank you for submitting this report."
 msgstr "Bedankt voor het versturen van dit verslag."
 
-#: libraries/classes/Controllers/ErrorReportController.php:107
+#: libraries/classes/Controllers/ErrorReportController.php:113
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
@@ -5323,11 +5323,11 @@ msgstr ""
 "Er is een fout ontdekt en een foutmeldingsverslag aangemaakt, maar het kon "
 "niet verstuurd worden."
 
-#: libraries/classes/Controllers/ErrorReportController.php:110
+#: libraries/classes/Controllers/ErrorReportController.php:116
 msgid "If you experience any problems please submit a bug report manually."
 msgstr "Als u problemen ondervindt, meld dan handmatig een bug."
 
-#: libraries/classes/Controllers/ErrorReportController.php:113
+#: libraries/classes/Controllers/ErrorReportController.php:119
 msgid "You may want to refresh the page."
 msgstr "Misschien wilt u de pagina vernieuwen."
 
@@ -5800,7 +5800,7 @@ msgid "Matched rows:"
 msgstr "Overeenkomende rijen:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:139
-#: libraries/classes/Html/Generator.php:871 templates/export.twig:67
+#: libraries/classes/Html/Generator.php:838 templates/export.twig:67
 msgid "SQL query:"
 msgstr "SQL-query:"
 
@@ -5823,13 +5823,13 @@ msgstr "De gebruikersnaam is leeg!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:151
 #: libraries/classes/Server/Privileges.php:943
-#: libraries/classes/UserPassword.php:44
+#: libraries/classes/UserPassword.php:51
 msgid "The password is empty!"
 msgstr "Het wachtwoord is leeg!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:152
 #: libraries/classes/Server/Privileges.php:941
-#: libraries/classes/UserPassword.php:48
+#: libraries/classes/UserPassword.php:55
 msgid "The passwords aren't the same!"
 msgstr "De wachtwoorden zijn niet gelijk!"
 
@@ -6337,7 +6337,7 @@ msgstr "Verklaar resultaat"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:292
 #: libraries/classes/Menu.php:483
-#: libraries/classes/Server/Status/Processes.php:129
+#: libraries/classes/Server/Status/Processes.php:130
 #: libraries/classes/Util.php:1846 libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:25
 #: templates/database/events/index.twig:44
@@ -6353,7 +6353,7 @@ msgstr "Status"
 #: libraries/classes/Plugins/Export/ExportOdt.php:592
 #: libraries/classes/Plugins/Export/ExportTexytext.php:452
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:360
-#: libraries/classes/Server/Status/Processes.php:125
+#: libraries/classes/Server/Status/Processes.php:126
 #: templates/database/triggers/list.twig:47
 #: templates/sql/profiling_chart.twig:17
 msgid "Time"
@@ -6735,7 +6735,7 @@ msgid "Show query box"
 msgstr "SQL-queryveld tonen"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:406
-#: libraries/classes/Display/Results.php:2817
+#: libraries/classes/Display/Results.php:2819
 #: libraries/classes/Tracking.php:252
 #: templates/console/bookmark_content.twig:11
 #: templates/database/central_columns/main.twig:274
@@ -6868,7 +6868,7 @@ msgid "No partial dependencies selected!"
 msgstr "Er zijn geen gedeeltelijke afhankelijkheden geselecteerd!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:440
-#: libraries/classes/Export.php:1318 libraries/classes/Html/Generator.php:971
+#: libraries/classes/Export.php:1318 libraries/classes/Html/Generator.php:938
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:286
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -7005,13 +7005,13 @@ msgstr "Inhoud gegevenspunt"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:492
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:640
-#: libraries/classes/ErrorHandler.php:448 libraries/classes/InsertEdit.php:1947
+#: libraries/classes/ErrorHandler.php:448 libraries/classes/InsertEdit.php:1956
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Negeren"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:493
-#: libraries/classes/Display/Results.php:2753
+#: libraries/classes/Display/Results.php:2755
 #: libraries/classes/Html/Generator.php:78
 #: templates/display/results/table.twig:312
 #: templates/display/results/table.twig:313
@@ -7355,7 +7355,7 @@ msgid "Hide panel"
 msgstr "Paneel verbergen"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:611
-#: libraries/classes/Navigation/NavigationTree.php:1350
+#: libraries/classes/Navigation/NavigationTree.php:1343
 msgid "Unlink from main panel"
 msgstr "Loskoppelen van hoofdpaneel"
 
@@ -7598,13 +7598,13 @@ msgid "Table %s already exists!"
 msgstr "Tabel %s bestaat reeds!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:715
-#: libraries/classes/InsertEdit.php:349
+#: libraries/classes/InsertEdit.php:358
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Verbergen"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:716
-#: libraries/classes/Controllers/Table/ChangeController.php:212
+#: libraries/classes/Controllers/Table/ChangeController.php:219
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
@@ -8149,7 +8149,7 @@ msgid "Privileges"
 msgstr "Rechten"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:448
-#: libraries/classes/Server/Status/Processes.php:109
+#: libraries/classes/Server/Status/Processes.php:110
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Gebruiker"
@@ -8936,7 +8936,7 @@ msgid "Wrong data or no validation for %s"
 msgstr "Verkeerde gegevens of geen validatie voor %s"
 
 #: libraries/classes/Controllers/Sql/SqlController.php:254
-#: libraries/classes/Sql.php:1120
+#: libraries/classes/Sql.php:1121
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Bladwijzer %s is aangemaakt."
@@ -9005,7 +9005,7 @@ msgstr "Tabel %s bestaat reeds!"
 #: libraries/classes/Controllers/Table/RelationController.php:300
 #: libraries/classes/Controllers/View/OperationsController.php:91
 #: libraries/classes/Database/Routines.php:1226
-#: libraries/classes/Display/Results.php:3470 libraries/classes/Message.php:171
+#: libraries/classes/Display/Results.php:3472 libraries/classes/Message.php:171
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "Uw SQL-query is succesvol uitgevoerd."
@@ -9040,8 +9040,8 @@ msgstr "Er is een probleem met je vraag."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:82
 #: libraries/classes/Database/Routines.php:1245
-#: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:242
-#: libraries/classes/Sql.php:935
+#: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:251
+#: libraries/classes/Sql.php:936
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL gaf een lege resultatenset terug (0 rijen)."
 
@@ -9077,8 +9077,8 @@ msgstr "De partitienaam mag geen leeg tekstveld zijn."
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:61
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:61
 #: libraries/classes/Controllers/View/OperationsController.php:94
-#: libraries/classes/Html/Generator.php:847 libraries/classes/Import.php:138
-#: libraries/classes/InsertEdit.php:740 libraries/classes/Message.php:191
+#: libraries/classes/Html/Generator.php:814 libraries/classes/Import.php:138
+#: libraries/classes/InsertEdit.php:749 libraries/classes/Message.php:191
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:372
 msgid "Error"
@@ -9175,7 +9175,7 @@ msgstr "U heeft niet genoeg rechten om hier te zijn!"
 msgid "Change password"
 msgstr "Wachtwoord wijzigen"
 
-#: libraries/classes/Controllers/View/CreateController.php:97
+#: libraries/classes/Controllers/View/CreateController.php:84
 msgid "View name can not be empty!"
 msgstr "View naam kan niet leeg zijn!"
 
@@ -9307,7 +9307,7 @@ msgstr "De volgende query is mislukt: \"%s\""
 #: libraries/classes/Database/Triggers.php:134
 #: libraries/classes/Database/Triggers.php:161
 #: libraries/classes/Database/Triggers.php:443
-#: libraries/classes/Html/Generator.php:915
+#: libraries/classes/Html/Generator.php:882
 msgid "MySQL said: "
 msgstr "MySQL meldt: "
 
@@ -9737,41 +9737,41 @@ msgstr "Aflopend"
 msgid "Ascending"
 msgstr "Oplopend"
 
-#: libraries/classes/Display/Results.php:2793
-#: libraries/classes/Display/Results.php:2808
+#: libraries/classes/Display/Results.php:2795
+#: libraries/classes/Display/Results.php:2810
 msgid "The row has been deleted."
 msgstr "De rij is verwijderd."
 
-#: libraries/classes/Display/Results.php:2840
+#: libraries/classes/Display/Results.php:2842
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "stop proces"
 
-#: libraries/classes/Display/Results.php:3403
+#: libraries/classes/Display/Results.php:3405
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Bij benadering. Zie [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:3770
+#: libraries/classes/Display/Results.php:3772
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Weergave van records %1s - %2s"
 
-#: libraries/classes/Display/Results.php:3784
+#: libraries/classes/Display/Results.php:3786
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d in totaal, %2$d in de query"
 
-#: libraries/classes/Display/Results.php:3789
+#: libraries/classes/Display/Results.php:3791
 #, php-format
 msgid "%d total"
 msgstr "%d totaal"
 
-#: libraries/classes/Display/Results.php:3802 libraries/classes/Sql.php:941
+#: libraries/classes/Display/Results.php:3804 libraries/classes/Sql.php:942
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Query duurde %01.4f seconden."
 
-#: libraries/classes/Display/Results.php:4129
+#: libraries/classes/Display/Results.php:4131
 msgid "Link not found!"
 msgstr "Link niet gevonden!"
 
@@ -10118,7 +10118,7 @@ msgstr ""
 "hernoemd met een opgehoogd volgnummer."
 
 #: libraries/classes/Engines/Pbxt.php:169
-#: libraries/classes/Html/Generator.php:778
+#: libraries/classes/Html/Generator.php:745
 #: libraries/classes/Html/MySQLDocumentation.php:49
 #: libraries/classes/Sanitize.php:202
 #: templates/config/form_display/input.twig:10 templates/home/index.twig:244
@@ -10287,40 +10287,40 @@ msgstr "De PHP functie password_hash() met standaard opties."
 msgid "password_hash() PHP function"
 msgstr "password_hash() PHP functie"
 
-#: libraries/classes/Html/Generator.php:633
+#: libraries/classes/Html/Generator.php:600
 msgid "Skip Explain SQL"
 msgstr "Uitleg SQL overslaan"
 
-#: libraries/classes/Html/Generator.php:659
+#: libraries/classes/Html/Generator.php:626
 msgid "Without PHP code"
 msgstr "Zonder PHP-code"
 
-#: libraries/classes/Html/Generator.php:667
+#: libraries/classes/Html/Generator.php:634
 #: templates/database/multi_table_query/form.twig:175
 #: templates/database/qbe/selection_form.twig:115
 msgid "Submit query"
 msgstr "Query verzenden"
 
-#: libraries/classes/Html/Generator.php:714 templates/console/display.twig:43
+#: libraries/classes/Html/Generator.php:681 templates/console/display.twig:43
 #: templates/console/display.twig:201 templates/sql/profiling_chart.twig:2
 msgid "Profiling"
 msgstr "Profiling"
 
-#: libraries/classes/Html/Generator.php:727
+#: libraries/classes/Html/Generator.php:694
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Inline bewerken"
 
-#: libraries/classes/Html/Generator.php:854
+#: libraries/classes/Html/Generator.php:821
 msgid "Static analysis:"
 msgstr "Statische analyse:"
 
-#: libraries/classes/Html/Generator.php:857
+#: libraries/classes/Html/Generator.php:824
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "%d fouten zijn gevonden tijdens de analyse."
 
-#: libraries/classes/Import.php:276 libraries/classes/Sql.php:949
+#: libraries/classes/Import.php:276 libraries/classes/Sql.php:950
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK is uitgevoerd]"
 
@@ -10414,7 +10414,7 @@ msgstr ""
 "De indexen %1$s en %2$s lijken hetzelfde, mogelijk kan een van beide worden "
 "verwijderd."
 
-#: libraries/classes/InsertEdit.php:365
+#: libraries/classes/InsertEdit.php:374
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:28
 #: templates/database/routines/execute_form.twig:18
 #: templates/table/search/index.twig:36
@@ -10422,7 +10422,7 @@ msgstr ""
 msgid "Function"
 msgstr "Functie"
 
-#: libraries/classes/InsertEdit.php:368
+#: libraries/classes/InsertEdit.php:377
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:274
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:367
 #: libraries/classes/Plugins/Export/ExportLatex.php:521
@@ -10456,12 +10456,12 @@ msgstr "Functie"
 msgid "Type"
 msgstr "Type"
 
-#: libraries/classes/InsertEdit.php:741 templates/import.twig:57
+#: libraries/classes/InsertEdit.php:750 templates/import.twig:57
 #: templates/import.twig:82
 msgid "The directory you set for upload work cannot be reached."
 msgstr "De map die u heeft ingesteld om te uploaden kan niet worden bereikt."
 
-#: libraries/classes/InsertEdit.php:749
+#: libraries/classes/InsertEdit.php:758
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:33
 #: templates/server/privileges/privileges_table.twig:60
@@ -10471,15 +10471,15 @@ msgstr "De map die u heeft ingesteld om te uploaden kan niet worden bereikt."
 msgid "Or"
 msgstr "Of"
 
-#: libraries/classes/InsertEdit.php:750
+#: libraries/classes/InsertEdit.php:759
 msgid "web server upload directory:"
 msgstr "uploadmap op webserver:"
 
-#: libraries/classes/InsertEdit.php:1335 libraries/classes/Sql.php:932
+#: libraries/classes/InsertEdit.php:1344 libraries/classes/Sql.php:933
 msgid "Showing SQL query"
 msgstr "Toont SQL-query"
 
-#: libraries/classes/InsertEdit.php:1359 libraries/classes/Sql.php:912
+#: libraries/classes/InsertEdit.php:1368 libraries/classes/Sql.php:913
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Toegevoegd rijnummer: %1$d"
@@ -10675,7 +10675,7 @@ msgstr "Tabellen:"
 msgid "Views:"
 msgstr "Views:"
 
-#: libraries/classes/Navigation/NavigationTree.php:753
+#: libraries/classes/Navigation/NavigationTree.php:752
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
@@ -10684,18 +10684,18 @@ msgstr ""
 "beïnvloeden. Overweeg om artikelgroepering uit te schakelen in het "
 "navigatiepaneel."
 
-#: libraries/classes/Navigation/NavigationTree.php:827
+#: libraries/classes/Navigation/NavigationTree.php:826
 msgid "Groups"
 msgstr "Groepen"
 
-#: libraries/classes/Navigation/NavigationTree.php:940
+#: libraries/classes/Navigation/NavigationTree.php:939
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] "%s resultaat gevonden"
 msgstr[1] "%s resultaten gevonden"
 
-#: libraries/classes/Navigation/NavigationTree.php:1341
+#: libraries/classes/Navigation/NavigationTree.php:1335
 msgid "Collapse all"
 msgstr "Alles samenvouwen"
 
@@ -13070,7 +13070,7 @@ msgstr ""
 "server (%)."
 
 #: libraries/classes/Server/Status/Data.php:147
-#: libraries/classes/Server/Status/Processes.php:142
+#: libraries/classes/Server/Status/Processes.php:143
 #: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:20
 msgid "SQL query"
 msgstr "SQL-query"
@@ -13141,22 +13141,22 @@ msgstr "Toon replica status"
 msgid "Flush query cache"
 msgstr "Schoon querycache"
 
-#: libraries/classes/Server/Status/Processes.php:105
+#: libraries/classes/Server/Status/Processes.php:106
 msgid "ID"
 msgstr "ID"
 
-#: libraries/classes/Server/Status/Processes.php:113
+#: libraries/classes/Server/Status/Processes.php:114
 #: templates/server/replication/primary_add_replica_user.twig:32
 #: templates/server/replication/primary_add_replica_user.twig:43
 #: templates/server/replication/primary_replication.twig:25
 msgid "Host"
 msgstr "Host"
 
-#: libraries/classes/Server/Status/Processes.php:121
+#: libraries/classes/Server/Status/Processes.php:122
 msgid "Command"
 msgstr "Opdracht"
 
-#: libraries/classes/Server/Status/Processes.php:136
+#: libraries/classes/Server/Status/Processes.php:137
 msgid "Progress"
 msgstr "Voortgang"
 
@@ -13189,16 +13189,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Er is geen recentere stabiele versie beschikbaar"
 
-#: libraries/classes/Sql.php:469
+#: libraries/classes/Sql.php:470
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Bladwijzer \"%s\" wordt gebruikt als standaard browsequery."
 
-#: libraries/classes/Sql.php:929
+#: libraries/classes/Sql.php:930
 msgid "Showing as PHP code"
 msgstr "Getoond als PHP-code"
 
-#: libraries/classes/Sql.php:1300
+#: libraries/classes/Sql.php:1301
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -13208,7 +13208,7 @@ msgstr ""
 "rasterbewerkingen, checkboxen, Bewerken, Kopiëren en Verwijderen, zijn niet "
 "beschikbaar. %s"
 
-#: libraries/classes/Sql.php:1314
+#: libraries/classes/Sql.php:1315
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -13812,11 +13812,11 @@ msgstr "Ruimtelijk"
 msgid "Taking you to the target site."
 msgstr "Neemt je naar de doel site."
 
-#: libraries/classes/UserPassword.php:40
+#: libraries/classes/UserPassword.php:47
 msgid "The profile has been updated."
 msgstr "Het profiel is aangepast."
 
-#: libraries/classes/UserPassword.php:52
+#: libraries/classes/UserPassword.php:59
 msgid "Password is too long!"
 msgstr "Wachtwoord is te lang!"
 
