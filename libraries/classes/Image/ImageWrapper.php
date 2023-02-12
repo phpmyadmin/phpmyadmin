@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Image;
 
+use GdImage;
+
 use function extension_loaded;
 use function function_exists;
 use function imagearc;
@@ -23,21 +25,11 @@ use function imagesy;
 
 final class ImageWrapper
 {
-    /** @var resource */
-    private $image;
-
-    /**
-     * @param resource $image
-     */
-    private function __construct($image)
+    private function __construct(private GdImage $image)
     {
-        $this->image = $image;
     }
 
-    /**
-     * @return resource
-     */
-    public function getImage()
+    public function getImage(): GdImage
     {
         return $this->image;
     }
