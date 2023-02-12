@@ -23,14 +23,12 @@ use SimpleXMLElement;
 use function __;
 use function count;
 use function implode;
-use function libxml_disable_entity_loader;
 use function rtrim;
 use function simplexml_load_string;
 use function strcmp;
 use function strlen;
 
 use const LIBXML_COMPACT;
-use const PHP_VERSION_ID;
 
 /**
  * Handles the import for the ODS format
@@ -128,14 +126,6 @@ class ImportOds extends ImportPlugin
 
             /* Append new data to buffer */
             $buffer .= $data;
-        }
-
-        /**
-         * Disable loading of external XML entities for PHP versions below 8.0.
-         */
-        if (PHP_VERSION_ID < 80000) {
-            // phpcs:ignore Generic.PHP.DeprecatedFunctions.Deprecated
-            libxml_disable_entity_loader();
         }
 
         /**

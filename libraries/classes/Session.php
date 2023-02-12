@@ -26,7 +26,6 @@ use function session_write_close;
 use function setcookie;
 
 use const PHP_SESSION_ACTIVE;
-use const PHP_VERSION_ID;
 
 class Session
 {
@@ -132,18 +131,15 @@ class Session
         /** @psalm-var 'Lax'|'Strict'|'None' $cookieSameSite */
         $cookieSameSite = $config->get('CookieSameSite') ?? 'Strict';
         $cookiePath = $config->getRootPath();
-        if (PHP_VERSION_ID < 70300) {
-            $cookiePath .= '; SameSite=' . $cookieSameSite;
-        }
 
-        // session cookie settings
-        session_set_cookie_params(
-            0,
-            $cookiePath,
-            '',
-            $config->isHttps(),
-            true
-        );
+        session_set_cookie_params([
+            'lifetime' => 0,
+            'path' => $cookiePath,
+            'domain' => '',
+            'secure' => $config->isHttps(),
+            'httponly' => true,
+            'samesite' => $cookieSameSite,
+        ]);
 
         // cookies are safer (use ini_set() in case this function is disabled)
         ini_set('session.use_cookies', 'true');
@@ -164,10 +160,8 @@ class Session
         ini_set('session.use_strict_mode', '1');
         // make the session cookie HttpOnly
         ini_set('session.cookie_httponly', '1');
-        if (PHP_VERSION_ID >= 70300) {
-            // add SameSite to the session cookie
-            ini_set('session.cookie_samesite', $cookieSameSite);
-        }
+        // add SameSite to the session cookie
+        ini_set('session.cookie_samesite', $cookieSameSite);
 
         // do not force transparent session ids
         ini_set('session.use_trans_sid', '0');

@@ -66,7 +66,6 @@ use const E_USER_ERROR;
 use const PHP_OS;
 use const PHP_URL_PATH;
 use const PHP_URL_SCHEME;
-use const PHP_VERSION_ID;
 
 /**
  * Configuration handling
@@ -951,18 +950,6 @@ class Config
 
             /** @psalm-var 'Lax'|'Strict'|'None' $cookieSameSite */
             $cookieSameSite = $this->get('CookieSameSite');
-
-            if (PHP_VERSION_ID < 70300) {
-                return setcookie(
-                    $httpCookieName,
-                    $value,
-                    $validity,
-                    $this->getRootPath() . '; SameSite=' . $cookieSameSite,
-                    '',
-                    $this->isHttps(),
-                    $httponly
-                );
-            }
 
             $optionalParams = [
                 'expires' => $validity,

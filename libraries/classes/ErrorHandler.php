@@ -34,7 +34,6 @@ use const E_USER_ERROR;
 use const E_USER_NOTICE;
 use const E_USER_WARNING;
 use const E_WARNING;
-use const PHP_VERSION_ID;
 
 /**
  * handling errors
@@ -202,9 +201,6 @@ class ErrorHandler
             * See: https://github.com/phpmyadmin/phpmyadmin/issues/16729
             */
             $isSilenced = ! (error_reporting() & $errno);
-            if (PHP_VERSION_ID < 80000) {
-                $isSilenced = error_reporting() == 0;
-            }
 
             if (
                 isset($GLOBALS['cfg']['environment'])

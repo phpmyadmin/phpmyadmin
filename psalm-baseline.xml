@@ -8958,8 +8958,6 @@
       <code>$this-&gt;image</code>
       <code>$this-&gt;image</code>
       <code>$this-&gt;image</code>
-      <code>$this-&gt;image</code>
-      <code>$this-&gt;image</code>
     </InvalidArgument>
     <PossiblyUnusedReturnValue>
       <code>bool</code>
@@ -10859,11 +10857,6 @@
   </file>
   <file src="libraries/classes/Plugins/Auth/AuthenticationSignon.php">
     <MixedArgument>
-      <code>$sessionCookieParams['domain']</code>
-      <code>$sessionCookieParams['httponly']</code>
-      <code>$sessionCookieParams['lifetime']</code>
-      <code>$sessionCookieParams['path']</code>
-      <code>$sessionCookieParams['secure']</code>
       <code>$single_signon_cfgupdate</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>

@@ -4796,13 +4796,8 @@ parameters:
 			path: libraries/classes/Image/ImageWrapper.php
 
 		-
-			message: "#^Parameter \\#1 \\$image of function imagedestroy expects GdImage, resource given\\.$#"
-			count: 1
-			path: libraries/classes/Image/ImageWrapper.php
-
-		-
 			message: "#^Parameter \\#1 \\$image of function imagefilledpolygon expects GdImage, resource given\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Image/ImageWrapper.php
 
 		-
@@ -11249,11 +11244,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Plugins\\\\Auth\\\\AuthenticationHttpTest\\:\\:readCredentialsProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
-
-		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
