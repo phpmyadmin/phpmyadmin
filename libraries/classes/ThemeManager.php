@@ -27,7 +27,6 @@ class ThemeManager
     /**
      * ThemeManager instance
      *
-     * @static
      * @var ThemeManager
      */
     private static $instance;

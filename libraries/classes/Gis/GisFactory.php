@@ -20,8 +20,6 @@ class GisFactory
      * @param string $type type of the geometric object
      *
      * @return GisGeometry|false the singleton instance of geometric class of the given type
-     *
-     * @static
      */
     public static function factory($type): GisGeometry|false
     {

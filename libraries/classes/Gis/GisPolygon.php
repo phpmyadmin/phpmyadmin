@@ -316,8 +316,6 @@ class GisPolygon extends GisGeometry
      * @param array $ring array of points forming the ring
      *
      * @return float the area of a closed simple polygon
-     *
-     * @static
      */
     public static function area(array $ring)
     {
@@ -350,8 +348,6 @@ class GisPolygon extends GisGeometry
      * If points are in clockwise orientation then, they form an outer ring.
      *
      * @param array $ring array of points forming the ring
-     *
-     * @static
      */
     public static function isOuterRing(array $ring): bool
     {
@@ -365,8 +361,6 @@ class GisPolygon extends GisGeometry
      *
      * @param array $point   x, y coordinates of the point
      * @param array $polygon array of points forming the ring
-     *
-     * @static
      */
     public static function isPointInsidePolygon(array $point, array $polygon): bool
     {

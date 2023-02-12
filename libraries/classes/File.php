@@ -315,8 +315,6 @@ class File
      * @param string $key       key to process
      *
      * @return array
-     *
-     * @static
      */
     public function fetchUploadedFromTblChangeRequestMultiple(
         array $file,
