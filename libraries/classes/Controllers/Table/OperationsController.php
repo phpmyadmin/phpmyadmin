@@ -38,17 +38,13 @@ use function urldecode;
 
 class OperationsController extends AbstractController
 {
-    /** @var Operations */
-    private $operations;
+    private Operations $operations;
 
-    /** @var CheckUserPrivileges */
-    private $checkUserPrivileges;
+    private CheckUserPrivileges $checkUserPrivileges;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,

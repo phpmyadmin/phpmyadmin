@@ -18,11 +18,9 @@ use const ENT_COMPAT;
 
 final class SetValuesController extends AbstractController
 {
-    /** @var Sql */
-    private $sql;
+    private Sql $sql;
 
-    /** @var CheckUserPrivileges */
-    private $checkUserPrivileges;
+    private CheckUserPrivileges $checkUserPrivileges;
 
     public function __construct(
         ResponseRenderer $response,

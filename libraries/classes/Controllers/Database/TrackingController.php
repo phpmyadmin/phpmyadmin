@@ -28,11 +28,9 @@ use function sprintf;
  */
 class TrackingController extends AbstractController
 {
-    /** @var Tracking */
-    private $tracking;
+    private Tracking $tracking;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,

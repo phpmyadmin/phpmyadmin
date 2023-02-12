@@ -17,11 +17,9 @@ use function strlen;
 
 final class EventsController extends AbstractController
 {
-    /** @var Events */
-    private $events;
+    private Events $events;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,

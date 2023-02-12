@@ -14,11 +14,9 @@ use PhpMyAdmin\Url;
 
 class ProcessesController extends AbstractController
 {
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
-    /** @var Processes */
-    private $processes;
+    private Processes $processes;
 
     public function __construct(
         ResponseRenderer $response,

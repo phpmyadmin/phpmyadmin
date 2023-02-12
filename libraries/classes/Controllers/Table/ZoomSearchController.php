@@ -42,11 +42,9 @@ use function strtoupper;
  */
 class ZoomSearchController extends AbstractController
 {
-    /** @var Search */
-    private $search;
+    private Search $search;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
     /** @var array */
     private $columnNames;
@@ -64,13 +62,12 @@ class ZoomSearchController extends AbstractController
     private $columnNullFlags;
 
     /** @var bool Whether a geometry column is present */
-    private $geomColumnFlag;
+    private bool $geomColumnFlag;
 
     /** @var array Foreign keys */
     private $foreigners;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,

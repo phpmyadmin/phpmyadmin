@@ -79,8 +79,7 @@ class Pdf extends PdfLib
     /** @var string */
     private $db;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
     /**
      * Constructs PDF for schema export.

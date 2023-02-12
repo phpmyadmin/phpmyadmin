@@ -37,14 +37,11 @@ use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 
 class HomeController extends AbstractController
 {
-    /** @var Config */
-    private $config;
+    private Config $config;
 
-    /** @var ThemeManager */
-    private $themeManager;
+    private ThemeManager $themeManager;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     /**
      * @var array<int, array<string, string>>

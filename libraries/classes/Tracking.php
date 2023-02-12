@@ -36,17 +36,13 @@ use const SORT_ASC;
  */
 class Tracking
 {
-    /** @var SqlQueryForm */
-    private $sqlQueryForm;
+    private SqlQueryForm $sqlQueryForm;
 
-    /** @var Template */
-    public $template;
+    public Template $template;
 
-    /** @var Relation */
-    protected $relation;
+    protected Relation $relation;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         SqlQueryForm $sqlQueryForm,

@@ -12,11 +12,9 @@ use function sprintf;
 
 class SystemDatabase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
     /**
      * Get instance of SystemDatabase

@@ -38,8 +38,7 @@ class WebAuthn extends TwoFactorPlugin
     /** @var string */
     public static $id = 'WebAuthn';
 
-    /** @var Server */
-    private $server;
+    private Server $server;
 
     /** @var ServerRequest|null */
     public $serverRequest = null;

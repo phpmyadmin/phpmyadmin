@@ -22,8 +22,7 @@ use function sprintf;
 
 class CentralColumnsController extends AbstractController
 {
-    /** @var CentralColumns */
-    private $centralColumns;
+    private CentralColumns $centralColumns;
 
     public function __construct(
         ResponseRenderer $response,

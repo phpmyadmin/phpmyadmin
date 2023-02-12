@@ -53,20 +53,15 @@ use const PASSWORD_DEFAULT;
 
 class InsertEdit
 {
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var Transformations */
-    private $transformations;
+    private Transformations $transformations;
 
-    /** @var FileListing */
-    private $fileListing;
+    private FileListing $fileListing;
 
-    /** @var Template */
-    private $template;
+    private Template $template;
 
     private const FUNC_OPTIONAL_PARAM = [
         'RAND',

@@ -23,11 +23,9 @@ use function count;
 
 final class ChecksumController extends AbstractController
 {
-    /** @var Maintenance */
-    private $model;
+    private Maintenance $model;
 
-    /** @var Config */
-    private $config;
+    private Config $config;
 
     public function __construct(
         ResponseRenderer $response,

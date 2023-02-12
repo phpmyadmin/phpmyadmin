@@ -51,10 +51,8 @@ class Git
 {
     /**
      * Enable Git information search and process
-     *
-     * @var bool
      */
-    private $showGitRevision;
+    private bool $showGitRevision;
 
     /**
      * Git has been found and the data fetched

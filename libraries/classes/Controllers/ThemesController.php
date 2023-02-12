@@ -11,8 +11,7 @@ use PhpMyAdmin\ThemeManager;
 
 class ThemesController extends AbstractController
 {
-    /** @var ThemeManager */
-    private $themeManager;
+    private ThemeManager $themeManager;
 
     public function __construct(ResponseRenderer $response, Template $template, ThemeManager $themeManager)
     {

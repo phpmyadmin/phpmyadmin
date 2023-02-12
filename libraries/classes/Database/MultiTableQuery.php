@@ -27,10 +27,8 @@ class MultiTableQuery
 {
     /**
      * DatabaseInterface instance
-     *
-     * @var DatabaseInterface
      */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     /**
      * Database name
@@ -51,7 +49,7 @@ class MultiTableQuery
      *
      * @var array<int, string>
      */
-    private $tables;
+    private array $tables;
 
     /** @var Template */
     public $template;

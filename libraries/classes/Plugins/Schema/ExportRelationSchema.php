@@ -53,8 +53,7 @@ class ExportRelationSchema
     /** @var bool */
     protected $offline = false;
 
-    /** @var Relation */
-    protected $relation;
+    protected Relation $relation;
 
     /**
      * @param string                               $db      database name

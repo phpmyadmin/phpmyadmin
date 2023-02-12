@@ -26,11 +26,9 @@ use function min;
  */
 class IndexesController extends AbstractController
 {
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
-    /** @var Indexes */
-    private $indexes;
+    private Indexes $indexes;
 
     public function __construct(
         ResponseRenderer $response,

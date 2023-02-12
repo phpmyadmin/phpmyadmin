@@ -30,14 +30,11 @@ use function trim;
 
 final class PartitioningController extends AbstractController
 {
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
-    /** @var CreateAddField */
-    private $createAddField;
+    private CreateAddField $createAddField;
 
-    /** @var StructureController */
-    private $structureController;
+    private StructureController $structureController;
 
     public function __construct(
         ResponseRenderer $response,

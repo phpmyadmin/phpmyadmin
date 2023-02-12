@@ -95,11 +95,9 @@ class Table implements Stringable
     /** @var string  database name */
     protected $dbName = '';
 
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
     /**
      * @param string            $tableName table name

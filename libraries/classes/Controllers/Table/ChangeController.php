@@ -30,11 +30,9 @@ use function strpos;
  */
 class ChangeController extends AbstractController
 {
-    /** @var InsertEdit */
-    private $insertEdit;
+    private InsertEdit $insertEdit;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
     public function __construct(
         ResponseRenderer $response,

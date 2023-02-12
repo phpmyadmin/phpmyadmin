@@ -33,8 +33,7 @@ use function substr;
  */
 class CreateController extends AbstractController
 {
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     /** @todo Move the whole view rebuilding logic to SQL parser */
     private const VIEW_SECURITY_OPTIONS = [

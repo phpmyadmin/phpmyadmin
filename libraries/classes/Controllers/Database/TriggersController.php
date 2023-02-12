@@ -22,11 +22,9 @@ use function strlen;
  */
 class TriggersController extends AbstractController
 {
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
-    /** @var Triggers */
-    private $triggers;
+    private Triggers $triggers;
 
     public function __construct(
         ResponseRenderer $response,

@@ -23,8 +23,7 @@ use function trim;
 
 final class Search
 {
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(DatabaseInterface $dbi)
     {

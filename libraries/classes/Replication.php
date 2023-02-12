@@ -17,8 +17,7 @@ use function mb_strtoupper;
  */
 class Replication
 {
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(DatabaseInterface $dbi)
     {

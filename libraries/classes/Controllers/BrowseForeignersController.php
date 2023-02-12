@@ -15,11 +15,9 @@ use PhpMyAdmin\Template;
  */
 class BrowseForeignersController extends AbstractController
 {
-    /** @var BrowseForeigners */
-    private $browseForeigners;
+    private BrowseForeigners $browseForeigners;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
     public function __construct(
         ResponseRenderer $response,

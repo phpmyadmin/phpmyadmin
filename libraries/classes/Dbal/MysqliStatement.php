@@ -10,8 +10,7 @@ use function count;
 
 final class MysqliStatement implements Statement
 {
-    /** @var mysqli_stmt */
-    private $statement;
+    private mysqli_stmt $statement;
 
     public function __construct(mysqli_stmt $statement)
     {

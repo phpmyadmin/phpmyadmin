@@ -27,8 +27,7 @@ use function is_numeric;
 
 final class ImportController extends AbstractController
 {
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,

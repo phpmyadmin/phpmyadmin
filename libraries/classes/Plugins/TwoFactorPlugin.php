@@ -37,8 +37,7 @@ class TwoFactorPlugin
      */
     public static $showSubmit = true;
 
-    /** @var TwoFactor */
-    protected $twofactor;
+    protected TwoFactor $twofactor;
 
     /** @var bool */
     protected $provided = false;

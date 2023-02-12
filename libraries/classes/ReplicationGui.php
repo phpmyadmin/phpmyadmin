@@ -26,11 +26,9 @@ use function time;
  */
 class ReplicationGui
 {
-    /** @var Replication */
-    private $replication;
+    private Replication $replication;
 
-    /** @var Template */
-    private $template;
+    private Template $template;
 
     /**
      * @param Replication $replication Replication instance

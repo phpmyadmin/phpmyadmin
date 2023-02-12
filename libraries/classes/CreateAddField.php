@@ -22,8 +22,7 @@ use function trim;
  */
 class CreateAddField
 {
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     /**
      * @param DatabaseInterface $dbi DatabaseInterface interface

@@ -96,8 +96,7 @@ class PdfRelationSchema extends ExportRelationSchema
     /** @var RelationStatsPdf[] */
     protected $relations = [];
 
-    /** @var Transformations */
-    private $transformations;
+    private Transformations $transformations;
 
     /**
      * @see Schema\Pdf

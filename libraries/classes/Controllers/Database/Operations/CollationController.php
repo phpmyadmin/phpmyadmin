@@ -18,11 +18,9 @@ use function __;
 
 final class CollationController extends AbstractController
 {
-    /** @var Operations */
-    private $operations;
+    private Operations $operations;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,

@@ -28,11 +28,9 @@ use function strlen;
  */
 class SqlQueryForm
 {
-    /** @var Template */
-    private $template;
+    private Template $template;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     /**
      * @param Template $template Template object

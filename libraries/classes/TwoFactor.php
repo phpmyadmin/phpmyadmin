@@ -39,17 +39,14 @@ class TwoFactor
      */
     public $config;
 
-    /** @var bool */
-    protected $writable;
+    protected bool $writable;
 
     /** @var TwoFactorPlugin */
     protected $backend;
 
-    /** @var array */
-    protected $available;
+    protected array $available;
 
-    /** @var UserPreferences */
-    private $userPreferences;
+    private UserPreferences $userPreferences;
 
     /**
      * Creates new TwoFactor object

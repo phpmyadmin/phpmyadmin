@@ -23,8 +23,7 @@ use function sprintf;
  */
 class OutputBuffering
 {
-    /** @var int */
-    private $mode;
+    private int $mode;
 
     /** @var string */
     private $content = '';

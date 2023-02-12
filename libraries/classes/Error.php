@@ -115,10 +115,8 @@ class Error extends Message
 
     /**
      * Holds the backtrace for this error
-     *
-     * @var array
      */
-    protected $backtrace = [];
+    protected array $backtrace = [];
 
     /**
      * Hide location of errors

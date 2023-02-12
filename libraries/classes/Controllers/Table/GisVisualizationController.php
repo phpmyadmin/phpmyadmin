@@ -28,8 +28,7 @@ final class GisVisualizationController extends AbstractController
     /** @var GisVisualization */
     private $visualization;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,

@@ -33,17 +33,13 @@ use function strlen;
  */
 class AddFieldController extends AbstractController
 {
-    /** @var Transformations */
-    private $transformations;
+    private Transformations $transformations;
 
-    /** @var Config */
-    private $config;
+    private Config $config;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
-    /** @var ColumnsDefinition */
-    private $columnsDefinition;
+    private ColumnsDefinition $columnsDefinition;
 
     public function __construct(
         ResponseRenderer $response,

@@ -36,11 +36,9 @@ use function usort;
  */
 final class RelationController extends AbstractController
 {
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,

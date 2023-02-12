@@ -73,10 +73,8 @@ class SearchController extends AbstractController
     private $columnNullFlags;
     /**
      * Whether a geometry column is present
-     *
-     * @var bool
      */
-    private $geomColumnFlag;
+    private bool $geomColumnFlag;
     /**
      * Foreign Keys
      *
@@ -84,14 +82,11 @@ class SearchController extends AbstractController
      */
     private $foreigners;
 
-    /** @var Search */
-    private $search;
+    private Search $search;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,

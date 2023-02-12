@@ -21,11 +21,9 @@ use function implode;
  */
 class StatusController extends AbstractController
 {
-    /** @var ReplicationGui */
-    private $replicationGui;
+    private ReplicationGui $replicationGui;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,

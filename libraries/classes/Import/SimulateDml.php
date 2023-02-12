@@ -19,8 +19,7 @@ use function strtoupper;
 
 final class SimulateDml
 {
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(DatabaseInterface $dbi)
     {

@@ -22,8 +22,7 @@ use function str_contains;
 
 class VariablesController extends AbstractController
 {
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(ResponseRenderer $response, Template $template, Data $data, DatabaseInterface $dbi)
     {

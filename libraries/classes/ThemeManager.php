@@ -33,10 +33,10 @@ class ThemeManager
     private static $instance;
 
     /** @var string file-system path to the theme folder */
-    private $themesPath;
+    private string $themesPath;
 
     /** @var string path to theme folder as an URL */
-    private $themesPathUrl;
+    private string $themesPathUrl;
 
     /** @var array<string,Theme> available themes */
     public $themes = [];

@@ -22,11 +22,9 @@ use function is_array;
 
 final class ExportController extends AbstractController
 {
-    /** @var Export */
-    private $export;
+    private Export $export;
 
-    /** @var Options */
-    private $exportOptions;
+    private Options $exportOptions;
 
     public function __construct(
         ResponseRenderer $response,

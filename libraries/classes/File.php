@@ -81,8 +81,7 @@ class File
     /** @var string charset of file */
     protected $charset = null;
 
-    /** @var ZipExtension */
-    private $zipExtension;
+    private ZipExtension $zipExtension;
 
     /**
      * @param bool|string $name file name or false

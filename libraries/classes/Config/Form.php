@@ -68,10 +68,8 @@ class Form
 
     /**
      * ConfigFile instance
-     *
-     * @var ConfigFile
      */
-    private $configFile;
+    private ConfigFile $configFile;
 
     /**
      * A counter for the number of groups

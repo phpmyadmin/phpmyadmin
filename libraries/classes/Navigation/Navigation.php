@@ -44,8 +44,7 @@ class Navigation
     /** @var DatabaseInterface */
     private $dbi;
 
-    /** @var NavigationTree */
-    private $tree;
+    private NavigationTree $tree;
 
     /**
      * @param Template          $template Template instance
