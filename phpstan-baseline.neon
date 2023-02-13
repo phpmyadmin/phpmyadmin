@@ -9191,11 +9191,6 @@ parameters:
 			path: libraries/classes/ZipExtension.php
 
 		-
-			message: "#^PHPDoc tag @var for variable \\$data has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/ZipExtension.php
-
-		-
 			message: "#^Call to function method_exists\\(\\) with 'PHPUnit\\\\\\\\Framework\\\\\\\\TestCase' and 'assertFileDoesNotEx…' will always evaluate to true\\.$#"
 			count: 1
 			path: test/classes/AbstractTestCase.php

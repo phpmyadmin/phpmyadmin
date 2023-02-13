@@ -16304,9 +16304,6 @@
     <RedundantCastGivenDocblockType>
       <code>(string) substr($zdata, 0, strlen($zdata) - 4)</code>
     </RedundantCastGivenDocblockType>
-    <UnnecessaryVarAnnotation>
-      <code>array</code>
-    </UnnecessaryVarAnnotation>
   </file>
   <file src="libraries/config.default.php">
     <UnusedVariable>
