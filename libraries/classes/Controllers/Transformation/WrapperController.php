@@ -176,8 +176,6 @@ class WrapperController extends AbstractController
 
         $destImage = ImageWrapper::create($destWidth, $destHeight);
         if ($destImage === null) {
-            $srcImage->destroy();
-
             return;
         }
 
@@ -188,9 +186,6 @@ class WrapperController extends AbstractController
         } else {
             $destImage->png();
         }
-
-        $destImage->destroy();
-        $srcImage->destroy();
     }
 
     /**

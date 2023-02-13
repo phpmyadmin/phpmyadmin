@@ -2616,6 +2616,8 @@
       <code>exportHeader</code>
     </MixedMethodCall>
     <PossiblyInvalidArgument>
+      <code>$this-&gt;export-&gt;dumpBuffer</code>
+      <code>$this-&gt;export-&gt;dumpBuffer</code>
       <code>$whatStrucOrData</code>
       <code>$whatStrucOrData</code>
       <code>$whatStrucOrData</code>
@@ -2624,6 +2626,7 @@
       <code>$whatStrucOrData</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
+      <code>$this-&gt;export-&gt;dumpBuffer</code>
       <code>$whatStrucOrData</code>
       <code>$whatStrucOrData</code>
       <code>$whatStrucOrData</code>
@@ -8271,6 +8274,9 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisMultiPolygon.php">
+    <ArgumentTypeCoercion>
+      <code>$points_arr</code>
+    </ArgumentTypeCoercion>
     <MixedArgument>
       <code>$label_point[0]</code>
       <code>$label_point[0]</code>
@@ -8464,6 +8470,9 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisPolygon.php">
+    <ArgumentTypeCoercion>
+      <code>$points_arr</code>
+    </ArgumentTypeCoercion>
     <MixedArgument>
       <code>$points_arr[2]</code>
       <code>$points_arr[2]</code>
@@ -8943,24 +8952,7 @@
     </UnusedMethod>
   </file>
   <file src="libraries/classes/Image/ImageWrapper.php">
-    <InvalidArgument>
-      <code>$image</code>
-      <code>$image</code>
-      <code>$image</code>
-      <code>$sourceImage-&gt;getImage()</code>
-      <code>$this-&gt;image</code>
-      <code>$this-&gt;image</code>
-      <code>$this-&gt;image</code>
-      <code>$this-&gt;image</code>
-      <code>$this-&gt;image</code>
-      <code>$this-&gt;image</code>
-      <code>$this-&gt;image</code>
-      <code>$this-&gt;image</code>
-      <code>$this-&gt;image</code>
-      <code>$this-&gt;image</code>
-    </InvalidArgument>
     <PossiblyUnusedReturnValue>
-      <code>bool</code>
       <code>bool</code>
       <code>bool</code>
       <code>bool</code>

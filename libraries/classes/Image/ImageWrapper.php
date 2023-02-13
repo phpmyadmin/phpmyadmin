@@ -13,7 +13,6 @@ use function imagecolorallocate;
 use function imagecopyresampled;
 use function imagecreatefromstring;
 use function imagecreatetruecolor;
-use function imagedestroy;
 use function imagefilledpolygon;
 use function imagefilledrectangle;
 use function imagejpeg;
@@ -55,14 +54,10 @@ final class ImageWrapper
 
         $backgroundColor = imagecolorallocate($image, $background['red'], $background['green'], $background['blue']);
         if ($backgroundColor === false) {
-            imagedestroy($image);
-
             return null;
         }
 
         if (! imagefilledrectangle($image, 0, 0, $width - 1, $height - 1, $backgroundColor)) {
-            imagedestroy($image);
-
             return null;
         }
 
@@ -128,11 +123,7 @@ final class ImageWrapper
         );
     }
 
-    public function destroy(): bool
-    {
-        return true;
-    }
-
+    /** @param list<int> $points */
     public function filledPolygon(array $points, int $color): bool
     {
         return imagefilledpolygon($this->image, $points, $color);

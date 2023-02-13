@@ -368,7 +368,6 @@ class GisVisualization
         // render and save it to variable
         ob_start();
         $image->png(null, 9, PNG_ALL_FILTERS);
-        $image->destroy();
         $output = ob_get_clean();
 
         // base64 encode
@@ -391,7 +390,6 @@ class GisVisualization
 
         $this->writeToFile($file_name, 'image/png', 'png');
         $image->png(null, 9, PNG_ALL_FILTERS);
-        $image->destroy();
     }
 
     /**
