@@ -9271,9 +9271,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="libraries/classes/InsertEdit.php">
-    <DocblockTypeContradiction>
-      <code>$column['Default']</code>
-    </DocblockTypeContradiction>
     <InvalidArgument>
       <code>$urlParams</code>
     </InvalidArgument>
@@ -9364,7 +9361,7 @@
       <code>$specialChars</code>
       <code>$specialChars</code>
       <code>$specialCharsEncoded</code>
-      <code>$textDefault !== false ? $textDefault : $column['Default']</code>
+      <code>$textDefault !== '' ? $textDefault : $column['Default']</code>
       <code>$transformationPlugin-&gt;getScripts()</code>
       <code>$transformation[$type . '_options'] ?? ''</code>
       <code>$trueType</code>
@@ -9515,9 +9512,6 @@
     <RedundantCast>
       <code>(int) $GLOBALS['cfg']['InsertRows']</code>
     </RedundantCast>
-    <RedundantConditionGivenDocblockType>
-      <code>$textDefault !== false</code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/IpAllowDeny.php">
     <InvalidArrayOffset>
@@ -16301,12 +16295,6 @@
     <PossiblyUnusedParam>
       <code>$time</code>
     </PossiblyUnusedParam>
-    <RedundantCastGivenDocblockType>
-      <code>(string) substr($zdata, 0, strlen($zdata) - 4)</code>
-    </RedundantCastGivenDocblockType>
-    <UnnecessaryVarAnnotation>
-      <code>array</code>
-    </UnnecessaryVarAnnotation>
   </file>
   <file src="libraries/config.default.php">
     <UnusedVariable>

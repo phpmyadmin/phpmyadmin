@@ -236,7 +236,6 @@ class ZipExtension
 
             $data = $newData;
         } elseif (is_array($data) && is_array($name) && count($data) === count($name)) {
-            /** @var array $data */
             $data = array_combine($name, $data);
         } else {
             return false;
@@ -269,7 +268,7 @@ class ZipExtension
             $uncLen = strlen($dump);
             $crc = crc32($dump);
             $zdata = (string) gzcompress($dump);
-            $zdata = substr((string) substr($zdata, 0, strlen($zdata) - 4), 2); // fix crc bug
+            $zdata = substr(substr($zdata, 0, strlen($zdata) - 4), 2); // fix crc bug
             $cLen = strlen($zdata);
             $fr = "\x50\x4b\x03\x04"
                 . "\x14\x00" // ver needed to extract

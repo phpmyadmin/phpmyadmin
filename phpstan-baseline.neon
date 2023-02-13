@@ -4896,11 +4896,6 @@ parameters:
 			path: libraries/classes/IndexColumn.php
 
 		-
-			message: "#^Else branch is unreachable because ternary operator condition is always true\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:analyzeTableColumnsArray\\(\\) has parameter \\$column with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
@@ -5242,11 +5237,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#4 \\$data of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:foreignDropdown\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Strict comparison using \\!\\=\\= between string and false will always evaluate to true\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
@@ -9166,11 +9156,6 @@ parameters:
 			path: libraries/classes/VersionInformation.php
 
 		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 1
-			path: libraries/classes/ZipExtension.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\ZipExtension\\:\\:createFile\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/ZipExtension.php
@@ -9187,11 +9172,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\ZipExtension\\:\\:getContents\\(\\) should return array\\{error\\: string, data\\: string\\} but returns array\\{error\\: string, data\\: string\\|false\\}\\.$#"
-			count: 1
-			path: libraries/classes/ZipExtension.php
-
-		-
-			message: "#^PHPDoc tag @var for variable \\$data has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/ZipExtension.php
 
