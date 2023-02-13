@@ -38,8 +38,7 @@ use function time;
 
 final class ExportController extends AbstractController
 {
-    /** @var Export */
-    private $export;
+    private Export $export;
 
     public function __construct(ResponseRenderer $response, Template $template, Export $export)
     {

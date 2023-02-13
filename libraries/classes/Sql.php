@@ -45,23 +45,17 @@ use function ucwords;
  */
 class Sql
 {
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var RelationCleanup */
-    private $relationCleanup;
+    private RelationCleanup $relationCleanup;
 
-    /** @var Transformations */
-    private $transformations;
+    private Transformations $transformations;
 
-    /** @var Operations */
-    private $operations;
+    private Operations $operations;
 
-    /** @var Template */
-    private $template;
+    private Template $template;
 
     public function __construct(
         DatabaseInterface $dbi,

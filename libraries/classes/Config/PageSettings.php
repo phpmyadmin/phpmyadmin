@@ -43,13 +43,10 @@ class PageSettings
 
     /**
      * Contains HTML of settings
-     *
-     * @var string
      */
-    private $HTML = '';
+    private string $HTML = '';
 
-    /** @var UserPreferences */
-    private $userPreferences;
+    private UserPreferences $userPreferences;
 
     /**
      * @param string $formGroupName The name of config form group to display

@@ -26,11 +26,9 @@ use function str_contains;
  */
 class Designer
 {
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
     /** @var Template */
     public $template;

@@ -18,8 +18,7 @@ use function sprintf;
 
 final class Maintenance
 {
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(DatabaseInterface $dbi)
     {

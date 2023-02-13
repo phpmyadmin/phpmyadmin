@@ -24,11 +24,9 @@ use function urldecode;
 
 final class Options
 {
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var TemplateModel */
-    private $templateModel;
+    private TemplateModel $templateModel;
 
     public function __construct(Relation $relation, TemplateModel $templateModel)
     {

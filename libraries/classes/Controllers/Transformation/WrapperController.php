@@ -37,14 +37,11 @@ use function strtolower;
  */
 class WrapperController extends AbstractController
 {
-    /** @var Transformations */
-    private $transformations;
+    private Transformations $transformations;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,

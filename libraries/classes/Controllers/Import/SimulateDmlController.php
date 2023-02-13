@@ -21,8 +21,7 @@ use function explode;
 
 final class SimulateDmlController extends AbstractController
 {
-    /** @var SimulateDml */
-    private $simulateDml;
+    private SimulateDml $simulateDml;
 
     public function __construct(
         ResponseRenderer $response,

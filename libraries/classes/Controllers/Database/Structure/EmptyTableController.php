@@ -25,23 +25,17 @@ use function count;
 
 final class EmptyTableController extends AbstractController
 {
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var RelationCleanup */
-    private $relationCleanup;
+    private RelationCleanup $relationCleanup;
 
-    /** @var Operations */
-    private $operations;
+    private Operations $operations;
 
-    /** @var FlashMessages */
-    private $flash;
+    private FlashMessages $flash;
 
-    /** @var StructureController */
-    private $structureController;
+    private StructureController $structureController;
 
     public function __construct(
         ResponseRenderer $response,

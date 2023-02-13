@@ -92,8 +92,7 @@ class DatabaseInterface implements DbalInterface
      */
     public const GETVAR_GLOBAL = 2;
 
-    /** @var DbiExtension */
-    private $extension;
+    private DbiExtension $extension;
 
     /**
      * Opened database connections.
@@ -126,8 +125,7 @@ class DatabaseInterface implements DbalInterface
     /** @var Types MySQL types data */
     public $types;
 
-    /** @var Cache */
-    private $cache;
+    private Cache $cache;
 
     /** @var float */
     public $lastQueryExecutionTime = 0;

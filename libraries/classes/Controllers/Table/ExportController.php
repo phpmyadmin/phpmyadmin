@@ -25,8 +25,7 @@ use function is_array;
 
 class ExportController extends AbstractController
 {
-    /** @var Options */
-    private $export;
+    private Options $export;
 
     public function __construct(
         ResponseRenderer $response,

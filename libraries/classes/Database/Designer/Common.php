@@ -32,11 +32,9 @@ use function rawurlencode;
  */
 class Common
 {
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     /**
      * @param DatabaseInterface $dbi      DatabaseInterface object

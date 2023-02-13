@@ -21,8 +21,7 @@ use function __;
 
 final class RepairController extends AbstractController
 {
-    /** @var Maintenance */
-    private $model;
+    private Maintenance $model;
 
     public function __construct(
         ResponseRenderer $response,

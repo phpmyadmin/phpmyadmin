@@ -63,8 +63,7 @@ class Privileges
     /** @var Template */
     public $template;
 
-    /** @var RelationCleanup */
-    private $relationCleanup;
+    private RelationCleanup $relationCleanup;
 
     /** @var DatabaseInterface */
     public $dbi;
@@ -72,8 +71,7 @@ class Privileges
     /** @var Relation */
     public $relation;
 
-    /** @var Plugins */
-    private $plugins;
+    private Plugins $plugins;
 
     /**
      * @param Template          $template        Template object

@@ -31,14 +31,12 @@ use function urlencode;
  */
 class UserPreferences
 {
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
     /** @var Template */
     public $template;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(DatabaseInterface $dbi)
     {

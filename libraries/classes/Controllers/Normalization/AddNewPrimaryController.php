@@ -15,8 +15,7 @@ use PhpMyAdmin\Url;
 
 final class AddNewPrimaryController extends AbstractController
 {
-    /** @var Normalization */
-    private $normalization;
+    private Normalization $normalization;
 
     public function __construct(ResponseRenderer $response, Template $template, Normalization $normalization)
     {

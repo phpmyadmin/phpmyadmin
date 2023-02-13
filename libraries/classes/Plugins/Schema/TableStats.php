@@ -71,11 +71,9 @@ abstract class TableStats
     /** @var bool */
     protected $offline;
 
-    /** @var Relation */
-    protected $relation;
+    protected Relation $relation;
 
-    /** @var Font */
-    protected $font;
+    protected Font $font;
 
     /**
      * @param Pdf\Pdf|Svg\Svg|Eps\Eps|Dia\Dia $diagram        schema diagram

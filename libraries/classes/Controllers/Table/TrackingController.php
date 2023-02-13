@@ -31,8 +31,7 @@ use function sprintf;
 
 final class TrackingController extends AbstractController
 {
-    /** @var Tracking */
-    private $tracking;
+    private Tracking $tracking;
 
     public function __construct(
         ResponseRenderer $response,

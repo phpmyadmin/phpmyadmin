@@ -16,8 +16,7 @@ use function is_string;
 
 final class AddController extends AbstractController
 {
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(ResponseRenderer $response, Template $template, DatabaseInterface $dbi)
     {

@@ -27,11 +27,9 @@ use function mb_strtolower;
  */
 class PrivilegesController extends AbstractController
 {
-    /** @var Privileges */
-    private $privileges;
+    private Privileges $privileges;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,

@@ -13,11 +13,9 @@ use function in_array;
 
 abstract class AbstractController
 {
-    /** @var ConfigFile */
-    protected $config;
+    protected ConfigFile $config;
 
-    /** @var Template */
-    protected $template;
+    protected Template $template;
 
     public function __construct(ConfigFile $config, Template $template)
     {

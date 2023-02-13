@@ -39,11 +39,9 @@ class FindReplaceController extends AbstractController
     /** @var array */
     private $columnTypes;
 
-    /** @var string */
-    private $connectionCharSet;
+    private string $connectionCharSet;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,

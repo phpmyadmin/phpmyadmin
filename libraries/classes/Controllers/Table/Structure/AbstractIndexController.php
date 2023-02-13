@@ -17,11 +17,9 @@ use function is_array;
 
 abstract class AbstractIndexController extends AbstractController
 {
-    /** @var StructureController */
-    protected $structureController;
+    protected StructureController $structureController;
 
-    /** @var Indexes */
-    protected $indexes;
+    protected Indexes $indexes;
 
     public function __construct(
         ResponseRenderer $response,

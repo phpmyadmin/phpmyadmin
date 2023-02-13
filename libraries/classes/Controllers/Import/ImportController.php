@@ -50,14 +50,11 @@ use function trim;
 
 final class ImportController extends AbstractController
 {
-    /** @var Import */
-    private $import;
+    private Import $import;
 
-    /** @var Sql */
-    private $sql;
+    private Sql $sql;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,

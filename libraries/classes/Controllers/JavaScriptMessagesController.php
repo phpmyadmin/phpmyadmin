@@ -18,7 +18,7 @@ use function time;
 final class JavaScriptMessagesController
 {
     /** @var array<string, string> */
-    private $messages;
+    private array $messages;
 
     public function __construct()
     {

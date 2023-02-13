@@ -25,10 +25,8 @@ abstract class SchemaPlugin implements Plugin
 {
     /**
      * Object containing the specific schema export plugin type properties.
-     *
-     * @var SchemaPluginProperties
      */
-    protected $properties;
+    protected SchemaPluginProperties $properties;
 
     final public function __construct()
     {

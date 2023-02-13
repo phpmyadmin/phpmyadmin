@@ -32,71 +32,49 @@ class Header
 {
     /**
      * Scripts instance
-     *
-     * @var Scripts
      */
-    private $scripts;
+    private Scripts $scripts;
     /**
      * PhpMyAdmin\Console instance
-     *
-     * @var Console
      */
-    private $console;
+    private Console $console;
     /**
      * Menu instance
-     *
-     * @var Menu
      */
-    private $menu;
+    private Menu $menu;
     /**
      * The page title
-     *
-     * @var string
      */
-    private $title;
+    private string $title;
     /**
      * The value for the id attribute for the body tag
-     *
-     * @var string
      */
-    private $bodyId;
+    private string $bodyId;
     /**
      * Whether to show the top menu
-     *
-     * @var bool
      */
-    private $menuEnabled;
+    private bool $menuEnabled;
     /**
      * Whether to show the warnings
-     *
-     * @var bool
      */
-    private $warningsEnabled;
+    private bool $warningsEnabled;
     /**
      * Whether we are servicing an ajax request.
-     *
-     * @var bool
      */
-    private $isAjax;
+    private bool $isAjax;
     /**
      * Whether to display anything
-     *
-     * @var bool
      */
-    private $isEnabled;
+    private bool $isEnabled;
     /**
      * Whether the HTTP headers (and possibly some HTML)
      * have already been sent to the browser
-     *
-     * @var bool
      */
-    private $headerIsSent;
+    private bool $headerIsSent;
 
-    /** @var UserPreferences */
-    private $userPreferences;
+    private UserPreferences $userPreferences;
 
-    /** @var Template */
-    private $template;
+    private Template $template;
 
     /** @var bool */
     private $isTransformationWrapper = false;

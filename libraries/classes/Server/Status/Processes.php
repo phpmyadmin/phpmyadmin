@@ -17,8 +17,7 @@ use function ucfirst;
 
 final class Processes
 {
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(DatabaseInterface $dbi)
     {

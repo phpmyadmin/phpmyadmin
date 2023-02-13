@@ -15,8 +15,7 @@ use function is_array;
 
 final class ExportRowsController extends AbstractController
 {
-    /** @var ExportController */
-    private $exportController;
+    private ExportController $exportController;
 
     public function __construct(
         ResponseRenderer $response,

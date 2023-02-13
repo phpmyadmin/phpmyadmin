@@ -20,11 +20,9 @@ use function sprintf;
 
 class DesignerController extends AbstractController
 {
-    /** @var Designer */
-    private $databaseDesigner;
+    private Designer $databaseDesigner;
 
-    /** @var DesignerCommon */
-    private $designerCommon;
+    private DesignerCommon $designerCommon;
 
     public function __construct(
         ResponseRenderer $response,

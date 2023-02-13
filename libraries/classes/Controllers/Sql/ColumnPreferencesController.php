@@ -19,11 +19,9 @@ use function is_string;
 
 final class ColumnPreferencesController extends AbstractController
 {
-    /** @var CheckUserPrivileges */
-    private $checkUserPrivileges;
+    private CheckUserPrivileges $checkUserPrivileges;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,

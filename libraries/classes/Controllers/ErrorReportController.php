@@ -28,14 +28,11 @@ use function time;
  */
 class ErrorReportController extends AbstractController
 {
-    /** @var ErrorReport */
-    private $errorReport;
+    private ErrorReport $errorReport;
 
-    /** @var ErrorHandler */
-    private $errorHandler;
+    private ErrorHandler $errorHandler;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,

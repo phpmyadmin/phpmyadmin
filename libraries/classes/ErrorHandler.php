@@ -56,10 +56,8 @@ class ErrorHandler
 
     /**
      * Initial error reporting state
-     *
-     * @var int
      */
-    protected $errorReporting = 0;
+    protected int $errorReporting = 0;
 
     public function __construct()
     {

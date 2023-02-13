@@ -31,8 +31,7 @@ class Language
     /** @var string */
     protected $native;
 
-    /** @var string */
-    protected $regex;
+    protected string $regex;
 
     /** @var string */
     protected $mysql;

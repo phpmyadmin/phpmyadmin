@@ -19,8 +19,7 @@ use function sprintf;
  */
 class VersionCheckController extends AbstractController
 {
-    /** @var VersionInformation */
-    private $versionInformation;
+    private VersionInformation $versionInformation;
 
     public function __construct(ResponseRenderer $response, Template $template, VersionInformation $versionInformation)
     {

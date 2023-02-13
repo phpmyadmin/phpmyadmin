@@ -19,8 +19,7 @@ use function json_encode;
  */
 final class RealRowCountController extends AbstractController
 {
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(ResponseRenderer $response, Template $template, DatabaseInterface $dbi)
     {

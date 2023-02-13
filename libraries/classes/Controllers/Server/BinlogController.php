@@ -23,13 +23,10 @@ class BinlogController extends AbstractController
 {
     /**
      * binary log files
-     *
-     * @var array
      */
-    protected $binaryLogs;
+    protected array $binaryLogs;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(ResponseRenderer $response, Template $template, DatabaseInterface $dbi)
     {

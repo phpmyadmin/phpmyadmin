@@ -31,7 +31,7 @@ use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 class ServerConfigChecks
 {
     /** @var ConfigFile configurations being checked */
-    protected $cfg;
+    protected ConfigFile $cfg;
 
     /**
      * @param ConfigFile $cfg Configuration

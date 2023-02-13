@@ -34,16 +34,12 @@ class Normalization
 {
     /**
      * DatabaseInterface instance
-     *
-     * @var DatabaseInterface
      */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var Transformations */
-    private $transformations;
+    private Transformations $transformations;
 
     /** @var Template */
     public $template;

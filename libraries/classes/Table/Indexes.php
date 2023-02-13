@@ -21,14 +21,11 @@ use function __;
 
 final class Indexes
 {
-    /** @var ResponseRenderer */
-    protected $response;
+    protected ResponseRenderer $response;
 
-    /** @var Template */
-    protected $template;
+    protected Template $template;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(ResponseRenderer $response, Template $template, DatabaseInterface $dbi)
     {

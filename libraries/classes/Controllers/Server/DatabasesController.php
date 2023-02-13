@@ -49,8 +49,7 @@ class DatabasesController extends AbstractController
     /** @var int position in list navigation */
     private $position;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,

@@ -26,11 +26,9 @@ use function str_replace;
 
 final class MoveColumnsController extends AbstractController
 {
-    /** @var Table  The table object */
-    private $tableObj;
+    private Table $tableObj;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,

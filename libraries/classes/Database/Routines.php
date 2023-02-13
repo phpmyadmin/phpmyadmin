@@ -57,11 +57,9 @@ class Routines
     /** @var array<int, string> */
     private $numericOptions = ['UNSIGNED', 'ZEROFILL', 'UNSIGNED ZEROFILL'];
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
-    /** @var Template */
-    private $template;
+    private Template $template;
 
     /** @var ResponseRenderer */
     private $response;

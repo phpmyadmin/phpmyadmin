@@ -16,8 +16,7 @@ use function __;
 
 final class AccountLockController extends AbstractController
 {
-    /** @var AccountLocking */
-    private $model;
+    private AccountLocking $model;
 
     public function __construct(ResponseRenderer $response, Template $template, AccountLocking $accountLocking)
     {

@@ -15,11 +15,9 @@ use PhpMyAdmin\Url;
 
 final class LogVarsController extends AbstractController
 {
-    /** @var Monitor */
-    private $monitor;
+    private Monitor $monitor;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,

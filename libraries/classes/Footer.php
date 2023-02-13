@@ -27,10 +27,8 @@ class Footer
 {
     /**
      * Scripts instance
-     *
-     * @var Scripts
      */
-    private $scripts;
+    private Scripts $scripts;
     /**
      * Whether we are servicing an ajax request.
      *
@@ -40,22 +38,16 @@ class Footer
     /**
      * Whether to only close the BODY and HTML tags
      * or also include scripts, errors and links
-     *
-     * @var bool
      */
-    private $isMinimal;
+    private bool $isMinimal;
     /**
      * Whether to display anything
-     *
-     * @var bool
      */
-    private $isEnabled;
+    private bool $isEnabled;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var Template */
-    private $template;
+    private Template $template;
 
     /**
      * Creates a new class instance

@@ -41,17 +41,13 @@ use function str_contains;
  */
 class StructureController extends AbstractController
 {
-    /** @var Table  The table object */
-    protected $tableObj;
+    protected Table $tableObj;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var Transformations */
-    private $transformations;
+    private Transformations $transformations;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,

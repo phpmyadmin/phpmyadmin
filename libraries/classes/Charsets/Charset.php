@@ -14,31 +14,23 @@ final class Charset
 {
     /**
      * The character set name
-     *
-     * @var string
      */
-    private $name;
+    private string $name;
 
     /**
      * A description of the character set
-     *
-     * @var string
      */
-    private $description;
+    private string $description;
 
     /**
      * The default collation for the character set
-     *
-     * @var string
      */
-    private $defaultCollation;
+    private string $defaultCollation;
 
     /**
      * The maximum number of bytes required to store one character
-     *
-     * @var int
      */
-    private $maxLength;
+    private int $maxLength;
 
     /**
      * @param string $name             Charset name

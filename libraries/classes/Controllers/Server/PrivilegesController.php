@@ -33,11 +33,9 @@ use function urlencode;
  */
 class PrivilegesController extends AbstractController
 {
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,

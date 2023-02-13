@@ -66,17 +66,13 @@ class StructureController extends AbstractController
     /** @var bool whether stats show or not */
     protected $isShowStats;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var Replication */
-    private $replication;
+    private Replication $replication;
 
-    /** @var ReplicationInfo */
-    private $replicationInfo;
+    private ReplicationInfo $replicationInfo;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,

@@ -25,19 +25,15 @@ abstract class ExportPlugin implements Plugin
 {
     /**
      * Object containing the specific export plugin type properties.
-     *
-     * @var ExportPluginProperties
      */
-    protected $properties;
+    protected ExportPluginProperties $properties;
 
     /** @var Relation */
     public $relation;
 
-    /** @var Export */
-    protected $export;
+    protected Export $export;
 
-    /** @var Transformations */
-    protected $transformations;
+    protected Transformations $transformations;
 
     final public function __construct(Relation $relation, Export $export, Transformations $transformations)
     {

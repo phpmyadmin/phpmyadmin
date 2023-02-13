@@ -18,11 +18,9 @@ use PhpMyAdmin\Url;
  */
 class SqlController extends AbstractController
 {
-    /** @var SqlQueryForm */
-    private $sqlQueryForm;
+    private SqlQueryForm $sqlQueryForm;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,

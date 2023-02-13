@@ -22,11 +22,9 @@ use function __;
  */
 class NavigationController extends AbstractController
 {
-    /** @var Navigation */
-    private $navigation;
+    private Navigation $navigation;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
     public function __construct(
         ResponseRenderer $response,

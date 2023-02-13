@@ -31,8 +31,7 @@ use function vsprintf;
  */
 class Advisor
 {
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     /** @var array */
     private $variables;
@@ -54,8 +53,7 @@ class Advisor
         'errors' => [],
     ];
 
-    /** @var ExpressionLanguage */
-    private $expression;
+    private ExpressionLanguage $expression;
 
     /**
      * @param DatabaseInterface  $dbi        DatabaseInterface object

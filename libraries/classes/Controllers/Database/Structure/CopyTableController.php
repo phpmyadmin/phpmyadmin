@@ -17,11 +17,9 @@ use function count;
 
 final class CopyTableController extends AbstractController
 {
-    /** @var Operations */
-    private $operations;
+    private Operations $operations;
 
-    /** @var StructureController */
-    private $structureController;
+    private StructureController $structureController;
 
     public function __construct(
         ResponseRenderer $response,

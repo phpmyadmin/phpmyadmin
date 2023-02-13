@@ -52,8 +52,7 @@ abstract class AuthenticationPlugin
      */
     public $password = '';
 
-    /** @var IpAllowDeny */
-    protected $ipAllowDeny;
+    protected IpAllowDeny $ipAllowDeny;
 
     /** @var Template */
     public $template;

@@ -91,11 +91,9 @@ class Pdf extends PdfLib
     /** @var array */
     private $aliases;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var Transformations */
-    private $transformations;
+    private Transformations $transformations;
 
     /**
      * Constructs PDF and configures standard parameters.

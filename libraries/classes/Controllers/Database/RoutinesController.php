@@ -23,14 +23,11 @@ use function strlen;
  */
 class RoutinesController extends AbstractController
 {
-    /** @var CheckUserPrivileges */
-    private $checkUserPrivileges;
+    private CheckUserPrivileges $checkUserPrivileges;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
-    /** @var Routines */
-    private $routines;
+    private Routines $routines;
 
     public function __construct(
         ResponseRenderer $response,

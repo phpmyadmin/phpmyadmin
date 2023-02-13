@@ -15,8 +15,7 @@ use PhpMyAdmin\Template;
  */
 class AdvisorController extends AbstractController
 {
-    /** @var Advisor */
-    private $advisor;
+    private Advisor $advisor;
 
     public function __construct(ResponseRenderer $response, Template $template, Data $data, Advisor $advisor)
     {

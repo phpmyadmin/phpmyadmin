@@ -23,8 +23,7 @@ class FormDisplayTemplate
     /** @var int */
     public $group;
 
-    /** @var Config */
-    protected $config;
+    protected Config $config;
 
     /** @var Template */
     public $template;

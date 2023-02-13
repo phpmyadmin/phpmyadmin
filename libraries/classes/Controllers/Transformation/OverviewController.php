@@ -17,8 +17,7 @@ use function array_keys;
  */
 class OverviewController extends AbstractController
 {
-    /** @var Transformations */
-    private $transformations;
+    private Transformations $transformations;
 
     public function __construct(ResponseRenderer $response, Template $template, Transformations $transformations)
     {

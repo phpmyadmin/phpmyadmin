@@ -19,8 +19,7 @@ use function sprintf;
 
 final class BrowseController extends AbstractController
 {
-    /** @var Sql */
-    private $sql;
+    private Sql $sql;
 
     public function __construct(ResponseRenderer $response, Template $template, Sql $sql)
     {

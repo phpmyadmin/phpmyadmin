@@ -41,17 +41,13 @@ use function sprintf;
  */
 final class ReplaceController extends AbstractController
 {
-    /** @var InsertEdit */
-    private $insertEdit;
+    private InsertEdit $insertEdit;
 
-    /** @var Transformations */
-    private $transformations;
+    private Transformations $transformations;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,

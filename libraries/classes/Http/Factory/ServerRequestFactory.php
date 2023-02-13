@@ -35,11 +35,9 @@ use const PHP_URL_QUERY;
 
 class ServerRequestFactory
 {
-    /** @var ServerRequestFactoryInterface */
-    private $serverRequestFactory;
+    private ServerRequestFactoryInterface $serverRequestFactory;
 
-    /** @var UriFactoryInterface */
-    private $uriFactory;
+    private UriFactoryInterface $uriFactory;
 
     public function __construct(
         ?ServerRequestFactoryInterface $serverRequestFactory = null,

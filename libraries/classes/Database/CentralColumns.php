@@ -32,12 +32,7 @@ use function trim;
 
 class CentralColumns
 {
-    /**
-     * DatabaseInterface instance
-     *
-     * @var DatabaseInterface
-     */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     /**
      * Current user
@@ -48,10 +43,8 @@ class CentralColumns
 
     /**
      * Number of rows displayed when browsing a result set
-     *
-     * @var int
      */
-    private $maxRows;
+    private int $maxRows;
 
     /**
      * Which editor should be used for CHAR/VARCHAR fields
@@ -62,13 +55,10 @@ class CentralColumns
 
     /**
      * Disable use of INFORMATION_SCHEMA
-     *
-     * @var bool
      */
-    private $disableIs;
+    private bool $disableIs;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
     /** @var Template */
     public $template;

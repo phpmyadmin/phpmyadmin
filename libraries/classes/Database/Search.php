@@ -40,10 +40,8 @@ class Search
 
     /**
      * Type of search
-     *
-     * @var array
      */
-    private $searchTypes;
+    private array $searchTypes;
 
     /**
      * Already set search type
@@ -80,8 +78,7 @@ class Search
      */
     private $criteriaColumnName;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     /** @var Template */
     public $template;

@@ -119,8 +119,7 @@ class Node
      */
     public $pos3 = 0;
 
-    /** @var Relation */
-    protected $relation;
+    protected Relation $relation;
 
     /** @var string $displayName  display name for the navigation tree */
     public $displayName;

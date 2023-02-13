@@ -29,8 +29,7 @@ use const SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING;
 
 final class WebauthnLibServer implements Server
 {
-    /** @var TwoFactor */
-    private $twofactor;
+    private TwoFactor $twofactor;
 
     public function __construct(TwoFactor $twofactor)
     {
@@ -203,8 +202,7 @@ final class WebauthnLibServer implements Server
     private function createPublicKeyCredentialSourceRepository(): PublicKeyCredentialSourceRepository
     {
         return new class ($this->twofactor) implements PublicKeyCredentialSourceRepository {
-            /** @var TwoFactor */
-            private $twoFactor;
+            private TwoFactor $twoFactor;
 
             public function __construct(TwoFactor $twoFactor)
             {

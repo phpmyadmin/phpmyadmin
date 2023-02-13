@@ -22,14 +22,10 @@ use function mb_substr;
  */
 class BrowseForeigners
 {
-    /** @var int */
-    private $limitChars;
-    /** @var int */
-    private $maxRows;
-    /** @var int */
-    private $repeatCells;
-    /** @var bool */
-    private $showAll;
+    private int $limitChars;
+    private int $maxRows;
+    private int $repeatCells;
+    private bool $showAll;
 
     /** @var Template */
     public $template;

@@ -14,8 +14,7 @@ use function __;
 
 final class TablesController extends AbstractController
 {
-    /** @var ExportController */
-    private $exportController;
+    private ExportController $exportController;
 
     public function __construct(ResponseRenderer $response, Template $template, ExportController $exportController)
     {

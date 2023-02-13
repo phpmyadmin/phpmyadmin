@@ -21,14 +21,11 @@ use function ltrim;
 
 class ExportController extends AbstractController
 {
-    /** @var UserPreferences */
-    private $userPreferences;
+    private UserPreferences $userPreferences;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var Config */
-    private $config;
+    private Config $config;
 
     public function __construct(
         ResponseRenderer $response,

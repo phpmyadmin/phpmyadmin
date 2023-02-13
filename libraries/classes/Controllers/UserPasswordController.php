@@ -19,11 +19,9 @@ use function __;
  */
 class UserPasswordController extends AbstractController
 {
-    /** @var UserPassword */
-    private $userPassword;
+    private UserPassword $userPassword;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,

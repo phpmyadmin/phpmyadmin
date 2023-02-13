@@ -46,10 +46,8 @@ class RecentFavoriteTable
 
     /**
      * Defines type of action, Favorite or Recent table.
-     *
-     * @var string
      */
-    private $tableType;
+    private string $tableType;
 
     /**
      * RecentFavoriteTable instances.
@@ -58,8 +56,7 @@ class RecentFavoriteTable
      */
     private static $instances = [];
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
     /**
      * Creates a new instance of RecentFavoriteTable

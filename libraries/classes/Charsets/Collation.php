@@ -20,59 +20,43 @@ final class Collation
 {
     /**
      * The collation name
-     *
-     * @var string
      */
-    private $name;
+    private string $name;
 
     /**
      * A description of the collation
-     *
-     * @var string
      */
-    private $description;
+    private string $description;
 
     /**
      * The name of the character set with which the collation is associated
-     *
-     * @var string
      */
-    private $charset;
+    private string $charset;
 
     /**
      * The collation ID
-     *
-     * @var int
      */
-    private $id;
+    private int $id;
 
     /**
      * Whether the collation is the default for its character set
-     *
-     * @var bool
      */
-    private $isDefault;
+    private bool $isDefault;
 
     /**
      * Whether the character set is compiled into the server
-     *
-     * @var bool
      */
-    private $isCompiled;
+    private bool $isCompiled;
 
     /**
      * Used for determining the memory used to sort strings in this collation
-     *
-     * @var int
      */
-    private $sortLength;
+    private int $sortLength;
 
     /**
      * The collation pad attribute
-     *
-     * @var string
      */
-    private $padAttribute;
+    private string $padAttribute;
 
     /**
      * @param string $name         Collation name

@@ -48,10 +48,8 @@ class FormDisplay
 {
     /**
      * ConfigFile instance
-     *
-     * @var ConfigFile
      */
-    private $configFile;
+    private ConfigFile $configFile;
 
     /**
      * Form list
@@ -105,8 +103,7 @@ class FormDisplay
      */
     private $userprefsDisallow;
 
-    /** @var FormDisplayTemplate */
-    private $formDisplayTemplate;
+    private FormDisplayTemplate $formDisplayTemplate;
 
     /**
      * @param ConfigFile $cf Config file instance
