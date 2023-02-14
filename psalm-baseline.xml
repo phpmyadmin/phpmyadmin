@@ -7461,9 +7461,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="libraries/classes/Engines/Innodb.php">
-    <LessSpecificImplementedReturnType>
-      <code>array</code>
-    </LessSpecificImplementedReturnType>
     <MixedArgument>
       <code>$status['Innodb_buffer_pool_pages_data']</code>
       <code>$status['Innodb_buffer_pool_pages_dirty']</code>
@@ -7489,9 +7486,6 @@
     </MixedOperand>
   </file>
   <file src="libraries/classes/Engines/Pbxt.php">
-    <LessSpecificImplementedReturnType>
-      <code>array</code>
-    </LessSpecificImplementedReturnType>
     <ParamNameMismatch>
       <code>$formatted_size</code>
     </ParamNameMismatch>

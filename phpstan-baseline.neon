@@ -3891,17 +3891,7 @@ parameters:
 			path: libraries/classes/Engines/Bdb.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Engines\\\\Innodb\\:\\:getInfoPages\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Engines/Innodb.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Engines\\\\Innodb\\:\\:getVariables\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Engines/Innodb.php
-
-		-
-			message: "#^Return type \\(array\\) of method PhpMyAdmin\\\\Engines\\\\Innodb\\:\\:getInfoPages\\(\\) should be covariant with return type \\(array\\<string\\>\\) of method PhpMyAdmin\\\\StorageEngine\\:\\:getInfoPages\\(\\)$#"
 			count: 1
 			path: libraries/classes/Engines/Innodb.php
 
@@ -3921,22 +3911,12 @@ parameters:
 			path: libraries/classes/Engines/Ndbcluster.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Engines\\\\Pbxt\\:\\:getInfoPages\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Engines/Pbxt.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Engines\\\\Pbxt\\:\\:getVariables\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Engines/Pbxt.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Engines\\\\Pbxt\\:\\:resolveTypeSize\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Engines/Pbxt.php
-
-		-
-			message: "#^Return type \\(array\\) of method PhpMyAdmin\\\\Engines\\\\Pbxt\\:\\:getInfoPages\\(\\) should be covariant with return type \\(array\\<string\\>\\) of method PhpMyAdmin\\\\StorageEngine\\:\\:getInfoPages\\(\\)$#"
 			count: 1
 			path: libraries/classes/Engines/Pbxt.php
 

@@ -95,19 +95,18 @@ class Innodb extends StorageEngine
     /**
      * Get information pages
      *
-     * @return array detail pages
+     * @return string[] detail pages
      */
-    public function getInfoPages()
+    public function getInfoPages(): array
     {
         if ($this->support < StorageEngine::SUPPORT_YES) {
             return [];
         }
 
-        $pages = [];
-        $pages['Bufferpool'] = __('Buffer Pool');
-        $pages['Status'] = __('InnoDB Status');
-
-        return $pages;
+        return [
+            'Bufferpool' => __('Buffer Pool'),
+            'Status' => __('InnoDB Status'),
+        ];
     }
 
     /**
