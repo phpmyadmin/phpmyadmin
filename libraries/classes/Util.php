@@ -122,7 +122,7 @@ class Util
      *
      * @return string the message
      */
-    public static function getFormattedMaximumUploadSize($maxUploadSize): string
+    public static function getFormattedMaximumUploadSize(int|float|string $maxUploadSize): string
     {
         // I have to reduce the second parameter (sensitiveness) from 6 to 4
         // to avoid weird results like 512 kKib
@@ -484,7 +484,7 @@ class Util
      * @return string   the formatted value and its unit
      */
     public static function formatNumber(
-        $value,
+        float|int|string $value,
         $digitsLeft = 3,
         $digitsRight = 0,
         $onlyDown = false,
@@ -588,7 +588,7 @@ class Util
      *
      * @return int|float The numerical part of the expression (for example 8)
      */
-    public static function extractValueFromFormattedSize($formattedSize)
+    public static function extractValueFromFormattedSize(string|int $formattedSize): int|float
     {
         $returnValue = -1;
 
@@ -848,7 +848,7 @@ class Util
         array $fieldsMeta,
         array $row,
         $forceUnique = false,
-        $restrictToTable = false,
+        string|bool $restrictToTable = false,
         array $expressions = []
     ): array {
         $primaryKey = '';
@@ -1391,7 +1391,7 @@ class Util
      *
      * @return string|bool Title for the $cfg value
      */
-    public static function getTitleForTarget($target)
+    public static function getTitleForTarget($target): string|bool
     {
         $mapping = [
             'structure' => __('Structure'),
@@ -2347,7 +2347,7 @@ class Util
      *
      * @return mixed Searched value
      */
-    public static function getValueByKey(array $array, $path, $default = null)
+    public static function getValueByKey(array $array, string|array $path, $default = null)
     {
         if (is_string($path)) {
             $path = explode('.', $path);

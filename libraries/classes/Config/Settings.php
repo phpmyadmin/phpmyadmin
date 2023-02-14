@@ -1894,10 +1894,9 @@ final class Settings
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @return bool|string
      * @psalm-return bool|'sameorigin'
      */
-    private function setAllowThirdPartyFraming(array $settings)
+    private function setAllowThirdPartyFraming(array $settings): bool|string
     {
         if (! isset($settings['AllowThirdPartyFraming'])) {
             return false;
@@ -2086,10 +2085,9 @@ final class Settings
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @return bool|string
      * @psalm-return 'auto'|bool
      */
-    private function setOBGzip(array $settings)
+    private function setOBGzip(array $settings): bool|string
     {
         if (! isset($settings['OBGzip']) || $settings['OBGzip'] === 'auto') {
             return 'auto';
@@ -2585,7 +2583,7 @@ final class Settings
      *
      * @return false|string|string[]
      */
-    private function setNavigationTreeTableSeparator(array $settings)
+    private function setNavigationTreeTableSeparator(array $settings): false|string|array
     {
         if (! isset($settings['NavigationTreeTableSeparator'])) {
             return '__';
@@ -3153,10 +3151,9 @@ final class Settings
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @return false|string
      * @psalm-return 'blob'|'noblob'|'all'|false
      */
-    private function setProtectBinary(array $settings)
+    private function setProtectBinary(array $settings): false|string
     {
         if (
             ! isset($settings['ProtectBinary'])

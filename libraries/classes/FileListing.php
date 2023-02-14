@@ -28,7 +28,7 @@ class FileListing
      *
      * @return array|bool sorted file list on success, false on failure
      */
-    public function getDirContent(string $dir, string $expression = '')
+    public function getDirContent(string $dir, string $expression = ''): array|bool
     {
         if (! @file_exists($dir)) {
             return false;
@@ -76,7 +76,7 @@ class FileListing
         string $dir,
         string $extensions = '',
         string $active = ''
-    ) {
+    ): string|false {
         $list = $this->getDirContent($dir, $extensions);
         if ($list === false) {
             return false;

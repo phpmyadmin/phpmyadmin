@@ -1202,7 +1202,7 @@ class InsertEdit
      * @param string|false $gotoInclude store some script for include, otherwise it is
      *                                   boolean false
      */
-    public function getGotoInclude($gotoInclude): string
+    public function getGotoInclude(string|false $gotoInclude): string
     {
         $validOptions = [
             'new_insert',
@@ -1618,7 +1618,7 @@ class InsertEdit
     public function getQueryValueForInsert(
         EditField $editField,
         bool $usingKey,
-        $whereClause
+        string|int $whereClause
     ): string {
         $protectedValue = '';
         if ($editField->type === 'protected' && $usingKey && $whereClause !== '') {

@@ -862,7 +862,7 @@ class InsertEditTest extends AbstractTestCase
         );
 
         $column['True_Type'] = '';
-        $foreigners['f'] = true;
+        $foreigners['f'] = ['something'/* What should the mocked value actually be? */];
         $foreignData['foreign_link'] = '';
         $this->assertEquals(
             '4',

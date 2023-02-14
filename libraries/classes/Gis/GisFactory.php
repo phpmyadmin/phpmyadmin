@@ -23,7 +23,7 @@ class GisFactory
      *
      * @static
      */
-    public static function factory($type)
+    public static function factory($type): GisGeometry|false
     {
         return match (strtoupper($type)) {
             'MULTIPOLYGON' => GisMultiPolygon::singleton(),

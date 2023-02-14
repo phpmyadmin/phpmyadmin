@@ -34,8 +34,6 @@ final class SimulateDml
     /**
      * Find the matching rows for UPDATE/DELETE query.
      *
-     * @param DeleteStatement|UpdateStatement|Statement $statement
-     *
      * @return array<string, int|string>
      * @psalm-return array{
      *   sql_query: string,
@@ -43,8 +41,11 @@ final class SimulateDml
      *   matched_rows_url: string
      * }
      */
-    public function getMatchedRows(string $query, Parser $parser, $statement): array
-    {
+    public function getMatchedRows(
+        string $query,
+        Parser $parser,
+        DeleteStatement|UpdateStatement|Statement $statement
+    ): array {
         $matchedRowQuery = '';
         if ($statement instanceof DeleteStatement) {
             $matchedRowQuery = $this->getSimulatedDeleteQuery($parser, $statement);
@@ -72,10 +73,9 @@ final class SimulateDml
      *
      * @param string $matchedRowQuery SQL query
      *
-     * @return int|string
      * @psalm-return int|numeric-string
      */
-    private function executeMatchedRowQuery(string $matchedRowQuery)
+    private function executeMatchedRowQuery(string $matchedRowQuery): int|string
     {
         $this->dbi->selectDb($GLOBALS['db']);
         // Execute the query.

@@ -25,7 +25,7 @@ class Cache
      * @param array       $tables information for tables of some databases
      * @param string|bool $table  table name
      */
-    public function cacheTableData(array $tables, $table): void
+    public function cacheTableData(array $tables, string|bool $table): void
     {
         // Note: I don't see why we would need array_merge_recursive() here,
         // as it creates double entries for the same table (for example a double

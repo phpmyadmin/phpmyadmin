@@ -176,7 +176,7 @@ abstract class ExportPlugin implements Plugin
      */
     public function exportMetadata(
         $db,
-        $tables,
+        string|array $tables,
         array $metadataTypes
     ): bool {
         return true;

@@ -9,6 +9,7 @@ use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Types;
 
 use function array_slice;
@@ -151,7 +152,7 @@ class CentralColumnsTest extends AbstractTestCase
             ->will($this->returnValue(['id', 'col1', 'col2']));
         $dbi->expects($this->any())
             ->method('tryQuery')
-            ->will($this->returnValue(true));
+            ->will($this->returnValue($this->createStub(DummyResult::class)));
         $dbi->expects($this->any())
             ->method('getTables')
             ->will(

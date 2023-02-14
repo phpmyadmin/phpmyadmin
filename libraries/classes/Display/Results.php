@@ -404,13 +404,13 @@ class Results
      * @psalm-param int|numeric-string $numRows
      */
     public function setProperties(
-        $unlimNumRows,
+        int|string $unlimNumRows,
         array $fieldsMeta,
         $isCount,
         $isExport,
         $isFunction,
         $isAnalyse,
-        $numRows,
+        int|string $numRows,
         $fieldsCount,
         $queryTime,
         $textDirection,
@@ -2272,10 +2272,10 @@ class Results
     private function getRowValues(
         array $row,
         $rowNumber,
-        $colOrder,
+        array|false $colOrder,
         array $map,
         string $gridEditConfig,
-        $colVisib,
+        bool|array|string $colVisib,
         $urlSqlQuery,
         StatementInfo $statementInfo
     ) {
@@ -2581,7 +2581,7 @@ class Results
      *
      * @return array<string, mixed> associative array with column nama -> value
      */
-    private function getRowInfoForSpecialLinks(array $row, $colOrder): array
+    private function getRowInfoForSpecialLinks(array $row, array|bool $colOrder): array
     {
         $rowInfo = [];
         $fieldsMeta = $this->properties['fields_meta'];

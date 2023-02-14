@@ -9779,9 +9779,6 @@
       <code>$paths['aPath_clean'][4]</code>
       <code>$paths['aPath_clean'][4]</code>
     </MixedArrayAccess>
-    <MixedArrayOffset>
-      <code>$hiddenCounts[$db]</code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code>$db</code>
       <code>$item</code>
@@ -11035,6 +11032,8 @@
       <code>$do_relation</code>
     </ParamNameMismatch>
     <PossiblyFalseReference>
+      <code>fetchAssoc</code>
+      <code>getFieldNames</code>
       <code>numFields</code>
     </PossiblyFalseReference>
     <PossiblyInvalidArrayOffset>

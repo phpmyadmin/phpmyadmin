@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Server\Privileges;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Server\Privileges\AccountLocking;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PHPUnit\Framework\TestCase;
 use Throwable;
 
@@ -26,7 +27,7 @@ class AccountLockingTest extends TestCase
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with($this->equalTo('ALTER USER \'test.user\'@\'test.host\' ACCOUNT LOCK;'))
-            ->willReturn(true);
+            ->willReturn($this->createStub(DummyResult::class));
         $dbi->expects($this->never())->method('getError');
 
         $accountLocking = new AccountLocking($dbi);
@@ -85,7 +86,7 @@ class AccountLockingTest extends TestCase
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with($this->equalTo('ALTER USER \'test.user\'@\'test.host\' ACCOUNT UNLOCK;'))
-            ->willReturn(true);
+            ->willReturn($this->createStub(DummyResult::class));
         $dbi->expects($this->never())->method('getError');
 
         $accountLocking = new AccountLocking($dbi);

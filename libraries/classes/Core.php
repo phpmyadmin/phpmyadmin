@@ -166,7 +166,7 @@ class Core
      *
      * @param string|int $size size (Default = 0)
      */
-    public static function getRealSize($size = 0): int
+    public static function getRealSize(string|int $size = 0): int
     {
         if (! $size) {
             return 0;
@@ -597,7 +597,7 @@ class Core
      *
      * @param array|string $query_data Array containing queries or query itself
      */
-    public static function previewSQL($query_data): void
+    public static function previewSQL(array|string $query_data): void
     {
         $retval = '<div class="preview_sql">';
         if (empty($query_data)) {
@@ -665,7 +665,7 @@ class Core
      *
      * @return string|bool the ip of the user
      */
-    public static function getIp()
+    public static function getIp(): string|bool
     {
         /* Get the address of user */
         if (empty($_SERVER['REMOTE_ADDR'])) {

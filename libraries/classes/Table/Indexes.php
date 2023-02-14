@@ -113,10 +113,7 @@ final class Indexes
         }
     }
 
-    /**
-     * @param string|DatabaseName $db
-     */
-    public function executeAddIndexSql($db, string $sql): Message
+    public function executeAddIndexSql(string|DatabaseName $db, string $sql): Message
     {
         $this->dbi->selectDb($db);
         $result = $this->dbi->tryQuery($sql);

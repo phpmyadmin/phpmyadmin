@@ -207,7 +207,7 @@ class Table implements Stringable
      * @param string[]|string $engine Checks the table engine against an
      *                             array of engine strings or a single string, should be uppercase
      */
-    public function isEngine($engine): bool
+    public function isEngine(array|string $engine): bool
     {
         $engine = (array) $engine;
         $tableStorageEngine = $this->getStorageEngine();
@@ -483,7 +483,7 @@ class Table implements Stringable
         string $length = '',
         $attribute = '',
         $collation = '',
-        $null = false,
+        bool|string $null = false,
         $defaultType = 'USER_DEFINED',
         $defaultValue = '',
         $extra = '',
@@ -796,7 +796,7 @@ class Table implements Stringable
         $length,
         $attribute,
         $collation,
-        $null,
+        bool|string $null,
         $defaultType,
         $defaultValue,
         $extra,
@@ -836,8 +836,6 @@ class Table implements Stringable
      * @param array  $whereFields Which fields will be used for the WHERE query (array('FIELDNAME' => 'FIELDVALUE'))
      * @param array  $newFields   Which fields will be used as new VALUES. These are the important keys which differ
      *                            from the old entry (array('FIELDNAME' => 'NEW FIELDVALUE'))
-     *
-     * @return int|bool
      */
     public static function duplicateInfo(
         $work,
@@ -845,7 +843,7 @@ class Table implements Stringable
         array $getFields,
         array $whereFields,
         array $newFields
-    ) {
+    ): int|bool {
         $relation = new Relation($GLOBALS['dbi']);
         $relationParameters = $relation->getRelationParameters();
         $relationParams = $relationParameters->toArray();
@@ -1877,10 +1875,8 @@ class Table implements Stringable
      * @param string $property        Property
      * @param mixed  $value           Value for the property
      * @param string $tableCreateTime Needed for PROP_COLUMN_ORDER and PROP_COLUMN_VISIB
-     *
-     * @return bool|Message
      */
-    public function setUiProp($property, $value, $tableCreateTime = null)
+    public function setUiProp($property, $value, $tableCreateTime = null): bool|Message
     {
         if (empty($this->uiprefs)) {
             $this->loadUiPrefs();
@@ -2484,7 +2480,7 @@ class Table implements Stringable
      * @return array|bool associative array of column name and their expressions
      * or false on failure
      */
-    public function getColumnGenerationExpression($column = null)
+    public function getColumnGenerationExpression($column = null): array|bool
     {
         if (
             Compatibility::isMySqlOrPerconaDb()

@@ -120,15 +120,13 @@ class Validator
      * @param array        $values       Values to validate
      * @param bool         $isPostSource tells whether $values are directly from
      *                                   POST request
-     *
-     * @return bool|array
      */
     public static function validate(
         ConfigFile $cf,
-        $validatorId,
+        string|array $validatorId,
         array $values,
         $isPostSource
-    ) {
+    ): bool|array {
         // find validators
         $validatorId = (array) $validatorId;
         $validators = static::getValidators($cf);
@@ -210,8 +208,6 @@ class Validator
      * @param string $user     username to use
      * @param string $pass     password to use
      * @param string $errorKey key to use in return array
-     *
-     * @return bool|array
      */
     public static function testDBConnection(
         $host,
@@ -220,7 +216,7 @@ class Validator
         $user,
         $pass = null,
         $errorKey = 'Server'
-    ) {
+    ): bool|array {
         if ($GLOBALS['cfg']['DBG']['demo']) {
             // Connection test disabled on the demo server!
             return true;
@@ -576,10 +572,8 @@ class Validator
      * @param string $path   path to config
      * @param array  $values config values
      * @param string $regex  regular expression to match
-     *
-     * @return array|string
      */
-    public static function validateByRegex($path, array $values, $regex)
+    public static function validateByRegex($path, array $values, $regex): array|string
     {
         if (! isset($values[$path])) {
             return '';

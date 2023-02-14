@@ -312,7 +312,7 @@ class Import
      *
      * @return string|bool part of file/buffer
      */
-    public function getNextChunk(?File $importHandle = null, int $size = 32768)
+    public function getNextChunk(?File $importHandle = null, int $size = 32768): string|bool
     {
         $GLOBALS['charset_conversion'] = $GLOBALS['charset_conversion'] ?? null;
         $GLOBALS['charset_of_file'] = $GLOBALS['charset_of_file'] ?? null;
@@ -576,11 +576,11 @@ class Import
      * @todo    Handle the error cases more elegantly
      */
     public function detectSize(
-        $lastCumulativeSize,
+        string|int $lastCumulativeSize,
         ?int $lastCumulativeType,
         int $currentCellType,
         string $cell
-    ) {
+    ): string|int {
         $currSize = mb_strlen($cell);
 
         /**
@@ -849,7 +849,7 @@ class Import
      *
      * @todo    Handle the error case more elegantly
      */
-    public function analyzeTable(array $table)
+    public function analyzeTable(array $table): array|bool
     {
         /* Get number of rows in table */
         $numRows = count($table[self::ROWS]);
@@ -1453,10 +1453,8 @@ class Import
 
     /**
      * @param array $importList List of plugin instances.
-     *
-     * @return false|string
      */
-    public static function getLocalFiles(array $importList)
+    public static function getLocalFiles(array $importList): false|string
     {
         $fileListing = new FileListing();
 
