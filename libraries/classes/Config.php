@@ -365,7 +365,7 @@ class Config
         try {
             /** @psalm-suppress UnresolvableInclude */
             $eval_result = include $this->getSource();
-        } catch (Throwable $exception) {
+        } catch (Throwable) {
             throw new ConfigException('Failed to load phpMyAdmin configuration.');
         }
 

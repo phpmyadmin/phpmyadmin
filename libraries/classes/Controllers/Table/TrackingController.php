@@ -295,7 +295,7 @@ final class TrackingController extends AbstractController
             Assert::stringNotEmpty($param);
 
             return new DateTimeImmutable($param);
-        } catch (Throwable $exception) {
+        } catch (Throwable) {
             return new DateTimeImmutable();
         }
     }

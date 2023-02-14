@@ -54,7 +54,7 @@ final class Crypto
         $ciphertext = mb_substr($encrypted, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES, null, '8bit');
         try {
             $decrypted = sodium_crypto_secretbox_open($ciphertext, $nonce, $key);
-        } catch (Throwable $e) {
+        } catch (Throwable) {
             return null;
         }
 
