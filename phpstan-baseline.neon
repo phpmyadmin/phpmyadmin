@@ -5521,11 +5521,6 @@ parameters:
 			path: libraries/classes/Linter.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Linter\\:\\:getLines\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Linter.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Linter\\:\\:lint\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Linter.php

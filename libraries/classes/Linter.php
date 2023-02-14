@@ -29,9 +29,9 @@ class Linter
      *
      * @param string|UtfString $str String to be analyzed.
      *
-     * @return array
+     * @return int[]
      */
-    public static function getLines(string|UtfString $str)
+    public static function getLines(string|UtfString $str): array
     {
         if ((! ($str instanceof UtfString)) && defined('USE_UTF_STRINGS') && USE_UTF_STRINGS) {
             // If the lexer uses UtfString for processing then the position will
