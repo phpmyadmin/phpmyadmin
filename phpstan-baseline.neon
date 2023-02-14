@@ -6701,11 +6701,6 @@ parameters:
 			path: libraries/classes/Plugins/IOTransformationsPlugin.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\IOTransformationsPlugin\\:\\:getScripts\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/IOTransformationsPlugin.php
-
-		-
 			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportCsv.php
@@ -7306,11 +7301,6 @@ parameters:
 			path: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Transformations\\\\Abs\\\\ImageUploadTransformationsPlugin\\:\\:getScripts\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Transformations\\\\Abs\\\\InlineTransformationsPlugin\\:\\:applyTransformation\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Transformations/Abs/InlineTransformationsPlugin.php
@@ -7399,21 +7389,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Transformations\\\\Input\\\\Text_Plain_Iptolong\\:\\:getInputHtml\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptolong.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Transformations\\\\Input\\\\Text_Plain_JsonEditor\\:\\:getScripts\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Transformations\\\\Input\\\\Text_Plain_SqlEditor\\:\\:getScripts\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Transformations/Input/Text_Plain_SqlEditor.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Transformations\\\\Input\\\\Text_Plain_XmlEditor\\:\\:getScripts\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Transformations/Input/Text_Plain_XmlEditor.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Transformations\\\\Output\\\\Text_Plain_Binarytoip\\:\\:applyTransformation\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
