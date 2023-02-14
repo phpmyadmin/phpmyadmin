@@ -35,3 +35,4 @@ parameters:
     checkUninitializedProperties: true
     polluteScopeWithAlwaysIterableForeach: true
     checkDynamicProperties: true
+    checkTooWideReturnTypesInProtectedAndPublicMethods: true

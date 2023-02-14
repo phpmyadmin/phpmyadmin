@@ -13,6 +13,7 @@ use PhpMyAdmin\FieldMetadata;
 use Webmozart\Assert\Assert;
 
 use function array_column;
+use function array_key_exists;
 use function is_array;
 use function is_bool;
 use function is_string;
@@ -104,7 +105,11 @@ final class MysqliResult implements ResultInterface
             $row = $this->fetchRow();
         }
 
-        return $row[$field] ?? false;
+        if (! array_key_exists($field, $row)) {
+            return false;
+        }
+
+        return $row[$field];
     }
 
     /**
