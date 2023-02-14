@@ -2406,6 +2406,11 @@ parameters:
 			path: libraries/classes/Controllers/Table/Structure/SaveController.php
 
 		-
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Table/Structure/SaveController.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\Structure\\\\SaveController\\:\\:adjustColumnPrivileges\\(\\) has parameter \\$adjust_privileges with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/Structure/SaveController.php
@@ -2886,6 +2891,11 @@ parameters:
 			path: libraries/classes/Database/Qbe.php
 
 		-
+			message: "#^For loop initial assignment overwrites variable \\$columnIndex\\.$#"
+			count: 1
+			path: libraries/classes/Database/Qbe.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Database\\\\Qbe\\:\\:__construct\\(\\) has parameter \\$savedSearchList with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Database/Qbe.php
@@ -3183,6 +3193,11 @@ parameters:
 		-
 			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
 			count: 1
+			path: libraries/classes/Database/Routines.php
+
+		-
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
+			count: 2
 			path: libraries/classes/Database/Routines.php
 
 		-
@@ -4896,11 +4911,6 @@ parameters:
 			path: libraries/classes/Git.php
 
 		-
-			message: "#^Variable \\$position might not be defined\\.$#"
-			count: 1
-			path: libraries/classes/Git.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Header\\:\\:getJsParams\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Header.php
@@ -4998,6 +5008,11 @@ parameters:
 		-
 			message: "#^Casting to int something that's already int\\.$#"
 			count: 2
+			path: libraries/classes/Import.php
+
+		-
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
+			count: 5
 			path: libraries/classes/Import.php
 
 		-
@@ -6301,6 +6316,11 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportLatex.php
 
 		-
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Export/ExportMediawiki.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportMediawiki\\:\\:exportData\\(\\) has parameter \\$aliases with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportMediawiki.php
@@ -6408,6 +6428,11 @@ parameters:
 		-
 			message: "#^Casting to string something that's already string\\.$#"
 			count: 2
+			path: libraries/classes/Plugins/Export/ExportSql.php
+
+		-
+			message: "#^Foreach overwrites \\$j with its key variable\\.$#"
+			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
@@ -6556,6 +6581,11 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportYaml.php
 
 		-
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
+
+		-
 			message: "#^Foreach overwrites \\$width with its value variable\\.$#"
 			count: 2
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
@@ -6633,11 +6663,6 @@ parameters:
 		-
 			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$titleWidth is never written, only read\\.$#"
 			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Variable \\$columns_cnt might not be defined\\.$#"
-			count: 6
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
 
 		-
@@ -6776,6 +6801,11 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportMediawiki.php
 
 		-
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Import/ImportOds.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:iterateOverColumns\\(\\) has parameter \\$col_names with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportOds.php
@@ -6872,6 +6902,11 @@ parameters:
 
 		-
 			message: "#^Cannot assign new offset to array\\<int, array\\<int, string\\>\\|string\\>\\|string\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Import/ImportXml.php
+
+		-
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportXml.php
 
@@ -7001,6 +7036,11 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php
 
 		-
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:row\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
@@ -7033,6 +7073,11 @@ parameters:
 		-
 			message: "#^Casting to string something that's already string\\.$#"
 			count: 2
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^For loop initial assignment overwrites variable \\$size\\.$#"
+			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
@@ -9286,6 +9331,11 @@ parameters:
 			path: libraries/classes/Tracking.php
 
 		-
+			message: "#^Foreach overwrites \\$file with its value variable\\.$#"
+			count: 1
+			path: libraries/classes/Transformations.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Transformations\\:\\:getAvailableMimeTypes\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Transformations.php
@@ -9418,6 +9468,11 @@ parameters:
 		-
 			message: "#^Casting to int something that's already int\\<min, \\-2\\>\\|int\\<0, max\\>\\.$#"
 			count: 5
+			path: libraries/classes/Util.php
+
+		-
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
+			count: 1
 			path: libraries/classes/Util.php
 
 		-

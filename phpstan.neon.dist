@@ -36,3 +36,4 @@ parameters:
     polluteScopeWithAlwaysIterableForeach: true
     checkDynamicProperties: true
     checkTooWideReturnTypesInProtectedAndPublicMethods: true
+    polluteScopeWithLoopInitialAssignments: true
