@@ -8977,12 +8977,9 @@
       <code>$dependents</code>
       <code>$dependents</code>
       <code>$dependents</code>
-      <code>$distinctValCount[$column]</code>
-      <code>$distinctValCount[$partialKey]</code>
       <code><![CDATA[$dropCols['nonpk']]]></code>
       <code><![CDATA[$dropCols['pk']]]></code>
       <code>$key</code>
-      <code>$partialKey</code>
       <code>$table</code>
       <code>$table</code>
       <code>$table</code>
@@ -9012,17 +9009,10 @@
       <code><![CDATA[$dropCols['pk']]]></code>
       <code><![CDATA[$res[0][$column . '_cnt']]]></code>
     </MixedArrayAccess>
-    <MixedArrayOffset>
-      <code>$dependencyList[$partialKey]</code>
-      <code>$distinctValCount[$partialKey]</code>
-      <code>$result[$column]</code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code>$arrDependson</code>
       <code>$col</code>
       <code>$cols</code>
-      <code>$column</code>
-      <code>$column</code>
       <code>$dependent</code>
       <code>$dependents</code>
       <code>$dependents</code>
@@ -9030,9 +9020,7 @@
       <code>$dropCols</code>
       <code>$element</code>
       <code>$key</code>
-      <code>$partialKey</code>
       <code>$pkColCnt</code>
-      <code>$result[$column]</code>
       <code>$table</code>
       <code>$table</code>
       <code>$tablesList</code>
@@ -9040,9 +9028,6 @@
       <code>$type</code>
     </MixedAssignment>
     <MixedOperand>
-      <code>$column</code>
-      <code>$column</code>
-      <code>$column</code>
       <code>$element</code>
     </MixedOperand>
     <PossiblyNullArgument>
@@ -9053,6 +9038,9 @@
       <code><![CDATA[$def['Type']]]></code>
       <code><![CDATA[$def['Type']]]></code>
     </PossiblyUndefinedArrayOffset>
+    <RedundantCast>
+      <code>(string) $dependon</code>
+    </RedundantCast>
   </file>
   <file src="libraries/classes/Operations.php">
     <DeprecatedMethod>
