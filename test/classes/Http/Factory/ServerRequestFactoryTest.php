@@ -40,7 +40,7 @@ class ServerRequestFactoryTest extends AbstractTestCase
         ],
     ];
 
-    public function dataProviderPsr7Implementations(): array
+    public static function dataProviderPsr7Implementations(): array
     {
         return self::IMPLEMENTATION_CLASSES;
     }

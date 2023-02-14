@@ -43,7 +43,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
      *
      * @return array common data for data providers
      */
-    private function getData(): array
+    private static function getData(): array
     {
         return [
             'MULTIPOLYGON' => [
@@ -124,10 +124,10 @@ class GisMultiPolygonTest extends GisGeomTestCase
      *
      * @return array data for testGenerateWkt
      */
-    public function providerForTestGenerateWkt(): array
+    public static function providerForTestGenerateWkt(): array
     {
         $temp = [
-            0 => $this->getData(),
+            0 => self::getData(),
         ];
 
         $temp1 = $temp;
@@ -178,11 +178,11 @@ class GisMultiPolygonTest extends GisGeomTestCase
      *
      * @return array data for testGenerateParams
      */
-    public function providerForTestGenerateParams(): array
+    public static function providerForTestGenerateParams(): array
     {
-        $temp = $this->getData();
+        $temp = self::getData();
 
-        $temp1 = $this->getData();
+        $temp1 = self::getData();
         $temp1['gis_type'] = 'MULTIPOLYGON';
 
         return [
@@ -222,7 +222,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
      *
      * @return array data for testGetShape
      */
-    public function providerForTestGetShape(): array
+    public static function providerForTestGetShape(): array
     {
         return [
             [
@@ -305,7 +305,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
      *
      * @return array data for testScaleRow
      */
-    public function providerForTestScaleRow(): array
+    public static function providerForTestScaleRow(): array
     {
         return [
             [
@@ -386,7 +386,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsPdf() test case
      */
-    public function providerForPrepareRowAsPdf(): array
+    public static function providerForPrepareRowAsPdf(): array
     {
         return [
             [
@@ -396,7 +396,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
                 'pdf',
                 [176, 46, 224],
                 ['x' => -110, 'y' => -157, 'scale' => 0.95, 'height' => 297],
-                $this->createEmptyPdf('MULTIPOLYGON'),
+                parent::createEmptyPdf('MULTIPOLYGON'),
             ],
         ];
     }
@@ -428,7 +428,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsSvg() test case
      */
-    public function providerForPrepareRowAsSvg(): array
+    public static function providerForPrepareRowAsSvg(): array
     {
         return [
             [
@@ -482,7 +482,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsOl() test case
      */
-    public function providerForPrepareRowAsOl(): array
+    public static function providerForPrepareRowAsOl(): array
     {
         return [
             [

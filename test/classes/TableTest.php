@@ -418,7 +418,7 @@ class TableTest extends AbstractTestCase
     /**
      * Data provider for name validation
      */
-    public function dataValidateName(): array
+    public static function dataValidateName(): array
     {
         return [
             [

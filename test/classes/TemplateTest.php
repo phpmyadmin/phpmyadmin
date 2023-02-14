@@ -65,7 +65,7 @@ class TemplateTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerTestSet(): array
+    public static function providerTestSet(): array
     {
         return [
             ['test/add_data'],
@@ -94,7 +94,7 @@ class TemplateTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerTestDynamicRender(): array
+    public static function providerTestDynamicRender(): array
     {
         return [
             [
@@ -135,7 +135,7 @@ class TemplateTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerTestRender(): array
+    public static function providerTestRender(): array
     {
         return [
             [
@@ -167,7 +167,7 @@ class TemplateTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerTestRenderGettext(): array
+    public static function providerTestRenderGettext(): array
     {
         return [
             [

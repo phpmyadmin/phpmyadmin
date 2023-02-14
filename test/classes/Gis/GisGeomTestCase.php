@@ -97,7 +97,7 @@ abstract class GisGeomTestCase extends AbstractTestCase
      *
      * @return TCPDF A pdf document with an empty page
      */
-    protected function createEmptyPdf(string $id): TCPDF
+    protected static function createEmptyPdf(string $id): TCPDF
     {
         $pdf = new TCPDF();
         $prop = new ReflectionProperty($pdf, 'file_id');

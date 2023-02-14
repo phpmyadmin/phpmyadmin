@@ -67,7 +67,7 @@ class TransformationPluginsTest extends AbstractTestCase
     /**
      * Data provider for testGetMulti
      */
-    public function multiDataProvider(): array
+    public static function multiDataProvider(): array
     {
         $GLOBALS['cfg']['CodemirrorEnable'] = false;
 
@@ -726,7 +726,7 @@ class TransformationPluginsTest extends AbstractTestCase
     /**
      * Data provider for testTransformation
      */
-    public function transformationDataProvider(): array
+    public static function transformationDataProvider(): array
     {
         $GLOBALS['cfg']['CodemirrorEnable'] = false;
 

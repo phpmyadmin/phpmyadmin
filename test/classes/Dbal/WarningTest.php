@@ -30,7 +30,7 @@ class WarningTest extends TestCase
      * @return int[][]|string[][]|string[][][]
      * @psalm-return array{string[], string, int, string, string}[]
      */
-    public function providerForTestWarning(): array
+    public static function providerForTestWarning(): array
     {
         return [
             [

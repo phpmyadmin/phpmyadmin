@@ -67,7 +67,7 @@ class TriggersTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetDataFromRequestEmpty(): array
+    public static function providerGetDataFromRequestEmpty(): array
     {
         return [
             [
@@ -135,7 +135,7 @@ class TriggersTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetEditorFormAdd(): array
+    public static function providerGetEditorFormAdd(): array
     {
         $data = [
             'item_name' => '',
@@ -181,7 +181,7 @@ class TriggersTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetEditorFormEdit(): array
+    public static function providerGetEditorFormEdit(): array
     {
         $data = [
             'item_name' => 'foo',
@@ -228,7 +228,7 @@ class TriggersTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetEditorFormAjax(): array
+    public static function providerGetEditorFormAjax(): array
     {
         $data = [
             'item_name' => 'foo',
@@ -289,7 +289,7 @@ class TriggersTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetQueryFromRequest(): array
+    public static function providerGetQueryFromRequest(): array
     {
         return [
             [

@@ -64,7 +64,7 @@ class SimulateDmlTest extends AbstractTestCase
     /**
      * @return string[][]
      */
-    public function providerForTestGetMatchedRows(): array
+    public static function providerForTestGetMatchedRows(): array
     {
         return [
             'update statement' => [

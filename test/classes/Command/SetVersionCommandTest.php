@@ -32,7 +32,7 @@ class SetVersionCommandTest extends AbstractTestCase
     /**
      * @return array[]
      */
-    public function dataProviderBadVersions(): array
+    public static function dataProviderBadVersions(): array
     {
         return [
             [''],
@@ -76,7 +76,7 @@ class SetVersionCommandTest extends AbstractTestCase
     /**
      * @return array[]
      */
-    public function dataProviderGoodVersions(): array
+    public static function dataProviderGoodVersions(): array
     {
         return [
             [

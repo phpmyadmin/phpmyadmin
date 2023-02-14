@@ -84,7 +84,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
      *
      * @psalm-return array<string, array{string, int, string, array<string>, array<string>}>
      */
-    public function providerFortTestGetFunctionsClass(): array
+    public static function providerFortTestGetFunctionsClass(): array
     {
         return [
             'mysql 5.1.0 - CHAR - not support INET6 Converter' => [
@@ -304,7 +304,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
      *
      * @psalm-return array<string, array{string, int, array<string>, array<string>}>
      */
-    public function providerFortTestGetFunctions(): array
+    public static function providerFortTestGetFunctions(): array
     {
         return [
             'mysql 5.1.0 - not support INET6 Converter' => [
@@ -380,7 +380,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
      *
      * @psalm-return array<string, array{string, int, array<string>, array<string>}>
      */
-    public function providerFortTestGetAllFunctions(): array
+    public static function providerFortTestGetAllFunctions(): array
     {
         return [
             'mysql 5.1.0 - not support INET6_ATON, ST_Geometry' => [
@@ -626,7 +626,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
      *
      * @psalm-return array<string, array{string, int, array<int|string, array<int, string>|string>}>
      */
-    public function providerFortTestGetColumns(): array
+    public static function providerFortTestGetColumns(): array
     {
         return [
             'mysql 5.1.0 - not support INET6, JSON and UUID' => [

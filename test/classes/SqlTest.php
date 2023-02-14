@@ -354,7 +354,7 @@ class SqlTest extends AbstractTestCase
         );
     }
 
-    public function dataProviderCountQueryResults(): array
+    public static function dataProviderCountQueryResults(): array
     {
         // sql query
         // session tmpval

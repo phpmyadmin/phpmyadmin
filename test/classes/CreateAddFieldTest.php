@@ -46,7 +46,7 @@ class CreateAddFieldTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetPartitionsDefinition(): array
+    public static function providerGetPartitionsDefinition(): array
     {
         return [
             [
@@ -247,7 +247,7 @@ class CreateAddFieldTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetTableCreationQuery(): array
+    public static function providerGetTableCreationQuery(): array
     {
         return [
             [
@@ -320,7 +320,7 @@ class CreateAddFieldTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetNumberOfFieldsFromRequest(): array
+    public static function providerGetNumberOfFieldsFromRequest(): array
     {
         return [
             [
@@ -335,7 +335,7 @@ class CreateAddFieldTest extends AbstractTestCase
      *
      * @return array[]
      */
-    public function providerGetColumnCreationQueryRequest(): array
+    public static function providerGetColumnCreationQueryRequest(): array
     {
         return [
             [

@@ -71,7 +71,7 @@ class FirstStepControllerTest extends AbstractTestCase
     /**
      * @return array<int, array{string|null, '1nf'|'2nf'|'3nf'}>
      */
-    public function providerForTestDefault(): iterable
+    public static function providerForTestDefault(): iterable
     {
         return [
             [null, '1nf'],

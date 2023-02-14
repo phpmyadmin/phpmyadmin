@@ -1970,7 +1970,7 @@ class PrivilegesTest extends AbstractTestCase
      *
      * @psalm-return list<array{string, string}>
      */
-    public function providerUnEscapeMysqlWildcards(): array
+    public static function providerUnEscapeMysqlWildcards(): array
     {
         return [
             [

@@ -66,7 +66,7 @@ class GisGeometryTest extends AbstractTestCase
      *
      * @return array data for testSetMinMax
      */
-    public function providerForTestSetMinMax(): array
+    public static function providerForTestSetMinMax(): array
     {
         return [
             [
@@ -123,7 +123,7 @@ class GisGeometryTest extends AbstractTestCase
      *
      * @return array data for testGenerateParams
      */
-    public function providerForTestGenerateParams(): array
+    public static function providerForTestGenerateParams(): array
     {
         return [
             [
@@ -182,7 +182,7 @@ class GisGeometryTest extends AbstractTestCase
      *
      * @return array data for testExtractPoints
      */
-    public function providerForTestExtractPoints(): array
+    public static function providerForTestExtractPoints(): array
     {
         return [
             // with no scale data
@@ -297,7 +297,7 @@ class GisGeometryTest extends AbstractTestCase
      *
      * @return array test data for the testGetBoundsForOl() test case
      */
-    public function providerForTestGetBoundsForOl(): array
+    public static function providerForTestGetBoundsForOl(): array
     {
         return [
             [
@@ -349,7 +349,7 @@ class GisGeometryTest extends AbstractTestCase
      *
      * @return array test data for testGetPolygonArrayForOpenLayers() test case
      */
-    public function providerForTestGetPolygonArrayForOpenLayers(): array
+    public static function providerForTestGetPolygonArrayForOpenLayers(): array
     {
         return [
             [

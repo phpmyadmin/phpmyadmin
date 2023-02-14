@@ -95,7 +95,7 @@ class TablePropertyTest extends AbstractTestCase
      *
      * @return array Test Data
      */
-    public function isNotNullProvider(): array
+    public static function isNotNullProvider(): array
     {
         return [
             [
@@ -134,7 +134,7 @@ class TablePropertyTest extends AbstractTestCase
      *
      * @return array Test Data
      */
-    public function isUniqueProvider(): array
+    public static function isUniqueProvider(): array
     {
         return [
             [
@@ -181,7 +181,7 @@ class TablePropertyTest extends AbstractTestCase
      *
      * @return array Test Data
      */
-    public function getDotNetPrimitiveTypeProvider(): array
+    public static function getDotNetPrimitiveTypeProvider(): array
     {
         return [
             [
@@ -252,7 +252,7 @@ class TablePropertyTest extends AbstractTestCase
      *
      * @return array Test Data
      */
-    public function getDotNetObjectTypeProvider(): array
+    public static function getDotNetObjectTypeProvider(): array
     {
         return [
             [

@@ -48,7 +48,7 @@ class ZipExtensionTest extends AbstractTestCase
      * @return array<string, array<int, array<string, string>|string|null>>
      * @psalm-return array<string, array{string, string|null, array{error: string, data: string}}>
      */
-    public function provideTestGetContents(): array
+    public static function provideTestGetContents(): array
     {
         return [
             'null as specific entry' => [
@@ -102,7 +102,7 @@ class ZipExtensionTest extends AbstractTestCase
      * @return array<int, array<int, string|bool>>
      * @psalm-return array<int, array{string, string, string|false}>
      */
-    public function provideTestFindFile(): array
+    public static function provideTestFindFile(): array
     {
         return [
             [

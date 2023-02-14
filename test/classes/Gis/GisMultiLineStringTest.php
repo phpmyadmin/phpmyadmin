@@ -43,7 +43,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @return array data for testGenerateWkt
      */
-    public function providerForTestGenerateWkt(): array
+    public static function providerForTestGenerateWkt(): array
     {
         $temp = [
             0 => [
@@ -175,7 +175,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @return array data for testGenerateParams
      */
-    public function providerForTestGenerateParams(): array
+    public static function providerForTestGenerateParams(): array
     {
         $temp = [
             'MULTILINESTRING' => [
@@ -230,7 +230,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @return array data for testScaleRow
      */
-    public function providerForTestScaleRow(): array
+    public static function providerForTestScaleRow(): array
     {
         return [
             [
@@ -299,7 +299,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsPdf() test case
      */
-    public function providerForPrepareRowAsPdf(): array
+    public static function providerForPrepareRowAsPdf(): array
     {
         return [
             [
@@ -307,7 +307,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
                 'pdf',
                 [176, 46, 224],
                 ['x' => 4, 'y' => -90, 'scale' => 1.12, 'height' => 297],
-                $this->createEmptyPdf('MULTILINESTRING'),
+                parent::createEmptyPdf('MULTILINESTRING'),
             ],
         ];
     }
@@ -339,7 +339,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsSvg() test case
      */
-    public function providerForPrepareRowAsSvg(): array
+    public static function providerForPrepareRowAsSvg(): array
     {
         return [
             [
@@ -390,7 +390,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsOl() test case
      */
-    public function providerForPrepareRowAsOl(): array
+    public static function providerForPrepareRowAsOl(): array
     {
         return [
             [
