@@ -30,3 +30,5 @@ parameters:
         # Allow dynamic calls to static methods.
         strictCalls: false
     checkBenevolentUnionTypes: true
+    checkAlwaysTrueCheckTypeFunctionCall: true
+    checkAlwaysTrueStrictComparison: true
