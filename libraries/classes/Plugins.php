@@ -133,7 +133,7 @@ class Plugins
     {
         try {
             $files = new FilesystemIterator(ROOT_PATH . 'libraries/classes/Plugins/' . $type);
-        } catch (Throwable $e) {
+        } catch (Throwable) {
             return [];
         }
 

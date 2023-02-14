@@ -28,7 +28,7 @@ final class DropColumnConfirmationController extends AbstractController
             $this->sendErrorResponse($exception->getMessage());
 
             return;
-        } catch (InvalidArgumentException $exception) {
+        } catch (InvalidArgumentException) {
             $this->sendErrorResponse(__('No column selected.'));
 
             return;

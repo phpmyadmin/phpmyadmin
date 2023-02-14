@@ -167,7 +167,7 @@ class WindowsNt extends Base
 
         try {
             return intdiv($sum, $i);
-        } catch (Throwable $throwable) {
+        } catch (Throwable) {
             return 0;
         }
     }

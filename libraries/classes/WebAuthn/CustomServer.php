@@ -116,7 +116,7 @@ final class CustomServer implements Server
     ): array {
         try {
             $attestationCredential = $this->getAttestationCredential($attestationResponse);
-        } catch (Throwable $exception) {
+        } catch (Throwable) {
             throw new WebAuthnException('Invalid authenticator response.');
         }
 
@@ -199,7 +199,7 @@ final class CustomServer implements Server
     {
         try {
             return sodium_bin2base64(random_bytes(32), SODIUM_BASE64_VARIANT_ORIGINAL);
-        } catch (Throwable $throwable) { // @codeCoverageIgnore
+        } catch (Throwable) { // @codeCoverageIgnore
             throw new WebAuthnException('Error when generating challenge.'); // @codeCoverageIgnore
         }
     }
@@ -290,7 +290,7 @@ final class CustomServer implements Server
         foreach ($allowedCredentials as $credential) {
             try {
                 $credentialId = sodium_base642bin($credential['id'], SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING);
-            } catch (SodiumException $exception) {
+            } catch (SodiumException) {
                 throw new WebAuthnException();
             }
 
