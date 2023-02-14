@@ -1043,16 +1043,11 @@ class DatabaseInterface implements DbalInterface
         int $type = self::GETVAR_SESSION,
         int $connectionType = Connection::TYPE_USER
     ) {
-        switch ($type) {
-            case self::GETVAR_SESSION:
-                $modifier = ' SESSION';
-                break;
-            case self::GETVAR_GLOBAL:
-                $modifier = ' GLOBAL';
-                break;
-            default:
-                $modifier = '';
-        }
+        $modifier = match ($type) {
+            self::GETVAR_SESSION => ' SESSION',
+            self::GETVAR_GLOBAL => ' GLOBAL',
+            default => '',
+        };
 
         return $this->fetchValue('SHOW' . $modifier . ' VARIABLES LIKE \'' . $var . '\';', 1, $connectionType);
     }

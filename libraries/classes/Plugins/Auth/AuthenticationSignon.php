@@ -73,22 +73,13 @@ class AuthenticationSignon extends AuthenticationPlugin
 
         /* Sanitize cookie params */
         $defaultCookieParams = /** @return mixed */ static function (string $key) {
-            switch ($key) {
-                case 'lifetime':
-                    return 0;
-
-                case 'path':
-                    return '/';
-
-                case 'domain':
-                    return '';
-
-                case 'secure':
-                case 'httponly':
-                    return false;
-            }
-
-            return null;
+            return match ($key) {
+                'lifetime' => 0,
+                'path' => '/',
+                'domain' => '',
+                'secure', 'httponly' => false,
+                default => null,
+            };
         };
 
         foreach (['lifetime', 'path', 'domain', 'secure', 'httponly'] as $key) {

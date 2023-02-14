@@ -76,25 +76,14 @@ class NodeDatabase extends Node
             return $this->presenceCounts[$type][$searchClause];
         }
 
-        switch ($type) {
-            case 'tables':
-                return $this->presenceCounts[$type][$searchClause] = $this->getTableCount($searchClause);
-
-            case 'views':
-                return $this->presenceCounts[$type][$searchClause] = $this->getViewCount($searchClause);
-
-            case 'procedures':
-                return $this->presenceCounts[$type][$searchClause] = $this->getProcedureCount($searchClause);
-
-            case 'functions':
-                return $this->presenceCounts[$type][$searchClause] = $this->getFunctionCount($searchClause);
-
-            case 'events':
-                return $this->presenceCounts[$type][$searchClause] = $this->getEventCount($searchClause);
-
-            default:
-                return 0;
-        }
+        return $this->presenceCounts[$type][$searchClause] = match ($type) {
+            'tables' => $this->getTableCount($searchClause),
+            'views' => $this->getViewCount($searchClause),
+            'procedures' => $this->getProcedureCount($searchClause),
+            'functions' => $this->getFunctionCount($searchClause),
+            'events' => $this->getEventCount($searchClause),
+            default => 0,
+        };
     }
 
     /**

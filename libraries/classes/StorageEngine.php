@@ -77,20 +77,12 @@ class StorageEngine
         $this->engine = $engine;
         $this->title = $storage_engines[$engine]['Engine'];
         $this->comment = ($storage_engines[$engine]['Comment'] ?? '');
-        switch ($storage_engines[$engine]['Support']) {
-            case 'DEFAULT':
-                $this->support = self::SUPPORT_DEFAULT;
-                break;
-            case 'YES':
-                $this->support = self::SUPPORT_YES;
-                break;
-            case 'DISABLED':
-                $this->support = self::SUPPORT_DISABLED;
-                break;
-            case 'NO':
-            default:
-                $this->support = self::SUPPORT_NO;
-        }
+        $this->support = match ($storage_engines[$engine]['Support']) {
+            'DEFAULT' => self::SUPPORT_DEFAULT,
+            'YES' => self::SUPPORT_YES,
+            'DISABLED' => self::SUPPORT_DISABLED,
+            default => self::SUPPORT_NO,
+        };
     }
 
     /**
@@ -257,46 +249,21 @@ class StorageEngine
      */
     public static function getEngine($engine)
     {
-        switch (mb_strtolower($engine)) {
-            case 'bdb':
-                return new Bdb($engine);
-
-            case 'berkeleydb':
-                return new Berkeleydb($engine);
-
-            case 'binlog':
-                return new Binlog($engine);
-
-            case 'innobase':
-                return new Innobase($engine);
-
-            case 'innodb':
-                return new Innodb($engine);
-
-            case 'memory':
-                return new Memory($engine);
-
-            case 'merge':
-                return new Merge($engine);
-
-            case 'mrg_myisam':
-                return new MrgMyisam($engine);
-
-            case 'myisam':
-                return new Myisam($engine);
-
-            case 'ndbcluster':
-                return new Ndbcluster($engine);
-
-            case 'pbxt':
-                return new Pbxt($engine);
-
-            case 'performance_schema':
-                return new PerformanceSchema($engine);
-
-            default:
-                return new StorageEngine($engine);
-        }
+        return match (mb_strtolower($engine)) {
+            'bdb' => new Bdb($engine),
+            'berkeleydb' => new Berkeleydb($engine),
+            'binlog' => new Binlog($engine),
+            'innobase' => new Innobase($engine),
+            'innodb' => new Innodb($engine),
+            'memory' => new Memory($engine),
+            'merge' => new Merge($engine),
+            'mrg_myisam' => new MrgMyisam($engine),
+            'myisam' => new Myisam($engine),
+            'ndbcluster' => new Ndbcluster($engine),
+            'pbxt' => new Pbxt($engine),
+            'performance_schema' => new PerformanceSchema($engine),
+            default => new StorageEngine($engine),
+        };
     }
 
     /**
@@ -458,20 +425,12 @@ class StorageEngine
      */
     public function getSupportInformationMessage()
     {
-        switch ($this->support) {
-            case self::SUPPORT_DEFAULT:
-                $message = __('%s is the default storage engine on this MySQL server.');
-                break;
-            case self::SUPPORT_YES:
-                $message = __('%s is available on this MySQL server.');
-                break;
-            case self::SUPPORT_DISABLED:
-                $message = __('%s has been disabled for this MySQL server.');
-                break;
-            case self::SUPPORT_NO:
-            default:
-                $message = __('This MySQL server does not support the %s storage engine.');
-        }
+        $message = match ($this->support) {
+            self::SUPPORT_DEFAULT => __('%s is the default storage engine on this MySQL server.'),
+            self::SUPPORT_YES => __('%s is available on this MySQL server.'),
+            self::SUPPORT_DISABLED => __('%s has been disabled for this MySQL server.'),
+            default => __('This MySQL server does not support the %s storage engine.'),
+        };
 
         return sprintf($message, htmlspecialchars($this->title));
     }
