@@ -3962,3 +3962,20 @@ reCaptcha using hCaptcha
 
 .. seealso:: `hCaptcha website <https://www.hcaptcha.com/>`_
 .. seealso:: `hCaptcha Developer Guide <https://docs.hcaptcha.com/>`_
+
+reCaptcha using Turnstile
+++++++++++++++++++++++++
+
+.. code-block:: php
+
+    $cfg['CaptchaMethod'] = 'checkbox';
+    $cfg['CaptchaApi'] = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+    $cfg['CaptchaCsp'] = 'https://challenges.cloudflare.com/turnstile/v0/siteverify https://challenges.cloudflare.com/turnstile/v0/api.js https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060>
+    $cfg['CaptchaRequestParam'] = 'cf-turnstile';
+    $cfg['CaptchaResponseParam'] = 'cf-turnstile-response';
+    $cfg['CaptchaLoginPublicKey'] = '0xxxxxxxxxxxxxxxxxxxxxx';
+    $cfg['CaptchaLoginPrivateKey'] = '0x4AAAAAAAA_xx_xxxxxxxxxxxxxxxxxxxx';
+    $cfg['CaptchaSiteVerifyURL'] = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+    
+.. seealso:: `Cloudflare Dashboard <https://dash.cloudflare.com/>` 
+.. seealso:: `Turnstile Developer Guide <https://developers.cloudflare.com/turnstile/get-started/server-side-validation/>` 
