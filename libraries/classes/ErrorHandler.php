@@ -68,8 +68,8 @@ class ErrorHandler
          * rely on PHPUnit doing it's own error handling which we break here.
          */
         if (! defined('TESTSUITE')) {
-            set_exception_handler([$this, 'handleException']);
-            set_error_handler([$this, 'handleError']);
+            set_exception_handler($this->handleException(...));
+            set_error_handler($this->handleError(...));
         }
 
         if (! Util::isErrorReportingAvailable()) {
@@ -184,6 +184,8 @@ class ErrorHandler
      * @param string $errfile error file
      * @param int    $errline error line
      *
+     * @return false
+     *
      * @throws ErrorException
      */
     public function handleError(
@@ -191,7 +193,7 @@ class ErrorHandler
         string $errstr,
         string $errfile,
         int $errline
-    ): void {
+    ): bool {
         if (Util::isErrorReportingAvailable()) {
             /**
             * Check if Error Control Operator (@) was used, but still show
@@ -213,15 +215,17 @@ class ErrorHandler
                 $this->errorReporting != 0 &&
                 ($errno & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_DEPRECATED)) == 0
             ) {
-                return;
+                return false;
             }
         } else {
             if (($errno & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_DEPRECATED)) == 0) {
-                return;
+                return false;
             }
         }
 
         $this->addError($errstr, $errno, $errfile, $errline, true);
+
+        return false;
     }
 
     /**

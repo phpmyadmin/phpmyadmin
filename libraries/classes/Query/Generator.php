@@ -429,7 +429,7 @@ class Generator
      */
     public static function getAddIndexSql(string $indexType, string $table, array $selectedColumns): string
     {
-        $columnsSql = implode(', ', array_map([Util::class, 'backquote'], $selectedColumns));
+        $columnsSql = implode(', ', array_map(Util::backquote(...), $selectedColumns));
 
         return 'ALTER TABLE ' . Util::backquote($table) . ' ADD ' . $indexType . '(' . $columnsSql . ');';
     }

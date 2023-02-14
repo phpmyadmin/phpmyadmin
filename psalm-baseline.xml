@@ -6211,7 +6211,6 @@
       <code>$this-&gt;formAndOrCols[$lastWhere]</code>
       <code>$this-&gt;formCriterions[$newColumnCount]</code>
       <code>$tmpCriteria</code>
-      <code>$unfinalized</code>
       <code>$uniqueColumns</code>
       <code>$value</code>
       <code>$whereClauseColumns</code>
@@ -6876,7 +6875,6 @@
       <code>$a</code>
       <code>$b</code>
       <code>$password</code>
-      <code>$table</code>
       <code>$tableData[$sortBy] ?? ''</code>
       <code>$this-&gt;versionComment</code>
       <code>$this-&gt;versionString</code>
@@ -7558,9 +7556,6 @@
     </MixedReturnStatement>
   </file>
   <file src="libraries/classes/ErrorHandler.php">
-    <InvalidArgument>
-      <code>[$this, 'handleError']</code>
-    </InvalidArgument>
     <InvalidArrayOffset>
       <code>$GLOBALS['cfg']['environment']</code>
     </InvalidArrayOffset>

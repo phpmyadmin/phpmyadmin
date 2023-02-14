@@ -3951,11 +3951,6 @@ parameters:
 			path: libraries/classes/Error.php
 
 		-
-			message: "#^Parameter \\#1 \\$callback of function set_error_handler expects \\(callable\\(int, string, string, int\\)\\: bool\\)\\|null, array\\{\\$this\\(PhpMyAdmin\\\\ErrorHandler\\), 'handleError'\\} given\\.$#"
-			count: 1
-			path: libraries/classes/ErrorHandler.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\ErrorReport\\:\\:getData\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/ErrorReport.php
