@@ -29,3 +29,4 @@ parameters:
         disallowedConstructs: false
         # Allow dynamic calls to static methods.
         strictCalls: false
+    checkBenevolentUnionTypes: true
