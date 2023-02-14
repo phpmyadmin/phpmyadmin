@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-02-12 06:12+0000\n"
+"PO-Revision-Date: 2023-02-17 01:49+0000\n"
 "Last-Translator: Bartosz Pazoła <mmmalfc@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/4-9/pl/"
 ">\n"
@@ -8318,7 +8318,7 @@ msgstr "Wtyczki"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "Zmodyfikowano rekord: %1$d."
+msgstr[0] "Zmodyfikowanych rekordów: %1$d."
 msgstr[1] "Zmodyfikowanych rekordów: %1$d."
 msgstr[2] "Zmodyfikowanych rekordów: %1$d."
 
@@ -15769,8 +15769,8 @@ msgstr[2] "%1$s dopasowań w <strong>%2$s</strong>"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
 msgstr[0] "<strong>Ogółem:</strong> <em>%s</em> dopasowanie"
-msgstr[1] "<strong>Ogółem:</strong> <em>%s</em> dopasowań"
-msgstr[2] "<strong>Ogółem:</strong> <em>%s</em> dopasowania"
+msgstr[1] "<strong>Ogółem:</strong> <em>%s</em> dopasowania"
+msgstr[2] "<strong>Ogółem:</strong> <em>%s</em> dopasowań"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
 msgid ""
@@ -16473,7 +16473,6 @@ msgid "Current amount of Questions: %s"
 msgstr "Aktualna liczba zapytań: %s"
 
 #: libraries/advisory_rules_generic.txt:63
-#, fuzzy
 msgid "Percentage of slow queries"
 msgstr "Procent powolnych zapytań"
 
