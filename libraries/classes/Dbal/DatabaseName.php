@@ -34,19 +34,19 @@ final class DatabaseName implements Stringable
     {
         try {
             Assert::stringNotEmpty($name);
-        } catch (InvalidArgumentException $exception) {
+        } catch (InvalidArgumentException) {
             throw InvalidDatabaseName::fromEmptyName();
         }
 
         try {
             Assert::maxLength($name, self::MAX_LENGTH);
-        } catch (InvalidArgumentException $exception) {
+        } catch (InvalidArgumentException) {
             throw InvalidDatabaseName::fromLongName(self::MAX_LENGTH);
         }
 
         try {
             Assert::notEndsWith($name, ' ');
-        } catch (InvalidArgumentException $exception) {
+        } catch (InvalidArgumentException) {
             throw InvalidDatabaseName::fromNameWithTrailingSpace();
         }
 
@@ -70,7 +70,7 @@ final class DatabaseName implements Stringable
     {
         try {
             return new self($name);
-        } catch (InvalidDatabaseName $exception) {
+        } catch (InvalidDatabaseName) {
             return null;
         }
     }

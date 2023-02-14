@@ -34,19 +34,19 @@ final class TableName implements Stringable
     {
         try {
             Assert::stringNotEmpty($name);
-        } catch (InvalidArgumentException $exception) {
+        } catch (InvalidArgumentException) {
             throw InvalidTableName::fromEmptyName();
         }
 
         try {
             Assert::maxLength($name, self::MAX_LENGTH);
-        } catch (InvalidArgumentException $exception) {
+        } catch (InvalidArgumentException) {
             throw InvalidTableName::fromLongName(self::MAX_LENGTH);
         }
 
         try {
             Assert::notEndsWith($name, ' ');
-        } catch (InvalidArgumentException $exception) {
+        } catch (InvalidArgumentException) {
             throw InvalidTableName::fromNameWithTrailingSpace();
         }
 
@@ -70,7 +70,7 @@ final class TableName implements Stringable
     {
         try {
             return new self($name);
-        } catch (InvalidTableName $exception) {
+        } catch (InvalidTableName) {
             return null;
         }
     }

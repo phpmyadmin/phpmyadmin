@@ -63,7 +63,7 @@ class WrapperController extends AbstractController
         try {
             $db = DatabaseName::fromValue($request->getParam('db'));
             $table = TableName::fromValue($request->getParam('table'));
-        } catch (InvalidIdentifierName $exception) {
+        } catch (InvalidIdentifierName) {
             return;
         }
 

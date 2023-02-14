@@ -252,7 +252,7 @@ class Error extends Message
     {
         try {
             $backtrace = serialize($this->getBacktrace());
-        } catch (Throwable $e) {
+        } catch (Throwable) {
             $backtrace = '';
         }
 

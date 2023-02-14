@@ -105,7 +105,7 @@ class DbiMysqli implements DbiExtension
                 $server->socket,
                 $client_flags
             );
-        } catch (mysqli_sql_exception $exception) {
+        } catch (mysqli_sql_exception) {
             /**
              * Switch to SSL if server asked us to do so, unfortunately
              * there are more ways MySQL server can tell this:

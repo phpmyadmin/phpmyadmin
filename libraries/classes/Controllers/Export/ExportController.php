@@ -486,7 +486,7 @@ final class ExportController extends AbstractController
             if (! $exportPlugin->exportFooter()) {
                 throw new ExportException('Failure during footer export.');
             }
-        } catch (ExportException $e) {
+        } catch (ExportException) {
             // Ignore
         }
 
