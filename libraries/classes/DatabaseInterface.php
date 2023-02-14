@@ -486,9 +486,7 @@ class DatabaseInterface implements DbalInterface
                             . implode(
                                 ', ',
                                 array_map(
-                                    function (string $string) use ($connectionType): string {
-                                        return $this->quoteString($string, $connectionType);
-                                    },
+                                    fn (string $string): string => $this->quoteString($string, $connectionType),
                                     $table
                                 )
                             ) . ')';
@@ -753,9 +751,7 @@ class DatabaseInterface implements DbalInterface
         if ($applyLimitAndOrderManual) {
             usort(
                 $databases,
-                static function ($a, $b) use ($sortBy, $sortOrder) {
-                    return Utilities::usortComparisonCallback($a, $b, $sortBy, $sortOrder);
-                }
+                static fn ($a, $b) => Utilities::usortComparisonCallback($a, $b, $sortBy, $sortOrder)
             );
 
             /**

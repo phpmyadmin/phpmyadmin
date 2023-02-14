@@ -395,9 +395,7 @@ class Config
          */
         $cfg = array_filter(
             $cfg,
-            static function (string $key): bool {
-                return ! str_contains($key, '/');
-            },
+            static fn (string $key): bool => ! str_contains($key, '/'),
             ARRAY_FILTER_USE_KEY
         );
 

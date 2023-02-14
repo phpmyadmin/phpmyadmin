@@ -9549,9 +9549,6 @@
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$this-&gt;listLocaleDir()</code>
-      <code>uasort($this-&gt;availableLanguages, static function (Language $a, Language $b) {
-            return $a-&gt;cmp($b);
-        })</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayOffset>
       <code>$langs[$GLOBALS['config']-&gt;get('DefaultLang')]</code>
@@ -9564,21 +9561,9 @@
     <MixedAssignment>
       <code>$lang</code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code>Language</code>
-    </MixedInferredReturnType>
     <MixedOperand>
       <code>$GLOBALS['config']-&gt;get('FilterLanguages')</code>
     </MixedOperand>
-    <MixedReturnStatement>
-      <code>$this-&gt;availableLanguages[strtolower($GLOBALS['lang'])]</code>
-    </MixedReturnStatement>
-    <MixedReturnTypeCoercion>
-      <code>$this-&gt;availableLanguages</code>
-      <code>$this-&gt;availableLanguages</code>
-      <code>Language[]</code>
-      <code>Language[]</code>
-    </MixedReturnTypeCoercion>
     <PossiblyInvalidArgument>
       <code>$_GET['lang']</code>
       <code>$_POST['lang']</code>

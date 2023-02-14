@@ -259,12 +259,8 @@ class Privileges
                 $grantCols = array_map(
                     /**
                      * @param string $val
-                     *
-                     * @return string
                      */
-                    static function ($val) {
-                        return Util::backquote($val);
-                    },
+                    static fn ($val): string => Util::backquote($val),
                     $GLOBALS[$currentGrant[0]]
                 );
 
