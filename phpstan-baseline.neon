@@ -5286,11 +5286,6 @@ parameters:
 			path: libraries/classes/LanguageManager.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\LanguageManager\\:\\:\\$availableLanguages type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/LanguageManager.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\LanguageManager\\:\\:\\$availableLocales \\(array\\) does not accept array\\|false\\.$#"
 			count: 1
 			path: libraries/classes/LanguageManager.php

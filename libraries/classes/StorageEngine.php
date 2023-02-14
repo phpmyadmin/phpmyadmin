@@ -111,11 +111,9 @@ class StorageEngine
                 $disabled = (string) SessionCache::get(
                     'disabled_storage_engines',
                     /** @return mixed|false */
-                    static function () {
-                        return $GLOBALS['dbi']->fetchValue(
-                            'SELECT @@disabled_storage_engines'
-                        );
-                    }
+                    static fn () => $GLOBALS['dbi']->fetchValue(
+                        'SELECT @@disabled_storage_engines'
+                    )
                 );
                 foreach (explode(',', $disabled) as $engine) {
                     if (! isset($storage_engines[$engine])) {

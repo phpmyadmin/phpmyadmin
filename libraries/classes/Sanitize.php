@@ -208,17 +208,17 @@ class Sanitize
         $pattern = '/\[a@([^]"@]*)(@([^]"]*))?\]/';
 
         /* Find and replace all links */
-        $message = (string) preg_replace_callback($pattern, static function (array $match) {
-            return self::replaceBBLink($match);
-        }, $message);
+        $message = (string) preg_replace_callback(
+            $pattern,
+            static fn (array $match) => self::replaceBBLink($match),
+            $message
+        );
 
         /* Replace documentation links */
         $message = (string) preg_replace_callback(
             '/\[doc@([a-zA-Z0-9_-]+)(@([a-zA-Z0-9_-]*))?\]/',
             /** @param string[] $match */
-            static function (array $match): string {
-                return self::replaceDocLink($match);
-            },
+            static fn (array $match): string => self::replaceDocLink($match),
             $message
         );
 

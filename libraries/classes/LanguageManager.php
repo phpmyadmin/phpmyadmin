@@ -711,7 +711,7 @@ class LanguageManager
     /** @var array */
     private $availableLocales;
 
-    /** @var array */
+    /** @var Language[] */
     private $availableLanguages = [];
 
     /** @var bool */
@@ -847,9 +847,7 @@ class LanguageManager
     public function sortedLanguages()
     {
         $this->availableLanguages();
-        uasort($this->availableLanguages, static function (Language $a, Language $b) {
-            return $a->cmp($b);
-        });
+        uasort($this->availableLanguages, static fn (Language $a, Language $b) => $a->cmp($b));
 
         return $this->availableLanguages;
     }

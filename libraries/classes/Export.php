@@ -1310,9 +1310,7 @@ class Export
             );
         }
 
-        $postParams = array_filter($this->getPostParams($exportType), static function ($value) {
-            return ! is_array($value);
-        });
+        $postParams = array_filter($this->getPostParams($exportType), static fn ($value) => ! is_array($value));
         $backButton .= '&amp;' . http_build_query($postParams);
 
         $backButton .= '&amp;repopulate=1">' . __('Back') . '</a> ]</p>';
