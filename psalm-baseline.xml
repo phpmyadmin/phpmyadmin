@@ -4475,9 +4475,6 @@
       <code>$GLOBALS['warning_messages']</code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code>$GLOBALS['create_options']['pack_keys']</code>
-      <code>$GLOBALS['create_options']['page_checksum'] ?? ''</code>
-      <code>$GLOBALS['row_format']</code>
       <code>$GLOBALS['warning_messages']</code>
       <code>$_message</code>
       <code>$_message</code>
@@ -4494,8 +4491,6 @@
       <code>$GLOBALS['columns']</code>
       <code>$GLOBALS['comment']</code>
       <code>$GLOBALS['create_options']</code>
-      <code>$GLOBALS['create_options']['page_checksum']</code>
-      <code>$GLOBALS['create_options']['page_checksum']</code>
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['hideOrderTable']</code>
       <code>$GLOBALS['indexes']</code>
@@ -4506,7 +4501,6 @@
       <code>$GLOBALS['reread_info']</code>
       <code>$GLOBALS['reread_info']</code>
       <code>$GLOBALS['result']</code>
-      <code>$GLOBALS['row_format']</code>
       <code>$GLOBALS['row_format']</code>
       <code>$GLOBALS['show_comment']</code>
       <code>$GLOBALS['showtable']</code>
@@ -7650,8 +7644,6 @@
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$dbSelect</code>
-      <code>$nonGeneratedCols</code>
-      <code>$nonGeneratedCols</code>
       <code>$tables</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
@@ -14975,9 +14967,6 @@
       <code>$foreignField</code>
       <code>$indexedCols</code>
       <code>$masterField</code>
-      <code>$nonGeneratedCols</code>
-      <code>$nonGeneratedCols</code>
-      <code>$uniqueFields</code>
       <code>$where</code>
       <code>$where</code>
     </MixedArgumentTypeCoercion>
@@ -15129,6 +15118,12 @@
       <code>end($this-&gt;messages)</code>
       <code>json_decode($value, true)</code>
     </MixedReturnStatement>
+    <MixedReturnTypeCoercion>
+      <code>$columns</code>
+      <code>$ret</code>
+      <code>array&lt;string, string&gt;</code>
+      <code>string[]</code>
+    </MixedReturnTypeCoercion>
     <PossiblyInvalidArgument>
       <code>$_POST['constraint_name'][$masterFieldMd5]</code>
       <code>$fields[$column]['expr']</code>

@@ -423,9 +423,9 @@ class Table implements Stringable
     /**
      * Returns the array for CREATE statement for current table.
      *
-     * @return array Return options array info if it is set for the selected table or return blank.
+     * @return array<string, string> Return options array info if it is set for the selected table or return blank.
      */
-    public function getCreateOptions()
+    public function getCreateOptions(): array
     {
         $tableOptions = $this->getStatusInfo('CREATE_OPTIONS', false, true);
         $createOptionsTmp = empty($tableOptions) ? [] : explode(' ', $tableOptions);
@@ -1516,9 +1516,9 @@ class Table implements Stringable
      * @param bool $backquoted whether to quote name with backticks ``
      * @param bool $fullName   whether to include full name of the table as a prefix
      *
-     * @return array
+     * @return string[]
      */
-    public function getUniqueColumns($backquoted = true, $fullName = true)
+    public function getUniqueColumns($backquoted = true, $fullName = true): array
     {
         $sql = QueryGenerator::getTableIndexesSql(
             $this->getDbName(),
@@ -1574,9 +1574,9 @@ class Table implements Stringable
      * @param bool  $backquoted whether to quote name with backticks ``
      * @param bool  $fullName   whether to include full name of the table as a prefix
      *
-     * @return array
+     * @return string[]
      */
-    private function formatColumns(array $indexed, $backquoted, $fullName)
+    private function formatColumns(array $indexed, $backquoted, $fullName): array
     {
         $return = [];
         foreach ($indexed as $column) {
@@ -1654,9 +1654,9 @@ class Table implements Stringable
      *
      * @param bool $backquoted whether to quote name with backticks ``
      *
-     * @return array
+     * @return string[]
      */
-    public function getNonGeneratedColumns($backquoted = true)
+    public function getNonGeneratedColumns($backquoted = true): array
     {
         $columnsMetaQuery = 'SHOW COLUMNS FROM ' . $this->getFullName(true);
         $ret = [];
@@ -1945,9 +1945,9 @@ class Table implements Stringable
     /**
      * Get all column names which are MySQL reserved words
      *
-     * @return array
+     * @return string[]
      */
-    public function getReservedColumnNames()
+    public function getReservedColumnNames(): array
     {
         $columns = $this->getColumns(false);
         $return = [];
@@ -1967,9 +1967,9 @@ class Table implements Stringable
     /**
      * Function to get the name and type of the columns of a table
      *
-     * @return array
+     * @return array<string, string>
      */
-    public function getNameAndTypeOfTheColumns()
+    public function getNameAndTypeOfTheColumns(): array
     {
         $columns = [];
         foreach (
