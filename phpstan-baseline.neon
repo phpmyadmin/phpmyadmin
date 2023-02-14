@@ -3586,6 +3586,36 @@ parameters:
 			path: libraries/classes/Dbal/MysqliResult.php
 
 		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$expr\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$from\\.$#"
+			count: 2
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$limit\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$where\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$column\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$database\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
 			count: 2
 			path: libraries/classes/Display/Results.php
@@ -5654,6 +5684,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Navigation\\\\Navigation\\:\\:getHiddenItems\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/Navigation.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\:\\:\\$secondIcon\\.$#"
+			count: 2
+			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
 			message: "#^Cannot access property \\$pos2 on PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\|null\\.$#"
@@ -8341,6 +8376,11 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$where\\.$#"
+			count: 1
+			path: libraries/classes/Sql.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Sql\\:\\:countQueryResults\\(\\) should return int\\|numeric\\-string but returns mixed\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
@@ -9544,6 +9584,21 @@ parameters:
 			message: "#^Variable \\$http_response_header in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Utils/HttpRequest.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$date\\.$#"
+			count: 1
+			path: libraries/classes/VersionInformation.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$releases\\.$#"
+			count: 1
+			path: libraries/classes/VersionInformation.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$version\\.$#"
+			count: 1
+			path: libraries/classes/VersionInformation.php
 
 		-
 			message: "#^Comparison operation \"\\>\\=\" between int\\<1, max\\> and 1 is always true\\.$#"

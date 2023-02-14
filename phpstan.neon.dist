@@ -34,3 +34,4 @@ parameters:
     checkAlwaysTrueStrictComparison: true
     checkUninitializedProperties: true
     polluteScopeWithAlwaysIterableForeach: true
+    checkDynamicProperties: true
