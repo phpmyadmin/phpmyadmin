@@ -33,3 +33,4 @@ parameters:
     checkAlwaysTrueCheckTypeFunctionCall: true
     checkAlwaysTrueStrictComparison: true
     checkUninitializedProperties: true
+    polluteScopeWithAlwaysIterableForeach: true

@@ -896,6 +896,21 @@ parameters:
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
+			message: "#^Foreach overwrites \\$feature with its value variable\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Foreach overwrites \\$table with its key variable\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Foreach overwrites \\$work with its key variable\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:buildForeignDropdown\\(\\) has parameter \\$foreign with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
@@ -4551,6 +4566,11 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
+			message: "#^Variable \\$label_point in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 2
+			path: libraries/classes/Gis/GisMultiPolygon.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:generateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPoint.php
@@ -5018,6 +5038,11 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$lastCumulativeSize of method PhpMyAdmin\\\\Import\\:\\:getDecimalScale\\(\\) expects string, int\\|string given\\.$#"
 			count: 2
+			path: libraries/classes/Import.php
+
+		-
+			message: "#^Parameter \\#1 \\$sql of method PhpMyAdmin\\\\Import\\:\\:executeQuery\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
 			path: libraries/classes/Import.php
 
 		-
@@ -6494,6 +6519,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportYaml\\:\\:exportData\\(\\) has parameter \\$aliases with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportYaml.php
+
+		-
+			message: "#^Foreach overwrites \\$width with its value variable\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:getTableDef\\(\\) has parameter \\$aliases with no value type specified in iterable type array\\.$#"
@@ -8551,6 +8581,11 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
+			message: "#^Foreach overwrites \\$trigger with its value variable\\.$#"
+			count: 1
+			path: libraries/classes/Table.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Table\\:\\:duplicateInfo\\(\\) has parameter \\$getFields with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
@@ -8917,6 +8952,11 @@ parameters:
 
 		-
 			message: "#^Casting to string something that's already string\\.$#"
+			count: 1
+			path: libraries/classes/Tracker.php
+
+		-
+			message: "#^Foreach overwrites \\$logEntry with its value variable\\.$#"
 			count: 1
 			path: libraries/classes/Tracker.php
 
