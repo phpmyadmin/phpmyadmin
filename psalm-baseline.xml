@@ -287,7 +287,6 @@
       <code>$config_data</code>
       <code>$config_data['lang']</code>
       <code>$default_value</code>
-      <code>$each_server</code>
       <code>$gd_nfo['GD Version']</code>
       <code>$path</code>
       <code>$server['verbose']</code>
@@ -330,7 +329,6 @@
       <code>$config_data</code>
       <code>$default_value</code>
       <code>$default_value</code>
-      <code>$each_server</code>
       <code>$eval_result</code>
       <code>$i</code>
       <code>$password</code>

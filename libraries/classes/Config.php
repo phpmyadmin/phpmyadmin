@@ -30,6 +30,7 @@ use function get_object_vars;
 use function implode;
 use function ini_get;
 use function intval;
+use function is_array;
 use function is_dir;
 use function is_int;
 use function is_numeric;
@@ -1157,29 +1158,34 @@ class Config
         }
 
         // We have server(s) => apply default configuration
-        $new_servers = [];
+        $newServers = [];
 
-        foreach ($this->settings['Servers'] as $server_index => $each_server) {
+        foreach ($this->settings['Servers'] as $serverIndex => $server) {
             // Detect wrong configuration
-            if (! is_int($server_index) || $server_index < 1) {
+            if (! is_int($serverIndex) || $serverIndex < 1 || ! is_array($server)) {
                 continue;
             }
 
-            $each_server = array_merge($this->defaultServer, $each_server);
+            $server = array_merge($this->defaultServer, $server);
 
             // Final solution to bug #582890
             // If we are using a socket connection
             // and there is nothing in the verbose server name
             // or the host field, then generate a name for the server
             // in the form of "Server 2", localized of course!
-            if (empty($each_server['host']) && empty($each_server['verbose'])) {
-                $each_server['verbose'] = sprintf(__('Server %d'), $server_index);
+            if (empty($server['host']) && empty($server['verbose'])) {
+                $server['verbose'] = sprintf(__('Server %d'), $serverIndex);
             }
 
-            $new_servers[$server_index] = $each_server;
+            $newServers[$serverIndex] = $server;
         }
 
-        $this->settings['Servers'] = $new_servers;
+        if ($newServers === []) {
+            // Ensures it has at least one valid server config.
+            $newServers = [1 => $this->defaultServer];
+        }
+
+        $this->settings['Servers'] = $newServers;
     }
 
     /**

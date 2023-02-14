@@ -1113,14 +1113,41 @@ class ConfigTest extends AbstractTestCase
     public function testCheckServersWithInvalidServer(): void
     {
         $server = ['host' => '127.0.0.1'];
-        $this->object->settings['Servers'] = ['invalid' => $server, 0 => $server, 1 => $server];
+        $this->object->settings['Servers'] = ['invalid' => $server, 1 => $server, 0 => $server, 2 => 'invalid'];
         $this->object->checkServers();
         $expected = array_merge($this->object->defaultServer, $server);
 
         $this->assertArrayNotHasKey('invalid', $this->object->settings['Servers']);
         $this->assertArrayNotHasKey(0, $this->object->settings['Servers']);
+        $this->assertArrayNotHasKey(2, $this->object->settings['Servers']);
         $this->assertArrayHasKey(1, $this->object->settings['Servers']);
         $this->assertEquals($expected, $this->object->settings['Servers'][1]);
+    }
+
+    public function testCheckServersWithOnlyInvalidServers(): void
+    {
+        $server = ['host' => '127.0.0.1'];
+        $this->object->settings['Servers'] = ['invalid' => $server, -1 => $server, 0 => $server];
+        $this->object->checkServers();
+
+        $this->assertArrayNotHasKey('invalid', $this->object->settings['Servers']);
+        $this->assertArrayNotHasKey(0, $this->object->settings['Servers']);
+        $this->assertArrayNotHasKey(-1, $this->object->settings['Servers']);
+        $this->assertArrayHasKey(1, $this->object->settings['Servers']);
+        /** @psalm-suppress InvalidArrayOffset */
+        $this->assertEquals($this->object->defaultServer, $this->object->settings['Servers'][1]);
+    }
+
+    public function testCheckServersWithServerKeysGreaterThanOne(): void
+    {
+        $server = ['host' => '127.0.0.1'];
+        $this->object->settings['Servers'] = [2 => $server];
+        $this->object->checkServers();
+        $expected = array_merge($this->object->defaultServer, $server);
+
+        $this->assertArrayNotHasKey(1, $this->object->settings['Servers']);
+        $this->assertArrayHasKey(2, $this->object->settings['Servers']);
+        $this->assertEquals($expected, $this->object->settings['Servers'][2]);
     }
 
     /**
