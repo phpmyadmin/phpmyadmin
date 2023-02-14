@@ -20,7 +20,7 @@ class CoreExtension extends AbstractExtension
         return [
             new TwigFilter(
                 'link',
-                [Core::class, 'linkURL']
+                Core::linkURL(...)
             ),
         ];
     }

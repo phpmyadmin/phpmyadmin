@@ -167,7 +167,7 @@ class SqlQueryForm
             $tmp_db_link .= htmlspecialchars($db) . '</a>';
             $legend = sprintf(__('Run SQL query/queries on database %s'), $tmp_db_link);
             if (empty($query)) {
-                $query = Util::expandUserString($GLOBALS['cfg']['DefaultQueryDatabase'], [Util::class, 'backquote']);
+                $query = Util::expandUserString($GLOBALS['cfg']['DefaultQueryDatabase'], Util::backquote(...));
             }
         } else {
             $db = $GLOBALS['db'];
@@ -182,7 +182,7 @@ class SqlQueryForm
             $tmp_tbl_link .= htmlspecialchars($db) . '.' . htmlspecialchars($table) . '</a>';
             $legend = sprintf(__('Run SQL query/queries on table %s'), $tmp_tbl_link);
             if (empty($query)) {
-                $query = Util::expandUserString($GLOBALS['cfg']['DefaultQueryTable'], [Util::class, 'backquote']);
+                $query = Util::expandUserString($GLOBALS['cfg']['DefaultQueryTable'], Util::backquote(...));
             }
         }
 

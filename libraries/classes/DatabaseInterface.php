@@ -376,7 +376,7 @@ class DatabaseInterface implements DbalInterface
             if ($table !== [] && $table !== '') {
                 if (is_array($table)) {
                     $sqlWhereTable = QueryGenerator::getTableNameConditionForMultiple(
-                        array_map([$this, 'quoteString'], $table)
+                        array_map($this->quoteString(...), $table)
                     );
                 } else {
                     $sqlWhereTable = QueryGenerator::getTableNameCondition(
