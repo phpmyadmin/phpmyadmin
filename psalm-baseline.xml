@@ -17581,9 +17581,6 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/Http/Factory/ServerRequestFactoryTest.php">
-    <DeprecatedMethod>
-      <code>setMethods</code>
-    </DeprecatedMethod>
     <InvalidConstantAssignmentValue>
       <code>IMPLEMENTATION_CLASSES = [
         'slim/psr7' =&gt; [
