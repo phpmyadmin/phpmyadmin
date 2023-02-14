@@ -32,3 +32,4 @@ parameters:
     checkBenevolentUnionTypes: true
     checkAlwaysTrueCheckTypeFunctionCall: true
     checkAlwaysTrueStrictComparison: true
+    checkUninitializedProperties: true

@@ -7956,6 +7956,11 @@ parameters:
 			path: libraries/classes/Server/Privileges.php
 
 		-
+			message: "#^Access to an uninitialized property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$replicationInfo\\.$#"
+			count: 2
+			path: libraries/classes/Server/Status/Data.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:calculateValues\\(\\) has parameter \\$server_status with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Server/Status/Data.php
