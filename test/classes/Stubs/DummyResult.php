@@ -12,6 +12,7 @@ use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\FieldMetadata;
 
 use function array_column;
+use function array_key_exists;
 use function is_string;
 
 /**
@@ -103,7 +104,11 @@ class DummyResult implements ResultInterface
             $row = $this->fetchRow();
         }
 
-        return $row[$field] ?? false;
+        if (! array_key_exists($field, $row)) {
+            return false;
+        }
+
+        return $row[$field];
     }
 
     /**

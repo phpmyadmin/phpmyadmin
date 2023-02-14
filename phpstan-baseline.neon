@@ -896,6 +896,21 @@ parameters:
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
+			message: "#^Foreach overwrites \\$feature with its value variable\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Foreach overwrites \\$table with its key variable\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Foreach overwrites \\$work with its key variable\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:buildForeignDropdown\\(\\) has parameter \\$foreign with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
@@ -2391,6 +2406,11 @@ parameters:
 			path: libraries/classes/Controllers/Table/Structure/SaveController.php
 
 		-
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Table/Structure/SaveController.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\Structure\\\\SaveController\\:\\:adjustColumnPrivileges\\(\\) has parameter \\$adjust_privileges with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/Structure/SaveController.php
@@ -2871,6 +2891,11 @@ parameters:
 			path: libraries/classes/Database/Qbe.php
 
 		-
+			message: "#^For loop initial assignment overwrites variable \\$columnIndex\\.$#"
+			count: 1
+			path: libraries/classes/Database/Qbe.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Database\\\\Qbe\\:\\:__construct\\(\\) has parameter \\$savedSearchList with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Database/Qbe.php
@@ -3168,6 +3193,11 @@ parameters:
 		-
 			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
 			count: 1
+			path: libraries/classes/Database/Routines.php
+
+		-
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
+			count: 2
 			path: libraries/classes/Database/Routines.php
 
 		-
@@ -3569,6 +3599,36 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:numRows\\(\\) should return int\\|numeric\\-string but returns int\\|string\\.$#"
 			count: 1
 			path: libraries/classes/Dbal/MysqliResult.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$expr\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$from\\.$#"
+			count: 2
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$limit\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$where\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$column\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$database\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
 
 		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
@@ -4546,6 +4606,11 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
+			message: "#^Variable \\$label_point in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 2
+			path: libraries/classes/Gis/GisMultiPolygon.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:generateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPoint.php
@@ -4841,11 +4906,6 @@ parameters:
 			path: libraries/classes/Git.php
 
 		-
-			message: "#^Variable \\$position might not be defined\\.$#"
-			count: 1
-			path: libraries/classes/Git.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Header\\:\\:getJsParams\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Header.php
@@ -4946,6 +5006,11 @@ parameters:
 			path: libraries/classes/Import.php
 
 		-
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
+			count: 5
+			path: libraries/classes/Import.php
+
+		-
 			message: "#^Foreach overwrites \\$sqlQuery with its value variable\\.$#"
 			count: 1
 			path: libraries/classes/Import.php
@@ -5013,6 +5078,11 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$lastCumulativeSize of method PhpMyAdmin\\\\Import\\:\\:getDecimalScale\\(\\) expects string, int\\|string given\\.$#"
 			count: 2
+			path: libraries/classes/Import.php
+
+		-
+			message: "#^Parameter \\#1 \\$sql of method PhpMyAdmin\\\\Import\\:\\:executeQuery\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
 			path: libraries/classes/Import.php
 
 		-
@@ -5626,6 +5696,11 @@ parameters:
 			path: libraries/classes/Navigation/Navigation.php
 
 		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\:\\:\\$secondIcon\\.$#"
+			count: 2
+			path: libraries/classes/Navigation/NavigationTree.php
+
+		-
 			message: "#^Cannot access property \\$pos2 on PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/NavigationTree.php
@@ -6236,6 +6311,11 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportLatex.php
 
 		-
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Export/ExportMediawiki.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportMediawiki\\:\\:exportData\\(\\) has parameter \\$aliases with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportMediawiki.php
@@ -6343,6 +6423,11 @@ parameters:
 		-
 			message: "#^Casting to string something that's already string\\.$#"
 			count: 2
+			path: libraries/classes/Plugins/Export/ExportSql.php
+
+		-
+			message: "#^Foreach overwrites \\$j with its key variable\\.$#"
+			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
@@ -6491,6 +6576,16 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportYaml.php
 
 		-
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: "#^Foreach overwrites \\$width with its value variable\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:getTableDef\\(\\) has parameter \\$aliases with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
@@ -6563,11 +6658,6 @@ parameters:
 		-
 			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$titleWidth is never written, only read\\.$#"
 			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Variable \\$columns_cnt might not be defined\\.$#"
-			count: 6
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
 
 		-
@@ -6706,6 +6796,11 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportMediawiki.php
 
 		-
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Import/ImportOds.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:iterateOverColumns\\(\\) has parameter \\$col_names with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportOds.php
@@ -6806,6 +6901,11 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportXml.php
 
 		-
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Import/ImportXml.php
+
+		-
 			message: "#^Offset 'charset' does not exist on SimpleXMLElement\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportXml.php
@@ -6839,6 +6939,11 @@ parameters:
 			message: "#^array\\<int, array\\<int, string\\>\\|string\\>\\|string does not accept array\\<int, string\\>\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportXml.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ShapeFileImport\\:\\:readSHP\\(\\) never returns false so it can be removed from the return type\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Import/ShapeFileImport.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\Upload\\\\UploadNoplugin\\:\\:getUploadStatus\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -6926,6 +7031,11 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php
 
 		-
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:row\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
@@ -6958,6 +7068,11 @@ parameters:
 		-
 			message: "#^Casting to string something that's already string\\.$#"
 			count: 2
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^For loop initial assignment overwrites variable \\$size\\.$#"
+			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
@@ -7951,6 +8066,11 @@ parameters:
 			path: libraries/classes/Server/Privileges.php
 
 		-
+			message: "#^Access to an uninitialized property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$replicationInfo\\.$#"
+			count: 2
+			path: libraries/classes/Server/Status/Data.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:calculateValues\\(\\) has parameter \\$server_status with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Server/Status/Data.php
@@ -8301,6 +8421,11 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$where\\.$#"
+			count: 1
+			path: libraries/classes/Sql.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Sql\\:\\:countQueryResults\\(\\) should return int\\|numeric\\-string but returns mixed\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
@@ -8538,6 +8663,11 @@ parameters:
 		-
 			message: "#^Casting to string something that's already string\\.$#"
 			count: 5
+			path: libraries/classes/Table.php
+
+		-
+			message: "#^Foreach overwrites \\$trigger with its value variable\\.$#"
+			count: 1
 			path: libraries/classes/Table.php
 
 		-
@@ -8911,6 +9041,11 @@ parameters:
 			path: libraries/classes/Tracker.php
 
 		-
+			message: "#^Foreach overwrites \\$logEntry with its value variable\\.$#"
+			count: 1
+			path: libraries/classes/Tracker.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tracker\\:\\:changeTrackingData\\(\\) has parameter \\$newData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Tracker.php
@@ -9191,6 +9326,11 @@ parameters:
 			path: libraries/classes/Tracking.php
 
 		-
+			message: "#^Foreach overwrites \\$file with its value variable\\.$#"
+			count: 1
+			path: libraries/classes/Transformations.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Transformations\\:\\:getAvailableMimeTypes\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Transformations.php
@@ -9323,6 +9463,11 @@ parameters:
 		-
 			message: "#^Casting to int something that's already int\\<min, \\-2\\>\\|int\\<0, max\\>\\.$#"
 			count: 5
+			path: libraries/classes/Util.php
+
+		-
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
+			count: 1
 			path: libraries/classes/Util.php
 
 		-
@@ -9494,6 +9639,21 @@ parameters:
 			message: "#^Variable \\$http_response_header in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Utils/HttpRequest.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$date\\.$#"
+			count: 1
+			path: libraries/classes/VersionInformation.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$releases\\.$#"
+			count: 1
+			path: libraries/classes/VersionInformation.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$version\\.$#"
+			count: 1
+			path: libraries/classes/VersionInformation.php
 
 		-
 			message: "#^Comparison operation \"\\>\\=\" between int\\<1, max\\> and 1 is always true\\.$#"
@@ -11699,6 +11859,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\StorageEngineTest\\:\\:providerGetEngine\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/StorageEngineTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:connect\\(\\) never returns null so it can be removed from the return type\\.$#"
+			count: 1
+			path: test/classes/Stubs/DbiDummy.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:fetchAny\\(\\) return type has no value type specified in iterable type array\\.$#"
