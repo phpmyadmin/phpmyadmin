@@ -57,12 +57,10 @@ use function strtolower;
 use function substr;
 use function sys_get_temp_dir;
 use function time;
-use function trigger_error;
 use function trim;
 
 use const ARRAY_FILTER_USE_KEY;
 use const DIRECTORY_SEPARATOR;
-use const E_USER_ERROR;
 use const PHP_OS;
 use const PHP_URL_PATH;
 use const PHP_URL_SCHEME;
@@ -1164,10 +1162,7 @@ class Config
         foreach ($this->settings['Servers'] as $server_index => $each_server) {
             // Detect wrong configuration
             if (! is_int($server_index) || $server_index < 1) {
-                trigger_error(
-                    sprintf(__('Invalid server index: %s'), $server_index),
-                    E_USER_ERROR
-                );
+                continue;
             }
 
             $each_server = array_merge($this->defaultServer, $each_server);

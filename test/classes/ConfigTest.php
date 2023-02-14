@@ -1110,18 +1110,16 @@ class ConfigTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * @group with-trigger-error
-     */
     public function testCheckServersWithInvalidServer(): void
     {
-        $this->expectError();
-        $this->expectErrorMessage('Invalid server index: invalid');
-
-        $this->object->settings['Servers'] = ['invalid' => ['host' => '127.0.0.1'], 1 => ['host' => '127.0.0.1']];
+        $server = ['host' => '127.0.0.1'];
+        $this->object->settings['Servers'] = ['invalid' => $server, 0 => $server, 1 => $server];
         $this->object->checkServers();
-        $expected = array_merge($this->object->defaultServer, ['host' => '127.0.0.1']);
+        $expected = array_merge($this->object->defaultServer, $server);
 
+        $this->assertArrayNotHasKey('invalid', $this->object->settings['Servers']);
+        $this->assertArrayNotHasKey(0, $this->object->settings['Servers']);
+        $this->assertArrayHasKey(1, $this->object->settings['Servers']);
         $this->assertEquals($expected, $this->object->settings['Servers'][1]);
     }
 

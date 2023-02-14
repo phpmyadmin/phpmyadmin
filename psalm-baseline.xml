@@ -291,7 +291,6 @@
       <code>$gd_nfo['GD Version']</code>
       <code>$path</code>
       <code>$server['verbose']</code>
-      <code>$server_index</code>
       <code>$this-&gt;settings['Servers']</code>
       <code>$this-&gt;settings['ThemeDefault']</code>
       <code>$this-&gt;settings['ThemeDefault']</code>
@@ -16570,10 +16569,6 @@
     </DeprecatedMethod>
   </file>
   <file src="test/classes/ConfigTest.php">
-    <DeprecatedMethod>
-      <code>expectError</code>
-      <code>expectErrorMessage</code>
-    </DeprecatedMethod>
     <InvalidArgument>
       <code>$v</code>
     </InvalidArgument>
