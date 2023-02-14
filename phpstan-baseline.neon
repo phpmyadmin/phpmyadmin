@@ -9221,27 +9221,12 @@ parameters:
 			path: libraries/classes/TwoFactor.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\TwoFactor\\:\\:getAllBackends\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/TwoFactor.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\TwoFactor\\:\\:getAvailable\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/TwoFactor.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\TwoFactor\\:\\:getAvailableBackends\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/TwoFactor.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\TwoFactor\\:\\:getBackendForCurrentUser\\(\\) should return PhpMyAdmin\\\\Plugins\\\\TwoFactorPlugin but returns object\\.$#"
-			count: 1
-			path: libraries/classes/TwoFactor.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\TwoFactor\\:\\:getMissingDeps\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/TwoFactor.php
 

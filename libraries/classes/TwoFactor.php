@@ -117,9 +117,9 @@ class TwoFactor
     /**
      * Returns list of available backends
      *
-     * @return array
+     * @return string[]
      */
-    public function getAvailableBackends()
+    public function getAvailableBackends(): array
     {
         $result = [];
         if ($GLOBALS['cfg']['DBG']['simple2fa']) {
@@ -146,9 +146,9 @@ class TwoFactor
     /**
      * Returns list of missing dependencies
      *
-     * @return array
+     * @return array<int, array{class: string, dep: string}>
      */
-    public function getMissingDeps()
+    public function getMissingDeps(): array
     {
         $result = [];
         if (! class_exists(Google2FA::class)) {
@@ -293,9 +293,9 @@ class TwoFactor
     /**
      * Returns array with all available backends
      *
-     * @return array
+     * @return array<int, array{id: mixed, name: mixed, description: mixed}>
      */
-    public function getAllBackends()
+    public function getAllBackends(): array
     {
         $all = array_merge([''], $this->available);
         $backends = [];
