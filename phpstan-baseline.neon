@@ -9396,11 +9396,6 @@ parameters:
 			path: libraries/classes/Util.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Util\\:\\:parseEnumSetValues\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Util\\:\\:processIndexData\\(\\) has parameter \\$indexes with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Util.php

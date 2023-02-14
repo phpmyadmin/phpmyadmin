@@ -1778,9 +1778,9 @@ class Util
      *                           for which to parse the values
      * @param bool   $escapeHtml Whether to escape html entities
      *
-     * @return array
+     * @return string[]
      */
-    public static function parseEnumSetValues($definition, $escapeHtml = true)
+    public static function parseEnumSetValues($definition, $escapeHtml = true): array
     {
         $valuesString = htmlentities($definition, ENT_COMPAT, 'UTF-8');
         // There is a JS port of the below parser in functions.js
