@@ -7816,11 +7816,6 @@ parameters:
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:extractPrivInfo\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:fillInTablePrivileges\\(\\) has parameter \\$row with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php

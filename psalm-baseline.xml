@@ -14132,16 +14132,6 @@
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$queries</code>
-      <code>$this-&gt;extractPrivInfo($privs, true)</code>
-      <code>$this-&gt;extractPrivInfo($row)</code>
-      <code>$this-&gt;extractPrivInfo($row, true)</code>
-      <code>$this-&gt;extractPrivInfo($row, true)</code>
-      <code>$this-&gt;extractPrivInfo()</code>
-      <code>$this-&gt;extractPrivInfo()</code>
-      <code>$this-&gt;extractPrivInfo()</code>
-      <code>$this-&gt;extractPrivInfo(null, true)</code>
-      <code>$this-&gt;extractPrivInfo(null, true)</code>
-      <code>$tmpPrivs1</code>
       <code>uksort($arrayInitials, 'strnatcasecmp')</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
@@ -18311,9 +18301,6 @@
       <code>$real_sql_query</code>
       <code>$sql_query</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code>$serverPrivileges-&gt;extractPrivInfo(null, true)</code>
-    </MixedArgumentTypeCoercion>
     <MixedMethodCall>
       <code>getMessage</code>
       <code>getMessage</code>
