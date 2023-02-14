@@ -14995,9 +14995,6 @@
       <code>$mysql_vars</code>
       <code>$variables</code>
     </PossiblyNullArrayOffset>
-    <RedundantConditionGivenDocblockType>
-      <code>self::SUPPORT_NO</code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/SystemDatabase.php">
     <MixedArgument>
@@ -15900,10 +15897,14 @@
       <code>string</code>
     </MixedInferredReturnType>
     <MixedReturnStatement>
-      <code>$html_separator</code>
-      <code>$html_separator</code>
-      <code>$separator</code>
-      <code>$separator</code>
+      <code>match ($encode) {
+            'html' =&gt; $html_separator,
+            default =&gt; $separator,
+        }</code>
+      <code>match ($encode) {
+            'html' =&gt; $html_separator,
+            default =&gt; $separator,
+        }</code>
     </MixedReturnStatement>
     <PossiblyNullReference>
       <code>get</code>

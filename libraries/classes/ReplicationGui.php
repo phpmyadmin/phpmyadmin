@@ -389,18 +389,11 @@ class ReplicationGui
 
         // when we start editing a user, $GLOBALS['pred_hostname'] is not defined
         if (! isset($GLOBALS['pred_hostname']) && $hostname !== null) {
-            switch (mb_strtolower($hostname)) {
-                case 'localhost':
-                case '127.0.0.1':
-                    $GLOBALS['pred_hostname'] = 'localhost';
-                    break;
-                case '%':
-                    $GLOBALS['pred_hostname'] = 'any';
-                    break;
-                default:
-                    $GLOBALS['pred_hostname'] = 'userdefined';
-                    break;
-            }
+            $GLOBALS['pred_hostname'] = match (mb_strtolower($hostname)) {
+                'localhost', '127.0.0.1' => 'localhost',
+                '%' => 'any',
+                default => 'userdefined',
+            };
         }
 
         return $this->template->render('server/replication/primary_add_replica_user', [

@@ -51,21 +51,13 @@ class NodeColumn extends Node
      *
      * @return string Icon name for required key.
      */
-    private function getColumnIcon($key)
+    private function getColumnIcon($key): string
     {
-        switch ($key) {
-            case 'PRI':
-                $retval = 'b_primary';
-                break;
-            case 'UNI':
-                $retval = 'bd_primary';
-                break;
-            default:
-                $retval = 'pause';
-                break;
-        }
-
-        return $retval;
+        return match ($key) {
+            'PRI' => 'b_primary',
+            'UNI' => 'bd_primary',
+            default => 'pause',
+        };
     }
 
     /**

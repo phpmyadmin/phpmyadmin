@@ -364,15 +364,11 @@ class InsertEdit
      */
     private function showTypeOrFunctionLabel($which): string
     {
-        switch ($which) {
-            case 'function':
-                return __('Function');
-
-            case 'type':
-                return __('Type');
-        }
-
-        return '';
+        return match ($which) {
+            'function' => __('Function'),
+            'type' => __('Type'),
+            default => '',
+        };
     }
 
     /**
@@ -476,35 +472,28 @@ class InsertEdit
      */
     private function getEnumSetAndTimestampColumns(array $column, $timestampSeen)
     {
-        switch ($column['True_Type']) {
-            case 'set':
-                return [
-                    'set',
-                    '',
-                    false,
-                ];
-
-            case 'enum':
-                return [
-                    'enum',
-                    '',
-                    false,
-                ];
-
-            case 'timestamp':
-                return [
-                    $column['Type'],
-                    ' text-nowrap',
-                    ! $timestampSeen, // can only occur once per table
-                ];
-
-            default:
-                return [
-                    $column['Type'],
-                    ' text-nowrap',
-                    false,
-                ];
-        }
+        return match ($column['True_Type']) {
+            'set' => [
+                'set',
+                '',
+                false,
+            ],
+            'enum' => [
+                'enum',
+                '',
+                false,
+            ],
+            'timestamp' => [
+                $column['Type'],
+                ' text-nowrap',
+                ! $timestampSeen, // can only occur once per table
+            ],
+            default => [
+                $column['Type'],
+                ' text-nowrap',
+                false,
+            ],
+        };
     }
 
     /**
