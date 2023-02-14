@@ -52,7 +52,7 @@ class GisPoint extends GisGeometry
      *
      * @return array an array containing the min, max values for x and y coordinates
      */
-    public function scaleRow($spatial)
+    public function scaleRow($spatial): array
     {
         // Trim to remove leading 'POINT(' and trailing ')'
         $point = mb_substr($spatial, 6, -1);

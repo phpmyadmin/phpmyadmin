@@ -101,7 +101,7 @@ abstract class GisGeometry
      *
      * @return array array containing the min, max values for x and y coordinates
      */
-    abstract public function scaleRow($spatial);
+    abstract public function scaleRow($spatial): array;
 
     /**
      * Generates the WKT with the set of parameters passed by the GIS editor.

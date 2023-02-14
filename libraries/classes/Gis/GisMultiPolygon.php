@@ -56,7 +56,7 @@ class GisMultiPolygon extends GisGeometry
      *
      * @return array an array containing the min, max values for x and y coordinates
      */
-    public function scaleRow($spatial)
+    public function scaleRow($spatial): array
     {
         $min_max = [];
 

@@ -7954,41 +7954,12 @@
       <code>$gis_obj</code>
     </DocblockTypeContradiction>
     <MixedArgument>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
       <code>$type</code>
       <code>$wkt</code>
     </MixedArgument>
     <MixedAssignment>
       <code>$geom_count</code>
       <code>$params['srid']</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
       <code>$type</code>
       <code>$wkt</code>
     </MixedAssignment>

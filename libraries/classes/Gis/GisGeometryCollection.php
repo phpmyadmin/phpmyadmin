@@ -50,9 +50,9 @@ class GisGeometryCollection extends GisGeometry
      *
      * @param string $spatial spatial data of a row
      *
-     * @return array array containing the min, max values for x and y coordinates
+     * @return array{maxX: float, minX: float, maxY: float, minY: float}|array{}
      */
-    public function scaleRow($spatial)
+    public function scaleRow($spatial): array
     {
         $min_max = [];
 
@@ -263,9 +263,9 @@ class GisGeometryCollection extends GisGeometry
      *
      * @param string $geom_col geometry collection string
      *
-     * @return array the constituents of the geometry collection object
+     * @return string[] the constituents of the geometry collection object
      */
-    private function explodeGeomCol($geom_col)
+    private function explodeGeomCol($geom_col): array
     {
         $sub_parts = [];
         $br_count = 0;
