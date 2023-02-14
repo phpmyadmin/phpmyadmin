@@ -4081,11 +4081,6 @@ parameters:
 			path: libraries/classes/Export.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Export\\\\Options\\:\\:getDatabasesForSelectOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Export/Options.php
-
-		-
 			message: "#^PHPDoc tag @var for variable \\$dbSelect has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Export/Options.php
