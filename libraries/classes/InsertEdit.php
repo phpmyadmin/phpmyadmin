@@ -1053,12 +1053,15 @@ class InsertEdit
             $data = $currentRow[$column['Field']];
         }
 
-        //when copying row, it is useful to empty auto-increment column
-        // to prevent duplicate key error
-        if (isset($_POST['default_action']) && $_POST['default_action'] === 'insert') {
-            if ($column['Key'] === 'PRI' && str_contains($column['Extra'], 'auto_increment')) {
-                $data = $specialCharsEncoded = $specialChars = null;
-            }
+        /** @var string $defaultAction */
+        $defaultAction = $_POST['default_action'] ?? $_GET['default_action'] ?? '';
+        if (
+            $defaultAction === 'insert'
+            && $column['Key'] === 'PRI'
+            && str_contains($column['Extra'], 'auto_increment')
+        ) {
+            // When copying row, it is useful to empty auto-increment column to prevent duplicate key error.
+            $data = $specialCharsEncoded = $specialChars = null;
         }
 
         // If a timestamp field value is not included in an update
@@ -1869,9 +1872,10 @@ class InsertEdit
             $foundUniqueKey = false;
         }
 
-        // Copying a row - fetched data will be inserted as a new row,
-        // therefore the where clause is needless.
-        if (isset($_POST['default_action']) && $_POST['default_action'] === 'insert') {
+        /** @var string $defaultAction */
+        $defaultAction = $_POST['default_action'] ?? $_GET['default_action'] ?? '';
+        if ($defaultAction === 'insert') {
+            // Copying a row - fetched data will be inserted as a new row, therefore the where clause is needless.
             $whereClause = $whereClauses = null;
         }
 
