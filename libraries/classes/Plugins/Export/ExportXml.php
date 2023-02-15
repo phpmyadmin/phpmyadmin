@@ -226,7 +226,7 @@ class ExportXml extends ExportPlugin
             . Util::localisedDate() . "\n"
             . '- ' . __('Server version:') . ' ' . $GLOBALS['dbi']->getVersionString() . "\n"
             . '- ' . __('PHP Version:') . ' ' . PHP_VERSION . "\n"
-            . '-->' . "\n" . "\n";
+            . '-->' . "\n\n";
 
         $head .= '<pma_xml_export version="1.0"'
             . ($export_struct

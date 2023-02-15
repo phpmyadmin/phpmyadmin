@@ -85,7 +85,7 @@ class ExportPhparray extends ExportPlugin
             . '/**' . "\n"
             . ' * Export to PHP Array plugin for PHPMyAdmin' . "\n"
             . ' * @version ' . Version::VERSION . "\n"
-            . ' */' . "\n" . "\n"
+            . ' */' . "\n\n"
         );
 
         return true;
