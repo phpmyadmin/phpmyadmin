@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-12 00:20+0000\n"
-"PO-Revision-Date: 2023-02-01 12:10+0000\n"
-"Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
+"PO-Revision-Date: 2023-02-17 01:47+0000\n"
+"Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
 "Language: mk\n"
@@ -163,6 +163,8 @@ msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"Се предлага да го подесите {long_query_time} на пониска вредност, во "
+"зависност од вашата околина. Обично вредност од 1 до 5 секунди е предложена."
 
 #: libraries/classes/Advisory/Rules.php:101
 #, php-format
@@ -184,6 +186,8 @@ msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"Овозможете евидентирање на бавни барања со подесувањето на {log_slow_queries}"
+" на 'ON'. Ова ќе помогне да се најдат проблеми со барања со лошо извршување."
 
 #: libraries/classes/Advisory/Rules.php:115
 msgid "log_slow_queries is set to 'OFF'"
@@ -8591,7 +8595,7 @@ msgstr "Примарен"
 #: templates/table/structure/display_table_stats.twig:24
 #: templates/table/tracking/structure_snapshot_columns.twig:27
 msgid "Index"
-msgstr "Клуч"
+msgstr "Индекс"
 
 #: libraries/classes/Controllers/Table/Structure/MoveColumnsController.php:178
 #, fuzzy
@@ -9891,7 +9895,7 @@ msgstr "Функција"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/table/zoom_search/index.twig:37
 msgid "Type"
-msgstr "Вид"
+msgstr "Тип"
 
 #: libraries/classes/InsertEdit.php:750 templates/import.twig:57
 #: templates/import.twig:82
