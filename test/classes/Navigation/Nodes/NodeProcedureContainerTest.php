@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
-use PhpMyAdmin\Navigation\NodeFactory;
+use PhpMyAdmin\Navigation\Nodes\NodeProcedureContainer;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
@@ -27,7 +27,7 @@ class NodeProcedureContainerTest extends AbstractTestCase
      */
     public function testConstructor(): void
     {
-        $parent = NodeFactory::getInstance('NodeProcedureContainer');
+        $parent = new NodeProcedureContainer();
         $this->assertIsArray($parent->links);
         $this->assertEquals(
             [

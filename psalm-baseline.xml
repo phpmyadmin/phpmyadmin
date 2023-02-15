@@ -9731,6 +9731,8 @@
   </file>
   <file src="libraries/classes/Navigation/NavigationTree.php">
     <ArgumentTypeCoercion>
+      <code>$newChild['node']</code>
+      <code>$newChild['node']</code>
       <code>$table</code>
     </ArgumentTypeCoercion>
     <DocblockTypeContradiction>
@@ -9793,6 +9795,10 @@
       <code>$urlParams['pos3_name']</code>
       <code>$value</code>
     </MixedAssignment>
+    <MixedMethodCall>
+      <code>addChild</code>
+      <code>setHiddenCount</code>
+    </MixedMethodCall>
     <MixedOperand>
       <code>$separators[0]</code>
       <code>$separators[0]</code>
@@ -9803,7 +9809,6 @@
       <code>$node</code>
     </MixedPropertyAssignment>
     <PossiblyFalseOperand>
-      <code>strrpos($class, '\\')</code>
       <code>strrpos($class, '\\')</code>
     </PossiblyFalseOperand>
     <PossiblyFalseReference>
@@ -9866,9 +9871,9 @@
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Navigation/NodeFactory.php">
-    <MixedMethodCall>
+    <UnsafeInstantiation>
       <code>new $class($name, $type, $isGroup)</code>
-    </MixedMethodCall>
+    </UnsafeInstantiation>
   </file>
   <file src="libraries/classes/Navigation/Nodes/Node.php">
     <DeprecatedMethod>
@@ -9973,18 +9978,12 @@
     <PropertyNotSetInConstructor>
       <code>NodeColumn</code>
     </PropertyNotSetInConstructor>
-    <UnusedClass>
-      <code>NodeColumn</code>
-    </UnusedClass>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeColumnContainer.php">
     <PropertyNotSetInConstructor>
       <code>NodeColumnContainer</code>
       <code>NodeColumnContainer</code>
     </PropertyNotSetInConstructor>
-    <UnusedClass>
-      <code>NodeColumnContainer</code>
-    </UnusedClass>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeDatabase.php">
     <InvalidReturnStatement>
@@ -10002,9 +10001,6 @@
     <MixedAssignment>
       <code>$item</code>
     </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
     <PropertyNotSetInConstructor>
       <code>NodeDatabase</code>
       <code>NodeDatabase</code>
@@ -10025,85 +10021,61 @@
     </RedundantCast>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php">
+    <PossiblyUnusedMethod>
+      <code>__construct</code>
+    </PossiblyUnusedMethod>
     <PropertyNotSetInConstructor>
       <code>NodeDatabaseContainer</code>
       <code>NodeDatabaseContainer</code>
     </PropertyNotSetInConstructor>
-    <UnusedClass>
-      <code>NodeDatabaseContainer</code>
-    </UnusedClass>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeEvent.php">
     <PropertyNotSetInConstructor>
       <code>NodeEvent</code>
       <code>NodeEvent</code>
     </PropertyNotSetInConstructor>
-    <UnusedClass>
-      <code>NodeEvent</code>
-    </UnusedClass>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeEventContainer.php">
     <PropertyNotSetInConstructor>
       <code>NodeEventContainer</code>
       <code>NodeEventContainer</code>
     </PropertyNotSetInConstructor>
-    <UnusedClass>
-      <code>NodeEventContainer</code>
-    </UnusedClass>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeFunction.php">
     <PropertyNotSetInConstructor>
       <code>NodeFunction</code>
       <code>NodeFunction</code>
     </PropertyNotSetInConstructor>
-    <UnusedClass>
-      <code>NodeFunction</code>
-    </UnusedClass>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeFunctionContainer.php">
     <PropertyNotSetInConstructor>
       <code>NodeFunctionContainer</code>
       <code>NodeFunctionContainer</code>
     </PropertyNotSetInConstructor>
-    <UnusedClass>
-      <code>NodeFunctionContainer</code>
-    </UnusedClass>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeIndex.php">
     <PropertyNotSetInConstructor>
       <code>NodeIndex</code>
       <code>NodeIndex</code>
     </PropertyNotSetInConstructor>
-    <UnusedClass>
-      <code>NodeIndex</code>
-    </UnusedClass>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeIndexContainer.php">
     <PropertyNotSetInConstructor>
       <code>NodeIndexContainer</code>
       <code>NodeIndexContainer</code>
     </PropertyNotSetInConstructor>
-    <UnusedClass>
-      <code>NodeIndexContainer</code>
-    </UnusedClass>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeProcedure.php">
     <PropertyNotSetInConstructor>
       <code>NodeProcedure</code>
       <code>NodeProcedure</code>
     </PropertyNotSetInConstructor>
-    <UnusedClass>
-      <code>NodeProcedure</code>
-    </UnusedClass>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeProcedureContainer.php">
     <PropertyNotSetInConstructor>
       <code>NodeProcedureContainer</code>
       <code>NodeProcedureContainer</code>
     </PropertyNotSetInConstructor>
-    <UnusedClass>
-      <code>NodeProcedureContainer</code>
-    </UnusedClass>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeTable.php">
     <DeprecatedMethod>
@@ -10125,9 +10097,6 @@
     <PossiblyNullArgument>
       <code>$arr['Type']</code>
     </PossiblyNullArgument>
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
     <PossiblyUnusedProperty>
       <code>$secondIcon</code>
     </PossiblyUnusedProperty>
@@ -10136,9 +10105,6 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeTableContainer.php">
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
     <PropertyNotSetInConstructor>
       <code>NodeTableContainer</code>
       <code>NodeTableContainer</code>
@@ -10149,32 +10115,20 @@
       <code>NodeTrigger</code>
       <code>NodeTrigger</code>
     </PropertyNotSetInConstructor>
-    <UnusedClass>
-      <code>NodeTrigger</code>
-    </UnusedClass>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeTriggerContainer.php">
     <PropertyNotSetInConstructor>
       <code>NodeTriggerContainer</code>
       <code>NodeTriggerContainer</code>
     </PropertyNotSetInConstructor>
-    <UnusedClass>
-      <code>NodeTriggerContainer</code>
-    </UnusedClass>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeView.php">
     <PropertyNotSetInConstructor>
       <code>NodeView</code>
       <code>NodeView</code>
     </PropertyNotSetInConstructor>
-    <UnusedClass>
-      <code>NodeView</code>
-    </UnusedClass>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeViewContainer.php">
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
     <PropertyNotSetInConstructor>
       <code>NodeViewContainer</code>
       <code>NodeViewContainer</code>
@@ -17705,14 +17659,6 @@
     <MixedInferredReturnType>
       <code>array</code>
     </MixedInferredReturnType>
-  </file>
-  <file src="test/classes/Navigation/NodeFactoryTest.php">
-    <DeprecatedMethod>
-      <code>expectError</code>
-      <code>expectError</code>
-      <code>expectErrorMessage</code>
-      <code>expectErrorMessage</code>
-    </DeprecatedMethod>
   </file>
   <file src="test/classes/Navigation/Nodes/NodeColumnContainerTest.php">
     <RedundantConditionGivenDocblockType>
