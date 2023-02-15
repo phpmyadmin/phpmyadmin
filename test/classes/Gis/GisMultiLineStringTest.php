@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisMultiLineString;
+use PhpMyAdmin\Gis\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
@@ -235,12 +236,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
         return [
             [
                 'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',
-                [
-                    'minX' => 17,
-                    'maxX' => 178,
-                    'minY' => 10,
-                    'maxY' => 75,
-                ],
+                new ScaleData(178, 17, 75, 10),
             ],
         ];
     }

@@ -54,11 +54,11 @@ class GisMultiPolygon extends GisGeometry
      *
      * @param string $spatial spatial data of a row
      *
-     * @return array an array containing the min, max values for x and y coordinates
+     * @return ScaleData|null the min, max values for x and y coordinates
      */
-    public function scaleRow($spatial): array
+    public function scaleRow(string $spatial): ?ScaleData
     {
-        $min_max = [];
+        $min_max = null;
 
         // Trim to remove leading 'MULTIPOLYGON(((' and trailing ')))'
         $multipolygon = mb_substr($spatial, 15, -3);

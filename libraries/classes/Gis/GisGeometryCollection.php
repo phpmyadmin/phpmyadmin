@@ -49,12 +49,10 @@ class GisGeometryCollection extends GisGeometry
      * Scales each row.
      *
      * @param string $spatial spatial data of a row
-     *
-     * @return array{maxX: float, minX: float, maxY: float, minY: float}|array{}
      */
-    public function scaleRow($spatial): array
+    public function scaleRow(string $spatial): ?ScaleData
     {
-        $min_max = [];
+        $min_max = null;
 
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $goem_col = mb_substr($spatial, 19, -1);
@@ -77,28 +75,7 @@ class GisGeometryCollection extends GisGeometry
 
             $scale_data = $gis_obj->scaleRow($sub_part);
 
-            // Update minimum/maximum values for x and y coordinates.
-            $c_maxX = (float) $scale_data['maxX'];
-            if (! isset($min_max['maxX']) || $c_maxX > $min_max['maxX']) {
-                $min_max['maxX'] = $c_maxX;
-            }
-
-            $c_minX = (float) $scale_data['minX'];
-            if (! isset($min_max['minX']) || $c_minX < $min_max['minX']) {
-                $min_max['minX'] = $c_minX;
-            }
-
-            $c_maxY = (float) $scale_data['maxY'];
-            if (! isset($min_max['maxY']) || $c_maxY > $min_max['maxY']) {
-                $min_max['maxY'] = $c_maxY;
-            }
-
-            $c_minY = (float) $scale_data['minY'];
-            if (isset($min_max['minY']) && $c_minY >= $min_max['minY']) {
-                continue;
-            }
-
-            $min_max['minY'] = $c_minY;
+            $min_max = $min_max === null ? $scale_data : $scale_data->merge($min_max);
         }
 
         return $min_max;

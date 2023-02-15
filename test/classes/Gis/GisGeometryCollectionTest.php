@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisGeometryCollection;
+use PhpMyAdmin\Gis\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
@@ -48,12 +49,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
         return [
             [
                 'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
-                [
-                    'maxX' => 45.0,
-                    'minX' => 10.0,
-                    'maxY' => 45.0,
-                    'minY' => 10.0,
-                ],
+                new ScaleData(45, 10, 45, 10),
             ],
         ];
     }

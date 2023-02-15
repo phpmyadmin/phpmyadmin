@@ -547,25 +547,25 @@ class GisVisualization
                 continue;
             }
 
-            $scale_data = $gis_obj->scaleRow($row[$this->settings['spatialColumn']]);
+            $scaleData = $gis_obj->scaleRow($row[$this->settings['spatialColumn']]);
 
             // Update minimum/maximum values for x and y coordinates.
-            $c_maxX = (float) $scale_data['maxX'];
+            $c_maxX = $scaleData->maxX;
             if ($min_max['maxX'] === 0.0 || $c_maxX > $min_max['maxX']) {
                 $min_max['maxX'] = $c_maxX;
             }
 
-            $c_minX = (float) $scale_data['minX'];
+            $c_minX = $scaleData->minX;
             if ($min_max['minX'] === 0.0 || $c_minX < $min_max['minX']) {
                 $min_max['minX'] = $c_minX;
             }
 
-            $c_maxY = (float) $scale_data['maxY'];
+            $c_maxY = $scaleData->maxY;
             if ($min_max['maxY'] === 0.0 || $c_maxY > $min_max['maxY']) {
                 $min_max['maxY'] = $c_maxY;
             }
 
-            $c_minY = (float) $scale_data['minY'];
+            $c_minY = $scaleData->minY;
             if ($min_max['minY'] !== 0.0 && $c_minY >= $min_max['minY']) {
                 continue;
             }
