@@ -19,8 +19,6 @@ use ReflectionProperty;
 
 use function array_shift;
 
-use const PHP_EOL;
-
 /**
  * @covers \PhpMyAdmin\Plugins\Export\ExportJson
  * @group medium
@@ -138,7 +136,7 @@ class ExportJsonTest extends AbstractTestCase
 
     public function testExportFooter(): void
     {
-        $this->expectOutputString(']' . PHP_EOL);
+        $this->expectOutputString(']' . "\n");
 
         $this->assertTrue(
             $this->object->exportFooter()

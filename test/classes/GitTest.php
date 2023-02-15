@@ -18,7 +18,6 @@ use function sys_get_temp_dir;
 use function unlink;
 
 use const DIRECTORY_SEPARATOR;
-use const PHP_EOL;
 
 /**
  * @covers \PhpMyAdmin\Git
@@ -191,10 +190,10 @@ class GitTest extends AbstractTestCase
 
         file_put_contents(
             '.git/packed-refs',
-            '# pack-refs with: peeled fully-peeled sorted' . PHP_EOL .
-            'c1f2ff2eb0c3fda741f859913fd589379f4e4a8f refs/tags/4.3.10' . PHP_EOL .
-            '^6f2e60343b0a324c65f2d1411bf4bd03e114fb98' . PHP_EOL .
-            '17bf8b7309919f8ac593d7c563b31472780ee83b refs/remotes/origin/master' . PHP_EOL
+            '# pack-refs with: peeled fully-peeled sorted' . "\n" .
+            'c1f2ff2eb0c3fda741f859913fd589379f4e4a8f refs/tags/4.3.10' . "\n" .
+            '^6f2e60343b0a324c65f2d1411bf4bd03e114fb98' . "\n" .
+            '17bf8b7309919f8ac593d7c563b31472780ee83b refs/remotes/origin/master' . "\n"
         );
         mkdir('.git/objects/pack', 0777, true);//default = 0777, recursive mode
 
@@ -307,19 +306,19 @@ class GitTest extends AbstractTestCase
 
         file_put_contents(
             '.git/packed-refs',
-            '# pack-refs with: peeled fully-peeled sorted' . PHP_EOL .
-            'c1f2ff2eb0c3fda741f859913fd589379f4e4a8f refs/tags/4.3.10' . PHP_EOL .
-            '^6f2e60343b0a324c65f2d1411bf4bd03e114fb98' . PHP_EOL .
-            '17bf8b7309919f8ac593d7c563b31472780ee83b refs/remotes/origin/master' . PHP_EOL
+            '# pack-refs with: peeled fully-peeled sorted' . "\n" .
+            'c1f2ff2eb0c3fda741f859913fd589379f4e4a8f refs/tags/4.3.10' . "\n" .
+            '^6f2e60343b0a324c65f2d1411bf4bd03e114fb98' . "\n" .
+            '17bf8b7309919f8ac593d7c563b31472780ee83b refs/remotes/origin/master' . "\n"
         );
         mkdir('.git/objects/info', 0777, true);
         file_put_contents(
             '.git/objects/info/packs',
-            'P pack-faea49765800da462c70bea555848cc8c7a1c28d.pack' . PHP_EOL .
-            '  pack-.pack' . PHP_EOL .
-            PHP_EOL .
-            'P pack-420568bae521465fd11863bff155a2b2831023.pack' . PHP_EOL .
-            PHP_EOL
+            'P pack-faea49765800da462c70bea555848cc8c7a1c28d.pack' . "\n" .
+            '  pack-.pack' . "\n" .
+            "\n" .
+            'P pack-420568bae521465fd11863bff155a2b2831023.pack' . "\n" .
+            "\n"
         );
 
         $commit = $this->object->checkGitRevision();

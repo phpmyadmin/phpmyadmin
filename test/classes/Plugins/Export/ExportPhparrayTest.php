@@ -20,8 +20,6 @@ use function array_shift;
 use function ob_get_clean;
 use function ob_start;
 
-use const PHP_EOL;
-
 /**
  * @covers \PhpMyAdmin\Plugins\Export\ExportPhparray
  * @group medium
@@ -133,7 +131,7 @@ class ExportPhparrayTest extends AbstractTestCase
 
         $this->assertIsString($result);
 
-        $this->assertStringContainsString('<?php' . PHP_EOL, $result);
+        $this->assertStringContainsString('<?php' . "\n", $result);
     }
 
     public function testExportFooter(): void

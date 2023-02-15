@@ -33,7 +33,6 @@ use function unlink;
 use const CONFIG_FILE;
 use const DIRECTORY_SEPARATOR;
 use const INFO_MODULES;
-use const PHP_EOL;
 use const PHP_OS;
 use const TEST_PATH;
 
@@ -103,7 +102,7 @@ class ConfigTest extends AbstractTestCase
         $config->loadAndCheck($tmpConfig);
         $this->assertSame($defaultConfig->settings, $config->settings);
 
-        $contents = '<?php' . PHP_EOL
+        $contents = '<?php' . "\n"
                     . '$cfg[\'ProtectBinary\'] = true;';
         file_put_contents($tmpConfig, $contents);
 
@@ -139,7 +138,7 @@ class ConfigTest extends AbstractTestCase
         $config->loadAndCheck($tmpConfig);
         $this->assertSame($defaultConfig->settings, $config->settings);
 
-        $contents = '<?php' . PHP_EOL
+        $contents = '<?php' . "\n"
                     . '$cfg[\'fooBar\'] = true;';
         file_put_contents($tmpConfig, $contents);
 
@@ -151,11 +150,11 @@ class ConfigTest extends AbstractTestCase
         $this->assertEquals($defaultConfig->settings, $config->settings);
         unset($defaultConfig->settings['fooBar']);
 
-        $contents = '<?php' . PHP_EOL
-                    . '$cfg[\'/InValidKey\'] = true;' . PHP_EOL
-                    . '$cfg[\'In/ValidKey\'] = true;' . PHP_EOL
-                    . '$cfg[\'/InValid/Key\'] = true;' . PHP_EOL
-                    . '$cfg[\'In/Valid/Key\'] = true;' . PHP_EOL
+        $contents = '<?php' . "\n"
+                    . '$cfg[\'/InValidKey\'] = true;' . "\n"
+                    . '$cfg[\'In/ValidKey\'] = true;' . "\n"
+                    . '$cfg[\'/InValid/Key\'] = true;' . "\n"
+                    . '$cfg[\'In/Valid/Key\'] = true;' . "\n"
                     . '$cfg[\'ValidKey\'] = true;';
         file_put_contents($tmpConfig, $contents);
 

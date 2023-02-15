@@ -27,7 +27,6 @@ use function mb_substr;
 use function str_repeat;
 use function str_replace;
 
-use const PHP_EOL;
 use const PHP_VERSION;
 
 /**
@@ -204,20 +203,20 @@ class ExportLatex extends ExportPlugin
      */
     public function exportHeader(): bool
     {
-        $head = '% phpMyAdmin LaTeX Dump' . PHP_EOL
-            . '% version ' . Version::VERSION . PHP_EOL
-            . '% https://www.phpmyadmin.net/' . PHP_EOL
-            . '%' . PHP_EOL
+        $head = '% phpMyAdmin LaTeX Dump' . "\n"
+            . '% version ' . Version::VERSION . "\n"
+            . '% https://www.phpmyadmin.net/' . "\n"
+            . '%' . "\n"
             . '% ' . __('Host:') . ' ' . $GLOBALS['cfg']['Server']['host'];
         if (! empty($GLOBALS['cfg']['Server']['port'])) {
             $head .= ':' . $GLOBALS['cfg']['Server']['port'];
         }
 
-        $head .= PHP_EOL
+        $head .= "\n"
             . '% ' . __('Generation Time:') . ' '
-            . Util::localisedDate() . PHP_EOL
-            . '% ' . __('Server version:') . ' ' . $GLOBALS['dbi']->getVersionString() . PHP_EOL
-            . '% ' . __('PHP Version:') . ' ' . PHP_VERSION . PHP_EOL;
+            . Util::localisedDate() . "\n"
+            . '% ' . __('Server version:') . ' ' . $GLOBALS['dbi']->getVersionString() . "\n"
+            . '% ' . __('PHP Version:') . ' ' . PHP_VERSION . "\n";
 
         return $this->export->outputHandler($head);
     }
@@ -242,9 +241,9 @@ class ExportLatex extends ExportPlugin
             $dbAlias = $db;
         }
 
-        $head = '% ' . PHP_EOL
-            . '% ' . __('Database:') . ' \'' . $dbAlias . '\'' . PHP_EOL
-            . '% ' . PHP_EOL;
+        $head = '% ' . "\n"
+            . '% ' . __('Database:') . ' \'' . $dbAlias . '\'' . "\n"
+            . '% ' . "\n";
 
         return $this->export->outputHandler($head);
     }
@@ -309,14 +308,14 @@ class ExportLatex extends ExportPlugin
             $columns_alias[$i] = $col_as;
         }
 
-        $buffer = PHP_EOL . '%' . PHP_EOL . '% ' . __('Data:') . ' ' . $table_alias
-            . PHP_EOL . '%' . PHP_EOL . ' \\begin{longtable}{|';
+        $buffer = "\n" . '%' . "\n" . '% ' . __('Data:') . ' ' . $table_alias
+            . "\n" . '%' . "\n" . ' \\begin{longtable}{|';
 
         $buffer .= str_repeat('l|', $columns_cnt);
 
-        $buffer .= '} ' . PHP_EOL;
+        $buffer .= '} ' . "\n";
 
-        $buffer .= ' \\hline \\endhead \\hline \\endfoot \\hline ' . PHP_EOL;
+        $buffer .= ' \\hline \\endhead \\hline \\endfoot \\hline ' . "\n";
         if (isset($GLOBALS['latex_caption'])) {
             $buffer .= ' \\caption{'
                 . Util::expandUserString(
@@ -349,7 +348,7 @@ class ExportLatex extends ExportPlugin
             }
 
             $buffer = mb_substr($buffer, 0, -2) . '\\\\ \\hline \hline ';
-            if (! $this->export->outputHandler($buffer . ' \\endfirsthead ' . PHP_EOL)) {
+            if (! $this->export->outputHandler($buffer . ' \\endfirsthead ' . "\n")) {
                 return false;
             }
 
@@ -369,7 +368,7 @@ class ExportLatex extends ExportPlugin
                 }
             }
 
-            if (! $this->export->outputHandler($buffer . '\\endhead \\endfoot' . PHP_EOL)) {
+            if (! $this->export->outputHandler($buffer . '\\endhead \\endfoot' . "\n")) {
                 return false;
             }
         } else {
@@ -397,13 +396,13 @@ class ExportLatex extends ExportPlugin
                 }
             }
 
-            $buffer .= ' \\\\ \\hline ' . PHP_EOL;
+            $buffer .= ' \\\\ \\hline ' . "\n";
             if (! $this->export->outputHandler($buffer)) {
                 return false;
             }
         }
 
-        $buffer = ' \\end{longtable}' . PHP_EOL;
+        $buffer = ' \\end{longtable}' . "\n";
 
         return $this->export->outputHandler($buffer);
     }
@@ -494,8 +493,8 @@ class ExportLatex extends ExportPlugin
         /**
          * Displays the table structure
          */
-        $buffer = PHP_EOL . '%' . PHP_EOL . '% ' . __('Structure:') . ' '
-            . $table_alias . PHP_EOL . '%' . PHP_EOL . ' \\begin{longtable}{';
+        $buffer = "\n" . '%' . "\n" . '% ' . __('Structure:') . ' '
+            . $table_alias . "\n" . '%' . "\n" . ' \\begin{longtable}{';
         if (! $this->export->outputHandler($buffer)) {
             return false;
         }
@@ -513,7 +512,7 @@ class ExportLatex extends ExportPlugin
             $alignment .= 'l|';
         }
 
-        $buffer = $alignment . '} ' . PHP_EOL;
+        $buffer = $alignment . '} ' . "\n";
 
         $header = ' \\hline ';
         $header .= '\\multicolumn{1}{|c|}{\\textbf{' . __('Column')
@@ -551,11 +550,11 @@ class ExportLatex extends ExportPlugin
                         'database' => $db_alias,
                     ]
                 )
-                . '} \\\\' . PHP_EOL;
+                . '} \\\\' . "\n";
         }
 
-        $buffer .= $header . ' \\\\ \\hline \\hline' . PHP_EOL
-            . '\\endfirsthead' . PHP_EOL;
+        $buffer .= $header . ' \\\\ \\hline \\hline' . "\n"
+            . '\\endfirsthead' . "\n";
         // Table caption on next pages
         if (isset($GLOBALS['latex_caption'])) {
             $buffer .= ' \\caption{'
@@ -564,10 +563,10 @@ class ExportLatex extends ExportPlugin
                     [static::class, 'texEscape'],
                     ['table' => $table_alias, 'database' => $db_alias]
                 )
-                . '} \\\\ ' . PHP_EOL;
+                . '} \\\\ ' . "\n";
         }
 
-        $buffer .= $header . ' \\\\ \\hline \\hline \\endhead \\endfoot ' . PHP_EOL;
+        $buffer .= $header . ' \\\\ \\hline \\hline \\endhead \\endfoot ' . "\n";
 
         if (! $this->export->outputHandler($buffer)) {
             return false;
@@ -628,14 +627,14 @@ class ExportLatex extends ExportPlugin
             }
 
             $buffer = str_replace("\000", ' & ', $local_buffer);
-            $buffer .= ' \\\\ \\hline ' . PHP_EOL;
+            $buffer .= ' \\\\ \\hline ' . "\n";
 
             if (! $this->export->outputHandler($buffer)) {
                 return false;
             }
         }
 
-        $buffer = ' \\end{longtable}' . PHP_EOL;
+        $buffer = ' \\end{longtable}' . "\n";
 
         return $this->export->outputHandler($buffer);
     }
