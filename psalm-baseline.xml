@@ -8655,8 +8655,8 @@
     <MixedOperand>
       <code>$border / $scale</code>
       <code>$border / $scale</code>
-      <code>$min_max['maxX'] + $min_max['minX'] - $this-&gt;settings['width'] / $scale</code>
-      <code>$min_max['maxY'] + $min_max['minY'] - $this-&gt;settings['height'] / $scale</code>
+      <code>$min_max-&gt;maxX + $min_max-&gt;minX - $this-&gt;settings['width'] / $scale</code>
+      <code>$min_max-&gt;maxY + $min_max-&gt;minY - $this-&gt;settings['height'] / $scale</code>
       <code>$plot_height</code>
       <code>$plot_width</code>
       <code>$ratio</code>
