@@ -674,7 +674,7 @@ class Operations
 
         if (! empty($_POST['tbl_collation']) && $_POST['tbl_collation'] !== $tableCollation) {
             $tableAlters[] = 'DEFAULT '
-                . Util::getCharsetQueryPart($_POST['tbl_collation'] ?? '');
+                . Util::getCharsetQueryPart($_POST['tbl_collation']);
         }
 
         if (

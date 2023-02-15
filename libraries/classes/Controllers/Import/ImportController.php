@@ -519,7 +519,7 @@ final class ImportController extends AbstractController
 
                 return;
             }
-        } elseif (! $GLOBALS['error'] && (! isset($GLOBALS['import_text']) || empty($GLOBALS['import_text']))) {
+        } elseif (! $GLOBALS['error'] && (empty($GLOBALS['import_text']))) {
             $GLOBALS['message'] = Message::error(
                 __(
                     'No data was received to import. Either no file name was ' .

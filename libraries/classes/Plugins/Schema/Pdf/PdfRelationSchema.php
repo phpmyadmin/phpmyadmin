@@ -423,7 +423,7 @@ class PdfRelationSchema extends ExportRelationSchema
             }
 
             $this->diagram->setXY(0, $l * $gridSize + $topSpace);
-            $label = (string) sprintf(
+            $label = sprintf(
                 '%.0f',
                 ($l * $gridSize + $topSpace - $this->topMargin)
                 * $this->scale + $this->yMin
@@ -440,7 +440,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 $this->diagram->getPageHeight() - $bottomSpace
             );
             $this->diagram->setXY($j * $gridSize, $topSpace);
-            $label = (string) sprintf('%.0f', ($j * $gridSize - $this->leftMargin) * $this->scale + $this->xMin);
+            $label = sprintf('%.0f', ($j * $gridSize - $this->leftMargin) * $this->scale + $this->xMin);
             $this->diagram->Cell($labelWidth, $labelHeight, $label);
         }
     }

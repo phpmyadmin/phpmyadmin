@@ -311,7 +311,7 @@ class Routines
 
         // Backup the Old Privileges before dropping
         // if $_POST['item_adjust_privileges'] set
-        if (! isset($_POST['item_adjust_privileges']) || empty($_POST['item_adjust_privileges'])) {
+        if (empty($_POST['item_adjust_privileges'])) {
             return [];
         }
 

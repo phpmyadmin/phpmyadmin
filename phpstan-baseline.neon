@@ -6631,11 +6631,6 @@ parameters:
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$colFits is never written, only read\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$colTitles type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
@@ -6652,11 +6647,6 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$tablewidths type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$titleWidth is never written, only read\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
 
@@ -7066,11 +7056,6 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
 			message: "#^For loop initial assignment overwrites variable \\$size\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
@@ -7267,7 +7252,7 @@ parameters:
 
 		-
 			message: "#^Casting to string something that's already string\\.$#"
-			count: 4
+			count: 3
 			path: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php
 
 		-

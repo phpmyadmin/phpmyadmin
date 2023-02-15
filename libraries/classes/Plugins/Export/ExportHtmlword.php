@@ -542,7 +542,6 @@ class ExportHtmlword extends ExportPlugin
                 $dump .= $this->getTableDef($db, $table, $do_relation, $do_comments, $do_mime, false, $aliases);
                 break;
             case 'triggers':
-                $dump = '';
                 $triggers = Triggers::getDetails($GLOBALS['dbi'], $db, $table);
                 if ($triggers) {
                     $dump .= '<h2>'

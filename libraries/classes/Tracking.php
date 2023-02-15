@@ -958,9 +958,7 @@ class Tracking
             $tracking_set .= 'TRUNCATE,';
         }
 
-        $tracking_set = rtrim($tracking_set, ',');
-
-        return $tracking_set;
+        return rtrim($tracking_set, ',');
     }
 
     /**

@@ -634,7 +634,6 @@
                     $path,
                     $workPath,
                     $translatedPath,
-                    true,
                     $userPrefsAllow,
                     $jsDefault
                 )</code>
@@ -2404,7 +2403,6 @@
     <MixedAssignment>
       <code>$_SESSION['error_subm_count']</code>
       <code>$decoded_response</code>
-      <code>$success</code>
     </MixedAssignment>
     <MixedOperand>
       <code>$_SESSION['error_subm_count']</code>
@@ -2968,7 +2966,6 @@
     </MixedArgument>
     <MixedAssignment>
       <code>$dbName</code>
-      <code>$getNaviSettings</code>
       <code>$itemName</code>
       <code>$itemType</code>
       <code>$tableName</code>
@@ -3391,7 +3388,6 @@
     </PossiblyInvalidArgument>
     <PropertyNotSetInConstructor>
       <code>$hasStatistics</code>
-      <code>$position</code>
       <code>$sortBy</code>
       <code>$sortOrder</code>
     </PropertyNotSetInConstructor>
@@ -5585,7 +5581,7 @@
       <code>$_POST['indexes']</code>
       <code>$_POST['primary_indexes']</code>
       <code>$_POST['spatial_indexes']</code>
-      <code>$_POST['tbl_collation'] ?? ''</code>
+      <code>$_POST['tbl_collation']</code>
       <code>$_POST['tbl_storage_engine']</code>
       <code>$_POST['unique_indexes']</code>
     </PossiblyInvalidArgument>
@@ -5608,7 +5604,7 @@
       <code>$_POST['indexes']</code>
       <code>$_POST['primary_indexes']</code>
       <code>$_POST['spatial_indexes']</code>
-      <code>$_POST['tbl_collation'] ?? ''</code>
+      <code>$_POST['tbl_collation']</code>
       <code>$_POST['tbl_storage_engine']</code>
       <code>$_POST['unique_indexes']</code>
     </PossiblyInvalidCast>
@@ -10190,7 +10186,7 @@
       <code>[
                 'legendText' =&gt; __('End of step'),
                 'headText' =&gt; $headText,
-                'queryError' =&gt; $error,
+                'queryError' =&gt; false,
             ]</code>
       <code>[
             'legendText' =&gt; __('End of step'),
@@ -10447,7 +10443,7 @@
       <code>$_POST['db_collation'] ?? ''</code>
       <code>$_POST['new_auto_increment']</code>
       <code>$_POST['prev_comment']</code>
-      <code>$_POST['tbl_collation'] ?? ''</code>
+      <code>$_POST['tbl_collation']</code>
       <code>$_POST['what']</code>
       <code>$copyMode ?? 'data'</code>
       <code>$newRowFormat</code>
@@ -10458,7 +10454,7 @@
       <code>$_POST['db_collation'] ?? ''</code>
       <code>$_POST['new_auto_increment']</code>
       <code>$_POST['prev_comment']</code>
-      <code>$_POST['tbl_collation'] ?? ''</code>
+      <code>$_POST['tbl_collation']</code>
       <code>$_POST['what']</code>
       <code>$copyMode ?? 'data'</code>
       <code>$newRowFormat</code>
@@ -11651,9 +11647,6 @@
     <PropertyNotSetInConstructor>
       <code>$table</code>
     </PropertyNotSetInConstructor>
-    <RedundantCastGivenDocblockType>
-      <code>(string) $record[$i]</code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportYaml.php">
     <MixedAssignment>
@@ -11675,6 +11668,7 @@
     </InvalidArrayOffset>
     <MixedArgument>
       <code>$GLOBALS['maxY'] - $this-&gt;tMargin</code>
+      <code>$cellFontSize</code>
       <code>$col_as</code>
       <code>$column['Type']</code>
       <code>$fullwidth + $l</code>
@@ -11727,7 +11721,6 @@
       <code>$this-&gt;FontSizePt</code>
       <code>$this-&gt;FontSizePt</code>
       <code>$this-&gt;FontSizePt</code>
-      <code>$this-&gt;cellFontSize</code>
       <code>$this-&gt;colAlign[$col]</code>
       <code>$this-&gt;colAlign[$col]</code>
       <code>$this-&gt;colAlign[$col]</code>
@@ -11791,6 +11784,7 @@
       <code>$GLOBALS['maxY']</code>
       <code>$GLOBALS['maxY']</code>
       <code>$availableWidth</code>
+      <code>$cellFontSize</code>
       <code>$col_as</code>
       <code>$current_page</code>
       <code>$currpage</code>
@@ -11849,6 +11843,7 @@
       <code>$old_page_olm</code>
       <code>$old_page_orm</code>
       <code>$oldpage</code>
+      <code>$sColWidth</code>
       <code>$startpage</code>
       <code>$startpage</code>
       <code>$startpage</code>
@@ -11857,9 +11852,7 @@
       <code>$t</code>
       <code>$t</code>
       <code>$t</code>
-      <code>$this-&gt;cellFontSize</code>
       <code>$this-&gt;dataY</code>
-      <code>$this-&gt;sColWidth</code>
       <code>$this_page_olm</code>
       <code>$this_page_orm</code>
       <code>$trigger</code>
@@ -11901,6 +11894,9 @@
       <code>$maxpage</code>
       <code>$res_rel[$field_name]['foreign_field']</code>
       <code>$res_rel[$field_name]['foreign_table']</code>
+      <code>$sColWidth</code>
+      <code>$sColWidth</code>
+      <code>$sColWidth</code>
       <code>$surplus</code>
       <code>$this-&gt;FontSizePt</code>
       <code>$this-&gt;FontSizePt</code>
@@ -11920,9 +11916,6 @@
       <code>$this-&gt;page</code>
       <code>$this-&gt;page</code>
       <code>$this-&gt;page</code>
-      <code>$this-&gt;sColWidth</code>
-      <code>$this-&gt;sColWidth</code>
-      <code>$this-&gt;sColWidth</code>
       <code>$this-&gt;tMargin</code>
       <code>$this-&gt;tMargin</code>
       <code>$this-&gt;tMargin</code>
@@ -11934,7 +11927,7 @@
       <code>$x</code>
       <code>$x</code>
       <code>$y</code>
-      <code>count($colFits) * $this-&gt;sColWidth</code>
+      <code>count($colFits) * $sColWidth</code>
     </MixedOperand>
     <ParamNameMismatch>
       <code>$topMargin</code>
@@ -11960,7 +11953,6 @@
     </PossiblyUnusedParam>
     <PropertyNotSetInConstructor>
       <code>$aliases</code>
-      <code>$cellFontSize</code>
       <code>$colAlign</code>
       <code>$colTitles</code>
       <code>$currentDb</code>
@@ -11968,12 +11960,9 @@
       <code>$dataY</code>
       <code>$dbAlias</code>
       <code>$displayColumn</code>
-      <code>$fields</code>
       <code>$headerset</code>
-      <code>$numFields</code>
       <code>$purpose</code>
       <code>$results</code>
-      <code>$sColWidth</code>
       <code>$tableAlias</code>
       <code>$tablewidths</code>
       <code>$titleFontSize</code>
@@ -13111,14 +13100,6 @@
     <PossiblyUnusedMethod>
       <code>isWithDataDictionary</code>
     </PossiblyUnusedMethod>
-    <RedundantCastGivenDocblockType>
-      <code>(string) sprintf(
-                '%.0f',
-                ($l * $gridSize + $topSpace - $this-&gt;topMargin)
-                * $this-&gt;scale + $this-&gt;yMin
-            )</code>
-      <code>(string) sprintf('%.0f', ($j * $gridSize - $this-&gt;leftMargin) * $this-&gt;scale + $this-&gt;xMin)</code>
-    </RedundantCastGivenDocblockType>
     <RedundantConditionGivenDocblockType>
       <code>isset($this-&gt;orientation)</code>
     </RedundantConditionGivenDocblockType>
@@ -13475,7 +13456,6 @@
     <RedundantCastGivenDocblockType>
       <code>(string) $buffer</code>
       <code>(string) $buffer</code>
-      <code>(string) $source</code>
       <code>(string) $text</code>
     </RedundantCastGivenDocblockType>
   </file>
@@ -13793,6 +13773,7 @@
       <code>$key</code>
       <code>$loc</code>
       <code>$loc[array_shift($contentPath)]</code>
+      <code>$tablesInDatabase</code>
     </MixedAssignment>
     <MixedOperand>
       <code>$this-&gt;tableCache[$one_database]</code>
@@ -13984,8 +13965,6 @@
       <code>$_SESSION['replication']['sr_action_info']</code>
       <code>$_SESSION['replication']['sr_action_info']</code>
       <code>$_SESSION['replication']['sr_action_info']</code>
-      <code>$_SESSION['replication']['sr_action_info']</code>
-      <code>$_SESSION['replication']['sr_action_status']</code>
       <code>$_SESSION['replication']['sr_action_status']</code>
       <code>$_SESSION['replication']['sr_action_status']</code>
       <code>$_SESSION['replication']['sr_action_status']</code>
@@ -14037,6 +14016,9 @@
     <InvalidArrayOffset>
       <code>$GLOBALS['cfg']['environment']</code>
     </InvalidArrayOffset>
+    <MixedArrayAccess>
+      <code>$dispatchData[0]['GET']['/']</code>
+    </MixedArrayAccess>
   </file>
   <file src="libraries/classes/Sanitize.php">
     <MixedArgument>
@@ -15975,7 +15957,6 @@
       <code>$row['Key_name']</code>
       <code>$row['Key_name']</code>
       <code>$row['Key_name']</code>
-      <code>$row['Key_name']</code>
       <code>$row['Non_unique']</code>
       <code>$row['Seq_in_index']</code>
       <code>$row['Seq_in_index']</code>
@@ -16027,7 +16008,6 @@
       <code>$indexesInfo[$row['Key_name']]['Comment']</code>
       <code>$indexesInfo[$row['Key_name']]['Non_unique']</code>
       <code>$indexesInfo[$row['Key_name']]['Sequences'][]</code>
-      <code>$indexes[]</code>
       <code>$lastIndex</code>
       <code>$p</code>
       <code>$p</code>

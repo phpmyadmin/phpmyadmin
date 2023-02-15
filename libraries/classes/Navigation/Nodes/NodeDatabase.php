@@ -14,7 +14,6 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function in_array;
-use function intval;
 use function substr;
 
 /**
@@ -462,7 +461,7 @@ class NodeDatabase extends Node
             }
 
             $query .= 'ORDER BY `ROUTINE_NAME` ASC ';
-            $query .= 'LIMIT ' . intval($pos) . ', ' . $maxItems;
+            $query .= 'LIMIT ' . $pos . ', ' . $maxItems;
 
             return $GLOBALS['dbi']->fetchResult($query);
         }
@@ -544,7 +543,7 @@ class NodeDatabase extends Node
             }
 
             $query .= 'ORDER BY `EVENT_NAME` ASC ';
-            $query .= 'LIMIT ' . intval($pos) . ', ' . $maxItems;
+            $query .= 'LIMIT ' . $pos . ', ' . $maxItems;
 
             return $GLOBALS['dbi']->fetchResult($query);
         }

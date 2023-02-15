@@ -907,15 +907,15 @@ class Export
             return;
         }
 
-        if (! $exportPlugin->exportRawQuery($errorUrl, $db, $sqlQuery)) {
-            $GLOBALS['message'] = Message::error(
-                // phpcs:disable Generic.Files.LineLength.TooLong
-                /* l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular */
-                __('Exporting a raw query is not supported for this export method.')
-            );
-
+        if ($exportPlugin->exportRawQuery($errorUrl, $db, $sqlQuery)) {
             return;
         }
+
+        $GLOBALS['message'] = Message::error(
+            // phpcs:disable Generic.Files.LineLength.TooLong
+            /* l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular */
+            __('Exporting a raw query is not supported for this export method.')
+        );
     }
 
     /**

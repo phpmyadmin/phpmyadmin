@@ -280,16 +280,15 @@ class ExportPdf extends ExportPlugin
          * comment display set true as presently in pdf
          * format, no option is present to take user input.
          */
-        $do_comments = true;
         switch ($exportMode) {
             case 'create_table':
-                $pdf->getTableDef($db, $table, $do_relation, $do_comments, $do_mime, false, $aliases);
+                $pdf->getTableDef($db, $table, $do_relation, true, $do_mime, false, $aliases);
                 break;
             case 'triggers':
                 $pdf->getTriggers($db, $table);
                 break;
             case 'create_view':
-                $pdf->getTableDef($db, $table, $do_relation, $do_comments, $do_mime, false, $aliases);
+                $pdf->getTableDef($db, $table, $do_relation, true, $do_mime, false, $aliases);
                 break;
             case 'stand_in':
                 // export a stand-in definition to resolve view dependencies

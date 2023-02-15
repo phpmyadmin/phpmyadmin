@@ -474,7 +474,7 @@ class ExportXml extends ExportPlugin
 
                     $buffer .= '            <column name="'
                         . htmlspecialchars($col_as) . '">'
-                        . htmlspecialchars((string) $record[$i])
+                        . htmlspecialchars($record[$i])
                         . '</column>' . PHP_EOL;
                 }
 

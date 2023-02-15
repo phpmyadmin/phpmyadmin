@@ -1652,7 +1652,7 @@ class DatabaseInterface implements DbalInterface
             return null;
         }
 
-        return $result;
+        return null;
     }
 
     /**

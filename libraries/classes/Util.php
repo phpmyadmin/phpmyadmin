@@ -155,11 +155,8 @@ class Util
 
         foreach ($quotes as $quote) {
             if (mb_substr($quotedString, 0, 1) === $quote && mb_substr($quotedString, -1, 1) === $quote) {
-                $unquotedString = mb_substr($quotedString, 1, -1);
                 // replace escaped quotes
-                $unquotedString = str_replace($quote . $quote, $quote, $unquotedString);
-
-                return $unquotedString;
+                return str_replace($quote . $quote, $quote, mb_substr($quotedString, 1, -1));
             }
         }
 
@@ -193,8 +190,6 @@ class Util
                 $mysql = '5.7';
             } elseif ($serverVersion >= 50600) {
                 $mysql = '5.6';
-            } elseif ($serverVersion >= 50500) {
-                $mysql = '5.5';
             }
         }
 
@@ -1227,9 +1222,7 @@ class Util
             $printable = strrev($printable);
         }
 
-        $printable = str_pad($printable, $length, '0', STR_PAD_LEFT);
-
-        return $printable;
+        return str_pad($printable, $length, '0', STR_PAD_LEFT);
     }
 
     /**
@@ -2010,7 +2003,6 @@ class Util
 
             // Retains keys informations
             if ($row['Key_name'] != $lastIndex) {
-                $indexes[] = $row['Key_name'];
                 $lastIndex = $row['Key_name'];
             }
 

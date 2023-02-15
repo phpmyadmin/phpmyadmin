@@ -803,7 +803,6 @@ class ImportCsv extends AbstractImportCsv
                 $fields = $tmp_fields;
             } else {
                 $sqlTemplate .= ' (';
-                $fields = [];
                 $tmp = preg_split('/,( ?)/', $csvColumns);
                 if ($tmp === false) {
                     $tmp = [];
