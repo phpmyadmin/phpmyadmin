@@ -10899,6 +10899,9 @@
     </RedundantCondition>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportCsv.php">
+    <InvalidArgument>
+      <code>$insertValues</code>
+    </InvalidArgument>
     <InvalidArrayOffset>
       <code>$GLOBALS['excel_columns']</code>
       <code>$GLOBALS['what']</code>
@@ -10907,17 +10910,20 @@
     <MixedArgument>
       <code>$col_as</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code>$insertFields</code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code>$GLOBALS['what']</code>
       <code>$GLOBALS['what']</code>
       <code>$col_as</code>
+      <code>$insertFields[]</code>
+      <code>$insertValues[]</code>
     </MixedAssignment>
     <MixedOperand>
-      <code>$GLOBALS[$GLOBALS['what'] . '_null']</code>
       <code>$GLOBALS['what']</code>
       <code>$GLOBALS['what']</code>
       <code>$GLOBALS['what']</code>
-      <code>$col_as</code>
     </MixedOperand>
     <PossiblyNullArgument>
       <code>$GLOBALS['csv_enclosed']</code>
@@ -10941,8 +10947,6 @@
       <code>$GLOBALS['csv_escaped']</code>
       <code>$GLOBALS['csv_escaped']</code>
       <code>$GLOBALS['csv_escaped']</code>
-      <code>$GLOBALS['csv_separator']</code>
-      <code>$GLOBALS['csv_separator']</code>
       <code>$GLOBALS['csv_terminated']</code>
       <code>$GLOBALS['csv_terminated']</code>
     </PossiblyNullOperand>

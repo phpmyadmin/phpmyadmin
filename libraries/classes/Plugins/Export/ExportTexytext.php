@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins\Export;
 use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -181,13 +182,17 @@ class ExportTexytext extends ExportPlugin
             return false;
         }
 
-        // Gets the data from the database
+        /**
+         * Gets the data from the database
+         *
+         * @var ResultInterface $result
+         * @psalm-ignore-var
+         */
         $result = $GLOBALS['dbi']->query(
             $sqlQuery,
             Connection::TYPE_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
-        $fields_cnt = $result->numFields();
 
         // If required, get fields name at the first line
         if (isset($GLOBALS[$GLOBALS['what'] . '_columns'])) {
@@ -209,11 +214,11 @@ class ExportTexytext extends ExportPlugin
         // Format the data
         while ($row = $result->fetchRow()) {
             $text_output = '';
-            for ($j = 0; $j < $fields_cnt; $j++) {
-                if (! isset($row[$j])) {
+            foreach ($row as $field) {
+                if ($field === null) {
                     $value = $GLOBALS[$GLOBALS['what'] . '_null'];
-                } elseif ($row[$j] == '0' || $row[$j] != '') {
-                    $value = $row[$j];
+                } elseif ($field !== '') {
+                    $value = $field;
                 } else {
                     $value = ' ';
                 }
