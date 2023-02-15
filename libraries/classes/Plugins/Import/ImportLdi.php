@@ -19,6 +19,8 @@ use function preg_split;
 use function strlen;
 use function trim;
 
+use const PHP_EOL;
+
 /**
  * CSV import plugin for phpMyAdmin using LOAD DATA
  */
@@ -146,9 +148,7 @@ class ImportLdi extends AbstractImportCsv
 
         if (strlen((string) $GLOBALS['ldi_new_line']) > 0) {
             if ($GLOBALS['ldi_new_line'] === 'auto') {
-                $GLOBALS['ldi_new_line'] = "\n" == "\n"
-                    ? '\n'
-                    : '\r\n';
+                $GLOBALS['ldi_new_line'] = PHP_EOL;
             }
 
             $sql .= ' LINES TERMINATED BY \'' . $GLOBALS['ldi_new_line'] . '\'';
