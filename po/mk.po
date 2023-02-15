@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-02-01 12:12+0000\n"
-"Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
+"PO-Revision-Date: 2023-02-17 01:49+0000\n"
+"Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
 "Language: mk\n"
@@ -106,7 +106,7 @@ msgstr "Колона"
 #: templates/columns_definitions/table_fields_definitions.twig:12
 #: templates/table/tracking/structure_snapshot_columns.twig:7
 msgid "Type"
-msgstr "Вид"
+msgstr "Тип"
 
 #: db_datadict.php:119 libraries/classes/CentralColumns.php:755
 #: libraries/classes/CentralColumns.php:1429 libraries/classes/Index.php:726
@@ -6976,7 +6976,7 @@ msgstr "Бриши"
 #: templates/table/tracking/structure_snapshot_columns.twig:27
 #: templates/table/structure/check_all_table_column.twig:47
 msgid "Index"
-msgstr "Клуч"
+msgstr "Индекс"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1233
 #: libraries/classes/Controllers/Table/TableStructureController.php:1238
@@ -17072,6 +17072,8 @@ msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"Се предлага да го подесите {long_query_time} на пониска вредност, во "
+"зависност од вашата околина. Обично вредност од 1 до 5 секунди е предложена."
 
 #: libraries/advisory_rules_generic.txt:82
 #, php-format
@@ -17093,6 +17095,8 @@ msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"Овозможете евидентирање на бавни барања со подесувањето на {log_slow_queries}"
+" на 'ON'. Ова ќе помогне да се најдат проблеми со барања со лошо извршување."
 
 #: libraries/advisory_rules_generic.txt:89
 msgid "log_slow_queries is set to 'OFF'"
