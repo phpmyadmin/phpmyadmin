@@ -4041,6 +4041,7 @@
     </MixedAssignment>
     <PossiblyInvalidArgument>
       <code>$GLOBALS['current_result']</code>
+      <code>$GLOBALS['where_clause'] ?? null</code>
       <code>$_GET['where_clause']</code>
       <code>$_GET['where_clause_signature']</code>
     </PossiblyInvalidArgument>
@@ -4055,9 +4056,6 @@
     <TypeDoesNotContainType>
       <code>$GLOBALS['biggest_max_file_size'] &gt; 0</code>
     </TypeDoesNotContainType>
-    <UnusedVariable>
-      <code>$where_clause</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/ChangeRowsController.php">
     <InvalidArrayOffset>

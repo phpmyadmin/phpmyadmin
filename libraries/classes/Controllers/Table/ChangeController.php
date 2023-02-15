@@ -83,7 +83,7 @@ class ChangeController extends AbstractController
 
         if (isset($_GET['where_clause'], $_GET['where_clause_signature'])) {
             if (Core::checkSqlQuerySignature($_GET['where_clause'], $_GET['where_clause_signature'])) {
-                $where_clause = $_GET['where_clause'];
+                $GLOBALS['where_clause'] = $_GET['where_clause'];
             }
         }
 
