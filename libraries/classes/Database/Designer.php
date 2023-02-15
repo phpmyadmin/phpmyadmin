@@ -179,9 +179,9 @@ class Designer
     /**
      * Returns class names for various buttons on Designer Side Menu
      *
-     * @return array class names of various buttons
+     * @return array<string, string> class names of various buttons
      */
-    public function returnClassNamesFromMenuButtons()
+    public function returnClassNamesFromMenuButtons(): array
     {
         $classes_array = [];
         $params_array = $this->getSideMenuParamsArray();

@@ -161,14 +161,11 @@ class Pbxt extends StorageEngine
     /**
      * Get information about pages
      *
-     * @return array Information about pages
+     * @return string[] Information about pages
      */
-    public function getInfoPages()
+    public function getInfoPages(): array
     {
-        $pages = [];
-        $pages['Documentation'] = __('Documentation');
-
-        return $pages;
+        return ['Documentation' => __('Documentation')];
     }
 
     //--------------------

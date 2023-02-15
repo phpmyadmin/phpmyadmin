@@ -2796,11 +2796,6 @@ parameters:
 			path: libraries/classes/Database/Designer.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Database\\\\Designer\\:\\:returnClassNamesFromMenuButtons\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer.php
-
-		-
 			message: "#^Cannot access offset string on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer/Common.php
@@ -3891,17 +3886,7 @@ parameters:
 			path: libraries/classes/Engines/Bdb.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Engines\\\\Innodb\\:\\:getInfoPages\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Engines/Innodb.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Engines\\\\Innodb\\:\\:getVariables\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Engines/Innodb.php
-
-		-
-			message: "#^Return type \\(array\\) of method PhpMyAdmin\\\\Engines\\\\Innodb\\:\\:getInfoPages\\(\\) should be covariant with return type \\(array\\<string\\>\\) of method PhpMyAdmin\\\\StorageEngine\\:\\:getInfoPages\\(\\)$#"
 			count: 1
 			path: libraries/classes/Engines/Innodb.php
 
@@ -3921,22 +3906,12 @@ parameters:
 			path: libraries/classes/Engines/Ndbcluster.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Engines\\\\Pbxt\\:\\:getInfoPages\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Engines/Pbxt.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Engines\\\\Pbxt\\:\\:getVariables\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Engines/Pbxt.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Engines\\\\Pbxt\\:\\:resolveTypeSize\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Engines/Pbxt.php
-
-		-
-			message: "#^Return type \\(array\\) of method PhpMyAdmin\\\\Engines\\\\Pbxt\\:\\:getInfoPages\\(\\) should be covariant with return type \\(array\\<string\\>\\) of method PhpMyAdmin\\\\StorageEngine\\:\\:getInfoPages\\(\\)$#"
 			count: 1
 			path: libraries/classes/Engines/Pbxt.php
 
@@ -4104,11 +4079,6 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\Export\\:\\:\\$dumpBufferObjects type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Export.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Export\\\\Options\\:\\:getDatabasesForSelectOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Export/Options.php
 
 		-
 			message: "#^PHPDoc tag @var for variable \\$dbSelect has no value type specified in iterable type array\\.$#"
@@ -5551,11 +5521,6 @@ parameters:
 			path: libraries/classes/Linter.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Linter\\:\\:getLines\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Linter.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Linter\\:\\:lint\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Linter.php
@@ -6701,11 +6666,6 @@ parameters:
 			path: libraries/classes/Plugins/IOTransformationsPlugin.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\IOTransformationsPlugin\\:\\:getScripts\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/IOTransformationsPlugin.php
-
-		-
 			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportCsv.php
@@ -7306,11 +7266,6 @@ parameters:
 			path: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Transformations\\\\Abs\\\\ImageUploadTransformationsPlugin\\:\\:getScripts\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Transformations\\\\Abs\\\\InlineTransformationsPlugin\\:\\:applyTransformation\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Transformations/Abs/InlineTransformationsPlugin.php
@@ -7399,21 +7354,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Transformations\\\\Input\\\\Text_Plain_Iptolong\\:\\:getInputHtml\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptolong.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Transformations\\\\Input\\\\Text_Plain_JsonEditor\\:\\:getScripts\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Transformations\\\\Input\\\\Text_Plain_SqlEditor\\:\\:getScripts\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Transformations/Input/Text_Plain_SqlEditor.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Transformations\\\\Input\\\\Text_Plain_XmlEditor\\:\\:getScripts\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Transformations/Input/Text_Plain_XmlEditor.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Transformations\\\\Output\\\\Text_Plain_Binarytoip\\:\\:applyTransformation\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
@@ -7837,11 +7777,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:extractPrivInfo\\(\\) has parameter \\$row with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:extractPrivInfo\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
 
@@ -8661,11 +8596,6 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Table\\:\\:formatColumns\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Table\\:\\:generateAlter\\(\\) has parameter \\$columnsWithIndex with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
@@ -8706,32 +8636,17 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Table\\:\\:getCreateOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Table\\:\\:getIndexedColumns\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Table\\:\\:getNameAndTypeOfTheColumns\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Table\\:\\:getNonGeneratedColumns\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Table\\:\\:getNameAndTypeOfTheColumns\\(\\) should return array\\<string, string\\> but returns array\\<int\\|string, mixed\\>\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Table\\:\\:getNumRows\\(\\) should return int but returns mixed\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Table\\:\\:getReservedColumnNames\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
 
@@ -8757,11 +8672,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Table\\:\\:getUiPrefsFromDb\\(\\) should return array but returns mixed\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Table\\:\\:getUniqueColumns\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
 
@@ -9311,27 +9221,12 @@ parameters:
 			path: libraries/classes/TwoFactor.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\TwoFactor\\:\\:getAllBackends\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/TwoFactor.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\TwoFactor\\:\\:getAvailable\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/TwoFactor.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\TwoFactor\\:\\:getAvailableBackends\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/TwoFactor.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\TwoFactor\\:\\:getBackendForCurrentUser\\(\\) should return PhpMyAdmin\\\\Plugins\\\\TwoFactorPlugin but returns object\\.$#"
-			count: 1
-			path: libraries/classes/TwoFactor.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\TwoFactor\\:\\:getMissingDeps\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/TwoFactor.php
 
@@ -9497,11 +9392,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Util\\:\\:getValueByKey\\(\\) has parameter \\$path with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Util\\:\\:parseEnumSetValues\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Util.php
 

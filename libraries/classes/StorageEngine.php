@@ -474,7 +474,7 @@ class StorageEngine
      *
      * @return string[] The list
      */
-    public function getInfoPages()
+    public function getInfoPages(): array
     {
         return [];
     }

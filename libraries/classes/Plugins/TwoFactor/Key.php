@@ -57,7 +57,7 @@ class Key extends TwoFactorPlugin
      *
      * @return stdClass[]
      */
-    public function getRegistrations()
+    public function getRegistrations(): array
     {
         $result = [];
         foreach ($this->twofactor->config['settings']['registrations'] as $index => $data) {

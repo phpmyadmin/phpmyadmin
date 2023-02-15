@@ -4473,9 +4473,6 @@
       <code>$GLOBALS['warning_messages']</code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code>$GLOBALS['create_options']['pack_keys']</code>
-      <code>$GLOBALS['create_options']['page_checksum'] ?? ''</code>
-      <code>$GLOBALS['row_format']</code>
       <code>$GLOBALS['warning_messages']</code>
       <code>$_message</code>
       <code>$_message</code>
@@ -4492,8 +4489,6 @@
       <code>$GLOBALS['columns']</code>
       <code>$GLOBALS['comment']</code>
       <code>$GLOBALS['create_options']</code>
-      <code>$GLOBALS['create_options']['page_checksum']</code>
-      <code>$GLOBALS['create_options']['page_checksum']</code>
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['hideOrderTable']</code>
       <code>$GLOBALS['indexes']</code>
@@ -4504,7 +4499,6 @@
       <code>$GLOBALS['reread_info']</code>
       <code>$GLOBALS['reread_info']</code>
       <code>$GLOBALS['result']</code>
-      <code>$GLOBALS['row_format']</code>
       <code>$GLOBALS['row_format']</code>
       <code>$GLOBALS['show_comment']</code>
       <code>$GLOBALS['showtable']</code>
@@ -7459,9 +7453,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="libraries/classes/Engines/Innodb.php">
-    <LessSpecificImplementedReturnType>
-      <code>array</code>
-    </LessSpecificImplementedReturnType>
     <MixedArgument>
       <code>$status['Innodb_buffer_pool_pages_data']</code>
       <code>$status['Innodb_buffer_pool_pages_dirty']</code>
@@ -7487,9 +7478,6 @@
     </MixedOperand>
   </file>
   <file src="libraries/classes/Engines/Pbxt.php">
-    <LessSpecificImplementedReturnType>
-      <code>array</code>
-    </LessSpecificImplementedReturnType>
     <ParamNameMismatch>
       <code>$formatted_size</code>
     </ParamNameMismatch>
@@ -7654,8 +7642,6 @@
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$dbSelect</code>
-      <code>$nonGeneratedCols</code>
-      <code>$nonGeneratedCols</code>
       <code>$tables</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
@@ -14130,16 +14116,6 @@
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$queries</code>
-      <code>$this-&gt;extractPrivInfo($privs, true)</code>
-      <code>$this-&gt;extractPrivInfo($row)</code>
-      <code>$this-&gt;extractPrivInfo($row, true)</code>
-      <code>$this-&gt;extractPrivInfo($row, true)</code>
-      <code>$this-&gt;extractPrivInfo()</code>
-      <code>$this-&gt;extractPrivInfo()</code>
-      <code>$this-&gt;extractPrivInfo()</code>
-      <code>$this-&gt;extractPrivInfo(null, true)</code>
-      <code>$this-&gt;extractPrivInfo(null, true)</code>
-      <code>$tmpPrivs1</code>
       <code>uksort($arrayInitials, 'strnatcasecmp')</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
@@ -14989,9 +14965,6 @@
       <code>$foreignField</code>
       <code>$indexedCols</code>
       <code>$masterField</code>
-      <code>$nonGeneratedCols</code>
-      <code>$nonGeneratedCols</code>
-      <code>$uniqueFields</code>
       <code>$where</code>
       <code>$where</code>
     </MixedArgumentTypeCoercion>
@@ -15143,6 +15116,12 @@
       <code>end($this-&gt;messages)</code>
       <code>json_decode($value, true)</code>
     </MixedReturnStatement>
+    <MixedReturnTypeCoercion>
+      <code>$columns</code>
+      <code>$ret</code>
+      <code>array&lt;string, string&gt;</code>
+      <code>string[]</code>
+    </MixedReturnTypeCoercion>
     <PossiblyInvalidArgument>
       <code>$_POST['constraint_name'][$masterFieldMd5]</code>
       <code>$fields[$column]['expr']</code>
@@ -18309,9 +18288,6 @@
       <code>$real_sql_query</code>
       <code>$sql_query</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code>$serverPrivileges-&gt;extractPrivInfo(null, true)</code>
-    </MixedArgumentTypeCoercion>
     <MixedMethodCall>
       <code>getMessage</code>
       <code>getMessage</code>
