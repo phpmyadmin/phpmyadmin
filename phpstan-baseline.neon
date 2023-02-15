@@ -3441,11 +3441,6 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumnMapFromSql\\(\\) has parameter \\$viewColumns with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
@@ -3522,16 +3517,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbalInterface\\:\\:getColumn\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbalInterface.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbalInterface\\:\\:getColumnMapFromSql\\(\\) has parameter \\$viewColumns with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbalInterface.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbalInterface\\:\\:getColumnMapFromSql\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Dbal/DbalInterface.php
 
@@ -8629,11 +8614,6 @@ parameters:
 			message: "#^Variable method call on \\$this\\(PhpMyAdmin\\\\StorageEngine\\)\\.$#"
 			count: 1
 			path: libraries/classes/StorageEngine.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SystemDatabase\\:\\:getNewTransformationDataSql\\(\\) has parameter \\$columnMap with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/SystemDatabase.php
 
 		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, string\\|null given\\.$#"

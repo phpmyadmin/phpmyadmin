@@ -6901,7 +6901,6 @@
       <code>$aLength</code>
       <code>$bLength</code>
       <code>$keyIndex</code>
-      <code>$map['real_column']</code>
       <code>$resultRows[$row[$key]]</code>
       <code>$resultTarget</code>
       <code>$resultTarget</code>
@@ -14960,18 +14959,6 @@
     </PossiblyNullArrayOffset>
   </file>
   <file src="libraries/classes/SystemDatabase.php">
-    <MixedArgument>
-      <code>$column['real_column'] ?? $column['refering_column']</code>
-    </MixedArgument>
-    <MixedArrayAccess>
-      <code>$column['real_column']</code>
-      <code>$column['refering_column']</code>
-      <code>$column['refering_column']</code>
-      <code>$column['table_name']</code>
-    </MixedArrayAccess>
-    <MixedAssignment>
-      <code>$column</code>
-    </MixedAssignment>
     <PossiblyNullArgument>
       <code>$dataRow['comment']</code>
       <code>$dataRow['mimetype']</code>
