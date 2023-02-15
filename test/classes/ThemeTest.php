@@ -238,7 +238,7 @@ class ThemeTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerForGetImgPath(): array
+    public static function providerForGetImgPath(): array
     {
         return [
             [

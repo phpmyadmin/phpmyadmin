@@ -84,7 +84,7 @@ class ErrorTest extends AbstractTestCase
      *
      * @return array
      */
-    public function filePathProvider(): array
+    public static function filePathProvider(): array
     {
         return [
             [

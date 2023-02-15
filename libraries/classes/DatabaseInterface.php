@@ -376,7 +376,7 @@ class DatabaseInterface implements DbalInterface
             if ($table !== [] && $table !== '') {
                 if (is_array($table)) {
                     $sqlWhereTable = QueryGenerator::getTableNameConditionForMultiple(
-                        array_map([$this, 'quoteString'], $table)
+                        array_map($this->quoteString(...), $table)
                     );
                 } else {
                     $sqlWhereTable = QueryGenerator::getTableNameCondition(
@@ -486,9 +486,7 @@ class DatabaseInterface implements DbalInterface
                             . implode(
                                 ', ',
                                 array_map(
-                                    function (string $string) use ($connectionType): string {
-                                        return $this->quoteString($string, $connectionType);
-                                    },
+                                    fn (string $string): string => $this->quoteString($string, $connectionType),
                                     $table
                                 )
                             ) . ')';
@@ -753,9 +751,7 @@ class DatabaseInterface implements DbalInterface
         if ($applyLimitAndOrderManual) {
             usort(
                 $databases,
-                static function ($a, $b) use ($sortBy, $sortOrder) {
-                    return Utilities::usortComparisonCallback($a, $b, $sortBy, $sortOrder);
-                }
+                static fn ($a, $b) => Utilities::usortComparisonCallback($a, $b, $sortBy, $sortOrder)
             );
 
             /**
@@ -1047,16 +1043,11 @@ class DatabaseInterface implements DbalInterface
         int $type = self::GETVAR_SESSION,
         int $connectionType = Connection::TYPE_USER
     ) {
-        switch ($type) {
-            case self::GETVAR_SESSION:
-                $modifier = ' SESSION';
-                break;
-            case self::GETVAR_GLOBAL:
-                $modifier = ' GLOBAL';
-                break;
-            default:
-                $modifier = '';
-        }
+        $modifier = match ($type) {
+            self::GETVAR_SESSION => ' SESSION',
+            self::GETVAR_GLOBAL => ' GLOBAL',
+            default => '',
+        };
 
         return $this->fetchValue('SHOW' . $modifier . ' VARIABLES LIKE \'' . $var . '\';', 1, $connectionType);
     }

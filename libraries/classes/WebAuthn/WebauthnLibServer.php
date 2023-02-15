@@ -82,9 +82,9 @@ final class WebauthnLibServer implements Server
         $server = new WebauthnServer($relyingPartyEntity, $publicKeyCredentialSourceRepository);
         $credentialSources = $publicKeyCredentialSourceRepository->findAllForUserEntity($userEntity);
         $allowedCredentials = array_map(
-            static function (PublicKeyCredentialSource $credential): PublicKeyCredentialDescriptor {
-                return $credential->getPublicKeyCredentialDescriptor();
-            },
+            static fn (
+                PublicKeyCredentialSource $credential
+            ): PublicKeyCredentialDescriptor => $credential->getPublicKeyCredentialDescriptor(),
             $credentialSources
         );
         $publicKeyCredentialRequestOptions = $server->generatePublicKeyCredentialRequestOptions(

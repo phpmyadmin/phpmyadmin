@@ -34,7 +34,7 @@ class FormatConverterTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerBinaryToIp(): array
+    public static function providerBinaryToIp(): array
     {
         // expected
         // input
@@ -102,7 +102,7 @@ class FormatConverterTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerIpToBinary(): array
+    public static function providerIpToBinary(): array
     {
         return [
             [
@@ -135,7 +135,7 @@ class FormatConverterTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerIpToLong(): array
+    public static function providerIpToLong(): array
     {
         return [
             [
@@ -168,7 +168,7 @@ class FormatConverterTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerLongToIp(): array
+    public static function providerLongToIp(): array
     {
         return [
             [

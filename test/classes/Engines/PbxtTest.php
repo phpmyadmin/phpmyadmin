@@ -179,7 +179,7 @@ class PbxtTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerFortTestResolveTypeSize(): array
+    public static function providerFortTestResolveTypeSize(): array
     {
         return [
             [

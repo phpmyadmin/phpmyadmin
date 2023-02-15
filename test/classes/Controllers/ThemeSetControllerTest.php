@@ -76,7 +76,7 @@ class ThemeSetControllerTest extends AbstractTestCase
      * @return iterable<int, array<int, bool|string|string[]|null>>
      * @psalm-return iterable<int, array{bool, string[]|string|null}>
      */
-    public function providerForTestWithoutTheme(): iterable
+    public static function providerForTestWithoutTheme(): iterable
     {
         return [
             [true, null],

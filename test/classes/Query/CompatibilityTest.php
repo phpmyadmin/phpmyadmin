@@ -25,7 +25,7 @@ class CompatibilityTest extends TestCase
      * @return array[]
      * @psalm-return array<string, array{bool, bool, int}>
      */
-    public function providerForTestHasAccountLocking(): array
+    public static function providerForTestHasAccountLocking(): array
     {
         return [
             'MySQL 5.7.5' => [false, false, 50705],
@@ -54,7 +54,7 @@ class CompatibilityTest extends TestCase
      * @return array[]
      * @psalm-return array<string, array{bool, bool, int}>
      */
-    public function providerForTestIsUUIDSupported(): array
+    public static function providerForTestIsUUIDSupported(): array
     {
         return [
             'MySQL 5.7.5' => [false, false, 50705],

@@ -134,7 +134,7 @@ class StorageEngineTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetEngine(): array
+    public static function providerGetEngine(): array
     {
         return [
             [

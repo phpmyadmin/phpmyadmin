@@ -252,22 +252,13 @@ final class Collation
 
     private function getVariant(string $part): ?string
     {
-        switch ($part) {
-            case '0900':
-                return 'UCA 9.0.0';
-
-            case '520':
-                return 'UCA 5.2.0';
-
-            case 'mysql561':
-                return 'MySQL 5.6.1';
-
-            case 'mysql500':
-                return 'MySQL 5.0.0';
-
-            default:
-                return null;
-        }
+        return match ($part) {
+            '0900' => 'UCA 9.0.0',
+            '520' => 'UCA 5.2.0',
+            'mysql561' => 'MySQL 5.6.1',
+            'mysql500' => 'MySQL 5.0.0',
+            default => null,
+        };
     }
 
     /**

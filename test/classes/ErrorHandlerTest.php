@@ -56,7 +56,7 @@ class ErrorHandlerTest extends AbstractTestCase
      *
      * @return array data for testHandleError
      */
-    public function providerForTestHandleError(): array
+    public static function providerForTestHandleError(): array
     {
         return [
             [

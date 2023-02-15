@@ -34,7 +34,7 @@ class SysInfoTest extends AbstractTestCase
      *
      * @return string[][]
      */
-    public function sysInfoOsProvider(): array
+    public static function sysInfoOsProvider(): array
     {
         return [
             [

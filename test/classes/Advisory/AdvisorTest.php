@@ -35,7 +35,7 @@ class AdvisorTest extends AbstractTestCase
         $this->assertEquals($expected, $result);
     }
 
-    public function advisorTimes(): array
+    public static function advisorTimes(): array
     {
         return [
             [
@@ -88,7 +88,7 @@ class AdvisorTest extends AbstractTestCase
         $this->assertEquals([$expected], $runResult['fired']);
     }
 
-    public function rulesProvider(): array
+    public static function rulesProvider(): array
     {
         return [
             [

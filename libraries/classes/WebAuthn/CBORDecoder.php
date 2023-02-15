@@ -89,35 +89,17 @@ final class CBORDecoder
                 throw new WebAuthnException();
         }
 
-        // process content
-        switch ($majorType) {
-            case 0:
-                return $this->getUnsignedInteger($value);
-
-            case 1:
-                return $this->getNegativeInteger($value);
-
-            case 2:
-                return $this->getByteString($stream, $value);
-
-            case 3:
-                return $this->getTextString($stream, $value);
-
-            case 4:
-                return $this->getList($stream, $value);
-
-            case 5:
-                return $this->getMap($stream, $value);
-
-            case 6:
-                return $this->getTag($stream);
-
-            case 7:
-                return $this->getFloatNumberOrSimpleValue($stream, $value, $additionalInformation);
-
-            default:
-                throw new WebAuthnException();
-        }
+        return match ($majorType) {
+            0 => $this->getUnsignedInteger($value),
+            1 => $this->getNegativeInteger($value),
+            2 => $this->getByteString($stream, $value),
+            3 => $this->getTextString($stream, $value),
+            4 => $this->getList($stream, $value),
+            5 => $this->getMap($stream, $value),
+            6 => $this->getTag($stream),
+            7 => $this->getFloatNumberOrSimpleValue($stream, $value, $additionalInformation),
+            default => throw new WebAuthnException(),
+        };
     }
 
     private function getUnsignedInteger(int $value): int

@@ -77,7 +77,7 @@ class IpAllowDenyTest extends AbstractTestCase
      *
      * @return array
      */
-    public function proxyIPs(): array
+    public static function proxyIPs(): array
     {
         return [
             // Nothing set

@@ -40,7 +40,7 @@ class ServerRequestFactoryTest extends AbstractTestCase
         ],
     ];
 
-    public function dataProviderPsr7Implementations(): array
+    public static function dataProviderPsr7Implementations(): array
     {
         return self::IMPLEMENTATION_CLASSES;
     }
@@ -128,7 +128,7 @@ class ServerRequestFactoryTest extends AbstractTestCase
         $_SERVER['HTTP_HOST'] = 'phpmyadmin.local';
 
         $creator = $this->getMockBuilder(ServerRequestFactory::class)
-            ->setMethods(['getallheaders'])
+            ->onlyMethods(['getallheaders'])
             ->getMock();
 
         $creator

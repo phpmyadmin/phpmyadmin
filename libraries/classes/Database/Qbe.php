@@ -1382,7 +1382,7 @@ class Qbe
             // Create cartesian product
             return implode(
                 ', ',
-                array_map([Util::class, 'backquote'], $searchTables)
+                array_map(Util::backquote(...), $searchTables)
             );
         }
 
@@ -1483,7 +1483,7 @@ class Qbe
                 // Add these tables as cartesian product before joined tables
                 $join .= implode(
                     ', ',
-                    array_map([Util::class, 'backquote'], $unfinalized)
+                    array_map(Util::backquote(...), $unfinalized)
                 );
             }
         }

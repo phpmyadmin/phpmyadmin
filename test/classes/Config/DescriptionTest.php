@@ -40,7 +40,7 @@ class DescriptionTest extends AbstractTestCase
      * @return array<string, string[]>
      * @psalm-return array<string, array{non-empty-string, 'name'|'desc'|'cmt', string}>
      */
-    public function getValues(): array
+    public static function getValues(): array
     {
         return [
             'valid name' => [

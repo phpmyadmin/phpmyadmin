@@ -21,7 +21,7 @@ class SanitizeExtension extends AbstractExtension
         return [
             new TwigFilter(
                 'sanitize',
-                [Sanitize::class, 'sanitizeMessage'],
+                Sanitize::sanitizeMessage(...),
                 ['is_safe' => ['html']]
             ),
         ];
@@ -37,7 +37,7 @@ class SanitizeExtension extends AbstractExtension
         return [
             new TwigFunction(
                 'get_js_value',
-                [Sanitize::class, 'getJsValue'],
+                Sanitize::getJsValue(...),
                 ['is_safe' => ['html']]
             ),
         ];

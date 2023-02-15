@@ -240,7 +240,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function userAgentProvider(): array
+    public static function userAgentProvider(): array
     {
         return [
             [
@@ -425,7 +425,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function serverNames(): array
+    public static function serverNames(): array
     {
         return [
             [
@@ -587,7 +587,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function httpsParams(): array
+    public static function httpsParams(): array
     {
         return [
             [
@@ -822,7 +822,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array data for testGetRootPath
      */
-    public function rootUris(): array
+    public static function rootUris(): array
     {
         return [
             [
@@ -930,7 +930,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function configPaths(): array
+    public static function configPaths(): array
     {
         return [
             [
@@ -1089,7 +1089,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function serverSettingsProvider(): array
+    public static function serverSettingsProvider(): array
     {
         return [
             'empty' => [
@@ -1110,19 +1110,44 @@ class ConfigTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * @group with-trigger-error
-     */
     public function testCheckServersWithInvalidServer(): void
     {
-        $this->expectError();
-        $this->expectErrorMessage('Invalid server index: invalid');
-
-        $this->object->settings['Servers'] = ['invalid' => ['host' => '127.0.0.1'], 1 => ['host' => '127.0.0.1']];
+        $server = ['host' => '127.0.0.1'];
+        $this->object->settings['Servers'] = ['invalid' => $server, 1 => $server, 0 => $server, 2 => 'invalid'];
         $this->object->checkServers();
-        $expected = array_merge($this->object->defaultServer, ['host' => '127.0.0.1']);
+        $expected = array_merge($this->object->defaultServer, $server);
 
+        $this->assertArrayNotHasKey('invalid', $this->object->settings['Servers']);
+        $this->assertArrayNotHasKey(0, $this->object->settings['Servers']);
+        $this->assertArrayNotHasKey(2, $this->object->settings['Servers']);
+        $this->assertArrayHasKey(1, $this->object->settings['Servers']);
         $this->assertEquals($expected, $this->object->settings['Servers'][1]);
+    }
+
+    public function testCheckServersWithOnlyInvalidServers(): void
+    {
+        $server = ['host' => '127.0.0.1'];
+        $this->object->settings['Servers'] = ['invalid' => $server, -1 => $server, 0 => $server];
+        $this->object->checkServers();
+
+        $this->assertArrayNotHasKey('invalid', $this->object->settings['Servers']);
+        $this->assertArrayNotHasKey(0, $this->object->settings['Servers']);
+        $this->assertArrayNotHasKey(-1, $this->object->settings['Servers']);
+        $this->assertArrayHasKey(1, $this->object->settings['Servers']);
+        /** @psalm-suppress InvalidArrayOffset */
+        $this->assertEquals($this->object->defaultServer, $this->object->settings['Servers'][1]);
+    }
+
+    public function testCheckServersWithServerKeysGreaterThanOne(): void
+    {
+        $server = ['host' => '127.0.0.1'];
+        $this->object->settings['Servers'] = [2 => $server];
+        $this->object->checkServers();
+        $expected = array_merge($this->object->defaultServer, $server);
+
+        $this->assertArrayNotHasKey(1, $this->object->settings['Servers']);
+        $this->assertArrayHasKey(2, $this->object->settings['Servers']);
+        $this->assertEquals($expected, $this->object->settings['Servers'][2]);
     }
 
     /**
@@ -1148,7 +1173,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function selectServerProvider(): array
+    public static function selectServerProvider(): array
     {
         return [
             'zero' => [
@@ -1221,7 +1246,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function connectionParams(): array
+    public static function connectionParams(): array
     {
         $cfg_basic = [
             'user' => 'u',

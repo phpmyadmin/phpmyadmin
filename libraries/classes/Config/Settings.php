@@ -2777,26 +2777,13 @@ final class Settings
             return 'structure';
         }
 
-        switch ($settings['NavigationTreeDefaultTabTable']) {
-            case 'sql':
-            case 'tbl_sql.php':
-                return 'sql';
-
-            case 'search':
-            case 'tbl_select.php':
-                return 'search';
-
-            case 'insert':
-            case 'tbl_change.php':
-                return 'insert';
-
-            case 'browse':
-            case 'sql.php':
-                return 'browse';
-
-            default:
-                return 'structure';
-        }
+        return match ($settings['NavigationTreeDefaultTabTable']) {
+            'sql', 'tbl_sql.php' => 'sql',
+            'search', 'tbl_select.php' => 'search',
+            'insert', 'tbl_change.php' => 'insert',
+            'browse', 'sql.php' => 'browse',
+            default => 'structure',
+        };
     }
 
     /**
@@ -2810,30 +2797,14 @@ final class Settings
             return '';
         }
 
-        switch ($settings['NavigationTreeDefaultTabTable2']) {
-            case 'structure':
-            case 'tbl_structure.php':
-                return 'structure';
-
-            case 'sql':
-            case 'tbl_sql.php':
-                return 'sql';
-
-            case 'search':
-            case 'tbl_select.php':
-                return 'search';
-
-            case 'insert':
-            case 'tbl_change.php':
-                return 'insert';
-
-            case 'browse':
-            case 'sql.php':
-                return 'browse';
-
-            default:
-                return '';
-        }
+        return match ($settings['NavigationTreeDefaultTabTable2']) {
+            'structure', 'tbl_structure.php' => 'structure',
+            'sql', 'tbl_sql.php' => 'sql',
+            'search', 'tbl_select.php' => 'search',
+            'insert', 'tbl_change.php' => 'insert',
+            'browse', 'sql.php' => 'browse',
+            default => '',
+        };
     }
 
     /**
@@ -3449,26 +3420,13 @@ final class Settings
             return 'welcome';
         }
 
-        switch ($settings['DefaultTabServer']) {
-            case 'databases':
-            case 'server_databases.php':
-                return 'databases';
-
-            case 'status':
-            case 'server_status.php':
-                return 'status';
-
-            case 'variables':
-            case 'server_variables.php':
-                return 'variables';
-
-            case 'privileges':
-            case 'server_privileges.php':
-                return 'privileges';
-
-            default:
-                return 'welcome';
-        }
+        return match ($settings['DefaultTabServer']) {
+            'databases', 'server_databases.php' => 'databases',
+            'status', 'server_status.php' => 'status',
+            'variables', 'server_variables.php' => 'variables',
+            'privileges', 'server_privileges.php' => 'privileges',
+            default => 'welcome',
+        };
     }
 
     /**
@@ -3482,22 +3440,12 @@ final class Settings
             return 'structure';
         }
 
-        switch ($settings['DefaultTabDatabase']) {
-            case 'sql':
-            case 'db_sql.php':
-                return 'sql';
-
-            case 'search':
-            case 'db_search.php':
-                return 'search';
-
-            case 'operations':
-            case 'db_operations.php':
-                return 'operations';
-
-            default:
-                return 'structure';
-        }
+        return match ($settings['DefaultTabDatabase']) {
+            'sql', 'db_sql.php' => 'sql',
+            'search', 'db_search.php' => 'search',
+            'operations', 'db_operations.php' => 'operations',
+            default => 'structure',
+        };
     }
 
     /**
@@ -3511,26 +3459,13 @@ final class Settings
             return 'browse';
         }
 
-        switch ($settings['DefaultTabTable']) {
-            case 'structure':
-            case 'tbl_structure.php':
-                return 'structure';
-
-            case 'sql':
-            case 'tbl_sql.php':
-                return 'sql';
-
-            case 'search':
-            case 'tbl_select.php':
-                return 'search';
-
-            case 'insert':
-            case 'tbl_change.php':
-                return 'insert';
-
-            default:
-                return 'browse';
-        }
+        return match ($settings['DefaultTabTable']) {
+            'structure', 'tbl_structure.php' => 'structure',
+            'sql', 'tbl_sql.php' => 'sql',
+            'search', 'tbl_select.php' => 'search',
+            'insert', 'tbl_change.php' => 'insert',
+            default => 'browse',
+        };
     }
 
     /**

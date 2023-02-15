@@ -331,7 +331,7 @@ class MessageTest extends AbstractTestCase
      *
      * @return array Test data
      */
-    public function decodeBBDataProvider(): array
+    public static function decodeBBDataProvider(): array
     {
         return [
             [
@@ -513,7 +513,7 @@ class MessageTest extends AbstractTestCase
      *
      * @return array Test-data
      */
-    public function providerAffectedRows(): array
+    public static function providerAffectedRows(): array
     {
         return [
             [
@@ -558,7 +558,7 @@ class MessageTest extends AbstractTestCase
      *
      * @return array Test-data
      */
-    public function providerInsertedRows(): array
+    public static function providerInsertedRows(): array
     {
         return [
             [
@@ -603,7 +603,7 @@ class MessageTest extends AbstractTestCase
      *
      * @return array Test-data
      */
-    public function providerDeletedRows(): array
+    public static function providerDeletedRows(): array
     {
         return [
             [

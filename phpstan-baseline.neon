@@ -31,6 +31,11 @@ parameters:
 			path: libraries/classes/Advisory/Advisor.php
 
 		-
+			message: "#^Parameter \\#3 \\$subject of function preg_replace_callback expects array\\|string, \\(array\\<int, string\\>\\|string\\|null\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Advisory/Advisor.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\Advisory\\\\Advisor\\:\\:\\$globals type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Advisory/Advisor.php
@@ -296,6 +301,21 @@ parameters:
 			path: libraries/classes/Config/ConfigFile.php
 
 		-
+			message: "#^Parameter \\#1 \\$path of method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:getCanonicalPath\\(\\) expects string, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Config/ConfigFile.php
+
+		-
+			message: "#^Parameter \\#1 \\$path of static method PhpMyAdmin\\\\Core\\:\\:arrayRead\\(\\) expects string, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Config/ConfigFile.php
+
+		-
+			message: "#^Parameter \\#1 \\$path of static method PhpMyAdmin\\\\Core\\:\\:arrayWrite\\(\\) expects string, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Config/ConfigFile.php
+
+		-
 			message: "#^Parameter \\#2 \\$array of static method PhpMyAdmin\\\\Core\\:\\:arrayRead\\(\\) expects array, array\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Config/ConfigFile.php
@@ -451,7 +471,17 @@ parameters:
 			path: libraries/classes/Config/FormDisplay.php
 
 		-
+			message: "#^Parameter \\#1 \\$optionName of method PhpMyAdmin\\\\Config\\\\Form\\:\\:getOptionType\\(\\) expects string, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Config/FormDisplay.php
+
+		-
 			message: "#^Parameter \\#1 \\$path of method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:getValue\\(\\) expects string, int\\|string\\|false given\\.$#"
+			count: 1
+			path: libraries/classes/Config/FormDisplay.php
+
+		-
+			message: "#^Parameter \\#1 \\$path of method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:set\\(\\) expects string, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: libraries/classes/Config/FormDisplay.php
 
@@ -467,6 +497,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$array of function implode expects array\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Config/FormDisplay.php
+
+		-
+			message: "#^Parameter \\#2 \\$field of method PhpMyAdmin\\\\Config\\\\FormDisplay\\:\\:displayFieldInput\\(\\) expects string, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: libraries/classes/Config/FormDisplay.php
 
@@ -537,6 +572,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Config\\\\Forms\\\\BaseForm\\:\\:getForms\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Config/Forms/BaseForm.php
+
+		-
+			message: "#^Parameter \\#1 \\$formName of method PhpMyAdmin\\\\Config\\\\FormDisplay\\:\\:registerForm\\(\\) expects string, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: libraries/classes/Config/Forms/BaseForm.php
 
@@ -831,12 +871,42 @@ parameters:
 			path: libraries/classes/Config/Validator.php
 
 		-
+			message: "#^Parameter \\#1 \\$haystack of function mb_strpos expects string, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Config/Validator.php
+
+		-
+			message: "#^Parameter \\#1 \\$path of method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:getCanonicalPath\\(\\) expects string, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Config/Validator.php
+
+		-
+			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Config/Validator.php
+
+		-
 			message: "#^Casting to string something that's already string\\.$#"
 			count: 4
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
 			message: "#^Do\\-while loop condition is always false\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Foreach overwrites \\$feature with its value variable\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Foreach overwrites \\$table with its key variable\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Foreach overwrites \\$work with its key variable\\.$#"
 			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
 
@@ -1496,6 +1566,11 @@ parameters:
 			path: libraries/classes/Controllers/Database/StructureController.php
 
 		-
+			message: "#^Parameter \\#1 \\$timestamp of static method PhpMyAdmin\\\\Util\\:\\:localisedDate\\(\\) expects int, \\(int\\|false\\) given\\.$#"
+			count: 6
+			path: libraries/classes/Controllers/Database/StructureController.php
+
+		-
 			message: "#^Parameter \\#4 \\$formattedSize of method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:getValuesForAriaTable\\(\\) expects int, string given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/StructureController.php
@@ -1631,6 +1706,11 @@ parameters:
 			path: libraries/classes/Controllers/GitInfoController.php
 
 		-
+			message: "#^Parameter \\#1 \\$timestamp of static method PhpMyAdmin\\\\Util\\:\\:localisedDate\\(\\) expects int, \\(int\\|false\\) given\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/GitInfoController.php
+
+		-
 			message: "#^Parameter \\#1 \\$showGitRevision of class PhpMyAdmin\\\\Git constructor expects bool, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/HomeController.php
@@ -1643,6 +1723,11 @@ parameters:
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
 			count: 2
+			path: libraries/classes/Controllers/Import/ImportController.php
+
+		-
+			message: "#^Parameter \\#3 \\$subject of function preg_replace expects array\\|string, \\(array\\<int, string\\>\\|string\\|null\\) given\\.$#"
+			count: 1
 			path: libraries/classes/Controllers/Import/ImportController.php
 
 		-
@@ -1801,6 +1886,11 @@ parameters:
 			path: libraries/classes/Controllers/Preferences/ManageController.php
 
 		-
+			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Preferences/ManageController.php
+
+		-
 			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\TwoFactor\\:\\:configure\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Preferences/TwoFactorController.php
@@ -1862,6 +1952,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$oldUsername of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getDataForChangeOrCopyUser\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/PrivilegesController.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function urlencode expects string, \\(array\\<int, string\\>\\|string\\) given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/PrivilegesController.php
 
@@ -1961,6 +2056,11 @@ parameters:
 			path: libraries/classes/Controllers/Server/Status/ProcessesController.php
 
 		-
+			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/Status/QueriesController.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Server\\\\Status\\\\StatusController\\:\\:getConnectionsInfo\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/Status/StatusController.php
@@ -1976,6 +2076,11 @@ parameters:
 			path: libraries/classes/Controllers/Server/Status/StatusController.php
 
 		-
+			message: "#^Parameter \\#1 \\$value of static method PhpMyAdmin\\\\Util\\:\\:formatByteDown\\(\\) expects float\\|int\\|string\\|null, \\(array\\|float\\|int\\) given\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Server/Status/StatusController.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Server\\\\Status\\\\VariablesController\\:\\:getAlerts\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/Status/VariablesController.php
@@ -1987,6 +2092,16 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$flush of method PhpMyAdmin\\\\Controllers\\\\Server\\\\Status\\\\VariablesController\\:\\:flush\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/Status/VariablesController.php
+
+		-
+			message: "#^Parameter \\#1 \\$haystack of function str_contains expects string, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/Status/VariablesController.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:linkToVarDocumentation\\(\\) expects string, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/Status/VariablesController.php
 
@@ -2066,6 +2181,16 @@ parameters:
 			path: libraries/classes/Controllers/Setup/HomeController.php
 
 		-
+			message: "#^Parameter \\#1 \\$id of method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:getServerName\\(\\) expects int, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Setup/HomeController.php
+
+		-
+			message: "#^Parameter \\#1 \\$server of method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:getServerDSN\\(\\) expects int, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Setup/HomeController.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Setup\\\\ServersController\\:\\:destroy\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Setup/ServersController.php
@@ -2094,6 +2219,11 @@ parameters:
 			message: "#^Parameter \\#4 \\$whereClause of method PhpMyAdmin\\\\Sql\\:\\:getFullValuesForSetColumn\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Sql/SetValuesController.php
+
+		-
+			message: "#^Parameter \\#2 \\$offset of class PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit constructor expects int, \\(float\\|int\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ChartController.php
 
 		-
 			message: "#^Parameter \\#2 \\$list of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:replaceClauses\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\TokensList, PhpMyAdmin\\\\SqlParser\\\\TokensList\\|null given\\.$#"
@@ -2186,6 +2316,21 @@ parameters:
 			path: libraries/classes/Controllers/Table/SearchController.php
 
 		-
+			message: "#^Parameter \\#1 \\$string of function strtoupper expects string, \\(array\\<int, string\\>\\|string\\|null\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/SearchController.php
+
+		-
+			message: "#^Parameter \\#1 \\$type of method PhpMyAdmin\\\\Types\\:\\:getIntegerRange\\(\\) expects string, \\(array\\<int, string\\>\\|string\\|null\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/SearchController.php
+
+		-
+			message: "#^Parameter \\#1 \\$type of method PhpMyAdmin\\\\Types\\:\\:getTypeOperatorsHtml\\(\\) expects string, \\(array\\<int, string\\>\\|string\\|null\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/SearchController.php
+
+		-
 			message: "#^Parameter \\#2 \\$foreign_field of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:foreignDropdown\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/SearchController.php
@@ -2261,6 +2406,11 @@ parameters:
 			path: libraries/classes/Controllers/Table/Structure/SaveController.php
 
 		-
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Table/Structure/SaveController.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\Structure\\\\SaveController\\:\\:adjustColumnPrivileges\\(\\) has parameter \\$adjust_privileges with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/Structure/SaveController.php
@@ -2326,12 +2476,32 @@ parameters:
 			path: libraries/classes/Controllers/Table/StructureController.php
 
 		-
+			message: "#^Parameter \\#1 \\$value of static method PhpMyAdmin\\\\Util\\:\\:formatByteDown\\(\\) expects float\\|int\\|string\\|null, \\(array\\|float\\|int\\) given\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Table/StructureController.php
+
+		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\ZoomSearchController\\:\\:getColumnProperties\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ZoomSearchController.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function strtoupper expects string, \\(array\\<int, string\\>\\|string\\|null\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ZoomSearchController.php
+
+		-
+			message: "#^Parameter \\#1 \\$type of method PhpMyAdmin\\\\Types\\:\\:getIntegerRange\\(\\) expects string, \\(array\\<int, string\\>\\|string\\|null\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ZoomSearchController.php
+
+		-
+			message: "#^Parameter \\#1 \\$type of method PhpMyAdmin\\\\Types\\:\\:getTypeOperatorsHtml\\(\\) expects string, \\(array\\<int, string\\>\\|string\\|null\\) given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
@@ -2551,6 +2721,11 @@ parameters:
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
+			message: "#^Parameter \\#3 \\$pageNow of static method PhpMyAdmin\\\\Util\\:\\:pageselector\\(\\) expects int, \\(float\\|int\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Database/CentralColumns.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getDatabaseTables\\(\\) has parameter \\$tab_column with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer.php
@@ -2716,6 +2891,11 @@ parameters:
 			path: libraries/classes/Database/Qbe.php
 
 		-
+			message: "#^For loop initial assignment overwrites variable \\$columnIndex\\.$#"
+			count: 1
+			path: libraries/classes/Database/Qbe.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Database\\\\Qbe\\:\\:__construct\\(\\) has parameter \\$savedSearchList with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Database/Qbe.php
@@ -2837,6 +3017,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Database\\\\Qbe\\:\\:getMasterTable\\(\\) has parameter \\$whereClauseTables with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Database/Qbe.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Database\\\\Qbe\\:\\:getMasterTable\\(\\) should return string but returns \\(int\\|string\\)\\.$#"
 			count: 1
 			path: libraries/classes/Database/Qbe.php
 
@@ -3008,6 +3193,11 @@ parameters:
 		-
 			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
 			count: 1
+			path: libraries/classes/Database/Routines.php
+
+		-
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
+			count: 2
 			path: libraries/classes/Database/Routines.php
 
 		-
@@ -3306,6 +3496,11 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
+			message: "#^Parameter \\#2 \\$tableName of static method PhpMyAdmin\\\\StorageEngine\\:\\:getMroongaLengths\\(\\) expects string, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/DatabaseInterface.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbalInterface\\:\\:connect\\(\\) has parameter \\$server with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Dbal/DbalInterface.php
@@ -3404,6 +3599,36 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:numRows\\(\\) should return int\\|numeric\\-string but returns int\\|string\\.$#"
 			count: 1
 			path: libraries/classes/Dbal/MysqliResult.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$expr\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$from\\.$#"
+			count: 2
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$limit\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$where\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$column\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$database\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
 
 		-
 			message: "#^Cannot access offset int\\<0, max\\> on mixed\\.$#"
@@ -3636,6 +3861,11 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\FieldMetadata\\:\\:\\$internalMediaType \\(string\\) does not accept \\(array\\<int, string\\>\\|string\\)\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\FieldMetadata\\:\\:\\$internalMediaType \\(string\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
@@ -3647,11 +3877,6 @@ parameters:
 
 		-
 			message: "#^Function recode_string not found\\.$#"
-			count: 1
-			path: libraries/classes/Encoding.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Encoding\\:\\:convertString\\(\\) should return string but returns string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Encoding.php
 
@@ -3781,11 +4006,6 @@ parameters:
 			path: libraries/classes/Error.php
 
 		-
-			message: "#^Parameter \\#1 \\$callback of function set_error_handler expects \\(callable\\(int, string, string, int\\)\\: bool\\)\\|null, array\\{\\$this\\(PhpMyAdmin\\\\ErrorHandler\\), 'handleError'\\} given\\.$#"
-			count: 1
-			path: libraries/classes/ErrorHandler.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\ErrorReport\\:\\:getData\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/ErrorReport.php
@@ -3857,6 +4077,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Export\\:\\:getCheckedClause\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Export.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Export\\:\\:getMemoryLimit\\(\\) should return int but returns \\(float\\|int\\)\\.$#"
 			count: 1
 			path: libraries/classes/Export.php
 
@@ -4381,6 +4606,11 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
+			message: "#^Variable \\$label_point in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 2
+			path: libraries/classes/Gis/GisMultiPolygon.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:generateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPoint.php
@@ -4671,8 +4901,8 @@ parameters:
 			path: libraries/classes/Git.php
 
 		-
-			message: "#^Variable \\$position might not be defined\\.$#"
-			count: 1
+			message: "#^Parameter \\#2 \\$offset of function substr expects int, \\(float\\|int\\) given\\.$#"
+			count: 2
 			path: libraries/classes/Git.php
 
 		-
@@ -4776,6 +5006,11 @@ parameters:
 			path: libraries/classes/Import.php
 
 		-
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
+			count: 5
+			path: libraries/classes/Import.php
+
+		-
 			message: "#^Foreach overwrites \\$sqlQuery with its value variable\\.$#"
 			count: 1
 			path: libraries/classes/Import.php
@@ -4843,6 +5078,16 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$lastCumulativeSize of method PhpMyAdmin\\\\Import\\:\\:getDecimalScale\\(\\) expects string, int\\|string given\\.$#"
 			count: 2
+			path: libraries/classes/Import.php
+
+		-
+			message: "#^Parameter \\#1 \\$sql of method PhpMyAdmin\\\\Import\\:\\:executeQuery\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Import.php
+
+		-
+			message: "#^Parameter \\#1 \\$sql of method PhpMyAdmin\\\\Import\\:\\:runQuery\\(\\) expects string, \\(array\\<int, string\\>\\|string\\|null\\) given\\.$#"
+			count: 1
 			path: libraries/classes/Import.php
 
 		-
@@ -5236,6 +5481,11 @@ parameters:
 			path: libraries/classes/InsertEdit.php
 
 		-
+			message: "#^Parameter \\#2 \\$keyId of method PhpMyAdmin\\\\InsertEdit\\:\\:showEmptyResultMessageOrSetUniqueCondition\\(\\) expects string, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/InsertEdit.php
+
+		-
 			message: "#^Parameter \\#4 \\$data of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:foreignDropdown\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
@@ -5282,11 +5532,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\LanguageManager\\:\\:listLocaleDir\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/LanguageManager.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\LanguageManager\\:\\:\\$availableLanguages type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/LanguageManager.php
 
@@ -5451,6 +5696,11 @@ parameters:
 			path: libraries/classes/Navigation/Navigation.php
 
 		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\:\\:\\$secondIcon\\.$#"
+			count: 2
+			path: libraries/classes/Navigation/NavigationTree.php
+
+		-
 			message: "#^Cannot access property \\$pos2 on PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/NavigationTree.php
@@ -5497,6 +5747,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$haystack of function strstr expects string, string\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Navigation/NavigationTree.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\:\\:getChild\\(\\) expects string, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/NavigationTree.php
 
@@ -5721,6 +5976,31 @@ parameters:
 			path: libraries/classes/Normalization.php
 
 		-
+			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, \\(int\\|string\\) given\\.$#"
+			count: 3
+			path: libraries/classes/Normalization.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, \\(int\\|string\\) given\\.$#"
+			count: 5
+			path: libraries/classes/Normalization.php
+
+		-
+			message: "#^Parameter \\#2 \\$string of function explode expects string, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Normalization.php
+
+		-
+			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumnNames\\(\\) expects string, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Normalization.php
+
+		-
+			message: "#^Parameter \\#2 \\$table of static method PhpMyAdmin\\\\Index\\:\\:getPrimary\\(\\) expects string, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Normalization.php
+
+		-
 			message: "#^Variable property access on object\\.$#"
 			count: 4
 			path: libraries/classes/Normalization.php
@@ -5786,7 +6066,27 @@ parameters:
 			path: libraries/classes/Operations.php
 
 		-
+			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, \\(int\\|string\\) given\\.$#"
+			count: 3
+			path: libraries/classes/Operations.php
+
+		-
 			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:query\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Operations.php
+
+		-
+			message: "#^Parameter \\#2 \\$sourceTable of static method PhpMyAdmin\\\\Table\\:\\:moveCopy\\(\\) expects string, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Operations.php
+
+		-
+			message: "#^Parameter \\#2 \\$view of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql\\:\\:getTableDefStandIn\\(\\) expects string, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Operations.php
+
+		-
+			message: "#^Parameter \\#4 \\$targetTable of static method PhpMyAdmin\\\\Table\\:\\:moveCopy\\(\\) expects string, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: libraries/classes/Operations.php
 
@@ -6011,6 +6311,11 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportLatex.php
 
 		-
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Export/ExportMediawiki.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportMediawiki\\:\\:exportData\\(\\) has parameter \\$aliases with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportMediawiki.php
@@ -6023,6 +6328,11 @@ parameters:
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportOds\\:\\:exportData\\(\\) has parameter \\$aliases with no value type specified in iterable type array\\.$#"
 			count: 1
+			path: libraries/classes/Plugins/Export/ExportOds.php
+
+		-
+			message: "#^Parameter \\#2 \\$timestamp of function date expects int\\|null, \\(int\\|false\\) given\\.$#"
+			count: 3
 			path: libraries/classes/Plugins/Export/ExportOds.php
 
 		-
@@ -6071,6 +6381,11 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportPhparray.php
 
 		-
+			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, \\(array\\<int, string\\>\\|string\\|null\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Export/ExportPhparray.php
+
+		-
 			message: "#^Binary operation \"\\.\" between 'FOREIGN KEY ' and array\\<string\\>\\|string results in an error\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
@@ -6108,6 +6423,11 @@ parameters:
 		-
 			message: "#^Casting to string something that's already string\\.$#"
 			count: 2
+			path: libraries/classes/Plugins/Export/ExportSql.php
+
+		-
+			message: "#^Foreach overwrites \\$j with its key variable\\.$#"
+			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
@@ -6161,6 +6481,11 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
+			message: "#^Parameter \\#1 \\$list of class PhpMyAdmin\\\\SqlParser\\\\Parser constructor expects PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string\\|null, \\(array\\<int, string\\>\\|string\\|null\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Export/ExportSql.php
+
+		-
 			message: "#^Parameter \\#1 \\$sqlQuery of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql\\:\\:replaceWithAliases\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
@@ -6173,6 +6498,11 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$string of function strtoupper expects string, mixed given\\.$#"
 			count: 1
+			path: libraries/classes/Plugins/Export/ExportSql.php
+
+		-
+			message: "#^Parameter \\#1 \\$timestamp of static method PhpMyAdmin\\\\Util\\:\\:localisedDate\\(\\) expects int, \\(int\\|false\\) given\\.$#"
+			count: 3
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
@@ -6246,6 +6576,16 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportYaml.php
 
 		-
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: "#^Foreach overwrites \\$width with its value variable\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:getTableDef\\(\\) has parameter \\$aliases with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
@@ -6266,8 +6606,18 @@ parameters:
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
 
 		-
+			message: "#^Parameter \\#1 \\$x1 of method TCPDF\\:\\:Line\\(\\) expects float, \\(array\\|float\\|int\\) given\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
+
+		-
 			message: "#^Parameter \\#3 \\$txt of method TCPDF\\:\\:MultiCell\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
+			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: "#^Parameter \\#3 \\$x2 of method TCPDF\\:\\:Line\\(\\) expects float, \\(array\\|float\\|int\\) given\\.$#"
+			count: 3
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
 
 		-
@@ -6308,11 +6658,6 @@ parameters:
 		-
 			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$titleWidth is never written, only read\\.$#"
 			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: "#^Variable \\$columns_cnt might not be defined\\.$#"
-			count: 6
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
 
 		-
@@ -6451,6 +6796,11 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportMediawiki.php
 
 		-
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Import/ImportOds.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:iterateOverColumns\\(\\) has parameter \\$col_names with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportOds.php
@@ -6521,6 +6871,11 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
+			message: "#^Parameter \\#2 \\$text of method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:getValue\\(\\) expects SimpleXMLElement, \\(SimpleXMLElement\\|null\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Import/ImportOds.php
+
+		-
 			message: "#^Variable property access on \\(SimpleXMLElement\\|null\\)\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportOds.php
@@ -6542,6 +6897,11 @@ parameters:
 
 		-
 			message: "#^Cannot assign new offset to array\\<int, array\\<int, string\\>\\|string\\>\\|string\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Import/ImportXml.php
+
+		-
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportXml.php
 
@@ -6581,6 +6941,11 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportXml.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\ShapeFileImport\\:\\:readSHP\\(\\) never returns false so it can be removed from the return type\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Import/ShapeFileImport.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\Upload\\\\UploadNoplugin\\:\\:getUploadStatus\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/Upload/UploadNoplugin.php
@@ -6606,6 +6971,11 @@ parameters:
 			path: libraries/classes/Plugins/ImportPlugin.php
 
 		-
+			message: "#^Parameter \\#2 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\DiaRelationSchema\\:\\:addRelation\\(\\) expects string, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php
+
+		-
 			message: "#^Binary operation \"\\+\" between int\\|string\\|false and 12 results in an error\\.$#"
 			count: 4
 			path: libraries/classes/Plugins/Schema/Dia/RelationStatsDia.php
@@ -6622,6 +6992,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#4 \\$foreign_table of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\RelationStatsEps constructor expects string, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\TableStatsEps given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
+
+		-
+			message: "#^Parameter \\#4 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\EpsRelationSchema\\:\\:addRelation\\(\\) expects string, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
 
@@ -6654,6 +7029,11 @@ parameters:
 			message: "#^Parameter \\#3 \\$y of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\:\\:showXY\\(\\) expects int, float\\|int given\\.$#"
 			count: 2
 			path: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php
+
+		-
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/Pdf.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\:\\:row\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
@@ -6691,7 +7071,22 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
+			message: "#^For loop initial assignment overwrites variable \\$size\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:dataDictionaryDoc\\(\\) has parameter \\$alltables with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Parameter \\#1 \\$timestamp of static method PhpMyAdmin\\\\Util\\:\\:localisedDate\\(\\) expects int, \\(int\\|false\\) given\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Parameter \\#2 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\PdfRelationSchema\\:\\:addRelation\\(\\) expects string, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
@@ -6737,6 +7132,11 @@ parameters:
 
 		-
 			message: "#^Binary operation \"\\+\\=\" between int and array\\<float\\>\\|float results in an error\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$width \\(int\\) does not accept \\(float\\|int\\)\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
 
@@ -6802,6 +7202,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#4 \\$foreign_table of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\RelationStatsSvg constructor expects string, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\TableStatsDia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\TableStatsEps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\TableStatsPdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
+
+		-
+			message: "#^Parameter \\#4 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:addRelation\\(\\) expects string, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
 
@@ -7661,6 +8066,11 @@ parameters:
 			path: libraries/classes/Server/Privileges.php
 
 		-
+			message: "#^Access to an uninitialized property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$replicationInfo\\.$#"
+			count: 2
+			path: libraries/classes/Server/Status/Data.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:calculateValues\\(\\) has parameter \\$server_status with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Server/Status/Data.php
@@ -7727,6 +8137,16 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:sortVariables\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Server/Status/Data.php
+
+		-
+			message: "#^Parameter \\#1 \\$haystack of function str_contains expects string, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Server/Status/Data.php
+
+		-
+			message: "#^Parameter \\#2 \\$needle of function str_contains expects string, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: libraries/classes/Server/Status/Data.php
 
@@ -7961,7 +8381,22 @@ parameters:
 			path: libraries/classes/Setup/ConfigGenerator.php
 
 		-
+			message: "#^Parameter \\#1 \\$haystack of function str_contains expects string, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Setup/ConfigGenerator.php
+
+		-
+			message: "#^Parameter \\#1 \\$id of method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:getServerName\\(\\) expects int, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Setup/ConfigGenerator.php
+
+		-
 			message: "#^Parameter \\#1 \\$var_name of static method PhpMyAdmin\\\\Setup\\\\ConfigGenerator\\:\\:getVarExport\\(\\) expects string, string\\|null given\\.$#"
+			count: 2
+			path: libraries/classes/Setup/ConfigGenerator.php
+
+		-
+			message: "#^Parameter \\#3 \\$subject of function preg_replace expects array\\|string, \\(int\\|string\\) given\\.$#"
 			count: 2
 			path: libraries/classes/Setup/ConfigGenerator.php
 
@@ -7982,6 +8417,11 @@ parameters:
 
 		-
 			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$order\\.$#"
+			count: 1
+			path: libraries/classes/Sql.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$where\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
@@ -8031,6 +8471,11 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Sql\\:\\:getDetailedProfilingStats\\(\\) should return array\\<string, array\\|int\\> but returns array\\<string, array\\<int\\|string, mixed\\>\\|float\\|int\\>\\.$#"
+			count: 1
+			path: libraries/classes/Sql.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Sql\\:\\:getHtmlForPreviousUpdateQuery\\(\\) has parameter \\$sqlData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
@@ -8057,6 +8502,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Sql\\:\\:getQueryResponseForResultsReturned\\(\\) has parameter \\$sqlData with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Sql.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Sql\\:\\:getStartPosToDisplayRow\\(\\) should return int but returns \\(float\\|int\\)\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
@@ -8161,6 +8611,11 @@ parameters:
 			path: libraries/classes/StorageEngine.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\StorageEngine\\:\\:getMroongaLengths\\(\\) should return array\\<int\\> but returns array\\<int, \\(float\\|int\\)\\>\\.$#"
+			count: 1
+			path: libraries/classes/StorageEngine.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\StorageEngine\\:\\:getStorageEngines\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/StorageEngine.php
@@ -8208,6 +8663,11 @@ parameters:
 		-
 			message: "#^Casting to string something that's already string\\.$#"
 			count: 5
+			path: libraries/classes/Table.php
+
+		-
+			message: "#^Foreach overwrites \\$trigger with its value variable\\.$#"
+			count: 1
 			path: libraries/classes/Table.php
 
 		-
@@ -8401,6 +8861,11 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
+			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, \\(int\\|string\\) given\\.$#"
+			count: 2
+			path: libraries/classes/Table.php
+
+		-
 			message: "#^Parameter \\#1 \\$string of function substr expects string, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Table.php
@@ -8447,6 +8912,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Table\\\\ColumnsDefinition\\:\\:displayForm\\(\\) has parameter \\$selected with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Table/ColumnsDefinition.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function rtrim expects string, \\(array\\<int, string\\>\\|string\\|null\\) given\\.$#"
 			count: 1
 			path: libraries/classes/Table/ColumnsDefinition.php
 
@@ -8567,6 +9037,11 @@ parameters:
 
 		-
 			message: "#^Casting to string something that's already string\\.$#"
+			count: 1
+			path: libraries/classes/Tracker.php
+
+		-
+			message: "#^Foreach overwrites \\$logEntry with its value variable\\.$#"
 			count: 1
 			path: libraries/classes/Tracker.php
 
@@ -8851,6 +9326,11 @@ parameters:
 			path: libraries/classes/Tracking.php
 
 		-
+			message: "#^Foreach overwrites \\$file with its value variable\\.$#"
+			count: 1
+			path: libraries/classes/Transformations.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Transformations\\:\\:getAvailableMimeTypes\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Transformations.php
@@ -8931,6 +9411,11 @@ parameters:
 			path: libraries/classes/Url.php
 
 		-
+			message: "#^Parameter \\#2 \\$pre of static method PhpMyAdmin\\\\Url\\:\\:getHiddenFields\\(\\) expects string, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/Url.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\UserPassword\\:\\:setChangePasswordMsg\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/UserPassword.php
@@ -8956,6 +9441,11 @@ parameters:
 			path: libraries/classes/UserPreferences.php
 
 		-
+			message: "#^Parameter \\#1 \\$path of static method PhpMyAdmin\\\\Core\\:\\:arrayWrite\\(\\) expects string, \\(int\\|string\\) given\\.$#"
+			count: 1
+			path: libraries/classes/UserPreferences.php
+
+		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:quoteString\\(\\) expects string, string\\|false given\\.$#"
 			count: 2
 			path: libraries/classes/UserPreferences.php
@@ -8973,6 +9463,11 @@ parameters:
 		-
 			message: "#^Casting to int something that's already int\\<min, \\-2\\>\\|int\\<0, max\\>\\.$#"
 			count: 5
+			path: libraries/classes/Util.php
+
+		-
+			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
+			count: 1
 			path: libraries/classes/Util.php
 
 		-
@@ -8997,6 +9492,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Util\\:\\:getDbInfo\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Util.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Util\\:\\:getDbInfo\\(\\) should return array\\{array, int, int\\} but returns array\\{\\(array\\|float\\|int\\), int\\<0, max\\>, int\\<0, max\\>\\}\\.$#"
 			count: 1
 			path: libraries/classes/Util.php
 
@@ -9062,6 +9562,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$row of static method PhpMyAdmin\\\\Util\\:\\:getConditionValue\\(\\) expects float\\|int\\|string\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Util.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, \\(array\\|float\\|int\\) given\\.$#"
 			count: 1
 			path: libraries/classes/Util.php
 
@@ -9136,6 +9641,21 @@ parameters:
 			path: libraries/classes/Utils/HttpRequest.php
 
 		-
+			message: "#^Access to an undefined property object\\:\\:\\$date\\.$#"
+			count: 1
+			path: libraries/classes/VersionInformation.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$releases\\.$#"
+			count: 1
+			path: libraries/classes/VersionInformation.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$version\\.$#"
+			count: 1
+			path: libraries/classes/VersionInformation.php
+
+		-
 			message: "#^Comparison operation \"\\>\\=\" between int\\<1, max\\> and 1 is always true\\.$#"
 			count: 1
 			path: libraries/classes/VersionInformation.php
@@ -9176,14 +9696,9 @@ parameters:
 			path: libraries/classes/ZipExtension.php
 
 		-
-			message: "#^Call to function method_exists\\(\\) with 'PHPUnit\\\\\\\\Framework\\\\\\\\TestCase' and 'assertFileDoesNotEx…' will always evaluate to true\\.$#"
+			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, \\(int\\|string\\) given\\.$#"
 			count: 1
-			path: test/classes/AbstractTestCase.php
-
-		-
-			message: "#^Call to function method_exists\\(\\) with 'PHPUnit\\\\\\\\Framework\\\\\\\\TestCase' and 'assertMatchesRegula…' will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/AbstractTestCase.php
+			path: libraries/classes/ZipExtension.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\AbstractTestCase\\:\\:callFunction\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
@@ -11344,6 +11859,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\StorageEngineTest\\:\\:providerGetEngine\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/StorageEngineTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:connect\\(\\) never returns null so it can be removed from the return type\\.$#"
+			count: 1
+			path: test/classes/Stubs/DbiDummy.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:fetchAny\\(\\) return type has no value type specified in iterable type array\\.$#"

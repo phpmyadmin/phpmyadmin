@@ -32,7 +32,7 @@ class ServerRequestTest extends TestCase
      * @return array<int, array<int, array<string, string>|string>>
      * @psalm-return array<int, array{string, array<string, string>, array<string, string>}>
      */
-    public function providerForTestGetRoute(): iterable
+    public static function providerForTestGetRoute(): iterable
     {
         return [
             ['/', [], []],

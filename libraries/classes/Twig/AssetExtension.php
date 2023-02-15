@@ -16,7 +16,7 @@ final class AssetExtension extends AbstractExtension
     public function getFunctions()
     {
         return [
-            new TwigFunction('image', [$this, 'getImagePath']),
+            new TwigFunction('image', $this->getImagePath(...)),
         ];
     }
 

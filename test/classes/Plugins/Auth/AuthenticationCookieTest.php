@@ -733,7 +733,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
-    public function dataProviderPasswordLength(): array
+    public static function dataProviderPasswordLength(): array
     {
         return [
             [
@@ -1056,7 +1056,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         }
     }
 
-    public function checkRulesProvider(): array
+    public static function checkRulesProvider(): array
     {
         return [
             'nopass-ok' => [

@@ -71,7 +71,7 @@ class GisTest extends AbstractTestCase
         ));
     }
 
-    public function providerConvertToWellKnownText(): array
+    public static function providerConvertToWellKnownText(): array
     {
         return [
             [

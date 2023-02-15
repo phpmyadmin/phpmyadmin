@@ -3501,6 +3501,10 @@ Various display setting
 Page titles
 -----------
 
+The page title displayed by your browser's window or tab title bar can be customized. You can use :ref:`faq6_27`.
+The following four options allow customizing various parts of the phpMyAdmin interface. Note that the login page
+title cannot be changed.
+
 .. config:option:: $cfg['TitleTable']
 
     :type: string
@@ -3520,8 +3524,6 @@ Page titles
 
     :type: string
     :default: ``'@HTTP_HOST@ | @PHPMYADMIN@'``
-
-    Allows you to specify window's title bar. You can use :ref:`faq6_27`.
 
 Theme manager settings
 ----------------------
