@@ -75,7 +75,7 @@ class GisGeometryCollection extends GisGeometry
 
             $scale_data = $gis_obj->scaleRow($sub_part);
 
-            $min_max = $min_max === null ? $scale_data : $scale_data->merge($min_max);
+            $min_max = $min_max === null ? $scale_data : $scale_data?->merge($min_max);
         }
 
         return $min_max;

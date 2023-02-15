@@ -517,12 +517,7 @@ class GisVisualization
      */
     private function scaleDataSet(array $data)
     {
-        $min_max = [
-            'maxX' => 0.0,
-            'maxY' => 0.0,
-            'minX' => 0.0,
-            'minY' => 0.0,
-        ];
+        $min_max = null;
         $border = 15;
         // effective width and height of the plot
         $plot_width = $this->settings['width'] - 2 * $border;
@@ -550,52 +545,34 @@ class GisVisualization
             $scaleData = $gis_obj->scaleRow($row[$this->settings['spatialColumn']]);
 
             // Update minimum/maximum values for x and y coordinates.
-            $c_maxX = $scaleData->maxX;
-            if ($min_max['maxX'] === 0.0 || $c_maxX > $min_max['maxX']) {
-                $min_max['maxX'] = $c_maxX;
-            }
-
-            $c_minX = $scaleData->minX;
-            if ($min_max['minX'] === 0.0 || $c_minX < $min_max['minX']) {
-                $min_max['minX'] = $c_minX;
-            }
-
-            $c_maxY = $scaleData->maxY;
-            if ($min_max['maxY'] === 0.0 || $c_maxY > $min_max['maxY']) {
-                $min_max['maxY'] = $c_maxY;
-            }
-
-            $c_minY = $scaleData->minY;
-            if ($min_max['minY'] !== 0.0 && $c_minY >= $min_max['minY']) {
-                continue;
-            }
-
-            $min_max['minY'] = $c_minY;
+            $min_max = $min_max === null ? $scaleData : $scaleData?->merge($min_max);
         }
 
+        $min_max ??= new ScaleData(0, 0, 0, 0);
+
         // scale the visualization
-        $x_ratio = ($min_max['maxX'] - $min_max['minX']) / $plot_width;
-        $y_ratio = ($min_max['maxY'] - $min_max['minY']) / $plot_height;
+        $x_ratio = ($min_max->maxX - $min_max->minX) / $plot_width;
+        $y_ratio = ($min_max->maxY - $min_max->minY) / $plot_height;
         $ratio = $x_ratio > $y_ratio ? $x_ratio : $y_ratio;
 
         $scale = $ratio != 0 ? 1 / $ratio : 1;
 
         // Center plot
         $x = $ratio == 0 || $x_ratio < $y_ratio
-            ? ($min_max['maxX'] + $min_max['minX'] - $this->settings['width'] / $scale) / 2
-            : $min_max['minX'] - ($border / $scale);
+            ? ($min_max->maxX + $min_max->minX - $this->settings['width'] / $scale) / 2
+            : $min_max->minX - ($border / $scale);
         $y = $ratio == 0 || $x_ratio >= $y_ratio
-            ? ($min_max['maxY'] + $min_max['minY'] - $this->settings['height'] / $scale) / 2
-            : $min_max['minY'] - ($border / $scale);
+            ? ($min_max->maxY + $min_max->minY - $this->settings['height'] / $scale) / 2
+            : $min_max->minY - ($border / $scale);
 
         return [
             'scale' => $scale,
             'x' => $x,
             'y' => $y,
-            'minX' => $min_max['minX'],
-            'maxX' => $min_max['maxX'],
-            'minY' => $min_max['minY'],
-            'maxY' => $min_max['maxY'],
+            'minX' => $min_max->minX,
+            'maxX' => $min_max->maxX,
+            'minY' => $min_max->minY,
+            'maxY' => $min_max->maxY,
             'height' => $this->settings['height'],
         ];
     }
