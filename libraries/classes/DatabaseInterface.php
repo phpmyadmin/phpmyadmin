@@ -189,15 +189,13 @@ class DatabaseInterface implements DbalInterface
      *                                  to use unbuffered mode
      * @param bool   $cacheAffectedRows whether to cache affected row
      * @psalm-param ConnectionType $connectionType
-     *
-     * @return ResultInterface|false
      */
     public function tryQuery(
         string $query,
         int $connectionType = Connection::TYPE_USER,
         int $options = self::QUERY_BUFFERED,
         bool $cacheAffectedRows = true
-    ) {
+    ): ResultInterface|false {
         $debug = isset($GLOBALS['cfg']['DBG']) && $GLOBALS['cfg']['DBG']['sql'];
         if (! isset($this->connections[$connectionType])) {
             return false;
@@ -289,7 +287,7 @@ class DatabaseInterface implements DbalInterface
      *
      * @return ResultInterface|false the result set, or false if the query failed
      */
-    public function tryQueryAsControlUser(string $sql)
+    public function tryQueryAsControlUser(string $sql): ResultInterface|false
     {
         // Avoid caching of the number of rows affected; for example, this function
         // is called for tracking purposes but we want to display the correct number
@@ -1209,7 +1207,7 @@ class DatabaseInterface implements DbalInterface
      *
      * @return mixed
      */
-    private function fetchValueOrValueByIndex($row, $value)
+    private function fetchValueOrValueByIndex(array|string $row, $value)
     {
         return $value === null ? $row : $row[$value];
     }
@@ -1667,7 +1665,7 @@ class DatabaseInterface implements DbalInterface
      *
      * @return ResultInterface|false false when empty results / result set when not empty
      */
-    public function storeResult(int $connectionType = Connection::TYPE_USER)
+    public function storeResult(int $connectionType = Connection::TYPE_USER): ResultInterface|false
     {
         if (! isset($this->connections[$connectionType])) {
             return false;
@@ -1683,7 +1681,7 @@ class DatabaseInterface implements DbalInterface
      *
      * @return string|bool type of connection used
      */
-    public function getHostInfo(int $connectionType = Connection::TYPE_USER)
+    public function getHostInfo(int $connectionType = Connection::TYPE_USER): string|bool
     {
         if (! isset($this->connections[$connectionType])) {
             return false;
@@ -1699,7 +1697,7 @@ class DatabaseInterface implements DbalInterface
      *
      * @return int|bool version of the MySQL protocol used
      */
-    public function getProtoInfo(int $connectionType = Connection::TYPE_USER)
+    public function getProtoInfo(int $connectionType = Connection::TYPE_USER): int|bool
     {
         if (! isset($this->connections[$connectionType])) {
             return false;
@@ -1738,10 +1736,9 @@ class DatabaseInterface implements DbalInterface
      *
      * @param string $query query to run
      *
-     * @return string|int
      * @psalm-return int|numeric-string
      */
-    public function queryAndGetNumRows(string $query)
+    public function queryAndGetNumRows(string $query): string|int
     {
         $result = $this->tryQuery($query);
 
@@ -1777,13 +1774,12 @@ class DatabaseInterface implements DbalInterface
      * @param bool $getFromCache whether to retrieve from cache
      * @psalm-param ConnectionType $connectionType
      *
-     * @return int|string
      * @psalm-return int|numeric-string
      */
     public function affectedRows(
         int $connectionType = Connection::TYPE_USER,
         bool $getFromCache = true
-    ) {
+    ): int|string {
         if (! isset($this->connections[$connectionType])) {
             return -1;
         }

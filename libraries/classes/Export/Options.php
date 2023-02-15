@@ -108,8 +108,8 @@ final class Options
         $db,
         $table,
         $sqlQuery,
-        $numTables,
-        $unlimNumRows,
+        int|string $numTables,
+        int|string $unlimNumRows,
         array $exportList
     ) {
         $exportTemplatesFeature = $this->relation->getRelationParameters()->exportTemplatesFeature;

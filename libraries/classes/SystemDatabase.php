@@ -35,7 +35,7 @@ class SystemDatabase
      *
      * @return ResultInterface|false Result of executed SQL query
      */
-    public function getExistingTransformationData($db)
+    public function getExistingTransformationData($db): ResultInterface|false
     {
         $browserTransformationFeature = $this->relation->getRelationParameters()->browserTransformationFeature;
         if ($browserTransformationFeature === null) {

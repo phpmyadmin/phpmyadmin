@@ -47,10 +47,8 @@ class ExportJson extends ExportPlugin
      * Encodes the data into JSON
      *
      * @param mixed $data Data to encode
-     *
-     * @return string|false
      */
-    public function encode($data)
+    public function encode($data): string|false
     {
         $options = 0;
         if (isset($GLOBALS['json_pretty_print']) && $GLOBALS['json_pretty_print']) {

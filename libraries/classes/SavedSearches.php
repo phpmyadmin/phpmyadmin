@@ -120,7 +120,7 @@ class SavedSearches
      *
      * @return static
      */
-    public function setCriterias($criterias, $json = false)
+    public function setCriterias(array|string $criterias, $json = false)
     {
         if ($json === true && is_string($criterias)) {
             $this->criterias = json_decode($criterias, true);

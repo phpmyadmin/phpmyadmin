@@ -58,10 +58,7 @@ final class TemplateModel
         return $this->dbi->getError(Connection::TYPE_CONTROL);
     }
 
-    /**
-     * @return Template|string
-     */
-    public function load(DatabaseName $db, TableName $table, string $user, int $id)
+    public function load(DatabaseName $db, TableName $table, string $user, int $id): Template|string
     {
         $query = sprintf(
             'SELECT * FROM %s.%s WHERE `id` = %s AND `username` = \'%s\';',
@@ -110,7 +107,7 @@ final class TemplateModel
     /**
      * @return Template[]|string
      */
-    public function getAll(DatabaseName $db, TableName $table, string $user, string $exportType)
+    public function getAll(DatabaseName $db, TableName $table, string $user, string $exportType): array|string
     {
         $query = sprintf(
             'SELECT * FROM %s.%s WHERE `username` = \'%s\' AND `export_type` = \'%s\' ORDER BY `template_name`;',

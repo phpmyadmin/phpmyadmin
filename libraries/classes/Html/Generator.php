@@ -469,7 +469,7 @@ class Generator
      * @throws SyntaxError
      */
     public static function getMessage(
-        $message,
+        Message|string $message,
         $sqlQuery = null,
         $type = 'notice'
     ): string {
@@ -1008,7 +1008,7 @@ class Generator
         $urlPath,
         $urlParams,
         $message,
-        $tagParams = [],
+        string|array $tagParams = [],
         $target = '',
         bool $respectUrlLengthLimit = true
     ): string {

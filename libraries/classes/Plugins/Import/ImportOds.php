@@ -229,10 +229,8 @@ class ImportOds extends ImportPlugin
      *
      * @param SimpleXMLElement $cell_attrs Cell attributes
      * @param SimpleXMLElement $text       Texts
-     *
-     * @return float|string
      */
-    protected function getValue($cell_attrs, $text)
+    protected function getValue($cell_attrs, $text): float|string
     {
         if (
             isset($_REQUEST['ods_recognize_percentages'])
@@ -391,7 +389,7 @@ class ImportOds extends ImportPlugin
      *
      * @return array|array[]
      */
-    private function iterateOverTables($sheets): array
+    private function iterateOverTables(array|SimpleXMLElement $sheets): array
     {
         $tables = [];
         $max_cols = 0;

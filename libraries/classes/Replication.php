@@ -54,7 +54,7 @@ class Replication
      *
      * @return ResultInterface|false|int output of DatabaseInterface::tryQuery
      */
-    public function replicaControl(string $action, ?string $control, int $connectionType)
+    public function replicaControl(string $action, ?string $control, int $connectionType): ResultInterface|false|int
     {
         $action = mb_strtoupper($action);
         $control = $control !== null ? mb_strtoupper($control) : '';
@@ -93,7 +93,7 @@ class Replication
         bool $stop,
         bool $start,
         int $connectionType
-    ) {
+    ): ResultInterface|false {
         if ($stop) {
             $this->replicaControl('STOP', null, $connectionType);
         }

@@ -159,7 +159,7 @@ class File
      *
      * @return string|false the binary file content, or false if no content
      */
-    public function getRawContent()
+    public function getRawContent(): string|false
     {
         if ($this->content !== null) {
             return $this->content;
@@ -184,7 +184,7 @@ class File
      * @return string|false the binary file content as a string,
      *                      or false if no content
      */
-    public function getContent()
+    public function getContent(): string|false
     {
         $result = $this->getRawContent();
         if ($result === false) {
@@ -507,7 +507,7 @@ class File
      * @todo   move file read part into readChunk() or getChunk()
      * @todo   add support for compression plugins
      */
-    protected function detectCompression()
+    protected function detectCompression(): string|false
     {
         // suppress warnings from being displayed, but not from being logged
         // f.e. any file access outside of open_basedir will issue a warning

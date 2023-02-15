@@ -489,7 +489,7 @@ class Relation
      *
      * @return string|false field name or false
      */
-    public function getDisplayField($db, $table)
+    public function getDisplayField($db, $table): string|false
     {
         $displayFeature = $this->getRelationParameters()->displayFeature;
 
@@ -723,7 +723,7 @@ class Relation
      *
      * @return array|bool list of history items
      */
-    public function getHistory($username)
+    public function getHistory($username): array|bool
     {
         $sqlHistoryFeature = $this->getRelationParameters()->sqlHistoryFeature;
         if ($sqlHistoryFeature === null) {
@@ -1003,7 +1003,7 @@ class Relation
      * }
      */
     public function getForeignData(
-        $foreigners,
+        array|bool $foreigners,
         $field,
         $override_total,
         string $foreign_filter,
@@ -1461,10 +1461,8 @@ class Relation
      *
      * @param array  $foreigners Table Foreign data
      * @param string $column     Column name
-     *
-     * @return array|false
      */
-    public function searchColumnInForeigners(array $foreigners, $column)
+    public function searchColumnInForeigners(array $foreigners, $column): array|false
     {
         if (isset($foreigners[$column])) {
             return $foreigners[$column];

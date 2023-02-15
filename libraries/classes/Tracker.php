@@ -412,7 +412,7 @@ class Tracker
         $tableName,
         $version,
         $type,
-        $newData
+        string|array $newData
     ): bool {
         $relation = new Relation($GLOBALS['dbi']);
 

@@ -319,7 +319,7 @@ interface DbalInterface
      */
     public function fetchValue(
         string $query,
-        $field = 0,
+        int|string $field = 0,
         int $connectionType = Connection::TYPE_USER
     );
 

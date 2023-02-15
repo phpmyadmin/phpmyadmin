@@ -859,7 +859,7 @@ class LanguageManager
      *
      * @return Language|false Language object or false on failure
      */
-    public function getLanguage($code)
+    public function getLanguage($code): Language|false
     {
         $code = strtolower($code);
         $langs = $this->availableLanguages();

@@ -2945,7 +2945,7 @@ class Privileges
         $urlDbname,
         string $username,
         string $hostname,
-        $dbname,
+        string|array $dbname,
         $tablename,
         string $route
     ): string {

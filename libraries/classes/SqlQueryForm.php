@@ -62,8 +62,8 @@ class SqlQueryForm
     public function getHtml(
         string $db,
         string $table,
-        $query = true,
-        $display_tab = false,
+        bool|string $query = true,
+        bool|string $display_tab = false,
         $delimiter = ';'
     ) {
         if (! $display_tab) {

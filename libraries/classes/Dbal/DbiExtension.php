@@ -34,7 +34,7 @@ interface DbiExtension
      *
      * @return ResultInterface|false result
      */
-    public function realQuery(string $query, Connection $connection, int $options);
+    public function realQuery(string $query, Connection $connection, int $options): ResultInterface|false;
 
     /**
      * Run the multi query and output the results
@@ -60,7 +60,7 @@ interface DbiExtension
      *
      * @return ResultInterface|false false when empty results / result set when not empty
      */
-    public function storeResult(Connection $connection);
+    public function storeResult(Connection $connection): ResultInterface|false;
 
     /**
      * Returns a string representing the type of connection used
@@ -91,10 +91,9 @@ interface DbiExtension
     /**
      * returns the number of rows affected by last query
      *
-     * @return int|string
      * @psalm-return int|numeric-string
      */
-    public function affectedRows(Connection $connection);
+    public function affectedRows(Connection $connection): int|string;
 
     /**
      * returns properly escaped string for use in MySQL queries

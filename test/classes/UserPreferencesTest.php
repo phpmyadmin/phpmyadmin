@@ -9,6 +9,7 @@ use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
 
@@ -201,7 +202,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with($query2, Connection::TYPE_CONTROL)
-            ->will($this->returnValue(true));
+            ->will($this->returnValue($this->createStub(DummyResult::class)));
 
         $dbi->expects($this->any())
             ->method('quoteString')

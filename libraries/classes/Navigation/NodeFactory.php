@@ -28,7 +28,7 @@ class NodeFactory
      */
     public static function getInstance(
         string $class,
-        $name = 'default',
+        string|array $name = 'default',
         $type = Node::OBJECT,
         $isGroup = false
     ): Node {

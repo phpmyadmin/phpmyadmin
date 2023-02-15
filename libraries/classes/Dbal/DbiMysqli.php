@@ -178,10 +178,8 @@ class DbiMysqli implements DbiExtension
      *
      * @param string $query   query to execute
      * @param int    $options query options
-     *
-     * @return MysqliResult|false
      */
-    public function realQuery(string $query, Connection $connection, int $options)
+    public function realQuery(string $query, Connection $connection, int $options): MysqliResult|false
     {
         $method = MYSQLI_STORE_RESULT;
         if ($options == ($options | DatabaseInterface::QUERY_UNBUFFERED)) {
@@ -239,7 +237,7 @@ class DbiMysqli implements DbiExtension
      *
      * @return MysqliResult|false false when empty results / result set when not empty
      */
-    public function storeResult(Connection $connection)
+    public function storeResult(Connection $connection): MysqliResult|false
     {
         /** @var mysqli $mysqli */
         $mysqli = $connection->connection;
@@ -314,10 +312,9 @@ class DbiMysqli implements DbiExtension
     /**
      * returns the number of rows affected by last query
      *
-     * @return int|string
      * @psalm-return int|numeric-string
      */
-    public function affectedRows(Connection $connection)
+    public function affectedRows(Connection $connection): int|string
     {
         /** @var mysqli $mysqli */
         $mysqli = $connection->connection;

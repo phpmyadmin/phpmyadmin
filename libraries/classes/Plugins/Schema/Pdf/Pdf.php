@@ -126,11 +126,11 @@ class Pdf extends PdfLib
      * @param float|int $topMargin  The top margin
      */
     public function setScale(
-        $scale = 1,
-        $xMin = 0,
-        $yMin = 0,
-        $leftMargin = -1,
-        $topMargin = -1
+        float|int $scale = 1,
+        float|int $xMin = 0,
+        float|int $yMin = 0,
+        float|int $leftMargin = -1,
+        float|int $topMargin = -1
     ): void {
         $this->scale = $scale;
         $this->xMin = $xMin;
@@ -161,8 +161,8 @@ class Pdf extends PdfLib
      * @param string    $link   Link
      */
     public function cellScale(
-        $w,
-        $h = 0,
+        float|int $w,
+        float|int $h = 0,
         $txt = '',
         $border = 0,
         $ln = 0,

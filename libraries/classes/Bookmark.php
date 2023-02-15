@@ -193,11 +193,12 @@ class Bookmark
      *
      * @param array $bkm_fields the properties of the bookmark to add; here, $bkm_fields['bkm_sql_query'] is urlencoded
      * @param bool  $all_users  whether to make the bookmark available for all users
-     *
-     * @return Bookmark|false
      */
-    public static function createBookmark(DatabaseInterface $dbi, array $bkm_fields, bool $all_users = false)
-    {
+    public static function createBookmark(
+        DatabaseInterface $dbi,
+        array $bkm_fields,
+        bool $all_users = false
+    ): Bookmark|false {
         if (
             ! (isset($bkm_fields['bkm_sql_query'], $bkm_fields['bkm_label'])
             && strlen($bkm_fields['bkm_sql_query']) > 0
@@ -243,7 +244,7 @@ class Bookmark
         BookmarkFeature $bookmarkFeature,
         DatabaseInterface $dbi,
         string $user,
-        $db = false
+        string|false $db = false
     ): array {
         $query = 'SELECT * FROM ' . Util::backquote($bookmarkFeature->database)
             . '.' . Util::backquote($bookmarkFeature->bookmark)
@@ -288,7 +289,7 @@ class Bookmark
         DatabaseInterface $dbi,
         string $user,
         DatabaseName $db,
-        $id,
+        int|string $id,
         string $id_field = 'id',
         bool $action_bookmark_all = false,
         bool $exact_user_match = false

@@ -135,7 +135,7 @@ class ZipExtension
      *
      * @return string|false the file name of the first file that matches the given regular expression
      */
-    public function findFile($file, $regex)
+    public function findFile($file, $regex): string|false
     {
         if ($this->zip === null) {
             return false;
@@ -187,7 +187,7 @@ class ZipExtension
      *
      * @return string|false data on success, false otherwise
      */
-    public function extract($file, $entry)
+    public function extract($file, $entry): string|false
     {
         if ($this->zip === null) {
             return false;
@@ -216,7 +216,7 @@ class ZipExtension
      *
      * @return string|bool the ZIP file contents, or false if there was an error.
      */
-    public function createFile($data, $name, $time = 0)
+    public function createFile(array|string $data, array|string $name, $time = 0): string|bool
     {
         $datasec = []; // Array to store compressed data
         $ctrlDir = []; // Central directory

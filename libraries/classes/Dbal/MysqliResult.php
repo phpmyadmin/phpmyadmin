@@ -213,10 +213,9 @@ final class MysqliResult implements ResultInterface
     /**
      * Returns the number of rows in the result
      *
-     * @return string|int
      * @psalm-return int|numeric-string
      */
-    public function numRows()
+    public function numRows(): string|int
     {
         if (! $this->result) {
             return 0;

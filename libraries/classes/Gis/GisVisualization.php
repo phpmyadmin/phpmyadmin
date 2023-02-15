@@ -611,8 +611,12 @@ class GisVisualization
      *
      * @return mixed the formatted array of data
      */
-    private function prepareDataSet(array $data, array $scale_data, $format, $results)
-    {
+    private function prepareDataSet(
+        array $data,
+        array $scale_data,
+        $format,
+        ImageWrapper|TCPDF|string|false $results
+    ) {
         /** @var int[][] $colors */
         $colors = $this->settings['colors'];
         $color_index = 0;

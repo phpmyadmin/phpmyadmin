@@ -325,7 +325,7 @@ class NavigationTree
      *
      * @return Node|bool The active node or false in case of failure, or true: (@see buildPathPart())
      */
-    private function buildPath()
+    private function buildPath(): Node|bool
     {
         $retval = $this->tree;
 
@@ -372,7 +372,7 @@ class NavigationTree
      *
      * @return Node|bool    The active node or false in case of failure, true if the path contains <= 1 items
      */
-    private function buildPathPart(array $path, string $type2, int $pos2, string $type3, int $pos3)
+    private function buildPathPart(array $path, string $type2, int $pos2, string $type3, int $pos3): Node|bool
     {
         if (count($path) <= 1) {
             return true;
@@ -908,7 +908,7 @@ class NavigationTree
      *
      * @return string|false HTML code for the navigation tree
      */
-    public function renderPath()
+    public function renderPath(): string|false
     {
         $node = $this->buildPath();
         if (! is_bool($node)) {
