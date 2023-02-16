@@ -2571,6 +2571,16 @@ parameters:
 			path: libraries/classes/Controllers/UserPasswordController.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Controllers\\\\View\\\\CreateController\\:\\:getSqlQuery\\(\\) has parameter \\$view with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/View/CreateController.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Controllers\\\\View\\\\CreateController\\:\\:setSuccessResponse\\(\\) has parameter \\$view with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/View/CreateController.php
+
+		-
 			message: "#^PHPDoc tag @var for variable \\$view has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/View/CreateController.php
