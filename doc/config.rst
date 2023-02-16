@@ -3966,7 +3966,7 @@ reCaptcha using hCaptcha
 .. seealso:: `hCaptcha Developer Guide <https://docs.hcaptcha.com/>`_
 
 reCaptcha using Turnstile
-++++++++++++++++++++++++
++++++++++++++++++++++++++
 
 .. code-block:: php
 
