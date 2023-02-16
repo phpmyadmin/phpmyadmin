@@ -79,7 +79,7 @@ class CreateController extends AbstractController
         $view = $request->getParsedBodyParam('view');
 
         // View name is a compulsory field
-        if (empty($view['name'])) {
+        if (isset($view['name']) && $view['name'] === '') {
             $GLOBALS['message'] = Message::error(__('View name can not be empty!'));
             $this->response->addJSON('message', $GLOBALS['message']);
             $this->response->setRequestStatus(false);
@@ -91,7 +91,7 @@ class CreateController extends AbstractController
         $alterview = $request->hasBodyParam('alterview');
         $ajaxdialog = $request->hasBodyParam('ajax_dialog');
 
-        if ($createview || $alterview) {
+        if (($createview || $alterview) && $view !== null) {
             /**
              * Creates the view
              */
@@ -261,7 +261,9 @@ class CreateController extends AbstractController
             }
         }
 
-        $viewData = array_merge($viewData, $view);
+        if ($view !== null) {
+            $viewData = array_merge($viewData, $view);
+        }
 
         $GLOBALS['urlParams']['db'] = $GLOBALS['db'];
         $GLOBALS['urlParams']['reload'] = 1;
