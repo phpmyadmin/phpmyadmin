@@ -197,6 +197,22 @@ class TableTest extends AbstractTestCase
                     ],
                 ],
             ],
+            [
+                "SELECT TABLE_NAME FROM information_schema.VIEWS WHERE TABLE_SCHEMA = 'aa' AND TABLE_NAME = 'ad'",
+                null,
+                null,
+                DatabaseInterface::CONNECT_USER,
+                [
+                    ['ad'],
+                ],
+            ],
+            [
+                "SELECT TABLE_NAME FROM information_schema.VIEWS WHERE TABLE_SCHEMA = 'bb' AND TABLE_NAME = 'ad'",
+                null,
+                null,
+                DatabaseInterface::CONNECT_USER,
+                [],
+            ],
         ];
 
         $resultStub = $this->createMock(DummyResult::class);
@@ -233,13 +249,6 @@ class TableTest extends AbstractTestCase
 
         $dbi->expects($this->any())->method('getTablesFull')
             ->will($this->returnValue($databases));
-
-        $resultStub->expects($this->any())
-            ->method('numRows')
-            ->will($this->returnValue(20));
-
-        $dbi->expects($this->any())->method('tryQuery')
-            ->will($this->returnValue($resultStub));
 
         $triggers = [
             [
@@ -1374,9 +1383,18 @@ class TableTest extends AbstractTestCase
      */
     public function testCountRecords(): void
     {
+        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub->expects($this->any())
+            ->method('numRows')
+            ->will($this->returnValue(20));
+
+        $dbi = clone $GLOBALS['dbi'];
+        $dbi->expects($this->any())->method('tryQuery')
+            ->will($this->returnValue($resultStub));
+
         $table = 'PMA_BookMark';
         $db = 'PMA';
-        $tableObj = new Table($table, $db);
+        $tableObj = new Table($table, $db, $dbi);
 
         $this->assertEquals(
             20,
@@ -1425,8 +1443,23 @@ class TableTest extends AbstractTestCase
         $move = true;
         $mode = 'one_table';
 
+        unset($GLOBALS['sql_drop_table']);
+
+        $getTableMap = [
+            [
+                $target_db,
+                $target_table,
+                new Table($target_table, $target_db),
+            ],
+            [
+                'aa',
+                'ad',
+                new Table('ad', 'aa'),
+            ],
+        ];
+
         $GLOBALS['dbi']->expects($this->any())->method('getTable')
-            ->will($this->returnValue(new Table($target_table, $target_db)));
+            ->will($this->returnValueMap($getTableMap));
 
         $return = Table::moveCopy($source_db, $source_table, $target_db, $target_table, $what, $move, $mode, true);
 
@@ -1451,6 +1484,48 @@ class TableTest extends AbstractTestCase
         $this->assertStringContainsString($sql_query, $GLOBALS['sql_query']);
         $sql_query = 'DROP VIEW `PMA`.`PMA_BookMark`';
         $this->assertStringNotContainsString($sql_query, $GLOBALS['sql_query']);
+
+        // Renaming DB with a view bug
+        $resultStub = $this->createMock(DummyResult::class);
+        $GLOBALS['dbi']->expects($this->any())->method('tryQuery')
+            ->will($this->returnValueMap([
+                [
+                    'SHOW CREATE TABLE `aa`.`ad`',
+                    256,
+                    DatabaseInterface::QUERY_BUFFERED,
+                    true,
+                    $resultStub,
+                ],
+            ]));
+        $resultStub->expects($this->any())
+            ->method('fetchRow')
+            ->will($this->returnValue([
+                'ad',
+                'CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost`' .
+                    ' SQL SECURITY DEFINER VIEW `ad` AS select `aa`.`bb`.`ac` AS `ac` from `bb`',
+                'utf8mb4',
+                'utf8mb4_unicode_ci',
+            ]));
+
+        $GLOBALS['sql_query'] = '';
+        $return = Table::moveCopy(
+            'aa',
+            'ad',
+            'bb',
+            'ad',
+            'structure',
+            true,
+            'db_copy',
+            true
+        );
+        $this->assertEquals(true, $return);
+        $this->assertStringContainsString('DROP TABLE IF EXISTS `bb`.`ad`;', $GLOBALS['sql_query']);
+        $this->assertStringContainsString(
+            'CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost`' .
+                ' SQL SECURITY DEFINER VIEW `bb`.`ad`  AS SELECT `bb`.`ac` AS `ac` FROM `bb` ;',
+            $GLOBALS['sql_query']
+        );
+        $this->assertStringContainsString('DROP VIEW `aa`.`ad`;', $GLOBALS['sql_query']);
     }
 
     /**

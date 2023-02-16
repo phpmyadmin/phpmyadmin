@@ -1102,7 +1102,7 @@ class Table implements Stringable
                  */
                 $statement = new DropStatement();
 
-                $tbl = new Table($targetDb, $targetTable);
+                $tbl = new Table($targetTable, $targetDb);
 
                 $statement->options = new OptionsArray(
                     [
