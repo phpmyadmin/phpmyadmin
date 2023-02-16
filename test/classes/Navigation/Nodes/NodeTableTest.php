@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
-use PhpMyAdmin\Navigation\NodeFactory;
+use PhpMyAdmin\Navigation\Nodes\NodeTable;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
@@ -36,7 +36,7 @@ class NodeTableTest extends AbstractTestCase
      */
     public function testConstructor(): void
     {
-        $parent = NodeFactory::getInstance('NodeTable');
+        $parent = new NodeTable('default');
         $this->assertIsArray($parent->links);
         $this->assertEquals(
             [
@@ -61,7 +61,7 @@ class NodeTableTest extends AbstractTestCase
     public function testIcon(string $target, string $imageName, string $imageTitle): void
     {
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = $target;
-        $node = NodeFactory::getInstance('NodeTable');
+        $node = new NodeTable('default');
         $this->assertEquals($imageName, $node->icon['image']);
         $this->assertEquals($imageTitle, $node->icon['title']);
     }

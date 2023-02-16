@@ -210,11 +210,11 @@ class Privileges
      * @param bool       $enableHTML add <dfn> tag with tooltips
      * @param bool       $tablePrivs whether row contains table privileges
      *
-     * @return array
+     * @return string[]
      *
      * @global resource $user_link the database connection
      */
-    public function extractPrivInfo($row = null, $enableHTML = false, $tablePrivs = false)
+    public function extractPrivInfo($row = null, $enableHTML = false, $tablePrivs = false): array
     {
         if ($tablePrivs) {
             $grants = $this->getTableGrantsArray();
@@ -2945,7 +2945,7 @@ class Privileges
         $urlDbname,
         string $username,
         string $hostname,
-        $dbname,
+        string|array $dbname,
         $tablename,
         string $route
     ): string {

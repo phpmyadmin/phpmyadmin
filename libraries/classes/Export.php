@@ -492,10 +492,8 @@ class Export
      * @param array|string $dumpBuffer  the current dump buffer
      * @param string       $compression the compression mode
      * @param string       $filename    the filename
-     *
-     * @return array|string|bool
      */
-    public function compress($dumpBuffer, string $compression, string $filename)
+    public function compress(array|string $dumpBuffer, string $compression, string $filename): array|string|bool
     {
         if ($compression === 'zip' && function_exists('gzcompress')) {
             $zipExtension = new ZipExtension();
@@ -574,7 +572,7 @@ class Export
      * @param string       $separateFiles   whether it is a separate-files export
      */
     public function exportServer(
-        $dbSelect,
+        string|array $dbSelect,
         string $whatStrucOrData,
         ExportPlugin $exportPlugin,
         string $errorUrl,
@@ -907,15 +905,15 @@ class Export
             return;
         }
 
-        if (! $exportPlugin->exportRawQuery($errorUrl, $db, $sqlQuery)) {
-            $GLOBALS['message'] = Message::error(
-                // phpcs:disable Generic.Files.LineLength.TooLong
-                /* l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular */
-                __('Exporting a raw query is not supported for this export method.')
-            );
-
+        if ($exportPlugin->exportRawQuery($errorUrl, $db, $sqlQuery)) {
             return;
         }
+
+        $GLOBALS['message'] = Message::error(
+            // phpcs:disable Generic.Files.LineLength.TooLong
+            /* l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular */
+            __('Exporting a raw query is not supported for this export method.')
+        );
     }
 
     /**

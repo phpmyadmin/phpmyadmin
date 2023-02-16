@@ -109,9 +109,8 @@ class Tracker
         $tableName = $str[0];
 
         $tableName = str_replace([';', '`'], '', $tableName);
-        $tableName = trim($tableName);
 
-        return $tableName;
+        return trim($tableName);
     }
 
     /**
@@ -413,7 +412,7 @@ class Tracker
         $tableName,
         $version,
         $type,
-        $newData
+        string|array $newData
     ): bool {
         $relation = new Relation($GLOBALS['dbi']);
 

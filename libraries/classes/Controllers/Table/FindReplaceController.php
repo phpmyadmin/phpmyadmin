@@ -246,7 +246,7 @@ class FindReplaceController extends AbstractController
         $find,
         $replaceWith,
         $charSet
-    ) {
+    ): array|bool {
         $column = $this->columnNames[$columnIndex];
         $sql_query = 'SELECT '
             . Util::backquote($column) . ','

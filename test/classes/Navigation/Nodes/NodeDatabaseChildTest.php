@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\ConfigStorage\RelationParameters;
-use PhpMyAdmin\Navigation\NodeFactory;
+use PhpMyAdmin\Navigation\Nodes\NodeDatabase;
 use PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
@@ -13,6 +13,7 @@ use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * @covers \PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild
+ * @covers \PhpMyAdmin\Navigation\Nodes\NodeDatabase
  */
 class NodeDatabaseChildTest extends AbstractTestCase
 {
@@ -61,7 +62,7 @@ class NodeDatabaseChildTest extends AbstractTestCase
      */
     public function testGetHtmlForControlButtons(): void
     {
-        $parent = NodeFactory::getInstance('NodeDatabase', 'parent');
+        $parent = new NodeDatabase('parent');
         $parent->addChild($this->object);
         $this->object->expects($this->once())
             ->method('getItemType')

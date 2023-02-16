@@ -171,8 +171,7 @@ final class Collation
                 /* Next will be variant unless changed later */
                 $level = 4;
                 /* Locale name or code */
-                $found = true;
-                [$name, $level, $found] = $this->getNameForLevel1($unicode, $unknown, $part, $name, $level, $found);
+                [$name, $level, $found] = $this->getNameForLevel1($unicode, $unknown, $part, $name, $level);
                 if ($found) {
                     continue;
                 }
@@ -428,9 +427,10 @@ final class Collation
         bool $unknown,
         string $part,
         string $name,
-        int $level,
-        bool $found
+        int $level
     ): array {
+        $found = true;
+
         switch ($part) {
             case 'general':
                 break;

@@ -143,7 +143,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
             }
 
             return '<dfn onclick="alert(' . htmlspecialchars((string) json_encode($source), ENT_COMPAT) . ');" title="'
-                . htmlspecialchars((string) $source) . '">' . htmlspecialchars((string) $text) . '</dfn>';
+                . htmlspecialchars($source) . '">' . htmlspecialchars((string) $text) . '</dfn>';
         }
 
         return htmlspecialchars((string) $buffer);

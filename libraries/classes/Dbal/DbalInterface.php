@@ -148,16 +148,6 @@ interface DbalInterface
     ): array;
 
     /**
-     * returns detailed array with all columns for sql
-     *
-     * @param string $sqlQuery    target SQL query to get columns
-     * @param array  $viewColumns alias for columns
-     *
-     * @return array
-     */
-    public function getColumnMapFromSql(string $sqlQuery, array $viewColumns = []): array;
-
-    /**
      * returns detailed array with all columns for given table in database,
      * or all tables/databases
      *
@@ -329,7 +319,7 @@ interface DbalInterface
      */
     public function fetchValue(
         string $query,
-        $field = 0,
+        int|string $field = 0,
         int $connectionType = Connection::TYPE_USER
     );
 

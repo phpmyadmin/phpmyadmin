@@ -198,8 +198,8 @@ class Svg extends XMLWriter
         $name,
         $x,
         $y,
-        $width = '',
-        $height = '',
+        int|string $width = '',
+        int|string $height = '',
         ?string $text = '',
         $styles = ''
     ): void {

@@ -645,7 +645,7 @@ class Types
      *
      * @return string[]
      */
-    public function getAttributes()
+    public function getAttributes(): array
     {
         $serverVersion = $this->dbi->getVersion();
 

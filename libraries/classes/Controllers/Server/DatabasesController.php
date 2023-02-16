@@ -46,9 +46,6 @@ class DatabasesController extends AbstractController
     /** @var bool whether to show database statistics */
     private $hasStatistics;
 
-    /** @var int position in list navigation */
-    private $position;
-
     private DatabaseInterface $dbi;
 
     public function __construct(
@@ -93,7 +90,7 @@ class DatabasesController extends AbstractController
 
         $this->setSortDetails($params['sort_by'], $params['sort_order']);
         $this->hasStatistics = ! empty($params['statistics']);
-        $this->position = ! empty($params['pos']) ? (int) $params['pos'] : 0;
+        $position = ! empty($params['pos']) ? (int) $params['pos'] : 0;
 
         /**
          * Gets the databases list
@@ -105,7 +102,7 @@ class DatabasesController extends AbstractController
                 Connection::TYPE_USER,
                 $this->sortBy,
                 $this->sortOrder,
-                $this->position,
+                $position,
                 true
             );
             $this->databaseCount = count($this->dbi->getDatabaseList());
@@ -113,7 +110,7 @@ class DatabasesController extends AbstractController
 
         $urlParams = [
             'statistics' => $this->hasStatistics,
-            'pos' => $this->position,
+            'pos' => $position,
             'sort_by' => $this->sortBy,
             'sort_order' => $this->sortOrder,
         ];
@@ -155,7 +152,7 @@ class DatabasesController extends AbstractController
             'header_statistics' => $headerStatistics,
             'charsets' => $charsetsList,
             'database_count' => $this->databaseCount,
-            'pos' => $this->position,
+            'pos' => $position,
             'url_params' => $urlParams,
             'max_db_list' => $GLOBALS['cfg']['MaxDbList'],
             'has_primary_replication' => $primaryInfo['status'],

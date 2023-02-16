@@ -191,11 +191,7 @@ class Transformations
      */
     public function getClassName($filename)
     {
-        // get the transformation class name
-        $class_name = explode('.php', $filename);
-        $class_name = 'PhpMyAdmin\\' . str_replace('/', '\\', mb_substr($class_name[0], 18));
-
-        return $class_name;
+        return 'PhpMyAdmin\\' . str_replace('/', '\\', mb_substr(explode('.php', $filename)[0], 18));
     }
 
     /**

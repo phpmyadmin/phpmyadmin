@@ -177,7 +177,7 @@ class ThemeManager
      *
      * @return string|false theme name from cookie or false
      */
-    public function getThemeCookie()
+    public function getThemeCookie(): string|false
     {
         $GLOBALS['config'] = $GLOBALS['config'] ?? null;
 

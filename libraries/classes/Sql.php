@@ -579,7 +579,7 @@ class Sql
      * @return int|string number of rows affected or changed
      * @psalm-return int|numeric-string
      */
-    private function getNumberOfRowsAffectedOrChanged($isAffected, $result)
+    private function getNumberOfRowsAffectedOrChanged($isAffected, ResultInterface|false $result): int|string
     {
         if ($isAffected) {
             return $this->dbi->affectedRows();
@@ -651,12 +651,12 @@ class Sql
      * @psalm-return int|numeric-string
      */
     private function countQueryResults(
-        $numRows,
+        int|string $numRows,
         bool $justBrowsing,
         string $db,
         string $table,
         StatementInfo $statementInfo
-    ) {
+    ): int|string {
         /* Shortcut for not analyzed/empty query */
         if ($statementInfo->statement === null || $statementInfo->parser === null) {
             return 0;
@@ -883,7 +883,7 @@ class Sql
     private function getMessageForNoRowsReturned(
         ?string $messageToShow,
         StatementInfo $statementInfo,
-        $numRows
+        int|string $numRows
     ): Message {
         if ($statementInfo->queryType === 'DELETE') {
             $message = Message::getMessageForDeletedRows($numRows);
@@ -977,7 +977,7 @@ class Sql
         string $db,
         ?string $table,
         ?string $messageToShow,
-        $numRows,
+        int|string $numRows,
         $displayResultsObject,
         ?array $extraData,
         ?array $profilingResults,
@@ -1139,8 +1139,8 @@ class Sql
         $displayResultsObject,
         DisplayParts $displayParts,
         $editable,
-        $unlimNumRows,
-        $numRows,
+        int|string $unlimNumRows,
+        int|string $numRows,
         ?array $showTable,
         $result,
         StatementInfo $statementInfo,
@@ -1260,7 +1260,7 @@ class Sql
         ?string $displayQuery,
         bool $showSql,
         array $sqlData,
-        $displayMessage
+        Message|string $displayMessage
     ): string {
         if ($displayQuery !== null && $showSql && $sqlData === []) {
             return Generator::getMessage($displayMessage, $displayQuery, 'success');
@@ -1348,8 +1348,8 @@ class Sql
         ?string $table,
         ?array $sqlData,
         $displayResultsObject,
-        $unlimNumRows,
-        $numRows,
+        int|string $unlimNumRows,
+        int|string $numRows,
         ?string $dispQuery,
         $dispMessage,
         ?array $profilingResults,

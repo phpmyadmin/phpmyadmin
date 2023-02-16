@@ -193,10 +193,8 @@ class DbiDummy implements DbiExtension
      *
      * @param string $query   query to run
      * @param int    $options query options
-     *
-     * @return DummyResult|false
      */
-    public function realQuery(string $query, Connection $connection, int $options)
+    public function realQuery(string $query, Connection $connection, int $options): DummyResult|false
     {
         $query = trim((string) preg_replace('/  */', ' ', str_replace("\n", ' ', $query)));
         $filoQuery = $this->findFiloQuery($query);
@@ -324,7 +322,7 @@ class DbiDummy implements DbiExtension
      *
      * @return ResultInterface|false false when empty results / result set when not empty
      */
-    public function storeResult(Connection $connection)
+    public function storeResult(Connection $connection): ResultInterface|false
     {
         return false;
     }
@@ -395,10 +393,9 @@ class DbiDummy implements DbiExtension
     /**
      * returns the number of rows affected by last query
      *
-     * @return int|string
      * @psalm-return int|numeric-string
      */
-    public function affectedRows(Connection $connection)
+    public function affectedRows(Connection $connection): int|string
     {
         return $GLOBALS['cached_affected_rows'] ?? 0;
     }

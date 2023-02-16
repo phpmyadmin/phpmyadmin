@@ -22,7 +22,6 @@ use function file_put_contents;
 use function htmlspecialchars;
 use function is_array;
 use function is_readable;
-use function is_string;
 use function is_writable;
 use function rawurldecode;
 use function sprintf;
@@ -175,10 +174,9 @@ class Routing
     private static function isRoutesCacheFileValid($dispatchData): bool
     {
         return is_array($dispatchData)
-            && isset($dispatchData[0], $dispatchData[1])
-            && is_array($dispatchData[0]) && is_array($dispatchData[1])
-            && isset($dispatchData[0]['GET']) && is_array($dispatchData[0]['GET'])
-            && isset($dispatchData[0]['GET']['/']) && is_string($dispatchData[0]['GET']['/'])
+            && isset($dispatchData[1])
+            && is_array($dispatchData[1])
+            && isset($dispatchData[0]['GET']['/'])
             && $dispatchData[0]['GET']['/'] === HomeController::class;
     }
 

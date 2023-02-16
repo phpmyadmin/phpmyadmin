@@ -122,7 +122,7 @@ class Util
      *
      * @return string the message
      */
-    public static function getFormattedMaximumUploadSize($maxUploadSize): string
+    public static function getFormattedMaximumUploadSize(int|float|string $maxUploadSize): string
     {
         // I have to reduce the second parameter (sensitiveness) from 6 to 4
         // to avoid weird results like 512 kKib
@@ -155,11 +155,8 @@ class Util
 
         foreach ($quotes as $quote) {
             if (mb_substr($quotedString, 0, 1) === $quote && mb_substr($quotedString, -1, 1) === $quote) {
-                $unquotedString = mb_substr($quotedString, 1, -1);
                 // replace escaped quotes
-                $unquotedString = str_replace($quote . $quote, $quote, $unquotedString);
-
-                return $unquotedString;
+                return str_replace($quote . $quote, $quote, mb_substr($quotedString, 1, -1));
             }
         }
 
@@ -193,8 +190,6 @@ class Util
                 $mysql = '5.7';
             } elseif ($serverVersion >= 50600) {
                 $mysql = '5.6';
-            } elseif ($serverVersion >= 50500) {
-                $mysql = '5.5';
             }
         }
 
@@ -489,7 +484,7 @@ class Util
      * @return string   the formatted value and its unit
      */
     public static function formatNumber(
-        $value,
+        float|int|string $value,
         $digitsLeft = 3,
         $digitsRight = 0,
         $onlyDown = false,
@@ -593,7 +588,7 @@ class Util
      *
      * @return int|float The numerical part of the expression (for example 8)
      */
-    public static function extractValueFromFormattedSize($formattedSize)
+    public static function extractValueFromFormattedSize(string|int $formattedSize): int|float
     {
         $returnValue = -1;
 
@@ -853,7 +848,7 @@ class Util
         array $fieldsMeta,
         array $row,
         $forceUnique = false,
-        $restrictToTable = false,
+        string|bool $restrictToTable = false,
         array $expressions = []
     ): array {
         $primaryKey = '';
@@ -1227,9 +1222,7 @@ class Util
             $printable = strrev($printable);
         }
 
-        $printable = str_pad($printable, $length, '0', STR_PAD_LEFT);
-
-        return $printable;
+        return str_pad($printable, $length, '0', STR_PAD_LEFT);
     }
 
     /**
@@ -1398,7 +1391,7 @@ class Util
      *
      * @return string|bool Title for the $cfg value
      */
-    public static function getTitleForTarget($target)
+    public static function getTitleForTarget($target): string|bool
     {
         $mapping = [
             'structure' => __('Structure'),
@@ -1785,9 +1778,9 @@ class Util
      *                           for which to parse the values
      * @param bool   $escapeHtml Whether to escape html entities
      *
-     * @return array
+     * @return string[]
      */
-    public static function parseEnumSetValues($definition, $escapeHtml = true)
+    public static function parseEnumSetValues($definition, $escapeHtml = true): array
     {
         $valuesString = htmlentities($definition, ENT_COMPAT, 'UTF-8');
         // There is a JS port of the below parser in functions.js
@@ -2010,7 +2003,6 @@ class Util
 
             // Retains keys informations
             if ($row['Key_name'] != $lastIndex) {
-                $indexes[] = $row['Key_name'];
                 $lastIndex = $row['Key_name'];
             }
 
@@ -2355,7 +2347,7 @@ class Util
      *
      * @return mixed Searched value
      */
-    public static function getValueByKey(array $array, $path, $default = null)
+    public static function getValueByKey(array $array, string|array $path, $default = null)
     {
         if (is_string($path)) {
             $path = explode('.', $path);

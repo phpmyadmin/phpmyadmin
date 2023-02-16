@@ -49,8 +49,7 @@ class NavigationController extends AbstractController
             return;
         }
 
-        $getNaviSettings = $request->getParsedBodyParam('getNaviSettings');
-        if ($getNaviSettings !== null && $getNaviSettings) {
+        if ($request->hasBodyParam('getNaviSettings')) {
             $pageSettings = new PageSettings('Navi', 'pma_navigation_settings');
             $this->response->addHTML($pageSettings->getErrorHTML());
             $this->response->addJSON('message', $pageSettings->getHTML());

@@ -176,8 +176,12 @@ class Utilities
      * @param ResultInterface|false $result       Query result
      * @param int|float             $time         Time to execute query
      */
-    public static function debugLogQueryIntoSession(string $query, ?string $errorMessage, $result, $time): void
-    {
+    public static function debugLogQueryIntoSession(
+        string $query,
+        ?string $errorMessage,
+        ResultInterface|false $result,
+        int|float $time
+    ): void {
         $dbgInfo = [];
 
         if ($result === false && $errorMessage !== null) {

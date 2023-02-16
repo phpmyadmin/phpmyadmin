@@ -28,9 +28,9 @@ class Text_Plain_XmlEditor extends CodeMirrorEditorTransformationPlugin
      * Returns the array of scripts (filename) required for plugin
      * initialization and handling
      *
-     * @return array javascripts to be included
+     * @return string[] javascripts to be included
      */
-    public function getScripts()
+    public function getScripts(): array
     {
         $scripts = [];
         if ($GLOBALS['cfg']['CodemirrorEnable']) {

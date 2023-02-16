@@ -634,7 +634,6 @@
                     $path,
                     $workPath,
                     $translatedPath,
-                    true,
                     $userPrefsAllow,
                     $jsDefault
                 )</code>
@@ -2404,7 +2403,6 @@
     <MixedAssignment>
       <code>$_SESSION['error_subm_count']</code>
       <code>$decoded_response</code>
-      <code>$success</code>
     </MixedAssignment>
     <MixedOperand>
       <code>$_SESSION['error_subm_count']</code>
@@ -2968,7 +2966,6 @@
     </MixedArgument>
     <MixedAssignment>
       <code>$dbName</code>
-      <code>$getNaviSettings</code>
       <code>$itemName</code>
       <code>$itemType</code>
       <code>$tableName</code>
@@ -3391,7 +3388,6 @@
     </PossiblyInvalidArgument>
     <PropertyNotSetInConstructor>
       <code>$hasStatistics</code>
-      <code>$position</code>
       <code>$sortBy</code>
       <code>$sortOrder</code>
     </PropertyNotSetInConstructor>
@@ -4045,6 +4041,7 @@
     </MixedAssignment>
     <PossiblyInvalidArgument>
       <code>$GLOBALS['current_result']</code>
+      <code>$GLOBALS['where_clause'] ?? null</code>
       <code>$_GET['where_clause']</code>
       <code>$_GET['where_clause_signature']</code>
     </PossiblyInvalidArgument>
@@ -4059,9 +4056,6 @@
     <TypeDoesNotContainType>
       <code>$GLOBALS['biggest_max_file_size'] &gt; 0</code>
     </TypeDoesNotContainType>
-    <UnusedVariable>
-      <code>$where_clause</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/ChangeRowsController.php">
     <InvalidArrayOffset>
@@ -4479,9 +4473,6 @@
       <code>$GLOBALS['warning_messages']</code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code>$GLOBALS['create_options']['pack_keys']</code>
-      <code>$GLOBALS['create_options']['page_checksum'] ?? ''</code>
-      <code>$GLOBALS['row_format']</code>
       <code>$GLOBALS['warning_messages']</code>
       <code>$_message</code>
       <code>$_message</code>
@@ -4498,8 +4489,6 @@
       <code>$GLOBALS['columns']</code>
       <code>$GLOBALS['comment']</code>
       <code>$GLOBALS['create_options']</code>
-      <code>$GLOBALS['create_options']['page_checksum']</code>
-      <code>$GLOBALS['create_options']['page_checksum']</code>
       <code>$GLOBALS['errorUrl']</code>
       <code>$GLOBALS['hideOrderTable']</code>
       <code>$GLOBALS['indexes']</code>
@@ -4510,7 +4499,6 @@
       <code>$GLOBALS['reread_info']</code>
       <code>$GLOBALS['reread_info']</code>
       <code>$GLOBALS['result']</code>
-      <code>$GLOBALS['row_format']</code>
       <code>$GLOBALS['row_format']</code>
       <code>$GLOBALS['show_comment']</code>
       <code>$GLOBALS['showtable']</code>
@@ -5585,7 +5573,7 @@
       <code>$_POST['indexes']</code>
       <code>$_POST['primary_indexes']</code>
       <code>$_POST['spatial_indexes']</code>
-      <code>$_POST['tbl_collation'] ?? ''</code>
+      <code>$_POST['tbl_collation']</code>
       <code>$_POST['tbl_storage_engine']</code>
       <code>$_POST['unique_indexes']</code>
     </PossiblyInvalidArgument>
@@ -5608,7 +5596,7 @@
       <code>$_POST['indexes']</code>
       <code>$_POST['primary_indexes']</code>
       <code>$_POST['spatial_indexes']</code>
-      <code>$_POST['tbl_collation'] ?? ''</code>
+      <code>$_POST['tbl_collation']</code>
       <code>$_POST['tbl_storage_engine']</code>
       <code>$_POST['unique_indexes']</code>
     </PossiblyInvalidCast>
@@ -6905,7 +6893,6 @@
       <code>$aLength</code>
       <code>$bLength</code>
       <code>$keyIndex</code>
-      <code>$map['real_column']</code>
       <code>$resultRows[$row[$key]]</code>
       <code>$resultTarget</code>
       <code>$resultTarget</code>
@@ -7466,9 +7453,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="libraries/classes/Engines/Innodb.php">
-    <LessSpecificImplementedReturnType>
-      <code>array</code>
-    </LessSpecificImplementedReturnType>
     <MixedArgument>
       <code>$status['Innodb_buffer_pool_pages_data']</code>
       <code>$status['Innodb_buffer_pool_pages_dirty']</code>
@@ -7494,9 +7478,6 @@
     </MixedOperand>
   </file>
   <file src="libraries/classes/Engines/Pbxt.php">
-    <LessSpecificImplementedReturnType>
-      <code>array</code>
-    </LessSpecificImplementedReturnType>
     <ParamNameMismatch>
       <code>$formatted_size</code>
     </ParamNameMismatch>
@@ -7661,8 +7642,6 @@
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$dbSelect</code>
-      <code>$nonGeneratedCols</code>
-      <code>$nonGeneratedCols</code>
       <code>$tables</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
@@ -9736,6 +9715,8 @@
   </file>
   <file src="libraries/classes/Navigation/NavigationTree.php">
     <ArgumentTypeCoercion>
+      <code>$newChild['node']</code>
+      <code>$newChild['node']</code>
       <code>$table</code>
     </ArgumentTypeCoercion>
     <DocblockTypeContradiction>
@@ -9782,9 +9763,6 @@
       <code>$paths['aPath_clean'][4]</code>
       <code>$paths['aPath_clean'][4]</code>
     </MixedArrayAccess>
-    <MixedArrayOffset>
-      <code>$hiddenCounts[$db]</code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code>$db</code>
       <code>$item</code>
@@ -9798,6 +9776,10 @@
       <code>$urlParams['pos3_name']</code>
       <code>$value</code>
     </MixedAssignment>
+    <MixedMethodCall>
+      <code>addChild</code>
+      <code>setHiddenCount</code>
+    </MixedMethodCall>
     <MixedOperand>
       <code>$separators[0]</code>
       <code>$separators[0]</code>
@@ -9808,7 +9790,6 @@
       <code>$node</code>
     </MixedPropertyAssignment>
     <PossiblyFalseOperand>
-      <code>strrpos($class, '\\')</code>
       <code>strrpos($class, '\\')</code>
     </PossiblyFalseOperand>
     <PossiblyFalseReference>
@@ -9871,9 +9852,9 @@
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Navigation/NodeFactory.php">
-    <MixedMethodCall>
+    <UnsafeInstantiation>
       <code>new $class($name, $type, $isGroup)</code>
-    </MixedMethodCall>
+    </UnsafeInstantiation>
   </file>
   <file src="libraries/classes/Navigation/Nodes/Node.php">
     <DeprecatedMethod>
@@ -9978,18 +9959,12 @@
     <PropertyNotSetInConstructor>
       <code>NodeColumn</code>
     </PropertyNotSetInConstructor>
-    <UnusedClass>
-      <code>NodeColumn</code>
-    </UnusedClass>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeColumnContainer.php">
     <PropertyNotSetInConstructor>
       <code>NodeColumnContainer</code>
       <code>NodeColumnContainer</code>
     </PropertyNotSetInConstructor>
-    <UnusedClass>
-      <code>NodeColumnContainer</code>
-    </UnusedClass>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeDatabase.php">
     <InvalidReturnStatement>
@@ -10007,9 +9982,6 @@
     <MixedAssignment>
       <code>$item</code>
     </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
     <PropertyNotSetInConstructor>
       <code>NodeDatabase</code>
       <code>NodeDatabase</code>
@@ -10030,85 +10002,61 @@
     </RedundantCast>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php">
+    <PossiblyUnusedMethod>
+      <code>__construct</code>
+    </PossiblyUnusedMethod>
     <PropertyNotSetInConstructor>
       <code>NodeDatabaseContainer</code>
       <code>NodeDatabaseContainer</code>
     </PropertyNotSetInConstructor>
-    <UnusedClass>
-      <code>NodeDatabaseContainer</code>
-    </UnusedClass>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeEvent.php">
     <PropertyNotSetInConstructor>
       <code>NodeEvent</code>
       <code>NodeEvent</code>
     </PropertyNotSetInConstructor>
-    <UnusedClass>
-      <code>NodeEvent</code>
-    </UnusedClass>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeEventContainer.php">
     <PropertyNotSetInConstructor>
       <code>NodeEventContainer</code>
       <code>NodeEventContainer</code>
     </PropertyNotSetInConstructor>
-    <UnusedClass>
-      <code>NodeEventContainer</code>
-    </UnusedClass>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeFunction.php">
     <PropertyNotSetInConstructor>
       <code>NodeFunction</code>
       <code>NodeFunction</code>
     </PropertyNotSetInConstructor>
-    <UnusedClass>
-      <code>NodeFunction</code>
-    </UnusedClass>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeFunctionContainer.php">
     <PropertyNotSetInConstructor>
       <code>NodeFunctionContainer</code>
       <code>NodeFunctionContainer</code>
     </PropertyNotSetInConstructor>
-    <UnusedClass>
-      <code>NodeFunctionContainer</code>
-    </UnusedClass>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeIndex.php">
     <PropertyNotSetInConstructor>
       <code>NodeIndex</code>
       <code>NodeIndex</code>
     </PropertyNotSetInConstructor>
-    <UnusedClass>
-      <code>NodeIndex</code>
-    </UnusedClass>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeIndexContainer.php">
     <PropertyNotSetInConstructor>
       <code>NodeIndexContainer</code>
       <code>NodeIndexContainer</code>
     </PropertyNotSetInConstructor>
-    <UnusedClass>
-      <code>NodeIndexContainer</code>
-    </UnusedClass>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeProcedure.php">
     <PropertyNotSetInConstructor>
       <code>NodeProcedure</code>
       <code>NodeProcedure</code>
     </PropertyNotSetInConstructor>
-    <UnusedClass>
-      <code>NodeProcedure</code>
-    </UnusedClass>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeProcedureContainer.php">
     <PropertyNotSetInConstructor>
       <code>NodeProcedureContainer</code>
       <code>NodeProcedureContainer</code>
     </PropertyNotSetInConstructor>
-    <UnusedClass>
-      <code>NodeProcedureContainer</code>
-    </UnusedClass>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeTable.php">
     <DeprecatedMethod>
@@ -10130,9 +10078,6 @@
     <PossiblyNullArgument>
       <code>$arr['Type']</code>
     </PossiblyNullArgument>
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
     <PossiblyUnusedProperty>
       <code>$secondIcon</code>
     </PossiblyUnusedProperty>
@@ -10141,9 +10086,6 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeTableContainer.php">
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
     <PropertyNotSetInConstructor>
       <code>NodeTableContainer</code>
       <code>NodeTableContainer</code>
@@ -10154,32 +10096,20 @@
       <code>NodeTrigger</code>
       <code>NodeTrigger</code>
     </PropertyNotSetInConstructor>
-    <UnusedClass>
-      <code>NodeTrigger</code>
-    </UnusedClass>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeTriggerContainer.php">
     <PropertyNotSetInConstructor>
       <code>NodeTriggerContainer</code>
       <code>NodeTriggerContainer</code>
     </PropertyNotSetInConstructor>
-    <UnusedClass>
-      <code>NodeTriggerContainer</code>
-    </UnusedClass>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeView.php">
     <PropertyNotSetInConstructor>
       <code>NodeView</code>
       <code>NodeView</code>
     </PropertyNotSetInConstructor>
-    <UnusedClass>
-      <code>NodeView</code>
-    </UnusedClass>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeViewContainer.php">
-    <PossiblyUnusedMethod>
-      <code>__construct</code>
-    </PossiblyUnusedMethod>
     <PropertyNotSetInConstructor>
       <code>NodeViewContainer</code>
       <code>NodeViewContainer</code>
@@ -10190,7 +10120,7 @@
       <code>[
                 'legendText' =&gt; __('End of step'),
                 'headText' =&gt; $headText,
-                'queryError' =&gt; $error,
+                'queryError' =&gt; false,
             ]</code>
       <code>[
             'legendText' =&gt; __('End of step'),
@@ -10447,7 +10377,7 @@
       <code>$_POST['db_collation'] ?? ''</code>
       <code>$_POST['new_auto_increment']</code>
       <code>$_POST['prev_comment']</code>
-      <code>$_POST['tbl_collation'] ?? ''</code>
+      <code>$_POST['tbl_collation']</code>
       <code>$_POST['what']</code>
       <code>$copyMode ?? 'data'</code>
       <code>$newRowFormat</code>
@@ -10458,7 +10388,7 @@
       <code>$_POST['db_collation'] ?? ''</code>
       <code>$_POST['new_auto_increment']</code>
       <code>$_POST['prev_comment']</code>
-      <code>$_POST['tbl_collation'] ?? ''</code>
+      <code>$_POST['tbl_collation']</code>
       <code>$_POST['what']</code>
       <code>$copyMode ?? 'data'</code>
       <code>$newRowFormat</code>
@@ -10903,6 +10833,9 @@
     </RedundantCondition>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportCsv.php">
+    <InvalidArgument>
+      <code>$insertValues</code>
+    </InvalidArgument>
     <InvalidArrayOffset>
       <code>$GLOBALS['excel_columns']</code>
       <code>$GLOBALS['what']</code>
@@ -10911,17 +10844,20 @@
     <MixedArgument>
       <code>$col_as</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code>$insertFields</code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code>$GLOBALS['what']</code>
       <code>$GLOBALS['what']</code>
       <code>$col_as</code>
+      <code>$insertFields[]</code>
+      <code>$insertValues[]</code>
     </MixedAssignment>
     <MixedOperand>
-      <code>$GLOBALS[$GLOBALS['what'] . '_null']</code>
       <code>$GLOBALS['what']</code>
       <code>$GLOBALS['what']</code>
       <code>$GLOBALS['what']</code>
-      <code>$col_as</code>
     </MixedOperand>
     <PossiblyNullArgument>
       <code>$GLOBALS['csv_enclosed']</code>
@@ -10945,8 +10881,6 @@
       <code>$GLOBALS['csv_escaped']</code>
       <code>$GLOBALS['csv_escaped']</code>
       <code>$GLOBALS['csv_escaped']</code>
-      <code>$GLOBALS['csv_separator']</code>
-      <code>$GLOBALS['csv_separator']</code>
       <code>$GLOBALS['csv_terminated']</code>
       <code>$GLOBALS['csv_terminated']</code>
     </PossiblyNullOperand>
@@ -11082,6 +11016,8 @@
       <code>$do_relation</code>
     </ParamNameMismatch>
     <PossiblyFalseReference>
+      <code>fetchAssoc</code>
+      <code>getFieldNames</code>
       <code>numFields</code>
     </PossiblyFalseReference>
     <PossiblyInvalidArrayOffset>
@@ -11651,9 +11587,6 @@
     <PropertyNotSetInConstructor>
       <code>$table</code>
     </PropertyNotSetInConstructor>
-    <RedundantCastGivenDocblockType>
-      <code>(string) $record[$i]</code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportYaml.php">
     <MixedAssignment>
@@ -11675,6 +11608,7 @@
     </InvalidArrayOffset>
     <MixedArgument>
       <code>$GLOBALS['maxY'] - $this-&gt;tMargin</code>
+      <code>$cellFontSize</code>
       <code>$col_as</code>
       <code>$column['Type']</code>
       <code>$fullwidth + $l</code>
@@ -11727,7 +11661,6 @@
       <code>$this-&gt;FontSizePt</code>
       <code>$this-&gt;FontSizePt</code>
       <code>$this-&gt;FontSizePt</code>
-      <code>$this-&gt;cellFontSize</code>
       <code>$this-&gt;colAlign[$col]</code>
       <code>$this-&gt;colAlign[$col]</code>
       <code>$this-&gt;colAlign[$col]</code>
@@ -11791,6 +11724,7 @@
       <code>$GLOBALS['maxY']</code>
       <code>$GLOBALS['maxY']</code>
       <code>$availableWidth</code>
+      <code>$cellFontSize</code>
       <code>$col_as</code>
       <code>$current_page</code>
       <code>$currpage</code>
@@ -11849,6 +11783,7 @@
       <code>$old_page_olm</code>
       <code>$old_page_orm</code>
       <code>$oldpage</code>
+      <code>$sColWidth</code>
       <code>$startpage</code>
       <code>$startpage</code>
       <code>$startpage</code>
@@ -11857,9 +11792,7 @@
       <code>$t</code>
       <code>$t</code>
       <code>$t</code>
-      <code>$this-&gt;cellFontSize</code>
       <code>$this-&gt;dataY</code>
-      <code>$this-&gt;sColWidth</code>
       <code>$this_page_olm</code>
       <code>$this_page_orm</code>
       <code>$trigger</code>
@@ -11901,6 +11834,9 @@
       <code>$maxpage</code>
       <code>$res_rel[$field_name]['foreign_field']</code>
       <code>$res_rel[$field_name]['foreign_table']</code>
+      <code>$sColWidth</code>
+      <code>$sColWidth</code>
+      <code>$sColWidth</code>
       <code>$surplus</code>
       <code>$this-&gt;FontSizePt</code>
       <code>$this-&gt;FontSizePt</code>
@@ -11920,9 +11856,6 @@
       <code>$this-&gt;page</code>
       <code>$this-&gt;page</code>
       <code>$this-&gt;page</code>
-      <code>$this-&gt;sColWidth</code>
-      <code>$this-&gt;sColWidth</code>
-      <code>$this-&gt;sColWidth</code>
       <code>$this-&gt;tMargin</code>
       <code>$this-&gt;tMargin</code>
       <code>$this-&gt;tMargin</code>
@@ -11934,7 +11867,7 @@
       <code>$x</code>
       <code>$x</code>
       <code>$y</code>
-      <code>count($colFits) * $this-&gt;sColWidth</code>
+      <code>count($colFits) * $sColWidth</code>
     </MixedOperand>
     <ParamNameMismatch>
       <code>$topMargin</code>
@@ -11960,7 +11893,6 @@
     </PossiblyUnusedParam>
     <PropertyNotSetInConstructor>
       <code>$aliases</code>
-      <code>$cellFontSize</code>
       <code>$colAlign</code>
       <code>$colTitles</code>
       <code>$currentDb</code>
@@ -11968,12 +11900,9 @@
       <code>$dataY</code>
       <code>$dbAlias</code>
       <code>$displayColumn</code>
-      <code>$fields</code>
       <code>$headerset</code>
-      <code>$numFields</code>
       <code>$purpose</code>
       <code>$results</code>
-      <code>$sColWidth</code>
       <code>$tableAlias</code>
       <code>$tablewidths</code>
       <code>$titleFontSize</code>
@@ -13111,14 +13040,6 @@
     <PossiblyUnusedMethod>
       <code>isWithDataDictionary</code>
     </PossiblyUnusedMethod>
-    <RedundantCastGivenDocblockType>
-      <code>(string) sprintf(
-                '%.0f',
-                ($l * $gridSize + $topSpace - $this-&gt;topMargin)
-                * $this-&gt;scale + $this-&gt;yMin
-            )</code>
-      <code>(string) sprintf('%.0f', ($j * $gridSize - $this-&gt;leftMargin) * $this-&gt;scale + $this-&gt;xMin)</code>
-    </RedundantCastGivenDocblockType>
     <RedundantConditionGivenDocblockType>
       <code>isset($this-&gt;orientation)</code>
     </RedundantConditionGivenDocblockType>
@@ -13475,7 +13396,6 @@
     <RedundantCastGivenDocblockType>
       <code>(string) $buffer</code>
       <code>(string) $buffer</code>
-      <code>(string) $source</code>
       <code>(string) $text</code>
     </RedundantCastGivenDocblockType>
   </file>
@@ -13793,6 +13713,7 @@
       <code>$key</code>
       <code>$loc</code>
       <code>$loc[array_shift($contentPath)]</code>
+      <code>$tablesInDatabase</code>
     </MixedAssignment>
     <MixedOperand>
       <code>$this-&gt;tableCache[$one_database]</code>
@@ -13984,8 +13905,6 @@
       <code>$_SESSION['replication']['sr_action_info']</code>
       <code>$_SESSION['replication']['sr_action_info']</code>
       <code>$_SESSION['replication']['sr_action_info']</code>
-      <code>$_SESSION['replication']['sr_action_info']</code>
-      <code>$_SESSION['replication']['sr_action_status']</code>
       <code>$_SESSION['replication']['sr_action_status']</code>
       <code>$_SESSION['replication']['sr_action_status']</code>
       <code>$_SESSION['replication']['sr_action_status']</code>
@@ -14037,6 +13956,9 @@
     <InvalidArrayOffset>
       <code>$GLOBALS['cfg']['environment']</code>
     </InvalidArrayOffset>
+    <MixedArrayAccess>
+      <code>$dispatchData[0]['GET']['/']</code>
+    </MixedArrayAccess>
   </file>
   <file src="libraries/classes/Sanitize.php">
     <MixedArgument>
@@ -14194,16 +14116,6 @@
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$queries</code>
-      <code>$this-&gt;extractPrivInfo($privs, true)</code>
-      <code>$this-&gt;extractPrivInfo($row)</code>
-      <code>$this-&gt;extractPrivInfo($row, true)</code>
-      <code>$this-&gt;extractPrivInfo($row, true)</code>
-      <code>$this-&gt;extractPrivInfo()</code>
-      <code>$this-&gt;extractPrivInfo()</code>
-      <code>$this-&gt;extractPrivInfo()</code>
-      <code>$this-&gt;extractPrivInfo(null, true)</code>
-      <code>$this-&gt;extractPrivInfo(null, true)</code>
-      <code>$tmpPrivs1</code>
       <code>uksort($arrayInitials, 'strnatcasecmp')</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
@@ -14974,18 +14886,6 @@
     </PossiblyNullArrayOffset>
   </file>
   <file src="libraries/classes/SystemDatabase.php">
-    <MixedArgument>
-      <code>$column['real_column'] ?? $column['refering_column']</code>
-    </MixedArgument>
-    <MixedArrayAccess>
-      <code>$column['real_column']</code>
-      <code>$column['refering_column']</code>
-      <code>$column['refering_column']</code>
-      <code>$column['table_name']</code>
-    </MixedArrayAccess>
-    <MixedAssignment>
-      <code>$column</code>
-    </MixedAssignment>
     <PossiblyNullArgument>
       <code>$dataRow['comment']</code>
       <code>$dataRow['mimetype']</code>
@@ -15065,9 +14965,6 @@
       <code>$foreignField</code>
       <code>$indexedCols</code>
       <code>$masterField</code>
-      <code>$nonGeneratedCols</code>
-      <code>$nonGeneratedCols</code>
-      <code>$uniqueFields</code>
       <code>$where</code>
       <code>$where</code>
     </MixedArgumentTypeCoercion>
@@ -15219,6 +15116,12 @@
       <code>end($this-&gt;messages)</code>
       <code>json_decode($value, true)</code>
     </MixedReturnStatement>
+    <MixedReturnTypeCoercion>
+      <code>$columns</code>
+      <code>$ret</code>
+      <code>array&lt;string, string&gt;</code>
+      <code>string[]</code>
+    </MixedReturnTypeCoercion>
     <PossiblyInvalidArgument>
       <code>$_POST['constraint_name'][$masterFieldMd5]</code>
       <code>$fields[$column]['expr']</code>
@@ -15975,7 +15878,6 @@
       <code>$row['Key_name']</code>
       <code>$row['Key_name']</code>
       <code>$row['Key_name']</code>
-      <code>$row['Key_name']</code>
       <code>$row['Non_unique']</code>
       <code>$row['Seq_in_index']</code>
       <code>$row['Seq_in_index']</code>
@@ -16027,7 +15929,6 @@
       <code>$indexesInfo[$row['Key_name']]['Comment']</code>
       <code>$indexesInfo[$row['Key_name']]['Non_unique']</code>
       <code>$indexesInfo[$row['Key_name']]['Sequences'][]</code>
-      <code>$indexes[]</code>
       <code>$lastIndex</code>
       <code>$p</code>
       <code>$p</code>
@@ -17735,14 +17636,6 @@
       <code>array</code>
     </MixedInferredReturnType>
   </file>
-  <file src="test/classes/Navigation/NodeFactoryTest.php">
-    <DeprecatedMethod>
-      <code>expectError</code>
-      <code>expectError</code>
-      <code>expectErrorMessage</code>
-      <code>expectErrorMessage</code>
-    </DeprecatedMethod>
-  </file>
   <file src="test/classes/Navigation/Nodes/NodeColumnContainerTest.php">
     <RedundantConditionGivenDocblockType>
       <code>assertIsArray</code>
@@ -18395,9 +18288,6 @@
       <code>$real_sql_query</code>
       <code>$sql_query</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code>$serverPrivileges-&gt;extractPrivInfo(null, true)</code>
-    </MixedArgumentTypeCoercion>
     <MixedMethodCall>
       <code>getMessage</code>
       <code>getMessage</code>

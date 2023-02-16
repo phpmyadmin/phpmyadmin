@@ -155,7 +155,7 @@ class Index
      *
      * @return Index[] array of indexes
      */
-    public static function getFromTableByChoice($table, $schema, $choices = 31)
+    public static function getFromTableByChoice($table, $schema, $choices = 31): array
     {
         $indexes = [];
         foreach (self::getFromTable($GLOBALS['dbi'], $table, $schema) as $index) {

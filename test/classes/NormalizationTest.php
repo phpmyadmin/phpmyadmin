@@ -11,6 +11,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Types;
 use stdClass;
@@ -118,7 +119,7 @@ class NormalizationTest extends AbstractTestCase
             ->will($this->returnValueMap($map));
         $dbi->expects($this->any())
             ->method('tryQuery')
-            ->will($this->returnValue(true));
+            ->will($this->returnValue($this->createStub(DummyResult::class)));
         $dbi->expects($this->any())
             ->method('fetchResult')
             ->will($this->returnValue([0]));

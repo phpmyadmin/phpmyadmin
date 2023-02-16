@@ -499,8 +499,6 @@ class ReplicationGui
         $_SESSION['replication']['m_hostname'] = $hostname;
         $_SESSION['replication']['m_port'] = $port;
         $_SESSION['replication']['m_correct'] = '';
-        $_SESSION['replication']['sr_action_status'] = 'error';
-        $_SESSION['replication']['sr_action_info'] = __('Unknown error');
 
         // Attempt to connect to the new primary server
         $connectionToPrimary = $this->replication->connectToPrimary(

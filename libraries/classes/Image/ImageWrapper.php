@@ -90,10 +90,7 @@ final class ImageWrapper
         return imagearc($this->image, $centerX, $centerY, $width, $height, $startAngle, $endAngle, $color);
     }
 
-    /**
-     * @return int|false
-     */
-    public function colorAllocate(int $red, int $green, int $blue)
+    public function colorAllocate(int $red, int $green, int $blue): int|false
     {
         return imagecolorallocate($this->image, $red, $green, $blue);
     }

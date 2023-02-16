@@ -207,7 +207,7 @@ class Table implements Stringable
      * @param string[]|string $engine Checks the table engine against an
      *                             array of engine strings or a single string, should be uppercase
      */
-    public function isEngine($engine): bool
+    public function isEngine(array|string $engine): bool
     {
         $engine = (array) $engine;
         $tableStorageEngine = $this->getStorageEngine();
@@ -423,9 +423,9 @@ class Table implements Stringable
     /**
      * Returns the array for CREATE statement for current table.
      *
-     * @return array Return options array info if it is set for the selected table or return blank.
+     * @return array<string, string> Return options array info if it is set for the selected table or return blank.
      */
-    public function getCreateOptions()
+    public function getCreateOptions(): array
     {
         $tableOptions = $this->getStatusInfo('CREATE_OPTIONS', false, true);
         $createOptionsTmp = empty($tableOptions) ? [] : explode(' ', $tableOptions);
@@ -483,7 +483,7 @@ class Table implements Stringable
         string $length = '',
         $attribute = '',
         $collation = '',
-        $null = false,
+        bool|string $null = false,
         $defaultType = 'USER_DEFINED',
         $defaultValue = '',
         $extra = '',
@@ -796,7 +796,7 @@ class Table implements Stringable
         $length,
         $attribute,
         $collation,
-        $null,
+        bool|string $null,
         $defaultType,
         $defaultValue,
         $extra,
@@ -836,8 +836,6 @@ class Table implements Stringable
      * @param array  $whereFields Which fields will be used for the WHERE query (array('FIELDNAME' => 'FIELDVALUE'))
      * @param array  $newFields   Which fields will be used as new VALUES. These are the important keys which differ
      *                            from the old entry (array('FIELDNAME' => 'NEW FIELDVALUE'))
-     *
-     * @return int|bool
      */
     public static function duplicateInfo(
         $work,
@@ -845,7 +843,7 @@ class Table implements Stringable
         array $getFields,
         array $whereFields,
         array $newFields
-    ) {
+    ): int|bool {
         $relation = new Relation($GLOBALS['dbi']);
         $relationParameters = $relation->getRelationParameters();
         $relationParams = $relationParameters->toArray();
@@ -1518,9 +1516,9 @@ class Table implements Stringable
      * @param bool $backquoted whether to quote name with backticks ``
      * @param bool $fullName   whether to include full name of the table as a prefix
      *
-     * @return array
+     * @return string[]
      */
-    public function getUniqueColumns($backquoted = true, $fullName = true)
+    public function getUniqueColumns($backquoted = true, $fullName = true): array
     {
         $sql = QueryGenerator::getTableIndexesSql(
             $this->getDbName(),
@@ -1576,9 +1574,9 @@ class Table implements Stringable
      * @param bool  $backquoted whether to quote name with backticks ``
      * @param bool  $fullName   whether to include full name of the table as a prefix
      *
-     * @return array
+     * @return string[]
      */
-    private function formatColumns(array $indexed, $backquoted, $fullName)
+    private function formatColumns(array $indexed, $backquoted, $fullName): array
     {
         $return = [];
         foreach ($indexed as $column) {
@@ -1656,9 +1654,9 @@ class Table implements Stringable
      *
      * @param bool $backquoted whether to quote name with backticks ``
      *
-     * @return array
+     * @return string[]
      */
-    public function getNonGeneratedColumns($backquoted = true)
+    public function getNonGeneratedColumns($backquoted = true): array
     {
         $columnsMetaQuery = 'SHOW COLUMNS FROM ' . $this->getFullName(true);
         $ret = [];
@@ -1877,10 +1875,8 @@ class Table implements Stringable
      * @param string $property        Property
      * @param mixed  $value           Value for the property
      * @param string $tableCreateTime Needed for PROP_COLUMN_ORDER and PROP_COLUMN_VISIB
-     *
-     * @return bool|Message
      */
-    public function setUiProp($property, $value, $tableCreateTime = null)
+    public function setUiProp($property, $value, $tableCreateTime = null): bool|Message
     {
         if (empty($this->uiprefs)) {
             $this->loadUiPrefs();
@@ -1949,9 +1945,9 @@ class Table implements Stringable
     /**
      * Get all column names which are MySQL reserved words
      *
-     * @return array
+     * @return string[]
      */
-    public function getReservedColumnNames()
+    public function getReservedColumnNames(): array
     {
         $columns = $this->getColumns(false);
         $return = [];
@@ -1971,9 +1967,9 @@ class Table implements Stringable
     /**
      * Function to get the name and type of the columns of a table
      *
-     * @return array
+     * @return array<string, string>
      */
-    public function getNameAndTypeOfTheColumns()
+    public function getNameAndTypeOfTheColumns(): array
     {
         $columns = [];
         foreach (
@@ -2484,7 +2480,7 @@ class Table implements Stringable
      * @return array|bool associative array of column name and their expressions
      * or false on failure
      */
-    public function getColumnGenerationExpression($column = null)
+    public function getColumnGenerationExpression($column = null): array|bool
     {
         if (
             Compatibility::isMySqlOrPerconaDb()

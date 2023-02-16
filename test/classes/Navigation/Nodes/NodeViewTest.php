@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
-use PhpMyAdmin\Navigation\NodeFactory;
+use PhpMyAdmin\Navigation\Nodes\NodeView;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
@@ -27,7 +27,7 @@ class NodeViewTest extends AbstractTestCase
      */
     public function testConstructor(): void
     {
-        $parent = NodeFactory::getInstance('NodeView');
+        $parent = new NodeView('default');
         $this->assertIsArray($parent->links);
         $this->assertEquals(
             [

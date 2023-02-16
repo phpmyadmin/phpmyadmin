@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
-use PhpMyAdmin\Navigation\NodeFactory;
+use PhpMyAdmin\Navigation\Nodes\NodeEvent;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
@@ -27,7 +27,7 @@ class NodeEventTest extends AbstractTestCase
      */
     public function testConstructor(): void
     {
-        $parent = NodeFactory::getInstance('NodeEvent');
+        $parent = new NodeEvent('default');
         $this->assertIsArray($parent->links);
         $this->assertEquals(
             [

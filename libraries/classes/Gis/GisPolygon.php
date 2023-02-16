@@ -421,7 +421,7 @@ class GisPolygon extends GisGeometry
      *
      * @return array|false a point on the surface of the ring
      */
-    public static function getPointOnSurface(array $ring)
+    public static function getPointOnSurface(array $ring): array|false
     {
         $x0 = null;
         $x1 = null;

@@ -287,7 +287,6 @@ class FormDisplay
                     $path,
                     $workPath,
                     $translatedPath,
-                    true,
                     $userPrefsAllow,
                     $jsDefault
                 );
@@ -315,19 +314,18 @@ class FormDisplay
     /**
      * Prepares data for input field display and outputs HTML code
      *
-     * @param Form      $form               Form object
-     * @param string    $field              field name as it appears in $form
-     * @param string    $systemPath         field path, eg. Servers/1/verbose
-     * @param string    $workPath           work path, eg. Servers/4/verbose
-     * @param string    $translatedPath     work path changed so that it can be
-     *                                      used as XHTML id
-     * @param bool      $showRestoreDefault whether show "restore default" button
-     *                                      besides the input field
-     * @param bool|null $userPrefsAllow     whether user preferences are enabled
-     *                                      for this field (null - no support,
-     *                                      true/false - enabled/disabled)
-     * @param array     $jsDefault          array which stores JavaScript code
-     *                                      to be displayed
+     * @param Form      $form           Form object
+     * @param string    $field          field name as it appears in $form
+     * @param string    $systemPath     field path, eg. Servers/1/verbose
+     * @param string    $workPath       work path, eg. Servers/4/verbose
+     * @param string    $translatedPath work path changed so that it can be
+     *                                  used as XHTML id
+     *                                  besides the input field
+     * @param bool|null $userPrefsAllow whether user preferences are enabled
+     *                                  for this field (null - no support,
+     *                                  true/false - enabled/disabled)
+     * @param array     $jsDefault      array which stores JavaScript code
+     *                                  to be displayed
      *
      * @return string|null HTML for input field
      */
@@ -337,7 +335,6 @@ class FormDisplay
         $systemPath,
         $workPath,
         $translatedPath,
-        $showRestoreDefault,
         $userPrefsAllow,
         array &$jsDefault
     ) {
@@ -354,7 +351,7 @@ class FormDisplay
 
         $opts = [
             'doc' => $this->getDocLink($systemPath),
-            'show_restore_default' => $showRestoreDefault,
+            'show_restore_default' => true,
             'userprefs_allow' => $userPrefsAllow,
             'userprefs_comment' => Descriptions::get($systemPath, 'cmt'),
         ];

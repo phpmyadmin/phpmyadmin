@@ -404,7 +404,7 @@ class ExportCsvTest extends AbstractTestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            'idnamedatetimefiel;1abcd2011-01-20 02:00:02;2foo2010-01-20 02:00:02;3Abcd2012-01-20 02:00:02;',
+            'idnamedatetimefield;1abcd2011-01-20 02:00:02;2foo2010-01-20 02:00:02;3Abcd2012-01-20 02:00:02;',
             $result
         );
 
@@ -422,7 +422,7 @@ class ExportCsvTest extends AbstractTestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            '"id""name""datetimefield;"1""abcd""2011-01-20 02:00:02";'
+            '"id""name""datetimefield";"1""abcd""2011-01-20 02:00:02";'
             . '"2""foo""2010-01-20 02:00:02";"3""Abcd""2012-01-20 02:00:02";',
             $result
         );
@@ -443,7 +443,7 @@ class ExportCsvTest extends AbstractTestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            '"id""name""datetimefield;"1""abcd""2011-01-20 02:00:02";'
+            '"id""name""datetimefield";"1""abcd""2011-01-20 02:00:02";'
             . '"2""foo""2010-01-20 02:00:02";"3""Abcd""2012-01-20 02:00:02";',
             $result
         );
@@ -463,7 +463,7 @@ class ExportCsvTest extends AbstractTestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            '"id""name""datetimefield;"1""abcd""2011-01-20 02:00:02";'
+            '"id""name""datetimefield";"1""abcd""2011-01-20 02:00:02";'
             . '"2""foo""2010-01-20 02:00:02";"3""Abcd""2012-01-20 02:00:02";',
             $result
         );
@@ -483,7 +483,7 @@ class ExportCsvTest extends AbstractTestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            '"id""name""datetimefield;"1""abcd""2011-01-20 02:00:02";'
+            '"id""name""datetimefield";"1""abcd""2011-01-20 02:00:02";'
             . '"2""foo""2010-01-20 02:00:02";"3""Abcd""2012-01-20 02:00:02";',
             $result
         );

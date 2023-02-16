@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
-use PhpMyAdmin\Navigation\NodeFactory;
+use PhpMyAdmin\Navigation\Nodes\NodeColumnContainer;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
@@ -24,7 +24,7 @@ class NodeColumnContainerTest extends AbstractTestCase
 
     public function testConstructor(): void
     {
-        $parent = NodeFactory::getInstance('NodeColumnContainer');
+        $parent = new NodeColumnContainer();
         $this->assertIsArray($parent->links);
         $this->assertEquals(
             [
