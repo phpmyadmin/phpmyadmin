@@ -22,6 +22,4 @@ jobs:
           close-issue-message: >
             Could not reproduce, closing since no feedback or no way of reproducing was found.
             Comment if you find a way to reproduce this issue, or want to re-open for a valid reason.
-          exempt-issue-labels: "type: pinned,type: security"
-          exempt-pr-labels: "type: pinned,type: security"
 
