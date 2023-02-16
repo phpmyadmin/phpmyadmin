@@ -15,10 +15,6 @@ jobs:
           days-before-stale: 60
           days-before-close: 7
           only-issue-labels: "question"
-          stale-pr-message: >
-            This pr has been automatically marked as stale because it has not had
-            recent activity. It will be closed if no further activity occurs. Thank you
-            for your contributions.
           close-issue-message: >
             Could not reproduce, closing since no feedback or no way of reproducing was found.
             Comment if you find a way to reproduce this issue, or want to re-open for a valid reason.
