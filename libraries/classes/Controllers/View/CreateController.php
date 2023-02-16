@@ -92,58 +92,7 @@ class CreateController extends AbstractController
         $ajaxdialog = $request->hasBodyParam('ajax_dialog');
 
         if (($createview || $alterview) && $view !== null) {
-            /**
-             * Creates the view
-             */
-            $separator = "\r\n";
-
-            if ($createview) {
-                $GLOBALS['sql_query'] = 'CREATE';
-                if (isset($view['or_replace'])) {
-                    $GLOBALS['sql_query'] .= ' OR REPLACE';
-                }
-            } else {
-                $GLOBALS['sql_query'] = 'ALTER';
-            }
-
-            if (
-                isset($view['algorithm'])
-                && in_array($view['algorithm'], self::VIEW_ALGORITHM_OPTIONS)
-            ) {
-                $GLOBALS['sql_query'] .= $separator . ' ALGORITHM = ' . $view['algorithm'];
-            }
-
-            if (! empty($view['definer'])) {
-                if (! str_contains($view['definer'], '@')) {
-                    $GLOBALS['sql_query'] .= $separator . 'DEFINER='
-                        . Util::backquote($view['definer']);
-                } else {
-                    $definerArray = explode('@', $view['definer']);
-                    $GLOBALS['sql_query'] .= $separator . 'DEFINER=' . Util::backquote($definerArray[0]);
-                    $GLOBALS['sql_query'] .= '@' . Util::backquote($definerArray[1]) . ' ';
-                }
-            }
-
-            if (
-                isset($view['sql_security'])
-                && in_array($view['sql_security'], self::VIEW_SECURITY_OPTIONS)
-            ) {
-                $GLOBALS['sql_query'] .= $separator . ' SQL SECURITY '
-                    . $view['sql_security'];
-            }
-
-            $GLOBALS['sql_query'] .= $separator . ' VIEW '
-                . Util::backquote($view['name']);
-
-            if (! empty($view['column_names'])) {
-                $GLOBALS['sql_query'] .= $separator . ' (' . $view['column_names'] . ')';
-            }
-
-            $GLOBALS['sql_query'] .= $separator . ' AS ' . $view['as'];
-
-            if (isset($view['with']) && in_array($view['with'], self::VIEW_WITH_OPTIONS)) {
-                $GLOBALS['sql_query'] .= $separator . ' WITH ' . $view['with'] . '  CHECK OPTION';
-            }
+            $GLOBALS['sql_query'] = $this->getSqlQuery($createview, $view);
 
             if (! $this->dbi->tryQuery($GLOBALS['sql_query'])) {
                 if (! $ajaxdialog) {
@@ -164,46 +113,7 @@ class CreateController extends AbstractController
                 return;
             }
 
-            // If different column names defined for VIEW
-            $viewColumns = [];
-            if (isset($view['column_names'])) {
-                $viewColumns = explode(',', $view['column_names']);
-            }
-
-            $systemDb = $this->dbi->getSystemDatabase();
-            $pmaTransformationData = $systemDb->getExistingTransformationData($GLOBALS['db']);
-
-            if ($pmaTransformationData !== false) {
-                $columnMap = $systemDb->getColumnMapFromSql($view['as'], $viewColumns);
-                // SQL for store new transformation details of VIEW
-                $newTransformationsSql = $systemDb->getNewTransformationDataSql(
-                    $pmaTransformationData,
-                    $columnMap,
-                    $view['name'],
-                    $GLOBALS['db']
-                );
-
-                // Store new transformations
-                if ($newTransformationsSql !== '') {
-                    $this->dbi->tryQuery($newTransformationsSql);
-                }
-            }
-
-            if ($ajaxdialog) {
-                $GLOBALS['message'] = Message::success();
-                /** @var StructureController $controller */
-                $controller = Core::getContainerBuilder()->get(StructureController::class);
-                $controller($request);
-            } else {
-                $this->response->addJSON(
-                    'message',
-                    Generator::getMessage(
-                        Message::success(),
-                        $GLOBALS['sql_query']
-                    )
-                );
-                $this->response->setRequestStatus(true);
-            }
+            $this->setSuccessResponse($view, $ajaxdialog, $request);
 
             return;
         }
@@ -279,5 +189,107 @@ class CreateController extends AbstractController
             'view_with_options' => self::VIEW_WITH_OPTIONS,
             'view_security_options' => self::VIEW_SECURITY_OPTIONS,
         ]);
+    }
+
+    private function setSuccessResponse(array $view, bool $ajaxdialog, ServerRequest $request): void
+    {
+        // If different column names defined for VIEW
+        $viewColumns = [];
+        if (isset($view['column_names'])) {
+            $viewColumns = explode(',', $view['column_names']);
+        }
+
+        $systemDb = $this->dbi->getSystemDatabase();
+        $pmaTransformationData = $systemDb->getExistingTransformationData($GLOBALS['db']);
+
+        if ($pmaTransformationData !== false) {
+            $columnMap = $systemDb->getColumnMapFromSql($view['as'], $viewColumns);
+            // SQL for store new transformation details of VIEW
+            $newTransformationsSql = $systemDb->getNewTransformationDataSql(
+                $pmaTransformationData,
+                $columnMap,
+                $view['name'],
+                $GLOBALS['db']
+            );
+
+            // Store new transformations
+            if ($newTransformationsSql !== '') {
+                $this->dbi->tryQuery($newTransformationsSql);
+            }
+        }
+
+        if ($ajaxdialog) {
+            $GLOBALS['message'] = Message::success();
+            /** @var StructureController $controller */
+            $controller = Core::getContainerBuilder()->get(StructureController::class);
+            $controller($request);
+        } else {
+            $this->response->addJSON(
+                'message',
+                Generator::getMessage(
+                    Message::success(),
+                    $GLOBALS['sql_query']
+                )
+            );
+            $this->response->setRequestStatus(true);
+        }
+    }
+
+    /**
+     * Creates the view
+     */
+    private function getSqlQuery(bool $createview, array $view): string
+    {
+        $separator = "\r\n";
+
+        if ($createview) {
+            $sqlQuery = 'CREATE';
+            if (isset($view['or_replace'])) {
+                $sqlQuery .= ' OR REPLACE';
+            }
+        } else {
+            $sqlQuery = 'ALTER';
+        }
+
+        if (
+            isset($view['algorithm'])
+            && in_array($view['algorithm'], self::VIEW_ALGORITHM_OPTIONS)
+        ) {
+            $sqlQuery .= $separator . ' ALGORITHM = ' . $view['algorithm'];
+        }
+
+        if (! empty($view['definer'])) {
+            if (! str_contains($view['definer'], '@')) {
+                $sqlQuery .= $separator . 'DEFINER='
+                    . Util::backquote($view['definer']);
+            } else {
+                $definerArray = explode('@', $view['definer']);
+                $sqlQuery .= $separator . 'DEFINER=' . Util::backquote($definerArray[0]);
+                $sqlQuery .= '@' . Util::backquote($definerArray[1]) . ' ';
+            }
+        }
+
+        if (
+            isset($view['sql_security'])
+            && in_array($view['sql_security'], self::VIEW_SECURITY_OPTIONS)
+        ) {
+            $sqlQuery .= $separator . ' SQL SECURITY '
+                . $view['sql_security'];
+        }
+
+        $sqlQuery .= $separator . ' VIEW '
+            . Util::backquote($view['name']);
+
+        if (! empty($view['column_names'])) {
+            $sqlQuery .= $separator . ' (' . $view['column_names'] . ')';
+        }
+
+        $sqlQuery .= $separator . ' AS ' . $view['as'];
+
+        if (isset($view['with']) && in_array($view['with'], self::VIEW_WITH_OPTIONS)) {
+            $sqlQuery .= $separator . ' WITH ' . $view['with'] . '  CHECK OPTION';
+        }
+
+        return $sqlQuery;
     }
 }
