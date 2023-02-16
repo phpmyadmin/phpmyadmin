@@ -1071,10 +1071,11 @@ class Table implements Stringable
                 $GLOBALS['sql_auto_increment'] = $_POST['sql_auto_increment'];
             }
 
+            $isView = (new Table($sourceTable, $sourceDb, $GLOBALS['dbi']))->isView();
             /**
              * The old structure of the table..
              */
-            $sqlStructure = $exportSqlPlugin->getTableDef($sourceDb, $sourceTable, "\n", $errorUrl, false, false);
+            $sqlStructure = $exportSqlPlugin->getTableDef($sourceDb, $sourceTable, "\n", $errorUrl, false, false, $isView);
 
             unset($noConstraintsComments);
 
