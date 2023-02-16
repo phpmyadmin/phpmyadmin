@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2023-02-02 11:39+0000\n"
-"Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
-"Language-Team: Macedonian <https://hosted.weblate.org/projects/"
-"phpmyadmin/5-2/mk/>\n"
+"PO-Revision-Date: 2023-02-17 01:46+0000\n"
+"Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
+"Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
+"5-2/mk/>\n"
 "Language: mk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -122,6 +122,8 @@ msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"Се предлага да го подесите {long_query_time} на пониска вредност, во "
+"зависност од вашата околина. Обично вредност од 1 до 5 секунди е предложена."
 
 #: libraries/advisory_rules_generic.php:74
 #, php-format
@@ -143,6 +145,8 @@ msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"Овозможете евидентирање на бавни барања со подесувањето на {log_slow_queries}"
+" на 'ON'. Ова ќе помогне да се најдат проблеми со барања со лошо извршување."
 
 #: libraries/advisory_rules_generic.php:88
 msgid "log_slow_queries is set to 'OFF'"
@@ -8114,7 +8118,7 @@ msgstr "Примарен"
 #: templates/table/structure/display_table_stats.twig:24
 #: templates/table/tracking/structure_snapshot_columns.twig:27
 msgid "Index"
-msgstr "Клуч"
+msgstr "Индекс"
 
 #: libraries/classes/Controllers/Table/Structure/MoveColumnsController.php:178
 #, fuzzy
@@ -9414,7 +9418,7 @@ msgstr "Функција"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/table/zoom_search/index.twig:37
 msgid "Type"
-msgstr "Вид"
+msgstr "Тип"
 
 #: libraries/classes/InsertEdit.php:725 templates/import.twig:60
 #: templates/import.twig:85
