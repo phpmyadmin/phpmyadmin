@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.3.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-12 00:20+0000\n"
-"PO-Revision-Date: 2023-02-17 01:47+0000\n"
+"PO-Revision-Date: 2023-02-17 10:24+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mk/>\n"
@@ -3294,9 +3294,8 @@ msgstr "Табели"
 #: libraries/classes/Config/Descriptions.php:764
 #: libraries/classes/Config/Forms/User/MainForm.php:90
 #: templates/preferences/header.twig:36
-#, fuzzy
 msgid "Main panel"
-msgstr "Додади ново поле"
+msgstr "Главен панел"
 
 #: libraries/classes/Config/Descriptions.php:765
 #, fuzzy
@@ -3364,9 +3363,8 @@ msgid "Startup"
 msgstr "Статус"
 
 #: libraries/classes/Config/Descriptions.php:779
-#, fuzzy
 msgid "Database structure"
-msgstr "База на податоци"
+msgstr "Структура на база на податоци"
 
 #: libraries/classes/Config/Descriptions.php:780
 #: libraries/classes/Plugins/Export/ExportPdf.php:260
@@ -3386,9 +3384,8 @@ msgid "Display relational schema"
 msgstr "Релациона шема"
 
 #: libraries/classes/Config/Descriptions.php:783
-#, fuzzy
 msgid "Text fields"
-msgstr "Користи текст поле"
+msgstr "Текст полиња"
 
 #: libraries/classes/Config/Descriptions.php:784
 msgid "Texy! text"
@@ -4249,9 +4246,8 @@ msgstr "Измените се сочувани"
 
 #: libraries/classes/Config/Descriptions.php:977
 #: templates/console/display.twig:177
-#, fuzzy
 msgid "Show query history at start"
-msgstr "SQL упит"
+msgstr "Покажи историја на барања на старт"
 
 #: libraries/classes/Config/Descriptions.php:978
 #: templates/console/display.twig:173
@@ -4269,9 +4265,8 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:981
 #: templates/console/display.twig:189
-#, fuzzy
 msgid "Switch to dark theme"
-msgstr "Премини на копираната табела"
+msgstr "Префрли во темна тема"
 
 #: libraries/classes/Config/Descriptions.php:982
 msgid "Console height"
@@ -13709,9 +13704,8 @@ msgid "Requery"
 msgstr "во упитот"
 
 #: templates/console/display.twig:5
-#, fuzzy
 msgid "SQL Query Console"
-msgstr "SQL упит"
+msgstr "Конзола за SQL барања"
 
 #: templates/console/display.twig:9 templates/setup/home/index.twig:166
 #: templates/sql/query.twig:38
@@ -13725,9 +13719,8 @@ msgid "History"
 msgstr "SQL историја"
 
 #: templates/console/display.twig:19 templates/console/display.twig:118
-#, fuzzy
 msgid "Bookmarks"
-msgstr "Пребарување"
+msgstr "Обележувачи"
 
 #: templates/console/display.twig:31
 #, fuzzy
@@ -16278,9 +16271,8 @@ msgid "There are no favorite tables."
 msgstr "Серверот не одговара"
 
 #: templates/relation/check_relations.twig:3
-#, fuzzy
 msgid "phpMyAdmin configuration storage"
-msgstr "phpMyAdmin документација"
+msgstr "phpMyAdmin складирање на конфигурации"
 
 #: templates/relation/check_relations.twig:9
 msgid "Configuration of pmadb…"
