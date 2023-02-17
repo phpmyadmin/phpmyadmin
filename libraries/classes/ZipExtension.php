@@ -111,7 +111,7 @@ class ZipExtension
         }
 
         /* Couldn't find any files that matched $specific_entry */
-        if (empty($fileData)) {
+        if ($fileData === '' || $fileData === false) {
             $errorMessage = __('Error in ZIP archive:')
                 . ' Could not find "' . $specificEntry . '"';
         }

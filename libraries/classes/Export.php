@@ -512,7 +512,7 @@ class Export
      */
     public function saveObjectInBuffer(string $objectName, bool $append = false): void
     {
-        if (! empty($this->dumpBuffer)) {
+        if ($this->dumpBuffer !== '') {
             if ($append && isset($this->dumpBufferObjects[$objectName])) {
                 $this->dumpBufferObjects[$objectName] .= $this->dumpBuffer;
             } else {

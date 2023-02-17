@@ -2267,7 +2267,6 @@
       <code>$unit</code>
     </PossiblyNullArrayAccess>
     <PropertyNotSetInConstructor>
-      <code>$dbIsSystemSchema</code>
       <code>$isShowStats</code>
       <code>$numTables</code>
       <code>$position</code>

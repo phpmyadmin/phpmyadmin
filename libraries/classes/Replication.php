@@ -155,7 +155,7 @@ class Replication
         $data = $this->dbi->fetchResult('SHOW MASTER STATUS', null, null, $connectionType);
         $output = [];
 
-        if (! empty($data)) {
+        if ($data !== []) {
             $output['File'] = $data[0]['File'];
             $output['Position'] = $data[0]['Position'];
         }

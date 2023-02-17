@@ -941,7 +941,7 @@ class LanguageManager
 
         // try to find out user's language by checking its HTTP_USER_AGENT variable
         $user_agent = Core::getenv('HTTP_USER_AGENT');
-        if (! empty($user_agent)) {
+        if ($user_agent !== '') {
             foreach ($langs as $language) {
                 if ($language->matchesUserAgent($user_agent)) {
                     return $language;

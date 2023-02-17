@@ -110,7 +110,7 @@ class FindReplaceController extends AbstractController
                 $type = mb_strtolower($type);
             }
 
-            if (empty($type)) {
+            if ($type === '') {
                 $type = '&nbsp;';
             }
 

@@ -480,7 +480,7 @@ class Import
      */
     public function getColumnNumberFromName(string $name): int
     {
-        if (empty($name)) {
+        if ($name === '') {
             return 0;
         }
 
@@ -1310,7 +1310,7 @@ class Import
             . 'SQL queries containing transactional engine tables can be rolled back.'
         );
         foreach ($queries as $sqlQuery) {
-            if (empty($sqlQuery)) {
+            if ($sqlQuery === '') {
                 continue;
             }
 
@@ -1460,7 +1460,7 @@ class Import
 
         $extensions = '';
         foreach ($importList as $importPlugin) {
-            if (! empty($extensions)) {
+            if ($extensions !== '') {
                 $extensions .= '|';
             }
 

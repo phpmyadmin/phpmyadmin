@@ -176,7 +176,7 @@ class Util
         // Fixup for newly used names:
         $link = str_replace('_', '-', mb_strtolower($link));
 
-        if (empty($link)) {
+        if ($link === '') {
             $link = 'index';
         }
 
@@ -195,7 +195,7 @@ class Util
 
         $url = 'https://dev.mysql.com/doc/refman/'
             . $mysql . '/' . $lang . '/' . $link . '.html';
-        if (! empty($anchor)) {
+        if ($anchor !== '') {
             $url .= '#' . $anchor;
         }
 
@@ -1903,7 +1903,7 @@ class Util
      */
     public static function addMicroseconds($value): string
     {
-        if (empty($value) || $value === 'CURRENT_TIMESTAMP' || $value === 'current_timestamp()') {
+        if ($value === '' || $value === 'CURRENT_TIMESTAMP' || $value === 'current_timestamp()') {
             return $value;
         }
 

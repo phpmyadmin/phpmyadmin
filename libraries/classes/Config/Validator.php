@@ -140,7 +140,7 @@ class Validator
             $vids[] = $vid;
         }
 
-        if (empty($vids)) {
+        if ($vids === []) {
             return false;
         }
 
@@ -196,7 +196,7 @@ class Validator
             $newResult[$k2] = $v;
         }
 
-        return empty($newResult) ? true : $newResult;
+        return $newResult === [] ? true : $newResult;
     }
 
     /**
@@ -228,9 +228,9 @@ class Validator
         error_clear_last();
 
         /** @var string $socket */
-        $socket = empty($socket) ? null : $socket;
+        $socket = $socket === '' ? null : $socket;
         /** @var int $port */
-        $port = empty($port) ? null : (int) $port;
+        $port = $port === '' ? null : (int) $port;
 
         mysqli_report(MYSQLI_REPORT_OFF);
 

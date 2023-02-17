@@ -508,7 +508,7 @@ class ReplicationGui
             // Read the current primary position
             $position = $this->replication->replicaBinLogPrimary(Connection::TYPE_AUXILIARY);
 
-            if (empty($position)) {
+            if ($position === []) {
                 $_SESSION['replication']['sr_action_status'] = 'error';
                 $_SESSION['replication']['sr_action_info'] = __(
                     'Unable to read primary log position. Possible privilege problem on primary.'

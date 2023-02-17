@@ -73,7 +73,7 @@ abstract class ImageUploadTransformationsPlugin extends IOTransformationsPlugin
     ): string {
         $html = '';
         $src = '';
-        if (! empty($value)) {
+        if ($value !== '') {
             $html = '<input type="hidden" name="fields_prev' . $column_name_appendix
                 . '" value="' . bin2hex($value) . '">';
             $html .= '<input type="hidden" name="fields' . $column_name_appendix

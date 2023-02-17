@@ -119,7 +119,7 @@ class ExportTexytext extends ExportPlugin
      */
     public function exportDBHeader($db, $dbAlias = ''): bool
     {
-        if (empty($dbAlias)) {
+        if ($dbAlias === '') {
             $dbAlias = $db;
         }
 
@@ -573,7 +573,7 @@ class ExportTexytext extends ExportPlugin
         $unique_keys,
         $col_alias = ''
     ): string {
-        if (empty($col_alias)) {
+        if ($col_alias === '') {
             $col_alias = $column['Field'];
         }
 

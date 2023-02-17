@@ -690,7 +690,7 @@ final class ImportController extends AbstractController
             $GLOBALS['reload'] = $statementInfo->reload;
             $GLOBALS['offset'] = $statementInfo->offset;
 
-            if ($GLOBALS['table'] != $table_from_sql && ! empty($table_from_sql)) {
+            if ($GLOBALS['table'] != $table_from_sql && $table_from_sql !== '') {
                 $GLOBALS['table'] = $table_from_sql;
             }
         }
@@ -739,7 +739,7 @@ final class ImportController extends AbstractController
                     return;
                 }
 
-                if ($GLOBALS['table'] != $table_from_sql && ! empty($table_from_sql)) {
+                if ($GLOBALS['table'] != $table_from_sql && $table_from_sql !== '') {
                     $GLOBALS['table'] = $table_from_sql;
                 }
 

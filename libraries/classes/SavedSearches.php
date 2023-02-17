@@ -70,7 +70,7 @@ class SavedSearches
     public function setId($searchId): static
     {
         $searchId = (int) $searchId;
-        if (empty($searchId)) {
+        if ($searchId === 0) {
             $searchId = null;
         }
 
@@ -249,7 +249,7 @@ class SavedSearches
             ];
             $existingSearches = $this->getList($savedQueryByExampleSearchesFeature, $wheres);
 
-            if (! empty($existingSearches)) {
+            if ($existingSearches !== []) {
                 throw new SavedSearchesException(__('An entry with this name already exists.'));
             }
 
@@ -276,7 +276,7 @@ class SavedSearches
         ];
         $existingSearches = $this->getList($savedQueryByExampleSearchesFeature, $wheres);
 
-        if (! empty($existingSearches)) {
+        if ($existingSearches !== []) {
             throw new SavedSearchesException(__('An entry with this name already exists.'));
         }
 

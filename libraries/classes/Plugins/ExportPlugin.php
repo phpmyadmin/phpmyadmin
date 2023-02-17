@@ -269,7 +269,7 @@ abstract class ExportPlugin implements Plugin
      */
     public function getAlias(array $aliases, $id, $type = 'dbtblcol', $db = '', $tbl = ''): string
     {
-        if (! empty($db) && isset($aliases[$db])) {
+        if ($db !== '' && isset($aliases[$db])) {
             $aliases = [
                 $db => $aliases[$db],
             ];
@@ -286,7 +286,7 @@ abstract class ExportPlugin implements Plugin
                 continue;
             }
 
-            if (! empty($tbl) && isset($db['tables'][$tbl])) {
+            if ($tbl !== '' && isset($db['tables'][$tbl])) {
                 $db['tables'] = [
                     $tbl => $db['tables'][$tbl],
                 ];

@@ -633,7 +633,7 @@ class Generator
 
             // avoid displaying a Profiling checkbox that could
             // be checked, which would re-execute an INSERT, for example
-            if (! empty($refreshLink) && Profiling::isSupported($GLOBALS['dbi'])) {
+            if ($refreshLink !== '' && Profiling::isSupported($GLOBALS['dbi'])) {
                 $retval .= '<input type="hidden" name="profiling_form" value="1">';
                 $retval .= '<input type="checkbox" name="profiling" id="profilingCheckbox" class="autosubmit"';
                 $retval .= isset($_SESSION['profiling']) ? ' checked' : '';
@@ -731,12 +731,12 @@ class Generator
         $errorMessage = '';
 
         // Checking for any server errors.
-        if (empty($serverMessage)) {
+        if ($serverMessage === '') {
             $serverMessage = $GLOBALS['dbi']->getError();
         }
 
         // Finding the query that failed, if not specified.
-        if (empty($sqlQuery) && ! empty($GLOBALS['sql_query'])) {
+        if ($sqlQuery === '' && ! empty($GLOBALS['sql_query'])) {
             $sqlQuery = $GLOBALS['sql_query'];
         }
 
@@ -762,7 +762,7 @@ class Generator
             ]
         );
 
-        if (empty($sqlQuery)) {
+        if ($sqlQuery === '') {
             $formattedSql = '';
         } elseif (count($errors)) {
             $formattedSql = htmlspecialchars($sqlQuery);
@@ -774,9 +774,9 @@ class Generator
 
         // For security reasons, if the MySQL refuses the connection, the query
         // is hidden so no details are revealed.
-        if (! empty($sqlQuery) && ! mb_strstr($sqlQuery, 'connect')) {
+        if ($sqlQuery !== '' && ! mb_strstr($sqlQuery, 'connect')) {
             // Static analysis errors.
-            if (! empty($errors)) {
+            if ($errors !== []) {
                 $errorMessage .= '<p><strong>' . __('Static analysis:')
                     . '</strong></p>';
                 $errorMessage .= '<p>' . sprintf(
@@ -884,7 +884,7 @@ class Generator
             exit;
         }
 
-        if (! empty($backUrl)) {
+        if ($backUrl !== '') {
             if (mb_strstr($backUrl, '?')) {
                 $backUrl .= '&amp;no_history=true';
             } else {

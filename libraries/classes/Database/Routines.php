@@ -578,7 +578,7 @@ class Routines
 
         // Do not use $routine['ROUTINE_DEFINITION'] because of a MySQL escaping issue: #15370
         $body = TokensList::build($stmt->body);
-        if (empty($body)) {
+        if ($body === '') {
             // Fallback just in case the parser fails
             $body = (string) $routine['ROUTINE_DEFINITION'];
         }
@@ -669,7 +669,7 @@ class Routines
                 'item_param_opts_num' => [0 => ''],
                 'item_param_opts_text' => [0 => ''],
             ];
-        } elseif (! empty($routine)) {
+        } elseif ($routine !== []) {
             // regular row for routine editor
             $drop_class = ' hide';
             $i = $index;

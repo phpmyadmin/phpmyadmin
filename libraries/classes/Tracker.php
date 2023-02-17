@@ -543,7 +543,7 @@ class Tracker
             Util::backquote($trackingFeature->tracking),
             $GLOBALS['dbi']->escapeString($dbname)
         );
-        if (! empty($tablename)) {
+        if ($tablename !== '') {
             $sqlQuery .= " AND `table_name` = '"
                 . $GLOBALS['dbi']->escapeString($tablename) . "' ";
         }
@@ -690,7 +690,7 @@ class Tracker
 
         $result = [];
 
-        if (! empty($parser->statements)) {
+        if ($parser->statements !== []) {
             $statement = $parser->statements[0];
             $options = isset($statement->options) ? $statement->options->options : null;
 
@@ -699,7 +699,7 @@ class Tracker
 
             // Parse CREATE statement
             if ($statement instanceof CreateStatement) {
-                if (empty($options) || ! isset($options[6])) {
+                if ($options === null || $options === [] || ! isset($options[6])) {
                     return $result;
                 }
 
@@ -725,7 +725,7 @@ class Tracker
                                                                               : $statement->body[2]->value;
                 }
             } elseif ($statement instanceof AlterStatement) { // Parse ALTER statement
-                if (empty($options) || ! isset($options[3])) {
+                if ($options === null || $options === [] || ! isset($options[3])) {
                     return $result;
                 }
 
@@ -739,7 +739,7 @@ class Tracker
                     $GLOBALS['db'] = $statement->table->table;
                 }
             } elseif ($statement instanceof DropStatement) { // Parse DROP statement
-                if (empty($options) || ! isset($options[1])) {
+                if ($options === null || $options === [] || ! isset($options[1])) {
                     return $result;
                 }
 
@@ -818,7 +818,7 @@ class Tracker
         $dbname = trim($GLOBALS['db'] ?? '', '`');
         // $dbname can be empty, for example when coming from Synchronize
         // and this is a query for the remote server
-        if (empty($dbname)) {
+        if ($dbname === '') {
             return;
         }
 

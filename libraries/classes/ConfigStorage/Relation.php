@@ -396,7 +396,7 @@ class Relation
             $error = $this->dbi->getError(Connection::TYPE_CONTROL);
 
             // return true if no error exists otherwise false
-            return empty($error);
+            return $error === '';
         }
 
         // some failure, either in upgrading or something else

@@ -87,7 +87,7 @@ class Normalization
                 $type = $extractedColumnSpec['type'];
             }
 
-            if (! empty($columnTypeList) && ! in_array(mb_strtoupper($type), $columnTypeList)) {
+            if ($columnTypeList !== [] && ! in_array(mb_strtoupper($type), $columnTypeList)) {
                 continue;
             }
 
@@ -992,7 +992,7 @@ class Normalization
                 . '</span>';
         }
 
-        if (empty($dependencyList)) {
+        if ($dependencyList === []) {
             $html .= '<p class="d-block m-1">'
                 . __('No partial dependencies found!') . '</p>';
         }
