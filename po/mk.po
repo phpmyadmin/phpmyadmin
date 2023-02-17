@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-02-17 01:49+0000\n"
+"PO-Revision-Date: 2023-02-17 10:24+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/mk/>\n"
@@ -4584,10 +4584,8 @@ msgstr "Опции за приказ на табели."
 
 #: libraries/classes/Config/Descriptions.php:494
 #: libraries/classes/Config/Forms/User/MainForm.php:84
-#, fuzzy
-#| msgid "Add new field"
 msgid "Main panel"
-msgstr "Додади ново поле"
+msgstr "Главен панел"
 
 #: libraries/classes/Config/Descriptions.php:496
 #, fuzzy
@@ -4712,10 +4710,8 @@ msgid "Customize startup page."
 msgstr "Подесување на стартна страница."
 
 #: libraries/classes/Config/Descriptions.php:569
-#, fuzzy
-#| msgid "Databases"
 msgid "Database structure"
-msgstr "База на податоци"
+msgstr "Структура на база на податоци"
 
 #: libraries/classes/Config/Descriptions.php:571
 msgid ""
@@ -4756,10 +4752,8 @@ msgid "Paper size"
 msgstr "Димензија на хартијата"
 
 #: libraries/classes/Config/Descriptions.php:591
-#, fuzzy
-#| msgid "Use text field"
 msgid "Text fields"
-msgstr "Користи текст поле"
+msgstr "Текст полиња"
 
 #: libraries/classes/Config/Descriptions.php:593
 msgid "Customize text input fields."
@@ -6337,9 +6331,8 @@ msgstr "Измените се сочувани"
 
 #: libraries/classes/Config/Descriptions.php:1466
 #: templates/console/display.twig:153
-#, fuzzy
 msgid "Show query history at start"
-msgstr "SQL упит"
+msgstr "Покажи историја на барања на старт"
 
 #: libraries/classes/Config/Descriptions.php:1468
 #: templates/console/display.twig:149
@@ -6357,10 +6350,8 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1474
 #: templates/console/display.twig:168
-#, fuzzy
-#| msgid "Switch to copied table"
 msgid "Switch to dark theme"
-msgstr "Премини на копираната табела"
+msgstr "Префрли во темна тема"
 
 #: libraries/classes/Config/Descriptions.php:1476
 msgid "Console height"
@@ -6690,9 +6681,8 @@ msgid "No bookmarks"
 msgstr "Пребарување"
 
 #: libraries/classes/Console.php:137
-#, fuzzy
 msgid "SQL Query Console"
-msgstr "SQL упит"
+msgstr "Конзола за SQL барања"
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:284
 msgid "Favorite List is full!"
@@ -14796,10 +14786,8 @@ msgid "History"
 msgstr "SQL историја"
 
 #: templates/console/display.twig:11 templates/console/display.twig:99
-#, fuzzy
-#| msgid "Search"
 msgid "Bookmarks"
-msgstr "Пребарување"
+msgstr "Обележувачи"
 
 #: templates/console/display.twig:20
 #, fuzzy
