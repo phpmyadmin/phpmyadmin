@@ -117,8 +117,7 @@ final class MoveColumnsController extends AbstractController
                 $data['Null'] === 'YES' ? 'YES' : 'NO',
                 $default_type,
                 $current_timestamp ? '' : $data['Default'],
-                isset($data['Extra']) && $data['Extra'] !== '' ? $data['Extra']
-                        : false,
+                $data['Extra'] ?? '',
                 isset($data['COLUMN_COMMENT']) && $data['COLUMN_COMMENT'] !== ''
                         ? $data['COLUMN_COMMENT'] : false,
                 $data['Virtuality'],

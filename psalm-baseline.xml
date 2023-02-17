@@ -4764,6 +4764,7 @@
       <code><![CDATA[$data['Collation'] ?? '']]></code>
       <code><![CDATA[$data['Expression']]]></code>
       <code><![CDATA[$data['Extra']]]></code>
+      <code><![CDATA[$data['Extra'] ?? '']]></code>
       <code><![CDATA[$data['Type']]]></code>
       <code><![CDATA[$data['Virtuality']]]></code>
       <code><![CDATA[$extracted_columnspec['attribute']]]></code>
@@ -4772,8 +4773,6 @@
       <code><![CDATA[$i === 0 ? '-first' : $column_names[$i - 1]]]></code>
       <code><![CDATA[isset($data['COLUMN_COMMENT']) && $data['COLUMN_COMMENT'] !== ''
                         ? $data['COLUMN_COMMENT'] : false]]></code>
-      <code><![CDATA[isset($data['Extra']) && $data['Extra'] !== '' ? $data['Extra']
-                        : false]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$data['Collation']]]></code>
@@ -4783,6 +4782,7 @@
       <code><![CDATA[$data['Default']]]></code>
       <code><![CDATA[$data['Default']]]></code>
       <code><![CDATA[$data['Expression']]]></code>
+      <code><![CDATA[$data['Extra']]]></code>
       <code><![CDATA[$data['Null']]]></code>
       <code><![CDATA[$data['Null']]]></code>
       <code><![CDATA[$data['Type']]]></code>
@@ -4806,8 +4806,6 @@
     <PossiblyFalseArgument>
       <code><![CDATA[isset($data['COLUMN_COMMENT']) && $data['COLUMN_COMMENT'] !== ''
                         ? $data['COLUMN_COMMENT'] : false]]></code>
-      <code><![CDATA[isset($data['Extra']) && $data['Extra'] !== '' ? $data['Extra']
-                        : false]]></code>
     </PossiblyFalseArgument>
     <PossiblyNullArgument>
       <code><![CDATA[$data['Expression']]]></code>
@@ -4868,8 +4866,8 @@
       <code><![CDATA[Util::getValueByKey($_POST, 'field_comments_orig.' . $i, '')]]></code>
       <code><![CDATA[Util::getValueByKey($_POST, 'field_expression.' . $i, '')]]></code>
       <code><![CDATA[Util::getValueByKey($_POST, 'field_expression_orig.' . $i, '')]]></code>
-      <code><![CDATA[Util::getValueByKey($_POST, 'field_extra.' . $i, false)]]></code>
-      <code><![CDATA[Util::getValueByKey($_POST, 'field_extra_orig.' . $i, false)]]></code>
+      <code><![CDATA[Util::getValueByKey($_POST, 'field_extra.' . $i, '')]]></code>
+      <code><![CDATA[Util::getValueByKey($_POST, 'field_extra_orig.' . $i, '')]]></code>
       <code><![CDATA[Util::getValueByKey($_POST, 'field_move_to.' . $i, '')]]></code>
       <code><![CDATA[Util::getValueByKey($_POST, 'field_move_to_orig.' . $i, '')]]></code>
       <code><![CDATA[Util::getValueByKey($_POST, 'field_null.' . $i, 'NO')]]></code>
@@ -5485,7 +5483,7 @@
       <code><![CDATA[$_POST['field_default_type'][$i]]]></code>
       <code><![CDATA[$_POST['field_default_value'][$i]]]></code>
       <code><![CDATA[$_POST['field_expression'][$i] ?? '']]></code>
-      <code><![CDATA[$_POST['field_extra'][$i] ?? false]]></code>
+      <code><![CDATA[$_POST['field_extra'][$i] ?? '']]></code>
       <code><![CDATA[$_POST['field_length'][$i]]]></code>
       <code><![CDATA[$_POST['field_name']]]></code>
       <code><![CDATA[$_POST['field_name'][$column['col_index']]]]></code>
@@ -5512,7 +5510,7 @@
       <code><![CDATA[$_POST['field_default_type'][$i]]]></code>
       <code><![CDATA[$_POST['field_default_value'][$i]]]></code>
       <code><![CDATA[$_POST['field_expression'][$i] ?? '']]></code>
-      <code><![CDATA[$_POST['field_extra'][$i] ?? false]]></code>
+      <code><![CDATA[$_POST['field_extra'][$i] ?? '']]></code>
       <code><![CDATA[$_POST['field_length'][$i]]]></code>
       <code><![CDATA[$_POST['field_type'][$i]]]></code>
       <code><![CDATA[$_POST['field_virtuality'][$i] ?? '']]></code>
