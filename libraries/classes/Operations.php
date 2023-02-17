@@ -21,7 +21,6 @@ use function is_scalar;
 use function is_string;
 use function mb_strtolower;
 use function str_replace;
-use function strlen;
 use function strtolower;
 use function urldecode;
 
@@ -710,7 +709,7 @@ class Operations
             $newRowFormatLower = mb_strtolower($newRowFormat);
             if (
                 $pmaTable->isEngine(['MYISAM', 'ARIA', 'INNODB', 'PBXT'])
-                && (strlen($rowFormat) === 0
+                && ($rowFormat === ''
                 || $newRowFormatLower !== mb_strtolower($rowFormat))
             ) {
                 $tableAlters[] = 'ROW_FORMAT = '
@@ -882,14 +881,14 @@ class Operations
          * (when there are many databases, no drop-down)
          */
         $targetDb = $db;
-        if (isset($_POST['target_db']) && is_string($_POST['target_db']) && strlen($_POST['target_db']) > 0) {
+        if (isset($_POST['target_db']) && is_string($_POST['target_db']) && $_POST['target_db'] !== '') {
             $targetDb = $_POST['target_db'];
         }
 
         /**
          * A target table name has been sent to this script -> do the work
          */
-        if (isset($_POST['new_name']) && is_scalar($_POST['new_name']) && strlen((string) $_POST['new_name']) > 0) {
+        if (isset($_POST['new_name']) && is_scalar($_POST['new_name']) && (string) $_POST['new_name'] !== '') {
             if ($db == $targetDb && $table == $_POST['new_name']) {
                 if (isset($_POST['submit_move'])) {
                     $message = Message::error(__('Can\'t move table to same one!'));

@@ -11772,11 +11772,11 @@
       <code>$columnNames</code>
     </MixedReturnStatement>
     <PossiblyInvalidArgument>
-      <code><![CDATA[$_REQUEST['csv_new_db_name']]]></code>
-      <code><![CDATA[$_REQUEST['csv_new_tbl_name']]]></code>
       <code>$newDb</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
+      <code><![CDATA[$_REQUEST['csv_new_db_name']]]></code>
+      <code><![CDATA[$_REQUEST['csv_new_tbl_name']]]></code>
       <code>$newDb</code>
     </PossiblyInvalidCast>
     <PossiblyInvalidOperand>

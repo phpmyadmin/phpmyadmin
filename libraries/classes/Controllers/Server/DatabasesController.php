@@ -24,7 +24,6 @@ use function count;
 use function in_array;
 use function mb_strtolower;
 use function str_contains;
-use function strlen;
 
 /**
  * Handles viewing and creating and deleting databases
@@ -214,10 +213,10 @@ class DatabasesController extends AbstractController
                 $key = array_search($database['SCHEMA_NAME'], $primaryInfo['Ignore_DB']);
                 $replication['primary']['is_replicated'] = false;
 
-                if (strlen((string) $key) === 0) {
+                if ((string) $key === '') {
                     $key = array_search($database['SCHEMA_NAME'], $primaryInfo['Do_DB']);
 
-                    if (strlen((string) $key) > 0 || count($primaryInfo['Do_DB']) === 0) {
+                    if ((string) $key !== '' || count($primaryInfo['Do_DB']) === 0) {
                         $replication['primary']['is_replicated'] = true;
                     }
                 }
@@ -227,10 +226,10 @@ class DatabasesController extends AbstractController
                 $key = array_search($database['SCHEMA_NAME'], $replicaInfo['Ignore_DB']);
                 $replication['replica']['is_replicated'] = false;
 
-                if (strlen((string) $key) === 0) {
+                if ((string) $key === '') {
                     $key = array_search($database['SCHEMA_NAME'], $replicaInfo['Do_DB']);
 
-                    if (strlen((string) $key) > 0 || count($replicaInfo['Do_DB']) === 0) {
+                    if ((string) $key !== '' || count($replicaInfo['Do_DB']) === 0) {
                         $replication['replica']['is_replicated'] = true;
                     }
                 }

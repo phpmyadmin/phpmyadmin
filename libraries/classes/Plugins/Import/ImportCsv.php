@@ -614,7 +614,7 @@ class ImportCsv extends AbstractImportCsv
              * Otherwise, check if user provided the database name in the request,
              * if not, set the default name
              */
-            if (isset($_REQUEST['csv_new_db_name']) && strlen($_REQUEST['csv_new_db_name']) > 0) {
+            if (isset($_REQUEST['csv_new_db_name']) && (string) $_REQUEST['csv_new_db_name'] !== '') {
                 $newDb = $_REQUEST['csv_new_db_name'];
             } else {
                 $result = $GLOBALS['dbi']->fetchResult('SHOW DATABASES');
@@ -660,7 +660,7 @@ class ImportCsv extends AbstractImportCsv
         $GLOBALS['message'] ??= null;
 
         $param_error = false;
-        if (strlen($csvTerminated) === 0) {
+        if ($csvTerminated === '') {
             $GLOBALS['message'] = Message::error(
                 __('Invalid parameter for CSV import: %s')
             );
@@ -725,7 +725,7 @@ class ImportCsv extends AbstractImportCsv
         $importFileName = (string) preg_replace('/[^a-zA-Z0-9_]/', '_', $importFileName);
 
         // get new table name, if user didn't provide one, set the default name
-        if (isset($_REQUEST['csv_new_tbl_name']) && strlen($_REQUEST['csv_new_tbl_name']) > 0) {
+        if (isset($_REQUEST['csv_new_tbl_name']) && (string) $_REQUEST['csv_new_tbl_name'] !== '') {
             return $_REQUEST['csv_new_tbl_name'];
         }
 
