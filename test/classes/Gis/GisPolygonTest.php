@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisPolygon;
+use PhpMyAdmin\Gis\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
@@ -397,21 +398,11 @@ class GisPolygonTest extends GisGeomTestCase
         return [
             [
                 'POLYGON((123 0,23 30,17 63,123 0))',
-                [
-                    'minX' => 17,
-                    'maxX' => 123,
-                    'minY' => 0,
-                    'maxY' => 63,
-                ],
+                new ScaleData(123, 17, 63, 0),
             ],
             [
                 'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
-                [
-                    'minX' => 10,
-                    'maxX' => 45,
-                    'minY' => 10,
-                    'maxY' => 45,
-                ],
+                new ScaleData(45, 10, 45, 10),
             ],
         ];
     }

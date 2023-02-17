@@ -7954,41 +7954,12 @@
       <code>$gis_obj</code>
     </DocblockTypeContradiction>
     <MixedArgument>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
       <code>$type</code>
       <code>$wkt</code>
     </MixedArgument>
     <MixedAssignment>
       <code>$geom_count</code>
       <code>$params['srid']</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
       <code>$type</code>
       <code>$wkt</code>
     </MixedAssignment>
@@ -8684,8 +8655,8 @@
     <MixedOperand>
       <code>$border / $scale</code>
       <code>$border / $scale</code>
-      <code>$min_max['maxX'] + $min_max['minX'] - $this-&gt;settings['width'] / $scale</code>
-      <code>$min_max['maxY'] + $min_max['minY'] - $this-&gt;settings['height'] / $scale</code>
+      <code>$min_max-&gt;maxX + $min_max-&gt;minX - $this-&gt;settings['width'] / $scale</code>
+      <code>$min_max-&gt;maxY + $min_max-&gt;minY - $this-&gt;settings['height'] / $scale</code>
       <code>$plot_height</code>
       <code>$plot_width</code>
       <code>$ratio</code>
@@ -17417,6 +17388,7 @@
   </file>
   <file src="test/classes/Gis/GisVisualizationTest.php">
     <MixedAssignment>
+      <code>$dataSet</code>
       <code>$dataSet</code>
       <code>$queryString</code>
       <code>$queryString</code>

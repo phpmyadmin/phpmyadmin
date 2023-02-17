@@ -51,14 +51,14 @@ class GisMultiPoint extends GisGeometry
      *
      * @param string $spatial spatial data of a row
      *
-     * @return array an array containing the min, max values for x and y coordinates
+     * @return ScaleData|null the min, max values for x and y coordinates
      */
-    public function scaleRow($spatial)
+    public function scaleRow(string $spatial): ?ScaleData
     {
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
         $multipoint = mb_substr($spatial, 11, -1);
 
-        return $this->setMinMax($multipoint, []);
+        return $this->setMinMax($multipoint);
     }
 
     /**

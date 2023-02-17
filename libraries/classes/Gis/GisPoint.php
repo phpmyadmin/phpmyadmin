@@ -50,14 +50,14 @@ class GisPoint extends GisGeometry
      *
      * @param string $spatial spatial data of a row
      *
-     * @return array an array containing the min, max values for x and y coordinates
+     * @return ScaleData|null the min, max values for x and y coordinates
      */
-    public function scaleRow($spatial)
+    public function scaleRow(string $spatial): ?ScaleData
     {
         // Trim to remove leading 'POINT(' and trailing ')'
         $point = mb_substr($spatial, 6, -1);
 
-        return $this->setMinMax($point, []);
+        return $this->setMinMax($point);
     }
 
     /**
