@@ -1348,6 +1348,10 @@
       <code>$db</code>
       <code>$message</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="2">
+      <code>$tableNames</code>
+      <code>$tableNames</code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAssignment occurrences="1">
       <code>$urlParams['goto']</code>
     </MixedArrayAssignment>
@@ -9065,11 +9069,7 @@
       <code>$view</code>
       <code>$view</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="6">
-      <code>$each_table</code>
-      <code>$each_table</code>
-      <code>$each_table</code>
-      <code>$each_table</code>
+    <MixedArgumentTypeCoercion occurrences="2">
       <code>$master</code>
       <code>$master</code>
     </MixedArgumentTypeCoercion>
