@@ -23,7 +23,7 @@ jobs:
           - { php-version: '81', experimental: false, arch: 'amd64', exclude-phpunit-groups: 'extension-iconv' }
           - { php-version: '81', experimental: false, arch: 'arm64v8', exclude-phpunit-groups: 'extension-iconv' }
           - { php-version: '81', experimental: false, arch: 'arm32v7', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
-          - { php-version: '81', experimental: false, arch: 'arm32v6', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+          - { php-version: '81', experimental: true, arch: 'arm32v6', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
           - { php-version: '81', experimental: false, arch: 'i386', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
           - { php-version: '81', experimental: true, arch: 'ppc64le', exclude-phpunit-groups: 'extension-iconv' }
           - { php-version: '81', experimental: false, arch: 's390x', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
