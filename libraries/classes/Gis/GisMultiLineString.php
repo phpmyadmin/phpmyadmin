@@ -341,30 +341,14 @@ class GisMultiLineString extends GisGeometry
     }
 
     /**
-     * Generate parameters for the GIS data editor from the value of the GIS column.
+     * Generate coordinate parameters for the GIS data editor from the value of the GIS column.
      *
-     * @param string $value Value of the GIS column
-     * @param int    $index Index of the geometry
+     * @param string $wkt Value of the GIS column
      *
-     * @return array params for the GIS data editor from the value of the GIS column
+     * @return array Coordinate params for the GIS data editor from the value of the GIS column
      */
-    public function generateParams(string $value, int $index = -1): array
+    protected function getCoordinateParams(string $wkt): array
     {
-        if ($index == -1) {
-            $index = 0;
-            $data = $this->parseWktAndSrid($value);
-            $params = [
-                'srid' => $data['srid'],
-                $index => [],
-            ];
-            $wkt = $data['wkt'];
-        } else {
-            $params = [
-                $index => ['gis_type' => 'MULTILINESTRING'],
-            ];
-            $wkt = $value;
-        }
-
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
         $wkt_multilinestring = mb_substr($wkt, 17, -2);
         $wkt_linestrings = explode('),(', $wkt_multilinestring);
@@ -382,8 +366,6 @@ class GisMultiLineString extends GisGeometry
             }
         }
 
-        $params[$index]['MULTILINESTRING'] = $coords;
-
-        return $params;
+        return $coords;
     }
 }

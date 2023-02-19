@@ -167,24 +167,13 @@ class GisPolygonTest extends GisGeomTestCase
      */
     public static function providerForTestGenerateParams(): array
     {
-        $temp = self::getData();
-
-        $temp1 = $temp;
-        $temp1['gis_type'] = 'POLYGON';
-
         return [
             [
                 '\'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30))\',124',
-                null,
                 [
                     'srid' => 124,
-                    0 => $temp,
+                    0 => self::getData(),
                 ],
-            ],
-            [
-                'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30))',
-                2,
-                [2 => $temp1],
             ],
         ];
     }

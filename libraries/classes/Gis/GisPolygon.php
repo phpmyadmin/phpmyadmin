@@ -471,30 +471,14 @@ class GisPolygon extends GisGeometry
     }
 
     /**
-     * Generate parameters for the GIS data editor from the value of the GIS column.
+     * Generate coordinate parameters for the GIS data editor from the value of the GIS column.
      *
-     * @param string $value Value of the GIS column
-     * @param int    $index Index of the geometry
+     * @param string $wkt Value of the GIS column
      *
-     * @return array params for the GIS data editor from the value of the GIS column
+     * @return array Coordinate params for the GIS data editor from the value of the GIS column
      */
-    public function generateParams(string $value, int $index = -1): array
+    protected function getCoordinateParams(string $wkt): array
     {
-        if ($index == -1) {
-            $index = 0;
-            $data = $this->parseWktAndSrid($value);
-            $params = [
-                'srid' => $data['srid'],
-                $index => [],
-            ];
-            $wkt = $data['wkt'];
-        } else {
-            $params = [
-                $index => ['gis_type' => 'POLYGON'],
-            ];
-            $wkt = $value;
-        }
-
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $wkt_polygon = mb_substr($wkt, 9, -2);
         $wkt_rings = explode('),(', $wkt_polygon);
@@ -512,8 +496,6 @@ class GisPolygon extends GisGeometry
             }
         }
 
-        $params[$index]['POLYGON'] = $coords;
-
-        return $params;
+        return $coords;
     }
 }

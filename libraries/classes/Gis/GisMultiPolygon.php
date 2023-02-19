@@ -448,30 +448,14 @@ class GisMultiPolygon extends GisGeometry
     }
 
     /**
-     * Generate parameters for the GIS data editor from the value of the GIS column.
+     * Generate coordinate parameters for the GIS data editor from the value of the GIS column.
      *
-     * @param string $value Value of the GIS column
-     * @param int    $index Index of the geometry
+     * @param string $wkt Value of the GIS column
      *
-     * @return array params for the GIS data editor from the value of the GIS column
+     * @return array Coordinate params for the GIS data editor from the value of the GIS column
      */
-    public function generateParams(string $value, int $index = -1): array
+    protected function getCoordinateParams(string $wkt): array
     {
-        if ($index == -1) {
-            $index = 0;
-            $data = $this->parseWktAndSrid($value);
-            $params = [
-                'srid' => $data['srid'],
-                $index => [],
-            ];
-            $wkt = $data['wkt'];
-        } else {
-            $params = [
-                $index => ['gis_type' => 'MULTIPOLYGON'],
-            ];
-            $wkt = $value;
-        }
-
         // Trim to remove leading 'MULTIPOLYGON(((' and trailing ')))'
         $wkt_multipolygon = mb_substr($wkt, 15, -3);
         $wkt_polygons = explode(')),((', $wkt_multipolygon);
@@ -493,8 +477,6 @@ class GisMultiPolygon extends GisGeometry
             }
         }
 
-        $params[$index]['MULTIPOLYGON'] = $coords;
-
-        return $params;
+        return $coords;
     }
 }

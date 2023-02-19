@@ -270,30 +270,14 @@ class GisLineString extends GisGeometry
     }
 
     /**
-     * Generate parameters for the GIS data editor from the value of the GIS column.
+     * Generate coordinate parameters for the GIS data editor from the value of the GIS column.
      *
-     * @param string $value of the GIS column
-     * @param int    $index of the geometry
+     * @param string $wkt Value of the GIS column
      *
-     * @return array params for the GIS data editor from the value of the GIS column
+     * @return array Coordinate params for the GIS data editor from the value of the GIS column
      */
-    public function generateParams(string $value, int $index = -1): array
+    protected function getCoordinateParams(string $wkt): array
     {
-        if ($index == -1) {
-            $index = 0;
-            $data = $this->parseWktAndSrid($value);
-            $params = [
-                'srid' => $data['srid'],
-                $index => [],
-            ];
-            $wkt = $data['wkt'];
-        } else {
-            $params = [
-                $index => ['gis_type' => 'LINESTRING'],
-            ];
-            $wkt = $value;
-        }
-
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linestring = mb_substr($wkt, 11, -1);
         $points_arr = $this->extractPoints($linestring, null);
@@ -307,8 +291,6 @@ class GisLineString extends GisGeometry
             ];
         }
 
-        $params[$index]['LINESTRING'] = $coords;
-
-        return $params;
+        return $coords;
     }
 }

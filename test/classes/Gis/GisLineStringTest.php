@@ -111,35 +111,25 @@ class GisLineStringTest extends GisGeomTestCase
      */
     public static function providerForTestGenerateParams(): array
     {
-        $temp = [
-            'LINESTRING' => [
-                'no_of_points' => 2,
-                0 => [
-                    'x' => '5.02',
-                    'y' => '8.45',
-                ],
-                1 => [
-                    'x' => '6.14',
-                    'y' => '0.15',
-                ],
-            ],
-        ];
-        $temp1 = $temp;
-        $temp1['gis_type'] = 'LINESTRING';
-
         return [
             [
                 "'LINESTRING(5.02 8.45,6.14 0.15)',124",
-                null,
                 [
                     'srid' => 124,
-                    0 => $temp,
+                    0 => [
+                        'LINESTRING' => [
+                            'no_of_points' => 2,
+                            0 => [
+                                'x' => 5.02,
+                                'y' => 8.45,
+                            ],
+                            1 => [
+                                'x' => 6.14,
+                                'y' => 0.15,
+                            ],
+                        ],
+                    ],
                 ],
-            ],
-            [
-                'LINESTRING(5.02 8.45,6.14 0.15)',
-                2,
-                [2 => $temp1],
             ],
         ];
     }

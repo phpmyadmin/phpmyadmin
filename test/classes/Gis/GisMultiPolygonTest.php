@@ -181,26 +181,14 @@ class GisMultiPolygonTest extends GisGeomTestCase
      */
     public static function providerForTestGenerateParams(): array
     {
-        $temp = self::getData();
-
-        $temp1 = self::getData();
-        $temp1['gis_type'] = 'MULTIPOLYGON';
-
         return [
             [
                 "'MULTIPOLYGON(((35 10,10 20,15 40,45 45,35 10),"
                 . "(20 30,35 32,30 20,20 30)),((123 0,23 30,17 63,123 0)))',124",
-                null,
                 [
                     'srid' => 124,
-                    0 => $temp,
+                    0 => self::getData(),
                 ],
-            ],
-            [
-                'MULTIPOLYGON(((35 10,10 20,15 40,45 45,35 10)'
-                    . ',(20 30,35 32,30 20,20 30)),((123 0,23 30,17 63,123 0)))',
-                2,
-                [2 => $temp1],
             ],
         ];
     }

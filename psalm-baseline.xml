@@ -7937,9 +7937,6 @@
       <code>$black</code>
       <code>$line_color</code>
     </PossiblyFalseArgument>
-    <PossiblyInvalidArrayAssignment>
-      <code><![CDATA[$params[$index]['LINESTRING']]]></code>
-    </PossiblyInvalidArrayAssignment>
     <RedundantPropertyInitializationCheck>
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
@@ -8012,9 +8009,6 @@
       <code>$black</code>
       <code>$line_color</code>
     </PossiblyFalseArgument>
-    <PossiblyInvalidArrayAssignment>
-      <code><![CDATA[$params[$index]['MULTILINESTRING']]]></code>
-    </PossiblyInvalidArrayAssignment>
     <RedundantPropertyInitializationCheck>
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
@@ -8081,9 +8075,6 @@
       <code>$black</code>
       <code>$point_color</code>
     </PossiblyFalseArgument>
-    <PossiblyInvalidArrayAssignment>
-      <code><![CDATA[$params[$index]['MULTIPOINT']]]></code>
-    </PossiblyInvalidArrayAssignment>
     <RedundantPropertyInitializationCheck>
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
@@ -8194,9 +8185,6 @@
       <code>$black</code>
       <code>$fill_color</code>
     </PossiblyFalseArgument>
-    <PossiblyInvalidArrayAssignment>
-      <code><![CDATA[$params[$index]['MULTIPOLYGON']]]></code>
-    </PossiblyInvalidArrayAssignment>
     <RedundantPropertyInitializationCheck>
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
@@ -8247,9 +8235,6 @@
       <code>$black</code>
       <code>$point_color</code>
     </PossiblyFalseArgument>
-    <PossiblyInvalidArrayAssignment>
-      <code><![CDATA[$params[$index]['POINT']]]></code>
-    </PossiblyInvalidArrayAssignment>
     <RedundantPropertyInitializationCheck>
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
@@ -8391,9 +8376,6 @@
       <code>$black</code>
       <code>$fill_color</code>
     </PossiblyFalseArgument>
-    <PossiblyInvalidArrayAssignment>
-      <code><![CDATA[$params[$index]['POLYGON']]]></code>
-    </PossiblyInvalidArrayAssignment>
     <PossiblyNullOperand>
       <code>$x1</code>
       <code>$x1</code>
