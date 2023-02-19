@@ -554,7 +554,7 @@ class Common
         $type_T2 = mb_strtoupper($tables[$T2]['ENGINE'] ?? '');
 
         // native foreign key
-        if (ForeignKey::isSupported($type_T1) && ForeignKey::isSupported($type_T2) && $type_T1 == $type_T2) {
+        if (ForeignKey::isSupported($type_T1) && ForeignKey::isSupported($type_T2) && $type_T1 === $type_T2) {
             // relation exists?
             $existrel_foreign = $this->relation->getForeigners($DB2, $T2, '', 'foreign');
             $foreigner = $this->relation->searchColumnInForeigners($existrel_foreign, $F2);
@@ -693,7 +693,7 @@ class Common
         $tables = $this->dbi->getTablesFull($DB2, $T2);
         $type_T2 = mb_strtoupper($tables[$T2]['ENGINE']);
 
-        if (ForeignKey::isSupported($type_T1) && ForeignKey::isSupported($type_T2) && $type_T1 == $type_T2) {
+        if (ForeignKey::isSupported($type_T1) && ForeignKey::isSupported($type_T2) && $type_T1 === $type_T2) {
             // InnoDB
             $existrel_foreign = $this->relation->getForeigners($DB2, $T2, '', 'foreign');
             $foreigner = $this->relation->searchColumnInForeigners($existrel_foreign, $F2);

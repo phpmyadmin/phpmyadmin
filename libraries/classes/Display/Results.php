@@ -526,7 +526,7 @@ class Results
                 $isLink
                 && $previousTable != ''
                 && $fieldsMeta[$i]->table != ''
-                && $fieldsMeta[$i]->table != $previousTable
+                && $fieldsMeta[$i]->table !== $previousTable
             ) {
                 // don't display links
                 $hasEditLink = false;
@@ -3636,7 +3636,7 @@ class Results
         $sortedColumnIndex = false;
 
         foreach ($fieldsMeta as $key => $meta) {
-            if (($meta->table == $sortTable) && ($meta->name == $sortColumn)) {
+            if (($meta->table === $sortTable) && ($meta->name === $sortColumn)) {
                 $sortedColumnIndex = $key;
                 break;
             }

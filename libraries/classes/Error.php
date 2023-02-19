@@ -513,7 +513,7 @@ class Error extends Message
         $destParts = explode(DIRECTORY_SEPARATOR, $dest);
 
         $result = '.';
-        while (implode(DIRECTORY_SEPARATOR, $destParts) != implode(DIRECTORY_SEPARATOR, $hereParts)) {
+        while (implode(DIRECTORY_SEPARATOR, $destParts) !== implode(DIRECTORY_SEPARATOR, $hereParts)) {
             if (count($hereParts) > count($destParts)) {
                 array_pop($hereParts);
                 $result .= DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..';

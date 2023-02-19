@@ -233,7 +233,7 @@ class Git
                     substr($index_data, $offset + ($position * 20), 20)
                 )
             );
-            if ($sha == $hash) {
+            if ($sha === $hash) {
                 $found = true;
                 break;
             }
@@ -501,7 +501,7 @@ class Git
             }
 
             // have found our ref?
-            if ($parts[1] == $refHead) {
+            if ($parts[1] === $refHead) {
                 $hash = $parts[0];
                 break;
             }

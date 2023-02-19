@@ -114,7 +114,7 @@ class SystemDatabase
                 break;
             }
 
-            if ($columnCount == count($columnMap)) {
+            if ($columnCount === count($columnMap)) {
                 break;
             }
         }

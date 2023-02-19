@@ -414,7 +414,7 @@ class Normalization
         if (count($primarycols) > 1) {
             $this->dbi->selectDb($db);
             $columns = $this->dbi->getColumnNames($db, $table);
-            if (count($pk) == count($columns)) {
+            if (count($pk) === count($columns)) {
                 $headText = sprintf(
                     __(
                         'No partial dependencies possible as '

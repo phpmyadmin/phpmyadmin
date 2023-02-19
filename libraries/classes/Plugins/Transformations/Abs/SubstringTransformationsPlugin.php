@@ -61,7 +61,7 @@ abstract class SubstringTransformationsPlugin extends TransformationsPlugin
 
         $length = mb_strlen($newtext);
         $baselength = mb_strlen((string) $buffer);
-        if ($length != $baselength) {
+        if ($length !== $baselength) {
             if ($optionZero !== 0) {
                 $newtext = $options[2] . $newtext;
             }

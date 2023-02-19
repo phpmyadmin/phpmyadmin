@@ -182,7 +182,7 @@ class DbiMysqli implements DbiExtension
     public function realQuery(string $query, Connection $connection, int $options): MysqliResult|false
     {
         $method = MYSQLI_STORE_RESULT;
-        if ($options == ($options | DatabaseInterface::QUERY_UNBUFFERED)) {
+        if ($options === ($options | DatabaseInterface::QUERY_UNBUFFERED)) {
             $method = MYSQLI_USE_RESULT;
         }
 

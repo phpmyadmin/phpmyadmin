@@ -8531,11 +8531,6 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Table\\:\\:duplicateInfo\\(\\) has parameter \\$getFields with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Table\\:\\:duplicateInfo\\(\\) has parameter \\$newFields with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
@@ -8732,11 +8727,6 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Table\\:\\:\\$uiprefs type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Right side of \\|\\| is always false\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
 

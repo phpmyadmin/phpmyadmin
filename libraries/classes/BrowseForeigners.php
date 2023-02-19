@@ -325,7 +325,7 @@ class BrowseForeigners
      */
     public function getForeignLimit(?string $foreignShowAll): ?string
     {
-        if (isset($foreignShowAll) && $foreignShowAll == __('Show all')) {
+        if ($foreignShowAll === __('Show all')) {
             return null;
         }
 

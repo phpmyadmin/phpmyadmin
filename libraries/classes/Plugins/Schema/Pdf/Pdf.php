@@ -401,7 +401,7 @@ class Pdf extends PdfLib
             $l += $cw[mb_ord($c)] ?? 0;
             if ($l > $wmax) {
                 if ($sep == -1) {
-                    if ($i == $j) {
+                    if ($i === $j) {
                         $i++;
                     }
                 } else {
