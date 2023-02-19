@@ -474,6 +474,7 @@ fi
 LC_ALL=C date -u > RELEASE-DATE-$version
 
 # Building documentation
+echo "* Running sphinx-build (version: $(sphinx-build --version))"
 echo "* Generating documentation"
 LC_ALL=C make -C doc html
 find doc -name '*.pyc' -print0 | xargs -0 -r rm -f
