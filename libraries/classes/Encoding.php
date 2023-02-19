@@ -177,7 +177,7 @@ class Encoding
         string $dest_charset,
         string $what
     ): string {
-        if ($src_charset == $dest_charset) {
+        if ($src_charset === $dest_charset) {
             return $what;
         }
 
@@ -263,7 +263,7 @@ class Encoding
             $str = $dist;
         }
 
-        if ($string_encoding != $enc && $enc != '') {
+        if ($string_encoding !== $enc && $enc != '') {
             return mb_convert_encoding($str, $enc, $string_encoding);
         }
 

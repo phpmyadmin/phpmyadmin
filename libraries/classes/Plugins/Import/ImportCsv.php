@@ -297,7 +297,7 @@ class ImportCsv extends AbstractImportCsv
                 if (! $csv_finish) {
                     // Grab empty field
                     if ($ch == $GLOBALS['csv_terminated']) {
-                        if ($i == $len - 1) {
+                        if ($i === $len - 1) {
                             break;
                         }
 
@@ -315,7 +315,7 @@ class ImportCsv extends AbstractImportCsv
                     // Grab one field
                     $fallbacki = $i;
                     if ($ch == $GLOBALS['csv_enclosed']) {
-                        if ($i == $len - 1) {
+                        if ($i === $len - 1) {
                             break;
                         }
 
@@ -343,7 +343,7 @@ class ImportCsv extends AbstractImportCsv
                                     && ($ch == "\r" || $ch == "\n"))))
                     ) {
                         if ($ch == $GLOBALS['csv_escaped']) {
-                            if ($i == $len - 1) {
+                            if ($i === $len - 1) {
                                 $fail = true;
                                 break;
                             }
@@ -367,7 +367,7 @@ class ImportCsv extends AbstractImportCsv
                         }
 
                         $value .= $ch;
-                        if ($i == $len - 1) {
+                        if ($i === $len - 1) {
                             if (! $GLOBALS['finished']) {
                                 $fail = true;
                             }
@@ -402,9 +402,9 @@ class ImportCsv extends AbstractImportCsv
 
                     // Need to strip trailing enclosing char?
                     if ($need_end && $ch == $GLOBALS['csv_enclosed']) {
-                        if ($GLOBALS['finished'] && $i == $len - 1) {
+                        if ($GLOBALS['finished'] && $i === $len - 1) {
                             $ch = null;
-                        } elseif ($i == $len - 1) {
+                        } elseif ($i === $len - 1) {
                             $i = $fallbacki;
                             $ch = mb_substr($buffer, $i, 1);
                             if ($csv_terminated_len > 1 && $ch == $GLOBALS['csv_terminated'][0]) {
@@ -426,14 +426,14 @@ class ImportCsv extends AbstractImportCsv
                     if (
                         $ch == $GLOBALS['csv_new_line']
                         || ($GLOBALS['csv_new_line'] === 'auto' && ($ch == "\r" || $ch == "\n"))
-                        || ($GLOBALS['finished'] && $i == $len - 1)
+                        || ($GLOBALS['finished'] && $i === $len - 1)
                     ) {
                         $csv_finish = true;
                     }
 
                     // Go to next char
                     if ($ch == $GLOBALS['csv_terminated']) {
-                        if ($i == $len - 1) {
+                        if ($i === $len - 1) {
                             $i = $fallbacki;
                             $ch = mb_substr($buffer, $i, 1);
                             if ($csv_terminated_len > 1 && $ch == $GLOBALS['csv_terminated'][0]) {

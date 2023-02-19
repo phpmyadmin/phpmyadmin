@@ -444,7 +444,7 @@ class Util
             }
         }
 
-        if ($unit != $byteUnits[0]) {
+        if ($unit !== $byteUnits[0]) {
             // if the unit is not bytes (as represented in current language)
             // reformat with max length of 5
             // 4th parameter=true means do not reformat if value < 1
@@ -980,7 +980,7 @@ class Util
         }
 
         return $keyword . $charset
-            . ($charset == $collation ? '' : ' COLLATE ' . $collation);
+            . ($charset === $collation ? '' : ' COLLATE ' . $collation);
     }
 
     /**
@@ -1942,7 +1942,7 @@ class Util
 
         $len = strlen($test);
         fclose($file);
-        if ($len >= 2 && $test[0] == chr(31) && $test[1] == chr(139)) {
+        if ($len >= 2 && $test[0] === chr(31) && $test[1] === chr(139)) {
             return 'application/gzip';
         }
 

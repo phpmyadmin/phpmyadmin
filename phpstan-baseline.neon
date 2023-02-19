@@ -8736,7 +8736,7 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Right side of \\|\\| is always false\\.$#"
+			message: "#^Strict comparison using \\!\\=\\= between 'cc' and 'cc' will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
 

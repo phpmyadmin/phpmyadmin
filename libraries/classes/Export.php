@@ -311,7 +311,7 @@ class Export
         $requiredExtension = '.' . $exportPlugin->getProperties()->getExtension();
         $extensionLength = mb_strlen($requiredExtension);
         $userExtension = mb_substr($filename, -$extensionLength);
-        if (mb_strtolower($userExtension) != $requiredExtension) {
+        if (mb_strtolower($userExtension) !== $requiredExtension) {
             $filename .= $requiredExtension;
         }
 

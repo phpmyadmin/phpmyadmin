@@ -381,7 +381,7 @@ final class RelationController extends AbstractController
             $tables_rs = $this->dbi->query($query);
 
             foreach ($tables_rs as $row) {
-                if (! isset($row['Engine']) || mb_strtoupper($row['Engine']) != $storageEngine) {
+                if (! isset($row['Engine']) || mb_strtoupper($row['Engine']) !== $storageEngine) {
                     continue;
                 }
 

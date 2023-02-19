@@ -819,7 +819,7 @@ class Qbe
             $htmlOutput .= $this->getAndOrColCell(
                 $newColumnCount,
                 $checkedOptions,
-                $columnIndex + 1 == $this->criteriaColumnCount
+                $columnIndex + 1 === $this->criteriaColumnCount
             );
             $newColumnCount++;
         }
@@ -1573,7 +1573,7 @@ class Qbe
                     }
 
                     // We are done if all tables are in $finalized
-                    if (count($finalized) == count($searchTables)) {
+                    if (count($finalized) === count($searchTables)) {
                         return;
                     }
                 }

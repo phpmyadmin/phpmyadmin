@@ -261,7 +261,7 @@ class GisVisualization
         $required_extension = '.' . $ext;
         $extension_length = mb_strlen($required_extension);
         $user_extension = mb_substr($file_name, -$extension_length);
-        if (mb_strtolower($user_extension) != $required_extension) {
+        if (mb_strtolower($user_extension) !== $required_extension) {
             $file_name .= $required_extension;
         }
 

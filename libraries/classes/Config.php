@@ -1106,7 +1106,7 @@ class Config
                 if (
                     $server['host'] == $request
                     || $server['verbose'] == $request
-                    || $verboseToLower == $serverToLower
+                    || $verboseToLower === $serverToLower
                     || md5($verboseToLower) === $serverToLower
                 ) {
                     $request = $i;

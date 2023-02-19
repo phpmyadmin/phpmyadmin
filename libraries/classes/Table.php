@@ -886,7 +886,7 @@ class Table implements Stringable
         foreach ($tableCopyRs as $tableCopyRow) {
             $valueParts = [];
             foreach ($tableCopyRow as $key => $val) {
-                if (! isset($rowFields[$key]) || $rowFields[$key] != 'cc') {
+                if (! isset($rowFields[$key]) || $rowFields[$key] !== 'cc') {
                     continue;
                 }
 

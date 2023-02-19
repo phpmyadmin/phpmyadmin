@@ -1279,7 +1279,7 @@ class Privileges
             foreach ($grantsArr as $grant) {
                 $specificPrivileges[$grant[0]] = 'N';
                 foreach ($tablePrivs as $tablePriv) {
-                    if ($grant[0] != $tablePriv) {
+                    if ($grant[0] !== $tablePriv) {
                         continue;
                     }
 

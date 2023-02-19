@@ -837,9 +837,9 @@ class Relation
             } else {
                 $key = '0x' . bin2hex($key);
                 if (str_contains($data, '0x')) {
-                    $selected = ($key == trim($data));
+                    $selected = ($key === trim($data));
                 } else {
-                    $selected = ($key == '0x' . $data);
+                    $selected = ($key === '0x' . $data);
                 }
             }
 

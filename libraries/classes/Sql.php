@@ -208,7 +208,7 @@ class Sql
                 $numberFound++;
             }
 
-            if ($numberFound == count($indexColumns)) {
+            if ($numberFound === count($indexColumns)) {
                 return true;
             }
         }

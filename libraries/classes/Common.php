@@ -424,7 +424,7 @@ final class Common
             $path_info_pos = mb_strrpos($GLOBALS['PMA_PHP_SELF'], $_PATH_INFO);
             if ($path_info_pos !== false) {
                 $path_info_part = mb_substr($GLOBALS['PMA_PHP_SELF'], $path_info_pos, mb_strlen($_PATH_INFO));
-                if ($path_info_part == $_PATH_INFO) {
+                if ($path_info_part === $_PATH_INFO) {
                     $GLOBALS['PMA_PHP_SELF'] = mb_substr($GLOBALS['PMA_PHP_SELF'], 0, $path_info_pos);
                 }
             }

@@ -4325,7 +4325,6 @@
     </PossiblyInvalidOperand>
     <PossiblyNullArgument>
       <code>$result</code>
-      <code>$result</code>
     </PossiblyNullArgument>
     <PossiblyUnusedParam>
       <code>$request</code>
@@ -7693,6 +7692,10 @@
       <code>mixed</code>
       <code>mixed</code>
     </PossiblyUnusedReturnValue>
+    <RedundantCondition>
+      <code>mb_strtolower($userExtension) !== $requiredExtension</code>
+      <code>mb_strtolower($userExtension) !== $requiredExtension</code>
+    </RedundantCondition>
   </file>
   <file src="libraries/classes/Export/Options.php">
     <InvalidArrayOffset>
@@ -8689,6 +8692,10 @@
     <PropertyNotSetInConstructor>
       <code>$modifiedSql</code>
     </PropertyNotSetInConstructor>
+    <RedundantCondition>
+      <code>mb_strtolower($user_extension) !== $required_extension</code>
+      <code>mb_strtolower($user_extension) !== $required_extension</code>
+    </RedundantCondition>
     <RedundantConditionGivenDocblockType>
       <code>is_numeric($pos)</code>
       <code>is_numeric($rows)</code>
@@ -15167,7 +15174,7 @@
     </ReferenceConstraintViolation>
     <TypeDoesNotContainType>
       <code><![CDATA[! $this->dbi->query($GLOBALS['sql_query'])]]></code>
-      <code><![CDATA[$rowFields[$key] != 'cc']]></code>
+      <code><![CDATA[$rowFields[$key] !== 'cc']]></code>
     </TypeDoesNotContainType>
     <UnusedVariable>
       <code>$maintainRelations</code>

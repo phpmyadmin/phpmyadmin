@@ -884,7 +884,7 @@ class Routines
                 }
             }
 
-            if ($i == count($itemParamName) - 1) {
+            if ($i === count($itemParamName) - 1) {
                 continue;
             }
 

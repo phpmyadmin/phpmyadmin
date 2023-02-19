@@ -1093,7 +1093,7 @@ class Import
             for ($m = 0; $m < $numCols; ++$m) {
                 $tempSQLStr .= Util::backquote($tables[$i][self::COL_NAMES][$m]);
 
-                if ($m == $numCols - 1) {
+                if ($m === $numCols - 1) {
                     continue;
                 }
 
@@ -1131,11 +1131,11 @@ class Import
                             : (string) $tables[$i][self::ROWS][$j][$k];
                     }
 
-                    if ($k != $numCols - 1) {
+                    if ($k !== $numCols - 1) {
                         $tempSQLStr .= ', ';
                     }
 
-                    if ($colCount == $numCols - 1) {
+                    if ($colCount === $numCols - 1) {
                         $colCount = 0;
                     } else {
                         $colCount++;
@@ -1147,7 +1147,7 @@ class Import
 
                 $tempSQLStr .= ')';
 
-                if ($j != $numRows - 1) {
+                if ($j !== $numRows - 1) {
                     $tempSQLStr .= ",\n ";
                 }
 
