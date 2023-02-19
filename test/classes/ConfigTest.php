@@ -1045,6 +1045,7 @@ class ConfigTest extends AbstractTestCase
     public function testGetTempDir(): void
     {
         $dir = realpath(sys_get_temp_dir());
+        $this->assertNotFalse($dir);
         $this->assertDirectoryExists($dir);
         $this->assertDirectoryIsWritable($dir);
 
@@ -1065,6 +1066,7 @@ class ConfigTest extends AbstractTestCase
     public function testGetUploadTempDir(): void
     {
         $dir = realpath(sys_get_temp_dir());
+        $this->assertNotFalse($dir);
         $this->assertDirectoryExists($dir);
         $this->assertDirectoryIsWritable($dir);
 
