@@ -618,7 +618,7 @@ for kit in $KITS ; do
     echo "* Building kit: $kit"
     # Copy all files
     name=phpMyAdmin-$version-$kit
-    cp -r phpMyAdmin-$version $name
+    cp -r $workdir $name
 
     # Cleanup translations
     cd phpMyAdmin-$version-$kit
