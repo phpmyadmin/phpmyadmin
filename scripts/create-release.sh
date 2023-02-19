@@ -105,6 +105,8 @@ if [ -z "$version" -a $do_ci -eq 0 ]; then
     exit 1
 fi
 
+kit_prefix="phpMyAdmin-$version"
+
 # Checks whether remote branch has local tracking branch
 ensure_local_branch() {
     if ! git branch | grep -q '^..'"$1"'$' ; then
@@ -418,9 +420,10 @@ fi
 # Create working copy
 mkdir -p release
 git worktree prune
-workdir=release/phpMyAdmin-$version
+workdir_name=phpMyAdmin-$version
+workdir=release/$workdir_name
 if [ -d $workdir ] ; then
-    echo "Working directory '$workdir' already exists, please move it out of way"
+    echo "Working directory '$workdir' already exists, please move it out of the way"
     exit 1
 fi
 
@@ -468,7 +471,7 @@ if [ $do_ci -eq 0 -a -$do_daily -eq 0 ] ; then
 fi
 
 # Cleanup release dir
-LC_ALL=C date -u > RELEASE-DATE-${version}
+LC_ALL=C date -u > RELEASE-DATE-$version
 
 # Building documentation
 echo "* Generating documentation"
@@ -617,11 +620,11 @@ cd ..
 for kit in $KITS ; do
     echo "* Building kit: $kit"
     # Copy all files
-    name=phpMyAdmin-$version-$kit
-    cp -r $workdir $name
+    name=$kit_prefix-$kit
+    cp -r $workdir_name $name
 
     # Cleanup translations
-    cd phpMyAdmin-$version-$kit
+    cd $name
     ./scripts/lang-cleanup.sh $kit
 
     # Remove tests, source code,...
@@ -693,12 +696,12 @@ for kit in $KITS ; do
 done
 
 # Cleanup
-rm -r phpMyAdmin-${version}
+rm -r $workdir_name
 git worktree prune
 
 # Signing of files with default GPG key
 echo "* Signing files"
-for file in phpMyAdmin-$version-*.gz phpMyAdmin-$version-*.zip phpMyAdmin-$version-*.xz ; do
+for file in $kit_prefix-*.gz $kit_prefix-*.zip $kit_prefix-*.xz ; do
     if [ $do_sign -eq 1 ] ; then
         gpg --detach-sign --armor $file
     fi
@@ -707,7 +710,7 @@ for file in phpMyAdmin-$version-*.gz phpMyAdmin-$version-*.zip phpMyAdmin-$versi
 done
 
 if [ $do_daily -eq 1 ] ; then
-    cat > phpMyAdmin-${version}.json << EOT
+    cat > $kit_prefix.json << EOT
 {
     "date": "`date --iso-8601=seconds`",
     "commit": "$git_head"
