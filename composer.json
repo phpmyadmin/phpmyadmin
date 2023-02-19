@@ -98,7 +98,7 @@
         "bacon/bacon-qr-code": "^2.0",
         "code-lts/u2f-php-server": "^1.2",
         "php-webdriver/webdriver": "^1.13",
-        "phpmyadmin/coding-standard": "^3.0.0",
+        "phpmyadmin/coding-standard": "^4.0",
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan": "^1.8",
         "phpstan/phpstan-phpunit": "^1.3",
