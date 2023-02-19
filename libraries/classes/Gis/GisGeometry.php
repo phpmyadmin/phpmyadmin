@@ -99,9 +99,9 @@ abstract class GisGeometry
      *
      * @param string $spatial spatial data of a row
      *
-     * @return array array containing the min, max values for x and y coordinates
+     * @return ScaleData|null min, max values for x and y coordinates
      */
-    abstract public function scaleRow($spatial);
+    abstract public function scaleRow(string $spatial): ?ScaleData;
 
     /**
      * Generates the WKT with the set of parameters passed by the GIS editor.
@@ -142,42 +142,27 @@ abstract class GisGeometry
     /**
      * Updates the min, max values with the given point set.
      *
-     * @param string $point_set point set
-     * @param array  $min_max   existing min, max values
+     * @param string         $point_set point set
+     * @param ScaleData|null $scaleData existing min, max values
      *
-     * @return array the updated min, max values
+     * @return ScaleData|null the updated min, max values
      */
-    protected function setMinMax($point_set, array $min_max)
+    protected function setMinMax(string $point_set, ?ScaleData $scaleData = null): ?ScaleData
     {
         // Separate each point
         $points = explode(',', $point_set);
 
         foreach ($points as $point) {
             // Extract coordinates of the point
-            $cordinates = explode(' ', $point);
+            $coordinates = explode(' ', $point);
 
-            $x = (float) $cordinates[0];
-            if (! isset($min_max['maxX']) || $x > $min_max['maxX']) {
-                $min_max['maxX'] = $x;
-            }
+            $x = (float) $coordinates[0];
+            $y = (float) $coordinates[1];
 
-            if (! isset($min_max['minX']) || $x < $min_max['minX']) {
-                $min_max['minX'] = $x;
-            }
-
-            $y = (float) $cordinates[1];
-            if (! isset($min_max['maxY']) || $y > $min_max['maxY']) {
-                $min_max['maxY'] = $y;
-            }
-
-            if (isset($min_max['minY']) && $y >= $min_max['minY']) {
-                continue;
-            }
-
-            $min_max['minY'] = $y;
+            $scaleData = $scaleData === null ? new ScaleData($x, $x, $y, $y) : $scaleData->expand($x, $y);
         }
 
-        return $min_max;
+        return $scaleData;
     }
 
     /**

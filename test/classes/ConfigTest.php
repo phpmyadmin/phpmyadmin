@@ -1044,10 +1044,15 @@ class ConfigTest extends AbstractTestCase
      */
     public function testGetTempDir(): void
     {
-        $this->object->set('TempDir', sys_get_temp_dir() . DIRECTORY_SEPARATOR);
+        $dir = realpath(sys_get_temp_dir());
+        $this->assertNotFalse($dir);
+        $this->assertDirectoryExists($dir);
+        $this->assertDirectoryIsWritable($dir);
+
+        $this->object->set('TempDir', $dir . DIRECTORY_SEPARATOR);
         // Check no double slash is here
         $this->assertEquals(
-            sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'upload',
+            $dir . DIRECTORY_SEPARATOR . 'upload',
             $this->object->getTempDir('upload')
         );
     }
@@ -1056,10 +1061,16 @@ class ConfigTest extends AbstractTestCase
      * Test for getUploadTempDir
      *
      * @group file-system
+     * @depends testGetTempDir
      */
     public function testGetUploadTempDir(): void
     {
-        $this->object->set('TempDir', realpath(sys_get_temp_dir()) . DIRECTORY_SEPARATOR);
+        $dir = realpath(sys_get_temp_dir());
+        $this->assertNotFalse($dir);
+        $this->assertDirectoryExists($dir);
+        $this->assertDirectoryIsWritable($dir);
+
+        $this->object->set('TempDir', $dir . DIRECTORY_SEPARATOR);
 
         $this->assertEquals(
             $this->object->getTempDir('upload'),

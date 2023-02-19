@@ -98,7 +98,7 @@
         "bacon/bacon-qr-code": "^2.0",
         "code-lts/u2f-php-server": "^1.2",
         "php-webdriver/webdriver": "^1.13",
-        "phpmyadmin/coding-standard": "^3.0.0",
+        "phpmyadmin/coding-standard": "^4.0",
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan": "^1.8",
         "phpstan/phpstan-phpunit": "^1.3",
@@ -110,7 +110,7 @@
         "roave/security-advisories": "dev-latest",
         "symfony/console": "^6.2",
         "tecnickcom/tcpdf": "6.5.0",
-        "vimeo/psalm": "^5.6",
+        "vimeo/psalm": "^5.7",
         "web-auth/webauthn-lib": "^3.3"
     },
     "extra": {

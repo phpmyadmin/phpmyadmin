@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisPoint;
+use PhpMyAdmin\Gis\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
@@ -173,12 +174,7 @@ class GisPointTest extends GisGeomTestCase
         return [
             [
                 'POINT(12 35)',
-                [
-                    'minX' => 12,
-                    'maxX' => 12,
-                    'minY' => 35,
-                    'maxY' => 35,
-                ],
+                new ScaleData(12, 12, 35, 35),
             ],
         ];
     }

@@ -26,9 +26,40 @@
         <exclude-pattern>*/libraries/classes/Plugins/Transformations/*</exclude-pattern>
     </rule>
 
-    <rule ref="Squiz.PHP.GlobalKeyword"/>
-
     <!-- Rules that should be followed, but are not required -->
+    <rule ref="SlevomatCodingStandard.Classes.ConstantSpacing.IncorrectCountOfBlankLinesAfterConstant">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Classes.ModernClassNameReference.ClassNameReferencedViaFunctionCall">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Classes.ParentCallSpacing.IncorrectLinesCountAfterControlStructure">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Classes.ParentCallSpacing.IncorrectLinesCountBeforeControlStructure">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Classes.RequireConstructorPropertyPromotion.RequiredConstructorPropertyPromotion">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Commenting.InlineDocCommentDeclaration.InvalidFormat">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Commenting.RequireOneLineDocComment.MultiLineDocComment">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.ControlStructures.RequireNullCoalesceEqualOperator.RequiredNullCoalesceEqualOperator">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.ControlStructures.RequireNullSafeObjectOperator.RequiredNullSafeObjectOperator">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Functions.RequireTrailingCommaInCall.MissingTrailingComma">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Functions.RequireTrailingCommaInDeclaration.MissingTrailingComma">
+        <severity>4</severity>
+    </rule>
     <rule ref="SlevomatCodingStandard.Operators.DisallowEqualOperators">
         <severity>4</severity>
     </rule>
@@ -38,6 +69,9 @@
     <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingTraversableTypeHintSpecification">
         <severity>4</severity>
     </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint">
+        <severity>4</severity>
+    </rule>
     <rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingTraversableTypeHintSpecification">
         <severity>4</severity>
     </rule>
@@ -45,6 +79,12 @@
         <severity>4</severity>
     </rule>
     <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingTraversableTypeHintSpecification">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.UnionTypeHintFormat.DisallowedShortNullable">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.PHP.RequireNowdoc.RequiredNowdoc">
         <severity>4</severity>
     </rule>
     <rule ref="Squiz.NamingConventions.ValidVariableName.NotCamelCaps">
