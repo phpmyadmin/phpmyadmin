@@ -58,7 +58,6 @@ while [ $# -gt 0 ] ; do
                 git branch ci
                 branch="ci"
             fi
-            version="${VERSION_SERIES}+ci"
             ;;
         --help)
             echo "Usages:"
@@ -96,8 +95,13 @@ while [ $# -gt 0 ] ; do
     shift
 done
 
-if [ -z "$version" -o -z "$branch" ] ; then
-    echo "Branch and version have to be specified!"
+if [ -z "$branch" ]; then
+    echo "Branch must be specified!"
+    exit 1
+fi
+
+if [ -z "$version" && $do_ci -eq 0 ]; then
+    echo "Version must be specified!"
     exit 1
 fi
 
@@ -361,14 +365,21 @@ VERSION_FILE=libraries/classes/Version.php
 
 # Keep in sync with update-po script
 fetchReleaseFromFile() {
-    php -r "define('VERSION_SUFFIX', ''); require_once('libraries/classes/Version.php'); echo \PhpMyAdmin\Version::VERSION;"
+    SUFFIX="${1:-}"
+    php -r "define('VERSION_SUFFIX', '$SUFFIX'); require_once('$VERSION_FILE'); echo \PhpMyAdmin\Version::VERSION;"
 }
 
 fetchVersionSeriesFromFile() {
-    php -r "define('VERSION_SUFFIX', ''); require_once('libraries/classes/Version.php'); echo \PhpMyAdmin\Version::SERIES;"
+    php -r "define('VERSION_SUFFIX', ''); require_once('$VERSION_FILE'); echo \PhpMyAdmin\Version::SERIES;"
 }
 
+VERSION_FROM_FILE="$(fetchReleaseFromFile)"
 VERSION_SERIES_FROM_FILE="$(fetchVersionSeriesFromFile)"
+
+if [ $do_ci -eq 1 ]; then
+    VERSION_FROM_FILE="$(fetchReleaseFromFile '+ci')"
+    version="${VERSION_FROM_FILE}"
+fi
 
 if [ "${VERSION_SERIES_FROM_FILE}" != "${VERSION_SERIES}" ]; then
     echo "This script can not handle ${VERSION_SERIES_FROM_FILE} version series."
@@ -377,7 +388,8 @@ if [ "${VERSION_SERIES_FROM_FILE}" != "${VERSION_SERIES}" ]; then
     exit 1;
 fi
 
-echo "The actual configured release is: $(fetchReleaseFromFile)"
+echo "The actual configured release is: $VERSION_FROM_FILE"
+echo "The actual configured release series is: $VERSION_SERIES_FROM_FILE"
 
 if [ $do_ci -eq 0 -a -$do_daily -eq 0 ] ; then
     cat <<END
@@ -400,9 +412,8 @@ END
     if [ "$do_release" != 'y' ]; then
         exit 100
     fi
+    echo "The actual configured release is now: $(fetchReleaseFromFile)"
 fi
-
-echo "The actual configured release is now: $(fetchReleaseFromFile)"
 
 # Create working copy
 mkdir -p release
