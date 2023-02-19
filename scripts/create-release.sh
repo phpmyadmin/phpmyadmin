@@ -100,7 +100,7 @@ if [ -z "$branch" ]; then
     exit 1
 fi
 
-if [ -z "$version" && $do_ci -eq 0 ]; then
+if [ -z "$version" -a $do_ci -eq 0 ]; then
     echo "Version must be specified!"
     exit 1
 fi
@@ -391,7 +391,7 @@ fi
 echo "The actual configured release is: $VERSION_FROM_FILE"
 echo "The actual configured release series is: $VERSION_SERIES_FROM_FILE"
 
-if [ $do_ci -eq 0 -a -$do_daily -eq 0 ] ; then
+if [ $do_ci -eq 0 -a $do_daily -eq 0 ] ; then
     cat <<END
 
 Please ensure you have incremented rc count or version in the repository :
@@ -440,6 +440,11 @@ if [ $do_daily -eq 1 ] ; then
     echo '* setting the version suffix for the snapshot'
     sed -i "s/'versionSuffix' => '.*'/'versionSuffix' => '+$today_date.$git_head_short'/" libraries/vendor_config.php
     php -l libraries/vendor_config.php
+
+    # Fetch it back and refresh $version
+    VERSION_FROM_FILE="$(fetchReleaseFromFile "+$today_date.$git_head_short")"
+    version="${VERSION_FROM_FILE}"
+    echo "The actual configured release is: $VERSION_FROM_FILE"
 fi
 
 # Check release version
