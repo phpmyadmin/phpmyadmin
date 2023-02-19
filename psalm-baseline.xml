@@ -14911,7 +14911,6 @@
       <code>$foreignTable</code>
       <code>$foreignTable</code>
       <code>$foreignTable</code>
-      <code>$getField</code>
       <code>$index</code>
       <code>$index[0]</code>
       <code>$masterField</code>
@@ -14995,7 +14994,6 @@
       <code><![CDATA[$optionsArray[$_POST['on_update'][$masterFieldMd5]]]]></code>
       <code><![CDATA[$optionsArray[$existrelForeign[$masterFieldMd5]['on_delete'] ?? '']]]></code>
       <code><![CDATA[$optionsArray[$existrelForeign[$masterFieldMd5]['on_update'] ?? '']]]></code>
-      <code>$rowFields[$getField]</code>
     </MixedArrayOffset>
     <MixedArrayTypeCoercion>
       <code><![CDATA[$optionsArray[$existrelForeign[$masterFieldMd5]['on_delete'] ?? '']]]></code>
@@ -15021,7 +15019,6 @@
       <code>$foreignField</code>
       <code>$foreignTable</code>
       <code>$foreignTable</code>
-      <code>$getField</code>
       <code>$index</code>
       <code>$key</code>
       <code>$masterField</code>
@@ -15174,7 +15171,6 @@
     </ReferenceConstraintViolation>
     <TypeDoesNotContainType>
       <code><![CDATA[! $this->dbi->query($GLOBALS['sql_query'])]]></code>
-      <code><![CDATA[$rowFields[$key] !== 'cc']]></code>
     </TypeDoesNotContainType>
     <UnusedVariable>
       <code>$maintainRelations</code>

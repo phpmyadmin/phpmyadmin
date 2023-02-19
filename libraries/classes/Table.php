@@ -830,12 +830,12 @@ class Table implements Stringable
      * Inserts existing entries in a PMA_* table by reading a value from an old
      * entry
      *
-     * @param string $work        The array index, which Relation feature to check ('relwork', 'commwork', ...)
-     * @param string $table       The array index, which PMA-table to update ('bookmark', 'relation', ...)
-     * @param array  $getFields   Which fields will be SELECT'ed from the old entry
-     * @param array  $whereFields Which fields will be used for the WHERE query (array('FIELDNAME' => 'FIELDVALUE'))
-     * @param array  $newFields   Which fields will be used as new VALUES. These are the important keys which differ
-     *                            from the old entry (array('FIELDNAME' => 'NEW FIELDVALUE'))
+     * @param string   $work        The array index, which Relation feature to check ('relwork', 'commwork', ...)
+     * @param string   $table       The array index, which PMA-table to update ('bookmark', 'relation', ...)
+     * @param string[] $getFields   Which fields will be SELECT'ed from the old entry
+     * @param array    $whereFields Which fields will be used for the WHERE query (array('FIELDNAME' => 'FIELDVALUE'))
+     * @param array    $newFields   Which fields will be used as new VALUES. These are the important keys which differ
+     *                              from the old entry (array('FIELDNAME' => 'NEW FIELDVALUE'))
      */
     public static function duplicateInfo(
         $work,
@@ -857,7 +857,7 @@ class Table implements Stringable
         $rowFields = [];
         foreach ($getFields as $getField) {
             $selectParts[] = Util::backquote($getField);
-            $rowFields[$getField] = 'cc';
+            $rowFields[] = $getField;
         }
 
         $whereParts = [];
@@ -886,7 +886,7 @@ class Table implements Stringable
         foreach ($tableCopyRs as $tableCopyRow) {
             $valueParts = [];
             foreach ($tableCopyRow as $key => $val) {
-                if (! isset($rowFields[$key]) || $rowFields[$key] !== 'cc') {
+                if (! in_array($key, $rowFields)) {
                     continue;
                 }
 
