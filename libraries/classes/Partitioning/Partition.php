@@ -228,7 +228,6 @@ class Partition extends SubPartition
     /**
      * checks if MySQL server supports partitioning
      *
-     * @static
      * @staticvar bool $have_partitioning
      * @staticvar bool $already_checked
      */
