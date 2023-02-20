@@ -629,7 +629,7 @@ class ExportOdtTest extends AbstractTestCase
         $this->object->expects($this->exactly(2))
             ->method('formatOneColumnDefinition')
             ->with(['Field' => 'fieldname'])
-            ->will($this->returnValue(1));
+            ->will($this->returnValue('1'));
 
         $_SESSION['relation'] = [];
         $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([

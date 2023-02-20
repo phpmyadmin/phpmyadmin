@@ -1222,7 +1222,7 @@ class Qbe
         if (count($whereClauseTables) === 1) {
             // If there is exactly one column that has a decent where-clause
             // we will just use this
-            return key($whereClauseTables);
+            return (string) key($whereClauseTables);
         }
 
         // Now let's find out which of the tables has an index
@@ -1410,7 +1410,7 @@ class Qbe
         // Will include master tables and all tables that can be combined into
         // a cluster by their relation
         $finalized = [];
-        if (strlen((string) $master) > 0) {
+        if (strlen($master) > 0) {
             // Add master tables
             $finalized[$master] = '';
         }

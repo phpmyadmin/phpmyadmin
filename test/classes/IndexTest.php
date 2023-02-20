@@ -32,23 +32,23 @@ class IndexTest extends AbstractTestCase
         //test add columns
         $column1 = [
             'Column_name' => 'column1',
-            'Seq_in_index' => 'index1',
+            'Seq_in_index' => '1',
             'Collation' => 'Collation1',
-            'Cardinality' => 'Cardinality1',
+            'Cardinality' => '1',
             'Null' => 'null1',
         ];
         $column2 = [
             'Column_name' => 'column2',
-            'Seq_in_index' => 'index2',
+            'Seq_in_index' => '2',
             'Collation' => 'Collation2',
-            'Cardinality' => 'Cardinality2',
+            'Cardinality' => '2',
             'Null' => 'null2',
         ];
         $column3 = [
             'Column_name' => 'column3',
-            'Seq_in_index' => 'index3',
+            'Seq_in_index' => '3',
             'Collation' => 'Collation3',
-            'Cardinality' => 'Cardinality3',
+            'Cardinality' => '3',
             'Null' => 'null3',
         ];
         $this->params['columns'][] = $column1;
@@ -153,7 +153,7 @@ class IndexTest extends AbstractTestCase
             $index_column->getName()
         );
         $this->assertEquals(
-            'index1',
+            '1',
             $index_column->getSeqInIndex()
         );
         $this->assertEquals(
@@ -161,7 +161,7 @@ class IndexTest extends AbstractTestCase
             $index_column->getCollation()
         );
         $this->assertEquals(
-            'Cardinality1',
+            '1',
             $index_column->getCardinality()
         );
     }

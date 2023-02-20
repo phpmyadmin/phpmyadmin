@@ -604,7 +604,7 @@ class SqlTest extends AbstractTestCase
                 ParseAnalyze::sqlQuery($sqlQuery ?? '', $GLOBALS['db'])[0],
             ]
         );
-        $this->assertSame($expectedNumRows, $result);
+        $this->assertEquals($expectedNumRows, $result);
         $this->dummyDbi->assertAllQueriesConsumed();
     }
 
