@@ -14,7 +14,6 @@ use PhpMyAdmin\Partitioning\Partition;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 
 use function __;
-use function array_keys;
 use function array_merge;
 use function count;
 use function explode;
@@ -118,24 +117,24 @@ class Operations
     /**
      * Get views as an array and create SQL view stand-in
      *
-     * @param array     $tablesFull      array of all tables in given db or dbs
+     * @param string[]  $tables          array of all tables in given db or dbs
      * @param ExportSql $exportSqlPlugin export plugin instance
      * @param string    $db              database name
      *
      * @return array
      */
     public function getViewsAndCreateSqlViewStandIn(
-        array $tablesFull,
+        array $tables,
         $exportSqlPlugin,
         $db,
         DatabaseName $newDatabaseName
     ) {
         $views = [];
-        foreach (array_keys($tablesFull) as $tableName) {
+        foreach ($tables as $table) {
             // to be able to rename a db containing views,
             // first all the views are collected and a stand-in is created
             // the real views are created after the tables
-            if (! $this->dbi->getTable($db, (string) $tableName)->isView()) {
+            if (! $this->dbi->getTable($db, $table)->isView()) {
                 continue;
             }
 
@@ -143,15 +142,15 @@ class Operations
             if ($_POST['what'] !== 'nocopy' && isset($_POST['drop_if_exists']) && $_POST['drop_if_exists'] === 'true') {
                 $dropQuery = 'DROP VIEW IF EXISTS '
                     . Util::backquote($newDatabaseName) . '.'
-                    . Util::backquote($tableName);
+                    . Util::backquote($table);
                 $this->dbi->query($dropQuery);
 
                 $GLOBALS['sql_query'] .= "\n" . $dropQuery . ';';
             }
 
-            $views[] = $tableName;
+            $views[] = $table;
             // Create stand-in definition to resolve view dependencies
-            $sqlViewStandin = $exportSqlPlugin->getTableDefStandIn($db, $tableName);
+            $sqlViewStandin = $exportSqlPlugin->getTableDefStandIn($db, $table);
             $this->dbi->selectDb($newDatabaseName);
             $this->dbi->query($sqlViewStandin);
             $GLOBALS['sql_query'] .= "\n" . $sqlViewStandin;
@@ -163,18 +162,18 @@ class Operations
     /**
      * Get sql query for copy/rename table and boolean for whether copy/rename or not
      *
-     * @param array  $tablesFull array of all tables in given db or dbs
-     * @param bool   $move       whether database name is empty or not
-     * @param string $db         database name
+     * @param string[] $tables array of all tables in given db or dbs
+     * @param bool     $move   whether database name is empty or not
+     * @param string   $db     database name
      *
      * @return array SQL queries for the constraints
      */
-    public function copyTables(array $tablesFull, $move, $db, DatabaseName $newDatabaseName)
+    public function copyTables(array $tables, $move, $db, DatabaseName $newDatabaseName)
     {
         $sqlContraints = [];
-        foreach (array_keys($tablesFull) as $tableName) {
+        foreach ($tables as $table) {
             // skip the views; we have created stand-in definitions
-            if ($this->dbi->getTable($db, (string) $tableName)->isView()) {
+            if ($this->dbi->getTable($db, $table)->isView()) {
                 continue;
             }
 
@@ -183,7 +182,7 @@ class Operations
 
             // do not copy the data from a Merge table
             // note: on the calling FORM, 'data' means 'structure and data'
-            if ($this->dbi->getTable($db, (string) $tableName)->isMerge()) {
+            if ($this->dbi->getTable($db, $table)->isMerge()) {
                 if ($copyMode === 'data') {
                     $copyMode = 'structure';
                 }
@@ -200,14 +199,14 @@ class Operations
             // keep the triggers from the original db+table
             // (third param is empty because delimiters are only intended
             //  for importing via the mysql client or our Import feature)
-            $triggers = Triggers::getDetails($this->dbi, $db, (string) $tableName, '');
+            $triggers = Triggers::getDetails($this->dbi, $db, $table, '');
 
             if (
                 ! Table::moveCopy(
                     $db,
-                    $tableName,
+                    $table,
                     $newDatabaseName->getName(),
-                    $tableName,
+                    $table,
                     ($copyMode ?? 'data'),
                     $move,
                     'db_copy',

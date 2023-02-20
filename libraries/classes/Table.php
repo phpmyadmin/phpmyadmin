@@ -1015,10 +1015,11 @@ class Table implements Stringable
                 $GLOBALS['sql_auto_increment'] = $_POST['sql_auto_increment'];
             }
 
+            $isView = (new Table($sourceTable, $sourceDb, $GLOBALS['dbi']))->isView();
             /**
              * The old structure of the table.
              */
-            $sqlStructure = $exportSqlPlugin->getTableDef($sourceDb, $sourceTable, false, false);
+            $sqlStructure = $exportSqlPlugin->getTableDef($sourceDb, $sourceTable, false, false, $isView);
 
             unset($noConstraintsComments);
 
@@ -1045,7 +1046,7 @@ class Table implements Stringable
                  */
                 $statement = new DropStatement();
 
-                $tbl = new Table($targetDb, $targetTable, $GLOBALS['dbi']);
+                $tbl = new Table($targetTable, $targetDb, $GLOBALS['dbi']);
 
                 $statement->options = new OptionsArray(
                     [

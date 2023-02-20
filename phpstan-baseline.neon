@@ -5971,11 +5971,6 @@ parameters:
 			path: libraries/classes/Operations.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Operations\\:\\:copyTables\\(\\) has parameter \\$tablesFull with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Operations.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Operations\\:\\:copyTables\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Operations.php
@@ -6006,11 +6001,6 @@ parameters:
 			path: libraries/classes/Operations.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Operations\\:\\:getViewsAndCreateSqlViewStandIn\\(\\) has parameter \\$tablesFull with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Operations.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Operations\\:\\:getViewsAndCreateSqlViewStandIn\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Operations.php
@@ -6022,26 +6012,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, \\(int\\|string\\) given\\.$#"
-			count: 3
+			count: 2
 			path: libraries/classes/Operations.php
 
 		-
 			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:query\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Operations.php
-
-		-
-			message: "#^Parameter \\#2 \\$sourceTable of static method PhpMyAdmin\\\\Table\\:\\:moveCopy\\(\\) expects string, \\(int\\|string\\) given\\.$#"
-			count: 1
-			path: libraries/classes/Operations.php
-
-		-
-			message: "#^Parameter \\#2 \\$view of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql\\:\\:getTableDefStandIn\\(\\) expects string, \\(int\\|string\\) given\\.$#"
-			count: 1
-			path: libraries/classes/Operations.php
-
-		-
-			message: "#^Parameter \\#4 \\$targetTable of static method PhpMyAdmin\\\\Table\\:\\:moveCopy\\(\\) expects string, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: libraries/classes/Operations.php
 

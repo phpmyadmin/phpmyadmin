@@ -111,7 +111,7 @@ class OperationsController extends AbstractController
                     // go back to current db, just in case
                     $this->dbi->selectDb($GLOBALS['db']);
 
-                    $tablesFull = $this->dbi->getTablesFull($GLOBALS['db']);
+                    $tableNames = $this->dbi->getTables($GLOBALS['db']);
 
                     // remove all foreign key constraints, otherwise we can get errors
                     $exportSqlPlugin = Plugins::getPlugin('export', 'sql', [
@@ -121,7 +121,7 @@ class OperationsController extends AbstractController
 
                     // create stand-in tables for views
                     $views = $this->operations->getViewsAndCreateSqlViewStandIn(
-                        $tablesFull,
+                        $tableNames,
                         $exportSqlPlugin,
                         $GLOBALS['db'],
                         $newDatabaseName
@@ -129,7 +129,7 @@ class OperationsController extends AbstractController
 
                     // copy tables
                     $sqlConstraints = $this->operations->copyTables(
-                        $tablesFull,
+                        $tableNames,
                         $move,
                         $GLOBALS['db'],
                         $newDatabaseName

@@ -10229,10 +10229,6 @@
     <MixedArgumentTypeCoercion>
       <code>$master</code>
       <code>$master</code>
-      <code>$tableName</code>
-      <code>$tableName</code>
-      <code>$tableName</code>
-      <code>$tableName</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$arr['foreign_db']]]></code>
@@ -18434,6 +18430,9 @@
     </UndefinedMethod>
   </file>
   <file src="test/classes/TableTest.php">
+    <InvalidArrayOffset>
+      <code><![CDATA[$GLOBALS['sql_drop_table']]]></code>
+    </InvalidArrayOffset>
     <MixedAssignment>
       <code>$is_define_property</code>
       <code>$sql</code>
@@ -18444,9 +18443,15 @@
     </MixedInferredReturnType>
     <MixedMethodCall>
       <code>method</code>
+      <code>method</code>
+      <code>method</code>
+      <code>will</code>
+      <code>will</code>
       <code>will</code>
     </MixedMethodCall>
     <UndefinedMethod>
+      <code>expects</code>
+      <code>expects</code>
       <code>expects</code>
     </UndefinedMethod>
   </file>
