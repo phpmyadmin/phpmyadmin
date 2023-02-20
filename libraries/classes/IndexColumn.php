@@ -15,7 +15,7 @@ class IndexColumn
     private $name = '';
 
     /** @var int The column sequence number in the index, starting with 1. */
-    private $seqInIndex = 1;
+    private int $seqInIndex = 1;
 
     /** @var string|null How the column is sorted in the index. "A" (Ascending) or NULL (Not sorted) */
     private $collation = null;
@@ -90,7 +90,7 @@ class IndexColumn
         }
 
         if (isset($params['Seq_in_index'])) {
-            $this->seqInIndex = $params['Seq_in_index'];
+            $this->seqInIndex = (int) $params['Seq_in_index'];
         }
 
         if (isset($params['Collation'])) {
