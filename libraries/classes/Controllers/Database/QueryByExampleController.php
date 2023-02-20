@@ -42,37 +42,33 @@ class QueryByExampleController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['savedSearchList'] ??= null;
-        $GLOBALS['savedSearch'] ??= null;
-        $GLOBALS['currentSearchId'] ??= null;
         $GLOBALS['goto'] ??= null;
         $GLOBALS['urlParams'] ??= null;
         $GLOBALS['errorUrl'] ??= null;
 
         $savedQbeSearchesFeature = $this->relation->getRelationParameters()->savedQueryByExampleSearchesFeature;
 
-        $GLOBALS['savedSearchList'] = [];
-        $GLOBALS['savedSearch'] = null;
-        $GLOBALS['currentSearchId'] = null;
+        $savedSearchList = [];
+        $savedSearch = null;
         $this->addScriptFiles(['database/qbe.js']);
         if ($savedQbeSearchesFeature !== null) {
             //Get saved search list.
-            $GLOBALS['savedSearch'] = new SavedSearches();
-            $GLOBALS['savedSearch']->setUsername($GLOBALS['cfg']['Server']['user'])
+            $savedSearch = new SavedSearches();
+            $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
                 ->setDbname($GLOBALS['db']);
 
             $searchId = $request->getParsedBodyParam('searchId');
             if (! empty($searchId)) {
-                $GLOBALS['savedSearch']->setId($searchId);
+                $savedSearch->setId($searchId);
             }
 
             //Action field is sent.
             if ($request->hasBodyParam('action')) {
-                $GLOBALS['savedSearch']->setSearchName($request->getParsedBodyParam('searchName'));
+                $savedSearch->setSearchName($request->getParsedBodyParam('searchName'));
                 $action = $request->getParsedBodyParam('action');
                 if ($action === 'create') {
                     try {
-                        $GLOBALS['savedSearch']->setId(null)
+                        $savedSearch->setId(null)
                             ->setCriterias($request->getParsedBody())
                             ->save($savedQbeSearchesFeature);
                     } catch (SavedSearchesException $exception) {
@@ -84,7 +80,7 @@ class QueryByExampleController extends AbstractController
                     }
                 } elseif ($action === 'update') {
                     try {
-                        $GLOBALS['savedSearch']->setCriterias($request->getParsedBody())
+                        $savedSearch->setCriterias($request->getParsedBody())
                             ->save($savedQbeSearchesFeature);
                     } catch (SavedSearchesException $exception) {
                         $this->response->setRequestStatus(false);
@@ -95,7 +91,7 @@ class QueryByExampleController extends AbstractController
                     }
                 } elseif ($action === 'delete') {
                     try {
-                        $GLOBALS['savedSearch']->delete($savedQbeSearchesFeature);
+                        $savedSearch->delete($savedQbeSearchesFeature);
                     } catch (SavedSearchesException $exception) {
                         $this->response->setRequestStatus(false);
                         $this->response->addJSON('fieldWithError', 'searchId');
@@ -105,20 +101,20 @@ class QueryByExampleController extends AbstractController
                     }
 
                     //After deletion, reset search.
-                    $GLOBALS['savedSearch'] = new SavedSearches();
-                    $GLOBALS['savedSearch']->setUsername($GLOBALS['cfg']['Server']['user'])
+                    $savedSearch = new SavedSearches();
+                    $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
                         ->setDbname($GLOBALS['db']);
                     $_POST = [];
                 } elseif ($action === 'load') {
                     if (empty($searchId)) {
                         //when not loading a search, reset the object.
-                        $GLOBALS['savedSearch'] = new SavedSearches();
-                        $GLOBALS['savedSearch']->setUsername($GLOBALS['cfg']['Server']['user'])
+                        $savedSearch = new SavedSearches();
+                        $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
                             ->setDbname($GLOBALS['db']);
                         $_POST = [];
                     } else {
                         try {
-                            $GLOBALS['savedSearch']->load($savedQbeSearchesFeature);
+                            $savedSearch->load($savedQbeSearchesFeature);
                         } catch (SavedSearchesException $exception) {
                             $this->response->setRequestStatus(false);
                             $this->response->addJSON('fieldWithError', 'searchId');
@@ -131,8 +127,7 @@ class QueryByExampleController extends AbstractController
                 //Else, it's an "update query"
             }
 
-            $GLOBALS['savedSearchList'] = $GLOBALS['savedSearch']->getList($savedQbeSearchesFeature);
-            $GLOBALS['currentSearchId'] = $GLOBALS['savedSearch']->getId();
+            $savedSearchList = $savedSearch->getList($savedQbeSearchesFeature);
         }
 
         /**
@@ -189,8 +184,8 @@ class QueryByExampleController extends AbstractController
             $this->template,
             $this->dbi,
             $GLOBALS['db'],
-            $GLOBALS['savedSearchList'],
-            $GLOBALS['savedSearch']
+            $savedSearchList,
+            $savedSearch
         );
 
         $this->render('database/qbe/index', [

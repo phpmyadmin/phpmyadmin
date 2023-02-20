@@ -1835,10 +1835,7 @@
   </file>
   <file src="libraries/classes/Controllers/Database/QueryByExampleController.php">
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['currentSearchId']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['savedSearch']]]></code>
-      <code><![CDATA[$GLOBALS['savedSearchList']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$request->getParsedBodyParam('db')]]></code>
@@ -1846,10 +1843,7 @@
       <code>$searchId</code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['currentSearchId']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['savedSearch']]]></code>
-      <code><![CDATA[$GLOBALS['savedSearchList']]]></code>
       <code>$action</code>
       <code>$searchId</code>
     </MixedAssignment>
