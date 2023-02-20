@@ -1075,7 +1075,15 @@ class Table implements Stringable
             /**
              * The old structure of the table..
              */
-            $sqlStructure = $exportSqlPlugin->getTableDef($sourceDb, $sourceTable, "\n", $errorUrl, false, false, $isView);
+            $sqlStructure = $exportSqlPlugin->getTableDef(
+                $sourceDb,
+                $sourceTable,
+                "\n",
+                $errorUrl,
+                false,
+                false,
+                $isView
+            );
 
             unset($noConstraintsComments);
 
