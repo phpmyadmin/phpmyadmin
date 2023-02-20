@@ -71,7 +71,7 @@ class SchemaSvg extends SchemaPlugin
      */
     public function getExportInfo(DatabaseName $db): array
     {
-        $export = new SvgRelationSchema($db->getName());
+        $export = new SvgRelationSchema($db);
         $exportInfo = $export->getExportInfo();
 
         return [

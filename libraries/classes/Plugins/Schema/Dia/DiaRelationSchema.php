@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Dia;
 
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 
 use function in_array;
@@ -55,10 +56,8 @@ class DiaRelationSchema extends ExportRelationSchema
      * @see Dia
      * @see TableStatsDia
      * @see RelationStatsDia
-     *
-     * @param string $db database name
      */
-    public function __construct($db)
+    public function __construct(DatabaseName $db)
     {
         parent::__construct($db, new Dia());
 
@@ -85,7 +84,7 @@ class DiaRelationSchema extends ExportRelationSchema
 
             $this->tables[$table] = new TableStatsDia(
                 $this->diagram,
-                $this->db,
+                $this->db->getName(),
                 $table,
                 $this->pageNumber,
                 $this->showKeys,
@@ -95,7 +94,7 @@ class DiaRelationSchema extends ExportRelationSchema
 
         $seen_a_relation = false;
         foreach ($alltables as $one_table) {
-            $exist_rel = $this->relation->getForeigners($this->db, $one_table, '', 'both');
+            $exist_rel = $this->relation->getForeigners($this->db->getName(), $one_table, '', 'both');
             if (! $exist_rel) {
                 continue;
             }
@@ -174,7 +173,7 @@ class DiaRelationSchema extends ExportRelationSchema
         if (! isset($this->tables[$masterTable])) {
             $this->tables[$masterTable] = new TableStatsDia(
                 $this->diagram,
-                $this->db,
+                $this->db->getName(),
                 $masterTable,
                 $this->pageNumber,
                 $showKeys
@@ -184,7 +183,7 @@ class DiaRelationSchema extends ExportRelationSchema
         if (! isset($this->tables[$foreignTable])) {
             $this->tables[$foreignTable] = new TableStatsDia(
                 $this->diagram,
-                $this->db,
+                $this->db->getName(),
                 $foreignTable,
                 $this->pageNumber,
                 $showKeys

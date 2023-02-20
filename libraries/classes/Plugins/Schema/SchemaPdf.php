@@ -118,7 +118,7 @@ class SchemaPdf extends SchemaPlugin
      */
     public function getExportInfo(DatabaseName $db): array
     {
-        $export = new PdfRelationSchema($db->getName());
+        $export = new PdfRelationSchema($db);
         $exportInfo = $export->getExportInfo();
 
         return [
