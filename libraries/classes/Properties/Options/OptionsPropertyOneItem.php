@@ -31,12 +31,8 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
      * @var int
      */
     private $len;
-    /**
-     * Size
-     *
-     * @var int
-     */
-    private $size;
+
+    private int $size = 0;
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
     /**
@@ -99,22 +95,12 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
         $this->len = $len;
     }
 
-    /**
-     * Gets the size
-     *
-     * @return int
-     */
-    public function getSize()
+    public function getSize(): int
     {
         return $this->size;
     }
 
-    /**
-     * Sets the size
-     *
-     * @param int $size size
-     */
-    public function setSize($size): void
+    public function setSize(int $size): void
     {
         $this->size = $size;
     }

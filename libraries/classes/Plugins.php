@@ -532,7 +532,7 @@ class Plugins
                     ) . '"'
                     . ' id="text_' . $plugin_name . '_'
                     . $pitem->getName() . '"'
-                    . ($pitem->getSize() != null
+                    . ($pitem->getSize() !== 0
                         ? ' size="' . $pitem->getSize() . '"'
                         : '')
                     . ($pitem->getLen() != null
