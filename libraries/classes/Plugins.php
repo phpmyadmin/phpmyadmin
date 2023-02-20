@@ -535,7 +535,7 @@ class Plugins
                     . ($pitem->getSize() !== 0
                         ? ' size="' . $pitem->getSize() . '"'
                         : '')
-                    . ($pitem->getLen() != null
+                    . ($pitem->getLen() !== 0
                         ? ' maxlength="' . $pitem->getLen() . '"'
                         : '')
                     . '>';

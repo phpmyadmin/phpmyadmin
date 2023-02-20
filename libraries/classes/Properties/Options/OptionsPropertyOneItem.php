@@ -25,12 +25,8 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
      * @var string|array
      */
     private $doc;
-    /**
-     * Length
-     *
-     * @var int
-     */
-    private $len;
+
+    private int $len = 0;
 
     private int $size = 0;
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
@@ -75,22 +71,12 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
         $this->doc = $doc;
     }
 
-    /**
-     * Gets the length
-     *
-     * @return int
-     */
-    public function getLen()
+    public function getLen(): int
     {
         return $this->len;
     }
 
-    /**
-     * Sets the length
-     *
-     * @param int $len length
-     */
-    public function setLen($len): void
+    public function setLen(int $len): void
     {
         $this->len = $len;
     }
