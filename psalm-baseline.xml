@@ -9166,7 +9166,6 @@
       <code><![CDATA[$this->choice]]></code>
       <code><![CDATA[$this->comment]]></code>
       <code><![CDATA[$this->name]]></code>
-      <code><![CDATA[$this->nonUnique]]></code>
       <code><![CDATA[$this->packed]]></code>
       <code><![CDATA[$this->parser]]></code>
       <code><![CDATA[$this->remarks]]></code>
