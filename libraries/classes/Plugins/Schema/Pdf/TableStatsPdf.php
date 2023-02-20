@@ -91,10 +91,8 @@ class TableStatsPdf extends TableStats
     /**
      * Returns title of the current table,
      * title can have the dimensions of the table
-     *
-     * @return string
      */
-    protected function getTitle()
+    protected function getTitle(): string
     {
         $ret = '';
         if ($this->tableDimension) {

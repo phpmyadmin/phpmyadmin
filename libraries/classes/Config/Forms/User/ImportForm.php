@@ -16,7 +16,7 @@ class ImportForm extends BaseForm
     /**
      * @return array
      */
-    public static function getForms()
+    public static function getForms(): array
     {
         return [
             'Import_defaults' => [
@@ -59,10 +59,7 @@ class ImportForm extends BaseForm
         ];
     }
 
-    /**
-     * @return string
-     */
-    public static function getName()
+    public static function getName(): string
     {
         return __('Import');
     }

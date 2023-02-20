@@ -117,7 +117,7 @@ class Key extends TwoFactorPlugin
      *
      * @return string HTML code
      */
-    public function render()
+    public function render(): string
     {
         $request = U2FServer::makeAuthentication(
             $this->getRegistrations(),
@@ -143,7 +143,7 @@ class Key extends TwoFactorPlugin
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function setup()
+    public function setup(): string
     {
         $registrationData = U2FServer::makeRegistration(
             $this->getAppId(true),
@@ -195,20 +195,16 @@ class Key extends TwoFactorPlugin
 
     /**
      * Get user visible name
-     *
-     * @return string
      */
-    public static function getName()
+    public static function getName(): string
     {
         return __('Hardware Security Key (FIDO U2F)');
     }
 
     /**
      * Get user visible description
-     *
-     * @return string
      */
-    public static function getDescription()
+    public static function getDescription(): string
     {
         return __('Provides authentication using hardware security tokens supporting FIDO U2F, such as a YubiKey.');
     }

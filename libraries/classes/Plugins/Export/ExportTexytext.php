@@ -265,7 +265,7 @@ class ExportTexytext extends ExportPlugin
      *
      * @return string resulting definition
      */
-    public function getTableDefStandIn($db, $view, $aliases = [])
+    public function getTableDefStandIn($db, $view, $aliases = []): string
     {
         $text_output = '';
 
@@ -345,7 +345,7 @@ class ExportTexytext extends ExportPlugin
         $add_semicolon = true,
         $view = false,
         array $aliases = []
-    ) {
+    ): string {
         $relationParameters = $this->relation->getRelationParameters();
 
         $text_output = '';
@@ -450,7 +450,7 @@ class ExportTexytext extends ExportPlugin
      *
      * @return string Formatted triggers list
      */
-    public function getTriggers($db, $table)
+    public function getTriggers($db, $table): string
     {
         $dump = "|------\n";
         $dump .= '|' . __('Name');
@@ -572,7 +572,7 @@ class ExportTexytext extends ExportPlugin
         $column,
         $unique_keys,
         $col_alias = ''
-    ) {
+    ): string {
         if (empty($col_alias)) {
             $col_alias = $column['Field'];
         }

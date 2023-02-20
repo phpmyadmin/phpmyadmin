@@ -492,10 +492,8 @@ class ExportXml extends ExportPlugin
 
     /**
      * Gets the table name
-     *
-     * @return string
      */
-    private function getTable()
+    private function getTable(): string
     {
         return $this->table;
     }
@@ -515,7 +513,7 @@ class ExportXml extends ExportPlugin
      *
      * @return array
      */
-    private function getTables()
+    private function getTables(): array
     {
         return $this->tables;
     }

@@ -131,8 +131,6 @@ class StructureController extends AbstractController
      * @param array $fields                    Fields
      * @param array $columns_with_index        Columns with index
      * @psalm-param non-empty-string $route
-     *
-     * @return string
      */
     protected function displayStructure(
         RelationParameters $relationParameters,
@@ -142,7 +140,7 @@ class StructureController extends AbstractController
         array $columns_with_index,
         bool $isSystemSchema,
         string $route
-    ) {
+    ): string {
         $GLOBALS['tbl_is_view'] ??= null;
         $GLOBALS['tbl_storage_engine'] ??= null;
 
@@ -269,10 +267,8 @@ class StructureController extends AbstractController
 
     /**
      * Get HTML snippet for display table statistics
-     *
-     * @return string
      */
-    protected function getTableStats(bool $isSystemSchema)
+    protected function getTableStats(bool $isSystemSchema): string
     {
         $GLOBALS['tbl_is_view'] ??= null;
         $GLOBALS['tbl_storage_engine'] ??= null;

@@ -79,7 +79,7 @@ class RelationStatsDia
      *
      * @return array Table right,left connection points and key position
      */
-    private function getXy($table, $column)
+    private function getXy($table, $column): array
     {
         $pos = array_search($column, $table->fields);
         // left, right, position

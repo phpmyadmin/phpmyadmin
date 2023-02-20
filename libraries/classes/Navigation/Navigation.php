@@ -208,7 +208,7 @@ class Navigation
      *
      * @return string HTML for the dialog to show hidden navigation items
      */
-    public function getItemUnhideDialog($database, $itemType = null, $table = null)
+    public function getItemUnhideDialog($database, $itemType = null, $table = null): string
     {
         $hidden = $this->getHiddenItems($database, $table);
 

@@ -107,7 +107,7 @@ abstract class RelationStats
      *
      * @return array Arrows coordinates
      */
-    private function getXy($table, $column)
+    private function getXy($table, $column): array
     {
         $pos = array_search($column, $table->fields);
 

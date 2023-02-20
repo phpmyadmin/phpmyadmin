@@ -343,7 +343,7 @@ class Advisor
      *
      * @return mixed result of evaluated expression
      */
-    private function evaluateRuleExpression(string $expression)
+    private function evaluateRuleExpression(string $expression): mixed
     {
         return $this->expression->evaluate($expression, array_merge($this->variables, $this->globals));
     }

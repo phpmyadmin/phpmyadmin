@@ -21,7 +21,7 @@ class I18nExtension extends TwigI18nExtension
      *
      * @return TwigFilter[]
      */
-    public function getFilters()
+    public function getFilters(): array
     {
         return [
             // This is just a performance override

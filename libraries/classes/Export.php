@@ -1169,7 +1169,7 @@ class Export
      *
      * @return mixed result of the query
      */
-    public function lockTables(DatabaseName $db, array $tables, string $lockType = 'WRITE')
+    public function lockTables(DatabaseName $db, array $tables, string $lockType = 'WRITE'): mixed
     {
         $locks = [];
         foreach ($tables as $table) {
@@ -1187,7 +1187,7 @@ class Export
      *
      * @return mixed result of the query
      */
-    public function unlockTables()
+    public function unlockTables(): mixed
     {
         return $this->dbi->tryQuery('UNLOCK TABLES');
     }

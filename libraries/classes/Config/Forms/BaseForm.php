@@ -50,7 +50,7 @@ abstract class BaseForm extends FormDisplay
      *
      * @todo This should be abstract, but that does not work in PHP 5
      */
-    public static function getForms()
+    public static function getForms(): array
     {
         return [];
     }
@@ -60,7 +60,7 @@ abstract class BaseForm extends FormDisplay
      *
      * @return string[]
      */
-    public static function getFields()
+    public static function getFields(): array
     {
         $names = [];
         foreach (static::getForms() as $form) {
@@ -75,11 +75,9 @@ abstract class BaseForm extends FormDisplay
     /**
      * Returns name of the form
      *
-     * @return string
-     *
      * @todo This should be abstract, but that does not work in PHP 5
      */
-    public static function getName()
+    public static function getName(): string
     {
         return '';
     }

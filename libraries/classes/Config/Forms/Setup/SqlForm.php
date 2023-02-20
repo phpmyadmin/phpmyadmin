@@ -12,7 +12,7 @@ class SqlForm extends \PhpMyAdmin\Config\Forms\User\SqlForm
     /**
      * @return array
      */
-    public static function getForms()
+    public static function getForms(): array
     {
         $result = parent::getForms();
         /* Following are not available to user */

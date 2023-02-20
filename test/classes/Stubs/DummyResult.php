@@ -93,10 +93,8 @@ class DummyResult implements ResultInterface
      * Returns a single value from the given result; false on error
      *
      * @param int|string $field
-     *
-     * @return string|false|null
      */
-    public function fetchValue($field = 0)
+    public function fetchValue($field = 0): string|false|null
     {
         if (is_string($field)) {
             $row = $this->fetchAssoc();
@@ -195,10 +193,9 @@ class DummyResult implements ResultInterface
     /**
      * Returns the number of rows in the result
      *
-     * @return string|int
      * @psalm-return int|numeric-string
      */
-    public function numRows()
+    public function numRows(): string|int
     {
         return $this->link->numRows($this->result);
     }

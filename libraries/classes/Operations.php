@@ -118,7 +118,7 @@ class Operations
         $exportSqlPlugin,
         $db,
         DatabaseName $newDatabaseName
-    ) {
+    ): array {
         $views = [];
         foreach ($tables as $table) {
             // to be able to rename a db containing views,
@@ -158,7 +158,7 @@ class Operations
      *
      * @return array SQL queries for the constraints
      */
-    public function copyTables(array $tables, $move, $db, DatabaseName $newDatabaseName)
+    public function copyTables(array $tables, $move, $db, DatabaseName $newDatabaseName): array
     {
         $sqlContraints = [];
         foreach ($tables as $table) {
@@ -463,7 +463,7 @@ class Operations
      *
      * @return array
      */
-    public function getPossibleRowFormat()
+    public function getPossibleRowFormat(): array
     {
         // the outer array is for engines, the inner array contains the dropdown
         // option values as keys then the dropdown option labels
@@ -645,7 +645,7 @@ class Operations
         $newTblStorageEngine,
         $transactional,
         $tableCollation
-    ) {
+    ): array {
         $GLOBALS['auto_increment'] ??= null;
 
         $tableAlters = [];

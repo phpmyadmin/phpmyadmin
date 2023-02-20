@@ -44,30 +44,24 @@ class Language
 
     /**
      * Returns native name for language
-     *
-     * @return string
      */
-    public function getNativeName()
+    public function getNativeName(): string
     {
         return $this->native;
     }
 
     /**
      * Returns English name for language
-     *
-     * @return string
      */
-    public function getEnglishName()
+    public function getEnglishName(): string
     {
         return $this->name;
     }
 
     /**
      * Returns verbose name for language
-     *
-     * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         if (! empty($this->native)) {
             return $this->native . ' - ' . $this->name;
@@ -78,20 +72,16 @@ class Language
 
     /**
      * Returns language code
-     *
-     * @return string
      */
-    public function getCode()
+    public function getCode(): string
     {
         return $this->code;
     }
 
     /**
      * Returns MySQL locale code, can be empty
-     *
-     * @return string
      */
-    public function getMySQLLocale()
+    public function getMySQLLocale(): string
     {
         return $this->mysql;
     }

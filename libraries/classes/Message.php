@@ -570,7 +570,7 @@ class Message implements Stringable
      *
      * @return mixed  the sanitized message(s)
      */
-    public static function sanitize($message)
+    public static function sanitize($message): mixed
     {
         if (is_array($message)) {
             foreach ($message as $key => $val) {

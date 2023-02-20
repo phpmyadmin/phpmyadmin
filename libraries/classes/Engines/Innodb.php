@@ -24,7 +24,7 @@ class Innodb extends StorageEngine
      *
      * @return array   variable names
      */
-    public function getVariables()
+    public function getVariables(): array
     {
         return [
             'innodb_data_home_dir' => [
@@ -87,7 +87,7 @@ class Innodb extends StorageEngine
      *
      * @return string  SQL query LIKE pattern
      */
-    public function getVariablesLikePattern()
+    public function getVariablesLikePattern(): string
     {
         return 'innodb\\_%';
     }
@@ -114,7 +114,7 @@ class Innodb extends StorageEngine
      *
      * @return string  html table with stats
      */
-    public function getPageBufferpool()
+    public function getPageBufferpool(): string
     {
         // The following query is only possible because we know
         // that we are on MySQL 5 here (checked above)!
@@ -256,7 +256,7 @@ class Innodb extends StorageEngine
      *
      * @return string  result of SHOW ENGINE INNODB STATUS inside pre tags
      */
-    public function getPageStatus()
+    public function getPageStatus(): string
     {
         return '<pre id="pre_innodb_status">' . "\n"
             . htmlspecialchars((string) $GLOBALS['dbi']->fetchValue(
@@ -271,7 +271,7 @@ class Innodb extends StorageEngine
      *
      * @return string  mysql helppage filename
      */
-    public function getMysqlHelpPage()
+    public function getMysqlHelpPage(): string
     {
         return 'innodb-storage-engine';
     }
@@ -281,7 +281,7 @@ class Innodb extends StorageEngine
      *
      * @return string the version number, or empty if not running as a plugin
      */
-    public function getInnodbPluginVersion()
+    public function getInnodbPluginVersion(): string
     {
         return (string) $GLOBALS['dbi']->fetchValue('SELECT @@innodb_version;');
     }

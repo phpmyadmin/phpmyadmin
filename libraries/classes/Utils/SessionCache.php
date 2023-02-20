@@ -23,10 +23,7 @@ final class SessionCache
         return isset($_SESSION['cache'][self::key()][$name]);
     }
 
-    /**
-     * @return mixed|null
-     */
-    public static function get(string $name, callable|null $defaultValueCallback = null)
+    public static function get(string $name, callable|null $defaultValueCallback = null): mixed
     {
         if (self::has($name)) {
             return $_SESSION['cache'][self::key()][$name];

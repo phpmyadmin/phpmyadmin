@@ -86,10 +86,8 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
 
     /**
      * Return the final concatenated HTML string
-     *
-     * @return string
      */
-    public function getHTMLResult()
+    public function getHTMLResult(): string
     {
         return $this->htmlString;
     }
@@ -99,7 +97,7 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
      *
      * @return array
      */
-    public function getJSONResult()
+    public function getJSONResult(): array
     {
         return $this->json;
     }
@@ -107,10 +105,8 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
     /**
      * Current I choose to return PhpMyAdmin\Header object directly because
      * our test has nothing about the Scripts and PhpMyAdmin\Header class.
-     *
-     * @return Header
      */
-    public function getHeader()
+    public function getHeader(): Header
     {
         return $this->header;
     }

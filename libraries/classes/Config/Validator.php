@@ -61,7 +61,7 @@ class Validator
      *
      * @return array
      */
-    public static function getValidators(ConfigFile $cf)
+    public static function getValidators(ConfigFile $cf): array
     {
         static $validators = null;
 
@@ -261,7 +261,7 @@ class Validator
      *
      * @return array
      */
-    public static function validateServer($path, array $values)
+    public static function validateServer($path, array $values): array
     {
         $result = [
             'Server' => '',
@@ -328,7 +328,7 @@ class Validator
      *
      * @return array
      */
-    public static function validatePMAStorage($path, array $values)
+    public static function validatePMAStorage($path, array $values): array
     {
         $result = [
             'Server_pmadb' => '',
@@ -381,7 +381,7 @@ class Validator
      *
      * @return array
      */
-    public static function validateRegex($path, array $values)
+    public static function validateRegex($path, array $values): array
     {
         $result = [$path => ''];
 
@@ -415,7 +415,7 @@ class Validator
      *
      * @return array
      */
-    public static function validateTrustedProxies($path, array $values)
+    public static function validateTrustedProxies($path, array $values): array
     {
         $result = [$path => []];
 
@@ -480,7 +480,7 @@ class Validator
         $allowZero,
         $maxValue,
         $errorString
-    ) {
+    ): string {
         if (empty($values[$path])) {
             return '';
         }
@@ -507,7 +507,7 @@ class Validator
      *
      * @return array
      */
-    public static function validatePortNumber($path, array $values)
+    public static function validatePortNumber($path, array $values): array
     {
         return [
             $path => static::validateNumber(
@@ -529,7 +529,7 @@ class Validator
      *
      * @return array
      */
-    public static function validatePositiveNumber($path, array $values)
+    public static function validatePositiveNumber($path, array $values): array
     {
         return [
             $path => static::validateNumber(
@@ -551,7 +551,7 @@ class Validator
      *
      * @return array
      */
-    public static function validateNonNegativeNumber($path, array $values)
+    public static function validateNonNegativeNumber($path, array $values): array
     {
         return [
             $path => static::validateNumber(
@@ -593,7 +593,7 @@ class Validator
      *
      * @return array
      */
-    public static function validateUpperBound($path, array $values, $maxValue)
+    public static function validateUpperBound($path, array $values, $maxValue): array
     {
         $result = $values[$path] <= $maxValue;
 

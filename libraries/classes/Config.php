@@ -537,7 +537,7 @@ class Config
         string $cfg_path,
         $new_cfg_value,
         $default_value = null
-    ) {
+    ): bool|Message {
         $userPreferences = new UserPreferences($GLOBALS['dbi']);
         $result = true;
         // use permanent user preferences if possible
@@ -570,10 +570,8 @@ class Config
      *
      * @param string $cookie_name cookie name
      * @param mixed  $cfg_value   config value
-     *
-     * @return mixed
      */
-    public function getUserValue(string $cookie_name, $cfg_value)
+    public function getUserValue(string $cookie_name, $cfg_value): mixed
     {
         $cookie_exists = ! empty($this->getCookie($cookie_name));
         $prefs_type = $this->get('user_preferences');
@@ -698,7 +696,7 @@ class Config
      *
      * @return mixed|null value
      */
-    public function get(string $setting)
+    public function get(string $setting): mixed
     {
         return $this->settings[$setting] ?? null;
     }
@@ -971,7 +969,7 @@ class Config
      *
      * @return mixed|null result of getCookie()
      */
-    public function getCookie(string $cookieName)
+    public function getCookie(string $cookieName): mixed
     {
         return $_COOKIE[$this->getCookieName($cookieName)] ?? null;
     }

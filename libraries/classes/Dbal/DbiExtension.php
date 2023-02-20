@@ -40,10 +40,8 @@ interface DbiExtension
      * Run the multi query and output the results
      *
      * @param string $query multi query statement to execute
-     *
-     * @return bool
      */
-    public function realMultiQuery(Connection $connection, $query);
+    public function realMultiQuery(Connection $connection, $query): bool;
 
     /**
      * Check if there are any more query results from a multi query
@@ -67,21 +65,21 @@ interface DbiExtension
      *
      * @return string type of connection used
      */
-    public function getHostInfo(Connection $connection);
+    public function getHostInfo(Connection $connection): string;
 
     /**
      * Returns the version of the MySQL protocol used
      *
      * @return int version of the MySQL protocol used
      */
-    public function getProtoInfo(Connection $connection);
+    public function getProtoInfo(Connection $connection): int;
 
     /**
      * returns a string that represents the client library version
      *
      * @return string MySQL client library version
      */
-    public function getClientInfo();
+    public function getClientInfo(): string;
 
     /**
      * Returns last error message or an empty string if no errors occurred.
@@ -102,7 +100,7 @@ interface DbiExtension
      *
      * @return string a MySQL escaped string
      */
-    public function escapeString(Connection $connection, $string);
+    public function escapeString(Connection $connection, $string): string;
 
     /**
      * Prepare an SQL statement for execution.

@@ -43,7 +43,7 @@ class GisPolygon extends GisGeometry
      *
      * @return GisPolygon the singleton
      */
-    public static function singleton()
+    public static function singleton(): GisPolygon
     {
         if (! isset(self::$instance)) {
             self::$instance = new GisPolygon();
@@ -124,7 +124,7 @@ class GisPolygon extends GisGeometry
      *
      * @return TCPDF the modified TCPDF instance
      */
-    public function prepareRowAsPdf($spatial, string $label, array $color, array $scale_data, $pdf)
+    public function prepareRowAsPdf($spatial, string $label, array $color, array $scale_data, $pdf): TCPDF
     {
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = mb_substr($spatial, 9, -2);
@@ -160,7 +160,7 @@ class GisPolygon extends GisGeometry
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg($spatial, string $label, array $color, array $scale_data)
+    public function prepareRowAsSvg($spatial, string $label, array $color, array $scale_data): string
     {
         $polygon_options = [
             'name' => $label,
@@ -205,7 +205,7 @@ class GisPolygon extends GisGeometry
      *
      * @return string JavaScript related to a row in the GIS dataset
      */
-    public function prepareRowAsOl($spatial, int $srid, string $label, array $color, array $scale_data)
+    public function prepareRowAsOl($spatial, int $srid, string $label, array $color, array $scale_data): string
     {
         $color[] = 0.8;
         $fill_style = ['color' => $color];
@@ -249,7 +249,7 @@ class GisPolygon extends GisGeometry
      *
      * @return string the code to draw the ring
      */
-    private function drawPath($polygon, array $scale_data)
+    private function drawPath($polygon, array $scale_data): string
     {
         $points_arr = $this->extractPoints($polygon, $scale_data);
 
@@ -273,7 +273,7 @@ class GisPolygon extends GisGeometry
      *
      * @return string WKT with the set of parameters passed by the GIS editor
      */
-    public function generateWkt(array $gis_data, $index, $empty = '')
+    public function generateWkt(array $gis_data, $index, $empty = ''): string
     {
         $no_of_lines = $gis_data[$index]['POLYGON']['no_of_lines'] ?? 1;
         if ($no_of_lines < 1) {
@@ -313,7 +313,7 @@ class GisPolygon extends GisGeometry
      *
      * @return float the area of a closed simple polygon
      */
-    public static function area(array $ring)
+    public static function area(array $ring): float
     {
         $no_of_points = count($ring);
 
@@ -478,7 +478,7 @@ class GisPolygon extends GisGeometry
      *
      * @return array params for the GIS data editor from the value of the GIS column
      */
-    public function generateParams($value, $index = -1)
+    public function generateParams($value, $index = -1): array
     {
         $params = [];
         if ($index == -1) {

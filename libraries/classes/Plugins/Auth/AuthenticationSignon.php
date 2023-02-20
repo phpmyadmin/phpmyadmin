@@ -280,10 +280,8 @@ class AuthenticationSignon extends AuthenticationPlugin
 
     /**
      * Returns URL for login form.
-     *
-     * @return string
      */
-    public function getLoginFormURL()
+    public function getLoginFormURL(): string
     {
         return $GLOBALS['cfg']['Server']['SignonURL'];
     }

@@ -243,7 +243,7 @@ class ServerConfigChecks
     protected function performConfigChecksServersGetServerName(
         $serverName,
         $serverId
-    ) {
+    ): string {
         if ($serverName === 'localhost') {
             return $serverName . ' [' . $serverId . ']';
         }

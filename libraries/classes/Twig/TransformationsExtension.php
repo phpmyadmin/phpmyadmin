@@ -15,7 +15,7 @@ class TransformationsExtension extends AbstractExtension
      *
      * @return TwigFunction[]
      */
-    public function getFunctions()
+    public function getFunctions(): array
     {
         $transformations = new Transformations();
 

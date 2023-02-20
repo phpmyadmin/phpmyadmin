@@ -77,7 +77,7 @@ class CentralColumns
      *
      * @return array|bool the central_columns parameters for the current user
      */
-    public function getParams()
+    public function getParams(): array|bool
     {
         static $cfgCentralColumns = null;
 
@@ -270,7 +270,7 @@ class CentralColumns
         array $field_select,
         bool $isTable = true,
         string|null $table = null
-    ) {
+    ): bool|Message {
         $cfgCentralColumns = $this->getParams();
         if (! is_array($cfgCentralColumns)) {
             return Message::error(
@@ -374,7 +374,7 @@ class CentralColumns
         string $database,
         array $field_select,
         bool $isTable = true
-    ) {
+    ): bool|Message {
         $cfgCentralColumns = $this->getParams();
         if (! is_array($cfgCentralColumns)) {
             return Message::error(
@@ -465,7 +465,7 @@ class CentralColumns
     public function makeConsistentWithList(
         string $db,
         array $selected_tables
-    ) {
+    ): bool|Message {
         $message = true;
         foreach ($selected_tables as $table) {
             $query = 'ALTER TABLE ' . Util::backquote($table);
@@ -582,7 +582,7 @@ class CentralColumns
         string $collation,
         string $col_extra,
         string $col_default
-    ) {
+    ): bool|Message {
         $cfgCentralColumns = $this->getParams();
         if (! is_array($cfgCentralColumns)) {
             return Message::error(
@@ -634,7 +634,7 @@ class CentralColumns
      *
      * @return true|Message
      */
-    public function updateMultipleColumn(array $params)
+    public function updateMultipleColumn(array $params): bool|Message
     {
         $columnDefault = $params['field_default_type'];
         $columnIsNull = [];

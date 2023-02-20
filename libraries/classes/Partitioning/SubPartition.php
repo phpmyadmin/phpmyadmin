@@ -71,7 +71,7 @@ class SubPartition
      *
      * @return string partition name
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -81,7 +81,7 @@ class SubPartition
      *
      * @return int the ordinal
      */
-    public function getOrdinal()
+    public function getOrdinal(): int
     {
         return $this->ordinal;
     }
@@ -91,7 +91,7 @@ class SubPartition
      *
      * @return string partition method
      */
-    public function getMethod()
+    public function getMethod(): string
     {
         return $this->method;
     }
@@ -101,7 +101,7 @@ class SubPartition
      *
      * @return string partition expression
      */
-    public function getExpression()
+    public function getExpression(): string
     {
         return $this->expression;
     }
@@ -111,7 +111,7 @@ class SubPartition
      *
      * @return int number of rows
      */
-    public function getRows()
+    public function getRows(): int
     {
         return $this->rows;
     }
@@ -121,7 +121,7 @@ class SubPartition
      *
      * @return int data length
      */
-    public function getDataLength()
+    public function getDataLength(): int
     {
         return $this->dataLength;
     }
@@ -131,7 +131,7 @@ class SubPartition
      *
      * @return int index length
      */
-    public function getIndexLength()
+    public function getIndexLength(): int
     {
         return $this->indexLength;
     }
@@ -141,7 +141,7 @@ class SubPartition
      *
      * @return string partition comment
      */
-    public function getComment()
+    public function getComment(): string
     {
         return $this->comment;
     }

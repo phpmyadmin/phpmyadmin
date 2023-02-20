@@ -71,7 +71,7 @@ abstract class ImportPlugin implements Plugin
      *
      * @return array DB name and options (an associative array of options)
      */
-    protected function getDbnameAndOptions($currentDb, $defaultDb)
+    protected function getDbnameAndOptions($currentDb, $defaultDb): array
     {
         $db_name = $defaultDb;
         $options = null;

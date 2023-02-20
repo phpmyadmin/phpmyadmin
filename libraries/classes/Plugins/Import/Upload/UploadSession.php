@@ -24,7 +24,7 @@ class UploadSession implements UploadInterface
      *
      * @return string ID Key
      */
-    public static function getIdKey()
+    public static function getIdKey(): string
     {
         return (string) ini_get('session.upload_progress.name');
     }
@@ -35,10 +35,8 @@ class UploadSession implements UploadInterface
      * This is implementation for session.upload_progress in PHP 5.4+.
      *
      * @param string $id upload id
-     *
-     * @return array|null
      */
-    public static function getUploadStatus($id)
+    public static function getUploadStatus($id): array|null
     {
         $GLOBALS['SESSION_KEY'] ??= null;
 

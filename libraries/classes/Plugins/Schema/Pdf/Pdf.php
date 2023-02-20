@@ -347,10 +347,8 @@ class Pdf extends PdfLib
      *
      * @param int    $w   width
      * @param string $txt text
-     *
-     * @return int
      */
-    public function numLines($w, $txt)
+    public function numLines($w, $txt): int
     {
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $cw = &$this->CurrentFont['cw'];

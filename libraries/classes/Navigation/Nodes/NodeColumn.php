@@ -67,7 +67,7 @@ class NodeColumn extends Node
      *
      * @return string Display name for navigation tree
      */
-    private function getDisplayName($item)
+    private function getDisplayName($item): string
     {
         $retval = $item['name'];
         $flag = 0;
@@ -92,7 +92,7 @@ class NodeColumn extends Node
      *
      * @return string truncated value
      */
-    private function getTruncateValue($key, $value)
+    private function getTruncateValue($key, $value): string
     {
         if ($key === 'default' && strlen($value) > 6) {
             return substr($value, 0, 6) . '...';

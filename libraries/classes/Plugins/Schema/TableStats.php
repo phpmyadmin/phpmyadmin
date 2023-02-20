@@ -175,7 +175,7 @@ abstract class TableStats
      *
      * @return string title of the current table
      */
-    protected function getTitle()
+    protected function getTitle(): string
     {
         return ($this->tableDimension
             ? sprintf('%.0fx%0.f', $this->width, $this->heightCell)

@@ -20,7 +20,7 @@ class PerformanceSchema extends StorageEngine
      *
      * @return string  mysql helppage filename
      */
-    public function getMysqlHelpPage()
+    public function getMysqlHelpPage(): string
     {
         return 'performance-schema';
     }

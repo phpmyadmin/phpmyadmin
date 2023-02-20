@@ -38,7 +38,7 @@ class Text_Plain_Iptolong extends IOTransformationsPlugin
      *
      * @return string IP address
      */
-    public function applyTransformation($buffer, array $options = [], FieldMetadata|null $meta = null)
+    public function applyTransformation($buffer, array $options = [], FieldMetadata|null $meta = null): string
     {
         return (string) FormatConverter::ipToLong($buffer);
     }
@@ -69,7 +69,7 @@ class Text_Plain_Iptolong extends IOTransformationsPlugin
         $tabindex,
         $tabindex_for_value,
         $idindex
-    ) {
+    ): string {
         $html = '';
         $val = '';
 

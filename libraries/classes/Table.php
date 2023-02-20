@@ -125,10 +125,8 @@ class Table implements Stringable
      * @param string            $tableName table name
      * @param string            $dbName    database name
      * @param DatabaseInterface $dbi       database interface for the table
-     *
-     * @return Table
      */
-    public static function get($tableName, $dbName, DatabaseInterface $dbi)
+    public static function get($tableName, $dbName, DatabaseInterface $dbi): Table
     {
         return new Table($tableName, $dbName, $dbi);
     }
@@ -138,7 +136,7 @@ class Table implements Stringable
      *
      * @return string the last error
      */
-    public function getLastError()
+    public function getLastError(): string
     {
         return end($this->errors);
     }
@@ -148,7 +146,7 @@ class Table implements Stringable
      *
      * @return string the last message
      */
-    public function getLastMessage()
+    public function getLastMessage(): string
     {
         return end($this->messages);
     }
@@ -160,7 +158,7 @@ class Table implements Stringable
      *
      * @return string  table name
      */
-    public function getName($backquoted = false)
+    public function getName($backquoted = false): string
     {
         if ($backquoted) {
             return Util::backquote($this->name);
@@ -176,7 +174,7 @@ class Table implements Stringable
      *
      * @return string  database name for this table
      */
-    public function getDbName($backquoted = false)
+    public function getDbName($backquoted = false): string
     {
         if ($backquoted) {
             return Util::backquote($this->dbName);
@@ -189,10 +187,8 @@ class Table implements Stringable
      * returns full name for table, including database name
      *
      * @param bool $backquoted whether to quote name with backticks ``
-     *
-     * @return string
      */
-    public function getFullName($backquoted = false)
+    public function getFullName($backquoted = false): string
     {
         return $this->getDbName($backquoted) . '.'
         . $this->getName($backquoted);
@@ -282,8 +278,6 @@ class Table implements Stringable
      * @param bool   $forceRead    read new rather than serving from cache
      * @param bool   $disableError if true, disables error message
      *
-     * @return mixed
-     *
      * @todo DatabaseInterface::getTablesFull needs to be merged
      * somehow into this class or at least better documented
      */
@@ -291,7 +285,7 @@ class Table implements Stringable
         $info = null,
         $forceRead = false,
         $disableError = false
-    ) {
+    ): mixed {
         if (! empty($_SESSION['is_multi_query'])) {
             $disableError = true;
         }
@@ -349,7 +343,7 @@ class Table implements Stringable
      *
      * @return string Return comment info if it is set for the selected table or return blank.
      */
-    public function getComment()
+    public function getComment(): string
     {
         $tableComment = $this->getStatusInfo('TABLE_COMMENT', false, true);
         if ($tableComment === false) {
@@ -364,7 +358,7 @@ class Table implements Stringable
      *
      * @return string Return blank if collation is empty else return the collation info from table info.
      */
-    public function getCollation()
+    public function getCollation(): string
     {
         $tableCollation = $this->getStatusInfo('TABLE_COLLATION', false, true);
         if ($tableCollation === false) {
@@ -379,7 +373,7 @@ class Table implements Stringable
      *
      * @return int Return no of rows info if it is not null for the selected table or return 0.
      */
-    public function getNumRows()
+    public function getNumRows(): int
     {
         $tableNumRowInfo = $this->getStatusInfo('TABLE_ROWS', false, true);
         if ($tableNumRowInfo === false) {
@@ -395,7 +389,7 @@ class Table implements Stringable
      *
      * @return string Return table row format info if it is set for the selected table or return blank.
      */
-    public function getRowFormat()
+    public function getRowFormat(): string
     {
         $tableRowFormat = $this->getStatusInfo('ROW_FORMAT', false, true);
         if ($tableRowFormat === false) {
@@ -410,7 +404,7 @@ class Table implements Stringable
      *
      * @return int Return auto increment info if it is set for the selected table or return blank.
      */
-    public function getAutoIncrement()
+    public function getAutoIncrement(): int
     {
         $tableAutoIncrement = $this->getStatusInfo('AUTO_INCREMENT', false, true);
 
@@ -490,7 +484,7 @@ class Table implements Stringable
         $moveTo = '',
         $columnsWithIndex = null,
         $oldColumnName = null
-    ) {
+    ): string {
         $strLength = strlen($length);
         $isTimestamp = mb_stripos($type, 'TIMESTAMP') !== false;
 
@@ -698,7 +692,7 @@ class Table implements Stringable
      * @return mixed the number of records if "retain" param is true,
      *               otherwise true
      */
-    public function countRecords($forceExact = false)
+    public function countRecords($forceExact = false): mixed
     {
         $isView = $this->isView();
         $cache = $this->dbi->getCache();
@@ -802,7 +796,7 @@ class Table implements Stringable
         $expression,
         $moveTo,
         $columnsWithIndex = null
-    ) {
+    ): string {
         return Util::backquote($oldcol) . ' '
         . self::generateFieldSpec(
             $newcol,
@@ -1597,7 +1591,7 @@ class Table implements Stringable
      *
      * @return array
      */
-    public function getIndexedColumns($backquoted = true, $fullName = true)
+    public function getIndexedColumns($backquoted = true, $fullName = true): array
     {
         $sql = QueryGenerator::getTableIndexesSql(
             $this->getDbName(),
@@ -1618,7 +1612,7 @@ class Table implements Stringable
      *
      * @return array
      */
-    public function getColumns($backquoted = true, $fullName = true)
+    public function getColumns($backquoted = true, $fullName = true): array
     {
         $sql = 'SHOW COLUMNS FROM ' . $this->getFullName(true);
         $indexed = $this->dbi->fetchResult($sql, 'Field', 'Field');
@@ -1688,7 +1682,7 @@ class Table implements Stringable
      *
      * @return array
      */
-    protected function getUiPrefsFromDb(UiPreferencesFeature|null $uiPreferencesFeature)
+    protected function getUiPrefsFromDb(UiPreferencesFeature|null $uiPreferencesFeature): array
     {
         if ($uiPreferencesFeature === null) {
             return [];
@@ -1717,7 +1711,7 @@ class Table implements Stringable
      *
      * @return true|Message
      */
-    protected function saveUiPrefsToDb(UiPreferencesFeature $uiPreferencesFeature)
+    protected function saveUiPrefsToDb(UiPreferencesFeature $uiPreferencesFeature): bool|Message
     {
         $table = Util::backquote($uiPreferencesFeature->database) . '.'
             . Util::backquote($uiPreferencesFeature->tableUiPrefs);
@@ -1803,10 +1797,8 @@ class Table implements Stringable
      * - PROP_COLUMN_VISIB
      *
      * @param string $property property
-     *
-     * @return mixed
      */
-    public function getUiProp($property)
+    public function getUiProp($property): mixed
     {
         if (empty($this->uiprefs)) {
             $this->loadUiPrefs();
@@ -1921,7 +1913,7 @@ class Table implements Stringable
      *
      * @return true|Message
      */
-    public function removeUiProp($property)
+    public function removeUiProp($property): bool|Message
     {
         if (empty($this->uiprefs)) {
             $this->loadUiPrefs();
@@ -2003,10 +1995,8 @@ class Table implements Stringable
      *
      * @param Index $index current index
      * @param bool  $error whether error occurred or not
-     *
-     * @return string
      */
-    public function getSqlQueryForIndexCreateOrEdit($index, &$error)
+    public function getSqlQueryForIndexCreateOrEdit($index, &$error): string
     {
         // $sql_query is the one displayed in the query box
         $sqlQuery = sprintf(
@@ -2243,7 +2233,7 @@ class Table implements Stringable
         array $optionsArray,
         $table,
         array $existrelForeign
-    ) {
+    ): array {
         $htmlOutput = '';
         $previewSqlData = '';
         $displayQuery = '';
@@ -2436,7 +2426,7 @@ class Table implements Stringable
         $name = null,
         $onDelete = null,
         $onUpdate = null
-    ) {
+    ): string {
         $sqlQuery = 'ALTER TABLE ' . Util::backquote($table) . ' ADD ';
         // if user entered a constraint name
         if (! empty($name)) {
@@ -2571,7 +2561,7 @@ class Table implements Stringable
      *
      * @return array an array of columns
      */
-    public function getColumnsWithIndex($types)
+    public function getColumnsWithIndex($types): array
     {
         $columnsWithIndex = [];
         foreach (

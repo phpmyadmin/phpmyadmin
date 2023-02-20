@@ -109,8 +109,6 @@ class Tracking
      * @param array  $urlParams   url parameters
      * @param string $textDir     text direction
      * @param int    $lastVersion last tracking version
-     *
-     * @return string
      */
     public function getHtmlForMainPage(
         string $db,
@@ -118,7 +116,7 @@ class Tracking
         $urlParams,
         $textDir,
         $lastVersion = null
-    ) {
+    ): string {
         $selectableTablesSqlResult = $this->getSqlResultForSelectableTables($db);
         $selectableTablesEntries = [];
         $selectableTablesNumRows = 0;
@@ -191,8 +189,6 @@ class Tracking
      * @param array $url_params   url params
      * @param array $filter_users filter users
      * @psalm-param 'schema'|'data'|'schema_and_data' $logType
-     *
-     * @return string
      */
     public function getHtmlForTrackingReport(
         array $data,
@@ -203,7 +199,7 @@ class Tracking
         DateTimeImmutable $dateFrom,
         DateTimeImmutable $dateTo,
         string $users
-    ) {
+    ): string {
         $html = '<h3>' . __('Tracking report')
             . '  [<a href="' . Url::getFromRoute('/table/tracking', $url_params) . '">' . __('Close')
             . '</a>]</h3>';
@@ -345,7 +341,7 @@ class Tracking
         string $version,
         DateTimeImmutable $dateFrom,
         DateTimeImmutable $dateTo
-    ) {
+    ): string {
         $ddlog_count = 0;
 
         $html = '<form method="post" action="' . Url::getFromRoute('/table/tracking') . '">';
@@ -421,7 +417,7 @@ class Tracking
         DateTimeImmutable $dateFrom,
         DateTimeImmutable $dateTo,
         string $users
-    ) {
+    ): string {
         $html = '<form method="post" action="' . Url::getFromRoute('/table/tracking') . '">';
         $html .= Url::getHiddenInputs($url_params + [
             'report' => 'true',
@@ -476,8 +472,6 @@ class Tracking
      * @param array  $url_params         url parameters
      * @param int    $ddlog_count        data definition log count
      * @param string $drop_image_or_text drop image or text
-     *
-     * @return string
      */
     public function getHtmlForDataManipulationStatements(
         array $data,
@@ -488,7 +482,7 @@ class Tracking
         string $version,
         DateTimeImmutable $dateFrom,
         DateTimeImmutable $dateTo
-    ) {
+    ): string {
         // no need for the second returned parameter
         [$html] = $this->getHtmlForDataStatements(
             $data,
@@ -525,7 +519,7 @@ class Tracking
         string $version,
         DateTimeImmutable $dateFrom,
         DateTimeImmutable $dateTo
-    ) {
+    ): array {
         [$html, $line_number] = $this->getHtmlForDataStatements(
             $data,
             $filter_users,
@@ -572,7 +566,7 @@ class Tracking
         string $version,
         DateTimeImmutable $dateFrom,
         DateTimeImmutable $dateTo
-    ) {
+    ): array {
         $offset = $lineNumber;
         $entries = [];
         foreach ($data[$whichLog] as $entry) {
@@ -667,10 +661,8 @@ class Tracking
      * Function to get html for displaying columns in the schema snapshot
      *
      * @param array $columns columns
-     *
-     * @return string
      */
-    public function getHtmlForColumns(array $columns)
+    public function getHtmlForColumns(array $columns): string
     {
         return $this->template->render('table/tracking/structure_snapshot_columns', ['columns' => $columns]);
     }
@@ -679,10 +671,8 @@ class Tracking
      * Function to get html for the indexes in schema snapshot
      *
      * @param array $indexes indexes
-     *
-     * @return string
      */
-    public function getHtmlForIndexes(array $indexes)
+    public function getHtmlForIndexes(array $indexes): string
     {
         return $this->template->render('table/tracking/structure_snapshot_indexes', ['indexes' => $indexes]);
     }
@@ -701,7 +691,7 @@ class Tracking
         array &$data,
         bool $delete_ddlog,
         bool $delete_dmlog
-    ) {
+    ): string {
         $html = '';
         if ($delete_ddlog) {
             // Delete ddlog row data
@@ -750,7 +740,7 @@ class Tracking
         $which_log,
         $type,
         $message
-    ) {
+    ): string {
         $html = '';
         $delete_id = $_POST['delete_' . $which_log];
 
@@ -784,7 +774,7 @@ class Tracking
      *
      * @return string HTML SQL query form
      */
-    public function exportAsSqlDump(string $db, string $table, array $entries)
+    public function exportAsSqlDump(string $db, string $table, array $entries): string
     {
         $html = '';
         $new_query = '# '
@@ -854,7 +844,7 @@ class Tracking
      *
      * @return string HTML for the success message
      */
-    public function changeTracking(string $db, string $table, string $version, $action)
+    public function changeTracking(string $db, string $table, string $version, $action): string
     {
         $html = '';
         if ($action === 'activate') {
@@ -881,10 +871,8 @@ class Tracking
 
     /**
      * Function to get tracking set
-     *
-     * @return string
      */
-    public function getTrackingSet()
+    public function getTrackingSet(): string
     {
         $tracking_set = '';
 
@@ -952,7 +940,7 @@ class Tracking
      *
      * @return string HTML of the success message
      */
-    public function deleteTrackingVersion(string $db, string $table, string $version)
+    public function deleteTrackingVersion(string $db, string $table, string $version): string
     {
         $html = '';
         $versionDeleted = Tracker::deleteTracking($db, $table, $version);
@@ -975,7 +963,7 @@ class Tracking
      *
      * @return string HTML of the success message
      */
-    public function createTrackingVersion(string $db, string $table, string $version)
+    public function createTrackingVersion(string $db, string $table, string $version): string
     {
         $html = '';
         $tracking_set = $this->getTrackingSet();
@@ -1036,7 +1024,7 @@ class Tracking
         string $logType,
         DateTimeImmutable $dateFrom,
         DateTimeImmutable $dateTo
-    ) {
+    ): array {
         $entries = [];
         // Filtering data definition statements
         if ($logType === 'schema' || $logType === 'schema_and_data') {
@@ -1081,7 +1069,7 @@ class Tracking
         string $db,
         array $urlParams,
         string $textDir
-    ) {
+    ): string {
         $trackingFeature = $this->relation->getRelationParameters()->trackingFeature;
         if ($trackingFeature === null) {
             return '';
@@ -1129,7 +1117,7 @@ class Tracking
      *
      * @return array
      */
-    public function extractTableNames(array $table_list, $db, $testing = false)
+    public function extractTableNames(array $table_list, $db, $testing = false): array
     {
         $untracked_tables = [];
         $sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
@@ -1153,7 +1141,7 @@ class Tracking
      *
      * @return array
      */
-    public function getUntrackedTables($db)
+    public function getUntrackedTables($db): array
     {
         $table_list = Util::getTableList($db);
 

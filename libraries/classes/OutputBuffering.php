@@ -124,7 +124,7 @@ class OutputBuffering
      *
      * @return string buffer content
      */
-    public function getContents()
+    public function getContents(): string
     {
         return $this->content;
     }

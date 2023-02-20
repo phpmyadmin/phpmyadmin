@@ -22,7 +22,7 @@ abstract class ListAbstract extends ArrayObject
      *
      * @return mixed   an empty item
      */
-    public function getEmpty()
+    public function getEmpty(): mixed
     {
         return $this->itemEmpty;
     }
@@ -72,7 +72,7 @@ abstract class ListAbstract extends ArrayObject
      *
      * @return string  default item
      */
-    public function getDefault()
+    public function getDefault(): string
     {
         return $this->getEmpty();
     }

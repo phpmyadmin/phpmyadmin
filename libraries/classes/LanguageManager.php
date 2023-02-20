@@ -728,10 +728,8 @@ class LanguageManager
 
     /**
      * Returns LanguageManager singleton
-     *
-     * @return LanguageManager
      */
-    public static function getInstance()
+    public static function getInstance(): LanguageManager
     {
         if (self::$instance === null) {
             self::$instance = new LanguageManager();
@@ -745,7 +743,7 @@ class LanguageManager
      *
      * @return array
      */
-    public function listLocaleDir()
+    public function listLocaleDir(): array
     {
         $result = ['en'];
 
@@ -784,7 +782,7 @@ class LanguageManager
      *
      * @return array of strings
      */
-    public function availableLocales()
+    public function availableLocales(): array
     {
         if (! $this->availableLocales) {
             if (! isset($GLOBALS['config']) || empty($GLOBALS['config']->get('FilterLanguages'))) {
@@ -813,7 +811,7 @@ class LanguageManager
      *
      * @return Language[] array of Language objects
      */
-    public function availableLanguages()
+    public function availableLanguages(): array
     {
         if (! $this->availableLanguages) {
             $this->availableLanguages = [];
@@ -844,7 +842,7 @@ class LanguageManager
      *
      * @return Language[] array of Language objects
      */
-    public function sortedLanguages()
+    public function sortedLanguages(): array
     {
         $this->availableLanguages();
         uasort($this->availableLanguages, static fn (Language $a, Language $b) => $a->cmp($b));
@@ -875,7 +873,7 @@ class LanguageManager
      *
      * @return Language Language object
      */
-    public function getCurrentLanguage()
+    public function getCurrentLanguage(): Language
     {
         return $this->availableLanguages[strtolower($GLOBALS['lang'])];
     }
@@ -883,10 +881,8 @@ class LanguageManager
     /**
      * Activates language based on configuration, user preferences or
      * browser
-     *
-     * @return Language
      */
-    public function selectLanguage()
+    public function selectLanguage(): Language
     {
         // check forced language
         if (! empty($GLOBALS['config']->get('Lang'))) {

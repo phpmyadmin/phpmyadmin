@@ -188,7 +188,7 @@ abstract class ExportPlugin implements Plugin
      *
      * @return string resulting definition
      */
-    public function getTableDefStandIn($db, $view, $aliases = [])
+    public function getTableDefStandIn($db, $view, $aliases = []): string
     {
         return '';
     }
@@ -201,7 +201,7 @@ abstract class ExportPlugin implements Plugin
      *
      * @return string Formatted triggers list
      */
-    protected function getTriggers($db, $table)
+    protected function getTriggers($db, $table): string
     {
         return '';
     }
@@ -267,7 +267,7 @@ abstract class ExportPlugin implements Plugin
      *
      * @return string alias of the identifier if found or ''
      */
-    public function getAlias(array $aliases, $id, $type = 'dbtblcol', $db = '', $tbl = '')
+    public function getAlias(array $aliases, $id, $type = 'dbtblcol', $db = '', $tbl = ''): string
     {
         if (! empty($db) && isset($aliases[$db])) {
             $aliases = [
@@ -334,7 +334,7 @@ abstract class ExportPlugin implements Plugin
         $fieldName,
         $db,
         array $aliases = []
-    ) {
+    ): string {
         $foreigner = $this->relation->searchColumnInForeigners($foreigners, $fieldName);
         if ($foreigner) {
             $ftable = $foreigner['foreign_table'];

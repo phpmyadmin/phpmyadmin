@@ -22,7 +22,7 @@ class UploadNoplugin implements UploadInterface
      *
      * @return string ID Key
      */
-    public static function getIdKey()
+    public static function getIdKey(): string
     {
         return 'noplugin';
     }
@@ -34,10 +34,8 @@ class UploadNoplugin implements UploadInterface
      * so it returns just zeroes.
      *
      * @param string $id upload id
-     *
-     * @return array|null
      */
-    public static function getUploadStatus($id)
+    public static function getUploadStatus($id): array|null
     {
         $GLOBALS['SESSION_KEY'] ??= null;
 

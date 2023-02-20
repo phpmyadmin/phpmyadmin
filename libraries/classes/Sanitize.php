@@ -99,7 +99,7 @@ class Sanitize
      *
      * @return string Replaced string
      */
-    public static function replaceBBLink(array $found)
+    public static function replaceBBLink(array $found): string
     {
         /* Check for valid link */
         if (! self::checkLink($found[1])) {
@@ -244,7 +244,7 @@ class Sanitize
      *
      * @return string  the sanitized filename
      */
-    public static function sanitizeFilename($filename, $replaceDots = false)
+    public static function sanitizeFilename($filename, $replaceDots = false): string
     {
         $pattern = '/[^A-Za-z0-9_';
         // if we don't have to replace dots
@@ -267,7 +267,7 @@ class Sanitize
      *
      * @return string Javascript code.
      */
-    public static function getJsValue($key, $value)
+    public static function getJsValue($key, $value): string
     {
         return $key . ' = ' . json_encode($value, JSON_HEX_TAG) . ";\n";
     }

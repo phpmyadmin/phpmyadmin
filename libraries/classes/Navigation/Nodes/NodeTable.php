@@ -77,10 +77,8 @@ class NodeTable extends NodeDatabaseChild
      * @param string $type         The type of item we are looking for
      *                             ('columns' or 'indexes')
      * @param string $searchClause A string used to filter the results of the query
-     *
-     * @return int
      */
-    public function getPresence($type = '', $searchClause = '')
+    public function getPresence($type = '', $searchClause = ''): int
     {
         $retval = 0;
         $db = $this->realParent()->realName;
@@ -272,7 +270,7 @@ class NodeTable extends NodeDatabaseChild
      *
      * @return string type of the item
      */
-    protected function getItemType()
+    protected function getItemType(): string
     {
         return 'table';
     }

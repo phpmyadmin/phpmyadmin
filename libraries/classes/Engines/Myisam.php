@@ -21,7 +21,7 @@ class Myisam extends StorageEngine
      *
      * @return array   variable names
      */
-    public function getVariables()
+    public function getVariables(): array
     {
         return [
             'myisam_data_pointer_size' => [

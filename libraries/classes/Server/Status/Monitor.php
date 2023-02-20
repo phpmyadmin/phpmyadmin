@@ -142,7 +142,7 @@ class Monitor
         $sysinfo,
         $cpuload,
         $memory
-    ) {
+    ): array {
         // For each chart
         foreach ($ret as $chartId => $chartNodes) {
             // For each data series
@@ -193,7 +193,7 @@ class Monitor
         $sysinfo,
         $cpuload,
         $memory
-    ) {
+    ): array {
         /**
          * We only collect the status and server variables here to read them all in one query,
          * and only afterwards assign them. Also do some allow list filtering on the names

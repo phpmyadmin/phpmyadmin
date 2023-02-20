@@ -270,7 +270,7 @@ class Search
      *
      * @return string HTML for selection form
      */
-    public function getMainHtml()
+    public function getMainHtml(): string
     {
         return $this->template->render('database/search/main', [
             'db' => $this->db,

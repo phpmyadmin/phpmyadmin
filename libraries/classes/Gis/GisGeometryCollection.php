@@ -36,7 +36,7 @@ class GisGeometryCollection extends GisGeometry
      *
      * @return GisGeometryCollection the singleton
      */
-    public static function singleton()
+    public static function singleton(): GisGeometryCollection
     {
         if (! isset(self::$instance)) {
             self::$instance = new GisGeometryCollection();
@@ -131,7 +131,7 @@ class GisGeometryCollection extends GisGeometry
      *
      * @return TCPDF the modified TCPDF instance
      */
-    public function prepareRowAsPdf($spatial, string $label, array $color, array $scale_data, $pdf)
+    public function prepareRowAsPdf($spatial, string $label, array $color, array $scale_data, $pdf): TCPDF
     {
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $goem_col = mb_substr($spatial, 19, -1);
@@ -167,7 +167,7 @@ class GisGeometryCollection extends GisGeometry
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg($spatial, string $label, array $color, array $scale_data)
+    public function prepareRowAsSvg($spatial, string $label, array $color, array $scale_data): string
     {
         $row = '';
 
@@ -207,7 +207,7 @@ class GisGeometryCollection extends GisGeometry
      *
      * @return string JavaScript related to a row in the GIS dataset
      */
-    public function prepareRowAsOl($spatial, int $srid, string $label, array $color, array $scale_data)
+    public function prepareRowAsOl($spatial, int $srid, string $label, array $color, array $scale_data): string
     {
         $row = '';
 
@@ -274,7 +274,7 @@ class GisGeometryCollection extends GisGeometry
      *
      * @return string WKT with the set of parameters passed by the GIS editor
      */
-    public function generateWkt(array $gis_data, $index, $empty = '')
+    public function generateWkt(array $gis_data, $index, $empty = ''): string
     {
         $geom_count = $gis_data['GEOMETRYCOLLECTION']['geom_count'] ?? 1;
         $wkt = 'GEOMETRYCOLLECTION(';
@@ -306,7 +306,7 @@ class GisGeometryCollection extends GisGeometry
      *
      * @return array parameters for the GIS editor from the value of the GIS column
      */
-    public function generateParams($value)
+    public function generateParams($value): array
     {
         $params = [];
         $data = GisGeometry::generateParams($value);

@@ -867,10 +867,8 @@ class ImportCsv extends AbstractImportCsv
      * @param int    $i                  Current read counter of buffer string
      * @param int    $csv_terminated_len The length of "column separated with"
      *                                   String
-     *
-     * @return string
      */
-    public function readCsvTerminatedString($buffer, $ch, $i, $csv_terminated_len)
+    public function readCsvTerminatedString($buffer, $ch, $i, $csv_terminated_len): string
     {
         for ($j = 0; $j < $csv_terminated_len - 1; $j++) {
             $i++;

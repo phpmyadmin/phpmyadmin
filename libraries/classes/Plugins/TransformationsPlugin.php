@@ -38,7 +38,7 @@ abstract class TransformationsPlugin implements TransformationsInterface
         $buffer,
         array $options = [],
         FieldMetadata|null $meta = null
-    );
+    ): string;
 
     /**
      * Returns passed options or default values if they were not set
@@ -48,7 +48,7 @@ abstract class TransformationsPlugin implements TransformationsInterface
      *
      * @return array List of options possibly filled in by defaults.
      */
-    public function getOptions(array $options, array $defaults)
+    public function getOptions(array $options, array $defaults): array
     {
         $result = [];
         foreach ($defaults as $key => $value) {

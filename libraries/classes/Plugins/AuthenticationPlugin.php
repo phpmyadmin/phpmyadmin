@@ -153,10 +153,8 @@ abstract class AuthenticationPlugin
 
     /**
      * Returns URL for login form.
-     *
-     * @return string
      */
-    public function getLoginFormURL()
+    public function getLoginFormURL(): string
     {
         return './index.php?route=/';
     }
@@ -165,10 +163,8 @@ abstract class AuthenticationPlugin
      * Returns error message for failed authentication.
      *
      * @param string $failure String describing why authentication has failed
-     *
-     * @return string
      */
-    public function getErrorMessage($failure)
+    public function getErrorMessage($failure): string
     {
         if ($failure === 'empty-denied') {
             return __('Login without a password is forbidden by configuration (see AllowNoPassword)');

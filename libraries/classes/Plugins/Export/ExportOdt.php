@@ -344,7 +344,7 @@ class ExportOdt extends ExportPlugin
      *
      * @return string resulting definition
      */
-    public function getTableDefStandIn($db, $view, $aliases = [])
+    public function getTableDefStandIn($db, $view, $aliases = []): string
     {
         $db_alias = $db;
         $view_alias = $view;
@@ -572,10 +572,8 @@ class ExportOdt extends ExportPlugin
      * @param string $db      database name
      * @param string $table   table name
      * @param array  $aliases Aliases of db/table/columns
-     *
-     * @return string
      */
-    protected function getTriggers($db, $table, array $aliases = [])
+    protected function getTriggers($db, $table, array $aliases = []): string
     {
         $db_alias = $db;
         $table_alias = $table;
@@ -737,7 +735,7 @@ class ExportOdt extends ExportPlugin
      *
      * @return string Formatted column definition
      */
-    protected function formatOneColumnDefinition($column, $col_as = '')
+    protected function formatOneColumnDefinition($column, $col_as = ''): string
     {
         if (empty($col_as)) {
             $col_as = $column['Field'];

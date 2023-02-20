@@ -23,10 +23,8 @@ class Descriptions
      *
      * @param string $path Path of configuration
      * @param string $type Type of message, either 'name', 'cmt' or 'desc'
-     *
-     * @return string
      */
-    public static function get($path, $type = 'name')
+    public static function get($path, $type = 'name'): string
     {
         $key = str_replace(
             [

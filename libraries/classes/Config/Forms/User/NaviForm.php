@@ -16,7 +16,7 @@ class NaviForm extends BaseForm
     /**
      * @return array
      */
-    public static function getForms()
+    public static function getForms(): array
     {
         return [
             'Navi_panel' => [
@@ -60,10 +60,7 @@ class NaviForm extends BaseForm
         ];
     }
 
-    /**
-     * @return string
-     */
-    public static function getName()
+    public static function getName(): string
     {
         return __('Navigation panel');
     }

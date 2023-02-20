@@ -40,7 +40,7 @@ class GisMultiPolygon extends GisGeometry
      *
      * @return GisMultiPolygon the singleton
      */
-    public static function singleton()
+    public static function singleton(): GisMultiPolygon
     {
         if (! isset(self::$instance)) {
             self::$instance = new GisMultiPolygon();
@@ -144,7 +144,7 @@ class GisMultiPolygon extends GisGeometry
      *
      * @return TCPDF the modified TCPDF instance
      */
-    public function prepareRowAsPdf($spatial, string $label, array $color, array $scale_data, $pdf)
+    public function prepareRowAsPdf($spatial, string $label, array $color, array $scale_data, $pdf): TCPDF
     {
         // Trim to remove leading 'MULTIPOLYGON(((' and trailing ')))'
         $multipolygon = mb_substr($spatial, 15, -3);
@@ -193,7 +193,7 @@ class GisMultiPolygon extends GisGeometry
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg($spatial, string $label, array $color, array $scale_data)
+    public function prepareRowAsSvg($spatial, string $label, array $color, array $scale_data): string
     {
         $polygon_options = [
             'name' => $label,
@@ -244,7 +244,7 @@ class GisMultiPolygon extends GisGeometry
      *
      * @return string JavaScript related to a row in the GIS dataset
      */
-    public function prepareRowAsOl($spatial, int $srid, string $label, array $color, array $scale_data)
+    public function prepareRowAsOl($spatial, int $srid, string $label, array $color, array $scale_data): string
     {
         $color[] = 0.8;
         $fill_style = ['color' => $color];
@@ -289,7 +289,7 @@ class GisMultiPolygon extends GisGeometry
      *
      * @return string the code to draw the ring
      */
-    private function drawPath($polygon, array $scale_data)
+    private function drawPath($polygon, array $scale_data): string
     {
         $points_arr = $this->extractPoints($polygon, $scale_data);
 
@@ -313,7 +313,7 @@ class GisMultiPolygon extends GisGeometry
      *
      * @return string WKT with the set of parameters passed by the GIS editor
      */
-    public function generateWkt(array $gis_data, $index, $empty = '')
+    public function generateWkt(array $gis_data, $index, $empty = ''): string
     {
         $data_row = $gis_data[$index]['MULTIPOLYGON'];
 
@@ -366,7 +366,7 @@ class GisMultiPolygon extends GisGeometry
      *
      * @return string the WKT for the data from ESRI shape files
      */
-    public function getShape(array $row_data)
+    public function getShape(array $row_data): string
     {
         // Determines whether each line ring is an inner ring or an outer ring.
         // If it's an inner ring get a point on the surface which can be used to
@@ -455,7 +455,7 @@ class GisMultiPolygon extends GisGeometry
      *
      * @return array params for the GIS data editor from the value of the GIS column
      */
-    public function generateParams($value, $index = -1)
+    public function generateParams($value, $index = -1): array
     {
         $params = [];
         if ($index == -1) {

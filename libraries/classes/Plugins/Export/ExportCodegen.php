@@ -176,7 +176,7 @@ class ExportCodegen extends ExportPlugin
      *
      * @return string identifier
      */
-    public static function cgMakeIdentifier($str, $ucfirst = true)
+    public static function cgMakeIdentifier($str, $ucfirst = true): string
     {
         // remove unsafe characters
         $str = (string) preg_replace('/[^\p{L}\p{Nl}_]/u', '', $str);
@@ -201,7 +201,7 @@ class ExportCodegen extends ExportPlugin
      *
      * @return string containing C# code lines, separated by "\n"
      */
-    private function handleNHibernateCSBody($db, $table, array $aliases = [])
+    private function handleNHibernateCSBody($db, $table, array $aliases = []): string
     {
         $db_alias = $db;
         $table_alias = $table;
@@ -307,7 +307,7 @@ class ExportCodegen extends ExportPlugin
         $db,
         $table,
         array $aliases = []
-    ) {
+    ): string {
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
@@ -366,7 +366,7 @@ class ExportCodegen extends ExportPlugin
      *
      * @return array
      */
-    private function getCgFormats()
+    private function getCgFormats(): array
     {
         return $this->cgFormats;
     }

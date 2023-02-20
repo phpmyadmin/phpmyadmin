@@ -70,7 +70,7 @@ class Application extends TwoFactorPlugin
      *
      * @return string HTML code
      */
-    public function render()
+    public function render(): string
     {
         return $this->template->render('login/twofactor/application');
     }
@@ -80,7 +80,7 @@ class Application extends TwoFactorPlugin
      *
      * @return string HTML code
      */
-    public function setup()
+    public function setup(): string
     {
         $secret = $this->twofactor->config['settings']['secret'];
         $inlineUrl = $this->google2fa->getQRCodeInline(
@@ -121,20 +121,16 @@ class Application extends TwoFactorPlugin
 
     /**
      * Get user visible name
-     *
-     * @return string
      */
-    public static function getName()
+    public static function getName(): string
     {
         return __('Authentication Application (2FA)');
     }
 
     /**
      * Get user visible description
-     *
-     * @return string
      */
-    public static function getDescription()
+    public static function getDescription(): string
     {
         return __(
             'Provides authentication using HOTP and TOTP applications such as FreeOTP, Google Authenticator or Authy.'

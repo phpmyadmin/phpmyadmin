@@ -81,7 +81,7 @@ class Data
      *
      * @return array
      */
-    private function getAllocations()
+    private function getAllocations(): array
     {
         return [
             // variable name => section
@@ -135,7 +135,7 @@ class Data
      *
      * @return array
      */
-    private function getSections()
+    private function getSections(): array
     {
         return [
             // section => section name (description)
@@ -166,7 +166,7 @@ class Data
      *
      * @return array
      */
-    private function getLinks()
+    private function getLinks(): array
     {
         $primaryInfo = $this->replicationInfo->getPrimaryInfo();
         $replicaInfo = $this->replicationInfo->getReplicaInfo();
@@ -244,7 +244,7 @@ class Data
      *
      * @return array
      */
-    private function calculateValues(array $server_status, array $server_variables)
+    private function calculateValues(array $server_status, array $server_variables): array
     {
         // Key_buffer_fraction
         if (
@@ -314,7 +314,7 @@ class Data
         array $allocationMap,
         array $sectionUsed,
         array $used_queries
-    ) {
+    ): array {
         foreach ($server_status as $name => $value) {
             $section_found = false;
             foreach ($allocations as $filter => $section) {
@@ -431,7 +431,7 @@ class Data
      *
      * @return array
      */
-    public static function cleanDeprecated(array $server_status)
+    public static function cleanDeprecated(array $server_status): array
     {
         $deprecated = [
             'Com_prepare_sql' => 'Com_stmt_prepare',

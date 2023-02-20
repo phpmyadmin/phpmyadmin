@@ -48,10 +48,8 @@ class FormatConverter
      * Transforms an IP to a binary
      *
      * @param mixed $buffer Data to transform
-     *
-     * @return string
      */
-    public static function ipToBinary($buffer)
+    public static function ipToBinary($buffer): string
     {
         $val = @inet_pton($buffer);
         if ($val !== false) {

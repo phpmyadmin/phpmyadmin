@@ -118,10 +118,8 @@ class FormDisplay
 
     /**
      * Returns {@link ConfigFile} associated with this instance
-     *
-     * @return ConfigFile
      */
-    public function getConfigFile()
+    public function getConfigFile(): ConfigFile
     {
         return $this->configFile;
     }
@@ -223,7 +221,7 @@ class FormDisplay
         $showButtons = true,
         $formAction = null,
         $hiddenFields = null
-    ) {
+    ): string {
         $js = [];
         $jsDefault = [];
 
@@ -336,7 +334,7 @@ class FormDisplay
         $translatedPath,
         $userPrefsAllow,
         array &$jsDefault
-    ) {
+    ): string|null {
         $name = Descriptions::get($systemPath);
         $description = Descriptions::get($systemPath, 'desc');
 
@@ -721,10 +719,8 @@ class FormDisplay
      * Returns link to documentation
      *
      * @param string $path Path to documentation
-     *
-     * @return string
      */
-    public function getDocLink($path)
+    public function getDocLink($path): string
     {
         $test = mb_substr($path, 0, 6);
         if ($test === 'Import' || $test === 'Export') {
@@ -742,10 +738,8 @@ class FormDisplay
      * Changes path so it can be used in URLs
      *
      * @param string $path Path
-     *
-     * @return string
      */
-    private function getOptName($path)
+    private function getOptName($path): string
     {
         return str_replace(['Servers/1/', '/'], ['Servers/', '_'], $path);
     }

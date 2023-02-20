@@ -257,10 +257,8 @@ class Git
      *
      * @param string $gitFolder The Git folder
      * @param string $hash      The commit hash
-     *
-     * @return array|false|null
      */
-    private function unPackGz(string $gitFolder, string $hash)
+    private function unPackGz(string $gitFolder, string $hash): array|false|null
     {
         $commit = false;
 

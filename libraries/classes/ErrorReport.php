@@ -207,7 +207,7 @@ class ErrorReport
      *
      * @return string|bool|null the reply of the server
      */
-    public function send(array $report)
+    public function send(array $report): string|bool|null
     {
         return $this->httpRequest->create(
             $this->submissionUrl,

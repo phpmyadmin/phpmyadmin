@@ -230,7 +230,7 @@ class Util
      *
      * @return int the possibly modified row count
      */
-    private static function checkRowCount($db, array $table)
+    private static function checkRowCount($db, array $table): int
     {
         $rowCount = 0;
 
@@ -489,7 +489,7 @@ class Util
         $digitsRight = 0,
         $onlyDown = false,
         $noTrailingZero = true
-    ) {
+    ): string {
         if ($value == 0) {
             return '0';
         }
@@ -613,7 +613,7 @@ class Util
      *
      * @return string   the formatted date
      */
-    public static function localisedDate($timestamp = -1, $format = '')
+    public static function localisedDate($timestamp = -1, $format = ''): string
     {
         $month = [
             /* l10n: Short month name */
@@ -1141,7 +1141,7 @@ class Util
      *
      * @return int $page_num
      */
-    public static function getPageFromPosition($pos, $maxCount)
+    public static function getPageFromPosition($pos, $maxCount): int
     {
         return (int) floor($pos / $maxCount) + 1;
     }
@@ -1251,7 +1251,7 @@ class Util
      * @return array associative array containing type, spec_in_brackets
      *          and possibly enum_set_values (another array)
      */
-    public static function extractColumnSpec($columnSpecification)
+    public static function extractColumnSpec($columnSpecification): array
     {
         $firstBracketPos = mb_strpos($columnSpecification, '(');
         if ($firstBracketPos) {
@@ -1603,7 +1603,7 @@ class Util
      *
      * @return mixed   An HTML snippet or an array of datatypes.
      */
-    public static function getSupportedDatatypes($html = false, $selected = '')
+    public static function getSupportedDatatypes($html = false, $selected = ''): mixed
     {
         if ($html) {
             $retval = Generator::getSupportedDatatypes($selected);
@@ -1832,7 +1832,7 @@ class Util
      *
      * @return array|null list of tabs for the menu
      */
-    public static function getMenuTabList($level = null)
+    public static function getMenuTabList($level = null): array|null
     {
         $tabList = [
             'server' => [
@@ -1901,7 +1901,7 @@ class Util
      *
      * @return string time, datetime or timestamp strings with fractional seconds
      */
-    public static function addMicroseconds($value)
+    public static function addMicroseconds($value): string
     {
         if (empty($value) || $value === 'CURRENT_TIMESTAMP' || $value === 'current_timestamp()') {
             return $value;
@@ -1928,7 +1928,7 @@ class Util
      *
      * @return string the MIME type for compression, or 'none'
      */
-    public static function getCompressionMimeType($file)
+    public static function getCompressionMimeType($file): string
     {
         $test = fread($file, 4);
 
@@ -1961,7 +1961,7 @@ class Util
      *
      * @return string COLLATE clause if needed or empty string.
      */
-    public static function getCollateForIS()
+    public static function getCollateForIS(): string
     {
         $names = $GLOBALS['dbi']->getLowerCaseNames();
         if ($names === 0) {
@@ -1982,7 +1982,7 @@ class Util
      *
      * @return array processes index data
      */
-    public static function processIndexData(array $indexes)
+    public static function processIndexData(array $indexes): array
     {
         $lastIndex = '';
 
@@ -2315,10 +2315,8 @@ class Util
      * Wrapper around PHP date function
      *
      * @param string $format Date format string
-     *
-     * @return string
      */
-    public static function date($format)
+    public static function date($format): string
     {
         return date($format);
     }
@@ -2345,7 +2343,7 @@ class Util
      *
      * @return mixed Searched value
      */
-    public static function getValueByKey(array $array, string|array $path, $default = null)
+    public static function getValueByKey(array $array, string|array $path, $default = null): mixed
     {
         if (is_string($path)) {
             $path = explode('.', $path);
@@ -2374,7 +2372,7 @@ class Util
      *
      * @return string Link to be displayed in the table header
      */
-    public static function sortableTableHeader($title, $sort, $initialSortOrder = 'ASC')
+    public static function sortableTableHeader($title, $sort, $initialSortOrder = 'ASC'): string
     {
         $requestedSort = 'table';
         $requestedSortOrder = $futureSortOrder = $initialSortOrder;

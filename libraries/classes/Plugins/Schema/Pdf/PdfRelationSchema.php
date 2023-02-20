@@ -308,7 +308,7 @@ class PdfRelationSchema extends ExportRelationSchema
      *
      * @return string table order
      */
-    public function getTableOrder()
+    public function getTableOrder(): string
     {
         return $this->tableOrder;
     }

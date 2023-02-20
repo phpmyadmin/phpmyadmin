@@ -74,7 +74,7 @@ class Linter
      *
      * @return array
      */
-    public static function findLineNumberAndColumn(array $lines, $pos)
+    public static function findLineNumberAndColumn(array $lines, $pos): array
     {
         $line = 0;
         foreach ($lines as $lineNo => $lineStart) {
@@ -98,7 +98,7 @@ class Linter
      *
      * @return array
      */
-    public static function lint($query)
+    public static function lint($query): array
     {
         // Disabling lint for huge queries to save some resources.
         if (mb_strlen($query) > 10000) {

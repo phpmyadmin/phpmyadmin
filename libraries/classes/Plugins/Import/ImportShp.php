@@ -320,10 +320,8 @@ class ImportShp extends ImportPlugin
      * Sets $eof when $GLOBALS['finished'] is set and the buffer falls short.
      *
      * @param int $length number of bytes
-     *
-     * @return string
      */
-    public static function readFromBuffer($length)
+    public static function readFromBuffer($length): string
     {
         $GLOBALS['buffer'] ??= null;
         $GLOBALS['eof'] ??= null;

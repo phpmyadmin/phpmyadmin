@@ -53,7 +53,7 @@ abstract class IOTransformationsPlugin extends TransformationsPlugin
         $tabindex,
         $tabindex_for_value,
         $idindex
-    ) {
+    ): string {
         return '';
     }
 
@@ -73,7 +73,7 @@ abstract class IOTransformationsPlugin extends TransformationsPlugin
      *
      * @return string error
      */
-    public function getError()
+    public function getError(): string
     {
         return $this->error;
     }

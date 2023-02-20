@@ -24,7 +24,7 @@ abstract class NodeDatabaseChild extends Node
      *
      * @return string type of the item
      */
-    abstract protected function getItemType();
+    abstract protected function getItemType(): string;
 
     /**
      * Returns HTML for control buttons displayed infront of a node

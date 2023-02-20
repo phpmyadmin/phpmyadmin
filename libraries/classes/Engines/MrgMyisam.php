@@ -18,7 +18,7 @@ class MrgMyisam extends Merge
      *
      * @return string  mysql helppage filename
      */
-    public function getMysqlHelpPage()
+    public function getMysqlHelpPage(): string
     {
         return 'merge-storage-engine';
     }

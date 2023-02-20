@@ -16,7 +16,7 @@ class FeaturesForm extends BaseForm
     /**
      * @return array
      */
-    public static function getForms()
+    public static function getForms(): array
     {
         $result = [
             'General' => [
@@ -82,10 +82,7 @@ class FeaturesForm extends BaseForm
         return $result;
     }
 
-    /**
-     * @return string
-     */
-    public static function getName()
+    public static function getName(): string
     {
         return __('Features');
     }

@@ -121,7 +121,7 @@ class IndexColumn
      *
      * @return string column name
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -131,7 +131,7 @@ class IndexColumn
      *
      * @return string|null column collation
      */
-    public function getCollation()
+    public function getCollation(): string|null
     {
         return $this->collation;
     }
@@ -141,7 +141,7 @@ class IndexColumn
      *
      * @return int|null cardinality of the column
      */
-    public function getCardinality()
+    public function getCardinality(): int|null
     {
         return $this->cardinality;
     }
@@ -172,7 +172,7 @@ class IndexColumn
      *
      * @return int sequence number of the column in the index
      */
-    public function getSeqInIndex()
+    public function getSeqInIndex(): int
     {
         return $this->seqInIndex;
     }
@@ -183,7 +183,7 @@ class IndexColumn
      *
      * @return int|null the number of indexed characters
      */
-    public function getSubPart()
+    public function getSubPart(): int|null
     {
         return $this->subPart;
     }

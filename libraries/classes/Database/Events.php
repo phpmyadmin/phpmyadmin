@@ -258,7 +258,7 @@ class Events
      *
      * @return array    Data necessary to create the editor.
      */
-    public function getDataFromRequest()
+    public function getDataFromRequest(): array
     {
         $retval = [];
         $indices = [
@@ -351,7 +351,7 @@ class Events
      *
      * @return string   HTML code for the editor.
      */
-    public function getEditorForm($mode, $operation, array $item)
+    public function getEditorForm($mode, $operation, array $item): string
     {
         if ($operation === 'change') {
             if ($item['item_type'] === 'RECURRING') {
@@ -379,7 +379,7 @@ class Events
      *
      * @return string  The CREATE EVENT query.
      */
-    public function getQueryFromRequest()
+    public function getQueryFromRequest(): string
     {
         $GLOBALS['errors'] ??= null;
 
@@ -481,7 +481,7 @@ class Events
      *
      * @return array
      */
-    private function checkResult($createStatement, array $errors)
+    private function checkResult($createStatement, array $errors): array
     {
         // OMG, this is really bad! We dropped the query,
         // failed to create a new one

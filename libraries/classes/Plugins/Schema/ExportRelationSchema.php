@@ -77,7 +77,7 @@ class ExportRelationSchema
      *
      * @return int schema page number
      */
-    public function getPageNumber()
+    public function getPageNumber(): int
     {
         return $this->pageNumber;
     }
@@ -169,7 +169,7 @@ class ExportRelationSchema
      *
      * @return string orientation
      */
-    public function getOrientation()
+    public function getOrientation(): string
     {
         return $this->orientation;
     }
@@ -189,7 +189,7 @@ class ExportRelationSchema
      *
      * @return string paper size
      */
-    public function getPaper()
+    public function getPaper(): string
     {
         return $this->paper;
     }

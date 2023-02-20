@@ -351,7 +351,7 @@ class ExportMediawiki extends ExportPlugin
      *
      * @return string The formatted comment
      */
-    private function exportComment($text = '')
+    private function exportComment($text = ''): string
     {
         // see https://www.mediawiki.org/wiki/Help:Formatting
         $comment = $this->exportCRLF();
@@ -367,7 +367,7 @@ class ExportMediawiki extends ExportPlugin
      *
      * @return string CRLF
      */
-    private function exportCRLF()
+    private function exportCRLF(): string
     {
         // The CRLF expected by the mediawiki format is "\n"
         return "\n";

@@ -368,7 +368,7 @@ class InsertEdit
         array $column,
         array $commentsMap,
         $timestampSeen
-    ) {
+    ): array {
         $column['Field_md5'] = md5($column['Field']);
         // True_Type contains only the type (stops at first bracket)
         $column['True_Type'] = preg_replace('@\(.*@s', '', $column['Type']);
@@ -454,7 +454,7 @@ class InsertEdit
      * @return array $column['pma_type'], $column['wrap'], $column['first_timestamp']
      * @psalm-return array{0: mixed, 1: string, 2: bool}
      */
-    private function getEnumSetAndTimestampColumns(array $column, $timestampSeen)
+    private function getEnumSetAndTimestampColumns(array $column, $timestampSeen): array
     {
         return match ($column['True_Type']) {
             'set' => [
@@ -987,7 +987,7 @@ class InsertEdit
         array $gisDataTypes,
         $columnNameAppendix,
         $asIs
-    ) {
+    ): array {
         $specialCharsEncoded = '';
         $data = null;
         $realNullValue = false;
@@ -1076,7 +1076,7 @@ class InsertEdit
      */
     private function getSpecialCharsAndBackupFieldForInsertingMode(
         array $column
-    ) {
+    ): array {
         if (! isset($column['Default'])) {
             $column['Default'] = '';
             $realNullValue = true;
@@ -1118,7 +1118,7 @@ class InsertEdit
      * @return array $loop_array, $using_key, $is_insert, $is_insertignore
      * @psalm-return array{array, bool, bool, bool}
      */
-    public function getParamsForUpdateOrInsert()
+    public function getParamsForUpdateOrInsert(): array
     {
         if (isset($_POST['where_clause'])) {
             // we were editing something => use the WHERE clause
@@ -1236,7 +1236,7 @@ class InsertEdit
      *
      * @return string           error url for query failure
      */
-    public function getErrorUrl(array $urlParams)
+    public function getErrorUrl(array $urlParams): string
     {
         if (isset($_POST['err_url'])) {
             return $_POST['err_url'];
@@ -1255,7 +1255,7 @@ class InsertEdit
      * @return array of query
      * @psalm-return array{string}
      */
-    public function buildSqlQuery(bool $isInsertIgnore, array $queryFields, array $valueSets)
+    public function buildSqlQuery(bool $isInsertIgnore, array $queryFields, array $valueSets): array
     {
         if ($isInsertIgnore) {
             $insertCommand = 'INSERT IGNORE ';
@@ -1280,7 +1280,7 @@ class InsertEdit
      * @return array $url_params, $total_affected_rows, $last_messages
      *               $warning_messages, $error_messages, $return_to_sql_query
      */
-    public function executeSqlQuery(array $urlParams, array $query)
+    public function executeSqlQuery(array $urlParams, array $query): array
     {
         $returnToSqlQuery = '';
         if (! empty($GLOBALS['sql_query'])) {
@@ -1372,7 +1372,7 @@ class InsertEdit
         $whereComparison,
         array $map,
         $relationField
-    ) {
+    ): string {
         $foreigner = $this->relation->searchColumnInForeigners($map, $relationField);
 
         if (! is_array($foreigner)) {
@@ -1483,7 +1483,7 @@ class InsertEdit
         $columnName,
         array $extraData,
         $type
-    ) {
+    ): array {
         $includeFile = 'libraries/classes/Plugins/Transformations/' . $file;
         if (is_file(ROOT_PATH . $includeFile)) {
             // $cfg['SaveCellsAtOnce'] = true; JS code sends an array
@@ -1787,7 +1787,7 @@ class InsertEdit
      *
      * @return array[]
      */
-    public function getTableColumns($db, $table)
+    public function getTableColumns($db, $table): array
     {
         $this->dbi->selectDb($db);
 
@@ -1960,8 +1960,6 @@ class InsertEdit
      * @param array           $repopulate         the data to be repopulated
      * @param array           $columnMime         the mime information of column
      * @param string          $whereClause        the where clause
-     *
-     * @return string
      */
     private function getHtmlForInsertEditFormColumn(
         array $column,
@@ -1988,7 +1986,7 @@ class InsertEdit
         array $repopulate,
         array $columnMime,
         $whereClause
-    ) {
+    ): string {
         if (! isset($column['processed'])) {
             $column = $this->analyzeTableColumnsArray($column, $commentsMap, $timestampSeen);
         }
@@ -2331,8 +2329,6 @@ class InsertEdit
      * @param string          $textDir            text direction
      * @param array           $repopulate         the data to be repopulated
      * @param array           $whereClauseArray   the array of where clauses
-     *
-     * @return string
      */
     public function getHtmlForInsertEditRow(
         array $urlParams,
@@ -2357,7 +2353,7 @@ class InsertEdit
         $textDir,
         array $repopulate,
         array $whereClauseArray
-    ) {
+    ): string {
         $htmlOutput = $this->getHeadAndFootOfInsertRowTable($urlParams)
             . '<tbody>';
 

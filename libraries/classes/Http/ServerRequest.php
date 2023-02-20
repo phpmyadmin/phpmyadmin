@@ -289,10 +289,8 @@ class ServerRequest implements ServerRequestInterface
 
     /**
      * @param mixed $default
-     *
-     * @return mixed
      */
-    public function getParam(string $param, $default = null)
+    public function getParam(string $param, $default = null): mixed
     {
         $getParams = $this->getQueryParams();
         $postParams = $this->getParsedBody();
@@ -310,10 +308,8 @@ class ServerRequest implements ServerRequestInterface
 
     /**
      * @param mixed $default
-     *
-     * @return mixed
      */
-    public function getParsedBodyParam(string $param, $default = null)
+    public function getParsedBodyParam(string $param, $default = null): mixed
     {
         $postParams = $this->getParsedBody();
 
@@ -330,10 +326,8 @@ class ServerRequest implements ServerRequestInterface
 
     /**
      * @param mixed $default
-     *
-     * @return mixed
      */
-    public function getQueryParam(string $param, $default = null)
+    public function getQueryParam(string $param, $default = null): mixed
     {
         $getParams = $this->getQueryParams();
 
