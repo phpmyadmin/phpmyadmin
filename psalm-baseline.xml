@@ -16554,7 +16554,8 @@
     </UndefinedMethod>
   </file>
   <file src="test/classes/TableTest.php">
-    <InvalidArrayOffset occurrences="1">
+    <InvalidArrayOffset occurrences="2">
+      <code>$GLOBALS['sql_drop_table']</code>
       <code>$_POST['old_index']['Key_name']</code>
     </InvalidArrayOffset>
     <MixedAssignment occurrences="3">
@@ -16565,11 +16566,17 @@
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
-    <MixedMethodCall occurrences="2">
+    <MixedMethodCall occurrences="6">
+      <code>method</code>
+      <code>method</code>
       <code>method</code>
       <code>will</code>
+      <code>will</code>
+      <code>will</code>
     </MixedMethodCall>
-    <UndefinedMethod occurrences="1">
+    <UndefinedMethod occurrences="3">
+      <code>expects</code>
+      <code>expects</code>
       <code>expects</code>
     </UndefinedMethod>
   </file>
