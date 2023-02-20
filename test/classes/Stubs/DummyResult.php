@@ -106,7 +106,12 @@ class DummyResult implements ResultInterface
             return false;
         }
 
-        return $row[$field];
+        /**
+         * PMA uses mostly textual mysqli protocol. In comparison to prepared statements (binary protocol),
+         * it returns all data types as strings. PMA is not ready to enable automatic cast to int/float, so
+         * in our dummy class we will force string cast on all values.
+         */
+        return $row[$field] === null ? null : (string) $row[$field];
     }
 
     /**
