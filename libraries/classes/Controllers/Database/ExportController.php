@@ -76,29 +76,33 @@ final class ExportController extends AbstractController
             return;
         }
 
-        if ($request->hasBodyParam('selected_tbl') && empty($GLOBALS['table_select'])) {
-            $GLOBALS['table_select'] = $request->getParsedBodyParam('selected_tbl');
+        $selectedTable = $request->getParsedBodyParam('selected_tbl');
+        if (! empty($selectedTable) && empty($GLOBALS['table_select'])) {
+            $GLOBALS['table_select'] = $selectedTable;
         }
 
         $tablesForMultiValues = [];
 
         foreach ($GLOBALS['tables'] as $each_table) {
-            if (is_array($request->getParsedBodyParam('table_select'))) {
-                $is_checked = $this->export->getCheckedClause($each_table['Name'], $request->getParsedBodyParam('table_select'));
+            $tableSelect = $request->getParsedBodyParam('table_select');
+            if (is_array($tableSelect)) {
+                $is_checked = $this->export->getCheckedClause($each_table['Name'], $tableSelect);
             } elseif (isset($GLOBALS['table_select'])) {
                 $is_checked = $this->export->getCheckedClause($each_table['Name'], $GLOBALS['table_select']);
             } else {
                 $is_checked = true;
             }
 
-            if (is_array($request->getParsedBodyParam('table_structure'))) {
-                $structure_checked = $this->export->getCheckedClause($each_table['Name'], $request->getParsedBodyParam('table_structure'));
+            $tableStructure = $request->getParsedBodyParam('table_structure');
+            if (is_array($tableStructure)) {
+                $structure_checked = $this->export->getCheckedClause($each_table['Name'], $tableStructure);
             } else {
                 $structure_checked = $is_checked;
             }
 
-            if (is_array($request->getParsedBodyParam('table_data'))) {
-                $data_checked = $this->export->getCheckedClause($each_table['Name'], $request->getParsedBodyParam('table_data'));
+            $tableData = $request->getParsedBodyParam('table_data');
+            if (is_array($tableData)) {
+                $data_checked = $this->export->getCheckedClause($each_table['Name'], $tableData);
             } else {
                 $data_checked = $is_checked;
             }

@@ -73,7 +73,7 @@ class TrackingController extends AbstractController
             )->getDisplay();
         } elseif ($request->hasBodyParam('submit_create_version')) {
             $this->tracking->createTrackingForMultipleTables(
-                $GLOBALS['db'], 
+                $GLOBALS['db'],
                 $request->getParsedBodyParam('selected'),
                 $request->getParsedBodyParam('version')
             );

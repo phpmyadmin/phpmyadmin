@@ -68,7 +68,6 @@ class QueryByExampleController extends AbstractController
 
             //Action field is sent.
             if ($request->hasBodyParam('action')) {
-
                 $GLOBALS['savedSearch']->setSearchName($request->getParsedBodyParam('searchName'));
                 $action = $request->getParsedBodyParam('action');
                 if ($action === 'create') {

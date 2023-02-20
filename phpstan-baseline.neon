@@ -1291,9 +1291,34 @@ parameters:
 			path: libraries/classes/Controllers/Database/Operations/CollationController.php
 
 		-
+			message: "#^Parameter \\#2 \\$comment of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:setDbComment\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/OperationsController.php
+
+		-
 			message: "#^Parameter \\#2 \\$exportSqlPlugin of method PhpMyAdmin\\\\Operations\\:\\:getViewsAndCreateSqlViewStandIn\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql, object\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/OperationsController.php
+
+		-
+			message: "#^Parameter \\#1 \\$criterias of method PhpMyAdmin\\\\SavedSearches\\:\\:setCriterias\\(\\) expects array\\|string, array\\|object\\|null given\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Database/QueryByExampleController.php
+
+		-
+			message: "#^Parameter \\#1 \\$searchId of method PhpMyAdmin\\\\SavedSearches\\:\\:setId\\(\\) expects int\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/QueryByExampleController.php
+
+		-
+			message: "#^Parameter \\#1 \\$searchName of method PhpMyAdmin\\\\SavedSearches\\:\\:setSearchName\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/QueryByExampleController.php
+
+		-
+			message: "#^Parameter \\#3 \\$db of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/QueryByExampleController.php
 
 		-
 			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
@@ -1591,8 +1616,33 @@ parameters:
 			path: libraries/classes/Controllers/Database/TrackingController.php
 
 		-
+			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/TrackingController.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/TrackingController.php
+
+		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, array\\<int, array\\<string, string\\>\\>\\|string\\|null given\\.$#"
 			count: 2
+			path: libraries/classes/Controllers/Database/TrackingController.php
+
+		-
+			message: "#^Parameter \\#2 \\$selected of method PhpMyAdmin\\\\Tracking\\:\\:createTrackingForMultipleTables\\(\\) expects array, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/TrackingController.php
+
+		-
+			message: "#^Parameter \\#2 \\$tableName of static method PhpMyAdmin\\\\Tracker\\:\\:deleteTracking\\(\\) expects string, mixed given\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Database/TrackingController.php
+
+		-
+			message: "#^Parameter \\#3 \\$version of method PhpMyAdmin\\\\Tracking\\:\\:createTrackingForMultipleTables\\(\\) expects string, mixed given\\.$#"
+			count: 1
 			path: libraries/classes/Controllers/Database/TrackingController.php
 
 		-

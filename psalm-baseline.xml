@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.7.0@d934875532c7eb344d6b2914c3525f116a6b0cf2">
+<files psalm-version="5.7.1@8e0fd880141f236847ab49a06f94f788d41a4292">
   <file src="libraries/classes/Advisory/Advisor.php">
     <MixedArgument>
       <code>$matches[1]</code>
@@ -1574,9 +1574,6 @@
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
-    <PossiblyUnusedParam>
-      <code>$request</code>
-    </PossiblyUnusedParam>
     <RedundantCast>
       <code><![CDATA[(int) $GLOBALS['cfg']['MaxRows']]]></code>
     </RedundantCast>
@@ -1720,9 +1717,14 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
       <code><![CDATA[$GLOBALS['table_select']]]></code>
+      <code><![CDATA[$GLOBALS['table_select']]]></code>
       <code><![CDATA[$GLOBALS['tables']]]></code>
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
       <code>$each_table</code>
+      <code>$selectedTable</code>
+      <code>$tableData</code>
+      <code>$tableSelect</code>
+      <code>$tableStructure</code>
     </MixedAssignment>
     <PossiblyUnusedMethod>
       <code>__construct</code>
@@ -1813,17 +1815,14 @@
       <code><![CDATA[$GLOBALS['reload']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
     </InvalidArrayOffset>
+    <MixedArgument>
+      <code><![CDATA[$request->getParsedBodyParam('comment')]]></code>
+    </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['reload']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
     </MixedAssignment>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$_POST['comment']]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['comment']]]></code>
-    </PossiblyInvalidCast>
     <PossiblyNullArgument>
       <code>$exportSqlPlugin</code>
     </PossiblyNullArgument>
@@ -1835,35 +1834,32 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="libraries/classes/Controllers/Database/QueryByExampleController.php">
-    <InvalidArgument>
-      <code><![CDATA[$_POST['searchId']]]></code>
-    </InvalidArgument>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['currentSearchId']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['savedSearch']]]></code>
       <code><![CDATA[$GLOBALS['savedSearchList']]]></code>
     </InvalidArrayOffset>
+    <MixedArgument>
+      <code><![CDATA[$request->getParsedBodyParam('db')]]></code>
+      <code><![CDATA[$request->getParsedBodyParam('searchName')]]></code>
+      <code>$searchId</code>
+    </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['currentSearchId']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['savedSearch']]]></code>
       <code><![CDATA[$GLOBALS['savedSearchList']]]></code>
+      <code>$action</code>
+      <code>$searchId</code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
-      <code><![CDATA[$_POST['db']]]></code>
-      <code><![CDATA[$_POST['searchName']]]></code>
+      <code><![CDATA[$request->getParsedBody()]]></code>
+      <code><![CDATA[$request->getParsedBody()]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['db']]]></code>
-      <code><![CDATA[$_POST['searchName']]]></code>
-    </PossiblyInvalidCast>
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
-    <PossiblyUnusedParam>
-      <code>$request</code>
-    </PossiblyUnusedParam>
   </file>
   <file src="libraries/classes/Controllers/Database/RoutinesController.php">
     <InvalidArrayOffset>
@@ -2344,25 +2340,17 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
+      <code><![CDATA[$request->getParsedBodyParam('selected')]]></code>
+      <code><![CDATA[$request->getParsedBodyParam('table')]]></code>
+      <code><![CDATA[$request->getParsedBodyParam('version')]]></code>
+      <code><![CDATA[$request->getParsedBodyParam('version')]]></code>
       <code>$table</code>
     </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+      <code>$selectedTable</code>
       <code>$table</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$_POST['selected']]]></code>
-      <code><![CDATA[$_POST['table']]]></code>
-      <code><![CDATA[$_POST['version']]]></code>
-      <code><![CDATA[$_POST['version']]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['table']]]></code>
-      <code><![CDATA[$_POST['version']]]></code>
-    </PossiblyInvalidCast>
-    <PossiblyInvalidIterator>
-      <code><![CDATA[$_POST['selected_tbl']]]></code>
-    </PossiblyInvalidIterator>
     <PossiblyNullArgument>
       <code><![CDATA[$GLOBALS['text_dir']]]></code>
     </PossiblyNullArgument>
