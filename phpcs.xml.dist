@@ -30,9 +30,6 @@
     <rule ref="SlevomatCodingStandard.Classes.ConstantSpacing.IncorrectCountOfBlankLinesAfterConstant">
         <severity>4</severity>
     </rule>
-    <rule ref="SlevomatCodingStandard.Classes.ModernClassNameReference.ClassNameReferencedViaFunctionCall">
-        <severity>4</severity>
-    </rule>
     <rule ref="SlevomatCodingStandard.Classes.ParentCallSpacing.IncorrectLinesCountAfterControlStructure">
         <severity>4</severity>
     </rule>

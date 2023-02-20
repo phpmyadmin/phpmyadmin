@@ -9665,8 +9665,6 @@
   </file>
   <file src="libraries/classes/Navigation/NavigationTree.php">
     <ArgumentTypeCoercion>
-      <code><![CDATA[$newChild['node']]]></code>
-      <code><![CDATA[$newChild['node']]]></code>
       <code>$table</code>
     </ArgumentTypeCoercion>
     <DocblockTypeContradiction>
@@ -9726,10 +9724,6 @@
       <code><![CDATA[$urlParams['pos3_name']]]></code>
       <code>$value</code>
     </MixedAssignment>
-    <MixedMethodCall>
-      <code>addChild</code>
-      <code>setHiddenCount</code>
-    </MixedMethodCall>
     <MixedOperand>
       <code>$separators[0]</code>
       <code>$separators[0]</code>
@@ -9800,6 +9794,9 @@
     <TypeDoesNotContainType>
       <code><![CDATA[$value > 500]]></code>
     </TypeDoesNotContainType>
+    <UndefinedMethod>
+      <code>setHiddenCount</code>
+    </UndefinedMethod>
   </file>
   <file src="libraries/classes/Navigation/NodeFactory.php">
     <UnsafeInstantiation>
@@ -10531,7 +10528,6 @@
       <code>$doc[1]</code>
       <code>$doc[1]</code>
       <code>$doc[2]</code>
-      <code>$propertyItem</code>
       <code>$propertyMainGroup</code>
       <code>$val</code>
       <code>$val</code>
@@ -10575,6 +10571,8 @@
       <code><![CDATA[$pitem->getName()]]></code>
       <code><![CDATA[$pitem->getName()]]></code>
       <code><![CDATA[$propertyGroup->getName()]]></code>
+      <code><![CDATA[$propertyItem->getForce()]]></code>
+      <code><![CDATA[$propertyItem->getForce()]]></code>
       <code><![CDATA[$propertyItem->getName()]]></code>
       <code><![CDATA[$propertyItem->getName()]]></code>
       <code><![CDATA[$propertyItem->getName()]]></code>
@@ -10593,11 +10591,6 @@
       <code>$property_class === SelectPropertyItem::class</code>
       <code>$property_class === TextPropertyItem::class</code>
     </TypeDoesNotContainType>
-    <UnnecessaryVarAnnotation>
-      <code>RadioPropertyItem</code>
-      <code>SelectPropertyItem</code>
-      <code>TextPropertyItem</code>
-    </UnnecessaryVarAnnotation>
   </file>
   <file src="libraries/classes/Plugins/Auth/AuthenticationConfig.php">
     <InvalidArrayOffset>

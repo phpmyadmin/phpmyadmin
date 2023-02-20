@@ -46,7 +46,6 @@ use function base64_decode;
 use function count;
 use function explode;
 use function floor;
-use function get_class;
 use function htmlspecialchars;
 use function in_array;
 use function is_array;
@@ -785,7 +784,7 @@ class NavigationTree
                     }
 
                     $newChild = NodeFactory::getInstance(
-                        get_class($child),
+                        $child::class,
                         mb_substr(
                             $child->name,
                             $keySeparatorLength
@@ -817,7 +816,7 @@ class NavigationTree
 
             // If the current node is a standard group (not NodeTableContainer, etc.)
             // and the new group contains all of the current node's children, combine them
-            $class = get_class($node);
+            $class = $node::class;
             if (count($newChildren) === $numChildren && substr($class, strrpos($class, '\\') + 1) === 'Node') {
                 $node->name .= $separators[0] . htmlspecialchars((string) $key);
                 $node->realName .= $separators[0] . htmlspecialchars((string) $key);

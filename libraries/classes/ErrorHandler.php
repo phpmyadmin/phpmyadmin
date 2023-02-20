@@ -12,7 +12,6 @@ use function array_splice;
 use function count;
 use function defined;
 use function error_reporting;
-use function get_class;
 use function headers_sent;
 use function htmlspecialchars;
 use function set_error_handler;
@@ -236,7 +235,7 @@ class ErrorHandler
         $config = $GLOBALS['config'] ?? null;
         $this->hideLocation = ! $config instanceof Config || $config->get('environment') !== 'development';
         $this->addError(
-            get_class($exception) . ': ' . $exception->getMessage(),
+            $exception::class . ': ' . $exception->getMessage(),
             (int) $exception->getCode(),
             $exception->getFile(),
             $exception->getLine()

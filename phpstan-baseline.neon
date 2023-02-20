@@ -6101,32 +6101,27 @@ parameters:
 			path: libraries/classes/Plugins.php
 
 		-
-			message: "#^Parameter \\#2 \\$string2 of function strcmp expects string, class\\-string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins.php
-
-		-
 			message: "#^Result of \\|\\| is always false\\.$#"
 			count: 3
 			path: libraries/classes/Plugins.php
 
 		-
-			message: "#^Strict comparison using \\=\\=\\= between class\\-string\\<PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\>\\|null and 'PhpMyAdmin\\\\\\\\Properties\\\\\\\\Options\\\\\\\\Items\\\\\\\\BoolPropertyItem' will always evaluate to false\\.$#"
+			message: "#^Strict comparison using \\=\\=\\= between \\(class\\-string\\<PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\>&literal\\-string\\)\\|null and 'PhpMyAdmin\\\\\\\\Properties\\\\\\\\Options\\\\\\\\Items\\\\\\\\BoolPropertyItem' will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Plugins.php
 
 		-
-			message: "#^Strict comparison using \\=\\=\\= between class\\-string\\<PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\>\\|null and 'PhpMyAdmin\\\\\\\\Properties\\\\\\\\Options\\\\\\\\Items\\\\\\\\MessageOnlyPropertyItem' will always evaluate to false\\.$#"
+			message: "#^Strict comparison using \\=\\=\\= between \\(class\\-string\\<PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\>&literal\\-string\\)\\|null and 'PhpMyAdmin\\\\\\\\Properties\\\\\\\\Options\\\\\\\\Items\\\\\\\\MessageOnlyPropertyItem' will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Plugins.php
 
 		-
-			message: "#^Strict comparison using \\=\\=\\= between class\\-string\\<PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\>\\|null and 'PhpMyAdmin\\\\\\\\Properties\\\\\\\\Options\\\\\\\\Items\\\\\\\\SelectPropertyItem' will always evaluate to false\\.$#"
+			message: "#^Strict comparison using \\=\\=\\= between \\(class\\-string\\<PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\>&literal\\-string\\)\\|null and 'PhpMyAdmin\\\\\\\\Properties\\\\\\\\Options\\\\\\\\Items\\\\\\\\SelectPropertyItem' will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Plugins.php
 
 		-
-			message: "#^Strict comparison using \\=\\=\\= between class\\-string\\<PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\>\\|null and 'PhpMyAdmin\\\\\\\\Properties\\\\\\\\Options\\\\\\\\Items\\\\\\\\TextPropertyItem' will always evaluate to false\\.$#"
+			message: "#^Strict comparison using \\=\\=\\= between \\(class\\-string\\<PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\>&literal\\-string\\)\\|null and 'PhpMyAdmin\\\\\\\\Properties\\\\\\\\Options\\\\\\\\Items\\\\\\\\TextPropertyItem' will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Plugins.php
 

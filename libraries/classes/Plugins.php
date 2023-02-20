@@ -26,7 +26,6 @@ use Throwable;
 use function __;
 use function class_exists;
 use function count;
-use function get_class;
 use function htmlspecialchars;
 use function is_array;
 use function is_subclass_of;
@@ -302,7 +301,7 @@ class Plugins
         $properties = null;
         if (! $is_subgroup) {
             // for subgroup headers
-            if (mb_strpos(get_class($propertyGroup), 'PropertyItem')) {
+            if (mb_strpos($propertyGroup::class, 'PropertyItem')) {
                 $properties = [$propertyGroup];
             } else {
                 // for main groups
@@ -333,7 +332,7 @@ class Plugins
         if ($properties !== null) {
             /** @var OptionsPropertySubgroup $propertyItem */
             foreach ($properties as $propertyItem) {
-                $property_class = get_class($propertyItem);
+                $property_class = $propertyItem::class;
                 // if the property is a subgroup, we deal with it recursively
                 if (mb_strpos($property_class, 'Subgroup')) {
                     // for subgroups
@@ -411,7 +410,7 @@ class Plugins
         $propertyItem
     ) {
         $ret = '';
-        $property_class = get_class($propertyItem);
+        $property_class = $propertyItem::class;
         switch ($property_class) {
             case BoolPropertyItem::class:
                 $ret .= '<li class="list-group-item">' . "\n";
@@ -594,7 +593,7 @@ class Plugins
                     // check for hidden properties
                     $no_options = true;
                     foreach ($propertyMainGroup->getProperties() as $propertyItem) {
-                        if (strcmp(HiddenPropertyItem::class, get_class($propertyItem))) {
+                        if (strcmp(HiddenPropertyItem::class, $propertyItem::class)) {
                             $no_options = false;
                             break;
                         }
