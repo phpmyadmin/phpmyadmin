@@ -13,13 +13,9 @@ namespace PhpMyAdmin\Properties\Options;
  */
 abstract class OptionsPropertyOneItem extends OptionsPropertyItem
 {
-    /**
-     * Values
-     *
-     * @var array
-     */
-    private $values;
+    private array $values = [];
 
+    /** @var string|string[] */
     private string|array $doc = '';
 
     private int $len = 0;
@@ -29,10 +25,8 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
 
     /**
      * Gets the values
-     *
-     * @return array
      */
-    public function getValues()
+    public function getValues(): array
     {
         return $this->values;
     }
@@ -52,7 +46,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
      *
      * @return string|string[]
      */
-    public function getDoc()
+    public function getDoc(): array|string
     {
         return $this->doc;
     }
