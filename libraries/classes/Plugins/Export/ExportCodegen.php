@@ -188,7 +188,7 @@ class ExportCodegen extends ExportPlugin
         }
 
         if ($ucfirst) {
-            $str = ucfirst($str);
+            return ucfirst($str);
         }
 
         return $str;

@@ -17,8 +17,7 @@ use const SQL_DIR;
  */
 class CheckRelationsController extends AbstractController
 {
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
     public function __construct(ResponseRenderer $response, Template $template, Relation $relation)
     {

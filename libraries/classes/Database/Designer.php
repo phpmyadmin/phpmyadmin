@@ -26,11 +26,9 @@ use function str_contains;
  */
 class Designer
 {
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
     /** @var Template */
     public $template;
@@ -181,9 +179,9 @@ class Designer
     /**
      * Returns class names for various buttons on Designer Side Menu
      *
-     * @return array class names of various buttons
+     * @return array<string, string> class names of various buttons
      */
-    public function returnClassNamesFromMenuButtons()
+    public function returnClassNamesFromMenuButtons(): array
     {
         $classes_array = [];
         $params_array = $this->getSideMenuParamsArray();
@@ -310,9 +308,9 @@ class Designer
      * @param DesignerTable[] $scriptDisplayField   displayed tables in designer with their display fields
      * @param int             $displayPage          page number of the selected page
      * @param bool            $visualBuilderMode    whether this is visual query builder
-     * @param string          $selectedPage         name of the selected page
+     * @param string|null     $selectedPage         name of the selected page
      * @param array           $paramsArray          array with class name for various buttons on side menu
-     * @param array|null      $tabPos               table positions
+     * @param array           $tablePositions       table positions
      * @param array           $tabColumn            table column info
      * @param array           $tablesAllKeys        all indices
      * @param array           $tablesPkOrUniqueKeys unique or primary indices
@@ -328,9 +326,9 @@ class Designer
         array $scriptDisplayField,
         int $displayPage,
         bool $visualBuilderMode,
-        $selectedPage,
+        ?string $selectedPage,
         array $paramsArray,
-        ?array $tabPos,
+        array $tablePositions,
         array $tabColumn,
         array $tablesAllKeys,
         array $tablesPkOrUniqueKeys
@@ -399,7 +397,7 @@ class Designer
             'visual_builder' => $visualBuilderMode,
             'selected_page' => $selectedPage,
             'params_array' => $paramsArray,
-            'tab_pos' => $tabPos,
+            'tab_pos' => $tablePositions,
             'tab_column' => $tabColumn,
             'tables_all_keys' => $tablesAllKeys,
             'tables_pk_or_unique_keys' => $tablesPkOrUniqueKeys,

@@ -117,17 +117,17 @@ class Index
         string $index_name = ''
     ): Index {
         self::loadIndexes($dbi, $table, $schema);
-        if (! isset(self::$registry[$schema][$table][$index_name])) {
-            $index = new Index();
-            if (strlen($index_name) > 0) {
-                $index->setName($index_name);
-                self::$registry[$schema][$table][$index->getName()] = $index;
-            }
-
-            return $index;
+        if (isset(self::$registry[$schema][$table][$index_name])) {
+            return self::$registry[$schema][$table][$index_name];
         }
 
-        return self::$registry[$schema][$table][$index_name];
+        $index = new Index();
+        if ($index_name !== '') {
+            $index->setName($index_name);
+            self::$registry[$schema][$table][$index->getName()] = $index;
+        }
+
+        return $index;
     }
 
     /**
@@ -155,7 +155,7 @@ class Index
      *
      * @return Index[] array of indexes
      */
-    public static function getFromTableByChoice($table, $schema, $choices = 31)
+    public static function getFromTableByChoice($table, $schema, $choices = 31): array
     {
         $indexes = [];
         foreach (self::getFromTable($GLOBALS['dbi'], $table, $schema) as $index) {

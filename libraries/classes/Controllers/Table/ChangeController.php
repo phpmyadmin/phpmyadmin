@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
@@ -29,11 +30,9 @@ use function strpos;
  */
 class ChangeController extends AbstractController
 {
-    /** @var InsertEdit */
-    private $insertEdit;
+    private InsertEdit $insertEdit;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
     public function __construct(
         ResponseRenderer $response,
@@ -81,6 +80,12 @@ class ChangeController extends AbstractController
         $this->response->addHTML($pageSettings->getHTML());
 
         DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
+
+        if (isset($_GET['where_clause'], $_GET['where_clause_signature'])) {
+            if (Core::checkSqlQuerySignature($_GET['where_clause'], $_GET['where_clause_signature'])) {
+                $GLOBALS['where_clause'] = $_GET['where_clause'];
+            }
+        }
 
         /**
          * Determine whether Insert or Edit and set global variables

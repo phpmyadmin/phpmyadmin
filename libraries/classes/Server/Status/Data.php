@@ -49,9 +49,6 @@ class Data
     /** @var bool */
     public $dbIsLocal;
 
-    /** @var mixed */
-    public $section;
-
     /** @var array */
     public $sectionUsed;
 
@@ -61,11 +58,9 @@ class Data
     /** @var bool */
     public $dataLoaded;
 
-    /** @var ReplicationInfo */
-    private $replicationInfo;
+    private ReplicationInfo $replicationInfo;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function getReplicationInfo(): ReplicationInfo
     {

@@ -36,17 +36,13 @@ use const SORT_ASC;
  */
 class Tracking
 {
-    /** @var SqlQueryForm */
-    private $sqlQueryForm;
+    private SqlQueryForm $sqlQueryForm;
 
-    /** @var Template */
-    public $template;
+    public Template $template;
 
-    /** @var Relation */
-    protected $relation;
+    protected Relation $relation;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         SqlQueryForm $sqlQueryForm,
@@ -100,10 +96,8 @@ class Tracking
 
     /**
      * Function to get the list versions of the table
-     *
-     * @return ResultInterface|false
      */
-    public function getListOfVersionsOfTable(string $db, string $table)
+    public function getListOfVersionsOfTable(string $db, string $table): ResultInterface|false
     {
         $trackingFeature = $this->relation->getRelationParameters()->trackingFeature;
         if ($trackingFeature === null) {
@@ -186,10 +180,8 @@ class Tracking
 
     /**
      * Function to get sql results for selectable tables
-     *
-     * @return ResultInterface|false
      */
-    public function getSqlResultForSelectableTables(string $db)
+    public function getSqlResultForSelectableTables(string $db): ResultInterface|false
     {
         $trackingFeature = $this->relation->getRelationParameters()->trackingFeature;
         if ($trackingFeature === null) {
@@ -962,9 +954,7 @@ class Tracking
             $tracking_set .= 'TRUNCATE,';
         }
 
-        $tracking_set = rtrim($tracking_set, ',');
-
-        return $tracking_set;
+        return rtrim($tracking_set, ',');
     }
 
     /**

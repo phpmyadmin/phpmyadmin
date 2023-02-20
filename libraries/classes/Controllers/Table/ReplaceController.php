@@ -41,17 +41,13 @@ use function sprintf;
  */
 final class ReplaceController extends AbstractController
 {
-    /** @var InsertEdit */
-    private $insertEdit;
+    private InsertEdit $insertEdit;
 
-    /** @var Transformations */
-    private $transformations;
+    private Transformations $transformations;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,
@@ -290,7 +286,7 @@ final class ReplaceController extends AbstractController
                 $valueSets[] = implode(', ', $queryValues);
             } else {
                 // build update query
-                $clauseIsUnique = $_POST['clause_is_unique'] ?? '';// Should contain 0 or 1
+                $clauseIsUnique = $_POST['clause_is_unique'] ?? $_GET['clause_is_unique'] ?? '';// Should contain 0 or 1
                 $GLOBALS['query'][] = 'UPDATE ' . Util::backquote($GLOBALS['table'])
                     . ' SET ' . implode(', ', $queryValues)
                     . ' WHERE ' . $where_clause

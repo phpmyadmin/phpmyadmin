@@ -45,14 +45,11 @@ use const UPLOAD_ERR_OK;
  */
 class ManageController extends AbstractController
 {
-    /** @var UserPreferences */
-    private $userPreferences;
+    private UserPreferences $userPreferences;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var Config */
-    private $config;
+    private Config $config;
 
     public function __construct(
         ResponseRenderer $response,
@@ -77,7 +74,6 @@ class ManageController extends AbstractController
         $GLOBALS['return_url'] = $GLOBALS['return_url'] ?? null;
         $GLOBALS['form_display'] = $GLOBALS['form_display'] ?? null;
         $GLOBALS['all_ok'] = $GLOBALS['all_ok'] ?? null;
-        $GLOBALS['params'] = $GLOBALS['params'] ?? null;
         $GLOBALS['query'] = $GLOBALS['query'] ?? null;
 
         $route = $request->getRoute();
@@ -86,7 +82,7 @@ class ManageController extends AbstractController
         $this->userPreferences->pageInit($GLOBALS['cf']);
 
         $GLOBALS['error'] = '';
-        if (isset($_POST['submit_export'], $_POST['export_type']) && $_POST['export_type'] === 'text_file') {
+        if ($request->hasBodyParam('submit_export') && $request->getParsedBodyParam('export_type') === 'text_file') {
             // export to JSON file
             $this->response->disable();
             $filename = 'phpMyAdmin-config-' . urlencode(Core::getenv('HTTP_HOST')) . '.json';
@@ -97,7 +93,7 @@ class ManageController extends AbstractController
             return;
         }
 
-        if (isset($_POST['submit_export'], $_POST['export_type']) && $_POST['export_type'] === 'php_file') {
+        if ($request->hasBodyParam('submit_export') && $request->getParsedBodyParam('export_type') === 'php_file') {
             // export to JSON file
             $this->response->disable();
             $filename = 'phpMyAdmin-config-' . urlencode(Core::getenv('HTTP_HOST')) . '.php';
@@ -113,7 +109,7 @@ class ManageController extends AbstractController
             return;
         }
 
-        if (isset($_POST['submit_get_json'])) {
+        if ($request->hasBodyParam('submit_get_json')) {
             $settings = $this->userPreferences->load();
             $this->response->addJSON('prefs', json_encode($settings['config_data']));
             $this->response->addJSON('mtime', $settings['mtime']);
@@ -121,12 +117,13 @@ class ManageController extends AbstractController
             return;
         }
 
-        if (isset($_POST['submit_import'])) {
+        if ($request->hasBodyParam('submit_import')) {
             // load from JSON file
             $GLOBALS['json'] = '';
             if (
-                isset($_POST['import_type'], $_FILES['import_file'])
-                && $_POST['import_type'] === 'text_file'
+                $request->hasBodyParam('import_type')
+                && $request->getParsedBodyParam('import_type') === 'text_file'
+                && isset($_FILES['import_file'])
                 && is_array($_FILES['import_file'])
                 && $_FILES['import_file']['error'] == UPLOAD_ERR_OK
                 && isset($_FILES['import_file']['tmp_name'])
@@ -143,14 +140,14 @@ class ManageController extends AbstractController
                 }
             } else {
                 // read from POST value (json)
-                $GLOBALS['json'] = $_POST['json'] ?? null;
+                $GLOBALS['json'] = $request->getParsedBodyParam('json');
             }
 
             // hide header message
             $_SESSION['userprefs_autoload'] = true;
 
             $configuration = json_decode($GLOBALS['json'], true);
-            $GLOBALS['return_url'] = $_POST['return_url'] ?? null;
+            $GLOBALS['return_url'] = $request->getParsedBodyParam('return_url');
             if (! is_array($configuration)) {
                 if (! isset($GLOBALS['error'])) {
                     $GLOBALS['error'] = __('Could not import configuration');
@@ -160,7 +157,7 @@ class ManageController extends AbstractController
                 // they came from HTTP POST request
                 $GLOBALS['form_display'] = new UserFormList($GLOBALS['cf']);
                 $GLOBALS['new_config'] = $GLOBALS['cf']->getFlatDefaultConfig();
-                if (! empty($_POST['import_merge'])) {
+                if ($request->hasBodyParam('import_merge')) {
                     $GLOBALS['new_config'] = array_merge($GLOBALS['new_config'], $GLOBALS['cf']->getConfigArray());
                 }
 
@@ -175,7 +172,7 @@ class ManageController extends AbstractController
                 $GLOBALS['all_ok'] = $GLOBALS['all_ok'] && ! $GLOBALS['form_display']->hasErrors();
                 $_POST = $_POST_bak;
 
-                if (! $GLOBALS['all_ok'] && isset($_POST['fix_errors'])) {
+                if (! $GLOBALS['all_ok'] && $request->hasBodyParam('fix_errors')) {
                     $GLOBALS['form_display']->fixErrors();
                     $GLOBALS['all_ok'] = true;
                 }
@@ -186,14 +183,14 @@ class ManageController extends AbstractController
 
                     echo $this->template->render('preferences/header', [
                         'route' => $route,
-                        'is_saved' => ! empty($_GET['saved']),
+                        'is_saved' => $request->hasQueryParam('saved'),
                         'has_config_storage' => $relationParameters->userPreferencesFeature !== null,
                     ]);
 
                     echo $this->template->render('preferences/manage/error', [
                         'form_errors' => $GLOBALS['form_display']->displayErrors(),
                         'json' => $GLOBALS['json'],
-                        'import_merge' => $_POST['import_merge'] ?? null,
+                        'import_merge' => $request->getParsedBodyParam('import_merge'),
                         'return_url' => $GLOBALS['return_url'],
                     ]);
 
@@ -201,7 +198,7 @@ class ManageController extends AbstractController
                 }
 
                 // check for ThemeDefault
-                $GLOBALS['params'] = [];
+                $redirectParams = [];
                 $tmanager = ThemeManager::getInstance();
                 if (
                     isset($configuration['ThemeDefault'])
@@ -213,7 +210,7 @@ class ManageController extends AbstractController
                 }
 
                 if (isset($configuration['lang']) && $configuration['lang'] != $GLOBALS['lang']) {
-                    $GLOBALS['params']['lang'] = $configuration['lang'];
+                    $redirectParams['lang'] = $configuration['lang'];
                 }
 
                 // save settings
@@ -230,7 +227,7 @@ class ManageController extends AbstractController
                                 continue;
                             }
 
-                            $GLOBALS['params'][$k] = mb_substr($q, $pos + 1);
+                            $redirectParams[$k] = mb_substr($q, $pos + 1);
                         }
                     } else {
                         $GLOBALS['return_url'] = 'index.php?route=/preferences/manage';
@@ -238,25 +235,24 @@ class ManageController extends AbstractController
 
                     // reload config
                     $this->config->loadUserPreferences();
-                    $this->userPreferences->redirect($GLOBALS['return_url'] ?? '', $GLOBALS['params']);
+                    $this->userPreferences->redirect($GLOBALS['return_url'] ?? '', $redirectParams);
 
                     return;
                 }
 
                 $GLOBALS['error'] = $result;
             }
-        } elseif (isset($_POST['submit_clear'])) {
+        } elseif ($request->hasBodyParam('submit_clear')) {
             $result = $this->userPreferences->save([]);
             if ($result === true) {
-                $GLOBALS['params'] = [];
                 $this->config->removeCookie('pma_collaction_connection');
                 $this->config->removeCookie('pma_lang');
-                $this->userPreferences->redirect('index.php?route=/preferences/manage', $GLOBALS['params']);
+                $this->userPreferences->redirect('index.php?route=/preferences/manage');
 
                 return;
-            } else {
-                $GLOBALS['error'] = $result;
             }
+
+            $GLOBALS['error'] = $result;
 
             return;
         }
@@ -265,7 +261,7 @@ class ManageController extends AbstractController
 
         echo $this->template->render('preferences/header', [
             'route' => $route,
-            'is_saved' => ! empty($_GET['saved']),
+            'is_saved' => $request->hasQueryParam('saved'),
             'has_config_storage' => $relationParameters->userPreferencesFeature !== null,
         ]);
 

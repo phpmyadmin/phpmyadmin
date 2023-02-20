@@ -78,7 +78,7 @@ final class Gis
             'geometrycollection',
         ];
         if ($upperCase) {
-            $gisDataTypes = array_map('mb_strtoupper', $gisDataTypes);
+            return array_map('mb_strtoupper', $gisDataTypes);
         }
 
         return $gisDataTypes;

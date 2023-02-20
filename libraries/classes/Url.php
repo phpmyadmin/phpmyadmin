@@ -313,7 +313,7 @@ class Url
      *
      * @return string  character used for separating url parts usually ; or &
      */
-    public static function getArgSeparator($encode = 'none')
+    public static function getArgSeparator($encode = 'none'): string
     {
         static $separator = null;
         static $html_separator = null;
@@ -335,15 +335,10 @@ class Url
             $html_separator = htmlentities($separator);
         }
 
-        switch ($encode) {
-            case 'html':
-                return $html_separator;
-
-            case 'text':
-            case 'none':
-            default:
-                return $separator;
-        }
+        return match ($encode) {
+            'html' => $html_separator,
+            default => $separator,
+        };
     }
 
     /**

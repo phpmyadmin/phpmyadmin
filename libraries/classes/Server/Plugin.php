@@ -12,44 +12,31 @@ namespace PhpMyAdmin\Server;
  */
 final class Plugin
 {
-    /** @var string */
-    private $name;
+    private string $name;
 
-    /** @var string|null */
-    private $version;
+    private ?string $version;
 
-    /** @var string */
-    private $status;
+    private string $status;
 
-    /** @var string */
-    private $type;
+    private string $type;
 
-    /** @var string|null */
-    private $typeVersion;
+    private ?string $typeVersion;
 
-    /** @var string|null */
-    private $library;
+    private ?string $library;
 
-    /** @var string|null */
-    private $libraryVersion;
+    private ?string $libraryVersion;
 
-    /** @var string|null */
-    private $author;
+    private ?string $author;
 
-    /** @var string|null */
-    private $description;
+    private ?string $description;
 
-    /** @var string */
-    private $license;
+    private string $license;
 
-    /** @var string|null */
-    private $loadOption;
+    private ?string $loadOption;
 
-    /** @var string|null */
-    private $maturity;
+    private ?string $maturity;
 
-    /** @var string|null */
-    private $authVersion;
+    private ?string $authVersion;
 
     /**
      * @param string      $name           Name of the plugin

@@ -8,7 +8,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Types;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -222,10 +221,8 @@ class GeneratorTest extends AbstractTestCase
      *
      * @return array
      */
-    public function linksOrButtons(): array
+    public static function linksOrButtons(): array
     {
-        parent::setGlobalConfig();
-
         return [
             [
                 [
@@ -296,7 +293,7 @@ class GeneratorTest extends AbstractTestCase
             ],
             [
                 [
-                    Url::getFromRoute('/server/databases'),
+                    'index.php?route=/server/databases',
                     ['some' => 'parameter'],
                     'text',
                 ],
@@ -305,7 +302,7 @@ class GeneratorTest extends AbstractTestCase
             ],
             [
                 [
-                    Url::getFromRoute('/server/databases'),
+                    'index.php?route=/server/databases',
                     null,
                     'text',
                 ],
@@ -314,7 +311,7 @@ class GeneratorTest extends AbstractTestCase
             ],
             [
                 [
-                    Url::getFromRoute('/server/databases'),
+                    'index.php?route=/server/databases',
                     ['some' => 'parameter'],
                     'text',
                 ],
@@ -323,7 +320,7 @@ class GeneratorTest extends AbstractTestCase
             ],
             [
                 [
-                    Url::getFromRoute('/server/databases'),
+                    'index.php?route=/server/databases',
                     null,
                     'text',
                 ],
@@ -485,7 +482,7 @@ class GeneratorTest extends AbstractTestCase
      * @return array
      * @psalm-return array<int, array{array<string, string|bool|null>, bool, string}>
      */
-    public function providerForTestGetDefaultFunctionForField(): array
+    public static function providerForTestGetDefaultFunctionForField(): array
     {
         return [
             [

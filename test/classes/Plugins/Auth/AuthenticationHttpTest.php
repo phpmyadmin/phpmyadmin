@@ -204,7 +204,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
      *
      * @return array Test data
      */
-    public function readCredentialsProvider(): array
+    public static function readCredentialsProvider(): array
     {
         return [
             [

@@ -13,11 +13,9 @@ use PhpMyAdmin\Template;
 
 final class AddKeyController extends AbstractController
 {
-    /** @var SqlController */
-    private $sqlController;
+    private SqlController $sqlController;
 
-    /** @var StructureController */
-    private $structureController;
+    private StructureController $structureController;
 
     public function __construct(
         ResponseRenderer $response,

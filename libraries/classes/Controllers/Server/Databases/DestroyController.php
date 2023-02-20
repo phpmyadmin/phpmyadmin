@@ -22,14 +22,11 @@ use function is_array;
 
 final class DestroyController extends AbstractController
 {
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
-    /** @var Transformations */
-    private $transformations;
+    private Transformations $transformations;
 
-    /** @var RelationCleanup */
-    private $relationCleanup;
+    private RelationCleanup $relationCleanup;
 
     public function __construct(
         ResponseRenderer $response,
@@ -50,7 +47,7 @@ final class DestroyController extends AbstractController
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
         $GLOBALS['reload'] = $GLOBALS['reload'] ?? null;
 
-        $selected_dbs = $_POST['selected_dbs'] ?? null;
+        $selected_dbs = $request->getParsedBodyParam('selected_dbs');
 
         if (
             ! $this->response->isAjax()

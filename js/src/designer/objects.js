@@ -19,4 +19,5 @@ var DesignerObjects = {
         this.y = y;
     }
 };
-window.DesignerObjects = DesignerObjects;
+
+export { DesignerObjects };

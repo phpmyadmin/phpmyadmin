@@ -22,7 +22,7 @@ build:
   nodes:
     analysis:
       environment:
-        php: 7.2
+        php: 8.1
         node: 14
       dependencies:
         before:

@@ -10,8 +10,7 @@ use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 
 class LogoutController
 {
-    /** @var AuthenticationPluginFactory */
-    private $authPluginFactory;
+    private AuthenticationPluginFactory $authPluginFactory;
 
     public function __construct(AuthenticationPluginFactory $authPluginFactory)
     {

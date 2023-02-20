@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -46,10 +47,8 @@ class ExportJson extends ExportPlugin
      * Encodes the data into JSON
      *
      * @param mixed $data Data to encode
-     *
-     * @return string|false
      */
-    public function encode($data)
+    public function encode($data): string|false
     {
         $options = 0;
         if (isset($GLOBALS['json_pretty_print']) && $GLOBALS['json_pretty_print']) {
@@ -238,7 +237,7 @@ class ExportJson extends ExportPlugin
             return false;
         }
 
-        $result = $dbi->query($sqlQuery, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED);
+        $result = $dbi->query($sqlQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_UNBUFFERED);
         $columns_cnt = $result->numFields();
         $fieldsMeta = $dbi->getFieldsMeta($result);
 

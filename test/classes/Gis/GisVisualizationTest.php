@@ -80,6 +80,32 @@ class GisVisualizationTest extends AbstractTestCase
             ],
             $dataSet
         );
+        // Regression test for bug with 0.0 sentinel values
+        $dataSet = $this->callFunction(
+            $gis,
+            GisVisualization::class,
+            'scaleDataSet',
+            [
+                [
+                    ['abc' => 'MULTIPOLYGON(((0 0,0 3,3 3,3 0,0 0),(1 1,1 2,2 2,2 1,1 1)))'],
+                    ['abc' => 'MULTIPOLYGON(((10 10,10 13,13 13,13 10,10 10),(11 11,11 12,12 12,12 11,11 11)))'],
+                ],
+            ]
+        );
+        $this->assertSame(
+            [
+                'scale' => 32.30769230769231,
+                'x' => -2.7857142857142865,
+                'y' => -0.4642857142857143,
+                'minX' => 0.0,
+                'maxX' => 13.0,
+                'minY' => 0.0,
+                'maxY' => 13.0,
+                'height' => 450,
+
+            ],
+            $dataSet
+        );
     }
 
     /**

@@ -23,9 +23,6 @@ use function session_name;
 use function session_set_cookie_params;
 use function session_start;
 use function session_write_close;
-use function version_compare;
-
-use const PHP_VERSION;
 
 /**
  * Handles the SignOn authentication method
@@ -76,22 +73,13 @@ class AuthenticationSignon extends AuthenticationPlugin
 
         /* Sanitize cookie params */
         $defaultCookieParams = /** @return mixed */ static function (string $key) {
-            switch ($key) {
-                case 'lifetime':
-                    return 0;
-
-                case 'path':
-                    return '/';
-
-                case 'domain':
-                    return '';
-
-                case 'secure':
-                case 'httponly':
-                    return false;
-            }
-
-            return null;
+            return match ($key) {
+                'lifetime' => 0,
+                'path' => '/',
+                'domain' => '',
+                'secure', 'httponly' => false,
+                default => null,
+            };
         };
 
         foreach (['lifetime', 'path', 'domain', 'secure', 'httponly'] as $key) {
@@ -110,18 +98,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             unset($sessionCookieParams['samesite']);
         }
 
-        if (version_compare(PHP_VERSION, '7.3.0', '>=')) {
-            /** @psalm-suppress InvalidArgument */
-            session_set_cookie_params($sessionCookieParams);
-        } else {
-            session_set_cookie_params(
-                $sessionCookieParams['lifetime'],
-                $sessionCookieParams['path'],
-                $sessionCookieParams['domain'],
-                $sessionCookieParams['secure'],
-                $sessionCookieParams['httponly']
-            );
-        }
+        session_set_cookie_params($sessionCookieParams);
     }
 
     /**

@@ -13,11 +13,9 @@ use function in_array;
 
 abstract class AbstractController
 {
-    /** @var ConfigFile */
-    protected $config;
+    protected ConfigFile $config;
 
-    /** @var Template */
-    protected $template;
+    protected Template $template;
 
     public function __construct(ConfigFile $config, Template $template)
     {
@@ -35,7 +33,7 @@ abstract class AbstractController
             'Servers',
         ];
         $pages = [];
-        foreach (SetupFormList::getAll() as $formset) {
+        foreach (SetupFormList::getAllFormNames() as $formset) {
             if (in_array($formset, $ignored)) {
                 continue;
             }

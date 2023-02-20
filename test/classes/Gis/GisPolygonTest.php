@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisPolygon;
+use PhpMyAdmin\Gis\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
@@ -43,7 +44,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array common data for data providers
      */
-    private function getData(): array
+    private static function getData(): array
     {
         return [
             'POLYGON' => [
@@ -99,10 +100,10 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array data for testGenerateWkt
      */
-    public function providerForTestGenerateWkt(): array
+    public static function providerForTestGenerateWkt(): array
     {
         $temp = [
-            0 => $this->getData(),
+            0 => self::getData(),
         ];
 
         $temp1 = $temp;
@@ -164,9 +165,9 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array data for testGenerateParams
      */
-    public function providerForTestGenerateParams(): array
+    public static function providerForTestGenerateParams(): array
     {
-        $temp = $this->getData();
+        $temp = self::getData();
 
         $temp1 = $temp;
         $temp1['gis_type'] = 'POLYGON';
@@ -206,7 +207,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array data for testArea
      */
-    public function providerForTestArea(): array
+    public static function providerForTestArea(): array
     {
         return [
             [
@@ -291,7 +292,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array data for testIsPointInsidePolygon
      */
-    public function providerForTestIsPointInsidePolygon(): array
+    public static function providerForTestIsPointInsidePolygon(): array
     {
         $ring = [
             0 => [
@@ -371,9 +372,9 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array data for testGetPointOnSurface
      */
-    public function providerForTestGetPointOnSurface(): array
+    public static function providerForTestGetPointOnSurface(): array
     {
-        $temp = $this->getData();
+        $temp = self::getData();
         unset($temp['POLYGON'][0]['no_of_points']);
         unset($temp['POLYGON'][1]['no_of_points']);
 
@@ -392,26 +393,16 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array data for testScaleRow
      */
-    public function providerForTestScaleRow(): array
+    public static function providerForTestScaleRow(): array
     {
         return [
             [
                 'POLYGON((123 0,23 30,17 63,123 0))',
-                [
-                    'minX' => 17,
-                    'maxX' => 123,
-                    'minY' => 0,
-                    'maxY' => 63,
-                ],
+                new ScaleData(123, 17, 63, 0),
             ],
             [
                 'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
-                [
-                    'minX' => 10,
-                    'maxX' => 45,
-                    'minY' => 10,
-                    'maxY' => 45,
-                ],
+                new ScaleData(45, 10, 45, 10),
             ],
         ];
     }
@@ -470,7 +461,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsPdf() test case
      */
-    public function providerForPrepareRowAsPdf(): array
+    public static function providerForPrepareRowAsPdf(): array
     {
         return [
             [
@@ -479,7 +470,7 @@ class GisPolygonTest extends GisGeomTestCase
                 'pdf',
                 [176, 46, 224],
                 ['x' => -8, 'y' => -32, 'scale' => 1.80, 'height' => 297],
-                $this->createEmptyPdf('POLYGON'),
+                parent::createEmptyPdf('POLYGON'),
             ],
         ];
     }
@@ -511,7 +502,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsSvg() test case
      */
-    public function providerForPrepareRowAsSvg(): array
+    public static function providerForPrepareRowAsSvg(): array
     {
         return [
             [
@@ -560,7 +551,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsOl() test case
      */
-    public function providerForPrepareRowAsOl(): array
+    public static function providerForPrepareRowAsOl(): array
     {
         return [
             [
@@ -610,7 +601,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array test data for testIsOuterRing() test case
      */
-    public function providerForIsOuterRing(): array
+    public static function providerForIsOuterRing(): array
     {
         return [
             [

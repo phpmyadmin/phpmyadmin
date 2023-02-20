@@ -20,13 +20,12 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { php-version: '8', experimental: false, arch: 'amd64', exclude-phpunit-groups: 'extension-iconv' }
-          - { php-version: '8', experimental: false, arch: 'arm64v8', exclude-phpunit-groups: 'extension-iconv' }
-          - { php-version: '8', experimental: false, arch: 'arm32v7', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
-          - { php-version: '8', experimental: false, arch: 'arm32v6', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
-          - { php-version: '8', experimental: false, arch: 'i386', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
-          - { php-version: '8', experimental: true, arch: 'ppc64le', exclude-phpunit-groups: 'extension-iconv' }
-          - { php-version: '8', experimental: false, arch: 's390x', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+          - { php-version: '81', experimental: false, arch: 'amd64', exclude-phpunit-groups: 'extension-iconv' }
+          - { php-version: '81', experimental: false, arch: 'arm64v8', exclude-phpunit-groups: 'extension-iconv' }
+          - { php-version: '81', experimental: false, arch: 'arm32v7', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+          - { php-version: '81', experimental: false, arch: 'i386', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+          - { php-version: '81', experimental: true, arch: 'ppc64le', exclude-phpunit-groups: 'extension-iconv' }
+          - { php-version: '81', experimental: false, arch: 's390x', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -56,10 +55,10 @@ jobs:
         run: docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 
       - name: Print arch
-        run: docker run --rm ${{ matrix.arch }}/alpine:3.15 uname -a
+        run: docker run --rm ${{ matrix.arch }}/alpine:3.17 uname -a
 
       - name: Run tests on php ${{ matrix.php-version }}
-        run: docker run -v $PWD:/app --workdir /app --rm ${{ matrix.arch }}/alpine:3.15 sh /app/do-tests.sh
+        run: docker run -v $PWD:/app --workdir /app --rm ${{ matrix.arch }}/alpine:3.17 sh /app/do-tests.sh
 
   test-php:
     name: Test on PHP ${{ matrix.php-version }} and ${{ matrix.os }}
@@ -67,7 +66,7 @@ jobs:
     continue-on-error: ${{ matrix.experimental }}
     strategy:
       matrix:
-        php-version: ["7.2", "7.3", "7.4", "8.0", "8.1", "8.2"]
+        php-version: ["8.1", "8.2"]
         experimental: [false]
         os: [ubuntu-latest]
         phpunit-options: ['--testsuite unit']
@@ -136,7 +135,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        php-version: ["7.2"]
+        php-version: ["8.1"]
         os: [ubuntu-latest]
         extension: ["dbase", "recode"]
     steps:
@@ -172,6 +171,73 @@ jobs:
         with:
           flags: ${{ matrix.extension }}-extension
           name: php-7.2-${{ matrix.extension }}-enabled
+
+      - name: Send coverage to Scrutinizer
+        uses: sudo-bot/action-scrutinizer@latest
+        # Do not run this step on forked versions of the main repository (example: contributor forks)
+        if: github.repository == 'phpmyadmin/phpmyadmin'
+        with:
+          cli-args: "--format=php-clover build/logs/clover.xml --revision=${{ github.event.pull_request.head.sha || github.sha }}"
+
+      - name: Send coverage to Codacy
+        uses: codacy/codacy-coverage-reporter-action@v1
+        # Do not run this step on forked versions of the main repository (example: contributor forks)
+        if: github.repository == 'phpmyadmin/phpmyadmin'
+        # Upload can fail on forks or if the secret is missing
+        continue-on-error: true
+        with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          coverage-reports: build/logs/clover.xml
+
+  test-php-psr7-implementations:
+    name: Test on PHP (+ psr7-${{ matrix.psr-7-library }}) ${{ matrix.php-version }} and ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version: ['8.1']
+        os: [ubuntu-latest]
+        php-extensions: ['mbstring, iconv, mysqli, zip, bz2']
+        psr-7-library: ['guzzlehttp/psr7', 'nyholm/psr7', 'laminas/laminas-diactoros']
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          # Fetch some commits for Scrutinizer coverage upload
+          fetch-depth: 15
+
+      - name: Install gettext
+        run: sudo apt-get install -y gettext
+
+      - name: Generate mo files
+        run: ./scripts/generate-mo --quiet
+
+      - name: Set up PHP ${{ matrix.php-version }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          extensions: ${{ matrix.php-extensions }}
+          coverage: pcov
+
+      - name: Install Composer dependencies
+        uses: ramsey/composer-install@v2
+        with:
+          dependency-versions: highest
+
+      - name: Remove default PSR-7 implementation
+        run: composer remove slim/psr7
+
+      - name: Add PSR-7 implementation
+        run: composer require ${{ matrix.psr-7-library }}
+
+      - name: Run PHP tests
+        run: composer run phpunit -- --testsuite unit
+
+      - name: Send coverage
+        uses: codecov/codecov-action@v3
+        with:
+          flags: ${{ matrix.psr-7-library }}-psr-7
+          name: php-7.2-psr-7
 
       - name: Send coverage to Scrutinizer
         uses: sudo-bot/action-scrutinizer@latest

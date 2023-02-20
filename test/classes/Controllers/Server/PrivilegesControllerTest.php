@@ -73,6 +73,15 @@ class PrivilegesControllerTest extends AbstractTestCase
 
         $request = $this->createStub(ServerRequest::class);
 
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['old_username', '', ''],
+            ['old_hostname', '', ''],
+        ]);
+
+        $request->method('getQueryParam')->willReturnMap([
+            ['initial', '', ''],
+        ]);
+
         $response = new ResponseRenderer();
         (new PrivilegesController($response, new Template(), new Relation($this->dbi), $this->dbi))($request);
 

@@ -11,6 +11,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Server\Privileges\AccountLocking;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\MockObject\Stub;
 
@@ -60,7 +61,7 @@ class AccountLockControllerTest extends AbstractTestCase
     public function testWithValidAccount(): void
     {
         $this->dbiStub->method('getVersion')->willReturn(100402);
-        $this->dbiStub->method('tryQuery')->willReturn(true);
+        $this->dbiStub->method('tryQuery')->willReturn($this->createStub(DummyResult::class));
 
         ($this->controller)($this->requestStub);
 

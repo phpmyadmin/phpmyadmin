@@ -15,8 +15,7 @@ use PhpMyAdmin\Template;
  */
 class SqlAutoCompleteController extends AbstractController
 {
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(ResponseRenderer $response, Template $template, DatabaseInterface $dbi)
     {

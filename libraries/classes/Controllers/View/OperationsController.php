@@ -24,11 +24,9 @@ use function is_string;
  */
 class OperationsController extends AbstractController
 {
-    /** @var Operations */
-    private $operations;
+    private Operations $operations;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,

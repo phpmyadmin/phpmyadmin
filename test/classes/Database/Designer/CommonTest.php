@@ -8,6 +8,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Database\Designer\Common;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
@@ -79,7 +80,7 @@ class CommonTest extends AbstractTestCase
             WHERE pdf_page_number = " . $pg,
                 'name',
                 null,
-                DatabaseInterface::CONNECT_CONTROL
+                Connection::TYPE_CONTROL
             );
         $GLOBALS['dbi'] = $dbi;
 
@@ -103,15 +104,14 @@ class CommonTest extends AbstractTestCase
             ->will($this->returnArgument(0));
 
         $dbi->expects($this->once())
-            ->method('fetchResult')
+            ->method('fetchValue')
             ->with(
                 'SELECT `page_descr` FROM `pmadb`.`pdf_pages`'
                 . ' WHERE `page_nr` = ' . $pg,
-                null,
-                null,
-                DatabaseInterface::CONNECT_CONTROL
+                0,
+                Connection::TYPE_CONTROL
             )
-            ->will($this->returnValue([$pageName]));
+            ->will($this->returnValue($pageName));
         $GLOBALS['dbi'] = $dbi;
 
         $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
@@ -161,16 +161,15 @@ class CommonTest extends AbstractTestCase
             ->getMock();
 
         $dbi->expects($this->once())
-            ->method('fetchResult')
+            ->method('fetchValue')
             ->with(
                 'SELECT `page_nr` FROM `pmadb`.`pdf_pages`'
                 . " WHERE `db_name` = '" . $db . "'"
                 . " AND `page_descr` = '" . $db . "'",
-                null,
-                null,
-                DatabaseInterface::CONNECT_CONTROL
+                0,
+                Connection::TYPE_CONTROL
             )
-            ->will($this->returnValue([$default_pg]));
+            ->will($this->returnValue($default_pg));
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
@@ -193,16 +192,15 @@ class CommonTest extends AbstractTestCase
             ->getMock();
 
         $dbi->expects($this->once())
-            ->method('fetchResult')
+            ->method('fetchValue')
             ->with(
                 'SELECT `page_nr` FROM `pmadb`.`pdf_pages`'
                 . " WHERE `db_name` = '" . $db . "'"
                 . " AND `page_descr` = '" . $db . "'",
-                null,
-                null,
-                DatabaseInterface::CONNECT_CONTROL
+                0,
+                Connection::TYPE_CONTROL
             )
-            ->will($this->returnValue([]));
+            ->will($this->returnValue(false));
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
@@ -226,16 +224,15 @@ class CommonTest extends AbstractTestCase
             ->getMock();
 
         $dbi->expects($this->once())
-            ->method('fetchResult')
+            ->method('fetchValue')
             ->with(
                 'SELECT `page_nr` FROM `pmadb`.`pdf_pages`'
                 . " WHERE `db_name` = '" . $db . "'"
                 . " AND `page_descr` = '" . $db . "'",
-                null,
-                null,
-                DatabaseInterface::CONNECT_CONTROL
+                0,
+                Connection::TYPE_CONTROL
             )
-            ->will($this->returnValue([$default_pg]));
+            ->will($this->returnValue($default_pg));
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
@@ -259,10 +256,10 @@ class CommonTest extends AbstractTestCase
             ->getMock();
 
         $dbi->expects($this->exactly(2))
-            ->method('fetchResult')
+            ->method('fetchValue')
             ->willReturnOnConsecutiveCalls(
-                [],
-                [[$first_pg]]
+                false,
+                $first_pg
             );
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));

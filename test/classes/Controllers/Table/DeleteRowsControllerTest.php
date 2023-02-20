@@ -29,7 +29,6 @@ class DeleteRowsControllerTest extends AbstractTestCase
             'db' => 'test_db',
             'table' => 'test_table',
             'selected' => [2 => '`test_table`.`id` = 3'],
-            'original_sql_query' => 'SELECT * FROM `test_db`.`test_table`',
             'fk_checks' => '1',
             'mult_btn' => 'Yes',
         ];
@@ -44,7 +43,7 @@ class DeleteRowsControllerTest extends AbstractTestCase
             ['id', 'name', 'datetimefield']
         );
         $dummyDbi->addResult(
-            'SELECT TABLE_NAME FROM information_schema.VIEWS WHERE TABLE_SCHEMA = \'test_db\''
+            'SELECT 1 FROM information_schema.VIEWS WHERE TABLE_SCHEMA = \'test_db\''
             . ' AND TABLE_NAME = \'test_table\' AND IS_UPDATABLE = \'YES\'',
             [],
             ['TABLE_NAME']
@@ -52,8 +51,16 @@ class DeleteRowsControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface($dummyDbi);
         $GLOBALS['dbi'] = $dbi;
 
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('hasBodyParam')->willReturnMap([
+            ['original_sql_query', true],
+        ]);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['original_sql_query', '', 'SELECT * FROM `test_db`.`test_table`'],
+        ]);
+
         $response = new ResponseRenderer();
-        (new DeleteRowsController($response, new Template(), $dbi))($this->createStub(ServerRequest::class));
+        (new DeleteRowsController($response, new Template(), $dbi))($request);
         $actual = $response->getHTMLResult();
         $this->assertStringContainsString(
             '<div class="alert alert-success" role="alert">Your SQL query has been executed successfully.</div>',

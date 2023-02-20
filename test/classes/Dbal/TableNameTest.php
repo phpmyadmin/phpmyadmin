@@ -40,7 +40,7 @@ class TableNameTest extends TestCase
     /**
      * @return iterable<int, string[]>
      */
-    public function providerForTestValidNames(): iterable
+    public static function providerForTestValidNames(): iterable
     {
         yield ['name'];
         yield ['0'];
@@ -64,7 +64,7 @@ class TableNameTest extends TestCase
      * @return iterable<string, mixed[]>
      * @psalm-return iterable<string, array{mixed, non-empty-string}>
      */
-    public function providerForTestInvalidNames(): iterable
+    public static function providerForTestInvalidNames(): iterable
     {
         yield 'null' => [null, 'The table name must be a non-empty string.'];
         yield 'integer' => [1, 'The table name must be a non-empty string.'];

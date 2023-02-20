@@ -43,11 +43,9 @@ interface ResultInterface extends IteratorAggregate
     /**
      * Returns a single value from the given result; false on error
      *
-     * @param int|string $field
-     *
      * @return string|false|null
      */
-    public function fetchValue($field = 0);
+    public function fetchValue(int|string $field = 0);
 
     /**
      * Returns all rows of the result

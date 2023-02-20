@@ -15,11 +15,9 @@ use function is_string;
 
 final class ThemeSetController extends AbstractController
 {
-    /** @var ThemeManager */
-    private $themeManager;
+    private ThemeManager $themeManager;
 
-    /** @var UserPreferences */
-    private $userPreferences;
+    private UserPreferences $userPreferences;
 
     public function __construct(
         ResponseRenderer $response,

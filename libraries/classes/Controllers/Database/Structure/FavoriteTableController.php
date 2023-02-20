@@ -22,8 +22,7 @@ use function sha1;
 
 final class FavoriteTableController extends AbstractController
 {
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
     public function __construct(ResponseRenderer $response, Template $template, Relation $relation)
     {

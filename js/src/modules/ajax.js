@@ -1,5 +1,4 @@
 import $ from 'jquery';
-import { Functions } from './functions.js';
 import { Navigation } from './navigation.js';
 import { CommonParams } from './common.js';
 import highlightSql from './sql-highlight.js';
@@ -9,6 +8,7 @@ import getImageTag from './functions/getImageTag.js';
 import { ignorePhpErrors } from './functions/ignorePhpErrors.js';
 import handleRedirectAndReload from './functions/handleRedirectAndReload.js';
 import checkNumberOfFields from './functions/checkNumberOfFields.js';
+import mainMenuResizerCallback from './functions/mainMenuResizerCallback.js';
 
 /**
  * This object handles ajax requests for pages. It also
@@ -227,13 +227,13 @@ const AJAX = {
                 // Remove duplicate wrapper
                 // TODO: don't send it in the response
                 .children().first().remove();
-            $('#topmenu').menuResizer(Functions.mainMenuResizerCallback);
+            $('#topmenu').menuResizer(mainMenuResizerCallback);
         }
     },
     /**
      * Event handler for clicks on links and form submissions
      *
-     * @param {KeyboardEvent} event Event data
+     * @param {JQuery.Event} event Event data
      *
      * @return {boolean | void}
      */
@@ -663,10 +663,9 @@ const AJAX = {
          * Records that a file has been downloaded
          *
          * @param {string} file The filename
-         * @param {string} fire Whether this file will be registering
-         *                      onload/teardown events
+         * @param {boolean} fire Whether this file will be registering onload/teardown events
          *
-         * @return {self} For chaining
+         * @return {void}
          */
         add: function (file, fire) {
             this.scripts.push(file);
@@ -675,7 +674,6 @@ const AJAX = {
                 // This is necessary to correctly tear down the initial page
                 this.scriptsToBeFired.push(file);
             }
-            return this;
         },
         /**
          * Download a list of js files in one request
@@ -712,7 +710,7 @@ const AJAX = {
                 var script = files[i].name;
                 // Only for scripts that we don't already have
                 if ($.inArray(script, self.scripts) === -1) {
-                    this.add(script);
+                    this.add(script, false);
                     this.appendScript(script, callback);
                 } else {
                     self.done(script, callback);
@@ -900,7 +898,7 @@ const AJAX = {
 
     /**
      * Gracefully handle fatal server errors (e.g: 500 - Internal server error)
-     * @return {function}
+     * @return {function(JQuery.Event, JQuery.jqXHR): void}
      */
     getFatalErrorHandler: function () {
         return function (event, request) {

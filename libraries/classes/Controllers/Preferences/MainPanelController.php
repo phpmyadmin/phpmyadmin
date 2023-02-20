@@ -21,14 +21,11 @@ use function ltrim;
 
 class MainPanelController extends AbstractController
 {
-    /** @var UserPreferences */
-    private $userPreferences;
+    private UserPreferences $userPreferences;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var Config */
-    private $config;
+    private Config $config;
 
     public function __construct(
         ResponseRenderer $response,
@@ -56,7 +53,7 @@ class MainPanelController extends AbstractController
 
         $formDisplay = new MainForm($GLOBALS['cf'], 1);
 
-        if (isset($_POST['revert'])) {
+        if ($request->hasBodyParam('revert')) {
             // revert erroneous fields to their default values
             $formDisplay->fixErrors();
             $this->redirect('/preferences/main-panel');
@@ -75,7 +72,7 @@ class MainPanelController extends AbstractController
             if ($result === true) {
                 // reload config
                 $this->config->loadUserPreferences();
-                $GLOBALS['tabHash'] = $_POST['tab_hash'] ?? null;
+                $GLOBALS['tabHash'] = $request->getParsedBodyParam('tab_hash');
                 $GLOBALS['hash'] = ltrim($GLOBALS['tabHash'], '#');
                 $this->userPreferences->redirect('index.php?route=/preferences/main-panel', null, $GLOBALS['hash']);
 
@@ -89,18 +86,16 @@ class MainPanelController extends AbstractController
 
         $this->render('preferences/header', [
             'route' => $request->getRoute(),
-            'is_saved' => ! empty($_GET['saved']),
+            'is_saved' => $request->hasQueryParam('saved'),
             'has_config_storage' => $relationParameters->userPreferencesFeature !== null,
         ]);
 
-        if ($formDisplay->hasErrors()) {
-            $formErrors = $formDisplay->displayErrors();
-        }
+        $formErrors = $formDisplay->displayErrors();
 
         $this->render('preferences/forms/main', [
             'error' => $GLOBALS['error'] ? $GLOBALS['error']->getDisplay() : '',
             'has_errors' => $formDisplay->hasErrors(),
-            'errors' => $formErrors ?? null,
+            'errors' => $formErrors,
             'form' => $formDisplay->getDisplay(
                 true,
                 Url::getFromRoute('/preferences/main-panel'),

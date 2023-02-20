@@ -232,14 +232,11 @@ class Results
      */
     public $transformationInfo;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var Transformations */
-    private $transformations;
+    private Transformations $transformations;
 
     /** @var Template */
     public $template;
@@ -407,13 +404,13 @@ class Results
      * @psalm-param int|numeric-string $numRows
      */
     public function setProperties(
-        $unlimNumRows,
+        int|string $unlimNumRows,
         array $fieldsMeta,
         $isCount,
         $isExport,
         $isFunction,
         $isAnalyse,
-        $numRows,
+        int|string $numRows,
         $fieldsCount,
         $queryTime,
         $textDirection,
@@ -529,7 +526,7 @@ class Results
                 $isLink
                 && $previousTable != ''
                 && $fieldsMeta[$i]->table != ''
-                && $fieldsMeta[$i]->table != $previousTable
+                && $fieldsMeta[$i]->table !== $previousTable
             ) {
                 // don't display links
                 $hasEditLink = false;
@@ -2275,10 +2272,10 @@ class Results
     private function getRowValues(
         array $row,
         $rowNumber,
-        $colOrder,
+        array|false $colOrder,
         array $map,
         string $gridEditConfig,
-        $colVisib,
+        bool|array|string $colVisib,
         $urlSqlQuery,
         StatementInfo $statementInfo
     ) {
@@ -2435,7 +2432,7 @@ class Results
              * the conditions for the current table.
              */
             if (! isset($whereClauseMap[$rowNumber][$meta->orgtable])) {
-                $uniqueConditions = Util::getUniqueCondition(
+                [$uniqueConditions] = Util::getUniqueCondition(
                     $this->properties['fields_cnt'],
                     $this->properties['fields_meta'],
                     $row,
@@ -2443,7 +2440,7 @@ class Results
                     $meta->orgtable,
                     $expressions
                 );
-                $whereClauseMap[$rowNumber][$meta->orgtable] = $uniqueConditions[0];
+                $whereClauseMap[$rowNumber][$meta->orgtable] = $uniqueConditions;
             }
 
             $urlParams = [
@@ -2584,7 +2581,7 @@ class Results
      *
      * @return array<string, mixed> associative array with column nama -> value
      */
-    private function getRowInfoForSpecialLinks(array $row, $colOrder): array
+    private function getRowInfoForSpecialLinks(array $row, array|bool $colOrder): array
     {
         $rowInfo = [];
         $fieldsMeta = $this->properties['fields_meta'];
@@ -2735,8 +2732,10 @@ class Results
             'db' => $this->properties['db'],
             'table' => $this->properties['table'],
             'where_clause' => $whereClause,
+            'where_clause_signature' => Core::signSqlQuery($whereClause),
             'clause_is_unique' => $clauseIsUnique,
             'sql_query' => $urlSqlQuery,
+            'sql_signature' => Core::signSqlQuery($urlSqlQuery),
             'goto' => Url::getFromRoute('/sql'),
         ];
 
@@ -3246,7 +3245,7 @@ class Results
         // The value can also be from _GET as described on issue #16146 when sorting results
         $sessionMaxRows = $_GET['session_max_rows'] ?? $_POST['session_max_rows'] ?? '';
 
-        if (isset($sessionMaxRows) && is_numeric($sessionMaxRows)) {
+        if (is_numeric($sessionMaxRows)) {
             $query['max_rows'] = (int) $sessionMaxRows;
             unset($_GET['session_max_rows'], $_POST['session_max_rows']);
         } elseif ($sessionMaxRows === self::ALL_ROWS) {
@@ -3637,7 +3636,7 @@ class Results
         $sortedColumnIndex = false;
 
         foreach ($fieldsMeta as $key => $meta) {
-            if (($meta->table == $sortTable) && ($meta->name == $sortColumn)) {
+            if (($meta->table === $sortTable) && ($meta->name === $sortColumn)) {
                 $sortedColumnIndex = $key;
                 break;
             }
@@ -4110,7 +4109,7 @@ class Results
      * @param string[] $fieldInfo       the relation
      * @param string   $whereComparison data for the where clause
      *
-     * @return string  formatted data
+     * @return string|null  formatted data
      */
     private function getFromForeign(array $fieldInfo, string $whereComparison): ?string
     {

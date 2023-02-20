@@ -6,6 +6,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Exceptions\AuthenticationPluginException;
@@ -423,7 +424,7 @@ final class Common
             $path_info_pos = mb_strrpos($GLOBALS['PMA_PHP_SELF'], $_PATH_INFO);
             if ($path_info_pos !== false) {
                 $path_info_part = mb_substr($GLOBALS['PMA_PHP_SELF'], $path_info_pos, mb_strlen($_PATH_INFO));
-                if ($path_info_part == $_PATH_INFO) {
+                if ($path_info_part === $_PATH_INFO) {
                     $GLOBALS['PMA_PHP_SELF'] = mb_substr($GLOBALS['PMA_PHP_SELF'], 0, $path_info_pos);
                 }
             }
@@ -609,19 +610,18 @@ final class Common
          * Try to connect MySQL with the control user profile (will be used to get the privileges list for the current
          * user but the true user link must be open after this one so it would be default one for all the scripts).
          */
-        $controlLink = false;
+        $controlConnection = null;
         if ($GLOBALS['cfg']['Server']['controluser'] !== '') {
-            $controlLink = $dbi->connect(DatabaseInterface::CONNECT_CONTROL);
+            $controlConnection = $dbi->connect(Connection::TYPE_CONTROL);
         }
 
         // Connects to the server (validates user's login)
-        $userLink = $dbi->connect(DatabaseInterface::CONNECT_USER);
-
-        if ($userLink === false) {
+        $userConnection = $dbi->connect(Connection::TYPE_USER);
+        if ($userConnection === null) {
             $auth->showFailure('mysql-denied');
         }
 
-        if ($controlLink) {
+        if ($controlConnection !== null) {
             return;
         }
 
@@ -629,7 +629,7 @@ final class Common
          * Open separate connection for control queries, this is needed to avoid problems with table locking used in
          * main connection and phpMyAdmin issuing queries to configuration storage, which is not locked by that time.
          */
-        $dbi->connect(DatabaseInterface::CONNECT_USER, null, DatabaseInterface::CONNECT_CONTROL);
+        $dbi->connect(Connection::TYPE_USER, null, Connection::TYPE_CONTROL);
     }
 
     public static function getRequest(): ServerRequest

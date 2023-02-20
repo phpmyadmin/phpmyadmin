@@ -233,4 +233,5 @@ var DesignerOfflineDB = (function () {
     // Export the designerDB object.
     return designerDB;
 }());
-window.DesignerOfflineDB = DesignerOfflineDB;
+
+export { DesignerOfflineDB };

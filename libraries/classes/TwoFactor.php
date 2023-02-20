@@ -21,6 +21,8 @@ use function array_merge;
 use function class_exists;
 use function extension_loaded;
 use function in_array;
+use function is_array;
+use function is_string;
 use function ucfirst;
 
 /**
@@ -31,20 +33,20 @@ class TwoFactor
     /** @var string */
     public $user;
 
-    /** @var array */
+    /**
+     * @var array
+     * @psalm-var array{backend: string, settings: mixed[], type?: 'session'|'db'}
+     */
     public $config;
 
-    /** @var bool */
-    protected $writable;
+    protected bool $writable;
 
     /** @var TwoFactorPlugin */
     protected $backend;
 
-    /** @var array */
-    protected $available;
+    protected array $available;
 
-    /** @var UserPreferences */
-    private $userPreferences;
+    private UserPreferences $userPreferences;
 
     /**
      * Creates new TwoFactor object
@@ -55,7 +57,7 @@ class TwoFactor
     {
         (new Relation($GLOBALS['dbi']))->initRelationParamsCache();
 
-        $this->userPreferences = new UserPreferences();
+        $this->userPreferences = new UserPreferences($GLOBALS['dbi']);
         $this->user = $user;
         $this->available = $this->getAvailableBackends();
         $this->config = $this->readConfig();
@@ -66,26 +68,27 @@ class TwoFactor
     /**
      * Reads the configuration
      *
-     * @return array
+     * @psalm-return array{backend: string, settings: mixed[], type: 'session'|'db'}
      */
-    public function readConfig()
+    public function readConfig(): array
     {
         $result = [];
         $config = $this->userPreferences->load();
-        if (isset($config['config_data']['2fa'])) {
+        if (isset($config['config_data']['2fa']) && is_array($config['config_data']['2fa'])) {
             $result = $config['config_data']['2fa'];
         }
 
-        $result['type'] = $config['type'];
-        if (! isset($result['backend'])) {
-            $result['backend'] = '';
+        $backend = '';
+        if (isset($result['backend']) && is_string($result['backend'])) {
+            $backend = $result['backend'];
         }
 
-        if (! isset($result['settings'])) {
-            $result['settings'] = [];
+        $settings = [];
+        if (isset($result['settings']) && is_array($result['settings'])) {
+            $settings = $result['settings'];
         }
 
-        return $result;
+        return ['backend' => $backend, 'settings' => $settings, 'type' => $config['type']];
     }
 
     public function isWritable(): bool
@@ -114,9 +117,9 @@ class TwoFactor
     /**
      * Returns list of available backends
      *
-     * @return array
+     * @return string[]
      */
-    public function getAvailableBackends()
+    public function getAvailableBackends(): array
     {
         $result = [];
         if ($GLOBALS['cfg']['DBG']['simple2fa']) {
@@ -131,6 +134,8 @@ class TwoFactor
             $result[] = 'application';
         }
 
+        $result[] = 'WebAuthn';
+
         if (class_exists(U2FServer::class)) {
             $result[] = 'key';
         }
@@ -141,9 +146,9 @@ class TwoFactor
     /**
      * Returns list of missing dependencies
      *
-     * @return array
+     * @return array<int, array{class: string, dep: string}>
      */
-    public function getMissingDeps()
+    public function getMissingDeps(): array
     {
         $result = [];
         if (! class_exists(Google2FA::class)) {
@@ -261,10 +266,9 @@ class TwoFactor
      */
     public function configure($name): bool
     {
-        $this->config = ['backend' => $name];
+        $this->config = ['backend' => $name, 'settings' => []];
         if ($name === '') {
             $cls = $this->getBackendClass($name);
-            $this->config['settings'] = [];
             $this->backend = new $cls($this);
         } else {
             if (! in_array($name, $this->available)) {
@@ -272,7 +276,6 @@ class TwoFactor
             }
 
             $cls = $this->getBackendClass($name);
-            $this->config['settings'] = [];
             $this->backend = new $cls($this);
             if (! $this->backend->configure()) {
                 return false;
@@ -290,9 +293,9 @@ class TwoFactor
     /**
      * Returns array with all available backends
      *
-     * @return array
+     * @return array<int, array{id: mixed, name: mixed, description: mixed}>
      */
-    public function getAllBackends()
+    public function getAllBackends(): array
     {
         $all = array_merge([''], $this->available);
         $backends = [];

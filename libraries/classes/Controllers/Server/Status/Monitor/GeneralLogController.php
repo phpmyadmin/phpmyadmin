@@ -15,11 +15,9 @@ use PhpMyAdmin\Url;
 
 final class GeneralLogController extends AbstractController
 {
-    /** @var Monitor */
-    private $monitor;
+    private Monitor $monitor;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,
@@ -47,13 +45,18 @@ final class GeneralLogController extends AbstractController
             return;
         }
 
-        $this->response->addJSON([
-            'message' => $this->monitor->getJsonForLogDataTypeGeneral(
-                (int) $request->getParsedBodyParam('time_start'),
-                (int) $request->getParsedBodyParam('time_end'),
-                (bool) $request->getParsedBodyParam('limitTypes'),
-                (bool) $request->getParsedBodyParam('removeVariables')
-            ),
-        ]);
+        $data = $this->monitor->getJsonForLogDataTypeGeneral(
+            (int) $request->getParsedBodyParam('time_start'),
+            (int) $request->getParsedBodyParam('time_end'),
+            (bool) $request->getParsedBodyParam('limitTypes'),
+            (bool) $request->getParsedBodyParam('removeVariables')
+        );
+        if ($data === null) {
+            $this->response->setRequestStatus(false);
+
+            return;
+        }
+
+        $this->response->addJSON(['message' => $data]);
     }
 }

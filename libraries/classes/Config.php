@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Config\Settings;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Exceptions\ConfigException;
 use Throwable;
 
@@ -29,6 +30,7 @@ use function get_object_vars;
 use function implode;
 use function ini_get;
 use function intval;
+use function is_array;
 use function is_dir;
 use function is_int;
 use function is_numeric;
@@ -52,24 +54,22 @@ use function sprintf;
 use function str_contains;
 use function str_replace;
 use function stripos;
-use function strlen;
 use function strtolower;
 use function substr;
 use function sys_get_temp_dir;
 use function time;
-use function trigger_error;
 use function trim;
 
 use const ARRAY_FILTER_USE_KEY;
 use const DIRECTORY_SEPARATOR;
-use const E_USER_ERROR;
 use const PHP_OS;
 use const PHP_URL_PATH;
 use const PHP_URL_SCHEME;
-use const PHP_VERSION_ID;
 
 /**
  * Configuration handling
+ *
+ * @psalm-import-type ConnectionType from Connection
  */
 class Config
 {
@@ -88,21 +88,11 @@ class Config
     /** @var int     source modification time */
     public $sourceMtime = 0;
 
-    /** @var int */
-    public $setMtime = 0;
-
     /** @var bool */
     public $errorConfigFile = false;
 
     /** @var array */
     public $defaultServer = [];
-
-    /**
-     * @var bool whether init is done or not
-     * set this to false to force some initial checks
-     * like checking for required functions
-     */
-    public $done = false;
 
     /**
      * @param string|null $source source to read config from
@@ -374,7 +364,7 @@ class Config
         try {
             /** @psalm-suppress UnresolvableInclude */
             $eval_result = include $this->getSource();
-        } catch (Throwable $exception) {
+        } catch (Throwable) {
             throw new ConfigException('Failed to load phpMyAdmin configuration.');
         }
 
@@ -404,9 +394,7 @@ class Config
          */
         $cfg = array_filter(
             $cfg,
-            static function (string $key): bool {
-                return ! str_contains($key, '/');
-            },
+            static fn (string $key): bool => ! str_contains($key, '/'),
             ARRAY_FILTER_USE_KEY
         );
 
@@ -446,7 +434,7 @@ class Config
                 ! isset($_SESSION['cache'][$cache_key]['userprefs'])
                 || $_SESSION['cache'][$cache_key]['config_mtime'] < $this->sourceMtime
             ) {
-                $userPreferences = new UserPreferences();
+                $userPreferences = new UserPreferences($GLOBALS['dbi']);
                 $prefs = $userPreferences->load();
                 $_SESSION['cache'][$cache_key]['userprefs'] = $userPreferences->apply($prefs['config_data']);
                 $_SESSION['cache'][$cache_key]['userprefs_mtime'] = $prefs['mtime'];
@@ -550,7 +538,7 @@ class Config
         $new_cfg_value,
         $default_value = null
     ) {
-        $userPreferences = new UserPreferences();
+        $userPreferences = new UserPreferences($GLOBALS['dbi']);
         $result = true;
         // use permanent user preferences if possible
         $prefs_type = $this->get('user_preferences');
@@ -712,11 +700,7 @@ class Config
      */
     public function get(string $setting)
     {
-        if (isset($this->settings[$setting])) {
-            return $this->settings[$setting];
-        }
-
-        return null;
+        return $this->settings[$setting] ?? null;
     }
 
     /**
@@ -732,7 +716,6 @@ class Config
         }
 
         $this->settings[$setting] = $value;
-        $this->setMtime = time();
     }
 
     /**
@@ -926,7 +909,7 @@ class Config
         ?int $validity = null,
         bool $httponly = true
     ): bool {
-        if (strlen($value) > 0 && $default !== null && $value === $default) {
+        if ($value !== '' && $value === $default) {
             // default value is used
             if ($this->issetCookie($cookie)) {
                 // remove cookie
@@ -936,7 +919,7 @@ class Config
             return false;
         }
 
-        if (strlen($value) === 0 && $this->issetCookie($cookie)) {
+        if ($value === '' && $this->issetCookie($cookie)) {
             // remove cookie, value is empty
             return $this->removeCookie($cookie);
         }
@@ -965,18 +948,6 @@ class Config
             /** @psalm-var 'Lax'|'Strict'|'None' $cookieSameSite */
             $cookieSameSite = $this->get('CookieSameSite');
 
-            if (PHP_VERSION_ID < 70300) {
-                return setcookie(
-                    $httpCookieName,
-                    $value,
-                    $validity,
-                    $this->getRootPath() . '; SameSite=' . $cookieSameSite,
-                    '',
-                    $this->isHttps(),
-                    $httponly
-                );
-            }
-
             $optionalParams = [
                 'expires' => $validity,
                 'path' => $this->getRootPath(),
@@ -1002,11 +973,7 @@ class Config
      */
     public function getCookie(string $cookieName)
     {
-        if (isset($_COOKIE[$this->getCookieName($cookieName)])) {
-            return $_COOKIE[$this->getCookieName($cookieName)];
-        }
-
-        return null;
+        return $_COOKIE[$this->getCookieName($cookieName)] ?? null;
     }
 
     /**
@@ -1139,7 +1106,7 @@ class Config
                 if (
                     $server['host'] == $request
                     || $server['verbose'] == $request
-                    || $verboseToLower == $serverToLower
+                    || $verboseToLower === $serverToLower
                     || md5($verboseToLower) === $serverToLower
                 ) {
                     $request = $i;
@@ -1191,40 +1158,42 @@ class Config
         }
 
         // We have server(s) => apply default configuration
-        $new_servers = [];
+        $newServers = [];
 
-        foreach ($this->settings['Servers'] as $server_index => $each_server) {
+        foreach ($this->settings['Servers'] as $serverIndex => $server) {
             // Detect wrong configuration
-            if (! is_int($server_index) || $server_index < 1) {
-                trigger_error(
-                    sprintf(__('Invalid server index: %s'), $server_index),
-                    E_USER_ERROR
-                );
+            if (! is_int($serverIndex) || $serverIndex < 1 || ! is_array($server)) {
+                continue;
             }
 
-            $each_server = array_merge($this->defaultServer, $each_server);
+            $server = array_merge($this->defaultServer, $server);
 
             // Final solution to bug #582890
             // If we are using a socket connection
             // and there is nothing in the verbose server name
             // or the host field, then generate a name for the server
             // in the form of "Server 2", localized of course!
-            if (empty($each_server['host']) && empty($each_server['verbose'])) {
-                $each_server['verbose'] = sprintf(__('Server %d'), $server_index);
+            if (empty($server['host']) && empty($server['verbose'])) {
+                $server['verbose'] = sprintf(__('Server %d'), $serverIndex);
             }
 
-            $new_servers[$server_index] = $each_server;
+            $newServers[$serverIndex] = $server;
         }
 
-        $this->settings['Servers'] = $new_servers;
+        if ($newServers === []) {
+            // Ensures it has at least one valid server config.
+            $newServers = [1 => $this->defaultServer];
+        }
+
+        $this->settings['Servers'] = $newServers;
     }
 
     /**
      * Return connection parameters for the database server
      *
-     * @param int        $mode   Connection mode on of CONNECT_USER, CONNECT_CONTROL
-     *                           or CONNECT_AUXILIARY.
+     * @param int        $mode   Connection mode.
      * @param array|null $server Server information like host/port/socket/persistent
+     * @psalm-param ConnectionType $mode
      *
      * @return array user, host and server settings array
      */
@@ -1233,11 +1202,11 @@ class Config
         $user = null;
         $password = null;
 
-        if ($mode == DatabaseInterface::CONNECT_USER) {
+        if ($mode == Connection::TYPE_USER) {
             $user = $GLOBALS['cfg']['Server']['user'];
             $password = $GLOBALS['cfg']['Server']['password'];
             $server = $GLOBALS['cfg']['Server'];
-        } elseif ($mode == DatabaseInterface::CONNECT_CONTROL) {
+        } elseif ($mode == Connection::TYPE_CONTROL) {
             $user = $GLOBALS['cfg']['Server']['controluser'];
             $password = $GLOBALS['cfg']['Server']['controlpass'];
 

@@ -55,7 +55,7 @@ class PartitionTest extends AbstractTestCase
      * @return array<string, array<int, bool|int|string|array<int, array<string, string>>>>
      * @psalm-return array<string, array{bool, positive-int, string|false, list<array{Name: string}>}>
      */
-    public function providerForTestHavePartitioning(): array
+    public static function providerForTestHavePartitioning(): array
     {
         return [
             '5.5.0 with partitioning support' => [true, 50500, '1', []],

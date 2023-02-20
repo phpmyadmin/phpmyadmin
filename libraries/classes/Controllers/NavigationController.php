@@ -22,11 +22,9 @@ use function __;
  */
 class NavigationController extends AbstractController
 {
-    /** @var Navigation */
-    private $navigation;
+    private Navigation $navigation;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
     public function __construct(
         ResponseRenderer $response,
@@ -51,8 +49,7 @@ class NavigationController extends AbstractController
             return;
         }
 
-        $getNaviSettings = $request->getParsedBodyParam('getNaviSettings');
-        if ($getNaviSettings !== null && $getNaviSettings) {
+        if ($request->hasBodyParam('getNaviSettings')) {
             $pageSettings = new PageSettings('Navi', 'pma_navigation_settings');
             $this->response->addHTML($pageSettings->getErrorHTML());
             $this->response->addJSON('message', $pageSettings->getHTML());

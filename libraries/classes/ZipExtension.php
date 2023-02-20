@@ -32,8 +32,7 @@ use function substr;
  */
 class ZipExtension
 {
-    /** @var ZipArchive|null */
-    private $zip;
+    private ?ZipArchive $zip;
 
     public function __construct(?ZipArchive $zip = null)
     {
@@ -136,7 +135,7 @@ class ZipExtension
      *
      * @return string|false the file name of the first file that matches the given regular expression
      */
-    public function findFile($file, $regex)
+    public function findFile($file, $regex): string|false
     {
         if ($this->zip === null) {
             return false;
@@ -165,20 +164,19 @@ class ZipExtension
      *
      * @return int the number of files in the zip archive or 0, either if there weren't any files or an error occurred.
      */
-    public function getNumberOfFiles($file)
+    public function getNumberOfFiles($file): int
     {
         if ($this->zip === null) {
             return 0;
         }
 
-        $num = 0;
         $res = $this->zip->open($file);
 
         if ($res === true) {
-            $num = $this->zip->numFiles;
+            return $this->zip->numFiles;
         }
 
-        return $num;
+        return 0;
     }
 
     /**
@@ -189,7 +187,7 @@ class ZipExtension
      *
      * @return string|false data on success, false otherwise
      */
-    public function extract($file, $entry)
+    public function extract($file, $entry): string|false
     {
         if ($this->zip === null) {
             return false;
@@ -218,7 +216,7 @@ class ZipExtension
      *
      * @return string|bool the ZIP file contents, or false if there was an error.
      */
-    public function createFile($data, $name, $time = 0)
+    public function createFile(array|string $data, array|string $name, $time = 0): string|bool
     {
         $datasec = []; // Array to store compressed data
         $ctrlDir = []; // Central directory
@@ -238,7 +236,6 @@ class ZipExtension
 
             $data = $newData;
         } elseif (is_array($data) && is_array($name) && count($data) === count($name)) {
-            /** @var array $data */
             $data = array_combine($name, $data);
         } else {
             return false;
@@ -271,7 +268,7 @@ class ZipExtension
             $uncLen = strlen($dump);
             $crc = crc32($dump);
             $zdata = (string) gzcompress($dump);
-            $zdata = substr((string) substr($zdata, 0, strlen($zdata) - 4), 2); // fix crc bug
+            $zdata = substr(substr($zdata, 0, strlen($zdata) - 4), 2); // fix crc bug
             $cLen = strlen($zdata);
             $fr = "\x50\x4b\x03\x04"
                 . "\x14\x00" // ver needed to extract

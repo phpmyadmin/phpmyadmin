@@ -47,7 +47,7 @@ class ReplicationGuiTest extends AbstractTestCase
         $GLOBALS['server'] = 0;
         $GLOBALS['urlParams'] = [];
 
-        $this->replicationGui = new ReplicationGui(new Replication(), new Template());
+        $this->replicationGui = new ReplicationGui(new Replication($GLOBALS['dbi']), new Template());
     }
 
     /**

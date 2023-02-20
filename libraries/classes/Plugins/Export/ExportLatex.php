@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -23,6 +24,7 @@ use function count;
 use function in_array;
 use function mb_strpos;
 use function mb_substr;
+use function str_repeat;
 use function str_replace;
 
 use const PHP_EOL;
@@ -291,7 +293,7 @@ class ExportLatex extends ExportPlugin
 
         $result = $GLOBALS['dbi']->tryQuery(
             $sqlQuery,
-            DatabaseInterface::CONNECT_USER,
+            Connection::TYPE_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
 
@@ -310,9 +312,7 @@ class ExportLatex extends ExportPlugin
         $buffer = PHP_EOL . '%' . PHP_EOL . '% ' . __('Data:') . ' ' . $table_alias
             . PHP_EOL . '%' . PHP_EOL . ' \\begin{longtable}{|';
 
-        for ($index = 0; $index < $columns_cnt; $index++) {
-            $buffer .= 'l|';
-        }
+        $buffer .= str_repeat('l|', $columns_cnt);
 
         $buffer .= '} ' . PHP_EOL;
 
@@ -383,7 +383,7 @@ class ExportLatex extends ExportPlugin
             $buffer = '';
             // print each row
             for ($i = 0; $i < $columns_cnt; $i++) {
-                if ($record[$columns[$i]] !== null && isset($record[$columns[$i]])) {
+                if ($record[$columns[$i]] !== null) {
                     $column_value = self::texEscape($record[$columns[$i]]);
                 } else {
                     $column_value = $GLOBALS['latex_null'];

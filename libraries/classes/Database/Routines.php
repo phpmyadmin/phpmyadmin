@@ -57,11 +57,9 @@ class Routines
     /** @var array<int, string> */
     private $numericOptions = ['UNSIGNED', 'ZEROFILL', 'UNSIGNED ZEROFILL'];
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
-    /** @var Template */
-    private $template;
+    private Template $template;
 
     /** @var ResponseRenderer */
     private $response;
@@ -313,7 +311,7 @@ class Routines
 
         // Backup the Old Privileges before dropping
         // if $_POST['item_adjust_privileges'] set
-        if (! isset($_POST['item_adjust_privileges']) || empty($_POST['item_adjust_privileges'])) {
+        if (empty($_POST['item_adjust_privileges'])) {
             return [];
         }
 
@@ -886,7 +884,7 @@ class Routines
                 }
             }
 
-            if ($i == count($itemParamName) - 1) {
+            if ($i === count($itemParamName) - 1) {
                 continue;
             }
 

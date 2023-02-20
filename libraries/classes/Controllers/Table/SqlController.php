@@ -21,8 +21,7 @@ use function htmlspecialchars;
  */
 final class SqlController extends AbstractController
 {
-    /** @var SqlQueryForm */
-    private $sqlQueryForm;
+    private SqlQueryForm $sqlQueryForm;
 
     public function __construct(
         ResponseRenderer $response,

@@ -802,7 +802,7 @@ abstract class TestBase extends TestCase
     {
         try {
             $this->webDriver->findElement(WebDriverBy::$func($arg));
-        } catch (NoSuchElementException | InvalidArgumentException | InvalidSelectorException $e) {
+        } catch (NoSuchElementException | InvalidArgumentException | InvalidSelectorException) {
             // Element not present
             return false;
         }
@@ -944,7 +944,7 @@ abstract class TestBase extends TestCase
             $this->waitForElement('cssSelector', 'li.dropdown.show > a');
 
             $this->waitUntilElementIsPresent('cssSelector', 'li.nav-item.dropdown.show > ul', 5000);
-        } catch (WebDriverException $e) {
+        } catch (WebDriverException) {
             return;
         }
     }

@@ -5,6 +5,8 @@
     reportMixedIssues="true"
     sealAllMethods="true"
     resolveFromConfigFile="true"
+    findUnusedBaselineEntry="true"
+    findUnusedCode="true"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="https://getpsalm.org/schema/config"
     xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
@@ -265,6 +267,7 @@
             latex_structure_caption: string,
             latex_structure_continued_caption: string,
             latex_structure_label: string,
+            maximum_time: 0|positive-int,
             maxsize: string,
             memory_limit: int,
             message: PhpMyAdmin\Message,

@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\ErrorReport;
 use PhpMyAdmin\Http\ServerRequest;
@@ -27,21 +28,23 @@ use function time;
  */
 class ErrorReportController extends AbstractController
 {
-    /** @var ErrorReport */
-    private $errorReport;
+    private ErrorReport $errorReport;
 
-    /** @var ErrorHandler */
-    private $errorHandler;
+    private ErrorHandler $errorHandler;
+
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,
         Template $template,
         ErrorReport $errorReport,
-        ErrorHandler $errorHandler
+        ErrorHandler $errorHandler,
+        DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
         $this->errorReport = $errorReport;
         $this->errorHandler = $errorHandler;
+        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void
@@ -89,7 +92,7 @@ class ErrorReportController extends AbstractController
                     $success = false;
                 } else {
                     $decoded_response = json_decode($server_response, true);
-                    $success = ! empty($decoded_response) ? $decoded_response['success'] : false;
+                    $success = ! empty($decoded_response) && $decoded_response['success'];
                 }
 
                 /* Message to show to the user */
@@ -140,7 +143,7 @@ class ErrorReportController extends AbstractController
 
                 /* Persist always send settings */
                 if ($alwaysSend === 'true') {
-                    $userPreferences = new UserPreferences();
+                    $userPreferences = new UserPreferences($this->dbi);
                     $userPreferences->persistOption('SendErrorReports', 'always', 'ask');
                 }
             }

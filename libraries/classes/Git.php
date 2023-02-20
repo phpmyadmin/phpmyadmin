@@ -51,10 +51,8 @@ class Git
 {
     /**
      * Enable Git information search and process
-     *
-     * @var bool
      */
-    private $showGitRevision;
+    private bool $showGitRevision;
 
     /**
      * Git has been found and the data fetched
@@ -235,7 +233,7 @@ class Git
                     substr($index_data, $offset + ($position * 20), 20)
                 )
             );
-            if ($sha == $hash) {
+            if ($sha === $hash) {
                 $found = true;
                 break;
             }
@@ -415,7 +413,7 @@ class Git
      *
      * @return stdClass|null The commit body from the GitHub API
      */
-    private function isRemoteCommit(&$commit, bool &$isRemoteCommit, string $hash): ?stdClass
+    private function isRemoteCommit($commit, bool &$isRemoteCommit, string $hash): ?stdClass
     {
         $httpRequest = new HttpRequest();
 
@@ -454,11 +452,9 @@ class Git
 
     private function getHashFromHeadRef(string $gitFolder, string $refHead): array
     {
-        $branch = false;
-
         // are we on any branch?
         if (! str_contains($refHead, '/')) {
-            return [trim($refHead), $branch];
+            return [trim($refHead), false];
         }
 
         // remove ref: prefix
@@ -505,7 +501,7 @@ class Git
             }
 
             // have found our ref?
-            if ($parts[1] == $refHead) {
+            if ($parts[1] === $refHead) {
                 $hash = $parts[0];
                 break;
             }

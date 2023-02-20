@@ -25,8 +25,7 @@ use function is_array;
 
 class ExportController extends AbstractController
 {
-    /** @var Options */
-    private $export;
+    private Options $export;
 
     public function __construct(
         ResponseRenderer $response,
@@ -43,7 +42,6 @@ class ExportController extends AbstractController
         $GLOBALS['replaces'] = $GLOBALS['replaces'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
         $GLOBALS['where_clause'] = $GLOBALS['where_clause'] ?? null;
-        $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['unlim_num_rows'] = $GLOBALS['unlim_num_rows'] ?? null;
 
         $pageSettings = new PageSettings('Export');

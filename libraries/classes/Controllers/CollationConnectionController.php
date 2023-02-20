@@ -12,8 +12,7 @@ use PhpMyAdmin\Url;
 
 final class CollationConnectionController extends AbstractController
 {
-    /** @var Config */
-    private $config;
+    private Config $config;
 
     public function __construct(ResponseRenderer $response, Template $template, Config $config)
     {

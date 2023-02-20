@@ -12,6 +12,7 @@ use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -1323,7 +1324,7 @@ class ExportSql extends ExportPlugin
         $compat = $GLOBALS['sql_compatibility'] ?? 'NONE';
 
         if ($compat === 'MSSQL') {
-            $createQuery = $this->makeCreateTableMSSQLCompatible($createQuery);
+            return $this->makeCreateTableMSSQLCompatible($createQuery);
         }
 
         return $createQuery;
@@ -2097,7 +2098,7 @@ class ExportSql extends ExportPlugin
 
         $result = $GLOBALS['dbi']->tryQuery(
             $sqlQuery,
-            DatabaseInterface::CONNECT_USER,
+            Connection::TYPE_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
         // a possible error: the table has crashed
@@ -2304,13 +2305,13 @@ class ExportSql extends ExportPlugin
                     $insertLine .= $fieldSet[$i] . ' = ' . $values[$i];
                 }
 
-                [$tmpUniqueCondition, $tmpClauseIsUnique] = Util::getUniqueCondition(
+                [$tmpUniqueCondition] = Util::getUniqueCondition(
                     $fieldsCnt,
                     $fieldsMeta,
                     $row
                 );
                 $insertLine .= ' WHERE ' . $tmpUniqueCondition;
-                unset($tmpUniqueCondition, $tmpClauseIsUnique);
+                unset($tmpUniqueCondition);
             } elseif ($GLOBALS['sql_insert_syntax'] === 'extended' || $GLOBALS['sql_insert_syntax'] === 'both') {
                 // Extended inserts case
                 if ($current_row === 1) {

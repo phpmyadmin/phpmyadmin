@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Schema\Pdf;
 
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Pdf as PdfLib;
 use PhpMyAdmin\Util;
 
@@ -79,8 +79,7 @@ class Pdf extends PdfLib
     /** @var string */
     private $db;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
     /**
      * Constructs PDF for schema export.
@@ -127,11 +126,11 @@ class Pdf extends PdfLib
      * @param float|int $topMargin  The top margin
      */
     public function setScale(
-        $scale = 1,
-        $xMin = 0,
-        $yMin = 0,
-        $leftMargin = -1,
-        $topMargin = -1
+        float|int $scale = 1,
+        float|int $xMin = 0,
+        float|int $yMin = 0,
+        float|int $leftMargin = -1,
+        float|int $topMargin = -1
     ): void {
         $this->scale = $scale;
         $this->xMin = $xMin;
@@ -162,8 +161,8 @@ class Pdf extends PdfLib
      * @param string    $link   Link
      */
     public function cellScale(
-        $w,
-        $h = 0,
+        float|int $w,
+        float|int $h = 0,
         $txt = '',
         $border = 0,
         $ln = 0,
@@ -272,7 +271,7 @@ class Pdf extends PdfLib
             $test_query = 'SELECT * FROM '
                 . Util::backquote($pdfFeature->database) . '.'
                 . Util::backquote($pdfFeature->pdfPages)
-                . ' WHERE db_name = ' . $GLOBALS['dbi']->quoteString($this->db, DatabaseInterface::CONNECT_CONTROL)
+                . ' WHERE db_name = ' . $GLOBALS['dbi']->quoteString($this->db, Connection::TYPE_CONTROL)
                 . ' AND page_nr = ' . $this->pageNumber;
             $test_rs = $GLOBALS['dbi']->queryAsControlUser($test_query);
             $pageDesc = (string) $test_rs->fetchValue('page_descr');
@@ -402,7 +401,7 @@ class Pdf extends PdfLib
             $l += $cw[mb_ord($c)] ?? 0;
             if ($l > $wmax) {
                 if ($sep == -1) {
-                    if ($i == $j) {
+                    if ($i === $j) {
                         $i++;
                     }
                 } else {

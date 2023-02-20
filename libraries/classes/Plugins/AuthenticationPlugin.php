@@ -52,8 +52,7 @@ abstract class AuthenticationPlugin
      */
     public $password = '';
 
-    /** @var IpAllowDeny */
-    protected $ipAllowDeny;
+    protected IpAllowDeny $ipAllowDeny;
 
     /** @var Template */
     public $template;
@@ -282,28 +281,11 @@ abstract class AuthenticationPlugin
         if (isset($GLOBALS['cfg']['Server']['AllowDeny']['order'])) {
             $allowDeny_forbidden = false; // default
             if ($GLOBALS['cfg']['Server']['AllowDeny']['order'] === 'allow,deny') {
-                $allowDeny_forbidden = true;
-                if ($this->ipAllowDeny->allow()) {
-                    $allowDeny_forbidden = false;
-                }
-
-                if ($this->ipAllowDeny->deny()) {
-                    $allowDeny_forbidden = true;
-                }
+                $allowDeny_forbidden = ! ($this->ipAllowDeny->allow() && ! $this->ipAllowDeny->deny());
             } elseif ($GLOBALS['cfg']['Server']['AllowDeny']['order'] === 'deny,allow') {
-                if ($this->ipAllowDeny->deny()) {
-                    $allowDeny_forbidden = true;
-                }
-
-                if ($this->ipAllowDeny->allow()) {
-                    $allowDeny_forbidden = false;
-                }
+                $allowDeny_forbidden = $this->ipAllowDeny->deny() && ! $this->ipAllowDeny->allow();
             } elseif ($GLOBALS['cfg']['Server']['AllowDeny']['order'] === 'explicit') {
-                if ($this->ipAllowDeny->allow() && ! $this->ipAllowDeny->deny()) {
-                    $allowDeny_forbidden = false;
-                } else {
-                    $allowDeny_forbidden = true;
-                }
+                $allowDeny_forbidden = ! ($this->ipAllowDeny->allow() && ! $this->ipAllowDeny->deny());
             }
 
             // Ejects the user if banished

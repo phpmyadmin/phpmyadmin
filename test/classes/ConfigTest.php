@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 
 use function array_merge;
 use function array_replace_recursive;
@@ -35,9 +35,11 @@ use const DIRECTORY_SEPARATOR;
 use const INFO_MODULES;
 use const PHP_EOL;
 use const PHP_OS;
+use const TEST_PATH;
 
 /**
  * @covers \PhpMyAdmin\Config
+ * @psalm-import-type ConnectionType from Connection
  */
 class ConfigTest extends AbstractTestCase
 {
@@ -238,7 +240,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function userAgentProvider(): array
+    public static function userAgentProvider(): array
     {
         return [
             [
@@ -423,7 +425,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function serverNames(): array
+    public static function serverNames(): array
     {
         return [
             [
@@ -499,7 +501,7 @@ class ConfigTest extends AbstractTestCase
         $this->assertFalse($this->object->checkConfigSource());
         $this->assertEquals(0, $this->object->sourceMtime);
 
-        $this->object->setSource(ROOT_PATH . 'test/test_data/config.inc.php');
+        $this->object->setSource(TEST_PATH . 'test/test_data/config.inc.php');
 
         $this->assertNotEmpty($this->object->getSource());
         $this->assertTrue($this->object->checkConfigSource());
@@ -585,7 +587,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function httpsParams(): array
+    public static function httpsParams(): array
     {
         return [
             [
@@ -820,7 +822,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array data for testGetRootPath
      */
-    public function rootUris(): array
+    public static function rootUris(): array
     {
         return [
             [
@@ -928,15 +930,15 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function configPaths(): array
+    public static function configPaths(): array
     {
         return [
             [
-                ROOT_PATH . 'test/test_data/config.inc.php',
+                TEST_PATH . 'test/test_data/config.inc.php',
                 true,
             ],
             [
-                ROOT_PATH . 'test/test_data/config-nonexisting.inc.php',
+                TEST_PATH . 'test/test_data/config-nonexisting.inc.php',
                 false,
             ],
         ];
@@ -1042,10 +1044,15 @@ class ConfigTest extends AbstractTestCase
      */
     public function testGetTempDir(): void
     {
-        $this->object->set('TempDir', sys_get_temp_dir() . DIRECTORY_SEPARATOR);
+        $dir = realpath(sys_get_temp_dir());
+        $this->assertNotFalse($dir);
+        $this->assertDirectoryExists($dir);
+        $this->assertDirectoryIsWritable($dir);
+
+        $this->object->set('TempDir', $dir . DIRECTORY_SEPARATOR);
         // Check no double slash is here
         $this->assertEquals(
-            sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'upload',
+            $dir . DIRECTORY_SEPARATOR . 'upload',
             $this->object->getTempDir('upload')
         );
     }
@@ -1054,10 +1061,16 @@ class ConfigTest extends AbstractTestCase
      * Test for getUploadTempDir
      *
      * @group file-system
+     * @depends testGetTempDir
      */
     public function testGetUploadTempDir(): void
     {
-        $this->object->set('TempDir', realpath(sys_get_temp_dir()) . DIRECTORY_SEPARATOR);
+        $dir = realpath(sys_get_temp_dir());
+        $this->assertNotFalse($dir);
+        $this->assertDirectoryExists($dir);
+        $this->assertDirectoryIsWritable($dir);
+
+        $this->object->set('TempDir', $dir . DIRECTORY_SEPARATOR);
 
         $this->assertEquals(
             $this->object->getTempDir('upload'),
@@ -1087,7 +1100,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function serverSettingsProvider(): array
+    public static function serverSettingsProvider(): array
     {
         return [
             'empty' => [
@@ -1108,19 +1121,44 @@ class ConfigTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * @group with-trigger-error
-     */
     public function testCheckServersWithInvalidServer(): void
     {
-        $this->expectError();
-        $this->expectErrorMessage('Invalid server index: invalid');
-
-        $this->object->settings['Servers'] = ['invalid' => ['host' => '127.0.0.1'], 1 => ['host' => '127.0.0.1']];
+        $server = ['host' => '127.0.0.1'];
+        $this->object->settings['Servers'] = ['invalid' => $server, 1 => $server, 0 => $server, 2 => 'invalid'];
         $this->object->checkServers();
-        $expected = array_merge($this->object->defaultServer, ['host' => '127.0.0.1']);
+        $expected = array_merge($this->object->defaultServer, $server);
 
+        $this->assertArrayNotHasKey('invalid', $this->object->settings['Servers']);
+        $this->assertArrayNotHasKey(0, $this->object->settings['Servers']);
+        $this->assertArrayNotHasKey(2, $this->object->settings['Servers']);
+        $this->assertArrayHasKey(1, $this->object->settings['Servers']);
         $this->assertEquals($expected, $this->object->settings['Servers'][1]);
+    }
+
+    public function testCheckServersWithOnlyInvalidServers(): void
+    {
+        $server = ['host' => '127.0.0.1'];
+        $this->object->settings['Servers'] = ['invalid' => $server, -1 => $server, 0 => $server];
+        $this->object->checkServers();
+
+        $this->assertArrayNotHasKey('invalid', $this->object->settings['Servers']);
+        $this->assertArrayNotHasKey(0, $this->object->settings['Servers']);
+        $this->assertArrayNotHasKey(-1, $this->object->settings['Servers']);
+        $this->assertArrayHasKey(1, $this->object->settings['Servers']);
+        /** @psalm-suppress InvalidArrayOffset */
+        $this->assertEquals($this->object->defaultServer, $this->object->settings['Servers'][1]);
+    }
+
+    public function testCheckServersWithServerKeysGreaterThanOne(): void
+    {
+        $server = ['host' => '127.0.0.1'];
+        $this->object->settings['Servers'] = [2 => $server];
+        $this->object->checkServers();
+        $expected = array_merge($this->object->defaultServer, $server);
+
+        $this->assertArrayNotHasKey(1, $this->object->settings['Servers']);
+        $this->assertArrayHasKey(2, $this->object->settings['Servers']);
+        $this->assertEquals($expected, $this->object->settings['Servers'][2]);
     }
 
     /**
@@ -1146,7 +1184,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function selectServerProvider(): array
+    public static function selectServerProvider(): array
     {
         return [
             'zero' => [
@@ -1201,9 +1239,9 @@ class ConfigTest extends AbstractTestCase
      * Test for getConnectionParams
      *
      * @param array      $server_cfg Server configuration
-     * @param int        $mode       Mode to test
      * @param array|null $server     Server array to test
      * @param array      $expected   Expected result
+     * @psalm-param ConnectionType $mode
      *
      * @dataProvider connectionParams
      */
@@ -1219,7 +1257,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function connectionParams(): array
+    public static function connectionParams(): array
     {
         $cfg_basic = [
             'user' => 'u',
@@ -1251,7 +1289,7 @@ class ConfigTest extends AbstractTestCase
         return [
             [
                 $cfg_basic,
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 null,
                 [
                     'u',
@@ -1272,7 +1310,7 @@ class ConfigTest extends AbstractTestCase
             ],
             [
                 $cfg_basic,
-                DatabaseInterface::CONNECT_CONTROL,
+                Connection::TYPE_CONTROL,
                 null,
                 [
                     'u2',
@@ -1289,7 +1327,7 @@ class ConfigTest extends AbstractTestCase
             ],
             [
                 $cfg_ssl,
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 null,
                 [
                     'u',
@@ -1310,7 +1348,7 @@ class ConfigTest extends AbstractTestCase
             ],
             [
                 $cfg_ssl,
-                DatabaseInterface::CONNECT_CONTROL,
+                Connection::TYPE_CONTROL,
                 null,
                 [
                     'u2',
@@ -1327,7 +1365,7 @@ class ConfigTest extends AbstractTestCase
             ],
             [
                 $cfg_control_ssl,
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 null,
                 [
                     'u',
@@ -1349,7 +1387,7 @@ class ConfigTest extends AbstractTestCase
             ],
             [
                 $cfg_control_ssl,
-                DatabaseInterface::CONNECT_CONTROL,
+                Connection::TYPE_CONTROL,
                 null,
                 [
                     'u2',

@@ -19,11 +19,9 @@ use function is_array;
 
 final class ChangeController extends AbstractController
 {
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
-    /** @var ColumnsDefinition */
-    private $columnsDefinition;
+    private ColumnsDefinition $columnsDefinition;
 
     public function __construct(
         ResponseRenderer $response,

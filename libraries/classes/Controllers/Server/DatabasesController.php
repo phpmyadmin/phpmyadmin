@@ -6,15 +6,14 @@ namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
-use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -47,28 +46,14 @@ class DatabasesController extends AbstractController
     /** @var bool whether to show database statistics */
     private $hasStatistics;
 
-    /** @var int position in list navigation */
-    private $position;
-
-    /** @var Transformations */
-    private $transformations;
-
-    /** @var RelationCleanup */
-    private $relationCleanup;
-
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Transformations $transformations,
-        RelationCleanup $relationCleanup,
         DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->transformations = $transformations;
-        $this->relationCleanup = $relationCleanup;
         $this->dbi = $dbi;
 
         $checkUserPrivileges = new CheckUserPrivileges($dbi);
@@ -98,14 +83,14 @@ class DatabasesController extends AbstractController
         }
 
         $replicationInfo = new ReplicationInfo($this->dbi);
-        $replicationInfo->load($_POST['primary_connection'] ?? null);
+        $replicationInfo->load($request->getParsedBodyParam('primary_connection'));
 
         $primaryInfo = $replicationInfo->getPrimaryInfo();
         $replicaInfo = $replicationInfo->getReplicaInfo();
 
         $this->setSortDetails($params['sort_by'], $params['sort_order']);
         $this->hasStatistics = ! empty($params['statistics']);
-        $this->position = ! empty($params['pos']) ? (int) $params['pos'] : 0;
+        $position = ! empty($params['pos']) ? (int) $params['pos'] : 0;
 
         /**
          * Gets the databases list
@@ -114,10 +99,10 @@ class DatabasesController extends AbstractController
             $this->databases = $this->dbi->getDatabasesFull(
                 null,
                 $this->hasStatistics,
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 $this->sortBy,
                 $this->sortOrder,
-                $this->position,
+                $position,
                 true
             );
             $this->databaseCount = count($this->dbi->getDatabaseList());
@@ -125,7 +110,7 @@ class DatabasesController extends AbstractController
 
         $urlParams = [
             'statistics' => $this->hasStatistics,
-            'pos' => $this->position,
+            'pos' => $position,
             'sort_by' => $this->sortBy,
             'sort_order' => $this->sortOrder,
         ];
@@ -167,7 +152,7 @@ class DatabasesController extends AbstractController
             'header_statistics' => $headerStatistics,
             'charsets' => $charsetsList,
             'database_count' => $this->databaseCount,
-            'pos' => $this->position,
+            'pos' => $position,
             'url_params' => $urlParams,
             'max_db_list' => $GLOBALS['cfg']['MaxDbList'],
             'has_primary_replication' => $primaryInfo['status'],

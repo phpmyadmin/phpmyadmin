@@ -8,15 +8,12 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Controllers\AbstractController;
-use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Engines\Innodb;
-use PhpMyAdmin\FlashMessages;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Index;
@@ -44,44 +41,25 @@ use function str_contains;
  */
 class StructureController extends AbstractController
 {
-    /** @var Table  The table object */
-    protected $tableObj;
+    protected Table $tableObj;
 
-    /** @var CreateAddField */
-    private $createAddField;
+    private Relation $relation;
 
-    /** @var Relation */
-    private $relation;
+    private Transformations $transformations;
 
-    /** @var Transformations */
-    private $transformations;
-
-    /** @var RelationCleanup */
-    private $relationCleanup;
-
-    /** @var DatabaseInterface */
-    private $dbi;
-
-    /** @var FlashMessages */
-    private $flash;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,
         Template $template,
         Relation $relation,
         Transformations $transformations,
-        CreateAddField $createAddField,
-        RelationCleanup $relationCleanup,
-        DatabaseInterface $dbi,
-        FlashMessages $flash
+        DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->createAddField = $createAddField;
         $this->relation = $relation;
         $this->transformations = $transformations;
-        $this->relationCleanup = $relationCleanup;
         $this->dbi = $dbi;
-        $this->flash = $flash;
 
         $this->tableObj = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
     }
@@ -213,7 +191,7 @@ class StructureController extends AbstractController
         $row_comments = [];
         $extracted_columnspecs = [];
         $collations = [];
-        foreach ($fields as &$field) {
+        foreach ($fields as $field) {
             ++$rownum;
             $columns_list[] = $field['Field'];
 

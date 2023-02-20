@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Image;
 
-use function count;
+use GdImage;
+
 use function extension_loaded;
 use function function_exists;
 use function imagearc;
@@ -12,7 +13,6 @@ use function imagecolorallocate;
 use function imagecopyresampled;
 use function imagecreatefromstring;
 use function imagecreatetruecolor;
-use function imagedestroy;
 use function imagefilledpolygon;
 use function imagefilledrectangle;
 use function imagejpeg;
@@ -22,25 +22,13 @@ use function imagestring;
 use function imagesx;
 use function imagesy;
 
-use const PHP_VERSION_ID;
-
 final class ImageWrapper
 {
-    /** @var resource */
-    private $image;
-
-    /**
-     * @param resource $image
-     */
-    private function __construct($image)
+    private function __construct(private GdImage $image)
     {
-        $this->image = $image;
     }
 
-    /**
-     * @return resource
-     */
-    public function getImage()
+    public function getImage(): GdImage
     {
         return $this->image;
     }
@@ -66,14 +54,10 @@ final class ImageWrapper
 
         $backgroundColor = imagecolorallocate($image, $background['red'], $background['green'], $background['blue']);
         if ($backgroundColor === false) {
-            imagedestroy($image);
-
             return null;
         }
 
         if (! imagefilledrectangle($image, 0, 0, $width - 1, $height - 1, $backgroundColor)) {
-            imagedestroy($image);
-
             return null;
         }
 
@@ -106,10 +90,7 @@ final class ImageWrapper
         return imagearc($this->image, $centerX, $centerY, $width, $height, $startAngle, $endAngle, $color);
     }
 
-    /**
-     * @return int|false
-     */
-    public function colorAllocate(int $red, int $green, int $blue)
+    public function colorAllocate(int $red, int $green, int $blue): int|false
     {
         return imagecolorallocate($this->image, $red, $green, $blue);
     }
@@ -139,21 +120,9 @@ final class ImageWrapper
         );
     }
 
-    public function destroy(): bool
-    {
-        if (PHP_VERSION_ID >= 80000) {
-            return true;
-        }
-
-        return imagedestroy($this->image);
-    }
-
+    /** @param list<int> $points */
     public function filledPolygon(array $points, int $color): bool
     {
-        if (PHP_VERSION_ID < 80000) {
-            return imagefilledpolygon($this->image, $points, (int) (count($points) / 2), $color);
-        }
-
         return imagefilledpolygon($this->image, $points, $color);
     }
 

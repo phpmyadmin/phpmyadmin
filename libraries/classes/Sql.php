@@ -15,6 +15,7 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Query\Utilities;
+use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Statements\AlterStatement;
 use PhpMyAdmin\SqlParser\Statements\DropStatement;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
@@ -44,23 +45,17 @@ use function ucwords;
  */
 class Sql
 {
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var RelationCleanup */
-    private $relationCleanup;
+    private RelationCleanup $relationCleanup;
 
-    /** @var Transformations */
-    private $transformations;
+    private Transformations $transformations;
 
-    /** @var Operations */
-    private $operations;
+    private Operations $operations;
 
-    /** @var Template */
-    private $template;
+    private Template $template;
 
     public function __construct(
         DatabaseInterface $dbi,
@@ -213,7 +208,7 @@ class Sql
                 $numberFound++;
             }
 
-            if ($numberFound == count($indexColumns)) {
+            if ($numberFound === count($indexColumns)) {
                 return true;
             }
         }
@@ -248,22 +243,21 @@ class Sql
                 'field' => $column,
             ];
 
-            $dropdown = $this->template->render('sql/relational_column_dropdown', [
+            return $this->template->render('sql/relational_column_dropdown', [
                 'current_value' => $_POST['curr_value'],
                 'params' => $urlParams,
             ]);
-        } else {
-            $dropdown = $this->relation->foreignDropdown(
-                $foreignData['disp_row'],
-                $foreignData['foreign_field'],
-                $foreignData['foreign_display'],
-                $currentValue,
-                $GLOBALS['cfg']['ForeignKeyMaxLimit']
-            );
-            $dropdown = '<select>' . $dropdown . '</select>';
         }
 
-        return $dropdown;
+        $dropdown = $this->relation->foreignDropdown(
+            $foreignData['disp_row'],
+            $foreignData['foreign_field'],
+            $foreignData['foreign_display'],
+            $currentValue,
+            $GLOBALS['cfg']['ForeignKeyMaxLimit']
+        );
+
+        return '<select>' . $dropdown . '</select>';
     }
 
     /** @return array<string, int|array> */
@@ -585,7 +579,7 @@ class Sql
      * @return int|string number of rows affected or changed
      * @psalm-return int|numeric-string
      */
-    private function getNumberOfRowsAffectedOrChanged($isAffected, $result)
+    private function getNumberOfRowsAffectedOrChanged($isAffected, ResultInterface|false $result): int|string
     {
         if ($isAffected) {
             return $this->dbi->affectedRows();
@@ -657,12 +651,12 @@ class Sql
      * @psalm-return int|numeric-string
      */
     private function countQueryResults(
-        $numRows,
+        int|string $numRows,
         bool $justBrowsing,
         string $db,
         string $table,
         StatementInfo $statementInfo
-    ) {
+    ): int|string {
         /* Shortcut for not analyzed/empty query */
         if ($statementInfo->statement === null || $statementInfo->parser === null) {
             return 0;
@@ -708,24 +702,24 @@ class Sql
                 }
             } else {
                 $statement = $statementInfo->statement;
-                $tokenList = $statementInfo->parser->list;
-                $replaces = [
-                    // Remove ORDER BY to decrease unnecessary sorting time
-                    [
-                        'ORDER BY',
-                        '',
-                    ],
-                    // Removes LIMIT clause that might have been added
-                    [
-                        'LIMIT',
-                        '',
-                    ],
-                ];
-                $countQuery = 'SELECT COUNT(*) FROM (' . Query::replaceClauses(
-                    $statement,
-                    $tokenList,
-                    $replaces
-                ) . ') as cnt';
+
+                // Remove ORDER BY to decrease unnecessary sorting time
+                if ($statementInfo->order !== false) {
+                    $statement->order = null;
+                }
+
+                // Removes LIMIT clause that might have been added
+                if ($statementInfo->limit !== null) {
+                    $statement->limit = null;
+                }
+
+                if ($statementInfo->isGroup === false && count($statement->expr) === 1) {
+                    $statement->expr[0] = new Expression();
+                    $statement->expr[0]->expr = '1';
+                }
+
+                $countQuery = 'SELECT COUNT(*) FROM (' . $statement->build() . ' ) as cnt';
+
                 $unlimNumRows = $this->dbi->fetchValue($countQuery);
                 if ($unlimNumRows === false) {
                     $unlimNumRows = 0;
@@ -889,9 +883,9 @@ class Sql
     private function getMessageForNoRowsReturned(
         ?string $messageToShow,
         StatementInfo $statementInfo,
-        $numRows
+        int|string $numRows
     ): Message {
-        if ($statementInfo->queryType === 'DELETE"') {
+        if ($statementInfo->queryType === 'DELETE') {
             $message = Message::getMessageForDeletedRows($numRows);
         } elseif ($statementInfo->isInsert) {
             if ($statementInfo->queryType === 'REPLACE') {
@@ -983,7 +977,7 @@ class Sql
         string $db,
         ?string $table,
         ?string $messageToShow,
-        $numRows,
+        int|string $numRows,
         $displayResultsObject,
         ?array $extraData,
         ?array $profilingResults,
@@ -1145,8 +1139,8 @@ class Sql
         $displayResultsObject,
         DisplayParts $displayParts,
         $editable,
-        $unlimNumRows,
-        $numRows,
+        int|string $unlimNumRows,
+        int|string $numRows,
         ?array $showTable,
         $result,
         StatementInfo $statementInfo,
@@ -1266,14 +1260,13 @@ class Sql
         ?string $displayQuery,
         bool $showSql,
         array $sqlData,
-        $displayMessage
+        Message|string $displayMessage
     ): string {
-        $output = '';
         if ($displayQuery !== null && $showSql && $sqlData === []) {
-            $output = Generator::getMessage($displayMessage, $displayQuery, 'success');
+            return Generator::getMessage($displayMessage, $displayQuery, 'success');
         }
 
-        return $output;
+        return '';
     }
 
     /**
@@ -1355,8 +1348,8 @@ class Sql
         ?string $table,
         ?array $sqlData,
         $displayResultsObject,
-        $unlimNumRows,
-        $numRows,
+        int|string $unlimNumRows,
+        int|string $numRows,
         ?string $dispQuery,
         $dispMessage,
         ?array $profilingResults,
@@ -1562,7 +1555,7 @@ class Sql
             // Parse and analyze the query
             [$statementInfo, $db, $tableFromSql] = ParseAnalyze::sqlQuery($sqlQuery, $db);
 
-            $table = $tableFromSql ?: $table;
+            $table = $tableFromSql !== '' ? $tableFromSql : $table;
         }
 
         return $this->executeQueryAndGetQueryResponse(
@@ -1761,7 +1754,7 @@ class Sql
         $unlimNumRows = $tableObject->countRecords(true);
         //If position is higher than number of rows
         if ($unlimNumRows <= $pos && $pos != 0) {
-            $pos = $this->getStartPosToDisplayRow($unlimNumRows);
+            return $this->getStartPosToDisplayRow($unlimNumRows);
         }
 
         return $pos;

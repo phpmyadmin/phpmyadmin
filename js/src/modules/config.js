@@ -1,7 +1,8 @@
 import $ from 'jquery';
-import { Functions } from './functions.js';
 import { CommonParams } from './common.js';
 import { ajaxShowMessage } from './ajax-message.js';
+import isStorageSupported from './functions/isStorageSupported.js';
+import formatDateTime from './functions/formatDateTime.js';
 
 /**
  * Functions used in configuration forms and on user preferences pages
@@ -10,32 +11,6 @@ const Config = {};
 
 window.configInlineParams;
 window.configScriptLoaded;
-
-/**
- * checks whether browser supports web storage
- *
- * @param {'localStorage' | 'sessionStorage'} type the type of storage i.e. localStorage or sessionStorage
- * @param {boolean} warn Wether to show a warning on error
- *
- * @return {boolean}
- */
-Config.isStorageSupported = (type, warn = false) => {
-    try {
-        window[type].setItem('PMATest', 'test');
-        // Check whether key-value pair was set successfully
-        if (window[type].getItem('PMATest') === 'test') {
-            // Supported, remove test variable from storage
-            window[type].removeItem('PMATest');
-            return true;
-        }
-    } catch (error) {
-        // Not supported
-        if (warn) {
-            ajaxShowMessage(window.Messages.strNoLocalStorage, false);
-        }
-    }
-    return false;
-};
 
 // default values for fields
 window.defaultValues = {};
@@ -327,7 +302,7 @@ window.validators = {
  * @param {string}  id       field id
  * @param {string}  type     validator (key in validators object)
  * @param {boolean} onKeyUp  whether fire on key up
- * @param {Array}   params   validation function parameters
+ * @param {any[]}   params   validation function parameters
  */
 Config.registerFieldValidator = (id, type, onKeyUp, params) => {
     if (typeof window.validators[type] === 'undefined') {
@@ -683,10 +658,7 @@ function savePrefsToLocalStorage (form) {
  */
 function updatePrefsDate () {
     var d = new Date(window.localStorage.configMtimeLocal);
-    var msg = window.Messages.strSavedOn.replace(
-        '@DATE@',
-        Functions.formatDateTime(d)
-    );
+    var msg = window.Messages.strSavedOn.replace('@DATE@', formatDateTime(d));
     $('#opts_import_local_storage').find('div.localStorage-exists').html(msg);
 }
 
@@ -694,7 +666,7 @@ function updatePrefsDate () {
  * Prepares message which informs that localStorage preferences are available and can be imported or deleted
  */
 function offerPrefsAutoimport () {
-    var hasConfig = (Config.isStorageSupported('localStorage')) && (window.localStorage.config || false);
+    var hasConfig = (isStorageSupported('localStorage')) && (window.localStorage.config || false);
     var $cnt = $('#prefs_autoload');
     if (! $cnt.length || ! hasConfig) {
         return;
@@ -784,7 +756,7 @@ Config.on = function () {
             });
 
         // detect localStorage state
-        var lsSupported = Config.isStorageSupported('localStorage', true);
+        var lsSupported = isStorageSupported('localStorage', true);
         var lsExists = lsSupported ? (window.localStorage.config || false) : false;
         $('div.localStorage-' + (lsSupported ? 'un' : '') + 'supported').hide();
         $('div.localStorage-' + (lsExists ? 'empty' : 'exists')).hide();

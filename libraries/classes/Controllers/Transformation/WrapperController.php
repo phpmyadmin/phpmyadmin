@@ -37,14 +37,11 @@ use function strtolower;
  */
 class WrapperController extends AbstractController
 {
-    /** @var Transformations */
-    private $transformations;
+    private Transformations $transformations;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,
@@ -66,7 +63,7 @@ class WrapperController extends AbstractController
         try {
             $db = DatabaseName::fromValue($request->getParam('db'));
             $table = TableName::fromValue($request->getParam('table'));
-        } catch (InvalidIdentifierName $exception) {
+        } catch (InvalidIdentifierName) {
             return;
         }
 
@@ -179,8 +176,6 @@ class WrapperController extends AbstractController
 
         $destImage = ImageWrapper::create($destWidth, $destHeight);
         if ($destImage === null) {
-            $srcImage->destroy();
-
             return;
         }
 
@@ -191,9 +186,6 @@ class WrapperController extends AbstractController
         } else {
             $destImage->png();
         }
-
-        $destImage->destroy();
-        $srcImage->destroy();
     }
 
     /**

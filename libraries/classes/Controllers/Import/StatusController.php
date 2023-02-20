@@ -24,8 +24,7 @@ use function usleep;
  */
 class StatusController
 {
-    /** @var Template */
-    private $template;
+    private Template $template;
 
     public function __construct(Template $template)
     {

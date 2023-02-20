@@ -46,7 +46,7 @@ Array.min = function (array) {
 /**
  * Checks if a string contains only numeric value
  * @param {string} n (to be checked)
- * @return {bool}
+ * @return {boolean}
  **/
 function isNumeric (n) {
     return ! isNaN(parseFloat(n)) && isFinite(n);
@@ -55,7 +55,7 @@ function isNumeric (n) {
 /**
  ** Checks if an object is empty
  * @param {object} obj (to be checked)
- * @return {bool}
+ * @return {boolean}
  **/
 function isEmpty (obj) {
     var name;

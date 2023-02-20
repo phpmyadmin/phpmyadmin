@@ -132,7 +132,7 @@ class ProceduresTest extends TestBase
         );
         $this->byName('item_param_length[0]')->sendKeys('20');
 
-        $this->byCssSelector("input[value='Add parameter']")->click();
+        $this->byId('addRoutineParameterButton')->click();
 
         $this->selectByLabel(
             $this->byName('item_param_dir[1]'),

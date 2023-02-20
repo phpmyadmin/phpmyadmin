@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisGeometryCollection;
+use PhpMyAdmin\Gis\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
@@ -43,17 +44,12 @@ class GisGeometryCollectionTest extends GisGeomTestCase
      *
      * @return array test data for testScaleRow() test case
      */
-    public function providerForTestScaleRow(): array
+    public static function providerForTestScaleRow(): array
     {
         return [
             [
                 'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
-                [
-                    'maxX' => 45.0,
-                    'minX' => 10.0,
-                    'maxY' => 45.0,
-                    'minY' => 10.0,
-                ],
+                new ScaleData(45, 10, 45, 10),
             ],
         ];
     }
@@ -81,7 +77,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
      *
      * @return array test data for testGenerateWkt() test case
      */
-    public function providerForTestGenerateWkt(): array
+    public static function providerForTestGenerateWkt(): array
     {
         $temp1 = [
             0 => [
@@ -115,7 +111,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
      *
      * @return array test data for testGenerateParams() test case
      */
-    public function providerForTestGenerateParams(): array
+    public static function providerForTestGenerateParams(): array
     {
         return [
             [
@@ -198,7 +194,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsPdf() test case
      */
-    public function providerForPrepareRowAsPdf(): array
+    public static function providerForPrepareRowAsPdf(): array
     {
         return [
             [
@@ -207,7 +203,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                 'pdf',
                 [176, 46, 224],
                 ['x' => 1, 'y' => -9, 'scale' => 4.39, 'height' => 297],
-                $this->createEmptyPdf('GEOMETRYCOLLECTION'),
+                parent::createEmptyPdf('GEOMETRYCOLLECTION'),
             ],
         ];
     }
@@ -239,7 +235,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsSvg() test case
      */
-    public function providerForPrepareRowAsSvg(): array
+    public static function providerForPrepareRowAsSvg(): array
     {
         return [
             [
@@ -297,7 +293,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsOl() test case
      */
-    public function providerForPrepareRowAsOl(): array
+    public static function providerForPrepareRowAsOl(): array
     {
         return [
             [

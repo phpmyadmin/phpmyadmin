@@ -56,7 +56,6 @@ use function strlen;
 use function strtoupper;
 use function substr;
 use function trim;
-use function urlencode;
 
 use const ENT_COMPAT;
 use const JSON_HEX_TAG;
@@ -319,7 +318,7 @@ class Generator
             && $field['Key'] === 'PRI'
             && ($field['Type'] === 'char(36)' || $field['Type'] === 'varchar(36)')
         ) {
-            $defaultFunction = $GLOBALS['cfg']['DefaultFunctions']['FUNC_UUID'];
+            return $GLOBALS['cfg']['DefaultFunctions']['FUNC_UUID'];
         }
 
         return $defaultFunction;
@@ -362,60 +361,27 @@ class Generator
     /**
      * Renders a single link for the top of the navigation panel
      *
-     * @param string $link        The url for the link
-     * @param bool   $showText    Whether to show the text or to
-     *                            only use it for title attributes
-     * @param string $text        The text to display and use for title attributes
-     * @param bool   $showIcon    Whether to show the icon
-     * @param string $icon        The filename of the icon to show
-     * @param string $linkId      Value to use for the ID attribute
-     * @param bool   $disableAjax Whether to disable ajax page loading for this link
-     * @param string $linkTarget  The name of the target frame for the link
-     * @param array  $classes     HTML classes to apply
+     * @param string $link   The url for the link
+     * @param string $text   The text to display and use for title attributes
+     * @param string $icon   The filename of the icon to show
+     * @param string $linkId Value to use for the ID attribute
      *
      * @return string HTML code for one link
      */
     public static function getNavigationLink(
-        $link,
-        $showText,
-        $text,
-        $showIcon,
-        $icon,
-        $linkId = '',
-        $disableAjax = false,
-        $linkTarget = '',
-        array $classes = []
+        string $link,
+        string $text,
+        string $icon,
+        string $linkId = ''
     ): string {
         $retval = '<a href="' . $link . '"';
-        if (! empty($linkId)) {
+        if ($linkId !== '') {
             $retval .= ' id="' . $linkId . '"';
         }
 
-        if (! empty($linkTarget)) {
-            $retval .= ' target="' . $linkTarget . '"';
-        }
-
-        if ($disableAjax) {
-            $classes[] = 'disableAjax';
-        }
-
-        if (! empty($classes)) {
-            $retval .= ' class="' . implode(' ', $classes) . '"';
-        }
-
         $retval .= ' title="' . $text . '">';
-        if ($showIcon) {
-            $retval .= self::getImage($icon, $text);
-        }
-
-        if ($showText) {
-            $retval .= $text;
-        }
-
+        $retval .= self::getImage($icon, $text);
         $retval .= '</a>';
-        if ($showText) {
-            $retval .= '<br>';
-        }
 
         return $retval;
     }
@@ -503,7 +469,7 @@ class Generator
      * @throws SyntaxError
      */
     public static function getMessage(
-        $message,
+        Message|string $message,
         $sqlQuery = null,
         $type = 'notice'
     ): string {
@@ -633,18 +599,6 @@ class Generator
                             $explainParams,
                             __('Skip Explain SQL')
                         ) . ']';
-                    $url = 'https://mariadb.org/explain_analyzer/analyze/'
-                        . '?client=phpMyAdmin&raw_explain='
-                        . urlencode(self::generateRowQueryOutput($sqlQuery));
-                    $explainLink .= ' ['
-                        . self::linkOrButton(
-                            Url::getFromRoute('/url'),
-                            ['url' => $url],
-                            sprintf(__('Analyze Explain at %s'), 'mariadb.org'),
-                            [],
-                            '_blank',
-                            false
-                        ) . '&nbsp;]';
                 }
             }
 
@@ -1054,7 +1008,7 @@ class Generator
         $urlPath,
         $urlParams,
         $message,
-        $tagParams = [],
+        string|array $tagParams = [],
         $target = '',
         bool $respectUrlLengthLimit = true
     ): string {

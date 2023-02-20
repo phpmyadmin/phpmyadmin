@@ -27,16 +27,15 @@ class ThemeManager
     /**
      * ThemeManager instance
      *
-     * @static
      * @var ThemeManager
      */
     private static $instance;
 
     /** @var string file-system path to the theme folder */
-    private $themesPath;
+    private string $themesPath;
 
     /** @var string path to theme folder as an URL */
-    private $themesPathUrl;
+    private string $themesPathUrl;
 
     /** @var array<string,Theme> available themes */
     public $themes = [];
@@ -177,7 +176,7 @@ class ThemeManager
      *
      * @return string|false theme name from cookie or false
      */
-    public function getThemeCookie()
+    public function getThemeCookie(): string|false
     {
         $GLOBALS['config'] = $GLOBALS['config'] ?? null;
 

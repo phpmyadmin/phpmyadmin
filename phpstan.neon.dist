@@ -29,3 +29,11 @@ parameters:
         disallowedConstructs: false
         # Allow dynamic calls to static methods.
         strictCalls: false
+    checkBenevolentUnionTypes: true
+    checkAlwaysTrueCheckTypeFunctionCall: true
+    checkAlwaysTrueStrictComparison: true
+    checkUninitializedProperties: true
+    polluteScopeWithAlwaysIterableForeach: true
+    checkDynamicProperties: true
+    checkTooWideReturnTypesInProtectedAndPublicMethods: true
+    polluteScopeWithLoopInitialAssignments: true

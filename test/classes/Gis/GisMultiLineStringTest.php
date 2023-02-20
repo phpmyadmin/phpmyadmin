@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisMultiLineString;
+use PhpMyAdmin\Gis\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
@@ -43,7 +44,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @return array data for testGenerateWkt
      */
-    public function providerForTestGenerateWkt(): array
+    public static function providerForTestGenerateWkt(): array
     {
         $temp = [
             0 => [
@@ -175,7 +176,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @return array data for testGenerateParams
      */
-    public function providerForTestGenerateParams(): array
+    public static function providerForTestGenerateParams(): array
     {
         $temp = [
             'MULTILINESTRING' => [
@@ -230,17 +231,12 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @return array data for testScaleRow
      */
-    public function providerForTestScaleRow(): array
+    public static function providerForTestScaleRow(): array
     {
         return [
             [
                 'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',
-                [
-                    'minX' => 17,
-                    'maxX' => 178,
-                    'minY' => 10,
-                    'maxY' => 75,
-                ],
+                new ScaleData(178, 17, 75, 10),
             ],
         ];
     }
@@ -299,7 +295,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsPdf() test case
      */
-    public function providerForPrepareRowAsPdf(): array
+    public static function providerForPrepareRowAsPdf(): array
     {
         return [
             [
@@ -307,7 +303,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
                 'pdf',
                 [176, 46, 224],
                 ['x' => 4, 'y' => -90, 'scale' => 1.12, 'height' => 297],
-                $this->createEmptyPdf('MULTILINESTRING'),
+                parent::createEmptyPdf('MULTILINESTRING'),
             ],
         ];
     }
@@ -339,7 +335,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsSvg() test case
      */
-    public function providerForPrepareRowAsSvg(): array
+    public static function providerForPrepareRowAsSvg(): array
     {
         return [
             [
@@ -390,7 +386,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsOl() test case
      */
-    public function providerForPrepareRowAsOl(): array
+    public static function providerForPrepareRowAsOl(): array
     {
         return [
             [

@@ -34,16 +34,12 @@ class Normalization
 {
     /**
      * DatabaseInterface instance
-     *
-     * @var DatabaseInterface
      */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var Transformations */
-    private $transformations;
+    private Transformations $transformations;
 
     /** @var Template */
     public $template;
@@ -113,7 +109,7 @@ class Normalization
                     . htmlspecialchars($column) . ' [ '
                     . htmlspecialchars($def['Type']) . ' ]<br>';
             } else {
-                $selectColHtml .= '<option value="' . htmlspecialchars($column) . ''
+                $selectColHtml .= '<option value="' . htmlspecialchars($column)
                 . '">' . htmlspecialchars($column)
                 . ' [ ' . htmlspecialchars($def['Type']) . ' ]'
                 . '</option>';
@@ -418,7 +414,7 @@ class Normalization
         if (count($primarycols) > 1) {
             $this->dbi->selectDb($db);
             $columns = $this->dbi->getColumnNames($db, $table);
-            if (count($pk) == count($columns)) {
+            if (count($pk) === count($columns)) {
                 $headText = sprintf(
                     __(
                         'No partial dependencies possible as '
@@ -538,7 +534,7 @@ class Normalization
             return [
                 'legendText' => __('End of step'),
                 'headText' => $headText,
-                'queryError' => $error,
+                'queryError' => false,
             ];
         }
 
@@ -695,7 +691,7 @@ class Normalization
             return [
                 'legendText' => __('End of step'),
                 'headText' => $headText,
-                'queryError' => $error,
+                'queryError' => false,
             ];
         }
 

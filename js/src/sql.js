@@ -3,12 +3,12 @@ import { AJAX } from './modules/ajax.js';
 import { Functions } from './modules/functions.js';
 import { Navigation } from './modules/navigation.js';
 import { CommonParams } from './modules/common.js';
-import { Config } from './modules/config.js';
 import highlightSql from './modules/sql-highlight.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from './modules/ajax-message.js';
 import createProfilingChart from './modules/functions/createProfilingChart.js';
 import { escapeHtml } from './modules/functions/escape.js';
 import refreshMainContent from './modules/functions/refreshMainContent.js';
+import isStorageSupported from './modules/functions/isStorageSupported.js';
 
 /**
  * @fileoverview    functions used wherever an sql query form is used
@@ -54,7 +54,7 @@ Sql.urlEncode = function (str) {
 Sql.autoSave = function (query) {
     if (query) {
         var key = Sql.getAutoSavedKey();
-        if (Config.isStorageSupported('localStorage')) {
+        if (isStorageSupported('localStorage')) {
             window.localStorage.setItem(key, query);
         } else {
             window.Cookies.set(key, query, { path: CommonParams.get('rootPath') });
@@ -76,7 +76,7 @@ Sql.showThisQuery = function (db, table, query) {
         'table': table,
         'query': query
     };
-    if (Config.isStorageSupported('localStorage')) {
+    if (isStorageSupported('localStorage')) {
         window.localStorage.showThisQuery = 1;
         window.localStorage.showThisQueryObject = JSON.stringify(showThisQueryObject);
     } else {
@@ -92,7 +92,7 @@ Sql.showThisQuery = function (db, table, query) {
 Sql.setShowThisQuery = function () {
     var db = $('input[name="db"]').val();
     var table = $('input[name="table"]').val();
-    if (Config.isStorageSupported('localStorage')) {
+    if (isStorageSupported('localStorage')) {
         if (window.localStorage.showThisQueryObject !== undefined) {
             var storedDb = JSON.parse(window.localStorage.showThisQueryObject).db;
             var storedTable = JSON.parse(window.localStorage.showThisQueryObject).table;
@@ -122,7 +122,7 @@ Sql.setShowThisQuery = function () {
  */
 Sql.autoSaveWithSort = function (query) {
     if (query) {
-        if (Config.isStorageSupported('localStorage')) {
+        if (isStorageSupported('localStorage')) {
             window.localStorage.setItem('autoSavedSqlSort', query);
         } else {
             window.Cookies.set('autoSavedSqlSort', query, { path: CommonParams.get('rootPath') });
@@ -136,7 +136,7 @@ Sql.autoSaveWithSort = function (query) {
  * @return {void}
  */
 Sql.clearAutoSavedSort = function () {
-    if (Config.isStorageSupported('localStorage')) {
+    if (isStorageSupported('localStorage')) {
         window.localStorage.removeItem('autoSavedSqlSort');
     } else {
         window.Cookies.set('autoSavedSqlSort', '', { path: CommonParams.get('rootPath') });
@@ -309,7 +309,7 @@ const insertQuery = function (queryType) {
             key += '.' + table;
         }
         key = 'autoSavedSql_' + key;
-        if (Config.isStorageSupported('localStorage') &&
+        if (isStorageSupported('localStorage') &&
             typeof window.localStorage.getItem(key) === 'string') {
             setQuery(window.localStorage.getItem(key));
         } else if (window.Cookies.get(key, { path: CommonParams.get('rootPath') })) {
@@ -471,7 +471,7 @@ AJAX.registerOnload('sql.js', function () {
             $('#sqlquery').on('input propertychange', function () {
                 Sql.autoSave($('#sqlquery').val());
             });
-            var useLocalStorageValue = Config.isStorageSupported('localStorage') && typeof window.localStorage.autoSavedSqlSort !== 'undefined';
+            var useLocalStorageValue = isStorageSupported('localStorage') && typeof window.localStorage.autoSavedSqlSort !== 'undefined';
             // Save sql query with sort
             if ($('#RememberSorting') !== undefined && $('#RememberSorting').is(':checked')) {
                 $('select[name="sql_query"]').on('change', function () {
@@ -1219,7 +1219,7 @@ Sql.getAutoSavedKey = function () {
 Sql.checkSavedQuery = function () {
     var key = Sql.getAutoSavedKey();
 
-    if (Config.isStorageSupported('localStorage') &&
+    if (isStorageSupported('localStorage') &&
         typeof window.localStorage.getItem(key) === 'string') {
         ajaxShowMessage(window.Messages.strPreviousSaveQuery);
     } else if (window.Cookies.get(key, { path: CommonParams.get('rootPath') })) {

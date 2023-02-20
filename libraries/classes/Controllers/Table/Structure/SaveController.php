@@ -31,20 +31,15 @@ use function strlen;
 
 final class SaveController extends AbstractController
 {
-    /** @var Table  The table object */
-    private $tableObj;
+    private Table $tableObj;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var Transformations */
-    private $transformations;
+    private Transformations $transformations;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
-    /** @var StructureController */
-    private $structureController;
+    private StructureController $structureController;
 
     public function __construct(
         ResponseRenderer $response,
@@ -124,8 +119,7 @@ final class SaveController extends AbstractController
             }
 
             if (
-                ! isset($_POST['field_adjust_privileges'][$i])
-                || empty($_POST['field_adjust_privileges'][$i])
+                empty($_POST['field_adjust_privileges'][$i])
                 || $_POST['field_orig'][$i] == $_POST['field_name'][$i]
             ) {
                 continue;
@@ -261,7 +255,7 @@ final class SaveController extends AbstractController
 
                 $revert_query = 'ALTER TABLE ' . Util::backquote($GLOBALS['table'])
                     . ' ';
-                $revert_query .= implode(', ', $changes_revert) . '';
+                $revert_query .= implode(', ', $changes_revert);
                 $revert_query .= ';';
 
                 // Column reverted back to original

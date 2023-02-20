@@ -15,11 +15,9 @@ use PhpMyAdmin\Url;
 
 final class SlowLogController extends AbstractController
 {
-    /** @var Monitor */
-    private $monitor;
+    private Monitor $monitor;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,
@@ -47,11 +45,16 @@ final class SlowLogController extends AbstractController
             return;
         }
 
-        $this->response->addJSON([
-            'message' => $this->monitor->getJsonForLogDataTypeSlow(
-                (int) $request->getParsedBodyParam('time_start'),
-                (int) $request->getParsedBodyParam('time_end')
-            ),
-        ]);
+        $data = $this->monitor->getJsonForLogDataTypeSlow(
+            (int) $request->getParsedBodyParam('time_start'),
+            (int) $request->getParsedBodyParam('time_end')
+        );
+        if ($data === null) {
+            $this->response->setRequestStatus(false);
+
+            return;
+        }
+
+        $this->response->addJSON(['message' => $data]);
     }
 }

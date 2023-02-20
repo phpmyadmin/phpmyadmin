@@ -15,7 +15,7 @@ use function mb_substr;
 use function substr;
 
 /**
- * PhpMyAdmin\Mime class;
+ * Handles mime type detection
  */
 class Mime
 {
@@ -26,10 +26,10 @@ class Mime
      *
      * @return string
      */
-    public static function detect(&$test)
+    public static function detect(string $test)
     {
         $len = mb_strlen($test);
-        if ($len >= 2 && $test[0] == chr(0xff) && $test[1] == chr(0xd8)) {
+        if ($len >= 2 && $test[0] === chr(0xff) && $test[1] === chr(0xd8)) {
             return 'image/jpeg';
         }
 

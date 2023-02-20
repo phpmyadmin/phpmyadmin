@@ -43,6 +43,7 @@ class ScriptsTest extends AbstractTestCase
      */
     public function testGetDisplay(): void
     {
+        $this->object->addFile('vendor/codemirror/lib/codemirror.js');
         $this->object->addFile('common.js');
 
         $actual = $this->object->getDisplay();
@@ -51,8 +52,16 @@ class ScriptsTest extends AbstractTestCase
             'src="js/dist/common.js?v=' . rawurlencode(Version::VERSION) . '"',
             $actual
         );
-        $this->assertStringContainsString('.add(\'common.js\', 1)', $actual);
+        $this->assertStringContainsString(
+            'window.AJAX.scriptHandler.add(\'vendor\/codemirror\/lib\/codemirror.js\', false);',
+            $actual
+        );
+        $this->assertStringContainsString('window.AJAX.scriptHandler.add(\'common.js\', true);', $actual);
         $this->assertStringContainsString('window.AJAX.fireOnload(\'common.js\')', $actual);
+        $this->assertStringNotContainsString(
+            'window.AJAX.fireOnload(\'vendor\/codemirror\/lib\/codemirror.js\')',
+            $actual
+        );
     }
 
     /**

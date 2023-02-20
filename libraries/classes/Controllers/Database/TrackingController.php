@@ -10,6 +10,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracker;
@@ -27,11 +28,9 @@ use function sprintf;
  */
 class TrackingController extends AbstractController
 {
-    /** @var Tracking */
-    private $tracking;
+    private Tracking $tracking;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,
@@ -48,12 +47,6 @@ class TrackingController extends AbstractController
     {
         $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-        $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
-        $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
-        $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
-        $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
-        $GLOBALS['tooltip_truename'] = $GLOBALS['tooltip_truename'] ?? null;
-        $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
         $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'database/tracking.js']);
@@ -70,15 +63,8 @@ class TrackingController extends AbstractController
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/table/tracking');
         $GLOBALS['urlParams']['back'] = Url::getFromRoute('/database/tracking');
 
-        [
-            $GLOBALS['tables'],
-            $GLOBALS['num_tables'],
-            $GLOBALS['total_num_tables'],,
-            $isSystemSchema,
-            $GLOBALS['tooltip_truename'],
-            $GLOBALS['tooltip_aliasname'],
-            $GLOBALS['pos'],
-        ] = Util::getDbInfo($request, $GLOBALS['db']);
+        [, $numTables] = Util::getDbInfo($request, $GLOBALS['db']);
+        $isSystemSchema = Utilities::isSystemSchema($GLOBALS['db']);
 
         if ($request->hasBodyParam('delete_tracking') && $request->hasBodyParam('table')) {
             Tracker::deleteTracking($GLOBALS['db'], $request->getParsedBodyParam('table'));
@@ -134,10 +120,10 @@ class TrackingController extends AbstractController
         $trackedData = Tracker::getTrackedData($GLOBALS['db'], '', '1');
 
         // No tables present and no log exist
-        if ($GLOBALS['num_tables'] == 0 && count($trackedData['ddlog']) === 0) {
+        if ($numTables == 0 && count($trackedData['ddlog']) === 0) {
             echo '<p>' , __('No tables found in database.') , '</p>' , "\n";
 
-            if (empty($isSystemSchema)) {
+            if (! $isSystemSchema) {
                 $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
                 $checkUserPrivileges->getPrivileges();
 

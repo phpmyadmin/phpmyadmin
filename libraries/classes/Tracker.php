@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\AlterStatement;
@@ -64,8 +65,6 @@ class Tracker
 
     /**
      * Gets the on/off value of the Tracker module, starts initialization.
-     *
-     * @static
      */
     public static function isActive(): bool
     {
@@ -92,8 +91,6 @@ class Tracker
      * @param string $string part of SQL statement
      *
      * @return string the name of table
-     *
-     * @static
      */
     protected static function getTableName($string)
     {
@@ -108,9 +105,8 @@ class Tracker
         $tableName = $str[0];
 
         $tableName = str_replace([';', '`'], '', $tableName);
-        $tableName = trim($tableName);
 
-        return $tableName;
+        return trim($tableName);
     }
 
     /**
@@ -118,8 +114,6 @@ class Tracker
      *
      * @param string $dbName    name of database
      * @param string $tableName name of table
-     *
-     * @static
      */
     public static function isTracked($dbName, $tableName): bool
     {
@@ -153,7 +147,7 @@ class Tracker
             $GLOBALS['dbi']->escapeString($tableName)
         );
 
-        $result = $GLOBALS['dbi']->fetchValue($sqlQuery, 0, DatabaseInterface::CONNECT_CONTROL) == 1;
+        $result = $GLOBALS['dbi']->fetchValue($sqlQuery, 0, Connection::TYPE_CONTROL) == 1;
 
         self::$trackingCache[$dbName][$tableName] = $result;
 
@@ -182,8 +176,6 @@ class Tracker
      * @param string $version     version
      * @param string $trackingSet set of tracking statements
      * @param bool   $isView      if table is a view
-     *
-     * @static
      */
     public static function createVersion(
         $dbName,
@@ -404,15 +396,13 @@ class Tracker
      * @param string       $version   version
      * @param string       $type      type of data(DDL || DML)
      * @param string|array $newData   the new tracking data
-     *
-     * @static
      */
     public static function changeTrackingData(
         $dbName,
         $tableName,
         $version,
         $type,
-        $newData
+        string|array $newData
     ): bool {
         $relation = new Relation($GLOBALS['dbi']);
 
@@ -490,8 +480,6 @@ class Tracker
      * @param string $statement tracked statement
      *
      * @return int (-1 if no version exists | >  0 if a version exists)
-     *
-     * @static
      */
     public static function getVersion(string $dbname, string $tablename, ?string $statement = null)
     {
@@ -680,7 +668,6 @@ class Tracker
      *
      * @return array containing identifier, type and tablename.
      *
-     * @static
      * @todo: using PMA SQL Parser when possible
      * @todo: support multi-table/view drops
      */
@@ -813,8 +800,6 @@ class Tracker
      * Analyzes a given SQL statement and saves tracking data.
      *
      * @param string $query a SQL query
-     *
-     * @static
      */
     public static function handleQuery($query): void
     {

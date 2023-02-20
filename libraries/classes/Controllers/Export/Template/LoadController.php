@@ -14,11 +14,9 @@ use PhpMyAdmin\Template;
 
 final class LoadController extends AbstractController
 {
-    /** @var TemplateModel */
-    private $model;
+    private TemplateModel $model;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
     public function __construct(
         ResponseRenderer $response,

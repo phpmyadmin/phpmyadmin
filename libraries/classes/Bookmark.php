@@ -9,6 +9,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Features\BookmarkFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\DatabaseName;
 
 use function count;
@@ -55,11 +56,9 @@ class Bookmark
      */
     private $query;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
     public function __construct(DatabaseInterface $dbi, Relation $relation)
     {
@@ -125,7 +124,7 @@ class Bookmark
             . $this->dbi->quoteString($this->query) . ', '
             . $this->dbi->quoteString($this->label) . ')';
 
-        return (bool) $this->dbi->query($query, DatabaseInterface::CONNECT_CONTROL);
+        return (bool) $this->dbi->query($query, Connection::TYPE_CONTROL);
     }
 
     /**
@@ -142,7 +141,7 @@ class Bookmark
             . '.' . Util::backquote($bookmarkFeature->bookmark)
             . ' WHERE id = ' . $this->id;
 
-        return (bool) $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL);
+        return (bool) $this->dbi->tryQuery($query, Connection::TYPE_CONTROL);
     }
 
     /**
@@ -194,11 +193,12 @@ class Bookmark
      *
      * @param array $bkm_fields the properties of the bookmark to add; here, $bkm_fields['bkm_sql_query'] is urlencoded
      * @param bool  $all_users  whether to make the bookmark available for all users
-     *
-     * @return Bookmark|false
      */
-    public static function createBookmark(DatabaseInterface $dbi, array $bkm_fields, bool $all_users = false)
-    {
+    public static function createBookmark(
+        DatabaseInterface $dbi,
+        array $bkm_fields,
+        bool $all_users = false
+    ): Bookmark|false {
         if (
             ! (isset($bkm_fields['bkm_sql_query'], $bkm_fields['bkm_label'])
             && strlen($bkm_fields['bkm_sql_query']) > 0
@@ -244,7 +244,7 @@ class Bookmark
         BookmarkFeature $bookmarkFeature,
         DatabaseInterface $dbi,
         string $user,
-        $db = false
+        string|false $db = false
     ): array {
         $query = 'SELECT * FROM ' . Util::backquote($bookmarkFeature->database)
             . '.' . Util::backquote($bookmarkFeature->bookmark)
@@ -260,7 +260,7 @@ class Bookmark
             $query,
             null,
             null,
-            DatabaseInterface::CONNECT_CONTROL
+            Connection::TYPE_CONTROL
         );
 
         $bookmarks = [];
@@ -289,7 +289,7 @@ class Bookmark
         DatabaseInterface $dbi,
         string $user,
         DatabaseName $db,
-        $id,
+        int|string $id,
         string $id_field = 'id',
         bool $action_bookmark_all = false,
         bool $exact_user_match = false
@@ -315,7 +315,7 @@ class Bookmark
         $query .= ' AND ' . Util::backquote($id_field)
             . ' = ' . $dbi->quoteString((string) $id) . ' LIMIT 1';
 
-        $result = $dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, DatabaseInterface::CONNECT_CONTROL);
+        $result = $dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, Connection::TYPE_CONTROL);
         if ($result !== null) {
             return self::createFromRow($dbi, $result);
         }

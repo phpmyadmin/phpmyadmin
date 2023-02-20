@@ -22,14 +22,10 @@ use function mb_substr;
  */
 class BrowseForeigners
 {
-    /** @var int */
-    private $limitChars;
-    /** @var int */
-    private $maxRows;
-    /** @var int */
-    private $repeatCells;
-    /** @var bool */
-    private $showAll;
+    private int $limitChars;
+    private int $maxRows;
+    private int $repeatCells;
+    private bool $showAll;
 
     /** @var Template */
     public $template;
@@ -296,17 +292,16 @@ class BrowseForeigners
      */
     private function getHtmlForGotoPage(?array $foreignData): string
     {
-        $gotoPage = '';
         isset($_POST['pos']) ? $pos = $_POST['pos'] : $pos = 0;
         if ($foreignData === null || ! is_array($foreignData['disp_row'])) {
-            return $gotoPage;
+            return '';
         }
 
         $pageNow = (int) floor($pos / $this->maxRows) + 1;
         $nbTotalPage = (int) ceil($foreignData['the_total'] / $this->maxRows);
 
         if ($foreignData['the_total'] > $this->maxRows) {
-            $gotoPage = Util::pageselector(
+            return Util::pageselector(
                 'pos',
                 $this->maxRows,
                 $pageNow,
@@ -320,7 +315,7 @@ class BrowseForeigners
             );
         }
 
-        return $gotoPage;
+        return '';
     }
 
     /**
@@ -330,7 +325,7 @@ class BrowseForeigners
      */
     public function getForeignLimit(?string $foreignShowAll): ?string
     {
-        if (isset($foreignShowAll) && $foreignShowAll == __('Show all')) {
+        if ($foreignShowAll === __('Show all')) {
             return null;
         }
 

@@ -31,8 +31,7 @@ use function vsprintf;
  */
 class Advisor
 {
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     /** @var array */
     private $variables;
@@ -46,11 +45,15 @@ class Advisor
      */
     private $rules = [];
 
-    /** @var array */
-    private $runResult;
+    /** @var array{fired:array, notfired:array, unchecked:array, errors:array} */
+    private $runResult = [
+        'fired' => [],
+        'notfired' => [],
+        'unchecked' => [],
+        'errors' => [],
+    ];
 
-    /** @var ExpressionLanguage */
-    private $expression;
+    private ExpressionLanguage $expression;
 
     /**
      * @param DatabaseInterface  $dbi        DatabaseInterface object
@@ -68,93 +71,48 @@ class Advisor
             'round',
             static function (): void {
             },
-            /**
-             * @param array $arguments
-             * @param float $num
-             */
-            static function ($arguments, $num) {
-                return round($num);
-            }
+            static fn (array $arguments, float $num) => round($num)
         );
         $this->expression->register(
             'substr',
             static function (): void {
             },
-            /**
-             * @param array $arguments
-             * @param string $string
-             * @param int $start
-             * @param int $length
-             */
-            static function ($arguments, $string, $start, $length) {
-                return substr($string, $start, $length);
-            }
+            static fn (array $arguments, string $string, int $start, int $length) => substr($string, $start, $length)
         );
         $this->expression->register(
             'preg_match',
             static function (): void {
             },
-            /**
-             * @param array $arguments
-             * @param string $pattern
-             * @param string $subject
-             */
-            static function ($arguments, $pattern, $subject) {
-                return preg_match($pattern, $subject);
-            }
+            static fn (array $arguments, string $pattern, string $subject) => preg_match($pattern, $subject)
         );
         $this->expression->register(
             'ADVISOR_bytime',
             static function (): void {
             },
-            /**
-             * @param array $arguments
-             * @param float $num
-             * @param int $precision
-             */
-            static function ($arguments, $num, $precision) {
-                return self::byTime($num, $precision);
-            }
+            static fn (array $arguments, float $num, int $precision) => self::byTime($num, $precision)
         );
         $this->expression->register(
             'ADVISOR_timespanFormat',
             static function (): void {
             },
-            /**
-             * @param array $arguments
-             * @param string $seconds
-             */
-            static function ($arguments, $seconds) {
-                return Util::timespanFormat((int) $seconds);
-            }
+            static fn (array $arguments, string $seconds) => Util::timespanFormat((int) $seconds)
         );
         $this->expression->register(
             'ADVISOR_formatByteDown',
             static function (): void {
             },
-            /**
-             * @param array $arguments
-             * @param int $value
-             * @param int $limes
-             * @param int $comma
-             */
-            static function ($arguments, $value, $limes = 6, $comma = 0) {
-                return implode(' ', (array) Util::formatByteDown($value, $limes, $comma));
-            }
+            static fn (
+                array $arguments,
+                int $value,
+                int $limes = 6,
+                int $comma = 0
+            ) => implode(' ', (array) Util::formatByteDown($value, $limes, $comma))
         );
         $this->expression->register(
             'fired',
             static function (): void {
             },
-            /**
-             * @param array $arguments
-             * @param int $value
-             */
-            function ($arguments, $value) {
-                if (! isset($this->runResult['fired'])) {
-                    return 0;
-                }
-
+            function (array $arguments, int $value) {
                 // Did matching rule fire?
                 foreach ($this->runResult['fired'] as $rule) {
                     if ($rule['id'] == $value) {
@@ -188,7 +146,7 @@ class Advisor
      * @param string|int $variable Variable to set
      * @param mixed      $value    Value to set
      */
-    public function setVariable($variable, $value): void
+    public function setVariable(string|int $variable, $value): void
     {
         $this->variables[$variable] = $value;
     }
@@ -209,7 +167,7 @@ class Advisor
     }
 
     /**
-     * @return array
+     * @return array{fired: array, notfired: array, unchecked: array, errors: array}
      */
     public function getRunResult(): array
     {
@@ -217,7 +175,7 @@ class Advisor
     }
 
     /**
-     * @return array
+     * @psalm-return array{fired:array, notfired:array, unchecked:array, errors:array}
      */
     public function run(): array
     {
@@ -317,6 +275,7 @@ class Advisor
      *
      * @param string $type type of rule
      * @param array  $rule rule itself
+     * @psalm-param 'notfired'|'fired'|'unchecked'|'errors' $type
      */
     public function addRule(string $type, array $rule): void
     {
@@ -345,25 +304,19 @@ class Advisor
         // linking to /server/variables
         $rule['recommendation'] = preg_replace_callback(
             '/\{([a-z_0-9]+)\}/Ui',
-            function (array $matches) {
-                return $this->replaceVariable($matches);
-            },
+            fn (array $matches) => $this->replaceVariable($matches),
             $rule['recommendation']
         );
         $rule['issue'] = preg_replace_callback(
             '/\{([a-z_0-9]+)\}/Ui',
-            function (array $matches) {
-                return $this->replaceVariable($matches);
-            },
+            fn (array $matches) => $this->replaceVariable($matches),
             $rule['issue']
         );
 
         // Replaces external Links with Core::linkURL() generated links
         $rule['recommendation'] = preg_replace_callback(
             '#href=("|\')(https?://[^"\']+)\1#i',
-            function (array $matches) {
-                return $this->replaceLinkURL($matches);
-            },
+            fn (array $matches) => $this->replaceLinkURL($matches),
             $rule['recommendation']
         );
 

@@ -312,7 +312,7 @@ class Import
      *
      * @return string|bool part of file/buffer
      */
-    public function getNextChunk(?File $importHandle = null, int $size = 32768)
+    public function getNextChunk(?File $importHandle = null, int $size = 32768): string|bool
     {
         $GLOBALS['charset_conversion'] = $GLOBALS['charset_conversion'] ?? null;
         $GLOBALS['charset_of_file'] = $GLOBALS['charset_of_file'] ?? null;
@@ -376,7 +376,7 @@ class Import
          * @todo BOM could be used for charset autodetection
          */
         if ($GLOBALS['offset'] == $size) {
-            $result = $this->skipByteOrderMarksFromContents($result);
+            return $this->skipByteOrderMarksFromContents($result);
         }
 
         return $result;
@@ -398,10 +398,9 @@ class Import
         // UTF-8
         if (str_starts_with($contents, "\xEF\xBB\xBF")) {
             return substr($contents, 3);
-
-            // UTF-16 BE, LE
         }
 
+        // UTF-16 BE, LE
         if (str_starts_with($contents, "\xFE\xFF") || str_starts_with($contents, "\xFF\xFE")) {
             return substr($contents, 2);
         }
@@ -577,11 +576,11 @@ class Import
      * @todo    Handle the error cases more elegantly
      */
     public function detectSize(
-        $lastCumulativeSize,
+        string|int $lastCumulativeSize,
         ?int $lastCumulativeType,
         int $currentCellType,
         string $cell
-    ) {
+    ): string|int {
         $currSize = mb_strlen($cell);
 
         /**
@@ -850,7 +849,7 @@ class Import
      *
      * @todo    Handle the error case more elegantly
      */
-    public function analyzeTable(array $table)
+    public function analyzeTable(array $table): array|bool
     {
         /* Get number of rows in table */
         $numRows = count($table[self::ROWS]);
@@ -1094,7 +1093,7 @@ class Import
             for ($m = 0; $m < $numCols; ++$m) {
                 $tempSQLStr .= Util::backquote($tables[$i][self::COL_NAMES][$m]);
 
-                if ($m == $numCols - 1) {
+                if ($m === $numCols - 1) {
                     continue;
                 }
 
@@ -1132,11 +1131,11 @@ class Import
                             : (string) $tables[$i][self::ROWS][$j][$k];
                     }
 
-                    if ($k != $numCols - 1) {
+                    if ($k !== $numCols - 1) {
                         $tempSQLStr .= ', ';
                     }
 
-                    if ($colCount == $numCols - 1) {
+                    if ($colCount === $numCols - 1) {
                         $colCount = 0;
                     } else {
                         $colCount++;
@@ -1148,7 +1147,7 @@ class Import
 
                 $tempSQLStr .= ')';
 
-                if ($j != $numRows - 1) {
+                if ($j !== $numRows - 1) {
                     $tempSQLStr .= ",\n ";
                 }
 
@@ -1454,10 +1453,8 @@ class Import
 
     /**
      * @param array $importList List of plugin instances.
-     *
-     * @return false|string
      */
-    public static function getLocalFiles(array $importList)
+    public static function getLocalFiles(array $importList): false|string
     {
         $fileListing = new FileListing();
 

@@ -50,14 +50,11 @@ use function trim;
 
 final class ImportController extends AbstractController
 {
-    /** @var Import */
-    private $import;
+    private Import $import;
 
-    /** @var Sql */
-    private $sql;
+    private Sql $sql;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,
@@ -304,10 +301,10 @@ final class ImportController extends AbstractController
         }
 
         $GLOBALS['timestamp'] = time();
-        if ($request->hasBodyParam('allow_interrupt')) {
-            $GLOBALS['maximum_time'] = ini_get('max_execution_time');
-        } else {
-            $GLOBALS['maximum_time'] = 0;
+        $GLOBALS['maximum_time'] = 0;
+        $maxExecutionTime = (int) ini_get('max_execution_time');
+        if ($request->hasBodyParam('allow_interrupt') && $maxExecutionTime >= 1) {
+            $GLOBALS['maximum_time'] = $maxExecutionTime - 1; // Give 1 second for phpMyAdmin to exit nicely
         }
 
         // set default values
@@ -385,10 +382,9 @@ final class ImportController extends AbstractController
                         $this->response->addJSON('action_bookmark', $action_bookmark);
 
                         return;
-                    } else {
-                        $GLOBALS['run_query'] = false;
                     }
 
+                    $GLOBALS['run_query'] = false;
                     break;
                 case 2: // bookmarked query that have to be deleted
                     $bookmark = Bookmark::get(
@@ -412,11 +408,10 @@ final class ImportController extends AbstractController
                         $this->response->addJSON('id_bookmark', $id_bookmark);
 
                         return;
-                    } else {
-                        $GLOBALS['run_query'] = false;
-                        $GLOBALS['error'] = true; // this is kind of hack to skip processing the query
                     }
 
+                    $GLOBALS['run_query'] = false;
+                    $GLOBALS['error'] = true; // this is kind of hack to skip processing the query
                     break;
             }
         }
@@ -524,7 +519,7 @@ final class ImportController extends AbstractController
 
                 return;
             }
-        } elseif (! $GLOBALS['error'] && (! isset($GLOBALS['import_text']) || empty($GLOBALS['import_text']))) {
+        } elseif (! $GLOBALS['error'] && (empty($GLOBALS['import_text']))) {
             $GLOBALS['message'] = Message::error(
                 __(
                     'No data was received to import. Either no file name was ' .

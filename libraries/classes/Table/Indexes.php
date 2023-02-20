@@ -21,14 +21,11 @@ use function __;
 
 final class Indexes
 {
-    /** @var ResponseRenderer */
-    protected $response;
+    protected ResponseRenderer $response;
 
-    /** @var Template */
-    protected $template;
+    protected Template $template;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(ResponseRenderer $response, Template $template, DatabaseInterface $dbi)
     {
@@ -116,10 +113,7 @@ final class Indexes
         }
     }
 
-    /**
-     * @param string|DatabaseName $db
-     */
-    public function executeAddIndexSql($db, string $sql): Message
+    public function executeAddIndexSql(string|DatabaseName $db, string $sql): Message
     {
         $this->dbi->selectDb($db);
         $result = $this->dbi->tryQuery($sql);

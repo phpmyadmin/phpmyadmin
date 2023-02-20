@@ -25,11 +25,9 @@ use function stripos;
 
 class QueryByExampleController extends AbstractController
 {
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,
@@ -48,12 +46,6 @@ class QueryByExampleController extends AbstractController
         $GLOBALS['savedSearch'] = $GLOBALS['savedSearch'] ?? null;
         $GLOBALS['currentSearchId'] = $GLOBALS['currentSearchId'] ?? null;
         $GLOBALS['goto'] = $GLOBALS['goto'] ?? null;
-        $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
-        $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
-        $GLOBALS['total_num_tables'] = $GLOBALS['total_num_tables'] ?? null;
-        $GLOBALS['tooltip_truename'] = $GLOBALS['tooltip_truename'] ?? null;
-        $GLOBALS['tooltip_aliasname'] = $GLOBALS['tooltip_aliasname'] ?? null;
-        $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
         $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
         $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
 
@@ -192,15 +184,6 @@ class QueryByExampleController extends AbstractController
         }
 
         $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/qbe');
-
-        [
-            $GLOBALS['tables'],
-            $GLOBALS['num_tables'],
-            $GLOBALS['total_num_tables'],,,
-            $GLOBALS['tooltip_truename'],
-            $GLOBALS['tooltip_aliasname'],
-            $GLOBALS['pos'],
-        ] = Util::getDbInfo($request, $GLOBALS['db']);
 
         $databaseQbe = new Qbe(
             $this->relation,

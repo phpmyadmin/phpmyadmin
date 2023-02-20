@@ -173,7 +173,7 @@ class TypesTest extends AbstractTestCase
      *
      * @return array data for testGetTypeOperators
      */
-    public function providerForGetTypeOperators(): array
+    public static function providerForGetTypeOperators(): array
     {
         return [
             [
@@ -275,7 +275,7 @@ class TypesTest extends AbstractTestCase
      *
      * @return array test data for getTypeOperatorsHtml
      */
-    public function providerForTestGetTypeOperatorsHtml(): array
+    public static function providerForTestGetTypeOperatorsHtml(): array
     {
         return [
             [
@@ -318,7 +318,7 @@ class TypesTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerForTestGetTypeDescription(): array
+    public static function providerForTestGetTypeDescription(): array
     {
         return [
             ['TINYINT'],
@@ -383,7 +383,7 @@ class TypesTest extends AbstractTestCase
     /**
      * Data provider for testing function lists
      */
-    public function providerFortTestGetFunctionsClass(): array
+    public static function providerFortTestGetFunctionsClass(): array
     {
         return [
             [
@@ -422,6 +422,7 @@ class TypesTest extends AbstractTestCase
                     'UNHEX',
                     'UPPER',
                     'USER',
+                    'UUID',
                     'VERSION',
                 ],
             ],
@@ -518,6 +519,7 @@ class TypesTest extends AbstractTestCase
                     'TIME_TO_SEC',
                     'UNCOMPRESSED_LENGTH',
                     'UNIX_TIMESTAMP',
+                    'UUID_SHORT',
                     'WEEK',
                     'WEEKDAY',
                     'WEEKOFYEAR',
@@ -571,6 +573,7 @@ class TypesTest extends AbstractTestCase
                 'UNHEX',
                 'UPPER',
                 'USER',
+                'UUID',
                 'VERSION',
             ],
             $this->object->getFunctions('enum')
@@ -694,6 +697,8 @@ class TypesTest extends AbstractTestCase
                 'UTC_DATE',
                 'UTC_TIME',
                 'UTC_TIMESTAMP',
+                'UUID',
+                'UUID_SHORT',
                 'VERSION',
                 'WEEK',
                 'WEEKDAY',
@@ -811,7 +816,7 @@ class TypesTest extends AbstractTestCase
      *
      * @return array for testing type detection
      */
-    public function providerFortTestGetTypeClass(): array
+    public static function providerFortTestGetTypeClass(): array
     {
         return [
             [

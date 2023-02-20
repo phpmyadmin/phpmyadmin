@@ -175,7 +175,7 @@ class ImportMediawiki extends ImportPlugin
                             $cur_table_name = $match_table_name[1];
                             $inside_data_comment = true;
 
-                            $inside_structure_comment = $this->mngInsideStructComm($inside_structure_comment);
+                            $inside_structure_comment = false;
                         } elseif (preg_match('/^Table structure for `(.*)`$/', $cur_buffer_line, $match_table_name)) {
                             // The structure comments will be ignored
                             $inside_structure_comment = true;
@@ -261,11 +261,7 @@ class ImportMediawiki extends ImportPlugin
 
                         // Delete the beginning of the column, if there is one
                         $cell = trim($cell);
-                        $col_start_chars = [
-                            '|',
-                            '!',
-                        ];
-                        foreach ($col_start_chars as $col_start_char) {
+                        foreach (['|', '!'] as $col_start_char) {
                             $cell = $this->getCellContent($cell, $col_start_char);
                         }
 
@@ -384,7 +380,7 @@ class ImportMediawiki extends ImportPlugin
      *
      * @global string $db      name of the database to import in
      */
-    private function executeImportTables(array &$tables, array &$analyses, array &$sqlStatements): void
+    private function executeImportTables(array &$tables, array $analyses, array &$sqlStatements): void
     {
         // $db_name : The currently selected database name, if applicable
         //            No backquotes
@@ -560,32 +556,15 @@ class ImportMediawiki extends ImportPlugin
     }
 
     /**
-     * Manage $inside_structure_comment
-     *
-     * @param bool $inside_structure_comment Value to test
-     */
-    private function mngInsideStructComm($inside_structure_comment): bool
-    {
-        // End ignoring structure rows
-        if ($inside_structure_comment) {
-            $inside_structure_comment = false;
-        }
-
-        return $inside_structure_comment;
-    }
-
-    /**
      * Get cell content
      *
      * @param string $cell           Cell
      * @param string $col_start_char Start char
-     *
-     * @return string
      */
-    private function getCellContent($cell, $col_start_char)
+    private function getCellContent(string $cell, string $col_start_char): string
     {
         if (mb_strpos($cell, $col_start_char) === 0) {
-            $cell = trim(mb_substr($cell, 1));
+            return trim(mb_substr($cell, 1));
         }
 
         return $cell;

@@ -48,10 +48,8 @@ class FormDisplay
 {
     /**
      * ConfigFile instance
-     *
-     * @var ConfigFile
      */
-    private $configFile;
+    private ConfigFile $configFile;
 
     /**
      * Form list
@@ -105,8 +103,7 @@ class FormDisplay
      */
     private $userprefsDisallow;
 
-    /** @var FormDisplayTemplate */
-    private $formDisplayTemplate;
+    private FormDisplayTemplate $formDisplayTemplate;
 
     /**
      * @param ConfigFile $cf Config file instance
@@ -290,7 +287,6 @@ class FormDisplay
                     $path,
                     $workPath,
                     $translatedPath,
-                    true,
                     $userPrefsAllow,
                     $jsDefault
                 );
@@ -318,19 +314,18 @@ class FormDisplay
     /**
      * Prepares data for input field display and outputs HTML code
      *
-     * @param Form      $form               Form object
-     * @param string    $field              field name as it appears in $form
-     * @param string    $systemPath         field path, eg. Servers/1/verbose
-     * @param string    $workPath           work path, eg. Servers/4/verbose
-     * @param string    $translatedPath     work path changed so that it can be
-     *                                      used as XHTML id
-     * @param bool      $showRestoreDefault whether show "restore default" button
-     *                                      besides the input field
-     * @param bool|null $userPrefsAllow     whether user preferences are enabled
-     *                                      for this field (null - no support,
-     *                                      true/false - enabled/disabled)
-     * @param array     $jsDefault          array which stores JavaScript code
-     *                                      to be displayed
+     * @param Form      $form           Form object
+     * @param string    $field          field name as it appears in $form
+     * @param string    $systemPath     field path, eg. Servers/1/verbose
+     * @param string    $workPath       work path, eg. Servers/4/verbose
+     * @param string    $translatedPath work path changed so that it can be
+     *                                  used as XHTML id
+     *                                  besides the input field
+     * @param bool|null $userPrefsAllow whether user preferences are enabled
+     *                                  for this field (null - no support,
+     *                                  true/false - enabled/disabled)
+     * @param array     $jsDefault      array which stores JavaScript code
+     *                                  to be displayed
      *
      * @return string|null HTML for input field
      */
@@ -340,7 +335,6 @@ class FormDisplay
         $systemPath,
         $workPath,
         $translatedPath,
-        $showRestoreDefault,
         $userPrefsAllow,
         array &$jsDefault
     ) {
@@ -357,7 +351,7 @@ class FormDisplay
 
         $opts = [
             'doc' => $this->getDocLink($systemPath),
-            'show_restore_default' => $showRestoreDefault,
+            'show_restore_default' => true,
             'userprefs_allow' => $userPrefsAllow,
             'userprefs_comment' => Descriptions::get($systemPath, 'cmt'),
         ];
@@ -479,14 +473,11 @@ class FormDisplay
     /**
      * Displays errors
      *
-     * @return string|null HTML for errors
+     * @return string HTML for errors
      */
-    public function displayErrors()
+    public function displayErrors(): string
     {
         $this->validate();
-        if (count($this->errors) === 0) {
-            return null;
-        }
 
         $htmlOutput = '';
 
@@ -509,7 +500,7 @@ class FormDisplay
     public function fixErrors(): void
     {
         $this->validate();
-        if (count($this->errors) === 0) {
+        if ($this->errors === []) {
             return;
         }
 
@@ -674,7 +665,7 @@ class FormDisplay
         }
 
         // save forms
-        if (! $allowPartialSave && ! empty($this->errors)) {
+        if (! $allowPartialSave && $this->errors !== []) {
             // don't look for non-critical errors
             $this->validate();
 
@@ -724,7 +715,7 @@ class FormDisplay
      */
     public function hasErrors(): bool
     {
-        return count($this->errors) > 0;
+        return $this->errors !== [];
     }
 
     /**

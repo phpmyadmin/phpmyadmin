@@ -427,10 +427,9 @@ final class Import
     /**
      * @param array<int|string, mixed> $import
      *
-     * @return bool|string
      * @psalm-return 'auto'|bool
      */
-    private function setLdiLocalOption(array $import)
+    private function setLdiLocalOption(array $import): bool|string
     {
         if (! isset($import['ldi_local_option']) || $import['ldi_local_option'] === 'auto') {
             return 'auto';

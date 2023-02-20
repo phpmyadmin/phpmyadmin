@@ -22,8 +22,7 @@ use function sprintf;
 
 class CentralColumnsController extends AbstractController
 {
-    /** @var CentralColumns */
-    private $centralColumns;
+    private CentralColumns $centralColumns;
 
     public function __construct(
         ResponseRenderer $response,
@@ -37,7 +36,6 @@ class CentralColumnsController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-        $GLOBALS['pos'] = $GLOBALS['pos'] ?? null;
         $GLOBALS['num_cols'] = $GLOBALS['num_cols'] ?? null;
 
         if ($request->hasBodyParam('edit_save')) {
@@ -133,18 +131,18 @@ class CentralColumnsController extends AbstractController
             'total_rows' => $request->getParsedBodyParam('total_rows'),
         ]);
 
-        $GLOBALS['pos'] = 0;
+        $pos = 0;
         if (is_numeric($request->getParsedBodyParam('pos'))) {
-            $GLOBALS['pos'] = (int) $request->getParsedBodyParam('pos');
+            $pos = (int) $request->getParsedBodyParam('pos');
         }
 
         $GLOBALS['num_cols'] = $this->centralColumns->getColumnsCount(
             $GLOBALS['db'],
-            $GLOBALS['pos'],
+            $pos,
             (int) $GLOBALS['cfg']['MaxRows']
         );
         $GLOBALS['message'] = Message::success(
-            sprintf(__('Showing rows %1$s - %2$s.'), $GLOBALS['pos'] + 1, $GLOBALS['pos'] + $GLOBALS['num_cols'])
+            sprintf(__('Showing rows %1$s - %2$s.'), $pos + 1, $pos + $GLOBALS['num_cols'])
         );
         if (! isset($tmp_msg) || $tmp_msg === true) {
             return;

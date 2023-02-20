@@ -17,11 +17,9 @@ use function count;
 
 final class AddPrefixTableController extends AbstractController
 {
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
-    /** @var StructureController */
-    private $structureController;
+    private StructureController $structureController;
 
     public function __construct(
         ResponseRenderer $response,
@@ -36,13 +34,13 @@ final class AddPrefixTableController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $selected = $_POST['selected'] ?? [];
+        $selected = $request->getParsedBodyParam('selected', []);
 
         $GLOBALS['sql_query'] = '';
         $selectedCount = count($selected);
 
         for ($i = 0; $i < $selectedCount; $i++) {
-            $newTableName = $_POST['add_prefix'] . $selected[$i];
+            $newTableName = $request->getParsedBodyParam('add_prefix', '') . $selected[$i];
             $aQuery = 'ALTER TABLE ' . Util::backquote($selected[$i])
                 . ' RENAME ' . Util::backquote($newTableName);
 

@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php-version: ["7.2"]
+        php-version: ["8.1"]
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -27,7 +27,7 @@ jobs:
           php-version: ${{ matrix.php-version }}
 
       - name: Validate composer.json and composer.lock
-        run: composer validate
+        run: composer validate --strict
 
       - name: Install Composer dependencies
         # Allow the previous check to fail but not abort
@@ -65,7 +65,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php-version: ["7.2"]
+        php-version: ["8.1"]
     steps:
       - name: Checkout code
         uses: actions/checkout@v3

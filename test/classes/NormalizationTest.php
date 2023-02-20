@@ -6,10 +6,12 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Types;
 use stdClass;
@@ -82,13 +84,13 @@ class NormalizationTest extends AbstractTestCase
             [
                 'PMA_db',
                 'PMA_table1',
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 [],
             ],
             [
                 'PMA_db',
                 'PMA_table',
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 [
                     [
                         'Key_name' => 'PRIMARY',
@@ -99,7 +101,7 @@ class NormalizationTest extends AbstractTestCase
             [
                 'PMA_db',
                 'PMA_table2',
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 [
                     [
                         'Key_name' => 'PRIMARY',
@@ -117,7 +119,7 @@ class NormalizationTest extends AbstractTestCase
             ->will($this->returnValueMap($map));
         $dbi->expects($this->any())
             ->method('tryQuery')
-            ->will($this->returnValue(true));
+            ->will($this->returnValue($this->createStub(DummyResult::class)));
         $dbi->expects($this->any())
             ->method('fetchResult')
             ->will($this->returnValue([0]));

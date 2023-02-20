@@ -22,8 +22,7 @@ use function trim;
  */
 class CreateAddField
 {
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     /**
      * @param DatabaseInterface $dbi DatabaseInterface interface
@@ -407,7 +406,7 @@ class CreateAddField
         }
 
         if (! empty($_POST['tbl_collation'])) {
-            $sqlQuery .= Util::getCharsetQueryPart($_POST['tbl_collation'] ?? '');
+            $sqlQuery .= Util::getCharsetQueryPart($_POST['tbl_collation']);
         }
 
         if (

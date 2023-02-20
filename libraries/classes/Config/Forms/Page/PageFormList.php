@@ -7,21 +7,20 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Config\Forms\Page;
 
+use PhpMyAdmin\Config\Forms\BaseForm;
 use PhpMyAdmin\Config\Forms\BaseFormList;
 
 class PageFormList extends BaseFormList
 {
-    /** @var string[] */
+    /** @var array<string, class-string<BaseForm>> */
     protected static $all = [
-        'Browse',
-        'DbStructure',
-        'Edit',
-        'Export',
-        'Import',
-        'Navi',
-        'Sql',
-        'TableStructure',
+        'Browse' => BrowseForm::class,
+        'DbStructure' => DbStructureForm::class,
+        'Edit' => EditForm::class,
+        'Export' => ExportForm::class,
+        'Import' =>  ImportForm::class,
+        'Navi' => NaviForm::class,
+        'Sql' => SqlForm::class,
+        'TableStructure' => TableStructureForm::class,
     ];
-    /** @var string */
-    protected static $ns = 'PhpMyAdmin\\Config\\Forms\\Page\\';
 }

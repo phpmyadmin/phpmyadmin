@@ -1,11 +1,19 @@
 phpMyAdmin - ChangeLog
 ======================
 
-5.3.0 (not yet released)
+6.0.0 (not yet released)
+- issue        Bump minimum PHP version to 8.1.0
 - issue #17842 Change js.cookie.js to js.cookie.min.js
 - issue #17632 Improve tab keypress to text fields on the login form
 
-5.2.1 (not yet released)
+5.2.2 (not yet released)
+- issue #17028 Fix total count of rows in not accurate
+- issue #17683 Fix total count of rows in not accurate
+- issue #17766 Allow to open in a new tab copy and edit row actions
+- issue #17599 Fix error when handling an user that is not in privileges table
+- issue #17364 Fix error when trying to import a status monitor chart arrangement
+
+5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid
 - issue #17506 Fix error when configuring 2FA without XMLWriter or Imagick
 - issue        Fix blank page when some error occurs
@@ -78,6 +86,17 @@ phpMyAdmin - ChangeLog
 - issue #17944 Fix unable to create a view from tree view button
 - issue #17927 Fix key navigation between select inputs (drop an old Firefox workaround)
 - issue #17967 Fix missing icon for collapse all button
+- issue #18006 Fixed UUID columns can't be moved
+- issue        Add `spellcheck="false"` to all password fields and some text fields to avoid spell-jacking data leaks
+- issue        Remove non working "Analyze Explain at MariaDB.org" button (MariaDB stopped this service)
+- issue #17229 Add support for Web Authentication API because Chrome removed support for the U2F API
+- issue #18019 Fix "Call to a member function fetchAssoc() on bool" with SQL mode ONLY_FULL_GROUP_BY on monitor search logs
+- issue        Add back UUID and UUID_SHORT to functions on MySQL and all MariaDB versions
+- issue #17398 Fix clicking on JSON columns triggers update query
+- issue        Fix silent JSON parse error on upload progress
+- issue #17833 Fix "Add Parameter" button not working for Add Routine Screen
+- issue #17365 Fixed "Uncaught Error: regexp too big" on server status variables page
+- issue        [security] Fix an XSS attack through the drag-and-drop upload feature (PMASA-2023-01)
 
 5.2.0 (2022-05-10)
 - issue #16521 Upgrade Bootstrap to version 5

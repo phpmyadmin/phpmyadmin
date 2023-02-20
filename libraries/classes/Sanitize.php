@@ -208,23 +208,23 @@ class Sanitize
         $pattern = '/\[a@([^]"@]*)(@([^]"]*))?\]/';
 
         /* Find and replace all links */
-        $message = (string) preg_replace_callback($pattern, static function (array $match) {
-            return self::replaceBBLink($match);
-        }, $message);
+        $message = (string) preg_replace_callback(
+            $pattern,
+            static fn (array $match) => self::replaceBBLink($match),
+            $message
+        );
 
         /* Replace documentation links */
         $message = (string) preg_replace_callback(
             '/\[doc@([a-zA-Z0-9_-]+)(@([a-zA-Z0-9_-]*))?\]/',
             /** @param string[] $match */
-            static function (array $match): string {
-                return self::replaceDocLink($match);
-            },
+            static fn (array $match): string => self::replaceDocLink($match),
             $message
         );
 
         /* Possibly escape result */
         if ($escape) {
-            $message = htmlspecialchars($message);
+            return htmlspecialchars($message);
         }
 
         return $message;
@@ -254,9 +254,8 @@ class Sanitize
         }
 
         $pattern .= '-]/';
-        $filename = preg_replace($pattern, '_', $filename);
 
-        return $filename;
+        return preg_replace($pattern, '_', $filename);
     }
 
     /**
@@ -278,7 +277,7 @@ class Sanitize
      *
      * @param string[] $allowList list of variables to allow
      */
-    public static function removeRequestVars(&$allowList): void
+    public static function removeRequestVars($allowList): void
     {
         // do not check only $_REQUEST because it could have been overwritten
         // and use type casting because the variables could have become

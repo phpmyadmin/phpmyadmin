@@ -20,23 +20,17 @@ class MessageExtension extends AbstractExtension
         return [
             new TwigFilter(
                 'notice',
-                static function (string $string) {
-                    return Message::notice($string)->getDisplay();
-                },
+                static fn (string $string) => Message::notice($string)->getDisplay(),
                 ['is_safe' => ['html']]
             ),
             new TwigFilter(
                 'error',
-                static function (string $string) {
-                    return Message::error($string)->getDisplay();
-                },
+                static fn (string $string) => Message::error($string)->getDisplay(),
                 ['is_safe' => ['html']]
             ),
             new TwigFilter(
                 'raw_success',
-                static function (string $string) {
-                    return Message::rawSuccess($string)->getDisplay();
-                },
+                static fn (string $string) => Message::rawSuccess($string)->getDisplay(),
                 ['is_safe' => ['html']]
             ),
         ];

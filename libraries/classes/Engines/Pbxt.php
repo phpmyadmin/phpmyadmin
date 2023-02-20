@@ -161,14 +161,11 @@ class Pbxt extends StorageEngine
     /**
      * Get information about pages
      *
-     * @return array Information about pages
+     * @return string[] Information about pages
      */
-    public function getInfoPages()
+    public function getInfoPages(): array
     {
-        $pages = [];
-        $pages['Documentation'] = __('Documentation');
-
-        return $pages;
+        return ['Documentation' => __('Documentation')];
     }
 
     //--------------------
@@ -184,7 +181,7 @@ class Pbxt extends StorageEngine
             __(
                 'Documentation and further information about PBXT can be found on the %sPrimeBase XT Home Page%s.'
             ),
-            '<a href="' . Core::linkURL('https://mariadb.com/kb/en/mariadb/about-pbxt/')
+            '<a href="' . Core::linkURL('https://mariadb.com/kb/en/about-pbxt/')
             . '" rel="noopener noreferrer" target="_blank">',
             '</a>'
         )

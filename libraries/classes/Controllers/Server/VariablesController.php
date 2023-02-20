@@ -26,8 +26,7 @@ use function trim;
  */
 class VariablesController extends AbstractController
 {
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(ResponseRenderer $response, Template $template, DatabaseInterface $dbi)
     {
@@ -50,10 +49,12 @@ class VariablesController extends AbstractController
         $variables = [];
         $serverVarsResult = $this->dbi->tryQuery('SHOW SESSION VARIABLES;');
         if ($serverVarsResult !== false) {
+            /** @var array<string, string> $serverVarsSession */
             $serverVarsSession = $serverVarsResult->fetchAllKeyPair();
 
             unset($serverVarsResult);
 
+            /** @var array<string, string> $serverVars */
             $serverVars = $this->dbi->fetchResult('SHOW GLOBAL VARIABLES;', 0, 1);
 
             // list of static (i.e. non-editable) system variables
@@ -101,7 +102,7 @@ class VariablesController extends AbstractController
      *
      * @return array formatted string and bool if string is HTML formatted
      */
-    private function formatVariable($name, $value): array
+    private function formatVariable($name, int|string $value): array
     {
         $isHtmlFormatted = false;
         $formattedValue = $value;

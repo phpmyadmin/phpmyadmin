@@ -23,8 +23,7 @@ class FormDisplayTemplate
     /** @var int */
     public $group;
 
-    /** @var Config */
-    protected $config;
+    protected Config $config;
 
     /** @var Template */
     public $template;
@@ -140,7 +139,7 @@ class FormDisplayTemplate
      * @param string|array $validators validators callback
      * @param array        $jsArray    will be updated with javascript code
      */
-    public function addJsValidate($fieldId, $validators, array &$jsArray): void
+    public function addJsValidate($fieldId, string|array $validators, array &$jsArray): void
     {
         foreach ((array) $validators as $validator) {
             $validator = (array) $validator;

@@ -98,7 +98,7 @@ class NodeTable extends NodeDatabaseChild
                 } else {
                     $db = Util::backquote($db);
                     $table = Util::backquote($table);
-                    $query = 'SHOW COLUMNS FROM ' . $table . ' FROM ' . $db . '';
+                    $query = 'SHOW COLUMNS FROM ' . $table . ' FROM ' . $db;
                     $retval = (int) $GLOBALS['dbi']->queryAndGetNumRows($query);
                 }
 
@@ -287,27 +287,13 @@ class NodeTable extends NodeDatabaseChild
      */
     private function addIcon(string $page): ?array
     {
-        if (empty($page)) {
-            return null;
-        }
-
-        switch ($page) {
-            case Url::getFromRoute('/table/structure'):
-                return ['image' => 'b_props', 'title' => __('Structure')];
-
-            case Url::getFromRoute('/table/search'):
-                return ['image' => 'b_search', 'title' => __('Search')];
-
-            case Url::getFromRoute('/table/change'):
-                return ['image' => 'b_insrow', 'title' => __('Insert')];
-
-            case Url::getFromRoute('/table/sql'):
-                return ['image' => 'b_sql', 'title' => __('SQL')];
-
-            case Url::getFromRoute('/sql'):
-                return ['image' => 'b_browse', 'title' => __('Browse')];
-        }
-
-        return null;
+        return match ($page) {
+            Url::getFromRoute('/table/structure') => ['image' => 'b_props', 'title' => __('Structure')],
+            Url::getFromRoute('/table/search') => ['image' => 'b_search', 'title' => __('Search')],
+            Url::getFromRoute('/table/change') => ['image' => 'b_insrow', 'title' => __('Insert')],
+            Url::getFromRoute('/table/sql') => ['image' => 'b_sql', 'title' => __('SQL')],
+            Url::getFromRoute('/sql') => ['image' => 'b_browse', 'title' => __('Browse')],
+            default => null,
+        };
     }
 }

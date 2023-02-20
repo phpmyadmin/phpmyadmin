@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Export;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Util;
@@ -13,8 +14,7 @@ use function sprintf;
 
 final class TemplateModel
 {
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(DatabaseInterface $dbi)
     {
@@ -38,7 +38,7 @@ final class TemplateModel
             return '';
         }
 
-        return $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+        return $this->dbi->getError(Connection::TYPE_CONTROL);
     }
 
     public function delete(DatabaseName $db, TableName $table, string $user, int $id): string
@@ -55,13 +55,10 @@ final class TemplateModel
             return '';
         }
 
-        return $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+        return $this->dbi->getError(Connection::TYPE_CONTROL);
     }
 
-    /**
-     * @return Template|string
-     */
-    public function load(DatabaseName $db, TableName $table, string $user, int $id)
+    public function load(DatabaseName $db, TableName $table, string $user, int $id): Template|string
     {
         $query = sprintf(
             'SELECT * FROM %s.%s WHERE `id` = %s AND `username` = \'%s\';',
@@ -72,7 +69,7 @@ final class TemplateModel
         );
         $result = $this->dbi->tryQueryAsControlUser($query);
         if ($result === false) {
-            return $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+            return $this->dbi->getError(Connection::TYPE_CONTROL);
         }
 
         $data = [];
@@ -104,13 +101,13 @@ final class TemplateModel
             return '';
         }
 
-        return $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+        return $this->dbi->getError(Connection::TYPE_CONTROL);
     }
 
     /**
      * @return Template[]|string
      */
-    public function getAll(DatabaseName $db, TableName $table, string $user, string $exportType)
+    public function getAll(DatabaseName $db, TableName $table, string $user, string $exportType): array|string
     {
         $query = sprintf(
             'SELECT * FROM %s.%s WHERE `username` = \'%s\' AND `export_type` = \'%s\' ORDER BY `template_name`;',
@@ -121,7 +118,7 @@ final class TemplateModel
         );
         $result = $this->dbi->tryQueryAsControlUser($query);
         if ($result === false) {
-            return $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+            return $this->dbi->getError(Connection::TYPE_CONTROL);
         }
 
         $templates = [];

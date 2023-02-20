@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Database;
 
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -76,7 +77,7 @@ class RoutinesTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetDataFromRequest(): array
+    public static function providerGetDataFromRequest(): array
     {
         return [
             [
@@ -330,7 +331,7 @@ class RoutinesTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetParameterRow(): array
+    public static function providerGetParameterRow(): array
     {
         $data = [
             'item_name' => '',
@@ -410,7 +411,7 @@ class RoutinesTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetParameterRowAjax(): array
+    public static function providerGetParameterRowAjax(): array
     {
         $data = [
             'item_name' => '',
@@ -483,7 +484,7 @@ class RoutinesTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetEditorForm1(): array
+    public static function providerGetEditorForm1(): array
     {
         $data = [
             'item_name' => '',
@@ -600,7 +601,7 @@ class RoutinesTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetEditorForm2(): array
+    public static function providerGetEditorForm2(): array
     {
         $data = [
             'item_name' => 'foo',
@@ -719,7 +720,7 @@ class RoutinesTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetEditorForm3(): array
+    public static function providerGetEditorForm3(): array
     {
         $data = [
             'item_name' => 'foo',
@@ -762,11 +763,7 @@ class RoutinesTest extends AbstractTestCase
             ],
             [
                 $data,
-                'name="routine_addparameter"',
-            ],
-            [
-                $data,
-                'name="routine_removeparameter"',
+                'id="addRoutineParameterButton"',
             ],
             [
                 $data,
@@ -836,7 +833,7 @@ class RoutinesTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetEditorForm4(): array
+    public static function providerGetEditorForm4(): array
     {
         $data = [
             'item_name' => 'foo',
@@ -894,7 +891,7 @@ class RoutinesTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetExecuteForm1(): array
+    public static function providerGetExecuteForm1(): array
     {
         $data = [
             'item_name' => 'foo',
@@ -1033,7 +1030,7 @@ class RoutinesTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetExecuteForm2(): array
+    public static function providerGetExecuteForm2(): array
     {
         $data = [
             'item_name' => 'foo',
@@ -1153,17 +1150,17 @@ class RoutinesTest extends AbstractTestCase
                     [
                         [
                             'foo',
-                            DatabaseInterface::CONNECT_USER,
+                            Connection::TYPE_USER,
                             'foo',
                         ],
                         [
                             "foo's bar",
-                            DatabaseInterface::CONNECT_USER,
+                            Connection::TYPE_USER,
                             "foo\'s bar",
                         ],
                         [
                             '',
-                            DatabaseInterface::CONNECT_USER,
+                            Connection::TYPE_USER,
                             '',
                         ],
                     ]
@@ -1191,7 +1188,7 @@ class RoutinesTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetQueryFromRequest(): array
+    public static function providerGetQueryFromRequest(): array
     {
         return [
             // Testing success

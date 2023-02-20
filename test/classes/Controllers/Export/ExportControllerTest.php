@@ -73,7 +73,7 @@ class ExportControllerTest extends AbstractTestCase
         );
         // phpcs:disable Generic.Files.LineLength.TooLong
         $this->dummyDbi->addResult(
-            'SELECT TABLE_NAME FROM information_schema.VIEWS WHERE TABLE_SCHEMA = \'test_db\' AND TABLE_NAME = \'test_table\'',
+            'SELECT 1 FROM information_schema.VIEWS WHERE TABLE_SCHEMA = \'test_db\' AND TABLE_NAME = \'test_table\'',
             [],
             ['TABLE_NAME']
         );

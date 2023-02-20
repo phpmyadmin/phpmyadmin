@@ -10,6 +10,7 @@ use PhpMyAdmin\ThemeManager;
 use function filemtime;
 
 use const DIRECTORY_SEPARATOR;
+use const TEST_PATH;
 
 /**
  * @covers \PhpMyAdmin\Theme
@@ -64,7 +65,7 @@ class ThemeTest extends AbstractTestCase
      */
     public function testCheckImgPathIncorrect(): void
     {
-        $this->object->setPath(ROOT_PATH . 'test/classes/_data/incorrect_theme');
+        $this->object->setPath(TEST_PATH . 'test/classes/_data/incorrect_theme');
         $this->assertFalse(
             $this->object->loadInfo(),
             'Theme name is not properly set'
@@ -76,10 +77,10 @@ class ThemeTest extends AbstractTestCase
      */
     public function testCheckImgPathFull(): void
     {
-        $this->object->setFsPath(ROOT_PATH . 'test/classes/_data/gen_version_info/');
+        $this->object->setFsPath(TEST_PATH . 'test/classes/_data/gen_version_info/');
         $this->assertTrue($this->object->loadInfo());
         $this->assertEquals('Test Theme', $this->object->getName());
-        $this->assertEquals('5.3', $this->object->getVersion());
+        $this->assertEquals('6.0', $this->object->getVersion());
     }
 
     /**
@@ -237,7 +238,7 @@ class ThemeTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerForGetImgPath(): array
+    public static function providerForGetImgPath(): array
     {
         return [
             [

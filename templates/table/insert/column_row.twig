@@ -25,7 +25,7 @@
   {% endif %}
 
   <td>
-    {% if column.Null|upper == 'YES' and not read_only %}
+    {% if column.Null|upper == 'YES' %}
       <input type="hidden" name="fields_null_prev[multi_edit][{{ row_id }}][{{ column.Field_md5 }}]"{{ real_null_value and not column.first_timestamp ? ' value="on"' }}>
       <input type="checkbox" class="checkbox_null" name="fields_null[multi_edit][{{ row_id }}][{{ column.Field_md5 }}]" id="field_{{ id_index }}_2" aria-label="{% trans 'Use the NULL value for this column.' %}"{{ real_null_value ? ' checked' }}>
       <input type="hidden" class="nullify_code" name="nullify_code[multi_edit][{{ row_id }}][{{ column.Field_md5 }}]" value="{{ nullify_code }}">

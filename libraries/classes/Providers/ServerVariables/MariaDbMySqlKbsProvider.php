@@ -13,7 +13,7 @@ class MariaDbMySqlKbsProvider implements ServerVariablesProviderInterface
     {
         try {
             return KBSearch::getVariableType($name);
-        } catch (KBException $e) {
+        } catch (KBException) {
             return null;
         }
     }
@@ -27,7 +27,7 @@ class MariaDbMySqlKbsProvider implements ServerVariablesProviderInterface
     {
         try {
             return KBSearch::getByName($name, KBSearch::MARIADB);
-        } catch (KBException $e) {
+        } catch (KBException) {
             return null;
         }
     }
@@ -36,7 +36,7 @@ class MariaDbMySqlKbsProvider implements ServerVariablesProviderInterface
     {
         try {
             return KBSearch::getByName($name, KBSearch::MYSQL);
-        } catch (KBException $e) {
+        } catch (KBException) {
             return null;
         }
     }

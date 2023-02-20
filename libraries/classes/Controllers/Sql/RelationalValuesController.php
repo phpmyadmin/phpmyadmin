@@ -15,11 +15,9 @@ use function strval;
 
 final class RelationalValuesController extends AbstractController
 {
-    /** @var Sql */
-    private $sql;
+    private Sql $sql;
 
-    /** @var CheckUserPrivileges */
-    private $checkUserPrivileges;
+    private CheckUserPrivileges $checkUserPrivileges;
 
     public function __construct(
         ResponseRenderer $response,

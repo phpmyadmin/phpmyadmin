@@ -17,11 +17,9 @@ use function count;
 
 final class CopyTableController extends AbstractController
 {
-    /** @var Operations */
-    private $operations;
+    private Operations $operations;
 
-    /** @var StructureController */
-    private $structureController;
+    private StructureController $structureController;
 
     public function __construct(
         ResponseRenderer $response,
@@ -36,8 +34,8 @@ final class CopyTableController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $selected = $_POST['selected'] ?? [];
-        $targetDb = $_POST['target_db'] ?? null;
+        $selected = $request->getParsedBodyParam('selected', []);
+        $targetDb = $request->getParsedBodyParam('target_db');
         $selectedCount = count($selected);
 
         for ($i = 0; $i < $selectedCount; $i++) {
@@ -46,13 +44,13 @@ final class CopyTableController extends AbstractController
                 $selected[$i],
                 $targetDb,
                 $selected[$i],
-                $_POST['what'],
+                $request->getParsedBodyParam('what'),
                 false,
                 'one_table',
-                isset($_POST['drop_if_exists']) && $_POST['drop_if_exists'] === 'true'
+                $request->getParsedBodyParam('drop_if_exists') === 'true'
             );
 
-            if (empty($_POST['adjust_privileges'])) {
+            if (! $request->hasBodyParam('adjust_privileges')) {
                 continue;
             }
 

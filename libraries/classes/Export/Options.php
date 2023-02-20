@@ -24,11 +24,9 @@ use function urldecode;
 
 final class Options
 {
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var TemplateModel */
-    private $templateModel;
+    private TemplateModel $templateModel;
 
     public function __construct(Relation $relation, TemplateModel $templateModel)
     {
@@ -52,9 +50,9 @@ final class Options
      *
      * @param string $tmpSelect Tmp selected method of export
      *
-     * @return array
+     * @return array<int, array{name: string, is_selected: bool}>
      */
-    public function getDatabasesForSelectOptions($tmpSelect = '')
+    public function getDatabasesForSelectOptions($tmpSelect = ''): array
     {
         /** @var array|string|null $dbSelect */
         $dbSelect = $_POST['db_select'] ?? null;
@@ -110,8 +108,8 @@ final class Options
         $db,
         $table,
         $sqlQuery,
-        $numTables,
-        $unlimNumRows,
+        int|string $numTables,
+        int|string $unlimNumRows,
         array $exportList
     ) {
         $exportTemplatesFeature = $this->relation->getRelationParameters()->exportTemplatesFeature;

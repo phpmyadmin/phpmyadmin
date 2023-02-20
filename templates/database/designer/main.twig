@@ -1,6 +1,6 @@
 {# Invisible characters will make javascript crash #}
 <script type="text/javascript">
-var designerConfig = {{ designer_config|raw }};
+window.designerConfig = {{ designer_config|raw }};
 </script>
 
 {# side menu #}

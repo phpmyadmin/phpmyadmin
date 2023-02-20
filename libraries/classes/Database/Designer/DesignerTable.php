@@ -11,17 +11,13 @@ use PhpMyAdmin\Utils\ForeignKey;
  */
 class DesignerTable
 {
-    /** @var string */
-    private $tableName;
+    private string $tableName;
 
-    /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
-    /** @var string */
-    private $tableEngine;
+    private string $tableEngine;
 
-    /** @var string|null */
-    private $displayField;
+    private ?string $displayField;
 
     /**
      * Create a new DesignerTable

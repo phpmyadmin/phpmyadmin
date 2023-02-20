@@ -28,14 +28,11 @@ use function urlencode;
 
 class SqlController extends AbstractController
 {
-    /** @var Sql */
-    private $sql;
+    private Sql $sql;
 
-    /** @var CheckUserPrivileges */
-    private $checkUserPrivileges;
+    private CheckUserPrivileges $checkUserPrivileges;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,

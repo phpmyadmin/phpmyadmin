@@ -38,8 +38,7 @@ use function time;
 
 final class ExportController extends AbstractController
 {
-    /** @var Export */
-    private $export;
+    private Export $export;
 
     public function __construct(ResponseRenderer $response, Template $template, Export $export)
     {
@@ -66,7 +65,6 @@ final class ExportController extends AbstractController
         $GLOBALS['table_select'] = $GLOBALS['table_select'] ?? null;
         $GLOBALS['time_start'] = $GLOBALS['time_start'] ?? null;
         $GLOBALS['charset'] = $GLOBALS['charset'] ?? null;
-        $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
         $GLOBALS['table_data'] = $GLOBALS['table_data'] ?? null;
 
@@ -488,7 +486,7 @@ final class ExportController extends AbstractController
             if (! $exportPlugin->exportFooter()) {
                 throw new ExportException('Failure during footer export.');
             }
-        } catch (ExportException $e) {
+        } catch (ExportException) {
             // Ignore
         }
 

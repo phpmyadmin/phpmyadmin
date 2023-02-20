@@ -94,7 +94,7 @@ class TableStatsDia extends TableStats
                 '00FF00',
             ];
             shuffle($listOfColors);
-            $this->tableColor = '#' . $listOfColors[0] . '';
+            $this->tableColor = '#' . $listOfColors[0];
         } else {
             $this->tableColor = '#000000';
         }
@@ -104,7 +104,7 @@ class TableStatsDia extends TableStats
         $this->diagram->startElement('dia:object');
         $this->diagram->writeAttribute('type', 'Database - Table');
         $this->diagram->writeAttribute('version', '0');
-        $this->diagram->writeAttribute('id', '' . $this->tableId . '');
+        $this->diagram->writeAttribute('id', '' . $this->tableId);
         $this->diagram->writeRaw(
             '<dia:attribute name="obj_pos">
                 <dia:point val="'

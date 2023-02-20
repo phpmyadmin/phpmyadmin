@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Controllers\Server\VariablesController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
@@ -64,14 +65,14 @@ class VariablesControllerTest extends AbstractTestCase
                 'SHOW SESSION VARIABLES;',
                 0,
                 1,
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 $serverSessionVariables,
             ],
             [
                 'SHOW GLOBAL VARIABLES;',
                 0,
                 1,
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 $serverGlobalVariables,
             ],
         ];

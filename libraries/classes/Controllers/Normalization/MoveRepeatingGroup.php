@@ -12,8 +12,7 @@ use PhpMyAdmin\Template;
 
 final class MoveRepeatingGroup extends AbstractController
 {
-    /** @var Normalization */
-    private $normalization;
+    private Normalization $normalization;
 
     public function __construct(ResponseRenderer $response, Template $template, Normalization $normalization)
     {

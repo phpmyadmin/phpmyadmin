@@ -7,6 +7,8 @@ import highlightSql from './sql-highlight.js';
 import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.js';
 import getJsConfirmCommonParam from './functions/getJsConfirmCommonParam.js';
 import refreshMainContent from './functions/refreshMainContent.js';
+import checkIndexType from './indexes/checkIndexType.js';
+import checkIndexName from './indexes/checkIndexName.js';
 
 /**
  * @fileoverview    function used for index manipulation pages
@@ -18,31 +20,31 @@ const Indexes = {};
 
 /**
  * Array to hold 'Primary' index columns.
- * @type {array}
+ * @type {any[]}
  */
 let primaryColumns = [];
 
 /**
  * Array to hold 'Unique' index columns.
- * @type {array}
+ * @type {any[]}
  */
 let uniqueColumns = [];
 
 /**
  * Array to hold 'Index' columns.
- * @type {array}
+ * @type {any[]}
  */
 let indexColumns = [];
 
 /**
  * Array to hold 'Fulltext' columns.
- * @type {array}
+ * @type {any[]}
  */
 let fulltextColumns = [];
 
 /**
  * Array to hold 'Spatial' columns.
- * @type {array}
+ * @type {any[]}
  */
 let spatialColumns = [];
 
@@ -87,88 +89,6 @@ Indexes.getIndexArray = function (indexChoice) {
         return null;
     }
     return sourceArray;
-};
-
-/**
- * Hides/shows the inputs and submits appropriately depending
- * on whether the index type chosen is 'SPATIAL' or not.
- */
-Indexes.checkIndexType = function () {
-    /**
-     * @var {JQuery<HTMLElement}, Dropdown to select the index choice.
-     */
-    var $selectIndexChoice = $('#select_index_choice');
-    /**
-     * @var {JQuery<HTMLElement}, Dropdown to select the index type.
-     */
-    var $selectIndexType = $('#select_index_type');
-    /**
-     * @var {JQuery<HTMLElement}, Table header for the size column.
-     */
-    var $sizeHeader = $('#index_columns').find('thead tr').children('th').eq(1);
-    /**
-     * @var {JQuery<HTMLElement}, Inputs to specify the columns for the index.
-     */
-    var $columnInputs = $('select[name="index[columns][names][]"]');
-    /**
-     * @var {JQuery<HTMLElement}, Inputs to specify sizes for columns of the index.
-     */
-    var $sizeInputs = $('input[name="index[columns][sub_parts][]"]');
-    /**
-     * @var {JQuery<HTMLElement}, Footer containing the controllers to add more columns
-     */
-    var $addMore = $('#index_frm').find('.add_more');
-
-    if ($selectIndexChoice.val() === 'SPATIAL') {
-        // Disable and hide the size column
-        $sizeHeader.hide();
-        $sizeInputs.each(function () {
-            $(this)
-                .prop('disabled', true)
-                .parent('td').hide();
-        });
-
-        // Disable and hide the columns of the index other than the first one
-        var initial = true;
-        $columnInputs.each(function () {
-            var $columnInput = $(this);
-            if (! initial) {
-                $columnInput
-                    .prop('disabled', true)
-                    .parent('td').hide();
-            } else {
-                initial = false;
-            }
-        });
-
-        // Hide controllers to add more columns
-        $addMore.hide();
-    } else {
-        // Enable and show the size column
-        $sizeHeader.show();
-        $sizeInputs.each(function () {
-            $(this)
-                .prop('disabled', false)
-                .parent('td').show();
-        });
-
-        // Enable and show the columns of the index
-        $columnInputs.each(function () {
-            $(this)
-                .prop('disabled', false)
-                .parent('td').show();
-        });
-
-        // Show controllers to add more columns
-        $addMore.show();
-    }
-
-    if ($selectIndexChoice.val() === 'SPATIAL' ||
-        $selectIndexChoice.val() === 'FULLTEXT') {
-        $selectIndexType.val('').prop('disabled', true);
-    } else {
-        $selectIndexType.prop('disabled', false);
-    }
 };
 
 /**
@@ -452,7 +372,7 @@ Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, c
                 $('#addIndexModal').modal('show');
                 $('#addIndexModalLabel').first().text(window.Messages.strAddIndex);
                 $('#addIndexModal').find('.modal-body').first().html(data.message);
-                Functions.checkIndexName('index_frm');
+                checkIndexName('index_frm');
                 Functions.showHints($div);
                 $('#index_columns').find('td').each(function () {
                     $(this).css('width', $(this).width() + 'px');
@@ -643,8 +563,8 @@ Indexes.on = () => function () {
 
     $(document).on('change', '#select_index_choice', function (event) {
         event.preventDefault();
-        Indexes.checkIndexType();
-        Functions.checkIndexName('index_frm');
+        checkIndexType();
+        checkIndexName('index_frm');
     });
 
     /**

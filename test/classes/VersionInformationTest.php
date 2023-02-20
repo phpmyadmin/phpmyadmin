@@ -88,7 +88,7 @@ class VersionInformationTest extends AbstractTestCase
     /**
      * Data provider for version parsing
      */
-    public function dataVersions(): array
+    public static function dataVersions(): array
     {
         return [
             [
@@ -305,7 +305,7 @@ class VersionInformationTest extends AbstractTestCase
      *
      * @return array[]
      */
-    public function dataProviderVersionConditions(): array
+    public static function dataProviderVersionConditions(): array
     {
         return [
             [

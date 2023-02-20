@@ -7,7 +7,9 @@ namespace PhpMyAdmin\Tests\Database;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Types;
 
 use function array_slice;
@@ -150,7 +152,7 @@ class CentralColumnsTest extends AbstractTestCase
             ->will($this->returnValue(['id', 'col1', 'col2']));
         $dbi->expects($this->any())
             ->method('tryQuery')
-            ->will($this->returnValue(true));
+            ->will($this->returnValue($this->createStub(DummyResult::class)));
         $dbi->expects($this->any())
             ->method('getTables')
             ->will(
@@ -210,7 +212,7 @@ class CentralColumnsTest extends AbstractTestCase
                 'SELECT count(db_name) FROM `pma_central_columns` WHERE db_name = \'phpmyadmin\';',
                 null,
                 null,
-                DatabaseInterface::CONNECT_CONTROL
+                Connection::TYPE_CONTROL
             )
             ->will(
                 $this->returnValue([3])
@@ -275,7 +277,7 @@ class CentralColumnsTest extends AbstractTestCase
                 . "WHERE db_name = 'PMA_db' AND col_name IN ('id','col1','col2');",
                 null,
                 null,
-                DatabaseInterface::CONNECT_CONTROL
+                Connection::TYPE_CONTROL
             )
             ->will(
                 $this->returnValue(['id', 'col1'])
@@ -307,7 +309,7 @@ class CentralColumnsTest extends AbstractTestCase
                 . "WHERE db_name = 'PMA_db' AND col_name IN ('id','col1','col2');",
                 null,
                 null,
-                DatabaseInterface::CONNECT_CONTROL
+                Connection::TYPE_CONTROL
             )
             ->will(
                 $this->returnValue(array_slice($this->columnData, 0, 2))
@@ -413,7 +415,7 @@ class CentralColumnsTest extends AbstractTestCase
                 . "WHERE db_name = 'phpmyadmin' AND col_name IN ('col1','col2');",
                 null,
                 null,
-                DatabaseInterface::CONNECT_CONTROL
+                Connection::TYPE_CONTROL
             )
             ->will(
                 $this->returnValue($this->columnData)
@@ -460,7 +462,7 @@ class CentralColumnsTest extends AbstractTestCase
                 'SELECT * FROM `pma_central_columns` WHERE db_name = \'phpmyadmin\';',
                 null,
                 null,
-                DatabaseInterface::CONNECT_CONTROL
+                Connection::TYPE_CONTROL
             )
             ->will(
                 $this->returnValue($this->columnData)
@@ -487,7 +489,7 @@ class CentralColumnsTest extends AbstractTestCase
                 . "NOT IN ('id','col1','col2');",
                 null,
                 null,
-                DatabaseInterface::CONNECT_CONTROL
+                Connection::TYPE_CONTROL
             )
             ->will(
                 $this->returnValue($this->columnData)
@@ -512,7 +514,7 @@ class CentralColumnsTest extends AbstractTestCase
                 'SELECT * FROM `pma_central_columns` WHERE db_name = \'phpmyadmin\' AND col_name IN (\'col1\');',
                 null,
                 null,
-                DatabaseInterface::CONNECT_CONTROL
+                Connection::TYPE_CONTROL
             )
             ->will(
                 $this->returnValue(array_slice($this->columnData, 1, 1))

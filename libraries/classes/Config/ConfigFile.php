@@ -26,10 +26,8 @@ class ConfigFile
      * Stores default phpMyAdmin config
      *
      * @see Settings
-     *
-     * @var array
      */
-    private $defaultCfg;
+    private array $defaultCfg;
 
     /**
      * Stores allowed values for non-standard fields
@@ -47,10 +45,8 @@ class ConfigFile
 
     /**
      * Whether we are currently working in PMA Setup context
-     *
-     * @var bool
      */
-    private $isInSetup;
+    private bool $isInSetup;
 
     /**
      * Keys which will be always written to config file
@@ -77,10 +73,8 @@ class ConfigFile
     /**
      * Instance id (key in $_SESSION array, separate for each server -
      * ConfigFile{server id})
-     *
-     * @var string
      */
-    private $id;
+    private string $id;
 
     /**
      * @param array|null $baseConfig base configuration read from

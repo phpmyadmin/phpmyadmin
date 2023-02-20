@@ -139,7 +139,7 @@ final class RelationParameters
 
         try {
             $db = DatabaseName::fromValue($params['db'] ?? null);
-        } catch (InvalidDatabaseName $exception) {
+        } catch (InvalidDatabaseName) {
             return new self($user, null);
         }
 
@@ -464,7 +464,7 @@ final class RelationParameters
     {
         try {
             return TableName::fromValue($tableName);
-        } catch (InvalidTableName $exception) {
+        } catch (InvalidTableName) {
             return null;
         }
     }

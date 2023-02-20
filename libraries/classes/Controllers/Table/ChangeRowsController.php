@@ -15,8 +15,7 @@ use function is_array;
 
 final class ChangeRowsController extends AbstractController
 {
-    /** @var ChangeController */
-    private $changeController;
+    private ChangeController $changeController;
 
     public function __construct(
         ResponseRenderer $response,

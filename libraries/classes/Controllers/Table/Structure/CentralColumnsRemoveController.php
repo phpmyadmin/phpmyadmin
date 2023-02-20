@@ -17,11 +17,9 @@ use function is_array;
 
 final class CentralColumnsRemoveController extends AbstractController
 {
-    /** @var CentralColumns */
-    private $centralColumns;
+    private CentralColumns $centralColumns;
 
-    /** @var StructureController */
-    private $structureController;
+    private StructureController $structureController;
 
     public function __construct(
         ResponseRenderer $response,

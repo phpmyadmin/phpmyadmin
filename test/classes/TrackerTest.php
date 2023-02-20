@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Cache;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Util;
@@ -122,7 +123,7 @@ class TrackerTest extends AbstractTestCase
      *
      * @return array Test data
      */
-    public function getTableNameData(): array
+    public static function getTableNameData(): array
     {
         return [
             [
@@ -506,17 +507,17 @@ class TrackerTest extends AbstractTestCase
                     [
                         [
                             "pma'db",
-                            DatabaseInterface::CONNECT_USER,
+                            Connection::TYPE_USER,
                             "pma\'db",
                         ],
                         [
                             "pma'table",
-                            DatabaseInterface::CONNECT_USER,
+                            Connection::TYPE_USER,
                             "pma\'table",
                         ],
                         [
                             '1.0',
-                            DatabaseInterface::CONNECT_USER,
+                            Connection::TYPE_USER,
                             '1.0',
                         ],
                     ]
@@ -534,7 +535,7 @@ class TrackerTest extends AbstractTestCase
      *
      * @return array Test data
      */
-    public function getTrackedDataProvider(): array
+    public static function getTrackedDataProvider(): array
     {
         $fetchArrayReturn = [
             [
@@ -664,7 +665,7 @@ class TrackerTest extends AbstractTestCase
      *
      * @return array Test data
      */
-    public function parseQueryData(): array
+    public static function parseQueryData(): array
     {
         // query
         // type

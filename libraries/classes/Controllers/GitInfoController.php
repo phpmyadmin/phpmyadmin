@@ -15,8 +15,7 @@ use function strtotime;
 
 final class GitInfoController extends AbstractController
 {
-    /** @var Config */
-    private $config;
+    private Config $config;
 
     public function __construct(ResponseRenderer $response, Template $template, Config $config)
     {

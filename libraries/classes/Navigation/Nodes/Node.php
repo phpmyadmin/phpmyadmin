@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Util;
 
@@ -119,8 +119,7 @@ class Node
      */
     public $pos3 = 0;
 
-    /** @var Relation */
-    protected $relation;
+    protected Relation $relation;
 
     /** @var string $displayName  display name for the navigation tree */
     public $displayName;
@@ -257,23 +256,19 @@ class Node
      * @param bool $countEmptyContainers Whether to count empty child
      *                                   containers as valid children
      */
-    public function hasChildren($countEmptyContainers = true): bool
+    public function hasChildren(bool $countEmptyContainers = true): bool
     {
-        $retval = false;
         if ($countEmptyContainers) {
-            if (count($this->children)) {
-                $retval = true;
-            }
-        } else {
-            foreach ($this->children as $child) {
-                if ($child->type == self::OBJECT || $child->hasChildren(false)) {
-                    $retval = true;
-                    break;
-                }
+            return $this->children !== [];
+        }
+
+        foreach ($this->children as $child) {
+            if ($child->type == self::OBJECT || $child->hasChildren(false)) {
+                return true;
             }
         }
 
-        return $retval;
+        return false;
     }
 
     /**
@@ -638,7 +633,7 @@ class Node
                 . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']) . "'"
                 . ' GROUP BY `db_name`';
 
-            return $GLOBALS['dbi']->fetchResult($sqlQuery, 'db_name', 'count', DatabaseInterface::CONNECT_CONTROL);
+            return $GLOBALS['dbi']->fetchResult($sqlQuery, 'db_name', 'count', Connection::TYPE_CONTROL);
         }
 
         return null;

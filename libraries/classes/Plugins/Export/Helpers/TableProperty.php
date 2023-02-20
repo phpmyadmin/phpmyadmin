@@ -269,7 +269,7 @@ class TableProperty
      */
     public function format($text)
     {
-        $text = str_replace(
+        return str_replace(
             [
                 '#ucfirstName#',
                 '#dotNetPrimitiveType#',
@@ -288,7 +288,5 @@ class TableProperty
             ],
             $text
         );
-
-        return $text;
     }
 }

@@ -33,7 +33,7 @@ class AuthenticationPluginFactoryTest extends AbstractTestCase
     /**
      * @return iterable<string, array{non-empty-string, class-string}>
      */
-    public function providerForTestValidPlugins(): iterable
+    public static function providerForTestValidPlugins(): iterable
     {
         yield 'config plugin' => ['config', AuthenticationConfig::class];
         yield 'cookie plugin' => ['Cookie', AuthenticationCookie::class];

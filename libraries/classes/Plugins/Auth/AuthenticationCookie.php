@@ -644,7 +644,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         try {
             $nonce = random_bytes(SODIUM_CRYPTO_SECRETBOX_NONCEBYTES);
             $ciphertext = sodium_crypto_secretbox($data, $nonce, $secret);
-        } catch (Throwable $throwable) {
+        } catch (Throwable) {
             return '';
         }
 
@@ -658,7 +658,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         $ciphertext = mb_substr($encrypted, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES, null, '8bit');
         try {
             $decrypted = sodium_crypto_secretbox_open($ciphertext, $nonce, $secret);
-        } catch (Throwable $throwable) {
+        } catch (Throwable) {
             return null;
         }
 

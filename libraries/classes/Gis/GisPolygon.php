@@ -57,15 +57,15 @@ class GisPolygon extends GisGeometry
      *
      * @param string $spatial spatial data of a row
      *
-     * @return array an array containing the min, max values for x and y coordinates
+     * @return ScaleData|null the min, max values for x and y coordinates
      */
-    public function scaleRow($spatial)
+    public function scaleRow(string $spatial): ?ScaleData
     {
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = mb_substr($spatial, 9, -2);
         $wkt_outer_ring = explode('),(', $polygon)[0];
 
-        return $this->setMinMax($wkt_outer_ring, []);
+        return $this->setMinMax($wkt_outer_ring);
     }
 
     /**
@@ -316,8 +316,6 @@ class GisPolygon extends GisGeometry
      * @param array $ring array of points forming the ring
      *
      * @return float the area of a closed simple polygon
-     *
-     * @static
      */
     public static function area(array $ring)
     {
@@ -350,8 +348,6 @@ class GisPolygon extends GisGeometry
      * If points are in clockwise orientation then, they form an outer ring.
      *
      * @param array $ring array of points forming the ring
-     *
-     * @static
      */
     public static function isOuterRing(array $ring): bool
     {
@@ -365,8 +361,6 @@ class GisPolygon extends GisGeometry
      *
      * @param array $point   x, y coordinates of the point
      * @param array $polygon array of points forming the ring
-     *
-     * @static
      */
     public static function isPointInsidePolygon(array $point, array $polygon): bool
     {
@@ -421,7 +415,7 @@ class GisPolygon extends GisGeometry
      *
      * @return array|false a point on the surface of the ring
      */
-    public static function getPointOnSurface(array $ring)
+    public static function getPointOnSurface(array $ring): array|false
     {
         $x0 = null;
         $x1 = null;

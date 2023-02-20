@@ -309,7 +309,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @return array
      */
-    public function providerTestGotoNowhere(): array
+    public static function providerTestGotoNowhere(): array
     {
         return [
             [
@@ -383,7 +383,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @return array
      */
-    public function providerTestGetRealSize(): array
+    public static function providerTestGetRealSize(): array
     {
         return [
             [
@@ -468,7 +468,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @return array
      */
-    public function providerTestLinkURL(): array
+    public static function providerTestLinkURL(): array
     {
         return [
             [
@@ -586,7 +586,7 @@ class CoreTest extends AbstractNetworkTestCase
      * @return array<int, array<int, bool|string>>
      * @psalm-return list<array{string, bool}>
      */
-    public function provideTestIsAllowedDomain(): array
+    public static function provideTestIsAllowedDomain(): array
     {
         return [
             ['', false],
@@ -637,7 +637,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @return array
      */
-    public function provideTestSafeUnserialize(): array
+    public static function provideTestSafeUnserialize(): array
     {
         return [
             [
@@ -709,7 +709,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @return array
      */
-    public function provideTestSanitizeMySQLHost(): array
+    public static function provideTestSanitizeMySQLHost(): array
     {
         return [
             [
@@ -935,7 +935,7 @@ class CoreTest extends AbstractNetworkTestCase
     /**
      * @return array<int, array<int, array<string, string|mixed[]>>>
      */
-    public function providerForTestPopulateRequestWithEncryptedQueryParamsWithInvalidParam(): array
+    public static function providerForTestPopulateRequestWithEncryptedQueryParamsWithInvalidParam(): array
     {
         return [
             [[], []],
@@ -949,6 +949,7 @@ class CoreTest extends AbstractNetworkTestCase
      * @runInSeparateProcess
      * @preserveGlobalState disabled
      * @requires extension xdebug
+     * @group ext-xdebug
      */
     public function testDownloadHeader(): void
     {
@@ -975,6 +976,7 @@ class CoreTest extends AbstractNetworkTestCase
      * @runInSeparateProcess
      * @preserveGlobalState disabled
      * @requires extension xdebug
+     * @group ext-xdebug
      */
     public function testDownloadHeader2(): void
     {

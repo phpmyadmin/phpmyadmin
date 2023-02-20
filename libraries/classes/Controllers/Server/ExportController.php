@@ -20,11 +20,9 @@ use function array_merge;
 
 final class ExportController extends AbstractController
 {
-    /** @var Options */
-    private $export;
+    private Options $export;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(ResponseRenderer $response, Template $template, Options $export, DatabaseInterface $dbi)
     {
@@ -35,10 +33,8 @@ final class ExportController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['num_tables'] = $GLOBALS['num_tables'] ?? null;
         $GLOBALS['unlim_num_rows'] = $GLOBALS['unlim_num_rows'] ?? null;
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
-
         $GLOBALS['tmp_select'] = $GLOBALS['tmp_select'] ?? null;
         $GLOBALS['select_item'] = $GLOBALS['select_item'] ?? null;
 
@@ -67,7 +63,7 @@ final class ExportController extends AbstractController
             $GLOBALS['unlim_num_rows'] = 0;
         }
 
-        $GLOBALS['single_table'] = $_POST['single_table'] ?? $_GET['single_table'] ?? $GLOBALS['single_table'] ?? null;
+        $GLOBALS['single_table'] = $request->getParam('single_table') ?? $GLOBALS['single_table'] ?? null;
 
         $exportList = Plugins::getExport('server', isset($GLOBALS['single_table']));
 

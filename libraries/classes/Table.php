@@ -9,6 +9,7 @@ use PhpMyAdmin\ConfigStorage\Features\RelationFeature;
 use PhpMyAdmin\ConfigStorage\Features\UiPreferencesFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Database\Triggers;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Plugins\Export\ExportSql;
@@ -94,11 +95,9 @@ class Table implements Stringable
     /** @var string  database name */
     protected $dbName = '';
 
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
     /**
      * @param string            $tableName table name
@@ -208,7 +207,7 @@ class Table implements Stringable
      * @param string[]|string $engine Checks the table engine against an
      *                             array of engine strings or a single string, should be uppercase
      */
-    public function isEngine($engine): bool
+    public function isEngine(array|string $engine): bool
     {
         $engine = (array) $engine;
         $tableStorageEngine = $this->getStorageEngine();
@@ -241,14 +240,12 @@ class Table implements Stringable
         }
 
         // query information_schema
-        $result = $this->dbi->fetchResult(
-            'SELECT TABLE_NAME'
+        return (bool) $this->dbi->fetchValue(
+            'SELECT 1'
             . ' FROM information_schema.VIEWS'
             . ' WHERE TABLE_SCHEMA = ' . $this->dbi->quoteString($this->dbName)
             . ' AND TABLE_NAME = ' . $this->dbi->quoteString($this->name)
         );
-
-        return (bool) $result;
     }
 
     /**
@@ -260,15 +257,13 @@ class Table implements Stringable
             return false;
         }
 
-        $result = $this->dbi->fetchResult(
-            'SELECT TABLE_NAME'
+        return (bool) $this->dbi->fetchValue(
+            'SELECT 1'
             . ' FROM information_schema.VIEWS'
             . ' WHERE TABLE_SCHEMA = ' . $this->dbi->quoteString($this->dbName)
             . ' AND TABLE_NAME = ' . $this->dbi->quoteString($this->name)
             . ' AND IS_UPDATABLE = \'YES\''
         );
-
-        return (bool) $result;
     }
 
     /**
@@ -428,9 +423,9 @@ class Table implements Stringable
     /**
      * Returns the array for CREATE statement for current table.
      *
-     * @return array Return options array info if it is set for the selected table or return blank.
+     * @return array<string, string> Return options array info if it is set for the selected table or return blank.
      */
-    public function getCreateOptions()
+    public function getCreateOptions(): array
     {
         $tableOptions = $this->getStatusInfo('CREATE_OPTIONS', false, true);
         $createOptionsTmp = empty($tableOptions) ? [] : explode(' ', $tableOptions);
@@ -488,7 +483,7 @@ class Table implements Stringable
         string $length = '',
         $attribute = '',
         $collation = '',
-        $null = false,
+        bool|string $null = false,
         $defaultType = 'USER_DEFINED',
         $defaultValue = '',
         $extra = '',
@@ -801,7 +796,7 @@ class Table implements Stringable
         $length,
         $attribute,
         $collation,
-        $null,
+        bool|string $null,
         $defaultType,
         $defaultValue,
         $extra,
@@ -835,14 +830,12 @@ class Table implements Stringable
      * Inserts existing entries in a PMA_* table by reading a value from an old
      * entry
      *
-     * @param string $work        The array index, which Relation feature to check ('relwork', 'commwork', ...)
-     * @param string $table       The array index, which PMA-table to update ('bookmark', 'relation', ...)
-     * @param array  $getFields   Which fields will be SELECT'ed from the old entry
-     * @param array  $whereFields Which fields will be used for the WHERE query (array('FIELDNAME' => 'FIELDVALUE'))
-     * @param array  $newFields   Which fields will be used as new VALUES. These are the important keys which differ
-     *                            from the old entry (array('FIELDNAME' => 'NEW FIELDVALUE'))
-     *
-     * @return int|bool
+     * @param string   $work        The array index, which Relation feature to check ('relwork', 'commwork', ...)
+     * @param string   $table       The array index, which PMA-table to update ('bookmark', 'relation', ...)
+     * @param string[] $getFields   Which fields will be SELECT'ed from the old entry
+     * @param array    $whereFields Which fields will be used for the WHERE query (array('FIELDNAME' => 'FIELDVALUE'))
+     * @param array    $newFields   Which fields will be used as new VALUES. These are the important keys which differ
+     *                              from the old entry (array('FIELDNAME' => 'NEW FIELDVALUE'))
      */
     public static function duplicateInfo(
         $work,
@@ -850,7 +843,7 @@ class Table implements Stringable
         array $getFields,
         array $whereFields,
         array $newFields
-    ) {
+    ): int|bool {
         $relation = new Relation($GLOBALS['dbi']);
         $relationParameters = $relation->getRelationParameters();
         $relationParams = $relationParameters->toArray();
@@ -864,20 +857,20 @@ class Table implements Stringable
         $rowFields = [];
         foreach ($getFields as $getField) {
             $selectParts[] = Util::backquote($getField);
-            $rowFields[$getField] = 'cc';
+            $rowFields[] = $getField;
         }
 
         $whereParts = [];
         foreach ($whereFields as $where => $value) {
             $whereParts[] = Util::backquote($where) . ' = '
-                . $GLOBALS['dbi']->quoteString((string) $value, DatabaseInterface::CONNECT_CONTROL);
+                . $GLOBALS['dbi']->quoteString((string) $value, Connection::TYPE_CONTROL);
         }
 
         $newParts = [];
         $newValueParts = [];
         foreach ($newFields as $where => $value) {
             $newParts[] = Util::backquote($where);
-            $newValueParts[] = $GLOBALS['dbi']->quoteString((string) $value, DatabaseInterface::CONNECT_CONTROL);
+            $newValueParts[] = $GLOBALS['dbi']->quoteString((string) $value, Connection::TYPE_CONTROL);
         }
 
         $tableCopyQuery = '
@@ -893,11 +886,11 @@ class Table implements Stringable
         foreach ($tableCopyRs as $tableCopyRow) {
             $valueParts = [];
             foreach ($tableCopyRow as $key => $val) {
-                if (! isset($rowFields[$key]) || $rowFields[$key] != 'cc') {
+                if (! in_array($key, $rowFields)) {
                     continue;
                 }
 
-                $valueParts[] = $GLOBALS['dbi']->quoteString($val, DatabaseInterface::CONNECT_CONTROL);
+                $valueParts[] = $GLOBALS['dbi']->quoteString($val, Connection::TYPE_CONTROL);
             }
 
             $newTableQuery = 'INSERT IGNORE INTO '
@@ -1286,9 +1279,9 @@ class Table implements Stringable
                 . '.'
                 . Util::backquote($relationParameters->columnCommentsFeature->columnInfo)
                 . ' WHERE '
-                . ' db_name = ' . $GLOBALS['dbi']->quoteString($sourceDb, DatabaseInterface::CONNECT_CONTROL)
+                . ' db_name = ' . $GLOBALS['dbi']->quoteString($sourceDb, Connection::TYPE_CONTROL)
                 . ' AND '
-                . ' table_name = ' . $GLOBALS['dbi']->quoteString($sourceTable, DatabaseInterface::CONNECT_CONTROL)
+                . ' table_name = ' . $GLOBALS['dbi']->quoteString($sourceTable, Connection::TYPE_CONTROL)
             );
 
             // Write every comment as new copied entry. [MIME]
@@ -1300,23 +1293,23 @@ class Table implements Stringable
                     . ($relationParameters->browserTransformationFeature !== null
                         ? ', mimetype, transformation, transformation_options'
                         : '')
-                    . ') VALUES(' . $GLOBALS['dbi']->quoteString($targetDb, DatabaseInterface::CONNECT_CONTROL)
-                    . ',' . $GLOBALS['dbi']->quoteString($targetTable, DatabaseInterface::CONNECT_CONTROL) . ','
-                    . $GLOBALS['dbi']->quoteString($commentsCopyRow['column_name'], DatabaseInterface::CONNECT_CONTROL)
+                    . ') VALUES(' . $GLOBALS['dbi']->quoteString($targetDb, Connection::TYPE_CONTROL)
+                    . ',' . $GLOBALS['dbi']->quoteString($targetTable, Connection::TYPE_CONTROL) . ','
+                    . $GLOBALS['dbi']->quoteString($commentsCopyRow['column_name'], Connection::TYPE_CONTROL)
                     . ','
-                    . $GLOBALS['dbi']->quoteString($commentsCopyRow['comment'], DatabaseInterface::CONNECT_CONTROL)
+                    . $GLOBALS['dbi']->quoteString($commentsCopyRow['comment'], Connection::TYPE_CONTROL)
                     . ($relationParameters->browserTransformationFeature !== null
                         ? ',' . $GLOBALS['dbi']->quoteString(
                             $commentsCopyRow['mimetype'],
-                            DatabaseInterface::CONNECT_CONTROL
+                            Connection::TYPE_CONTROL
                         )
                         . ',' . $GLOBALS['dbi']->quoteString(
                             $commentsCopyRow['transformation'],
-                            DatabaseInterface::CONNECT_CONTROL
+                            Connection::TYPE_CONTROL
                         )
                         . ',' . $GLOBALS['dbi']->quoteString(
                             $commentsCopyRow['transformation_options'],
-                            DatabaseInterface::CONNECT_CONTROL
+                            Connection::TYPE_CONTROL
                         )
                         : '')
                     . ')';
@@ -1523,9 +1516,9 @@ class Table implements Stringable
      * @param bool $backquoted whether to quote name with backticks ``
      * @param bool $fullName   whether to include full name of the table as a prefix
      *
-     * @return array
+     * @return string[]
      */
-    public function getUniqueColumns($backquoted = true, $fullName = true)
+    public function getUniqueColumns($backquoted = true, $fullName = true): array
     {
         $sql = QueryGenerator::getTableIndexesSql(
             $this->getDbName(),
@@ -1581,9 +1574,9 @@ class Table implements Stringable
      * @param bool  $backquoted whether to quote name with backticks ``
      * @param bool  $fullName   whether to include full name of the table as a prefix
      *
-     * @return array
+     * @return string[]
      */
-    private function formatColumns(array $indexed, $backquoted, $fullName)
+    private function formatColumns(array $indexed, $backquoted, $fullName): array
     {
         $return = [];
         foreach ($indexed as $column) {
@@ -1661,9 +1654,9 @@ class Table implements Stringable
      *
      * @param bool $backquoted whether to quote name with backticks ``
      *
-     * @return array
+     * @return string[]
      */
-    public function getNonGeneratedColumns($backquoted = true)
+    public function getNonGeneratedColumns($backquoted = true): array
     {
         $columnsMetaQuery = 'SHOW COLUMNS FROM ' . $this->getFullName(true);
         $ret = [];
@@ -1708,9 +1701,9 @@ class Table implements Stringable
             'SELECT `prefs` FROM %s.%s WHERE `username` = %s AND `db_name` = %s AND `table_name` = %s',
             Util::backquote($uiPreferencesFeature->database),
             Util::backquote($uiPreferencesFeature->tableUiPrefs),
-            $this->dbi->quoteString($GLOBALS['cfg']['Server']['user'], DatabaseInterface::CONNECT_CONTROL),
-            $this->dbi->quoteString($this->dbName, DatabaseInterface::CONNECT_CONTROL),
-            $this->dbi->quoteString($this->name, DatabaseInterface::CONNECT_CONTROL)
+            $this->dbi->quoteString($GLOBALS['cfg']['Server']['user'], Connection::TYPE_CONTROL),
+            $this->dbi->quoteString($this->dbName, Connection::TYPE_CONTROL),
+            $this->dbi->quoteString($this->name, Connection::TYPE_CONTROL)
         );
 
         $value = $this->dbi->queryAsControlUser($sqlQuery)->fetchValue();
@@ -1734,19 +1727,19 @@ class Table implements Stringable
         $username = $GLOBALS['cfg']['Server']['user'];
         $sqlQuery = ' REPLACE INTO ' . $table
             . ' (username, db_name, table_name, prefs) VALUES ('
-            . $this->dbi->quoteString($username, DatabaseInterface::CONNECT_CONTROL) . ', '
-            . $this->dbi->quoteString($this->dbName, DatabaseInterface::CONNECT_CONTROL) . ', '
-            . $this->dbi->quoteString($this->name, DatabaseInterface::CONNECT_CONTROL) . ', '
-            . $this->dbi->quoteString((string) json_encode($this->uiprefs), DatabaseInterface::CONNECT_CONTROL) . ')';
+            . $this->dbi->quoteString($username, Connection::TYPE_CONTROL) . ', '
+            . $this->dbi->quoteString($this->dbName, Connection::TYPE_CONTROL) . ', '
+            . $this->dbi->quoteString($this->name, Connection::TYPE_CONTROL) . ', '
+            . $this->dbi->quoteString((string) json_encode($this->uiprefs), Connection::TYPE_CONTROL) . ')';
 
-        $success = $this->dbi->tryQuery($sqlQuery, DatabaseInterface::CONNECT_CONTROL);
+        $success = $this->dbi->tryQuery($sqlQuery, Connection::TYPE_CONTROL);
 
         if (! $success) {
             $message = Message::error(
                 __('Could not save table UI preferences!')
             );
             $message->addMessage(
-                Message::rawError($this->dbi->getError(DatabaseInterface::CONNECT_CONTROL)),
+                Message::rawError($this->dbi->getError(Connection::TYPE_CONTROL)),
                 '<br><br>'
             );
 
@@ -1761,7 +1754,7 @@ class Table implements Stringable
         if ($rowsCount > $maxRows) {
             $numRowsToDelete = $rowsCount - $maxRows;
             $sqlQuery = ' DELETE FROM ' . $table . ' ORDER BY last_update ASC LIMIT ' . $numRowsToDelete;
-            $success = $this->dbi->tryQuery($sqlQuery, DatabaseInterface::CONNECT_CONTROL);
+            $success = $this->dbi->tryQuery($sqlQuery, Connection::TYPE_CONTROL);
 
             if (! $success) {
                 $message = Message::error(
@@ -1773,7 +1766,7 @@ class Table implements Stringable
                     )
                 );
                 $message->addMessage(
-                    Message::rawError($this->dbi->getError(DatabaseInterface::CONNECT_CONTROL)),
+                    Message::rawError($this->dbi->getError(Connection::TYPE_CONTROL)),
                     '<br><br>'
                 );
 
@@ -1882,10 +1875,8 @@ class Table implements Stringable
      * @param string $property        Property
      * @param mixed  $value           Value for the property
      * @param string $tableCreateTime Needed for PROP_COLUMN_ORDER and PROP_COLUMN_VISIB
-     *
-     * @return bool|Message
      */
-    public function setUiProp($property, $value, $tableCreateTime = null)
+    public function setUiProp($property, $value, $tableCreateTime = null): bool|Message
     {
         if (empty($this->uiprefs)) {
             $this->loadUiPrefs();
@@ -1954,9 +1945,9 @@ class Table implements Stringable
     /**
      * Get all column names which are MySQL reserved words
      *
-     * @return array
+     * @return string[]
      */
-    public function getReservedColumnNames()
+    public function getReservedColumnNames(): array
     {
         $columns = $this->getColumns(false);
         $return = [];
@@ -1976,9 +1967,9 @@ class Table implements Stringable
     /**
      * Function to get the name and type of the columns of a table
      *
-     * @return array
+     * @return array<string, string>
      */
-    public function getNameAndTypeOfTheColumns()
+    public function getNameAndTypeOfTheColumns(): array
     {
         $columns = [];
         foreach (
@@ -2003,10 +1994,8 @@ class Table implements Stringable
      * Get index with index name
      *
      * @param string $index Index name
-     *
-     * @return Index
      */
-    public function getIndex($index)
+    public function getIndex(string $index): Index
     {
         return Index::singleton($this->dbi, $this->dbName, $this->name, $index);
     }
@@ -2098,7 +2087,7 @@ class Table implements Stringable
 
         // specifying index type is allowed only for primary, unique and index only
         // TokuDB is using Fractal Tree, Using Type is not useless
-        // Ref: https://mariadb.com/kb/en/mariadb/storage-engine-index-types/
+        // Ref: https://mariadb.com/kb/en/storage-engine-index-types/
         $type = $index->getType();
         if (
             $index->getChoice() !== 'SPATIAL'
@@ -2145,9 +2134,9 @@ class Table implements Stringable
                 . Util::backquote($displayFeature->database)
                 . '.' . Util::backquote($displayFeature->tableInfo)
                 . '(db_name, table_name, display_field) VALUES('
-                . $this->dbi->quoteString($this->dbName, DatabaseInterface::CONNECT_CONTROL) . ','
-                . $this->dbi->quoteString($this->name, DatabaseInterface::CONNECT_CONTROL) . ','
-                . $this->dbi->quoteString($displayField, DatabaseInterface::CONNECT_CONTROL) . ')';
+                . $this->dbi->quoteString($this->dbName, Connection::TYPE_CONTROL) . ','
+                . $this->dbi->quoteString($this->name, Connection::TYPE_CONTROL) . ','
+                . $this->dbi->quoteString($displayField, Connection::TYPE_CONTROL) . ')';
         }
 
         $this->dbi->queryAsControlUser($updQuery);
@@ -2185,12 +2174,12 @@ class Table implements Stringable
                         . '(master_db, master_table, master_field, foreign_db,'
                         . ' foreign_table, foreign_field)'
                         . ' values('
-                        . $this->dbi->quoteString($this->dbName, DatabaseInterface::CONNECT_CONTROL) . ', '
-                        . $this->dbi->quoteString($this->name, DatabaseInterface::CONNECT_CONTROL) . ', '
-                        . $this->dbi->quoteString($masterField, DatabaseInterface::CONNECT_CONTROL) . ', '
-                        . $this->dbi->quoteString($foreignDb, DatabaseInterface::CONNECT_CONTROL) . ', '
-                        . $this->dbi->quoteString($foreignTable, DatabaseInterface::CONNECT_CONTROL) . ','
-                        . $this->dbi->quoteString($foreignField, DatabaseInterface::CONNECT_CONTROL) . ')';
+                        . $this->dbi->quoteString($this->dbName, Connection::TYPE_CONTROL) . ', '
+                        . $this->dbi->quoteString($this->name, Connection::TYPE_CONTROL) . ', '
+                        . $this->dbi->quoteString($masterField, Connection::TYPE_CONTROL) . ', '
+                        . $this->dbi->quoteString($foreignDb, Connection::TYPE_CONTROL) . ', '
+                        . $this->dbi->quoteString($foreignTable, Connection::TYPE_CONTROL) . ','
+                        . $this->dbi->quoteString($foreignField, Connection::TYPE_CONTROL) . ')';
                 } elseif (
                     $existrel[$masterField]['foreign_db'] != $foreignDb
                     || $existrel[$masterField]['foreign_table'] != $foreignTable
@@ -2200,28 +2189,28 @@ class Table implements Stringable
                         . Util::backquote($relationFeature->database)
                         . '.' . Util::backquote($relationFeature->relation)
                         . ' SET foreign_db       = '
-                        . $this->dbi->quoteString($foreignDb, DatabaseInterface::CONNECT_CONTROL) . ', '
+                        . $this->dbi->quoteString($foreignDb, Connection::TYPE_CONTROL) . ', '
                         . ' foreign_table    = '
-                        . $this->dbi->quoteString($foreignTable, DatabaseInterface::CONNECT_CONTROL) . ', '
+                        . $this->dbi->quoteString($foreignTable, Connection::TYPE_CONTROL) . ', '
                         . ' foreign_field    = '
-                        . $this->dbi->quoteString($foreignField, DatabaseInterface::CONNECT_CONTROL) . ' '
+                        . $this->dbi->quoteString($foreignField, Connection::TYPE_CONTROL) . ' '
                         . ' WHERE master_db  = '
-                        . $this->dbi->quoteString($this->dbName, DatabaseInterface::CONNECT_CONTROL)
+                        . $this->dbi->quoteString($this->dbName, Connection::TYPE_CONTROL)
                         . ' AND master_table = '
-                        . $this->dbi->quoteString($this->name, DatabaseInterface::CONNECT_CONTROL)
+                        . $this->dbi->quoteString($this->name, Connection::TYPE_CONTROL)
                         . ' AND master_field = '
-                        . $this->dbi->quoteString($masterField, DatabaseInterface::CONNECT_CONTROL);
+                        . $this->dbi->quoteString($masterField, Connection::TYPE_CONTROL);
                 }
             } elseif (isset($existrel[$masterField])) {
                 $updQuery = 'DELETE FROM '
                     . Util::backquote($relationFeature->database)
                     . '.' . Util::backquote($relationFeature->relation)
                     . ' WHERE master_db  = '
-                    . $this->dbi->quoteString($this->dbName, DatabaseInterface::CONNECT_CONTROL)
+                    . $this->dbi->quoteString($this->dbName, Connection::TYPE_CONTROL)
                     . ' AND master_table = '
-                    . $this->dbi->quoteString($this->name, DatabaseInterface::CONNECT_CONTROL)
+                    . $this->dbi->quoteString($this->name, Connection::TYPE_CONTROL)
                     . ' AND master_field = '
-                    . $this->dbi->quoteString($masterField, DatabaseInterface::CONNECT_CONTROL);
+                    . $this->dbi->quoteString($masterField, Connection::TYPE_CONTROL);
             }
 
             if (! isset($updQuery)) {
@@ -2491,7 +2480,7 @@ class Table implements Stringable
      * @return array|bool associative array of column name and their expressions
      * or false on failure
      */
-    public function getColumnGenerationExpression($column = null)
+    public function getColumnGenerationExpression($column = null): array|bool
     {
         if (
             Compatibility::isMySqlOrPerconaDb()
@@ -2545,12 +2534,10 @@ class Table implements Stringable
 
     /**
      * Returns the CREATE statement for this table
-     *
-     * @return mixed
      */
-    public function showCreate()
+    public function showCreate(): string
     {
-        return $this->dbi->fetchValue(
+        return (string) $this->dbi->fetchValue(
             'SHOW CREATE TABLE ' . Util::backquote($this->dbName) . '.'
             . Util::backquote($this->name),
             1

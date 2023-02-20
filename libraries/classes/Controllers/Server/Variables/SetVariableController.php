@@ -22,8 +22,7 @@ use function trim;
 
 final class SetVariableController extends AbstractController
 {
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(ResponseRenderer $response, Template $template, DatabaseInterface $dbi)
     {
@@ -104,7 +103,7 @@ final class SetVariableController extends AbstractController
      *
      * @return array formatted string and bool if string is HTML formatted
      */
-    private function formatVariable($name, $value): array
+    private function formatVariable($name, int|string $value): array
     {
         $isHtmlFormatted = false;
         $formattedValue = $value;

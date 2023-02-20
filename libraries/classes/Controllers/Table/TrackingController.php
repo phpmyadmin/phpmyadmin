@@ -31,8 +31,7 @@ use function sprintf;
 
 final class TrackingController extends AbstractController
 {
-    /** @var Tracking */
-    private $tracking;
+    private Tracking $tracking;
 
     public function __construct(
         ResponseRenderer $response,
@@ -296,7 +295,7 @@ final class TrackingController extends AbstractController
             Assert::stringNotEmpty($param);
 
             return new DateTimeImmutable($param);
-        } catch (Throwable $exception) {
+        } catch (Throwable) {
             return new DateTimeImmutable();
         }
     }

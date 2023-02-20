@@ -26,17 +26,21 @@ class UserPasswordTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+        $dbi = $this->createDatabaseInterface();
 
-        $relation = new Relation($GLOBALS['dbi']);
+        $relation = new Relation($dbi);
         $serverPrivileges = new Privileges(
             new Template(),
-            $GLOBALS['dbi'],
+            $dbi,
             $relation,
-            new RelationCleanup($GLOBALS['dbi'], $relation),
-            new Plugins($GLOBALS['dbi'])
+            new RelationCleanup($dbi, $relation),
+            new Plugins($dbi)
         );
-        $this->object = new UserPassword($serverPrivileges, $this->createStub(AuthenticationPluginFactory::class));
+        $this->object = new UserPassword(
+            $serverPrivileges,
+            $this->createStub(AuthenticationPluginFactory::class),
+            $dbi
+        );
     }
 
     /**
@@ -62,7 +66,7 @@ class UserPasswordTest extends AbstractTestCase
     /**
      * @psalm-return array{0: bool, 1: Message, 2: string, 3: string, 4: string}[]
      */
-    public function providerSetChangePasswordMsg(): array
+    public static function providerSetChangePasswordMsg(): array
     {
         return [
             [false, Message::success('The profile has been updated.'), true, '', ''],

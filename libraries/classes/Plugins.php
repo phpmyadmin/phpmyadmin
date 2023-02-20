@@ -133,7 +133,7 @@ class Plugins
     {
         try {
             $files = new FilesystemIterator(ROOT_PATH . 'libraries/classes/Plugins/' . $type);
-        } catch (Throwable $e) {
+        } catch (Throwable) {
             return [];
         }
 
@@ -168,9 +168,10 @@ class Plugins
             }
         }
 
-        usort($plugins, static function (Plugin $plugin1, Plugin $plugin2): int {
-            return strcasecmp($plugin1->getProperties()->getText(), $plugin2->getProperties()->getText());
-        });
+        usort($plugins, static fn (Plugin $plugin1, Plugin $plugin2): int => strcasecmp(
+            $plugin1->getProperties()->getText(),
+            $plugin2->getProperties()->getText()
+        ));
 
         return $plugins;
     }

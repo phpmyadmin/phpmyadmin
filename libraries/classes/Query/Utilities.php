@@ -58,6 +58,8 @@ class Utilities
      * @param string $schema_name        Name of schema (database) to test
      * @param bool   $testForMysqlSchema Whether 'mysql' schema should
      *                                   be treated the same as IS and DD
+     *
+     * @psalm-pure
      */
     public static function isSystemSchema(
         string $schema_name,
@@ -174,8 +176,12 @@ class Utilities
      * @param ResultInterface|false $result       Query result
      * @param int|float             $time         Time to execute query
      */
-    public static function debugLogQueryIntoSession(string $query, ?string $errorMessage, $result, $time): void
-    {
+    public static function debugLogQueryIntoSession(
+        string $query,
+        ?string $errorMessage,
+        ResultInterface|false $result,
+        int|float $time
+    ): void {
         $dbgInfo = [];
 
         if ($result === false && $errorMessage !== null) {

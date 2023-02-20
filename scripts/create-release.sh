@@ -20,7 +20,7 @@ set -e
 KITS="all-languages english source"
 COMPRESSIONS="zip-7z txz tgz"
 # The version series this script is allowed to handle
-VERSION_SERIES="5.3"
+VERSION_SERIES="6.0"
 
 # Process parameters
 
@@ -58,7 +58,6 @@ while [ $# -gt 0 ] ; do
                 git branch ci
                 branch="ci"
             fi
-            version="${VERSION_SERIES}+ci"
             ;;
         --help)
             echo "Usages:"
@@ -96,10 +95,17 @@ while [ $# -gt 0 ] ; do
     shift
 done
 
-if [ -z "$version" -o -z "$branch" ] ; then
-    echo "Branch and version have to be specified!"
+if [ -z "$branch" ]; then
+    echo "Branch must be specified!"
     exit 1
 fi
+
+if [ -z "$version" -a $do_ci -eq 0 ]; then
+    echo "Version must be specified!"
+    exit 1
+fi
+
+kit_prefix="phpMyAdmin-$version"
 
 # Checks whether remote branch has local tracking branch
 ensure_local_branch() {
@@ -222,7 +228,19 @@ cleanup_composer_vendors() {
         vendor/phpmyadmin/shapefile/CONTRIBUTING.md \
         vendor/phpmyadmin/shapefile/CODE_OF_CONDUCT.md \
         vendor/phpmyadmin/sql-parser/CODE_OF_CONDUCT.md \
-        vendor/phpmyadmin/sql-parser/CONTRIBUTING.md
+        vendor/phpmyadmin/sql-parser/CONTRIBUTING.md \
+        vendor/beberlei/assert/.github/ \
+        vendor/brick/math/SECURITY.md \
+        vendor/brick/math/psalm-baseline.xml \
+        vendor/brick/math/psalm.xml \
+        vendor/ramsey/collection/SECURITY.md \
+        vendor/spomky-labs/base64url/.github/ \
+        vendor/spomky-labs/cbor-php/.php_cs.dist \
+        vendor/spomky-labs/cbor-php/CODE_OF_CONDUCT.md \
+        vendor/spomky-labs/cbor-php/infection.json.dist \
+        vendor/spomky-labs/cbor-php/phpstan.neon \
+        vendor/thecodingmachine/safe/generated/Exceptions/.gitkeep \
+        vendor/thecodingmachine/safe/rector-migrate-0.7.php
     find vendor/tecnickcom/tcpdf/fonts/ -maxdepth 1 -type f \
         -not -name 'dejavusans.*' \
         -not -name 'dejavusansb.*' \
@@ -268,6 +286,10 @@ delete_phpunit_sandbox() {
 security_checkup() {
     if [ ! -f vendor/tecnickcom/tcpdf/tcpdf.php ]; then
         echo 'TCPDF should be installed, detection failed !'
+        exit 1;
+    fi
+    if [ ! -f vendor/web-auth/webauthn-lib/src/Server.php ]; then
+        echo 'Webauthn-lib should be installed, detection failed !'
         exit 1;
     fi
     if [ ! -f vendor/code-lts/u2f-php-server/src/U2FServer.php ]; then
@@ -323,14 +345,21 @@ VERSION_FILE=libraries/classes/Version.php
 
 # Keep in sync with update-po script
 fetchReleaseFromFile() {
-    php -r "define('VERSION_SUFFIX', ''); require_once('libraries/classes/Version.php'); echo \PhpMyAdmin\Version::VERSION;"
+    SUFFIX="${1:-}"
+    php -r "define('VERSION_SUFFIX', '$SUFFIX'); require_once('$VERSION_FILE'); echo \PhpMyAdmin\Version::VERSION;"
 }
 
 fetchVersionSeriesFromFile() {
-    php -r "define('VERSION_SUFFIX', ''); require_once('libraries/classes/Version.php'); echo \PhpMyAdmin\Version::SERIES;"
+    php -r "define('VERSION_SUFFIX', ''); require_once('$VERSION_FILE'); echo \PhpMyAdmin\Version::SERIES;"
 }
 
+VERSION_FROM_FILE="$(fetchReleaseFromFile)"
 VERSION_SERIES_FROM_FILE="$(fetchVersionSeriesFromFile)"
+
+if [ $do_ci -eq 1 ]; then
+    VERSION_FROM_FILE="$(fetchReleaseFromFile '+ci')"
+    version="${VERSION_FROM_FILE}"
+fi
 
 if [ "${VERSION_SERIES_FROM_FILE}" != "${VERSION_SERIES}" ]; then
     echo "This script can not handle ${VERSION_SERIES_FROM_FILE} version series."
@@ -339,9 +368,10 @@ if [ "${VERSION_SERIES_FROM_FILE}" != "${VERSION_SERIES}" ]; then
     exit 1;
 fi
 
-echo "The actual configured release is: $(fetchReleaseFromFile)"
+echo "The actual configured release is: $VERSION_FROM_FILE"
+echo "The actual configured release series is: $VERSION_SERIES_FROM_FILE"
 
-if [ $do_ci -eq 0 -a -$do_daily -eq 0 ] ; then
+if [ $do_ci -eq 0 -a $do_daily -eq 0 ] ; then
     cat <<END
 
 Please ensure you have incremented rc count or version in the repository :
@@ -362,16 +392,16 @@ END
     if [ "$do_release" != 'y' ]; then
         exit 100
     fi
+    echo "The actual configured release is now: $(fetchReleaseFromFile)"
 fi
-
-echo "The actual configured release is now: $(fetchReleaseFromFile)"
 
 # Create working copy
 mkdir -p release
 git worktree prune
-workdir=release/phpMyAdmin-$version
+workdir_name=phpMyAdmin-$version
+workdir=release/$workdir_name
 if [ -d $workdir ] ; then
-    echo "Working directory '$workdir' already exists, please move it out of way"
+    echo "Working directory '$workdir' already exists, please move it out of the way"
     exit 1
 fi
 
@@ -391,6 +421,11 @@ if [ $do_daily -eq 1 ] ; then
     echo '* setting the version suffix for the snapshot'
     sed -i "s/'versionSuffix' => '.*'/'versionSuffix' => '+$today_date.$git_head_short'/" libraries/vendor_config.php
     php -l libraries/vendor_config.php
+
+    # Fetch it back and refresh $version
+    VERSION_FROM_FILE="$(fetchReleaseFromFile "+$today_date.$git_head_short")"
+    version="${VERSION_FROM_FILE}"
+    echo "The actual configured release is: $VERSION_FROM_FILE"
 fi
 
 # Check release version
@@ -414,9 +449,10 @@ if [ $do_ci -eq 0 -a -$do_daily -eq 0 ] ; then
 fi
 
 # Cleanup release dir
-LC_ALL=C date -u > RELEASE-DATE-${version}
+LC_ALL=C date -u > RELEASE-DATE-$version
 
 # Building documentation
+echo "* Running sphinx-build (version: $(sphinx-build --version))"
 echo "* Generating documentation"
 LC_ALL=C make -C doc html
 find doc -name '*.pyc' -print0 | xargs -0 -r rm -f
@@ -457,7 +493,7 @@ if [ -f ./scripts/console ]; then
     ./scripts/console cache:warmup --routing
 fi
 
-PHP_REQ=$(sed -n '/"php"/ s/.*"\^\([0-9]\.[0-9]\.[0-9]\).*/\1/p' composer.json)
+PHP_REQ=$(sed -n '/"php"/ s/.*"\^\([0-9]\.[0-9]\.[0-9]\|[0-9]\.[0-9]\).*/\1/p' composer.json)
 
 if [ -z "$PHP_REQ" ] ; then
     echo "Failed to figure out required PHP version from composer.json"
@@ -478,7 +514,7 @@ composer update --no-interaction --no-dev
 
 # Parse the required versions from composer.json
 PACKAGES_VERSIONS=''
-PACKAGE_LIST='tecnickcom/tcpdf pragmarx/google2fa-qrcode bacon/bacon-qr-code code-lts/u2f-php-server'
+PACKAGE_LIST='tecnickcom/tcpdf pragmarx/google2fa-qrcode bacon/bacon-qr-code code-lts/u2f-php-server web-auth/webauthn-lib'
 
 for PACKAGES in $PACKAGE_LIST
 do
@@ -563,11 +599,11 @@ cd ..
 for kit in $KITS ; do
     echo "* Building kit: $kit"
     # Copy all files
-    name=phpMyAdmin-$version-$kit
-    cp -r phpMyAdmin-$version $name
+    name=$kit_prefix-$kit
+    cp -r $workdir_name $name
 
     # Cleanup translations
-    cd phpMyAdmin-$version-$kit
+    cd $name
     ./scripts/lang-cleanup.sh $kit
 
     # Remove tests, source code,...
@@ -639,12 +675,12 @@ for kit in $KITS ; do
 done
 
 # Cleanup
-rm -r phpMyAdmin-${version}
+rm -r $workdir_name
 git worktree prune
 
 # Signing of files with default GPG key
 echo "* Signing files"
-for file in phpMyAdmin-$version-*.gz phpMyAdmin-$version-*.zip phpMyAdmin-$version-*.xz ; do
+for file in $kit_prefix-*.gz $kit_prefix-*.zip $kit_prefix-*.xz ; do
     if [ $do_sign -eq 1 ] ; then
         gpg --detach-sign --armor $file
     fi
@@ -653,7 +689,7 @@ for file in phpMyAdmin-$version-*.gz phpMyAdmin-$version-*.zip phpMyAdmin-$versi
 done
 
 if [ $do_daily -eq 1 ] ; then
-    cat > phpMyAdmin-${version}.json << EOT
+    cat > $kit_prefix.json << EOT
 {
     "date": "`date --iso-8601=seconds`",
     "commit": "$git_head"

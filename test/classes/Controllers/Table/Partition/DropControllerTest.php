@@ -38,7 +38,7 @@ class DropControllerTest extends AbstractTestCase
     /**
      * @return array<int, array{string|null, string|null, string|null, non-empty-string}>
      */
-    public function providerForTestInvalidDatabaseAndTable(): iterable
+    public static function providerForTestInvalidDatabaseAndTable(): iterable
     {
         return [
             [null, null, null, 'The partition name must be a non-empty string.'],

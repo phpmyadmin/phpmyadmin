@@ -7,6 +7,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\DatabaseName;
 
 use function __;
@@ -30,15 +31,17 @@ use function urlencode;
  */
 class UserPreferences
 {
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
     /** @var Template */
     public $template;
 
-    public function __construct()
+    private DatabaseInterface $dbi;
+
+    public function __construct(DatabaseInterface $dbi)
     {
-        $this->relation = new Relation($GLOBALS['dbi']);
+        $this->dbi = $dbi;
+        $this->relation = new Relation($this->dbi);
         $this->template = new Template();
     }
 
@@ -69,7 +72,7 @@ class UserPreferences
      * * mtime - last modification time
      * * type - 'db' (config read from pmadb) or 'session' (read from user session)
      *
-     * @psalm-return array{config_data: array, mtime: int, type: 'session'|'db'}
+     * @psalm-return array{config_data: mixed[], mtime: int, type: 'session'|'db'}
      */
     public function load(): array
     {
@@ -95,13 +98,12 @@ class UserPreferences
             . Util::backquote($relationParameters->userPreferencesFeature->userConfig);
         $query = 'SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts'
             . ' FROM ' . $query_table
-            . ' WHERE `username` = \''
-            . $GLOBALS['dbi']->escapeString((string) $relationParameters->user)
-            . '\'';
-        $row = $GLOBALS['dbi']->fetchSingleRow(
+            . ' WHERE `username` = '
+            . $this->dbi->quoteString((string) $relationParameters->user);
+        $row = $this->dbi->fetchSingleRow(
             $query,
             DatabaseInterface::FETCH_ASSOC,
-            DatabaseInterface::CONNECT_CONTROL
+            Connection::TYPE_CONTROL
         );
         if (! is_array($row) || ! isset($row['config_data']) || ! isset($row['ts'])) {
             return ['config_data' => [], 'mtime' => time(), 'type' => 'db'];
@@ -149,36 +151,33 @@ class UserPreferences
         $query_table = Util::backquote($relationParameters->userPreferencesFeature->database) . '.'
             . Util::backquote($relationParameters->userPreferencesFeature->userConfig);
         $query = 'SELECT `username` FROM ' . $query_table
-            . ' WHERE `username` = \''
-            . $GLOBALS['dbi']->escapeString($relationParameters->user)
-            . '\'';
+            . ' WHERE `username` = '
+            . $this->dbi->quoteString($relationParameters->user);
 
-        $has_config = $GLOBALS['dbi']->fetchValue($query, 0, DatabaseInterface::CONNECT_CONTROL);
+        $has_config = $this->dbi->fetchValue($query, 0, Connection::TYPE_CONTROL);
         $config_data = json_encode($config_array);
         if ($has_config) {
             $query = 'UPDATE ' . $query_table
-                . ' SET `timevalue` = NOW(), `config_data` = \''
-                . $GLOBALS['dbi']->escapeString($config_data)
-                . '\''
-                . ' WHERE `username` = \''
-                . $GLOBALS['dbi']->escapeString($relationParameters->user)
-                . '\'';
+                . ' SET `timevalue` = NOW(), `config_data` = '
+                . $this->dbi->quoteString($config_data)
+                . ' WHERE `username` = '
+                . $this->dbi->quoteString($relationParameters->user);
         } else {
             $query = 'INSERT INTO ' . $query_table
                 . ' (`username`, `timevalue`,`config_data`) '
-                . 'VALUES (\''
-                . $GLOBALS['dbi']->escapeString($relationParameters->user) . '\', NOW(), '
-                . '\'' . $GLOBALS['dbi']->escapeString($config_data) . '\')';
+                . 'VALUES ('
+                . $this->dbi->quoteString($relationParameters->user) . ', NOW(), '
+                . $this->dbi->quoteString($config_data) . ')';
         }
 
         if (isset($_SESSION['cache'][$cache_key]['userprefs'])) {
             unset($_SESSION['cache'][$cache_key]['userprefs']);
         }
 
-        if (! $GLOBALS['dbi']->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
+        if (! $this->dbi->tryQuery($query, Connection::TYPE_CONTROL)) {
             $message = Message::error(__('Could not save configuration'));
             $message->addMessage(
-                Message::error($GLOBALS['dbi']->getError(DatabaseInterface::CONNECT_CONTROL)),
+                Message::error($this->dbi->getError(Connection::TYPE_CONTROL)),
                 '<br><br>'
             );
             if (! $this->hasAccessToDatabase($relationParameters->db)) {
@@ -203,15 +202,15 @@ class UserPreferences
     private function hasAccessToDatabase(DatabaseName $database): bool
     {
         $query = 'SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '
-            . $GLOBALS['dbi']->quoteString($database->getName());
+            . $this->dbi->quoteString($database->getName());
         if ($GLOBALS['cfg']['Server']['DisableIS']) {
             $query = 'SHOW DATABASES LIKE '
-                . $GLOBALS['dbi']->quoteString(
-                    $GLOBALS['dbi']->escapeMysqlWildcards($database->getName())
+                . $this->dbi->quoteString(
+                    $this->dbi->escapeMysqlWildcards($database->getName())
                 );
         }
 
-        return (bool) $GLOBALS['dbi']->fetchSingleRow($query, 'ASSOC', DatabaseInterface::CONNECT_CONTROL);
+        return (bool) $this->dbi->fetchSingleRow($query, 'ASSOC', Connection::TYPE_CONTROL);
     }
 
     /**

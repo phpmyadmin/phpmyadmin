@@ -27,24 +27,17 @@ use const PHP_SAPI;
  */
 class ResponseRenderer
 {
-    /**
-     * @static
-     * @var ResponseRenderer|null
-     */
+    /** @var ResponseRenderer|null */
     private static $instance = null;
 
     /**
      * Header instance
-     *
-     * @var Header
      */
-    protected $header;
+    protected Header $header;
     /**
      * HTML data to be used in the response
-     *
-     * @var string
      */
-    private $HTML;
+    private string $HTML;
     /**
      * An array of JSON key-value pairs
      * to be sent back for ajax requests
@@ -54,10 +47,8 @@ class ResponseRenderer
     private $JSON;
     /**
      * PhpMyAdmin\Footer instance
-     *
-     * @var Footer
      */
-    protected $footer;
+    protected Footer $footer;
     /**
      * Whether we are servicing an ajax request.
      *
@@ -66,17 +57,13 @@ class ResponseRenderer
     protected $isAjax = false;
     /**
      * Whether response object is disabled
-     *
-     * @var bool
      */
-    protected $isDisabled;
+    protected bool $isDisabled;
     /**
      * Whether there were any errors during the processing of the request
      * Only used for ajax responses
-     *
-     * @var bool
      */
-    protected $isSuccess;
+    protected bool $isSuccess;
 
     /**
      * @see http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
@@ -155,8 +142,7 @@ class ResponseRenderer
         511 => 'Network Authentication Required',
     ];
 
-    /** @var OutputBuffering */
-    private $buffer;
+    private OutputBuffering $buffer;
 
     private function __construct()
     {
@@ -257,7 +243,7 @@ class ResponseRenderer
      * @param mixed|null       $value Null, if passing an array in $json otherwise
      *                                it's a string value to the key
      */
-    public function addJSON($json, $value = null): void
+    public function addJSON(string|int|array $json, $value = null): void
     {
         if (is_array($json)) {
             foreach ($json as $key => $value) {

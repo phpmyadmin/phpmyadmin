@@ -16,7 +16,6 @@ use function is_float;
 use function is_int;
 use function md5;
 use function sprintf;
-use function strlen;
 
 use const ENT_COMPAT;
 
@@ -163,8 +162,6 @@ class Message implements Stringable
      *                       executed successfully')
      *
      * @return Message
-     *
-     * @static
      */
     public static function success(string $string = ''): self
     {
@@ -183,8 +180,6 @@ class Message implements Stringable
      * @param string $string A localized string e.g. __('Error')
      *
      * @return Message
-     *
-     * @static
      */
     public static function error(string $string = ''): self
     {
@@ -206,8 +201,6 @@ class Message implements Stringable
      *                       why click %shere%s.')
      *
      * @return Message
-     *
-     * @static
      */
     public static function notice(string $string): self
     {
@@ -223,8 +216,6 @@ class Message implements Stringable
      * @param int    $type    A numeric representation of the type of message
      *
      * @return Message
-     *
-     * @static
      */
     public static function raw(string $message, int $type = self::NOTICE): self
     {
@@ -243,8 +234,6 @@ class Message implements Stringable
      * @param int $rows Number of rows
      *
      * @return Message
-     *
-     * @static
      */
     public static function getMessageForAffectedRows(int $rows): self
     {
@@ -264,8 +253,6 @@ class Message implements Stringable
      * @param int $rows Number of rows
      *
      * @return Message
-     *
-     * @static
      */
     public static function getMessageForDeletedRows(int $rows): self
     {
@@ -285,8 +272,6 @@ class Message implements Stringable
      * @param int $rows Number of rows
      *
      * @return Message
-     *
-     * @static
      */
     public static function getMessageForInsertedRows(int $rows): self
     {
@@ -306,8 +291,6 @@ class Message implements Stringable
      * @param string $message A localized string
      *
      * @return Message
-     *
-     * @static
      */
     public static function rawError(string $message): self
     {
@@ -322,8 +305,6 @@ class Message implements Stringable
      * @param string $message A localized string
      *
      * @return Message
-     *
-     * @static
      */
     public static function rawNotice(string $message): self
     {
@@ -338,8 +319,6 @@ class Message implements Stringable
      * @param string $message A localized string
      *
      * @return Message
-     *
-     * @static
      */
     public static function rawSuccess(string $message): self
     {
@@ -590,8 +569,6 @@ class Message implements Stringable
      * @param mixed $message the message(s)
      *
      * @return mixed  the sanitized message(s)
-     *
-     * @static
      */
     public static function sanitize($message)
     {
@@ -613,8 +590,6 @@ class Message implements Stringable
      * @param string $message the message
      *
      * @return string  the decoded message
-     *
-     * @static
      */
     public static function decodeBB(string $message): string
     {
@@ -665,13 +640,8 @@ class Message implements Stringable
     {
         $message = $this->message;
 
-        if (strlen($message) === 0) {
-            $string = $this->getString();
-            if (strlen($string) === 0) {
-                $message = '';
-            } else {
-                $message = $string;
-            }
+        if ($message === '') {
+            $message = $this->getString();
         }
 
         if ($this->isDisplayed()) {
@@ -787,8 +757,6 @@ class Message implements Stringable
             $image = 's_notice';
         }
 
-        $message = self::notice(Html\Generator::getImage($image)) . ' ' . $message;
-
-        return $message;
+        return self::notice(Html\Generator::getImage($image)) . ' ' . $message;
     }
 }

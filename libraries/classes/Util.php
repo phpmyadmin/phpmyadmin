@@ -122,7 +122,7 @@ class Util
      *
      * @return string the message
      */
-    public static function getFormattedMaximumUploadSize($maxUploadSize): string
+    public static function getFormattedMaximumUploadSize(int|float|string $maxUploadSize): string
     {
         // I have to reduce the second parameter (sensitiveness) from 6 to 4
         // to avoid weird results like 512 kKib
@@ -155,11 +155,8 @@ class Util
 
         foreach ($quotes as $quote) {
             if (mb_substr($quotedString, 0, 1) === $quote && mb_substr($quotedString, -1, 1) === $quote) {
-                $unquotedString = mb_substr($quotedString, 1, -1);
                 // replace escaped quotes
-                $unquotedString = str_replace($quote . $quote, $quote, $unquotedString);
-
-                return $unquotedString;
+                return str_replace($quote . $quote, $quote, mb_substr($quotedString, 1, -1));
             }
         }
 
@@ -193,8 +190,6 @@ class Util
                 $mysql = '5.7';
             } elseif ($serverVersion >= 50600) {
                 $mysql = '5.6';
-            } elseif ($serverVersion >= 50500) {
-                $mysql = '5.5';
             }
         }
 
@@ -449,7 +444,7 @@ class Util
             }
         }
 
-        if ($unit != $byteUnits[0]) {
+        if ($unit !== $byteUnits[0]) {
             // if the unit is not bytes (as represented in current language)
             // reformat with max length of 5
             // 4th parameter=true means do not reformat if value < 1
@@ -489,7 +484,7 @@ class Util
      * @return string   the formatted value and its unit
      */
     public static function formatNumber(
-        $value,
+        float|int|string $value,
         $digitsLeft = 3,
         $digitsRight = 0,
         $onlyDown = false,
@@ -515,7 +510,7 @@ class Util
                 __(',')
             );
             if (($originalValue != 0) && (floatval($value) == 0)) {
-                $value = ' <' . (1 / 10 ** $digitsRight);
+                return ' <' . (1 / 10 ** $digitsRight);
             }
 
             return $value;
@@ -593,7 +588,7 @@ class Util
      *
      * @return int|float The numerical part of the expression (for example 8)
      */
-    public static function extractValueFromFormattedSize($formattedSize)
+    public static function extractValueFromFormattedSize(string|int $formattedSize): int|float
     {
         $returnValue = -1;
 
@@ -674,11 +669,13 @@ class Util
 
         $date = (string) preg_replace(
             '@%[aA]@',
+            // phpcs:ignore Generic.PHP.DeprecatedFunctions
             $dayOfWeek[(int) @strftime('%w', (int) $timestamp)],
             $format
         );
         $date = (string) preg_replace(
             '@%[bB]@',
+            // phpcs:ignore Generic.PHP.DeprecatedFunctions
             $month[(int) @strftime('%m', (int) $timestamp) - 1],
             $date
         );
@@ -695,11 +692,12 @@ class Util
 
         // Can return false on windows for Japanese language
         // See https://github.com/phpmyadmin/phpmyadmin/issues/15830
+        // phpcs:ignore Generic.PHP.DeprecatedFunctions
         $ret = @strftime($date, (int) $timestamp);
         // Some OSes such as Win8.1 Traditional Chinese version did not produce UTF-8
         // output here. See https://github.com/phpmyadmin/phpmyadmin/issues/10598
         if ($ret === false || mb_detect_encoding($ret, 'UTF-8', true) !== 'UTF-8') {
-            $ret = date('Y-m-d H:i:s', (int) $timestamp);
+            return date('Y-m-d H:i:s', (int) $timestamp);
         }
 
         return $ret;
@@ -850,7 +848,7 @@ class Util
         array $fieldsMeta,
         array $row,
         $forceUnique = false,
-        $restrictToTable = false,
+        string|bool $restrictToTable = false,
         array $expressions = []
     ): array {
         $primaryKey = '';
@@ -860,7 +858,6 @@ class Util
         $primaryKeyArray = [];
         $uniqueKeyArray = [];
         $nonPrimaryConditionArray = [];
-        $conditionArray = [];
 
         for ($i = 0; $i < $fieldsCount; ++$i) {
             $meta = $fieldsMeta[$i];
@@ -945,6 +942,7 @@ class Util
         // but use conjunction of all values if no primary key
         $clauseIsUnique = true;
 
+        $conditionArray = [];
         if ($primaryKey) {
             $preferredCondition = $primaryKey;
             $conditionArray = $primaryKeyArray;
@@ -982,7 +980,7 @@ class Util
         }
 
         return $keyword . $charset
-            . ($charset == $collation ? '' : ' COLLATE ' . $collation);
+            . ($charset === $collation ? '' : ' COLLATE ' . $collation);
     }
 
     /**
@@ -1224,9 +1222,7 @@ class Util
             $printable = strrev($printable);
         }
 
-        $printable = str_pad($printable, $length, '0', STR_PAD_LEFT);
-
-        return $printable;
+        return str_pad($printable, $length, '0', STR_PAD_LEFT);
     }
 
     /**
@@ -1379,7 +1375,7 @@ class Util
     {
         $firstOccurrence = mb_strpos($string, "\r\n");
         if ($firstOccurrence === 0) {
-            $string = "\n" . $string;
+            return "\n" . $string;
         }
 
         return $string;
@@ -1395,7 +1391,7 @@ class Util
      *
      * @return string|bool Title for the $cfg value
      */
-    public static function getTitleForTarget($target)
+    public static function getTitleForTarget($target): string|bool
     {
         $mapping = [
             'structure' => __('Structure'),
@@ -1581,24 +1577,20 @@ class Util
         if (str_contains($string, '@COLUMNS@')) {
             $columnsList = $GLOBALS['dbi']->getColumns($GLOBALS['db'], $GLOBALS['table']);
 
-            // sometimes the table no longer exists at this point
-            if ($columnsList !== null) {
-                $columnNames = [];
-                foreach ($columnsList as $column) {
-                    if ($escape !== null) {
-                        $columnNames[] = self::$escape($column['Field']);
-                    } else {
-                        $columnNames[] = $column['Field'];
-                    }
+            $columnNames = [];
+            foreach ($columnsList as $column) {
+                if ($escape !== null) {
+                    $columnNames[] = self::$escape($column['Field']);
+                } else {
+                    $columnNames[] = $column['Field'];
                 }
-
-                $replace['@COLUMNS@'] = implode(',', $columnNames);
-            } else {
-                $replace['@COLUMNS@'] = '*';
             }
+
+            $replace['@COLUMNS@'] = implode(',', $columnNames);
         }
 
         /* Do the replacement */
+        // phpcs:ignore Generic.PHP.DeprecatedFunctions
         return strtr((string) @strftime($string), $replace);
     }
 
@@ -1786,9 +1778,9 @@ class Util
      *                           for which to parse the values
      * @param bool   $escapeHtml Whether to escape html entities
      *
-     * @return array
+     * @return string[]
      */
-    public static function parseEnumSetValues($definition, $escapeHtml = true)
+    public static function parseEnumSetValues($definition, $escapeHtml = true): array
     {
         $valuesString = htmlentities($definition, ENT_COMPAT, 'UTF-8');
         // There is a JS port of the below parser in functions.js
@@ -1950,7 +1942,7 @@ class Util
 
         $len = strlen($test);
         fclose($file);
-        if ($len >= 2 && $test[0] == chr(31) && $test[1] == chr(139)) {
+        if ($len >= 2 && $test[0] === chr(31) && $test[1] === chr(139)) {
             return 'application/gzip';
         }
 
@@ -2011,7 +2003,6 @@ class Util
 
             // Retains keys informations
             if ($row['Key_name'] != $lastIndex) {
-                $indexes[] = $row['Key_name'];
                 $lastIndex = $row['Key_name'];
             }
 
@@ -2045,48 +2036,15 @@ class Util
     /**
      * Gets the list of tables in the current db and information about these tables if possible.
      *
-     * @return array
+     * @return array<int, array|int>
+     * @psalm-return array{array, int, int}
      */
     public static function getDbInfo(ServerRequest $request, string $db, bool $isResultLimited = true): array
     {
         /**
-         * limits for table list
-         */
-        if (! isset($_SESSION['tmpval']['table_limit_offset']) || $_SESSION['tmpval']['table_limit_offset_db'] != $db) {
-            $_SESSION['tmpval']['table_limit_offset'] = 0;
-            $_SESSION['tmpval']['table_limit_offset_db'] = $db;
-        }
-
-        /** @var mixed $posParam */
-        $posParam = $request->getParam('pos');
-        if (is_numeric($posParam)) {
-            $_SESSION['tmpval']['table_limit_offset'] = (int) $posParam;
-        }
-
-        $pos = $_SESSION['tmpval']['table_limit_offset'];
-
-        /**
-         * whether to display extended stats
-         */
-        $isShowStats = $GLOBALS['cfg']['ShowStats'];
-
-        /**
-         * whether selected db is information_schema
-         */
-        $isSystemSchema = false;
-
-        if (Utilities::isSystemSchema($db)) {
-            $isShowStats = false;
-            $isSystemSchema = true;
-        }
-
-        /**
          * information about tables in db
          */
         $tables = [];
-
-        $tooltipTrueName = [];
-        $tooltipAliasName = [];
 
         // Special speedup for newer MySQL Versions (in 4.0 format changed)
         if ($GLOBALS['cfg']['SkipLockedTables'] === true) {
@@ -2100,7 +2058,8 @@ class Util
             }
         }
 
-        if (empty($tables)) {
+        $totalNumTables = null;
+        if ($tables === []) {
             // Set some sorting defaults
             $sort = 'Name';
             $sortOrder = 'ASC';
@@ -2151,31 +2110,27 @@ class Util
 
                 if (is_string($tableGroupParam) && $tableGroupParam !== '') {
                     // only tables for selected group
-                    $tableGroup = $tableGroupParam;
-                    // include the table with the exact name of the group if such
-                    // exists
+                    // include the table with the exact name of the group if such exists
                     $groupTable = $GLOBALS['dbi']->getTablesFull(
                         $db,
-                        $tableGroup,
+                        $tableGroupParam,
                         false,
-                        $limitOffset,
-                        $limitCount,
+                        0,
+                        false,
                         $sort,
                         $sortOrder,
                         $tableType
                     );
-                    $groupWithSeparator = $tableGroup
-                        . $GLOBALS['cfg']['NavigationTreeTableSeparator'];
+                    $groupWithSeparator = $tableGroupParam . $GLOBALS['cfg']['NavigationTreeTableSeparator'];
                 }
             } else {
                 // all tables in db
                 // - get the total number of tables
                 //  (needed for proper working of the MaxTableList feature)
-                $tables = $GLOBALS['dbi']->getTables($db);
-                $totalNumTables = count($tables);
+                $totalNumTables = count($GLOBALS['dbi']->getTables($db));
                 if ($isResultLimited) {
                     // fetch the details for a possible limited subset
-                    $limitOffset = $pos;
+                    $limitOffset = self::getTableListPosition($request, $db);
                     $limitCount = true;
                 }
             }
@@ -2194,20 +2149,11 @@ class Util
         }
 
         $numTables = count($tables);
-        //  (needed for proper working of the MaxTableList feature)
-        if (! isset($totalNumTables)) {
-            $totalNumTables = $numTables;
-        }
 
         return [
             $tables,
             $numTables,
-            $totalNumTables,
-            $isShowStats,
-            $isSystemSchema,
-            $tooltipTrueName,
-            $tooltipAliasName,
-            $pos,
+            $totalNumTables ?? $numTables, // needed for proper working of the MaxTableList feature
         ];
     }
 
@@ -2401,7 +2347,7 @@ class Util
      *
      * @return mixed Searched value
      */
-    public static function getValueByKey(array $array, $path, $default = null)
+    public static function getValueByKey(array $array, string|array $path, $default = null)
     {
         if (is_string($path)) {
             $path = explode('.', $path);
@@ -2568,14 +2514,28 @@ class Util
             $disabled = ini_get('disable_functions');
             if (is_string($disabled)) {
                 $disabled = explode(',', $disabled);
-                $disabled = array_map(static function (string $part) {
-                    return trim($part);
-                }, $disabled);
+                $disabled = array_map(static fn (string $part) => trim($part), $disabled);
 
                 return ! in_array('error_reporting', $disabled);
             }
         }
 
         return function_exists('error_reporting');
+    }
+
+    public static function getTableListPosition(ServerRequest $request, string $db): int
+    {
+        if (! isset($_SESSION['tmpval']['table_limit_offset']) || $_SESSION['tmpval']['table_limit_offset_db'] != $db) {
+            $_SESSION['tmpval']['table_limit_offset'] = 0;
+            $_SESSION['tmpval']['table_limit_offset_db'] = $db;
+        }
+
+        /** @var string|null $posParam */
+        $posParam = $request->getParam('pos');
+        if (is_numeric($posParam)) {
+            $_SESSION['tmpval']['table_limit_offset'] = (int) $posParam;
+        }
+
+        return $_SESSION['tmpval']['table_limit_offset'];
     }
 }

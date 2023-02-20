@@ -819,7 +819,7 @@ class Qbe
             $htmlOutput .= $this->getAndOrColCell(
                 $newColumnCount,
                 $checkedOptions,
-                $columnIndex + 1 == $this->criteriaColumnCount
+                $columnIndex + 1 === $this->criteriaColumnCount
             );
             $newColumnCount++;
         }
@@ -946,9 +946,8 @@ class Qbe
      *
      * @return string Select clause
      */
-    private function getSelectClause()
+    private function getSelectClause(): string
     {
-        $selectClause = '';
         $selectClauses = [];
         for ($columnIndex = 0; $columnIndex < $this->criteriaColumnCount; $columnIndex++) {
             if (
@@ -967,11 +966,11 @@ class Qbe
             $selectClauses[] = $select;
         }
 
-        if (! empty($selectClauses)) {
-            $selectClause = 'SELECT ' . implode(', ', $selectClauses) . "\n";
+        if ($selectClauses !== []) {
+            return 'SELECT ' . implode(', ', $selectClauses) . "\n";
         }
 
-        return $selectClause;
+        return '';
     }
 
     /**
@@ -979,7 +978,7 @@ class Qbe
      *
      * @return string Where clause
      */
-    private function getWhereClause()
+    private function getWhereClause(): string
     {
         $whereClause = '';
         $criteriaCount = 0;
@@ -1054,8 +1053,8 @@ class Qbe
                 . $queryOrWhere;
         }
 
-        if (! empty($whereClause) && $whereClause !== '()') {
-            $whereClause = 'WHERE ' . $whereClause . "\n";
+        if ($whereClause !== '' && $whereClause !== '()') {
+            return 'WHERE ' . $whereClause . "\n";
         }
 
         return $whereClause;
@@ -1066,9 +1065,8 @@ class Qbe
      *
      * @return string Order By clause
      */
-    private function getOrderByClause()
+    private function getOrderByClause(): string
     {
-        $orderByClause = '';
         $orderByClauses = [];
 
         // Create copy of instance variables
@@ -1100,11 +1098,11 @@ class Qbe
                 . $sort[$columnIndex];
         }
 
-        if (! empty($orderByClauses)) {
-            $orderByClause = 'ORDER BY ' . implode(', ', $orderByClauses) . "\n";
+        if ($orderByClauses !== []) {
+            return 'ORDER BY ' . implode(', ', $orderByClauses) . "\n";
         }
 
-        return $orderByClause;
+        return '';
     }
 
     /**
@@ -1354,11 +1352,10 @@ class Qbe
      *
      * @return string FROM clause
      */
-    private function getFromClause(array $formColumns)
+    private function getFromClause(array $formColumns): string
     {
-        $fromClause = '';
         if ($formColumns === []) {
-            return $fromClause;
+            return '';
         }
 
         // Initialize some variables
@@ -1381,11 +1378,11 @@ class Qbe
 
         // In case relations are not defined, just generate the FROM clause
         // from the list of tables, however we don't generate any JOIN
-        if (empty($fromClause)) {
+        if ($fromClause === '') {
             // Create cartesian product
-            $fromClause = implode(
+            return implode(
                 ', ',
-                array_map([Util::class, 'backquote'], $searchTables)
+                array_map(Util::backquote(...), $searchTables)
             );
         }
 
@@ -1486,7 +1483,7 @@ class Qbe
                 // Add these tables as cartesian product before joined tables
                 $join .= implode(
                     ', ',
-                    array_map([Util::class, 'backquote'], $unfinalized)
+                    array_map(Util::backquote(...), $unfinalized)
                 );
             }
         }
@@ -1576,7 +1573,7 @@ class Qbe
                     }
 
                     // We are done if all tables are in $finalized
-                    if (count($finalized) == count($searchTables)) {
+                    if (count($finalized) === count($searchTables)) {
                         return;
                     }
                 }

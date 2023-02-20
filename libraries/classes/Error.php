@@ -115,10 +115,8 @@ class Error extends Message
 
     /**
      * Holds the backtrace for this error
-     *
-     * @var array
      */
-    protected $backtrace = [];
+    protected array $backtrace = [];
 
     /**
      * Hide location of errors
@@ -254,7 +252,7 @@ class Error extends Message
     {
         try {
             $backtrace = serialize($this->getBacktrace());
-        } catch (Throwable $e) {
+        } catch (Throwable) {
             $backtrace = '';
         }
 
@@ -515,7 +513,7 @@ class Error extends Message
         $destParts = explode(DIRECTORY_SEPARATOR, $dest);
 
         $result = '.';
-        while (implode(DIRECTORY_SEPARATOR, $destParts) != implode(DIRECTORY_SEPARATOR, $hereParts)) {
+        while (implode(DIRECTORY_SEPARATOR, $destParts) !== implode(DIRECTORY_SEPARATOR, $hereParts)) {
             if (count($hereParts) > count($destParts)) {
                 array_pop($hereParts);
                 $result .= DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..';

@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Query\Utilities;
 
 use function __;
@@ -25,11 +26,9 @@ use function time;
  */
 class ReplicationGui
 {
-    /** @var Replication */
-    private $replication;
+    private Replication $replication;
 
-    /** @var Template */
-    private $template;
+    private Template $template;
 
     /**
      * @param Replication $replication Replication instance
@@ -390,18 +389,11 @@ class ReplicationGui
 
         // when we start editing a user, $GLOBALS['pred_hostname'] is not defined
         if (! isset($GLOBALS['pred_hostname']) && $hostname !== null) {
-            switch (mb_strtolower($hostname)) {
-                case 'localhost':
-                case '127.0.0.1':
-                    $GLOBALS['pred_hostname'] = 'localhost';
-                    break;
-                case '%':
-                    $GLOBALS['pred_hostname'] = 'any';
-                    break;
-                default:
-                    $GLOBALS['pred_hostname'] = 'userdefined';
-                    break;
-            }
+            $GLOBALS['pred_hostname'] = match (mb_strtolower($hostname)) {
+                'localhost', '127.0.0.1' => 'localhost',
+                '%' => 'any',
+                default => 'userdefined',
+            };
         }
 
         return $this->template->render('server/replication/primary_add_replica_user', [
@@ -507,18 +499,16 @@ class ReplicationGui
         $_SESSION['replication']['m_hostname'] = $hostname;
         $_SESSION['replication']['m_port'] = $port;
         $_SESSION['replication']['m_correct'] = '';
-        $_SESSION['replication']['sr_action_status'] = 'error';
-        $_SESSION['replication']['sr_action_info'] = __('Unknown error');
 
         // Attempt to connect to the new primary server
-        $linkToPrimary = $this->replication->connectToPrimary(
+        $connectionToPrimary = $this->replication->connectToPrimary(
             $username,
             $pmaPassword,
             $hostname,
             $port
         );
 
-        if (! $linkToPrimary) {
+        if ($connectionToPrimary === null) {
             $_SESSION['replication']['sr_action_status'] = 'error';
             $_SESSION['replication']['sr_action_info'] = sprintf(
                 __('Unable to connect to primary %s.'),
@@ -526,7 +516,7 @@ class ReplicationGui
             );
         } else {
             // Read the current primary position
-            $position = $this->replication->replicaBinLogPrimary(DatabaseInterface::CONNECT_AUXILIARY);
+            $position = $this->replication->replicaBinLogPrimary(Connection::TYPE_AUXILIARY);
 
             if (empty($position)) {
                 $_SESSION['replication']['sr_action_status'] = 'error';
@@ -545,7 +535,7 @@ class ReplicationGui
                         $position,
                         true,
                         false,
-                        DatabaseInterface::CONNECT_USER
+                        Connection::TYPE_USER
                     )
                 ) {
                     $_SESSION['replication']['sr_action_status'] = 'error';
@@ -566,29 +556,27 @@ class ReplicationGui
     public function handleRequestForReplicaServerControl(?string $srReplicaAction, ?string $control): bool
     {
         if ($srReplicaAction === 'reset') {
-            $qStop = $this->replication->replicaControl('STOP', null, DatabaseInterface::CONNECT_USER);
+            $qStop = $this->replication->replicaControl('STOP', null, Connection::TYPE_USER);
             $qReset = $GLOBALS['dbi']->tryQuery('RESET SLAVE;');
-            $qStart = $this->replication->replicaControl('START', null, DatabaseInterface::CONNECT_USER);
+            $qStart = $this->replication->replicaControl('START', null, Connection::TYPE_USER);
 
-            $result = $qStop !== false && $qStop !== -1 && $qReset !== false && $qStart !== false && $qStart !== -1;
-        } else {
-            $qControl = $this->replication->replicaControl(
-                $srReplicaAction,
-                $control,
-                DatabaseInterface::CONNECT_USER
-            );
-
-            $result = $qControl !== false && $qControl !== -1;
+            return $qStop !== false && $qStop !== -1 && $qReset !== false && $qStart !== false && $qStart !== -1;
         }
 
-        return $result;
+        $qControl = $this->replication->replicaControl(
+            $srReplicaAction,
+            $control,
+            Connection::TYPE_USER
+        );
+
+        return $qControl !== false && $qControl !== -1;
     }
 
     public function handleRequestForReplicaSkipError(int $srSkipErrorsCount): bool
     {
-        $qStop = $this->replication->replicaControl('STOP', null, DatabaseInterface::CONNECT_USER);
+        $qStop = $this->replication->replicaControl('STOP', null, Connection::TYPE_USER);
         $qSkip = $GLOBALS['dbi']->tryQuery('SET GLOBAL SQL_SLAVE_SKIP_COUNTER = ' . $srSkipErrorsCount . ';');
-        $qStart = $this->replication->replicaControl('START', null, DatabaseInterface::CONNECT_USER);
+        $qStart = $this->replication->replicaControl('START', null, Connection::TYPE_USER);
 
         return $qStop !== false && $qStop !== -1 && $qSkip !== false && $qStart !== false && $qStart !== -1;
     }

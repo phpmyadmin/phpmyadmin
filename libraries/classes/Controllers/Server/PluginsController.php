@@ -22,11 +22,9 @@ use function preg_replace;
  */
 class PluginsController extends AbstractController
 {
-    /** @var Plugins */
-    private $plugins;
+    private Plugins $plugins;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,

@@ -38,7 +38,7 @@ class RulesTest extends TestCase
      * @return array<string, callable[]>
      * @psalm-return array<string, array{callable(): list<RuleType>}>
      */
-    public function providerForTestRules(): iterable
+    public static function providerForTestRules(): iterable
     {
         return [
             'generic rules' => [

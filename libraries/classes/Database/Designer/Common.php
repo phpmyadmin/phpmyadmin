@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Database\Designer;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Table;
@@ -31,11 +32,9 @@ use function rawurlencode;
  */
 class Common
 {
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     /**
      * @param DatabaseInterface $dbi      DatabaseInterface object
@@ -264,9 +263,9 @@ class Common
      *
      * @param int $pg pdf page id
      *
-     * @return array|null of table positions
+     * @return array of table positions
      */
-    public function getTablePositions(int $pg): ?array
+    public function getTablePositions(int $pg): array
     {
         $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
         if ($pdfFeature === null) {
@@ -282,13 +281,13 @@ class Common
                 1 AS `H`
             FROM " . Util::backquote($pdfFeature->database)
                 . '.' . Util::backquote($pdfFeature->tableCoords) . '
-            WHERE pdf_page_number = ' . intval($pg);
+            WHERE pdf_page_number = ' . $pg;
 
         return $this->dbi->fetchResult(
             $query,
             'name',
             null,
-            DatabaseInterface::CONNECT_CONTROL
+            Connection::TYPE_CONTROL
         );
     }
 
@@ -309,15 +308,14 @@ class Common
         $query = 'SELECT `page_descr`'
             . ' FROM ' . Util::backquote($pdfFeature->database)
             . '.' . Util::backquote($pdfFeature->pdfPages)
-            . ' WHERE ' . Util::backquote('page_nr') . ' = ' . intval($pg);
-        $page_name = $this->dbi->fetchResult(
+            . ' WHERE ' . Util::backquote('page_nr') . ' = ' . $pg;
+        $page_name = $this->dbi->fetchValue(
             $query,
-            null,
-            null,
-            DatabaseInterface::CONNECT_CONTROL
+            0,
+            Connection::TYPE_CONTROL
         );
 
-        return $page_name[0] ?? null;
+        return $page_name !== false ? $page_name : null;
     }
 
     /**
@@ -366,18 +364,13 @@ class Common
             . " WHERE `db_name` = '" . $this->dbi->escapeString($db) . "'"
             . " AND `page_descr` = '" . $this->dbi->escapeString($db) . "'";
 
-        $default_page_no = $this->dbi->fetchResult(
+        $default_page_no = $this->dbi->fetchValue(
             $query,
-            null,
-            null,
-            DatabaseInterface::CONNECT_CONTROL
+            0,
+            Connection::TYPE_CONTROL
         );
 
-        if (isset($default_page_no[0])) {
-            return intval($default_page_no[0]);
-        }
-
-        return -1;
+        return is_string($default_page_no) ? intval($default_page_no) : -1;
     }
 
     /**
@@ -401,10 +394,10 @@ class Common
             $query,
             null,
             null,
-            DatabaseInterface::CONNECT_CONTROL
+            Connection::TYPE_CONTROL
         );
 
-        return count($pageNos) > 0;
+        return $pageNos !== [];
     }
 
     /**
@@ -432,15 +425,13 @@ class Common
             . '.' . Util::backquote($pdfFeature->pdfPages)
             . " WHERE `db_name` = '" . $this->dbi->escapeString($db) . "'";
 
-        $min_page_no = $this->dbi->fetchResult(
+        $min_page_no = $this->dbi->fetchValue(
             $query,
-            null,
-            null,
-            DatabaseInterface::CONNECT_CONTROL
+            0,
+            Connection::TYPE_CONTROL
         );
-        $page_no = $min_page_no[0] ?? -1;
 
-        return intval($page_no);
+        return is_string($min_page_no) ? intval($min_page_no) : -1;
     }
 
     /**
@@ -563,7 +554,7 @@ class Common
         $type_T2 = mb_strtoupper($tables[$T2]['ENGINE'] ?? '');
 
         // native foreign key
-        if (ForeignKey::isSupported($type_T1) && ForeignKey::isSupported($type_T2) && $type_T1 == $type_T2) {
+        if (ForeignKey::isSupported($type_T1) && ForeignKey::isSupported($type_T2) && $type_T1 === $type_T2) {
             // relation exists?
             $existrel_foreign = $this->relation->getForeigners($DB2, $T2, '', 'foreign');
             $foreigner = $this->relation->searchColumnInForeigners($existrel_foreign, $F2);
@@ -673,7 +664,7 @@ class Common
             ];
         }
 
-        $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+        $error = $this->dbi->getError(Connection::TYPE_CONTROL);
 
         return [
             false,
@@ -702,7 +693,7 @@ class Common
         $tables = $this->dbi->getTablesFull($DB2, $T2);
         $type_T2 = mb_strtoupper($tables[$T2]['ENGINE']);
 
-        if (ForeignKey::isSupported($type_T1) && ForeignKey::isSupported($type_T2) && $type_T1 == $type_T2) {
+        if (ForeignKey::isSupported($type_T1) && ForeignKey::isSupported($type_T2) && $type_T1 === $type_T2) {
             // InnoDB
             $existrel_foreign = $this->relation->getForeigners($DB2, $T2, '', 'foreign');
             $foreigner = $this->relation->searchColumnInForeigners($existrel_foreign, $F2);
@@ -742,7 +733,7 @@ class Common
         $result = $this->dbi->tryQueryAsControlUser($delete_query);
 
         if (! $result) {
-            $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+            $error = $this->dbi->getError(Connection::TYPE_CONTROL);
 
             return [
                 false,
@@ -781,7 +772,7 @@ class Common
             $orig_data = $this->dbi->fetchSingleRow(
                 $orig_data_query,
                 DatabaseInterface::FETCH_ASSOC,
-                DatabaseInterface::CONNECT_CONTROL
+                Connection::TYPE_CONTROL
             );
 
             if (! empty($orig_data)) {

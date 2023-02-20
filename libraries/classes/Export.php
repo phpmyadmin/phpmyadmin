@@ -311,7 +311,7 @@ class Export
         $requiredExtension = '.' . $exportPlugin->getProperties()->getExtension();
         $extensionLength = mb_strlen($requiredExtension);
         $userExtension = mb_substr($filename, -$extensionLength);
-        if (mb_strtolower($userExtension) != $requiredExtension) {
+        if (mb_strtolower($userExtension) !== $requiredExtension) {
             $filename .= $requiredExtension;
         }
 
@@ -471,21 +471,19 @@ class Export
         fclose($fileHandle);
         // Here, use strlen rather than mb_strlen to get the length
         // in bytes to compare against the number of bytes written.
-        if (strlen($dumpBuffer) > 0 && (! $writeResult || $writeResult != strlen($dumpBuffer))) {
-            $message = new Message(
+        if ($dumpBuffer !== '' && $writeResult !== strlen($dumpBuffer)) {
+            return new Message(
                 __('Insufficient space to save the file %s.'),
                 Message::ERROR,
                 [$saveFilename]
             );
-        } else {
-            $message = new Message(
-                __('Dump has been saved to file %s.'),
-                Message::SUCCESS,
-                [$saveFilename]
-            );
         }
 
-        return $message;
+        return new Message(
+            __('Dump has been saved to file %s.'),
+            Message::SUCCESS,
+            [$saveFilename]
+        );
     }
 
     /**
@@ -494,10 +492,8 @@ class Export
      * @param array|string $dumpBuffer  the current dump buffer
      * @param string       $compression the compression mode
      * @param string       $filename    the filename
-     *
-     * @return array|string|bool
      */
-    public function compress($dumpBuffer, string $compression, string $filename)
+    public function compress(array|string $dumpBuffer, string $compression, string $filename): array|string|bool
     {
         if ($compression === 'zip' && function_exists('gzcompress')) {
             $zipExtension = new ZipExtension();
@@ -576,7 +572,7 @@ class Export
      * @param string       $separateFiles   whether it is a separate-files export
      */
     public function exportServer(
-        $dbSelect,
+        string|array $dbSelect,
         string $whatStrucOrData,
         ExportPlugin $exportPlugin,
         string $errorUrl,
@@ -909,15 +905,15 @@ class Export
             return;
         }
 
-        if (! $exportPlugin->exportRawQuery($errorUrl, $db, $sqlQuery)) {
-            $GLOBALS['message'] = Message::error(
-                // phpcs:disable Generic.Files.LineLength.TooLong
-                /* l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular */
-                __('Exporting a raw query is not supported for this export method.')
-            );
-
+        if ($exportPlugin->exportRawQuery($errorUrl, $db, $sqlQuery)) {
             return;
         }
+
+        $GLOBALS['message'] = Message::error(
+            // phpcs:disable Generic.Files.LineLength.TooLong
+            /* l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular */
+            __('Exporting a raw query is not supported for this export method.')
+        );
     }
 
     /**
@@ -1312,9 +1308,7 @@ class Export
             );
         }
 
-        $postParams = array_filter($this->getPostParams($exportType), static function ($value) {
-            return ! is_array($value);
-        });
+        $postParams = array_filter($this->getPostParams($exportType), static fn ($value) => ! is_array($value));
         $backButton .= '&amp;' . http_build_query($postParams);
 
         $backButton .= '&amp;repopulate=1">' . __('Back') . '</a> ]</p>';

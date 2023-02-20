@@ -9,6 +9,7 @@ use PhpMyAdmin\ConfigStorage\Features\ConfigurableMenusFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -20,11 +21,9 @@ use function strlen;
 
 final class UserGroupsFormController extends AbstractController
 {
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,
@@ -85,7 +84,7 @@ final class UserGroupsFormController extends AbstractController
             $userTable,
             $this->dbi->escapeString($username)
         );
-        $userGroup = $this->dbi->fetchValue($sqlQuery, 0, DatabaseInterface::CONNECT_CONTROL);
+        $userGroup = $this->dbi->fetchValue($sqlQuery, 0, Connection::TYPE_CONTROL);
 
         $allUserGroups = [];
         $sqlQuery = 'SELECT DISTINCT `usergroup` FROM ' . $groupTable;

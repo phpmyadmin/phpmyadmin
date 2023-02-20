@@ -24,13 +24,10 @@ class Scripts
     private $files;
     /**
      * A string of discrete javascript code snippets
-     *
-     * @var string
      */
-    private $code;
+    private string $code;
 
-    /** @var Template */
-    private $template;
+    private Template $template;
 
     /**
      * Generates new Scripts objects

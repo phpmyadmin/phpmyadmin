@@ -14,8 +14,7 @@ use function in_array;
 
 final class FirstStepController extends AbstractController
 {
-    /** @var Normalization */
-    private $normalization;
+    private Normalization $normalization;
 
     public function __construct(ResponseRenderer $response, Template $template, Normalization $normalization)
     {

@@ -34,7 +34,6 @@ use const E_USER_ERROR;
 use const E_USER_NOTICE;
 use const E_USER_WARNING;
 use const E_WARNING;
-use const PHP_VERSION_ID;
 
 /**
  * handling errors
@@ -57,10 +56,8 @@ class ErrorHandler
 
     /**
      * Initial error reporting state
-     *
-     * @var int
      */
-    protected $errorReporting = 0;
+    protected int $errorReporting = 0;
 
     public function __construct()
     {
@@ -71,8 +68,8 @@ class ErrorHandler
          * rely on PHPUnit doing it's own error handling which we break here.
          */
         if (! defined('TESTSUITE')) {
-            set_exception_handler([$this, 'handleException']);
-            set_error_handler([$this, 'handleError']);
+            set_exception_handler($this->handleException(...));
+            set_error_handler($this->handleError(...));
         }
 
         if (! Util::isErrorReportingAvailable()) {
@@ -187,6 +184,8 @@ class ErrorHandler
      * @param string $errfile error file
      * @param int    $errline error line
      *
+     * @return false
+     *
      * @throws ErrorException
      */
     public function handleError(
@@ -194,7 +193,7 @@ class ErrorHandler
         string $errstr,
         string $errfile,
         int $errline
-    ): void {
+    ): bool {
         if (Util::isErrorReportingAvailable()) {
             /**
             * Check if Error Control Operator (@) was used, but still show
@@ -202,9 +201,6 @@ class ErrorHandler
             * See: https://github.com/phpmyadmin/phpmyadmin/issues/16729
             */
             $isSilenced = ! (error_reporting() & $errno);
-            if (PHP_VERSION_ID < 80000) {
-                $isSilenced = error_reporting() == 0;
-            }
 
             if (
                 isset($GLOBALS['cfg']['environment'])
@@ -219,15 +215,17 @@ class ErrorHandler
                 $this->errorReporting != 0 &&
                 ($errno & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_DEPRECATED)) == 0
             ) {
-                return;
+                return false;
             }
         } else {
             if (($errno & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_DEPRECATED)) == 0) {
-                return;
+                return false;
             }
         }
 
         $this->addError($errstr, $errno, $errfile, $errline, true);
+
+        return false;
     }
 
     /**
@@ -418,7 +416,7 @@ class ErrorHandler
 
         // if preference is not 'never' and
         // there are 'actual' errors to be reported
-        if ($GLOBALS['cfg']['SendErrorReports'] !== 'never' && $this->countErrors() != $this->countUserErrors()) {
+        if ($GLOBALS['cfg']['SendErrorReports'] !== 'never' && $this->countErrors() !== $this->countUserErrors()) {
             // add report button.
             $retval .= '<form method="post" action="' . Url::getFromRoute('/error-report')
                     . '" id="pma_report_errors_form"';
@@ -573,7 +571,7 @@ class ErrorHandler
     public function hasErrorsForPrompt(): bool
     {
         return $GLOBALS['cfg']['SendErrorReports'] !== 'never'
-            && $this->countErrors() != $this->countUserErrors();
+            && $this->countErrors() !== $this->countUserErrors();
     }
 
     /**
@@ -584,7 +582,7 @@ class ErrorHandler
     public function reportErrors(): void
     {
         // if there're no actual errors,
-        if (! $this->hasErrors() || $this->countErrors() == $this->countUserErrors()) {
+        if (! $this->hasErrors() || $this->countErrors() === $this->countUserErrors()) {
             // then simply return.
             return;
         }

@@ -32,71 +32,49 @@ class Header
 {
     /**
      * Scripts instance
-     *
-     * @var Scripts
      */
-    private $scripts;
+    private Scripts $scripts;
     /**
      * PhpMyAdmin\Console instance
-     *
-     * @var Console
      */
-    private $console;
+    private Console $console;
     /**
      * Menu instance
-     *
-     * @var Menu
      */
-    private $menu;
+    private Menu $menu;
     /**
      * The page title
-     *
-     * @var string
      */
-    private $title;
+    private string $title;
     /**
      * The value for the id attribute for the body tag
-     *
-     * @var string
      */
-    private $bodyId;
+    private string $bodyId;
     /**
      * Whether to show the top menu
-     *
-     * @var bool
      */
-    private $menuEnabled;
+    private bool $menuEnabled;
     /**
      * Whether to show the warnings
-     *
-     * @var bool
      */
-    private $warningsEnabled;
+    private bool $warningsEnabled;
     /**
      * Whether we are servicing an ajax request.
-     *
-     * @var bool
      */
-    private $isAjax;
+    private bool $isAjax;
     /**
      * Whether to display anything
-     *
-     * @var bool
      */
-    private $isEnabled;
+    private bool $isEnabled;
     /**
      * Whether the HTTP headers (and possibly some HTML)
      * have already been sent to the browser
-     *
-     * @var bool
      */
-    private $headerIsSent;
+    private bool $headerIsSent;
 
-    /** @var UserPreferences */
-    private $userPreferences;
+    private UserPreferences $userPreferences;
 
-    /** @var Template */
-    private $template;
+    private Template $template;
 
     /** @var bool */
     private $isTransformationWrapper = false;
@@ -120,7 +98,7 @@ class Header
         $this->addDefaultScripts();
         $this->headerIsSent = false;
 
-        $this->userPreferences = new UserPreferences();
+        $this->userPreferences = new UserPreferences($GLOBALS['dbi']);
     }
 
     /**
@@ -360,6 +338,7 @@ class Header
 
         $console = $this->console->getDisplay();
         $messages = $this->getMessage();
+        $isLoggedIn = isset($GLOBALS['dbi']) && $GLOBALS['dbi']->isConnected();
 
         $this->scripts->addFile('datetimepicker.js');
         $this->scripts->addFile('validator-messages.js');
@@ -381,6 +360,7 @@ class Header
             'show_hint' => $GLOBALS['cfg']['ShowHint'],
             'is_warnings_enabled' => $this->warningsEnabled,
             'is_menu_enabled' => $this->menuEnabled,
+            'is_logged_in' => $isLoggedIn,
             'menu' => $menu ?? '',
             'console' => $console,
             'messages' => $messages,
@@ -601,18 +581,16 @@ class Header
      */
     private function addRecentTable(string $db, string $table): string
     {
-        $retval = '';
-        if ($this->menuEnabled && strlen($table) > 0 && $GLOBALS['cfg']['NumRecentTables'] > 0) {
-            $tmpResult = RecentFavoriteTable::getInstance('recent')->add($db, $table);
-            if ($tmpResult === true) {
-                $retval = RecentFavoriteTable::getHtmlUpdateRecentTables();
-            } else {
-                $error = $tmpResult;
-                $retval = $error->getDisplay();
+        if ($this->menuEnabled && $table !== '' && $GLOBALS['cfg']['NumRecentTables'] > 0) {
+            $error = RecentFavoriteTable::getInstance('recent')->add($db, $table);
+            if ($error === true) {
+                return RecentFavoriteTable::getHtmlUpdateRecentTables();
             }
+
+            return $error->getDisplay();
         }
 
-        return $retval;
+        return '';
     }
 
     /**

@@ -23,8 +23,7 @@ use function sprintf;
  */
 class OutputBuffering
 {
-    /** @var int */
-    private $mode;
+    private int $mode;
 
     /** @var string */
     private $content = '';
@@ -42,30 +41,32 @@ class OutputBuffering
      *
      * @return int the output buffer mode
      */
-    private function getMode()
+    private function getMode(): int
     {
-        $mode = 0;
-        if (! defined('TESTSUITE') && $GLOBALS['cfg']['OBGzip'] && function_exists('ob_start')) {
+        if (! defined('TESTSUITE') && $GLOBALS['cfg']['OBGzip']) {
             if (ini_get('output_handler') === 'ob_gzhandler') {
                 // If a user sets the output_handler in php.ini to ob_gzhandler, then
                 // any right frame file in phpMyAdmin will not be handled properly by
                 // the browser. My fix was to check the ini file within the
                 // PMA_outBufferModeGet() function.
-                $mode = 0;
-            } elseif (function_exists('ob_get_level') && ob_get_level() > 0) {
+                return 0;
+            }
+
+            if (ob_get_level() > 0) {
                 // happens when php.ini's output_buffering is not Off
                 ob_end_clean();
-                $mode = 1;
-            } else {
-                $mode = 1;
+
+                return 1;
             }
+
+            return 1;
         }
 
         // Zero (0) is no mode or in other words output buffering is OFF.
         // Follow 2^0, 2^1, 2^2, 2^3 type values for the modes.
         // Useful if we ever decide to combine modes.  Then a bitmask field of
         // the sum of all modes will be the natural choice.
-        return $mode;
+        return 0;
     }
 
     /**

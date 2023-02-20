@@ -8,13 +8,11 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\FlashMessages;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Operations;
+use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Replication;
 use PhpMyAdmin\ReplicationInfo;
@@ -68,44 +66,25 @@ class StructureController extends AbstractController
     /** @var bool whether stats show or not */
     protected $isShowStats;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var Replication */
-    private $replication;
+    private Replication $replication;
 
-    /** @var RelationCleanup */
-    private $relationCleanup;
+    private ReplicationInfo $replicationInfo;
 
-    /** @var Operations */
-    private $operations;
-
-    /** @var ReplicationInfo */
-    private $replicationInfo;
-
-    /** @var DatabaseInterface */
-    private $dbi;
-
-    /** @var FlashMessages */
-    private $flash;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,
         Template $template,
         Relation $relation,
         Replication $replication,
-        RelationCleanup $relationCleanup,
-        Operations $operations,
-        DatabaseInterface $dbi,
-        FlashMessages $flash
+        DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
         $this->relation = $relation;
         $this->replication = $replication;
-        $this->relationCleanup = $relationCleanup;
-        $this->operations = $operations;
         $this->dbi = $dbi;
-        $this->flash = $flash;
 
         $this->replicationInfo = new ReplicationInfo($this->dbi);
     }
@@ -119,17 +98,29 @@ class StructureController extends AbstractController
             $tables,
             $numTables,
             $totalNumTables,
-            $isShowStats,
-            $dbIsSystemSchema,,,
-            $position,
         ] = Util::getDbInfo($request, $GLOBALS['db']);
 
         $this->tables = $tables;
         $this->numTables = $numTables;
-        $this->position = $position;
-        $this->dbIsSystemSchema = $dbIsSystemSchema;
+        $this->position = Util::getTableListPosition($request, $GLOBALS['db']);
         $this->totalNumTables = $totalNumTables;
-        $this->isShowStats = $isShowStats;
+
+        /**
+         * whether to display extended stats
+         */
+        $this->isShowStats = $GLOBALS['cfg']['ShowStats'];
+
+        /**
+         * whether selected db is information_schema
+         */
+        $this->dbIsSystemSchema = false;
+
+        if (! Utilities::isSystemSchema($GLOBALS['db'])) {
+            return;
+        }
+
+        $this->isShowStats = false;
+        $this->dbIsSystemSchema = true;
     }
 
     public function __invoke(ServerRequest $request): void
@@ -738,7 +729,6 @@ class StructureController extends AbstractController
                 // Merge or BerkleyDB table: Only row count is accurate.
                 if ($this->isShowStats) {
                     $formattedSize = ' - ';
-                    $unit = '';
                 }
 
                 break;
@@ -763,7 +753,6 @@ class StructureController extends AbstractController
                 // Unknown table type.
                 if ($this->isShowStats) {
                     $formattedSize = __('unknown');
-                    $unit = '';
                 }
         }
 
@@ -825,7 +814,7 @@ class StructureController extends AbstractController
                 [$formattedOverhead, $overheadUnit] = Util::formatByteDown(
                     $currentTable['Data_free'],
                     3,
-                    ($currentTable['Data_free'] > 0 ? 1 : 0)
+                    1
                 );
                 $overheadSize += $currentTable['Data_free'];
             }

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
-use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Navigation\Nodes\NodeDatabase;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
@@ -32,7 +31,7 @@ class NodeDatabaseTest extends AbstractTestCase
      */
     public function testConstructor(): void
     {
-        $parent = NodeFactory::getInstance('NodeDatabase');
+        $parent = new NodeDatabase('default');
         $this->assertIsArray($parent->links);
         $this->assertEquals(
             [
@@ -53,7 +52,7 @@ class NodeDatabaseTest extends AbstractTestCase
      */
     public function testGetPresence(): void
     {
-        $parent = NodeFactory::getInstance('NodeDatabase');
+        $parent = new NodeDatabase('default');
         $this->assertEquals(
             2,
             $parent->getPresence('tables')
@@ -81,7 +80,7 @@ class NodeDatabaseTest extends AbstractTestCase
      */
     public function testGetData(): void
     {
-        $parent = NodeFactory::getInstance('NodeDatabase');
+        $parent = new NodeDatabase('default');
 
         $tables = $parent->getData('tables', 0);
         $this->assertContains('test1', $tables);
@@ -103,8 +102,7 @@ class NodeDatabaseTest extends AbstractTestCase
      */
     public function testHiddenCount(): void
     {
-        /** @var NodeDatabase $parent */
-        $parent = NodeFactory::getInstance('NodeDatabase');
+        $parent = new NodeDatabase('default');
 
         $parent->setHiddenCount(3);
         $this->assertEquals(

@@ -22,11 +22,9 @@ use function mb_strlen;
  */
 class SchemaExportController
 {
-    /** @var Export */
-    private $export;
+    private Export $export;
 
-    /** @var ResponseRenderer */
-    private $response;
+    private ResponseRenderer $response;
 
     public function __construct(Export $export, ResponseRenderer $response)
     {

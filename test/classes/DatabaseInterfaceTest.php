@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use mysqli_stmt;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\ResultInterface;
+use PhpMyAdmin\Dbal\Statement;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Context;
@@ -72,7 +73,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      *
      * @return array
      */
-    public function currentUserData(): array
+    public static function currentUserData(): array
     {
         return [
             [
@@ -103,58 +104,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
                 true,
             ],
         ];
-    }
-
-    /**
-     * Tests for DBI::getColumnMapFromSql() method.
-     */
-    public function testPMAGetColumnMap(): void
-    {
-        $dummyDbi = $this->createDbiDummy();
-        $dbi = $this->createDatabaseInterface($dummyDbi);
-
-        $dummyDbi->addResult(
-            'PMA_sql_query',
-            [true],
-            [],
-            [
-                (object) [
-                    'table' => 'meta1_table',
-                    'name' => 'meta1_name',
-                ],
-                (object) [
-                    'table' => 'meta2_table',
-                    'name' => 'meta2_name',
-                ],
-            ]
-        );
-
-        $sql_query = 'PMA_sql_query';
-        $view_columns = [
-            'view_columns1',
-            'view_columns2',
-        ];
-
-        $column_map = $dbi->getColumnMapFromSql($sql_query, $view_columns);
-
-        $this->assertEquals(
-            [
-                'table_name' => 'meta1_table',
-                'refering_column' => 'meta1_name',
-                'real_column' => 'view_columns1',
-            ],
-            $column_map[0]
-        );
-        $this->assertEquals(
-            [
-                'table_name' => 'meta2_table',
-                'refering_column' => 'meta2_name',
-                'real_column' => 'view_columns2',
-            ],
-            $column_map[1]
-        );
-
-        $dummyDbi->assertAllQueriesConsumed();
     }
 
     /**
@@ -326,7 +275,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         );
     }
 
-    public function errorData(): array
+    public static function errorData(): array
     {
         return [
             [
@@ -392,7 +341,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      *
      * @return array
      */
-    public function isAmazonRdsData(): array
+    public static function isAmazonRdsData(): array
     {
         return [
             [
@@ -432,7 +381,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $this->assertEquals($upgrade, $ver_int < $GLOBALS['cfg']['MysqlMinVersion']['internal']);
     }
 
-    public function versionData(): array
+    public static function versionData(): array
     {
         return [
             [
@@ -787,7 +736,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $databaseList = $dbi->getDatabasesFull(
             null,
             true,
-            DatabaseInterface::CONNECT_USER,
+            Connection::TYPE_USER,
             'SCHEMA_DATA_LENGTH',
             'ASC',
             0,
@@ -825,13 +774,13 @@ class DatabaseInterfaceTest extends AbstractTestCase
     public function testPrepare(): void
     {
         $query = 'SELECT * FROM `mysql`.`user` WHERE `User` = ? AND `Host` = ?;';
-        $stmtStub = $this->createStub(mysqli_stmt::class);
+        $stmtStub = $this->createStub(Statement::class);
         $dummyDbi = $this->createMock(DbiExtension::class);
         $dummyDbi->expects($this->once())->method('prepare')
             ->with($this->isType('object'), $this->equalTo($query))
             ->willReturn($stmtStub);
         $dbi = $this->createDatabaseInterface($dummyDbi);
-        $stmt = $dbi->prepare($query, DatabaseInterface::CONNECT_CONTROL);
+        $stmt = $dbi->prepare($query, Connection::TYPE_CONTROL);
         $this->assertSame($stmtStub, $stmt);
     }
 
@@ -869,7 +818,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      * @return array
      * @psalm-return array<int, array{array<array-key, mixed>, int, bool, bool}>
      */
-    public function provideDatabaseVersionData(): array
+    public static function provideDatabaseVersionData(): array
     {
         return [
             [
@@ -929,7 +878,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
     /**
      * @return iterable<string, array{string|false|null, int}>
      */
-    public function providerForTestGetLowerCaseNames(): iterable
+    public static function providerForTestGetLowerCaseNames(): iterable
     {
         yield 'string 0' => ['0', 0];
         yield 'string 1' => ['1', 1];

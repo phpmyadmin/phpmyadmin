@@ -36,11 +36,9 @@ use function usort;
  */
 final class RelationController extends AbstractController
 {
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,
@@ -150,7 +148,7 @@ final class RelationController extends AbstractController
             : [];
         $i = 0;
 
-        foreach ($existrelForeign as $key => $oneKey) {
+        foreach ($existrelForeign as $oneKey) {
             $foreignDb = $oneKey['ref_db_name'] ?? $GLOBALS['db'];
             $foreignTable = false;
             if ($foreignDb) {
@@ -383,7 +381,7 @@ final class RelationController extends AbstractController
             $tables_rs = $this->dbi->query($query);
 
             foreach ($tables_rs as $row) {
-                if (! isset($row['Engine']) || mb_strtoupper($row['Engine']) != $storageEngine) {
+                if (! isset($row['Engine']) || mb_strtoupper($row['Engine']) !== $storageEngine) {
                     continue;
                 }
 

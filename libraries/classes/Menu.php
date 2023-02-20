@@ -27,26 +27,19 @@ class Menu
 {
     /**
      * Database name
-     *
-     * @var string
      */
-    private $db;
+    private string $db;
 
-    /** @var DatabaseInterface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     /**
      * Table name
-     *
-     * @var string
      */
-    private $table;
+    private string $table;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var Template */
-    private $template;
+    private Template $template;
 
     /**
      * Creates a new instance of Menu

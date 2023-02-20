@@ -43,13 +43,10 @@ class PageSettings
 
     /**
      * Contains HTML of settings
-     *
-     * @var string
      */
-    private $HTML = '';
+    private string $HTML = '';
 
-    /** @var UserPreferences */
-    private $userPreferences;
+    private UserPreferences $userPreferences;
 
     /**
      * @param string $formGroupName The name of config form group to display
@@ -57,7 +54,7 @@ class PageSettings
      */
     public function __construct($formGroupName, $elemId = null)
     {
-        $this->userPreferences = new UserPreferences();
+        $this->userPreferences = new UserPreferences($GLOBALS['dbi']);
 
         $formClass = PageFormList::get($formGroupName);
         if ($formClass === null) {
@@ -82,7 +79,7 @@ class PageSettings
         // Process form
         $error = null;
         if (isset($_POST['submit_save']) && $_POST['submit_save'] == $formGroupName) {
-            $this->processPageSettings($formDisplay, $cf, $error);
+            $error = $this->processPageSettings($formDisplay, $cf);
         }
 
         // Display forms
@@ -92,14 +89,13 @@ class PageSettings
     /**
      * Process response to form
      *
-     * @param FormDisplay  $formDisplay Form
-     * @param ConfigFile   $cf          Configuration file
-     * @param Message|null $error       Error message
+     * @param FormDisplay $formDisplay Form
+     * @param ConfigFile  $cf          Configuration file
      */
-    private function processPageSettings(&$formDisplay, &$cf, &$error): void
+    private function processPageSettings(FormDisplay $formDisplay, ConfigFile $cf): ?Message
     {
         if (! $formDisplay->process(false) || $formDisplay->hasErrors()) {
-            return;
+            return null;
         }
 
         // save settings
@@ -111,7 +107,7 @@ class PageSettings
             exit;
         }
 
-        $error = $result;
+        return $result;
     }
 
     /**
@@ -120,7 +116,7 @@ class PageSettings
      * @param FormDisplay  $formDisplay Form
      * @param Message|null $error       Error message
      */
-    private function storeError(&$formDisplay, &$error): void
+    private function storeError(FormDisplay $formDisplay, ?Message $error): void
     {
         $retval = '';
         if ($error) {
@@ -141,12 +137,10 @@ class PageSettings
     /**
      * Display page-related settings
      *
-     * @param FormDisplay $formDisplay Form
-     * @param Message     $error       Error message
-     *
-     * @return string
+     * @param FormDisplay  $formDisplay Form
+     * @param Message|null $error       Error message
      */
-    private function getPageSettingsDisplay(&$formDisplay, &$error)
+    private function getPageSettingsDisplay(FormDisplay $formDisplay, ?Message $error): string
     {
         $response = ResponseRenderer::getInstance();
 
@@ -165,20 +159,16 @@ class PageSettings
 
     /**
      * Get HTML output
-     *
-     * @return string
      */
-    public function getHTML()
+    public function getHTML(): string
     {
         return $this->HTML;
     }
 
     /**
      * Get error HTML output
-     *
-     * @return string
      */
-    public function getErrorHTML()
+    public function getErrorHTML(): string
     {
         return $this->errorHTML;
     }
