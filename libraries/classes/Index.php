@@ -73,8 +73,8 @@ class Index
      */
     private $comment = '';
 
-    /** @var int 0 if the index cannot contain duplicates, 1 if it can. */
-    private $nonUnique = 0;
+    /** @var bool false if the index cannot contain duplicates, true if it can. */
+    private bool $nonUnique = false;
 
     /**
      * Indicates how the key is packed. NULL if it is not.
@@ -317,7 +317,7 @@ class Index
         }
 
         if (isset($params['Non_unique'])) {
-            $this->nonUnique = $params['Non_unique'];
+            $this->nonUnique = (bool) $params['Non_unique'];
         }
 
         if (isset($params['Packed'])) {
@@ -334,7 +334,7 @@ class Index
         } elseif ($this->type === 'SPATIAL') {
             $this->choice = 'SPATIAL';
             $this->type = '';
-        } elseif ($this->nonUnique == '0') {
+        } elseif (! $this->nonUnique) {
             $this->choice = 'UNIQUE';
         } else {
             $this->choice = 'INDEX';
@@ -480,11 +480,11 @@ class Index
     }
 
     /**
-     * Returns integer 0 if the index cannot contain duplicates, 1 if it can
+     * Returns bool false if the index cannot contain duplicates, true if it can
      *
-     * @return int 0 if the index cannot contain duplicates, 1 if it can
+     * @return bool false if the index cannot contain duplicates, true if it can
      */
-    public function getNonUnique()
+    public function getNonUnique(): bool
     {
         return $this->nonUnique;
     }
@@ -494,23 +494,15 @@ class Index
      *
      * @param bool $as_text whether to output should be in text
      *
-     * @return mixed whether the index is a 'Unique' index
+     * @return string|bool whether the index is a 'Unique' index
      */
-    public function isUnique($as_text = false)
+    public function isUnique($as_text = false): string|bool
     {
         if ($as_text) {
-            $r = [
-                '0' => __('Yes'),
-                '1' => __('No'),
-            ];
-        } else {
-            $r = [
-                '0' => true,
-                '1' => false,
-            ];
+            return $this->nonUnique ? __('No') : __('Yes');
         }
 
-        return $r[$this->nonUnique];
+        return ! $this->nonUnique;
     }
 
     /**

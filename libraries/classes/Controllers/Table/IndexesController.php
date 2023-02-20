@@ -114,8 +114,7 @@ class IndexesController extends AbstractController
         if (isset($_POST['create_edit_table'])) {
             $fields = json_decode($_POST['columns'], true);
             $index_params = [
-                'Non_unique' => $_POST['index']['Index_choice'] === 'UNIQUE'
-                    ? '0' : '1',
+                'Non_unique' => $_POST['index']['Index_choice'] !== 'UNIQUE',
             ];
             $index->set($index_params);
             $add_fields = count($fields);
