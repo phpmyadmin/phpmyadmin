@@ -381,7 +381,7 @@ class Table implements Stringable
             ->countRecords(true);
         }
 
-        return $tableNumRowInfo ?: 0;
+        return (int) $tableNumRowInfo;
     }
 
     /**
