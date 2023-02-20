@@ -3211,11 +3211,6 @@ parameters:
 			path: libraries/classes/Database/Qbe.php
 
 		-
-			message: "#^Strict comparison using \\=\\=\\= between array and null will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Database/Qbe.php
-
-		-
 			message: "#^Variable variables are not allowed\\.$#"
 			count: 4
 			path: libraries/classes/Database/Qbe.php
@@ -7701,7 +7696,7 @@ parameters:
 			path: libraries/classes/SavedSearches.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SavedSearches\\:\\:\\$criterias \\(array\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SavedSearches\\:\\:\\$criterias \\(array\\|null\\) does not accept mixed\\.$#"
 			count: 1
 			path: libraries/classes/SavedSearches.php
 

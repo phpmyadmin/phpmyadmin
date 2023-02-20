@@ -253,11 +253,11 @@ class Qbe
      */
     private function loadCriterias()
     {
-        if ($this->currentSearch === null || $this->currentSearch->getCriterias() === null) {
+        if ($this->currentSearch === null) {
             return $this;
         }
 
-        $criterias = $this->currentSearch->getCriterias();
+        $criterias = $this->currentSearch->getCriterias() ?? [];
         $_POST = $criterias + $_POST;
 
         return $this;

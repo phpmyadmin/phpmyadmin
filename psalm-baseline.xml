@@ -6146,9 +6146,6 @@
     </PossiblyNullReference>
   </file>
   <file src="libraries/classes/Database/Qbe.php">
-    <DocblockTypeContradiction>
-      <code><![CDATA[$this->currentSearch->getCriterias() === null]]></code>
-    </DocblockTypeContradiction>
     <InvalidArgument>
       <code>$sortOrder</code>
     </InvalidArgument>
@@ -13973,7 +13970,6 @@
       <code><![CDATA[$this->getId()]]></code>
     </PossiblyNullOperand>
     <PossiblyNullPropertyAssignmentValue>
-      <code>null</code>
       <code>null</code>
       <code>null</code>
       <code>null</code>

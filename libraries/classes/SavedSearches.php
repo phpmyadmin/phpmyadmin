@@ -55,7 +55,7 @@ class SavedSearches
     /**
      * Criterias
      *
-     * @var array
+     * @var array|null
      */
     private $criterias = null;
 
@@ -173,7 +173,7 @@ class SavedSearches
     /**
      * Getter for criterias
      *
-     * @return array
+     * @return array|null
      */
     public function getCriterias()
     {
