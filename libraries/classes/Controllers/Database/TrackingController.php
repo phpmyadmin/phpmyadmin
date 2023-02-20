@@ -66,38 +66,43 @@ class TrackingController extends AbstractController
         [, $numTables] = Util::getDbInfo($request, $GLOBALS['db']);
         $isSystemSchema = Utilities::isSystemSchema($GLOBALS['db']);
 
-        if (isset($_POST['delete_tracking'], $_POST['table'])) {
-            Tracker::deleteTracking($GLOBALS['db'], $_POST['table']);
+        if ($request->hasBodyParam('delete_tracking') && $request->hasBodyParam('table')) {
+            Tracker::deleteTracking($GLOBALS['db'], $request->getParsedBodyParam('table'));
             echo Message::success(
                 __('Tracking data deleted successfully.')
             )->getDisplay();
-        } elseif (isset($_POST['submit_create_version'])) {
-            $this->tracking->createTrackingForMultipleTables($GLOBALS['db'], $_POST['selected'], $_POST['version']);
+        } elseif ($request->hasBodyParam('submit_create_version')) {
+            $this->tracking->createTrackingForMultipleTables(
+                $GLOBALS['db'], 
+                $request->getParsedBodyParam('selected'),
+                $request->getParsedBodyParam('version')
+            );
             echo Message::success(
                 sprintf(
                     __(
                         'Version %1$s was created for selected tables, tracking is active for them.'
                     ),
-                    htmlspecialchars($_POST['version'])
+                    htmlspecialchars($request->getParsedBodyParam('version'))
                 )
             )->getDisplay();
-        } elseif (isset($_POST['submit_mult'])) {
-            if (! empty($_POST['selected_tbl'])) {
-                if ($_POST['submit_mult'] === 'delete_tracking') {
-                    foreach ($_POST['selected_tbl'] as $table) {
+        } elseif ($request->hasBodyParam('submit_mult')) {
+            $selectedTable = $request->getParsedBodyParam('selected_tbl');
+            if (! empty($selectedTable)) {
+                if ($request->getParsedBodyParam('submit_mult') === 'delete_tracking') {
+                    foreach ($selectedTable as $table) {
                         Tracker::deleteTracking($GLOBALS['db'], $table);
                     }
 
                     echo Message::success(
                         __('Tracking data deleted successfully.')
                     )->getDisplay();
-                } elseif ($_POST['submit_mult'] === 'track') {
+                } elseif ($request->getParsedBodyParam('submit_mult') === 'track') {
                     echo $this->template->render('create_tracking_version', [
                         'route' => '/database/tracking',
                         'url_params' => $GLOBALS['urlParams'],
                         'last_version' => 0,
                         'db' => $GLOBALS['db'],
-                        'selected' => $_POST['selected_tbl'],
+                        'selected' => $selectedTable,
                         'type' => 'both',
                         'default_statements' => $GLOBALS['cfg']['Server']['tracking_default_statements'],
                     ]);

@@ -61,17 +61,20 @@ class QueryByExampleController extends AbstractController
             $GLOBALS['savedSearch']->setUsername($GLOBALS['cfg']['Server']['user'])
                 ->setDbname($GLOBALS['db']);
 
-            if (! empty($_POST['searchId'])) {
-                $GLOBALS['savedSearch']->setId($_POST['searchId']);
+            $searchId = $request->getParsedBodyParam('searchId');
+            if (! empty($searchId)) {
+                $GLOBALS['savedSearch']->setId($searchId);
             }
 
             //Action field is sent.
-            if (isset($_POST['action'])) {
-                $GLOBALS['savedSearch']->setSearchName($_POST['searchName']);
-                if ($_POST['action'] === 'create') {
+            if ($request->hasBodyParam('action')) {
+
+                $GLOBALS['savedSearch']->setSearchName($request->getParsedBodyParam('searchName'));
+                $action = $request->getParsedBodyParam('action');
+                if ($action === 'create') {
                     try {
                         $GLOBALS['savedSearch']->setId(null)
-                            ->setCriterias($_POST)
+                            ->setCriterias($request->getParsedBody())
                             ->save($savedQbeSearchesFeature);
                     } catch (SavedSearchesException $exception) {
                         $this->response->setRequestStatus(false);
@@ -80,9 +83,9 @@ class QueryByExampleController extends AbstractController
 
                         return;
                     }
-                } elseif ($_POST['action'] === 'update') {
+                } elseif ($action === 'update') {
                     try {
-                        $GLOBALS['savedSearch']->setCriterias($_POST)
+                        $GLOBALS['savedSearch']->setCriterias($request->getParsedBody())
                             ->save($savedQbeSearchesFeature);
                     } catch (SavedSearchesException $exception) {
                         $this->response->setRequestStatus(false);
@@ -91,7 +94,7 @@ class QueryByExampleController extends AbstractController
 
                         return;
                     }
-                } elseif ($_POST['action'] === 'delete') {
+                } elseif ($action === 'delete') {
                     try {
                         $GLOBALS['savedSearch']->delete($savedQbeSearchesFeature);
                     } catch (SavedSearchesException $exception) {
@@ -107,8 +110,8 @@ class QueryByExampleController extends AbstractController
                     $GLOBALS['savedSearch']->setUsername($GLOBALS['cfg']['Server']['user'])
                         ->setDbname($GLOBALS['db']);
                     $_POST = [];
-                } elseif ($_POST['action'] === 'load') {
-                    if (empty($_POST['searchId'])) {
+                } elseif ($action === 'load') {
+                    if (empty($searchId)) {
                         //when not loading a search, reset the object.
                         $GLOBALS['savedSearch'] = new SavedSearches();
                         $GLOBALS['savedSearch']->setUsername($GLOBALS['cfg']['Server']['user'])
@@ -137,7 +140,7 @@ class QueryByExampleController extends AbstractController
          * A query has been submitted -> (maybe) execute it
          */
         $hasMessageToDisplay = false;
-        if (isset($_POST['submit_sql']) && ! empty($GLOBALS['sql_query'])) {
+        if ($request->hasBodyParam('submit_sql') && ! empty($GLOBALS['sql_query'])) {
             if (stripos($GLOBALS['sql_query'], 'SELECT') !== 0) {
                 $hasMessageToDisplay = true;
             } else {
@@ -155,7 +158,7 @@ class QueryByExampleController extends AbstractController
                 $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
                     null,
                     false, // is_gotofile
-                    $_POST['db'], // db
+                    $request->getParsedBodyParam('db'), // db
                     null, // table
                     false, // find_real_end
                     null, // sql_query_for_bookmark
