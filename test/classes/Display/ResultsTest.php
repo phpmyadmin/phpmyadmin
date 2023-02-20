@@ -36,6 +36,7 @@ use const MYSQLI_TYPE_DATETIME;
 use const MYSQLI_TYPE_DECIMAL;
 use const MYSQLI_TYPE_LONG;
 use const MYSQLI_TYPE_STRING;
+use const MYSQLI_TYPE_TIME;
 use const MYSQLI_TYPE_TIMESTAMP;
 
 /**
@@ -1663,5 +1664,168 @@ class ResultsTest extends AbstractTestCase
         ]);
 
         $this->assertEquals($tableTemplate, $actual);
+    }
+
+    /**
+     * @return array[]
+     */
+    public function dataProviderSortOrder(): array
+    {
+        return [
+            'Default date' => [
+                'SMART',
+                'DESC',// date types are DESC in SMART mode
+                MYSQLI_TYPE_DATE,
+            ],
+            'ASC date' => [
+                'ASC',
+                'ASC',// do as config says
+                MYSQLI_TYPE_DATE,
+            ],
+            'DESC date' => [
+                'DESC',
+                'DESC',// do as config says
+                MYSQLI_TYPE_DATE,
+            ],
+            'Default date-time' => [
+                'SMART',
+                'DESC',// date time types are DESC in SMART mode
+                MYSQLI_TYPE_DATETIME,
+            ],
+            'ASC date-time' => [
+                'ASC',
+                'ASC',// do as config says
+                MYSQLI_TYPE_DATETIME,
+            ],
+            'DESC date-time' => [
+                'DESC',
+                'DESC',// do as config says
+                MYSQLI_TYPE_DATETIME,
+            ],
+            'Default time' => [
+                'SMART',
+                'DESC',// time types are DESC in SMART mode
+                MYSQLI_TYPE_TIME,
+            ],
+            'ASC time' => [
+                'ASC',
+                'ASC',// do as config says
+                MYSQLI_TYPE_TIME,
+            ],
+            'DESC time' => [
+                'DESC',
+                'DESC',// do as config says
+                MYSQLI_TYPE_TIME,
+            ],
+            'Default timestamp' => [
+                'SMART',
+                'DESC',// timestamp types are DESC in SMART mode
+                MYSQLI_TYPE_TIMESTAMP,
+            ],
+            'ASC timestamp' => [
+                'ASC',
+                'ASC',// do as config says
+                MYSQLI_TYPE_TIMESTAMP,
+            ],
+            'DESC timestamp' => [
+                'DESC',
+                'DESC',// do as config says
+                MYSQLI_TYPE_TIMESTAMP,
+            ],
+            'Default string' => [
+                'SMART',
+                'ASC',// string types are ASC in SMART mode
+                MYSQLI_TYPE_STRING,
+            ],
+            'ASC string' => [
+                'ASC',
+                'ASC',// do as config says
+                MYSQLI_TYPE_STRING,
+            ],
+            'DESC string' => [
+                'DESC',
+                'DESC',// do as config says
+                MYSQLI_TYPE_STRING,
+            ],
+        ];
+    }
+
+    /**
+     * @dataProvider dataProviderSortOrder
+     */
+    public function testGetSingleAndMultiSortUrls(
+        string $orderSetting,
+        string $querySortDirection,
+        int $metaType
+    ): void {
+        $GLOBALS['cfg']['Order'] = $orderSetting;
+
+        $data = $this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'getSingleAndMultiSortUrls',
+            [
+                ['`Country`.`Code` ASC'], // sortExpression,
+                ['`Country`.`Code`'], // sortExpressionNoDirection,
+                '`Country`.',
+                'FoundedIn',
+                ['ASC'], // sortDirection,
+                new FieldMetadata($metaType, 0, (object) []),
+            ]
+        );
+
+        $this->assertSame([
+            "\n" . 'ORDER BY `Country`.`FoundedIn` ' . $querySortDirection, // singleSortOrder
+            "\n" . 'ORDER BY `Country`.`Code` ASC, `Country`.`FoundedIn` ' . $querySortDirection, // sortOrderColumns
+            '', // orderImg
+        ], $data);
+
+        $data = $this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'getSingleAndMultiSortUrls',
+            [
+                ['`Country`.`Code` ASC'], // sortExpression,
+                ['`Country`.`Code`'], // sortExpressionNoDirection,
+                '`Country`.',
+                'Code2',
+                ['ASC'], // sortDirection,
+                new FieldMetadata($metaType, 0, (object) []),
+            ]
+        );
+
+        $this->assertSame([
+            "\n" . 'ORDER BY `Country`.`Code2` ' . $querySortDirection, // singleSortOrder
+            "\n" . 'ORDER BY `Country`.`Code` ASC, `Country`.`Code2` ' . $querySortDirection, // sortOrderColumns
+            '', // orderImg
+        ], $data);
+
+        $data = $this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'getSingleAndMultiSortUrls',
+            [
+                [
+                    '`Country`.`Continent` DESC","`Country`.`Region` ASC',
+                    '`Country`.`Population` ASC',
+                ], // sortExpression,
+                [
+                    '`Country`.`Continent`',
+                    '`Country`.`Region`',
+                    '`Country`.`Population`',
+                ], // sortExpressionNoDirection,
+                '`Country`.',
+                'Code2',
+                ['DESC', 'ASC', 'ASC'], // sortDirection,
+                new FieldMetadata($metaType, 0, (object) []),
+            ]
+        );
+
+        $this->assertSame([
+            "\n" . 'ORDER BY `Country`.`Code2` ' . $querySortDirection, // singleSortOrder
+            "\n" . 'ORDER BY `Country`.`Continent` DESC, `Country`.`Region` ASC'
+                . ', `Country`.`Population` ASC, `Country`.`Code2` ' . $querySortDirection, // sortOrderColumns
+            '', // orderImg
+        ], $data);
     }
 }

@@ -6070,10 +6070,11 @@
       <code>$multiOrderUrlParams</code>
       <code>$sortExpressionNoDirection</code>
     </InvalidArgument>
-    <InvalidArrayOffset occurrences="1">
+    <InvalidArrayOffset occurrences="2">
+      <code>$GLOBALS['cfg']['Order']</code>
       <code>$delUrlParams</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="53">
+    <MixedArgument occurrences="57">
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos'] / $_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['query']</code>
@@ -6115,6 +6116,10 @@
       <code>$row[$i]</code>
       <code>$row[$i]</code>
       <code>$sessionMaxRows</code>
+      <code>$sortDirection[$index]</code>
+      <code>$sortDirection[$index]</code>
+      <code>$sortDirection[$index]</code>
+      <code>$sortDirection[$index]</code>
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
@@ -6281,7 +6286,7 @@
       <code>$row[$sortedColumnIndex]</code>
       <code>$row[$sortedColumnIndex]</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="47">
+    <MixedAssignment occurrences="48">
       <code>$_SESSION['tmpval']['geoOption']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pftext']</code>
@@ -6322,6 +6327,7 @@
       <code>$rowCount</code>
       <code>$rowInfo[mb_strtolower($fieldsMeta[$m]-&gt;orgname)]</code>
       <code>$sessionMaxRows</code>
+      <code>$sortDirection[$specialIndex]</code>
       <code>$sqlQuery</code>
       <code>$sqlQueryAdd</code>
       <code>$tableCreateTime</code>
@@ -7705,7 +7711,13 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$message</code>
     </PossiblyInvalidArgument>
-    <RedundantCondition occurrences="1">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$menu</code>
+    </PropertyNotSetInConstructor>
+    <RedundantCondition occurrences="4">
+      <code>$GLOBALS['config'] !== null</code>
+      <code>$GLOBALS['config'] !== null</code>
+      <code>$dbi !== null</code>
       <code>isset($dbi)</code>
     </RedundantCondition>
     <RedundantFunctionCall occurrences="1">
@@ -12429,6 +12441,10 @@
       <code>isset($GLOBALS['table']) &amp;&amp; is_scalar($GLOBALS['table'])</code>
       <code>isset($dbi)</code>
     </RedundantCondition>
+    <RedundantConditionGivenDocblockType occurrences="2">
+      <code>$this-&gt;footer !== null</code>
+      <code>$this-&gt;header !== null</code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Sanitize.php">
     <MixedArgument occurrences="6">
@@ -15441,8 +15457,10 @@
       <code>$_SESSION['tmpval']['relational_display']</code>
       <code>$_SESSION['tmpval']['relational_display']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="5">
+    <MixedAssignment occurrences="7">
       <code>$actual</code>
+      <code>$data</code>
+      <code>$data</code>
       <code>$output</code>
       <code>$output</code>
       <code>$output</code>
@@ -15457,6 +15475,9 @@
       <code>array</code>
       <code>array</code>
     </MixedInferredReturnType>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>testGetSingleAndMultiSortUrls</code>
+    </PossiblyInvalidArgument>
   </file>
   <file src="test/classes/Engines/PbxtTest.php">
     <MixedInferredReturnType occurrences="1">
