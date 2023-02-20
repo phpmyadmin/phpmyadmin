@@ -173,7 +173,7 @@ class ExportTest extends AbstractTestCase
             ''
         );
 
-        $expected = <<<SQL
+        $expected = <<<'SQL'
 
 INSERT INTO test_table (id, name, datetimefield) VALUES
 ('1', 'abcd', '2011-01-20 02:00:02'),
@@ -253,7 +253,7 @@ SQL;
             ''
         );
 
-        $expected = <<<SQL
+        $expected = <<<'SQL'
 CREATE DATABASE IF NOT EXISTS test_db DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE test_db;
 

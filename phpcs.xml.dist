@@ -84,9 +84,6 @@
     <rule ref="SlevomatCodingStandard.TypeHints.UnionTypeHintFormat.DisallowedShortNullable">
         <severity>4</severity>
     </rule>
-    <rule ref="SlevomatCodingStandard.PHP.RequireNowdoc.RequiredNowdoc">
-        <severity>4</severity>
-    </rule>
     <rule ref="Squiz.NamingConventions.ValidVariableName.NotCamelCaps">
         <severity>4</severity>
     </rule>
