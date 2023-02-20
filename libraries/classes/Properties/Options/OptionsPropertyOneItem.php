@@ -19,12 +19,8 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
      * @var array
      */
     private $values;
-    /**
-     * Doc
-     *
-     * @var string|array
-     */
-    private $doc;
+
+    private string|array $doc = '';
 
     private int $len = 0;
 
@@ -54,7 +50,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
     /**
      * Gets MySQL documentation pointer
      *
-     * @return string|array
+     * @return string|string[]
      */
     public function getDoc()
     {
@@ -64,9 +60,9 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
     /**
      * Sets the doc
      *
-     * @param string|array $doc MySQL documentation pointer
+     * @param string|string[] $doc MySQL documentation pointer
      */
-    public function setDoc($doc): void
+    public function setDoc(string|array $doc): void
     {
         $this->doc = $doc;
     }
