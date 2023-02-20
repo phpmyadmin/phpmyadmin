@@ -34,7 +34,7 @@ final class MakeConsistentController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+        $GLOBALS['message'] ??= null;
 
         $selected = $_POST['selected_tbl'] ?? [];
 

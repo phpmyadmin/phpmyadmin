@@ -61,7 +61,7 @@ final class ChangeController extends AbstractController
      */
     private function displayHtmlForColumnChange(array $selected): void
     {
-        $GLOBALS['num_fields'] = $GLOBALS['num_fields'] ?? null;
+        $GLOBALS['num_fields'] ??= null;
 
         /**
          * @todo optimize in case of multiple fields to modify

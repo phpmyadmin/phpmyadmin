@@ -93,9 +93,9 @@ class ZoomSearchController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['goto'] = $GLOBALS['goto'] ?? null;
-        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['goto'] ??= null;
+        $GLOBALS['urlParams'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
         $this->checkParameters(['db', 'table']);
 
         $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];

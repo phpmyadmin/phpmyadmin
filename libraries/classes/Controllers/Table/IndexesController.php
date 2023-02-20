@@ -43,8 +43,8 @@ class IndexesController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['urlParams'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
 
         if (! isset($_POST['create_edit_table'])) {
             $this->checkParameters(['db', 'table']);

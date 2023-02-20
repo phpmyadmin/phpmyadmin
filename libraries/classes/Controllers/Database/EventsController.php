@@ -34,9 +34,9 @@ final class EventsController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['errors'] = $GLOBALS['errors'] ?? null;
-        $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['errors'] ??= null;
+        $GLOBALS['text_dir'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
 
         $this->addScriptFiles(['database/events.js']);
 

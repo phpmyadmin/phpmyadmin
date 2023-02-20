@@ -32,7 +32,7 @@ final class FavoriteTableController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['errorUrl'] ??= null;
 
         $parameters = [
             'favorite_table' => $_REQUEST['favorite_table'] ?? null,

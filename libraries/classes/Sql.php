@@ -1356,7 +1356,7 @@ class Sql
         $sqlQuery,
         ?string $completeQuery
     ): string {
-        $GLOBALS['showtable'] = $GLOBALS['showtable'] ?? null;
+        $GLOBALS['showtable'] ??= null;
 
         // If we are retrieving the full value of a truncated field or the original
         // value of a transformed field, show it here

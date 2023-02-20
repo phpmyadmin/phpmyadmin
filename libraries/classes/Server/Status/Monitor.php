@@ -506,7 +506,7 @@ class Monitor
         string $database,
         string $query
     ): array {
-        $GLOBALS['cached_affected_rows'] = $GLOBALS['cached_affected_rows'] ?? null;
+        $GLOBALS['cached_affected_rows'] ??= null;
 
         $return = [];
 

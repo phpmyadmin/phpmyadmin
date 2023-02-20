@@ -260,7 +260,7 @@ class Header
      */
     public function getDisplay(): string
     {
-        $GLOBALS['theme'] = $GLOBALS['theme'] ?? null;
+        $GLOBALS['theme'] ??= null;
 
         if ($this->headerIsSent || ! $this->isEnabled) {
             return '';

@@ -58,9 +58,9 @@ class ImportXml extends ImportPlugin
      */
     public function doImport(?File $importHandle = null): array
     {
-        $GLOBALS['error'] = $GLOBALS['error'] ?? null;
-        $GLOBALS['timeout_passed'] = $GLOBALS['timeout_passed'] ?? null;
-        $GLOBALS['finished'] = $GLOBALS['finished'] ?? null;
+        $GLOBALS['error'] ??= null;
+        $GLOBALS['timeout_passed'] ??= null;
+        $GLOBALS['finished'] ??= null;
 
         $buffer = '';
 

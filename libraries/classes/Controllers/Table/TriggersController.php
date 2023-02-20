@@ -39,9 +39,9 @@ class TriggersController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['errors'] = $GLOBALS['errors'] ?? null;
-        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['errors'] ??= null;
+        $GLOBALS['urlParams'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
 
         $this->addScriptFiles(['database/triggers.js']);
 

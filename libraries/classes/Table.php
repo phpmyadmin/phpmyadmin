@@ -929,7 +929,7 @@ class Table implements Stringable
         $mode,
         bool $addDropIfExists
     ): bool {
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['errorUrl'] ??= null;
         $relation = new Relation($GLOBALS['dbi']);
 
         // Try moving the tables directly, using native `RENAME` statement.

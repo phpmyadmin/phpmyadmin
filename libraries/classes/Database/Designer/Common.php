@@ -57,7 +57,7 @@ class Common
     public function getTablesInfo(?string $db = null, ?string $table = null): array
     {
         $designerTables = [];
-        $db = $db ?? $GLOBALS['db'];
+        $db ??= $GLOBALS['db'];
         // seems to be needed later
         $this->dbi->selectDb($db);
         if ($table === null) {

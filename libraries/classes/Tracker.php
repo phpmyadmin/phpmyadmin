@@ -184,8 +184,8 @@ class Tracker
         $trackingSet = '',
         bool $isView = false
     ): bool {
-        $GLOBALS['sql_backquotes'] = $GLOBALS['sql_backquotes'] ?? null;
-        $GLOBALS['export_type'] = $GLOBALS['export_type'] ?? null;
+        $GLOBALS['sql_backquotes'] ??= null;
+        $GLOBALS['export_type'] ??= null;
         $relation = new Relation($GLOBALS['dbi']);
 
         if ($trackingSet == '') {

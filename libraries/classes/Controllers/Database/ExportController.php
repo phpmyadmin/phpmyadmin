@@ -39,11 +39,11 @@ final class ExportController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-        $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
-        $GLOBALS['table_select'] = $GLOBALS['table_select'] ?? null;
-        $GLOBALS['unlim_num_rows'] = $GLOBALS['unlim_num_rows'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['urlParams'] ??= null;
+        $GLOBALS['tables'] ??= null;
+        $GLOBALS['table_select'] ??= null;
+        $GLOBALS['unlim_num_rows'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
 
         $pageSettings = new PageSettings('Export');
         $pageSettingsErrorHtml = $pageSettings->getErrorHTML();

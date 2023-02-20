@@ -247,7 +247,7 @@ class Designer
         array $tables_all_keys,
         array $tables_pk_or_unique_keys
     ) {
-        $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
+        $GLOBALS['text_dir'] ??= null;
 
         $columns_type = [];
         foreach ($designerTables as $designerTable) {
@@ -333,7 +333,7 @@ class Designer
         array $tablesAllKeys,
         array $tablesPkOrUniqueKeys
     ): string {
-        $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
+        $GLOBALS['text_dir'] ??= null;
 
         $relationParameters = $this->relation->getRelationParameters();
         $columnsType = [];

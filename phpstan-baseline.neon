@@ -7951,7 +7951,7 @@ parameters:
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Variable \\$userGroup on left side of \\?\\? always exists and is not nullable\\.$#"
+			message: "#^Variable \\$userGroup on left side of \\?\\?\\= always exists and is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
 

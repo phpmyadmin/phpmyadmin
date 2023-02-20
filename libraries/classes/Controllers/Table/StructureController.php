@@ -66,13 +66,13 @@ class StructureController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['reread_info'] = $GLOBALS['reread_info'] ?? null;
-        $GLOBALS['showtable'] = $GLOBALS['showtable'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
-        $GLOBALS['tbl_is_view'] = $GLOBALS['tbl_is_view'] ?? null;
-        $GLOBALS['tbl_storage_engine'] = $GLOBALS['tbl_storage_engine'] ?? null;
-        $GLOBALS['tbl_collation'] = $GLOBALS['tbl_collation'] ?? null;
-        $GLOBALS['table_info_num_rows'] = $GLOBALS['table_info_num_rows'] ?? null;
+        $GLOBALS['reread_info'] ??= null;
+        $GLOBALS['showtable'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
+        $GLOBALS['tbl_is_view'] ??= null;
+        $GLOBALS['tbl_storage_engine'] ??= null;
+        $GLOBALS['tbl_collation'] ??= null;
+        $GLOBALS['table_info_num_rows'] ??= null;
 
         $this->dbi->selectDb($GLOBALS['db']);
         $GLOBALS['reread_info'] = $this->tableObj->getStatusInfo(null, true);
@@ -152,8 +152,8 @@ class StructureController extends AbstractController
         bool $isSystemSchema,
         string $route
     ) {
-        $GLOBALS['tbl_is_view'] = $GLOBALS['tbl_is_view'] ?? null;
-        $GLOBALS['tbl_storage_engine'] = $GLOBALS['tbl_storage_engine'] ?? null;
+        $GLOBALS['tbl_is_view'] ??= null;
+        $GLOBALS['tbl_storage_engine'] ??= null;
 
         // prepare comments
         $comments_map = [];
@@ -283,10 +283,10 @@ class StructureController extends AbstractController
      */
     protected function getTableStats(bool $isSystemSchema)
     {
-        $GLOBALS['tbl_is_view'] = $GLOBALS['tbl_is_view'] ?? null;
-        $GLOBALS['tbl_storage_engine'] = $GLOBALS['tbl_storage_engine'] ?? null;
-        $GLOBALS['table_info_num_rows'] = $GLOBALS['table_info_num_rows'] ?? null;
-        $GLOBALS['tbl_collation'] = $GLOBALS['tbl_collation'] ?? null;
+        $GLOBALS['tbl_is_view'] ??= null;
+        $GLOBALS['tbl_storage_engine'] ??= null;
+        $GLOBALS['table_info_num_rows'] ??= null;
+        $GLOBALS['tbl_collation'] ??= null;
 
         if (empty($GLOBALS['showtable'])) {
             $GLOBALS['showtable'] = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table'])->getStatusInfo(null, true);

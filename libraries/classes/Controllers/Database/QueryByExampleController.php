@@ -42,12 +42,12 @@ class QueryByExampleController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['savedSearchList'] = $GLOBALS['savedSearchList'] ?? null;
-        $GLOBALS['savedSearch'] = $GLOBALS['savedSearch'] ?? null;
-        $GLOBALS['currentSearchId'] = $GLOBALS['currentSearchId'] ?? null;
-        $GLOBALS['goto'] = $GLOBALS['goto'] ?? null;
-        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['savedSearchList'] ??= null;
+        $GLOBALS['savedSearch'] ??= null;
+        $GLOBALS['currentSearchId'] ??= null;
+        $GLOBALS['goto'] ??= null;
+        $GLOBALS['urlParams'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
 
         $savedQbeSearchesFeature = $this->relation->getRelationParameters()->savedQueryByExampleSearchesFeature;
 

@@ -42,11 +42,11 @@ class ExportController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['cf'] = $GLOBALS['cf'] ?? null;
-        $GLOBALS['error'] = $GLOBALS['error'] ?? null;
-        $GLOBALS['tabHash'] = $GLOBALS['tabHash'] ?? null;
-        $GLOBALS['hash'] = $GLOBALS['hash'] ?? null;
-        $GLOBALS['server'] = $GLOBALS['server'] ?? null;
+        $GLOBALS['cf'] ??= null;
+        $GLOBALS['error'] ??= null;
+        $GLOBALS['tabHash'] ??= null;
+        $GLOBALS['hash'] ??= null;
+        $GLOBALS['server'] ??= null;
 
         $GLOBALS['cf'] = new ConfigFile($this->config->baseSettings);
         $this->userPreferences->pageInit($GLOBALS['cf']);

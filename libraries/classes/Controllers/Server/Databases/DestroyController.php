@@ -43,9 +43,9 @@ final class DestroyController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['selected'] = $GLOBALS['selected'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
-        $GLOBALS['reload'] = $GLOBALS['reload'] ?? null;
+        $GLOBALS['selected'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
+        $GLOBALS['reload'] ??= null;
 
         $selected_dbs = $request->getParsedBodyParam('selected_dbs');
 

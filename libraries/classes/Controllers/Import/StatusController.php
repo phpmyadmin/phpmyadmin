@@ -33,10 +33,10 @@ class StatusController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['SESSION_KEY'] = $GLOBALS['SESSION_KEY'] ?? null;
-        $GLOBALS['upload_id'] = $GLOBALS['upload_id'] ?? null;
-        $GLOBALS['plugins'] = $GLOBALS['plugins'] ?? null;
-        $GLOBALS['timestamp'] = $GLOBALS['timestamp'] ?? null;
+        $GLOBALS['SESSION_KEY'] ??= null;
+        $GLOBALS['upload_id'] ??= null;
+        $GLOBALS['plugins'] ??= null;
+        $GLOBALS['timestamp'] ??= null;
 
         [
             $GLOBALS['SESSION_KEY'],

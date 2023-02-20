@@ -37,8 +37,8 @@ class DesignerController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['message'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
 
         $db = $request->getParsedBodyParam('db');
         $table = $request->getParsedBodyParam('table');

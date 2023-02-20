@@ -130,7 +130,7 @@ class Footer
      */
     public function getSelfUrl(): string
     {
-        $GLOBALS['server'] = $GLOBALS['server'] ?? null;
+        $GLOBALS['server'] ??= null;
 
         $params = [];
         $params['route'] = Common::getRequest()->getRoute();

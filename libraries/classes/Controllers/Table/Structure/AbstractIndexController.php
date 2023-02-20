@@ -34,7 +34,7 @@ abstract class AbstractIndexController extends AbstractController
 
     public function handleIndexCreation(ServerRequest $request, string $indexType): void
     {
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+        $GLOBALS['message'] ??= null;
 
         $selected = $request->getParsedBodyParam('selected_fld', []);
 

@@ -285,7 +285,7 @@ class Navigation
      */
     private function getLogoSource(): string
     {
-        $GLOBALS['theme'] = $GLOBALS['theme'] ?? null;
+        $GLOBALS['theme'] ??= null;
 
         if ($GLOBALS['theme'] instanceof Theme) {
             if (@file_exists($GLOBALS['theme']->getFsPath() . 'img/logo_left.png')) {

@@ -22,8 +22,8 @@ final class DbTableExists
 
     private static function checkDatabase(string $db, bool $isTransformationWrapper): void
     {
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-        $GLOBALS['show_as_php'] = $GLOBALS['show_as_php'] ?? null;
+        $GLOBALS['message'] ??= null;
+        $GLOBALS['show_as_php'] ??= null;
 
         if (! empty($GLOBALS['is_db'])) {
             return;

@@ -30,7 +30,7 @@ final class AddKeyController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['reload'] = $GLOBALS['reload'] ?? null;
+        $GLOBALS['reload'] ??= null;
 
         ($this->sqlController)($request);
 

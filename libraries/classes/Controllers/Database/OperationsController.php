@@ -61,12 +61,12 @@ class OperationsController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['server'] = $GLOBALS['server'] ?? null;
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
-        $GLOBALS['reload'] = $GLOBALS['reload'] ?? null;
-        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-        $GLOBALS['single_table'] = $GLOBALS['single_table'] ?? null;
+        $GLOBALS['server'] ??= null;
+        $GLOBALS['message'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
+        $GLOBALS['reload'] ??= null;
+        $GLOBALS['urlParams'] ??= null;
+        $GLOBALS['single_table'] ??= null;
 
         $this->checkUserPrivileges->getPrivileges();
 

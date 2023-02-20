@@ -166,7 +166,7 @@ class ExportTexytext extends ExportPlugin
         $sqlQuery,
         array $aliases = []
     ): bool {
-        $GLOBALS['what'] = $GLOBALS['what'] ?? null;
+        $GLOBALS['what'] ??= null;
 
         $db_alias = $db;
         $table_alias = $table;

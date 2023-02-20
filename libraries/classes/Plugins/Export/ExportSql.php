@@ -73,7 +73,7 @@ class ExportSql extends ExportPlugin
 
     protected function init(): void
     {
-        $GLOBALS['sql_backquotes'] = $GLOBALS['sql_backquotes'] ?? null;
+        $GLOBALS['sql_backquotes'] ??= null;
     }
 
     /**
@@ -86,7 +86,7 @@ class ExportSql extends ExportPlugin
 
     protected function setProperties(): ExportPluginProperties
     {
-        $GLOBALS['plugin_param'] = $GLOBALS['plugin_param'] ?? null;
+        $GLOBALS['plugin_param'] ??= null;
 
         $hideSql = false;
         $hideStructure = false;
@@ -1355,14 +1355,14 @@ class ExportSql extends ExportPlugin
         $updateIndexesIncrements = true,
         array $aliases = []
     ): string {
-        $GLOBALS['sql_drop_table'] = $GLOBALS['sql_drop_table'] ?? null;
-        $GLOBALS['sql_backquotes'] = $GLOBALS['sql_backquotes'] ?? null;
-        $GLOBALS['sql_constraints'] = $GLOBALS['sql_constraints'] ?? null;
-        $GLOBALS['sql_constraints_query'] = $GLOBALS['sql_constraints_query'] ?? null;
-        $GLOBALS['sql_indexes'] = $GLOBALS['sql_indexes'] ?? null;
-        $GLOBALS['sql_indexes_query'] = $GLOBALS['sql_indexes_query'] ?? null;
-        $GLOBALS['sql_auto_increments'] = $GLOBALS['sql_auto_increments'] ?? null;
-        $GLOBALS['sql_drop_foreign_keys'] = $GLOBALS['sql_drop_foreign_keys'] ?? null;
+        $GLOBALS['sql_drop_table'] ??= null;
+        $GLOBALS['sql_backquotes'] ??= null;
+        $GLOBALS['sql_constraints'] ??= null;
+        $GLOBALS['sql_constraints_query'] ??= null;
+        $GLOBALS['sql_indexes'] ??= null;
+        $GLOBALS['sql_indexes_query'] ??= null;
+        $GLOBALS['sql_auto_increments'] ??= null;
+        $GLOBALS['sql_drop_foreign_keys'] ??= null;
 
         $dbAlias = $db;
         $tableAlias = $table;
@@ -1766,7 +1766,7 @@ class ExportSql extends ExportPlugin
         bool $doMime = false,
         array $aliases = []
     ): string {
-        $GLOBALS['sql_backquotes'] = $GLOBALS['sql_backquotes'] ?? null;
+        $GLOBALS['sql_backquotes'] ??= null;
 
         $dbAlias = $db;
         $tableAlias = $table;
@@ -2068,7 +2068,7 @@ class ExportSql extends ExportPlugin
         $sqlQuery,
         array $aliases = []
     ): bool {
-        $GLOBALS['sql_backquotes'] = $GLOBALS['sql_backquotes'] ?? null;
+        $GLOBALS['sql_backquotes'] ??= null;
 
         // Do not export data for merge tables
         if ($GLOBALS['dbi']->getTable($db, $table)->isMerge()) {

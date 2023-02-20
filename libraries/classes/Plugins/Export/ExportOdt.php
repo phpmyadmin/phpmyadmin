@@ -46,7 +46,7 @@ class ExportOdt extends ExportPlugin
 
     protected function setProperties(): ExportPluginProperties
     {
-        $GLOBALS['plugin_param'] = $GLOBALS['plugin_param'] ?? null;
+        $GLOBALS['plugin_param'] ??= null;
 
         $hide_structure = false;
         if ($GLOBALS['plugin_param']['export_type'] === 'table' && ! $GLOBALS['plugin_param']['single_table']) {
@@ -228,7 +228,7 @@ class ExportOdt extends ExportPlugin
         $sqlQuery,
         array $aliases = []
     ): bool {
-        $GLOBALS['what'] = $GLOBALS['what'] ?? null;
+        $GLOBALS['what'] ??= null;
 
         $db_alias = $db;
         $table_alias = $table;

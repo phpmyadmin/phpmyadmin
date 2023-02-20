@@ -61,7 +61,7 @@ class ExportXml extends ExportPlugin
      */
     private function initSpecificVariables(): void
     {
-        $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
+        $GLOBALS['tables'] ??= null;
 
         $this->setTable($GLOBALS['table']);
         if (! is_array($GLOBALS['tables'])) {

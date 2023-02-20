@@ -79,7 +79,7 @@ final class ReplicationInfo
 
     public function load(?string $connection = null): void
     {
-        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
+        $GLOBALS['urlParams'] ??= null;
 
         $this->setPrimaryStatus();
 

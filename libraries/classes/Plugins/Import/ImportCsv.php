@@ -158,20 +158,20 @@ class ImportCsv extends AbstractImportCsv
      */
     public function doImport(?File $importHandle = null): array
     {
-        $GLOBALS['error'] = $GLOBALS['error'] ?? null;
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-        $GLOBALS['csv_terminated'] = $GLOBALS['csv_terminated'] ?? null;
-        $GLOBALS['csv_enclosed'] = $GLOBALS['csv_enclosed'] ?? null;
-        $GLOBALS['csv_escaped'] = $GLOBALS['csv_escaped'] ?? null;
-        $GLOBALS['csv_new_line'] = $GLOBALS['csv_new_line'] ?? null;
-        $GLOBALS['csv_columns'] = $GLOBALS['csv_columns'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['error'] ??= null;
+        $GLOBALS['message'] ??= null;
+        $GLOBALS['csv_terminated'] ??= null;
+        $GLOBALS['csv_enclosed'] ??= null;
+        $GLOBALS['csv_escaped'] ??= null;
+        $GLOBALS['csv_new_line'] ??= null;
+        $GLOBALS['csv_columns'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
 
         // $csv_replace and $csv_ignore should have been here,
         // but we use directly from $_POST
 
-        $GLOBALS['timeout_passed'] = $GLOBALS['timeout_passed'] ?? null;
-        $GLOBALS['finished'] = $GLOBALS['finished'] ?? null;
+        $GLOBALS['timeout_passed'] ??= null;
+        $GLOBALS['finished'] ??= null;
 
         $replacements = [
             '\\n' => "\n",
@@ -656,8 +656,8 @@ class ImportCsv extends AbstractImportCsv
         string $csvNewLine,
         string $errUrl
     ): array {
-        $GLOBALS['error'] = $GLOBALS['error'] ?? null;
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+        $GLOBALS['error'] ??= null;
+        $GLOBALS['message'] ??= null;
 
         $param_error = false;
         if (strlen($csvTerminated) === 0) {
@@ -718,7 +718,7 @@ class ImportCsv extends AbstractImportCsv
 
     private function getTableNameFromImport(string $databaseName): string
     {
-        $GLOBALS['import_file_name'] = $GLOBALS['import_file_name'] ?? null;
+        $GLOBALS['import_file_name'] ??= null;
 
         $importFileName = basename($GLOBALS['import_file_name'], '.csv');
         $importFileName = mb_strtolower($importFileName);
@@ -783,8 +783,8 @@ class ImportCsv extends AbstractImportCsv
         ?string $table,
         ?string $csvColumns
     ): array {
-        $GLOBALS['error'] = $GLOBALS['error'] ?? null;
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+        $GLOBALS['error'] ??= null;
+        $GLOBALS['message'] ??= null;
 
         $requiredFields = 0;
         $sqlTemplate = '';

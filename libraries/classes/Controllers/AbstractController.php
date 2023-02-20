@@ -48,8 +48,8 @@ abstract class AbstractController
 
     protected function hasDatabase(): bool
     {
-        $GLOBALS['errno'] = $GLOBALS['errno'] ?? null;
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+        $GLOBALS['errno'] ??= null;
+        $GLOBALS['message'] ??= null;
 
         if (isset($GLOBALS['is_db']) && $GLOBALS['is_db']) {
             return true;

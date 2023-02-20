@@ -65,9 +65,9 @@ final class ColumnsDefinition
         ?array $selected = null,
         $fields_meta = null
     ): array {
-        $GLOBALS['col_priv'] = $GLOBALS['col_priv'] ?? null;
-        $GLOBALS['is_reload_priv'] = $GLOBALS['is_reload_priv'] ?? null;
-        $GLOBALS['mime_map'] = $GLOBALS['mime_map'] ?? null;
+        $GLOBALS['col_priv'] ??= null;
+        $GLOBALS['is_reload_priv'] ??= null;
+        $GLOBALS['mime_map'] ??= null;
 
         $length_values_input_size = 8;
         $content_cells = [];

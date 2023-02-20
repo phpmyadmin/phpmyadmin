@@ -656,7 +656,7 @@ class Operations
         $transactional,
         $tableCollation
     ) {
-        $GLOBALS['auto_increment'] = $GLOBALS['auto_increment'] ?? null;
+        $GLOBALS['auto_increment'] ??= null;
 
         $tableAlters = [];
 

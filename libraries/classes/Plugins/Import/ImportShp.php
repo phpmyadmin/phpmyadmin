@@ -79,10 +79,10 @@ class ImportShp extends ImportPlugin
      */
     public function doImport(?File $importHandle = null): array
     {
-        $GLOBALS['error'] = $GLOBALS['error'] ?? null;
-        $GLOBALS['import_file'] = $GLOBALS['import_file'] ?? null;
-        $GLOBALS['local_import_file'] = $GLOBALS['local_import_file'] ?? null;
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+        $GLOBALS['error'] ??= null;
+        $GLOBALS['import_file'] ??= null;
+        $GLOBALS['local_import_file'] ??= null;
+        $GLOBALS['message'] ??= null;
         $GLOBALS['finished'] = false;
 
         if ($importHandle === null || $this->zipExtension === null) {
@@ -325,9 +325,9 @@ class ImportShp extends ImportPlugin
      */
     public static function readFromBuffer($length)
     {
-        $GLOBALS['buffer'] = $GLOBALS['buffer'] ?? null;
-        $GLOBALS['eof'] = $GLOBALS['eof'] ?? null;
-        $GLOBALS['importHandle'] = $GLOBALS['importHandle'] ?? null;
+        $GLOBALS['buffer'] ??= null;
+        $GLOBALS['eof'] ??= null;
+        $GLOBALS['importHandle'] ??= null;
 
         $import = new Import();
 

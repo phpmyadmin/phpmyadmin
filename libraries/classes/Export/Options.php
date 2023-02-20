@@ -213,7 +213,7 @@ final class Options
 
     private function getFileNameTemplate(string $exportType, ?string $filename = null): string
     {
-        $GLOBALS['config'] = $GLOBALS['config'] ?? null;
+        $GLOBALS['config'] ??= null;
 
         if ($filename !== null) {
             return $filename;

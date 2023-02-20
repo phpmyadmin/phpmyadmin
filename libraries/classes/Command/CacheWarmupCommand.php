@@ -119,7 +119,7 @@ final class CacheWarmupCommand extends Command
         string $environment,
         bool $writeReplacements
     ): int {
-        $GLOBALS['config'] = $GLOBALS['config'] ?? null;
+        $GLOBALS['config'] ??= null;
 
         $output->writeln('Warming up the twig cache', OutputInterface::VERBOSITY_VERBOSE);
         $GLOBALS['config'] = new Config();

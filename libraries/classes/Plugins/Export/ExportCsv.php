@@ -106,11 +106,11 @@ class ExportCsv extends ExportPlugin
      */
     public function exportHeader(): bool
     {
-        $GLOBALS['what'] = $GLOBALS['what'] ?? null;
-        $GLOBALS['csv_terminated'] = $GLOBALS['csv_terminated'] ?? null;
-        $GLOBALS['csv_separator'] = $GLOBALS['csv_separator'] ?? null;
-        $GLOBALS['csv_enclosed'] = $GLOBALS['csv_enclosed'] ?? null;
-        $GLOBALS['csv_escaped'] = $GLOBALS['csv_escaped'] ?? null;
+        $GLOBALS['what'] ??= null;
+        $GLOBALS['csv_terminated'] ??= null;
+        $GLOBALS['csv_separator'] ??= null;
+        $GLOBALS['csv_enclosed'] ??= null;
+        $GLOBALS['csv_escaped'] ??= null;
 
         // Here we just prepare some values for export
         if ($GLOBALS['what'] === 'excel') {
@@ -212,11 +212,11 @@ class ExportCsv extends ExportPlugin
         $sqlQuery,
         array $aliases = []
     ): bool {
-        $GLOBALS['what'] = $GLOBALS['what'] ?? null;
-        $GLOBALS['csv_terminated'] = $GLOBALS['csv_terminated'] ?? null;
-        $GLOBALS['csv_separator'] = $GLOBALS['csv_separator'] ?? '';
-        $GLOBALS['csv_enclosed'] = $GLOBALS['csv_enclosed'] ?? null;
-        $GLOBALS['csv_escaped'] = $GLOBALS['csv_escaped'] ?? null;
+        $GLOBALS['what'] ??= null;
+        $GLOBALS['csv_terminated'] ??= null;
+        $GLOBALS['csv_separator'] ??= '';
+        $GLOBALS['csv_enclosed'] ??= null;
+        $GLOBALS['csv_escaped'] ??= null;
 
         $db_alias = $db;
         $table_alias = $table;

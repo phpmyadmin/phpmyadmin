@@ -97,8 +97,8 @@ class Triggers
      */
     public function handleEditor(): void
     {
-        $GLOBALS['errors'] = $GLOBALS['errors'] ?? null;
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+        $GLOBALS['errors'] ??= null;
+        $GLOBALS['message'] ??= null;
 
         if (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit'])) {
             $sql_query = '';
@@ -373,7 +373,7 @@ class Triggers
      */
     public function getQueryFromRequest()
     {
-        $GLOBALS['errors'] = $GLOBALS['errors'] ?? null;
+        $GLOBALS['errors'] ??= null;
 
         $query = 'CREATE ';
         if (! empty($_POST['item_definer'])) {

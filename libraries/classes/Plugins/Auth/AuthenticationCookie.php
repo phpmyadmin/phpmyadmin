@@ -66,7 +66,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function showLoginForm(): bool
     {
-        $GLOBALS['conn_error'] = $GLOBALS['conn_error'] ?? null;
+        $GLOBALS['conn_error'] ??= null;
 
         $response = ResponseRenderer::getInstance();
 
@@ -228,7 +228,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function readCredentials(): bool
     {
-        $GLOBALS['conn_error'] = $GLOBALS['conn_error'] ?? null;
+        $GLOBALS['conn_error'] ??= null;
 
         // Initialization
         /**
@@ -581,7 +581,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function showFailure($failure): void
     {
-        $GLOBALS['conn_error'] = $GLOBALS['conn_error'] ?? null;
+        $GLOBALS['conn_error'] ??= null;
 
         parent::showFailure($failure);
 
@@ -684,7 +684,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function logOut(): void
     {
-        $GLOBALS['config'] = $GLOBALS['config'] ?? null;
+        $GLOBALS['config'] ??= null;
 
         // -> delete password cookie(s)
         if ($GLOBALS['cfg']['LoginCookieDeleteAll']) {

@@ -35,8 +35,8 @@ class CentralColumnsController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-        $GLOBALS['num_cols'] = $GLOBALS['num_cols'] ?? null;
+        $GLOBALS['message'] ??= null;
+        $GLOBALS['num_cols'] ??= null;
 
         if ($request->hasBodyParam('edit_save')) {
             echo $this->editSave([
@@ -156,7 +156,7 @@ class CentralColumnsController extends AbstractController
      */
     public function main(array $params): void
     {
-        $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
+        $GLOBALS['text_dir'] ??= null;
 
         if (! empty($params['total_rows']) && is_numeric($params['total_rows'])) {
             $totalRows = (int) $params['total_rows'];

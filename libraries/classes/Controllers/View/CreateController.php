@@ -61,9 +61,9 @@ class CreateController extends AbstractController
     public function __invoke(ServerRequest $request): void
     {
         $this->checkParameters(['db']);
-        $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
-        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+        $GLOBALS['text_dir'] ??= null;
+        $GLOBALS['urlParams'] ??= null;
+        $GLOBALS['message'] ??= null;
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
         $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');

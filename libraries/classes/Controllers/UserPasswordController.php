@@ -36,10 +36,10 @@ class UserPasswordController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['hostname'] = $GLOBALS['hostname'] ?? null;
-        $GLOBALS['username'] = $GLOBALS['username'] ?? null;
-        $GLOBALS['change_password_message'] = $GLOBALS['change_password_message'] ?? null;
-        $GLOBALS['msg'] = $GLOBALS['msg'] ?? null;
+        $GLOBALS['hostname'] ??= null;
+        $GLOBALS['username'] ??= null;
+        $GLOBALS['change_password_message'] ??= null;
+        $GLOBALS['msg'] ??= null;
 
         $this->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn-ts.js']);
 

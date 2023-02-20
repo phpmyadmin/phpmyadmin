@@ -48,25 +48,25 @@ final class ExportController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['export_type'] = $GLOBALS['export_type'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-        $GLOBALS['compression'] = $GLOBALS['compression'] ?? null;
-        $GLOBALS['asfile'] = $GLOBALS['asfile'] ?? null;
-        $GLOBALS['buffer_needed'] = $GLOBALS['buffer_needed'] ?? null;
-        $GLOBALS['save_on_server'] = $GLOBALS['save_on_server'] ?? null;
-        $GLOBALS['file_handle'] = $GLOBALS['file_handle'] ?? null;
-        $GLOBALS['output_charset_conversion'] = $GLOBALS['output_charset_conversion'] ?? null;
-        $GLOBALS['output_kanji_conversion'] = $GLOBALS['output_kanji_conversion'] ?? null;
-        $GLOBALS['what'] = $GLOBALS['what'] ?? null;
-        $GLOBALS['single_table'] = $GLOBALS['single_table'] ?? null;
-        $GLOBALS['save_filename'] = $GLOBALS['save_filename'] ?? null;
-        $GLOBALS['tables'] = $GLOBALS['tables'] ?? null;
-        $GLOBALS['table_select'] = $GLOBALS['table_select'] ?? null;
-        $GLOBALS['time_start'] = $GLOBALS['time_start'] ?? null;
-        $GLOBALS['charset'] = $GLOBALS['charset'] ?? null;
-        $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
-        $GLOBALS['table_data'] = $GLOBALS['table_data'] ?? null;
+        $GLOBALS['export_type'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
+        $GLOBALS['message'] ??= null;
+        $GLOBALS['compression'] ??= null;
+        $GLOBALS['asfile'] ??= null;
+        $GLOBALS['buffer_needed'] ??= null;
+        $GLOBALS['save_on_server'] ??= null;
+        $GLOBALS['file_handle'] ??= null;
+        $GLOBALS['output_charset_conversion'] ??= null;
+        $GLOBALS['output_kanji_conversion'] ??= null;
+        $GLOBALS['what'] ??= null;
+        $GLOBALS['single_table'] ??= null;
+        $GLOBALS['save_filename'] ??= null;
+        $GLOBALS['tables'] ??= null;
+        $GLOBALS['table_select'] ??= null;
+        $GLOBALS['time_start'] ??= null;
+        $GLOBALS['charset'] ??= null;
+        $GLOBALS['active_page'] ??= null;
+        $GLOBALS['table_data'] ??= null;
 
         /** @var array<string, string> $postParams */
         $postParams = $request->getParsedBody();

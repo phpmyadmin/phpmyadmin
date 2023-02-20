@@ -49,21 +49,21 @@ class SqlController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['display_query'] = $GLOBALS['display_query'] ?? null;
-        $GLOBALS['ajax_reload'] = $GLOBALS['ajax_reload'] ?? null;
-        $GLOBALS['goto'] = $GLOBALS['goto'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
-        $GLOBALS['find_real_end'] = $GLOBALS['find_real_end'] ?? null;
-        $GLOBALS['unlim_num_rows'] = $GLOBALS['unlim_num_rows'] ?? null;
-        $GLOBALS['import_text'] = $GLOBALS['import_text'] ?? null;
-        $GLOBALS['disp_query'] = $GLOBALS['disp_query'] ?? null;
-        $GLOBALS['extra_data'] = $GLOBALS['extra_data'] ?? null;
-        $GLOBALS['message_to_show'] = $GLOBALS['message_to_show'] ?? null;
-        $GLOBALS['disp_message'] = $GLOBALS['disp_message'] ?? null;
-        $GLOBALS['complete_query'] = $GLOBALS['complete_query'] ?? null;
-        $GLOBALS['is_gotofile'] = $GLOBALS['is_gotofile'] ?? null;
-        $GLOBALS['back'] = $GLOBALS['back'] ?? null;
-        $GLOBALS['table_from_sql'] = $GLOBALS['table_from_sql'] ?? null;
+        $GLOBALS['display_query'] ??= null;
+        $GLOBALS['ajax_reload'] ??= null;
+        $GLOBALS['goto'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
+        $GLOBALS['find_real_end'] ??= null;
+        $GLOBALS['unlim_num_rows'] ??= null;
+        $GLOBALS['import_text'] ??= null;
+        $GLOBALS['disp_query'] ??= null;
+        $GLOBALS['extra_data'] ??= null;
+        $GLOBALS['message_to_show'] ??= null;
+        $GLOBALS['disp_message'] ??= null;
+        $GLOBALS['complete_query'] ??= null;
+        $GLOBALS['is_gotofile'] ??= null;
+        $GLOBALS['back'] ??= null;
+        $GLOBALS['table_from_sql'] ??= null;
 
         $this->checkUserPrivileges->getPrivileges();
 

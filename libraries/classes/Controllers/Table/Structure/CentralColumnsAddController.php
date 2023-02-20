@@ -34,7 +34,7 @@ final class CentralColumnsAddController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+        $GLOBALS['message'] ??= null;
 
         $selected = $request->getParsedBodyParam('selected_fld', []);
 

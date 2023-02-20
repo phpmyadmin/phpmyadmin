@@ -130,8 +130,8 @@ class Export
      */
     public function outputHandler(string $line): bool
     {
-        $GLOBALS['time_start'] = $GLOBALS['time_start'] ?? null;
-        $GLOBALS['save_filename'] = $GLOBALS['save_filename'] ?? null;
+        $GLOBALS['time_start'] ??= null;
+        $GLOBALS['save_filename'] ??= null;
 
         // Kanji encoding convert feature
         if ($GLOBALS['output_kanji_conversion']) {
@@ -1079,7 +1079,7 @@ class Export
      */
     public function showPage(string $exportType): void
     {
-        $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
+        $GLOBALS['active_page'] ??= null;
         $request = Common::getRequest();
         $container = Core::getContainerBuilder();
         if ($exportType === 'server') {

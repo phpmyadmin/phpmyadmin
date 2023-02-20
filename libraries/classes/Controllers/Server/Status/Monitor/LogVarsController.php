@@ -33,7 +33,7 @@ final class LogVarsController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['errorUrl'] ??= null;
 
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 

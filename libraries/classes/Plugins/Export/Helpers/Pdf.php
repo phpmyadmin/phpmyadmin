@@ -160,7 +160,7 @@ class Pdf extends PdfLib
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
     public function Header(): void
     {
-        $GLOBALS['maxY'] = $GLOBALS['maxY'] ?? null;
+        $GLOBALS['maxY'] ??= null;
 
         // We don't want automatic page breaks while generating header
         // as this can lead to infinite recursion as auto generated page

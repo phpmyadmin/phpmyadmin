@@ -29,8 +29,8 @@ class SearchController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
-        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
+        $GLOBALS['errorUrl'] ??= null;
+        $GLOBALS['urlParams'] ??= null;
 
         $this->addScriptFiles(['database/search.js', 'sql.js', 'makegrid.js']);
 

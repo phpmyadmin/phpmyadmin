@@ -20,7 +20,7 @@ final class Crypto
 {
     private function getEncryptionKey(): string
     {
-        $GLOBALS['config'] = $GLOBALS['config'] ?? null;
+        $GLOBALS['config'] ??= null;
 
         $key = $GLOBALS['config']->get('URLQueryEncryptionSecretKey');
         if (is_string($key) && mb_strlen($key, '8bit') === SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {

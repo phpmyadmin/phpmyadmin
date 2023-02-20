@@ -33,7 +33,7 @@ final class ChartingDataController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['errorUrl'] ??= null;
 
         $requiredData = $request->getParsedBodyParam('requiredData', '');
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');

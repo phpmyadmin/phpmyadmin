@@ -44,12 +44,12 @@ final class TrackingController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
-        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-        $GLOBALS['msg'] = $GLOBALS['msg'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
-        $GLOBALS['entries'] = $GLOBALS['entries'] ?? null;
-        $GLOBALS['filter_users'] = $GLOBALS['filter_users'] ?? null;
+        $GLOBALS['text_dir'] ??= null;
+        $GLOBALS['urlParams'] ??= null;
+        $GLOBALS['msg'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
+        $GLOBALS['entries'] ??= null;
+        $GLOBALS['filter_users'] ??= null;
 
         $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'table/tracking.js']);
 
@@ -120,8 +120,8 @@ final class TrackingController extends AbstractController
             $GLOBALS['filter_users'] = array_map('trim', explode(',', $users));
         }
 
-        $dateFrom = $dateFrom ?? new DateTimeImmutable();
-        $dateTo = $dateTo ?? new DateTimeImmutable();
+        $dateFrom ??= new DateTimeImmutable();
+        $dateTo ??= new DateTimeImmutable();
 
         // Prepare export
         if ($reportExport !== null) {

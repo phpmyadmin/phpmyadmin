@@ -89,10 +89,10 @@ final class Common
      */
     public static function run(bool $isSetupPage = false): void
     {
-        $GLOBALS['lang'] = $GLOBALS['lang'] ?? null;
-        $GLOBALS['theme'] = $GLOBALS['theme'] ?? null;
-        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-        $GLOBALS['token_mismatch'] = $GLOBALS['token_mismatch'] ?? null;
+        $GLOBALS['lang'] ??= null;
+        $GLOBALS['theme'] ??= null;
+        $GLOBALS['urlParams'] ??= null;
+        $GLOBALS['token_mismatch'] ??= null;
 
         $request = self::getRequest();
         $route = $request->getRoute();
@@ -454,8 +454,8 @@ final class Common
 
     private static function setGotoAndBackGlobals(ContainerInterface $container, Config $config): void
     {
-        $GLOBALS['back'] = $GLOBALS['back'] ?? null;
-        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
+        $GLOBALS['back'] ??= null;
+        $GLOBALS['urlParams'] ??= null;
 
         // Holds page that should be displayed.
         $GLOBALS['goto'] = '';
@@ -535,7 +535,7 @@ final class Common
 
     private static function setDatabaseAndTableFromRequest(ContainerInterface $container, ServerRequest $request): void
     {
-        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
+        $GLOBALS['urlParams'] ??= null;
 
         $db = DatabaseName::tryFromValue($request->getParam('db'));
         $table = TableName::tryFromValue($request->getParam('table'));

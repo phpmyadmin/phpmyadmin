@@ -29,7 +29,7 @@ final class RealRowCountController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['errorUrl'] ??= null;
 
         $parameters = [
             'real_row_count_all' => $_REQUEST['real_row_count_all'] ?? null,

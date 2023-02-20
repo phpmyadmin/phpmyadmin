@@ -44,9 +44,9 @@ class RoutinesController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['errors'] = $GLOBALS['errors'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
-        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
+        $GLOBALS['errors'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
+        $GLOBALS['urlParams'] ??= null;
 
         $this->addScriptFiles(['database/routines.js']);
 

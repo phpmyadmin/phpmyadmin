@@ -40,8 +40,8 @@ class ReplicationController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['urlParams'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
 
         $hasReplicaClearScreen = (bool) $request->getParsedBodyParam('replica_clear_screen');
         $replicaConfigure = $request->getParsedBodyParam('replica_configure');

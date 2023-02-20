@@ -32,7 +32,7 @@ class VariablesController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['errorUrl'] ??= null;
 
         $filterAlert = $request->getParsedBodyParam('filterAlert');
         $filterText = $request->getParsedBodyParam('filterText');
