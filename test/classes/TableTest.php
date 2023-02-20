@@ -295,13 +295,6 @@ class TableTest extends AbstractTestCase
         $dbi->expects($this->any())->method('getTablesFull')
             ->will($this->returnValue($databases));
 
-        $resultStub->expects($this->any())
-            ->method('numRows')
-            ->will($this->returnValue(20));
-
-        $dbi->expects($this->any())->method('tryQuery')
-            ->will($this->returnValue($resultStub));
-
         $dbi->expects($this->any())->method('query')
             ->will($this->returnValue($resultStub));
 
@@ -1528,6 +1521,20 @@ class TableTest extends AbstractTestCase
             ->will($this->returnValueMap([
                 [
                     'SHOW CREATE TABLE `aa`.`ad`',
+                    Connection::TYPE_USER,
+                    DatabaseInterface::QUERY_BUFFERED,
+                    true,
+                    $resultStub,
+                ],
+                [
+                    'SHOW TABLE STATUS FROM `aa` WHERE Name = \'ad\'',
+                    Connection::TYPE_USER,
+                    DatabaseInterface::QUERY_BUFFERED,
+                    true,
+                    $resultStub,
+                ],
+                [
+                    'USE `aa`',
                     Connection::TYPE_USER,
                     DatabaseInterface::QUERY_BUFFERED,
                     true,
