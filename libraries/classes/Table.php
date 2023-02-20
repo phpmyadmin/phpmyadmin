@@ -365,7 +365,7 @@ class Table implements Stringable
             return '';
         }
 
-        return $tableCollation;
+        return $tableCollation ?? '';
     }
 
     /**

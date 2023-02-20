@@ -208,15 +208,15 @@ class Charsets
     }
 
     /**
-     * @param bool        $disableIs Disable use of INFORMATION_SCHEMA
-     * @param string|null $name      Collation name
+     * @param bool   $disableIs Disable use of INFORMATION_SCHEMA
+     * @param string $name      Collation name
      */
     public static function findCollationByName(
         DatabaseInterface $dbi,
         bool $disableIs,
-        string|null $name
+        string $name
     ): Collation|null {
-        $charset = explode('_', $name ?? '')[0];
+        $charset = explode('_', $name)[0];
         $collations = self::getCollations($dbi, $disableIs);
 
         return $collations[$charset][$name] ?? null;
