@@ -1462,7 +1462,7 @@ class ExportSql extends ExportPlugin
                 /**
                  * `CREATE TABLE` statement.
                  *
-                 * @var CreateStatement
+                 * @var CreateStatement $statement
                  */
                 $statement = $parser->statements[0];
 
@@ -1537,7 +1537,7 @@ class ExportSql extends ExportPlugin
             /**
              * `CREATE TABLE` statement.
              *
-             * @var CreateStatement
+             * @var CreateStatement $statement
              */
             $statement = $parser->statements[0];
 
@@ -1555,37 +1555,26 @@ class ExportSql extends ExportPlugin
 
                 /**
                  * Fragments containing definition of each constraint.
-                 *
-                 * @var array
                  */
                 $constraints = [];
 
                 /**
                  * Fragments containing definition of each index.
-                 *
-                 * @var array
                  */
                 $indexes = [];
 
                 /**
                  * Fragments containing definition of each FULLTEXT index.
-                 *
-                 * @var array
                  */
                 $indexesFulltext = [];
 
                 /**
-                 * Fragments containing definition of each foreign key that will
-                 * be dropped.
-                 *
-                 * @var array
+                 * Fragments containing definition of each foreign key that will be dropped.
                  */
                 $dropped = [];
 
                 /**
                  * Fragment containing definition of the `AUTO_INCREMENT`.
-                 *
-                 * @var array
                  */
                 $autoIncrement = [];
 
@@ -1639,15 +1628,11 @@ class ExportSql extends ExportPlugin
 
                 /**
                  * The header of the `ALTER` statement (`ALTER TABLE tbl`).
-                 *
-                 * @var string
                  */
                 $alterHeader = 'ALTER TABLE ' . Util::backquoteCompat($tableAlias, $compat, $GLOBALS['sql_backquotes']);
 
                 /**
                  * The footer of the `ALTER` statement (usually ';')
-                 *
-                 * @var string
                  */
                 $alterFooter = ';' . "\n";
 

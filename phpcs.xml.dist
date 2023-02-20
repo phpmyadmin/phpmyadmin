@@ -42,9 +42,6 @@
     <rule ref="SlevomatCodingStandard.Classes.RequireConstructorPropertyPromotion.RequiredConstructorPropertyPromotion">
         <severity>4</severity>
     </rule>
-    <rule ref="SlevomatCodingStandard.Commenting.InlineDocCommentDeclaration.InvalidFormat">
-        <severity>4</severity>
-    </rule>
     <rule ref="SlevomatCodingStandard.Commenting.RequireOneLineDocComment.MultiLineDocComment">
         <severity>4</severity>
     </rule>

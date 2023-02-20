@@ -5526,11 +5526,6 @@ parameters:
 			path: libraries/classes/Linter.php
 
 		-
-			message: "#^PHPDoc tag @var has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Linter.php
-
-		-
 			message: "#^Parameter \\#2 \\$pos of static method PhpMyAdmin\\\\Linter\\:\\:findLineNumberAndColumn\\(\\) expects int, int\\|string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Linter.php
@@ -6403,11 +6398,6 @@ parameters:
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql\\:\\:replaceWithAliases\\(\\) has parameter \\$aliases with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^PHPDoc tag @var has no value type specified in iterable type array\\.$#"
-			count: 5
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-

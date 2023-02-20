@@ -11263,12 +11263,7 @@
       <code><![CDATA[$trigger['create']]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
-      <code>$autoIncrement</code>
       <code>$compats</code>
-      <code>$constraints</code>
-      <code>$dropped</code>
-      <code>$indexes</code>
-      <code>$indexesFulltext</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$GLOBALS['cfg']['Export']['remove_definer_from_definitions']]]></code>
