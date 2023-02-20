@@ -219,7 +219,7 @@ class OperationsController extends AbstractController
             if ($this->response->isAjax()) {
                 $this->response->setRequestStatus($GLOBALS['message']->isSuccess());
                 $this->response->addJSON('message', $GLOBALS['message']);
-                $this->response->addJSON('newname', $newDatabaseName !== null ? $newDatabaseName->getName() : '');
+                $this->response->addJSON('newname', $newDatabaseName?->getName() ?? '');
                 $this->response->addJSON(
                     'sql_query',
                     Generator::getMessage('', $GLOBALS['sql_query'])

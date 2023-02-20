@@ -48,9 +48,6 @@
     <rule ref="SlevomatCodingStandard.Commenting.RequireOneLineDocComment.MultiLineDocComment">
         <severity>4</severity>
     </rule>
-    <rule ref="SlevomatCodingStandard.ControlStructures.RequireNullSafeObjectOperator.RequiredNullSafeObjectOperator">
-        <severity>4</severity>
-    </rule>
     <rule ref="SlevomatCodingStandard.Functions.RequireTrailingCommaInCall.MissingTrailingComma">
         <severity>4</severity>
     </rule>

@@ -540,8 +540,8 @@ final class Common
         $db = DatabaseName::tryFromValue($request->getParam('db'));
         $table = TableName::tryFromValue($request->getParam('table'));
 
-        $GLOBALS['db'] = $db !== null ? $db->getName() : '';
-        $GLOBALS['table'] = $table !== null ? $table->getName() : '';
+        $GLOBALS['db'] = $db?->getName() ?? '';
+        $GLOBALS['table'] = $table?->getName() ?? '';
 
         if (! is_array($GLOBALS['urlParams'])) {
             $GLOBALS['urlParams'] = [];

@@ -55,7 +55,7 @@ class Template
 
         /** @var Config|null $config */
         $config = $GLOBALS['config'];
-        $cacheDir = $config !== null ? $config->getTempDir('twig') : null;
+        $cacheDir = $config?->getTempDir('twig');
 
         static::$twig = self::getTwigEnvironment($cacheDir);
     }

@@ -371,48 +371,26 @@ final class RelationParameters
         return [
             'version' => Version::VERSION,
             'user' => $this->user,
-            'db' => $this->db !== null ? $this->db->getName() : null,
-            'bookmark' => $this->bookmarkFeature !== null ? $this->bookmarkFeature->bookmark->getName() : null,
-            'central_columns' => $this->centralColumnsFeature !== null
-                ? $this->centralColumnsFeature->centralColumns->getName()
-                : null,
+            'db' => $this->db?->getName(),
+            'bookmark' => $this->bookmarkFeature?->bookmark->getName(),
+            'central_columns' => $this->centralColumnsFeature?->centralColumns->getName(),
             'column_info' => $columnInfo,
-            'designer_settings' => $this->databaseDesignerSettingsFeature !== null
-                ? $this->databaseDesignerSettingsFeature->designerSettings->getName()
-                : null,
-            'export_templates' => $this->exportTemplatesFeature !== null
-                ? $this->exportTemplatesFeature->exportTemplates->getName()
-                : null,
-            'favorite' => $this->favoriteTablesFeature !== null
-                ? $this->favoriteTablesFeature->favorite->getName()
-                : null,
-            'history' => $this->sqlHistoryFeature !== null ? $this->sqlHistoryFeature->history->getName() : null,
-            'navigationhiding' => $this->navigationItemsHidingFeature !== null
-                ? $this->navigationItemsHidingFeature->navigationHiding->getName()
-                : null,
-            'pdf_pages' => $this->pdfFeature !== null ? $this->pdfFeature->pdfPages->getName() : null,
-            'recent' => $this->recentlyUsedTablesFeature !== null
-                ? $this->recentlyUsedTablesFeature->recent->getName()
-                : null,
+            'designer_settings' => $this->databaseDesignerSettingsFeature?->designerSettings->getName(),
+            'export_templates' => $this->exportTemplatesFeature?->exportTemplates->getName(),
+            'favorite' => $this->favoriteTablesFeature?->favorite->getName(),
+            'history' => $this->sqlHistoryFeature?->history->getName(),
+            'navigationhiding' => $this->navigationItemsHidingFeature?->navigationHiding->getName(),
+            'pdf_pages' => $this->pdfFeature?->pdfPages->getName(),
+            'recent' => $this->recentlyUsedTablesFeature?->recent->getName(),
             'relation' => $relation,
-            'savedsearches' => $this->savedQueryByExampleSearchesFeature !== null
-                ? $this->savedQueryByExampleSearchesFeature->savedSearches->getName()
-                : null,
-            'table_coords' => $this->pdfFeature !== null ? $this->pdfFeature->tableCoords->getName() : null,
-            'table_info' => $this->displayFeature !== null ? $this->displayFeature->tableInfo->getName() : null,
-            'table_uiprefs' => $this->uiPreferencesFeature !== null
-                ? $this->uiPreferencesFeature->tableUiPrefs->getName()
-                : null,
-            'tracking' => $this->trackingFeature !== null ? $this->trackingFeature->tracking->getName() : null,
-            'userconfig' => $this->userPreferencesFeature !== null
-                ? $this->userPreferencesFeature->userConfig->getName()
-                : null,
-            'usergroups' => $this->configurableMenusFeature !== null
-                ? $this->configurableMenusFeature->userGroups->getName()
-                : null,
-            'users' => $this->configurableMenusFeature !== null
-                ? $this->configurableMenusFeature->users->getName()
-                : null,
+            'savedsearches' => $this->savedQueryByExampleSearchesFeature?->savedSearches->getName(),
+            'table_coords' => $this->pdfFeature?->tableCoords->getName(),
+            'table_info' => $this->displayFeature?->tableInfo->getName(),
+            'table_uiprefs' => $this->uiPreferencesFeature?->tableUiPrefs->getName(),
+            'tracking' => $this->trackingFeature?->tracking->getName(),
+            'userconfig' => $this->userPreferencesFeature?->userConfig->getName(),
+            'usergroups' => $this->configurableMenusFeature?->userGroups->getName(),
+            'users' => $this->configurableMenusFeature?->users->getName(),
             'bookmarkwork' => $this->bookmarkFeature !== null,
             'mimework' => $this->browserTransformationFeature !== null,
             'centralcolumnswork' => $this->centralColumnsFeature !== null,

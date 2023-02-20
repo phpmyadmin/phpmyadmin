@@ -705,13 +705,13 @@ class Tracker
 
                 if ($options[6] === 'VIEW' || $options[6] === 'TABLE') {
                     $result['identifier'] = 'CREATE ' . $options[6];
-                    $result['tablename'] = $statement->name !== null ? $statement->name->table : null;
+                    $result['tablename'] = $statement->name?->table;
                 } elseif ($options[6] === 'DATABASE') {
                     $result['identifier'] = 'CREATE DATABASE';
                     $result['tablename'] = '';
 
                     // In case of CREATE DATABASE, database field of the CreateStatement is the name of the database
-                    $GLOBALS['db'] = $statement->name !== null ? $statement->name->database : null;
+                    $GLOBALS['db'] = $statement->name?->database;
                 } elseif (
                     $options[6] === 'INDEX'
                           || $options[6] === 'UNIQUE INDEX'
