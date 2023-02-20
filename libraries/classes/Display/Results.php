@@ -1644,11 +1644,16 @@ class Results
                 ? 0
                 : count($sortExpressionNoDirection);
             $sortExpressionNoDirection[$specialIndex] = Util::backquote($currentName);
-            $isTimeOrDate = $fieldsMeta->isType(FieldMetadata::TYPE_TIME)
-                || $fieldsMeta->isType(FieldMetadata::TYPE_DATE)
-                || $fieldsMeta->isType(FieldMetadata::TYPE_DATETIME)
-                || $fieldsMeta->isType(FieldMetadata::TYPE_TIMESTAMP);
-            $sortDirection[$specialIndex] = $isTimeOrDate ? self::DESCENDING_SORT_DIR : self::ASCENDING_SORT_DIR;
+            // Set the direction to the config value
+            $sortDirection[$specialIndex] = $GLOBALS['cfg']['Order'];
+            // Or perform SMART mode
+            if ($GLOBALS['cfg']['Order'] === self::SMART_SORT_ORDER) {
+                $isTimeOrDate = $fieldsMeta->isType(FieldMetadata::TYPE_TIME)
+                    || $fieldsMeta->isType(FieldMetadata::TYPE_DATE)
+                    || $fieldsMeta->isType(FieldMetadata::TYPE_DATETIME)
+                    || $fieldsMeta->isType(FieldMetadata::TYPE_TIMESTAMP);
+                $sortDirection[$specialIndex] = $isTimeOrDate ? self::DESCENDING_SORT_DIR : self::ASCENDING_SORT_DIR;
+            }
         }
 
         $sortExpressionNoDirection = array_filter($sortExpressionNoDirection);
