@@ -402,9 +402,9 @@ class Table implements Stringable
     /**
      * Returns the auto increment option for current table.
      *
-     * @return int Return auto increment info if it is set for the selected table or return blank.
+     * @return string Return auto increment info if it is set for the selected table or return blank.
      */
-    public function getAutoIncrement(): int
+    public function getAutoIncrement(): string
     {
         $tableAutoIncrement = $this->getStatusInfo('AUTO_INCREMENT', false, true);
 
