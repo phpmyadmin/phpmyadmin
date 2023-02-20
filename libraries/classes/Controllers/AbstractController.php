@@ -18,14 +18,8 @@ use function defined;
 
 abstract class AbstractController
 {
-    protected ResponseRenderer $response;
-
-    protected Template $template;
-
-    public function __construct(ResponseRenderer $response, Template $template)
+    public function __construct(protected ResponseRenderer $response, protected Template $template)
     {
-        $this->response = $response;
-        $this->template = $template;
     }
 
     /**

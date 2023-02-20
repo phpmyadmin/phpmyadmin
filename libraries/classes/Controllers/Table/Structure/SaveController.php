@@ -33,27 +33,15 @@ final class SaveController extends AbstractController
 {
     private Table $tableObj;
 
-    private Relation $relation;
-
-    private Transformations $transformations;
-
-    private DatabaseInterface $dbi;
-
-    private StructureController $structureController;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Relation $relation,
-        Transformations $transformations,
-        DatabaseInterface $dbi,
-        StructureController $structureController
+        private Relation $relation,
+        private Transformations $transformations,
+        private DatabaseInterface $dbi,
+        private StructureController $structureController
     ) {
         parent::__construct($response, $template);
-        $this->relation = $relation;
-        $this->transformations = $transformations;
-        $this->dbi = $dbi;
-        $this->structureController = $structureController;
 
         $this->tableObj = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
     }

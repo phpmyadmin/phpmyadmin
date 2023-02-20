@@ -32,31 +32,16 @@ use function strlen;
  */
 class OperationsController extends AbstractController
 {
-    private Operations $operations;
-
-    private CheckUserPrivileges $checkUserPrivileges;
-
-    private Relation $relation;
-
-    private RelationCleanup $relationCleanup;
-
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Operations $operations,
-        CheckUserPrivileges $checkUserPrivileges,
-        Relation $relation,
-        RelationCleanup $relationCleanup,
-        DatabaseInterface $dbi
+        private Operations $operations,
+        private CheckUserPrivileges $checkUserPrivileges,
+        private Relation $relation,
+        private RelationCleanup $relationCleanup,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->operations = $operations;
-        $this->checkUserPrivileges = $checkUserPrivileges;
-        $this->relation = $relation;
-        $this->relationCleanup = $relationCleanup;
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void

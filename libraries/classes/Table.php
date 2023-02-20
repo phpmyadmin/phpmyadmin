@@ -95,8 +95,6 @@ class Table implements Stringable
     /** @var string  database name */
     protected $dbName = '';
 
-    protected DatabaseInterface $dbi;
-
     private Relation $relation;
 
     /**
@@ -104,11 +102,10 @@ class Table implements Stringable
      * @param string            $dbName    database name
      * @param DatabaseInterface $dbi       database interface for the table
      */
-    public function __construct($tableName, $dbName, DatabaseInterface $dbi)
+    public function __construct($tableName, $dbName, protected DatabaseInterface $dbi)
     {
         $this->name = $tableName;
         $this->dbName = $dbName;
-        $this->dbi = $dbi;
         $this->relation = new Relation($this->dbi);
     }
 

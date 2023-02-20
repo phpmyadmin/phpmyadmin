@@ -62,23 +62,13 @@ class Events
         'MINUTE_SECOND',
     ];
 
-    private DatabaseInterface $dbi;
-
-    private Template $template;
-
-    /** @var ResponseRenderer */
-    private $response;
-
     /**
      * @param DatabaseInterface $dbi      DatabaseInterface instance.
      * @param Template          $template Template instance.
      * @param ResponseRenderer  $response Response instance.
      */
-    public function __construct(DatabaseInterface $dbi, Template $template, $response)
+    public function __construct(private DatabaseInterface $dbi, private Template $template, private $response)
     {
-        $this->dbi = $dbi;
-        $this->template = $template;
-        $this->response = $response;
     }
 
     /**

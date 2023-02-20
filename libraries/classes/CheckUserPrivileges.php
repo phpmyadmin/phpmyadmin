@@ -21,14 +21,11 @@ use function str_contains;
  */
 class CheckUserPrivileges
 {
-    private DatabaseInterface $dbi;
-
     /**
      * @param DatabaseInterface $dbi DatabaseInterface object
      */
-    public function __construct(DatabaseInterface $dbi)
+    public function __construct(private DatabaseInterface $dbi)
     {
-        $this->dbi = $dbi;
     }
 
     /**

@@ -22,19 +22,13 @@ use function is_array;
 
 final class ExportController extends AbstractController
 {
-    private Export $export;
-
-    private Options $exportOptions;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Export $export,
-        Options $exportOptions
+        private Export $export,
+        private Options $exportOptions
     ) {
         parent::__construct($response, $template);
-        $this->export = $export;
-        $this->exportOptions = $exportOptions;
     }
 
     public function __invoke(ServerRequest $request): void

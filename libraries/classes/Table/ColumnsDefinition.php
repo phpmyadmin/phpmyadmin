@@ -36,17 +36,11 @@ use function trim;
  */
 final class ColumnsDefinition
 {
-    private DatabaseInterface $dbi;
-
-    private Relation $relation;
-
-    private Transformations $transformations;
-
-    public function __construct(DatabaseInterface $dbi, Relation $relation, Transformations $transformations)
-    {
-        $this->dbi = $dbi;
-        $this->relation = $relation;
-        $this->transformations = $transformations;
+    public function __construct(
+        private DatabaseInterface $dbi,
+        private Relation $relation,
+        private Transformations $transformations
+    ) {
     }
 
     /**

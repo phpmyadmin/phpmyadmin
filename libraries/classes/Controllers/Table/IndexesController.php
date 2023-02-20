@@ -26,19 +26,13 @@ use function min;
  */
 class IndexesController extends AbstractController
 {
-    private DatabaseInterface $dbi;
-
-    private Indexes $indexes;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        DatabaseInterface $dbi,
-        Indexes $indexes
+        private DatabaseInterface $dbi,
+        private Indexes $indexes
     ) {
         parent::__construct($response, $template);
-        $this->dbi = $dbi;
-        $this->indexes = $indexes;
     }
 
     public function __invoke(ServerRequest $request): void

@@ -50,23 +50,14 @@ use function trim;
 
 final class ImportController extends AbstractController
 {
-    private Import $import;
-
-    private Sql $sql;
-
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Import $import,
-        Sql $sql,
-        DatabaseInterface $dbi
+        private Import $import,
+        private Sql $sql,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->import = $import;
-        $this->sql = $sql;
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void

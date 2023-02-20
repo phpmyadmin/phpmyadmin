@@ -35,15 +35,6 @@ use const PHP_URL_HOST;
  */
 class Navigation
 {
-    /** @var Template */
-    private $template;
-
-    /** @var Relation */
-    private $relation;
-
-    /** @var DatabaseInterface */
-    private $dbi;
-
     private NavigationTree $tree;
 
     /**
@@ -51,11 +42,8 @@ class Navigation
      * @param Relation          $relation Relation instance
      * @param DatabaseInterface $dbi      DatabaseInterface instance
      */
-    public function __construct($template, $relation, $dbi)
+    public function __construct(private $template, private $relation, private $dbi)
     {
-        $this->template = $template;
-        $this->relation = $relation;
-        $this->dbi = $dbi;
         $this->tree = new NavigationTree($this->template, $this->dbi);
     }
 

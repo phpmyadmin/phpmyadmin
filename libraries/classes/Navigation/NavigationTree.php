@@ -135,20 +135,12 @@ class NavigationTree
      */
     private $largeGroupWarning = false;
 
-    /** @var Template */
-    private $template;
-
-    private DatabaseInterface $dbi;
-
     /**
      * @param Template          $template Template instance
      * @param DatabaseInterface $dbi      DatabaseInterface instance
      */
-    public function __construct($template, DatabaseInterface $dbi)
+    public function __construct(private $template, private DatabaseInterface $dbi)
     {
-        $this->template = $template;
-        $this->dbi = $dbi;
-
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
         $checkUserPrivileges->getPrivileges();
 

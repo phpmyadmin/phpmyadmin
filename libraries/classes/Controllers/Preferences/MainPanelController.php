@@ -21,23 +21,14 @@ use function ltrim;
 
 class MainPanelController extends AbstractController
 {
-    private UserPreferences $userPreferences;
-
-    private Relation $relation;
-
-    private Config $config;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        UserPreferences $userPreferences,
-        Relation $relation,
-        Config $config
+        private UserPreferences $userPreferences,
+        private Relation $relation,
+        private Config $config
     ) {
         parent::__construct($response, $template);
-        $this->userPreferences = $userPreferences;
-        $this->relation = $relation;
-        $this->config = $config;
     }
 
     public function __invoke(ServerRequest $request): void

@@ -24,14 +24,8 @@ use function urldecode;
 
 final class Options
 {
-    private Relation $relation;
-
-    private TemplateModel $templateModel;
-
-    public function __construct(Relation $relation, TemplateModel $templateModel)
+    public function __construct(private Relation $relation, private TemplateModel $templateModel)
     {
-        $this->relation = $relation;
-        $this->templateModel = $templateModel;
     }
 
     /**

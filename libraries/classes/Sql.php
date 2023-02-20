@@ -45,32 +45,14 @@ use function ucwords;
  */
 class Sql
 {
-    private DatabaseInterface $dbi;
-
-    private Relation $relation;
-
-    private RelationCleanup $relationCleanup;
-
-    private Transformations $transformations;
-
-    private Operations $operations;
-
-    private Template $template;
-
     public function __construct(
-        DatabaseInterface $dbi,
-        Relation $relation,
-        RelationCleanup $relationCleanup,
-        Operations $operations,
-        Transformations $transformations,
-        Template $template
+        private DatabaseInterface $dbi,
+        private Relation $relation,
+        private RelationCleanup $relationCleanup,
+        private Operations $operations,
+        private Transformations $transformations,
+        private Template $template
     ) {
-        $this->dbi = $dbi;
-        $this->relation = $relation;
-        $this->relationCleanup = $relationCleanup;
-        $this->operations = $operations;
-        $this->transformations = $transformations;
-        $this->template = $template;
     }
 
     /**

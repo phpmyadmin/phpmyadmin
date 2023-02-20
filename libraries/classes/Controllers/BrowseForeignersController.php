@@ -15,19 +15,13 @@ use PhpMyAdmin\Template;
  */
 class BrowseForeignersController extends AbstractController
 {
-    private BrowseForeigners $browseForeigners;
-
-    private Relation $relation;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        BrowseForeigners $browseForeigners,
-        Relation $relation
+        private BrowseForeigners $browseForeigners,
+        private Relation $relation
     ) {
         parent::__construct($response, $template);
-        $this->browseForeigners = $browseForeigners;
-        $this->relation = $relation;
     }
 
     public function __invoke(ServerRequest $request): void

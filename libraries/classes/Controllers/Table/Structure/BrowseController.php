@@ -19,12 +19,9 @@ use function sprintf;
 
 final class BrowseController extends AbstractController
 {
-    private Sql $sql;
-
-    public function __construct(ResponseRenderer $response, Template $template, Sql $sql)
+    public function __construct(ResponseRenderer $response, Template $template, private Sql $sql)
     {
         parent::__construct($response, $template);
-        $this->sql = $sql;
     }
 
     public function __invoke(ServerRequest $request): void

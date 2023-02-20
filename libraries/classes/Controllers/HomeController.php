@@ -37,12 +37,6 @@ use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 
 class HomeController extends AbstractController
 {
-    private Config $config;
-
-    private ThemeManager $themeManager;
-
-    private DatabaseInterface $dbi;
-
     /**
      * @var array<int, array<string, string>>
      * @psalm-var list<array{message: string, severity: 'warning'|'notice'}>
@@ -52,14 +46,11 @@ class HomeController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Config $config,
-        ThemeManager $themeManager,
-        DatabaseInterface $dbi
+        private Config $config,
+        private ThemeManager $themeManager,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->config = $config;
-        $this->themeManager = $themeManager;
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void

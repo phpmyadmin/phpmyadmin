@@ -36,11 +36,8 @@ class UserPreferences
     /** @var Template */
     public $template;
 
-    private DatabaseInterface $dbi;
-
-    public function __construct(DatabaseInterface $dbi)
+    public function __construct(private DatabaseInterface $dbi)
     {
-        $this->dbi = $dbi;
         $this->relation = new Relation($this->dbi);
         $this->template = new Template();
     }

@@ -37,8 +37,6 @@ class TwoFactorPlugin
      */
     public static $showSubmit = true;
 
-    protected TwoFactor $twofactor;
-
     /** @var bool */
     protected $provided = false;
 
@@ -53,9 +51,8 @@ class TwoFactorPlugin
      *
      * @param TwoFactor $twofactor TwoFactor instance
      */
-    public function __construct(TwoFactor $twofactor)
+    public function __construct(protected TwoFactor $twofactor)
     {
-        $this->twofactor = $twofactor;
         $this->template = new Template();
     }
 

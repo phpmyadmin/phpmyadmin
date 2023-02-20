@@ -82,23 +82,14 @@ class SearchController extends AbstractController
      */
     private $foreigners;
 
-    private Search $search;
-
-    private Relation $relation;
-
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Search $search,
-        Relation $relation,
-        DatabaseInterface $dbi
+        private Search $search,
+        private Relation $relation,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->search = $search;
-        $this->relation = $relation;
-        $this->dbi = $dbi;
 
         $this->columnNames = [];
         $this->columnTypes = [];

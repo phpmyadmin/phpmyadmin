@@ -12,32 +12,6 @@ namespace PhpMyAdmin\Server;
  */
 final class Plugin
 {
-    private string $name;
-
-    private ?string $version;
-
-    private string $status;
-
-    private string $type;
-
-    private ?string $typeVersion;
-
-    private ?string $library;
-
-    private ?string $libraryVersion;
-
-    private ?string $author;
-
-    private ?string $description;
-
-    private string $license;
-
-    private ?string $loadOption;
-
-    private ?string $maturity;
-
-    private ?string $authVersion;
-
     /**
      * @param string      $name           Name of the plugin
      * @param string|null $version        Version from the plugin's general type descriptor
@@ -54,33 +28,20 @@ final class Plugin
      * @param string|null $authVersion    Plugin's version as determined by the plugin author
      */
     private function __construct(
-        string $name,
-        ?string $version,
-        string $status,
-        string $type,
-        ?string $typeVersion,
-        ?string $library,
-        ?string $libraryVersion,
-        ?string $author,
-        ?string $description,
-        string $license,
-        ?string $loadOption,
-        ?string $maturity,
-        ?string $authVersion
+        private string $name,
+        private ?string $version,
+        private string $status,
+        private string $type,
+        private ?string $typeVersion,
+        private ?string $library,
+        private ?string $libraryVersion,
+        private ?string $author,
+        private ?string $description,
+        private string $license,
+        private ?string $loadOption,
+        private ?string $maturity,
+        private ?string $authVersion
     ) {
-        $this->name = $name;
-        $this->version = $version;
-        $this->status = $status;
-        $this->type = $type;
-        $this->typeVersion = $typeVersion;
-        $this->library = $library;
-        $this->libraryVersion = $libraryVersion;
-        $this->author = $author;
-        $this->description = $description;
-        $this->license = $license;
-        $this->loadOption = $loadOption;
-        $this->maturity = $maturity;
-        $this->authVersion = $authVersion;
     }
 
     /**

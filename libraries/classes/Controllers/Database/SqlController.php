@@ -20,12 +20,9 @@ use function htmlspecialchars;
  */
 class SqlController extends AbstractController
 {
-    private SqlQueryForm $sqlQueryForm;
-
-    public function __construct(ResponseRenderer $response, Template $template, SqlQueryForm $sqlQueryForm)
+    public function __construct(ResponseRenderer $response, Template $template, private SqlQueryForm $sqlQueryForm)
     {
         parent::__construct($response, $template);
-        $this->sqlQueryForm = $sqlQueryForm;
     }
 
     public function __invoke(ServerRequest $request): void

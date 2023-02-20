@@ -56,14 +56,8 @@ class Bookmark
      */
     private $query;
 
-    private DatabaseInterface $dbi;
-
-    private Relation $relation;
-
-    public function __construct(DatabaseInterface $dbi, Relation $relation)
+    public function __construct(private DatabaseInterface $dbi, private Relation $relation)
     {
-        $this->dbi = $dbi;
-        $this->relation = $relation;
     }
 
     /**

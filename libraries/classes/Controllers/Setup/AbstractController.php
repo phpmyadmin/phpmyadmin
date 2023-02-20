@@ -13,14 +13,8 @@ use function in_array;
 
 abstract class AbstractController
 {
-    protected ConfigFile $config;
-
-    protected Template $template;
-
-    public function __construct(ConfigFile $config, Template $template)
+    public function __construct(protected ConfigFile $config, protected Template $template)
     {
-        $this->config = $config;
-        $this->template = $template;
     }
 
     /**

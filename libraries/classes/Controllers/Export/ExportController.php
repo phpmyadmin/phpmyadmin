@@ -38,12 +38,9 @@ use function time;
 
 final class ExportController extends AbstractController
 {
-    private Export $export;
-
-    public function __construct(ResponseRenderer $response, Template $template, Export $export)
+    public function __construct(ResponseRenderer $response, Template $template, private Export $export)
     {
         parent::__construct($response, $template);
-        $this->export = $export;
     }
 
     public function __invoke(ServerRequest $request): void

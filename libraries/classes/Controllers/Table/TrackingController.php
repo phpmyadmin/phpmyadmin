@@ -31,15 +31,12 @@ use function sprintf;
 
 final class TrackingController extends AbstractController
 {
-    private Tracking $tracking;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Tracking $tracking
+        private Tracking $tracking
     ) {
         parent::__construct($response, $template);
-        $this->tracking = $tracking;
     }
 
     public function __invoke(ServerRequest $request): void

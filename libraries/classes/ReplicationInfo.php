@@ -70,11 +70,8 @@ final class ReplicationInfo
     /** @var array */
     private $replicaInfo = [];
 
-    private DatabaseInterface $dbi;
-
-    public function __construct(DatabaseInterface $dbi)
+    public function __construct(private DatabaseInterface $dbi)
     {
-        $this->dbi = $dbi;
     }
 
     public function load(?string $connection = null): void

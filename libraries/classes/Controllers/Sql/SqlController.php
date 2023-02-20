@@ -28,23 +28,14 @@ use function urlencode;
 
 class SqlController extends AbstractController
 {
-    private Sql $sql;
-
-    private CheckUserPrivileges $checkUserPrivileges;
-
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Sql $sql,
-        CheckUserPrivileges $checkUserPrivileges,
-        DatabaseInterface $dbi
+        private Sql $sql,
+        private CheckUserPrivileges $checkUserPrivileges,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->sql = $sql;
-        $this->checkUserPrivileges = $checkUserPrivileges;
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void

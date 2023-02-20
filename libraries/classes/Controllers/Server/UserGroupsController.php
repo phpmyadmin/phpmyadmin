@@ -20,19 +20,13 @@ use function __;
  */
 class UserGroupsController extends AbstractController
 {
-    private Relation $relation;
-
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Relation $relation,
-        DatabaseInterface $dbi
+        private Relation $relation,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->relation = $relation;
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void

@@ -32,11 +32,8 @@ use function substr;
  */
 class ZipExtension
 {
-    private ?ZipArchive $zip;
-
-    public function __construct(?ZipArchive $zip = null)
+    public function __construct(private ?ZipArchive $zip = null)
     {
-        $this->zip = $zip;
     }
 
     /**

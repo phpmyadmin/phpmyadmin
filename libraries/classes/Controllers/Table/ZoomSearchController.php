@@ -42,10 +42,6 @@ use function strtoupper;
  */
 class ZoomSearchController extends AbstractController
 {
-    private Search $search;
-
-    private Relation $relation;
-
     /** @var array */
     private $columnNames;
 
@@ -67,19 +63,14 @@ class ZoomSearchController extends AbstractController
     /** @var array Foreign keys */
     private $foreigners;
 
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Search $search,
-        Relation $relation,
-        DatabaseInterface $dbi
+        private Search $search,
+        private Relation $relation,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->search = $search;
-        $this->relation = $relation;
-        $this->dbi = $dbi;
 
         $this->columnNames = [];
         $this->columnTypes = [];

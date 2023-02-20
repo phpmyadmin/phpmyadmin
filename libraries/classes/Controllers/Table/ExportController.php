@@ -25,15 +25,12 @@ use function is_array;
 
 class ExportController extends AbstractController
 {
-    private Options $export;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Options $export
+        private Options $export
     ) {
         parent::__construct($response, $template);
-        $this->export = $export;
     }
 
     public function __invoke(ServerRequest $request): void

@@ -26,18 +26,12 @@ use function time;
  */
 class ReplicationGui
 {
-    private Replication $replication;
-
-    private Template $template;
-
     /**
      * @param Replication $replication Replication instance
      * @param Template    $template    Template instance
      */
-    public function __construct(Replication $replication, Template $template)
+    public function __construct(private Replication $replication, private Template $template)
     {
-        $this->replication = $replication;
-        $this->template = $template;
     }
 
     /**

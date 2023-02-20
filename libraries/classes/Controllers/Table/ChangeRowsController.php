@@ -15,15 +15,12 @@ use function is_array;
 
 final class ChangeRowsController extends AbstractController
 {
-    private ChangeController $changeController;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        ChangeController $changeController
+        private ChangeController $changeController
     ) {
         parent::__construct($response, $template);
-        $this->changeController = $changeController;
     }
 
     public function __invoke(ServerRequest $request): void

@@ -232,8 +232,6 @@ class Results
      */
     public $transformationInfo;
 
-    private DatabaseInterface $dbi;
-
     private Relation $relation;
 
     private Transformations $transformations;
@@ -248,10 +246,8 @@ class Results
      * @param string $goto     the URL to go back in case of errors
      * @param string $sqlQuery the SQL query
      */
-    public function __construct(DatabaseInterface $dbi, $db, $table, $server, $goto, $sqlQuery)
+    public function __construct(private DatabaseInterface $dbi, $db, $table, $server, $goto, $sqlQuery)
     {
-        $this->dbi = $dbi;
-
         $this->relation = new Relation($this->dbi);
         $this->transformations = new Transformations();
         $this->template = new Template();

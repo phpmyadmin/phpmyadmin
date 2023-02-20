@@ -17,11 +17,8 @@ use function ucfirst;
 
 final class Processes
 {
-    private DatabaseInterface $dbi;
-
-    public function __construct(DatabaseInterface $dbi)
+    public function __construct(private DatabaseInterface $dbi)
     {
-        $this->dbi = $dbi;
     }
 
     /**

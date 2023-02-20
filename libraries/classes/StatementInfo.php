@@ -58,8 +58,6 @@ class StatementInfo
     public $offset;
     /** @var bool */
     public $order;
-    /** @var string|false */
-    public $queryType;
     /** @var bool */
     public $reload;
     /** @var bool */
@@ -112,7 +110,7 @@ class StatementInfo
         bool $limit,
         bool $offset,
         bool $order,
-        $queryType,
+        public $queryType,
         bool $reload,
         bool $selectFrom,
         bool $union,
@@ -144,7 +142,6 @@ class StatementInfo
         $this->limit = $limit;
         $this->offset = $offset;
         $this->order = $order;
-        $this->queryType = $queryType;
         $this->reload = $reload;
         $this->selectFrom = $selectFrom;
         $this->union = $union;

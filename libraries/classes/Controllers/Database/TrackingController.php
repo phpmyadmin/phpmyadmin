@@ -28,19 +28,13 @@ use function sprintf;
  */
 class TrackingController extends AbstractController
 {
-    private Tracking $tracking;
-
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Tracking $tracking,
-        DatabaseInterface $dbi
+        private Tracking $tracking,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->tracking = $tracking;
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void

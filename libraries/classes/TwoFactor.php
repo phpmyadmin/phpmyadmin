@@ -30,9 +30,6 @@ use function ucfirst;
  */
 class TwoFactor
 {
-    /** @var string */
-    public $user;
-
     /**
      * @var array
      * @psalm-var array{backend: string, settings: mixed[], type?: 'session'|'db'}
@@ -53,12 +50,11 @@ class TwoFactor
      *
      * @param string $user User name
      */
-    public function __construct($user)
+    public function __construct(public $user)
     {
         (new Relation($GLOBALS['dbi']))->initRelationParamsCache();
 
         $this->userPreferences = new UserPreferences($GLOBALS['dbi']);
-        $this->user = $user;
         $this->available = $this->getAvailableBackends();
         $this->config = $this->readConfig();
         $this->writable = ($this->config['type'] === 'db');

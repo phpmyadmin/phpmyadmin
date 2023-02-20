@@ -31,8 +31,6 @@ use function vsprintf;
  */
 class Advisor
 {
-    private DatabaseInterface $dbi;
-
     /** @var array */
     private $variables;
 
@@ -53,16 +51,12 @@ class Advisor
         'errors' => [],
     ];
 
-    private ExpressionLanguage $expression;
-
     /**
      * @param DatabaseInterface  $dbi        DatabaseInterface object
      * @param ExpressionLanguage $expression ExpressionLanguage object
      */
-    public function __construct(DatabaseInterface $dbi, ExpressionLanguage $expression)
+    public function __construct(private DatabaseInterface $dbi, private ExpressionLanguage $expression)
     {
-        $this->dbi = $dbi;
-        $this->expression = $expression;
         /**
          * Register functions for ExpressionLanguage, we intentionally
          * do not implement support for compile as we do not use it.

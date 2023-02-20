@@ -11,14 +11,6 @@ use PhpMyAdmin\Utils\ForeignKey;
  */
 class DesignerTable
 {
-    private string $tableName;
-
-    private string $databaseName;
-
-    private string $tableEngine;
-
-    private ?string $displayField;
-
     /**
      * Create a new DesignerTable
      *
@@ -28,15 +20,11 @@ class DesignerTable
      * @param string|null $displayField The display field if available
      */
     public function __construct(
-        string $databaseName,
-        string $tableName,
-        string $tableEngine,
-        ?string $displayField
+        private string $databaseName,
+        private string $tableName,
+        private string $tableEngine,
+        private ?string $displayField
     ) {
-        $this->databaseName = $databaseName;
-        $this->tableName = $tableName;
-        $this->tableEngine = $tableEngine;
-        $this->displayField = $displayField;
     }
 
     /**

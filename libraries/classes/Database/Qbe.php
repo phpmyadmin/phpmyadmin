@@ -211,9 +211,6 @@ class Qbe
     /** @var Relation */
     private $relation;
 
-    /** @var DatabaseInterface */
-    public $dbi;
-
     /** @var Template */
     public $template;
 
@@ -228,7 +225,7 @@ class Qbe
     public function __construct(
         Relation $relation,
         Template $template,
-        $dbi,
+        public $dbi,
         $dbname,
         array $savedSearchList = [],
         $currentSearch = null
@@ -236,7 +233,6 @@ class Qbe
         $this->db = $dbname;
         $this->savedSearchList = $savedSearchList;
         $this->currentSearch = $currentSearch;
-        $this->dbi = $dbi;
         $this->relation = $relation;
         $this->template = $template;
 

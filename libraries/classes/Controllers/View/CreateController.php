@@ -33,8 +33,6 @@ use function substr;
  */
 class CreateController extends AbstractController
 {
-    private DatabaseInterface $dbi;
-
     /** @todo Move the whole view rebuilding logic to SQL parser */
     private const VIEW_SECURITY_OPTIONS = [
         'DEFINER',
@@ -52,10 +50,9 @@ class CreateController extends AbstractController
         'LOCAL',
     ];
 
-    public function __construct(ResponseRenderer $response, Template $template, DatabaseInterface $dbi)
+    public function __construct(ResponseRenderer $response, Template $template, private DatabaseInterface $dbi)
     {
         parent::__construct($response, $template);
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void

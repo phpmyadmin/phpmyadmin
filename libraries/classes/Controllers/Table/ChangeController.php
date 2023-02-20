@@ -30,19 +30,13 @@ use function strpos;
  */
 class ChangeController extends AbstractController
 {
-    private InsertEdit $insertEdit;
-
-    private Relation $relation;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        InsertEdit $insertEdit,
-        Relation $relation
+        private InsertEdit $insertEdit,
+        private Relation $relation
     ) {
         parent::__construct($response, $template);
-        $this->insertEdit = $insertEdit;
-        $this->relation = $relation;
     }
 
     public function __invoke(ServerRequest $request): void

@@ -17,19 +17,13 @@ use function strlen;
 
 final class EventsController extends AbstractController
 {
-    private Events $events;
-
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Events $events,
-        DatabaseInterface $dbi
+        private Events $events,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->events = $events;
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void

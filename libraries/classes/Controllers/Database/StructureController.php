@@ -66,25 +66,16 @@ class StructureController extends AbstractController
     /** @var bool whether stats show or not */
     protected $isShowStats;
 
-    private Relation $relation;
-
-    private Replication $replication;
-
     private ReplicationInfo $replicationInfo;
-
-    private DatabaseInterface $dbi;
 
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Relation $relation,
-        Replication $replication,
-        DatabaseInterface $dbi
+        private Relation $relation,
+        private Replication $replication,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->relation = $relation;
-        $this->replication = $replication;
-        $this->dbi = $dbi;
 
         $this->replicationInfo = new ReplicationInfo($this->dbi);
     }

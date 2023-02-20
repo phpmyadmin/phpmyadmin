@@ -17,12 +17,9 @@ use PhpMyAdmin\Url;
  */
 class EnginesController extends AbstractController
 {
-    private DatabaseInterface $dbi;
-
-    public function __construct(ResponseRenderer $response, Template $template, DatabaseInterface $dbi)
+    public function __construct(ResponseRenderer $response, Template $template, private DatabaseInterface $dbi)
     {
         parent::__construct($response, $template);
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void

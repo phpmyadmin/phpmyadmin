@@ -41,15 +41,12 @@ class FindReplaceController extends AbstractController
 
     private string $connectionCharSet;
 
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        DatabaseInterface $dbi
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->dbi = $dbi;
 
         $this->columnNames = [];
         $this->columnTypes = [];

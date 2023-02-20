@@ -22,19 +22,13 @@ use function preg_replace;
  */
 class PluginsController extends AbstractController
 {
-    private Plugins $plugins;
-
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Plugins $plugins,
-        DatabaseInterface $dbi
+        private Plugins $plugins,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->plugins = $plugins;
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void

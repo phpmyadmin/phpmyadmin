@@ -17,20 +17,11 @@ use function strlen;
  */
 class UserPassword
 {
-    private Privileges $serverPrivileges;
-
-    private AuthenticationPluginFactory $authPluginFactory;
-
-    private DatabaseInterface $dbi;
-
     public function __construct(
-        Privileges $serverPrivileges,
-        AuthenticationPluginFactory $authPluginFactory,
-        DatabaseInterface $dbi
+        private Privileges $serverPrivileges,
+        private AuthenticationPluginFactory $authPluginFactory,
+        private DatabaseInterface $dbi
     ) {
-        $this->serverPrivileges = $serverPrivileges;
-        $this->authPluginFactory = $authPluginFactory;
-        $this->dbi = $dbi;
     }
 
     /**

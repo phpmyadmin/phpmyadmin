@@ -24,11 +24,8 @@ use function usleep;
  */
 class StatusController
 {
-    private Template $template;
-
-    public function __construct(Template $template)
+    public function __construct(private Template $template)
     {
-        $this->template = $template;
     }
 
     public function __invoke(ServerRequest $request): void

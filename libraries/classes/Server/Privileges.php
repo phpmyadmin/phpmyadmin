@@ -63,15 +63,11 @@ class Privileges
     /** @var Template */
     public $template;
 
-    private RelationCleanup $relationCleanup;
-
     /** @var DatabaseInterface */
     public $dbi;
 
     /** @var Relation */
     public $relation;
-
-    private Plugins $plugins;
 
     /**
      * @param Template          $template        Template object
@@ -83,14 +79,12 @@ class Privileges
         Template $template,
         DatabaseInterface $dbi,
         Relation $relation,
-        RelationCleanup $relationCleanup,
-        Plugins $plugins
+        private RelationCleanup $relationCleanup,
+        private Plugins $plugins
     ) {
         $this->template = $template;
         $this->dbi = $dbi;
         $this->relation = $relation;
-        $this->relationCleanup = $relationCleanup;
-        $this->plugins = $plugins;
     }
 
     /**

@@ -13,11 +13,8 @@ use function sprintf;
 
 final class AccountLocking
 {
-    private DatabaseInterface $dbi;
-
-    public function __construct(DatabaseInterface $dbi)
+    public function __construct(private DatabaseInterface $dbi)
     {
-        $this->dbi = $dbi;
     }
 
     /**

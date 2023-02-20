@@ -19,19 +19,13 @@ use function is_string;
 
 final class ColumnPreferencesController extends AbstractController
 {
-    private CheckUserPrivileges $checkUserPrivileges;
-
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        CheckUserPrivileges $checkUserPrivileges,
-        DatabaseInterface $dbi
+        private CheckUserPrivileges $checkUserPrivileges,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->checkUserPrivileges = $checkUserPrivileges;
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void

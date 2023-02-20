@@ -12,15 +12,12 @@ use PhpMyAdmin\Template;
 
 final class PopulateColumnsController extends AbstractController
 {
-    private CentralColumns $centralColumns;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        CentralColumns $centralColumns
+        private CentralColumns $centralColumns
     ) {
         parent::__construct($response, $template);
-        $this->centralColumns = $centralColumns;
     }
 
     public function __invoke(ServerRequest $request): void

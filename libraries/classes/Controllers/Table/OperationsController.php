@@ -38,27 +38,15 @@ use function urldecode;
 
 class OperationsController extends AbstractController
 {
-    private Operations $operations;
-
-    private CheckUserPrivileges $checkUserPrivileges;
-
-    private Relation $relation;
-
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Operations $operations,
-        CheckUserPrivileges $checkUserPrivileges,
-        Relation $relation,
-        DatabaseInterface $dbi
+        private Operations $operations,
+        private CheckUserPrivileges $checkUserPrivileges,
+        private Relation $relation,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->operations = $operations;
-        $this->checkUserPrivileges = $checkUserPrivileges;
-        $this->relation = $relation;
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void

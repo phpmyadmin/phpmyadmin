@@ -22,23 +22,14 @@ use function is_array;
 
 final class DestroyController extends AbstractController
 {
-    private DatabaseInterface $dbi;
-
-    private Transformations $transformations;
-
-    private RelationCleanup $relationCleanup;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        DatabaseInterface $dbi,
-        Transformations $transformations,
-        RelationCleanup $relationCleanup
+        private DatabaseInterface $dbi,
+        private Transformations $transformations,
+        private RelationCleanup $relationCleanup
     ) {
         parent::__construct($response, $template);
-        $this->dbi = $dbi;
-        $this->transformations = $transformations;
-        $this->relationCleanup = $relationCleanup;
     }
 
     public function __invoke(ServerRequest $request): void

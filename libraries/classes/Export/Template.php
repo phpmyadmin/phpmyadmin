@@ -7,23 +7,16 @@ namespace PhpMyAdmin\Export;
 /** @psalm-immutable */
 final class Template
 {
-    private int $id;
-
-    private string $username;
-
-    private string $exportType;
-
-    private string $name;
-
     /** @var string JSON */
     private string $data;
 
-    private function __construct(int $id, string $username, string $exportType, string $name, string $data)
-    {
-        $this->id = $id;
-        $this->username = $username;
-        $this->exportType = $exportType;
-        $this->name = $name;
+    private function __construct(
+        private int $id,
+        private string $username,
+        private string $exportType,
+        private string $name,
+        string $data
+    ) {
         $this->data = $data;
     }
 

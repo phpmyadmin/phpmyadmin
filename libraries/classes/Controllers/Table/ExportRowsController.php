@@ -15,15 +15,12 @@ use function is_array;
 
 final class ExportRowsController extends AbstractController
 {
-    private ExportController $exportController;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        ExportController $exportController
+        private ExportController $exportController
     ) {
         parent::__construct($response, $template);
-        $this->exportController = $exportController;
     }
 
     public function __invoke(ServerRequest $request): void

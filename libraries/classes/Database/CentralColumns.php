@@ -32,8 +32,6 @@ use function trim;
 
 class CentralColumns
 {
-    private DatabaseInterface $dbi;
-
     /**
      * Current user
      *
@@ -66,10 +64,8 @@ class CentralColumns
     /**
      * @param DatabaseInterface $dbi DatabaseInterface instance
      */
-    public function __construct(DatabaseInterface $dbi)
+    public function __construct(private DatabaseInterface $dbi)
     {
-        $this->dbi = $dbi;
-
         $this->user = $GLOBALS['cfg']['Server']['user'];
         $this->maxRows = (int) $GLOBALS['cfg']['MaxRows'];
         $this->charEditing = $GLOBALS['cfg']['CharEditing'];

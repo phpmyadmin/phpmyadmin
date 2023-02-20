@@ -17,12 +17,9 @@ use function count;
 
 class TwoFactorController extends AbstractController
 {
-    private Relation $relation;
-
-    public function __construct(ResponseRenderer $response, Template $template, Relation $relation)
+    public function __construct(ResponseRenderer $response, Template $template, private Relation $relation)
     {
         parent::__construct($response, $template);
-        $this->relation = $relation;
     }
 
     public function __invoke(ServerRequest $request): void

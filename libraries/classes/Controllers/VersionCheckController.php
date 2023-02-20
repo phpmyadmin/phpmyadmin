@@ -19,12 +19,12 @@ use function sprintf;
  */
 class VersionCheckController extends AbstractController
 {
-    private VersionInformation $versionInformation;
-
-    public function __construct(ResponseRenderer $response, Template $template, VersionInformation $versionInformation)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        private VersionInformation $versionInformation
+    ) {
         parent::__construct($response, $template);
-        $this->versionInformation = $versionInformation;
     }
 
     public function __invoke(ServerRequest $request): void

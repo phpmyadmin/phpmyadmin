@@ -23,19 +23,13 @@ use function is_array;
  */
 class ReplicationController extends AbstractController
 {
-    private ReplicationGui $replicationGui;
-
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        ReplicationGui $replicationGui,
-        DatabaseInterface $dbi
+        private ReplicationGui $replicationGui,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->replicationGui = $replicationGui;
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void

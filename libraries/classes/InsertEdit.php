@@ -53,16 +53,6 @@ use const PASSWORD_DEFAULT;
 
 class InsertEdit
 {
-    private DatabaseInterface $dbi;
-
-    private Relation $relation;
-
-    private Transformations $transformations;
-
-    private FileListing $fileListing;
-
-    private Template $template;
-
     private const FUNC_OPTIONAL_PARAM = [
         'RAND',
         'UNIX_TIMESTAMP',
@@ -92,17 +82,12 @@ class InsertEdit
     ];
 
     public function __construct(
-        DatabaseInterface $dbi,
-        Relation $relation,
-        Transformations $transformations,
-        FileListing $fileListing,
-        Template $template
+        private DatabaseInterface $dbi,
+        private Relation $relation,
+        private Transformations $transformations,
+        private FileListing $fileListing,
+        private Template $template
     ) {
-        $this->dbi = $dbi;
-        $this->relation = $relation;
-        $this->transformations = $transformations;
-        $this->fileListing = $fileListing;
-        $this->template = $template;
     }
 
     /**

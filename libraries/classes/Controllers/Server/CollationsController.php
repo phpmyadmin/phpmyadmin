@@ -25,8 +25,6 @@ class CollationsController extends AbstractController
     /** @var array<string, array<string, Collation>> */
     private array $collations;
 
-    private DatabaseInterface $dbi;
-
     /**
      * @param array<string, Charset>|null                  $charsets
      * @param array<string, array<string, Collation>>|null $collations
@@ -34,12 +32,11 @@ class CollationsController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        DatabaseInterface $dbi,
+        private DatabaseInterface $dbi,
         ?array $charsets = null,
         ?array $collations = null
     ) {
         parent::__construct($response, $template);
-        $this->dbi = $dbi;
 
         $this->charsets = $charsets ?? Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
         $this->collations = $collations ?? Charsets::getCollations($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);

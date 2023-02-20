@@ -20,15 +20,13 @@ use function array_merge;
 
 final class ExportController extends AbstractController
 {
-    private Options $export;
-
-    private DatabaseInterface $dbi;
-
-    public function __construct(ResponseRenderer $response, Template $template, Options $export, DatabaseInterface $dbi)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        private Options $export,
+        private DatabaseInterface $dbi
+    ) {
         parent::__construct($response, $template);
-        $this->export = $export;
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void

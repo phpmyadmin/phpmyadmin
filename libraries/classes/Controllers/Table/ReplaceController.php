@@ -41,27 +41,15 @@ use function sprintf;
  */
 final class ReplaceController extends AbstractController
 {
-    private InsertEdit $insertEdit;
-
-    private Transformations $transformations;
-
-    private Relation $relation;
-
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        InsertEdit $insertEdit,
-        Transformations $transformations,
-        Relation $relation,
-        DatabaseInterface $dbi
+        private InsertEdit $insertEdit,
+        private Transformations $transformations,
+        private Relation $relation,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->insertEdit = $insertEdit;
-        $this->transformations = $transformations;
-        $this->relation = $relation;
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void

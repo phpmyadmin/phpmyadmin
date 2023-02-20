@@ -57,13 +57,9 @@ use const SQL_DIR;
  */
 class Relation
 {
-    /** @var DatabaseInterface */
-    public $dbi;
-
     /** @param DatabaseInterface $dbi */
-    public function __construct($dbi)
+    public function __construct(public $dbi)
     {
-        $this->dbi = $dbi;
     }
 
     public function getRelationParameters(): RelationParameters

@@ -46,15 +46,12 @@ class DatabasesController extends AbstractController
     /** @var bool whether to show database statistics */
     private $hasStatistics;
 
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        DatabaseInterface $dbi
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->dbi = $dbi;
 
         $checkUserPrivileges = new CheckUserPrivileges($dbi);
         $checkUserPrivileges->getPrivileges();

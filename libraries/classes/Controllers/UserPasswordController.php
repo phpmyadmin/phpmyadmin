@@ -19,19 +19,13 @@ use function __;
  */
 class UserPasswordController extends AbstractController
 {
-    private UserPassword $userPassword;
-
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        UserPassword $userPassword,
-        DatabaseInterface $dbi
+        private UserPassword $userPassword,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->userPassword = $userPassword;
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void

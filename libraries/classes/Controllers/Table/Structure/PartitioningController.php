@@ -30,23 +30,14 @@ use function trim;
 
 final class PartitioningController extends AbstractController
 {
-    private DatabaseInterface $dbi;
-
-    private CreateAddField $createAddField;
-
-    private StructureController $structureController;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        DatabaseInterface $dbi,
-        CreateAddField $createAddField,
-        StructureController $structureController
+        private DatabaseInterface $dbi,
+        private CreateAddField $createAddField,
+        private StructureController $structureController
     ) {
         parent::__construct($response, $template);
-        $this->dbi = $dbi;
-        $this->createAddField = $createAddField;
-        $this->structureController = $structureController;
     }
 
     public function __invoke(ServerRequest $request): void

@@ -30,8 +30,6 @@ class Menu
      */
     private string $db;
 
-    private DatabaseInterface $dbi;
-
     /**
      * Table name
      */
@@ -47,10 +45,9 @@ class Menu
      * @param string $db    Database name
      * @param string $table Table name
      */
-    public function __construct(DatabaseInterface $dbi, string $db, string $table)
+    public function __construct(private DatabaseInterface $dbi, string $db, string $table)
     {
         $this->db = $db;
-        $this->dbi = $dbi;
         $this->table = $table;
         $this->relation = new Relation($dbi);
         $this->template = new Template();

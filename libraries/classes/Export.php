@@ -57,9 +57,6 @@ use const ENT_COMPAT;
  */
 class Export
 {
-    /** @var DatabaseInterface */
-    private $dbi;
-
     /** @var string */
     public $dumpBuffer = '';
 
@@ -72,9 +69,8 @@ class Export
     /**
      * @param DatabaseInterface $dbi DatabaseInterface instance
      */
-    public function __construct($dbi)
+    public function __construct(private $dbi)
     {
-        $this->dbi = $dbi;
     }
 
     /**

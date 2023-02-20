@@ -37,10 +37,6 @@ class Normalization
      */
     private DatabaseInterface $dbi;
 
-    private Relation $relation;
-
-    private Transformations $transformations;
-
     /** @var Template */
     public $template;
 
@@ -52,13 +48,11 @@ class Normalization
      */
     public function __construct(
         DatabaseInterface $dbi,
-        Relation $relation,
-        Transformations $transformations,
+        private Relation $relation,
+        private Transformations $transformations,
         Template $template
     ) {
         $this->dbi = $dbi;
-        $this->relation = $relation;
-        $this->transformations = $transformations;
         $this->template = $template;
     }
 

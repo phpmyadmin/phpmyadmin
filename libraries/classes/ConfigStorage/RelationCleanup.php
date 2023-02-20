@@ -15,16 +15,12 @@ class RelationCleanup
     /** @var Relation */
     public $relation;
 
-    /** @var DatabaseInterface */
-    public $dbi;
-
     /**
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Relation          $relation Relation object
      */
-    public function __construct($dbi, Relation $relation)
+    public function __construct(public $dbi, Relation $relation)
     {
-        $this->dbi = $dbi;
         $this->relation = $relation;
     }
 

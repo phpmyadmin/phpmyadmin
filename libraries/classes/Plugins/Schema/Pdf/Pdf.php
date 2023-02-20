@@ -70,15 +70,6 @@ class Pdf extends PdfLib
     /** @var bool */
     private $offline = false;
 
-    /** @var int */
-    private $pageNumber;
-
-    /** @var bool */
-    private $withDoc;
-
-    /** @var string */
-    private $db;
-
     private Relation $relation;
 
     /**
@@ -95,14 +86,11 @@ class Pdf extends PdfLib
         $orientation,
         $unit,
         $paper,
-        $pageNumber,
-        $withDoc,
-        $db
+        private $pageNumber,
+        private $withDoc,
+        private $db
     ) {
         parent::__construct($orientation, $unit, $paper);
-        $this->pageNumber = $pageNumber;
-        $this->withDoc = $withDoc;
-        $this->db = $db;
         $this->relation = new Relation($GLOBALS['dbi']);
     }
 
