@@ -111,8 +111,12 @@ class Header
         $this->bodyId = '';
         $this->title = '';
         $this->console = new Console();
-        $this->menu = new Menu($dbi, $db ?? '', $table ?? '');
-        $this->menuEnabled = true;
+        $this->menuEnabled = false;
+        if ($dbi !== null) {
+            $this->menuEnabled = true;
+            $this->menu = new Menu($dbi, $db ?? '', $table ?? '');
+        }
+
         $this->warningsEnabled = true;
         $this->scripts = new Scripts();
         $this->addDefaultScripts();
@@ -191,8 +195,8 @@ class Header
             'LoginCookieValidity' => $GLOBALS['cfg']['LoginCookieValidity'],
             'session_gc_maxlifetime' => (int) ini_get('session.gc_maxlifetime'),
             'logged_in' => isset($dbi) ? $dbi->isConnected() : false,
-            'is_https' => $GLOBALS['config']->isHttps(),
-            'rootPath' => $GLOBALS['config']->getRootPath(),
+            'is_https' => $GLOBALS['config'] !== null && $GLOBALS['config']->isHttps(),
+            'rootPath' => $GLOBALS['config'] !== null && $GLOBALS['config']->getRootPath(),
             'arg_separator' => Url::getArgSeparator(),
             'version' => Version::VERSION,
         ];
