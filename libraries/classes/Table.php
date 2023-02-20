@@ -2156,7 +2156,7 @@ class Table implements Stringable
 
         // specifying index type is allowed only for primary, unique and index only
         // TokuDB is using Fractal Tree, Using Type is not useless
-        // Ref: https://mariadb.com/kb/en/mariadb/storage-engine-index-types/
+        // Ref: https://mariadb.com/kb/en/storage-engine-index-types/
         $type = $index->getType();
         if (
             $index->getChoice() !== 'SPATIAL'
