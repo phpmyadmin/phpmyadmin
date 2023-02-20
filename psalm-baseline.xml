@@ -13485,11 +13485,6 @@
       <code><![CDATA[$this->properties === null]]></code>
     </DocblockTypeContradiction>
   </file>
-  <file src="libraries/classes/Properties/Options/OptionsPropertyOneItem.php">
-    <ImplementedReturnTypeMismatch>
-      <code>bool|string</code>
-    </ImplementedReturnTypeMismatch>
-  </file>
   <file src="libraries/classes/Query/Cache.php">
     <MixedArrayAccess>
       <code><![CDATA[$this->tableCache[$one_database][$table]]]></code>
