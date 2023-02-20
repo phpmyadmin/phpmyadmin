@@ -27,10 +27,8 @@ class OptionsPropertySubgroup extends OptionsPropertyGroup
      *  - PhpMyAdmin\Properties\Options\OptionsPropertyGroup   ( "root", "main"
      *  or "subgroup" )
      *  - PhpMyAdmin\Properties\Plugins\PluginPropertyItem     ( "export", "import", "transformations" )
-     *
-     * @return string
      */
-    public function getItemType()
+    public function getItemType(): string
     {
         return 'subgroup';
     }

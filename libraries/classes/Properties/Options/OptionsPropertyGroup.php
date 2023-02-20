@@ -61,10 +61,8 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
 
     /**
      * Gets the instance of the class
-     *
-     * @return OptionsPropertyGroup
      */
-    public function getGroup()
+    public function getGroup(): static
     {
         return $this;
     }

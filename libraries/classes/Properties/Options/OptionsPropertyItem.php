@@ -115,10 +115,8 @@ abstract class OptionsPropertyItem extends PropertyItem
 
     /**
      * Returns the property type ( either "options", or "plugin" ).
-     *
-     * @return string
      */
-    public function getPropertyType()
+    public function getPropertyType(): string
     {
         return 'options';
     }
