@@ -31,10 +31,8 @@ abstract class OptionsPropertyItem extends PropertyItem
     private $text;
     /**
      * What to force
-     *
-     * @var string|null
      */
-    private $force;
+    private ?string $force = null;
 
     /**
      * @param string $name Item name
@@ -110,7 +108,7 @@ abstract class OptionsPropertyItem extends PropertyItem
      *
      * @param string $force force parameter
      */
-    public function setForce($force): void
+    public function setForce(string $force): void
     {
         $this->force = $force;
     }

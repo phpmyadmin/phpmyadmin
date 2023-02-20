@@ -14,12 +14,6 @@ namespace PhpMyAdmin\Properties\Options;
 abstract class OptionsPropertyOneItem extends OptionsPropertyItem
 {
     /**
-     * Whether to force or not
-     *
-     * @var bool|string
-     */
-    private $forceOne;
-    /**
      * Values
      *
      * @var array
@@ -44,26 +38,6 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
      */
     private $size;
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
-
-    /**
-     * Gets the force parameter
-     *
-     * @return bool|string
-     */
-    public function getForce()
-    {
-        return $this->forceOne;
-    }
-
-    /**
-     * Sets the force parameter
-     *
-     * @param bool|string $force force parameter
-     */
-    public function setForce($force): void
-    {
-        $this->forceOne = $force;
-    }
 
     /**
      * Gets the values
