@@ -19,6 +19,7 @@ use PhpMyAdmin\Properties\Options\Items\NumberPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
+use PhpMyAdmin\Properties\Options\OptionsPropertyGroup;
 use PhpMyAdmin\Properties\Options\OptionsPropertyItem;
 use SplFileInfo;
 use Throwable;
@@ -39,7 +40,6 @@ use function sprintf;
 use function str_replace;
 use function str_starts_with;
 use function strcasecmp;
-use function strcmp;
 use function usort;
 
 class Plugins
@@ -323,7 +323,7 @@ class Plugins
         $not_subgroup_header = false;
         if ($properties === null) {
             $not_subgroup_header = true;
-            if (method_exists($propertyGroup, 'getProperties')) {
+            if ($propertyGroup instanceof OptionsPropertyGroup) {
                 $properties = $propertyGroup->getProperties();
             }
         }
@@ -593,7 +593,7 @@ class Plugins
                     // check for hidden properties
                     $no_options = true;
                     foreach ($propertyMainGroup->getProperties() as $propertyItem) {
-                        if (strcmp(HiddenPropertyItem::class, $propertyItem::class)) {
+                        if (! ($propertyItem instanceof HiddenPropertyItem)) {
                             $no_options = false;
                             break;
                         }

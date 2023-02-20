@@ -10481,7 +10481,6 @@
       <code>$doc[1]</code>
       <code>$doc[1]</code>
       <code>$doc[2]</code>
-      <code>$propertyMainGroup</code>
       <code>$val</code>
       <code>$val</code>
       <code>$val</code>
@@ -10489,15 +10488,12 @@
     </MixedArgument>
     <MixedAssignment>
       <code>$doc</code>
-      <code>$properties</code>
       <code>$propertyItem</code>
-      <code>$propertyMainGroup</code>
       <code>$val</code>
       <code>$val</code>
       <code>$val</code>
     </MixedAssignment>
     <MixedMethodCall>
-      <code>getProperties</code>
       <code>new $class()</code>
     </MixedMethodCall>
     <PossiblyInvalidArgument>
@@ -10544,6 +10540,9 @@
       <code>$property_class === SelectPropertyItem::class</code>
       <code>$property_class === TextPropertyItem::class</code>
     </TypeDoesNotContainType>
+    <UndefinedMethod>
+      <code>getProperties</code>
+    </UndefinedMethod>
   </file>
   <file src="libraries/classes/Plugins/Auth/AuthenticationConfig.php">
     <InvalidArrayOffset>
@@ -13479,11 +13478,6 @@
       <code><![CDATA[$dbi->fetchResult('SHOW PROFILE;')]]></code>
       <code><![CDATA[array<string, string>|null]]></code>
     </MixedReturnTypeCoercion>
-  </file>
-  <file src="libraries/classes/Properties/Options/OptionsPropertyGroup.php">
-    <DocblockTypeContradiction>
-      <code><![CDATA[$this->properties === null]]></code>
-    </DocblockTypeContradiction>
   </file>
   <file src="libraries/classes/Query/Cache.php">
     <MixedArrayAccess>
@@ -17490,33 +17484,11 @@
       <code>$result</code>
     </MixedAssignment>
   </file>
-  <file src="test/classes/Plugins/Export/ExportCsvTest.php">
-    <MixedAssignment>
-      <code>$property</code>
-      <code>$property</code>
-      <code>$property</code>
-      <code>$property</code>
-      <code>$property</code>
-      <code>$property</code>
-      <code>$property</code>
-    </MixedAssignment>
-  </file>
-  <file src="test/classes/Plugins/Export/ExportExcelTest.php">
-    <MixedAssignment>
-      <code>$property</code>
-      <code>$property</code>
-      <code>$property</code>
-      <code>$property</code>
-    </MixedAssignment>
-  </file>
   <file src="test/classes/Plugins/Export/ExportHtmlwordTest.php">
     <MixedArgument>
       <code>$result</code>
     </MixedArgument>
     <MixedAssignment>
-      <code>$generalOptions</code>
-      <code>$property</code>
-      <code>$property</code>
       <code>$result</code>
     </MixedAssignment>
   </file>
@@ -17524,23 +17496,6 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['latex_caption']]]></code>
     </InvalidArrayOffset>
-    <MixedAssignment>
-      <code>$generalOptions</code>
-      <code>$generalOptions</code>
-      <code>$generalOptions</code>
-      <code>$property</code>
-      <code>$property</code>
-      <code>$property</code>
-      <code>$property</code>
-      <code>$property</code>
-      <code>$property</code>
-      <code>$property</code>
-      <code>$property</code>
-      <code>$property</code>
-      <code>$property</code>
-      <code>$property</code>
-      <code>$property</code>
-    </MixedAssignment>
     <PossiblyInvalidArrayOffset>
       <code><![CDATA[$GLOBALS['plugin_param']['export_type']]]></code>
       <code><![CDATA[$GLOBALS['plugin_param']['export_type']]]></code>
@@ -17548,20 +17503,10 @@
       <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
     </PossiblyInvalidArrayOffset>
   </file>
-  <file src="test/classes/Plugins/Export/ExportMediawikiTest.php">
-    <MixedAssignment>
-      <code>$property</code>
-      <code>$property</code>
-    </MixedAssignment>
-  </file>
   <file src="test/classes/Plugins/Export/ExportOdsTest.php">
     <InternalMethod>
       <code>setOutputCallback</code>
     </InternalMethod>
-    <MixedAssignment>
-      <code>$property</code>
-      <code>$property</code>
-    </MixedAssignment>
   </file>
   <file src="test/classes/Plugins/Export/ExportOdtTest.php">
     <InternalMethod>
@@ -17574,13 +17519,6 @@
       <code>$result</code>
     </MixedArgument>
     <MixedAssignment>
-      <code>$generalOptions</code>
-      <code>$generalOptions</code>
-      <code>$property</code>
-      <code>$property</code>
-      <code>$property</code>
-      <code>$property</code>
-      <code>$property</code>
       <code>$result</code>
     </MixedAssignment>
     <PossiblyInvalidArrayOffset>
@@ -17589,12 +17527,6 @@
       <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
       <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
     </PossiblyInvalidArrayOffset>
-  </file>
-  <file src="test/classes/Plugins/Export/ExportPdfTest.php">
-    <MixedAssignment>
-      <code>$generalOptions</code>
-      <code>$property</code>
-    </MixedAssignment>
   </file>
   <file src="test/classes/Plugins/Export/ExportSqlTest.php">
     <DeprecatedMethod>
@@ -17611,60 +17543,20 @@
       <code><![CDATA[$GLOBALS['sql_constraints']]]></code>
       <code><![CDATA[$GLOBALS['sql_constraints']]]></code>
       <code><![CDATA[$GLOBALS['sql_constraints']]]></code>
-      <code><![CDATA[$properties[1]->getProperties()]]></code>
       <code>$result</code>
     </MixedArgument>
     <MixedAssignment>
-      <code>$leaf</code>
-      <code>$leaf</code>
-      <code>$leaf</code>
-      <code>$leaf</code>
-      <code>$leaf</code>
-      <code>$leaf</code>
-      <code>$leaf</code>
-      <code>$leaf</code>
-      <code>$leaf</code>
-      <code>$property</code>
-      <code>$property</code>
-      <code>$property</code>
-      <code>$property</code>
-      <code>$property</code>
-      <code>$property</code>
-      <code>$property</code>
-      <code>$property</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
     </MixedAssignment>
-    <MixedMethodCall>
-      <code>getProperties</code>
-    </MixedMethodCall>
     <PossiblyInvalidArrayOffset>
       <code><![CDATA[$GLOBALS['plugin_param']['export_type']]]></code>
       <code><![CDATA[$GLOBALS['plugin_param']['export_type']]]></code>
       <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
       <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
     </PossiblyInvalidArrayOffset>
-  </file>
-  <file src="test/classes/Plugins/Export/ExportTexytextTest.php">
-    <MixedAssignment>
-      <code>$generalOptions</code>
-      <code>$property</code>
-      <code>$property</code>
-    </MixedAssignment>
-  </file>
-  <file src="test/classes/Plugins/Export/ExportXmlTest.php">
-    <MixedAssignment>
-      <code>$generalOptions</code>
-      <code>$generalOptions</code>
-      <code>$property</code>
-      <code>$property</code>
-      <code>$property</code>
-      <code>$property</code>
-      <code>$property</code>
-      <code>$property</code>
-    </MixedAssignment>
   </file>
   <file src="test/classes/Plugins/Export/Helpers/TablePropertyTest.php">
     <MixedInferredReturnType>
@@ -17775,21 +17667,6 @@
     <InvalidArgument>
       <code><![CDATA['subGroupHeader123']]></code>
     </InvalidArgument>
-  </file>
-  <file src="test/classes/Properties/Options/OptionsPropertyGroupTest.php">
-    <InvalidArgument>
-      <code><![CDATA['2']]></code>
-      <code><![CDATA['test']]></code>
-      <code>2</code>
-    </InvalidArgument>
-    <PossiblyUndefinedMethod>
-      <code>addProperty</code>
-      <code>addProperty</code>
-      <code>getGroup</code>
-      <code>getNrOfProperties</code>
-      <code>getProperties</code>
-      <code>removeProperty</code>
-    </PossiblyUndefinedMethod>
   </file>
   <file src="test/classes/Properties/Options/OptionsPropertyItemTest.php">
     <PossiblyUndefinedMethod>

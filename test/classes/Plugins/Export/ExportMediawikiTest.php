@@ -20,7 +20,6 @@ use ReflectionMethod;
 use ReflectionProperty;
 
 use function __;
-use function array_shift;
 use function ob_get_clean;
 use function ob_start;
 
@@ -107,7 +106,7 @@ class ExportMediawikiTest extends AbstractTestCase
         );
 
         $generalOptionsArray = $options->getProperties();
-        $generalOptions = $generalOptionsArray[0];
+        $generalOptions = $generalOptionsArray->current();
 
         $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
@@ -123,7 +122,8 @@ class ExportMediawikiTest extends AbstractTestCase
 
         $generalProperties = $generalOptions->getProperties();
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
+        $generalProperties->next();
 
         $this->assertInstanceOf(OptionsPropertySubgroup::class, $property);
 
@@ -155,7 +155,8 @@ class ExportMediawikiTest extends AbstractTestCase
             $sgHeader->getValues()
         );
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
+        $generalProperties->next();
 
         $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
@@ -169,7 +170,7 @@ class ExportMediawikiTest extends AbstractTestCase
             $property->getText()
         );
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
 
         $this->assertInstanceOf(BoolPropertyItem::class, $property);
 

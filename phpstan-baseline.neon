@@ -11471,11 +11471,6 @@ parameters:
 			path: test/classes/Plugins/Export/ExportOdtTest.php
 
 		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem\\:\\:getProperties\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportSqlTest.php
-
-		-
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: test/classes/Plugins/Export/ExportSqlTest.php
@@ -11547,21 +11542,6 @@ parameters:
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Properties\\\\\\\\Options\\\\\\\\OptionsPropertyGroup' and PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup&PHPUnit\\\\Framework\\\\MockObject\\\\MockObject will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$property of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup\\:\\:addProperty\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem, int given\\.$#"
-			count: 1
-			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$property of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup\\:\\:addProperty\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem, string given\\.$#"
-			count: 1
-			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$property of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup\\:\\:removeProperty\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem, string given\\.$#"
 			count: 1
 			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
 

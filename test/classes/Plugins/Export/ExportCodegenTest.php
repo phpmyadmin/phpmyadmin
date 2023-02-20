@@ -110,7 +110,7 @@ class ExportCodegenTest extends AbstractTestCase
         );
 
         $generalOptionsArray = $options->getProperties();
-        $generalOptions = $generalOptionsArray[0];
+        $generalOptions = $generalOptionsArray->current();
 
         $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
@@ -121,7 +121,8 @@ class ExportCodegenTest extends AbstractTestCase
 
         $generalProperties = $generalOptions->getProperties();
 
-        $hidden = $generalProperties[0];
+        $hidden = $generalProperties->current();
+        $generalProperties->next();
 
         $this->assertInstanceOf(HiddenPropertyItem::class, $hidden);
 
@@ -130,7 +131,7 @@ class ExportCodegenTest extends AbstractTestCase
             $hidden->getName()
         );
 
-        $select = $generalProperties[1];
+        $select = $generalProperties->current();
 
         $this->assertInstanceOf(SelectPropertyItem::class, $select);
 
