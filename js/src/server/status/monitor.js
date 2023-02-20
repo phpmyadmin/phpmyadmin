@@ -733,7 +733,9 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
                 $('#emptyDialog').dialog('close');
             };
-            reader.readAsText(input.files[0]);
+            if (input.files[0]) {
+                reader.readAsText(input.files[0]);
+            }
         };
 
         dlgBtns[window.Messages.strCancel].click = function () {

@@ -10,6 +10,8 @@ phpMyAdmin - ChangeLog
 - issue #17028 Fix total count of rows in not accurate
 - issue #17683 Fix total count of rows in not accurate
 - issue #17766 Allow to open in a new tab copy and edit row actions
+- issue #17599 Fix error when handling an user that is not in privileges table
+- issue #17364 Fix error when trying to import a status monitor chart arrangement
 
 5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid
