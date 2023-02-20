@@ -5586,11 +5586,6 @@ parameters:
 			path: libraries/classes/OpenDocument.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Operations\\:\\:copyTables\\(\\) has parameter \\$tables_full with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Operations.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Operations\\:\\:copyTables\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Operations.php
@@ -5617,11 +5612,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Operations\\:\\:getTableAltersArray\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Operations.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Operations\\:\\:getViewsAndCreateSqlViewStandIn\\(\\) has parameter \\$tables_full with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Operations.php
 
