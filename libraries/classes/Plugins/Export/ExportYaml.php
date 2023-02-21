@@ -21,8 +21,6 @@ use function array_key_exists;
 use function is_numeric;
 use function str_replace;
 
-use const PHP_EOL;
-
 /**
  * Handles the export for the YAML format
  */
@@ -69,7 +67,7 @@ class ExportYaml extends ExportPlugin
      */
     public function exportHeader(): bool
     {
-        $this->export->outputHandler('%YAML 1.1' . PHP_EOL . '---' . PHP_EOL);
+        $this->export->outputHandler('%YAML 1.1' . "\n" . '---' . "\n");
 
         return true;
     }
@@ -79,7 +77,7 @@ class ExportYaml extends ExportPlugin
      */
     public function exportFooter(): bool
     {
-        $this->export->outputHandler('...' . PHP_EOL);
+        $this->export->outputHandler('...' . "\n");
 
         return true;
     }
@@ -161,10 +159,10 @@ class ExportYaml extends ExportPlugin
 
             // Output table name as comment if this is the first record of the table
             if ($record_cnt == 1) {
-                $buffer = '# ' . $db_alias . '.' . $table_alias . PHP_EOL;
-                $buffer .= '-' . PHP_EOL;
+                $buffer = '# ' . $db_alias . '.' . $table_alias . "\n";
+                $buffer .= '-' . "\n";
             } else {
-                $buffer = '-' . PHP_EOL;
+                $buffer = '-' . "\n";
             }
 
             for ($i = 0; $i < $columns_cnt; $i++) {
@@ -173,13 +171,13 @@ class ExportYaml extends ExportPlugin
                 }
 
                 if ($record[$i] === null) {
-                    $buffer .= '  ' . $columns[$i] . ': null' . PHP_EOL;
+                    $buffer .= '  ' . $columns[$i] . ': null' . "\n";
                     continue;
                 }
 
                 $isNotString = isset($fieldsMeta[$i]) && $fieldsMeta[$i]->isNotType(FieldMetadata::TYPE_STRING);
                 if (is_numeric($record[$i]) && $isNotString) {
-                    $buffer .= '  ' . $columns[$i] . ': ' . $record[$i] . PHP_EOL;
+                    $buffer .= '  ' . $columns[$i] . ': ' . $record[$i] . "\n";
                     continue;
                 }
 
@@ -198,7 +196,7 @@ class ExportYaml extends ExportPlugin
                     ],
                     $record[$i]
                 );
-                $buffer .= '  ' . $columns[$i] . ': "' . $record[$i] . '"' . PHP_EOL;
+                $buffer .= '  ' . $columns[$i] . ': "' . $record[$i] . '"' . "\n";
             }
 
             if (! $this->export->outputHandler($buffer)) {

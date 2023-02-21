@@ -42,7 +42,6 @@ use function trim;
 use function unpack;
 
 use const DIRECTORY_SEPARATOR;
-use const PHP_EOL;
 
 /**
  * Git class to manipulate Git data
@@ -486,7 +485,7 @@ class Git
         }
 
         // split file to lines
-        $refLines = explode(PHP_EOL, $packedRefs);
+        $refLines = explode("\n", $packedRefs);
         foreach ($refLines as $line) {
             // skip comments
             if ($line[0] === '#') {

@@ -24,8 +24,6 @@ use function mb_strtolower;
 use function preg_replace;
 use function str_replace;
 
-use const PHP_EOL;
-
 /**
  * Handles the export for the CSV format
  */
@@ -132,7 +130,7 @@ class ExportCsv extends ExportPlugin
             }
         } else {
             if (empty($GLOBALS['csv_terminated']) || mb_strtolower($GLOBALS['csv_terminated']) === 'auto') {
-                $GLOBALS['csv_terminated'] = PHP_EOL;
+                $GLOBALS['csv_terminated'] = "\n";
             } else {
                 $GLOBALS['csv_terminated'] = str_replace(
                     [
