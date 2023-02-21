@@ -12,12 +12,7 @@ use PhpMyAdmin\Properties\PropertyItem;
  */
 class OptionsPropertySubgroup extends OptionsPropertyGroup
 {
-    /**
-     * Subgroup Header
-     *
-     * @var PropertyItem|null
-     */
-    private $subgroupHeader;
+    private PropertyItem|null $subgroupHeader = null;
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
     /**
@@ -33,22 +28,12 @@ class OptionsPropertySubgroup extends OptionsPropertyGroup
         return 'subgroup';
     }
 
-    /**
-     * Gets the subgroup header
-     *
-     * @return PropertyItem|null
-     */
-    public function getSubgroupHeader()
+    public function getSubgroupHeader(): PropertyItem|null
     {
         return $this->subgroupHeader;
     }
 
-    /**
-     * Sets the subgroup header
-     *
-     * @param PropertyItem $subgroupHeader subgroup header
-     */
-    public function setSubgroupHeader($subgroupHeader): void
+    public function setSubgroupHeader(PropertyItem $subgroupHeader): void
     {
         $this->subgroupHeader = $subgroupHeader;
     }

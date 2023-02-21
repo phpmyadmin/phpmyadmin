@@ -17663,11 +17663,6 @@
       <code>assertIsArray</code>
     </RedundantCondition>
   </file>
-  <file src="test/classes/Properties/Options/Groups/OptionsPropertySubgroupTest.php">
-    <InvalidArgument>
-      <code><![CDATA['subGroupHeader123']]></code>
-    </InvalidArgument>
-  </file>
   <file src="test/classes/Properties/Options/OptionsPropertyItemTest.php">
     <PossiblyUndefinedMethod>
       <code>getForce</code>

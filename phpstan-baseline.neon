@@ -11536,11 +11536,6 @@ parameters:
 			path: test/classes/PluginsTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$subgroupHeader of method PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\:\\:setSubgroupHeader\\(\\) expects PhpMyAdmin\\\\Properties\\\\PropertyItem, string given\\.$#"
-			count: 1
-			path: test/classes/Properties/Options/Groups/OptionsPropertySubgroupTest.php
-
-		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Properties\\\\\\\\Options\\\\\\\\OptionsPropertyGroup' and PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup&PHPUnit\\\\Framework\\\\MockObject\\\\MockObject will always evaluate to true\\.$#"
 			count: 1
 			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
