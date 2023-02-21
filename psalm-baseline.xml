@@ -8871,9 +8871,6 @@
       <code><![CDATA[$_REQUEST['session_max_rows']]]></code>
       <code><![CDATA[$_REQUEST['unlim_num_rows']]]></code>
     </RiskyCast>
-    <UnusedMethod>
-      <code>generateRowQueryOutput</code>
-    </UnusedMethod>
   </file>
   <file src="libraries/classes/Image/ImageWrapper.php">
     <PossiblyUnusedReturnValue>
