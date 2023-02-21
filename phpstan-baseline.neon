@@ -2156,11 +2156,6 @@ parameters:
 			path: libraries/classes/Controllers/Server/Status/VariablesController.php
 
 		-
-			message: "#^Parameter \\#2 \\$userGroup of static method PhpMyAdmin\\\\ConfigStorage\\\\UserGroups\\:\\:delete\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/UserGroupsController.php
-
-		-
 			message: "#^Parameter \\#2 \\$userGroup of static method PhpMyAdmin\\\\ConfigStorage\\\\UserGroups\\:\\:edit\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Server/UserGroupsController.php

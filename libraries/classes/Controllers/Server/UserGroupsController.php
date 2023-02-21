@@ -14,6 +14,7 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
 use function __;
+use function is_string;
 
 /**
  * Displays the 'User groups' sub page under 'Users' page.
@@ -55,11 +56,10 @@ class UserGroupsController extends AbstractController
             'is_super_user' => $this->dbi->isSuperUser(),
         ]);
 
-        /**
-         * Delete user group
-         */
-        if ($request->hasBodyParam('deleteUserGroup')) {
-            UserGroups::delete($configurableMenusFeature, $request->getParsedBodyParam('userGroup'));
+        /** @var mixed $userGroup */
+        $userGroup = $request->getParsedBodyParam('userGroup');
+        if ($request->hasBodyParam('deleteUserGroup') && is_string($userGroup) && $userGroup !== '') {
+            UserGroups::delete($this->dbi, $configurableMenusFeature, $userGroup);
         }
 
         /**

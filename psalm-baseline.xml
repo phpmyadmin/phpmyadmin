@@ -1436,8 +1436,6 @@
       <code>escapeString</code>
       <code>escapeString</code>
       <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
     </DeprecatedMethod>
     <MixedArgumentTypeCoercion>
       <code>$tabNames</code>
@@ -3702,7 +3700,6 @@
   </file>
   <file src="libraries/classes/Controllers/Server/UserGroupsController.php">
     <MixedArgument>
-      <code><![CDATA[$request->getParsedBodyParam('userGroup')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('userGroup')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('userGroup')]]></code>
       <code><![CDATA[$request->getParsedBodyParam('userGroup')]]></code>
@@ -16279,11 +16276,6 @@
       <code>assertSame</code>
       <code>assertSame</code>
     </TypeDoesNotContainType>
-  </file>
-  <file src="test/classes/ConfigStorage/UserGroupsTest.php">
-    <DeprecatedMethod>
-      <code>withConsecutive</code>
-    </DeprecatedMethod>
   </file>
   <file src="test/classes/ConfigTest.php">
     <InvalidArgument>
