@@ -7,6 +7,8 @@ namespace PhpMyAdmin\ConfigStorage;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Util;
 
+use function sprintf;
+
 /**
  * Set of functions used for cleaning up phpMyAdmin tables
  */
@@ -30,59 +32,60 @@ class RelationCleanup
      * @param string $table  table name
      * @param string $column column name
      */
-    public function column($db, $table, $column): void
+    public function column(string $db, string $table, string $column): void
     {
         $relationParameters = $this->relation->getRelationParameters();
+        $columnCommentsFeature = $relationParameters->columnCommentsFeature;
+        $displayFeature = $relationParameters->displayFeature;
+        $relationFeature = $relationParameters->relationFeature;
 
-        if ($relationParameters->columnCommentsFeature !== null) {
-            $remove_query = 'DELETE FROM '
-                . Util::backquote($relationParameters->columnCommentsFeature->database)
-                . '.' . Util::backquote($relationParameters->columnCommentsFeature->columnInfo)
-                . ' WHERE db_name  = \'' . $this->dbi->escapeString($db) . '\''
-                . ' AND table_name = \'' . $this->dbi->escapeString($table)
-                . '\''
-                . ' AND column_name = \'' . $this->dbi->escapeString($column)
-                . '\'';
-            $this->dbi->queryAsControlUser($remove_query);
+        if ($columnCommentsFeature !== null) {
+            $statement = sprintf(
+                'DELETE FROM %s.%s WHERE db_name = %s AND table_name = %s AND column_name = %s',
+                Util::backquote($columnCommentsFeature->database),
+                Util::backquote($columnCommentsFeature->columnInfo),
+                $this->dbi->quoteString($db),
+                $this->dbi->quoteString($table),
+                $this->dbi->quoteString($column),
+            );
+            $this->dbi->queryAsControlUser($statement);
         }
 
-        if ($relationParameters->displayFeature !== null) {
-            $remove_query = 'DELETE FROM '
-                . Util::backquote($relationParameters->displayFeature->database)
-                . '.' . Util::backquote($relationParameters->displayFeature->tableInfo)
-                . ' WHERE db_name  = \'' . $this->dbi->escapeString($db) . '\''
-                . ' AND table_name = \'' . $this->dbi->escapeString($table)
-                . '\''
-                . ' AND display_field = \'' . $this->dbi->escapeString($column)
-                . '\'';
-            $this->dbi->queryAsControlUser($remove_query);
+        if ($displayFeature !== null) {
+            $statement = sprintf(
+                'DELETE FROM %s.%s WHERE db_name = %s AND table_name = %s AND display_field = %s',
+                Util::backquote($displayFeature->database),
+                Util::backquote($displayFeature->tableInfo),
+                $this->dbi->quoteString($db),
+                $this->dbi->quoteString($table),
+                $this->dbi->quoteString($column),
+            );
+            $this->dbi->queryAsControlUser($statement);
         }
 
-        if ($relationParameters->relationFeature === null) {
+        if ($relationFeature === null) {
             return;
         }
 
-        $remove_query = 'DELETE FROM '
-            . Util::backquote($relationParameters->relationFeature->database)
-            . '.' . Util::backquote($relationParameters->relationFeature->relation)
-            . ' WHERE master_db  = \'' . $this->dbi->escapeString($db)
-            . '\''
-            . ' AND master_table = \'' . $this->dbi->escapeString($table)
-            . '\''
-            . ' AND master_field = \'' . $this->dbi->escapeString($column)
-            . '\'';
-        $this->dbi->queryAsControlUser($remove_query);
+        $statement = sprintf(
+            'DELETE FROM %s.%s WHERE master_db = %s AND master_table = %s AND master_field = %s',
+            Util::backquote($relationFeature->database),
+            Util::backquote($relationFeature->relation),
+            $this->dbi->quoteString($db),
+            $this->dbi->quoteString($table),
+            $this->dbi->quoteString($column),
+        );
+        $this->dbi->queryAsControlUser($statement);
 
-        $remove_query = 'DELETE FROM '
-            . Util::backquote($relationParameters->relationFeature->database)
-            . '.' . Util::backquote($relationParameters->relationFeature->relation)
-            . ' WHERE foreign_db  = \'' . $this->dbi->escapeString($db)
-            . '\''
-            . ' AND foreign_table = \'' . $this->dbi->escapeString($table)
-            . '\''
-            . ' AND foreign_field = \'' . $this->dbi->escapeString($column)
-            . '\'';
-        $this->dbi->queryAsControlUser($remove_query);
+        $statement = sprintf(
+            'DELETE FROM %s.%s WHERE foreign_db = %s AND foreign_table = %s AND foreign_field = %s',
+            Util::backquote($relationFeature->database),
+            Util::backquote($relationFeature->relation),
+            $this->dbi->quoteString($db),
+            $this->dbi->quoteString($table),
+            $this->dbi->quoteString($column),
+        );
+        $this->dbi->queryAsControlUser($statement);
     }
 
     /**

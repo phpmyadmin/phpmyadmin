@@ -1416,18 +1416,6 @@
       <code>escapeString</code>
       <code>escapeString</code>
       <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
     </DeprecatedMethod>
   </file>
   <file src="libraries/classes/ConfigStorage/UserGroups.php">
@@ -4147,7 +4135,6 @@
   </file>
   <file src="libraries/classes/Controllers/Table/DropColumnController.php">
     <MixedArgument>
-      <code>$field</code>
       <code>$field</code>
       <code><![CDATA[$message->getMessage()]]></code>
     </MixedArgument>
@@ -16247,7 +16234,6 @@
   </file>
   <file src="test/classes/ConfigStorage/RelationCleanupTest.php">
     <DeprecatedMethod>
-      <code>withConsecutive</code>
       <code>withConsecutive</code>
       <code>withConsecutive</code>
       <code>withConsecutive</code>

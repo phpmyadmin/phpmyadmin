@@ -8,6 +8,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
@@ -25,8 +26,8 @@ class RelationCleanupTest extends AbstractTestCase
 
     public function testColumnWithRelations(): void
     {
-        $_SESSION['relation'] = [];
-        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+        $relation = $this->createStub(Relation::class);
+        $relation->method('getRelationParameters')->willReturn(RelationParameters::fromArray([
             'user' => 'user',
             'db' => 'pmadb',
             'commwork' => true,
@@ -35,39 +36,36 @@ class RelationCleanupTest extends AbstractTestCase
             'relation' => 'relation',
             'table_info' => 'table_info',
             'column_info' => 'column_info',
-        ])->toArray();
+        ]));
 
-        $dbi = $this->createPartialMock(DatabaseInterface::class, ['queryAsControlUser']);
-        $dbi->expects($this->exactly(4))
-            ->method('queryAsControlUser')
-            ->withConsecutive(
-                [
-                    $this->equalTo(
-                        "DELETE FROM `pmadb`.`column_info` WHERE db_name  = 'database' AND"
-                        . " table_name = 'table' AND column_name = 'column'"
-                    ),
-                ],
-                [
-                    $this->equalTo(
-                        "DELETE FROM `pmadb`.`table_info` WHERE db_name  = 'database' AND"
-                        . " table_name = 'table' AND display_field = 'column'"
-                    ),
-                ],
-                [
-                    $this->equalTo(
-                        "DELETE FROM `pmadb`.`relation` WHERE master_db  = 'database' AND"
-                        . " master_table = 'table' AND master_field = 'column'"
-                    ),
-                ],
-                [
-                    $this->equalTo(
-                        "DELETE FROM `pmadb`.`relation` WHERE foreign_db  = 'database' AND"
-                        . " foreign_table = 'table' AND foreign_field = 'column'"
-                    ),
-                ]
-            );
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->expects($this->any())->method('quoteString')
+            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+        $result = $this->createStub(ResultInterface::class);
+        $dbi->expects($this->exactly(4))->method('queryAsControlUser')->willReturnMap([
+            [
+                "DELETE FROM `pmadb`.`column_info` WHERE db_name = 'database' AND"
+                . " table_name = 'table' AND column_name = 'column'",
+                $result,
+            ],
+            [
+                "DELETE FROM `pmadb`.`table_info` WHERE db_name = 'database' AND"
+                . " table_name = 'table' AND display_field = 'column'",
+                $result,
+            ],
+            [
+                "DELETE FROM `pmadb`.`relation` WHERE master_db = 'database' AND"
+                . " master_table = 'table' AND master_field = 'column'",
+                $result,
+            ],
+            [
+                "DELETE FROM `pmadb`.`relation` WHERE foreign_db = 'database' AND"
+                . " foreign_table = 'table' AND foreign_field = 'column'",
+                $result,
+            ],
+        ]);
 
-        (new RelationCleanup($dbi, new Relation($dbi)))->column('database', 'table', 'column');
+        (new RelationCleanup($dbi, $relation))->column('database', 'table', 'column');
     }
 
     public function testTableWithoutRelations(): void
