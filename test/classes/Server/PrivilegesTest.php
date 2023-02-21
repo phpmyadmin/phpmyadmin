@@ -8,6 +8,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Dbal\Statement;
 use PhpMyAdmin\Html\Generator;
@@ -1927,13 +1928,14 @@ class PrivilegesTest extends AbstractTestCase
 
         $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())->method('isMariaDB')->willReturn(true);
-        $dbi->expects($this->exactly(2))
-            ->method('prepare')
-            ->withConsecutive(
-                [$this->equalTo('SELECT * FROM `mysql`.`user` WHERE `User` = ? AND `Host` = ?;')],
-                [$this->equalTo('SELECT * FROM `mysql`.`global_priv` WHERE `User` = ? AND `Host` = ?;')]
-            )
-            ->willReturn($mysqliStmtStub);
+
+        $userQuery = 'SELECT * FROM `mysql`.`user` WHERE `User` = ? AND `Host` = ?;';
+        $globalPrivQuery = 'SELECT * FROM `mysql`.`global_priv` WHERE `User` = ? AND `Host` = ?;';
+        $dbi->expects($this->exactly(2))->method('prepare')->willReturnMap([
+            [$userQuery, Connection::TYPE_USER, $mysqliStmtStub],
+            [$globalPrivQuery, Connection::TYPE_USER, $mysqliStmtStub],
+        ]);
+
         $mysqliResultStub->expects($this->exactly(2))
             ->method('fetchAssoc')
             ->willReturnOnConsecutiveCalls(

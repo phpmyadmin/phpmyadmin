@@ -18089,7 +18089,6 @@
       <code>escapeString</code>
       <code>escapeString</code>
       <code>escapeString</code>
-      <code>withConsecutive</code>
     </DeprecatedMethod>
     <MixedArgument>
       <code>$real_sql_query</code>
