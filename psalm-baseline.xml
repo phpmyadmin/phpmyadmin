@@ -18445,12 +18445,6 @@
     </MixedArrayAccess>
   </file>
   <file src="test/classes/UtilTest.php">
-    <DeprecatedMethod>
-      <code>withConsecutive</code>
-      <code>withConsecutive</code>
-      <code>withConsecutive</code>
-      <code>withConsecutive</code>
-    </DeprecatedMethod>
     <InvalidArgument>
       <code>testGetMySQLDocuURL</code>
     </InvalidArgument>

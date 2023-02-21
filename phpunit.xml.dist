@@ -8,6 +8,7 @@
     verbose="true"
     executionOrder="random"
     defaultTestSuite="unit"
+    failOnIncomplete="true"
 >
   <coverage>
     <include>

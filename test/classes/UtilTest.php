@@ -1968,181 +1968,132 @@ class UtilTest extends AbstractTestCase
 
     public function testCurrentUserHasPrivilegeSkipGrantTables(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects($this->once())
-            ->method('getCurrentUserAndHost')
-            ->will($this->returnValue(['', '']));
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult('SELECT CURRENT_USER();', []);
+        $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
 
-        $GLOBALS['dbi'] = $dbi;
         $this->assertTrue(Util::currentUserHasPrivilege('EVENT'));
+        $dbiDummy->assertAllQueriesConsumed();
     }
 
     public function testCurrentUserHasUserPrivilege(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects($this->once())
-            ->method('getCurrentUserAndHost')
-            ->will($this->returnValue(['groot_%', '%']));
-        $dbi->expects($this->once())
-            ->method('fetchValue')
-            ->with(
-                'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
-            )
-            ->will($this->returnValue('EVENT'));
+        // phpcs:disable Generic.Files.LineLength.TooLong
+        $globalPrivilegeQuery = <<<'SQL'
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'
+SQL;
+        // phpcs:enable
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult('SELECT CURRENT_USER();', [['groot_%@%']]);
+        $dbiDummy->addResult($globalPrivilegeQuery, [['EVENT']]);
+        $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
 
-        $GLOBALS['dbi'] = $dbi;
         $this->assertTrue(Util::currentUserHasPrivilege('EVENT'));
+        $dbiDummy->assertAllQueriesConsumed();
     }
 
     public function testCurrentUserHasNotUserPrivilege(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects($this->once())
-            ->method('getCurrentUserAndHost')
-            ->will($this->returnValue(['groot_%', '%']));
-        $dbi->expects($this->once())
-            ->method('fetchValue')
-            ->with(
-                'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
-            )
-            ->will($this->returnValue(false));
+        // phpcs:disable Generic.Files.LineLength.TooLong
+        $globalPrivilegeQuery = <<<'SQL'
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'
+SQL;
+        // phpcs:enable
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult('SELECT CURRENT_USER();', [['groot_%@%']]);
+        $dbiDummy->addResult($globalPrivilegeQuery, []);
+        $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
 
-        $GLOBALS['dbi'] = $dbi;
         $this->assertFalse(Util::currentUserHasPrivilege('EVENT'));
+        $dbiDummy->assertAllQueriesConsumed();
     }
 
     public function testCurrentUserHasNotUserPrivilegeButDbPrivilege(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->onlyMethods(['getCurrentUserAndHost', 'fetchValue'])
-            ->disableOriginalConstructor()
-            ->getMock();
+        // phpcs:disable Generic.Files.LineLength.TooLong
+        $globalPrivilegeQuery = <<<'SQL'
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'
+SQL;
+        $databasePrivilegeQuery = <<<'SQL'
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT' AND 'my_data_base' LIKE `TABLE_SCHEMA`
+SQL;
+        // phpcs:enable
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult('SELECT CURRENT_USER();', [['groot_%@%']]);
+        $dbiDummy->addResult($globalPrivilegeQuery, []);
+        $dbiDummy->addResult($databasePrivilegeQuery, [['EVENT']]);
+        $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
 
-        $dbi->expects($this->once())
-            ->method('getCurrentUserAndHost')
-            ->will($this->returnValue(['groot_%', '%']));
-        $dbi->expects($this->exactly(2))
-            ->method('fetchValue')
-            ->withConsecutive(
-                [
-                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'",
-                ],
-                [
-                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
-                . " AND 'my_data_base' LIKE `TABLE_SCHEMA`",
-                ]
-            )
-            ->willReturnOnConsecutiveCalls(false, 'EVENT');
-
-        $GLOBALS['dbi'] = $dbi;
         $this->assertTrue(Util::currentUserHasPrivilege('EVENT', 'my_data_base'));
+        $dbiDummy->assertAllQueriesConsumed();
     }
 
     public function testCurrentUserHasNotUserPrivilegeAndNotDbPrivilege(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->onlyMethods(['getCurrentUserAndHost', 'fetchValue'])
-            ->disableOriginalConstructor()
-            ->getMock();
+        // phpcs:disable Generic.Files.LineLength.TooLong
+        $globalPrivilegeQuery = <<<'SQL'
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'
+SQL;
+        $databasePrivilegeQuery = <<<'SQL'
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT' AND 'my_data_base' LIKE `TABLE_SCHEMA`
+SQL;
+        // phpcs:enable
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult('SELECT CURRENT_USER();', [['groot_%@%']]);
+        $dbiDummy->addResult($globalPrivilegeQuery, []);
+        $dbiDummy->addResult($databasePrivilegeQuery, []);
+        $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
 
-        $dbi->expects($this->once())
-            ->method('getCurrentUserAndHost')
-            ->will($this->returnValue(['groot_%', '%']));
-        $dbi->expects($this->exactly(2))
-            ->method('fetchValue')
-            ->withConsecutive(
-                [
-                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'",
-                ],
-                [
-                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
-                . " AND 'my_data_base' LIKE `TABLE_SCHEMA`",
-                ]
-            )
-            ->willReturnOnConsecutiveCalls(false, false);
-
-        $GLOBALS['dbi'] = $dbi;
         $this->assertFalse(Util::currentUserHasPrivilege('EVENT', 'my_data_base'));
+        $dbiDummy->assertAllQueriesConsumed();
     }
 
     public function testCurrentUserHasNotUserPrivilegeAndNotDbPrivilegeButTablePrivilege(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->onlyMethods(['getCurrentUserAndHost', 'fetchValue'])
-            ->disableOriginalConstructor()
-            ->getMock();
+        // phpcs:disable Generic.Files.LineLength.TooLong
+        $globalPrivilegeQuery = <<<'SQL'
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'
+SQL;
+        $databasePrivilegeQuery = <<<'SQL'
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT' AND 'my_data_base' LIKE `TABLE_SCHEMA`
+SQL;
+        $tablePrivilegeQuery = <<<'SQL'
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT' AND 'my_data_base' LIKE `TABLE_SCHEMA` AND TABLE_NAME='my_data_table'
+SQL;
+        // phpcs:enable
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult('SELECT CURRENT_USER();', [['groot_%@%']]);
+        $dbiDummy->addResult($globalPrivilegeQuery, []);
+        $dbiDummy->addResult($databasePrivilegeQuery, []);
+        $dbiDummy->addResult($tablePrivilegeQuery, [['EVENT']]);
+        $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
 
-        $dbi->expects($this->once())
-            ->method('getCurrentUserAndHost')
-            ->will($this->returnValue(['groot_%', '%']));
-        $dbi->expects($this->exactly(3))
-            ->method('fetchValue')
-            ->withConsecutive(
-                [
-                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'",
-                ],
-                [
-                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
-                . " AND 'my_data_base' LIKE `TABLE_SCHEMA`",
-                ],
-                [
-                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
-                . " AND 'my_data_base' LIKE `TABLE_SCHEMA` AND TABLE_NAME='my_data_table'",
-                ]
-            )
-            ->willReturnOnConsecutiveCalls(false, false, 'EVENT');
-
-        $GLOBALS['dbi'] = $dbi;
         $this->assertTrue(Util::currentUserHasPrivilege('EVENT', 'my_data_base', 'my_data_table'));
+        $dbiDummy->assertAllQueriesConsumed();
     }
 
     public function testCurrentUserHasNotUserPrivilegeAndNotDbPrivilegeAndNotTablePrivilege(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->onlyMethods(['getCurrentUserAndHost', 'fetchValue'])
-            ->disableOriginalConstructor()
-            ->getMock();
+        // phpcs:disable Generic.Files.LineLength.TooLong
+        $globalPrivilegeQuery = <<<'SQL'
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'
+SQL;
+        $databasePrivilegeQuery = <<<'SQL'
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT' AND 'my_data_base' LIKE `TABLE_SCHEMA`
+SQL;
+        $tablePrivilegeQuery = <<<'SQL'
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT' AND 'my_data_base' LIKE `TABLE_SCHEMA` AND TABLE_NAME='my_data_table'
+SQL;
+        // phpcs:enable
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult('SELECT CURRENT_USER();', [['groot_%@%']]);
+        $dbiDummy->addResult($globalPrivilegeQuery, []);
+        $dbiDummy->addResult($databasePrivilegeQuery, []);
+        $dbiDummy->addResult($tablePrivilegeQuery, []);
+        $GLOBALS['dbi'] = $this->createDatabaseInterface($dbiDummy);
 
-        $dbi->expects($this->once())
-            ->method('getCurrentUserAndHost')
-            ->will($this->returnValue(['groot_%', '%']));
-        $dbi->expects($this->exactly(3))
-            ->method('fetchValue')
-            ->withConsecutive(
-                [
-                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'",
-                ],
-                [
-                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
-                . " AND 'my_data_base' LIKE `TABLE_SCHEMA`",
-                ],
-                [
-                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
-                . " AND 'my_data_base' LIKE `TABLE_SCHEMA` AND TABLE_NAME='my_data_table'",
-                ]
-            )
-            ->willReturnOnConsecutiveCalls(false, false, false);
-
-        $GLOBALS['dbi'] = $dbi;
         $this->assertFalse(Util::currentUserHasPrivilege('EVENT', 'my_data_base', 'my_data_table'));
+        $dbiDummy->assertAllQueriesConsumed();
     }
 
     /**
