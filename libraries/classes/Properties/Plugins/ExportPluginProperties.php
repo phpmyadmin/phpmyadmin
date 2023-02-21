@@ -16,10 +16,8 @@ class ExportPluginProperties extends PluginPropertyItem
 {
     /**
      * Whether each plugin has to be saved as a file
-     *
-     * @var bool
      */
-    private $forceFile = false;
+    private bool $forceFile = false;
 
     /**
      * Returns the property item type of either an instance of
