@@ -1952,7 +1952,6 @@ class PrivilegesTest extends AbstractTestCase
             new Plugins($this->dbi)
         );
         $method = new ReflectionMethod(Privileges::class, 'getUserPrivileges');
-        $method->setAccessible(true);
 
         /** @var array|null $actual */
         $actual = $method->invokeArgs($serverPrivileges, ['test.user', 'test.host', true]);

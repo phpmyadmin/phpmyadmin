@@ -82,11 +82,9 @@ class ExportHtmlwordTest extends AbstractTestCase
     public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportHtmlword::class, 'setProperties');
-        $method->setAccessible(true);
         $method->invoke($this->object, null);
 
         $attrProperties = new ReflectionProperty(ExportHtmlword::class, 'properties');
-        $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(ExportPluginProperties::class, $properties);
@@ -621,7 +619,6 @@ class ExportHtmlwordTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
 
         $method = new ReflectionMethod(ExportHtmlword::class, 'getTriggers');
-        $method->setAccessible(true);
         $result = $method->invoke($this->object, 'database', 'table');
 
         $this->assertStringContainsString(
@@ -744,7 +741,6 @@ class ExportHtmlwordTest extends AbstractTestCase
     public function testFormatOneColumnDefinition(): void
     {
         $method = new ReflectionMethod(ExportHtmlword::class, 'formatOneColumnDefinition');
-        $method->setAccessible(true);
 
         $cols = [
             'Null' => 'Yes',

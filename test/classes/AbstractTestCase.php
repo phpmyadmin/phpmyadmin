@@ -226,7 +226,6 @@ abstract class AbstractTestCase extends TestCase
     {
         $class = new ReflectionClass($className);
         $method = $class->getMethod($methodName);
-        $method->setAccessible(true);
 
         return $method->invokeArgs($object, $params);
     }

@@ -102,7 +102,6 @@ class IndexesControllerTest extends AbstractTestCase
         $template = new Template();
 
         $method = new ReflectionMethod(IndexesController::class, 'displayForm');
-        $method->setAccessible(true);
 
         $ctrl = new IndexesController(
             $response,

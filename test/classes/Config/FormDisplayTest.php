@@ -55,7 +55,6 @@ class FormDisplayTest extends AbstractTestCase
         $reflection = new ReflectionClass(FormDisplay::class);
 
         $attrForms = $reflection->getProperty('forms');
-        $attrForms->setAccessible(true);
 
         $array = [
             'Servers' => [
@@ -71,7 +70,6 @@ class FormDisplayTest extends AbstractTestCase
         $this->assertInstanceOf(Form::class, $_forms['pma_testform']);
 
         $attrSystemPaths = $reflection->getProperty('systemPaths');
-        $attrSystemPaths->setAccessible(true);
 
         $this->assertEquals(
             [
@@ -82,7 +80,6 @@ class FormDisplayTest extends AbstractTestCase
         );
 
         $attrTranslatedPaths = $reflection->getProperty('translatedPaths');
-        $attrTranslatedPaths->setAccessible(true);
 
         $this->assertEquals(
             [
@@ -110,7 +107,6 @@ class FormDisplayTest extends AbstractTestCase
             ->getMock();
 
         $attrForms = new ReflectionProperty(FormDisplay::class, 'forms');
-        $attrForms->setAccessible(true);
         $attrForms->setValue($this->object, [1, 2, 3]);
 
         $this->object->expects($this->once())
@@ -137,11 +133,9 @@ class FormDisplayTest extends AbstractTestCase
         $reflection = new ReflectionClass(FormDisplay::class);
 
         $attrIsValidated = $reflection->getProperty('isValidated');
-        $attrIsValidated->setAccessible(true);
         $attrIsValidated->setValue($this->object, true);
 
         $attrIsValidated = $reflection->getProperty('errors');
-        $attrIsValidated->setAccessible(true);
         $attrIsValidated->setValue($this->object, []);
 
         $result = $this->object->displayErrors();
@@ -159,7 +153,6 @@ class FormDisplayTest extends AbstractTestCase
         $sysArr = ['Servers/1/test' => 'Servers/1/test2'];
 
         $attrSystemPaths = $reflection->getProperty('systemPaths');
-        $attrSystemPaths->setAccessible(true);
         $attrSystemPaths->setValue($this->object, $sysArr);
 
         $attrIsValidated->setValue($this->object, $arr);
@@ -181,11 +174,9 @@ class FormDisplayTest extends AbstractTestCase
         $reflection = new ReflectionClass(FormDisplay::class);
 
         $attrIsValidated = $reflection->getProperty('isValidated');
-        $attrIsValidated->setAccessible(true);
         $attrIsValidated->setValue($this->object, true);
 
         $attrIsValidated = $reflection->getProperty('errors');
-        $attrIsValidated->setAccessible(true);
         $attrIsValidated->setValue($this->object, []);
 
         $this->object->fixErrors();
@@ -202,7 +193,6 @@ class FormDisplayTest extends AbstractTestCase
         $sysArr = ['Servers/1/test' => 'Servers/1/host'];
 
         $attrSystemPaths = $reflection->getProperty('systemPaths');
-        $attrSystemPaths->setAccessible(true);
         $attrSystemPaths->setValue($this->object, $sysArr);
 
         $attrIsValidated->setValue($this->object, $arr);
@@ -225,7 +215,6 @@ class FormDisplayTest extends AbstractTestCase
     public function testValidateSelect(): void
     {
         $attrValidateSelect = new ReflectionMethod(FormDisplay::class, 'validateSelect');
-        $attrValidateSelect->setAccessible(true);
 
         $arr = ['foo' => 'var'];
         $value = 'foo';
@@ -286,7 +275,6 @@ class FormDisplayTest extends AbstractTestCase
     public function testHasErrors(): void
     {
         $attrErrors = new ReflectionProperty(FormDisplay::class, 'errors');
-        $attrErrors->setAccessible(true);
 
         $this->assertFalse(
             $this->object->hasErrors()
@@ -333,7 +321,6 @@ class FormDisplayTest extends AbstractTestCase
     public function testGetOptName(): void
     {
         $method = new ReflectionMethod(FormDisplay::class, 'getOptName');
-        $method->setAccessible(true);
 
         $this->assertEquals(
             'Servers_',
@@ -352,11 +339,9 @@ class FormDisplayTest extends AbstractTestCase
     public function testLoadUserprefsInfo(): void
     {
         $method = new ReflectionMethod(FormDisplay::class, 'loadUserprefsInfo');
-        $method->setAccessible(true);
 
         $attrUserprefs = new ReflectionProperty(FormDisplay::class, 'userprefsDisallow');
 
-        $attrUserprefs->setAccessible(true);
         $method->invoke($this->object, null);
         $this->assertEquals(
             [],
@@ -370,7 +355,6 @@ class FormDisplayTest extends AbstractTestCase
     public function testSetComments(): void
     {
         $method = new ReflectionMethod(FormDisplay::class, 'setComments');
-        $method->setAccessible(true);
 
         // recoding
         $opts = ['values' => []];

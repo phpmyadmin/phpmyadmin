@@ -106,7 +106,6 @@ class DesignerTest extends AbstractTestCase
         $this->designer = new Designer($GLOBALS['dbi'], new Relation($GLOBALS['dbi']), new Template());
 
         $method = new ReflectionMethod(Designer::class, 'getPageIdsAndNames');
-        $method->setAccessible(true);
         $result = $method->invokeArgs($this->designer, [$db]);
 
         $this->assertEquals(

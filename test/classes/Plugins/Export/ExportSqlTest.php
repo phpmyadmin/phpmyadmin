@@ -100,7 +100,6 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['plugin_param']['single_table'] = false;
 
         $method = new ReflectionMethod(ExportSql::class, 'setProperties');
-        $method->setAccessible(true);
         $properties = $method->invoke($this->object, null);
 
         $this->assertInstanceOf(ExportPluginProperties::class, $properties);
@@ -139,7 +138,6 @@ class ExportSqlTest extends AbstractTestCase
         $_SESSION = ['relation' => [$GLOBALS['server'] => $relationParameters->toArray()]];
 
         $method = new ReflectionMethod(ExportSql::class, 'setProperties');
-        $method->setAccessible(true);
         $properties = $method->invoke($this->object, null);
 
         $this->assertInstanceOf(ExportPluginProperties::class, $properties);
@@ -305,7 +303,6 @@ class ExportSqlTest extends AbstractTestCase
     public function testExportComment(): void
     {
         $method = new ReflectionMethod(ExportSql::class, 'exportComment');
-        $method->setAccessible(true);
 
         $GLOBALS['sql_include_comments'] = true;
 
@@ -337,7 +334,6 @@ class ExportSqlTest extends AbstractTestCase
     public function testPossibleCRLF(): void
     {
         $method = new ReflectionMethod(ExportSql::class, 'possibleCRLF');
-        $method->setAccessible(true);
 
         $GLOBALS['sql_include_comments'] = true;
 
@@ -693,7 +689,6 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['sql_compatibility'] = 'MSSQL';
 
         $method = new ReflectionMethod(ExportSql::class, 'getTableDefForView');
-        $method->setAccessible(true);
         $result = $method->invoke($this->object, 'db', 'view');
 
         $this->assertEquals(
@@ -989,7 +984,6 @@ class ExportSqlTest extends AbstractTestCase
         $this->object->relation = new Relation($dbi);
 
         $method = new ReflectionMethod(ExportSql::class, 'getTableComments');
-        $method->setAccessible(true);
         $result = $method->invoke($this->object, 'db', '', true, true);
 
         $this->assertStringContainsString(
@@ -1443,7 +1437,6 @@ class ExportSqlTest extends AbstractTestCase
             . " \" double NOT NULL DEFAULT '213'\n";
 
         $method = new ReflectionMethod(ExportSql::class, 'makeCreateTableMSSQLCompatible');
-        $method->setAccessible(true);
         $result = $method->invoke($this->object, $query);
 
         $this->assertEquals(

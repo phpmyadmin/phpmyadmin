@@ -15996,11 +15996,6 @@
     <MixedAssignment>
       <code>$http_response_code_param</code>
     </MixedAssignment>
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
   </file>
   <file src="test/classes/AbstractTestCase.php">
     <PossiblyUndefinedArrayOffset>
@@ -16010,9 +16005,6 @@
       <code><![CDATA[$_SERVER['SCRIPT_NAME']]]></code>
       <code><![CDATA[$_SERVER['argv']]]></code>
     </PossiblyUndefinedArrayOffset>
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
   </file>
   <file src="test/classes/Advisory/AdvisorTest.php">
     <MixedInferredReturnType>
@@ -16134,33 +16126,6 @@
       <code><![CDATA[$opts['comment_warning']]]></code>
       <code><![CDATA[$opts['comment_warning']]]></code>
     </MixedArrayAccess>
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
-  </file>
-  <file src="test/classes/Config/FormTest.php">
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
   </file>
   <file src="test/classes/Config/Forms/FormListTest.php">
     <InvalidReturnStatement>
@@ -16200,9 +16165,6 @@
     <MixedAssignment>
       <code><![CDATA[$this->sessionID]]></code>
     </MixedAssignment>
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
   </file>
   <file src="test/classes/ConfigStorage/RelationTest.php">
     <DocblockTypeContradiction>
@@ -16259,9 +16221,6 @@
     <MixedAssignment>
       <code>$json</code>
     </MixedAssignment>
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
   </file>
   <file src="test/classes/Controllers/Database/StructureControllerTest.php">
     <MixedArgument>
@@ -16313,19 +16272,6 @@
       <code>[$currentTable, , , , , , $sumSize]</code>
       <code>[$currentTable]</code>
     </MixedAssignment>
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
   </file>
   <file src="test/classes/Controllers/NavigationControllerTest.php">
     <MixedArgument>
@@ -16411,11 +16357,6 @@
       <code>[$formattedValue, $isHtmlFormatted]</code>
       <code>[$formattedValue, $isHtmlFormatted]</code>
     </MixedAssignment>
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
   </file>
   <file src="test/classes/Controllers/Table/IndexesControllerTest.php">
     <MixedMethodCall>
@@ -16425,9 +16366,6 @@
     <UndefinedMethod>
       <code>expects</code>
     </UndefinedMethod>
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
   </file>
   <file src="test/classes/Controllers/Table/RelationControllerTest.php">
     <MixedMethodCall>
@@ -16456,16 +16394,6 @@
     <UndefinedMethod>
       <code>expects</code>
     </UndefinedMethod>
-  </file>
-  <file src="test/classes/Controllers/Table/Structure/ChangeControllerTest.php">
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
-  </file>
-  <file src="test/classes/Controllers/Table/Structure/SaveControllerTest.php">
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
   </file>
   <file src="test/classes/CoreTest.php">
     <InvalidArgument>
@@ -16608,9 +16536,6 @@
     <MixedAssignment>
       <code>$result</code>
     </MixedAssignment>
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
   </file>
   <file src="test/classes/Database/EventsTest.php">
     <MixedAssignment>
@@ -17039,9 +16964,6 @@
       <code>testGenerateParams</code>
       <code>testScaleRow</code>
     </UndefinedMethod>
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
   </file>
   <file src="test/classes/Gis/GisGeometryCollectionTest.php">
     <MixedInferredReturnType>
@@ -17216,9 +17138,6 @@
     <RedundantCast>
       <code>(string) gmdate(DATE_RFC1123)</code>
     </RedundantCast>
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
   </file>
   <file src="test/classes/Html/GeneratorTest.php">
     <MixedAssignment>
@@ -17349,12 +17268,6 @@
     <MixedInferredReturnType>
       <code>array</code>
     </MixedInferredReturnType>
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
   </file>
   <file src="test/classes/InternalRelationsTest.php">
     <MixedAssignment>
@@ -17496,11 +17409,6 @@
       <code>assertIsArray</code>
     </RedundantConditionGivenDocblockType>
   </file>
-  <file src="test/classes/Navigation/Nodes/NodeTest.php">
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
-  </file>
   <file src="test/classes/Navigation/Nodes/NodeTriggerContainerTest.php">
     <RedundantConditionGivenDocblockType>
       <code>assertIsArray</code>
@@ -17570,11 +17478,6 @@
     <RedundantCondition>
       <code>assertIsString</code>
     </RedundantCondition>
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
   </file>
   <file src="test/classes/Plugins/Auth/AuthenticationHttpTest.php">
     <InvalidArgument>
@@ -17591,16 +17494,6 @@
       <code>$result</code>
       <code>$result</code>
     </MixedAssignment>
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
   </file>
   <file src="test/classes/Plugins/Export/ExportCsvTest.php">
     <MixedAssignment>
@@ -17612,10 +17505,6 @@
       <code>$property</code>
       <code>$property</code>
     </MixedAssignment>
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
   </file>
   <file src="test/classes/Plugins/Export/ExportExcelTest.php">
     <MixedAssignment>
@@ -17624,10 +17513,6 @@
       <code>$property</code>
       <code>$property</code>
     </MixedAssignment>
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
   </file>
   <file src="test/classes/Plugins/Export/ExportHtmlwordTest.php">
     <MixedArgument>
@@ -17639,18 +17524,6 @@
       <code>$property</code>
       <code>$result</code>
     </MixedAssignment>
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
-  </file>
-  <file src="test/classes/Plugins/Export/ExportJsonTest.php">
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
   </file>
   <file src="test/classes/Plugins/Export/ExportLatexTest.php">
     <InvalidArrayOffset>
@@ -17679,19 +17552,12 @@
       <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
       <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
     </PossiblyInvalidArrayOffset>
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
   </file>
   <file src="test/classes/Plugins/Export/ExportMediawikiTest.php">
     <MixedAssignment>
       <code>$property</code>
       <code>$property</code>
     </MixedAssignment>
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
   </file>
   <file src="test/classes/Plugins/Export/ExportOdsTest.php">
     <InternalMethod>
@@ -17701,10 +17567,6 @@
       <code>$property</code>
       <code>$property</code>
     </MixedAssignment>
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
   </file>
   <file src="test/classes/Plugins/Export/ExportOdtTest.php">
     <InternalMethod>
@@ -17732,32 +17594,12 @@
       <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
       <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
     </PossiblyInvalidArrayOffset>
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
   </file>
   <file src="test/classes/Plugins/Export/ExportPdfTest.php">
     <MixedAssignment>
       <code>$generalOptions</code>
       <code>$property</code>
     </MixedAssignment>
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
-  </file>
-  <file src="test/classes/Plugins/Export/ExportPhparrayTest.php">
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
   </file>
   <file src="test/classes/Plugins/Export/ExportSqlTest.php">
     <DeprecatedMethod>
@@ -17809,15 +17651,6 @@
       <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
       <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
     </PossiblyInvalidArrayOffset>
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
   </file>
   <file src="test/classes/Plugins/Export/ExportTexytextTest.php">
     <MixedAssignment>
@@ -17825,10 +17658,6 @@
       <code>$property</code>
       <code>$property</code>
     </MixedAssignment>
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
   </file>
   <file src="test/classes/Plugins/Export/ExportXmlTest.php">
     <MixedAssignment>
@@ -17841,16 +17670,6 @@
       <code>$property</code>
       <code>$property</code>
     </MixedAssignment>
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
-  </file>
-  <file src="test/classes/Plugins/Export/ExportYamlTest.php">
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
   </file>
   <file src="test/classes/Plugins/Export/Helpers/TablePropertyTest.php">
     <MixedInferredReturnType>
@@ -17976,12 +17795,6 @@
       <code>getProperties</code>
       <code>removeProperty</code>
     </PossiblyUndefinedMethod>
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
   </file>
   <file src="test/classes/Properties/Options/OptionsPropertyItemTest.php">
     <PossiblyUndefinedMethod>
@@ -18025,12 +17838,6 @@
       <code>array</code>
     </MixedInferredReturnType>
   </file>
-  <file src="test/classes/ScriptsTest.php">
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
-  </file>
   <file src="test/classes/Server/PluginsTest.php">
     <RedundantCondition>
       <code>assertIsArray</code>
@@ -18060,9 +17867,6 @@
       <code>getMessage</code>
       <code>getMessage</code>
     </MixedMethodCall>
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
     <UnusedVariable>
       <code>$password</code>
       <code>$routinename</code>
@@ -18086,12 +17890,6 @@
       <code>$result</code>
       <code>$result</code>
     </MixedAssignment>
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
   </file>
   <file src="test/classes/Setup/IndexTest.php">
     <MixedArrayAccess>
@@ -18302,9 +18100,6 @@
       <code>$data[0]</code>
       <code>$fetchArrayReturn[0]</code>
     </PossiblyUndefinedArrayOffset>
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
   </file>
   <file src="test/classes/TrackingTest.php">
     <MixedArgument>

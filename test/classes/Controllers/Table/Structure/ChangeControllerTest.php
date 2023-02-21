@@ -48,7 +48,6 @@ class ChangeControllerTest extends AbstractTestCase
 
         $class = new ReflectionClass(ChangeController::class);
         $method = $class->getMethod('displayHtmlForColumnChange');
-        $method->setAccessible(true);
 
         $ctrl = new ChangeController(
             $response,

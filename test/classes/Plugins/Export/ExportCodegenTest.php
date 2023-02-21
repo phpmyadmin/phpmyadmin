@@ -57,11 +57,9 @@ class ExportCodegenTest extends AbstractTestCase
     public function testInitSpecificVariables(): void
     {
         $method = new ReflectionMethod(ExportCodegen::class, 'init');
-        $method->setAccessible(true);
         $method->invoke($this->object, null);
 
         $attrCgFormats = new ReflectionProperty(ExportCodegen::class, 'cgFormats');
-        $attrCgFormats->setAccessible(true);
 
         $this->assertEquals(
             [
@@ -75,11 +73,9 @@ class ExportCodegenTest extends AbstractTestCase
     public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportCodegen::class, 'setProperties');
-        $method->setAccessible(true);
         $method->invoke($this->object, null);
 
         $attrProperties = new ReflectionProperty(ExportCodegen::class, 'properties');
-        $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(ExportPluginProperties::class, $properties);
@@ -246,7 +242,6 @@ class ExportCodegenTest extends AbstractTestCase
     public function testHandleNHibernateCSBody(): void
     {
         $method = new ReflectionMethod(ExportCodegen::class, 'handleNHibernateCSBody');
-        $method->setAccessible(true);
         $result = $method->invoke($this->object, 'test_db', 'test_table');
 
         $this->assertEquals(
@@ -299,7 +294,6 @@ class ExportCodegenTest extends AbstractTestCase
     public function testHandleNHibernateXMLBody(): void
     {
         $method = new ReflectionMethod(ExportCodegen::class, 'handleNHibernateXMLBody');
-        $method->setAccessible(true);
         $result = $method->invoke($this->object, 'test_db', 'test_table');
 
         $this->assertEquals(
@@ -333,9 +327,6 @@ class ExportCodegenTest extends AbstractTestCase
 
         $getter = $reflection->getMethod('getCgFormats');
         $setter = $reflection->getMethod('setCgFormats');
-
-        $getter->setAccessible(true);
-        $setter->setAccessible(true);
 
         $setter->invoke($this->object, [1, 2]);
 

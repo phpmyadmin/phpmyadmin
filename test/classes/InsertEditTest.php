@@ -112,9 +112,7 @@ class InsertEditTest extends AbstractTestCase
     {
         parent::tearDown();
         $response = new ReflectionProperty(ResponseRenderer::class, 'instance');
-        $response->setAccessible(true);
         $response->setValue(null);
-        $response->setAccessible(false);
     }
 
     /**
@@ -360,7 +358,6 @@ class InsertEditTest extends AbstractTestCase
 
         $restoreInstance = ResponseRenderer::getInstance();
         $response = new ReflectionProperty(ResponseRenderer::class, 'instance');
-        $response->setAccessible(true);
         $response->setValue($responseMock);
 
         $result = $this->callFunction(
@@ -2971,7 +2968,6 @@ class InsertEditTest extends AbstractTestCase
 
         $restoreInstance = ResponseRenderer::getInstance();
         $response = new ReflectionProperty(ResponseRenderer::class, 'instance');
-        $response->setAccessible(true);
         $response->setValue($responseMock);
 
         $this->insertEdit = new InsertEdit(

@@ -62,11 +62,9 @@ class ExportPdfTest extends AbstractTestCase
     public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportPdf::class, 'setProperties');
-        $method->setAccessible(true);
         $method->invoke($this->object, null);
 
         $attrProperties = new ReflectionProperty(ExportPdf::class, 'properties');
-        $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(ExportPluginProperties::class, $properties);
@@ -174,7 +172,6 @@ class ExportPdfTest extends AbstractTestCase
             ->method('setTopMargin');
 
         $attrPdf = new ReflectionProperty(ExportPdf::class, 'pdf');
-        $attrPdf->setAccessible(true);
         $attrPdf->setValue($this->object, $pdf);
 
         $this->assertTrue(
@@ -193,7 +190,6 @@ class ExportPdfTest extends AbstractTestCase
             ->willReturn('');
 
         $attrPdf = new ReflectionProperty(ExportPdf::class, 'pdf');
-        $attrPdf->setAccessible(true);
         $attrPdf->setValue($this->object, $pdf);
 
         $this->assertTrue(
@@ -233,7 +229,6 @@ class ExportPdfTest extends AbstractTestCase
             ->with('SELECT');
 
         $attrPdf = new ReflectionProperty(ExportPdf::class, 'pdf');
-        $attrPdf->setAccessible(true);
         $attrPdf->setValue($this->object, $pdf);
 
         $this->assertTrue(
@@ -254,11 +249,9 @@ class ExportPdfTest extends AbstractTestCase
     public function testSetGetPdf(): void
     {
         $setter = new ReflectionMethod(ExportPdf::class, 'setPdf');
-        $setter->setAccessible(true);
         $setter->invoke($this->object, new Pdf());
 
         $getter = new ReflectionMethod(ExportPdf::class, 'getPdf');
-        $getter->setAccessible(true);
         $this->assertInstanceOf(
             Pdf::class,
             $getter->invoke($this->object)
