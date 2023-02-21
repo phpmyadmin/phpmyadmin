@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.7.1@8e0fd880141f236847ab49a06f94f788d41a4292">
+<files psalm-version="5.7.4@c46eccda769925073b8f65d66c4a3a7dc5d440b1">
   <file src="libraries/classes/Advisory/Advisor.php">
     <MixedArgument>
       <code>$matches[1]</code>
@@ -9085,9 +9085,6 @@
       <code><![CDATA[$GLOBALS['read_multiply']]]></code>
       <code><![CDATA[$GLOBALS['timestamp']]]></code>
     </PossiblyNullOperand>
-    <RedundantCondition>
-      <code><![CDATA[mb_strlen($GLOBALS['sql_query']) > 50000]]></code>
-    </RedundantCondition>
   </file>
   <file src="libraries/classes/Import/Ajax.php">
     <MixedArrayAccess>
@@ -10650,6 +10647,9 @@
       <code><![CDATA[$_REQUEST['pma_servername']]]></code>
       <code>$tmp_host</code>
     </PossiblyInvalidCast>
+    <PossiblyInvalidPropertyAssignmentValue>
+      <code>$password</code>
+    </PossiblyInvalidPropertyAssignmentValue>
     <PossiblyNullReference>
       <code>removeCookie</code>
       <code>removeCookie</code>
@@ -12000,9 +12000,6 @@
     <RedundantCast>
       <code><![CDATA[(string) $GLOBALS['db']]]></code>
     </RedundantCast>
-    <RedundantCondition>
-      <code><![CDATA[$csvNewLine !== 'auto']]></code>
-    </RedundantCondition>
   </file>
   <file src="libraries/classes/Plugins/Import/ImportLdi.php">
     <InvalidArrayOffset>
@@ -14371,6 +14368,10 @@
       <code><![CDATA[$row['argument']]]></code>
       <code><![CDATA[$row['argument']]]></code>
       <code><![CDATA[$row['argument']]]></code>
+      <code><![CDATA[$row['argument']]]></code>
+      <code><![CDATA[$row['argument']]]></code>
+      <code><![CDATA[$row['sql_text']]]></code>
+      <code><![CDATA[$row['sql_text']]]></code>
       <code><![CDATA[$row['sql_text']]]></code>
       <code><![CDATA[$row['sql_text']]]></code>
       <code><![CDATA[$row['sql_text']]]></code>
@@ -15659,6 +15660,9 @@
     </PossiblyNullOperand>
   </file>
   <file src="libraries/classes/Util.php">
+    <ArgumentTypeCoercion>
+      <code>$separator</code>
+    </ArgumentTypeCoercion>
     <DeprecatedMethod>
       <code>escapeString</code>
       <code>escapeString</code>

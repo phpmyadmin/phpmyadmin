@@ -4901,6 +4901,11 @@ parameters:
 			path: libraries/classes/Html/Generator.php
 
 		-
+			message: "#^Static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:generateRowQueryOutput\\(\\) is unused\\.$#"
+			count: 1
+			path: libraries/classes/Html/Generator.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Http\\\\ServerRequest\\:\\:getAttributes\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Http/ServerRequest.php
@@ -5632,6 +5637,11 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Message\\:\\:\\$string \\(string\\) does not accept mixed\\.$#"
+			count: 1
+			path: libraries/classes/Message.php
+
+		-
+			message: "#^Right side of && is always true\\.$#"
 			count: 1
 			path: libraries/classes/Message.php
 
@@ -10394,11 +10404,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 4
 			path: test/classes/Display/ResultsTest.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between 4 and 4 will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/EncodingTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Engines\\\\PbxtTest\\:\\:providerFortTestResolveTypeSize\\(\\) return type has no value type specified in iterable type array\\.$#"
