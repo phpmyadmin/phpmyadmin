@@ -352,8 +352,8 @@
       <code>$value</code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code>?string</code>
       <code>string</code>
+      <code>string|null</code>
     </MixedInferredReturnType>
     <MixedReturnStatement>
       <code>$cookie_path</code>
@@ -8707,7 +8707,7 @@
       <code>$start</code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code>?int</code>
+      <code>int|null</code>
       <code>stdClass|null</code>
     </MixedInferredReturnType>
     <MixedOperand>
@@ -14044,8 +14044,8 @@
       <code>$value</code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code>?string</code>
       <code>string</code>
+      <code>string|null</code>
     </MixedInferredReturnType>
     <MixedOperand>
       <code>$createUserShow</code>
@@ -18258,8 +18258,8 @@
       <code>$val</code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code>?array</code>
       <code>array</code>
+      <code>array|null</code>
     </MixedInferredReturnType>
     <MixedOperand>
       <code><![CDATA[$query_data['pos']]]></code>

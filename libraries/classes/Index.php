@@ -185,7 +185,7 @@ class Index
         return $indexes;
     }
 
-    public static function getPrimary(DatabaseInterface $dbi, string $table, string $schema): ?Index
+    public static function getPrimary(DatabaseInterface $dbi, string $table, string $schema): Index|null
     {
         self::loadIndexes($dbi, $table, $schema);
 

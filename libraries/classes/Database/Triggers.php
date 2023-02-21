@@ -300,7 +300,7 @@ class Triggers
      *
      * @return array|null Data necessary to create the editor.
      */
-    public function getDataFromName($name): ?array
+    public function getDataFromName($name): array|null
     {
         $temp = [];
         $items = self::getDetails($this->dbi, $GLOBALS['db'], $GLOBALS['table'], '');
@@ -442,7 +442,7 @@ class Triggers
      * @param string     $db    Database
      * @param string     $table Table
      */
-    private function sendEditor($mode, ?array $item, $title, $db, $table): void
+    private function sendEditor($mode, array|null $item, $title, $db, $table): void
     {
         if ($item !== null) {
             $editor = $this->getEditorForm($db, $table, $mode, $item);

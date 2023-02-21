@@ -205,7 +205,7 @@ final class Options
         ];
     }
 
-    private function getFileNameTemplate(string $exportType, ?string $filename = null): string
+    private function getFileNameTemplate(string $exportType, string|null $filename = null): string
     {
         $GLOBALS['config'] ??= null;
 

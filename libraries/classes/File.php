@@ -135,7 +135,7 @@ class File
      *
      * @param bool $is_temp sets the temp flag
      */
-    public function isTemp(?bool $is_temp = null): bool
+    public function isTemp(bool|null $is_temp = null): bool
     {
         if ($is_temp !== null) {
             $this->isTemp = $is_temp;
@@ -149,7 +149,7 @@ class File
      *
      * @param string|null $name file name
      */
-    public function setName(?string $name): void
+    public function setName(string|null $name): void
     {
         $this->name = trim((string) $name);
     }
@@ -211,7 +211,7 @@ class File
      *
      * @return string|null File::$_name
      */
-    public function getName(): ?string
+    public function getName(): string|null
     {
         return $this->name;
     }
@@ -338,7 +338,7 @@ class File
      */
     public function setSelectedFromTblChangeRequest(
         string $key,
-        ?string $rownumber = null
+        string|null $rownumber = null
     ): bool {
         if (
             ! empty($_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key])
@@ -356,7 +356,7 @@ class File
      *
      * @return Message|null error message
      */
-    public function getError(): ?Message
+    public function getError(): Message|null
     {
         return $this->errorMessage;
     }
@@ -630,7 +630,7 @@ class File
      *
      * @param string|null $specific_entry Entry to open
      */
-    public function openZip(?string $specific_entry = null): bool
+    public function openZip(string|null $specific_entry = null): bool
     {
         $result = $this->zipExtension->getContents($this->getName(), $specific_entry);
         if (! empty($result['error'])) {

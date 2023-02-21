@@ -1738,9 +1738,9 @@ class Qbe
      */
     private function getLeftJoinColumnCandidatesBest(
         array $searchTables,
-        ?array $whereClauseColumns,
-        ?array $uniqueColumns,
-        ?array $indexColumns
+        array|null $whereClauseColumns,
+        array|null $uniqueColumns,
+        array|null $indexColumns
     ) {
         // now we want to find the best.
         if (isset($uniqueColumns) && count($uniqueColumns) > 0) {

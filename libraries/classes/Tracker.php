@@ -481,7 +481,7 @@ class Tracker
      *
      * @return int (-1 if no version exists | >  0 if a version exists)
      */
-    public static function getVersion(string $dbname, string $tablename, ?string $statement = null)
+    public static function getVersion(string $dbname, string $tablename, string|null $statement = null)
     {
         $relation = new Relation($GLOBALS['dbi']);
         $trackingFeature = $relation->getRelationParameters()->trackingFeature;

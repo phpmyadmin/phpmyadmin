@@ -272,7 +272,7 @@ class CentralColumns
     public function syncUniqueColumns(
         array $field_select,
         bool $isTable = true,
-        ?string $table = null
+        string|null $table = null
     ) {
         $cfgCentralColumns = $this->getParams();
         if (! is_array($cfgCentralColumns)) {

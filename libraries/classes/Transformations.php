@@ -284,7 +284,7 @@ class Transformations
      *     input_transformation_options: string
      * }>|null
      */
-    public function getMime($db, $table, $strict = false, $fullName = false): ?array
+    public function getMime($db, $table, $strict = false, $fullName = false): array|null
     {
         $relation = new Relation($GLOBALS['dbi']);
         $browserTransformationFeature = $relation->getRelationParameters()->browserTransformationFeature;

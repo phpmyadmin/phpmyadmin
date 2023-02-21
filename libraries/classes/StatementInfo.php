@@ -114,8 +114,8 @@ class StatementInfo
         bool $reload,
         bool $selectFrom,
         bool $union,
-        ?SqlParser\Parser $parser,
-        ?SqlParser\Statement $statement,
+        SqlParser\Parser|null $parser,
+        SqlParser\Statement|null $statement,
         array $selectTables,
         array $selectExpression
     ) {

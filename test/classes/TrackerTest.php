@@ -339,7 +339,7 @@ class TrackerTest extends AbstractTestCase
         string $tablename = 'pma_tbl',
         string $version = '0.1',
         $new_state = '1',
-        ?string $type = null
+        string|null $type = null
     ): void {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -637,9 +637,9 @@ class TrackerTest extends AbstractTestCase
         string $query,
         string $type,
         string $identifier,
-        ?string $tablename,
-        ?string $db = null,
-        ?string $tablename_after_rename = null
+        string|null $tablename,
+        string|null $db = null,
+        string|null $tablename_after_rename = null
     ): void {
         $result = Tracker::parseQuery($query);
 

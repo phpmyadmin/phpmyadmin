@@ -892,7 +892,7 @@ class Export
         string $whatStrucOrData,
         ExportPlugin $exportPlugin,
         string $errorUrl,
-        ?string $db,
+        string|null $db,
         string $sqlQuery,
         string $exportType
     ): void {
@@ -942,7 +942,7 @@ class Export
         bool $doComments,
         bool $doMime,
         bool $doDates,
-        ?string $allrows,
+        string|null $allrows,
         string $limitTo,
         string $limitFrom,
         string $sqlQuery,

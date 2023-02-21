@@ -345,7 +345,7 @@ class StorageEngine
      *
      * @return array|null the formatted value and its unit
      */
-    public function resolveTypeSize($value): ?array
+    public function resolveTypeSize($value): array|null
     {
         return Util::formatByteDown($value);
     }

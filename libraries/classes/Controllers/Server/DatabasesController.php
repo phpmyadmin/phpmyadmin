@@ -165,7 +165,7 @@ class DatabasesController extends AbstractController
      * @param string|null $sortBy    sort by
      * @param string|null $sortOrder sort order
      */
-    private function setSortDetails(?string $sortBy, ?string $sortOrder): void
+    private function setSortDetails(string|null $sortBy, string|null $sortOrder): void
     {
         if (empty($sortBy)) {
             $this->sortBy = 'SCHEMA_NAME';

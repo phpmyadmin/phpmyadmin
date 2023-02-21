@@ -220,7 +220,7 @@ class TwigLintCommand extends Command
         SymfonyStyle $output,
         string $template,
         Error $exception,
-        ?string $file = null
+        string|null $file = null
     ): void {
         $line = $exception->getTemplateLine();
 

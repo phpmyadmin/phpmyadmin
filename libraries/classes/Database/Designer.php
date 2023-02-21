@@ -320,7 +320,7 @@ class Designer
         array $scriptDisplayField,
         int $displayPage,
         bool $visualBuilderMode,
-        ?string $selectedPage,
+        string|null $selectedPage,
         array $paramsArray,
         array $tablePositions,
         array $tabColumn,

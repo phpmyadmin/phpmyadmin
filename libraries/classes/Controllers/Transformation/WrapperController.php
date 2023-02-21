@@ -199,7 +199,7 @@ class WrapperController extends AbstractController
      * @param mixed $whereClause
      * @param mixed $whereClauseSign
      */
-    private function getQuery(TableName $table, $whereClause, $whereClauseSign): ?string
+    private function getQuery(TableName $table, $whereClause, $whereClauseSign): string|null
     {
         if ($whereClause === null) {
             return sprintf('SELECT * FROM %s LIMIT 1;', Util::backquote($table));

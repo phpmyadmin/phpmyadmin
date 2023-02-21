@@ -413,7 +413,7 @@ class Results
         $isMaintenance,
         $isExplain,
         $isShow,
-        ?array $showTable,
+        array|null $showTable,
         $printView,
         $editable,
         $isBrowseDistinct
@@ -989,7 +989,7 @@ class Results
      * @psalm-return array{hidden_fields?:array, options?:array}
      */
     private function getSortByKeyDropDown(
-        ?array $sortExpression,
+        array|null $sortExpression,
         string $unsortedSqlQuery
     ): array {
         // grab indexes data:
@@ -2918,13 +2918,13 @@ class Results
      * @return string the prepared cell, html content
      */
     private function getDataCellForNumericColumns(
-        ?string $column,
+        string|null $column,
         string $class,
         bool $conditionField,
         FieldMetadata $meta,
         array $map,
         StatementInfo $statementInfo,
-        ?TransformationsPlugin $transformationPlugin,
+        TransformationsPlugin|null $transformationPlugin,
         array $transformOptions
     ) {
         if ($column === null) {
@@ -2968,13 +2968,13 @@ class Results
      * @return string the prepared data cell, html content
      */
     private function getDataCellForGeometryColumns(
-        ?string $column,
+        string|null $column,
         string $class,
         FieldMetadata $meta,
         array $map,
         array $urlParams,
         bool $conditionField,
-        ?TransformationsPlugin $transformationPlugin,
+        TransformationsPlugin|null $transformationPlugin,
         $transformOptions,
         StatementInfo $statementInfo
     ) {
@@ -3084,13 +3084,13 @@ class Results
      * @return string the prepared data cell, html content
      */
     private function getDataCellForNonNumericColumns(
-        ?string $column,
+        string|null $column,
         string $class,
         FieldMetadata $meta,
         array $map,
         array $urlParams,
         bool $conditionField,
-        ?TransformationsPlugin $transformationPlugin,
+        TransformationsPlugin|null $transformationPlugin,
         $transformOptions,
         StatementInfo $statementInfo
     ) {
@@ -4015,8 +4015,8 @@ class Results
      */
     private function handleNonPrintableContents(
         $category,
-        ?string $content,
-        ?TransformationsPlugin $transformationPlugin,
+        string|null $content,
+        TransformationsPlugin|null $transformationPlugin,
         array $transformOptions,
         FieldMetadata $meta,
         array $urlParams = [],
@@ -4107,7 +4107,7 @@ class Results
      *
      * @return string|null  formatted data
      */
-    private function getFromForeign(array $fieldInfo, string $whereComparison): ?string
+    private function getFromForeign(array $fieldInfo, string $whereComparison): string|null
     {
         $dispsql = 'SELECT '
             . Util::backquote($fieldInfo[2])
@@ -4163,7 +4163,7 @@ class Results
         array $map,
         $data,
         $displayedData,
-        ?TransformationsPlugin $transformationPlugin,
+        TransformationsPlugin|null $transformationPlugin,
         string $nowrap,
         string $whereComparison,
         array $transformOptions,

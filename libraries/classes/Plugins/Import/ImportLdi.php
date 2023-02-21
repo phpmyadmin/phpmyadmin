@@ -89,7 +89,7 @@ class ImportLdi extends AbstractImportCsv
      *
      * @return string[]
      */
-    public function doImport(?File $importHandle = null): array
+    public function doImport(File|null $importHandle = null): array
     {
         $GLOBALS['finished'] ??= null;
         $GLOBALS['import_file'] ??= null;

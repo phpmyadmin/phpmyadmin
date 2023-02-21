@@ -47,7 +47,7 @@ final class Crypto
         return $nonce . $ciphertext;
     }
 
-    public function decrypt(string $encrypted): ?string
+    public function decrypt(string $encrypted): string|null
     {
         $key = $this->getEncryptionKey();
         $nonce = mb_substr($encrypted, 0, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES, '8bit');

@@ -104,7 +104,7 @@ class InsertEdit
     public function getFormParametersForInsertForm(
         $db,
         $table,
-        ?array $whereClauses,
+        array|null $whereClauses,
         array $whereClauseArray,
         $errorUrl
     ): array {

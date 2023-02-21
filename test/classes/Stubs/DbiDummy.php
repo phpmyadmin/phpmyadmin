@@ -97,7 +97,7 @@ class DbiDummy implements DbiExtension
         $this->init();
     }
 
-    public function connect(string $user, string $password, Server $server): ?Connection
+    public function connect(string $user, string $password, Server $server): Connection|null
     {
         return new Connection(new stdClass());
     }
@@ -239,7 +239,7 @@ class DbiDummy implements DbiExtension
      *
      * @param int $result MySQL result
      */
-    public function fetchAny($result): ?array
+    public function fetchAny($result): array|null
     {
         $query_data = &$this->getQueryData($result);
         if ($query_data['pos'] >= count((array) $query_data['result'])) {
@@ -257,7 +257,7 @@ class DbiDummy implements DbiExtension
      *
      * @param int $result MySQL result
      */
-    public function fetchAssoc($result): ?array
+    public function fetchAssoc($result): array|null
     {
         $data = $this->fetchAny($result);
         $query_data = $this->getQueryData($result);
@@ -278,7 +278,7 @@ class DbiDummy implements DbiExtension
      *
      * @param int $result MySQL result
      */
-    public function fetchRow($result): ?array
+    public function fetchRow($result): array|null
     {
         return $this->fetchAny($result);
     }
@@ -493,7 +493,7 @@ class DbiDummy implements DbiExtension
         $this->dummyQueries = [];
     }
 
-    public function prepare(Connection $connection, string $query): ?Statement
+    public function prepare(Connection $connection, string $query): Statement|null
     {
         return null;
     }

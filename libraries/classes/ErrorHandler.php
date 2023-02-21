@@ -373,7 +373,7 @@ class ErrorHandler
      *
      * @param Error $error the error
      */
-    protected function dispPageStart(?Error $error = null): void
+    protected function dispPageStart(Error|null $error = null): void
     {
         ResponseRenderer::getInstance()->disable();
         echo '<html><head><title>';

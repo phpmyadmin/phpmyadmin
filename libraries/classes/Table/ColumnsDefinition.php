@@ -56,7 +56,7 @@ final class ColumnsDefinition
         string $action,
         $num_fields = 0,
         $regenerate = null,
-        ?array $selected = null,
+        array|null $selected = null,
         $fields_meta = null
     ): array {
         $GLOBALS['col_priv'] ??= null;

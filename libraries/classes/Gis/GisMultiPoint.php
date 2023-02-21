@@ -53,7 +53,7 @@ class GisMultiPoint extends GisGeometry
      *
      * @return ScaleData|null the min, max values for x and y coordinates
      */
-    public function scaleRow(string $spatial): ?ScaleData
+    public function scaleRow(string $spatial): ScaleData|null
     {
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
         $multipoint = mb_substr($spatial, 11, -1);
@@ -71,7 +71,7 @@ class GisMultiPoint extends GisGeometry
      */
     public function prepareRowAsPng(
         $spatial,
-        ?string $label,
+        string|null $label,
         array $color,
         array $scale_data,
         ImageWrapper $image
@@ -128,7 +128,7 @@ class GisMultiPoint extends GisGeometry
      */
     public function prepareRowAsPdf(
         $spatial,
-        ?string $label,
+        string|null $label,
         array $color,
         array $scale_data,
         $pdf

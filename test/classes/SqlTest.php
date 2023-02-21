@@ -570,12 +570,12 @@ class SqlTest extends AbstractTestCase
      * @dataProvider dataProviderCountQueryResults
      */
     public function testCountQueryResults(
-        ?string $sqlQuery,
+        string|null $sqlQuery,
         array $sessionTmpVal,
         int $numRows,
         int $expectedNumRows,
         bool $justBrowsing = false,
-        ?string $expectedCountQuery = null
+        string|null $expectedCountQuery = null
     ): void {
         if ($justBrowsing) {
             $GLOBALS['cfg']['Server']['DisableIS'] = true;

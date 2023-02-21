@@ -48,7 +48,7 @@ class Common
      *
      * @return DesignerTable[] with table info
      */
-    public function getTablesInfo(?string $db = null, ?string $table = null): array
+    public function getTablesInfo(string|null $db = null, string|null $table = null): array
     {
         $designerTables = [];
         $db ??= $GLOBALS['db'];

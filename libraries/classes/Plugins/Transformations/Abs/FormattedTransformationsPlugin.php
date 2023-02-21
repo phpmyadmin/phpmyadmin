@@ -39,7 +39,7 @@ abstract class FormattedTransformationsPlugin extends TransformationsPlugin
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = [], ?FieldMetadata $meta = null)
+    public function applyTransformation($buffer, array $options = [], FieldMetadata|null $meta = null)
     {
         return '<iframe srcdoc="'
             . strtr($buffer, '"', '\'')

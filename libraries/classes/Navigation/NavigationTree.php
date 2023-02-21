@@ -644,7 +644,7 @@ class NavigationTree
      *                   passed as an argument, $node
      *                   must be of type CONTAINER
      */
-    public function groupTree(?Node $node = null): void
+    public function groupTree(Node|null $node = null): void
     {
         if ($node === null) {
             $node = $this->tree;

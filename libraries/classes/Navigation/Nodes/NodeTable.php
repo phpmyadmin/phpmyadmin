@@ -285,7 +285,7 @@ class NodeTable extends NodeDatabaseChild
      * @return array<string, string>|null
      * @psalm-return array{image: string, title: string}|null
      */
-    private function addIcon(string $page): ?array
+    private function addIcon(string $page): array|null
     {
         return match ($page) {
             Url::getFromRoute('/table/structure') => ['image' => 'b_props', 'title' => __('Structure')],

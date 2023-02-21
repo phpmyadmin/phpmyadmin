@@ -309,7 +309,7 @@ class Sql
      *
      * @return array|null array containing the value list for the column, null on failure
      */
-    public function getValuesForColumn(string $db, string $table, string $column): ?array
+    public function getValuesForColumn(string $db, string $table, string $column): array|null
     {
         $fieldInfoQuery = QueryGenerator::getColumnsSql($db, $table, $this->dbi->escapeString($column));
 
@@ -363,7 +363,7 @@ class Sql
      *
      * @param bool|null $findRealEnd whether the real end should be found
      */
-    public static function isJustBrowsing(StatementInfo $statementInfo, ?bool $findRealEnd): bool
+    public static function isJustBrowsing(StatementInfo $statementInfo, bool|null $findRealEnd): bool
     {
         return ! $statementInfo->isGroup
             && ! $statementInfo->isFunction
@@ -513,7 +513,7 @@ class Sql
      * @param bool   $bookmarkReplace     whether to replace existing bookmarks
      */
     public function storeTheQueryAsBookmark(
-        ?BookmarkFeature $bookmarkFeature,
+        BookmarkFeature|null $bookmarkFeature,
         $db,
         $bookmarkUser,
         $sqlQueryForBookmark,
@@ -602,7 +602,7 @@ class Sql
      * @param string|null $column current column
      * @param bool        $purge  whether purge set or not
      */
-    private function cleanupRelations(string $db, string $table, ?string $column, bool $purge): void
+    private function cleanupRelations(string $db, string $table, string|null $column, bool $purge): void
     {
         if (! $purge || $db === '') {
             return;
@@ -738,9 +738,9 @@ class Sql
         $fullSqlQuery,
         $isGotoFile,
         string $db,
-        ?string $table,
-        ?bool $findRealEnd,
-        ?string $sqlQueryForBookmark,
+        string|null $table,
+        bool|null $findRealEnd,
+        string|null $sqlQueryForBookmark,
         $extraData
     ): array {
         $response = ResponseRenderer::getInstance();
@@ -863,7 +863,7 @@ class Sql
      * @param int|string  $numRows       number of rows
      */
     private function getMessageForNoRowsReturned(
-        ?string $messageToShow,
+        string|null $messageToShow,
         StatementInfo $statementInfo,
         int|string $numRows
     ): Message {
@@ -957,15 +957,15 @@ class Sql
     private function getQueryResponseForNoResultsReturned(
         StatementInfo $statementInfo,
         string $db,
-        ?string $table,
-        ?string $messageToShow,
+        string|null $table,
+        string|null $messageToShow,
         int|string $numRows,
         $displayResultsObject,
-        ?array $extraData,
-        ?array $profilingResults,
+        array|null $extraData,
+        array|null $profilingResults,
         $result,
         $sqlQuery,
-        ?string $completeQuery
+        string|null $completeQuery
     ): string {
         if ($this->isDeleteTransformationInfo($statementInfo)) {
             $this->deleteTransformationInfo($db, $table ?? '', $statementInfo);
@@ -1123,7 +1123,7 @@ class Sql
         $editable,
         int|string $unlimNumRows,
         int|string $numRows,
-        ?array $showTable,
+        array|null $showTable,
         $result,
         StatementInfo $statementInfo,
         $isLimitedDisplay = false
@@ -1239,7 +1239,7 @@ class Sql
      * @param Message|string $displayMessage display message
      */
     private function getHtmlForPreviousUpdateQuery(
-        ?string $displayQuery,
+        string|null $displayQuery,
         bool $showSql,
         array $sqlData,
         Message|string $displayMessage
@@ -1260,7 +1260,7 @@ class Sql
      * @param bool        $hasUniqueKey whether there is a unique key
      */
     private function getMessageIfMissingColumnIndex(
-        ?string $table,
+        string|null $table,
         string $database,
         bool $editable,
         bool $hasUniqueKey
@@ -1327,16 +1327,16 @@ class Sql
         $result,
         StatementInfo $statementInfo,
         string $db,
-        ?string $table,
-        ?array $sqlData,
+        string|null $table,
+        array|null $sqlData,
         $displayResultsObject,
         int|string $unlimNumRows,
         int|string $numRows,
-        ?string $dispQuery,
+        string|null $dispQuery,
         $dispMessage,
-        ?array $profilingResults,
+        array|null $profilingResults,
         $sqlQuery,
-        ?string $completeQuery
+        string|null $completeQuery
     ): string {
         $GLOBALS['showtable'] ??= null;
 
@@ -1518,10 +1518,10 @@ class Sql
      * @param string|null         $completeQuery       complete query
      */
     public function executeQueryAndSendQueryResponse(
-        ?StatementInfo $statementInfo,
+        StatementInfo|null $statementInfo,
         $isGotoFile,
         string $db,
-        ?string $table,
+        string|null $table,
         $findRealEnd,
         $sqlQueryForBookmark,
         $extraData,
@@ -1581,17 +1581,17 @@ class Sql
         StatementInfo $statementInfo,
         $isGotoFile,
         string $db,
-        ?string $table,
+        string|null $table,
         $findRealEnd,
-        ?string $sqlQueryForBookmark,
+        string|null $sqlQueryForBookmark,
         $extraData,
-        ?string $messageToShow,
+        string|null $messageToShow,
         $sqlData,
         $goto,
-        ?string $dispQuery,
+        string|null $dispQuery,
         $dispMessage,
         $sqlQuery,
-        ?string $completeQuery
+        string|null $completeQuery
     ): string {
         // Handle disable/enable foreign key checks
         $defaultFkCheck = ForeignKey::handleDisableCheckInit();

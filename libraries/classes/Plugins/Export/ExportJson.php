@@ -227,9 +227,9 @@ class ExportJson extends ExportPlugin
         DatabaseInterface $dbi,
         string $sqlQuery,
         string $buffer,
-        ?array $aliases,
-        ?string $db,
-        ?string $table
+        array|null $aliases,
+        string|null $db,
+        string|null $table
     ): bool {
         [$header, $footer] = explode('"@@DATA@@"', $buffer);
 
@@ -312,7 +312,7 @@ class ExportJson extends ExportPlugin
      * @param string|null $db       the database where the query is executed
      * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string $errorUrl, ?string $db, string $sqlQuery): bool
+    public function exportRawQuery(string $errorUrl, string|null $db, string $sqlQuery): bool
     {
         $buffer = $this->encode([
             'type' => 'raw',

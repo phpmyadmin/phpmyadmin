@@ -90,7 +90,7 @@ class Generator
     public static function linkToVarDocumentation(
         string $name,
         bool $useMariaDB = false,
-        ?string $text = null
+        string|null $text = null
     ): string {
         $kbs = ServerVariablesProvider::getImplementation();
         $link = $useMariaDB ? $kbs->getDocLinkByNameMariaDb($name) : $kbs->getDocLinkByNameMysql($name);
@@ -765,7 +765,7 @@ class Generator
         $isModifyLink = true,
         $backUrl = '',
         $exit = true
-    ): ?string {
+    ): string|null {
         /**
          * Error message to be built.
          */

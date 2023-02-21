@@ -213,8 +213,12 @@ class ConfigTest extends AbstractTestCase
      *
      * @dataProvider userAgentProvider
      */
-    public function testCheckClient(string $agent, string $os, ?string $browser = null, ?string $version = null): void
-    {
+    public function testCheckClient(
+        string $agent,
+        string $os,
+        string|null $browser = null,
+        string|null $version = null
+    ): void {
         $_SERVER['HTTP_USER_AGENT'] = $agent;
         $this->object->checkClient();
         $this->assertEquals($os, $this->object->get('PMA_USR_OS'));
@@ -1245,7 +1249,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @dataProvider connectionParams
      */
-    public function testGetConnectionParams(array $server_cfg, int $mode, ?array $server, array $expected): void
+    public function testGetConnectionParams(array $server_cfg, int $mode, array|null $server, array $expected): void
     {
         $GLOBALS['cfg']['Server'] = $server_cfg;
         $result = Config::getConnectionParams($mode, $server);

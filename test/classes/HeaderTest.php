@@ -141,7 +141,7 @@ class HeaderTest extends AbstractTestCase
         string $privateKey,
         string $publicKey,
         string $captchaCsp,
-        ?string $expectedFrameOptions,
+        string|null $expectedFrameOptions,
         string $expectedCsp,
         string $expectedXCsp,
         string $expectedWebKitCsp

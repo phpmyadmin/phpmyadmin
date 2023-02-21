@@ -770,7 +770,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     /**
      * @dataProvider dataProviderPasswordLength
      */
-    public function testAuthFailsTooLongPass(string $password, bool $trueFalse, ?string $connError): void
+    public function testAuthFailsTooLongPass(string $password, bool $trueFalse, string|null $connError): void
     {
         $_POST['pma_username'] = str_shuffle('123456987rootfoobar');
         $_POST['pma_password'] = $password;

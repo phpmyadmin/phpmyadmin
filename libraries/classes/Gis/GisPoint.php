@@ -52,7 +52,7 @@ class GisPoint extends GisGeometry
      *
      * @return ScaleData|null the min, max values for x and y coordinates
      */
-    public function scaleRow(string $spatial): ?ScaleData
+    public function scaleRow(string $spatial): ScaleData|null
     {
         // Trim to remove leading 'POINT(' and trailing ')'
         $point = mb_substr($spatial, 6, -1);
@@ -70,7 +70,7 @@ class GisPoint extends GisGeometry
      */
     public function prepareRowAsPng(
         $spatial,
-        ?string $label,
+        string|null $label,
         array $color,
         array $scale_data,
         ImageWrapper $image
@@ -124,7 +124,7 @@ class GisPoint extends GisGeometry
      */
     public function prepareRowAsPdf(
         $spatial,
-        ?string $label,
+        string|null $label,
         array $color,
         array $scale_data,
         $pdf

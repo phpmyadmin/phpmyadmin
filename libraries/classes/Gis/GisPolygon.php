@@ -59,7 +59,7 @@ class GisPolygon extends GisGeometry
      *
      * @return ScaleData|null the min, max values for x and y coordinates
      */
-    public function scaleRow(string $spatial): ?ScaleData
+    public function scaleRow(string $spatial): ScaleData|null
     {
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = mb_substr($spatial, 9, -2);
@@ -78,7 +78,7 @@ class GisPolygon extends GisGeometry
      */
     public function prepareRowAsPng(
         $spatial,
-        ?string $label,
+        string|null $label,
         array $color,
         array $scale_data,
         ImageWrapper $image
@@ -126,7 +126,7 @@ class GisPolygon extends GisGeometry
      *
      * @return TCPDF the modified TCPDF instance
      */
-    public function prepareRowAsPdf($spatial, ?string $label, array $color, array $scale_data, $pdf)
+    public function prepareRowAsPdf($spatial, string|null $label, array $color, array $scale_data, $pdf)
     {
         $label = trim($label ?? '');
 

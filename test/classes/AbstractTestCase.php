@@ -143,7 +143,7 @@ abstract class AbstractTestCase extends TestCase
         $this->assertTrue($response->hasSuccessState(), 'expected the request not to fail');
     }
 
-    protected function createDatabaseInterface(?DbiExtension $extension = null): DatabaseInterface
+    protected function createDatabaseInterface(DbiExtension|null $extension = null): DatabaseInterface
     {
         return new DatabaseInterface($extension ?? $this->createDbiDummy());
     }

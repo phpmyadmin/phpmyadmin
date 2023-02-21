@@ -637,7 +637,7 @@ final class Server
     /**
      * @param array<int|string, mixed> $server
      */
-    private function setSslKey(array $server): ?string
+    private function setSslKey(array $server): string|null
     {
         if (isset($server['ssl_key'])) {
             return (string) $server['ssl_key'];
@@ -649,7 +649,7 @@ final class Server
     /**
      * @param array<int|string, mixed> $server
      */
-    private function setSslCert(array $server): ?string
+    private function setSslCert(array $server): string|null
     {
         if (isset($server['ssl_cert'])) {
             return (string) $server['ssl_cert'];
@@ -661,7 +661,7 @@ final class Server
     /**
      * @param array<int|string, mixed> $server
      */
-    private function setSslCa(array $server): ?string
+    private function setSslCa(array $server): string|null
     {
         if (isset($server['ssl_ca'])) {
             return (string) $server['ssl_ca'];
@@ -673,7 +673,7 @@ final class Server
     /**
      * @param array<int|string, mixed> $server
      */
-    private function setSslCaPath(array $server): ?string
+    private function setSslCaPath(array $server): string|null
     {
         if (isset($server['ssl_ca_path'])) {
             return (string) $server['ssl_ca_path'];
@@ -685,7 +685,7 @@ final class Server
     /**
      * @param array<int|string, mixed> $server
      */
-    private function setSslCiphers(array $server): ?string
+    private function setSslCiphers(array $server): string|null
     {
         if (isset($server['ssl_ciphers'])) {
             return (string) $server['ssl_ciphers'];

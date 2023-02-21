@@ -79,7 +79,7 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = [], ?FieldMetadata $meta = null)
+    public function applyTransformation($buffer, array $options = [], FieldMetadata|null $meta = null)
     {
         // possibly use a global transform and feed it with special options
 

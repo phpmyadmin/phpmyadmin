@@ -36,7 +36,7 @@ class ZipExtensionTest extends AbstractTestCase
      *
      * @dataProvider provideTestGetContents
      */
-    public function testGetContents(string $file, ?string $specific_entry, array $output): void
+    public function testGetContents(string $file, string|null $specific_entry, array $output): void
     {
         $this->assertEquals(
             $this->zipExtension->getContents($file, $specific_entry),

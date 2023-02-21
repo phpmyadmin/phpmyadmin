@@ -299,10 +299,8 @@ class SearchController extends AbstractController
      * Finds minimum and maximum value of a given column.
      *
      * @param string $column Column name
-     *
-     * @return array|null
      */
-    public function getColumnMinMax($column): ?array
+    public function getColumnMinMax($column): array|null
     {
         $sql_query = 'SELECT MIN(' . Util::backquote($column) . ') AS `min`, '
             . 'MAX(' . Util::backquote($column) . ') AS `max` '

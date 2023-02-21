@@ -137,7 +137,7 @@ class StructureController extends AbstractController
     protected function displayStructure(
         RelationParameters $relationParameters,
         array $columns_with_unique_index,
-        ?Index $primaryIndex,
+        Index|null $primaryIndex,
         array $fields,
         array $columns_with_index,
         bool $isSystemSchema,

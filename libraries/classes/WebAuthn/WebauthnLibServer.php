@@ -203,7 +203,7 @@ final class WebauthnLibServer implements Server
             {
             }
 
-            public function findOneByCredentialId(string $publicKeyCredentialId): ?PublicKeyCredentialSource
+            public function findOneByCredentialId(string $publicKeyCredentialId): PublicKeyCredentialSource|null
             {
                 $data = $this->read();
                 if (isset($data[base64_encode($publicKeyCredentialId)])) {

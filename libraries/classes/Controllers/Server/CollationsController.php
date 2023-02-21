@@ -33,8 +33,8 @@ class CollationsController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private DatabaseInterface $dbi,
-        ?array $charsets = null,
-        ?array $collations = null
+        array|null $charsets = null,
+        array|null $collations = null
     ) {
         parent::__construct($response, $template);
 

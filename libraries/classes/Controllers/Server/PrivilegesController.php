@@ -431,7 +431,7 @@ class PrivilegesController extends AbstractController
         $this->response->addHTML('</div>');
     }
 
-    private function getExportPageTitle(string $username, string $hostname, ?array $selectedUsers): string
+    private function getExportPageTitle(string $username, string $hostname, array|null $selectedUsers): string
     {
         if ($selectedUsers !== null) {
             return __('Privileges');

@@ -156,7 +156,7 @@ class ImportCsv extends AbstractImportCsv
      *
      * @return string[]
      */
-    public function doImport(?File $importHandle = null): array
+    public function doImport(File|null $importHandle = null): array
     {
         $GLOBALS['error'] ??= null;
         $GLOBALS['message'] ??= null;
@@ -779,9 +779,9 @@ class ImportCsv extends AbstractImportCsv
     }
 
     private function getSqlTemplateAndRequiredFields(
-        ?string $db,
-        ?string $table,
-        ?string $csvColumns
+        string|null $db,
+        string|null $table,
+        string|null $csvColumns
     ): array {
         $GLOBALS['error'] ??= null;
         $GLOBALS['message'] ??= null;

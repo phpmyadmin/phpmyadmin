@@ -236,7 +236,7 @@ class Navigation
      *
      * @return array
      */
-    private function getHiddenItems(string $database, ?string $table): array
+    private function getHiddenItems(string $database, string|null $table): array
     {
         $navigationItemsHidingFeature = $this->relation->getRelationParameters()->navigationItemsHidingFeature;
         if ($navigationItemsHidingFeature === null) {

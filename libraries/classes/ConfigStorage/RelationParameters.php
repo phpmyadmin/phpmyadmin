@@ -84,26 +84,26 @@ final class RelationParameters
      * @psalm-param non-empty-string|null $user
      */
     public function __construct(
-        ?string $user,
-        ?DatabaseName $db,
-        ?BookmarkFeature $bookmarkFeature = null,
-        ?BrowserTransformationFeature $browserTransformationFeature = null,
-        ?CentralColumnsFeature $centralColumnsFeature = null,
-        ?ColumnCommentsFeature $columnCommentsFeature = null,
-        ?ConfigurableMenusFeature $configurableMenusFeature = null,
-        ?DatabaseDesignerSettingsFeature $databaseDesignerSettingsFeature = null,
-        ?DisplayFeature $displayFeature = null,
-        ?ExportTemplatesFeature $exportTemplatesFeature = null,
-        ?FavoriteTablesFeature $favoriteTablesFeature = null,
-        ?NavigationItemsHidingFeature $navigationItemsHidingFeature = null,
-        ?PdfFeature $pdfFeature = null,
-        ?RecentlyUsedTablesFeature $recentlyUsedTablesFeature = null,
-        ?RelationFeature $relationFeature = null,
-        ?SavedQueryByExampleSearchesFeature $savedQueryByExampleSearchesFeature = null,
-        ?SqlHistoryFeature $sqlHistoryFeature = null,
-        ?TrackingFeature $trackingFeature = null,
-        ?UiPreferencesFeature $uiPreferencesFeature = null,
-        ?UserPreferencesFeature $userPreferencesFeature = null
+        string|null $user,
+        DatabaseName|null $db,
+        BookmarkFeature|null $bookmarkFeature = null,
+        BrowserTransformationFeature|null $browserTransformationFeature = null,
+        CentralColumnsFeature|null $centralColumnsFeature = null,
+        ColumnCommentsFeature|null $columnCommentsFeature = null,
+        ConfigurableMenusFeature|null $configurableMenusFeature = null,
+        DatabaseDesignerSettingsFeature|null $databaseDesignerSettingsFeature = null,
+        DisplayFeature|null $displayFeature = null,
+        ExportTemplatesFeature|null $exportTemplatesFeature = null,
+        FavoriteTablesFeature|null $favoriteTablesFeature = null,
+        NavigationItemsHidingFeature|null $navigationItemsHidingFeature = null,
+        PdfFeature|null $pdfFeature = null,
+        RecentlyUsedTablesFeature|null $recentlyUsedTablesFeature = null,
+        RelationFeature|null $relationFeature = null,
+        SavedQueryByExampleSearchesFeature|null $savedQueryByExampleSearchesFeature = null,
+        SqlHistoryFeature|null $sqlHistoryFeature = null,
+        TrackingFeature|null $trackingFeature = null,
+        UiPreferencesFeature|null $uiPreferencesFeature = null,
+        UserPreferencesFeature|null $userPreferencesFeature = null
     ) {
         $this->user = $user;
         $this->db = $db;
@@ -438,7 +438,7 @@ final class RelationParameters
     /**
      * @param mixed $tableName
      */
-    private static function getTableName($tableName): ?TableName
+    private static function getTableName($tableName): TableName|null
     {
         try {
             return TableName::fromValue($tableName);

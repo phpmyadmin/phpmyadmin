@@ -623,7 +623,7 @@ abstract class TestBase extends TestCase
      *
      * @throws Exception
      */
-    public function dbQuery(string $query, ?Closure $onResults = null, ?Closure $afterSubmit = null): bool
+    public function dbQuery(string $query, Closure|null $onResults = null, Closure|null $afterSubmit = null): bool
     {
         $didSucceed = false;
         $handles = null;

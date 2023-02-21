@@ -56,7 +56,7 @@ abstract class GisGeomTestCase extends AbstractTestCase
      *
      * @dataProvider providerForTestGenerateParams
      */
-    public function testGenerateParams(string $wkt, ?int $index, array $params): void
+    public function testGenerateParams(string $wkt, int|null $index, array $params): void
     {
         if ($index === null) {
             $this->assertEquals(

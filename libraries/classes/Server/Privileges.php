@@ -739,8 +739,8 @@ class Privileges
      * @return string  a HTML snippet
      */
     public function getHtmlForLoginInformationFields(
-        ?string $user = null,
-        ?string $host = null
+        string|null $user = null,
+        string|null $host = null
     ): string {
         $GLOBALS['pred_username'] ??= null;
         $GLOBALS['pred_hostname'] ??= null;
@@ -867,7 +867,7 @@ class Privileges
      *
      * @return string|null authentication plugin
      */
-    public function getDefaultAuthenticationPlugin(): ?string
+    public function getDefaultAuthenticationPlugin(): string|null
     {
         if ($this->dbi->getVersion() >= 50702) {
             $plugin = $this->dbi->fetchValue('SELECT @@default_authentication_plugin');
@@ -1225,7 +1225,7 @@ class Privileges
     /**
      * @return array
      */
-    public function getAllPrivileges(DatabaseName $db, ?TableName $table = null): array
+    public function getAllPrivileges(DatabaseName $db, TableName|null $table = null): array
     {
         $databasePrivileges = $this->getGlobalAndDatabasePrivileges($db);
         $tablePrivileges = [];
@@ -1496,7 +1496,7 @@ class Privileges
      *
      * @return string|null usergroup if found or null if not found
      */
-    public function getUserGroupForUser(string $username): ?string
+    public function getUserGroupForUser(string $username): string|null
     {
         $configurableMenusFeature = $this->relation->getRelationParameters()->configurableMenusFeature;
         if ($configurableMenusFeature === null) {
@@ -2292,7 +2292,7 @@ class Privileges
     /**
      * Get List of information: Changes / copies a user
      */
-    public function getDataForChangeOrCopyUser(string $oldUsername, string $oldHostname): ?string
+    public function getDataForChangeOrCopyUser(string $oldUsername, string $oldHostname): string|null
     {
         if (isset($_POST['change_copy'])) {
             $userHostCondition = $this->getUserHostCondition($oldUsername, $oldHostname);
@@ -2407,7 +2407,7 @@ class Privileges
     /**
      * update Message For Reload
      */
-    public function updateMessageForReload(): ?Message
+    public function updateMessageForReload(): Message|null
     {
         $message = null;
         if (isset($_GET['flush_privileges'])) {
@@ -2468,7 +2468,7 @@ class Privileges
         $dbname,
         string $username,
         string $hostname,
-        ?string $password,
+        string|null $password,
         $isMenuwork
     ): array {
         $message = null;
@@ -2743,8 +2743,11 @@ class Privileges
      * @param string        $hostname      host name
      * @param string[]|null $selectedUsers
      */
-    public function getExportUserDefinitionTextarea(string $username, string $hostname, ?array $selectedUsers): string
-    {
+    public function getExportUserDefinitionTextarea(
+        string $username,
+        string $hostname,
+        array|null $selectedUsers
+    ): string {
         $export = '<textarea class="export" cols="60" rows="15">';
 
         if ($selectedUsers !== null) {
@@ -3575,7 +3578,7 @@ class Privileges
      *
      * @return array<string, string|null>|null
      */
-    private function getUserPrivileges(string $user, string $host, bool $hasAccountLocking): ?array
+    private function getUserPrivileges(string $user, string $host, bool $hasAccountLocking): array|null
     {
         $query = 'SELECT * FROM `mysql`.`user` WHERE `User` = ? AND `Host` = ?;';
         $statement = $this->dbi->prepare($query);

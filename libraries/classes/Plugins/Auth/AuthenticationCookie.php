@@ -651,7 +651,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         return base64_encode($nonce . $ciphertext);
     }
 
-    public function cookieDecrypt(string $encryptedData, string $secret): ?string
+    public function cookieDecrypt(string $encryptedData, string $secret): string|null
     {
         $encrypted = base64_decode($encryptedData);
         $nonce = mb_substr($encrypted, 0, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES, '8bit');

@@ -80,7 +80,7 @@ final class PartitioningController extends AbstractController
      *
      * @return array<string, array<int, array<string, mixed>>|bool|int|string>|null array of partition details
      */
-    private function extractPartitionDetails(): ?array
+    private function extractPartitionDetails(): array|null
     {
         $createTable = (new Table($GLOBALS['table'], $GLOBALS['db'], $this->dbi))->showCreate();
         if (! $createTable) {

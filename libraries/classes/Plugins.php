@@ -54,7 +54,7 @@ class Plugins
      *
      * @return object|null new plugin instance
      */
-    public static function getPlugin(string $type, string $format, $param = null): ?object
+    public static function getPlugin(string $type, string $format, $param = null): object|null
     {
         $GLOBALS['plugin_param'] = $param;
         $pluginType = mb_strtoupper($type[0]) . mb_strtolower(mb_substr($type, 1));

@@ -23,7 +23,7 @@ class DesignerTable
         private string $databaseName,
         private string $tableName,
         private string $tableEngine,
-        private ?string $displayField
+        private string|null $displayField
     ) {
     }
 
@@ -62,7 +62,7 @@ class DesignerTable
     /**
      * Get the displayed field
      */
-    public function getDisplayField(): ?string
+    public function getDisplayField(): string|null
     {
         return $this->displayField;
     }

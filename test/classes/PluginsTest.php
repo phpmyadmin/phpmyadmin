@@ -58,10 +58,10 @@ class PluginsTest extends AbstractTestCase
     public function testGetDefault(
         string $expected,
         $actualConfig,
-        ?string $actualGet,
+        string|null $actualGet,
         string $section,
         string $option,
-        ?bool $timeoutPassed
+        bool|null $timeoutPassed
     ): void {
         $_GET = [];
         $_REQUEST = [];

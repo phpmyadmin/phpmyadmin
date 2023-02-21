@@ -178,7 +178,7 @@ class Utilities
      */
     public static function debugLogQueryIntoSession(
         string $query,
-        ?string $errorMessage,
+        string|null $errorMessage,
         ResultInterface|false $result,
         int|float $time
     ): void {

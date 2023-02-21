@@ -171,7 +171,7 @@ class Node
      * @return Node|null The requested child node or null,
      *                   if the requested node cannot be found
      */
-    public function getChild($name, $realName = false): ?Node
+    public function getChild($name, $realName = false): Node|null
     {
         if ($realName) {
             foreach ($this->children as $child) {

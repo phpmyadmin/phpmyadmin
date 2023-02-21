@@ -485,7 +485,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerConvertBitDefaultValue
      */
-    public function testConvertBitDefaultValue(?string $bit, string $val): void
+    public function testConvertBitDefaultValue(string|null $bit, string $val): void
     {
         $this->assertEquals(
             $val,
@@ -1638,7 +1638,7 @@ class UtilTest extends AbstractTestCase
     /**
      * @dataProvider providerForTestBackquote
      */
-    public function testBackquote(?string $entry, string $expectedNoneOutput, string $expectedMssqlOutput): void
+    public function testBackquote(string|null $entry, string $expectedNoneOutput, string $expectedMssqlOutput): void
     {
         $this->assertSame($expectedNoneOutput, Util::backquote($entry));
         $this->assertEquals($entry, Util::backquoteCompat($entry, 'NONE', false));

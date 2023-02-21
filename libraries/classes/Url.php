@@ -295,7 +295,7 @@ class Url
         return strtr(base64_encode($crypto->encrypt($query)), '+/', '-_');
     }
 
-    public static function decryptQuery(string $query): ?string
+    public static function decryptQuery(string $query): string|null
     {
         $crypto = new Crypto();
 

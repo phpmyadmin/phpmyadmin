@@ -378,7 +378,7 @@ class RecentFavoriteTable
      *
      * @return string|null pma table name
      */
-    private function getPmaTable(): ?string
+    private function getPmaTable(): string|null
     {
         $relationParameters = $this->relation->getRelationParameters();
         if ($this->tableType === 'recent' && $relationParameters->recentlyUsedTablesFeature !== null) {

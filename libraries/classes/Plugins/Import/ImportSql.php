@@ -96,7 +96,7 @@ class ImportSql extends ImportPlugin
      *
      * @return string[]
      */
-    public function doImport(?File $importHandle = null): array
+    public function doImport(File|null $importHandle = null): array
     {
         $GLOBALS['error'] ??= null;
         $GLOBALS['timeout_passed'] ??= null;

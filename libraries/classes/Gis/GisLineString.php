@@ -53,7 +53,7 @@ class GisLineString extends GisGeometry
      *
      * @return ScaleData|null the min, max values for x and y coordinates
      */
-    public function scaleRow(string $spatial): ?ScaleData
+    public function scaleRow(string $spatial): ScaleData|null
     {
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linestring = mb_substr($spatial, 11, -1);
@@ -71,7 +71,7 @@ class GisLineString extends GisGeometry
      */
     public function prepareRowAsPng(
         $spatial,
-        ?string $label,
+        string|null $label,
         array $color,
         array $scale_data,
         ImageWrapper $image
@@ -126,7 +126,7 @@ class GisLineString extends GisGeometry
      *
      * @return TCPDF the modified TCPDF instance
      */
-    public function prepareRowAsPdf($spatial, ?string $label, array $color, array $scale_data, $pdf)
+    public function prepareRowAsPdf($spatial, string|null $label, array $color, array $scale_data, $pdf)
     {
         $line = [
             'width' => 1.5,

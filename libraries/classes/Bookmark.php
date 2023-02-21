@@ -287,7 +287,7 @@ class Bookmark
         string $id_field = 'id',
         bool $action_bookmark_all = false,
         bool $exact_user_match = false
-    ): ?self {
+    ): self|null {
         $relation = new Relation($dbi);
         $bookmarkFeature = $relation->getRelationParameters()->bookmarkFeature;
         if ($bookmarkFeature === null) {

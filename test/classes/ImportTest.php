@@ -382,7 +382,7 @@ class ImportTest extends AbstractTestCase
      *
      * @dataProvider provDetectType
      */
-    public function testDetectType(int $expected, ?int $type, ?string $cell): void
+    public function testDetectType(int $expected, int|null $type, string|null $cell): void
     {
         $this->assertEquals($expected, $this->import->detectType($type, $cell));
     }

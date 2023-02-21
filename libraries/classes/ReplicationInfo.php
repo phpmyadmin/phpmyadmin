@@ -74,7 +74,7 @@ final class ReplicationInfo
     {
     }
 
-    public function load(?string $connection = null): void
+    public function load(string|null $connection = null): void
     {
         $GLOBALS['urlParams'] ??= null;
 

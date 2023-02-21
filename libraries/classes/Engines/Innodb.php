@@ -293,7 +293,7 @@ class Innodb extends StorageEngine
      *
      * @return string|null the InnoDB file format
      */
-    public function getInnodbFileFormat(): ?string
+    public function getInnodbFileFormat(): string|null
     {
         $value = $GLOBALS['dbi']->fetchValue("SHOW GLOBAL VARIABLES LIKE 'innodb_file_format';", 1);
 

@@ -158,7 +158,7 @@ class Relation
      *
      * @return array<string, bool|string|null>|null
      */
-    private function fillRelationParamsWithTableNames(array $relationParams): ?array
+    private function fillRelationParamsWithTableNames(array $relationParams): array|null
     {
         $tabQuery = 'SHOW TABLES FROM '
         . Util::backquote($GLOBALS['cfg']['Server']['pmadb']);
@@ -1335,7 +1335,7 @@ class Relation
      * @param string|null $newpage name of the new PDF page
      * @param string      $db      database name
      */
-    public function createPage(?string $newpage, PdfFeature $pdfFeature, $db): int
+    public function createPage(string|null $newpage, PdfFeature $pdfFeature, $db): int
     {
         $ins_query = 'INSERT INTO '
             . Util::backquote($pdfFeature->database) . '.'

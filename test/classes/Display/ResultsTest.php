@@ -571,12 +571,12 @@ class ResultsTest extends AbstractTestCase
         bool $display_binary,
         bool $display_blob,
         string $category,
-        ?string $content,
-        ?TransformationsPlugin $transformation_plugin,
+        string|null $content,
+        TransformationsPlugin|null $transformation_plugin,
         $transform_options,
         object $meta,
         array $url_params,
-        ?bool $is_truncated,
+        bool|null $is_truncated,
         string $output
     ): void {
         $_SESSION['tmpval']['display_binary'] = $display_binary;
@@ -756,13 +756,13 @@ class ResultsTest extends AbstractTestCase
      */
     public function testGetDataCellForNonNumericColumns(
         string $protectBinary,
-        ?string $column,
+        string|null $column,
         string $class,
         object $meta,
         array $map,
         array $_url_params,
         bool $condition_field,
-        ?TransformationsPlugin $transformation_plugin,
+        TransformationsPlugin|null $transformation_plugin,
         array $transform_options,
         string $output
     ): void {

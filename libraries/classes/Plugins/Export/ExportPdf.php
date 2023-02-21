@@ -200,7 +200,7 @@ class ExportPdf extends ExportPlugin
      * @param string|null $db       the database where the query is executed
      * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string $errorUrl, ?string $db, string $sqlQuery): bool
+    public function exportRawQuery(string $errorUrl, string|null $db, string $sqlQuery): bool
     {
         $pdf = $this->getPdf();
         $pdf->setDbAlias('----');

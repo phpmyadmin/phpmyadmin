@@ -29,7 +29,7 @@ final class MysqliResult implements ResultInterface
     /**
      * The result identifier produced by the DBiExtension
      */
-    private ?mysqli_result $result;
+    private mysqli_result|null $result;
 
     /**
      * @param mysqli_result|bool $result

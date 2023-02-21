@@ -190,7 +190,7 @@ class UserGroups
      */
     public static function getHtmlToEditUserGroup(
         ConfigurableMenusFeature $configurableMenusFeature,
-        ?string $userGroup = null
+        string|null $userGroup = null
     ): string {
         $urlParams = [];
 

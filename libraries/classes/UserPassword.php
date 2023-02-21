@@ -60,7 +60,7 @@ class UserPassword
      *
      * @param string $password New password
      */
-    public function changePassword($password, ?string $authenticationPlugin): string
+    public function changePassword($password, string|null $authenticationPlugin): string
     {
         $hashing_function = $this->changePassHashingFunction($authenticationPlugin);
 
@@ -115,7 +115,7 @@ class UserPassword
         return $sql_query;
     }
 
-    private function changePassHashingFunction(?string $authenticationPlugin): string
+    private function changePassHashingFunction(string|null $authenticationPlugin): string
     {
         if ($authenticationPlugin === 'mysql_old_password') {
             return 'OLD_PASSWORD';
@@ -197,7 +197,7 @@ class UserPassword
     /**
      * @psalm-param non-empty-string $route
      */
-    public function getFormForChangePassword(?string $username, ?string $hostname, string $route): string
+    public function getFormForChangePassword(string|null $username, string|null $hostname, string $route): string
     {
         return $this->serverPrivileges->getFormForChangePassword($username ?? '', $hostname ?? '', false, $route);
     }

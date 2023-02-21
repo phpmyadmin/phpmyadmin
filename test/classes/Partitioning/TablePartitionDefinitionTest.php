@@ -23,7 +23,7 @@ class TablePartitionDefinitionTest extends TestCase
         bool $valueEnabled,
         int $partitionCount,
         int $subPartitionCount,
-        ?array $partitions
+        array|null $partitions
     ): void {
         $expected = [
             'partition_by' => $partitionBy,

@@ -333,7 +333,7 @@ class GisVisualization
      *
      * @return ImageWrapper|null the generated image resource
      */
-    private function png(): ?ImageWrapper
+    private function png(): ImageWrapper|null
     {
         $this->init();
 

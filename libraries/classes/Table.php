@@ -919,7 +919,7 @@ class Table implements Stringable
     public static function moveCopy(
         $sourceDb,
         $sourceTable,
-        ?string $targetDb,
+        string|null $targetDb,
         $targetTable,
         $what,
         $move,
@@ -1688,7 +1688,7 @@ class Table implements Stringable
      *
      * @return array
      */
-    protected function getUiPrefsFromDb(?UiPreferencesFeature $uiPreferencesFeature)
+    protected function getUiPrefsFromDb(UiPreferencesFeature|null $uiPreferencesFeature)
     {
         if ($uiPreferencesFeature === null) {
             return [];
@@ -2545,7 +2545,7 @@ class Table implements Stringable
     /**
      * Returns the real row count for a table
      */
-    public function getRealRowCountTable(): ?int
+    public function getRealRowCountTable(): int|null
     {
         // SQL query to get row count for a table.
         $result = $this->dbi->fetchSingleRow(

@@ -20,7 +20,7 @@ final class AssetExtension extends AbstractExtension
         ];
     }
 
-    public function getImagePath(?string $filename = null, ?string $fallback = null): string
+    public function getImagePath(string|null $filename = null, string|null $fallback = null): string
     {
         $GLOBALS['theme'] ??= null;
 

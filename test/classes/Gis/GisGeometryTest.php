@@ -46,7 +46,7 @@ class GisGeometryTest extends AbstractTestCase
      *
      * @dataProvider providerForTestSetMinMax
      */
-    public function testSetMinMax(string $point_set, ?ScaleData $min_max, ?ScaleData $output): void
+    public function testSetMinMax(string $point_set, ScaleData|null $min_max, ScaleData|null $output): void
     {
         $this->assertEquals(
             $output,
@@ -146,7 +146,7 @@ class GisGeometryTest extends AbstractTestCase
      *
      * @dataProvider providerForTestExtractPoints
      */
-    public function testExtractPoints(string $point_set, ?array $scale_data, bool $linear, array $output): void
+    public function testExtractPoints(string $point_set, array|null $scale_data, bool $linear, array $output): void
     {
         $this->assertEquals(
             $output,

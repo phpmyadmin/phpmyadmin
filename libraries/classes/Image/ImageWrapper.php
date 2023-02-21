@@ -37,7 +37,7 @@ final class ImageWrapper
      * @param array<string, int>|null $background
      * @psalm-param array{red: int, green: int, blue: int} $background
      */
-    public static function create(int $width, int $height, ?array $background = null): ?self
+    public static function create(int $width, int $height, array|null $background = null): self|null
     {
         if (! extension_loaded('gd')) {
             return null;
@@ -64,7 +64,7 @@ final class ImageWrapper
         return new self($image);
     }
 
-    public static function fromString(string $data): ?self
+    public static function fromString(string $data): self|null
     {
         if (! extension_loaded('gd')) {
             return null;

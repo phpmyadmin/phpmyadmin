@@ -38,8 +38,8 @@ final class EditField
         bool $isNull,
         bool $wasPreviouslyNull,
         string $function,
-        ?string $salt,
-        ?string $previousValue,
+        string|null $salt,
+        string|null $previousValue,
         bool $isUploaded
     ) {
         $this->columnName = $columnName;

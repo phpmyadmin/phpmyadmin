@@ -57,7 +57,7 @@ class Generator
      * @return string a segment of the WHERE clause
      */
     public static function getTableTypeCondition(
-        ?string $tableType
+        string|null $tableType
     ): string {
         $sqlWhereTable = '';
 
@@ -141,7 +141,7 @@ class Generator
     public static function getColumnsSql(
         string $database,
         string $table,
-        ?string $escapedColumn = null,
+        string|null $escapedColumn = null,
         bool $full = false
     ): string {
         return 'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS FROM '
@@ -151,8 +151,8 @@ class Generator
 
     public static function getInformationSchemaRoutinesRequest(
         string $escapedDb,
-        ?string $routineType,
-        ?string $escapedRoutineName
+        string|null $routineType,
+        string|null $escapedRoutineName
     ): string {
         $query = 'SELECT'
             . ' `ROUTINE_SCHEMA` AS `Db`,'
@@ -181,7 +181,7 @@ class Generator
         return $query;
     }
 
-    public static function getInformationSchemaEventsRequest(string $escapedDb, ?string $escapedEventName): string
+    public static function getInformationSchemaEventsRequest(string $escapedDb, string|null $escapedEventName): string
     {
         $query = 'SELECT'
             . ' `EVENT_SCHEMA` AS `Db`,'
@@ -209,7 +209,7 @@ class Generator
         return $query;
     }
 
-    public static function getInformationSchemaTriggersRequest(string $escapedDb, ?string $escapedTable): string
+    public static function getInformationSchemaTriggersRequest(string $escapedDb, string|null $escapedTable): string
     {
         $query = 'SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION'
             . ', EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT'
@@ -304,9 +304,9 @@ class Generator
     }
 
     public static function getInformationSchemaColumnsFullRequest(
-        ?string $escapedDatabase,
-        ?string $escapedTable,
-        ?string $escapedColumn
+        string|null $escapedDatabase,
+        string|null $escapedTable,
+        string|null $escapedColumn
     ): string {
         $sqlWheres = [];
 
@@ -348,9 +348,9 @@ class Generator
      * @return string[]
      */
     public static function getInformationSchemaColumns(
-        ?string $database,
-        ?string $table,
-        ?string $column
+        string|null $database,
+        string|null $table,
+        string|null $column
     ): array {
         $arrayKeys = [];
 
@@ -393,7 +393,7 @@ class Generator
     public static function getQueryForReorderingTable(
         string $table,
         string $orderField,
-        ?string $order
+        string|null $order
     ): string {
         return 'ALTER TABLE '
             . Util::backquote($table)

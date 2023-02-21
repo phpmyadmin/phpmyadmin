@@ -141,7 +141,7 @@ class Util
      *
      * @return string unquoted string
      */
-    public static function unQuote(string $quotedString, ?string $quote = null): string
+    public static function unQuote(string $quotedString, string|null $quote = null): string
     {
         $quotes = [];
 
@@ -403,7 +403,7 @@ class Util
      *
      * @return array|null the formatted value and its unit
      */
-    public static function formatByteDown($value, $limes = 6, $comma = 0): ?array
+    public static function formatByteDown($value, $limes = 6, $comma = 0): array|null
     {
         if ($value === null) {
             return null;
@@ -1233,7 +1233,7 @@ class Util
      *
      * @return string the converted value
      */
-    public static function convertBitDefaultValue(?string $bitDefaultValue): string
+    public static function convertBitDefaultValue(string|null $bitDefaultValue): string
     {
         return (string) preg_replace(
             "/^b'(\d*)'?$/",
@@ -1521,7 +1521,7 @@ class Util
      */
     public static function expandUserString(
         string $string,
-        ?callable $escape = null,
+        callable|null $escape = null,
         array $updates = []
     ): string {
         /* Content */
@@ -1669,7 +1669,7 @@ class Util
      *                          string, table name where to also check
      *                          for privileges
      */
-    public static function currentUserHasPrivilege(string $priv, ?string $db = null, ?string $tbl = null): bool
+    public static function currentUserHasPrivilege(string $priv, string|null $db = null, string|null $tbl = null): bool
     {
         // Get the username for the current user in the format
         // required to use in the information schema database.

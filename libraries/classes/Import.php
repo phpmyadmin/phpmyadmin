@@ -285,7 +285,7 @@ class Import
      *
      * @return array (current or new db, whether to reload)
      */
-    public function lookForUse(?string $buffer, ?string $db, ?bool $reload): array
+    public function lookForUse(string|null $buffer, string|null $db, bool|null $reload): array
     {
         if (preg_match('@^[\s]*USE[[:space:]]+([\S]+)@i', (string) $buffer, $match)) {
             $db = trim($match[1]);
@@ -312,7 +312,7 @@ class Import
      *
      * @return string|bool part of file/buffer
      */
-    public function getNextChunk(?File $importHandle = null, int $size = 32768): string|bool
+    public function getNextChunk(File|null $importHandle = null, int $size = 32768): string|bool
     {
         $GLOBALS['charset_conversion'] ??= null;
         $GLOBALS['charset_of_file'] ??= null;
@@ -577,7 +577,7 @@ class Import
      */
     public function detectSize(
         string|int $lastCumulativeSize,
-        ?int $lastCumulativeType,
+        int|null $lastCumulativeType,
         int $currentCellType,
         string $cell
     ): string|int {
@@ -800,7 +800,7 @@ class Import
      * @return int  The MySQL type representation
      *               (VARCHAR or INT or BIGINT or DECIMAL or NONE)
      */
-    public function detectType(?int $lastCumulativeType, ?string $cell): int
+    public function detectType(int|null $lastCumulativeType, string|null $cell): int
     {
         /**
          * If numeric, determine if decimal, int or bigint
@@ -951,9 +951,9 @@ class Import
     public function buildSql(
         string $dbName,
         array &$tables,
-        ?array $analyses = null,
-        ?array &$additionalSql = null,
-        ?array $options = null,
+        array|null $analyses = null,
+        array|null &$additionalSql = null,
+        array|null $options = null,
         array &$sqlData = []
     ): void {
         $GLOBALS['import_notice'] ??= null;

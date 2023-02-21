@@ -299,7 +299,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @dataProvider providerTestGotoNowhere
      */
-    public function testGotoNowhere(?string $page, array $allowList, bool $include, bool $expected): void
+    public function testGotoNowhere(string|null $page, array $allowList, bool $include, bool $expected): void
     {
         $this->assertSame($expected, Core::checkPageValidity($page, $allowList, $include));
     }

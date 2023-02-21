@@ -996,7 +996,7 @@ class Descriptions
      *
      * @return string|null Null if not found
      */
-    public static function getString($path, $type = 'name'): ?string
+    public static function getString($path, $type = 'name'): string|null
     {
         $descriptions = [];
 

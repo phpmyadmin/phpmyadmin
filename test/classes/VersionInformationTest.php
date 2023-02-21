@@ -271,7 +271,7 @@ class VersionInformationTest extends AbstractTestCase
     public function testGetLatestCompatibleVersionWithNewPHPVersion(
         array $versions,
         array $conditions,
-        ?string $matchedLastVersion
+        string|null $matchedLastVersion
     ): void {
         $GLOBALS['cfg']['Servers'] = [];
 
