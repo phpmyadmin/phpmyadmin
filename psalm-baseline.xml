@@ -1378,20 +1378,6 @@
                     && is_scalar($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])]]></code>
     </RedundantCondition>
   </file>
-  <file src="libraries/classes/ConfigStorage/RelationCleanup.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
-  </file>
   <file src="libraries/classes/ConfigStorage/UserGroups.php">
     <DeprecatedMethod>
       <code>escapeString</code>
@@ -16203,11 +16189,6 @@
     <UnusedMethodCall>
       <code>setAccessible</code>
     </UnusedMethodCall>
-  </file>
-  <file src="test/classes/ConfigStorage/RelationCleanupTest.php">
-    <DeprecatedMethod>
-      <code>withConsecutive</code>
-    </DeprecatedMethod>
   </file>
   <file src="test/classes/ConfigStorage/RelationTest.php">
     <DocblockTypeContradiction>

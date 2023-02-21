@@ -319,103 +319,124 @@ class RelationCleanup
      *
      * @param string $username username
      */
-    public function user($username): void
+    public function user(string $username): void
     {
         $relationParameters = $this->relation->getRelationParameters();
         if ($relationParameters->db === null) {
             return;
         }
 
-        if ($relationParameters->bookmarkFeature !== null) {
-            $remove_query = 'DELETE FROM '
-                . Util::backquote($relationParameters->bookmarkFeature->database)
-                . '.' . Util::backquote($relationParameters->bookmarkFeature->bookmark)
-                . " WHERE `user`  = '" . $this->dbi->escapeString($username)
-                . "'";
-            $this->dbi->queryAsControlUser($remove_query);
+        $bookmarkFeature = $relationParameters->bookmarkFeature;
+        $sqlHistoryFeature = $relationParameters->sqlHistoryFeature;
+        $recentlyUsedTablesFeature = $relationParameters->recentlyUsedTablesFeature;
+        $favoriteTablesFeature = $relationParameters->favoriteTablesFeature;
+        $uiPreferencesFeature = $relationParameters->uiPreferencesFeature;
+        $userPreferencesFeature = $relationParameters->userPreferencesFeature;
+        $configurableMenusFeature = $relationParameters->configurableMenusFeature;
+        $navigationItemsHidingFeature = $relationParameters->navigationItemsHidingFeature;
+        $savedQueryByExampleSearchesFeature = $relationParameters->savedQueryByExampleSearchesFeature;
+        $databaseDesignerSettingsFeature = $relationParameters->databaseDesignerSettingsFeature;
+
+        if ($bookmarkFeature !== null) {
+            $statement = sprintf(
+                'DELETE FROM %s.%s WHERE `user` = %s',
+                Util::backquote($bookmarkFeature->database),
+                Util::backquote($bookmarkFeature->bookmark),
+                $this->dbi->quoteString($username),
+            );
+            $this->dbi->queryAsControlUser($statement);
         }
 
-        if ($relationParameters->sqlHistoryFeature !== null) {
-            $remove_query = 'DELETE FROM '
-                . Util::backquote($relationParameters->sqlHistoryFeature->database)
-                . '.' . Util::backquote($relationParameters->sqlHistoryFeature->history)
-                . " WHERE `username`  = '" . $this->dbi->escapeString($username)
-                . "'";
-            $this->dbi->queryAsControlUser($remove_query);
+        if ($sqlHistoryFeature !== null) {
+            $statement = sprintf(
+                'DELETE FROM %s.%s WHERE `username` = %s',
+                Util::backquote($sqlHistoryFeature->database),
+                Util::backquote($sqlHistoryFeature->history),
+                $this->dbi->quoteString($username),
+            );
+            $this->dbi->queryAsControlUser($statement);
         }
 
-        if ($relationParameters->recentlyUsedTablesFeature !== null) {
-            $remove_query = 'DELETE FROM '
-                . Util::backquote($relationParameters->recentlyUsedTablesFeature->database)
-                . '.' . Util::backquote($relationParameters->recentlyUsedTablesFeature->recent)
-                . " WHERE `username`  = '" . $this->dbi->escapeString($username)
-                . "'";
-            $this->dbi->queryAsControlUser($remove_query);
+        if ($recentlyUsedTablesFeature !== null) {
+            $statement = sprintf(
+                'DELETE FROM %s.%s WHERE `username` = %s',
+                Util::backquote($recentlyUsedTablesFeature->database),
+                Util::backquote($recentlyUsedTablesFeature->recent),
+                $this->dbi->quoteString($username),
+            );
+            $this->dbi->queryAsControlUser($statement);
         }
 
-        if ($relationParameters->favoriteTablesFeature !== null) {
-            $remove_query = 'DELETE FROM '
-                . Util::backquote($relationParameters->favoriteTablesFeature->database)
-                . '.' . Util::backquote($relationParameters->favoriteTablesFeature->favorite)
-                . " WHERE `username`  = '" . $this->dbi->escapeString($username)
-                . "'";
-            $this->dbi->queryAsControlUser($remove_query);
+        if ($favoriteTablesFeature !== null) {
+            $statement = sprintf(
+                'DELETE FROM %s.%s WHERE `username` = %s',
+                Util::backquote($favoriteTablesFeature->database),
+                Util::backquote($favoriteTablesFeature->favorite),
+                $this->dbi->quoteString($username),
+            );
+            $this->dbi->queryAsControlUser($statement);
         }
 
-        if ($relationParameters->uiPreferencesFeature !== null) {
-            $remove_query = 'DELETE FROM '
-                . Util::backquote($relationParameters->uiPreferencesFeature->database)
-                . '.' . Util::backquote($relationParameters->uiPreferencesFeature->tableUiPrefs)
-                . " WHERE `username`  = '" . $this->dbi->escapeString($username)
-                . "'";
-            $this->dbi->queryAsControlUser($remove_query);
+        if ($uiPreferencesFeature !== null) {
+            $statement = sprintf(
+                'DELETE FROM %s.%s WHERE `username` = %s',
+                Util::backquote($uiPreferencesFeature->database),
+                Util::backquote($uiPreferencesFeature->tableUiPrefs),
+                $this->dbi->quoteString($username),
+            );
+            $this->dbi->queryAsControlUser($statement);
         }
 
-        if ($relationParameters->userPreferencesFeature !== null) {
-            $remove_query = 'DELETE FROM '
-                . Util::backquote($relationParameters->userPreferencesFeature->database)
-                . '.' . Util::backquote($relationParameters->userPreferencesFeature->userConfig)
-                . " WHERE `username`  = '" . $this->dbi->escapeString($username)
-                . "'";
-            $this->dbi->queryAsControlUser($remove_query);
+        if ($userPreferencesFeature !== null) {
+            $statement = sprintf(
+                'DELETE FROM %s.%s WHERE `username` = %s',
+                Util::backquote($userPreferencesFeature->database),
+                Util::backquote($userPreferencesFeature->userConfig),
+                $this->dbi->quoteString($username),
+            );
+            $this->dbi->queryAsControlUser($statement);
         }
 
-        if ($relationParameters->configurableMenusFeature !== null) {
-            $remove_query = 'DELETE FROM '
-                . Util::backquote($relationParameters->configurableMenusFeature->database)
-                . '.' . Util::backquote($relationParameters->configurableMenusFeature->users)
-                . " WHERE `username`  = '" . $this->dbi->escapeString($username)
-                . "'";
-            $this->dbi->queryAsControlUser($remove_query);
+        if ($configurableMenusFeature !== null) {
+            $statement = sprintf(
+                'DELETE FROM %s.%s WHERE `username` = %s',
+                Util::backquote($configurableMenusFeature->database),
+                Util::backquote($configurableMenusFeature->users),
+                $this->dbi->quoteString($username),
+            );
+            $this->dbi->queryAsControlUser($statement);
         }
 
-        if ($relationParameters->navigationItemsHidingFeature !== null) {
-            $remove_query = 'DELETE FROM '
-                . Util::backquote($relationParameters->navigationItemsHidingFeature->database)
-                . '.' . Util::backquote($relationParameters->navigationItemsHidingFeature->navigationHiding)
-                . " WHERE `username`  = '" . $this->dbi->escapeString($username)
-                . "'";
-            $this->dbi->queryAsControlUser($remove_query);
+        if ($navigationItemsHidingFeature !== null) {
+            $statement = sprintf(
+                'DELETE FROM %s.%s WHERE `username` = %s',
+                Util::backquote($navigationItemsHidingFeature->database),
+                Util::backquote($navigationItemsHidingFeature->navigationHiding),
+                $this->dbi->quoteString($username),
+            );
+            $this->dbi->queryAsControlUser($statement);
         }
 
-        if ($relationParameters->savedQueryByExampleSearchesFeature !== null) {
-            $remove_query = 'DELETE FROM '
-                . Util::backquote($relationParameters->savedQueryByExampleSearchesFeature->database)
-                . '.' . Util::backquote($relationParameters->savedQueryByExampleSearchesFeature->savedSearches)
-                . " WHERE `username`  = '" . $this->dbi->escapeString($username)
-                . "'";
-            $this->dbi->queryAsControlUser($remove_query);
+        if ($savedQueryByExampleSearchesFeature !== null) {
+            $statement = sprintf(
+                'DELETE FROM %s.%s WHERE `username` = %s',
+                Util::backquote($savedQueryByExampleSearchesFeature->database),
+                Util::backquote($savedQueryByExampleSearchesFeature->savedSearches),
+                $this->dbi->quoteString($username),
+            );
+            $this->dbi->queryAsControlUser($statement);
         }
 
-        if ($relationParameters->databaseDesignerSettingsFeature === null) {
+        if ($databaseDesignerSettingsFeature === null) {
             return;
         }
 
-        $remove_query = 'DELETE FROM '
-            . Util::backquote($relationParameters->databaseDesignerSettingsFeature->database)
-            . '.' . Util::backquote($relationParameters->databaseDesignerSettingsFeature->designerSettings)
-            . " WHERE `username`  = '" . $this->dbi->escapeString($username)
-            . "'";
-        $this->dbi->queryAsControlUser($remove_query);
+        $statement = sprintf(
+            'DELETE FROM %s.%s WHERE `username` = %s',
+            Util::backquote($databaseDesignerSettingsFeature->database),
+            Util::backquote($databaseDesignerSettingsFeature->designerSettings),
+            $this->dbi->quoteString($username),
+        );
+        $this->dbi->queryAsControlUser($statement);
     }
 }

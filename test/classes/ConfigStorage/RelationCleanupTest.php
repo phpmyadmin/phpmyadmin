@@ -184,8 +184,8 @@ class RelationCleanupTest extends AbstractTestCase
 
     public function testUserWithRelations(): void
     {
-        $_SESSION['relation'] = [];
-        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+        $relation = $this->createStub(Relation::class);
+        $relation->method('getRelationParameters')->willReturn(RelationParameters::fromArray([
             'user' => 'user',
             'db' => 'pmadb',
             'bookmarkwork' => true,
@@ -209,24 +209,25 @@ class RelationCleanupTest extends AbstractTestCase
             'navigationhiding' => 'navigationhiding',
             'savedsearches' => 'savedsearches',
             'designer_settings' => 'designer_settings',
-        ])->toArray();
+        ]));
 
-        $dbi = $this->createPartialMock(DatabaseInterface::class, ['queryAsControlUser']);
-        $dbi->expects($this->exactly(10))
-            ->method('queryAsControlUser')
-            ->withConsecutive(
-                [$this->equalTo("DELETE FROM `pmadb`.`bookmark` WHERE `user`  = 'user'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`history` WHERE `username`  = 'user'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`recent` WHERE `username`  = 'user'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`favorite` WHERE `username`  = 'user'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`table_uiprefs` WHERE `username`  = 'user'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`userconfig` WHERE `username`  = 'user'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`users` WHERE `username`  = 'user'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`navigationhiding` WHERE `username`  = 'user'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`savedsearches` WHERE `username`  = 'user'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`designer_settings` WHERE `username`  = 'user'")]
-            );
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->expects($this->any())->method('quoteString')
+            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
+        $result = $this->createStub(ResultInterface::class);
+        $dbi->expects($this->exactly(10))->method('queryAsControlUser')->willReturnMap([
+            ["DELETE FROM `pmadb`.`bookmark` WHERE `user` = 'user'", $result],
+            ["DELETE FROM `pmadb`.`history` WHERE `username` = 'user'", $result],
+            ["DELETE FROM `pmadb`.`recent` WHERE `username` = 'user'", $result],
+            ["DELETE FROM `pmadb`.`favorite` WHERE `username` = 'user'", $result],
+            ["DELETE FROM `pmadb`.`table_uiprefs` WHERE `username` = 'user'", $result],
+            ["DELETE FROM `pmadb`.`userconfig` WHERE `username` = 'user'", $result],
+            ["DELETE FROM `pmadb`.`users` WHERE `username` = 'user'", $result],
+            ["DELETE FROM `pmadb`.`navigationhiding` WHERE `username` = 'user'", $result],
+            ["DELETE FROM `pmadb`.`savedsearches` WHERE `username` = 'user'", $result],
+            ["DELETE FROM `pmadb`.`designer_settings` WHERE `username` = 'user'", $result],
+        ]);
 
-        (new RelationCleanup($dbi, new Relation($dbi)))->user('user');
+        (new RelationCleanup($dbi, $relation))->user('user');
     }
 }
