@@ -45,7 +45,7 @@ if (getcwd() == __DIR__) {
  * This class inherits ExportRelationSchema class has common functionality added
  * to this class
  *
- * @property Pdf $diagram
+ * @extends ExportRelationSchema<Pdf>
  */
 class PdfRelationSchema extends ExportRelationSchema
 {

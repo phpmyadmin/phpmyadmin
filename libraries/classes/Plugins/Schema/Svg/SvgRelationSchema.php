@@ -32,7 +32,7 @@ use function sprintf;
  * inherits ExportRelationSchema class has common functionality added
  * to this class
  *
- * @property Svg $diagram
+ * @extends ExportRelationSchema<Svg>
  */
 class SvgRelationSchema extends ExportRelationSchema
 {

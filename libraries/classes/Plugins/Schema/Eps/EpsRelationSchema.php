@@ -27,7 +27,7 @@ use function sprintf;
  * This class inherits ExportRelationSchema class has common functionality added
  * to this class
  *
- * @property Eps $diagram
+ * @extends ExportRelationSchema<Eps>
  */
 class EpsRelationSchema extends ExportRelationSchema
 {

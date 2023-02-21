@@ -13,7 +13,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
  */
 class ExportRelationSchemaTest extends AbstractTestCase
 {
-    /** @var ExportRelationSchema */
+    /** @var ExportRelationSchema<null> */
     protected $object;
 
     /**

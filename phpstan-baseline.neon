@@ -7006,7 +7006,7 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\ExportRelationSchema\\:\\:\\$orientation \\(string\\) in isset\\(\\) is not nullable\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\ExportRelationSchema\\<PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\>\\:\\:\\$orientation \\(string\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 

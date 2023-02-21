@@ -24,7 +24,7 @@ use function in_array;
  * inherits ExportRelationSchema class has common functionality added
  * to this class
  *
- * @property Dia $diagram
+ * @extends ExportRelationSchema<Dia>
  */
 class DiaRelationSchema extends ExportRelationSchema
 {

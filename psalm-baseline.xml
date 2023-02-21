@@ -12548,17 +12548,10 @@
       <code>$one_key</code>
       <code>$rel</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$this->diagram]]></code>
-    </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_REQUEST['dia_orientation']]]></code>
       <code><![CDATA[$_REQUEST['dia_paper']]]></code>
     </PossiblyInvalidCast>
-    <PossiblyNullReference>
-      <code>endDiaDoc</code>
-      <code>startDiaDoc</code>
-    </PossiblyNullReference>
     <UnusedProperty>
       <code>$bottomMargin</code>
       <code>$leftMargin</code>
@@ -12605,7 +12598,6 @@
     <InvalidArgument>
       <code><![CDATA[$this->tables[$foreignTable]]]></code>
       <code><![CDATA[$this->tables[$masterTable]]]></code>
-      <code>10</code>
     </InvalidArgument>
     <InvalidCast>
       <code><![CDATA[$this->tables[$foreignTable]]]></code>
@@ -12617,12 +12609,6 @@
       <code><![CDATA[$one_key['ref_table_name']]]></code>
       <code><![CDATA[$rel['foreign_field']]]></code>
       <code><![CDATA[$rel['foreign_table']]]></code>
-      <code><![CDATA[$this->diagram->getFont()]]></code>
-      <code><![CDATA[$this->diagram->getFont()]]></code>
-      <code><![CDATA[$this->diagram->getFont()]]></code>
-      <code><![CDATA[$this->diagram->getFontSize()]]></code>
-      <code><![CDATA[$this->diagram->getFontSize()]]></code>
-      <code><![CDATA[$this->diagram->getFontSize()]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$master_field</code>
@@ -12646,26 +12632,9 @@
       <code>$one_key</code>
       <code>$rel</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$this->diagram]]></code>
-    </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_REQUEST['eps_orientation']]]></code>
     </PossiblyInvalidCast>
-    <PossiblyNullReference>
-      <code>endEpsDoc</code>
-      <code>getFont</code>
-      <code>getFont</code>
-      <code>getFont</code>
-      <code>getFontSize</code>
-      <code>getFontSize</code>
-      <code>getFontSize</code>
-      <code>setAuthor</code>
-      <code>setDate</code>
-      <code>setFont</code>
-      <code>setOrientation</code>
-      <code>setTitle</code>
-    </PossiblyNullReference>
   </file>
   <file src="libraries/classes/Plugins/Schema/Eps/RelationStatsEps.php">
     <MixedMethodCall>
@@ -12828,15 +12797,9 @@
       <code>$table</code>
       <code>$table</code>
       <code>$table</code>
-      <code><![CDATA[$this->diagram->PageNo()]]></code>
-      <code><![CDATA[$this->diagram->customLinks['RT']['-']]]></code>
       <code><![CDATA[$this->diagram->customLinks['RT']['-']]]></code>
       <code><![CDATA[$this->diagram->customLinks['doc'][$table][$field_name]]]></code>
       <code><![CDATA[$this->diagram->customLinks['doc'][$table]['-']]]></code>
-      <code><![CDATA[max(
-                ($this->xMax - $this->xMin) / $innerWidth,
-                ($this->yMax - $this->yMin) / $innerHeight
-            ) * 100]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$master_field</code>
@@ -12896,8 +12859,6 @@
       <code>$field_name</code>
       <code>$foreignTable</code>
       <code>$index</code>
-      <code>$innerHeight</code>
-      <code>$innerWidth</code>
       <code>$links[0]</code>
       <code>$links[6]</code>
       <code>$one_field</code>
@@ -12915,15 +12876,9 @@
       <code><![CDATA[$foreigner['foreign_table']]]></code>
       <code><![CDATA[$foreigner['on_delete']]]></code>
       <code><![CDATA[$foreigner['on_update']]]></code>
-      <code>$innerHeight</code>
-      <code>$innerWidth</code>
       <code>$show_comment</code>
       <code>$table</code>
       <code>$table</code>
-      <code><![CDATA[max(
-                ($this->xMax - $this->xMin) / $innerWidth,
-                ($this->yMax - $this->yMin) / $innerHeight
-            )]]></code>
     </MixedOperand>
     <NullArgument>
       <code>null</code>
@@ -12932,7 +12887,6 @@
     </NullArgument>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_REQUEST['pdf_table_order']]]></code>
-      <code><![CDATA[$this->diagram]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_REQUEST['pdf_orientation']]]></code>
@@ -12940,38 +12894,8 @@
       <code><![CDATA[$_REQUEST['pdf_table_order']]]></code>
     </PossiblyInvalidCast>
     <PossiblyNullArgument>
-      <code><![CDATA[$this->diagram->customLinks['RT']['-']]]></code>
       <code><![CDATA[$this->orientation]]></code>
     </PossiblyNullArgument>
-    <PossiblyNullArrayAccess>
-      <code><![CDATA[$this->diagram->customLinks['RT']]]></code>
-      <code><![CDATA[$this->diagram->customLinks['RT']['-']]]></code>
-    </PossiblyNullArrayAccess>
-    <PossiblyNullPropertyFetch>
-      <code><![CDATA[$this->diagram->customLinks]]></code>
-    </PossiblyNullPropertyFetch>
-    <PossiblyNullReference>
-      <code>AddPage</code>
-      <code>Bookmark</code>
-      <code>Open</code>
-      <code>PageNo</code>
-      <code>getPageHeight</code>
-      <code>getPageWidth</code>
-      <code>setAlias</code>
-      <code>setAutoPageBreak</code>
-      <code>setAutoPageBreak</code>
-      <code>setAutoPageBreak</code>
-      <code>setCMargin</code>
-      <code>setCMargin</code>
-      <code>setCMargin</code>
-      <code>setFontSize</code>
-      <code>setFontSizeScale</code>
-      <code>setLineWidthScale</code>
-      <code>setLink</code>
-      <code>setOffline</code>
-      <code>setScale</code>
-      <code>setTitle</code>
-    </PossiblyNullReference>
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$row['Null']]]></code>
     </PossiblyUndefinedArrayOffset>
@@ -13197,12 +13121,6 @@
       <code><![CDATA[$one_key['ref_table_name']]]></code>
       <code><![CDATA[$rel['foreign_field']]]></code>
       <code><![CDATA[$rel['foreign_table']]]></code>
-      <code><![CDATA[$this->diagram->getFont()]]></code>
-      <code><![CDATA[$this->diagram->getFont()]]></code>
-      <code><![CDATA[$this->diagram->getFont()]]></code>
-      <code><![CDATA[$this->diagram->getFontSize()]]></code>
-      <code><![CDATA[$this->diagram->getFontSize()]]></code>
-      <code><![CDATA[$this->diagram->getFontSize()]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$master_field</code>
@@ -13227,29 +13145,13 @@
       <code>$rel</code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
-      <code><![CDATA[$this->diagram]]></code>
       <code><![CDATA[$this->tables[$table]]]></code>
       <code><![CDATA[$this->xMax + $border]]></code>
       <code><![CDATA[$this->xMin - $border]]></code>
       <code><![CDATA[$this->yMax + $border]]></code>
       <code><![CDATA[$this->yMin - $border]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyNullReference>
-      <code>endSvgDoc</code>
-      <code>getFont</code>
-      <code>getFont</code>
-      <code>getFont</code>
-      <code>getFontSize</code>
-      <code>getFontSize</code>
-      <code>getFontSize</code>
-      <code>setAuthor</code>
-      <code>setFont</code>
-      <code>setFontSize</code>
-      <code>setTitle</code>
-      <code>startSvgDoc</code>
-    </PossiblyNullReference>
     <TooFewArguments>
-      <code>setFont</code>
       <code>tableDraw</code>
       <code>tableDraw</code>
     </TooFewArguments>
