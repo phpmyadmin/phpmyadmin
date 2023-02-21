@@ -14177,14 +14177,6 @@
       <code><![CDATA[$_POST['max_user_connections']]]></code>
     </RiskyCast>
   </file>
-  <file src="libraries/classes/Server/Privileges/AccountLocking.php">
-    <DeprecatedMethod>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-    </DeprecatedMethod>
-  </file>
   <file src="libraries/classes/Server/Select.php">
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$server['only_db']]]></code>
@@ -18095,14 +18087,6 @@
       <code>assertIsArray</code>
       <code>assertIsArray</code>
     </RedundantCondition>
-  </file>
-  <file src="test/classes/Server/Privileges/AccountLockingTest.php">
-    <DeprecatedMethod>
-      <code>withConsecutive</code>
-      <code>withConsecutive</code>
-      <code>withConsecutive</code>
-      <code>withConsecutive</code>
-    </DeprecatedMethod>
   </file>
   <file src="test/classes/Server/PrivilegesTest.php">
     <DeprecatedMethod>
