@@ -9,6 +9,7 @@ namespace PhpMyAdmin\ConfigStorage;
 
 use PhpMyAdmin\ConfigStorage\Features\ConfigurableMenusFeature;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -174,7 +175,7 @@ class UserGroups
             'DELETE FROM %s.%s WHERE `usergroup`=%s',
             Util::backquote($configurableMenusFeature->database),
             Util::backquote($configurableMenusFeature->users),
-            $dbi->quoteString($userGroupName),
+            $dbi->quoteString($userGroupName, Connection::TYPE_CONTROL),
         );
         $dbi->queryAsControlUser($statement);
 
@@ -182,7 +183,7 @@ class UserGroups
             'DELETE FROM %s.%s WHERE `usergroup`=%s',
             Util::backquote($configurableMenusFeature->database),
             Util::backquote($configurableMenusFeature->userGroups),
-            $dbi->quoteString($userGroupName),
+            $dbi->quoteString($userGroupName, Connection::TYPE_CONTROL),
         );
         $dbi->queryAsControlUser($statement);
     }
