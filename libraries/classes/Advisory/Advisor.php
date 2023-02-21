@@ -51,10 +51,6 @@ class Advisor
         'errors' => [],
     ];
 
-    /**
-     * @param DatabaseInterface  $dbi        DatabaseInterface object
-     * @param ExpressionLanguage $expression ExpressionLanguage object
-     */
     public function __construct(private DatabaseInterface $dbi, private ExpressionLanguage $expression)
     {
         /**

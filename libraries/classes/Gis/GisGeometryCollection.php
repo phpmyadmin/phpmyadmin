@@ -127,7 +127,7 @@ class GisGeometryCollection extends GisGeometry
      * @param string|null $label      label for the GIS GEOMETRYCOLLECTION object
      * @param int[]       $color      color for the GIS GEOMETRYCOLLECTION object
      * @param array       $scale_data array containing data related to scaling
-     * @param TCPDF       $pdf        TCPDF instance
+     * @param TCPDF       $pdf
      *
      * @return TCPDF the modified TCPDF instance
      */

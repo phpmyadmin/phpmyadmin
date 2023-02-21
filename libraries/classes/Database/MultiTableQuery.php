@@ -55,10 +55,8 @@ class MultiTableQuery
     public $template;
 
     /**
-     * @param DatabaseInterface $dbi                DatabaseInterface instance
-     * @param Template          $template           Template instance
-     * @param string            $dbName             Database name
-     * @param int               $defaultNoOfColumns Default number of columns
+     * @param string $dbName             Database name
+     * @param int    $defaultNoOfColumns Default number of columns
      */
     public function __construct(
         DatabaseInterface $dbi,

@@ -122,7 +122,7 @@ class GisLineString extends GisGeometry
      * @param string|null $label      Label for the GIS LINESTRING object
      * @param int[]       $color      Color for the GIS LINESTRING object
      * @param array       $scale_data Array containing data related to scaling
-     * @param TCPDF       $pdf        TCPDF instance
+     * @param TCPDF       $pdf
      *
      * @return TCPDF the modified TCPDF instance
      */

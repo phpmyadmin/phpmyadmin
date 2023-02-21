@@ -32,10 +32,6 @@ use function rawurlencode;
  */
 class Common
 {
-    /**
-     * @param DatabaseInterface $dbi      DatabaseInterface object
-     * @param Relation          $relation Relation instance
-     */
     public function __construct(private DatabaseInterface $dbi, private Relation $relation)
     {
     }

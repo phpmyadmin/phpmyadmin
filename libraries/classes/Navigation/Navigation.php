@@ -38,9 +38,9 @@ class Navigation
     private NavigationTree $tree;
 
     /**
-     * @param Template          $template Template instance
-     * @param Relation          $relation Relation instance
-     * @param DatabaseInterface $dbi      DatabaseInterface instance
+     * @param Template          $template
+     * @param Relation          $relation
+     * @param DatabaseInterface $dbi
      */
     public function __construct(private $template, private $relation, private $dbi)
     {

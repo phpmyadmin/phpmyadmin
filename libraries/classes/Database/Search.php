@@ -82,9 +82,7 @@ class Search
     public $template;
 
     /**
-     * @param DatabaseInterface $dbi      DatabaseInterface object
-     * @param string            $db       Database name
-     * @param Template          $template Template object
+     * @param string $db Database name
      */
     public function __construct(private DatabaseInterface $dbi, $db, Template $template)
     {

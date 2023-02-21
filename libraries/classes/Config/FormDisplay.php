@@ -314,7 +314,6 @@ class FormDisplay
     /**
      * Prepares data for input field display and outputs HTML code
      *
-     * @param Form      $form           Form object
      * @param string    $field          field name as it appears in $form
      * @param string    $systemPath     field path, eg. Servers/1/verbose
      * @param string    $workPath       work path, eg. Servers/4/verbose

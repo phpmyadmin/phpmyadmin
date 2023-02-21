@@ -1205,8 +1205,6 @@ JS;
 
     /**
      * Mark unsuccessful tests as 'Failures' on Browerstack
-     *
-     * @param Throwable $t Throwable
      */
     public function onNotSuccessfulTest(Throwable $t): void
     {

@@ -21,9 +21,6 @@ use function str_contains;
  */
 class CheckUserPrivileges
 {
-    /**
-     * @param DatabaseInterface $dbi DatabaseInterface object
-     */
     public function __construct(private DatabaseInterface $dbi)
     {
     }

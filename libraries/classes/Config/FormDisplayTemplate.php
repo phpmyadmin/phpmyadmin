@@ -26,9 +26,6 @@ class FormDisplayTemplate
     /** @var Template */
     public $template;
 
-    /**
-     * @param Config $config Config instance
-     */
     public function __construct(protected Config $config)
     {
         $this->template = new Template();

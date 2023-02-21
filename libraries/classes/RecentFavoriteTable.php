@@ -61,8 +61,7 @@ class RecentFavoriteTable
     /**
      * Creates a new instance of RecentFavoriteTable
      *
-     * @param Template $template Template object
-     * @param string   $type     the table type
+     * @param string $type the table type
      */
     private function __construct(Template $template, string $type)
     {

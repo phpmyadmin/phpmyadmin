@@ -33,11 +33,6 @@ class ErrorReport
      */
     private $submissionUrl = 'https://reports.phpmyadmin.net/incidents/create';
 
-    /**
-     * @param HttpRequest $httpRequest HttpRequest instance
-     * @param Relation    $relation    Relation instance
-     * @param Template    $template    Template instance
-     */
     public function __construct(
         private HttpRequest $httpRequest,
         private Relation $relation,

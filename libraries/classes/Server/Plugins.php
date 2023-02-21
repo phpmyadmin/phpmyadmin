@@ -10,9 +10,6 @@ use function __;
 
 class Plugins
 {
-    /**
-     * @param DatabaseInterface $dbi DatabaseInterface instance
-     */
     public function __construct(private DatabaseInterface $dbi)
     {
     }

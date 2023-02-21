@@ -154,7 +154,7 @@ class Bookmark
     /**
      * Replace the placeholders in the bookmark query with variables
      *
-     * @param array $variables array of variables
+     * @param array $variables
      *
      * @return string query with variables applied
      */
@@ -228,9 +228,8 @@ class Bookmark
     /**
      * Gets the list of bookmarks defined for the current database
      *
-     * @param DatabaseInterface $dbi  DatabaseInterface object
-     * @param string            $user Current user
-     * @param string|false      $db   the current database name or false
+     * @param string       $user Current user
+     * @param string|false $db   the current database name or false
      *
      * @return Bookmark[] the bookmarks list
      */
@@ -268,14 +267,13 @@ class Bookmark
     /**
      * Retrieve a specific bookmark
      *
-     * @param DatabaseInterface $dbi                 DatabaseInterface object
-     * @param string            $user                Current user
-     * @param DatabaseName      $db                  the current database name
-     * @param int|string        $id                  an identifier of the bookmark to get
-     * @param string            $id_field            which field to look up the identifier
-     * @param bool              $action_bookmark_all true: get all bookmarks regardless
-     *                                               of the owning user
-     * @param bool              $exact_user_match    whether to ignore bookmarks with no user
+     * @param string       $user                Current user
+     * @param DatabaseName $db                  the current database name
+     * @param int|string   $id                  an identifier of the bookmark to get
+     * @param string       $id_field            which field to look up the identifier
+     * @param bool         $action_bookmark_all true: get all bookmarks regardless
+     *                                          of the owning user
+     * @param bool         $exact_user_match    whether to ignore bookmarks with no user
      *
      * @return Bookmark|null the bookmark
      */

@@ -67,7 +67,7 @@ class Export
     public $dumpBufferObjects = [];
 
     /**
-     * @param DatabaseInterface $dbi DatabaseInterface instance
+     * @param DatabaseInterface $dbi
      */
     public function __construct(private $dbi)
     {

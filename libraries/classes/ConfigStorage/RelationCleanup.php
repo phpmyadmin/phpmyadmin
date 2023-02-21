@@ -16,8 +16,7 @@ class RelationCleanup
     public $relation;
 
     /**
-     * @param DatabaseInterface $dbi      DatabaseInterface object
-     * @param Relation          $relation Relation object
+     * @param DatabaseInterface $dbi
      */
     public function __construct(public $dbi, Relation $relation)
     {

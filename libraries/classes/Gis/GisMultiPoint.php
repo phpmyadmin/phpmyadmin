@@ -122,7 +122,7 @@ class GisMultiPoint extends GisGeometry
      * @param string|null $label      Label for the GIS MULTIPOINT object
      * @param int[]       $color      Color for the GIS MULTIPOINT object
      * @param array       $scale_data Array containing data related to scaling
-     * @param TCPDF       $pdf        TCPDF instance
+     * @param TCPDF       $pdf
      *
      * @return TCPDF the modified TCPDF instance
      */

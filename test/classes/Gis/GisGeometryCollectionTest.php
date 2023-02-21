@@ -57,7 +57,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
     /**
      * Test for generateWkt
      *
-     * @param array       $gis_data array of GIS data
+     * @param array       $gis_data
      * @param int         $index    index in $gis_data
      * @param string|null $empty    empty parameter
      * @param string      $output   expected output

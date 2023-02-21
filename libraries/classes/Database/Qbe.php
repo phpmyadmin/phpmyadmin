@@ -215,9 +215,7 @@ class Qbe
     public $template;
 
     /**
-     * @param Relation           $relation        Relation object
-     * @param Template           $template        Template object
-     * @param DatabaseInterface  $dbi             DatabaseInterface object
+     * @param DatabaseInterface  $dbi
      * @param string             $dbname          Database name
      * @param array              $savedSearchList List of saved searches
      * @param SavedSearches|null $currentSearch   Current search id
@@ -1505,7 +1503,7 @@ class Qbe
     /**
      * Loads relations for a given table into the $relations array
      *
-     * @param array  $relations array of relations
+     * @param array  $relations
      * @param string $oneTable  the table
      */
     private function loadRelationsForTable(array &$relations, $oneTable): void

@@ -61,9 +61,6 @@ class CentralColumns
     /** @var Template */
     public $template;
 
-    /**
-     * @param DatabaseInterface $dbi DatabaseInterface instance
-     */
     public function __construct(private DatabaseInterface $dbi)
     {
         $this->user = $GLOBALS['cfg']['Server']['user'];

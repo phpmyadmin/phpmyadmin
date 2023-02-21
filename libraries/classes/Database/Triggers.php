@@ -38,9 +38,7 @@ class Triggers
     private $event = ['INSERT', 'UPDATE', 'DELETE'];
 
     /**
-     * @param DatabaseInterface $dbi      DatabaseInterface instance.
-     * @param Template          $template Template instance.
-     * @param ResponseRenderer  $response Response instance.
+     * @param ResponseRenderer $response
      */
     public function __construct(private DatabaseInterface $dbi, private Template $template, private $response)
     {

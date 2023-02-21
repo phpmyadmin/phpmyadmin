@@ -69,12 +69,6 @@ class Privileges
     /** @var Relation */
     public $relation;
 
-    /**
-     * @param Template          $template        Template object
-     * @param DatabaseInterface $dbi             DatabaseInterface object
-     * @param Relation          $relation        Relation object
-     * @param RelationCleanup   $relationCleanup RelationCleanup object
-     */
     public function __construct(
         Template $template,
         DatabaseInterface $dbi,

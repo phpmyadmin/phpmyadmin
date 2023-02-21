@@ -93,11 +93,10 @@ class InsertEdit
     /**
      * Retrieve form parameters for insert/edit form
      *
-     * @param string     $db               name of the database
-     * @param string     $table            name of the table
-     * @param array|null $whereClauses     where clauses
-     * @param array      $whereClauseArray array of where clauses
-     * @param string     $errorUrl         error url
+     * @param string $db               name of the database
+     * @param string $table            name of the table
+     * @param array  $whereClauseArray
+     * @param string $errorUrl
      *
      * @return array<string, string> array of insert/edit form parameters
      */
@@ -887,8 +886,8 @@ class InsertEdit
      *
      * @param string $table            name of the table
      * @param string $db               name of the database
-     * @param array  $whereClauseArray array of where clauses
-     * @param string $errorUrl         error url
+     * @param array  $whereClauseArray
+     * @param string $errorUrl
      *
      * @return string                   an html snippet
      */

@@ -40,12 +40,6 @@ class Normalization
     /** @var Template */
     public $template;
 
-    /**
-     * @param DatabaseInterface $dbi             DatabaseInterface instance
-     * @param Relation          $relation        Relation instance
-     * @param Transformations   $transformations Transformations instance
-     * @param Template          $template        Template instance
-     */
     public function __construct(
         DatabaseInterface $dbi,
         private Relation $relation,

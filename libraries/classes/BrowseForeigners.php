@@ -30,9 +30,6 @@ class BrowseForeigners
     /** @var Template */
     public $template;
 
-    /**
-     * @param Template $template Template object
-     */
     public function __construct(Template $template)
     {
         $this->template = $template;

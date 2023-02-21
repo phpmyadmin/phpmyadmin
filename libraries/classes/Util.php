@@ -1367,8 +1367,6 @@ class Util
     /**
      * If the string starts with a \r\n pair (0x0d0a) add an extra \n
      *
-     * @param string $string string
-     *
      * @return string with the chars replaced
      */
     public static function duplicateFirstNewline(string $string): string

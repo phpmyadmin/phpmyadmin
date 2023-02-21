@@ -136,8 +136,7 @@ class NavigationTree
     private $largeGroupWarning = false;
 
     /**
-     * @param Template          $template Template instance
-     * @param DatabaseInterface $dbi      DatabaseInterface instance
+     * @param Template $template
      */
     public function __construct(private $template, private DatabaseInterface $dbi)
     {

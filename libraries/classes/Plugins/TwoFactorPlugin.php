@@ -46,11 +46,6 @@ class TwoFactorPlugin
     /** @var Template */
     public $template;
 
-    /**
-     * Creates object
-     *
-     * @param TwoFactor $twofactor TwoFactor instance
-     */
     public function __construct(protected TwoFactor $twofactor)
     {
         $this->template = new Template();

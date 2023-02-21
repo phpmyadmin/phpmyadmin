@@ -30,10 +30,6 @@ use function urldecode;
  */
 class Operations
 {
-    /**
-     * @param DatabaseInterface $dbi      DatabaseInterface object
-     * @param Relation          $relation Relation object
-     */
     public function __construct(private DatabaseInterface $dbi, private Relation $relation)
     {
     }
