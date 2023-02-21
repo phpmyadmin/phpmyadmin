@@ -1390,17 +1390,6 @@
       <code>escapeString</code>
       <code>escapeString</code>
       <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
     </DeprecatedMethod>
   </file>
   <file src="libraries/classes/ConfigStorage/UserGroups.php">
@@ -3267,8 +3256,6 @@
       <code><![CDATA[$GLOBALS['selected']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code>$database</code>
-      <code>$database</code>
       <code>$database</code>
     </MixedArgument>
     <MixedAssignment>
@@ -16219,7 +16206,6 @@
   </file>
   <file src="test/classes/ConfigStorage/RelationCleanupTest.php">
     <DeprecatedMethod>
-      <code>withConsecutive</code>
       <code>withConsecutive</code>
     </DeprecatedMethod>
   </file>
