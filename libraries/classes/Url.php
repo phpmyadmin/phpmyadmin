@@ -251,7 +251,7 @@ class Url
 
         $separator = self::getArgSeparator();
 
-        if (! $encrypt || ! $GLOBALS['config']->get('URLQueryEncryption')) {
+        if (! $encrypt || $GLOBALS['config'] === null || ! $GLOBALS['config']->get('URLQueryEncryption')) {
             return http_build_query($params, '', $separator);
         }
 

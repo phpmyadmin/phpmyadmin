@@ -6969,6 +6969,7 @@
       <code>$sortExpressionNoDirection</code>
     </InvalidArgument>
     <InvalidArrayOffset>
+      <code><![CDATA[$GLOBALS['cfg']['Order']]]></code>
       <code><![CDATA[$GLOBALS['cfg']['RowActionType']]]></code>
       <code><![CDATA[$GLOBALS['is_header_sent']]]></code>
       <code><![CDATA[$GLOBALS['row']]]></code>
@@ -7018,6 +7019,10 @@
       <code>$row[$i]</code>
       <code>$row[$i]</code>
       <code>$sessionMaxRows</code>
+      <code>$sortDirection[$index]</code>
+      <code>$sortDirection[$index]</code>
+      <code>$sortDirection[$index]</code>
+      <code>$sortDirection[$index]</code>
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
@@ -7220,6 +7225,7 @@
       <code>$relationalDisplay</code>
       <code><![CDATA[$rowInfo[mb_strtolower($fieldsMeta[$m]->orgname)]]]></code>
       <code>$sessionMaxRows</code>
+      <code>$sortDirection[$specialIndex]</code>
       <code>$sqlQuery</code>
       <code>$sqlQueryAdd</code>
       <code>$tableCreateTime</code>
@@ -8723,6 +8729,17 @@
     <PossiblyInvalidArgument>
       <code>$message</code>
     </PossiblyInvalidArgument>
+    <PossiblyNullArgument>
+      <code><![CDATA[$GLOBALS['dbi']]]></code>
+    </PossiblyNullArgument>
+    <PropertyNotSetInConstructor>
+      <code>$menu</code>
+    </PropertyNotSetInConstructor>
+    <RedundantCondition>
+      <code><![CDATA[$GLOBALS['config'] !== null]]></code>
+      <code><![CDATA[$GLOBALS['config'] !== null]]></code>
+      <code><![CDATA[$GLOBALS['dbi'] !== null]]></code>
+    </RedundantCondition>
     <RedundantFunctionCall>
       <code>strtolower</code>
     </RedundantFunctionCall>
@@ -13719,11 +13736,17 @@
       <code><![CDATA[(string) $GLOBALS['table']]]></code>
     </RedundantCast>
     <RedundantCondition>
+      <code><![CDATA[$this->footer?->getDisplay()]]></code>
+      <code><![CDATA[$this->header?->getDisplay()]]></code>
       <code><![CDATA[is_scalar($GLOBALS['db'])]]></code>
       <code><![CDATA[is_scalar($GLOBALS['table'])]]></code>
       <code><![CDATA[isset($GLOBALS['db']) && is_scalar($GLOBALS['db'])]]></code>
       <code><![CDATA[isset($GLOBALS['table']) && is_scalar($GLOBALS['table'])]]></code>
     </RedundantCondition>
+    <TypeDoesNotContainNull>
+      <code><![CDATA[$this->footer]]></code>
+      <code><![CDATA[$this->header]]></code>
+    </TypeDoesNotContainNull>
     <TypeDoesNotContainType>
       <code><![CDATA['']]></code>
       <code><![CDATA['']]></code>
@@ -15552,7 +15575,6 @@
     </MixedReturnStatement>
     <PossiblyNullReference>
       <code>get</code>
-      <code>get</code>
       <code>getCookie</code>
     </PossiblyNullReference>
     <PossiblyUnusedParam>
@@ -16916,6 +16938,8 @@
       <code><![CDATA[$_SESSION['tmpval']['relational_display']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
+      <code>$data</code>
+      <code>$data</code>
       <code>$output</code>
       <code>$output</code>
       <code>$output</code>
@@ -16928,6 +16952,11 @@
       <code>array</code>
       <code>array</code>
     </MixedInferredReturnType>
+    <PossiblyInvalidArgument>
+      <code>testGetSingleAndMultiSortUrls</code>
+      <code>testGetSingleAndMultiSortUrls</code>
+      <code>testGetSingleAndMultiSortUrls</code>
+    </PossiblyInvalidArgument>
   </file>
   <file src="test/classes/Engines/PbxtTest.php">
     <MixedInferredReturnType>

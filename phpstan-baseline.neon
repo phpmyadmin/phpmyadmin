@@ -7626,6 +7626,11 @@ parameters:
 			path: libraries/classes/ReplicationInfo.php
 
 		-
+			message: "#^Expression on left side of \\?\\? is not nullable\\.$#"
+			count: 2
+			path: libraries/classes/ResponseRenderer.php
+
+		-
 			message: "#^Foreach overwrites \\$value with its value variable\\.$#"
 			count: 1
 			path: libraries/classes/ResponseRenderer.php
@@ -7637,6 +7642,16 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\ResponseRenderer\\:\\:\\$JSON type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/ResponseRenderer.php
+
+		-
+			message: "#^Using nullsafe method call on non\\-nullable type PhpMyAdmin\\\\Footer\\. Use \\-\\> instead\\.$#"
+			count: 1
+			path: libraries/classes/ResponseRenderer.php
+
+		-
+			message: "#^Using nullsafe method call on non\\-nullable type PhpMyAdmin\\\\Header\\. Use \\-\\> instead\\.$#"
 			count: 1
 			path: libraries/classes/ResponseRenderer.php
 
@@ -10297,6 +10312,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:dataProviderGetSortOrderHiddenInputs\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: test/classes/Display/ResultsTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:dataProviderSortOrder\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Display/ResultsTest.php
 
