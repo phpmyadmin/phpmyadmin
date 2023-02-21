@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Utils\SessionCache;
 
@@ -125,7 +126,7 @@ class Menu
                 . " AND `tab` LIKE '" . $level . "%'"
                 . ' AND `usergroup` = (SELECT usergroup FROM '
                 . $userTable . ' WHERE `username` = '
-                . $this->dbi->quoteString($GLOBALS['cfg']['Server']['user']) . ')';
+                . $this->dbi->quoteString($GLOBALS['cfg']['Server']['user'], Connection::TYPE_CONTROL) . ')';
 
             $result = $this->dbi->tryQueryAsControlUser($sqlQuery);
             if ($result) {

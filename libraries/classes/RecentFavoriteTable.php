@@ -114,7 +114,8 @@ class RecentFavoriteTable
     {
         // Read from phpMyAdmin database, if recent tables is not in session
         $sql_query = ' SELECT `tables` FROM ' . $this->getPmaTable()
-            . ' WHERE `username` = ' . $GLOBALS['dbi']->quoteString($GLOBALS['cfg']['Server']['user']);
+            . ' WHERE `username` = '
+            . $GLOBALS['dbi']->quoteString($GLOBALS['cfg']['Server']['user'], Connection::TYPE_CONTROL);
 
         $result = $GLOBALS['dbi']->tryQueryAsControlUser($sql_query);
         if ($result) {
