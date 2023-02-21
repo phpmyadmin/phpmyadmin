@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.7.4@c46eccda769925073b8f65d66c4a3a7dc5d440b1">
+<files psalm-version="5.7.5@5390c212bab06ee230c8720c2e9c54b823db00c8">
   <file src="libraries/classes/Advisory/Advisor.php">
     <MixedArgument>
       <code>$matches[1]</code>
@@ -18344,9 +18344,6 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/TrackerTest.php">
-    <DeprecatedMethod>
-      <code>withConsecutive</code>
-    </DeprecatedMethod>
     <MixedInferredReturnType>
       <code>array</code>
       <code>array</code>
