@@ -1401,21 +1401,6 @@
       <code>escapeString</code>
       <code>escapeString</code>
       <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
-      <code>escapeString</code>
     </DeprecatedMethod>
   </file>
   <file src="libraries/classes/ConfigStorage/UserGroups.php">
@@ -16234,7 +16219,6 @@
   </file>
   <file src="test/classes/ConfigStorage/RelationCleanupTest.php">
     <DeprecatedMethod>
-      <code>withConsecutive</code>
       <code>withConsecutive</code>
       <code>withConsecutive</code>
     </DeprecatedMethod>
