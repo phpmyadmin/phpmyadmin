@@ -16070,9 +16070,6 @@
     </PossiblyInvalidArgument>
   </file>
   <file src="test/classes/Command/TwigLintCommandTest.php">
-    <DeprecatedMethod>
-      <code>withConsecutive</code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code>$filesFound</code>
       <code>$filesInfos</code>
@@ -16085,11 +16082,6 @@
       <code>$filesFound</code>
       <code>$filesInfos</code>
     </MixedAssignment>
-  </file>
-  <file src="test/classes/Command/WriteGitRevisionCommandTest.php">
-    <DeprecatedMethod>
-      <code>withConsecutive</code>
-    </DeprecatedMethod>
   </file>
   <file src="test/classes/CommonTest.php">
     <MixedInferredReturnType>
