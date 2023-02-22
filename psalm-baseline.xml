@@ -5017,6 +5017,9 @@
       <code><![CDATA[$displayed_fields[$rownum]->icon]]></code>
       <code><![CDATA[$displayed_fields[$rownum]->icon]]></code>
     </MixedOperand>
+    <PossiblyNullArgument>
+      <code><![CDATA[$GLOBALS['tbl_collation']]]></code>
+    </PossiblyNullArgument>
     <PossiblyNullArrayAccess>
       <code>$avg_size</code>
       <code>$avg_unit</code>
@@ -6232,9 +6235,6 @@
       <code>reset($candidateColumns)</code>
       <code>reset($candidateColumns)</code>
     </MixedReturnStatement>
-    <MixedReturnTypeCoercion>
-      <code>key($whereClauseTables)</code>
-    </MixedReturnTypeCoercion>
     <NullArgument>
       <code>null</code>
     </NullArgument>
@@ -6270,9 +6270,6 @@
       <code>$newColumnCount</code>
       <code>$newRowCount</code>
     </PropertyNotSetInConstructor>
-    <RedundantCastGivenDocblockType>
-      <code>(string) $master</code>
-    </RedundantCastGivenDocblockType>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[isset($lastWhere, $this->formAndOrCols)]]></code>
     </RedundantConditionGivenDocblockType>
@@ -6837,7 +6834,6 @@
     <MixedReturnStatement>
       <code>$resultRows</code>
       <code><![CDATA[SessionCache::get('mysql_cur_user')]]></code>
-      <code><![CDATA[SessionCache::get('mysql_cur_user')]]></code>
       <code>reset($columns)</code>
       <code>reset($columns)</code>
     </MixedReturnStatement>
@@ -6866,7 +6862,6 @@
     </MixedReturnTypeCoercion>
     <NullableReturnStatement>
       <code>$user</code>
-      <code><![CDATA[SessionCache::get('mysql_cur_user')]]></code>
     </NullableReturnStatement>
     <PossiblyInvalidArgument>
       <code>$table</code>
@@ -9130,12 +9125,10 @@
   </file>
   <file src="libraries/classes/IndexColumn.php">
     <MixedAssignment>
-      <code><![CDATA[$this->cardinality]]></code>
       <code><![CDATA[$this->collation]]></code>
       <code><![CDATA[$this->expression]]></code>
       <code><![CDATA[$this->name]]></code>
       <code><![CDATA[$this->null]]></code>
-      <code><![CDATA[$this->seqInIndex]]></code>
       <code><![CDATA[$this->subPart]]></code>
     </MixedAssignment>
     <PossiblyUnusedMethod>
@@ -9525,11 +9518,7 @@
     </MixedInferredReturnType>
     <MixedReturnStatement>
       <code>SessionCache::get($cacheKey)</code>
-      <code>SessionCache::get($cacheKey)</code>
     </MixedReturnStatement>
-    <NullableReturnStatement>
-      <code>SessionCache::get($cacheKey)</code>
-    </NullableReturnStatement>
     <PossiblyFalseOperand>
       <code><![CDATA[mb_strpos($tab, '_')]]></code>
     </PossiblyFalseOperand>
@@ -10128,14 +10117,6 @@
       <code><![CDATA[$def['Type']]]></code>
       <code><![CDATA[$def['Type']]]></code>
     </PossiblyUndefinedArrayOffset>
-  </file>
-  <file src="libraries/classes/OpenDocument.php">
-    <InvalidReturnStatement>
-      <code><![CDATA[$zipExtension->createFile($data, $name)]]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code>string</code>
-    </InvalidReturnType>
   </file>
   <file src="libraries/classes/Operations.php">
     <DeprecatedMethod>
@@ -13179,7 +13160,6 @@
     <RedundantCastGivenDocblockType>
       <code>(string) $buffer</code>
       <code>(string) $buffer</code>
-      <code>(string) $text</code>
     </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php">
@@ -14681,9 +14661,6 @@
       <code><![CDATA[$GLOBALS['sql_auto_increments']]]></code>
       <code><![CDATA[$GLOBALS['sql_indexes']]]></code>
     </InvalidArrayOffset>
-    <InvalidReturnStatement>
-      <code><![CDATA[$tableAutoIncrement ?? '']]></code>
-    </InvalidReturnStatement>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['sql_auto_increments']]]></code>
       <code><![CDATA[$GLOBALS['sql_indexes']]]></code>
@@ -14850,8 +14827,7 @@
     </MixedAssignment>
     <MixedInferredReturnType>
       <code>array</code>
-      <code>int</code>
-      <code>int</code>
+      <code>string</code>
       <code>string</code>
       <code>string</code>
       <code>string</code>
@@ -14876,10 +14852,10 @@
     </MixedPropertyFetch>
     <MixedReturnStatement>
       <code><![CDATA[$tableAutoIncrement ?? '']]></code>
-      <code>$tableCollation</code>
+      <code><![CDATA[$tableAutoIncrement ?? '']]></code>
+      <code><![CDATA[$tableCollation ?? '']]></code>
+      <code><![CDATA[$tableCollation ?? '']]></code>
       <code>$tableComment</code>
-      <code>$tableNumRowInfo ?: 0</code>
-      <code>$tableNumRowInfo ?: 0</code>
       <code>$tableRowFormat</code>
       <code><![CDATA[end($this->errors)]]></code>
       <code><![CDATA[end($this->errors)]]></code>
@@ -16898,9 +16874,6 @@
       <code><![CDATA[$GLOBALS['cfg']['Export']['quick_export_onserver_overwrite']]]></code>
       <code><![CDATA[$GLOBALS['cfg']['Export']['remember_file_template']]]></code>
     </InvalidArrayOffset>
-    <RedundantConditionGivenDocblockType>
-      <code>assertIsArray</code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="test/classes/FileTest.php">
     <MixedInferredReturnType>
@@ -17414,22 +17387,11 @@
     <MixedAssignment>
       <code>$result</code>
     </MixedAssignment>
-    <RedundantConditionGivenDocblockType>
-      <code>assertIsArray</code>
-      <code>assertIsArray</code>
-      <code>assertIsArray</code>
-      <code>assertIsArray</code>
-      <code>assertIsArray</code>
-      <code>assertIsArray</code>
-      <code>assertIsArray</code>
-      <code>assertIsArray</code>
-      <code>assertIsArray</code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="test/classes/OpenDocumentTest.php">
-    <RedundantConditionGivenDocblockType>
+    <RedundantCondition>
       <code>assertNotFalse</code>
-    </RedundantConditionGivenDocblockType>
+    </RedundantCondition>
   </file>
   <file src="test/classes/PdfTest.php">
     <MixedArgument>
@@ -17742,6 +17704,9 @@
     </MixedArrayAccess>
   </file>
   <file src="test/classes/SqlTest.php">
+    <MixedAssignment>
+      <code>$result</code>
+    </MixedAssignment>
     <MixedInferredReturnType>
       <code>array</code>
     </MixedInferredReturnType>
@@ -17866,6 +17831,9 @@
     <PossiblyUnusedReturnValue>
       <code>bool</code>
     </PossiblyUnusedReturnValue>
+    <RedundantCastGivenDocblockType>
+      <code>(string) $row[$field]</code>
+    </RedundantCastGivenDocblockType>
   </file>
   <file src="test/classes/Stubs/ResponseRenderer.php">
     <MixedAssignment>
@@ -18098,14 +18066,6 @@
       <code>testGetScriptNameForOption</code>
       <code>testGetScriptNameForOption</code>
     </PossiblyInvalidArgument>
-    <RedundantCastGivenDocblockType>
-      <code>(string) Util::formatNumber(
-                $a,
-                $b,
-                $c,
-                false
-            )</code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="test/classes/Utils/ForeignKeyTest.php">
     <MixedInferredReturnType>
