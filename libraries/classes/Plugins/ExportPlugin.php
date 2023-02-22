@@ -28,14 +28,11 @@ abstract class ExportPlugin implements Plugin
      */
     protected ExportPluginProperties $properties;
 
-    public Relation $relation;
-
     final public function __construct(
-        Relation $relation,
+        public Relation $relation,
         protected Export $export,
         protected Transformations $transformations,
     ) {
-        $this->relation = $relation;
         $this->init();
         $this->properties = $this->setProperties();
     }

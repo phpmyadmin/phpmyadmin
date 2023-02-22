@@ -19,10 +19,7 @@ final class Connection
     /** Auxiliary connection. Used for example for replication setup. */
     public const TYPE_AUXILIARY = 2;
 
-    public object $connection;
-
-    public function __construct(object $connection)
+    public function __construct(public object $connection)
     {
-        $this->connection = $connection;
     }
 }

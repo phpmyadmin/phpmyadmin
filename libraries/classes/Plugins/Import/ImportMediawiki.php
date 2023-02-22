@@ -32,7 +32,6 @@ class ImportMediawiki extends ImportPlugin
 {
     /**
      * Whether to analyze tables
-     *
      */
     private bool $analyze = false;
 

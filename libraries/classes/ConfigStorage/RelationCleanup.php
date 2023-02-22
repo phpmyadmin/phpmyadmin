@@ -15,12 +15,8 @@ use function sprintf;
  */
 class RelationCleanup
 {
-    public Relation $relation;
-
-    /** @param DatabaseInterface $dbi */
-    public function __construct(public $dbi, Relation $relation)
+    public function __construct(public DatabaseInterface $dbi, public Relation $relation)
     {
-        $this->relation = $relation;
     }
 
     /**

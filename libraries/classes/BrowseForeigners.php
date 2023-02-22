@@ -27,12 +27,8 @@ class BrowseForeigners
     private int $repeatCells;
     private bool $showAll;
 
-    public Template $template;
-
-    public function __construct(Template $template)
+    public function __construct(public Template $template)
     {
-        $this->template = $template;
-
         $this->limitChars = (int) $GLOBALS['cfg']['LimitChars'];
         $this->maxRows = (int) $GLOBALS['cfg']['MaxRows'];
         $this->repeatCells = (int) $GLOBALS['cfg']['RepeatCells'];

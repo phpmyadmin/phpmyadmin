@@ -27,32 +27,26 @@ class SavedSearches
 {
     /**
      * Id
-     *
      */
     private int|null $id = null;
 
     /**
      * Username
-     *
      */
     private string $username = '';
 
     /**
      * DB name
-     *
      */
     private string $dbname = '';
 
     /**
      * Saved search name
-     *
      */
     private string $searchName = '';
 
     /**
      * Criterias
-     *
-     * @var array|null
      */
     private array|null $criterias = null;
 

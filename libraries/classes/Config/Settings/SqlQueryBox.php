@@ -11,25 +11,21 @@ final class SqlQueryBox
 {
     /**
      * Display an "Edit" link on the results page to change a query.
-     *
      */
     public bool $Edit;
 
     /**
      * Display an "Explain SQL" link on the results page.
-     *
      */
     public bool $Explain;
 
     /**
      * Display a "Create PHP code" link on the results page to wrap a query in PHP.
-     *
      */
     public bool $ShowAsPHP;
 
     /**
      * Display a "Refresh" link on the results page.
-     *
      */
     public bool $Refresh;
 

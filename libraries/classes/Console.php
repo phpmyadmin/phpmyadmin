@@ -21,21 +21,16 @@ class Console
 {
     /**
      * Whether to display anything
-     *
      */
     private bool $isEnabled = true;
 
     /**
      * Whether we are servicing an ajax request.
-     *
      */
     private bool $isAjax = false;
 
-    public Template $template;
-
-    public function __construct(private Relation $relation, Template $template)
+    public function __construct(private Relation $relation, public Template $template)
     {
-        $this->template = $template;
     }
 
     /**

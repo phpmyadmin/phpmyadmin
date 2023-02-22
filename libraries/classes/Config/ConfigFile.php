@@ -38,8 +38,6 @@ class ConfigFile
 
     /**
      * Stores original PMA config, not modified by user preferences
-     *
-     * @var array|null
      */
     private array|null $baseCfg = null;
 
@@ -65,8 +63,6 @@ class ConfigFile
 
     /**
      * Key filter for {@link set()}
-     *
-     * @var array|null
      */
     private array|null $setFilter = null;
 

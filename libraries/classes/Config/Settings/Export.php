@@ -31,13 +31,11 @@ final class Export
 
     /**
      * Whether to LOCK TABLES before exporting
-     *
      */
     public bool $lock_tables;
 
     /**
      * Whether to export databases/tables as separate files
-     *
      */
     public bool $as_separate_files;
 
@@ -217,7 +215,6 @@ final class Export
 
     /**
      * Whether to include comments in SQL export.
-     *
      */
     public bool $sql_include_comments;
 
@@ -238,7 +235,6 @@ final class Export
     /**
      * true by default for correct behavior when dealing with exporting
      * of VIEWs and the stand-in table
-     *
      */
     public bool $sql_if_not_exists;
 
@@ -270,7 +266,6 @@ final class Export
 
     /**
      * Export time in UTC.
-     *
      */
     public bool $sql_utc_time;
 
@@ -290,7 +285,6 @@ final class Export
 
     /**
      * \n is replaced by new line
-     *
      */
     public string $sql_header_comment;
 
@@ -310,49 +304,41 @@ final class Export
 
     /**
      * Export schema for each structure
-     *
      */
     public bool $xml_export_struc;
 
     /**
      * Export events
-     *
      */
     public bool $xml_export_events;
 
     /**
      * Export functions
-     *
      */
     public bool $xml_export_functions;
 
     /**
      * Export procedures
-     *
      */
     public bool $xml_export_procedures;
 
     /**
      * Export schema for each table
-     *
      */
     public bool $xml_export_tables;
 
     /**
      * Export triggers
-     *
      */
     public bool $xml_export_triggers;
 
     /**
      * Export views
-     *
      */
     public bool $xml_export_views;
 
     /**
      * Export contents data
-     *
      */
     public bool $xml_export_contents;
 

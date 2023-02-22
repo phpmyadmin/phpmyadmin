@@ -48,51 +48,43 @@ final class Settings
      * test to see that the auto-detection code works in your system. A good
      * test is to browse a table, then edit a row and save it.  There will be
      * an error message if phpMyAdmin cannot auto-detect the correct value.
-     *
      */
     public string $PmaAbsoluteUri;
 
     /**
      * Configure authentication logging destination
-     *
      */
     public string $AuthLog;
 
     /**
      * Whether to log successful authentication attempts
-     *
      */
     public bool $AuthLogSuccess;
 
     /**
      * Disable the default warning that is displayed on the DB Details Structure page if
      * any of the required Tables for the configuration storage could not be found
-     *
      */
     public bool $PmaNoRelation_DisableWarning;
 
     /**
      * Disable the default warning that is displayed if Suhosin is detected
-     *
      */
     public bool $SuhosinDisableWarning;
 
     /**
      * Disable the default warning that is displayed if session.gc_maxlifetime
      * is less than `LoginCookieValidity`
-     *
      */
     public bool $LoginCookieValidityDisableWarning;
 
     /**
      * Disable the default warning about MySQL reserved words in column names
-     *
      */
     public bool $ReservedWordDisableWarning;
 
     /**
      * Show warning about incomplete translations on certain threshold.
-     *
      */
     public int $TranslationWarningThreshold;
 
@@ -110,7 +102,6 @@ final class Settings
      * The 'cookie' auth_type uses the Sodium extension to encrypt the cookies. If at least one server configuration
      * uses 'cookie' auth_type, enter here a generated string of random bytes to be used as an encryption key. The
      * encryption key must be 32 bytes long.
-     *
      */
     public string $blowfish_secret;
 
@@ -143,7 +134,6 @@ final class Settings
 
     /**
      * whether version check is active
-     *
      */
     public bool $VersionCheck;
 
@@ -153,7 +143,6 @@ final class Settings
      * the server where phpMyAdmin is installed does not have direct access to
      * the internet.
      * The format is: "hostname:portnumber"
-     *
      */
     public string $ProxyUrl;
 
@@ -162,13 +151,11 @@ final class Settings
      * authentication is performed. If a username is supplied, Basic
      * Authentication will be performed. No other types of authentication
      * are currently supported.
-     *
      */
     public string $ProxyUser;
 
     /**
      * The password for authenticating with the proxy.
-     *
      */
     public string $ProxyPass;
 
@@ -188,7 +175,6 @@ final class Settings
 
     /**
      * whether to show hint or not
-     *
      */
     public bool $ShowHint;
 
@@ -208,7 +194,6 @@ final class Settings
 
     /**
      * use persistent connections to MySQL database
-     *
      */
     public bool $PersistentConnections;
 
@@ -221,7 +206,6 @@ final class Settings
 
     /**
      * Path for storing session data (session_save_path PHP parameter).
-     *
      */
     public string $SessionSavePath;
 
@@ -236,49 +220,41 @@ final class Settings
      * maximum allocated bytes ('-1' for no limit, '0' for no change)
      * this is a string because '16M' is a valid value; we must put here
      * a string as the default value so that /setup accepts strings
-     *
      */
     public string $MemoryLimit;
 
     /**
      * mark used tables, make possible to show locked tables (since MySQL 3.23.30)
-     *
      */
     public bool $SkipLockedTables;
 
     /**
      * show SQL queries as run
-     *
      */
     public bool $ShowSQL;
 
     /**
      * retain SQL input on Ajax execute
-     *
      */
     public bool $RetainQueryBox;
 
     /**
      * use CodeMirror syntax highlighting for editing SQL
-     *
      */
     public bool $CodemirrorEnable;
 
     /**
      * use the parser to find any errors in the query before executing
-     *
      */
     public bool $LintEnable;
 
     /**
      * show a 'Drop database' link to normal users
-     *
      */
     public bool $AllowUserDropDatabase;
 
     /**
      * confirm some commands that can result in loss of data
-     *
      */
     public bool $Confirm;
 
@@ -291,7 +267,6 @@ final class Settings
 
     /**
      * recall previous login in cookie authentication mode or not
-     *
      */
     public bool $LoginCookieRecall;
 
@@ -312,45 +287,38 @@ final class Settings
 
     /**
      * whether to delete all login cookies on logout
-     *
      */
     public bool $LoginCookieDeleteAll;
 
     /**
      * whether to enable the "database search" feature or not
-     *
      */
     public bool $UseDbSearch;
 
     /**
      * if set to true, PMA continues computing multiple-statement queries
      * even if one of the queries failed
-     *
      */
     public bool $IgnoreMultiSubmitErrors;
 
     /**
      * Define whether phpMyAdmin will encrypt sensitive data from the URL query string.
-     *
      */
     public bool $URLQueryEncryption;
 
     /**
      * A secret key used to encrypt/decrypt the URL query string. Should be 32 bytes long.
-     *
      */
     public string $URLQueryEncryptionSecretKey;
 
     /**
      * allow login to any user entered server in cookie based authentication
-     *
      */
     public bool $AllowArbitraryServer;
 
     /**
      * restrict by IP (with regular expression) the MySQL servers the user can enter
      * when $cfg['AllowArbitraryServer'] = true
-     *
      */
     public string $ArbitraryServerRegexp;
 
@@ -363,43 +331,36 @@ final class Settings
 
     /**
      * URL for the reCaptcha v2 compatible API to use
-     *
      */
     public string $CaptchaApi;
 
     /**
      * Content-Security-Policy snippet for the reCaptcha v2 compatible API
-     *
      */
     public string $CaptchaCsp;
 
     /**
      * reCaptcha API's request parameter name
-     *
      */
     public string $CaptchaRequestParam;
 
     /**
      * reCaptcha API's response parameter name
-     *
      */
     public string $CaptchaResponseParam;
 
     /**
      * if reCaptcha is enabled it needs public key to connect with the service
-     *
      */
     public string $CaptchaLoginPublicKey;
 
     /**
      * if reCaptcha is enabled it needs private key to connect with the service
-     *
      */
     public string $CaptchaLoginPrivateKey;
 
     /**
      * if reCaptcha is enabled may need an URL for site verify
-     *
      */
     public string $CaptchaSiteVerifyURL;
 
@@ -407,13 +368,11 @@ final class Settings
      * Enable drag and drop import
      *
      * @see https://github.com/phpmyadmin/phpmyadmin/issues/13155
-     *
      */
     public bool $enable_drag_drop_import;
 
     /**
      * In the navigation panel, replaces the database tree with a selector
-     *
      */
     public bool $ShowDatabasesNavigationAsTree;
 
@@ -433,13 +392,11 @@ final class Settings
 
     /**
      * turn the select-based light menu into a tree
-     *
      */
     public bool $NavigationTreeEnableGrouping;
 
     /**
      * the separator to sub-tree the select-based light menu tree
-     *
      */
     public string $NavigationTreeDbSeparator;
 
@@ -461,19 +418,16 @@ final class Settings
 
     /**
      * link with main panel by highlighting the current db/table
-     *
      */
     public bool $NavigationLinkWithMainPanel;
 
     /**
      * display logo at top of navigation panel
-     *
      */
     public bool $NavigationDisplayLogo;
 
     /**
      * where should logo link point to (can also contain an external URL)
-     *
      */
     public string $NavigationLogoLink;
 
@@ -509,13 +463,11 @@ final class Settings
 
     /**
      * display server choice at top of navigation panel
-     *
      */
     public bool $NavigationDisplayServers;
 
     /**
      * server choice as links
-     *
      */
     public bool $DisplayServersList;
 
@@ -558,37 +510,31 @@ final class Settings
 
     /**
      * Enables the possibility of navigation tree expansion
-     *
      */
     public bool $NavigationTreeEnableExpansion;
 
     /**
      * Show tables in navigation panel
-     *
      */
     public bool $NavigationTreeShowTables;
 
     /**
      * Show views in navigation panel
-     *
      */
     public bool $NavigationTreeShowViews;
 
     /**
      * Show functions in navigation panel
-     *
      */
     public bool $NavigationTreeShowFunctions;
 
     /**
      * Show procedures in navigation panel
-     *
      */
     public bool $NavigationTreeShowProcedures;
 
     /**
      * Show events in navigation panel
-     *
      */
     public bool $NavigationTreeShowEvents;
 
@@ -601,80 +547,67 @@ final class Settings
 
     /**
      * Automatically expands single database in navigation panel
-     *
      */
     public bool $NavigationTreeAutoexpandSingleDb;
 
     /**
      * allow to display statistics and space usage in the pages about database
      * details and table properties
-     *
      */
     public bool $ShowStats;
 
     /**
      * show PHP info link
-     *
      */
     public bool $ShowPhpInfo;
 
     /**
      * show MySQL server and web server information
-     *
      */
     public bool $ShowServerInfo;
 
     /**
      * show change password link
-     *
      */
     public bool $ShowChgPassword;
 
     /**
      * show create database form
-     *
      */
     public bool $ShowCreateDb;
 
     /**
      * show charset column in database structure (true|false)?
-     *
      */
     public bool $ShowDbStructureCharset;
 
     /**
      * show comment column in database structure (true|false)?
-     *
      */
     public bool $ShowDbStructureComment;
 
     /**
      * show creation timestamp column in database structure (true|false)?
-     *
      */
     public bool $ShowDbStructureCreation;
 
     /**
      * show last update timestamp column in database structure (true|false)?
-     *
      */
     public bool $ShowDbStructureLastUpdate;
 
     /**
      * show last check timestamp column in database structure (true|false)?
-     *
      */
     public bool $ShowDbStructureLastCheck;
 
     /**
      * allow hide action columns to drop down menu in database structure (true|false)?
-     *
      */
     public bool $HideStructureActions;
 
     /**
      * Show column comments in table structure view (true|false)?
-     *
      */
     public bool $ShowColumnComments;
 
@@ -689,7 +622,6 @@ final class Settings
     /**
      * Defines whether a user should be displayed a "show all (records)"
      * button in browse mode or not.
-     *
      */
     public bool $ShowAll;
 
@@ -713,7 +645,6 @@ final class Settings
 
     /**
      * grid editing: save edited cell(s) in browse-mode at once
-     *
      */
     public bool $SaveCellsAtOnce;
 
@@ -754,13 +685,11 @@ final class Settings
 
     /**
      * Display the function fields in edit/insert mode
-     *
      */
     public bool $ShowFunctionFields;
 
     /**
      * Display the type fields in edit/insert mode
-     *
      */
     public bool $ShowFieldTypesInDataEditView;
 
@@ -819,26 +748,22 @@ final class Settings
 
     /**
      * Allow for the use of zip compression (requires zip support to be enabled)
-     *
      */
     public bool $ZipDump;
 
     /**
      * Allow for the use of gzip compression (requires zlib)
-     *
      */
     public bool $GZipDump;
 
     /**
      * Allow for the use of bzip2 decompression (requires bz2 extension)
-     *
      */
     public bool $BZipDump;
 
     /**
      * Will compress gzip exports on the fly without the need for much memory.
      * If you encounter problems with created gzip files disable this feature.
-     *
      */
     public bool $CompressOnFly;
 
@@ -920,26 +845,22 @@ final class Settings
 
     /**
      * Default language to use, if not browser-defined or user-defined
-     *
      */
     public string $DefaultLang;
 
     /**
      * Default connection collation
-     *
      */
     public string $DefaultConnectionCollation;
 
     /**
      * Force: always use this language, e.g. 'en'
-     *
      */
     public string $Lang;
 
     /**
      * Regular expression to limit listed languages, e.g. '^(cs|en)' for Czech and
      * English only
-     *
      */
     public string $FilterLanguages;
 
@@ -960,7 +881,6 @@ final class Settings
      * Specify some parameters for iconv used in character set conversion. See iconv
      * documentation for details:
      * https://www.gnu.org/savannah-checkouts/gnu/libiconv/documentation/libiconv-1.15/iconv_open.3.html
-     *
      */
     public string $IconvExtraParams;
 
@@ -976,19 +896,16 @@ final class Settings
 
     /**
      * enable the left panel pointer
-     *
      */
     public bool $NavigationTreePointerEnable;
 
     /**
      * enable the browse pointer
-     *
      */
     public bool $BrowsePointerEnable;
 
     /**
      * enable the browse marker
-     *
      */
     public bool $BrowseMarkerEnable;
 
@@ -1010,13 +927,11 @@ final class Settings
 
     /**
      * double size of textarea size for LONGTEXT columns
-     *
      */
     public bool $LongtextDoubleTextarea;
 
     /**
      * auto-select when clicking in the textarea of the query-box
-     *
      */
     public bool $TextareaAutoSelect;
 
@@ -1052,7 +967,6 @@ final class Settings
     /**
      * Whether to show row links (Edit, Copy, Delete) and checkboxes for
      * multiple row operations even when the selection does not have a unique key.
-     *
      */
     public bool $RowActionLinksWithoutUnique;
 
@@ -1065,19 +979,16 @@ final class Settings
 
     /**
      * remember the last way a table sorted
-     *
      */
     public bool $RememberSorting;
 
     /**
      * shows column comments in 'browse' mode.
-     *
      */
     public bool $ShowBrowseComments;
 
     /**
      * shows column comments in 'table property' mode.
-     *
      */
     public bool $ShowPropertyComments;
 
@@ -1091,7 +1002,6 @@ final class Settings
     /**
      * Set to true if you want DB-based query history.If false, this utilizes
      * JS-routines to display query history (lost by window close)
-     *
      */
     public bool $QueryHistoryDB;
 
@@ -1104,7 +1014,6 @@ final class Settings
 
     /**
      * Use MIME-Types (stored in column comments table) for
-     *
      */
     public bool $BrowseMIME;
 
@@ -1124,7 +1033,6 @@ final class Settings
 
     /**
      * Sort table and database in natural order
-     *
      */
     public bool $NaturalOrder;
 
@@ -1146,76 +1054,64 @@ final class Settings
 
     /**
      * User preferences: enable the Developer tab
-     *
      */
     public bool $UserprefsDeveloperTab;
 
     /**
      * title of browser window when a table is selected
-     *
      */
     public string $TitleTable;
 
     /**
      * title of browser window when a database is selected
-     *
      */
     public string $TitleDatabase;
 
     /**
      * title of browser window when a server is selected
-     *
      */
     public string $TitleServer;
 
     /**
      * title of browser window when nothing is selected
-     *
      */
     public string $TitleDefault;
 
     /**
      * if you want to use selectable themes and if ThemesPath not empty
      * set it to true, else set it to false (default is false);
-     *
      */
     public bool $ThemeManager;
 
     /**
      * set up default theme, you can set up here an valid
      * path to themes or 'original' for the original pma-theme
-     *
      */
     public string $ThemeDefault;
 
     /**
      * allow different theme for each configured server
-     *
      */
     public bool $ThemePerServer;
 
     /**
      * Default query for table
-     *
      */
     public string $DefaultQueryTable;
 
     /**
      * Default query for database
-     *
      */
     public string $DefaultQueryDatabase;
 
     /**
      * SQL Query box settings
      * These are the links display in all of the SQL Query boxes
-     *
      */
     public SqlQueryBox $SQLQuery;
 
     /**
      * Enables autoComplete for table & column names in SQL queries
-     *
      */
     public bool $EnableAutocompleteForTablesAndColumns;
 
@@ -1223,7 +1119,6 @@ final class Settings
      * Directory for uploaded files that can be executed by phpMyAdmin.
      * For example './upload'. Leave empty for no upload directory support.
      * Use %u for username inclusion.
-     *
      */
     public string $UploadDir;
 
@@ -1231,13 +1126,11 @@ final class Settings
      * Directory where phpMyAdmin can save exported data on server.
      * For example './save'. Leave empty for no save directory support.
      * Use %u for username inclusion.
-     *
      */
     public string $SaveDir;
 
     /**
      * Directory where phpMyAdmin can save temporary files.
-     *
      */
     public string $TempDir;
 
@@ -1262,7 +1155,6 @@ final class Settings
      * a NTFS filesystem mounted on a non-Windows server, in which case the
      * permissions seems wrong but in fact cannot be detected. In this case
      * a sysadmin would set the following to false.
-     *
      */
     public bool $CheckConfigurationPermissions;
 
@@ -1280,7 +1172,6 @@ final class Settings
 
     /**
      * Additional string to allow in CSP headers.
-     *
      */
     public string $CSPAllow;
 
@@ -1288,7 +1179,6 @@ final class Settings
      * Disable the table maintenance mass operations, like optimizing or
      * repairing the selected tables of a database. An accidental execution
      * of such a maintenance task can enormously slow down a bigger database.
-     *
      */
     public bool $DisableMultiTableMaintenance;
 
@@ -1305,19 +1195,16 @@ final class Settings
 
     /**
      * Whether Enter or Ctrl+Enter executes queries in the console.
-     *
      */
     public bool $ConsoleEnterExecutes;
 
     /**
      * Zero Configuration mode.
-     *
      */
     public bool $ZeroConf;
 
     /**
      * Developers ONLY!
-     *
      */
     public Debug $DBG;
 
@@ -1349,7 +1236,6 @@ final class Settings
 
     /**
      * Show Git revision if applicable
-     *
      */
     public bool $ShowGitRevision;
 
@@ -1363,7 +1249,6 @@ final class Settings
 
     /**
      * Disable shortcuts
-     *
      */
     public bool $DisableShortcutKeys;
 
@@ -1371,13 +1256,11 @@ final class Settings
      * Console configuration
      *
      * This is mostly meant for user preferences.
-     *
      */
     public Console $Console;
 
     /**
      * Initialize default transformations array
-     *
      */
     public Transformations $DefaultTransformations;
 

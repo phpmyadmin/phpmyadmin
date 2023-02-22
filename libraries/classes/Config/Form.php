@@ -33,15 +33,13 @@ class Form
 {
     /**
      * Form name
-     *
      */
     public string $name;
 
     /**
      * Arbitrary index, doesn't affect class' behavior
-     *
      */
-    public int $index;
+    public int|null $index;
 
     /**
      * Form fields (paths), filled by {@link readFormPaths()}, indexed by field name
@@ -71,7 +69,6 @@ class Form
 
     /**
      * A counter for the number of groups
-     *
      */
     private static int $groupCounter = 0;
 
@@ -81,7 +78,7 @@ class Form
      * @param string     $formName Form name
      * @param array      $form     Form data
      * @param ConfigFile $cf       Config file instance
-     * @param int        $index    arbitrary index, stored in Form::$index
+     * @param int|null   $index    arbitrary index, stored in Form::$index
      */
     public function __construct(
         $formName,

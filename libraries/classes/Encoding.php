@@ -49,7 +49,6 @@ class Encoding
 
     /**
      * Chosen encoding engine
-     *
      */
     private static int|null $engine = null;
 
@@ -100,7 +99,6 @@ class Encoding
 
     /**
      * Kanji encodings list
-     *
      */
     private static string $kanjiEncodings = 'ASCII,SJIS,EUC-JP,JIS';
 

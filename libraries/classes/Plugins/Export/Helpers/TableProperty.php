@@ -22,37 +22,31 @@ class TableProperty
 {
     /**
      * Name
-     *
      */
     public string $name;
 
     /**
      * Type
-     *
      */
     public string $type;
 
     /**
      * Whether the key is nullable or not
-     *
      */
     public string $nullable;
 
     /**
      * The key
-     *
      */
     public string $key;
 
     /**
      * Default value
-     *
      */
     public mixed $defaultValue;
 
     /**
      * Extension
-     *
      */
     public string $ext;
 

@@ -15,13 +15,11 @@ abstract class IOTransformationsPlugin extends TransformationsPlugin
 {
     /**
      * Specifies whether transformation was successful or not.
-     *
      */
     protected bool $success = true;
 
     /**
      * To store the error message in case of failed transformations.
-     *
      */
     protected string $error = '';
 

@@ -28,13 +28,10 @@ final class Warning implements Stringable
      */
     public int $code;
 
-    public string $message;
-
-    private function __construct(string $level, int $code, string $message)
+    private function __construct(string $level, int $code, public string $message)
     {
         $this->level = in_array($level, ['Note', 'Warning', 'Error'], true) ? $level : '?';
         $this->code = $code >= 1 ? $code : 0;
-        $this->message = $message;
     }
 
     /** @param mixed[] $row */

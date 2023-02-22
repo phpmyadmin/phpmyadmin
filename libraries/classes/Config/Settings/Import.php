@@ -18,7 +18,6 @@ final class Import
 
     /**
      * Default charset for import.
-     *
      */
     public string $charset;
 

@@ -10,13 +10,7 @@ use PhpMyAdmin\Dbal\TableName;
 /** @psalm-immutable */
 final class TrackingFeature
 {
-    public DatabaseName $database;
-
-    public TableName $tracking;
-
-    public function __construct(DatabaseName $database, TableName $tracking)
+    public function __construct(public DatabaseName $database, public TableName $tracking)
     {
-        $this->database = $database;
-        $this->tracking = $tracking;
     }
 }

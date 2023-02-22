@@ -23,14 +23,12 @@ class IndexColumn
     /**
      * The number of indexed characters if the column is only partly indexed,
      * NULL if the entire column is indexed.
-     *
      */
     private int|null $subPart = null;
 
     /**
      * Contains YES if the column may contain NULL.
      * If not, the column contains NO.
-     *
      */
     private string $null = '';
 
@@ -45,7 +43,6 @@ class IndexColumn
 
     /**
      * If the Index uses an expression and not a name
-     *
      */
     private string|null $expression = null;
 

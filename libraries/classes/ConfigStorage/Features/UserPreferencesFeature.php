@@ -10,13 +10,7 @@ use PhpMyAdmin\Dbal\TableName;
 /** @psalm-immutable */
 final class UserPreferencesFeature
 {
-    public DatabaseName $database;
-
-    public TableName $userConfig;
-
-    public function __construct(DatabaseName $database, TableName $userConfig)
+    public function __construct(public DatabaseName $database, public TableName $userConfig)
     {
-        $this->database = $database;
-        $this->userConfig = $userConfig;
     }
 }

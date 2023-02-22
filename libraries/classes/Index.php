@@ -46,26 +46,22 @@ class Index
 
     /**
      * The index method used (BTREE, HASH, RTREE).
-     *
      */
     private string $type = '';
 
     /**
      * The index choice (PRIMARY, UNIQUE, INDEX, SPATIAL, FULLTEXT)
-     *
      */
     private string $choice = '';
 
     /**
      * Various remarks.
-     *
      */
     private string $remarks = '';
 
     /**
      * Any comment provided for the index with a COMMENT attribute when the
      * index was created.
-     *
      */
     private string $comment = '';
 
@@ -74,19 +70,16 @@ class Index
 
     /**
      * Indicates how the key is packed. NULL if it is not.
-     *
      */
     private string|null $packed = null;
 
     /**
      * Block size for the index
-     *
      */
     private int $keyBlockSize = 0;
 
     /**
      * Parser option for the index
-     *
      */
     private string $parser = '';
 

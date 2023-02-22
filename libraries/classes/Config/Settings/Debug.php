@@ -9,25 +9,21 @@ final class Debug
 {
     /**
      * Output executed queries and their execution times.
-     *
      */
     public bool $sql;
 
     /**
      * Log executed queries and their execution times to syslog.
-     *
      */
     public bool $sqllog;
 
     /**
      * Enable to let server present itself as demo server.
-     *
      */
     public bool $demo;
 
     /**
      * Enable Simple two-factor authentication.
-     *
      */
     public bool $simple2fa;
 

@@ -57,7 +57,6 @@ class Charsets
 
     /**
      * The charset for the server
-     *
      */
     private static Charset|null $serverCharset = null;
 

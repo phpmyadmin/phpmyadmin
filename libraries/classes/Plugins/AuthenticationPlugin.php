@@ -40,13 +40,11 @@ abstract class AuthenticationPlugin
 {
     /**
      * Username
-     *
      */
     public string $user = '';
 
     /**
      * Password
-     *
      */
     public string $password = '';
 

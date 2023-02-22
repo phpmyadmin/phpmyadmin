@@ -36,7 +36,6 @@ class ExportXml extends ExportPlugin
 {
     /**
      * Table name
-     *
      */
     private string $table = '';
     /**

@@ -100,13 +100,11 @@ class Error extends Message
 
     /**
      * The file in which the error occurred
-     *
      */
     protected string $file = '';
 
     /**
      * The line in which the error occurred
-     *
      */
     protected int $line = 0;
 
@@ -117,7 +115,6 @@ class Error extends Message
 
     /**
      * Hide location of errors
-     *
      */
     protected bool $hideLocation = false;
 

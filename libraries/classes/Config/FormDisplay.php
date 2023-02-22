@@ -84,14 +84,11 @@ class FormDisplay
 
     /**
      * Tells whether forms have been validated
-     *
      */
     private bool $isValidated = true;
 
     /**
      * Dictionary with user preferences keys
-     *
-     * @var array|null
      */
     private array|null $userprefsKeys = null;
 

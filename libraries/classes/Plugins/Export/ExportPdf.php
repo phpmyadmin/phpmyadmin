@@ -23,13 +23,11 @@ class ExportPdf extends ExportPlugin
 {
     /**
      * PhpMyAdmin\Plugins\Export\Helpers\Pdf instance
-     *
      */
     private Pdf $pdf;
 
     /**
      * PDF Report Title
-     *
      */
     private string $pdfReportTitle = '';
 

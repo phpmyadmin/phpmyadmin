@@ -11,40 +11,16 @@ final class DisplayParts
     public const DELETE_ROW = 1;
     public const KILL_PROCESS = 2;
 
-    public bool $hasEditLink;
-
-    /**
-     * @psalm-var self::NO_DELETE|self::DELETE_ROW|self::KILL_PROCESS
-     */
-    public int $deleteLink;
-
-    public bool $hasSortLink;
-
-    public bool $hasNavigationBar;
-
-    public bool $hasBookmarkForm;
-
-    public bool $hasTextButton;
-
-    public bool $hasPrintLink;
-
     /** @psalm-param self::NO_DELETE|self::DELETE_ROW|self::KILL_PROCESS $deleteLink */
     private function __construct(
-        bool $hasEditLink,
-        int $deleteLink,
-        bool $hasSortLink,
-        bool $hasNavigationBar,
-        bool $hasBookmarkForm,
-        bool $hasTextButton,
-        bool $hasPrintLink,
+        public bool $hasEditLink,
+        public int $deleteLink,
+        public bool $hasSortLink,
+        public bool $hasNavigationBar,
+        public bool $hasBookmarkForm,
+        public bool $hasTextButton,
+        public bool $hasPrintLink,
     ) {
-        $this->hasEditLink = $hasEditLink;
-        $this->deleteLink = $deleteLink;
-        $this->hasSortLink = $hasSortLink;
-        $this->hasNavigationBar = $hasNavigationBar;
-        $this->hasBookmarkForm = $hasBookmarkForm;
-        $this->hasTextButton = $hasTextButton;
-        $this->hasPrintLink = $hasPrintLink;
     }
 
     /**

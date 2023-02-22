@@ -34,8 +34,6 @@ use const SORT_REGULAR;
  */
 class RecentFavoriteTable
 {
-    public Template $template;
-
     /**
      * Reference to session variable containing recently used or favorite tables.
      *
@@ -62,10 +60,8 @@ class RecentFavoriteTable
      *
      * @param string $type the table type
      */
-    private function __construct(Template $template, string $type)
+    private function __construct(public Template $template, string $type)
     {
-        $this->template = $template;
-
         $this->relation = new Relation($GLOBALS['dbi']);
         $this->tableType = $type;
         $server_id = $GLOBALS['server'];

@@ -47,7 +47,6 @@ class Qbe
 {
     /**
      * Database name
-     *
      */
     private string $db;
     /**
@@ -64,24 +63,18 @@ class Qbe
     private array $columnNames = [];
     /**
      * Number of columns
-     *
      */
     private int $criteriaColumnCount;
     /**
      * Number of Rows
-     *
      */
     private int $criteriaRowCount;
     /**
      * Whether to insert a new column
-     *
-     * @var array|null
      */
     private array|null $criteriaColumnInsert = null;
     /**
      * Whether to delete a column
-     *
-     * @var array|null
      */
     private array|null $criteriaColumnDelete = null;
     /**
@@ -122,12 +115,10 @@ class Qbe
     private array $criteriaAndOrRow;
     /**
      * Large width of a column
-     *
      */
     private string $realwidth;
     /**
      * Minimum width of a column
-     *
      */
     private int $formColumnWidth;
     /**
@@ -180,12 +171,10 @@ class Qbe
     private array $formAndOrRows;
     /**
      * New column count in case of add/delete
-     *
      */
     private int $newColumnCount = 0;
     /**
      * New row count in case of add/delete
-     *
      */
     private int $newRowCount = 0;
     /**
@@ -196,13 +185,8 @@ class Qbe
     private array $savedSearchList = [];
     /**
      * Current search
-     *
      */
     private SavedSearches|null $currentSearch = null;
-
-    private Relation $relation;
-
-    public Template $template;
 
     /**
      * @param DatabaseInterface  $dbi
@@ -211,8 +195,8 @@ class Qbe
      * @param SavedSearches|null $currentSearch   Current search id
      */
     public function __construct(
-        Relation $relation,
-        Template $template,
+        private Relation $relation,
+        public Template $template,
         public $dbi,
         $dbname,
         array $savedSearchList = [],
@@ -221,8 +205,6 @@ class Qbe
         $this->db = $dbname;
         $this->savedSearchList = $savedSearchList;
         $this->currentSearch = $currentSearch;
-        $this->relation = $relation;
-        $this->template = $template;
 
         $this->loadCriterias();
         // Sets criteria parameters

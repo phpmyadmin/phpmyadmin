@@ -10,45 +10,6 @@ use PhpMyAdmin\SqlParser\Statement;
 /** @psalm-immutable */
 class StatementInfo
 {
-    public bool $distinct;
-    public bool $dropDatabase;
-    public bool $group;
-    public bool $having;
-    public bool $isAffected;
-    public bool $isAnalyse;
-    public bool $isCount;
-    public bool $isDelete;
-    public bool $isExplain;
-    public bool $isExport;
-    public bool $isFunction;
-    public bool $isGroup;
-    public bool $isInsert;
-    public bool $isMaint;
-    public bool $isProcedure;
-    public bool $isReplace;
-    public bool $isSelect;
-    public bool $isShow;
-    public bool $isSubquery;
-    public bool $join;
-    public bool $limit;
-    public bool $offset;
-    public bool $order;
-    public bool $reload;
-    public bool $selectFrom;
-    public bool $union;
-    public Parser|null $parser = null;
-    public Statement|null $statement = null;
-    /**
-     * @var array<int, array<int, string|null>>
-     * @psalm-var list<array{string|null, string|null}>
-     */
-    public array $selectTables;
-    /**
-     * @var array<int, string|null>
-     * @psalm-var list<string|null>
-     */
-    public array $selectExpression;
-
     /**
      * @param string|false                        $queryType
      * @param array<int, array<int, string|null>> $selectTables
@@ -57,68 +18,38 @@ class StatementInfo
      * @psalm-param list<string|null> $selectExpression
      */
     private function __construct(
-        bool $distinct,
-        bool $dropDatabase,
-        bool $group,
-        bool $having,
-        bool $isAffected,
-        bool $isAnalyse,
-        bool $isCount,
-        bool $isDelete,
-        bool $isExplain,
-        bool $isExport,
-        bool $isFunction,
-        bool $isGroup,
-        bool $isInsert,
-        bool $isMaint,
-        bool $isProcedure,
-        bool $isReplace,
-        bool $isSelect,
-        bool $isShow,
-        bool $isSubquery,
-        bool $join,
-        bool $limit,
-        bool $offset,
-        bool $order,
+        public bool $distinct,
+        public bool $dropDatabase,
+        public bool $group,
+        public bool $having,
+        public bool $isAffected,
+        public bool $isAnalyse,
+        public bool $isCount,
+        public bool $isDelete,
+        public bool $isExplain,
+        public bool $isExport,
+        public bool $isFunction,
+        public bool $isGroup,
+        public bool $isInsert,
+        public bool $isMaint,
+        public bool $isProcedure,
+        public bool $isReplace,
+        public bool $isSelect,
+        public bool $isShow,
+        public bool $isSubquery,
+        public bool $join,
+        public bool $limit,
+        public bool $offset,
+        public bool $order,
         public $queryType,
-        bool $reload,
-        bool $selectFrom,
-        bool $union,
-        SqlParser\Parser|null $parser,
-        SqlParser\Statement|null $statement,
-        array $selectTables,
-        array $selectExpression,
+        public bool $reload,
+        public bool $selectFrom,
+        public bool $union,
+        public Parser|null $parser,
+        public Statement|null $statement,
+        public array $selectTables,
+        public array $selectExpression,
     ) {
-        $this->distinct = $distinct;
-        $this->dropDatabase = $dropDatabase;
-        $this->group = $group;
-        $this->having = $having;
-        $this->isAffected = $isAffected;
-        $this->isAnalyse = $isAnalyse;
-        $this->isCount = $isCount;
-        $this->isDelete = $isDelete;
-        $this->isExplain = $isExplain;
-        $this->isExport = $isExport;
-        $this->isFunction = $isFunction;
-        $this->isGroup = $isGroup;
-        $this->isInsert = $isInsert;
-        $this->isMaint = $isMaint;
-        $this->isProcedure = $isProcedure;
-        $this->isReplace = $isReplace;
-        $this->isSelect = $isSelect;
-        $this->isShow = $isShow;
-        $this->isSubquery = $isSubquery;
-        $this->join = $join;
-        $this->limit = $limit;
-        $this->offset = $offset;
-        $this->order = $order;
-        $this->reload = $reload;
-        $this->selectFrom = $selectFrom;
-        $this->union = $union;
-        $this->parser = $parser;
-        $this->statement = $statement;
-        $this->selectTables = $selectTables;
-        $this->selectExpression = $selectExpression;
     }
 
     /**

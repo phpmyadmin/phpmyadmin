@@ -40,7 +40,6 @@ class Template
 {
     /**
      * Twig environment
-     *
      */
     protected static Environment|null $twig = null;
 

@@ -43,7 +43,6 @@ class ImportCsv extends AbstractImportCsv
 {
     /**
      * Whether to analyze tables
-     *
      */
     private bool $analyze = false;
 

@@ -34,7 +34,6 @@ class CentralColumns
 {
     /**
      * Current user
-     *
      */
     private string $user;
 
@@ -45,7 +44,6 @@ class CentralColumns
 
     /**
      * Which editor should be used for CHAR/VARCHAR fields
-     *
      */
     private string $charEditing;
 

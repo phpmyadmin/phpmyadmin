@@ -28,7 +28,6 @@ class ErrorReport
 {
     /**
      * The URL where to submit reports to
-     *
      */
     private string $submissionUrl = 'https://reports.phpmyadmin.net/incidents/create';
 

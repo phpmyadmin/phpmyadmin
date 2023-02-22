@@ -31,7 +31,6 @@ class Footer
     private Scripts $scripts;
     /**
      * Whether we are servicing an ajax request.
-     *
      */
     private bool $isAjax = false;
     /**

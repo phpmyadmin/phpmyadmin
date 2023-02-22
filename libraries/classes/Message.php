@@ -72,37 +72,31 @@ class Message implements Stringable
 
     /**
      * The message number
-     *
      */
     protected int $number = self::NOTICE;
 
     /**
      * The locale string identifier
-     *
      */
     protected string $string = '';
 
     /**
      * The formatted message
-     *
      */
     protected string $message = '';
 
     /**
      * Whether the message was already displayed
-     *
      */
     protected bool $isDisplayed = false;
 
     /**
      * Whether to use BB code when displaying.
-     *
      */
     protected bool $useBBCode = true;
 
     /**
      * Unique id
-     *
      */
     protected string|null $hash = null;
 

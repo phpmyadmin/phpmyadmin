@@ -15,55 +15,46 @@ final class Server
 {
     /**
      * MySQL hostname or IP address
-     *
      */
     public string $host;
 
     /**
      * MySQL port - leave blank for default port
-     *
      */
     public string $port;
 
     /**
      * Path to the socket - leave blank for default socket
-     *
      */
     public string $socket;
 
     /**
      * Use SSL for connecting to MySQL server?
-     *
      */
     public bool $ssl;
 
     /**
      * Path to the key file when using SSL for connecting to the MySQL server
-     *
      */
     public string|null $ssl_key = null;
 
     /**
      * Path to the cert file when using SSL for connecting to the MySQL server
-     *
      */
     public string|null $ssl_cert = null;
 
     /**
      * Path to the CA file when using SSL for connecting to the MySQL server
-     *
      */
     public string|null $ssl_ca = null;
 
     /**
      * Directory containing trusted SSL CA certificates in PEM format
-     *
      */
     public string|null $ssl_ca_path = null;
 
     /**
      * List of allowable ciphers for SSL connections to the MySQL server
-     *
      */
     public string|null $ssl_ciphers = null;
 
@@ -74,13 +65,11 @@ final class Server
      * will disable the check and allow the connection (PHP 5.6.16 or later)
      *
      * @link https://bugs.php.net/68344
-     *
      */
     public bool $ssl_verify;
 
     /**
      * Use compressed protocol for the MySQL connection
-     *
      */
     public bool $compress;
 
@@ -88,7 +77,6 @@ final class Server
      * MySQL control host. This permits to use a host different than the
      * main host, for the phpMyAdmin configuration storage. If left empty,
      * $cfg['Servers'][$i]['host'] is used instead.
-     *
      */
     public string $controlhost;
 
@@ -96,7 +84,6 @@ final class Server
      * MySQL control port. This permits to use a port different than the
      * main port, for the phpMyAdmin configuration storage. If left empty,
      * $cfg['Servers'][$i]['port'] is used instead.
-     *
      */
     public string $controlport;
 
@@ -104,7 +91,6 @@ final class Server
      * MySQL control user settings (this user must have read-only
      * access to the "mysql/user" and "mysql/db" tables). The controluser is also
      * used for all relational features (pmadb)
-     *
      */
     public string $controluser;
 
@@ -112,7 +98,6 @@ final class Server
      * MySQL control user settings (this user must have read-only
      * access to the "mysql/user" and "mysql/db" tables). The controluser is also
      * used for all relational features (pmadb)
-     *
      */
     public string $controlpass;
 
@@ -125,25 +110,21 @@ final class Server
 
     /**
      * HTTP Basic Auth Realm name to display (only used with 'HTTP' auth_type)
-     *
      */
     public string $auth_http_realm;
 
     /**
      * MySQL user
-     *
      */
     public string $user;
 
     /**
      * MySQL password (only needed with 'config' auth_type)
-     *
      */
     public string $password;
 
     /**
      * Session to use for 'signon' authentication method
-     *
      */
     public string $SignonSession;
 
@@ -160,19 +141,16 @@ final class Server
 
     /**
      * PHP script to use for 'signon' authentication method
-     *
      */
     public string $SignonScript;
 
     /**
      * URL where to redirect user to login for 'signon' authentication method
-     *
      */
     public string $SignonURL;
 
     /**
      * URL where to redirect user after logout
-     *
      */
     public string $LogoutURL;
 
@@ -186,14 +164,12 @@ final class Server
 
     /**
      * Database name to be hidden from listings
-     *
      */
     public string $hide_db;
 
     /**
      * Verbose name for this host - leave blank to show the hostname
      * (for HTTP authentication, all non-US-ASCII characters will be stripped)
-     *
      */
     public string $verbose;
 
@@ -202,7 +178,6 @@ final class Server
      * (see sql/create_tables.sql)
      *   - leave blank for no support
      *     SUGGESTED: 'phpmyadmin'
-     *
      */
     public string $pmadb;
 
@@ -210,7 +185,6 @@ final class Server
      * Bookmark table
      *   - leave blank for no bookmark support
      *     SUGGESTED: 'pma__bookmark'
-     *
      */
     public string|false $bookmarktable;
 
@@ -218,7 +192,6 @@ final class Server
      * table to describe the relation between links (see doc)
      *   - leave blank for no relation-links support
      *     SUGGESTED: 'pma__relation'
-     *
      */
     public string|false $relation;
 
@@ -226,7 +199,6 @@ final class Server
      * table to describe the display fields
      *   - leave blank for no display fields support
      *     SUGGESTED: 'pma__table_info'
-     *
      */
     public string|false $table_info;
 
@@ -234,7 +206,6 @@ final class Server
      * table to describe the tables position for the designer and PDF schema
      *   - leave blank for no PDF schema support
      *     SUGGESTED: 'pma__table_coords'
-     *
      */
     public string|false $table_coords;
 
@@ -242,7 +213,6 @@ final class Server
      * table to describe pages of relationpdf
      *   - leave blank if you don't want to use this
      *     SUGGESTED: 'pma__pdf_pages'
-     *
      */
     public string|false $pdf_pages;
 
@@ -250,7 +220,6 @@ final class Server
      * table to store column information
      *   - leave blank for no column comments/mime types
      *     SUGGESTED: 'pma__column_info'
-     *
      */
     public string|false $column_info;
 
@@ -258,7 +227,6 @@ final class Server
      * table to store SQL history
      *   - leave blank for no SQL query history
      *     SUGGESTED: 'pma__history'
-     *
      */
     public string|false $history;
 
@@ -266,7 +234,6 @@ final class Server
      * table to store recently used tables
      *   - leave blank for no "persistent" recently used tables
      *     SUGGESTED: 'pma__recent'
-     *
      */
     public string|false $recent;
 
@@ -274,7 +241,6 @@ final class Server
      * table to store favorite tables
      *   - leave blank for no favorite tables
      *     SUGGESTED: 'pma__favorite'
-     *
      */
     public string|false $favorite;
 
@@ -282,7 +248,6 @@ final class Server
      * table to store UI preferences for tables
      *   - leave blank for no "persistent" UI preferences
      *     SUGGESTED: 'pma__table_uiprefs'
-     *
      */
     public string|false $table_uiprefs;
 
@@ -290,7 +255,6 @@ final class Server
      * table to store SQL tracking
      *   - leave blank for no SQL tracking
      *     SUGGESTED: 'pma__tracking'
-     *
      */
     public string|false $tracking;
 
@@ -298,7 +262,6 @@ final class Server
      * table to store user preferences
      *   - leave blank to disable server storage
      *     SUGGESTED: 'pma__userconfig'
-     *
      */
     public string|false $userconfig;
 
@@ -306,7 +269,6 @@ final class Server
      * table to store users and their assignment to user groups
      *   - leave blank to disable configurable menus feature
      *     SUGGESTED: 'pma__users'
-     *
      */
     public string|false $users;
 
@@ -314,7 +276,6 @@ final class Server
      * table to store allowed menu items for each user group
      *   - leave blank to disable configurable menus feature
      *     SUGGESTED: 'pma__usergroups'
-     *
      */
     public string|false $usergroups;
 
@@ -322,7 +283,6 @@ final class Server
      * table to store information about item hidden from navigation tree
      *   - leave blank to disable hide/show navigation items feature
      *     SUGGESTED: 'pma__navigationhiding'
-     *
      */
     public string|false $navigationhiding;
 
@@ -330,7 +290,6 @@ final class Server
      * table to store information about saved searches from query-by-example on a db
      *   - leave blank to disable saved searches feature
      *     SUGGESTED: 'pma__savedsearches'
-     *
      */
     public string|false $savedsearches;
 
@@ -338,7 +297,6 @@ final class Server
      * table to store central list of columns per database
      *   - leave blank to disable central list of columns feature
      *     SUGGESTED: 'pma__central_columns'
-     *
      */
     public string|false $central_columns;
 
@@ -346,7 +304,6 @@ final class Server
      * table to store designer settings
      *   - leave blank to disable the storage of designer settings
      *     SUGGESTED: 'pma__designer_settings'
-     *
      */
     public string|false $designer_settings;
 
@@ -354,7 +311,6 @@ final class Server
      * table to store export templates
      *   - leave blank to disable saved searches feature
      *     SUGGESTED: 'pma__export_templates'
-     *
      */
     public string|false $export_templates;
 
@@ -374,19 +330,16 @@ final class Server
     /**
      * Sets the time zone used by phpMyAdmin. Possible values are explained at
      * https://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html
-     *
      */
     public string $SessionTimeZone;
 
     /**
      * whether to allow root login
-     *
      */
     public bool $AllowRoot;
 
     /**
      * whether to allow login of any user without a password
-     *
      */
     public bool $AllowNoPassword;
 
@@ -406,48 +359,41 @@ final class Server
      *
      * @see https://github.com/phpmyadmin/phpmyadmin/issues/8970
      * @see https://bugs.mysql.com/19588
-     *
      */
     public bool $DisableIS;
 
     /**
      * Whether the tracking mechanism creates
      * versions for tables and views automatically.
-     *
      */
     public bool $tracking_version_auto_create;
 
     /**
      * Defines the list of statements
      * the auto-creation uses for new versions.
-     *
      */
     public string $tracking_default_statements;
 
     /**
      * Whether a DROP VIEW IF EXISTS statement will be added
      * as first line to the log when creating a view.
-     *
      */
     public bool $tracking_add_drop_view;
 
     /**
      * Whether a DROP TABLE IF EXISTS statement will be added
      * as first line to the log when creating a table.
-     *
      */
     public bool $tracking_add_drop_table;
 
     /**
      * Whether a DROP DATABASE IF EXISTS statement will be added
      * as first line to the log when creating a database.
-     *
      */
     public bool $tracking_add_drop_database;
 
     /**
      * Whether to show or hide detailed MySQL/MariaDB connection errors on the login page.
-     *
      */
     public bool $hide_connection_errors;
 

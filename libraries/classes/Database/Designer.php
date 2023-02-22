@@ -26,11 +26,8 @@ use function str_contains;
  */
 class Designer
 {
-    public Template $template;
-
-    public function __construct(private DatabaseInterface $dbi, private Relation $relation, Template $template)
+    public function __construct(private DatabaseInterface $dbi, private Relation $relation, public Template $template)
     {
-        $this->template = $template;
     }
 
     /**

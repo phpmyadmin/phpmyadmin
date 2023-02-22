@@ -48,7 +48,6 @@ class ErrorHandler
 
     /**
      * Hide location of errors
-     *
      */
     protected bool $hideLocation = false;
 

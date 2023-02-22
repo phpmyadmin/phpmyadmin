@@ -68,10 +68,10 @@ class Node
      */
     public array $children = [];
     /**
-     * @var Mixed A string used to group nodes, or an array of strings
+     * @var mixed A string used to group nodes, or an array of strings
      *            Only relevant if the node is of type CONTAINER
      */
-    public Mixed $separator = '';
+    public mixed $separator = '';
     /**
      * @var int How many time to recursively apply the grouping function
      *          Only relevant if the node is of type CONTAINER

@@ -141,25 +141,21 @@ final class FieldMetadata
 
     /**
      * The column name
-     *
      */
     public string $name;
 
     /**
      * The original column name if an alias did exist
-     *
      */
     public string $orgname;
 
     /**
      * The table name
-     *
      */
     public string $table;
 
     /**
      * The original table name
-     *
      */
     public string $orgtable;
 
@@ -186,7 +182,6 @@ final class FieldMetadata
 
     /**
      * A field only used by the Results class
-     *
      */
     public string $internalMediaType;
 

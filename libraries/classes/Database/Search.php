@@ -26,7 +26,6 @@ class Search
 {
     /**
      * Database name
-     *
      */
     private string $db;
 
@@ -44,19 +43,16 @@ class Search
 
     /**
      * Already set search type
-     *
      */
     private int $criteriaSearchType;
 
     /**
      * Already set search type's description
-     *
      */
     private string $searchTypeDescription = '';
 
     /**
      * Search string/regexp
-     *
      */
     private string $criteriaSearchString;
 
@@ -69,14 +65,11 @@ class Search
 
     /**
      * Restrict the search to this column
-     *
      */
     private string $criteriaColumnName;
 
-    public Template $template;
-
     /** @param string $db Database name */
-    public function __construct(private DatabaseInterface $dbi, $db, Template $template)
+    public function __construct(private DatabaseInterface $dbi, $db, public Template $template)
     {
         $this->db = $db;
         $this->searchTypes = [
@@ -86,7 +79,6 @@ class Search
             '4' => __('the exact phrase as whole field'),
             '5' => __('as regular expression'),
         ];
-        $this->template = $template;
         // Sets criteria parameters
         $this->setSearchParams();
     }

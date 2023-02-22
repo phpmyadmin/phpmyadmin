@@ -55,7 +55,6 @@ class Git
 
     /**
      * Git has been found and the data fetched
-     *
      */
     private bool $hasGit = false;
 

@@ -50,7 +50,6 @@ class ResponseRenderer
     protected Footer $footer;
     /**
      * Whether we are servicing an ajax request.
-     *
      */
     protected bool $isAjax = false;
     /**

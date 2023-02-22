@@ -10,13 +10,7 @@ use PhpMyAdmin\Dbal\TableName;
 /** @psalm-immutable */
 final class ExportTemplatesFeature
 {
-    public DatabaseName $database;
-
-    public TableName $exportTemplates;
-
-    public function __construct(DatabaseName $database, TableName $exportTemplates)
+    public function __construct(public DatabaseName $database, public TableName $exportTemplates)
     {
-        $this->database = $database;
-        $this->exportTemplates = $exportTemplates;
     }
 }

@@ -23,7 +23,6 @@ class NodeDatabase extends Node
 {
     /**
      * The number of hidden items in this database
-     *
      */
     protected int $hiddenCount = 0;
 
