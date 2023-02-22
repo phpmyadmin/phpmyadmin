@@ -173,6 +173,13 @@ EOT;
 
         $zipExtension = new ZipExtension();
 
-        return $zipExtension->createFile($data, $name);
+        $fileContents = $zipExtension->createFile($data, $name);
+
+        if ($fileContents === false) {
+            // TODO: this needs to gracefully fail instead of returning false or empty string
+            return '';
+        }
+
+        return $fileContents;
     }
 }
