@@ -189,15 +189,14 @@ class ThemeManager
      */
     public function setThemeCookie(): bool
     {
-        $themeId = (string) $this->theme->id;
         $GLOBALS['config']->setCookie(
             $this->getThemeCookieName(),
-            $themeId,
+            $this->theme->id,
             $this->themeDefault,
         );
         // force a change of a dummy session variable to avoid problems
         // with the caching of phpmyadmin.css.php
-        $GLOBALS['config']->set('theme-update', $themeId);
+        $GLOBALS['config']->set('theme-update', $this->theme->id);
 
         return true;
     }
