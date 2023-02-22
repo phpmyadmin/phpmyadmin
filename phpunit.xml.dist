@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
-    bootstrap="test/bootstrap-dist.php"
-    colors="true"
-    forceCoversAnnotation="true"
-    verbose="true"
-    executionOrder="random"
-    defaultTestSuite="unit"
-    failOnIncomplete="true"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.0/phpunit.xsd"
+  bootstrap="test/bootstrap-dist.php"
+  colors="true"
+  executionOrder="random"
+  defaultTestSuite="unit"
+  failOnIncomplete="true"
+  cacheDirectory="build/.phpunit.cache"
+  requireCoverageMetadata="true"
 >
   <coverage>
     <include>
@@ -28,8 +28,6 @@
     </report>
   </coverage>
   <php>
-    <const name="PHPMYADMIN" value="1"/>
-    <const name="TESTSUITE" value="1"/>
     <env name="LC_ALL" value="C.UTF8" force="true"/>
   </php>
   <testsuites>

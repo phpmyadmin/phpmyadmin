@@ -15979,6 +15979,9 @@
     <MixedAssignment>
       <code>$http_response_code_param</code>
     </MixedAssignment>
+    <UnusedVariable>
+      <code>$param</code>
+    </UnusedVariable>
   </file>
   <file src="test/classes/AbstractTestCase.php">
     <PossiblyUndefinedArrayOffset>
@@ -18200,7 +18203,8 @@
       <code><![CDATA['']]></code>
     </DocblockTypeContradiction>
     <InternalMethod>
-      <code>getName</code>
+      <code>name</code>
+      <code>status</code>
     </InternalMethod>
     <MixedArgument>
       <code>$lastWindow</code>

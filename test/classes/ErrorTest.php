@@ -120,7 +120,7 @@ class ErrorTest extends AbstractTestCase
     public function testGetBacktraceDisplay(): void
     {
         $this->assertStringContainsString(
-            'PHPUnit\Framework\TestResult->run(<Class:PhpMyAdmin\Tests\ErrorTest>)',
+            'PHPUnit\Framework\TestRunner->run(<Class:PhpMyAdmin\Tests\ErrorTest>)',
             $this->object->getBacktraceDisplay()
         );
     }
@@ -138,7 +138,7 @@ class ErrorTest extends AbstractTestCase
             $actual
         );
         $this->assertStringContainsString(
-            'PHPUnit\Framework\TestResult->run(<Class:PhpMyAdmin\Tests\ErrorTest>)</li><li class="list-group-item">',
+            'PHPUnit\Framework\TestRunner->run(<Class:PhpMyAdmin\Tests\ErrorTest>)</li><li class="list-group-item">',
             $actual
         );
         $this->assertStringEndsWith('</li></ol></div>' . "\n", $actual);
