@@ -17523,10 +17523,6 @@
     </PossiblyInvalidArrayOffset>
   </file>
   <file src="test/classes/Plugins/Export/ExportSqlTest.php">
-    <DeprecatedMethod>
-      <code>withConsecutive</code>
-      <code>withConsecutive</code>
-    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['no_constraints_comments']]]></code>
       <code><![CDATA[$GLOBALS['no_constraints_comments']]]></code>
