@@ -14441,14 +14441,12 @@
       <code>$table['Name']</code>
       <code>$user</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="5">
+    <MixedArgumentTypeCoercion occurrences="3">
       <code>$columnNames</code>
-      <code>$tableName</code>
-      <code>$tableName</code>
       <code>uksort($tables, 'strnatcasecmp')</code>
       <code>uksort($tables, 'strnatcasecmp')</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="21">
+    <MixedArrayAccess occurrences="22">
       <code>$_SESSION['tmpval']['table_limit_offset']</code>
       <code>$row['Cardinality']</code>
       <code>$row['Column_name']</code>
@@ -14470,6 +14468,7 @@
       <code>$row['Seq_in_index']</code>
       <code>$row['Seq_in_index']</code>
       <code>$row['Sub_part']</code>
+      <code>$table['TABLE_NAME']</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="3">
       <code>$_SESSION['tmpval']['table_limit_offset']</code>

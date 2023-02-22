@@ -620,11 +620,12 @@ class DatabaseInterface implements DbalInterface
      */
     public function getVirtualTables(string $db): array
     {
-        $tables_full = array_keys($this->getTablesFull($db));
+        /** @var string[] $tables_full */
+        $tables_full = array_column($this->getTablesFull($db), 'TABLE_NAME');
         $views = [];
 
         foreach ($tables_full as $table) {
-            $table = $this->getTable($db, (string) $table);
+            $table = $this->getTable($db, $table);
             if (! $table->isView()) {
                 continue;
             }
