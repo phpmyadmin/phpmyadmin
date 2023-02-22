@@ -25,6 +25,7 @@ use ReflectionMethod;
 use stdClass;
 
 use function __;
+use function bin2hex;
 
 use const MYSQLI_BLOB_FLAG;
 use const MYSQLI_NUM_FLAG;
@@ -313,16 +314,10 @@ class ExportOdtTest extends AbstractTestCase
     public function testExportFooter(): void
     {
         $GLOBALS['odt_buffer'] = 'header';
-
-        $this->expectOutputRegex('/^504b.*636f6e74656e742e786d6c/');
-        $this->setOutputCallback('bin2hex');
-
-        $this->assertTrue(
-            $this->object->exportFooter()
-        );
-
+        $this->assertTrue($this->object->exportFooter());
+        $output = $this->getActualOutputForAssertion();
+        $this->assertMatchesRegularExpression('/^504b.*636f6e74656e742e786d6c/', bin2hex($output));
         $this->assertStringContainsString('header', $GLOBALS['odt_buffer']);
-
         $this->assertStringContainsString(
             '</office:text></office:body></office:document-content>',
             $GLOBALS['odt_buffer']

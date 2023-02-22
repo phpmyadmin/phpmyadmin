@@ -23,6 +23,8 @@ use ReflectionMethod;
 use ReflectionProperty;
 use stdClass;
 
+use function bin2hex;
+
 use const MYSQLI_BLOB_FLAG;
 use const MYSQLI_TYPE_DATE;
 use const MYSQLI_TYPE_DATETIME;
@@ -177,20 +179,12 @@ class ExportOdsTest extends AbstractTestCase
     public function testExportFooter(): void
     {
         $GLOBALS['ods_buffer'] = 'header';
-
-        $this->expectOutputRegex('/^504b.*636f6e74656e742e786d6c/');
-        $this->setOutputCallback('bin2hex');
-
-        $this->assertTrue(
-            $this->object->exportFooter()
-        );
-
+        $this->assertTrue($this->object->exportFooter());
+        $output = $this->getActualOutputForAssertion();
+        $this->assertMatchesRegularExpression('/^504b.*636f6e74656e742e786d6c/', bin2hex($output));
         $this->assertStringContainsString('header', $GLOBALS['ods_buffer']);
-
         $this->assertStringContainsString('</office:spreadsheet>', $GLOBALS['ods_buffer']);
-
         $this->assertStringContainsString('</office:body>', $GLOBALS['ods_buffer']);
-
         $this->assertStringContainsString('</office:document-content>', $GLOBALS['ods_buffer']);
     }
 

@@ -17492,15 +17492,7 @@
       <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
     </PossiblyInvalidArrayOffset>
   </file>
-  <file src="test/classes/Plugins/Export/ExportOdsTest.php">
-    <InternalMethod>
-      <code>setOutputCallback</code>
-    </InternalMethod>
-  </file>
   <file src="test/classes/Plugins/Export/ExportOdtTest.php">
-    <InternalMethod>
-      <code>setOutputCallback</code>
-    </InternalMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['foo_columns']]]></code>
     </InvalidArrayOffset>
