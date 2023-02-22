@@ -10,14 +10,11 @@ use PhpMyAdmin\Dbal\TableName;
 /** @psalm-immutable */
 final class ConfigurableMenusFeature
 {
-    /** @var DatabaseName */
-    public $database;
+    public DatabaseName $database;
 
-    /** @var TableName */
-    public $userGroups;
+    public TableName $userGroups;
 
-    /** @var TableName */
-    public $users;
+    public TableName $users;
 
     public function __construct(DatabaseName $database, TableName $userGroups, TableName $users)
     {

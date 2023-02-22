@@ -230,14 +230,13 @@ class Results
      * @var array<string, array<string, array<string, string[]>>>
      * @psalm-var array<string, array<string, array<string, array{string, class-string, string}>>> $transformationInfo
      */
-    public $transformationInfo;
+    public array $transformationInfo;
 
     private Relation $relation;
 
     private Transformations $transformations;
 
-    /** @var Template */
-    public $template;
+    public Template $template;
 
     /**
      * @param string $db       the database name

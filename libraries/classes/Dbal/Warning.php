@@ -19,19 +19,16 @@ use function is_string;
 final class Warning implements Stringable
 {
     /**
-     * @var string
      * @psalm-var 'Note'|'Warning'|'Error'|'?'
      */
-    public $level;
+    public string $level;
 
     /**
-     * @var int
      * @psalm-var 0|positive-int
      */
-    public $code;
+    public int $code;
 
-    /** @var string */
-    public $message;
+    public string $message;
 
     private function __construct(string $level, int $code, string $message)
     {

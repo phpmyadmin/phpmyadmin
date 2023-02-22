@@ -33,16 +33,14 @@ class MultiTableQuery
     /**
      * Database name
      *
-     * @var string
      */
-    private $db;
+    private string $db;
 
     /**
      * Default number of columns
      *
-     * @var int
      */
-    private $defaultNoOfColumns;
+    private int $defaultNoOfColumns;
 
     /**
      * Table names
@@ -51,8 +49,7 @@ class MultiTableQuery
      */
     private array $tables;
 
-    /** @var Template */
-    public $template;
+    public Template $template;
 
     /**
      * @param string $dbName             Database name

@@ -37,8 +37,7 @@ class Normalization
      */
     private DatabaseInterface $dbi;
 
-    /** @var Template */
-    public $template;
+    public Template $template;
 
     public function __construct(
         DatabaseInterface $dbi,

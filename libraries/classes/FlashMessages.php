@@ -13,10 +13,10 @@ final class FlashMessages
     private const STORAGE_KEY = 'flashMessages';
 
     /** @var array */
-    private $storage;
+    private array $storage;
 
     /** @var array<string, string[]> */
-    private $previousMessages = [];
+    private array $previousMessages = [];
 
     public function __construct()
     {

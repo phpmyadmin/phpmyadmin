@@ -10,11 +10,9 @@ use PhpMyAdmin\Dbal\TableName;
 /** @psalm-immutable */
 final class DatabaseDesignerSettingsFeature
 {
-    /** @var DatabaseName */
-    public $database;
+    public DatabaseName $database;
 
-    /** @var TableName */
-    public $designerSettings;
+    public TableName $designerSettings;
 
     public function __construct(DatabaseName $database, TableName $designerSettings)
     {

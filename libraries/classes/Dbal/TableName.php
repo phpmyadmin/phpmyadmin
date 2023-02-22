@@ -18,10 +18,9 @@ final class TableName implements Stringable
     private const MAX_LENGTH = 64;
 
     /**
-     * @var string
      * @psalm-var non-empty-string
      */
-    private $name;
+    private string $name;
 
     /**
      * @param mixed $name

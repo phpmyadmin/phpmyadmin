@@ -44,14 +44,13 @@ class ErrorHandler
      *
      * @var Error[]
      */
-    protected $errors = [];
+    protected array $errors = [];
 
     /**
      * Hide location of errors
      *
-     * @var bool
      */
-    protected $hideLocation = false;
+    protected bool $hideLocation = false;
 
     /**
      * Initial error reporting state

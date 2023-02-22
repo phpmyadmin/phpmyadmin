@@ -22,19 +22,16 @@ class Console
     /**
      * Whether to display anything
      *
-     * @var bool
      */
-    private $isEnabled = true;
+    private bool $isEnabled = true;
 
     /**
      * Whether we are servicing an ajax request.
      *
-     * @var bool
      */
-    private $isAjax = false;
+    private bool $isAjax = false;
 
-    /** @var Template */
-    public $template;
+    public Template $template;
 
     public function __construct(private Relation $relation, Template $template)
     {

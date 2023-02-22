@@ -10,11 +10,9 @@ use PhpMyAdmin\Dbal\TableName;
 /** @psalm-immutable */
 final class SavedQueryByExampleSearchesFeature
 {
-    /** @var DatabaseName */
-    public $database;
+    public DatabaseName $database;
 
-    /** @var TableName */
-    public $savedSearches;
+    public TableName $savedSearches;
 
     public function __construct(DatabaseName $database, TableName $savedSearches)
     {

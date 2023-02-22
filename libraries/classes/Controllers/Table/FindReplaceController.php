@@ -34,10 +34,10 @@ use function strncasecmp;
 class FindReplaceController extends AbstractController
 {
     /** @var array */
-    private $columnNames;
+    private array $columnNames;
 
     /** @var array */
-    private $columnTypes;
+    private array $columnTypes;
 
     private string $connectionCharSet;
 

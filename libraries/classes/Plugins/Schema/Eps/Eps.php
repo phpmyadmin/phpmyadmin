@@ -15,14 +15,11 @@ namespace PhpMyAdmin\Plugins\Schema\Eps;
  */
 class Eps
 {
-    /** @var string */
-    public $font = 'Arial';
+    public string $font = 'Arial';
 
-    /** @var int */
-    public $fontSize = 12;
+    public int $fontSize = 12;
 
-    /** @var string */
-    public $stringCommands;
+    public string $stringCommands;
 
     /**
      * Upon instantiation This starts writing the EPS Document.

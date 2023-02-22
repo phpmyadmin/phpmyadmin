@@ -42,8 +42,7 @@ use const LOCK_EX;
  */
 class ImportShp extends ImportPlugin
 {
-    /** @var ZipExtension|null */
-    private $zipExtension = null;
+    private ZipExtension|null $zipExtension = null;
 
     protected function init(): void
     {

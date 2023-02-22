@@ -57,14 +57,12 @@ use const ENT_COMPAT;
  */
 class Export
 {
-    /** @var string */
-    public $dumpBuffer = '';
+    public string $dumpBuffer = '';
 
-    /** @var int */
-    public $dumpBufferLength = 0;
+    public int $dumpBufferLength = 0;
 
     /** @var array */
-    public $dumpBufferObjects = [];
+    public array $dumpBufferObjects = [];
 
     /** @param DatabaseInterface $dbi */
     public function __construct(private $dbi)

@@ -26,52 +26,48 @@ class Index
      *
      * @var array<string, array<string, array<string, Index>>>
      */
-    private static $registry = [];
+    private static array $registry = [];
 
     /** @var string The name of the schema */
-    private $schema = '';
+    private string $schema = '';
 
     /** @var string The name of the table */
-    private $table = '';
+    private string $table = '';
 
     /** @var string The name of the index */
-    private $name = '';
+    private string $name = '';
 
     /**
      * Columns in index
      *
      * @var array<string, IndexColumn>
      */
-    private $columns = [];
+    private array $columns = [];
 
     /**
      * The index method used (BTREE, HASH, RTREE).
      *
-     * @var string
      */
-    private $type = '';
+    private string $type = '';
 
     /**
      * The index choice (PRIMARY, UNIQUE, INDEX, SPATIAL, FULLTEXT)
      *
-     * @var string
      */
-    private $choice = '';
+    private string $choice = '';
 
     /**
      * Various remarks.
      *
-     * @var string
      */
-    private $remarks = '';
+    private string $remarks = '';
 
     /**
      * Any comment provided for the index with a COMMENT attribute when the
      * index was created.
      *
-     * @var string
      */
-    private $comment = '';
+    private string $comment = '';
 
     /** @var bool false if the index cannot contain duplicates, true if it can. */
     private bool $nonUnique = false;
@@ -79,23 +75,20 @@ class Index
     /**
      * Indicates how the key is packed. NULL if it is not.
      *
-     * @var string
      */
-    private $packed = null;
+    private string $packed = null;
 
     /**
      * Block size for the index
      *
-     * @var int
      */
-    private $keyBlockSize = 0;
+    private int $keyBlockSize = 0;
 
     /**
      * Parser option for the index
      *
-     * @var string
      */
-    private $parser = '';
+    private string $parser = '';
 
     /** @param array $params parameters */
     public function __construct(array $params = [])

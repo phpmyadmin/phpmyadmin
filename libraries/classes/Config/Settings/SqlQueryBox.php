@@ -12,30 +12,26 @@ final class SqlQueryBox
     /**
      * Display an "Edit" link on the results page to change a query.
      *
-     * @var bool
      */
-    public $Edit;
+    public bool $Edit;
 
     /**
      * Display an "Explain SQL" link on the results page.
      *
-     * @var bool
      */
-    public $Explain;
+    public bool $Explain;
 
     /**
      * Display a "Create PHP code" link on the results page to wrap a query in PHP.
      *
-     * @var bool
      */
-    public $ShowAsPHP;
+    public bool $ShowAsPHP;
 
     /**
      * Display a "Refresh" link on the results page.
      *
-     * @var bool
      */
-    public $Refresh;
+    public bool $Refresh;
 
     /** @param mixed[] $sqlQueryBox */
     public function __construct(array $sqlQueryBox = [])

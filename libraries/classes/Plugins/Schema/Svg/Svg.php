@@ -22,17 +22,13 @@ use function sprintf;
  */
 class Svg extends XMLWriter
 {
-    /** @var string */
-    public $title = '';
+    public string $title = '';
 
-    /** @var string */
-    public $author = 'phpMyAdmin';
+    public string $author = 'phpMyAdmin';
 
-    /** @var string */
-    public $font = 'Arial';
+    public string $font = 'Arial';
 
-    /** @var int */
-    public $fontSize = 12;
+    public int $fontSize = 12;
 
     /**
      * Upon instantiation This starts writing the RelationStatsSvg XML document

@@ -27,16 +27,15 @@ class Search
     /**
      * Database name
      *
-     * @var string
      */
-    private $db;
+    private string $db;
 
     /**
      * Table Names
      *
      * @var array
      */
-    private $tablesNamesOnly;
+    private array $tablesNamesOnly;
 
     /**
      * Type of search
@@ -46,40 +45,35 @@ class Search
     /**
      * Already set search type
      *
-     * @var int
      */
-    private $criteriaSearchType;
+    private int $criteriaSearchType;
 
     /**
      * Already set search type's description
      *
-     * @var string
      */
-    private $searchTypeDescription;
+    private string $searchTypeDescription;
 
     /**
      * Search string/regexp
      *
-     * @var string
      */
-    private $criteriaSearchString;
+    private string $criteriaSearchString;
 
     /**
      * Criteria Tables to search in
      *
      * @var string[]
      */
-    private $criteriaTables;
+    private array $criteriaTables;
 
     /**
      * Restrict the search to this column
      *
-     * @var string
      */
-    private $criteriaColumnName;
+    private string $criteriaColumnName;
 
-    /** @var Template */
-    public $template;
+    public Template $template;
 
     /** @param string $db Database name */
     public function __construct(private DatabaseInterface $dbi, $db, Template $template)

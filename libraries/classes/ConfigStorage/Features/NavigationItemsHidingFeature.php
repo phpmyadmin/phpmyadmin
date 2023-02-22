@@ -10,11 +10,9 @@ use PhpMyAdmin\Dbal\TableName;
 /** @psalm-immutable */
 final class NavigationItemsHidingFeature
 {
-    /** @var DatabaseName */
-    public $database;
+    public DatabaseName $database;
 
-    /** @var TableName */
-    public $navigationHiding;
+    public TableName $navigationHiding;
 
     public function __construct(DatabaseName $database, TableName $navigationHiding)
     {

@@ -17,8 +17,7 @@ use function intval;
  */
 class WindowsNt extends Base
 {
-    /** @var object|null */
-    private $wmiService = null;
+    private object|null $wmiService = null;
 
     /**
      * Constructor to access to wmi database.

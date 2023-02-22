@@ -21,10 +21,10 @@ use function strtr;
 class Pdf extends TCPDF
 {
     /** @var array */
-    public $footerset = [];
+    public array $footerset = [];
 
     /** @var array */
-    public $alias = [];
+    public array $alias = [];
 
     /**
      * PDF font to use.

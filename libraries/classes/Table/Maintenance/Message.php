@@ -9,17 +9,13 @@ use function is_string;
 /** @psalm-immutable */
 final class Message
 {
-    /** @var string */
-    public $table;
+    public string $table;
 
-    /** @var string */
-    public $operation;
+    public string $operation;
 
-    /** @var string */
-    public $type;
+    public string $type;
 
-    /** @var string */
-    public $text;
+    public string $text;
 
     private function __construct(string $table, string $operation, string $type, string $text)
     {

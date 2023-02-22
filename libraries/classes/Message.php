@@ -64,7 +64,7 @@ class Message implements Stringable
      *
      * @var array
      */
-    public static $level = [
+    public static array $level = [
         self::SUCCESS => 'success',
         self::NOTICE => 'notice',
         self::ERROR => 'error',
@@ -73,58 +73,52 @@ class Message implements Stringable
     /**
      * The message number
      *
-     * @var int
      */
-    protected $number = self::NOTICE;
+    protected int $number = self::NOTICE;
 
     /**
      * The locale string identifier
      *
-     * @var    string
      */
-    protected $string = '';
+    protected string $string = '';
 
     /**
      * The formatted message
      *
-     * @var    string
      */
-    protected $message = '';
+    protected string $message = '';
 
     /**
      * Whether the message was already displayed
      *
-     * @var bool
      */
-    protected $isDisplayed = false;
+    protected bool $isDisplayed = false;
 
     /**
      * Whether to use BB code when displaying.
      *
-     * @var bool
      */
-    protected $useBBCode = true;
+    protected bool $useBBCode = true;
 
     /**
      * Unique id
      *
-     * @var string
      */
-    protected $hash = null;
+    protected string $hash = null;
 
     /**
      * holds parameters
      *
      * @var    array
      */
-    protected $params = [];
+    protected array $params = [];
 
     /**
      * holds additional messages
      *
      * @var    array
      */
-    protected $addedMessages = [];
+    protected array $addedMessages = [];
 
     /**
      * @param string $string   The message to be displayed

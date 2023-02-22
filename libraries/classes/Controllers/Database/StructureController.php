@@ -49,22 +49,22 @@ use function urlencode;
 class StructureController extends AbstractController
 {
     /** @var int Number of tables */
-    protected $numTables;
+    protected int $numTables;
 
     /** @var int Current position in the list */
-    protected $position;
+    protected int $position;
 
     /** @var bool DB is information_schema */
     protected bool $dbIsSystemSchema = false;
 
     /** @var int Number of tables */
-    protected $totalNumTables;
+    protected int $totalNumTables;
 
     /** @var array Tables in the database */
-    protected $tables;
+    protected array $tables;
 
     /** @var bool whether stats show or not */
-    protected $isShowStats;
+    protected bool $isShowStats;
 
     private ReplicationInfo $replicationInfo;
 

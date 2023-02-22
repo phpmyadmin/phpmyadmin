@@ -13,7 +13,7 @@ use PhpMyAdmin\Config\Forms\BaseFormList;
 class UserFormList extends BaseFormList
 {
     /** @var array<string, class-string<BaseForm>> */
-    protected static $all = [
+    protected static array $all = [
         'Features' => FeaturesForm::class,
         'Sql' => SqlForm::class,
         'Navi' => NaviForm::class,

@@ -33,7 +33,7 @@ class ExportCodegen extends ExportPlugin
      *
      * @var array
      */
-    private $cgFormats;
+    private array $cgFormats;
 
     private const HANDLER_NHIBERNATE_CS = 0;
     private const HANDLER_NHIBERNATE_XML = 1;

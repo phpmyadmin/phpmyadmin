@@ -25,8 +25,7 @@ use function is_array;
  */
 final class GisVisualizationController extends AbstractController
 {
-    /** @var GisVisualization */
-    private $visualization;
+    private GisVisualization $visualization;
 
     public function __construct(
         ResponseRenderer $response,

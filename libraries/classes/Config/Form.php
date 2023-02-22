@@ -34,37 +34,35 @@ class Form
     /**
      * Form name
      *
-     * @var string
      */
-    public $name;
+    public string $name;
 
     /**
      * Arbitrary index, doesn't affect class' behavior
      *
-     * @var int
      */
-    public $index;
+    public int $index;
 
     /**
      * Form fields (paths), filled by {@link readFormPaths()}, indexed by field name
      *
      * @var array
      */
-    public $fields;
+    public array $fields;
 
     /**
      * Stores default values for some fields (eg. pmadb tables)
      *
      * @var array
      */
-    public $default;
+    public array $default;
 
     /**
      * Caches field types, indexed by field names
      *
      * @var array
      */
-    private $fieldsTypes;
+    private array $fieldsTypes;
 
     /**
      * ConfigFile instance
@@ -74,9 +72,8 @@ class Form
     /**
      * A counter for the number of groups
      *
-     * @var int
      */
-    private static $groupCounter = 0;
+    private static int $groupCounter = 0;
 
     /**
      * Reads default config values

@@ -26,8 +26,7 @@ use function str_contains;
  */
 class Designer
 {
-    /** @var Template */
-    public $template;
+    public Template $template;
 
     public function __construct(private DatabaseInterface $dbi, private Relation $relation, Template $template)
     {

@@ -10,30 +10,26 @@ final class Debug
     /**
      * Output executed queries and their execution times.
      *
-     * @var bool
      */
-    public $sql;
+    public bool $sql;
 
     /**
      * Log executed queries and their execution times to syslog.
      *
-     * @var bool
      */
-    public $sqllog;
+    public bool $sqllog;
 
     /**
      * Enable to let server present itself as demo server.
      *
-     * @var bool
      */
-    public $demo;
+    public bool $demo;
 
     /**
      * Enable Simple two-factor authentication.
      *
-     * @var bool
      */
-    public $simple2fa;
+    public bool $simple2fa;
 
     /** @param mixed[] $debug */
     public function __construct(array $debug = [])

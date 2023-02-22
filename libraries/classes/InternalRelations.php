@@ -13,7 +13,7 @@ namespace PhpMyAdmin;
 class InternalRelations
 {
     /** @var array */
-    private static $informationSchema = [
+    private static array $informationSchema = [
         'CHARACTER_SETS' => [
             'DEFAULT_COLLATE_NAME' => [
                 'foreign_db' => 'information_schema',
@@ -326,7 +326,7 @@ class InternalRelations
     ];
 
     /** @var array */
-    private static $mysql = [
+    private static array $mysql = [
         'columns_priv' => [
             'Db' => [
                 'foreign_db' => 'information_schema',

@@ -24,12 +24,11 @@ class NodeDatabase extends Node
     /**
      * The number of hidden items in this database
      *
-     * @var int
      */
-    protected $hiddenCount = 0;
+    protected int $hiddenCount = 0;
 
     /** @var int[][] $presenceCounts */
-    private $presenceCounts = [];
+    private array $presenceCounts = [];
 
     /**
      * Initialises the class

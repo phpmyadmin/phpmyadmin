@@ -40,35 +40,27 @@ if (getcwd() == __DIR__) {
  */
 class Pdf extends PdfLib
 {
-    /** @var int|float */
-    public $xMin = 0;
+    public int|float $xMin = 0;
 
-    /** @var int|float */
-    public $yMin = 0;
+    public int|float $yMin = 0;
 
-    /** @var int|float */
-    public $leftMargin = 10;
+    public int|float $leftMargin = 10;
 
-    /** @var int|float */
-    public $topMargin = 10;
+    public int|float $topMargin = 10;
 
-    /** @var int|float */
-    public $scale = 1;
+    public int|float $scale = 1;
 
     /** @var array */
-    public $customLinks = [];
+    public array $customLinks = [];
 
     /** @var array */
-    public $widths = [];
+    public array $widths = [];
 
-    /** @var float */
-    public $cMargin = 0;
+    public float $cMargin = 0;
 
-    /** @var string */
-    private $ff = PdfLib::PMA_PDF_FONT;
+    private string $ff = PdfLib::PMA_PDF_FONT;
 
-    /** @var bool */
-    private $offline = false;
+    private bool $offline = false;
 
     private Relation $relation;
 

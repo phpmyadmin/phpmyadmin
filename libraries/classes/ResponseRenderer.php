@@ -27,8 +27,7 @@ use const PHP_SAPI;
  */
 class ResponseRenderer
 {
-    /** @var ResponseRenderer|null */
-    private static $instance = null;
+    private static ResponseRenderer|null $instance = null;
 
     /**
      * Header instance
@@ -44,7 +43,7 @@ class ResponseRenderer
      *
      * @var array
      */
-    private $JSON;
+    private array $JSON;
     /**
      * PhpMyAdmin\Footer instance
      */
@@ -52,9 +51,8 @@ class ResponseRenderer
     /**
      * Whether we are servicing an ajax request.
      *
-     * @var bool
      */
-    protected $isAjax = false;
+    protected bool $isAjax = false;
     /**
      * Whether response object is disabled
      */
@@ -70,7 +68,7 @@ class ResponseRenderer
      *
      * @var array<int, string>
      */
-    protected static $httpStatusMessages = [
+    protected static array $httpStatusMessages = [
         // Informational
         100 => 'Continue',
         101 => 'Switching Protocols',

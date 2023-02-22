@@ -74,25 +74,25 @@ class Table implements Stringable
     public const PROP_COLUMN_VISIB = 'col_visib';
 
     /** @var string  engine (innodb, myisam, bdb, ...) */
-    public $engine = '';
+    public string $engine = '';
 
     /** @var string  type (view, base table, system view) */
-    public $type = '';
+    public string $type = '';
 
     /** @var array UI preferences */
-    public $uiprefs = [];
+    public array $uiprefs = [];
 
     /** @var array errors occurred */
-    public $errors = [];
+    public array $errors = [];
 
     /** @var array messages */
-    public $messages = [];
+    public array $messages = [];
 
     /** @var string  table name */
-    protected $name = '';
+    protected string $name = '';
 
     /** @var string  database name */
-    protected $dbName = '';
+    protected string $dbName = '';
 
     private Relation $relation;
 

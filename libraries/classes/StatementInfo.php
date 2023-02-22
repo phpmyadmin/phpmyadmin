@@ -10,72 +10,44 @@ use PhpMyAdmin\SqlParser\Statement;
 /** @psalm-immutable */
 class StatementInfo
 {
-    /** @var bool */
-    public $distinct;
-    /** @var bool */
-    public $dropDatabase;
-    /** @var bool */
-    public $group;
-    /** @var bool */
-    public $having;
-    /** @var bool */
-    public $isAffected;
-    /** @var bool */
-    public $isAnalyse;
-    /** @var bool */
-    public $isCount;
-    /** @var bool */
-    public $isDelete;
-    /** @var bool */
-    public $isExplain;
-    /** @var bool */
-    public $isExport;
-    /** @var bool */
-    public $isFunction;
-    /** @var bool */
-    public $isGroup;
-    /** @var bool */
-    public $isInsert;
-    /** @var bool */
-    public $isMaint;
-    /** @var bool */
-    public $isProcedure;
-    /** @var bool */
-    public $isReplace;
-    /** @var bool */
-    public $isSelect;
-    /** @var bool */
-    public $isShow;
-    /** @var bool */
-    public $isSubquery;
-    /** @var bool */
-    public $join;
-    /** @var bool */
-    public $limit;
-    /** @var bool */
-    public $offset;
-    /** @var bool */
-    public $order;
-    /** @var bool */
-    public $reload;
-    /** @var bool */
-    public $selectFrom;
-    /** @var bool */
-    public $union;
-    /** @var Parser|null */
-    public $parser;
-    /** @var Statement|null */
-    public $statement;
+    public bool $distinct;
+    public bool $dropDatabase;
+    public bool $group;
+    public bool $having;
+    public bool $isAffected;
+    public bool $isAnalyse;
+    public bool $isCount;
+    public bool $isDelete;
+    public bool $isExplain;
+    public bool $isExport;
+    public bool $isFunction;
+    public bool $isGroup;
+    public bool $isInsert;
+    public bool $isMaint;
+    public bool $isProcedure;
+    public bool $isReplace;
+    public bool $isSelect;
+    public bool $isShow;
+    public bool $isSubquery;
+    public bool $join;
+    public bool $limit;
+    public bool $offset;
+    public bool $order;
+    public bool $reload;
+    public bool $selectFrom;
+    public bool $union;
+    public Parser|null $parser = null;
+    public Statement|null $statement = null;
     /**
      * @var array<int, array<int, string|null>>
      * @psalm-var list<array{string|null, string|null}>
      */
-    public $selectTables;
+    public array $selectTables;
     /**
      * @var array<int, string|null>
      * @psalm-var list<string|null>
      */
-    public $selectExpression;
+    public array $selectExpression;
 
     /**
      * @param string|false                        $queryType

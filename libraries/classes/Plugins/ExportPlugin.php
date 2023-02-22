@@ -28,8 +28,7 @@ abstract class ExportPlugin implements Plugin
      */
     protected ExportPluginProperties $properties;
 
-    /** @var Relation */
-    public $relation;
+    public Relation $relation;
 
     final public function __construct(
         Relation $relation,

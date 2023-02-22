@@ -43,25 +43,25 @@ use function strtoupper;
 class ZoomSearchController extends AbstractController
 {
     /** @var array */
-    private $columnNames;
+    private array $columnNames;
 
     /** @var array */
-    private $columnTypes;
+    private array $columnTypes;
 
     /** @var array */
-    private $originalColumnTypes;
+    private array $originalColumnTypes;
 
     /** @var array */
-    private $columnCollations;
+    private array $columnCollations;
 
     /** @var array */
-    private $columnNullFlags;
+    private array $columnNullFlags;
 
     /** @var bool Whether a geometry column is present */
     private bool $geomColumnFlag;
 
     /** @var array Foreign keys */
-    private $foreigners;
+    private array $foreigners;
 
     public function __construct(
         ResponseRenderer $response,

@@ -27,9 +27,8 @@ class ThemeManager
     /**
      * ThemeManager instance
      *
-     * @var ThemeManager
      */
-    private static $instance;
+    private static ThemeManager $instance;
 
     /** @var string file-system path to the theme folder */
     private string $themesPath;
@@ -38,22 +37,20 @@ class ThemeManager
     private string $themesPathUrl;
 
     /** @var array<string,Theme> available themes */
-    public $themes = [];
+    public array $themes = [];
 
     /** @var string  cookie name */
-    public $cookieName = 'pma_theme';
+    public string $cookieName = 'pma_theme';
 
-    /** @var bool */
-    public $perServer = false;
+    public bool $perServer = false;
 
     /** @var string name of active theme */
-    public $activeTheme = '';
+    public string $activeTheme = '';
 
     /** @var Theme Theme active theme */
-    public $theme = null;
+    public Theme $theme = null;
 
-    /** @var string */
-    public $themeDefault;
+    public string $themeDefault;
 
     /** @const string The name of the fallback theme */
     public const FALLBACK_THEME = 'pmahomme';

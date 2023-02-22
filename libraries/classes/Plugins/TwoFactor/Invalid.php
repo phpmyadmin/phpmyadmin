@@ -14,11 +14,9 @@ use PhpMyAdmin\Plugins\TwoFactorPlugin;
  */
 class Invalid extends TwoFactorPlugin
 {
-    /** @var string */
-    public static $id = 'invalid';
+    public static string $id = 'invalid';
 
-    /** @var bool */
-    public static $showSubmit = false;
+    public static bool $showSubmit = false;
 
     /**
      * Checks authentication, returns true on success

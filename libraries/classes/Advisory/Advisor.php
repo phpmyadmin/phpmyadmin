@@ -32,19 +32,19 @@ use function vsprintf;
 class Advisor
 {
     /** @var array */
-    private $variables;
+    private array $variables;
 
     /** @var array */
-    private $globals;
+    private array $globals;
 
     /**
      * @var array<int, array<string, string>>
      * @psalm-var list<RuleType>
      */
-    private $rules = [];
+    private array $rules = [];
 
     /** @var array{fired:array, notfired:array, unchecked:array, errors:array} */
-    private $runResult = [
+    private array $runResult = [
         'fired' => [],
         'notfired' => [],
         'unchecked' => [],

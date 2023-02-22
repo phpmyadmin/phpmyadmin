@@ -10,14 +10,11 @@ use PhpMyAdmin\Dbal\TableName;
 /** @psalm-immutable */
 final class DisplayFeature
 {
-    /** @var DatabaseName */
-    public $database;
+    public DatabaseName $database;
 
-    /** @var TableName */
-    public $relation;
+    public TableName $relation;
 
-    /** @var TableName */
-    public $tableInfo;
+    public TableName $tableInfo;
 
     public function __construct(DatabaseName $database, TableName $relation, TableName $tableInfo)
     {

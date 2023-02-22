@@ -12,7 +12,7 @@ use function array_key_exists;
 class Cache
 {
     /** @var array<string,mixed> */
-    private static $cacheData = [];
+    private static array $cacheData = [];
 
     /**
      * Store a value

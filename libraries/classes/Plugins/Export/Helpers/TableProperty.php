@@ -23,44 +23,38 @@ class TableProperty
     /**
      * Name
      *
-     * @var string
      */
-    public $name;
+    public string $name;
 
     /**
      * Type
      *
-     * @var string
      */
-    public $type;
+    public string $type;
 
     /**
      * Whether the key is nullable or not
      *
-     * @var string
      */
-    public $nullable;
+    public string $nullable;
 
     /**
      * The key
      *
-     * @var string
      */
-    public $key;
+    public string $key;
 
     /**
      * Default value
      *
-     * @var mixed
      */
-    public $defaultValue;
+    public mixed $defaultValue;
 
     /**
      * Extension
      *
-     * @var string
      */
-    public $ext;
+    public string $ext;
 
     /** @param array $row table row */
     public function __construct(array $row)

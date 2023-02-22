@@ -20,11 +20,9 @@ use const JSON_HEX_TAG;
  */
 class FormDisplayTemplate
 {
-    /** @var int */
-    public $group;
+    public int $group;
 
-    /** @var Template */
-    public $template;
+    public Template $template;
 
     public function __construct(protected Config $config)
     {

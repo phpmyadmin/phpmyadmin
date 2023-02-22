@@ -49,53 +49,39 @@ if (getcwd() == __DIR__) {
  */
 class PdfRelationSchema extends ExportRelationSchema
 {
-    /** @var bool */
-    private $showGrid = false;
+    private bool $showGrid = false;
 
-    /** @var bool */
-    private $withDoc = false;
+    private bool $withDoc = false;
 
-    /** @var string */
-    private $tableOrder = '';
+    private string $tableOrder = '';
 
     /** @var TableStatsPdf[] */
-    private $tables = [];
+    private array $tables = [];
 
-    /** @var string */
-    private $ff = PdfLib::PMA_PDF_FONT;
+    private string $ff = PdfLib::PMA_PDF_FONT;
 
-    /** @var int|float */
-    private $xMax = 0;
+    private int|float $xMax = 0;
 
-    /** @var int|float */
-    private $yMax = 0;
+    private int|float $yMax = 0;
 
-    /** @var float|int */
-    private $scale;
+    private float|int $scale;
 
-    /** @var int|float */
-    private $xMin = 100000;
+    private int|float $xMin = 100000;
 
-    /** @var int|float */
-    private $yMin = 100000;
+    private int|float $yMin = 100000;
 
-    /** @var int */
-    private $topMargin = 10;
+    private int $topMargin = 10;
 
-    /** @var int */
-    private $bottomMargin = 10;
+    private int $bottomMargin = 10;
 
-    /** @var int */
-    private $leftMargin = 10;
+    private int $leftMargin = 10;
 
-    /** @var int */
-    private $rightMargin = 10;
+    private int $rightMargin = 10;
 
-    /** @var int */
-    private $tablewidth = 0;
+    private int $tablewidth = 0;
 
     /** @var RelationStatsPdf[] */
-    protected $relations = [];
+    protected array $relations = [];
 
     private Transformations $transformations;
 

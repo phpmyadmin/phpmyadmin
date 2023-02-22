@@ -24,16 +24,14 @@ class ExportPdf extends ExportPlugin
     /**
      * PhpMyAdmin\Plugins\Export\Helpers\Pdf instance
      *
-     * @var Pdf
      */
-    private $pdf;
+    private Pdf $pdf;
 
     /**
      * PDF Report Title
      *
-     * @var string
      */
-    private $pdfReportTitle = '';
+    private string $pdfReportTitle = '';
 
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string

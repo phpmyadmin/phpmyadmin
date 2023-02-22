@@ -12,29 +12,27 @@ use function __;
 class IndexColumn
 {
     /** @var string The column name */
-    private $name = '';
+    private string $name = '';
 
     /** @var int The column sequence number in the index, starting with 1. */
     private int $seqInIndex = 1;
 
     /** @var string|null How the column is sorted in the index. "A" (Ascending) or NULL (Not sorted) */
-    private $collation = null;
+    private string|null $collation = null;
 
     /**
      * The number of indexed characters if the column is only partly indexed,
      * NULL if the entire column is indexed.
      *
-     * @var int|null
      */
-    private $subPart = null;
+    private int|null $subPart = null;
 
     /**
      * Contains YES if the column may contain NULL.
      * If not, the column contains NO.
      *
-     * @var string
      */
-    private $null = '';
+    private string $null = '';
 
     /**
      * An estimate of the number of unique values in the index. This is updated
@@ -48,9 +46,8 @@ class IndexColumn
     /**
      * If the Index uses an expression and not a name
      *
-     * @var string|null
      */
-    private $expression = null;
+    private string|null $expression = null;
 
     /** @param array $params an array containing the parameters of the index column */
     public function __construct(array $params = [])

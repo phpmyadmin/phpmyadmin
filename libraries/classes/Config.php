@@ -74,25 +74,24 @@ use const PHP_URL_SCHEME;
 class Config
 {
     /** @var array   default configuration settings */
-    public $default = [];
+    public array $default = [];
 
     /** @var array   configuration settings, without user preferences applied */
-    public $baseSettings = [];
+    public array $baseSettings = [];
 
     /** @var array   configuration settings */
-    public $settings = [];
+    public array $settings = [];
 
     /** @var string  config source */
-    public $source = '';
+    public string $source = '';
 
     /** @var int     source modification time */
-    public $sourceMtime = 0;
+    public int $sourceMtime = 0;
 
-    /** @var bool */
-    public $errorConfigFile = false;
+    public bool $errorConfigFile = false;
 
     /** @var array */
-    public $defaultServer = [];
+    public array $defaultServer = [];
 
     /**
      * @param string|null $source source to read config from

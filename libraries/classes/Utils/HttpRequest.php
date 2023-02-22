@@ -47,14 +47,11 @@ use const PHP_SAPI;
  */
 class HttpRequest
 {
-    /** @var string */
-    private $proxyUrl;
+    private string $proxyUrl;
 
-    /** @var string */
-    private $proxyUser;
+    private string $proxyUser;
 
-    /** @var string */
-    private $proxyPass;
+    private string $proxyPass;
 
     public function __construct()
     {

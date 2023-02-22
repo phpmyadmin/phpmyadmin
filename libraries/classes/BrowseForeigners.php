@@ -27,8 +27,7 @@ class BrowseForeigners
     private int $repeatCells;
     private bool $showAll;
 
-    /** @var Template */
-    public $template;
+    public Template $template;
 
     public function __construct(Template $template)
     {

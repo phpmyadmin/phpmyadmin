@@ -35,9 +35,8 @@ class CentralColumns
     /**
      * Current user
      *
-     * @var string
      */
-    private $user;
+    private string $user;
 
     /**
      * Number of rows displayed when browsing a result set
@@ -47,9 +46,8 @@ class CentralColumns
     /**
      * Which editor should be used for CHAR/VARCHAR fields
      *
-     * @var string
      */
-    private $charEditing;
+    private string $charEditing;
 
     /**
      * Disable use of INFORMATION_SCHEMA
@@ -58,8 +56,7 @@ class CentralColumns
 
     private Relation $relation;
 
-    /** @var Template */
-    public $template;
+    public Template $template;
 
     public function __construct(private DatabaseInterface $dbi)
     {

@@ -12,79 +12,59 @@ use function in_array;
 final class Schema
 {
     /**
-     * @var string
      * @psalm-var 'pdf'|'eps'|'dia'|'svg'
      */
-    public $format;
+    public string $format;
 
-    /** @var bool */
-    public $pdf_show_color;
+    public bool $pdf_show_color;
 
-    /** @var bool */
-    public $pdf_show_keys;
+    public bool $pdf_show_keys;
 
-    /** @var bool */
-    public $pdf_all_tables_same_width;
+    public bool $pdf_all_tables_same_width;
 
     /**
-     * @var string
      * @psalm-var 'L'|'P'
      */
-    public $pdf_orientation;
+    public string $pdf_orientation;
 
-    /** @var string */
-    public $pdf_paper;
+    public string $pdf_paper;
 
-    /** @var bool */
-    public $pdf_show_grid;
+    public bool $pdf_show_grid;
 
-    /** @var bool */
-    public $pdf_with_doc;
+    public bool $pdf_with_doc;
 
     /**
-     * @var string
      * @psalm-var ''|'name_asc'|'name_desc'
      */
-    public $pdf_table_order;
+    public string $pdf_table_order;
 
-    /** @var bool */
-    public $dia_show_color;
+    public bool $dia_show_color;
 
-    /** @var bool */
-    public $dia_show_keys;
+    public bool $dia_show_keys;
 
     /**
-     * @var string
      * @psalm-var 'L'|'P'
      */
-    public $dia_orientation;
+    public string $dia_orientation;
 
-    /** @var string */
-    public $dia_paper;
+    public string $dia_paper;
 
-    /** @var bool */
-    public $eps_show_color;
+    public bool $eps_show_color;
 
-    /** @var bool */
-    public $eps_show_keys;
+    public bool $eps_show_keys;
 
-    /** @var bool */
-    public $eps_all_tables_same_width;
+    public bool $eps_all_tables_same_width;
 
     /**
-     * @var string
      * @psalm-var 'L'|'P'
      */
-    public $eps_orientation;
+    public string $eps_orientation;
 
-    /** @var bool */
-    public $svg_show_color;
+    public bool $svg_show_color;
 
-    /** @var bool */
-    public $svg_show_keys;
+    public bool $svg_show_keys;
 
-    /** @var bool */
-    public $svg_all_tables_same_width;
+    public bool $svg_all_tables_same_width;
 
     /** @param array<int|string, mixed> $schema */
     public function __construct(array $schema = [])

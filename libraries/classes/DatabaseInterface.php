@@ -103,38 +103,36 @@ class DatabaseInterface implements DbalInterface
      * @var array<int, Connection>
      * @psalm-var array<ConnectionType, Connection>
      */
-    private $connections;
+    private array $connections;
 
     /** @var array<int, string>|null */
-    private $currentUserAndHost = null;
+    private array|null $currentUserAndHost = null;
 
     /**
      * @var int|null lower_case_table_names value cache
      * @psalm-var 0|1|2|null
      */
-    private $lowerCaseTableNames = null;
+    private int|null $lowerCaseTableNames = null;
 
     /** @var bool Whether connection is MariaDB */
-    private $isMariaDb = false;
+    private bool $isMariaDb = false;
     /** @var bool Whether connection is Percona */
-    private $isPercona = false;
+    private bool $isPercona = false;
     /** @var int Server version as number */
-    private $versionInt = 55000;
+    private int $versionInt = 55000;
     /** @var string Server version */
-    private $versionString = '5.50.0';
+    private string $versionString = '5.50.0';
     /** @var string Server version comment */
-    private $versionComment = '';
+    private string $versionComment = '';
 
     /** @var Types MySQL types data */
-    public $types;
+    public Types $types;
 
     private Cache $cache;
 
-    /** @var float */
-    public $lastQueryExecutionTime = 0;
+    public float $lastQueryExecutionTime = 0;
 
-    /** @var ListDatabase|null */
-    private $databaseList = null;
+    private ListDatabase|null $databaseList = null;
 
     /** @param DbiExtension $ext Object to be used for database queries */
     public function __construct(DbiExtension $ext)

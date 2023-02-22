@@ -12,103 +12,76 @@ use function in_array;
 final class Import
 {
     /**
-     * @var string
      * @psalm-var 'csv'|'docsql'|'ldi'|'sql'
      */
-    public $format;
+    public string $format;
 
     /**
      * Default charset for import.
      *
-     * @var string
      */
-    public $charset;
+    public string $charset;
 
-    /** @var bool */
-    public $allow_interrupt;
+    public bool $allow_interrupt;
 
     /**
-     * @var int
      * @psalm-var 0|positive-int
      */
-    public $skip_queries;
+    public int $skip_queries;
 
     /**
-     * @var string
      * @psalm-var 'NONE'|'ANSI'|'DB2'|'MAXDB'|'MYSQL323'|'MYSQL40'|'MSSQL'|'ORACLE'|'TRADITIONAL'
      */
-    public $sql_compatibility;
+    public string $sql_compatibility;
 
-    /** @var bool */
-    public $sql_no_auto_value_on_zero;
+    public bool $sql_no_auto_value_on_zero;
 
-    /** @var bool */
-    public $sql_read_as_multibytes;
+    public bool $sql_read_as_multibytes;
 
-    /** @var bool */
-    public $csv_replace;
+    public bool $csv_replace;
 
-    /** @var bool */
-    public $csv_ignore;
+    public bool $csv_ignore;
 
-    /** @var string */
-    public $csv_terminated;
+    public string $csv_terminated;
 
-    /** @var string */
-    public $csv_enclosed;
+    public string $csv_enclosed;
 
-    /** @var string */
-    public $csv_escaped;
+    public string $csv_escaped;
 
-    /** @var string */
-    public $csv_new_line;
+    public string $csv_new_line;
 
-    /** @var string */
-    public $csv_columns;
+    public string $csv_columns;
 
-    /** @var bool */
-    public $csv_col_names;
+    public bool $csv_col_names;
 
-    /** @var bool */
-    public $ldi_replace;
+    public bool $ldi_replace;
 
-    /** @var bool */
-    public $ldi_ignore;
+    public bool $ldi_ignore;
 
-    /** @var string */
-    public $ldi_terminated;
+    public string $ldi_terminated;
 
-    /** @var string */
-    public $ldi_enclosed;
+    public string $ldi_enclosed;
 
-    /** @var string */
-    public $ldi_escaped;
+    public string $ldi_escaped;
 
-    /** @var string */
-    public $ldi_new_line;
+    public string $ldi_new_line;
 
-    /** @var string */
-    public $ldi_columns;
+    public string $ldi_columns;
 
     /**
      * 'auto' for auto-detection, true or false for forcing
      *
-     * @var string|bool
      * @psalm-var 'auto'|bool
      */
-    public $ldi_local_option;
+    public string|bool $ldi_local_option;
 
-    /** @var bool */
-    public $ods_col_names;
+    public bool $ods_col_names;
 
-    /** @var bool */
-    public $ods_empty_rows;
+    public bool $ods_empty_rows;
 
-    /** @var bool */
-    public $ods_recognize_percentages;
+    public bool $ods_recognize_percentages;
 
-    /** @var bool */
-    public $ods_recognize_currency;
+    public bool $ods_recognize_currency;
 
     /** @param array<int|string, mixed> $import */
     public function __construct(array $import = [])

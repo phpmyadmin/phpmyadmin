@@ -7,26 +7,16 @@ namespace PhpMyAdmin;
 /** @psalm-immutable */
 final class EditField
 {
-    /** @var string $columnName */
-    public $columnName;
-    /** @var string $value */
-    public $value;
-    /** @var string $type */
-    public $type;
-    /** @var bool $autoIncrement */
-    public $autoIncrement;
-    /** @var bool $isNull */
-    public $isNull;
-    /** @var bool $wasPreviouslyNull */
-    public $wasPreviouslyNull;
-    /** @var string $function */
-    public $function;
-    /** @var string|null $salt */
-    public $salt;
-    /** @var string|null $previousValue */
-    public $previousValue;
-    /** @var bool $isUploaded */
-    public $isUploaded;
+    public string $columnName;
+    public string $value;
+    public string $type;
+    public bool $autoIncrement;
+    public bool $isNull;
+    public bool $wasPreviouslyNull;
+    public string $function;
+    public string|null $salt = null;
+    public string|null $previousValue = null;
+    public bool $isUploaded;
 
     public function __construct(
         string $columnName,

@@ -29,7 +29,7 @@ class Charsets
      *
      * @var array<string, string>
      */
-    public static $mysqlCharsetMap = [
+    public static array $mysqlCharsetMap = [
         'big5' => 'big5',
         'cp-866' => 'cp866',
         'euc-jp' => 'ujis',
@@ -58,15 +58,14 @@ class Charsets
     /**
      * The charset for the server
      *
-     * @var Charset|null
      */
-    private static $serverCharset = null;
+    private static Charset|null $serverCharset = null;
 
     /** @var array<string, Charset> */
-    private static $charsets = [];
+    private static array $charsets = [];
 
     /** @var array<string, array<string, Collation>> */
-    private static $collations = [];
+    private static array $collations = [];
 
     /**
      * Loads charset data from the server

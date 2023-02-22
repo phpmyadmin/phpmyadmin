@@ -10,11 +10,9 @@ use PhpMyAdmin\Dbal\TableName;
 /** @psalm-immutable */
 final class FavoriteTablesFeature
 {
-    /** @var DatabaseName */
-    public $database;
+    public DatabaseName $database;
 
-    /** @var TableName */
-    public $favorite;
+    public TableName $favorite;
 
     public function __construct(DatabaseName $database, TableName $favorite)
     {

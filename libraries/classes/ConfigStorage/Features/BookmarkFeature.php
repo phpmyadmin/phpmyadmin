@@ -10,11 +10,9 @@ use PhpMyAdmin\Dbal\TableName;
 /** @psalm-immutable */
 final class BookmarkFeature
 {
-    /** @var DatabaseName */
-    public $database;
+    public DatabaseName $database;
 
-    /** @var TableName */
-    public $bookmark;
+    public TableName $bookmark;
 
     public function __construct(DatabaseName $database, TableName $bookmark)
     {

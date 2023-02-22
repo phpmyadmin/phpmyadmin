@@ -24,8 +24,7 @@ use function extension_loaded;
  */
 class Application extends TwoFactorPlugin
 {
-    /** @var string */
-    public static $id = 'application';
+    public static string $id = 'application';
 
     protected Google2FA $google2fa;
 

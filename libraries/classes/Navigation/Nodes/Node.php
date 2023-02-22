@@ -39,44 +39,44 @@ class Node
      * @var string A non-unique identifier for the node
      *             This may be trimmed when grouping nodes
      */
-    public $name = '';
+    public string $name = '';
     /**
      * @var string A non-unique identifier for the node
      *             This will never change after being assigned
      */
-    public $realName = '';
+    public string $realName = '';
     /** @var int May be one of CONTAINER or OBJECT */
-    public $type = self::OBJECT;
+    public int $type = self::OBJECT;
     /**
      * @var bool Whether this object has been created while grouping nodes
      *           Only relevant if the node is of type CONTAINER
      */
-    public $isGroup = false;
+    public bool $isGroup = false;
     /**
      * @var bool Whether to add a "display: none;" CSS
      *           rule to the node when rendering it
      */
-    public $visible = false;
+    public bool $visible = false;
     /**
      * @var Node|null A reference to the parent object of
      *           this node, NULL for the root node.
      */
-    public $parent = null;
+    public Node|null $parent = null;
     /**
      * @var Node[] An array of Node objects that are
      *             direct children of this node
      */
-    public $children = [];
+    public array $children = [];
     /**
      * @var Mixed A string used to group nodes, or an array of strings
      *            Only relevant if the node is of type CONTAINER
      */
-    public $separator = '';
+    public Mixed $separator = '';
     /**
      * @var int How many time to recursively apply the grouping function
      *          Only relevant if the node is of type CONTAINER
      */
-    public $separatorDepth = 1;
+    public int $separatorDepth = 1;
 
     /**
      * For the IMG tag, used when rendering the node.
@@ -84,7 +84,7 @@ class Node
      * @var array<string, string>
      * @psalm-var array{image: string, title: string}
      */
-    public $icon = ['image' => '', 'title' => ''];
+    public array $icon = ['image' => '', 'title' => ''];
 
     /**
      * An array of A tags, used when rendering the node.
@@ -97,35 +97,34 @@ class Node
      *   title?: string
      * }
      */
-    public $links = [
+    public array $links = [
         'text' => ['route' => '', 'params' => []],
         'icon' => ['route' => '', 'params' => []],
     ];
 
     /** @var string HTML title */
-    public $title;
+    public string $title;
     /** @var string Extra CSS classes for the node */
-    public $classes = '';
+    public string $classes = '';
     /** @var bool Whether this node is a link for creating new objects */
-    public $isNew = false;
+    public bool $isNew = false;
     /**
      * @var int The position for the pagination of
      *          the branch at the second level of the tree
      */
-    public $pos2 = 0;
+    public int $pos2 = 0;
     /**
      * @var int The position for the pagination of
      *          the branch at the third level of the tree
      */
-    public $pos3 = 0;
+    public int $pos3 = 0;
 
     protected Relation $relation;
 
     /** @var string $displayName  display name for the navigation tree */
-    public $displayName;
+    public string $displayName;
 
-    /** @var string|null */
-    public $urlParamName = null;
+    public string|null $urlParamName = null;
 
     /**
      * Initialises the class by setting the mandatory variables

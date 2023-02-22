@@ -27,24 +27,19 @@ use function strlen;
  */
 class TwoFactorPlugin
 {
-    /** @var string */
-    public static $id = '';
+    public static string $id = '';
 
     /**
      * Whether to show submit button in form
      *
-     * @var bool
      */
-    public static $showSubmit = true;
+    public static bool $showSubmit = true;
 
-    /** @var bool */
-    protected $provided = false;
+    protected bool $provided = false;
 
-    /** @var string */
-    protected $message = '';
+    protected string $message = '';
 
-    /** @var Template */
-    public $template;
+    public Template $template;
 
     public function __construct(protected TwoFactor $twofactor)
     {

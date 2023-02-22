@@ -55,7 +55,7 @@ class Error extends Message
      *
      * @var array
      */
-    public static $errortype = [
+    public static array $errortype = [
         0 => 'Internal error',
         E_ERROR => 'Error',
         E_WARNING => 'Warning',
@@ -79,7 +79,7 @@ class Error extends Message
      *
      * @var array
      */
-    public static $errorlevel = [
+    public static array $errorlevel = [
         0 => 'error',
         E_ERROR => 'error',
         E_WARNING => 'error',
@@ -101,16 +101,14 @@ class Error extends Message
     /**
      * The file in which the error occurred
      *
-     * @var string
      */
-    protected $file = '';
+    protected string $file = '';
 
     /**
      * The line in which the error occurred
      *
-     * @var int
      */
-    protected $line = 0;
+    protected int $line = 0;
 
     /**
      * Holds the backtrace for this error
@@ -120,9 +118,8 @@ class Error extends Message
     /**
      * Hide location of errors
      *
-     * @var bool
      */
-    protected $hideLocation = false;
+    protected bool $hideLocation = false;
 
     /**
      * @param int    $errno   error number

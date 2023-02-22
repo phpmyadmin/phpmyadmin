@@ -56,8 +56,7 @@ use const E_USER_ERROR;
 
 final class Common
 {
-    /** @var ServerRequest|null */
-    private static $request = null;
+    private static ServerRequest|null $request = null;
 
     /**
      * Misc stuff and REQUIRED by ALL the scripts.

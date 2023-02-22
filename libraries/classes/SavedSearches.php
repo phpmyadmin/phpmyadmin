@@ -28,37 +28,33 @@ class SavedSearches
     /**
      * Id
      *
-     * @var int|null
      */
-    private $id = null;
+    private int|null $id = null;
 
     /**
      * Username
      *
-     * @var string
      */
-    private $username = null;
+    private string $username = null;
 
     /**
      * DB name
      *
-     * @var string
      */
-    private $dbname = null;
+    private string $dbname = null;
 
     /**
      * Saved search name
      *
-     * @var string
      */
-    private $searchName = null;
+    private string $searchName = null;
 
     /**
      * Criterias
      *
      * @var array|null
      */
-    private $criterias = null;
+    private array|null $criterias = null;
 
     /**
      * Setter of id

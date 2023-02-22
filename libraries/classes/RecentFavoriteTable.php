@@ -34,15 +34,14 @@ use const SORT_REGULAR;
  */
 class RecentFavoriteTable
 {
-    /** @var Template */
-    public $template;
+    public Template $template;
 
     /**
      * Reference to session variable containing recently used or favorite tables.
      *
      * @var array
      */
-    private $tables;
+    private array $tables;
 
     /**
      * Defines type of action, Favorite or Recent table.
@@ -54,7 +53,7 @@ class RecentFavoriteTable
      *
      * @var array<string,RecentFavoriteTable>
      */
-    private static $instances = [];
+    private static array $instances = [];
 
     private Relation $relation;
 

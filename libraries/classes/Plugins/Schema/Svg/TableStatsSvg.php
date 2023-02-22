@@ -28,11 +28,9 @@ use function sprintf;
  */
 class TableStatsSvg extends TableStats
 {
-    /** @var int */
-    public $height;
+    public int $height;
 
-    /** @var int */
-    public $currentCell = 0;
+    public int $currentCell = 0;
 
     /**
      * @see Svg

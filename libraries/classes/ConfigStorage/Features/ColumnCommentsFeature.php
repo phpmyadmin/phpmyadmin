@@ -10,11 +10,9 @@ use PhpMyAdmin\Dbal\TableName;
 /** @psalm-immutable */
 final class ColumnCommentsFeature
 {
-    /** @var DatabaseName */
-    public $database;
+    public DatabaseName $database;
 
-    /** @var TableName */
-    public $columnInfo;
+    public TableName $columnInfo;
 
     public function __construct(DatabaseName $database, TableName $columnInfo)
     {
