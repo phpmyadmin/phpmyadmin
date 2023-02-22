@@ -3972,7 +3972,7 @@ reCaptcha using Turnstile
 
     $cfg['CaptchaMethod'] = 'checkbox';
     $cfg['CaptchaApi'] = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
-    $cfg['CaptchaCsp'] = 'https://challenges.cloudflare.com/turnstile/v0/siteverify https://challenges.cloudflare.com/turnstile/v0/api.js https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993 https://challenges.cloudflare.com/';
+    $cfg['CaptchaCsp'] = 'https://challenges.cloudflare.com https://static.cloudflareinsights.com';
     $cfg['CaptchaRequestParam'] = 'cf-turnstile';
     $cfg['CaptchaResponseParam'] = 'cf-turnstile-response';
     $cfg['CaptchaLoginPublicKey'] = '0xxxxxxxxxxxxxxxxxxxxxx';
