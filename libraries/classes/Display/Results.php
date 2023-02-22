@@ -643,7 +643,7 @@ class Results
                 || $this->properties['is_export']
                 || $this->properties['is_func']
                 || $this->properties['is_analyse'])
-            && ! empty($statementInfo->selectFrom)
+            && $statementInfo->selectFrom
             && ! empty($statementInfo->statement->from)
             && (count($statementInfo->statement->from) === 1)
             && ! empty($statementInfo->statement->from[0]->table);
@@ -3956,7 +3956,7 @@ class Results
         // display the Export link).
         if (
             ($statementInfo->queryType === self::QUERY_TYPE_SELECT)
-            && empty($statementInfo->isProcedure)
+            && ! $statementInfo->isProcedure
         ) {
             if (count($statementInfo->selectTables) === 1) {
                 $urlParams['single_table'] = 'true';
@@ -3992,7 +3992,7 @@ class Results
         }
 
         return [
-            'has_procedure' => ! empty($statementInfo->isProcedure),
+            'has_procedure' => $statementInfo->isProcedure,
             'has_geometry' => $geometryFound,
             'has_print_link' => $hasPrintLink,
             'has_export_link' => $statementInfo->queryType === self::QUERY_TYPE_SELECT,
