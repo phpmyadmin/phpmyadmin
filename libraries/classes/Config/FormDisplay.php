@@ -100,7 +100,7 @@ class FormDisplay
      *
      * @var array
      */
-    private array $userprefsDisallow;
+    private array $userprefsDisallow = [];
 
     private FormDisplayTemplate $formDisplayTemplate;
 

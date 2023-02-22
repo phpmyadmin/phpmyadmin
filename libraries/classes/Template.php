@@ -42,7 +42,7 @@ class Template
      * Twig environment
      *
      */
-    protected static Environment $twig;
+    protected static Environment|null $twig = null;
 
     public const TEMPLATES_FOLDER = ROOT_PATH . 'templates';
 

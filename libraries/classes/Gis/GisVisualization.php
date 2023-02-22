@@ -38,7 +38,7 @@ class GisVisualization
     /** @var array   Raw data for the visualization */
     private array $data;
 
-    private string $modifiedSql;
+    private string $modifiedSql = '';
 
     /** @var array   Set of default settings values are here. */
     private array $settings = [
@@ -70,7 +70,7 @@ class GisVisualization
     ];
 
     /** @var array   Options that the user has specified. */
-    private array $userSpecifiedSettings = null;
+    private array $userSpecifiedSettings;
 
     /**
      * Returns the settings array

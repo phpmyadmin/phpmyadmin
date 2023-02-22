@@ -46,41 +46,41 @@ class SearchController extends AbstractController
      *
      * @var array
      */
-    private array $columnNames;
+    private array $columnNames = [];
     /**
      * Types of columns
      *
      * @var array
      */
-    private array $columnTypes;
+    private array $columnTypes = [];
     /**
      * Types of columns without any replacement
      *
      * @var array
      */
-    private array $originalColumnTypes;
+    private array $originalColumnTypes = [];
     /**
      * Collations of columns
      *
      * @var array
      */
-    private array $columnCollations;
+    private array $columnCollations = [];
     /**
      * Null Flags of columns
      *
      * @var array
      */
-    private array $columnNullFlags;
+    private array $columnNullFlags = [];
     /**
      * Whether a geometry column is present
      */
-    private bool $geomColumnFlag;
+    private bool $geomColumnFlag = false;
     /**
      * Foreign Keys
      *
      * @var array
      */
-    private array $foreigners;
+    private array $foreigners = [];
 
     public function __construct(
         ResponseRenderer $response,
@@ -91,13 +91,6 @@ class SearchController extends AbstractController
     ) {
         parent::__construct($response, $template);
 
-        $this->columnNames = [];
-        $this->columnTypes = [];
-        $this->originalColumnTypes = [];
-        $this->columnCollations = [];
-        $this->columnNullFlags = [];
-        $this->geomColumnFlag = false;
-        $this->foreigners = [];
         $this->loadTableInfo();
     }
 

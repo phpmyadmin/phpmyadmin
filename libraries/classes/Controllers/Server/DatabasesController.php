@@ -37,13 +37,13 @@ class DatabasesController extends AbstractController
     private int $databaseCount = 0;
 
     /** @var string sort by column */
-    private string $sortBy;
+    private string $sortBy = '';
 
     /** @var string sort order of databases */
-    private string $sortOrder;
+    private string $sortOrder = '';
 
     /** @var bool whether to show database statistics */
-    private bool $hasStatistics;
+    private bool $hasStatistics = false;
 
     public function __construct(
         ResponseRenderer $response,

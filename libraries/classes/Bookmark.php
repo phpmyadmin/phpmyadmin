@@ -29,27 +29,27 @@ class Bookmark
      * ID of the bookmark
      *
      */
-    private int $id;
+    private int $id = 0;
     /**
      * Database the bookmark belongs to
      *
      */
-    private string $database;
+    private string $database = '';
     /**
      * The user to whom the bookmark belongs, empty for public bookmarks
      *
      */
-    private string $currentUser;
+    private string $currentUser = '';
     /**
      * Label of the bookmark
      *
      */
-    private string $label;
+    private string $label = '';
     /**
      * SQL query that is bookmarked
      *
      */
-    private string $query;
+    private string $query = '';
 
     public function __construct(private DatabaseInterface $dbi, private Relation $relation)
     {

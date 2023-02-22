@@ -103,7 +103,7 @@ class Node
     ];
 
     /** @var string HTML title */
-    public string $title;
+    public string $title = '';
     /** @var string Extra CSS classes for the node */
     public string $classes = '';
     /** @var bool Whether this node is a link for creating new objects */
@@ -122,7 +122,7 @@ class Node
     protected Relation $relation;
 
     /** @var string $displayName  display name for the navigation tree */
-    public string $displayName;
+    public string|null $displayName = null;
 
     public string|null $urlParamName = null;
 

@@ -29,40 +29,40 @@ use function ksort;
 class Pdf extends PdfLib
 {
     /** @var array */
-    public array $tablewidths;
+    public array $tablewidths = [];
 
     /** @var array */
-    public array $headerset;
+    public array $headerset = [];
 
-    private int|float $dataY;
+    private int|float $dataY = 0;
 
-    private int $titleFontSize;
+    private int $titleFontSize = 0;
 
-    private string $titleText;
+    private string $titleText = '';
 
-    private string $dbAlias;
+    private string $dbAlias = '';
 
-    private string $tableAlias;
+    private string $tableAlias = '';
 
-    private string $purpose;
+    private string $purpose = '';
 
     /** @var array */
-    private array $colTitles;
+    private array $colTitles = [];
 
     private ResultInterface $results;
 
     /** @var array */
-    private array $colAlign;
+    private array $colAlign = [];
 
     /** @var array */
-    private array $displayColumn;
+    private array $displayColumn = [];
 
-    private string $currentDb;
+    private string $currentDb = '';
 
-    private string $currentTable;
+    private string $currentTable = '';
 
     /** @var array */
-    private array $aliases;
+    private array $aliases = [];
 
     private Relation $relation;
 

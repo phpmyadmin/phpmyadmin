@@ -182,12 +182,12 @@ class Qbe
      * New column count in case of add/delete
      *
      */
-    private int $newColumnCount;
+    private int $newColumnCount = 0;
     /**
      * New row count in case of add/delete
      *
      */
-    private int $newRowCount;
+    private int $newRowCount = 0;
     /**
      * List of saved searches
      *

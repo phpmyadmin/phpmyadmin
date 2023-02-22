@@ -32,10 +32,10 @@ use function vsprintf;
 class Advisor
 {
     /** @var array */
-    private array $variables;
+    private array $variables = [];
 
     /** @var array */
-    private array $globals;
+    private array $globals = [];
 
     /**
      * @var array<int, array<string, string>>

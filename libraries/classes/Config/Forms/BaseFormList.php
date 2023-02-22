@@ -23,7 +23,7 @@ class BaseFormList
     protected static array $all = [];
 
     /** @var BaseForm[] */
-    private array $forms;
+    private array $forms = [];
 
     /** @return string[] */
     public static function getAllFormNames(): array

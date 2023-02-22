@@ -52,7 +52,7 @@ class Search
      * Already set search type's description
      *
      */
-    private string $searchTypeDescription;
+    private string $searchTypeDescription = '';
 
     /**
      * Search string/regexp
@@ -65,7 +65,7 @@ class Search
      *
      * @var string[]
      */
-    private array $criteriaTables;
+    private array $criteriaTables = [];
 
     /**
      * Restrict the search to this column
@@ -117,7 +117,6 @@ class Search
             $this->criteriaSearchString = $_POST['criteriaSearchString'];
         }
 
-        $this->criteriaTables = [];
         if (empty($_POST['criteriaTables']) || ! is_array($_POST['criteriaTables'])) {
             unset($_POST['submit_search']);
         } else {

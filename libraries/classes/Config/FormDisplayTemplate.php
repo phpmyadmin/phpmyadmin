@@ -20,7 +20,7 @@ use const JSON_HEX_TAG;
  */
 class FormDisplayTemplate
 {
-    public int $group;
+    public int $group = 0;
 
     public Template $template;
 

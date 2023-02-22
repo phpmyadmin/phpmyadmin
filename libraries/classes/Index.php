@@ -76,7 +76,7 @@ class Index
      * Indicates how the key is packed. NULL if it is not.
      *
      */
-    private string $packed = null;
+    private string|null $packed = null;
 
     /**
      * Block size for the index

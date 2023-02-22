@@ -33,7 +33,7 @@ class Footer
      * Whether we are servicing an ajax request.
      *
      */
-    private bool $isAjax;
+    private bool $isAjax = false;
     /**
      * Whether to only close the BODY and HTML tags
      * or also include scripts, errors and links

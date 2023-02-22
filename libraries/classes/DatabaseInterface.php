@@ -103,7 +103,7 @@ class DatabaseInterface implements DbalInterface
      * @var array<int, Connection>
      * @psalm-var array<ConnectionType, Connection>
      */
-    private array $connections;
+    private array $connections = [];
 
     /** @var array<int, string>|null */
     private array|null $currentUserAndHost = null;
@@ -138,7 +138,6 @@ class DatabaseInterface implements DbalInterface
     public function __construct(DbiExtension $ext)
     {
         $this->extension = $ext;
-        $this->connections = [];
         if (defined('TESTSUITE')) {
             $this->connections[Connection::TYPE_USER] = new Connection(new stdClass());
             $this->connections[Connection::TYPE_CONTROL] = new Connection(new stdClass());

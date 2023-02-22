@@ -48,7 +48,7 @@ class ThemeManager
     public string $activeTheme = '';
 
     /** @var Theme Theme active theme */
-    public Theme $theme = null;
+    public Theme $theme;
 
     public string $themeDefault;
 

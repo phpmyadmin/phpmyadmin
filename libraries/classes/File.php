@@ -51,11 +51,10 @@ use const UPLOAD_ERR_PARTIAL;
  */
 class File
 {
-    /** @var string the temporary file name */
-    protected string $name = null;
+    /** @var string|null the temporary file name */
+    protected string|null $name = null;
 
-    /** @var string the content */
-    protected string $content = null;
+    protected string|null $content = null;
 
     /** @var Message|null the error message */
     protected Message|null $errorMessage = null;
@@ -63,8 +62,7 @@ class File
     /** @var bool whether the file is temporary or not */
     protected bool $isTemp = false;
 
-    /** @var string type of compression */
-    protected string $compression = null;
+    protected string|null $compression = null;
 
     protected int $offset = 0;
 
@@ -78,7 +76,7 @@ class File
     protected bool $decompress = false;
 
     /** @var string charset of file */
-    protected string $charset = null;
+    protected string $charset = '';
 
     private ZipExtension $zipExtension;
 

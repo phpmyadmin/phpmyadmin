@@ -34,10 +34,10 @@ use function strncasecmp;
 class FindReplaceController extends AbstractController
 {
     /** @var array */
-    private array $columnNames;
+    private array $columnNames = [];
 
     /** @var array */
-    private array $columnTypes;
+    private array $columnTypes = [];
 
     private string $connectionCharSet;
 
@@ -48,8 +48,6 @@ class FindReplaceController extends AbstractController
     ) {
         parent::__construct($response, $template);
 
-        $this->columnNames = [];
-        $this->columnTypes = [];
         $this->loadTableInfo();
         $this->connectionCharSet = (string) $this->dbi->fetchValue('SELECT @@character_set_connection');
     }

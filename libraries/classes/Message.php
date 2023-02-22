@@ -104,7 +104,7 @@ class Message implements Stringable
      * Unique id
      *
      */
-    protected string $hash = null;
+    protected string|null $hash = null;
 
     /**
      * holds parameters

@@ -35,19 +35,19 @@ class SavedSearches
      * Username
      *
      */
-    private string $username = null;
+    private string $username = '';
 
     /**
      * DB name
      *
      */
-    private string $dbname = null;
+    private string $dbname = '';
 
     /**
      * Saved search name
      *
      */
-    private string $searchName = null;
+    private string $searchName = '';
 
     /**
      * Criterias

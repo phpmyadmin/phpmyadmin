@@ -709,7 +709,7 @@ class LanguageManager
     ];
 
     /** @var array */
-    private array $availableLocales;
+    private array $availableLocales = [];
 
     /** @var Language[] */
     private array $availableLanguages = [];
@@ -720,7 +720,7 @@ class LanguageManager
 
     private bool $langFailedRequest = false;
 
-    private static LanguageManager $instance;
+    private static LanguageManager|null $instance = null;
 
     /**
      * Returns LanguageManager singleton
