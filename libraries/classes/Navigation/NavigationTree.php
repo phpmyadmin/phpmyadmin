@@ -1132,7 +1132,7 @@ class NavigationTree
                         array_intersect_key($args, $node->links['text']['params']),
                     ),
                     'is_ajax' => $linkHasAjaxClass,
-                    'title' => $node->links['title'] ?? $node->title ?? '',
+                    'title' => $node->links['title'] ?? $node->title,
                 ];
             }
 

@@ -948,7 +948,7 @@ class Qbe
         $criteriaCount = 0;
         for ($columnIndex = 0; $columnIndex < $this->criteriaColumnCount; $columnIndex++) {
             if (
-                isset($lastWhere, $this->formAndOrCols)
+                isset($lastWhere)
                 && ! empty($this->formColumns[$columnIndex])
                 && ! empty($this->formCriterions[$columnIndex])
                 && $columnIndex

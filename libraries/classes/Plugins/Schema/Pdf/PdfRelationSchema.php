@@ -642,7 +642,7 @@ class PdfRelationSchema extends ExportRelationSchema
             }
 
             $this->diagram->setFont($this->ff, 'B');
-            if (isset($this->orientation) && $this->orientation === 'L') {
+            if ($this->orientation === 'L') {
                 $this->diagram->Cell(25, 8, __('Column'), 1, 0, 'C');
                 $this->diagram->Cell(20, 8, __('Type'), 1, 0, 'C');
                 $this->diagram->Cell(20, 8, __('Attributes'), 1, 0, 'C');
