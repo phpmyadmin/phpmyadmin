@@ -649,7 +649,7 @@ class File
             return feof($this->handle);
         }
 
-        return $this->offset == strlen($this->content);
+        return $this->offset == strlen($this->content ?? '');
     }
 
     /**
@@ -676,7 +676,7 @@ class File
     public function read(int $size): string
     {
         if ($this->compression === 'application/zip') {
-            $result = mb_strcut($this->content, $this->offset, $size);
+            $result = mb_strcut($this->content ?? '', $this->offset, $size);
             $this->offset += strlen($result);
 
             return $result;
@@ -768,6 +768,6 @@ class File
      */
     public function getContentLength(): int
     {
-        return strlen($this->content);
+        return strlen($this->content ?? '');
     }
 }
