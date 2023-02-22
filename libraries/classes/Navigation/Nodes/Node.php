@@ -334,7 +334,7 @@ class Node
         $vPath = [];
         $vPathClean = [];
         foreach ($this->parents(true, true, true) as $parent) {
-            $vPath[] = base64_encode((string) $parent->name);
+            $vPath[] = base64_encode($parent->name);
             $vPathClean[] = $parent->name;
         }
 

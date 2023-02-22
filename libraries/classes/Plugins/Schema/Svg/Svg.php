@@ -206,7 +206,7 @@ class Svg extends XMLWriter
         $this->writeAttribute('y', (string) $y);
         $this->writeAttribute('style', (string) $styles);
         if (isset($text)) {
-            $this->writeAttribute('font-family', (string) $this->font);
+            $this->writeAttribute('font-family', $this->font);
             $this->writeAttribute('font-size', $this->fontSize . 'px');
             $this->text($text);
         }
