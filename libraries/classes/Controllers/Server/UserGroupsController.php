@@ -14,25 +14,20 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
 use function __;
+use function is_string;
 
 /**
  * Displays the 'User groups' sub page under 'Users' page.
  */
 class UserGroupsController extends AbstractController
 {
-    private Relation $relation;
-
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Relation $relation,
-        DatabaseInterface $dbi
+        private Relation $relation,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->relation = $relation;
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void
@@ -61,11 +56,10 @@ class UserGroupsController extends AbstractController
             'is_super_user' => $this->dbi->isSuperUser(),
         ]);
 
-        /**
-         * Delete user group
-         */
-        if ($request->hasBodyParam('deleteUserGroup')) {
-            UserGroups::delete($configurableMenusFeature, $request->getParsedBodyParam('userGroup'));
+        /** @var mixed $userGroup */
+        $userGroup = $request->getParsedBodyParam('userGroup');
+        if ($request->hasBodyParam('deleteUserGroup') && is_string($userGroup) && $userGroup !== '') {
+            UserGroups::delete($this->dbi, $configurableMenusFeature, $userGroup);
         }
 
         /**

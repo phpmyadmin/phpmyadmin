@@ -16,7 +16,7 @@ use const DATE_W3C;
  */
 class OpenDocument
 {
-    public const NS = <<<EOT
+    public const NS = <<<'EOT'
 xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
 xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
 xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"

@@ -36,7 +36,7 @@ class VersionInformation
      *
      * @return stdClass|null JSON decoded object with the data
      */
-    public function getLatestVersion(): ?stdClass
+    public function getLatestVersion(): stdClass|null
     {
         if (! $GLOBALS['cfg']['VersionCheck']) {
             return null;

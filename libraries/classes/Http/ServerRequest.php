@@ -15,11 +15,8 @@ use function property_exists;
 
 class ServerRequest implements ServerRequestInterface
 {
-    private ServerRequestInterface $serverRequest;
-
-    final public function __construct(ServerRequestInterface $serverRequest)
+    final public function __construct(private ServerRequestInterface $serverRequest)
     {
-        $this->serverRequest = $serverRequest;
     }
 
     /**

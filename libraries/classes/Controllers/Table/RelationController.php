@@ -36,19 +36,13 @@ use function usort;
  */
 final class RelationController extends AbstractController
 {
-    private Relation $relation;
-
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Relation $relation,
-        DatabaseInterface $dbi
+        private Relation $relation,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->relation = $relation;
-        $this->dbi = $dbi;
     }
 
     /**
@@ -381,7 +375,7 @@ final class RelationController extends AbstractController
             $tables_rs = $this->dbi->query($query);
 
             foreach ($tables_rs as $row) {
-                if (! isset($row['Engine']) || mb_strtoupper($row['Engine']) != $storageEngine) {
+                if (! isset($row['Engine']) || mb_strtoupper($row['Engine']) !== $storageEngine) {
                     continue;
                 }
 

@@ -144,7 +144,7 @@ class TableStatsPdf extends TableStats
      * @param bool     $withDoc  Whether to include links to documentation
      * @param bool     $setColor Whether to display color
      */
-    public function tableDraw(?int $fontSize, bool $withDoc, bool $setColor = false): void
+    public function tableDraw(int|null $fontSize, bool $withDoc, bool $setColor = false): void
     {
         $this->diagram->setXyScale($this->x, $this->y);
         $this->diagram->setFont($this->ff, 'B', $fontSize);

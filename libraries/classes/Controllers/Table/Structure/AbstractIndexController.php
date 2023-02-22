@@ -17,24 +17,18 @@ use function is_array;
 
 abstract class AbstractIndexController extends AbstractController
 {
-    protected StructureController $structureController;
-
-    protected Indexes $indexes;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        StructureController $structureController,
-        Indexes $indexes
+        protected StructureController $structureController,
+        protected Indexes $indexes
     ) {
         parent::__construct($response, $template);
-        $this->structureController = $structureController;
-        $this->indexes = $indexes;
     }
 
     public function handleIndexCreation(ServerRequest $request, string $indexType): void
     {
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+        $GLOBALS['message'] ??= null;
 
         $selected = $request->getParsedBodyParam('selected_fld', []);
 

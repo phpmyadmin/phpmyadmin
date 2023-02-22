@@ -40,7 +40,7 @@ use const MYSQLI_USE_RESULT;
  */
 class DbiMysqli implements DbiExtension
 {
-    public function connect(string $user, string $password, Server $server): ?Connection
+    public function connect(string $user, string $password, Server $server): Connection|null
     {
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
@@ -182,7 +182,7 @@ class DbiMysqli implements DbiExtension
     public function realQuery(string $query, Connection $connection, int $options): MysqliResult|false
     {
         $method = MYSQLI_STORE_RESULT;
-        if ($options == ($options | DatabaseInterface::QUERY_UNBUFFERED)) {
+        if ($options === ($options | DatabaseInterface::QUERY_UNBUFFERED)) {
             $method = MYSQLI_USE_RESULT;
         }
 
@@ -343,7 +343,7 @@ class DbiMysqli implements DbiExtension
      *
      * @param string $query The query, as a string.
      */
-    public function prepare(Connection $connection, string $query): ?Statement
+    public function prepare(Connection $connection, string $query): Statement|null
     {
         /** @var mysqli $mysqli */
         $mysqli = $connection->connection;

@@ -37,12 +37,6 @@ use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 
 class HomeController extends AbstractController
 {
-    private Config $config;
-
-    private ThemeManager $themeManager;
-
-    private DatabaseInterface $dbi;
-
     /**
      * @var array<int, array<string, string>>
      * @psalm-var list<array{message: string, severity: 'warning'|'notice'}>
@@ -52,23 +46,20 @@ class HomeController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Config $config,
-        ThemeManager $themeManager,
-        DatabaseInterface $dbi
+        private Config $config,
+        private ThemeManager $themeManager,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->config = $config;
-        $this->themeManager = $themeManager;
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['server'] = $GLOBALS['server'] ?? null;
-        $GLOBALS['collation_connection'] = $GLOBALS['collation_connection'] ?? null;
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-        $GLOBALS['show_query'] = $GLOBALS['show_query'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['server'] ??= null;
+        $GLOBALS['collation_connection'] ??= null;
+        $GLOBALS['message'] ??= null;
+        $GLOBALS['show_query'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
 
         if ($this->response->isAjax() && ! empty($_REQUEST['access_time'])) {
             return;
@@ -251,7 +242,7 @@ class HomeController extends AbstractController
 
     private function checkRequirements(): void
     {
-        $GLOBALS['server'] = $GLOBALS['server'] ?? null;
+        $GLOBALS['server'] ??= null;
 
         $this->checkPhpExtensionsRequirements();
 
@@ -397,7 +388,7 @@ class HomeController extends AbstractController
 
     private function checkLanguageStats(): void
     {
-        $GLOBALS['lang'] = $GLOBALS['lang'] ?? null;
+        $GLOBALS['lang'] ??= null;
 
         /**
          * Warning about incomplete translations.

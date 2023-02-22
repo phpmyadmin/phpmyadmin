@@ -53,16 +53,6 @@ use const PASSWORD_DEFAULT;
 
 class InsertEdit
 {
-    private DatabaseInterface $dbi;
-
-    private Relation $relation;
-
-    private Transformations $transformations;
-
-    private FileListing $fileListing;
-
-    private Template $template;
-
     private const FUNC_OPTIONAL_PARAM = [
         'RAND',
         'UNIX_TIMESTAMP',
@@ -92,34 +82,28 @@ class InsertEdit
     ];
 
     public function __construct(
-        DatabaseInterface $dbi,
-        Relation $relation,
-        Transformations $transformations,
-        FileListing $fileListing,
-        Template $template
+        private DatabaseInterface $dbi,
+        private Relation $relation,
+        private Transformations $transformations,
+        private FileListing $fileListing,
+        private Template $template
     ) {
-        $this->dbi = $dbi;
-        $this->relation = $relation;
-        $this->transformations = $transformations;
-        $this->fileListing = $fileListing;
-        $this->template = $template;
     }
 
     /**
      * Retrieve form parameters for insert/edit form
      *
-     * @param string     $db               name of the database
-     * @param string     $table            name of the table
-     * @param array|null $whereClauses     where clauses
-     * @param array      $whereClauseArray array of where clauses
-     * @param string     $errorUrl         error url
+     * @param string $db               name of the database
+     * @param string $table            name of the table
+     * @param array  $whereClauseArray
+     * @param string $errorUrl
      *
      * @return array<string, string> array of insert/edit form parameters
      */
     public function getFormParametersForInsertForm(
         $db,
         $table,
-        ?array $whereClauses,
+        array|null $whereClauses,
         array $whereClauseArray,
         $errorUrl
     ): array {
@@ -902,8 +886,8 @@ class InsertEdit
      *
      * @param string $table            name of the table
      * @param string $db               name of the database
-     * @param array  $whereClauseArray array of where clauses
-     * @param string $errorUrl         error url
+     * @param array  $whereClauseArray
+     * @param string $errorUrl
      *
      * @return string                   an html snippet
      */

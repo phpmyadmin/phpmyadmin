@@ -12,32 +12,6 @@ namespace PhpMyAdmin\Server;
  */
 final class Plugin
 {
-    private string $name;
-
-    private ?string $version;
-
-    private string $status;
-
-    private string $type;
-
-    private ?string $typeVersion;
-
-    private ?string $library;
-
-    private ?string $libraryVersion;
-
-    private ?string $author;
-
-    private ?string $description;
-
-    private string $license;
-
-    private ?string $loadOption;
-
-    private ?string $maturity;
-
-    private ?string $authVersion;
-
     /**
      * @param string      $name           Name of the plugin
      * @param string|null $version        Version from the plugin's general type descriptor
@@ -54,33 +28,20 @@ final class Plugin
      * @param string|null $authVersion    Plugin's version as determined by the plugin author
      */
     private function __construct(
-        string $name,
-        ?string $version,
-        string $status,
-        string $type,
-        ?string $typeVersion,
-        ?string $library,
-        ?string $libraryVersion,
-        ?string $author,
-        ?string $description,
-        string $license,
-        ?string $loadOption,
-        ?string $maturity,
-        ?string $authVersion
+        private string $name,
+        private string|null $version,
+        private string $status,
+        private string $type,
+        private string|null $typeVersion,
+        private string|null $library,
+        private string|null $libraryVersion,
+        private string|null $author,
+        private string|null $description,
+        private string $license,
+        private string|null $loadOption,
+        private string|null $maturity,
+        private string|null $authVersion
     ) {
-        $this->name = $name;
-        $this->version = $version;
-        $this->status = $status;
-        $this->type = $type;
-        $this->typeVersion = $typeVersion;
-        $this->library = $library;
-        $this->libraryVersion = $libraryVersion;
-        $this->author = $author;
-        $this->description = $description;
-        $this->license = $license;
-        $this->loadOption = $loadOption;
-        $this->maturity = $maturity;
-        $this->authVersion = $authVersion;
     }
 
     /**
@@ -132,7 +93,7 @@ final class Plugin
         return $this->name;
     }
 
-    public function getVersion(): ?string
+    public function getVersion(): string|null
     {
         return $this->version;
     }
@@ -147,27 +108,27 @@ final class Plugin
         return $this->type;
     }
 
-    public function getTypeVersion(): ?string
+    public function getTypeVersion(): string|null
     {
         return $this->typeVersion;
     }
 
-    public function getLibrary(): ?string
+    public function getLibrary(): string|null
     {
         return $this->library;
     }
 
-    public function getLibraryVersion(): ?string
+    public function getLibraryVersion(): string|null
     {
         return $this->libraryVersion;
     }
 
-    public function getAuthor(): ?string
+    public function getAuthor(): string|null
     {
         return $this->author;
     }
 
-    public function getDescription(): ?string
+    public function getDescription(): string|null
     {
         return $this->description;
     }
@@ -177,17 +138,17 @@ final class Plugin
         return $this->license;
     }
 
-    public function getLoadOption(): ?string
+    public function getLoadOption(): string|null
     {
         return $this->loadOption;
     }
 
-    public function getMaturity(): ?string
+    public function getMaturity(): string|null
     {
         return $this->maturity;
     }
 
-    public function getAuthVersion(): ?string
+    public function getAuthVersion(): string|null
     {
         return $this->authVersion;
     }

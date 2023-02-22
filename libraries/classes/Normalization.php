@@ -37,28 +37,16 @@ class Normalization
      */
     private DatabaseInterface $dbi;
 
-    private Relation $relation;
-
-    private Transformations $transformations;
-
     /** @var Template */
     public $template;
 
-    /**
-     * @param DatabaseInterface $dbi             DatabaseInterface instance
-     * @param Relation          $relation        Relation instance
-     * @param Transformations   $transformations Transformations instance
-     * @param Template          $template        Template instance
-     */
     public function __construct(
         DatabaseInterface $dbi,
-        Relation $relation,
-        Transformations $transformations,
+        private Relation $relation,
+        private Transformations $transformations,
         Template $template
     ) {
         $this->dbi = $dbi;
-        $this->relation = $relation;
-        $this->transformations = $transformations;
         $this->template = $template;
     }
 
@@ -414,7 +402,7 @@ class Normalization
         if (count($primarycols) > 1) {
             $this->dbi->selectDb($db);
             $columns = $this->dbi->getColumnNames($db, $table);
-            if (count($pk) == count($columns)) {
+            if (count($pk) === count($columns)) {
                 $headText = sprintf(
                     __(
                         'No partial dependencies possible as '

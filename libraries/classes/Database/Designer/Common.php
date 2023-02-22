@@ -32,18 +32,8 @@ use function rawurlencode;
  */
 class Common
 {
-    private Relation $relation;
-
-    private DatabaseInterface $dbi;
-
-    /**
-     * @param DatabaseInterface $dbi      DatabaseInterface object
-     * @param Relation          $relation Relation instance
-     */
-    public function __construct(DatabaseInterface $dbi, Relation $relation)
+    public function __construct(private DatabaseInterface $dbi, private Relation $relation)
     {
-        $this->dbi = $dbi;
-        $this->relation = $relation;
     }
 
     /**
@@ -54,10 +44,10 @@ class Common
      *
      * @return DesignerTable[] with table info
      */
-    public function getTablesInfo(?string $db = null, ?string $table = null): array
+    public function getTablesInfo(string|null $db = null, string|null $table = null): array
     {
         $designerTables = [];
-        $db = $db ?? $GLOBALS['db'];
+        $db ??= $GLOBALS['db'];
         // seems to be needed later
         $this->dbi->selectDb($db);
         if ($table === null) {
@@ -554,7 +544,7 @@ class Common
         $type_T2 = mb_strtoupper($tables[$T2]['ENGINE'] ?? '');
 
         // native foreign key
-        if (ForeignKey::isSupported($type_T1) && ForeignKey::isSupported($type_T2) && $type_T1 == $type_T2) {
+        if (ForeignKey::isSupported($type_T1) && ForeignKey::isSupported($type_T2) && $type_T1 === $type_T2) {
             // relation exists?
             $existrel_foreign = $this->relation->getForeigners($DB2, $T2, '', 'foreign');
             $foreigner = $this->relation->searchColumnInForeigners($existrel_foreign, $F2);
@@ -693,7 +683,7 @@ class Common
         $tables = $this->dbi->getTablesFull($DB2, $T2);
         $type_T2 = mb_strtoupper($tables[$T2]['ENGINE']);
 
-        if (ForeignKey::isSupported($type_T1) && ForeignKey::isSupported($type_T2) && $type_T1 == $type_T2) {
+        if (ForeignKey::isSupported($type_T1) && ForeignKey::isSupported($type_T2) && $type_T1 === $type_T2) {
             // InnoDB
             $existrel_foreign = $this->relation->getForeigners($DB2, $T2, '', 'foreign');
             $foreigner = $this->relation->searchColumnInForeigners($existrel_foreign, $F2);

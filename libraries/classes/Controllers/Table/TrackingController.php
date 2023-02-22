@@ -31,25 +31,22 @@ use function sprintf;
 
 final class TrackingController extends AbstractController
 {
-    private Tracking $tracking;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Tracking $tracking
+        private Tracking $tracking
     ) {
         parent::__construct($response, $template);
-        $this->tracking = $tracking;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
-        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-        $GLOBALS['msg'] = $GLOBALS['msg'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
-        $GLOBALS['entries'] = $GLOBALS['entries'] ?? null;
-        $GLOBALS['filter_users'] = $GLOBALS['filter_users'] ?? null;
+        $GLOBALS['text_dir'] ??= null;
+        $GLOBALS['urlParams'] ??= null;
+        $GLOBALS['msg'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
+        $GLOBALS['entries'] ??= null;
+        $GLOBALS['filter_users'] ??= null;
 
         $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'table/tracking.js']);
 
@@ -120,8 +117,8 @@ final class TrackingController extends AbstractController
             $GLOBALS['filter_users'] = array_map('trim', explode(',', $users));
         }
 
-        $dateFrom = $dateFrom ?? new DateTimeImmutable();
-        $dateTo = $dateTo ?? new DateTimeImmutable();
+        $dateFrom ??= new DateTimeImmutable();
+        $dateTo ??= new DateTimeImmutable();
 
         // Prepare export
         if ($reportExport !== null) {

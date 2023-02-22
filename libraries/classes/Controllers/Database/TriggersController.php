@@ -22,26 +22,20 @@ use function strlen;
  */
 class TriggersController extends AbstractController
 {
-    private DatabaseInterface $dbi;
-
-    private Triggers $triggers;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        DatabaseInterface $dbi,
-        Triggers $triggers
+        private DatabaseInterface $dbi,
+        private Triggers $triggers
     ) {
         parent::__construct($response, $template);
-        $this->dbi = $dbi;
-        $this->triggers = $triggers;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['errors'] = $GLOBALS['errors'] ?? null;
-        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['errors'] ??= null;
+        $GLOBALS['urlParams'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
 
         $this->addScriptFiles(['database/triggers.js']);
 

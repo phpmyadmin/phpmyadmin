@@ -120,7 +120,7 @@ class Theme
         return true;
     }
 
-    public static function load(string $themeUrl, string $themeFsPath, string $themeName): ?self
+    public static function load(string $themeUrl, string $themeFsPath, string $themeName): self|null
     {
         $theme = new self();
 

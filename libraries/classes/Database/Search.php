@@ -78,20 +78,15 @@ class Search
      */
     private $criteriaColumnName;
 
-    private DatabaseInterface $dbi;
-
     /** @var Template */
     public $template;
 
     /**
-     * @param DatabaseInterface $dbi      DatabaseInterface object
-     * @param string            $db       Database name
-     * @param Template          $template Template object
+     * @param string $db Database name
      */
-    public function __construct(DatabaseInterface $dbi, $db, Template $template)
+    public function __construct(private DatabaseInterface $dbi, $db, Template $template)
     {
         $this->db = $db;
-        $this->dbi = $dbi;
         $this->searchTypes = [
             '1' => __('at least one of the words'),
             '2' => __('all of the words'),

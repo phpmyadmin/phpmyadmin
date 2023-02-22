@@ -25,7 +25,6 @@ use function json_encode;
 
 use const JSON_PRETTY_PRINT;
 use const JSON_UNESCAPED_UNICODE;
-use const PHP_EOL;
 
 /**
  * Handles the export for the JSON format
@@ -116,7 +115,7 @@ class ExportJson extends ExportPlugin
             return false;
         }
 
-        return $this->export->outputHandler('[' . PHP_EOL . $data . ',' . PHP_EOL);
+        return $this->export->outputHandler('[' . "\n" . $data . ',' . "\n");
     }
 
     /**
@@ -124,7 +123,7 @@ class ExportJson extends ExportPlugin
      */
     public function exportFooter(): bool
     {
-        return $this->export->outputHandler(']' . PHP_EOL);
+        return $this->export->outputHandler(']' . "\n");
     }
 
     /**
@@ -144,7 +143,7 @@ class ExportJson extends ExportPlugin
             return false;
         }
 
-        return $this->export->outputHandler($data . ',' . PHP_EOL);
+        return $this->export->outputHandler($data . ',' . "\n");
     }
 
     /**
@@ -227,13 +226,13 @@ class ExportJson extends ExportPlugin
         DatabaseInterface $dbi,
         string $sqlQuery,
         string $buffer,
-        ?array $aliases,
-        ?string $db,
-        ?string $table
+        array|null $aliases,
+        string|null $db,
+        string|null $table
     ): bool {
         [$header, $footer] = explode('"@@DATA@@"', $buffer);
 
-        if (! $this->export->outputHandler($header . PHP_EOL . '[' . PHP_EOL)) {
+        if (! $this->export->outputHandler($header . "\n" . '[' . "\n")) {
             return false;
         }
 
@@ -260,7 +259,7 @@ class ExportJson extends ExportPlugin
 
             // Output table name as comment if this is the first record of the table
             if ($record_cnt > 1) {
-                if (! $this->export->outputHandler(',' . PHP_EOL)) {
+                if (! $this->export->outputHandler(',' . "\n")) {
                     return false;
                 }
             }
@@ -302,7 +301,7 @@ class ExportJson extends ExportPlugin
             }
         }
 
-        return $this->export->outputHandler(PHP_EOL . ']' . PHP_EOL . $footer . PHP_EOL);
+        return $this->export->outputHandler("\n" . ']' . "\n" . $footer . "\n");
     }
 
     /**
@@ -312,7 +311,7 @@ class ExportJson extends ExportPlugin
      * @param string|null $db       the database where the query is executed
      * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string $errorUrl, ?string $db, string $sqlQuery): bool
+    public function exportRawQuery(string $errorUrl, string|null $db, string $sqlQuery): bool
     {
         $buffer = $this->encode([
             'type' => 'raw',

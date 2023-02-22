@@ -91,8 +91,12 @@ class Header
         $this->bodyId = '';
         $this->title = '';
         $this->console = new Console(new Relation($GLOBALS['dbi']), $this->template);
-        $this->menu = new Menu($GLOBALS['dbi'], $GLOBALS['db'] ?? '', $GLOBALS['table'] ?? '');
-        $this->menuEnabled = true;
+        $this->menuEnabled = false;
+        if ($GLOBALS['dbi'] !== null) {
+            $this->menuEnabled = true;
+            $this->menu = new Menu($GLOBALS['dbi'], $GLOBALS['db'] ?? '', $GLOBALS['table'] ?? '');
+        }
+
         $this->warningsEnabled = true;
         $this->scripts = new Scripts();
         $this->addDefaultScripts();
@@ -150,8 +154,8 @@ class Header
             'LoginCookieValidity' => $GLOBALS['cfg']['LoginCookieValidity'],
             'session_gc_maxlifetime' => (int) ini_get('session.gc_maxlifetime'),
             'logged_in' => isset($GLOBALS['dbi']) ? $GLOBALS['dbi']->isConnected() : false,
-            'is_https' => $GLOBALS['config']->isHttps(),
-            'rootPath' => $GLOBALS['config']->getRootPath(),
+            'is_https' => $GLOBALS['config'] !== null && $GLOBALS['config']->isHttps(),
+            'rootPath' => $GLOBALS['config'] !== null && $GLOBALS['config']->getRootPath(),
             'arg_separator' => Url::getArgSeparator(),
             'version' => Version::VERSION,
         ];
@@ -260,7 +264,7 @@ class Header
      */
     public function getDisplay(): string
     {
-        $GLOBALS['theme'] = $GLOBALS['theme'] ?? null;
+        $GLOBALS['theme'] ??= null;
 
         if ($this->headerIsSent || ! $this->isEnabled) {
             return '';

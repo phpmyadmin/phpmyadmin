@@ -23,19 +23,13 @@ use function count;
 
 final class CheckController extends AbstractController
 {
-    private Maintenance $model;
-
-    private Config $config;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Maintenance $model,
-        Config $config
+        private Maintenance $model,
+        private Config $config
     ) {
         parent::__construct($response, $template);
-        $this->model = $model;
-        $this->config = $config;
     }
 
     public function __invoke(ServerRequest $request): void

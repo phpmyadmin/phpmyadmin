@@ -30,15 +30,11 @@ use function strlen;
  */
 class Monitor
 {
-    /** @var DatabaseInterface */
-    private $dbi;
-
     /**
-     * @param DatabaseInterface $dbi DatabaseInterface instance
+     * @param DatabaseInterface $dbi
      */
-    public function __construct($dbi)
+    public function __construct(private $dbi)
     {
-        $this->dbi = $dbi;
     }
 
     /**
@@ -266,7 +262,7 @@ class Monitor
      * @param int $start Unix Time: Start time for query
      * @param int $end   Unix Time: End time for query
      */
-    public function getJsonForLogDataTypeSlow(int $start, int $end): ?array
+    public function getJsonForLogDataTypeSlow(int $start, int $end): array|null
     {
         $query = 'SELECT start_time, user_host, ';
         $query .= 'Sec_to_Time(Sum(Time_to_Sec(query_time))) as query_time, ';
@@ -347,7 +343,7 @@ class Monitor
         int $end,
         bool $isTypesLimited,
         bool $removeVariables
-    ): ?array {
+    ): array|null {
         $limitTypes = '';
         if ($isTypesLimited) {
             $limitTypes = 'AND argument REGEXP \'^(INSERT|SELECT|UPDATE|DELETE)\' ';
@@ -478,7 +474,7 @@ class Monitor
      *
      * @return array JSON
      */
-    public function getJsonForLoggingVars(?string $name, ?string $value): array
+    public function getJsonForLoggingVars(string|null $name, string|null $value): array
     {
         if (isset($name, $value)) {
             if (! preg_match('/[^a-zA-Z0-9_]+/', $name)) {
@@ -506,7 +502,7 @@ class Monitor
         string $database,
         string $query
     ): array {
-        $GLOBALS['cached_affected_rows'] = $GLOBALS['cached_affected_rows'] ?? null;
+        $GLOBALS['cached_affected_rows'] ??= null;
 
         $return = [];
 

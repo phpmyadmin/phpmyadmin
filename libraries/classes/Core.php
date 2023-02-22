@@ -118,7 +118,7 @@ class Core
         bool $fatal = false,
         string $extra = ''
     ): void {
-        $GLOBALS['errorHandler'] = $GLOBALS['errorHandler'] ?? null;
+        $GLOBALS['errorHandler'] ??= null;
 
         $message = 'The %s extension is missing. Please check your PHP configuration.';
 

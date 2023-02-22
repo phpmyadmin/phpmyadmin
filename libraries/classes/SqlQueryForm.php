@@ -28,17 +28,8 @@ use function strlen;
  */
 class SqlQueryForm
 {
-    private Template $template;
-
-    private DatabaseInterface $dbi;
-
-    /**
-     * @param Template $template Template object
-     */
-    public function __construct(Template $template, DatabaseInterface $dbi)
+    public function __construct(private Template $template, private DatabaseInterface $dbi)
     {
-        $this->template = $template;
-        $this->dbi = $dbi;
     }
 
     /**

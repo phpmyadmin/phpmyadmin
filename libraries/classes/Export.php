@@ -57,9 +57,6 @@ use const ENT_COMPAT;
  */
 class Export
 {
-    /** @var DatabaseInterface */
-    private $dbi;
-
     /** @var string */
     public $dumpBuffer = '';
 
@@ -70,11 +67,10 @@ class Export
     public $dumpBufferObjects = [];
 
     /**
-     * @param DatabaseInterface $dbi DatabaseInterface instance
+     * @param DatabaseInterface $dbi
      */
-    public function __construct($dbi)
+    public function __construct(private $dbi)
     {
-        $this->dbi = $dbi;
     }
 
     /**
@@ -130,8 +126,8 @@ class Export
      */
     public function outputHandler(string $line): bool
     {
-        $GLOBALS['time_start'] = $GLOBALS['time_start'] ?? null;
-        $GLOBALS['save_filename'] = $GLOBALS['save_filename'] ?? null;
+        $GLOBALS['time_start'] ??= null;
+        $GLOBALS['save_filename'] ??= null;
 
         // Kanji encoding convert feature
         if ($GLOBALS['output_kanji_conversion']) {
@@ -311,7 +307,7 @@ class Export
         $requiredExtension = '.' . $exportPlugin->getProperties()->getExtension();
         $extensionLength = mb_strlen($requiredExtension);
         $userExtension = mb_substr($filename, -$extensionLength);
-        if (mb_strtolower($userExtension) != $requiredExtension) {
+        if (mb_strtolower($userExtension) !== $requiredExtension) {
             $filename .= $requiredExtension;
         }
 
@@ -896,7 +892,7 @@ class Export
         string $whatStrucOrData,
         ExportPlugin $exportPlugin,
         string $errorUrl,
-        ?string $db,
+        string|null $db,
         string $sqlQuery,
         string $exportType
     ): void {
@@ -946,7 +942,7 @@ class Export
         bool $doComments,
         bool $doMime,
         bool $doDates,
-        ?string $allrows,
+        string|null $allrows,
         string $limitTo,
         string $limitFrom,
         string $sqlQuery,
@@ -1079,7 +1075,7 @@ class Export
      */
     public function showPage(string $exportType): void
     {
-        $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
+        $GLOBALS['active_page'] ??= null;
         $request = Common::getRequest();
         $container = Core::getContainerBuilder();
         if ($exportType === 'server') {

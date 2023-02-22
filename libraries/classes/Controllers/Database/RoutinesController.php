@@ -23,30 +23,21 @@ use function strlen;
  */
 class RoutinesController extends AbstractController
 {
-    private CheckUserPrivileges $checkUserPrivileges;
-
-    private DatabaseInterface $dbi;
-
-    private Routines $routines;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        CheckUserPrivileges $checkUserPrivileges,
-        DatabaseInterface $dbi,
-        Routines $routines
+        private CheckUserPrivileges $checkUserPrivileges,
+        private DatabaseInterface $dbi,
+        private Routines $routines
     ) {
         parent::__construct($response, $template);
-        $this->checkUserPrivileges = $checkUserPrivileges;
-        $this->dbi = $dbi;
-        $this->routines = $routines;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['errors'] = $GLOBALS['errors'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
-        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
+        $GLOBALS['errors'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
+        $GLOBALS['urlParams'] ??= null;
 
         $this->addScriptFiles(['database/routines.js']);
 

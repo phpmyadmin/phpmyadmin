@@ -770,7 +770,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     /**
      * @dataProvider dataProviderPasswordLength
      */
-    public function testAuthFailsTooLongPass(string $password, bool $trueFalse, ?string $connError): void
+    public function testAuthFailsTooLongPass(string $password, bool $trueFalse, string|null $connError): void
     {
         $_POST['pma_username'] = str_shuffle('123456987rootfoobar');
         $_POST['pma_password'] = $password;
@@ -896,7 +896,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     public function testGetEncryptionSecretEmpty(): void
     {
         $method = new ReflectionMethod(AuthenticationCookie::class, 'getEncryptionSecret');
-        $method->setAccessible(true);
 
         $GLOBALS['cfg']['blowfish_secret'] = '';
         $_SESSION['encryption_key'] = '';
@@ -910,7 +909,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     public function testGetEncryptionSecretConfigured(): void
     {
         $method = new ReflectionMethod(AuthenticationCookie::class, 'getEncryptionSecret');
-        $method->setAccessible(true);
 
         $key = str_repeat('a', SODIUM_CRYPTO_SECRETBOX_KEYBYTES);
         $GLOBALS['cfg']['blowfish_secret'] = $key;
@@ -924,7 +922,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     public function testGetSessionEncryptionSecretConfigured(): void
     {
         $method = new ReflectionMethod(AuthenticationCookie::class, 'getEncryptionSecret');
-        $method->setAccessible(true);
 
         $key = str_repeat('a', SODIUM_CRYPTO_SECRETBOX_KEYBYTES);
         $GLOBALS['cfg']['blowfish_secret'] = 'blowfish_secret';

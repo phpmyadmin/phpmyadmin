@@ -39,7 +39,7 @@ class UploadNoplugin implements UploadInterface
      */
     public static function getUploadStatus($id)
     {
-        $GLOBALS['SESSION_KEY'] = $GLOBALS['SESSION_KEY'] ?? null;
+        $GLOBALS['SESSION_KEY'] ??= null;
 
         if (trim($id) == '') {
             return null;

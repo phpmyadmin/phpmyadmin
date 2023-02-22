@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Features\SavedQueryByExampleSearchesFeature;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Exceptions\SavedSearchesException;
 
 use function __;
@@ -55,7 +56,7 @@ class SavedSearches
     /**
      * Criterias
      *
-     * @var array
+     * @var array|null
      */
     private $criterias = null;
 
@@ -173,7 +174,7 @@ class SavedSearches
     /**
      * Getter for criterias
      *
-     * @return array
+     * @return array|null
      */
     public function getCriterias()
     {
@@ -254,7 +255,7 @@ class SavedSearches
         //If it's an insert.
         if ($this->getId() === null) {
             $wheres = [
-                'search_name = ' . $GLOBALS['dbi']->quoteString($this->getSearchName()),
+                'search_name = ' . $GLOBALS['dbi']->quoteString($this->getSearchName(), Connection::TYPE_CONTROL),
             ];
             $existingSearches = $this->getList($savedQueryByExampleSearchesFeature, $wheres);
 
@@ -265,10 +266,10 @@ class SavedSearches
             $sqlQuery = 'INSERT INTO ' . $savedSearchesTbl
                 . '(`username`, `db_name`, `search_name`, `search_data`)'
                 . ' VALUES ('
-                . $GLOBALS['dbi']->quoteString($this->getUsername()) . ','
-                . $GLOBALS['dbi']->quoteString($this->getDbname()) . ','
-                . $GLOBALS['dbi']->quoteString($this->getSearchName()) . ','
-                . $GLOBALS['dbi']->quoteString(json_encode($this->getCriterias()))
+                . $GLOBALS['dbi']->quoteString($this->getUsername(), Connection::TYPE_CONTROL) . ','
+                . $GLOBALS['dbi']->quoteString($this->getDbname(), Connection::TYPE_CONTROL) . ','
+                . $GLOBALS['dbi']->quoteString($this->getSearchName(), Connection::TYPE_CONTROL) . ','
+                . $GLOBALS['dbi']->quoteString(json_encode($this->getCriterias()), Connection::TYPE_CONTROL)
                 . ')';
 
             $GLOBALS['dbi']->queryAsControlUser($sqlQuery);
@@ -291,9 +292,9 @@ class SavedSearches
 
         $sqlQuery = 'UPDATE ' . $savedSearchesTbl
             . 'SET `search_name` = '
-            . $GLOBALS['dbi']->quoteString($this->getSearchName()) . ', '
+            . $GLOBALS['dbi']->quoteString($this->getSearchName(), Connection::TYPE_CONTROL) . ', '
             . '`search_data` = '
-            . $GLOBALS['dbi']->quoteString(json_encode($this->getCriterias())) . ' '
+            . $GLOBALS['dbi']->quoteString(json_encode($this->getCriterias()), Connection::TYPE_CONTROL) . ' '
             . 'WHERE id = ' . $this->getId();
 
         return (bool) $GLOBALS['dbi']->queryAsControlUser($sqlQuery);
@@ -314,7 +315,7 @@ class SavedSearches
             . Util::backquote($savedQueryByExampleSearchesFeature->savedSearches);
 
         $sqlQuery = 'DELETE FROM ' . $savedSearchesTbl
-            . 'WHERE id = ' . $GLOBALS['dbi']->quoteString((string) $this->getId());
+            . 'WHERE id = ' . $GLOBALS['dbi']->quoteString((string) $this->getId(), Connection::TYPE_CONTROL);
 
         return (bool) $GLOBALS['dbi']->queryAsControlUser($sqlQuery);
     }
@@ -335,7 +336,7 @@ class SavedSearches
             . Util::backquote($savedQueryByExampleSearchesFeature->savedSearches);
         $sqlQuery = 'SELECT id, search_name, search_data '
             . 'FROM ' . $savedSearchesTbl . ' '
-            . 'WHERE id = ' . $GLOBALS['dbi']->quoteString((string) $this->getId());
+            . 'WHERE id = ' . $GLOBALS['dbi']->quoteString((string) $this->getId(), Connection::TYPE_CONTROL);
 
         $resList = $GLOBALS['dbi']->queryAsControlUser($sqlQuery);
         $oneResult = $resList->fetchAssoc();
@@ -369,8 +370,8 @@ class SavedSearches
         $sqlQuery = 'SELECT id, search_name '
             . 'FROM ' . $savedSearchesTbl . ' '
             . 'WHERE '
-            . 'username = ' . $GLOBALS['dbi']->quoteString($this->getUsername()) . ' '
-            . 'AND db_name = ' . $GLOBALS['dbi']->quoteString($this->getDbname()) . ' ';
+            . 'username = ' . $GLOBALS['dbi']->quoteString($this->getUsername(), Connection::TYPE_CONTROL) . ' '
+            . 'AND db_name = ' . $GLOBALS['dbi']->quoteString($this->getDbname(), Connection::TYPE_CONTROL) . ' ';
 
         foreach ($wheres as $where) {
             $sqlQuery .= 'AND ' . $where . ' ';

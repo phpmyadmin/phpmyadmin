@@ -121,7 +121,6 @@ class HeaderTest extends AbstractTestCase
     public function testDisableWarnings(): void
     {
         $reflection = new ReflectionProperty(Header::class, 'warningsEnabled');
-        $reflection->setAccessible(true);
 
         $header = new Header();
         $header->disableWarnings();
@@ -141,7 +140,7 @@ class HeaderTest extends AbstractTestCase
         string $privateKey,
         string $publicKey,
         string $captchaCsp,
-        ?string $expectedFrameOptions,
+        string|null $expectedFrameOptions,
         string $expectedCsp,
         string $expectedXCsp,
         string $expectedWebKitCsp

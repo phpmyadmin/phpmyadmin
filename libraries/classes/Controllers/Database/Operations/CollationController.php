@@ -18,24 +18,18 @@ use function __;
 
 final class CollationController extends AbstractController
 {
-    private Operations $operations;
-
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Operations $operations,
-        DatabaseInterface $dbi
+        private Operations $operations,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->operations = $operations;
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['errorUrl'] ??= null;
 
         if (! $this->response->isAjax()) {
             return;

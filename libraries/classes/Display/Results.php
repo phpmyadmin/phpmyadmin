@@ -232,8 +232,6 @@ class Results
      */
     public $transformationInfo;
 
-    private DatabaseInterface $dbi;
-
     private Relation $relation;
 
     private Transformations $transformations;
@@ -248,10 +246,8 @@ class Results
      * @param string $goto     the URL to go back in case of errors
      * @param string $sqlQuery the SQL query
      */
-    public function __construct(DatabaseInterface $dbi, $db, $table, $server, $goto, $sqlQuery)
+    public function __construct(private DatabaseInterface $dbi, $db, $table, $server, $goto, $sqlQuery)
     {
-        $this->dbi = $dbi;
-
         $this->relation = new Relation($this->dbi);
         $this->transformations = new Transformations();
         $this->template = new Template();
@@ -417,7 +413,7 @@ class Results
         $isMaintenance,
         $isExplain,
         $isShow,
-        ?array $showTable,
+        array|null $showTable,
         $printView,
         $editable,
         $isBrowseDistinct
@@ -526,7 +522,7 @@ class Results
                 $isLink
                 && $previousTable != ''
                 && $fieldsMeta[$i]->table != ''
-                && $fieldsMeta[$i]->table != $previousTable
+                && $fieldsMeta[$i]->table !== $previousTable
             ) {
                 // don't display links
                 $hasEditLink = false;
@@ -993,7 +989,7 @@ class Results
      * @psalm-return array{hidden_fields?:array, options?:array}
      */
     private function getSortByKeyDropDown(
-        ?array $sortExpression,
+        array|null $sortExpression,
         string $unsortedSqlQuery
     ): array {
         // grab indexes data:
@@ -1247,7 +1243,7 @@ class Results
      */
     private function getFullOrPartialTextButtonOrLink(): string
     {
-        $GLOBALS['theme'] = $GLOBALS['theme'] ?? null;
+        $GLOBALS['theme'] ??= null;
 
         $urlParamsFullText = [
             'db' => $this->properties['db'],
@@ -1434,11 +1430,16 @@ class Results
                 ? 0
                 : count($sortExpressionNoDirection);
             $sortExpressionNoDirection[$specialIndex] = Util::backquote($currentName);
-            $isTimeOrDate = $fieldsMeta->isType(FieldMetadata::TYPE_TIME)
-                || $fieldsMeta->isType(FieldMetadata::TYPE_DATE)
-                || $fieldsMeta->isType(FieldMetadata::TYPE_DATETIME)
-                || $fieldsMeta->isType(FieldMetadata::TYPE_TIMESTAMP);
-            $sortDirection[$specialIndex] = $isTimeOrDate ? self::DESCENDING_SORT_DIR : self::ASCENDING_SORT_DIR;
+            // Set the direction to the config value
+            $sortDirection[$specialIndex] = $GLOBALS['cfg']['Order'];
+            // Or perform SMART mode
+            if ($GLOBALS['cfg']['Order'] === self::SMART_SORT_ORDER) {
+                $isTimeOrDate = $fieldsMeta->isType(FieldMetadata::TYPE_TIME)
+                    || $fieldsMeta->isType(FieldMetadata::TYPE_DATE)
+                    || $fieldsMeta->isType(FieldMetadata::TYPE_DATETIME)
+                    || $fieldsMeta->isType(FieldMetadata::TYPE_TIMESTAMP);
+                $sortDirection[$specialIndex] = $isTimeOrDate ? self::DESCENDING_SORT_DIR : self::ASCENDING_SORT_DIR;
+            }
         }
 
         $sortExpressionNoDirection = array_filter($sortExpressionNoDirection);
@@ -1945,7 +1946,7 @@ class Results
     ) {
         // Mostly because of browser transformations, to make the row-data accessible in a plugin.
 
-        $GLOBALS['row'] = $GLOBALS['row'] ?? null;
+        $GLOBALS['row'] ??= null;
 
         $tableBodyHtml = '';
 
@@ -2922,13 +2923,13 @@ class Results
      * @return string the prepared cell, html content
      */
     private function getDataCellForNumericColumns(
-        ?string $column,
+        string|null $column,
         string $class,
         bool $conditionField,
         FieldMetadata $meta,
         array $map,
         StatementInfo $statementInfo,
-        ?TransformationsPlugin $transformationPlugin,
+        TransformationsPlugin|null $transformationPlugin,
         array $transformOptions
     ) {
         if ($column === null) {
@@ -2972,13 +2973,13 @@ class Results
      * @return string the prepared data cell, html content
      */
     private function getDataCellForGeometryColumns(
-        ?string $column,
+        string|null $column,
         string $class,
         FieldMetadata $meta,
         array $map,
         array $urlParams,
         bool $conditionField,
-        ?TransformationsPlugin $transformationPlugin,
+        TransformationsPlugin|null $transformationPlugin,
         $transformOptions,
         StatementInfo $statementInfo
     ) {
@@ -3088,13 +3089,13 @@ class Results
      * @return string the prepared data cell, html content
      */
     private function getDataCellForNonNumericColumns(
-        ?string $column,
+        string|null $column,
         string $class,
         FieldMetadata $meta,
         array $map,
         array $urlParams,
         bool $conditionField,
-        ?TransformationsPlugin $transformationPlugin,
+        TransformationsPlugin|null $transformationPlugin,
         $transformOptions,
         StatementInfo $statementInfo
     ) {
@@ -3636,7 +3637,7 @@ class Results
         $sortedColumnIndex = false;
 
         foreach ($fieldsMeta as $key => $meta) {
-            if (($meta->table == $sortTable) && ($meta->name == $sortColumn)) {
+            if (($meta->table === $sortTable) && ($meta->name === $sortColumn)) {
                 $sortedColumnIndex = $key;
                 break;
             }
@@ -4019,8 +4020,8 @@ class Results
      */
     private function handleNonPrintableContents(
         $category,
-        ?string $content,
-        ?TransformationsPlugin $transformationPlugin,
+        string|null $content,
+        TransformationsPlugin|null $transformationPlugin,
         array $transformOptions,
         FieldMetadata $meta,
         array $urlParams = [],
@@ -4111,7 +4112,7 @@ class Results
      *
      * @return string|null  formatted data
      */
-    private function getFromForeign(array $fieldInfo, string $whereComparison): ?string
+    private function getFromForeign(array $fieldInfo, string $whereComparison): string|null
     {
         $dispsql = 'SELECT '
             . Util::backquote($fieldInfo[2])
@@ -4167,7 +4168,7 @@ class Results
         array $map,
         $data,
         $displayedData,
-        ?TransformationsPlugin $transformationPlugin,
+        TransformationsPlugin|null $transformationPlugin,
         string $nowrap,
         string $whereComparison,
         array $transformOptions,

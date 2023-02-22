@@ -23,8 +23,6 @@ use function preg_replace;
 use function sprintf;
 use function ucfirst;
 
-use const PHP_EOL;
-
 /**
  * Handles the export for the CodeGen class
  */
@@ -293,7 +291,7 @@ class ExportCodegen extends ExportPlugin
         $lines[] = '    #endregion';
         $lines[] = '}';
 
-        return implode(PHP_EOL, $lines);
+        return implode("\n", $lines);
     }
 
     /**
@@ -360,7 +358,7 @@ class ExportCodegen extends ExportPlugin
         $lines[] = '    </class>';
         $lines[] = '</hibernate-mapping>';
 
-        return implode(PHP_EOL, $lines);
+        return implode("\n", $lines);
     }
 
     /**

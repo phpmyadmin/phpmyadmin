@@ -141,7 +141,7 @@ class Util
      *
      * @return string unquoted string
      */
-    public static function unQuote(string $quotedString, ?string $quote = null): string
+    public static function unQuote(string $quotedString, string|null $quote = null): string
     {
         $quotes = [];
 
@@ -403,7 +403,7 @@ class Util
      *
      * @return array|null the formatted value and its unit
      */
-    public static function formatByteDown($value, $limes = 6, $comma = 0): ?array
+    public static function formatByteDown($value, $limes = 6, $comma = 0): array|null
     {
         if ($value === null) {
             return null;
@@ -444,7 +444,7 @@ class Util
             }
         }
 
-        if ($unit != $byteUnits[0]) {
+        if ($unit !== $byteUnits[0]) {
             // if the unit is not bytes (as represented in current language)
             // reformat with max length of 5
             // 4th parameter=true means do not reformat if value < 1
@@ -980,7 +980,7 @@ class Util
         }
 
         return $keyword . $charset
-            . ($charset == $collation ? '' : ' COLLATE ' . $collation);
+            . ($charset === $collation ? '' : ' COLLATE ' . $collation);
     }
 
     /**
@@ -1233,7 +1233,7 @@ class Util
      *
      * @return string the converted value
      */
-    public static function convertBitDefaultValue(?string $bitDefaultValue): string
+    public static function convertBitDefaultValue(string|null $bitDefaultValue): string
     {
         return (string) preg_replace(
             "/^b'(\d*)'?$/",
@@ -1366,8 +1366,6 @@ class Util
 
     /**
      * If the string starts with a \r\n pair (0x0d0a) add an extra \n
-     *
-     * @param string $string string
      *
      * @return string with the chars replaced
      */
@@ -1521,7 +1519,7 @@ class Util
      */
     public static function expandUserString(
         string $string,
-        ?callable $escape = null,
+        callable|null $escape = null,
         array $updates = []
     ): string {
         /* Content */
@@ -1669,7 +1667,7 @@ class Util
      *                          string, table name where to also check
      *                          for privileges
      */
-    public static function currentUserHasPrivilege(string $priv, ?string $db = null, ?string $tbl = null): bool
+    public static function currentUserHasPrivilege(string $priv, string|null $db = null, string|null $tbl = null): bool
     {
         // Get the username for the current user in the format
         // required to use in the information schema database.
@@ -1942,7 +1940,7 @@ class Util
 
         $len = strlen($test);
         fclose($file);
-        if ($len >= 2 && $test[0] == chr(31) && $test[1] == chr(139)) {
+        if ($len >= 2 && $test[0] === chr(31) && $test[1] === chr(139)) {
             return 'application/gzip';
         }
 

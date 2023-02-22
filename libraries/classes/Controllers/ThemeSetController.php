@@ -15,19 +15,13 @@ use function is_string;
 
 final class ThemeSetController extends AbstractController
 {
-    private ThemeManager $themeManager;
-
-    private UserPreferences $userPreferences;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        ThemeManager $themeManager,
-        UserPreferences $userPreferences
+        private ThemeManager $themeManager,
+        private UserPreferences $userPreferences
     ) {
         parent::__construct($response, $template);
-        $this->themeManager = $themeManager;
-        $this->userPreferences = $userPreferences;
     }
 
     public function __invoke(ServerRequest $request): void

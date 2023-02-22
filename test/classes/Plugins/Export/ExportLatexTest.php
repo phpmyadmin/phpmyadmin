@@ -21,7 +21,6 @@ use PhpMyAdmin\Transformations;
 use ReflectionMethod;
 
 use function __;
-use function array_shift;
 use function ob_get_clean;
 use function ob_start;
 
@@ -83,7 +82,6 @@ class ExportLatexTest extends AbstractTestCase
         $_SESSION = ['relation' => [$GLOBALS['server'] => $relationParameters->toArray()]];
 
         $method = new ReflectionMethod(ExportLatex::class, 'setProperties');
-        $method->setAccessible(true);
         $properties = $method->invoke($this->object, null);
 
         $this->assertInstanceOf(ExportPluginProperties::class, $properties);
@@ -119,7 +117,8 @@ class ExportLatexTest extends AbstractTestCase
 
         $generalOptionsArray = $options->getProperties();
 
-        $generalOptions = array_shift($generalOptionsArray);
+        $generalOptions = $generalOptionsArray->current();
+        $generalOptionsArray->next();
 
         $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
@@ -130,7 +129,7 @@ class ExportLatexTest extends AbstractTestCase
 
         $generalProperties = $generalOptions->getProperties();
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
 
         $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
@@ -144,7 +143,8 @@ class ExportLatexTest extends AbstractTestCase
             $property->getText()
         );
 
-        $generalOptions = array_shift($generalOptionsArray);
+        $generalOptions = $generalOptionsArray->current();
+        $generalOptionsArray->next();
 
         $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
@@ -160,7 +160,7 @@ class ExportLatexTest extends AbstractTestCase
 
         $generalProperties = $generalOptions->getProperties();
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
 
         $this->assertInstanceOf(RadioPropertyItem::class, $property);
 
@@ -179,7 +179,8 @@ class ExportLatexTest extends AbstractTestCase
         );
 
         // hide structure
-        $generalOptions = array_shift($generalOptionsArray);
+        $generalOptions = $generalOptionsArray->current();
+        $generalOptionsArray->next();
 
         $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
@@ -200,7 +201,8 @@ class ExportLatexTest extends AbstractTestCase
 
         $generalProperties = $generalOptions->getProperties();
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
+        $generalProperties->next();
 
         $this->assertInstanceOf(TextPropertyItem::class, $property);
 
@@ -219,7 +221,8 @@ class ExportLatexTest extends AbstractTestCase
             $property->getDoc()
         );
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
+        $generalProperties->next();
 
         $this->assertInstanceOf(TextPropertyItem::class, $property);
 
@@ -238,7 +241,8 @@ class ExportLatexTest extends AbstractTestCase
             $property->getDoc()
         );
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
+        $generalProperties->next();
 
         $this->assertInstanceOf(TextPropertyItem::class, $property);
 
@@ -257,7 +261,8 @@ class ExportLatexTest extends AbstractTestCase
             $property->getDoc()
         );
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
+        $generalProperties->next();
 
         $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
@@ -271,7 +276,8 @@ class ExportLatexTest extends AbstractTestCase
             $property->getText()
         );
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
+        $generalProperties->next();
 
         $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
@@ -285,7 +291,7 @@ class ExportLatexTest extends AbstractTestCase
             $property->getText()
         );
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
 
         $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
@@ -300,7 +306,7 @@ class ExportLatexTest extends AbstractTestCase
         );
 
         // data options
-        $generalOptions = array_shift($generalOptionsArray);
+        $generalOptions = $generalOptionsArray->current();
 
         $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
@@ -321,7 +327,8 @@ class ExportLatexTest extends AbstractTestCase
 
         $generalProperties = $generalOptions->getProperties();
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
+        $generalProperties->next();
 
         $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
@@ -335,7 +342,8 @@ class ExportLatexTest extends AbstractTestCase
             $property->getText()
         );
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
+        $generalProperties->next();
 
         $this->assertInstanceOf(TextPropertyItem::class, $property);
 
@@ -354,7 +362,8 @@ class ExportLatexTest extends AbstractTestCase
             $property->getDoc()
         );
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
+        $generalProperties->next();
 
         $this->assertInstanceOf(TextPropertyItem::class, $property);
 
@@ -373,7 +382,8 @@ class ExportLatexTest extends AbstractTestCase
             $property->getDoc()
         );
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
+        $generalProperties->next();
 
         $this->assertInstanceOf(TextPropertyItem::class, $property);
 
@@ -392,7 +402,7 @@ class ExportLatexTest extends AbstractTestCase
             $property->getDoc()
         );
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
 
         $this->assertInstanceOf(TextPropertyItem::class, $property);
 

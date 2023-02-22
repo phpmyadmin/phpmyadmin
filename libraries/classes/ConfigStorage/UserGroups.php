@@ -8,6 +8,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\ConfigStorage;
 
 use PhpMyAdmin\ConfigStorage\Features\ConfigurableMenusFeature;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -19,6 +21,7 @@ use function htmlspecialchars;
 use function implode;
 use function in_array;
 use function mb_substr;
+use function sprintf;
 use function substr;
 
 /**
@@ -161,24 +164,28 @@ class UserGroups
     }
 
     /**
-     * Deletes a user group
-     *
-     * @param string $userGroup user group name
+     * @param non-empty-string $userGroupName
      */
-    public static function delete(ConfigurableMenusFeature $configurableMenusFeature, string $userGroup): void
-    {
-        $userTable = Util::backquote($configurableMenusFeature->database)
-            . '.' . Util::backquote($configurableMenusFeature->users);
-        $groupTable = Util::backquote($configurableMenusFeature->database)
-            . '.' . Util::backquote($configurableMenusFeature->userGroups);
-        $sql_query = 'DELETE FROM ' . $userTable
-            . " WHERE `usergroup`='" . $GLOBALS['dbi']->escapeString($userGroup)
-            . "'";
-        $GLOBALS['dbi']->queryAsControlUser($sql_query);
-        $sql_query = 'DELETE FROM ' . $groupTable
-            . " WHERE `usergroup`='" . $GLOBALS['dbi']->escapeString($userGroup)
-            . "'";
-        $GLOBALS['dbi']->queryAsControlUser($sql_query);
+    public static function delete(
+        DatabaseInterface $dbi,
+        ConfigurableMenusFeature $configurableMenusFeature,
+        string $userGroupName,
+    ): void {
+        $statement = sprintf(
+            'DELETE FROM %s.%s WHERE `usergroup`=%s',
+            Util::backquote($configurableMenusFeature->database),
+            Util::backquote($configurableMenusFeature->users),
+            $dbi->quoteString($userGroupName, Connection::TYPE_CONTROL),
+        );
+        $dbi->queryAsControlUser($statement);
+
+        $statement = sprintf(
+            'DELETE FROM %s.%s WHERE `usergroup`=%s',
+            Util::backquote($configurableMenusFeature->database),
+            Util::backquote($configurableMenusFeature->userGroups),
+            $dbi->quoteString($userGroupName, Connection::TYPE_CONTROL),
+        );
+        $dbi->queryAsControlUser($statement);
     }
 
     /**
@@ -190,7 +197,7 @@ class UserGroups
      */
     public static function getHtmlToEditUserGroup(
         ConfigurableMenusFeature $configurableMenusFeature,
-        ?string $userGroup = null
+        string|null $userGroup = null
     ): string {
         $urlParams = [];
 

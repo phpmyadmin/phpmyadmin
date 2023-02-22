@@ -20,25 +20,19 @@ use function sprintf;
 
 class DesignerController extends AbstractController
 {
-    private Designer $databaseDesigner;
-
-    private DesignerCommon $designerCommon;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Designer $databaseDesigner,
-        DesignerCommon $designerCommon
+        private Designer $databaseDesigner,
+        private DesignerCommon $designerCommon
     ) {
         parent::__construct($response, $template);
-        $this->databaseDesigner = $databaseDesigner;
-        $this->designerCommon = $designerCommon;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['message'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
 
         $db = $request->getParsedBodyParam('db');
         $table = $request->getParsedBodyParam('table');

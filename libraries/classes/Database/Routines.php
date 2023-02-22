@@ -57,23 +57,11 @@ class Routines
     /** @var array<int, string> */
     private $numericOptions = ['UNSIGNED', 'ZEROFILL', 'UNSIGNED ZEROFILL'];
 
-    private DatabaseInterface $dbi;
-
-    private Template $template;
-
-    /** @var ResponseRenderer */
-    private $response;
-
     /**
-     * @param DatabaseInterface $dbi      DatabaseInterface instance.
-     * @param Template          $template Template instance.
-     * @param ResponseRenderer  $response Response instance.
+     * @param ResponseRenderer $response
      */
-    public function __construct(DatabaseInterface $dbi, Template $template, $response)
+    public function __construct(private DatabaseInterface $dbi, private Template $template, private $response)
     {
-        $this->dbi = $dbi;
-        $this->template = $template;
-        $this->response = $response;
     }
 
     /**
@@ -81,7 +69,7 @@ class Routines
      */
     public function handleEditor(): void
     {
-        $GLOBALS['errors'] = $GLOBALS['errors'] ?? null;
+        $GLOBALS['errors'] ??= null;
         $GLOBALS['errors'] = $this->handleRequestCreateOrEdit($GLOBALS['errors'], $GLOBALS['db']);
 
         /**
@@ -181,7 +169,7 @@ class Routines
      */
     public function handleRequestCreateOrEdit(array $errors, $db)
     {
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+        $GLOBALS['message'] ??= null;
 
         if (empty($_POST['editor_process_add']) && empty($_POST['editor_process_edit'])) {
             return $errors;
@@ -549,7 +537,7 @@ class Routines
      *
      * @return array|null    Data necessary to create the routine editor.
      */
-    public function getDataFromName($name, $type, $all = true): ?array
+    public function getDataFromName($name, $type, $all = true): array|null
     {
         $retval = [];
 
@@ -736,7 +724,7 @@ class Routines
      */
     public function getEditorForm($mode, $operation, array $routine)
     {
-        $GLOBALS['errors'] = $GLOBALS['errors'] ?? null;
+        $GLOBALS['errors'] ??= null;
 
         for ($i = 0; $i < $routine['item_num_params']; $i++) {
             $routine['item_param_name'][$i] = htmlentities($routine['item_param_name'][$i], ENT_QUOTES);
@@ -817,7 +805,7 @@ class Routines
         string $itemType,
         bool &$warnedAboutLength
     ): string {
-        $GLOBALS['errors'] = $GLOBALS['errors'] ?? null;
+        $GLOBALS['errors'] ??= null;
 
         $params = '';
         $warnedAboutDir = false;
@@ -884,7 +872,7 @@ class Routines
                 }
             }
 
-            if ($i == count($itemParamName) - 1) {
+            if ($i === count($itemParamName) - 1) {
                 continue;
             }
 
@@ -904,7 +892,7 @@ class Routines
         string $query,
         bool $warnedAboutLength
     ): string {
-        $GLOBALS['errors'] = $GLOBALS['errors'] ?? null;
+        $GLOBALS['errors'] ??= null;
 
         $itemReturnType = $_POST['item_returntype'] ?? null;
 
@@ -958,7 +946,7 @@ class Routines
      */
     public function getQueryFromRequest(): string
     {
-        $GLOBALS['errors'] = $GLOBALS['errors'] ?? null;
+        $GLOBALS['errors'] ??= null;
 
         $itemType = $_POST['item_type'] ?? '';
         $itemDefiner = $_POST['item_definer'] ?? '';
@@ -1327,7 +1315,7 @@ class Routines
      *
      * @param array $row Columns
      */
-    private function browseRow(array $row): ?string
+    private function browseRow(array $row): string|null
     {
         $output = null;
         foreach ($row as $value) {
@@ -1617,7 +1605,7 @@ class Routines
     public static function getDetails(
         DatabaseInterface $dbi,
         string $db,
-        ?string $which = null,
+        string|null $which = null,
         string $name = ''
     ): array {
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
@@ -1669,7 +1657,7 @@ class Routines
         return $ret;
     }
 
-    public static function getFunctionDefinition(DatabaseInterface $dbi, string $db, string $name): ?string
+    public static function getFunctionDefinition(DatabaseInterface $dbi, string $db, string $name): string|null
     {
         $result = $dbi->fetchValue(
             'SHOW CREATE FUNCTION ' . Util::backquote($db) . '.' . Util::backquote($name),
@@ -1679,7 +1667,7 @@ class Routines
         return is_string($result) ? $result : null;
     }
 
-    public static function getProcedureDefinition(DatabaseInterface $dbi, string $db, string $name): ?string
+    public static function getProcedureDefinition(DatabaseInterface $dbi, string $db, string $name): string|null
     {
         $result = $dbi->fetchValue(
             'SHOW CREATE PROCEDURE ' . Util::backquote($db) . '.' . Util::backquote($name),

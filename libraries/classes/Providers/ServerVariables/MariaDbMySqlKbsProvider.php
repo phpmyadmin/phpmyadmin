@@ -9,7 +9,7 @@ use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
 
 class MariaDbMySqlKbsProvider implements ServerVariablesProviderInterface
 {
-    public function getVariableType(string $name): ?string
+    public function getVariableType(string $name): string|null
     {
         try {
             return KBSearch::getVariableType($name);
@@ -23,7 +23,7 @@ class MariaDbMySqlKbsProvider implements ServerVariablesProviderInterface
         return [];
     }
 
-    public function getDocLinkByNameMariaDb(string $name): ?string
+    public function getDocLinkByNameMariaDb(string $name): string|null
     {
         try {
             return KBSearch::getByName($name, KBSearch::MARIADB);
@@ -32,7 +32,7 @@ class MariaDbMySqlKbsProvider implements ServerVariablesProviderInterface
         }
     }
 
-    public function getDocLinkByNameMysql(string $name): ?string
+    public function getDocLinkByNameMysql(string $name): string|null
     {
         try {
             return KBSearch::getByName($name, KBSearch::MYSQL);

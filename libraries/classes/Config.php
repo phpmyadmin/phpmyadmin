@@ -99,7 +99,7 @@ class Config
      *
      * @throws ConfigException
      */
-    public function loadAndCheck(?string $source = null): void
+    public function loadAndCheck(string|null $source = null): void
     {
         $this->settings = ['is_setup' => false];
 
@@ -336,7 +336,7 @@ class Config
      *
      * @throws ConfigException
      */
-    public function load(?string $source = null): bool
+    public function load(string|null $source = null): bool
     {
         $this->loadDefaults();
 
@@ -533,7 +533,7 @@ class Config
      * @return true|Message
      */
     public function setUserValue(
-        ?string $cookie_name,
+        string|null $cookie_name,
         string $cfg_path,
         $new_cfg_value,
         $default_value = null
@@ -905,8 +905,8 @@ class Config
     public function setCookie(
         string $cookie,
         string $value,
-        ?string $default = null,
-        ?int $validity = null,
+        string|null $default = null,
+        int|null $validity = null,
         bool $httponly = true
     ): bool {
         if ($value !== '' && $value === $default) {
@@ -1039,7 +1039,7 @@ class Config
      *
      * @staticvar array<string,string|null> $temp_dir
      */
-    public function getTempDir(string $name): ?string
+    public function getTempDir(string $name): string|null
     {
         static $temp_dir = [];
 
@@ -1069,7 +1069,7 @@ class Config
     /**
      * Returns temporary directory
      */
-    public function getUploadTempDir(): ?string
+    public function getUploadTempDir(): string|null
     {
         // First try configured temp dir
         // Fallback to PHP upload_tmp_dir
@@ -1106,7 +1106,7 @@ class Config
                 if (
                     $server['host'] == $request
                     || $server['verbose'] == $request
-                    || $verboseToLower == $serverToLower
+                    || $verboseToLower === $serverToLower
                     || md5($verboseToLower) === $serverToLower
                 ) {
                     $request = $i;
@@ -1197,7 +1197,7 @@ class Config
      *
      * @return array user, host and server settings array
      */
-    public static function getConnectionParams(int $mode, ?array $server = null): array
+    public static function getConnectionParams(int $mode, array|null $server = null): array
     {
         $user = null;
         $password = null;

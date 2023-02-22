@@ -29,27 +29,15 @@ use function strlen;
  */
 class CreateController extends AbstractController
 {
-    private Transformations $transformations;
-
-    private Config $config;
-
-    private DatabaseInterface $dbi;
-
-    private ColumnsDefinition $columnsDefinition;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Transformations $transformations,
-        Config $config,
-        DatabaseInterface $dbi,
-        ColumnsDefinition $columnsDefinition
+        private Transformations $transformations,
+        private Config $config,
+        private DatabaseInterface $dbi,
+        private ColumnsDefinition $columnsDefinition
     ) {
         parent::__construct($response, $template);
-        $this->transformations = $transformations;
-        $this->config = $config;
-        $this->dbi = $dbi;
-        $this->columnsDefinition = $columnsDefinition;
     }
 
     public function __invoke(ServerRequest $request): void

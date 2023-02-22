@@ -22,19 +22,7 @@ use function strcmp;
  */
 class Language
 {
-    /** @var string */
-    protected $code;
-
-    /** @var string */
-    protected $name;
-
-    /** @var string */
-    protected $native;
-
     protected string $regex;
-
-    /** @var string */
-    protected $mysql;
 
     /**
      * Constructs the Language object
@@ -45,17 +33,13 @@ class Language
      * @param string $regex  Match regular expression
      * @param string $mysql  MySQL locale code
      */
-    public function __construct($code, $name, $native, $regex, $mysql)
+    public function __construct(protected $code, protected $name, protected $native, $regex, protected $mysql)
     {
-        $this->code = $code;
-        $this->name = $name;
-        $this->native = $native;
         if (! str_contains($regex, '[-_]')) {
             $regex = str_replace('|', '([-_][[:alpha:]]{2,3})?|', $regex);
         }
 
         $this->regex = $regex;
-        $this->mysql = $mysql;
     }
 
     /**

@@ -53,7 +53,7 @@ class GisMultiPoint extends GisGeometry
      *
      * @return ScaleData|null the min, max values for x and y coordinates
      */
-    public function scaleRow(string $spatial): ?ScaleData
+    public function scaleRow(string $spatial): ScaleData|null
     {
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
         $multipoint = mb_substr($spatial, 11, -1);
@@ -64,14 +64,14 @@ class GisMultiPoint extends GisGeometry
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string      $spatial    GIS POLYGON object
-     * @param string|null $label      Label for the GIS POLYGON object
-     * @param int[]       $color      Color for the GIS POLYGON object
-     * @param array       $scale_data Array containing data related to scaling
+     * @param string $spatial    GIS POLYGON object
+     * @param string $label      Label for the GIS POLYGON object
+     * @param int[]  $color      Color for the GIS POLYGON object
+     * @param array  $scale_data Array containing data related to scaling
      */
     public function prepareRowAsPng(
         $spatial,
-        ?string $label,
+        string $label,
         array $color,
         array $scale_data,
         ImageWrapper $image
@@ -102,12 +102,12 @@ class GisMultiPoint extends GisGeometry
         }
 
         // print label for each point
-        if ((isset($label) && trim($label) != '') && ($points_arr[0][0] != '' && $points_arr[0][1] != '')) {
+        if ($label !== '' && ($points_arr[0][0] != '' && $points_arr[0][1] != '')) {
             $image->string(
                 1,
                 (int) round($points_arr[0][0]),
                 (int) round($points_arr[0][1]),
-                trim($label),
+                $label,
                 $black
             );
         }
@@ -118,17 +118,17 @@ class GisMultiPoint extends GisGeometry
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string      $spatial    GIS MULTIPOINT object
-     * @param string|null $label      Label for the GIS MULTIPOINT object
-     * @param int[]       $color      Color for the GIS MULTIPOINT object
-     * @param array       $scale_data Array containing data related to scaling
-     * @param TCPDF       $pdf        TCPDF instance
+     * @param string $spatial    GIS MULTIPOINT object
+     * @param string $label      Label for the GIS MULTIPOINT object
+     * @param int[]  $color      Color for the GIS MULTIPOINT object
+     * @param array  $scale_data Array containing data related to scaling
+     * @param TCPDF  $pdf
      *
      * @return TCPDF the modified TCPDF instance
      */
     public function prepareRowAsPdf(
         $spatial,
-        ?string $label,
+        string $label,
         array $color,
         array $scale_data,
         $pdf
@@ -152,10 +152,10 @@ class GisMultiPoint extends GisGeometry
         }
 
         // print label for each point
-        if ((isset($label) && trim($label) != '') && ($points_arr[0][0] != '' && $points_arr[0][1] != '')) {
+        if ($label !== '' && ($points_arr[0][0] != '' && $points_arr[0][1] != '')) {
             $pdf->setXY($points_arr[0][0], $points_arr[0][1]);
             $pdf->setFontSize(5);
-            $pdf->Cell(0, 0, trim($label));
+            $pdf->Cell(0, 0, $label);
         }
 
         return $pdf;
@@ -171,7 +171,7 @@ class GisMultiPoint extends GisGeometry
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg($spatial, $label, array $color, array $scale_data)
+    public function prepareRowAsSvg($spatial, string $label, array $color, array $scale_data)
     {
         $point_options = [
             'name' => $label,
@@ -195,7 +195,7 @@ class GisMultiPoint extends GisGeometry
                 . $point[1] . '" r="3"';
             $point_options['id'] = $label . $this->getRandomId();
             foreach ($point_options as $option => $val) {
-                $row .= ' ' . $option . '="' . trim((string) $val) . '"';
+                $row .= ' ' . $option . '="' . $val . '"';
             }
 
             $row .= '/>';
@@ -219,7 +219,7 @@ class GisMultiPoint extends GisGeometry
     public function prepareRowAsOl(
         $spatial,
         int $srid,
-        $label,
+        string $label,
         array $color,
         array $scale_data
     ) {
@@ -238,10 +238,9 @@ class GisMultiPoint extends GisGeometry
             . '}),'
             . 'fill: fill,'
             . 'stroke: stroke';
-
-        if (trim($label) !== '') {
+        if ($label !== '') {
             $text_style = [
-                'text' => trim($label),
+                'text' => $label,
                 'offsetY' => -9,
             ];
             $result .= ',text: new ol.style.Text(' . json_encode($text_style) . ')';

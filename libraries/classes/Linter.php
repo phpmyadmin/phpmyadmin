@@ -131,8 +131,6 @@ class Linter
 
         /**
          * The response containing of all errors.
-         *
-         * @var array
          */
         $response = [];
 

@@ -9,6 +9,7 @@ use PhpMyAdmin\ConfigStorage\Features\ConfigurableMenusFeature;
 use PhpMyAdmin\ConfigStorage\UserGroups;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
@@ -98,19 +99,16 @@ class UserGroupsTest extends AbstractTestCase
         $userDelQuery = 'DELETE FROM `pmadb`.`users` WHERE `usergroup`=\'ug\'';
         $userGrpDelQuery = 'DELETE FROM `pmadb`.`usergroups` WHERE `usergroup`=\'ug\'';
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects($this->exactly(2))
-            ->method('queryAsControlUser')
-            ->withConsecutive([$this->equalTo($userDelQuery)], [$this->equalTo($userGrpDelQuery)]);
-        $dbi->expects($this->any())
-            ->method('escapeString')
-            ->will($this->returnArgument(0));
+        $result = $this->createStub(ResultInterface::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->expects($this->exactly(2))->method('queryAsControlUser')->willReturnMap([
+            [$userDelQuery, $result],
+            [$userGrpDelQuery, $result],
+        ]);
+        $dbi->expects($this->any())->method('quoteString')
+            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
 
-        $GLOBALS['dbi'] = $dbi;
-
-        UserGroups::delete($this->configurableMenusFeature, 'ug');
+        UserGroups::delete($dbi, $this->configurableMenusFeature, 'ug');
     }
 
     /**

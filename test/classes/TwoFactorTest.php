@@ -114,7 +114,7 @@ class TwoFactorTest extends AbstractTestCase
      * @param string $user   Username
      * @param array  $config Two factor authentication configuration
      */
-    private function getTwoFactorAndLoadConfig(string $user, ?array $config): TwoFactor
+    private function getTwoFactorAndLoadConfig(string $user, array|null $config): TwoFactor
     {
         if ($config !== null && ! isset($config['backend'])) {
             $config['backend'] = '';
@@ -157,7 +157,7 @@ class TwoFactorTest extends AbstractTestCase
         );
     }
 
-    private function loadResultForConfig(?array $config): void
+    private function loadResultForConfig(array|null $config): void
     {
         $this->dummyDbi->addResult(
             'SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts'

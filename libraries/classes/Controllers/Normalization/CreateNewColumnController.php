@@ -16,12 +16,9 @@ use function min;
 
 final class CreateNewColumnController extends AbstractController
 {
-    private Normalization $normalization;
-
-    public function __construct(ResponseRenderer $response, Template $template, Normalization $normalization)
+    public function __construct(ResponseRenderer $response, Template $template, private Normalization $normalization)
     {
         parent::__construct($response, $template);
-        $this->normalization = $normalization;
     }
 
     public function __invoke(ServerRequest $request): void

@@ -21,15 +21,12 @@ use function explode;
 
 final class SimulateDmlController extends AbstractController
 {
-    private SimulateDml $simulateDml;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        SimulateDml $simulateDml
+        private SimulateDml $simulateDml
     ) {
         parent::__construct($response, $template);
-        $this->simulateDml = $simulateDml;
     }
 
     public function __invoke(ServerRequest $request): void

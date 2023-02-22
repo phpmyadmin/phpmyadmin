@@ -13,7 +13,6 @@ use function count;
 use function debug_backtrace;
 use function explode;
 use function function_exists;
-use function get_class;
 use function gettype;
 use function htmlspecialchars;
 use function implode;
@@ -444,7 +443,7 @@ class Error extends Message
             $retval .= gettype($arg) . ' '
                 . htmlspecialchars(var_export($arg, true));
         } elseif (is_object($arg)) {
-            $retval .= '<Class:' . get_class($arg) . '>';
+            $retval .= '<Class:' . $arg::class . '>';
         } else {
             $retval .= gettype($arg);
         }
@@ -513,7 +512,7 @@ class Error extends Message
         $destParts = explode(DIRECTORY_SEPARATOR, $dest);
 
         $result = '.';
-        while (implode(DIRECTORY_SEPARATOR, $destParts) != implode(DIRECTORY_SEPARATOR, $hereParts)) {
+        while (implode(DIRECTORY_SEPARATOR, $destParts) !== implode(DIRECTORY_SEPARATOR, $hereParts)) {
             if (count($hereParts) > count($destParts)) {
                 array_pop($hereParts);
                 $result .= DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..';

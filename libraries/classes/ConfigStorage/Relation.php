@@ -57,13 +57,9 @@ use const SQL_DIR;
  */
 class Relation
 {
-    /** @var DatabaseInterface */
-    public $dbi;
-
     /** @param DatabaseInterface $dbi */
-    public function __construct($dbi)
+    public function __construct(public $dbi)
     {
-        $this->dbi = $dbi;
     }
 
     public function getRelationParameters(): RelationParameters
@@ -162,7 +158,7 @@ class Relation
      *
      * @return array<string, bool|string|null>|null
      */
-    private function fillRelationParamsWithTableNames(array $relationParams): ?array
+    private function fillRelationParamsWithTableNames(array $relationParams): array|null
     {
         $tabQuery = 'SHOW TABLES FROM '
         . Util::backquote($GLOBALS['cfg']['Server']['pmadb']);
@@ -581,7 +577,7 @@ class Relation
             $com_qry = 'SELECT `comment`'
                     . ' FROM ' . Util::backquote($columnCommentsFeature->database)
                     . '.' . Util::backquote($columnCommentsFeature->columnInfo)
-                    . ' WHERE db_name = ' . $this->dbi->quoteString($db)
+                    . ' WHERE db_name = ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL)
                     . ' AND table_name  = \'\''
                     . ' AND column_name = \'(db_comment)\'';
             $com_rs = $this->dbi->tryQueryAsControlUser($com_qry);
@@ -640,17 +636,17 @@ class Relation
                 . Util::backquote($columnCommentsFeature->columnInfo)
                 . ' (`db_name`, `table_name`, `column_name`, `comment`)'
                 . ' VALUES ('
-                . $this->dbi->quoteString($db)
+                . $this->dbi->quoteString($db, Connection::TYPE_CONTROL)
                 . ", '', '(db_comment)', "
-                . $this->dbi->quoteString($comment)
+                . $this->dbi->quoteString($comment, Connection::TYPE_CONTROL)
                 . ') '
                 . ' ON DUPLICATE KEY UPDATE '
-                . '`comment` = ' . $this->dbi->quoteString($comment);
+                . '`comment` = ' . $this->dbi->quoteString($comment, Connection::TYPE_CONTROL);
         } else {
             $upd_query = 'DELETE FROM '
                 . Util::backquote($columnCommentsFeature->database) . '.'
                 . Util::backquote($columnCommentsFeature->columnInfo)
-                . ' WHERE `db_name`     = ' . $this->dbi->quoteString($db)
+                . ' WHERE `db_name`     = ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL)
                 . '
                     AND `table_name`  = \'\'
                     AND `column_name` = \'(db_comment)\'';
@@ -706,11 +702,11 @@ class Relation
                     `timevalue`,
                     `sqlquery`)
             VALUES
-                  (' . $this->dbi->quoteString($username) . ',
-                   ' . $this->dbi->quoteString($db) . ',
-                   ' . $this->dbi->quoteString($table) . ',
+                  (' . $this->dbi->quoteString($username, Connection::TYPE_CONTROL) . ',
+                   ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL) . ',
+                   ' . $this->dbi->quoteString($table, Connection::TYPE_CONTROL) . ',
                    NOW(),
-                   ' . $this->dbi->quoteString($sqlquery) . ')'
+                   ' . $this->dbi->quoteString($sqlquery, Connection::TYPE_CONTROL) . ')'
         );
 
         $this->purgeHistory($username);
@@ -788,7 +784,7 @@ class Relation
             'DELETE FROM '
             . Util::backquote($sqlHistoryFeature->database) . '.'
             . Util::backquote($sqlHistoryFeature->history) . '
-              WHERE `username` = ' . $this->dbi->quoteString($username)
+              WHERE `username` = ' . $this->dbi->quoteString($username, Connection::TYPE_CONTROL)
             . '
                 AND `timevalue` <= \'' . $max_time . '\''
         );
@@ -837,9 +833,9 @@ class Relation
             } else {
                 $key = '0x' . bin2hex($key);
                 if (str_contains($data, '0x')) {
-                    $selected = ($key == trim($data));
+                    $selected = ($key === trim($data));
                 } else {
-                    $selected = ($key == '0x' . $data);
+                    $selected = ($key === '0x' . $data);
                 }
             }
 
@@ -1134,10 +1130,10 @@ class Relation
             $table_query = 'UPDATE '
                 . Util::backquote($relationParameters->displayFeature->database) . '.'
                 . Util::backquote($relationParameters->displayFeature->tableInfo)
-                . '   SET display_field = ' . $this->dbi->quoteString($new_name)
-                . ' WHERE db_name       = ' . $this->dbi->quoteString($db)
-                . '   AND table_name    = ' . $this->dbi->quoteString($table)
-                . '   AND display_field = ' . $this->dbi->quoteString($field);
+                . '   SET display_field = ' . $this->dbi->quoteString($new_name, Connection::TYPE_CONTROL)
+                . ' WHERE db_name       = ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL)
+                . '   AND table_name    = ' . $this->dbi->quoteString($table, Connection::TYPE_CONTROL)
+                . '   AND display_field = ' . $this->dbi->quoteString($field, Connection::TYPE_CONTROL);
             $this->dbi->queryAsControlUser($table_query);
         }
 
@@ -1148,19 +1144,19 @@ class Relation
         $table_query = 'UPDATE '
             . Util::backquote($relationParameters->relationFeature->database) . '.'
             . Util::backquote($relationParameters->relationFeature->relation)
-            . '   SET master_field = ' . $this->dbi->quoteString($new_name)
-            . ' WHERE master_db    = ' . $this->dbi->quoteString($db)
-            . '   AND master_table = ' . $this->dbi->quoteString($table)
-            . '   AND master_field = ' . $this->dbi->quoteString($field);
+            . '   SET master_field = ' . $this->dbi->quoteString($new_name, Connection::TYPE_CONTROL)
+            . ' WHERE master_db    = ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL)
+            . '   AND master_table = ' . $this->dbi->quoteString($table, Connection::TYPE_CONTROL)
+            . '   AND master_field = ' . $this->dbi->quoteString($field, Connection::TYPE_CONTROL);
         $this->dbi->queryAsControlUser($table_query);
 
         $table_query = 'UPDATE '
             . Util::backquote($relationParameters->relationFeature->database) . '.'
             . Util::backquote($relationParameters->relationFeature->relation)
-            . '   SET foreign_field = ' . $this->dbi->quoteString($new_name)
-            . ' WHERE foreign_db    = ' . $this->dbi->quoteString($db)
-            . '   AND foreign_table = ' . $this->dbi->quoteString($table)
-            . '   AND foreign_field = ' . $this->dbi->quoteString($field);
+            . '   SET foreign_field = ' . $this->dbi->quoteString($new_name, Connection::TYPE_CONTROL)
+            . ' WHERE foreign_db    = ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL)
+            . '   AND foreign_table = ' . $this->dbi->quoteString($table, Connection::TYPE_CONTROL)
+            . '   AND foreign_field = ' . $this->dbi->quoteString($field, Connection::TYPE_CONTROL);
         $this->dbi->queryAsControlUser($table_query);
     }
 
@@ -1188,13 +1184,13 @@ class Relation
             . Util::backquote($configStorageDatabase) . '.'
             . Util::backquote($configStorageTable)
             . ' SET '
-            . $db_field . ' = ' . $this->dbi->quoteString($target_db)
+            . $db_field . ' = ' . $this->dbi->quoteString($target_db, Connection::TYPE_CONTROL)
             . ', '
-            . $table_field . ' = ' . $this->dbi->quoteString($target_table)
+            . $table_field . ' = ' . $this->dbi->quoteString($target_table, Connection::TYPE_CONTROL)
             . ' WHERE '
-            . $db_field . '  = ' . $this->dbi->quoteString($source_db)
+            . $db_field . '  = ' . $this->dbi->quoteString($source_db, Connection::TYPE_CONTROL)
             . ' AND '
-            . $table_field . ' = ' . $this->dbi->quoteString($source_table);
+            . $table_field . ' = ' . $this->dbi->quoteString($source_table, Connection::TYPE_CONTROL);
         $this->dbi->queryAsControlUser($query);
     }
 
@@ -1285,8 +1281,8 @@ class Relation
                 $remove_query = 'DELETE FROM '
                     . Util::backquote($relationParameters->pdfFeature->database) . '.'
                     . Util::backquote($relationParameters->pdfFeature->tableCoords)
-                    . ' WHERE db_name  = ' . $this->dbi->quoteString($source_db)
-                    . ' AND table_name = ' . $this->dbi->quoteString($source_table);
+                    . ' WHERE db_name  = ' . $this->dbi->quoteString($source_db, Connection::TYPE_CONTROL)
+                    . ' AND table_name = ' . $this->dbi->quoteString($source_table, Connection::TYPE_CONTROL);
                 $this->dbi->queryAsControlUser($remove_query);
             }
         }
@@ -1324,11 +1320,11 @@ class Relation
         $query = 'UPDATE '
             . Util::backquote($relationParameters->navigationItemsHidingFeature->database) . '.'
             . Util::backquote($relationParameters->navigationItemsHidingFeature->navigationHiding)
-            . ' SET db_name = ' . $this->dbi->quoteString($target_db)
+            . ' SET db_name = ' . $this->dbi->quoteString($target_db, Connection::TYPE_CONTROL)
             . ','
-            . ' item_name = ' . $this->dbi->quoteString($target_table)
-            . ' WHERE db_name  = ' . $this->dbi->quoteString($source_db)
-            . ' AND item_name = ' . $this->dbi->quoteString($source_table)
+            . ' item_name = ' . $this->dbi->quoteString($target_table, Connection::TYPE_CONTROL)
+            . ' WHERE db_name  = ' . $this->dbi->quoteString($source_db, Connection::TYPE_CONTROL)
+            . ' AND item_name = ' . $this->dbi->quoteString($source_table, Connection::TYPE_CONTROL)
             . " AND item_type = 'table'";
         $this->dbi->queryAsControlUser($query);
     }
@@ -1339,15 +1335,15 @@ class Relation
      * @param string|null $newpage name of the new PDF page
      * @param string      $db      database name
      */
-    public function createPage(?string $newpage, PdfFeature $pdfFeature, $db): int
+    public function createPage(string|null $newpage, PdfFeature $pdfFeature, $db): int
     {
         $ins_query = 'INSERT INTO '
             . Util::backquote($pdfFeature->database) . '.'
             . Util::backquote($pdfFeature->pdfPages)
             . ' (db_name, page_descr)'
             . ' VALUES ('
-            . $this->dbi->quoteString($db) . ', '
-            . $this->dbi->quoteString($newpage ?: __('no description')) . ')';
+            . $this->dbi->quoteString($db, Connection::TYPE_CONTROL) . ', '
+            . $this->dbi->quoteString($newpage ?: __('no description'), Connection::TYPE_CONTROL) . ')';
         $this->dbi->tryQueryAsControlUser($ins_query);
 
         return $this->dbi->insertId(Connection::TYPE_CONTROL);

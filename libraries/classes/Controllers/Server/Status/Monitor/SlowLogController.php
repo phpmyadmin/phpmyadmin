@@ -15,25 +15,19 @@ use PhpMyAdmin\Url;
 
 final class SlowLogController extends AbstractController
 {
-    private Monitor $monitor;
-
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
         Data $data,
-        Monitor $monitor,
-        DatabaseInterface $dbi
+        private Monitor $monitor,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template, $data);
-        $this->monitor = $monitor;
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['errorUrl'] ??= null;
 
         $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 

@@ -18,14 +18,8 @@ use function defined;
 
 abstract class AbstractController
 {
-    protected ResponseRenderer $response;
-
-    protected Template $template;
-
-    public function __construct(ResponseRenderer $response, Template $template)
+    public function __construct(protected ResponseRenderer $response, protected Template $template)
     {
-        $this->response = $response;
-        $this->template = $template;
     }
 
     /**
@@ -48,8 +42,8 @@ abstract class AbstractController
 
     protected function hasDatabase(): bool
     {
-        $GLOBALS['errno'] = $GLOBALS['errno'] ?? null;
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+        $GLOBALS['errno'] ??= null;
+        $GLOBALS['message'] ??= null;
 
         if (isset($GLOBALS['is_db']) && $GLOBALS['is_db']) {
             return true;

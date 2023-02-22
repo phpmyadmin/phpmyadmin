@@ -39,7 +39,7 @@ abstract class LongToIPv4TransformationsPlugin extends TransformationsPlugin
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = [], ?FieldMetadata $meta = null)
+    public function applyTransformation($buffer, array $options = [], FieldMetadata|null $meta = null)
     {
         return htmlspecialchars(FormatConverter::longToIp($buffer));
     }

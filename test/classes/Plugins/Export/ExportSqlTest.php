@@ -19,6 +19,7 @@ use PhpMyAdmin\Properties\Options\Items\MessageOnlyPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
+use PhpMyAdmin\Properties\Options\OptionsPropertyGroup;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -27,7 +28,6 @@ use PhpMyAdmin\Transformations;
 use ReflectionMethod;
 use stdClass;
 
-use function array_shift;
 use function ob_get_clean;
 use function ob_start;
 
@@ -100,7 +100,6 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['plugin_param']['single_table'] = false;
 
         $method = new ReflectionMethod(ExportSql::class, 'setProperties');
-        $method->setAccessible(true);
         $properties = $method->invoke($this->object, null);
 
         $this->assertInstanceOf(ExportPluginProperties::class, $properties);
@@ -139,7 +138,6 @@ class ExportSqlTest extends AbstractTestCase
         $_SESSION = ['relation' => [$GLOBALS['server'] => $relationParameters->toArray()]];
 
         $method = new ReflectionMethod(ExportSql::class, 'setProperties');
-        $method->setAccessible(true);
         $properties = $method->invoke($this->object, null);
 
         $this->assertInstanceOf(ExportPluginProperties::class, $properties);
@@ -151,13 +149,15 @@ class ExportSqlTest extends AbstractTestCase
 
         $generalOptionsArray = $options->getProperties();
 
-        $generalOptions = array_shift($generalOptionsArray);
+        $generalOptions = $generalOptionsArray->current();
+        $generalOptionsArray->next();
 
         $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $properties = $generalOptions->getProperties();
 
-        $property = array_shift($properties);
+        $property = $properties->current();
+        $properties->next();
 
         $this->assertInstanceOf(OptionsPropertySubgroup::class, $property);
 
@@ -168,31 +168,40 @@ class ExportSqlTest extends AbstractTestCase
 
         $leaves = $property->getProperties();
 
-        $leaf = array_shift($leaves);
+        $leaf = $leaves->current();
+        $leaves->next();
         $this->assertInstanceOf(TextPropertyItem::class, $leaf);
 
-        $leaf = array_shift($leaves);
+        $leaf = $leaves->current();
+        $leaves->next();
         $this->assertInstanceOf(BoolPropertyItem::class, $leaf);
 
-        $leaf = array_shift($leaves);
+        $leaf = $leaves->current();
+        $leaves->next();
         $this->assertInstanceOf(BoolPropertyItem::class, $leaf);
 
-        $leaf = array_shift($leaves);
+        $leaf = $leaves->current();
+        $leaves->next();
         $this->assertInstanceOf(BoolPropertyItem::class, $leaf);
 
-        $property = array_shift($properties);
+        $property = $properties->current();
+        $properties->next();
         $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
-        $property = array_shift($properties);
+        $property = $properties->current();
+        $properties->next();
         $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
-        $property = array_shift($properties);
+        $property = $properties->current();
+        $properties->next();
         $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
-        $property = array_shift($properties);
+        $property = $properties->current();
+        $properties->next();
         $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
-        $property = array_shift($properties);
+        $property = $properties->current();
+        $properties->next();
         $this->assertInstanceOf(SelectPropertyItem::class, $property);
 
         $this->assertEquals(
@@ -203,7 +212,7 @@ class ExportSqlTest extends AbstractTestCase
             $property->getValues()
         );
 
-        $property = array_shift($properties);
+        $property = $properties->current();
         $this->assertInstanceOf(OptionsPropertySubgroup::class, $property);
 
         $this->assertInstanceOf(
@@ -211,13 +220,15 @@ class ExportSqlTest extends AbstractTestCase
             $property->getSubgroupHeader()
         );
 
-        $structureOptions = array_shift($generalOptionsArray);
+        $structureOptions = $generalOptionsArray->current();
+        $generalOptionsArray->next();
 
         $this->assertInstanceOf(OptionsPropertyMainGroup::class, $structureOptions);
 
         $properties = $structureOptions->getProperties();
 
-        $property = array_shift($properties);
+        $property = $properties->current();
+        $properties->next();
 
         $this->assertInstanceOf(OptionsPropertySubgroup::class, $property);
 
@@ -228,10 +239,12 @@ class ExportSqlTest extends AbstractTestCase
 
         $leaves = $property->getProperties();
 
-        $leaf = array_shift($leaves);
+        $leaf = $leaves->current();
+        $leaves->next();
         $this->assertInstanceOf(BoolPropertyItem::class, $leaf);
 
-        $leaf = array_shift($leaves);
+        $leaf = $leaves->current();
+        $leaves->next();
         $this->assertInstanceOf(BoolPropertyItem::class, $leaf);
 
         $this->assertEquals(
@@ -239,7 +252,8 @@ class ExportSqlTest extends AbstractTestCase
             $leaf->getText()
         );
 
-        $leaf = array_shift($leaves);
+        $leaf = $leaves->current();
+        $leaves->next();
         $this->assertInstanceOf(OptionsPropertySubgroup::class, $leaf);
 
         $this->assertCount(
@@ -252,7 +266,8 @@ class ExportSqlTest extends AbstractTestCase
             $leaf->getSubgroupHeader()
         );
 
-        $leaf = array_shift($leaves);
+        $leaf = $leaves->current();
+        $leaves->next();
         $this->assertInstanceOf(OptionsPropertySubgroup::class, $leaf);
 
         $this->assertCount(
@@ -265,25 +280,32 @@ class ExportSqlTest extends AbstractTestCase
             $leaf->getSubgroupHeader()
         );
 
-        $leaf = array_shift($leaves);
+        $leaf = $leaves->current();
+        $leaves->next();
         $this->assertInstanceOf(BoolPropertyItem::class, $leaf);
 
-        $leaf = array_shift($leaves);
+        $leaf = $leaves->current();
+        $leaves->next();
         $this->assertInstanceOf(BoolPropertyItem::class, $leaf);
 
-        $property = array_shift($properties);
+        $property = $properties->current();
         $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
-        $dataOptions = array_shift($generalOptionsArray);
+        $dataOptions = $generalOptionsArray->current();
         $this->assertInstanceOf(OptionsPropertyMainGroup::class, $dataOptions);
 
         $properties = $dataOptions->getProperties();
 
         $this->assertCount(7, $properties);
 
+        $properties->next();
+
+        $property = $properties->current();
+        $this->assertInstanceOf(OptionsPropertyGroup::class, $property);
+
         $this->assertCount(
             2,
-            $properties[1]->getProperties()
+            $property->getProperties()
         );
     }
 
@@ -305,7 +327,6 @@ class ExportSqlTest extends AbstractTestCase
     public function testExportComment(): void
     {
         $method = new ReflectionMethod(ExportSql::class, 'exportComment');
-        $method->setAccessible(true);
 
         $GLOBALS['sql_include_comments'] = true;
 
@@ -337,7 +358,6 @@ class ExportSqlTest extends AbstractTestCase
     public function testPossibleCRLF(): void
     {
         $method = new ReflectionMethod(ExportSql::class, 'possibleCRLF');
-        $method->setAccessible(true);
 
         $GLOBALS['sql_include_comments'] = true;
 
@@ -693,7 +713,6 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['sql_compatibility'] = 'MSSQL';
 
         $method = new ReflectionMethod(ExportSql::class, 'getTableDefForView');
-        $method->setAccessible(true);
         $result = $method->invoke($this->object, 'db', 'view');
 
         $this->assertEquals(
@@ -989,7 +1008,6 @@ class ExportSqlTest extends AbstractTestCase
         $this->object->relation = new Relation($dbi);
 
         $method = new ReflectionMethod(ExportSql::class, 'getTableComments');
-        $method->setAccessible(true);
         $result = $method->invoke($this->object, 'db', '', true, true);
 
         $this->assertStringContainsString(
@@ -1443,7 +1461,6 @@ class ExportSqlTest extends AbstractTestCase
             . " \" double NOT NULL DEFAULT '213'\n";
 
         $method = new ReflectionMethod(ExportSql::class, 'makeCreateTableMSSQLCompatible');
-        $method->setAccessible(true);
         $result = $method->invoke($this->object, $query);
 
         $this->assertEquals(

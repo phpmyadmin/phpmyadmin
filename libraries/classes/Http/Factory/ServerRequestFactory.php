@@ -40,8 +40,8 @@ class ServerRequestFactory
     private UriFactoryInterface $uriFactory;
 
     public function __construct(
-        ?ServerRequestFactoryInterface $serverRequestFactory = null,
-        ?UriFactoryInterface $uriFactory = null
+        ServerRequestFactoryInterface|null $serverRequestFactory = null,
+        UriFactoryInterface|null $uriFactory = null
     ) {
         $this->serverRequestFactory = $serverRequestFactory ?? $this->createServerRequestFactory();
         $this->uriFactory = $uriFactory ?? $this->createUriFactory();

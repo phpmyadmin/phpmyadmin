@@ -32,41 +32,26 @@ use function strlen;
  */
 class OperationsController extends AbstractController
 {
-    private Operations $operations;
-
-    private CheckUserPrivileges $checkUserPrivileges;
-
-    private Relation $relation;
-
-    private RelationCleanup $relationCleanup;
-
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Operations $operations,
-        CheckUserPrivileges $checkUserPrivileges,
-        Relation $relation,
-        RelationCleanup $relationCleanup,
-        DatabaseInterface $dbi
+        private Operations $operations,
+        private CheckUserPrivileges $checkUserPrivileges,
+        private Relation $relation,
+        private RelationCleanup $relationCleanup,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->operations = $operations;
-        $this->checkUserPrivileges = $checkUserPrivileges;
-        $this->relation = $relation;
-        $this->relationCleanup = $relationCleanup;
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['server'] = $GLOBALS['server'] ?? null;
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
-        $GLOBALS['reload'] = $GLOBALS['reload'] ?? null;
-        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-        $GLOBALS['single_table'] = $GLOBALS['single_table'] ?? null;
+        $GLOBALS['server'] ??= null;
+        $GLOBALS['message'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
+        $GLOBALS['reload'] ??= null;
+        $GLOBALS['urlParams'] ??= null;
+        $GLOBALS['single_table'] ??= null;
 
         $this->checkUserPrivileges->getPrivileges();
 
@@ -77,8 +62,8 @@ class OperationsController extends AbstractController
         /**
          * Rename/move or copy database
          */
-        if (strlen($GLOBALS['db']) > 0 && (! empty($_POST['db_rename']) || ! empty($_POST['db_copy']))) {
-            $move = ! empty($_POST['db_rename']);
+        if (strlen($GLOBALS['db']) > 0 && ($request->hasBodyParam('db_rename') || $request->hasBodyParam('db_copy'))) {
+            $move = $request->hasBodyParam('db_rename');
 
             try {
                 $newDatabaseName = DatabaseName::fromValue($request->getParsedBodyParam('newname'));
@@ -96,7 +81,7 @@ class OperationsController extends AbstractController
                         __('Cannot copy database to the same name. Change the name and try again.')
                     );
                 } else {
-                    if ($move || ! empty($_POST['create_database_before_copying'])) {
+                    if ($move || $request->hasBodyParam('create_database_before_copying')) {
                         $this->operations->createDbBeforeCopy($newDatabaseName);
                     }
 
@@ -111,7 +96,7 @@ class OperationsController extends AbstractController
                     // go back to current db, just in case
                     $this->dbi->selectDb($GLOBALS['db']);
 
-                    $tablesFull = $this->dbi->getTablesFull($GLOBALS['db']);
+                    $tableNames = $this->dbi->getTables($GLOBALS['db']);
 
                     // remove all foreign key constraints, otherwise we can get errors
                     $exportSqlPlugin = Plugins::getPlugin('export', 'sql', [
@@ -121,7 +106,7 @@ class OperationsController extends AbstractController
 
                     // create stand-in tables for views
                     $views = $this->operations->getViewsAndCreateSqlViewStandIn(
-                        $tablesFull,
+                        $tableNames,
                         $exportSqlPlugin,
                         $GLOBALS['db'],
                         $newDatabaseName
@@ -129,7 +114,7 @@ class OperationsController extends AbstractController
 
                     // copy tables
                     $sqlConstraints = $this->operations->copyTables(
-                        $tablesFull,
+                        $tableNames,
                         $move,
                         $GLOBALS['db'],
                         $newDatabaseName
@@ -165,7 +150,7 @@ class OperationsController extends AbstractController
                     $this->operations->duplicateBookmarks(false, $GLOBALS['db'], $newDatabaseName);
 
                     if ($move) {
-                        if (isset($_POST['adjust_privileges']) && ! empty($_POST['adjust_privileges'])) {
+                        if ($request->hasBodyParam('adjust_privileges')) {
                             $this->operations->adjustPrivilegesMoveDb($GLOBALS['db'], $newDatabaseName);
                         }
 
@@ -185,7 +170,7 @@ class OperationsController extends AbstractController
                         $GLOBALS['message']->addParam($GLOBALS['db']);
                         $GLOBALS['message']->addParam($newDatabaseName->getName());
                     } else {
-                        if (isset($_POST['adjust_privileges']) && ! empty($_POST['adjust_privileges'])) {
+                        if ($request->hasBodyParam('adjust_privileges')) {
                             $this->operations->adjustPrivilegesCopyDb($GLOBALS['db'], $newDatabaseName);
                         }
 
@@ -202,7 +187,7 @@ class OperationsController extends AbstractController
                     if ($move) {
                         $GLOBALS['db'] = $newDatabaseName->getName();
                     } else {
-                        if (isset($_POST['switch_to_new']) && $_POST['switch_to_new'] === 'true') {
+                        if ($request->getParsedBodyParam('switch_to_new') === 'true') {
                             $_SESSION['pma_switch_to_new'] = true;
                             $GLOBALS['db'] = $newDatabaseName->getName();
                         } else {
@@ -219,7 +204,7 @@ class OperationsController extends AbstractController
             if ($this->response->isAjax()) {
                 $this->response->setRequestStatus($GLOBALS['message']->isSuccess());
                 $this->response->addJSON('message', $GLOBALS['message']);
-                $this->response->addJSON('newname', $newDatabaseName !== null ? $newDatabaseName->getName() : '');
+                $this->response->addJSON('newname', $newDatabaseName?->getName() ?? '');
                 $this->response->addJSON(
                     'sql_query',
                     Generator::getMessage('', $GLOBALS['sql_query'])
@@ -236,8 +221,8 @@ class OperationsController extends AbstractController
          * Check if comments were updated
          * (must be done before displaying the menu tabs)
          */
-        if (isset($_POST['comment'])) {
-            $this->relation->setDbComment($GLOBALS['db'], $_POST['comment']);
+        if ($request->hasBodyParam('comment')) {
+            $this->relation->setDbComment($GLOBALS['db'], $request->getParsedBodyParam('comment'));
         }
 
         $this->checkParameters(['db']);

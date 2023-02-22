@@ -111,13 +111,10 @@ class TwigLintCommandTest extends AbstractTestCase
                 ]
             );
 
-        $command->expects($this->exactly(2))
-            ->method('getTemplateContents')
-            ->withConsecutive(
-                ['foo.twig'],
-                ['foo-invalid.twig']
-            )
-            ->willReturnOnConsecutiveCalls('{{ file }}', '{{ file }');
+        $command->expects($this->exactly(2))->method('getTemplateContents')->willReturnMap([
+            ['foo.twig', '{{ file }}'],
+            ['foo-invalid.twig', '{{ file }'],
+        ]);
 
         $filesFound = $this->callFunction($command, TwigLintCommand::class, 'getFilesInfo', [
             TEST_PATH . 'test/classes/_data/file_listing',

@@ -28,23 +28,14 @@ use function time;
  */
 class ErrorReportController extends AbstractController
 {
-    private ErrorReport $errorReport;
-
-    private ErrorHandler $errorHandler;
-
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        ErrorReport $errorReport,
-        ErrorHandler $errorHandler,
-        DatabaseInterface $dbi
+        private ErrorReport $errorReport,
+        private ErrorHandler $errorHandler,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->errorReport = $errorReport;
-        $this->errorHandler = $errorHandler;
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void

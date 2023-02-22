@@ -14,11 +14,8 @@ use function sprintf;
 
 final class TemplateModel
 {
-    private DatabaseInterface $dbi;
-
-    public function __construct(DatabaseInterface $dbi)
+    public function __construct(private DatabaseInterface $dbi)
     {
-        $this->dbi = $dbi;
     }
 
     public function create(DatabaseName $db, TableName $table, Template $template): string

@@ -21,32 +21,23 @@ use function ltrim;
 
 class FeaturesController extends AbstractController
 {
-    private UserPreferences $userPreferences;
-
-    private Relation $relation;
-
-    private Config $config;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        UserPreferences $userPreferences,
-        Relation $relation,
-        Config $config
+        private UserPreferences $userPreferences,
+        private Relation $relation,
+        private Config $config
     ) {
         parent::__construct($response, $template);
-        $this->userPreferences = $userPreferences;
-        $this->relation = $relation;
-        $this->config = $config;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['cf'] = $GLOBALS['cf'] ?? null;
-        $GLOBALS['error'] = $GLOBALS['error'] ?? null;
-        $GLOBALS['tabHash'] = $GLOBALS['tabHash'] ?? null;
-        $GLOBALS['hash'] = $GLOBALS['hash'] ?? null;
-        $GLOBALS['server'] = $GLOBALS['server'] ?? null;
+        $GLOBALS['cf'] ??= null;
+        $GLOBALS['error'] ??= null;
+        $GLOBALS['tabHash'] ??= null;
+        $GLOBALS['hash'] ??= null;
+        $GLOBALS['server'] ??= null;
 
         $GLOBALS['cf'] = new ConfigFile($this->config->baseSettings);
         $this->userPreferences->pageInit($GLOBALS['cf']);

@@ -27,7 +27,6 @@ class ThemeManager
     /**
      * ThemeManager instance
      *
-     * @static
      * @var ThemeManager
      */
     private static $instance;
@@ -134,7 +133,7 @@ class ThemeManager
      *
      * @param string|null $theme theme name
      */
-    public function setActiveTheme(?string $theme): bool
+    public function setActiveTheme(string|null $theme): bool
     {
         if (! $this->checkTheme($theme)) {
             trigger_error(
@@ -179,7 +178,7 @@ class ThemeManager
      */
     public function getThemeCookie(): string|false
     {
-        $GLOBALS['config'] = $GLOBALS['config'] ?? null;
+        $GLOBALS['config'] ??= null;
 
         $name = $this->getThemeCookieName();
         if ($GLOBALS['config']->issetCookie($name)) {
@@ -246,7 +245,7 @@ class ThemeManager
      *
      * @param string|null $theme name fo theme to check for
      */
-    public function checkTheme(?string $theme): bool
+    public function checkTheme(string|null $theme): bool
     {
         return array_key_exists($theme ?? '', $this->themes);
     }
@@ -266,7 +265,7 @@ class ThemeManager
         return $themes;
     }
 
-    public static function initializeTheme(): ?Theme
+    public static function initializeTheme(): Theme|null
     {
         $themeManager = self::getInstance();
 

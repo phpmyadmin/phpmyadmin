@@ -89,10 +89,10 @@ final class Common
      */
     public static function run(bool $isSetupPage = false): void
     {
-        $GLOBALS['lang'] = $GLOBALS['lang'] ?? null;
-        $GLOBALS['theme'] = $GLOBALS['theme'] ?? null;
-        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-        $GLOBALS['token_mismatch'] = $GLOBALS['token_mismatch'] ?? null;
+        $GLOBALS['lang'] ??= null;
+        $GLOBALS['theme'] ??= null;
+        $GLOBALS['urlParams'] ??= null;
+        $GLOBALS['token_mismatch'] ??= null;
 
         $request = self::getRequest();
         $route = $request->getRoute();
@@ -424,7 +424,7 @@ final class Common
             $path_info_pos = mb_strrpos($GLOBALS['PMA_PHP_SELF'], $_PATH_INFO);
             if ($path_info_pos !== false) {
                 $path_info_part = mb_substr($GLOBALS['PMA_PHP_SELF'], $path_info_pos, mb_strlen($_PATH_INFO));
-                if ($path_info_part == $_PATH_INFO) {
+                if ($path_info_part === $_PATH_INFO) {
                     $GLOBALS['PMA_PHP_SELF'] = mb_substr($GLOBALS['PMA_PHP_SELF'], 0, $path_info_pos);
                 }
             }
@@ -454,8 +454,8 @@ final class Common
 
     private static function setGotoAndBackGlobals(ContainerInterface $container, Config $config): void
     {
-        $GLOBALS['back'] = $GLOBALS['back'] ?? null;
-        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
+        $GLOBALS['back'] ??= null;
+        $GLOBALS['urlParams'] ??= null;
 
         // Holds page that should be displayed.
         $GLOBALS['goto'] = '';
@@ -535,13 +535,13 @@ final class Common
 
     private static function setDatabaseAndTableFromRequest(ContainerInterface $container, ServerRequest $request): void
     {
-        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
+        $GLOBALS['urlParams'] ??= null;
 
         $db = DatabaseName::tryFromValue($request->getParam('db'));
         $table = TableName::tryFromValue($request->getParam('table'));
 
-        $GLOBALS['db'] = $db !== null ? $db->getName() : '';
-        $GLOBALS['table'] = $table !== null ? $table->getName() : '';
+        $GLOBALS['db'] = $db?->getName() ?? '';
+        $GLOBALS['table'] = $table?->getName() ?? '';
 
         if (! is_array($GLOBALS['urlParams'])) {
             $GLOBALS['urlParams'] = [];

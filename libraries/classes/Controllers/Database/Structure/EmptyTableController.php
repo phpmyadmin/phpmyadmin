@@ -25,35 +25,17 @@ use function count;
 
 final class EmptyTableController extends AbstractController
 {
-    private DatabaseInterface $dbi;
-
-    private Relation $relation;
-
-    private RelationCleanup $relationCleanup;
-
-    private Operations $operations;
-
-    private FlashMessages $flash;
-
-    private StructureController $structureController;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        DatabaseInterface $dbi,
-        Relation $relation,
-        RelationCleanup $relationCleanup,
-        Operations $operations,
-        FlashMessages $flash,
-        StructureController $structureController
+        private DatabaseInterface $dbi,
+        private Relation $relation,
+        private RelationCleanup $relationCleanup,
+        private Operations $operations,
+        private FlashMessages $flash,
+        private StructureController $structureController
     ) {
         parent::__construct($response, $template);
-        $this->dbi = $dbi;
-        $this->relation = $relation;
-        $this->relationCleanup = $relationCleanup;
-        $this->operations = $operations;
-        $this->flash = $flash;
-        $this->structureController = $structureController;
     }
 
     public function __invoke(ServerRequest $request): void

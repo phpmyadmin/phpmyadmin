@@ -17,11 +17,8 @@ use function mb_strtoupper;
  */
 class Replication
 {
-    private DatabaseInterface $dbi;
-
-    public function __construct(DatabaseInterface $dbi)
+    public function __construct(private DatabaseInterface $dbi)
     {
-        $this->dbi = $dbi;
     }
 
     /**
@@ -54,7 +51,7 @@ class Replication
      *
      * @return ResultInterface|false|int output of DatabaseInterface::tryQuery
      */
-    public function replicaControl(string $action, ?string $control, int $connectionType): ResultInterface|false|int
+    public function replicaControl(string $action, string|null $control, int $connectionType): ResultInterface|false|int
     {
         $action = mb_strtoupper($action);
         $control = $control !== null ? mb_strtoupper($control) : '';
@@ -131,7 +128,7 @@ class Replication
         $host = null,
         $port = null,
         $socket = null
-    ): ?Connection {
+    ): Connection|null {
         $server = [];
         $server['user'] = $user;
         $server['password'] = $password;

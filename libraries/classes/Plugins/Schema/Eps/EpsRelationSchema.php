@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Eps;
 
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Version;
 
@@ -26,7 +27,7 @@ use function sprintf;
  * This class inherits ExportRelationSchema class has common functionality added
  * to this class
  *
- * @property Eps $diagram
+ * @extends ExportRelationSchema<Eps>
  */
 class EpsRelationSchema extends ExportRelationSchema
 {
@@ -44,10 +45,8 @@ class EpsRelationSchema extends ExportRelationSchema
      * user will be prompted for download as .eps extension
      *
      * @see Eps
-     *
-     * @param string $db database name
      */
-    public function __construct($db)
+    public function __construct(DatabaseName $db)
     {
         parent::__construct($db, new Eps());
 
@@ -60,7 +59,7 @@ class EpsRelationSchema extends ExportRelationSchema
         $this->diagram->setTitle(
             sprintf(
                 __('Schema of the %s database - Page %s'),
-                $this->db,
+                $this->db->getName(),
                 $this->pageNumber
             )
         );
@@ -75,7 +74,7 @@ class EpsRelationSchema extends ExportRelationSchema
             if (! isset($this->tables[$table])) {
                 $this->tables[$table] = new TableStatsEps(
                     $this->diagram,
-                    $this->db,
+                    $this->db->getName(),
                     $table,
                     $this->diagram->getFont(),
                     $this->diagram->getFontSize(),
@@ -96,7 +95,7 @@ class EpsRelationSchema extends ExportRelationSchema
 
         $seen_a_relation = false;
         foreach ($alltables as $one_table) {
-            $exist_rel = $this->relation->getForeigners($this->db, $one_table, '', 'both');
+            $exist_rel = $this->relation->getForeigners($this->db->getName(), $one_table, '', 'both');
             if (! $exist_rel) {
                 continue;
             }
@@ -187,7 +186,7 @@ class EpsRelationSchema extends ExportRelationSchema
         if (! isset($this->tables[$masterTable])) {
             $this->tables[$masterTable] = new TableStatsEps(
                 $this->diagram,
-                $this->db,
+                $this->db->getName(),
                 $masterTable,
                 $font,
                 $fontSize,
@@ -201,7 +200,7 @@ class EpsRelationSchema extends ExportRelationSchema
         if (! isset($this->tables[$foreignTable])) {
             $this->tables[$foreignTable] = new TableStatsEps(
                 $this->diagram,
-                $this->db,
+                $this->db->getName(),
                 $foreignTable,
                 $font,
                 $fontSize,

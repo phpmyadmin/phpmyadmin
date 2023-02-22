@@ -35,27 +35,15 @@ use const PHP_URL_HOST;
  */
 class Navigation
 {
-    /** @var Template */
-    private $template;
-
-    /** @var Relation */
-    private $relation;
-
-    /** @var DatabaseInterface */
-    private $dbi;
-
     private NavigationTree $tree;
 
     /**
-     * @param Template          $template Template instance
-     * @param Relation          $relation Relation instance
-     * @param DatabaseInterface $dbi      DatabaseInterface instance
+     * @param Template          $template
+     * @param Relation          $relation
+     * @param DatabaseInterface $dbi
      */
-    public function __construct($template, $relation, $dbi)
+    public function __construct(private $template, private $relation, private $dbi)
     {
-        $this->template = $template;
-        $this->relation = $relation;
-        $this->dbi = $dbi;
         $this->tree = new NavigationTree($this->template, $this->dbi);
     }
 
@@ -248,7 +236,7 @@ class Navigation
      *
      * @return array
      */
-    private function getHiddenItems(string $database, ?string $table): array
+    private function getHiddenItems(string $database, string|null $table): array
     {
         $navigationItemsHidingFeature = $this->relation->getRelationParameters()->navigationItemsHidingFeature;
         if ($navigationItemsHidingFeature === null) {
@@ -285,7 +273,7 @@ class Navigation
      */
     private function getLogoSource(): string
     {
-        $GLOBALS['theme'] = $GLOBALS['theme'] ?? null;
+        $GLOBALS['theme'] ??= null;
 
         if ($GLOBALS['theme'] instanceof Theme) {
             if (@file_exists($GLOBALS['theme']->getFsPath() . 'img/logo_left.png')) {

@@ -17,7 +17,7 @@ interface DbiExtension
     /**
      * Connects to the database server.
      */
-    public function connect(string $user, string $password, Server $server): ?Connection;
+    public function connect(string $user, string $password, Server $server): Connection|null;
 
     /**
      * selects given database
@@ -109,7 +109,7 @@ interface DbiExtension
      *
      * @param string $query The query, as a string.
      */
-    public function prepare(Connection $connection, string $query): ?Statement;
+    public function prepare(Connection $connection, string $query): Statement|null;
 
     /**
      * Returns the number of warnings from the last query.

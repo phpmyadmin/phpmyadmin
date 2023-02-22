@@ -12,7 +12,6 @@ use function array_splice;
 use function count;
 use function defined;
 use function error_reporting;
-use function get_class;
 use function headers_sent;
 use function htmlspecialchars;
 use function set_error_handler;
@@ -236,7 +235,7 @@ class ErrorHandler
         $config = $GLOBALS['config'] ?? null;
         $this->hideLocation = ! $config instanceof Config || $config->get('environment') !== 'development';
         $this->addError(
-            get_class($exception) . ': ' . $exception->getMessage(),
+            $exception::class . ': ' . $exception->getMessage(),
             (int) $exception->getCode(),
             $exception->getFile(),
             $exception->getLine()
@@ -374,7 +373,7 @@ class ErrorHandler
      *
      * @param Error $error the error
      */
-    protected function dispPageStart(?Error $error = null): void
+    protected function dispPageStart(Error|null $error = null): void
     {
         ResponseRenderer::getInstance()->disable();
         echo '<html><head><title>';
@@ -416,7 +415,7 @@ class ErrorHandler
 
         // if preference is not 'never' and
         // there are 'actual' errors to be reported
-        if ($GLOBALS['cfg']['SendErrorReports'] !== 'never' && $this->countErrors() != $this->countUserErrors()) {
+        if ($GLOBALS['cfg']['SendErrorReports'] !== 'never' && $this->countErrors() !== $this->countUserErrors()) {
             // add report button.
             $retval .= '<form method="post" action="' . Url::getFromRoute('/error-report')
                     . '" id="pma_report_errors_form"';
@@ -571,7 +570,7 @@ class ErrorHandler
     public function hasErrorsForPrompt(): bool
     {
         return $GLOBALS['cfg']['SendErrorReports'] !== 'never'
-            && $this->countErrors() != $this->countUserErrors();
+            && $this->countErrors() !== $this->countUserErrors();
     }
 
     /**
@@ -582,7 +581,7 @@ class ErrorHandler
     public function reportErrors(): void
     {
         // if there're no actual errors,
-        if (! $this->hasErrors() || $this->countErrors() == $this->countUserErrors()) {
+        if (! $this->hasErrors() || $this->countErrors() === $this->countUserErrors()) {
             // then simply return.
             return;
         }

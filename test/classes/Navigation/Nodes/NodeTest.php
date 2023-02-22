@@ -244,7 +244,6 @@ class NodeTest extends AbstractTestCase
     public function testGetWhereClause(): void
     {
         $method = new ReflectionMethod(Node::class, 'getWhereClause');
-        $method->setAccessible(true);
 
         // Vanilla case
         $node = new Node('default');

@@ -31,15 +31,12 @@ abstract class ExportPlugin implements Plugin
     /** @var Relation */
     public $relation;
 
-    protected Export $export;
-
-    protected Transformations $transformations;
-
-    final public function __construct(Relation $relation, Export $export, Transformations $transformations)
-    {
+    final public function __construct(
+        Relation $relation,
+        protected Export $export,
+        protected Transformations $transformations
+    ) {
         $this->relation = $relation;
-        $this->export = $export;
-        $this->transformations = $transformations;
         $this->init();
         $this->properties = $this->setProperties();
     }
@@ -128,7 +125,7 @@ abstract class ExportPlugin implements Plugin
      * @param string|null $db       the database where the query is executed
      * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string $errorUrl, ?string $db, string $sqlQuery): bool
+    public function exportRawQuery(string $errorUrl, string|null $db, string $sqlQuery): bool
     {
         return false;
     }

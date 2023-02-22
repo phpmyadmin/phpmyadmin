@@ -22,14 +22,8 @@ use function mb_strlen;
  */
 class SchemaExportController
 {
-    private Export $export;
-
-    private ResponseRenderer $response;
-
-    public function __construct(Export $export, ResponseRenderer $response)
+    public function __construct(private Export $export, private ResponseRenderer $response)
     {
-        $this->export = $export;
-        $this->response = $response;
     }
 
     public function __invoke(ServerRequest $request): void

@@ -236,7 +236,7 @@ final class Collation
     /**
      * @param string[] $suffixes
      */
-    private function buildName(string $result, ?string $variant, array $suffixes): string
+    private function buildName(string $result, string|null $variant, array $suffixes): string
     {
         if ($variant !== null) {
             $result .= ' (' . $variant . ')';
@@ -249,7 +249,7 @@ final class Collation
         return $result;
     }
 
-    private function getVariant(string $part): ?string
+    private function getVariant(string $part): string|null
     {
         return match ($part) {
             '0900' => 'UCA 9.0.0',
@@ -306,7 +306,7 @@ final class Collation
         bool $unicode,
         bool $unknown,
         string $part,
-        ?string $variant
+        string|null $variant
     ): array {
         switch ($part) {
             case 'binary':

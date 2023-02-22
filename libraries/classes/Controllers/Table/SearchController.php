@@ -82,23 +82,14 @@ class SearchController extends AbstractController
      */
     private $foreigners;
 
-    private Search $search;
-
-    private Relation $relation;
-
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Search $search,
-        Relation $relation,
-        DatabaseInterface $dbi
+        private Search $search,
+        private Relation $relation,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->search = $search;
-        $this->relation = $relation;
-        $this->dbi = $dbi;
 
         $this->columnNames = [];
         $this->columnTypes = [];
@@ -308,10 +299,8 @@ class SearchController extends AbstractController
      * Finds minimum and maximum value of a given column.
      *
      * @param string $column Column name
-     *
-     * @return array|null
      */
-    public function getColumnMinMax($column): ?array
+    public function getColumnMinMax($column): array|null
     {
         $sql_query = 'SELECT MIN(' . Util::backquote($column) . ') AS `min`, '
             . 'MAX(' . Util::backquote($column) . ') AS `max` '

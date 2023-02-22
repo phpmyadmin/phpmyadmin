@@ -19,27 +19,21 @@ use function __;
  */
 class UserPasswordController extends AbstractController
 {
-    private UserPassword $userPassword;
-
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        UserPassword $userPassword,
-        DatabaseInterface $dbi
+        private UserPassword $userPassword,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->userPassword = $userPassword;
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['hostname'] = $GLOBALS['hostname'] ?? null;
-        $GLOBALS['username'] = $GLOBALS['username'] ?? null;
-        $GLOBALS['change_password_message'] = $GLOBALS['change_password_message'] ?? null;
-        $GLOBALS['msg'] = $GLOBALS['msg'] ?? null;
+        $GLOBALS['hostname'] ??= null;
+        $GLOBALS['username'] ??= null;
+        $GLOBALS['change_password_message'] ??= null;
+        $GLOBALS['msg'] ??= null;
 
         $this->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn-ts.js']);
 

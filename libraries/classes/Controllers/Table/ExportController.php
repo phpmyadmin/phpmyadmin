@@ -25,24 +25,21 @@ use function is_array;
 
 class ExportController extends AbstractController
 {
-    private Options $export;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Options $export
+        private Options $export
     ) {
         parent::__construct($response, $template);
-        $this->export = $export;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-        $GLOBALS['replaces'] = $GLOBALS['replaces'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
-        $GLOBALS['where_clause'] = $GLOBALS['where_clause'] ?? null;
-        $GLOBALS['unlim_num_rows'] = $GLOBALS['unlim_num_rows'] ?? null;
+        $GLOBALS['urlParams'] ??= null;
+        $GLOBALS['replaces'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
+        $GLOBALS['where_clause'] ??= null;
+        $GLOBALS['unlim_num_rows'] ??= null;
 
         $pageSettings = new PageSettings('Export');
         $pageSettingsErrorHtml = $pageSettings->getErrorHTML();

@@ -241,14 +241,14 @@ class TrackerTest extends AbstractTestCase
             ->with('pma_test', 'pma_tbl')
             ->will($this->returnValue($getIndexesResult));
 
-        $dbi->expects($this->exactly(3))
-            ->method('tryQuery')
-            ->withConsecutive(
-                ["SHOW TABLE STATUS FROM `pma_test` WHERE Name = 'pma_tbl'"],
-                ['USE `pma_test`'],
-                ['SHOW CREATE TABLE `pma_test`.`pma_tbl`']
-            )
-            ->willReturnOnConsecutiveCalls($resultStub, $resultStub, $resultStub);
+        $showTableStatusQuery = 'SHOW TABLE STATUS FROM `pma_test` WHERE Name = \'pma_tbl\'';
+        $useStatement = 'USE `pma_test`';
+        $showCreateTableQuery = 'SHOW CREATE TABLE `pma_test`.`pma_tbl`';
+        $dbi->expects($this->exactly(3))->method('tryQuery')->willReturnMap([
+            [$showTableStatusQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_BUFFERED, true, $resultStub],
+            [$useStatement, Connection::TYPE_USER, DatabaseInterface::QUERY_BUFFERED, true, $resultStub],
+            [$showCreateTableQuery, Connection::TYPE_USER, DatabaseInterface::QUERY_BUFFERED, true, $resultStub],
+        ]);
 
         $dbi->expects($this->any())->method('query')
             ->will($this->returnValue($resultStub));
@@ -339,7 +339,7 @@ class TrackerTest extends AbstractTestCase
         string $tablename = 'pma_tbl',
         string $version = '0.1',
         $new_state = '1',
-        ?string $type = null
+        string|null $type = null
     ): void {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -365,7 +365,6 @@ class TrackerTest extends AbstractTestCase
 
         if ($type === null) {
             $method = new ReflectionMethod(Tracker::class, 'changeTracking');
-            $method->setAccessible(true);
             $method->invoke(null, $dbname, $tablename, $version, $new_state);
         } elseif ($type === 'activate') {
             Tracker::activateTracking($dbname, $tablename, $version);
@@ -637,9 +636,9 @@ class TrackerTest extends AbstractTestCase
         string $query,
         string $type,
         string $identifier,
-        ?string $tablename,
-        ?string $db = null,
-        ?string $tablename_after_rename = null
+        string|null $tablename,
+        string|null $db = null,
+        string|null $tablename_after_rename = null
     ): void {
         $result = Tracker::parseQuery($query);
 

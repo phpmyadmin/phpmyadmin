@@ -29,11 +29,6 @@ class Application extends TwoFactorPlugin
 
     protected Google2FA $google2fa;
 
-    /**
-     * Creates object
-     *
-     * @param TwoFactor $twofactor TwoFactor instance
-     */
     public function __construct(TwoFactor $twofactor)
     {
         parent::__construct($twofactor);

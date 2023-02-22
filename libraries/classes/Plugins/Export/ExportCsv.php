@@ -24,8 +24,6 @@ use function mb_strtolower;
 use function preg_replace;
 use function str_replace;
 
-use const PHP_EOL;
-
 /**
  * Handles the export for the CSV format
  */
@@ -106,11 +104,11 @@ class ExportCsv extends ExportPlugin
      */
     public function exportHeader(): bool
     {
-        $GLOBALS['what'] = $GLOBALS['what'] ?? null;
-        $GLOBALS['csv_terminated'] = $GLOBALS['csv_terminated'] ?? null;
-        $GLOBALS['csv_separator'] = $GLOBALS['csv_separator'] ?? null;
-        $GLOBALS['csv_enclosed'] = $GLOBALS['csv_enclosed'] ?? null;
-        $GLOBALS['csv_escaped'] = $GLOBALS['csv_escaped'] ?? null;
+        $GLOBALS['what'] ??= null;
+        $GLOBALS['csv_terminated'] ??= null;
+        $GLOBALS['csv_separator'] ??= null;
+        $GLOBALS['csv_enclosed'] ??= null;
+        $GLOBALS['csv_escaped'] ??= null;
 
         // Here we just prepare some values for export
         if ($GLOBALS['what'] === 'excel') {
@@ -132,7 +130,7 @@ class ExportCsv extends ExportPlugin
             }
         } else {
             if (empty($GLOBALS['csv_terminated']) || mb_strtolower($GLOBALS['csv_terminated']) === 'auto') {
-                $GLOBALS['csv_terminated'] = PHP_EOL;
+                $GLOBALS['csv_terminated'] = "\n";
             } else {
                 $GLOBALS['csv_terminated'] = str_replace(
                     [
@@ -212,11 +210,11 @@ class ExportCsv extends ExportPlugin
         $sqlQuery,
         array $aliases = []
     ): bool {
-        $GLOBALS['what'] = $GLOBALS['what'] ?? null;
-        $GLOBALS['csv_terminated'] = $GLOBALS['csv_terminated'] ?? null;
-        $GLOBALS['csv_separator'] = $GLOBALS['csv_separator'] ?? '';
-        $GLOBALS['csv_enclosed'] = $GLOBALS['csv_enclosed'] ?? null;
-        $GLOBALS['csv_escaped'] = $GLOBALS['csv_escaped'] ?? null;
+        $GLOBALS['what'] ??= null;
+        $GLOBALS['csv_terminated'] ??= null;
+        $GLOBALS['csv_separator'] ??= '';
+        $GLOBALS['csv_enclosed'] ??= null;
+        $GLOBALS['csv_escaped'] ??= null;
 
         $db_alias = $db;
         $table_alias = $table;
@@ -335,7 +333,7 @@ class ExportCsv extends ExportPlugin
      * @param string|null $db       the database where the query is executed
      * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string $errorUrl, ?string $db, string $sqlQuery): bool
+    public function exportRawQuery(string $errorUrl, string|null $db, string $sqlQuery): bool
     {
         if ($db !== null) {
             $GLOBALS['dbi']->selectDb($db);

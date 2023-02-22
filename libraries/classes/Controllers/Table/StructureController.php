@@ -43,36 +43,27 @@ class StructureController extends AbstractController
 {
     protected Table $tableObj;
 
-    private Relation $relation;
-
-    private Transformations $transformations;
-
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Relation $relation,
-        Transformations $transformations,
-        DatabaseInterface $dbi
+        private Relation $relation,
+        private Transformations $transformations,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->relation = $relation;
-        $this->transformations = $transformations;
-        $this->dbi = $dbi;
 
         $this->tableObj = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['reread_info'] = $GLOBALS['reread_info'] ?? null;
-        $GLOBALS['showtable'] = $GLOBALS['showtable'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
-        $GLOBALS['tbl_is_view'] = $GLOBALS['tbl_is_view'] ?? null;
-        $GLOBALS['tbl_storage_engine'] = $GLOBALS['tbl_storage_engine'] ?? null;
-        $GLOBALS['tbl_collation'] = $GLOBALS['tbl_collation'] ?? null;
-        $GLOBALS['table_info_num_rows'] = $GLOBALS['table_info_num_rows'] ?? null;
+        $GLOBALS['reread_info'] ??= null;
+        $GLOBALS['showtable'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
+        $GLOBALS['tbl_is_view'] ??= null;
+        $GLOBALS['tbl_storage_engine'] ??= null;
+        $GLOBALS['tbl_collation'] ??= null;
+        $GLOBALS['table_info_num_rows'] ??= null;
 
         $this->dbi->selectDb($GLOBALS['db']);
         $GLOBALS['reread_info'] = $this->tableObj->getStatusInfo(null, true);
@@ -146,14 +137,14 @@ class StructureController extends AbstractController
     protected function displayStructure(
         RelationParameters $relationParameters,
         array $columns_with_unique_index,
-        ?Index $primaryIndex,
+        Index|null $primaryIndex,
         array $fields,
         array $columns_with_index,
         bool $isSystemSchema,
         string $route
     ) {
-        $GLOBALS['tbl_is_view'] = $GLOBALS['tbl_is_view'] ?? null;
-        $GLOBALS['tbl_storage_engine'] = $GLOBALS['tbl_storage_engine'] ?? null;
+        $GLOBALS['tbl_is_view'] ??= null;
+        $GLOBALS['tbl_storage_engine'] ??= null;
 
         // prepare comments
         $comments_map = [];
@@ -283,10 +274,10 @@ class StructureController extends AbstractController
      */
     protected function getTableStats(bool $isSystemSchema)
     {
-        $GLOBALS['tbl_is_view'] = $GLOBALS['tbl_is_view'] ?? null;
-        $GLOBALS['tbl_storage_engine'] = $GLOBALS['tbl_storage_engine'] ?? null;
-        $GLOBALS['table_info_num_rows'] = $GLOBALS['table_info_num_rows'] ?? null;
-        $GLOBALS['tbl_collation'] = $GLOBALS['tbl_collation'] ?? null;
+        $GLOBALS['tbl_is_view'] ??= null;
+        $GLOBALS['tbl_storage_engine'] ??= null;
+        $GLOBALS['table_info_num_rows'] ??= null;
+        $GLOBALS['tbl_collation'] ??= null;
 
         if (empty($GLOBALS['showtable'])) {
             $GLOBALS['showtable'] = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table'])->getStatusInfo(null, true);

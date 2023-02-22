@@ -9,7 +9,7 @@ class SystemColumn
     public function __construct(
         public readonly string $tableName,
         public readonly string $referringColumn,
-        public readonly ?string $realColumn
+        public readonly string|null $realColumn
     ) {
     }
 }

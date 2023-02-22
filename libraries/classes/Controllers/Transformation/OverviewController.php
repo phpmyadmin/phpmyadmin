@@ -17,12 +17,12 @@ use function array_keys;
  */
 class OverviewController extends AbstractController
 {
-    private Transformations $transformations;
-
-    public function __construct(ResponseRenderer $response, Template $template, Transformations $transformations)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        private Transformations $transformations
+    ) {
         parent::__construct($response, $template);
-        $this->transformations = $transformations;
     }
 
     public function __invoke(ServerRequest $request): void

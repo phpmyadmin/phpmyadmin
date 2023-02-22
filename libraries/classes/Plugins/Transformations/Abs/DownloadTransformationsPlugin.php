@@ -43,10 +43,10 @@ abstract class DownloadTransformationsPlugin extends TransformationsPlugin
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = [], ?FieldMetadata $meta = null)
+    public function applyTransformation($buffer, array $options = [], FieldMetadata|null $meta = null)
     {
-        $GLOBALS['row'] = $GLOBALS['row'] ?? null;
-        $GLOBALS['fields_meta'] = $GLOBALS['fields_meta'] ?? null;
+        $GLOBALS['row'] ??= null;
+        $GLOBALS['fields_meta'] ??= null;
 
         if (isset($options[0]) && ! empty($options[0])) {
             $cn = $options[0]; // filename

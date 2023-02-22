@@ -33,29 +33,23 @@ use function urlencode;
  */
 class PrivilegesController extends AbstractController
 {
-    private Relation $relation;
-
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Relation $relation,
-        DatabaseInterface $dbi
+        private Relation $relation,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->relation = $relation;
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-        $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
-        $GLOBALS['username'] = $GLOBALS['username'] ?? null;
-        $GLOBALS['hostname'] = $GLOBALS['hostname'] ?? null;
-        $GLOBALS['dbname'] = $GLOBALS['dbname'] ?? null;
+        $GLOBALS['errorUrl'] ??= null;
+        $GLOBALS['message'] ??= null;
+        $GLOBALS['text_dir'] ??= null;
+        $GLOBALS['username'] ??= null;
+        $GLOBALS['hostname'] ??= null;
+        $GLOBALS['dbname'] ??= null;
 
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
         $checkUserPrivileges->getPrivileges();
@@ -437,7 +431,7 @@ class PrivilegesController extends AbstractController
         $this->response->addHTML('</div>');
     }
 
-    private function getExportPageTitle(string $username, string $hostname, ?array $selectedUsers): string
+    private function getExportPageTitle(string $username, string $hostname, array|null $selectedUsers): string
     {
         if ($selectedUsers !== null) {
             return __('Privileges');

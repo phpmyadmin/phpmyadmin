@@ -84,7 +84,7 @@ class SchemaEps extends SchemaPlugin
      */
     public function getExportInfo(DatabaseName $db): array
     {
-        $export = new EpsRelationSchema($db->getName());
+        $export = new EpsRelationSchema($db);
         $exportInfo = $export->getExportInfo();
 
         return [

@@ -43,7 +43,7 @@ abstract class SubstringTransformationsPlugin extends TransformationsPlugin
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = [], ?FieldMetadata $meta = null)
+    public function applyTransformation($buffer, array $options = [], FieldMetadata|null $meta = null)
     {
         // possibly use a global transform and feed it with special options
 
@@ -61,7 +61,7 @@ abstract class SubstringTransformationsPlugin extends TransformationsPlugin
 
         $length = mb_strlen($newtext);
         $baselength = mb_strlen((string) $buffer);
-        if ($length != $baselength) {
+        if ($length !== $baselength) {
             if ($optionZero !== 0) {
                 $newtext = $options[2] . $newtext;
             }

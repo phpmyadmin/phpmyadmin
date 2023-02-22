@@ -32,8 +32,6 @@ use function trim;
 
 class CentralColumns
 {
-    private DatabaseInterface $dbi;
-
     /**
      * Current user
      *
@@ -63,13 +61,8 @@ class CentralColumns
     /** @var Template */
     public $template;
 
-    /**
-     * @param DatabaseInterface $dbi DatabaseInterface instance
-     */
-    public function __construct(DatabaseInterface $dbi)
+    public function __construct(private DatabaseInterface $dbi)
     {
-        $this->dbi = $dbi;
-
         $this->user = $GLOBALS['cfg']['Server']['user'];
         $this->maxRows = (int) $GLOBALS['cfg']['MaxRows'];
         $this->charEditing = $GLOBALS['cfg']['CharEditing'];
@@ -276,7 +269,7 @@ class CentralColumns
     public function syncUniqueColumns(
         array $field_select,
         bool $isTable = true,
-        ?string $table = null
+        string|null $table = null
     ) {
         $cfgCentralColumns = $this->getParams();
         if (! is_array($cfgCentralColumns)) {

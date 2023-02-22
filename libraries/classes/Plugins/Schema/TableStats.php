@@ -29,24 +29,6 @@ use function sprintf;
  */
 abstract class TableStats
 {
-    /** @var Dia\Dia|Eps\Eps|Pdf\Pdf|Svg\Svg */
-    protected $diagram;
-
-    /** @var string */
-    protected $db;
-
-    /** @var int */
-    protected $pageNumber;
-
-    /** @var string */
-    protected $tableName;
-
-    /** @var bool */
-    protected $showKeys;
-
-    /** @var bool */
-    protected $tableDimension;
-
     /** @var mixed */
     public $displayfield;
 
@@ -68,9 +50,6 @@ abstract class TableStats
     /** @var int */
     public $heightCell = 0;
 
-    /** @var bool */
-    protected $offline;
-
     protected Relation $relation;
 
     protected Font $font;
@@ -86,24 +65,14 @@ abstract class TableStats
      * @param bool                            $offline        whether the coordinates are sent from the browser
      */
     public function __construct(
-        $diagram,
-        $db,
-        $pageNumber,
-        $tableName,
-        $showKeys,
-        $tableDimension,
-        $offline
+        protected $diagram,
+        protected $db,
+        protected $pageNumber,
+        protected $tableName,
+        protected $showKeys,
+        protected $tableDimension,
+        protected $offline
     ) {
-        $this->diagram = $diagram;
-        $this->db = $db;
-        $this->pageNumber = $pageNumber;
-        $this->tableName = $tableName;
-
-        $this->showKeys = $showKeys;
-        $this->tableDimension = $tableDimension;
-
-        $this->offline = $offline;
-
         $this->relation = new Relation($GLOBALS['dbi']);
         $this->font = new Font();
 

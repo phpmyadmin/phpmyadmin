@@ -62,23 +62,11 @@ class Events
         'MINUTE_SECOND',
     ];
 
-    private DatabaseInterface $dbi;
-
-    private Template $template;
-
-    /** @var ResponseRenderer */
-    private $response;
-
     /**
-     * @param DatabaseInterface $dbi      DatabaseInterface instance.
-     * @param Template          $template Template instance.
-     * @param ResponseRenderer  $response Response instance.
+     * @param ResponseRenderer $response
      */
-    public function __construct(DatabaseInterface $dbi, Template $template, $response)
+    public function __construct(private DatabaseInterface $dbi, private Template $template, private $response)
     {
-        $this->dbi = $dbi;
-        $this->template = $template;
-        $this->response = $response;
     }
 
     /**
@@ -86,8 +74,8 @@ class Events
      */
     public function handleEditor(): void
     {
-        $GLOBALS['errors'] = $GLOBALS['errors'] ?? null;
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+        $GLOBALS['errors'] ??= null;
+        $GLOBALS['message'] ??= null;
 
         if (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit'])) {
             $sql_query = '';
@@ -309,7 +297,7 @@ class Events
      *
      * @return array|null Data necessary to create the editor.
      */
-    public function getDataFromName($name): ?array
+    public function getDataFromName($name): array|null
     {
         $retval = [];
         $columns = '`EVENT_NAME`, `STATUS`, `EVENT_TYPE`, `EXECUTE_AT`, '
@@ -393,7 +381,7 @@ class Events
      */
     public function getQueryFromRequest()
     {
-        $GLOBALS['errors'] = $GLOBALS['errors'] ?? null;
+        $GLOBALS['errors'] ??= null;
 
         $query = 'CREATE ';
         if (! empty($_POST['item_definer'])) {
@@ -517,7 +505,7 @@ class Events
      * @param string     $db        Database
      * @param string     $operation Operation 'change' or ''
      */
-    private function sendEditor($mode, ?array $item, $title, $db, $operation): void
+    private function sendEditor($mode, array|null $item, $title, $db, $operation): void
     {
         if ($item !== null) {
             $editor = $this->getEditorForm($mode, $operation, $item);
@@ -641,7 +629,7 @@ class Events
         return $result;
     }
 
-    public static function getDefinition(DatabaseInterface $dbi, string $db, string $name): ?string
+    public static function getDefinition(DatabaseInterface $dbi, string $db, string $name): string|null
     {
         $result = $dbi->fetchValue(
             'SHOW CREATE EVENT ' . Util::backquote($db) . '.' . Util::backquote($name),

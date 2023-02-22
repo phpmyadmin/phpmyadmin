@@ -15,21 +15,18 @@ use function is_array;
 
 final class ChangeRowsController extends AbstractController
 {
-    private ChangeController $changeController;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        ChangeController $changeController
+        private ChangeController $changeController
     ) {
         parent::__construct($response, $template);
-        $this->changeController = $changeController;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
-        $GLOBALS['where_clause'] = $GLOBALS['where_clause'] ?? null;
+        $GLOBALS['active_page'] ??= null;
+        $GLOBALS['where_clause'] ??= null;
 
         if (isset($_POST['goto']) && (! isset($_POST['rows_to_delete']) || ! is_array($_POST['rows_to_delete']))) {
             $this->response->setRequestStatus(false);

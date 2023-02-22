@@ -50,7 +50,7 @@ class GisGeometryCollection extends GisGeometry
      *
      * @param string $spatial spatial data of a row
      */
-    public function scaleRow(string $spatial): ?ScaleData
+    public function scaleRow(string $spatial): ScaleData|null
     {
         $min_max = null;
 
@@ -84,14 +84,14 @@ class GisGeometryCollection extends GisGeometry
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string      $spatial    GIS POLYGON object
-     * @param string|null $label      Label for the GIS POLYGON object
-     * @param int[]       $color      Color for the GIS POLYGON object
-     * @param array       $scale_data Array containing data related to scaling
+     * @param string $spatial    GIS POLYGON object
+     * @param string $label      Label for the GIS POLYGON object
+     * @param int[]  $color      Color for the GIS POLYGON object
+     * @param array  $scale_data Array containing data related to scaling
      */
     public function prepareRowAsPng(
         $spatial,
-        ?string $label,
+        string $label,
         array $color,
         array $scale_data,
         ImageWrapper $image
@@ -123,15 +123,15 @@ class GisGeometryCollection extends GisGeometry
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string      $spatial    GIS GEOMETRYCOLLECTION object
-     * @param string|null $label      label for the GIS GEOMETRYCOLLECTION object
-     * @param int[]       $color      color for the GIS GEOMETRYCOLLECTION object
-     * @param array       $scale_data array containing data related to scaling
-     * @param TCPDF       $pdf        TCPDF instance
+     * @param string $spatial    GIS GEOMETRYCOLLECTION object
+     * @param string $label      label for the GIS GEOMETRYCOLLECTION object
+     * @param int[]  $color      color for the GIS GEOMETRYCOLLECTION object
+     * @param array  $scale_data array containing data related to scaling
+     * @param TCPDF  $pdf
      *
      * @return TCPDF the modified TCPDF instance
      */
-    public function prepareRowAsPdf($spatial, ?string $label, array $color, array $scale_data, $pdf)
+    public function prepareRowAsPdf($spatial, string $label, array $color, array $scale_data, $pdf)
     {
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $goem_col = mb_substr($spatial, 19, -1);
@@ -167,7 +167,7 @@ class GisGeometryCollection extends GisGeometry
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg($spatial, $label, array $color, array $scale_data)
+    public function prepareRowAsSvg($spatial, string $label, array $color, array $scale_data)
     {
         $row = '';
 
@@ -207,7 +207,7 @@ class GisGeometryCollection extends GisGeometry
      *
      * @return string JavaScript related to a row in the GIS dataset
      */
-    public function prepareRowAsOl($spatial, int $srid, $label, array $color, array $scale_data)
+    public function prepareRowAsOl($spatial, int $srid, string $label, array $color, array $scale_data)
     {
         $row = '';
 

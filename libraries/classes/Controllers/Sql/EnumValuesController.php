@@ -19,19 +19,13 @@ use const ENT_COMPAT;
 
 final class EnumValuesController extends AbstractController
 {
-    private Sql $sql;
-
-    private CheckUserPrivileges $checkUserPrivileges;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Sql $sql,
-        CheckUserPrivileges $checkUserPrivileges
+        private Sql $sql,
+        private CheckUserPrivileges $checkUserPrivileges
     ) {
         parent::__construct($response, $template);
-        $this->sql = $sql;
-        $this->checkUserPrivileges = $checkUserPrivileges;
     }
 
     /**

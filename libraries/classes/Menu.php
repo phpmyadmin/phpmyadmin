@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Utils\SessionCache;
 
@@ -30,8 +31,6 @@ class Menu
      */
     private string $db;
 
-    private DatabaseInterface $dbi;
-
     /**
      * Table name
      */
@@ -47,10 +46,9 @@ class Menu
      * @param string $db    Database name
      * @param string $table Table name
      */
-    public function __construct(DatabaseInterface $dbi, string $db, string $table)
+    public function __construct(private DatabaseInterface $dbi, string $db, string $table)
     {
         $this->db = $db;
-        $this->dbi = $dbi;
         $this->table = $table;
         $this->relation = new Relation($dbi);
         $this->template = new Template();
@@ -128,7 +126,7 @@ class Menu
                 . " AND `tab` LIKE '" . $level . "%'"
                 . ' AND `usergroup` = (SELECT usergroup FROM '
                 . $userTable . ' WHERE `username` = '
-                . $this->dbi->quoteString($GLOBALS['cfg']['Server']['user']) . ')';
+                . $this->dbi->quoteString($GLOBALS['cfg']['Server']['user'], Connection::TYPE_CONTROL) . ')';
 
             $result = $this->dbi->tryQueryAsControlUser($sqlQuery);
             if ($result) {

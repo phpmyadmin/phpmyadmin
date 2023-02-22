@@ -58,7 +58,6 @@ use const CURLOPT_USERPWD;
 use const DIRECTORY_SEPARATOR;
 use const JSON_PRETTY_PRINT;
 use const JSON_UNESCAPED_SLASHES;
-use const PHP_EOL;
 
 abstract class TestBase extends TestCase
 {
@@ -623,7 +622,7 @@ abstract class TestBase extends TestCase
      *
      * @throws Exception
      */
-    public function dbQuery(string $query, ?Closure $onResults = null, ?Closure $afterSubmit = null): bool
+    public function dbQuery(string $query, Closure|null $onResults = null, Closure|null $afterSubmit = null): bool
     {
         $didSucceed = false;
         $handles = null;
@@ -1163,7 +1162,7 @@ JS;
 
         curl_exec($ch);
         if (curl_errno($ch)) {
-            echo 'Error: ' . curl_error($ch) . PHP_EOL;
+            echo 'Error: ' . curl_error($ch) . "\n";
         }
 
         curl_close($ch);
@@ -1185,7 +1184,7 @@ JS;
         );
         $result = curl_exec($ch);
         if (is_bool($result)) {
-            echo 'Error: ' . curl_error($ch) . PHP_EOL;
+            echo 'Error: ' . curl_error($ch) . "\n";
 
             return;
         }
@@ -1193,11 +1192,11 @@ JS;
         $proj = json_decode($result);
         if (is_object($proj) && property_exists($proj, 'automation_session')) {
             // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-            echo 'Test failed, get more information here: ' . $proj->automation_session->public_url . PHP_EOL;
+            echo 'Test failed, get more information here: ' . $proj->automation_session->public_url . "\n";
         }
 
         if (curl_errno($ch)) {
-            echo 'Error: ' . curl_error($ch) . PHP_EOL;
+            echo 'Error: ' . curl_error($ch) . "\n";
         }
 
         curl_close($ch);
@@ -1205,8 +1204,6 @@ JS;
 
     /**
      * Mark unsuccessful tests as 'Failures' on Browerstack
-     *
-     * @param Throwable $t Throwable
      */
     public function onNotSuccessfulTest(Throwable $t): void
     {

@@ -80,7 +80,6 @@ class ConfigGeneratorTest extends AbstractTestCase
     {
         $reflection = new ReflectionClass(ConfigGenerator::class);
         $method = $reflection->getMethod('getVarExport');
-        $method->setAccessible(true);
 
         $this->assertEquals(
             '$cfg[\'var_name\'] = 1;' . "\n",
@@ -126,7 +125,6 @@ class ConfigGeneratorTest extends AbstractTestCase
     {
         $reflection = new ReflectionClass(ConfigGenerator::class);
         $method = $reflection->getMethod('getVarExport');
-        $method->setAccessible(true);
 
         $this->assertEquals(
             '$cfg[\'blowfish_secret\'] = \sodium_hex2bin(\''
@@ -152,7 +150,6 @@ class ConfigGeneratorTest extends AbstractTestCase
     {
         $reflection = new ReflectionClass(ConfigGenerator::class);
         $method = $reflection->getMethod('isZeroBasedArray');
-        $method->setAccessible(true);
 
         $this->assertFalse(
             $method->invoke(
@@ -201,7 +198,6 @@ class ConfigGeneratorTest extends AbstractTestCase
     {
         $reflection = new ReflectionClass(ConfigGenerator::class);
         $method = $reflection->getMethod('exportZeroBasedArray');
-        $method->setAccessible(true);
 
         $arr = [
             1,

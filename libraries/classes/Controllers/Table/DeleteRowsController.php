@@ -23,23 +23,20 @@ use function sprintf;
 
 final class DeleteRowsController extends AbstractController
 {
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        DatabaseInterface $dbi
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['goto'] = $GLOBALS['goto'] ?? null;
-        $GLOBALS['disp_message'] = $GLOBALS['disp_message'] ?? null;
-        $GLOBALS['disp_query'] = $GLOBALS['disp_query'] ?? null;
-        $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
+        $GLOBALS['goto'] ??= null;
+        $GLOBALS['disp_message'] ??= null;
+        $GLOBALS['disp_query'] ??= null;
+        $GLOBALS['active_page'] ??= null;
 
         $mult_btn = $_POST['mult_btn'] ?? '';
         $selected = $_POST['selected'] ?? [];

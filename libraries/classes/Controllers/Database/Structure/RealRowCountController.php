@@ -19,17 +19,14 @@ use function json_encode;
  */
 final class RealRowCountController extends AbstractController
 {
-    private DatabaseInterface $dbi;
-
-    public function __construct(ResponseRenderer $response, Template $template, DatabaseInterface $dbi)
+    public function __construct(ResponseRenderer $response, Template $template, private DatabaseInterface $dbi)
     {
         parent::__construct($response, $template);
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['errorUrl'] ??= null;
 
         $parameters = [
             'real_row_count_all' => $_REQUEST['real_row_count_all'] ?? null,

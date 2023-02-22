@@ -70,7 +70,7 @@ class AdvisorTest extends AbstractTestCase
      *
      * @dataProvider rulesProvider
      */
-    public function testAddRule(array $rule, array $expected, ?string $error): void
+    public function testAddRule(array $rule, array $expected, string|null $error): void
     {
         parent::setLanguage();
         $advisor = new Advisor($GLOBALS['dbi'], new ExpressionLanguage());

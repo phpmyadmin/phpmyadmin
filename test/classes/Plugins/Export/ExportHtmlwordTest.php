@@ -23,7 +23,6 @@ use ReflectionMethod;
 use ReflectionProperty;
 
 use function __;
-use function array_shift;
 use function ob_get_clean;
 use function ob_start;
 
@@ -82,11 +81,9 @@ class ExportHtmlwordTest extends AbstractTestCase
     public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportHtmlword::class, 'setProperties');
-        $method->setAccessible(true);
         $method->invoke($this->object, null);
 
         $attrProperties = new ReflectionProperty(ExportHtmlword::class, 'properties');
-        $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(ExportPluginProperties::class, $properties);
@@ -125,7 +122,8 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
 
         $generalOptionsArray = $options->getProperties();
-        $generalOptions = $generalOptionsArray[0];
+        $generalOptions = $generalOptionsArray->current();
+        $generalOptionsArray->next();
 
         $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
@@ -141,7 +139,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $generalProperties = $generalOptions->getProperties();
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
 
         $this->assertInstanceOf(RadioPropertyItem::class, $property);
 
@@ -159,7 +157,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             $property->getValues()
         );
 
-        $generalOptions = $generalOptionsArray[1];
+        $generalOptions = $generalOptionsArray->current();
 
         $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
@@ -180,7 +178,8 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $generalProperties = $generalOptions->getProperties();
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
+        $generalProperties->next();
 
         $this->assertInstanceOf(TextPropertyItem::class, $property);
 
@@ -194,7 +193,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             $property->getText()
         );
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
 
         $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
@@ -621,7 +620,6 @@ class ExportHtmlwordTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
 
         $method = new ReflectionMethod(ExportHtmlword::class, 'getTriggers');
-        $method->setAccessible(true);
         $result = $method->invoke($this->object, 'database', 'table');
 
         $this->assertStringContainsString(
@@ -744,7 +742,6 @@ class ExportHtmlwordTest extends AbstractTestCase
     public function testFormatOneColumnDefinition(): void
     {
         $method = new ReflectionMethod(ExportHtmlword::class, 'formatOneColumnDefinition');
-        $method->setAccessible(true);
 
         $cols = [
             'Null' => 'Yes',

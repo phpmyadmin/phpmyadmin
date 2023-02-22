@@ -33,7 +33,6 @@ use function unlink;
 use const CONFIG_FILE;
 use const DIRECTORY_SEPARATOR;
 use const INFO_MODULES;
-use const PHP_EOL;
 use const PHP_OS;
 use const TEST_PATH;
 
@@ -103,7 +102,7 @@ class ConfigTest extends AbstractTestCase
         $config->loadAndCheck($tmpConfig);
         $this->assertSame($defaultConfig->settings, $config->settings);
 
-        $contents = '<?php' . PHP_EOL
+        $contents = '<?php' . "\n"
                     . '$cfg[\'ProtectBinary\'] = true;';
         file_put_contents($tmpConfig, $contents);
 
@@ -139,7 +138,7 @@ class ConfigTest extends AbstractTestCase
         $config->loadAndCheck($tmpConfig);
         $this->assertSame($defaultConfig->settings, $config->settings);
 
-        $contents = '<?php' . PHP_EOL
+        $contents = '<?php' . "\n"
                     . '$cfg[\'fooBar\'] = true;';
         file_put_contents($tmpConfig, $contents);
 
@@ -151,11 +150,11 @@ class ConfigTest extends AbstractTestCase
         $this->assertEquals($defaultConfig->settings, $config->settings);
         unset($defaultConfig->settings['fooBar']);
 
-        $contents = '<?php' . PHP_EOL
-                    . '$cfg[\'/InValidKey\'] = true;' . PHP_EOL
-                    . '$cfg[\'In/ValidKey\'] = true;' . PHP_EOL
-                    . '$cfg[\'/InValid/Key\'] = true;' . PHP_EOL
-                    . '$cfg[\'In/Valid/Key\'] = true;' . PHP_EOL
+        $contents = '<?php' . "\n"
+                    . '$cfg[\'/InValidKey\'] = true;' . "\n"
+                    . '$cfg[\'In/ValidKey\'] = true;' . "\n"
+                    . '$cfg[\'/InValid/Key\'] = true;' . "\n"
+                    . '$cfg[\'In/Valid/Key\'] = true;' . "\n"
                     . '$cfg[\'ValidKey\'] = true;';
         file_put_contents($tmpConfig, $contents);
 
@@ -213,8 +212,12 @@ class ConfigTest extends AbstractTestCase
      *
      * @dataProvider userAgentProvider
      */
-    public function testCheckClient(string $agent, string $os, ?string $browser = null, ?string $version = null): void
-    {
+    public function testCheckClient(
+        string $agent,
+        string $os,
+        string|null $browser = null,
+        string|null $version = null
+    ): void {
         $_SERVER['HTTP_USER_AGENT'] = $agent;
         $this->object->checkClient();
         $this->assertEquals($os, $this->object->get('PMA_USR_OS'));
@@ -1245,7 +1248,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @dataProvider connectionParams
      */
-    public function testGetConnectionParams(array $server_cfg, int $mode, ?array $server, array $expected): void
+    public function testGetConnectionParams(array $server_cfg, int $mode, array|null $server, array $expected): void
     {
         $GLOBALS['cfg']['Server'] = $server_cfg;
         $result = Config::getConnectionParams($mode, $server);

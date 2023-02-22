@@ -1291,9 +1291,34 @@ parameters:
 			path: libraries/classes/Controllers/Database/Operations/CollationController.php
 
 		-
+			message: "#^Parameter \\#2 \\$comment of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:setDbComment\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/OperationsController.php
+
+		-
 			message: "#^Parameter \\#2 \\$exportSqlPlugin of method PhpMyAdmin\\\\Operations\\:\\:getViewsAndCreateSqlViewStandIn\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql, object\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/OperationsController.php
+
+		-
+			message: "#^Parameter \\#1 \\$criterias of method PhpMyAdmin\\\\SavedSearches\\:\\:setCriterias\\(\\) expects array\\|string, array\\|object\\|null given\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Database/QueryByExampleController.php
+
+		-
+			message: "#^Parameter \\#1 \\$searchId of method PhpMyAdmin\\\\SavedSearches\\:\\:setId\\(\\) expects int\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/QueryByExampleController.php
+
+		-
+			message: "#^Parameter \\#1 \\$searchName of method PhpMyAdmin\\\\SavedSearches\\:\\:setSearchName\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/QueryByExampleController.php
+
+		-
+			message: "#^Parameter \\#3 \\$db of method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/QueryByExampleController.php
 
 		-
 			message: "#^Parameter \\#1 \\$database of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, mixed given\\.$#"
@@ -1591,8 +1616,33 @@ parameters:
 			path: libraries/classes/Controllers/Database/TrackingController.php
 
 		-
+			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/TrackingController.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/TrackingController.php
+
+		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, array\\<int, array\\<string, string\\>\\>\\|string\\|null given\\.$#"
 			count: 2
+			path: libraries/classes/Controllers/Database/TrackingController.php
+
+		-
+			message: "#^Parameter \\#2 \\$selected of method PhpMyAdmin\\\\Tracking\\:\\:createTrackingForMultipleTables\\(\\) expects array, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/TrackingController.php
+
+		-
+			message: "#^Parameter \\#2 \\$tableName of static method PhpMyAdmin\\\\Tracker\\:\\:deleteTracking\\(\\) expects string, mixed given\\.$#"
+			count: 2
+			path: libraries/classes/Controllers/Database/TrackingController.php
+
+		-
+			message: "#^Parameter \\#3 \\$version of method PhpMyAdmin\\\\Tracking\\:\\:createTrackingForMultipleTables\\(\\) expects string, mixed given\\.$#"
+			count: 1
 			path: libraries/classes/Controllers/Database/TrackingController.php
 
 		-
@@ -2104,11 +2154,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$name of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:linkToVarDocumentation\\(\\) expects string, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/Status/VariablesController.php
-
-		-
-			message: "#^Parameter \\#2 \\$userGroup of static method PhpMyAdmin\\\\ConfigStorage\\\\UserGroups\\:\\:delete\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/UserGroupsController.php
 
 		-
 			message: "#^Parameter \\#2 \\$userGroup of static method PhpMyAdmin\\\\ConfigStorage\\\\UserGroups\\:\\:edit\\(\\) expects string, mixed given\\.$#"
@@ -3157,11 +3202,6 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Database\\\\Qbe\\:\\:\\$savedSearchList type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Database/Qbe.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between array and null will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Database/Qbe.php
 
@@ -5481,11 +5521,6 @@ parameters:
 			path: libraries/classes/Linter.php
 
 		-
-			message: "#^PHPDoc tag @var has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Linter.php
-
-		-
 			message: "#^Parameter \\#2 \\$pos of static method PhpMyAdmin\\\\Linter\\:\\:findLineNumberAndColumn\\(\\) expects int, int\\|string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Linter.php
@@ -5592,6 +5627,11 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Message\\:\\:\\$string \\(string\\) does not accept mixed\\.$#"
+			count: 1
+			path: libraries/classes/Message.php
+
+		-
+			message: "#^Right side of && is always true\\.$#"
 			count: 1
 			path: libraries/classes/Message.php
 
@@ -5921,11 +5961,6 @@ parameters:
 			path: libraries/classes/Operations.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Operations\\:\\:copyTables\\(\\) has parameter \\$tablesFull with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Operations.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Operations\\:\\:copyTables\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Operations.php
@@ -5956,11 +5991,6 @@ parameters:
 			path: libraries/classes/Operations.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Operations\\:\\:getViewsAndCreateSqlViewStandIn\\(\\) has parameter \\$tablesFull with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Operations.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Operations\\:\\:getViewsAndCreateSqlViewStandIn\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Operations.php
@@ -5972,26 +6002,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, \\(int\\|string\\) given\\.$#"
-			count: 3
+			count: 2
 			path: libraries/classes/Operations.php
 
 		-
 			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:query\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Operations.php
-
-		-
-			message: "#^Parameter \\#2 \\$sourceTable of static method PhpMyAdmin\\\\Table\\:\\:moveCopy\\(\\) expects string, \\(int\\|string\\) given\\.$#"
-			count: 1
-			path: libraries/classes/Operations.php
-
-		-
-			message: "#^Parameter \\#2 \\$view of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql\\:\\:getTableDefStandIn\\(\\) expects string, \\(int\\|string\\) given\\.$#"
-			count: 1
-			path: libraries/classes/Operations.php
-
-		-
-			message: "#^Parameter \\#4 \\$targetTable of static method PhpMyAdmin\\\\Table\\:\\:moveCopy\\(\\) expects string, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: libraries/classes/Operations.php
 
@@ -6081,12 +6096,12 @@ parameters:
 			path: libraries/classes/Pdf.php
 
 		-
-			message: "#^Call to function method_exists\\(\\) with PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem and 'getText' will always evaluate to true\\.$#"
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem\\:\\:getProperties\\(\\)\\.$#"
 			count: 1
 			path: libraries/classes/Plugins.php
 
 		-
-			message: "#^Parameter \\#2 \\$string2 of function strcmp expects string, class\\-string\\|false given\\.$#"
+			message: "#^Call to function method_exists\\(\\) with PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem and 'getText' will always evaluate to true\\.$#"
 			count: 1
 			path: libraries/classes/Plugins.php
 
@@ -6096,22 +6111,22 @@ parameters:
 			path: libraries/classes/Plugins.php
 
 		-
-			message: "#^Strict comparison using \\=\\=\\= between class\\-string\\<PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\>\\|null and 'PhpMyAdmin\\\\\\\\Properties\\\\\\\\Options\\\\\\\\Items\\\\\\\\BoolPropertyItem' will always evaluate to false\\.$#"
+			message: "#^Strict comparison using \\=\\=\\= between \\(class\\-string\\<PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\>&literal\\-string\\)\\|null and 'PhpMyAdmin\\\\\\\\Properties\\\\\\\\Options\\\\\\\\Items\\\\\\\\BoolPropertyItem' will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Plugins.php
 
 		-
-			message: "#^Strict comparison using \\=\\=\\= between class\\-string\\<PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\>\\|null and 'PhpMyAdmin\\\\\\\\Properties\\\\\\\\Options\\\\\\\\Items\\\\\\\\MessageOnlyPropertyItem' will always evaluate to false\\.$#"
+			message: "#^Strict comparison using \\=\\=\\= between \\(class\\-string\\<PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\>&literal\\-string\\)\\|null and 'PhpMyAdmin\\\\\\\\Properties\\\\\\\\Options\\\\\\\\Items\\\\\\\\MessageOnlyPropertyItem' will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Plugins.php
 
 		-
-			message: "#^Strict comparison using \\=\\=\\= between class\\-string\\<PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\>\\|null and 'PhpMyAdmin\\\\\\\\Properties\\\\\\\\Options\\\\\\\\Items\\\\\\\\SelectPropertyItem' will always evaluate to false\\.$#"
+			message: "#^Strict comparison using \\=\\=\\= between \\(class\\-string\\<PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\>&literal\\-string\\)\\|null and 'PhpMyAdmin\\\\\\\\Properties\\\\\\\\Options\\\\\\\\Items\\\\\\\\SelectPropertyItem' will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Plugins.php
 
 		-
-			message: "#^Strict comparison using \\=\\=\\= between class\\-string\\<PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\>\\|null and 'PhpMyAdmin\\\\\\\\Properties\\\\\\\\Options\\\\\\\\Items\\\\\\\\TextPropertyItem' will always evaluate to false\\.$#"
+			message: "#^Strict comparison using \\=\\=\\= between \\(class\\-string\\<PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\>&literal\\-string\\)\\|null and 'PhpMyAdmin\\\\\\\\Properties\\\\\\\\Options\\\\\\\\Items\\\\\\\\TextPropertyItem' will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Plugins.php
 
@@ -6383,11 +6398,6 @@ parameters:
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql\\:\\:replaceWithAliases\\(\\) has parameter \\$aliases with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^PHPDoc tag @var has no value type specified in iterable type array\\.$#"
-			count: 5
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
@@ -7001,7 +7011,7 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\ExportRelationSchema\\:\\:\\$orientation \\(string\\) in isset\\(\\) is not nullable\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\ExportRelationSchema\\<PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\>\\:\\:\\$orientation \\(string\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
@@ -7406,27 +7416,7 @@ parameters:
 			path: libraries/classes/Plugins/UploadInterface.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup\\:\\:getProperties\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Properties/Options/OptionsPropertyGroup.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup\\:\\:\\$properties type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Properties/Options/OptionsPropertyGroup.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyOneItem\\:\\:getDoc\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Properties/Options/OptionsPropertyOneItem.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyOneItem\\:\\:getValues\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Properties/Options/OptionsPropertyOneItem.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyOneItem\\:\\:setDoc\\(\\) has parameter \\$doc with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Properties/Options/OptionsPropertyOneItem.php
 
@@ -7436,17 +7426,7 @@ parameters:
 			path: libraries/classes/Properties/Options/OptionsPropertyOneItem.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyOneItem\\:\\:\\$doc type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Properties/Options/OptionsPropertyOneItem.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyOneItem\\:\\:\\$values type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Properties/Options/OptionsPropertyOneItem.php
-
-		-
-			message: "#^Return type \\(bool\\|string\\) of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyOneItem\\:\\:getForce\\(\\) should be covariant with return type \\(string\\|null\\) of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem\\:\\:getForce\\(\\)$#"
 			count: 1
 			path: libraries/classes/Properties/Options/OptionsPropertyOneItem.php
 
@@ -7621,6 +7601,11 @@ parameters:
 			path: libraries/classes/ReplicationInfo.php
 
 		-
+			message: "#^Expression on left side of \\?\\? is not nullable\\.$#"
+			count: 2
+			path: libraries/classes/ResponseRenderer.php
+
+		-
 			message: "#^Foreach overwrites \\$value with its value variable\\.$#"
 			count: 1
 			path: libraries/classes/ResponseRenderer.php
@@ -7632,6 +7617,16 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\ResponseRenderer\\:\\:\\$JSON type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/ResponseRenderer.php
+
+		-
+			message: "#^Using nullsafe method call on non\\-nullable type PhpMyAdmin\\\\Footer\\. Use \\-\\> instead\\.$#"
+			count: 1
+			path: libraries/classes/ResponseRenderer.php
+
+		-
+			message: "#^Using nullsafe method call on non\\-nullable type PhpMyAdmin\\\\Header\\. Use \\-\\> instead\\.$#"
 			count: 1
 			path: libraries/classes/ResponseRenderer.php
 
@@ -7676,7 +7671,7 @@ parameters:
 			path: libraries/classes/SavedSearches.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SavedSearches\\:\\:\\$criterias \\(array\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SavedSearches\\:\\:\\$criterias \\(array\\|null\\) does not accept mixed\\.$#"
 			count: 1
 			path: libraries/classes/SavedSearches.php
 
@@ -7926,7 +7921,7 @@ parameters:
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Variable \\$userGroup on left side of \\?\\? always exists and is not nullable\\.$#"
+			message: "#^Variable \\$userGroup on left side of \\?\\?\\= always exists and is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
 
@@ -8531,11 +8526,6 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Table\\:\\:duplicateInfo\\(\\) has parameter \\$getFields with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Table\\:\\:duplicateInfo\\(\\) has parameter \\$newFields with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
@@ -8732,11 +8722,6 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Table\\:\\:\\$uiprefs type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Right side of \\|\\| is always false\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
 
@@ -10306,6 +10291,11 @@ parameters:
 			path: test/classes/Display/ResultsTest.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:dataProviderSortOrder\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: test/classes/Display/ResultsTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:providerSetConfigParamsForDisplayTable\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Display/ResultsTest.php
@@ -10399,11 +10389,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 4
 			path: test/classes/Display/ResultsTest.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between 4 and 4 will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/EncodingTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Engines\\\\PbxtTest\\:\\:providerFortTestResolveTypeSize\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -11551,27 +11536,7 @@ parameters:
 			path: test/classes/PluginsTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$subgroupHeader of method PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\:\\:setSubgroupHeader\\(\\) expects PhpMyAdmin\\\\Properties\\\\PropertyItem, string given\\.$#"
-			count: 1
-			path: test/classes/Properties/Options/Groups/OptionsPropertySubgroupTest.php
-
-		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Properties\\\\\\\\Options\\\\\\\\OptionsPropertyGroup' and PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$property of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup\\:\\:addProperty\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem, int given\\.$#"
-			count: 1
-			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$property of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup\\:\\:addProperty\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem, string given\\.$#"
-			count: 1
-			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$property of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup\\:\\:removeProperty\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem, string given\\.$#"
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Properties\\\\\\\\Options\\\\\\\\OptionsPropertyGroup' and PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup&PHPUnit\\\\Framework\\\\MockObject\\\\MockObject will always evaluate to true\\.$#"
 			count: 1
 			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
 

@@ -23,17 +23,11 @@ class FormDisplayTemplate
     /** @var int */
     public $group;
 
-    protected Config $config;
-
     /** @var Template */
     public $template;
 
-    /**
-     * @param Config $config Config instance
-     */
-    public function __construct(Config $config)
+    public function __construct(protected Config $config)
     {
-        $this->config = $config;
         $this->template = new Template();
     }
 

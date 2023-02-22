@@ -73,7 +73,7 @@ class IndexColumn
     /**
      * The Index expression if it has one
      */
-    public function getExpression(): ?string
+    public function getExpression(): string|null
     {
         return $this->expression;
     }

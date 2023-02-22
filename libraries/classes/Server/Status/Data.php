@@ -60,8 +60,6 @@ class Data
 
     private ReplicationInfo $replicationInfo;
 
-    private DatabaseInterface $dbi;
-
     public function getReplicationInfo(): ReplicationInfo
     {
         return $this->replicationInfo;
@@ -349,10 +347,8 @@ class Data
         ];
     }
 
-    public function __construct(DatabaseInterface $dbi)
+    public function __construct(private DatabaseInterface $dbi)
     {
-        $this->dbi = $dbi;
-
         $this->replicationInfo = new ReplicationInfo($this->dbi);
         $this->replicationInfo->load($_POST['primary_connection'] ?? null);
 

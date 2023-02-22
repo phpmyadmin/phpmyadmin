@@ -17,24 +17,18 @@ use function is_array;
 
 final class CentralColumnsRemoveController extends AbstractController
 {
-    private CentralColumns $centralColumns;
-
-    private StructureController $structureController;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        CentralColumns $centralColumns,
-        StructureController $structureController
+        private CentralColumns $centralColumns,
+        private StructureController $structureController
     ) {
         parent::__construct($response, $template);
-        $this->centralColumns = $centralColumns;
-        $this->structureController = $structureController;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+        $GLOBALS['message'] ??= null;
 
         $selected = $request->getParsedBodyParam('selected_fld', []);
 

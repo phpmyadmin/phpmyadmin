@@ -21,26 +21,20 @@ use function is_array;
 
 final class PrimaryController extends AbstractController
 {
-    private DatabaseInterface $dbi;
-
-    private StructureController $structureController;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        DatabaseInterface $dbi,
-        StructureController $structureController
+        private DatabaseInterface $dbi,
+        private StructureController $structureController
     ) {
         parent::__construct($response, $template);
-        $this->dbi = $dbi;
-        $this->structureController = $structureController;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['message'] ??= null;
+        $GLOBALS['urlParams'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
 
         /** @var string[]|null $selected */
         $selected = $request->getParsedBodyParam('selected_fld', $request->getParsedBodyParam('selected'));

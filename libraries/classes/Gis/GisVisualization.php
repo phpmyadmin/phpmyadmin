@@ -26,6 +26,7 @@ use function mb_substr;
 use function ob_get_clean;
 use function ob_start;
 use function rtrim;
+use function trim;
 
 use const PNG_ALL_FILTERS;
 
@@ -261,7 +262,7 @@ class GisVisualization
         $required_extension = '.' . $ext;
         $extension_length = mb_strlen($required_extension);
         $user_extension = mb_substr($file_name, -$extension_length);
-        if (mb_strtolower($user_extension) != $required_extension) {
+        if (mb_strtolower($user_extension) !== $required_extension) {
             $file_name .= $required_extension;
         }
 
@@ -333,7 +334,7 @@ class GisVisualization
      *
      * @return ImageWrapper|null the generated image resource
      */
-    private function png(): ?ImageWrapper
+    private function png(): ImageWrapper|null
     {
         $this->init();
 
@@ -619,10 +620,7 @@ class GisVisualization
             }
 
             $color = $colors[$color_index];
-            $label = '';
-            if (isset($this->settings['labelColumn'], $row[$this->settings['labelColumn']])) {
-                $label = $row[$this->settings['labelColumn']];
-            }
+            $label = trim((string) ($row[$this->settings['labelColumn']] ?? ''));
 
             if ($format === 'svg') {
                 $results .= $gis_obj->prepareRowAsSvg(

@@ -19,19 +19,13 @@ use function is_array;
 
 final class ChangeController extends AbstractController
 {
-    private DatabaseInterface $dbi;
-
-    private ColumnsDefinition $columnsDefinition;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        DatabaseInterface $dbi,
-        ColumnsDefinition $columnsDefinition
+        private DatabaseInterface $dbi,
+        private ColumnsDefinition $columnsDefinition
     ) {
         parent::__construct($response, $template);
-        $this->dbi = $dbi;
-        $this->columnsDefinition = $columnsDefinition;
     }
 
     public function __invoke(ServerRequest $request): void
@@ -61,7 +55,7 @@ final class ChangeController extends AbstractController
      */
     private function displayHtmlForColumnChange(array $selected): void
     {
-        $GLOBALS['num_fields'] = $GLOBALS['num_fields'] ?? null;
+        $GLOBALS['num_fields'] ??= null;
 
         /**
          * @todo optimize in case of multiple fields to modify

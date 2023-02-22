@@ -52,7 +52,7 @@ class GisPoint extends GisGeometry
      *
      * @return ScaleData|null the min, max values for x and y coordinates
      */
-    public function scaleRow(string $spatial): ?ScaleData
+    public function scaleRow(string $spatial): ScaleData|null
     {
         // Trim to remove leading 'POINT(' and trailing ')'
         $point = mb_substr($spatial, 6, -1);
@@ -63,14 +63,14 @@ class GisPoint extends GisGeometry
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string      $spatial    GIS POLYGON object
-     * @param string|null $label      Label for the GIS POLYGON object
-     * @param int[]       $color      Color for the GIS POLYGON object
-     * @param array       $scale_data Array containing data related to scaling
+     * @param string $spatial    GIS POLYGON object
+     * @param string $label      Label for the GIS POLYGON object
+     * @param int[]  $color      Color for the GIS POLYGON object
+     * @param array  $scale_data Array containing data related to scaling
      */
     public function prepareRowAsPng(
         $spatial,
-        ?string $label,
+        string $label,
         array $color,
         array $scale_data,
         ImageWrapper $image
@@ -78,8 +78,6 @@ class GisPoint extends GisGeometry
         // allocate colors
         $black = $image->colorAllocate(0, 0, 0);
         $point_color = $image->colorAllocate(...$color);
-
-        $label = trim($label ?? '');
 
         // Trim to remove leading 'POINT(' and trailing ')'
         $point = mb_substr($spatial, 6, -1);
@@ -114,17 +112,17 @@ class GisPoint extends GisGeometry
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string      $spatial    GIS POINT object
-     * @param string|null $label      Label for the GIS POINT object
-     * @param int[]       $color      Color for the GIS POINT object
-     * @param array       $scale_data Array containing data related to scaling
-     * @param TCPDF       $pdf        TCPDF instance
+     * @param string $spatial    GIS POINT object
+     * @param string $label      Label for the GIS POINT object
+     * @param int[]  $color      Color for the GIS POINT object
+     * @param array  $scale_data Array containing data related to scaling
+     * @param TCPDF  $pdf
      *
      * @return TCPDF the modified TCPDF instance
      */
     public function prepareRowAsPdf(
         $spatial,
-        ?string $label,
+        string $label,
         array $color,
         array $scale_data,
         $pdf
@@ -133,8 +131,6 @@ class GisPoint extends GisGeometry
             'width' => 1.25,
             'color' => $color,
         ];
-
-        $label = trim($label ?? '');
 
         // Trim to remove leading 'POINT(' and trailing ')'
         $point = mb_substr($spatial, 6, -1);
@@ -164,7 +160,7 @@ class GisPoint extends GisGeometry
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg($spatial, $label, array $color, array $scale_data)
+    public function prepareRowAsSvg($spatial, string $label, array $color, array $scale_data)
     {
         $point_options = [
             'name' => $label,
@@ -184,7 +180,7 @@ class GisPoint extends GisGeometry
             $row .= '<circle cx="' . $points_arr[0][0]
                 . '" cy="' . $points_arr[0][1] . '" r="3"';
             foreach ($point_options as $option => $val) {
-                $row .= ' ' . $option . '="' . trim((string) $val) . '"';
+                $row .= ' ' . $option . '="' . $val . '"';
             }
 
             $row .= '/>';
@@ -208,7 +204,7 @@ class GisPoint extends GisGeometry
     public function prepareRowAsOl(
         $spatial,
         int $srid,
-        $label,
+        string $label,
         array $color,
         array $scale_data
     ) {
@@ -227,10 +223,9 @@ class GisPoint extends GisGeometry
             . '}),'
             . 'fill: fill,'
             . 'stroke: stroke';
-
-        if (trim($label) !== '') {
+        if ($label !== '') {
             $text_style = [
-                'text' => trim($label),
+                'text' => $label,
                 'offsetY' => -9,
             ];
             $result .= ',text: new ol.style.Text(' . json_encode($text_style) . ')';

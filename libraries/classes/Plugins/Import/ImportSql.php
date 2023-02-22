@@ -96,10 +96,10 @@ class ImportSql extends ImportPlugin
      *
      * @return string[]
      */
-    public function doImport(?File $importHandle = null): array
+    public function doImport(File|null $importHandle = null): array
     {
-        $GLOBALS['error'] = $GLOBALS['error'] ?? null;
-        $GLOBALS['timeout_passed'] = $GLOBALS['timeout_passed'] ?? null;
+        $GLOBALS['error'] ??= null;
+        $GLOBALS['timeout_passed'] ??= null;
 
         // Handle compatibility options.
         $this->setSQLMode($GLOBALS['dbi'], $_REQUEST);

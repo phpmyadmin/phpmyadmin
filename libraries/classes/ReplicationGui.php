@@ -26,18 +26,8 @@ use function time;
  */
 class ReplicationGui
 {
-    private Replication $replication;
-
-    private Template $template;
-
-    /**
-     * @param Replication $replication Replication instance
-     * @param Template    $template    Template instance
-     */
-    public function __construct(Replication $replication, Template $template)
+    public function __construct(private Replication $replication, private Template $template)
     {
-        $this->replication = $replication;
-        $this->template = $template;
     }
 
     /**
@@ -69,11 +59,11 @@ class ReplicationGui
      * @return string HTML code
      */
     public function getHtmlForPrimaryReplication(
-        ?string $connection,
+        string|null $connection,
         bool $hasReplicaClearScreen,
-        ?string $primaryAddUser,
-        ?string $username,
-        ?string $hostname
+        string|null $primaryAddUser,
+        string|null $username,
+        string|null $hostname
     ): string {
         if (! $hasReplicaClearScreen) {
             $primaryStatusTable = $this->getHtmlForReplicationStatusTable($connection, 'primary', true, false);
@@ -124,7 +114,7 @@ class ReplicationGui
      * @return string HTML code
      */
     public function getHtmlForReplicaConfiguration(
-        ?string $connection,
+        string|null $connection,
         $serverReplicaStatus,
         array $serverReplicaReplication,
         bool $replicaConfigure
@@ -255,7 +245,7 @@ class ReplicationGui
      * @return string HTML code
      */
     public function getHtmlForReplicationStatusTable(
-        ?string $connection,
+        string|null $connection,
         $type,
         $isHidden = false,
         $hasTitle = true
@@ -358,7 +348,7 @@ class ReplicationGui
      *
      * @return string HTML code
      */
-    public function getHtmlForReplicationPrimaryAddReplicaUser(?string $postUsername, ?string $hostname): string
+    public function getHtmlForReplicationPrimaryAddReplicaUser(string|null $postUsername, string|null $hostname): string
     {
         [
             $usernameLength,
@@ -415,10 +405,10 @@ class ReplicationGui
         bool $srTakeAction,
         bool $replicaChangePrimary,
         bool $srReplicaServerControl,
-        ?string $srReplicaAction,
+        string|null $srReplicaAction,
         bool $srReplicaSkipError,
         int $srSkipErrorsCount,
-        ?string $srReplicaControlParam,
+        string|null $srReplicaControlParam,
         string $username,
         string $pmaPassword,
         string $hostname,
@@ -553,7 +543,7 @@ class ReplicationGui
         return $_SESSION['replication']['sr_action_status'] === 'success';
     }
 
-    public function handleRequestForReplicaServerControl(?string $srReplicaAction, ?string $control): bool
+    public function handleRequestForReplicaServerControl(string|null $srReplicaAction, string|null $control): bool
     {
         if ($srReplicaAction === 'reset') {
             $qStop = $this->replication->replicaControl('STOP', null, Connection::TYPE_USER);

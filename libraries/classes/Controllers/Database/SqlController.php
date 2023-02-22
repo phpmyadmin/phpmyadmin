@@ -20,19 +20,16 @@ use function htmlspecialchars;
  */
 class SqlController extends AbstractController
 {
-    private SqlQueryForm $sqlQueryForm;
-
-    public function __construct(ResponseRenderer $response, Template $template, SqlQueryForm $sqlQueryForm)
+    public function __construct(ResponseRenderer $response, Template $template, private SqlQueryForm $sqlQueryForm)
     {
         parent::__construct($response, $template);
-        $this->sqlQueryForm = $sqlQueryForm;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['goto'] = $GLOBALS['goto'] ?? null;
-        $GLOBALS['back'] = $GLOBALS['back'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['goto'] ??= null;
+        $GLOBALS['back'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
 
         $this->addScriptFiles(['makegrid.js', 'vendor/jquery/jquery.uitablefilter.js', 'sql.js']);
 

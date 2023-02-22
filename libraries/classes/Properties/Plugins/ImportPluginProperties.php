@@ -17,10 +17,8 @@ class ImportPluginProperties extends PluginPropertyItem
      *  - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem ( f.e. "bool", "text", "radio", etc ) or
      *  - PhpMyAdmin\Properties\Options\OptionsPropertyGroup   ( "root", "main" or "subgroup" )
      *  - PhpMyAdmin\Properties\Plugins\PluginPropertyItem     ( "export", "import", "transformations" )
-     *
-     * @return string
      */
-    public function getItemType()
+    public function getItemType(): string
     {
         return 'import';
     }

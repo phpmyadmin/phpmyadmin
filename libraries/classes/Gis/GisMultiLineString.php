@@ -54,7 +54,7 @@ class GisMultiLineString extends GisGeometry
      *
      * @return ScaleData|null the min, max values for x and y coordinates
      */
-    public function scaleRow(string $spatial): ?ScaleData
+    public function scaleRow(string $spatial): ScaleData|null
     {
         $min_max = null;
 
@@ -73,14 +73,14 @@ class GisMultiLineString extends GisGeometry
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string      $spatial    GIS POLYGON object
-     * @param string|null $label      Label for the GIS POLYGON object
-     * @param int[]       $color      Color for the GIS POLYGON object
-     * @param array       $scale_data Array containing data related to scaling
+     * @param string $spatial    GIS POLYGON object
+     * @param string $label      Label for the GIS POLYGON object
+     * @param int[]  $color      Color for the GIS POLYGON object
+     * @param array  $scale_data Array containing data related to scaling
      */
     public function prepareRowAsPng(
         $spatial,
-        ?string $label,
+        string $label,
         array $color,
         array $scale_data,
         ImageWrapper $image
@@ -88,8 +88,6 @@ class GisMultiLineString extends GisGeometry
         // allocate colors
         $black = $image->colorAllocate(0, 0, 0);
         $line_color = $image->colorAllocate(...$color);
-
-        $label = trim($label ?? '');
 
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
         $multilinestirng = mb_substr($spatial, 17, -2);
@@ -135,22 +133,20 @@ class GisMultiLineString extends GisGeometry
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string      $spatial    GIS MULTILINESTRING object
-     * @param string|null $label      Label for the GIS MULTILINESTRING object
-     * @param int[]       $color      Color for the GIS MULTILINESTRING object
-     * @param array       $scale_data Array containing data related to scaling
-     * @param TCPDF       $pdf        TCPDF instance
+     * @param string $spatial    GIS MULTILINESTRING object
+     * @param string $label      Label for the GIS MULTILINESTRING object
+     * @param int[]  $color      Color for the GIS MULTILINESTRING object
+     * @param array  $scale_data Array containing data related to scaling
+     * @param TCPDF  $pdf
      *
      * @return TCPDF the modified TCPDF instance
      */
-    public function prepareRowAsPdf($spatial, ?string $label, array $color, array $scale_data, $pdf)
+    public function prepareRowAsPdf($spatial, string $label, array $color, array $scale_data, $pdf)
     {
         $line = [
             'width' => 1.5,
             'color' => $color,
         ];
-
-        $label = trim($label ?? '');
 
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
         $multilinestirng = mb_substr($spatial, 17, -2);
@@ -193,7 +189,7 @@ class GisMultiLineString extends GisGeometry
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg($spatial, $label, array $color, array $scale_data)
+    public function prepareRowAsSvg($spatial, string $label, array $color, array $scale_data)
     {
         $line_options = [
             'name' => $label,
@@ -220,7 +216,7 @@ class GisMultiLineString extends GisGeometry
             $row .= '"';
             $line_options['id'] = $label . $this->getRandomId();
             foreach ($line_options as $option => $val) {
-                $row .= ' ' . $option . '="' . trim((string) $val) . '"';
+                $row .= ' ' . $option . '="' . $val . '"';
             }
 
             $row .= '/>';
@@ -241,7 +237,7 @@ class GisMultiLineString extends GisGeometry
      *
      * @return string JavaScript related to a row in the GIS dataset
      */
-    public function prepareRowAsOl($spatial, int $srid, $label, array $color, array $scale_data)
+    public function prepareRowAsOl($spatial, int $srid, string $label, array $color, array $scale_data)
     {
         $stroke_style = [
             'color' => $color,
@@ -250,8 +246,8 @@ class GisMultiLineString extends GisGeometry
 
         $row = 'var style = new ol.style.Style({'
             . 'stroke: new ol.style.Stroke(' . json_encode($stroke_style) . ')';
-        if (trim($label) !== '') {
-            $text_style = ['text' => trim($label)];
+        if ($label !== '') {
+            $text_style = ['text' => $label];
             $row .= ', text: new ol.style.Text(' . json_encode($text_style) . ')';
         }
 

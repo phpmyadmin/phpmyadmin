@@ -56,7 +56,7 @@ abstract class GisGeomTestCase extends AbstractTestCase
      *
      * @dataProvider providerForTestGenerateParams
      */
-    public function testGenerateParams(string $wkt, ?int $index, array $params): void
+    public function testGenerateParams(string $wkt, int|null $index, array $params): void
     {
         if ($index === null) {
             $this->assertEquals(
@@ -102,7 +102,6 @@ abstract class GisGeomTestCase extends AbstractTestCase
     {
         $pdf = new TCPDF();
         $prop = new ReflectionProperty($pdf, 'file_id');
-        $prop->setAccessible(true);
         $prop->setValue($pdf, md5($id));
         $pdf->setDocCreationTimestamp(1600000000);
         $pdf->setDocModificationTimestamp(1600000000);

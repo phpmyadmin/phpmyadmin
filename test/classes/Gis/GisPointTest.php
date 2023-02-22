@@ -209,7 +209,6 @@ class GisPointTest extends GisGeomTestCase
      * @param string $label      label for the GIS POINT object
      * @param int[]  $color      color for the GIS POINT object
      * @param array  $scale_data array containing data related to scaling
-     * @param TCPDF  $pdf        TCPDF instance
      *
      * @dataProvider providerForPrepareRowAsPdf
      */

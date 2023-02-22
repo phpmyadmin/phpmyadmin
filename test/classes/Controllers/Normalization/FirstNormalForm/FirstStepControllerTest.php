@@ -25,7 +25,7 @@ class FirstStepControllerTest extends AbstractTestCase
      *
      * @dataProvider providerForTestDefault
      */
-    public function testDefault(?string $normalizeTo, string $expectedNormalizeTo): void
+    public function testDefault(string|null $normalizeTo, string $expectedNormalizeTo): void
     {
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';

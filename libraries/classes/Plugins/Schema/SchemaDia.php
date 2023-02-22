@@ -83,7 +83,7 @@ class SchemaDia extends SchemaPlugin
      */
     public function getExportInfo(DatabaseName $db): array
     {
-        $export = new DiaRelationSchema($db->getName());
+        $export = new DiaRelationSchema($db);
         $exportInfo = $export->getExportInfo();
 
         return [

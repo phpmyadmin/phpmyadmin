@@ -17,12 +17,9 @@ use const SQL_DIR;
  */
 class CheckRelationsController extends AbstractController
 {
-    private Relation $relation;
-
-    public function __construct(ResponseRenderer $response, Template $template, Relation $relation)
+    public function __construct(ResponseRenderer $response, Template $template, private Relation $relation)
     {
         parent::__construct($response, $template);
-        $this->relation = $relation;
     }
 
     public function __invoke(ServerRequest $request): void
@@ -51,7 +48,7 @@ class CheckRelationsController extends AbstractController
         $relationParameters = $this->relation->getRelationParameters();
 
         $this->render('relation/check_relations', [
-            'db' => $db !== null ? $db->getName() : '',
+            'db' => $db?->getName() ?? '',
             'zero_conf' => $GLOBALS['cfg']['ZeroConf'],
             'relation_parameters' => $relationParameters->toArray(),
             'sql_dir' => SQL_DIR,

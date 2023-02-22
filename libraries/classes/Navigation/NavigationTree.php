@@ -46,7 +46,6 @@ use function base64_decode;
 use function count;
 use function explode;
 use function floor;
-use function get_class;
 use function htmlspecialchars;
 use function in_array;
 use function is_array;
@@ -136,20 +135,11 @@ class NavigationTree
      */
     private $largeGroupWarning = false;
 
-    /** @var Template */
-    private $template;
-
-    private DatabaseInterface $dbi;
-
     /**
-     * @param Template          $template Template instance
-     * @param DatabaseInterface $dbi      DatabaseInterface instance
+     * @param Template $template
      */
-    public function __construct($template, DatabaseInterface $dbi)
+    public function __construct(private $template, private DatabaseInterface $dbi)
     {
-        $this->template = $template;
-        $this->dbi = $dbi;
-
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
         $checkUserPrivileges->getPrivileges();
 
@@ -430,7 +420,7 @@ class NavigationTree
                     continue;
                 }
 
-                if ($type2 == $container->realName) {
+                if ($type2 === $container->realName) {
                     $node->pos2 = $pos2;
                 }
 
@@ -455,7 +445,7 @@ class NavigationTree
             }
 
             $node = NodeFactory::getInstance(NodeTable::class, $path[0]);
-            if ($type2 == $container->realName) {
+            if ($type2 === $container->realName) {
                 $node->pos2 = $pos2;
             }
 
@@ -498,7 +488,7 @@ class NavigationTree
             }
 
             $node->pos2 = $container->parent->pos2;
-            if ($type3 == $container->realName) {
+            if ($type3 === $container->realName) {
                 $node->pos3 = $pos3;
             }
 
@@ -544,7 +534,7 @@ class NavigationTree
             // Add all new Nodes to the tree
             foreach ($retval as $node) {
                 $node->pos2 = $pos2;
-                if ($type3 == $node->realName) {
+                if ($type3 === $node->realName) {
                     $node->pos3 = $pos3;
                 }
 
@@ -552,7 +542,7 @@ class NavigationTree
             }
         } else {
             foreach ($table->children as $node) {
-                if ($type3 == $node->realName) {
+                if ($type3 === $node->realName) {
                     $node->pos3 = $pos3;
                 }
 
@@ -626,7 +616,7 @@ class NavigationTree
 
             // Add all new Nodes to the tree
             foreach ($retval as $node) {
-                if ($type == $node->realName) {
+                if ($type === $node->realName) {
                     $node->pos2 = $pos2;
                 }
 
@@ -634,7 +624,7 @@ class NavigationTree
             }
         } else {
             foreach ($db->children as $node) {
-                if ($type == $node->realName) {
+                if ($type === $node->realName) {
                     $node->pos2 = $pos2;
                 }
 
@@ -653,7 +643,7 @@ class NavigationTree
      *                   passed as an argument, $node
      *                   must be of type CONTAINER
      */
-    public function groupTree(?Node $node = null): void
+    public function groupTree(Node|null $node = null): void
     {
         if ($node === null) {
             $node = $this->tree;
@@ -777,12 +767,15 @@ class NavigationTree
                 foreach ($node->children as $child) {
                     $keySeparatorLength = mb_strlen((string) $key) + $separatorLength;
                     $nameSubstring = mb_substr((string) $child->name, 0, $keySeparatorLength);
-                    if (($nameSubstring != $key . $separator && $child->name != $key) || $child->type != Node::OBJECT) {
+                    if (
+                        ($nameSubstring !== $key . $separator && $child->name !== $key)
+                        || $child->type != Node::OBJECT
+                    ) {
                         continue;
                     }
 
                     $newChild = NodeFactory::getInstance(
-                        get_class($child),
+                        $child::class,
                         mb_substr(
                             $child->name,
                             $keySeparatorLength
@@ -814,7 +807,7 @@ class NavigationTree
 
             // If the current node is a standard group (not NodeTableContainer, etc.)
             // and the new group contains all of the current node's children, combine them
-            $class = get_class($node);
+            $class = $node::class;
             if (count($newChildren) === $numChildren && substr($class, strrpos($class, '\\') + 1) === 'Node') {
                 $node->name .= $separators[0] . htmlspecialchars((string) $key);
                 $node->realName .= $separators[0] . htmlspecialchars((string) $key);
@@ -1162,7 +1155,7 @@ class NavigationTree
         $buffer = '';
         $extraClass = '';
         for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {
-            if ($i + 1 == $nbChildren) {
+            if ($i + 1 === $nbChildren) {
                 $extraClass = ' last';
             }
 

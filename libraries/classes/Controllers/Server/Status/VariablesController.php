@@ -22,17 +22,18 @@ use function str_contains;
 
 class VariablesController extends AbstractController
 {
-    private DatabaseInterface $dbi;
-
-    public function __construct(ResponseRenderer $response, Template $template, Data $data, DatabaseInterface $dbi)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        Data $data,
+        private DatabaseInterface $dbi
+    ) {
         parent::__construct($response, $template, $data);
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['errorUrl'] ??= null;
 
         $filterAlert = $request->getParsedBodyParam('filterAlert');
         $filterText = $request->getParsedBodyParam('filterText');

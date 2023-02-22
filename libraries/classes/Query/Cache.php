@@ -55,7 +55,7 @@ class Cache
      * @param array|null $contentPath Array with the target path
      * @param mixed      $value       Target value
      */
-    public function cacheTableContent(?array $contentPath, $value): void
+    public function cacheTableContent(array|null $contentPath, $value): void
     {
         $loc = &$this->tableCache;
 

@@ -22,17 +22,14 @@ use function sha1;
 
 final class FavoriteTableController extends AbstractController
 {
-    private Relation $relation;
-
-    public function __construct(ResponseRenderer $response, Template $template, Relation $relation)
+    public function __construct(ResponseRenderer $response, Template $template, private Relation $relation)
     {
         parent::__construct($response, $template);
-        $this->relation = $relation;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['errorUrl'] ??= null;
 
         $parameters = [
             'favorite_table' => $_REQUEST['favorite_table'] ?? null,

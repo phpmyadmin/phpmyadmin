@@ -20,23 +20,14 @@ use function count;
 
 final class DropColumnController extends AbstractController
 {
-    private DatabaseInterface $dbi;
-
-    private FlashMessages $flash;
-
-    private RelationCleanup $relationCleanup;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        DatabaseInterface $dbi,
-        FlashMessages $flash,
-        RelationCleanup $relationCleanup
+        private DatabaseInterface $dbi,
+        private FlashMessages $flash,
+        private RelationCleanup $relationCleanup
     ) {
         parent::__construct($response, $template);
-        $this->dbi = $dbi;
-        $this->flash = $flash;
-        $this->relationCleanup = $relationCleanup;
     }
 
     public function __invoke(ServerRequest $request): void

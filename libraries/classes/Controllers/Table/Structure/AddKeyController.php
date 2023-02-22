@@ -13,24 +13,18 @@ use PhpMyAdmin\Template;
 
 final class AddKeyController extends AbstractController
 {
-    private SqlController $sqlController;
-
-    private StructureController $structureController;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        SqlController $sqlController,
-        StructureController $structureController
+        private SqlController $sqlController,
+        private StructureController $structureController
     ) {
         parent::__construct($response, $template);
-        $this->sqlController = $sqlController;
-        $this->structureController = $structureController;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['reload'] = $GLOBALS['reload'] ?? null;
+        $GLOBALS['reload'] ??= null;
 
         ($this->sqlController)($request);
 

@@ -30,9 +30,6 @@ class BrowseForeigners
     /** @var Template */
     public $template;
 
-    /**
-     * @param Template $template Template object
-     */
     public function __construct(Template $template)
     {
         $this->template = $template;
@@ -65,7 +62,7 @@ class BrowseForeigners
         int $indexByDescription,
         string $currentValue
     ): array {
-        $GLOBALS['theme'] = $GLOBALS['theme'] ?? null;
+        $GLOBALS['theme'] ??= null;
 
         $horizontalCount++;
         $output = '';
@@ -162,7 +159,7 @@ class BrowseForeigners
         string $table,
         string $field,
         array $foreignData,
-        ?string $fieldKey,
+        string|null $fieldKey,
         string $currentValue
     ): string {
         $gotoPage = $this->getHtmlForGotoPage($foreignData);
@@ -290,7 +287,7 @@ class BrowseForeigners
      *
      * @param array|null $foreignData foreign data
      */
-    private function getHtmlForGotoPage(?array $foreignData): string
+    private function getHtmlForGotoPage(array|null $foreignData): string
     {
         isset($_POST['pos']) ? $pos = $_POST['pos'] : $pos = 0;
         if ($foreignData === null || ! is_array($foreignData['disp_row'])) {
@@ -323,9 +320,9 @@ class BrowseForeigners
      *
      * @param string|null $foreignShowAll foreign navigation
      */
-    public function getForeignLimit(?string $foreignShowAll): ?string
+    public function getForeignLimit(string|null $foreignShowAll): string|null
     {
-        if (isset($foreignShowAll) && $foreignShowAll == __('Show all')) {
+        if ($foreignShowAll === __('Show all')) {
             return null;
         }
 

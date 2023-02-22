@@ -37,23 +37,14 @@ use function strtolower;
  */
 class WrapperController extends AbstractController
 {
-    private Transformations $transformations;
-
-    private Relation $relation;
-
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Transformations $transformations,
-        Relation $relation,
-        DatabaseInterface $dbi
+        private Transformations $transformations,
+        private Relation $relation,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->transformations = $transformations;
-        $this->relation = $relation;
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void
@@ -208,7 +199,7 @@ class WrapperController extends AbstractController
      * @param mixed $whereClause
      * @param mixed $whereClauseSign
      */
-    private function getQuery(TableName $table, $whereClause, $whereClauseSign): ?string
+    private function getQuery(TableName $table, $whereClause, $whereClauseSign): string|null
     {
         if ($whereClause === null) {
             return sprintf('SELECT * FROM %s LIMIT 1;', Util::backquote($table));

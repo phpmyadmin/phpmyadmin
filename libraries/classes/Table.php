@@ -95,8 +95,6 @@ class Table implements Stringable
     /** @var string  database name */
     protected $dbName = '';
 
-    protected DatabaseInterface $dbi;
-
     private Relation $relation;
 
     /**
@@ -104,11 +102,10 @@ class Table implements Stringable
      * @param string            $dbName    database name
      * @param DatabaseInterface $dbi       database interface for the table
      */
-    public function __construct($tableName, $dbName, DatabaseInterface $dbi)
+    public function __construct($tableName, $dbName, protected DatabaseInterface $dbi)
     {
         $this->name = $tableName;
         $this->dbName = $dbName;
-        $this->dbi = $dbi;
         $this->relation = new Relation($this->dbi);
     }
 
@@ -830,12 +827,12 @@ class Table implements Stringable
      * Inserts existing entries in a PMA_* table by reading a value from an old
      * entry
      *
-     * @param string $work        The array index, which Relation feature to check ('relwork', 'commwork', ...)
-     * @param string $table       The array index, which PMA-table to update ('bookmark', 'relation', ...)
-     * @param array  $getFields   Which fields will be SELECT'ed from the old entry
-     * @param array  $whereFields Which fields will be used for the WHERE query (array('FIELDNAME' => 'FIELDVALUE'))
-     * @param array  $newFields   Which fields will be used as new VALUES. These are the important keys which differ
-     *                            from the old entry (array('FIELDNAME' => 'NEW FIELDVALUE'))
+     * @param string   $work        The array index, which Relation feature to check ('relwork', 'commwork', ...)
+     * @param string   $table       The array index, which PMA-table to update ('bookmark', 'relation', ...)
+     * @param string[] $getFields   Which fields will be SELECT'ed from the old entry
+     * @param array    $whereFields Which fields will be used for the WHERE query (array('FIELDNAME' => 'FIELDVALUE'))
+     * @param array    $newFields   Which fields will be used as new VALUES. These are the important keys which differ
+     *                              from the old entry (array('FIELDNAME' => 'NEW FIELDVALUE'))
      */
     public static function duplicateInfo(
         $work,
@@ -857,7 +854,7 @@ class Table implements Stringable
         $rowFields = [];
         foreach ($getFields as $getField) {
             $selectParts[] = Util::backquote($getField);
-            $rowFields[$getField] = 'cc';
+            $rowFields[] = $getField;
         }
 
         $whereParts = [];
@@ -886,7 +883,7 @@ class Table implements Stringable
         foreach ($tableCopyRs as $tableCopyRow) {
             $valueParts = [];
             foreach ($tableCopyRow as $key => $val) {
-                if (! isset($rowFields[$key]) || $rowFields[$key] != 'cc') {
+                if (! in_array($key, $rowFields)) {
                     continue;
                 }
 
@@ -922,14 +919,14 @@ class Table implements Stringable
     public static function moveCopy(
         $sourceDb,
         $sourceTable,
-        ?string $targetDb,
+        string|null $targetDb,
         $targetTable,
         $what,
         $move,
         $mode,
         bool $addDropIfExists
     ): bool {
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['errorUrl'] ??= null;
         $relation = new Relation($GLOBALS['dbi']);
 
         // Try moving the tables directly, using native `RENAME` statement.
@@ -1015,10 +1012,11 @@ class Table implements Stringable
                 $GLOBALS['sql_auto_increment'] = $_POST['sql_auto_increment'];
             }
 
+            $isView = (new Table($sourceTable, $sourceDb, $GLOBALS['dbi']))->isView();
             /**
              * The old structure of the table.
              */
-            $sqlStructure = $exportSqlPlugin->getTableDef($sourceDb, $sourceTable, false, false);
+            $sqlStructure = $exportSqlPlugin->getTableDef($sourceDb, $sourceTable, false, false, $isView);
 
             unset($noConstraintsComments);
 
@@ -1045,7 +1043,7 @@ class Table implements Stringable
                  */
                 $statement = new DropStatement();
 
-                $tbl = new Table($targetDb, $targetTable, $GLOBALS['dbi']);
+                $tbl = new Table($targetTable, $targetDb, $GLOBALS['dbi']);
 
                 $statement->options = new OptionsArray(
                     [
@@ -1690,7 +1688,7 @@ class Table implements Stringable
      *
      * @return array
      */
-    protected function getUiPrefsFromDb(?UiPreferencesFeature $uiPreferencesFeature)
+    protected function getUiPrefsFromDb(UiPreferencesFeature|null $uiPreferencesFeature)
     {
         if ($uiPreferencesFeature === null) {
             return [];
@@ -2087,7 +2085,7 @@ class Table implements Stringable
 
         // specifying index type is allowed only for primary, unique and index only
         // TokuDB is using Fractal Tree, Using Type is not useless
-        // Ref: https://mariadb.com/kb/en/mariadb/storage-engine-index-types/
+        // Ref: https://mariadb.com/kb/en/storage-engine-index-types/
         $type = $index->getType();
         if (
             $index->getChoice() !== 'SPATIAL'
@@ -2547,7 +2545,7 @@ class Table implements Stringable
     /**
      * Returns the real row count for a table
      */
-    public function getRealRowCountTable(): ?int
+    public function getRealRowCountTable(): int|null
     {
         // SQL query to get row count for a table.
         $result = $this->dbi->fetchSingleRow(

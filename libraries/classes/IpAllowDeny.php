@@ -81,7 +81,7 @@ class IpAllowDeny
                 $maskl += 2 ** (30 - $i);
             }
 
-            return ($maskl & $rangel) == ($maskl & $ipl);
+            return ($maskl & $rangel) === ($maskl & $ipl);
         }
 
         // range based
@@ -95,7 +95,7 @@ class IpAllowDeny
                     $result = false;
                 }
             } else {
-                if ($maskocts[$i] <> $ipocts[$i]) {
+                if ($maskocts[$i] !== $ipocts[$i]) {
                     $result = false;
                 }
             }

@@ -145,7 +145,7 @@ class Pbxt extends StorageEngine
      *
      * @return array|null the formatted value and its unit
      */
-    public function resolveTypeSize($formatted_size): ?array
+    public function resolveTypeSize($formatted_size): array|null
     {
         if (is_string($formatted_size) && preg_match('/^[0-9]+[a-zA-Z]+$/', $formatted_size)) {
             $value = Util::extractValueFromFormattedSize($formatted_size);
@@ -181,7 +181,7 @@ class Pbxt extends StorageEngine
             __(
                 'Documentation and further information about PBXT can be found on the %sPrimeBase XT Home Page%s.'
             ),
-            '<a href="' . Core::linkURL('https://mariadb.com/kb/en/mariadb/about-pbxt/')
+            '<a href="' . Core::linkURL('https://mariadb.com/kb/en/about-pbxt/')
             . '" rel="noopener noreferrer" target="_blank">',
             '</a>'
         )

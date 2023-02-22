@@ -41,41 +41,29 @@ use function sprintf;
  */
 final class ReplaceController extends AbstractController
 {
-    private InsertEdit $insertEdit;
-
-    private Transformations $transformations;
-
-    private Relation $relation;
-
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        InsertEdit $insertEdit,
-        Transformations $transformations,
-        Relation $relation,
-        DatabaseInterface $dbi
+        private InsertEdit $insertEdit,
+        private Transformations $transformations,
+        private Relation $relation,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->insertEdit = $insertEdit;
-        $this->transformations = $transformations;
-        $this->relation = $relation;
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+        $GLOBALS['urlParams'] ??= null;
+        $GLOBALS['message'] ??= null;
         $this->checkParameters(['db', 'table', 'goto']);
 
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
-        $GLOBALS['unsaved_values'] = $GLOBALS['unsaved_values'] ?? null;
-        $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
-        $GLOBALS['disp_query'] = $GLOBALS['disp_query'] ?? null;
-        $GLOBALS['disp_message'] = $GLOBALS['disp_message'] ?? null;
-        $GLOBALS['query'] = $GLOBALS['query'] ?? null;
+        $GLOBALS['errorUrl'] ??= null;
+        $GLOBALS['unsaved_values'] ??= null;
+        $GLOBALS['active_page'] ??= null;
+        $GLOBALS['disp_query'] ??= null;
+        $GLOBALS['disp_message'] ??= null;
+        $GLOBALS['query'] ??= null;
 
         $this->dbi->selectDb($GLOBALS['db']);
 
@@ -171,7 +159,7 @@ final class ReplaceController extends AbstractController
                 // available in $multi_edit_columns_name[$key]
 
                 // When a select field is nullified, it's not present in $_POST so initialize it
-                $multi_edit_columns[$key] = $multi_edit_columns[$key] ?? '';
+                $multi_edit_columns[$key] ??= '';
 
                 /** @var string[]|string $current_value */
                 $current_value = $multi_edit_columns[$key];

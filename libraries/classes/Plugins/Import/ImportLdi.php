@@ -89,20 +89,20 @@ class ImportLdi extends AbstractImportCsv
      *
      * @return string[]
      */
-    public function doImport(?File $importHandle = null): array
+    public function doImport(File|null $importHandle = null): array
     {
-        $GLOBALS['finished'] = $GLOBALS['finished'] ?? null;
-        $GLOBALS['import_file'] = $GLOBALS['import_file'] ?? null;
-        $GLOBALS['charset_conversion'] = $GLOBALS['charset_conversion'] ?? null;
-        $GLOBALS['ldi_local_option'] = $GLOBALS['ldi_local_option'] ?? null;
-        $GLOBALS['ldi_replace'] = $GLOBALS['ldi_replace'] ?? null;
-        $GLOBALS['ldi_ignore'] = $GLOBALS['ldi_ignore'] ?? null;
-        $GLOBALS['ldi_terminated'] = $GLOBALS['ldi_terminated'] ?? null;
-        $GLOBALS['ldi_enclosed'] = $GLOBALS['ldi_enclosed'] ?? null;
-        $GLOBALS['ldi_escaped'] = $GLOBALS['ldi_escaped'] ?? null;
-        $GLOBALS['ldi_new_line'] = $GLOBALS['ldi_new_line'] ?? null;
-        $GLOBALS['skip_queries'] = $GLOBALS['skip_queries'] ?? null;
-        $GLOBALS['ldi_columns'] = $GLOBALS['ldi_columns'] ?? null;
+        $GLOBALS['finished'] ??= null;
+        $GLOBALS['import_file'] ??= null;
+        $GLOBALS['charset_conversion'] ??= null;
+        $GLOBALS['ldi_local_option'] ??= null;
+        $GLOBALS['ldi_replace'] ??= null;
+        $GLOBALS['ldi_ignore'] ??= null;
+        $GLOBALS['ldi_terminated'] ??= null;
+        $GLOBALS['ldi_enclosed'] ??= null;
+        $GLOBALS['ldi_escaped'] ??= null;
+        $GLOBALS['ldi_new_line'] ??= null;
+        $GLOBALS['skip_queries'] ??= null;
+        $GLOBALS['ldi_columns'] ??= null;
 
         $sqlStatements = [];
         $compression = '';
@@ -148,9 +148,7 @@ class ImportLdi extends AbstractImportCsv
 
         if (strlen((string) $GLOBALS['ldi_new_line']) > 0) {
             if ($GLOBALS['ldi_new_line'] === 'auto') {
-                $GLOBALS['ldi_new_line'] = PHP_EOL == "\n"
-                    ? '\n'
-                    : '\r\n';
+                $GLOBALS['ldi_new_line'] = PHP_EOL;
             }
 
             $sql .= ' LINES TERMINATED BY \'' . $GLOBALS['ldi_new_line'] . '\'';

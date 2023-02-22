@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Schema;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -20,15 +21,11 @@ use function rawurldecode;
  * This class is inherited by all schema classes
  * It contains those methods which are common in them
  * it works like factory pattern
+ *
+ * @template T
  */
 class ExportRelationSchema
 {
-    /** @var string */
-    protected $db;
-
-    /** @var Dia\Dia|Eps\Eps|Pdf\Pdf|Svg\Svg|null */
-    protected $diagram;
-
     /** @var bool */
     protected $showColor = false;
 
@@ -56,13 +53,10 @@ class ExportRelationSchema
     protected Relation $relation;
 
     /**
-     * @param string                               $db      database name
-     * @param Pdf\Pdf|Svg\Svg|Eps\Eps|Dia\Dia|null $diagram schema diagram
+     * @param T $diagram
      */
-    public function __construct($db, $diagram)
+    public function __construct(protected DatabaseName $db, protected $diagram)
     {
-        $this->db = $db;
-        $this->diagram = $diagram;
         $this->setPageNumber((int) $_REQUEST['page_number']);
         $this->setOffline(isset($_REQUEST['offline_export']));
         $this->relation = new Relation($GLOBALS['dbi']);

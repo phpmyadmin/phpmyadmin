@@ -27,10 +27,7 @@ use const PHP_SAPI;
  */
 class ResponseRenderer
 {
-    /**
-     * @static
-     * @var ResponseRenderer|null
-     */
+    /** @var ResponseRenderer|null */
     private static $instance = null;
 
     /**
@@ -269,9 +266,9 @@ class ResponseRenderer
         // and, in this case, the header will be
         // in the content part of the request
         return (new Template())->render('base', [
-            'header' => $this->header->getDisplay(),
+            'header' => $this->header?->getDisplay() ?? '',
             'content' => $this->HTML,
-            'footer' => $this->footer->getDisplay(),
+            'footer' => $this->footer?->getDisplay() ?? '',
         ]);
     }
 

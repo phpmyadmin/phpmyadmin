@@ -20,9 +20,6 @@ use function shuffle;
  */
 class RelationStatsDia
 {
-    /** @var Dia */
-    protected $diagram;
-
     /** @var mixed */
     public $srcConnPointsRight;
 
@@ -54,13 +51,12 @@ class RelationStatsDia
      * @param string        $foreign_field The relation field in the foreign table
      */
     public function __construct(
-        $diagram,
+        protected $diagram,
         $master_table,
         $master_field,
         $foreign_table,
         $foreign_field
     ) {
-        $this->diagram = $diagram;
         $src_pos = $this->getXy($master_table, $master_field);
         $dest_pos = $this->getXy($foreign_table, $foreign_field);
         $this->srcConnPointsLeft = $src_pos[0];

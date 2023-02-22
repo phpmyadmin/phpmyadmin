@@ -36,17 +36,11 @@ use function trim;
  */
 final class ColumnsDefinition
 {
-    private DatabaseInterface $dbi;
-
-    private Relation $relation;
-
-    private Transformations $transformations;
-
-    public function __construct(DatabaseInterface $dbi, Relation $relation, Transformations $transformations)
-    {
-        $this->dbi = $dbi;
-        $this->relation = $relation;
-        $this->transformations = $transformations;
+    public function __construct(
+        private DatabaseInterface $dbi,
+        private Relation $relation,
+        private Transformations $transformations
+    ) {
     }
 
     /**
@@ -62,12 +56,12 @@ final class ColumnsDefinition
         string $action,
         $num_fields = 0,
         $regenerate = null,
-        ?array $selected = null,
+        array|null $selected = null,
         $fields_meta = null
     ): array {
-        $GLOBALS['col_priv'] = $GLOBALS['col_priv'] ?? null;
-        $GLOBALS['is_reload_priv'] = $GLOBALS['is_reload_priv'] ?? null;
-        $GLOBALS['mime_map'] = $GLOBALS['mime_map'] ?? null;
+        $GLOBALS['col_priv'] ??= null;
+        $GLOBALS['is_reload_priv'] ??= null;
+        $GLOBALS['mime_map'] ??= null;
 
         $length_values_input_size = 8;
         $content_cells = [];

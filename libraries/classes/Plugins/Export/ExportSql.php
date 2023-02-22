@@ -73,7 +73,7 @@ class ExportSql extends ExportPlugin
 
     protected function init(): void
     {
-        $GLOBALS['sql_backquotes'] = $GLOBALS['sql_backquotes'] ?? null;
+        $GLOBALS['sql_backquotes'] ??= null;
     }
 
     /**
@@ -86,7 +86,7 @@ class ExportSql extends ExportPlugin
 
     protected function setProperties(): ExportPluginProperties
     {
-        $GLOBALS['plugin_param'] = $GLOBALS['plugin_param'] ?? null;
+        $GLOBALS['plugin_param'] ??= null;
 
         $hideSql = false;
         $hideStructure = false;
@@ -1055,7 +1055,7 @@ class ExportSql extends ExportPlugin
      */
     private function exportConfigurationMetadata(
         string $db,
-        ?string $table,
+        string|null $table,
         array $metadataTypes
     ): bool {
         $relationParameters = $this->relation->getRelationParameters();
@@ -1355,14 +1355,14 @@ class ExportSql extends ExportPlugin
         $updateIndexesIncrements = true,
         array $aliases = []
     ): string {
-        $GLOBALS['sql_drop_table'] = $GLOBALS['sql_drop_table'] ?? null;
-        $GLOBALS['sql_backquotes'] = $GLOBALS['sql_backquotes'] ?? null;
-        $GLOBALS['sql_constraints'] = $GLOBALS['sql_constraints'] ?? null;
-        $GLOBALS['sql_constraints_query'] = $GLOBALS['sql_constraints_query'] ?? null;
-        $GLOBALS['sql_indexes'] = $GLOBALS['sql_indexes'] ?? null;
-        $GLOBALS['sql_indexes_query'] = $GLOBALS['sql_indexes_query'] ?? null;
-        $GLOBALS['sql_auto_increments'] = $GLOBALS['sql_auto_increments'] ?? null;
-        $GLOBALS['sql_drop_foreign_keys'] = $GLOBALS['sql_drop_foreign_keys'] ?? null;
+        $GLOBALS['sql_drop_table'] ??= null;
+        $GLOBALS['sql_backquotes'] ??= null;
+        $GLOBALS['sql_constraints'] ??= null;
+        $GLOBALS['sql_constraints_query'] ??= null;
+        $GLOBALS['sql_indexes'] ??= null;
+        $GLOBALS['sql_indexes_query'] ??= null;
+        $GLOBALS['sql_auto_increments'] ??= null;
+        $GLOBALS['sql_drop_foreign_keys'] ??= null;
 
         $dbAlias = $db;
         $tableAlias = $table;
@@ -1462,7 +1462,7 @@ class ExportSql extends ExportPlugin
                 /**
                  * `CREATE TABLE` statement.
                  *
-                 * @var CreateStatement
+                 * @var CreateStatement $statement
                  */
                 $statement = $parser->statements[0];
 
@@ -1537,7 +1537,7 @@ class ExportSql extends ExportPlugin
             /**
              * `CREATE TABLE` statement.
              *
-             * @var CreateStatement
+             * @var CreateStatement $statement
              */
             $statement = $parser->statements[0];
 
@@ -1555,37 +1555,26 @@ class ExportSql extends ExportPlugin
 
                 /**
                  * Fragments containing definition of each constraint.
-                 *
-                 * @var array
                  */
                 $constraints = [];
 
                 /**
                  * Fragments containing definition of each index.
-                 *
-                 * @var array
                  */
                 $indexes = [];
 
                 /**
                  * Fragments containing definition of each FULLTEXT index.
-                 *
-                 * @var array
                  */
                 $indexesFulltext = [];
 
                 /**
-                 * Fragments containing definition of each foreign key that will
-                 * be dropped.
-                 *
-                 * @var array
+                 * Fragments containing definition of each foreign key that will be dropped.
                  */
                 $dropped = [];
 
                 /**
                  * Fragment containing definition of the `AUTO_INCREMENT`.
-                 *
-                 * @var array
                  */
                 $autoIncrement = [];
 
@@ -1639,15 +1628,11 @@ class ExportSql extends ExportPlugin
 
                 /**
                  * The header of the `ALTER` statement (`ALTER TABLE tbl`).
-                 *
-                 * @var string
                  */
                 $alterHeader = 'ALTER TABLE ' . Util::backquoteCompat($tableAlias, $compat, $GLOBALS['sql_backquotes']);
 
                 /**
                  * The footer of the `ALTER` statement (usually ';')
-                 *
-                 * @var string
                  */
                 $alterFooter = ';' . "\n";
 
@@ -1766,7 +1751,7 @@ class ExportSql extends ExportPlugin
         bool $doMime = false,
         array $aliases = []
     ): string {
-        $GLOBALS['sql_backquotes'] = $GLOBALS['sql_backquotes'] ?? null;
+        $GLOBALS['sql_backquotes'] ??= null;
 
         $dbAlias = $db;
         $tableAlias = $table;
@@ -1897,7 +1882,7 @@ class ExportSql extends ExportPlugin
      * @param string|null $db       the database where the query is executed
      * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string $errorUrl, ?string $db, string $sqlQuery): bool
+    public function exportRawQuery(string $errorUrl, string|null $db, string $sqlQuery): bool
     {
         if ($db !== null) {
             $GLOBALS['dbi']->selectDb($db);
@@ -2068,7 +2053,7 @@ class ExportSql extends ExportPlugin
         $sqlQuery,
         array $aliases = []
     ): bool {
-        $GLOBALS['sql_backquotes'] = $GLOBALS['sql_backquotes'] ?? null;
+        $GLOBALS['sql_backquotes'] ??= null;
 
         // Do not export data for merge tables
         if ($GLOBALS['dbi']->getTable($db, $table)->isMerge()) {
@@ -2479,7 +2464,7 @@ class ExportSql extends ExportPlugin
         string $sqlQuery,
         array $aliases,
         string $db,
-        ?bool &$flag = null
+        bool|null &$flag = null
     ): string {
         $flag = false;
 
@@ -2668,7 +2653,7 @@ class ExportSql extends ExportPlugin
      * @param string      $compat       Compatibility mode
      */
     protected function generateComment(
-        ?string $sqlStatement,
+        string|null $sqlStatement,
         string $comment1,
         string $comment2,
         string $tableAlias,

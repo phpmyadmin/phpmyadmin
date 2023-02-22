@@ -33,14 +33,11 @@ class Console
      */
     private $isAjax = false;
 
-    private Relation $relation;
-
     /** @var Template */
     public $template;
 
-    public function __construct(Relation $relation, Template $template)
+    public function __construct(private Relation $relation, Template $template)
     {
-        $this->relation = $relation;
         $this->template = $template;
     }
 

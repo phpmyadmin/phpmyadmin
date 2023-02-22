@@ -21,23 +21,14 @@ use function in_array;
 
 final class DropTableController extends AbstractController
 {
-    private DatabaseInterface $dbi;
-
-    private RelationCleanup $relationCleanup;
-
-    private StructureController $structureController;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        DatabaseInterface $dbi,
-        RelationCleanup $relationCleanup,
-        StructureController $structureController
+        private DatabaseInterface $dbi,
+        private RelationCleanup $relationCleanup,
+        private StructureController $structureController
     ) {
         parent::__construct($response, $template);
-        $this->dbi = $dbi;
-        $this->relationCleanup = $relationCleanup;
-        $this->structureController = $structureController;
     }
 
     public function __invoke(ServerRequest $request): void

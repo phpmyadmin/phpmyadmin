@@ -37,19 +37,19 @@ abstract class GisGeometry
      *
      * @return string the code related to a row in the GIS dataset
      */
-    abstract public function prepareRowAsSvg($spatial, $label, array $color, array $scale_data);
+    abstract public function prepareRowAsSvg($spatial, string $label, array $color, array $scale_data);
 
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string      $spatial    GIS POLYGON object
-     * @param string|null $label      Label for the GIS POLYGON object
-     * @param int[]       $color      Color for the GIS POLYGON object
-     * @param array       $scale_data Array containing data related to scaling
+     * @param string $spatial    GIS POLYGON object
+     * @param string $label      Label for the GIS POLYGON object
+     * @param int[]  $color      Color for the GIS POLYGON object
+     * @param array  $scale_data Array containing data related to scaling
      */
     abstract public function prepareRowAsPng(
         $spatial,
-        ?string $label,
+        string $label,
         array $color,
         array $scale_data,
         ImageWrapper $image
@@ -58,17 +58,17 @@ abstract class GisGeometry
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string      $spatial    GIS data object
-     * @param string|null $label      label for the GIS data object
-     * @param int[]       $color      color for the GIS data object
-     * @param array       $scale_data array containing data related to scaling
-     * @param TCPDF       $pdf        TCPDF instance
+     * @param string $spatial    GIS data object
+     * @param string $label      label for the GIS data object
+     * @param int[]  $color      color for the GIS data object
+     * @param array  $scale_data array containing data related to scaling
+     * @param TCPDF  $pdf
      *
      * @return TCPDF the modified TCPDF instance
      */
     abstract public function prepareRowAsPdf(
         $spatial,
-        ?string $label,
+        string $label,
         array $color,
         array $scale_data,
         $pdf
@@ -89,7 +89,7 @@ abstract class GisGeometry
     abstract public function prepareRowAsOl(
         $spatial,
         int $srid,
-        $label,
+        string $label,
         array $color,
         array $scale_data
     );
@@ -101,7 +101,7 @@ abstract class GisGeometry
      *
      * @return ScaleData|null min, max values for x and y coordinates
      */
-    abstract public function scaleRow(string $spatial): ?ScaleData;
+    abstract public function scaleRow(string $spatial): ScaleData|null;
 
     /**
      * Generates the WKT with the set of parameters passed by the GIS editor.
@@ -147,7 +147,7 @@ abstract class GisGeometry
      *
      * @return ScaleData|null the updated min, max values
      */
-    protected function setMinMax(string $point_set, ?ScaleData $scaleData = null): ?ScaleData
+    protected function setMinMax(string $point_set, ScaleData|null $scaleData = null): ScaleData|null
     {
         // Separate each point
         $points = explode(',', $point_set);

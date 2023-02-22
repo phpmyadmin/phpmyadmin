@@ -23,8 +23,6 @@ use function preg_replace;
 use function strtr;
 use function var_export;
 
-use const PHP_EOL;
-
 /**
  * Handles the export for the PHP Array class
  */
@@ -83,11 +81,11 @@ class ExportPhparray extends ExportPlugin
     public function exportHeader(): bool
     {
         $this->export->outputHandler(
-            '<?php' . PHP_EOL
-            . '/**' . PHP_EOL
-            . ' * Export to PHP Array plugin for PHPMyAdmin' . PHP_EOL
-            . ' * @version ' . Version::VERSION . PHP_EOL
-            . ' */' . PHP_EOL . PHP_EOL
+            '<?php' . "\n"
+            . '/**' . "\n"
+            . ' * Export to PHP Array plugin for PHPMyAdmin' . "\n"
+            . ' * @version ' . Version::VERSION . "\n"
+            . ' */' . "\n\n"
         );
 
         return true;
@@ -114,9 +112,9 @@ class ExportPhparray extends ExportPlugin
         }
 
         $this->export->outputHandler(
-            '/**' . PHP_EOL
+            '/**' . "\n"
             . ' * Database ' . $this->commentString(Util::backquote($dbAlias))
-            . PHP_EOL . ' */' . PHP_EOL
+            . "\n" . ' */' . "\n"
         );
 
         return true;
@@ -198,9 +196,9 @@ class ExportPhparray extends ExportPlugin
         $buffer = '';
         $record_cnt = 0;
         // Output table name as comment
-        $buffer .= PHP_EOL . '/* '
+        $buffer .= "\n" . '/* '
             . $this->commentString(Util::backquote($db_alias)) . '.'
-            . $this->commentString(Util::backquote($table_alias)) . ' */' . PHP_EOL;
+            . $this->commentString(Util::backquote($table_alias)) . ' */' . "\n";
         $buffer .= '$' . $tablefixed . ' = array(';
         if (! $this->export->outputHandler($buffer)) {
             return false;
@@ -212,9 +210,9 @@ class ExportPhparray extends ExportPlugin
             $record_cnt++;
 
             if ($record_cnt == 1) {
-                $buffer .= PHP_EOL . '  array(';
+                $buffer .= "\n" . '  array(';
             } else {
-                $buffer .= ',' . PHP_EOL . '  array(';
+                $buffer .= ',' . "\n" . '  array(';
             }
 
             for ($i = 0; $i < $columns_cnt; $i++) {
@@ -232,7 +230,7 @@ class ExportPhparray extends ExportPlugin
             $buffer = '';
         }
 
-        $buffer .= PHP_EOL . ');' . PHP_EOL;
+        $buffer .= "\n" . ');' . "\n";
 
         return $this->export->outputHandler($buffer);
     }
@@ -244,7 +242,7 @@ class ExportPhparray extends ExportPlugin
      * @param string|null $db       the database where the query is executed
      * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string $errorUrl, ?string $db, string $sqlQuery): bool
+    public function exportRawQuery(string $errorUrl, string|null $db, string $sqlQuery): bool
     {
         if ($db !== null) {
             $GLOBALS['dbi']->selectDb($db);

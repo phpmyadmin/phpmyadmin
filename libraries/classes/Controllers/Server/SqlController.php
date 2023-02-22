@@ -18,24 +18,18 @@ use PhpMyAdmin\Url;
  */
 class SqlController extends AbstractController
 {
-    private SqlQueryForm $sqlQueryForm;
-
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        SqlQueryForm $sqlQueryForm,
-        DatabaseInterface $dbi
+        private SqlQueryForm $sqlQueryForm,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->sqlQueryForm = $sqlQueryForm;
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['errorUrl'] ??= null;
 
         $this->addScriptFiles(['makegrid.js', 'vendor/jquery/jquery.uitablefilter.js', 'sql.js']);
 

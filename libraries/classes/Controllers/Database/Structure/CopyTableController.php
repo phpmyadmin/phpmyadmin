@@ -17,19 +17,13 @@ use function count;
 
 final class CopyTableController extends AbstractController
 {
-    private Operations $operations;
-
-    private StructureController $structureController;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Operations $operations,
-        StructureController $structureController
+        private Operations $operations,
+        private StructureController $structureController
     ) {
         parent::__construct($response, $template);
-        $this->operations = $operations;
-        $this->structureController = $structureController;
     }
 
     public function __invoke(ServerRequest $request): void

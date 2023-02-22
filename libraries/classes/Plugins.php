@@ -19,6 +19,7 @@ use PhpMyAdmin\Properties\Options\Items\NumberPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
+use PhpMyAdmin\Properties\Options\OptionsPropertyGroup;
 use PhpMyAdmin\Properties\Options\OptionsPropertyItem;
 use SplFileInfo;
 use Throwable;
@@ -26,7 +27,6 @@ use Throwable;
 use function __;
 use function class_exists;
 use function count;
-use function get_class;
 use function htmlspecialchars;
 use function is_array;
 use function is_subclass_of;
@@ -40,7 +40,6 @@ use function sprintf;
 use function str_replace;
 use function str_starts_with;
 use function strcasecmp;
-use function strcmp;
 use function usort;
 
 class Plugins
@@ -55,7 +54,7 @@ class Plugins
      *
      * @return object|null new plugin instance
      */
-    public static function getPlugin(string $type, string $format, $param = null): ?object
+    public static function getPlugin(string $type, string $format, $param = null): object|null
     {
         $GLOBALS['plugin_param'] = $param;
         $pluginType = mb_strtoupper($type[0]) . mb_strtolower(mb_substr($type, 1));
@@ -302,7 +301,7 @@ class Plugins
         $properties = null;
         if (! $is_subgroup) {
             // for subgroup headers
-            if (mb_strpos(get_class($propertyGroup), 'PropertyItem')) {
+            if (mb_strpos($propertyGroup::class, 'PropertyItem')) {
                 $properties = [$propertyGroup];
             } else {
                 // for main groups
@@ -324,7 +323,7 @@ class Plugins
         $not_subgroup_header = false;
         if ($properties === null) {
             $not_subgroup_header = true;
-            if (method_exists($propertyGroup, 'getProperties')) {
+            if ($propertyGroup instanceof OptionsPropertyGroup) {
                 $properties = $propertyGroup->getProperties();
             }
         }
@@ -333,7 +332,7 @@ class Plugins
         if ($properties !== null) {
             /** @var OptionsPropertySubgroup $propertyItem */
             foreach ($properties as $propertyItem) {
-                $property_class = get_class($propertyItem);
+                $property_class = $propertyItem::class;
                 // if the property is a subgroup, we deal with it recursively
                 if (mb_strpos($property_class, 'Subgroup')) {
                     // for subgroups
@@ -411,7 +410,7 @@ class Plugins
         $propertyItem
     ) {
         $ret = '';
-        $property_class = get_class($propertyItem);
+        $property_class = $propertyItem::class;
         switch ($property_class) {
             case BoolPropertyItem::class:
                 $ret .= '<li class="list-group-item">' . "\n";
@@ -533,10 +532,10 @@ class Plugins
                     ) . '"'
                     . ' id="text_' . $plugin_name . '_'
                     . $pitem->getName() . '"'
-                    . ($pitem->getSize() != null
+                    . ($pitem->getSize() !== 0
                         ? ' size="' . $pitem->getSize() . '"'
                         : '')
-                    . ($pitem->getLen() != null
+                    . ($pitem->getLen() !== 0
                         ? ' maxlength="' . $pitem->getLen() . '"'
                         : '')
                     . '>';
@@ -594,7 +593,7 @@ class Plugins
                     // check for hidden properties
                     $no_options = true;
                     foreach ($propertyMainGroup->getProperties() as $propertyItem) {
-                        if (strcmp(HiddenPropertyItem::class, get_class($propertyItem))) {
+                        if (! ($propertyItem instanceof HiddenPropertyItem)) {
                             $no_options = false;
                             break;
                         }

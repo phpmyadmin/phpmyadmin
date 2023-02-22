@@ -12,8 +12,6 @@ use function sprintf;
 
 class SystemDatabase
 {
-    protected DatabaseInterface $dbi;
-
     private Relation $relation;
 
     /**
@@ -21,9 +19,8 @@ class SystemDatabase
      *
      * @param DatabaseInterface $dbi Database interface for the system database
      */
-    public function __construct(DatabaseInterface $dbi)
+    public function __construct(protected DatabaseInterface $dbi)
     {
-        $this->dbi = $dbi;
         $this->relation = new Relation($this->dbi);
     }
 
@@ -114,7 +111,7 @@ class SystemDatabase
                 break;
             }
 
-            if ($columnCount == count($columnMap)) {
+            if ($columnCount === count($columnMap)) {
                 break;
             }
         }

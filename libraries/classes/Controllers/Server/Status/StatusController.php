@@ -21,20 +21,14 @@ use function implode;
  */
 class StatusController extends AbstractController
 {
-    private ReplicationGui $replicationGui;
-
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
         Data $data,
-        ReplicationGui $replicationGui,
-        DatabaseInterface $dbi
+        private ReplicationGui $replicationGui,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template, $data);
-        $this->replicationGui = $replicationGui;
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void

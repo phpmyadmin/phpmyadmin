@@ -13,12 +13,13 @@ use PhpMyAdmin\Template;
 
 final class RefreshController extends AbstractController
 {
-    private Processes $processes;
-
-    public function __construct(ResponseRenderer $response, Template $template, Data $data, Processes $processes)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        Data $data,
+        private Processes $processes
+    ) {
         parent::__construct($response, $template, $data);
-        $this->processes = $processes;
     }
 
     public function __invoke(ServerRequest $request): void

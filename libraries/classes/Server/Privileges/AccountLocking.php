@@ -13,11 +13,8 @@ use function sprintf;
 
 final class AccountLocking
 {
-    private DatabaseInterface $dbi;
-
-    public function __construct(DatabaseInterface $dbi)
+    public function __construct(private DatabaseInterface $dbi)
     {
-        $this->dbi = $dbi;
     }
 
     /**
@@ -30,9 +27,9 @@ final class AccountLocking
         }
 
         $statement = sprintf(
-            'ALTER USER \'%s\'@\'%s\' ACCOUNT LOCK;',
-            $this->dbi->escapeString($user),
-            $this->dbi->escapeString($host)
+            'ALTER USER %s@%s ACCOUNT LOCK;',
+            $this->dbi->quoteString($user),
+            $this->dbi->quoteString($host)
         );
         if ($this->dbi->tryQuery($statement) !== false) {
             return;
@@ -51,9 +48,9 @@ final class AccountLocking
         }
 
         $statement = sprintf(
-            'ALTER USER \'%s\'@\'%s\' ACCOUNT UNLOCK;',
-            $this->dbi->escapeString($user),
-            $this->dbi->escapeString($host)
+            'ALTER USER %s@%s ACCOUNT UNLOCK;',
+            $this->dbi->quoteString($user),
+            $this->dbi->quoteString($host)
         );
         if ($this->dbi->tryQuery($statement) !== false) {
             return;

@@ -57,14 +57,14 @@ class GisGeometryCollectionTest extends GisGeomTestCase
     /**
      * Test for generateWkt
      *
-     * @param array       $gis_data array of GIS data
+     * @param array       $gis_data
      * @param int         $index    index in $gis_data
      * @param string|null $empty    empty parameter
      * @param string      $output   expected output
      *
      * @dataProvider providerForTestGenerateWkt
      */
-    public function testGenerateWkt(array $gis_data, int $index, ?string $empty, string $output): void
+    public function testGenerateWkt(array $gis_data, int $index, string|null $empty, string $output): void
     {
         $this->assertEquals(
             $output,

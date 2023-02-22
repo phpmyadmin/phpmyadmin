@@ -112,7 +112,6 @@ class SaveControllerTest extends AbstractTestCase
 
         $class = new ReflectionClass(SaveController::class);
         $method = $class->getMethod('adjustColumnPrivileges');
-        $method->setAccessible(true);
 
         $ctrl = new SaveController(
             new ResponseRenderer(),

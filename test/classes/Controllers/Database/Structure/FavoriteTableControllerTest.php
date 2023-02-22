@@ -51,7 +51,6 @@ class FavoriteTableControllerTest extends AbstractTestCase
 
         $class = new ReflectionClass(FavoriteTableController::class);
         $method = $class->getMethod('synchronizeFavoriteTables');
-        $method->setAccessible(true);
 
         $controller = new FavoriteTableController(
             new ResponseStub(),

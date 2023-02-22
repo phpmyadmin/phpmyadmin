@@ -42,7 +42,6 @@ use function trim;
 use function unpack;
 
 use const DIRECTORY_SEPARATOR;
-use const PHP_EOL;
 
 /**
  * Git class to manipulate Git data
@@ -136,7 +135,7 @@ class Git
         return true;
     }
 
-    private function readPackFile(string $packFile, int $packOffset): ?string
+    private function readPackFile(string $packFile, int $packOffset): string|null
     {
         // open pack file
         $packFileRes = fopen($packFile, 'rb');
@@ -187,7 +186,7 @@ class Git
         return $commit;
     }
 
-    private function getPackOffset(string $packFile, string $hash): ?int
+    private function getPackOffset(string $packFile, string $hash): int|null
     {
         // load index
         $index_data = @file_get_contents($packFile);
@@ -233,7 +232,7 @@ class Git
                     substr($index_data, $offset + ($position * 20), 20)
                 )
             );
-            if ($sha == $hash) {
+            if ($sha === $hash) {
                 $found = true;
                 break;
             }
@@ -413,7 +412,7 @@ class Git
      *
      * @return stdClass|null The commit body from the GitHub API
      */
-    private function isRemoteCommit($commit, bool &$isRemoteCommit, string $hash): ?stdClass
+    private function isRemoteCommit($commit, bool &$isRemoteCommit, string $hash): stdClass|null
     {
         $httpRequest = new HttpRequest();
 
@@ -486,7 +485,7 @@ class Git
         }
 
         // split file to lines
-        $refLines = explode(PHP_EOL, $packedRefs);
+        $refLines = explode("\n", $packedRefs);
         foreach ($refLines as $line) {
             // skip comments
             if ($line[0] === '#') {
@@ -501,7 +500,7 @@ class Git
             }
 
             // have found our ref?
-            if ($parts[1] == $refHead) {
+            if ($parts[1] === $refHead) {
                 $hash = $parts[0];
                 break;
             }
@@ -517,7 +516,7 @@ class Git
         return [$hash, $branch];
     }
 
-    private function getCommonDirContents(string $gitFolder): ?string
+    private function getCommonDirContents(string $gitFolder): string|null
     {
         if (! is_file($gitFolder . '/commondir')) {
             return null;
@@ -534,7 +533,7 @@ class Git
     /**
      * detects Git revision, if running inside repo
      */
-    public function checkGitRevision(): ?array
+    public function checkGitRevision(): array|null
     {
         // find out if there is a .git folder
         $gitFolder = '';

@@ -13,11 +13,8 @@ use function sprintf;
 
 final class Maintenance
 {
-    private DatabaseInterface $dbi;
-
-    public function __construct(DatabaseInterface $dbi)
+    public function __construct(private DatabaseInterface $dbi)
     {
-        $this->dbi = $dbi;
     }
 
     public function analyze(DatabaseName $db, TableName $table, string $partition): array

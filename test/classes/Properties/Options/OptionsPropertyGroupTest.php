@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Properties\Options;
 
+use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\OptionsPropertyGroup;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\MockObject\MockObject;
-use ReflectionProperty;
 
 /**
  * @covers \PhpMyAdmin\Properties\Options\OptionsPropertyGroup
  */
 class OptionsPropertyGroupTest extends AbstractTestCase
 {
-    /** @var OptionsPropertyGroup|MockObject */
+    /** @var OptionsPropertyGroup&MockObject */
     protected $stub;
 
     /**
@@ -37,40 +37,31 @@ class OptionsPropertyGroupTest extends AbstractTestCase
 
     public function testAddProperty(): void
     {
-        $properties = new ReflectionProperty(OptionsPropertyGroup::class, 'properties');
-        $properties->setAccessible(true);
+        $propertyItem = new BoolPropertyItem();
+        $this->stub->addProperty($propertyItem);
+        $this->stub->addProperty($propertyItem);
 
-        $properties->setValue($this->stub, [1, 2, 3]);
-
-        $this->stub->addProperty(2);
-        $this->stub->addProperty('2');
-
+        $this->assertTrue(
+            $this->stub->getProperties()->contains($propertyItem)
+        );
         $this->assertEquals(
-            [
-                1,
-                2,
-                3,
-                '2',
-            ],
-            $properties->getValue($this->stub)
+            1,
+            $this->stub->getNrOfProperties()
         );
     }
 
     public function testRemoveProperty(): void
     {
-        $properties = new ReflectionProperty(OptionsPropertyGroup::class, 'properties');
-        $properties->setAccessible(true);
+        $propertyItem = new BoolPropertyItem();
 
-        $properties->setValue($this->stub, [1, 2, 'test', 3]);
-        $this->stub->removeProperty('test');
+        $this->stub->addProperty($propertyItem);
+        $this->assertTrue(
+            $this->stub->getProperties()->contains($propertyItem)
+        );
 
-        $this->assertEquals(
-            [
-                0 => 1,
-                1 => 2,
-                3 => 3,
-            ],
-            $properties->getValue($this->stub)
+        $this->stub->removeProperty($propertyItem);
+        $this->assertFalse(
+            $this->stub->getProperties()->contains($propertyItem)
         );
     }
 
@@ -84,28 +75,23 @@ class OptionsPropertyGroupTest extends AbstractTestCase
 
     public function testGetProperties(): void
     {
-        $properties = new ReflectionProperty(OptionsPropertyGroup::class, 'properties');
-        $properties->setAccessible(true);
-        $properties->setValue($this->stub, [1, 2, 3]);
+        $propertyItem = new BoolPropertyItem();
+        $this->stub->addProperty($propertyItem);
 
-        $this->assertEquals(
-            [
-                1,
-                2,
-                3,
-            ],
-            $this->stub->getProperties()
+        $this->assertTrue(
+            $this->stub->getProperties()->contains($propertyItem)
         );
     }
 
     public function testGetNrOfProperties(): void
     {
-        $properties = new ReflectionProperty(OptionsPropertyGroup::class, 'properties');
-        $properties->setAccessible(true);
-        $properties->setValue($this->stub, [1, 2, 3]);
-
+        $propertyItem = new BoolPropertyItem();
+        $this->stub->addProperty($propertyItem);
+        $this->stub->addProperty($propertyItem);
+        $propertyItem2 = new BoolPropertyItem();
+        $this->stub->addProperty($propertyItem2);
         $this->assertEquals(
-            3,
+            2,
             $this->stub->getNrOfProperties()
         );
     }

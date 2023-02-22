@@ -30,50 +30,44 @@ use function strpos;
  */
 class ChangeController extends AbstractController
 {
-    private InsertEdit $insertEdit;
-
-    private Relation $relation;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        InsertEdit $insertEdit,
-        Relation $relation
+        private InsertEdit $insertEdit,
+        private Relation $relation
     ) {
         parent::__construct($response, $template);
-        $this->insertEdit = $insertEdit;
-        $this->relation = $relation;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['text_dir'] = $GLOBALS['text_dir'] ?? null;
-        $GLOBALS['disp_message'] = $GLOBALS['disp_message'] ?? null;
-        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
-        $GLOBALS['where_clause'] = $GLOBALS['where_clause'] ?? null;
-        $GLOBALS['unsaved_values'] = $GLOBALS['unsaved_values'] ?? null;
-        $GLOBALS['insert_mode'] = $GLOBALS['insert_mode'] ?? null;
-        $GLOBALS['where_clause_array'] = $GLOBALS['where_clause_array'] ?? null;
-        $GLOBALS['where_clauses'] = $GLOBALS['where_clauses'] ?? null;
-        $GLOBALS['result'] = $GLOBALS['result'] ?? null;
-        $GLOBALS['rows'] = $GLOBALS['rows'] ?? null;
-        $GLOBALS['found_unique_key'] = $GLOBALS['found_unique_key'] ?? null;
-        $GLOBALS['after_insert'] = $GLOBALS['after_insert'] ?? null;
-        $GLOBALS['comments_map'] = $GLOBALS['comments_map'] ?? null;
-        $GLOBALS['table_columns'] = $GLOBALS['table_columns'] ?? null;
-        $GLOBALS['timestamp_seen'] = $GLOBALS['timestamp_seen'] ?? null;
-        $GLOBALS['columns_cnt'] = $GLOBALS['columns_cnt'] ?? null;
-        $GLOBALS['tabindex'] = $GLOBALS['tabindex'] ?? null;
-        $GLOBALS['tabindex_for_value'] = $GLOBALS['tabindex_for_value'] ?? null;
-        $GLOBALS['o_rows'] = $GLOBALS['o_rows'] ?? null;
-        $GLOBALS['biggest_max_file_size'] = $GLOBALS['biggest_max_file_size'] ?? null;
-        $GLOBALS['has_blob_field'] = $GLOBALS['has_blob_field'] ?? null;
-        $GLOBALS['jsvkey'] = $GLOBALS['jsvkey'] ?? null;
-        $GLOBALS['vkey'] = $GLOBALS['vkey'] ?? null;
-        $GLOBALS['current_result'] = $GLOBALS['current_result'] ?? null;
-        $GLOBALS['repopulate'] = $GLOBALS['repopulate'] ?? null;
-        $GLOBALS['checked'] = $GLOBALS['checked'] ?? null;
+        $GLOBALS['text_dir'] ??= null;
+        $GLOBALS['disp_message'] ??= null;
+        $GLOBALS['urlParams'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
+        $GLOBALS['where_clause'] ??= null;
+        $GLOBALS['unsaved_values'] ??= null;
+        $GLOBALS['insert_mode'] ??= null;
+        $GLOBALS['where_clause_array'] ??= null;
+        $GLOBALS['where_clauses'] ??= null;
+        $GLOBALS['result'] ??= null;
+        $GLOBALS['rows'] ??= null;
+        $GLOBALS['found_unique_key'] ??= null;
+        $GLOBALS['after_insert'] ??= null;
+        $GLOBALS['comments_map'] ??= null;
+        $GLOBALS['table_columns'] ??= null;
+        $GLOBALS['timestamp_seen'] ??= null;
+        $GLOBALS['columns_cnt'] ??= null;
+        $GLOBALS['tabindex'] ??= null;
+        $GLOBALS['tabindex_for_value'] ??= null;
+        $GLOBALS['o_rows'] ??= null;
+        $GLOBALS['biggest_max_file_size'] ??= null;
+        $GLOBALS['has_blob_field'] ??= null;
+        $GLOBALS['jsvkey'] ??= null;
+        $GLOBALS['vkey'] ??= null;
+        $GLOBALS['current_result'] ??= null;
+        $GLOBALS['repopulate'] ??= null;
+        $GLOBALS['checked'] ??= null;
 
         $pageSettings = new PageSettings('Edit');
         $this->response->addHTML($pageSettings->getErrorHTML());

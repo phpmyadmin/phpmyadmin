@@ -17,12 +17,9 @@ use function implode;
 
 final class GetVariableController extends AbstractController
 {
-    private DatabaseInterface $dbi;
-
-    public function __construct(ResponseRenderer $response, Template $template, DatabaseInterface $dbi)
+    public function __construct(ResponseRenderer $response, Template $template, private DatabaseInterface $dbi)
     {
         parent::__construct($response, $template);
-        $this->dbi = $dbi;
     }
 
     /**

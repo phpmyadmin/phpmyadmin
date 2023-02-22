@@ -84,7 +84,7 @@ PHP;
         return Command::SUCCESS;
     }
 
-    private function getRevisionInfo(string $commitUrlFormat, string $branchUrlFormat): ?string
+    private function getRevisionInfo(string $commitUrlFormat, string $branchUrlFormat): string|null
     {
         $revisionText = $this->gitCli('describe --always');
         if ($revisionText === null) {
@@ -112,7 +112,7 @@ PHP;
         );
     }
 
-    protected function gitCli(string $command): ?string
+    protected function gitCli(string $command): string|null
     {
         /** @psalm-suppress ForbiddenCode */
         $output = shell_exec('git ' . $command);

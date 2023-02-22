@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Pdf;
 
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Pdf as PdfLib;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Transformations;
@@ -44,7 +45,7 @@ if (getcwd() == __DIR__) {
  * This class inherits ExportRelationSchema class has common functionality added
  * to this class
  *
- * @property Pdf $diagram
+ * @extends ExportRelationSchema<Pdf>
  */
 class PdfRelationSchema extends ExportRelationSchema
 {
@@ -99,11 +100,9 @@ class PdfRelationSchema extends ExportRelationSchema
     private Transformations $transformations;
 
     /**
-     * @see Schema\Pdf
-     *
-     * @param string $db database name
+     * @see Pdf
      */
-    public function __construct($db)
+    public function __construct(DatabaseName $db)
     {
         $this->transformations = new Transformations();
 
@@ -126,13 +125,13 @@ class PdfRelationSchema extends ExportRelationSchema
                 $this->paper,
                 $this->pageNumber,
                 $this->withDoc,
-                $db
+                $db->getName()
             )
         );
         $this->diagram->setTitle(
             sprintf(
                 __('Schema of the %s database'),
-                $this->db
+                $this->db->getName()
             )
         );
         $this->diagram->setCMargin(0);
@@ -170,7 +169,7 @@ class PdfRelationSchema extends ExportRelationSchema
             if (! isset($this->tables[$table])) {
                 $this->tables[$table] = new TableStatsPdf(
                     $this->diagram,
-                    $this->db,
+                    $this->db->getName(),
                     $table,
                     null,
                     $this->pageNumber,
@@ -215,7 +214,7 @@ class PdfRelationSchema extends ExportRelationSchema
         // and finding its foreigns is OK (then we can support innodb)
         $seen_a_relation = false;
         foreach ($alltables as $one_table) {
-            $exist_rel = $this->relation->getForeigners($this->db, $one_table, '', 'both');
+            $exist_rel = $this->relation->getForeigners($this->db->getName(), $one_table, '', 'both');
             if (! $exist_rel) {
                 continue;
             }
@@ -354,7 +353,7 @@ class PdfRelationSchema extends ExportRelationSchema
         if (! isset($this->tables[$masterTable])) {
             $this->tables[$masterTable] = new TableStatsPdf(
                 $this->diagram,
-                $this->db,
+                $this->db->getName(),
                 $masterTable,
                 null,
                 $this->pageNumber,
@@ -368,7 +367,7 @@ class PdfRelationSchema extends ExportRelationSchema
         if (! isset($this->tables[$foreignTable])) {
             $this->tables[$foreignTable] = new TableStatsPdf(
                 $this->diagram,
-                $this->db,
+                $this->db->getName(),
                 $foreignTable,
                 null,
                 $this->pageNumber,
@@ -509,7 +508,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 $this->diagram->customLinks['doc'][$table]['-']
             );
             // $this->diagram->Ln(1);
-            $fields = $GLOBALS['dbi']->getColumns($this->db, $table);
+            $fields = $GLOBALS['dbi']->getColumns($this->db->getName(), $table);
             foreach ($fields as $row) {
                 $this->diagram->setX(20);
                 $field_name = $row['Field'];
@@ -569,15 +568,15 @@ class PdfRelationSchema extends ExportRelationSchema
             $this->diagram->Ln();
 
             $relationParameters = $this->relation->getRelationParameters();
-            $comments = $this->relation->getComments($this->db, $table);
+            $comments = $this->relation->getComments($this->db->getName(), $table);
             if ($relationParameters->browserTransformationFeature !== null) {
-                $mime_map = $this->transformations->getMime($this->db, $table, true);
+                $mime_map = $this->transformations->getMime($this->db->getName(), $table, true);
             }
 
             /**
              * Gets table information
              */
-            $showtable = $GLOBALS['dbi']->getTable($this->db, $table)
+            $showtable = $GLOBALS['dbi']->getTable($this->db->getName(), $table)
                 ->getStatusInfo();
             $show_comment = $showtable['Comment'] ?? '';
             $create_time = isset($showtable['Create_time'])
@@ -599,11 +598,11 @@ class PdfRelationSchema extends ExportRelationSchema
             /**
              * Gets fields properties
              */
-            $columns = $GLOBALS['dbi']->getColumns($this->db, $table);
+            $columns = $GLOBALS['dbi']->getColumns($this->db->getName(), $table);
 
             // Find which tables are related with the current one and write it in
             // an array
-            $res_rel = $this->relation->getForeigners($this->db, $table);
+            $res_rel = $this->relation->getForeigners($this->db->getName(), $table);
 
             /**
              * Displays the comments of the table if MySQL >= 3.23
@@ -729,7 +728,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 $linksTo = '';
                 if ($foreigner) {
                     $linksTo = '-> ';
-                    if ($foreigner['foreign_db'] != $this->db) {
+                    if ($foreigner['foreign_db'] != $this->db->getName()) {
                         $linksTo .= $foreigner['foreign_db'] . '.';
                     }
 

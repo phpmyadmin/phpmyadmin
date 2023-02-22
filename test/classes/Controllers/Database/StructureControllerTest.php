@@ -77,7 +77,6 @@ class StructureControllerTest extends AbstractTestCase
     {
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('getValuesForInnodbTable');
-        $method->setAccessible(true);
         $controller = new StructureController(
             $this->response,
             $this->template,
@@ -87,7 +86,6 @@ class StructureControllerTest extends AbstractTestCase
         );
         // Showing statistics
         $property = $class->getProperty('isShowStats');
-        $property->setAccessible(true);
         $property->setValue($controller, true);
 
         $GLOBALS['cfg']['MaxExactCount'] = 10;
@@ -148,7 +146,6 @@ class StructureControllerTest extends AbstractTestCase
     {
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('getValuesForAriaTable');
-        $method->setAccessible(true);
 
         $controller = new StructureController(
             $this->response,
@@ -159,10 +156,8 @@ class StructureControllerTest extends AbstractTestCase
         );
         // Showing statistics
         $property = $class->getProperty('isShowStats');
-        $property->setAccessible(true);
         $property->setValue($controller, true);
         $property = $class->getProperty('dbIsSystemSchema');
-        $property->setAccessible(true);
         $property->setValue($controller, true);
 
         $currentTable = [
@@ -252,7 +247,6 @@ class StructureControllerTest extends AbstractTestCase
     {
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('hasTable');
-        $method->setAccessible(true);
 
         $controller = new StructureController(
             $this->response,
@@ -287,7 +281,6 @@ class StructureControllerTest extends AbstractTestCase
     {
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('checkFavoriteTable');
-        $method->setAccessible(true);
 
         $controller = new StructureController(
             $this->response,
@@ -320,7 +313,6 @@ class StructureControllerTest extends AbstractTestCase
     {
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('displayTableList');
-        $method->setAccessible(true);
 
         $controller = new StructureController(
             $this->response,
@@ -332,14 +324,11 @@ class StructureControllerTest extends AbstractTestCase
         // Showing statistics
         $class = new ReflectionClass(StructureController::class);
         $showStatsProperty = $class->getProperty('isShowStats');
-        $showStatsProperty->setAccessible(true);
         $showStatsProperty->setValue($controller, true);
 
         $tablesProperty = $class->getProperty('tables');
-        $tablesProperty->setAccessible(true);
 
         $numTables = $class->getProperty('numTables');
-        $numTables->setAccessible(true);
         $numTables->setValue($controller, 1);
 
         //no tables

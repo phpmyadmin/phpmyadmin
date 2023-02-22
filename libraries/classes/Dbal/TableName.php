@@ -66,7 +66,7 @@ final class TableName implements Stringable
     /**
      * @param mixed $name
      */
-    public static function tryFromValue($name): ?self
+    public static function tryFromValue($name): self|null
     {
         try {
             return new self($name);

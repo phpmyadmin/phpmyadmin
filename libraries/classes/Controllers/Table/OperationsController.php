@@ -38,53 +38,41 @@ use function urldecode;
 
 class OperationsController extends AbstractController
 {
-    private Operations $operations;
-
-    private CheckUserPrivileges $checkUserPrivileges;
-
-    private Relation $relation;
-
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Operations $operations,
-        CheckUserPrivileges $checkUserPrivileges,
-        Relation $relation,
-        DatabaseInterface $dbi
+        private Operations $operations,
+        private CheckUserPrivileges $checkUserPrivileges,
+        private Relation $relation,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->operations = $operations;
-        $this->checkUserPrivileges = $checkUserPrivileges;
-        $this->relation = $relation;
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-        $GLOBALS['reread_info'] = $GLOBALS['reread_info'] ?? null;
-        $GLOBALS['tbl_is_view'] = $GLOBALS['tbl_is_view'] ?? null;
-        $GLOBALS['tbl_storage_engine'] = $GLOBALS['tbl_storage_engine'] ?? null;
-        $GLOBALS['show_comment'] = $GLOBALS['show_comment'] ?? null;
-        $GLOBALS['tbl_collation'] = $GLOBALS['tbl_collation'] ?? null;
-        $GLOBALS['table_info_num_rows'] = $GLOBALS['table_info_num_rows'] ?? null;
-        $GLOBALS['row_format'] = $GLOBALS['row_format'] ?? null;
-        $GLOBALS['auto_increment'] = $GLOBALS['auto_increment'] ?? null;
-        $GLOBALS['create_options'] = $GLOBALS['create_options'] ?? null;
-        $GLOBALS['table_alters'] = $GLOBALS['table_alters'] ?? null;
-        $GLOBALS['warning_messages'] = $GLOBALS['warning_messages'] ?? null;
-        $GLOBALS['reload'] = $GLOBALS['reload'] ?? null;
-        $GLOBALS['result'] = $GLOBALS['result'] ?? null;
-        $GLOBALS['new_tbl_storage_engine'] = $GLOBALS['new_tbl_storage_engine'] ?? null;
-        $GLOBALS['message_to_show'] = $GLOBALS['message_to_show'] ?? null;
-        $GLOBALS['columns'] = $GLOBALS['columns'] ?? null;
-        $GLOBALS['hideOrderTable'] = $GLOBALS['hideOrderTable'] ?? null;
-        $GLOBALS['indexes'] = $GLOBALS['indexes'] ?? null;
-        $GLOBALS['notNull'] = $GLOBALS['notNull'] ?? null;
-        $GLOBALS['comment'] = $GLOBALS['comment'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['urlParams'] ??= null;
+        $GLOBALS['reread_info'] ??= null;
+        $GLOBALS['tbl_is_view'] ??= null;
+        $GLOBALS['tbl_storage_engine'] ??= null;
+        $GLOBALS['show_comment'] ??= null;
+        $GLOBALS['tbl_collation'] ??= null;
+        $GLOBALS['table_info_num_rows'] ??= null;
+        $GLOBALS['row_format'] ??= null;
+        $GLOBALS['auto_increment'] ??= null;
+        $GLOBALS['create_options'] ??= null;
+        $GLOBALS['table_alters'] ??= null;
+        $GLOBALS['warning_messages'] ??= null;
+        $GLOBALS['reload'] ??= null;
+        $GLOBALS['result'] ??= null;
+        $GLOBALS['new_tbl_storage_engine'] ??= null;
+        $GLOBALS['message_to_show'] ??= null;
+        $GLOBALS['columns'] ??= null;
+        $GLOBALS['hideOrderTable'] ??= null;
+        $GLOBALS['indexes'] ??= null;
+        $GLOBALS['notNull'] ??= null;
+        $GLOBALS['comment'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
 
         $this->checkUserPrivileges->getPrivileges();
 
@@ -145,7 +133,7 @@ class OperationsController extends AbstractController
             $GLOBALS['create_options']['transactional'] = ($GLOBALS['create_options']['transactional'] ?? '') == '0'
                 ? '0'
                 : '1';
-            $GLOBALS['create_options']['page_checksum'] = $GLOBALS['create_options']['page_checksum'] ?? '';
+            $GLOBALS['create_options']['page_checksum'] ??= '';
         }
 
         $pma_table = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
@@ -236,7 +224,7 @@ class OperationsController extends AbstractController
                 if ($pma_table->isEngine('ARIA')) {
                     $GLOBALS['create_options']['transactional'] = ($GLOBALS['create_options']['transactional'] ?? '')
                         == '0' ? '0' : '1';
-                    $GLOBALS['create_options']['page_checksum'] = $GLOBALS['create_options']['page_checksum'] ?? '';
+                    $GLOBALS['create_options']['page_checksum'] ??= '';
                 }
             } else {
                 $GLOBALS['new_tbl_storage_engine'] = '';

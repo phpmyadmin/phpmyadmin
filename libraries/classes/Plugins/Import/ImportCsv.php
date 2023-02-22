@@ -156,22 +156,22 @@ class ImportCsv extends AbstractImportCsv
      *
      * @return string[]
      */
-    public function doImport(?File $importHandle = null): array
+    public function doImport(File|null $importHandle = null): array
     {
-        $GLOBALS['error'] = $GLOBALS['error'] ?? null;
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-        $GLOBALS['csv_terminated'] = $GLOBALS['csv_terminated'] ?? null;
-        $GLOBALS['csv_enclosed'] = $GLOBALS['csv_enclosed'] ?? null;
-        $GLOBALS['csv_escaped'] = $GLOBALS['csv_escaped'] ?? null;
-        $GLOBALS['csv_new_line'] = $GLOBALS['csv_new_line'] ?? null;
-        $GLOBALS['csv_columns'] = $GLOBALS['csv_columns'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['error'] ??= null;
+        $GLOBALS['message'] ??= null;
+        $GLOBALS['csv_terminated'] ??= null;
+        $GLOBALS['csv_enclosed'] ??= null;
+        $GLOBALS['csv_escaped'] ??= null;
+        $GLOBALS['csv_new_line'] ??= null;
+        $GLOBALS['csv_columns'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
 
         // $csv_replace and $csv_ignore should have been here,
         // but we use directly from $_POST
 
-        $GLOBALS['timeout_passed'] = $GLOBALS['timeout_passed'] ?? null;
-        $GLOBALS['finished'] = $GLOBALS['finished'] ?? null;
+        $GLOBALS['timeout_passed'] ??= null;
+        $GLOBALS['finished'] ??= null;
 
         $replacements = [
             '\\n' => "\n",
@@ -297,7 +297,7 @@ class ImportCsv extends AbstractImportCsv
                 if (! $csv_finish) {
                     // Grab empty field
                     if ($ch == $GLOBALS['csv_terminated']) {
-                        if ($i == $len - 1) {
+                        if ($i === $len - 1) {
                             break;
                         }
 
@@ -315,7 +315,7 @@ class ImportCsv extends AbstractImportCsv
                     // Grab one field
                     $fallbacki = $i;
                     if ($ch == $GLOBALS['csv_enclosed']) {
-                        if ($i == $len - 1) {
+                        if ($i === $len - 1) {
                             break;
                         }
 
@@ -343,7 +343,7 @@ class ImportCsv extends AbstractImportCsv
                                     && ($ch == "\r" || $ch == "\n"))))
                     ) {
                         if ($ch == $GLOBALS['csv_escaped']) {
-                            if ($i == $len - 1) {
+                            if ($i === $len - 1) {
                                 $fail = true;
                                 break;
                             }
@@ -367,7 +367,7 @@ class ImportCsv extends AbstractImportCsv
                         }
 
                         $value .= $ch;
-                        if ($i == $len - 1) {
+                        if ($i === $len - 1) {
                             if (! $GLOBALS['finished']) {
                                 $fail = true;
                             }
@@ -402,9 +402,9 @@ class ImportCsv extends AbstractImportCsv
 
                     // Need to strip trailing enclosing char?
                     if ($need_end && $ch == $GLOBALS['csv_enclosed']) {
-                        if ($GLOBALS['finished'] && $i == $len - 1) {
+                        if ($GLOBALS['finished'] && $i === $len - 1) {
                             $ch = null;
-                        } elseif ($i == $len - 1) {
+                        } elseif ($i === $len - 1) {
                             $i = $fallbacki;
                             $ch = mb_substr($buffer, $i, 1);
                             if ($csv_terminated_len > 1 && $ch == $GLOBALS['csv_terminated'][0]) {
@@ -426,14 +426,14 @@ class ImportCsv extends AbstractImportCsv
                     if (
                         $ch == $GLOBALS['csv_new_line']
                         || ($GLOBALS['csv_new_line'] === 'auto' && ($ch == "\r" || $ch == "\n"))
-                        || ($GLOBALS['finished'] && $i == $len - 1)
+                        || ($GLOBALS['finished'] && $i === $len - 1)
                     ) {
                         $csv_finish = true;
                     }
 
                     // Go to next char
                     if ($ch == $GLOBALS['csv_terminated']) {
-                        if ($i == $len - 1) {
+                        if ($i === $len - 1) {
                             $i = $fallbacki;
                             $ch = mb_substr($buffer, $i, 1);
                             if ($csv_terminated_len > 1 && $ch == $GLOBALS['csv_terminated'][0]) {
@@ -656,8 +656,8 @@ class ImportCsv extends AbstractImportCsv
         string $csvNewLine,
         string $errUrl
     ): array {
-        $GLOBALS['error'] = $GLOBALS['error'] ?? null;
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+        $GLOBALS['error'] ??= null;
+        $GLOBALS['message'] ??= null;
 
         $param_error = false;
         if (strlen($csvTerminated) === 0) {
@@ -718,7 +718,7 @@ class ImportCsv extends AbstractImportCsv
 
     private function getTableNameFromImport(string $databaseName): string
     {
-        $GLOBALS['import_file_name'] = $GLOBALS['import_file_name'] ?? null;
+        $GLOBALS['import_file_name'] ??= null;
 
         $importFileName = basename($GLOBALS['import_file_name'], '.csv');
         $importFileName = mb_strtolower($importFileName);
@@ -779,12 +779,12 @@ class ImportCsv extends AbstractImportCsv
     }
 
     private function getSqlTemplateAndRequiredFields(
-        ?string $db,
-        ?string $table,
-        ?string $csvColumns
+        string|null $db,
+        string|null $table,
+        string|null $csvColumns
     ): array {
-        $GLOBALS['error'] = $GLOBALS['error'] ?? null;
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+        $GLOBALS['error'] ??= null;
+        $GLOBALS['message'] ??= null;
 
         $requiredFields = 0;
         $sqlTemplate = '';

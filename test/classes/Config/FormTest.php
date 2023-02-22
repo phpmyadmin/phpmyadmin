@@ -68,7 +68,6 @@ class FormTest extends AbstractTestCase
     public function testGetOptionType(): void
     {
         $attrFieldsTypes = new ReflectionProperty(Form::class, 'fieldsTypes');
-        $attrFieldsTypes->setAccessible(true);
         $attrFieldsTypes->setValue(
             $this->object,
             ['7' => 'Seven']
@@ -124,7 +123,6 @@ class FormTest extends AbstractTestCase
     {
         $reflection = new ReflectionClass(Form::class);
         $method = $reflection->getMethod('readFormPathsCallback');
-        $method->setAccessible(true);
 
         $array = [
             'foo' => [
@@ -160,7 +158,6 @@ class FormTest extends AbstractTestCase
     {
         $reflection = new ReflectionClass(Form::class);
         $method = $reflection->getMethod('readFormPaths');
-        $method->setAccessible(true);
 
         $array = [
             'foo' => [
@@ -200,7 +197,6 @@ class FormTest extends AbstractTestCase
     {
         $reflection = new ReflectionClass(Form::class);
         $method = $reflection->getMethod('readTypes');
-        $method->setAccessible(true);
 
         $this->object->fields = [
             'pma_form1' => 'Servers/1/port',
@@ -210,7 +206,6 @@ class FormTest extends AbstractTestCase
         ];
 
         $attrFieldsTypes = $reflection->getProperty('fieldsTypes');
-        $attrFieldsTypes->setAccessible(true);
 
         $method->invoke($this->object, null);
 

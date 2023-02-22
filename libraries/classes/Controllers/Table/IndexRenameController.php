@@ -19,25 +19,19 @@ use function is_array;
 
 final class IndexRenameController extends AbstractController
 {
-    private DatabaseInterface $dbi;
-
-    private Indexes $indexes;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        DatabaseInterface $dbi,
-        Indexes $indexes
+        private DatabaseInterface $dbi,
+        private Indexes $indexes
     ) {
         parent::__construct($response, $template);
-        $this->dbi = $dbi;
-        $this->indexes = $indexes;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['urlParams'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
 
         if (! isset($_POST['create_edit_table'])) {
             $this->checkParameters(['db', 'table']);

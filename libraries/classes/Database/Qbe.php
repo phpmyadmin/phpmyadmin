@@ -211,16 +211,11 @@ class Qbe
     /** @var Relation */
     private $relation;
 
-    /** @var DatabaseInterface */
-    public $dbi;
-
     /** @var Template */
     public $template;
 
     /**
-     * @param Relation           $relation        Relation object
-     * @param Template           $template        Template object
-     * @param DatabaseInterface  $dbi             DatabaseInterface object
+     * @param DatabaseInterface  $dbi
      * @param string             $dbname          Database name
      * @param array              $savedSearchList List of saved searches
      * @param SavedSearches|null $currentSearch   Current search id
@@ -228,7 +223,7 @@ class Qbe
     public function __construct(
         Relation $relation,
         Template $template,
-        $dbi,
+        public $dbi,
         $dbname,
         array $savedSearchList = [],
         $currentSearch = null
@@ -236,7 +231,6 @@ class Qbe
         $this->db = $dbname;
         $this->savedSearchList = $savedSearchList;
         $this->currentSearch = $currentSearch;
-        $this->dbi = $dbi;
         $this->relation = $relation;
         $this->template = $template;
 
@@ -253,11 +247,11 @@ class Qbe
      */
     private function loadCriterias()
     {
-        if ($this->currentSearch === null || $this->currentSearch->getCriterias() === null) {
+        if ($this->currentSearch === null) {
             return $this;
         }
 
-        $criterias = $this->currentSearch->getCriterias();
+        $criterias = $this->currentSearch->getCriterias() ?? [];
         $_POST = $criterias + $_POST;
 
         return $this;
@@ -819,7 +813,7 @@ class Qbe
             $htmlOutput .= $this->getAndOrColCell(
                 $newColumnCount,
                 $checkedOptions,
-                $columnIndex + 1 == $this->criteriaColumnCount
+                $columnIndex + 1 === $this->criteriaColumnCount
             );
             $newColumnCount++;
         }
@@ -1509,7 +1503,7 @@ class Qbe
     /**
      * Loads relations for a given table into the $relations array
      *
-     * @param array  $relations array of relations
+     * @param array  $relations
      * @param string $oneTable  the table
      */
     private function loadRelationsForTable(array &$relations, $oneTable): void
@@ -1573,7 +1567,7 @@ class Qbe
                     }
 
                     // We are done if all tables are in $finalized
-                    if (count($finalized) == count($searchTables)) {
+                    if (count($finalized) === count($searchTables)) {
                         return;
                     }
                 }
@@ -1742,9 +1736,9 @@ class Qbe
      */
     private function getLeftJoinColumnCandidatesBest(
         array $searchTables,
-        ?array $whereClauseColumns,
-        ?array $uniqueColumns,
-        ?array $indexColumns
+        array|null $whereClauseColumns,
+        array|null $uniqueColumns,
+        array|null $indexColumns
     ) {
         // now we want to find the best.
         if (isset($uniqueColumns) && count($uniqueColumns) > 0) {

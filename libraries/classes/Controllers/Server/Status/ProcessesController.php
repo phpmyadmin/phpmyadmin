@@ -14,20 +14,14 @@ use PhpMyAdmin\Url;
 
 class ProcessesController extends AbstractController
 {
-    private DatabaseInterface $dbi;
-
-    private Processes $processes;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
         Data $data,
-        DatabaseInterface $dbi,
-        Processes $processes
+        private DatabaseInterface $dbi,
+        private Processes $processes
     ) {
         parent::__construct($response, $template, $data);
-        $this->dbi = $dbi;
-        $this->processes = $processes;
     }
 
     public function __invoke(ServerRequest $request): void

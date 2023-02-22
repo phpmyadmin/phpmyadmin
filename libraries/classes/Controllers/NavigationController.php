@@ -22,19 +22,13 @@ use function __;
  */
 class NavigationController extends AbstractController
 {
-    private Navigation $navigation;
-
-    private Relation $relation;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Navigation $navigation,
-        Relation $relation
+        private Navigation $navigation,
+        private Relation $relation
     ) {
         parent::__construct($response, $template);
-        $this->navigation = $navigation;
-        $this->relation = $relation;
     }
 
     public function __invoke(ServerRequest $request): void

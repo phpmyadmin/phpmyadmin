@@ -17,24 +17,18 @@ use function __;
 
 final class RemoveController extends AbstractController
 {
-    private DatabaseInterface $dbi;
-
-    private StructureController $structureController;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        DatabaseInterface $dbi,
-        StructureController $structureController
+        private DatabaseInterface $dbi,
+        private StructureController $structureController
     ) {
         parent::__construct($response, $template);
-        $this->dbi = $dbi;
-        $this->structureController = $structureController;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
+        $GLOBALS['message'] ??= null;
 
         $selected = $_POST['selected_tbl'] ?? [];
 

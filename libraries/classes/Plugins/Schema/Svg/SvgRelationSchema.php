@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Svg;
 
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\Dia\TableStatsDia;
 use PhpMyAdmin\Plugins\Schema\Eps\TableStatsEps;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
@@ -31,7 +32,7 @@ use function sprintf;
  * inherits ExportRelationSchema class has common functionality added
  * to this class
  *
- * @property Svg $diagram
+ * @extends ExportRelationSchema<Svg>
  */
 class SvgRelationSchema extends ExportRelationSchema
 {
@@ -60,11 +61,9 @@ class SvgRelationSchema extends ExportRelationSchema
      * Upon instantiation This starts writing the SVG XML document
      * user will be prompted for download as .svg extension
      *
-     * @see PMA_SVG
-     *
-     * @param string $db database name
+     * @see Svg
      */
-    public function __construct($db)
+    public function __construct(DatabaseName $db)
     {
         parent::__construct($db, new Svg());
 
@@ -76,7 +75,7 @@ class SvgRelationSchema extends ExportRelationSchema
         $this->diagram->setTitle(
             sprintf(
                 __('Schema of the %s database - Page %s'),
-                $this->db,
+                $this->db->getName(),
                 $this->pageNumber
             )
         );
@@ -90,7 +89,7 @@ class SvgRelationSchema extends ExportRelationSchema
             if (! isset($this->tables[$table])) {
                 $this->tables[$table] = new TableStatsSvg(
                     $this->diagram,
-                    $this->db,
+                    $this->db->getName(),
                     $table,
                     $this->diagram->getFont(),
                     $this->diagram->getFontSize(),
@@ -119,7 +118,7 @@ class SvgRelationSchema extends ExportRelationSchema
 
         $seen_a_relation = false;
         foreach ($alltables as $one_table) {
-            $exist_rel = $this->relation->getForeigners($this->db, $one_table, '', 'both');
+            $exist_rel = $this->relation->getForeigners($this->db->getName(), $one_table, '', 'both');
             if (! $exist_rel) {
                 continue;
             }
@@ -222,7 +221,7 @@ class SvgRelationSchema extends ExportRelationSchema
         if (! isset($this->tables[$masterTable])) {
             $this->tables[$masterTable] = new TableStatsSvg(
                 $this->diagram,
-                $this->db,
+                $this->db->getName(),
                 $masterTable,
                 $font,
                 $fontSize,
@@ -237,7 +236,7 @@ class SvgRelationSchema extends ExportRelationSchema
         if (! isset($this->tables[$foreignTable])) {
             $this->tables[$foreignTable] = new TableStatsSvg(
                 $this->diagram,
-                $this->db,
+                $this->db->getName(),
                 $foreignTable,
                 $font,
                 $fontSize,

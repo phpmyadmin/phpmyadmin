@@ -33,37 +33,25 @@ use function strlen;
  */
 class AddFieldController extends AbstractController
 {
-    private Transformations $transformations;
-
-    private Config $config;
-
-    private DatabaseInterface $dbi;
-
-    private ColumnsDefinition $columnsDefinition;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Transformations $transformations,
-        Config $config,
-        DatabaseInterface $dbi,
-        ColumnsDefinition $columnsDefinition
+        private Transformations $transformations,
+        private Config $config,
+        private DatabaseInterface $dbi,
+        private ColumnsDefinition $columnsDefinition
     ) {
         parent::__construct($response, $template);
-        $this->transformations = $transformations;
-        $this->config = $config;
-        $this->dbi = $dbi;
-        $this->columnsDefinition = $columnsDefinition;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
-        $GLOBALS['message'] = $GLOBALS['message'] ?? null;
-        $GLOBALS['active_page'] = $GLOBALS['active_page'] ?? null;
-        $GLOBALS['num_fields'] = $GLOBALS['num_fields'] ?? null;
-        $GLOBALS['regenerate'] = $GLOBALS['regenerate'] ?? null;
-        $GLOBALS['result'] = $GLOBALS['result'] ?? null;
+        $GLOBALS['errorUrl'] ??= null;
+        $GLOBALS['message'] ??= null;
+        $GLOBALS['active_page'] ??= null;
+        $GLOBALS['num_fields'] ??= null;
+        $GLOBALS['regenerate'] ??= null;
+        $GLOBALS['result'] ??= null;
 
         /** @var string|null $numberOfFields */
         $numberOfFields = $request->getParsedBodyParam('num_fields');

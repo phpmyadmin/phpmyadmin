@@ -160,7 +160,7 @@ class Pdf extends PdfLib
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
     public function Header(): void
     {
-        $GLOBALS['maxY'] = $GLOBALS['maxY'] ?? null;
+        $GLOBALS['maxY'] ??= null;
 
         // We don't want automatic page breaks while generating header
         // as this can lead to infinite recursion as auto generated page
@@ -844,22 +844,22 @@ class Pdf extends PdfLib
         $this->titleText = $titleText;
     }
 
-    public function setCurrentDb(?string $currentDb): void
+    public function setCurrentDb(string|null $currentDb): void
     {
         $this->currentDb = $currentDb ?? '';
     }
 
-    public function setCurrentTable(?string $currentTable): void
+    public function setCurrentTable(string|null $currentTable): void
     {
         $this->currentTable = $currentTable ?? '';
     }
 
-    public function setDbAlias(?string $dbAlias): void
+    public function setDbAlias(string|null $dbAlias): void
     {
         $this->dbAlias = $dbAlias ?? '';
     }
 
-    public function setTableAlias(?string $tableAlias): void
+    public function setTableAlias(string|null $tableAlias): void
     {
         $this->tableAlias = $tableAlias ?? '';
     }

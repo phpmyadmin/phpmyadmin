@@ -16,12 +16,13 @@ use function __;
 
 final class KillController extends AbstractController
 {
-    private DatabaseInterface $dbi;
-
-    public function __construct(ResponseRenderer $response, Template $template, Data $data, DatabaseInterface $dbi)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        Data $data,
+        private DatabaseInterface $dbi
+    ) {
         parent::__construct($response, $template, $data);
-        $this->dbi = $dbi;
     }
 
     /**

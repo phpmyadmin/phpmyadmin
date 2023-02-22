@@ -16,19 +16,13 @@ use function is_array;
 
 final class CreateController extends AbstractController
 {
-    private TemplateModel $model;
-
-    private Relation $relation;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        TemplateModel $model,
-        Relation $relation
+        private TemplateModel $model,
+        private Relation $relation
     ) {
         parent::__construct($response, $template);
-        $this->model = $model;
-        $this->relation = $relation;
     }
 
     public function __invoke(ServerRequest $request): void

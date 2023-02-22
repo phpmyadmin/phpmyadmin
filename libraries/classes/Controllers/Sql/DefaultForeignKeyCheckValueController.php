@@ -13,15 +13,12 @@ use PhpMyAdmin\Utils\ForeignKey;
 
 final class DefaultForeignKeyCheckValueController extends AbstractController
 {
-    private CheckUserPrivileges $checkUserPrivileges;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        CheckUserPrivileges $checkUserPrivileges
+        private CheckUserPrivileges $checkUserPrivileges
     ) {
         parent::__construct($response, $template);
-        $this->checkUserPrivileges = $checkUserPrivileges;
     }
 
     public function __invoke(ServerRequest $request): void

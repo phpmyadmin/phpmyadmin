@@ -24,14 +24,8 @@ use function urldecode;
 
 final class Options
 {
-    private Relation $relation;
-
-    private TemplateModel $templateModel;
-
-    public function __construct(Relation $relation, TemplateModel $templateModel)
+    public function __construct(private Relation $relation, private TemplateModel $templateModel)
     {
-        $this->relation = $relation;
-        $this->templateModel = $templateModel;
     }
 
     /**
@@ -211,9 +205,9 @@ final class Options
         ];
     }
 
-    private function getFileNameTemplate(string $exportType, ?string $filename = null): string
+    private function getFileNameTemplate(string $exportType, string|null $filename = null): string
     {
-        $GLOBALS['config'] = $GLOBALS['config'] ?? null;
+        $GLOBALS['config'] ??= null;
 
         if ($filename !== null) {
             return $filename;

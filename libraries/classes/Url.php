@@ -47,7 +47,7 @@ class Url
         $indent = 0,
         $skip = []
     ) {
-        $GLOBALS['config'] = $GLOBALS['config'] ?? null;
+        $GLOBALS['config'] ??= null;
 
         if (is_array($db)) {
             $params =& $db;
@@ -211,7 +211,7 @@ class Url
      */
     public static function getCommonRaw(array $params = [], $divider = '?', $encrypt = true)
     {
-        $GLOBALS['config'] = $GLOBALS['config'] ?? null;
+        $GLOBALS['config'] ??= null;
 
         // avoid overwriting when creating navigation panel links to servers
         if (
@@ -247,11 +247,11 @@ class Url
      */
     public static function buildHttpQuery($params, $encrypt = true)
     {
-        $GLOBALS['config'] = $GLOBALS['config'] ?? null;
+        $GLOBALS['config'] ??= null;
 
         $separator = self::getArgSeparator();
 
-        if (! $encrypt || ! $GLOBALS['config']->get('URLQueryEncryption')) {
+        if (! $encrypt || $GLOBALS['config'] === null || ! $GLOBALS['config']->get('URLQueryEncryption')) {
             return http_build_query($params, '', $separator);
         }
 
@@ -295,7 +295,7 @@ class Url
         return strtr(base64_encode($crypto->encrypt($query)), '+/', '-_');
     }
 
-    public static function decryptQuery(string $query): ?string
+    public static function decryptQuery(string $query): string|null
     {
         $crypto = new Crypto();
 

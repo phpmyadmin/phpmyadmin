@@ -20,8 +20,12 @@ class RepairControllerTest extends AbstractTestCase
     /**
      * @dataProvider providerForTestInvalidDatabaseAndTable
      */
-    public function testInvalidDatabaseAndTable(?string $partition, ?string $db, ?string $table, string $message): void
-    {
+    public function testInvalidDatabaseAndTable(
+        string|null $partition,
+        string|null $db,
+        string|null $table,
+        string $message
+    ): void {
         $request = $this->createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['partition_name', null, $partition]]);
         $request->method('getParam')->willReturnMap([['db', null, $db], ['table', null, $table]]);

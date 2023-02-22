@@ -23,25 +23,19 @@ use function is_array;
  */
 class ReplicationController extends AbstractController
 {
-    private ReplicationGui $replicationGui;
-
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        ReplicationGui $replicationGui,
-        DatabaseInterface $dbi
+        private ReplicationGui $replicationGui,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->replicationGui = $replicationGui;
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        $GLOBALS['urlParams'] = $GLOBALS['urlParams'] ?? null;
-        $GLOBALS['errorUrl'] = $GLOBALS['errorUrl'] ?? null;
+        $GLOBALS['urlParams'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
 
         $hasReplicaClearScreen = (bool) $request->getParsedBodyParam('replica_clear_screen');
         $replicaConfigure = $request->getParsedBodyParam('replica_configure');

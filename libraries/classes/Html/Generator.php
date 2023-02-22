@@ -90,7 +90,7 @@ class Generator
     public static function linkToVarDocumentation(
         string $name,
         bool $useMariaDB = false,
-        ?string $text = null
+        string|null $text = null
     ): string {
         $kbs = ServerVariablesProvider::getImplementation();
         $link = $useMariaDB ? $kbs->getDocLinkByNameMariaDb($name) : $kbs->getDocLinkByNameMysql($name);
@@ -415,47 +415,6 @@ class Generator
     }
 
     /**
-     * Execute an EXPLAIN query and formats results similar to MySQL command line
-     * utility.
-     *
-     * @param string $sqlQuery EXPLAIN query
-     *
-     * @return string query results
-     */
-    private static function generateRowQueryOutput($sqlQuery): string
-    {
-        $ret = '';
-        $result = $GLOBALS['dbi']->query($sqlQuery);
-        $devider = '+';
-        $columnNames = '|';
-        $fieldsMeta = $GLOBALS['dbi']->getFieldsMeta($result);
-        foreach ($fieldsMeta as $meta) {
-            $devider .= '---+';
-            $columnNames .= ' ' . $meta->name . ' |';
-        }
-
-        $devider .= "\n";
-
-        $ret .= $devider . $columnNames . "\n" . $devider;
-        while ($row = $result->fetchRow()) {
-            $values = '|';
-            foreach ($row as $value) {
-                if ($value === null) {
-                    $value = 'NULL';
-                }
-
-                $values .= ' ' . $value . ' |';
-            }
-
-            $ret .= $values . "\n";
-        }
-
-        $ret .= $devider;
-
-        return $ret;
-    }
-
-    /**
      * Prepare the message and the query
      * usually the message is the result of the query executed
      *
@@ -765,7 +724,7 @@ class Generator
         $isModifyLink = true,
         $backUrl = '',
         $exit = true
-    ): ?string {
+    ): string|null {
         /**
          * Error message to be built.
          */

@@ -19,23 +19,14 @@ use function str_replace;
 
 class DataDictionaryController extends AbstractController
 {
-    private Relation $relation;
-
-    private Transformations $transformations;
-
-    private DatabaseInterface $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Relation $relation,
-        Transformations $transformations,
-        DatabaseInterface $dbi
+        private Relation $relation,
+        private Transformations $transformations,
+        private DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template);
-        $this->relation = $relation;
-        $this->transformations = $transformations;
-        $this->dbi = $dbi;
     }
 
     public function __invoke(ServerRequest $request): void

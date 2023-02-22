@@ -15,12 +15,9 @@ use PhpMyAdmin\Template;
  */
 class AdvisorController extends AbstractController
 {
-    private Advisor $advisor;
-
-    public function __construct(ResponseRenderer $response, Template $template, Data $data, Advisor $advisor)
+    public function __construct(ResponseRenderer $response, Template $template, Data $data, private Advisor $advisor)
     {
         parent::__construct($response, $template, $data);
-        $this->advisor = $advisor;
     }
 
     public function __invoke(ServerRequest $request): void

@@ -109,7 +109,7 @@ interface DbalInterface
         $limitCount = false,
         string $sortBy = 'Name',
         string $sortOrder = 'ASC',
-        ?string $tableType = null,
+        string|null $tableType = null,
         int $connectionType = Connection::TYPE_USER
     ): array;
 
@@ -138,7 +138,7 @@ interface DbalInterface
      * @todo    move into ListDatabase?
      */
     public function getDatabasesFull(
-        ?string $database = null,
+        string|null $database = null,
         bool $forceStats = false,
         int $connectionType = Connection::TYPE_USER,
         string $sortBy = 'SCHEMA_NAME',
@@ -159,9 +159,9 @@ interface DbalInterface
      * @return array
      */
     public function getColumnsFull(
-        ?string $database = null,
-        ?string $table = null,
-        ?string $column = null,
+        string|null $database = null,
+        string|null $table = null,
+        string|null $column = null,
         int $connectionType = Connection::TYPE_USER
     ): array;
 
@@ -342,7 +342,7 @@ interface DbalInterface
         string $query,
         string $type = DbalInterface::FETCH_ASSOC,
         int $connectionType = Connection::TYPE_USER
-    ): ?array;
+    ): array|null;
 
     /**
      * returns all rows in the resultset in one array
@@ -460,7 +460,7 @@ interface DbalInterface
      * @psalm-param ConnectionType $mode
      * @psalm-param ConnectionType|null $target
      */
-    public function connect(int $mode, ?array $server = null, ?int $target = null): ?Connection;
+    public function connect(int $mode, array|null $server = null, int|null $target = null): Connection|null;
 
     /**
      * selects given database
@@ -670,5 +670,5 @@ interface DbalInterface
      * @param string $query The query, as a string.
      * @psalm-param ConnectionType $connectionType
      */
-    public function prepare(string $query, int $connectionType = Connection::TYPE_USER): ?Statement;
+    public function prepare(string $query, int $connectionType = Connection::TYPE_USER): Statement|null;
 }

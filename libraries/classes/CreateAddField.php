@@ -22,14 +22,8 @@ use function trim;
  */
 class CreateAddField
 {
-    private DatabaseInterface $dbi;
-
-    /**
-     * @param DatabaseInterface $dbi DatabaseInterface interface
-     */
-    public function __construct(DatabaseInterface $dbi)
+    public function __construct(private DatabaseInterface $dbi)
     {
-        $this->dbi = $dbi;
     }
 
     /**
