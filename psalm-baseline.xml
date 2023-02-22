@@ -2110,6 +2110,9 @@
     <PossiblyNullArgument occurrences="1">
       <code>$this-&gt;config-&gt;get('TempDir')</code>
     </PossiblyNullArgument>
+    <RedundantCondition occurrences="1">
+      <code>is_string($cfg['blowfish_secret'])</code>
+    </RedundantCondition>
     <UnusedVariable occurrences="1">
       <code>$collationsList</code>
     </UnusedVariable>

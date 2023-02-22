@@ -9386,16 +9386,6 @@ parameters:
 			path: test/classes/ConfigTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$directory of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertDirectoryExists\\(\\) expects string, string\\|false given\\.$#"
-			count: 2
-			path: test/classes/ConfigTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$directory of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertDirectoryIsWritable\\(\\) expects string, string\\|false given\\.$#"
-			count: 2
-			path: test/classes/ConfigTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$haystack of function mb_strstr expects string, array\\<string\\> given\\.$#"
 			count: 1
 			path: test/classes/ConfigTest.php
