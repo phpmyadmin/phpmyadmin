@@ -7,8 +7,6 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\VersionInformation;
 use stdClass;
 
-use function count;
-
 /**
  * @covers \PhpMyAdmin\VersionInformation
  */
@@ -175,28 +173,11 @@ class VersionInformationTest extends AbstractTestCase
      */
     public function testGetLatestCompatibleVersionWithSingleServer(): void
     {
-        $GLOBALS['cfg']['Servers'] = [
-            [],
-        ];
+        $GLOBALS['cfg']['Servers'] = [[]];
 
-        $mockVersionInfo = $this->getMockBuilder(VersionInformation::class)
-            ->onlyMethods(['evaluateVersionCondition'])
-            ->getMock();
-
-        $mockVersionInfo->expects($this->exactly(9))
-            ->method('evaluateVersionCondition')
-            ->withConsecutive(
-                ['PHP', '>=5.3'],
-                ['PHP', '<7.1'],
-                ['MySQL', '>=5.5'],
-                ['PHP', '>=5.3'],
-                ['PHP', '<7.0'],
-                ['MySQL', '>=5.5'],
-                ['PHP', '>=5.2'],
-                ['PHP', '<5.3'],
-                ['MySQL', '>=5.0']
-            )
-            ->willReturnOnConsecutiveCalls(true, true, true, true, true, true, true, true, true);
+        $mockVersionInfo = $this->createPartialMock(VersionInformation::class, ['getPHPVersion', 'getMySQLVersion']);
+        $mockVersionInfo->expects($this->exactly(6))->method('getPHPVersion')->willReturn('5.6.0');
+        $mockVersionInfo->expects($this->exactly(2))->method('getMySQLVersion')->willReturn('5.5.0');
 
         $compatible = $mockVersionInfo->getLatestCompatibleVersion($this->releases);
         $this->assertIsArray($compatible);
@@ -208,22 +189,11 @@ class VersionInformationTest extends AbstractTestCase
      */
     public function testGetLatestCompatibleVersionWithMultipleServers(): void
     {
-        $GLOBALS['cfg']['Servers'] = [
-            [],
-            [],
-        ];
+        $GLOBALS['cfg']['Servers'] = [[], []];
 
-        $mockVersionInfo = $this->getMockBuilder(VersionInformation::class)
-            ->onlyMethods(['evaluateVersionCondition'])
-            ->getMock();
-
-        $mockVersionInfo->expects($this->atLeast(4))
-            ->method('evaluateVersionCondition')
-            ->withConsecutive(
-                ['PHP', '>=5.3'],
-                ['PHP', '<7.1']
-            )
-            ->willReturnOnConsecutiveCalls(true, true);
+        $mockVersionInfo = $this->createPartialMock(VersionInformation::class, ['getPHPVersion', 'getMySQLVersion']);
+        $mockVersionInfo->expects($this->exactly(6))->method('getPHPVersion')->willReturn('5.6.0');
+        $mockVersionInfo->expects($this->never())->method('getMySQLVersion');
 
         $compatible = $mockVersionInfo->getLatestCompatibleVersion($this->releases);
         $this->assertIsArray($compatible);
@@ -235,24 +205,11 @@ class VersionInformationTest extends AbstractTestCase
      */
     public function testGetLatestCompatibleVersionWithOldPHPVersion(): void
     {
-        $GLOBALS['cfg']['Servers'] = [
-            [],
-            [],
-        ];
+        $GLOBALS['cfg']['Servers'] = [[], []];
 
-        $mockVersionInfo = $this->getMockBuilder(VersionInformation::class)
-            ->onlyMethods(['evaluateVersionCondition'])
-            ->getMock();
-
-        $mockVersionInfo->expects($this->atLeast(2))
-            ->method('evaluateVersionCondition')
-            ->withConsecutive(
-                ['PHP', '>=5.3'],
-                ['PHP', '>=5.3'],
-                ['PHP', '>=5.2'],
-                ['PHP', '<5.3']
-            )
-            ->willReturnOnConsecutiveCalls(false, false, true, true);
+        $mockVersionInfo = $this->createPartialMock(VersionInformation::class, ['getPHPVersion', 'getMySQLVersion']);
+        $mockVersionInfo->expects($this->exactly(4))->method('getPHPVersion')->willReturn('5.2.1');
+        $mockVersionInfo->expects($this->never())->method('getMySQLVersion');
 
         $compatible = $mockVersionInfo->getLatestCompatibleVersion($this->releases);
         $this->assertIsArray($compatible);
@@ -262,9 +219,9 @@ class VersionInformationTest extends AbstractTestCase
     /**
      * Tests getLatestCompatibleVersion() with an new PHP version
      *
-     * @param array[]     $versions           The versions to use
-     * @param array[]     $conditions         The conditions that will be executed
-     * @param string|null $matchedLastVersion The version that will be matched
+     * @param list<object>       $versions           The versions to use
+     * @param array{int, string} $conditions         The conditions that will be executed
+     * @param string|null        $matchedLastVersion The version that will be matched
      *
      * @dataProvider dataProviderVersionConditions
      */
@@ -275,25 +232,9 @@ class VersionInformationTest extends AbstractTestCase
     ): void {
         $GLOBALS['cfg']['Servers'] = [];
 
-        $mockVersionInfo = $this->getMockBuilder(VersionInformation::class)
-            ->onlyMethods(['evaluateVersionCondition'])
-            ->getMock();
-
-        $conditionsCalls = [];
-        $returnValues = [];
-        foreach ($conditions as $conditionArray) {
-            [
-                $condition,
-                $returnValue,
-            ] = $conditionArray;
-            $conditionsCalls[] = ['PHP', $condition];
-            $returnValues[] = $returnValue;
-        }
-
-        $mockVersionInfo->expects($this->exactly(count($conditionsCalls)))
-            ->method('evaluateVersionCondition')
-            ->withConsecutive(...$conditionsCalls)
-            ->willReturnOnConsecutiveCalls(...$returnValues);
+        $mockVersionInfo = $this->createPartialMock(VersionInformation::class, ['getPHPVersion', 'getMySQLVersion']);
+        $mockVersionInfo->expects($this->exactly($conditions[0]))->method('getPHPVersion')->willReturn($conditions[1]);
+        $mockVersionInfo->expects($this->never())->method('getMySQLVersion');
 
         $compatible = $mockVersionInfo->getLatestCompatibleVersion($versions);
         $this->assertEquals($matchedLastVersion, $compatible['version'] ?? null);
@@ -303,7 +244,7 @@ class VersionInformationTest extends AbstractTestCase
      * Provider for testGetLatestCompatibleVersionWithNewPHPVersion
      * Returns the conditions to be used for mocks
      *
-     * @return array[]
+     * @return list<array{list<object>, array{int, string}, string|null}>
      */
     public static function dataProviderVersionConditions(): array
     {
@@ -323,24 +264,7 @@ class VersionInformationTest extends AbstractTestCase
                         'mysql_versions' => '>=5.5',
                     ]),
                 ],
-                [
-                    [
-                        '>=5.5',
-                        true,
-                    ],
-                    [
-                        '<8.0',
-                        true,
-                    ],
-                    [
-                        '>=7.1',
-                        true,
-                    ],
-                    [
-                        '<8.0',
-                        false,
-                    ],
-                ],
+                [3, '7.0.0'],
                 '4.9.3',
             ],
             [
@@ -358,20 +282,7 @@ class VersionInformationTest extends AbstractTestCase
                         'mysql_versions' => '>=5.5',
                     ]),
                 ],
-                [
-                    [
-                        '>=5.5',
-                        true,
-                    ],
-                    [
-                        '<7.0',
-                        true,
-                    ],
-                    [
-                        '>=7.1',
-                        false,
-                    ],
-                ],
+                [3, '5.6.0'],
                 '6.0.0',
             ],
             [
@@ -389,20 +300,7 @@ class VersionInformationTest extends AbstractTestCase
                         'mysql_versions' => '>=5.5',
                     ]),
                 ],
-                [
-                    [
-                        '>=5.5',
-                        true,
-                    ],
-                    [
-                        '<7.0',
-                        true,
-                    ],
-                    [
-                        '>=7.1',
-                        false,
-                    ],
-                ],
+                [3, '5.6.0'],
                 '6.0.0-rc1',
             ],
             [
@@ -420,20 +318,7 @@ class VersionInformationTest extends AbstractTestCase
                         'mysql_versions' => '>=5.5',
                     ]),
                 ],
-                [
-                    [
-                        '>=5.5',
-                        false,
-                    ],
-                    [
-                        '>=7.1',
-                        true,
-                    ],
-                    [
-                        '<8.0',
-                        false,
-                    ],
-                ],
+                [3, '7.0.0'],
                 null,
             ],
             [
@@ -451,20 +336,7 @@ class VersionInformationTest extends AbstractTestCase
                         'mysql_versions' => '>=5.5',
                     ]),
                 ],
-                [
-                    [
-                        '>=5.5',
-                        false,
-                    ],
-                    [
-                        '>=7.1',
-                        true,
-                    ],
-                    [
-                        '<8.0',
-                        true,
-                    ],
-                ],
+                [4, '7.1.0'],
                 '5.0.0',
             ],
             [
@@ -482,24 +354,7 @@ class VersionInformationTest extends AbstractTestCase
                         'mysql_versions' => '>=5.5',
                     ]),
                 ],
-                [
-                    [
-                        '>=5.5',
-                        true,
-                    ],
-                    [
-                        '<8.0',
-                        true,
-                    ],
-                    [
-                        '>=7.1',
-                        true,
-                    ],
-                    [
-                        '<8.0',
-                        true,
-                    ],
-                ],
+                [4, '7.1.0'],
                 '5.0.0',
             ],
             [
@@ -517,24 +372,7 @@ class VersionInformationTest extends AbstractTestCase
                         'mysql_versions' => '>=5.5',
                     ]),
                 ],
-                [
-                    [
-                        '>=7.1',
-                        true,
-                    ],
-                    [
-                        '<8.0',
-                        true,
-                    ],
-                    [
-                        '>=5.5',
-                        true,
-                    ],
-                    [
-                        '<8.0',
-                        true,
-                    ],
-                ],
+                [4, '7.2.0'],
                 '5.0.0',
             ],
         ];

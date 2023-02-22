@@ -18194,23 +18194,9 @@
     </MixedArrayAccess>
   </file>
   <file src="test/classes/VersionInformationTest.php">
-    <DeprecatedMethod>
-      <code>withConsecutive</code>
-      <code>withConsecutive</code>
-      <code>withConsecutive</code>
-      <code>withConsecutive</code>
-    </DeprecatedMethod>
-    <MixedAssignment>
-      <code>$returnValues[]</code>
-    </MixedAssignment>
     <MixedInferredReturnType>
       <code>array</code>
     </MixedInferredReturnType>
-    <PossiblyInvalidArgument>
-      <code>testGetLatestCompatibleVersionWithNewPHPVersion</code>
-      <code>testGetLatestCompatibleVersionWithNewPHPVersion</code>
-      <code>testGetLatestCompatibleVersionWithNewPHPVersion</code>
-    </PossiblyInvalidArgument>
   </file>
   <file src="test/selenium/Database/ProceduresTest.php">
     <MixedInferredReturnType>

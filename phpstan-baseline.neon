@@ -12031,22 +12031,7 @@ parameters:
 			path: test/classes/Utils/HttpRequestTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\VersionInformationTest\\:\\:dataProviderVersionConditions\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/VersionInformationTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\VersionInformationTest\\:\\:dataVersions\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/VersionInformationTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\VersionInformationTest\\:\\:testGetLatestCompatibleVersionWithNewPHPVersion\\(\\) has parameter \\$conditions with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/VersionInformationTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\VersionInformationTest\\:\\:testGetLatestCompatibleVersionWithNewPHPVersion\\(\\) has parameter \\$versions with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/VersionInformationTest.php
 
