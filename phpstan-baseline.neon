@@ -6096,6 +6096,11 @@ parameters:
 			path: libraries/classes/Pdf.php
 
 		-
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem\\:\\:getProperties\\(\\)\\.$#"
+			count: 1
+			path: libraries/classes/Plugins.php
+
+		-
 			message: "#^Call to function method_exists\\(\\) with PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem and 'getText' will always evaluate to true\\.$#"
 			count: 1
 			path: libraries/classes/Plugins.php
@@ -7411,27 +7416,7 @@ parameters:
 			path: libraries/classes/Plugins/UploadInterface.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup\\:\\:getProperties\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Properties/Options/OptionsPropertyGroup.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup\\:\\:\\$properties type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Properties/Options/OptionsPropertyGroup.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyOneItem\\:\\:getDoc\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Properties/Options/OptionsPropertyOneItem.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyOneItem\\:\\:getValues\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Properties/Options/OptionsPropertyOneItem.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyOneItem\\:\\:setDoc\\(\\) has parameter \\$doc with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Properties/Options/OptionsPropertyOneItem.php
 
@@ -7441,17 +7426,7 @@ parameters:
 			path: libraries/classes/Properties/Options/OptionsPropertyOneItem.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyOneItem\\:\\:\\$doc type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Properties/Options/OptionsPropertyOneItem.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyOneItem\\:\\:\\$values type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Properties/Options/OptionsPropertyOneItem.php
-
-		-
-			message: "#^Return type \\(bool\\|string\\) of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyOneItem\\:\\:getForce\\(\\) should be covariant with return type \\(string\\|null\\) of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem\\:\\:getForce\\(\\)$#"
 			count: 1
 			path: libraries/classes/Properties/Options/OptionsPropertyOneItem.php
 
@@ -11561,27 +11536,7 @@ parameters:
 			path: test/classes/PluginsTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$subgroupHeader of method PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\:\\:setSubgroupHeader\\(\\) expects PhpMyAdmin\\\\Properties\\\\PropertyItem, string given\\.$#"
-			count: 1
-			path: test/classes/Properties/Options/Groups/OptionsPropertySubgroupTest.php
-
-		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Properties\\\\\\\\Options\\\\\\\\OptionsPropertyGroup' and PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$property of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup\\:\\:addProperty\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem, int given\\.$#"
-			count: 1
-			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$property of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup\\:\\:addProperty\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem, string given\\.$#"
-			count: 1
-			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$property of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup\\:\\:removeProperty\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem, string given\\.$#"
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Properties\\\\\\\\Options\\\\\\\\OptionsPropertyGroup' and PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup&PHPUnit\\\\Framework\\\\MockObject\\\\MockObject will always evaluate to true\\.$#"
 			count: 1
 			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
 

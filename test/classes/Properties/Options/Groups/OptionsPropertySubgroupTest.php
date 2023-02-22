@@ -48,10 +48,11 @@ class OptionsPropertySubgroupTest extends AbstractTestCase
      */
     public function testGetSetSubgroupHeader(): void
     {
-        $this->object->setSubgroupHeader('subGroupHeader123');
+        $propertyItem = new OptionsPropertySubgroup();
+        $this->object->setSubgroupHeader($propertyItem);
 
         $this->assertEquals(
-            'subGroupHeader123',
+            $propertyItem,
             $this->object->getSubgroupHeader()
         );
     }

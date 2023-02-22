@@ -19,7 +19,6 @@ use ReflectionMethod;
 use ReflectionProperty;
 
 use function __;
-use function array_shift;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Export\ExportPdf
@@ -104,7 +103,8 @@ class ExportPdfTest extends AbstractTestCase
 
         $generalOptionsArray = $options->getProperties();
 
-        $generalOptions = array_shift($generalOptionsArray);
+        $generalOptions = $generalOptionsArray->current();
+        $generalOptionsArray->next();
 
         $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
@@ -115,7 +115,7 @@ class ExportPdfTest extends AbstractTestCase
 
         $generalProperties = $generalOptions->getProperties();
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
 
         $this->assertInstanceOf(TextPropertyItem::class, $property);
 
@@ -124,7 +124,7 @@ class ExportPdfTest extends AbstractTestCase
             $property->getName()
         );
 
-        $generalOptions = array_shift($generalOptionsArray);
+        $generalOptions = $generalOptionsArray->current();
 
         $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
@@ -140,7 +140,7 @@ class ExportPdfTest extends AbstractTestCase
 
         $generalProperties = $generalOptions->getProperties();
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
 
         $this->assertInstanceOf(RadioPropertyItem::class, $property);
 
