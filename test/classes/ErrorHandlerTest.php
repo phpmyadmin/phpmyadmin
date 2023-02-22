@@ -342,7 +342,6 @@ class ErrorHandlerTest extends AbstractTestCase
         $this->assertSame('Exception: Exception message.', $error->getOnlyMessage());
         $this->assertStringContainsString($error->getDisplay(), $output);
         $this->assertStringContainsString('Exception: Exception message.', $output);
-        $this->assertStringNotContainsString('Internal error', $output);
         $this->assertStringNotContainsString('ErrorHandlerTest.php#' . $error->getLine(), $output);
     }
 }

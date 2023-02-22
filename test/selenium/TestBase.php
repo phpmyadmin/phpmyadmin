@@ -285,7 +285,7 @@ abstract class TestBase extends TestCase
     {
         $className = substr(static::class, strlen('PhpMyAdmin\Tests\Selenium\\'));
 
-        return $className . ': ' . $this->getName();
+        return $className . ': ' . $this->name();
     }
 
     /**
@@ -1116,7 +1116,7 @@ JS;
             $this->dbQuery('DROP DATABASE IF EXISTS `phpmyadmin`;');
         }
 
-        if ($this->hasFailed()) {
+        if ($this->status()->asString() !== 'success') {
             return;
         }
 
@@ -1205,7 +1205,7 @@ JS;
     /**
      * Mark unsuccessful tests as 'Failures' on Browerstack
      */
-    public function onNotSuccessfulTest(Throwable $t): void
+    public function onNotSuccessfulTest(Throwable $t): never
     {
         $this->markTestAs('failed', $t->getMessage());
         $this->takeScrenshot('test_failed');

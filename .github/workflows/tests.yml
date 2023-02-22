@@ -48,7 +48,7 @@ jobs:
           composer config version "$(php -r "define('VERSION_SUFFIX', ''); require_once('libraries/classes/Version.php'); echo \PhpMyAdmin\Version::VERSION;")" && \
           composer update && \
           ./scripts/generate-mo && \
-          php\$V -d memory_limit=512M ./vendor/bin/phpunit --no-coverage --testsuite unit --exclude-group=%s" \
+          php\$V -d memory_limit=512M ./vendor/bin/phpunit --no-logging --no-coverage --testsuite unit --exclude-group=%s" \
           "${{ matrix.php-version }}" "${{ matrix.exclude-phpunit-groups }}" > ./do-tests.sh
 
       - name: Set up multi arch support
@@ -69,13 +69,11 @@ jobs:
         php-version: ["8.1", "8.2"]
         experimental: [false]
         os: [ubuntu-latest]
-        phpunit-options: ['--testsuite unit']
         php-extensions: ['mbstring, iconv, mysqli, zip, gd, bz2']
         include:
           - php-version: 'nightly'
             experimental: true
             os: ubuntu-latest
-            phpunit-options: '--configuration test/phpunit-php-nightly.xml'
             composer-options: '--ignore-platform-req=php+'
             php-extensions: 'mbstring, iconv, mysqli, zip, bz2'
     steps:
@@ -105,7 +103,7 @@ jobs:
           composer-options: ${{ matrix.composer-options }}
 
       - name: Run PHP tests
-        run: composer run phpunit -- ${{ matrix.phpunit-options }}
+        run: composer run phpunit -- --testsuite unit
 
       - name: Send coverage
         uses: codecov/codecov-action@v3
