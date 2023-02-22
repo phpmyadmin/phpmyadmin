@@ -439,9 +439,9 @@ class Index
     /**
      * Returns how the index is packed
      *
-     * @return string how the index is packed
+     * @return string|null how the index is packed
      */
-    public function getPacked(): string
+    public function getPacked(): string|null
     {
         return $this->packed;
     }
