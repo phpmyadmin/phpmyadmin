@@ -233,10 +233,6 @@ class GisVisualization
      */
     private function handleOptions(): void
     {
-        if ($this->userSpecifiedSettings === null) {
-            return;
-        }
-
         $this->settings = array_merge($this->settings, $this->userSpecifiedSettings);
     }
 
