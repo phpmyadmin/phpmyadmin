@@ -71,14 +71,14 @@ class GisPolygon extends GisGeometry
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string      $spatial    GIS POLYGON object
-     * @param string|null $label      Label for the GIS POLYGON object
-     * @param int[]       $color      Color for the GIS POLYGON object
-     * @param array       $scale_data Array containing data related to scaling
+     * @param string $spatial    GIS POLYGON object
+     * @param string $label      Label for the GIS POLYGON object
+     * @param int[]  $color      Color for the GIS POLYGON object
+     * @param array  $scale_data Array containing data related to scaling
      */
     public function prepareRowAsPng(
         $spatial,
-        string|null $label,
+        string $label,
         array $color,
         array $scale_data,
         ImageWrapper $image
@@ -86,8 +86,6 @@ class GisPolygon extends GisGeometry
         // allocate colors
         $black = $image->colorAllocate(0, 0, 0);
         $fill_color = $image->colorAllocate(...$color);
-
-        $label = trim($label ?? '');
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = mb_substr($spatial, 9, -2);
@@ -118,18 +116,16 @@ class GisPolygon extends GisGeometry
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string      $spatial    GIS POLYGON object
-     * @param string|null $label      Label for the GIS POLYGON object
-     * @param int[]       $color      Color for the GIS POLYGON object
-     * @param array       $scale_data Array containing data related to scaling
-     * @param TCPDF       $pdf
+     * @param string $spatial    GIS POLYGON object
+     * @param string $label      Label for the GIS POLYGON object
+     * @param int[]  $color      Color for the GIS POLYGON object
+     * @param array  $scale_data Array containing data related to scaling
+     * @param TCPDF  $pdf
      *
      * @return TCPDF the modified TCPDF instance
      */
-    public function prepareRowAsPdf($spatial, string|null $label, array $color, array $scale_data, $pdf)
+    public function prepareRowAsPdf($spatial, string $label, array $color, array $scale_data, $pdf)
     {
-        $label = trim($label ?? '');
-
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = mb_substr($spatial, 9, -2);
 
@@ -164,7 +160,7 @@ class GisPolygon extends GisGeometry
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg($spatial, $label, array $color, array $scale_data)
+    public function prepareRowAsSvg($spatial, string $label, array $color, array $scale_data)
     {
         $polygon_options = [
             'name' => $label,
@@ -189,7 +185,7 @@ class GisPolygon extends GisGeometry
 
         $row .= '"';
         foreach ($polygon_options as $option => $val) {
-            $row .= ' ' . $option . '="' . trim((string) $val) . '"';
+            $row .= ' ' . $option . '="' . $val . '"';
         }
 
         $row .= '/>';
@@ -209,7 +205,7 @@ class GisPolygon extends GisGeometry
      *
      * @return string JavaScript related to a row in the GIS dataset
      */
-    public function prepareRowAsOl($spatial, int $srid, $label, array $color, array $scale_data)
+    public function prepareRowAsOl($spatial, int $srid, string $label, array $color, array $scale_data)
     {
         $color[] = 0.8;
         $fill_style = ['color' => $color];
@@ -220,8 +216,8 @@ class GisPolygon extends GisGeometry
         $row = 'var style = new ol.style.Style({'
             . 'fill: new ol.style.Fill(' . json_encode($fill_style) . '),'
             . 'stroke: new ol.style.Stroke(' . json_encode($stroke_style) . ')';
-        if (trim($label) !== '') {
-            $text_style = ['text' => trim($label)];
+        if ($label !== '') {
+            $text_style = ['text' => $label];
             $row .= ',text: new ol.style.Text(' . json_encode($text_style) . ')';
         }
 

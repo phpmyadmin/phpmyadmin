@@ -37,19 +37,19 @@ abstract class GisGeometry
      *
      * @return string the code related to a row in the GIS dataset
      */
-    abstract public function prepareRowAsSvg($spatial, $label, array $color, array $scale_data);
+    abstract public function prepareRowAsSvg($spatial, string $label, array $color, array $scale_data);
 
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string      $spatial    GIS POLYGON object
-     * @param string|null $label      Label for the GIS POLYGON object
-     * @param int[]       $color      Color for the GIS POLYGON object
-     * @param array       $scale_data Array containing data related to scaling
+     * @param string $spatial    GIS POLYGON object
+     * @param string $label      Label for the GIS POLYGON object
+     * @param int[]  $color      Color for the GIS POLYGON object
+     * @param array  $scale_data Array containing data related to scaling
      */
     abstract public function prepareRowAsPng(
         $spatial,
-        string|null $label,
+        string $label,
         array $color,
         array $scale_data,
         ImageWrapper $image
@@ -58,17 +58,17 @@ abstract class GisGeometry
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string      $spatial    GIS data object
-     * @param string|null $label      label for the GIS data object
-     * @param int[]       $color      color for the GIS data object
-     * @param array       $scale_data array containing data related to scaling
-     * @param TCPDF       $pdf
+     * @param string $spatial    GIS data object
+     * @param string $label      label for the GIS data object
+     * @param int[]  $color      color for the GIS data object
+     * @param array  $scale_data array containing data related to scaling
+     * @param TCPDF  $pdf
      *
      * @return TCPDF the modified TCPDF instance
      */
     abstract public function prepareRowAsPdf(
         $spatial,
-        string|null $label,
+        string $label,
         array $color,
         array $scale_data,
         $pdf
@@ -89,7 +89,7 @@ abstract class GisGeometry
     abstract public function prepareRowAsOl(
         $spatial,
         int $srid,
-        $label,
+        string $label,
         array $color,
         array $scale_data
     );

@@ -8521,10 +8521,6 @@
       <code><![CDATA[$this->userSpecifiedSettings === null]]></code>
     </DocblockTypeContradiction>
     <MixedArgument>
-      <code>$label</code>
-      <code>$label</code>
-      <code>$label</code>
-      <code>$label</code>
       <code><![CDATA[$row[$this->settings['spatialColumn']]]]></code>
       <code><![CDATA[$row[$this->settings['spatialColumn']]]]></code>
       <code><![CDATA[$row[$this->settings['spatialColumn']]]]></code>
@@ -8551,7 +8547,6 @@
     </MixedArrayAccess>
     <MixedArrayOffset>
       <code><![CDATA[$row[$this->settings['labelColumn']]]]></code>
-      <code><![CDATA[$row[$this->settings['labelColumn']]]]></code>
       <code><![CDATA[$row[$this->settings['spatialColumn']]]]></code>
       <code><![CDATA[$row[$this->settings['spatialColumn']]]]></code>
       <code><![CDATA[$row[$this->settings['spatialColumn']]]]></code>
@@ -8561,7 +8556,6 @@
       <code><![CDATA[$row[$this->settings['spatialColumn']]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code>$label</code>
       <code>$pdf</code>
       <code>$plot_height</code>
       <code>$plot_width</code>
