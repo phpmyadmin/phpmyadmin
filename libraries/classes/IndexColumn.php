@@ -42,10 +42,8 @@ class IndexColumn
      * statistics stored as integers, so the value is not necessarily exact even
      * for small tables. The higher the cardinality, the greater the chance that
      * MySQL uses the index when doing joins.
-     *
-     * @var int|null
      */
-    private $cardinality = null;
+    private int|null $cardinality = null;
 
     /**
      * If the Index uses an expression and not a name
@@ -98,7 +96,7 @@ class IndexColumn
         }
 
         if (isset($params['Cardinality'])) {
-            $this->cardinality = $params['Cardinality'];
+            $this->cardinality = (int) $params['Cardinality'];
         }
 
         if (isset($params['Sub_part'])) {
