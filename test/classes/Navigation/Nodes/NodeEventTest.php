@@ -27,7 +27,6 @@ class NodeEventTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = new NodeEvent('default');
-        $this->assertIsArray($parent->links);
         $this->assertEquals(
             [
                 'text' => [

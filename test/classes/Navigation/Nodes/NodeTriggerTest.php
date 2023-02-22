@@ -27,7 +27,6 @@ class NodeTriggerTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = new NodeTrigger('default');
-        $this->assertIsArray($parent->links);
         $this->assertEquals(
             [
                 'text' => [

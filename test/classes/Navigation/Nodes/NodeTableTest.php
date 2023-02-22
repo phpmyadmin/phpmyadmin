@@ -36,7 +36,6 @@ class NodeTableTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = new NodeTable('default');
-        $this->assertIsArray($parent->links);
         $this->assertEquals(
             [
                 'text' => ['route' => '/sql', 'params' => ['pos' => 0, 'db' => null, 'table' => null]],
