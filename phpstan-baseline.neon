@@ -1057,7 +1057,7 @@ parameters:
 
 		-
 			message: "#^Negated boolean expression is always true\\.$#"
-			count: 6
+			count: 5
 			path: libraries/classes/Controllers/Database/OperationsController.php
 
 		-
@@ -5307,6 +5307,11 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Message\\:\\:\\$string \\(string\\) does not accept mixed\\.$#"
+			count: 1
+			path: libraries/classes/Message.php
+
+		-
+			message: "#^Right side of && is always true\\.$#"
 			count: 1
 			path: libraries/classes/Message.php
 

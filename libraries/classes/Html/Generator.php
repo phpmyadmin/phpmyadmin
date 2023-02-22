@@ -455,49 +455,6 @@ class Generator
     }
 
     /**
-     * Execute an EXPLAIN query and formats results similar to MySQL command line
-     * utility.
-     *
-     * @param string $sqlQuery EXPLAIN query
-     *
-     * @return string query results
-     */
-    private static function generateRowQueryOutput($sqlQuery): string
-    {
-        global $dbi;
-
-        $ret = '';
-        $result = $dbi->query($sqlQuery);
-        $devider = '+';
-        $columnNames = '|';
-        $fieldsMeta = $dbi->getFieldsMeta($result);
-        foreach ($fieldsMeta as $meta) {
-            $devider .= '---+';
-            $columnNames .= ' ' . $meta->name . ' |';
-        }
-
-        $devider .= "\n";
-
-        $ret .= $devider . $columnNames . "\n" . $devider;
-        while ($row = $result->fetchRow()) {
-            $values = '|';
-            foreach ($row as $value) {
-                if ($value === null) {
-                    $value = 'NULL';
-                }
-
-                $values .= ' ' . $value . ' |';
-            }
-
-            $ret .= $values . "\n";
-        }
-
-        $ret .= $devider;
-
-        return $ret;
-    }
-
-    /**
      * Prepare the message and the query
      * usually the message is the result of the query executed
      *
