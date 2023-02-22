@@ -821,7 +821,7 @@ class Util
             }
         } elseif ($meta->isMappedTypeBit) {
             $conditionValue = "= b'"
-                . self::printableBitValue((int) $row, (int) $meta->length) . "'";
+                . self::printableBitValue((int) $row, $meta->length) . "'";
         } else {
             $conditionValue = '= \''
                 . $GLOBALS['dbi']->escapeString((string) $row) . '\'';
