@@ -16852,11 +16852,6 @@
       <code>array</code>
       <code>array</code>
     </MixedInferredReturnType>
-    <PossiblyInvalidArgument>
-      <code>testGetSingleAndMultiSortUrls</code>
-      <code>testGetSingleAndMultiSortUrls</code>
-      <code>testGetSingleAndMultiSortUrls</code>
-    </PossiblyInvalidArgument>
   </file>
   <file src="test/classes/Engines/PbxtTest.php">
     <MixedInferredReturnType>

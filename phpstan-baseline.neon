@@ -10291,11 +10291,6 @@ parameters:
 			path: test/classes/Display/ResultsTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:dataProviderSortOrder\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Display/ResultsTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:providerSetConfigParamsForDisplayTable\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Display/ResultsTest.php

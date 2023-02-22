@@ -1807,9 +1807,9 @@ class ResultsTest extends AbstractTestCase
     }
 
     /**
-     * @return array[]
+     * @return array<string, array{string, string, int}>
      */
-    public function dataProviderSortOrder(): array
+    public static function dataProviderSortOrder(): array
     {
         return [
             'Default date' => [
