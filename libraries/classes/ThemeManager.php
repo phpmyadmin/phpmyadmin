@@ -189,7 +189,7 @@ class ThemeManager
      */
     public function setThemeCookie(): bool
     {
-        $themeId = $this->theme !== null ? (string) $this->theme->id : '';
+        $themeId = (string) $this->theme->id;
         $GLOBALS['config']->setCookie(
             $this->getThemeCookieName(),
             $themeId,
@@ -259,7 +259,7 @@ class ThemeManager
         return $themes;
     }
 
-    public static function initializeTheme(): Theme|null
+    public static function initializeTheme(): Theme
     {
         $themeManager = self::getInstance();
 

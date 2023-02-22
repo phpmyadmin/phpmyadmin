@@ -482,8 +482,7 @@ class Config
         } else {
             // no cookie - read default from settings
             if (
-                $tmanager->theme !== null
-                && $this->settings['ThemeDefault'] != $tmanager->theme->getId()
+                $this->settings['ThemeDefault'] != $tmanager->theme->getId()
                 && $tmanager->checkTheme($this->settings['ThemeDefault'])
             ) {
                 $tmanager->setActiveTheme($this->settings['ThemeDefault']);
