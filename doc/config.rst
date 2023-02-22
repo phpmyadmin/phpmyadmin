@@ -3980,4 +3980,4 @@ reCaptcha using Turnstile
     $cfg['CaptchaSiteVerifyURL'] = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
     
 .. seealso:: `Cloudflare Dashboard <https://dash.cloudflare.com/>` 
-.. seealso:: `Turnstile Developer Guide <https://developers.cloudflare.com/turnstile/get-started/server-side-validation/>` 
+.. seealso:: `Turnstile Developer Guide <https://developers.cloudflare.com/turnstile/get-started/>` 
