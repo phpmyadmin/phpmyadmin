@@ -51,8 +51,8 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Test for getDataFromRequest
      *
-     * @param array $in  Input
-     * @param array $out Expected output
+     * @param array<string, mixed> $in  Input
+     * @param array<string, mixed> $out Expected output
      *
      * @dataProvider providerGetDataFromRequest
      */
@@ -75,7 +75,7 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Data provider for testGetDataFromRequest
      *
-     * @return array
+     * @return array<array{array<string, mixed>, array<string, mixed>}>
      */
     public static function providerGetDataFromRequest(): array
     {
@@ -313,7 +313,7 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Test for getParameterRow
      *
-     * @param array $data Data for routine
+     * @param array<string, mixed> $data Data for routine
      *
      * @depends testGetParameterRowEmpty
      * @dataProvider providerGetParameterRow
@@ -329,7 +329,7 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Data provider for testGetParameterRow
      *
-     * @return array
+     * @return array<array{array<string, mixed>, int, string}>
      */
     public static function providerGetParameterRow(): array
     {
@@ -391,7 +391,7 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Test for getParameterRow
      *
-     * @param array $data Data for routine
+     * @param array<string, mixed> $data Data for routine
      *
      * @depends testGetParameterRow
      * @dataProvider providerGetParameterRowAjax
@@ -409,7 +409,7 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Data provider for testGetParameterRowAjax
      *
-     * @return array
+     * @return array<array{array<string, mixed>, string}>
      */
     public static function providerGetParameterRowAjax(): array
     {
@@ -466,7 +466,7 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Test for getEditorForm
      *
-     * @param array $data Data for routine
+     * @param array<string, mixed> $data Data for routine
      *
      * @depends testGetParameterRowAjax
      * @dataProvider providerGetEditorForm1
@@ -482,7 +482,7 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Data provider for testGetEditorForm1
      *
-     * @return array
+     * @return array<array{array<string, mixed>, string}>
      */
     public static function providerGetEditorForm1(): array
     {
@@ -583,7 +583,7 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Test for getEditorForm
      *
-     * @param array $data Data for routine
+     * @param array<string, mixed> $data Data for routine
      *
      * @depends testGetParameterRowAjax
      * @dataProvider providerGetEditorForm2
@@ -599,7 +599,7 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Data provider for testGetEditorForm2
      *
-     * @return array
+     * @return array<array{array<string, mixed>, string}>
      */
     public static function providerGetEditorForm2(): array
     {
@@ -700,7 +700,7 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Test for getEditorForm
      *
-     * @param array $data Data for routine
+     * @param array<string, mixed> $data Data for routine
      *
      * @depends testGetParameterRowAjax
      * @dataProvider providerGetEditorForm3
@@ -718,7 +718,7 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Data provider for testGetEditorForm3
      *
-     * @return array
+     * @return array<array{array<string, mixed>, string}>
      */
     public static function providerGetEditorForm3(): array
     {
@@ -815,7 +815,7 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Test for getEditorForm
      *
-     * @param array $data Data for routine
+     * @param array<string, mixed> $data Data for routine
      *
      * @depends testGetParameterRowAjax
      * @dataProvider providerGetEditorForm4
@@ -831,7 +831,7 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Data provider for testGetEditorForm4
      *
-     * @return array
+     * @return array<array{array<string, mixed>, string}>
      */
     public static function providerGetEditorForm4(): array
     {
@@ -872,7 +872,7 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Test for getExecuteForm
      *
-     * @param array $data Data for routine
+     * @param array<string, mixed> $data Data for routine
      *
      * @dataProvider providerGetExecuteForm1
      */
@@ -889,7 +889,7 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Data provider for testGetExecuteForm1
      *
-     * @return array
+     * @return array<array{array<string, mixed>, string}>
      */
     public static function providerGetExecuteForm1(): array
     {
@@ -1011,7 +1011,7 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Test for getExecuteForm
      *
-     * @param array $data Data for routine
+     * @param array<string, string|int|array<mixed>> $data Data for routine
      *
      * @dataProvider providerGetExecuteForm2
      */
@@ -1028,7 +1028,7 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Data provider for testGetExecuteForm2
      *
-     * @return array
+     * @return array<array{array<string, string|int|array<mixed>>, string}>
      */
     public static function providerGetExecuteForm2(): array
     {
@@ -1126,9 +1126,9 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Test for getQueryFromRequest
      *
-     * @param array  $request Request
-     * @param string $query   Query
-     * @param int    $num_err Error number
+     * @param array<string, string|array<string>> $request Request
+     * @param string                              $query   Query
+     * @param int                                 $num_err Error number
      *
      * @dataProvider providerGetQueryFromRequest
      */
@@ -1186,7 +1186,7 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Data provider for testGetQueryFromRequest
      *
-     * @return array
+     * @return array<array{array<string, string|array<string>>, string, int}>
      */
     public static function providerGetQueryFromRequest(): array
     {

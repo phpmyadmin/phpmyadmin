@@ -9586,11 +9586,6 @@ parameters:
 			path: test/classes/Charsets/CollationTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Charsets\\\\CollationTest\\:\\:providerTestBuildDescription\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Charsets/CollationTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Command\\\\SetVersionCommandTest\\:\\:dataProviderBadVersions\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Command/SetVersionCommandTest.php
@@ -9911,46 +9906,6 @@ parameters:
 			path: test/classes/CoreTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\CreateAddFieldTest\\:\\:providerGetColumnCreationQueryRequest\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/CreateAddFieldTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\CreateAddFieldTest\\:\\:providerGetNumberOfFieldsFromRequest\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/CreateAddFieldTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\CreateAddFieldTest\\:\\:providerGetPartitionsDefinition\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/CreateAddFieldTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\CreateAddFieldTest\\:\\:providerGetTableCreationQuery\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/CreateAddFieldTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\CreateAddFieldTest\\:\\:testGetColumnCreationQuery\\(\\) has parameter \\$request with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/CreateAddFieldTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\CreateAddFieldTest\\:\\:testGetNumberOfFieldsFromRequest\\(\\) has parameter \\$request with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/CreateAddFieldTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\CreateAddFieldTest\\:\\:testGetPartitionsDefinition\\(\\) has parameter \\$request with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/CreateAddFieldTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\CreateAddFieldTest\\:\\:testGetTableCreationQuery\\(\\) has parameter \\$request with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/CreateAddFieldTest.php
-
-		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<string\\> will always evaluate to true\\.$#"
 			count: 1
 			path: test/classes/Database/CentralColumnsTest.php
@@ -10029,111 +9984,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$haystack of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringNotContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: test/classes/Database/QbeTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\RoutinesTest\\:\\:providerGetDataFromRequest\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/RoutinesTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\RoutinesTest\\:\\:providerGetEditorForm1\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/RoutinesTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\RoutinesTest\\:\\:providerGetEditorForm2\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/RoutinesTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\RoutinesTest\\:\\:providerGetEditorForm3\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/RoutinesTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\RoutinesTest\\:\\:providerGetEditorForm4\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/RoutinesTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\RoutinesTest\\:\\:providerGetExecuteForm1\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/RoutinesTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\RoutinesTest\\:\\:providerGetExecuteForm2\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/RoutinesTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\RoutinesTest\\:\\:providerGetParameterRow\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/RoutinesTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\RoutinesTest\\:\\:providerGetParameterRowAjax\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/RoutinesTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\RoutinesTest\\:\\:providerGetQueryFromRequest\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/RoutinesTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\RoutinesTest\\:\\:testGetDataFromRequest\\(\\) has parameter \\$in with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/RoutinesTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\RoutinesTest\\:\\:testGetDataFromRequest\\(\\) has parameter \\$out with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/RoutinesTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\RoutinesTest\\:\\:testGetEditorForm1\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/RoutinesTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\RoutinesTest\\:\\:testGetEditorForm2\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/RoutinesTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\RoutinesTest\\:\\:testGetEditorForm3\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/RoutinesTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\RoutinesTest\\:\\:testGetEditorForm4\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/RoutinesTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\RoutinesTest\\:\\:testGetExecuteForm1\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/RoutinesTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\RoutinesTest\\:\\:testGetExecuteForm2\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/RoutinesTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\RoutinesTest\\:\\:testGetParameterRow\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/RoutinesTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\RoutinesTest\\:\\:testGetParameterRowAjax\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/RoutinesTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\RoutinesTest\\:\\:testGetQueryFromRequest\\(\\) has parameter \\$request with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Database/RoutinesTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\SearchTest\\:\\:searchTypes\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -10404,11 +10254,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\ErrorTest\\:\\:filePathProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/ErrorTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\FileTest\\:\\:compressedFiles\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/FileTest.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Tests\\\\FooterTest\\:\\:\\$privates type has no value type specified in iterable type array\\.$#"
@@ -11052,16 +10897,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'wrap' on mixed\\.$#"
-			count: 1
-			path: test/classes/InsertEditTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\InsertEditTest\\:\\:dataProviderConfigValueInsertRows\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/InsertEditTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\InsertEditTest\\:\\:testLoadFirstRow\\(\\) has parameter \\$rowsValue with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/InsertEditTest.php
 

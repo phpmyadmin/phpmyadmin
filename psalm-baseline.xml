@@ -15992,11 +15992,6 @@
       <code>testCacheSet</code>
     </PossiblyInvalidArgument>
   </file>
-  <file src="test/classes/Charsets/CollationTest.php">
-    <MixedInferredReturnType>
-      <code>array</code>
-    </MixedInferredReturnType>
-  </file>
   <file src="test/classes/CheckUserPrivilegesTest.php">
     <RedundantConditionGivenDocblockType>
       <code>assertTrue</code>
@@ -16412,17 +16407,6 @@
       <code>$page</code>
     </PossiblyNullArgument>
   </file>
-  <file src="test/classes/CreateAddFieldTest.php">
-    <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-    </MixedInferredReturnType>
-    <PossiblyInvalidArgument>
-      <code>testGetColumnCreationQuery</code>
-      <code>testGetColumnCreationQuery</code>
-    </PossiblyInvalidArgument>
-  </file>
   <file src="test/classes/Crypto/CryptoTest.php">
     <EmptyArrayAccess>
       <code><![CDATA[$_SESSION['URLQueryEncryptionSecretKey']]]></code>
@@ -16532,18 +16516,6 @@
       <code>$_REQUEST[$key]</code>
       <code>$value</code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-      <code>array</code>
-    </MixedInferredReturnType>
   </file>
   <file src="test/classes/Database/SearchTest.php">
     <MixedInferredReturnType>
@@ -16877,11 +16849,6 @@
       <code><![CDATA[$GLOBALS['cfg']['Export']['quick_export_onserver_overwrite']]]></code>
       <code><![CDATA[$GLOBALS['cfg']['Export']['remember_file_template']]]></code>
     </InvalidArrayOffset>
-  </file>
-  <file src="test/classes/FileTest.php">
-    <MixedInferredReturnType>
-      <code>array</code>
-    </MixedInferredReturnType>
   </file>
   <file src="test/classes/FlashMessagesTest.php">
     <InvalidScalarArgument>
@@ -17219,9 +17186,6 @@
       <code>$result</code>
       <code>$result</code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code>array</code>
-    </MixedInferredReturnType>
   </file>
   <file src="test/classes/InternalRelationsTest.php">
     <MixedAssignment>

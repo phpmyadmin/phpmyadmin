@@ -69,6 +69,7 @@ class FileTest extends AbstractTestCase
         $file->close();
     }
 
+    /** @return array<array{string, string}> */
     public static function compressedFiles(): array
     {
         return [

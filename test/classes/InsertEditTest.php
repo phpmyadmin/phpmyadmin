@@ -378,6 +378,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertFalse($result);
     }
 
+    /** @return list<array{int|string, array<bool>}> */
     public static function dataProviderConfigValueInsertRows(): array
     {
         return [
@@ -417,7 +418,8 @@ class InsertEditTest extends AbstractTestCase
     /**
      * Test for loadFirstRow
      *
-     * @param string|int $configValue
+     * @param string|int  $configValue
+     * @param array<bool> $rowsValue
      *
      * @dataProvider dataProviderConfigValueInsertRows
      */
@@ -1724,8 +1726,7 @@ class InsertEditTest extends AbstractTestCase
     /**
      * Data provider for test getSpecialCharsAndBackupFieldForInsertingMode()
      *
-     * @return array
-     * @psalm-return array<string, array{array<string, string|bool|null>, array<bool|string>}>
+     * @return array<string, array{array<string, string|bool|null>, array<bool|string>}>
      */
     public static function providerForTestGetSpecialCharsAndBackupFieldForInsertingMode(): array
     {
