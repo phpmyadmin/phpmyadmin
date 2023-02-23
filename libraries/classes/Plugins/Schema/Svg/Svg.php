@@ -184,8 +184,8 @@ class Svg extends XMLWriter
      * @param int         $y      The y attribute defines the top position of the
      *                            element (e.g. y="0" places the element 0 pixels
      *                            from the top of the browser window)
-     * @param int|string  $width  The width attribute defines the width the element
-     * @param int|string  $height The height attribute defines the height the element
+     * @param int|float   $width  The width attribute defines the width the element
+     * @param int         $height The height attribute defines the height the element
      * @param string|null $text   The text attribute defines the text the element
      * @param string      $styles The style attribute defines the style the element
      *                            styles can be defined like CSS styles
@@ -194,8 +194,8 @@ class Svg extends XMLWriter
         $name,
         $x,
         $y,
-        int|string $width = '',
-        int|string $height = '',
+        int|float $width,
+        int $height,
         string|null $text = '',
         $styles = '',
     ): void {

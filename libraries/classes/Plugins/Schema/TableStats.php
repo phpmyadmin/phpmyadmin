@@ -41,7 +41,7 @@ abstract class TableStats
 
     public int|float $y = 0;
 
-    public int $width = 0;
+    public int|float $width = 0;
 
     public int $heightCell = 0;
 

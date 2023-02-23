@@ -50,7 +50,7 @@ class SvgRelationSchema extends ExportRelationSchema
 
     private int|float $yMin = 100000;
 
-    private int $tablewidth = 0;
+    private int|float $tablewidth = 0;
 
     /**
      * Upon instantiation This starts writing the SVG XML document

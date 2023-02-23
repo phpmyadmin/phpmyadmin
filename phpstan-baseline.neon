@@ -6911,6 +6911,11 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php
 
 		-
+			message: "#^Parameter \\#3 \\$x_to of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\:\\:rect\\(\\) expects int, float\\|int given\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php
+
+		-
 			message: "#^Parameter \\#3 \\$y of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\:\\:showXY\\(\\) expects int, float\\|int given\\.$#"
 			count: 2
 			path: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php
@@ -7006,17 +7011,7 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Pdf/RelationStatsPdf.php
 
 		-
-			message: "#^Binary operation \"\\+\\=\" between int and array\\<float\\>\\|float results in an error\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$width \\(int\\) does not accept \\(float\\|int\\)\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$width \\(int\\) does not accept array\\<float\\>\\|float\\|int\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$width \\(float\\|int\\) does not accept array\\<float\\>\\|float\\|int\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
 

@@ -78,7 +78,7 @@ class PdfRelationSchema extends ExportRelationSchema
 
     private int $rightMargin = 10;
 
-    private int $tablewidth = 0;
+    private int|float $tablewidth = 0;
 
     /** @var RelationStatsPdf[] */
     protected array $relations = [];

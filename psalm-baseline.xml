@@ -12232,6 +12232,8 @@
       <code>$field</code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
+      <code><![CDATA[$this->width]]></code>
+      <code><![CDATA[$this->width]]></code>
       <code><![CDATA[$this->x]]></code>
       <code><![CDATA[$this->x]]></code>
       <code><![CDATA[$this->x + 5]]></code>
@@ -12508,10 +12510,6 @@
     </MixedOperand>
   </file>
   <file src="libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php">
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[$this->width += $this->diagram->GetStringWidth('      ')]]></code>
-      <code><![CDATA[$this->width += 5]]></code>
-    </InvalidPropertyAssignmentValue>
     <MixedArgument>
       <code>$field</code>
       <code><![CDATA[$this->diagram->customLinks['RT'][$this->tableName][$field]]]></code>
@@ -12553,6 +12551,8 @@
       <code>5</code>
     </PossiblyInvalidOperand>
     <PossiblyInvalidPropertyAssignmentValue>
+      <code><![CDATA[$this->width += $this->diagram->GetStringWidth('      ')]]></code>
+      <code><![CDATA[$this->width += 5]]></code>
       <code><![CDATA[max($this->width, $this->diagram->GetStringWidth($field))]]></code>
     </PossiblyInvalidPropertyAssignmentValue>
   </file>

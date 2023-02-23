@@ -38,17 +38,17 @@ class TableStatsPdf extends TableStats
      * @see TableStatsPdf::setWidthTable
      * @see PhpMyAdmin\Plugins\Schema\Pdf\TableStatsPdf::setHeightTable
      *
-     * @param Pdf    $diagram        The PDF diagram
-     * @param string $db             The database name
-     * @param string $tableName      The table name
-     * @param int    $fontSize       The font size
-     * @param int    $pageNumber     The current page number (from the
-     *                               $cfg['Servers'][$i]['table_coords'] table)
-     * @param int    $sameWideWidth  The max. width among tables
-     * @param bool   $showKeys       Whether to display keys or not
-     * @param bool   $tableDimension Whether to display table position or not
-     * @param bool   $offline        Whether the coordinates are sent
-     *                               from the browser
+     * @param Pdf       $diagram        The PDF diagram
+     * @param string    $db             The database name
+     * @param string    $tableName      The table name
+     * @param int       $fontSize       The font size
+     * @param int       $pageNumber     The current page number (from the
+     *                                  $cfg['Servers'][$i]['table_coords'] table)
+     * @param int|float $sameWideWidth  The max. width among tables
+     * @param bool      $showKeys       Whether to display keys or not
+     * @param bool      $tableDimension Whether to display table position or not
+     * @param bool      $offline        Whether the coordinates are sent
+     *                                  from the browser
      */
     public function __construct(
         $diagram,
