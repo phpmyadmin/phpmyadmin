@@ -157,9 +157,7 @@ class Partition extends SubPartition
                         continue;
                     }
 
-                    $parentPartition = $partition;
-                    $partition = new SubPartition($row);
-                    $parentPartition->addSubPartition($partition);
+                    $partition->addSubPartition(new SubPartition($row));
                 }
 
                 return array_values($partitionMap);
