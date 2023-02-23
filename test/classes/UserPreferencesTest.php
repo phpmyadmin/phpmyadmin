@@ -197,7 +197,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         $dbi->expects($this->once())
             ->method('fetchValue')
             ->with($query1, 0, Connection::TYPE_CONTROL)
-            ->will($this->returnValue(true));
+            ->will($this->returnValue('1'));
 
         $dbi->expects($this->once())
             ->method('tryQuery')

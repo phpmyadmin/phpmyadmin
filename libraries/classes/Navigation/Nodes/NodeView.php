@@ -39,7 +39,7 @@ class NodeView extends NodeDatabaseChild
      *
      * @return string type of the item
      */
-    protected function getItemType()
+    protected function getItemType(): string
     {
         return 'view';
     }

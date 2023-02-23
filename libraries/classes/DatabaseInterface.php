@@ -1002,7 +1002,7 @@ class DatabaseInterface implements DbalInterface
         string $var,
         int $type = self::GETVAR_SESSION,
         int $connectionType = Connection::TYPE_USER
-    ) {
+    ): false|string|null {
         $modifier = match ($type) {
             self::GETVAR_SESSION => ' SESSION',
             self::GETVAR_GLOBAL => ' GLOBAL',
@@ -1162,7 +1162,7 @@ class DatabaseInterface implements DbalInterface
         string $query,
         $field = 0,
         int $connectionType = Connection::TYPE_USER
-    ) {
+    ): string|false|null {
         $result = $this->tryQuery($query, $connectionType, self::QUERY_BUFFERED, false);
         if ($result === false) {
             return false;
@@ -1204,10 +1204,8 @@ class DatabaseInterface implements DbalInterface
      *
      * @param array|string    $row   Row to process
      * @param string|int|null $value Which column to return
-     *
-     * @return mixed
      */
-    private function fetchValueOrValueByIndex(array|string $row, $value)
+    private function fetchValueOrValueByIndex(array|string $row, $value): mixed
     {
         return $value === null ? $row : $row[$value];
     }

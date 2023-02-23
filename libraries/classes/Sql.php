@@ -117,7 +117,7 @@ class Sql
      *
      * @return string limit clause appended SQL query
      */
-    private function getSqlWithLimitClause(StatementInfo $statementInfo)
+    private function getSqlWithLimitClause(StatementInfo $statementInfo): string
     {
         if ($statementInfo->statement === null || $statementInfo->parser === null) {
             return '';
@@ -210,7 +210,7 @@ class Sql
      *
      * @return string html for the dropdown
      */
-    public function getHtmlForRelationalColumnDropdown($db, $table, $column, $currentValue)
+    public function getHtmlForRelationalColumnDropdown($db, $table, $column, $currentValue): string
     {
         $foreigners = $this->relation->getForeigners($db, $table, $column);
 
@@ -413,7 +413,7 @@ class Sql
      *
      * @return mixed the number of rows if "retain" param is true, otherwise true
      */
-    public function findRealEndOfRows($db, $table)
+    public function findRealEndOfRows($db, $table): mixed
     {
         $unlimNumRows = $this->dbi->getTable($db, $table)->countRecords(true);
         $_SESSION['tmpval']['pos'] = $this->getStartPosToDisplayRow($unlimNumRows);
@@ -1709,7 +1709,7 @@ class Sql
      *
      * @return int Start position to display the line
      */
-    private function getStartPosToDisplayRow($numberOfLine)
+    private function getStartPosToDisplayRow($numberOfLine): int
     {
         $maxRows = $_SESSION['tmpval']['max_rows'];
 
@@ -1726,7 +1726,7 @@ class Sql
      *
      * @return int Number of pos to display last page
      */
-    public function calculatePosForLastPage($db, $table, $pos)
+    public function calculatePosForLastPage($db, $table, $pos): int
     {
         if ($pos === null) {
             $pos = $_SESSION['tmpval']['pos'];

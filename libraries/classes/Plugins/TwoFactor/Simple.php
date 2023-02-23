@@ -34,27 +34,23 @@ class Simple extends TwoFactorPlugin
      *
      * @return string HTML code
      */
-    public function render()
+    public function render(): string
     {
         return $this->template->render('login/twofactor/simple');
     }
 
     /**
      * Get user visible name
-     *
-     * @return string
      */
-    public static function getName()
+    public static function getName(): string
     {
         return __('Simple two-factor authentication');
     }
 
     /**
      * Get user visible description
-     *
-     * @return string
      */
-    public static function getDescription()
+    public static function getDescription(): string
     {
         return __('For testing purposes only!');
     }

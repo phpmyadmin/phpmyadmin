@@ -29,7 +29,7 @@ class UserPassword
      *
      * @return array   error value and message
      */
-    public function setChangePasswordMsg(string $pmaPw, string $pmaPw2, bool $skipPassword)
+    public function setChangePasswordMsg(string $pmaPw, string $pmaPw2, bool $skipPassword): array
     {
         $error = false;
         $message = Message::success(__('The profile has been updated.'));

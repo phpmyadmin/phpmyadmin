@@ -78,7 +78,7 @@ class MultiTableQuery
      *
      * @return string Multi-Table query page HTML
      */
-    public function getFormHtml()
+    public function getFormHtml(): string
     {
         $tables = [];
         foreach ($this->tables as $table) {

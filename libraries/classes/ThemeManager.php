@@ -161,7 +161,7 @@ class ThemeManager
      *
      * @return string cookie name
      */
-    public function getThemeCookieName()
+    public function getThemeCookieName(): string
     {
         // Allow different theme per server
         if (isset($GLOBALS['server']) && $this->perServer) {

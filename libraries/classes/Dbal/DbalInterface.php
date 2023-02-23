@@ -42,15 +42,13 @@ interface DbalInterface
      * @param int    $options           query options
      * @param bool   $cacheAffectedRows whether to cache affected row
      * @psalm-param ConnectionType $connectionType
-     *
-     * @return mixed
      */
     public function tryQuery(
         string $query,
         int $connectionType = Connection::TYPE_USER,
         int $options = 0,
         bool $cacheAffectedRows = true
-    );
+    ): mixed;
 
     /**
      * Send multiple SQL queries to the database server and execute the first one
@@ -262,7 +260,7 @@ interface DbalInterface
         string $var,
         int $type = DatabaseInterface::GETVAR_SESSION,
         int $connectionType = Connection::TYPE_USER
-    );
+    ): false|string|null;
 
     /**
      * Sets new value for a variable if it is different from the current value
@@ -321,7 +319,7 @@ interface DbalInterface
         string $query,
         int|string $field = 0,
         int $connectionType = Connection::TYPE_USER
-    );
+    ): string|false|null;
 
     /**
      * Returns only the first row from the result or null if result is empty.
@@ -491,7 +489,7 @@ interface DbalInterface
      *
      * @return mixed false when empty results / result set when not empty
      */
-    public function storeResult(int $connectionType = Connection::TYPE_USER);
+    public function storeResult(int $connectionType = Connection::TYPE_USER): mixed;
 
     /**
      * Returns a string representing the type of connection used
@@ -500,7 +498,7 @@ interface DbalInterface
      *
      * @return string|bool type of connection used
      */
-    public function getHostInfo(int $connectionType = Connection::TYPE_USER);
+    public function getHostInfo(int $connectionType = Connection::TYPE_USER): string|bool;
 
     /**
      * Returns the version of the MySQL protocol used
@@ -509,7 +507,7 @@ interface DbalInterface
      *
      * @return int|bool version of the MySQL protocol used
      */
-    public function getProtoInfo(int $connectionType = Connection::TYPE_USER);
+    public function getProtoInfo(int $connectionType = Connection::TYPE_USER): int|bool;
 
     /**
      * returns a string that represents the client library version
@@ -531,20 +529,17 @@ interface DbalInterface
      *
      * @param string $query query to run
      *
-     * @return string|int
      * @psalm-return int|numeric-string
      */
-    public function queryAndGetNumRows(string $query);
+    public function queryAndGetNumRows(string $query): string|int;
 
     /**
      * returns last inserted auto_increment id for given $link
      * or $GLOBALS['userlink']
      *
      * @psalm-param ConnectionType $connectionType
-     *
-     * @return int
      */
-    public function insertId(int $connectionType = Connection::TYPE_USER);
+    public function insertId(int $connectionType = Connection::TYPE_USER): int;
 
     /**
      * returns the number of rows affected by last query
@@ -552,10 +547,9 @@ interface DbalInterface
      * @param bool $getFromCache whether to retrieve from cache
      * @psalm-param ConnectionType $connectionType
      *
-     * @return int|string
      * @psalm-return int|numeric-string
      */
-    public function affectedRows(int $connectionType = Connection::TYPE_USER, bool $getFromCache = true);
+    public function affectedRows(int $connectionType = Connection::TYPE_USER, bool $getFromCache = true): int|string;
 
     /**
      * returns metainfo for fields in $result

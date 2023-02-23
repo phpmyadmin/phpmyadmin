@@ -105,7 +105,7 @@ final class Options
         int|string $numTables,
         int|string $unlimNumRows,
         array $exportList
-    ) {
+    ): array {
         $exportTemplatesFeature = $this->relation->getRelationParameters()->exportTemplatesFeature;
 
         $templates = [];

@@ -41,7 +41,7 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
      *
      * @return string IP address
      */
-    public function applyTransformation($buffer, array $options = [], FieldMetadata|null $meta = null)
+    public function applyTransformation($buffer, array $options = [], FieldMetadata|null $meta = null): string
     {
         return FormatConverter::ipToBinary($buffer);
     }
@@ -72,7 +72,7 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
         $tabindex,
         $tabindex_for_value,
         $idindex
-    ) {
+    ): string {
         $html = '';
         $val = '';
         if (! empty($value)) {

@@ -100,7 +100,7 @@ class RecentFavoriteTable
      *
      * @return array
      */
-    public function getTables()
+    public function getTables(): array
     {
         return $this->tables;
     }
@@ -133,7 +133,7 @@ class RecentFavoriteTable
      *
      * @return true|Message
      */
-    public function saveToDb()
+    public function saveToDb(): bool|Message
     {
         $username = $GLOBALS['cfg']['Server']['user'];
         $sql_query = ' REPLACE INTO ' . $this->getPmaTable() . ' (`username`, `tables`)'
@@ -257,7 +257,7 @@ class RecentFavoriteTable
      *
      * @return true|Message True if success, Message if not
      */
-    public function add($db, $table)
+    public function add($db, $table): bool|Message
     {
         // If table does not exist, do not add._getPmaTable()
         if (! $GLOBALS['dbi']->getColumns($db, $table)) {
@@ -290,7 +290,7 @@ class RecentFavoriteTable
      * @return bool|Message True if invalid and removed, False if not invalid,
      * Message if error while removing
      */
-    public function removeIfInvalid($db, $table)
+    public function removeIfInvalid($db, $table): bool|Message
     {
         foreach ($this->tables as $tbl) {
             if ($tbl['db'] != $db || $tbl['table'] != $table) {
@@ -314,7 +314,7 @@ class RecentFavoriteTable
      *
      * @return true|Message True if success, Message if not
      */
-    public function remove($db, $table)
+    public function remove($db, $table): bool|Message
     {
         foreach ($this->tables as $key => $value) {
             if ($value['db'] != $db || $value['table'] != $table) {

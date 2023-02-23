@@ -44,7 +44,7 @@ class Partition extends SubPartition
      *
      * @return string partition description
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
@@ -72,7 +72,7 @@ class Partition extends SubPartition
      *
      * @return int number of rows
      */
-    public function getRows()
+    public function getRows(): int
     {
         if (empty($this->subPartitions)) {
             return $this->rows;
@@ -91,7 +91,7 @@ class Partition extends SubPartition
      *
      * @return int data length
      */
-    public function getDataLength()
+    public function getDataLength(): int
     {
         if (empty($this->subPartitions)) {
             return $this->dataLength;
@@ -110,7 +110,7 @@ class Partition extends SubPartition
      *
      * @return int index length
      */
-    public function getIndexLength()
+    public function getIndexLength(): int
     {
         if (empty($this->subPartitions)) {
             return $this->indexLength;
@@ -129,7 +129,7 @@ class Partition extends SubPartition
      *
      * @return SubPartition[]
      */
-    public function getSubPartitions()
+    public function getSubPartitions(): array
     {
         return $this->subPartitions;
     }
@@ -142,7 +142,7 @@ class Partition extends SubPartition
      *
      * @return Partition[]
      */
-    public static function getPartitions($db, $table)
+    public static function getPartitions($db, $table): array
     {
         if (self::havePartitioning()) {
             $result = $GLOBALS['dbi']->fetchResult(
@@ -187,7 +187,7 @@ class Partition extends SubPartition
      *
      * @return array   of partition names
      */
-    public static function getPartitionNames($db, $table)
+    public static function getPartitionNames($db, $table): array
     {
         if (self::havePartitioning()) {
             return $GLOBALS['dbi']->fetchResult(
@@ -208,7 +208,7 @@ class Partition extends SubPartition
      *
      * @return string|null partition method
      */
-    public static function getPartitionMethod($db, $table)
+    public static function getPartitionMethod($db, $table): string|null
     {
         if (self::havePartitioning()) {
             $partition_method = $GLOBALS['dbi']->fetchResult(

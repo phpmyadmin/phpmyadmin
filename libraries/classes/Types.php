@@ -42,7 +42,7 @@ class Types
      *
      * @return string[]
      */
-    public function getUnaryOperators()
+    public function getUnaryOperators(): array
     {
         return [
             'IS NULL',
@@ -67,7 +67,7 @@ class Types
      *
      * @return string[]
      */
-    public function getNullOperators()
+    public function getNullOperators(): array
     {
         return [
             'IS NULL',
@@ -80,7 +80,7 @@ class Types
      *
      * @return string[]
      */
-    public function getEnumOperators()
+    public function getEnumOperators(): array
     {
         return [
             '=',
@@ -93,7 +93,7 @@ class Types
      *
      * @return string[]
      */
-    public function getTextOperators()
+    public function getTextOperators(): array
     {
         return [
             'LIKE',
@@ -119,7 +119,7 @@ class Types
      *
      * @return string[]
      */
-    public function getNumberOperators()
+    public function getNumberOperators(): array
     {
         return [
             '=',
@@ -144,7 +144,7 @@ class Types
      *
      * @return string[]
      */
-    public function getUUIDOperators()
+    public function getUUIDOperators(): array
     {
         return [
             '=',
@@ -166,7 +166,7 @@ class Types
      *
      * @return string[]
      */
-    public function getTypeOperators($type, $null)
+    public function getTypeOperators($type, $null): array
     {
         $ret = [];
         $class = $this->getTypeClass($type);
@@ -197,7 +197,7 @@ class Types
      *
      * @return string Generated Html
      */
-    public function getTypeOperatorsHtml($type, $null, $selectedOperator = null)
+    public function getTypeOperatorsHtml($type, $null, $selectedOperator = null): string
     {
         $html = '';
 
@@ -427,7 +427,7 @@ class Types
      *
      * @return string[]
      */
-    public function getFunctionsClass($class)
+    public function getFunctionsClass($class): array
     {
         $isMariaDB = $this->dbi->isMariaDB();
         $serverVersion = $this->dbi->getVersion();
@@ -615,7 +615,7 @@ class Types
      *
      * @return string[]
      */
-    public function getFunctions($type)
+    public function getFunctions($type): array
     {
         $class = $this->getTypeClass($type);
 
@@ -627,7 +627,7 @@ class Types
      *
      * @return string[]
      */
-    public function getAllFunctions()
+    public function getAllFunctions(): array
     {
         $ret = array_merge(
             $this->getFunctionsClass('CHAR'),
@@ -772,7 +772,7 @@ class Types
      *
      * @return string[] integer types
      */
-    public function getIntegerTypes()
+    public function getIntegerTypes(): array
     {
         return [
             'tinyint',
@@ -806,7 +806,7 @@ class Types
      *
      * @return string[] min and max values
      */
-    public function getIntegerRange($type, $signed = true)
+    public function getIntegerRange($type, $signed = true): array
     {
         $min_max_data = [
             'unsigned' => [

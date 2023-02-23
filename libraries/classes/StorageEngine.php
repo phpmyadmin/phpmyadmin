@@ -92,7 +92,7 @@ class StorageEngine
      *
      * @staticvar array $storage_engines storage engines
      */
-    public static function getStorageEngines()
+    public static function getStorageEngines(): array
     {
         static $storage_engines = null;
 
@@ -244,7 +244,7 @@ class StorageEngine
      *
      * @return StorageEngine The engine plugin
      */
-    public static function getEngine($engine)
+    public static function getEngine($engine): StorageEngine
     {
         return match (mb_strtolower($engine)) {
             'bdb' => new Bdb($engine),
@@ -285,7 +285,7 @@ class StorageEngine
      * @return string The table that was generated based on the retrieved
      *                information
      */
-    public function getHtmlVariables()
+    public function getHtmlVariables(): string
     {
         $ret = '';
 
@@ -355,7 +355,7 @@ class StorageEngine
      *
      * @return array array with detailed info about specific engine server variables
      */
-    public function getVariablesStatus()
+    public function getVariablesStatus(): array
     {
         $variables = $this->getVariables();
         $like = $this->getVariablesLikePattern();
@@ -398,7 +398,7 @@ class StorageEngine
      *
      * @return string The title
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -408,7 +408,7 @@ class StorageEngine
      *
      * @return string The comment
      */
-    public function getComment()
+    public function getComment(): string
     {
         return $this->comment;
     }
@@ -418,7 +418,7 @@ class StorageEngine
      *
      * @return string The localized message.
      */
-    public function getSupportInformationMessage()
+    public function getSupportInformationMessage(): string
     {
         $message = match ($this->support) {
             self::SUPPORT_DEFAULT => __('%s is the default storage engine on this MySQL server.'),
@@ -437,7 +437,7 @@ class StorageEngine
      *
      * @return array The list of variables.
      */
-    public function getVariables()
+    public function getVariables(): array
     {
         return [];
     }
@@ -448,7 +448,7 @@ class StorageEngine
      *
      * @return string MySQL help page filename
      */
-    public function getMysqlHelpPage()
+    public function getMysqlHelpPage(): string
     {
         return $this->engine . '-storage-engine';
     }
@@ -459,7 +459,7 @@ class StorageEngine
      *
      * @return string SQL query LIKE pattern
      */
-    public function getVariablesLikePattern()
+    public function getVariablesLikePattern(): string
     {
         return '';
     }
@@ -481,7 +481,7 @@ class StorageEngine
      *
      * @return string html output
      */
-    public function getPage($id)
+    public function getPage($id): string
     {
         if (! array_key_exists($id, $this->getInfoPages())) {
             return '';

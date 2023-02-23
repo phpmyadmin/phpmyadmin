@@ -19,7 +19,7 @@ class Memory extends StorageEngine
      *
      * @return array   variable names
      */
-    public function getVariables()
+    public function getVariables(): array
     {
         return [
             'max_heap_table_size' => ['type' => StorageEngine::DETAILS_TYPE_SIZE],

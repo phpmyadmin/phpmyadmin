@@ -83,7 +83,7 @@ class VersionInformation
      *
      * @return mixed false on failure, integer on success
      */
-    public function versionToInt($version)
+    public function versionToInt($version): mixed
     {
         $parts = explode('-', $version);
         if (count($parts) > 1) {
@@ -150,7 +150,7 @@ class VersionInformation
      *
      * @return array|null containing the version and date of latest compatible version
      */
-    public function getLatestCompatibleVersion(array $releases)
+    public function getLatestCompatibleVersion(array $releases): array|null
     {
         // Maintains the latest compatible version
         $latestRelease = null;
@@ -200,7 +200,7 @@ class VersionInformation
      *
      * @return bool whether the condition is met
      */
-    public function evaluateVersionCondition(string $type, string $condition)
+    public function evaluateVersionCondition(string $type, string $condition): bool
     {
         $operator = null;
         $version = null;
@@ -240,7 +240,7 @@ class VersionInformation
      *
      * @return string PHP version
      */
-    protected function getPHPVersion()
+    protected function getPHPVersion(): string
     {
         return PHP_VERSION;
     }
@@ -250,7 +250,7 @@ class VersionInformation
      *
      * @return string|null MySQL version
      */
-    protected function getMySQLVersion()
+    protected function getMySQLVersion(): string|null
     {
         if (isset($GLOBALS['dbi'])) {
             return $GLOBALS['dbi']->getVersionString();

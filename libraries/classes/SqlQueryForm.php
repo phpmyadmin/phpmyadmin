@@ -42,8 +42,6 @@ class SqlQueryForm
      *                                 false if not inside querywindow
      * @param string      $delimiter   delimiter
      *
-     * @return string
-     *
      * @usedby  /server/sql
      * @usedby  /database/sql
      * @usedby  /table/sql
@@ -56,7 +54,7 @@ class SqlQueryForm
         bool|string $query = true,
         bool|string $display_tab = false,
         $delimiter = ';'
-    ) {
+    ): string {
         if (! $display_tab) {
             $display_tab = 'full';
         }
@@ -134,7 +132,7 @@ class SqlQueryForm
      *
      * @return array ($legend, $query, $columns_list)
      */
-    public function init($query)
+    public function init($query): array
     {
         $columns_list = [];
         if (strlen($GLOBALS['db']) === 0) {

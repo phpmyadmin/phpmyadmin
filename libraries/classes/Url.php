@@ -46,7 +46,7 @@ class Url
         $table = '',
         $indent = 0,
         $skip = []
-    ) {
+    ): string {
         $GLOBALS['config'] ??= null;
 
         if (is_array($db)) {
@@ -118,7 +118,7 @@ class Url
      *
      * @return string form fields of type hidden
      */
-    public static function getHiddenFields(array $values, $pre = '', $is_token = false)
+    public static function getHiddenFields(array $values, $pre = '', $is_token = false): string
     {
         $fields = '';
 
@@ -175,7 +175,7 @@ class Url
      *
      * @return string   string with URL parameters
      */
-    public static function getCommon(array $params = [], $divider = '?', $encrypt = true)
+    public static function getCommon(array $params = [], $divider = '?', $encrypt = true): string
     {
         return self::getCommonRaw($params, $divider, $encrypt);
     }
@@ -209,7 +209,7 @@ class Url
      *
      * @return string   string with URL parameters
      */
-    public static function getCommonRaw(array $params = [], $divider = '?', $encrypt = true)
+    public static function getCommonRaw(array $params = [], $divider = '?', $encrypt = true): string
     {
         $GLOBALS['config'] ??= null;
 
@@ -242,10 +242,8 @@ class Url
     /**
      * @param array<int|string, mixed> $params
      * @param bool                     $encrypt whether to encrypt URL params
-     *
-     * @return string
      */
-    public static function buildHttpQuery($params, $encrypt = true)
+    public static function buildHttpQuery($params, $encrypt = true): string
     {
         $GLOBALS['config'] ??= null;
 

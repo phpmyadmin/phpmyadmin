@@ -24,10 +24,8 @@ class SysInfo
      * Returns OS type used for sysinfo class
      *
      * @param string $php_os PHP_OS constant
-     *
-     * @return string
      */
-    public static function getOs($php_os = PHP_OS)
+    public static function getOs($php_os = PHP_OS): string
     {
         // look for common UNIX-like systems
         $unix_like = [
@@ -46,7 +44,7 @@ class SysInfo
      *
      * @return Base sysinfo class
      */
-    public static function get()
+    public static function get(): Base
     {
         $php_os = self::getOs();
 

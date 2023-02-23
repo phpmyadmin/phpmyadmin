@@ -271,7 +271,7 @@ class Triggers
      *
      * @return array    Data necessary to create the editor.
      */
-    public function getDataFromRequest()
+    public function getDataFromRequest(): array
     {
         $retval = [];
         $indices = [
@@ -359,7 +359,7 @@ class Triggers
      *
      * @return string  The CREATE TRIGGER query.
      */
-    public function getQueryFromRequest()
+    public function getQueryFromRequest(): string
     {
         $GLOBALS['errors'] ??= null;
 
@@ -416,7 +416,7 @@ class Triggers
      *
      * @return array
      */
-    private function checkResult($createStatement, array $errors)
+    private function checkResult($createStatement, array $errors): array
     {
         // OMG, this is really bad! We dropped the query,
         // failed to create a new one

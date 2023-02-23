@@ -320,7 +320,7 @@ class ExportTexytextTest extends AbstractTestCase
         $this->object->expects($this->exactly(1))
             ->method('formatOneColumnDefinition')
             ->with(['Field' => 'fname', 'Comment' => 'comm'], ['cname'])
-            ->will($this->returnValue(1));
+            ->will($this->returnValue('1'));
 
         $_SESSION['relation'] = [];
         $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([

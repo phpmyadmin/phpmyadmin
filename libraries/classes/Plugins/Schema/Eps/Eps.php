@@ -110,7 +110,7 @@ class Eps
      *
      * @return string return the font name e.g Arial
      */
-    public function getFont()
+    public function getFont(): string
     {
         return $this->font;
     }

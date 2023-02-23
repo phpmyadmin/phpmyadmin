@@ -33,7 +33,7 @@ EOT;
      *
      * @return string  OASIS OpenDocument data
      */
-    public static function create($mime, $data)
+    public static function create($mime, $data): string
     {
         // Use the same date method as other PHP libs
         // https://github.com/PHPOffice/PhpSpreadsheet/blob/1.22.0/src/PhpSpreadsheet/Writer/Ods/Meta.php#L49
@@ -173,6 +173,13 @@ EOT;
 
         $zipExtension = new ZipExtension();
 
-        return $zipExtension->createFile($data, $name);
+        $fileContents = $zipExtension->createFile($data, $name);
+
+        if ($fileContents === false) {
+            // TODO: this needs to gracefully fail instead of returning false or empty string
+            return '';
+        }
+
+        return $fileContents;
     }
 }

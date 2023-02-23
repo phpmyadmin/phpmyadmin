@@ -191,7 +191,7 @@ class CentralColumnsController extends AbstractController
      *
      * @return true|Message
      */
-    public function editSave(array $params)
+    public function editSave(array $params): bool|Message
     {
         $columnDefault = $params['col_default'];
         if ($columnDefault === 'NONE' && $params['col_default_sel'] !== 'USER_DEFINED') {
@@ -217,7 +217,7 @@ class CentralColumnsController extends AbstractController
      *
      * @return true|Message
      */
-    public function addNewColumn(array $params)
+    public function addNewColumn(array $params): bool|Message
     {
         $columnDefault = $params['col_default'];
         if ($columnDefault === 'NONE' && $params['col_default_sel'] !== 'USER_DEFINED') {
@@ -243,7 +243,7 @@ class CentralColumnsController extends AbstractController
      *
      * @return true|Message
      */
-    public function addColumn(array $params)
+    public function addColumn(array $params): bool|Message
     {
         return $this->centralColumns->syncUniqueColumns(
             [$params['column-select']],
@@ -267,7 +267,7 @@ class CentralColumnsController extends AbstractController
      *
      * @return true|Message
      */
-    public function updateMultipleColumn(array $params)
+    public function updateMultipleColumn(array $params): bool|Message
     {
         return $this->centralColumns->updateMultipleColumn($params);
     }
@@ -277,7 +277,7 @@ class CentralColumnsController extends AbstractController
      *
      * @return true|Message
      */
-    public function deleteSave(array $params)
+    public function deleteSave(array $params): bool|Message
     {
         $name = [];
         parse_str($params['col_name'], $name);

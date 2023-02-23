@@ -1018,7 +1018,7 @@ class UtilTest extends AbstractTestCase
     {
         $this->assertEquals(
             $d,
-            (string) Util::formatNumber(
+            Util::formatNumber(
                 $a,
                 $b,
                 $c,

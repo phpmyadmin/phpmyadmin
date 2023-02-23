@@ -42,7 +42,7 @@ class Designer
      *
      * @return string html content
      */
-    public function getHtmlForEditOrDeletePages($db, $operation)
+    public function getHtmlForEditOrDeletePages($db, $operation): string
     {
         $relationParameters = $this->relation->getRelationParameters();
 
@@ -61,7 +61,7 @@ class Designer
      *
      * @return string html content
      */
-    public function getHtmlForPageSaveAs($db)
+    public function getHtmlForPageSaveAs($db): string
     {
         $relationParameters = $this->relation->getRelationParameters();
 
@@ -79,7 +79,7 @@ class Designer
      *
      * @return array array of schema page id and names
      */
-    private function getPageIdsAndNames($db)
+    private function getPageIdsAndNames($db): array
     {
         $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
         if ($pdfFeature === null) {
@@ -110,10 +110,8 @@ class Designer
      *
      * @param string $db   database name
      * @param int    $page the page to be exported
-     *
-     * @return string
      */
-    public function getHtmlForSchemaExport($db, $page)
+    public function getHtmlForSchemaExport($db, $page): string
     {
         $export_list = Plugins::getSchema();
 
@@ -143,7 +141,7 @@ class Designer
      *
      * @return array stored values
      */
-    private function getSideMenuParamsArray()
+    private function getSideMenuParamsArray(): array
     {
         $params = [];
 
@@ -235,7 +233,7 @@ class Designer
         array $tab_column,
         array $tables_all_keys,
         array $tables_pk_or_unique_keys
-    ) {
+    ): string {
         $GLOBALS['text_dir'] ??= null;
 
         $columns_type = [];

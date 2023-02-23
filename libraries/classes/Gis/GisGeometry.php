@@ -37,7 +37,7 @@ abstract class GisGeometry
      *
      * @return string the code related to a row in the GIS dataset
      */
-    abstract public function prepareRowAsSvg($spatial, string $label, array $color, array $scale_data);
+    abstract public function prepareRowAsSvg($spatial, string $label, array $color, array $scale_data): string;
 
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
@@ -72,7 +72,7 @@ abstract class GisGeometry
         array $color,
         array $scale_data,
         $pdf
-    );
+    ): TCPDF;
 
     /**
      * Prepares the JavaScript related to a row in the GIS dataset
@@ -92,7 +92,7 @@ abstract class GisGeometry
         string $label,
         array $color,
         array $scale_data
-    );
+    ): string;
 
     /**
      * Scales each row.
@@ -112,7 +112,7 @@ abstract class GisGeometry
      *
      * @return string WKT with the set of parameters passed by the GIS editor
      */
-    abstract public function generateWkt(array $gis_data, $index, $empty = '');
+    abstract public function generateWkt(array $gis_data, $index, $empty = ''): string;
 
     /**
      * Returns OpenLayers.Bounds object that correspond to the bounds of GIS data.
@@ -123,7 +123,7 @@ abstract class GisGeometry
      * @return string OpenLayers.Bounds object that
      *                correspond to the bounds of GIS data
      */
-    protected function getBoundsForOl(int $srid, array $scale_data)
+    protected function getBoundsForOl(int $srid, array $scale_data): string
     {
         return sprintf(
             'var minLoc = [%s, %s];'
@@ -174,7 +174,7 @@ abstract class GisGeometry
      *
      * @return array parameters for the GIS editor from the value of the GIS column
      */
-    public function generateParams($value)
+    public function generateParams($value): array
     {
         $geom_types = '(POINT|MULTIPOINT|LINESTRING|MULTILINESTRING|POLYGON|MULTIPOLYGON|GEOMETRYCOLLECTION)';
         $srid = 0;
@@ -251,7 +251,7 @@ abstract class GisGeometry
      *
      * @return string JavaScript for adding an array of polygons to OpenLayers
      */
-    protected function getPolygonArrayForOpenLayers(array $polygons, int $srid)
+    protected function getPolygonArrayForOpenLayers(array $polygons, int $srid): string
     {
         $ol_array = 'var polygonArray = [];';
         foreach ($polygons as $polygon) {
@@ -271,7 +271,7 @@ abstract class GisGeometry
      *
      * @return string JavaScript for adding points for OpenLayers polygon
      */
-    protected function getPolygonForOpenLayers(array $polygon, int $srid)
+    protected function getPolygonForOpenLayers(array $polygon, int $srid): string
     {
         return $this->getLineArrayForOpenLayers($polygon, $srid, false)
         . 'var polygon = new ol.geom.Polygon(arr);';
@@ -292,7 +292,7 @@ abstract class GisGeometry
         array $lines,
         int $srid,
         $is_line_string = true
-    ) {
+    ): string {
         $ol_array = 'var arr = [];';
         foreach ($lines as $line) {
             $ol_array .= 'var lineArr = [];';
@@ -319,7 +319,7 @@ abstract class GisGeometry
         array $points_arr,
         int $srid,
         $is_line_string = true
-    ) {
+    ): string {
         return 'new ol.geom.'
         . ($is_line_string ? 'LineString' : 'LinearRing') . '('
         . $this->getPointsArrayForOpenLayers($points_arr, $srid)
@@ -334,7 +334,7 @@ abstract class GisGeometry
      *
      * @return string JavaScript for adding an array of points to OpenLayers
      */
-    protected function getPointsArrayForOpenLayers(array $points_arr, int $srid)
+    protected function getPointsArrayForOpenLayers(array $points_arr, int $srid): string
     {
         $ol_array = 'new Array(';
         foreach ($points_arr as $point) {
@@ -354,7 +354,7 @@ abstract class GisGeometry
      *
      * @return string JavaScript for adding points to OpenLayers
      */
-    protected function getPointForOpenLayers(array $point, int $srid)
+    protected function getPointForOpenLayers(array $point, int $srid): string
     {
         return '(new ol.geom.Point([' . $point[0] . ',' . $point[1] . '])'
         . '.transform(ol.proj.get("EPSG:' . $srid . '")'

@@ -43,7 +43,7 @@ class Cache
      *
      * @return mixed The cached value
      */
-    public static function get(string $cacheKey, $defaultValue = null)
+    public static function get(string $cacheKey, $defaultValue = null): mixed
     {
         return self::$cacheData[$cacheKey] ?? $defaultValue;
     }

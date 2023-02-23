@@ -67,7 +67,7 @@ class Normalization
         $table,
         $colTypeCategory = 'all',
         $listType = 'dropdown'
-    ) {
+    ): string {
         $columnTypeList = [];
         if ($colTypeCategory !== 'all') {
             $types = $this->dbi->types->getColumns();
@@ -122,7 +122,7 @@ class Normalization
         $db,
         $table,
         array $columnMeta = []
-    ) {
+    ): string {
         $relationParameters = $this->relation->getRelationParameters();
         $contentCells = [];
         $availableMime = [];
@@ -201,7 +201,7 @@ class Normalization
      *
      * @return string HTML for step 1.1
      */
-    public function getHtmlFor1NFStep1($db, $table, $normalizedTo)
+    public function getHtmlFor1NFStep1($db, $table, $normalizedTo): string
     {
         $step = 1;
         $stepTxt = __('Make all columns atomic');
@@ -252,7 +252,7 @@ class Normalization
      *
      * @return array{legendText: string, headText: string, subText: string, hasPrimaryKey: string, extra: string}
      */
-    public function getHtmlContentsFor1NFStep2($db, $table)
+    public function getHtmlContentsFor1NFStep2($db, $table): array
     {
         $step = 2;
         $stepTxt = __('Have a primary key');
@@ -300,7 +300,7 @@ class Normalization
      *
      * @return array{legendText: string, headText: string, subText: string, extra: string} HTML contents for step 1.4
      */
-    public function getHtmlContentsFor1NFStep4($db, $table)
+    public function getHtmlContentsFor1NFStep4($db, $table): array
     {
         $step = 4;
         $stepTxt = __('Remove redundant columns');
@@ -337,7 +337,7 @@ class Normalization
      *
      * @return array{legendText: string, headText: string, subText: string, extra: string, primary_key: false|string}
      */
-    public function getHtmlContentsFor1NFStep3($db, $table)
+    public function getHtmlContentsFor1NFStep3($db, $table): array
     {
         $step = 3;
         $stepTxt = __('Move repeating groups');
@@ -382,7 +382,7 @@ class Normalization
      *
      * @return array{legendText: string, headText: string, subText: string, extra: string, primary_key: string}
      */
-    public function getHtmlFor2NFstep1($db, $table)
+    public function getHtmlFor2NFstep1($db, $table): array
     {
         $legendText = __('Step 2.') . '1 ' . __('Find partial dependencies');
         $primary = Index::getPrimary($this->dbi, $table, $db);
@@ -473,7 +473,7 @@ class Normalization
      *
      * @return string HTML
      */
-    public function getHtmlForNewTables2NF(array $partialDependencies, $table)
+    public function getHtmlForNewTables2NF(array $partialDependencies, $table): string
     {
         $html = '<p><b>' . sprintf(
             __(
@@ -508,7 +508,7 @@ class Normalization
      *
      * @return array{legendText: string, headText: string, queryError: bool, extra: Message}
      */
-    public function createNewTablesFor2NF(array $partialDependencies, $tablesName, $table, $db)
+    public function createNewTablesFor2NF(array $partialDependencies, $tablesName, $table, $db): array
     {
         $dropCols = false;
         $nonPKCols = [];
@@ -599,7 +599,7 @@ class Normalization
      *
      * @return array containing html and the list of new tables
      */
-    public function getHtmlForNewTables3NF($dependencies, array $tables, $db)
+    public function getHtmlForNewTables3NF($dependencies, array $tables, $db): array
     {
         $html = '';
         $i = 1;
@@ -669,7 +669,7 @@ class Normalization
      *
      * @return array{legendText: string, headText: string, queryError: string|false, extra?: string}
      */
-    public function createNewTablesFor3NF(array $newTables, $db)
+    public function createNewTablesFor3NF(array $newTables, $db): array
     {
         $queries = [];
         $dropCols = false;
@@ -780,7 +780,7 @@ class Normalization
         $newColumn,
         $table,
         $db
-    ) {
+    ): array {
         $repeatingColumnsArr = explode(', ', $repeatingColumns);
         $primaryColumnsArray = explode(',', $primaryColumns);
         $columns = [];
@@ -844,7 +844,7 @@ class Normalization
      *
      * @return array{legendText: string, headText: string, subText: string, extra: string}
      */
-    public function getHtmlFor3NFstep1($db, array $tables)
+    public function getHtmlFor3NFstep1($db, array $tables): array
     {
         $legendText = __('Step 3.') . '1 ' . __('Find transitive dependencies');
         $extra = '';
@@ -926,7 +926,7 @@ class Normalization
      *
      * @return string HTML containing the list of all the possible partial dependencies
      */
-    public function findPartialDependencies($table, $db)
+    public function findPartialDependencies($table, $db): string
     {
         $dependencyList = [];
         $this->dbi->selectDb($db);
@@ -1043,7 +1043,7 @@ class Normalization
      *
      * @return array associative array containing the count
      */
-    private function findDistinctValuesCount(array $columns, $table)
+    private function findDistinctValuesCount(array $columns, $table): array
     {
         $result = [];
         $query = 'SELECT ';
@@ -1079,7 +1079,7 @@ class Normalization
      *
      * @return array containing all the possible partial keys(subset of primary key)
      */
-    private function getAllCombinationPartialKeys(array $primaryKey)
+    private function getAllCombinationPartialKeys(array $primaryKey): array
     {
         $results = [''];
         foreach ($primaryKey as $element) {

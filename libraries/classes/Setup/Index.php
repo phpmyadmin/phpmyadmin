@@ -90,7 +90,7 @@ class Index
      *
      * @return array
      */
-    public static function messagesShowHtml()
+    public static function messagesShowHtml(): array
     {
         $return = [];
         foreach ($_SESSION['messages'] as $type => $messages) {

@@ -92,7 +92,7 @@ class Tracker
      *
      * @return string the name of table
      */
-    protected static function getTableName($string)
+    protected static function getTableName($string): string
     {
         if (mb_strstr($string, '.')) {
             $temp = explode('.', $string);
@@ -159,7 +159,7 @@ class Tracker
      *
      * @return string Comment, contains date and username
      */
-    public static function getLogComment()
+    public static function getLogComment(): string
     {
         $date = Util::date('Y-m-d H:i:s');
         $user = preg_replace('/\s+/', ' ', $GLOBALS['cfg']['Server']['user']);
@@ -481,7 +481,7 @@ class Tracker
      *
      * @return int (-1 if no version exists | >  0 if a version exists)
      */
-    public static function getVersion(string $dbname, string $tablename, string|null $statement = null)
+    public static function getVersion(string $dbname, string $tablename, string|null $statement = null): int
     {
         $relation = new Relation($GLOBALS['dbi']);
         $trackingFeature = $relation->getRelationParameters()->trackingFeature;

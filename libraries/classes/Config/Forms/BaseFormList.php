@@ -28,7 +28,7 @@ class BaseFormList
     /**
      * @return string[]
      */
-    public static function getAllFormNames()
+    public static function getAllFormNames(): array
     {
         return array_keys(static::$all);
     }
@@ -44,10 +44,9 @@ class BaseFormList
     /**
      * @param string $name Name
      *
-     * @return string|null
      * @psalm-return class-string<BaseForm>|null
      */
-    public static function get(string $name)
+    public static function get(string $name): string|null
     {
         if (static::isValid($name)) {
             return static::$all[$name];
@@ -89,7 +88,7 @@ class BaseFormList
      *
      * @return string HTML for errors
      */
-    public function displayErrors()
+    public function displayErrors(): string
     {
         $ret = '';
         foreach ($this->forms as $form) {
@@ -127,7 +126,7 @@ class BaseFormList
      *
      * @return string[]
      */
-    public static function getFields()
+    public static function getFields(): array
     {
         $names = [];
         foreach (static::$all as $class) {

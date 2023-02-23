@@ -122,7 +122,7 @@ class UserPreferences
      *
      * @return true|Message
      */
-    public function save(array $config_array)
+    public function save(array $config_array): bool|Message
     {
         $relationParameters = $this->relation->getRelationParameters();
         $server = $GLOBALS['server'] ?? $GLOBALS['cfg']['ServerDefault'];
@@ -218,7 +218,7 @@ class UserPreferences
      *
      * @return array
      */
-    public function apply(array $config_data)
+    public function apply(array $config_data): array
     {
         $cfg = [];
         $excludeList = array_flip($GLOBALS['cfg']['UserprefsDisallow']);
@@ -251,7 +251,7 @@ class UserPreferences
      *
      * @return true|Message
      */
-    public function persistOption($path, $value, $default_value)
+    public function persistOption($path, $value, $default_value): bool|Message
     {
         $prefs = $this->load();
         if ($value === $default_value) {
@@ -296,10 +296,8 @@ class UserPreferences
     /**
      * Shows form which allows to quickly load
      * settings stored in browser's local storage
-     *
-     * @return string
      */
-    public function autoloadGetHeader()
+    public function autoloadGetHeader(): string
     {
         if (isset($_REQUEST['prefs_autoload']) && $_REQUEST['prefs_autoload'] === 'hide') {
             $_SESSION['userprefs_autoload'] = true;

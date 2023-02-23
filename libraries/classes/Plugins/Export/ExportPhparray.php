@@ -67,10 +67,8 @@ class ExportPhparray extends ExportPlugin
      * Removes end of comment from a string
      *
      * @param string $string String to replace
-     *
-     * @return string
      */
-    public function commentString($string)
+    public function commentString($string): string
     {
         return strtr($string, '*/', '-');
     }

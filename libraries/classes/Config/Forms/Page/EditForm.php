@@ -16,7 +16,7 @@ class EditForm extends BaseForm
     /**
      * @return array
      */
-    public static function getForms()
+    public static function getForms(): array
     {
         return [
             'Edit' => MainForm::getForms()['Edit'],

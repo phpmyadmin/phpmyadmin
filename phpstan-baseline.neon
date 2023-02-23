@@ -2936,11 +2936,6 @@ parameters:
 			path: libraries/classes/Database/Events.php
 
 		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 1
-			path: libraries/classes/Database/Qbe.php
-
-		-
 			message: "#^For loop initial assignment overwrites variable \\$columnIndex\\.$#"
 			count: 1
 			path: libraries/classes/Database/Qbe.php
@@ -3067,11 +3062,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Database\\\\Qbe\\:\\:getMasterTable\\(\\) has parameter \\$whereClauseTables with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Database/Qbe.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Database\\\\Qbe\\:\\:getMasterTable\\(\\) should return string but returns \\(int\\|string\\)\\.$#"
 			count: 1
 			path: libraries/classes/Database/Qbe.php
 
@@ -5951,11 +5941,6 @@ parameters:
 			path: libraries/classes/Normalization.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\OpenDocument\\:\\:create\\(\\) should return string but returns bool\\|string\\.$#"
-			count: 1
-			path: libraries/classes/OpenDocument.php
-
-		-
 			message: "#^Casting to string something that's already string\\.$#"
 			count: 1
 			path: libraries/classes/Operations.php
@@ -7167,7 +7152,7 @@ parameters:
 
 		-
 			message: "#^Casting to string something that's already string\\.$#"
-			count: 3
+			count: 2
 			path: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php
 
 		-
@@ -8511,6 +8496,11 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 1
+			path: libraries/classes/Table.php
+
+		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
@@ -8551,7 +8541,7 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Table\\:\\:getAutoIncrement\\(\\) should return int but returns mixed\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Table\\:\\:getAutoIncrement\\(\\) should return string but returns mixed\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
 
@@ -8587,11 +8577,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Table\\:\\:getNameAndTypeOfTheColumns\\(\\) should return array\\<string, string\\> but returns array\\<int\\|string, mixed\\>\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Table\\:\\:getNumRows\\(\\) should return int but returns mixed\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
 
@@ -10421,11 +10406,6 @@ parameters:
 			path: test/classes/ErrorTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<string, mixed\\> will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/Export/OptionsTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\FileTest\\:\\:compressedFiles\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/FileTest.php
@@ -11371,46 +11351,6 @@ parameters:
 			path: test/classes/NormalizationTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/NormalizationTest.php
-
-		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{legendText\\: string, headText\\: string, queryError\\: bool, extra\\: PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/NormalizationTest.php
-
-		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{legendText\\: string, headText\\: string, queryError\\: string\\|false, extra\\?\\: string\\} will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/NormalizationTest.php
-
-		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\|false\\} will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/NormalizationTest.php
-
-		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string, primary_key\\: string\\} will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/NormalizationTest.php
-
-		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{legendText\\: string, headText\\: string, subText\\: string, extra\\: string\\} will always evaluate to true\\.$#"
-			count: 2
-			path: test/classes/NormalizationTest.php
-
-		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{legendText\\: string, headText\\: string, subText\\: string, hasPrimaryKey\\: string, extra\\: string\\} will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/NormalizationTest.php
-
-		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{queryError\\: bool, message\\: PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/NormalizationTest.php
-
-		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotFalse\\(\\) with string will always evaluate to true\\.$#"
 			count: 1
 			path: test/classes/OpenDocumentTest.php
@@ -11671,6 +11611,11 @@ parameters:
 			path: test/classes/Stubs/DbiDummy.php
 
 		-
+			message: "#^Casting to string something that's already string\\.$#"
+			count: 1
+			path: test/classes/Stubs/DummyResult.php
+
+		-
 			message: "#^Foreach overwrites \\$value with its value variable\\.$#"
 			count: 1
 			path: test/classes/Stubs/ResponseRenderer.php
@@ -11854,11 +11799,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\UserPasswordTest\\:\\:providerSetChangePasswordMsg\\(\\) should return array\\<array\\{bool, PhpMyAdmin\\\\Message, string, string, string\\}\\> but returns array\\{array\\{false, PhpMyAdmin\\\\Message, true, '', ''\\}, array\\{true, PhpMyAdmin\\\\Message, false, '', ''\\}, array\\{true, PhpMyAdmin\\\\Message, false, 'a', ''\\}, array\\{true, PhpMyAdmin\\\\Message, false, '', 'a'\\}, array\\{true, PhpMyAdmin\\\\Message, false, 'a', 'b'\\}, array\\{true, PhpMyAdmin\\\\Message, false, literal\\-string&non\\-falsy\\-string, literal\\-string&non\\-falsy\\-string\\}, array\\{false, PhpMyAdmin\\\\Message, false, literal\\-string&non\\-falsy\\-string, literal\\-string&non\\-falsy\\-string\\}\\}\\.$#"
 			count: 1
 			path: test/classes/UserPasswordTest.php
-
-		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 1
-			path: test/classes/UtilTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\UtilTest\\:\\:charsetQueryData\\(\\) return type has no value type specified in iterable type array\\.$#"

@@ -192,7 +192,7 @@ class FindReplaceController extends AbstractController
         $replaceWith,
         $useRegex,
         $charSet
-    ) {
+    ): string {
         $column = $this->columnNames[$columnIndex];
         if ($useRegex) {
             $result = $this->getRegexReplaceRows($columnIndex, $find, $replaceWith, $charSet);

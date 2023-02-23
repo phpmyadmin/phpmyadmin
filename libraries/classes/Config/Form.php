@@ -104,7 +104,7 @@ class Form
      *
      * @return string|null one of: boolean, integer, double, string, select, array
      */
-    public function getOptionType($optionName)
+    public function getOptionType($optionName): string|null
     {
         $key = ltrim(
             mb_substr(
@@ -124,7 +124,7 @@ class Form
      *
      * @return array
      */
-    public function getOptionValueList($optionPath)
+    public function getOptionValueList($optionPath): array
     {
         $value = $this->configFile->getDbEntry($optionPath);
         if ($value === null) {

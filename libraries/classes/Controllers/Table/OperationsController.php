@@ -462,7 +462,7 @@ class OperationsController extends AbstractController
             && $pma_table->isEngine(['MYISAM', 'ARIA', 'ISAM']);
         $hasChecksumAndDelayKeyWrite = $pma_table->isEngine(['MYISAM', 'ARIA']);
         $hasTransactionalAndPageChecksum = $pma_table->isEngine('ARIA');
-        $hasAutoIncrement = strlen((string) $GLOBALS['auto_increment']) > 0
+        $hasAutoIncrement = strlen($GLOBALS['auto_increment']) > 0
             && $pma_table->isEngine(['MYISAM', 'ARIA', 'INNODB', 'PBXT', 'ROCKSDB']);
 
         $possibleRowFormats = $this->operations->getPossibleRowFormat();

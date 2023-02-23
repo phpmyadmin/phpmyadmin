@@ -53,7 +53,6 @@ class CharsetsTest extends AbstractTestCase
     public function testFindCollationByName(): void
     {
         $dbi = $this->createDatabaseInterface();
-        $this->assertNull(Charsets::findCollationByName($dbi, false, null));
         $this->assertNull(Charsets::findCollationByName($dbi, false, ''));
         $this->assertNull(Charsets::findCollationByName($dbi, false, 'invalid'));
         $actual = Charsets::findCollationByName($dbi, false, 'utf8_general_ci');

@@ -155,8 +155,8 @@ class ZipExtensionTest extends AbstractTestCase
     public function testCreateSingleFile(): void
     {
         $file = $this->zipExtension->createFile('Test content', 'test.txt');
-        $this->assertNotEmpty($file);
         $this->assertIsString($file);
+        $this->assertNotEmpty($file);
 
         $tmp = tempnam('./', 'zip-test');
         $this->assertNotFalse($tmp);
@@ -204,8 +204,8 @@ class ZipExtensionTest extends AbstractTestCase
                 'name2.txt',
             ]
         );
-        $this->assertNotEmpty($file);
         $this->assertIsString($file);
+        $this->assertNotEmpty($file);
 
         $tmp = tempnam('./', 'zip-test');
         $this->assertNotFalse($tmp);

@@ -161,10 +161,7 @@ class DbiDummy implements DbiExtension
         Assert::assertSame([], $this->getUnUsedQueries(), 'Some queries where not used!');
     }
 
-    /**
-     * @return false|int|null
-     */
-    private function findFiloQuery(string $query)
+    private function findFiloQuery(string $query): false|int|null
     {
         for ($i = 0, $nb = count($this->filoQueries); $i < $nb; $i++) {
             if ($this->filoQueries[$i]['query'] !== $query) {
@@ -226,10 +223,8 @@ class DbiDummy implements DbiExtension
      * Run the multi query and output the results
      *
      * @param string $query multi query statement to execute
-     *
-     * @return bool
      */
-    public function realMultiQuery(Connection $connection, $query)
+    public function realMultiQuery(Connection $connection, $query): bool
     {
         return false;
     }
@@ -332,7 +327,7 @@ class DbiDummy implements DbiExtension
      *
      * @return string type of connection used
      */
-    public function getHostInfo(Connection $connection)
+    public function getHostInfo(Connection $connection): string
     {
         return '';
     }
@@ -342,7 +337,7 @@ class DbiDummy implements DbiExtension
      *
      * @return int version of the MySQL protocol used
      */
-    public function getProtoInfo(Connection $connection)
+    public function getProtoInfo(Connection $connection): int
     {
         return -1;
     }
@@ -352,7 +347,7 @@ class DbiDummy implements DbiExtension
      *
      * @return string MySQL client library version
      */
-    public function getClientInfo()
+    public function getClientInfo(): string
     {
         return 'libmysql - mysqlnd x.x.x-dev (phpMyAdmin tests)';
     }
@@ -376,10 +371,9 @@ class DbiDummy implements DbiExtension
      *
      * @param int|bool $result MySQL result
      *
-     * @return string|int
      * @psalm-return int|numeric-string
      */
-    public function numRows($result)
+    public function numRows($result): string|int
     {
         if (is_bool($result)) {
             return 0;
@@ -435,7 +429,7 @@ class DbiDummy implements DbiExtension
      *
      * @return int  field count
      */
-    public function numFields($result)
+    public function numFields($result): int
     {
         $query_data = $this->getQueryData($result);
 
@@ -449,7 +443,7 @@ class DbiDummy implements DbiExtension
      *
      * @return string a MySQL escaped string
      */
-    public function escapeString(Connection $connection, $string)
+    public function escapeString(Connection $connection, $string): string
     {
         return addslashes($string);
     }

@@ -179,7 +179,7 @@ class Theme
      *
      * @return string path to theme
      */
-    public function getPath()
+    public function getPath(): string
     {
         return $this->path;
     }
@@ -229,7 +229,7 @@ class Theme
      *
      * @return string version
      */
-    public function getVersion()
+    public function getVersion(): string
     {
         return $this->version;
     }
@@ -260,7 +260,7 @@ class Theme
      *
      * @return string name
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -280,7 +280,7 @@ class Theme
      *
      * @return string id
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->id;
     }
@@ -315,7 +315,7 @@ class Theme
      *
      * @return string image path for this theme
      */
-    public function getImgPath($file = null, $fallback = null)
+    public function getImgPath($file = null, $fallback = null): string
     {
         if ($file === null) {
             return $this->imgPath;

@@ -404,7 +404,7 @@ class ImportMediawiki extends ImportPlugin
      *
      * @return string with replacements
      */
-    private function delimiterReplace($replace, $subject)
+    private function delimiterReplace($replace, $subject): string
     {
         // String that will be returned
         $cleaned = '';
@@ -490,7 +490,7 @@ class ImportMediawiki extends ImportPlugin
      *
      * @return array
      */
-    private function explodeMarkup($text)
+    private function explodeMarkup($text): array
     {
         $separator = '||';
         $placeholder = "\x00";
@@ -534,10 +534,8 @@ class ImportMediawiki extends ImportPlugin
      * Get cell
      *
      * @param string $cell Cell
-     *
-     * @return mixed
      */
-    private function getCellData($cell)
+    private function getCellData($cell): mixed
     {
         // A cell could contain both parameters and data
         $cell_data = explode('|', $cell, 2);

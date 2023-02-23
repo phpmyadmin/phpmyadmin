@@ -37,10 +37,8 @@ class ConfigGenerator
      * Creates config file
      *
      * @param ConfigFile $cf Config file instance
-     *
-     * @return string
      */
-    public static function getConfigFile(ConfigFile $cf)
+    public static function getConfigFile(ConfigFile $cf): string
     {
         $eol = isset($_SESSION['eol']) && $_SESSION['eol'] === 'win' ? "\r\n" : "\n";
         $conf = $cf->getConfig();
@@ -93,10 +91,8 @@ class ConfigGenerator
      * @param string $var_name  configuration name
      * @param mixed  $var_value configuration value(s)
      * @param string $eol       line ending
-     *
-     * @return string
      */
-    private static function getVarExport($var_name, $var_value, string $eol)
+    private static function getVarExport($var_name, $var_value, string $eol): string
     {
         if ($var_name === 'blowfish_secret') {
             $secret = self::getBlowfishSecretKey($var_value);
@@ -147,10 +143,8 @@ class ConfigGenerator
      *
      * @param array  $array Array to export
      * @param string $eol   Newline string
-     *
-     * @return string
      */
-    private static function exportZeroBasedArray(array $array, string $eol)
+    private static function exportZeroBasedArray(array $array, string $eol): string
     {
         $retv = [];
         foreach ($array as $v) {
@@ -178,10 +172,8 @@ class ConfigGenerator
      * @param ConfigFile $cf      Config file
      * @param string     $eol     Carriage return char
      * @param array      $servers Servers list
-     *
-     * @return string|null
      */
-    protected static function getServerPart(ConfigFile $cf, string $eol, array $servers)
+    protected static function getServerPart(ConfigFile $cf, string $eol, array $servers): string|null
     {
         if ($cf->getServerCount() === 0) {
             return null;

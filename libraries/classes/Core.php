@@ -414,7 +414,7 @@ class Core
      *
      * @return array|mixed|null array element or $default
      */
-    public static function arrayRead(string $path, array $array, $default = null)
+    public static function arrayRead(string $path, array $array, $default = null): mixed
     {
         $keys = explode('/', $path);
         $value =& $array;
@@ -740,10 +740,8 @@ class Core
      * It does not unserialize data containing objects
      *
      * @param string $data Data to unserialize
-     *
-     * @return mixed|null
      */
-    public static function safeUnserialize(string $data)
+    public static function safeUnserialize(string $data): mixed
     {
         /* validate serialized data */
         $length = strlen($data);
@@ -827,10 +825,8 @@ class Core
      * Sign the sql query using hmac using the session token
      *
      * @param string $sqlQuery The sql query
-     *
-     * @return string
      */
-    public static function signSqlQuery($sqlQuery)
+    public static function signSqlQuery($sqlQuery): string
     {
         $secret = $_SESSION[' HMAC_secret '] ?? '';
 

@@ -646,7 +646,7 @@ class ExportLatex extends ExportPlugin
      *
      * @return string the converted string with escape codes
      */
-    public static function texEscape($string)
+    public static function texEscape($string): string
     {
         $escape = [
             '$',

@@ -266,7 +266,7 @@ class ExportHtmlword extends ExportPlugin
      *
      * @return string resulting definition
      */
-    public function getTableDefStandIn($db, $view, $aliases = [])
+    public function getTableDefStandIn($db, $view, $aliases = []): string
     {
         $schema_insert = '<table width="100%" cellspacing="1">'
             . '<tr class="print-category">'
@@ -340,7 +340,7 @@ class ExportHtmlword extends ExportPlugin
         $do_mime,
         $view = false,
         array $aliases = []
-    ) {
+    ): string {
         $relationParameters = $this->relation->getRelationParameters();
 
         $schema_insert = '';
@@ -464,7 +464,7 @@ class ExportHtmlword extends ExportPlugin
      *
      * @return string Formatted triggers list
      */
-    protected function getTriggers($db, $table)
+    protected function getTriggers($db, $table): string
     {
         $dump = '<table width="100%" cellspacing="1">';
         $dump .= '<tr class="print-category">';
@@ -585,7 +585,7 @@ class ExportHtmlword extends ExportPlugin
         array $column,
         array $unique_keys,
         $col_alias = ''
-    ) {
+    ): string {
         if (empty($col_alias)) {
             $col_alias = $column['Field'];
         }

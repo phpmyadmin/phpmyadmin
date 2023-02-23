@@ -66,7 +66,7 @@ class SystemDatabase
         array $columnMap,
         $viewName,
         $db
-    ) {
+    ): string {
         $browserTransformationFeature = $this->relation->getRelationParameters()->browserTransformationFeature;
         if ($browserTransformationFeature === null) {
             return '';

@@ -38,7 +38,7 @@ class GisMultiLineString extends GisGeometry
      *
      * @return GisMultiLineString the singleton
      */
-    public static function singleton()
+    public static function singleton(): GisMultiLineString
     {
         if (! isset(self::$instance)) {
             self::$instance = new GisMultiLineString();
@@ -141,7 +141,7 @@ class GisMultiLineString extends GisGeometry
      *
      * @return TCPDF the modified TCPDF instance
      */
-    public function prepareRowAsPdf($spatial, string $label, array $color, array $scale_data, $pdf)
+    public function prepareRowAsPdf($spatial, string $label, array $color, array $scale_data, $pdf): TCPDF
     {
         $line = [
             'width' => 1.5,
@@ -189,7 +189,7 @@ class GisMultiLineString extends GisGeometry
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg($spatial, string $label, array $color, array $scale_data)
+    public function prepareRowAsSvg($spatial, string $label, array $color, array $scale_data): string
     {
         $line_options = [
             'name' => $label,
@@ -237,7 +237,7 @@ class GisMultiLineString extends GisGeometry
      *
      * @return string JavaScript related to a row in the GIS dataset
      */
-    public function prepareRowAsOl($spatial, int $srid, string $label, array $color, array $scale_data)
+    public function prepareRowAsOl($spatial, int $srid, string $label, array $color, array $scale_data): string
     {
         $stroke_style = [
             'color' => $color,
@@ -280,7 +280,7 @@ class GisMultiLineString extends GisGeometry
      *
      * @return string WKT with the set of parameters passed by the GIS editor
      */
-    public function generateWkt(array $gis_data, $index, $empty = '')
+    public function generateWkt(array $gis_data, $index, $empty = ''): string
     {
         $data_row = $gis_data[$index]['MULTILINESTRING'];
 
@@ -322,7 +322,7 @@ class GisMultiLineString extends GisGeometry
      *
      * @return string the WKT for the data from ESRI shape files
      */
-    public function getShape(array $row_data)
+    public function getShape(array $row_data): string
     {
         $wkt = 'MULTILINESTRING(';
         for ($i = 0; $i < $row_data['numparts']; $i++) {
@@ -348,7 +348,7 @@ class GisMultiLineString extends GisGeometry
      *
      * @return array params for the GIS data editor from the value of the GIS column
      */
-    public function generateParams($value, $index = -1)
+    public function generateParams($value, $index = -1): array
     {
         $params = [];
         if ($index == -1) {

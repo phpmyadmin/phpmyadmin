@@ -93,10 +93,8 @@ class DummyResult implements ResultInterface
      * Returns a single value from the given result; false on error
      *
      * @param int|string $field
-     *
-     * @return string|false|null
      */
-    public function fetchValue($field = 0)
+    public function fetchValue($field = 0): string|false|null
     {
         if (is_string($field)) {
             $row = $this->fetchAssoc();
@@ -108,7 +106,12 @@ class DummyResult implements ResultInterface
             return false;
         }
 
-        return $row[$field];
+        /**
+         * PMA uses mostly textual mysqli protocol. In comparison to prepared statements (binary protocol),
+         * it returns all data types as strings. PMA is not ready to enable automatic cast to int/float, so
+         * in our dummy class we will force string cast on all values.
+         */
+        return $row[$field] === null ? null : (string) $row[$field];
     }
 
     /**
@@ -195,10 +198,9 @@ class DummyResult implements ResultInterface
     /**
      * Returns the number of rows in the result
      *
-     * @return string|int
      * @psalm-return int|numeric-string
      */
-    public function numRows()
+    public function numRows(): string|int
     {
         return $this->link->numRows($this->result);
     }

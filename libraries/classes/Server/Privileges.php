@@ -3489,7 +3489,7 @@ class Privileges
      *
      * @return string type
      */
-    public function getRoutineType(string $dbname, string $routineName)
+    public function getRoutineType(string $dbname, string $routineName): string
     {
         $routineData = Routines::getDetails($this->dbi, $dbname);
         $routineName = mb_strtolower($routineName);

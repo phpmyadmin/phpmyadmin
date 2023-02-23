@@ -26,7 +26,7 @@ class Pbxt extends StorageEngine
      *
      * @return array   variable names
      */
-    public function getVariables()
+    public function getVariables(): array
     {
         return [
             'pbxt_index_cache_size' => [
@@ -172,10 +172,8 @@ class Pbxt extends StorageEngine
 
     /**
      * Get content of documentation page
-     *
-     * @return string
      */
-    public function getPageDocumentation()
+    public function getPageDocumentation(): string
     {
         return '<p>' . sprintf(
             __(

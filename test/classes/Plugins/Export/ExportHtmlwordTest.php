@@ -365,7 +365,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         $this->object->expects($this->once())
             ->method('formatOneColumnDefinition')
             ->with(['Field' => 'column'], ['name1'], 'column')
-            ->will($this->returnValue(1));
+            ->will($this->returnValue('1'));
 
         $this->assertEquals(
             '<table width="100%" cellspacing="1">' .
@@ -449,7 +449,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         $this->object->expects($this->exactly(3))
             ->method('formatOneColumnDefinition')
             ->with($columns, ['name1'])
-            ->will($this->returnValue(1));
+            ->will($this->returnValue('1'));
 
         $_SESSION['relation'] = [];
         $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([

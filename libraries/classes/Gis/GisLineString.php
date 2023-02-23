@@ -37,7 +37,7 @@ class GisLineString extends GisGeometry
      *
      * @return GisLineString the singleton
      */
-    public static function singleton()
+    public static function singleton(): GisLineString
     {
         if (! isset(self::$instance)) {
             self::$instance = new GisLineString();
@@ -124,7 +124,7 @@ class GisLineString extends GisGeometry
      *
      * @return TCPDF the modified TCPDF instance
      */
-    public function prepareRowAsPdf($spatial, string $label, array $color, array $scale_data, $pdf)
+    public function prepareRowAsPdf($spatial, string $label, array $color, array $scale_data, $pdf): TCPDF
     {
         $line = [
             'width' => 1.5,
@@ -164,7 +164,7 @@ class GisLineString extends GisGeometry
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg($spatial, string $label, array $color, array $scale_data)
+    public function prepareRowAsSvg($spatial, string $label, array $color, array $scale_data): string
     {
         $line_options = [
             'name' => $label,
@@ -206,7 +206,7 @@ class GisLineString extends GisGeometry
      *
      * @return string JavaScript related to a row in the GIS dataset
      */
-    public function prepareRowAsOl($spatial, int $srid, string $label, array $color, array $scale_data)
+    public function prepareRowAsOl($spatial, int $srid, string $label, array $color, array $scale_data): string
     {
         $stroke_style = [
             'color' => $color,
@@ -247,7 +247,7 @@ class GisLineString extends GisGeometry
      *
      * @return string WKT with the set of parameters passed by the GIS editor
      */
-    public function generateWkt(array $gis_data, $index, $empty = '')
+    public function generateWkt(array $gis_data, $index, $empty = ''): string
     {
         $no_of_points = $gis_data[$index]['LINESTRING']['no_of_points'] ?? 2;
         if ($no_of_points < 2) {
@@ -277,7 +277,7 @@ class GisLineString extends GisGeometry
      *
      * @return array params for the GIS data editor from the value of the GIS column
      */
-    public function generateParams($value, $index = -1)
+    public function generateParams($value, $index = -1): array
     {
         $params = [];
         if ($index == -1) {

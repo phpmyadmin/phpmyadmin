@@ -664,7 +664,7 @@ class StructureController extends AbstractController
         array $currentTable,
         $sumSize,
         $overheadSize
-    ) {
+    ): array {
         $formattedSize = '-';
         $unit = '';
         $formattedOverhead = '';
@@ -788,7 +788,7 @@ class StructureController extends AbstractController
         $unit,
         $formattedOverhead,
         $overheadUnit
-    ) {
+    ): array {
         if ($this->dbIsSystemSchema) {
             $currentTable['Rows'] = $this->dbi
                 ->getTable($GLOBALS['db'], $currentTable['Name'])
@@ -833,7 +833,7 @@ class StructureController extends AbstractController
     protected function getValuesForInnodbTable(
         array $currentTable,
         $sumSize
-    ) {
+    ): array {
         $formattedSize = $unit = '';
 
         if (

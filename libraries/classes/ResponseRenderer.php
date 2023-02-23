@@ -220,10 +220,8 @@ class ResponseRenderer
 
     /**
      * Returns a PhpMyAdmin\Header object
-     *
-     * @return Header
      */
-    public function getHeader()
+    public function getHeader(): Header
     {
         return $this->header;
     }

@@ -356,7 +356,7 @@ class Index
      *
      * @return int the number of the columns
      */
-    public function getColumnCount()
+    public function getColumnCount(): int
     {
         return count($this->columns);
     }
@@ -366,7 +366,7 @@ class Index
      *
      * @return string index comment
      */
-    public function getComment()
+    public function getComment(): string
     {
         return $this->comment;
     }
@@ -376,7 +376,7 @@ class Index
      *
      * @return string index remarks
      */
-    public function getRemarks()
+    public function getRemarks(): string
     {
         return $this->remarks;
     }
@@ -391,10 +391,8 @@ class Index
 
     /**
      * Return the parser
-     *
-     * @return string
      */
-    public function getParser()
+    public function getParser(): string
     {
         return $this->parser;
     }
@@ -404,7 +402,7 @@ class Index
      *
      * @return string concatenated remarks and comment
      */
-    public function getComments()
+    public function getComments(): string
     {
         $comments = $this->getRemarks();
         if (strlen($comments) > 0) {
@@ -421,7 +419,7 @@ class Index
      *
      * @return string index type
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->type;
     }
@@ -431,7 +429,7 @@ class Index
      *
      * @return string index choice
      */
-    public function getChoice()
+    public function getChoice(): string
     {
         return $this->choice;
     }
@@ -441,7 +439,7 @@ class Index
      *
      * @return string[] index types
      */
-    public static function getIndexTypes()
+    public static function getIndexTypes(): array
     {
         return [
             'BTREE',
@@ -459,7 +457,7 @@ class Index
      *
      * @return string how the index is packed
      */
-    public function getPacked()
+    public function getPacked(): string
     {
         return $this->packed;
     }
@@ -467,10 +465,8 @@ class Index
     /**
      * Returns 'No' if the index is not packed,
      * how the index is packed if packed
-     *
-     * @return string
      */
-    public function isPacked()
+    public function isPacked(): string
     {
         if ($this->packed === null) {
             return __('No');
@@ -510,7 +506,7 @@ class Index
      *
      * @return string the name of the index
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -530,7 +526,7 @@ class Index
      *
      * @return array<string, IndexColumn>
      */
-    public function getColumns()
+    public function getColumns(): array
     {
         return $this->columns;
     }
@@ -573,7 +569,7 @@ class Index
      *
      * @return string  Output HTML
      */
-    public static function findDuplicates($table, $schema)
+    public static function findDuplicates($table, $schema): string
     {
         $indexes = self::getFromTable($GLOBALS['dbi'], $table, $schema);
 

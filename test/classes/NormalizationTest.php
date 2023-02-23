@@ -208,7 +208,6 @@ class NormalizationTest extends AbstractTestCase
         $db = 'PMA_db';
         $table = 'PMA_table1';
         $result = $this->normalization->getHtmlContentsFor1NFStep2($db, $table);
-        $this->assertIsArray($result);
         $this->assertArrayHasKey('legendText', $result);
         $this->assertArrayHasKey('headText', $result);
         $this->assertArrayHasKey('subText', $result);
@@ -230,7 +229,6 @@ class NormalizationTest extends AbstractTestCase
         $db = 'PMA_db';
         $table = 'PMA_table';
         $result = $this->normalization->getHtmlContentsFor1NFStep4($db, $table);
-        $this->assertIsArray($result);
         $this->assertArrayHasKey('legendText', $result);
         $this->assertArrayHasKey('headText', $result);
         $this->assertArrayHasKey('subText', $result);
@@ -254,7 +252,6 @@ class NormalizationTest extends AbstractTestCase
         $db = 'PMA_db';
         $table = 'PMA_table';
         $result = $this->normalization->getHtmlContentsFor1NFStep3($db, $table);
-        $this->assertIsArray($result);
         $this->assertArrayHasKey('legendText', $result);
         $this->assertArrayHasKey('headText', $result);
         $this->assertArrayHasKey('subText', $result);
@@ -280,7 +277,6 @@ class NormalizationTest extends AbstractTestCase
         $db = 'PMA_db';
         $table = 'PMA_table';
         $result = $this->normalization->getHtmlFor2NFstep1($db, $table);
-        $this->assertIsArray($result);
         $this->assertArrayHasKey('legendText', $result);
         $this->assertArrayHasKey('headText', $result);
         $this->assertArrayHasKey('subText', $result);
@@ -317,7 +313,6 @@ class NormalizationTest extends AbstractTestCase
         $tablesName->col1 = 'PMA_table1';
         $partialDependencies = ['id' => ['col2']];
         $result = $this->normalization->createNewTablesFor2NF($partialDependencies, $tablesName, $table, $db);
-        $this->assertIsArray($result);
         $this->assertArrayHasKey('legendText', $result);
         $this->assertArrayHasKey('headText', $result);
         $this->assertArrayHasKey('queryError', $result);
@@ -361,7 +356,6 @@ class NormalizationTest extends AbstractTestCase
             'col5',
         ];
         $result1 = $this->normalization->getHtmlForNewTables3NF($dependencies, $tables, $db);
-        $this->assertIsArray($result1);
         $this->assertStringContainsString('<input type="text" name="PMA_table"', $result1['html']);
         $this->assertEquals(
             [
@@ -399,7 +393,6 @@ class NormalizationTest extends AbstractTestCase
             ],
         ];
         $result = $this->normalization->createNewTablesFor3NF($newTables, $db);
-        $this->assertIsArray($result);
         $this->assertArrayHasKey('legendText', $result);
         $this->assertArrayHasKey('headText', $result);
         $this->assertArrayHasKey('queryError', $result);
@@ -429,7 +422,6 @@ class NormalizationTest extends AbstractTestCase
             $table,
             $db
         );
-        $this->assertIsArray($result);
         $this->assertArrayHasKey('queryError', $result);
         $this->assertArrayHasKey('message', $result);
         $this->assertInstanceOf(Message::class, $result['message']);
@@ -443,7 +435,6 @@ class NormalizationTest extends AbstractTestCase
         $db = 'PMA_db';
         $tables = ['PMA_table'];
         $result = $this->normalization->getHtmlFor3NFstep1($db, $tables);
-        $this->assertIsArray($result);
         $this->assertArrayHasKey('legendText', $result);
         $this->assertArrayHasKey('headText', $result);
         $this->assertArrayHasKey('subText', $result);

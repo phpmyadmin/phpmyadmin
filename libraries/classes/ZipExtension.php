@@ -211,9 +211,9 @@ class ZipExtension
      * @param array|string $name name of the file/files in the archive
      * @param int          $time the current timestamp
      *
-     * @return string|bool the ZIP file contents, or false if there was an error.
+     * @return string|false the ZIP file contents, or false if there was an error.
      */
-    public function createFile(array|string $data, array|string $name, $time = 0): string|bool
+    public function createFile(array|string $data, array|string $name, $time = 0): string|false
     {
         $datasec = []; // Array to store compressed data
         $ctrlDir = []; // Central directory

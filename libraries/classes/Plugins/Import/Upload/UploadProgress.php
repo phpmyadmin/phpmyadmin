@@ -24,7 +24,7 @@ class UploadProgress implements UploadInterface
      *
      * @return string ID Key
      */
-    public static function getIdKey()
+    public static function getIdKey(): string
     {
         return 'UPLOAD_IDENTIFIER';
     }
@@ -35,10 +35,8 @@ class UploadProgress implements UploadInterface
      * This is implementation for upload progress
      *
      * @param string $id upload id
-     *
-     * @return array|null
      */
-    public static function getUploadStatus($id)
+    public static function getUploadStatus($id): array|null
     {
         $GLOBALS['SESSION_KEY'] ??= null;
 

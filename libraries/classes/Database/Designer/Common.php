@@ -288,7 +288,7 @@ class Common
      *
      * @return string|null table name
      */
-    public function getPageName(int $pg)
+    public function getPageName(int $pg): string|null
     {
         $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
         if ($pdfFeature === null) {
@@ -398,7 +398,7 @@ class Common
      *
      * @return int id of the page to load
      */
-    public function getLoadingPage($db)
+    public function getLoadingPage($db): int
     {
         $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
         if ($pdfFeature === null) {
@@ -429,10 +429,8 @@ class Common
      *
      * @param string $pageName name of the page
      * @param string $db       name of the database
-     *
-     * @return int|null
      */
-    public function createNewPage($pageName, $db)
+    public function createNewPage($pageName, $db): int|null
     {
         $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
         if ($pdfFeature === null) {
@@ -673,7 +671,7 @@ class Common
      *
      * @return array array of success/failure and message
      */
-    public function removeRelation($T1, $F1, $T2, $F2)
+    public function removeRelation($T1, $F1, $T2, $F2): array
     {
         [$DB1, $T1] = explode('.', $T1);
         [$DB2, $T2] = explode('.', $T2);

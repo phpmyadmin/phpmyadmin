@@ -53,10 +53,8 @@ class TwoFactorPlugin
 
     /**
      * Returns authentication error message
-     *
-     * @return string
      */
-    public function getError()
+    public function getError(): string
     {
         if ($this->provided) {
             if (! empty($this->message)) {
@@ -86,7 +84,7 @@ class TwoFactorPlugin
      *
      * @return string HTML code
      */
-    public function render()
+    public function render(): string
     {
         return '';
     }
@@ -96,7 +94,7 @@ class TwoFactorPlugin
      *
      * @return string HTML code
      */
-    public function setup()
+    public function setup(): string
     {
         return '';
     }
@@ -111,20 +109,16 @@ class TwoFactorPlugin
 
     /**
      * Get user visible name
-     *
-     * @return string
      */
-    public static function getName()
+    public static function getName(): string
     {
         return __('No Two-Factor Authentication');
     }
 
     /**
      * Get user visible description
-     *
-     * @return string
      */
-    public static function getDescription()
+    public static function getDescription(): string
     {
         return __('Login using password only.');
     }
@@ -135,10 +129,8 @@ class TwoFactorPlugin
      * Either hostname or hostname with scheme.
      *
      * @param bool $return_url Whether to generate URL
-     *
-     * @return string
      */
-    public function getAppId($return_url)
+    public function getAppId($return_url): string
     {
         $GLOBALS['config'] ??= null;
 

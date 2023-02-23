@@ -237,10 +237,8 @@ class Node
      * Returns the actual parent of a node. If used twice on an index or columns
      * node, it will return the table and database nodes. The names of the returned
      * nodes can be used in SQL queries, etc...
-     *
-     * @return Node|false
      */
-    public function realParent()
+    public function realParent(): Node|false
     {
         $retval = $this->parents();
         if (count($retval) <= 0) {
@@ -385,10 +383,8 @@ class Node
      * @param string $type         The type of item we are looking for
      *                             ('tables', 'views', etc)
      * @param string $searchClause A string used to filter the results of the query
-     *
-     * @return int
      */
-    public function getPresence($type = '', $searchClause = '')
+    public function getPresence($type = '', $searchClause = ''): int
     {
         if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping'] || ! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
             if (isset($GLOBALS['cfg']['Server']['DisableIS']) && ! $GLOBALS['cfg']['Server']['DisableIS']) {
@@ -494,7 +490,7 @@ class Node
      *
      * @return array array of databases
      */
-    private function getDatabasesToSearch($searchClause)
+    private function getDatabasesToSearch($searchClause): array
     {
         $databases = [];
         if (! empty($searchClause)) {
@@ -518,10 +514,8 @@ class Node
      *
      * @param string $columnName   Column name of the column having database names
      * @param string $searchClause A string used to filter the results of the query
-     *
-     * @return string
      */
-    private function getWhereClause($columnName, $searchClause = '')
+    private function getWhereClause($columnName, $searchClause = ''): string
     {
         $whereClause = 'WHERE TRUE ';
         if (! empty($searchClause)) {
@@ -622,7 +616,7 @@ class Node
      *
      * @return array|null array containing the count of hidden elements for each database
      */
-    public function getNavigationHidingData()
+    public function getNavigationHidingData(): array|null
     {
         $navigationItemsHidingFeature = $this->relation->getRelationParameters()->navigationItemsHidingFeature;
         if ($navigationItemsHidingFeature !== null) {
@@ -645,7 +639,7 @@ class Node
      *
      * @return array
      */
-    private function getDataFromInfoSchema(int $pos, string $searchClause)
+    private function getDataFromInfoSchema(int $pos, string $searchClause): array
     {
         $maxItems = $GLOBALS['cfg']['FirstLevelNavigationItems'];
         if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping'] || ! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
@@ -682,7 +676,7 @@ class Node
      *
      * @return array
      */
-    private function getDataFromShowDatabases(int $pos, string $searchClause)
+    private function getDataFromShowDatabases(int $pos, string $searchClause): array
     {
         $maxItems = $GLOBALS['cfg']['FirstLevelNavigationItems'];
         if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping'] || ! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
@@ -760,7 +754,7 @@ class Node
      *
      * @return array
      */
-    private function getDataFromShowDatabasesLike(int $pos, string $searchClause)
+    private function getDataFromShowDatabasesLike(int $pos, string $searchClause): array
     {
         $maxItems = $GLOBALS['cfg']['FirstLevelNavigationItems'];
         if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping'] || ! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {

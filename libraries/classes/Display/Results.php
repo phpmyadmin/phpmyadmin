@@ -791,7 +791,7 @@ class Results
         array $sortDirection,
         $isLimitedDisplay,
         $unsortedSqlQuery
-    ) {
+    ): string {
         // required to generate sort links that will remember whether the
         // "Show all" button has been clicked
         $sqlMd5 = md5($this->properties['server'] . $this->properties['db'] . $this->properties['sql_query']);
@@ -1080,7 +1080,7 @@ class Results
         DisplayParts $displayParts,
         string $fullOrPartialTextLink,
         string $colspan
-    ) {
+    ): string {
         $displayParams = $this->properties['display_params'];
 
         // 1. Displays the full/partial text button (part 1)...
@@ -1133,7 +1133,7 @@ class Results
      *
      * @return array table comments
      */
-    private function getTableCommentsArray(StatementInfo $statementInfo)
+    private function getTableCommentsArray(StatementInfo $statementInfo): array
     {
         if (! $GLOBALS['cfg']['ShowBrowseComments'] || empty($statementInfo->statement->from)) {
             return [];
@@ -1751,7 +1751,7 @@ class Results
         DisplayParts $displayParts,
         string $fullOrPartialTextLink,
         string $colspan
-    ) {
+    ): string {
         $rightColumnHtml = '';
         $displayParams = $this->properties['display_params'];
 
@@ -1804,7 +1804,7 @@ class Results
      *
      * @return string  the td
      */
-    private function buildValueDisplay($class, $conditionField, $value)
+    private function buildValueDisplay($class, $conditionField, $value): string
     {
         return $this->template->render('display/results/value_display', [
             'class' => $class,
@@ -1943,7 +1943,7 @@ class Results
         array $map,
         StatementInfo $statementInfo,
         $isLimitedDisplay = false
-    ) {
+    ): string {
         // Mostly because of browser transformations, to make the row-data accessible in a plugin.
 
         $GLOBALS['row'] ??= null;
@@ -2279,7 +2279,7 @@ class Results
         bool|array|string $colVisib,
         $urlSqlQuery,
         StatementInfo $statementInfo
-    ) {
+    ): string {
         $rowValuesHtml = '';
 
         // Following variable are needed for use in isset/empty or
@@ -2544,7 +2544,7 @@ class Results
         array $linkRelations,
         $columnValue,
         array $rowInfo
-    ) {
+    ): string {
         $linkingUrlParams = [];
 
         $linkingUrlParams[$linkRelations['link_param']] = $columnValue;
@@ -2602,7 +2602,7 @@ class Results
      *
      * @return string analyzed sql query
      */
-    private function getUrlSqlQuery(StatementInfo $statementInfo)
+    private function getUrlSqlQuery(StatementInfo $statementInfo): string
     {
         if (
             $statementInfo->queryType !== 'SELECT'
@@ -2728,7 +2728,7 @@ class Results
         $whereClause,
         $clauseIsUnique,
         $urlSqlQuery
-    ) {
+    ): array {
         $urlParams = [
             'db' => $this->properties['db'],
             'table' => $this->properties['table'],
@@ -2782,7 +2782,7 @@ class Results
         $urlSqlQuery,
         int $deleteLink,
         int $processId
-    ) {
+    ): array {
         $goto = $this->properties['goto'];
 
         if ($deleteLink === DisplayParts::DELETE_ROW) { // delete row case
@@ -2858,10 +2858,8 @@ class Results
      *
      * @param string $icon        The name of the file to get
      * @param string $displayText The text displaying after the image icon
-     *
-     * @return string
      */
-    private function getActionLinkContent($icon, $displayText)
+    private function getActionLinkContent($icon, $displayText): string
     {
         if (
             isset($GLOBALS['cfg']['RowActionType'])
@@ -2931,7 +2929,7 @@ class Results
         StatementInfo $statementInfo,
         TransformationsPlugin|null $transformationPlugin,
         array $transformOptions
-    ) {
+    ): string {
         if ($column === null) {
             return $this->buildNullDisplay($class, $conditionField, $meta);
         }
@@ -2982,7 +2980,7 @@ class Results
         TransformationsPlugin|null $transformationPlugin,
         $transformOptions,
         StatementInfo $statementInfo
-    ) {
+    ): string {
         if ($column === null) {
             return $this->buildNullDisplay($class, $conditionField, $meta);
         }
@@ -3098,7 +3096,7 @@ class Results
         TransformationsPlugin|null $transformationPlugin,
         $transformOptions,
         StatementInfo $statementInfo
-    ) {
+    ): string {
         $originalLength = 0;
 
         $isAnalyse = $this->properties['is_analyse'];
@@ -3374,7 +3372,7 @@ class Results
         DisplayParts $displayParts,
         StatementInfo $statementInfo,
         $isLimitedDisplay = false
-    ) {
+    ): string {
         // The statement this table is built for.
         if (isset($statementInfo->statement)) {
             /** @var SelectStatement $statement */
@@ -3609,13 +3607,11 @@ class Results
      * @param ResultInterface $dtResult                  the link id associated to the query
      *                                                   which results have to be displayed
      * @param string|null     $sortExpressionNoDirection sort expression without direction
-     *
-     * @return string
      */
     private function getSortedColumnMessage(
         ResultInterface $dtResult,
         $sortExpressionNoDirection
-    ) {
+    ): string {
         $fieldsMeta = $this->properties['fields_meta']; // To use array indexes
 
         if (empty($sortExpressionNoDirection)) {
@@ -3733,7 +3729,7 @@ class Results
         $posNext,
         string $preCount,
         string $afterCount
-    ) {
+    ): Message {
         $unlimNumRows = $this->properties['unlim_num_rows']; // To use in isset()
 
         if (! empty($statementInfo->statement->limit)) {
@@ -4174,7 +4170,7 @@ class Results
         array $transformOptions,
         bool $isFieldTruncated = false,
         string $originalLength = ''
-    ) {
+    ): string {
         $relationalDisplay = $_SESSION['tmpval']['relational_display'];
         $printView = $this->properties['printview'];
         $value = '';

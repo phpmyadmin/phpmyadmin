@@ -59,7 +59,7 @@ class ListDatabase extends ListAbstract
      *
      * @return array
      */
-    protected function retrieve($like_db_name = null)
+    protected function retrieve($like_db_name = null): array
     {
         $database_list = [];
         $command = '';
@@ -151,7 +151,7 @@ class ListDatabase extends ListAbstract
      *
      * @return string default item
      */
-    public function getDefault()
+    public function getDefault(): string
     {
         if (strlen($GLOBALS['db']) > 0) {
             return $GLOBALS['db'];

@@ -189,7 +189,7 @@ class Transformations
      *
      * @return string the class name of transformation
      */
-    public function getClassName($filename)
+    public function getClassName($filename): string
     {
         return 'PhpMyAdmin\\' . str_replace('/', '\\', mb_substr(explode('.php', $filename)[0], 18));
     }
@@ -201,7 +201,7 @@ class Transformations
      *
      * @return string the description of the transformation
      */
-    public function getDescription($file)
+    public function getDescription($file): string
     {
         $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
         /** @psalm-var class-string<TransformationsInterface> $class_name */
@@ -220,7 +220,7 @@ class Transformations
      *
      * @return string the name of the transformation
      */
-    public function getName($file)
+    public function getName($file): string
     {
         $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
         /** @psalm-var class-string<TransformationsInterface> $class_name */
@@ -241,10 +241,8 @@ class Transformations
      * - removes back spaces
      *
      * @param string $value Value to fixup
-     *
-     * @return string
      */
-    public function fixUpMime($value)
+    public function fixUpMime($value): string
     {
         $value = str_replace(
             [

@@ -303,10 +303,8 @@ class ExportPdf extends ExportPlugin
 
     /**
      * Gets the PhpMyAdmin\Plugins\Export\Helpers\Pdf instance
-     *
-     * @return Pdf
      */
-    private function getPdf()
+    private function getPdf(): Pdf
     {
         return $this->pdf;
     }

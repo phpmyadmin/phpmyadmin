@@ -415,7 +415,7 @@ class Relation
      *
      * @return array    db,table,column
      */
-    public function getForeigners($db, $table, $column = '', $source = 'both')
+    public function getForeigners($db, $table, $column = '', $source = 'both'): array
     {
         $relationFeature = $this->getRelationParameters()->relationFeature;
         $foreign = [];
@@ -597,7 +597,7 @@ class Relation
      *
      * @return array comments
      */
-    public function getDbComments()
+    public function getDbComments(): array
     {
         $columnCommentsFeature = $this->getRelationParameters()->columnCommentsFeature;
 
@@ -1688,7 +1688,7 @@ class Relation
      * @return array ($res_rel, $have_rel)
      * @psalm-return array{array, bool}
      */
-    public function getRelationsAndStatus(bool $condition, $db, $table)
+    public function getRelationsAndStatus(bool $condition, $db, $table): array
     {
         $have_rel = false;
         $res_rel = [];
@@ -1740,7 +1740,7 @@ class Relation
      *
      * @return array Table names
      */
-    public function getTables($foreignDb, $tblStorageEngine)
+    public function getTables($foreignDb, $tblStorageEngine): array
     {
         $tables = [];
         $tablesRows = $this->dbi->query('SHOW TABLE STATUS FROM ' . Util::backquote($foreignDb));

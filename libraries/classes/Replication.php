@@ -29,7 +29,7 @@ class Replication
      *
      * @return string the extracted part
      */
-    public function extractDbOrTable($string, $what = 'db')
+    public function extractDbOrTable($string, $what = 'db'): string
     {
         $list = explode('.', $string);
         if ($what === 'db') {
