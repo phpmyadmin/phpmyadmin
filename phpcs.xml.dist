@@ -7,7 +7,12 @@
     <arg name="colors"/>
     <arg name="extensions" value="php"/>
 
-    <file>.</file>
+    <file>./examples</file>
+    <file>./libraries</file>
+    <file>./public</file>
+    <file>./scripts</file>
+    <file>./test</file>
+    <file>./config.sample.inc.php</file>
 
     <exclude-pattern>*/build/*</exclude-pattern>
     <exclude-pattern>*/config.inc.php</exclude-pattern>

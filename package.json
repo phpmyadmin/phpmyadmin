@@ -68,7 +68,7 @@
   "scripts": {
     "postinstall": "yarn run build",
     "build": "webpack",
-    "css-lint": "stylelint -s scss \"themes/**/scss/*.scss\" \"setup/scss/*.scss\"",
+    "css-lint": "stylelint -s scss \"public/themes/**/scss/*.scss\" \"public/setup/scss/*.scss\"",
     "js-lint": "eslint js/src test/javascript jest.config.cjs",
     "test": "yarn node --experimental-vm-modules $(yarn bin jest)"
   }

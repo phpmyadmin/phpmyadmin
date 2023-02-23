@@ -62,3 +62,4 @@ phpstan.neon
 # Infection
 infection.json
 infection.log
+/public/build/

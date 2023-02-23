@@ -7,7 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const RtlCssPlugin = require('rtlcss-webpack-plugin');
 
 const rootPath = path.resolve(__dirname, '');
-const publicPath = path.resolve(__dirname, '');
+const publicPath = path.resolve(__dirname, 'public');
 
 module.exports = [
     {
