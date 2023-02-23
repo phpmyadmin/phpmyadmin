@@ -27,7 +27,7 @@ class ThemeManager
     /**
      * ThemeManager instance
      */
-    private static ThemeManager $instance;
+    private static ThemeManager|null $instance = null;
 
     /** @var string file-system path to the theme folder */
     private string $themesPath;
@@ -105,11 +105,7 @@ class ThemeManager
      */
     public static function getInstance(): ThemeManager
     {
-        if (empty(self::$instance)) {
-            self::$instance = new ThemeManager();
-        }
-
-        return self::$instance;
+        return self::$instance ??= new ThemeManager();
     }
 
     /**
