@@ -138,7 +138,7 @@ class AuthenticationHttp extends AuthenticationPlugin
             $this->password = $GLOBALS['PHP_AUTH_PW'];
         }
 
-        if (empty($this->password)) {
+        if ($this->password === '') {
             if (Core::getenv('PHP_AUTH_PW')) {
                 $this->password = Core::getenv('PHP_AUTH_PW');
             } elseif (Core::getenv('REMOTE_PASSWORD')) {
@@ -148,11 +148,6 @@ class AuthenticationHttp extends AuthenticationPlugin
                 // WebSite Professional
                 $this->password = Core::getenv('AUTH_PASSWORD');
             }
-        }
-
-        // Sanitize empty password login
-        if ($this->password === null) {
-            $this->password = '';
         }
 
         // Avoid showing the password in phpinfo()'s output
