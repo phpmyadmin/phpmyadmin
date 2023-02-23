@@ -117,7 +117,7 @@
                 {% if not is_innodb and showtable['Rows'] is defined %}
                     <tr>
                     <th class="name">{% trans 'Rows' %}</th>
-                    <td class="value">{{ format_number(showtable['Rows'], 0) }}</td>
+                    <td class="value">{{ format_number(showtable['Rows'] ?? 0, 0) }}</td>
                     </tr>
                 {% endif %}
 
@@ -145,7 +145,7 @@
                 {% if showtable['Auto_increment'] is defined %}
                     <tr>
                     <th class="name">{% trans 'Next autoindex' %}</th>
-                    <td class="value">{{ format_number(showtable['Auto_increment'], 0) }}</td>
+                    <td class="value">{{ format_number(showtable['Auto_increment'] ?? 0, 0) }}</td>
                     </tr>
                 {% endif %}
 
