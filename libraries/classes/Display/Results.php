@@ -1882,7 +1882,7 @@ class Results
             $nowrap,
         ]);
 
-        if (isset($meta->internalMediaType)) {
+        if ($meta->internalMediaType !== null) {
             $classes[] = preg_replace('/\//', '_', $meta->internalMediaType);
         }
 

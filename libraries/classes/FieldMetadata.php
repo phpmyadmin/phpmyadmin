@@ -183,7 +183,7 @@ final class FieldMetadata
     /**
      * A field only used by the Results class
      */
-    public string $internalMediaType;
+    public string|null $internalMediaType = null;
 
     public function __construct(int $fieldType, int $fieldFlags, object $field)
     {
