@@ -41,13 +41,13 @@ class Template
     /**
      * Twig environment
      */
-    protected static Environment|null $twig = null;
+    protected static Environment $twig;
 
     public const TEMPLATES_FOLDER = ROOT_PATH . 'templates';
 
     public function __construct()
     {
-        if (static::$twig !== null) {
+        if (isset(static::$twig)) {
             return;
         }
 
