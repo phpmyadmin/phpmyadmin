@@ -102,7 +102,7 @@ class Advisor
             'fired',
             static function (): void {
             },
-            function (array $arguments, int $value) {
+            function (array $arguments, int|string $value) {
                 // Did matching rule fire?
                 foreach ($this->runResult['fired'] as $rule) {
                     if ($rule['id'] == $value) {
