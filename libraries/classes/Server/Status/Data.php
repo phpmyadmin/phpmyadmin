@@ -8,12 +8,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Server\Status;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\Url;
 
 use function __;
-use function basename;
 use function mb_strtolower;
 use function str_contains;
 
@@ -50,8 +50,6 @@ class Data
 
     /** @var array */
     public array $sectionUsed;
-
-    public string $selfUrl;
 
     public bool $dataLoaded;
 
@@ -168,18 +166,20 @@ class Data
         $primaryInfo = $this->replicationInfo->getPrimaryInfo();
         $replicaInfo = $this->replicationInfo->getReplicaInfo();
 
+        $selfUrl = $this->config->getRootPath();
+
         $links = [];
         // variable or section name => (name => url)
 
         $links['table'][__('Flush (close) all tables')] = [
-            'url' => $this->selfUrl,
+            'url' => $selfUrl,
             'params' => Url::getCommon(['flush' => 'TABLES'], ''),
         ];
         $links['table'][__('Show open tables')] = [
             'url' => Url::getFromRoute('/sql'),
             'params' => Url::getCommon([
                 'sql_query' => 'SHOW OPEN TABLES',
-                'goto' => $this->selfUrl,
+                'goto' => $selfUrl,
             ], ''),
         ];
 
@@ -188,7 +188,7 @@ class Data
                 'url' => Url::getFromRoute('/sql'),
                 'params' => Url::getCommon([
                     'sql_query' => 'SHOW SLAVE HOSTS',
-                    'goto' => $this->selfUrl,
+                    'goto' => $selfUrl,
                 ], ''),
             ];
             $links['repl'][__('Show primary status')] = [
@@ -207,7 +207,7 @@ class Data
         $links['repl']['doc'] = 'replication';
 
         $links['qcache'][__('Flush query cache')] = [
-            'url' => $this->selfUrl,
+            'url' => $selfUrl,
             'params' => Url::getCommon(['flush' => 'QUERY CACHE'], ''),
         ];
         $links['qcache']['doc'] = 'query_cache';
@@ -344,12 +344,10 @@ class Data
         ];
     }
 
-    public function __construct(private DatabaseInterface $dbi)
+    public function __construct(private DatabaseInterface $dbi, private Config $config)
     {
         $this->replicationInfo = new ReplicationInfo($this->dbi);
         $this->replicationInfo->load($_POST['primary_connection'] ?? null);
-
-        $this->selfUrl = basename($GLOBALS['PMA_PHP_SELF']);
 
         // get status from server
         $server_status_result = $this->dbi->tryQuery('SHOW GLOBAL STATUS');

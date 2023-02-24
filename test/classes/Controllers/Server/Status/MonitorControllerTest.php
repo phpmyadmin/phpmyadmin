@@ -45,7 +45,7 @@ class MonitorControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
 
-        $this->data = new Data($this->dbi);
+        $this->data = new Data($this->dbi, $GLOBALS['config']);
     }
 
     public function testIndex(): void

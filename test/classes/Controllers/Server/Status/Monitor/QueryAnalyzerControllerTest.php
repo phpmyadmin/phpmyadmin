@@ -43,7 +43,8 @@ class QueryAnalyzerControllerTest extends AbstractTestCase
         $dummyDbi = new DbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);
 
-        $controller = new QueryAnalyzerController($response, new Template(), new Data($dbi), new Monitor($dbi), $dbi);
+        $statusData = new Data($dbi, $GLOBALS['config']);
+        $controller = new QueryAnalyzerController($response, new Template(), $statusData, new Monitor($dbi), $dbi);
 
         $request = $this->createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([

@@ -39,7 +39,7 @@ class RefreshControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
 
-        $this->data = new Data($GLOBALS['dbi']);
+        $this->data = new Data($GLOBALS['dbi'], $GLOBALS['config']);
     }
 
     public function testRefresh(): void

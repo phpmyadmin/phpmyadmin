@@ -815,7 +815,9 @@ class ConfigTest extends AbstractTestCase
      */
     public function testGetRootPath(string $request, string $absolute, string $expected): void
     {
-        $GLOBALS['PMA_PHP_SELF'] = $request;
+        $_SERVER['PHP_SELF'] = $request;
+        $_SERVER['REQUEST_URI'] = '';
+        $_SERVER['PATH_INFO'] = '';
         $this->object->set('PmaAbsoluteUri', $absolute);
         $this->assertEquals($expected, $this->object->getRootPath());
     }
@@ -907,6 +909,77 @@ class ConfigTest extends AbstractTestCase
                 'http://example.net/',
                 '/phpmyadmin3/',
                 '/phpmyadmin3/',
+            ],
+        ];
+    }
+
+    /**
+     * @param string $php_self  The PHP_SELF value
+     * @param string $request   The REQUEST_URI value
+     * @param string $path_info The PATH_INFO value
+     * @param string $expected  Expected result
+     *
+     * @dataProvider providerForTestCleanupPathInfo
+     */
+    public function testCleanupPathInfo(string $php_self, string $request, string $path_info, string $expected): void
+    {
+        $_SERVER['PHP_SELF'] = $php_self;
+        $_SERVER['REQUEST_URI'] = $request;
+        $_SERVER['PATH_INFO'] = $path_info;
+        $rootPath = $this->object->getRootPath();
+        $this->assertEquals($expected, $rootPath);
+    }
+
+    public static function providerForTestCleanupPathInfo(): array
+    {
+        return [
+            [
+                '/phpmyadmin/index.php/; cookieinj=value/',
+                '/phpmyadmin/index.php/;%20cookieinj=value///',
+                '/; cookieinj=value/',
+                '/phpmyadmin/',
+            ],
+            [
+                '',
+                '/phpmyadmin/index.php/;%20cookieinj=value///',
+                '/; cookieinj=value/',
+                '/phpmyadmin/',
+            ],
+            [
+                '',
+                '//example.com/../phpmyadmin/index.php',
+                '',
+                '/phpmyadmin/',
+            ],
+            [
+                '',
+                '//example.com/../../.././phpmyadmin/index.php',
+                '',
+                '/phpmyadmin/',
+            ],
+            [
+                '',
+                '/page.php/malicouspathinfo?malicouspathinfo',
+                'malicouspathinfo',
+                '/',
+            ],
+            [
+                '/phpmyadmin/./index.php',
+                '/phpmyadmin/./index.php',
+                '',
+                '/phpmyadmin/',
+            ],
+            [
+                '/phpmyadmin/index.php',
+                '/phpmyadmin/index.php',
+                '',
+                '/phpmyadmin/',
+            ],
+            [
+                '',
+                '/phpmyadmin/index.php',
+                '',
+                '/phpmyadmin/',
             ],
         ];
     }
