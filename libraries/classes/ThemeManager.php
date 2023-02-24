@@ -277,7 +277,7 @@ class ThemeManager
      */
     public static function getThemesFsDir(): string
     {
-        return ROOT_PATH . 'themes' . DIRECTORY_SEPARATOR;
+        return ROOT_PATH . 'public/themes' . DIRECTORY_SEPARATOR;
     }
 
     /**

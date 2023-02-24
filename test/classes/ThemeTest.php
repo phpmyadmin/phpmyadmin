@@ -88,7 +88,7 @@ class ThemeTest extends AbstractTestCase
      */
     public function testLoadInfo(): void
     {
-        $this->object->setFsPath(ROOT_PATH . 'themes/original/');
+        $this->object->setFsPath(ROOT_PATH . 'public/themes/original/');
         $infofile = $this->object->getFsPath() . 'theme.json';
         $this->assertTrue($this->object->loadInfo());
 
@@ -97,7 +97,7 @@ class ThemeTest extends AbstractTestCase
             $this->object->mtimeInfo
         );
 
-        $this->object->setPath(ROOT_PATH . 'themes/original');
+        $this->object->setPath(ROOT_PATH . 'public/themes/original');
         $this->object->mtimeInfo = (int) filemtime($infofile);
         $this->assertTrue($this->object->loadInfo());
         $this->assertEquals('Original', $this->object->getName());

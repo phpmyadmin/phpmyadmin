@@ -14,11 +14,11 @@
 >
     <projectFiles>
         <directory name="libraries"/>
-        <directory name="setup"/>
+        <directory name="public/setup"/>
         <directory name="test/classes"/>
         <directory name="test/selenium"/>
-        <file name="index.php"/>
-        <file name="show_config_errors.php"/>
+        <file name="public/index.php"/>
+        <file name="public/show_config_errors.php"/>
         <ignoreFiles>
             <directory name="vendor"/>
             <directory name="libraries/cache"/>
