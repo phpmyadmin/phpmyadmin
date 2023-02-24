@@ -325,7 +325,9 @@ class Util
 
         $tableGroups = [];
 
-        foreach ($tables as $tableName => $table) {
+        foreach ($tables as $table) {
+            /** @var string $tableName */
+            $tableName = $table['TABLE_NAME'];
             $table['Rows'] = self::checkRowCount($db, $table);
 
             // in $group we save the reference to the place in $table_groups
@@ -2288,18 +2290,15 @@ class Util
                 }
             }
 
-            $tables = array_merge(
-                $groupTable,
-                $dbi->getTablesFull(
-                    $db,
-                    $groupWithSeparator !== false ? $groupWithSeparator : '',
-                    $groupWithSeparator !== false,
-                    $limitOffset,
-                    $limitCount,
-                    $sort,
-                    $sortOrder,
-                    $tableType
-                )
+            $tables = $groupTable + $dbi->getTablesFull(
+                $db,
+                $groupWithSeparator !== false ? $groupWithSeparator : '',
+                $groupWithSeparator !== false,
+                $limitOffset,
+                $limitCount,
+                $sort,
+                $sortOrder,
+                $tableType
             );
         }
 
@@ -2402,10 +2401,7 @@ class Util
                 }
 
                 if (count($names) > 0) {
-                    $tables = array_merge(
-                        $tables,
-                        $dbi->getTablesFull($db, $names)
-                    );
+                    $tables += $dbi->getTablesFull($db, $names);
                 }
 
                 if ($GLOBALS['cfg']['NaturalOrder']) {
