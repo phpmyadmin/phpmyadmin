@@ -137,26 +137,12 @@ class GisPointTest extends GisGeomTestCase
         return [
             [
                 "'POINT(5.02 8.45)',124",
-                null,
                 [
                     'srid' => 124,
                     0 => [
                         'POINT' => [
-                            'x' => '5.02',
-                            'y' => '8.45',
-                        ],
-                    ],
-                ],
-            ],
-            [
-                'POINT(5.02 8.45)',
-                2,
-                [
-                    2 => [
-                        'gis_type' => 'POINT',
-                        'POINT' => [
-                            'x' => '5.02',
-                            'y' => '8.45',
+                            'x' => 5.02,
+                            'y' => 8.45,
                         ],
                     ],
                 ],

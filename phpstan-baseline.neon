@@ -4251,6 +4251,11 @@ parameters:
 			path: libraries/classes/Gis/GisGeometry.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getCoordinateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisGeometry.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getLineArrayForOpenLayers\\(\\) has parameter \\$lines with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometry.php
@@ -4321,6 +4326,11 @@ parameters:
 			path: libraries/classes/Gis/GisGeometryCollection.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:getCoordinateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisGeometryCollection.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:prepareRowAsOl\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometryCollection.php
@@ -4341,22 +4351,17 @@ parameters:
 			path: libraries/classes/Gis/GisGeometryCollection.php
 
 		-
-			message: "#^Negated boolean expression is always false\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisGeometryCollection.php
-
-		-
 			message: "#^Static property PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:\\$instance \\(PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometryCollection.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisLineString\\:\\:generateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisLineString\\:\\:generateWkt\\(\\) has parameter \\$gis_data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisLineString.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisLineString\\:\\:generateWkt\\(\\) has parameter \\$gis_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisLineString\\:\\:getCoordinateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisLineString.php
 
@@ -4396,12 +4401,17 @@ parameters:
 			path: libraries/classes/Gis/GisLineString.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\:\\:generateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot access offset int\\<0, max\\> on non\\-empty\\-array\\<'no_of_points'\\|int\\<0, max\\>, array\\{x\\: mixed, y\\: mixed\\}\\|int\\<0, max\\>\\>\\|int\\<1, max\\>\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiLineString.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\:\\:generateWkt\\(\\) has parameter \\$gis_data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisMultiLineString.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\:\\:getCoordinateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiLineString.php
 
@@ -4446,12 +4456,12 @@ parameters:
 			path: libraries/classes/Gis/GisMultiLineString.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\:\\:generateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\:\\:generateWkt\\(\\) has parameter \\$gis_data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPoint.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\:\\:generateWkt\\(\\) has parameter \\$gis_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\:\\:getCoordinateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPoint.php
 
@@ -4501,17 +4511,27 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPoint.php
 
 		-
+			message: "#^Cannot access offset int on non\\-empty\\-array\\<'no_of_lines'\\|int, array\\{no_of_points\\: int\\<0, max\\>, 0\\?\\: array\\{x\\: mixed, y\\: mixed\\}\\}\\|int\\<1, max\\>\\>\\|int\\<1, max\\>\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisMultiPolygon.php
+
+		-
+			message: "#^Cannot access offset int\\<0, max\\> on non\\-empty\\-array\\<'no_of_points'\\|int\\<0, max\\>, array\\{x\\: mixed, y\\: mixed\\}\\|int\\<0, max\\>\\>\\|int\\<1, max\\>\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisMultiPolygon.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\:\\:drawPath\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\:\\:generateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\:\\:generateWkt\\(\\) has parameter \\$gis_data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\:\\:generateWkt\\(\\) has parameter \\$gis_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\:\\:getCoordinateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
@@ -4561,12 +4581,12 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:generateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:generateWkt\\(\\) has parameter \\$gis_data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPoint.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:generateWkt\\(\\) has parameter \\$gis_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:getCoordinateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPoint.php
 
@@ -4611,6 +4631,11 @@ parameters:
 			path: libraries/classes/Gis/GisPoint.php
 
 		-
+			message: "#^Cannot access offset int\\<0, max\\> on non\\-empty\\-array\\<'no_of_points'\\|int\\<0, max\\>, array\\{x\\: mixed, y\\: mixed\\}\\|int\\<0, max\\>\\>\\|int\\<1, max\\>\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisPolygon.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:area\\(\\) has parameter \\$ring with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPolygon.php
@@ -4621,12 +4646,12 @@ parameters:
 			path: libraries/classes/Gis/GisPolygon.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:generateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:generateWkt\\(\\) has parameter \\$gis_data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPolygon.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:generateWkt\\(\\) has parameter \\$gis_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:getCoordinateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPolygon.php
 
@@ -10331,17 +10356,17 @@ parameters:
 			path: test/classes/Gis/GisGeometryTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryTest\\:\\:providerForTestGenerateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisGeometryTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryTest\\:\\:providerForTestGetBoundsForOl\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisGeometryTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryTest\\:\\:providerForTestGetPolygonArrayForOpenLayers\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: test/classes/Gis/GisGeometryTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryTest\\:\\:providerForTestParseWktAndSrid\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisGeometryTest.php
 
@@ -10361,17 +10386,17 @@ parameters:
 			path: test/classes/Gis/GisGeometryTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryTest\\:\\:testGenerateParams\\(\\) has parameter \\$output with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisGeometryTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryTest\\:\\:testGetBoundsForOl\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisGeometryTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryTest\\:\\:testGetPolygonArrayForOpenLayers\\(\\) has parameter \\$polygons with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: test/classes/Gis/GisGeometryTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryTest\\:\\:testParseWktAndSrid\\(\\) has parameter \\$output with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisGeometryTest.php
 

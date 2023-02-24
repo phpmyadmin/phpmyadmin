@@ -7,14 +7,15 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
+use ErrorException;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
-use function array_merge;
 use function count;
 use function mb_strpos;
 use function mb_substr;
 use function str_split;
+use function strtoupper;
 
 /**
  * Handles actions related to GIS GEOMETRYCOLLECTION objects
@@ -300,43 +301,54 @@ class GisGeometryCollection extends GisGeometry
     }
 
     /**
+     * GeometryCollection does not have coordinates of its own
+     *
+     * @param string $wkt Value of the GIS column
+     */
+    protected function getCoordinateParams(string $wkt): array
+    {
+        throw new ErrorException('Has no own coordinates');
+    }
+
+    /**
      * Generates parameters for the GIS data editor from the value of the GIS column.
      *
      * @param string $value of the GIS column
      *
      * @return array parameters for the GIS editor from the value of the GIS column
      */
-    public function generateParams($value): array
+    public function generateParams(string $value): array
     {
-        $params = [];
-        $data = GisGeometry::generateParams($value);
-        $params['srid'] = $data['srid'];
+        $data = $this->parseWktAndSrid($value);
         $wkt = $data['wkt'];
 
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $goem_col = mb_substr($wkt, 19, -1);
-        // Split the geometry collection object to get its constituents.
-        $sub_parts = $this->explodeGeomCol($goem_col);
-        $params['GEOMETRYCOLLECTION']['geom_count'] = count($sub_parts);
+        $wkt_geometries = $this->explodeGeomCol($goem_col);
+        $params = [
+            'srid' => $data['srid'],
+            'GEOMETRYCOLLECTION' => [
+                'geom_count' => count($wkt_geometries),
+            ],
+        ];
 
         $i = 0;
-        foreach ($sub_parts as $sub_part) {
-            $type_pos = mb_strpos($sub_part, '(');
+        foreach ($wkt_geometries as $wkt_geometry) {
+            $type_pos = mb_strpos($wkt_geometry, '(');
             if ($type_pos === false) {
                 continue;
             }
 
-            $type = mb_substr($sub_part, 0, $type_pos);
-            /**
-             * @var GisMultiPolygon|GisPolygon|GisMultiPoint|GisPoint|GisMultiLineString|GisLineString $gis_obj
-             */
-            $gis_obj = GisFactory::factory($type);
+            $wkt_type = strtoupper(mb_substr($wkt_geometry, 0, $type_pos));
+            $gis_obj = GisFactory::factory($wkt_type);
             if (! $gis_obj) {
                 continue;
             }
 
-            $params = array_merge($params, $gis_obj->generateParams($sub_part, $i));
-            $i++;
+            $params[$i++] = [
+                'gis_type' => $wkt_type,
+                $wkt_type => $gis_obj->getCoordinateParams($wkt_geometry),
+            ];
         }
 
         return $params;

@@ -178,50 +178,39 @@ class GisMultiLineStringTest extends GisGeomTestCase
      */
     public static function providerForTestGenerateParams(): array
     {
-        $temp = [
-            'MULTILINESTRING' => [
-                'no_of_lines' => 2,
-                0 => [
-                    'no_of_points' => 2,
-                    0 => [
-                        'x' => 5.02,
-                        'y' => 8.45,
-                    ],
-                    1 => [
-                        'x' => 6.14,
-                        'y' => 0.15,
-                    ],
-                ],
-                1 => [
-                    'no_of_points' => 2,
-                    0 => [
-                        'x' => 1.23,
-                        'y' => 4.25,
-                    ],
-                    1 => [
-                        'x' => 9.15,
-                        'y' => 0.47,
-                    ],
-                ],
-            ],
-        ];
-
-        $temp1 = $temp;
-        $temp1['gis_type'] = 'MULTILINESTRING';
-
         return [
             [
                 "'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 0.47))',124",
-                null,
                 [
                     'srid' => 124,
-                    0 => $temp,
+                    0 => [
+                        'MULTILINESTRING' => [
+                            'no_of_lines' => 2,
+                            0 => [
+                                'no_of_points' => 2,
+                                0 => [
+                                    'x' => 5.02,
+                                    'y' => 8.45,
+                                ],
+                                1 => [
+                                    'x' => 6.14,
+                                    'y' => 0.15,
+                                ],
+                            ],
+                            1 => [
+                                'no_of_points' => 2,
+                                0 => [
+                                    'x' => 1.23,
+                                    'y' => 4.25,
+                                ],
+                                1 => [
+                                    'x' => 9.15,
+                                    'y' => 0.47,
+                                ],
+                            ],
+                        ],
+                    ],
                 ],
-            ],
-            [
-                'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 0.47))',
-                2,
-                [2 => $temp1],
             ],
         ];
     }

@@ -288,33 +288,21 @@ class GisPoint extends GisGeometry
     }
 
     /**
-     * Generate parameters for the GIS data editor from the value of the GIS column.
+     * Generate coordinate parameters for the GIS data editor from the value of the GIS column.
      *
-     * @param string $value of the GIS column
-     * @param int    $index of the geometry
+     * @param string $wkt Value of the GIS column
      *
-     * @return array params for the GIS data editor from the value of the GIS column
+     * @return array Coordinate params for the GIS data editor from the value of the GIS column
      */
-    public function generateParams($value, $index = -1): array
+    protected function getCoordinateParams(string $wkt): array
     {
-        $params = [];
-        if ($index == -1) {
-            $index = 0;
-            $data = GisGeometry::generateParams($value);
-            $params['srid'] = $data['srid'];
-            $wkt = $data['wkt'];
-        } else {
-            $params[$index]['gis_type'] = 'POINT';
-            $wkt = $value;
-        }
-
         // Trim to remove leading 'POINT(' and trailing ')'
-        $point = mb_substr($wkt, 6, -1);
-        $points_arr = $this->extractPoints($point, null);
+        $wkt_point = mb_substr($wkt, 6, -1);
+        $points = $this->extractPoints($wkt_point, null);
 
-        $params[$index]['POINT']['x'] = $points_arr[0][0];
-        $params[$index]['POINT']['y'] = $points_arr[0][1];
-
-        return $params;
+        return [
+            'x' => $points[0][0],
+            'y' => $points[0][1],
+        ];
     }
 }

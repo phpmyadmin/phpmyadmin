@@ -20,6 +20,7 @@ use function preg_match;
 use function random_int;
 use function sprintf;
 use function str_replace;
+use function strtoupper;
 use function trim;
 
 /**
@@ -166,15 +167,14 @@ abstract class GisGeometry
     }
 
     /**
-     * Generates parameters for the GIS data editor from the value of the GIS column.
-     * This method performs common work.
-     * More specific work is performed by each of the geom classes.
+     * Parses the wkt and optional srid from a combined string for the GIS data editor
      *
      * @param string $value value of the GIS column
      *
-     * @return array parameters for the GIS editor from the value of the GIS column
+     * @return array<string,int|string> parameters for the GIS editor from the value of the GIS column
+     * @psalm-return array{'srid':int,'wkt':string}
      */
-    public function generateParams($value): array
+    protected function parseWktAndSrid(string $value): array
     {
         $geom_types = '(POINT|MULTIPOINT|LINESTRING|MULTILINESTRING|POLYGON|MULTIPOLYGON|GEOMETRYCOLLECTION)';
         $srid = 0;
@@ -191,6 +191,38 @@ abstract class GisGeometry
         return [
             'srid' => $srid,
             'wkt' => $wkt,
+        ];
+    }
+
+    /**
+     * Generate coordinate parameters for the GIS data editor from the value of the GIS column.
+     *
+     * @param string $wkt Value of the GIS column
+     *
+     * @return array Coordinate params for the GIS data editor from the value of the GIS column
+     */
+    abstract protected function getCoordinateParams(string $wkt): array;
+
+    /**
+     * Generate parameters for the GIS data editor from the value of the GIS column.
+     *
+     * @param string $value Value of the GIS column
+     *
+     * @return array params for the GIS data editor from the value of the GIS column
+     */
+    public function generateParams(string $value): array
+    {
+        $data = $this->parseWktAndSrid($value);
+        $index = 0;
+        $wkt = $data['wkt'];
+        preg_match('/^\w+/', $wkt, $matches);
+        $wkt_type = strtoupper($matches[0]);
+
+        return [
+            'srid' => $data['srid'],
+            $index => [
+                $wkt_type => $this->getCoordinateParams($wkt),
+            ],
         ];
     }
 

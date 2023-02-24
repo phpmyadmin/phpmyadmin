@@ -317,38 +317,28 @@ class GisMultiPoint extends GisGeometry
     }
 
     /**
-     * Generate parameters for the GIS data editor from the value of the GIS column.
+     * Generate coordinate parameters for the GIS data editor from the value of the GIS column.
      *
-     * @param string $value Value of the GIS column
-     * @param int    $index Index of the geometry
+     * @param string $wkt Value of the GIS column
      *
-     * @return array params for the GIS data editor from the value of the GIS column
+     * @return array Coordinate params for the GIS data editor from the value of the GIS column
      */
-    public function generateParams($value, $index = -1): array
+    protected function getCoordinateParams(string $wkt): array
     {
-        $params = [];
-        if ($index == -1) {
-            $index = 0;
-            $data = GisGeometry::generateParams($value);
-            $params['srid'] = $data['srid'];
-            $wkt = $data['wkt'];
-        } else {
-            $params[$index]['gis_type'] = 'MULTIPOINT';
-            $wkt = $value;
-        }
-
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
-        $points = mb_substr($wkt, 11, -1);
-        $points_arr = $this->extractPoints($points, null);
+        $wkt_points = mb_substr($wkt, 11, -1);
+        $points = $this->extractPoints($wkt_points, null);
 
-        $no_of_points = count($points_arr);
-        $params[$index]['MULTIPOINT']['no_of_points'] = $no_of_points;
+        $no_of_points = count($points);
+        $coords = ['no_of_points' => $no_of_points];
         for ($i = 0; $i < $no_of_points; $i++) {
-            $params[$index]['MULTIPOINT'][$i]['x'] = $points_arr[$i][0];
-            $params[$index]['MULTIPOINT'][$i]['y'] = $points_arr[$i][1];
+            $coords[$i] = [
+                'x' => $points[$i][0],
+                'y' => $points[$i][1],
+            ];
         }
 
-        return $params;
+        return $coords;
     }
 
     /**

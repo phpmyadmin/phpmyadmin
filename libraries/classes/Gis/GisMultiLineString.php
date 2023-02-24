@@ -341,45 +341,31 @@ class GisMultiLineString extends GisGeometry
     }
 
     /**
-     * Generate parameters for the GIS data editor from the value of the GIS column.
+     * Generate coordinate parameters for the GIS data editor from the value of the GIS column.
      *
-     * @param string $value Value of the GIS column
-     * @param int    $index Index of the geometry
+     * @param string $wkt Value of the GIS column
      *
-     * @return array params for the GIS data editor from the value of the GIS column
+     * @return array Coordinate params for the GIS data editor from the value of the GIS column
      */
-    public function generateParams($value, $index = -1): array
+    protected function getCoordinateParams(string $wkt): array
     {
-        $params = [];
-        if ($index == -1) {
-            $index = 0;
-            $data = GisGeometry::generateParams($value);
-            $params['srid'] = $data['srid'];
-            $wkt = $data['wkt'];
-        } else {
-            $params[$index]['gis_type'] = 'MULTILINESTRING';
-            $wkt = $value;
-        }
-
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
-        $multilinestirng = mb_substr($wkt, 17, -2);
-        // Separate each linestring
-        $linestirngs = explode('),(', $multilinestirng);
-        $params[$index]['MULTILINESTRING']['no_of_lines'] = count($linestirngs);
+        $wkt_multilinestring = mb_substr($wkt, 17, -2);
+        $wkt_linestrings = explode('),(', $wkt_multilinestring);
+        $coords = ['no_of_lines' => count($wkt_linestrings)];
 
-        $j = 0;
-        foreach ($linestirngs as $linestring) {
-            $points_arr = $this->extractPoints($linestring, null);
-            $no_of_points = count($points_arr);
-            $params[$index]['MULTILINESTRING'][$j]['no_of_points'] = $no_of_points;
+        foreach ($wkt_linestrings as $j => $wkt_linestring) {
+            $points = $this->extractPoints($wkt_linestring, null);
+            $no_of_points = count($points);
+            $coords[$j] = ['no_of_points' => $no_of_points];
             for ($i = 0; $i < $no_of_points; $i++) {
-                $params[$index]['MULTILINESTRING'][$j][$i]['x'] = $points_arr[$i][0];
-                $params[$index]['MULTILINESTRING'][$j][$i]['y'] = $points_arr[$i][1];
+                $coords[$j][$i] = [
+                    'x' => $points[$i][0],
+                    'y' => $points[$i][1],
+                ];
             }
-
-            $j++;
         }
 
-        return $params;
+        return $coords;
     }
 }

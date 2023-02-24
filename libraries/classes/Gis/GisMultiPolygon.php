@@ -448,54 +448,35 @@ class GisMultiPolygon extends GisGeometry
     }
 
     /**
-     * Generate parameters for the GIS data editor from the value of the GIS column.
+     * Generate coordinate parameters for the GIS data editor from the value of the GIS column.
      *
-     * @param string $value Value of the GIS column
-     * @param int    $index Index of the geometry
+     * @param string $wkt Value of the GIS column
      *
-     * @return array params for the GIS data editor from the value of the GIS column
+     * @return array Coordinate params for the GIS data editor from the value of the GIS column
      */
-    public function generateParams($value, $index = -1): array
+    protected function getCoordinateParams(string $wkt): array
     {
-        $params = [];
-        if ($index == -1) {
-            $index = 0;
-            $data = GisGeometry::generateParams($value);
-            $params['srid'] = $data['srid'];
-            $wkt = $data['wkt'];
-        } else {
-            $params[$index]['gis_type'] = 'MULTIPOLYGON';
-            $wkt = $value;
-        }
-
         // Trim to remove leading 'MULTIPOLYGON(((' and trailing ')))'
-        $multipolygon = mb_substr($wkt, 15, -3);
-        // Separate each polygon
-        $wkt_polygons = explode(')),((', $multipolygon);
+        $wkt_multipolygon = mb_substr($wkt, 15, -3);
+        $wkt_polygons = explode(')),((', $wkt_multipolygon);
+        $coords = ['no_of_polygons' => count($wkt_polygons)];
 
-        $param_row =& $params[$index]['MULTIPOLYGON'];
-        $param_row['no_of_polygons'] = count($wkt_polygons);
-
-        $k = 0;
-        foreach ($wkt_polygons as $wkt_polygon) {
+        foreach ($wkt_polygons as $k => $wkt_polygon) {
             $wkt_rings = explode('),(', $wkt_polygon);
-            $param_row[$k]['no_of_lines'] = count($wkt_rings);
-            $j = 0;
-            foreach ($wkt_rings as $wkt_ring) {
-                $points_arr = $this->extractPoints($wkt_ring, null);
-                $no_of_points = count($points_arr);
-                $param_row[$k][$j]['no_of_points'] = $no_of_points;
+            $coords[$k] = ['no_of_lines' => count($wkt_rings)];
+            foreach ($wkt_rings as $j => $wkt_ring) {
+                $points = $this->extractPoints($wkt_ring, null);
+                $no_of_points = count($points);
+                $coords[$k][$j] = ['no_of_points' => $no_of_points];
                 for ($i = 0; $i < $no_of_points; $i++) {
-                    $param_row[$k][$j][$i]['x'] = $points_arr[$i][0];
-                    $param_row[$k][$j][$i]['y'] = $points_arr[$i][1];
+                    $coords[$k][$j][$i] = [
+                        'x' => $points[$i][0],
+                        'y' => $points[$i][1],
+                    ];
                 }
-
-                $j++;
             }
-
-            $k++;
         }
 
-        return $params;
+        return $coords;
     }
 }
