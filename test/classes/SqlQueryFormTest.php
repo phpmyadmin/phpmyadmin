@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ConfigStorage\RelationParameters;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Html\MySQLDocumentation;
@@ -60,7 +59,6 @@ class SqlQueryFormTest extends AbstractTestCase
         $this->sqlQueryForm = new SqlQueryForm(new Template(), $this->dbi);
 
         //$GLOBALS
-        $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['db'] = 'PMA_db';
         $GLOBALS['table'] = 'PMA_table';
         $GLOBALS['text_dir'] = 'text_dir';

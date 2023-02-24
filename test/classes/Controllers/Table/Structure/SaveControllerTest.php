@@ -103,7 +103,6 @@ class SaveControllerTest extends AbstractTestCase
     {
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
 

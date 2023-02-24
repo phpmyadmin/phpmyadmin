@@ -21,7 +21,6 @@ class IndexRenameControllerTest extends AbstractTestCase
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['lang'] = 'en';
 
         $dummyDbi = $this->createDbiDummy();

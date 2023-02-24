@@ -32,7 +32,6 @@ class TablesControllerTest extends AbstractTestCase
         parent::loadDbiIntoContainerBuilder();
 
         $GLOBALS['server'] = 1;
-        $GLOBALS['PMA_PHP_SELF'] = '';
 
         parent::loadResponseIntoContainerBuilder();
     }

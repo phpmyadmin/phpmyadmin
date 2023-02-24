@@ -39,7 +39,6 @@ class RecentFavoriteControllerTest extends AbstractTestCase
     {
         $GLOBALS['server'] = 2;
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $_REQUEST['db'] = 'test_db';
         $_REQUEST['table'] = 'test_table';
         $_SESSION['relation'] = [];
@@ -71,7 +70,6 @@ class RecentFavoriteControllerTest extends AbstractTestCase
     {
         $GLOBALS['server'] = 2;
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $_REQUEST['db'] = 'invalid_db';
         $_REQUEST['table'] = 'invalid_table';
         $_SESSION['relation'] = [];

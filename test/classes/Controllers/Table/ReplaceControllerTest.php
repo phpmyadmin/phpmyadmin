@@ -40,7 +40,6 @@ class ReplaceControllerTest extends AbstractTestCase
         $GLOBALS['dbi'] = $this->dbi;
         $GLOBALS['server'] = 1;
         $GLOBALS['showtable'] = null;
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['db'] = 'my_db';
         $GLOBALS['table'] = 'test_tbl';
 

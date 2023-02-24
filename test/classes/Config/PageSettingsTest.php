@@ -28,7 +28,6 @@ class PageSettingsTest extends AbstractTestCase
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = '';
         $_SERVER['SCRIPT_NAME'] = 'index.php';
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
     }
 

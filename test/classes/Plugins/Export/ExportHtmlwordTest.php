@@ -63,7 +63,6 @@ class ExportHtmlwordTest extends AbstractTestCase
         $GLOBALS['table'] = '';
         $GLOBALS['lang'] = '';
         $GLOBALS['text_dir'] = '';
-        $GLOBALS['PMA_PHP_SELF'] = '';
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
     }
 

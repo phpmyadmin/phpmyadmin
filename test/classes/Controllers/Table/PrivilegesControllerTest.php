@@ -38,7 +38,6 @@ class PrivilegesControllerTest extends AbstractTestCase
         $GLOBALS['table'] = 'table';
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
 
         $privileges = [];
 

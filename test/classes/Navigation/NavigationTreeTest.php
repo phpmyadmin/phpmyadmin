@@ -37,7 +37,6 @@ class NavigationTreeTest extends AbstractTestCase
 
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = '';
-        $GLOBALS['PMA_PHP_SELF'] = '';
 
         $this->object = new NavigationTree(new Template(), $GLOBALS['dbi']);
     }

@@ -47,7 +47,6 @@ class ExportControllerTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['lang'] = 'en';
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['sql_indexes'] = null;
         $GLOBALS['sql_auto_increments'] = null;
         $GLOBALS['config']->selectServer();

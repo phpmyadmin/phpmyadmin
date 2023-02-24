@@ -43,7 +43,6 @@ class TrackingTest extends AbstractTestCase
         $GLOBALS['table'] = 'PMA_table';
         $GLOBALS['lang'] = 'en';
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $GLOBALS['cfg']['Server']['tracking_default_statements'] = 'DELETE';
 

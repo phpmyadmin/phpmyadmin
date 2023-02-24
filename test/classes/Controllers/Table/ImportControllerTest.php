@@ -25,7 +25,6 @@ class ImportControllerTest extends AbstractTestCase
         $GLOBALS['table'] = 'test_table';
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['lang'] = 'en';
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server'] = $GLOBALS['config']->defaultServer;
         $_GET['format'] = 'xml';
 

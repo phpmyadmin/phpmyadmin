@@ -44,7 +44,6 @@ class ExportYamlTest extends AbstractTestCase
         $GLOBALS['table'] = '';
         $GLOBALS['lang'] = 'en';
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['PMA_PHP_SELF'] = '';
         $this->object = new ExportYaml(
             new Relation($GLOBALS['dbi']),
             new Export($GLOBALS['dbi']),

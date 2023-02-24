@@ -36,7 +36,6 @@ class RoutinesTest extends AbstractTestCase
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['proc_priv'] = false;
         $GLOBALS['is_reload_priv'] = false;

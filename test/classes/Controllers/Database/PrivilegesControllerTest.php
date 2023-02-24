@@ -42,7 +42,6 @@ class PrivilegesControllerTest extends AbstractTestCase
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
 
         $this->dummyDbi->addResult(
             'SHOW TABLES FROM `test_db`;',

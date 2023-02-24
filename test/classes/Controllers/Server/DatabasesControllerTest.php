@@ -36,7 +36,6 @@ class DatabasesControllerTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'pma_test';
         $GLOBALS['table'] = '';
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['text_dir'] = 'text_dir';
     }

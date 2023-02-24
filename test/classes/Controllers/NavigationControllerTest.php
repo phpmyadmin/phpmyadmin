@@ -39,7 +39,6 @@ class NavigationControllerTest extends AbstractTestCase
         $this->setTheme();
 
         $GLOBALS['server'] = 1;
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['db'] = 'air-balloon_burner_dev2';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['auth_type'] = 'cookie';
@@ -190,7 +189,6 @@ class NavigationControllerTest extends AbstractTestCase
         parent::setLanguage();
 
         $GLOBALS['server'] = 1;
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['db'] = 'air-balloon_burner_dev2';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['auth_type'] = 'cookie';
