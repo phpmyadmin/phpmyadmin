@@ -37,7 +37,7 @@ class OptionsPropertyRootGroupTest extends AbstractTestCase
     {
         $this->assertEquals(
             'root',
-            $this->object->getItemType()
+            $this->object->getItemType(),
         );
     }
 

@@ -26,7 +26,7 @@ class NavigationController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private Navigation $navigation,
-        private Relation $relation
+        private Relation $relation,
     ) {
         parent::__construct($response, $template);
     }
@@ -36,8 +36,8 @@ class NavigationController extends AbstractController
         if (! $this->response->isAjax()) {
             $this->response->addHTML(
                 Message::error(
-                    __('Fatal error: The navigation can only be accessed via AJAX')
-                )->getDisplay()
+                    __('Fatal error: The navigation can only be accessed via AJAX'),
+                )->getDisplay(),
             );
 
             return;
@@ -68,7 +68,7 @@ class NavigationController extends AbstractController
                         $itemName,
                         $itemType,
                         $dbName,
-                        (! empty($tableName) ? $tableName : null)
+                        (! empty($tableName) ? $tableName : null),
                     );
                 }
 
@@ -81,7 +81,7 @@ class NavigationController extends AbstractController
                         $itemName,
                         $itemType,
                         $dbName,
-                        (! empty($tableName) ? $tableName : null)
+                        (! empty($tableName) ? $tableName : null),
                     );
                 }
 
@@ -92,7 +92,7 @@ class NavigationController extends AbstractController
                 if (! empty($dbName)) {
                     $this->response->addJSON(
                         'message',
-                        $this->navigation->getItemUnhideDialog($dbName)
+                        $this->navigation->getItemUnhideDialog($dbName),
                     );
                 }
 

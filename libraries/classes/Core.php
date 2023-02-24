@@ -116,7 +116,7 @@ class Core
     public static function warnMissingExtension(
         string $extension,
         bool $fatal = false,
-        string $extra = ''
+        string $extra = '',
     ): void {
         $GLOBALS['errorHandler'] ??= null;
 
@@ -219,7 +219,7 @@ class Core
         $_page = mb_substr(
             $page,
             0,
-            (int) mb_strpos($page . '?', '?')
+            (int) mb_strpos($page . '?', '?'),
         );
         if (in_array($_page, $allowList)) {
             return true;
@@ -229,7 +229,7 @@ class Core
         $_page = mb_substr(
             $_page,
             0,
-            (int) mb_strpos($_page . '?', '?')
+            (int) mb_strpos($_page . '?', '?'),
         );
 
         return in_array($_page, $allowList);
@@ -370,7 +370,7 @@ class Core
         string $filename,
         string $mimetype,
         int $length = 0,
-        bool $no_cache = true
+        bool $no_cache = true,
     ): void {
         $headers = [];
 
@@ -631,7 +631,7 @@ class Core
                  */
                 static function ($item) use (&$empty): void {
                     $empty = $empty && empty($item);
-                }
+                },
             );
 
             return $empty;

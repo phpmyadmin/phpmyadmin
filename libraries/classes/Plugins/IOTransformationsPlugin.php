@@ -52,7 +52,7 @@ abstract class IOTransformationsPlugin extends TransformationsPlugin
         $text_dir,
         $tabindex,
         $tabindex_for_value,
-        $idindex
+        $idindex,
     ): string {
         return '';
     }

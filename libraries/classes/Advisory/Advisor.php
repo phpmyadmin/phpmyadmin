@@ -95,7 +95,7 @@ class Advisor
                 array $arguments,
                 int $value,
                 int $limes = 6,
-                int $comma = 0
+                int $comma = 0,
             ) => implode(' ', (array) Util::formatByteDown($value, $limes, $comma))
         );
         $this->expression->register(
@@ -111,7 +111,7 @@ class Advisor
                 }
 
                 return '0';
-            }
+            },
         );
         /* Some global variables for advisor */
         $this->globals = [
@@ -186,7 +186,7 @@ class Advisor
     {
         $this->runResult['errors'][] = $description . ' ' . sprintf(
             __('Error when evaluating: %s'),
-            $exception->getMessage()
+            $exception->getMessage(),
         );
     }
 
@@ -213,9 +213,9 @@ class Advisor
                     $this->storeError(
                         sprintf(
                             __('Failed evaluating precondition for rule \'%s\'.'),
-                            $rule['name']
+                            $rule['name'],
                         ),
-                        $e
+                        $e,
                     );
                     continue;
                 }
@@ -233,9 +233,9 @@ class Advisor
                 $this->storeError(
                     sprintf(
                         __('Failed calculating value for rule \'%s\'.'),
-                        $rule['name']
+                        $rule['name'],
                     ),
-                    $e
+                    $e,
                 );
                 continue;
             }
@@ -252,9 +252,9 @@ class Advisor
                 $this->storeError(
                     sprintf(
                         __('Failed running test for rule \'%s\'.'),
-                        $rule['name']
+                        $rule['name'],
                     ),
-                    $e
+                    $e,
                 );
             }
         }
@@ -281,7 +281,7 @@ class Advisor
             } catch (Throwable $e) {
                 $this->storeError(
                     sprintf(__('Failed formatting string for rule \'%s\'.'), $rule['name']),
-                    $e
+                    $e,
                 );
 
                 return;
@@ -295,19 +295,19 @@ class Advisor
         $rule['recommendation'] = preg_replace_callback(
             '/\{([a-z_0-9]+)\}/Ui',
             fn (array $matches) => $this->replaceVariable($matches),
-            $rule['recommendation']
+            $rule['recommendation'],
         );
         $rule['issue'] = preg_replace_callback(
             '/\{([a-z_0-9]+)\}/Ui',
             fn (array $matches) => $this->replaceVariable($matches),
-            $rule['issue']
+            $rule['issue'],
         );
 
         // Replaces external Links with Core::linkURL() generated links
         $rule['recommendation'] = preg_replace_callback(
             '#href=("|\')(https?://[^"\']+)\1#i',
             fn (array $matches) => $this->replaceLinkURL($matches),
-            $rule['recommendation']
+            $rule['recommendation'],
         );
 
         $this->runResult[$type][] = $rule;

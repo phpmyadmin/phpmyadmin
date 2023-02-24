@@ -34,7 +34,7 @@ class NodeIndexContainerTest extends AbstractTestCase
                 'text' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],
                 'icon' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],
             ],
-            $parent->links
+            $parent->links,
         );
         $this->assertEquals('indexes', $parent->realName);
     }

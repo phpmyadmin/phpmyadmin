@@ -20,7 +20,7 @@ class TrackerExtension extends AbstractExtension
         return [
             new TwigFunction(
                 'get_tracker_version',
-                Tracker::getVersion(...)
+                Tracker::getVersion(...),
             ),
         ];
     }

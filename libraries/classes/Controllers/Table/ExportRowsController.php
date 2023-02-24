@@ -18,7 +18,7 @@ final class ExportRowsController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        private ExportController $exportController
+        private ExportController $exportController,
     ) {
         parent::__construct($response, $template);
     }

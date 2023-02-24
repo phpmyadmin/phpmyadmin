@@ -24,7 +24,7 @@ final class ExportController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private Options $export,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
     }
@@ -67,7 +67,7 @@ final class ExportController extends AbstractController
 
         if (empty($exportList)) {
             $this->response->addHTML(Message::error(
-                __('Could not load export plugins, please check your installation!')
+                __('Could not load export plugins, please check your installation!'),
             )->getDisplay());
 
             return;
@@ -80,7 +80,7 @@ final class ExportController extends AbstractController
             $GLOBALS['sql_query'],
             $GLOBALS['num_tables'],
             $GLOBALS['unlim_num_rows'],
-            $exportList
+            $exportList,
         );
 
         $this->render('server/export/index', array_merge($options, [

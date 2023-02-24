@@ -72,7 +72,7 @@ class DiaRelationSchema extends ExportRelationSchema
             $this->bottomMargin,
             $this->leftMargin,
             $this->rightMargin,
-            $this->orientation
+            $this->orientation,
         );
 
         $alltables = $this->getTablesFromRequest();
@@ -88,7 +88,7 @@ class DiaRelationSchema extends ExportRelationSchema
                 $table,
                 $this->pageNumber,
                 $this->showKeys,
-                $this->offline
+                $this->offline,
             );
         }
 
@@ -110,7 +110,7 @@ class DiaRelationSchema extends ExportRelationSchema
                             $master_field,
                             $rel['foreign_table'],
                             $rel['foreign_field'],
-                            $this->showKeys
+                            $this->showKeys,
                         );
                     }
 
@@ -128,7 +128,7 @@ class DiaRelationSchema extends ExportRelationSchema
                             $one_field,
                             $one_key['ref_table_name'],
                             $one_key['ref_index_list'][$index],
-                            $this->showKeys
+                            $this->showKeys,
                         );
                     }
                 }
@@ -168,7 +168,7 @@ class DiaRelationSchema extends ExportRelationSchema
         $masterField,
         $foreignTable,
         $foreignField,
-        $showKeys
+        $showKeys,
     ): void {
         if (! isset($this->tables[$masterTable])) {
             $this->tables[$masterTable] = new TableStatsDia(
@@ -176,7 +176,7 @@ class DiaRelationSchema extends ExportRelationSchema
                 $this->db->getName(),
                 $masterTable,
                 $this->pageNumber,
-                $showKeys
+                $showKeys,
             );
         }
 
@@ -186,7 +186,7 @@ class DiaRelationSchema extends ExportRelationSchema
                 $this->db->getName(),
                 $foreignTable,
                 $this->pageNumber,
-                $showKeys
+                $showKeys,
             );
         }
 
@@ -195,7 +195,7 @@ class DiaRelationSchema extends ExportRelationSchema
             $this->tables[$masterTable],
             $masterField,
             $this->tables[$foreignTable],
-            $foreignField
+            $foreignField,
         );
     }
 

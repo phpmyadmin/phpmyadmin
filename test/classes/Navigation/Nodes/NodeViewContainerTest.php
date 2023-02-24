@@ -38,7 +38,7 @@ class NodeViewContainerTest extends AbstractTestCase
                 'text' => ['route' => '/database/structure', 'params' => ['tbl_type' => 'view', 'db' => null]],
                 'icon' => ['route' => '/database/structure', 'params' => ['tbl_type' => 'view', 'db' => null]],
             ],
-            $parent->links
+            $parent->links,
         );
         $this->assertEquals('views', $parent->realName);
         $this->assertStringContainsString('viewContainer', $parent->classes);

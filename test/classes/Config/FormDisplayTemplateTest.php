@@ -50,7 +50,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
             'val',
             'desc',
             false,
-            $opts
+            $opts,
         );
 
         $this->assertStringContainsString('<tr class="group-header-field group-header-1 disabled-field">', $result);
@@ -61,7 +61,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
 
         $this->assertStringContainsString(
             '<img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"',
-            $result
+            $result,
         );
 
         $this->assertStringContainsString('<span class="disabled-notice"', $result);
@@ -70,7 +70,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
 
         $this->assertStringContainsString(
             '<input type="text" name="test/path" id="test/path" value="val" class="w-75 custom field-error">',
-            $result
+            $result,
         );
 
         $this->assertStringContainsString('<a class="restore-default hide" href="#test/path"', $result);
@@ -97,7 +97,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
             'val',
             '',
             false,
-            $opts
+            $opts,
         );
 
         $this->assertStringContainsString('<tr class="group-field group-field-1">', $result);
@@ -108,12 +108,12 @@ class FormDisplayTemplateTest extends AbstractTestCase
 
         $this->assertStringContainsString(
             '<td class="userprefs-allow" title="Allow users to customize this value">',
-            $result
+            $result,
         );
 
         $this->assertStringContainsString(
             '<a class="set-value hide" href="#test/path=setVal" title="Set value: setVal">',
-            $result
+            $result,
         );
 
         // short_text
@@ -127,12 +127,12 @@ class FormDisplayTemplateTest extends AbstractTestCase
             'val',
             '',
             true,
-            $opts
+            $opts,
         );
 
         $this->assertStringContainsString(
             '<input type="text" size="25" name="test/path" id="test/path" value="val" class="">',
-            $result
+            $result,
         );
 
         // number_text
@@ -143,12 +143,12 @@ class FormDisplayTemplateTest extends AbstractTestCase
             'val',
             '',
             true,
-            $opts
+            $opts,
         );
 
         $this->assertStringContainsString(
             '<input type="number" name="test/path" id="test/path" value="val" class="">',
-            $result
+            $result,
         );
 
         // select case 1
@@ -200,12 +200,12 @@ class FormDisplayTemplateTest extends AbstractTestCase
             ],
             '',
             true,
-            $opts
+            $opts,
         );
 
         $this->assertStringContainsString(
             '<textarea cols="35" rows="5" name="test/path" id="test/path" class="">',
-            $result
+            $result,
         );
     }
 
@@ -216,7 +216,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
     {
         $this->assertEquals(
             '',
-            $this->formDisplayTemplate->displayGroupHeader('')
+            $this->formDisplayTemplate->displayGroupHeader(''),
         );
 
         $this->formDisplayTemplate->group = 3;
@@ -271,7 +271,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
                 . '\u003CscrIpt\u003E\u003C\/\' + \'script\u003E"])',
                 'window.Config.registerFieldValidator(\'testID\', \'\', true)',
             ],
-            $js
+            $js,
         );
     }
 }

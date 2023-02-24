@@ -49,13 +49,13 @@ class BookmarkTest extends AbstractTestCase
             'SELECT * FROM `phpmyadmin`.`pma_bookmark` WHERE ( `user` = \'\' OR `user` = \'root\' )'
                 . ' AND dbase = \'sakila\' ORDER BY label ASC',
             [['1', 'sakila', 'root', 'label', 'SELECT * FROM `actor` WHERE `actor_id` < 10;']],
-            ['id', 'dbase', 'user', 'label', 'query']
+            ['id', 'dbase', 'user', 'label', 'query'],
         );
         $actual = Bookmark::getList(
             new BookmarkFeature(DatabaseName::fromValue('phpmyadmin'), TableName::fromValue('pma_bookmark')),
             $GLOBALS['dbi'],
             $GLOBALS['cfg']['Server']['user'],
-            'sakila'
+            'sakila',
         );
         $this->assertContainsOnlyInstancesOf(Bookmark::class, $actual);
         $this->dummyDbi->assertAllSelectsConsumed();
@@ -72,8 +72,8 @@ class BookmarkTest extends AbstractTestCase
                 $GLOBALS['dbi'],
                 $GLOBALS['cfg']['Server']['user'],
                 DatabaseName::fromValue('phpmyadmin'),
-                '1'
-            )
+                '1',
+            ),
         );
         $this->dummyDbi->assertAllSelectsConsumed();
     }

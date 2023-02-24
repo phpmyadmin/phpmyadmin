@@ -90,11 +90,11 @@ class RelationParametersTest extends TestCase
         $this->assertNotNull($relationParameters->relationFeature);
         $this->assertSame(
             $relationParameters->browserTransformationFeature->columnInfo,
-            $relationParameters->columnCommentsFeature->columnInfo
+            $relationParameters->columnCommentsFeature->columnInfo,
         );
         $this->assertSame(
             $relationParameters->relationFeature->relation,
-            $relationParameters->displayFeature->relation
+            $relationParameters->displayFeature->relation,
         );
 
         $relationParameters = RelationParameters::fromArray([

@@ -14,7 +14,7 @@ final class QueryController extends AbstractController
     {
         $this->response->addHTML(MultiTableQuery::displayResults(
             $request->getParsedBodyParam('sql_query'),
-            $request->getParam('db')
+            $request->getParam('db'),
         ));
     }
 }

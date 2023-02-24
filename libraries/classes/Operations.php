@@ -116,7 +116,7 @@ class Operations
         array $tables,
         $exportSqlPlugin,
         $db,
-        DatabaseName $newDatabaseName
+        DatabaseName $newDatabaseName,
     ): array {
         $views = [];
         foreach ($tables as $table) {
@@ -199,7 +199,7 @@ class Operations
                     ($copyMode ?? 'data'),
                     $move,
                     'db_copy',
-                    isset($_POST['drop_if_exists']) && $_POST['drop_if_exists'] === 'true'
+                    isset($_POST['drop_if_exists']) && $_POST['drop_if_exists'] === 'true',
                 )
             ) {
                 $GLOBALS['_error'] = true;
@@ -241,7 +241,7 @@ class Operations
         /** @var string[] $eventNames */
         $eventNames = $this->dbi->fetchResult(
             'SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= '
-            . $this->dbi->quoteString($db) . ';'
+            . $this->dbi->quoteString($db) . ';',
         );
 
         foreach ($eventNames as $eventName) {
@@ -273,7 +273,7 @@ class Operations
                 'structure',
                 $move,
                 'db_copy',
-                true
+                true,
             );
             if (! $copyingSucceeded) {
                 $GLOBALS['_error'] = true;
@@ -372,7 +372,7 @@ class Operations
 
         foreach ($oldPrivsTable as $oldPriv) {
             $newDbTablePrivsQuery = 'INSERT INTO ' . Util::backquote(
-                'tables_priv'
+                'tables_priv',
             ) . ' VALUES("' . $oldPriv[0] . '", "' . $newName . '", "'
             . $oldPriv[2] . '", "' . $oldPriv[3] . '", "' . $oldPriv[4]
             . '", "' . $oldPriv[5] . '", "' . $oldPriv[6] . '", "'
@@ -390,7 +390,7 @@ class Operations
 
         foreach ($oldPrivsCol as $oldPriv) {
             $newDbColPrivsQuery = 'INSERT INTO ' . Util::backquote(
-                'columns_priv'
+                'columns_priv',
             ) . ' VALUES("' . $oldPriv[0] . '", "' . $newName . '", "'
             . $oldPriv[2] . '", "' . $oldPriv[3] . '", "' . $oldPriv[4]
             . '", "' . $oldPriv[5] . '", "' . $oldPriv[6] . '");';
@@ -407,7 +407,7 @@ class Operations
 
         foreach ($oldPrivsProc as $oldPriv) {
             $newDbProcPrivsQuery = 'INSERT INTO ' . Util::backquote(
-                'procs_priv'
+                'procs_priv',
             ) . ' VALUES("' . $oldPriv[0] . '", "' . $newName . '", "'
             . $oldPriv[2] . '", "' . $oldPriv[3] . '", "' . $oldPriv[4]
             . '", "' . $oldPriv[5] . '", "' . $oldPriv[6] . '", "'
@@ -556,7 +556,7 @@ class Operations
      */
     public function getForeignersForReferentialIntegrityCheck(
         array $urlParams,
-        $hasRelationFeature
+        $hasRelationFeature,
     ): array {
         if (! $hasRelationFeature) {
             return [];
@@ -604,7 +604,7 @@ class Operations
                 [
                     'sql_query' => $joinQuery,
                     'sql_signature' => Core::signSqlQuery($joinQuery),
-                ]
+                ],
             );
 
             $foreigners[] = [
@@ -643,7 +643,7 @@ class Operations
         $rowFormat,
         $newTblStorageEngine,
         $transactional,
-        $tableCollation
+        $tableCollation,
     ): array {
         $GLOBALS['auto_increment'] ??= null;
 
@@ -904,7 +904,7 @@ class Operations
                     $_POST['what'],
                     isset($_POST['submit_move']),
                     'one_table',
-                    isset($_POST['drop_if_exists']) && $_POST['drop_if_exists'] === 'true'
+                    isset($_POST['drop_if_exists']) && $_POST['drop_if_exists'] === 'true',
                 );
 
                 if (isset($_POST['adjust_privileges']) && ! empty($_POST['adjust_privileges'])) {
@@ -917,24 +917,24 @@ class Operations
                     if (isset($_POST['submit_move'])) {
                         $message = Message::success(
                             __(
-                                'Table %s has been moved to %s. Privileges have been adjusted.'
-                            )
+                                'Table %s has been moved to %s. Privileges have been adjusted.',
+                            ),
                         );
                     } else {
                         $message = Message::success(
                             __(
-                                'Table %s has been copied to %s. Privileges have been adjusted.'
-                            )
+                                'Table %s has been copied to %s. Privileges have been adjusted.',
+                            ),
                         );
                     }
                 } else {
                     if (isset($_POST['submit_move'])) {
                         $message = Message::success(
-                            __('Table %s has been moved to %s.')
+                            __('Table %s has been moved to %s.'),
                         );
                     } else {
                         $message = Message::success(
-                            __('Table %s has been copied to %s.')
+                            __('Table %s has been copied to %s.'),
                         );
                     }
                 }

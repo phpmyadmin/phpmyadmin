@@ -35,7 +35,7 @@ class GisTest extends AbstractTestCase
         array $returnData,
         string $expectedResult,
         bool $SRIDOption,
-        int $mysqlVersion
+        int $mysqlVersion,
     ): void {
         $resultStub = $this->createMock(DummyResult::class);
 
@@ -61,13 +61,13 @@ class GisTest extends AbstractTestCase
         if (! $SRIDOption) {
             // Also test default signature
             $this->assertSame($expectedResult, Gis::convertToWellKnownText(
-                (string) hex2bin('000000000101000000000000000000F03F000000000000F03F')
+                (string) hex2bin('000000000101000000000000000000F03F000000000000F03F'),
             ));
         }
 
         $this->assertSame($expectedResult, Gis::convertToWellKnownText(
             (string) hex2bin('000000000101000000000000000000F03F000000000000F03F'),
-            $SRIDOption
+            $SRIDOption,
         ));
     }
 

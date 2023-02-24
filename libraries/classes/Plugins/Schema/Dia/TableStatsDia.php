@@ -46,7 +46,7 @@ class TableStatsDia extends TableStats
         $tableName,
         $pageNumber,
         $showKeys = false,
-        $offline = false
+        $offline = false,
     ) {
         parent::__construct($diagram, $db, $pageNumber, $tableName, $showKeys, false, $offline);
 
@@ -65,7 +65,7 @@ class TableStatsDia extends TableStats
         ExportRelationSchema::dieSchema(
             $this->pageNumber,
             'DIA',
-            sprintf(__('The %s table doesn\'t exist!'), $this->tableName)
+            sprintf(__('The %s table doesn\'t exist!'), $this->tableName),
         );
     }
 
@@ -174,7 +174,7 @@ class TableStatsDia extends TableStats
             </dia:attribute>
             <dia:attribute name="comment_font_height">
                 <dia:real val="0.69999999999999996"/>
-            </dia:attribute>'
+            </dia:attribute>',
         );
 
         $this->diagram->startElement('dia:attribute');
@@ -191,7 +191,7 @@ class TableStatsDia extends TableStats
                 </dia:attribute>
                     <dia:attribute name="comment">
                 <dia:string>##</dia:string>
-                </dia:attribute>'
+                </dia:attribute>',
             );
             unset($pm);
             $pm = 'false';
@@ -213,7 +213,7 @@ class TableStatsDia extends TableStats
                 <dia:attribute name="unique">
                     <dia:boolean val="' . $pm . '"/>
                 </dia:attribute>
-                </dia:composite>'
+                </dia:composite>',
             );
         }
 

@@ -74,7 +74,7 @@ class GisLineString extends GisGeometry
         string $label,
         array $color,
         array $scale_data,
-        ImageWrapper $image
+        ImageWrapper $image,
     ): ImageWrapper {
         // allocate colors
         $black = $image->colorAllocate(0, 0, 0);
@@ -92,7 +92,7 @@ class GisLineString extends GisGeometry
                     (int) round($temp_point[1]),
                     (int) round($point[0]),
                     (int) round($point[1]),
-                    $line_color
+                    $line_color,
                 );
             }
 
@@ -106,7 +106,7 @@ class GisLineString extends GisGeometry
                 (int) round($points_arr[1][0]),
                 (int) round($points_arr[1][1]),
                 $label,
-                $black
+                $black,
             );
         }
 

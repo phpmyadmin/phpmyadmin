@@ -20,7 +20,7 @@ final class KillController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         Data $data,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template, $data);
     }
@@ -39,14 +39,14 @@ final class KillController extends AbstractController
 
         if ($this->dbi->tryQuery($query)) {
             $message = Message::success(
-                __('Thread %s was successfully killed.')
+                __('Thread %s was successfully killed.'),
             );
             $this->response->setRequestStatus(true);
         } else {
             $message = Message::error(
                 __(
-                    'phpMyAdmin was unable to kill thread %s. It probably has already been closed.'
-                )
+                    'phpMyAdmin was unable to kill thread %s. It probably has already been closed.',
+                ),
             );
             $this->response->setRequestStatus(false);
         }

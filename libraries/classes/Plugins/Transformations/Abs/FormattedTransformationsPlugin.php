@@ -26,7 +26,7 @@ abstract class FormattedTransformationsPlugin extends TransformationsPlugin
         return __(
             'Displays the contents of the column as-is, without running it'
             . ' through htmlspecialchars(). That is, the column is assumed'
-            . ' to contain valid HTML.'
+            . ' to contain valid HTML.',
         );
     }
 

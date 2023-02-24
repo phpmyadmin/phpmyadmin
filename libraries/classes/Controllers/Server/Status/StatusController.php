@@ -26,7 +26,7 @@ class StatusController extends AbstractController
         Template $template,
         Data $data,
         private ReplicationGui $replicationGui,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template, $data);
     }
@@ -53,7 +53,7 @@ class StatusController extends AbstractController
                 $bytes = Util::formatByteDown(
                     $this->data->status['Bytes_received'] + $this->data->status['Bytes_sent'],
                     3,
-                    1
+                    1,
                 );
                 $networkTraffic = implode(' ', $bytes);
             }
@@ -72,14 +72,14 @@ class StatusController extends AbstractController
             if ($primaryInfo['status']) {
                 $replication .= $this->replicationGui->getHtmlForReplicationStatusTable(
                     $primaryConnection,
-                    'primary'
+                    'primary',
                 );
             }
 
             if ($replicaInfo['status']) {
                 $replication .= $this->replicationGui->getHtmlForReplicationStatusTable(
                     $primaryConnection,
-                    'replica'
+                    'replica',
                 );
             }
         }
@@ -121,13 +121,13 @@ class StatusController extends AbstractController
         $bytesTotal = Util::formatByteDown(
             $this->data->status['Bytes_received'] + $this->data->status['Bytes_sent'],
             3,
-            1
+            1,
         );
         /** @var string[] $bytesTotalPerHour */
         $bytesTotalPerHour = Util::formatByteDown(
             ($this->data->status['Bytes_received'] + $this->data->status['Bytes_sent']) * $hourFactor,
             3,
-            1
+            1,
         );
 
         return [
@@ -163,14 +163,14 @@ class StatusController extends AbstractController
                 $this->data->status['Aborted_connects'] * 100 / $this->data->status['Connections'],
                 0,
                 2,
-                true
+                true,
             ) . '%';
 
             $abortedPercentage = Util::formatNumber(
                 $this->data->status['Aborted_clients'] * 100 / $this->data->status['Connections'],
                 0,
                 2,
-                true
+                true,
             ) . '%';
         }
 

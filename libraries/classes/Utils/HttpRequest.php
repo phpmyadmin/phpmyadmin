@@ -112,7 +112,7 @@ class HttpRequest
     private function response(
         $response,
         $httpStatus,
-        $returnOnlyStatus
+        $returnOnlyStatus,
     ): string|bool|null {
         if ($httpStatus == 404) {
             return false;
@@ -143,7 +143,7 @@ class HttpRequest
         $method,
         $returnOnlyStatus = false,
         $content = null,
-        $header = ''
+        $header = '',
     ): string|bool|null {
         $curlHandle = curl_init($url);
         if ($curlHandle === false) {
@@ -157,7 +157,7 @@ class HttpRequest
                 $curlStatus &= (int) curl_setopt(
                     $curlHandle,
                     CURLOPT_PROXYUSERPWD,
-                    $this->proxyUser . ':' . $this->proxyPass
+                    $this->proxyUser . ':' . $this->proxyPass,
                 );
             }
         }
@@ -220,7 +220,7 @@ class HttpRequest
         $method,
         $returnOnlyStatus = false,
         $content = null,
-        $header = ''
+        $header = '',
     ): string|bool|null {
         $context = [
             'http' => [
@@ -254,7 +254,7 @@ class HttpRequest
         $response = @file_get_contents(
             $url,
             false,
-            stream_context_create($context)
+            stream_context_create($context),
         );
 
         if (! isset($http_response_header)) {
@@ -281,7 +281,7 @@ class HttpRequest
         $method,
         $returnOnlyStatus = false,
         $content = null,
-        $header = ''
+        $header = '',
     ): string|bool|null {
         if (function_exists('curl_init')) {
             return $this->curl($url, $method, $returnOnlyStatus, $content, $header);

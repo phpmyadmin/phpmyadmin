@@ -21,7 +21,7 @@ final class CentralColumnsRemoveController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private CentralColumns $centralColumns,
-        private StructureController $structureController
+        private StructureController $structureController,
     ) {
         parent::__construct($response, $template);
     }

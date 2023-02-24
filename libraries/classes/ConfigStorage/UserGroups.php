@@ -38,7 +38,7 @@ class UserGroups
      */
     public static function getHtmlForListingUsersofAGroup(
         ConfigurableMenusFeature $configurableMenusFeature,
-        string $userGroup
+        string $userGroup,
     ): string {
         $users = [];
         $numRows = 0;
@@ -108,7 +108,7 @@ class UserGroups
                         'userGroup' => $groupName,
                     ],
                     '',
-                    false
+                    false,
                 );
                 $userGroupVal['viewUsersIcon'] = Generator::getIcon('b_usrlist', __('View users'));
 
@@ -118,7 +118,7 @@ class UserGroups
                         'userGroup' => $groupName,
                     ],
                     '',
-                    false
+                    false,
                 );
                 $userGroupVal['editUsersIcon'] = Generator::getIcon('b_edit', __('Edit'));
                 $userGroupsValues[] = $userGroupVal;
@@ -197,7 +197,7 @@ class UserGroups
      */
     public static function getHtmlToEditUserGroup(
         ConfigurableMenusFeature $configurableMenusFeature,
-        string|null $userGroup = null
+        string|null $userGroup = null,
     ): string {
         $urlParams = [];
 
@@ -245,17 +245,17 @@ class UserGroups
         $tabList = self::getTabList(
             __('Server-level tabs'),
             'server',
-            $allowedTabs['server']
+            $allowedTabs['server'],
         );
         $tabList .= self::getTabList(
             __('Database-level tabs'),
             'db',
-            $allowedTabs['db']
+            $allowedTabs['db'],
         );
         $tabList .= self::getTabList(
             __('Table-level tabs'),
             'table',
-            $allowedTabs['table']
+            $allowedTabs['table'],
         );
 
         $template = new Template();
@@ -309,7 +309,7 @@ class UserGroups
     public static function edit(
         ConfigurableMenusFeature $configurableMenusFeature,
         string $userGroup,
-        bool $new = false
+        bool $new = false,
     ): void {
         $tabs = Util::getMenuTabList();
         $groupTable = Util::backquote($configurableMenusFeature->database)

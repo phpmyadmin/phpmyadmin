@@ -63,7 +63,7 @@ class VariablesControllerTest extends AbstractTestCase
 
         $this->assertStringContainsString(
             '<label class="col-12 col-form-label" for="filterText">Containing the word:</label>',
-            $html
+            $html,
         );
 
         $this->assertStringContainsString('<label class="form-check-label" for="filterAlert">', $html);
@@ -79,7 +79,7 @@ class VariablesControllerTest extends AbstractTestCase
 
         $this->assertStringContainsString(
             '<table class="table table-striped table-hover table-sm" id="serverStatusVariables">',
-            $html
+            $html,
         );
         $this->assertStringContainsString('<th scope="col">Variable</th>', $html);
         $this->assertStringContainsString('<th scope="col">Value</th>', $html);

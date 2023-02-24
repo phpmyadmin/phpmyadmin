@@ -28,7 +28,7 @@ final class TemplateModel
             $this->dbi->escapeString($template->getUsername()),
             $this->dbi->escapeString($template->getExportType()),
             $this->dbi->escapeString($template->getName()),
-            $this->dbi->escapeString($template->getData())
+            $this->dbi->escapeString($template->getData()),
         );
         $result = $this->dbi->tryQueryAsControlUser($query);
         if ($result !== false) {
@@ -45,7 +45,7 @@ final class TemplateModel
             Util::backquote($db),
             Util::backquote($table),
             $id,
-            $this->dbi->escapeString($user)
+            $this->dbi->escapeString($user),
         );
         $result = $this->dbi->tryQueryAsControlUser($query);
         if ($result !== false) {
@@ -62,7 +62,7 @@ final class TemplateModel
             Util::backquote($db),
             Util::backquote($table),
             $id,
-            $this->dbi->escapeString($user)
+            $this->dbi->escapeString($user),
         );
         $result = $this->dbi->tryQueryAsControlUser($query);
         if ($result === false) {
@@ -91,7 +91,7 @@ final class TemplateModel
             Util::backquote($table),
             $this->dbi->escapeString($template->getData()),
             $template->getId(),
-            $this->dbi->escapeString($template->getUsername())
+            $this->dbi->escapeString($template->getUsername()),
         );
         $result = $this->dbi->tryQueryAsControlUser($query);
         if ($result !== false) {
@@ -111,7 +111,7 @@ final class TemplateModel
             Util::backquote($db),
             Util::backquote($table),
             $this->dbi->escapeString($user),
-            $this->dbi->escapeString($exportType)
+            $this->dbi->escapeString($exportType),
         );
         $result = $this->dbi->tryQueryAsControlUser($query);
         if ($result === false) {

@@ -23,7 +23,7 @@ class SqlQueryTest extends TestBase
             . ' `val` int(11) NOT NULL,'
             . ' PRIMARY KEY (`id`)'
             . ');'
-            . 'INSERT INTO `test_table` (val) VALUES (2), (3), (4), (5);'
+            . 'INSERT INTO `test_table` (val) VALUES (2), (3), (4), (5);',
         );
         $this->login();
     }
@@ -43,23 +43,23 @@ class SqlQueryTest extends TestBase
         $this->waitForElement('cssSelector', 'table.table_results');
         $this->assertEquals(
             1,
-            $this->getCellByTableClass('table_results', 1, 1)
+            $this->getCellByTableClass('table_results', 1, 1),
         );
         $this->assertEquals(
             1,
-            $this->getCellByTableClass('table_results', 1, 2)
+            $this->getCellByTableClass('table_results', 1, 2),
         );
         $this->assertEquals(
             2,
-            $this->getCellByTableClass('table_results', 1, 3)
+            $this->getCellByTableClass('table_results', 1, 3),
         );
         $this->assertEquals(
             4,
-            $this->getCellByTableClass('table_results', 1, 4)
+            $this->getCellByTableClass('table_results', 1, 4),
         );
         $this->assertEquals(
             7,
-            $this->getCellByTableClass('table_results', 1, 5)
+            $this->getCellByTableClass('table_results', 1, 5),
         );
 
         // test inline edit button
@@ -83,15 +83,15 @@ class SqlQueryTest extends TestBase
         $this->waitForElement('cssSelector', 'table.table_results');
         $this->assertEquals(
             'test_table',
-            $this->getCellByTableClass('table_results', 1, 1)
+            $this->getCellByTableClass('table_results', 1, 1),
         );
         $this->assertEquals(
             'InnoDB',
-            $this->getCellByTableClass('table_results', 1, 2)
+            $this->getCellByTableClass('table_results', 1, 2),
         );
         $this->assertEquals(
             4,
-            $this->getCellByTableClass('table_results', 1, 5)
+            $this->getCellByTableClass('table_results', 1, 5),
         );
 
         // test inline edit button
@@ -116,19 +116,19 @@ class SqlQueryTest extends TestBase
         $this->waitForElement('cssSelector', 'table.table_results');
         $this->assertEquals(
             3,
-            $this->getCellByTableClass('table_results', 1, 5)
+            $this->getCellByTableClass('table_results', 1, 5),
         );
         $this->assertEquals(
             4,
-            $this->getCellByTableClass('table_results', 2, 5)
+            $this->getCellByTableClass('table_results', 2, 5),
         );
         $this->assertEquals(
             4,
-            $this->getCellByTableClass('table_results', 1, 6)
+            $this->getCellByTableClass('table_results', 1, 6),
         );
         $this->assertEquals(
             5,
-            $this->getCellByTableClass('table_results', 2, 6)
+            $this->getCellByTableClass('table_results', 2, 6),
         );
 
         // test inline edit button
@@ -151,7 +151,7 @@ class SqlQueryTest extends TestBase
         $this->waitForElement('cssSelector', 'table.table_results');
         $this->assertEquals(
             1,
-            $this->getCellByTableClass('table_results', 1, 1)
+            $this->getCellByTableClass('table_results', 1, 1),
         );
     }
 }

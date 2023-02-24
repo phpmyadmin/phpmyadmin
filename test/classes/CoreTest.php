@@ -76,72 +76,72 @@ class CoreTest extends AbstractNetworkTestCase
 
         $this->assertEquals(
             Core::arrayRead('int', $arr),
-            $arr['int']
+            $arr['int'],
         );
 
         $this->assertEquals(
             Core::arrayRead('str', $arr),
-            $arr['str']
+            $arr['str'],
         );
 
         $this->assertEquals(
             Core::arrayRead('arr/0', $arr),
-            $arr['arr'][0]
+            $arr['arr'][0],
         );
 
         $this->assertEquals(
             Core::arrayRead('arr/1', $arr),
-            $arr['arr'][1]
+            $arr['arr'][1],
         );
 
         $this->assertEquals(
             Core::arrayRead('arr/2', $arr),
-            $arr['arr'][2]
+            $arr['arr'][2],
         );
 
         $this->assertEquals(
             Core::arrayRead('sarr/arr1/0', $arr),
-            $arr['sarr']['arr1'][0]
+            $arr['sarr']['arr1'][0],
         );
 
         $this->assertEquals(
             Core::arrayRead('sarr/arr1/1', $arr),
-            $arr['sarr']['arr1'][1]
+            $arr['sarr']['arr1'][1],
         );
 
         $this->assertEquals(
             Core::arrayRead('sarr/arr1/2', $arr),
-            $arr['sarr']['arr1'][2]
+            $arr['sarr']['arr1'][2],
         );
 
         $this->assertEquals(
             Core::arrayRead('sarr/0/0', $arr),
-            $arr['sarr'][0][0]
+            $arr['sarr'][0][0],
         );
 
         $this->assertEquals(
             Core::arrayRead('sarr/0/1', $arr),
-            $arr['sarr'][0][1]
+            $arr['sarr'][0][1],
         );
 
         $this->assertEquals(
             Core::arrayRead('sarr/0/1/2', $arr),
-            $arr['sarr'][0][1][2]
+            $arr['sarr'][0][1][2],
         );
 
         $this->assertEquals(
             Core::arrayRead('sarr/not_exiting/1', $arr),
-            null
+            null,
         );
 
         $this->assertEquals(
             Core::arrayRead('sarr/not_exiting/1', $arr, 0),
-            0
+            0,
         );
 
         $this->assertEquals(
             Core::arrayRead('sarr/not_exiting/1', $arr, 'default_val'),
-            'default_val'
+            'default_val',
         );
     }
 
@@ -446,7 +446,7 @@ class CoreTest extends AbstractNetworkTestCase
         $this->assertEquals(
             Core::getPHPDocLink('function'),
             'index.php?route=/url&url=https%3A%2F%2Fwww.php.net%2Fmanual%2F'
-            . $lang . '%2Ffunction'
+            . $lang . '%2Ffunction',
         );
     }
 
@@ -578,7 +578,7 @@ class CoreTest extends AbstractNetworkTestCase
         $_SERVER['SERVER_NAME'] = 'server.local';
         $this->assertEquals(
             $expected,
-            Core::isAllowedDomain($url)
+            Core::isAllowedDomain($url),
         );
     }
 
@@ -628,7 +628,7 @@ class CoreTest extends AbstractNetworkTestCase
     {
         $this->assertEquals(
             $expected,
-            Core::safeUnserialize($data)
+            Core::safeUnserialize($data),
         );
     }
 
@@ -700,7 +700,7 @@ class CoreTest extends AbstractNetworkTestCase
     {
         $this->assertEquals(
             $expected,
-            Core::sanitizeMySQLHost($host)
+            Core::sanitizeMySQLHost($host),
         );
     }
 
@@ -738,15 +738,15 @@ class CoreTest extends AbstractNetworkTestCase
     {
         $this->assertEquals(
             Core::securePath('../../../etc/passwd'),
-            './././etc/passwd'
+            './././etc/passwd',
         );
         $this->assertEquals(
             Core::securePath('/var/www/../phpmyadmin'),
-            '/var/www/./phpmyadmin'
+            '/var/www/./phpmyadmin',
         );
         $this->assertEquals(
             Core::securePath('./path/with..dots/../../file..php'),
-            './path/with.dots/././file.php'
+            './path/with.dots/././file.php',
         );
     }
 
@@ -911,7 +911,7 @@ class CoreTest extends AbstractNetworkTestCase
      */
     public function testPopulateRequestWithEncryptedQueryParamsWithInvalidParam(
         array $encrypted,
-        array $decrypted
+        array $decrypted,
     ): void {
         $_SESSION = [];
         $GLOBALS['config']->set('URLQueryEncryption', true);

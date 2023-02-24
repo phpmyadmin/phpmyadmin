@@ -73,7 +73,7 @@ class StructureController extends AbstractController
         Template $template,
         private Relation $relation,
         private Replication $replication,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
 
@@ -174,7 +174,7 @@ class StructureController extends AbstractController
                 $urlParams,
                 Url::getFromRoute('/database/structure'),
                 'frame_content',
-                $GLOBALS['cfg']['MaxTableList']
+                $GLOBALS['cfg']['MaxTableList'],
             );
 
             $tableList = $this->displayTableList($replicaInfo);
@@ -260,7 +260,7 @@ class StructureController extends AbstractController
                 $tableCollation = Charsets::findCollationByName(
                     $this->dbi,
                     $GLOBALS['cfg']['Server']['DisableIS'],
-                    $currentTable['Collation']
+                    $currentTable['Collation'],
                 );
                 if ($tableCollation !== null) {
                     $collationDefinition = $this->template->render('database/structure/collation_definition', [
@@ -339,8 +339,8 @@ class StructureController extends AbstractController
                     $tableIsView || $currentTable['ENGINE'] == null ? 'VIEW'
                     : 'TABLE',
                     Util::backquote(
-                        $currentTable['TABLE_NAME']
-                    )
+                        $currentTable['TABLE_NAME'],
+                    ),
                 );
                 $dropMessage = sprintf(
                     ($tableIsView || $currentTable['ENGINE'] == null
@@ -349,8 +349,8 @@ class StructureController extends AbstractController
                     str_replace(
                         ' ',
                         '&nbsp;',
-                        htmlspecialchars($currentTable['TABLE_NAME'])
-                    )
+                        htmlspecialchars($currentTable['TABLE_NAME']),
+                    ),
                 );
             }
 
@@ -394,9 +394,9 @@ class StructureController extends AbstractController
                     sprintf(
                         __('Table %s has been emptied.'),
                         htmlspecialchars(
-                            $currentTable['TABLE_NAME']
-                        )
-                    )
+                            $currentTable['TABLE_NAME'],
+                        ),
+                    ),
                 ),
                 'tracking_icon' => $this->getTrackingIcon($truename),
                 'server_replica_status' => $replicaInfo['status'],
@@ -439,7 +439,7 @@ class StructureController extends AbstractController
         $collation = Charsets::findCollationByName(
             $this->dbi,
             $GLOBALS['cfg']['Server']['DisableIS'],
-            $this->dbi->getDbCollation($GLOBALS['db'])
+            $this->dbi->getDbCollation($GLOBALS['db']),
         );
         if ($collation !== null) {
             $databaseCollation = [
@@ -533,7 +533,7 @@ class StructureController extends AbstractController
      */
     protected function isRowCountApproximated(
         array $currentTable,
-        bool $tableIsView
+        bool $tableIsView,
     ): array {
         $approxRows = false;
         $showSuperscript = '';
@@ -555,12 +555,12 @@ class StructureController extends AbstractController
                     Sanitize::sanitizeMessage(
                         sprintf(
                             __(
-                                'This view has at least this number of rows. Please refer to %sdocumentation%s.'
+                                'This view has at least this number of rows. Please refer to %sdocumentation%s.',
                             ),
                             '[doc@cfg_MaxExactCountViews]',
-                            '[/doc]'
-                        )
-                    )
+                            '[/doc]',
+                        ),
+                    ),
                 );
             }
         }
@@ -639,7 +639,7 @@ class StructureController extends AbstractController
                 && preg_match(
                     '@^' .
                     preg_quote(mb_substr($this->replication->extractDbOrTable($dbTable, 'table'), 0, -1), '@') . '@',
-                    $truename
+                    $truename,
                 )
             ) {
                 return true;
@@ -663,7 +663,7 @@ class StructureController extends AbstractController
     protected function getStuffForEngineTypeTable(
         array $currentTable,
         $sumSize,
-        $overheadSize
+        $overheadSize,
     ): array {
         $formattedSize = '-';
         $unit = '';
@@ -696,7 +696,7 @@ class StructureController extends AbstractController
                     $formattedSize,
                     $unit,
                     $formattedOverhead,
-                    $overheadUnit
+                    $overheadUnit,
                 );
                 break;
             case 'InnoDB':
@@ -707,7 +707,7 @@ class StructureController extends AbstractController
                 // so it may be unavailable
                 [$currentTable, $formattedSize, $unit, $sumSize] = $this->getValuesForInnodbTable(
                     $currentTable,
-                    $sumSize
+                    $sumSize,
                 );
                 break;
             // Mysql 5.0.x (and lower) uses MRG_MyISAM
@@ -735,7 +735,7 @@ class StructureController extends AbstractController
                 if (StorageEngine::hasMroongaEngine()) {
                     [$currentTable, $formattedSize, $unit, $sumSize] = $this->getValuesForMroongaTable(
                         $currentTable,
-                        $sumSize
+                        $sumSize,
                     );
                     break;
                 }
@@ -787,7 +787,7 @@ class StructureController extends AbstractController
         $formattedSize,
         $unit,
         $formattedOverhead,
-        $overheadUnit
+        $overheadUnit,
     ): array {
         if ($this->dbIsSystemSchema) {
             $currentTable['Rows'] = $this->dbi
@@ -805,7 +805,7 @@ class StructureController extends AbstractController
                 [$formattedOverhead, $overheadUnit] = Util::formatByteDown(
                     $currentTable['Data_free'],
                     3,
-                    1
+                    1,
                 );
                 $overheadSize += $currentTable['Data_free'];
             }
@@ -832,7 +832,7 @@ class StructureController extends AbstractController
      */
     protected function getValuesForInnodbTable(
         array $currentTable,
-        $sumSize
+        $sumSize,
     ): array {
         $formattedSize = $unit = '';
 
@@ -875,7 +875,7 @@ class StructureController extends AbstractController
      */
     protected function getValuesForMroongaTable(
         array $currentTable,
-        int $sumSize
+        int $sumSize,
     ): array {
         $formattedSize = '';
         $unit = '';

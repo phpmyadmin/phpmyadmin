@@ -26,7 +26,7 @@ class QueriesController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         Data $data,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template, $data);
     }

@@ -57,7 +57,7 @@ final class JavaScriptMessagesController
             'strDoYouReally' => __('Do you really want to execute "%s"?'),
             'strDropDatabaseStrongWarning' => __('You are about to DESTROY a complete database!'),
             'strDatabaseRenameToSameName' => __(
-                'Cannot rename database to the same name. Change the name and try again'
+                'Cannot rename database to the same name. Change the name and try again',
             ),
             'strDropTableStrongWarning' => __('You are about to DESTROY a complete table!'),
             'strTruncateTableStrongWarning' => __('You are about to TRUNCATE a complete table!'),
@@ -76,14 +76,14 @@ final class JavaScriptMessagesController
             'strConfirmNavigation' => __('You have unsaved changes; are you sure you want to leave this page?'),
             'strConfirmRowChange' => __(
                 'You are trying to reduce the number of rows, but have already entered'
-                . ' data in those rows which will be lost. Do you wish to continue?'
+                . ' data in those rows which will be lost. Do you wish to continue?',
             ),
             'strDropUserWarning' => __('Do you really want to revoke the selected user(s) ?'),
             'strDeleteCentralColumnWarning' => __('Do you really want to delete this central column?'),
             'strDropRTEitems' => __('Do you really want to delete the selected items?'),
             'strDropPartitionWarning' => __(
                 'Do you really want to DROP the selected partition(s)? This will also DELETE ' .
-                'the data related to the selected partition(s)!'
+                'the data related to the selected partition(s)!',
             ),
             'strTruncatePartitionWarning' => __('Do you really want to TRUNCATE the selected partition(s)?'),
             'strRemovePartitioningWarning' => __('Do you really want to remove partitioning?'),
@@ -93,7 +93,7 @@ final class JavaScriptMessagesController
                     . 'rare cases, especially where a character doesn\'t exist in the new '
                     . 'collation, this process could cause the data to appear incorrectly under '
                     . 'the new collation; in this case we suggest you revert to the original '
-                    . 'collation and refer to the tips at '
+                    . 'collation and refer to the tips at ',
             )
                 . '<a href="%s" target="garbled_data_wiki">' . __('Garbled Data') . '</a>.'
                 . '<br><br>'
@@ -105,7 +105,7 @@ final class JavaScriptMessagesController
                     . 'and this lost data may <b>NOT</b> be recoverable simply by changing back the '
                     . 'column collation(s). <b>To convert existing data, it is suggested to use the '
                     . 'column(s) editing feature (the "Change" Link) on the table structure page. '
-                    . '</b>'
+                    . '</b>',
             )
                 . '<br><br>'
                 . __('Are you sure you wish to change all the column collations and convert the data?'),
@@ -178,7 +178,7 @@ final class JavaScriptMessagesController
                 'The chart arrangement configuration in your browsers local storage is not '
                 . 'compatible anymore to the newer version of the monitor dialog. It is very '
                 . 'likely that your current configuration will not work anymore. Please reset '
-                . 'your configuration to default in the <i>Settings</i> menu.'
+                . 'your configuration to default in the <i>Settings</i> menu.',
             ),
 
             'strQueryCacheEfficiency' => __('Query cache efficiency'),
@@ -239,11 +239,11 @@ final class JavaScriptMessagesController
             'strSmallerLongQueryTimeAdvice' => __(
                 'slow_query_log is enabled, but the server logs only queries that take longer '
                 . 'than %d seconds. It is advisable to set this long_query_time 0-2 seconds, '
-                . 'depending on your system.'
+                . 'depending on your system.',
             ),
             'strLongQueryTimeSet' => __('long_query_time is set to %d second(s).'),
             'strSettingsAppliedGlobal' => __(
-                'Following settings will be applied globally and reset to default on server restart:'
+                'Following settings will be applied globally and reset to default on server restart:',
             ),
             /* l10n: %s is FILE or TABLE */
             'strSetLogOutput' => __('Set log_output to %s'),
@@ -254,7 +254,7 @@ final class JavaScriptMessagesController
             /* l10n: %d seconds */
             'setSetLongQueryTime' => __('Set long_query_time to %d seconds.'),
             'strNoSuperUser' => __(
-                'You can\'t change these variables. Please log in as root or contact your database administrator.'
+                'You can\'t change these variables. Please log in as root or contact your database administrator.',
             ),
             'strChangeSettings' => __('Change settings'),
             'strCurrentSettings' => __('Current settings'),
@@ -274,12 +274,12 @@ final class JavaScriptMessagesController
             'strCountColumnExplanation' => __(
                 'This column shows the amount of identical queries that are grouped together. '
                 . 'However only the SQL query itself has been used as a grouping criteria, so '
-                . 'the other attributes of queries, such as start time, may differ.'
+                . 'the other attributes of queries, such as start time, may differ.',
             ),
             'strMoreCountColumnExplanation' => __(
                 'Since grouping of INSERTs queries has been selected, INSERT queries into the '
                 . 'same table are also being grouped together, disregarding of the inserted '
-                . 'data.'
+                . 'data.',
             ),
             'strLogDataLoaded' => __('Log data loaded. Queries executed in this time span:'),
 
@@ -314,7 +314,7 @@ final class JavaScriptMessagesController
             'strInvalidResponseExplanation' => __(
                 'While requesting new chart data the server returned an invalid response. This '
                 . 'is most likely because your session expired. Reloading the page and '
-                . 'reentering your credentials should help.'
+                . 'reentering your credentials should help.',
             ),
             'strReloadPage' => __('Reload page'),
 
@@ -322,7 +322,7 @@ final class JavaScriptMessagesController
 
             'strFailedParsingConfig' => __('Failed parsing config file. It doesn\'t seem to be valid JSON code.'),
             'strFailedBuildingGrid' => __(
-                'Failed building chart grid with imported config. Resetting to default config…'
+                'Failed building chart grid with imported config. Resetting to default config…',
             ),
             'strImport' => __('Import'),
             'strImportDialogTitle' => __('Import monitor configuration'),
@@ -355,7 +355,7 @@ final class JavaScriptMessagesController
             'strErrorText' => __('Error text: %s'),
             'strErrorConnection' => __(
                 'It seems that the connection to server has been lost. Please check your ' .
-                'network connectivity and server status.'
+                'network connectivity and server status.',
             ),
             'strNoDatabasesSelected' => __('No databases selected.'),
             'strNoTableSelected' => __('No table selected.'),
@@ -408,7 +408,7 @@ final class JavaScriptMessagesController
             'strBrowseForeignValues' => __('Browse foreign values'),
             'strNoAutoSavedQuery' => __('No previously auto-saved query is available. Loading default query.'),
             'strPreviousSaveQuery' => __(
-                'You have a previously saved query. Click Get auto-saved query to load the query.'
+                'You have a previously saved query. Click Get auto-saved query to load the query.',
             ),
             'strBookmarkVariable' => __('Variable %d:'),
 
@@ -418,7 +418,7 @@ final class JavaScriptMessagesController
             'searchList' => __('Search this list'),
             'strEmptyCentralList' => __(
                 'No columns in the central list. Make sure the Central columns list for '
-                . 'database %s has columns that are not present in the current table.'
+                . 'database %s has columns that are not present in the current table.',
             ),
             'seeMore' => __('See more'),
 
@@ -434,14 +434,14 @@ final class JavaScriptMessagesController
             'strSelectedPd' => __('Selected partial dependencies are as follows:'),
             'strPdHintNote' => __(
                 'Note: a, b -> d,f implies values of columns a and b combined together can '
-                . 'determine values of column d and column f.'
+                . 'determine values of column d and column f.',
             ),
             'strNoPdSelected' => __('No partial dependencies selected!'),
             'strBack' => __('Back'),
             'strShowPossiblePd' => __('Show me the possible partial dependencies based on data in the table'),
             'strHidePd' => __('Hide partial dependencies list'),
             'strWaitForPd' => __(
-                'Sit tight! It may take few seconds depending on data size and column count of the table.'
+                'Sit tight! It may take few seconds depending on data size and column count of the table.',
             ),
             'strStep' => __('Step'),
             'strMoveRepeatingGroup' => '<ol><b>' . __('The following actions will be performed:') . '</b>'
@@ -507,25 +507,25 @@ final class JavaScriptMessagesController
             'strEncryptionKey' => __('Encryption key'),
             /* l10n: Tip for HEX conversion of Integers */
             'HexConversionInfo' => __(
-                'The HEX function will treat the integer as a string while calculating the hexadecimal value'
+                'The HEX function will treat the integer as a string while calculating the hexadecimal value',
             ),
 
             /* For Tip to be shown on Time field */
             'strMysqlAllowedValuesTipTime' => __(
                 'MySQL accepts additional values not selectable by the slider;'
-                . ' key in those values directly if desired'
+                . ' key in those values directly if desired',
             ),
 
             /* For Tip to be shown on Date field */
             'strMysqlAllowedValuesTipDate' => __(
                 'MySQL accepts additional values not selectable by the datepicker;'
-                . ' key in those values directly if desired'
+                . ' key in those values directly if desired',
             ),
 
             /* For Lock symbol Tooltip */
             'strLockToolTip' => __(
                 'Indicates that you have made changes to this page;'
-                . ' you will be prompted for confirmation before abandoning changes'
+                . ' you will be prompted for confirmation before abandoning changes',
             ),
 
             /* Designer (js/designer/move.js) */
@@ -535,7 +535,7 @@ final class JavaScriptMessagesController
             'strChangeDisplay' => __('Choose column to display'),
             'strLeavingDesigner' => __(
                 'You haven\'t saved the changes in the layout. They will be lost if you'
-                . ' don\'t save them. Do you want to continue?'
+                . ' don\'t save them. Do you want to continue?',
             ),
             'strQueryEmpty' => __('value/subQuery is empty'),
             'strAddTables' => __('Add tables from other databases'),
@@ -563,14 +563,14 @@ final class JavaScriptMessagesController
             'strCellEditHint' => __('Press escape to cancel editing.<br>- Shift+Enter for a newline.'),
             'strSaveCellWarning' => __(
                 'You have edited some data and they have not been saved. Are you sure you want '
-                . 'to leave this page before saving the data?'
+                . 'to leave this page before saving the data?',
             ),
             'strColOrderHint' => __('Drag to reorder.'),
             'strSortHint' => __('Click to sort results by this column.'),
             'strMultiSortHint' => __(
                 'Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.'
                 . '<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column '
-                . 'from ORDER BY clause'
+                . 'from ORDER BY clause',
             ),
             'strColMarkHint' => __('Click to mark/unmark.'),
             'strColNameCopyHint' => __('Double-click to copy column name.'),
@@ -578,11 +578,11 @@ final class JavaScriptMessagesController
             'strShowAllCol' => __('Show all'),
             'strAlertNonUnique' => __(
                 'This table does not contain a unique column. Features related to the grid '
-                . 'edit, checkbox, Edit, Copy and Delete links may not work after saving.'
+                . 'edit, checkbox, Edit, Copy and Delete links may not work after saving.',
             ),
             'strEnterValidHex' => __('Please enter a valid hexadecimal string. Valid characters are 0-9, A-F.'),
             'strShowAllRowsWarning' => __(
-                'Do you really want to see all of the rows? For a big table this could crash the browser.'
+                'Do you really want to see all of the rows? For a big table this could crash the browser.',
             ),
             'strOriginalLength' => __('Original length'),
 
@@ -613,7 +613,7 @@ final class JavaScriptMessagesController
             /* update */
             'strNewerVersion' => __(
                 'A newer version of phpMyAdmin is available and you should consider upgrading. '
-                . 'The newest version is %s, released on %s.'
+                . 'The newest version is %s, released on %s.',
             ),
             /* l10n: Latest available phpMyAdmin version */
             'strLatestAvailable' => __(', latest stable version:'),
@@ -628,7 +628,7 @@ final class JavaScriptMessagesController
             'strTooManyInputs' => __(
                 'Warning: a form on this page has more than %d fields. On submission, '
                 . "some of the fields might be ignored, due to PHP's "
-                . 'max_input_vars configuration.'
+                . 'max_input_vars configuration.',
             ),
 
             'phpErrorsFound' => '<div class="alert alert-danger" role="alert">'
@@ -670,7 +670,7 @@ final class JavaScriptMessagesController
                 . ' work properly for you. It is likely that the browser doesn\'t support storage'
                 . ' or the quota limit has been reached. In Firefox, corrupted storage can also'
                 . ' cause such a problem, clearing your "Offline Website Data" might help. In Safari,'
-                . ' such problem is commonly caused by "Private Mode Browsing".'
+                . ' such problem is commonly caused by "Private Mode Browsing".',
             ),
             // For modals in /database/structure
             'strCopyTablesTo' => __('Copy tables to'),
@@ -700,17 +700,17 @@ final class JavaScriptMessagesController
             'strU2FErrorAuthenticate' => _pgettext('U2F error', 'Invalid security key.'),
 
             'webAuthnNotSupported' => __(
-                'WebAuthn is not available. Please use a supported browser in a secure context (HTTPS).'
+                'WebAuthn is not available. Please use a supported browser in a secure context (HTTPS).',
             ),
 
             /* Designer */
             'strIndexedDBNotWorking' => __(
                 'You can not open, save or delete your page layout, as IndexedDB is not working'
-                . ' in your browser and your phpMyAdmin configuration storage is not configured for this.'
+                . ' in your browser and your phpMyAdmin configuration storage is not configured for this.',
             ),
             'strTableAlreadyExists' => _pgettext(
                 'The table already exists in the designer and can not be added once more.',
-                'Table %s already exists!'
+                'Table %s already exists!',
             ),
             'strHide' => __('Hide'),
             'strShow' => __('Show'),
@@ -855,11 +855,11 @@ final class JavaScriptMessagesController
             /* l10n: To validate the usage of an AES_ENCRYPT/DES_ENCRYPT function on the column */
             'strValidationFunctionForAesDesEncrypt' => __(
                 'These functions are meant to return a binary result; to avoid inconsistent results you should store'
-                . ' it in a BINARY, VARBINARY, or BLOB column.'
+                . ' it in a BINARY, VARBINARY, or BLOB column.',
             ),
 
             'uploadProgressMaximumAllowedSize' => __(
-                'The file being uploaded is probably larger than the maximum allowed size.'
+                'The file being uploaded is probably larger than the maximum allowed size.',
             ),
             'uploadProgressStatusText' => __('%s of %s'),
             'uploadProgressPerSecond' => __('%s/sec.'),
@@ -868,7 +868,7 @@ final class JavaScriptMessagesController
             'uploadProgressBeingProcessed' => __('The file is being processed, please be patient.'),
             'uploadProgressUploading' => __('Uploading your import file…'),
             'uploadProgressNoDetails' => __(
-                'Please be patient, the file is being uploaded. Details about the upload are not available.'
+                'Please be patient, the file is being uploaded. Details about the upload are not available.',
             ),
 
             'configErrorInvalidPositiveNumber' => __('Not a positive number!'),

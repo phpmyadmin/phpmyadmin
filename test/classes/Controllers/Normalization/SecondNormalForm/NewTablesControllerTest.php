@@ -36,14 +36,14 @@ class NewTablesControllerTest extends AbstractTestCase
         $controller = new NewTablesController(
             $response,
             $template,
-            new Normalization($dbi, new Relation($dbi), new Transformations(), $template)
+            new Normalization($dbi, new Relation($dbi), new Transformations(), $template),
         );
         $controller($request);
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $this->assertSame(
             '<p><b>In order to put the original table \'test_table\' into Second normal form we need to create the following tables:</b></p><p><input type="text" name="ID, task" value="test_table">( <u>ID, task</u> )<p><input type="text" name="task" value="table2">( <u>task</u>, timestamp )',
-            $response->getHTMLResult()
+            $response->getHTMLResult(),
         );
         // phpcs:enable
     }

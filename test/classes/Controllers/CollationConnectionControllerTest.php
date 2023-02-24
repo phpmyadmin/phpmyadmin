@@ -35,7 +35,7 @@ class CollationConnectionControllerTest extends AbstractTestCase
         (new CollationConnectionController(
             $response,
             new Template(),
-            $config
+            $config,
         ))($request);
     }
 }

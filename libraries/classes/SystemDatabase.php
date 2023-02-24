@@ -45,7 +45,7 @@ class SystemDatabase
             'SELECT * FROM %s.%s WHERE `db_name` = %s',
             Util::backquote($browserTransformationFeature->database),
             Util::backquote($browserTransformationFeature->columnInfo),
-            $this->dbi->quoteString($db)
+            $this->dbi->quoteString($db),
         );
 
         return $this->dbi->tryQuery($transformationSql);
@@ -65,7 +65,7 @@ class SystemDatabase
         ResultInterface $transformationData,
         array $columnMap,
         $viewName,
-        $db
+        $db,
     ): string {
         $browserTransformationFeature = $this->relation->getRelationParameters()->browserTransformationFeature;
         if ($browserTransformationFeature === null) {
@@ -79,7 +79,7 @@ class SystemDatabase
             . '`comment`, `mimetype`, `transformation`, '
             . '`transformation_options`) VALUES',
             Util::backquote($browserTransformationFeature->database),
-            Util::backquote($browserTransformationFeature->columnInfo)
+            Util::backquote($browserTransformationFeature->columnInfo),
         );
 
         $columnCount = 0;
@@ -103,7 +103,7 @@ class SystemDatabase
                     $this->dbi->quoteString($dataRow['comment']),
                     $this->dbi->quoteString($dataRow['mimetype']),
                     $this->dbi->quoteString($dataRow['transformation']),
-                    $this->dbi->quoteString($dataRow['transformation_options'])
+                    $this->dbi->quoteString($dataRow['transformation_options']),
                 );
 
                 $addComma = true;

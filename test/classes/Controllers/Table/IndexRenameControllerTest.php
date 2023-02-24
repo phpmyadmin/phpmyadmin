@@ -44,7 +44,7 @@ class IndexRenameControllerTest extends AbstractTestCase
             $response,
             $template,
             $dbi,
-            new Indexes($response, $template, $dbi)
+            new Indexes($response, $template, $dbi),
         ))($this->createStub(ServerRequest::class));
         $this->assertSame($expected, $response->getHTMLResult());
     }

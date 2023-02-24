@@ -126,7 +126,7 @@ class TwigLintCommand extends Command
                     }
 
                     return $prevErrorHandler ? $prevErrorHandler($level, $message, $file, $line) : false;
-                }
+                },
             );
         }
 
@@ -209,8 +209,8 @@ class TwigLintCommand extends Command
             sprintf(
                 '%d Twig files have valid syntax and %d contain errors.',
                 count($filesInfo) - $errors,
-                $errors
-            )
+                $errors,
+            ),
         );
 
         return Command::FAILURE;
@@ -220,7 +220,7 @@ class TwigLintCommand extends Command
         SymfonyStyle $output,
         string $template,
         Error $exception,
-        string|null $file = null
+        string|null $file = null,
     ): void {
         $line = $exception->getTemplateLine();
 
@@ -243,7 +243,7 @@ class TwigLintCommand extends Command
                 '%s %-6s %s',
                 $lineNumber === $line ? '<error> >> </error>' : '    ',
                 $lineNumber,
-                $code
+                $code,
             ));
             if ($lineNumber !== $line) {
                 continue;

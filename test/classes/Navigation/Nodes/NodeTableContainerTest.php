@@ -38,7 +38,7 @@ class NodeTableContainerTest extends AbstractTestCase
                 'text' => ['route' => '/database/structure', 'params' => ['tbl_type' => 'table', 'db' => null]],
                 'icon' => ['route' => '/database/structure', 'params' => ['tbl_type' => 'table', 'db' => null]],
             ],
-            $parent->links
+            $parent->links,
         );
         $this->assertEquals('tables', $parent->realName);
         $this->assertStringContainsString('tableContainer', $parent->classes);

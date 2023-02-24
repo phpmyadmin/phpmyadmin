@@ -40,7 +40,7 @@ class Plugins
     {
         $result = $this->dbi->query(
             'SELECT `PLUGIN_NAME`, `PLUGIN_DESCRIPTION` FROM `information_schema`.`PLUGINS`'
-                . ' WHERE `PLUGIN_TYPE` = \'AUTHENTICATION\';'
+                . ' WHERE `PLUGIN_TYPE` = \'AUTHENTICATION\';',
         );
 
         $plugins = [];

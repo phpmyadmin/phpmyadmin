@@ -24,7 +24,7 @@ final class SimulateDmlController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        private SimulateDml $simulateDml
+        private SimulateDml $simulateDml,
     ) {
         parent::__construct($response, $template);
     }

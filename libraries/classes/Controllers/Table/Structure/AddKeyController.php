@@ -17,7 +17,7 @@ final class AddKeyController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private SqlController $sqlController,
-        private StructureController $structureController
+        private StructureController $structureController,
     ) {
         parent::__construct($response, $template);
     }

@@ -22,7 +22,7 @@ class VersionCheckController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        private VersionInformation $versionInformation
+        private VersionInformation $versionInformation,
     ) {
         parent::__construct($response, $template);
     }

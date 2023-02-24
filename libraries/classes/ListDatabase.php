@@ -78,7 +78,7 @@ class ListDatabase extends ListAbstract
                 foreach ($GLOBALS['dbs_to_test'] as $db) {
                     $database_list = array_merge(
                         $database_list,
-                        $this->retrieve($db)
+                        $this->retrieve($db),
                     );
                 }
             }

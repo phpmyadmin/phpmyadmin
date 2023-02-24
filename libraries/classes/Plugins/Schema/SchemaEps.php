@@ -54,19 +54,19 @@ class SchemaEps extends SchemaPlugin
         // create leaf items and add them to the group
         $leaf = new BoolPropertyItem(
             'all_tables_same_width',
-            __('Same width for all tables')
+            __('Same width for all tables'),
         );
         $specificOptions->addProperty($leaf);
 
         $leaf = new SelectPropertyItem(
             'orientation',
-            __('Orientation')
+            __('Orientation'),
         );
         $leaf->setValues(
             [
                 'L' => __('Landscape'),
                 'P' => __('Portrait'),
-            ]
+            ],
         );
         $specificOptions->addProperty($leaf);
 

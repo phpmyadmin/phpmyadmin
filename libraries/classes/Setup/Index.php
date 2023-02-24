@@ -127,8 +127,8 @@ class Index
                 $message_id,
                 __('Version check'),
                 __(
-                    'Reading of version failed. Maybe you\'re offline or the upgrade server does not respond.'
-                )
+                    'Reading of version failed. Maybe you\'re offline or the upgrade server does not respond.',
+                ),
             );
 
             return;
@@ -148,7 +148,7 @@ class Index
                 'error',
                 $message_id,
                 __('Version check'),
-                __('Got invalid version string from server')
+                __('Got invalid version string from server'),
             );
 
             return;
@@ -160,7 +160,7 @@ class Index
                 'error',
                 $message_id,
                 __('Version check'),
-                __('Unparsable version string')
+                __('Unparsable version string'),
             );
 
             return;
@@ -174,7 +174,7 @@ class Index
                 $message_id,
                 __('Version check'),
                 sprintf(__('A newer version of phpMyAdmin is available and you should consider upgrading.'
-                    . ' The newest version is %s, released on %s.'), $version, $date)
+                    . ' The newest version is %s, released on %s.'), $version, $date),
             );
         } else {
             if ($version_local % 100 == 0) {
@@ -183,14 +183,14 @@ class Index
                     $message_id,
                     __('Version check'),
                     Sanitize::sanitizeMessage(sprintf(__('You are using Git version, run [kbd]git pull[/kbd]'
-                        . ' :-)[br]The latest stable version is %s, released on %s.'), $version, $date))
+                        . ' :-)[br]The latest stable version is %s, released on %s.'), $version, $date)),
                 );
             } else {
                 self::messagesSet(
                     'notice',
                     $message_id,
                     __('Version check'),
-                    __('No newer stable version is available')
+                    __('No newer stable version is available'),
                 );
             }
         }

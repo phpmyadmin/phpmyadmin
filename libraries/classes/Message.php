@@ -137,7 +137,7 @@ class Message implements Stringable
         string $string = '',
         int $number = self::NOTICE,
         array $params = [],
-        int $sanitize = self::SANITIZE_NONE
+        int $sanitize = self::SANITIZE_NONE,
     ) {
         $this->setString($string, $sanitize & self::SANITIZE_STRING);
         $this->setNumber($number);
@@ -238,7 +238,7 @@ class Message implements Stringable
     public static function getMessageForAffectedRows(int $rows): self
     {
         $message = self::success(
-            _ngettext('%1$d row affected.', '%1$d rows affected.', $rows)
+            _ngettext('%1$d row affected.', '%1$d rows affected.', $rows),
         );
         $message->addParam($rows);
 
@@ -257,7 +257,7 @@ class Message implements Stringable
     public static function getMessageForDeletedRows(int $rows): self
     {
         $message = self::success(
-            _ngettext('%1$d row deleted.', '%1$d rows deleted.', $rows)
+            _ngettext('%1$d row deleted.', '%1$d rows deleted.', $rows),
         );
         $message->addParam($rows);
 
@@ -276,7 +276,7 @@ class Message implements Stringable
     public static function getMessageForInsertedRows(int $rows): self
     {
         $message = self::success(
-            _ngettext('%1$d row inserted.', '%1$d rows inserted.', $rows)
+            _ngettext('%1$d row inserted.', '%1$d rows inserted.', $rows),
         );
         $message->addParam($rows);
 
@@ -624,7 +624,7 @@ class Message implements Stringable
             $this->hash = md5(
                 $this->getNumber() .
                 $this->string .
-                $this->message
+                $this->message,
             );
         }
 

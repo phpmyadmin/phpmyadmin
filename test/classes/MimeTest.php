@@ -25,7 +25,7 @@ class MimeTest extends AbstractTestCase
     {
         $this->assertEquals(
             Mime::detect($test),
-            $output
+            $output,
         );
     }
 

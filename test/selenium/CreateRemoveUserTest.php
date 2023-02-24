@@ -111,7 +111,7 @@ class CreateRemoveUserTest extends TestBase
         $success = $this->waitForElement('cssSelector', '.alert-success');
         $this->assertStringContainsString(
             'The selected users have been deleted',
-            $success->getText()
+            $success->getText(),
         );
     }
 }

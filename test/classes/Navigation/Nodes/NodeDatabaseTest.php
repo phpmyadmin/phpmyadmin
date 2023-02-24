@@ -42,7 +42,7 @@ class NodeDatabaseTest extends AbstractTestCase
                 'icon' => ['route' => '/database/operations', 'params' => ['db' => null]],
                 'title' => 'Structure',
             ],
-            $parent->links
+            $parent->links,
         );
         $this->assertStringContainsString('database', $parent->classes);
     }
@@ -55,23 +55,23 @@ class NodeDatabaseTest extends AbstractTestCase
         $parent = new NodeDatabase('default');
         $this->assertEquals(
             2,
-            $parent->getPresence('tables')
+            $parent->getPresence('tables'),
         );
         $this->assertEquals(
             0,
-            $parent->getPresence('views')
+            $parent->getPresence('views'),
         );
         $this->assertEquals(
             1,
-            $parent->getPresence('functions')
+            $parent->getPresence('functions'),
         );
         $this->assertEquals(
             0,
-            $parent->getPresence('procedures')
+            $parent->getPresence('procedures'),
         );
         $this->assertEquals(
             0,
-            $parent->getPresence('events')
+            $parent->getPresence('events'),
         );
     }
 
@@ -107,7 +107,7 @@ class NodeDatabaseTest extends AbstractTestCase
         $parent->setHiddenCount(3);
         $this->assertEquals(
             3,
-            $parent->getHiddenCount()
+            $parent->getHiddenCount(),
         );
     }
 }

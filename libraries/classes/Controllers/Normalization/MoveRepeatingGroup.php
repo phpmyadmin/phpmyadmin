@@ -29,7 +29,7 @@ final class MoveRepeatingGroup extends AbstractController
             $newTable,
             $newColumn,
             $GLOBALS['table'],
-            $GLOBALS['db']
+            $GLOBALS['db'],
         );
         $this->response->addJSON($res);
     }

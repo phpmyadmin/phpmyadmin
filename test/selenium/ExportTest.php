@@ -24,7 +24,7 @@ class ExportTest extends TestBase
             . ' `val` int(11) NOT NULL,'
             . ' PRIMARY KEY (`id`)'
             . ');'
-            . 'INSERT INTO `test_table` (val) VALUES (2);'
+            . 'INSERT INTO `test_table` (val) VALUES (2);',
         );
 
         $this->login();

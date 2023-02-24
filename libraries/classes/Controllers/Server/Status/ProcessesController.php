@@ -19,7 +19,7 @@ class ProcessesController extends AbstractController
         Template $template,
         Data $data,
         private DatabaseInterface $dbi,
-        private Processes $processes
+        private Processes $processes,
     ) {
         parent::__construct($response, $template, $data);
     }
@@ -43,7 +43,7 @@ class ProcessesController extends AbstractController
             $showExecuting,
             $full,
             $orderByField,
-            $sortOrder
+            $sortOrder,
         ));
 
         $urlParams = [

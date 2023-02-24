@@ -38,7 +38,7 @@ class PropertyItemTest extends AbstractTestCase
     {
         $this->assertEquals(
             null,
-            $this->stub->getGroup()
+            $this->stub->getGroup(),
         );
     }
 }

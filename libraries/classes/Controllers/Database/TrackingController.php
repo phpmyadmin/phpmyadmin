@@ -32,7 +32,7 @@ class TrackingController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private Tracking $tracking,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
     }
@@ -63,21 +63,21 @@ class TrackingController extends AbstractController
         if ($request->hasBodyParam('delete_tracking') && $request->hasBodyParam('table')) {
             Tracker::deleteTracking($GLOBALS['db'], $request->getParsedBodyParam('table'));
             echo Message::success(
-                __('Tracking data deleted successfully.')
+                __('Tracking data deleted successfully.'),
             )->getDisplay();
         } elseif ($request->hasBodyParam('submit_create_version')) {
             $this->tracking->createTrackingForMultipleTables(
                 $GLOBALS['db'],
                 $request->getParsedBodyParam('selected'),
-                $request->getParsedBodyParam('version')
+                $request->getParsedBodyParam('version'),
             );
             echo Message::success(
                 sprintf(
                     __(
-                        'Version %1$s was created for selected tables, tracking is active for them.'
+                        'Version %1$s was created for selected tables, tracking is active for them.',
                     ),
-                    htmlspecialchars($request->getParsedBodyParam('version'))
-                )
+                    htmlspecialchars($request->getParsedBodyParam('version')),
+                ),
             )->getDisplay();
         } elseif ($request->hasBodyParam('submit_mult')) {
             $selectedTable = $request->getParsedBodyParam('selected_tbl');
@@ -88,7 +88,7 @@ class TrackingController extends AbstractController
                     }
 
                     echo Message::success(
-                        __('Tracking data deleted successfully.')
+                        __('Tracking data deleted successfully.'),
                     )->getDisplay();
                 } elseif ($request->getParsedBodyParam('submit_mult') === 'track') {
                     echo $this->template->render('create_tracking_version', [
@@ -105,7 +105,7 @@ class TrackingController extends AbstractController
                 }
             } else {
                 echo Message::notice(
-                    __('No tables selected.')
+                    __('No tables selected.'),
                 )->getDisplay();
             }
         }

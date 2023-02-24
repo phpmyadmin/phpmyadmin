@@ -53,7 +53,7 @@ class ExportMediawikiTest extends AbstractTestCase
         $this->object = new ExportMediawiki(
             new Relation($GLOBALS['dbi']),
             new Export($GLOBALS['dbi']),
-            new Transformations()
+            new Transformations(),
         );
     }
 
@@ -78,22 +78,22 @@ class ExportMediawikiTest extends AbstractTestCase
 
         $this->assertEquals(
             'MediaWiki Table',
-            $properties->getText()
+            $properties->getText(),
         );
 
         $this->assertEquals(
             'mediawiki',
-            $properties->getExtension()
+            $properties->getExtension(),
         );
 
         $this->assertEquals(
             'text/plain',
-            $properties->getMimeType()
+            $properties->getMimeType(),
         );
 
         $this->assertEquals(
             'Options',
-            $properties->getOptionsText()
+            $properties->getOptionsText(),
         );
 
         $options = $properties->getOptions();
@@ -102,7 +102,7 @@ class ExportMediawikiTest extends AbstractTestCase
 
         $this->assertEquals(
             'Format Specific Options',
-            $options->getName()
+            $options->getName(),
         );
 
         $generalOptionsArray = $options->getProperties();
@@ -112,12 +112,12 @@ class ExportMediawikiTest extends AbstractTestCase
 
         $this->assertEquals(
             'general_opts',
-            $generalOptions->getName()
+            $generalOptions->getName(),
         );
 
         $this->assertEquals(
             'Dump table',
-            $generalOptions->getText()
+            $generalOptions->getText(),
         );
 
         $generalProperties = $generalOptions->getProperties();
@@ -129,12 +129,12 @@ class ExportMediawikiTest extends AbstractTestCase
 
         $this->assertEquals(
             'dump_table',
-            $property->getName()
+            $property->getName(),
         );
 
         $this->assertEquals(
             'Dump table',
-            $property->getText()
+            $property->getText(),
         );
 
         $sgHeader = $property->getSubgroupHeader();
@@ -143,7 +143,7 @@ class ExportMediawikiTest extends AbstractTestCase
 
         $this->assertEquals(
             'structure_or_data',
-            $sgHeader->getName()
+            $sgHeader->getName(),
         );
 
         $this->assertEquals(
@@ -152,7 +152,7 @@ class ExportMediawikiTest extends AbstractTestCase
                 'data' => __('data'),
                 'structure_and_data' => __('structure and data'),
             ],
-            $sgHeader->getValues()
+            $sgHeader->getValues(),
         );
 
         $property = $generalProperties->current();
@@ -162,12 +162,12 @@ class ExportMediawikiTest extends AbstractTestCase
 
         $this->assertEquals(
             'caption',
-            $property->getName()
+            $property->getName(),
         );
 
         $this->assertEquals(
             'Export table names',
-            $property->getText()
+            $property->getText(),
         );
 
         $property = $generalProperties->current();
@@ -176,47 +176,47 @@ class ExportMediawikiTest extends AbstractTestCase
 
         $this->assertEquals(
             'headers',
-            $property->getName()
+            $property->getName(),
         );
 
         $this->assertEquals(
             'Export table headers',
-            $property->getText()
+            $property->getText(),
         );
     }
 
     public function testExportHeader(): void
     {
         $this->assertTrue(
-            $this->object->exportHeader()
+            $this->object->exportHeader(),
         );
     }
 
     public function testExportFooter(): void
     {
         $this->assertTrue(
-            $this->object->exportFooter()
+            $this->object->exportFooter(),
         );
     }
 
     public function testExportDBHeader(): void
     {
         $this->assertTrue(
-            $this->object->exportDBHeader('testDB')
+            $this->object->exportDBHeader('testDB'),
         );
     }
 
     public function testExportDBFooter(): void
     {
         $this->assertTrue(
-            $this->object->exportDBFooter('testDB')
+            $this->object->exportDBFooter('testDB'),
         );
     }
 
     public function testExportDBCreate(): void
     {
         $this->assertTrue(
-            $this->object->exportDBCreate('testDB', 'database')
+            $this->object->exportDBCreate('testDB', 'database'),
         );
     }
 
@@ -264,8 +264,8 @@ class ExportMediawikiTest extends AbstractTestCase
                 'table',
                 'example.com',
                 'create_table',
-                'test'
-            )
+                'test',
+            ),
         );
         $result = ob_get_clean();
 
@@ -297,7 +297,7 @@ class ExportMediawikiTest extends AbstractTestCase
             " | \n" .
             " | ext\n" .
             "|}\n\n",
-            $result
+            $result,
         );
     }
 
@@ -312,8 +312,8 @@ class ExportMediawikiTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'localhost',
-                'SELECT * FROM `test_db`.`test_table`;'
-            )
+                'SELECT * FROM `test_db`.`test_table`;',
+            ),
         );
         $result = ob_get_clean();
 
@@ -342,7 +342,7 @@ class ExportMediawikiTest extends AbstractTestCase
             " | Abcd\n" .
             " | 2012-01-20 02:00:02\n" .
             "|}\n\n",
-            $result
+            $result,
         );
     }
 }

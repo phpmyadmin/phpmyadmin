@@ -59,26 +59,26 @@ class ImportSql extends ImportPlugin
             // create primary items and add them to the group
             $leaf = new SelectPropertyItem(
                 'compatibility',
-                __('SQL compatibility mode:')
+                __('SQL compatibility mode:'),
             );
             $leaf->setValues($values);
             $leaf->setDoc(
                 [
                     'manual_MySQL_Database_Administration',
                     'Server_SQL_mode',
-                ]
+                ],
             );
             $generalOptions->addProperty($leaf);
             $leaf = new BoolPropertyItem(
                 'no_auto_value_on_zero',
-                __('Do not use <code>AUTO_INCREMENT</code> for zero values')
+                __('Do not use <code>AUTO_INCREMENT</code> for zero values'),
             );
             $leaf->setDoc(
                 [
                     'manual_MySQL_Database_Administration',
                     'Server_SQL_mode',
                     'sqlmode_no_auto_value_on_zero',
-                ]
+                ],
             );
             $generalOptions->addProperty($leaf);
 

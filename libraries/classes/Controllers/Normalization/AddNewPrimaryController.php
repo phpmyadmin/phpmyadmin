@@ -37,7 +37,7 @@ final class AddNewPrimaryController extends AbstractController
             $num_fields,
             $dbName,
             $tableName,
-            $columnMeta
+            $columnMeta,
         );
         $html .= Url::getHiddenInputs($dbName, $tableName);
         $this->response->addHTML($html);

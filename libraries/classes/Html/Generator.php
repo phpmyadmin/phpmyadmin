@@ -90,7 +90,7 @@ class Generator
     public static function linkToVarDocumentation(
         string $name,
         bool $useMariaDB = false,
-        string|null $text = null
+        string|null $text = null,
     ): string {
         $kbs = ServerVariablesProvider::getImplementation();
         $link = $useMariaDB ? $kbs->getDocLinkByNameMariaDb($name) : $kbs->getDocLinkByNameMysql($name);
@@ -144,8 +144,8 @@ class Generator
             . htmlspecialchars(
                 sprintf(
                     __('Jump to database “%s”.'),
-                    $database
-                )
+                    $database,
+                ),
             )
             . '">' . htmlspecialchars($database) . '</a>';
     }
@@ -163,7 +163,7 @@ class Generator
         $functionality,
         $component,
         $minimumVersion,
-        $bugReference
+        $bugReference,
     ): string {
         $return = '';
         if (($component === 'mysql') && ($GLOBALS['dbi']->getVersion() < $minimumVersion)) {
@@ -171,8 +171,8 @@ class Generator
                 sprintf(
                     __('The %s functionality is affected by a known bug, see %s'),
                     $functionality,
-                    Core::linkURL('https://bugs.mysql.com/') . $bugReference
-                )
+                    Core::linkURL('https://bugs.mysql.com/') . $bugReference,
+                ),
             );
         }
 
@@ -198,7 +198,7 @@ class Generator
         $alternate = '',
         $forceText = false,
         $menuIcon = false,
-        $controlParam = 'ActionLinksMode'
+        $controlParam = 'ActionLinksMode',
     ): string {
         $includeIcon = $includeText = false;
         if (Util::showIcons($controlParam)) {
@@ -252,7 +252,7 @@ class Generator
 
         return '<span class="' . $class . '">' . $message . '</span> ' . MySQLDocumentation::showDocumentation(
             'setup',
-            'ssl'
+            'ssl',
         );
     }
 
@@ -372,7 +372,7 @@ class Generator
         string $link,
         string $text,
         string $icon,
-        string $linkId = ''
+        string $linkId = '',
     ): string {
         $retval = '<a href="' . $link . '"';
         if ($linkId !== '') {
@@ -430,7 +430,7 @@ class Generator
     public static function getMessage(
         Message|string $message,
         $sqlQuery = null,
-        $type = 'notice'
+        $type = 'notice',
     ): string {
         $retval = '';
 
@@ -548,7 +548,7 @@ class Generator
                         . self::linkOrButton(
                             Url::getFromRoute('/import'),
                             $explainParams,
-                            __('Explain SQL')
+                            __('Explain SQL'),
                         ) . '&nbsp;]';
                 } elseif (preg_match('@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $sqlQuery)) {
                     $explainParams['sql_query'] = mb_substr($sqlQuery, 8);
@@ -556,7 +556,7 @@ class Generator
                         . self::linkOrButton(
                             Url::getFromRoute('/import'),
                             $explainParams,
-                            __('Skip Explain SQL')
+                            __('Skip Explain SQL'),
                         ) . ']';
                 }
             }
@@ -582,7 +582,7 @@ class Generator
                         . self::linkOrButton(
                             Url::getFromRoute('/import'),
                             $urlParams,
-                            __('Without PHP code')
+                            __('Without PHP code'),
                         )
                         . '&nbsp;]';
 
@@ -590,7 +590,7 @@ class Generator
                         . self::linkOrButton(
                             Url::getFromRoute('/import'),
                             $urlParams,
-                            __('Submit query')
+                            __('Submit query'),
                         )
                         . '&nbsp;]';
                 } else {
@@ -600,7 +600,7 @@ class Generator
                         . self::linkOrButton(
                             Url::getFromRoute('/import'),
                             $phpParams,
-                            __('Create PHP code')
+                            __('Create PHP code'),
                         )
                         . '&nbsp;]';
                 }
@@ -651,7 +651,7 @@ class Generator
                         '#',
                         null,
                         _pgettext('Inline edit query', 'Edit inline'),
-                        ['class' => 'inline_edit_sql']
+                        ['class' => 'inline_edit_sql'],
                     )
                     . '&nbsp;]';
             } else {
@@ -694,7 +694,7 @@ class Generator
         $link,
         $target = 'documentation',
         $bbcode = false,
-        $disableTabIndex = false
+        $disableTabIndex = false,
     ): string {
         if ($bbcode) {
             return '[a@' . $link . '@' . $target . '][dochelpicon][/a]';
@@ -723,7 +723,7 @@ class Generator
         $sqlQuery = '',
         $isModifyLink = true,
         $backUrl = '',
-        $exit = true
+        $exit = true,
     ): string|null {
         /**
          * Error message to be built.
@@ -759,7 +759,7 @@ class Generator
             [
                 $lexer,
                 $parser,
-            ]
+            ],
         );
 
         if ($sqlQuery === '') {
@@ -781,21 +781,21 @@ class Generator
                     . '</strong></p>';
                 $errorMessage .= '<p>' . sprintf(
                     __('%d errors were found during analysis.'),
-                    count($errors)
+                    count($errors),
                 ) . '</p>';
                 $errorMessage .= '<p><ol>';
                 $errorMessage .= implode(
                     ParserError::format(
                         $errors,
-                        '<li>%2$s (near "%4$s" at position %5$d)</li>'
-                    )
+                        '<li>%2$s (near "%4$s" at position %5$d)</li>',
+                    ),
                 );
                 $errorMessage .= '</ol></p>';
             }
 
             // Display the SQL query and link to MySQL documentation.
             $errorMessage .= '<p><strong>' . __('SQL query:') . '</strong>' . self::showCopyToClipboard(
-                $sqlQuery
+                $sqlQuery,
             ) . "\n";
             $formattedSqlToLower = mb_strtolower($formattedSql);
 
@@ -857,7 +857,7 @@ class Generator
                     '&nbsp;&nbsp;',
                     '&nbsp;&nbsp;&nbsp;&nbsp;',
                 ],
-                $serverMessage
+                $serverMessage,
             );
 
             // Replace line breaks
@@ -969,7 +969,7 @@ class Generator
         $message,
         string|array $tagParams = [],
         $target = '',
-        bool $respectUrlLengthLimit = true
+        bool $respectUrlLengthLimit = true,
     ): string {
         $url = $urlPath;
         if (is_array($urlParams)) {
@@ -1067,7 +1067,7 @@ class Generator
         $frame,
         $maxCount,
         $name = 'pos',
-        $classes = []
+        $classes = [],
     ): string {
         // This is often coming from $cfg['MaxTableList'] and
         // people sometimes set it to empty string
@@ -1084,7 +1084,7 @@ class Generator
                 $name,
                 $maxCount,
                 Util::getPageFromPosition($pos, $maxCount),
-                (int) ceil($count / $maxCount)
+                (int) ceil($count / $maxCount),
             );
         }
 
@@ -1151,7 +1151,7 @@ class Generator
                         $isLengthRestricted ? 0 : 1,
                         $selected === $subvalue ? 'selected="selected"' : '',
                         $GLOBALS['dbi']->types->getTypeDescription($subvalue),
-                        $subvalue
+                        $subvalue,
                     );
                 }
 
@@ -1165,7 +1165,7 @@ class Generator
                 $isLengthRestricted ? 0 : 1,
                 $selected === $value ? 'selected="selected"' : '',
                 $GLOBALS['dbi']->types->getTypeDescription($value),
-                $value
+                $value,
             );
         }
 

@@ -141,12 +141,12 @@ class Routines
         $message .= sprintf(
             __(
                 'No routine with name %1$s found in database %2$s. '
-                . 'You might be lacking the necessary privileges to edit this routine.'
+                . 'You might be lacking the necessary privileges to edit this routine.',
             ),
             htmlspecialchars(
-                Util::backquote($_REQUEST['item_name'])
+                Util::backquote($_REQUEST['item_name']),
             ),
-            htmlspecialchars(Util::backquote($GLOBALS['db']))
+            htmlspecialchars(Util::backquote($GLOBALS['db'])),
         );
 
         $message = Message::error($message);
@@ -185,7 +185,7 @@ class Routines
                 if (! in_array($_POST['item_original_type'], ['PROCEDURE', 'FUNCTION'], true)) {
                     $errors[] = sprintf(
                         __('Invalid routine type: "%s"'),
-                        htmlspecialchars($_POST['item_original_type'])
+                        htmlspecialchars($_POST['item_original_type']),
                     );
                 } else {
                     // Backup the old routine, in case something goes wrong
@@ -204,7 +204,7 @@ class Routines
                     if (! $result) {
                         $errors[] = sprintf(
                             __('The following query has failed: "%s"'),
-                            htmlspecialchars($drop_routine)
+                            htmlspecialchars($drop_routine),
                         )
                         . '<br>'
                         . __('MySQL said: ') . $this->dbi->getError();
@@ -212,7 +212,7 @@ class Routines
                         [$newErrors, $GLOBALS['message']] = $this->create(
                             $routine_query,
                             $create_routine,
-                            $privilegesBackup
+                            $privilegesBackup,
                         );
                         if (empty($newErrors)) {
                             $sql_query = $drop_routine . $routine_query;
@@ -229,16 +229,16 @@ class Routines
                 if (! $result) {
                     $errors[] = sprintf(
                         __('The following query has failed: "%s"'),
-                        htmlspecialchars($routine_query)
+                        htmlspecialchars($routine_query),
                     )
                     . '<br><br>'
                     . __('MySQL said: ') . $this->dbi->getError();
                 } else {
                     $GLOBALS['message'] = Message::success(
-                        __('Routine %1$s has been created.')
+                        __('Routine %1$s has been created.'),
                     );
                     $GLOBALS['message']->addParam(
-                        Util::backquote($_POST['item_name'])
+                        Util::backquote($_POST['item_name']),
                     );
                     $sql_query = $routine_query;
                 }
@@ -248,8 +248,8 @@ class Routines
         if (count($errors)) {
             $GLOBALS['message'] = Message::error(
                 __(
-                    'One or more errors have occurred while processing your request:'
-                )
+                    'One or more errors have occurred while processing your request:',
+                ),
             );
             $GLOBALS['message']->addHtml('<ul>');
             foreach ($errors as $string) {
@@ -276,8 +276,8 @@ class Routines
         $this->response->addJSON(
             'name',
             htmlspecialchars(
-                mb_strtoupper($_POST['item_name'])
-            )
+                mb_strtoupper($_POST['item_name']),
+            ),
         );
         $this->response->addJSON('new_row', $this->getRow($routine));
         $this->response->addJSON('insert', ! empty($routine));
@@ -324,14 +324,14 @@ class Routines
     public function create(
         $routine_query,
         $create_routine,
-        array $privilegesBackup
+        array $privilegesBackup,
     ): array {
         $result = $this->dbi->tryQuery($routine_query);
         if (! $result) {
             $errors = [];
             $errors[] = sprintf(
                 __('The following query has failed: "%s"'),
-                htmlspecialchars($routine_query)
+                htmlspecialchars($routine_query),
             )
             . '<br>'
             . __('MySQL said: ') . $this->dbi->getError();
@@ -393,17 +393,17 @@ class Routines
 
             $message = Message::success(
                 __(
-                    'Routine %1$s has been modified. Privileges have been adjusted.'
-                )
+                    'Routine %1$s has been modified. Privileges have been adjusted.',
+                ),
             );
         } else {
             $message = Message::success(
-                __('Routine %1$s has been modified.')
+                __('Routine %1$s has been modified.'),
             );
         }
 
         $message->addParam(
-            Util::backquote($_POST['item_name'])
+            Util::backquote($_POST['item_name']),
         );
 
         return $message;
@@ -493,7 +493,7 @@ class Routines
                 count($retval['item_param_type']),
                 count($retval['item_param_length']),
                 count($retval['item_param_opts_num']),
-                count($retval['item_param_opts_text'])
+                count($retval['item_param_opts_text']),
             );
         }
 
@@ -700,7 +700,7 @@ class Routines
             'item_param_opts_num' => $routine['item_param_opts_num'][$i] ?? '',
             'supported_datatypes' => Util::getSupportedDatatypes(
                 true,
-                $routine['item_param_type'][$i]
+                $routine['item_param_type'][$i],
             ),
             'charsets' => $charsets,
             'drop_class' => $drop_class,
@@ -756,7 +756,7 @@ class Routines
                 $routine['item_param_type'][$routine['item_num_params'] - 1],
                 $routine['item_param_length'][$routine['item_num_params'] - 1],
                 $routine['item_param_opts_num'][$routine['item_num_params'] - 1],
-                $routine['item_param_opts_text'][$routine['item_num_params'] - 1]
+                $routine['item_param_opts_text'][$routine['item_num_params'] - 1],
             );
             $routine['item_num_params']--;
         }
@@ -801,7 +801,7 @@ class Routines
         array $itemParamOpsText,
         array $itemParamOpsNum,
         string $itemType,
-        bool &$warnedAboutLength
+        bool &$warnedAboutLength,
     ): string {
         $GLOBALS['errors'] ??= null;
 
@@ -829,7 +829,7 @@ class Routines
                 $warnedAboutDir = true;
                 $GLOBALS['errors'][] = sprintf(
                     __('Invalid direction "%s" given for parameter.'),
-                    htmlspecialchars($itemParamDir[$i])
+                    htmlspecialchars($itemParamDir[$i]),
                 );
             }
 
@@ -837,7 +837,7 @@ class Routines
                 $itemParamLength[$i] != ''
                 && ! preg_match(
                     '@^(DATE|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN)$@i',
-                    $itemParamType[$i]
+                    $itemParamType[$i],
                 )
             ) {
                 $params .= '(' . $itemParamLength[$i] . ')';
@@ -849,7 +849,7 @@ class Routines
                     $warnedAboutLength = true;
                     $GLOBALS['errors'][] = __(
                         'You must provide length/values for routine parameters'
-                        . ' of type ENUM, SET, VARCHAR and VARBINARY.'
+                        . ' of type ENUM, SET, VARCHAR and VARBINARY.',
                     );
                 }
             }
@@ -888,7 +888,7 @@ class Routines
      */
     private function processFunctionSpecificParameters(
         string $query,
-        bool $warnedAboutLength
+        bool $warnedAboutLength,
     ): string {
         $GLOBALS['errors'] ??= null;
 
@@ -905,7 +905,7 @@ class Routines
             && ! preg_match(
                 '@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|'
                 . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN)$@i',
-                $itemReturnType
+                $itemReturnType,
             )
         ) {
             $query .= '(' . $_POST['item_returnlength'] . ')';
@@ -915,7 +915,7 @@ class Routines
         ) {
             if (! $warnedAboutLength) {
                 $GLOBALS['errors'][] = __(
-                    'You must provide length/values for routine parameters of type ENUM, SET, VARCHAR and VARBINARY.'
+                    'You must provide length/values for routine parameters of type ENUM, SET, VARCHAR and VARBINARY.',
                 );
             }
         }
@@ -978,7 +978,7 @@ class Routines
         } else {
             $GLOBALS['errors'][] = sprintf(
                 __('Invalid routine type: "%s"'),
-                htmlspecialchars($itemType)
+                htmlspecialchars($itemType),
             );
         }
 
@@ -1014,7 +1014,7 @@ class Routines
                 $itemParamOpsText,
                 $itemParamOpsNum,
                 $itemType,
-                $warnedAboutLength// Will possibly be modified by the function
+                $warnedAboutLength, // Will possibly be modified by the function
             );
         }
 
@@ -1130,7 +1130,7 @@ class Routines
             $message .= sprintf(
                 __('No routine with name %1$s found in database %2$s.'),
                 htmlspecialchars(Util::backquote($_POST['item_name'])),
-                htmlspecialchars(Util::backquote($GLOBALS['db']))
+                htmlspecialchars(Util::backquote($GLOBALS['db'])),
             );
             $message = Message::error($message);
             if ($this->response->isAjax()) {
@@ -1168,7 +1168,7 @@ class Routines
             $output .= '<div class="card my-3"><div class="card-header">';
             $output .= sprintf(
                 __('Execution results of routine %s'),
-                Util::backquote(htmlspecialchars($routine['item_name']))
+                Util::backquote(htmlspecialchars($routine['item_name'])),
             );
             $output .= '</div><div class="card-body">';
 
@@ -1217,9 +1217,9 @@ class Routines
                     _ngettext(
                         '%d row affected by the last statement inside the procedure.',
                         '%d rows affected by the last statement inside the procedure.',
-                        (int) $affected
+                        (int) $affected,
                     ),
-                    $affected
+                    $affected,
                 );
             }
 
@@ -1234,10 +1234,10 @@ class Routines
             $message = Message::error(
                 sprintf(
                     __('The following query has failed: "%s"'),
-                    htmlspecialchars($multiple_query)
+                    htmlspecialchars($multiple_query),
                 )
                 . '<br><br>'
-                . __('MySQL said: ') . $this->dbi->getError()
+                . __('MySQL said: ') . $this->dbi->getError(),
             );
         }
 
@@ -1279,7 +1279,7 @@ class Routines
                 $form = $this->getExecuteForm($routine);
                 if ($this->response->isAjax()) {
                     $title = __('Execute routine') . ' ' . Util::backquote(
-                        htmlentities($_GET['item_name'], ENT_QUOTES)
+                        htmlentities($_GET['item_name'], ENT_QUOTES),
                     );
                     $this->response->addJSON('message', $form);
                     $this->response->addJSON('title', $title);
@@ -1297,7 +1297,7 @@ class Routines
                 $message .= sprintf(
                     __('No routine with name %1$s found in database %2$s.'),
                     htmlspecialchars(Util::backquote($_GET['item_name'])),
-                    htmlspecialchars(Util::backquote($GLOBALS['db']))
+                    htmlspecialchars(Util::backquote($GLOBALS['db'])),
                 );
                 $message = Message::error($message);
 
@@ -1361,7 +1361,7 @@ class Routines
                     || stripos($routine['item_param_type'][$i], 'set') !== false
                     || in_array(
                         mb_strtolower($routine['item_param_type'][$i]),
-                        $no_support_types
+                        $no_support_types,
                     )
                 ) {
                     $params[$i]['generator'] = null;
@@ -1426,7 +1426,7 @@ class Routines
         $sqlDrop = sprintf(
             'DROP %s IF EXISTS %s',
             $routine['type'],
-            Util::backquote($routine['name'])
+            Util::backquote($routine['name']),
         );
 
         // this is for our purpose to decide whether to
@@ -1573,10 +1573,10 @@ class Routines
         $message = sprintf(
             __(
                 'Error in processing request: No routine with name %1$s found in database %2$s.'
-                . ' You might be lacking the necessary privileges to view/export this routine.'
+                . ' You might be lacking the necessary privileges to view/export this routine.',
             ),
             $itemName,
-            htmlspecialchars(Util::backquote($GLOBALS['db']))
+            htmlspecialchars(Util::backquote($GLOBALS['db'])),
         );
         $message = Message::error($message);
 
@@ -1604,13 +1604,13 @@ class Routines
         DatabaseInterface $dbi,
         string $db,
         string|null $which = null,
-        string $name = ''
+        string $name = '',
     ): array {
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $query = QueryGenerator::getInformationSchemaRoutinesRequest(
                 $dbi->escapeString($db),
                 in_array($which, ['FUNCTION', 'PROCEDURE'], true) ? $which : null,
-                $name === '' ? null : $dbi->escapeString($name)
+                $name === '' ? null : $dbi->escapeString($name),
             );
             $routines = $dbi->fetchResult($query);
         } else {
@@ -1659,7 +1659,7 @@ class Routines
     {
         $result = $dbi->fetchValue(
             'SHOW CREATE FUNCTION ' . Util::backquote($db) . '.' . Util::backquote($name),
-            'Create Function'
+            'Create Function',
         );
 
         return is_string($result) ? $result : null;
@@ -1669,7 +1669,7 @@ class Routines
     {
         $result = $dbi->fetchValue(
             'SHOW CREATE PROCEDURE ' . Util::backquote($db) . '.' . Util::backquote($name),
-            'Create Procedure'
+            'Create Procedure',
         );
 
         return is_string($result) ? $result : null;

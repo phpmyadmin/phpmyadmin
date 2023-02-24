@@ -44,7 +44,7 @@ class NodeDatabaseChildTest extends AbstractTestCase
         ])->toArray();
         $this->object = $this->getMockForAbstractClass(
             NodeDatabaseChild::class,
-            ['child']
+            ['child'],
         );
     }
 
@@ -75,7 +75,7 @@ class NodeDatabaseChildTest extends AbstractTestCase
             '<a href="' . Url::getFromRoute('/navigation') . '" data-post="'
             . 'hideNavItem=1&itemType=itemType&itemName=child'
             . '&dbName=parent&lang=en" class="hideNavItem ajax">',
-            $html
+            $html,
         );
     }
 }

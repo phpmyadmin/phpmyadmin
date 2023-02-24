@@ -68,7 +68,7 @@ class StatusControllerTest extends AbstractTestCase
             $template,
             $data,
             new ReplicationGui(new Replication($GLOBALS['dbi']), $template),
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
         );
 
         $replicationInfo = $data->getReplicationInfo();
@@ -106,7 +106,7 @@ class StatusControllerTest extends AbstractTestCase
         $this->assertStringContainsString('<th class="text-end" scope="col">ø per hour</th>', $html);
         $this->assertStringContainsString(
             '<table class="table table-striped table-hover col-12 col-md-6 w-auto">',
-            $html
+            $html,
         );
         $this->assertStringContainsString('<th>Max. concurrent connections</th>', $html);
         //Max_used_connections

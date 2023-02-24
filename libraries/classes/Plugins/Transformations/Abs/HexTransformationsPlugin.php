@@ -28,7 +28,7 @@ abstract class HexTransformationsPlugin extends TransformationsPlugin
         return __(
             'Displays hexadecimal representation of data. Optional first'
             . ' parameter specifies how often space will be added (defaults'
-            . ' to 2 nibbles).'
+            . ' to 2 nibbles).',
         );
     }
 

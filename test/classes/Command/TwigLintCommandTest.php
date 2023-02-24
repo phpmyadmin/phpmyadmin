@@ -108,7 +108,7 @@ class TwigLintCommandTest extends AbstractTestCase
                 [
                     'foo.twig',
                     'foo-invalid.twig',
-                ]
+                ],
             );
 
         $command->expects($this->exactly(2))->method('getTemplateContents')->willReturnMap([
@@ -133,7 +133,7 @@ class TwigLintCommandTest extends AbstractTestCase
                 'line' => 1,
                 'exception' => new SyntaxError('Unexpected "}".', 1, new Source(
                     '{{ file }',
-                    'foo-invalid.twig'
+                    'foo-invalid.twig',
                 )),
             ],
         ], $filesFound);

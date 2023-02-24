@@ -25,7 +25,7 @@ class UserGroupsController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private Relation $relation,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
     }
@@ -44,7 +44,7 @@ class UserGroupsController extends AbstractController
          */
         if (! $this->dbi->isSuperUser()) {
             $this->response->addHTML(
-                Message::error(__('No Privileges'))->getDisplay()
+                Message::error(__('No Privileges'))->getDisplay(),
             );
 
             return;
@@ -80,7 +80,7 @@ class UserGroupsController extends AbstractController
             // Display users belonging to a user group
             $this->response->addHTML(UserGroups::getHtmlForListingUsersofAGroup(
                 $configurableMenusFeature,
-                $request->getParsedBodyParam('userGroup')
+                $request->getParsedBodyParam('userGroup'),
             ));
         }
 
@@ -91,7 +91,7 @@ class UserGroupsController extends AbstractController
             // Display edit user group dialog
             $this->response->addHTML(UserGroups::getHtmlToEditUserGroup(
                 $configurableMenusFeature,
-                $request->getParsedBodyParam('userGroup')
+                $request->getParsedBodyParam('userGroup'),
             ));
         } else {
             // Display user groups table

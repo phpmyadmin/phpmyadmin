@@ -38,7 +38,7 @@ class EventsTest extends AbstractTestCase
         $this->events = new Events(
             $GLOBALS['dbi'],
             new Template(),
-            ResponseRenderer::getInstance()
+            ResponseRenderer::getInstance(),
         );
     }
 
@@ -154,7 +154,7 @@ class EventsTest extends AbstractTestCase
         ResponseRenderer::getInstance()->setAjax(false);
         $this->assertStringContainsString(
             $matcher,
-            $this->events->getEditorForm('add', 'change', $data)
+            $this->events->getEditorForm('add', 'change', $data),
         );
     }
 
@@ -209,7 +209,7 @@ class EventsTest extends AbstractTestCase
         ResponseRenderer::getInstance()->setAjax(false);
         $this->assertStringContainsString(
             $matcher,
-            $this->events->getEditorForm('edit', 'change', $data)
+            $this->events->getEditorForm('edit', 'change', $data),
         );
     }
 
@@ -264,7 +264,7 @@ class EventsTest extends AbstractTestCase
         ResponseRenderer::getInstance()->setAjax(true);
         $this->assertStringContainsString(
             $matcher,
-            $this->events->getEditorForm('edit', 'change', $data)
+            $this->events->getEditorForm('edit', 'change', $data),
         );
         ResponseRenderer::getInstance()->setAjax(false);
     }

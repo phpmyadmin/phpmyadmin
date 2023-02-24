@@ -42,7 +42,7 @@ final class Charset
         string $name,
         string $description,
         string $defaultCollation,
-        int $maxLength
+        int $maxLength,
     ) {
         $this->name = $name;
         $this->description = $description;
@@ -62,7 +62,7 @@ final class Charset
             $state['Charset'] ?? '',
             $state['Description'] ?? '',
             $state['Default collation'] ?? '',
-            (int) ($state['Maxlen'] ?? 0)
+            (int) ($state['Maxlen'] ?? 0),
         );
     }
 

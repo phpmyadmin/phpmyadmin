@@ -59,7 +59,7 @@ class SqlController extends AbstractController
             '',
             true,
             false,
-            htmlspecialchars($delimiter)
+            htmlspecialchars($delimiter),
         ));
     }
 }

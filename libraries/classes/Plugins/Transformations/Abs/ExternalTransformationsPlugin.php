@@ -48,7 +48,7 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
             . ' The third option, if set to 1, will convert the output using'
             . ' htmlspecialchars() (Default 1). The fourth option, if set to 1,'
             . ' will prevent wrapping and ensure that the output appears all on'
-            . ' one line (Default 1).'
+            . ' one line (Default 1).',
         );
     }
 
@@ -117,9 +117,9 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
                 __(
                     'You are using the external transformation command line'
                     . ' options field, which has been deprecated for security reasons.'
-                    . ' Add all command line options directly to the definition in %s.'
+                    . ' Add all command line options directly to the definition in %s.',
                 ),
-                '[code]libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php[/code]'
+                '[code]libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php[/code]',
             ), E_USER_DEPRECATED);
         }
 

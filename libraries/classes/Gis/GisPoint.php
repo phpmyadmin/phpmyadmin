@@ -73,7 +73,7 @@ class GisPoint extends GisGeometry
         string $label,
         array $color,
         array $scale_data,
-        ImageWrapper $image
+        ImageWrapper $image,
     ): ImageWrapper {
         // allocate colors
         $black = $image->colorAllocate(0, 0, 0);
@@ -92,7 +92,7 @@ class GisPoint extends GisGeometry
                 7,
                 0,
                 360,
-                $point_color
+                $point_color,
             );
             // print label if applicable
             if ($label !== '') {
@@ -101,7 +101,7 @@ class GisPoint extends GisGeometry
                     (int) round($points_arr[0][0]),
                     (int) round($points_arr[0][1]),
                     $label,
-                    $black
+                    $black,
                 );
             }
         }
@@ -125,7 +125,7 @@ class GisPoint extends GisGeometry
         string $label,
         array $color,
         array $scale_data,
-        $pdf
+        $pdf,
     ): TCPDF {
         $line = [
             'width' => 1.25,
@@ -206,7 +206,7 @@ class GisPoint extends GisGeometry
         int $srid,
         string $label,
         array $color,
-        array $scale_data
+        array $scale_data,
     ): string {
         $fill_style = ['color' => 'white'];
         $stroke_style = [

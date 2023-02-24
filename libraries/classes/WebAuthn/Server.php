@@ -41,7 +41,7 @@ interface Server
         string $userName,
         string $userId,
         string $relyingPartyId,
-        array $allowedCredentials
+        array $allowedCredentials,
     ): array;
 
     /**
@@ -57,7 +57,7 @@ interface Server
         string $assertionResponseJson,
         array $allowedCredentials,
         string $challenge,
-        ServerRequestInterface $request
+        ServerRequestInterface $request,
     ): void;
 
     /**
@@ -73,6 +73,6 @@ interface Server
     public function parseAndValidateAttestationResponse(
         string $attestationResponse,
         string $credentialCreationOptions,
-        ServerRequestInterface $request
+        ServerRequestInterface $request,
     ): array;
 }

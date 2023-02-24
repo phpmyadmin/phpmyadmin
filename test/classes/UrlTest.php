@@ -86,8 +86,8 @@ class UrlTest extends AbstractTestCase
                     'db' => 'db',
                     'table' => 'table',
                 ],
-                '#ABC#'
-            )
+                '#ABC#',
+            ),
         );
     }
 
@@ -118,7 +118,7 @@ class UrlTest extends AbstractTestCase
         ]);
         $this->assertEquals(
             'index.php?route=/test&db=%253%5C%24s&table=%252%5C%24s&field=%251%5C%24s&change_column=1&lang=en',
-            $generatedUrl
+            $generatedUrl,
         );
     }
 
@@ -142,8 +142,8 @@ class UrlTest extends AbstractTestCase
             'index.php?route=/test&db=&test=_database=&table=&'
             . 'test=_database=&field=&test=_database=&change_column=1&lang=en',
             urldecode(
-                $expectedUrl
-            )
+                $expectedUrl,
+            ),
         );
     }
 
@@ -166,7 +166,7 @@ class UrlTest extends AbstractTestCase
             . '%2Ftrunk%2Fhtml5.js%22%3E%3C%2Fscript%3E&table=%3Cscript+src%3D%22'
             . 'https%3A%2F%2Fdomain.tld%2Fmaybeweshouldusegit%2Ftrunk%2Fhtml5.js%22%3E%3C%2F'
             . 'script%3E&field=1&trees=1&book=0&worm=0&lang=en',
-            $generatedUrl
+            $generatedUrl,
         );
     }
 
@@ -178,7 +178,7 @@ class UrlTest extends AbstractTestCase
         $_SESSION = [' PMA_token ' => '<b>token</b>'];
         $this->assertSame(
             '<input type="hidden" name="token" value="&lt;b&gt;token&lt;/b&gt;">',
-            Url::getHiddenFields([])
+            Url::getHiddenFields([]),
         );
     }
 

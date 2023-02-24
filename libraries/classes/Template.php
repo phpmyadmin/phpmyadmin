@@ -123,9 +123,9 @@ class Template
             trigger_error(
                 sprintf(
                     __('Error while working with template cache: %s'),
-                    $e->getMessage()
+                    $e->getMessage(),
                 ),
-                E_USER_WARNING
+                E_USER_WARNING,
             );
         }
 

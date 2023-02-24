@@ -40,7 +40,7 @@ final class EditField
         string $function,
         string|null $salt,
         string|null $previousValue,
-        bool $isUploaded
+        bool $isUploaded,
     ) {
         $this->columnName = $columnName;
         $this->value = $value;

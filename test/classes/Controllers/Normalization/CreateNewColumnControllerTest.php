@@ -39,7 +39,7 @@ class CreateNewColumnControllerTest extends AbstractTestCase
         $controller = new CreateNewColumnController(
             $response,
             $template,
-            new Normalization($dbi, new Relation($dbi), new Transformations(), $template)
+            new Normalization($dbi, new Relation($dbi), new Transformations(), $template),
         );
         $controller($request);
 

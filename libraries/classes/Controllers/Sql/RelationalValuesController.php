@@ -19,7 +19,7 @@ final class RelationalValuesController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private Sql $sql,
-        private CheckUserPrivileges $checkUserPrivileges
+        private CheckUserPrivileges $checkUserPrivileges,
     ) {
         parent::__construct($response, $template);
     }
@@ -46,7 +46,7 @@ final class RelationalValuesController extends AbstractController
             $GLOBALS['db'],
             $GLOBALS['table'],
             strval($column),
-            strval($curr_value)
+            strval($curr_value),
         );
         $this->response->addJSON('dropdown', $dropdown);
     }

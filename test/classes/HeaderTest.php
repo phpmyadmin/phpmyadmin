@@ -52,7 +52,7 @@ class HeaderTest extends AbstractTestCase
         $header->disable();
         $this->assertEquals(
             '',
-            $header->getDisplay()
+            $header->getDisplay(),
         );
     }
 
@@ -65,7 +65,7 @@ class HeaderTest extends AbstractTestCase
         $header = new Header();
         $this->assertStringContainsString(
             '<title>phpMyAdmin</title>',
-            $header->getDisplay()
+            $header->getDisplay(),
         );
     }
 
@@ -78,7 +78,7 @@ class HeaderTest extends AbstractTestCase
         $header->setBodyId('PMA_header_id');
         $this->assertStringContainsString(
             'PMA_header_id',
-            $header->getDisplay()
+            $header->getDisplay(),
         );
     }
 
@@ -90,7 +90,7 @@ class HeaderTest extends AbstractTestCase
         $header = new Header();
         $this->assertArrayHasKey(
             'common_query',
-            $header->getJsParams()
+            $header->getJsParams(),
         );
     }
 
@@ -99,7 +99,7 @@ class HeaderTest extends AbstractTestCase
         $header = new Header();
         $this->assertStringContainsString(
             'window.Navigation.update(window.CommonParams.setAll(',
-            $header->getJsParamsCode()
+            $header->getJsParamsCode(),
         );
     }
 
@@ -111,7 +111,7 @@ class HeaderTest extends AbstractTestCase
         $header = new Header();
         $this->assertStringContainsString(
             'phpmyadminmessage',
-            $header->getMessage()
+            $header->getMessage(),
         );
     }
 
@@ -143,7 +143,7 @@ class HeaderTest extends AbstractTestCase
         string|null $expectedFrameOptions,
         string $expectedCsp,
         string $expectedXCsp,
-        string $expectedWebKitCsp
+        string $expectedWebKitCsp,
     ): void {
         $header = new Header();
         $date = (string) gmdate(DATE_RFC1123);

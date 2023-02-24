@@ -81,18 +81,18 @@ class SelectTest extends AbstractTestCase
             $this->assertStringContainsString(
                 Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabServer'],
-                    'server'
+                    'server',
                 ),
-                $html
+                $html,
             );
 
             $this->assertStringContainsString(
                 __('Current server:'),
-                $html
+                $html,
             );
             $this->assertStringContainsString(
                 '(' . __('Servers') . ')',
-                $html
+                $html,
             );
         }
 

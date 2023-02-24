@@ -103,7 +103,7 @@ class StorageEngine
                     'disabled_storage_engines',
                     /** @return mixed|false */
                     static fn () => $GLOBALS['dbi']->fetchValue(
-                        'SELECT @@disabled_storage_engines'
+                        'SELECT @@disabled_storage_engines',
                     )
                 );
                 foreach (explode(',', $disabled) as $engine) {
@@ -157,7 +157,7 @@ class StorageEngine
         if (! Cache::has($cacheKey)) {
             $result = $GLOBALS['dbi']->fetchSingleRow(
                 'SELECT mroonga_command(\'object_list\');',
-                DatabaseInterface::FETCH_NUM
+                DatabaseInterface::FETCH_NUM,
             );
             $objectList = (array) json_decode($result[0] ?? '', true);
             foreach ($objectList as $mroongaName => $mroongaData) {
@@ -190,7 +190,7 @@ class StorageEngine
 
             $result = $GLOBALS['dbi']->fetchSingleRow(
                 'SELECT mroonga_command(\'object_inspect ' . $mroongaName . '\');',
-                DatabaseInterface::FETCH_NUM
+                DatabaseInterface::FETCH_NUM,
             );
             $decodedData = json_decode($result[0] ?? '', true);
             if ($decodedData === null) {

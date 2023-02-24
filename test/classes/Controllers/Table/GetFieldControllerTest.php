@@ -39,17 +39,17 @@ class GetFieldControllerTest extends AbstractTestCase
                 ['id', 'int(11)', 'NO', 'PRI', null, 'auto_increment'],
                 ['file', 'blob', 'NO', '', null, ''],
             ],
-            ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra']
+            ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
         );
         $dummyDbi->addResult(
             'SHOW INDEXES FROM `test_db`.`table_with_blob`',
             [['table_with_blob', 'PRIMARY', 'id']],
-            ['Table', 'Key_name', 'Column_name']
+            ['Table', 'Key_name', 'Column_name'],
         );
         $dummyDbi->addResult(
             'SELECT `file` FROM `table_with_blob` WHERE `table_with_blob`.`id` = 1;',
             [[bin2hex('FILE')]],
-            ['file']
+            ['file'],
         );
         $dbi = $this->createDatabaseInterface($dummyDbi);
         $GLOBALS['dbi'] = $dbi;

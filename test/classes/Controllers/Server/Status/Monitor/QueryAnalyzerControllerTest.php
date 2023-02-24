@@ -61,11 +61,11 @@ class QueryAnalyzerControllerTest extends AbstractTestCase
         $this->assertEquals('cached_affected_rows', $ret['message']['affectedRows']);
         $this->assertEquals(
             [],
-            $ret['message']['profiling']
+            $ret['message']['profiling'],
         );
         $this->assertEquals(
             [$value],
-            $ret['message']['explain']
+            $ret['message']['explain'],
         );
     }
 }

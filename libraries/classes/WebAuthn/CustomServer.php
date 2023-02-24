@@ -55,12 +55,12 @@ final class CustomServer implements Server
         string $userName,
         string $userId,
         string $relyingPartyId,
-        array $allowedCredentials
+        array $allowedCredentials,
     ): array {
         foreach ($allowedCredentials as $key => $credential) {
             $allowedCredentials[$key]['id'] = sodium_bin2base64(
                 sodium_base642bin($credential['id'], SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING),
-                SODIUM_BASE64_VARIANT_ORIGINAL
+                SODIUM_BASE64_VARIANT_ORIGINAL,
             );
         }
 
@@ -77,7 +77,7 @@ final class CustomServer implements Server
         string $assertionResponseJson,
         array $allowedCredentials,
         string $challenge,
-        ServerRequestInterface $request
+        ServerRequestInterface $request,
     ): void {
         $assertionCredential = $this->getAssertionCredential($assertionResponseJson);
 
@@ -112,7 +112,7 @@ final class CustomServer implements Server
     public function parseAndValidateAttestationResponse(
         string $attestationResponse,
         string $credentialCreationOptions,
-        ServerRequestInterface $request
+        ServerRequestInterface $request,
     ): array {
         try {
             $attestationCredential = $this->getAttestationCredential($attestationResponse);
@@ -162,15 +162,15 @@ final class CustomServer implements Server
 
         $encodedCredentialId = sodium_bin2base64(
             $authenticatorData['attestedCredentialData']['credentialId'],
-            SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING
+            SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING,
         );
         $encodedCredentialPublicKey = sodium_bin2base64(
             $authenticatorData['attestedCredentialData']['credentialPublicKey'],
-            SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING
+            SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING,
         );
         $userHandle = sodium_bin2base64(
             sodium_base642bin($creationOptions['user']['id'], SODIUM_BASE64_VARIANT_ORIGINAL),
-            SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING
+            SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING,
         );
 
         return [
@@ -259,7 +259,7 @@ final class CustomServer implements Server
                 $authData,
                 37 + 18 + $credentialIdLength,
                 $authDataStream->getPosition(),
-                '8bit'
+                '8bit',
             );
 
             $attestedCredentialData = [
@@ -366,7 +366,7 @@ final class CustomServer implements Server
         Assert::stringNotEmpty($clientDataJSON);
         $authenticatorData = sodium_base642bin(
             $credential['response']['authenticatorData'],
-            SODIUM_BASE64_VARIANT_ORIGINAL
+            SODIUM_BASE64_VARIANT_ORIGINAL,
         );
         Assert::stringNotEmpty($authenticatorData);
         $signature = sodium_base642bin($credential['response']['signature'], SODIUM_BASE64_VARIANT_ORIGINAL);
@@ -427,7 +427,7 @@ final class CustomServer implements Server
         Assert::stringNotEmpty($clientDataJSON);
         $attestationObject = sodium_base642bin(
             $credential['response']['attestationObject'],
-            SODIUM_BASE64_VARIANT_ORIGINAL
+            SODIUM_BASE64_VARIANT_ORIGINAL,
         );
         Assert::stringNotEmpty($attestationObject);
 

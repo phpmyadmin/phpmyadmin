@@ -44,7 +44,7 @@ final class ValidateController
         if ($result === false) {
             $result = sprintf(
                 __('Wrong data or no validation for %s'),
-                implode(',', $vids)
+                implode(',', $vids),
             );
         }
 

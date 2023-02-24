@@ -134,7 +134,7 @@ class Menu
                     $tab = (string) $row['tab'];
                     $tabName = mb_substr(
                         $tab,
-                        mb_strpos($tab, '_') + 1
+                        mb_strpos($tab, '_') + 1,
                     );
                     unset($allowedTabs[$tabName]);
                 }
@@ -452,7 +452,7 @@ class Menu
         } else {
             $binaryLogs = $this->dbi->fetchResult(
                 'SHOW MASTER LOGS',
-                'Log_name'
+                'Log_name',
             );
             SessionCache::set('binary_logs', $binaryLogs);
         }

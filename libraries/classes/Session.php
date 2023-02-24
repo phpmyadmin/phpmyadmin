@@ -95,7 +95,7 @@ class Session
             $messages[] = preg_replace(
                 '/open\(.*, O_RDWR\)/',
                 'open(SESSION_FILE, O_RDWR)',
-                htmlspecialchars($error->getMessage())
+                htmlspecialchars($error->getMessage()),
             );
         }
 
@@ -231,7 +231,7 @@ class Session
         }
 
         throw new SessionHandlerException(
-            'Failed to store CSRF token in session! Probably sessions are not working properly.'
+            'Failed to store CSRF token in session! Probably sessions are not working properly.',
         );
     }
 }

@@ -29,7 +29,7 @@ class TriggersTest extends TestBase
             . ' `val` int(11) NOT NULL,'
             . ' PRIMARY KEY (`id`)'
             . ');'
-            . 'INSERT INTO `test_table2` (val) VALUES (2);'
+            . 'INSERT INTO `test_table2` (val) VALUES (2);',
         );
 
         $this->login();
@@ -52,7 +52,7 @@ class TriggersTest extends TestBase
             function (): void {
                 // Do you really want to execute [..]
                 $this->acceptAlert();
-            }
+            },
         );
     }
 
@@ -76,17 +76,17 @@ class TriggersTest extends TestBase
 
         $this->selectByLabel(
             $this->byName('item_table'),
-            'test_table'
+            'test_table',
         );
 
         $this->selectByLabel(
             $this->byName('item_timing'),
-            'AFTER'
+            'AFTER',
         );
 
         $this->selectByLabel(
             $this->byName('item_event'),
-            'INSERT'
+            'INSERT',
         );
 
         $proc = 'UPDATE ' . $this->databaseName . '.`test_table2` SET val=val+1';
@@ -96,14 +96,14 @@ class TriggersTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            '//div[@class=\'alert alert-success\' and contains(., \'Trigger `test_trigger` has been created\')]'
+            '//div[@class=\'alert alert-success\' and contains(., \'Trigger `test_trigger` has been created\')]',
         );
 
         $this->assertTrue(
             $this->isElementPresent(
                 'xpath',
-                "//td[contains(., 'test_trigger')]"
-            )
+                "//td[contains(., 'test_trigger')]",
+            ),
         );
 
         $this->dbQuery(
@@ -111,7 +111,7 @@ class TriggersTest extends TestBase
             function (): void {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 $this->assertEquals('test_trigger', $this->getCellByTableClass('table_results', 1, 1));
-            }
+            },
         );
 
         // test trigger
@@ -122,7 +122,7 @@ class TriggersTest extends TestBase
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 // [ ] | Edit | Copy | Delete | 1 | 3
                 $this->assertEquals('3', $this->getCellByTableClass('table_results', 1, 5));
-            }
+            },
         );
     }
 
@@ -151,7 +151,7 @@ class TriggersTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            '//div[@class=\'alert alert-success\' and contains(., \'Trigger `test_trigger` has been modified\')]'
+            '//div[@class=\'alert alert-success\' and contains(., \'Trigger `test_trigger` has been modified\')]',
         );
 
         // test trigger
@@ -162,7 +162,7 @@ class TriggersTest extends TestBase
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 // [ ] | Edit | Copy | Delete | 1 | 12
                 $this->assertEquals('12', $this->getCellByTableClass('table_results', 1, 5));
-            }
+            },
         );
     }
 
@@ -194,14 +194,14 @@ class TriggersTest extends TestBase
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 // [ ] | Edit | Copy | Delete | 1 | 2
                 $this->assertEquals('2', $this->getCellByTableClass('table_results', 1, 5));
-            }
+            },
         );
 
         $this->dbQuery(
             'SHOW TRIGGERS FROM `' . $this->databaseName . '`;',
             function (): void {
                 $this->assertFalse($this->isElementPresent('className', 'table_results'));
-            }
+            },
         );
     }
 }

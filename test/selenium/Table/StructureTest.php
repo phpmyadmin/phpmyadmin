@@ -24,7 +24,7 @@ class StructureTest extends TestBase
             . ' `val` int(11) NOT NULL,'
             . ' `val2` int(11) NOT NULL,'
             . ' PRIMARY KEY (`id`)'
-            . ');'
+            . ');',
         );
 
         $this->login();
@@ -59,12 +59,12 @@ class StructureTest extends TestBase
 
         $this->assertEquals(
             'val3',
-            $this->byCssSelector('label[for=checkbox_row_4]')->getText()
+            $this->byCssSelector('label[for=checkbox_row_4]')->getText(),
         );
 
         $this->assertEquals(
             'int(11)',
-            $this->getCellByTableId('tablestructure', 4, 4)
+            $this->getCellByTableId('tablestructure', 4, 4),
         );
     }
 
@@ -92,7 +92,7 @@ class StructureTest extends TestBase
 
         $this->assertEquals(
             'val3',
-            $this->waitForElement('cssSelector', 'label[for=checkbox_row_2]')->getText()
+            $this->waitForElement('cssSelector', 'label[for=checkbox_row_2]')->getText(),
         );
     }
 
@@ -111,15 +111,15 @@ class StructureTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            '//div[@class=\'alert alert-success\' and contains(., \'2 columns have been dropped successfully.\')]'
+            '//div[@class=\'alert alert-success\' and contains(., \'2 columns have been dropped successfully.\')]',
         );
         $this->waitAjax();
 
         $this->assertFalse(
             $this->isElementPresent(
                 'cssSelector',
-                'label[for=checkbox_row_2]'
-            )
+                'label[for=checkbox_row_2]',
+            ),
         );
     }
 }

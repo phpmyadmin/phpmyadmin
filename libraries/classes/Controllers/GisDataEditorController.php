@@ -83,7 +83,7 @@ class GisDataEditorController extends AbstractController
                 $GLOBALS['gis_data']['gis_type'] = mb_substr(
                     $value,
                     $GLOBALS['start'],
-                    (int) mb_strpos($value, '(') - $GLOBALS['start']
+                    (int) mb_strpos($value, '(') - $GLOBALS['start'],
                 );
             }
 
@@ -106,7 +106,7 @@ class GisDataEditorController extends AbstractController
         if (isset($value)) {
             $GLOBALS['gis_data'] = array_merge(
                 $GLOBALS['gis_data'],
-                $GLOBALS['gis_obj']->generateParams($value)
+                $GLOBALS['gis_obj']->generateParams($value),
             );
         }
 

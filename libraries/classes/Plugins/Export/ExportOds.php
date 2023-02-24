@@ -62,12 +62,12 @@ class ExportOds extends ExportPlugin
         // create primary items and add them to the group
         $leaf = new TextPropertyItem(
             'null',
-            __('Replace NULL with:')
+            __('Replace NULL with:'),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new BoolPropertyItem(
             'columns',
-            __('Put columns names in the first row')
+            __('Put columns names in the first row'),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new HiddenPropertyItem('structure_or_data');
@@ -145,8 +145,8 @@ class ExportOds extends ExportPlugin
         return $this->export->outputHandler(
             OpenDocument::create(
                 'application/vnd.oasis.opendocument.spreadsheet',
-                $GLOBALS['ods_buffer']
-            )
+                $GLOBALS['ods_buffer'],
+            ),
         );
     }
 
@@ -197,7 +197,7 @@ class ExportOds extends ExportPlugin
         $table,
         $errorUrl,
         $sqlQuery,
-        array $aliases = []
+        array $aliases = [],
     ): bool {
         $GLOBALS['what'] ??= null;
 
@@ -208,7 +208,7 @@ class ExportOds extends ExportPlugin
         $result = $GLOBALS['dbi']->query(
             $sqlQuery,
             Connection::TYPE_USER,
-            DatabaseInterface::QUERY_UNBUFFERED
+            DatabaseInterface::QUERY_UNBUFFERED,
         );
         $fields_cnt = $result->numFields();
         /** @var FieldMetadata[] $fieldsMeta */

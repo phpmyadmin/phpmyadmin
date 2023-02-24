@@ -20,7 +20,7 @@ class TableExtension extends AbstractExtension
         return [
             new TwigFunction(
                 'table_get',
-                [Table::class, 'get']
+                [Table::class, 'get'],
             ),
         ];
     }

@@ -90,7 +90,7 @@ class AddControllerTest extends AbstractTestCase
                 ],
                 'isShared' => true,
             ],
-            $response->getJSONResult()
+            $response->getJSONResult(),
         );
         $dbiDummy->assertAllQueriesConsumed();
     }

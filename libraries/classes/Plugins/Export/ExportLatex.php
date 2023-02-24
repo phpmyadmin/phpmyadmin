@@ -78,7 +78,7 @@ class ExportLatex extends ExportPlugin
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
             'caption',
-            __('Include table caption')
+            __('Include table caption'),
         );
         $generalOptions->addProperty($leaf);
         // add the main group to the root group
@@ -87,7 +87,7 @@ class ExportLatex extends ExportPlugin
         // what to dump (structure/data/both) main group
         $dumpWhat = new OptionsPropertyMainGroup(
             'dump_what',
-            __('Dump table')
+            __('Dump table'),
         );
         // create primary items and add them to the group
         $leaf = new RadioPropertyItem('structure_or_data');
@@ -96,7 +96,7 @@ class ExportLatex extends ExportPlugin
                 'structure' => __('structure'),
                 'data' => __('data'),
                 'structure_and_data' => __('structure and data'),
-            ]
+            ],
         );
         $dumpWhat->addProperty($leaf);
         // add the main group to the root group
@@ -106,25 +106,25 @@ class ExportLatex extends ExportPlugin
         if (! $hide_structure) {
             $structureOptions = new OptionsPropertyMainGroup(
                 'structure',
-                __('Object creation options')
+                __('Object creation options'),
             );
             $structureOptions->setForce('data');
             // create primary items and add them to the group
             $leaf = new TextPropertyItem(
                 'structure_caption',
-                __('Table caption:')
+                __('Table caption:'),
             );
             $leaf->setDoc('faq6-27');
             $structureOptions->addProperty($leaf);
             $leaf = new TextPropertyItem(
                 'structure_continued_caption',
-                __('Table caption (continued):')
+                __('Table caption (continued):'),
             );
             $leaf->setDoc('faq6-27');
             $structureOptions->addProperty($leaf);
             $leaf = new TextPropertyItem(
                 'structure_label',
-                __('Label key:')
+                __('Label key:'),
             );
             $leaf->setDoc('faq6-27');
             $structureOptions->addProperty($leaf);
@@ -132,20 +132,20 @@ class ExportLatex extends ExportPlugin
             if ($relationParameters->relationFeature !== null) {
                 $leaf = new BoolPropertyItem(
                     'relation',
-                    __('Display foreign key relationships')
+                    __('Display foreign key relationships'),
                 );
                 $structureOptions->addProperty($leaf);
             }
 
             $leaf = new BoolPropertyItem(
                 'comments',
-                __('Display comments')
+                __('Display comments'),
             );
             $structureOptions->addProperty($leaf);
             if ($relationParameters->browserTransformationFeature !== null) {
                 $leaf = new BoolPropertyItem(
                     'mime',
-                    __('Display media types')
+                    __('Display media types'),
                 );
                 $structureOptions->addProperty($leaf);
             }
@@ -157,36 +157,36 @@ class ExportLatex extends ExportPlugin
         // data options main group
         $dataOptions = new OptionsPropertyMainGroup(
             'data',
-            __('Data dump options')
+            __('Data dump options'),
         );
         $dataOptions->setForce('structure');
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
             'columns',
-            __('Put columns names in the first row:')
+            __('Put columns names in the first row:'),
         );
         $dataOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
             'data_caption',
-            __('Table caption:')
+            __('Table caption:'),
         );
         $leaf->setDoc('faq6-27');
         $dataOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
             'data_continued_caption',
-            __('Table caption (continued):')
+            __('Table caption (continued):'),
         );
         $leaf->setDoc('faq6-27');
         $dataOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
             'data_label',
-            __('Label key:')
+            __('Label key:'),
         );
         $leaf->setDoc('faq6-27');
         $dataOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
             'null',
-            __('Replace NULL with:')
+            __('Replace NULL with:'),
         );
         $dataOptions->addProperty($leaf);
         // add the main group to the root group
@@ -284,7 +284,7 @@ class ExportLatex extends ExportPlugin
         $table,
         $errorUrl,
         $sqlQuery,
-        array $aliases = []
+        array $aliases = [],
     ): bool {
         $db_alias = $db;
         $table_alias = $table;
@@ -293,7 +293,7 @@ class ExportLatex extends ExportPlugin
         $result = $GLOBALS['dbi']->tryQuery(
             $sqlQuery,
             Connection::TYPE_USER,
-            DatabaseInterface::QUERY_UNBUFFERED
+            DatabaseInterface::QUERY_UNBUFFERED,
         );
 
         $columns_cnt = $result->numFields();
@@ -321,7 +321,7 @@ class ExportLatex extends ExportPlugin
                 . Util::expandUserString(
                     $GLOBALS['latex_data_caption'],
                     [static::class, 'texEscape'],
-                    ['table' => $table_alias, 'database' => $db_alias]
+                    ['table' => $table_alias, 'database' => $db_alias],
                 )
                 . '} \\label{'
                 . Util::expandUserString(
@@ -330,7 +330,7 @@ class ExportLatex extends ExportPlugin
                     [
                         'table' => $table_alias,
                         'database' => $db_alias,
-                    ]
+                    ],
                 )
                 . '} \\\\';
         }
@@ -359,9 +359,9 @@ class ExportLatex extends ExportPlugin
                         . Util::expandUserString(
                             $GLOBALS['latex_data_continued_caption'],
                             [static::class, 'texEscape'],
-                            ['table' => $table_alias, 'database' => $db_alias]
+                            ['table' => $table_alias, 'database' => $db_alias],
                         )
-                        . '} \\\\ '
+                        . '} \\\\ ',
                     )
                 ) {
                     return false;
@@ -453,7 +453,7 @@ class ExportLatex extends ExportPlugin
         $do_comments = false,
         $do_mime = false,
         $dates = false,
-        array $aliases = []
+        array $aliases = [],
     ): bool {
         $db_alias = $db;
         $table_alias = $table;
@@ -488,7 +488,7 @@ class ExportLatex extends ExportPlugin
         [$res_rel, $have_rel] = $this->relation->getRelationsAndStatus(
             $do_relation && $relationParameters->relationFeature !== null,
             $db,
-            $table
+            $table,
         );
         /**
          * Displays the table structure
@@ -539,7 +539,7 @@ class ExportLatex extends ExportPlugin
                 . Util::expandUserString(
                     $GLOBALS['latex_structure_caption'],
                     [static::class, 'texEscape'],
-                    ['table' => $table_alias, 'database' => $db_alias]
+                    ['table' => $table_alias, 'database' => $db_alias],
                 )
                 . '} \\label{'
                 . Util::expandUserString(
@@ -548,7 +548,7 @@ class ExportLatex extends ExportPlugin
                     [
                         'table' => $table_alias,
                         'database' => $db_alias,
-                    ]
+                    ],
                 )
                 . '} \\\\' . "\n";
         }
@@ -561,7 +561,7 @@ class ExportLatex extends ExportPlugin
                 . Util::expandUserString(
                     $GLOBALS['latex_structure_continued_caption'],
                     [static::class, 'texEscape'],
-                    ['table' => $table_alias, 'database' => $db_alias]
+                    ['table' => $table_alias, 'database' => $db_alias],
                 )
                 . '} \\\\ ' . "\n";
         }

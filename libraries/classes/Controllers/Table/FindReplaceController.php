@@ -44,7 +44,7 @@ class FindReplaceController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
 
@@ -152,7 +152,7 @@ class FindReplaceController extends AbstractController
             $_POST['find'],
             $_POST['replaceWith'],
             $useRegex,
-            $this->connectionCharSet
+            $this->connectionCharSet,
         );
         $this->response->addJSON('preview', $preview);
     }
@@ -164,14 +164,14 @@ class FindReplaceController extends AbstractController
             $_POST['findString'],
             $_POST['replaceWith'],
             $_POST['useRegex'],
-            $this->connectionCharSet
+            $this->connectionCharSet,
         );
         $this->response->addHTML(
             Generator::getMessage(
                 __('Your SQL query has been executed successfully.'),
                 null,
-                'success'
-            )
+                'success',
+            ),
         );
     }
 
@@ -191,7 +191,7 @@ class FindReplaceController extends AbstractController
         $find,
         $replaceWith,
         $useRegex,
-        $charSet
+        $charSet,
     ): string {
         $column = $this->columnNames[$columnIndex];
         if ($useRegex) {
@@ -242,7 +242,7 @@ class FindReplaceController extends AbstractController
         $columnIndex,
         $find,
         $replaceWith,
-        $charSet
+        $charSet,
     ): array|bool {
         $column = $this->columnNames[$columnIndex];
         $sql_query = 'SELECT '
@@ -302,7 +302,7 @@ class FindReplaceController extends AbstractController
         $find,
         $replaceWith,
         $useRegex,
-        $charSet
+        $charSet,
     ): void {
         $column = $this->columnNames[$columnIndex];
         if ($useRegex) {

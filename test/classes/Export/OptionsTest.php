@@ -50,7 +50,7 @@ class OptionsTest extends AbstractTestCase
 
         $this->export = new Options(
             new Relation($GLOBALS['dbi']),
-            new TemplateModel($GLOBALS['dbi'])
+            new TemplateModel($GLOBALS['dbi']),
         );
     }
 
@@ -95,7 +95,7 @@ class OptionsTest extends AbstractTestCase
             '',
             $num_tables_str,
             $unlim_num_rows_str,
-            $exportList
+            $exportList,
         );
 
         $expected = [

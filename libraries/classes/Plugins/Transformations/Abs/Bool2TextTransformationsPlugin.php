@@ -24,7 +24,7 @@ abstract class Bool2TextTransformationsPlugin extends TransformationsPlugin
     {
         return __(
             'Converts Boolean values to text (default \'T\' and \'F\').'
-            . ' First option is for TRUE, second for FALSE. Nonzero=true.'
+            . ' First option is for TRUE, second for FALSE. Nonzero=true.',
         );
     }
 

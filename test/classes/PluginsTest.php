@@ -61,7 +61,7 @@ class PluginsTest extends AbstractTestCase
         string|null $actualGet,
         string $section,
         string $option,
-        bool|null $timeoutPassed
+        bool|null $timeoutPassed,
     ): void {
         $_GET = [];
         $_REQUEST = [];
@@ -113,22 +113,22 @@ class PluginsTest extends AbstractTestCase
             new Plugins\Export\ExportJson(
                 new Relation($GLOBALS['dbi']),
                 new Export($GLOBALS['dbi']),
-                new Transformations()
+                new Transformations(),
             ),
             new Plugins\Export\ExportOds(
                 new Relation($GLOBALS['dbi']),
                 new Export($GLOBALS['dbi']),
-                new Transformations()
+                new Transformations(),
             ),
             new Plugins\Export\ExportSql(
                 new Relation($GLOBALS['dbi']),
                 new Export($GLOBALS['dbi']),
-                new Transformations()
+                new Transformations(),
             ),
             new Plugins\Export\ExportXml(
                 new Relation($GLOBALS['dbi']),
                 new Export($GLOBALS['dbi']),
-                new Transformations()
+                new Transformations(),
             ),
         ];
         $actual = Plugins::getChoice($exportList, 'xml');

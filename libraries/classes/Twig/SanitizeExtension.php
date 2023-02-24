@@ -22,7 +22,7 @@ class SanitizeExtension extends AbstractExtension
             new TwigFilter(
                 'sanitize',
                 Sanitize::sanitizeMessage(...),
-                ['is_safe' => ['html']]
+                ['is_safe' => ['html']],
             ),
         ];
     }
@@ -38,7 +38,7 @@ class SanitizeExtension extends AbstractExtension
             new TwigFunction(
                 'get_js_value',
                 Sanitize::getJsValue(...),
-                ['is_safe' => ['html']]
+                ['is_safe' => ['html']],
             ),
         ];
     }

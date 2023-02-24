@@ -57,11 +57,11 @@ class CheckRelationsControllerTest extends AbstractTestCase
         $this->assertStringContainsString('phpMyAdmin configuration storage', $actual);
         $this->assertStringContainsString(
             'Configuration of pmadb…      <span class="text-danger"><strong>not OK</strong></span>',
-            $actual
+            $actual,
         );
         $this->assertStringContainsString(
             'Create</a> a database named \'phpmyadmin\' and setup the phpMyAdmin configuration storage there.',
-            $actual
+            $actual,
         );
     }
 }

@@ -39,7 +39,7 @@ final class SaveController extends AbstractController
         private Relation $relation,
         private Transformations $transformations,
         private DatabaseInterface $dbi,
-        private StructureController $structureController
+        private StructureController $structureController,
     ) {
         parent::__construct($response, $template);
 
@@ -95,7 +95,7 @@ final class SaveController extends AbstractController
                 Util::getValueByKey($_POST, 'field_virtuality.' . $i, ''),
                 Util::getValueByKey($_POST, 'field_expression.' . $i, ''),
                 Util::getValueByKey($_POST, 'field_move_to.' . $i, ''),
-                $columns_with_index
+                $columns_with_index,
             );
 
             // find the remembered sort expression
@@ -134,7 +134,7 @@ final class SaveController extends AbstractController
                     $this->dbi->getError(),
                     'USE ' . Util::backquote($GLOBALS['db']) . ';',
                     false,
-                    $err_url
+                    $err_url,
                 );
             }
 
@@ -196,19 +196,19 @@ final class SaveController extends AbstractController
                 if ($changed_privileges) {
                     $message = Message::success(
                         __(
-                            'Table %1$s has been altered successfully. Privileges have been adjusted.'
-                        )
+                            'Table %1$s has been altered successfully. Privileges have been adjusted.',
+                        ),
                     );
                 } else {
                     $message = Message::success(
-                        __('Table %1$s has been altered successfully.')
+                        __('Table %1$s has been altered successfully.'),
                     );
                 }
 
                 $message->addParam($GLOBALS['table']);
 
                 $this->response->addHTML(
-                    Generator::getMessage($message, $sql_query, 'success')
+                    Generator::getMessage($message, $sql_query, 'success'),
                 );
             } else {
                 // An error happened while inserting/updating a table definition
@@ -237,7 +237,7 @@ final class SaveController extends AbstractController
                         Util::getValueByKey($_POST, 'field_comments_orig.' . $i, ''),
                         Util::getValueByKey($_POST, 'field_virtuality_orig.' . $i, ''),
                         Util::getValueByKey($_POST, 'field_expression_orig.' . $i, ''),
-                        Util::getValueByKey($_POST, 'field_move_to_orig.' . $i, '')
+                        Util::getValueByKey($_POST, 'field_move_to_orig.' . $i, ''),
                     );
                 }
 
@@ -251,10 +251,10 @@ final class SaveController extends AbstractController
 
                 $this->response->setRequestStatus(false);
                 $message = Message::rawError(
-                    __('Query error') . ':<br>' . $orig_error
+                    __('Query error') . ':<br>' . $orig_error,
                 );
                 $this->response->addHTML(
-                    Generator::getMessage($message, $sql_query, 'error')
+                    Generator::getMessage($message, $sql_query, 'error'),
                 );
                 $regenerate = true;
             }
@@ -271,7 +271,7 @@ final class SaveController extends AbstractController
                     $GLOBALS['db'],
                     $GLOBALS['table'],
                     $fieldcontent,
-                    $_POST['field_name'][$fieldindex]
+                    $_POST['field_name'][$fieldindex],
                 );
             }
         }
@@ -291,7 +291,7 @@ final class SaveController extends AbstractController
                     $_POST['field_transformation'][$fieldindex],
                     $_POST['field_transformation_options'][$fieldindex],
                     $_POST['field_input_transformation'][$fieldindex],
-                    $_POST['field_input_transformation_options'][$fieldindex]
+                    $_POST['field_input_transformation_options'][$fieldindex],
                 );
             }
         }
@@ -366,8 +366,8 @@ final class SaveController extends AbstractController
                         $newCol,
                         $GLOBALS['db'],
                         $GLOBALS['table'],
-                        $oldCol
-                    )
+                        $oldCol,
+                    ),
                 );
 
                 // i.e. if atleast one column privileges adjusted

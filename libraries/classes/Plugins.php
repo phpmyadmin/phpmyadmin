@@ -71,7 +71,7 @@ class Plugins
             return new $class(
                 $container->get('relation'),
                 $container->get('export'),
-                $container->get('transformations')
+                $container->get('transformations'),
             );
         }
 
@@ -158,7 +158,7 @@ class Plugins
                 $plugins[] = new $class(
                     $container->get('relation'),
                     $container->get('export'),
-                    $container->get('transformations')
+                    $container->get('transformations'),
                 );
             } elseif ($type === 'Import' && is_subclass_of($class, ImportPlugin::class)) {
                 $plugins[] = new $class();
@@ -169,7 +169,7 @@ class Plugins
 
         usort($plugins, static fn (Plugin $plugin1, Plugin $plugin2): int => strcasecmp(
             $plugin1->getProperties()->getText(),
-            $plugin2->getProperties()->getText()
+            $plugin2->getProperties()->getText(),
         ));
 
         return $plugins;
@@ -294,7 +294,7 @@ class Plugins
         string $section,
         string $plugin_name,
         OptionsPropertyItem $propertyGroup,
-        bool $is_subgroup = false
+        bool $is_subgroup = false,
     ): string {
         $ret = "\n";
 
@@ -405,7 +405,7 @@ class Plugins
     public static function getHtmlForProperty(
         $section,
         $plugin_name,
-        $propertyItem
+        $propertyItem,
     ): string {
         $ret = '';
         $property_class = $propertyItem::class;
@@ -420,7 +420,7 @@ class Plugins
                     . ' '
                     . self::checkboxCheck(
                         $section,
-                        $plugin_name . '_' . $propertyItem->getName()
+                        $plugin_name . '_' . $propertyItem->getName(),
                     );
 
                 if ($propertyItem->getForce() != null) {
@@ -447,7 +447,7 @@ class Plugins
                     . $propertyItem->getName() . '"'
                     . ' value="' . self::getDefault(
                         $section,
-                        $plugin_name . '_' . $propertyItem->getName()
+                        $plugin_name . '_' . $propertyItem->getName(),
                     )
                     . '"></li>';
                 break;
@@ -463,7 +463,7 @@ class Plugins
 
                 $default = self::getDefault(
                     $section,
-                    $plugin_name . '_' . $pitem->getName()
+                    $plugin_name . '_' . $pitem->getName(),
                 );
 
                 $ret .= '<li class="list-group-item">';
@@ -500,7 +500,7 @@ class Plugins
                     . $pitem->getName() . '">';
                 $default = self::getDefault(
                     $section,
-                    $plugin_name . '_' . $pitem->getName()
+                    $plugin_name . '_' . $pitem->getName(),
                 );
                 foreach ($pitem->getValues() as $key => $val) {
                     $ret .= '<option value="' . $key . '"';
@@ -526,7 +526,7 @@ class Plugins
                     . $pitem->getName() . '"'
                     . ' value="' . self::getDefault(
                         $section,
-                        $plugin_name . '_' . $pitem->getName()
+                        $plugin_name . '_' . $pitem->getName(),
                     ) . '"'
                     . ' id="text_' . $plugin_name . '_'
                     . $pitem->getName() . '"'
@@ -547,7 +547,7 @@ class Plugins
                     . $propertyItem->getName() . '"'
                     . ' value="' . self::getDefault(
                         $section,
-                        $plugin_name . '_' . $propertyItem->getName()
+                        $plugin_name . '_' . $propertyItem->getName(),
                     ) . '"'
                     . ' id="number_' . $plugin_name . '_'
                     . $propertyItem->getName() . '"'

@@ -30,7 +30,7 @@ class IndexesController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private DatabaseInterface $dbi,
-        private Indexes $indexes
+        private Indexes $indexes,
     ) {
         parent::__construct($response, $template);
     }

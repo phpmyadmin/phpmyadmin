@@ -98,7 +98,7 @@ class LanguageTest extends AbstractTestCase
                 $lang->getCode(),
                 strtolower($lang->getEnglishName()),
                 'Maybe this language does not exist in LanguageManager class'
-                . ', see: https://github.com/phpmyadmin/phpmyadmin/issues/16300.'
+                . ', see: https://github.com/phpmyadmin/phpmyadmin/issues/16300.',
             );
         }
     }
@@ -163,7 +163,7 @@ class LanguageTest extends AbstractTestCase
         string $accept,
         string $agent,
         string $default,
-        string $expect
+        string $expect,
     ): void {
         if ($expect !== 'en' && ! file_exists(LOCALE_PATH . '/' . $expect . '/LC_MESSAGES/phpmyadmin.mo')) {
             // This could happen after removing incomplete .mo files.
@@ -248,7 +248,7 @@ class LanguageTest extends AbstractTestCase
 
         $this->assertEquals(
             $locale,
-            $this->manager->getCurrentLanguage()->getCode()
+            $this->manager->getCurrentLanguage()->getCode(),
         );
     }
 

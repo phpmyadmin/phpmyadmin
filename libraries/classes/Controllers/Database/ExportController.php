@@ -26,7 +26,7 @@ final class ExportController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private Export $export,
-        private Options $exportOptions
+        private Options $exportOptions,
     ) {
         parent::__construct($response, $template);
     }
@@ -64,7 +64,7 @@ final class ExportController extends AbstractController
         // exit if no tables in db found
         if ($GLOBALS['num_tables'] < 1) {
             $this->response->addHTML(
-                Message::error(__('No tables found in database.'))->getDisplay()
+                Message::error(__('No tables found in database.'))->getDisplay(),
             );
 
             return;
@@ -130,7 +130,7 @@ final class ExportController extends AbstractController
 
         if (empty($exportList)) {
             $this->response->addHTML(Message::error(
-                __('Could not load export plugins, please check your installation!')
+                __('Could not load export plugins, please check your installation!'),
             )->getDisplay());
 
             return;
@@ -143,7 +143,7 @@ final class ExportController extends AbstractController
             $GLOBALS['sql_query'],
             $GLOBALS['num_tables'],
             $GLOBALS['unlim_num_rows'],
-            $exportList
+            $exportList,
         );
 
         $this->render('database/export/index', array_merge($options, [

@@ -40,7 +40,7 @@ class NodeEventTest extends AbstractTestCase
                     'params' => ['export_item' => 1, 'db' => null, 'item_name' => null],
                 ],
             ],
-            $parent->links
+            $parent->links,
         );
     }
 }

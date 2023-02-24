@@ -21,7 +21,7 @@ final class CopyTableWithPrefixController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        private StructureController $structureController
+        private StructureController $structureController,
     ) {
         parent::__construct($response, $template);
     }
@@ -47,7 +47,7 @@ final class CopyTableWithPrefixController extends AbstractController
                 'data',
                 false,
                 'one_table',
-                $dropIfExists
+                $dropIfExists,
             );
         }
 

@@ -93,7 +93,7 @@ final class Processes
         bool $showExecuting,
         bool $showFullSql,
         string $orderByField,
-        string $sortOrder
+        string $sortOrder,
     ): array {
         // This array contains display name and real column name of each
         // sortable column in the table

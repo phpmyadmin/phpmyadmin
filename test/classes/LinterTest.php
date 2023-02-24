@@ -54,28 +54,28 @@ class LinterTest extends AbstractTestCase
                 1,
                 0,
             ],
-            Linter::findLineNumberAndColumn([0, 4, 7], 4)
+            Linter::findLineNumberAndColumn([0, 4, 7], 4),
         );
         $this->assertEquals(
             [
                 1,
                 1,
             ],
-            Linter::findLineNumberAndColumn([0, 4, 7], 5)
+            Linter::findLineNumberAndColumn([0, 4, 7], 5),
         );
         $this->assertEquals(
             [
                 1,
                 2,
             ],
-            Linter::findLineNumberAndColumn([0, 4, 7], 6)
+            Linter::findLineNumberAndColumn([0, 4, 7], 6),
         );
         $this->assertEquals(
             [
                 2,
                 0,
             ],
-            Linter::findLineNumberAndColumn([0, 4, 7], 7)
+            Linter::findLineNumberAndColumn([0, 4, 7], 7),
         );
     }
 

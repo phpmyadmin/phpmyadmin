@@ -68,7 +68,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
     {
         $this->assertEquals(
             $output,
-            $this->object->generateWkt($gis_data, $index, $empty)
+            $this->object->generateWkt($gis_data, $index, $empty),
         );
     }
 
@@ -337,7 +337,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
             'image',
             [176, 46, 224],
             ['x' => -19, 'y' => -3, 'scale' => 2.29, 'height' => 124],
-            $image
+            $image,
         );
         $this->assertEquals(200, $return->width());
         $this->assertEquals(124, $return->height());
@@ -364,7 +364,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
         string $label,
         array $color,
         array $scale_data,
-        TCPDF $pdf
+        TCPDF $pdf,
     ): void {
         $return = $this->object->prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
 
@@ -409,7 +409,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
         string $label,
         array $color,
         array $scaleData,
-        string $output
+        string $output,
     ): void {
         $svg = $this->object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
         $this->assertEquals($output, $svg);
@@ -459,7 +459,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
         string $label,
         array $color,
         array $scale_data,
-        string $output
+        string $output,
     ): void {
         $this->assertEquals(
             $output,
@@ -468,8 +468,8 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                 $srid,
                 $label,
                 $color,
-                $scale_data
-            )
+                $scale_data,
+            ),
         );
     }
 

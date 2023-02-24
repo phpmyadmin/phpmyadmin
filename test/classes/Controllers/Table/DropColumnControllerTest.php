@@ -48,7 +48,7 @@ class DropColumnControllerTest extends AbstractTestCase
             new Template(),
             $dbi,
             new FlashMessages(),
-            new RelationCleanup($dbi, new Relation($dbi))
+            new RelationCleanup($dbi, new Relation($dbi)),
         ))($this->createStub(ServerRequest::class));
 
         $this->assertArrayHasKey('flashMessages', $_SESSION);

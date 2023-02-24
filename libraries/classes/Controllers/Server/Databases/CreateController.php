@@ -86,7 +86,7 @@ final class CreateController extends AbstractController
                 'sql_query' => Generator::getMessage('', $sqlQuery, 'success'),
                 'url' => $scriptName . Url::getCommon(
                     ['db' => $newDb],
-                    ! str_contains($scriptName, '?') ? '?' : '&'
+                    ! str_contains($scriptName, '?') ? '?' : '&',
                 ),
             ];
         }

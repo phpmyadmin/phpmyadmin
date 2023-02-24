@@ -38,7 +38,7 @@ class NodeColumnTest extends AbstractTestCase
                 ],
                 'title' => 'Structure',
             ],
-            $parent->links
+            $parent->links,
         );
     }
 }

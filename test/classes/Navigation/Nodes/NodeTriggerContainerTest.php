@@ -34,7 +34,7 @@ class NodeTriggerContainerTest extends AbstractTestCase
                 'text' => ['route' => '/database/triggers', 'params' => ['db' => null, 'table' => null]],
                 'icon' => ['route' => '/database/triggers', 'params' => ['db' => null, 'table' => null]],
             ],
-            $parent->links
+            $parent->links,
         );
         $this->assertEquals('triggers', $parent->realName);
     }

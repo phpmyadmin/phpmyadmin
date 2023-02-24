@@ -79,7 +79,7 @@ final class CreateControllerTest extends AbstractTestCase
         $this->assertStringContainsString('<div class="alert alert-success" role="alert">', $actual['message']);
         $this->assertStringContainsString(
             sprintf(__('Database %1$s has been created.'), 'test_db'),
-            $actual['message']
+            $actual['message'],
         );
     }
 }

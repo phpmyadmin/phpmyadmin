@@ -9926,11 +9926,6 @@ parameters:
 			path: test/classes/CoreTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$page of static method PhpMyAdmin\\\\Core\\:\\:checkPageValidity\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: test/classes/CoreTest.php
-
-		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<string\\> will always evaluate to true\\.$#"
 			count: 1
 			path: test/classes/Database/CentralColumnsTest.php

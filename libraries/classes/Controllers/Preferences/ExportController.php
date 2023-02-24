@@ -26,7 +26,7 @@ class ExportController extends AbstractController
         Template $template,
         private UserPreferences $userPreferences,
         private Relation $relation,
-        private Config $config
+        private Config $config,
     ) {
         parent::__construct($response, $template);
     }
@@ -90,7 +90,7 @@ class ExportController extends AbstractController
             'form' => $formDisplay->getDisplay(
                 true,
                 Url::getFromRoute('/preferences/export'),
-                ['server' => $GLOBALS['server']]
+                ['server' => $GLOBALS['server']],
             ),
         ]);
 

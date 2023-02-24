@@ -49,7 +49,7 @@ class ExportPhparrayTest extends AbstractTestCase
         $this->object = new ExportPhparray(
             new Relation($GLOBALS['dbi']),
             new Export($GLOBALS['dbi']),
-            new Transformations()
+            new Transformations(),
         );
     }
 
@@ -74,22 +74,22 @@ class ExportPhparrayTest extends AbstractTestCase
 
         $this->assertEquals(
             'PHP array',
-            $properties->getText()
+            $properties->getText(),
         );
 
         $this->assertEquals(
             'php',
-            $properties->getExtension()
+            $properties->getExtension(),
         );
 
         $this->assertEquals(
             'text/plain',
-            $properties->getMimeType()
+            $properties->getMimeType(),
         );
 
         $this->assertEquals(
             'Options',
-            $properties->getOptionsText()
+            $properties->getOptionsText(),
         );
 
         $options = $properties->getOptions();
@@ -98,7 +98,7 @@ class ExportPhparrayTest extends AbstractTestCase
 
         $this->assertEquals(
             'Format Specific Options',
-            $options->getName()
+            $options->getName(),
         );
 
         $generalOptionsArray = $options->getProperties();
@@ -108,7 +108,7 @@ class ExportPhparrayTest extends AbstractTestCase
 
         $this->assertEquals(
             'general_opts',
-            $generalOptions->getName()
+            $generalOptions->getName(),
         );
 
         $generalProperties = $generalOptions->getProperties();
@@ -122,7 +122,7 @@ class ExportPhparrayTest extends AbstractTestCase
     {
         ob_start();
         $this->assertTrue(
-            $this->object->exportHeader()
+            $this->object->exportHeader(),
         );
         $result = ob_get_clean();
 
@@ -134,7 +134,7 @@ class ExportPhparrayTest extends AbstractTestCase
     public function testExportFooter(): void
     {
         $this->assertTrue(
-            $this->object->exportFooter()
+            $this->object->exportFooter(),
         );
     }
 
@@ -142,7 +142,7 @@ class ExportPhparrayTest extends AbstractTestCase
     {
         ob_start();
         $this->assertTrue(
-            $this->object->exportDBHeader('db')
+            $this->object->exportDBHeader('db'),
         );
         $result = ob_get_clean();
 
@@ -154,14 +154,14 @@ class ExportPhparrayTest extends AbstractTestCase
     public function testExportDBFooter(): void
     {
         $this->assertTrue(
-            $this->object->exportDBFooter('testDB')
+            $this->object->exportDBFooter('testDB'),
         );
     }
 
     public function testExportDBCreate(): void
     {
         $this->assertTrue(
-            $this->object->exportDBCreate('testDB', 'database')
+            $this->object->exportDBCreate('testDB', 'database'),
         );
     }
 
@@ -173,8 +173,8 @@ class ExportPhparrayTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'phpmyadmin.net/err',
-                'SELECT * FROM `test_db`.`test_table`;'
-            )
+                'SELECT * FROM `test_db`.`test_table`;',
+            ),
         );
         $result = ob_get_clean();
 
@@ -185,7 +185,7 @@ class ExportPhparrayTest extends AbstractTestCase
             '  array(\'id\' => \'2\',\'name\' => \'foo\',\'datetimefield\' => \'2010-01-20 02:00:02\'),' . "\n" .
             '  array(\'id\' => \'3\',\'name\' => \'Abcd\',\'datetimefield\' => \'2012-01-20 02:00:02\')' . "\n" .
             ');' . "\n",
-            $result
+            $result,
         );
 
         // case 2: test invalid variable name fix
@@ -195,8 +195,8 @@ class ExportPhparrayTest extends AbstractTestCase
                 'test_db',
                 '0`932table',
                 'phpmyadmin.net/err',
-                'SELECT * FROM `test_db`.`test_table`;'
-            )
+                'SELECT * FROM `test_db`.`test_table`;',
+            ),
         );
         $result = ob_get_clean();
 
@@ -208,7 +208,7 @@ class ExportPhparrayTest extends AbstractTestCase
             '  array(\'id\' => \'2\',\'name\' => \'foo\',\'datetimefield\' => \'2010-01-20 02:00:02\'),' . "\n" .
             '  array(\'id\' => \'3\',\'name\' => \'Abcd\',\'datetimefield\' => \'2012-01-20 02:00:02\')' . "\n" .
             ');' . "\n",
-            $result
+            $result,
         );
     }
 }

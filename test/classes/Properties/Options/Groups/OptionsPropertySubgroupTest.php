@@ -37,7 +37,7 @@ class OptionsPropertySubgroupTest extends AbstractTestCase
     {
         $this->assertEquals(
             'subgroup',
-            $this->object->getItemType()
+            $this->object->getItemType(),
         );
     }
 
@@ -53,7 +53,7 @@ class OptionsPropertySubgroupTest extends AbstractTestCase
 
         $this->assertEquals(
             $propertyItem,
-            $this->object->getSubgroupHeader()
+            $this->object->getSubgroupHeader(),
         );
     }
 }

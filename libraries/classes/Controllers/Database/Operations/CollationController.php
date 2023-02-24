@@ -22,7 +22,7 @@ final class CollationController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private Operations $operations,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
     }

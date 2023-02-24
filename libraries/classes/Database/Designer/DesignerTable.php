@@ -23,7 +23,7 @@ class DesignerTable
         private string $databaseName,
         private string $tableName,
         private string $tableEngine,
-        private string|null $displayField
+        private string|null $displayField,
     ) {
     }
 

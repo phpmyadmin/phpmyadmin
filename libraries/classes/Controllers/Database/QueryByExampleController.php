@@ -29,7 +29,7 @@ class QueryByExampleController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private Relation $relation,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
     }
@@ -140,7 +140,7 @@ class QueryByExampleController extends AbstractController
                     new RelationCleanup($this->dbi, $this->relation),
                     new Operations($this->dbi, $this->relation),
                     new Transformations(),
-                    $this->template
+                    $this->template,
                 );
 
                 $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
@@ -157,7 +157,7 @@ class QueryByExampleController extends AbstractController
                     null, // disp_query
                     null, // disp_message
                     $GLOBALS['sql_query'], // sql_query
-                    null // complete_query
+                    null, // complete_query
                 ));
             }
         }
@@ -179,7 +179,7 @@ class QueryByExampleController extends AbstractController
             $this->dbi,
             $GLOBALS['db'],
             $savedSearchList,
-            $savedSearch
+            $savedSearch,
         );
 
         $this->render('database/qbe/index', [

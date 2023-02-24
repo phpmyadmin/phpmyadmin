@@ -50,7 +50,7 @@ class IndexTest extends AbstractTestCase
                     ],
                 ],
             ],
-            $_SESSION['messages']
+            $_SESSION['messages'],
         );
 
         // case 2
@@ -62,7 +62,7 @@ class IndexTest extends AbstractTestCase
                 'error' => [],
                 'notice' => [],
             ],
-            $_SESSION['messages']
+            $_SESSION['messages'],
         );
     }
 
@@ -80,7 +80,7 @@ class IndexTest extends AbstractTestCase
                 'title' => 'testTitle',
                 'message' => 'msg',
             ],
-            $_SESSION['messages']['type']['123']
+            $_SESSION['messages']['type']['123'],
         );
     }
 
@@ -113,7 +113,7 @@ class IndexTest extends AbstractTestCase
                     ],
                 ],
             ],
-            $_SESSION['messages']
+            $_SESSION['messages'],
         );
     }
 

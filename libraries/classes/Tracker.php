@@ -144,7 +144,7 @@ class Tracker
             Util::backquote($trackingFeature->database),
             Util::backquote($trackingFeature->tracking),
             $GLOBALS['dbi']->escapeString($dbName),
-            $GLOBALS['dbi']->escapeString($tableName)
+            $GLOBALS['dbi']->escapeString($tableName),
         );
 
         $result = $GLOBALS['dbi']->fetchValue($sqlQuery, 0, Connection::TYPE_CONTROL) == 1;
@@ -182,7 +182,7 @@ class Tracker
         $tableName,
         $version,
         $trackingSet = '',
-        bool $isView = false
+        bool $isView = false,
     ): bool {
         $GLOBALS['sql_backquotes'] ??= null;
         $GLOBALS['export_type'] ??= null;
@@ -259,7 +259,7 @@ class Tracker
             $GLOBALS['dbi']->escapeString($snapshot),
             $GLOBALS['dbi']->escapeString($createSql),
             $GLOBALS['dbi']->escapeString("\n"),
-            $GLOBALS['dbi']->escapeString($trackingSet)
+            $GLOBALS['dbi']->escapeString($trackingSet),
         );
 
         $GLOBALS['dbi']->queryAsControlUser($sqlQuery);
@@ -288,7 +288,7 @@ class Tracker
             Util::backquote($trackingFeature->database),
             Util::backquote($trackingFeature->tracking),
             $GLOBALS['dbi']->escapeString($dbName),
-            $GLOBALS['dbi']->escapeString($tableName)
+            $GLOBALS['dbi']->escapeString($tableName),
         );
         if ($version) {
             $sqlQuery .= " AND `version` = '" . $GLOBALS['dbi']->escapeString($version) . "'";
@@ -310,7 +310,7 @@ class Tracker
         $dbName,
         $version,
         $query,
-        $trackingSet = 'CREATE DATABASE,ALTER DATABASE,DROP DATABASE'
+        $trackingSet = 'CREATE DATABASE,ALTER DATABASE,DROP DATABASE',
     ): bool {
         $relation = new Relation($GLOBALS['dbi']);
 
@@ -348,7 +348,7 @@ class Tracker
             $GLOBALS['dbi']->escapeString(''),
             $GLOBALS['dbi']->escapeString($createSql),
             $GLOBALS['dbi']->escapeString("\n"),
-            $GLOBALS['dbi']->escapeString($trackingSet)
+            $GLOBALS['dbi']->escapeString($trackingSet),
         );
 
         return (bool) $GLOBALS['dbi']->queryAsControlUser($sqlQuery);
@@ -366,7 +366,7 @@ class Tracker
         $dbName,
         $tableName,
         $version,
-        $newState
+        $newState,
     ): bool {
         $relation = new Relation($GLOBALS['dbi']);
         $trackingFeature = $relation->getRelationParameters()->trackingFeature;
@@ -382,7 +382,7 @@ class Tracker
             $newState,
             $GLOBALS['dbi']->escapeString($dbName),
             $GLOBALS['dbi']->escapeString($tableName),
-            $GLOBALS['dbi']->escapeString((string) $version)
+            $GLOBALS['dbi']->escapeString((string) $version),
         );
 
         return (bool) $GLOBALS['dbi']->queryAsControlUser($sqlQuery);
@@ -402,7 +402,7 @@ class Tracker
         $tableName,
         $version,
         $type,
-        string|array $newData
+        string|array $newData,
     ): bool {
         $relation = new Relation($GLOBALS['dbi']);
 
@@ -439,7 +439,7 @@ class Tracker
             $newDataProcessed,
             $GLOBALS['dbi']->escapeString($dbName),
             $GLOBALS['dbi']->escapeString($tableName),
-            $GLOBALS['dbi']->escapeString($version)
+            $GLOBALS['dbi']->escapeString($version),
         );
 
         $result = $GLOBALS['dbi']->queryAsControlUser($sqlQuery);
@@ -494,7 +494,7 @@ class Tracker
             Util::backquote($trackingFeature->database),
             Util::backquote($trackingFeature->tracking),
             $GLOBALS['dbi']->escapeString($dbname),
-            $GLOBALS['dbi']->escapeString($tablename)
+            $GLOBALS['dbi']->escapeString($tablename),
         );
 
         if ($statement != '') {
@@ -541,7 +541,7 @@ class Tracker
             'SELECT * FROM %s.%s WHERE `db_name` = \'%s\'',
             Util::backquote($trackingFeature->database),
             Util::backquote($trackingFeature->tracking),
-            $GLOBALS['dbi']->escapeString($dbname)
+            $GLOBALS['dbi']->escapeString($dbname),
         );
         if ($tablename !== '') {
             $sqlQuery .= " AND `table_name` = '"
@@ -583,7 +583,7 @@ class Tracker
             $username = mb_substr(
                 $logEntry,
                 20,
-                mb_strpos($logEntry, "\n") - 20
+                mb_strpos($logEntry, "\n") - 20,
             );
             if ($firstIteration) {
                 $ddlDateFrom = $date;
@@ -618,7 +618,7 @@ class Tracker
             $username = mb_substr(
                 $logEntry,
                 20,
-                mb_strpos($logEntry, "\n") - 20
+                mb_strpos($logEntry, "\n") - 20,
             );
             if ($firstIteration) {
                 $dmlDateFrom = $date;
@@ -878,7 +878,7 @@ class Tracker
         $query = preg_replace(
             '/`' . preg_quote($dbname, '/') . '`\s?\./',
             '',
-            $query
+            $query,
         );
 
         // Add log information
@@ -897,7 +897,7 @@ class Tracker
             Util::backquote($saveTo),
             Util::backquote($saveTo),
             $GLOBALS['dbi']->escapeString($query),
-            $date
+            $date,
         );
 
         // If table was renamed we have to change

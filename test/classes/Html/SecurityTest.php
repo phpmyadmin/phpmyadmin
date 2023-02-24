@@ -49,7 +49,7 @@ class SecurityTest extends AbstractTestCase
                     'server' => 12,
                     '<script>&=' => '</script>',
                 ]),
-            ])
+            ]),
         );
         $url1 = Url::getCommon([
             'db' => '<script>alert(\'&=!:;\');</script>',
@@ -59,7 +59,7 @@ class SecurityTest extends AbstractTestCase
         $this->assertSame(
             '?db=%3Cscript%3Ealert%28%27%26%3D%21%3A%3B%27%29%3B%3C%2Fscr'
             . 'ipt%3E&table=%26mytable%3E1%3F&server=12',
-            $url1
+            $url1,
         );
         $this->assertSame(
             $url1
@@ -75,7 +75,7 @@ class SecurityTest extends AbstractTestCase
                     'server' => 12,
                     '<script>&=' => '</script>',
                 ]),
-            ])
+            ]),
         );
     }
 }

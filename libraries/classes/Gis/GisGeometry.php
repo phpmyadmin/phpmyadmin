@@ -53,7 +53,7 @@ abstract class GisGeometry
         string $label,
         array $color,
         array $scale_data,
-        ImageWrapper $image
+        ImageWrapper $image,
     ): ImageWrapper;
 
     /**
@@ -72,7 +72,7 @@ abstract class GisGeometry
         string $label,
         array $color,
         array $scale_data,
-        $pdf
+        $pdf,
     ): TCPDF;
 
     /**
@@ -92,7 +92,7 @@ abstract class GisGeometry
         int $srid,
         string $label,
         array $color,
-        array $scale_data
+        array $scale_data,
     ): string;
 
     /**
@@ -136,7 +136,7 @@ abstract class GisGeometry
             $scale_data['minY'],
             $scale_data['maxX'],
             $scale_data['maxY'],
-            $srid
+            $srid,
         );
     }
 
@@ -323,7 +323,7 @@ abstract class GisGeometry
     protected function getLineArrayForOpenLayers(
         array $lines,
         int $srid,
-        $is_line_string = true
+        $is_line_string = true,
     ): string {
         $ol_array = 'var arr = [];';
         foreach ($lines as $line) {
@@ -350,7 +350,7 @@ abstract class GisGeometry
     protected function getLineForOpenLayers(
         array $points_arr,
         int $srid,
-        $is_line_string = true
+        $is_line_string = true,
     ): string {
         return 'new ol.geom.'
         . ($is_line_string ? 'LineString' : 'LinearRing') . '('

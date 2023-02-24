@@ -166,9 +166,9 @@ class Theme
         trigger_error(
             sprintf(
                 __('No valid image path for theme %s found!'),
-                $this->getName()
+                $this->getName(),
             ),
-            E_USER_ERROR
+            E_USER_ERROR,
         );
 
         return false;

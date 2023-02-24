@@ -28,7 +28,7 @@ final class GetColumnsController extends AbstractController
         $html .= $this->normalization->getHtmlForColumnsList(
             $GLOBALS['db'],
             $GLOBALS['table'],
-            _pgettext('string types', 'String')
+            _pgettext('string types', 'String'),
         );
         $this->response->addHTML($html);
     }

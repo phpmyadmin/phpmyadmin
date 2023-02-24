@@ -68,7 +68,7 @@ class ThemeTest extends AbstractTestCase
         $this->object->setPath(TEST_PATH . 'test/classes/_data/incorrect_theme');
         $this->assertFalse(
             $this->object->loadInfo(),
-            'Theme name is not properly set'
+            'Theme name is not properly set',
         );
     }
 
@@ -94,7 +94,7 @@ class ThemeTest extends AbstractTestCase
 
         $this->assertEquals(
             filemtime($infofile),
-            $this->object->mtimeInfo
+            $this->object->mtimeInfo,
         );
 
         $this->object->setPath(ROOT_PATH . 'public/themes/original');
@@ -111,7 +111,7 @@ class ThemeTest extends AbstractTestCase
         $newTheme = Theme::load(
             ThemeManager::getThemesDir() . 'original',
             ThemeManager::getThemesFsDir() . 'original' . DIRECTORY_SEPARATOR,
-            'original'
+            'original',
         );
         $this->assertNotNull($newTheme);
         $this->assertInstanceOf(Theme::class, $newTheme);
@@ -126,8 +126,8 @@ class ThemeTest extends AbstractTestCase
             Theme::load(
                 ThemeManager::getThemesDir() . 'nonexistent',
                 ThemeManager::getThemesFsDir() . 'nonexistent' . DIRECTORY_SEPARATOR,
-                'nonexistent'
-            )
+                'nonexistent',
+            ),
         );
     }
 
@@ -170,7 +170,7 @@ class ThemeTest extends AbstractTestCase
         $this->assertEquals(
             '0.0.0.0',
             $this->object->getVersion(),
-            'Version 0.0.0.0 by default'
+            'Version 0.0.0.0 by default',
         );
 
         $this->object->setVersion('1.2.3.4');
@@ -209,7 +209,7 @@ class ThemeTest extends AbstractTestCase
     {
         $this->assertEmpty(
             $this->object->getImgPath(),
-            'ImgPath is empty by default'
+            'ImgPath is empty by default',
         );
         $this->object->setImgPath('/new/path');
 
@@ -229,7 +229,7 @@ class ThemeTest extends AbstractTestCase
     {
         $this->assertEquals(
             $this->object->getImgPath($file, $fallback),
-            $output
+            $output,
         );
     }
 

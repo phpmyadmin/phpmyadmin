@@ -20,7 +20,7 @@ final class GeneralLogController extends AbstractController
         Template $template,
         Data $data,
         private Monitor $monitor,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template, $data);
     }
@@ -43,7 +43,7 @@ final class GeneralLogController extends AbstractController
             (int) $request->getParsedBodyParam('time_start'),
             (int) $request->getParsedBodyParam('time_end'),
             (bool) $request->getParsedBodyParam('limitTypes'),
-            (bool) $request->getParsedBodyParam('removeVariables')
+            (bool) $request->getParsedBodyParam('removeVariables'),
         );
         if ($data === null) {
             $this->response->setRequestStatus(false);

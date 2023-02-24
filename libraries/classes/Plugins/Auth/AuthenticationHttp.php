@@ -88,8 +88,8 @@ class AuthenticationHttp extends AuthenticationPlugin
         $response->addHTML('<h3>');
         $response->addHTML(
             Message::error(
-                __('Wrong username/password. Access denied.')
-            )->getDisplay()
+                __('Wrong username/password. Access denied.'),
+            )->getDisplay(),
         );
         $response->addHTML('</h3>');
 

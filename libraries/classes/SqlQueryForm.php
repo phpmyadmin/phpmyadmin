@@ -52,7 +52,7 @@ class SqlQueryForm
         string $table,
         bool|string $query = true,
         bool|string $display_tab = false,
-        $delimiter = ';'
+        $delimiter = ';',
     ): string {
         if (! $display_tab) {
             $display_tab = 'full';
@@ -89,7 +89,7 @@ class SqlQueryForm
                 $bookmarkFeature,
                 $this->dbi,
                 $GLOBALS['cfg']['Server']['user'],
-                $db
+                $db,
             );
 
             foreach ($bookmark_list as $bookmarkItem) {
@@ -141,8 +141,8 @@ class SqlQueryForm
                 htmlspecialchars(
                     ! empty($GLOBALS['cfg']['Servers'][$GLOBALS['server']]['verbose'])
                     ? $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['verbose']
-                    : $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['host']
-                )
+                    : $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['host'],
+                ),
             );
         } elseif ($GLOBALS['table'] === '') {
             // prepare for db related

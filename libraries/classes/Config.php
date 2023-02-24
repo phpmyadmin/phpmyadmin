@@ -395,7 +395,7 @@ class Config
         $cfg = array_filter(
             $cfg,
             static fn (string $key): bool => ! str_contains($key, '/'),
-            ARRAY_FILTER_USE_KEY
+            ARRAY_FILTER_USE_KEY,
         );
 
         $this->settings = array_replace_recursive($this->settings, $cfg);
@@ -477,7 +477,7 @@ class Config
                     null,
                     'ThemeDefault',
                     $tmanager->theme->getId(),
-                    'original'
+                    'original',
                 );
             }
         } else {
@@ -536,7 +536,7 @@ class Config
         string|null $cookie_name,
         string $cfg_path,
         $new_cfg_value,
-        $default_value = null
+        $default_value = null,
     ): bool|Message {
         $userPreferences = new UserPreferences($GLOBALS['dbi']);
         $result = true;
@@ -632,7 +632,7 @@ class Config
                     function_exists('__')
                         ? __('Existing configuration file (%s) is not readable.')
                         : 'Existing configuration file (%s) is not readable.',
-                    $this->getSource()
+                    $this->getSource(),
                 ));
             }
         }
@@ -845,7 +845,7 @@ class Config
 
         $parts = explode(
             '/',
-            rtrim(str_replace('\\', '/', $parsedUrlPath), '/')
+            rtrim(str_replace('\\', '/', $parsedUrlPath), '/'),
         );
 
         /* Remove filename */
@@ -886,7 +886,7 @@ class Config
             time() - 3600,
             $this->getRootPath(),
             '',
-            $this->isHttps()
+            $this->isHttps(),
         );
     }
 
@@ -905,7 +905,7 @@ class Config
         string $value,
         string|null $default = null,
         int|null $validity = null,
-        bool $httponly = true
+        bool $httponly = true,
     ): bool {
         if ($value !== '' && $value === $default) {
             // default value is used

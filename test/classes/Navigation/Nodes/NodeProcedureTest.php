@@ -40,7 +40,7 @@ class NodeProcedureTest extends AbstractTestCase
                     'params' => ['item_type' => 'PROCEDURE', 'execute_dialog' => 1, 'db' => null, 'item_name' => null],
                 ],
             ],
-            $parent->links
+            $parent->links,
         );
     }
 }

@@ -193,7 +193,7 @@ class Footer
             isset($GLOBALS['db']) && is_scalar($GLOBALS['db']) ? (string) $GLOBALS['db'] : '',
             isset($GLOBALS['table']) && is_scalar($GLOBALS['table']) ? (string) $GLOBALS['table'] : '',
             $GLOBALS['cfg']['Server']['user'],
-            $GLOBALS['sql_query']
+            $GLOBALS['sql_query'],
         );
     }
 

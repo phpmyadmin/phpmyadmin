@@ -63,7 +63,7 @@ class VariablesController extends AbstractController
                 $docLink = Generator::linkToVarDocumentation(
                     $name,
                     $this->dbi->isMariaDB(),
-                    str_replace('_', '&nbsp;', $name)
+                    str_replace('_', '&nbsp;', $name),
                 );
 
                 [$formattedValue, $isEscaped] = $this->formatVariable($name, $value);
@@ -117,8 +117,8 @@ class VariablesController extends AbstractController
                         [
                             'valueTitle' => Util::formatNumber($value, 0),
                             'value' => implode(' ', $bytes),
-                        ]
-                    )
+                        ],
+                    ),
                 );
             } else {
                 $formattedValue = Util::formatNumber($value, 0);

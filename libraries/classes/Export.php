@@ -157,7 +157,7 @@ class Export
                         // in bytes to compare against the number of bytes written.
                         if ($writeResult != strlen($this->dumpBuffer)) {
                             $GLOBALS['message'] = Message::error(
-                                __('Insufficient space to save the file %s.')
+                                __('Insufficient space to save the file %s.'),
                             );
                             $GLOBALS['message']->addParam($GLOBALS['save_filename']);
 
@@ -193,7 +193,7 @@ class Export
                 // in bytes to compare against the number of bytes written.
                 if (! $writeResult || $writeResult != strlen($line)) {
                     $GLOBALS['message'] = Message::error(
-                        __('Insufficient space to save the file %s.')
+                        __('Insufficient space to save the file %s.'),
                     );
                     $GLOBALS['message']->addParam($GLOBALS['save_filename']);
 
@@ -229,7 +229,7 @@ class Export
     public function getHtmlForDisplayedExportFooter(
         string $exportType,
         string $db,
-        string $table
+        string $table,
     ): string {
         /**
          * Close the html tags and add the footers for on-screen export
@@ -299,7 +299,7 @@ class Export
     public function getFinalFilenameAndMimetypeForFilename(
         ExportPlugin $exportPlugin,
         string $compression,
-        string $filename
+        string $filename,
     ): array {
         // Grab basic dump extension and mime type
         // Check if the user already added extension;
@@ -345,14 +345,14 @@ class Export
         string $rememberTemplate,
         ExportPlugin $exportPlugin,
         string $compression,
-        string $filenameTemplate
+        string $filenameTemplate,
     ): array {
         if ($exportType === 'server') {
             if ($rememberTemplate !== '' && $rememberTemplate !== '0') {
                 $GLOBALS['config']->setUserValue(
                     'pma_server_filename_template',
                     'Export/file_template_server',
-                    $filenameTemplate
+                    $filenameTemplate,
                 );
             }
         } elseif ($exportType === 'database') {
@@ -360,7 +360,7 @@ class Export
                 $GLOBALS['config']->setUserValue(
                     'pma_db_filename_template',
                     'Export/file_template_database',
-                    $filenameTemplate
+                    $filenameTemplate,
                 );
             }
         } elseif ($exportType === 'raw') {
@@ -368,7 +368,7 @@ class Export
                 $GLOBALS['config']->setUserValue(
                     'pma_raw_filename_template',
                     'Export/file_template_raw',
-                    $filenameTemplate
+                    $filenameTemplate,
                 );
             }
         } else {
@@ -376,7 +376,7 @@ class Export
                 $GLOBALS['config']->setUserValue(
                     'pma_table_filename_template',
                     'Export/file_template_table',
-                    $filenameTemplate
+                    $filenameTemplate,
                 );
             }
         }
@@ -418,15 +418,15 @@ class Export
         ) {
             $message = Message::error(
                 __(
-                    'File %s already exists on server, change filename or check overwrite option.'
-                )
+                    'File %s already exists on server, change filename or check overwrite option.',
+                ),
             );
             $message->addParam($saveFilename);
         } elseif (@is_file($saveFilename) && ! @is_writable($saveFilename)) {
             $message = Message::error(
                 __(
-                    'The web server does not have permission to save the file %s.'
-                )
+                    'The web server does not have permission to save the file %s.',
+                ),
             );
             $message->addParam($saveFilename);
         } else {
@@ -435,8 +435,8 @@ class Export
             if ($fileHandle === false) {
                 $message = Message::error(
                     __(
-                        'The web server does not have permission to save the file %s.'
-                    )
+                        'The web server does not have permission to save the file %s.',
+                    ),
                 );
                 $message->addParam($saveFilename);
             }
@@ -461,7 +461,7 @@ class Export
     public function closeFile(
         $fileHandle,
         string $dumpBuffer,
-        string $saveFilename
+        string $saveFilename,
     ): Message {
         $writeResult = @fwrite($fileHandle, $dumpBuffer);
         fclose($fileHandle);
@@ -471,14 +471,14 @@ class Export
             return new Message(
                 __('Insufficient space to save the file %s.'),
                 Message::ERROR,
-                [$saveFilename]
+                [$saveFilename],
             );
         }
 
         return new Message(
             __('Dump has been saved to file %s.'),
             Message::SUCCESS,
-            [$saveFilename]
+            [$saveFilename],
         );
     }
 
@@ -537,7 +537,7 @@ class Export
     public function getHtmlForDisplayedExportHeader(
         string $exportType,
         string $db,
-        string $table
+        string $table,
     ): string {
         /**
          * Displays a back button with all the $_POST data in the URL
@@ -578,7 +578,7 @@ class Export
         bool $doMime,
         bool $doDates,
         array $aliases,
-        string $separateFiles
+        string $separateFiles,
     ): void {
         if (is_array($dbSelect) && $dbSelect !== []) {
             $tmpSelect = implode('|', $dbSelect);
@@ -606,7 +606,7 @@ class Export
                 $doMime,
                 $doDates,
                 $aliases,
-                $separateFiles === 'database' ? $separateFiles : ''
+                $separateFiles === 'database' ? $separateFiles : '',
             );
             if ($separateFiles !== 'server') {
                 continue;
@@ -648,7 +648,7 @@ class Export
         bool $doMime,
         bool $doDates,
         array $aliases,
-        string $separateFiles
+        string $separateFiles,
     ): void {
         $dbAlias = ! empty($aliases[$db->getName()]['alias'])
             ? $aliases[$db->getName()]['alias'] : '';
@@ -709,7 +709,7 @@ class Export
                             $doComments,
                             $doMime,
                             $doDates,
-                            $aliases
+                            $aliases,
                         )
                     ) {
                         break;
@@ -744,7 +744,7 @@ class Export
                             $doComments,
                             $doMime,
                             $doDates,
-                            $aliases
+                            $aliases,
                         )
                     ) {
                         break;
@@ -796,7 +796,7 @@ class Export
                     $doComments,
                     $doMime,
                     $doDates,
-                    $aliases
+                    $aliases,
                 )
             ) {
                 break;
@@ -827,7 +827,7 @@ class Export
                         $doComments,
                         $doMime,
                         $doDates,
-                        $aliases
+                        $aliases,
                     )
                 ) {
                     break;
@@ -894,7 +894,7 @@ class Export
         string $errorUrl,
         string|null $db,
         string $sqlQuery,
-        string $exportType
+        string $exportType,
     ): void {
         // In case the we need to dump just the raw query
         if ($whatStrucOrData !== 'raw') {
@@ -908,7 +908,7 @@ class Export
         $GLOBALS['message'] = Message::error(
             // phpcs:disable Generic.Files.LineLength.TooLong
             /* l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular */
-            __('Exporting a raw query is not supported for this export method.')
+            __('Exporting a raw query is not supported for this export method.'),
         );
     }
 
@@ -946,7 +946,7 @@ class Export
         string $limitTo,
         string $limitFrom,
         string $sqlQuery,
-        array $aliases
+        array $aliases,
     ): void {
         $dbAlias = ! empty($aliases[$db]['alias'])
             ? $aliases[$db]['alias'] : '';
@@ -978,7 +978,7 @@ class Export
                             $doComments,
                             $doMime,
                             $doDates,
-                            $aliases
+                            $aliases,
                         )
                     ) {
                         return;
@@ -996,7 +996,7 @@ class Export
                         $doComments,
                         $doMime,
                         $doDates,
-                        $aliases
+                        $aliases,
                     )
                 ) {
                     return;
@@ -1049,7 +1049,7 @@ class Export
                     $doComments,
                     $doMime,
                     $doDates,
-                    $aliases
+                    $aliases,
                 )
             ) {
                 return;
@@ -1294,13 +1294,13 @@ class Export
             $backButton .= Url::getFromRoute('/database/export') . '" data-post="' . Url::getCommon(
                 ['db' => $db],
                 '',
-                false
+                false,
             );
         } else {
             $backButton .= Url::getFromRoute('/table/export') . '" data-post="' . Url::getCommon(
                 ['db' => $db, 'table' => $table],
                 '',
-                false
+                false,
             );
         }
 

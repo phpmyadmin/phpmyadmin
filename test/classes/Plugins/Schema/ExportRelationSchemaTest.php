@@ -48,7 +48,7 @@ class ExportRelationSchemaTest extends AbstractTestCase
         $this->object->setPageNumber(33);
         $this->assertEquals(
             33,
-            $this->object->getPageNumber()
+            $this->object->getPageNumber(),
         );
     }
 
@@ -61,11 +61,11 @@ class ExportRelationSchemaTest extends AbstractTestCase
     {
         $this->object->setShowColor(true);
         $this->assertTrue(
-            $this->object->isShowColor()
+            $this->object->isShowColor(),
         );
         $this->object->setShowColor(false);
         $this->assertFalse(
-            $this->object->isShowColor()
+            $this->object->isShowColor(),
         );
     }
 
@@ -79,12 +79,12 @@ class ExportRelationSchemaTest extends AbstractTestCase
         $this->object->setOrientation('P');
         $this->assertEquals(
             'P',
-            $this->object->getOrientation()
+            $this->object->getOrientation(),
         );
         $this->object->setOrientation('A');
         $this->assertEquals(
             'L',
-            $this->object->getOrientation()
+            $this->object->getOrientation(),
         );
     }
 
@@ -97,11 +97,11 @@ class ExportRelationSchemaTest extends AbstractTestCase
     {
         $this->object->setTableDimension(true);
         $this->assertTrue(
-            $this->object->isTableDimension()
+            $this->object->isTableDimension(),
         );
         $this->object->setTableDimension(false);
         $this->assertFalse(
-            $this->object->isTableDimension()
+            $this->object->isTableDimension(),
         );
     }
 
@@ -115,12 +115,12 @@ class ExportRelationSchemaTest extends AbstractTestCase
         $this->object->setPaper('A5');
         $this->assertEquals(
             'A5',
-            $this->object->getPaper()
+            $this->object->getPaper(),
         );
         $this->object->setPaper('A4');
         $this->assertEquals(
             'A4',
-            $this->object->getPaper()
+            $this->object->getPaper(),
         );
     }
 
@@ -133,11 +133,11 @@ class ExportRelationSchemaTest extends AbstractTestCase
     {
         $this->object->setAllTablesSameWidth(true);
         $this->assertTrue(
-            $this->object->isAllTableSameWidth()
+            $this->object->isAllTableSameWidth(),
         );
         $this->object->setAllTablesSameWidth(false);
         $this->assertFalse(
-            $this->object->isAllTableSameWidth()
+            $this->object->isAllTableSameWidth(),
         );
     }
 
@@ -150,11 +150,11 @@ class ExportRelationSchemaTest extends AbstractTestCase
     {
         $this->object->setShowKeys(true);
         $this->assertTrue(
-            $this->object->isShowKeys()
+            $this->object->isShowKeys(),
         );
         $this->object->setShowKeys(false);
         $this->assertFalse(
-            $this->object->isShowKeys()
+            $this->object->isShowKeys(),
         );
     }
 }

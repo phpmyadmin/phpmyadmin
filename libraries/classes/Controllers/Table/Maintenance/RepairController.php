@@ -27,7 +27,7 @@ final class RepairController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private Maintenance $model,
-        private Config $config
+        private Config $config,
     ) {
         parent::__construct($response, $template);
     }
@@ -73,7 +73,7 @@ final class RepairController extends AbstractController
         $message = Generator::getMessage(
             __('Your SQL query has been executed successfully.'),
             $query,
-            'success'
+            'success',
         );
 
         $this->render('table/maintenance/repair', [

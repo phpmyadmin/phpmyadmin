@@ -25,126 +25,126 @@ class UtilExtension extends AbstractExtension
         return [
             new TwigFunction(
                 'backquote',
-                Util::backquote(...)
+                Util::backquote(...),
             ),
             new TwigFunction(
                 'extract_column_spec',
-                Util::extractColumnSpec(...)
+                Util::extractColumnSpec(...),
             ),
             new TwigFunction(
                 'format_byte_down',
-                Util::formatByteDown(...)
+                Util::formatByteDown(...),
             ),
             new TwigFunction(
                 'format_number',
-                Util::formatNumber(...)
+                Util::formatNumber(...),
             ),
             new TwigFunction(
                 'format_sql',
                 Generator::formatSql(...),
-                ['is_safe' => ['html']]
+                ['is_safe' => ['html']],
             ),
             new TwigFunction(
                 'get_docu_link',
                 MySQLDocumentation::getDocumentationLink(...),
-                ['is_safe' => ['html']]
+                ['is_safe' => ['html']],
             ),
             new TwigFunction(
                 'get_list_navigator',
                 Generator::getListNavigator(...),
-                ['is_safe' => ['html']]
+                ['is_safe' => ['html']],
             ),
             new TwigFunction(
                 'show_docu',
                 MySQLDocumentation::showDocumentation(...),
-                ['is_safe' => ['html']]
+                ['is_safe' => ['html']],
             ),
             new TwigFunction(
                 'get_gis_datatypes',
-                Gis::getDataTypes(...)
+                Gis::getDataTypes(...),
             ),
             new TwigFunction(
                 'get_gis_functions',
-                Gis::getFunctions(...)
+                Gis::getFunctions(...),
             ),
             new TwigFunction(
                 'get_icon',
                 Generator::getIcon(...),
-                ['is_safe' => ['html']]
+                ['is_safe' => ['html']],
             ),
             new TwigFunction(
                 'get_image',
                 Generator::getImage(...),
-                ['is_safe' => ['html']]
+                ['is_safe' => ['html']],
             ),
             new TwigFunction(
                 'get_supported_datatypes',
                 Util::getSupportedDatatypes(...),
-                ['is_safe' => ['html']]
+                ['is_safe' => ['html']],
             ),
             new TwigFunction(
                 'is_uuid_supported',
-                Util::isUUIDSupported(...)
+                Util::isUUIDSupported(...),
             ),
             new TwigFunction(
                 'is_foreign_key_supported',
-                ForeignKey::isSupported(...)
+                ForeignKey::isSupported(...),
             ),
             new TwigFunction(
                 'link_or_button',
                 Generator::linkOrButton(...),
-                ['is_safe' => ['html']]
+                ['is_safe' => ['html']],
             ),
             new TwigFunction(
                 'link_to_var_documentation',
                 Generator::linkToVarDocumentation(...),
-                ['is_safe' => ['html']]
+                ['is_safe' => ['html']],
             ),
             new TwigFunction(
                 'localised_date',
-                Util::localisedDate(...)
+                Util::localisedDate(...),
             ),
             new TwigFunction(
                 'show_hint',
                 Generator::showHint(...),
-                ['is_safe' => ['html']]
+                ['is_safe' => ['html']],
             ),
             new TwigFunction(
                 'show_icons',
-                Util::showIcons(...)
+                Util::showIcons(...),
             ),
             new TwigFunction(
                 'show_text',
-                Util::showText(...)
+                Util::showText(...),
             ),
             new TwigFunction(
                 'show_mysql_docu',
                 MySQLDocumentation::show(...),
-                ['is_safe' => ['html']]
+                ['is_safe' => ['html']],
             ),
             new TwigFunction(
                 'get_mysql_docu_url',
                 Util::getMySQLDocuURL(...),
-                ['is_safe' => ['html']]
+                ['is_safe' => ['html']],
             ),
             new TwigFunction(
                 'get_docu_url',
                 Util::getDocuURL(...),
-                ['is_safe' => ['html']]
+                ['is_safe' => ['html']],
             ),
             new TwigFunction(
                 'show_php_docu',
                 Generator::showPHPDocumentation(...),
-                ['is_safe' => ['html']]
+                ['is_safe' => ['html']],
             ),
             new TwigFunction(
                 'sortable_table_header',
                 Util::sortableTableHeader(...),
-                ['is_safe' => ['html']]
+                ['is_safe' => ['html']],
             ),
             new TwigFunction(
                 'timespan_format',
-                Util::timespanFormat(...)
+                Util::timespanFormat(...),
             ),
             new TwigFunction('parse_enum_set_values', 'PhpMyAdmin\Util::parseEnumSetValues'),
         ];
@@ -160,7 +160,7 @@ class UtilExtension extends AbstractExtension
         return [
             new TwigFilter(
                 'convert_bit_default_value',
-                Util::convertBitDefaultValue(...)
+                Util::convertBitDefaultValue(...),
             ),
         ];
     }

@@ -480,7 +480,7 @@ class ConfigFile
 
         $persistKeys = array_diff(
             array_keys($this->persistKeys),
-            array_keys($c)
+            array_keys($c),
         );
         foreach ($persistKeys as $k) {
             $c[$k] = $this->getDefault($this->getCanonicalPath($k));

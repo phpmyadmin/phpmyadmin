@@ -56,51 +56,51 @@ class SchemaPdf extends SchemaPlugin
         // create leaf items and add them to the group
         $leaf = new BoolPropertyItem(
             'all_tables_same_width',
-            __('Same width for all tables')
+            __('Same width for all tables'),
         );
         $specificOptions->addProperty($leaf);
 
         $leaf = new SelectPropertyItem(
             'orientation',
-            __('Orientation')
+            __('Orientation'),
         );
         $leaf->setValues(
             [
                 'L' => __('Landscape'),
                 'P' => __('Portrait'),
-            ]
+            ],
         );
         $specificOptions->addProperty($leaf);
 
         $leaf = new SelectPropertyItem(
             'paper',
-            __('Paper size')
+            __('Paper size'),
         );
         $leaf->setValues($this->getPaperSizeArray());
         $specificOptions->addProperty($leaf);
 
         $leaf = new BoolPropertyItem(
             'show_grid',
-            __('Show grid')
+            __('Show grid'),
         );
         $specificOptions->addProperty($leaf);
 
         $leaf = new BoolPropertyItem(
             'with_doc',
-            __('Data dictionary')
+            __('Data dictionary'),
         );
         $specificOptions->addProperty($leaf);
 
         $leaf = new SelectPropertyItem(
             'table_order',
-            __('Order of the tables')
+            __('Order of the tables'),
         );
         $leaf->setValues(
             [
                 '' => __('None'),
                 'name_asc' => __('Name (Ascending)'),
                 'name_desc' => __('Name (Descending)'),
-            ]
+            ],
         );
         $specificOptions->addProperty($leaf);
 

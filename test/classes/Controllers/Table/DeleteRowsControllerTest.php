@@ -40,13 +40,13 @@ class DeleteRowsControllerTest extends AbstractTestCase
         $dummyDbi->addResult(
             'SELECT * FROM `test_db`.`test_table` LIMIT 0, 25',
             [['1', 'abcd', '2011-01-20 02:00:02'], ['2', 'foo', '2010-01-20 02:00:02']],
-            ['id', 'name', 'datetimefield']
+            ['id', 'name', 'datetimefield'],
         );
         $dummyDbi->addResult(
             'SELECT 1 FROM information_schema.VIEWS WHERE TABLE_SCHEMA = \'test_db\''
             . ' AND TABLE_NAME = \'test_table\' AND IS_UPDATABLE = \'YES\'',
             [],
-            ['TABLE_NAME']
+            ['TABLE_NAME'],
         );
         $dbi = $this->createDatabaseInterface($dummyDbi);
         $GLOBALS['dbi'] = $dbi;
@@ -64,14 +64,14 @@ class DeleteRowsControllerTest extends AbstractTestCase
         $actual = $response->getHTMLResult();
         $this->assertStringContainsString(
             '<div class="alert alert-success" role="alert">Your SQL query has been executed successfully.</div>',
-            $actual
+            $actual,
         );
         $this->assertStringContainsString('DELETE FROM `test_table` WHERE `test_table`.`id` = 3 LIMIT 1;', $actual);
         $this->assertStringContainsString('Showing rows 0 -  1 (2 total, Query took', $actual);
         $this->assertStringContainsString('SELECT * FROM `test_db`.`test_table`', $actual);
         $this->assertStringContainsString(
             '<td data-decimals="0" data-type="string" data-originallength="4" class="data text pre_wrap">abcd</td>',
-            $actual
+            $actual,
         );
     }
 }

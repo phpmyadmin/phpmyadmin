@@ -58,7 +58,7 @@ class Monitor
             $statusVars,
             $sysinfo,
             $cpuload,
-            $memory
+            $memory,
         );
 
         // Retrieve all required status variables
@@ -68,7 +68,7 @@ class Monitor
                 "SHOW GLOBAL STATUS WHERE Variable_name='"
                 . implode("' OR Variable_name='", $statusVars) . "'",
                 0,
-                1
+                1,
             );
         }
 
@@ -79,7 +79,7 @@ class Monitor
                 "SHOW GLOBAL VARIABLES WHERE Variable_name='"
                 . implode("' OR Variable_name='", $serverVars) . "'",
                 0,
-                1
+                1,
             );
         }
 
@@ -103,7 +103,7 @@ class Monitor
     private function getJsonForChartingDataSet(
         array $ret,
         array $statusVarValues,
-        array $serverVarValues
+        array $serverVarValues,
     ): array {
         foreach ($ret as $chart_id => $chartNodes) {
             foreach ($chartNodes as $node_id => $nodeDataPoints) {
@@ -141,7 +141,7 @@ class Monitor
         array $statusVars,
         $sysinfo,
         $cpuload,
-        $memory
+        $memory,
     ): array {
         // For each chart
         foreach ($ret as $chartId => $chartNodes) {
@@ -157,7 +157,7 @@ class Monitor
                         $ret[$chartId][$nodeId][$pointId],
                         $sysinfo,
                         $cpuload,
-                        $memory
+                        $memory,
                     );
                 } /* foreach */
             } /* foreach */
@@ -192,7 +192,7 @@ class Monitor
         array $ret,
         $sysinfo,
         $cpuload,
-        $memory
+        $memory,
     ): array {
         /**
          * We only collect the status and server variables here to read them all in one query,
@@ -290,8 +290,8 @@ class Monitor
                 mb_substr(
                     $row['sql_text'],
                     0,
-                    (int) mb_strpos($row['sql_text'], ' ')
-                )
+                    (int) mb_strpos($row['sql_text'], ' '),
+                ),
             );
 
             switch ($type) {
@@ -304,8 +304,8 @@ class Monitor
                             (array) Util::formatByteDown(
                                 mb_strlen($row['sql_text']),
                                 2,
-                                2
-                            )
+                                2,
+                            ),
                         );
                         $row['sql_text'] = mb_substr($row['sql_text'], 0, 200)
                             . '... [' . $implodeSqlText . ']';
@@ -342,7 +342,7 @@ class Monitor
         int $start,
         int $end,
         bool $isTypesLimited,
-        bool $removeVariables
+        bool $removeVariables,
     ): array|null {
         $limitTypes = '';
         if ($isTypesLimited) {
@@ -389,7 +389,7 @@ class Monitor
                         $removeVariables && preg_match(
                             '/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i',
                             $row['argument'],
-                            $matches
+                            $matches,
                         )
                     ) {
                         if (! isset($insertTables[$matches[2]])) {
@@ -404,7 +404,7 @@ class Monitor
                             // there's been other queries
                             $temp = $return['rows'][$insertTablesFirst]['argument'];
                             $return['rows'][$insertTablesFirst]['argument'] .= $this->getSuspensionPoints(
-                                $temp[strlen($temp) - 1]
+                                $temp[strlen($temp) - 1],
                             );
 
                             // Group this value, thus do not add to the result list
@@ -428,8 +428,8 @@ class Monitor
                             (array) Util::formatByteDown(
                                 mb_strlen($row['argument']),
                                 2,
-                                2
-                            )
+                                2,
+                            ),
                         )
                             . ']';
                     }
@@ -486,7 +486,7 @@ class Monitor
             'SHOW GLOBAL VARIABLES WHERE Variable_name IN'
             . ' ("general_log","slow_query_log","long_query_time","log_output")',
             0,
-            1
+            1,
         );
     }
 
@@ -500,7 +500,7 @@ class Monitor
      */
     public function getJsonForQueryAnalyzer(
         string $database,
-        string $query
+        string $query,
     ): array {
         $GLOBALS['cached_affected_rows'] ??= null;
 
@@ -533,7 +533,7 @@ class Monitor
         if ($profiling) {
             $return['profiling'] = [];
             $result = $this->dbi->tryQuery(
-                'SELECT seq,state,duration FROM INFORMATION_SCHEMA.PROFILING WHERE QUERY_ID=1 ORDER BY seq'
+                'SELECT seq,state,duration FROM INFORMATION_SCHEMA.PROFILING WHERE QUERY_ID=1 ORDER BY seq',
             );
             if ($result !== false) {
                 $return['profiling'] = $result->fetchAllAssoc();

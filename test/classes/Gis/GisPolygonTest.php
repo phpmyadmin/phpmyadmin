@@ -272,7 +272,7 @@ class GisPolygonTest extends GisGeomTestCase
     {
         $this->assertEquals(
             $isInside,
-            $this->object->isPointInsidePolygon($point, $polygon)
+            $this->object->isPointInsidePolygon($point, $polygon),
         );
     }
 
@@ -408,7 +408,7 @@ class GisPolygonTest extends GisGeomTestCase
             'image',
             [176, 46, 224],
             ['x' => -56, 'y' => -16, 'scale' => 0.94, 'height' => 124],
-            $image
+            $image,
         );
         $this->assertEquals(200, $return->width());
         $this->assertEquals(124, $return->height());
@@ -434,7 +434,7 @@ class GisPolygonTest extends GisGeomTestCase
         string $label,
         array $color,
         array $scale_data,
-        TCPDF $pdf
+        TCPDF $pdf,
     ): void {
         $return = $this->object->prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
 
@@ -479,7 +479,7 @@ class GisPolygonTest extends GisGeomTestCase
         string $label,
         array $color,
         array $scaleData,
-        string $output
+        string $output,
     ): void {
         $svg = $this->object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
         $this->assertEquals($output, $svg);
@@ -528,7 +528,7 @@ class GisPolygonTest extends GisGeomTestCase
         string $label,
         array $color,
         array $scale_data,
-        string $output
+        string $output,
     ): void {
         $ol = $this->object->prepareRowAsOl($spatial, $srid, $label, $color, $scale_data);
         $this->assertEquals($output, $ol);

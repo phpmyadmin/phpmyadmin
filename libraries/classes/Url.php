@@ -45,7 +45,7 @@ class Url
         $db = '',
         $table = '',
         $indent = 0,
-        $skip = []
+        $skip = [],
     ): string {
         $GLOBALS['config'] ??= null;
 

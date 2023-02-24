@@ -74,7 +74,7 @@ class Privileges
         DatabaseInterface $dbi,
         Relation $relation,
         private RelationCleanup $relationCleanup,
-        private Plugins $plugins
+        private Plugins $plugins,
     ) {
         $this->template = $template;
         $this->dbi = $dbi;
@@ -107,7 +107,7 @@ class Privileges
         }
 
         return Util::backquote(
-            $this->unescapeGrantWildcards($dbname)
+            $this->unescapeGrantWildcards($dbname),
         ) . '.' . Util::backquote($tablename);
     }
 
@@ -178,8 +178,8 @@ class Privileges
                 $row1['Type'],
                 mb_strpos($row1['Type'], '(') + 2,
                 mb_strpos($row1['Type'], ')')
-                - mb_strpos($row1['Type'], '(') - 3
-            )
+                - mb_strpos($row1['Type'], '(') - 3,
+            ),
         );
 
         $usersGrants = explode(',', $row['Table_priv']);
@@ -249,7 +249,7 @@ class Privileges
                      * @param string $val
                      */
                     static fn ($val): string => Util::backquote($val),
-                    $GLOBALS[$currentGrant[0]]
+                    $GLOBALS[$currentGrant[0]],
                 );
 
                 if ($enableHTML) {
@@ -422,7 +422,7 @@ class Privileges
                 __(
                     'Allows connecting, even if maximum number of connections '
                     . 'is reached; required for most administrative operations '
-                    . 'like setting global variables or killing threads of other users.'
+                    . 'like setting global variables or killing threads of other users.',
                 ),
             ],
             [
@@ -530,7 +530,7 @@ class Privileges
         string $db,
         string $table,
         string $username,
-        string $hostname
+        string $hostname,
     ): string {
         if ($db === '*') {
             return 'SELECT * FROM `mysql`.`user`'
@@ -604,7 +604,7 @@ class Privileges
     public function getHtmlToDisplayPrivilegesTable(
         $db = '*',
         $table = '*',
-        $submit = true
+        $submit = true,
     ): string {
         if ($db === '*') {
             $table = '*';
@@ -650,9 +650,9 @@ class Privileges
             $res = $this->dbi->tryQuery(
                 'SHOW COLUMNS FROM '
                 . Util::backquote(
-                    $this->unescapeGrantWildcards($db)
+                    $this->unescapeGrantWildcards($db),
                 )
-                . '.' . Util::backquote($table) . ';'
+                . '.' . Util::backquote($table) . ';',
             );
             if ($res) {
                 while ($row1 = $res->fetchRow()) {
@@ -672,7 +672,7 @@ class Privileges
                 . ' FROM `mysql`.`columns_priv`'
                 . $this->getUserHostCondition($username, $hostname)
                 . ' AND `Db` = ' . $this->dbi->quoteString($this->unescapeGrantWildcards($db))
-                . ' AND `Table_name` = ' . $this->dbi->quoteString($table) . ';'
+                . ' AND `Table_name` = ' . $this->dbi->quoteString($table) . ';',
             );
 
             while ($row1 = $res->fetchRow()) {
@@ -708,7 +708,7 @@ class Privileges
         string $hostname,
         string $db,
         string $routine,
-        $urlDbname
+        $urlDbname,
     ): string {
         $privileges = $this->getRoutinePrivileges($username, $hostname, $db, $routine);
 
@@ -734,7 +734,7 @@ class Privileges
      */
     public function getHtmlForLoginInformationFields(
         string|null $user = null,
-        string|null $host = null
+        string|null $host = null,
     ): string {
         $GLOBALS['pred_username'] ??= null;
         $GLOBALS['pred_hostname'] ??= null;
@@ -756,8 +756,8 @@ class Privileges
                 '',
                 mb_substr(
                     $currentUser,
-                    mb_strrpos($currentUser, '@') + 1
-                )
+                    mb_strrpos($currentUser, '@') + 1,
+                ),
             );
         }
 
@@ -819,7 +819,7 @@ class Privileges
             'SELECT COLUMN_NAME, CHARACTER_MAXIMUM_LENGTH '
             . 'FROM information_schema.columns '
             . "WHERE table_schema = 'mysql' AND table_name = 'user' "
-            . "AND COLUMN_NAME IN ('User', 'Host')"
+            . "AND COLUMN_NAME IN ('User', 'Host')",
         );
         foreach ($fieldsInfo as $val) {
             if ($val['COLUMN_NAME'] === 'User') {
@@ -845,10 +845,10 @@ class Privileges
      */
     public function getCurrentAuthenticationPlugin(
         string $username,
-        string $hostname
+        string $hostname,
     ): string {
         $plugin = $this->dbi->fetchValue(
-            'SELECT `plugin` FROM `mysql`.`user`' . $this->getUserHostCondition($username, $hostname) . ' LIMIT 1'
+            'SELECT `plugin` FROM `mysql`.`user`' . $this->getUserHostCondition($username, $hostname) . ' LIMIT 1',
         );
 
         // Table 'mysql'.'user' may not exist for some previous
@@ -887,7 +887,7 @@ class Privileges
         $grants = $this->dbi->fetchResult(
             'SHOW GRANTS FOR '
             . $this->dbi->quoteString($user) . '@'
-            . $this->dbi->quoteString($host)
+            . $this->dbi->quoteString($host),
         );
         $response = '';
         foreach ($grants as $oneGrant) {
@@ -925,7 +925,7 @@ class Privileges
             $serverVersion = $this->dbi->getVersion();
             $authenticationPlugin = ($_POST['authentication_plugin'] ?? $this->getCurrentAuthenticationPlugin(
                 $username,
-                $hostname
+                $hostname,
             ));
 
             // Use 'ALTER USER ...' syntax for MySQL 5.7.6+
@@ -998,7 +998,7 @@ class Privileges
                         $this->dbi->getError(),
                         $updatePluginQuery,
                         false,
-                        $errorUrl
+                        $errorUrl,
                     );
                 }
 
@@ -1034,7 +1034,7 @@ class Privileges
                     $this->dbi->getError(),
                     $sqlQuery,
                     false,
-                    $errorUrl
+                    $errorUrl,
                 );
             }
 
@@ -1042,7 +1042,7 @@ class Privileges
             $this->dbi->tryQuery('FLUSH PRIVILEGES;');
 
             $message = Message::success(
-                __('The password for %s was changed successfully.')
+                __('The password for %s was changed successfully.'),
             );
             $message->addParam('\'' . $username . '\'@\'' . $hostname . '\'');
             if (isset($origValue)) {
@@ -1069,7 +1069,7 @@ class Privileges
         string $tablename,
         string $username,
         string $hostname,
-        $itemType
+        $itemType,
     ): array {
         $dbAndTable = $this->wildcardEscapeForGrant($dbname, $tablename);
 
@@ -1090,7 +1090,7 @@ class Privileges
 
         $sqlQuery = $sqlQuery0 . ' ' . $sqlQuery1;
         $message = Message::success(
-            __('You have revoked the privileges for %s.')
+            __('You have revoked the privileges for %s.'),
         );
         $message->addParam('\'' . $username . '\'@\'' . $hostname . '\'');
 
@@ -1392,7 +1392,7 @@ class Privileges
     private function getHtmlForViewUsersError(): string
     {
         return Message::error(
-            __('Not enough privilege to view users.')
+            __('Not enough privilege to view users.'),
         )->getDisplay();
     }
 
@@ -1416,7 +1416,7 @@ class Privileges
         $dbname = '',
         $tablename = '',
         $routinename = '',
-        $initial = ''
+        $initial = '',
     ): string {
         $linkClass = '';
         if ($linktype == 'edit') {
@@ -1526,7 +1526,7 @@ class Privileges
         $password,
         $sqlQuery,
         $hostname,
-        $username
+        $username,
     ): array {
         if (isset($GLOBALS['dbname'])) {
             //if (preg_match('/\\\\(?:_|%)/i', $dbname)) {
@@ -1570,7 +1570,7 @@ class Privileges
              * pagination
              */
             $newUserInitial = mb_strtoupper(
-                mb_substr($username, 0, 1)
+                mb_substr($username, 0, 1),
             );
             $newUserInitialString = '<a href="';
             $newUserInitialString .= Url::getFromRoute('/server/privileges', ['initial' => $newUserInitial]);
@@ -1752,7 +1752,7 @@ class Privileges
         $username,
         $hostname,
         $type,
-        $dbname = ''
+        $dbname = '',
     ): string {
         $uiData = [
             'database' => [
@@ -1802,7 +1802,7 @@ class Privileges
                 $name = $row['Table_name'];
                 $onePrivilege['grant'] = in_array(
                     'Grant',
-                    explode(',', $row['Table_priv'])
+                    explode(',', $row['Table_priv']),
                 );
                 $onePrivilege['column_privs'] = ! empty($row['Column_priv']);
                 $onePrivilege['privileges'] = implode(',', $this->extractPrivInfo($row, true));
@@ -1813,13 +1813,13 @@ class Privileges
                 $name = $row['Routine_name'];
                 $onePrivilege['grant'] = in_array(
                     'Grant',
-                    explode(',', $row['Proc_priv'])
+                    explode(',', $row['Proc_priv']),
                 );
 
                 $privs = $this->parseProcPriv($row['Proc_priv']);
                 $onePrivilege['privileges'] = implode(
                     ',',
-                    $this->extractPrivInfo($privs, true)
+                    $this->extractPrivInfo($privs, true),
                 );
 
                 $paramDbName = $this->escapeGrantWildcards($dbname);
@@ -1837,7 +1837,7 @@ class Privileges
                     $hostname,
                     $paramDbName,
                     $paramTableName,
-                    $paramRoutineName
+                    $paramRoutineName,
                 );
             }
 
@@ -1849,7 +1849,7 @@ class Privileges
                     $hostname,
                     $paramDbName,
                     $paramTableName,
-                    $paramRoutineName
+                    $paramRoutineName,
                 );
             }
 
@@ -2025,7 +2025,7 @@ class Privileges
         }
 
         $initials = $this->dbi->tryQuery(
-            'SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user` ORDER BY UPPER(LEFT(`User`,1)) ASC'
+            'SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user` ORDER BY UPPER(LEFT(`User`,1)) ASC',
         );
         if ($initials) {
             while ($tmpInitial = $initials->fetchRow()) {
@@ -2138,7 +2138,7 @@ class Privileges
                 $message = Message::rawError($dropUserError);
             } else {
                 $message = Message::success(
-                    __('The selected users have been deleted successfully.')
+                    __('The selected users have been deleted successfully.'),
                 );
             }
         }
@@ -2159,7 +2159,7 @@ class Privileges
         string $hostname,
         string $tablename,
         string $dbname,
-        string $itemType
+        string $itemType,
     ): array {
         $dbAndTable = $this->wildcardEscapeForGrant($dbname, $tablename);
 
@@ -2186,7 +2186,7 @@ class Privileges
                 $dbAndTable,
                 $username,
                 $hostname,
-                $dbname
+                $dbname,
             );
         }
 
@@ -2234,7 +2234,7 @@ class Privileges
         string $dbAndTable,
         string $username,
         string $hostname,
-        string $dbname
+        string $dbname,
     ): array {
         $alterUserQuery = null;
 
@@ -2294,7 +2294,7 @@ class Privileges
             if (! $row) {
                 $response = ResponseRenderer::getInstance();
                 $response->addHTML(
-                    Message::notice(__('No user found.'))->getDisplay()
+                    Message::notice(__('No user found.'))->getDisplay(),
                 );
                 unset($_POST['change_copy']);
             } else {
@@ -2378,7 +2378,7 @@ class Privileges
             $queries[] = '# '
                 . sprintf(
                     __('Deleting %s'),
-                    '\'' . $thisUser . '\'@\'' . $thisHost . '\''
+                    '\'' . $thisUser . '\'@\'' . $thisHost . '\'',
                 )
                 . ' ...';
             $queries[] = 'DROP USER '
@@ -2408,7 +2408,7 @@ class Privileges
             $sqlQuery = 'FLUSH PRIVILEGES;';
             $this->dbi->query($sqlQuery);
             $message = Message::success(
-                __('The privileges were reloaded successfully.')
+                __('The privileges were reloaded successfully.'),
             );
         }
 
@@ -2463,7 +2463,7 @@ class Privileges
         string $username,
         string $hostname,
         string|null $password,
-        $isMenuwork
+        $isMenuwork,
     ): array {
         $message = null;
         $queries = null;
@@ -2562,7 +2562,7 @@ class Privileges
                 $alterSqlQuery,
                 isset($_POST['createdb-1']),
                 isset($_POST['createdb-2']),
-                isset($_POST['createdb-3'])
+                isset($_POST['createdb-3']),
             );
             if (! empty($_POST['userGroup']) && $isMenuwork) {
                 $this->setUserGroup($GLOBALS['username'], $_POST['userGroup']);
@@ -2740,7 +2740,7 @@ class Privileges
     public function getExportUserDefinitionTextarea(
         string $username,
         string $hostname,
-        array|null $selectedUsers
+        array|null $selectedUsers,
     ): string {
         $export = '<textarea class="export" cols="60" rows="15">';
 
@@ -2752,17 +2752,17 @@ class Privileges
                 $exportUsername = mb_substr(
                     $exportUser,
                     0,
-                    (int) mb_strpos($exportUser, '&')
+                    (int) mb_strpos($exportUser, '&'),
                 );
                 $exportHostname = mb_substr(
                     $exportUser,
-                    mb_strrpos($exportUser, ';') + 1
+                    mb_strrpos($exportUser, ';') + 1,
                 );
                 $export .= '# '
                     . sprintf(
                         __('Privileges for %s'),
                         '`' . htmlspecialchars($exportUsername)
-                        . '`@`' . htmlspecialchars($exportHostname) . '`'
+                        . '`@`' . htmlspecialchars($exportHostname) . '`',
                     )
                     . "\n\n";
                 $export .= $this->getGrants($exportUsername, $exportHostname) . "\n";
@@ -2876,13 +2876,13 @@ class Privileges
                             . 'from MySQL’s privilege tables. The content of these '
                             . 'tables may differ from the privileges the server uses, '
                             . 'if they have been changed manually. In this case, '
-                            . 'you should %sreload the privileges%s before you continue.'
+                            . 'you should %sreload the privileges%s before you continue.',
                         ),
-                        Message::NOTICE
+                        Message::NOTICE,
                     );
                     $flushnote->addParamHtml(
                         '<a href="' . Url::getFromRoute('/server/privileges', ['flush_privileges' => 1])
-                        . '" id="reload_privileges_anchor">'
+                        . '" id="reload_privileges_anchor">',
                     );
                     $flushnote->addParamHtml('</a>');
                 } else {
@@ -2893,16 +2893,16 @@ class Privileges
                             . 'tables may differ from the privileges the server uses, '
                             . 'if they have been changed manually. In this case, '
                             . 'the privileges have to be reloaded but currently, you '
-                            . 'don\'t have the RELOAD privilege.'
+                            . 'don\'t have the RELOAD privilege.',
                         )
                         . MySQLDocumentation::show(
                             'privileges-provided',
                             false,
                             null,
                             null,
-                            'priv_reload'
+                            'priv_reload',
                         ),
-                        Message::NOTICE
+                        Message::NOTICE,
                     );
                 }
 
@@ -2938,7 +2938,7 @@ class Privileges
         string $hostname,
         string|array $dbname,
         $tablename,
-        string $route
+        string $route,
     ): string {
         $userDoesNotExists = ! $this->userExists($username, $hostname);
 
@@ -2963,7 +2963,7 @@ class Privileges
                 : (is_array($dbname) ? (string) $dbname[0] : '*'),
             $tablename !== ''
                 ? $tablename
-                : '*'
+                : '*',
         );
 
         $tableSpecificRights = '';
@@ -2980,13 +2980,13 @@ class Privileges
                     $username,
                     $hostname,
                     'table',
-                    $unescapedDb
+                    $unescapedDb,
                 );
                 $tableSpecificRights .= $this->getHtmlForAllTableSpecificRights(
                     $username,
                     $hostname,
                     'routine',
-                    $unescapedDb
+                    $unescapedDb,
                 );
             }
         }
@@ -3044,10 +3044,10 @@ class Privileges
         string $userHostCondition,
         array $queries,
         $username,
-        $hostname
+        $hostname,
     ): array {
         $res = $this->dbi->query(
-            'SELECT `Db`, `Table_name`, `Table_priv` FROM `mysql`.`tables_priv`' . $userHostCondition . ';'
+            'SELECT `Db`, `Table_name`, `Table_priv` FROM `mysql`.`tables_priv`' . $userHostCondition . ';',
         );
         while ($row = $res->fetchAssoc()) {
             $res2 = $this->dbi->query(
@@ -3056,7 +3056,7 @@ class Privileges
                 . $userHostCondition
                 . ' AND `Db` = ' . $this->dbi->quoteString($row['Db'])
                 . ' AND `Table_name` = ' . $this->dbi->quoteString($row['Table_name'])
-                . ';'
+                . ';',
             );
 
             $tmpPrivs1 = $this->extractPrivInfo($row);
@@ -3131,7 +3131,7 @@ class Privileges
         string $username,
         string $hostname,
         string $oldUsername,
-        string $oldHostname
+        string $oldHostname,
     ): array {
         $userHostCondition = $this->getUserHostCondition($oldUsername, $oldHostname);
 
@@ -3173,7 +3173,7 @@ class Privileges
         $alterSqlQuery,
         bool $createDb1,
         bool $createDb2,
-        bool $createDb3
+        bool $createDb3,
     ): array {
         if ($error || ($realSqlQuery !== '' && ! $this->dbi->tryQuery($realSqlQuery))) {
             $createDb1 = $createDb2 = $createDb3 = false;
@@ -3202,7 +3202,7 @@ class Privileges
 
             $query = 'GRANT ALL PRIVILEGES ON '
                 . Util::backquote(
-                    $this->escapeGrantWildcards($username)
+                    $this->escapeGrantWildcards($username),
                 ) . '.* TO '
                 . $this->dbi->quoteString($username) . '@' . $this->dbi->quoteString($hostname) . ';';
             $sqlQuery .= $query;
@@ -3215,7 +3215,7 @@ class Privileges
             // Grant all privileges on wildcard name (username\_%)
             $query = 'GRANT ALL PRIVILEGES ON '
                 . Util::backquote(
-                    $this->escapeGrantWildcards($username) . '\_%'
+                    $this->escapeGrantWildcards($username) . '\_%',
                 ) . '.* TO '
                 . $this->dbi->quoteString($username) . '@' . $this->dbi->quoteString($hostname) . ';';
             $sqlQuery .= $query;
@@ -3330,7 +3330,7 @@ class Privileges
             'GRANT %s ON *.* TO \'%s\'@\'%s\'',
             implode(', ', $this->extractPrivInfo()),
             $slashedUsername,
-            $slashedHostname
+            $slashedHostname,
         );
         $realSqlQuery = $sqlQuery = $sqlQueryStmt;
 
@@ -3515,7 +3515,7 @@ class Privileges
         string $username,
         string $hostname,
         string $database,
-        string $routine
+        string $routine,
     ): array {
         $sql = 'SELECT `Proc_priv`'
             . ' FROM `mysql`.`procs_priv`'
@@ -3534,7 +3534,7 @@ class Privileges
         string $username,
         string $hostname,
         bool $editOthers,
-        string $route
+        string $route,
     ): string {
         $isPrivileges = $route === '/server/privileges';
 
@@ -3644,9 +3644,9 @@ class Privileges
                             'A user account allowing any user from localhost to '
                             . 'connect is present. This will prevent other users '
                             . 'from connecting if the host part of their account '
-                            . 'allows a connection from any (%) host.'
+                            . 'allows a connection from any (%) host.',
                         )
-                        . MySQLDocumentation::show('problems-connecting')
+                        . MySQLDocumentation::show('problems-connecting'),
                     )->getDisplay();
                 }
             }

@@ -56,7 +56,7 @@ class UserPreferences
             [
                 'Server/hide_db' => 'Servers/1/hide_db',
                 'Server/only_db' => 'Servers/1/only_db',
-            ]
+            ],
         );
         $cf->updateWithGlobalConfig($GLOBALS['cfg']);
     }
@@ -100,7 +100,7 @@ class UserPreferences
         $row = $this->dbi->fetchSingleRow(
             $query,
             DatabaseInterface::FETCH_ASSOC,
-            Connection::TYPE_CONTROL
+            Connection::TYPE_CONTROL,
         );
         if (! is_array($row) || ! isset($row['config_data']) || ! isset($row['ts'])) {
             return ['config_data' => [], 'mtime' => time(), 'type' => 'db'];
@@ -175,7 +175,7 @@ class UserPreferences
             $message = Message::error(__('Could not save configuration'));
             $message->addMessage(
                 Message::error($this->dbi->getError(Connection::TYPE_CONTROL)),
-                '<br><br>'
+                '<br><br>',
             );
             if (! $this->hasAccessToDatabase($relationParameters->db)) {
                 /**
@@ -186,7 +186,7 @@ class UserPreferences
                  */
                 $_SESSION['relation'][$GLOBALS['server']] = [];
                 $message->addMessage(Message::error(htmlspecialchars(
-                    __('The phpMyAdmin configuration storage database could not be accessed.')
+                    __('The phpMyAdmin configuration storage database could not be accessed.'),
                 )), '<br><br>');
             }
 
@@ -203,7 +203,7 @@ class UserPreferences
         if ($GLOBALS['cfg']['Server']['DisableIS']) {
             $query = 'SHOW DATABASES LIKE '
                 . $this->dbi->quoteString(
-                    $this->dbi->escapeMysqlWildcards($database->getName())
+                    $this->dbi->escapeMysqlWildcards($database->getName()),
                 );
         }
 
@@ -277,7 +277,7 @@ class UserPreferences
     public function redirect(
         $file_name,
         $params = null,
-        $hash = null
+        $hash = null,
     ): void {
         // redirect
         $url_params = ['saved' => 1];

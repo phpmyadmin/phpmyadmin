@@ -55,7 +55,7 @@ class ErrorReportTest extends AbstractTestCase
             new HttpRequest(),
             new Relation($this->dbi),
             new Template(),
-            $GLOBALS['config']
+            $GLOBALS['config'],
         );
         $this->errorReport->setSubmissionUrl('http://localhost');
     }
@@ -129,7 +129,7 @@ class ErrorReportTest extends AbstractTestCase
                 'POST',
                 false,
                 json_encode($report),
-                'Content-Type: application/json'
+                'Content-Type: application/json',
             )
             ->willReturn($return);
 
@@ -137,7 +137,7 @@ class ErrorReportTest extends AbstractTestCase
             $httpRequest,
             new Relation($this->dbi),
             new Template(),
-            $GLOBALS['config']
+            $GLOBALS['config'],
         );
         $this->errorReport->setSubmissionUrl($submissionUrl);
 
@@ -216,7 +216,7 @@ class ErrorReportTest extends AbstractTestCase
         $form = $this->errorReport->getForm();
         $this->assertStringContainsString(
             '<pre class="pre-scrollable">' . htmlspecialchars((string) $expectedData, ENT_QUOTES) . '</pre>',
-            $form
+            $form,
         );
     }
 
@@ -366,8 +366,8 @@ class ErrorReportTest extends AbstractTestCase
                 $this->errorReport,
                 ErrorReport::class,
                 'sanitizeUrl',
-                [$url]
-            )
+                [$url],
+            ),
         );
     }
 }

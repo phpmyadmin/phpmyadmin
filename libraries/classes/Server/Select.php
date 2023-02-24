@@ -86,7 +86,7 @@ class Select
                     $scriptName = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabServer'], 'server');
                     $href = $scriptName . Url::getCommon(
                         ['server' => $key],
-                        ! str_contains($scriptName, '?') ? '?' : '&'
+                        ! str_contains($scriptName, '?') ? '?' : '&',
                     );
                     $servers['list'][] = [
                         'href' => $href,

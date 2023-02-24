@@ -23,7 +23,7 @@ final class EnumValuesController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private Sql $sql,
-        private CheckUserPrivileges $checkUserPrivileges
+        private CheckUserPrivileges $checkUserPrivileges,
     ) {
         parent::__construct($response, $template);
     }

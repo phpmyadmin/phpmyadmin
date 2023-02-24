@@ -26,7 +26,7 @@ abstract class PreApPendTransformationsPlugin extends TransformationsPlugin
         return __(
             'Prepends and/or Appends text to a string. First option is text'
             . ' to be prepended, second is appended (enclosed in single'
-            . ' quotes, default empty string).'
+            . ' quotes, default empty string).',
         );
     }
 

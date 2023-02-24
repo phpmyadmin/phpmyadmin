@@ -61,7 +61,7 @@ class TableStatsPdf extends TableStats
         &$sameWideWidth,
         $showKeys = false,
         $tableDimension = false,
-        $offline = false
+        $offline = false,
     ) {
         parent::__construct($diagram, $db, $pageNumber, $tableName, $showKeys, $tableDimension, $offline);
 
@@ -84,7 +84,7 @@ class TableStatsPdf extends TableStats
         ExportRelationSchema::dieSchema(
             $this->pageNumber,
             'PDF',
-            sprintf(__('The %s table doesn\'t exist!'), $this->tableName)
+            sprintf(__('The %s table doesn\'t exist!'), $this->tableName),
         );
     }
 
@@ -165,7 +165,7 @@ class TableStatsPdf extends TableStats
             1,
             'C',
             $setColor,
-            $this->diagram->customLinks['doc'][$this->tableName]['-']
+            $this->diagram->customLinks['doc'][$this->tableName]['-'],
         );
         $this->diagram->setXScale($this->x);
         $this->diagram->setFont($this->ff, '', $fontSize);
@@ -197,7 +197,7 @@ class TableStatsPdf extends TableStats
                 1,
                 'L',
                 $setColor,
-                $this->diagram->customLinks['doc'][$this->tableName][$field]
+                $this->diagram->customLinks['doc'][$this->tableName][$field],
             );
             $this->diagram->setXScale($this->x);
             $this->diagram->setFillColor(255);

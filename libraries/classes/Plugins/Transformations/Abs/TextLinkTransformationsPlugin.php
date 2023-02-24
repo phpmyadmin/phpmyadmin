@@ -27,7 +27,7 @@ abstract class TextLinkTransformationsPlugin extends TransformationsPlugin
         return __(
             'Displays a link; the column contains the filename. The first option'
             . ' is a URL prefix like "https://www.example.com/". The second option'
-            . ' is a title for the link.'
+            . ' is a title for the link.',
         );
     }
 

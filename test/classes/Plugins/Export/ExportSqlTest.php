@@ -77,7 +77,7 @@ class ExportSqlTest extends AbstractTestCase
         $this->object = new ExportSql(
             new Relation($GLOBALS['dbi']),
             new Export($GLOBALS['dbi']),
-            new Transformations()
+            new Transformations(),
         );
     }
 
@@ -163,7 +163,7 @@ class ExportSqlTest extends AbstractTestCase
 
         $this->assertInstanceOf(
             BoolPropertyItem::class,
-            $property->getSubgroupHeader()
+            $property->getSubgroupHeader(),
         );
 
         $leaves = $property->getProperties();
@@ -209,7 +209,7 @@ class ExportSqlTest extends AbstractTestCase
                 'v1' => 'v1',
                 'v2' => 'v2',
             ],
-            $property->getValues()
+            $property->getValues(),
         );
 
         $property = $properties->current();
@@ -217,7 +217,7 @@ class ExportSqlTest extends AbstractTestCase
 
         $this->assertInstanceOf(
             RadioPropertyItem::class,
-            $property->getSubgroupHeader()
+            $property->getSubgroupHeader(),
         );
 
         $structureOptions = $generalOptionsArray->current();
@@ -234,7 +234,7 @@ class ExportSqlTest extends AbstractTestCase
 
         $this->assertInstanceOf(
             MessageOnlyPropertyItem::class,
-            $property->getSubgroupHeader()
+            $property->getSubgroupHeader(),
         );
 
         $leaves = $property->getProperties();
@@ -249,7 +249,7 @@ class ExportSqlTest extends AbstractTestCase
 
         $this->assertEquals(
             'Add <code>DROP TABLE / VIEW / PROCEDURE / FUNCTION / EVENT</code><code> / TRIGGER</code> statement',
-            $leaf->getText()
+            $leaf->getText(),
         );
 
         $leaf = $leaves->current();
@@ -258,12 +258,12 @@ class ExportSqlTest extends AbstractTestCase
 
         $this->assertCount(
             2,
-            $leaf->getProperties()
+            $leaf->getProperties(),
         );
 
         $this->assertInstanceOf(
             BoolPropertyItem::class,
-            $leaf->getSubgroupHeader()
+            $leaf->getSubgroupHeader(),
         );
 
         $leaf = $leaves->current();
@@ -272,12 +272,12 @@ class ExportSqlTest extends AbstractTestCase
 
         $this->assertCount(
             3,
-            $leaf->getProperties()
+            $leaf->getProperties(),
         );
 
         $this->assertInstanceOf(
             BoolPropertyItem::class,
-            $leaf->getSubgroupHeader()
+            $leaf->getSubgroupHeader(),
         );
 
         $leaf = $leaves->current();
@@ -305,7 +305,7 @@ class ExportSqlTest extends AbstractTestCase
 
         $this->assertCount(
             2,
-            $property->getProperties()
+            $property->getProperties(),
         );
     }
 
@@ -318,7 +318,7 @@ class ExportSqlTest extends AbstractTestCase
                 . ' `test_proc1` (`p` INT)   BEGIN END$$' . "\n\n" . 'DROP PROCEDURE IF EXISTS'
                 . ' `test_proc2`$$' . "\n" . 'CREATE PROCEDURE `test_proc2` (`p` INT)   BEGIN END$$' . "\n\n" . 'DROP'
                 . ' FUNCTION IF EXISTS `test_func`$$' . "\n" . 'CREATE FUNCTION'
-                . ' `test_func` (`p` INT) RETURNS INT(11)  BEGIN END$$' . "\n\n" . 'DELIMITER ;' . "\n"
+                . ' `test_func` (`p` INT) RETURNS INT(11)  BEGIN END$$' . "\n\n" . 'DELIMITER ;' . "\n",
         );
 
         $this->object->exportRoutines('test_db');
@@ -332,26 +332,26 @@ class ExportSqlTest extends AbstractTestCase
 
         $this->assertEquals(
             '--' . "\n",
-            $method->invoke($this->object, '')
+            $method->invoke($this->object, ''),
         );
 
         $this->assertEquals(
             '-- Comment' . "\n",
-            $method->invoke($this->object, 'Comment')
+            $method->invoke($this->object, 'Comment'),
         );
 
         $GLOBALS['sql_include_comments'] = false;
 
         $this->assertEquals(
             '',
-            $method->invoke($this->object, 'Comment')
+            $method->invoke($this->object, 'Comment'),
         );
 
         unset($GLOBALS['sql_include_comments']);
 
         $this->assertEquals(
             '',
-            $method->invoke($this->object, 'Comment')
+            $method->invoke($this->object, 'Comment'),
         );
     }
 
@@ -363,26 +363,26 @@ class ExportSqlTest extends AbstractTestCase
 
         $this->assertEquals(
             "\n",
-            $method->invoke($this->object, '')
+            $method->invoke($this->object, ''),
         );
 
         $this->assertEquals(
             "\n",
-            $method->invoke($this->object, 'Comment')
+            $method->invoke($this->object, 'Comment'),
         );
 
         $GLOBALS['sql_include_comments'] = false;
 
         $this->assertEquals(
             '',
-            $method->invoke($this->object, 'Comment')
+            $method->invoke($this->object, 'Comment'),
         );
 
         unset($GLOBALS['sql_include_comments']);
 
         $this->assertEquals(
             '',
-            $method->invoke($this->object, 'Comment')
+            $method->invoke($this->object, 'Comment'),
         );
     }
 
@@ -409,7 +409,7 @@ class ExportSqlTest extends AbstractTestCase
         $this->expectOutputString('SET FOREIGN_KEY_CHECKS=1;' . "\n" . 'COMMIT;' . "\n");
 
         $this->assertTrue(
-            $this->object->exportFooter()
+            $this->object->exportFooter(),
         );
     }
 
@@ -450,7 +450,7 @@ class ExportSqlTest extends AbstractTestCase
 
         ob_start();
         $this->assertTrue(
-            $this->object->exportHeader()
+            $this->object->exportHeader(),
         );
         $result = ob_get_clean();
 
@@ -469,7 +469,7 @@ class ExportSqlTest extends AbstractTestCase
             "SET SQL_MODE = \"NO_AUTO_VALUE_ON_ZERO\";\n" .
             "START TRANSACTION;\n" .
             "SET time_zone = \"+00:00\";\n",
-            $result
+            $result,
         );
     }
 
@@ -497,7 +497,7 @@ class ExportSqlTest extends AbstractTestCase
 
         ob_start();
         $this->assertTrue(
-            $this->object->exportDBCreate('db', 'database')
+            $this->object->exportDBCreate('db', 'database'),
         );
         $result = ob_get_clean();
 
@@ -507,7 +507,7 @@ class ExportSqlTest extends AbstractTestCase
 
         $this->assertStringContainsString(
             'CREATE DATABASE IF NOT EXISTS `db` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;',
-            $result
+            $result,
         );
 
         $this->assertStringContainsString('USE `db`;', $result);
@@ -532,7 +532,7 @@ class ExportSqlTest extends AbstractTestCase
 
         ob_start();
         $this->assertTrue(
-            $this->object->exportDBCreate('db', 'database')
+            $this->object->exportDBCreate('db', 'database'),
         );
         $result = ob_get_clean();
 
@@ -542,7 +542,7 @@ class ExportSqlTest extends AbstractTestCase
 
         $this->assertStringContainsString(
             'CREATE DATABASE IF NOT EXISTS db DEFAULT CHARACTER SET testcollation;',
-            $result
+            $result,
         );
 
         $this->assertStringContainsString('USE db;', $result);
@@ -556,7 +556,7 @@ class ExportSqlTest extends AbstractTestCase
 
         ob_start();
         $this->assertTrue(
-            $this->object->exportDBHeader('testDB')
+            $this->object->exportDBHeader('testDB'),
         );
         $result = ob_get_clean();
 
@@ -570,7 +570,7 @@ class ExportSqlTest extends AbstractTestCase
 
         ob_start();
         $this->assertTrue(
-            $this->object->exportDBHeader('testDB')
+            $this->object->exportDBHeader('testDB'),
         );
         $result = ob_get_clean();
 
@@ -608,7 +608,7 @@ class ExportSqlTest extends AbstractTestCase
 
         ob_start();
         $this->assertTrue(
-            $this->object->exportEvents('db')
+            $this->object->exportEvents('db'),
         );
         $result = ob_get_clean();
 
@@ -639,7 +639,7 @@ class ExportSqlTest extends AbstractTestCase
 
         ob_start();
         $this->assertTrue(
-            $this->object->exportDBFooter('db')
+            $this->object->exportDBFooter('db'),
         );
         $result = ob_get_clean();
 
@@ -662,8 +662,8 @@ class ExportSqlTest extends AbstractTestCase
             ->with('db', 'view')
             ->will(
                 $this->returnValue(
-                    ['cname' => ['Type' => 'int']]
-                )
+                    ['cname' => ['Type' => 'int']],
+                ),
             );
 
         $GLOBALS['dbi'] = $dbi;
@@ -674,7 +674,7 @@ class ExportSqlTest extends AbstractTestCase
 
         $this->assertStringContainsString(
             'CREATE TABLE IF NOT EXISTS `view` (' . "\n" . '`cname` int' . "\n" . ');' . "\n",
-            $result
+            $result,
         );
     }
 
@@ -705,8 +705,8 @@ class ExportSqlTest extends AbstractTestCase
                             'Comment' => 'cmt',
                             'Field' => 'fname',
                         ],
-                    ]
-                )
+                    ],
+                ),
             );
 
         $GLOBALS['dbi'] = $dbi;
@@ -719,7 +719,7 @@ class ExportSqlTest extends AbstractTestCase
             "CREATE TABLE `view`(\n" .
             "    `fname` char COLLATE utf-8 NOT NULL DEFAULT 'a' COMMENT 'cmt'\n" .
             ");\n",
-            $result
+            $result,
         );
 
         // case 2
@@ -746,8 +746,8 @@ class ExportSqlTest extends AbstractTestCase
                             'Comment' => 'cmt',
                             'Field' => 'fname',
                         ],
-                    ]
-                )
+                    ],
+                ),
             );
         $GLOBALS['dbi'] = $dbi;
 
@@ -757,7 +757,7 @@ class ExportSqlTest extends AbstractTestCase
             "CREATE TABLE IF NOT EXISTS `view`(\n" .
             "    `fname` char COLLATE utf-8 DEFAULT NULL COMMENT 'cmt'\n" .
             ");\n",
-            $result
+            $result,
         );
     }
 
@@ -913,7 +913,7 @@ SQL;
                         'transformation' => 'testfoo',
                         'mimetype' => 'test<',
                     ],
-                ]
+                ],
             );
 
         $GLOBALS['dbi'] = $dbi;
@@ -926,14 +926,14 @@ SQL;
             "-- MEDIA TYPES FOR TABLE :\n" .
             "--   fieldname\n" .
             '--       Test<',
-            $result
+            $result,
         );
 
         $this->assertStringContainsString(
             "-- RELATIONSHIPS FOR TABLE :\n" .
             "--   foo\n" .
             '--       ftable -> ffield',
-            $result
+            $result,
         );
     }
 
@@ -954,8 +954,8 @@ SQL;
                 'test_table',
                 'localhost',
                 'create_table',
-                'test'
-            )
+                'test',
+            ),
         );
         $result = ob_get_clean();
 
@@ -977,8 +977,8 @@ SQL;
                 'test_table',
                 'localhost',
                 'triggers',
-                'test'
-            )
+                'test',
+            ),
         );
         $result = ob_get_clean();
 
@@ -986,7 +986,7 @@ SQL;
         $this->assertStringContainsString('-- Triggers test_table', $result);
         $this->assertStringContainsString(
             'CREATE TRIGGER `test_trigger` AFTER INSERT ON `test_table` FOR EACH ROW BEGIN END',
-            $result
+            $result,
         );
 
         unset($GLOBALS['sql_create_trigger']);
@@ -1003,8 +1003,8 @@ SQL;
                 'test_table',
                 'localhost',
                 'create_view',
-                'test'
-            )
+                'test',
+            ),
         );
         $result = ob_get_clean();
 
@@ -1024,8 +1024,8 @@ SQL;
                 'test_table',
                 'localhost',
                 'create_view',
-                'test'
-            )
+                'test',
+            ),
         );
         $result = ob_get_clean();
 
@@ -1042,8 +1042,8 @@ SQL;
                 'test_table',
                 'localhost',
                 'stand_in',
-                'test'
-            )
+                'test',
+            ),
         );
         $result = ob_get_clean();
 
@@ -1116,7 +1116,7 @@ SQL;
                     '6',
                     "\x00\x0a\x0d\x1a",
                 ],
-                []
+                [],
             );
         $dbi->expects($this->any())->method('quoteString')
             ->will($this->returnCallback(static function (string $string) {
@@ -1164,7 +1164,7 @@ SQL;
             'INSERT DELAYED IGNORE INTO &quot;table&quot; (&quot;name&quot;, ' .
             '&quot;name&quot;, &quot;name&quot;, &quot;name&quot;, ' .
             '&quot;name&quot;) VALUES',
-            $result
+            $result,
         );
 
         $this->assertStringContainsString('(NULL, \'test\', 0x3130, 0x36, 0x000a0d1a);', $result);
@@ -1221,7 +1221,7 @@ SQL;
                     null,
                     null,
                 ],
-                []
+                [],
             );
 
         $_table = $this->getMockBuilder(Table::class)
@@ -1261,7 +1261,7 @@ SQL;
         $this->assertStringContainsString(
             'UPDATE IGNORE &quot;table&quot; SET &quot;name&quot; = NULL,' .
             '&quot;name&quot; = NULL WHERE CONCAT(`tbl`.`pma`) IS NULL;',
-            $result
+            $result,
         );
     }
 
@@ -1297,7 +1297,7 @@ SQL;
 
         ob_start();
         $this->assertTrue(
-            $this->object->exportData('db', 'tbl', 'err.com', 'SELECT')
+            $this->object->exportData('db', 'tbl', 'err.com', 'SELECT'),
         );
         $result = ob_get_clean();
 
@@ -1344,7 +1344,7 @@ SQL;
 
         ob_start();
         $this->assertTrue(
-            $this->object->exportData('db', 'table', 'err.com', 'SELECT')
+            $this->object->exportData('db', 'table', 'err.com', 'SELECT'),
         );
         $result = ob_get_clean();
 
@@ -1395,7 +1395,7 @@ SQL;
             " \" float NOT NULL,\n" .
             " \" float NOT NULL\n" .
             " \" float NOT NULL DEFAULT '213'\n",
-            $result
+            $result,
         );
     }
 
@@ -1455,22 +1455,22 @@ SQL;
 
         $this->assertEquals(
             'f',
-            $this->object->getAlias($aliases, 'bar')
+            $this->object->getAlias($aliases, 'bar'),
         );
 
         $this->assertEquals(
             'aliastest',
-            $this->object->getAlias($aliases, 'a')
+            $this->object->getAlias($aliases, 'a'),
         );
 
         $this->assertEquals(
             'pphymdain',
-            $this->object->getAlias($aliases, 'pqr')
+            $this->object->getAlias($aliases, 'pqr'),
         );
 
         $this->assertEquals(
             '',
-            $this->object->getAlias($aliases, 'abc')
+            $this->object->getAlias($aliases, 'abc'),
         );
     }
 
@@ -1515,7 +1515,7 @@ SQL;
             "  `pphymdain` varchar(10) COLLATE latin1_general_ci NOT NULL COMMENT 'pqr',\n" .
             "  CONSTRAINT `fk_om_dept` FOREIGN KEY (`p`) REFERENCES dept_master (`baz`)\n" .
             ") ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci COMMENT='List'",
-            $result
+            $result,
         );
 
         $result = $this->object->replaceWithAliases($sql_query, [], '');
@@ -1527,7 +1527,7 @@ SQL;
             "  `pqr` varchar(10) COLLATE latin1_general_ci NOT NULL COMMENT 'pqr',\n" .
             "  CONSTRAINT `fk_om_dept` FOREIGN KEY (`baz`) REFERENCES dept_master (`baz`)\n" .
             ") ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci COMMENT='List'",
-            $result
+            $result,
         );
 
         $sql_query = 'CREATE TRIGGER `BEFORE_bar_INSERT` '
@@ -1548,7 +1548,7 @@ SQL;
             'SET NEW.`n`=1; ' .
             'END IF; ' .
             'END',
-            $result
+            $result,
         );
     }
 }

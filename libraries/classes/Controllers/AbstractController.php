@@ -68,7 +68,7 @@ abstract class AbstractController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON(
                     'message',
-                    Message::error(__('No databases selected.'))
+                    Message::error(__('No databases selected.')),
                 );
 
                 return false;

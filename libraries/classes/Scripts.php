@@ -47,7 +47,7 @@ class Scripts
      */
     public function addFile(
         string $filename,
-        array $params = []
+        array $params = [],
     ): void {
         $hash = md5($filename);
         if (! empty($this->files[$hash]) || $filename === '') {

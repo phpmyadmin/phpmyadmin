@@ -26,7 +26,7 @@ final class DropTableController extends AbstractController
         Template $template,
         private DatabaseInterface $dbi,
         private RelationCleanup $relationCleanup,
-        private StructureController $structureController
+        private StructureController $structureController,
     ) {
         parent::__construct($response, $template);
     }

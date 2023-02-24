@@ -15,7 +15,7 @@ final class Template
         private string $username,
         private string $exportType,
         private string $name,
-        string $data
+        string $data,
     ) {
         $this->data = $data;
     }
@@ -28,7 +28,7 @@ final class Template
             $state['username'],
             $state['exportType'] ?? '',
             $state['name'] ?? '',
-            $state['data']
+            $state['data'],
         );
     }
 

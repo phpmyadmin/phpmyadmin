@@ -34,7 +34,7 @@ final class TrackingController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        private Tracking $tracking
+        private Tracking $tracking,
     ) {
         parent::__construct($response, $template);
     }
@@ -73,8 +73,8 @@ final class TrackingController extends AbstractController
             $GLOBALS['msg'] = Message::notice(
                 sprintf(
                     __('Tracking of %s is activated.'),
-                    htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table'])
-                )
+                    htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table']),
+                ),
             );
             $activeMessage = $GLOBALS['msg']->getDisplay();
         }
@@ -103,11 +103,11 @@ final class TrackingController extends AbstractController
             $trackedData = Tracker::getTrackedData(
                 $GLOBALS['db'],
                 $GLOBALS['table'],
-                $versionParam
+                $versionParam,
             );
 
             $dateFrom = $this->validateDateTimeParam(
-                $request->getParsedBodyParam('date_from', $trackedData['date_from'])
+                $request->getParsedBodyParam('date_from', $trackedData['date_from']),
             );
             $dateTo = $this->validateDateTimeParam($request->getParsedBodyParam('date_to', $trackedData['date_to']));
 
@@ -127,7 +127,7 @@ final class TrackingController extends AbstractController
                 $GLOBALS['filter_users'],
                 $logType,
                 $dateFrom,
-                $dateTo
+                $dateTo,
             );
         }
 
@@ -152,12 +152,12 @@ final class TrackingController extends AbstractController
                     }
 
                     $actionMessage = Message::success(
-                        __('Tracking versions deleted successfully.')
+                        __('Tracking versions deleted successfully.'),
                     )->getDisplay();
                 }
             } else {
                 $actionMessage = Message::notice(
-                    __('No versions selected.')
+                    __('No versions selected.'),
                 )->getDisplay();
             }
         }
@@ -167,7 +167,7 @@ final class TrackingController extends AbstractController
             $deleteVersion = $this->tracking->deleteTrackingVersion(
                 $GLOBALS['db'],
                 $GLOBALS['table'],
-                $versionParam
+                $versionParam,
             );
         }
 
@@ -176,7 +176,7 @@ final class TrackingController extends AbstractController
             $createVersion = $this->tracking->createTrackingVersion(
                 $GLOBALS['db'],
                 $GLOBALS['table'],
-                $versionParam
+                $versionParam,
             );
         }
 
@@ -188,14 +188,14 @@ final class TrackingController extends AbstractController
                 $GLOBALS['db'],
                 $GLOBALS['table'],
                 $versionParam,
-                'deactivate'
+                'deactivate',
             );
         } elseif ($toggleActivation === 'activate_now') {
             $activateTracking = $this->tracking->changeTracking(
                 $GLOBALS['db'],
                 $GLOBALS['table'],
                 $versionParam,
-                'activate'
+                'activate',
             );
         }
 
@@ -220,7 +220,7 @@ final class TrackingController extends AbstractController
                 $db,
                 $tableParam,
                 $versionParam,
-                $GLOBALS['urlParams']
+                $GLOBALS['urlParams'],
             );
         }
 
@@ -232,7 +232,7 @@ final class TrackingController extends AbstractController
                 $versionParam,
                 $trackedData,
                 $request->hasBodyParam('delete_ddlog'),
-                $request->hasBodyParam('delete_dmlog')
+                $request->hasBodyParam('delete_dmlog'),
             );
         }
 
@@ -246,7 +246,7 @@ final class TrackingController extends AbstractController
                 $versionParam,
                 $dateFrom,
                 $dateTo,
-                $users
+                $users,
             );
         }
 
@@ -254,7 +254,7 @@ final class TrackingController extends AbstractController
             $GLOBALS['db'],
             $GLOBALS['table'],
             $GLOBALS['urlParams'],
-            $GLOBALS['text_dir']
+            $GLOBALS['text_dir'],
         );
 
         $this->render('table/tracking/index', [

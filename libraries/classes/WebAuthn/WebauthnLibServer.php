@@ -46,7 +46,7 @@ final class WebauthnLibServer implements Server
             AuthenticatorSelectionCriteria::createFromArray([
                 'authenticatorAttachment' => 'cross-platform',
                 'userVerification' => 'discouraged',
-            ])
+            ]),
         );
         /** @psalm-var array{
          *   challenge: non-empty-string,
@@ -60,7 +60,7 @@ final class WebauthnLibServer implements Server
         $creationOptions = $publicKeyCredentialCreationOptions->jsonSerialize();
         $creationOptions['challenge'] = sodium_bin2base64(
             sodium_base642bin($creationOptions['challenge'], SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING),
-            SODIUM_BASE64_VARIANT_ORIGINAL
+            SODIUM_BASE64_VARIANT_ORIGINAL,
         );
         Assert::stringNotEmpty($creationOptions['challenge']);
 
@@ -71,7 +71,7 @@ final class WebauthnLibServer implements Server
         string $userName,
         string $userId,
         string $relyingPartyId,
-        array $allowedCredentials
+        array $allowedCredentials,
     ): array {
         $userEntity = new PublicKeyCredentialUserEntity($userName, $userId, $userName);
         $relyingPartyEntity = new PublicKeyCredentialRpEntity('phpMyAdmin (' . $relyingPartyId . ')', $relyingPartyId);
@@ -80,13 +80,13 @@ final class WebauthnLibServer implements Server
         $credentialSources = $publicKeyCredentialSourceRepository->findAllForUserEntity($userEntity);
         $allowedCredentials = array_map(
             static fn (
-                PublicKeyCredentialSource $credential
+                PublicKeyCredentialSource $credential,
             ): PublicKeyCredentialDescriptor => $credential->getPublicKeyCredentialDescriptor(),
-            $credentialSources
+            $credentialSources,
         );
         $publicKeyCredentialRequestOptions = $server->generatePublicKeyCredentialRequestOptions(
             'discouraged',
-            $allowedCredentials
+            $allowedCredentials,
         );
         /**
          * @psalm-var array{
@@ -97,13 +97,13 @@ final class WebauthnLibServer implements Server
         $requestOptions = $publicKeyCredentialRequestOptions->jsonSerialize();
         $requestOptions['challenge'] = sodium_bin2base64(
             sodium_base642bin($requestOptions['challenge'], SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING),
-            SODIUM_BASE64_VARIANT_ORIGINAL
+            SODIUM_BASE64_VARIANT_ORIGINAL,
         );
         if (isset($requestOptions['allowCredentials'])) {
             foreach ($requestOptions['allowCredentials'] as $key => $credential) {
                 $requestOptions['allowCredentials'][$key]['id'] = sodium_bin2base64(
                     sodium_base642bin($credential['id'], SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING),
-                    SODIUM_BASE64_VARIANT_ORIGINAL
+                    SODIUM_BASE64_VARIANT_ORIGINAL,
                 );
             }
         }
@@ -115,17 +115,17 @@ final class WebauthnLibServer implements Server
         string $assertionResponseJson,
         array $allowedCredentials,
         string $challenge,
-        ServerRequestInterface $request
+        ServerRequestInterface $request,
     ): void {
         Assert::string($this->twofactor->config['settings']['userHandle']);
         $userHandle = sodium_base642bin(
             $this->twofactor->config['settings']['userHandle'],
-            SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING
+            SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING,
         );
         $userEntity = new PublicKeyCredentialUserEntity(
             $this->twofactor->user,
             $userHandle,
-            $this->twofactor->user
+            $this->twofactor->user,
         );
         $host = $request->getUri()->getHost();
         $relyingPartyEntity = new PublicKeyCredentialRpEntity('phpMyAdmin (' . $host . ')', $host);
@@ -142,14 +142,14 @@ final class WebauthnLibServer implements Server
             $assertionResponseJson,
             $requestOptions,
             $userEntity,
-            $request
+            $request,
         );
     }
 
     public function parseAndValidateAttestationResponse(
         string $attestationResponse,
         string $credentialCreationOptions,
-        ServerRequestInterface $request
+        ServerRequestInterface $request,
     ): array {
         $creationOptions = json_decode($credentialCreationOptions, true);
         Assert::isArray($creationOptions);
@@ -190,7 +190,7 @@ final class WebauthnLibServer implements Server
         $publicKeyCredentialSource = $server->loadAndCheckAttestationResponse(
             $attestationResponse,
             $credentialCreationOptions,
-            $request
+            $request,
         );
 
         return $publicKeyCredentialSource->jsonSerialize();

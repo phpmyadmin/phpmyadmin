@@ -28,7 +28,7 @@ class OperationsController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private Operations $operations,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
     }
@@ -80,7 +80,7 @@ class OperationsController extends AbstractController
             if (empty($message->getString())) {
                 if ($GLOBALS['result']) {
                     $message->addText(
-                        __('Your SQL query has been executed successfully.')
+                        __('Your SQL query has been executed successfully.'),
                     );
                 } else {
                     $message->addText(__('Error'));
@@ -98,7 +98,7 @@ class OperationsController extends AbstractController
             $this->response->addHTML(Generator::getMessage(
                 $message,
                 $GLOBALS['sql_query'],
-                $type
+                $type,
             ));
         }
 

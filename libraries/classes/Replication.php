@@ -89,7 +89,7 @@ class Replication
         array $pos,
         bool $stop,
         bool $start,
-        int $connectionType
+        int $connectionType,
     ): ResultInterface|false {
         if ($stop) {
             $this->replicaControl('STOP', null, $connectionType);
@@ -103,7 +103,7 @@ class Replication
             'MASTER_PASSWORD=' . $this->dbi->quoteString($password) . ',' .
             'MASTER_LOG_FILE=' . $this->dbi->quoteString($pos['File']) . ',' .
             'MASTER_LOG_POS=' . $pos['Position'] . ';',
-            $connectionType
+            $connectionType,
         );
 
         if ($start) {
@@ -127,7 +127,7 @@ class Replication
         $password,
         $host = null,
         $port = null,
-        $socket = null
+        $socket = null,
     ): Connection|null {
         $server = [];
         $server['user'] = $user;

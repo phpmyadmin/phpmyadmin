@@ -34,7 +34,7 @@ class NodeEventContainerTest extends AbstractTestCase
                 'text' => ['route' => '/database/events', 'params' => ['db' => null]],
                 'icon' => ['route' => '/database/events', 'params' => ['db' => null]],
             ],
-            $parent->links
+            $parent->links,
         );
         $this->assertEquals('events', $parent->realName);
     }

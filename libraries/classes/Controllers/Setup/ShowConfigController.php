@@ -53,7 +53,7 @@ final class ShowConfigController
 
         // Show generated config file in a <textarea>
         $response->generateHeader303(
-            '../setup/index.php' . Url::getCommonRaw(['route' => '/setup', 'page' => 'config'])
+            '../setup/index.php' . Url::getCommonRaw(['route' => '/setup', 'page' => 'config']),
         );
     }
 }

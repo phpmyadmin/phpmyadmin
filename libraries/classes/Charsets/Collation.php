@@ -74,7 +74,7 @@ final class Collation
         bool $isDefault,
         bool $isCompiled,
         int $sortLength,
-        string $padAttribute
+        string $padAttribute,
     ) {
         $this->name = $name;
         $this->charset = $charset;
@@ -98,7 +98,7 @@ final class Collation
             isset($state['Default']) && ($state['Default'] === 'Yes' || $state['Default'] === '1'),
             isset($state['Compiled']) && ($state['Compiled'] === 'Yes' || $state['Compiled'] === '1'),
             (int) ($state['Sortlen'] ?? 0),
-            $state['Pad_attribute'] ?? ''
+            $state['Pad_attribute'] ?? '',
         );
     }
 
@@ -306,7 +306,7 @@ final class Collation
         bool $unicode,
         bool $unknown,
         string $part,
-        string|null $variant
+        string|null $variant,
     ): array {
         switch ($part) {
             case 'binary':
@@ -427,7 +427,7 @@ final class Collation
         bool $unknown,
         string $part,
         string $name,
-        int $level
+        int $level,
     ): array {
         $found = true;
 

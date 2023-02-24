@@ -54,18 +54,18 @@ class MainControllerTest extends AbstractTestCase
         $files = $response->getHeader()->getScripts()->getFiles();
         $this->assertTrue(
             in_array(['name' => 'normalization.js', 'fire' => 1], $files, true),
-            'normalization.js script was not included in the response.'
+            'normalization.js script was not included in the response.',
         );
         $this->assertTrue(
             in_array(['name' => 'vendor/jquery/jquery.uitablefilter.js', 'fire' => 0], $files, true),
-            'vendor/jquery/jquery.uitablefilter.js script was not included in the response.'
+            'vendor/jquery/jquery.uitablefilter.js script was not included in the response.',
         );
 
         $output = $response->getHTMLResult();
         $this->assertStringContainsString(
             '<form method="post" action="index.php?route=/normalization/1nf/step1&lang=en"'
             . ' name="normalize" id="normalizeTable"',
-            $output
+            $output,
         );
         $this->assertStringContainsString('<input type="hidden" name="db" value="test_db">', $output);
         $this->assertStringContainsString('<input type="hidden" name="table" value="test_table">', $output);

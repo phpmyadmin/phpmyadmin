@@ -64,7 +64,7 @@ class FormDisplayTemplate
         $value,
         $description = '',
         $valueIsDefault = true,
-        $opts = null
+        $opts = null,
     ): string {
         $isSetupScript = $this->config->get('is_setup');
         $optionIsDisabled = ! $isSetupScript && isset($opts['userprefs_allow']) && ! $opts['userprefs_allow'];

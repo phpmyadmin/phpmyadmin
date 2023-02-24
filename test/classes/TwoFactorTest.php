@@ -88,7 +88,7 @@ class TwoFactorTest extends AbstractTestCase
             [
                 ['pma__userconfig'],// Minimal working setup for 2FA
             ],
-            ['Tables_in_phpmyadmin']
+            ['Tables_in_phpmyadmin'],
         );
 
         $this->dummyDbi->addResult(
@@ -96,7 +96,7 @@ class TwoFactorTest extends AbstractTestCase
             [
                 ['pma__userconfig'],// Minimal working setup for 2FA
             ],
-            ['Tables_in_phpmyadmin']
+            ['Tables_in_phpmyadmin'],
         );
 
         $this->dummyDbi->addResult(
@@ -104,7 +104,7 @@ class TwoFactorTest extends AbstractTestCase
             [
                 ['NULL'],
             ],
-            ['NULL']
+            ['NULL'],
         );
     }
 
@@ -137,7 +137,7 @@ class TwoFactorTest extends AbstractTestCase
             [
                 ['groot'],
             ],
-            ['username']
+            ['username'],
         );
 
         $jsonData = (string) json_encode([
@@ -153,7 +153,7 @@ class TwoFactorTest extends AbstractTestCase
         $this->dummyDbi->addResult(
             'UPDATE `phpmyadmin`.`pma__userconfig` SET `timevalue` = NOW(),'
             . ' `config_data` = \'' . $jsonData . '\' WHERE `username` = \'groot\'',
-            []
+            [],
         );
     }
 
@@ -172,7 +172,7 @@ class TwoFactorTest extends AbstractTestCase
                     '1628632378',
                 ],
             ],
-            ['config_data', 'ts']
+            ['config_data', 'ts'],
         );
     }
 
@@ -285,7 +285,7 @@ class TwoFactorTest extends AbstractTestCase
         $google2fa = $app->getGoogle2fa();
         $_POST['2fa_code'] = $google2fa->oathTotp(
             $object->config['settings']['secret'],
-            $google2fa->getTimestamp()
+            $google2fa->getTimestamp(),
         );
 
         $this->dummyDbi->assertAllQueriesConsumed();
@@ -306,7 +306,7 @@ class TwoFactorTest extends AbstractTestCase
         $this->assertFalse($object->check(true));
         $_POST['2fa_code'] = $google2fa->oathTotp(
             $object->config['settings']['secret'],
-            $google2fa->getTimestamp()
+            $google2fa->getTimestamp(),
         );
         $this->assertTrue($object->check(true));
         unset($_POST['2fa_code']);
@@ -390,7 +390,7 @@ class TwoFactorTest extends AbstractTestCase
 
         $_SESSION['registrationRequest'] = new RegistrationRequest(
             'yKA0x075tjJ-GE7fKTfnzTOSaNUOWQxRd9TWz5aFOg8',
-            'http://demo.example.com'
+            'http://demo.example.com',
         );
         unset($_POST['u2f_registration_response']);
         $this->assertFalse($object->configure('key'));
@@ -507,7 +507,7 @@ class TwoFactorTest extends AbstractTestCase
         $backends = $object->getAllBackends();
         $this->assertCount(
             count($object->getAvailable()) + 1,
-            $backends
+            $backends,
         );
         $GLOBALS['cfg']['DBG']['simple2fa'] = false;
     }

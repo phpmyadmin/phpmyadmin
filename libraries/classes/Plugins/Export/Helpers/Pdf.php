@@ -95,7 +95,7 @@ class Pdf extends PdfLib
         $unicode = true,
         $encoding = 'UTF-8',
         $diskcache = false,
-        $pdfa = false
+        $pdfa = false,
     ) {
         parent::__construct($orientation, $unit, $format, $unicode, $encoding, $diskcache, $pdfa);
         $this->relation = new Relation($GLOBALS['dbi']);
@@ -184,7 +184,7 @@ class Pdf extends PdfLib
                 . __('Purpose:') . ' ' . $this->purpose,
                 0,
                 1,
-                'L'
+                'L',
             );
             $l = $this->lMargin;
             foreach ($this->colTitles as $col => $txt) {
@@ -326,7 +326,7 @@ class Pdf extends PdfLib
             $this->tablewidths,
             $this->colTitles,
             $this->displayColumn,
-            $this->colAlign
+            $this->colAlign,
         );
 
         /**
@@ -387,7 +387,7 @@ class Pdf extends PdfLib
                         $this->FontSizePt,
                         $txt,
                         0,
-                        $this->colAlign[$col]
+                        $this->colAlign[$col],
                     );
                     $l += $this->tablewidths[$col];
                 }
@@ -461,7 +461,7 @@ class Pdf extends PdfLib
         $do_comments,
         $do_mime,
         $view = false,
-        array $aliases = []
+        array $aliases = [],
     ): void {
         $relationParameters = $this->relation->getRelationParameters();
 
@@ -469,7 +469,7 @@ class Pdf extends PdfLib
             $this->tablewidths,
             $this->colTitles,
             $this->displayColumn,
-            $this->colAlign
+            $this->colAlign,
         );
 
         /**
@@ -621,7 +621,7 @@ class Pdf extends PdfLib
                         $this->FontSizePt,
                         $txt,
                         0,
-                        $this->colAlign[$col]
+                        $this->colAlign[$col],
                     );
                     $l += $this->tablewidths[$col];
                 }
@@ -683,7 +683,7 @@ class Pdf extends PdfLib
             $this->tablewidths,
             $this->colTitles,
             $this->displayColumn,
-            $this->colAlign
+            $this->colAlign,
         );
 
         /**
@@ -692,7 +692,7 @@ class Pdf extends PdfLib
         $this->results = $GLOBALS['dbi']->query(
             $query,
             Connection::TYPE_USER,
-            DatabaseInterface::QUERY_UNBUFFERED
+            DatabaseInterface::QUERY_UNBUFFERED,
         );
         $numFields = $this->results->numFields();
         $fields = $GLOBALS['dbi']->getFieldsMeta($this->results);
@@ -825,7 +825,7 @@ class Pdf extends PdfLib
         $this->results = $GLOBALS['dbi']->query(
             $query,
             Connection::TYPE_USER,
-            DatabaseInterface::QUERY_UNBUFFERED
+            DatabaseInterface::QUERY_UNBUFFERED,
         );
         $this->setY($this->tMargin);
         $this->AddPage();

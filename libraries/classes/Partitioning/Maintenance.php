@@ -22,7 +22,7 @@ final class Maintenance
         $query = sprintf(
             'ALTER TABLE %s ANALYZE PARTITION %s;',
             Util::backquote($table->getName()),
-            Util::backquote($partition)
+            Util::backquote($partition),
         );
 
         $this->dbi->selectDb($db);
@@ -41,7 +41,7 @@ final class Maintenance
         $query = sprintf(
             'ALTER TABLE %s CHECK PARTITION %s;',
             Util::backquote($table->getName()),
-            Util::backquote($partition)
+            Util::backquote($partition),
         );
 
         $this->dbi->selectDb($db);
@@ -60,7 +60,7 @@ final class Maintenance
         $query = sprintf(
             'ALTER TABLE %s DROP PARTITION %s;',
             Util::backquote($table->getName()),
-            Util::backquote($partition)
+            Util::backquote($partition),
         );
 
         $this->dbi->selectDb($db);
@@ -74,7 +74,7 @@ final class Maintenance
         $query = sprintf(
             'ALTER TABLE %s OPTIMIZE PARTITION %s;',
             Util::backquote($table->getName()),
-            Util::backquote($partition)
+            Util::backquote($partition),
         );
 
         $this->dbi->selectDb($db);
@@ -97,7 +97,7 @@ final class Maintenance
         $query = sprintf(
             'ALTER TABLE %s REBUILD PARTITION %s;',
             Util::backquote($table->getName()),
-            Util::backquote($partition)
+            Util::backquote($partition),
         );
 
         $this->dbi->selectDb($db);
@@ -111,7 +111,7 @@ final class Maintenance
         $query = sprintf(
             'ALTER TABLE %s REPAIR PARTITION %s;',
             Util::backquote($table->getName()),
-            Util::backquote($partition)
+            Util::backquote($partition),
         );
 
         $this->dbi->selectDb($db);
@@ -134,7 +134,7 @@ final class Maintenance
         $query = sprintf(
             'ALTER TABLE %s TRUNCATE PARTITION %s;',
             Util::backquote($table->getName()),
-            Util::backquote($partition)
+            Util::backquote($partition),
         );
 
         $this->dbi->selectDb($db);

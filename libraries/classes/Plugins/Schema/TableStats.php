@@ -71,7 +71,7 @@ abstract class TableStats
         protected $tableName,
         protected $showKeys,
         protected $tableDimension,
-        protected $offline
+        protected $offline,
     ) {
         $this->relation = new Relation($GLOBALS['dbi']);
         $this->font = new Font();
@@ -105,7 +105,7 @@ abstract class TableStats
             foreach ($indexes as $index) {
                 $all_columns = array_merge(
                     $all_columns,
-                    array_flip(array_keys($index->getColumns()))
+                    array_flip(array_keys($index->getColumns())),
                 );
             }
 

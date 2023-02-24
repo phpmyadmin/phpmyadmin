@@ -78,20 +78,20 @@ class ImportXmlTest extends AbstractTestCase
         $properties = $this->object->getProperties();
         $this->assertEquals(
             __('XML'),
-            $properties->getText()
+            $properties->getText(),
         );
         $this->assertEquals(
             'xml',
-            $properties->getExtension()
+            $properties->getExtension(),
         );
         $this->assertEquals(
             'text/xml',
-            $properties->getMimeType()
+            $properties->getMimeType(),
         );
         $this->assertNull($properties->getOptions());
         $this->assertEquals(
             __('Options'),
-            $properties->getOptionsText()
+            $properties->getOptionsText(),
         );
     }
 
@@ -133,7 +133,7 @@ class ImportXmlTest extends AbstractTestCase
         //asset that all databases and tables are imported
         $this->assertStringContainsString(
             'The following structures have either been created or altered.',
-            $GLOBALS['import_notice']
+            $GLOBALS['import_notice'],
         );
         $this->assertStringContainsString('Go to database: `phpmyadmintest`', $GLOBALS['import_notice']);
         $this->assertStringContainsString('Edit settings for `phpmyadmintest`', $GLOBALS['import_notice']);

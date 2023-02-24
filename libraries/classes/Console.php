@@ -79,9 +79,9 @@ class Console
                 _ngettext(
                     'Showing %1$d bookmark (both private and shared)',
                     'Showing %1$d bookmarks (both private and shared)',
-                    $count_bookmarks
+                    $count_bookmarks,
                 ),
-                $count_bookmarks
+                $count_bookmarks,
             );
         } else {
             $welcomeMessage = __('No bookmarks');

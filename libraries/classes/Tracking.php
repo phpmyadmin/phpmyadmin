@@ -40,7 +40,7 @@ class Tracking
         private SqlQueryForm $sqlQueryForm,
         public Template $template,
         protected Relation $relation,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
     }
 
@@ -56,7 +56,7 @@ class Tracking
         array $data,
         array $filter_users,
         DateTimeImmutable $dateFrom,
-        DateTimeImmutable $dateTo
+        DateTimeImmutable $dateTo,
     ): array {
         $tmp_entries = [];
         $id = 0;
@@ -97,7 +97,7 @@ class Tracking
             Util::backquote($trackingFeature->database),
             Util::backquote($trackingFeature->tracking),
             $this->dbi->escapeString($db),
-            $this->dbi->escapeString($table)
+            $this->dbi->escapeString($table),
         );
 
         return $this->dbi->queryAsControlUser($query);
@@ -115,7 +115,7 @@ class Tracking
         string $table,
         $urlParams,
         $textDir,
-        $lastVersion = null
+        $lastVersion = null,
     ): string {
         $selectableTablesSqlResult = $this->getSqlResultForSelectableTables($db);
         $selectableTablesEntries = [];
@@ -198,7 +198,7 @@ class Tracking
         string $version,
         DateTimeImmutable $dateFrom,
         DateTimeImmutable $dateTo,
-        string $users
+        string $users,
     ): string {
         $html = '<h3>' . __('Tracking report')
             . '  [<a href="' . Url::getFromRoute('/table/tracking', $url_params) . '">' . __('Close')
@@ -212,7 +212,7 @@ class Tracking
             $logType,
             $dateFrom,
             $dateTo,
-            $users
+            $users,
         );
 
         // Prepare delete link content here
@@ -220,7 +220,7 @@ class Tracking
         if (Util::showIcons('ActionLinksMode')) {
             $drop_image_or_text .= Generator::getImage(
                 'b_drop',
-                __('Delete tracking data row from report')
+                __('Delete tracking data row from report'),
             );
         }
 
@@ -247,7 +247,7 @@ class Tracking
             $drop_image_or_text,
             $version,
             $dateFrom,
-            $dateTo
+            $dateTo,
         );
 
         $html .= $this->getHtmlForTrackingReportExportForm2(
@@ -261,7 +261,7 @@ class Tracking
             $version,
             $dateFrom,
             $dateTo,
-            $users
+            $users,
         );
 
         $html .= "<br><br><hr><br>\n";
@@ -280,7 +280,7 @@ class Tracking
         string $logType,
         DateTimeImmutable $dateFrom,
         DateTimeImmutable $dateTo,
-        string $users
+        string $users,
     ): array {
         $str1 = '<select name="log_type">'
             . '<option value="schema"'
@@ -340,7 +340,7 @@ class Tracking
         $drop_image_or_text,
         string $version,
         DateTimeImmutable $dateFrom,
-        DateTimeImmutable $dateTo
+        DateTimeImmutable $dateTo,
     ): string {
         $ddlog_count = 0;
 
@@ -356,7 +356,7 @@ class Tracking
             $str2,
             $str3,
             $str4,
-            $str5
+            $str5,
         );
 
         if ($logType === 'schema' || $logType === 'schema_and_data' && count($data['ddlog']) > 0) {
@@ -367,7 +367,7 @@ class Tracking
                 $drop_image_or_text,
                 $version,
                 $dateFrom,
-                $dateTo
+                $dateTo,
             );
             $html .= $temp;
             unset($temp);
@@ -383,7 +383,7 @@ class Tracking
                 $drop_image_or_text,
                 $version,
                 $dateFrom,
-                $dateTo
+                $dateTo,
             );
         }
 
@@ -416,7 +416,7 @@ class Tracking
         string $version,
         DateTimeImmutable $dateFrom,
         DateTimeImmutable $dateTo,
-        string $users
+        string $users,
     ): string {
         $html = '<form method="post" action="' . Url::getFromRoute('/table/tracking') . '">';
         $html .= Url::getHiddenInputs($url_params + [
@@ -430,7 +430,7 @@ class Tracking
             $str2,
             $str3,
             $str4,
-            $str5
+            $str5,
         );
         $html .= '</form>';
 
@@ -451,7 +451,7 @@ class Tracking
             . '<option value="sqldump">' . __('SQL dump') . '</option>'
             . '<option value="execution" onclick="alert('
             . htmlspecialchars((string) json_encode(
-                __('This option will replace your table and contained data.')
+                __('This option will replace your table and contained data.'),
             ))
             . ')">' . __('SQL execution') . '</option></select>';
 
@@ -481,7 +481,7 @@ class Tracking
         $drop_image_or_text,
         string $version,
         DateTimeImmutable $dateFrom,
-        DateTimeImmutable $dateTo
+        DateTimeImmutable $dateTo,
     ): string {
         // no need for the second returned parameter
         [$html] = $this->getHtmlForDataStatements(
@@ -495,7 +495,7 @@ class Tracking
             'dml_versions',
             $version,
             $dateFrom,
-            $dateTo
+            $dateTo,
         );
 
         return $html;
@@ -518,7 +518,7 @@ class Tracking
         $drop_image_or_text,
         string $version,
         DateTimeImmutable $dateFrom,
-        DateTimeImmutable $dateTo
+        DateTimeImmutable $dateTo,
     ): array {
         [$html, $line_number] = $this->getHtmlForDataStatements(
             $data,
@@ -531,7 +531,7 @@ class Tracking
             'ddl_versions',
             $version,
             $dateFrom,
-            $dateTo
+            $dateTo,
         );
 
         return [
@@ -565,7 +565,7 @@ class Tracking
         $tableId,
         string $version,
         DateTimeImmutable $dateFrom,
-        DateTimeImmutable $dateTo
+        DateTimeImmutable $dateTo,
     ): array {
         $offset = $lineNumber;
         $entries = [];
@@ -630,9 +630,9 @@ class Tracking
         $html .= Generator::getMessage(
             sprintf(
                 __('Version %s snapshot (SQL code)'),
-                htmlspecialchars($version)
+                htmlspecialchars($version),
             ),
-            $drop_create_statements
+            $drop_create_statements,
         );
 
         // Unserialize snapshot
@@ -690,7 +690,7 @@ class Tracking
         string $version,
         array &$data,
         bool $delete_ddlog,
-        bool $delete_dmlog
+        bool $delete_dmlog,
     ): string {
         $html = '';
         if ($delete_ddlog) {
@@ -702,7 +702,7 @@ class Tracking
                 $data,
                 'ddlog',
                 'DDL',
-                __('Tracking data definition successfully deleted')
+                __('Tracking data definition successfully deleted'),
             );
         }
 
@@ -715,7 +715,7 @@ class Tracking
                 $data,
                 'dmlog',
                 'DML',
-                __('Tracking data manipulation successfully deleted')
+                __('Tracking data manipulation successfully deleted'),
             );
         }
 
@@ -739,7 +739,7 @@ class Tracking
         array &$data,
         $which_log,
         $type,
-        $message
+        $message,
     ): string {
         $html = '';
         $delete_id = $_POST['delete_' . $which_log];
@@ -753,7 +753,7 @@ class Tracking
                 $table,
                 $version,
                 $type,
-                $data[$which_log]
+                $data[$which_log],
             );
             if ($successfullyDeleted) {
                 $msg = Message::success($message);
@@ -780,7 +780,7 @@ class Tracking
         $new_query = '# '
             . __(
                 'You can execute the dump by creating and using a temporary database. '
-                . 'Please ensure that you have the privileges to do so.'
+                . 'Please ensure that you have the privileges to do so.',
             )
             . "\n"
             . '# ' . __('Comment out these two lines if you do not need them.') . "\n"
@@ -794,7 +794,7 @@ class Tracking
         }
 
         $msg = Message::success(
-            __('SQL statements exported. Please copy the dump or execute it.')
+            __('SQL statements exported. Please copy the dump or execute it.'),
         );
         $html .= $msg->getDisplay();
 
@@ -860,8 +860,8 @@ class Tracking
                 sprintf(
                     $message,
                     htmlspecialchars($db . '.' . $table),
-                    htmlspecialchars($version)
-                )
+                    htmlspecialchars($version),
+                ),
             );
             $html .= $msg->getDisplay();
         }
@@ -949,8 +949,8 @@ class Tracking
                 sprintf(
                     __('Version %1$s of %2$s was deleted.'),
                     htmlspecialchars($version),
-                    htmlspecialchars($db . '.' . $table)
-                )
+                    htmlspecialchars($db . '.' . $table),
+                ),
             );
             $html .= $msg->getDisplay();
         }
@@ -973,15 +973,15 @@ class Tracking
             $table,
             $version,
             $tracking_set,
-            $this->dbi->getTable($db, $table)->isView()
+            $this->dbi->getTable($db, $table)->isView(),
         );
         if ($versionCreated) {
             $msg = Message::success(
                 sprintf(
                     __('Version %1$s was created, tracking for %2$s is active.'),
                     htmlspecialchars($version),
-                    htmlspecialchars($db . '.' . $table)
-                )
+                    htmlspecialchars($db . '.' . $table),
+                ),
             );
             $html .= $msg->getDisplay();
         }
@@ -1004,7 +1004,7 @@ class Tracking
                 $selected_table,
                 $version,
                 $tracking_set,
-                $this->dbi->getTable($db, $selected_table)->isView()
+                $this->dbi->getTable($db, $selected_table)->isView(),
             );
         }
     }
@@ -1023,14 +1023,14 @@ class Tracking
         array $filter_users,
         string $logType,
         DateTimeImmutable $dateFrom,
-        DateTimeImmutable $dateTo
+        DateTimeImmutable $dateTo,
     ): array {
         $entries = [];
         // Filtering data definition statements
         if ($logType === 'schema' || $logType === 'schema_and_data') {
             $entries = array_merge(
                 $entries,
-                $this->filter($data['ddlog'], $filter_users, $dateFrom, $dateTo)
+                $this->filter($data['ddlog'], $filter_users, $dateFrom, $dateTo),
             );
         }
 
@@ -1038,7 +1038,7 @@ class Tracking
         if ($logType === 'data' || $logType === 'schema_and_data') {
             $entries = array_merge(
                 $entries,
-                $this->filter($data['dmlog'], $filter_users, $dateFrom, $dateTo)
+                $this->filter($data['dmlog'], $filter_users, $dateFrom, $dateTo),
             );
         }
 
@@ -1068,7 +1068,7 @@ class Tracking
     public function getHtmlForDbTrackingTables(
         string $db,
         array $urlParams,
-        string $textDir
+        string $textDir,
     ): string {
         $trackingFeature = $this->relation->getRelationParameters()->trackingFeature;
         if ($trackingFeature === null) {

@@ -37,7 +37,7 @@ class OptionsPropertyMainGroupTest extends AbstractTestCase
     {
         $this->assertEquals(
             'main',
-            $this->object->getItemType()
+            $this->object->getItemType(),
         );
     }
 }

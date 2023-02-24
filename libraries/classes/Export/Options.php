@@ -103,7 +103,7 @@ final class Options
         $sqlQuery,
         int|string $numTables,
         int|string $unlimNumRows,
-        array $exportList
+        array $exportList,
     ): array {
         $exportTemplatesFeature = $this->relation->getRelationParameters()->exportTemplatesFeature;
 
@@ -114,7 +114,7 @@ final class Options
                 $exportTemplatesFeature->database,
                 $exportTemplatesFeature->exportTemplates,
                 $GLOBALS['cfg']['Server']['user'],
-                $exportType
+                $exportType,
             );
 
             $templates = is_array($templates) ? $templates : [];
@@ -215,20 +215,20 @@ final class Options
         if ($exportType === 'database') {
             return (string) $GLOBALS['config']->getUserValue(
                 'pma_db_filename_template',
-                $GLOBALS['cfg']['Export']['file_template_database']
+                $GLOBALS['cfg']['Export']['file_template_database'],
             );
         }
 
         if ($exportType === 'table') {
             return (string) $GLOBALS['config']->getUserValue(
                 'pma_table_filename_template',
-                $GLOBALS['cfg']['Export']['file_template_table']
+                $GLOBALS['cfg']['Export']['file_template_table'],
             );
         }
 
         return (string) $GLOBALS['config']->getUserValue(
             'pma_server_filename_template',
-            $GLOBALS['cfg']['Export']['file_template_server']
+            $GLOBALS['cfg']['Export']['file_template_server'],
         );
     }
 }

@@ -114,7 +114,7 @@ class Index
         DatabaseInterface $dbi,
         string $schema,
         string $table,
-        string $index_name = ''
+        string $index_name = '',
     ): Index {
         self::loadIndexes($dbi, $table, $schema);
         if (isset(self::$registry[$schema][$table][$index_name])) {
@@ -594,8 +594,8 @@ class Index
 
                 $message = Message::notice(
                     __(
-                        'The indexes %1$s and %2$s seem to be equal and one of them could possibly be removed.'
-                    )
+                        'The indexes %1$s and %2$s seem to be equal and one of them could possibly be removed.',
+                    ),
                 );
                 $message->addParam($each_index->getName());
                 $message->addParam($while_index->getName());

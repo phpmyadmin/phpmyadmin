@@ -109,7 +109,7 @@ final class Ajax
         }
 
         echo json_encode(
-            $_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getUploadStatus($id)
+            $_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getUploadStatus($id),
         );
     }
 }

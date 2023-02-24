@@ -39,7 +39,7 @@ class OperationsController extends AbstractController
         private CheckUserPrivileges $checkUserPrivileges,
         private Relation $relation,
         private RelationCleanup $relationCleanup,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
     }
@@ -78,7 +78,7 @@ class OperationsController extends AbstractController
             if ($newDatabaseName !== null) {
                 if ($newDatabaseName->getName() === $_REQUEST['db']) {
                     $GLOBALS['message'] = Message::error(
-                        __('Cannot copy database to the same name. Change the name and try again.')
+                        __('Cannot copy database to the same name. Change the name and try again.'),
                     );
                 } else {
                     if ($move || $request->hasBodyParam('create_database_before_copying')) {
@@ -109,7 +109,7 @@ class OperationsController extends AbstractController
                         $tableNames,
                         $exportSqlPlugin,
                         $GLOBALS['db'],
-                        $newDatabaseName
+                        $newDatabaseName,
                     );
 
                     // copy tables
@@ -117,7 +117,7 @@ class OperationsController extends AbstractController
                         $tableNames,
                         $move,
                         $GLOBALS['db'],
-                        $newDatabaseName
+                        $newDatabaseName,
                     );
 
                     // handle the views
@@ -125,14 +125,14 @@ class OperationsController extends AbstractController
                         $views,
                         $move,
                         $GLOBALS['db'],
-                        $newDatabaseName
+                        $newDatabaseName,
                     );
 
                     // now that all tables exist, create all the accumulated constraints
                     if ($sqlConstraints !== []) {
                         $this->operations->createAllAccumulatedConstraints(
                             $sqlConstraints,
-                            $newDatabaseName
+                            $newDatabaseName,
                         );
                     }
 
@@ -165,7 +165,7 @@ class OperationsController extends AbstractController
                         $this->dbi->query($localQuery);
 
                         $GLOBALS['message'] = Message::success(
-                            __('Database %1$s has been renamed to %2$s.')
+                            __('Database %1$s has been renamed to %2$s.'),
                         );
                         $GLOBALS['message']->addParam($GLOBALS['db']);
                         $GLOBALS['message']->addParam($newDatabaseName->getName());
@@ -175,7 +175,7 @@ class OperationsController extends AbstractController
                         }
 
                         $GLOBALS['message'] = Message::success(
-                            __('Database %1$s has been copied to %2$s.')
+                            __('Database %1$s has been copied to %2$s.'),
                         );
                         $GLOBALS['message']->addParam($GLOBALS['db']);
                         $GLOBALS['message']->addParam($newDatabaseName->getName());
@@ -207,7 +207,7 @@ class OperationsController extends AbstractController
                 $this->response->addJSON('newname', $newDatabaseName?->getName() ?? '');
                 $this->response->addJSON(
                     'sql_query',
-                    Generator::getMessage('', $GLOBALS['sql_query'])
+                    Generator::getMessage('', $GLOBALS['sql_query']),
                 );
                 $this->response->addJSON('db', $GLOBALS['db']);
 
@@ -267,12 +267,12 @@ class OperationsController extends AbstractController
         if (! $relationParameters->hasAllFeatures() && $GLOBALS['cfg']['PmaNoRelation_DisableWarning'] == false) {
             $GLOBALS['message'] = Message::notice(
                 __(
-                    'The phpMyAdmin configuration storage has been deactivated. %sFind out why%s.'
-                )
+                    'The phpMyAdmin configuration storage has been deactivated. %sFind out why%s.',
+                ),
             );
             $GLOBALS['message']->addParamHtml(
                 '<a href="' . Url::getFromRoute('/check-relations')
-                . '" data-post="' . Url::getCommon(['db' => $GLOBALS['db']]) . '">'
+                . '" data-post="' . Url::getCommon(['db' => $GLOBALS['db']]) . '">',
             );
             $GLOBALS['message']->addParamHtml('</a>');
             /* Show error if user has configured something, notice elsewhere */

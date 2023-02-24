@@ -34,7 +34,7 @@ class NodeProcedureContainerTest extends AbstractTestCase
                 'text' => ['route' => '/database/routines', 'params' => ['type' => 'PROCEDURE', 'db' => null]],
                 'icon' => ['route' => '/database/routines', 'params' => ['type' => 'PROCEDURE', 'db' => null]],
             ],
-            $parent->links
+            $parent->links,
         );
         $this->assertEquals('procedures', $parent->realName);
     }

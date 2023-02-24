@@ -61,7 +61,7 @@ class StructureControllerTest extends AbstractTestCase
                 ['utf8_bin', 'utf8', '83', '', 'Yes', '1'],
                 ['latin1_swedish_ci', 'latin1', '8', 'Yes', 'Yes', '1'],
             ],
-            ['Collation', 'Charset', 'Id', 'Default', 'Compiled', 'Sortlen']
+            ['Collation', 'Charset', 'Id', 'Default', 'Compiled', 'Sortlen'],
         );
         // phpcs:disable Generic.Files.LineLength.TooLong
         $this->dummyDbi->addResult(
@@ -69,12 +69,12 @@ class StructureControllerTest extends AbstractTestCase
             [
                 ['def', 'test_db', 'test_table', null, null, null, null, null, null, null, null, null, '3', '5461', '16384', null, '0', '0', '2022-02-21 13:34:11', null, null, null, '', '', null],
             ],
-            ['TABLE_CATALOG', 'TABLE_SCHEMA', 'TABLE_NAME', 'PARTITION_NAME', 'SUBPARTITION_NAME', 'PARTITION_ORDINAL_POSITION', 'SUBPARTITION_ORDINAL_POSITION', 'PARTITION_METHOD', 'SUBPARTITION_METHOD', 'PARTITION_EXPRESSION', 'SUBPARTITION_EXPRESSION', 'PARTITION_DESCRIPTION', 'TABLE_ROWS', 'AVG_ROW_LENGTH', 'DATA_LENGTH', 'MAX_DATA_LENGTH', 'INDEX_LENGTH', 'DATA_FREE', 'CREATE_TIME', 'UPDATE_TIME', 'CHECK_TIME', 'CHECKSUM', 'PARTITION_COMMENT', 'NODEGROUP', 'TABLESPACE_NAME']
+            ['TABLE_CATALOG', 'TABLE_SCHEMA', 'TABLE_NAME', 'PARTITION_NAME', 'SUBPARTITION_NAME', 'PARTITION_ORDINAL_POSITION', 'SUBPARTITION_ORDINAL_POSITION', 'PARTITION_METHOD', 'SUBPARTITION_METHOD', 'PARTITION_EXPRESSION', 'SUBPARTITION_EXPRESSION', 'PARTITION_DESCRIPTION', 'TABLE_ROWS', 'AVG_ROW_LENGTH', 'DATA_LENGTH', 'MAX_DATA_LENGTH', 'INDEX_LENGTH', 'DATA_FREE', 'CREATE_TIME', 'UPDATE_TIME', 'CHECK_TIME', 'CHECKSUM', 'PARTITION_COMMENT', 'NODEGROUP', 'TABLESPACE_NAME'],
         );
         $this->dummyDbi->addResult(
             'SELECT DISTINCT `PARTITION_NAME` FROM `information_schema`.`PARTITIONS` WHERE `TABLE_SCHEMA` = \'test_db\' AND `TABLE_NAME` = \'test_table\'',
             [[null]],
-            ['PARTITION_NAME']
+            ['PARTITION_NAME'],
         );
         // phpcs:enable
 
@@ -92,7 +92,7 @@ class StructureControllerTest extends AbstractTestCase
             $template,
             $relation,
             new Transformations(),
-            $this->dbi
+            $this->dbi,
         ))($request);
 
         $expected = $pageSettings->getHTML();

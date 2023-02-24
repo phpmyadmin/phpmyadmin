@@ -56,7 +56,7 @@ class PrivilegesControllerTest extends AbstractTestCase
             $response,
             new Template(),
             $serverPrivileges,
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
         ))($request);
         $actual = $response->getHTMLResult();
 
@@ -72,37 +72,37 @@ class PrivilegesControllerTest extends AbstractTestCase
         //validate 3: items
         $this->assertStringContainsString(
             __('User'),
-            $actual
+            $actual,
         );
         $this->assertStringContainsString(
             __('Host'),
-            $actual
+            $actual,
         );
         $this->assertStringContainsString(
             __('Type'),
-            $actual
+            $actual,
         );
         $this->assertStringContainsString(
             __('Privileges'),
-            $actual
+            $actual,
         );
         $this->assertStringContainsString(
             __('Grant'),
-            $actual
+            $actual,
         );
         $this->assertStringContainsString(
             __('Action'),
-            $actual
+            $actual,
         );
         $this->assertStringContainsString(
             __('No user found'),
-            $actual
+            $actual,
         );
 
         //_pgettext('Create new user', 'New')
         $this->assertStringContainsString(
             _pgettext('Create new user', 'New'),
-            $actual
+            $actual,
         );
     }
 
@@ -119,7 +119,7 @@ class PrivilegesControllerTest extends AbstractTestCase
             $response,
             new Template(),
             $this->createStub(Privileges::class),
-            $this->createDatabaseInterface()
+            $this->createDatabaseInterface(),
         ))($request);
         $actual = $response->getHTMLResult();
 
@@ -140,7 +140,7 @@ class PrivilegesControllerTest extends AbstractTestCase
             $response,
             new Template(),
             $this->createStub(Privileges::class),
-            $this->createDatabaseInterface()
+            $this->createDatabaseInterface(),
         ))($request);
         $actual = $response->getHTMLResult();
 

@@ -127,7 +127,7 @@ abstract class TestBase extends TestCase
         if ($this->getTestSuiteUserLogin() === '') {
             //TODO: handle config mode
             $this->markTestSkipped(
-                'The ENV "TESTSUITE_USER" is not defined, you may also want to define "TESTSUITE_PASSWORD".'
+                'The ENV "TESTSUITE_USER" is not defined, you may also want to define "TESTSUITE_PASSWORD".',
             );
         }
 
@@ -160,7 +160,7 @@ abstract class TestBase extends TestCase
     {
         $this->databaseName = $this->getDbPrefix() . bin2hex(random_bytes(4));
         $this->dbQuery(
-            'CREATE DATABASE IF NOT EXISTS `' . $this->databaseName . '`; USE `' . $this->databaseName . '`;'
+            'CREATE DATABASE IF NOT EXISTS `' . $this->databaseName . '`; USE `' . $this->databaseName . '`;',
         );
         static::$createDatabase = true;
     }
@@ -329,7 +329,7 @@ abstract class TestBase extends TestCase
                 'debug' => false,
                 'consoleLogs' => 'verbose',
                 'networkLogs' => true,
-            ]
+            ],
         );
     }
 
@@ -347,21 +347,21 @@ abstract class TestBase extends TestCase
                 $capabilities->setCapability(ChromeOptions::CAPABILITY_W3C, $chromeOptions);
                 $capabilities->setCapability(
                     'loggingPrefs',
-                    ['browser' => 'ALL']
+                    ['browser' => 'ALL'],
                 );
 
                 if ($this->hasCIConfig() && $this->hasBrowserstackConfig()) {
                     $capabilities->setCapability(
                         'os',
-                        'Windows' // Force windows
+                        'Windows', // Force windows
                     );
                     $capabilities->setCapability(
                         'os_version',
-                        '10' // Force windows 10
+                        '10', // Force windows 10
                     );
                     $capabilities->setCapability(
                         'browser_version',
-                        '80.0' // Force chrome 80.0
+                        '80.0', // Force chrome 80.0
                     );
                     $capabilities->setCapability('resolution', '1920x1080');
                 }
@@ -373,15 +373,15 @@ abstract class TestBase extends TestCase
                 if ($this->hasCIConfig() && $this->hasBrowserstackConfig()) {
                     $capabilities->setCapability(
                         'os',
-                        'OS X' // Force OS X
+                        'OS X', // Force OS X
                     );
                     $capabilities->setCapability(
                         'os_version',
-                        'Sierra' // Force OS X Sierra
+                        'Sierra', // Force OS X Sierra
                     );
                     $capabilities->setCapability(
                         'browser_version',
-                        '10.1' // Force Safari 10.1
+                        '10.1', // Force Safari 10.1
                     );
                 }
 
@@ -392,15 +392,15 @@ abstract class TestBase extends TestCase
                 if ($this->hasCIConfig() && $this->hasBrowserstackConfig()) {
                     $capabilities->setCapability(
                         'os',
-                        'Windows' // Force windows
+                        'Windows', // Force windows
                     );
                     $capabilities->setCapability(
                         'os_version',
-                        '10' // Force windows 10
+                        '10', // Force windows 10
                     );
                     $capabilities->setCapability(
                         'browser_version',
-                        'insider preview' // Force Edge insider preview
+                        'insider preview', // Force Edge insider preview
                     );
                 }
 
@@ -630,7 +630,7 @@ abstract class TestBase extends TestCase
         if (! $this->sqlWindowHandle) {
             $this->webDriver->executeScript("window.open('about:blank','_blank');", []);
             $this->webDriver->wait()->until(
-                WebDriverExpectedCondition::numberOfWindowsToBe(2)
+                WebDriverExpectedCondition::numberOfWindowsToBe(2),
             );
             $handles = $this->webDriver->getWindowHandles();
 
@@ -690,7 +690,7 @@ abstract class TestBase extends TestCase
         // This call will also create the file path
         $this->webDriver->takeScreenshot(
             $screenshotDir . DIRECTORY_SEPARATOR
-            . 'screenshot_' . $key . '_' . $comment . '.png'
+            . 'screenshot_' . $key . '_' . $comment . '.png',
         );
         $htmlOutput = $screenshotDir . DIRECTORY_SEPARATOR . 'source_' . $key . '.html';
         file_put_contents($htmlOutput, $this->webDriver->getPageSource());
@@ -700,7 +700,7 @@ abstract class TestBase extends TestCase
                 'filesKey' => $key,
                 'testName' => $this->getTestName(),
             ],
-            JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES
+            JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES,
         ));
     }
 
@@ -733,7 +733,7 @@ abstract class TestBase extends TestCase
     public function waitForElement(string $func, string $arg): RemoteWebElement
     {
         $element = $this->webDriver->wait(30, 500)->until(
-            WebDriverExpectedCondition::presenceOfElementLocated(WebDriverBy::$func($arg))
+            WebDriverExpectedCondition::presenceOfElementLocated(WebDriverBy::$func($arg)),
         );
         $this->assertInstanceOf(RemoteWebElement::class, $element);
 
@@ -750,7 +750,7 @@ abstract class TestBase extends TestCase
     public function waitUntilElementIsPresent(string $func, string $arg, int $timeout): RemoteWebElement
     {
         $element = $this->webDriver->wait($timeout, 500)->until(
-            WebDriverExpectedCondition::presenceOfElementLocated(WebDriverBy::$func($arg))
+            WebDriverExpectedCondition::presenceOfElementLocated(WebDriverBy::$func($arg)),
         );
         $this->assertInstanceOf(RemoteWebElement::class, $element);
 
@@ -767,7 +767,7 @@ abstract class TestBase extends TestCase
     public function waitUntilElementIsVisible(string $func, string $arg, int $timeout = 10): WebDriverElement
     {
         $element = $this->webDriver->wait($timeout, 500)->until(
-            WebDriverExpectedCondition::visibilityOfElementLocated(WebDriverBy::$func($arg))
+            WebDriverExpectedCondition::visibilityOfElementLocated(WebDriverBy::$func($arg)),
         );
         $this->assertInstanceOf(WebDriverElement::class, $element);
 
@@ -913,7 +913,7 @@ abstract class TestBase extends TestCase
     {
         $this->waitForElement('cssSelector', 'div.cm-s-default');
         $this->webDriver->executeScript(
-            "$('.cm-s-default')[" . $index . '].CodeMirror.setValue(' . json_encode($text) . ');'
+            "$('.cm-s-default')[" . $index . '].CodeMirror.setValue(' . json_encode($text) . ');',
         );
     }
 
@@ -984,7 +984,7 @@ abstract class TestBase extends TestCase
         // go to specific database page
         $this->waitForElement(
             'xpath',
-            '//tr[(contains(@class, "db-row"))]//a[contains(., "' . $database . '")]'
+            '//tr[(contains(@class, "db-row"))]//a[contains(., "' . $database . '")]',
         )->click();
         $this->waitAjax();
 
@@ -1088,7 +1088,7 @@ JS;
             . '        setTimeout(startWaitingForAjax, 200);'
             . '    }'
             . '}'
-            . 'startWaitingForAjax();'
+            . 'startWaitingForAjax();',
         );
     }
 
@@ -1143,7 +1143,7 @@ JS;
             [
                 'status' => $status,
                 'reason' => $message,
-            ]
+            ],
         );
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, self::SESSION_REST_URL . $this->sessionId . '.json');
@@ -1153,7 +1153,7 @@ JS;
         curl_setopt(
             $ch,
             CURLOPT_USERPWD,
-            $this->getBrowserStackCredentials()
+            $this->getBrowserStackCredentials(),
         );
 
         $headers = [];
@@ -1180,7 +1180,7 @@ JS;
         curl_setopt(
             $ch,
             CURLOPT_USERPWD,
-            $this->getBrowserStackCredentials()
+            $this->getBrowserStackCredentials(),
         );
         $result = curl_exec($ch);
         if (is_bool($result)) {

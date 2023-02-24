@@ -382,7 +382,7 @@ class Relation
                     Util::backquote($GLOBALS['cfg']['Server']['pmadb']),
                     Util::backquote($GLOBALS['cfg']['Server']['column_info']),
                 ],
-                (string) $query
+                (string) $query,
             );
             $this->dbi->tryMultiQuery($query, Connection::TYPE_CONTROL);
             // skips result sets of query as we are not interested in it
@@ -502,7 +502,7 @@ class Relation
             $row = $this->dbi->fetchSingleRow(
                 $disp_query,
                 DatabaseInterface::FETCH_ASSOC,
-                Connection::TYPE_CONTROL
+                Connection::TYPE_CONTROL,
             );
             if (isset($row['display_field'])) {
                 return $row['display_field'];
@@ -706,7 +706,7 @@ class Relation
                    ' . $this->dbi->quoteString($db, Connection::TYPE_CONTROL) . ',
                    ' . $this->dbi->quoteString($table, Connection::TYPE_CONTROL) . ',
                    NOW(),
-                   ' . $this->dbi->quoteString($sqlquery, Connection::TYPE_CONTROL) . ')'
+                   ' . $this->dbi->quoteString($sqlquery, Connection::TYPE_CONTROL) . ')',
         );
 
         $this->purgeHistory($username);
@@ -786,7 +786,7 @@ class Relation
             . Util::backquote($sqlHistoryFeature->history) . '
               WHERE `username` = ' . $this->dbi->quoteString($username, Connection::TYPE_CONTROL)
             . '
-                AND `timevalue` <= \'' . $max_time . '\''
+                AND `timevalue` <= \'' . $max_time . '\'',
         );
     }
 
@@ -852,8 +852,8 @@ class Relation
                         mb_substr(
                             $value,
                             0,
-                            (int) $GLOBALS['cfg']['LimitChars']
-                        ) . '...'
+                            (int) $GLOBALS['cfg']['LimitChars'],
+                        ) . '...',
                     );
                 }
             } else {
@@ -897,7 +897,7 @@ class Relation
         $foreign_field,
         string $foreign_display,
         $data,
-        $max = null
+        $max = null,
     ): string {
         if ($max === null) {
             $max = $GLOBALS['cfg']['ForeignKeyMaxLimit'];
@@ -935,7 +935,7 @@ class Relation
                     $top = $this->buildForeignDropdown(
                         $foreign,
                         $data,
-                        (string) $GLOBALS['cfg']['ForeignKeyDropdownOrder'][0]
+                        (string) $GLOBALS['cfg']['ForeignKeyDropdownOrder'][0],
                     );
                 }
 
@@ -947,7 +947,7 @@ class Relation
                     $bottom = $this->buildForeignDropdown(
                         $foreign,
                         $data,
-                        (string) $GLOBALS['cfg']['ForeignKeyDropdownOrder'][1]
+                        (string) $GLOBALS['cfg']['ForeignKeyDropdownOrder'][1],
                     );
                 }
             } else {
@@ -1004,7 +1004,7 @@ class Relation
         $override_total,
         string $foreign_filter,
         $foreign_limit,
-        $get_total = false
+        $get_total = false,
     ): array {
         // we always show the foreign field in the drop-down; if a display
         // field is defined, we show it besides the foreign field
@@ -1052,14 +1052,14 @@ class Relation
                 $f_query_filter = $foreign_filter === '' ? '' : ' WHERE '
                     . Util::backquote($foreign_field)
                     . ' LIKE ' . $this->dbi->quoteString(
-                        '%' . $this->dbi->escapeMysqlWildcards($foreign_filter) . '%'
+                        '%' . $this->dbi->escapeMysqlWildcards($foreign_filter) . '%',
                     )
                     . (
                         $foreign_display === false
                         ? ''
                         : ' OR ' . Util::backquote($foreign_display)
                         . ' LIKE ' . $this->dbi->quoteString(
-                            '%' . $this->dbi->escapeMysqlWildcards($foreign_filter) . '%'
+                            '%' . $this->dbi->escapeMysqlWildcards($foreign_filter) . '%',
                         )
                     );
                 $f_query_order = $foreign_display === false ? '' : ' ORDER BY '
@@ -1077,7 +1077,7 @@ class Relation
 
                 $disp = $this->dbi->tryQuery(
                     $f_query_main . $f_query_from . $f_query_filter
-                    . $f_query_order . $f_query_limit
+                    . $f_query_order . $f_query_limit,
                 );
                 if ($disp && $disp->numRows() > 0) {
                     // If a resultset has been created, pre-cache it in the $disp_row
@@ -1178,7 +1178,7 @@ class Relation
         string $source_table,
         string $target_table,
         string $db_field,
-        string $table_field
+        string $table_field,
     ): void {
         $query = 'UPDATE '
             . Util::backquote($configStorageDatabase) . '.'
@@ -1218,7 +1218,7 @@ class Relation
                 $source_table,
                 $target_table,
                 'db_name',
-                'table_name'
+                'table_name',
             );
         }
 
@@ -1234,7 +1234,7 @@ class Relation
                 $source_table,
                 $target_table,
                 'db_name',
-                'table_name'
+                'table_name',
             );
         }
 
@@ -1247,7 +1247,7 @@ class Relation
                 $source_table,
                 $target_table,
                 'foreign_db',
-                'foreign_table'
+                'foreign_table',
             );
 
             $this->renameSingleTable(
@@ -1258,7 +1258,7 @@ class Relation
                 $source_table,
                 $target_table,
                 'master_db',
-                'master_table'
+                'master_table',
             );
         }
 
@@ -1273,7 +1273,7 @@ class Relation
                     $source_table,
                     $target_table,
                     'db_name',
-                    'table_name'
+                    'table_name',
                 );
             } else {
                 // if the table is moved out of the database we can no longer keep the
@@ -1296,7 +1296,7 @@ class Relation
                 $source_table,
                 $target_table,
                 'db_name',
-                'table_name'
+                'table_name',
             );
         }
 
@@ -1313,7 +1313,7 @@ class Relation
             $source_table,
             $target_table,
             'db_name',
-            'table_name'
+            'table_name',
         );
 
         // update data for hidden table
@@ -1377,7 +1377,7 @@ class Relation
                 [
                     'referenced_column_name',
                     null,
-                ]
+                ],
             );
         }
 
@@ -1401,7 +1401,7 @@ class Relation
         $table,
         $column,
         $foreigners_full = null,
-        $child_references_full = null
+        $child_references_full = null,
     ): array {
         $column_status = [
             'isEditable' => true,
@@ -1524,7 +1524,7 @@ class Relation
     {
         $this->dbi->tryQuery(
             'CREATE DATABASE IF NOT EXISTS ' . Util::backquote($configurationStorageDbName),
-            Connection::TYPE_CONTROL
+            Connection::TYPE_CONTROL,
         );
 
         $error = $this->dbi->getError(Connection::TYPE_CONTROL);
@@ -1545,9 +1545,9 @@ class Relation
                 __(
                     'You do not have necessary privileges to create a database named'
                     . ' \'%s\'. You may go to \'Operations\' tab of any'
-                    . ' database to set up the phpMyAdmin configuration storage there.'
+                    . ' database to set up the phpMyAdmin configuration storage there.',
                 ),
-                $configurationStorageDbName
+                $configurationStorageDbName,
             );
         }
 

@@ -34,7 +34,7 @@ class NodeIndexTest extends AbstractTestCase
                 'text' => ['route' => '/table/indexes', 'params' => ['db' => null, 'table' => null, 'index' => null]],
                 'icon' => ['route' => '/table/indexes', 'params' => ['db' => null, 'table' => null, 'index' => null]],
             ],
-            $parent->links
+            $parent->links,
         );
     }
 }

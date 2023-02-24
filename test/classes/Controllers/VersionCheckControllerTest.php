@@ -54,7 +54,7 @@ class VersionCheckControllerTest extends AbstractTestCase
         (new VersionCheckController(
             new ResponseRenderer(),
             new Template(),
-            $versionInformation
+            $versionInformation,
         ))($this->createStub(ServerRequest::class));
 
         $output = $this->getActualOutputForAssertion();
@@ -93,7 +93,7 @@ class VersionCheckControllerTest extends AbstractTestCase
         (new VersionCheckController(
             new ResponseRenderer(),
             new Template(),
-            $versionInformation
+            $versionInformation,
         ))($this->createStub(ServerRequest::class));
 
         $output = $this->getActualOutputForAssertion();
@@ -112,7 +112,7 @@ class VersionCheckControllerTest extends AbstractTestCase
         (new VersionCheckController(
             new ResponseRenderer(),
             new Template(),
-            $versionInformation
+            $versionInformation,
         ))($this->createStub(ServerRequest::class));
 
         $output = $this->getActualOutputForAssertion();

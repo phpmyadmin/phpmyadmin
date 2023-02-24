@@ -102,8 +102,8 @@ class CreateController extends AbstractController
                     'message',
                     Message::error(
                         '<i>' . htmlspecialchars($GLOBALS['sql_query']) . '</i><br><br>'
-                        . $this->dbi->getError()
-                    )
+                        . $this->dbi->getError(),
+                    ),
                 );
                 $this->response->setRequestStatus(false);
 
@@ -140,8 +140,8 @@ class CreateController extends AbstractController
             WHERE TABLE_SCHEMA='%s'
             AND TABLE_NAME='%s';",
                     $this->dbi->escapeString($_GET['db']),
-                    $this->dbi->escapeString($_GET['table'])
-                )
+                    $this->dbi->escapeString($_GET['table']),
+                ),
             );
             $createView = $this->dbi->getTable($_GET['db'], $_GET['table'])
                 ->showCreate();
@@ -206,7 +206,7 @@ class CreateController extends AbstractController
                 $pmaTransformationData,
                 $columnMap,
                 $view['name'],
-                $GLOBALS['db']
+                $GLOBALS['db'],
             );
 
             // Store new transformations
@@ -225,8 +225,8 @@ class CreateController extends AbstractController
                 'message',
                 Generator::getMessage(
                     Message::success(),
-                    $GLOBALS['sql_query']
-                )
+                    $GLOBALS['sql_query'],
+                ),
             );
             $this->response->setRequestStatus(true);
         }

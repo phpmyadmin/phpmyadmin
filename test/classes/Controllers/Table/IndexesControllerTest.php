@@ -107,7 +107,7 @@ class IndexesControllerTest extends AbstractTestCase
             $response,
             $template,
             $GLOBALS['dbi'],
-            new Indexes($response, $template, $GLOBALS['dbi'])
+            new Indexes($response, $template, $GLOBALS['dbi']),
         );
 
         $_POST['create_index'] = true;
@@ -122,28 +122,28 @@ class IndexesControllerTest extends AbstractTestCase
                     'db' => 'db',
                     'table' => 'table',
                     'create_index' => 1,
-                ]
+                ],
             ),
-            $html
+            $html,
         );
 
         $doc_html = Generator::showHint(
             Message::notice(
                 __(
-                    '"PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!'
-                )
-            )->getMessage()
+                    '"PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!',
+                ),
+            )->getMessage(),
         );
         $this->assertStringContainsString($doc_html, $html);
 
         $this->assertStringContainsString(
             MySQLDocumentation::show('ALTER_TABLE'),
-            $html
+            $html,
         );
 
         $this->assertStringContainsString(
             sprintf(__('Add %s column(s) to index'), 1),
-            $html
+            $html,
         );
 
         //$field_name & $field_type

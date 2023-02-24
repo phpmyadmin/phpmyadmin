@@ -34,7 +34,7 @@ class ChartController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
     }
@@ -53,7 +53,7 @@ class ChartController extends AbstractController
         if (! isset($GLOBALS['sql_query']) || $GLOBALS['sql_query'] == '') {
             $this->response->setRequestStatus(false);
             $this->response->addHTML(
-                Message::error(__('No SQL query was set to fetch data.'))->getDisplay()
+                Message::error(__('No SQL query was set to fetch data.'))->getDisplay(),
             );
 
             return;
@@ -138,7 +138,7 @@ class ChartController extends AbstractController
             $this->response->setRequestStatus(false);
             $this->response->addJSON(
                 'message',
-                __('No numeric columns present in the table to plot.')
+                __('No numeric columns present in the table to plot.'),
             );
 
             return;

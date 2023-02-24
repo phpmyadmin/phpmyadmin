@@ -55,14 +55,14 @@ class GeneratorTest extends AbstractTestCase
             '<a href="'
             . Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'],
-                'database'
+                'database',
             )
             . '&db=' . $database
             . '&server=99&lang=en" '
             . 'title="Jump to database “'
             . htmlspecialchars($database) . '”.">'
             . htmlspecialchars($database) . '</a>',
-            Generator::getDbLink()
+            Generator::getDbLink(),
         );
     }
 
@@ -76,13 +76,13 @@ class GeneratorTest extends AbstractTestCase
         $this->assertEquals(
             '<a href="' . Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'],
-                'database'
+                'database',
             )
             . '&db=' . $database
             . '&server=99&lang=en" title="Jump to database “'
             . htmlspecialchars($database) . '”.">'
             . htmlspecialchars($database) . '</a>',
-            Generator::getDbLink($database)
+            Generator::getDbLink($database),
         );
     }
 
@@ -97,14 +97,14 @@ class GeneratorTest extends AbstractTestCase
             '<a href="'
             . Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'],
-                'database'
+                'database',
             )
             . '&db='
             . htmlspecialchars(urlencode($database))
             . '&server=99&lang=en" title="Jump to database “'
             . htmlspecialchars($database) . '”.">'
             . htmlspecialchars($database) . '</a>',
-            Generator::getDbLink($database)
+            Generator::getDbLink($database),
         );
     }
 
@@ -117,7 +117,7 @@ class GeneratorTest extends AbstractTestCase
 
         $this->assertEquals(
             '<span class="text-nowrap"></span>',
-            Generator::getIcon('b_comment')
+            Generator::getIcon('b_comment'),
         );
     }
 
@@ -130,7 +130,7 @@ class GeneratorTest extends AbstractTestCase
 
         $this->assertEquals(
             '<span class="text-nowrap"><img src="themes/dot.gif" title="" alt="" class="icon ic_b_comment"></span>',
-            Generator::getIcon('b_comment')
+            Generator::getIcon('b_comment'),
         );
     }
 
@@ -146,7 +146,7 @@ class GeneratorTest extends AbstractTestCase
             '<span class="text-nowrap"><img src="themes/dot.gif" title="'
             . $alternate_text . '" alt="' . $alternate_text
             . '" class="icon ic_b_comment"></span>',
-            Generator::getIcon('b_comment', $alternate_text)
+            Generator::getIcon('b_comment', $alternate_text),
         );
     }
 
@@ -164,7 +164,7 @@ class GeneratorTest extends AbstractTestCase
             '<span class="text-nowrap"><img src="themes/dot.gif" title="'
             . $alternate_text . '" alt="' . $alternate_text
             . '" class="icon ic_b_comment">&nbsp;' . $alternate_text . '</span>',
-            Generator::getIcon('b_comment', $alternate_text, true, false)
+            Generator::getIcon('b_comment', $alternate_text, true, false),
         );
     }
 
@@ -185,7 +185,7 @@ class GeneratorTest extends AbstractTestCase
 
         $this->assertEquals(
             $expected,
-            Generator::showPHPDocumentation($target)
+            Generator::showPHPDocumentation($target),
         );
     }
 
@@ -208,7 +208,7 @@ class GeneratorTest extends AbstractTestCase
                     Generator::class,
                     'linkOrButton',
                 ],
-                $params
+                $params,
             );
             $this->assertEquals($match, $result);
         } finally {
@@ -336,7 +336,7 @@ class GeneratorTest extends AbstractTestCase
             '<code class="sql"><pre>' . "\n"
             . 'SELECT 1 &lt; 2' . "\n"
             . '</pre></code>',
-            Generator::formatSql('SELECT 1 < 2')
+            Generator::formatSql('SELECT 1 < 2'),
         );
 
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 6;
@@ -345,7 +345,7 @@ class GeneratorTest extends AbstractTestCase
             '<code class="sql"><pre>' . "\n"
             . 'SELECT[...]' . "\n"
             . '</pre></code>',
-            Generator::formatSql('SELECT 1 < 2', true)
+            Generator::formatSql('SELECT 1 < 2', true),
         );
     }
 
@@ -370,7 +370,7 @@ class GeneratorTest extends AbstractTestCase
         ];
         $this->assertEquals(
             $sslNotUsed,
-            Generator::getServerSSL()
+            Generator::getServerSSL(),
         );
 
         $GLOBALS['cfg']['Server'] = [
@@ -381,7 +381,7 @@ class GeneratorTest extends AbstractTestCase
 
         $this->assertEquals(
             $sslNotUsedCaution,
-            Generator::getServerSSL()
+            Generator::getServerSSL(),
         );
 
         $GLOBALS['cfg']['Server'] = [
@@ -392,7 +392,7 @@ class GeneratorTest extends AbstractTestCase
 
         $this->assertEquals(
             $sslNotUsed,
-            Generator::getServerSSL()
+            Generator::getServerSSL(),
         );
 
         $GLOBALS['cfg']['Server'] = [
@@ -403,7 +403,7 @@ class GeneratorTest extends AbstractTestCase
 
         $this->assertEquals(
             $sslNotUsed,
-            Generator::getServerSSL()
+            Generator::getServerSSL(),
         );
 
         $GLOBALS['cfg']['Server'] = [
@@ -417,7 +417,7 @@ class GeneratorTest extends AbstractTestCase
             . ' <a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
             . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
             . ' class="icon ic_b_help"></a>',
-            Generator::getServerSSL()
+            Generator::getServerSSL(),
         );
 
         $GLOBALS['cfg']['Server'] = [
@@ -431,7 +431,7 @@ class GeneratorTest extends AbstractTestCase
             . ' <a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
             . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
             . ' class="icon ic_b_help"></a>',
-            Generator::getServerSSL()
+            Generator::getServerSSL(),
         );
 
         $GLOBALS['cfg']['Server'] = [
@@ -446,7 +446,7 @@ class GeneratorTest extends AbstractTestCase
             . ' <a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
             . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
             . ' class="icon ic_b_help"></a>',
-            Generator::getServerSSL()
+            Generator::getServerSSL(),
         );
     }
 
@@ -463,7 +463,7 @@ class GeneratorTest extends AbstractTestCase
     public function testGetDefaultFunctionForField(
         array $field,
         bool $insertMode,
-        string $expected
+        string $expected,
     ): void {
         $dbiStub = $this->createStub(DatabaseInterface::class);
         $dbiStub->types = new Types($dbiStub);

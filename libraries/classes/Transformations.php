@@ -253,15 +253,15 @@ class Transformations
                 'JPEG',
                 'PNG',
             ],
-            $value
+            $value,
         );
 
         return str_replace(
             ' ',
             '',
             ucwords(
-                (string) preg_replace('/([0-9_]+)/', '$1 ', $value)
-            )
+                (string) preg_replace('/([0-9_]+)/', '$1 ', $value),
+            ),
         );
     }
 
@@ -369,7 +369,7 @@ class Transformations
         $transformationOpts,
         $inputTransform,
         $inputTransformOpts,
-        $forcedelete = false
+        $forcedelete = false,
     ): bool {
         $relation = new Relation($GLOBALS['dbi']);
         $browserTransformationFeature = $relation->getRelationParameters()->browserTransformationFeature;

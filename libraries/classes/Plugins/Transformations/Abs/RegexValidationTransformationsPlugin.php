@@ -29,7 +29,7 @@ abstract class RegexValidationTransformationsPlugin extends IOTransformationsPlu
         return __(
             'Validates the string using regular expression '
             . 'and performs insert only if string matches it. '
-            . 'The first option is the Regular Expression.'
+            . 'The first option is the Regular Expression.',
         );
     }
 
@@ -48,7 +48,7 @@ abstract class RegexValidationTransformationsPlugin extends IOTransformationsPlu
             $this->success = false;
             $this->error = sprintf(
                 __('Validation failed for the input string %s.'),
-                htmlspecialchars($buffer)
+                htmlspecialchars($buffer),
             );
         }
 

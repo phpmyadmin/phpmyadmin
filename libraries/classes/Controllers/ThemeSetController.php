@@ -19,7 +19,7 @@ final class ThemeSetController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private ThemeManager $themeManager,
-        private UserPreferences $userPreferences
+        private UserPreferences $userPreferences,
     ) {
         parent::__construct($response, $template);
     }

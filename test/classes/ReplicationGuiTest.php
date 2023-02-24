@@ -99,7 +99,7 @@ class ReplicationGuiTest extends AbstractTestCase
             null,
             true,
             $replicationInfo->getReplicaStatus(),
-            isset($_POST['replica_configure'])
+            isset($_POST['replica_configure']),
         );
 
         //legend

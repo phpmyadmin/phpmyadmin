@@ -27,33 +27,33 @@ abstract class AbstractImportCsv extends ImportPlugin
         $leaf = new BoolPropertyItem(
             'replace',
             __(
-                'Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)'
-            )
+                'Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)',
+            ),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
             'terminated',
-            __('Columns separated with:')
+            __('Columns separated with:'),
         );
         $leaf->setSize(2);
         $generalOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
             'enclosed',
-            __('Columns enclosed with:')
+            __('Columns enclosed with:'),
         );
         $leaf->setSize(2);
         $leaf->setLen(2);
         $generalOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
             'escaped',
-            __('Columns escaped with:')
+            __('Columns escaped with:'),
         );
         $leaf->setSize(2);
         $leaf->setLen(2);
         $generalOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
             'new_line',
-            __('Lines terminated with:')
+            __('Lines terminated with:'),
         );
         $leaf->setSize(2);
         $generalOptions->addProperty($leaf);

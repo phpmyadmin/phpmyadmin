@@ -30,7 +30,7 @@ class NodeFactory
         string $class,
         string|array $name = 'default',
         $type = Node::OBJECT,
-        $isGroup = false
+        $isGroup = false,
     ): Node {
         return new $class($name, $type, $isGroup);
     }
@@ -43,7 +43,7 @@ class NodeFactory
      */
     public static function getInstanceForNewNode(
         string $name,
-        string $classes
+        string $classes,
     ): Node {
         $node = new Node($name, Node::OBJECT, false);
         $node->title = $name;

@@ -61,7 +61,7 @@ class Dia extends XMLWriter
         $bottomMargin,
         $leftMargin,
         $rightMargin,
-        $orientation
+        $orientation,
     ): void {
         $isPortrait = 'false';
 
@@ -132,7 +132,7 @@ class Dia extends XMLWriter
                 <dia:attribute name="hguides"/>
                 <dia:attribute name="vguides"/>
               </dia:composite>
-            </dia:attribute>'
+            </dia:attribute>',
         );
         $this->endElement();
         $this->startElement('dia:layer');

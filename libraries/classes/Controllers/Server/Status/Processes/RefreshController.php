@@ -17,7 +17,7 @@ final class RefreshController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         Data $data,
-        private Processes $processes
+        private Processes $processes,
     ) {
         parent::__construct($response, $template, $data);
     }
@@ -32,7 +32,7 @@ final class RefreshController extends AbstractController
             $request->hasBodyParam('showExecuting'),
             $request->hasBodyParam('full'),
             (string) $request->getParsedBodyParam('order_by_field', ''),
-            (string) $request->getParsedBodyParam('sort_order', '')
+            (string) $request->getParsedBodyParam('sort_order', ''),
         ));
     }
 }

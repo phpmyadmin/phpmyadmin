@@ -39,7 +39,7 @@ class AddFieldController extends AbstractController
         private Transformations $transformations,
         private Config $config,
         private DatabaseInterface $dbi,
-        private ColumnsDefinition $columnsDefinition
+        private ColumnsDefinition $columnsDefinition,
     ) {
         parent::__construct($response, $template);
     }
@@ -82,7 +82,7 @@ class AddFieldController extends AbstractController
 
             $GLOBALS['num_fields'] = min(
                 intval($_POST['orig_num_fields']) + intval($_POST['added_fields']),
-                4096
+                4096,
             );
             $GLOBALS['regenerate'] = true;
         } elseif (is_numeric($numberOfFields) && $numberOfFields > 0) {
@@ -110,7 +110,7 @@ class AddFieldController extends AbstractController
             $GLOBALS['result'] = $createAddField->tryColumnCreationQuery(
                 DatabaseName::fromValue($GLOBALS['db']),
                 $GLOBALS['sql_query'],
-                $GLOBALS['errorUrl']
+                $GLOBALS['errorUrl'],
             );
 
             if ($GLOBALS['result'] !== true) {
@@ -136,19 +136,19 @@ class AddFieldController extends AbstractController
                         $_POST['field_transformation'][$fieldindex],
                         $_POST['field_transformation_options'][$fieldindex],
                         $_POST['field_input_transformation'][$fieldindex],
-                        $_POST['field_input_transformation_options'][$fieldindex]
+                        $_POST['field_input_transformation_options'][$fieldindex],
                     );
                 }
             }
 
             // Go back to the structure sub-page
             $GLOBALS['message'] = Message::success(
-                __('Table %1$s has been altered successfully.')
+                __('Table %1$s has been altered successfully.'),
             );
             $GLOBALS['message']->addParam($GLOBALS['table']);
             $this->response->addJSON(
                 'message',
-                Generator::getMessage($GLOBALS['message'], $GLOBALS['sql_query'], 'success')
+                Generator::getMessage($GLOBALS['message'], $GLOBALS['sql_query'], 'success'),
             );
 
             // Give an URL to call and use to appends the structure after the success message
@@ -158,7 +158,7 @@ class AddFieldController extends AbstractController
                     'db' => $GLOBALS['db'],
                     'table' => $GLOBALS['table'],
                     'ajax_request' => '1',
-                ])
+                ]),
             );
 
             return;
@@ -179,7 +179,7 @@ class AddFieldController extends AbstractController
         $templateData = $this->columnsDefinition->displayForm(
             '/table/add-field',
             $GLOBALS['num_fields'],
-            $GLOBALS['regenerate']
+            $GLOBALS['regenerate'],
         );
 
         $this->render('columns_definitions/column_definitions_form', $templateData);

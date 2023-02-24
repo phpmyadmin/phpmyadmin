@@ -24,7 +24,7 @@ final class SqlController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        private SqlQueryForm $sqlQueryForm
+        private SqlQueryForm $sqlQueryForm,
     ) {
         parent::__construct($response, $template);
     }
@@ -63,7 +63,7 @@ final class SqlController extends AbstractController
             false,
             isset($_POST['delimiter'])
                 ? htmlspecialchars($_POST['delimiter'])
-                : ';'
+                : ';',
         ));
     }
 }

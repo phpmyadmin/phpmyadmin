@@ -39,7 +39,7 @@ final class ColumnsDefinition
     public function __construct(
         private DatabaseInterface $dbi,
         private Relation $relation,
-        private Transformations $transformations
+        private Transformations $transformations,
     ) {
     }
 
@@ -57,7 +57,7 @@ final class ColumnsDefinition
         $num_fields = 0,
         $regenerate = null,
         array|null $selected = null,
-        $fields_meta = null
+        $fields_meta = null,
     ): array {
         $GLOBALS['col_priv'] ??= null;
         $GLOBALS['is_reload_priv'] ??= null;
@@ -87,7 +87,7 @@ final class ColumnsDefinition
             [
                 'orig_field_where' => $_POST['field_where'] ?? null,
                 'orig_after_field' => $_POST['after_field'] ?? null,
-            ]
+            ],
         );
 
         if (is_array($selected)) {
@@ -125,7 +125,7 @@ final class ColumnsDefinition
             foreach (array_keys($available_mime[$mime_type]) as $mimekey) {
                 $available_mime[$mime_type . '_file_quoted'][$mimekey] = preg_quote(
                     $available_mime[$mime_type . '_file'][$mimekey],
-                    '@'
+                    '@',
                 );
             }
         }
@@ -157,56 +157,56 @@ final class ColumnsDefinition
                         'Field' => Util::getValueByKey(
                             $_POST,
                             'field_name.' . $columnNumber,
-                            null
+                            null,
                         ),
                         'Type' => Util::getValueByKey(
                             $_POST,
                             'field_type.' . $columnNumber,
-                            null
+                            null,
                         ),
                         'Collation' => Util::getValueByKey(
                             $_POST,
                             'field_collation.' . $columnNumber,
-                            ''
+                            '',
                         ),
                         'Null' => Util::getValueByKey(
                             $_POST,
                             'field_null.' . $columnNumber,
-                            ''
+                            '',
                         ),
                         'DefaultType' => Util::getValueByKey(
                             $_POST,
                             'field_default_type.' . $columnNumber,
-                            'NONE'
+                            'NONE',
                         ),
                         'DefaultValue' => Util::getValueByKey(
                             $_POST,
                             'field_default_value.' . $columnNumber,
-                            ''
+                            '',
                         ),
                         'Extra' => Util::getValueByKey(
                             $_POST,
                             'field_extra.' . $columnNumber,
-                            null
+                            null,
                         ),
                         'Virtuality' => Util::getValueByKey(
                             $_POST,
                             'field_virtuality.' . $columnNumber,
-                            ''
+                            '',
                         ),
                         'Expression' => Util::getValueByKey(
                             $_POST,
                             'field_expression.' . $columnNumber,
-                            ''
+                            '',
                         ),
-                    ]
+                    ],
                 );
 
                 $columnMeta['Key'] = '';
                 $parts = explode(
                     '_',
                     Util::getValueByKey($_POST, 'field_key.' . $columnNumber, ''),
-                    2
+                    2,
                 );
                 if (count($parts) === 2 && $parts[1] == $columnNumber) {
                     $columnMeta['Key'] = Util::getValueByKey(
@@ -218,7 +218,7 @@ final class ColumnsDefinition
                             'spatial' => 'SPATIAL',
                         ],
                         $parts[0],
-                        ''
+                        '',
                     );
                 }
 
@@ -250,13 +250,13 @@ final class ColumnsDefinition
                         'mimetype' => Util::getValueByKey($_POST, 'field_mimetype.' . $columnNumber),
                         'transformation' => Util::getValueByKey(
                             $_POST,
-                            'field_transformation.' . $columnNumber
+                            'field_transformation.' . $columnNumber,
                         ),
                         'transformation_options' => Util::getValueByKey(
                             $_POST,
-                            'field_transformation_options.' . $columnNumber
+                            'field_transformation_options.' . $columnNumber,
                         ),
-                    ]
+                    ],
                 );
             } elseif (isset($fields_meta[$columnNumber])) {
                 $columnMeta = $fields_meta[$columnNumber];
@@ -299,7 +299,7 @@ final class ColumnsDefinition
                     $form_params['table'],
                     $columnMeta['Field'],
                     $foreigners,
-                    $child_references
+                    $child_references,
                 );
             }
 
@@ -308,7 +308,7 @@ final class ColumnsDefinition
             // differs from the ones of the corresponding database.
             // rtrim the type, for cases like "float unsigned"
             $type = rtrim(
-                preg_replace('/[\s]character set[\s][\S]+/', '', $type)
+                preg_replace('/[\s]character set[\s][\S]+/', '', $type),
             );
 
             /**
@@ -348,7 +348,7 @@ final class ColumnsDefinition
                         'field_comments_orig[' . $columnNumber . ']' => $columnMeta['Comment'] ?? '',
                         'field_virtuality_orig[' . $columnNumber . ']' => $columnMeta['Virtuality'] ?? '',
                         'field_expression_orig[' . $columnNumber . ']' => $columnMeta['Expression'] ?? '',
-                    ]
+                    ],
                 );
             }
 
@@ -435,7 +435,7 @@ final class ColumnsDefinition
             'is_integers_length_restricted' => $isIntegersLengthRestricted,
             'browse_mime' => $GLOBALS['cfg']['BrowseMIME'] ?? null,
             'supports_stored_keyword' => Compatibility::supportsStoredKeywordForVirtualColumns(
-                $this->dbi->getVersion()
+                $this->dbi->getVersion(),
             ),
             'server_version' => $this->dbi->getVersion(),
             'max_rows' => intval($GLOBALS['cfg']['MaxRows']),

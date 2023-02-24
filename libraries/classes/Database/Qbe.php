@@ -226,7 +226,7 @@ class Qbe
         public $dbi,
         $dbname,
         array $savedSearchList = [],
-        $currentSearch = null
+        $currentSearch = null,
     ) {
         $this->db = $dbname;
         $this->savedSearchList = $savedSearchList;
@@ -339,7 +339,7 @@ class Qbe
                 // increase the width if necessary
                 $this->formColumnWidth = max(
                     mb_strlen($eachColumn),
-                    $this->formColumnWidth
+                    $this->formColumnWidth,
                 );
             }
         }
@@ -375,7 +375,7 @@ class Qbe
      */
     private function getSortSelectCell(
         $columnNumber,
-        $selected = ''
+        $selected = '',
     ): string {
         return $this->template->render('database/qbe/sort_select_cell', [
             'real_width' => $this->realwidth,
@@ -741,7 +741,7 @@ class Qbe
     private function getAndOrColCell(
         $columnNumber,
         $selected = null,
-        $lastColumn = false
+        $lastColumn = false,
     ): string {
         $htmlOutput = '<td class="text-center">';
         if (! $lastColumn) {
@@ -811,7 +811,7 @@ class Qbe
             $htmlOutput .= $this->getAndOrColCell(
                 $newColumnCount,
                 $checkedOptions,
-                $columnIndex + 1 === $this->criteriaColumnCount
+                $columnIndex + 1 === $this->criteriaColumnCount,
             );
             $newColumnCount++;
         }
@@ -1109,7 +1109,7 @@ class Qbe
     private function getIndexes(
         array $searchTables,
         array $searchColumns,
-        array $whereClauseColumns
+        array $whereClauseColumns,
     ): array {
         $uniqueColumns = [];
         $indexColumns = [];
@@ -1156,7 +1156,7 @@ class Qbe
     private function getLeftJoinColumnCandidates(
         array $searchTables,
         array $searchColumns,
-        array $whereClauseColumns
+        array $whereClauseColumns,
     ): array {
         $this->dbi->selectDb($this->db);
 
@@ -1169,7 +1169,7 @@ class Qbe
             $searchTables,
             $whereClauseColumns,
             $uniqueColumns,
-            $indexColumns
+            $indexColumns,
         );
 
         // If we came up with $unique_columns (very good) or $index_columns (still
@@ -1217,7 +1217,7 @@ class Qbe
         array $searchTables,
         array $searchColumns,
         array $whereClauseColumns,
-        array $whereClauseTables
+        array $whereClauseTables,
     ): string {
         if (count($whereClauseTables) === 1) {
             // If there is exactly one column that has a decent where-clause
@@ -1374,7 +1374,7 @@ class Qbe
             // Create cartesian product
             return implode(
                 ', ',
-                array_map(Util::backquote(...), $searchTables)
+                array_map(Util::backquote(...), $searchTables),
             );
         }
 
@@ -1451,7 +1451,7 @@ class Qbe
 
                         $tempUnfinalized = array_diff(
                             $tempSearchTables,
-                            array_keys($tempFinalized)
+                            array_keys($tempFinalized),
                         );
                         // Take greedy approach.
                         // If the unfinalized count drops we keep the new table
@@ -1475,7 +1475,7 @@ class Qbe
                 // Add these tables as cartesian product before joined tables
                 $join .= implode(
                     ', ',
-                    array_map(Util::backquote(...), $unfinalized)
+                    array_map(Util::backquote(...), $unfinalized),
                 );
             }
         }
@@ -1714,7 +1714,7 @@ class Qbe
             : 0;
         $this->criteriaRowCount = min(
             100,
-            max($rows + $criteriaRowAdd, 0)
+            max($rows + $criteriaRowAdd, 0),
         );
 
         return $criteriaColumnCount;
@@ -1734,7 +1734,7 @@ class Qbe
         array $searchTables,
         array|null $whereClauseColumns,
         array|null $uniqueColumns,
-        array|null $indexColumns
+        array|null $indexColumns,
     ): array {
         // now we want to find the best.
         if (isset($uniqueColumns) && count($uniqueColumns) > 0) {

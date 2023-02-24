@@ -85,7 +85,7 @@ class TemplateTest extends AbstractTestCase
     {
         $this->assertEquals(
             $value,
-            $this->template->render($templateFile, [$key => $value])
+            $this->template->render($templateFile, [$key => $value]),
         );
     }
 
@@ -126,7 +126,7 @@ class TemplateTest extends AbstractTestCase
     {
         $this->assertEquals(
             $expectedResult,
-            $this->template->render($templateFile)
+            $this->template->render($templateFile),
         );
     }
 
@@ -158,7 +158,7 @@ class TemplateTest extends AbstractTestCase
     {
         $this->assertEquals(
             $expectedResult,
-            $this->template->render($templateFile, $renderParams)
+            $this->template->render($templateFile, $renderParams),
         );
     }
 

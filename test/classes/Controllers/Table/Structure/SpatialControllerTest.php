@@ -133,7 +133,7 @@ class SpatialControllerTest extends AbstractTestCase
 
         $this->assertEquals(
             Message::error('#1210 - Incorrect arguments to SPATIAL INDEX'),
-            $GLOBALS['message']
+            $GLOBALS['message'],
         );
         /** @psalm-suppress TypeDoesNotContainType */
         $this->assertSame('ALTER TABLE `test_table` ADD SPATIAL(`test_field`);', $GLOBALS['sql_query']);

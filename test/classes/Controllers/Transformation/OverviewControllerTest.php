@@ -46,15 +46,15 @@ class OverviewControllerTest extends AbstractTestCase
 
         $this->assertStringContainsString(
             __('Available media types'),
-            $actual
+            $actual,
         );
         $this->assertStringContainsString(
             'id="transformation">' . __('Available browser display transformations'),
-            $actual
+            $actual,
         );
         $this->assertStringContainsString(
             'id="input_transformation">' . __('Available input transformations'),
-            $actual
+            $actual,
         );
         $this->assertStringContainsString('Text/Plain', $actual);
         $this->assertStringContainsString('Image/JPEG: Inline', $actual);

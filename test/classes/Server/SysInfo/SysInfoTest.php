@@ -25,7 +25,7 @@ class SysInfoTest extends AbstractTestCase
     {
         $this->assertEquals(
             $expected,
-            SysInfo::getOs($os)
+            SysInfo::getOs($os),
         );
     }
 

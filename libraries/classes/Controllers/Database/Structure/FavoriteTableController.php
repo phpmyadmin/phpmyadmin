@@ -65,7 +65,7 @@ final class FavoriteTableController extends AbstractController
                 $this->response->addJSON($this->synchronizeFavoriteTables(
                     $favoriteInstance,
                     $user,
-                    $favoriteTables
+                    $favoriteTables,
                 ));
             }
 
@@ -141,7 +141,7 @@ final class FavoriteTableController extends AbstractController
     private function synchronizeFavoriteTables(
         RecentFavoriteTable $favoriteInstance,
         string $user,
-        array $favoriteTables
+        array $favoriteTables,
     ): array {
         $favoriteInstanceTables = $favoriteInstance->getTables();
 

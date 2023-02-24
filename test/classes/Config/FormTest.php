@@ -37,7 +37,7 @@ class FormTest extends AbstractTestCase
                 'pma_form2',
             ],
             new ConfigFile(),
-            1
+            1,
         );
     }
 
@@ -70,16 +70,16 @@ class FormTest extends AbstractTestCase
         $attrFieldsTypes = new ReflectionProperty(Form::class, 'fieldsTypes');
         $attrFieldsTypes->setValue(
             $this->object,
-            ['7' => 'Seven']
+            ['7' => 'Seven'],
         );
 
         $this->assertNull(
-            $this->object->getOptionType('123/4/5/6')
+            $this->object->getOptionType('123/4/5/6'),
         );
 
         $this->assertEquals(
             'Seven',
-            $this->object->getOptionType('123/4/5/7')
+            $this->object->getOptionType('123/4/5/7'),
         );
     }
 
@@ -93,7 +93,7 @@ class FormTest extends AbstractTestCase
                 'NHibernate C# DO',
                 'NHibernate XML',
             ],
-            $this->object->getOptionValueList('Export/codegen_format')
+            $this->object->getOptionValueList('Export/codegen_format'),
         );
 
         $this->assertEquals(
@@ -102,7 +102,7 @@ class FormTest extends AbstractTestCase
                 '1' => 1,
                 '0' => 0,
             ],
-            $this->object->getOptionValueList('OBGzip')
+            $this->object->getOptionValueList('OBGzip'),
         );
 
         $this->assertEquals(
@@ -112,7 +112,7 @@ class FormTest extends AbstractTestCase
                 'right' => 'Right',
                 'both' => 'Both',
             ],
-            $this->object->getOptionValueList('RowActionLinks')
+            $this->object->getOptionValueList('RowActionLinks'),
         );
     }
 
@@ -216,7 +216,7 @@ class FormTest extends AbstractTestCase
                 ':group:end:0' => 'group',
                 '1' => 'NULL',
             ],
-            $attrFieldsTypes->getValue($this->object)
+            $attrFieldsTypes->getValue($this->object),
         );
     }
 

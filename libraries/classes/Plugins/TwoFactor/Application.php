@@ -86,7 +86,7 @@ class Application extends TwoFactorPlugin
         $inlineUrl = $this->google2fa->getQRCodeInline(
             'phpMyAdmin (' . $this->getAppId(false) . ')',
             $this->twofactor->user,
-            $secret
+            $secret,
         );
 
         return $this->template->render('login/twofactor/application_configure', [
@@ -133,7 +133,7 @@ class Application extends TwoFactorPlugin
     public static function getDescription(): string
     {
         return __(
-            'Provides authentication using HOTP and TOTP applications such as FreeOTP, Google Authenticator or Authy.'
+            'Provides authentication using HOTP and TOTP applications such as FreeOTP, Google Authenticator or Authy.',
         );
     }
 }

@@ -21,27 +21,27 @@ class UrlExtension extends AbstractExtension
             new TwigFunction(
                 'get_hidden_inputs',
                 Url::getHiddenInputs(...),
-                ['is_safe' => ['html']]
+                ['is_safe' => ['html']],
             ),
             new TwigFunction(
                 'get_hidden_fields',
                 Url::getHiddenFields(...),
-                ['is_safe' => ['html']]
+                ['is_safe' => ['html']],
             ),
             new TwigFunction(
                 'get_common',
                 Url::getCommon(...),
-                ['is_safe' => ['html']]
+                ['is_safe' => ['html']],
             ),
             new TwigFunction(
                 'get_common_raw',
                 Url::getCommonRaw(...),
-                ['is_safe' => ['html']]
+                ['is_safe' => ['html']],
             ),
             new TwigFunction(
                 'url',
                 Url::getFromRoute(...),
-                ['is_safe' => ['html']]
+                ['is_safe' => ['html']],
             ),
         ];
     }

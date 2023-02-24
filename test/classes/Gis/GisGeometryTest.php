@@ -57,8 +57,8 @@ class GisGeometryTest extends AbstractTestCase
                 [
                     $point_set,
                     $min_max,
-                ]
-            )
+                ],
+            ),
         );
     }
 
@@ -99,8 +99,8 @@ class GisGeometryTest extends AbstractTestCase
                 $this->object,
                 GisGeometry::class,
                 'parseWktAndSrid',
-                [$value]
-            )
+                [$value],
+            ),
         );
     }
 
@@ -158,8 +158,8 @@ class GisGeometryTest extends AbstractTestCase
                     $point_set,
                     $scale_data,
                     $linear,
-                ]
-            )
+                ],
+            ),
         );
     }
 
@@ -273,8 +273,8 @@ class GisGeometryTest extends AbstractTestCase
                 [
                     $srid,
                     $scale_data,
-                ]
-            )
+                ],
+            ),
         );
     }
 
@@ -325,8 +325,8 @@ class GisGeometryTest extends AbstractTestCase
                 [
                     $polygons,
                     $srid,
-                ]
-            )
+                ],
+            ),
         );
     }
 

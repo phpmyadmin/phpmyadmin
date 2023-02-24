@@ -66,7 +66,7 @@ class StatusController
 
                 if (time() - $GLOBALS['timestamp'] > $maximumTime) {
                     $_SESSION['Import_message']['message'] = Message::error(
-                        __('Could not load the progress of the import.')
+                        __('Could not load the progress of the import.'),
                     )->getDisplay();
                     break;
                 }

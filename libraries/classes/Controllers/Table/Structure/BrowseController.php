@@ -53,7 +53,7 @@ final class BrowseController extends AbstractController
             'SELECT %s FROM %s.%s',
             implode(', ', $fields),
             Util::backquote($GLOBALS['db']),
-            Util::backquote($GLOBALS['table'])
+            Util::backquote($GLOBALS['table']),
         );
 
         // Parse and analyze the query
@@ -74,8 +74,8 @@ final class BrowseController extends AbstractController
                 null, // disp_query
                 null, // disp_message
                 $sql_query, // sql_query
-                null // complete_query
-            )
+                null, // complete_query
+            ),
         );
     }
 }

@@ -28,7 +28,7 @@ abstract class ImageUploadTransformationsPlugin extends IOTransformationsPlugin
         return __(
             'Image upload functionality which also displays a thumbnail.'
             . ' The options are the width and height of the thumbnail'
-            . ' in pixels. Defaults to 100 X 100.'
+            . ' in pixels. Defaults to 100 X 100.',
         );
     }
 
@@ -69,7 +69,7 @@ abstract class ImageUploadTransformationsPlugin extends IOTransformationsPlugin
         $text_dir,
         $tabindex,
         $tabindex_for_value,
-        $idindex
+        $idindex,
     ): string {
         $html = '';
         $src = '';

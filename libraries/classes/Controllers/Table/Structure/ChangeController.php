@@ -23,7 +23,7 @@ final class ChangeController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private DatabaseInterface $dbi,
-        private ColumnsDefinition $columnsDefinition
+        private ColumnsDefinition $columnsDefinition,
     ) {
         parent::__construct($response, $template);
     }
@@ -65,7 +65,7 @@ final class ChangeController extends AbstractController
             $value = $this->dbi->getColumn($GLOBALS['db'], $GLOBALS['table'], $column, true);
             if ($value === []) {
                 $message = Message::error(
-                    __('Failed to get description of column %s!')
+                    __('Failed to get description of column %s!'),
                 );
                 $message->addParam($column);
                 $this->response->addHTML($message->getDisplay());
@@ -91,7 +91,7 @@ final class ChangeController extends AbstractController
             $GLOBALS['num_fields'],
             null,
             $selected,
-            $fields_meta
+            $fields_meta,
         );
 
         $this->render('columns_definitions/column_definitions_form', $templateData);

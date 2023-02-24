@@ -29,7 +29,7 @@ class GetFieldController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
     }
@@ -45,7 +45,7 @@ class GetFieldController extends AbstractController
             Generator::mysqlDie(
                 sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($GLOBALS['db'])),
                 '',
-                false
+                false,
             );
         }
 
@@ -76,7 +76,7 @@ class GetFieldController extends AbstractController
         if ($result === false) {
             Generator::mysqlDie(
                 __('MySQL returned an empty result set (i.e. zero rows).'),
-                $sql
+                $sql,
             );
 
             return;
@@ -88,7 +88,7 @@ class GetFieldController extends AbstractController
         Core::downloadHeader(
             $GLOBALS['table'] . '-' . $_GET['transform_key'] . '.bin',
             Mime::detect($result),
-            mb_strlen($result, '8bit')
+            mb_strlen($result, '8bit'),
         );
         echo $result;
     }

@@ -116,7 +116,7 @@ class NodeDatabase extends Node
         if ($searchClause !== '') {
             $query .= 'AND ' . $this->getWhereClauseForSearch(
                 $searchClause,
-                'Tables_in_' . $this->realName
+                'Tables_in_' . $this->realName,
             );
         }
 
@@ -241,7 +241,7 @@ class NodeDatabase extends Node
      */
     private function getWhereClauseForSearch(
         string $searchClause,
-        $columnName
+        $columnName,
     ): string {
         return Util::backquote($columnName) . ' LIKE '
             . $GLOBALS['dbi']->quoteString('%' . $GLOBALS['dbi']->escapeMysqlWildcards($searchClause) . '%');
@@ -356,7 +356,7 @@ class NodeDatabase extends Node
             if ($searchClause !== '') {
                 $query .= 'AND `TABLE_NAME` LIKE ';
                 $query .= $GLOBALS['dbi']->quoteString(
-                    '%' . $GLOBALS['dbi']->escapeMysqlWildcards($searchClause) . '%'
+                    '%' . $GLOBALS['dbi']->escapeMysqlWildcards($searchClause) . '%',
                 );
             }
 
@@ -372,7 +372,7 @@ class NodeDatabase extends Node
         if ($searchClause !== '') {
             $query .= 'AND ' . Util::backquote('Tables_in_' . $this->realName);
             $query .= ' LIKE ' . $GLOBALS['dbi']->quoteString(
-                '%' . $GLOBALS['dbi']->escapeMysqlWildcards($searchClause) . '%'
+                '%' . $GLOBALS['dbi']->escapeMysqlWildcards($searchClause) . '%',
             );
         }
 
@@ -442,7 +442,7 @@ class NodeDatabase extends Node
             if ($searchClause !== '') {
                 $query .= 'AND `ROUTINE_NAME` LIKE ';
                 $query .= $GLOBALS['dbi']->quoteString(
-                    '%' . $GLOBALS['dbi']->escapeMysqlWildcards($searchClause) . '%'
+                    '%' . $GLOBALS['dbi']->escapeMysqlWildcards($searchClause) . '%',
                 );
             }
 
@@ -456,7 +456,7 @@ class NodeDatabase extends Node
         if ($searchClause !== '') {
             $query .= 'AND `Name` LIKE ';
             $query .= $GLOBALS['dbi']->quoteString(
-                '%' . $GLOBALS['dbi']->escapeMysqlWildcards($searchClause) . '%'
+                '%' . $GLOBALS['dbi']->escapeMysqlWildcards($searchClause) . '%',
             );
         }
 
@@ -524,7 +524,7 @@ class NodeDatabase extends Node
             if ($searchClause !== '') {
                 $query .= 'AND `EVENT_NAME` LIKE ';
                 $query .= $GLOBALS['dbi']->quoteString(
-                    '%' . $GLOBALS['dbi']->escapeMysqlWildcards($searchClause) . '%'
+                    '%' . $GLOBALS['dbi']->escapeMysqlWildcards($searchClause) . '%',
                 );
             }
 
@@ -538,7 +538,7 @@ class NodeDatabase extends Node
         if ($searchClause !== '') {
             $query .= 'WHERE `Name` LIKE ';
             $query .= $GLOBALS['dbi']->quoteString(
-                '%' . $GLOBALS['dbi']->escapeMysqlWildcards($searchClause) . '%'
+                '%' . $GLOBALS['dbi']->escapeMysqlWildcards($searchClause) . '%',
             );
         }
 
@@ -582,7 +582,7 @@ class NodeDatabase extends Node
                     . ' class="showUnhide ajax">'
                     . Generator::getImage(
                         'show',
-                        __('Show hidden items')
+                        __('Show hidden items'),
                     )
                     . '</a></span>';
             }

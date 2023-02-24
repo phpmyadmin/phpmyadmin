@@ -48,7 +48,7 @@ class HomeController extends AbstractController
         Template $template,
         private Config $config,
         private ThemeManager $themeManager,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
     }
@@ -89,7 +89,7 @@ class HomeController extends AbstractController
         if (isset($_SESSION['partial_logout'])) {
             $partialLogout = Message::success(__(
                 'You were logged out from one server, to logout completely '
-                . 'from phpMyAdmin, you need to logout from all servers.'
+                . 'from phpMyAdmin, you need to logout from all servers.',
             ))->getDisplay();
             unset($_SESSION['partial_logout']);
         }
@@ -185,7 +185,7 @@ class HomeController extends AbstractController
                 $messageText = __(
                     'The phpMyAdmin configuration storage is not completely '
                     . 'configured, some extended features have been deactivated. '
-                    . '%sFind out why%s. '
+                    . '%sFind out why%s. ',
                 );
                 if ($GLOBALS['cfg']['ZeroConf'] == true) {
                     $messageText .= '<br>'
@@ -195,7 +195,7 @@ class HomeController extends AbstractController
                 $messageInstance = Message::notice($messageText);
                 $messageInstance->addParamHtml(
                     '<a href="' . Url::getFromRoute('/check-relations')
-                    . '" data-post="' . Url::getCommon() . '">'
+                    . '" data-post="' . Url::getCommon() . '">',
                 );
                 $messageInstance->addParamHtml('</a>');
                 /* Show error if user has configured something, notice elsewhere */
@@ -258,7 +258,7 @@ class HomeController extends AbstractController
                         'configuration.php#ini.session.gc-maxlifetime@_blank]session.' .
                         'gc_maxlifetime[/a] is lower than cookie validity configured ' .
                         'in phpMyAdmin, because of this, your login might expire sooner ' .
-                        'than configured in phpMyAdmin.'
+                        'than configured in phpMyAdmin.',
                     ),
                     'severity' => 'warning',
                 ];
@@ -276,7 +276,7 @@ class HomeController extends AbstractController
                 'message' => __(
                     'Login cookie store is lower than cookie validity configured in ' .
                     'phpMyAdmin, because of this, your login will expire sooner than ' .
-                    'configured in phpMyAdmin.'
+                    'configured in phpMyAdmin.',
                 ),
                 'severity' => 'warning',
             ];
@@ -296,7 +296,7 @@ class HomeController extends AbstractController
                     'Your server is running with default values for the ' .
                     'controluser and password (controlpass) and is open to ' .
                     'intrusion; you really should fix this security weakness' .
-                    ' by changing the password for controluser \'pma\'.'
+                    ' by changing the password for controluser \'pma\'.',
                 ),
                 'severity' => 'warning',
             ];
@@ -312,7 +312,7 @@ class HomeController extends AbstractController
                     'message' => __(
                         'The configuration file needs a valid key for cookie encryption.'
                         . ' A temporary key was automatically generated for you.'
-                        . ' Please refer to the [doc@cfg_blowfish_secret]documentation[/doc].'
+                        . ' Please refer to the [doc@cfg_blowfish_secret]documentation[/doc].',
                     ),
                     'severity' => 'warning',
                 ];
@@ -322,9 +322,9 @@ class HomeController extends AbstractController
                         __(
                             'The cookie encryption key in the configuration file is longer than necessary.'
                             . ' It should only be %d bytes long.'
-                            . ' Please refer to the [doc@cfg_blowfish_secret]documentation[/doc].'
+                            . ' Please refer to the [doc@cfg_blowfish_secret]documentation[/doc].',
                         ),
-                        SODIUM_CRYPTO_SECRETBOX_KEYBYTES
+                        SODIUM_CRYPTO_SECRETBOX_KEYBYTES,
                     ),
                     'severity' => 'warning',
                 ];
@@ -342,7 +342,7 @@ class HomeController extends AbstractController
                     'still exists in your phpMyAdmin directory. It is strongly ' .
                     'recommended to remove it once phpMyAdmin has been configured. ' .
                     'Otherwise the security of your server may be compromised by ' .
-                    'unauthorized people downloading your configuration.'
+                    'unauthorized people downloading your configuration.',
                 ),
                 'severity' => 'warning',
             ];
@@ -359,10 +359,10 @@ class HomeController extends AbstractController
             $this->errors[] = [
                 'message' => sprintf(
                     __(
-                        'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.'
+                        'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.',
                     ),
                     '[doc@faq1-38]',
-                    '[/doc]'
+                    '[/doc]',
                 ),
                 'severity' => 'warning',
             ];
@@ -375,9 +375,9 @@ class HomeController extends AbstractController
                     __(
                         'The $cfg[\'TempDir\'] (%s) is not accessible. ' .
                         'phpMyAdmin is not able to cache templates and will ' .
-                        'be slow because of this.'
+                        'be slow because of this.',
                     ),
-                    $this->config->get('TempDir')
+                    $this->config->get('TempDir'),
                 ),
                 'severity' => 'warning',
             ];
@@ -432,7 +432,7 @@ class HomeController extends AbstractController
                     'The mbstring PHP extension was not found and you seem to be using'
                     . ' a multibyte charset. Without the mbstring extension phpMyAdmin'
                     . ' is unable to split strings correctly and it may result in'
-                    . ' unexpected results.'
+                    . ' unexpected results.',
                 ),
                 'severity' => 'warning',
             ];
@@ -449,7 +449,7 @@ class HomeController extends AbstractController
             'message' =>  __(
                 'The curl extension was not found and allow_url_fopen is '
                 . 'disabled. Due to this some features such as error reporting '
-                . 'or version check are disabled.'
+                . 'or version check are disabled.',
             ),
             'severity' => 'notice',
         ];

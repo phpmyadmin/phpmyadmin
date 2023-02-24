@@ -58,7 +58,7 @@ class SlowLogControllerTest extends AbstractTestCase
             new Template(),
             $this->data,
             new Monitor($GLOBALS['dbi']),
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
         );
 
         $request = $this->createStub(ServerRequest::class);

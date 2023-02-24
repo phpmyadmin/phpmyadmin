@@ -19,7 +19,7 @@ class BrowseForeignersController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private BrowseForeigners $browseForeigners,
-        private Relation $relation
+        private Relation $relation,
     ) {
         parent::__construct($response, $template);
     }
@@ -58,7 +58,7 @@ class BrowseForeignersController extends AbstractController
             true,
             $foreignFilter,
             $foreignLimit ?? '',
-            true
+            true,
         );
 
         $this->response->addHTML($this->browseForeigners->getHtmlForRelationalFieldSelection(
@@ -67,7 +67,7 @@ class BrowseForeignersController extends AbstractController
             $field,
             $foreignData,
             $fieldKey,
-            $data
+            $data,
         ));
     }
 }

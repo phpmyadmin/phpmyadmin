@@ -16,7 +16,7 @@ final class DefaultForeignKeyCheckValueController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        private CheckUserPrivileges $checkUserPrivileges
+        private CheckUserPrivileges $checkUserPrivileges,
     ) {
         parent::__construct($response, $template);
     }

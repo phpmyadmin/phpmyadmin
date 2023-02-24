@@ -93,7 +93,7 @@ class Validator
 
                     $uv[$i] = Core::arrayRead(
                         mb_substr($uv[$i], 6),
-                        $GLOBALS['config']->baseSettings
+                        $GLOBALS['config']->baseSettings,
                     );
                 }
             }
@@ -125,7 +125,7 @@ class Validator
         ConfigFile $cf,
         string|array $validatorId,
         array $values,
-        $isPostSource
+        $isPostSource,
     ): bool|array {
         // find validators
         $validatorId = (array) $validatorId;
@@ -215,7 +215,7 @@ class Validator
         $socket,
         $user,
         $pass = null,
-        $errorKey = 'Server'
+        $errorKey = 'Server',
     ): bool|array {
         if ($GLOBALS['cfg']['DBG']['demo']) {
             // Connection test disabled on the demo server!
@@ -283,14 +283,14 @@ class Validator
 
         if ($values['Servers/1/auth_type'] === 'signon' && empty($values['Servers/1/SignonSession'])) {
             $result['Servers/1/SignonSession'] = __(
-                'Empty signon session name while using [kbd]signon[/kbd] authentication method!'
+                'Empty signon session name while using [kbd]signon[/kbd] authentication method!',
             );
             $error = true;
         }
 
         if ($values['Servers/1/auth_type'] === 'signon' && empty($values['Servers/1/SignonURL'])) {
             $result['Servers/1/SignonURL'] = __(
-                'Empty signon URL while using [kbd]signon[/kbd] authentication method!'
+                'Empty signon URL while using [kbd]signon[/kbd] authentication method!',
             );
             $error = true;
         }
@@ -307,7 +307,7 @@ class Validator
                 empty($values['Servers/1/socket']) ? '' : $values['Servers/1/socket'],
                 empty($values['Servers/1/user']) ? '' : $values['Servers/1/user'],
                 $password,
-                'Server'
+                'Server',
             );
 
             if (is_array($test)) {
@@ -344,14 +344,14 @@ class Validator
         $result = [];
         if (empty($values['Servers/1/controluser'])) {
             $result['Servers/1/controluser'] = __(
-                'Empty phpMyAdmin control user while using phpMyAdmin configuration storage!'
+                'Empty phpMyAdmin control user while using phpMyAdmin configuration storage!',
             );
             $error = true;
         }
 
         if (empty($values['Servers/1/controlpass'])) {
             $result['Servers/1/controlpass'] = __(
-                'Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!'
+                'Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!',
             );
             $error = true;
         }
@@ -363,7 +363,7 @@ class Validator
                 empty($values['Servers/1/socket']) ? '' : $values['Servers/1/socket'],
                 empty($values['Servers/1/controluser']) ? '' : $values['Servers/1/controluser'],
                 empty($values['Servers/1/controlpass']) ? '' : $values['Servers/1/controlpass'],
-                'Server_pmadb'
+                'Server_pmadb',
             );
             if (is_array($test)) {
                 $result = array_merge($result, $test);
@@ -479,7 +479,7 @@ class Validator
         $allowNegative,
         $allowZero,
         $maxValue,
-        $errorString
+        $errorString,
     ): string {
         if (empty($values[$path])) {
             return '';
@@ -516,7 +516,7 @@ class Validator
                 false,
                 false,
                 65535,
-                __('Not a valid port number!')
+                __('Not a valid port number!'),
             ),
         ];
     }
@@ -538,7 +538,7 @@ class Validator
                 false,
                 false,
                 PHP_INT_MAX,
-                __('Not a positive number!')
+                __('Not a positive number!'),
             ),
         ];
     }
@@ -560,7 +560,7 @@ class Validator
                 false,
                 true,
                 PHP_INT_MAX,
-                __('Not a non-negative number!')
+                __('Not a non-negative number!'),
             ),
         ];
     }
@@ -600,7 +600,7 @@ class Validator
         return [
             $path => $result ? '' : sprintf(
                 __('Value must be less than or equal to %s!'),
-                $maxValue
+                $maxValue,
             ),
         ];
     }

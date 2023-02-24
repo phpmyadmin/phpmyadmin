@@ -146,7 +146,7 @@ abstract class AuthenticationPlugin
             /* Redirect to other authenticated server */
             $_SESSION['partial_logout'] = true;
             Core::sendHeaderLocation(
-                './index.php?route=/' . Url::getCommonRaw(['server' => $server], '&')
+                './index.php?route=/' . Url::getCommonRaw(['server' => $server], '&'),
             );
         }
     }
@@ -178,7 +178,7 @@ abstract class AuthenticationPlugin
             return sprintf(
                 __('You have been automatically logged out due to inactivity of %s seconds.'
                 . ' Once you log in again, you should be able to resume the work where you left off.'),
-                intval($GLOBALS['cfg']['LoginCookieValidity'])
+                intval($GLOBALS['cfg']['LoginCookieValidity']),
             );
         }
 
@@ -327,7 +327,7 @@ abstract class AuthenticationPlugin
 
         echo $this->template->render('login/header');
         echo Message::rawNotice(
-            __('You have enabled two factor authentication, please confirm your login.')
+            __('You have enabled two factor authentication, please confirm your login.'),
         )->getDisplay();
         echo $this->template->render('login/twofactor', [
             'form' => $twofactor->render(),

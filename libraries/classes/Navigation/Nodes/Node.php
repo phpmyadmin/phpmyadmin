@@ -647,7 +647,7 @@ class Node
                 'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA` %sORDER BY `SCHEMA_NAME` LIMIT %d, %d',
                 $this->getWhereClause('SCHEMA_NAME', $searchClause),
                 $pos,
-                $maxItems
+                $maxItems,
             );
 
             return $GLOBALS['dbi']->fetchResult($query);
@@ -664,7 +664,7 @@ class Node
             $GLOBALS['dbi']->escapeString($dbSeparator),
             $this->getWhereClause('SCHEMA_NAME', $searchClause),
             $pos,
-            $maxItems
+            $maxItems,
         );
 
         return $GLOBALS['dbi']->fetchResult($query);
@@ -682,7 +682,7 @@ class Node
         if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping'] || ! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
             $handle = $GLOBALS['dbi']->tryQuery(sprintf(
                 'SHOW DATABASES %s',
-                $this->getWhereClause('Database', $searchClause)
+                $this->getWhereClause('Database', $searchClause),
             ));
             if ($handle === false) {
                 return [];
@@ -709,7 +709,7 @@ class Node
         $dbSeparator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
         $handle = $GLOBALS['dbi']->tryQuery(sprintf(
             'SHOW DATABASES %s',
-            $this->getWhereClause('Database', $searchClause)
+            $this->getWhereClause('Database', $searchClause),
         ));
         $prefixes = [];
         if ($handle !== false) {
@@ -735,14 +735,14 @@ class Node
             $subClauses[] = sprintf(
                 ' LOCATE(\'%1$s%2$s\', CONCAT(`Database`, \'%2$s\')) = 1 ',
                 $GLOBALS['dbi']->escapeString((string) $prefix),
-                $dbSeparator
+                $dbSeparator,
             );
         }
 
         $query = sprintf(
             'SHOW DATABASES %sAND (%s)',
             $this->getWhereClause('Database', $searchClause),
-            implode('OR', $subClauses)
+            implode('OR', $subClauses),
         );
 
         return $GLOBALS['dbi']->fetchResult($query);

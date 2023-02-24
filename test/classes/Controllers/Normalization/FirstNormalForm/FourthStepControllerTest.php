@@ -34,7 +34,7 @@ class FourthStepControllerTest extends AbstractTestCase
         $controller = new FourthStepController(
             $response,
             $template,
-            new Normalization($dbi, new Relation($dbi), new Transformations(), $template)
+            new Normalization($dbi, new Relation($dbi), new Transformations(), $template),
         );
         $controller($this->createStub(ServerRequest::class));
 

@@ -63,7 +63,7 @@ class ChangePasswordTest extends TestBase
         $ele = $this->waitForElement('cssSelector', '.alert-success');
         $this->assertEquals(
             'The profile has been updated.',
-            trim($ele->getText())
+            trim($ele->getText()),
         );
     }
 }

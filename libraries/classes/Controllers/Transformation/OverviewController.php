@@ -20,7 +20,7 @@ class OverviewController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        private Transformations $transformations
+        private Transformations $transformations,
     ) {
         parent::__construct($response, $template);
     }

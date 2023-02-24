@@ -150,7 +150,7 @@ class Linter
             // Ending position of the string that caused the error.
             [$toLine, $toColumn] = static::findLineNumberAndColumn(
                 $lines,
-                $error[3] + mb_strlen((string) $error[2])
+                $error[3] + mb_strlen((string) $error[2]),
             );
 
             // Building the response.
@@ -158,7 +158,7 @@ class Linter
                 'message' => sprintf(
                     __('%1$s (near <code>%2$s</code>)'),
                     htmlspecialchars((string) $error[0]),
-                    htmlspecialchars((string) $error[2])
+                    htmlspecialchars((string) $error[2]),
                 ),
                 'fromLine' => $fromLine,
                 'fromColumn' => $fromColumn,

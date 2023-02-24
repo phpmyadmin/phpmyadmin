@@ -211,7 +211,7 @@ final class Import
             ! isset($import['sql_compatibility']) || ! in_array(
                 $import['sql_compatibility'],
                 ['ANSI', 'DB2', 'MAXDB', 'MYSQL323', 'MYSQL40', 'MSSQL', 'ORACLE', 'TRADITIONAL'],
-                true
+                true,
             )
         ) {
             return 'NONE';

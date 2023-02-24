@@ -48,7 +48,7 @@ class StructureController extends AbstractController
         Template $template,
         private Relation $relation,
         private Transformations $transformations,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
 
@@ -69,7 +69,7 @@ class StructureController extends AbstractController
         $GLOBALS['reread_info'] = $this->tableObj->getStatusInfo(null, true);
         $GLOBALS['showtable'] = $this->tableObj->getStatusInfo(
             null,
-            (isset($GLOBALS['reread_info']) && $GLOBALS['reread_info'])
+            (isset($GLOBALS['reread_info']) && $GLOBALS['reread_info']),
         );
 
         if ($this->tableObj->isView()) {
@@ -120,7 +120,7 @@ class StructureController extends AbstractController
             $fields,
             $columns_with_index,
             $isSystemSchema,
-            $request->getRoute()
+            $request->getRoute(),
         ));
     }
 
@@ -139,7 +139,7 @@ class StructureController extends AbstractController
         array $fields,
         array $columns_with_index,
         bool $isSystemSchema,
-        string $route
+        string $route,
     ): string {
         $GLOBALS['tbl_is_view'] ??= null;
         $GLOBALS['tbl_storage_engine'] ??= null;
@@ -211,7 +211,7 @@ class StructureController extends AbstractController
             $collation = Charsets::findCollationByName(
                 $this->dbi,
                 $GLOBALS['cfg']['Server']['DisableIS'],
-                $field['Collation'] ?? ''
+                $field['Collation'] ?? '',
             );
             if ($collation === null) {
                 continue;
@@ -304,7 +304,7 @@ class StructureController extends AbstractController
             [$index_size, $index_unit] = Util::formatByteDown(
                 $GLOBALS['showtable']['Index_length'],
                 $max_digits,
-                $decimals
+                $decimals,
             );
         }
 
@@ -315,21 +315,21 @@ class StructureController extends AbstractController
                 + $GLOBALS['showtable']['Index_length']
                 - $GLOBALS['showtable']['Data_free'],
                 $max_digits,
-                $decimals
+                $decimals,
             );
         } else {
             [$effect_size, $effect_unit] = Util::formatByteDown(
                 $GLOBALS['showtable']['Data_length']
                 + $GLOBALS['showtable']['Index_length'],
                 $max_digits,
-                $decimals
+                $decimals,
             );
         }
 
         [$tot_size, $tot_unit] = Util::formatByteDown(
             $GLOBALS['showtable']['Data_length'] + $GLOBALS['showtable']['Index_length'],
             $max_digits,
-            $decimals
+            $decimals,
         );
 
         $avg_size = '';
@@ -340,7 +340,7 @@ class StructureController extends AbstractController
                 + $GLOBALS['showtable']['Index_length'])
                 / $GLOBALS['showtable']['Rows'],
                 6,
-                1
+                1,
             );
         }
 
@@ -352,7 +352,7 @@ class StructureController extends AbstractController
         $collation = Charsets::findCollationByName(
             $this->dbi,
             $GLOBALS['cfg']['Server']['DisableIS'],
-            $GLOBALS['tbl_collation']
+            $GLOBALS['tbl_collation'],
         );
         if ($collation !== null) {
             $tableCollation = [

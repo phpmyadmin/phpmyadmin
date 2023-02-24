@@ -40,7 +40,7 @@ class FormProcessingTest extends AbstractNetworkTestCase
                 ['status: 303 See Other'],
                 ['Location: ../setup/index.php?route=%2Fsetup&lang=en'],
                 303,
-            ]
+            ],
         );
 
         // case 1

@@ -20,7 +20,7 @@ final class SlowLogController extends AbstractController
         Template $template,
         Data $data,
         private Monitor $monitor,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template, $data);
     }
@@ -41,7 +41,7 @@ final class SlowLogController extends AbstractController
 
         $data = $this->monitor->getJsonForLogDataTypeSlow(
             (int) $request->getParsedBodyParam('time_start'),
-            (int) $request->getParsedBodyParam('time_end')
+            (int) $request->getParsedBodyParam('time_end'),
         );
         if ($data === null) {
             $this->response->setRequestStatus(false);

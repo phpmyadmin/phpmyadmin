@@ -52,13 +52,13 @@ class DatabasesControllerTest extends AbstractTestCase
         $controller = new DatabasesController(
             $response,
             $template,
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
         );
 
         $this->dummyDbi->addResult(
             'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`',
             [['sakila'], ['employees']],
-            ['SCHEMA_NAME']
+            ['SCHEMA_NAME'],
         );
         $this->dummyDbi->addSelectDb('mysql');
         $controller($this->createStub(ServerRequest::class));
@@ -86,7 +86,7 @@ class DatabasesControllerTest extends AbstractTestCase
         $controller = new DatabasesController(
             $response,
             $template,
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
         );
 
         $GLOBALS['cfg']['ShowCreateDb'] = true;

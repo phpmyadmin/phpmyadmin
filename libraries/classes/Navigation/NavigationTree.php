@@ -239,8 +239,8 @@ class NavigationTree
                     (int) $GLOBALS['cfg']['FirstLevelNavigationItems'],
                     (int) $GLOBALS['cfg']['FirstLevelNavigationItems'],
                     $this->dbi->quoteString($GLOBALS['cfg']['NavigationTreeDbSeparator']),
-                    $this->dbi->quoteString($GLOBALS['db'])
-                )
+                    $this->dbi->quoteString($GLOBALS['db']),
+                ),
             );
         }
 
@@ -339,7 +339,7 @@ class NavigationTree
                 $this->pos2Name[$key] ?? '',
                 $this->pos2Value[$key] ?? 0,
                 $this->pos3Name[$key] ?? '',
-                $this->pos3Value[$key] ?? 0
+                $this->pos3Value[$key] ?? 0,
             );
         }
 
@@ -753,9 +753,9 @@ class NavigationTree
                     __(
                         'There are large item groups in navigation panel which '
                         . 'may affect the performance. Consider disabling item '
-                        . 'grouping in the navigation panel.'
+                        . 'grouping in the navigation panel.',
                     ),
-                    E_USER_WARNING
+                    E_USER_WARNING,
                 );
                 $this->largeGroupWarning = true;
             }
@@ -778,8 +778,8 @@ class NavigationTree
                         $child::class,
                         mb_substr(
                             $child->name,
-                            $keySeparatorLength
-                        )
+                            $keySeparatorLength,
+                        ),
                     );
                     if ($child instanceof NodeDatabase && $child->getHiddenCount() > 0) {
                         $newChild->setHiddenCount($child->getHiddenCount());
@@ -820,7 +820,7 @@ class NavigationTree
                 $groups[$key] = new Node(
                     htmlspecialchars((string) $key),
                     Node::CONTAINER,
-                    true
+                    true,
                 );
                 $groups[$key]->separator = $node->separator;
                 $groups[$key]->separatorDepth = $node->separatorDepth - 1;
@@ -939,9 +939,9 @@ class NavigationTree
                 _ngettext(
                     '%s result found',
                     '%s results found',
-                    $results
+                    $results,
                 ),
-                $results
+                $results,
             );
             ResponseRenderer::getInstance()
                 ->addJSON('results', $results);
@@ -1111,7 +1111,7 @@ class NavigationTree
                     'route' => $node->links['icon']['route'],
                     'params' => array_merge(
                         $node->links['icon']['params'],
-                        array_intersect_key($args, $node->links['icon']['params'])
+                        array_intersect_key($args, $node->links['icon']['params']),
                     ),
                     'is_ajax' => $linkHasAjaxClass,
                     'image' => $node->icon['image'],
@@ -1123,7 +1123,7 @@ class NavigationTree
                         'route' => $node->links['second_icon']['route'],
                         'params' => array_merge(
                             $node->links['second_icon']['params'],
-                            array_intersect_key($args, $node->links['second_icon']['params'])
+                            array_intersect_key($args, $node->links['second_icon']['params']),
                         ),
                         'is_ajax' => $linkHasAjaxClass,
                         'image' => $node->secondIcon['image'],
@@ -1135,7 +1135,7 @@ class NavigationTree
                     'route' => $node->links['text']['route'],
                     'params' => array_merge(
                         $node->links['text']['params'],
-                        array_intersect_key($args, $node->links['text']['params'])
+                        array_intersect_key($args, $node->links['text']['params']),
                     ),
                     'is_ajax' => $linkHasAjaxClass,
                     'title' => $node->links['title'] ?? $node->title ?? '',
@@ -1210,7 +1210,7 @@ class NavigationTree
             'frame_navigation',
             $GLOBALS['cfg']['FirstLevelNavigationItems'],
             'pos',
-            ['dbselector']
+            ['dbselector'],
         );
 
         $children = $this->tree->children;
@@ -1335,7 +1335,7 @@ class NavigationTree
             '#',
             __('Collapse all'),
             's_collapseall',
-            'pma_navigation_collapse'
+            'pma_navigation_collapse',
         );
         $syncImage = 's_unlink';
         $title = __('Link with main panel');
@@ -1370,7 +1370,7 @@ class NavigationTree
                 'frame_navigation',
                 $GLOBALS['cfg']['FirstLevelNavigationItems'],
                 'pos',
-                ['dbselector']
+                ['dbselector'],
             );
         } else {
             if ($node->type == Node::CONTAINER && ! $node->isGroup) {
@@ -1402,7 +1402,7 @@ class NavigationTree
                     Url::getFromRoute('/navigation'),
                     'frame_navigation',
                     $GLOBALS['cfg']['MaxNavigationItems'],
-                    'pos' . $level . '_value'
+                    'pos' . $level . '_value',
                 );
             }
         }

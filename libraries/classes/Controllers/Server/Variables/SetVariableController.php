@@ -47,7 +47,7 @@ final class SetVariableController extends AbstractController
             $variableType === 'byte' && preg_match(
                 '/^\s*(\d+(\.\d+)?)\s*(mb|kb|mib|kib|gb|gib)\s*$/i',
                 $value,
-                $matches
+                $matches,
             )
         ) {
             $exp = [
@@ -75,7 +75,7 @@ final class SetVariableController extends AbstractController
                 'SHOW GLOBAL VARIABLES WHERE Variable_name="'
                 . $this->dbi->escapeString($variableName)
                 . '";',
-                DatabaseInterface::FETCH_NUM
+                DatabaseInterface::FETCH_NUM,
             );
             [$formattedValue, $isHtmlFormatted] = $this->formatVariable($variableName, $varValue[1]);
 
@@ -118,8 +118,8 @@ final class SetVariableController extends AbstractController
                         [
                             'valueTitle' => Util::formatNumber($value, 0),
                             'value' => implode(' ', $bytes),
-                        ]
-                    )
+                        ],
+                    ),
                 );
             } else {
                 $formattedValue = Util::formatNumber($value, 0);

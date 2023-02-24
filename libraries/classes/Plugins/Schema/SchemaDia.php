@@ -52,19 +52,19 @@ class SchemaDia extends SchemaPlugin
 
         $leaf = new SelectPropertyItem(
             'orientation',
-            __('Orientation')
+            __('Orientation'),
         );
         $leaf->setValues(
             [
                 'L' => __('Landscape'),
                 'P' => __('Portrait'),
-            ]
+            ],
         );
         $specificOptions->addProperty($leaf);
 
         $leaf = new SelectPropertyItem(
             'paper',
-            __('Paper size')
+            __('Paper size'),
         );
         $leaf->setValues($this->getPaperSizeArray());
         $specificOptions->addProperty($leaf);

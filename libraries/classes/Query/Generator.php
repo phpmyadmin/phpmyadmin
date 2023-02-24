@@ -25,7 +25,7 @@ class Generator
      */
     public static function getTableNameCondition(
         string $escapedTabletable,
-        bool $tblIsGroup
+        bool $tblIsGroup,
     ): string {
         $sqlWhereTable = 'AND t.`TABLE_NAME` ';
         if ($tblIsGroup === true) {
@@ -57,7 +57,7 @@ class Generator
      * @return string a segment of the WHERE clause
      */
     public static function getTableTypeCondition(
-        string|null $tableType
+        string|null $tableType,
     ): string {
         $sqlWhereTable = '';
 
@@ -120,7 +120,7 @@ class Generator
     public static function getTableIndexesSql(
         string $database,
         string $table,
-        string $where = ''
+        string $where = '',
     ): string {
         $sql = 'SHOW INDEXES FROM ' . Util::backquote($database) . '.' . Util::backquote($table);
         if ($where !== '') {
@@ -142,7 +142,7 @@ class Generator
         string $database,
         string $table,
         string|null $escapedColumn = null,
-        bool $full = false
+        bool $full = false,
     ): string {
         return 'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS FROM '
             . Util::backquote($database) . '.' . Util::backquote($table)
@@ -152,7 +152,7 @@ class Generator
     public static function getInformationSchemaRoutinesRequest(
         string $escapedDb,
         string|null $routineType,
-        string|null $escapedRoutineName
+        string|null $escapedRoutineName,
     ): string {
         $query = 'SELECT'
             . ' `ROUTINE_SCHEMA` AS `Db`,'
@@ -249,7 +249,7 @@ class Generator
 
     public static function getInformationSchemaForeignKeyConstraintsRequest(
         string $escapedDatabase,
-        string $tablesListForQueryCsv
+        string $tablesListForQueryCsv,
     ): string {
         return 'SELECT'
             . ' TABLE_NAME,'
@@ -268,7 +268,7 @@ class Generator
         string $sqlWhereSchema,
         string $sortBy,
         string $sortOrder,
-        string $limit
+        string $limit,
     ): string {
         $sql = 'SELECT *, CAST(BIN_NAME AS CHAR CHARACTER SET utf8) AS SCHEMA_NAME FROM (';
         $sql .= 'SELECT BINARY s.SCHEMA_NAME AS BIN_NAME, s.DEFAULT_COLLATION_NAME';
@@ -306,7 +306,7 @@ class Generator
     public static function getInformationSchemaColumnsFullRequest(
         string|null $escapedDatabase,
         string|null $escapedTable,
-        string|null $escapedColumn
+        string|null $escapedColumn,
     ): string {
         $sqlWheres = [];
 
@@ -350,7 +350,7 @@ class Generator
     public static function getInformationSchemaColumns(
         string|null $database,
         string|null $table,
-        string|null $column
+        string|null $column,
     ): array {
         $arrayKeys = [];
 
@@ -376,14 +376,14 @@ class Generator
         string $dbName,
         string $tableName,
         string $oldIndexName,
-        string $newIndexName
+        string $newIndexName,
     ): string {
         return sprintf(
             'ALTER TABLE %s.%s RENAME INDEX %s TO %s;',
             Util::backquote($dbName),
             Util::backquote($tableName),
             Util::backquote($oldIndexName),
-            Util::backquote($newIndexName)
+            Util::backquote($newIndexName),
         );
     }
 
@@ -393,7 +393,7 @@ class Generator
     public static function getQueryForReorderingTable(
         string $table,
         string $orderField,
-        string|null $order
+        string|null $order,
     ): string {
         return 'ALTER TABLE '
             . Util::backquote($table)
@@ -410,7 +410,7 @@ class Generator
     public static function getQueryForPartitioningTable(
         string $table,
         string $partitionOperation,
-        array $partitionNames
+        array $partitionNames,
     ): string {
         $sql_query = 'ALTER TABLE '
             . Util::backquote($table) . ' '

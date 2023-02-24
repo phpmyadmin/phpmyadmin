@@ -55,37 +55,37 @@ class ExportCsv extends ExportPlugin
         // create leaf items and add them to the group
         $leaf = new TextPropertyItem(
             'separator',
-            __('Columns separated with:')
+            __('Columns separated with:'),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
             'enclosed',
-            __('Columns enclosed with:')
+            __('Columns enclosed with:'),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
             'escaped',
-            __('Columns escaped with:')
+            __('Columns escaped with:'),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
             'terminated',
-            __('Lines terminated with:')
+            __('Lines terminated with:'),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
             'null',
-            __('Replace NULL with:')
+            __('Replace NULL with:'),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new BoolPropertyItem(
             'removeCRLF',
-            __('Remove carriage return/line feed characters within columns')
+            __('Remove carriage return/line feed characters within columns'),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new BoolPropertyItem(
             'columns',
-            __('Put columns names in the first row')
+            __('Put columns names in the first row'),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new HiddenPropertyItem('structure_or_data');
@@ -143,7 +143,7 @@ class ExportCsv extends ExportPlugin
                         "\012",
                         "\011",
                     ],
-                    $GLOBALS['csv_terminated']
+                    $GLOBALS['csv_terminated'],
                 );
             }
 
@@ -208,7 +208,7 @@ class ExportCsv extends ExportPlugin
         $table,
         $errorUrl,
         $sqlQuery,
-        array $aliases = []
+        array $aliases = [],
     ): bool {
         $GLOBALS['what'] ??= null;
         $GLOBALS['csv_terminated'] ??= null;
@@ -229,7 +229,7 @@ class ExportCsv extends ExportPlugin
         $result = $GLOBALS['dbi']->query(
             $sqlQuery,
             Connection::TYPE_USER,
-            DatabaseInterface::QUERY_UNBUFFERED
+            DatabaseInterface::QUERY_UNBUFFERED,
         );
 
         // If required, get fields name at the first line
@@ -247,7 +247,7 @@ class ExportCsv extends ExportPlugin
                         . str_replace(
                             $GLOBALS['csv_enclosed'],
                             $GLOBALS['csv_escaped'] . $GLOBALS['csv_enclosed'],
-                            $col_as
+                            $col_as,
                         )
                         . $GLOBALS['csv_enclosed'];
                 }
@@ -281,7 +281,7 @@ class ExportCsv extends ExportPlugin
                                 "\n",
                             ],
                             '',
-                            $field
+                            $field,
                         );
                     }
 
@@ -297,8 +297,8 @@ class ExportCsv extends ExportPlugin
                                     str_replace(
                                         $GLOBALS['csv_escaped'],
                                         $GLOBALS['csv_escaped'] . $GLOBALS['csv_escaped'],
-                                        $field
-                                    )
+                                        $field,
+                                    ),
                                 )
                                 . $GLOBALS['csv_enclosed'];
                         } else {
@@ -307,7 +307,7 @@ class ExportCsv extends ExportPlugin
                                 . str_replace(
                                     $GLOBALS['csv_enclosed'],
                                     $GLOBALS['csv_escaped'] . $GLOBALS['csv_enclosed'],
-                                    $field
+                                    $field,
                                 )
                                 . $GLOBALS['csv_enclosed'];
                         }

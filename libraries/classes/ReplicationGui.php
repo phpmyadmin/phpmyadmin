@@ -63,7 +63,7 @@ class ReplicationGui
         bool $hasReplicaClearScreen,
         string|null $primaryAddUser,
         string|null $username,
-        string|null $hostname
+        string|null $hostname,
     ): string {
         if (! $hasReplicaClearScreen) {
             $primaryStatusTable = $this->getHtmlForReplicationStatusTable($connection, 'primary', true, false);
@@ -99,7 +99,7 @@ class ReplicationGui
 
         return $this->template->render(
             'server/replication/primary_configuration',
-            ['database_multibox' => $databaseMultibox]
+            ['database_multibox' => $databaseMultibox],
         );
     }
 
@@ -117,7 +117,7 @@ class ReplicationGui
         string|null $connection,
         $serverReplicaStatus,
         array $serverReplicaReplication,
-        bool $replicaConfigure
+        bool $replicaConfigure,
     ): string {
         $serverReplicaMultiReplication = $GLOBALS['dbi']->fetchResult('SHOW ALL SLAVES STATUS');
         if ($serverReplicaStatus) {
@@ -248,7 +248,7 @@ class ReplicationGui
         string|null $connection,
         $type,
         $isHidden = false,
-        $hasTitle = true
+        $hasTitle = true,
     ): string {
         $replicationInfo = new ReplicationInfo($GLOBALS['dbi']);
         $replicationInfo->load($connection);
@@ -369,8 +369,8 @@ class ReplicationGui
                 '',
                 mb_substr(
                     $currentUser,
-                    mb_strrpos($currentUser, '@') + 1
-                )
+                    mb_strrpos($currentUser, '@') + 1,
+                ),
             );
             if ($userHost !== 'localhost' && $userHost !== '127.0.0.1') {
                 $thisHost = $userHost;
@@ -412,7 +412,7 @@ class ReplicationGui
         string $username,
         string $pmaPassword,
         string $hostname,
-        int $port
+        int $port,
     ): void {
         if (! $srTakeAction) {
             return;
@@ -427,7 +427,7 @@ class ReplicationGui
             $_SESSION['replication']['sr_action_status'] = 'error';
             $_SESSION['replication']['sr_action_info'] = __(
                 'Connection to server is disabled, please enable'
-                . ' $cfg[\'AllowArbitraryServer\'] in phpMyAdmin configuration.'
+                . ' $cfg[\'AllowArbitraryServer\'] in phpMyAdmin configuration.',
             );
         } elseif ($replicaChangePrimary) {
             $result = $this->handleRequestForReplicaChangePrimary($username, $pmaPassword, $hostname, $port);
@@ -465,12 +465,12 @@ class ReplicationGui
                     'message',
                     $result
                     ? Message::success($messageSuccess)
-                    : Message::error($messageError)
+                    : Message::error($messageError),
                 );
             } else {
                 Core::sendHeaderLocation(
                     './index.php?route=/server/replication'
-                    . Url::getCommonRaw($GLOBALS['urlParams'], '&')
+                    . Url::getCommonRaw($GLOBALS['urlParams'], '&'),
                 );
             }
         }
@@ -482,7 +482,7 @@ class ReplicationGui
         string $username,
         string $pmaPassword,
         string $hostname,
-        int $port
+        int $port,
     ): bool {
         $_SESSION['replication']['m_username'] = $username;
         $_SESSION['replication']['m_password'] = $pmaPassword;
@@ -495,14 +495,14 @@ class ReplicationGui
             $username,
             $pmaPassword,
             $hostname,
-            $port
+            $port,
         );
 
         if ($connectionToPrimary === null) {
             $_SESSION['replication']['sr_action_status'] = 'error';
             $_SESSION['replication']['sr_action_info'] = sprintf(
                 __('Unable to connect to primary %s.'),
-                htmlspecialchars($hostname)
+                htmlspecialchars($hostname),
             );
         } else {
             // Read the current primary position
@@ -511,7 +511,7 @@ class ReplicationGui
             if ($position === []) {
                 $_SESSION['replication']['sr_action_status'] = 'error';
                 $_SESSION['replication']['sr_action_info'] = __(
-                    'Unable to read primary log position. Possible privilege problem on primary.'
+                    'Unable to read primary log position. Possible privilege problem on primary.',
                 );
             } else {
                 $_SESSION['replication']['m_correct'] = true;
@@ -525,7 +525,7 @@ class ReplicationGui
                         $position,
                         true,
                         false,
-                        Connection::TYPE_USER
+                        Connection::TYPE_USER,
                     )
                 ) {
                     $_SESSION['replication']['sr_action_status'] = 'error';
@@ -534,7 +534,7 @@ class ReplicationGui
                     $_SESSION['replication']['sr_action_status'] = 'success';
                     $_SESSION['replication']['sr_action_info'] = sprintf(
                         __('Primary server changed successfully to %s.'),
-                        htmlspecialchars($hostname)
+                        htmlspecialchars($hostname),
                     );
                 }
             }
@@ -556,7 +556,7 @@ class ReplicationGui
         $qControl = $this->replication->replicaControl(
             $srReplicaAction,
             $control,
-            Connection::TYPE_USER
+            Connection::TYPE_USER,
         );
 
         return $qControl !== false && $qControl !== -1;

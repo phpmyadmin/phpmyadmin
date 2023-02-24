@@ -33,7 +33,7 @@ class ErrorReportController extends AbstractController
         Template $template,
         private ErrorReport $errorReport,
         private ErrorHandler $errorHandler,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
     }
@@ -91,14 +91,14 @@ class ErrorReportController extends AbstractController
                     if ($automatic === 'true' || $GLOBALS['cfg']['SendErrorReports'] === 'always') {
                         $msg = __(
                             'An error has been detected and an error report has been '
-                            . 'automatically submitted based on your settings.'
+                            . 'automatically submitted based on your settings.',
                         );
                     } else {
                         $msg = __('Thank you for submitting this report.');
                     }
                 } else {
                     $msg = __(
-                        'An error has been detected and an error report has been generated but failed to be sent.'
+                        'An error has been detected and an error report has been generated but failed to be sent.',
                     );
                     $msg .= ' ';
                     $msg .= __('If you experience any problems please submit a bug report manually.');

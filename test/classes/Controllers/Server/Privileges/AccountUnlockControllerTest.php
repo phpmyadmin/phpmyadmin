@@ -54,7 +54,7 @@ class AccountUnlockControllerTest extends AbstractTestCase
         $this->controller = new AccountUnlockController(
             $this->responseRendererStub,
             new Template(),
-            new AccountLocking($this->dbiStub)
+            new AccountLocking($this->dbiStub),
         );
     }
 

@@ -37,7 +37,7 @@ class ErrorReport
         private HttpRequest $httpRequest,
         private Relation $relation,
         public Template $template,
-        private Config $config
+        private Config $config,
     ) {
     }
 
@@ -214,7 +214,7 @@ class ErrorReport
             'POST',
             false,
             json_encode($report),
-            'Content-Type: application/json'
+            'Content-Type: application/json',
         );
     }
 

@@ -230,7 +230,7 @@ class TableProperty
         $text = str_replace(
             '#name#',
             ExportCodegen::cgMakeIdentifier($this->name, false),
-            $text
+            $text,
         );
 
         return $this->format($text);
@@ -254,7 +254,7 @@ class TableProperty
                 htmlspecialchars($this->name, ENT_COMPAT, 'UTF-8'),
                 $this->getIndexName(),
             ],
-            $text
+            $text,
         );
 
         return $this->format($text);
@@ -286,7 +286,7 @@ class TableProperty
                 $this->isNotNull(),
                 $this->isUnique(),
             ],
-            $text
+            $text,
         );
     }
 }

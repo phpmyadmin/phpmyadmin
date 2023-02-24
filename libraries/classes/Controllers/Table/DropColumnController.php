@@ -25,7 +25,7 @@ final class DropColumnController extends AbstractController
         Template $template,
         private DatabaseInterface $dbi,
         private FlashMessages $flash,
-        private RelationCleanup $relationCleanup
+        private RelationCleanup $relationCleanup,
     ) {
         parent::__construct($response, $template);
     }
@@ -67,8 +67,8 @@ final class DropColumnController extends AbstractController
                 _ngettext(
                     '%1$d column has been dropped successfully.',
                     '%1$d columns have been dropped successfully.',
-                    $selectedCount
-                )
+                    $selectedCount,
+                ),
             );
             $message->addParam($selectedCount);
         }

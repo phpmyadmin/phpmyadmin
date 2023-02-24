@@ -55,7 +55,7 @@ abstract class CodeMirrorEditorTransformationPlugin extends IOTransformationsPlu
         $text_dir,
         $tabindex,
         $tabindex_for_value,
-        $idindex
+        $idindex,
     ): string {
         $html = '';
         if (! empty($value)) {

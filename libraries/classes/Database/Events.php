@@ -95,7 +95,7 @@ class Events
                     if (! $result) {
                         $GLOBALS['errors'][] = sprintf(
                             __('The following query has failed: "%s"'),
-                            htmlspecialchars($drop_item)
+                            htmlspecialchars($drop_item),
                         )
                         . '<br>'
                         . __('MySQL said: ') . $this->dbi->getError();
@@ -104,7 +104,7 @@ class Events
                         if (! $result) {
                             $GLOBALS['errors'][] = sprintf(
                                 __('The following query has failed: "%s"'),
-                                htmlspecialchars($item_query)
+                                htmlspecialchars($item_query),
                             )
                             . '<br>'
                             . __('MySQL said: ') . $this->dbi->getError();
@@ -116,10 +116,10 @@ class Events
                             }
                         } else {
                             $GLOBALS['message'] = Message::success(
-                                __('Event %1$s has been modified.')
+                                __('Event %1$s has been modified.'),
                             );
                             $GLOBALS['message']->addParam(
-                                Util::backquote($_POST['item_name'])
+                                Util::backquote($_POST['item_name']),
                             );
                             $sql_query = $drop_item . $item_query;
                         }
@@ -130,16 +130,16 @@ class Events
                     if (! $result) {
                         $GLOBALS['errors'][] = sprintf(
                             __('The following query has failed: "%s"'),
-                            htmlspecialchars($item_query)
+                            htmlspecialchars($item_query),
                         )
                         . '<br><br>'
                         . __('MySQL said: ') . $this->dbi->getError();
                     } else {
                         $GLOBALS['message'] = Message::success(
-                            __('Event %1$s has been created.')
+                            __('Event %1$s has been created.'),
                         );
                         $GLOBALS['message']->addParam(
-                            Util::backquote($_POST['item_name'])
+                            Util::backquote($_POST['item_name']),
                         );
                         $sql_query = $item_query;
                     }
@@ -150,9 +150,9 @@ class Events
                 $GLOBALS['message'] = Message::error(
                     '<b>'
                     . __(
-                        'One or more errors have occurred while processing your request:'
+                        'One or more errors have occurred while processing your request:',
                     )
-                    . '</b>'
+                    . '</b>',
                 );
                 $GLOBALS['message']->addHtml('<ul>');
                 foreach ($GLOBALS['errors'] as $string) {
@@ -171,13 +171,13 @@ class Events
                     $this->response->addJSON(
                         'name',
                         htmlspecialchars(
-                            mb_strtoupper($_POST['item_name'])
-                        )
+                            mb_strtoupper($_POST['item_name']),
+                        ),
                     );
                     if (! empty($event)) {
                         $sqlDrop = sprintf(
                             'DROP EVENT IF EXISTS %s',
-                            Util::backquote($event['name'])
+                            Util::backquote($event['name']),
                         );
                         $this->response->addJSON(
                             'new_row',
@@ -188,7 +188,7 @@ class Events
                                 'has_privilege' => Util::currentUserHasPrivilege('EVENT', $GLOBALS['db']),
                                 'sql_drop' => $sqlDrop,
                                 'row_class' => '',
-                            ])
+                            ]),
                         );
                     }
 
@@ -524,7 +524,7 @@ class Events
         $message .= sprintf(
             __('No event with name %1$s found in database %2$s.'),
             htmlspecialchars(Util::backquote($_REQUEST['item_name'])),
-            htmlspecialchars(Util::backquote($db))
+            htmlspecialchars(Util::backquote($db)),
         );
         $message = Message::error($message);
         if ($this->response->isAjax()) {
@@ -575,7 +575,7 @@ class Events
         $message = sprintf(
             __('Error in processing request: No event with name %1$s found in database %2$s.'),
             $itemName,
-            htmlspecialchars(Util::backquote($GLOBALS['db']))
+            htmlspecialchars(Util::backquote($GLOBALS['db'])),
         );
         $message = Message::error($message);
 
@@ -602,7 +602,7 @@ class Events
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $query = QueryGenerator::getInformationSchemaEventsRequest(
                 $this->dbi->escapeString($db),
-                $name === '' ? null : $this->dbi->escapeString($name)
+                $name === '' ? null : $this->dbi->escapeString($name),
             );
         } else {
             $query = 'SHOW EVENTS FROM ' . Util::backquote($db);
@@ -633,7 +633,7 @@ class Events
     {
         $result = $dbi->fetchValue(
             'SHOW CREATE EVENT ' . Util::backquote($db) . '.' . Util::backquote($name),
-            'Create Event'
+            'Create Event',
         );
 
         return is_string($result) ? $result : null;

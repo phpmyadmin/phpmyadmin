@@ -43,7 +43,7 @@ final class DbTableExists
             $response->setRequestStatus(false);
             $response->addJSON(
                 'message',
-                Message::error(__('No databases selected.'))
+                Message::error(__('No databases selected.')),
             );
 
             exit;

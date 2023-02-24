@@ -22,7 +22,7 @@ final class SetValuesController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private Sql $sql,
-        private CheckUserPrivileges $checkUserPrivileges
+        private CheckUserPrivileges $checkUserPrivileges,
     ) {
         parent::__construct($response, $template);
     }
@@ -53,7 +53,7 @@ final class SetValuesController extends AbstractController
                 $GLOBALS['db'],
                 $GLOBALS['table'],
                 $column,
-                $whereClause
+                $whereClause,
             );
         }
 

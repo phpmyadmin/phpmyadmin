@@ -23,7 +23,7 @@ final class ColumnPreferencesController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private CheckUserPrivileges $checkUserPrivileges,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
     }

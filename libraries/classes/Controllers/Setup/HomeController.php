@@ -40,12 +40,12 @@ class HomeController extends AbstractController
 
         $text = __(
             'You are not using a secure connection; all data (including potentially '
-            . 'sensitive information, like passwords) is transferred unencrypted!'
+            . 'sensitive information, like passwords) is transferred unencrypted!',
         );
         $text .= ' <a href="#">';
         $text .= __(
             'If your server is also configured to accept HTTPS requests '
-            . 'follow this link to use a secure connection.'
+            . 'follow this link to use a secure connection.',
         );
         $text .= '</a>';
         Index::messagesSet('notice', 'no_https', __('Insecure connection'), $text);

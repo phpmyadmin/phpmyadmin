@@ -27,7 +27,7 @@ final class CreateNewTablesController extends AbstractController
             $partialDependencies,
             $tablesName,
             $GLOBALS['table'],
-            $GLOBALS['db']
+            $GLOBALS['db'],
         );
         $this->response->addJSON($res);
     }

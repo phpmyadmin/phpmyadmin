@@ -30,7 +30,7 @@ class WebAuthnTest extends AbstractTestCase
         $this->assertSame(
             'Provides authentication using hardware security tokens supporting the WebAuthn/FIDO2 protocol,'
             . ' such as a YubiKey.',
-            WebAuthn::getDescription()
+            WebAuthn::getDescription(),
         );
     }
 
@@ -75,7 +75,7 @@ class WebAuthnTest extends AbstractTestCase
             $this->equalTo('test_user'),
             $this->anything(),
             $this->equalTo('test.localhost'),
-            $this->equalTo([['type' => 'public-key', 'id' => 'cHVibGljS2V5Q3JlZGVudGlhbElkMQ']])
+            $this->equalTo([['type' => 'public-key', 'id' => 'cHVibGljS2V5Q3JlZGVudGlhbElkMQ']]),
         )->willReturn($expectedRequestOptions);
 
         $webAuthn = new WebAuthn($twoFactor);
@@ -127,7 +127,7 @@ class WebAuthnTest extends AbstractTestCase
         $server->expects($this->once())->method('getCredentialCreationOptions')->with(
             $this->equalTo('test_user'),
             $this->anything(),
-            $this->equalTo('test.localhost')
+            $this->equalTo('test.localhost'),
         )->willReturn($expectedCreationOptions);
 
         $webAuthn = new WebAuthn($twoFactor);
@@ -204,7 +204,7 @@ class WebAuthnTest extends AbstractTestCase
         $server->expects($this->once())->method('parseAndValidateAttestationResponse')->with(
             $this->equalTo('{}'),
             $this->equalTo('{}'),
-            $this->equalTo($request)
+            $this->equalTo($request),
         )->willReturn($credential);
 
         $webAuthn = new WebAuthn($twoFactor);
@@ -221,7 +221,7 @@ class WebAuthnTest extends AbstractTestCase
                     'credentials' => ['cHVibGljS2V5Q3JlZGVudGlhbElkMQ==' => $credential],
                 ],
             ],
-            $config
+            $config,
         );
     }
 
@@ -290,7 +290,7 @@ class WebAuthnTest extends AbstractTestCase
             $this->equalTo('{}'),
             $this->equalTo([['type' => 'public-key', 'id' => 'cHVibGljS2V5Q3JlZGVudGlhbElkMQ']]),
             $this->equalTo('challenge'),
-            $this->equalTo($request)
+            $this->equalTo($request),
         );
 
         $webAuthn = new WebAuthn($twoFactor);

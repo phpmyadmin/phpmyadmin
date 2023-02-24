@@ -45,7 +45,7 @@ class PluginTest extends AbstractTestCase
         $this->assertSame('1.0', $plugin->getAuthVersion());
         $this->assertSame(
             '/dev/null storage engine (anything you write to it disappears)',
-            $plugin->getDescription()
+            $plugin->getDescription(),
         );
 
         return $plugin;

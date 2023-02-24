@@ -37,7 +37,7 @@ class Innodb extends StorageEngine
             'innodb_autoextend_increment' => [
                 'title' => __('Autoextend increment'),
                 'desc' => __(
-                    'The increment size for extending the size of an autoextending tablespace when it becomes full.'
+                    'The increment size for extending the size of an autoextending tablespace when it becomes full.',
                 ),
                 'type' => StorageEngine::DETAILS_TYPE_NUMERIC,
             ],
@@ -225,8 +225,8 @@ class Innodb extends StorageEngine
                         $status['Innodb_buffer_pool_reads'] * 100
                         / $status['Innodb_buffer_pool_read_requests'],
                         3,
-                        2
-                    )
+                        2,
+                    ),
                 ) . ' %') . "\n"
             . '</td>' . "\n"
             . '        </tr>' . "\n"
@@ -240,8 +240,8 @@ class Innodb extends StorageEngine
                         $status['Innodb_buffer_pool_wait_free'] * 100
                         / $status['Innodb_buffer_pool_write_requests'],
                         3,
-                        2
-                    )
+                        2,
+                    ),
                 ) . ' %') . "\n"
             . '</td>' . "\n"
             . '        </tr>' . "\n"
@@ -261,7 +261,7 @@ class Innodb extends StorageEngine
         return '<pre id="pre_innodb_status">' . "\n"
             . htmlspecialchars((string) $GLOBALS['dbi']->fetchValue(
                 'SHOW ENGINE INNODB STATUS;',
-                'Status'
+                'Status',
             )) . "\n" . '</pre>' . "\n";
     }
 

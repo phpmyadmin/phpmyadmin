@@ -26,7 +26,7 @@ abstract class LongToIPv4TransformationsPlugin extends TransformationsPlugin
     {
         return __(
             'Converts an (IPv4) Internet network address stored as a BIGINT'
-            . ' into a string in Internet standard dotted format.'
+            . ' into a string in Internet standard dotted format.',
         );
     }
 

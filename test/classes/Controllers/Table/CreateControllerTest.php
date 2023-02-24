@@ -252,7 +252,7 @@ class CreateControllerTest extends AbstractTestCase
             $transformations,
             $this->createConfig(),
             $dbi,
-            new ColumnsDefinition($dbi, $relation, $transformations)
+            new ColumnsDefinition($dbi, $relation, $transformations),
         ))($this->createStub(ServerRequest::class));
 
         $this->assertSame($expected, $response->getHTMLResult());

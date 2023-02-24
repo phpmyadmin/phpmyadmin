@@ -90,7 +90,7 @@ class Form
         $formName,
         array $form,
         ConfigFile $cf,
-        $index = null
+        $index = null,
     ) {
         $this->index = $index;
         $this->configFile = $cf;
@@ -109,9 +109,9 @@ class Form
         $key = ltrim(
             mb_substr(
                 $optionName,
-                (int) mb_strrpos($optionName, '/')
+                (int) mb_strrpos($optionName, '/'),
             ),
-            '/'
+            '/',
         );
 
         return $this->fieldsTypes[$key] ?? null;
@@ -186,7 +186,7 @@ class Form
                 function ($value, $key, $prefix): void {
                     $this->readFormPathsCallback($value, $key, $prefix);
                 },
-                $prefix
+                $prefix,
             );
 
             return;
@@ -227,7 +227,7 @@ class Form
             function ($value, $key, $prefix): void {
                 $this->readFormPathsCallback($value, $key, $prefix);
             },
-            ''
+            '',
         );
 
         // $this->fields is an array of the form: [0..n] => 'field path'
@@ -237,7 +237,7 @@ class Form
         foreach ($paths as $path) {
             $key = ltrim(
                 mb_substr($path, (int) mb_strrpos($path, '/')),
-                '/'
+                '/',
             );
             $this->fields[$key] = $path;
         }

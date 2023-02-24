@@ -31,7 +31,7 @@ class NodeColumnContainerTest extends AbstractTestCase
                 'text' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],
                 'icon' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],
             ],
-            $parent->links
+            $parent->links,
         );
         $this->assertEquals('columns', $parent->realName);
     }

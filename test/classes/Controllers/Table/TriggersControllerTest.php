@@ -48,7 +48,7 @@ class TriggersControllerTest extends AbstractTestCase
             'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES`'
             . ' WHERE GRANTEE=\'\'\'pma_test\'\'@\'\'localhost\'\'\' AND PRIVILEGE_TYPE=\'TRIGGER\''
             . ' AND \'test_db\' LIKE `TABLE_SCHEMA`',
-            [['TRIGGER']]
+            [['TRIGGER']],
         );
 
         $template = new Template();
@@ -57,7 +57,7 @@ class TriggersControllerTest extends AbstractTestCase
             $response,
             $template,
             $this->dbi,
-            new Triggers($this->dbi, $template, $response)
+            new Triggers($this->dbi, $template, $response),
         ))($this->createStub(ServerRequest::class));
 
         $items = [

@@ -27,7 +27,7 @@ abstract class InlineTransformationsPlugin extends TransformationsPlugin
     {
         return __(
             'Displays a clickable thumbnail. The options are the maximum width'
-            . ' and height in pixels. The original aspect ratio is preserved.'
+            . ' and height in pixels. The original aspect ratio is preserved.',
         );
     }
 

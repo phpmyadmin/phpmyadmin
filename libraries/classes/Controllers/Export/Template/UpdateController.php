@@ -18,7 +18,7 @@ final class UpdateController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private TemplateModel $model,
-        private Relation $relation
+        private Relation $relation,
     ) {
         parent::__construct($response, $template);
     }
@@ -42,7 +42,7 @@ final class UpdateController extends AbstractController
         $result = $this->model->update(
             $exportTemplatesFeature->database,
             $exportTemplatesFeature->exportTemplates,
-            $template
+            $template,
         );
 
         if ($result !== '') {

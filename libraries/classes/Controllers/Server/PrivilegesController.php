@@ -37,7 +37,7 @@ class PrivilegesController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private Relation $relation,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
     }
@@ -64,7 +64,7 @@ class PrivilegesController extends AbstractController
             $this->dbi,
             $this->relation,
             $relationCleanup,
-            new Plugins($this->dbi)
+            new Plugins($this->dbi),
         );
 
         if ($relationParameters->configurableMenusFeature !== null) {
@@ -115,7 +115,7 @@ class PrivilegesController extends AbstractController
             ]);
             $this->response->addHTML(
                 Message::error(__('No Privileges'))
-                    ->getDisplay()
+                    ->getDisplay(),
             );
 
             return;
@@ -123,7 +123,7 @@ class PrivilegesController extends AbstractController
 
         if (! $isGrantUser && ! $isCreateUser) {
             $this->response->addHTML(Message::notice(
-                __('You do not have the privileges to administrate the users!')
+                __('You do not have the privileges to administrate the users!'),
             )->getDisplay());
         }
 
@@ -141,9 +141,9 @@ class PrivilegesController extends AbstractController
                     __(
                         "Username and hostname didn't change. "
                         . 'If you only want to change the password, '
-                        . "'Change password' tab should be used."
-                    )
-                )->getDisplay()
+                        . "'Change password' tab should be used.",
+                    ),
+                )->getDisplay(),
             );
             $this->response->setRequestStatus(false);
 
@@ -155,7 +155,7 @@ class PrivilegesController extends AbstractController
          */
         $password = $serverPrivileges->getDataForChangeOrCopyUser(
             $request->getParsedBodyParam('old_username', ''),
-            $request->getParsedBodyParam('old_hostname', '')
+            $request->getParsedBodyParam('old_hostname', ''),
         );
 
         /**
@@ -173,7 +173,7 @@ class PrivilegesController extends AbstractController
             $GLOBALS['username'] ?? '',
             $GLOBALS['hostname'] ?? '',
             $password,
-            $relationParameters->configurableMenusFeature !== null
+            $relationParameters->configurableMenusFeature !== null,
         );
         //update the old variables
         if (isset($retMessage)) {
@@ -190,7 +190,7 @@ class PrivilegesController extends AbstractController
                 $GLOBALS['username'],
                 $GLOBALS['hostname'],
                 $request->getParsedBodyParam('old_username'),
-                $request->getParsedBodyParam('old_hostname')
+                $request->getParsedBodyParam('old_hostname'),
             );
         }
 
@@ -210,7 +210,7 @@ class PrivilegesController extends AbstractController
                         ($GLOBALS['hostname'] ?? ''),
                         ($tablename ?? ($routinename ?? '')),
                         ($db_name ?? ''),
-                        $itemType
+                        $itemType,
                     );
                 }
 
@@ -221,7 +221,7 @@ class PrivilegesController extends AbstractController
                     ($GLOBALS['hostname'] ?? ''),
                     ($tablename ?? ($routinename ?? '')),
                     ($GLOBALS['dbname'] ?? ''),
-                    $itemType
+                    $itemType,
                 );
             }
         }
@@ -246,7 +246,7 @@ class PrivilegesController extends AbstractController
                 ($tablename ?? ($routinename ?? '')),
                 $GLOBALS['username'] ?? '',
                 $GLOBALS['hostname'] ?? '',
-                $itemType
+                $itemType,
             );
         }
 
@@ -257,7 +257,7 @@ class PrivilegesController extends AbstractController
             $GLOBALS['message'] = $serverPrivileges->updatePassword(
                 $GLOBALS['errorUrl'],
                 $GLOBALS['username'] ?? '',
-                $GLOBALS['hostname'] ?? ''
+                $GLOBALS['hostname'] ?? '',
             );
         }
 
@@ -281,7 +281,7 @@ class PrivilegesController extends AbstractController
         if ($request->hasBodyParam('change_copy')) {
             $queries = $serverPrivileges->getDataForQueries(
                 $queries,
-                $queriesForDisplay
+                $queriesForDisplay,
             );
             $GLOBALS['message'] = Message::success();
             $GLOBALS['sql_query'] = implode("\n", $queries);
@@ -313,7 +313,7 @@ class PrivilegesController extends AbstractController
                 ($password ?? ''),
                 ($GLOBALS['sql_query'] ?? ''),
                 ($GLOBALS['hostname'] ?? ''),
-                ($GLOBALS['username'] ?? '')
+                ($GLOBALS['username'] ?? ''),
             );
 
             if (! empty($GLOBALS['message']) && $GLOBALS['message'] instanceof Message) {
@@ -341,13 +341,13 @@ class PrivilegesController extends AbstractController
             $title = $this->getExportPageTitle(
                 $GLOBALS['username'] ?? '',
                 $GLOBALS['hostname'] ?? '',
-                $selectedUsers
+                $selectedUsers,
             );
 
             $export = $serverPrivileges->getExportUserDefinitionTextarea(
                 $GLOBALS['username'] ?? '',
                 $GLOBALS['hostname'] ?? '',
-                $selectedUsers
+                $selectedUsers,
             );
 
             unset($GLOBALS['username'], $GLOBALS['hostname']);
@@ -366,7 +366,7 @@ class PrivilegesController extends AbstractController
         if ($request->hasQueryParam('adduser') || $addUserError === true) {
             // Add user
             $this->response->addHTML($serverPrivileges->getHtmlForAddUser(
-                $serverPrivileges->escapeGrantWildcards(is_string($GLOBALS['dbname']) ? $GLOBALS['dbname'] : '')
+                $serverPrivileges->escapeGrantWildcards(is_string($GLOBALS['dbname']) ? $GLOBALS['dbname'] : ''),
             ));
         } else {
             if (isset($GLOBALS['dbname']) && ! is_array($GLOBALS['dbname'])) {
@@ -380,8 +380,8 @@ class PrivilegesController extends AbstractController
                             '_',
                             '%',
                         ],
-                        $GLOBALS['dbname']
-                    )
+                        $GLOBALS['dbname'],
+                    ),
                 );
             }
 
@@ -390,8 +390,8 @@ class PrivilegesController extends AbstractController
                 $this->response->addHTML(
                     $serverPrivileges->getHtmlForUserOverview(
                         $GLOBALS['text_dir'],
-                        $request->getQueryParam('initial', '')
-                    )
+                        $request->getQueryParam('initial', ''),
+                    ),
                 );
             } elseif (! empty($routinename)) {
                 $this->response->addHTML(
@@ -400,8 +400,8 @@ class PrivilegesController extends AbstractController
                         $GLOBALS['hostname'] ?? '',
                         is_string($GLOBALS['dbname']) ? $GLOBALS['dbname'] : '',
                         $routinename,
-                        $serverPrivileges->escapeGrantWildcards($urlDbname ?? '')
-                    )
+                        $serverPrivileges->escapeGrantWildcards($urlDbname ?? ''),
+                    ),
                 );
             } else {
                 // A user was selected -> display the user's properties
@@ -418,8 +418,8 @@ class PrivilegesController extends AbstractController
                         $GLOBALS['hostname'] ?? '',
                         $GLOBALS['dbname'] ?? '',
                         $tablename ?? '',
-                        $request->getRoute()
-                    )
+                        $request->getRoute(),
+                    ),
                 );
             }
         }

@@ -36,7 +36,7 @@ class MySQLDocumentation
         bool $bigIcon = false,
         $url = null,
         $text = null,
-        $anchor = ''
+        $anchor = '',
     ): string {
         if ($url === null) {
             $url = Util::getMySQLDocuURL($link, $anchor);
@@ -72,7 +72,7 @@ class MySQLDocumentation
             self::getDocumentationLink($page, $anchor),
             'documentation',
             $bbcode,
-            $disableTabIndex
+            $disableTabIndex,
         );
     }
 

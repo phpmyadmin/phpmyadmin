@@ -51,7 +51,7 @@ class Sql
         private RelationCleanup $relationCleanup,
         private Operations $operations,
         private Transformations $transformations,
-        private Template $template
+        private Template $template,
     ) {
     }
 
@@ -66,7 +66,7 @@ class Sql
         $db,
         $table,
         StatementInfo $statementInfo,
-        &$fullSqlQuery
+        &$fullSqlQuery,
     ): StatementInfo {
         if ($statementInfo->statement === null || $statementInfo->parser === null) {
             return $statementInfo;
@@ -85,14 +85,14 @@ class Sql
             $sortCol = str_replace(
                 Util::backquote($table) . '.',
                 '',
-                $sortCol
+                $sortCol,
             );
 
             // Create the new query.
             $fullSqlQuery = Query::replaceClause(
                 $statementInfo->statement,
                 $statementInfo->parser->list,
-                'ORDER BY ' . $sortCol
+                'ORDER BY ' . $sortCol,
             );
 
             // TODO: Avoid reparsing the query.
@@ -104,8 +104,8 @@ class Sql
                 Query::getClause(
                     $statementInfo->statement,
                     $statementInfo->parser->list,
-                    'ORDER BY'
-                )
+                    'ORDER BY',
+                ),
             );
         }
 
@@ -127,7 +127,7 @@ class Sql
             $statementInfo->statement,
             $statementInfo->parser->list,
             'LIMIT ' . $_SESSION['tmpval']['pos'] . ', '
-            . $_SESSION['tmpval']['max_rows']
+            . $_SESSION['tmpval']['max_rows'],
         );
     }
 
@@ -236,7 +236,7 @@ class Sql
             $foreignData['foreign_field'],
             $foreignData['foreign_display'],
             $currentValue,
-            $GLOBALS['cfg']['ForeignKeyMaxLimit']
+            $GLOBALS['cfg']['ForeignKeyMaxLimit'],
         );
 
         return '<select>' . $dropdown . '</select>';
@@ -283,14 +283,14 @@ class Sql
         string $db,
         string $table,
         string $column,
-        string $whereClause
+        string $whereClause,
     ): string {
         $row = $this->dbi->fetchSingleRow(sprintf(
             'SELECT `%s` FROM `%s`.`%s` WHERE %s',
             $column,
             $db,
             $table,
-            $whereClause
+            $whereClause,
         ));
 
         if ($row === null) {
@@ -400,7 +400,7 @@ class Sql
     public function hasNoRightsToDropDatabase(
         StatementInfo $statementInfo,
         $allowUserDropDatabase,
-        $isSuperUser
+        $isSuperUser,
     ): bool {
         return ! $allowUserDropDatabase && $statementInfo->dropDatabase && ! $isSuperUser;
     }
@@ -438,16 +438,16 @@ class Sql
             $table,
             'label',
             false,
-            true
+            true,
         );
 
         if ($bookmark !== null && $bookmark->getQuery() !== '') {
             $GLOBALS['using_bookmark_message'] = Message::notice(
-                __('Using bookmark "%s" as default browse query.')
+                __('Using bookmark "%s" as default browse query.'),
             );
             $GLOBALS['using_bookmark_message']->addParam($table);
             $GLOBALS['using_bookmark_message']->addHtml(
-                MySQLDocumentation::showDocumentation('faq', 'faq6-22')
+                MySQLDocumentation::showDocumentation('faq', 'faq6-22'),
             );
 
             return $bookmark->getQuery();
@@ -518,7 +518,7 @@ class Sql
         $bookmarkUser,
         $sqlQueryForBookmark,
         $bookmarkLabel,
-        bool $bookmarkReplace
+        bool $bookmarkReplace,
     ): void {
         $bfields = [
             'bkm_database' => $db,
@@ -542,7 +542,7 @@ class Sql
         $bookmark = Bookmark::createBookmark(
             $this->dbi,
             $bfields,
-            isset($_POST['bkm_all_users'])
+            isset($_POST['bkm_all_users']),
         );
 
         if ($bookmark === false) {
@@ -637,7 +637,7 @@ class Sql
         bool $justBrowsing,
         string $db,
         string $table,
-        StatementInfo $statementInfo
+        StatementInfo $statementInfo,
     ): int|string {
         /* Shortcut for not analyzed/empty query */
         if ($statementInfo->statement === null || $statementInfo->parser === null) {
@@ -741,7 +741,7 @@ class Sql
         string|null $table,
         bool|null $findRealEnd,
         string|null $sqlQueryForBookmark,
-        $extraData
+        $extraData,
     ): array {
         $response = ResponseRenderer::getInstance();
         $response->getHeader()->getMenu()->setTable($table ?? '');
@@ -786,7 +786,7 @@ class Sql
                     $bookmarkFeature !== null ? $GLOBALS['cfg']['Server']['user'] : '',
                     $sqlQueryForBookmark,
                     $_POST['bkm_label'],
-                    isset($_POST['bkm_replace'])
+                    isset($_POST['bkm_replace']),
                 );
             }
 
@@ -865,7 +865,7 @@ class Sql
     private function getMessageForNoRowsReturned(
         string|null $messageToShow,
         StatementInfo $statementInfo,
-        int|string $numRows
+        int|string $numRows,
     ): Message {
         if ($statementInfo->queryType === 'DELETE') {
             $message = Message::getMessageForDeletedRows($numRows);
@@ -909,13 +909,13 @@ class Sql
             $message = Message::notice(__('Showing SQL query'));
         } else {
             $message = Message::success(
-                __('MySQL returned an empty result set (i.e. zero rows).')
+                __('MySQL returned an empty result set (i.e. zero rows).'),
             );
         }
 
         if (isset($GLOBALS['querytime'])) {
             $queryTime = Message::notice(
-                '(' . __('Query took %01.4f seconds.') . ')'
+                '(' . __('Query took %01.4f seconds.') . ')',
             );
             $queryTime->addParam($GLOBALS['querytime']);
             $message->addMessage($queryTime);
@@ -965,7 +965,7 @@ class Sql
         array|null $profilingResults,
         $result,
         $sqlQuery,
-        string|null $completeQuery
+        string|null $completeQuery,
     ): string {
         if ($this->isDeleteTransformationInfo($statementInfo)) {
             $this->deleteTransformationInfo($db, $table ?? '', $statementInfo);
@@ -1022,7 +1022,7 @@ class Sql
             null,
             $result,
             $statementInfo,
-            true
+            true,
         );
 
         $profilingChart = '';
@@ -1094,7 +1094,7 @@ class Sql
         $output = '';
         if (isset($_GET['label'])) {
             $message = Message::success(
-                __('Bookmark %s has been created.')
+                __('Bookmark %s has been created.'),
             );
             $message->addParam($_GET['label']);
             $output = $message->getDisplay();
@@ -1126,7 +1126,7 @@ class Sql
         array|null $showTable,
         $result,
         StatementInfo $statementInfo,
-        $isLimitedDisplay = false
+        $isLimitedDisplay = false,
     ): string {
         $printView = isset($_POST['printview']) && $_POST['printview'] == '1' ? '1' : null;
         $tableHtml = '';
@@ -1166,7 +1166,7 @@ class Sql
                         $showTable,
                         $printView,
                         $editable,
-                        $isBrowseDistinct
+                        $isBrowseDistinct,
                     );
 
                     $displayParts = DisplayParts::fromArray([
@@ -1183,7 +1183,7 @@ class Sql
                         $result,
                         $displayParts,
                         $statementInfo,
-                        $isLimitedDisplay
+                        $isLimitedDisplay,
                     );
                 }
 
@@ -1214,7 +1214,7 @@ class Sql
                 $showTable,
                 $printView,
                 $editable,
-                $isBrowseDistinct
+                $isBrowseDistinct,
             );
 
             if (! is_bool($result)) {
@@ -1222,7 +1222,7 @@ class Sql
                     $result,
                     $displayParts,
                     $statementInfo,
-                    $isLimitedDisplay
+                    $isLimitedDisplay,
                 );
             }
         }
@@ -1242,7 +1242,7 @@ class Sql
         string|null $displayQuery,
         bool $showSql,
         array $sqlData,
-        Message|string $displayMessage
+        Message|string $displayMessage,
     ): string {
         if ($displayQuery !== null && $showSql && $sqlData === []) {
             return Generator::getMessage($displayMessage, $displayQuery, 'success');
@@ -1263,7 +1263,7 @@ class Sql
         string|null $table,
         string $database,
         bool $editable,
-        bool $hasUniqueKey
+        bool $hasUniqueKey,
     ): string {
         if ($table === null) {
             return '';
@@ -1276,13 +1276,13 @@ class Sql
                     __(
                         'Current selection does not contain a unique column.'
                         . ' Grid edit, checkbox, Edit, Copy and Delete features'
-                        . ' are not available. %s'
+                        . ' are not available. %s',
                     ),
                     MySQLDocumentation::showDocumentation(
                         'config',
-                        'cfg_RowActionLinksWithoutUnique'
-                    )
-                )
+                        'cfg_RowActionLinksWithoutUnique',
+                    ),
+                ),
             )->getDisplay();
         } elseif (! $hasUniqueKey) {
             $output = Message::notice(
@@ -1290,13 +1290,13 @@ class Sql
                     __(
                         'Current selection does not contain a unique column.'
                         . ' Grid edit, Edit, Copy and Delete features may result in'
-                        . ' undesired behavior. %s'
+                        . ' undesired behavior. %s',
                     ),
                     MySQLDocumentation::showDocumentation(
                         'config',
-                        'cfg_RowActionLinksWithoutUnique'
-                    )
-                )
+                        'cfg_RowActionLinksWithoutUnique',
+                    ),
+                ),
             )->getDisplay();
         }
 
@@ -1336,7 +1336,7 @@ class Sql
         $dispMessage,
         array|null $profilingResults,
         $sqlQuery,
-        string|null $completeQuery
+        string|null $completeQuery,
     ): string {
         $GLOBALS['showtable'] ??= null;
 
@@ -1445,7 +1445,7 @@ class Sql
             $dispQuery,
             (bool) $GLOBALS['cfg']['ShowSQL'],
             $sqlData ?? [],
-            $dispMessage ?? ''
+            $dispMessage ?? '',
         );
 
         $profilingChartHtml = '';
@@ -1466,7 +1466,7 @@ class Sql
             $numRows,
             $GLOBALS['showtable'],
             $result,
-            $statementInfo
+            $statementInfo,
         );
 
         $bookmarkSupportHtml = '';
@@ -1531,7 +1531,7 @@ class Sql
         $dispQuery,
         $dispMessage,
         $sqlQuery,
-        $completeQuery
+        $completeQuery,
     ): string {
         if ($statementInfo === null) {
             // Parse and analyze the query
@@ -1554,7 +1554,7 @@ class Sql
             $dispQuery, // disp_query
             $dispMessage, // disp_message
             $sqlQuery, // sql_query
-            $completeQuery // complete_query
+            $completeQuery, // complete_query
         );
     }
 
@@ -1591,7 +1591,7 @@ class Sql
         string|null $dispQuery,
         $dispMessage,
         $sqlQuery,
-        string|null $completeQuery
+        string|null $completeQuery,
     ): string {
         // Handle disable/enable foreign key checks
         $defaultFkCheck = ForeignKey::handleDisableCheckInit();
@@ -1619,7 +1619,7 @@ class Sql
             $GLOBALS['table'],
             $GLOBALS['server'],
             $goto,
-            $sqlQuery
+            $sqlQuery,
         );
         $displayResultsObject->setConfigParamsForDisplayTable($statementInfo);
 
@@ -1648,7 +1648,7 @@ class Sql
             $table,
             $findRealEnd,
             $sqlQueryForBookmark,
-            $extraData
+            $extraData,
         );
 
         if ($this->dbi->moreResults()) {
@@ -1670,7 +1670,7 @@ class Sql
                 $profilingResults,
                 $result,
                 $sqlQuery,
-                $completeQuery
+                $completeQuery,
             );
         } else {
             // At least one row is returned -> displays a table with results
@@ -1687,7 +1687,7 @@ class Sql
                 $dispMessage,
                 $profilingResults,
                 $sqlQuery,
-                $completeQuery
+                $completeQuery,
             );
         }
 

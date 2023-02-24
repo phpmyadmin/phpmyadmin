@@ -55,7 +55,7 @@ final class ImportController extends AbstractController
         Template $template,
         private Import $import,
         private Sql $sql,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
     }
@@ -139,13 +139,13 @@ final class ImportController extends AbstractController
                     $GLOBALS['sql_query'] = preg_replace(
                         '/' . $quoted . '([^a-zA-Z0-9_])/',
                         $replacementValue . '${1}',
-                        $GLOBALS['sql_query']
+                        $GLOBALS['sql_query'],
                     );
                     // for parameters the appear at the end of the string
                     $GLOBALS['sql_query'] = preg_replace(
                         '/' . $quoted . '$/',
                         $replacementValue,
-                        $GLOBALS['sql_query']
+                        $GLOBALS['sql_query'],
                     );
                 }
             }
@@ -178,7 +178,7 @@ final class ImportController extends AbstractController
                 preg_match(
                     '/^RENAME\s+TABLE\s+(.*?)\s+TO\s+(.*?)($|;|\s)/i',
                     $GLOBALS['sql_query'],
-                    $rename_table_names
+                    $rename_table_names,
                 )
             ) {
                 $GLOBALS['ajax_reload']['reload'] = true;
@@ -206,8 +206,8 @@ final class ImportController extends AbstractController
             $GLOBALS['message'] = Message::error(
                 __(
                     'You probably tried to upload a file that is too large. Please refer ' .
-                    'to %sdocumentation%s for a workaround for this limit.'
-                )
+                    'to %sdocumentation%s for a workaround for this limit.',
+                ),
             );
             $GLOBALS['message']->addParam('[doc@faq1-16]');
             $GLOBALS['message']->addParam('[/doc]');
@@ -328,7 +328,7 @@ final class ImportController extends AbstractController
                         DatabaseName::fromValue($GLOBALS['db']),
                         $id_bookmark,
                         'id',
-                        $request->hasBodyParam('action_bookmark_all')
+                        $request->hasBodyParam('action_bookmark_all'),
                     );
                     if (! $bookmark instanceof Bookmark) {
                         break;
@@ -358,7 +358,7 @@ final class ImportController extends AbstractController
                         $this->dbi,
                         $GLOBALS['cfg']['Server']['user'],
                         DatabaseName::fromValue($GLOBALS['db']),
-                        $id_bookmark
+                        $id_bookmark,
                     );
                     if (! $bookmark instanceof Bookmark) {
                         break;
@@ -382,7 +382,7 @@ final class ImportController extends AbstractController
                         $this->dbi,
                         $GLOBALS['cfg']['Server']['user'],
                         DatabaseName::fromValue($GLOBALS['db']),
-                        $id_bookmark
+                        $id_bookmark,
                     );
                     if (! $bookmark instanceof Bookmark) {
                         break;
@@ -391,7 +391,7 @@ final class ImportController extends AbstractController
                     $bookmark->delete();
                     if ($this->response->isAjax()) {
                         $GLOBALS['message'] = Message::success(
-                            __('The bookmark has been deleted.')
+                            __('The bookmark has been deleted.'),
                         );
                         $this->response->setRequestStatus($GLOBALS['message']->isSuccess());
                         $this->response->addJSON('message', $GLOBALS['message']);
@@ -515,8 +515,8 @@ final class ImportController extends AbstractController
                 __(
                     'No data was received to import. Either no file name was ' .
                     'submitted, or the file size exceeded the maximum size permitted ' .
-                    'by your PHP configuration. See [doc@faq1-16]FAQ 1.16[/doc].'
-                )
+                    'by your PHP configuration. See [doc@faq1-16]FAQ 1.16[/doc].',
+                ),
             );
 
             $_SESSION['Import_message']['message'] = $GLOBALS['message']->getDisplay();
@@ -546,7 +546,7 @@ final class ImportController extends AbstractController
             while ($skip > 0 && ! $GLOBALS['finished']) {
                 $this->import->getNextChunk(
                     $importHandle ?? null,
-                    $skip < $GLOBALS['read_limit'] ? $skip : $GLOBALS['read_limit']
+                    $skip < $GLOBALS['read_limit'] ? $skip : $GLOBALS['read_limit'],
                 );
                 // Disable read progressivity, otherwise we eat all memory!
                 $GLOBALS['read_multiply'] = 1;
@@ -567,7 +567,7 @@ final class ImportController extends AbstractController
             $import_plugin = Plugins::getPlugin('import', $GLOBALS['format'], $GLOBALS['import_type']);
             if ($import_plugin == null) {
                 $GLOBALS['message'] = Message::error(
-                    __('Could not load import plugins, please check your installation!')
+                    __('Could not load import plugins, please check your installation!'),
                 );
 
                 $_SESSION['Import_message']['message'] = $GLOBALS['message']->getDisplay();
@@ -617,9 +617,9 @@ final class ImportController extends AbstractController
                     . _ngettext(
                         'Import has been successfully finished, %d query executed.',
                         'Import has been successfully finished, %d queries executed.',
-                        $GLOBALS['executed_queries']
+                        $GLOBALS['executed_queries'],
                     )
-                    . '</em>'
+                    . '</em>',
                 );
                 $GLOBALS['message']->addParam($GLOBALS['executed_queries']);
 
@@ -653,8 +653,8 @@ final class ImportController extends AbstractController
             $GLOBALS['message'] = Message::error(
                 __(
                     'Script timeout passed, if you want to finish import,'
-                    . ' please %sresubmit the same file%s and import will resume.'
-                )
+                    . ' please %sresubmit the same file%s and import will resume.',
+                ),
             );
             $GLOBALS['message']->addParamHtml('<a href="' . $importUrl . '">');
             $GLOBALS['message']->addParamHtml('</a>');
@@ -664,8 +664,8 @@ final class ImportController extends AbstractController
                     __(
                         'However on last run no data has been parsed,'
                         . ' this usually means phpMyAdmin won\'t be able to'
-                        . ' finish this import unless you increase php time limits.'
-                    )
+                        . ' finish this import unless you increase php time limits.',
+                    ),
                 );
             }
         }
@@ -684,7 +684,7 @@ final class ImportController extends AbstractController
         if ($sqlLength <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
             [$statementInfo, $GLOBALS['db'], $table_from_sql] = ParseAnalyze::sqlQuery(
                 $GLOBALS['sql_query'],
-                $GLOBALS['db']
+                $GLOBALS['db'],
             );
 
             $GLOBALS['reload'] = $statementInfo->reload;
@@ -715,7 +715,7 @@ final class ImportController extends AbstractController
                 // parse sql query
                 [$statementInfo, $GLOBALS['db'], $table_from_sql] = ParseAnalyze::sqlQuery(
                     $GLOBALS['sql_query'],
-                    $GLOBALS['db']
+                    $GLOBALS['db'],
                 );
 
                 $GLOBALS['offset'] = $statementInfo->offset;
@@ -726,14 +726,14 @@ final class ImportController extends AbstractController
                     $this->sql->hasNoRightsToDropDatabase(
                         $statementInfo,
                         $GLOBALS['cfg']['AllowUserDropDatabase'],
-                        $this->dbi->isSuperUser()
+                        $this->dbi->isSuperUser(),
                     )
                 ) {
                     Generator::mysqlDie(
                         __('"DROP DATABASE" statements are disabled.'),
                         '',
                         false,
-                        $_SESSION['Import_message']['go_back_url']
+                        $_SESSION['Import_message']['go_back_url'],
                     );
 
                     return;
@@ -757,7 +757,7 @@ final class ImportController extends AbstractController
                     null, // disp_query
                     null, // disp_message
                     $GLOBALS['sql_query'], // sql_query
-                    null // complete_query
+                    null, // complete_query
                 );
             }
 
@@ -773,7 +773,7 @@ final class ImportController extends AbstractController
                     $GLOBALS['cfg']['Server']['user'],
                     $request->getParsedBodyParam('sql_query'),
                     $request->getParsedBodyParam('bkm_label'),
-                    $request->hasBodyParam('bkm_replace')
+                    $request->hasBodyParam('bkm_replace'),
                 );
             }
 
@@ -794,7 +794,7 @@ final class ImportController extends AbstractController
                     $GLOBALS['cfg']['Server']['user'],
                     $request->getParsedBodyParam('sql_query'),
                     $request->getParsedBodyParam('bkm_label'),
-                    $request->hasBodyParam('bkm_replace')
+                    $request->hasBodyParam('bkm_replace'),
                 );
             }
 
@@ -802,7 +802,7 @@ final class ImportController extends AbstractController
             $this->response->addJSON('message', Message::success($GLOBALS['msg']));
             $this->response->addJSON(
                 'sql_query',
-                Generator::getMessage($GLOBALS['msg'], $GLOBALS['sql_query'], 'success')
+                Generator::getMessage($GLOBALS['msg'], $GLOBALS['sql_query'], 'success'),
             );
         } elseif ($GLOBALS['result'] === false) {
             $this->response->setRequestStatus(false);

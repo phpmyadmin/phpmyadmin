@@ -44,7 +44,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
             . ' UTC one (use "local" or "utc" strings) for that. According to'
             . ' that, date format has different value - for "local" see the'
             . ' documentation for PHP\'s strftime() function and for "utc" it'
-            . ' is done using gmdate() function.'
+            . ' is done using gmdate() function.',
         );
     }
 
@@ -108,7 +108,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
                         $aDate['second'],
                         $aDate['month'],
                         $aDate['day'],
-                        $aDate['year']
+                        $aDate['year'],
                     );
                 }
 

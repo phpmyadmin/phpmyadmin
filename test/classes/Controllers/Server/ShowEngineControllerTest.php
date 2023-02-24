@@ -63,31 +63,31 @@ class ShowEngineControllerTest extends AbstractTestCase
 
         $this->assertStringContainsString(
             htmlspecialchars($enginePlugin->getTitle()),
-            $actual
+            $actual,
         );
 
         $this->assertStringContainsString(
             MySQLDocumentation::show($enginePlugin->getMysqlHelpPage()),
-            $actual
+            $actual,
         );
 
         $this->assertStringContainsString(
             htmlspecialchars($enginePlugin->getComment()),
-            $actual
+            $actual,
         );
 
         $this->assertStringContainsString(
             __('Variables'),
-            $actual
+            $actual,
         );
         $this->assertStringContainsString('index.php?route=/server/engines/Pbxt/Documentation', $actual);
         $this->assertStringContainsString(
             $enginePlugin->getSupportInformationMessage(),
-            $actual
+            $actual,
         );
         $this->assertStringContainsString(
             'There is no detailed status information available for this storage engine.',
-            $actual
+            $actual,
         );
     }
 }

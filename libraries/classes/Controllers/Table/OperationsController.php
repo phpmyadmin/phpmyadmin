@@ -44,7 +44,7 @@ class OperationsController extends AbstractController
         private Operations $operations,
         private CheckUserPrivileges $checkUserPrivileges,
         private Relation $relation,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
     }
@@ -105,7 +105,7 @@ class OperationsController extends AbstractController
         $GLOBALS['reread_info'] = $pma_table->getStatusInfo(null, false);
         $GLOBALS['showtable'] = $pma_table->getStatusInfo(
             null,
-            (isset($GLOBALS['reread_info']) && $GLOBALS['reread_info'])
+            (isset($GLOBALS['reread_info']) && $GLOBALS['reread_info']),
         );
         if ($pma_table->isView()) {
             $GLOBALS['tbl_is_view'] = true;
@@ -195,7 +195,7 @@ class OperationsController extends AbstractController
                             $oldDb,
                             $oldTable,
                             is_string($dbParam) ? $dbParam : '',
-                            $newName
+                            $newName,
                         );
                     }
 
@@ -242,7 +242,7 @@ class OperationsController extends AbstractController
                 $GLOBALS['new_tbl_storage_engine'],
                 (isset($GLOBALS['create_options']['transactional'])
                     && $GLOBALS['create_options']['transactional'] == '0' ? '0' : '1'),
-                $GLOBALS['tbl_collation']
+                $GLOBALS['tbl_collation'],
             );
 
             if (count($GLOBALS['table_alters']) > 0) {
@@ -265,7 +265,7 @@ class OperationsController extends AbstractController
                 $this->operations->changeAllColumnsCollation(
                     $GLOBALS['db'],
                     $GLOBALS['table'],
-                    $tableCollationParam
+                    $tableCollationParam,
                 );
             }
 
@@ -274,7 +274,7 @@ class OperationsController extends AbstractController
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON(
                         'message',
-                        Message::error(__('No collation provided.'))
+                        Message::error(__('No collation provided.')),
                     );
 
                     return;
@@ -294,7 +294,7 @@ class OperationsController extends AbstractController
             $GLOBALS['sql_query'] = QueryGenerator::getQueryForReorderingTable(
                 $GLOBALS['table'],
                 urldecode($orderField),
-                is_string($orderOrder) ? $orderOrder : ''
+                is_string($orderOrder) ? $orderOrder : '',
             );
             $GLOBALS['result'] = $this->dbi->query($GLOBALS['sql_query']);
         }
@@ -313,7 +313,7 @@ class OperationsController extends AbstractController
             $GLOBALS['sql_query'] = QueryGenerator::getQueryForPartitioningTable(
                 $GLOBALS['table'],
                 $partitionOperation,
-                is_array($partitionNames) ? $partitionNames : []
+                is_array($partitionNames) ? $partitionNames : [],
             );
             $GLOBALS['result'] = $this->dbi->query($GLOBALS['sql_query']);
         }
@@ -359,7 +359,7 @@ class OperationsController extends AbstractController
                     if (! empty($GLOBALS['sql_query'])) {
                         $this->response->addJSON(
                             'sql_query',
-                            Generator::getMessage('', $GLOBALS['sql_query'])
+                            Generator::getMessage('', $GLOBALS['sql_query']),
                         );
                     }
 
@@ -381,7 +381,7 @@ class OperationsController extends AbstractController
                     if (! empty($GLOBALS['sql_query'])) {
                         $this->response->addJSON(
                             'sql_query',
-                            Generator::getMessage('', $GLOBALS['sql_query'])
+                            Generator::getMessage('', $GLOBALS['sql_query']),
                         );
                     }
 
@@ -393,11 +393,11 @@ class OperationsController extends AbstractController
 
             if (empty($GLOBALS['sql_query'])) {
                 $this->response->addHTML(
-                    $_message->getDisplay()
+                    $_message->getDisplay(),
                 );
             } else {
                 $this->response->addHTML(
-                    Generator::getMessage($_message, $GLOBALS['sql_query'])
+                    Generator::getMessage($_message, $GLOBALS['sql_query']),
                 );
             }
 
@@ -490,7 +490,7 @@ class OperationsController extends AbstractController
 
         $foreigners = $this->operations->getForeignersForReferentialIntegrityCheck(
             $GLOBALS['urlParams'],
-            $relationParameters->relationFeature !== null
+            $relationParameters->relationFeature !== null,
         );
 
         $this->render('table/operations/index', [

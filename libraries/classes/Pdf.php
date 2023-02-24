@@ -51,7 +51,7 @@ class Pdf extends TCPDF
         $unicode = true,
         $encoding = 'UTF-8',
         $diskcache = false,
-        $pdfa = false
+        $pdfa = false,
     ) {
         parent::__construct($orientation, $unit, $format, $unicode, $encoding, $diskcache, $pdfa);
         $this->setAuthor('phpMyAdmin ' . Version::VERSION);
@@ -81,7 +81,7 @@ class Pdf extends TCPDF
             . $this->getAliasNumPage() . '/' . $this->getAliasNbPages(),
             'T',
             0,
-            'C'
+            'C',
         );
         $this->Cell(0, 6, Util::localisedDate(), 0, 1, 'R');
         $this->setY(20);
@@ -132,7 +132,7 @@ class Pdf extends TCPDF
     public function Error($error_message = ''): void
     {
         echo Message::error(
-            __('Error while creating PDF:') . ' ' . $error_message
+            __('Error while creating PDF:') . ' ' . $error_message,
         )->getDisplay();
         exit;
     }

@@ -35,7 +35,7 @@ class CreateController extends AbstractController
         private Transformations $transformations,
         private Config $config,
         private DatabaseInterface $dbi,
-        private ColumnsDefinition $columnsDefinition
+        private ColumnsDefinition $columnsDefinition,
     ) {
         parent::__construct($response, $template);
     }
@@ -52,7 +52,7 @@ class CreateController extends AbstractController
                 __('The database name is empty!'),
                 '',
                 false,
-                'index.php'
+                'index.php',
             );
         }
 
@@ -64,7 +64,7 @@ class CreateController extends AbstractController
                 sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($GLOBALS['db'])),
                 '',
                 false,
-                'index.php'
+                'index.php',
             );
         }
 
@@ -74,7 +74,7 @@ class CreateController extends AbstractController
                 sprintf(__('Table %s already exists!'), htmlspecialchars($GLOBALS['table'])),
                 '',
                 false,
-                Url::getFromRoute('/database/structure', ['db' => $GLOBALS['db']])
+                Url::getFromRoute('/database/structure', ['db' => $GLOBALS['db']]),
             );
         }
 
@@ -122,7 +122,7 @@ class CreateController extends AbstractController
                             $_POST['field_transformation'][$fieldindex],
                             $_POST['field_transformation_options'][$fieldindex],
                             $_POST['field_input_transformation'][$fieldindex],
-                            $_POST['field_input_transformation_options'][$fieldindex]
+                            $_POST['field_input_transformation_options'][$fieldindex],
                         );
                     }
                 }

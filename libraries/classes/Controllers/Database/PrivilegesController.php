@@ -31,7 +31,7 @@ class PrivilegesController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private Privileges $privileges,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
     }
@@ -67,7 +67,7 @@ class PrivilegesController extends AbstractController
             ]);
             $this->response->addHTML(
                 Message::error(__('No Privileges'))
-                    ->getDisplay()
+                    ->getDisplay(),
             );
 
             return;
@@ -75,7 +75,7 @@ class PrivilegesController extends AbstractController
 
         if (! $isGrantUser && ! $isCreateUser) {
             $this->response->addHTML(Message::notice(
-                __('You do not have the privileges to administrate the users!')
+                __('You do not have the privileges to administrate the users!'),
             )->getDisplay());
         }
 

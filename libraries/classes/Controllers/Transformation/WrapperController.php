@@ -42,7 +42,7 @@ class WrapperController extends AbstractController
         Template $template,
         private Transformations $transformations,
         private Relation $relation,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
     }
@@ -92,7 +92,7 @@ class WrapperController extends AbstractController
         ) {
             $mediaTypeMap = $this->transformations->getMime($db->getName(), $table->getName()) ?? [];
             $mediaTypeOptions = $this->transformations->getOptions(
-                $mediaTypeMap[$transformKey]['transformation_options'] ?? ''
+                $mediaTypeMap[$transformKey]['transformation_options'] ?? '',
             );
 
             foreach ($mediaTypeOptions as $option) {

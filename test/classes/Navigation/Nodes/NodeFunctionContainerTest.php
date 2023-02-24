@@ -34,7 +34,7 @@ class NodeFunctionContainerTest extends AbstractTestCase
                 'text' => ['route' => '/database/routines', 'params' => ['type' => 'FUNCTION', 'db' => null]],
                 'icon' => ['route' => '/database/routines', 'params' => ['type' => 'FUNCTION', 'db' => null]],
             ],
-            $parent->links
+            $parent->links,
         );
         $this->assertEquals('functions', $parent->realName);
     }

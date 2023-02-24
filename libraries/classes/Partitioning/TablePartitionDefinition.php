@@ -51,7 +51,7 @@ final class TablePartitionDefinition
         $details = array_merge(
             $partitionParams,
             //Keep $_POST values, but only for keys that are in $partitionParams
-            array_intersect_key($_POST, $partitionParams)
+            array_intersect_key($_POST, $partitionParams),
         );
 
         $details['partition_count'] = self::extractPartitionCount('partition_count');

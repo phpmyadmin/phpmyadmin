@@ -47,7 +47,7 @@ class DestroyControllerTest extends AbstractTestCase
             new Template(),
             $dbi,
             new Transformations(),
-            new RelationCleanup($dbi, new Relation($dbi))
+            new RelationCleanup($dbi, new Relation($dbi)),
         );
 
         $controller($this->createStub(ServerRequest::class));

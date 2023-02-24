@@ -719,7 +719,7 @@ class TransformationPluginsTest extends AbstractTestCase
         $reflectionMethod = new ReflectionMethod($object, $method);
         $this->assertEquals(
             $expected,
-            $reflectionMethod->invokeArgs($object, $args)
+            $reflectionMethod->invokeArgs($object, $args),
         );
     }
 
@@ -1270,19 +1270,19 @@ class TransformationPluginsTest extends AbstractTestCase
         array $applyArgs,
         $transformed,
         bool $success = true,
-        string $error = ''
+        string $error = '',
     ): void {
         $reflectionMethod = new ReflectionMethod($object, 'applyTransformation');
         $this->assertEquals(
             $transformed,
-            $reflectionMethod->invokeArgs($object, $applyArgs)
+            $reflectionMethod->invokeArgs($object, $applyArgs),
         );
 
         // For output transformation plugins, this method may not exist
         if (method_exists($object, 'isSuccess')) {
             $this->assertEquals(
                 $success,
-                $object->isSuccess()
+                $object->isSuccess(),
             );
         }
 
@@ -1293,7 +1293,7 @@ class TransformationPluginsTest extends AbstractTestCase
 
         $this->assertEquals(
             $error,
-            $object->getError()
+            $object->getError(),
         );
     }
 }

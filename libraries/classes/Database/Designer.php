@@ -118,7 +118,7 @@ class Designer
         /* Fail if we didn't find any schema plugin */
         if ($export_list === []) {
             return Message::error(
-                __('Could not load schema plugins, please check your installation!')
+                __('Could not load schema plugins, please check your installation!'),
             )->getDisplay();
         }
 
@@ -232,7 +232,7 @@ class Designer
         $display_page,
         array $tab_column,
         array $tables_all_keys,
-        array $tables_pk_or_unique_keys
+        array $tables_pk_or_unique_keys,
     ): string {
         $GLOBALS['text_dir'] ??= null;
 
@@ -318,7 +318,7 @@ class Designer
         array $tablePositions,
         array $tabColumn,
         array $tablesAllKeys,
-        array $tablesPkOrUniqueKeys
+        array $tablesPkOrUniqueKeys,
     ): string {
         $GLOBALS['text_dir'] ??= null;
 

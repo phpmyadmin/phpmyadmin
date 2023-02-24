@@ -790,7 +790,7 @@ class LanguageManager
             } else {
                 $this->availableLocales = preg_grep(
                     '@' . $GLOBALS['config']->get('FilterLanguages') . '@',
-                    $this->listLocaleDir()
+                    $this->listLocaleDir(),
                 );
             }
         }
@@ -827,7 +827,7 @@ class LanguageManager
                         ucfirst($lang),
                         ucfirst($lang),
                         $lang,
-                        ''
+                        '',
                     );
                 }
             }
@@ -971,7 +971,7 @@ class LanguageManager
 
         trigger_error(
             __('Ignoring unsupported language code.'),
-            E_USER_ERROR
+            E_USER_ERROR,
         );
     }
 }

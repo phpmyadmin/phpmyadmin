@@ -65,7 +65,7 @@ class ExportTexytextTest extends AbstractTestCase
         $this->object = new ExportTexytext(
             new Relation($GLOBALS['dbi']),
             new Export($GLOBALS['dbi']),
-            new Transformations()
+            new Transformations(),
         );
     }
 
@@ -90,17 +90,17 @@ class ExportTexytextTest extends AbstractTestCase
 
         $this->assertEquals(
             'Texy! text',
-            $properties->getText()
+            $properties->getText(),
         );
 
         $this->assertEquals(
             'txt',
-            $properties->getExtension()
+            $properties->getExtension(),
         );
 
         $this->assertEquals(
             'text/plain',
-            $properties->getMimeType()
+            $properties->getMimeType(),
         );
 
         $options = $properties->getOptions();
@@ -109,7 +109,7 @@ class ExportTexytextTest extends AbstractTestCase
 
         $this->assertEquals(
             'Format Specific Options',
-            $options->getName()
+            $options->getName(),
         );
 
         $generalOptionsArray = $options->getProperties();
@@ -121,12 +121,12 @@ class ExportTexytextTest extends AbstractTestCase
 
         $this->assertEquals(
             'general_opts',
-            $generalOptions->getName()
+            $generalOptions->getName(),
         );
 
         $this->assertEquals(
             'Dump table',
-            $generalOptions->getText()
+            $generalOptions->getText(),
         );
 
         $generalProperties = $generalOptions->getProperties();
@@ -141,7 +141,7 @@ class ExportTexytextTest extends AbstractTestCase
 
         $this->assertEquals(
             'data',
-            $generalOptions->getName()
+            $generalOptions->getName(),
         );
 
         $generalProperties = $generalOptions->getProperties();
@@ -153,7 +153,7 @@ class ExportTexytextTest extends AbstractTestCase
 
         $this->assertEquals(
             'columns',
-            $property->getName()
+            $property->getName(),
         );
 
         $property = $generalProperties->current();
@@ -162,21 +162,21 @@ class ExportTexytextTest extends AbstractTestCase
 
         $this->assertEquals(
             'null',
-            $property->getName()
+            $property->getName(),
         );
     }
 
     public function testExportHeader(): void
     {
         $this->assertTrue(
-            $this->object->exportHeader()
+            $this->object->exportHeader(),
         );
     }
 
     public function testExportFooter(): void
     {
         $this->assertTrue(
-            $this->object->exportFooter()
+            $this->object->exportFooter(),
         );
     }
 
@@ -184,21 +184,21 @@ class ExportTexytextTest extends AbstractTestCase
     {
         $this->expectOutputString("===Database testDb\n\n");
         $this->assertTrue(
-            $this->object->exportDBHeader('testDb')
+            $this->object->exportDBHeader('testDb'),
         );
     }
 
     public function testExportDBFooter(): void
     {
         $this->assertTrue(
-            $this->object->exportDBFooter('testDB')
+            $this->object->exportDBFooter('testDB'),
         );
     }
 
     public function testExportDBCreate(): void
     {
         $this->assertTrue(
-            $this->object->exportDBCreate('testDB', 'database')
+            $this->object->exportDBCreate('testDB', 'database'),
         );
     }
 
@@ -214,8 +214,8 @@ class ExportTexytextTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'localhost',
-                'SELECT * FROM `test_db`.`test_table`;'
-            )
+                'SELECT * FROM `test_db`.`test_table`;',
+            ),
         );
         $result = ob_get_clean();
 
@@ -228,7 +228,7 @@ class ExportTexytextTest extends AbstractTestCase
                 . '|1|abcd|2011-01-20 02:00:02' . "\n"
                 . '|2|foo|2010-01-20 02:00:02' . "\n"
                 . '|3|Abcd|2012-01-20 02:00:02' . "\n",
-            $result
+            $result,
         );
     }
 
@@ -245,7 +245,7 @@ class ExportTexytextTest extends AbstractTestCase
             . '|//**id**//|int(11)|No|NULL' . "\n"
             . '|name|varchar(20)|No|NULL' . "\n"
             . '|datetimefield|datetime|No|NULL' . "\n",
-            $result
+            $result,
         );
     }
 
@@ -293,15 +293,15 @@ class ExportTexytextTest extends AbstractTestCase
                         'transformation' => 'testfoo',
                         'mimetype' => 'test<',
                     ],
-                ]
+                ],
             );
 
         $dbi->expects($this->once())
             ->method('fetchValue')
             ->will(
                 $this->returnValue(
-                    'SELECT a FROM b'
-                )
+                    'SELECT a FROM b',
+                ),
             );
 
         $columns = [
@@ -382,8 +382,8 @@ class ExportTexytextTest extends AbstractTestCase
                 'test_table',
                 'localhost',
                 'create_table',
-                'test'
-            )
+                'test',
+            ),
         );
         $this->dummyDbi->assertAllSelectsConsumed();
         $result = ob_get_clean();
@@ -397,7 +397,7 @@ class ExportTexytextTest extends AbstractTestCase
             . '|//**id**//|int(11)|No|NULL' . "\n"
             . '|name|varchar(20)|No|NULL' . "\n"
             . '|datetimefield|datetime|No|NULL' . "\n",
-            $result
+            $result,
         );
 
         // case 2
@@ -408,8 +408,8 @@ class ExportTexytextTest extends AbstractTestCase
                 'test_table',
                 'localhost',
                 'triggers',
-                'test'
-            )
+                'test',
+            ),
         );
         $result = ob_get_clean();
 
@@ -419,7 +419,7 @@ class ExportTexytextTest extends AbstractTestCase
             . '|Name|Time|Event|Definition' . "\n"
             . '|------' . "\n"
             . '|test_trigger|AFTER|INSERT|BEGIN END' . "\n",
-            $result
+            $result,
         );
 
         // case 3
@@ -431,8 +431,8 @@ class ExportTexytextTest extends AbstractTestCase
                 'test_table',
                 'localhost',
                 'create_view',
-                'test'
-            )
+                'test',
+            ),
         );
         $this->dummyDbi->assertAllSelectsConsumed();
         $result = ob_get_clean();
@@ -445,7 +445,7 @@ class ExportTexytextTest extends AbstractTestCase
             . '|//**id**//|int(11)|No|NULL' . "\n"
             . '|name|varchar(20)|No|NULL' . "\n"
             . '|datetimefield|datetime|No|NULL' . "\n",
-            $result
+            $result,
         );
 
         // case 4
@@ -457,8 +457,8 @@ class ExportTexytextTest extends AbstractTestCase
                 'test_table',
                 'localhost',
                 'stand_in',
-                'test'
-            )
+                'test',
+            ),
         );
         $this->dummyDbi->assertAllSelectsConsumed();
         $result = ob_get_clean();
@@ -471,7 +471,7 @@ class ExportTexytextTest extends AbstractTestCase
             . '|//**id**//|int(11)|No|NULL' . "\n"
             . '|name|varchar(20)|No|NULL' . "\n"
             . '|datetimefield|datetime|No|NULL' . "\n",
-            $result
+            $result,
         );
     }
 
@@ -488,7 +488,7 @@ class ExportTexytextTest extends AbstractTestCase
 
         $this->assertEquals(
             '|//**field**//|set(abc)|Yes|NULL',
-            $this->object->formatOneColumnDefinition($cols, $unique_keys)
+            $this->object->formatOneColumnDefinition($cols, $unique_keys),
         );
 
         $cols = [
@@ -503,7 +503,7 @@ class ExportTexytextTest extends AbstractTestCase
 
         $this->assertEquals(
             '|fields|&amp;nbsp;|No|def',
-            $this->object->formatOneColumnDefinition($cols, $unique_keys)
+            $this->object->formatOneColumnDefinition($cols, $unique_keys),
         );
     }
 }

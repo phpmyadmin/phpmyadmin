@@ -36,7 +36,7 @@ class ColumnsDefinitionTest extends AbstractTestCase
                 ['last_name', 'varchar(45)', 'utf8mb4_general_ci', 'NO', 'MUL', null, '', 'select,insert,update,references', ''],
                 ['last_update', 'timestamp', null, 'NO', '', 'current_timestamp()', 'on update current_timestamp()', 'select,insert,update,references', ''],
             ],
-            ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment']
+            ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
         );
         $dummyDbi->addResult(
             'SHOW INDEXES FROM `sakila`.`actor`',
@@ -44,13 +44,13 @@ class ColumnsDefinitionTest extends AbstractTestCase
                 ['actor', '0', 'PRIMARY', '1', 'actor_id', 'A', '2', null, null, '', 'BTREE', '', '', 'NO'],
                 ['actor', '1', 'idx_actor_last_name', '1', 'last_name', 'A', '2', null, null, '', 'BTREE', '', '', 'NO'],
             ],
-            ['Table', 'Non_unique', 'Key_name', 'Seq_in_index', 'Column_name', 'Collation', 'Cardinality', 'Sub_part', 'Packed', 'Null', 'Index_type', 'Comment', 'Index_comment', 'Ignored']
+            ['Table', 'Non_unique', 'Key_name', 'Seq_in_index', 'Column_name', 'Collation', 'Cardinality', 'Sub_part', 'Packed', 'Null', 'Index_type', 'Comment', 'Index_comment', 'Ignored'],
         );
         // phpcs:enable
         $dummyDbi->addResult(
             'SELECT * FROM `sakila`.`actor` LIMIT 1',
             [['1', 'PENELOPE', 'GUINESS', '2006-02-15 04:34:33']],
-            ['actor_id', 'first_name', 'last_name', 'last_update']
+            ['actor_id', 'first_name', 'last_name', 'last_update'],
         );
         $createTable = <<<'SQL'
 CREATE TABLE `actor` (
@@ -65,7 +65,7 @@ SQL;
         $dummyDbi->addResult(
             'SHOW CREATE TABLE `sakila`.`actor`',
             [['actor', $createTable]],
-            ['actor_id', 'first_name', 'last_name', 'last_update']
+            ['actor_id', 'first_name', 'last_name', 'last_update'],
         );
 
         $relation = new Relation($dbi);

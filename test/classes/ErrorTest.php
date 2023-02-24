@@ -110,7 +110,7 @@ class ErrorTest extends AbstractTestCase
     {
         $this->assertEquals(
             1,
-            preg_match('/^([a-z0-9]*)$/', $this->object->getHash())
+            preg_match('/^([a-z0-9]*)$/', $this->object->getHash()),
         );
     }
 
@@ -121,7 +121,7 @@ class ErrorTest extends AbstractTestCase
     {
         $this->assertStringContainsString(
             'PHPUnit\Framework\TestRunner->run(<Class:PhpMyAdmin\Tests\ErrorTest>)',
-            $this->object->getBacktraceDisplay()
+            $this->object->getBacktraceDisplay(),
         );
     }
 
@@ -135,11 +135,11 @@ class ErrorTest extends AbstractTestCase
             '<div class="alert alert-danger" role="alert"><p><strong>Warning</strong> in error.txt#15</p>'
             . '<img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> Compile Error'
             . '<p class="mt-3"><strong>Backtrace</strong></p><ol class="list-group"><li class="list-group-item">',
-            $actual
+            $actual,
         );
         $this->assertStringContainsString(
             'PHPUnit\Framework\TestRunner->run(<Class:PhpMyAdmin\Tests\ErrorTest>)</li><li class="list-group-item">',
-            $actual
+            $actual,
         );
         $this->assertStringEndsWith('</li></ol></div>' . "\n", $actual);
     }

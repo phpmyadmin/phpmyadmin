@@ -61,20 +61,20 @@ class ServerConfigChecks
                     . 'use %srestrict login to MySQL server%s or %strusted proxies list%s. '
                     . 'However, IP-based protection with trusted proxies list may not be '
                     . 'reliable if your IP belongs to an ISP where thousands of users, '
-                    . 'including you, are connected to.'
+                    . 'including you, are connected to.',
                 ),
                 '[a@' . Url::getCommon(['page' => 'form', 'formset' => 'Features']) . '#tab_Security]',
                 '[/a]',
                 '[a@' . Url::getCommon(['page' => 'form', 'formset' => 'Features']) . '#tab_Security]',
                 '[/a]',
                 '[a@' . Url::getCommon(['page' => 'form', 'formset' => 'Features']) . '#tab_Security]',
-                '[/a]'
+                '[/a]',
             );
             SetupIndex::messagesSet(
                 'notice',
                 'AllowArbitraryServer',
                 Descriptions::get('AllowArbitraryServer'),
-                Sanitize::sanitizeMessage($sAllowArbitraryServerWarn)
+                Sanitize::sanitizeMessage($sAllowArbitraryServerWarn),
             );
         }
 
@@ -83,7 +83,7 @@ class ServerConfigChecks
         $sDirectoryNotice = __(
             'This value should be double checked to ensure that this directory is '
             . 'neither world accessible nor readable or writable by other users on '
-            . 'your server.'
+            . 'your server.',
         );
 
         // $cfg['SaveDir']
@@ -93,7 +93,7 @@ class ServerConfigChecks
                 'notice',
                 'SaveDir',
                 Descriptions::get('SaveDir'),
-                Sanitize::sanitizeMessage($sDirectoryNotice)
+                Sanitize::sanitizeMessage($sDirectoryNotice),
             );
         }
 
@@ -104,7 +104,7 @@ class ServerConfigChecks
                 'notice',
                 'TempDir',
                 Descriptions::get('TempDir'),
-                Sanitize::sanitizeMessage($sDirectoryNotice)
+                Sanitize::sanitizeMessage($sDirectoryNotice),
             );
         }
 
@@ -127,7 +127,7 @@ class ServerConfigChecks
             $isCookieAuthUsed |= (int) $cookieAuthServer;
             $serverName = $this->performConfigChecksServersGetServerName(
                 $this->cfg->getServerName($i),
-                $i
+                $i,
             );
             $serverName = htmlspecialchars($serverName);
 
@@ -145,8 +145,8 @@ class ServerConfigChecks
                     'Servers/' . $i . '/ssl',
                     $title,
                     __(
-                        'You should use SSL connections if your database server supports it.'
-                    )
+                        'You should use SSL connections if your database server supports it.',
+                    ),
                 );
             }
 
@@ -155,12 +155,12 @@ class ServerConfigChecks
                     'If you feel this is necessary, use additional protection settings - '
                     . '%1$shost authentication%2$s settings and %3$strusted proxies list%4$s. '
                     . 'However, IP-based protection may not be reliable if your IP belongs '
-                    . 'to an ISP where thousands of users, including you, are connected to.'
+                    . 'to an ISP where thousands of users, including you, are connected to.',
                 ),
                 '[a@' . Url::getCommon(['page' => 'servers', 'mode' => 'edit', 'id' => $i]) . '#tab_Server_config]',
                 '[/a]',
                 '[a@' . Url::getCommon(['page' => 'form', 'formset' => 'Features']) . '#tab_Security]',
-                '[/a]'
+                '[/a]',
             ));
 
             // $cfg['Servers'][$i]['auth_type']
@@ -182,12 +182,12 @@ class ServerConfigChecks
                             . 'username and password for auto-login, which is not a desirable '
                             . 'option for live hosts. Anyone who knows or guesses your phpMyAdmin '
                             . 'URL can directly access your phpMyAdmin panel. Set %1$sauthentication '
-                            . 'type%2$s to [kbd]cookie[/kbd] or [kbd]http[/kbd].'
+                            . 'type%2$s to [kbd]cookie[/kbd] or [kbd]http[/kbd].',
                         ),
                         '[a@' . Url::getCommon(['page' => 'servers', 'mode' => 'edit', 'id' => $i]) . '#tab_Server]',
-                        '[/a]'
+                        '[/a]',
                     ))
-                    . ' ' . $sSecurityInfoMsg
+                    . ' ' . $sSecurityInfoMsg,
                 );
             }
 
@@ -208,7 +208,7 @@ class ServerConfigChecks
                 'Servers/' . $i . '/AllowNoPassword',
                 $title,
                 __('You allow for connecting to the server without a password.')
-                . ' ' . $sSecurityInfoMsg
+                . ' ' . $sSecurityInfoMsg,
             );
         }
 
@@ -227,8 +227,8 @@ class ServerConfigChecks
                 'You didn\'t have blowfish secret set and have enabled '
                 . '[kbd]cookie[/kbd] authentication, so a key was automatically '
                 . 'generated for you. It is used to encrypt cookies; you don\'t need to '
-                . 'remember it.'
-            ))
+                . 'remember it.',
+            )),
         );
     }
 
@@ -242,7 +242,7 @@ class ServerConfigChecks
      */
     protected function performConfigChecksServersGetServerName(
         $serverName,
-        $serverId
+        $serverId,
     ): string {
         if ($serverName === 'localhost') {
             return $serverName . ' [' . $serverId . ']';
@@ -275,12 +275,12 @@ class ServerConfigChecks
                 Descriptions::get('ZipDump'),
                 Sanitize::sanitizeMessage(sprintf(
                     __(
-                        '%sZip decompression%s requires functions (%s) which are unavailable on this system.'
+                        '%sZip decompression%s requires functions (%s) which are unavailable on this system.',
                     ),
                     '[a@' . Url::getCommon(['page' => 'form', 'formset' => 'Features']) . '#tab_Import_export]',
                     '[/a]',
-                    'zip_open'
-                ))
+                    'zip_open',
+                )),
             );
         }
 
@@ -296,12 +296,12 @@ class ServerConfigChecks
             Descriptions::get('ZipDump'),
             Sanitize::sanitizeMessage(sprintf(
                 __(
-                    '%sZip compression%s requires functions (%s) which are unavailable on this system.'
+                    '%sZip compression%s requires functions (%s) which are unavailable on this system.',
                 ),
                 '[a@' . Url::getCommon(['page' => 'form', 'formset' => 'Features']) . '#tab_Import_export]',
                 '[/a]',
-                'gzcompress'
-            ))
+                'gzcompress',
+            )),
         );
     }
 
@@ -323,14 +323,14 @@ class ServerConfigChecks
                     __(
                         '%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s may '
                         . 'cause random session invalidation (currently session.gc_maxlifetime '
-                        . 'is %5$d).'
+                        . 'is %5$d).',
                     ),
                     '[a@' . Url::getCommon(['page' => 'form', 'formset' => 'Features']) . '#tab_Security]',
                     '[/a]',
                     '[a@' . Core::getPHPDocLink('session.configuration.php#ini.session.gc-maxlifetime') . ']',
                     '[/a]',
-                    ini_get('session.gc_maxlifetime')
-                ))
+                    ini_get('session.gc_maxlifetime'),
+                )),
             );
         }
 
@@ -345,11 +345,11 @@ class ServerConfigChecks
                     __(
                         '%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) '
                         . 'at most. Values larger than 1800 may pose a security risk such as '
-                        . 'impersonation.'
+                        . 'impersonation.',
                     ),
                     '[a@' . Url::getCommon(['page' => 'form', 'formset' => 'Features']) . '#tab_Security]',
-                    '[/a]'
-                ))
+                    '[/a]',
+                )),
             );
         }
 
@@ -371,13 +371,13 @@ class ServerConfigChecks
                 __(
                     'If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s '
                     . 'is not 0, %sLogin cookie validity%s must be set to a value less or '
-                    . 'equal to it.'
+                    . 'equal to it.',
                 ),
                 '[a@' . Url::getCommon(['page' => 'form', 'formset' => 'Features']) . '#tab_Security]',
                 '[/a]',
                 '[a@' . Url::getCommon(['page' => 'form', 'formset' => 'Features']) . '#tab_Security]',
-                '[/a]'
-            ))
+                '[/a]',
+            )),
         );
     }
 
@@ -405,13 +405,13 @@ class ServerConfigChecks
                 sprintf(
                     __(
                         '%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which '
-                         . 'are unavailable on this system.'
+                         . 'are unavailable on this system.',
                     ),
                     '[a@' . Url::getCommon(['page' => 'form', 'formset' => 'Features']) . '#tab_Import_export]',
                     '[/a]',
-                    $functions
-                )
-            )
+                    $functions,
+                ),
+            ),
         );
     }
 
@@ -436,12 +436,12 @@ class ServerConfigChecks
             Sanitize::sanitizeMessage(sprintf(
                 __(
                     '%1$sGZip compression and decompression%2$s requires functions (%3$s) which '
-                    . 'are unavailable on this system.'
+                    . 'are unavailable on this system.',
                 ),
                 '[a@' . Url::getCommon(['page' => 'form', 'formset' => 'Features']) . '#tab_Import_export]',
                 '[/a]',
-                'gzencode'
-            ))
+                'gzencode',
+            )),
         );
     }
 

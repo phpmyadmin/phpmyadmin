@@ -61,7 +61,7 @@ class SetValuesControllerTest extends AbstractTestCase
 
         $this->assertSame(
             ['message' => 'Error in processing request'],
-            $this->getResponseJsonResult()
+            $this->getResponseJsonResult(),
         );
     }
 
@@ -86,7 +86,7 @@ class SetValuesControllerTest extends AbstractTestCase
                 'Key',
                 'Default',
                 'Extra',
-            ]
+            ],
         );
 
         $request = $this->createStub(ServerRequest::class);
@@ -120,7 +120,7 @@ class SetValuesControllerTest extends AbstractTestCase
                     . '      <option value=""></option>' . "\n"
                     . '  </select>' . "\n",
             ],
-            $this->getResponseJsonResult()
+            $this->getResponseJsonResult(),
         );
     }
 }

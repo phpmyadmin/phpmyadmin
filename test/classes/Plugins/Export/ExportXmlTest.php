@@ -51,7 +51,7 @@ class ExportXmlTest extends AbstractTestCase
         $this->object = new ExportXml(
             new Relation($GLOBALS['dbi']),
             new Export($GLOBALS['dbi']),
-            new Transformations()
+            new Transformations(),
         );
     }
 
@@ -79,17 +79,17 @@ class ExportXmlTest extends AbstractTestCase
 
         $this->assertEquals(
             'XML',
-            $properties->getText()
+            $properties->getText(),
         );
 
         $this->assertEquals(
             'xml',
-            $properties->getExtension()
+            $properties->getExtension(),
         );
 
         $this->assertEquals(
             'text/xml',
-            $properties->getMimeType()
+            $properties->getMimeType(),
         );
 
         $options = $properties->getOptions();
@@ -98,7 +98,7 @@ class ExportXmlTest extends AbstractTestCase
 
         $this->assertEquals(
             'Format Specific Options',
-            $options->getName()
+            $options->getName(),
         );
 
         $generalOptionsArray = $options->getProperties();
@@ -110,7 +110,7 @@ class ExportXmlTest extends AbstractTestCase
 
         $this->assertEquals(
             'general_opts',
-            $generalOptions->getName()
+            $generalOptions->getName(),
         );
 
         $generalProperties = $generalOptions->getProperties();
@@ -126,7 +126,7 @@ class ExportXmlTest extends AbstractTestCase
 
         $this->assertEquals(
             'structure',
-            $generalOptions->getName()
+            $generalOptions->getName(),
         );
 
         $generalProperties = $generalOptions->getProperties();
@@ -157,7 +157,7 @@ class ExportXmlTest extends AbstractTestCase
 
         $this->assertEquals(
             'data',
-            $generalOptions->getName()
+            $generalOptions->getName(),
         );
 
         $generalProperties = $generalOptions->getProperties();
@@ -236,7 +236,7 @@ class ExportXmlTest extends AbstractTestCase
 
         ob_start();
         $this->assertTrue(
-            $this->object->exportHeader()
+            $this->object->exportHeader(),
         );
         $result = ob_get_clean();
 
@@ -245,7 +245,7 @@ class ExportXmlTest extends AbstractTestCase
         $this->assertStringContainsString(
             '&lt;pma_xml_export version=&quot;1.0&quot; xmlns:pma=&quot;' .
             'https://www.phpmyadmin.net/some_doc_url/&quot;&gt;',
-            $result
+            $result,
         );
 
         $this->assertStringContainsString(
@@ -267,7 +267,7 @@ class ExportXmlTest extends AbstractTestCase
             '            &lt;/pma:procedure&gt;' . "\n" .
             '        &lt;/pma:database&gt;' . "\n" .
             '    &lt;/pma:structure_schemas&gt;',
-            $result
+            $result,
         );
 
         // case 2 with isView as true and false
@@ -325,7 +325,7 @@ class ExportXmlTest extends AbstractTestCase
 
         ob_start();
         $this->assertTrue(
-            $this->object->exportHeader()
+            $this->object->exportHeader(),
         );
         $result = ob_get_clean();
 
@@ -337,7 +337,7 @@ class ExportXmlTest extends AbstractTestCase
             'ion=&quot;utf8_general_ci&quot; charset=&quot;utf-8&quot;&gt;' . "\n" .
             '        &lt;/pma:database&gt;' . "\n" .
             '    &lt;/pma:structure_schemas&gt;',
-            $result
+            $result,
         );
     }
 
@@ -345,7 +345,7 @@ class ExportXmlTest extends AbstractTestCase
     {
         $this->expectOutputString('&lt;/pma_xml_export&gt;');
         $this->assertTrue(
-            $this->object->exportFooter()
+            $this->object->exportFooter(),
         );
     }
 
@@ -355,7 +355,7 @@ class ExportXmlTest extends AbstractTestCase
 
         ob_start();
         $this->assertTrue(
-            $this->object->exportDBHeader('&db')
+            $this->object->exportDBHeader('&db'),
         );
         $result = ob_get_clean();
 
@@ -366,7 +366,7 @@ class ExportXmlTest extends AbstractTestCase
         $GLOBALS['xml_export_contents'] = false;
 
         $this->assertTrue(
-            $this->object->exportDBHeader('&db')
+            $this->object->exportDBHeader('&db'),
         );
     }
 
@@ -376,7 +376,7 @@ class ExportXmlTest extends AbstractTestCase
 
         ob_start();
         $this->assertTrue(
-            $this->object->exportDBFooter('&db')
+            $this->object->exportDBFooter('&db'),
         );
         $result = ob_get_clean();
 
@@ -387,14 +387,14 @@ class ExportXmlTest extends AbstractTestCase
         $GLOBALS['xml_export_contents'] = false;
 
         $this->assertTrue(
-            $this->object->exportDBFooter('&db')
+            $this->object->exportDBFooter('&db'),
         );
     }
 
     public function testExportDBCreate(): void
     {
         $this->assertTrue(
-            $this->object->exportDBCreate('testDB', 'database')
+            $this->object->exportDBCreate('testDB', 'database'),
         );
     }
 
@@ -410,8 +410,8 @@ class ExportXmlTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'localhost',
-                'SELECT * FROM `test_db`.`test_table`;'
-            )
+                'SELECT * FROM `test_db`.`test_table`;',
+            ),
         );
         $result = ob_get_clean();
 
@@ -433,7 +433,7 @@ class ExportXmlTest extends AbstractTestCase
             . '            <column name="name">Abcd</column>' . "\n"
             . '            <column name="datetimefield">2012-01-20 02:00:02</column>' . "\n"
             . '        </table>' . "\n",
-            $result
+            $result,
         );
     }
 }

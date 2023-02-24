@@ -88,7 +88,7 @@ class Key extends TwoFactorPlugin
             $auth = U2FServer::authenticate(
                 $_SESSION['authenticationRequest'],
                 $this->getRegistrations(),
-                $response
+                $response,
             );
             $this->twofactor->config['settings']['registrations'][$auth->index]['counter'] = $auth->counter;
             $this->twofactor->save();
@@ -121,7 +121,7 @@ class Key extends TwoFactorPlugin
     {
         $request = U2FServer::makeAuthentication(
             $this->getRegistrations(),
-            $this->getAppId(true)
+            $this->getAppId(true),
         );
         $_SESSION['authenticationRequest'] = $request;
         $this->loadScripts();
@@ -147,7 +147,7 @@ class Key extends TwoFactorPlugin
     {
         $registrationData = U2FServer::makeRegistration(
             $this->getAppId(true),
-            $this->getRegistrations()
+            $this->getRegistrations(),
         );
         $_SESSION['registrationRequest'] = $registrationData['request'];
 

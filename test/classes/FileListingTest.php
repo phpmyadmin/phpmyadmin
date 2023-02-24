@@ -42,7 +42,7 @@ class FileListingTest extends AbstractTestCase
                 'one.txt',
                 'two.md',
             ],
-            array_values($dirContent)
+            array_values($dirContent),
         );
     }
 
@@ -61,7 +61,7 @@ class FileListingTest extends AbstractTestCase
 
         $this->assertSame(
             $expectedHtmlWithoutActive,
-            $this->fileListing->getFileSelectOptions($fixturesDir)
+            $this->fileListing->getFileSelectOptions($fixturesDir),
         );
 
         $expectedHtmlWithActive = '  <option value="one.txt">' . "\n"
@@ -73,7 +73,7 @@ class FileListingTest extends AbstractTestCase
 
         $this->assertSame(
             $expectedHtmlWithActive,
-            $this->fileListing->getFileSelectOptions($fixturesDir, '', 'two.md')
+            $this->fileListing->getFileSelectOptions($fixturesDir, '', 'two.md'),
         );
 
         $expectedFilteredHtml = '  <option value="one.txt">' . "\n"
@@ -82,7 +82,7 @@ class FileListingTest extends AbstractTestCase
 
         $this->assertSame(
             $expectedFilteredHtml,
-            $this->fileListing->getFileSelectOptions($fixturesDir, '/.*\.txt/')
+            $this->fileListing->getFileSelectOptions($fixturesDir, '/.*\.txt/'),
         );
     }
 

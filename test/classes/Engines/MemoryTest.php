@@ -46,7 +46,7 @@ class MemoryTest extends AbstractTestCase
             $this->object->getVariables(),
             [
                 'max_heap_table_size' => ['type' => 1],
-            ]
+            ],
         );
     }
 }

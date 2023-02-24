@@ -48,7 +48,7 @@ class ExportYamlTest extends AbstractTestCase
         $this->object = new ExportYaml(
             new Relation($GLOBALS['dbi']),
             new Export($GLOBALS['dbi']),
-            new Transformations()
+            new Transformations(),
         );
     }
 
@@ -73,17 +73,17 @@ class ExportYamlTest extends AbstractTestCase
 
         $this->assertEquals(
             'YAML',
-            $properties->getText()
+            $properties->getText(),
         );
 
         $this->assertEquals(
             'yml',
-            $properties->getExtension()
+            $properties->getExtension(),
         );
 
         $this->assertEquals(
             'text/yaml',
-            $properties->getMimeType()
+            $properties->getMimeType(),
         );
 
         $options = $properties->getOptions();
@@ -92,7 +92,7 @@ class ExportYamlTest extends AbstractTestCase
 
         $this->assertEquals(
             'Format Specific Options',
-            $options->getName()
+            $options->getName(),
         );
 
         $generalOptionsArray = $options->getProperties();
@@ -103,7 +103,7 @@ class ExportYamlTest extends AbstractTestCase
 
         $this->assertEquals(
             'general_opts',
-            $generalOptions->getName()
+            $generalOptions->getName(),
         );
 
         $generalProperties = $generalOptions->getProperties();
@@ -117,7 +117,7 @@ class ExportYamlTest extends AbstractTestCase
     {
         ob_start();
         $this->assertTrue(
-            $this->object->exportHeader()
+            $this->object->exportHeader(),
         );
         $result = ob_get_clean();
 
@@ -130,28 +130,28 @@ class ExportYamlTest extends AbstractTestCase
     {
         $this->expectOutputString("...\n");
         $this->assertTrue(
-            $this->object->exportFooter()
+            $this->object->exportFooter(),
         );
     }
 
     public function testExportDBHeader(): void
     {
         $this->assertTrue(
-            $this->object->exportDBHeader('&db')
+            $this->object->exportDBHeader('&db'),
         );
     }
 
     public function testExportDBFooter(): void
     {
         $this->assertTrue(
-            $this->object->exportDBFooter('&db')
+            $this->object->exportDBFooter('&db'),
         );
     }
 
     public function testExportDBCreate(): void
     {
         $this->assertTrue(
-            $this->object->exportDBCreate('testDB', 'database')
+            $this->object->exportDBCreate('testDB', 'database'),
         );
     }
 
@@ -163,8 +163,8 @@ class ExportYamlTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'localhost',
-                'SELECT * FROM `test_db`.`test_table_yaml`;'
-            )
+                'SELECT * FROM `test_db`.`test_table_yaml`;',
+            ),
         );
         $result = ob_get_clean();
 
@@ -195,7 +195,7 @@ class ExportYamlTest extends AbstractTestCase
             '  name: &quot;Abcd&quot;' . "\n" .
             '  datetimefield: &quot;2012-01-20 02:00:02&quot;' . "\n" .
             '  textfield: &quot;+30.2103210000&quot;' . "\n",
-            $result
+            $result,
         );
     }
 }

@@ -26,7 +26,7 @@ class PluginsController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private Plugins $plugins,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
     }
@@ -54,7 +54,7 @@ class PluginsController extends AbstractController
             $cleanTypes[$type] = preg_replace(
                 '/[^a-z]/',
                 '',
-                mb_strtolower($type)
+                mb_strtolower($type),
             );
         }
 

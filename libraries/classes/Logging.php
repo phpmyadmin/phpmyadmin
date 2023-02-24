@@ -100,7 +100,7 @@ class Logging
             @error_log(
                 date('M d H:i:s') . ' phpmyadmin: ' . $message . "\n",
                 3,
-                $log_file
+                $log_file,
             );
         }
     }

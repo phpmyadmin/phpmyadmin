@@ -41,7 +41,7 @@ class ExportCodegenTest extends AbstractTestCase
         $this->object = new ExportCodegen(
             new Relation($GLOBALS['dbi']),
             new Export($GLOBALS['dbi']),
-            new Transformations()
+            new Transformations(),
         );
     }
 
@@ -66,7 +66,7 @@ class ExportCodegenTest extends AbstractTestCase
                 'NHibernate C# DO',
                 'NHibernate XML',
             ],
-            $attrCgFormats->getValue($this->object)
+            $attrCgFormats->getValue($this->object),
         );
     }
 
@@ -82,22 +82,22 @@ class ExportCodegenTest extends AbstractTestCase
 
         $this->assertEquals(
             'CodeGen',
-            $properties->getText()
+            $properties->getText(),
         );
 
         $this->assertEquals(
             'cs',
-            $properties->getExtension()
+            $properties->getExtension(),
         );
 
         $this->assertEquals(
             'text/cs',
-            $properties->getMimeType()
+            $properties->getMimeType(),
         );
 
         $this->assertEquals(
             'Options',
-            $properties->getOptionsText()
+            $properties->getOptionsText(),
         );
 
         $options = $properties->getOptions();
@@ -106,7 +106,7 @@ class ExportCodegenTest extends AbstractTestCase
 
         $this->assertEquals(
             'Format Specific Options',
-            $options->getName()
+            $options->getName(),
         );
 
         $generalOptionsArray = $options->getProperties();
@@ -116,7 +116,7 @@ class ExportCodegenTest extends AbstractTestCase
 
         $this->assertEquals(
             'general_opts',
-            $generalOptions->getName()
+            $generalOptions->getName(),
         );
 
         $generalProperties = $generalOptions->getProperties();
@@ -128,7 +128,7 @@ class ExportCodegenTest extends AbstractTestCase
 
         $this->assertEquals(
             'structure_or_data',
-            $hidden->getName()
+            $hidden->getName(),
         );
 
         $select = $generalProperties->current();
@@ -137,12 +137,12 @@ class ExportCodegenTest extends AbstractTestCase
 
         $this->assertEquals(
             'format',
-            $select->getName()
+            $select->getName(),
         );
 
         $this->assertEquals(
             'Format:',
-            $select->getText()
+            $select->getText(),
         );
 
         $this->assertEquals(
@@ -150,35 +150,35 @@ class ExportCodegenTest extends AbstractTestCase
                 'NHibernate C# DO',
                 'NHibernate XML',
             ],
-            $select->getValues()
+            $select->getValues(),
         );
     }
 
     public function testExportHeader(): void
     {
         $this->assertTrue(
-            $this->object->exportHeader()
+            $this->object->exportHeader(),
         );
     }
 
     public function testExportFooter(): void
     {
         $this->assertTrue(
-            $this->object->exportFooter()
+            $this->object->exportFooter(),
         );
     }
 
     public function testExportDBHeader(): void
     {
         $this->assertTrue(
-            $this->object->exportDBHeader('testDB')
+            $this->object->exportDBHeader('testDB'),
         );
     }
 
     public function testExportDBFooter(): void
     {
         $this->assertTrue(
-            $this->object->exportDBFooter('testDB')
+            $this->object->exportDBFooter('testDB'),
         );
     }
 
@@ -212,7 +212,7 @@ class ExportCodegenTest extends AbstractTestCase
             . '        </property>' . "\n"
             . '    </class>' . "\n"
             . '</hibernate-mapping>',
-            $result
+            $result,
         );
 
         $GLOBALS['codegen_format'] = 4;
@@ -226,17 +226,17 @@ class ExportCodegenTest extends AbstractTestCase
     {
         $this->assertEquals(
             '_Ⅲfoo',
-            ExportCodegen::cgMakeIdentifier('Ⅲ{}96`{}foo', true)
+            ExportCodegen::cgMakeIdentifier('Ⅲ{}96`{}foo', true),
         );
 
         $this->assertEquals(
             'TestⅢ',
-            ExportCodegen::cgMakeIdentifier('`98testⅢ{}96`{}', true)
+            ExportCodegen::cgMakeIdentifier('`98testⅢ{}96`{}', true),
         );
 
         $this->assertEquals(
             'testⅢ',
-            ExportCodegen::cgMakeIdentifier('`98testⅢ{}96`{}', false)
+            ExportCodegen::cgMakeIdentifier('`98testⅢ{}96`{}', false),
         );
     }
 
@@ -288,7 +288,7 @@ class ExportCodegenTest extends AbstractTestCase
             '    }' . "\n" .
             '    #endregion' . "\n" .
             '}',
-            $result
+            $result,
         );
     }
 
@@ -313,7 +313,7 @@ class ExportCodegenTest extends AbstractTestCase
             '        </property>' . "\n" .
             '    </class>' . "\n" .
             '</hibernate-mapping>',
-            $result
+            $result,
         );
     }
 
@@ -336,7 +336,7 @@ class ExportCodegenTest extends AbstractTestCase
                 1,
                 2,
             ],
-            $getter->invoke($this->object)
+            $getter->invoke($this->object),
         );
     }
 }

@@ -42,7 +42,7 @@ class ExportJsonTest extends AbstractTestCase
         $this->object = new ExportJson(
             new Relation($GLOBALS['dbi']),
             new Export($GLOBALS['dbi']),
-            new Transformations()
+            new Transformations(),
         );
     }
 
@@ -67,22 +67,22 @@ class ExportJsonTest extends AbstractTestCase
 
         $this->assertEquals(
             'JSON',
-            $properties->getText()
+            $properties->getText(),
         );
 
         $this->assertEquals(
             'json',
-            $properties->getExtension()
+            $properties->getExtension(),
         );
 
         $this->assertEquals(
             'text/plain',
-            $properties->getMimeType()
+            $properties->getMimeType(),
         );
 
         $this->assertEquals(
             'Options',
-            $properties->getOptionsText()
+            $properties->getOptionsText(),
         );
 
         $options = $properties->getOptions();
@@ -91,7 +91,7 @@ class ExportJsonTest extends AbstractTestCase
 
         $this->assertEquals(
             'Format Specific Options',
-            $options->getName()
+            $options->getName(),
         );
 
         $generalOptionsArray = $options->getProperties();
@@ -101,7 +101,7 @@ class ExportJsonTest extends AbstractTestCase
 
         $this->assertEquals(
             'general_opts',
-            $generalOptions->getName()
+            $generalOptions->getName(),
         );
 
         $generalProperties = $generalOptions->getProperties();
@@ -112,7 +112,7 @@ class ExportJsonTest extends AbstractTestCase
 
         $this->assertEquals(
             'structure_or_data',
-            $property->getName()
+            $property->getName(),
         );
     }
 
@@ -122,11 +122,11 @@ class ExportJsonTest extends AbstractTestCase
             "[\n"
             . '{"type":"header","version":"' . Version::VERSION
             . '","comment":"Export to JSON plugin for PHPMyAdmin"},'
-            . "\n"
+            . "\n",
         );
 
         $this->assertTrue(
-            $this->object->exportHeader()
+            $this->object->exportHeader(),
         );
     }
 
@@ -135,7 +135,7 @@ class ExportJsonTest extends AbstractTestCase
         $this->expectOutputString(']' . "\n");
 
         $this->assertTrue(
-            $this->object->exportFooter()
+            $this->object->exportFooter(),
         );
     }
 
@@ -144,21 +144,21 @@ class ExportJsonTest extends AbstractTestCase
         $this->expectOutputString('{"type":"database","name":"testDB"},' . "\n");
 
         $this->assertTrue(
-            $this->object->exportDBHeader('testDB')
+            $this->object->exportDBHeader('testDB'),
         );
     }
 
     public function testExportDBFooter(): void
     {
         $this->assertTrue(
-            $this->object->exportDBFooter('testDB')
+            $this->object->exportDBFooter('testDB'),
         );
     }
 
     public function testExportDBCreate(): void
     {
         $this->assertTrue(
-            $this->object->exportDBCreate('testDB', 'database')
+            $this->object->exportDBCreate('testDB', 'database'),
         );
     }
 
@@ -171,14 +171,14 @@ class ExportJsonTest extends AbstractTestCase
             . '{"id":"2","name":"foo","datetimefield":"2010-01-20 02:00:02"},' . "\n"
             . '{"id":"3","name":"Abcd","datetimefield":"2012-01-20 02:00:02"}' . "\n"
             . ']' . "\n"
-            . '}' . "\n"
+            . '}' . "\n",
         );
 
         $this->assertTrue($this->object->exportData(
             'test_db',
             'test_table',
             'localhost',
-            'SELECT * FROM `test_db`.`test_table`;'
+            'SELECT * FROM `test_db`.`test_table`;',
         ));
     }
 
@@ -193,7 +193,7 @@ class ExportJsonTest extends AbstractTestCase
                 . '"f3":"My awesome\nText","f4":"0x307861663132333466363863353766656665"},' . "\n"
             . '{"f1":null,"f2":null,"f3":null,"f4":null},' . "\n"
             . '{"f1":"","f2":"0x307831","f3":"\u0448\u0435\u043b\u043b\u044b","f4":"0x307832"}' . "\n"
-            . "]\n}\n"
+            . "]\n}\n",
         );
 
         $this->assertTrue(
@@ -201,8 +201,8 @@ class ExportJsonTest extends AbstractTestCase
                 'test_db',
                 'test_table_complex',
                 'example.com',
-                'SELECT * FROM `test_db`.`test_table_complex`;'
-            )
+                'SELECT * FROM `test_db`.`test_table_complex`;',
+            ),
         );
     }
 
@@ -216,15 +216,15 @@ class ExportJsonTest extends AbstractTestCase
                 . '"f3":"My awesome\nText","f4":"0x307861663132333466363863353766656665"},' . "\n"
             . '{"f1":null,"f2":null,"f3":null,"f4":null},' . "\n"
             . '{"f1":"","f2":"0x307831","f3":"\u0448\u0435\u043b\u043b\u044b","f4":"0x307832"}' . "\n"
-            . "]\n}\n"
+            . "]\n}\n",
         );
 
         $this->assertTrue(
             $this->object->exportRawQuery(
                 'example.com',
                 null,
-                'SELECT * FROM `test_db`.`test_table_complex`;'
-            )
+                'SELECT * FROM `test_db`.`test_table_complex`;',
+            ),
         );
     }
 }

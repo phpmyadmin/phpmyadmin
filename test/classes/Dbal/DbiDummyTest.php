@@ -108,7 +108,7 @@ class DbiDummyTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $this->assertEquals(
             $expected,
-            Utilities::formatError($number, $message)
+            Utilities::formatError($number, $message),
         );
     }
 
@@ -144,11 +144,11 @@ class DbiDummyTest extends AbstractTestCase
     {
         $this->assertEquals(
             'a',
-            $this->dbi->escapeString('a')
+            $this->dbi->escapeString('a'),
         );
         $this->assertEquals(
             'a\\\'',
-            $this->dbi->escapeString('a\'')
+            $this->dbi->escapeString('a\''),
         );
     }
 }

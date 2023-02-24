@@ -337,7 +337,7 @@ class ResponseRenderer
                         'table' => isset($GLOBALS['table']) && is_scalar($GLOBALS['table'])
                             ? (string) $GLOBALS['table'] : '',
                         'sql_query' => $query,
-                    ]
+                    ],
                 );
                 if (! empty($GLOBALS['focus_querywindow'])) {
                     $this->addJSON('_focusQuerywindow', $query);

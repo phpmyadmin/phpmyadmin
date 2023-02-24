@@ -64,7 +64,7 @@ class FlashMessagesTest extends AbstractTestCase
                 'error' => ['Error1', 'Error2'],
                 'warning' => ['Warning'],
             ],
-            $messages
+            $messages,
         );
     }
 }

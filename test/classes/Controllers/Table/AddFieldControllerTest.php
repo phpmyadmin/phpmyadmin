@@ -260,7 +260,7 @@ class AddFieldControllerTest extends AbstractTestCase
             $transformations,
             $this->createConfig(),
             $dbi,
-            new ColumnsDefinition($dbi, $relation, $transformations)
+            new ColumnsDefinition($dbi, $relation, $transformations),
         ))($request);
 
         $this->assertSame($expected, $response->getHTMLResult());

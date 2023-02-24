@@ -27,7 +27,7 @@ final class DestroyController extends AbstractController
         Template $template,
         private DatabaseInterface $dbi,
         private Transformations $transformations,
-        private RelationCleanup $relationCleanup
+        private RelationCleanup $relationCleanup,
     ) {
         parent::__construct($response, $template);
     }
@@ -83,8 +83,8 @@ final class DestroyController extends AbstractController
             _ngettext(
                 '%1$d database has been dropped successfully.',
                 '%1$d databases have been dropped successfully.',
-                $numberOfDatabases
-            )
+                $numberOfDatabases,
+            ),
         );
         $message->addParam($numberOfDatabases);
         $json = ['message' => $message];

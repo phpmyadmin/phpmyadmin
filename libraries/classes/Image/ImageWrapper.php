@@ -85,7 +85,7 @@ final class ImageWrapper
         int $height,
         int $startAngle,
         int $endAngle,
-        int $color
+        int $color,
     ): bool {
         return imagearc($this->image, $centerX, $centerY, $width, $height, $startAngle, $endAngle, $color);
     }
@@ -104,7 +104,7 @@ final class ImageWrapper
         int $destinationWidth,
         int $destinationHeight,
         int $sourceWidth,
-        int $sourceHeight
+        int $sourceHeight,
     ): bool {
         return imagecopyresampled(
             $this->image,
@@ -116,7 +116,7 @@ final class ImageWrapper
             $destinationWidth,
             $destinationHeight,
             $sourceWidth,
-            $sourceHeight
+            $sourceHeight,
         );
     }
 

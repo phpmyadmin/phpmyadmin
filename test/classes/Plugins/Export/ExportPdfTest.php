@@ -45,7 +45,7 @@ class ExportPdfTest extends AbstractTestCase
         $this->object = new ExportPdf(
             new Relation($GLOBALS['dbi']),
             new Export($GLOBALS['dbi']),
-            new Transformations()
+            new Transformations(),
         );
     }
 
@@ -70,26 +70,26 @@ class ExportPdfTest extends AbstractTestCase
 
         $this->assertEquals(
             'PDF',
-            $properties->getText()
+            $properties->getText(),
         );
 
         $this->assertEquals(
             'pdf',
-            $properties->getExtension()
+            $properties->getExtension(),
         );
 
         $this->assertEquals(
             'application/pdf',
-            $properties->getMimeType()
+            $properties->getMimeType(),
         );
 
         $this->assertEquals(
             'Options',
-            $properties->getOptionsText()
+            $properties->getOptionsText(),
         );
 
         $this->assertTrue(
-            $properties->getForceFile()
+            $properties->getForceFile(),
         );
 
         $options = $properties->getOptions();
@@ -98,7 +98,7 @@ class ExportPdfTest extends AbstractTestCase
 
         $this->assertEquals(
             'Format Specific Options',
-            $options->getName()
+            $options->getName(),
         );
 
         $generalOptionsArray = $options->getProperties();
@@ -110,7 +110,7 @@ class ExportPdfTest extends AbstractTestCase
 
         $this->assertEquals(
             'general_opts',
-            $generalOptions->getName()
+            $generalOptions->getName(),
         );
 
         $generalProperties = $generalOptions->getProperties();
@@ -121,7 +121,7 @@ class ExportPdfTest extends AbstractTestCase
 
         $this->assertEquals(
             'report_title',
-            $property->getName()
+            $property->getName(),
         );
 
         $generalOptions = $generalOptionsArray->current();
@@ -130,12 +130,12 @@ class ExportPdfTest extends AbstractTestCase
 
         $this->assertEquals(
             'dump_what',
-            $generalOptions->getName()
+            $generalOptions->getName(),
         );
 
         $this->assertEquals(
             'Dump table',
-            $generalOptions->getText()
+            $generalOptions->getText(),
         );
 
         $generalProperties = $generalOptions->getProperties();
@@ -146,7 +146,7 @@ class ExportPdfTest extends AbstractTestCase
 
         $this->assertEquals(
             'structure_or_data',
-            $property->getName()
+            $property->getName(),
         );
 
         $this->assertEquals(
@@ -155,7 +155,7 @@ class ExportPdfTest extends AbstractTestCase
                 'data' => __('data'),
                 'structure_and_data' => __('structure and data'),
             ],
-            $property->getValues()
+            $property->getValues(),
         );
     }
 
@@ -175,7 +175,7 @@ class ExportPdfTest extends AbstractTestCase
         $attrPdf->setValue($this->object, $pdf);
 
         $this->assertTrue(
-            $this->object->exportHeader()
+            $this->object->exportHeader(),
         );
     }
 
@@ -193,28 +193,28 @@ class ExportPdfTest extends AbstractTestCase
         $attrPdf->setValue($this->object, $pdf);
 
         $this->assertTrue(
-            $this->object->exportFooter()
+            $this->object->exportFooter(),
         );
     }
 
     public function testExportDBHeader(): void
     {
         $this->assertTrue(
-            $this->object->exportDBHeader('testDB')
+            $this->object->exportDBHeader('testDB'),
         );
     }
 
     public function testExportDBFooter(): void
     {
         $this->assertTrue(
-            $this->object->exportDBFooter('testDB')
+            $this->object->exportDBFooter('testDB'),
         );
     }
 
     public function testExportDBCreate(): void
     {
         $this->assertTrue(
-            $this->object->exportDBCreate('testDB', 'database')
+            $this->object->exportDBCreate('testDB', 'database'),
         );
     }
 
@@ -236,8 +236,8 @@ class ExportPdfTest extends AbstractTestCase
                 'db',
                 'table',
                 'phpmyadmin.net/err',
-                'SELECT'
-            )
+                'SELECT',
+            ),
         );
     }
 
@@ -254,7 +254,7 @@ class ExportPdfTest extends AbstractTestCase
         $getter = new ReflectionMethod(ExportPdf::class, 'getPdf');
         $this->assertInstanceOf(
             Pdf::class,
-            $getter->invoke($this->object)
+            $getter->invoke($this->object),
         );
     }
 }

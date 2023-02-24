@@ -30,7 +30,7 @@ final class ImportController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
     }
@@ -64,7 +64,7 @@ final class ImportController extends AbstractController
 
         if (empty($importList)) {
             $this->response->addHTML(Message::error(__(
-                'Could not load import plugins, please check your installation!'
+                'Could not load import plugins, please check your installation!',
             ))->getDisplay());
 
             return;

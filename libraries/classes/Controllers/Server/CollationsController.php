@@ -34,7 +34,7 @@ class CollationsController extends AbstractController
         Template $template,
         private DatabaseInterface $dbi,
         array|null $charsets = null,
-        array|null $collations = null
+        array|null $collations = null,
     ) {
         parent::__construct($response, $template);
 

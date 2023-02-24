@@ -44,7 +44,7 @@ final class CacheWarmupCommand extends Command
             null,
             InputArgument::OPTIONAL,
             'Defines the environment (production or development) for twig warmup',
-            'production'
+            'production',
         );
         $this->setHelp('The <info>%command.name%</info> command warms up the cache of the Twig templates.');
     }
@@ -106,9 +106,9 @@ final class CacheWarmupCommand extends Command
         $output->writeln(
             sprintf(
                 'Warm up did not work, the folder "%s" is probably not writable.',
-                CACHE_DIR
+                CACHE_DIR,
             ),
-            OutputInterface::VERBOSITY_NORMAL
+            OutputInterface::VERBOSITY_NORMAL,
         );
 
         return Command::FAILURE;
@@ -117,7 +117,7 @@ final class CacheWarmupCommand extends Command
     private function warmUpTwigCache(
         OutputInterface $output,
         string $environment,
-        bool $writeReplacements
+        bool $writeReplacements,
     ): int {
         $GLOBALS['config'] ??= null;
 
@@ -134,7 +134,7 @@ final class CacheWarmupCommand extends Command
 
         $templates = new RecursiveIteratorIterator(
             new RecursiveDirectoryIterator(Template::TEMPLATES_FOLDER),
-            RecursiveIteratorIterator::LEAVES_ONLY
+            RecursiveIteratorIterator::LEAVES_ONLY,
         );
 
         /** @var CacheInterface $twigCache */
@@ -142,7 +142,7 @@ final class CacheWarmupCommand extends Command
         $replacements = [];
         $output->writeln(
             'Twig debug is: ' . ($twig->isDebug() ? 'enabled' : 'disabled'),
-            OutputInterface::VERBOSITY_DEBUG
+            OutputInterface::VERBOSITY_DEBUG,
         );
 
         $output->writeln('Warming templates', OutputInterface::VERBOSITY_VERY_VERBOSE);

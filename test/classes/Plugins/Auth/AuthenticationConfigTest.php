@@ -51,7 +51,7 @@ class AuthenticationConfigTest extends AbstractTestCase
     public function testAuth(): void
     {
         $this->assertTrue(
-            $this->object->showLoginForm()
+            $this->object->showLoginForm(),
         );
     }
 
@@ -62,14 +62,14 @@ class AuthenticationConfigTest extends AbstractTestCase
             'password' => 'password',
         ];
         $this->assertTrue(
-            $this->object->readCredentials()
+            $this->object->readCredentials(),
         );
     }
 
     public function testAuthSetUser(): void
     {
         $this->assertTrue(
-            $this->object->storeCredentials()
+            $this->object->storeCredentials(),
         );
     }
 
@@ -93,7 +93,7 @@ class AuthenticationConfigTest extends AbstractTestCase
         $this->assertStringContainsString(
             'You probably did not create a configuration file. You might want ' .
             'to use the <a href="setup/">setup script</a> to create one.',
-            $html
+            $html,
         );
 
         $this->assertStringContainsString(
@@ -102,7 +102,7 @@ class AuthenticationConfigTest extends AbstractTestCase
             ' target="mysql_doc">' .
             '<img src="themes/dot.gif" title="Documentation" alt="Documentation" ' .
             'class="icon ic_b_help"></a>',
-            $html
+            $html,
         );
 
         $this->assertStringContainsString('Cannot connect: invalid settings.', $html);
@@ -110,7 +110,7 @@ class AuthenticationConfigTest extends AbstractTestCase
         $this->assertStringContainsString(
             '<a href="index.php?route=/&server=0&lang=en" '
             . 'class="btn btn-primary mt-1 mb-1 disableAjax">Retry to connect</a>',
-            $html
+            $html,
         );
     }
 }

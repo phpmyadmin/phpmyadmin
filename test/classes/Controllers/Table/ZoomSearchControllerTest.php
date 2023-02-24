@@ -52,7 +52,7 @@ class ZoomSearchControllerTest extends AbstractTestCase
             $template,
             new Search($this->dbi),
             new Relation($this->dbi),
-            $this->dbi
+            $this->dbi,
         );
         $controller($this->createStub(ServerRequest::class));
 

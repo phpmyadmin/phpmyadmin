@@ -20,15 +20,15 @@ class QbeTest extends AbstractTestCase
         $object = new Qbe(new Relation($GLOBALS['dbi']), new Template(), $GLOBALS['dbi'], 'pma_test');
         $this->assertStringContainsString(
             'style="width:12ex" name="criteriaSort[1]"',
-            $this->callFunction($object, Qbe::class, 'getSortSelectCell', [1])
+            $this->callFunction($object, Qbe::class, 'getSortSelectCell', [1]),
         );
         $this->assertStringNotContainsString(
             'selected="selected"',
-            $this->callFunction($object, Qbe::class, 'getSortSelectCell', [1])
+            $this->callFunction($object, Qbe::class, 'getSortSelectCell', [1]),
         );
         $this->assertStringContainsString(
             'value="ASC" selected="selected">',
-            $this->callFunction($object, Qbe::class, 'getSortSelectCell', [1, 'ASC'])
+            $this->callFunction($object, Qbe::class, 'getSortSelectCell', [1, 'ASC']),
         );
     }
 
@@ -38,15 +38,15 @@ class QbeTest extends AbstractTestCase
         $object = new Qbe(new Relation($GLOBALS['dbi']), new Template(), $GLOBALS['dbi'], 'pma_test');
         $this->assertStringContainsString(
             'name="criteriaSort[0]"',
-            $this->callFunction($object, Qbe::class, 'getSortRow', [])
+            $this->callFunction($object, Qbe::class, 'getSortRow', []),
         );
         $this->assertStringContainsString(
             'name="criteriaSort[1]"',
-            $this->callFunction($object, Qbe::class, 'getSortRow', [])
+            $this->callFunction($object, Qbe::class, 'getSortRow', []),
         );
         $this->assertStringContainsString(
             'name="criteriaSort[2]"',
-            $this->callFunction($object, Qbe::class, 'getSortRow', [])
+            $this->callFunction($object, Qbe::class, 'getSortRow', []),
         );
     }
 
@@ -60,7 +60,7 @@ class QbeTest extends AbstractTestCase
             . '<input type="checkbox" name="criteriaShow[1]"></td><td '
             . 'class="text-center"><input type="checkbox" name="criteriaShow[2]">'
             . '</td>',
-            $this->callFunction($object, Qbe::class, 'getShowRow', [])
+            $this->callFunction($object, Qbe::class, 'getShowRow', []),
         );
     }
 
@@ -79,7 +79,7 @@ class QbeTest extends AbstractTestCase
             . '<input type="hidden" name="prev_criteria[2]" value="">'
             . '<input type="text" name="criteria[2]" value="" class="textfield" '
             . 'style="width: 12ex" size="20"></td>',
-            $this->callFunction($object, Qbe::class, 'getCriteriaInputboxRow', [])
+            $this->callFunction($object, Qbe::class, 'getCriteriaInputboxRow', []),
         );
     }
 
@@ -94,7 +94,7 @@ class QbeTest extends AbstractTestCase
             . '"and"><br>Ins<input type="checkbox" name="criteriaColumnInsert'
             . '[1]">&nbsp;&nbsp;Del<input type="checkbox" '
             . 'name="criteriaColumnDelete[1]"></td>',
-            $this->callFunction($object, Qbe::class, 'getAndOrColCell', [1])
+            $this->callFunction($object, Qbe::class, 'getAndOrColCell', [1]),
         );
     }
 
@@ -117,7 +117,7 @@ class QbeTest extends AbstractTestCase
             . 'name="criteriaColumnDelete[1]"></td><td class="text-center"><br>Ins'
             . '<input type="checkbox" name="criteriaColumnInsert[2]">&nbsp;&nbsp;'
             . 'Del<input type="checkbox" name="criteriaColumnDelete[2]"></td>',
-            $this->callFunction($object, Qbe::class, 'getModifyColumnsRow', [])
+            $this->callFunction($object, Qbe::class, 'getModifyColumnsRow', []),
         );
     }
 
@@ -132,7 +132,7 @@ class QbeTest extends AbstractTestCase
             . 'style="width: 12ex" size="20"></td><td class="text-center"><input '
             . 'type="text" name="Or2[2]" value="" class="textfield" style="width: '
             . '12ex" size="20"></td>',
-            $this->callFunction($object, Qbe::class, 'getInputboxRow', [2])
+            $this->callFunction($object, Qbe::class, 'getInputboxRow', [2]),
         );
     }
 
@@ -150,7 +150,7 @@ class QbeTest extends AbstractTestCase
             . 'value="" class="textfield" style="width: 12ex" size="20"></td><td '
             . 'class="text-center"><input type="text" name="Or0[2]" value="" class='
             . '"textfield" style="width: 12ex" size="20"></td></tr>',
-            $actual
+            $actual,
         );
     }
 
@@ -191,8 +191,8 @@ class QbeTest extends AbstractTestCase
                     ['`table1`', 'table2'],
                     ['column1', 'column2', 'column3'],
                     ['column2'],
-                ]
-            )
+                ],
+            ),
         );
     }
 
@@ -213,8 +213,8 @@ class QbeTest extends AbstractTestCase
                     ['`table1`', 'table2'],
                     ['column1', 'column2', 'column3'],
                     ['column2'],
-                ]
-            )
+                ],
+            ),
         );
     }
 
@@ -233,8 +233,8 @@ class QbeTest extends AbstractTestCase
                     ['column1', 'column2', 'column3'],
                     ['column2'],
                     ['qbe_test'],
-                ]
-            )
+                ],
+            ),
         );
     }
 
@@ -250,7 +250,7 @@ class QbeTest extends AbstractTestCase
         ];
         $this->assertEquals(
             ['where_clause_tables' => [], 'where_clause_columns' => []],
-            $this->callFunction($object, Qbe::class, 'getWhereClauseTablesAndColumns', [])
+            $this->callFunction($object, Qbe::class, 'getWhereClauseTablesAndColumns', []),
         );
     }
 
@@ -293,7 +293,7 @@ class QbeTest extends AbstractTestCase
         ];
         $this->assertEquals(
             'FROM `table1`' . "\n",
-            $this->callFunction($object, Qbe::class, 'getSQLQuery', [['`table1`.`id`']])
+            $this->callFunction($object, Qbe::class, 'getSQLQuery', [['`table1`.`id`']]),
         );
     }
 }

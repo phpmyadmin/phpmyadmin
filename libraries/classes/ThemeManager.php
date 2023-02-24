@@ -80,9 +80,9 @@ class ThemeManager
             trigger_error(
                 sprintf(
                     __('Default theme %s not found!'),
-                    htmlspecialchars($GLOBALS['cfg']['ThemeDefault'])
+                    htmlspecialchars($GLOBALS['cfg']['ThemeDefault']),
                 ),
-                E_USER_ERROR
+                E_USER_ERROR,
             );
             $configThemeExists = false;
         } else {
@@ -139,9 +139,9 @@ class ThemeManager
             trigger_error(
                 sprintf(
                     __('Theme %s not found!'),
-                    htmlspecialchars((string) $theme)
+                    htmlspecialchars((string) $theme),
                 ),
-                E_USER_ERROR
+                E_USER_ERROR,
             );
 
             return false;
@@ -199,7 +199,7 @@ class ThemeManager
         $GLOBALS['config']->setCookie(
             $this->getThemeCookieName(),
             $themeId,
-            $this->themeDefault
+            $this->themeDefault,
         );
         // force a change of a dummy session variable to avoid problems
         // with the caching of phpmyadmin.css.php

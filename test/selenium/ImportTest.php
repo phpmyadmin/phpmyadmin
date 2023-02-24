@@ -31,7 +31,7 @@ class ImportTest extends TestBase
             function (): void {
                 $this->assertEquals('test_import1', $this->getCellByTableClass('table_results', 1, 1));
                 $this->assertEquals('test_import2', $this->getCellByTableClass('table_results', 2, 1));
-            }
+            },
         );
 
         // clear db
@@ -56,7 +56,7 @@ class ImportTest extends TestBase
             function (): void {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 $this->assertEquals('test_table', $this->getCellByTableClass('table_results', 1, 1));
-            }
+            },
         );
     }
 
@@ -71,7 +71,7 @@ class ImportTest extends TestBase
         $this->dbQuery(
             'CREATE DATABASE IF NOT EXISTS `' . $this->databaseName . '`;'
             . 'USE `' . $this->databaseName . '`;'
-            . 'CREATE TABLE IF NOT EXISTS `test_table` (`val` int(11) NOT NULL);'
+            . 'CREATE TABLE IF NOT EXISTS `test_table` (`val` int(11) NOT NULL);',
         );
 
         $this->navigateTable('test_table');
@@ -84,7 +84,7 @@ class ImportTest extends TestBase
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 $this->assertEquals('8', $this->getCellByTableClass('table_results', 1, 1));
                 $this->assertEquals('9', $this->getCellByTableClass('table_results', 2, 1));
-            }
+            },
         );
     }
 
@@ -112,7 +112,7 @@ class ImportTest extends TestBase
         $this->waitUntilElementIsVisible(
             'xpath',
             "//div[@class='alert alert-success' and contains(., 'Import has been successfully')]",
-            30
+            30,
         );
     }
 }

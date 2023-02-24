@@ -25,7 +25,7 @@ class CentralColumnsController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        private CentralColumns $centralColumns
+        private CentralColumns $centralColumns,
     ) {
         parent::__construct($response, $template);
     }
@@ -136,10 +136,10 @@ class CentralColumnsController extends AbstractController
         $GLOBALS['num_cols'] = $this->centralColumns->getColumnsCount(
             $GLOBALS['db'],
             $pos,
-            (int) $GLOBALS['cfg']['MaxRows']
+            (int) $GLOBALS['cfg']['MaxRows'],
         );
         $GLOBALS['message'] = Message::success(
-            sprintf(__('Showing rows %1$s - %2$s.'), $pos + 1, $pos + $GLOBALS['num_cols'])
+            sprintf(__('Showing rows %1$s - %2$s.'), $pos + 1, $pos + $GLOBALS['num_cols']),
         );
         if (! isset($tmp_msg) || $tmp_msg === true) {
             return;
@@ -170,7 +170,7 @@ class CentralColumnsController extends AbstractController
             $GLOBALS['db'],
             $totalRows,
             $pos,
-            $GLOBALS['text_dir']
+            $GLOBALS['text_dir'],
         );
 
         $this->render('database/central_columns/main', $variables);
@@ -208,7 +208,7 @@ class CentralColumnsController extends AbstractController
             isset($params['col_isNull']) ? 1 : 0,
             $params['collation'],
             $params['col_extra'] ?? '',
-            $columnDefault
+            $columnDefault,
         );
     }
 
@@ -234,7 +234,7 @@ class CentralColumnsController extends AbstractController
             isset($params['col_isNull']) ? 1 : 0,
             $params['collation'],
             $params['col_extra'] ?? '',
-            $columnDefault
+            $columnDefault,
         );
     }
 
@@ -248,7 +248,7 @@ class CentralColumnsController extends AbstractController
         return $this->centralColumns->syncUniqueColumns(
             [$params['column-select']],
             false,
-            $params['table-select']
+            $params['table-select'],
         );
     }
 

@@ -36,7 +36,7 @@ class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
     {
         $this->assertEquals(
             'export',
-            $this->object->getItemType()
+            $this->object->getItemType(),
         );
     }
 
@@ -50,7 +50,7 @@ class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
         $this->object->setForceFile(true);
 
         $this->assertTrue(
-            $this->object->getForceFile()
+            $this->object->getForceFile(),
         );
     }
 }

@@ -373,7 +373,7 @@ class Util
     public static function backquoteCompat(
         $identifier,
         string $compatibility = 'MSSQL',
-        $doIt = true
+        $doIt = true,
     ): string {
         $identifier = (string) $identifier;
         if ($identifier === '' || $identifier === '*') {
@@ -488,7 +488,7 @@ class Util
         $digitsLeft = 3,
         $digitsRight = 0,
         $onlyDown = false,
-        $noTrailingZero = true
+        $noTrailingZero = true,
     ): string {
         if ($value == 0) {
             return '0';
@@ -507,7 +507,7 @@ class Util
                 /* l10n: Decimal separator */
                 __('.'),
                 /* l10n: Thousands separator */
-                __(',')
+                __(','),
             );
             if (($originalValue != 0) && (floatval($value) == 0)) {
                 return ' <' . (1 / 10 ** $digitsRight);
@@ -671,13 +671,13 @@ class Util
             '@%[aA]@',
             // phpcs:ignore Generic.PHP.DeprecatedFunctions
             $dayOfWeek[(int) @strftime('%w', (int) $timestamp)],
-            $format
+            $format,
         );
         $date = (string) preg_replace(
             '@%[bB]@',
             // phpcs:ignore Generic.PHP.DeprecatedFunctions
             $month[(int) @strftime('%m', (int) $timestamp) - 1],
-            $date
+            $date,
         );
 
         /* Fill in AM/PM */
@@ -761,7 +761,7 @@ class Util
             (string) $days,
             (string) $hours,
             (string) $minutes,
-            (string) $seconds
+            (string) $seconds,
         );
     }
 
@@ -782,7 +782,7 @@ class Util
         FieldMetadata $meta,
         int $fieldsCount,
         string $conditionKey,
-        string $condition
+        string $condition,
     ): array {
         if ($row === null) {
             return ['IS NULL', $condition];
@@ -849,7 +849,7 @@ class Util
         array $row,
         $forceUnique = false,
         string|bool $restrictToTable = false,
-        array $expressions = []
+        array $expressions = [],
     ): array {
         $primaryKey = '';
         $uniqueKey = '';
@@ -1011,7 +1011,7 @@ class Util
         $sliceEnd = 5,
         $percent = 20,
         $range = 10,
-        $prompt = ''
+        $prompt = '',
     ): string {
         $increment = floor($nbTotalPage / $percent);
         $pageNowMinusRange = $pageNow - $range;
@@ -1239,7 +1239,7 @@ class Util
             "/^b'(\d*)'?$/",
             '$1',
             htmlspecialchars_decode((string) $bitDefaultValue, ENT_QUOTES),
-            1
+            1,
         );
     }
 
@@ -1259,12 +1259,12 @@ class Util
                 mb_substr(
                     $columnSpecification,
                     $firstBracketPos + 1,
-                    mb_strrpos($columnSpecification, ')') - $firstBracketPos - 1
-                )
+                    mb_strrpos($columnSpecification, ')') - $firstBracketPos - 1,
+                ),
             );
             // convert to lowercase just to be sure
             $type = mb_strtolower(
-                rtrim(mb_substr($columnSpecification, 0, $firstBracketPos))
+                rtrim(mb_substr($columnSpecification, 0, $firstBracketPos)),
             );
         } else {
             // Split trailing attributes such as unsigned,
@@ -1343,9 +1343,9 @@ class Util
                 mb_substr(
                     $printType,
                     0,
-                    (int) $GLOBALS['cfg']['LimitChars']
+                    (int) $GLOBALS['cfg']['LimitChars'],
                 ) . '...',
-                ENT_COMPAT
+                ENT_COMPAT,
             );
             $displayedType .= '</abbr>';
         }
@@ -1520,7 +1520,7 @@ class Util
     public static function expandUserString(
         string $string,
         callable|null $escape = null,
-        array $updates = []
+        array $updates = [],
     ): string {
         /* Content */
         $vars = [];
@@ -1694,8 +1694,8 @@ class Util
                 $query,
                 'USER_PRIVILEGES',
                 $username,
-                $priv
-            )
+                $priv,
+            ),
         );
         if ($userPrivileges) {
             return true;
@@ -1716,8 +1716,8 @@ class Util
                 'SCHEMA_PRIVILEGES',
                 $username,
                 $priv,
-                $GLOBALS['dbi']->escapeString($db)
-            )
+                $GLOBALS['dbi']->escapeString($db),
+            ),
         );
         if ($schemaPrivileges) {
             return true;
@@ -1734,8 +1734,8 @@ class Util
                     $username,
                     $priv,
                     $GLOBALS['dbi']->escapeString($db),
-                    $GLOBALS['dbi']->escapeString($tbl)
-                )
+                    $GLOBALS['dbi']->escapeString($tbl),
+                ),
             );
             if ($tablePrivileges) {
                 return true;
@@ -1916,7 +1916,7 @@ class Util
         return mb_substr(
             $value,
             0,
-            mb_strpos($value, '.') + 7
+            mb_strpos($value, '.') + 7,
         );
     }
 
@@ -2047,7 +2047,7 @@ class Util
         // Special speedup for newer MySQL Versions (in 4.0 format changed)
         if ($GLOBALS['cfg']['SkipLockedTables'] === true) {
             $dbInfoResult = $GLOBALS['dbi']->query(
-                'SHOW OPEN TABLES FROM ' . self::backquote($db) . ' WHERE In_use > 0;'
+                'SHOW OPEN TABLES FROM ' . self::backquote($db) . ' WHERE In_use > 0;',
             );
 
             // Blending out tables in use
@@ -2117,7 +2117,7 @@ class Util
                         false,
                         $sort,
                         $sortOrder,
-                        $tableType
+                        $tableType,
                     );
                     $groupWithSeparator = $tableGroupParam . $GLOBALS['cfg']['NavigationTreeTableSeparator'];
                 }
@@ -2142,7 +2142,7 @@ class Util
                 $limitCount,
                 $sort,
                 $sortOrder,
-                $tableType
+                $tableType,
             );
         }
 
@@ -2184,7 +2184,7 @@ class Util
             ) {
                 $group = $GLOBALS['dbi']->escapeMysqlWildcards((string) $_REQUEST['tbl_group']);
                 $groupWithSeparator = $GLOBALS['dbi']->escapeMysqlWildcards(
-                    $_REQUEST['tbl_group'] . $GLOBALS['cfg']['NavigationTreeTableSeparator']
+                    $_REQUEST['tbl_group'] . $GLOBALS['cfg']['NavigationTreeTableSeparator'],
                 );
                 $tblGroupSql .= ' WHERE ('
                     . self::backquote('Tables_in_' . $db)
@@ -2226,7 +2226,7 @@ class Util
                 if (count($names) > 0) {
                     $tables = array_merge(
                         $tables,
-                        $GLOBALS['dbi']->getTablesFull($db, $names)
+                        $GLOBALS['dbi']->getTablesFull($db, $names),
                     );
                 }
 
@@ -2398,7 +2398,7 @@ class Util
                     [
                         'class' => 'sort_arrow',
                         'title' => '',
-                    ]
+                    ],
                 );
                 $orderImg .= ' ' . Generator::getImage(
                     's_desc',
@@ -2406,7 +2406,7 @@ class Util
                     [
                         'class' => 'sort_arrow hide',
                         'title' => '',
-                    ]
+                    ],
                 );
                 // but on mouse over, show the reverse order (DESC)
                 $orderLinkParams['onmouseover'] = "$('.sort_arrow').toggle();";
@@ -2421,7 +2421,7 @@ class Util
                     [
                         'class' => 'sort_arrow hide',
                         'title' => '',
-                    ]
+                    ],
                 );
                 $orderImg .= ' ' . Generator::getImage(
                     's_desc',
@@ -2429,7 +2429,7 @@ class Util
                     [
                         'class' => 'sort_arrow',
                         'title' => '',
-                    ]
+                    ],
                 );
                 // but on mouse over, show the reverse order (ASC)
                 $orderLinkParams['onmouseover'] = "$('.sort_arrow').toggle();";

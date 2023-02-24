@@ -73,7 +73,7 @@ class DbiMysqli implements DbiExtension
                     $server->ssl_cert ?? '',
                     $server->ssl_ca ?? '',
                     $server->ssl_ca_path ?? '',
-                    $server->ssl_ciphers ?? ''
+                    $server->ssl_ciphers ?? '',
                 );
             }
 
@@ -103,7 +103,7 @@ class DbiMysqli implements DbiExtension
                 '',
                 (int) $server->port,
                 $server->socket,
-                $client_flags
+                $client_flags,
             );
         } catch (mysqli_sql_exception) {
             /**
@@ -124,7 +124,7 @@ class DbiMysqli implements DbiExtension
             ) {
                 trigger_error(
                     __('SSL connection enforced by server, automatically enabling it.'),
-                    E_USER_WARNING
+                    E_USER_WARNING,
                 );
 
                 return self::connect($user, $password, $server->withSSL(true));
@@ -135,12 +135,12 @@ class DbiMysqli implements DbiExtension
                     sprintf(
                         __(
                             'Error 1045: Access denied for user. Additional error information'
-                            . ' may be available, but is being hidden by the %s configuration directive.'
+                            . ' may be available, but is being hidden by the %s configuration directive.',
                         ),
                         '[code][doc@cfg_Servers_hide_connection_errors]'
-                        . '$cfg[\'Servers\'][$i][\'hide_connection_errors\'][/doc][/code]'
+                        . '$cfg[\'Servers\'][$i][\'hide_connection_errors\'][/doc][/code]',
                     ),
-                    E_USER_ERROR
+                    E_USER_ERROR,
                 );
             } else {
                 trigger_error($error_number . ': ' . $error_message, E_USER_WARNING);

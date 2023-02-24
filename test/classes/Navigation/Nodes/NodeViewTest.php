@@ -34,7 +34,7 @@ class NodeViewTest extends AbstractTestCase
                 'text' => ['route' => '/sql', 'params' => ['pos' => 0, 'db' => null, 'table' => null]],
                 'icon' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],
             ],
-            $parent->links
+            $parent->links,
         );
         $this->assertEquals('b_props', $parent->icon['image']);
         $this->assertEquals('View', $parent->icon['title']);

@@ -90,7 +90,7 @@ class WebAuthn extends TwoFactorPlugin
             $this->twofactor->user,
             $userHandle,
             $request->getUri()->getHost(),
-            $this->getAllowedCredentials()
+            $this->getAllowedCredentials(),
         );
         $requestOptionsEncoded = json_encode($requestOptions);
         $_SESSION['WebAuthnCredentialRequestOptions'] = $requestOptionsEncoded;
@@ -98,7 +98,7 @@ class WebAuthn extends TwoFactorPlugin
 
         return $this->template->render(
             'login/twofactor/webauthn_request',
-            ['request_options' => $requestOptionsEncoded]
+            ['request_options' => $requestOptionsEncoded],
         );
     }
 
@@ -128,7 +128,7 @@ class WebAuthn extends TwoFactorPlugin
                 $authenticatorResponse,
                 $this->getAllowedCredentials(),
                 $requestOptions['challenge'],
-                $request
+                $request,
             );
         } catch (Throwable $exception) {
             $this->message = $exception->getMessage();
@@ -151,7 +151,7 @@ class WebAuthn extends TwoFactorPlugin
 
         return $this->template->render(
             'login/twofactor/webauthn_creation',
-            ['creation_options' => $creationOptionsEncoded]
+            ['creation_options' => $creationOptionsEncoded],
         );
     }
 
@@ -176,7 +176,7 @@ class WebAuthn extends TwoFactorPlugin
             $credential = $this->server->parseAndValidateAttestationResponse(
                 $authenticatorResponse,
                 $credentialCreationOptions,
-                $request
+                $request,
             );
             $this->saveCredential($credential);
         } catch (Throwable $exception) {
@@ -197,7 +197,7 @@ class WebAuthn extends TwoFactorPlugin
     {
         return __(
             'Provides authentication using hardware security tokens supporting the WebAuthn/FIDO2 protocol,'
-            . ' such as a YubiKey.'
+            . ' such as a YubiKey.',
         );
     }
 
@@ -244,7 +244,7 @@ class WebAuthn extends TwoFactorPlugin
         Assert::isArray($this->twofactor->config['settings']['credentials']);
         $id = sodium_bin2base64(
             sodium_base642bin($credential['publicKeyCredentialId'], SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING),
-            SODIUM_BASE64_VARIANT_ORIGINAL
+            SODIUM_BASE64_VARIANT_ORIGINAL,
         );
         $this->twofactor->config['settings']['credentials'][$id] = $credential;
         $this->twofactor->config['settings']['userHandle'] = $credential['userHandle'];

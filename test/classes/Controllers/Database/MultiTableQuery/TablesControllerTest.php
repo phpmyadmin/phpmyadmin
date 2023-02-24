@@ -59,7 +59,7 @@ class TablesControllerTest extends AbstractTestCase
                     ],
                 ],
             ],
-            $this->getResponseJsonResult()
+            $this->getResponseJsonResult(),
         );
     }
 }

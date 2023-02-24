@@ -34,12 +34,12 @@ class UserPasswordTest extends AbstractTestCase
             $dbi,
             $relation,
             new RelationCleanup($dbi, $relation),
-            new Plugins($dbi)
+            new Plugins($dbi),
         );
         $this->object = new UserPassword(
             $serverPrivileges,
             $this->createStub(AuthenticationPluginFactory::class),
-            $dbi
+            $dbi,
         );
     }
 
@@ -51,15 +51,15 @@ class UserPasswordTest extends AbstractTestCase
         Message $message,
         bool $noPassword,
         string $password,
-        string $passwordConfirmation
+        string $passwordConfirmation,
     ): void {
         $this->assertEquals(
             ['error' => $error, 'msg' => $message],
             $this->object->setChangePasswordMsg(
                 $password,
                 $passwordConfirmation,
-                $noPassword
-            )
+                $noPassword,
+            ),
         );
     }
 

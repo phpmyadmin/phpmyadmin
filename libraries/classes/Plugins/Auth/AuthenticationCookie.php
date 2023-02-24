@@ -133,7 +133,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             $errorMessages = Message::rawError((string) $GLOBALS['conn_error'])->getDisplay();
         } elseif (isset($_GET['session_expired']) && intval($_GET['session_expired']) == 1) {
             $errorMessages = Message::rawError(
-                __('Your session has expired. Please log in again.')
+                __('Your session has expired. Please log in again.'),
             )->getDisplay();
         }
 
@@ -251,7 +251,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             ) {
                 if (empty($_POST[$GLOBALS['cfg']['CaptchaResponseParam']])) {
                     $GLOBALS['conn_error'] = __(
-                        'Missing reCAPTCHA verification, maybe it has been blocked by adblock?'
+                        'Missing reCAPTCHA verification, maybe it has been blocked by adblock?',
                     );
 
                     return false;
@@ -262,24 +262,24 @@ class AuthenticationCookie extends AuthenticationPlugin
                 if (function_exists('curl_init')) {
                     $reCaptcha = new ReCaptcha\ReCaptcha(
                         $GLOBALS['cfg']['CaptchaLoginPrivateKey'],
-                        new ReCaptcha\RequestMethod\CurlPost(null, $captchaSiteVerifyURL)
+                        new ReCaptcha\RequestMethod\CurlPost(null, $captchaSiteVerifyURL),
                     );
                 } elseif (ini_get('allow_url_fopen')) {
                     $reCaptcha = new ReCaptcha\ReCaptcha(
                         $GLOBALS['cfg']['CaptchaLoginPrivateKey'],
-                        new ReCaptcha\RequestMethod\Post($captchaSiteVerifyURL)
+                        new ReCaptcha\RequestMethod\Post($captchaSiteVerifyURL),
                     );
                 } else {
                     $reCaptcha = new ReCaptcha\ReCaptcha(
                         $GLOBALS['cfg']['CaptchaLoginPrivateKey'],
-                        new ReCaptcha\RequestMethod\SocketPost(null, $captchaSiteVerifyURL)
+                        new ReCaptcha\RequestMethod\SocketPost(null, $captchaSiteVerifyURL),
                     );
                 }
 
                 // verify captcha status.
                 $resp = $reCaptcha->verify(
                     $_POST[$GLOBALS['cfg']['CaptchaResponseParam']],
-                    Core::getIp()
+                    Core::getIp(),
                 );
 
                 // Check if the captcha entered is valid, if not stop the login.
@@ -356,7 +356,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $value = $this->cookieDecrypt(
             $serverCookie,
-            $this->getEncryptionSecret()
+            $this->getEncryptionSecret(),
         );
 
         if ($value === null) {
@@ -408,7 +408,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $value = $this->cookieDecrypt(
             $serverCookie,
-            $this->getSessionEncryptionSecret()
+            $this->getSessionEncryptionSecret(),
         );
         if ($value === null) {
             return false;
@@ -518,7 +518,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         Core::sendHeaderLocation(
             './index.php?route=/' . Url::getCommonRaw($url_params, '&'),
-            true
+            true,
         );
 
         if (! defined('TESTSUITE')) {
@@ -539,8 +539,8 @@ class AuthenticationCookie extends AuthenticationPlugin
             'pmaUser-' . $GLOBALS['server'],
             $this->cookieEncrypt(
                 $username,
-                $this->getEncryptionSecret()
-            )
+                $this->getEncryptionSecret(),
+            ),
         );
     }
 
@@ -561,10 +561,10 @@ class AuthenticationCookie extends AuthenticationPlugin
             'pmaAuth-' . $GLOBALS['server'],
             $this->cookieEncrypt(
                 (string) json_encode($payload),
-                $this->getSessionEncryptionSecret()
+                $this->getSessionEncryptionSecret(),
             ),
             null,
-            (int) $GLOBALS['cfg']['LoginCookieStore']
+            (int) $GLOBALS['cfg']['LoginCookieStore'],
         );
     }
 

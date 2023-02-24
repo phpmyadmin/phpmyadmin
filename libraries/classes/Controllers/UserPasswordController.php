@@ -23,7 +23,7 @@ class UserPasswordController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private UserPassword $userPassword,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
     }
@@ -47,7 +47,7 @@ class UserPasswordController extends AbstractController
 
         if ($GLOBALS['cfg']['Server']['auth_type'] === 'config' || ! $GLOBALS['cfg']['ShowChgPassword']) {
             $this->response->addHTML(Message::error(
-                __('You don\'t have sufficient privileges to be here right now!')
+                __('You don\'t have sufficient privileges to be here right now!'),
             )->getDisplay());
 
             return;
@@ -71,21 +71,21 @@ class UserPasswordController extends AbstractController
             $GLOBALS['change_password_message'] = $this->userPassword->setChangePasswordMsg(
                 $pmaPw,
                 $pmaPw2,
-                (bool) $noPass
+                (bool) $noPass,
             );
             $GLOBALS['msg'] = $GLOBALS['change_password_message']['msg'];
 
             if (! $GLOBALS['change_password_message']['error']) {
                 $sql_query = $this->userPassword->changePassword(
                     $password,
-                    $request->getParsedBodyParam('authentication_plugin')
+                    $request->getParsedBodyParam('authentication_plugin'),
                 );
 
                 if ($this->response->isAjax()) {
                     $sql_query = Generator::getMessage(
                         $GLOBALS['change_password_message']['msg'],
                         $sql_query,
-                        'success'
+                        'success',
                     );
                     $this->response->addJSON('message', $sql_query);
 
@@ -120,7 +120,7 @@ class UserPasswordController extends AbstractController
         $this->response->addHTML($this->userPassword->getFormForChangePassword(
             $GLOBALS['username'],
             $GLOBALS['hostname'],
-            $request->getRoute()
+            $request->getRoute(),
         ));
     }
 }

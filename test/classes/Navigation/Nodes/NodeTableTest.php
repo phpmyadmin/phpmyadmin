@@ -45,7 +45,7 @@ class NodeTableTest extends AbstractTestCase
                 'second_icon' => ['route' => '/table/change', 'params' => ['db' => null, 'table' => null]],
                 'title' => 'Browse',
             ],
-            $parent->links
+            $parent->links,
         );
         $this->assertStringContainsString('table', $parent->classes);
     }

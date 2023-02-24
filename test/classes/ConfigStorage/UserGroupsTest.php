@@ -38,7 +38,7 @@ class UserGroupsTest extends AbstractTestCase
         $this->configurableMenusFeature = new ConfigurableMenusFeature(
             DatabaseName::fromValue('pmadb'),
             TableName::fromValue('usergroups'),
-            TableName::fromValue('users')
+            TableName::fromValue('users'),
         );
     }
 
@@ -87,7 +87,7 @@ class UserGroupsTest extends AbstractTestCase
         $this->assertStringContainsString(
             '<button type="button" class="btn btn-link" data-bs-toggle="modal"'
             . ' data-bs-target="#deleteUserGroupModal" data-user-group="usergroup">',
-            $html
+            $html,
         );
     }
 
@@ -155,11 +155,11 @@ class UserGroupsTest extends AbstractTestCase
         $this->assertStringContainsString('<input type="hidden" name="editUserGroupSubmit" value="1"', $html);
         $this->assertStringContainsString(
             '<input type="checkbox" class="checkall" checked="checked" name="server_sql" value="Y">',
-            $html
+            $html,
         );
         $this->assertStringContainsString(
             '<input type="checkbox" class="checkall" name="server_databases" value="Y">',
-            $html
+            $html,
         );
     }
 }

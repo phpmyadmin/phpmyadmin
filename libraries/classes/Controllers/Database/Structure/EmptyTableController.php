@@ -33,7 +33,7 @@ final class EmptyTableController extends AbstractController
         private RelationCleanup $relationCleanup,
         private Operations $operations,
         private FlashMessages $flash,
-        private StructureController $structureController
+        private StructureController $structureController,
     ) {
         parent::__construct($response, $template);
     }
@@ -71,7 +71,7 @@ final class EmptyTableController extends AbstractController
                 $this->relationCleanup,
                 $this->operations,
                 new Transformations(),
-                $this->template
+                $this->template,
             );
 
             $_REQUEST['pos'] = $sql->calculatePosForLastPage($GLOBALS['db'], $GLOBALS['table'], $_REQUEST['pos']);

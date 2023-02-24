@@ -75,7 +75,7 @@ class FileListing
     public function getFileSelectOptions(
         string $dir,
         string $extensions = '',
-        string $active = ''
+        string $active = '',
     ): string|false {
         $list = $this->getDirContent($dir, $extensions);
         if ($list === false) {

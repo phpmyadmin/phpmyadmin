@@ -80,7 +80,7 @@ class CommonTest extends AbstractTestCase
             WHERE pdf_page_number = " . $pg,
                 'name',
                 null,
-                Connection::TYPE_CONTROL
+                Connection::TYPE_CONTROL,
             );
         $GLOBALS['dbi'] = $dbi;
 
@@ -109,7 +109,7 @@ class CommonTest extends AbstractTestCase
                 'SELECT `page_descr` FROM `pmadb`.`pdf_pages`'
                 . ' WHERE `page_nr` = ' . $pg,
                 0,
-                Connection::TYPE_CONTROL
+                Connection::TYPE_CONTROL,
             )
             ->will($this->returnValue($pageName));
         $GLOBALS['dbi'] = $dbi;
@@ -167,7 +167,7 @@ class CommonTest extends AbstractTestCase
                 . " WHERE `db_name` = '" . $db . "'"
                 . " AND `page_descr` = '" . $db . "'",
                 0,
-                Connection::TYPE_CONTROL
+                Connection::TYPE_CONTROL,
             )
             ->will($this->returnValue($default_pg));
         $dbi->expects($this->any())->method('escapeString')
@@ -198,7 +198,7 @@ class CommonTest extends AbstractTestCase
                 . " WHERE `db_name` = '" . $db . "'"
                 . " AND `page_descr` = '" . $db . "'",
                 0,
-                Connection::TYPE_CONTROL
+                Connection::TYPE_CONTROL,
             )
             ->will($this->returnValue(false));
         $dbi->expects($this->any())->method('escapeString')
@@ -230,7 +230,7 @@ class CommonTest extends AbstractTestCase
                 . " WHERE `db_name` = '" . $db . "'"
                 . " AND `page_descr` = '" . $db . "'",
                 0,
-                Connection::TYPE_CONTROL
+                Connection::TYPE_CONTROL,
             )
             ->will($this->returnValue($default_pg));
         $dbi->expects($this->any())->method('escapeString')
@@ -259,7 +259,7 @@ class CommonTest extends AbstractTestCase
             ->method('fetchValue')
             ->willReturnOnConsecutiveCalls(
                 false,
-                $first_pg
+                $first_pg,
             );
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
@@ -291,25 +291,25 @@ class CommonTest extends AbstractTestCase
             sprintf(
                 $tableSearchQuery,
                 'db\\\'1',
-                'table\\\'1'
+                'table\\\'1',
             ),
-            false// Make it fallback onto SHOW TABLE STATUS
+            false, // Make it fallback onto SHOW TABLE STATUS
         );
 
         $this->dummyDbi->addResult(
             sprintf(
                 $tableSearchQuery,
                 'db\\\'2',
-                'table\\\'2'
+                'table\\\'2',
             ),
-            false// Make it fallback onto SHOW TABLE STATUS
+            false, // Make it fallback onto SHOW TABLE STATUS
         );
 
         $this->dummyDbi->addResult(
             sprintf(
                 $tableStatusQuery,
                 'db\'1',
-                'table\\\'1%'
+                'table\\\'1%',
             ),
             [
                 [
@@ -322,14 +322,14 @@ class CommonTest extends AbstractTestCase
                 // Partial
                 'Name',
                 'Engine',
-            ]
+            ],
         );
 
         $this->dummyDbi->addResult(
             sprintf(
                 $tableStatusQuery,
                 'db\'2',
-                'table\\\'2%'
+                'table\\\'2%',
             ),
             [
                 [
@@ -342,7 +342,7 @@ class CommonTest extends AbstractTestCase
                 // Partial
                 'Name',
                 'Engine',
-            ]
+            ],
         );
 
         $this->dummyDbi->addResult(
@@ -353,7 +353,7 @@ class CommonTest extends AbstractTestCase
                     $createTableString,
                 ],
             ],
-            ['Table', 'Create Table']
+            ['Table', 'Create Table'],
         );
     }
 
@@ -371,7 +371,7 @@ class CommonTest extends AbstractTestCase
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;
         $this->loadTestDataForRelationDeleteAddTests(
-            'CREATE TABLE `table\'2` (`field\'1` int(11) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1'
+            'CREATE TABLE `table\'2` (`field\'1` int(11) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1',
         );
 
         $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
@@ -398,7 +398,7 @@ class CommonTest extends AbstractTestCase
         $GLOBALS['dbi'] = $this->dbi;
 
         $this->loadTestDataForRelationDeleteAddTests(
-            'CREATE TABLE `table\'2` (`field\'1` int(11) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1'
+            'CREATE TABLE `table\'2` (`field\'1` int(11) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1',
         );
 
         $configurationStorageDeleteQuery = 'DELETE FROM `pmadb`.`rel db`'
@@ -414,9 +414,9 @@ class CommonTest extends AbstractTestCase
                 'field\\\'2', // master_field
                 'db\\\'1', // foreign_db
                 'table\\\'1', // foreign_table
-                'field\\\'1'// foreign_field
+                'field\\\'1', // foreign_field
             ),
-            []
+            [],
         );
 
         $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
@@ -451,7 +451,7 @@ class CommonTest extends AbstractTestCase
                 . '    UNIQUE KEY `field\'2` (`field\'2`),'
                 . '    UNIQUE KEY `vc1` (`vc1`),'
                 . '    CONSTRAINT `table\'1_ibfk_field\'2` FOREIGN KEY (`field\'2`) REFERENCES `t2` (`field\'1`)'
-                . ') ENGINE=InnoDB DEFAULT CHARSET=latin1'
+                . ') ENGINE=InnoDB DEFAULT CHARSET=latin1',
         );
 
         $GLOBALS['db'] = 'db\'1';// Fallback for Relation::searchColumnInForeigners
@@ -469,9 +469,9 @@ class CommonTest extends AbstractTestCase
                 'field\\\'2', // master_field
                 'db\\\'1', // foreign_db
                 'table\\\'1', // foreign_table
-                'field\\\'1'// foreign_field
+                'field\\\'1', // foreign_field
             ),
-            []
+            [],
         );
 
         $this->dummyDbi->addResult(
@@ -479,9 +479,9 @@ class CommonTest extends AbstractTestCase
                 'ALTER TABLE `%s`.`%s` DROP FOREIGN KEY `%s`;',
                 'db\'2', // db
                 'table\'2', // table
-                'table\'1_ibfk_field\'2' // fk name
+                'table\'1_ibfk_field\'2', // fk name
             ),
-            []
+            [],
         );
 
         $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
@@ -508,7 +508,7 @@ class CommonTest extends AbstractTestCase
         $GLOBALS['dbi'] = $this->dbi;
 
         $this->loadTestDataForRelationDeleteAddTests(
-            'CREATE TABLE `table\'2` (`field\'1` int(11) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1'
+            'CREATE TABLE `table\'2` (`field\'1` int(11) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1',
         );
 
         $configurationStorageDeleteQuery = 'DELETE FROM `pmadb`.`rel db`'
@@ -524,9 +524,9 @@ class CommonTest extends AbstractTestCase
                 'field\\\'2', // master_field
                 'db\\\'1', // foreign_db
                 'table\\\'1', // foreign_table
-                'field\\\'1'// foreign_field
+                'field\\\'1', // foreign_field
             ),
-            false// Delete failed
+            false, // Delete failed
         );
 
         $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');

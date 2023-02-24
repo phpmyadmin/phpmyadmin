@@ -321,7 +321,7 @@ class Header
             $nav = new Navigation(
                 $this->template,
                 new Relation($GLOBALS['dbi']),
-                $GLOBALS['dbi']
+                $GLOBALS['dbi'],
             );
             $navigation = $nav->getDisplay();
         }
@@ -503,7 +503,7 @@ class Header
                 }
 
                 $this->title = htmlspecialchars(
-                    Util::expandUserString($tempTitle)
+                    Util::expandUserString($tempTitle),
                 );
             } else {
                 $this->title = 'phpMyAdmin';
@@ -547,7 +547,7 @@ class Header
             $cspAllow,
             $cspAllow,
             $mapTileUrls,
-            $captchaUrl
+            $captchaUrl,
         );
 
         $headers['X-Content-Security-Policy'] = sprintf(
@@ -557,7 +557,7 @@ class Header
             $cspAllow,
             $cspAllow,
             $mapTileUrls,
-            $captchaUrl
+            $captchaUrl,
         );
 
         $headers['X-WebKit-CSP'] = sprintf(
@@ -571,7 +571,7 @@ class Header
             $captchaUrl,
             $cspAllow,
             $mapTileUrls,
-            $captchaUrl
+            $captchaUrl,
         );
 
         return $headers;

@@ -34,7 +34,7 @@ abstract class ExportPlugin implements Plugin
     final public function __construct(
         Relation $relation,
         protected Export $export,
-        protected Transformations $transformations
+        protected Transformations $transformations,
     ) {
         $this->relation = $relation;
         $this->init();
@@ -89,7 +89,7 @@ abstract class ExportPlugin implements Plugin
         $table,
         $errorUrl,
         $sqlQuery,
-        array $aliases = []
+        array $aliases = [],
     ): bool;
 
     /**
@@ -159,7 +159,7 @@ abstract class ExportPlugin implements Plugin
         $comments = false,
         $mime = false,
         $dates = false,
-        array $aliases = []
+        array $aliases = [],
     ): bool {
         return true;
     }
@@ -174,7 +174,7 @@ abstract class ExportPlugin implements Plugin
     public function exportMetadata(
         $db,
         string|array $tables,
-        array $metadataTypes
+        array $metadataTypes,
     ): bool {
         return true;
     }
@@ -333,7 +333,7 @@ abstract class ExportPlugin implements Plugin
         array $foreigners,
         $fieldName,
         $db,
-        array $aliases = []
+        array $aliases = [],
     ): string {
         $foreigner = $this->relation->searchColumnInForeigners($foreigners, $fieldName);
         if ($foreigner) {

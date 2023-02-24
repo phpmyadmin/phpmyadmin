@@ -42,17 +42,17 @@ class ChartControllerTest extends AbstractTestCase
             new FieldMetadata(
                 MYSQLI_TYPE_LONG,
                 MYSQLI_PRI_KEY_FLAG | MYSQLI_NUM_FLAG | MYSQLI_NOT_NULL_FLAG,
-                (object) ['name' => 'id', 'table' => 'table_for_chart']
+                (object) ['name' => 'id', 'table' => 'table_for_chart'],
             ),
             new FieldMetadata(
                 MYSQLI_TYPE_LONG,
                 MYSQLI_NUM_FLAG | MYSQLI_NOT_NULL_FLAG,
-                (object) ['name' => 'amount', 'table' => 'table_for_chart']
+                (object) ['name' => 'amount', 'table' => 'table_for_chart'],
             ),
             new FieldMetadata(
                 MYSQLI_TYPE_DATE,
                 MYSQLI_NOT_NULL_FLAG,
-                (object) ['name' => 'date', 'table' => 'table_for_chart']
+                (object) ['name' => 'date', 'table' => 'table_for_chart'],
             ),
         ];
 
@@ -69,7 +69,7 @@ class ChartControllerTest extends AbstractTestCase
                 ['4', '9', '2022-02-11'],
             ],
             ['id', 'amount', 'date'],
-            $fieldsMeta
+            $fieldsMeta,
         );
         $dbi = $this->createDatabaseInterface($dummyDbi);
         $GLOBALS['dbi'] = $dbi;

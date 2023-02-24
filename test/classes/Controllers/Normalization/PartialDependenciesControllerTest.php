@@ -30,7 +30,7 @@ class PartialDependenciesControllerTest extends AbstractTestCase
         $dbiDummy->addResult(
             'SELECT COUNT(DISTINCT `id`) as \'`id`_cnt\', COUNT(DISTINCT `name`) as \'`name`_cnt\', COUNT(DISTINCT `datetimefield`) as \'`datetimefield`_cnt\' FROM (SELECT * FROM `test_table` LIMIT 500) as dt;',
             [],
-            ['`id`_cnt', '`name`_cnt', '`datetimefield`_cnt', '`datetimefield`_cnt', 'dt']
+            ['`id`_cnt', '`name`_cnt', '`datetimefield`_cnt', '`datetimefield`_cnt', 'dt'],
         );
         // phpcs:enable
 
@@ -42,14 +42,14 @@ class PartialDependenciesControllerTest extends AbstractTestCase
         $controller = new PartialDependenciesController(
             $response,
             $template,
-            new Normalization($dbi, new Relation($dbi), new Transformations(), $template)
+            new Normalization($dbi, new Relation($dbi), new Transformations(), $template),
         );
         $controller($this->createStub(ServerRequest::class));
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $this->assertSame(
             'This list is based on a subset of the table\'s data and is not necessarily accurate. <div class="dependencies_box"><p class="d-block m-1">No partial dependencies found!</p></div>',
-            $response->getHTMLResult()
+            $response->getHTMLResult(),
         );
         // phpcs:enable
     }

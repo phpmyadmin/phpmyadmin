@@ -76,8 +76,8 @@ class SvgRelationSchema extends ExportRelationSchema
             sprintf(
                 __('Schema of the %s database - Page %s'),
                 $this->db->getName(),
-                $this->pageNumber
-            )
+                $this->pageNumber,
+            ),
         );
         $this->diagram->setAuthor('phpMyAdmin ' . Version::VERSION);
         $this->diagram->setFont('Arial');
@@ -97,7 +97,7 @@ class SvgRelationSchema extends ExportRelationSchema
                     $this->tablewidth,
                     $this->showKeys,
                     $this->tableDimension,
-                    $this->offline
+                    $this->offline,
                 );
             }
 
@@ -113,7 +113,7 @@ class SvgRelationSchema extends ExportRelationSchema
             $this->xMax + $border,
             $this->yMax + $border,
             $this->xMin - $border,
-            $this->yMin - $border
+            $this->yMin - $border,
         );
 
         $seen_a_relation = false;
@@ -139,7 +139,7 @@ class SvgRelationSchema extends ExportRelationSchema
                             $master_field,
                             $rel['foreign_table'],
                             $rel['foreign_field'],
-                            $this->tableDimension
+                            $this->tableDimension,
                         );
                     }
 
@@ -159,7 +159,7 @@ class SvgRelationSchema extends ExportRelationSchema
                             $one_field,
                             $one_key['ref_table_name'],
                             $one_key['ref_index_list'][$index],
-                            $this->tableDimension
+                            $this->tableDimension,
                         );
                     }
                 }
@@ -216,7 +216,7 @@ class SvgRelationSchema extends ExportRelationSchema
         $masterField,
         $foreignTable,
         $foreignField,
-        $tableDimension
+        $tableDimension,
     ): void {
         if (! isset($this->tables[$masterTable])) {
             $this->tables[$masterTable] = new TableStatsSvg(
@@ -228,7 +228,7 @@ class SvgRelationSchema extends ExportRelationSchema
                 $this->pageNumber,
                 $this->tablewidth,
                 false,
-                $tableDimension
+                $tableDimension,
             );
             $this->setMinMax($this->tables[$masterTable]);
         }
@@ -243,7 +243,7 @@ class SvgRelationSchema extends ExportRelationSchema
                 $this->pageNumber,
                 $this->tablewidth,
                 false,
-                $tableDimension
+                $tableDimension,
             );
             $this->setMinMax($this->tables[$foreignTable]);
         }
@@ -253,7 +253,7 @@ class SvgRelationSchema extends ExportRelationSchema
             $this->tables[$masterTable],
             $masterField,
             $this->tables[$foreignTable],
-            $foreignField
+            $foreignField,
         );
     }
 

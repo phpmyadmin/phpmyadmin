@@ -62,7 +62,7 @@ class MultiTableQuery
         DatabaseInterface $dbi,
         Template $template,
         $dbName,
-        $defaultNoOfColumns = 3
+        $defaultNoOfColumns = 3,
     ) {
         $this->dbi = $dbi;
         $this->db = $dbName;
@@ -84,7 +84,7 @@ class MultiTableQuery
         foreach ($this->tables as $table) {
             $tables[$table]['hash'] = md5($table);
             $tables[$table]['columns'] = array_keys(
-                $this->dbi->getColumns($this->db, $table)
+                $this->dbi->getColumns($this->db, $table),
             );
         }
 
@@ -114,7 +114,7 @@ class MultiTableQuery
             new RelationCleanup($GLOBALS['dbi'], $relation),
             new Operations($GLOBALS['dbi'], $relation),
             new Transformations(),
-            new Template()
+            new Template(),
         );
 
         return $sql->executeQueryAndSendQueryResponse(
@@ -131,7 +131,7 @@ class MultiTableQuery
             null, // disp_query
             null, // disp_message
             $sqlQuery, // sql_query
-            null // complete_query
+            null, // complete_query
         );
     }
 }

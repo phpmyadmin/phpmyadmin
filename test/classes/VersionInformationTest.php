@@ -79,7 +79,7 @@ class VersionInformationTest extends AbstractTestCase
         $versionInformation = new VersionInformation();
         $this->assertEquals(
             $numeric,
-            $versionInformation->versionToInt($version)
+            $versionInformation->versionToInt($version),
         );
     }
 
@@ -228,7 +228,7 @@ class VersionInformationTest extends AbstractTestCase
     public function testGetLatestCompatibleVersionWithNewPHPVersion(
         array $versions,
         array $conditions,
-        string|null $matchedLastVersion
+        string|null $matchedLastVersion,
     ): void {
         $GLOBALS['cfg']['Servers'] = [];
 

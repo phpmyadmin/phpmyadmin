@@ -24,7 +24,7 @@ class DesignerController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private Designer $databaseDesigner,
-        private DesignerCommon $designerCommon
+        private DesignerCommon $designerCommon,
     ) {
         parent::__construct($response, $template);
     }
@@ -48,7 +48,7 @@ class DesignerController extends AbstractController
             } elseif ($dialog === 'export') {
                 $html = $this->databaseDesigner->getHtmlForSchemaExport(
                     $db,
-                    $request->getParsedBodyParam('selected_page')
+                    $request->getParsedBodyParam('selected_page'),
                 );
             } elseif ($dialog === 'add_table') {
                 // Pass the db and table to the getTablesInfo so we only have the table we asked for
@@ -64,7 +64,7 @@ class DesignerController extends AbstractController
                     -1,
                     $tableColumn,
                     $tablesAllKeys,
-                    $tablesPkOrUniqueKeys
+                    $tablesPkOrUniqueKeys,
                 );
             }
 
@@ -89,8 +89,8 @@ class DesignerController extends AbstractController
                         sprintf(
                             /* l10n: The user tries to save a page with an existing name in Designer */
                             __('There already exists a page named "%s" please rename it to something else.'),
-                            htmlspecialchars($request->getParsedBodyParam('selected_value'))
-                        )
+                            htmlspecialchars($request->getParsedBodyParam('selected_value')),
+                        ),
                     );
                     $this->response->setRequestStatus(false);
 
@@ -119,7 +119,7 @@ class DesignerController extends AbstractController
                     $request->getParsedBodyParam('on_delete'),
                     $request->getParsedBodyParam('on_update'),
                     $request->getParsedBodyParam('DB1'),
-                    $request->getParsedBodyParam('DB2')
+                    $request->getParsedBodyParam('DB2'),
                 );
                 $this->response->setRequestStatus($success);
                 $this->response->addJSON('message', $GLOBALS['message']);
@@ -128,14 +128,14 @@ class DesignerController extends AbstractController
                     $request->getParsedBodyParam('T1'),
                     $request->getParsedBodyParam('F1'),
                     $request->getParsedBodyParam('T2'),
-                    $request->getParsedBodyParam('F2')
+                    $request->getParsedBodyParam('F2'),
                 );
                 $this->response->setRequestStatus($success);
                 $this->response->addJSON('message', $GLOBALS['message']);
             } elseif ($operation === 'save_setting_value') {
                 $success = $this->designerCommon->saveSetting(
                     $request->getParsedBodyParam('index'),
-                    $request->getParsedBodyParam('value')
+                    $request->getParsedBodyParam('value'),
                 );
                 $this->response->setRequestStatus($success);
             }
@@ -218,8 +218,8 @@ class DesignerController extends AbstractController
                 $tablePositions,
                 $tableColumn,
                 $tablesAllKeys,
-                $tablesPkOrUniqueKeys
-            )
+                $tablesPkOrUniqueKeys,
+            ),
         );
 
         $this->response->addHTML('<div id="PMA_disable_floating_menubar"></div>');

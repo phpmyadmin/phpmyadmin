@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.7.5@5390c212bab06ee230c8720c2e9c54b823db00c8">
+<files psalm-version="5.7.6@ae4ec68e00e4880e3f00b1edd2da891236d749ab">
   <file src="libraries/classes/Advisory/Advisor.php">
     <MixedArgument>
       <code>$matches[1]</code>
@@ -635,7 +635,7 @@
                     $workPath,
                     $translatedPath,
                     $userPrefsAllow,
-                    $jsDefault
+                    $jsDefault,
                 )]]></code>
     </PossiblyNullOperand>
     <PropertyNotSetInConstructor>
@@ -2560,12 +2560,12 @@
       <code><![CDATA[$this->export->compress(
                     $this->export->dumpBuffer,
                     $GLOBALS['compression'],
-                    $filename
+                    $filename,
                 )]]></code>
       <code><![CDATA[$this->export->compress(
                     $this->export->dumpBufferObjects,
                     $GLOBALS['compression'],
-                    $filename
+                    $filename,
                 )]]></code>
     </PossiblyInvalidPropertyAssignmentValue>
     <PossiblyNullArgument>
@@ -9214,11 +9214,11 @@
     <MixedReturnStatement>
       <code><![CDATA[min(
             max($fieldsize, $GLOBALS['cfg']['MinSizeForInputField']),
-            $GLOBALS['cfg']['MaxSizeForInputField']
+            $GLOBALS['cfg']['MaxSizeForInputField'],
         )]]></code>
       <code><![CDATA[min(
             max($fieldsize, $GLOBALS['cfg']['MinSizeForInputField']),
-            $GLOBALS['cfg']['MaxSizeForInputField']
+            $GLOBALS['cfg']['MaxSizeForInputField'],
         )]]></code>
     </MixedReturnStatement>
     <MoreSpecificReturnType>
@@ -14087,12 +14087,12 @@
       <code><![CDATA[(array) Util::formatByteDown(
                                 mb_strlen($row['argument']),
                                 2,
-                                2
+                                2,
                             )]]></code>
       <code><![CDATA[(array) Util::formatByteDown(
                                 mb_strlen($row['sql_text']),
                                 2,
-                                2
+                                2,
                             )]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
@@ -16276,9 +16276,6 @@
       <code>array</code>
       <code>array</code>
     </MixedInferredReturnType>
-    <PossiblyNullArgument>
-      <code>$page</code>
-    </PossiblyNullArgument>
   </file>
   <file src="test/classes/Crypto/CryptoTest.php">
     <EmptyArrayAccess>
@@ -16297,7 +16294,7 @@
                 [
                     $list_detail_cols[0],
                     0,
-                ]
+                ],
             )]]></code>
     </MixedArgument>
     <MixedArrayAccess>
@@ -16629,7 +16626,7 @@
                     $transformation_plugin,
                     $transform_options,
                     $statementInfo,
-                ]
+                ],
             )]]></code>
       <code><![CDATA[$this->callFunction(
                 $this->object,
@@ -16643,7 +16640,7 @@
                     $meta,
                     $url_params,
                     &$is_truncated,
-                ]
+                ],
             )]]></code>
     </MixedArgument>
     <MixedArrayAccess>

@@ -23,7 +23,7 @@ class OpenDocumentTest extends AbstractTestCase
     {
         $document = OpenDocument::create(
             'application/vnd.oasis.opendocument.text',
-            '<data>'
+            '<data>',
         );
         $this->assertNotFalse($document);
 
@@ -46,7 +46,7 @@ class OpenDocumentTest extends AbstractTestCase
         $this->assertStringContainsString(
             // Do not use a full version or seconds could be out of sync and cause flaky test failures
             '<meta:creation-date>' . $dateTimeCreation,
-            $zipExtension->getContents($tmpFile, '/meta\.xml/')['data']
+            $zipExtension->getContents($tmpFile, '/meta\.xml/')['data'],
         );
 
         $this->assertSame(5, $zipExtension->getNumberOfFiles($tmpFile));

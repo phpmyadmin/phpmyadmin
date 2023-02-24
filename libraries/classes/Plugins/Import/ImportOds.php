@@ -63,25 +63,25 @@ class ImportOds extends ImportPlugin
             __(
                 'The first line of the file contains the table column names'
                 . ' <i>(if this is unchecked, the first line will become part'
-                . ' of the data)</i>'
-            )
+                . ' of the data)</i>',
+            ),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new BoolPropertyItem(
             'empty_rows',
-            __('Do not import empty rows')
+            __('Do not import empty rows'),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new BoolPropertyItem(
             'recognize_percentages',
             __(
-                'Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>'
-            )
+                'Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>',
+            ),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new BoolPropertyItem(
             'recognize_currency',
-            __('Import currencies <i>(ex. $5.00 to 5.00)</i>')
+            __('Import currencies <i>(ex. $5.00 to 5.00)</i>'),
         );
         $generalOptions->addProperty($leaf);
 
@@ -141,11 +141,9 @@ class ImportOds extends ImportPlugin
 
         if ($xml === false) {
             $sheets = [];
-            $GLOBALS['message'] = Message::error(
-                __(
-                    'The XML file specified was either malformed or incomplete. Please correct the issue and try again.'
-                )
-            );
+            $GLOBALS['message'] = Message::error(__(
+                'The XML file specified was either malformed or incomplete. Please correct the issue and try again.',
+            ));
             $GLOBALS['error'] = true;
         } else {
             /** @var SimpleXMLElement $root */
@@ -153,7 +151,7 @@ class ImportOds extends ImportPlugin
             if (empty($root)) {
                 $sheets = [];
                 $GLOBALS['message'] = Message::error(
-                    __('Could not parse OpenDocument Spreadsheet!')
+                    __('Could not parse OpenDocument Spreadsheet!'),
                 );
                 $GLOBALS['error'] = true;
             } else {
@@ -270,7 +268,7 @@ class ImportOds extends ImportPlugin
         bool $col_names_in_first_row,
         array $tempRow,
         array $col_names,
-        int $col_count
+        int $col_count,
     ): array {
         $cellCount = $row->count();
         $a = 0;
@@ -341,7 +339,7 @@ class ImportOds extends ImportPlugin
         array $col_names,
         int $col_count,
         int $max_cols,
-        array $tempRows
+        array $tempRows,
     ): array {
         foreach ($sheet as $row) {
             $type = $row->getName();
@@ -354,7 +352,7 @@ class ImportOds extends ImportPlugin
                 $col_names_in_first_row,
                 $tempRow,
                 $col_names,
-                $col_count
+                $col_count,
             );
 
             /* Find the widest row */
@@ -410,7 +408,7 @@ class ImportOds extends ImportPlugin
                 $col_names,
                 $col_count,
                 $max_cols,
-                $tempRows
+                $tempRows,
             );
 
             /* Skip over empty sheets */

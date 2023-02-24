@@ -64,7 +64,7 @@ class CreateAddField
      */
     private function buildColumnCreationStatement(
         int $fieldCount,
-        bool $isCreateTable = true
+        bool $isCreateTable = true,
     ): array {
         $definitions = [];
         $previousField = -1;
@@ -86,7 +86,7 @@ class CreateAddField
                 $_POST['field_extra'][$i] ?? '',
                 $_POST['field_comments'][$i] ?? '',
                 $_POST['field_virtuality'][$i] ?? '',
-                $_POST['field_expression'][$i] ?? ''
+                $_POST['field_expression'][$i] ?? '',
             );
 
             $definition .= $this->setColumnCreationStatementSuffix($previousField, $isCreateTable);
@@ -108,7 +108,7 @@ class CreateAddField
      */
     private function setColumnCreationStatementSuffix(
         int $previousField,
-        bool $isCreateTable = true
+        bool $isCreateTable = true,
     ): string {
         // no suffix is needed if request is a table creation
         if ($isCreateTable) {
@@ -150,7 +150,7 @@ class CreateAddField
     private function buildIndexStatement(
         array $index,
         string $indexChoice,
-        bool $isCreateTable = true
+        bool $isCreateTable = true,
     ): string {
         if ($index === []) {
             return '';
@@ -318,7 +318,7 @@ class CreateAddField
      */
     private function getPartitionDefinition(
         array $partition,
-        bool $isSubPartition = false
+        bool $isSubPartition = false,
     ): string {
         $sqlQuery = ' ' . ($isSubPartition ? 'SUB' : '') . 'PARTITION ';
         $sqlQuery .= $partition['name'];
@@ -451,7 +451,7 @@ class CreateAddField
      * @param string $table current table
      */
     public function getColumnCreationQuery(
-        string $table
+        string $table,
     ): string {
         // get column addition statements
         $sqlStatement = $this->getColumnCreationStatements(false);
@@ -474,7 +474,7 @@ class CreateAddField
     public function tryColumnCreationQuery(
         DatabaseName $db,
         string $sqlQuery,
-        string $errorUrl
+        string $errorUrl,
     ): bool {
         // To allow replication, we first select the db to use and then run queries
         // on this db.
@@ -483,7 +483,7 @@ class CreateAddField
                 $this->dbi->getError(),
                 'USE ' . Util::backquote($db->getName()),
                 false,
-                $errorUrl
+                $errorUrl,
             );
         }
 

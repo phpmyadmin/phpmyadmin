@@ -48,10 +48,10 @@ final class ReservedWordCheckController extends AbstractController
                 _ngettext(
                     'The name \'%s\' is a MySQL reserved keyword.',
                     'The names \'%s\' are MySQL reserved keywords.',
-                    count($reserved_keywords_names)
+                    count($reserved_keywords_names),
                 ),
-                implode(',', $reserved_keywords_names)
-            )
+                implode(',', $reserved_keywords_names),
+            ),
         );
     }
 }

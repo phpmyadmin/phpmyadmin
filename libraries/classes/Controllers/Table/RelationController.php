@@ -40,7 +40,7 @@ final class RelationController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private Relation $relation,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
     }
@@ -157,7 +157,7 @@ final class RelationController extends AbstractController
                 $tableObject = new Table(
                     $foreignTable,
                     $foreignDb,
-                    $this->dbi
+                    $this->dbi,
                 );
                 $uniqueColumns = $tableObject->getUniqueColumns(false, false);
             }
@@ -232,8 +232,8 @@ final class RelationController extends AbstractController
             Generator::getMessage(
                 __('Display column was successfully updated.'),
                 '',
-                'success'
-            )
+                'success',
+            ),
         );
     }
 
@@ -270,7 +270,7 @@ final class RelationController extends AbstractController
                 $GLOBALS['table'],
                 array_key_exists('foreign_keys_data', $relationsForeign)
                     ? $relationsForeign['foreign_keys_data']
-                    : []
+                    : [],
             );
             $this->response->addHTML($html);
         }
@@ -291,8 +291,8 @@ final class RelationController extends AbstractController
             Generator::getMessage(
                 __('Your SQL query has been executed successfully.'),
                 null,
-                'success'
-            )
+                'success',
+            ),
         );
     }
 
@@ -304,7 +304,7 @@ final class RelationController extends AbstractController
     private function updateForInternalRelation(
         Table $table,
         RelationFeature $relationFeature,
-        array $relations
+        array $relations,
     ): void {
         $multi_edit_columns_name = $_POST['fields_name'] ?? null;
 
@@ -315,7 +315,7 @@ final class RelationController extends AbstractController
                 $_POST['destination_table'],
                 $_POST['destination_column'],
                 $relationFeature,
-                $relations
+                $relations,
             )
         ) {
             return;
@@ -325,8 +325,8 @@ final class RelationController extends AbstractController
             Generator::getMessage(
                 __('Internal relationships were successfully updated.'),
                 '',
-                'success'
-            )
+                'success',
+            ),
         );
     }
 

@@ -95,38 +95,38 @@ class ExportXml extends ExportPlugin
         // export structure main group
         $structure = new OptionsPropertyMainGroup(
             'structure',
-            __('Object creation options (all are recommended)')
+            __('Object creation options (all are recommended)'),
         );
 
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
             'export_events',
-            __('Events')
+            __('Events'),
         );
         $structure->addProperty($leaf);
         $leaf = new BoolPropertyItem(
             'export_functions',
-            __('Functions')
+            __('Functions'),
         );
         $structure->addProperty($leaf);
         $leaf = new BoolPropertyItem(
             'export_procedures',
-            __('Procedures')
+            __('Procedures'),
         );
         $structure->addProperty($leaf);
         $leaf = new BoolPropertyItem(
             'export_tables',
-            __('Tables')
+            __('Tables'),
         );
         $structure->addProperty($leaf);
         $leaf = new BoolPropertyItem(
             'export_triggers',
-            __('Triggers')
+            __('Triggers'),
         );
         $structure->addProperty($leaf);
         $leaf = new BoolPropertyItem(
             'export_views',
-            __('Views')
+            __('Views'),
         );
         $structure->addProperty($leaf);
         $exportSpecificOptions->addProperty($structure);
@@ -134,12 +134,12 @@ class ExportXml extends ExportPlugin
         // data main group
         $data = new OptionsPropertyMainGroup(
             'data',
-            __('Data dump options')
+            __('Data dump options'),
         );
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
             'export_contents',
-            __('Export contents')
+            __('Export contents'),
         );
         $data->addProperty($leaf);
         $exportSpecificOptions->addProperty($data);
@@ -238,7 +238,7 @@ class ExportXml extends ExportPlugin
             $result = $GLOBALS['dbi']->fetchResult(
                 'SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME`'
                 . ' FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`'
-                . ' = ' . $GLOBALS['dbi']->quoteString($GLOBALS['db']) . ' LIMIT 1'
+                . ' = ' . $GLOBALS['dbi']->quoteString($GLOBALS['db']) . ' LIMIT 1',
             );
             $db_collation = $result[0]['DEFAULT_COLLATION_NAME'];
             $db_charset = $result[0]['DEFAULT_CHARACTER_SET_NAME'];
@@ -260,7 +260,7 @@ class ExportXml extends ExportPlugin
                 $result = $GLOBALS['dbi']->fetchResult(
                     'SHOW CREATE TABLE ' . Util::backquote($GLOBALS['db']) . '.'
                     . Util::backquote($table),
-                    0
+                    0,
                 );
                 $tbl = (string) $result[$table][1];
 
@@ -321,7 +321,7 @@ class ExportXml extends ExportPlugin
                 $head .= $this->exportDefinitions(
                     $GLOBALS['db'],
                     'function',
-                    Routines::getFunctionNames($GLOBALS['dbi'], $GLOBALS['db'])
+                    Routines::getFunctionNames($GLOBALS['dbi'], $GLOBALS['db']),
                 );
             }
 
@@ -329,7 +329,7 @@ class ExportXml extends ExportPlugin
                 $head .= $this->exportDefinitions(
                     $GLOBALS['db'],
                     'procedure',
-                    Routines::getProcedureNames($GLOBALS['dbi'], $GLOBALS['db'])
+                    Routines::getProcedureNames($GLOBALS['dbi'], $GLOBALS['db']),
                 );
             }
 
@@ -337,7 +337,7 @@ class ExportXml extends ExportPlugin
                 // Export events
                 $events = $GLOBALS['dbi']->fetchResult(
                     'SELECT EVENT_NAME FROM information_schema.EVENTS '
-                    . 'WHERE EVENT_SCHEMA=' . $GLOBALS['dbi']->quoteString($GLOBALS['db'])
+                    . 'WHERE EVENT_SCHEMA=' . $GLOBALS['dbi']->quoteString($GLOBALS['db']),
                 );
                 $head .= $this->exportDefinitions($GLOBALS['db'], 'event', $events);
             }
@@ -430,7 +430,7 @@ class ExportXml extends ExportPlugin
         $table,
         $errorUrl,
         $sqlQuery,
-        array $aliases = []
+        array $aliases = [],
     ): bool {
         // Do not export data for merge tables
         if ($GLOBALS['dbi']->getTable($db, $table)->isMerge()) {
@@ -444,7 +444,7 @@ class ExportXml extends ExportPlugin
             $result = $GLOBALS['dbi']->query(
                 $sqlQuery,
                 Connection::TYPE_USER,
-                DatabaseInterface::QUERY_UNBUFFERED
+                DatabaseInterface::QUERY_UNBUFFERED,
             );
 
             $columns_cnt = $result->numFields();

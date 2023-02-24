@@ -53,7 +53,7 @@ class AdvisorControllerTest extends AbstractTestCase
             $this->response,
             $this->template,
             $this->data,
-            new Advisor($GLOBALS['dbi'], new ExpressionLanguage())
+            new Advisor($GLOBALS['dbi'], new ExpressionLanguage()),
         );
 
         $controller($this->createStub(ServerRequest::class));
@@ -64,7 +64,7 @@ class AdvisorControllerTest extends AbstractTestCase
 
         $this->assertSame(
             $expected,
-            $this->response->getHTMLResult()
+            $this->response->getHTMLResult(),
         );
     }
 
@@ -106,7 +106,7 @@ class AdvisorControllerTest extends AbstractTestCase
 
         $this->assertSame(
             $expected,
-            $this->response->getHTMLResult()
+            $this->response->getHTMLResult(),
         );
     }
 }

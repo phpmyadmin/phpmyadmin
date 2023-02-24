@@ -42,8 +42,8 @@ class Linux extends Base
             mb_substr(
                 $buf,
                 0,
-                $pos
-            )
+                $pos,
+            ),
         );
 
         if (! is_array($nums)) {

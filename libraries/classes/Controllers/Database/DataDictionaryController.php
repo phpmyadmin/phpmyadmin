@@ -24,7 +24,7 @@ class DataDictionaryController extends AbstractController
         Template $template,
         private Relation $relation,
         private Transformations $transformations,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
     }
@@ -45,13 +45,13 @@ class DataDictionaryController extends AbstractController
             $showComment = (string) $this->dbi->getTable($GLOBALS['db'], $tableName)->getStatusInfo('TABLE_COMMENT');
 
             [, $primaryKeys] = Util::processIndexData(
-                $this->dbi->getTableIndexes($GLOBALS['db'], $tableName)
+                $this->dbi->getTableIndexes($GLOBALS['db'], $tableName),
             );
 
             [$foreigners, $hasRelation] = $this->relation->getRelationsAndStatus(
                 $relationParameters->relationFeature !== null,
                 $GLOBALS['db'],
-                $tableName
+                $tableName,
             );
 
             $columnsComments = $this->relation->getComments($GLOBALS['db'], $tableName);

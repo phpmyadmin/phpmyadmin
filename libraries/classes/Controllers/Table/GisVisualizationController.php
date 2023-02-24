@@ -31,7 +31,7 @@ final class GisVisualizationController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
     }
@@ -63,7 +63,7 @@ final class GisVisualizationController extends AbstractController
         if ($sqlQuery == '') {
             $this->response->setRequestStatus(false);
             $this->response->addHTML(
-                Message::error(__('No SQL query was set to fetch data.'))->getDisplay()
+                Message::error(__('No SQL query was set to fetch data.'))->getDisplay(),
             );
 
             return;
@@ -166,7 +166,7 @@ final class GisVisualizationController extends AbstractController
                 'pos' => $pos,
                 'visualizationSettings[spatialColumn]' => $visualizationSettings['spatialColumn'],
                 'visualizationSettings[labelColumn]' => $visualizationSettings['labelColumn'] ?? null,
-            ]
+            ],
         ));
 
         $startAndNumberOfRowsFieldset = Generator::getStartAndNumberOfRowsFieldsetData($sqlQuery);

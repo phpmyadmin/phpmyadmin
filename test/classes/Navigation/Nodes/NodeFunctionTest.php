@@ -40,7 +40,7 @@ class NodeFunctionTest extends AbstractTestCase
                     'params' => ['item_type' => 'FUNCTION', 'execute_dialog' => 1, 'db' => null, 'item_name' => null],
                 ],
             ],
-            $parent->links
+            $parent->links,
         );
     }
 }

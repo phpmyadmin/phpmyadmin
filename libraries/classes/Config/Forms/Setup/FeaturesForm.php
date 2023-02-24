@@ -24,7 +24,7 @@ class FeaturesForm extends \PhpMyAdmin\Config\Forms\User\FeaturesForm
             [
                 'Servers/1/only_db',
                 'Servers/1/hide_db',
-            ]
+            ],
         );
         /* Following are not available to user */
         $result['Import_export'] = [

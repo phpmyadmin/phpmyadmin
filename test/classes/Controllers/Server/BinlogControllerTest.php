@@ -73,7 +73,7 @@ class BinlogControllerTest extends AbstractTestCase
 
         $this->assertStringContainsString(
             '<table class="table table-striped table-hover align-middle" id="binlogTable">',
-            $actual
+            $actual,
         );
 
         $urlNavigation = Url::getFromRoute('/server/binlog') . '" data-post="log=index1&pos=3&'

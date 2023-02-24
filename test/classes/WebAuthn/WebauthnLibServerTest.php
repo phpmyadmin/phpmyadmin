@@ -74,7 +74,7 @@ class WebauthnLibServerTest extends TestCase
         $this->assertSame('test.localhost', $options['rpId']);
         $this->assertEquals(
             [['type' => 'public-key', 'id' => 'cHVibGljS2V5Q3JlZGVudGlhbElkMQ==']],
-            $options['allowCredentials']
+            $options['allowCredentials'],
         );
     }
 }

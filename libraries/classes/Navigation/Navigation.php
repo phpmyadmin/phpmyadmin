@@ -76,7 +76,7 @@ class Navigation
                     $hasStartChar = strpos($logo['link'], '?');
                     $logo['link'] .= Url::getCommon(
                         [],
-                        is_bool($hasStartChar) ? '?' : Url::getArgSeparator()
+                        is_bool($hasStartChar) ? '?' : Url::getArgSeparator(),
                     );
                     // Internal link detected
                     $logo['attributes'] = '';
@@ -142,7 +142,7 @@ class Navigation
         $itemName,
         $itemType,
         $dbName,
-        $tableName = null
+        $tableName = null,
     ): void {
         $navigationItemsHidingFeature = $this->relation->getRelationParameters()->navigationItemsHidingFeature;
         if ($navigationItemsHidingFeature === null) {
@@ -176,7 +176,7 @@ class Navigation
         $itemName,
         $itemType,
         $dbName,
-        $tableName = null
+        $tableName = null,
     ): void {
         $navigationItemsHidingFeature = $this->relation->getRelationParameters()->navigationItemsHidingFeature;
         if ($navigationItemsHidingFeature === null) {

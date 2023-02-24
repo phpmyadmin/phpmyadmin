@@ -17,7 +17,7 @@ final class DeleteController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private TemplateModel $model,
-        private Relation $relation
+        private Relation $relation,
     ) {
         parent::__construct($response, $template);
     }
@@ -35,7 +35,7 @@ final class DeleteController extends AbstractController
             $exportTemplatesFeature->database,
             $exportTemplatesFeature->exportTemplates,
             $GLOBALS['cfg']['Server']['user'],
-            $templateId
+            $templateId,
         );
 
         if ($result !== '') {

@@ -87,7 +87,7 @@ PHP;
             $matches[3],
             $matches[4] ?? '',
             $matches[5] ?? '',
-            ($matches[5] ?? '') === 'dev' ? 'true' : 'false'
+            ($matches[5] ?? '') === 'dev' ? 'true' : 'false',
         );
     }
 

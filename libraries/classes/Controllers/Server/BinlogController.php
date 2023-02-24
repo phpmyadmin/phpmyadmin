@@ -32,7 +32,7 @@ class BinlogController extends AbstractController
 
         $this->binaryLogs = $this->dbi->fetchResult(
             'SHOW MASTER LOGS',
-            'Log_name'
+            'Log_name',
         );
     }
 
@@ -108,7 +108,7 @@ class BinlogController extends AbstractController
     private function getSqlQuery(
         string $log,
         int $position,
-        int $maxRows
+        int $maxRows,
     ): string {
         $sqlQuery = 'SHOW BINLOG EVENTS';
         if ($log !== '') {

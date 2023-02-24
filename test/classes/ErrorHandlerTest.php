@@ -98,7 +98,7 @@ class ErrorHandlerTest extends AbstractTestCase
         string $errfile,
         int $errline,
         string $output_show,
-        string $output_hide
+        string $output_hide,
     ): void {
         // TODO: Add other test cases for all combination of 'sendErrorReports'
         $GLOBALS['cfg']['SendErrorReports'] = 'never';
@@ -135,14 +135,14 @@ class ErrorHandlerTest extends AbstractTestCase
         string $errfile,
         int $errline,
         string $output_show,
-        string $output_hide
+        string $output_hide,
     ): void {
         $this->object->handleError($errno, $errstr, $errfile, $errline);
 
         $this->assertIsString($output_hide);// Useless check
         $this->assertStringContainsString(
             $output_show,
-            $this->object->getDispErrors()
+            $this->object->getDispErrors(),
         );
     }
 
@@ -155,7 +155,7 @@ class ErrorHandlerTest extends AbstractTestCase
             $this->object,
             ErrorHandler::class,
             'checkSavedErrors',
-            []
+            [],
         );
         $this->assertArrayNotHasKey('errors', $_SESSION);
     }
@@ -170,7 +170,7 @@ class ErrorHandlerTest extends AbstractTestCase
         $this->object->addError('Compile Error', E_WARNING, 'error.txt', 15);
         $this->assertEquals(
             1,
-            $this->object->countErrors()
+            $this->object->countErrors(),
         );
     }
 
@@ -185,23 +185,23 @@ class ErrorHandlerTest extends AbstractTestCase
         $this->object->addError('Compile Error', E_WARNING, 'error.txt', 16);
         $this->assertEquals(
             2,
-            $this->object->countErrors()
+            $this->object->countErrors(),
         );
         $this->assertEquals(
             [],
-            $this->object->sliceErrors(2)
+            $this->object->sliceErrors(2),
         );
         $this->assertEquals(
             2,
-            $this->object->countErrors()
+            $this->object->countErrors(),
         );
         $this->assertCount(
             1,
-            $this->object->sliceErrors(1)
+            $this->object->sliceErrors(1),
         );
         $this->assertEquals(
             1,
-            $this->object->countErrors()
+            $this->object->countErrors(),
         );
     }
 
@@ -229,7 +229,7 @@ class ErrorHandlerTest extends AbstractTestCase
             [
                 $firstKey => $elements[$firstKey],
             ],
-            $elements
+            $elements,
         );
         $this->assertEquals(9, count($this->object->getCurrentErrors()));
         $this->assertEquals(9, $this->object->countErrors());
@@ -255,12 +255,12 @@ class ErrorHandlerTest extends AbstractTestCase
         $this->object->addError('Compile Error', E_WARNING, 'error.txt', 15);
         $this->assertEquals(
             0,
-            $this->object->countUserErrors()
+            $this->object->countUserErrors(),
         );
         $this->object->addError('Compile Error', E_USER_WARNING, 'error.txt', 15);
         $this->assertEquals(
             1,
-            $this->object->countUserErrors()
+            $this->object->countUserErrors(),
         );
     }
 
@@ -287,7 +287,7 @@ class ErrorHandlerTest extends AbstractTestCase
     {
         $this->assertEquals(
             0,
-            $this->object->countDisplayErrors()
+            $this->object->countDisplayErrors(),
         );
     }
 
@@ -298,7 +298,7 @@ class ErrorHandlerTest extends AbstractTestCase
     {
         $this->assertEquals(
             0,
-            $this->object->countDisplayErrors()
+            $this->object->countDisplayErrors(),
         );
     }
 

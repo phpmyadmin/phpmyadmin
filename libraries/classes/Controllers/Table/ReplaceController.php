@@ -47,7 +47,7 @@ final class ReplaceController extends AbstractController
         private InsertEdit $insertEdit,
         private Transformations $transformations,
         private Relation $relation,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
     }
@@ -189,11 +189,11 @@ final class ReplaceController extends AbstractController
                             /** @var IOTransformationsPlugin $transformation_plugin */
                             $transformation_plugin = new $classname();
                             $transformation_options = $this->transformations->getOptions(
-                                $mimeMap[$column_name]['input_transformation_options']
+                                $mimeMap[$column_name]['input_transformation_options'],
                             );
                             $current_value = $transformation_plugin->applyTransformation(
                                 $current_value,
-                                $transformation_options
+                                $transformation_options,
                             );
                             // check if transformation was successful or not
                             // and accordingly set error messages & insert_fail
@@ -207,7 +207,7 @@ final class ReplaceController extends AbstractController
                                     __('Row: %1$s, Column: %2$s, Error: %3$s'),
                                     $rownumber,
                                     $column_name,
-                                    $transformation_plugin->getError()
+                                    $transformation_plugin->getError(),
                                 );
                             }
                         }
@@ -231,7 +231,7 @@ final class ReplaceController extends AbstractController
                     $multi_edit_funcs[$key] ?? '',
                     $multi_edit_salt[$key] ?? null,
                     $multi_edit_columns_prev[$key] ?? null,
-                    $possibly_uploaded_val !== false
+                    $possibly_uploaded_val !== false,
                 );
 
                 if (! isset($multi_edit_virtual[$key])) {
@@ -239,7 +239,7 @@ final class ReplaceController extends AbstractController
                         $queryPart = $this->insertEdit->getQueryValueForInsert(
                             $editField,
                             $usingKey,
-                            $where_clause
+                            $where_clause,
                         );
                         if ($queryPart !== '' && $valueSets === []) {
                             // first inserted row so prepare the list of fields
@@ -294,7 +294,7 @@ final class ReplaceController extends AbstractController
             $where_clause,
             $multi_edit_columns_null_prev,
             $insert_fail,
-            $multi_edit_columns
+            $multi_edit_columns,
         );
 
         // Builds the sql query
@@ -417,7 +417,7 @@ final class ReplaceController extends AbstractController
                     $dispval = $this->insertEdit->getDisplayValueForForeignTableColumn(
                         $where_comparison,
                         $map,
-                        $relation_field
+                        $relation_field,
                     );
 
                     $extra_data['relations'][$cell_index] = $this->insertEdit->getLinkForRelationalDisplayField(
@@ -425,7 +425,7 @@ final class ReplaceController extends AbstractController
                         $relation_field,
                         $where_comparison,
                         $dispval,
-                        $relation_field_value
+                        $relation_field_value,
                     );
                 }
             }
@@ -455,7 +455,7 @@ final class ReplaceController extends AbstractController
                         $file,
                         $column_name,
                         $extra_data,
-                        $type
+                        $type,
                     );
                 }
             }
@@ -469,7 +469,7 @@ final class ReplaceController extends AbstractController
             $GLOBALS['db'],
             $GLOBALS['table'],
             $column_name,
-            $extra_data
+            $extra_data,
         );
 
         /**Get the total row count of the table*/

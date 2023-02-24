@@ -70,7 +70,7 @@ class ThemeManagerTest extends AbstractTestCase
     {
         $tm = new ThemeManager();
         $this->assertTrue(
-            $tm->setThemeCookie()
+            $tm->setThemeCookie(),
         );
     }
 }

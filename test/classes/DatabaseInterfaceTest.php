@@ -202,7 +202,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         array $version,
         int $versionInt,
         bool $isMariaDb,
-        bool $isPercona
+        bool $isPercona,
     ): void {
         $GLOBALS['lang'] = 'en';
         $GLOBALS['cfg']['Server']['SessionTimeZone'] = '';
@@ -235,7 +235,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         // test case for system schema
         $this->assertEquals(
             'utf8_general_ci',
-            $dbi->getDbCollation('information_schema')
+            $dbi->getDbCollation('information_schema'),
         );
 
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -243,7 +243,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
         $this->assertEquals(
             'utf8_general_ci',
-            $dbi->getDbCollation('pma_test')
+            $dbi->getDbCollation('pma_test'),
         );
     }
 
@@ -271,7 +271,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
     {
         $this->assertStringContainsString(
             $match,
-            Utilities::formatError($error_number, $error_message)
+            Utilities::formatError($error_number, $error_message),
         );
     }
 
@@ -330,7 +330,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
         $this->assertEquals(
             $expected,
-            $dbi->isAmazonRds()
+            $dbi->isAmazonRds(),
         );
 
         $dummyDbi->assertAllQueriesConsumed();
@@ -563,11 +563,11 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
         $this->assertInstanceOf(
             ResultInterface::class,
-            $dbi->queryAsControlUser($sql)
+            $dbi->queryAsControlUser($sql),
         );
         $this->assertInstanceOf(
             ResultInterface::class,
-            $dbi->tryQueryAsControlUser($sql)
+            $dbi->tryQueryAsControlUser($sql),
         );
         $this->assertFalse($dbi->tryQueryAsControlUser('Invalid query'));
     }
@@ -592,14 +592,14 @@ class DatabaseInterfaceTest extends AbstractTestCase
             [
                 ['utf8_general_ci'],
             ],
-            ['@@collation_database']
+            ['@@collation_database'],
         );
         $dummyDbi->addResult(
             'SELECT @@collation_database',
             [
                 ['utf8_general_ci'],
             ],
-            ['@@collation_database']
+            ['@@collation_database'],
         );
         $dummyDbi->addResult(
             'SHOW TABLE STATUS FROM `db1`;',
@@ -662,7 +662,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
                 'Checksum',
                 'Create_options',
                 'Comment',
-            ]
+            ],
         );
 
         $dummyDbi->addResult(
@@ -726,7 +726,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
                 'Checksum',
                 'Create_options',
                 'Comment',
-            ]
+            ],
         );
         $dummyDbi->addSelectDb('');
         $dummyDbi->addSelectDb('');
@@ -740,7 +740,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
             'SCHEMA_DATA_LENGTH',
             'ASC',
             0,
-            100
+            100,
         );
 
         $this->assertSame([
@@ -799,7 +799,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         array $version,
         int $versionInt,
         bool $isMariaDb,
-        bool $isPercona
+        bool $isPercona,
     ): void {
         $dummyDbi = $this->createDbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);

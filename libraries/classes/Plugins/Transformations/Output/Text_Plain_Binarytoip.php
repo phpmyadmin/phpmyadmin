@@ -25,7 +25,7 @@ class Text_Plain_Binarytoip extends TransformationsPlugin
     {
         return __(
             'Converts an Internet network address stored as a binary string'
-            . ' into a string in Internet standard (IPv4/IPv6) format.'
+            . ' into a string in Internet standard (IPv4/IPv6) format.',
         );
     }
 

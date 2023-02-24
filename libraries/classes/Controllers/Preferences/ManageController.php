@@ -50,7 +50,7 @@ class ManageController extends AbstractController
         Template $template,
         private UserPreferences $userPreferences,
         private Relation $relation,
-        private Config $config
+        private Config $config,
     ) {
         parent::__construct($response, $template);
     }

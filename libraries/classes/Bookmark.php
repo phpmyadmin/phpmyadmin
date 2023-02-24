@@ -191,7 +191,7 @@ class Bookmark
     public static function createBookmark(
         DatabaseInterface $dbi,
         array $bkm_fields,
-        bool $all_users = false
+        bool $all_users = false,
     ): Bookmark|false {
         if (
             ! (isset($bkm_fields['bkm_sql_query'], $bkm_fields['bkm_label'])
@@ -237,7 +237,7 @@ class Bookmark
         BookmarkFeature $bookmarkFeature,
         DatabaseInterface $dbi,
         string $user,
-        string|false $db = false
+        string|false $db = false,
     ): array {
         $query = 'SELECT * FROM ' . Util::backquote($bookmarkFeature->database)
             . '.' . Util::backquote($bookmarkFeature->bookmark)
@@ -253,7 +253,7 @@ class Bookmark
             $query,
             null,
             null,
-            Connection::TYPE_CONTROL
+            Connection::TYPE_CONTROL,
         );
 
         $bookmarks = [];
@@ -284,7 +284,7 @@ class Bookmark
         int|string $id,
         string $id_field = 'id',
         bool $action_bookmark_all = false,
-        bool $exact_user_match = false
+        bool $exact_user_match = false,
     ): self|null {
         $relation = new Relation($dbi);
         $bookmarkFeature = $relation->getRelationParameters()->bookmarkFeature;

@@ -64,7 +64,7 @@ class CreateControllerTest extends AbstractTestCase
             $response,
             $template,
             new TemplateModel($this->dbi),
-            new Relation($this->dbi)
+            new Relation($this->dbi),
         ))($request);
 
         $templates = [

@@ -31,7 +31,7 @@ class ChangeControllerTest extends AbstractTestCase
         $dummyDbi->addResult(
             'SELECT * FROM `test_db`.`test_table` LIMIT 1;',
             [['1', 'abcd', '2011-01-20 02:00:02']],
-            ['id', 'name', 'datetimefield']
+            ['id', 'name', 'datetimefield'],
         );
         $dummyDbi->addSelectDb('test_db');
         $dbi = $this->createDatabaseInterface($dummyDbi);
@@ -48,7 +48,7 @@ class ChangeControllerTest extends AbstractTestCase
             $response,
             $template,
             new InsertEdit($dbi, $relation, new Transformations(), new FileListing(), $template),
-            $relation
+            $relation,
         ))($request);
         $actual = $response->getHTMLResult();
 
@@ -60,14 +60,14 @@ class ChangeControllerTest extends AbstractTestCase
             . ' verificationsAfterFieldChange(&quot;b80bb7740288fda1f201890375a60c8f&quot;, 0,&quot;int(11)&quot;)"'
             . ' tabindex="1" inputmode="numeric" id="field_1_3"><input type="hidden"'
             . ' name="auto_increment[multi_edit][0][b80bb7740288fda1f201890375a60c8f]" value="1">',
-            $actual
+            $actual,
         );
         $this->assertStringContainsString(
             '<input type="text" name="fields[multi_edit][0][b068931cc450442b63f5b3d276ea4297]" value="NULL" size="20"'
             . ' data-maxlength="20" data-type="CHAR" class="textfield" onchange="return'
             . ' verificationsAfterFieldChange(&quot;b068931cc450442b63f5b3d276ea4297&quot;, 0,&quot;varchar(20)&quot;)"'
             . ' tabindex="2" id="field_2_3">',
-            $actual
+            $actual,
         );
         $this->assertStringContainsString(
             '<input type="text" name="fields[multi_edit][0][a55dbdcc1a45ed90dbee68864d566b99]" value="NULL.000000"'
@@ -75,7 +75,7 @@ class ChangeControllerTest extends AbstractTestCase
             . ' verificationsAfterFieldChange(&quot;a55dbdcc1a45ed90dbee68864d566b99&quot;, 0,&quot;datetime&quot;)"'
             . ' tabindex="3" id="field_3_3"><input type="hidden"'
             . ' name="fields_type[multi_edit][0][a55dbdcc1a45ed90dbee68864d566b99]" value="datetime">',
-            $actual
+            $actual,
         );
     }
 }

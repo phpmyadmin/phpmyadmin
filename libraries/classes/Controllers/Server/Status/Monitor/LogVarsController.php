@@ -20,7 +20,7 @@ final class LogVarsController extends AbstractController
         Template $template,
         Data $data,
         private Monitor $monitor,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template, $data);
     }
@@ -42,7 +42,7 @@ final class LogVarsController extends AbstractController
         $this->response->addJSON([
             'message' => $this->monitor->getJsonForLoggingVars(
                 $request->getParsedBodyParam('varName'),
-                $request->getParsedBodyParam('varValue')
+                $request->getParsedBodyParam('varValue'),
             ),
         ]);
     }

@@ -211,7 +211,7 @@ class Sanitize
         $message = (string) preg_replace_callback(
             $pattern,
             static fn (array $match) => self::replaceBBLink($match),
-            $message
+            $message,
         );
 
         /* Replace documentation links */
@@ -219,7 +219,7 @@ class Sanitize
             '/\[doc@([a-zA-Z0-9_-]+)(@([a-zA-Z0-9_-]*))?\]/',
             /** @param string[] $match */
             static fn (array $match): string => self::replaceDocLink($match),
-            $message
+            $message,
         );
 
         /* Possibly escape result */
@@ -283,7 +283,7 @@ class Sanitize
         // and use type casting because the variables could have become
         // strings
         $keys = array_keys(
-            array_merge((array) $_REQUEST, (array) $_GET, (array) $_POST, (array) $_COOKIE)
+            array_merge((array) $_REQUEST, (array) $_GET, (array) $_POST, (array) $_COOKIE),
         );
 
         foreach ($keys as $key) {

@@ -59,12 +59,12 @@ class TwoFactorPlugin
         if ($this->provided) {
             if (! empty($this->message)) {
                 return Message::rawError(
-                    sprintf(__('Two-factor authentication failed: %s'), $this->message)
+                    sprintf(__('Two-factor authentication failed: %s'), $this->message),
                 )->getDisplay();
             }
 
             return Message::rawError(
-                __('Two-factor authentication failed.')
+                __('Two-factor authentication failed.'),
             )->getDisplay();
         }
 

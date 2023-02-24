@@ -72,11 +72,11 @@ class ImportLdiTest extends AbstractTestCase
         $properties = (new ImportLdi())->getProperties();
         $this->assertEquals(
             __('CSV using LOAD DATA'),
-            $properties->getText()
+            $properties->getText(),
         );
         $this->assertEquals(
             'ldi',
-            $properties->getExtension()
+            $properties->getExtension(),
         );
     }
 
@@ -106,11 +106,11 @@ class ImportLdiTest extends AbstractTestCase
         $this->assertTrue($GLOBALS['cfg']['Import']['ldi_local_option']);
         $this->assertEquals(
             __('CSV using LOAD DATA'),
-            $properties->getText()
+            $properties->getText(),
         );
         $this->assertEquals(
             'ldi',
-            $properties->getExtension()
+            $properties->getExtension(),
         );
     }
 
@@ -140,7 +140,7 @@ class ImportLdiTest extends AbstractTestCase
         //asset that all sql are executed
         $this->assertStringContainsString(
             'LOAD DATA INFILE \'test/test_data/db_test_ldi.csv\' INTO TABLE `phpmyadmintest`',
-            $GLOBALS['sql_query']
+            $GLOBALS['sql_query'],
         );
 
         $this->assertTrue($GLOBALS['finished']);
@@ -161,7 +161,7 @@ class ImportLdiTest extends AbstractTestCase
         // We handle only some kind of data!
         $this->assertStringContainsString(
             __('This plugin does not support compressed imports!'),
-            $GLOBALS['message']->__toString()
+            $GLOBALS['message']->__toString(),
         );
 
         $this->assertTrue($GLOBALS['error']);
@@ -202,7 +202,7 @@ class ImportLdiTest extends AbstractTestCase
         //replace
         $this->assertStringContainsString(
             'LOAD DATA LOCAL INFILE \'test/test_data/db_test_ldi.csv\' REPLACE INTO TABLE `phpmyadmintest`',
-            $GLOBALS['sql_query']
+            $GLOBALS['sql_query'],
         );
 
         //FIELDS TERMINATED

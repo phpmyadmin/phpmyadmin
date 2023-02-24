@@ -337,7 +337,7 @@ class GisVisualization
         $image = ImageWrapper::create(
             $this->settings['width'],
             $this->settings['height'],
-            ['red' => 229, 'green' => 229, 'blue' => 229]
+            ['red' => 229, 'green' => 229, 'blue' => 229],
         );
         if ($image === null) {
             return null;
@@ -589,7 +589,7 @@ class GisVisualization
         array $data,
         array $scale_data,
         $format,
-        ImageWrapper|TCPDF|string|false $results
+        ImageWrapper|TCPDF|string|false $results,
     ): mixed {
         /** @var int[][] $colors */
         $colors = $this->settings['colors'];
@@ -623,7 +623,7 @@ class GisVisualization
                     $row[$this->settings['spatialColumn']],
                     $label,
                     $color,
-                    $scale_data
+                    $scale_data,
                 );
             } elseif ($format === 'png') {
                 $results = $gis_obj->prepareRowAsPng(
@@ -631,7 +631,7 @@ class GisVisualization
                     $label,
                     $color,
                     $scale_data,
-                    $results
+                    $results,
                 );
             } elseif ($format === 'pdf' && $results instanceof TCPDF) {
                 $results = $gis_obj->prepareRowAsPdf(
@@ -639,7 +639,7 @@ class GisVisualization
                     $label,
                     $color,
                     $scale_data,
-                    $results
+                    $results,
                 );
             } elseif ($format === 'ol') {
                 $results .= $gis_obj->prepareRowAsOl(
@@ -647,7 +647,7 @@ class GisVisualization
                     (int) $row['srid'],
                     $label,
                     $color,
-                    $scale_data
+                    $scale_data,
                 );
             }
 

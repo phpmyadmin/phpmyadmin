@@ -28,7 +28,7 @@ class ExportController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        private Options $export
+        private Options $export,
     ) {
         parent::__construct($response, $template);
     }
@@ -81,7 +81,7 @@ class ExportController extends AbstractController
                 $GLOBALS['sql_query'] = Query::replaceClauses(
                     $parser->statements[0],
                     $parser->list,
-                    $GLOBALS['replaces']
+                    $GLOBALS['replaces'],
                 );
             }
         }
@@ -104,7 +104,7 @@ class ExportController extends AbstractController
 
         if (empty($exportList)) {
             $this->response->addHTML(Message::error(
-                __('Could not load export plugins, please check your installation!')
+                __('Could not load export plugins, please check your installation!'),
             )->getDisplay());
 
             return;
@@ -123,7 +123,7 @@ class ExportController extends AbstractController
             $GLOBALS['sql_query'],
             $GLOBALS['num_tables'],
             $GLOBALS['unlim_num_rows'],
-            $exportList
+            $exportList,
         );
 
         $this->render('table/export/index', array_merge($options, [

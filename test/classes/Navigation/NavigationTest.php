@@ -45,7 +45,7 @@ class NavigationTest extends AbstractTestCase
         $this->object = new Navigation(
             new Template(),
             new Relation($GLOBALS['dbi']),
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
         );
     }
 
@@ -113,7 +113,7 @@ class NavigationTest extends AbstractTestCase
             '<a class="unhideNavItem ajax" href="' . Url::getFromRoute('/navigation') . '" data-post="'
             . 'unhideNavItem=1&itemType=table&'
             . 'itemName=tableName&dbName=db&lang=en">',
-            $html
+            $html,
         );
     }
 }

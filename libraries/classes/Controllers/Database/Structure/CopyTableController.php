@@ -21,7 +21,7 @@ final class CopyTableController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private Operations $operations,
-        private StructureController $structureController
+        private StructureController $structureController,
     ) {
         parent::__construct($response, $template);
     }
@@ -41,7 +41,7 @@ final class CopyTableController extends AbstractController
                 $request->getParsedBodyParam('what'),
                 false,
                 'one_table',
-                $request->getParsedBodyParam('drop_if_exists') === 'true'
+                $request->getParsedBodyParam('drop_if_exists') === 'true',
             );
 
             if (! $request->hasBodyParam('adjust_privileges')) {

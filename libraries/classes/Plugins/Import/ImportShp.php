@@ -100,7 +100,7 @@ class ImportShp extends ImportPlugin
         if ($compression === 'application/zip' && $this->zipExtension->getNumberOfFiles($GLOBALS['import_file']) > 1) {
             if ($importHandle->openZip('/^.*\.shp$/i') === false) {
                 $GLOBALS['message'] = Message::error(
-                    __('There was an error importing the ESRI shape file: "%s".')
+                    __('There was an error importing the ESRI shape file: "%s".'),
                 );
                 $GLOBALS['message']->addParam($importHandle->getError());
 
@@ -166,7 +166,7 @@ class ImportShp extends ImportPlugin
         if ($shp->lastError != '') {
             $GLOBALS['error'] = true;
             $GLOBALS['message'] = Message::error(
-                __('There was an error importing the ESRI shape file: "%s".')
+                __('There was an error importing the ESRI shape file: "%s".'),
             );
             $GLOBALS['message']->addParam($shp->lastError);
 
@@ -196,7 +196,7 @@ class ImportShp extends ImportPlugin
             default:
                 $GLOBALS['error'] = true;
                 $GLOBALS['message'] = Message::error(
-                    __('MySQL Spatial Extension does not support ESRI type "%s".')
+                    __('MySQL Spatial Extension does not support ESRI type "%s".'),
                 );
                 $GLOBALS['message']->addParam($shp->getShapeName());
 
@@ -245,7 +245,7 @@ class ImportShp extends ImportPlugin
         if (count($rows) === 0) {
             $GLOBALS['error'] = true;
             $GLOBALS['message'] = Message::error(
-                __('The imported file does not contain any data!')
+                __('The imported file does not contain any data!'),
             );
 
             return [];

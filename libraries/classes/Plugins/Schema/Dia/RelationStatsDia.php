@@ -55,7 +55,7 @@ class RelationStatsDia
         $master_table,
         $master_field,
         $foreign_table,
-        $foreign_field
+        $foreign_field,
     ) {
         $src_pos = $this->getXy($master_table, $master_field);
         $dest_pos = $this->getXy($foreign_table, $foreign_field);
@@ -214,7 +214,7 @@ class RelationStatsDia
             . $this->foreignTableId . '" connection="'
             . $this->destConnPointsRight . '"/>
             </dia:connections>
-            </dia:object>'
+            </dia:object>',
         );
     }
 }

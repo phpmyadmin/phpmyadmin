@@ -32,7 +32,7 @@ interface DbalInterface
         string $query,
         int $connectionType = Connection::TYPE_USER,
         int $options = 0,
-        bool $cacheAffectedRows = true
+        bool $cacheAffectedRows = true,
     ): ResultInterface;
 
     /**
@@ -47,7 +47,7 @@ interface DbalInterface
         string $query,
         int $connectionType = Connection::TYPE_USER,
         int $options = 0,
-        bool $cacheAffectedRows = true
+        bool $cacheAffectedRows = true,
     ): mixed;
 
     /**
@@ -58,7 +58,7 @@ interface DbalInterface
      */
     public function tryMultiQuery(
         string $multiQuery = '',
-        int $connectionType = Connection::TYPE_USER
+        int $connectionType = Connection::TYPE_USER,
     ): bool;
 
     /**
@@ -108,7 +108,7 @@ interface DbalInterface
         string $sortBy = 'Name',
         string $sortOrder = 'ASC',
         string|null $tableType = null,
-        int $connectionType = Connection::TYPE_USER
+        int $connectionType = Connection::TYPE_USER,
     ): array;
 
     /**
@@ -142,7 +142,7 @@ interface DbalInterface
         string $sortBy = 'SCHEMA_NAME',
         string $sortOrder = 'ASC',
         int $limitOffset = 0,
-        $limitCount = false
+        $limitCount = false,
     ): array;
 
     /**
@@ -160,7 +160,7 @@ interface DbalInterface
         string|null $database = null,
         string|null $table = null,
         string|null $column = null,
-        int $connectionType = Connection::TYPE_USER
+        int $connectionType = Connection::TYPE_USER,
     ): array;
 
     /**
@@ -179,7 +179,7 @@ interface DbalInterface
         string $table,
         string $column,
         bool $full = false,
-        int $connectionType = Connection::TYPE_USER
+        int $connectionType = Connection::TYPE_USER,
     ): array;
 
     /**
@@ -196,7 +196,7 @@ interface DbalInterface
         string $database,
         string $table,
         bool $full = false,
-        int $connectionType = Connection::TYPE_USER
+        int $connectionType = Connection::TYPE_USER,
     ): array;
 
     /**
@@ -211,7 +211,7 @@ interface DbalInterface
     public function getColumnNames(
         string $database,
         string $table,
-        int $connectionType = Connection::TYPE_USER
+        int $connectionType = Connection::TYPE_USER,
     ): array;
 
     /**
@@ -244,7 +244,7 @@ interface DbalInterface
     public function getTableIndexes(
         string $database,
         string $table,
-        int $connectionType = Connection::TYPE_USER
+        int $connectionType = Connection::TYPE_USER,
     ): array;
 
     /**
@@ -259,7 +259,7 @@ interface DbalInterface
     public function getVariable(
         string $var,
         int $type = DatabaseInterface::GETVAR_SESSION,
-        int $connectionType = Connection::TYPE_USER
+        int $connectionType = Connection::TYPE_USER,
     ): false|string|null;
 
     /**
@@ -272,7 +272,7 @@ interface DbalInterface
     public function setVariable(
         string $var,
         string $value,
-        int $connectionType = Connection::TYPE_USER
+        int $connectionType = Connection::TYPE_USER,
     ): bool;
 
     /**
@@ -318,7 +318,7 @@ interface DbalInterface
     public function fetchValue(
         string $query,
         int|string $field = 0,
-        int $connectionType = Connection::TYPE_USER
+        int $connectionType = Connection::TYPE_USER,
     ): string|false|null;
 
     /**
@@ -339,7 +339,7 @@ interface DbalInterface
     public function fetchSingleRow(
         string $query,
         string $type = DbalInterface::FETCH_ASSOC,
-        int $connectionType = Connection::TYPE_USER
+        int $connectionType = Connection::TYPE_USER,
     ): array|null;
 
     /**
@@ -395,7 +395,7 @@ interface DbalInterface
         string $query,
         $key = null,
         $value = null,
-        int $connectionType = Connection::TYPE_USER
+        int $connectionType = Connection::TYPE_USER,
     ): array;
 
     /**

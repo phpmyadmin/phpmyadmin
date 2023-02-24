@@ -28,7 +28,7 @@ class RoutinesController extends AbstractController
         Template $template,
         private CheckUserPrivileges $checkUserPrivileges,
         private DatabaseInterface $dbi,
-        private Routines $routines
+        private Routines $routines,
     ) {
         parent::__construct($response, $template);
     }

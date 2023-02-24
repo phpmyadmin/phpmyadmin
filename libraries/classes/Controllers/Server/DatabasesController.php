@@ -48,7 +48,7 @@ class DatabasesController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
 
@@ -99,7 +99,7 @@ class DatabasesController extends AbstractController
                 $this->sortBy,
                 $this->sortOrder,
                 $position,
-                true
+                true,
             );
             $this->databaseCount = count($this->dbi->getDatabaseList());
         }
@@ -246,7 +246,7 @@ class DatabasesController extends AbstractController
             $url = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
             $url .= Url::getCommonRaw(
                 ['db' => $database['SCHEMA_NAME']],
-                ! str_contains($url, '?') ? '?' : '&'
+                ! str_contains($url, '?') ? '?' : '&',
             );
             $databases[$database['SCHEMA_NAME']] = [
                 'name' => $database['SCHEMA_NAME'],
@@ -260,7 +260,7 @@ class DatabasesController extends AbstractController
             $collation = Charsets::findCollationByName(
                 $this->dbi,
                 $GLOBALS['cfg']['Server']['DisableIS'],
-                $database['DEFAULT_COLLATION_NAME']
+                $database['DEFAULT_COLLATION_NAME'],
             );
             if ($collation === null) {
                 continue;

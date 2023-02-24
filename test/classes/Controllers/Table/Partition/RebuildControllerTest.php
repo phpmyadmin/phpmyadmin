@@ -24,7 +24,7 @@ class RebuildControllerTest extends AbstractTestCase
         string|null $partition,
         string|null $db,
         string|null $table,
-        string $message
+        string $message,
     ): void {
         $request = $this->createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['partition_name', null, $partition]]);

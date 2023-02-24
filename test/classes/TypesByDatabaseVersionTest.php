@@ -58,7 +58,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
         int $dbVersion,
         string $class,
         array $includes,
-        array $excludes
+        array $excludes,
     ): void {
         $this->createObject($database, $dbVersion);
 

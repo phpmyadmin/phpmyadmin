@@ -57,7 +57,7 @@ class SchemaExportController
         Core::downloadHeader(
             $exportInfo['fileName'],
             $exportInfo['mediaType'],
-            mb_strlen($exportInfo['fileData'], '8bit')
+            mb_strlen($exportInfo['fileData'], '8bit'),
         );
         echo $exportInfo['fileData'];
     }

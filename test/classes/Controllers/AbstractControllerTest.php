@@ -125,7 +125,7 @@ class AbstractControllerTest extends AbstractTestCase
         $this->assertFalse($response->hasSuccessState());
         $this->assertSame(
             Message::error('Error message.')->getDisplay(),
-            $response->getHTMLResult()
+            $response->getHTMLResult(),
         );
         $this->assertSame([], $response->getJSONResult());
     }

@@ -34,7 +34,7 @@ class ChangeController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private InsertEdit $insertEdit,
-        private Relation $relation
+        private Relation $relation,
     ) {
         parent::__construct($response, $template);
     }
@@ -96,7 +96,7 @@ class ChangeController extends AbstractController
         ] = $this->insertEdit->determineInsertOrEdit(
             $GLOBALS['where_clause'] ?? null,
             $GLOBALS['db'],
-            $GLOBALS['table']
+            $GLOBALS['table'],
         );
         // Increase number of rows if unsaved rows are more
         if (! empty($GLOBALS['unsaved_values']) && count($GLOBALS['rows']) < count($GLOBALS['unsaved_values'])) {
@@ -126,7 +126,7 @@ class ChangeController extends AbstractController
 
         $GLOBALS['errorUrl'] = $GLOBALS['goto'] . Url::getCommon(
             $GLOBALS['urlParams'],
-            ! str_contains($GLOBALS['goto'], '?') ? '?' : '&'
+            ! str_contains($GLOBALS['goto'], '?') ? '?' : '&',
         );
         unset($GLOBALS['urlParams']);
 
@@ -164,7 +164,7 @@ class ChangeController extends AbstractController
             $GLOBALS['table'],
             $GLOBALS['where_clauses'],
             $GLOBALS['where_clause_array'],
-            $GLOBALS['errorUrl']
+            $GLOBALS['errorUrl'],
         );
 
         /**
@@ -187,7 +187,7 @@ class ChangeController extends AbstractController
         $GLOBALS['urlParams']['table'] = $GLOBALS['table'];
         $GLOBALS['urlParams'] = $this->insertEdit->urlParamsInEditMode(
             $GLOBALS['urlParams'],
-            $GLOBALS['where_clause_array']
+            $GLOBALS['where_clause_array'],
         );
 
         $GLOBALS['has_blob_field'] = false;
@@ -265,7 +265,7 @@ class ChangeController extends AbstractController
                 $GLOBALS['biggest_max_file_size'],
                 $GLOBALS['text_dir'],
                 $GLOBALS['repopulate'],
-                $GLOBALS['where_clause_array']
+                $GLOBALS['where_clause_array'],
             );
         }
 
@@ -301,7 +301,7 @@ class ChangeController extends AbstractController
                 $GLOBALS['table'],
                 $GLOBALS['db'],
                 $GLOBALS['where_clause_array'],
-                $GLOBALS['errorUrl']
+                $GLOBALS['errorUrl'],
             );
         }
 

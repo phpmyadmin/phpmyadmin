@@ -174,7 +174,7 @@ abstract class AbstractTestCase extends TestCase
         $GLOBALS['theme'] = Theme::load(
             ThemeManager::getThemesDir() . 'pmahomme',
             ThemeManager::getThemesFsDir() . 'pmahomme' . DIRECTORY_SEPARATOR,
-            'pmahomme'
+            'pmahomme',
         );
     }
 

@@ -85,7 +85,7 @@ class GisMultiPolygon extends GisGeometry
         string $label,
         array $color,
         array $scale_data,
-        ImageWrapper $image
+        ImageWrapper $image,
     ): ImageWrapper {
         // allocate colors
         $black = $image->colorAllocate(0, 0, 0);
@@ -126,7 +126,7 @@ class GisMultiPolygon extends GisGeometry
                 (int) round($label_point[0]),
                 (int) round($label_point[1]),
                 $label,
-                $black
+                $black,
             );
         }
 

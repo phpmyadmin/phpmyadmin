@@ -256,7 +256,7 @@ final class ExportController extends AbstractController
                 $rememberTemplate,
                 $exportPlugin,
                 $GLOBALS['compression'],
-                $request->getParsedBodyParam('filename_template')
+                $request->getParsedBodyParam('filename_template'),
             );
         }
 
@@ -265,7 +265,7 @@ final class ExportController extends AbstractController
             [$filename] = $this->export->getFinalFilenameAndMimetypeForFilename(
                 $exportPlugin,
                 $GLOBALS['compression'],
-                'export'
+                'export',
             );
         }
 
@@ -302,7 +302,7 @@ final class ExportController extends AbstractController
                     $GLOBALS['num_tables'] = count($GLOBALS['tables']);
                     if ($GLOBALS['num_tables'] === 0) {
                         $GLOBALS['message'] = Message::error(
-                            __('No tables found in database.')
+                            __('No tables found in database.'),
                         );
                         $GLOBALS['active_page'] = Url::getFromRoute('/database/export');
                         /** @var DatabaseExportController $controller */
@@ -315,7 +315,7 @@ final class ExportController extends AbstractController
                 echo $this->export->getHtmlForDisplayedExportHeader(
                     $GLOBALS['export_type'],
                     $GLOBALS['db'],
-                    $GLOBALS['table']
+                    $GLOBALS['table'],
                 );
             }
         }
@@ -364,7 +364,7 @@ final class ExportController extends AbstractController
                     $doMime,
                     $doDates,
                     $aliases,
-                    $separateFiles
+                    $separateFiles,
                 );
             } elseif ($GLOBALS['export_type'] === 'database') {
                 if (! is_array($tableStructure)) {
@@ -397,7 +397,7 @@ final class ExportController extends AbstractController
                             $doMime,
                             $doDates,
                             $aliases,
-                            $separateFiles
+                            $separateFiles,
                         );
                     } finally {
                         $this->export->unlockTables();
@@ -417,7 +417,7 @@ final class ExportController extends AbstractController
                         $doMime,
                         $doDates,
                         $aliases,
-                        $separateFiles
+                        $separateFiles,
                     );
                 }
             } elseif ($GLOBALS['export_type'] === 'raw') {
@@ -427,7 +427,7 @@ final class ExportController extends AbstractController
                     $GLOBALS['errorUrl'],
                     $GLOBALS['db'],
                     $GLOBALS['sql_query'],
-                    $GLOBALS['export_type']
+                    $GLOBALS['export_type'],
                 );
             } else {
                 // We export just one table
@@ -454,7 +454,7 @@ final class ExportController extends AbstractController
                             $limitTo,
                             $limitFrom,
                             $GLOBALS['sql_query'],
-                            $aliases
+                            $aliases,
                         );
                     } finally {
                         $this->export->unlockTables();
@@ -475,7 +475,7 @@ final class ExportController extends AbstractController
                         $limitTo,
                         $limitFrom,
                         $GLOBALS['sql_query'],
-                        $aliases
+                        $aliases,
                     );
                 }
             }
@@ -500,7 +500,7 @@ final class ExportController extends AbstractController
             echo $this->export->getHtmlForDisplayedExportFooter(
                 $GLOBALS['export_type'],
                 $GLOBALS['db'],
-                $GLOBALS['table']
+                $GLOBALS['table'],
             );
 
             return;
@@ -511,7 +511,7 @@ final class ExportController extends AbstractController
             $this->export->dumpBuffer = Encoding::convertString(
                 'utf-8',
                 $GLOBALS['charset'],
-                $this->export->dumpBuffer
+                $this->export->dumpBuffer,
             );
         }
 
@@ -521,13 +521,13 @@ final class ExportController extends AbstractController
                 $this->export->dumpBuffer = $this->export->compress(
                     $this->export->dumpBufferObjects,
                     $GLOBALS['compression'],
-                    $filename
+                    $filename,
                 );
             } else {
                 $this->export->dumpBuffer = $this->export->compress(
                     $this->export->dumpBuffer,
                     $GLOBALS['compression'],
-                    $filename
+                    $filename,
                 );
             }
         }
@@ -537,7 +537,7 @@ final class ExportController extends AbstractController
             $GLOBALS['message'] = $this->export->closeFile(
                 $GLOBALS['file_handle'],
                 $this->export->dumpBuffer,
-                $GLOBALS['save_filename']
+                $GLOBALS['save_filename'],
             );
             $this->export->showPage($GLOBALS['export_type']);
 

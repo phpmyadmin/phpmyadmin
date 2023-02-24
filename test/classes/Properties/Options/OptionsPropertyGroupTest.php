@@ -42,11 +42,11 @@ class OptionsPropertyGroupTest extends AbstractTestCase
         $this->stub->addProperty($propertyItem);
 
         $this->assertTrue(
-            $this->stub->getProperties()->contains($propertyItem)
+            $this->stub->getProperties()->contains($propertyItem),
         );
         $this->assertEquals(
             1,
-            $this->stub->getNrOfProperties()
+            $this->stub->getNrOfProperties(),
         );
     }
 
@@ -56,12 +56,12 @@ class OptionsPropertyGroupTest extends AbstractTestCase
 
         $this->stub->addProperty($propertyItem);
         $this->assertTrue(
-            $this->stub->getProperties()->contains($propertyItem)
+            $this->stub->getProperties()->contains($propertyItem),
         );
 
         $this->stub->removeProperty($propertyItem);
         $this->assertFalse(
-            $this->stub->getProperties()->contains($propertyItem)
+            $this->stub->getProperties()->contains($propertyItem),
         );
     }
 
@@ -69,7 +69,7 @@ class OptionsPropertyGroupTest extends AbstractTestCase
     {
         $this->assertInstanceOf(
             OptionsPropertyGroup::class,
-            $this->stub->getGroup()
+            $this->stub->getGroup(),
         );
     }
 
@@ -79,7 +79,7 @@ class OptionsPropertyGroupTest extends AbstractTestCase
         $this->stub->addProperty($propertyItem);
 
         $this->assertTrue(
-            $this->stub->getProperties()->contains($propertyItem)
+            $this->stub->getProperties()->contains($propertyItem),
         );
     }
 
@@ -92,7 +92,7 @@ class OptionsPropertyGroupTest extends AbstractTestCase
         $this->stub->addProperty($propertyItem2);
         $this->assertEquals(
             2,
-            $this->stub->getNrOfProperties()
+            $this->stub->getNrOfProperties(),
         );
     }
 }

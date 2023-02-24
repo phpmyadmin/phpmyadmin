@@ -74,8 +74,8 @@ class NormalizationTest extends AbstractTestCase
                         'id' => ['Type' => 'integer'],
                         'col1' => ['Type' => 'varchar(100)'],
                         'col2' => ['Type' => 'DATETIME'],
-                    ]
-                )
+                    ],
+                ),
             );
         $dbi->expects($this->any())
             ->method('getColumnNames')
@@ -136,11 +136,11 @@ class NormalizationTest extends AbstractTestCase
         $table = 'PMA_table';
         $this->assertStringContainsString(
             '<option value="id">id [ integer ]</option>',
-            $this->normalization->getHtmlForColumnsList($table, $db)
+            $this->normalization->getHtmlForColumnsList($table, $db),
         );
         $this->assertEquals(
             '<input type="checkbox" value="col1">col1 [ varchar(100) ]<br>',
-            $this->normalization->getHtmlForColumnsList($table, $db, 'String', 'checkbox')
+            $this->normalization->getHtmlForColumnsList($table, $db, 'String', 'checkbox'),
         );
     }
 
@@ -161,7 +161,7 @@ class NormalizationTest extends AbstractTestCase
             $this->dbi,
             new Relation($this->dbi),
             new Transformations(),
-            new Template()
+            new Template(),
         );
         $result = $normalization->getHtmlForCreateNewColumn($numFields, $db, $table);
         $this->assertStringContainsString('<table id="table_columns"', $result);
@@ -179,7 +179,7 @@ class NormalizationTest extends AbstractTestCase
         $this->assertStringContainsString(
             "<h3 class='text-center'>"
             . __('First step of normalization (1NF)') . '</h3>',
-            $result
+            $result,
         );
         $this->assertStringContainsString("<div id='mainContent'", $result);
         $this->assertStringContainsString('<legend>' . __('Step 1.'), $result);
@@ -194,9 +194,9 @@ class NormalizationTest extends AbstractTestCase
             $this->normalization->getHtmlForColumnsList(
                 $db,
                 $table,
-                _pgettext('string types', 'String')
+                _pgettext('string types', 'String'),
             ),
-            $result
+            $result,
         );
     }
 
@@ -236,11 +236,11 @@ class NormalizationTest extends AbstractTestCase
         $this->assertStringContainsString(__('Step 1.') . 4, $result['legendText']);
         $this->assertStringContainsString(
             $this->normalization->getHtmlForColumnsList($db, $table, 'all', 'checkbox'),
-            $result['extra']
+            $result['extra'],
         );
         $this->assertStringContainsString(
             '<input class="btn btn-secondary" type="submit" id="removeRedundant"',
-            $result['extra']
+            $result['extra'],
         );
     }
 
@@ -260,11 +260,11 @@ class NormalizationTest extends AbstractTestCase
         $this->assertStringContainsString(__('Step 1.') . 3, $result['legendText']);
         $this->assertStringContainsString(
             $this->normalization->getHtmlForColumnsList($db, $table, 'all', 'checkbox'),
-            $result['extra']
+            $result['extra'],
         );
         $this->assertStringContainsString(
             '<input class="btn btn-secondary" type="submit" id="moveRepeatingGroup"',
-            $result['extra']
+            $result['extra'],
         );
         $this->assertEquals(json_encode(['id']), $result['primary_key']);
     }
@@ -342,7 +342,7 @@ class NormalizationTest extends AbstractTestCase
                 'success' => true,
                 'newTables' => [],
             ],
-            $result
+            $result,
         );
         $tables = [
             'PMA_table' => [
@@ -370,7 +370,7 @@ class NormalizationTest extends AbstractTestCase
                     ],
                 ],
             ],
-            $result1['newTables']
+            $result1['newTables'],
         );
     }
 
@@ -420,7 +420,7 @@ class NormalizationTest extends AbstractTestCase
             $newTable,
             $newColumn,
             $table,
-            $db
+            $db,
         );
         $this->assertArrayHasKey('queryError', $result);
         $this->assertArrayHasKey('message', $result);
@@ -472,7 +472,7 @@ class NormalizationTest extends AbstractTestCase
             $this->normalization,
             Normalization::class,
             'getAllCombinationPartialKeys',
-            [$primaryKey]
+            [$primaryKey],
         );
 
         $this->assertEquals(
@@ -485,7 +485,7 @@ class NormalizationTest extends AbstractTestCase
                 'col2,id',
                 'col2,col1',
             ],
-            $result
+            $result,
         );
     }
 }

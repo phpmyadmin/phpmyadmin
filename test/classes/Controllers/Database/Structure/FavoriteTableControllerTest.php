@@ -55,7 +55,7 @@ class FavoriteTableControllerTest extends AbstractTestCase
         $controller = new FavoriteTableController(
             new ResponseStub(),
             new Template(),
-            new Relation($this->dbi)
+            new Relation($this->dbi),
         );
 
         // The user hash for test

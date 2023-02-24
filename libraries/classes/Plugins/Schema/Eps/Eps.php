@@ -146,7 +146,7 @@ class Eps
         $y_from = 0,
         $x_to = 0,
         $y_to = 0,
-        $lineWidth = 0
+        $lineWidth = 0,
     ): void {
         $this->stringCommands .= $lineWidth . " setlinewidth  \n";
         $this->stringCommands .= $x_from . ' ' . $y_from . " moveto \n";

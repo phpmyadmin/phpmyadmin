@@ -37,7 +37,7 @@ abstract class TransformationsPlugin implements TransformationsInterface
     abstract public function applyTransformation(
         $buffer,
         array $options = [],
-        FieldMetadata|null $meta = null
+        FieldMetadata|null $meta = null,
     ): string;
 
     /**

@@ -21,7 +21,7 @@ class MySQLDocumentationTest extends AbstractTestCase
             '<a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen'
             . '%2Flatest%2Fpage.html%23anchor" target="documentation"><img src="themes/dot.gif"'
             . ' title="Documentation" alt="Documentation" class="icon ic_b_help"></a>',
-            MySQLDocumentation::showDocumentation('page', 'anchor')
+            MySQLDocumentation::showDocumentation('page', 'anchor'),
         );
     }
 }

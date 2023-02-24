@@ -83,7 +83,7 @@ class Routing
 
         $routeCollector = new RouteCollector(
             new RouteParserStd(),
-            new DataGeneratorGroupCountBased()
+            new DataGeneratorGroupCountBased(),
         );
         $routeDefinitionCallback($routeCollector);
 
@@ -94,18 +94,18 @@ class Routing
         // If no skip cache then try to write if write is possible
         if (! $skipCache && $canWriteCache) {
             $writeWorks = self::writeCache(
-                '<?php return ' . var_export($dispatchData, true) . ';'
+                '<?php return ' . var_export($dispatchData, true) . ';',
             );
             if (! $writeWorks) {
                 trigger_error(
                     sprintf(
                         __(
                             'The routing cache could not be written, '
-                            . 'you need to adjust permissions on the folder/file "%s"'
+                            . 'you need to adjust permissions on the folder/file "%s"',
                         ),
-                        self::ROUTES_CACHE_FILE
+                        self::ROUTES_CACHE_FILE,
                     ),
-                    E_USER_WARNING
+                    E_USER_WARNING,
                 );
             }
         }
@@ -124,7 +124,7 @@ class Routing
     public static function callControllerForRoute(
         ServerRequest $request,
         Dispatcher $dispatcher,
-        ContainerInterface $container
+        ContainerInterface $container,
     ): void {
         $route = $request->getRoute();
         $routeInfo = $dispatcher->dispatch($request->getMethod(), rawurldecode($route));
@@ -135,7 +135,7 @@ class Routing
             $response->setHttpResponseCode(404);
             echo Message::error(sprintf(
                 __('Error 404! The page %s was not found.'),
-                '<code>' . htmlspecialchars($route) . '</code>'
+                '<code>' . htmlspecialchars($route) . '</code>',
             ))->getDisplay();
 
             return;
@@ -206,7 +206,7 @@ class Routing
             'dir' => $GLOBALS['text_dir'] ?? 'ltr',
             'error_message' => Sanitize::sanitizeMessage(sprintf(
                 __('Error 404! The page %s was not found.'),
-                '[code]' . htmlspecialchars($route) . '[/code]'
+                '[code]' . htmlspecialchars($route) . '[/code]',
             )),
         ]);
     }

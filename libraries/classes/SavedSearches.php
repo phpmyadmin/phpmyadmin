@@ -154,7 +154,7 @@ class SavedSearches
         } else {
             $data['rows'] = min(
                 max(0, intval($data['rows'])),
-                100
+                100,
             );
         }
 
@@ -350,7 +350,7 @@ class SavedSearches
      */
     public function getList(
         SavedQueryByExampleSearchesFeature $savedQueryByExampleSearchesFeature,
-        array $wheres = []
+        array $wheres = [],
     ): array {
         if ($this->getUsername() == null || $this->getDbname() == null) {
             return [];

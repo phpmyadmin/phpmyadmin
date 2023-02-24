@@ -22,7 +22,7 @@ class SqlController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private SqlQueryForm $sqlQueryForm,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
     }

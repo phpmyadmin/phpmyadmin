@@ -33,7 +33,7 @@ class ForeignKeyTest extends AbstractTestCase
 
         $this->assertEquals(
             $e,
-            ForeignKey::isSupported($a)
+            ForeignKey::isSupported($a),
         );
     }
 
@@ -58,17 +58,17 @@ class ForeignKeyTest extends AbstractTestCase
 
         $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'enable';
         $this->assertTrue(
-            ForeignKey::isCheckEnabled()
+            ForeignKey::isCheckEnabled(),
         );
 
         $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'disable';
         $this->assertFalse(
-            ForeignKey::isCheckEnabled()
+            ForeignKey::isCheckEnabled(),
         );
 
         $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'default';
         $this->assertTrue(
-            ForeignKey::isCheckEnabled()
+            ForeignKey::isCheckEnabled(),
         );
     }
 

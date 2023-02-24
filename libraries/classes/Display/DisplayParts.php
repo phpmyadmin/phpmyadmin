@@ -47,7 +47,7 @@ final class DisplayParts
         bool $hasNavigationBar,
         bool $hasBookmarkForm,
         bool $hasTextButton,
-        bool $hasPrintLink
+        bool $hasPrintLink,
     ) {
         $this->hasEditLink = $hasEditLink;
         $this->deleteLink = $deleteLink;
@@ -79,7 +79,7 @@ final class DisplayParts
             $parts['hasNavigationBar'] ?? false,
             $parts['hasBookmarkForm'] ?? false,
             $parts['hasTextButton'] ?? false,
-            $parts['hasPrintLink'] ?? false
+            $parts['hasPrintLink'] ?? false,
         );
     }
 
@@ -104,7 +104,7 @@ final class DisplayParts
             $parts['hasNavigationBar'] ?? $this->hasNavigationBar,
             $parts['hasBookmarkForm'] ?? $this->hasBookmarkForm,
             $parts['hasTextButton'] ?? $this->hasTextButton,
-            $parts['hasPrintLink'] ?? $this->hasPrintLink
+            $parts['hasPrintLink'] ?? $this->hasPrintLink,
         );
     }
 }

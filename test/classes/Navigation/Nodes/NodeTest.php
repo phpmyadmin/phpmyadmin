@@ -36,11 +36,11 @@ class NodeTest extends AbstractTestCase
         $parent->addChild($child);
         $this->assertEquals(
             $parent->getChild($child->name),
-            $child
+            $child,
         );
         $this->assertEquals(
             $parent->getChild($child->realName, true),
-            $child
+            $child,
         );
     }
 
@@ -51,10 +51,10 @@ class NodeTest extends AbstractTestCase
     {
         $parent = new Node('parent');
         $this->assertNull(
-            $parent->getChild('foo')
+            $parent->getChild('foo'),
         );
         $this->assertNull(
-            $parent->getChild('foo', true)
+            $parent->getChild('foo', true),
         );
     }
 
@@ -68,11 +68,11 @@ class NodeTest extends AbstractTestCase
         $parent->addChild($child);
         $this->assertEquals(
             $parent->getChild($child->name),
-            $child
+            $child,
         );
         $parent->removeChild($child->name);
         $this->assertNull(
-            $parent->getChild($child->name)
+            $parent->getChild($child->name),
         );
     }
 
@@ -87,31 +87,31 @@ class NodeTest extends AbstractTestCase
         // test with no children
         $this->assertEquals(
             $parent->hasChildren(true),
-            false
+            false,
         );
         $this->assertEquals(
             $parent->hasChildren(false),
-            false
+            false,
         );
         // test with an empty container
         $parent->addChild($emptyContainer);
         $this->assertEquals(
             $parent->hasChildren(true),
-            true
+            true,
         );
         $this->assertEquals(
             $parent->hasChildren(false),
-            false
+            false,
         );
         // test with a real child
         $parent->addChild($child);
         $this->assertEquals(
             $parent->hasChildren(true),
-            true
+            true,
         );
         $this->assertEquals(
             $parent->hasChildren(false),
-            true
+            true,
         );
     }
 
@@ -161,7 +161,7 @@ class NodeTest extends AbstractTestCase
             [
                 $child,
                 $parent,
-            ]
+            ],
         ); // include self
     }
 
@@ -249,13 +249,13 @@ class NodeTest extends AbstractTestCase
         $node = new Node('default');
         $this->assertEquals(
             'WHERE TRUE ',
-            $method->invoke($node, 'SCHEMA_NAME')
+            $method->invoke($node, 'SCHEMA_NAME'),
         );
 
         // When a schema names is passed as search clause
         $this->assertEquals(
             "WHERE TRUE AND `SCHEMA_NAME` LIKE '%schemaName%' ",
-            $method->invoke($node, 'SCHEMA_NAME', 'schemaName')
+            $method->invoke($node, 'SCHEMA_NAME', 'schemaName'),
         );
 
         if (! isset($GLOBALS['cfg']['Server'])) {
@@ -266,7 +266,7 @@ class NodeTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['hide_db'] = 'regexpHideDb';
         $this->assertEquals(
             "WHERE TRUE AND `SCHEMA_NAME` NOT REGEXP 'regexpHideDb' ",
-            $method->invoke($node, 'SCHEMA_NAME')
+            $method->invoke($node, 'SCHEMA_NAME'),
         );
         unset($GLOBALS['cfg']['Server']['hide_db']);
 
@@ -274,7 +274,7 @@ class NodeTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['only_db'] = 'stringOnlyDb';
         $this->assertEquals(
             "WHERE TRUE AND ( `SCHEMA_NAME` LIKE 'stringOnlyDb' ) ",
-            $method->invoke($node, 'SCHEMA_NAME')
+            $method->invoke($node, 'SCHEMA_NAME'),
         );
         unset($GLOBALS['cfg']['Server']['only_db']);
 
@@ -285,7 +285,7 @@ class NodeTest extends AbstractTestCase
         ];
         $this->assertEquals(
             'WHERE TRUE AND ( `SCHEMA_NAME` LIKE \'onlyDbOne\' OR `SCHEMA_NAME` LIKE \'onlyDbTwo\' ) ',
-            $method->invoke($node, 'SCHEMA_NAME')
+            $method->invoke($node, 'SCHEMA_NAME'),
         );
         unset($GLOBALS['cfg']['Server']['only_db']);
     }
@@ -402,7 +402,7 @@ class NodeTest extends AbstractTestCase
             ->willReturnOnConsecutiveCalls(
                 ['0' => 'db'],
                 ['0' => 'aa_db'],
-                []
+                [],
             );
 
         $dbi->expects($this->once())
@@ -410,7 +410,7 @@ class NodeTest extends AbstractTestCase
             ->with(
                 "SHOW DATABASES WHERE TRUE AND `Database` LIKE '%db%' AND ("
                 . " LOCATE('db_', CONCAT(`Database`, '_')) = 1"
-                . " OR LOCATE('aa_', CONCAT(`Database`, '_')) = 1 )"
+                . " OR LOCATE('aa_', CONCAT(`Database`, '_')) = 1 )",
             );
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));

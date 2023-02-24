@@ -48,7 +48,7 @@ class MenuTest extends AbstractTestCase
         $menu = new Menu($this->dbi, '', '');
         $this->assertStringContainsString(
             'floating_menubar',
-            $menu->getDisplay()
+            $menu->getDisplay(),
         );
     }
 
@@ -60,7 +60,7 @@ class MenuTest extends AbstractTestCase
         $menu = new Menu($this->dbi, 'pma_test', '');
         $this->assertStringContainsString(
             'floating_menubar',
-            $menu->getDisplay()
+            $menu->getDisplay(),
         );
     }
 
@@ -72,7 +72,7 @@ class MenuTest extends AbstractTestCase
         $menu = new Menu($this->dbi, 'pma_test', 'table1');
         $this->assertStringContainsString(
             'floating_menubar',
-            $menu->getDisplay()
+            $menu->getDisplay(),
         );
     }
 
@@ -85,7 +85,7 @@ class MenuTest extends AbstractTestCase
         $menu->setTable('table1');
         $this->assertStringContainsString(
             'table1',
-            $menu->getDisplay()
+            $menu->getDisplay(),
         );
     }
 }

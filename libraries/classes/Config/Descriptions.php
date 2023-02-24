@@ -35,7 +35,7 @@ class Descriptions
                 'Servers/',
                 '_',
             ],
-            $path
+            $path,
         );
         $value = self::getString($key, $type);
 
@@ -84,20 +84,20 @@ class Descriptions
 
         return $descriptionsMap = [
             'AllowArbitraryServer_desc' => __(
-                'If enabled, user can enter any MySQL server in login form for cookie auth.'
+                'If enabled, user can enter any MySQL server in login form for cookie auth.',
             ),
             'ArbitraryServerRegexp_desc' => __(
                 'Restricts the MySQL servers the user can enter when a login to an arbitrary '
                 . 'MySQL server is enabled by matching the IP or hostname of the MySQL server ' .
-                'to the given regular expression.'
+                'to the given regular expression.',
             ),
             'AllowThirdPartyFraming_desc' => __(
                 'Enabling this allows a page located on a different domain to call phpMyAdmin '
                 . 'inside a frame, and is a potential [strong]security hole[/strong] allowing '
-                . 'cross-frame scripting (XSS) attacks.'
+                . 'cross-frame scripting (XSS) attacks.',
             ),
             'blowfish_secret_desc' => __(
-                'Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] authentication.'
+                'Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] authentication.',
             ),
             'BZipDump_desc' => __('Enable bzip2 compression for import operations.'),
             'CaptchaApi_desc' => __('Enter the URL for your reCAPTCHA v2 compatible API.'),
@@ -110,98 +110,98 @@ class Descriptions
             'CharEditing_desc' => __(
                 'Defines which type of editing controls should be used for CHAR and VARCHAR '
                 . 'columns; [kbd]input[/kbd] - allows limiting of input length, '
-                . '[kbd]textarea[/kbd] - allows newlines in columns.'
+                . '[kbd]textarea[/kbd] - allows newlines in columns.',
             ),
             'CodemirrorEnable_desc' => __(
                 'Use user-friendly editor for editing SQL queries '
                 . '(CodeMirror) with syntax highlighting and '
-                . 'line numbers.'
+                . 'line numbers.',
             ),
             'LintEnable_desc' => __(
-                'Find any errors in the query before executing it. Requires CodeMirror to be enabled.'
+                'Find any errors in the query before executing it. Requires CodeMirror to be enabled.',
             ),
             'MinSizeForInputField_desc' => __(
-                'Defines the minimum size for input fields generated for CHAR and VARCHAR columns.'
+                'Defines the minimum size for input fields generated for CHAR and VARCHAR columns.',
             ),
             'MaxSizeForInputField_desc' => __(
-                'Defines the maximum size for input fields generated for CHAR and VARCHAR columns.'
+                'Defines the maximum size for input fields generated for CHAR and VARCHAR columns.',
             ),
             'CompressOnFly_desc' => __(
                 'Compress gzip exports on the fly without the need for much memory; if '
-                . 'you encounter problems with created gzip files disable this feature.'
+                . 'you encounter problems with created gzip files disable this feature.',
             ),
             'Confirm_desc' => __(
-                'Whether a warning ("Are your really sure…") should be displayed when you\'re about to lose data.'
+                'Whether a warning ("Are your really sure…") should be displayed when you\'re about to lose data.',
             ),
             'EnableAutocompleteForTablesAndColumns_desc' => __(
-                'Autocomplete of the table and column names in the SQL queries.'
+                'Autocomplete of the table and column names in the SQL queries.',
             ),
             'DefaultTransformations_Hex_desc' => __(
                 'Values for options list for default transformations. These will be overwritten if'
-                . ' transformation is filled in at table structure page.'
+                . ' transformation is filled in at table structure page.',
             ),
             'DefaultTransformations_Substring_desc' => __(
                 'Values for options list for default transformations. These will be overwritten if'
-                . ' transformation is filled in at table structure page.'
+                . ' transformation is filled in at table structure page.',
             ),
             'DefaultTransformations_Bool2Text_desc' => __(
                 'Values for options list for default transformations. These will be overwritten if'
-                . ' transformation is filled in at table structure page.'
+                . ' transformation is filled in at table structure page.',
             ),
             'DefaultTransformations_External_desc' => __(
                 'Values for options list for default transformations. These will be overwritten if'
-                . ' transformation is filled in at table structure page.'
+                . ' transformation is filled in at table structure page.',
             ),
             'DefaultTransformations_PreApPend_desc' => __(
                 'Values for options list for default transformations. These will be overwritten if'
-                . ' transformation is filled in at table structure page.'
+                . ' transformation is filled in at table structure page.',
             ),
             'DefaultTransformations_DateFormat_desc' => __(
                 'Values for options list for default transformations. These will be overwritten if'
-                . ' transformation is filled in at table structure page.'
+                . ' transformation is filled in at table structure page.',
             ),
             'DefaultTransformations_Inline_desc' => __(
                 'Values for options list for default transformations. These will be overwritten if'
-                . ' transformation is filled in at table structure page.'
+                . ' transformation is filled in at table structure page.',
             ),
             'DefaultTransformations_TextImageLink_desc' => __(
                 'Values for options list for default transformations. These will be overwritten if'
-                . ' transformation is filled in at table structure page.'
+                . ' transformation is filled in at table structure page.',
             ),
             'DefaultTransformations_TextLink_desc' => __(
                 'Values for options list for default transformations. These will be overwritten if'
-                . ' transformation is filled in at table structure page.'
+                . ' transformation is filled in at table structure page.',
             ),
             'DisableMultiTableMaintenance_desc' => __(
                 'Disable the table maintenance mass operations, like optimizing or repairing '
-                . 'the selected tables of a database.'
+                . 'the selected tables of a database.',
             ),
             'ExecTimeLimit_desc' => __(
-                'Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no limit).'
+                'Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no limit).',
             ),
             'Export_sql_view_current_user' => __('Exclude definition of current user'),
             'ForeignKeyDropdownOrder_desc' => __(
                 'Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is '
-                . 'the referenced data, [kbd]id[/kbd] is the key value.'
+                . 'the referenced data, [kbd]id[/kbd] is the key value.',
             ),
             'Form_Page_titles_desc' => __(
                 'Specify browser\'s title bar text. Refer to '
                 . '[doc@faq6-27]documentation[/doc] for magic strings that can be used '
-                . 'to get special values.'
+                . 'to get special values.',
             ),
             'Form_Security_desc' => __(
-                'Please note that phpMyAdmin is just a user interface and its features do not limit MySQL.'
+                'Please note that phpMyAdmin is just a user interface and its features do not limit MySQL.',
             ),
             'Form_Server_config_desc' => __(
-                'Advanced server configuration, do not change these options unless you know what they are for.'
+                'Advanced server configuration, do not change these options unless you know what they are for.',
             ),
             'Form_Server_pmadb_desc' => __(
                 'Configure phpMyAdmin configuration storage to gain access to additional '
                 . 'features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in '
-                . 'documentation.'
+                . 'documentation.',
             ),
             'Form_Server_tracking_desc' => __(
-                'Tracking of changes made in database. Requires the phpMyAdmin configuration storage.'
+                'Tracking of changes made in database. Requires the phpMyAdmin configuration storage.',
             ),
             'Form_DisplayRelationalSchema_desc' => '',
             'Form_Browse_desc' => __('Customize browse mode.'),
@@ -238,16 +238,16 @@ class Descriptions
             'GZipDump_desc' => __('Enable gzip compression for import and export operations.'),
             'IgnoreMultiSubmitErrors_desc' => __(
                 'If enabled, phpMyAdmin continues computing multiple-statement queries even if '
-                . 'one of the queries failed.'
+                . 'one of the queries failed.',
             ),
             'Import_allow_interrupt_desc' => __(
                 'Allow interrupt of import in case script detects it is close to time limit. '
                 . 'This might be a good way to import large files, however it can break '
-                . 'transactions.'
+                . 'transactions.',
             ),
             'Import_format_desc' => __(
                 'Default format; be aware that this list depends on location (database, table) '
-                . 'and only SQL is always available.'
+                . 'and only SQL is always available.',
             ),
             'Import_csv_replace_desc' => __('Update data when duplicate keys found on import'),
             'Import_ldi_replace_desc' => __('Update data when duplicate keys found on import'),
@@ -255,60 +255,60 @@ class Descriptions
             'LoginCookieDeleteAll_desc' => __(
                 'If TRUE, logout deletes cookies for all servers; when set to FALSE, logout '
                 . 'only occurs for the current server. Setting this to FALSE makes it easy to '
-                . 'forget to log out from other servers when connected to multiple servers.'
+                . 'forget to log out from other servers when connected to multiple servers.',
             ),
             'LoginCookieRecall_desc' => __(
                 'Define whether the previous login should be recalled or not in '
-                . '[kbd]cookie[/kbd] authentication mode.'
+                . '[kbd]cookie[/kbd] authentication mode.',
             ),
             'LoginCookieStore_desc' => __(
                 'Defines how long (in seconds) a login cookie should be stored in browser. '
                 . 'The default of 0 means that it will be kept for the existing session only, '
                 . 'and will be deleted as soon as you close the browser window. This is '
-                . 'recommended for non-trusted environments.'
+                . 'recommended for non-trusted environments.',
             ),
             'MaxCharactersInDisplayedSQL_desc' => __(
-                'Maximum number of characters used when a SQL query is displayed.'
+                'Maximum number of characters used when a SQL query is displayed.',
             ),
             'FirstLevelNavigationItems_desc' => __(
-                'The number of items that can be displayed on each page on the first level of the navigation tree.'
+                'The number of items that can be displayed on each page on the first level of the navigation tree.',
             ),
             'MaxNavigationItems_desc' => __(
-                'The number of items that can be displayed on each page of the navigation tree.'
+                'The number of items that can be displayed on each page of the navigation tree.',
             ),
             'MaxRows_desc' => __(
                 'Number of rows displayed when browsing a result set. If the result set '
                 . 'contains more rows, "Previous" and "Next" links will be '
-                . 'shown.'
+                . 'shown.',
             ),
             'MemoryLimit_desc' => __(
                 'The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] '
-                . '([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change).'
+                . '([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change).',
             ),
             'ShowDatabasesNavigationAsTree_desc' => __(
-                'In the navigation panel, replaces the database tree with a selector'
+                'In the navigation panel, replaces the database tree with a selector',
             ),
             'NavigationLinkWithMainPanel_desc' => __(
-                'Link with main panel by highlighting the current database or table.'
+                'Link with main panel by highlighting the current database or table.',
             ),
             'NavigationLogoLinkWindow_desc' => __(
-                'Open the linked page in the main window ([code]main[/code]) or in a new one ([code]new[/code]).'
+                'Open the linked page in the main window ([code]main[/code]) or in a new one ([code]new[/code]).',
             ),
             'NavigationTreeDisplayItemFilterMinimum_desc' => __(
-                'Defines the minimum number of items (tables, views, routines and events) to display a filter box.'
+                'Defines the minimum number of items (tables, views, routines and events) to display a filter box.',
             ),
             'NavigationTreeEnableGrouping_desc' => __(
                 'Group items in the navigation tree (determined by the separator defined in ' .
-                'the Databases and Tables tabs above).'
+                'the Databases and Tables tabs above).',
             ),
             'NavigationTreeEnableExpansion_desc' => __(
-                'Whether to offer the possibility of tree expansion in the navigation panel.'
+                'Whether to offer the possibility of tree expansion in the navigation panel.',
             ),
             'NavigationTreeShowProcedures_desc' => __(
-                'Whether to show procedures under database in the navigation tree'
+                'Whether to show procedures under database in the navigation tree',
             ),
             'NavigationTreeAutoexpandSingleDb_desc' => __(
-                'Whether to expand single database in the navigation tree automatically.'
+                'Whether to expand single database in the navigation tree automatically.',
             ),
             'NavigationWidth_desc' => __('Set to 0 to collapse navigation panel.'),
             'NavigationDisplayLogo_desc' => __('Show logo in navigation panel.'),
@@ -323,143 +323,143 @@ class Descriptions
             'NavigationTreeShowEvents_desc' => __('Whether to show events under database in the navigation tree'),
             'Order_desc' => __(
                 '[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, '
-                . 'DATETIME and TIMESTAMP, ascending order otherwise.'
+                . 'DATETIME and TIMESTAMP, ascending order otherwise.',
             ),
             'PmaNoRelation_DisableWarning_desc' => __(
                 'Disable the default warning that is displayed on the database details '
                 . 'Structure page if any of the required tables for the phpMyAdmin '
-                . 'configuration storage could not be found.'
+                . 'configuration storage could not be found.',
             ),
             'ReservedWordDisableWarning_desc' => __(
                 'Disable the default warning that is displayed on the Structure page if column '
-                . 'names in a table are reserved MySQL words.'
+                . 'names in a table are reserved MySQL words.',
             ),
             'QueryHistoryDB_desc' => __(
                 'Enable if you want DB-based query history (requires phpMyAdmin configuration '
                 . 'storage). If disabled, this utilizes JS-routines to display query history '
-                . '(lost by window close).'
+                . '(lost by window close).',
             ),
             'Servers_SessionTimeZone_desc' => __(
-                'Sets the effective timezone; possibly different than the one from your database server'
+                'Sets the effective timezone; possibly different than the one from your database server',
             ),
             'Servers_bookmarktable_desc' => __(
-                'Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: [kbd]pma__bookmark[/kbd]'
+                'Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: [kbd]pma__bookmark[/kbd]',
             ),
             'Servers_column_info_desc' => __(
-                'Leave blank for no column comments/media types, suggested: [kbd]pma__column_info[/kbd].'
+                'Leave blank for no column comments/media types, suggested: [kbd]pma__column_info[/kbd].',
             ),
             'Servers_controluser_desc' => __(
                 'A special MySQL user configured with limited permissions, more information '
-                . 'available on [doc@linked-tables]documentation[/doc].'
+                . 'available on [doc@linked-tables]documentation[/doc].',
             ),
             'Servers_controlhost_desc' => __(
-                'An alternate host to hold the configuration storage; leave blank to use the already defined host.'
+                'An alternate host to hold the configuration storage; leave blank to use the already defined host.',
             ),
             'Servers_controlport_desc' => __(
                 'An alternate port to connect to the host that holds the configuration storage; '
                 . 'leave blank to use the default port, or the already defined port, if the '
-                . 'controlhost equals host.'
+                . 'controlhost equals host.',
             ),
             'Servers_DisableIS_desc' => __(
                 'More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/8970]phpMyAdmin '
-                . 'issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]'
+                . 'issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]',
             ),
             'Servers_history_desc' => __(
-                'Leave blank for no SQL query history support, suggested: [kbd]pma__history[/kbd].'
+                'Leave blank for no SQL query history support, suggested: [kbd]pma__history[/kbd].',
             ),
             'Servers_MaxTableUiprefs_desc' => __(
                 'Limits number of table preferences which are stored in database, the oldest '
-                . 'records are automatically removed.'
+                . 'records are automatically removed.',
             ),
             'Servers_savedsearches_desc' => __(
-                'Leave blank for no QBE saved searches support, suggested: [kbd]pma__savedsearches[/kbd].'
+                'Leave blank for no QBE saved searches support, suggested: [kbd]pma__savedsearches[/kbd].',
             ),
             'Servers_export_templates_desc' => __(
-                'Leave blank for no export template support, suggested: [kbd]pma__export_templates[/kbd].'
+                'Leave blank for no export template support, suggested: [kbd]pma__export_templates[/kbd].',
             ),
             'Servers_central_columns_desc' => __(
-                'Leave blank for no central columns support, suggested: [kbd]pma__central_columns[/kbd].'
+                'Leave blank for no central columns support, suggested: [kbd]pma__central_columns[/kbd].',
             ),
             'Servers_only_db_desc' => __(
                 'You can use MySQL wildcard characters (% and _), escape them if you want to '
                 . 'use their literal instances, i.e. use [kbd]\'my\_db\'[/kbd] and not '
-                . '[kbd]\'my_db\'[/kbd].'
+                . '[kbd]\'my_db\'[/kbd].',
             ),
             'Servers_pdf_pages_desc' => __(
-                'Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd].'
+                'Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd].',
             ),
             'Servers_pmadb_desc' => __(
                 'Database used for relations, bookmarks, and PDF features. See '
                 . '[doc@linked-tables]pmadb[/doc] for complete information. '
-                . 'Leave blank for no support. Suggested: [kbd]phpmyadmin[/kbd].'
+                . 'Leave blank for no support. Suggested: [kbd]phpmyadmin[/kbd].',
             ),
             'Servers_recent_desc' => __(
                 'Leave blank for no "persistent" recently used tables across sessions, '
-                . 'suggested: [kbd]pma__recent[/kbd].'
+                . 'suggested: [kbd]pma__recent[/kbd].',
             ),
             'Servers_favorite_desc' => __(
                 'Leave blank for no "persistent" favorite tables across sessions, '
-                . 'suggested: [kbd]pma__favorite[/kbd].'
+                . 'suggested: [kbd]pma__favorite[/kbd].',
             ),
             'Servers_relation_desc' => __(
                 'Leave blank for no '
                 . '[doc@relations@]relation-links[/doc] support, '
-                . 'suggested: [kbd]pma__relation[/kbd].'
+                . 'suggested: [kbd]pma__relation[/kbd].',
             ),
             'Servers_SignonSession_desc' => __(
-                'See [doc@authentication-modes]authentication types[/doc] for an example.'
+                'See [doc@authentication-modes]authentication types[/doc] for an example.',
             ),
             'Servers_table_coords_desc' => __(
-                'Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/kbd].'
+                'Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/kbd].',
             ),
             'Servers_table_info_desc' => __(
                 'Table to describe the display columns, leave blank for no support; '
-                . 'suggested: [kbd]pma__table_info[/kbd].'
+                . 'suggested: [kbd]pma__table_info[/kbd].',
             ),
             'Servers_table_uiprefs_desc' => __(
                 'Leave blank for no "persistent" tables\' UI preferences across sessions, '
-                . 'suggested: [kbd]pma__table_uiprefs[/kbd].'
+                . 'suggested: [kbd]pma__table_uiprefs[/kbd].',
             ),
             'Servers_tracking_add_drop_database_desc' => __(
                 'Whether a DROP DATABASE IF EXISTS statement will be added as first line to '
-                . 'the log when creating a database.'
+                . 'the log when creating a database.',
             ),
             'Servers_tracking_add_drop_table_desc' => __(
                 'Whether a DROP TABLE IF EXISTS statement will be added as first line to the '
-                . 'log when creating a table.'
+                . 'log when creating a table.',
             ),
             'Servers_tracking_add_drop_view_desc' => __(
                 'Whether a DROP VIEW IF EXISTS statement will be added as first line to the '
-                . 'log when creating a view.'
+                . 'log when creating a view.',
             ),
             'Servers_tracking_default_statements_desc' => __(
-                'Defines the list of statements the auto-creation uses for new versions.'
+                'Defines the list of statements the auto-creation uses for new versions.',
             ),
             'Servers_tracking_desc' => __(
-                'Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking[/kbd].'
+                'Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking[/kbd].',
             ),
             'Servers_tracking_version_auto_create_desc' => __(
-                'Whether the tracking mechanism creates versions for tables and views automatically.'
+                'Whether the tracking mechanism creates versions for tables and views automatically.',
             ),
             'Servers_userconfig_desc' => __(
-                'Leave blank for no user preferences storage in database, suggested: [kbd]pma__userconfig[/kbd].'
+                'Leave blank for no user preferences storage in database, suggested: [kbd]pma__userconfig[/kbd].',
             ),
             'Servers_users_desc' => __(
                 'Both this table and the user groups table are required to enable the ' .
                 'configurable menus feature; leaving either one of them blank will disable ' .
-                'this feature, suggested: [kbd]pma__users[/kbd].'
+                'this feature, suggested: [kbd]pma__users[/kbd].',
             ),
             'Servers_usergroups_desc' => __(
                 'Both this table and the users table are required to enable the configurable ' .
                 'menus feature; leaving either one of them blank will disable this feature, ' .
-                'suggested: [kbd]pma__usergroups[/kbd].'
+                'suggested: [kbd]pma__usergroups[/kbd].',
             ),
             'Servers_navigationhiding_desc' => __(
                 'Leave blank to disable the feature to hide and show navigation items, ' .
-                'suggested: [kbd]pma__navigationhiding[/kbd].'
+                'suggested: [kbd]pma__navigationhiding[/kbd].',
             ),
             'Servers_verbose_desc' => __(
-                'A user-friendly description of this server. Leave blank to display the hostname instead.'
+                'A user-friendly description of this server. Leave blank to display the hostname instead.',
             ),
             'Servers_AllowDeny_order_desc' => __('Leave blank if not used.'),
             'Servers_AllowDeny_rules_desc' => __('Leave blank for defaults.'),
@@ -476,22 +476,22 @@ class Descriptions
             'ShowChgPassword_desc' => __(
                 'Please note that enabling this has no effect with [kbd]config[/kbd] ' .
                 'authentication mode because the password is hard coded in the configuration ' .
-                'file; this does not limit the ability to execute the same command directly.'
+                'file; this does not limit the ability to execute the same command directly.',
             ),
             'ShowDbStructureCreation_desc' => __(
-                'Show or hide a column displaying the Creation timestamp for all tables.'
+                'Show or hide a column displaying the Creation timestamp for all tables.',
             ),
             'ShowDbStructureLastUpdate_desc' => __(
-                'Show or hide a column displaying the Last update timestamp for all tables.'
+                'Show or hide a column displaying the Last update timestamp for all tables.',
             ),
             'ShowDbStructureLastCheck_desc' => __(
-                'Show or hide a column displaying the Last check timestamp for all tables.'
+                'Show or hide a column displaying the Last check timestamp for all tables.',
             ),
             'ShowFieldTypesInDataEditView_desc' => __(
-                'Defines whether or not type fields should be initially displayed in edit/insert mode.'
+                'Defines whether or not type fields should be initially displayed in edit/insert mode.',
             ),
             'ShowPhpInfo_desc' => __(
-                'Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] output.'
+                'Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] output.',
             ),
             'ShowAll_desc' => __('Whether a user should be displayed a "show all (rows)" button.'),
             'ShowDbStructureComment_desc' => __('Show or hide a column displaying the comments for all tables.'),
@@ -501,50 +501,50 @@ class Descriptions
             'ShowSQL_desc' => __('Defines whether SQL queries generated by phpMyAdmin should be displayed.'),
             'ShowStats_desc' => __('Allow to display database and table statistics (e.g. space usage).'),
             'SkipLockedTables_desc' => __(
-                'Mark used tables and make it possible to show databases with locked tables.'
+                'Mark used tables and make it possible to show databases with locked tables.',
             ),
             'SuhosinDisableWarning_desc' => __(
-                'Disable the default warning that is displayed on the main page if Suhosin is detected.'
+                'Disable the default warning that is displayed on the main page if Suhosin is detected.',
             ),
             'LoginCookieValidityDisableWarning_desc' => __(
                 'Disable the default warning that is displayed on the main page if the value ' .
                 'of the PHP setting session.gc_maxlifetime is less than the value of ' .
-                '`LoginCookieValidity`.'
+                '`LoginCookieValidity`.',
             ),
             'TextareaCols_desc' => __(
-                'Textarea size (columns) in edit mode, this value will be emphasized for SQL query textareas (*2).'
+                'Textarea size (columns) in edit mode, this value will be emphasized for SQL query textareas (*2).',
             ),
             'TextareaRows_desc' => __(
-                'Textarea size (rows) in edit mode, this value will be emphasized for SQL query textareas (*2).'
+                'Textarea size (rows) in edit mode, this value will be emphasized for SQL query textareas (*2).',
             ),
             'TrustedProxies_desc' => __(
                 'Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example ' .
                 'specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR ' .
                 '(X-Forwarded-For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: ' .
-                'HTTP_X_FORWARDED_FOR[/kbd].'
+                'HTTP_X_FORWARDED_FOR[/kbd].',
             ),
             'UserprefsDeveloperTab_desc' => __(
-                'When disabled, users cannot set any of the options below, regardless of the checkbox on the right.'
+                'When disabled, users cannot set any of the options below, regardless of the checkbox on the right.',
             ),
             'ProxyUrl_desc' => __(
                 'The URL of the proxy to be used when retrieving the information about the ' .
                 'latest version of phpMyAdmin, or when submitting error reports. You need this ' .
                 'if the server where phpMyAdmin is installed does not have direct access to ' .
-                'the Internet. The format is: "hostname:portnumber".'
+                'the Internet. The format is: "hostname:portnumber".',
             ),
             'ProxyUser_desc' => __(
                 'The username for authenticating with the proxy. By default, no ' .
                 'authentication is performed. If a username is supplied, Basic ' .
                 'Authentication will be performed. No other types of authentication are ' .
-                'currently supported.'
+                'currently supported.',
             ),
             'ConsoleEnterExecutes_desc' => __(
                 'Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines ' .
-                'will be inserted with Shift+Enter.'
+                'will be inserted with Shift+Enter.',
             ),
             'ZeroConf_desc' => __(
                 'Enable Zero Configuration mode which lets you set up phpMyAdmin '
-                . 'configuration storage tables automatically.'
+                . 'configuration storage tables automatically.',
             ),
             'BrowseMarkerEnable_desc' => __('Highlight selected rows.'),
             'BrowsePointerEnable_desc' => __('Highlight row pointed by the mouse cursor.'),
@@ -714,14 +714,14 @@ class Descriptions
             'Export_sql_drop_database_name' => sprintf(__('Add %s'), 'DROP DATABASE'),
             'Export_sql_drop_table_name' => sprintf(
                 __('Add %s'),
-                'DROP TABLE / VIEW / PROCEDURE / FUNCTION / EVENT / TRIGGER'
+                'DROP TABLE / VIEW / PROCEDURE / FUNCTION / EVENT / TRIGGER',
             ),
             'Export_sql_create_table_name' => sprintf(__('Add %s'), 'CREATE TABLE'),
             'Export_sql_create_view_name' => sprintf(__('Add %s'), 'CREATE VIEW'),
             'Export_sql_create_trigger_name' => sprintf(__('Add %s'), 'CREATE TRIGGER'),
             'Export_sql_hex_for_binary_name' => __('Use hexadecimal for BINARY & BLOB'),
             'Export_sql_if_not_exists_name' => __(
-                'Add IF NOT EXISTS (less efficient as indexes will be generated during table creation)'
+                'Add IF NOT EXISTS (less efficient as indexes will be generated during table creation)',
             ),
             'Export_sql_view_current_user' => __('Exclude definition of current user'),
             'Export_sql_or_replace_view_name' => sprintf(__('%s view'), 'OR REPLACE'),
@@ -835,7 +835,7 @@ class Descriptions
             'NavigationTreeDefaultTabTable2_name' => __('Target for second quick access icon'),
             'NavigationTreeDisplayItemFilterMinimum_name' => __('Minimum number of items to display the filter box'),
             'NavigationTreeDisplayDbFilterMinimum_name' => __(
-                'Minimum number of databases to display the database filter box'
+                'Minimum number of databases to display the database filter box',
             ),
             'NavigationTreeEnableGrouping_name' => __('Group items in the tree'),
             'NavigationTreeDbSeparator_name' => __('Database tree separator'),

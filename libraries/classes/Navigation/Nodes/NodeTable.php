@@ -38,14 +38,14 @@ class NodeTable extends NodeDatabaseChild
     {
         parent::__construct($name, $type, $isGroup);
         $icon = $this->addIcon(
-            Util::getScriptNameForOption($GLOBALS['cfg']['NavigationTreeDefaultTabTable'], 'table')
+            Util::getScriptNameForOption($GLOBALS['cfg']['NavigationTreeDefaultTabTable'], 'table'),
         );
         if ($icon !== null) {
             $this->icon = $icon;
         }
 
         $this->secondIcon = $this->addIcon(
-            Util::getScriptNameForOption($GLOBALS['cfg']['NavigationTreeDefaultTabTable2'], 'table')
+            Util::getScriptNameForOption($GLOBALS['cfg']['NavigationTreeDefaultTabTable2'], 'table'),
         );
         $title = (string) Util::getTitleForTarget($GLOBALS['cfg']['DefaultTabTable']);
         $this->title = $title;

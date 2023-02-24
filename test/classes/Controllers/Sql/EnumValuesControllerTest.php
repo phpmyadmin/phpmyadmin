@@ -60,7 +60,7 @@ class EnumValuesControllerTest extends AbstractTestCase
 
         $this->assertSame(
             ['message' => 'Error in processing request'],
-            $this->getResponseJsonResult()
+            $this->getResponseJsonResult(),
         );
     }
 
@@ -85,7 +85,7 @@ class EnumValuesControllerTest extends AbstractTestCase
                 'Key',
                 'Default',
                 'Extra',
-            ]
+            ],
         );
 
         $GLOBALS['db'] = 'cvv';
@@ -119,7 +119,7 @@ class EnumValuesControllerTest extends AbstractTestCase
                     . '      <option value=""></option>' . "\n"
                     . '  </select>' . "\n",
             ],
-            $this->getResponseJsonResult()
+            $this->getResponseJsonResult(),
         );
     }
 }

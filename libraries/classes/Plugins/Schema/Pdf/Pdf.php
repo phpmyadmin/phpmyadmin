@@ -88,7 +88,7 @@ class Pdf extends PdfLib
         $paper,
         private $pageNumber,
         private $withDoc,
-        private $db
+        private $db,
     ) {
         parent::__construct($orientation, $unit, $paper);
         $this->relation = new Relation($GLOBALS['dbi']);
@@ -118,7 +118,7 @@ class Pdf extends PdfLib
         float|int $xMin = 0,
         float|int $yMin = 0,
         float|int $leftMargin = -1,
-        float|int $topMargin = -1
+        float|int $topMargin = -1,
     ): void {
         $this->scale = $scale;
         $this->xMin = $xMin;
@@ -156,7 +156,7 @@ class Pdf extends PdfLib
         $ln = 0,
         $align = '',
         bool $fill = false,
-        $link = ''
+        $link = '',
     ): void {
         $h /= $this->scale;
         $w /= $this->scale;

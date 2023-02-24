@@ -26,7 +26,7 @@ final class DeleteRowsController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
     }
@@ -48,7 +48,7 @@ final class DeleteRowsController extends AbstractController
             new RelationCleanup($this->dbi, $relation),
             new Operations($this->dbi, $relation),
             new Transformations(),
-            $this->template
+            $this->template,
         );
 
         if ($mult_btn === __('Yes')) {
@@ -59,7 +59,7 @@ final class DeleteRowsController extends AbstractController
                 $query = sprintf(
                     'DELETE FROM %s WHERE %s LIMIT 1;',
                     Util::backquote($GLOBALS['table']),
-                    $row
+                    $row,
                 );
                 $GLOBALS['sql_query'] .= $query . "\n";
                 $this->dbi->selectDb($GLOBALS['db']);
@@ -96,7 +96,7 @@ final class DeleteRowsController extends AbstractController
             $GLOBALS['disp_query'] ?? null,
             $GLOBALS['disp_message'] ?? null,
             $GLOBALS['sql_query'],
-            null
+            null,
         ));
     }
 }

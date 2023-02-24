@@ -21,7 +21,7 @@ abstract class AbstractIndexController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         protected StructureController $structureController,
-        protected Indexes $indexes
+        protected Indexes $indexes,
     ) {
         parent::__construct($response, $template);
     }

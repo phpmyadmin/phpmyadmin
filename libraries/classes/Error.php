@@ -261,7 +261,7 @@ class Error extends Message
                 $this->getMessage() .
                 $this->getFile() .
                 $this->getLine() .
-                $backtrace
+                $backtrace,
             );
         }
 
@@ -334,7 +334,7 @@ class Error extends Message
     public function getHtmlTitle(): string
     {
         return htmlspecialchars(
-            mb_substr($this->getTitle(), 0, 100)
+            mb_substr($this->getTitle(), 0, 100),
         );
     }
 
@@ -507,7 +507,7 @@ class Error extends Message
 
         $hereParts = explode(
             DIRECTORY_SEPARATOR,
-            (string) realpath(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..')
+            (string) realpath(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..'),
         );
         $destParts = explode(DIRECTORY_SEPARATOR, $dest);
 

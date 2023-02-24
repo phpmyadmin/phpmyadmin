@@ -27,7 +27,7 @@ class ReplicationController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private ReplicationGui $replicationGui,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
     }
@@ -81,7 +81,7 @@ class ReplicationController extends AbstractController
                 $request->getParsedBodyParam('username', ''),
                 $request->getParsedBodyParam('pma_pw', ''),
                 $request->getParsedBodyParam('hostname', ''),
-                (int) $request->getParsedBodyParam('text_port')
+                (int) $request->getParsedBodyParam('text_port'),
             );
         }
 
@@ -100,7 +100,7 @@ class ReplicationController extends AbstractController
                 $hasReplicaClearScreen,
                 $primaryAddUser,
                 $username,
-                $hostname
+                $hostname,
             );
         }
 
@@ -112,7 +112,7 @@ class ReplicationController extends AbstractController
                     $primaryConnection,
                     $replicaInfo['status'],
                     $replicationInfo->getReplicaStatus(),
-                    $replicaConfigure !== null
+                    $replicaConfigure !== null,
                 );
             }
 

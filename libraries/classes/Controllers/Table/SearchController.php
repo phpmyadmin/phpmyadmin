@@ -87,7 +87,7 @@ class SearchController extends AbstractController
         Template $template,
         private Search $search,
         private Relation $relation,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
 
@@ -242,7 +242,7 @@ class SearchController extends AbstractController
             new RelationCleanup($this->dbi, $this->relation),
             new Operations($this->dbi, $this->relation),
             new Transformations(),
-            $this->template
+            $this->template,
         );
 
         $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
@@ -259,7 +259,7 @@ class SearchController extends AbstractController
             null, // disp_query
             null, // disp_message
             $sql_query, // sql_query
-            null // complete_query
+            null, // complete_query
         ));
     }
 
@@ -331,7 +331,7 @@ class SearchController extends AbstractController
         $typeOperators = $this->dbi->types->getTypeOperatorsHtml(
             $cleanType,
             $this->columnNullFlags[$column_index],
-            $selected_operator
+            $selected_operator,
         );
         $func = $this->template->render('table/search/column_comparison_operators', [
             'search_index' => $search_index,
@@ -343,7 +343,7 @@ class SearchController extends AbstractController
             $this->columnNames[$column_index],
             false,
             '',
-            ''
+            '',
         );
         $htmlAttributes = '';
         $isInteger = in_array($cleanType, $this->dbi->types->getIntegerTypes());
@@ -363,7 +363,7 @@ class SearchController extends AbstractController
 
         $searchColumnInForeigners = $this->relation->searchColumnInForeigners(
             $this->foreigners,
-            $this->columnNames[$column_index]
+            $this->columnNames[$column_index],
         );
 
         if (
@@ -376,7 +376,7 @@ class SearchController extends AbstractController
                 $foreignData['foreign_field'],
                 $foreignData['foreign_display'],
                 '',
-                $GLOBALS['cfg']['ForeignKeyMaxLimit']
+                $GLOBALS['cfg']['ForeignKeyMaxLimit'],
             );
         }
 

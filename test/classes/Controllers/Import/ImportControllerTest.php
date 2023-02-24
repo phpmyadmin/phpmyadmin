@@ -66,17 +66,17 @@ class ImportControllerTest extends AbstractTestCase
         $this->dummyDbi->addResult(
             'SELECT A.* FROM table1 A WHERE A.nomEtablissement = \'Saint-Louis - Châteaulin\''
             . ' AND foo = 4 AND `:a` IS NULL LIMIT 0, 25',
-            []
+            [],
         );
 
         $this->dummyDbi->addResult(
             'SHOW CREATE TABLE `pma_test`.`table1`',
-            []
+            [],
         );
 
         $this->dummyDbi->addResult(
             'SHOW FULL COLUMNS FROM `pma_test`.`table1`',
-            []
+            [],
         );
 
         /** @var ImportController $importController */
@@ -89,13 +89,13 @@ class ImportControllerTest extends AbstractTestCase
 
         $this->assertStringContainsString(
             'MySQL returned an empty result set (i.e. zero rows).',
-            $this->getResponseHtmlResult()
+            $this->getResponseHtmlResult(),
         );
 
         $this->assertStringContainsString(
             'SELECT A.*' . "\n" . 'FROM table1 A' . "\n"
                 . 'WHERE A.nomEtablissement = \'Saint-Louis - Châteaulin\' AND foo = 4 AND `:a` IS NULL',
-            $this->getResponseHtmlResult()
+            $this->getResponseHtmlResult(),
         );
 
         $this->dummyDbi->assertAllQueriesConsumed();

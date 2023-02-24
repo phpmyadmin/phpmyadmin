@@ -51,7 +51,7 @@ class TrackingControllerTest extends AbstractTestCase
         (new TrackingController(
             $response,
             $template,
-            new Tracking(new SqlQueryForm($template, $this->dbi), $template, new Relation($this->dbi), $this->dbi)
+            new Tracking(new SqlQueryForm($template, $this->dbi), $template, new Relation($this->dbi), $this->dbi),
         ))($this->createStub(ServerRequest::class));
 
         $main = $template->render('table/tracking/main', [

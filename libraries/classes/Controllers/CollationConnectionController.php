@@ -23,7 +23,7 @@ final class CollationConnectionController extends AbstractController
             null,
             'DefaultConnectionCollation',
             $request->getParsedBodyParam('collation_connection'),
-            'utf8mb4_unicode_ci'
+            'utf8mb4_unicode_ci',
         );
 
         $this->response->header('Location: index.php?route=/' . Url::getCommonRaw([], '&'));

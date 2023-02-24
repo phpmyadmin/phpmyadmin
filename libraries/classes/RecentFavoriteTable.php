@@ -157,7 +157,7 @@ class RecentFavoriteTable
             $message = Message::error($error_msg);
             $message->addMessage(
                 Message::rawError($GLOBALS['dbi']->getError(Connection::TYPE_CONTROL)),
-                '<br><br>'
+                '<br><br>',
             );
 
             return $message;
@@ -174,7 +174,7 @@ class RecentFavoriteTable
     {
         $max = max(
             $GLOBALS['cfg']['Num' . ucfirst($this->tableType) . 'Tables'],
-            0
+            0,
         );
         $trimmingOccurred = count($this->tables) > $max;
         while (count($this->tables) > $max) {

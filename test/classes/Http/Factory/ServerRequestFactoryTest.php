@@ -88,26 +88,26 @@ class ServerRequestFactoryTest extends AbstractTestCase
         $request = ServerRequestFactory::createFromGlobals();
         $this->assertSame(
             'GET',
-            $request->getMethod()
+            $request->getMethod(),
         );
         $this->assertSame(
             'http://phpmyadmin.local/test-page.php?foo=bar&blob=baz',
-            $request->getUri()->__toString()
+            $request->getUri()->__toString(),
         );
         $this->assertFalse(
-            $request->isPost()
+            $request->isPost(),
         );
         $this->assertSame(
             'default',
-            $request->getParam('not-exists', 'default')
+            $request->getParam('not-exists', 'default'),
         );
         $this->assertSame(
             'bar',
-            $request->getParam('foo')
+            $request->getParam('foo'),
         );
         $this->assertSame(
             'baz',
-            $request->getParam('blob')
+            $request->getParam('blob'),
         );
         $this->assertSame([
             'foo' => 'bar',
@@ -140,37 +140,37 @@ class ServerRequestFactoryTest extends AbstractTestCase
             $creator,
             ServerRequestFactory::class,
             'createServerRequestFromGlobals',
-            [$creator]
+            [$creator],
         );
 
         $request = new ServerRequest($serverRequest);
 
         $this->assertSame(
             ['application/x-www-form-urlencoded'],
-            $request->getHeader('Content-Type')
+            $request->getHeader('Content-Type'),
         );
         $this->assertSame(
             'POST',
-            $request->getMethod()
+            $request->getMethod(),
         );
         $this->assertSame(
             'http://phpmyadmin.local/test-page.php?foo=bar&blob=baz',
-            $request->getUri()->__toString()
+            $request->getUri()->__toString(),
         );
         $this->assertTrue(
-            $request->isPost()
+            $request->isPost(),
         );
         $this->assertSame(
             'default',
-            $request->getParam('not-exists', 'default')
+            $request->getParam('not-exists', 'default'),
         );
         $this->assertSame(
             'bar',
-            $request->getParam('foo')
+            $request->getParam('foo'),
         );
         $this->assertSame(
             'baz',
-            $request->getParam('blob')
+            $request->getParam('blob'),
         );
         $this->assertSame([
             'foo' => 'bar',
@@ -202,7 +202,7 @@ class ServerRequestFactoryTest extends AbstractTestCase
         $this->assertInstanceOf(ServerRequestFactoryInterface::class, $serverRequestFactory);
 
         $factory = new ServerRequestFactory(
-            $serverRequestFactory
+            $serverRequestFactory,
         );
         $this->assertInstanceOf(ServerRequestFactory::class, $factory);
     }

@@ -41,7 +41,7 @@ class ServerRequestFactory
 
     public function __construct(
         ServerRequestFactoryInterface|null $serverRequestFactory = null,
-        UriFactoryInterface|null $uriFactory = null
+        UriFactoryInterface|null $uriFactory = null,
     ) {
         $this->serverRequestFactory = $serverRequestFactory ?? $this->createServerRequestFactory();
         $this->uriFactory = $uriFactory ?? $this->createUriFactory();
@@ -115,7 +115,7 @@ class ServerRequestFactory
         $serverRequest = $creator->serverRequestFactory->createServerRequest(
             $_SERVER['REQUEST_METHOD'] ?? 'GET',
             $creator->createUriFromGlobals($_SERVER),
-            $_SERVER
+            $_SERVER,
         );
 
         foreach ($creator->getallheaders() as $name => $value) {
@@ -156,7 +156,7 @@ class ServerRequestFactory
         if (isset($server['PHP_AUTH_USER']) && is_string($server['PHP_AUTH_USER']) && $server['PHP_AUTH_USER'] !== '') {
             $uri = $uri->withUserInfo(
                 $server['PHP_AUTH_USER'],
-                isset($server['PHP_AUTH_PW']) && is_string($server['PHP_AUTH_PW']) ? $server['PHP_AUTH_PW'] : null
+                isset($server['PHP_AUTH_PW']) && is_string($server['PHP_AUTH_PW']) ? $server['PHP_AUTH_PW'] : null,
             );
         }
 

@@ -58,7 +58,7 @@ abstract class GisGeomTestCase extends AbstractTestCase
     {
         $this->assertEquals(
             $params,
-            $this->object->generateParams($wkt)
+            $this->object->generateParams($wkt),
         );
     }
 
@@ -74,7 +74,7 @@ abstract class GisGeomTestCase extends AbstractTestCase
     {
         $this->assertEquals(
             $min_max,
-            $this->object->scaleRow($spatial)
+            $this->object->scaleRow($spatial),
         );
     }
 

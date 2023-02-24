@@ -42,7 +42,7 @@ class SearchController extends AbstractController
 
         if (! $GLOBALS['cfg']['UseDbSearch']) {
             $errorMessage = __(
-                'Searching inside the database is disabled by the [code]$cfg[\'UseDbSearch\'][/code] configuration.'
+                'Searching inside the database is disabled by the [code]$cfg[\'UseDbSearch\'][/code] configuration.',
             );
             $errorMessage .= MySQLDocumentation::showDocumentation('config', 'cfg_UseDbSearch');
             $this->response->setRequestStatus(false);

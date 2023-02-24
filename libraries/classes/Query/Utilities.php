@@ -63,7 +63,7 @@ class Utilities
      */
     public static function isSystemSchema(
         string $schema_name,
-        bool $testForMysqlSchema = false
+        bool $testForMysqlSchema = false,
     ): bool {
         $schema_name = strtolower($schema_name);
 
@@ -147,10 +147,10 @@ class Utilities
         // return -1 * strnatcasecmp($a['SCHEMA_TABLES'], $b['SCHEMA_TABLES'])
         $compare = $GLOBALS['cfg']['NaturalOrder'] ? strnatcasecmp(
             (string) $a[$sortBy],
-            (string) $b[$sortBy]
+            (string) $b[$sortBy],
         ) : strcasecmp(
             (string) $a[$sortBy],
-            (string) $b[$sortBy]
+            (string) $b[$sortBy],
         );
 
         return ($sortOrder === 'ASC' ? 1 : -1) * $compare;
@@ -180,7 +180,7 @@ class Utilities
         string $query,
         string|null $errorMessage,
         ResultInterface|false $result,
-        int|float $time
+        int|float $time,
     ): void {
         $dbgInfo = [];
 
@@ -195,7 +195,7 @@ class Utilities
         // in the javascript console.
         // Strip call to debugLogQueryIntoSession
         $dbgInfo['trace'] = Error::processBacktrace(
-            array_slice(debug_backtrace(), 1)
+            array_slice(debug_backtrace(), 1),
         );
         $dbgInfo['hash'] = md5($query);
 

@@ -88,7 +88,7 @@ class ServerConfigChecksTest extends AbstractTestCase
                 'SaveDir',
                 'TempDir',
             ],
-            array_keys($_SESSION['messages']['notice'])
+            array_keys($_SESSION['messages']['notice']),
         );
 
         $this->assertEquals(
@@ -99,7 +99,7 @@ class ServerConfigChecksTest extends AbstractTestCase
                 'ZipDump_import',
                 'ZipDump_export',
             ],
-            array_keys($_SESSION['messages']['error'])
+            array_keys($_SESSION['messages']['error']),
         );
     }
 

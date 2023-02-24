@@ -41,7 +41,7 @@ final class SimulateDml
     public function getMatchedRows(
         string $query,
         Parser $parser,
-        DeleteStatement|UpdateStatement|Statement $statement
+        DeleteStatement|UpdateStatement|Statement $statement,
     ): array {
         $matchedRowQuery = '';
         if ($statement instanceof DeleteStatement) {

@@ -123,7 +123,7 @@ class SearchControllerTest extends AbstractTestCase
             $this->template,
             new Search($GLOBALS['dbi']),
             new Relation($GLOBALS['dbi']),
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
         );
 
         $result = $ctrl->getColumnMinMax('column');
@@ -146,12 +146,12 @@ class SearchControllerTest extends AbstractTestCase
 
         $this->dummyDbi->addResult(
             'SHOW FULL COLUMNS FROM `PMA`.`PMA_BookMark`',
-            []
+            [],
         );
 
         $this->dummyDbi->addResult(
             'SHOW CREATE TABLE `PMA`.`PMA_BookMark`',
-            []
+            [],
         );
 
         $this->dummyDbi->addResult(
@@ -169,7 +169,7 @@ class SearchControllerTest extends AbstractTestCase
             [
                 new FieldMetadata(MYSQLI_TYPE_LONG, 0, (object) ['length' => 11]),
                 new FieldMetadata(MYSQLI_TYPE_LONG, 0, (object) ['length' => 11]),
-            ]
+            ],
         );
 
         $GLOBALS['containerBuilder']->setParameter('db', 'PMA');

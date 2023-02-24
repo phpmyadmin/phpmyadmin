@@ -86,7 +86,7 @@ class InsertEdit
         private Relation $relation,
         private Transformations $transformations,
         private FileListing $fileListing,
-        private Template $template
+        private Template $template,
     ) {
     }
 
@@ -105,7 +105,7 @@ class InsertEdit
         $table,
         array|null $whereClauses,
         array $whereClauseArray,
-        $errorUrl
+        $errorUrl,
     ): array {
         $formParams = [
             'db' => $db,
@@ -169,7 +169,7 @@ class InsertEdit
     private function analyzeWhereClauses(
         array $whereClauseArray,
         $table,
-        $db
+        $db,
     ): array {
         $rows = [];
         $result = [];
@@ -189,7 +189,7 @@ class InsertEdit
                 $keyId,
                 $whereClauseArray,
                 $localQuery,
-                $result
+                $result,
             );
             if (! $hasUniqueCondition) {
                 continue;
@@ -220,7 +220,7 @@ class InsertEdit
         $keyId,
         array $whereClauseArray,
         $localQuery,
-        array $result
+        array $result,
     ): bool {
         // No row returned
         if (! $rows[$keyId]) {
@@ -228,8 +228,8 @@ class InsertEdit
             ResponseRenderer::getInstance()->addHTML(
                 Generator::getMessage(
                     __('MySQL returned an empty result set (i.e. zero rows).'),
-                    $localQuery
-                )
+                    $localQuery,
+                ),
             );
             /**
              * @todo not sure what should be done at this point, but we must not
@@ -245,7 +245,7 @@ class InsertEdit
             count($meta),
             $meta,
             $rows[$keyId],
-            true
+            true,
         );
 
         return (bool) $uniqueCondition;
@@ -264,7 +264,7 @@ class InsertEdit
     {
         $result = $this->dbi->query(
             'SELECT * FROM ' . Util::backquote($db)
-            . '.' . Util::backquote($table) . ' LIMIT 1;'
+            . '.' . Util::backquote($table) . ' LIMIT 1;',
         );
         // Can be a string on some old configuration storage settings
         $rows = array_fill(0, (int) $GLOBALS['cfg']['InsertRows'], false);
@@ -285,7 +285,7 @@ class InsertEdit
      */
     public function urlParamsInEditMode(
         array $urlParams,
-        array $whereClauseArray
+        array $whereClauseArray,
     ): array {
         foreach ($whereClauseArray as $whereClause) {
             $urlParams['where_clause'] = trim($whereClause);
@@ -367,7 +367,7 @@ class InsertEdit
     private function analyzeTableColumnsArray(
         array $column,
         array $commentsMap,
-        $timestampSeen
+        $timestampSeen,
     ): array {
         $column['Field_md5'] = md5($column['Field']);
         // True_Type contains only the type (stops at first bracket)
@@ -379,7 +379,7 @@ class InsertEdit
             [
                 'binary',
                 'varbinary',
-            ]
+            ],
         );
         $column['is_blob'] = $this->isColumn(
             $column,
@@ -388,14 +388,14 @@ class InsertEdit
                 'tinyblob',
                 'mediumblob',
                 'longblob',
-            ]
+            ],
         );
         $column['is_char'] = $this->isColumn(
             $column,
             [
                 'char',
                 'varchar',
-            ]
+            ],
         );
 
         [
@@ -490,7 +490,7 @@ class InsertEdit
     private function getNullifyCodeForNullColumn(
         array $column,
         array $foreigners,
-        array $foreignData
+        array $foreignData,
     ): string {
         $foreigner = $this->relation->searchColumnInForeigners($foreigners, $column['Field']);
         if (mb_strstr($column['True_Type'], 'enum')) {
@@ -541,7 +541,7 @@ class InsertEdit
         $idindex,
         $textDir,
         $specialCharsEncoded,
-        $dataType
+        $dataType,
     ): string {
         $theClass = '';
         $textAreaRows = $GLOBALS['cfg']['TextareaRows'];
@@ -608,7 +608,7 @@ class InsertEdit
      */
     private function getColumnSetValueAndSelectSize(
         array $column,
-        array $enum_set_values
+        array $enum_set_values,
     ): array {
         if (! isset($column['values'])) {
             $column['values'] = [];
@@ -652,7 +652,7 @@ class InsertEdit
         $tabindex,
         $tabindexForValue,
         $idindex,
-        $dataType
+        $dataType,
     ): string {
         $theClass = 'textfield';
         // verify True_Type which does not contain the parentheses and length
@@ -702,7 +702,7 @@ class InsertEdit
     private function getSelectOptionForUpload(string $vkey, string $fieldHashMd5): string
     {
         $files = $this->fileListing->getFileSelectOptions(
-            Util::userDir((string) ($GLOBALS['cfg']['UploadDir'] ?? ''))
+            Util::userDir((string) ($GLOBALS['cfg']['UploadDir'] ?? '')),
         );
 
         if ($files === false) {
@@ -802,7 +802,7 @@ class InsertEdit
         $textDir,
         $specialCharsEncoded,
         $data,
-        array $extractedColumnspec
+        array $extractedColumnspec,
     ): string {
         // HTML5 data-* attribute data-type
         $dataType = $this->dbi->types->getTypeClass($column['True_Type']);
@@ -822,7 +822,7 @@ class InsertEdit
                 $idindex,
                 $textDir,
                 $specialCharsEncoded,
-                $dataType
+                $dataType,
             );
         } else {
             $htmlField = $this->getHtmlInput(
@@ -834,7 +834,7 @@ class InsertEdit
                 $tabindex,
                 $tabindexForValue,
                 $idindex,
-                $dataType
+                $dataType,
             );
         }
 
@@ -877,7 +877,7 @@ class InsertEdit
 
         return min(
             max($fieldsize, $GLOBALS['cfg']['MinSizeForInputField']),
-            $GLOBALS['cfg']['MaxSizeForInputField']
+            $GLOBALS['cfg']['MaxSizeForInputField'],
         );
     }
 
@@ -895,7 +895,7 @@ class InsertEdit
         $table,
         $db,
         array $whereClauseArray,
-        $errorUrl
+        $errorUrl,
     ): string {
         return $this->template->render('table/insert/continue_insertion_form', [
             'db' => $db,
@@ -986,7 +986,7 @@ class InsertEdit
         array $extractedColumnspec,
         array $gisDataTypes,
         $columnNameAppendix,
-        $asIs
+        $asIs,
     ): array {
         $specialCharsEncoded = '';
         $data = null;
@@ -1002,7 +1002,7 @@ class InsertEdit
                 ? $currentRow[$column['Field']]
                 : Util::printableBitValue(
                     (int) $currentRow[$column['Field']],
-                    (int) $extractedColumnspec['spec_in_brackets']
+                    (int) $extractedColumnspec['spec_in_brackets'],
                 );
         } elseif (
             (substr($column['True_Type'], 0, 9) === 'timestamp'
@@ -1075,7 +1075,7 @@ class InsertEdit
      * @psalm-return array{bool, mixed, string, string, string}
      */
     private function getSpecialCharsAndBackupFieldForInsertingMode(
-        array $column
+        array $column,
     ): array {
         if (! isset($column['Default'])) {
             $column['Default'] = '';
@@ -1172,7 +1172,7 @@ class InsertEdit
             count($meta),
             $meta,
             $row,
-            true
+            true,
         );
         if (! $uniqueCondition) {
             return;
@@ -1371,7 +1371,7 @@ class InsertEdit
     public function getDisplayValueForForeignTableColumn(
         $whereComparison,
         array $map,
-        $relationField
+        $relationField,
     ): string {
         $foreigner = $this->relation->searchColumnInForeigners($map, $relationField);
 
@@ -1413,7 +1413,7 @@ class InsertEdit
         $relationField,
         $whereComparison,
         $dispval,
-        $relationFieldValue
+        $relationFieldValue,
     ): string {
         $foreigner = $this->relation->searchColumnInForeigners($map, $relationField);
 
@@ -1482,7 +1482,7 @@ class InsertEdit
         $file,
         $columnName,
         array $extraData,
-        $type
+        $type,
     ): array {
         $includeFile = 'libraries/classes/Plugins/Transformations/' . $file;
         if (is_file(ROOT_PATH . $includeFile)) {
@@ -1510,7 +1510,7 @@ class InsertEdit
 
                     $extraData['transformations'][$cellIndex] = $transformationPlugin->applyTransformation(
                         $currCellEditedValues[$columnName],
-                        $transformOptions
+                        $transformOptions,
                     );
                     $editedValues[$cellIndex][$columnName] = $extraData['transformations'][$cellIndex];
                 }
@@ -1524,7 +1524,7 @@ class InsertEdit
      * Get value part if a function was specified
      */
     private function formatAsSqlFunction(
-        EditField $editField
+        EditField $editField,
     ): string {
         if ($editField->function === 'PHP_PASSWORD_HASH') {
             /**
@@ -1581,7 +1581,7 @@ class InsertEdit
      */
     private function getValueFormattedAsSql(
         EditField $editField,
-        string $protectedValue = ''
+        string $protectedValue = '',
     ): string {
         if ($editField->isUploaded) {
             return $editField->value;
@@ -1593,7 +1593,7 @@ class InsertEdit
 
         return $this->formatAsSqlValueBasedOnType(
             $editField,
-            $protectedValue
+            $protectedValue,
         );
     }
 
@@ -1605,7 +1605,7 @@ class InsertEdit
     public function getQueryValueForInsert(
         EditField $editField,
         bool $usingKey,
-        string|int $whereClause
+        string|int $whereClause,
     ): string {
         $protectedValue = '';
         if ($editField->type === 'protected' && $usingKey && $whereClause !== '') {
@@ -1613,7 +1613,7 @@ class InsertEdit
             $protectedValue = $this->dbi->fetchValue(
                 'SELECT ' . Util::backquote($editField->columnName)
                 . ' FROM ' . Util::backquote($GLOBALS['table'])
-                . ' WHERE ' . $whereClause
+                . ' WHERE ' . $whereClause,
             );
             $protectedValue = is_string($protectedValue) ? $protectedValue : '';
         }
@@ -1661,7 +1661,7 @@ class InsertEdit
      */
     private function formatAsSqlValueBasedOnType(
         EditField $editField,
-        string $protectedValue
+        string $protectedValue,
     ): string {
         if ($editField->type === 'protected') {
             // here we are in protected mode (asked in the config)
@@ -1745,7 +1745,7 @@ class InsertEdit
         $db,
         $table,
         $columnName,
-        array &$extraData
+        array &$extraData,
     ): void {
         $extraData['isNeedToRecheck'] = false;
 
@@ -1844,7 +1844,7 @@ class InsertEdit
             [$whereClauses, $result, $rows, $foundUniqueKey] = $this->analyzeWhereClauses(
                 $whereClauseArray,
                 $table,
-                $db
+                $db,
             );
         } else {
             // we are inserting
@@ -1985,7 +1985,7 @@ class InsertEdit
         $textDir,
         array $repopulate,
         array $columnMime,
-        $whereClause
+        $whereClause,
     ): string {
         if (! isset($column['processed'])) {
             $column = $this->analyzeTableColumnsArray($column, $commentsMap, $timestampSeen);
@@ -2041,7 +2041,7 @@ class InsertEdit
                 $extractedColumnspec,
                 $gisDataTypes,
                 $columnNameAppendix,
-                $asIs
+                $asIs,
             );
         } else {
             // (we are inserting)
@@ -2100,7 +2100,7 @@ class InsertEdit
                 if (class_exists($className)) {
                     $transformationPlugin = new $className();
                     $transformationOptions = $this->transformations->getOptions(
-                        $columnMime['input_transformation_options']
+                        $columnMime['input_transformation_options'],
                     );
                     $urlParams = [
                         'db' => $db,
@@ -2126,14 +2126,14 @@ class InsertEdit
                             $textDir,
                             $tabindex,
                             $tabindexForValue,
-                            $idindex
+                            $idindex,
                         );
                     }
 
                     if (method_exists($transformationPlugin, 'getScripts')) {
                         $GLOBALS['plugin_scripts'] = array_merge(
                             $GLOBALS['plugin_scripts'],
-                            $transformationPlugin->getScripts()
+                            $transformationPlugin->getScripts(),
                         );
                     }
                 }
@@ -2162,7 +2162,7 @@ class InsertEdit
                     $foreignData['foreign_field'],
                     $foreignData['foreign_display'],
                     $data,
-                    $GLOBALS['cfg']['ForeignKeyMaxLimit']
+                    $GLOBALS['cfg']['ForeignKeyMaxLimit'],
                 );
             }
 
@@ -2195,7 +2195,7 @@ class InsertEdit
             } elseif ($column['pma_type'] === 'set') {
                 [$columnSetValues, $setSelectSize] = $this->getColumnSetValueAndSelectSize(
                     $column,
-                    $extractedColumnspec['enum_set_values']
+                    $extractedColumnspec['enum_set_values'],
                 );
             } elseif ($column['is_binary'] || $column['is_blob']) {
                 $isColumnProtectedBlob = ($GLOBALS['cfg']['ProtectBinary'] === 'blob' && $column['is_blob'])
@@ -2229,7 +2229,7 @@ class InsertEdit
                         $tabindex,
                         $tabindexForValue,
                         $idindex,
-                        'HEX'
+                        'HEX',
                     );
                 }
             } else {
@@ -2246,7 +2246,7 @@ class InsertEdit
                     $textDir,
                     $specialCharsEncoded,
                     $data,
-                    $extractedColumnspec
+                    $extractedColumnspec,
                 );
             }
         }
@@ -2352,7 +2352,7 @@ class InsertEdit
         $biggestMaxFileSize,
         $textDir,
         array $repopulate,
-        array $whereClauseArray
+        array $whereClauseArray,
     ): string {
         $htmlOutput = $this->getHeadAndFootOfInsertRowTable($urlParams)
             . '<tbody>';
@@ -2406,7 +2406,7 @@ class InsertEdit
                 $textDir,
                 $repopulate,
                 $columnMime,
-                $whereClause
+                $whereClause,
             );
         }
 

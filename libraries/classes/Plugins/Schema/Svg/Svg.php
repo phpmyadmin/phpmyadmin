@@ -201,7 +201,7 @@ class Svg extends XMLWriter
         int|string $width = '',
         int|string $height = '',
         string|null $text = '',
-        $styles = ''
+        $styles = '',
     ): void {
         $this->startElement($name);
         $this->writeAttribute('width', (string) $width);

@@ -21,7 +21,7 @@ final class AddController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private DatabaseInterface $dbi,
-        private StructureController $structureController
+        private StructureController $structureController,
     ) {
         parent::__construct($response, $template);
     }

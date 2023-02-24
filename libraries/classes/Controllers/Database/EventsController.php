@@ -21,7 +21,7 @@ final class EventsController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private Events $events,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
     }

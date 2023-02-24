@@ -20,7 +20,7 @@ final class CreateController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private TemplateModel $model,
-        private Relation $relation
+        private Relation $relation,
     ) {
         parent::__construct($response, $template);
     }
@@ -50,7 +50,7 @@ final class CreateController extends AbstractController
         $result = $this->model->create(
             $exportTemplatesFeature->database,
             $exportTemplatesFeature->exportTemplates,
-            $template
+            $template,
         );
 
         if ($result !== '') {
@@ -64,7 +64,7 @@ final class CreateController extends AbstractController
             $exportTemplatesFeature->database,
             $exportTemplatesFeature->exportTemplates,
             $template->getUsername(),
-            $template->getExportType()
+            $template->getExportType(),
         );
 
         $this->response->setRequestStatus(true);
@@ -73,7 +73,7 @@ final class CreateController extends AbstractController
             $this->template->render('export/template_options', [
                 'templates' => is_array($templates) ? $templates : [],
                 'selected_template' => $templateId,
-            ])
+            ]),
         );
     }
 }

@@ -35,7 +35,7 @@ final class PartitioningController extends AbstractController
         Template $template,
         private DatabaseInterface $dbi,
         private CreateAddField $createAddField,
-        private StructureController $structureController
+        private StructureController $structureController,
     ) {
         parent::__construct($response, $template);
     }
@@ -108,7 +108,7 @@ final class PartitioningController extends AbstractController
                 $partitionDetails['partition_expr'] = trim(substr(
                     $stmt->partitionBy,
                     $openPos + 1,
-                    $closePos - ($openPos + 1)
+                    $closePos - ($openPos + 1),
                 ));
 
                 $count = $stmt->partitionsNum ?? count($stmt->partitions);
@@ -130,7 +130,7 @@ final class PartitioningController extends AbstractController
                 $partitionDetails['subpartition_expr'] = trim(substr(
                     $stmt->subpartitionBy,
                     $openPos + 1,
-                    $closePos - ($openPos + 1)
+                    $closePos - ($openPos + 1),
                 ));
 
                 $count = $stmt->subpartitionsNum ?? count($stmt->partitions[0]->subpartitions);
@@ -254,19 +254,19 @@ final class PartitioningController extends AbstractController
             $this->response->addJSON(
                 'message',
                 Message::rawError(
-                    __('Query error') . ':<br>' . $this->dbi->getError()
-                )
+                    __('Query error') . ':<br>' . $this->dbi->getError(),
+                ),
             );
 
             return;
         }
 
         $message = Message::success(
-            __('Table %1$s has been altered successfully.')
+            __('Table %1$s has been altered successfully.'),
         );
         $message->addParam($GLOBALS['table']);
         $this->response->addHTML(
-            Generator::getMessage($message, $sql_query, 'success')
+            Generator::getMessage($message, $sql_query, 'success'),
         );
     }
 }

@@ -41,7 +41,7 @@ class ServerSettingsTest extends TestBase
         $ele = $this->waitForElement(
             'xpath',
             "//div[contains(@class, 'tab-pane') and contains(@class, 'show')"
-                . " and contains(@class, 'active')]//input[@value='Apply']"
+                . " and contains(@class, 'active')]//input[@value='Apply']",
         );
         $this->scrollToBottom();
         $this->moveto($ele);
@@ -50,7 +50,7 @@ class ServerSettingsTest extends TestBase
         $this->waitUntilElementIsPresent(
             'xpath',
             "//div[@class='alert alert-success' and contains(., 'Configuration has been saved')]",
-            5000
+            5000,
         );
     }
 
@@ -74,7 +74,7 @@ class ServerSettingsTest extends TestBase
 
         $this->saveConfig();
         $this->assertFalse(
-            $this->isElementPresent('partialLinkText', $this->databaseName)
+            $this->isElementPresent('partialLinkText', $this->databaseName),
         );
 
         $this->waitForElement('xpath', "//a[contains(@href, '#Databases')]")->click();
@@ -82,7 +82,7 @@ class ServerSettingsTest extends TestBase
         $this->waitForElement('name', 'Servers-1-hide_db')->clear();
         $this->saveConfig();
         $this->assertTrue(
-            $this->isElementPresent('partialLinkText', $this->databaseName)
+            $this->isElementPresent('partialLinkText', $this->databaseName),
         );
     }
 
@@ -100,18 +100,18 @@ class ServerSettingsTest extends TestBase
 
         $this->byPartialLinkText('SQL Query box')->click();
         $this->assertTrue(
-            $this->byId('Sql_box')->isDisplayed()
+            $this->byId('Sql_box')->isDisplayed(),
         );
         $this->assertFalse(
-            $this->byId('Sql_queries')->isDisplayed()
+            $this->byId('Sql_queries')->isDisplayed(),
         );
 
         $this->byCssSelector("a[href='#Sql_queries']")->click();
         $this->assertFalse(
-            $this->byId('Sql_box')->isDisplayed()
+            $this->byId('Sql_box')->isDisplayed(),
         );
         $this->assertTrue(
-            $this->byId('Sql_queries')->isDisplayed()
+            $this->byId('Sql_queries')->isDisplayed(),
         );
     }
 
@@ -130,14 +130,14 @@ class ServerSettingsTest extends TestBase
         $this->saveConfig();
         sleep(1);
         $this->assertFalse(
-            $this->isElementPresent('id', 'imgpmalogo')
+            $this->isElementPresent('id', 'imgpmalogo'),
         );
 
         $this->byCssSelector("a[href='#NavigationDisplayLogo']")->click();
         $this->saveConfig();
         sleep(1);
         $this->assertTrue(
-            $this->isElementPresent('id', 'imgpmalogo')
+            $this->isElementPresent('id', 'imgpmalogo'),
         );
     }
 }

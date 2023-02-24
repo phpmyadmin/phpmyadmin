@@ -313,7 +313,7 @@ class Data
         array $allocations,
         array $allocationMap,
         array $sectionUsed,
-        array $used_queries
+        array $used_queries,
     ): array {
         foreach ($server_status as $name => $value) {
             $section_found = false;

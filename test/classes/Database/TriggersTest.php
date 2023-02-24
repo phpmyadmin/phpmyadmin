@@ -36,7 +36,7 @@ class TriggersTest extends AbstractTestCase
         $this->triggers = new Triggers(
             $GLOBALS['dbi'],
             new Template(),
-            ResponseRenderer::getInstance()
+            ResponseRenderer::getInstance(),
         );
     }
 
@@ -126,7 +126,7 @@ class TriggersTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $this->assertStringContainsString(
             $matcher,
-            $this->triggers->getEditorForm('pma_test', 'table', 'add', $data)
+            $this->triggers->getEditorForm('pma_test', 'table', 'add', $data),
         );
     }
 
@@ -172,7 +172,7 @@ class TriggersTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $this->assertStringContainsString(
             $matcher,
-            $this->triggers->getEditorForm('pma_test', 'table', 'edit', $data)
+            $this->triggers->getEditorForm('pma_test', 'table', 'edit', $data),
         );
     }
 
@@ -218,7 +218,7 @@ class TriggersTest extends AbstractTestCase
         ResponseRenderer::getInstance()->setAjax(true);
         $this->assertStringContainsString(
             $matcher,
-            $this->triggers->getEditorForm('pma_test', 'table', 'edit', $data)
+            $this->triggers->getEditorForm('pma_test', 'table', 'edit', $data),
         );
         ResponseRenderer::getInstance()->setAjax(false);
     }
@@ -268,7 +268,7 @@ class TriggersTest extends AbstractTestCase
         string $table,
         string $definition,
         string $query,
-        int $num_err
+        int $num_err,
     ): void {
         $GLOBALS['errors'] = [];
 

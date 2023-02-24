@@ -77,7 +77,7 @@ class ExportCodegen extends ExportPlugin
         $generalOptions->addProperty($leaf);
         $leaf = new SelectPropertyItem(
             'format',
-            __('Format:')
+            __('Format:'),
         );
         $leaf->setValues($this->getCgFormats());
         $generalOptions->addProperty($leaf);
@@ -153,7 +153,7 @@ class ExportCodegen extends ExportPlugin
         $table,
         $errorUrl,
         $sqlQuery,
-        array $aliases = []
+        array $aliases = [],
     ): bool {
         $format = (int) $GLOBALS['codegen_format'];
 
@@ -211,8 +211,8 @@ class ExportCodegen extends ExportPlugin
             sprintf(
                 'DESC %s.%s',
                 Util::backquote($db),
-                Util::backquote($table)
-            )
+                Util::backquote($table),
+            ),
         );
 
         /** @var TableProperty[] $tableProperties */
@@ -282,7 +282,7 @@ class ExportCodegen extends ExportPlugin
                 . '        {' . "\n"
                 . '            get {return _#name#;}' . "\n"
                 . '            set {_#name#=value;}' . "\n"
-                . '        }'
+                . '        }',
             );
         }
 
@@ -306,7 +306,7 @@ class ExportCodegen extends ExportPlugin
     private function handleNHibernateXMLBody(
         $db,
         $table,
-        array $aliases = []
+        array $aliases = [],
     ): string {
         $db_alias = $db;
         $table_alias = $table;
@@ -323,8 +323,8 @@ class ExportCodegen extends ExportPlugin
             sprintf(
                 'DESC %s.%s',
                 Util::backquote($db),
-                Util::backquote($table)
-            )
+                Util::backquote($table),
+            ),
         );
 
         while ($row = $result->fetchRow()) {
@@ -342,7 +342,7 @@ class ExportCodegen extends ExportPlugin
                     . ' not-null="#notNull#" unique="#unique#"'
                     . ' index="PRIMARY"/>' . "\n"
                     . '            <generator class="native" />' . "\n"
-                    . '        </id>'
+                    . '        </id>',
                 );
             } else {
                 $lines[] = $tableProperty->formatXml(
@@ -350,7 +350,7 @@ class ExportCodegen extends ExportPlugin
                     . ' type="#dotNetObjectType#">' . "\n"
                     . '            <column name="#name#" sql-type="#type#"'
                     . ' not-null="#notNull#" #indexName#/>' . "\n"
-                    . '        </property>'
+                    . '        </property>',
                 );
             }
         }

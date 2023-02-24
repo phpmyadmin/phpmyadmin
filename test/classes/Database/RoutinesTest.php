@@ -44,7 +44,7 @@ class RoutinesTest extends AbstractTestCase
         $this->routines = new Routines(
             $GLOBALS['dbi'],
             new Template(),
-            ResponseRenderer::getInstance()
+            ResponseRenderer::getInstance(),
         );
     }
 
@@ -322,7 +322,7 @@ class RoutinesTest extends AbstractTestCase
     {
         $this->assertStringContainsString(
             $matcher,
-            $this->routines->getParameterRow($data, $index)
+            $this->routines->getParameterRow($data, $index),
         );
     }
 
@@ -401,7 +401,7 @@ class RoutinesTest extends AbstractTestCase
         ResponseRenderer::getInstance()->setAjax(true);
         $this->assertStringContainsString(
             $matcher,
-            $this->routines->getParameterRow($data)
+            $this->routines->getParameterRow($data),
         );
         ResponseRenderer::getInstance()->setAjax(false);
     }
@@ -475,7 +475,7 @@ class RoutinesTest extends AbstractTestCase
     {
         $this->assertStringContainsString(
             $matcher,
-            $this->routines->getEditorForm('add', '', $data)
+            $this->routines->getEditorForm('add', '', $data),
         );
     }
 
@@ -592,7 +592,7 @@ class RoutinesTest extends AbstractTestCase
     {
         $this->assertStringContainsString(
             $matcher,
-            $this->routines->getEditorForm('edit', 'change', $data)
+            $this->routines->getEditorForm('edit', 'change', $data),
         );
     }
 
@@ -710,7 +710,7 @@ class RoutinesTest extends AbstractTestCase
         ResponseRenderer::getInstance()->setAjax(true);
         $this->assertStringContainsString(
             $matcher,
-            $this->routines->getEditorForm('edit', 'remove', $data)
+            $this->routines->getEditorForm('edit', 'remove', $data),
         );
         ResponseRenderer::getInstance()->setAjax(false);
     }
@@ -824,7 +824,7 @@ class RoutinesTest extends AbstractTestCase
     {
         $this->assertStringContainsString(
             $matcher,
-            $this->routines->getEditorForm('edit', 'change', $data)
+            $this->routines->getEditorForm('edit', 'change', $data),
         );
     }
 
@@ -882,7 +882,7 @@ class RoutinesTest extends AbstractTestCase
 
         $this->assertStringContainsString(
             $matcher,
-            $this->routines->getExecuteForm($data)
+            $this->routines->getExecuteForm($data),
         );
     }
 
@@ -1020,7 +1020,7 @@ class RoutinesTest extends AbstractTestCase
         ResponseRenderer::getInstance()->setAjax(true);
         $this->assertStringContainsString(
             $matcher,
-            $this->routines->getExecuteForm($data)
+            $this->routines->getExecuteForm($data),
         );
         ResponseRenderer::getInstance()->setAjax(false);
     }
@@ -1163,15 +1163,15 @@ class RoutinesTest extends AbstractTestCase
                             Connection::TYPE_USER,
                             '',
                         ],
-                    ]
-                )
+                    ],
+                ),
             );
         $GLOBALS['dbi'] = $dbi;
 
         $routines = new Routines(
             $dbi,
             new Template(),
-            ResponseRenderer::getInstance()
+            ResponseRenderer::getInstance(),
         );
 
         unset($_POST);
@@ -1443,7 +1443,7 @@ class RoutinesTest extends AbstractTestCase
                 ['test_db', 'test_func2', 'FUNCTION'],
                 ['test_db', 'test_func', 'PROCEDURE'],
             ],
-            ['Db', 'Name', 'Type']
+            ['Db', 'Name', 'Type'],
         );
 
         $names = Routines::getFunctionNames($this->createDatabaseInterface($dbiDummy), 'test_db');
@@ -1462,7 +1462,7 @@ class RoutinesTest extends AbstractTestCase
                 ['test_db', '', 'FUNCTION'],
                 ['test_db', 'test_func', 'PROCEDURE'],
             ],
-            ['Db', 'Name', 'Type']
+            ['Db', 'Name', 'Type'],
         );
 
         $names = Routines::getFunctionNames($this->createDatabaseInterface($dbiDummy), 'test_db');
@@ -1483,7 +1483,7 @@ class RoutinesTest extends AbstractTestCase
                 ['test_db', 'test_proc2', 'PROCEDURE'],
                 ['test_db', 'test_proc', 'FUNCTION'],
             ],
-            ['Db', 'Name', 'Type']
+            ['Db', 'Name', 'Type'],
         );
 
         $names = Routines::getProcedureNames($this->createDatabaseInterface($dbiDummy), 'test_db');
@@ -1502,7 +1502,7 @@ class RoutinesTest extends AbstractTestCase
                 ['test_db', '', 'PROCEDURE'],
                 ['test_db', 'test_proc', 'FUNCTION'],
             ],
-            ['Db', 'Name', 'Type']
+            ['Db', 'Name', 'Type'],
         );
 
         $names = Routines::getProcedureNames($this->createDatabaseInterface($dbiDummy), 'test_db');

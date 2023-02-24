@@ -187,7 +187,7 @@ class Font
         string $text,
         string $font,
         int $fontSize,
-        array|null $charLists = null
+        array|null $charLists = null,
     ): int {
         if (
             ! isset($charLists[0]['chars'], $charLists[0]['modifier'])

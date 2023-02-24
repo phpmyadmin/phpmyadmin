@@ -53,7 +53,7 @@ class ChangeControllerTest extends AbstractTestCase
             $response,
             new Template(),
             $this->dbi,
-            new ColumnsDefinition($this->dbi, new Relation($this->dbi), new Transformations())
+            new ColumnsDefinition($this->dbi, new Relation($this->dbi), new Transformations()),
         );
 
         $method->invokeArgs($ctrl, [[$_REQUEST['field']]]);
@@ -67,7 +67,7 @@ class ChangeControllerTest extends AbstractTestCase
             . '    title="Column"' . "\n"
             . '    size="10"' . "\n"
             . '    value="_id">' . "\n",
-            $actual
+            $actual,
         );
         $this->assertStringContainsString('id="enumEditorModal"', $actual);
     }

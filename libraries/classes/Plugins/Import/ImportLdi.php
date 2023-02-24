@@ -59,19 +59,19 @@ class ImportLdi extends AbstractImportCsv
 
         $leaf = new TextPropertyItem(
             'columns',
-            __('Column names: ')
+            __('Column names: '),
         );
         $generalOptions->addProperty($leaf);
 
         $leaf = new BoolPropertyItem(
             'ignore',
-            __('Do not abort on INSERT error')
+            __('Do not abort on INSERT error'),
         );
         $generalOptions->addProperty($leaf);
 
         $leaf = new BoolPropertyItem(
             'local_option',
-            __('Use LOCAL keyword')
+            __('Use LOCAL keyword'),
         );
         $generalOptions->addProperty($leaf);
 
@@ -113,7 +113,7 @@ class ImportLdi extends AbstractImportCsv
         if ($GLOBALS['import_file'] === 'none' || $compression !== 'none' || $GLOBALS['charset_conversion']) {
             // We handle only some kind of data!
             $GLOBALS['message'] = Message::error(
-                __('This plugin does not support compressed imports!')
+                __('This plugin does not support compressed imports!'),
             );
             $GLOBALS['error'] = true;
 
@@ -175,7 +175,7 @@ class ImportLdi extends AbstractImportCsv
 
                 /* Trim also `, if user already included backquoted fields */
                 $sql .= Util::backquote(
-                    trim($tmp[$i], " \t\r\n\0\x0B`")
+                    trim($tmp[$i], " \t\r\n\0\x0B`"),
                 );
             }
 

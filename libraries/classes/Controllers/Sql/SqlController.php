@@ -33,7 +33,7 @@ class SqlController extends AbstractController
         Template $template,
         private Sql $sql,
         private CheckUserPrivileges $checkUserPrivileges,
-        private DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
     }
@@ -92,7 +92,7 @@ class SqlController extends AbstractController
             $GLOBALS['errorUrl'] = ! empty($GLOBALS['back']) ? $GLOBALS['back'] : $GLOBALS['goto'];
             $GLOBALS['errorUrl'] .= Url::getCommon(
                 ['db' => $GLOBALS['db']],
-                ! str_contains($GLOBALS['errorUrl'], '?') ? '?' : '&'
+                ! str_contains($GLOBALS['errorUrl'], '?') ? '?' : '&',
             );
             if (
                 (mb_strpos(' ' . $GLOBALS['errorUrl'], 'db_') !== 1
@@ -139,7 +139,7 @@ class SqlController extends AbstractController
          */
         [$statementInfo, $GLOBALS['db'], $GLOBALS['table_from_sql']] = ParseAnalyze::sqlQuery(
             $GLOBALS['sql_query'],
-            $GLOBALS['db']
+            $GLOBALS['db'],
         );
 
         if ($GLOBALS['table'] != $GLOBALS['table_from_sql'] && ! empty($GLOBALS['table_from_sql'])) {
@@ -157,14 +157,14 @@ class SqlController extends AbstractController
             $this->sql->hasNoRightsToDropDatabase(
                 $statementInfo,
                 $GLOBALS['cfg']['AllowUserDropDatabase'],
-                $this->dbi->isSuperUser()
+                $this->dbi->isSuperUser(),
             )
         ) {
             Generator::mysqlDie(
                 __('"DROP DATABASE" statements are disabled.'),
                 '',
                 false,
-                $GLOBALS['errorUrl']
+                $GLOBALS['errorUrl'],
             );
         }
 
@@ -212,7 +212,7 @@ class SqlController extends AbstractController
             isset($GLOBALS['disp_query']) ? $GLOBALS['display_query'] : null,
             $GLOBALS['disp_message'] ?? null,
             $GLOBALS['sql_query'],
-            $GLOBALS['complete_query'] ?? null
+            $GLOBALS['complete_query'] ?? null,
         ));
     }
 
@@ -224,7 +224,7 @@ class SqlController extends AbstractController
         $bookmark = Bookmark::createBookmark(
             $this->dbi,
             $bkm_fields,
-            $bkm_all_users
+            $bkm_all_users,
         );
 
         $result = null;

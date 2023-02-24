@@ -61,7 +61,7 @@ class ListDatabaseTest extends AbstractTestCase
                     'is_selected' => false,
                 ],
             ],
-            $arr->getList()
+            $arr->getList(),
         );
 
         $GLOBALS['db'] = 'single_db';
@@ -72,7 +72,7 @@ class ListDatabaseTest extends AbstractTestCase
                     'is_selected' => true,
                 ],
             ],
-            $arr->getList()
+            $arr->getList(),
         );
     }
 
@@ -87,9 +87,9 @@ class ListDatabaseTest extends AbstractTestCase
                 $this->object,
                 ListDatabase::class,
                 'checkHideDatabase',
-                []
+                [],
             ),
-            ''
+            '',
         );
     }
 
@@ -101,13 +101,13 @@ class ListDatabaseTest extends AbstractTestCase
         $GLOBALS['db'] = '';
         $this->assertEquals(
             $this->object->getDefault(),
-            ''
+            '',
         );
 
         $GLOBALS['db'] = 'mysql';
         $this->assertEquals(
             $this->object->getDefault(),
-            'mysql'
+            'mysql',
         );
     }
 }

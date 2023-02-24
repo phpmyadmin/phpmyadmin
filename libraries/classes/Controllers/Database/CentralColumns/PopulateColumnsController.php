@@ -15,7 +15,7 @@ final class PopulateColumnsController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        private CentralColumns $centralColumns
+        private CentralColumns $centralColumns,
     ) {
         parent::__construct($response, $template);
     }
@@ -24,7 +24,7 @@ final class PopulateColumnsController extends AbstractController
     {
         $columns = $this->centralColumns->getColumnsNotInCentralList(
             $GLOBALS['db'],
-            $request->getParsedBodyParam('selectedTable')
+            $request->getParsedBodyParam('selectedTable'),
         );
         $this->render('database/central_columns/populate_columns', ['columns' => $columns]);
     }

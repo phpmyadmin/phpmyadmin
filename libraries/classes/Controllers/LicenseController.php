@@ -35,10 +35,10 @@ class LicenseController extends AbstractController
 
         printf(
             __(
-                'The %s file is not available on this system, please visit %s for more information.'
+                'The %s file is not available on this system, please visit %s for more information.',
             ),
             $filename,
-            'https://www.phpmyadmin.net/'
+            'https://www.phpmyadmin.net/',
         );
     }
 }

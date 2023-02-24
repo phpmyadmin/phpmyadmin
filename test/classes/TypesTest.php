@@ -46,7 +46,7 @@ class TypesTest extends AbstractTestCase
                 "= ''",
                 "!= ''",
             ],
-            $this->object->getUnaryOperators()
+            $this->object->getUnaryOperators(),
         );
     }
 
@@ -60,7 +60,7 @@ class TypesTest extends AbstractTestCase
                 'IS NULL',
                 'IS NOT NULL',
             ],
-            $this->object->getNullOperators()
+            $this->object->getNullOperators(),
         );
     }
 
@@ -74,7 +74,7 @@ class TypesTest extends AbstractTestCase
                 '=',
                 '!=',
             ],
-            $this->object->getEnumOperators()
+            $this->object->getEnumOperators(),
         );
     }
 
@@ -101,7 +101,7 @@ class TypesTest extends AbstractTestCase
                 'BETWEEN',
                 'NOT BETWEEN',
             ],
-            $this->object->getTextOperators()
+            $this->object->getTextOperators(),
         );
     }
 
@@ -127,7 +127,7 @@ class TypesTest extends AbstractTestCase
                 'BETWEEN',
                 'NOT BETWEEN',
             ],
-            $this->object->getNumberOperators()
+            $this->object->getNumberOperators(),
         );
     }
 
@@ -147,7 +147,7 @@ class TypesTest extends AbstractTestCase
                 'IN (...)',
                 'NOT IN (...)',
             ],
-            $this->object->getUUIDOperators()
+            $this->object->getUUIDOperators(),
         );
     }
 
@@ -164,7 +164,7 @@ class TypesTest extends AbstractTestCase
     {
         $this->assertEquals(
             $output,
-            $this->object->getTypeOperators($type, $null)
+            $this->object->getTypeOperators($type, $null),
         );
     }
 
@@ -262,11 +262,11 @@ class TypesTest extends AbstractTestCase
         string $type,
         bool $null,
         string $selectedOperator,
-        string $output
+        string $output,
     ): void {
         $this->assertEquals(
             $output,
-            $this->object->getTypeOperatorsHtml($type, $null, $selectedOperator)
+            $this->object->getTypeOperatorsHtml($type, $null, $selectedOperator),
         );
     }
 
@@ -298,7 +298,7 @@ class TypesTest extends AbstractTestCase
     {
         $this->assertNotEquals(
             '',
-            $this->object->getTypeDescription($type)
+            $this->object->getTypeDescription($type),
         );
     }
 
@@ -309,7 +309,7 @@ class TypesTest extends AbstractTestCase
     {
         $this->assertEquals(
             '',
-            $this->object->getTypeDescription('UNKNOWN')
+            $this->object->getTypeDescription('UNKNOWN'),
         );
     }
 
@@ -376,7 +376,7 @@ class TypesTest extends AbstractTestCase
     {
         $this->assertEquals(
             $output,
-            $this->object->getFunctionsClass($class)
+            $this->object->getFunctionsClass($class),
         );
     }
 
@@ -576,7 +576,7 @@ class TypesTest extends AbstractTestCase
                 'UUID',
                 'VERSION',
             ],
-            $this->object->getFunctions('enum')
+            $this->object->getFunctions('enum'),
         );
     }
 
@@ -706,7 +706,7 @@ class TypesTest extends AbstractTestCase
                 'YEAR',
                 'YEARWEEK',
             ],
-            $this->object->getAllFunctions()
+            $this->object->getAllFunctions(),
         );
     }
 
@@ -723,7 +723,7 @@ class TypesTest extends AbstractTestCase
                 'UNSIGNED ZEROFILL',
                 'on update CURRENT_TIMESTAMP',
             ],
-            $this->object->getAttributes()
+            $this->object->getAttributes(),
         );
     }
 
@@ -793,7 +793,7 @@ class TypesTest extends AbstractTestCase
                 ],
                 'JSON' => ['JSON'],
             ],
-            $this->object->getColumns()
+            $this->object->getColumns(),
         );
     }
 
@@ -807,7 +807,7 @@ class TypesTest extends AbstractTestCase
     {
         $this->assertEquals(
             $output,
-            $this->object->getTypeClass($type)
+            $this->object->getTypeClass($type),
         );
     }
 

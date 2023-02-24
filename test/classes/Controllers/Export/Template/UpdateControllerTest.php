@@ -52,7 +52,7 @@ class UpdateControllerTest extends AbstractTestCase
             $response,
             new Template(),
             new TemplateModel($this->dbi),
-            new Relation($this->dbi)
+            new Relation($this->dbi),
         ))($request);
 
         $this->assertTrue($response->hasSuccessState());

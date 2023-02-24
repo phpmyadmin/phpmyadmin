@@ -49,14 +49,14 @@ PHP;
             null,
             InputOption::VALUE_OPTIONAL,
             'The remote URL to a commit',
-            'https://github.com/phpmyadmin/phpmyadmin/commit/%s'
+            'https://github.com/phpmyadmin/phpmyadmin/commit/%s',
         );
         $this->addOption(
             'remote-branch-url',
             null,
             InputOption::VALUE_OPTIONAL,
             'The remote URL to a branch',
-            'https://github.com/phpmyadmin/phpmyadmin/tree/%s'
+            'https://github.com/phpmyadmin/phpmyadmin/tree/%s',
         );
         $this->setHelp('This command generates the revision-info.php file from Git data.');
     }
@@ -108,7 +108,7 @@ PHP;
             trim($revisionText),
             sprintf($commitUrlFormat, trim($commitHash)),
             trim($branchName),
-            sprintf($branchUrlFormat, $branchName)
+            sprintf($branchUrlFormat, $branchName),
         );
     }
 

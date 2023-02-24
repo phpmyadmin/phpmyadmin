@@ -172,7 +172,7 @@ class Charsets
                 [
                     'Charset' => __('Unknown'),
                     'Description' => __('Unknown'),
-                ]
+                ],
             );
         }
 
@@ -214,7 +214,7 @@ class Charsets
     public static function findCollationByName(
         DatabaseInterface $dbi,
         bool $disableIs,
-        string $name
+        string $name,
     ): Collation|null {
         $charset = explode('_', $name)[0];
         $collations = self::getCollations($dbi, $disableIs);

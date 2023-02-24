@@ -70,7 +70,7 @@ class HttpRequestTest extends AbstractTestCase
             $this->httpRequest,
             HttpRequest::class,
             'curl',
-            [$url, $method, $return_only_status]
+            [$url, $method, $return_only_status],
         );
         $this->validateHttp($result, $expected);
     }
@@ -151,7 +151,7 @@ class HttpRequestTest extends AbstractTestCase
             $this->httpRequest,
             HttpRequest::class,
             'fopen',
-            [$url, $method, $return_only_status]
+            [$url, $method, $return_only_status],
         );
         $this->validateHttp($result, $expected);
     }

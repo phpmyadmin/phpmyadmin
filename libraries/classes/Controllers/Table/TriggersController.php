@@ -26,7 +26,7 @@ class TriggersController extends AbstractController
         ResponseRenderer $response,
         Template $template,
         private DatabaseInterface $dbi,
-        private Triggers $triggers
+        private Triggers $triggers,
     ) {
         parent::__construct($response, $template);
     }

@@ -64,7 +64,7 @@ class BdbTest extends AbstractTestCase
                 'bdb_no_sync' => [],
                 'skip_sync_bdb_logs' => [],
                 'sync_bdb_logs' => [],
-            ]
+            ],
         );
     }
 
@@ -75,7 +75,7 @@ class BdbTest extends AbstractTestCase
     {
         $this->assertEquals(
             $this->object->getVariablesLikePattern(),
-            '%bdb%'
+            '%bdb%',
         );
     }
 
@@ -86,7 +86,7 @@ class BdbTest extends AbstractTestCase
     {
         $this->assertEquals(
             $this->object->getMysqlHelpPage(),
-            'bdb'
+            'bdb',
         );
     }
 }

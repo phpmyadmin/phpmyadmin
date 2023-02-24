@@ -125,7 +125,7 @@ final class Gis
     public static function getFunctions(
         $geomType = null,
         $binary = true,
-        $display = false
+        $display = false,
     ): array {
         $funcs = [];
         if ($display) {

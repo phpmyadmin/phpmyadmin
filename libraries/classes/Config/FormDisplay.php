@@ -220,7 +220,7 @@ class FormDisplay
     public function getDisplay(
         $showButtons = true,
         $formAction = null,
-        $hiddenFields = null
+        $hiddenFields = null,
     ): string {
         $js = [];
         $jsDefault = [];
@@ -286,7 +286,7 @@ class FormDisplay
                     $workPath,
                     $translatedPath,
                     $userPrefsAllow,
-                    $jsDefault
+                    $jsDefault,
                 );
                 // register JS validators for this field
                 if (! isset($validators[$path])) {
@@ -333,7 +333,7 @@ class FormDisplay
         $workPath,
         $translatedPath,
         $userPrefsAllow,
-        array &$jsDefault
+        array &$jsDefault,
     ): string|null {
         $name = Descriptions::get($systemPath);
         $description = Descriptions::get($systemPath, 'desc');
@@ -389,7 +389,7 @@ class FormDisplay
                 $htmlOutput = '';
                 if (mb_substr($field, 7, 4) !== 'end:') {
                     $htmlOutput .= $this->formDisplayTemplate->displayGroupHeader(
-                        mb_substr($field, 7)
+                        mb_substr($field, 7),
                     );
                 } else {
                     $this->formDisplayTemplate->displayGroupFooter();
@@ -463,7 +463,7 @@ class FormDisplay
             $value,
             $description,
             $valueIsDefault,
-            $opts
+            $opts,
         );
     }
 
@@ -586,7 +586,7 @@ class FormDisplay
                     if ($type !== 'boolean') {
                         $this->errors[$form->name][] = sprintf(
                             __('Missing data for %s'),
-                            '<i>' . Descriptions::get($systemPath) . '</i>'
+                            '<i>' . Descriptions::get($systemPath) . '</i>',
                         );
                         $result = false;
                         continue;
@@ -623,7 +623,7 @@ class FormDisplay
                     case 'select':
                         $successfullyValidated = $this->validateSelect(
                             $_POST[$key],
-                            $form->getOptionValueList($systemPath)
+                            $form->getOptionValueList($systemPath),
                         );
                         if (! $successfullyValidated) {
                             $this->errors[$workPath][] = __('Incorrect value!');
@@ -653,7 +653,7 @@ class FormDisplay
                     $workPath = str_replace(
                         'Servers/' . $form->index . '/',
                         'Servers/' . $changeIndex . '/',
-                        $workPath
+                        $workPath,
                     );
                 }
 
@@ -697,7 +697,7 @@ class FormDisplay
         if ($isSetupScript) {
             $this->configFile->set(
                 'UserprefsDisallow',
-                array_keys($this->userprefsDisallow)
+                array_keys($this->userprefsDisallow),
             );
         }
 
@@ -730,7 +730,7 @@ class FormDisplay
         return MySQLDocumentation::getDocumentationLink(
             'config',
             'cfg_' . $this->getOptName($path),
-            Sanitize::isSetup() ? '../' : './'
+            Sanitize::isSetup() ? '../' : './',
         );
     }
 
@@ -777,7 +777,7 @@ class FormDisplay
                 $comment = sprintf(
                     __('"%s" requires %s extension'),
                     'iconv',
-                    'iconv'
+                    'iconv',
                 );
             }
 
@@ -786,7 +786,7 @@ class FormDisplay
                 $comment .= ($comment ? ', ' : '') . sprintf(
                     __('"%s" requires %s extension'),
                     'recode',
-                    'recode'
+                    'recode',
                 );
             }
 
@@ -815,18 +815,18 @@ class FormDisplay
             if (! function_exists($funcs[$systemPath][0])) {
                 $comment = sprintf(
                     __(
-                        'Compressed import will not work due to missing function %s.'
+                        'Compressed import will not work due to missing function %s.',
                     ),
-                    $funcs[$systemPath][0]
+                    $funcs[$systemPath][0],
                 );
             }
 
             if (! function_exists($funcs[$systemPath][1])) {
                 $comment .= ($comment ? '; ' : '') . sprintf(
                     __(
-                        'Compressed export will not work due to missing function %s.'
+                        'Compressed export will not work due to missing function %s.',
                     ),
-                    $funcs[$systemPath][1]
+                    $funcs[$systemPath][1],
                 );
             }
 
@@ -844,7 +844,7 @@ class FormDisplay
 
         $opts['comment'] = sprintf(
             __('maximum %s'),
-            $GLOBALS['cfg'][$systemPath]
+            $GLOBALS['cfg'][$systemPath],
         );
     }
 

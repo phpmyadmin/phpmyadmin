@@ -69,7 +69,7 @@ class SetVersionCommandTest extends AbstractTestCase
             $this->command,
             SetVersionCommand::class,
             'getGeneratedClass',
-            [$version]
+            [$version],
         );
     }
 
@@ -183,7 +183,7 @@ class SetVersionCommandTest extends AbstractTestCase
             $this->command,
             SetVersionCommand::class,
             'getGeneratedClass',
-            [$version]
+            [$version],
         );
         $template = <<<'PHP'
 <?php
@@ -208,7 +208,7 @@ final class Version
 PHP;
         $this->assertSame(
             sprintf($template, $content),
-            $output
+            $output,
         );
     }
 }

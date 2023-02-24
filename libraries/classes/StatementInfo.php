@@ -117,7 +117,7 @@ class StatementInfo
         SqlParser\Parser|null $parser,
         SqlParser\Statement|null $statement,
         array $selectTables,
-        array $selectExpression
+        array $selectExpression,
     ) {
         $this->distinct = $distinct;
         $this->dropDatabase = $dropDatabase;
@@ -223,7 +223,7 @@ class StatementInfo
             $info['parser'] ?? null,
             $info['statement'] ?? null,
             $info['select_tables'] ?? [],
-            $info['select_expr'] ?? []
+            $info['select_expr'] ?? [],
         );
     }
 }

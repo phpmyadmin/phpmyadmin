@@ -106,7 +106,7 @@ class PluginsTest extends AbstractTestCase
                 'auth_socket' => __('Unix Socket based authentication'),
                 'unknown_auth_plugin' => 'Unknown authentication',
             ],
-            $plugins
+            $plugins,
         );
     }
 }

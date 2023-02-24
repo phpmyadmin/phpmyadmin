@@ -47,7 +47,7 @@ class IndexColumnTest extends TestCase
     {
         $this->assertSame(
             ['Column_name' => '', 'Seq_in_index' => 1, 'Collation' => null, 'Sub_part' => null, 'Null' => ''],
-            $this->object->getCompareData()
+            $this->object->getCompareData(),
         );
         $object = new IndexColumn([
             'Column_name' => 'name',
@@ -64,7 +64,7 @@ class IndexColumnTest extends TestCase
                 'Sub_part' => 2,
                 'Null' => 'NO',
             ],
-            $object->getCompareData()
+            $object->getCompareData(),
         );
     }
 

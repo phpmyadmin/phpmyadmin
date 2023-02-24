@@ -51,12 +51,12 @@ class SqlQueryFormTest extends AbstractTestCase
             [
                 'Field',
                 'Comment',
-            ]
+            ],
         );
 
         $this->dummyDbi->addResult(
             'SHOW INDEXES FROM `PMA_db`.`PMA_table`',
-            []
+            [],
         );
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;
@@ -110,7 +110,7 @@ class SqlQueryFormTest extends AbstractTestCase
         //validate 1: query
         $this->assertStringContainsString(
             htmlspecialchars($query),
-            $html
+            $html,
         );
 
         //validate 2: enable auto select text in textarea
@@ -120,7 +120,7 @@ class SqlQueryFormTest extends AbstractTestCase
         //validate 3: MySQLDocumentation::show
         $this->assertStringContainsString(
             MySQLDocumentation::show('SELECT'),
-            $html
+            $html,
         );
 
         //validate 4: $fields_list
@@ -134,7 +134,7 @@ class SqlQueryFormTest extends AbstractTestCase
         $this->assertStringContainsString('<input type="button" value="DELETE" id="delete"', $html);
         $this->assertStringContainsString(
             __('Clear'),
-            $html
+            $html,
         );
     }
 
@@ -151,7 +151,7 @@ class SqlQueryFormTest extends AbstractTestCase
         //validate 1: query
         $this->assertStringContainsString(
             htmlspecialchars($query),
-            $html
+            $html,
         );
 
         //validate 2: $enctype
@@ -166,20 +166,20 @@ class SqlQueryFormTest extends AbstractTestCase
         $db = $GLOBALS['db'];
         $this->assertStringContainsString(
             Url::getHiddenInputs($db, $table),
-            $html
+            $html,
         );
 
         //validate 5: $goto
         $goto = empty($GLOBALS['goto']) ? Url::getFromRoute('/table/sql') : $GLOBALS['goto'];
         $this->assertStringContainsString(
             htmlspecialchars($goto),
-            $html
+            $html,
         );
 
         //validate 6: Kanji encoding form
         $this->assertStringContainsString(
             Encoding::kanjiEncodingForm(),
-            $html
+            $html,
         );
         $GLOBALS['lang'] = 'en';
     }

@@ -44,7 +44,7 @@ class CreateNewTablesControllerTest extends AbstractTestCase
         $controller = new CreateNewTablesController(
             $response,
             $template,
-            new Normalization($dbi, new Relation($dbi), new Transformations(), $template)
+            new Normalization($dbi, new Relation($dbi), new Transformations(), $template),
         );
         $controller($request);
 

@@ -66,7 +66,7 @@ class UtilTest extends AbstractTestCase
                 'mbstring',
                 'sodium',
             ],
-            Util::listPHPExtensions()
+            Util::listPHPExtensions(),
         );
     }
 
@@ -197,7 +197,7 @@ class UtilTest extends AbstractTestCase
                     '`table`.`field12`' => '= b\'0001\'',
                 ],
             ],
-            $actual
+            $actual,
         );
     }
 
@@ -215,7 +215,7 @@ class UtilTest extends AbstractTestCase
         $actual = Util::getUniqueCondition(1, $meta, [str_repeat('*', 1001)]);
         $this->assertEquals(
             ['CHAR_LENGTH(`table`.`field`)  = 1001', false, ['`table`.`field`' => ' = 1001']],
-            $actual
+            $actual,
         );
     }
 
@@ -399,13 +399,13 @@ class UtilTest extends AbstractTestCase
     {
         $this->assertStringContainsString(
             '<select class="pageselector ajax" name="pma" >',
-            Util::pageselector('pma', 3)
+            Util::pageselector('pma', 3),
         );
 
         // If pageNow > nbTotalPage, show the pageNow number to avoid confusion
         $this->assertStringContainsString(
             '<option selected="selected" style="font-weight: bold" value="297">100</option>',
-            Util::pageselector('pma', 3, 100, 50)
+            Util::pageselector('pma', 3, 100, 50),
         );
     }
 
@@ -421,7 +421,7 @@ class UtilTest extends AbstractTestCase
     {
         $this->assertEquals(
             $expected,
-            Util::getCharsetQueryPart($collation)
+            Util::getCharsetQueryPart($collation),
         );
     }
 
@@ -466,14 +466,14 @@ class UtilTest extends AbstractTestCase
         SessionCache::set('mysql_cur_user', 'mysql');
         $this->assertEquals(
             'mysql',
-            $_SESSION['cache']['server_server']['mysql_cur_user']
+            $_SESSION['cache']['server_server']['mysql_cur_user'],
         );
 
         Util::clearUserCache();
         $this->assertArrayNotHasKey('is_superuser', $_SESSION['cache']['server_server']);
         $this->assertArrayNotHasKey(
             'mysql_cur_user',
-            $_SESSION['cache']['server_server']
+            $_SESSION['cache']['server_server'],
         );
     }
 
@@ -489,7 +489,7 @@ class UtilTest extends AbstractTestCase
     {
         $this->assertEquals(
             $val,
-            Util::convertBitDefaultValue($bit)
+            Util::convertBitDefaultValue($bit),
         );
     }
 
@@ -558,15 +558,15 @@ class UtilTest extends AbstractTestCase
 
         $this->assertEquals(
             $out,
-            Util::expandUserString($in)
+            Util::expandUserString($in),
         );
 
         $this->assertEquals(
             htmlspecialchars($out),
             Util::expandUserString(
                 $in,
-                'htmlspecialchars'
-            )
+                'htmlspecialchars',
+            ),
         );
     }
 
@@ -619,7 +619,7 @@ class UtilTest extends AbstractTestCase
 
         $this->assertEquals(
             $out,
-            Util::extractColumnSpec($in)
+            Util::extractColumnSpec($in),
         );
     }
 
@@ -779,7 +779,7 @@ class UtilTest extends AbstractTestCase
     {
         $this->assertEquals(
             $expected,
-            Util::extractValueFromFormattedSize($size)
+            Util::extractValueFromFormattedSize($size),
         );
     }
 
@@ -1022,8 +1022,8 @@ class UtilTest extends AbstractTestCase
                 $a,
                 $b,
                 $c,
-                false
-            )
+                false,
+            ),
         );
     }
 
@@ -1212,7 +1212,7 @@ class UtilTest extends AbstractTestCase
     {
         $this->assertEquals(
             '(' . __('Max: ') . $res . $unit . ')',
-            Util::getFormattedMaximumUploadSize($size)
+            Util::getFormattedMaximumUploadSize($size),
         );
     }
 
@@ -1291,7 +1291,7 @@ class UtilTest extends AbstractTestCase
     {
         $this->assertEquals(
             $result,
-            Util::getTitleForTarget($target)
+            Util::getTitleForTarget($target),
         );
     }
 
@@ -1352,7 +1352,7 @@ class UtilTest extends AbstractTestCase
 
         $this->assertEquals(
             $e,
-            Util::localisedDate($a, $b)
+            Util::localisedDate($a, $b),
         );
 
         date_default_timezone_set($tmpTimezone);
@@ -1486,7 +1486,7 @@ class UtilTest extends AbstractTestCase
 
         $this->assertEquals(
             $e,
-            Util::timespanFormat($a)
+            Util::timespanFormat($a),
         );
 
         date_default_timezone_set($tmpTimezone);
@@ -1524,7 +1524,7 @@ class UtilTest extends AbstractTestCase
     {
         $this->assertEquals(
             $e,
-            Util::printableBitValue($a, $b)
+            Util::printableBitValue($a, $b),
         );
     }
 
@@ -1561,7 +1561,7 @@ class UtilTest extends AbstractTestCase
     {
         $this->assertEquals(
             $expected,
-            Util::unQuote($param)
+            Util::unQuote($param),
         );
     }
 
@@ -1604,7 +1604,7 @@ class UtilTest extends AbstractTestCase
     {
         $this->assertEquals(
             $expected,
-            Util::unQuote($param, '"')
+            Util::unQuote($param, '"'),
         );
     }
 
@@ -1700,12 +1700,12 @@ class UtilTest extends AbstractTestCase
             if ($type & Token::FLAG_KEYWORD_RESERVED) {
                 $this->assertEquals(
                     '`' . $keyword . '`',
-                    Util::backquoteCompat($keyword, 'NONE', false)
+                    Util::backquoteCompat($keyword, 'NONE', false),
                 );
             } else {
                 $this->assertEquals(
                     $keyword,
-                    Util::backquoteCompat($keyword, 'NONE', false)
+                    Util::backquoteCompat($keyword, 'NONE', false),
                 );
             }
         }
@@ -1757,7 +1757,7 @@ class UtilTest extends AbstractTestCase
     {
         $this->assertEquals(
             $e,
-            Util::duplicateFirstNewline($a)
+            Util::duplicateFirstNewline($a),
         );
     }
 
@@ -1793,7 +1793,7 @@ class UtilTest extends AbstractTestCase
         $no_support_types = [];
         $this->assertEquals(
             $no_support_types,
-            Util::unsupportedDatatypes()
+            Util::unsupportedDatatypes(),
         );
     }
 
@@ -2266,7 +2266,7 @@ SQL;
         $GLOBALS['lang'] = 'en';
         $this->assertSame(
             $finalLink,
-            Util::getScriptNameForOption($target, $location)
+            Util::getScriptNameForOption($target, $location),
         );
     }
 
@@ -2352,15 +2352,15 @@ SQL;
     {
         $this->assertSame(
             'index.php?route=/url&url=https%3A%2F%2Fmariadb.com%2Fkb%2Fen%2Fdocumentation%2F',
-            Util::getDocuURL(true)
+            Util::getDocuURL(true),
         );
         $this->assertSame(
             'index.php?route=/url&url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Findex.html',
-            Util::getDocuURL(false)
+            Util::getDocuURL(false),
         );
         $this->assertSame(
             'index.php?route=/url&url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Findex.html',
-            Util::getDocuURL()
+            Util::getDocuURL(),
         );
     }
 

@@ -18,7 +18,7 @@ final class ChangeRowsController extends AbstractController
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        private ChangeController $changeController
+        private ChangeController $changeController,
     ) {
         parent::__construct($response, $template);
     }

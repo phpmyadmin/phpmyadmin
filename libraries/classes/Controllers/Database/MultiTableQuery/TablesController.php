@@ -37,8 +37,8 @@ final class TablesController extends AbstractController
         $constrains = $this->dbi->fetchResult(
             QueryGenerator::getInformationSchemaForeignKeyConstraintsRequest(
                 $this->dbi->escapeString($db),
-                $tablesListForQuery
-            )
+                $tablesListForQuery,
+            ),
         );
         $this->response->addJSON(['foreignKeyConstrains' => $constrains]);
     }
