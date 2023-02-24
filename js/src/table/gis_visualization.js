@@ -171,7 +171,7 @@ function onGisMouseWheel (event) {
     event.preventDefault();
 
     var relCoords = getRelativeCoords(event);
-    var factor = event.deltaY > 0 ? zoomFactor : 1 / zoomFactor;
+    var factor = event.deltaY > 0 ? 1 / zoomFactor : zoomFactor;
     // zoom
     scale *= factor;
     // zooming keeping the position under mouse pointer unmoved.
