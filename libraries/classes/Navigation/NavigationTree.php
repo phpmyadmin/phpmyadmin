@@ -216,7 +216,7 @@ class NavigationTree
      */
     private function getNavigationDbPos(): int
     {
-        if (strlen($GLOBALS['db'] ?? '') === 0) {
+        if (($GLOBALS['db'] ?? '') === '') {
             return 0;
         }
 

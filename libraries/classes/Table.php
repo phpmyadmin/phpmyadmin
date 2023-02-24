@@ -50,7 +50,6 @@ use function sprintf;
 use function str_contains;
 use function str_replace;
 use function stripos;
-use function strlen;
 use function strtolower;
 use function strtoupper;
 use function substr;
@@ -435,7 +434,7 @@ class Table implements Stringable
         }
 
         // we need explicit DEFAULT value here (different from '0')
-        $hasPackKeys = isset($createOptions['pack_keys']) && strlen($createOptions['pack_keys']) > 0;
+        $hasPackKeys = isset($createOptions['pack_keys']) && $createOptions['pack_keys'] !== '';
         $createOptions['pack_keys'] = $hasPackKeys ? $createOptions['pack_keys'] : 'DEFAULT';
 
         return $createOptions;
@@ -485,7 +484,6 @@ class Table implements Stringable
         $columnsWithIndex = null,
         $oldColumnName = null
     ): string {
-        $strLength = strlen($length);
         $isTimestamp = mb_stripos($type, 'TIMESTAMP') !== false;
 
         $query = Util::backquote($name) . ' ' . $type;
@@ -498,7 +496,7 @@ class Table implements Stringable
         $pattern = '@^(DATE|TINYBLOB|TINYTEXT|BLOB|TEXT|'
             . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN|UUID|JSON)$@i';
         if (
-            $strLength !== 0
+            $length !== ''
             && ! preg_match($pattern, $type)
             && Compatibility::isIntegersSupportLength($type, $length, $GLOBALS['dbi'])
         ) {
@@ -511,7 +509,7 @@ class Table implements Stringable
         if ($attribute != '') {
             $query .= ' ' . $attribute;
 
-            if ($isTimestamp && stripos($attribute, 'TIMESTAMP') !== false && $strLength !== 0) {
+            if ($isTimestamp && stripos($attribute, 'TIMESTAMP') !== false && $length !== '') {
                 $query .= '(' . $length . ')';
             }
         }
@@ -592,7 +590,7 @@ class Table implements Stringable
                         $query .= ' DEFAULT ' . $defaultType;
 
                         if (
-                            $strLength !== 0
+                            $length !== ''
                             && $isTimestamp
                             && $defaultType !== 'NULL' // Not to be added in case of NULL
                         ) {
@@ -971,7 +969,7 @@ class Table implements Stringable
 
         // If the target database is not specified, the operation is taking
         // place in the same database.
-        if (! isset($targetDb) || strlen($targetDb) === 0) {
+        if (! isset($targetDb) || $targetDb === '') {
             $targetDb = $sourceDb;
         }
 
@@ -1381,7 +1379,7 @@ class Table implements Stringable
             return false;
         }
 
-        if (strlen($tableName) === 0) {
+        if ($tableName === '') {
             // zero length
             return false;
         }

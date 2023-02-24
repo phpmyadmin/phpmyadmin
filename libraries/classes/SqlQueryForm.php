@@ -21,7 +21,6 @@ use function __;
 use function htmlspecialchars;
 use function sprintf;
 use function str_contains;
-use function strlen;
 
 /**
  * PhpMyAdmin\SqlQueryForm class
@@ -67,10 +66,10 @@ class SqlQueryForm
             }
         }
 
-        if (strlen($db) === 0) {
+        if ($db === '') {
             // prepare for server related
             $goto = empty($GLOBALS['goto']) ? Url::getFromRoute('/server/sql') : $GLOBALS['goto'];
-        } elseif (strlen($table) === 0) {
+        } elseif ($table === '') {
             // prepare for db related
             $goto = empty($GLOBALS['goto']) ? Url::getFromRoute('/database/sql') : $GLOBALS['goto'];
         } else {
@@ -135,7 +134,7 @@ class SqlQueryForm
     public function init($query): array
     {
         $columns_list = [];
-        if (strlen($GLOBALS['db']) === 0) {
+        if ($GLOBALS['db'] === '') {
             // prepare for server related
             $legend = sprintf(
                 __('Run SQL query/queries on server “%s”'),
@@ -145,7 +144,7 @@ class SqlQueryForm
                     : $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['host']
                 )
             );
-        } elseif (strlen($GLOBALS['table']) === 0) {
+        } elseif ($GLOBALS['table'] === '') {
             // prepare for db related
             $db = $GLOBALS['db'];
             // if you want navigation:
