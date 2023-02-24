@@ -9,25 +9,21 @@ namespace PhpMyAdmin\Partitioning;
 
 use function array_values;
 
-/**
- * base Partition Class
- */
 class Partition extends SubPartition
 {
-    /** @var string partition description */
-    protected $description;
-    /** @var SubPartition[] sub partitions */
-    protected $subPartitions = [];
+    protected string|null $description = null;
+    /** @var SubPartition[] */
+    protected array $subPartitions = [];
 
     /**
      * Loads data from the fetched row from information_schema.PARTITIONS
      *
      * @param array $row fetched row
      */
-    protected function loadData(array $row): void
+    public function __construct(array $row)
     {
         $this->name = $row['PARTITION_NAME'];
-        $this->ordinal = $row['PARTITION_ORDINAL_POSITION'];
+        $this->ordinal = $row['PARTITION_ORDINAL_POSITION'] !== null ? (int) $row['PARTITION_ORDINAL_POSITION'] : null;
         $this->method = $row['PARTITION_METHOD'];
         $this->expression = $row['PARTITION_EXPRESSION'];
         $this->description = $row['PARTITION_DESCRIPTION'];
@@ -41,22 +37,18 @@ class Partition extends SubPartition
 
     /**
      * Returns the partition description
-     *
-     * @return string partition description
      */
-    public function getDescription(): string
+    public function getDescription(): string|null
     {
         return $this->description;
     }
 
     /**
      * Add a sub partition
-     *
-     * @param SubPartition $partition Sub partition
      */
-    public function addSubPartition(SubPartition $partition): void
+    public function addSubPartition(SubPartition $subPartition): void
     {
-        $this->subPartitions[] = $partition;
+        $this->subPartitions[] = $subPartition;
     }
 
     /**
@@ -64,7 +56,7 @@ class Partition extends SubPartition
      */
     public function hasSubPartitions(): bool
     {
-        return ! empty($this->subPartitions);
+        return $this->subPartitions !== [];
     }
 
     /**
@@ -74,7 +66,7 @@ class Partition extends SubPartition
      */
     public function getRows(): int
     {
-        if (empty($this->subPartitions)) {
+        if ($this->subPartitions === []) {
             return $this->rows;
         }
 
@@ -93,7 +85,7 @@ class Partition extends SubPartition
      */
     public function getDataLength(): int
     {
-        if (empty($this->subPartitions)) {
+        if ($this->subPartitions === []) {
             return $this->dataLength;
         }
 
@@ -112,7 +104,7 @@ class Partition extends SubPartition
      */
     public function getIndexLength(): int
     {
-        if (empty($this->subPartitions)) {
+        if ($this->subPartitions === []) {
             return $this->indexLength;
         }
 
@@ -165,9 +157,7 @@ class Partition extends SubPartition
                         continue;
                     }
 
-                    $parentPartition = $partition;
-                    $partition = new SubPartition($row);
-                    $parentPartition->addSubPartition($partition);
+                    $partition->addSubPartition(new SubPartition($row));
                 }
 
                 return array_values($partitionMap);

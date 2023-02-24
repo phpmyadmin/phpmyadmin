@@ -10329,7 +10329,6 @@
       <code><![CDATA[$this->expression]]></code>
       <code><![CDATA[$this->method]]></code>
       <code><![CDATA[$this->name]]></code>
-      <code><![CDATA[$this->ordinal]]></code>
       <code>$value</code>
     </MixedAssignment>
     <MixedInferredReturnType>
@@ -10346,23 +10345,13 @@
       <code>getSubPartitions</code>
       <code>hasSubPartitions</code>
     </PossiblyUnusedMethod>
-    <PropertyNotSetInConstructor>
-      <code>Partition</code>
-      <code>Partition</code>
-      <code>Partition</code>
-      <code>Partition</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Partitioning/SubPartition.php">
     <MixedAssignment>
       <code><![CDATA[$this->comment]]></code>
-      <code><![CDATA[$this->dataLength]]></code>
       <code><![CDATA[$this->expression]]></code>
-      <code><![CDATA[$this->indexLength]]></code>
       <code><![CDATA[$this->method]]></code>
       <code><![CDATA[$this->name]]></code>
-      <code><![CDATA[$this->ordinal]]></code>
-      <code><![CDATA[$this->rows]]></code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Partitioning/TablePartitionDefinition.php">

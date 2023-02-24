@@ -6021,17 +6021,22 @@ parameters:
 			path: libraries/classes/Partitioning/Maintenance.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Partitioning\\\\Partition\\:\\:__construct\\(\\) has parameter \\$row with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Partitioning/Partition.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Partitioning\\\\Partition\\:\\:getPartitionNames\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Partitioning/Partition.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Partitioning\\\\Partition\\:\\:loadData\\(\\) has parameter \\$row with no value type specified in iterable type array\\.$#"
+			message: "#^PHPDoc tag @var for variable \\$row has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Partitioning/Partition.php
 
 		-
-			message: "#^PHPDoc tag @var for variable \\$row has no value type specified in iterable type array\\.$#"
+			message: "#^PhpMyAdmin\\\\Partitioning\\\\Partition\\:\\:__construct\\(\\) does not call parent constructor from PhpMyAdmin\\\\Partitioning\\\\SubPartition\\.$#"
 			count: 1
 			path: libraries/classes/Partitioning/Partition.php
 
@@ -6042,11 +6047,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Partitioning\\\\SubPartition\\:\\:loadCommonData\\(\\) has parameter \\$row with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Partitioning/SubPartition.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Partitioning\\\\SubPartition\\:\\:loadData\\(\\) has parameter \\$row with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Partitioning/SubPartition.php
 
