@@ -488,7 +488,7 @@ class Pdf extends PdfLib
             // Find which tables are related with the current one and write it in
             // an array
             $res_rel = $this->relation->getForeigners($db, $table);
-            $have_rel = ! empty($res_rel);
+            $have_rel = $res_rel !== [];
         } else {
             $have_rel = false;
         }

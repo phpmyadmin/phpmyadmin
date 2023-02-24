@@ -55,7 +55,7 @@ class StructureController extends AbstractController
     protected $position;
 
     /** @var bool DB is information_schema */
-    protected $dbIsSystemSchema;
+    protected bool $dbIsSystemSchema = false;
 
     /** @var int Number of tables */
     protected $totalNumTables;
@@ -181,7 +181,7 @@ class StructureController extends AbstractController
         }
 
         $createTable = '';
-        if (empty($this->dbIsSystemSchema)) {
+        if ($this->dbIsSystemSchema === false) {
             $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
             $checkUserPrivileges->getPrivileges();
 
@@ -193,7 +193,7 @@ class StructureController extends AbstractController
             'has_tables' => $this->numTables > 0,
             'list_navigator_html' => $listNavigator ?? '',
             'table_list_html' => $tableList ?? '',
-            'is_system_schema' => ! empty($this->dbIsSystemSchema),
+            'is_system_schema' => $this->dbIsSystemSchema === true,
             'create_table_html' => $createTable,
         ]);
     }

@@ -184,7 +184,7 @@ class TwoFactor
         if (in_array($name, $this->available)) {
             /** @psalm-var class-string $result */
             $result = 'PhpMyAdmin\\Plugins\\TwoFactor\\' . ucfirst($name);
-        } elseif (! empty($name)) {
+        } elseif ($name !== '') {
             $result = Invalid::class;
         }
 

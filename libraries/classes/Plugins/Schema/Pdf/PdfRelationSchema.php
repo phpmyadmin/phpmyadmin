@@ -620,7 +620,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 $break = true;
             }
 
-            if (! empty($create_time)) {
+            if ($create_time !== '') {
                 $this->diagram->Cell(
                     0,
                     3,
@@ -631,7 +631,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 $break = true;
             }
 
-            if (! empty($update_time)) {
+            if ($update_time !== '') {
                 $this->diagram->Cell(
                     0,
                     3,
@@ -642,7 +642,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 $break = true;
             }
 
-            if (! empty($check_time)) {
+            if ($check_time !== '') {
                 $this->diagram->Cell(
                     0,
                     3,

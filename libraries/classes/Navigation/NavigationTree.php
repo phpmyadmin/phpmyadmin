@@ -923,10 +923,10 @@ class NavigationTree
             }
         }
 
-        $hasSearchClause = ! empty($this->searchClause) || ! empty($this->searchClause2);
+        $hasSearchClause = $this->searchClause !== '' || $this->searchClause2 !== '';
         if ($hasSearchClause && ! is_bool($node)) {
             $results = 0;
-            if (! empty($this->searchClause2)) {
+            if ($this->searchClause2 !== '') {
                 if (is_object($node->realParent())) {
                     $results = $node->realParent()
                         ->getPresence($node->realName, $this->searchClause2);
@@ -949,7 +949,7 @@ class NavigationTree
 
         if ($node !== false) {
             return $this->template->render('navigation/tree/path', [
-                'has_search_results' => ! empty($this->searchClause) || ! empty($this->searchClause2),
+                'has_search_results' => $this->searchClause !== '' || $this->searchClause2 !== '',
                 'list_content' => $listContent ?? '',
                 'is_tree' => $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'],
                 'parent_name' => $parentName ?? '',
@@ -1072,7 +1072,7 @@ class NavigationTree
             // if node name itself is in sterile, then allow
             $nodeIsGroup = $node->isGroup
                 || (! in_array($parentName, $sterile) && ! $node->isNew)
-                || (in_array($node->realName, $sterile) && ! empty($node->children));
+                || (in_array($node->realName, $sterile) && $node->children !== []);
             if ($nodeIsGroup) {
                 $match = $this->findTreeMatch($this->vPath, $paths['vPath_clean']);
                 $linkClasses = $node->getCssClasses($match);
@@ -1162,7 +1162,7 @@ class NavigationTree
             $buffer .= $this->renderNode($children[$i], $children[$i]->classes . $extraClass);
         }
 
-        if (! empty($buffer)) {
+        if ($buffer !== '') {
             $recursiveHtml = $this->fastFilterHtml($node);
             $recursiveHtml .= $this->getPageSelector($node);
             $recursiveHtml .= $buffer;

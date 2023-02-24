@@ -374,7 +374,7 @@ class ResponseRenderer
     public function response(): void
     {
         $this->buffer->stop();
-        if (empty($this->HTML)) {
+        if ($this->HTML === '') {
             $this->HTML = $this->buffer->getContents();
         }
 

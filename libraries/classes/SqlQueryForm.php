@@ -98,7 +98,7 @@ class SqlQueryForm
                     'id' => $bookmarkItem->getId(),
                     'variable_count' => $bookmarkItem->getVariableCount(),
                     'label' => $bookmarkItem->getLabel(),
-                    'is_shared' => empty($bookmarkItem->getUser()),
+                    'is_shared' => $bookmarkItem->getUser() === '',
                 ];
             }
         }
@@ -155,7 +155,7 @@ class SqlQueryForm
                 . '">';
             $tmp_db_link .= htmlspecialchars($db) . '</a>';
             $legend = sprintf(__('Run SQL query/queries on database %s'), $tmp_db_link);
-            if (empty($query)) {
+            if ($query === '') {
                 $query = Util::expandUserString($GLOBALS['cfg']['DefaultQueryDatabase'], Util::backquote(...));
             }
         } else {
@@ -170,7 +170,7 @@ class SqlQueryForm
             $tmp_tbl_link = '<a href="' . $scriptName . Url::getCommon(['db' => $db, 'table' => $table], '&') . '">';
             $tmp_tbl_link .= htmlspecialchars($db) . '.' . htmlspecialchars($table) . '</a>';
             $legend = sprintf(__('Run SQL query/queries on table %s'), $tmp_tbl_link);
-            if (empty($query)) {
+            if ($query === '') {
                 $query = Util::expandUserString($GLOBALS['cfg']['DefaultQueryTable'], Util::backquote(...));
             }
         }

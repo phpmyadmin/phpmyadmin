@@ -135,7 +135,7 @@ class ExportHtmlword extends ExportPlugin
      */
     public function exportDBHeader($db, $dbAlias = ''): bool
     {
-        if (empty($dbAlias)) {
+        if ($dbAlias === '') {
             $dbAlias = $db;
         }
 
@@ -586,7 +586,7 @@ class ExportHtmlword extends ExportPlugin
         array $unique_keys,
         $col_alias = ''
     ): string {
-        if (empty($col_alias)) {
+        if ($col_alias === '') {
             $col_alias = $column['Field'];
         }
 
@@ -595,7 +595,7 @@ class ExportHtmlword extends ExportPlugin
         $extracted_columnspec = Util::extractColumnSpec($column['Type']);
 
         $type = htmlspecialchars($extracted_columnspec['print_type']);
-        if (empty($type)) {
+        if ($type === '') {
             $type = '&nbsp;';
         }
 

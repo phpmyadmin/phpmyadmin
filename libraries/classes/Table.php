@@ -477,7 +477,7 @@ class Table implements Stringable
         bool|string $null = false,
         $defaultType = 'USER_DEFINED',
         $defaultValue = '',
-        $extra = '',
+        string $extra = '',
         $comment = '',
         $virtuality = '',
         $expression = '',
@@ -524,7 +524,7 @@ class Table implements Stringable
         $isVirtualColMariaDB = $virtuality && Compatibility::isMariaDb();
 
         $matches = preg_match('@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR|CHAR|ENUM|SET)$@i', $type);
-        if (! empty($collation) && $collation !== 'NULL' && $matches) {
+        if ($collation !== '' && $collation !== 'NULL' && $matches) {
             $query .= Util::getCharsetQueryPart(
                 $isVirtualColMariaDB ? (string) preg_replace('~_.+~s', '', $collation) : $collation,
                 true
@@ -611,7 +611,7 @@ class Table implements Stringable
                 }
             }
 
-            if (! empty($extra)) {
+            if ($extra !== '') {
                 if ($virtuality) {
                     $extra = trim((string) preg_replace('~^\s*AUTO_INCREMENT\s*~is', ' ', $extra));
                 }
@@ -620,7 +620,7 @@ class Table implements Stringable
             }
         }
 
-        if (! empty($comment)) {
+        if ($comment !== '') {
             $query .= ' COMMENT ' . $GLOBALS['dbi']->quoteString($comment);
         }
 
@@ -631,7 +631,7 @@ class Table implements Stringable
             $query .= ' AFTER ' . Util::backquote($moveTo);
         }
 
-        if (! $virtuality && ! empty($extra)) {
+        if (! $virtuality && $extra !== '') {
             if ($oldColumnName === null) {
                 if (is_array($columnsWithIndex) && ! in_array($name, $columnsWithIndex)) {
                     $query .= ', add PRIMARY KEY (' . Util::backquote($name) . ')';
@@ -790,7 +790,7 @@ class Table implements Stringable
         bool|string $null,
         $defaultType,
         $defaultValue,
-        $extra,
+        string $extra,
         $comment,
         $virtuality,
         $expression,
@@ -1800,7 +1800,7 @@ class Table implements Stringable
      */
     public function getUiProp($property): mixed
     {
-        if (empty($this->uiprefs)) {
+        if ($this->uiprefs === []) {
             $this->loadUiPrefs();
         }
 
@@ -1868,7 +1868,7 @@ class Table implements Stringable
      */
     public function setUiProp($property, $value, $tableCreateTime = null): bool|Message
     {
-        if (empty($this->uiprefs)) {
+        if ($this->uiprefs === []) {
             $this->loadUiPrefs();
         }
 
@@ -1915,7 +1915,7 @@ class Table implements Stringable
      */
     public function removeUiProp($property): bool|Message
     {
-        if (empty($this->uiprefs)) {
+        if ($this->uiprefs === []) {
             $this->loadUiPrefs();
         }
 
@@ -2348,7 +2348,7 @@ class Table implements Stringable
                 $displayQuery .= $createQuery . "\n";
                 $this->dbi->tryQuery($createQuery);
                 $tmpErrorCreate = $this->dbi->getError();
-                if (! empty($tmpErrorCreate)) {
+                if ($tmpErrorCreate !== '') {
                     $seenError = true;
 
                     if (substr($tmpErrorCreate, 1, 4) == '1005') {
@@ -2371,7 +2371,7 @@ class Table implements Stringable
 
             // this is an alteration and the old constraint has been dropped
             // without creation of a new one
-            if (! $drop || empty($tmpErrorCreate)) {
+            if (! $drop || ($tmpErrorCreate === '' || $tmpErrorCreate === false)) {
                 continue;
             }
 
@@ -2429,7 +2429,7 @@ class Table implements Stringable
     ): string {
         $sqlQuery = 'ALTER TABLE ' . Util::backquote($table) . ' ADD ';
         // if user entered a constraint name
-        if (! empty($name)) {
+        if ($name !== null && $name !== '') {
             $sqlQuery .= ' CONSTRAINT ' . Util::backquote($name);
         }
 
@@ -2447,11 +2447,11 @@ class Table implements Stringable
             . Util::backquote($foreignTable)
             . '(' . implode(', ', $foreignField) . ')';
 
-        if (! empty($onDelete)) {
+        if ($onDelete !== null && $onDelete !== '') {
             $sqlQuery .= ' ON DELETE ' . $onDelete;
         }
 
-        if (! empty($onUpdate)) {
+        if ($onUpdate !== null && $onUpdate !== '') {
             $sqlQuery .= ' ON UPDATE ' . $onUpdate;
         }
 

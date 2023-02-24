@@ -198,13 +198,13 @@ class Core
      * @param array  $allowList allow list to check page against
      * @param bool   $include   whether the page is going to be included
      */
-    public static function checkPageValidity($page, array $allowList = [], $include = false): bool
+    public static function checkPageValidity(string $page, array $allowList = [], $include = false): bool
     {
-        if (empty($allowList)) {
+        if ($allowList === []) {
             $allowList = ['index.php'];
         }
 
-        if (empty($page)) {
+        if ($page === '') {
             return false;
         }
 
@@ -380,7 +380,7 @@ class Core
 
         /* Replace all possibly dangerous chars in filename */
         $filename = Sanitize::sanitizeFilename($filename);
-        if (! empty($filename)) {
+        if ($filename !== '') {
             $headers['Content-Description'] = 'File Transfer';
             $headers['Content-Disposition'] = 'attachment; filename="' . $filename . '"';
         }
@@ -600,7 +600,7 @@ class Core
     public static function previewSQL(array|string $query_data): void
     {
         $retval = '<div class="preview_sql">';
-        if (empty($query_data)) {
+        if ($query_data === '' || $query_data === []) {
             $retval .= __('No change');
         } elseif (is_array($query_data)) {
             foreach ($query_data as $query) {

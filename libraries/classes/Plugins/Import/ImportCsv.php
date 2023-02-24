@@ -799,7 +799,7 @@ class ImportCsv extends AbstractImportCsv
 
             $tmp_fields = $GLOBALS['dbi']->getColumns($db, $table);
 
-            if (empty($csvColumns)) {
+            if ($csvColumns === null || $csvColumns === '') {
                 $fields = $tmp_fields;
             } else {
                 $sqlTemplate .= ' (';

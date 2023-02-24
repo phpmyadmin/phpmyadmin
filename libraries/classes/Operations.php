@@ -498,7 +498,7 @@ class Operations
         $innodbEnginePlugin = StorageEngine::getEngine('Innodb');
         $innodbPluginVersion = $innodbEnginePlugin->getInnodbPluginVersion();
         $innodbFileFormat = '';
-        if (! empty($innodbPluginVersion)) {
+        if ($innodbPluginVersion !== '') {
             $innodbFileFormat = $innodbEnginePlugin->getInnodbFileFormat() ?? '';
         }
 
@@ -655,7 +655,7 @@ class Operations
         }
 
         if (
-            ! empty($newTblStorageEngine)
+            $newTblStorageEngine !== ''
             && mb_strtolower($newTblStorageEngine) !== mb_strtolower($GLOBALS['tbl_storage_engine'])
         ) {
             $tableAlters[] = 'ENGINE = ' . $newTblStorageEngine;

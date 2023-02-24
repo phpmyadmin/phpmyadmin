@@ -116,7 +116,7 @@ class Designer
         $export_list = Plugins::getSchema();
 
         /* Fail if we didn't find any schema plugin */
-        if (empty($export_list)) {
+        if ($export_list === []) {
             return Message::error(
                 __('Could not load schema plugins, please check your installation!')
             )->getDisplay();

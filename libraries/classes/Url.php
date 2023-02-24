@@ -128,7 +128,7 @@ class Url
         }
 
         foreach ($values as $name => $value) {
-            if (! empty($pre)) {
+            if ($pre !== '') {
                 $name = $pre . '[' . $name . ']';
             }
 

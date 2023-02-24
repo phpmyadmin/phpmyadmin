@@ -1553,7 +1553,7 @@ class Privileges
             $user = [
                 'name' => $username,
                 'host' => $hostname,
-                'has_password' => ! empty($password) || isset($_POST['pma_pw']),
+                'has_password' => $password !== '' || isset($_POST['pma_pw']),
                 'privileges' => implode(', ', $this->extractPrivInfo(null, true)),
                 'has_group' => $configurableMenusFeature !== null,
                 'has_group_edit' => $configurableMenusFeature !== null && $userGroupCount > 0,
@@ -1974,9 +1974,9 @@ class Privileges
                 $hasPassword = false;
                 if (
                     (isset($res['authentication_string'])
-                    && ! empty($res['authentication_string']))
+                    && $res['authentication_string'] !== '')
                     || (isset($res['Password'])
-                    && ! empty($res['Password']))
+                    && $res['Password'] !== '')
                 ) {
                     $hasPassword = true;
                 }
@@ -2967,7 +2967,7 @@ class Privileges
         );
 
         $tableSpecificRights = '';
-        if (! is_array($dbname) && $tablename === '' && empty($dbnameIsWildcard)) {
+        if (! is_array($dbname) && $tablename === '' && $dbnameIsWildcard === false) {
             // no table name was given, display all table specific rights
             // but only if $dbname contains no wildcards
             if ($dbname === '') {
@@ -3175,7 +3175,7 @@ class Privileges
         bool $createDb2,
         bool $createDb3
     ): array {
-        if ($error || (! empty($realSqlQuery) && ! $this->dbi->tryQuery($realSqlQuery))) {
+        if ($error || ($realSqlQuery !== '' && ! $this->dbi->tryQuery($realSqlQuery))) {
             $createDb1 = $createDb2 = $createDb3 = false;
             $message = Message::rawError($this->dbi->getError());
         } elseif ($alterRealSqlQuery !== '' && ! $this->dbi->tryQuery($alterRealSqlQuery)) {

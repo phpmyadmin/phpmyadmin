@@ -121,7 +121,7 @@ class Index
         $versionInformation = new VersionInformation();
         $version_data = $versionInformation->getLatestVersion();
 
-        if (empty($version_data)) {
+        if ($version_data === null) {
             self::messagesSet(
                 'error',
                 $message_id,
