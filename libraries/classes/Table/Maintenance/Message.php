@@ -13,7 +13,7 @@ final class Message
         public string $table,
         public string $operation,
         public string $type,
-        public string $text
+        public string $text,
     ) {
     }
 
