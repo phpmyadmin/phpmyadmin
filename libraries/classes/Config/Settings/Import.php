@@ -11,9 +11,7 @@ use function in_array;
 /** @psalm-immutable */
 final class Import
 {
-    /**
-     * @psalm-var 'csv'|'docsql'|'ldi'|'sql'
-     */
+    /** @psalm-var 'csv'|'docsql'|'ldi'|'sql' */
     public string $format;
 
     /**
@@ -23,14 +21,10 @@ final class Import
 
     public bool $allow_interrupt;
 
-    /**
-     * @psalm-var 0|positive-int
-     */
+    /** @psalm-var 0|positive-int */
     public int $skip_queries;
 
-    /**
-     * @psalm-var 'NONE'|'ANSI'|'DB2'|'MAXDB'|'MYSQL323'|'MYSQL40'|'MSSQL'|'ORACLE'|'TRADITIONAL'
-     */
+    /** @psalm-var 'NONE'|'ANSI'|'DB2'|'MAXDB'|'MYSQL323'|'MYSQL40'|'MSSQL'|'ORACLE'|'TRADITIONAL' */
     public string $sql_compatibility;
 
     public bool $sql_no_auto_value_on_zero;

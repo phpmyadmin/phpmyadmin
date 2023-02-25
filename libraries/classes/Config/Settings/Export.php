@@ -14,19 +14,13 @@ use function in_array;
  */
 final class Export
 {
-    /**
-     * @psalm-var 'codegen'|'csv'|'excel'|'htmlexcel'|'htmlword'|'latex'|'ods'|'odt'|'pdf'|'sql'|'texytext'|'xml'|'yaml'
-     */
+    /** @psalm-var 'codegen'|'csv'|'excel'|'htmlexcel'|'htmlword'|'latex'|'ods'|'odt'|'pdf'|'sql'|'texytext'|'xml'|'yaml' */
     public string $format;
 
-    /**
-     * @psalm-var 'quick'|'custom'|'custom-no-form'
-     */
+    /** @psalm-var 'quick'|'custom'|'custom-no-form' */
     public string $method;
 
-    /**
-     * @psalm-var 'none'|'zip'|'gzip'
-     */
+    /** @psalm-var 'none'|'zip'|'gzip' */
     public string $compression;
 
     /**
@@ -59,23 +53,17 @@ final class Export
 
     public string $file_template_server;
 
-    /**
-     * @psalm-var StructureOrDataType
-     */
+    /** @psalm-var StructureOrDataType */
     public string $codegen_structure_or_data;
 
-    /**
-     * @psalm-var 0|1
-     */
+    /** @psalm-var 0|1 */
     public int $codegen_format;
 
     public bool $ods_columns;
 
     public string $ods_null;
 
-    /**
-     * @psalm-var StructureOrDataType
-     */
+    /** @psalm-var StructureOrDataType */
     public string $odt_structure_or_data;
 
     public bool $odt_columns;
@@ -88,18 +76,14 @@ final class Export
 
     public string $odt_null;
 
-    /**
-     * @psalm-var StructureOrDataType
-     */
+    /** @psalm-var StructureOrDataType */
     public string $htmlword_structure_or_data;
 
     public bool $htmlword_columns;
 
     public string $htmlword_null;
 
-    /**
-     * @psalm-var StructureOrDataType
-     */
+    /** @psalm-var StructureOrDataType */
     public string $texytext_structure_or_data;
 
     public bool $texytext_columns;
@@ -108,9 +92,7 @@ final class Export
 
     public bool $csv_columns;
 
-    /**
-     * @psalm-var StructureOrDataType
-     */
+    /** @psalm-var StructureOrDataType */
     public string $csv_structure_or_data;
 
     public string $csv_null;
@@ -129,21 +111,15 @@ final class Export
 
     public string $excel_null;
 
-    /**
-     * @psalm-var 'win'|'mac_excel2003'|'mac_excel2008'
-     */
+    /** @psalm-var 'win'|'mac_excel2003'|'mac_excel2008' */
     public string $excel_edition;
 
     public bool $excel_removeCRLF;
 
-    /**
-     * @psalm-var StructureOrDataType
-     */
+    /** @psalm-var StructureOrDataType */
     public string $excel_structure_or_data;
 
-    /**
-     * @psalm-var StructureOrDataType
-     */
+    /** @psalm-var StructureOrDataType */
     public string $latex_structure_or_data;
 
     public bool $latex_columns;
@@ -170,47 +146,33 @@ final class Export
 
     public string $latex_structure_label;
 
-    /**
-     * @psalm-var StructureOrDataType
-     */
+    /** @psalm-var StructureOrDataType */
     public string $mediawiki_structure_or_data;
 
     public bool $mediawiki_caption;
 
     public bool $mediawiki_headers;
 
-    /**
-     * @psalm-var StructureOrDataType
-     */
+    /** @psalm-var StructureOrDataType */
     public string $ods_structure_or_data;
 
-    /**
-     * @psalm-var StructureOrDataType
-     */
+    /** @psalm-var StructureOrDataType */
     public string $pdf_structure_or_data;
 
-    /**
-     * @psalm-var StructureOrDataType
-     */
+    /** @psalm-var StructureOrDataType */
     public string $phparray_structure_or_data;
 
-    /**
-     * @psalm-var StructureOrDataType
-     */
+    /** @psalm-var StructureOrDataType */
     public string $json_structure_or_data;
 
     public bool $json_pretty_print;
 
     public bool $json_unicode;
 
-    /**
-     * @psalm-var StructureOrDataType
-     */
+    /** @psalm-var StructureOrDataType */
     public string $sql_structure_or_data;
 
-    /**
-     * @psalm-var 'NONE'|'ANSI'|'DB2'|'MAXDB'|'MYSQL323'|'MYSQL40'|'MSSQL'|'ORACLE'|'TRADITIONAL'
-     */
+    /** @psalm-var 'NONE'|'ANSI'|'DB2'|'MAXDB'|'MYSQL323'|'MYSQL40'|'MSSQL'|'ORACLE'|'TRADITIONAL' */
     public string $sql_compatibility;
 
     /**
@@ -271,14 +233,10 @@ final class Export
 
     public bool $sql_hex_for_binary;
 
-    /**
-     * @psalm-var 'INSERT'|'UPDATE'|'REPLACE'
-     */
+    /** @psalm-var 'INSERT'|'UPDATE'|'REPLACE' */
     public string $sql_type;
 
-    /**
-     * @psalm-var 0|positive-int
-     */
+    /** @psalm-var 0|positive-int */
     public int $sql_max_query_size;
 
     public bool $sql_mime;
@@ -297,9 +255,7 @@ final class Export
 
     public string $pdf_report_title;
 
-    /**
-     * @psalm-var StructureOrDataType
-     */
+    /** @psalm-var StructureOrDataType */
     public string $xml_structure_or_data;
 
     /**
@@ -342,9 +298,7 @@ final class Export
      */
     public bool $xml_export_contents;
 
-    /**
-     * @psalm-var StructureOrDataType
-     */
+    /** @psalm-var StructureOrDataType */
     public string $yaml_structure_or_data;
 
     public bool $remove_definer_from_definitions;

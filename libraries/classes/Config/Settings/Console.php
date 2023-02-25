@@ -21,26 +21,18 @@ final class Console
 
     public bool $DarkTheme;
 
-    /**
-     * @psalm-var 'info'|'show'|'collapse'
-     */
+    /** @psalm-var 'info'|'show'|'collapse' */
     public string $Mode;
 
-    /**
-     * @psalm-var positive-int
-     */
+    /** @psalm-var positive-int */
     public int $Height;
 
     public bool $GroupQueries;
 
-    /**
-     * @psalm-var 'exec'|'time'|'count'
-     */
+    /** @psalm-var 'exec'|'time'|'count' */
     public string $OrderBy;
 
-    /**
-     * @psalm-var 'asc'|'desc'
-     */
+    /** @psalm-var 'asc'|'desc' */
     public string $Order;
 
     /** @param mixed[] $console */

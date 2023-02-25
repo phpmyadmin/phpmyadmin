@@ -11,9 +11,7 @@ use function in_array;
 /** @psalm-immutable */
 final class Schema
 {
-    /**
-     * @psalm-var 'pdf'|'eps'|'dia'|'svg'
-     */
+    /** @psalm-var 'pdf'|'eps'|'dia'|'svg' */
     public string $format;
 
     public bool $pdf_show_color;
@@ -22,9 +20,7 @@ final class Schema
 
     public bool $pdf_all_tables_same_width;
 
-    /**
-     * @psalm-var 'L'|'P'
-     */
+    /** @psalm-var 'L'|'P' */
     public string $pdf_orientation;
 
     public string $pdf_paper;
@@ -33,18 +29,14 @@ final class Schema
 
     public bool $pdf_with_doc;
 
-    /**
-     * @psalm-var ''|'name_asc'|'name_desc'
-     */
+    /** @psalm-var ''|'name_asc'|'name_desc' */
     public string $pdf_table_order;
 
     public bool $dia_show_color;
 
     public bool $dia_show_keys;
 
-    /**
-     * @psalm-var 'L'|'P'
-     */
+    /** @psalm-var 'L'|'P' */
     public string $dia_orientation;
 
     public string $dia_paper;
@@ -55,9 +47,7 @@ final class Schema
 
     public bool $eps_all_tables_same_width;
 
-    /**
-     * @psalm-var 'L'|'P'
-     */
+    /** @psalm-var 'L'|'P' */
     public string $eps_orientation;
 
     public bool $svg_show_color;

@@ -67,76 +67,48 @@ final class FieldMetadata
     public const TYPE_DATETIME = 12;
     public const TYPE_YEAR = 13;
 
-    /**
-     * @readonly
-     */
+    /** @readonly */
     public bool $isMultipleKey;
 
-    /**
-     * @readonly
-     */
+    /** @readonly */
     public bool $isPrimaryKey;
 
-    /**
-     * @readonly
-     */
+    /** @readonly */
     public bool $isUniqueKey;
 
-    /**
-     * @readonly
-     */
+    /** @readonly */
     public bool $isNotNull;
 
-    /**
-     * @readonly
-     */
+    /** @readonly */
     public bool $isUnsigned;
 
-    /**
-     * @readonly
-     */
+    /** @readonly */
     public bool $isZerofill;
 
-    /**
-     * @readonly
-     */
+    /** @readonly */
     public bool $isNumeric;
 
-    /**
-     * @readonly
-     */
+    /** @readonly */
     public bool $isBlob;
 
-    /**
-     * @readonly
-     */
+    /** @readonly */
     public bool $isBinary;
 
-    /**
-     * @readonly
-     */
+    /** @readonly */
     public bool $isEnum;
 
-    /**
-     * @readonly
-     */
+    /** @readonly */
     public bool $isSet;
 
     private int|null $mappedType = null;
 
-    /**
-     * @readonly
-     */
+    /** @readonly */
     public bool $isMappedTypeBit;
 
-    /**
-     * @readonly
-     */
+    /** @readonly */
     public bool $isMappedTypeGeometry;
 
-    /**
-     * @readonly
-     */
+    /** @readonly */
     public bool $isMappedTypeTimestamp;
 
     /**
