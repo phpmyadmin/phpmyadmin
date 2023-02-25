@@ -7735,19 +7735,7 @@
     </UnusedReturnValue>
   </file>
   <file src="libraries/classes/Gis/GisGeometry.php">
-    <MixedArgument>
-      <code>$line</code>
-      <code>$point</code>
-      <code>$polygon</code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code>$line</code>
-      <code>$point</code>
-      <code>$polygon</code>
-    </MixedAssignment>
     <MixedOperand>
-      <code>$point[0]</code>
-      <code>$point[1]</code>
       <code><![CDATA[$scale_data['height']]]></code>
       <code><![CDATA[$scale_data['x']]]></code>
       <code><![CDATA[$scale_data['y']]]></code>
@@ -7853,13 +7841,8 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisMultiPoint.php">
-    <MixedArgument>
-      <code>$point</code>
-    </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$gis_data[$index]['MULTIPOINT']['no_of_points']]]></code>
-      <code>$point[0]</code>
-      <code>$point[1]</code>
       <code><![CDATA[$row_data['points'][$i]]]></code>
       <code><![CDATA[$row_data['points'][$i]]]></code>
       <code><![CDATA[$row_data['points'][$i]['x']]]></code>
@@ -7867,7 +7850,6 @@
     </MixedArrayAccess>
     <MixedAssignment>
       <code>$no_of_points</code>
-      <code>$point</code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$row_data['points'][$i]['x']]]></code>
@@ -16340,7 +16322,6 @@
       <code>$points</code>
     </MixedAssignment>
     <MixedInferredReturnType>
-      <code>array</code>
       <code>array</code>
       <code>array</code>
       <code>array</code>

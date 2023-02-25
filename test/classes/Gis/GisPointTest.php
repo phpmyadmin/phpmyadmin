@@ -314,17 +314,13 @@ class GisPointTest extends GisGeomTestCase
                 4326,
                 'Ol',
                 [176, 46, 224],
-                'var fill = new ol.style.Fill({"color":"white"});'
-                . 'var stroke = new ol.style.Stroke({"color":[176'
-                . ',46,224],"width":2});var style = new ol.style.'
-                . 'Style({image: new ol.style.Circle({fill: fill,'
-                . 'stroke: stroke,radius: 3}),fill: fill,stroke: '
-                . 'stroke,text: new ol.style.Text({"text":"Ol","o'
-                . 'ffsetY":-9})});var point = new ol.Feature({geometry: (ne'
-                . 'w ol.geom.Point([12,35]).transform(ol.proj.get'
-                . '("EPSG:4326"), ol.proj.get(\'EPSG:3857\')))});'
-                . 'point.setStyle(style);vectorLayer.addFeature(p'
-                . 'oint);',
+                'var feature = new ol.Feature(new ol.geom.Point([12,35]'
+                . ').transform(\'EPSG:4326\', \'EPSG:3857\'));feature.s'
+                . 'etStyle(new ol.style.Style({image: new ol.style.Circ'
+                . 'le({fill: new ol.style.Fill({"color":"white"}),strok'
+                . 'e: new ol.style.Stroke({"color":[176,46,224],"width"'
+                . ':2}),radius: 3}),text: new ol.style.Text({"text":"Ol'
+                . '","offsetY":-9})}));vectorSource.addFeature(feature);',
             ],
         ];
     }

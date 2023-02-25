@@ -80,7 +80,7 @@ class GisPoint extends GisGeometry
 
         // Trim to remove leading 'POINT(' and trailing ')'
         $point = mb_substr($spatial, 6, -1);
-        $points_arr = $this->extractPointsLinear($point, $scale_data);
+        $points_arr = $this->extractPoints1dLinear($point, $scale_data);
 
         // draw a small circle to mark the point
         if ($points_arr[0] != '' && $points_arr[0] != '') {
@@ -133,7 +133,7 @@ class GisPoint extends GisGeometry
 
         // Trim to remove leading 'POINT(' and trailing ')'
         $point = mb_substr($spatial, 6, -1);
-        $points_arr = $this->extractPointsLinear($point, $scale_data);
+        $points_arr = $this->extractPoints1dLinear($point, $scale_data);
 
         // draw a small circle to mark the point
         if ($points_arr[0] != '' && $points_arr[1] != '') {
@@ -172,7 +172,7 @@ class GisPoint extends GisGeometry
 
         // Trim to remove leading 'POINT(' and trailing ')'
         $point = mb_substr($spatial, 6, -1);
-        $points_arr = $this->extractPointsLinear($point, $scale_data);
+        $points_arr = $this->extractPoints1dLinear($point, $scale_data);
 
         $row = '';
         if ($points_arr[0] !== 0.0 && $points_arr[1] !== 0.0) {
@@ -210,42 +210,31 @@ class GisPoint extends GisGeometry
             'color' => $color,
             'width' => 2,
         ];
-        $result = 'var fill = new ol.style.Fill(' . json_encode($fill_style) . ');'
-            . 'var stroke = new ol.style.Stroke(' . json_encode($stroke_style) . ');'
-            . 'var style = new ol.style.Style({'
+        $style = 'new ol.style.Style({'
             . 'image: new ol.style.Circle({'
-            . 'fill: fill,'
-            . 'stroke: stroke,'
+            . 'fill: new ol.style.Fill(' . json_encode($fill_style) . '),'
+            . 'stroke: new ol.style.Stroke(' . json_encode($stroke_style) . '),'
             . 'radius: 3'
-            . '}),'
-            . 'fill: fill,'
-            . 'stroke: stroke';
+            . '})';
         if ($label !== '') {
             $text_style = [
                 'text' => $label,
                 'offsetY' => -9,
             ];
-            $result .= ',text: new ol.style.Text(' . json_encode($text_style) . ')';
+            $style .= ',text: new ol.style.Text(' . json_encode($text_style) . ')';
         }
 
-        $result .= '});';
-
-        if ($srid === 0) {
-            $srid = 4326;
-        }
+        $style .= '})';
 
         // Trim to remove leading 'POINT(' and trailing ')'
         $point = mb_substr($spatial, 6, -1);
-        $points_arr = $this->extractPoints($point, null);
+        $olGeometry = $this->toOpenLayersObject(
+            'ol.geom.Point',
+            $this->extractPoints1dLinear($point, null),
+            $srid,
+        );
 
-        if ($points_arr[0][0] != '' && $points_arr[0][1] != '') {
-            $result .= 'var point = new ol.Feature({geometry: '
-                . $this->getPointForOpenLayers($points_arr[0], $srid) . '});'
-                . 'point.setStyle(style);'
-                . 'vectorLayer.addFeature(point);';
-        }
-
-        return $result;
+        return $this->addGeometryToLayer($olGeometry, $style);
     }
 
     /**
@@ -293,7 +282,7 @@ class GisPoint extends GisGeometry
     {
         // Trim to remove leading 'POINT(' and trailing ')'
         $wkt_point = mb_substr($wkt, 6, -1);
-        $points = $this->extractPoints($wkt_point, null);
+        $points = $this->extractPoints1d($wkt_point, null);
 
         return [
             'x' => $points[0][0],

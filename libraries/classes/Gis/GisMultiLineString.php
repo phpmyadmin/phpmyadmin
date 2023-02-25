@@ -95,7 +95,7 @@ class GisMultiLineString extends GisGeometry
 
         $first_line = true;
         foreach ($linestirngs as $linestring) {
-            $points_arr = $this->extractPoints($linestring, $scale_data);
+            $points_arr = $this->extractPoints1d($linestring, $scale_data);
             foreach ($points_arr as $point) {
                 if (isset($temp_point)) {
                     // draw line section
@@ -154,7 +154,7 @@ class GisMultiLineString extends GisGeometry
 
         $first_line = true;
         foreach ($linestirngs as $linestring) {
-            $points_arr = $this->extractPoints($linestring, $scale_data);
+            $points_arr = $this->extractPoints1d($linestring, $scale_data);
             foreach ($points_arr as $point) {
                 if (isset($temp_point)) {
                     // draw line section
@@ -205,7 +205,7 @@ class GisMultiLineString extends GisGeometry
 
         $row = '';
         foreach ($linestirngs as $linestring) {
-            $points_arr = $this->extractPoints($linestring, $scale_data);
+            $points_arr = $this->extractPoints1d($linestring, $scale_data);
 
             $row .= '<polyline points="';
             foreach ($points_arr as $point) {
@@ -242,29 +242,24 @@ class GisMultiLineString extends GisGeometry
             'width' => 2,
         ];
 
-        $row = 'var style = new ol.style.Style({'
+        $style = 'new ol.style.Style({'
             . 'stroke: new ol.style.Stroke(' . json_encode($stroke_style) . ')';
         if ($label !== '') {
             $text_style = ['text' => $label];
-            $row .= ', text: new ol.style.Text(' . json_encode($text_style) . ')';
+            $style .= ', text: new ol.style.Text(' . json_encode($text_style) . ')';
         }
 
-        $row .= '});';
-
-        if ($srid === 0) {
-            $srid = 4326;
-        }
+        $style .= '})';
 
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
-        $multilinestirng = mb_substr($spatial, 17, -2);
-        // Separate each linestring
-        $linestirngs = explode('),(', $multilinestirng);
+        $wktCoordinates = mb_substr($spatial, 17, -2);
+        $olGeometry = $this->toOpenLayersObject(
+            'ol.geom.MultiLineString',
+            $this->extractPoints2d($wktCoordinates, null),
+            $srid,
+        );
 
-        return $row . $this->getLineArrayForOpenLayers($linestirngs, $srid)
-            . 'var multiLineString = new ol.geom.MultiLineString(arr);'
-            . 'var feature = new ol.Feature({geometry: multiLineString});'
-            . 'feature.setStyle(style);'
-            . 'vectorLayer.addFeature(feature);';
+        return $this->addGeometryToLayer($olGeometry, $style);
     }
 
     /**
@@ -351,7 +346,7 @@ class GisMultiLineString extends GisGeometry
         $coords = ['no_of_lines' => count($wkt_linestrings)];
 
         foreach ($wkt_linestrings as $j => $wkt_linestring) {
-            $points = $this->extractPoints($wkt_linestring, null);
+            $points = $this->extractPoints1d($wkt_linestring, null);
             $no_of_points = count($points);
             $coords[$j] = ['no_of_points' => $no_of_points];
             for ($i = 0; $i < $no_of_points; $i++) {
