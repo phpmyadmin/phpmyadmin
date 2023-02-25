@@ -847,7 +847,6 @@
       <code>$key</code>
       <code>$one_key</code>
       <code>$relations</code>
-      <code>$the_total</code>
       <code>$value</code>
       <code>$value</code>
     </MixedAssignment>
@@ -1742,9 +1741,6 @@
       <code>$createTime</code>
       <code>$createTimeAll</code>
       <code>$currentTable</code>
-      <code><![CDATA[$currentTable['Rows']]]></code>
-      <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
-      <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
       <code>$dbTable</code>
       <code>$favoriteTables</code>
       <code>$overheadSize</code>
@@ -3303,7 +3299,6 @@
       <code><![CDATA[$GLOBALS['sql_query']]]></code>
       <code><![CDATA[$GLOBALS['table_from_sql']]]></code>
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
-      <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
       <code>$bkm_all_users</code>
       <code>$sql_query</code>
     </MixedAssignment>
@@ -4046,7 +4041,6 @@
       <code>$column_name</code>
       <code>$column_name</code>
       <code>$curr_rel_field</code>
-      <code><![CDATA[$extra_data['row_count']]]></code>
       <code>$multi_edit_auto_increment</code>
       <code>$multi_edit_columns</code>
       <code>$multi_edit_columns[$key]</code>
@@ -5618,7 +5612,6 @@
       <code><![CDATA[$this->formAndOrCols[$lastWhere]]]></code>
       <code>$tsize[$table]</code>
       <code>$tsize[$table]</code>
-      <code>$tsize[$table]</code>
     </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS[${'cur' . $or}][$newColumnCount]]]></code>
@@ -5638,7 +5631,6 @@
       <code>$indexColumns</code>
       <code>$isWhere</code>
       <code>$masterTable</code>
-      <code>$maxsize</code>
       <code>$name</code>
       <code>$oneField</code>
       <code>$oneKey</code>
@@ -5655,7 +5647,6 @@
       <code>$table</code>
       <code>$tempSearchTables[]</code>
       <code>$tmpCriteria</code>
-      <code>$tsize[$table]</code>
       <code>$uniqueColumns</code>
       <code>$value</code>
       <code>$whereClauseColumns</code>
@@ -6660,7 +6651,6 @@
       <code>$sqlQuery</code>
       <code>$sqlQueryAdd</code>
       <code>$tableCreateTime</code>
-      <code>$theTotal</code>
       <code>$total</code>
       <code>$value</code>
       <code><![CDATA[$whereClauseMap[$rowNumber][$meta->orgtable]]]></code>
@@ -13205,9 +13195,6 @@
       <code><![CDATA[$GLOBALS['show_as_php']]]></code>
       <code><![CDATA[$GLOBALS['show_as_php']]]></code>
     </InvalidArrayOffset>
-    <LessSpecificReturnStatement>
-      <code>$unlimNumRows</code>
-    </LessSpecificReturnStatement>
     <MixedArgument>
       <code><![CDATA[$columns[$indexColumnName]['Extra']]]></code>
       <code><![CDATA[$extraData['error']]]></code>
@@ -13218,8 +13205,6 @@
       <code><![CDATA[$oneResult['Status']]]></code>
       <code>$sortCol</code>
       <code><![CDATA[$statement->expr]]></code>
-      <code>$unlimNumRows</code>
-      <code>$unlimNumRows</code>
       <code>Message::sanitize($warning)</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
@@ -13262,10 +13247,6 @@
       <code>$resultSetColumnNames[]</code>
       <code>$sortCol</code>
       <code>$unlimNumRows</code>
-      <code>$unlimNumRows</code>
-      <code>$unlimNumRows</code>
-      <code>$unlimNumRows</code>
-      <code>$unlimNumRows</code>
     </MixedAssignment>
     <MixedInferredReturnType>
       <code>int</code>
@@ -13293,6 +13274,7 @@
       <code>$pos</code>
       <code>$row[$column]</code>
       <code>$unlimNumRows</code>
+      <code>$unlimNumRows</code>
       <code>@((int) ceil($numberOfLine / $maxRows) - 1) * $maxRows</code>
     </MixedReturnStatement>
     <MixedReturnTypeCoercion>
@@ -13302,9 +13284,6 @@
     <NoValue>
       <code><![CDATA[$statementInfo->statement->where]]></code>
     </NoValue>
-    <NullableReturnStatement>
-      <code>$unlimNumRows</code>
-    </NullableReturnStatement>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['bkm_label']]]></code>
       <code><![CDATA[$_POST['dropped_column'] ?? null]]></code>
@@ -13570,7 +13549,6 @@
       <code>$constraintName</code>
       <code>$currCreateTime</code>
       <code>$eachCol</code>
-      <code>$exactRowsCached</code>
       <code>$foreignDb</code>
       <code>$foreignDb</code>
       <code>$foreignField</code>
@@ -13593,7 +13571,6 @@
       <code>$tableAutoIncrement</code>
       <code>$tableCollation</code>
       <code>$tableComment</code>
-      <code>$tableNumRowInfo</code>
       <code>$tableNumRowInfo</code>
       <code>$tableOptions</code>
       <code>$tableRowFormat</code>
@@ -14427,7 +14404,6 @@
       <code>$p</code>
       <code>$p</code>
       <code>$row</code>
-      <code>$rowCount</code>
       <code>$table</code>
       <code>$table</code>
       <code><![CDATA[$table['disp_name']]]></code>
@@ -14436,7 +14412,6 @@
     </MixedAssignment>
     <MixedInferredReturnType>
       <code>array</code>
-      <code>int</code>
       <code>int</code>
     </MixedInferredReturnType>
     <MixedOperand>
@@ -14448,8 +14423,6 @@
     <MixedReturnStatement>
       <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
-      <code>$rowCount</code>
-      <code>$rowCount</code>
       <code>$tableGroups</code>
     </MixedReturnStatement>
     <PossiblyFalseOperand>

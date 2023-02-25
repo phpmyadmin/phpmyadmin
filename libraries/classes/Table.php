@@ -37,6 +37,7 @@ use function htmlspecialchars;
 use function implode;
 use function in_array;
 use function is_array;
+use function is_numeric;
 use function is_string;
 use function json_decode;
 use function json_encode;
@@ -688,24 +689,21 @@ class Table implements Stringable
     }
 
     /**
-     * Counts and returns (or displays) the number of records in a table
+     * Counts the number of records in a table
      *
      * @param bool $forceExact whether to force an exact count
-     *
-     * @return mixed the number of records if "retain" param is true,
-     *               otherwise true
      */
-    public function countRecords($forceExact = false): mixed
+    public function countRecords($forceExact = false): int
     {
         $isView = $this->isView();
         $cache = $this->dbi->getCache();
 
         $exactRowsCached = $cache->getCachedTableContent([$this->dbName, $this->name, 'ExactRows']);
-        if ($exactRowsCached != null) {
-            return $exactRowsCached;
+        if ($exactRowsCached !== null) {
+            return (int) $exactRowsCached;
         }
 
-        $rowCount = false;
+        $rowCount = null;
 
         if (! $forceExact) {
             if (($cache->getCachedTableContent([$this->dbName, $this->name, 'Rows']) == null) && ! $isView) {
@@ -715,12 +713,12 @@ class Table implements Stringable
                 }
             }
 
-            $rowCount = $cache->getCachedTableContent([$this->dbName, $this->name, 'Rows']) ?? false;
+            $rowCount = $cache->getCachedTableContent([$this->dbName, $this->name, 'Rows']);
         }
 
         // for a VIEW, $row_count is always false at this point
-        if ($rowCount !== false && $rowCount >= $GLOBALS['cfg']['MaxExactCount']) {
-            return $rowCount;
+        if ($rowCount !== null && $rowCount >= $GLOBALS['cfg']['MaxExactCount']) {
+            return (int) $rowCount;
         }
 
         if (! $isView) {
@@ -751,11 +749,13 @@ class Table implements Stringable
             }
         }
 
-        if ($rowCount) {
-            $cache->cacheTableContent([$this->dbName, $this->name, 'ExactRows'], $rowCount);
+        if (is_numeric($rowCount)) {
+            $cache->cacheTableContent([$this->dbName, $this->name, 'ExactRows'], (int) $rowCount);
+
+            return (int) $rowCount;
         }
 
-        return $rowCount;
+        return 0;
     }
 
     /**

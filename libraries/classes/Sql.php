@@ -411,9 +411,9 @@ class Sql
      * @param string $db    the current database
      * @param string $table the current table
      *
-     * @return mixed the number of rows if "retain" param is true, otherwise true
+     * @return int the number of rows
      */
-    public function findRealEndOfRows($db, $table): mixed
+    public function findRealEndOfRows($db, $table): int
     {
         $unlimNumRows = $this->dbi->getTable($db, $table)->countRecords(true);
         $_SESSION['tmpval']['pos'] = $this->getStartPosToDisplayRow($unlimNumRows);
@@ -679,8 +679,7 @@ class Sql
                      * @todo In countRecords(), MaxExactCount is also verified,
                      *       so can we avoid checking it twice?
                      */
-                    $unlimNumRows = $this->dbi->getTable($db, $table)
-                        ->countRecords(true);
+                    $unlimNumRows = $this->dbi->getTable($db, $table)->countRecords(true);
                 }
             } else {
                 $statement = $statementInfo->statement;
@@ -702,10 +701,7 @@ class Sql
 
                 $countQuery = 'SELECT COUNT(*) FROM (' . $statement->build() . ' ) as cnt';
 
-                $unlimNumRows = $this->dbi->fetchValue($countQuery);
-                if ($unlimNumRows === false) {
-                    $unlimNumRows = 0;
-                }
+                $unlimNumRows = (int) $this->dbi->fetchValue($countQuery);
             }
         } else {// not $is_select
             $unlimNumRows = 0;
