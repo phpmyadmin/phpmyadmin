@@ -35,9 +35,7 @@ class ExportOds extends ExportPlugin
         $GLOBALS['ods_buffer'] = '';
     }
 
-    /**
-     * @psalm-return non-empty-lowercase-string
-     */
+    /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
         return 'ods';

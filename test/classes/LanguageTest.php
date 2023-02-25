@@ -27,6 +27,7 @@ class LanguageTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $loc = LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo';
         if (! is_readable($loc)) {
             $this->markTestSkipped('Missing compiled locales.');
@@ -38,6 +39,7 @@ class LanguageTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         // Ensure we have English locale after tests
         $lang = $this->manager->getLanguage('en');
         if ($lang === false) {

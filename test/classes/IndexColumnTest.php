@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\IndexColumn;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \PhpMyAdmin\IndexColumn
- */
+/** @covers \PhpMyAdmin\IndexColumn */
 class IndexColumnTest extends TestCase
 {
     /** @var IndexColumn */

@@ -11,9 +11,7 @@ use PhpMyAdmin\Config\Forms\BaseForm;
 
 class ConfigForm extends BaseForm
 {
-    /**
-     * @return array
-     */
+    /** @return array */
     public static function getForms(): array
     {
         return [

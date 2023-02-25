@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests\Charsets;
 use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Charsets\Collation
- */
+/** @covers \PhpMyAdmin\Charsets\Collation */
 class CollationTest extends AbstractTestCase
 {
     public function testFromServer(): void
@@ -51,9 +49,7 @@ class CollationTest extends AbstractTestCase
         $this->assertEquals($description, $actual->getDescription());
     }
 
-    /**
-     * @return array<array{string, string}>
-     */
+    /** @return array<array{string, string}> */
     public static function providerTestBuildDescription(): array
     {
         return [

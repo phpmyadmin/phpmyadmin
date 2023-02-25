@@ -12,9 +12,7 @@ use function filemtime;
 use const DIRECTORY_SEPARATOR;
 use const TEST_PATH;
 
-/**
- * @covers \PhpMyAdmin\Theme
- */
+/** @covers \PhpMyAdmin\Theme */
 class ThemeTest extends AbstractTestCase
 {
     /** @var Theme */
@@ -30,11 +28,15 @@ class ThemeTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setTheme();
+
         $this->object = new Theme();
         $this->backup = $GLOBALS['theme'];
         $GLOBALS['theme'] = $this->object;
+
         parent::setGlobalConfig();
+
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = '99';
     }
@@ -46,6 +48,7 @@ class ThemeTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         $GLOBALS['theme'] = $this->backup;
     }
 

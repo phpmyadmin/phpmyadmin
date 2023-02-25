@@ -11,14 +11,13 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Table\ChangeRowsController
- */
+/** @covers \PhpMyAdmin\Controllers\Table\ChangeRowsController */
 class ChangeRowsControllerTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 2;
         $GLOBALS['active_page'] = null;

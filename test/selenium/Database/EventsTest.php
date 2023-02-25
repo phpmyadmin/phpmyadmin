@@ -10,9 +10,7 @@ use function date;
 use function sleep;
 use function strtotime;
 
-/**
- * @coversNothing
- */
+/** @coversNothing */
 class EventsTest extends TestBase
 {
     /**
@@ -21,6 +19,7 @@ class EventsTest extends TestBase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->dbQuery(
             'USE `' . $this->databaseName . '`;'
             . 'CREATE TABLE `test_table` ('
@@ -45,6 +44,7 @@ class EventsTest extends TestBase
     protected function tearDown(): void
     {
         $this->dbQuery('SET GLOBAL event_scheduler="OFF"');
+
         parent::tearDown();
     }
 

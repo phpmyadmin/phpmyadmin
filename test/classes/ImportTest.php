@@ -10,9 +10,7 @@ use function time;
 
 use const PHP_INT_MAX;
 
-/**
- * @covers \PhpMyAdmin\Import
- */
+/** @covers \PhpMyAdmin\Import */
 class ImportTest extends AbstractTestCase
 {
     /** @var Import $import */
@@ -24,6 +22,7 @@ class ImportTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['ServerDefault'] = '';

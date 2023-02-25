@@ -10,14 +10,10 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
-/**
- * @covers \PhpMyAdmin\Controllers\SchemaExportController
- */
+/** @covers \PhpMyAdmin\Controllers\SchemaExportController */
 class SchemaExportControllerTest extends AbstractTestCase
 {
-    /**
-     * @runInSeparateProcess
-     */
+    /** @runInSeparateProcess */
     public function testExport(): void
     {
         $GLOBALS['dbi'] = $this->createDatabaseInterface();

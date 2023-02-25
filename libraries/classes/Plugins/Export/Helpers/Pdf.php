@@ -98,6 +98,7 @@ class Pdf extends PdfLib
         $pdfa = false,
     ) {
         parent::__construct($orientation, $unit, $format, $unicode, $encoding, $diskcache, $pdfa);
+
         $this->relation = new Relation($GLOBALS['dbi']);
         $this->transformations = new Transformations();
     }
@@ -768,9 +769,7 @@ class Pdf extends PdfLib
 
         // loop through the data; any column whose contents
         // is greater than the column size is resized
-        /**
-         * @todo force here a LIMIT to avoid reading all rows
-         */
+        /** @todo force here a LIMIT to avoid reading all rows */
         while ($row = $this->results->fetchRow()) {
             foreach ($colFits as $key => $val) {
                 /** @var float $stringWidth */
@@ -864,9 +863,7 @@ class Pdf extends PdfLib
         $this->tableAlias = $tableAlias ?? '';
     }
 
-    /**
-     * @param array $aliases
-     */
+    /** @param array $aliases */
     public function setAliases(array $aliases): void
     {
         $this->aliases = $aliases;

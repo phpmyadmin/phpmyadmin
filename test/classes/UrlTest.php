@@ -11,9 +11,7 @@ use function parse_str;
 use function str_repeat;
 use function urldecode;
 
-/**
- * @covers \PhpMyAdmin\Url
- */
+/** @covers \PhpMyAdmin\Url */
 class UrlTest extends AbstractTestCase
 {
     /**
@@ -23,7 +21,9 @@ class UrlTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setLanguage();
+
         unset($_COOKIE['pma_lang']);
         $GLOBALS['config']->set('URLQueryEncryption', false);
     }
@@ -182,9 +182,7 @@ class UrlTest extends AbstractTestCase
         );
     }
 
-    /**
-     * @return void
-     */
+    /** @return void */
     public function testBuildHttpQueryWithUrlQueryEncryptionDisabled()
     {
         $GLOBALS['config']->set('URLQueryEncryption', false);
@@ -192,9 +190,7 @@ class UrlTest extends AbstractTestCase
         $this->assertEquals('db=test_db&table=test_table&pos=0', Url::buildHttpQuery($params));
     }
 
-    /**
-     * @return void
-     */
+    /** @return void */
     public function testBuildHttpQueryWithUrlQueryEncryptionEnabled()
     {
         $_SESSION = [];
@@ -217,9 +213,7 @@ class UrlTest extends AbstractTestCase
         $this->assertSame('{"db":"test_db","table":"test_table"}', $decrypted);
     }
 
-    /**
-     * @return void
-     */
+    /** @return void */
     public function testQueryEncryption()
     {
         $_SESSION = [];

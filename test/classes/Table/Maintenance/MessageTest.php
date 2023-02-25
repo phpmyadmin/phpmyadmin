@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests\Table\Maintenance;
 use PhpMyAdmin\Table\Maintenance\Message;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \PhpMyAdmin\Table\Maintenance\Message
- */
+/** @covers \PhpMyAdmin\Table\Maintenance\Message */
 class MessageTest extends TestCase
 {
     /**

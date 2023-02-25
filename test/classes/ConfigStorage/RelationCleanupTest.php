@@ -11,9 +11,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\ConfigStorage\RelationCleanup
- */
+/** @covers \PhpMyAdmin\ConfigStorage\RelationCleanup */
 class RelationCleanupTest extends AbstractTestCase
 {
     public function testColumnWithoutRelations(): void

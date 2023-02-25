@@ -14,9 +14,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Table\ImportController
- */
+/** @covers \PhpMyAdmin\Controllers\Table\ImportController */
 class ImportControllerTest extends AbstractTestCase
 {
     public function testImportController(): void

@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests\Selenium;
 use function bin2hex;
 use function random_bytes;
 
-/**
- * @coversNothing
- */
+/** @coversNothing */
 class CreateRemoveUserTest extends TestBase
 {
     /**
@@ -39,6 +37,7 @@ class CreateRemoveUserTest extends TestBase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->skipIfNotSuperUser();
         $this->txtUsername = 'test_user_' . bin2hex(random_bytes(4));
         $this->txtPassword = 'abc_123';

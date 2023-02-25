@@ -11,9 +11,7 @@ use PhpMyAdmin\Tests\AbstractNetworkTestCase;
 use function ob_get_clean;
 use function ob_start;
 
-/**
- * @covers \PhpMyAdmin\Setup\FormProcessing
- */
+/** @covers \PhpMyAdmin\Setup\FormProcessing */
 class FormProcessingTest extends AbstractNetworkTestCase
 {
     /**
@@ -22,7 +20,9 @@ class FormProcessingTest extends AbstractNetworkTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setLanguage();
+
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';

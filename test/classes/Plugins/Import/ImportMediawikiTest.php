@@ -11,9 +11,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 
 use function __;
 
-/**
- * @covers \PhpMyAdmin\Plugins\Import\ImportMediawiki
- */
+/** @covers \PhpMyAdmin\Plugins\Import\ImportMediawiki */
 class ImportMediawikiTest extends AbstractTestCase
 {
     /** @var ImportMediawiki */
@@ -26,6 +24,7 @@ class ImportMediawikiTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $GLOBALS['error'] = null;
@@ -62,6 +61,7 @@ class ImportMediawikiTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 

@@ -14,9 +14,7 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 
-/**
- * @covers \PhpMyAdmin\Table
- */
+/** @covers \PhpMyAdmin\Table */
 class TableTest extends AbstractTestCase
 {
     /**

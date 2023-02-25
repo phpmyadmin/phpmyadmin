@@ -12,14 +12,13 @@ use Webauthn\Server as WebauthnServer;
 use function base64_encode;
 use function class_exists;
 
-/**
- * @covers \PhpMyAdmin\WebAuthn\WebauthnLibServer
- */
+/** @covers \PhpMyAdmin\WebAuthn\WebauthnLibServer */
 class WebauthnLibServerTest extends TestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
+
         if (class_exists(WebauthnServer::class)) {
             return;
         }

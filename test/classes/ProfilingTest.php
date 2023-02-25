@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Profiling;
 use PhpMyAdmin\Utils\SessionCache;
 
-/**
- * @covers \PhpMyAdmin\Profiling
- */
+/** @covers \PhpMyAdmin\Profiling */
 class ProfilingTest extends AbstractTestCase
 {
     public function testIsSupported(): void

@@ -11,9 +11,7 @@ use PhpMyAdmin\Template;
 
 use function json_encode;
 
-/**
- * @covers \PhpMyAdmin\Footer
- */
+/** @covers \PhpMyAdmin\Footer */
 class FooterTest extends AbstractTestCase
 {
     /** @var array store private attributes of PhpMyAdmin\Footer */
@@ -29,9 +27,13 @@ class FooterTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setLanguage();
+
         parent::setGlobalConfig();
+
         parent::setTheme();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $_SERVER['SCRIPT_NAME'] = 'index.php';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
@@ -57,6 +59,7 @@ class FooterTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 

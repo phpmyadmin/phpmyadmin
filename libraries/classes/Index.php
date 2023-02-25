@@ -97,9 +97,7 @@ class Index
      */
     private $parser = '';
 
-    /**
-     * @param array $params parameters
-     */
+    /** @param array $params parameters */
     public function __construct(array $params = [])
     {
         $this->set($params);

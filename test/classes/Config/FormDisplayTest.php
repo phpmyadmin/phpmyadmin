@@ -15,9 +15,7 @@ use ReflectionProperty;
 use function function_exists;
 use function gettype;
 
-/**
- * @covers \PhpMyAdmin\Config\FormDisplay
- */
+/** @covers \PhpMyAdmin\Config\FormDisplay */
 class FormDisplayTest extends AbstractTestCase
 {
     /** @var FormDisplay */
@@ -29,8 +27,11 @@ class FormDisplayTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setTheme();
+
         parent::setGlobalConfig();
+
         $GLOBALS['server'] = 0;
         $this->object = new FormDisplay(new ConfigFile());
         Form::resetGroupCounter();
@@ -42,6 +43,7 @@ class FormDisplayTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 

@@ -424,9 +424,7 @@ class Header
         $this->headerIsSent = true;
     }
 
-    /**
-     * @return array<string, string>
-     */
+    /** @return array<string, string> */
     private function getHttpHeaders(): array
     {
         $headers = [];

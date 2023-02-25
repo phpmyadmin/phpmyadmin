@@ -13,9 +13,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Normalization\CreateNewColumnController
- */
+/** @covers \PhpMyAdmin\Controllers\Normalization\CreateNewColumnController */
 class CreateNewColumnControllerTest extends AbstractTestCase
 {
     public function testDefault(): void

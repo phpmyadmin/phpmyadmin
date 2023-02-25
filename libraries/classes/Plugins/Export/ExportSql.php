@@ -76,9 +76,7 @@ class ExportSql extends ExportPlugin
         $GLOBALS['sql_backquotes'] ??= null;
     }
 
-    /**
-     * @psalm-return non-empty-lowercase-string
-     */
+    /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
         return 'sql';
@@ -2733,9 +2731,7 @@ class ExportSql extends ExportPlugin
         return $schemaCreate . $newCrlf;
     }
 
-    /**
-     * @param string[] $compats
-     */
+    /** @param string[] $compats */
     private function addCompatOptions(array $compats, OptionsPropertyMainGroup $generalOptions): void
     {
         $values = [];

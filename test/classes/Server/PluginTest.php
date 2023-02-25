@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests\Server;
 use PhpMyAdmin\Server\Plugin;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Server\Plugin
- */
+/** @covers \PhpMyAdmin\Server\Plugin */
 class PluginTest extends AbstractTestCase
 {
     public function testFromState(): Plugin
@@ -51,9 +49,7 @@ class PluginTest extends AbstractTestCase
         return $plugin;
     }
 
-    /**
-     * @depends testFromState
-     */
+    /** @depends testFromState */
     public function testToArray(Plugin $plugin): void
     {
         $this->assertSame([

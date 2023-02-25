@@ -8,9 +8,7 @@ use PhpMyAdmin\Navigation\NavigationTree;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Navigation\NavigationTree
- */
+/** @covers \PhpMyAdmin\Navigation\NavigationTree */
 class NavigationTreeTest extends AbstractTestCase
 {
     /** @var NavigationTree */
@@ -22,9 +20,13 @@ class NavigationTreeTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setLanguage();
+
         parent::setGlobalConfig();
+
         parent::setTheme();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
@@ -47,6 +49,7 @@ class NavigationTreeTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 

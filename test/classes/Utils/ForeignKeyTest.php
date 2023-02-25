@@ -8,14 +8,13 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Utils\ForeignKey;
 
-/**
- * @covers \PhpMyAdmin\Utils\ForeignKey
- */
+/** @covers \PhpMyAdmin\Utils\ForeignKey */
 class ForeignKeyTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
     }
 
@@ -72,9 +71,7 @@ class ForeignKeyTest extends AbstractTestCase
         );
     }
 
-    /**
-     * @return array[]
-     */
+    /** @return array[] */
     public static function providerCheckInit(): array
     {
         return [
@@ -84,9 +81,7 @@ class ForeignKeyTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * @dataProvider providerCheckInit
-     */
+    /** @dataProvider providerCheckInit */
     public function testHandleDisableCheckInit(string $checksValue, string $setVariableParam): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -108,9 +103,7 @@ class ForeignKeyTest extends AbstractTestCase
         $this->assertTrue(ForeignKey::handleDisableCheckInit());
     }
 
-    /**
-     * @dataProvider providerCheckInit
-     */
+    /** @dataProvider providerCheckInit */
     public function testHandleDisableCheckInitVarFalse(string $checksValue, string $setVariableParam): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -132,9 +125,7 @@ class ForeignKeyTest extends AbstractTestCase
         $this->assertFalse(ForeignKey::handleDisableCheckInit());
     }
 
-    /**
-     * @return array[]
-     */
+    /** @return array[] */
     public static function providerCheckCleanup(): array
     {
         return [
@@ -143,9 +134,7 @@ class ForeignKeyTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * @dataProvider providerCheckCleanup
-     */
+    /** @dataProvider providerCheckCleanup */
     public function testHandleDisableCheckCleanup(bool $checkValue, string $setVariableParam): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

@@ -7,9 +7,7 @@ namespace PhpMyAdmin\ConfigStorage\Features;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\TableName;
 
-/**
- * @psalm-immutable
- */
+/** @psalm-immutable */
 final class TrackingFeature
 {
     /** @var DatabaseName */

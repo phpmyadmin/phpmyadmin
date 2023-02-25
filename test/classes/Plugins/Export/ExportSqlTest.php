@@ -54,6 +54,7 @@ class ExportSqlTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = '';
@@ -87,12 +88,11 @@ class ExportSqlTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 
-    /**
-     * @group medium
-     */
+    /** @group medium */
     public function testSetPropertiesWithHideSql(): void
     {
         // test with hide structure and hide sql as true
@@ -107,9 +107,7 @@ class ExportSqlTest extends AbstractTestCase
         $this->assertNull($properties->getOptions());
     }
 
-    /**
-     * @group medium
-     */
+    /** @group medium */
     public function testSetProperties(): void
     {
         // test with hide structure and hide sql as false
@@ -761,9 +759,7 @@ class ExportSqlTest extends AbstractTestCase
         );
     }
 
-    /**
-     * @group medium
-     */
+    /** @group medium */
     public function testGetTableDef(): void
     {
         $GLOBALS['sql_compatibility'] = 'MSSQL';
@@ -937,9 +933,7 @@ SQL;
         );
     }
 
-    /**
-     * @group medium
-     */
+    /** @group medium */
     public function testExportStructure(): void
     {
         $GLOBALS['sql_compatibility'] = 'MSSQL';
@@ -1052,9 +1046,7 @@ SQL;
         $this->assertStringContainsString('CREATE TABLE `test_table`', $result);
     }
 
-    /**
-     * @group medium
-     */
+    /** @group medium */
     public function testExportData(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -1172,9 +1164,7 @@ SQL;
         $this->assertStringContainsString('SET IDENTITY_INSERT &quot;table&quot; OFF;', $result);
     }
 
-    /**
-     * @group medium
-     */
+    /** @group medium */
     public function testExportDataWithUpdate(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

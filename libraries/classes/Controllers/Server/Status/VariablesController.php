@@ -160,9 +160,7 @@ class VariablesController extends AbstractController
         $this->dbi->query('FLUSH ' . $flush . ';');
     }
 
-    /**
-     * @return array
-     */
+    /** @return array */
     private function getAlerts(): array
     {
         // name => max value before alert

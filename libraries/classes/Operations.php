@@ -517,9 +517,7 @@ class Operations
         return $possibleRowFormats;
     }
 
-    /**
-     * @return array<string, string>
-     */
+    /** @return array<string, string> */
     public function getPartitionMaintenanceChoices(): array
     {
         $choices = [

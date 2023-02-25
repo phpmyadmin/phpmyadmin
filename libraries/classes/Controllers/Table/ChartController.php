@@ -179,9 +179,7 @@ class ChartController extends AbstractController
         }
 
         $parser = new Parser($GLOBALS['sql_query']);
-        /**
-         * @var SelectStatement $statement
-         */
+        /** @var SelectStatement $statement */
         $statement = $parser->statements[0];
         if (empty($statement->limit)) {
             $statement->limit = new Limit($_REQUEST['session_max_rows'], $_REQUEST['pos']);

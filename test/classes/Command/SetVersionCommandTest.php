@@ -12,9 +12,7 @@ use Symfony\Component\Console\Command\Command;
 use function class_exists;
 use function sprintf;
 
-/**
- * @covers \PhpMyAdmin\Command\SetVersionCommand
- */
+/** @covers \PhpMyAdmin\Command\SetVersionCommand */
 class SetVersionCommandTest extends AbstractTestCase
 {
     /** @var SetVersionCommand */
@@ -29,9 +27,7 @@ class SetVersionCommandTest extends AbstractTestCase
         $this->command = new SetVersionCommand();
     }
 
-    /**
-     * @return array[]
-     */
+    /** @return array[] */
     public static function dataProviderBadVersions(): array
     {
         return [
@@ -54,9 +50,7 @@ class SetVersionCommandTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * @dataProvider dataProviderBadVersions
-     */
+    /** @dataProvider dataProviderBadVersions */
     public function testGetGeneratedClassInvalidVersion(string $version): void
     {
         if (! class_exists(Command::class)) {
@@ -73,9 +67,7 @@ class SetVersionCommandTest extends AbstractTestCase
         );
     }
 
-    /**
-     * @return array[]
-     */
+    /** @return array[] */
     public static function dataProviderGoodVersions(): array
     {
         return [
@@ -170,9 +162,7 @@ class SetVersionCommandTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * @dataProvider dataProviderGoodVersions
-     */
+    /** @dataProvider dataProviderGoodVersions */
     public function testGetGeneratedClassValidVersion(string $version, string $content): void
     {
         if (! class_exists(Command::class)) {

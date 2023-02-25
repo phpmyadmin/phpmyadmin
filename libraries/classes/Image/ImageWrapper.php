@@ -131,9 +131,7 @@ final class ImageWrapper
         return imagesy($this->image);
     }
 
-    /**
-     * @param resource|string|null $file
-     */
+    /** @param resource|string|null $file */
     public function jpeg($file = null, int $quality = -1): bool
     {
         if (! function_exists('imagejpeg')) {
@@ -148,9 +146,7 @@ final class ImageWrapper
         return imageline($this->image, $x1, $y1, $x2, $y2, $color);
     }
 
-    /**
-     * @param resource|string|null $file
-     */
+    /** @param resource|string|null $file */
     public function png($file = null, int $quality = -1, int $filters = -1): bool
     {
         if (! function_exists('imagepng')) {

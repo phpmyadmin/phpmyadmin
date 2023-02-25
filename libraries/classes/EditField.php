@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-/**
- * @psalm-immutable
- */
+/** @psalm-immutable */
 final class EditField
 {
     /** @var string $columnName */

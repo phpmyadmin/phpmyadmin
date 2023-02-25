@@ -60,9 +60,7 @@ final class TablePartitionDefinition
         return $details;
     }
 
-    /**
-     * @param string $paramLabel Label searched in request
-     */
+    /** @param string $paramLabel Label searched in request */
     private static function extractPartitionCount(string $paramLabel): int
     {
         if (isset($_POST[$paramLabel]) && is_numeric($_POST[$paramLabel])) {

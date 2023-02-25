@@ -16,9 +16,7 @@ use Slim\Psr7\Factory\ServerRequestFactory as SlimServerRequestFactory;
 
 use function class_exists;
 
-/**
- * @covers \PhpMyAdmin\Http\Factory\ServerRequestFactory
- */
+/** @covers \PhpMyAdmin\Http\Factory\ServerRequestFactory */
 class ServerRequestFactoryTest extends AbstractTestCase
 {
     private const IMPLEMENTATION_CLASSES = [
@@ -45,9 +43,7 @@ class ServerRequestFactoryTest extends AbstractTestCase
         return self::IMPLEMENTATION_CLASSES;
     }
 
-    /**
-     * @phpstan-param class-string $className
-     */
+    /** @phpstan-param class-string $className */
     private function testOrSkip(string $className, string $humanName): void
     {
         if (! class_exists($className)) {

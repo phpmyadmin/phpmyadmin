@@ -13,9 +13,7 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
 use function bin2hex;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Table\GetFieldController
- */
+/** @covers \PhpMyAdmin\Controllers\Table\GetFieldController */
 class GetFieldControllerTest extends AbstractTestCase
 {
     /**

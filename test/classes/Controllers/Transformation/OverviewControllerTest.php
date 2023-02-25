@@ -13,9 +13,7 @@ use PhpMyAdmin\Transformations;
 
 use function __;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Transformation\OverviewController
- */
+/** @covers \PhpMyAdmin\Controllers\Transformation\OverviewController */
 class OverviewControllerTest extends AbstractTestCase
 {
     /**
@@ -24,8 +22,11 @@ class OverviewControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setGlobalConfig();
+
         parent::setTheme();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['text_dir'] = 'ltr';
 

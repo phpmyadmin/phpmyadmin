@@ -8,9 +8,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Twig\Extensions\Node\TransNode;
 use Twig\Error\LoaderError;
 
-/**
- * @covers \PhpMyAdmin\Template
- */
+/** @covers \PhpMyAdmin\Template */
 class TemplateTest extends AbstractTestCase
 {
     /** @var Template */
@@ -22,6 +20,7 @@ class TemplateTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->template = new Template();
     }
 

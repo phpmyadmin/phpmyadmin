@@ -9,9 +9,7 @@ use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportSql;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Plugins\Import\ImportSql
- */
+/** @covers \PhpMyAdmin\Plugins\Import\ImportSql */
 class ImportSqlTest extends AbstractTestCase
 {
     /** @var ImportSql */
@@ -24,6 +22,7 @@ class ImportSqlTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $GLOBALS['error'] = null;
@@ -59,6 +58,7 @@ class ImportSqlTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 

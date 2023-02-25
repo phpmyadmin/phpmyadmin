@@ -11,14 +11,10 @@ use function json_decode;
 use function strlen;
 use function substr;
 
-/**
- * @covers \PhpMyAdmin\Controllers\JavaScriptMessagesController
- */
+/** @covers \PhpMyAdmin\Controllers\JavaScriptMessagesController */
 class JavaScriptMessagesControllerTest extends TestCase
 {
-    /**
-     * @runInSeparateProcess
-     */
+    /** @runInSeparateProcess */
     public function testIndex(): void
     {
         (new JavaScriptMessagesController())();

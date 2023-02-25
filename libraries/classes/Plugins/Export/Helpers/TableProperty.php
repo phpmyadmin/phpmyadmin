@@ -62,9 +62,7 @@ class TableProperty
      */
     public $ext;
 
-    /**
-     * @param array $row table row
-     */
+    /** @param array $row table row */
     public function __construct(array $row)
     {
         $this->name = trim((string) $row[0]);

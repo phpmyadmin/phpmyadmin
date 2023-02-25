@@ -21,9 +21,7 @@ use const ENT_QUOTES;
 use const JSON_PRETTY_PRINT;
 use const JSON_UNESCAPED_SLASHES;
 
-/**
- * @covers \PhpMyAdmin\ErrorReport
- */
+/** @covers \PhpMyAdmin\ErrorReport */
 class ErrorReportTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -38,6 +36,7 @@ class ErrorReportTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;

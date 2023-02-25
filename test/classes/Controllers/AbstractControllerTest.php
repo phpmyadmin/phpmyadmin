@@ -11,14 +11,13 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
-/**
- * @covers \PhpMyAdmin\Controllers\AbstractController
- */
+/** @covers \PhpMyAdmin\Controllers\AbstractController */
 class AbstractControllerTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
     }
 
@@ -29,9 +28,7 @@ class AbstractControllerTest extends AbstractTestCase
         $response = new ResponseRenderer();
         $template = new Template();
         $controller = new class ($response, $template) extends AbstractController {
-            /**
-             * @psalm-param non-empty-list<non-empty-string> $params
-             */
+            /** @psalm-param non-empty-list<non-empty-string> $params */
             public function testCheckParameters(array $params): void
             {
                 parent::checkParameters($params);
@@ -59,9 +56,7 @@ class AbstractControllerTest extends AbstractTestCase
 
         $response = new ResponseRenderer();
         $controller = new class ($response, new Template()) extends AbstractController {
-            /**
-             * @psalm-param non-empty-list<non-empty-string> $params
-             */
+            /** @psalm-param non-empty-list<non-empty-string> $params */
             public function testCheckParameters(array $params): void
             {
                 parent::checkParameters($params);
@@ -84,9 +79,7 @@ class AbstractControllerTest extends AbstractTestCase
         $response->setAjax(true);
 
         $controller = new class ($response, new Template()) extends AbstractController {
-            /**
-             * @psalm-param int<400,599> $statusCode
-             */
+            /** @psalm-param int<400,599> $statusCode */
             public function testSendErrorResponse(string $message, int $statusCode = 400): void
             {
                 parent::sendErrorResponse($message, $statusCode);
@@ -110,9 +103,7 @@ class AbstractControllerTest extends AbstractTestCase
         $response->setAjax(false);
 
         $controller = new class ($response, new Template()) extends AbstractController {
-            /**
-             * @psalm-param int<400,599> $statusCode
-             */
+            /** @psalm-param int<400,599> $statusCode */
             public function testSendErrorResponse(string $message, int $statusCode = 400): void
             {
                 parent::sendErrorResponse($message, $statusCode);

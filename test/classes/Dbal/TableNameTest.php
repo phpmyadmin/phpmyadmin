@@ -16,9 +16,7 @@ use function str_repeat;
  */
 class TableNameTest extends TestCase
 {
-    /**
-     * @dataProvider providerForTestValidNames
-     */
+    /** @dataProvider providerForTestValidNames */
     public function testValidName(string $validName): void
     {
         $name = TableName::fromValue($validName);
@@ -26,9 +24,7 @@ class TableNameTest extends TestCase
         $this->assertEquals($validName, (string) $name);
     }
 
-    /**
-     * @dataProvider providerForTestValidNames
-     */
+    /** @dataProvider providerForTestValidNames */
     public function testTryFromValueValidName(string $validName): void
     {
         $name = TableName::tryFromValue($validName);
@@ -37,9 +33,7 @@ class TableNameTest extends TestCase
         $this->assertEquals($validName, (string) $name);
     }
 
-    /**
-     * @return iterable<int, string[]>
-     */
+    /** @return iterable<int, string[]> */
     public static function providerForTestValidNames(): iterable
     {
         yield ['name'];

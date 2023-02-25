@@ -344,9 +344,7 @@ class Generator
         return $sql;
     }
 
-    /**
-     * @return string[]
-     */
+    /** @return string[] */
     public static function getInformationSchemaColumns(
         string|null $database,
         string|null $table,
@@ -424,9 +422,7 @@ class Generator
         return $sql_query . implode(', ', $partitionNames) . ';';
     }
 
-    /**
-     * @param string[] $selectedColumns
-     */
+    /** @param string[] $selectedColumns */
     public static function getAddIndexSql(string $indexType, string $table, array $selectedColumns): string
     {
         $columnsSql = implode(', ', array_map(Util::backquote(...), $selectedColumns));

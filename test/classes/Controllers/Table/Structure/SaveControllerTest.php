@@ -14,14 +14,13 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
 use ReflectionClass;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Table\Structure\SaveController
- */
+/** @covers \PhpMyAdmin\Controllers\Table\Structure\SaveController */
 class SaveControllerTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
     }
 

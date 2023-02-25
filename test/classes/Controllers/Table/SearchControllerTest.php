@@ -20,9 +20,7 @@ use function hash;
 
 use const MYSQLI_TYPE_LONG;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Table\SearchController
- */
+/** @covers \PhpMyAdmin\Controllers\Table\SearchController */
 class SearchControllerTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -43,7 +41,9 @@ class SearchControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setTheme();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;
@@ -139,7 +139,9 @@ class SearchControllerTest extends AbstractTestCase
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;
         $this->loadContainerBuilder();
+
         parent::loadDbiIntoContainerBuilder();
+
         parent::loadResponseIntoContainerBuilder();
 
         $_SESSION[' HMAC_secret '] = hash('sha1', 'test');

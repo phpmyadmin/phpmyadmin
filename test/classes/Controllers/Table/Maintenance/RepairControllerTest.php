@@ -11,9 +11,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Table\Maintenance\RepairController
- */
+/** @covers \PhpMyAdmin\Controllers\Table\Maintenance\RepairController */
 class RepairControllerTest extends AbstractTestCase
 {
     /**
@@ -35,9 +33,7 @@ class RepairControllerTest extends AbstractTestCase
         $this->assertSame('', $response->getHTMLResult());
     }
 
-    /**
-     * @return array<int, array{string[][]|string[]|string|null}>
-     */
+    /** @return array<int, array{string[][]|string[]|string|null}> */
     public static function providerForTestNoTableSelected(): array
     {
         return [

@@ -9,9 +9,7 @@ use PhpMyAdmin\Properties\Options\OptionsPropertyGroup;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\MockObject\MockObject;
 
-/**
- * @covers \PhpMyAdmin\Properties\Options\OptionsPropertyGroup
- */
+/** @covers \PhpMyAdmin\Properties\Options\OptionsPropertyGroup */
 class OptionsPropertyGroupTest extends AbstractTestCase
 {
     /** @var OptionsPropertyGroup&MockObject */
@@ -23,6 +21,7 @@ class OptionsPropertyGroupTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->stub = $this->getMockForAbstractClass(OptionsPropertyGroup::class);
     }
 
@@ -32,6 +31,7 @@ class OptionsPropertyGroupTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->stub);
     }
 

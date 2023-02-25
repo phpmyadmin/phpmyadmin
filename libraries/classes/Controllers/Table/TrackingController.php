@@ -283,9 +283,7 @@ final class TrackingController extends AbstractController
         return in_array($param, ['schema', 'data'], true) ? $param : 'schema_and_data';
     }
 
-    /**
-     * @param mixed $param
-     */
+    /** @param mixed $param */
     private function validateDateTimeParam($param): DateTimeImmutable
     {
         try {

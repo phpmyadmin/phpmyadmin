@@ -16,9 +16,7 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use ReflectionClass;
 use ReflectionException;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Database\StructureController
- */
+/** @covers \PhpMyAdmin\Controllers\Database\StructureController */
 class StructureControllerTest extends AbstractTestCase
 {
     /** @var ResponseStub */
@@ -39,7 +37,9 @@ class StructureControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setTheme();
+
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -306,9 +306,7 @@ class StructureControllerTest extends AbstractTestCase
         );
     }
 
-    /**
-     * @throws ReflectionException
-     */
+    /** @throws ReflectionException */
     public function testDisplayTableList(): void
     {
         $class = new ReflectionClass(StructureController::class);
@@ -365,7 +363,9 @@ class StructureControllerTest extends AbstractTestCase
     public function testGetValuesForMroongaTable(): void
     {
         parent::loadContainerBuilder();
+
         parent::loadDbiIntoContainerBuilder();
+
         $GLOBALS['db'] = 'testdb';
         $GLOBALS['table'] = 'mytable';
 

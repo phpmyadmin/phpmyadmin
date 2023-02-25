@@ -6,9 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Font;
 
-/**
- * @covers \PhpMyAdmin\Font
- */
+/** @covers \PhpMyAdmin\Font */
 class FontTest extends AbstractTestCase
 {
     /** @var Font */
@@ -20,6 +18,7 @@ class FontTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->font = new Font();
     }
 

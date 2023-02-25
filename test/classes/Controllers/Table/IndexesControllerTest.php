@@ -21,9 +21,7 @@ use ReflectionMethod;
 use function __;
 use function sprintf;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Table\IndexesController
- */
+/** @covers \PhpMyAdmin\Controllers\Table\IndexesController */
 class IndexesControllerTest extends AbstractTestCase
 {
     /**
@@ -32,6 +30,7 @@ class IndexesControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setTheme();
 
         /**

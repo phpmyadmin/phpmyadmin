@@ -29,14 +29,10 @@ use PhpMyAdmin\Version;
 
 use function is_string;
 
-/**
- * @psalm-immutable
- */
+/** @psalm-immutable */
 final class RelationParameters
 {
-    /**
-     * @param non-empty-string|null $user
-     */
+    /** @param non-empty-string|null $user */
     public function __construct(
         public readonly string|null $user,
         public readonly DatabaseName|null $db = null,
@@ -61,9 +57,7 @@ final class RelationParameters
     ) {
     }
 
-    /**
-     * @param mixed[] $params
-     */
+    /** @param mixed[] $params */
     public static function fromArray(array $params): self
     {
         $user = null;

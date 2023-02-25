@@ -79,14 +79,17 @@ class DatabaseInterface implements DbalInterface
      * Force STORE_RESULT method, ignored by classic MySQL.
      */
     public const QUERY_BUFFERED = 0;
+
     /**
      * Do not read all rows immediately.
      */
     public const QUERY_UNBUFFERED = 2;
+
     /**
      * Get session variable.
      */
     public const GETVAR_SESSION = 1;
+
     /**
      * Get global variable.
      */
@@ -133,9 +136,7 @@ class DatabaseInterface implements DbalInterface
     /** @var ListDatabase|null */
     private $databaseList = null;
 
-    /**
-     * @param DbiExtension $ext Object to be used for database queries
-     */
+    /** @param DbiExtension $ext Object to be used for database queries */
     public function __construct(DbiExtension $ext)
     {
         $this->extension = $ext;
@@ -1506,9 +1507,7 @@ class DatabaseInterface implements DbalInterface
         return isset($this->connections[Connection::TYPE_USER]);
     }
 
-    /**
-     * @return string[]
-     */
+    /** @return string[] */
     private function getCurrentUserGrants(): array
     {
         /** @var string[] $grants */

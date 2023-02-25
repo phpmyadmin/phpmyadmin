@@ -8,9 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\FormDisplayTemplate;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Config\FormDisplayTemplate
- */
+/** @covers \PhpMyAdmin\Config\FormDisplayTemplate */
 class FormDisplayTemplateTest extends AbstractTestCase
 {
     /** @var FormDisplayTemplate */
@@ -25,7 +23,9 @@ class FormDisplayTemplateTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setLanguage();
+
         $this->config = $this->createConfig();
         $this->formDisplayTemplate = new FormDisplayTemplate($this->config);
     }

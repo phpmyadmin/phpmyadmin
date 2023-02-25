@@ -15,9 +15,7 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use PhpMyAdmin\Transformations;
 use ReflectionClass;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Table\Structure\ChangeController
- */
+/** @covers \PhpMyAdmin\Controllers\Table\Structure\ChangeController */
 class ChangeControllerTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -29,6 +27,7 @@ class ChangeControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;

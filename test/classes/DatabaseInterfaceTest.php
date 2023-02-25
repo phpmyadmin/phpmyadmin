@@ -16,14 +16,13 @@ use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Utils\SessionCache;
 
-/**
- * @covers \PhpMyAdmin\DatabaseInterface
- */
+/** @covers \PhpMyAdmin\DatabaseInterface */
 class DatabaseInterfaceTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
     }
 
@@ -875,9 +874,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $dbiDummy->assertAllQueriesConsumed();
     }
 
-    /**
-     * @return iterable<string, array{string|false|null, int}>
-     */
+    /** @return iterable<string, array{string|false|null, int}> */
     public static function providerForTestGetLowerCaseNames(): iterable
     {
         yield 'string 0' => ['0', 0];

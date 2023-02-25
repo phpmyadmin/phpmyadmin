@@ -23,6 +23,7 @@ class NodeTriggerContainer extends Node
     public function __construct()
     {
         parent::__construct(__('Triggers'), Node::CONTAINER);
+
         $this->icon = ['image' => 'b_triggers', 'title' => __('Triggers')];
         $this->links = [
             'text' => ['route' => '/database/triggers', 'params' => ['db' => null, 'table' => null]],

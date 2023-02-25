@@ -17,9 +17,7 @@ final class AccountLocking
     {
     }
 
-    /**
-     * @throws Exception
-     */
+    /** @throws Exception */
     public function lock(string $user, string $host): void
     {
         if (! Compatibility::hasAccountLocking($this->dbi->isMariaDB(), $this->dbi->getVersion())) {
@@ -38,9 +36,7 @@ final class AccountLocking
         throw new Exception($this->dbi->getError());
     }
 
-    /**
-     * @throws Exception
-     */
+    /** @throws Exception */
     public function unlock(string $user, string $host): void
     {
         if (! Compatibility::hasAccountLocking($this->dbi->isMariaDB(), $this->dbi->getVersion())) {

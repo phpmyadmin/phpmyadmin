@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests\Plugins\Export\Helpers;
 use PhpMyAdmin\Plugins\Export\Helpers\TableProperty;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Plugins\Export\Helpers\TableProperty
- */
+/** @covers \PhpMyAdmin\Plugins\Export\Helpers\TableProperty */
 class TablePropertyTest extends AbstractTestCase
 {
     /** @var TableProperty */
@@ -21,6 +19,7 @@ class TablePropertyTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['server'] = 0;
         $row = [
             ' name ',
@@ -39,6 +38,7 @@ class TablePropertyTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 

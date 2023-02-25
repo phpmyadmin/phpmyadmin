@@ -9,9 +9,7 @@ use PhpMyAdmin\Utils\FormatConverter;
 
 use function hex2bin;
 
-/**
- * @covers \PhpMyAdmin\Utils\FormatConverter
- */
+/** @covers \PhpMyAdmin\Utils\FormatConverter */
 class FormatConverterTest extends AbstractTestCase
 {
     /**

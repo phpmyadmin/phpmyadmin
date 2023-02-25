@@ -8,15 +8,15 @@ use PhpMyAdmin\Advisory\Advisor;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
-/**
- * @covers \PhpMyAdmin\Advisory\Advisor
- */
+/** @covers \PhpMyAdmin\Advisory\Advisor */
 class AdvisorTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setGlobalConfig();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 1;
     }
@@ -73,6 +73,7 @@ class AdvisorTest extends AbstractTestCase
     public function testAddRule(array $rule, array $expected, string|null $error): void
     {
         parent::setLanguage();
+
         $advisor = new Advisor($GLOBALS['dbi'], new ExpressionLanguage());
         $advisor->setVariable('value', 0);
         $advisor->addRule('fired', $rule);

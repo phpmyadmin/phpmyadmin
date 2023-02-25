@@ -25,17 +25,13 @@ class BaseFormList
     /** @var BaseForm[] */
     private $forms;
 
-    /**
-     * @return string[]
-     */
+    /** @return string[] */
     public static function getAllFormNames(): array
     {
         return array_keys(static::$all);
     }
 
-    /**
-     * @param string $name Name
-     */
+    /** @param string $name Name */
     public static function isValid(string $name): bool
     {
         return array_key_exists($name, static::$all);
@@ -55,9 +51,7 @@ class BaseFormList
         return null;
     }
 
-    /**
-     * @param ConfigFile $cf Config file instance
-     */
+    /** @param ConfigFile $cf Config file instance */
     final public function __construct(ConfigFile $cf)
     {
         $this->forms = [];

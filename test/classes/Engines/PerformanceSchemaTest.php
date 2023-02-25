@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests\Engines;
 use PhpMyAdmin\Engines\PerformanceSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Engines\PerformanceSchema
- */
+/** @covers \PhpMyAdmin\Engines\PerformanceSchema */
 class PerformanceSchemaTest extends AbstractTestCase
 {
     /** @var PerformanceSchema */
@@ -22,6 +20,7 @@ class PerformanceSchemaTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $this->object = new PerformanceSchema('PERFORMANCE_SCHEMA');
@@ -34,6 +33,7 @@ class PerformanceSchemaTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 

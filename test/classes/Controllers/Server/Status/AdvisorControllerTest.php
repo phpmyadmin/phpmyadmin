@@ -13,9 +13,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Server\Status\AdvisorController
- */
+/** @covers \PhpMyAdmin\Controllers\Server\Status\AdvisorController */
 class AdvisorControllerTest extends AbstractTestCase
 {
     /** @var ResponseRenderer */
@@ -30,9 +28,13 @@ class AdvisorControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['text_dir'] = 'ltr';
+
         parent::setGlobalConfig();
+
         parent::setTheme();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
 
         $GLOBALS['server'] = 1;

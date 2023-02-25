@@ -9,9 +9,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Menu;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 
-/**
- * @covers \PhpMyAdmin\Menu
- */
+/** @covers \PhpMyAdmin\Menu */
 class MenuTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -26,7 +24,9 @@ class MenuTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setTheme();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;

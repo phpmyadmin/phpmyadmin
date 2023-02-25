@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests\Properties\Options\Groups;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup
- */
+/** @covers \PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup */
 class OptionsPropertyRootGroupTest extends AbstractTestCase
 {
     /** @var OptionsPropertyRootGroup */
@@ -21,6 +19,7 @@ class OptionsPropertyRootGroupTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->object = new OptionsPropertyRootGroup();
     }
 
@@ -30,6 +29,7 @@ class OptionsPropertyRootGroupTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 

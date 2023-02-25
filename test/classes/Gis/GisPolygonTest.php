@@ -26,6 +26,7 @@ class GisPolygonTest extends GisGeomTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->object = GisPolygon::singleton();
     }
 
@@ -36,6 +37,7 @@ class GisPolygonTest extends GisGeomTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 
@@ -396,9 +398,7 @@ class GisPolygonTest extends GisGeomTestCase
         ];
     }
 
-    /**
-     * @requires extension gd
-     */
+    /** @requires extension gd */
     public function testPrepareRowAsPng(): void
     {
         $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
@@ -458,6 +458,7 @@ class GisPolygonTest extends GisGeomTestCase
                 'pdf',
                 [176, 46, 224],
                 ['x' => -8, 'y' => -32, 'scale' => 1.80, 'height' => 297],
+
                 parent::createEmptyPdf('POLYGON'),
             ],
         ];

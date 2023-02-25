@@ -20,9 +20,7 @@ use const MYSQLI_TYPE_SHORT;
 use const MYSQLI_TYPE_TIMESTAMP;
 use const MYSQLI_TYPE_VAR_STRING;
 
-/**
- * @covers \PhpMyAdmin\Sql
- */
+/** @covers \PhpMyAdmin\Sql */
 class SqlTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -40,8 +38,11 @@ class SqlTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setLanguage();
+
         parent::setTheme();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;
@@ -566,9 +567,7 @@ class SqlTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * @dataProvider dataProviderCountQueryResults
-     */
+    /** @dataProvider dataProviderCountQueryResults */
     public function testCountQueryResults(
         string|null $sqlQuery,
         array $sessionTmpVal,

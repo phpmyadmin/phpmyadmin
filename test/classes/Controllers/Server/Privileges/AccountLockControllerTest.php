@@ -15,9 +15,7 @@ use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\MockObject\Stub;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Server\Privileges\AccountLockController
- */
+/** @covers \PhpMyAdmin\Controllers\Server\Privileges\AccountLockController */
 class AccountLockControllerTest extends AbstractTestCase
 {
     /** @var DatabaseInterface&Stub */
@@ -35,6 +33,7 @@ class AccountLockControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
 
         $GLOBALS['server'] = 1;

@@ -48,9 +48,7 @@ class ImportCsv extends AbstractImportCsv
      */
     private $analyze;
 
-    /**
-     * @psalm-return non-empty-lowercase-string
-     */
+    /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
         return 'csv';

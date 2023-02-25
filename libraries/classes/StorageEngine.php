@@ -64,9 +64,7 @@ class StorageEngine
      */
     public $support = self::SUPPORT_NO;
 
-    /**
-     * @param string $engine The engine ID
-     */
+    /** @param string $engine The engine ID */
     public function __construct($engine)
     {
         $storage_engines = self::getStorageEngines();
@@ -210,9 +208,7 @@ class StorageEngine
         return [$dataLength, $indexLength];
     }
 
-    /**
-     * @return array<int|string, array<string, mixed>>
-     */
+    /** @return array<int|string, array<string, mixed>> */
     public static function getArray(): array
     {
         $engines = [];

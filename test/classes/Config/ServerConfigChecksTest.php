@@ -16,21 +16,19 @@ use function str_repeat;
 
 use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 
-/**
- * @covers \PhpMyAdmin\Config\ServerConfigChecks
- */
+/** @covers \PhpMyAdmin\Config\ServerConfigChecks */
 class ServerConfigChecksTest extends AbstractTestCase
 {
     /** @var string */
     private $sessionID;
 
-    /**
-     * @throws ReflectionException
-     */
+    /** @throws ReflectionException */
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setGlobalConfig();
+
         $GLOBALS['cfg']['AvailableCharsets'] = [];
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $GLOBALS['server'] = 0;

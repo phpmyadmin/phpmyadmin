@@ -14,9 +14,7 @@ use function unlink;
 use const CACHE_DIR;
 use const TEST_PATH;
 
-/**
- * @covers \PhpMyAdmin\Routing
- */
+/** @covers \PhpMyAdmin\Routing */
 class RoutingTest extends AbstractTestCase
 {
     /**

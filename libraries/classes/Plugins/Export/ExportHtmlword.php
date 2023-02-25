@@ -30,9 +30,7 @@ use function str_replace;
  */
 class ExportHtmlword extends ExportPlugin
 {
-    /**
-     * @psalm-return non-empty-lowercase-string
-     */
+    /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
         return 'htmlword';

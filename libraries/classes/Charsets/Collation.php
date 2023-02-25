@@ -86,9 +86,7 @@ final class Collation
         $this->description = $this->buildDescription();
     }
 
-    /**
-     * @param string[] $state State obtained from the database server
-     */
+    /** @param string[] $state State obtained from the database server */
     public static function fromServer(array $state): self
     {
         return new self(
@@ -233,9 +231,7 @@ final class Collation
         return $this->buildName($name, $variant, $suffixes);
     }
 
-    /**
-     * @param string[] $suffixes
-     */
+    /** @param string[] $suffixes */
     private function buildName(string $result, string|null $variant, array $suffixes): string
     {
         if ($variant !== null) {

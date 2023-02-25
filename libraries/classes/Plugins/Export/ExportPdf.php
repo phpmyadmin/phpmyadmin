@@ -35,9 +35,7 @@ class ExportPdf extends ExportPlugin
      */
     private $pdfReportTitle = '';
 
-    /**
-     * @psalm-return non-empty-lowercase-string
-     */
+    /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
         return 'pdf';

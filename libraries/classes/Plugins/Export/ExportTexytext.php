@@ -30,9 +30,7 @@ use function str_replace;
  */
 class ExportTexytext extends ExportPlugin
 {
-    /**
-     * @psalm-return non-empty-lowercase-string
-     */
+    /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
         return 'texytext';

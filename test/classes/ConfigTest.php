@@ -55,7 +55,9 @@ class ConfigTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setTheme();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $_SERVER['HTTP_USER_AGENT'] = '';
         $this->object = $this->createConfig();
@@ -78,6 +80,7 @@ class ConfigTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
         unset($this->permTestObj);
     }
@@ -327,9 +330,7 @@ class ConfigTest extends AbstractTestCase
                 'FIREFOX',
                 '12.0',
             ],
-            /**
-             * @todo Is this version really expected?
-             */
+            /** @todo Is this version really expected? */
             [
                 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.4+ (KHTML, like G'
                 . 'ecko) Version/5.0 Safari/535.4+ SUSE/12.1 (3.2.1) Epiphany/3.2.1',

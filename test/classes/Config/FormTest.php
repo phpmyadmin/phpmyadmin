@@ -13,9 +13,7 @@ use ReflectionProperty;
 use function array_keys;
 use function preg_match;
 
-/**
- * @covers \PhpMyAdmin\Config\Form
- */
+/** @covers \PhpMyAdmin\Config\Form */
 class FormTest extends AbstractTestCase
 {
     /** @var Form */
@@ -27,8 +25,11 @@ class FormTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setTheme();
+
         parent::setGlobalConfig();
+
         $GLOBALS['server'] = 0;
         $this->object = new Form(
             'pma_form_name',
@@ -47,6 +48,7 @@ class FormTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 

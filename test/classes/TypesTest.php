@@ -6,9 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Types;
 
-/**
- * @covers \PhpMyAdmin\Types
- */
+/** @covers \PhpMyAdmin\Types */
 class TypesTest extends AbstractTestCase
 {
     /** @var Types */
@@ -21,6 +19,7 @@ class TypesTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $this->object = new Types($GLOBALS['dbi']);
     }

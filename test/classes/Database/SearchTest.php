@@ -9,9 +9,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Database\Search
- */
+/** @covers \PhpMyAdmin\Database\Search */
 class SearchTest extends AbstractTestCase
 {
     /** @var Search */
@@ -59,6 +57,7 @@ class SearchTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 

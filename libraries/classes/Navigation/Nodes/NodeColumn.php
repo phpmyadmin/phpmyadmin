@@ -29,6 +29,7 @@ class NodeColumn extends Node
         $this->displayName = $this->getDisplayName($item);
 
         parent::__construct($item['name'], $type, $isGroup);
+
         $this->icon = ['image' => $this->getColumnIcon($item['key']), 'title' => __('Column')];
         $this->links = [
             'text' => [

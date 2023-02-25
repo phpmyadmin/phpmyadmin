@@ -13,9 +13,7 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use function __;
 use function basename;
 
-/**
- * @covers \PhpMyAdmin\Plugins\Import\ImportCsv
- */
+/** @covers \PhpMyAdmin\Plugins\Import\ImportCsv */
 class ImportCsvTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -34,6 +32,7 @@ class ImportCsvTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;
@@ -92,6 +91,7 @@ class ImportCsvTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 

@@ -6,9 +6,7 @@ namespace PhpMyAdmin\Table\Maintenance;
 
 use function is_string;
 
-/**
- * @psalm-immutable
- */
+/** @psalm-immutable */
 final class Message
 {
     /** @var string */
@@ -31,9 +29,7 @@ final class Message
         $this->text = $text;
     }
 
-    /**
-     * @param mixed[] $row
-     */
+    /** @param mixed[] $row */
     public static function fromArray(array $row): self
     {
         $table = isset($row['Table']) && is_string($row['Table']) ? $row['Table'] : '';

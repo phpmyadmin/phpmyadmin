@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Config\PageSettings
- */
+/** @covers \PhpMyAdmin\Config\PageSettings */
 class PageSettingsTest extends AbstractTestCase
 {
     /**
@@ -18,9 +16,13 @@ class PageSettingsTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setLanguage();
+
         parent::setGlobalConfig();
+
         parent::setTheme();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';

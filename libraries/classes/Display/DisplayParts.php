@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Display;
 
-/**
- * @psalm-immutable
- */
+/** @psalm-immutable */
 final class DisplayParts
 {
     public const NO_DELETE = 0;
@@ -37,9 +35,7 @@ final class DisplayParts
     /** @var bool */
     public $hasPrintLink;
 
-    /**
-     * @psalm-param self::NO_DELETE|self::DELETE_ROW|self::KILL_PROCESS $deleteLink
-     */
+    /** @psalm-param self::NO_DELETE|self::DELETE_ROW|self::KILL_PROCESS $deleteLink */
     private function __construct(
         bool $hasEditLink,
         int $deleteLink,

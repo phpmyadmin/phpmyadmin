@@ -37,6 +37,7 @@ class Key extends TwoFactorPlugin
     public function __construct(TwoFactor $twofactor)
     {
         parent::__construct($twofactor);
+
         if (
             isset($this->twofactor->config['settings']['registrations'])
             && is_array($this->twofactor->config['settings']['registrations'])

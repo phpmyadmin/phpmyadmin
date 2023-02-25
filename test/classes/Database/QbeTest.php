@@ -9,9 +9,7 @@ use PhpMyAdmin\Database\Qbe;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Database\Qbe
- */
+/** @covers \PhpMyAdmin\Database\Qbe */
 class QbeTest extends AbstractTestCase
 {
     public function testGetSortSelectCell(): void

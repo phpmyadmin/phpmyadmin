@@ -10,9 +10,7 @@ use PHPUnit\Framework\TestCase;
 use function array_keys;
 use function array_merge;
 
-/**
- * @covers \PhpMyAdmin\Config\Settings\Debug
- */
+/** @covers \PhpMyAdmin\Config\Settings\Debug */
 class DebugTest extends TestCase
 {
     /** @var array<string, bool> */

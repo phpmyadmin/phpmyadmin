@@ -8,14 +8,13 @@ use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\StatementInfo;
 
-/**
- * @covers \PhpMyAdmin\ParseAnalyze
- */
+/** @covers \PhpMyAdmin\ParseAnalyze */
 class ParseAnalyzeTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
     }
 

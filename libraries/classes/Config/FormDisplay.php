@@ -105,9 +105,7 @@ class FormDisplay
 
     private FormDisplayTemplate $formDisplayTemplate;
 
-    /**
-     * @param ConfigFile $cf Config file instance
-     */
+    /** @param ConfigFile $cf Config file instance */
     public function __construct(ConfigFile $cf)
     {
         $this->formDisplayTemplate = new FormDisplayTemplate($GLOBALS['config']);

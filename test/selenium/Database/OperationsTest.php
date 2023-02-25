@@ -6,9 +6,7 @@ namespace PhpMyAdmin\Tests\Selenium\Database;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
 
-/**
- * @coversNothing
- */
+/** @coversNothing */
 class OperationsTest extends TestBase
 {
     /**
@@ -17,6 +15,7 @@ class OperationsTest extends TestBase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->login();
     }
 

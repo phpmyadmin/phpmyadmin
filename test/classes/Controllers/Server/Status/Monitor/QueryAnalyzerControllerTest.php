@@ -14,14 +14,13 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Utils\SessionCache;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Server\Status\Monitor\QueryAnalyzerController
- */
+/** @covers \PhpMyAdmin\Controllers\Server\Status\Monitor\QueryAnalyzerController */
 class QueryAnalyzerControllerTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
     }
 

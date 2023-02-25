@@ -131,17 +131,13 @@ class DbiDummy implements DbiExtension
         return $this->fifoErrorCodes !== [];
     }
 
-    /**
-     * @return string[]
-     */
+    /** @return string[] */
     public function getUnUsedDatabaseSelects(): array
     {
         return $this->fifoDatabasesToSelect;
     }
 
-    /**
-     * @return array[]
-     */
+    /** @return array[] */
     public function getUnUsedQueries(): array
     {
         $unUsed = [];

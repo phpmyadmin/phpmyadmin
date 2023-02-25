@@ -8,14 +8,10 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Query\Compatibility;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \PhpMyAdmin\Query\Compatibility
- */
+/** @covers \PhpMyAdmin\Query\Compatibility */
 class CompatibilityTest extends TestCase
 {
-    /**
-     * @dataProvider providerForTestHasAccountLocking
-     */
+    /** @dataProvider providerForTestHasAccountLocking */
     public function testHasAccountLocking(bool $expected, bool $isMariaDb, int $version): void
     {
         $this->assertSame($expected, Compatibility::hasAccountLocking($isMariaDb, $version));
@@ -37,9 +33,7 @@ class CompatibilityTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider providerForTestIsUUIDSupported
-     */
+    /** @dataProvider providerForTestIsUUIDSupported */
     public function testIsUUIDSupported(bool $expected, bool $isMariaDb, int $version): void
     {
         $dbiStub = $this->createStub(DatabaseInterface::class);

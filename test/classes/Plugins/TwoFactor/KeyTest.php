@@ -8,9 +8,7 @@ use PhpMyAdmin\Plugins\TwoFactor\Key;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\TwoFactor;
 
-/**
- * @covers \PhpMyAdmin\Plugins\TwoFactor\Key
- */
+/** @covers \PhpMyAdmin\Plugins\TwoFactor\Key */
 class KeyTest extends AbstractTestCase
 {
     public function testGetRegistrations(): void

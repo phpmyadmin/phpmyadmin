@@ -25,9 +25,7 @@ use function class_exists;
  */
 class SchemaPdf extends SchemaPlugin
 {
-    /**
-     * @psalm-return non-empty-lowercase-string
-     */
+    /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
         return 'pdf';
@@ -113,9 +111,7 @@ class SchemaPdf extends SchemaPlugin
         return $schemaPluginProperties;
     }
 
-    /**
-     * @return array{fileName: non-empty-string, mediaType: non-empty-string, fileData: string}
-     */
+    /** @return array{fileName: non-empty-string, mediaType: non-empty-string, fileData: string} */
     public function getExportInfo(DatabaseName $db): array
     {
         $export = new PdfRelationSchema($db);

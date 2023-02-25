@@ -15,9 +15,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Table\ChangeController
- */
+/** @covers \PhpMyAdmin\Controllers\Table\ChangeController */
 class ChangeControllerTest extends AbstractTestCase
 {
     public function testChangeController(): void

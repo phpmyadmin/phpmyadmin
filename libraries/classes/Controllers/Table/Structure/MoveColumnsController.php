@@ -34,6 +34,7 @@ final class MoveColumnsController extends AbstractController
         private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
+
         $this->tableObj = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
     }
 

@@ -12,9 +12,7 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 
 use function sprintf;
 
-/**
- * @covers \PhpMyAdmin\Controllers\NavigationController
- */
+/** @covers \PhpMyAdmin\Controllers\NavigationController */
 class NavigationControllerTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -26,6 +24,7 @@ class NavigationControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;
@@ -34,8 +33,11 @@ class NavigationControllerTest extends AbstractTestCase
     public function testIndex(): void
     {
         parent::loadContainerBuilder();
+
         parent::loadDbiIntoContainerBuilder();
+
         parent::setLanguage();
+
         $this->setTheme();
 
         $GLOBALS['server'] = 1;
@@ -43,6 +45,7 @@ class NavigationControllerTest extends AbstractTestCase
         $GLOBALS['db'] = 'air-balloon_burner_dev2';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['auth_type'] = 'cookie';
+
         parent::loadResponseIntoContainerBuilder();
 
         // This example path data has nothing to do with the actual test
@@ -183,7 +186,9 @@ class NavigationControllerTest extends AbstractTestCase
     public function testIndexWithPosAndValue(): void
     {
         parent::loadContainerBuilder();
+
         parent::loadDbiIntoContainerBuilder();
+
         parent::setLanguage();
 
         $GLOBALS['server'] = 1;
@@ -191,6 +196,7 @@ class NavigationControllerTest extends AbstractTestCase
         $GLOBALS['db'] = 'air-balloon_burner_dev2';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['auth_type'] = 'cookie';
+
         parent::loadResponseIntoContainerBuilder();
 
         // root.air-balloon_burner_dev2

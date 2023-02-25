@@ -14,9 +14,7 @@ use function base64_encode;
 use function ob_get_clean;
 use function ob_start;
 
-/**
- * @covers \PhpMyAdmin\Plugins\Auth\AuthenticationHttp
- */
+/** @covers \PhpMyAdmin\Plugins\Auth\AuthenticationHttp */
 class AuthenticationHttpTest extends AbstractNetworkTestCase
 {
     /** @var AuthenticationHttp */
@@ -28,8 +26,11 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setGlobalConfig();
+
         parent::setTheme();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['cfg']['Servers'] = [];
         $GLOBALS['server'] = 0;
@@ -49,12 +50,11 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 
-    /**
-     * @param mixed[] ...$headers
-     */
+    /** @param mixed[] ...$headers */
     public function doMockResponse(int $set_minimal, int $body_id, int $set_title, ...$headers): void
     {
         $mockHeader = $this->getMockBuilder(Header::class)

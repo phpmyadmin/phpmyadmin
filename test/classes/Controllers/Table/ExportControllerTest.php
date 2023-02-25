@@ -16,14 +16,13 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Table\ExportController
- */
+/** @covers \PhpMyAdmin\Controllers\Table\ExportController */
 class ExportControllerTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->loadContainerBuilder();
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
     }

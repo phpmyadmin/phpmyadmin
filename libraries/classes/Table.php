@@ -1323,9 +1323,7 @@ class Table implements Stringable
         ];
         self::duplicateInfo('displaywork', 'table_info', $getFields, $whereFields, $newFields);
 
-        /**
-         * @todo revise this code when we support cross-db relations
-         */
+        /** @todo revise this code when we support cross-db relations */
         $getFields = [
             'master_field',
             'foreign_table',

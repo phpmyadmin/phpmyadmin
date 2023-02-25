@@ -149,9 +149,7 @@ final class ReplicationInfo
         $this->primaryInfo['Ignore_DB'] = self::fill($this->primaryStatus, 'Binlog_Ignore_DB');
     }
 
-    /**
-     * @return array
-     */
+    /** @return array */
     public function getPrimaryInfo(): array
     {
         return $this->primaryInfo;
@@ -177,9 +175,7 @@ final class ReplicationInfo
         $this->replicaInfo['Wild_Ignore_Table'] = self::fill($this->replicaStatus, 'Replicate_Wild_Ignore_Table');
     }
 
-    /**
-     * @return array
-     */
+    /** @return array */
     public function getReplicaInfo(): array
     {
         return $this->replicaInfo;

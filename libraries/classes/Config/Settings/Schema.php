@@ -8,9 +8,7 @@ namespace PhpMyAdmin\Config\Settings;
 
 use function in_array;
 
-/**
- * @psalm-immutable
- */
+/** @psalm-immutable */
 final class Schema
 {
     /**
@@ -88,9 +86,7 @@ final class Schema
     /** @var bool */
     public $svg_all_tables_same_width;
 
-    /**
-     * @param array<int|string, mixed> $schema
-     */
+    /** @param array<int|string, mixed> $schema */
     public function __construct(array $schema = [])
     {
         $this->format = $this->setFormat($schema);
@@ -129,9 +125,7 @@ final class Schema
         return 'pdf';
     }
 
-    /**
-     * @param array<int|string, mixed> $schema
-     */
+    /** @param array<int|string, mixed> $schema */
     private function setPdfShowColor(array $schema): bool
     {
         if (isset($schema['pdf_show_color'])) {
@@ -141,9 +135,7 @@ final class Schema
         return true;
     }
 
-    /**
-     * @param array<int|string, mixed> $schema
-     */
+    /** @param array<int|string, mixed> $schema */
     private function setPdfShowKeys(array $schema): bool
     {
         if (isset($schema['pdf_show_keys'])) {
@@ -153,9 +145,7 @@ final class Schema
         return false;
     }
 
-    /**
-     * @param array<int|string, mixed> $schema
-     */
+    /** @param array<int|string, mixed> $schema */
     private function setPdfAllTablesSameWidth(array $schema): bool
     {
         if (isset($schema['pdf_all_tables_same_width'])) {
@@ -179,9 +169,7 @@ final class Schema
         return 'L';
     }
 
-    /**
-     * @param array<int|string, mixed> $schema
-     */
+    /** @param array<int|string, mixed> $schema */
     private function setPdfPaper(array $schema): string
     {
         if (isset($schema['pdf_paper'])) {
@@ -191,9 +179,7 @@ final class Schema
         return 'A4';
     }
 
-    /**
-     * @param array<int|string, mixed> $schema
-     */
+    /** @param array<int|string, mixed> $schema */
     private function setPdfShowGrid(array $schema): bool
     {
         if (isset($schema['pdf_show_grid'])) {
@@ -203,9 +189,7 @@ final class Schema
         return false;
     }
 
-    /**
-     * @param array<int|string, mixed> $schema
-     */
+    /** @param array<int|string, mixed> $schema */
     private function setPdfWithDoc(array $schema): bool
     {
         if (isset($schema['pdf_with_doc'])) {
@@ -231,9 +215,7 @@ final class Schema
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $schema
-     */
+    /** @param array<int|string, mixed> $schema */
     private function setDiaShowColor(array $schema): bool
     {
         if (isset($schema['dia_show_color'])) {
@@ -243,9 +225,7 @@ final class Schema
         return true;
     }
 
-    /**
-     * @param array<int|string, mixed> $schema
-     */
+    /** @param array<int|string, mixed> $schema */
     private function setDiaShowKeys(array $schema): bool
     {
         if (isset($schema['dia_show_keys'])) {
@@ -269,9 +249,7 @@ final class Schema
         return 'L';
     }
 
-    /**
-     * @param array<int|string, mixed> $schema
-     */
+    /** @param array<int|string, mixed> $schema */
     private function setDiaPaper(array $schema): string
     {
         if (isset($schema['dia_paper'])) {
@@ -281,9 +259,7 @@ final class Schema
         return 'A4';
     }
 
-    /**
-     * @param array<int|string, mixed> $schema
-     */
+    /** @param array<int|string, mixed> $schema */
     private function setEpsShowColor(array $schema): bool
     {
         if (isset($schema['eps_show_color'])) {
@@ -293,9 +269,7 @@ final class Schema
         return true;
     }
 
-    /**
-     * @param array<int|string, mixed> $schema
-     */
+    /** @param array<int|string, mixed> $schema */
     private function setEpsShowKeys(array $schema): bool
     {
         if (isset($schema['eps_show_keys'])) {
@@ -305,9 +279,7 @@ final class Schema
         return false;
     }
 
-    /**
-     * @param array<int|string, mixed> $schema
-     */
+    /** @param array<int|string, mixed> $schema */
     private function setEpsAllTablesSameWidth(array $schema): bool
     {
         if (isset($schema['eps_all_tables_same_width'])) {
@@ -331,9 +303,7 @@ final class Schema
         return 'L';
     }
 
-    /**
-     * @param array<int|string, mixed> $schema
-     */
+    /** @param array<int|string, mixed> $schema */
     private function setSvgShowColor(array $schema): bool
     {
         if (isset($schema['svg_show_color'])) {
@@ -343,9 +313,7 @@ final class Schema
         return true;
     }
 
-    /**
-     * @param array<int|string, mixed> $schema
-     */
+    /** @param array<int|string, mixed> $schema */
     private function setSvgShowKeys(array $schema): bool
     {
         if (isset($schema['svg_show_keys'])) {
@@ -355,9 +323,7 @@ final class Schema
         return false;
     }
 
-    /**
-     * @param array<int|string, mixed> $schema
-     */
+    /** @param array<int|string, mixed> $schema */
     private function setSvgAllTablesSameWidth(array $schema): bool
     {
         if (isset($schema['svg_all_tables_same_width'])) {

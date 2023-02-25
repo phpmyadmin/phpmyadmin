@@ -99,9 +99,7 @@ class PdfRelationSchema extends ExportRelationSchema
 
     private Transformations $transformations;
 
-    /**
-     * @see Pdf
-     */
+    /** @see Pdf */
     public function __construct(DatabaseName $db)
     {
         $this->transformations = new Transformations();
@@ -128,6 +126,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 $db->getName(),
             ),
         );
+
         $this->diagram->setTitle(
             sprintf(
                 __('Schema of the %s database'),
@@ -313,9 +312,7 @@ class PdfRelationSchema extends ExportRelationSchema
         return $this->tableOrder;
     }
 
-    /**
-     * @return array{fileName: non-empty-string, fileData: string}
-     */
+    /** @return array{fileName: non-empty-string, fileData: string} */
     public function getExportInfo(): array
     {
         return ['fileName' => $this->getFileName('.pdf'), 'fileData' => $this->diagram->getOutputData()];
@@ -672,9 +669,7 @@ class PdfRelationSchema extends ExportRelationSchema
                     $comments_width = 67;
                 } else {
                     // this is really intended for 'letter'
-                    /**
-                     * @todo find optimal width for all formats
-                     */
+                    /** @todo find optimal width for all formats */
                     $comments_width = 50;
                 }
 

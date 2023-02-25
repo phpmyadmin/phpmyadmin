@@ -14,9 +14,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Table\RelationController
- */
+/** @covers \PhpMyAdmin\Controllers\Table\RelationController */
 class RelationControllerTest extends AbstractTestCase
 {
     /** @var ResponseStub */
@@ -31,6 +29,7 @@ class RelationControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setTheme();
 
         $GLOBALS['server'] = 0;

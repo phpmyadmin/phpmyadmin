@@ -14,9 +14,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Server\Status\Monitor\SlowLogController
- */
+/** @covers \PhpMyAdmin\Controllers\Server\Status\Monitor\SlowLogController */
 class SlowLogControllerTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -31,9 +29,13 @@ class SlowLogControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['text_dir'] = 'ltr';
+
         parent::setGlobalConfig();
+
         parent::setTheme();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;

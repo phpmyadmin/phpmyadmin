@@ -13,9 +13,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Table\AddFieldController
- */
+/** @covers \PhpMyAdmin\Controllers\Table\AddFieldController */
 class AddFieldControllerTest extends AbstractTestCase
 {
     public function testInvoke(): void

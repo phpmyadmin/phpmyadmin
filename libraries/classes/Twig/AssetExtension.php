@@ -10,9 +10,7 @@ use Twig\TwigFunction;
 
 final class AssetExtension extends AbstractExtension
 {
-    /**
-     * @return TwigFunction[]
-     */
+    /** @return TwigFunction[] */
     public function getFunctions(): array
     {
         return [

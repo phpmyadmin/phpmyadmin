@@ -456,9 +456,7 @@ class Plugins
                 $ret .= self::getString($propertyItem->getText());
                 break;
             case RadioPropertyItem::class:
-                /**
-                 * @var RadioPropertyItem $pitem
-                 */
+                /** @var RadioPropertyItem $pitem */
                 $pitem = $propertyItem;
 
                 $default = self::getDefault(
@@ -486,9 +484,7 @@ class Plugins
 
                 break;
             case SelectPropertyItem::class:
-                /**
-                 * @var SelectPropertyItem $pitem
-                 */
+                /** @var SelectPropertyItem $pitem */
                 $pitem = $propertyItem;
                 $ret .= '<li class="list-group-item">' . "\n";
                 $ret .= '<label for="select_' . $plugin_name . '_'
@@ -514,9 +510,7 @@ class Plugins
                 $ret .= '</select>';
                 break;
             case TextPropertyItem::class:
-                /**
-                 * @var TextPropertyItem $pitem
-                 */
+                /** @var TextPropertyItem $pitem */
                 $pitem = $propertyItem;
                 $ret .= '<li class="list-group-item">' . "\n";
                 $ret .= '<label for="text_' . $plugin_name . '_'

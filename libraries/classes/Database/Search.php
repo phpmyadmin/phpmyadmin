@@ -81,9 +81,7 @@ class Search
     /** @var Template */
     public $template;
 
-    /**
-     * @param string $db Database name
-     */
+    /** @param string $db Database name */
     public function __construct(private DatabaseInterface $dbi, $db, Template $template)
     {
         $this->db = $db;

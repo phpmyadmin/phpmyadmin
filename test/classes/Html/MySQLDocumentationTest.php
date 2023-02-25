@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests\Html;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Html\MySQLDocumentation
- */
+/** @covers \PhpMyAdmin\Html\MySQLDocumentation */
 class MySQLDocumentationTest extends AbstractTestCase
 {
     public function testShowDocumentation(): void

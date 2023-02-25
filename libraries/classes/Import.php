@@ -52,14 +52,17 @@ class Import
     public const DECIMAL = 3;
     public const BIGINT = 4;
     public const GEOMETRY = 5;
+
     /* Decimal size defs */
     public const M = 0;
     public const D = 1;
     public const FULL = 2;
+
     /* Table array defs */
     public const TBL_NAME = 0;
     public const COL_NAMES = 1;
     public const ROWS = 2;
+
     /* Analysis array defs */
     public const TYPES = 0;
     public const SIZES = 1;
@@ -1451,9 +1454,7 @@ class Import
         return $compressions;
     }
 
-    /**
-     * @param array $importList List of plugin instances.
-     */
+    /** @param array $importList List of plugin instances. */
     public static function getLocalFiles(array $importList): false|string
     {
         $fileListing = new FileListing();

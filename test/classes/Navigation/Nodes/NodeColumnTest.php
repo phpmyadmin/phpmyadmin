@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests\Navigation\Nodes;
 use PhpMyAdmin\Navigation\Nodes\NodeColumn;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Navigation\Nodes\NodeColumn
- */
+/** @covers \PhpMyAdmin\Navigation\Nodes\NodeColumn */
 class NodeColumnTest extends AbstractTestCase
 {
     /**
@@ -18,6 +16,7 @@ class NodeColumnTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
     }

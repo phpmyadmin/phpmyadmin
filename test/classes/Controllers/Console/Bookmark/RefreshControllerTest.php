@@ -10,9 +10,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Console\Bookmark\RefreshController
- */
+/** @covers \PhpMyAdmin\Controllers\Console\Bookmark\RefreshController */
 class RefreshControllerTest extends AbstractTestCase
 {
     public function testDefault(): void

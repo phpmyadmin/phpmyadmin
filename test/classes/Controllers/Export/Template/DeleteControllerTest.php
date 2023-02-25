@@ -14,9 +14,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Export\Template\DeleteController
- */
+/** @covers \PhpMyAdmin\Controllers\Export\Template\DeleteController */
 class DeleteControllerTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -28,6 +26,7 @@ class DeleteControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;

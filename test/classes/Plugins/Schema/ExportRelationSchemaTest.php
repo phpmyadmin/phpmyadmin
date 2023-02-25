@@ -8,9 +8,7 @@ use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Plugins\Schema\ExportRelationSchema
- */
+/** @covers \PhpMyAdmin\Plugins\Schema\ExportRelationSchema */
 class ExportRelationSchemaTest extends AbstractTestCase
 {
     /** @var ExportRelationSchema<null> */
@@ -23,6 +21,7 @@ class ExportRelationSchemaTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $_REQUEST['page_number'] = 33;
         $this->object = new ExportRelationSchema(DatabaseName::fromValue('test_db'), null);
@@ -35,6 +34,7 @@ class ExportRelationSchemaTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 

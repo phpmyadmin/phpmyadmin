@@ -13,9 +13,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Table\Structure\UniqueController
- */
+/** @covers \PhpMyAdmin\Controllers\Table\Structure\UniqueController */
 class UniqueControllerTest extends AbstractTestCase
 {
     public function testAddUniqueKeyToSingleField(): void

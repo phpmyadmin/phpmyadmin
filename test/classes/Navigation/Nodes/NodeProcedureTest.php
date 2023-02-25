@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests\Navigation\Nodes;
 use PhpMyAdmin\Navigation\Nodes\NodeProcedure;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Navigation\Nodes\NodeProcedure
- */
+/** @covers \PhpMyAdmin\Navigation\Nodes\NodeProcedure */
 class NodeProcedureTest extends AbstractTestCase
 {
     /**
@@ -18,6 +16,7 @@ class NodeProcedureTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
     }

@@ -13,9 +13,7 @@ use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Util;
 use ReflectionMethod;
 
-/**
- * @covers \PhpMyAdmin\Tracker
- */
+/** @covers \PhpMyAdmin\Tracker */
 class TrackerTest extends AbstractTestCase
 {
     /**
@@ -24,8 +22,10 @@ class TrackerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->loadContainerBuilder();
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
+
         parent::loadDbiIntoContainerBuilder();
 
         /**

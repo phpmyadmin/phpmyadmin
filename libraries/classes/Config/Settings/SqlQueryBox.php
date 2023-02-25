@@ -6,9 +6,7 @@ namespace PhpMyAdmin\Config\Settings;
 
 // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
 
-/**
- * @psalm-immutable
- */
+/** @psalm-immutable */
 final class SqlQueryBox
 {
     /**
@@ -39,9 +37,7 @@ final class SqlQueryBox
      */
     public $Refresh;
 
-    /**
-     * @param mixed[] $sqlQueryBox
-     */
+    /** @param mixed[] $sqlQueryBox */
     public function __construct(array $sqlQueryBox = [])
     {
         $this->Edit = $this->setEdit($sqlQueryBox);
@@ -50,33 +46,25 @@ final class SqlQueryBox
         $this->Refresh = $this->setRefresh($sqlQueryBox);
     }
 
-    /**
-     * @param mixed[] $sqlQueryBox
-     */
+    /** @param mixed[] $sqlQueryBox */
     private function setEdit(array $sqlQueryBox): bool
     {
         return ! isset($sqlQueryBox['Edit']) || $sqlQueryBox['Edit'];
     }
 
-    /**
-     * @param mixed[] $sqlQueryBox
-     */
+    /** @param mixed[] $sqlQueryBox */
     private function setExplain(array $sqlQueryBox): bool
     {
         return ! isset($sqlQueryBox['Explain']) || $sqlQueryBox['Explain'];
     }
 
-    /**
-     * @param mixed[] $sqlQueryBox
-     */
+    /** @param mixed[] $sqlQueryBox */
     private function setShowAsPHP(array $sqlQueryBox): bool
     {
         return ! isset($sqlQueryBox['ShowAsPHP']) || $sqlQueryBox['ShowAsPHP'];
     }
 
-    /**
-     * @param mixed[] $sqlQueryBox
-     */
+    /** @param mixed[] $sqlQueryBox */
     private function setRefresh(array $sqlQueryBox): bool
     {
         return ! isset($sqlQueryBox['Refresh']) || $sqlQueryBox['Refresh'];

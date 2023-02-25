@@ -9,9 +9,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 
 use function __;
 
-/**
- * @covers \PhpMyAdmin\Engines\Bdb
- */
+/** @covers \PhpMyAdmin\Engines\Bdb */
 class BdbTest extends AbstractTestCase
 {
     /** @var Bdb */
@@ -24,6 +22,7 @@ class BdbTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $this->object = new Bdb('bdb');
@@ -36,6 +35,7 @@ class BdbTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 

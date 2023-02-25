@@ -88,9 +88,7 @@ final class PartitioningController extends AbstractController
         }
 
         $parser = new Parser($createTable);
-        /**
-         * @var CreateStatement $stmt
-         */
+        /** @var CreateStatement $stmt */
         $stmt = $parser->statements[0];
 
         $partitionDetails = [];

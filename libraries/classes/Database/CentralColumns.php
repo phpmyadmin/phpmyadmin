@@ -863,9 +863,7 @@ class CentralColumns
         return -1;
     }
 
-    /**
-     * @return string[]
-     */
+    /** @return string[] */
     public function getColumnsNotInCentralList(string $db, string $table): array
     {
         $existingColumns = $this->getFromTable($db, $table);

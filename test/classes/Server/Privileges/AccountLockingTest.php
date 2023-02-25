@@ -10,9 +10,7 @@ use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PHPUnit\Framework\TestCase;
 use Throwable;
 
-/**
- * @covers \PhpMyAdmin\Server\Privileges\AccountLocking
- */
+/** @covers \PhpMyAdmin\Server\Privileges\AccountLocking */
 class AccountLockingTest extends TestCase
 {
     public function testLockWithValidAccount(): void

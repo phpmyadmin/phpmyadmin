@@ -8,9 +8,7 @@ use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\Pdf\PdfRelationSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Plugins\Schema\Pdf\PdfRelationSchema
- */
+/** @covers \PhpMyAdmin\Plugins\Schema\Pdf\PdfRelationSchema */
 class PdfRelationSchemaTest extends AbstractTestCase
 {
     /** @var PdfRelationSchema */
@@ -23,6 +21,7 @@ class PdfRelationSchemaTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $_REQUEST['page_number'] = 33;
         $_REQUEST['pdf_show_grid'] = true;
@@ -54,6 +53,7 @@ class PdfRelationSchemaTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 

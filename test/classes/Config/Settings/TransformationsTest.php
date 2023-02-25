@@ -12,9 +12,7 @@ use function array_merge;
 
 // phpcs:disable Generic.Files.LineLength.TooLong
 
-/**
- * @covers \PhpMyAdmin\Config\Settings\Transformations
- */
+/** @covers \PhpMyAdmin\Config\Settings\Transformations */
 class TransformationsTest extends TestCase
 {
     /** @var array<string, array<int|string, array|int|string|null>> */

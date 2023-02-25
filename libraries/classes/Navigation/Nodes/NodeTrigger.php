@@ -25,6 +25,7 @@ class NodeTrigger extends Node
     public function __construct($name, $type = Node::OBJECT, $isGroup = false)
     {
         parent::__construct($name, $type, $isGroup);
+
         $this->icon = ['image' => 'b_triggers', 'title' => __('Trigger')];
         $this->links = [
             'text' => [

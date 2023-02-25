@@ -62,9 +62,7 @@ class Events
         'MINUTE_SECOND',
     ];
 
-    /**
-     * @param ResponseRenderer $response
-     */
+    /** @param ResponseRenderer $response */
     public function __construct(private DatabaseInterface $dbi, private Template $template, private $response)
     {
     }

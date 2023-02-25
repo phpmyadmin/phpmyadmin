@@ -273,9 +273,7 @@ class SettingsTest extends TestCase
         'FirstDayOfCalendar' => 0,
     ];
 
-    /**
-     * @psalm-suppress UnusedVariable, PossiblyNullArrayAssignment, PossiblyInvalidArrayAssignment
-     */
+    /** @psalm-suppress UnusedVariable, PossiblyNullArrayAssignment, PossiblyInvalidArrayAssignment */
     public function testConfigDefaultFile(): void
     {
         $cfg = [];

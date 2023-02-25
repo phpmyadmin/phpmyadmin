@@ -8,9 +8,7 @@ use PhpMyAdmin\CreateAddField;
 
 use function json_encode;
 
-/**
- * @covers \PhpMyAdmin\CreateAddField
- */
+/** @covers \PhpMyAdmin\CreateAddField */
 class CreateAddFieldTest extends AbstractTestCase
 {
     /** @var CreateAddField */
@@ -22,6 +20,7 @@ class CreateAddFieldTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $this->createAddField = new CreateAddField($GLOBALS['dbi']);
     }

@@ -41,7 +41,9 @@ class GitTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setProxySettings();
+
         $this->object = new Git(true);
         $this->testDir = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'gittempdir_' . random_int(0, mt_getrandmax());
 
@@ -60,7 +62,9 @@ class GitTest extends AbstractTestCase
     {
         chdir((string) $this->cwd);
         rmdir($this->testDir);
+
         parent::tearDown();
+
         unset($this->object);
     }
 

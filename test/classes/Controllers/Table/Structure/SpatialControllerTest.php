@@ -13,9 +13,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Table\Structure\SpatialController
- */
+/** @covers \PhpMyAdmin\Controllers\Table\Structure\SpatialController */
 class SpatialControllerTest extends AbstractTestCase
 {
     public function testAddSpatialKeyToSingleField(): void

@@ -52,9 +52,7 @@ class IndexColumn
      */
     private $expression = null;
 
-    /**
-     * @param array $params an array containing the parameters of the index column
-     */
+    /** @param array $params an array containing the parameters of the index column */
     public function __construct(array $params = [])
     {
         $this->set($params);

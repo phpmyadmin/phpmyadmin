@@ -18,9 +18,7 @@ use const SORT_NATURAL;
 use const SORT_REGULAR;
 use const TEST_PATH;
 
-/**
- * @covers \PhpMyAdmin\Command\TwigLintCommand
- */
+/** @covers \PhpMyAdmin\Command\TwigLintCommand */
 class TwigLintCommandTest extends AbstractTestCase
 {
     /** @var TwigLintCommand */
@@ -33,6 +31,7 @@ class TwigLintCommandTest extends AbstractTestCase
         }
 
         parent::setUp();
+
         $GLOBALS['cfg']['environment'] = 'development';
         $GLOBALS['config'] = null;
 

@@ -6,9 +6,7 @@ namespace PhpMyAdmin\Tests\Selenium;
 
 use function sleep;
 
-/**
- * @coversNothing
- */
+/** @coversNothing */
 class ServerSettingsTest extends TestBase
 {
     /**
@@ -24,6 +22,7 @@ class ServerSettingsTest extends TestBase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->login();
         $this->expandMore();
         $this->waitForElement('partialLinkText', 'Settings')->click();

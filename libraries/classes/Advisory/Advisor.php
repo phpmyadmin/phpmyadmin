@@ -156,17 +156,13 @@ class Advisor
         $this->rules = array_merge($genericRules, $extraRules);
     }
 
-    /**
-     * @return array{fired: array, notfired: array, unchecked: array, errors: array}
-     */
+    /** @return array{fired: array, notfired: array, unchecked: array, errors: array} */
     public function getRunResult(): array
     {
         return $this->runResult;
     }
 
-    /**
-     * @psalm-return array{fired:array, notfired:array, unchecked:array, errors:array}
-     */
+    /** @psalm-return array{fired:array, notfired:array, unchecked:array, errors:array} */
     public function run(): array
     {
         $this->setVariables();

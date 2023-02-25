@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests\Query;
 use PhpMyAdmin\Query\Generator;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Query\Generator
- */
+/** @covers \PhpMyAdmin\Query\Generator */
 class GeneratorTest extends AbstractTestCase
 {
     public function testGetColumnsSql(): void

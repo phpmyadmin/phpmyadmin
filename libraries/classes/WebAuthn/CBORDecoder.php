@@ -22,9 +22,7 @@ use const NAN;
  */
 final class CBORDecoder
 {
-    /**
-     * @throws WebAuthnException
-     */
+    /** @throws WebAuthnException */
     public function decode(DataStream $stream): mixed
     {
         return $this->wellFormed($stream);
@@ -108,17 +106,13 @@ final class CBORDecoder
         return -1 - $value;
     }
 
-    /**
-     * @throws WebAuthnException
-     */
+    /** @throws WebAuthnException */
     private function getByteString(DataStream $stream, int $value): string
     {
         return $stream->take($value);
     }
 
-    /**
-     * @throws WebAuthnException
-     */
+    /** @throws WebAuthnException */
     private function getTextString(DataStream $stream, int $value): string
     {
         return $stream->take($value);
@@ -156,18 +150,14 @@ final class CBORDecoder
         return $map;
     }
 
-    /**
-     * @throws WebAuthnException
-     */
+    /** @throws WebAuthnException */
     private function getTag(DataStream $stream): mixed
     {
         // 1 embedded data item
         return $this->wellFormed($stream);
     }
 
-    /**
-     * @throws WebAuthnException
-     */
+    /** @throws WebAuthnException */
     private function getFloatNumberOrSimpleValue(DataStream $stream, int $value, int $additionalInformation): mixed
     {
         switch ($additionalInformation) {

@@ -8,9 +8,7 @@ use PhpMyAdmin\Mime;
 
 use function chr;
 
-/**
- * @covers \PhpMyAdmin\Mime
- */
+/** @covers \PhpMyAdmin\Mime */
 class MimeTest extends AbstractTestCase
 {
     /**

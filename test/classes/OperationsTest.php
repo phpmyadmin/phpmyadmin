@@ -11,9 +11,7 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 
 use function array_merge;
 
-/**
- * @covers \PhpMyAdmin\Operations
- */
+/** @covers \PhpMyAdmin\Operations */
 class OperationsTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -28,6 +26,7 @@ class OperationsTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;
@@ -37,9 +36,7 @@ class OperationsTest extends AbstractTestCase
         $this->object = new Operations($this->dbi, new Relation($this->dbi));
     }
 
-    /**
-     * @dataProvider providerGetPartitionMaintenanceChoices
-     */
+    /** @dataProvider providerGetPartitionMaintenanceChoices */
     public function testGetPartitionMaintenanceChoices(string $tableName, array $extraChoice): void
     {
         $GLOBALS['db'] = 'database';
@@ -59,9 +56,7 @@ class OperationsTest extends AbstractTestCase
         $this->assertEquals($expected, $actual);
     }
 
-    /**
-     * @psalm-return array<string, array{0: string, 1: array<string, string>}>
-     */
+    /** @psalm-return array<string, array{0: string, 1: array<string, string>}> */
     public static function providerGetPartitionMaintenanceChoices(): array
     {
         return [

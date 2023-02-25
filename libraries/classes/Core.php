@@ -332,9 +332,7 @@ class Core
         return $headers;
     }
 
-    /**
-     * @return array<string, string>
-     */
+    /** @return array<string, string> */
     public static function getNoCacheHeaders(): array
     {
         $headers = [];
@@ -626,9 +624,7 @@ class Core
             $empty = true;
             array_walk_recursive(
                 $value,
-                /**
-                 * @param mixed $item
-                 */
+                /** @param mixed $item */
                 static function ($item) use (&$empty): void {
                     $empty = $empty && empty($item);
                 },

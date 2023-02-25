@@ -8,9 +8,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ServerRequestInterface;
 
-/**
- * @covers \PhpMyAdmin\Http\ServerRequest
- */
+/** @covers \PhpMyAdmin\Http\ServerRequest */
 class ServerRequestTest extends TestCase
 {
     /**

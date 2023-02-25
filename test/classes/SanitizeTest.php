@@ -6,9 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Sanitize;
 
-/**
- * @covers \PhpMyAdmin\Sanitize
- */
+/** @covers \PhpMyAdmin\Sanitize */
 class SanitizeTest extends AbstractTestCase
 {
     /**
@@ -18,6 +16,7 @@ class SanitizeTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setLanguage();
     }
 

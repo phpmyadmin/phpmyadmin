@@ -10,9 +10,7 @@ use PhpMyAdmin\Util;
 
 use function __;
 
-/**
- * @covers \PhpMyAdmin\Server\Select
- */
+/** @covers \PhpMyAdmin\Server\Select */
 class SelectTest extends AbstractTestCase
 {
     /**
@@ -21,6 +19,7 @@ class SelectTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         //$_REQUEST
         $_REQUEST['log'] = 'index1';
         $_REQUEST['pos'] = 3;

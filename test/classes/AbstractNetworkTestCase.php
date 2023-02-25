@@ -92,6 +92,7 @@ abstract class AbstractNetworkTestCase extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         $response = new ReflectionProperty(ResponseRenderer::class, 'instance');
         $response->setValue(null);
     }

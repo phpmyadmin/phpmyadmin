@@ -27,9 +27,7 @@ use function preg_replace;
  */
 class ImportSql extends ImportPlugin
 {
-    /**
-     * @psalm-return non-empty-lowercase-string
-     */
+    /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
         return 'sql';

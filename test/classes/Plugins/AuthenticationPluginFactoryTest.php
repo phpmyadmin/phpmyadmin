@@ -12,9 +12,7 @@ use PhpMyAdmin\Plugins\Auth\AuthenticationSignon;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Plugins\AuthenticationPluginFactory
- */
+/** @covers \PhpMyAdmin\Plugins\AuthenticationPluginFactory */
 class AuthenticationPluginFactoryTest extends AbstractTestCase
 {
     /**
@@ -30,9 +28,7 @@ class AuthenticationPluginFactoryTest extends AbstractTestCase
         $this->assertInstanceOf($class, $plugin);
     }
 
-    /**
-     * @return iterable<string, array{non-empty-string, class-string}>
-     */
+    /** @return iterable<string, array{non-empty-string, class-string}> */
     public static function providerForTestValidPlugins(): iterable
     {
         yield 'config plugin' => ['config', AuthenticationConfig::class];

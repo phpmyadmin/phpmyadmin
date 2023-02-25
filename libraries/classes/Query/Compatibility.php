@@ -94,13 +94,9 @@ class Compatibility
             $colTypePosComa = strpos($colType, '(');
             $colTypePosComa = $colTypePosComa !== false ? $colTypePosComa : strlen($colType);
             $columns[$column_name]['DATA_TYPE'] = substr($colType, 0, $colTypePosComa);
-            /**
-             * @todo guess CHARACTER_MAXIMUM_LENGTH from COLUMN_TYPE
-            */
+            /** @todo guess CHARACTER_MAXIMUM_LENGTH from COLUMN_TYPE */
             $columns[$column_name]['CHARACTER_MAXIMUM_LENGTH'] = null;
-            /**
-             * @todo guess CHARACTER_OCTET_LENGTH from CHARACTER_MAXIMUM_LENGTH
-             */
+            /** @todo guess CHARACTER_OCTET_LENGTH from CHARACTER_MAXIMUM_LENGTH */
             $columns[$column_name]['CHARACTER_OCTET_LENGTH'] = null;
             $columns[$column_name]['NUMERIC_PRECISION'] = null;
             $columns[$column_name]['NUMERIC_SCALE'] = null;

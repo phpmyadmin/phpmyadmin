@@ -28,6 +28,7 @@ class ImportShpTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['error'] = null;
         $GLOBALS['buffer'] = null;
         $GLOBALS['maximum_time'] = null;
@@ -90,6 +91,7 @@ class ImportShpTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 

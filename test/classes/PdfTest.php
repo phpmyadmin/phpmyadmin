@@ -6,9 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Pdf;
 
-/**
- * @covers \PhpMyAdmin\Pdf
- */
+/** @covers \PhpMyAdmin\Pdf */
 class PdfTest extends AbstractTestCase
 {
     /**
@@ -17,6 +15,7 @@ class PdfTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setGlobalConfig();
     }
 

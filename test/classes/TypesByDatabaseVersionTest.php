@@ -8,9 +8,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Types;
 use PHPUnit\Framework\MockObject\Stub;
 
-/**
- * @covers \PhpMyAdmin\Types
- */
+/** @covers \PhpMyAdmin\Types */
 class TypesByDatabaseVersionTest extends AbstractTestCase
 {
     /** @var DatabaseInterface&Stub */

@@ -254,9 +254,7 @@ class RelationParametersTest extends TestCase
         $this->assertSame($expected, RelationParameters::fromArray($params)->toArray());
     }
 
-    /**
-     * @return array<string, array<int, array<string, mixed>>>
-     */
+    /** @return array<string, array<int, array<string, mixed>>> */
     public static function providerForTestToArray(): array
     {
         return [

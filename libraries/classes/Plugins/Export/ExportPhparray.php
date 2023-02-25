@@ -28,9 +28,7 @@ use function var_export;
  */
 class ExportPhparray extends ExportPlugin
 {
-    /**
-     * @psalm-return non-empty-lowercase-string
-     */
+    /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
         return 'phparray';

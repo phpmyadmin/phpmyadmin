@@ -37,9 +37,7 @@ class ImportMediawiki extends ImportPlugin
      */
     private $analyze;
 
-    /**
-     * @psalm-return non-empty-lowercase-string
-     */
+    /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
         return 'mediawiki';

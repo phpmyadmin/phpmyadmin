@@ -10,9 +10,7 @@ use PHPUnit\Framework\TestCase;
 use function array_keys;
 use function array_merge;
 
-/**
- * @covers \PhpMyAdmin\Config\Settings\Import
- */
+/** @covers \PhpMyAdmin\Config\Settings\Import */
 class ImportTest extends TestCase
 {
     /** @var array<string, bool|int|string> */

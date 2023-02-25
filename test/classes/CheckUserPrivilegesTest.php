@@ -6,9 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\CheckUserPrivileges;
 
-/**
- * @covers \PhpMyAdmin\CheckUserPrivileges
- */
+/** @covers \PhpMyAdmin\CheckUserPrivileges */
 class CheckUserPrivilegesTest extends AbstractTestCase
 {
     /** @var CheckUserPrivileges */
@@ -20,6 +18,7 @@ class CheckUserPrivilegesTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;

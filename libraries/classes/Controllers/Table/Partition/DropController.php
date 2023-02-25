@@ -29,6 +29,7 @@ final class DropController extends AbstractController
         Maintenance $maintenance,
     ) {
         parent::__construct($response, $template);
+
         $this->model = $maintenance;
     }
 

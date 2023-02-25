@@ -16,9 +16,7 @@ use PhpMyAdmin\Version;
 
 use function sprintf;
 
-/**
- * @covers \PhpMyAdmin\Database\Designer\Common
- */
+/** @covers \PhpMyAdmin\Database\Designer\Common */
 class CommonTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -36,6 +34,7 @@ class CommonTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;

@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests\Table;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Table\Search
- */
+/** @covers \PhpMyAdmin\Table\Search */
 class SearchTest extends AbstractTestCase
 {
     /** @var Search */
@@ -18,6 +16,7 @@ class SearchTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
 
         $this->search = new Search($GLOBALS['dbi']);

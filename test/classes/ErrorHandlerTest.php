@@ -17,9 +17,7 @@ use const E_USER_NOTICE;
 use const E_USER_WARNING;
 use const E_WARNING;
 
-/**
- * @covers \PhpMyAdmin\ErrorHandler
- */
+/** @covers \PhpMyAdmin\ErrorHandler */
 class ErrorHandlerTest extends AbstractTestCase
 {
     /** @var ErrorHandler */
@@ -32,6 +30,7 @@ class ErrorHandlerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['lang'] = 'en';
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $this->object = new ErrorHandler();
@@ -48,6 +47,7 @@ class ErrorHandlerTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 

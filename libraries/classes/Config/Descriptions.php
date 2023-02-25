@@ -51,9 +51,7 @@ class Descriptions
         return Sanitize::sanitizeMessage($value);
     }
 
-    /**
-     * @return array<string, string>
-     */
+    /** @return array<string, string> */
     private static function getComments(): array
     {
         /** @var array<string, string> $commentsMap */
@@ -70,9 +68,7 @@ class Descriptions
         ];
     }
 
-    /**
-     * @return array<string, string>
-     */
+    /** @return array<string, string> */
     private static function getDescriptions(): array
     {
         /** @var array<string, string> $descriptionsMap */
@@ -599,9 +595,7 @@ class Descriptions
         ];
     }
 
-    /**
-     * @return array<string, string>
-     */
+    /** @return array<string, string> */
     private static function getNames(): array
     {
         /** @var array<string, string> $namesMap */

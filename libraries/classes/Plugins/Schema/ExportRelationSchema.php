@@ -52,9 +52,7 @@ class ExportRelationSchema
 
     protected Relation $relation;
 
-    /**
-     * @param T $diagram
-     */
+    /** @param T $diagram */
     public function __construct(protected DatabaseName $db, protected $diagram)
     {
         $this->setPageNumber((int) $_REQUEST['page_number']);

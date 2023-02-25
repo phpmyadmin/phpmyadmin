@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests\Import;
 use PhpMyAdmin\Import\Ajax;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \PhpMyAdmin\Import\Ajax
- */
+/** @covers \PhpMyAdmin\Import\Ajax */
 class AjaxTest extends TestCase
 {
     public function testNopluginCheck(): void

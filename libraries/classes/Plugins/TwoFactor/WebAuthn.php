@@ -46,6 +46,7 @@ class WebAuthn extends TwoFactorPlugin
     public function __construct(TwoFactor $twofactor)
     {
         parent::__construct($twofactor);
+
         if (
             ! isset($this->twofactor->config['settings']['userHandle'])
             || ! is_string($this->twofactor->config['settings']['userHandle'])
@@ -208,9 +209,7 @@ class WebAuthn extends TwoFactorPlugin
         $scripts->addFile('webauthn.js');
     }
 
-    /**
-     * @psalm-return list<array{id: non-empty-string, type: non-empty-string}>
-     */
+    /** @psalm-return list<array{id: non-empty-string, type: non-empty-string}> */
     private function getAllowedCredentials(): array
     {
         $allowedCredentials = [];

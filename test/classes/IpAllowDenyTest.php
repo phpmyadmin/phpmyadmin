@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\IpAllowDeny;
 
-/**
- * @covers \PhpMyAdmin\IpAllowDeny
- */
+/** @covers \PhpMyAdmin\IpAllowDeny */
 class IpAllowDenyTest extends AbstractTestCase
 {
     /** @var IpAllowDeny */
@@ -21,6 +19,7 @@ class IpAllowDenyTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['cfg']['Server']['user'] = 'pma_username';
         $GLOBALS['cfg']['Server']['AllowDeny']['rules'][] = 'allow % 255.255.255.0/4';
         $GLOBALS['cfg']['Server']['AllowDeny']['rules'][] = 'allow % from 255.255.2.0/4';

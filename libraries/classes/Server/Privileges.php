@@ -245,9 +245,7 @@ class Privileges
             ) {
                 // Required for proper escaping of ` (backtick) in a column name
                 $grantCols = array_map(
-                    /**
-                     * @param string $val
-                     */
+                    /** @param string $val */
                     static fn ($val): string => Util::backquote($val),
                     $GLOBALS[$currentGrant[0]],
                 );
@@ -1216,9 +1214,7 @@ class Privileges
         ]);
     }
 
-    /**
-     * @return array
-     */
+    /** @return array */
     public function getAllPrivileges(DatabaseName $db, TableName|null $table = null): array
     {
         $databasePrivileges = $this->getGlobalAndDatabasePrivileges($db);
@@ -1284,9 +1280,7 @@ class Privileges
         return $privilege;
     }
 
-    /**
-     * @return array
-     */
+    /** @return array */
     private function getGlobalAndDatabasePrivileges(DatabaseName $db): array
     {
         $listOfPrivileges = '`Select_priv`,
@@ -1347,9 +1341,7 @@ class Privileges
         return $result->fetchAllAssoc();
     }
 
-    /**
-     * @return array
-     */
+    /** @return array */
     private function getTablePrivileges(DatabaseName $db, TableName $table): array
     {
         $query = '
@@ -1371,9 +1363,7 @@ class Privileges
         return $result->fetchAllAssoc();
     }
 
-    /**
-     * @return array
-     */
+    /** @return array */
     private function getRoutinesPrivileges(DatabaseName $db): array
     {
         $query = '
@@ -3527,9 +3517,7 @@ class Privileges
         return $this->parseProcPriv($privileges);
     }
 
-    /**
-     * @psalm-param non-empty-string $route
-     */
+    /** @psalm-param non-empty-string $route */
     public function getFormForChangePassword(
         string $username,
         string $hostname,
@@ -3631,9 +3619,7 @@ class Privileges
         return (bool) $this->dbi->fetchValue($sql);
     }
 
-    /**
-     * @param (string|string[]|null)[][][] $dbRights
-     */
+    /** @param (string|string[]|null)[][][] $dbRights */
     private function getEmptyUserNotice(array $dbRights): string
     {
         foreach ($dbRights as $right) {

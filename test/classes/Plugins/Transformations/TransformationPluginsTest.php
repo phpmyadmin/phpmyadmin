@@ -47,7 +47,9 @@ class TransformationPluginsTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setLanguage();
+
         // For Application Octetstream Download plugin
 
         $GLOBALS['fields_meta'] = [];
@@ -58,6 +60,7 @@ class TransformationPluginsTest extends AbstractTestCase
 
         // For Image_*_Inline plugin
         parent::setGlobalConfig();
+
         $GLOBALS['Server'] = 1;
 
         // For Date Format plugin

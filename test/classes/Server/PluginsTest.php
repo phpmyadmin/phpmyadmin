@@ -10,9 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 
 use function __;
 
-/**
- * @covers \PhpMyAdmin\Server\Plugins
- */
+/** @covers \PhpMyAdmin\Server\Plugins */
 class PluginsTest extends AbstractTestCase
 {
     /** @var Plugins */
@@ -21,6 +19,7 @@ class PluginsTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
     }
 

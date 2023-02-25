@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests\Navigation\Nodes;
 use PhpMyAdmin\Navigation\Nodes\NodeIndexContainer;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Navigation\Nodes\NodeIndexContainer
- */
+/** @covers \PhpMyAdmin\Navigation\Nodes\NodeIndexContainer */
 class NodeIndexContainerTest extends AbstractTestCase
 {
     /**
@@ -18,6 +16,7 @@ class NodeIndexContainerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
     }

@@ -12,9 +12,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Table\IndexRenameController
- */
+/** @covers \PhpMyAdmin\Controllers\Table\IndexRenameController */
 class IndexRenameControllerTest extends AbstractTestCase
 {
     public function testIndexRenameController(): void

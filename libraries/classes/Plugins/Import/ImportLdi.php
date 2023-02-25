@@ -26,9 +26,7 @@ use const PHP_EOL;
  */
 class ImportLdi extends AbstractImportCsv
 {
-    /**
-     * @psalm-return non-empty-lowercase-string
-     */
+    /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
         return 'ldi';

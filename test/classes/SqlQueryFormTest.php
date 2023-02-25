@@ -17,9 +17,7 @@ use PhpMyAdmin\Url;
 use function __;
 use function htmlspecialchars;
 
-/**
- * @covers \PhpMyAdmin\SqlQueryForm
- */
+/** @covers \PhpMyAdmin\SqlQueryForm */
 class SqlQueryFormTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -37,7 +35,9 @@ class SqlQueryFormTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setLanguage();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dummyDbi = $this->createDbiDummy();
         $this->dummyDbi->addResult(

@@ -28,6 +28,7 @@ class GisPointTest extends GisGeomTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->object = GisPoint::singleton();
     }
 
@@ -38,6 +39,7 @@ class GisPointTest extends GisGeomTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 
@@ -165,9 +167,7 @@ class GisPointTest extends GisGeomTestCase
         ];
     }
 
-    /**
-     * @requires extension gd
-     */
+    /** @requires extension gd */
     public function testPrepareRowAsPng(): void
     {
         $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
@@ -228,6 +228,7 @@ class GisPointTest extends GisGeomTestCase
                 'pdf',
                 [176, 46, 224],
                 ['x' => -93, 'y' => -114, 'scale' => 1, 'height' => 297],
+
                 parent::createEmptyPdf('POINT'),
             ],
         ];

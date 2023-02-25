@@ -144,9 +144,7 @@ class DiaRelationSchema extends ExportRelationSchema
         $this->diagram->endDiaDoc();
     }
 
-    /**
-     * @return array{fileName: non-empty-string, fileData: string}
-     */
+    /** @return array{fileName: non-empty-string, fileData: string} */
     public function getExportInfo(): array
     {
         return ['fileName' => $this->getFileName('.dia'), 'fileData' => $this->diagram->getOutputData()];

@@ -10,9 +10,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Database\MultiTableQuery\TablesController
- */
+/** @covers \PhpMyAdmin\Controllers\Database\MultiTableQuery\TablesController */
 class TablesControllerTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -24,14 +22,20 @@ class TablesControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setLanguage();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;
+
         parent::loadContainerBuilder();
+
         parent::loadDbiIntoContainerBuilder();
+
         $GLOBALS['server'] = 1;
         $GLOBALS['PMA_PHP_SELF'] = '';
+
         parent::loadResponseIntoContainerBuilder();
     }
 

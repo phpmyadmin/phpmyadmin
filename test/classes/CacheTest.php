@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Cache;
 use stdClass;
 
-/**
- * @covers \PhpMyAdmin\Cache
- */
+/** @covers \PhpMyAdmin\Cache */
 class CacheTest extends AbstractTestCase
 {
     public function setUp(): void
@@ -17,9 +15,7 @@ class CacheTest extends AbstractTestCase
         Cache::purge();
     }
 
-    /**
-     * @return array[]
-     */
+    /** @return array[] */
     public static function dataProviderCacheKeyValues(): array
     {
         return [

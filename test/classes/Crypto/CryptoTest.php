@@ -10,9 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use function mb_strlen;
 use function str_repeat;
 
-/**
- * @covers \PhpMyAdmin\Crypto\Crypto
- */
+/** @covers \PhpMyAdmin\Crypto\Crypto */
 class CryptoTest extends AbstractTestCase
 {
     public function testWithValidKeyFromConfig(): void

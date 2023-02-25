@@ -10,9 +10,7 @@ use PHPUnit\Framework\TestCase;
 use function array_keys;
 use function array_merge;
 
-/**
- * @covers \PhpMyAdmin\Config\Settings\SqlQueryBox
- */
+/** @covers \PhpMyAdmin\Config\Settings\SqlQueryBox */
 class SqlQueryBoxTest extends TestCase
 {
     /** @var array<string, bool> */

@@ -25,9 +25,7 @@ final class KillController extends AbstractController
         parent::__construct($response, $template, $data);
     }
 
-    /**
-     * @param array $params Request parameters
-     */
+    /** @param array $params Request parameters */
     public function __invoke(ServerRequest $request, array $params): void
     {
         if (! $this->response->isAjax()) {

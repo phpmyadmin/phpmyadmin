@@ -196,6 +196,7 @@ class AuthenticationHttp extends AuthenticationPlugin
     public function showFailure($failure): void
     {
         parent::showFailure($failure);
+
         $error = $GLOBALS['dbi']->getError();
         if ($error && $GLOBALS['errno'] != 1045) {
             echo $this->template->render('error/generic', [

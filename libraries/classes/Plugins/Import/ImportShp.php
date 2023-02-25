@@ -54,9 +54,7 @@ class ImportShp extends ImportPlugin
         $this->zipExtension = new ZipExtension(new ZipArchive());
     }
 
-    /**
-     * @psalm-return non-empty-lowercase-string
-     */
+    /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
         return 'shp';

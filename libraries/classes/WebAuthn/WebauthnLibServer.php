@@ -213,9 +213,7 @@ final class WebauthnLibServer implements Server
                 return null;
             }
 
-            /**
-             * @return PublicKeyCredentialSource[]
-             */
+            /** @return PublicKeyCredentialSource[] */
             public function findAllForUserEntity(PublicKeyCredentialUserEntity $publicKeyCredentialUserEntity): array
             {
                 $sources = [];
@@ -239,9 +237,7 @@ final class WebauthnLibServer implements Server
                 $this->write($data);
             }
 
-            /**
-             * @return mixed[][]
-             */
+            /** @return mixed[][] */
             private function read(): array
             {
                 /** @psalm-var list<mixed[]> $credentials */
@@ -257,9 +253,7 @@ final class WebauthnLibServer implements Server
                 return $credentials;
             }
 
-            /**
-             * @param mixed[] $data
-             */
+            /** @param mixed[] $data */
             private function write(array $data): void
             {
                 $this->twoFactor->config['settings']['credentials'] = $data;

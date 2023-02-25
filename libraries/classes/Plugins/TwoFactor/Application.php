@@ -32,6 +32,7 @@ class Application extends TwoFactorPlugin
     public function __construct(TwoFactor $twofactor)
     {
         parent::__construct($twofactor);
+
         $this->google2fa = new Google2FA();
         $this->google2fa->setWindow(8);
         if (isset($this->twofactor->config['settings']['secret'])) {

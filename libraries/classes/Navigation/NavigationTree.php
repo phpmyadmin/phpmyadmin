@@ -135,9 +135,7 @@ class NavigationTree
      */
     private $largeGroupWarning = false;
 
-    /**
-     * @param Template $template
-     */
+    /** @param Template $template */
     public function __construct(private $template, private DatabaseInterface $dbi)
     {
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
@@ -220,9 +218,7 @@ class NavigationTree
             return 0;
         }
 
-        /**
-         * @todo describe a scenario where this code is executed
-         */
+        /** @todo describe a scenario where this code is executed */
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $query = 'SELECT (COUNT(DB_first_level) DIV %d) * %d ';
             $query .= 'from ( ';
@@ -1012,9 +1008,7 @@ class NavigationTree
         return $match;
     }
 
-    /**
-     * @param Node[] $children
-     */
+    /** @param Node[] $children */
     private function renderNodes(array $children, bool $hasFirstClass = true): string
     {
         $nodes = '';

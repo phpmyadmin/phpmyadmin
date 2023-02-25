@@ -31,9 +31,7 @@ use const VERSION_CHECK_DEFAULT;
 
 // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
 
-/**
- * @psalm-immutable
- */
+/** @psalm-immutable */
 final class Settings
 {
     /**
@@ -1571,9 +1569,7 @@ final class Settings
      */
     public $FirstDayOfCalendar;
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     public function __construct(array $settings)
     {
         $this->PmaAbsoluteUri = $this->setPmaAbsoluteUri($settings);
@@ -1769,9 +1765,7 @@ final class Settings
         $this->FirstDayOfCalendar = $this->setFirstDayOfCalendar($settings);
     }
 
-    /**
-     * @return array<string, array|bool|int|string|null>
-     */
+    /** @return array<string, array|bool|int|string|null> */
     public function toArray(): array
     {
         $settings = get_object_vars($this);
@@ -1790,9 +1784,7 @@ final class Settings
         return $settings;
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setPmaAbsoluteUri(array $settings): string
     {
         if (! isset($settings['PmaAbsoluteUri'])) {
@@ -1802,9 +1794,7 @@ final class Settings
         return (string) $settings['PmaAbsoluteUri'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setAuthLog(array $settings): string
     {
         if (! isset($settings['AuthLog'])) {
@@ -1814,9 +1804,7 @@ final class Settings
         return (string) $settings['AuthLog'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setAuthLogSuccess(array $settings): bool
     {
         if (! isset($settings['AuthLogSuccess'])) {
@@ -1826,9 +1814,7 @@ final class Settings
         return (bool) $settings['AuthLogSuccess'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setPmaNoRelationDisableWarning(array $settings): bool
     {
         if (! isset($settings['PmaNoRelation_DisableWarning'])) {
@@ -1838,9 +1824,7 @@ final class Settings
         return (bool) $settings['PmaNoRelation_DisableWarning'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setSuhosinDisableWarning(array $settings): bool
     {
         if (! isset($settings['SuhosinDisableWarning'])) {
@@ -1850,9 +1834,7 @@ final class Settings
         return (bool) $settings['SuhosinDisableWarning'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setLoginCookieValidityDisableWarning(array $settings): bool
     {
         if (! isset($settings['LoginCookieValidityDisableWarning'])) {
@@ -1862,9 +1844,7 @@ final class Settings
         return (bool) $settings['LoginCookieValidityDisableWarning'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setReservedWordDisableWarning(array $settings): bool
     {
         if (! isset($settings['ReservedWordDisableWarning'])) {
@@ -1874,9 +1854,7 @@ final class Settings
         return (bool) $settings['ReservedWordDisableWarning'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setTranslationWarningThreshold(array $settings): int
     {
         if (! isset($settings['TranslationWarningThreshold'])) {
@@ -1909,9 +1887,7 @@ final class Settings
         return (bool) $settings['AllowThirdPartyFraming'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setBlowfishSecret(array $settings): string
     {
         if (! isset($settings['blowfish_secret'])) {
@@ -1969,9 +1945,7 @@ final class Settings
         return $serverDefault >= 0 ? $serverDefault : 1;
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setVersionCheck(array $settings): bool
     {
         $versionCheck = true;
@@ -1986,9 +1960,7 @@ final class Settings
         return (bool) $settings['VersionCheck'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setProxyUrl(array $settings): string
     {
         if (! isset($settings['ProxyUrl'])) {
@@ -1998,9 +1970,7 @@ final class Settings
         return (string) $settings['ProxyUrl'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setProxyUser(array $settings): string
     {
         if (! isset($settings['ProxyUser'])) {
@@ -2010,9 +1980,7 @@ final class Settings
         return (string) $settings['ProxyUser'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setProxyPass(array $settings): string
     {
         if (! isset($settings['ProxyPass'])) {
@@ -2054,9 +2022,7 @@ final class Settings
         return $maxTableList >= 1 ? $maxTableList : 250;
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setShowHint(array $settings): bool
     {
         if (! isset($settings['ShowHint'])) {
@@ -2096,9 +2062,7 @@ final class Settings
         return (bool) $settings['OBGzip'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setPersistentConnections(array $settings): bool
     {
         if (! isset($settings['PersistentConnections'])) {
@@ -2124,9 +2088,7 @@ final class Settings
         return $execTimeLimit >= 0 ? $execTimeLimit : 300;
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setSessionSavePath(array $settings): string
     {
         if (! isset($settings['SessionSavePath'])) {
@@ -2161,9 +2123,7 @@ final class Settings
         return $hosts;
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setMemoryLimit(array $settings): string
     {
         if (! isset($settings['MemoryLimit'])) {
@@ -2173,9 +2133,7 @@ final class Settings
         return (string) $settings['MemoryLimit'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setSkipLockedTables(array $settings): bool
     {
         if (! isset($settings['SkipLockedTables'])) {
@@ -2185,9 +2143,7 @@ final class Settings
         return (bool) $settings['SkipLockedTables'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setShowSQL(array $settings): bool
     {
         if (! isset($settings['ShowSQL'])) {
@@ -2197,9 +2153,7 @@ final class Settings
         return (bool) $settings['ShowSQL'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setRetainQueryBox(array $settings): bool
     {
         if (! isset($settings['RetainQueryBox'])) {
@@ -2209,9 +2163,7 @@ final class Settings
         return (bool) $settings['RetainQueryBox'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setCodemirrorEnable(array $settings): bool
     {
         if (! isset($settings['CodemirrorEnable'])) {
@@ -2221,9 +2173,7 @@ final class Settings
         return (bool) $settings['CodemirrorEnable'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setLintEnable(array $settings): bool
     {
         if (! isset($settings['LintEnable'])) {
@@ -2233,9 +2183,7 @@ final class Settings
         return (bool) $settings['LintEnable'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setAllowUserDropDatabase(array $settings): bool
     {
         if (! isset($settings['AllowUserDropDatabase'])) {
@@ -2245,9 +2193,7 @@ final class Settings
         return (bool) $settings['AllowUserDropDatabase'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setConfirm(array $settings): bool
     {
         if (! isset($settings['Confirm'])) {
@@ -2271,9 +2217,7 @@ final class Settings
         return $settings['CookieSameSite'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setLoginCookieRecall(array $settings): bool
     {
         if (! isset($settings['LoginCookieRecall'])) {
@@ -2315,9 +2259,7 @@ final class Settings
         return $loginCookieStore >= 1 ? $loginCookieStore : 0;
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setLoginCookieDeleteAll(array $settings): bool
     {
         if (! isset($settings['LoginCookieDeleteAll'])) {
@@ -2327,9 +2269,7 @@ final class Settings
         return (bool) $settings['LoginCookieDeleteAll'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setUseDbSearch(array $settings): bool
     {
         if (! isset($settings['UseDbSearch'])) {
@@ -2339,9 +2279,7 @@ final class Settings
         return (bool) $settings['UseDbSearch'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setIgnoreMultiSubmitErrors(array $settings): bool
     {
         if (! isset($settings['IgnoreMultiSubmitErrors'])) {
@@ -2351,9 +2289,7 @@ final class Settings
         return (bool) $settings['IgnoreMultiSubmitErrors'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setURLQueryEncryption(array $settings): bool
     {
         if (! isset($settings['URLQueryEncryption'])) {
@@ -2363,9 +2299,7 @@ final class Settings
         return (bool) $settings['URLQueryEncryption'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setURLQueryEncryptionSecretKey(array $settings): string
     {
         if (! isset($settings['URLQueryEncryptionSecretKey'])) {
@@ -2375,9 +2309,7 @@ final class Settings
         return (string) $settings['URLQueryEncryptionSecretKey'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setAllowArbitraryServer(array $settings): bool
     {
         if (! isset($settings['AllowArbitraryServer'])) {
@@ -2387,9 +2319,7 @@ final class Settings
         return (bool) $settings['AllowArbitraryServer'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setArbitraryServerRegexp(array $settings): string
     {
         if (! isset($settings['ArbitraryServerRegexp'])) {
@@ -2413,9 +2343,7 @@ final class Settings
         return 'checkbox';
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setCaptchaApi(array $settings): string
     {
         if (! isset($settings['CaptchaApi'])) {
@@ -2425,9 +2353,7 @@ final class Settings
         return (string) $settings['CaptchaApi'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setCaptchaCsp(array $settings): string
     {
         if (! isset($settings['CaptchaCsp'])) {
@@ -2438,9 +2364,7 @@ final class Settings
         return (string) $settings['CaptchaCsp'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setCaptchaRequestParam(array $settings): string
     {
         if (! isset($settings['CaptchaRequestParam'])) {
@@ -2450,9 +2374,7 @@ final class Settings
         return (string) $settings['CaptchaRequestParam'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setCaptchaResponseParam(array $settings): string
     {
         if (! isset($settings['CaptchaResponseParam'])) {
@@ -2462,9 +2384,7 @@ final class Settings
         return (string) $settings['CaptchaResponseParam'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setCaptchaLoginPublicKey(array $settings): string
     {
         if (! isset($settings['CaptchaLoginPublicKey'])) {
@@ -2474,9 +2394,7 @@ final class Settings
         return (string) $settings['CaptchaLoginPublicKey'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setCaptchaLoginPrivateKey(array $settings): string
     {
         if (! isset($settings['CaptchaLoginPrivateKey'])) {
@@ -2486,9 +2404,7 @@ final class Settings
         return (string) $settings['CaptchaLoginPrivateKey'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setCaptchaSiteVerifyURL(array $settings): string
     {
         if (! isset($settings['CaptchaSiteVerifyURL'])) {
@@ -2498,9 +2414,7 @@ final class Settings
         return (string) $settings['CaptchaSiteVerifyURL'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setEnableDragDropImport(array $settings): bool
     {
         if (! isset($settings['enable_drag_drop_import'])) {
@@ -2510,9 +2424,7 @@ final class Settings
         return (bool) $settings['enable_drag_drop_import'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setShowDatabasesNavigationAsTree(array $settings): bool
     {
         if (! isset($settings['ShowDatabasesNavigationAsTree'])) {
@@ -2554,9 +2466,7 @@ final class Settings
         return $maxNavigationItems >= 1 ? $maxNavigationItems : 50;
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setNavigationTreeEnableGrouping(array $settings): bool
     {
         if (! isset($settings['NavigationTreeEnableGrouping'])) {
@@ -2566,9 +2476,7 @@ final class Settings
         return (bool) $settings['NavigationTreeEnableGrouping'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setNavigationTreeDbSeparator(array $settings): string
     {
         if (! isset($settings['NavigationTreeDbSeparator'])) {
@@ -2626,9 +2534,7 @@ final class Settings
         return $navigationTreeTableLevel >= 2 ? $navigationTreeTableLevel : 1;
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setNavigationLinkWithMainPanel(array $settings): bool
     {
         if (! isset($settings['NavigationLinkWithMainPanel'])) {
@@ -2638,9 +2544,7 @@ final class Settings
         return (bool) $settings['NavigationLinkWithMainPanel'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setNavigationDisplayLogo(array $settings): bool
     {
         if (! isset($settings['NavigationDisplayLogo'])) {
@@ -2650,9 +2554,7 @@ final class Settings
         return (bool) $settings['NavigationDisplayLogo'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setNavigationLogoLink(array $settings): string
     {
         if (! isset($settings['NavigationLogoLink'])) {
@@ -2724,9 +2626,7 @@ final class Settings
         return $navigationTreeDisplayItemFilterMinimum >= 1 ? $navigationTreeDisplayItemFilterMinimum : 30;
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setNavigationDisplayServers(array $settings): bool
     {
         if (! isset($settings['NavigationDisplayServers'])) {
@@ -2736,9 +2636,7 @@ final class Settings
         return (bool) $settings['NavigationDisplayServers'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setDisplayServersList(array $settings): bool
     {
         if (! isset($settings['DisplayServersList'])) {
@@ -2805,9 +2703,7 @@ final class Settings
         };
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setNavigationTreeEnableExpansion(array $settings): bool
     {
         if (! isset($settings['NavigationTreeEnableExpansion'])) {
@@ -2817,9 +2713,7 @@ final class Settings
         return (bool) $settings['NavigationTreeEnableExpansion'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setNavigationTreeShowTables(array $settings): bool
     {
         if (! isset($settings['NavigationTreeShowTables'])) {
@@ -2829,9 +2723,7 @@ final class Settings
         return (bool) $settings['NavigationTreeShowTables'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setNavigationTreeShowViews(array $settings): bool
     {
         if (! isset($settings['NavigationTreeShowViews'])) {
@@ -2841,9 +2733,7 @@ final class Settings
         return (bool) $settings['NavigationTreeShowViews'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setNavigationTreeShowFunctions(array $settings): bool
     {
         if (! isset($settings['NavigationTreeShowFunctions'])) {
@@ -2853,9 +2743,7 @@ final class Settings
         return (bool) $settings['NavigationTreeShowFunctions'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setNavigationTreeShowProcedures(array $settings): bool
     {
         if (! isset($settings['NavigationTreeShowProcedures'])) {
@@ -2865,9 +2753,7 @@ final class Settings
         return (bool) $settings['NavigationTreeShowProcedures'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setNavigationTreeShowEvents(array $settings): bool
     {
         if (! isset($settings['NavigationTreeShowEvents'])) {
@@ -2893,9 +2779,7 @@ final class Settings
         return $navigationWidth >= 0 ? $navigationWidth : 240;
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setNavigationTreeAutoexpandSingleDb(array $settings): bool
     {
         if (! isset($settings['NavigationTreeAutoexpandSingleDb'])) {
@@ -2905,9 +2789,7 @@ final class Settings
         return (bool) $settings['NavigationTreeAutoexpandSingleDb'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setShowStats(array $settings): bool
     {
         if (! isset($settings['ShowStats'])) {
@@ -2917,9 +2799,7 @@ final class Settings
         return (bool) $settings['ShowStats'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setShowPhpInfo(array $settings): bool
     {
         if (! isset($settings['ShowPhpInfo'])) {
@@ -2929,9 +2809,7 @@ final class Settings
         return (bool) $settings['ShowPhpInfo'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setShowServerInfo(array $settings): bool
     {
         if (! isset($settings['ShowServerInfo'])) {
@@ -2941,9 +2819,7 @@ final class Settings
         return (bool) $settings['ShowServerInfo'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setShowChgPassword(array $settings): bool
     {
         if (! isset($settings['ShowChgPassword'])) {
@@ -2953,9 +2829,7 @@ final class Settings
         return (bool) $settings['ShowChgPassword'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setShowCreateDb(array $settings): bool
     {
         if (! isset($settings['ShowCreateDb'])) {
@@ -2965,9 +2839,7 @@ final class Settings
         return (bool) $settings['ShowCreateDb'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setShowDbStructureCharset(array $settings): bool
     {
         if (! isset($settings['ShowDbStructureCharset'])) {
@@ -2977,9 +2849,7 @@ final class Settings
         return (bool) $settings['ShowDbStructureCharset'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setShowDbStructureComment(array $settings): bool
     {
         if (! isset($settings['ShowDbStructureComment'])) {
@@ -2989,9 +2859,7 @@ final class Settings
         return (bool) $settings['ShowDbStructureComment'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setShowDbStructureCreation(array $settings): bool
     {
         if (! isset($settings['ShowDbStructureCreation'])) {
@@ -3001,9 +2869,7 @@ final class Settings
         return (bool) $settings['ShowDbStructureCreation'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setShowDbStructureLastUpdate(array $settings): bool
     {
         if (! isset($settings['ShowDbStructureLastUpdate'])) {
@@ -3013,9 +2879,7 @@ final class Settings
         return (bool) $settings['ShowDbStructureLastUpdate'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setShowDbStructureLastCheck(array $settings): bool
     {
         if (! isset($settings['ShowDbStructureLastCheck'])) {
@@ -3025,9 +2889,7 @@ final class Settings
         return (bool) $settings['ShowDbStructureLastCheck'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setHideStructureActions(array $settings): bool
     {
         if (! isset($settings['HideStructureActions'])) {
@@ -3037,9 +2899,7 @@ final class Settings
         return (bool) $settings['HideStructureActions'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setShowColumnComments(array $settings): bool
     {
         if (! isset($settings['ShowColumnComments'])) {
@@ -3066,9 +2926,7 @@ final class Settings
         return $settings['TableNavigationLinksMode'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setShowAll(array $settings): bool
     {
         if (! isset($settings['ShowAll'])) {
@@ -3108,9 +2966,7 @@ final class Settings
         return $settings['Order'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setSaveCellsAtOnce(array $settings): bool
     {
         if (! isset($settings['SaveCellsAtOnce'])) {
@@ -3165,9 +3021,7 @@ final class Settings
         return $settings['ProtectBinary'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setShowFunctionFields(array $settings): bool
     {
         if (! isset($settings['ShowFunctionFields'])) {
@@ -3177,9 +3031,7 @@ final class Settings
         return (bool) $settings['ShowFunctionFields'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setShowFieldTypesInDataEditView(array $settings): bool
     {
         if (! isset($settings['ShowFieldTypesInDataEditView'])) {
@@ -3311,9 +3163,7 @@ final class Settings
         return $settings['DefaultForeignKeyChecks'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setZipDump(array $settings): bool
     {
         if (! isset($settings['ZipDump'])) {
@@ -3323,9 +3173,7 @@ final class Settings
         return (bool) $settings['ZipDump'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setGZipDump(array $settings): bool
     {
         if (! isset($settings['GZipDump'])) {
@@ -3335,9 +3183,7 @@ final class Settings
         return (bool) $settings['GZipDump'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setBZipDump(array $settings): bool
     {
         if (! isset($settings['BZipDump'])) {
@@ -3347,9 +3193,7 @@ final class Settings
         return (bool) $settings['BZipDump'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setCompressOnFly(array $settings): bool
     {
         if (! isset($settings['CompressOnFly'])) {
@@ -3479,9 +3323,7 @@ final class Settings
         return $settings['RowActionType'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setExport(array $settings): Export
     {
         if (isset($settings['Export']) && is_array($settings['Export'])) {
@@ -3491,9 +3333,7 @@ final class Settings
         return new Export();
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setImport(array $settings): Import
     {
         if (isset($settings['Import']) && is_array($settings['Import'])) {
@@ -3503,9 +3343,7 @@ final class Settings
         return new Import();
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setSchema(array $settings): Schema
     {
         if (isset($settings['Schema']) && is_array($settings['Schema'])) {
@@ -3539,9 +3377,7 @@ final class Settings
         return $pdfPageSizes;
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setPDFDefaultPageSize(array $settings): string
     {
         if (! isset($settings['PDFDefaultPageSize'])) {
@@ -3551,9 +3387,7 @@ final class Settings
         return (string) $settings['PDFDefaultPageSize'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setDefaultLang(array $settings): string
     {
         if (! isset($settings['DefaultLang'])) {
@@ -3563,9 +3397,7 @@ final class Settings
         return (string) $settings['DefaultLang'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setDefaultConnectionCollation(array $settings): string
     {
         if (! isset($settings['DefaultConnectionCollation'])) {
@@ -3575,9 +3407,7 @@ final class Settings
         return (string) $settings['DefaultConnectionCollation'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setLang(array $settings): string
     {
         if (! isset($settings['Lang'])) {
@@ -3587,9 +3417,7 @@ final class Settings
         return (string) $settings['Lang'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setFilterLanguages(array $settings): string
     {
         if (! isset($settings['FilterLanguages'])) {
@@ -3616,9 +3444,7 @@ final class Settings
         return $settings['RecodingEngine'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setIconvExtraParams(array $settings): string
     {
         if (! isset($settings['IconvExtraParams'])) {
@@ -3682,9 +3508,7 @@ final class Settings
         return $availableCharsets;
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setNavigationTreePointerEnable(array $settings): bool
     {
         if (! isset($settings['NavigationTreePointerEnable'])) {
@@ -3694,9 +3518,7 @@ final class Settings
         return (bool) $settings['NavigationTreePointerEnable'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setBrowsePointerEnable(array $settings): bool
     {
         if (! isset($settings['BrowsePointerEnable'])) {
@@ -3706,9 +3528,7 @@ final class Settings
         return (bool) $settings['BrowsePointerEnable'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setBrowseMarkerEnable(array $settings): bool
     {
         if (! isset($settings['BrowseMarkerEnable'])) {
@@ -3750,9 +3570,7 @@ final class Settings
         return $textareaRows >= 1 ? $textareaRows : 15;
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setLongtextDoubleTextarea(array $settings): bool
     {
         if (! isset($settings['LongtextDoubleTextarea'])) {
@@ -3762,9 +3580,7 @@ final class Settings
         return (bool) $settings['LongtextDoubleTextarea'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setTextareaAutoSelect(array $settings): bool
     {
         if (! isset($settings['TextareaAutoSelect'])) {
@@ -3839,9 +3655,7 @@ final class Settings
         return $settings['RowActionLinks'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setRowActionLinksWithoutUnique(array $settings): bool
     {
         if (! isset($settings['RowActionLinksWithoutUnique'])) {
@@ -3868,9 +3682,7 @@ final class Settings
         return $settings['TablePrimaryKeyOrder'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setRememberSorting(array $settings): bool
     {
         if (! isset($settings['RememberSorting'])) {
@@ -3880,9 +3692,7 @@ final class Settings
         return (bool) $settings['RememberSorting'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setShowBrowseComments(array $settings): bool
     {
         if (! isset($settings['ShowBrowseComments'])) {
@@ -3892,9 +3702,7 @@ final class Settings
         return (bool) $settings['ShowBrowseComments'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setShowPropertyComments(array $settings): bool
     {
         if (! isset($settings['ShowPropertyComments'])) {
@@ -3920,9 +3728,7 @@ final class Settings
         return $repeatCells >= 0 ? $repeatCells : 100;
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setQueryHistoryDB(array $settings): bool
     {
         if (! isset($settings['QueryHistoryDB'])) {
@@ -3948,9 +3754,7 @@ final class Settings
         return $queryHistoryMax >= 1 ? $queryHistoryMax : 25;
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setBrowseMIME(array $settings): bool
     {
         if (! isset($settings['BrowseMIME'])) {
@@ -3992,9 +3796,7 @@ final class Settings
         return $maxExactCountViews >= 1 ? $maxExactCountViews : 0;
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setNaturalOrder(array $settings): bool
     {
         if (! isset($settings['NaturalOrder'])) {
@@ -4041,9 +3843,7 @@ final class Settings
         return $userprefsDisallow;
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setUserprefsDeveloperTab(array $settings): bool
     {
         if (! isset($settings['UserprefsDeveloperTab'])) {
@@ -4053,9 +3853,7 @@ final class Settings
         return (bool) $settings['UserprefsDeveloperTab'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setTitleTable(array $settings): string
     {
         if (! isset($settings['TitleTable'])) {
@@ -4065,9 +3863,7 @@ final class Settings
         return (string) $settings['TitleTable'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setTitleDatabase(array $settings): string
     {
         if (! isset($settings['TitleDatabase'])) {
@@ -4077,9 +3873,7 @@ final class Settings
         return (string) $settings['TitleDatabase'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setTitleServer(array $settings): string
     {
         if (! isset($settings['TitleServer'])) {
@@ -4089,9 +3883,7 @@ final class Settings
         return (string) $settings['TitleServer'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setTitleDefault(array $settings): string
     {
         if (! isset($settings['TitleDefault'])) {
@@ -4101,9 +3893,7 @@ final class Settings
         return (string) $settings['TitleDefault'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setThemeManager(array $settings): bool
     {
         if (! isset($settings['ThemeManager'])) {
@@ -4113,9 +3903,7 @@ final class Settings
         return (bool) $settings['ThemeManager'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setThemeDefault(array $settings): string
     {
         if (! isset($settings['ThemeDefault'])) {
@@ -4125,9 +3913,7 @@ final class Settings
         return (string) $settings['ThemeDefault'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setThemePerServer(array $settings): bool
     {
         if (! isset($settings['ThemePerServer'])) {
@@ -4137,9 +3923,7 @@ final class Settings
         return (bool) $settings['ThemePerServer'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setDefaultQueryTable(array $settings): string
     {
         if (! isset($settings['DefaultQueryTable'])) {
@@ -4149,9 +3933,7 @@ final class Settings
         return (string) $settings['DefaultQueryTable'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setDefaultQueryDatabase(array $settings): string
     {
         if (! isset($settings['DefaultQueryDatabase'])) {
@@ -4161,9 +3943,7 @@ final class Settings
         return (string) $settings['DefaultQueryDatabase'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setSQLQuery(array $settings): SqlQueryBox
     {
         if (isset($settings['SQLQuery']) && is_array($settings['SQLQuery'])) {
@@ -4173,9 +3953,7 @@ final class Settings
         return new SqlQueryBox();
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setEnableAutocompleteForTablesAndColumns(array $settings): bool
     {
         if (! isset($settings['EnableAutocompleteForTablesAndColumns'])) {
@@ -4185,9 +3963,7 @@ final class Settings
         return (bool) $settings['EnableAutocompleteForTablesAndColumns'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setUploadDir(array $settings): string
     {
         if (! isset($settings['UploadDir'])) {
@@ -4197,9 +3973,7 @@ final class Settings
         return (string) $settings['UploadDir'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setSaveDir(array $settings): string
     {
         if (! isset($settings['SaveDir'])) {
@@ -4209,9 +3983,7 @@ final class Settings
         return (string) $settings['SaveDir'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setTempDir(array $settings): string
     {
         $tempDir = ROOT_PATH . 'tmp' . DIRECTORY_SEPARATOR;
@@ -4267,9 +4039,7 @@ final class Settings
         return $trustedProxies;
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setCheckConfigurationPermissions(array $settings): bool
     {
         if (! isset($settings['CheckConfigurationPermissions'])) {
@@ -4295,9 +4065,7 @@ final class Settings
         return $linkLengthLimit >= 1 ? $linkLengthLimit : 1000;
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setCSPAllow(array $settings): string
     {
         if (! isset($settings['CSPAllow'])) {
@@ -4307,9 +4075,7 @@ final class Settings
         return (string) $settings['CSPAllow'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setDisableMultiTableMaintenance(array $settings): bool
     {
         if (! isset($settings['DisableMultiTableMaintenance'])) {
@@ -4336,9 +4102,7 @@ final class Settings
         return $settings['SendErrorReports'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setConsoleEnterExecutes(array $settings): bool
     {
         if (! isset($settings['ConsoleEnterExecutes'])) {
@@ -4348,9 +4112,7 @@ final class Settings
         return (bool) $settings['ConsoleEnterExecutes'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setZeroConf(array $settings): bool
     {
         if (! isset($settings['ZeroConf'])) {
@@ -4360,9 +4122,7 @@ final class Settings
         return (bool) $settings['ZeroConf'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setDBG(array $settings): Debug
     {
         if (isset($settings['DBG']) && is_array($settings['DBG'])) {
@@ -4436,9 +4196,7 @@ final class Settings
         return $maxRowPlotLimit >= 1 ? $maxRowPlotLimit : 500;
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setShowGitRevision(array $settings): bool
     {
         if (! isset($settings['ShowGitRevision'])) {
@@ -4474,9 +4232,7 @@ final class Settings
         return $mysqlMinVersion;
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setDisableShortcutKeys(array $settings): bool
     {
         if (! isset($settings['DisableShortcutKeys'])) {
@@ -4486,9 +4242,7 @@ final class Settings
         return (bool) $settings['DisableShortcutKeys'];
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setConsole(array $settings): Console
     {
         if (isset($settings['Console']) && is_array($settings['Console'])) {
@@ -4498,9 +4252,7 @@ final class Settings
         return new Console();
     }
 
-    /**
-     * @param array<int|string, mixed> $settings
-     */
+    /** @param array<int|string, mixed> $settings */
     private function setDefaultTransformations(array $settings): Transformations
     {
         if (isset($settings['DefaultTransformations']) && is_array($settings['DefaultTransformations'])) {

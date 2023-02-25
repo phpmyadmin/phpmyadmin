@@ -101,9 +101,7 @@ final class TemplateModel
         return $this->dbi->getError(Connection::TYPE_CONTROL);
     }
 
-    /**
-     * @return Template[]|string
-     */
+    /** @return Template[]|string */
     public function getAll(DatabaseName $db, TableName $table, string $user, string $exportType): array|string
     {
         $query = sprintf(

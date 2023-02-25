@@ -13,9 +13,7 @@ use function __;
 
 class NaviForm extends BaseForm
 {
-    /**
-     * @return array
-     */
+    /** @return array */
     public static function getForms(): array
     {
         return [

@@ -16,9 +16,7 @@ use PhpMyAdmin\Url;
 use function __;
 use function htmlspecialchars;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Server\Status\Processes\RefreshController
- */
+/** @covers \PhpMyAdmin\Controllers\Server\Status\Processes\RefreshController */
 class RefreshControllerTest extends AbstractTestCase
 {
     /** @var Data */
@@ -27,9 +25,12 @@ class RefreshControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['text_dir'] = 'ltr';
+
         parent::setGlobalConfig();
+
         parent::setTheme();
 
         $GLOBALS['server'] = 1;

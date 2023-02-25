@@ -17,9 +17,7 @@ use PhpMyAdmin\Url;
 use function __;
 use function _pgettext;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Database\PrivilegesController
- */
+/** @covers \PhpMyAdmin\Controllers\Database\PrivilegesController */
 class PrivilegesControllerTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -31,8 +29,11 @@ class PrivilegesControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setLanguage();
+
         parent::setTheme();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;

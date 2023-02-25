@@ -10,9 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use ReflectionMethod;
 
-/**
- * @covers \PhpMyAdmin\Navigation\Nodes\Node
- */
+/** @covers \PhpMyAdmin\Navigation\Nodes\Node */
 class NodeTest extends AbstractTestCase
 {
     /**
@@ -21,6 +19,7 @@ class NodeTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;

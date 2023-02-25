@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests\Engines;
 use PhpMyAdmin\Engines\Binlog;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Engines\Binlog
- */
+/** @covers \PhpMyAdmin\Engines\Binlog */
 class BinlogTest extends AbstractTestCase
 {
     /** @var Binlog */
@@ -22,6 +20,7 @@ class BinlogTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $this->object = new Binlog('binlog');
@@ -34,6 +33,7 @@ class BinlogTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 

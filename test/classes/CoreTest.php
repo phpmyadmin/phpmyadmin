@@ -21,9 +21,7 @@ use function strtr;
 
 use const ENT_QUOTES;
 
-/**
- * @covers \PhpMyAdmin\Core
- */
+/** @covers \PhpMyAdmin\Core */
 class CoreTest extends AbstractNetworkTestCase
 {
     /**
@@ -32,8 +30,11 @@ class CoreTest extends AbstractNetworkTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setTheme();
+
         parent::setLanguage();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
 
         $GLOBALS['server'] = 0;
@@ -513,7 +514,9 @@ class CoreTest extends AbstractNetworkTestCase
     public function testSendHeaderLocationWithoutSidWithoutIis(): void
     {
         $GLOBALS['server'] = 0;
+
         parent::setGlobalConfig();
+
         $GLOBALS['config']->set('PMA_IS_IIS', null);
 
         $testUri = 'https://example.com/test.php';
@@ -528,7 +531,9 @@ class CoreTest extends AbstractNetworkTestCase
     public function testSendHeaderLocationIisLongUri(): void
     {
         $GLOBALS['server'] = 0;
+
         parent::setGlobalConfig();
+
         $GLOBALS['config']->set('PMA_IS_IIS', true);
 
         // over 600 chars
@@ -570,9 +575,7 @@ class CoreTest extends AbstractNetworkTestCase
         Core::sendHeaderLocation($testUri);
     }
 
-    /**
-     * @dataProvider provideTestIsAllowedDomain
-     */
+    /** @dataProvider provideTestIsAllowedDomain */
     public function testIsAllowedDomain(string $url, bool $expected): void
     {
         $_SERVER['SERVER_NAME'] = 'server.local';
@@ -932,9 +935,7 @@ class CoreTest extends AbstractNetworkTestCase
         $this->assertEquals($decrypted, $_REQUEST);
     }
 
-    /**
-     * @return array<int, array<int, array<string, string|mixed[]>>>
-     */
+    /** @return array<int, array<int, array<string, string|mixed[]>>> */
     public static function providerForTestPopulateRequestWithEncryptedQueryParamsWithInvalidParam(): array
     {
         return [

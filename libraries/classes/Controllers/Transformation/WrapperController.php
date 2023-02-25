@@ -179,9 +179,7 @@ class WrapperController extends AbstractController
         }
     }
 
-    /**
-     * @param mixed $size
-     */
+    /** @param mixed $size */
     private function formatSize($size): int
     {
         if (! is_numeric($size) || $size < 2) {

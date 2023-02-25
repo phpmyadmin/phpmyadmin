@@ -44,9 +44,7 @@ const FIELD_TYPE_INTEGER = 1;
 const FIELD_TYPE_VARCHAR = 253;
 const FIELD_TYPE_UNKNOWN = -1;
 
-/**
- * @covers \PhpMyAdmin\Util
- */
+/** @covers \PhpMyAdmin\Util */
 class UtilTest extends AbstractTestCase
 {
     /**
@@ -547,6 +545,7 @@ class UtilTest extends AbstractTestCase
     public function testExpandUserString(string $in, string $out): void
     {
         parent::setGlobalConfig();
+
         $GLOBALS['cfg'] = [
             'Server' => [
                 'host' => 'host&',
@@ -1344,6 +1343,7 @@ class UtilTest extends AbstractTestCase
     public function testLocalisedDate(int $a, string $b, string $e, string $tz, string $locale): void
     {
         parent::setLanguage();
+
         // A test case for #15830 could be added for using the php setlocale on a Windows CI
         // See https://github.com/phpmyadmin/phpmyadmin/issues/15830
         _setlocale(LC_ALL, $locale);
@@ -1635,9 +1635,7 @@ class UtilTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * @dataProvider providerForTestBackquote
-     */
+    /** @dataProvider providerForTestBackquote */
     public function testBackquote(string|null $entry, string $expectedNoneOutput, string $expectedMssqlOutput): void
     {
         $this->assertSame($expectedNoneOutput, Util::backquote($entry));
@@ -1647,9 +1645,7 @@ class UtilTest extends AbstractTestCase
         $this->assertSame($expectedMssqlOutput, Util::backquoteCompat($entry, 'MSSQL'));
     }
 
-    /**
-     * @return array<int|string, string|null>[]
-     */
+    /** @return array<int|string, string|null>[] */
     public static function providerForTestBackquote(): array
     {
         return [
@@ -2096,9 +2092,7 @@ SQL;
         $dbiDummy->assertAllQueriesConsumed();
     }
 
-    /**
-     * @return array[]
-     */
+    /** @return array[] */
     public static function dataProviderScriptNames(): array
     {
         // target
@@ -2258,9 +2252,7 @@ SQL;
         ];
     }
 
-    /**
-     * @dataProvider dataProviderScriptNames
-     */
+    /** @dataProvider dataProviderScriptNames */
     public function testGetScriptNameForOption(string $target, string $location, string $finalLink): void
     {
         $GLOBALS['lang'] = 'en';
@@ -2290,9 +2282,7 @@ SQL;
         $this->assertFalse(Util::showText('ActionLinksMode'));
     }
 
-    /**
-     * @dataProvider providerForTestGetMySQLDocuURL
-     */
+    /** @dataProvider providerForTestGetMySQLDocuURL */
     public function testGetMySQLDocuURL(string $link, string $anchor, string $version, string $expected): void
     {
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
@@ -2509,9 +2499,7 @@ SQL;
         ];
     }
 
-    /**
-     * @dataProvider providerForTestGetLowerCaseNames
-     */
+    /** @dataProvider providerForTestGetLowerCaseNames */
     public function testGetCollateForIS(string $lowerCaseTableNames, string $expected): void
     {
         $dbiDummy = $this->createDbiDummy();
@@ -2521,9 +2509,7 @@ SQL;
         $dbiDummy->assertAllQueriesConsumed();
     }
 
-    /**
-     * @return iterable<string, array{string, string}>
-     */
+    /** @return iterable<string, array{string, string}> */
     public static function providerForTestGetLowerCaseNames(): iterable
     {
         yield 'lower_case_table_names=0' => ['0', 'COLLATE utf8_bin'];

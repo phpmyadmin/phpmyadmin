@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests\Display;
 use PhpMyAdmin\Display\DisplayParts;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \PhpMyAdmin\Display\DisplayParts
- */
+/** @covers \PhpMyAdmin\Display\DisplayParts */
 class DisplayPartsTest extends TestCase
 {
     public function testFromArray(): void

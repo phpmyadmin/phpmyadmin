@@ -11,16 +11,17 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Types;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Table\FindReplaceController
- */
+/** @covers \PhpMyAdmin\Controllers\Table\FindReplaceController */
 class FindReplaceControllerTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setLanguage();
+
         parent::setGlobalConfig();
+
         parent::setTheme();
 
         $GLOBALS['server'] = 1;

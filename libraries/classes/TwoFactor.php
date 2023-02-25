@@ -97,9 +97,7 @@ class TwoFactor
         return $this->backend;
     }
 
-    /**
-     * @return array
-     */
+    /** @return array */
     public function getAvailable(): array
     {
         return $this->available;

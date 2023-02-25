@@ -21,6 +21,7 @@ final class AccountLockController extends AbstractController
     public function __construct(ResponseRenderer $response, Template $template, AccountLocking $accountLocking)
     {
         parent::__construct($response, $template);
+
         $this->model = $accountLocking;
     }
 

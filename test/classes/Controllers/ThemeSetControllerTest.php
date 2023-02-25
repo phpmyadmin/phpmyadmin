@@ -12,14 +12,13 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\UserPreferences;
 
-/**
- * @covers \PhpMyAdmin\Controllers\ThemeSetController
- */
+/** @covers \PhpMyAdmin\Controllers\ThemeSetController */
 class ThemeSetControllerTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
     }
 

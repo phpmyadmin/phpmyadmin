@@ -10,9 +10,7 @@ use ReflectionProperty;
 
 use function rawurlencode;
 
-/**
- * @covers \PhpMyAdmin\Scripts
- */
+/** @covers \PhpMyAdmin\Scripts */
 class ScriptsTest extends AbstractTestCase
 {
     /** @var Scripts */
@@ -25,6 +23,7 @@ class ScriptsTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->object = new Scripts();
     }
 
@@ -35,6 +34,7 @@ class ScriptsTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 

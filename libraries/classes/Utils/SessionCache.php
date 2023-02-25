@@ -39,9 +39,7 @@ final class SessionCache
         return null;
     }
 
-    /**
-     * @param mixed $value
-     */
+    /** @param mixed $value */
     public static function set(string $name, $value): void
     {
         $_SESSION['cache'][self::key()][$name] = $value;

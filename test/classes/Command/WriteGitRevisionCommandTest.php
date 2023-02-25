@@ -11,9 +11,7 @@ use Symfony\Component\Console\Command\Command;
 use function class_exists;
 use function sprintf;
 
-/**
- * @covers \PhpMyAdmin\Command\WriteGitRevisionCommand
- */
+/** @covers \PhpMyAdmin\Command\WriteGitRevisionCommand */
 class WriteGitRevisionCommandTest extends AbstractTestCase
 {
     /** @var WriteGitRevisionCommand */

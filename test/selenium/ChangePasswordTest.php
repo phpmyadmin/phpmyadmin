@@ -6,9 +6,7 @@ namespace PhpMyAdmin\Tests\Selenium;
 
 use function trim;
 
-/**
- * @coversNothing
- */
+/** @coversNothing */
 class ChangePasswordTest extends TestBase
 {
     /**

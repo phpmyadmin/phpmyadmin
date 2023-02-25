@@ -6,9 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Index;
 
-/**
- * @covers \PhpMyAdmin\Index
- */
+/** @covers \PhpMyAdmin\Index */
 class IndexTest extends AbstractTestCase
 {
     /** @var array */
@@ -20,6 +18,7 @@ class IndexTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->params['Schema'] = 'PMA_Schema';
         $this->params['Table'] = 'PMA_Table';
         $this->params['Key_name'] = 'PMA_Key_name';

@@ -32,18 +32,6 @@
     </rule>
 
     <!-- Rules that should be followed, but are not required -->
-    <rule ref="SlevomatCodingStandard.Classes.ConstantSpacing.IncorrectCountOfBlankLinesAfterConstant">
-        <severity>4</severity>
-    </rule>
-    <rule ref="SlevomatCodingStandard.Classes.ParentCallSpacing.IncorrectLinesCountAfterControlStructure">
-        <severity>4</severity>
-    </rule>
-    <rule ref="SlevomatCodingStandard.Classes.ParentCallSpacing.IncorrectLinesCountBeforeControlStructure">
-        <severity>4</severity>
-    </rule>
-    <rule ref="SlevomatCodingStandard.Commenting.RequireOneLineDocComment.MultiLineDocComment">
-        <severity>4</severity>
-    </rule>
     <rule ref="SlevomatCodingStandard.Operators.DisallowEqualOperators">
         <severity>4</severity>
     </rule>

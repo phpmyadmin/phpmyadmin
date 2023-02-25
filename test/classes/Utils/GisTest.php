@@ -11,14 +11,13 @@ use PhpMyAdmin\Utils\Gis;
 
 use function hex2bin;
 
-/**
- * @covers \PhpMyAdmin\Utils\Gis
- */
+/** @covers \PhpMyAdmin\Utils\Gis */
 class GisTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
     }
 

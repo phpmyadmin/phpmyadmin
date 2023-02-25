@@ -17,9 +17,7 @@ use PhpMyAdmin\Url;
 
 use function htmlspecialchars;
 
-/**
- * @covers \PhpMyAdmin\ConfigStorage\UserGroups
- */
+/** @covers \PhpMyAdmin\ConfigStorage\UserGroups */
 class UserGroupsTest extends AbstractTestCase
 {
     /** @var ConfigurableMenusFeature */
@@ -31,6 +29,7 @@ class UserGroupsTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';

@@ -37,6 +37,7 @@ class ExportXmlTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
@@ -61,12 +62,11 @@ class ExportXmlTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 
-    /**
-     * @group medium
-     */
+    /** @group medium */
     public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportXml::class, 'setProperties');
@@ -167,9 +167,7 @@ class ExportXmlTest extends AbstractTestCase
         $this->assertInstanceOf(BoolPropertyItem::class, $property);
     }
 
-    /**
-     * @group medium
-     */
+    /** @group medium */
     public function testExportHeader(): void
     {
         $GLOBALS['xml_export_functions'] = 1;

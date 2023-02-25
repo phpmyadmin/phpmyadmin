@@ -17,9 +17,7 @@ class AuthenticationPluginFactory
     /** @var AuthenticationPlugin|null */
     private $plugin = null;
 
-    /**
-     * @throws AuthenticationPluginException
-     */
+    /** @throws AuthenticationPluginException */
     public function create(): AuthenticationPlugin
     {
         if ($this->plugin instanceof AuthenticationPlugin) {

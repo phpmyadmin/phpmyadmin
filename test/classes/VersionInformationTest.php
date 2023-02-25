@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\VersionInformation;
 use stdClass;
 
-/**
- * @covers \PhpMyAdmin\VersionInformation
- */
+/** @covers \PhpMyAdmin\VersionInformation */
 class VersionInformationTest extends AbstractTestCase
 {
     /** @var stdClass[] */
@@ -22,7 +20,9 @@ class VersionInformationTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setProxySettings();
+
         $this->releases = [];
 
         // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps

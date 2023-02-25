@@ -8,9 +8,7 @@ use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Navigation\Nodes\Node;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Navigation\NodeFactory
- */
+/** @covers \PhpMyAdmin\Navigation\NodeFactory */
 class NodeFactoryTest extends AbstractTestCase
 {
     /**
@@ -19,6 +17,7 @@ class NodeFactoryTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
     }

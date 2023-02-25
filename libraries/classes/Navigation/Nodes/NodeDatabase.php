@@ -42,6 +42,7 @@ class NodeDatabase extends Node
     public function __construct($name, $type = Node::OBJECT, $isGroup = false)
     {
         parent::__construct($name, $type, $isGroup);
+
         $this->icon = ['image' => 's_db', 'title' => __('Database operations')];
 
         $this->links = [

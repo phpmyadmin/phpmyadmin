@@ -12,9 +12,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Types;
 
-/**
- * @covers \PhpMyAdmin\Database\Routines
- */
+/** @covers \PhpMyAdmin\Database\Routines */
 class RoutinesTest extends AbstractTestCase
 {
     /** @var Routines */
@@ -26,9 +24,13 @@ class RoutinesTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setGlobalConfig();
+
         parent::setLanguage();
+
         parent::setTheme();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';

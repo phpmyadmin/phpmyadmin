@@ -14,9 +14,7 @@ class InvalidDatabaseName extends InvalidIdentifierName
         return new self(__('The database name must be a non-empty string.'));
     }
 
-    /**
-     * @psalm-param positive-int $length
-     */
+    /** @psalm-param positive-int $length */
     public static function fromLongName(int $length): self
     {
         return new self(sprintf(__('The database name cannot be longer than %d characters.'), $length));

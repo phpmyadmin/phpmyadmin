@@ -268,9 +268,7 @@ class Navigation
         return $hidden;
     }
 
-    /**
-     * @return string Logo source
-     */
+    /** @return string Logo source */
     private function getLogoSource(): string
     {
         $GLOBALS['theme'] ??= null;

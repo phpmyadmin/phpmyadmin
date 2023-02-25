@@ -20,9 +20,7 @@ use function __;
 use function _pgettext;
 use function json_encode;
 
-/**
- * @covers \PhpMyAdmin\Normalization
- */
+/** @covers \PhpMyAdmin\Normalization */
 class NormalizationTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -40,6 +38,7 @@ class NormalizationTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;

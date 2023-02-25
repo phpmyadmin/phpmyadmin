@@ -12,9 +12,7 @@ use stdClass;
 use function array_keys;
 use function count;
 
-/**
- * @covers \PhpMyAdmin\Config\ConfigFile
- */
+/** @covers \PhpMyAdmin\Config\ConfigFile */
 class ConfigFileTest extends AbstractTestCase
 {
     /**
@@ -35,6 +33,7 @@ class ConfigFileTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['server'] = 1;
         $this->object = new ConfigFile();
     }
@@ -45,6 +44,7 @@ class ConfigFileTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         $this->object->setConfigData([]);
         unset($this->object);
     }

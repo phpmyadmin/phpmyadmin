@@ -17,9 +17,7 @@ abstract class AbstractController
     {
     }
 
-    /**
-     * @return array
-     */
+    /** @return array */
     protected function getPages(): array
     {
         $ignored = [

@@ -8,9 +8,7 @@ use PhpMyAdmin\Tests\Selenium\TestBase;
 
 use function trim;
 
-/**
- * @coversNothing
- */
+/** @coversNothing */
 class QueryByExampleTest extends TestBase
 {
     /**

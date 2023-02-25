@@ -33,6 +33,7 @@ abstract class GisGeomTestCase extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->testDir = 'file://' . getcwd() . '/test/test_data/gis';
     }
 

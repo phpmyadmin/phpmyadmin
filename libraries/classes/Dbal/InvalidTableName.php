@@ -14,9 +14,7 @@ class InvalidTableName extends InvalidIdentifierName
         return new self(__('The table name must be a non-empty string.'));
     }
 
-    /**
-     * @psalm-param positive-int $length
-     */
+    /** @psalm-param positive-int $length */
     public static function fromLongName(int $length): self
     {
         return new self(sprintf(__('The table name cannot be longer than %d characters.'), $length));

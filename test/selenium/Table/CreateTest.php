@@ -8,9 +8,7 @@ use PhpMyAdmin\Tests\Selenium\TestBase;
 
 use function sleep;
 
-/**
- * @coversNothing
- */
+/** @coversNothing */
 class CreateTest extends TestBase
 {
     protected function setUp(): void

@@ -8,9 +8,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
 
-/**
- * @coversNothing
- */
+/** @coversNothing */
 class SecurityTest extends AbstractTestCase
 {
     /** @var Template */
@@ -19,12 +17,14 @@ class SecurityTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->template = new Template();
     }
 
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->template);
     }
 

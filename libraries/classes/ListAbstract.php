@@ -9,9 +9,7 @@ use PhpMyAdmin\Query\Utilities;
 
 use function in_array;
 
-/**
- * @extends ArrayObject<int, string>
- */
+/** @extends ArrayObject<int, string> */
 abstract class ListAbstract extends ArrayObject
 {
     /** @var mixed   empty item */
@@ -45,9 +43,7 @@ abstract class ListAbstract extends ArrayObject
         return true;
     }
 
-    /**
-     * @return array<int, array<string, bool|string>>
-     */
+    /** @return array<int, array<string, bool|string>> */
     public function getList(): array
     {
         $selected = $this->getDefault();

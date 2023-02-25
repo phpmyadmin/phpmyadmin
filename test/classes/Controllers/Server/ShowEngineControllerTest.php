@@ -17,9 +17,7 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use function __;
 use function htmlspecialchars;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Server\ShowEngineController
- */
+/** @covers \PhpMyAdmin\Controllers\Server\ShowEngineController */
 class ShowEngineControllerTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -31,9 +29,13 @@ class ShowEngineControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['text_dir'] = 'ltr';
+
         parent::setGlobalConfig();
+
         parent::setTheme();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;

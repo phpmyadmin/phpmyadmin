@@ -13,9 +13,7 @@ use function __;
 
 class SqlForm extends BaseForm
 {
-    /**
-     * @return array
-     */
+    /** @return array */
     public static function getForms(): array
     {
         return [

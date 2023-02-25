@@ -28,6 +28,7 @@ class GisMultiPointTest extends GisGeomTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->object = GisMultiPoint::singleton();
     }
 
@@ -38,6 +39,7 @@ class GisMultiPointTest extends GisGeomTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 
@@ -153,9 +155,7 @@ class GisMultiPointTest extends GisGeomTestCase
         ];
     }
 
-    /**
-     * @requires extension gd
-     */
+    /** @requires extension gd */
     public function testPrepareRowAsPng(): void
     {
         $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
@@ -216,6 +216,7 @@ class GisMultiPointTest extends GisGeomTestCase
                 'pdf',
                 [176, 46, 224],
                 ['x' => 7, 'y' => 3, 'scale' => 3.16, 'height' => 297],
+
                 parent::createEmptyPdf('MULTIPOINT'),
             ],
         ];

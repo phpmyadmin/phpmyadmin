@@ -598,9 +598,7 @@ class Config
         $this->source = trim($source);
     }
 
-    /**
-     * @throws ConfigException
-     */
+    /** @throws ConfigException */
     public function checkConfigSource(): bool
     {
         if (! $this->getSource()) {

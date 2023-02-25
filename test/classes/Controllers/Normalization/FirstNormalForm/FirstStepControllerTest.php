@@ -15,9 +15,7 @@ use PhpMyAdmin\Transformations;
 
 use function in_array;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Normalization\FirstNormalForm\FirstStepController
- */
+/** @covers \PhpMyAdmin\Controllers\Normalization\FirstNormalForm\FirstStepController */
 class FirstStepControllerTest extends AbstractTestCase
 {
     /**
@@ -68,9 +66,7 @@ class FirstStepControllerTest extends AbstractTestCase
         $this->assertStringContainsString('<option value=\'no_such_col\'>No such column</option>', $output);
     }
 
-    /**
-     * @return array<int, array{string|null, '1nf'|'2nf'|'3nf'}>
-     */
+    /** @return array<int, array{string|null, '1nf'|'2nf'|'3nf'}> */
     public static function providerForTestDefault(): iterable
     {
         return [

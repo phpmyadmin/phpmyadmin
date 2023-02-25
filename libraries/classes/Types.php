@@ -29,9 +29,7 @@ class Types
     /** @var DatabaseInterface Database interface */
     private $dbi;
 
-    /**
-     * @param DatabaseInterface $dbi Database interface instance
-     */
+    /** @param DatabaseInterface $dbi Database interface instance */
     public function __construct($dbi)
     {
         $this->dbi = $dbi;

@@ -8,9 +8,7 @@ use PhpMyAdmin\Linter;
 
 use function str_repeat;
 
-/**
- * @covers \PhpMyAdmin\Linter
- */
+/** @covers \PhpMyAdmin\Linter */
 class LinterTest extends AbstractTestCase
 {
     /**
@@ -20,6 +18,7 @@ class LinterTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setLanguage();
     }
 

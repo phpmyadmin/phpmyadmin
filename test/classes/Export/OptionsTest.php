@@ -14,9 +14,7 @@ use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Util;
 
-/**
- * @covers \PhpMyAdmin\Export\Options
- */
+/** @covers \PhpMyAdmin\Export\Options */
 class OptionsTest extends AbstractTestCase
 {
     /** @var Options */
@@ -25,10 +23,15 @@ class OptionsTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->loadContainerBuilder();
+
         parent::setLanguage();
+
         parent::setGlobalConfig();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
+
         parent::loadDbiIntoContainerBuilder();
 
         $GLOBALS['cfg']['Server']['host'] = 'localhost';

@@ -10,9 +10,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Sql\EnumValuesController
- */
+/** @covers \PhpMyAdmin\Controllers\Sql\EnumValuesController */
 class EnumValuesControllerTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -24,14 +22,19 @@ class EnumValuesControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;
+
         parent::loadContainerBuilder();
+
         parent::loadDbiIntoContainerBuilder();
+
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+
         parent::loadResponseIntoContainerBuilder();
     }
 

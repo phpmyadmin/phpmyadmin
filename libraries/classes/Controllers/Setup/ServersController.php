@@ -52,9 +52,7 @@ class ServersController extends AbstractController
         ]);
     }
 
-    /**
-     * @param array $params Request parameters
-     */
+    /** @param array $params Request parameters */
     public function destroy(array $params): void
     {
         $id = isset($params['id']) && is_numeric($params['id']) && (int) $params['id'] >= 1 ? (int) $params['id'] : 0;

@@ -18,9 +18,7 @@ use function str_replace;
 
 use const JSON_UNESCAPED_SLASHES;
 
-/**
- * @covers \PhpMyAdmin\TwoFactor
- */
+/** @covers \PhpMyAdmin\TwoFactor */
 class TwoFactorTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -32,7 +30,9 @@ class TwoFactorTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setTheme();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;

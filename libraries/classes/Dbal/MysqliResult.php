@@ -31,9 +31,7 @@ final class MysqliResult implements ResultInterface
      */
     private mysqli_result|null $result;
 
-    /**
-     * @param mysqli_result|bool $result
-     */
+    /** @param mysqli_result|bool $result */
     public function __construct($result)
     {
         $this->result = is_bool($result) ? null : $result;

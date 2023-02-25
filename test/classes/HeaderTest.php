@@ -24,8 +24,11 @@ class HeaderTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setTheme();
+
         parent::setLanguage();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
 
         $GLOBALS['server'] = 0;
@@ -34,7 +37,9 @@ class HeaderTest extends AbstractTestCase
         $GLOBALS['server'] = 'server';
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = '';
+
         parent::setGlobalConfig();
+
         $GLOBALS['cfg']['Servers'] = [];
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';

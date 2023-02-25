@@ -12,9 +12,7 @@ use function preg_match;
  */
 final class UrlRedirector
 {
-    /**
-     * @psalm-return never
-     */
+    /** @psalm-return never */
     public static function redirect(string $url): void
     {
         // Load database service because services.php is not available here

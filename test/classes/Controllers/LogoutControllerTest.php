@@ -10,9 +10,7 @@ use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Controllers\LogoutController
- */
+/** @covers \PhpMyAdmin\Controllers\LogoutController */
 class LogoutControllerTest extends AbstractTestCase
 {
     public function testValidLogout(): void

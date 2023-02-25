@@ -57,9 +57,7 @@ class Routines
     /** @var array<int, string> */
     private $numericOptions = ['UNSIGNED', 'ZEROFILL', 'UNSIGNED ZEROFILL'];
 
-    /**
-     * @param ResponseRenderer $response
-     */
+    /** @param ResponseRenderer $response */
     public function __construct(private DatabaseInterface $dbi, private Template $template, private $response)
     {
     }
@@ -571,9 +569,7 @@ class Routines
 
         $parser = new Parser($definition);
 
-        /**
-         * @var CreateStatement $stmt
-         */
+        /** @var CreateStatement $stmt */
         $stmt = $parser->statements[0];
 
         // Do not use $routine['ROUTINE_DEFINITION'] because of a MySQL escaping issue: #15370
@@ -1473,9 +1469,7 @@ class Routines
         if ($definition !== null) {
             $parser = new Parser($definition);
 
-            /**
-             * @var CreateStatement $stmt
-             */
+            /** @var CreateStatement $stmt */
             $stmt = $parser->statements[0];
 
             $params = Routine::getParameters($stmt);

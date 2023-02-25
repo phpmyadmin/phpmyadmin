@@ -9,9 +9,7 @@ namespace PhpMyAdmin\Config\Forms\Setup;
 
 class SqlForm extends \PhpMyAdmin\Config\Forms\User\SqlForm
 {
-    /**
-     * @return array
-     */
+    /** @return array */
     public static function getForms(): array
     {
         $result = parent::getForms();

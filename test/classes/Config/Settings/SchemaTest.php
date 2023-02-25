@@ -10,9 +10,7 @@ use PHPUnit\Framework\TestCase;
 use function array_keys;
 use function array_merge;
 
-/**
- * @covers \PhpMyAdmin\Config\Settings\Schema
- */
+/** @covers \PhpMyAdmin\Config\Settings\Schema */
 class SchemaTest extends TestCase
 {
     /** @var array<string, bool|string> */

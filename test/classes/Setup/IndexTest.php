@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests\Setup;
 use PhpMyAdmin\Setup\Index as SetupIndex;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Setup\Index
- */
+/** @covers \PhpMyAdmin\Setup\Index */
 class IndexTest extends AbstractTestCase
 {
     /**
@@ -18,6 +16,7 @@ class IndexTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['cfg']['ProxyUrl'] = '';
     }
 

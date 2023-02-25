@@ -26,6 +26,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->object = GisGeometryCollection::singleton();
     }
 
@@ -36,6 +37,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 
@@ -324,9 +326,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
         ];
     }
 
-    /**
-     * @requires extension gd
-     */
+    /** @requires extension gd */
     public function testPrepareRowAsPng(): void
     {
         $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
@@ -388,6 +388,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                 'pdf',
                 [176, 46, 224],
                 ['x' => 1, 'y' => -9, 'scale' => 4.39, 'height' => 297],
+
                 parent::createEmptyPdf('GEOMETRYCOLLECTION'),
             ],
         ];

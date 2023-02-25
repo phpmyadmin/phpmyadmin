@@ -13,9 +13,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Url;
 
-/**
- * @covers \PhpMyAdmin\Import\SimulateDml
- */
+/** @covers \PhpMyAdmin\Import\SimulateDml */
 class SimulateDmlTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -27,14 +25,13 @@ class SimulateDmlTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;
     }
 
-    /**
-     * @dataProvider providerForTestGetMatchedRows
-     */
+    /** @dataProvider providerForTestGetMatchedRows */
     public function testGetMatchedRows(string $sqlQuery, string $simulatedQuery): void
     {
         $GLOBALS['db'] = 'PMA';
@@ -61,9 +58,7 @@ class SimulateDmlTest extends AbstractTestCase
         ], $simulatedData);
     }
 
-    /**
-     * @return string[][]
-     */
+    /** @return string[][] */
     public static function providerForTestGetMatchedRows(): array
     {
         return [

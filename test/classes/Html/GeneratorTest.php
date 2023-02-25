@@ -16,9 +16,7 @@ use function call_user_func_array;
 use function htmlspecialchars;
 use function urlencode;
 
-/**
- * @covers \PhpMyAdmin\Html\Generator
- */
+/** @covers \PhpMyAdmin\Html\Generator */
 class GeneratorTest extends AbstractTestCase
 {
     /**
@@ -27,6 +25,7 @@ class GeneratorTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setLanguage();
     }
 

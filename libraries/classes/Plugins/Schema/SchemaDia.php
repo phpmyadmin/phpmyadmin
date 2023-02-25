@@ -22,9 +22,7 @@ use function __;
  */
 class SchemaDia extends SchemaPlugin
 {
-    /**
-     * @psalm-return non-empty-lowercase-string
-     */
+    /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
         return 'dia';
@@ -78,9 +76,7 @@ class SchemaDia extends SchemaPlugin
         return $schemaPluginProperties;
     }
 
-    /**
-     * @return array{fileName: non-empty-string, mediaType: non-empty-string, fileData: string}
-     */
+    /** @return array{fileName: non-empty-string, mediaType: non-empty-string, fileData: string} */
     public function getExportInfo(DatabaseName $db): array
     {
         $export = new DiaRelationSchema($db);

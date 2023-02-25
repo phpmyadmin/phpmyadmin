@@ -101,9 +101,7 @@ final class Maintenance
         return [$rows, $query, $warnings];
     }
 
-    /**
-     * @param TableName[] $tables
-     */
+    /** @param TableName[] $tables */
     public function getIndexesProblems(DatabaseName $db, array $tables): string
     {
         $indexesProblems = '';

@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\Template;
 
-/**
- * @covers \PhpMyAdmin\BrowseForeigners
- */
+/** @covers \PhpMyAdmin\BrowseForeigners */
 class BrowseForeignersTest extends AbstractTestCase
 {
     /** @var BrowseForeigners */
@@ -21,7 +19,9 @@ class BrowseForeignersTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setTheme();
+
         $GLOBALS['cfg']['LimitChars'] = 50;
         $GLOBALS['cfg']['MaxRows'] = 25;
         $GLOBALS['cfg']['RepeatCells'] = 100;

@@ -8,9 +8,7 @@ use mysqli_result;
 use PhpMyAdmin\Dbal\MysqliResult;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Dbal\DbiMysqli
- */
+/** @covers \PhpMyAdmin\Dbal\DbiMysqli */
 class MysqliResultTest extends AbstractTestCase
 {
     /**

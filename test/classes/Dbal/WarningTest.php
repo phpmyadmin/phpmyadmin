@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests\Dbal;
 use PhpMyAdmin\Dbal\Warning;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \PhpMyAdmin\Dbal\Warning
- */
+/** @covers \PhpMyAdmin\Dbal\Warning */
 class WarningTest extends TestCase
 {
     /**

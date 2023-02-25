@@ -21,9 +21,7 @@ final class Processes
     {
     }
 
-    /**
-     * @return array<string, array|string|bool>
-     */
+    /** @return array<string, array|string|bool> */
     public function getList(bool $showExecuting, bool $showFullSql, string $orderByField, string $sortOrder): array
     {
         $urlParams = [];

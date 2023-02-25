@@ -15,9 +15,7 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
 use function __;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Server\Status\MonitorController
- */
+/** @covers \PhpMyAdmin\Controllers\Server\Status\MonitorController */
 class MonitorControllerTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -32,9 +30,13 @@ class MonitorControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['text_dir'] = 'ltr';
+
         parent::setGlobalConfig();
+
         parent::setTheme();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;

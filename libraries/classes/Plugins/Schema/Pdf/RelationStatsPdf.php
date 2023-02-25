@@ -40,6 +40,7 @@ class RelationStatsPdf extends RelationStats
         $foreign_field,
     ) {
         $this->wTick = 5;
+
         parent::__construct($diagram, $master_table, $master_field, $foreign_table, $foreign_field);
     }
 

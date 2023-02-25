@@ -10,9 +10,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Import\ImportController
- */
+/** @covers \PhpMyAdmin\Controllers\Import\ImportController */
 class ImportControllerTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -24,6 +22,7 @@ class ImportControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;
@@ -32,8 +31,11 @@ class ImportControllerTest extends AbstractTestCase
     public function testIndexParametrized(): void
     {
         parent::loadContainerBuilder();
+
         parent::loadDbiIntoContainerBuilder();
+
         parent::setLanguage();
+
         parent::setTheme();
 
         $GLOBALS['server'] = 1;

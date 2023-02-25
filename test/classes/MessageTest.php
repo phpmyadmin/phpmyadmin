@@ -8,9 +8,7 @@ use PhpMyAdmin\Message;
 
 use function md5;
 
-/**
- * @covers \PhpMyAdmin\Message
- */
+/** @covers \PhpMyAdmin\Message */
 class MessageTest extends AbstractTestCase
 {
     /** @var Message */
@@ -23,6 +21,7 @@ class MessageTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->object = new Message();
     }
 

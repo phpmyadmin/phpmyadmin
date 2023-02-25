@@ -12,9 +12,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use function ob_get_clean;
 use function ob_start;
 
-/**
- * @covers \PhpMyAdmin\Plugins\Auth\AuthenticationConfig
- */
+/** @covers \PhpMyAdmin\Plugins\Auth\AuthenticationConfig */
 class AuthenticationConfigTest extends AbstractTestCase
 {
     /** @var AuthenticationConfig */
@@ -26,9 +24,13 @@ class AuthenticationConfigTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setLanguage();
+
         parent::setGlobalConfig();
+
         parent::setTheme();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
@@ -45,6 +47,7 @@ class AuthenticationConfigTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 

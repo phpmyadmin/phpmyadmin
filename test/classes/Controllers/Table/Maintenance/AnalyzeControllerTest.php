@@ -11,9 +11,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Table\Maintenance\AnalyzeController
- */
+/** @covers \PhpMyAdmin\Controllers\Table\Maintenance\AnalyzeController */
 class AnalyzeControllerTest extends AbstractTestCase
 {
     /**
@@ -35,9 +33,7 @@ class AnalyzeControllerTest extends AbstractTestCase
         $this->assertSame('', $response->getHTMLResult());
     }
 
-    /**
-     * @return array<int, array{string[][]|string[]|string|null}>
-     */
+    /** @return array<int, array{string[][]|string[]|string|null}> */
     public static function providerForTestNoTableSelected(): array
     {
         return [

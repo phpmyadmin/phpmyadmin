@@ -25,6 +25,7 @@ class NodeEvent extends NodeDatabaseChild
     public function __construct($name, $type = Node::OBJECT, $isGroup = false)
     {
         parent::__construct($name, $type, $isGroup);
+
         $this->icon = ['image' => 'b_events', 'title' => __('Event')];
         $this->links = [
             'text' => [

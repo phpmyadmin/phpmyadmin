@@ -23,16 +23,17 @@ use function __;
 use function htmlspecialchars;
 use function str_replace;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Server\VariablesController
- */
+/** @covers \PhpMyAdmin\Controllers\Server\VariablesController */
 class VariablesControllerTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setGlobalConfig();
+
         parent::setLanguage();
+
         parent::setTheme();
 
         $GLOBALS['text_dir'] = 'ltr';

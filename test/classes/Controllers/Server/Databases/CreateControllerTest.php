@@ -15,9 +15,7 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use function __;
 use function sprintf;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Server\Databases\CreateController
- */
+/** @covers \PhpMyAdmin\Controllers\Server\Databases\CreateController */
 final class CreateControllerTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -29,6 +27,7 @@ final class CreateControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;

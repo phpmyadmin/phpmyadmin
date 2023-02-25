@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
-/**
- * @coversNothing
- */
+/** @coversNothing */
 class CreateDropDatabaseTest extends TestBase
 {
     /**
@@ -15,6 +13,7 @@ class CreateDropDatabaseTest extends TestBase
     protected function setUp(): void
     {
         parent::setUp();
+
         /* TODO: For now this tests needs superuser for deleting database */
         $this->skipIfNotSuperUser();
         $this->login();

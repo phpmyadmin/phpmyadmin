@@ -9,9 +9,7 @@ use PhpMyAdmin\Gis\ScaleData;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\MockObject\MockObject;
 
-/**
- * @covers \PhpMyAdmin\Gis\GisGeometry
- */
+/** @covers \PhpMyAdmin\Gis\GisGeometry */
 class GisGeometryTest extends AbstractTestCase
 {
     /** @var GisGeometry|MockObject */
@@ -24,6 +22,7 @@ class GisGeometryTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->object = $this->getMockForAbstractClass(GisGeometry::class);
     }
 
@@ -34,6 +33,7 @@ class GisGeometryTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 

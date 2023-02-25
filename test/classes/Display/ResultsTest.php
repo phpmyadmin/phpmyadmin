@@ -41,9 +41,7 @@ use const MYSQLI_TYPE_STRING;
 use const MYSQLI_TYPE_TIME;
 use const MYSQLI_TYPE_TIMESTAMP;
 
-/**
- * @covers \PhpMyAdmin\Display\Results
- */
+/** @covers \PhpMyAdmin\Display\Results */
 class ResultsTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -62,8 +60,11 @@ class ResultsTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setLanguage();
+
         parent::setGlobalConfig();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;
@@ -85,6 +86,7 @@ class ResultsTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 
@@ -958,9 +960,7 @@ class ResultsTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * @dataProvider dataProviderGetSortOrderHiddenInputs
-     */
+    /** @dataProvider dataProviderGetSortOrderHiddenInputs */
     public function testGetSortOrderHiddenInputs(
         string $sqlAdd,
         string $sqlRemove,
@@ -1005,9 +1005,7 @@ class ResultsTest extends AbstractTestCase
         $this->assertStringContainsString($urlParamsRemove, $firstLine, 'The first line should contain the URL params');
     }
 
-    /**
-     * @see https://github.com/phpmyadmin/phpmyadmin/issues/16836
-     */
+    /** @see https://github.com/phpmyadmin/phpmyadmin/issues/16836 */
     public function testBuildValueDisplayNoTrainlingSpaces(): void
     {
         $output = $this->callFunction(
@@ -1070,9 +1068,7 @@ class ResultsTest extends AbstractTestCase
         $this->assertSame('P', $_SESSION['tmpval']['pftext']);
     }
 
-    /**
-     * @dataProvider providerSetConfigParamsForDisplayTable
-     */
+    /** @dataProvider providerSetConfigParamsForDisplayTable */
     public function testSetConfigParamsForDisplayTable(
         array $session,
         array $get,
@@ -1806,9 +1802,7 @@ class ResultsTest extends AbstractTestCase
         $this->assertEquals($tableTemplate, $actual);
     }
 
-    /**
-     * @return array<string, array{string, string, int}>
-     */
+    /** @return array<string, array{string, string, int}> */
     public static function dataProviderSortOrder(): array
     {
         return [
@@ -1890,9 +1884,7 @@ class ResultsTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * @dataProvider dataProviderSortOrder
-     */
+    /** @dataProvider dataProviderSortOrder */
     public function testGetSingleAndMultiSortUrls(
         string $orderSetting,
         string $querySortDirection,

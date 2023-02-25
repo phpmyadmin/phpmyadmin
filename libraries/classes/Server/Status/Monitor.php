@@ -30,9 +30,7 @@ use function strlen;
  */
 class Monitor
 {
-    /**
-     * @param DatabaseInterface $dbi
-     */
+    /** @param DatabaseInterface $dbi */
     public function __construct(private $dbi)
     {
     }

@@ -24,9 +24,7 @@ use PHPUnit\Framework\MockObject\MockObject;
 
 use function json_encode;
 
-/**
- * @covers \PhpMyAdmin\StorageEngine
- */
+/** @covers \PhpMyAdmin\StorageEngine */
 class StorageEngineTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -45,6 +43,7 @@ class StorageEngineTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;
@@ -62,6 +61,7 @@ class StorageEngineTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 

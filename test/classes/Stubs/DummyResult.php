@@ -34,9 +34,7 @@ class DummyResult implements ResultInterface
      */
     private $link;
 
-    /**
-     * @param int|false $result
-     */
+    /** @param int|false $result */
     public function __construct(DbiDummy $link, $result)
     {
         $this->link = $link;

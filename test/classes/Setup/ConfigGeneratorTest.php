@@ -17,9 +17,7 @@ use function str_repeat;
 
 use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 
-/**
- * @covers \PhpMyAdmin\Setup\ConfigGenerator
- */
+/** @covers \PhpMyAdmin\Setup\ConfigGenerator */
 class ConfigGeneratorTest extends AbstractTestCase
 {
     /**

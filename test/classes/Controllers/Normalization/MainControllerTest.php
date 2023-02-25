@@ -14,9 +14,7 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
 use function in_array;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Normalization\MainController
- */
+/** @covers \PhpMyAdmin\Controllers\Normalization\MainController */
 class MainControllerTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -28,16 +26,24 @@ class MainControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setLanguage();
+
         parent::setTheme();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;
+
         parent::loadContainerBuilder();
+
         parent::loadDbiIntoContainerBuilder();
+
         $GLOBALS['server'] = 1;
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+
         parent::loadResponseIntoContainerBuilder();
+
         $GLOBALS['db'] = 'my_db';
         $GLOBALS['table'] = 'test_tbl';
     }

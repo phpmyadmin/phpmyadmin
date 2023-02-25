@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests\Gis;
 use PhpMyAdmin\Gis\GisVisualization;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Gis\GisVisualization
- */
+/** @covers \PhpMyAdmin\Gis\GisVisualization */
 class GisVisualizationTest extends AbstractTestCase
 {
     /**

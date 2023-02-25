@@ -40,9 +40,7 @@ final class Warning implements Stringable
         $this->message = $message;
     }
 
-    /**
-     * @param mixed[] $row
-     */
+    /** @param mixed[] $row */
     public static function fromArray(array $row): self
     {
         $level = '';
@@ -64,9 +62,7 @@ final class Warning implements Stringable
         return new self($level, $code, $message);
     }
 
-    /**
-     * @psalm-return non-empty-string
-     */
+    /** @psalm-return non-empty-string */
     public function __toString(): string
     {
         return $this->level . ': #' . $this->code . ($this->message !== '' ? ' ' . $this->message : '');

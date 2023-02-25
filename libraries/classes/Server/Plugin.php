@@ -44,9 +44,7 @@ final class Plugin
     ) {
     }
 
-    /**
-     * @param array $state array with the properties
-     */
+    /** @param array $state array with the properties */
     public static function fromState(array $state): self
     {
         return new self(
@@ -66,9 +64,7 @@ final class Plugin
         );
     }
 
-    /**
-     * @return array
-     */
+    /** @return array */
     public function toArray(): array
     {
         return [

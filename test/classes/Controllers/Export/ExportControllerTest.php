@@ -23,9 +23,7 @@ use const MYSQLI_TYPE_DATETIME;
 use const MYSQLI_TYPE_DECIMAL;
 use const MYSQLI_TYPE_STRING;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Export\ExportController
- */
+/** @covers \PhpMyAdmin\Controllers\Export\ExportController */
 class ExportControllerTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -37,6 +35,7 @@ class ExportControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->loadContainerBuilder();
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);

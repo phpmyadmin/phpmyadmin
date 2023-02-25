@@ -8,9 +8,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Console;
 use PhpMyAdmin\Template;
 
-/**
- * @covers \PhpMyAdmin\Console
- */
+/** @covers \PhpMyAdmin\Console */
 class ConsoleTest extends AbstractTestCase
 {
     public function testGetScripts(): void

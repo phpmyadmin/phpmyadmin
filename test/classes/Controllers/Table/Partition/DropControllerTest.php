@@ -12,14 +12,10 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Table\Partition\DropController
- */
+/** @covers \PhpMyAdmin\Controllers\Table\Partition\DropController */
 class DropControllerTest extends AbstractTestCase
 {
-    /**
-     * @dataProvider providerForTestInvalidDatabaseAndTable
-     */
+    /** @dataProvider providerForTestInvalidDatabaseAndTable */
     public function testInvalidDatabaseAndTable(
         string|null $partition,
         string|null $db,
@@ -39,9 +35,7 @@ class DropControllerTest extends AbstractTestCase
         $this->assertSame(Message::error($message)->getDisplay(), $response->getHTMLResult());
     }
 
-    /**
-     * @return array<int, array{string|null, string|null, string|null, non-empty-string}>
-     */
+    /** @return array<int, array{string|null, string|null, string|null, non-empty-string}> */
     public static function providerForTestInvalidDatabaseAndTable(): iterable
     {
         return [

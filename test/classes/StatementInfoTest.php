@@ -8,9 +8,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\StatementInfo;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \PhpMyAdmin\StatementInfo
- */
+/** @covers \PhpMyAdmin\StatementInfo */
 class StatementInfoTest extends TestCase
 {
     public function testFromArray(): void

@@ -9,9 +9,7 @@ use PhpMyAdmin\Tests\Selenium\TestBase;
 use function sleep;
 use function str_replace;
 
-/**
- * @coversNothing
- */
+/** @coversNothing */
 class ProceduresTest extends TestBase
 {
     /**
@@ -27,6 +25,7 @@ class ProceduresTest extends TestBase
     protected function setUp(): void
     {
         parent::setUp();
+
         if ($this->originalSqlMode === '') {
             $this->originalSqlMode = $this->getSqlMode();
             $this->dbQuery(

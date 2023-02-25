@@ -15,9 +15,7 @@ use function session_get_cookie_params;
 use function session_id;
 use function session_name;
 
-/**
- * @covers \PhpMyAdmin\Plugins\Auth\AuthenticationSignon
- */
+/** @covers \PhpMyAdmin\Plugins\Auth\AuthenticationSignon */
 class AuthenticationSignonTest extends AbstractNetworkTestCase
 {
     /** @var AuthenticationSignon */
@@ -29,9 +27,13 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setLanguage();
+
         parent::setGlobalConfig();
+
         parent::setTheme();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
@@ -46,6 +48,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 

@@ -16,9 +16,7 @@ use ReflectionClass;
 
 use function json_encode;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Database\Structure\FavoriteTableController
- */
+/** @covers \PhpMyAdmin\Controllers\Database\Structure\FavoriteTableController */
 class FavoriteTableControllerTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -30,6 +28,7 @@ class FavoriteTableControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;

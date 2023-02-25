@@ -34,9 +34,7 @@ class ExportJson extends ExportPlugin
     /** @var bool */
     private $first = true;
 
-    /**
-     * @psalm-return non-empty-lowercase-string
-     */
+    /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
         return 'json';

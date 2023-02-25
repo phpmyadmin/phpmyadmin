@@ -12,9 +12,7 @@ use PhpMyAdmin\Tests\Stubs\DummyResult;
 
 use function __;
 
-/**
- * @covers \PhpMyAdmin\Plugins\Import\ImportLdi
- */
+/** @covers \PhpMyAdmin\Plugins\Import\ImportLdi */
 class ImportLdiTest extends AbstractTestCase
 {
     /**
@@ -24,6 +22,7 @@ class ImportLdiTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['charset_conversion'] = null;
         $GLOBALS['ldi_terminated'] = null;

@@ -216,9 +216,7 @@ class SqlController extends AbstractController
         ));
     }
 
-    /**
-     * @param array<string> $bkm_fields
-     */
+    /** @param array<string> $bkm_fields */
     private function addBookmark(string $goto, array $bkm_fields, bool $bkm_all_users): void
     {
         $bookmark = Bookmark::createBookmark(

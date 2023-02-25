@@ -14,9 +14,7 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
 use function __;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Server\DatabasesController
- */
+/** @covers \PhpMyAdmin\Controllers\Server\DatabasesController */
 class DatabasesControllerTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -28,8 +26,11 @@ class DatabasesControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setGlobalConfig();
+
         parent::setTheme();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;

@@ -9,14 +9,10 @@ use PHPUnit\Framework\TestCase;
 
 use function count;
 
-/**
- * @covers \PhpMyAdmin\Partitioning\TablePartitionDefinition
- */
+/** @covers \PhpMyAdmin\Partitioning\TablePartitionDefinition */
 class TablePartitionDefinitionTest extends TestCase
 {
-    /**
-     * @dataProvider providerGetDetails
-     */
+    /** @dataProvider providerGetDetails */
     public function testGetDetails(
         string $partitionBy,
         bool $canHaveSubpartitions,
@@ -238,9 +234,7 @@ class TablePartitionDefinitionTest extends TestCase
         $this->assertEquals($expected, $actual);
     }
 
-    /**
-     * @dataProvider providerGetDetailsWithMaxPartitions
-     */
+    /** @dataProvider providerGetDetailsWithMaxPartitions */
     public function testGetDetailsWithMaxPartitions(int $partitionCount, string $partitionCountFromPost): void
     {
         $_POST = ['partition_count' => $partitionCountFromPost];
@@ -252,9 +246,7 @@ class TablePartitionDefinitionTest extends TestCase
         $this->assertEquals($partitionCount, count($actual['partitions']));
     }
 
-    /**
-     * @psalm-return array{0: int, 1: string}[]
-     */
+    /** @psalm-return array{0: int, 1: string}[] */
     public static function providerGetDetailsWithMaxPartitions(): array
     {
         return ['count within the limit' => [8192, '8192'], 'count above the limit' => [8192, '8193']];

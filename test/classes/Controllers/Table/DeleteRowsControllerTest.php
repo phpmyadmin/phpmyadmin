@@ -10,9 +10,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Table\DeleteRowsController
- */
+/** @covers \PhpMyAdmin\Controllers\Table\DeleteRowsController */
 class DeleteRowsControllerTest extends AbstractTestCase
 {
     public function testDeleteRowsController(): void

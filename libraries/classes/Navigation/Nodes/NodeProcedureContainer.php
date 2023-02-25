@@ -23,6 +23,7 @@ class NodeProcedureContainer extends NodeDatabaseChildContainer
     public function __construct()
     {
         parent::__construct(__('Procedures'), Node::CONTAINER);
+
         $this->icon = ['image' => 'b_routines', 'title' => __('Procedures')];
         $this->links = [
             'text' => ['route' => '/database/routines', 'params' => ['type' => 'PROCEDURE', 'db' => null]],

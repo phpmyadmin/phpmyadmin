@@ -15,9 +15,7 @@ use PhpMyAdmin\UserPassword;
 
 use function str_repeat;
 
-/**
- * @covers \PhpMyAdmin\UserPassword
- */
+/** @covers \PhpMyAdmin\UserPassword */
 class UserPasswordTest extends AbstractTestCase
 {
     /** @var UserPassword */
@@ -26,6 +24,7 @@ class UserPasswordTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $dbi = $this->createDatabaseInterface();
 
         $relation = new Relation($dbi);
@@ -43,9 +42,7 @@ class UserPasswordTest extends AbstractTestCase
         );
     }
 
-    /**
-     * @dataProvider providerSetChangePasswordMsg
-     */
+    /** @dataProvider providerSetChangePasswordMsg */
     public function testSetChangePasswordMsg(
         bool $error,
         Message $message,
@@ -63,9 +60,7 @@ class UserPasswordTest extends AbstractTestCase
         );
     }
 
-    /**
-     * @psalm-return array{0: bool, 1: Message, 2: string, 3: string, 4: string}[]
-     */
+    /** @psalm-return array{0: bool, 1: Message, 2: string, 3: string, 4: string}[] */
     public static function providerSetChangePasswordMsg(): array
     {
         return [

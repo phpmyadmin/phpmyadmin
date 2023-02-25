@@ -9,9 +9,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
 
-/**
- * @covers \PhpMyAdmin\Transformations
- */
+/** @covers \PhpMyAdmin\Transformations */
 class TransformationsTest extends AbstractTestCase
 {
     /** @var Transformations */
@@ -23,6 +21,7 @@ class TransformationsTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';

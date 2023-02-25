@@ -10,9 +10,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Table\DeleteConfirmController
- */
+/** @covers \PhpMyAdmin\Controllers\Table\DeleteConfirmController */
 class DeleteConfirmControllerTest extends AbstractTestCase
 {
     public function testDeleteConfirmController(): void

@@ -99,9 +99,7 @@ class ServerRequestFactory
         return new ServerRequest($serverRequest);
     }
 
-    /**
-     * @return array<string, string>
-     */
+    /** @return array<string, string> */
     protected function getallheaders(): array
     {
         /** @var array<string, string> $headers */

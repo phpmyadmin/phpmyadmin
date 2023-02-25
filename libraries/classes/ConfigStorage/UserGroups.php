@@ -163,9 +163,7 @@ class UserGroups
         return implode(', ', $tabNames);
     }
 
-    /**
-     * @param non-empty-string $userGroupName
-     */
+    /** @param non-empty-string $userGroupName */
     public static function delete(
         DatabaseInterface $dbi,
         ConfigurableMenusFeature $configurableMenusFeature,

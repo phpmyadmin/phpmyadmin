@@ -91,6 +91,7 @@ class Pdf extends PdfLib
         private $db,
     ) {
         parent::__construct($orientation, $unit, $paper);
+
         $this->relation = new Relation($GLOBALS['dbi']);
     }
 

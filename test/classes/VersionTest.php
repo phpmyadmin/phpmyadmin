@@ -8,9 +8,7 @@ use PhpMyAdmin\Version;
 
 use function defined;
 
-/**
- * @covers \PhpMyAdmin\Version
- */
+/** @covers \PhpMyAdmin\Version */
 class VersionTest extends AbstractTestCase
 {
     /**

@@ -32,9 +32,7 @@ use const LIBXML_COMPACT;
  */
 class ImportXml extends ImportPlugin
 {
-    /**
-     * @psalm-return non-empty-lowercase-string
-     */
+    /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
         return 'xml';

@@ -7,9 +7,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statement;
 
-/**
- * @psalm-immutable
- */
+/** @psalm-immutable */
 class StatementInfo
 {
     /** @var bool */

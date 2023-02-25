@@ -83,9 +83,7 @@ class File
 
     private ZipExtension $zipExtension;
 
-    /**
-     * @param bool|string $name file name or false
-     */
+    /** @param bool|string $name file name or false */
     public function __construct($name = false)
     {
         if ($name && is_string($name)) {

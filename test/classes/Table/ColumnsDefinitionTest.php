@@ -14,9 +14,7 @@ use function array_merge;
 
 use const MYSQLI_TYPE_STRING;
 
-/**
- * @covers \PhpMyAdmin\Table\ColumnsDefinition
- */
+/** @covers \PhpMyAdmin\Table\ColumnsDefinition */
 class ColumnsDefinitionTest extends AbstractTestCase
 {
     public function testDisplayForm(): void

@@ -10,9 +10,7 @@ use PhpMyAdmin\SystemColumn;
 use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 
-/**
- * @covers \PhpMyAdmin\SystemDatabase
- */
+/** @covers \PhpMyAdmin\SystemDatabase */
 class SystemDatabaseTest extends AbstractTestCase
 {
     /**
@@ -28,6 +26,7 @@ class SystemDatabaseTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         /**
          * SET these to avoid undefine d index error
          */

@@ -17,9 +17,7 @@ use const MYSQLI_PRI_KEY_FLAG;
 use const MYSQLI_TYPE_DATE;
 use const MYSQLI_TYPE_LONG;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Table\ChartController
- */
+/** @covers \PhpMyAdmin\Controllers\Table\ChartController */
 class ChartControllerTest extends AbstractTestCase
 {
     public function testChartController(): void

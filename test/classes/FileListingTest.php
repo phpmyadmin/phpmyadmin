@@ -12,9 +12,7 @@ use function is_bool;
 
 use const TEST_PATH;
 
-/**
- * @covers \PhpMyAdmin\FileListing
- */
+/** @covers \PhpMyAdmin\FileListing */
 class FileListingTest extends AbstractTestCase
 {
     /** @var FileListing $fileListing */
@@ -23,6 +21,7 @@ class FileListingTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->fileListing = new FileListing();
     }
 
@@ -94,9 +93,7 @@ class FileListingTest extends AbstractTestCase
         $this->assertEmpty($this->fileListing->supportedDecompressions());
     }
 
-    /**
-     * @requires extension bz2 1
-     */
+    /** @requires extension bz2 1 */
     public function testSupportedDecompressionsFull(): void
     {
         $GLOBALS['cfg']['ZipDump'] = true;

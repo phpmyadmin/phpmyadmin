@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests\Engines;
 use PhpMyAdmin\Engines\MrgMyisam;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Engines\MrgMyisam
- */
+/** @covers \PhpMyAdmin\Engines\MrgMyisam */
 class MrgMyisamTest extends AbstractTestCase
 {
     /** @var MrgMyisam */
@@ -22,6 +20,7 @@ class MrgMyisamTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $this->object = new MrgMyisam('mrg_myisam');
@@ -34,6 +33,7 @@ class MrgMyisamTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 

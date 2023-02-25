@@ -14,9 +14,7 @@ use PhpMyAdmin\Gis\GisPoint;
 use PhpMyAdmin\Gis\GisPolygon;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Gis\GisFactory
- */
+/** @covers \PhpMyAdmin\Gis\GisFactory */
 class GisFactoryTest extends AbstractTestCase
 {
     /**

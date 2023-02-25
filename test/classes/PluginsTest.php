@@ -9,16 +9,16 @@ use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Transformations;
 
-/**
- * @covers \PhpMyAdmin\Plugins
- */
+/** @covers \PhpMyAdmin\Plugins */
 class PluginsTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->loadContainerBuilder();
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
+
         parent::loadDbiIntoContainerBuilder();
     }
 

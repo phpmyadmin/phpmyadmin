@@ -6,9 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Common;
 
-/**
- * @covers \PhpMyAdmin\Common
- */
+/** @covers \PhpMyAdmin\Common */
 class CommonTest extends AbstractTestCase
 {
     /**

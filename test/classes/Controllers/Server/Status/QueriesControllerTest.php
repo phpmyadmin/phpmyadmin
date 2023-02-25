@@ -18,9 +18,7 @@ use function __;
 use function array_sum;
 use function htmlspecialchars;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Server\Status\QueriesController
- */
+/** @covers \PhpMyAdmin\Controllers\Server\Status\QueriesController */
 class QueriesControllerTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -35,9 +33,13 @@ class QueriesControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['text_dir'] = 'ltr';
+
         parent::setGlobalConfig();
+
         parent::setTheme();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;

@@ -561,9 +561,7 @@ final class ImportController extends AbstractController
         $queriesToBeExecuted = [];
 
         if (! $GLOBALS['error']) {
-            /**
-             * @var ImportPlugin $import_plugin
-             */
+            /** @var ImportPlugin $import_plugin */
             $import_plugin = Plugins::getPlugin('import', $GLOBALS['format'], $GLOBALS['import_type']);
             if ($import_plugin == null) {
                 $GLOBALS['message'] = Message::error(

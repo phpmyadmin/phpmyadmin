@@ -10,9 +10,7 @@ use function preg_match;
 
 use const DIRECTORY_SEPARATOR;
 
-/**
- * @covers \PhpMyAdmin\Error
- */
+/** @covers \PhpMyAdmin\Error */
 class ErrorTest extends AbstractTestCase
 {
     /** @var Error */
@@ -25,6 +23,7 @@ class ErrorTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->object = new Error(2, 'Compile Error', 'error.txt', 15);
     }
 
@@ -35,6 +34,7 @@ class ErrorTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 

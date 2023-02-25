@@ -33,9 +33,7 @@ class ServerConfigChecks
     /** @var ConfigFile configurations being checked */
     protected ConfigFile $cfg;
 
-    /**
-     * @param ConfigFile $cfg Configuration
-     */
+    /** @param ConfigFile $cfg Configuration */
     public function __construct(ConfigFile $cfg)
     {
         $this->cfg = $cfg;

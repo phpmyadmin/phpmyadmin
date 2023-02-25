@@ -194,9 +194,7 @@ class UserPassword
         $this->dbi->tryQuery('FLUSH PRIVILEGES;');
     }
 
-    /**
-     * @psalm-param non-empty-string $route
-     */
+    /** @psalm-param non-empty-string $route */
     public function getFormForChangePassword(string|null $username, string|null $hostname, string $route): string
     {
         return $this->serverPrivileges->getFormForChangePassword($username ?? '', $hostname ?? '', false, $route);

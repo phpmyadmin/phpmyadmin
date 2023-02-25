@@ -24,9 +24,7 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Table\ReplaceController
- */
+/** @covers \PhpMyAdmin\Controllers\Table\ReplaceController */
 class ReplaceControllerTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -38,6 +36,7 @@ class ReplaceControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;

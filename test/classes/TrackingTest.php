@@ -22,9 +22,7 @@ use function ini_restore;
 use function ini_set;
 use function sprintf;
 
-/**
- * @covers \PhpMyAdmin\Tracking
- */
+/** @covers \PhpMyAdmin\Tracking */
 class TrackingTest extends AbstractTestCase
 {
     /** @var Tracking $tracking */
@@ -36,7 +34,9 @@ class TrackingTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setTheme();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
 
         $GLOBALS['server'] = 1;

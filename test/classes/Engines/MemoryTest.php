@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests\Engines;
 use PhpMyAdmin\Engines\Memory;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Engines\Memory
- */
+/** @covers \PhpMyAdmin\Engines\Memory */
 class MemoryTest extends AbstractTestCase
 {
     /** @var Memory */
@@ -22,6 +20,7 @@ class MemoryTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $this->object = new Memory('memory');
@@ -34,6 +33,7 @@ class MemoryTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 

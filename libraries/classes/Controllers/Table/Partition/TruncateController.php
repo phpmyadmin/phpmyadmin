@@ -29,6 +29,7 @@ final class TruncateController extends AbstractController
         Maintenance $maintenance,
     ) {
         parent::__construct($response, $template);
+
         $this->model = $maintenance;
     }
 

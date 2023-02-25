@@ -16,9 +16,7 @@ use PhpMyAdmin\UserPreferences;
 use function json_encode;
 use function time;
 
-/**
- * @covers \PhpMyAdmin\UserPreferences
- */
+/** @covers \PhpMyAdmin\UserPreferences */
 class UserPreferencesTest extends AbstractNetworkTestCase
 {
     /**
@@ -27,6 +25,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $GLOBALS['text_dir'] = 'ltr';

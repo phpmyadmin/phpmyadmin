@@ -11,9 +11,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Console\Bookmark\AddController
- */
+/** @covers \PhpMyAdmin\Controllers\Console\Bookmark\AddController */
 class AddControllerTest extends AbstractTestCase
 {
     public function testWithInvalidParams(): void

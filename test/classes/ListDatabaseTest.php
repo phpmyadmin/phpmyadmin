@@ -6,9 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ListDatabase;
 
-/**
- * @covers \PhpMyAdmin\ListDatabase
- */
+/** @covers \PhpMyAdmin\ListDatabase */
 class ListDatabaseTest extends AbstractTestCase
 {
     /**
@@ -24,6 +22,7 @@ class ListDatabaseTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;

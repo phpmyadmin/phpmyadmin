@@ -210,9 +210,7 @@ class Bookmark
         return $bookmark;
     }
 
-    /**
-     * @param array $row Resource used to build the bookmark
-     */
+    /** @param array $row Resource used to build the bookmark */
     protected static function createFromRow(DatabaseInterface $dbi, array $row): Bookmark
     {
         $bookmark = new Bookmark($dbi, new Relation($dbi));

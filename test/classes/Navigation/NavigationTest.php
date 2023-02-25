@@ -12,9 +12,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
 
-/**
- * @covers \PhpMyAdmin\Navigation\Navigation
- */
+/** @covers \PhpMyAdmin\Navigation\Navigation */
 class NavigationTest extends AbstractTestCase
 {
     /** @var Navigation */
@@ -26,7 +24,9 @@ class NavigationTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setLanguage();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
@@ -55,6 +55,7 @@ class NavigationTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 

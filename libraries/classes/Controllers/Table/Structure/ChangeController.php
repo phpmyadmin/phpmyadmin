@@ -57,9 +57,7 @@ final class ChangeController extends AbstractController
     {
         $GLOBALS['num_fields'] ??= null;
 
-        /**
-         * @todo optimize in case of multiple fields to modify
-         */
+        /** @todo optimize in case of multiple fields to modify */
         $fields_meta = [];
         foreach ($selected as $column) {
             $value = $this->dbi->getColumn($GLOBALS['db'], $GLOBALS['table'], $column, true);

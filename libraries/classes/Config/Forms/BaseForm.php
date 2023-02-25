@@ -24,6 +24,7 @@ abstract class BaseForm extends FormDisplay
     final public function __construct(ConfigFile $cf, $serverId = null)
     {
         parent::__construct($cf);
+
         foreach (static::getForms() as $formName => $form) {
             $this->registerForm($formName, $form, $serverId);
         }

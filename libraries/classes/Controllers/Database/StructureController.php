@@ -198,9 +198,7 @@ class StructureController extends AbstractController
         ]);
     }
 
-    /**
-     * @param array $replicaInfo
-     */
+    /** @param array $replicaInfo */
     protected function displayTableList($replicaInfo): string
     {
         $html = '';

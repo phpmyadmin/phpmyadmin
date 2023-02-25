@@ -23,6 +23,7 @@ class NodeColumnContainer extends Node
     public function __construct()
     {
         parent::__construct(__('Columns'), Node::CONTAINER);
+
         $this->icon = ['image' => 'pause', 'title' => __('Columns')];
         $this->links = [
             'text' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],

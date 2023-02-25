@@ -15,9 +15,7 @@ use PhpMyAdmin\Transformations;
 
 use function array_merge;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Table\CreateController
- */
+/** @covers \PhpMyAdmin\Controllers\Table\CreateController */
 class CreateControllerTest extends AbstractTestCase
 {
     public function testCreateController(): void

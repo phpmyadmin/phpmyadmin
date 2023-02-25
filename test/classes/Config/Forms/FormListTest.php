@@ -23,7 +23,9 @@ class FormListTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setGlobalConfig();
+
         $GLOBALS['server'] = 1;
     }
 

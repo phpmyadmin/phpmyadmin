@@ -160,9 +160,7 @@ class CreateController extends AbstractController
             // MySQL 8.0+ - issue #16194
             if (empty($viewData['as'])) {
                 $parser = new Parser($createView);
-                /**
-                 * @var CreateStatement $stmt
-                 */
+                /** @var CreateStatement $stmt */
                 $stmt = $parser->statements[0];
                 $viewData['as'] = isset($stmt->body) ? TokensList::build($stmt->body) : $viewData['as'];
             }

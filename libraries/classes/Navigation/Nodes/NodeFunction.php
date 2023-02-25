@@ -25,6 +25,7 @@ class NodeFunction extends NodeDatabaseChild
     public function __construct($name, $type = Node::OBJECT, $isGroup = false)
     {
         parent::__construct($name, $type, $isGroup);
+
         $this->icon = ['image' => 'b_routines', 'title' => __('Function')];
         $this->links = [
             'text' => [

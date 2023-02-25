@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests\Navigation\Nodes;
 use PhpMyAdmin\Navigation\Nodes\NodeEventContainer;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Navigation\Nodes\NodeEventContainer
- */
+/** @covers \PhpMyAdmin\Navigation\Nodes\NodeEventContainer */
 class NodeEventContainerTest extends AbstractTestCase
 {
     /**
@@ -18,6 +16,7 @@ class NodeEventContainerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
     }

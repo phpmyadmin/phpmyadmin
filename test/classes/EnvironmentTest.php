@@ -8,9 +8,7 @@ use function version_compare;
 
 use const PHP_VERSION;
 
-/**
- * @coversNothing
- */
+/** @coversNothing */
 class EnvironmentTest extends AbstractTestCase
 {
     /**

@@ -12,9 +12,7 @@ use PhpMyAdmin\Config\Forms\User\MainForm;
 
 class TableStructureForm extends BaseForm
 {
-    /**
-     * @return array
-     */
+    /** @return array */
     public static function getForms(): array
     {
         return [

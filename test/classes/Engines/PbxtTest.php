@@ -11,9 +11,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use function __;
 use function sprintf;
 
-/**
- * @covers \PhpMyAdmin\Engines\Pbxt
- */
+/** @covers \PhpMyAdmin\Engines\Pbxt */
 class PbxtTest extends AbstractTestCase
 {
     /** @var Pbxt */
@@ -26,6 +24,7 @@ class PbxtTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $this->object = new Pbxt('pbxt');
@@ -38,6 +37,7 @@ class PbxtTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 

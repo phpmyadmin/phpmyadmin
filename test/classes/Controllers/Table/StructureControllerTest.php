@@ -17,9 +17,7 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Table\StructureController
- */
+/** @covers \PhpMyAdmin\Controllers\Table\StructureController */
 class StructureControllerTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -31,6 +29,7 @@ class StructureControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;

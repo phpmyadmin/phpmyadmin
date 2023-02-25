@@ -34,9 +34,7 @@ use const PHP_VERSION;
  */
 class ExportLatex extends ExportPlugin
 {
-    /**
-     * @psalm-return non-empty-lowercase-string
-     */
+    /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
         return 'latex';

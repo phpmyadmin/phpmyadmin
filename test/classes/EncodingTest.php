@@ -18,20 +18,20 @@ use function unlink;
 use const LC_ALL;
 use const PHP_INT_SIZE;
 
-/**
- * @covers \PhpMyAdmin\Encoding
- */
+/** @covers \PhpMyAdmin\Encoding */
 class EncodingTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
+
         Encoding::initEngine();
     }
 
     protected function tearDown(): void
     {
         parent::tearDown();
+
         Encoding::initEngine();
     }
 
@@ -58,9 +58,7 @@ class EncodingTest extends AbstractTestCase
         );
     }
 
-    /**
-     * @requires extension recode
-     */
+    /** @requires extension recode */
     public function testRecode(): void
     {
         Encoding::setEngine(Encoding::ENGINE_RECODE);

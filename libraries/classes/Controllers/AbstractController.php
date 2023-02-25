@@ -22,17 +22,13 @@ abstract class AbstractController
     {
     }
 
-    /**
-     * @param array<string, mixed> $templateData
-     */
+    /** @param array<string, mixed> $templateData */
     protected function render(string $templatePath, array $templateData = []): void
     {
         $this->response->addHTML($this->template->render($templatePath, $templateData));
     }
 
-    /**
-     * @param string[] $files
-     */
+    /** @param string[] $files */
     protected function addScriptFiles(array $files): void
     {
         $header = $this->response->getHeader();
@@ -88,9 +84,7 @@ abstract class AbstractController
         return $GLOBALS['is_db'];
     }
 
-    /**
-     * @param array<string, mixed> $params
-     */
+    /** @param array<string, mixed> $params */
     protected function redirect(string $route, array $params = []): void
     {
         if (defined('TESTSUITE')) {
@@ -146,9 +140,7 @@ abstract class AbstractController
         }
     }
 
-    /**
-     * @psalm-param int<400,599> $statusCode
-     */
+    /** @psalm-param int<400,599> $statusCode */
     protected function sendErrorResponse(string $message, int $statusCode = 400): void
     {
         $this->response->setHttpResponseCode($statusCode);

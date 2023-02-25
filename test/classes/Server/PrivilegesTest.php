@@ -28,9 +28,7 @@ use function _pgettext;
 use function htmlspecialchars;
 use function implode;
 
-/**
- * @covers \PhpMyAdmin\Server\Privileges
- */
+/** @covers \PhpMyAdmin\Server\Privileges */
 class PrivilegesTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -42,6 +40,7 @@ class PrivilegesTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;
@@ -617,9 +616,7 @@ class PrivilegesTest extends AbstractTestCase
         );
     }
 
-    /**
-     * @group medium
-     */
+    /** @group medium */
     public function testGetHtmlToDisplayPrivilegesTable(): void
     {
         $GLOBALS['hostname'] = 'hostname';
@@ -967,9 +964,7 @@ class PrivilegesTest extends AbstractTestCase
         $this->assertStringContainsString($expect, $sql_query);
     }
 
-    /**
-     * @group medium
-     */
+    /** @group medium */
     public function testGetHtmlForAddUser(): void
     {
         $dbi = $this->createDatabaseInterface();

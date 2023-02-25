@@ -15,9 +15,7 @@ final class DataStream
     /** @var resource */
     private $stream;
 
-    /**
-     * @throws WebAuthnException
-     */
+    /** @throws WebAuthnException */
     public function __construct(string $binaryString)
     {
         $resource = fopen('php://memory', 'rb+');
@@ -32,9 +30,7 @@ final class DataStream
         $this->stream = $resource;
     }
 
-    /**
-     * @throws WebAuthnException
-     */
+    /** @throws WebAuthnException */
     public function take(int $length): string
     {
         if ($length < 0) {
@@ -53,9 +49,7 @@ final class DataStream
         return $string;
     }
 
-    /**
-     * @throws WebAuthnException
-     */
+    /** @throws WebAuthnException */
     public function getPosition(): int
     {
         $position = ftell($this->stream);

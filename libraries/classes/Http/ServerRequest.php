@@ -19,17 +19,13 @@ class ServerRequest implements ServerRequestInterface
     {
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** @inheritDoc */
     public function getProtocolVersion()
     {
         return $this->serverRequest->getProtocolVersion();
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** @inheritDoc */
     public function withProtocolVersion($version)
     {
         $serverRequest = $this->serverRequest->withProtocolVersion($version);
@@ -37,41 +33,31 @@ class ServerRequest implements ServerRequestInterface
         return new static($serverRequest);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** @inheritDoc */
     public function getHeaders()
     {
         return $this->serverRequest->getHeaders();
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** @inheritDoc */
     public function hasHeader($name)
     {
         return $this->serverRequest->hasHeader($name);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** @inheritDoc */
     public function getHeader($name)
     {
         return $this->serverRequest->getHeader($name);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** @inheritDoc */
     public function getHeaderLine($name)
     {
         return $this->serverRequest->getHeaderLine($name);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** @inheritDoc */
     public function withHeader($name, $value)
     {
         $serverRequest = $this->serverRequest->withHeader($name, $value);
@@ -79,9 +65,7 @@ class ServerRequest implements ServerRequestInterface
         return new static($serverRequest);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** @inheritDoc */
     public function withAddedHeader($name, $value)
     {
         $serverRequest = $this->serverRequest->withAddedHeader($name, $value);
@@ -89,9 +73,7 @@ class ServerRequest implements ServerRequestInterface
         return new static($serverRequest);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** @inheritDoc */
     public function withoutHeader($name)
     {
         $serverRequest = $this->serverRequest->withoutHeader($name);
@@ -99,17 +81,13 @@ class ServerRequest implements ServerRequestInterface
         return new static($serverRequest);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** @inheritDoc */
     public function getBody()
     {
         return $this->serverRequest->getBody();
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** @inheritDoc */
     public function withBody(StreamInterface $body)
     {
         $serverRequest = $this->serverRequest->withBody($body);
@@ -117,17 +95,13 @@ class ServerRequest implements ServerRequestInterface
         return new static($serverRequest);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** @inheritDoc */
     public function getRequestTarget()
     {
         return $this->serverRequest->getRequestTarget();
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** @inheritDoc */
     public function withRequestTarget($requestTarget)
     {
         $serverRequest = $this->serverRequest->withRequestTarget($requestTarget);
@@ -135,17 +109,13 @@ class ServerRequest implements ServerRequestInterface
         return new static($serverRequest);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** @inheritDoc */
     public function getMethod()
     {
         return $this->serverRequest->getMethod();
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** @inheritDoc */
     public function withMethod($method)
     {
         $serverRequest = $this->serverRequest->withMethod($method);
@@ -153,17 +123,13 @@ class ServerRequest implements ServerRequestInterface
         return new static($serverRequest);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** @inheritDoc */
     public function getUri()
     {
         return $this->serverRequest->getUri();
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** @inheritDoc */
     public function withUri(UriInterface $uri, $preserveHost = false)
     {
         $serverRequest = $this->serverRequest->withUri($uri, $preserveHost);
@@ -171,25 +137,19 @@ class ServerRequest implements ServerRequestInterface
         return new static($serverRequest);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** @inheritDoc */
     public function getServerParams()
     {
         return $this->serverRequest->getServerParams();
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** @inheritDoc */
     public function getCookieParams()
     {
         return $this->serverRequest->getCookieParams();
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** @inheritDoc */
     public function withCookieParams(array $cookies)
     {
         $serverRequest = $this->serverRequest->withCookieParams($cookies);
@@ -197,17 +157,13 @@ class ServerRequest implements ServerRequestInterface
         return new static($serverRequest);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** @inheritDoc */
     public function getQueryParams()
     {
         return $this->serverRequest->getQueryParams();
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** @inheritDoc */
     public function withQueryParams(array $query)
     {
         $serverRequest = $this->serverRequest->withQueryParams($query);
@@ -215,17 +171,13 @@ class ServerRequest implements ServerRequestInterface
         return new static($serverRequest);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** @inheritDoc */
     public function getUploadedFiles()
     {
         return $this->serverRequest->getUploadedFiles();
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** @inheritDoc */
     public function withUploadedFiles(array $uploadedFiles)
     {
         $serverRequest = $this->serverRequest->withUploadedFiles($uploadedFiles);
@@ -233,17 +185,13 @@ class ServerRequest implements ServerRequestInterface
         return new static($serverRequest);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** @inheritDoc */
     public function getParsedBody()
     {
         return $this->serverRequest->getParsedBody();
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** @inheritDoc */
     public function withParsedBody($data)
     {
         $serverRequest = $this->serverRequest->withParsedBody($data);
@@ -251,25 +199,19 @@ class ServerRequest implements ServerRequestInterface
         return new static($serverRequest);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** @inheritDoc */
     public function getAttributes()
     {
         return $this->serverRequest->getAttributes();
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** @inheritDoc */
     public function getAttribute($name, $default = null)
     {
         return $this->serverRequest->getAttribute($name, $default);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** @inheritDoc */
     public function withAttribute($name, $value)
     {
         $serverRequest = $this->serverRequest->withAttribute($name, $value);
@@ -277,9 +219,7 @@ class ServerRequest implements ServerRequestInterface
         return new static($serverRequest);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** @inheritDoc */
     public function withoutAttribute($name)
     {
         $serverRequest = $this->serverRequest->withoutAttribute($name);
@@ -287,9 +227,7 @@ class ServerRequest implements ServerRequestInterface
         return new static($serverRequest);
     }
 
-    /**
-     * @param mixed $default
-     */
+    /** @param mixed $default */
     public function getParam(string $param, $default = null): mixed
     {
         $getParams = $this->getQueryParams();
@@ -306,9 +244,7 @@ class ServerRequest implements ServerRequestInterface
         return $getParams[$param] ?? $default;
     }
 
-    /**
-     * @param mixed $default
-     */
+    /** @param mixed $default */
     public function getParsedBodyParam(string $param, $default = null): mixed
     {
         $postParams = $this->getParsedBody();
@@ -324,9 +260,7 @@ class ServerRequest implements ServerRequestInterface
         return $default;
     }
 
-    /**
-     * @param mixed $default
-     */
+    /** @param mixed $default */
     public function getQueryParam(string $param, $default = null): mixed
     {
         $getParams = $this->getQueryParams();
@@ -339,9 +273,7 @@ class ServerRequest implements ServerRequestInterface
         return $this->getMethod() === 'POST';
     }
 
-    /**
-     * @psalm-return non-empty-string
-     */
+    /** @psalm-return non-empty-string */
     public function getRoute(): string
     {
         $getParams = $this->getQueryParams();

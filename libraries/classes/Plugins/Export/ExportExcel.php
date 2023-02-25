@@ -22,9 +22,7 @@ use function __;
  */
 class ExportExcel extends ExportCsv
 {
-    /**
-     * @psalm-return non-empty-lowercase-string
-     */
+    /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
         return 'excel';

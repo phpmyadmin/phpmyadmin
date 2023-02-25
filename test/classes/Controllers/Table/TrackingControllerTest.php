@@ -15,9 +15,7 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Tracking;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Table\TrackingController
- */
+/** @covers \PhpMyAdmin\Controllers\Table\TrackingController */
 class TrackingControllerTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -29,6 +27,7 @@ class TrackingControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;

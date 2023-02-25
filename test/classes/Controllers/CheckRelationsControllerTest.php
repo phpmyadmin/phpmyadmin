@@ -13,9 +13,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
-/**
- * @covers \PhpMyAdmin\Controllers\CheckRelationsController
- */
+/** @covers \PhpMyAdmin\Controllers\CheckRelationsController */
 class CheckRelationsControllerTest extends AbstractTestCase
 {
     /** @var DatabaseInterface */
@@ -27,6 +25,7 @@ class CheckRelationsControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);

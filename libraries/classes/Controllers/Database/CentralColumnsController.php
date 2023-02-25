@@ -148,9 +148,7 @@ class CentralColumnsController extends AbstractController
         $GLOBALS['message'] = $tmp_msg;
     }
 
-    /**
-     * @param array $params Request parameters
-     */
+    /** @param array $params Request parameters */
     public function main(array $params): void
     {
         $GLOBALS['text_dir'] ??= null;
@@ -252,9 +250,7 @@ class CentralColumnsController extends AbstractController
         );
     }
 
-    /**
-     * @param array $params Request parameters
-     */
+    /** @param array $params Request parameters */
     public function editPage(array $params): void
     {
         $rows = $this->centralColumns->getHtmlForEditingPage($params['selected_fld'], $params['db']);

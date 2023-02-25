@@ -8,14 +8,13 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Partitioning\Partition;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Partitioning\Partition
- */
+/** @covers \PhpMyAdmin\Partitioning\Partition */
 class PartitionTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
     }
 

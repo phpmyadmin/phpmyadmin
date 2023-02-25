@@ -13,9 +13,7 @@ use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Version;
 use ReflectionMethod;
 
-/**
- * @covers \PhpMyAdmin\Database\Designer
- */
+/** @covers \PhpMyAdmin\Database\Designer */
 class DesignerTest extends AbstractTestCase
 {
     /** @var Designer */
@@ -27,6 +25,7 @@ class DesignerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
 
         $GLOBALS['server'] = 1;

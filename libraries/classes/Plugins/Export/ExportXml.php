@@ -47,9 +47,7 @@ class ExportXml extends ExportPlugin
      */
     private $tables = [];
 
-    /**
-     * @psalm-return non-empty-lowercase-string
-     */
+    /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
         return 'xml';

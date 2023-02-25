@@ -55,9 +55,7 @@ class ThemeManager
     /** @var string */
     public $themeDefault;
 
-    /**
-     * @const string The name of the fallback theme
-     */
+    /** @const string The name of the fallback theme */
     public const FALLBACK_THEME = 'pmahomme';
 
     public function __construct()
