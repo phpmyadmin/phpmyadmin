@@ -7235,20 +7235,16 @@
     <MixedAssignment>
       <code>$line</code>
       <code>$point</code>
-      <code>$points_arr[]</code>
-      <code>$points_arr[]</code>
       <code>$polygon</code>
-      <code>$x</code>
-      <code>$y</code>
     </MixedAssignment>
     <MixedOperand>
-      <code><![CDATA[$coordinates[0] - $scale_data['x']]]></code>
-      <code><![CDATA[$coordinates[1] - $scale_data['y']]]></code>
       <code>$point[0]</code>
       <code>$point[1]</code>
       <code><![CDATA[$scale_data['height']]]></code>
       <code><![CDATA[$scale_data['x']]]></code>
       <code><![CDATA[$scale_data['y']]]></code>
+      <code><![CDATA[(float) $coordinates[0] - $scale_data['x']]]></code>
+      <code><![CDATA[(float) $coordinates[1] - $scale_data['y']]]></code>
     </MixedOperand>
     <PossiblyFalseOperand>
       <code>$last_comma</code>
@@ -7269,14 +7265,6 @@
   </file>
   <file src="libraries/classes/Gis/GisLineString.php">
     <MixedArgument>
-      <code>$point[0]</code>
-      <code>$point[0]</code>
-      <code>$point[1]</code>
-      <code>$point[1]</code>
-      <code>$points_arr[1][0]</code>
-      <code>$points_arr[1][0]</code>
-      <code>$points_arr[1][1]</code>
-      <code>$points_arr[1][1]</code>
       <code>$temp_point[0]</code>
       <code>$temp_point[0]</code>
       <code>$temp_point[1]</code>
@@ -7284,18 +7272,6 @@
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$gis_data[$index]['LINESTRING']['no_of_points']]]></code>
-      <code>$point[0]</code>
-      <code>$point[0]</code>
-      <code>$point[0]</code>
-      <code>$point[1]</code>
-      <code>$point[1]</code>
-      <code>$point[1]</code>
-      <code>$points_arr[$i][0]</code>
-      <code>$points_arr[$i][1]</code>
-      <code>$points_arr[1][0]</code>
-      <code>$points_arr[1][0]</code>
-      <code>$points_arr[1][1]</code>
-      <code>$points_arr[1][1]</code>
       <code>$temp_point[0]</code>
       <code>$temp_point[0]</code>
       <code>$temp_point[1]</code>
@@ -7303,15 +7279,8 @@
     </MixedArrayAccess>
     <MixedAssignment>
       <code>$no_of_points</code>
-      <code>$point</code>
-      <code>$point</code>
-      <code>$point</code>
-      <code>$temp_point</code>
-      <code>$temp_point</code>
     </MixedAssignment>
     <MixedOperand>
-      <code>$point[0]</code>
-      <code>$point[1]</code>
       <code><![CDATA[isset($gis_data[$index]['LINESTRING'][$i]['x'])
                     && trim((string) $gis_data[$index]['LINESTRING'][$i]['x']) != ''
                     ? $gis_data[$index]['LINESTRING'][$i]['x'] : $empty]]></code>
@@ -7329,14 +7298,6 @@
   </file>
   <file src="libraries/classes/Gis/GisMultiLineString.php">
     <MixedArgument>
-      <code>$point[0]</code>
-      <code>$point[0]</code>
-      <code>$point[1]</code>
-      <code>$point[1]</code>
-      <code>$points_arr[1][0]</code>
-      <code>$points_arr[1][0]</code>
-      <code>$points_arr[1][1]</code>
-      <code>$points_arr[1][1]</code>
       <code>$temp_point[0]</code>
       <code>$temp_point[0]</code>
       <code>$temp_point[1]</code>
@@ -7349,18 +7310,6 @@
       <code><![CDATA[$gis_data[$index]['MULTILINESTRING']]]></code>
       <code><![CDATA[$point['x']]]></code>
       <code><![CDATA[$point['y']]]></code>
-      <code>$point[0]</code>
-      <code>$point[0]</code>
-      <code>$point[0]</code>
-      <code>$point[1]</code>
-      <code>$point[1]</code>
-      <code>$point[1]</code>
-      <code>$points[$i][0]</code>
-      <code>$points[$i][1]</code>
-      <code>$points_arr[1][0]</code>
-      <code>$points_arr[1][0]</code>
-      <code>$points_arr[1][1]</code>
-      <code>$points_arr[1][1]</code>
       <code><![CDATA[$row_data['parts'][$i]]]></code>
       <code><![CDATA[$row_data['parts'][$i]['points']]]></code>
       <code>$temp_point[0]</code>
@@ -7373,17 +7322,10 @@
       <code>$no_of_lines</code>
       <code>$no_of_points</code>
       <code>$point</code>
-      <code>$point</code>
-      <code>$point</code>
-      <code>$point</code>
-      <code>$temp_point</code>
-      <code>$temp_point</code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$point['x']]]></code>
       <code><![CDATA[$point['y']]]></code>
-      <code>$point[0]</code>
-      <code>$point[1]</code>
       <code><![CDATA[isset($data_row[$i][$j]['x'])
                         && trim((string) $data_row[$i][$j]['x']) != ''
                         ? $data_row[$i][$j]['x'] : $empty]]></code>
@@ -7405,37 +7347,11 @@
   <file src="libraries/classes/Gis/GisMultiPoint.php">
     <MixedArgument>
       <code>$point</code>
-      <code>$point[0]</code>
-      <code>$point[0]</code>
-      <code>$point[1]</code>
-      <code>$point[1]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][1]</code>
-      <code>$points_arr[0][1]</code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$gis_data[$index]['MULTIPOINT']['no_of_points']]]></code>
       <code>$point[0]</code>
-      <code>$point[0]</code>
-      <code>$point[0]</code>
-      <code>$point[0]</code>
-      <code>$point[0]</code>
-      <code>$point[0]</code>
-      <code>$point[0]</code>
       <code>$point[1]</code>
-      <code>$point[1]</code>
-      <code>$point[1]</code>
-      <code>$point[1]</code>
-      <code>$point[1]</code>
-      <code>$point[1]</code>
-      <code>$point[1]</code>
-      <code>$points[$i][0]</code>
-      <code>$points[$i][1]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][1]</code>
-      <code>$points_arr[0][1]</code>
       <code><![CDATA[$row_data['points'][$i]]]></code>
       <code><![CDATA[$row_data['points'][$i]]]></code>
       <code><![CDATA[$row_data['points'][$i]['x']]]></code>
@@ -7444,13 +7360,8 @@
     <MixedAssignment>
       <code>$no_of_points</code>
       <code>$point</code>
-      <code>$point</code>
-      <code>$point</code>
-      <code>$point</code>
     </MixedAssignment>
     <MixedOperand>
-      <code>$point[0]</code>
-      <code>$point[1]</code>
       <code><![CDATA[$row_data['points'][$i]['x']]]></code>
       <code><![CDATA[$row_data['points'][$i]['y']]]></code>
       <code><![CDATA[isset($gis_data[$index]['MULTIPOINT'][$i]['x'])
@@ -7501,12 +7412,6 @@
       <code>$label_point[1]</code>
       <code><![CDATA[$point['x']]]></code>
       <code><![CDATA[$point['y']]]></code>
-      <code>$point[0]</code>
-      <code>$point[1]</code>
-      <code>$points[$i][0]</code>
-      <code>$points[$i][1]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][1]</code>
       <code><![CDATA[$ring1['isOuter']]]></code>
       <code><![CDATA[$ring1['pointOnSurface']]]></code>
       <code><![CDATA[$ring2['isOuter']]]></code>
@@ -7549,7 +7454,6 @@
       <code>$no_of_points</code>
       <code>$no_of_polygons</code>
       <code>$point</code>
-      <code>$point</code>
       <code>$ring</code>
       <code>$ring</code>
       <code>$ring</code>
@@ -7562,10 +7466,6 @@
       <code><![CDATA[$innerPoint['y']]]></code>
       <code><![CDATA[$point['x']]]></code>
       <code><![CDATA[$point['y']]]></code>
-      <code>$point[0]</code>
-      <code>$point[1]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][1]</code>
       <code><![CDATA[isset($data_row[$k][$i][$j]['x'])
                             && trim((string) $data_row[$k][$i][$j]['x']) != ''
                             ? $data_row[$k][$i][$j]['x'] : $empty]]></code>
@@ -7585,38 +7485,13 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisPoint.php">
-    <MixedArgument>
-      <code>$points_arr[0]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][1]</code>
-      <code>$points_arr[0][1]</code>
-      <code>$points_arr[0][1]</code>
-      <code>$points_arr[0][1]</code>
-    </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$gis_data[$index]['POINT']['x']]]></code>
       <code><![CDATA[$gis_data[$index]['POINT']['x']]]></code>
       <code><![CDATA[$gis_data[$index]['POINT']['y']]]></code>
       <code><![CDATA[$gis_data[$index]['POINT']['y']]]></code>
-      <code>$points[0][0]</code>
-      <code>$points[0][1]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][1]</code>
-      <code>$points_arr[0][1]</code>
-      <code>$points_arr[0][1]</code>
-      <code>$points_arr[0][1]</code>
-      <code>$points_arr[0][1]</code>
     </MixedArrayAccess>
     <MixedOperand>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][1]</code>
       <code><![CDATA[$row_data['x'] ?? '']]></code>
       <code><![CDATA[$row_data['y'] ?? '']]></code>
       <code><![CDATA[isset($gis_data[$index]['POINT']['x'])
@@ -7642,10 +7517,6 @@
       <code>$points_arr</code>
     </ArgumentTypeCoercion>
     <MixedArgument>
-      <code>$points_arr[2]</code>
-      <code>$points_arr[2]</code>
-      <code>$points_arr[3]</code>
-      <code>$points_arr[3]</code>
       <code>($y1 - $y0) ** 2 + ($x0 - $x1) ** 2</code>
     </MixedArgument>
     <MixedArrayAccess>
@@ -7669,12 +7540,6 @@
       <code><![CDATA[$p2['y']]]></code>
       <code><![CDATA[$p2['y']]]></code>
       <code><![CDATA[$p2['y']]]></code>
-      <code>$point[0]</code>
-      <code>$point[1]</code>
-      <code>$points[$i][0]</code>
-      <code>$points[$i][1]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][1]</code>
       <code><![CDATA[$polygon[$last]['x']]]></code>
       <code><![CDATA[$polygon[$last]['y']]]></code>
       <code><![CDATA[$polygon[0]['x']]]></code>
@@ -7706,7 +7571,6 @@
       <code>$p1</code>
       <code>$p1</code>
       <code>$p2</code>
-      <code>$point</code>
       <code><![CDATA[$pointA['x']]]></code>
       <code><![CDATA[$pointA['y']]]></code>
       <code><![CDATA[$pointB['x']]]></code>
@@ -7732,10 +7596,6 @@
       <code><![CDATA[$pointA['x']]]></code>
       <code><![CDATA[$pointB['x']]]></code>
       <code><![CDATA[$point['y']]]></code>
-      <code>$point[0]</code>
-      <code>$point[1]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][1]</code>
       <code><![CDATA[$ring[$i]['x']]]></code>
       <code><![CDATA[$ring[$i]['x'] * $ring[$j]['y']]]></code>
       <code><![CDATA[$ring[$i]['y']]]></code>
@@ -15883,6 +15743,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="test/classes/Gis/GisGeometryTest.php">
+    <MixedAssignment>
+      <code>$points</code>
+    </MixedAssignment>
     <MixedInferredReturnType>
       <code>array</code>
       <code>array</code>
