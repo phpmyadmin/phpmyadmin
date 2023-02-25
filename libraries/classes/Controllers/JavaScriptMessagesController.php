@@ -362,6 +362,8 @@ final class JavaScriptMessagesController
             'strAddingPrimaryKey' => __('Adding primary key'),
             'strOK' => __('OK'),
             'strDismiss' => __('Click to dismiss this notification'),
+            'strOpenedTableInNewTab' => __('Opened table in new tab: '),
+            'strSwitchingTable' => __('Switching to table: '),
 
             /* For database/operations.js */
             'strRenamingDatabases' => __('Renaming databases'),

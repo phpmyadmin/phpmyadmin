@@ -28,6 +28,7 @@ use PhpMyAdmin\Controllers\PhpInfoController;
 use PhpMyAdmin\Controllers\Preferences;
 use PhpMyAdmin\Controllers\RecentTablesListController;
 use PhpMyAdmin\Controllers\SchemaExportController;
+use PhpMyAdmin\Controllers\SearchTablesModalController;
 use PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Controllers\Sql;
 use PhpMyAdmin\Controllers\Table;
@@ -38,7 +39,6 @@ use PhpMyAdmin\Controllers\Transformation;
 use PhpMyAdmin\Controllers\UserPasswordController;
 use PhpMyAdmin\Controllers\VersionCheckController;
 use PhpMyAdmin\Controllers\View;
-use PhpMyAdmin\Controllers\SearchTablesModalController;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -310,5 +310,5 @@ return static function (RouteCollector $routes): void {
         $routes->addRoute(['GET', 'POST'], '/create', View\CreateController::class);
         $routes->addRoute(['GET', 'POST'], '/operations', View\OperationsController::class);
     });
-    $routes->post('/search-table', SearchTablesModalController::class);    
+    $routes->post('/search-table', SearchTablesModalController::class);
 };

@@ -450,7 +450,7 @@ return [
                 '$template' => '@template',
             ],
         ],
-        SearchTablesModalController::class=> [
+        SearchTablesModalController::class => [
             'class' => SearchTablesModalController::class,
             'arguments' => [
                 '$response' => '@response',

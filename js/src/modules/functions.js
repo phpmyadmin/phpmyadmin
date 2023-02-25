@@ -3470,14 +3470,14 @@ $(document).on('keyup', '#filterSearchTablesText', function (e) {
         if ((e.ctrlKey || e.metaKey) && (e.keyCode === 13 || e.keyCode === 10)) {
             e.preventDefault();
             window.open(selectedText.href, '_blank');
-            ajaxShowMessage('<div>Opened table: <span class="search-table-title">' + tableName + '</span> in new tab</div>', 500);
+            ajaxShowMessage('<div>' + window.Messages.strOpenedTableInNewTab + '<span class="search-table-title">' + tableName + '</div>', 500);
         } else if (e.keyCode === 13) {
             e.preventDefault();
             $('#searchTablesModal').modal('hide');
-            ajaxShowMessage('<div>Switching to table: <span class="search-table-title">' + tableName + '</span></div>');
+            ajaxShowMessage('<div>' + window.Messages.strSwitchingTable + '<span class="search-table-title">' + tableName + '</span></div>');
             setTimeout(()=>{
                 selectedText.click();
-                ajaxShowMessage('<div>Switching to table: <span class="search-table-title">' + tableName + '</span></div>');
+                ajaxShowMessage('<div>' + window.Messages.strSwitchingTable + '<span class="search-table-title">' + tableName + '</span></div>');
             },200);
         }
         selectedText.classList.remove('st_selected_text');

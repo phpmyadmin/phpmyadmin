@@ -7,7 +7,7 @@
   <div class="modal-dialog modal-md modal-dialog-centered">
     <div class="modal-content search_tables_modal_content">
       <div class="modal-header">
-        <h5 class="modal-title">{% trans 'Search Tables in ' %}<span class="st_db_heading">{{db}}</span></h5>
+        <h5 class="modal-title">{{ 'Search tables in %s.'|trans|format('<span class="st_db_heading">' ~ db ~ '</span>') }}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
       </div>
       <div class="modal-body st_modal_body">
@@ -19,8 +19,8 @@
           {% endfor %}
         </div>
         <div class="mt-2">
-          <div>{% trans 'Press' %}<kbd>Enter</kbd>{% trans 'to open the selected Table here.' %}</div>
-          <div>{% trans 'Press' %}<kbd>Ctrl + Enter</kbd>{% trans 'to open the selected Table in new tab.' %}</div>
+          <div>{{ 'Press [kbd]Enter[/kbd] to open the selected table here.'|trans|sanitize }}</div>
+          <div>{{ 'Press [kbd]Ctrl + Enter[/kbd] to open the selected table in new tab.'|trans|sanitize }}</div>
         </div>
       </div>
       <div class="modal-footer">
