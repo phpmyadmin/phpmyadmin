@@ -197,15 +197,14 @@ class GisLineString extends GisGeometry
      * Prepares JavaScript related to a row in the GIS dataset
      * to visualize it with OpenLayers.
      *
-     * @param string $spatial    GIS LINESTRING object
-     * @param int    $srid       Spatial reference ID
-     * @param string $label      Label for the GIS LINESTRING object
-     * @param int[]  $color      Color for the GIS LINESTRING object
-     * @param array  $scale_data Array containing data related to scaling
+     * @param string $spatial GIS LINESTRING object
+     * @param int    $srid    Spatial reference ID
+     * @param string $label   Label for the GIS LINESTRING object
+     * @param int[]  $color   Color for the GIS LINESTRING object
      *
      * @return string JavaScript related to a row in the GIS dataset
      */
-    public function prepareRowAsOl($spatial, int $srid, string $label, array $color, array $scale_data): string
+    public function prepareRowAsOl(string $spatial, int $srid, string $label, array $color): string
     {
         $stroke_style = [
             'color' => $color,
@@ -224,8 +223,6 @@ class GisLineString extends GisGeometry
         if ($srid === 0) {
             $srid = 4326;
         }
-
-        $result .= $this->getBoundsForOl($srid, $scale_data);
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linesrting = mb_substr($spatial, 11, -1);

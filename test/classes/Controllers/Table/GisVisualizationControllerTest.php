@@ -91,21 +91,20 @@ class GisVisualizationControllerTest extends AbstractTestCase
                 . '<svg version="1.1" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg"'
                 . ' width="600" height="450"><g id="groupPanel"><circle cx="300" cy="225" r="3" name=""'
                 . ' id="1234567890" class="point vector" fill="white" stroke="#b02ee0" stroke-width="2"/></g></svg>',
-            'draw_ol' => 'function drawOpenLayers() {if (typeof ol !== "undefined") {var olCss ='
+            'draw_ol' => 'function drawOpenLayers() {if (typeof ol === "undefined") { return undefined; }var olCss ='
                 . ' "js/vendor/openlayers/theme/ol.css";$(\'head\').append(\'<link rel="stylesheet" type="text/css"'
                 . ' href=\'+olCss+\'>\');var vectorLayer = new ol.source.Vector({});var map = new ol.Map({target:'
                 . ' \'openlayersmap\',layers: [new ol.layer.Tile({source: new ol.source.OSM()}),new ol.layer.'
-                . 'Vector({source: vectorLayer})],view: new ol.View({center: ol.proj.fromLonLat([37.41, 8.82]),'
+                . 'Vector({source: vectorLayer})],view: new ol.View({center: [0, 0],'
                 . 'zoom: 4}),controls: [new ol.control.MousePosition({coordinateFormat: ol.coordinate.'
                 . 'createStringXY(4),projection: \'EPSG:4326\'}),new ol.control.Zoom,new ol.control.Attribution'
                 . ']});var fill = new ol.style.Fill({"color":"white"});var stroke = new ol.style.Stroke({"color"'
                 . ':[176,46,224],"width":2});var style = new ol.style.Style({image: new ol.style.Circle({fill:'
-                . ' fill,stroke: stroke,radius: 3}),fill: fill,stroke: stroke});var minLoc = [100, 250];var'
-                . ' maxLoc = [100, 250];var ext = ol.extent.boundingExtent([minLoc, maxLoc]);ext = ol.proj.'
-                . 'transformExtent(ext, ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'));map.getView().'
-                . 'fit(ext, map.getSize());var point = new ol.Feature({geometry: (new ol.geom.Point([100,250]).'
+                . ' fill,stroke: stroke,radius: 3}),fill: fill,stroke: stroke});'
+                . 'var point = new ol.Feature({geometry: (new ol.geom.Point([100,250]).'
                 . 'transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\')))});point.setStyle(style);'
-                . 'vectorLayer.addFeature(point);return map;}return undefined;}',
+                . 'vectorLayer.addFeature(point);var extent = vectorLayer.getExtent();if (!ol.extent.isEmpty(extent))'
+                . ' {map.getView().fit(extent, {padding: [20, 20, 20, 20]});}return map;}',
         ]);
 
         $response = new ResponseRenderer();

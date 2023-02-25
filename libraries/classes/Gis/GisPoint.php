@@ -192,20 +192,18 @@ class GisPoint extends GisGeometry
      * Prepares JavaScript related to a row in the GIS dataset
      * to visualize it with OpenLayers.
      *
-     * @param string $spatial    GIS POINT object
-     * @param int    $srid       Spatial reference ID
-     * @param string $label      Label for the GIS POINT object
-     * @param int[]  $color      Color for the GIS POINT object
-     * @param array  $scale_data Array containing data related to scaling
+     * @param string $spatial GIS POINT object
+     * @param int    $srid    Spatial reference ID
+     * @param string $label   Label for the GIS POINT object
+     * @param int[]  $color   Color for the GIS POINT object
      *
      * @return string JavaScript related to a row in the GIS dataset
      */
     public function prepareRowAsOl(
-        $spatial,
+        string $spatial,
         int $srid,
         string $label,
         array $color,
-        array $scale_data,
     ): string {
         $fill_style = ['color' => 'white'];
         $stroke_style = [
@@ -235,8 +233,6 @@ class GisPoint extends GisGeometry
         if ($srid === 0) {
             $srid = 4326;
         }
-
-        $result .= $this->getBoundsForOl($srid, $scale_data);
 
         // Trim to remove leading 'POINT(' and trailing ')'
         $point = mb_substr($spatial, 6, -1);

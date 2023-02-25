@@ -199,15 +199,14 @@ class GisGeometryCollection extends GisGeometry
      * Prepares JavaScript related to a row in the GIS dataset
      * to visualize it with OpenLayers.
      *
-     * @param string $spatial    GIS GEOMETRYCOLLECTION object
-     * @param int    $srid       spatial reference ID
-     * @param string $label      label for the GIS GEOMETRYCOLLECTION object
-     * @param int[]  $color      color for the GIS GEOMETRYCOLLECTION object
-     * @param array  $scale_data array containing data related to scaling
+     * @param string $spatial GIS GEOMETRYCOLLECTION object
+     * @param int    $srid    spatial reference ID
+     * @param string $label   label for the GIS GEOMETRYCOLLECTION object
+     * @param int[]  $color   color for the GIS GEOMETRYCOLLECTION object
      *
      * @return string JavaScript related to a row in the GIS dataset
      */
-    public function prepareRowAsOl($spatial, int $srid, string $label, array $color, array $scale_data): string
+    public function prepareRowAsOl(string $spatial, int $srid, string $label, array $color): string
     {
         $row = '';
 
@@ -229,7 +228,7 @@ class GisGeometryCollection extends GisGeometry
                 continue;
             }
 
-            $row .= $gis_obj->prepareRowAsOl($sub_part, $srid, $label, $color, $scale_data);
+            $row .= $gis_obj->prepareRowAsOl($sub_part, $srid, $label, $color);
         }
 
         return $row;

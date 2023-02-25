@@ -445,12 +445,11 @@ class GisGeometryCollectionTest extends GisGeomTestCase
     /**
      * Test for prepareRowAsOl
      *
-     * @param string $spatial    string to parse
-     * @param int    $srid       SRID
-     * @param string $label      field label
-     * @param int[]  $color      line color
-     * @param array  $scale_data scaling parameters
-     * @param string $output     expected output
+     * @param string $spatial string to parse
+     * @param int    $srid    SRID
+     * @param string $label   field label
+     * @param int[]  $color   line color
+     * @param string $output  expected output
      *
      * @dataProvider providerForPrepareRowAsOl
      */
@@ -459,7 +458,6 @@ class GisGeometryCollectionTest extends GisGeomTestCase
         int $srid,
         string $label,
         array $color,
-        array $scale_data,
         string $output,
     ): void {
         $this->assertEquals(
@@ -469,7 +467,6 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                 $srid,
                 $label,
                 $color,
-                $scale_data,
             ),
         );
     }
@@ -487,20 +484,11 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                 4326,
                 'Ol',
                 [176, 46, 224],
-                [
-                    'minX' => '0',
-                    'minY' => '0',
-                    'maxX' => '1',
-                    'maxY' => '1',
-                ],
                 'var style = new ol.style.Style({fill: new ol.style.Fill({"c'
                 . 'olor":[176,46,224,0.8]}),stroke: new ol.style.Stroke({"co'
                 . 'lor":[0,0,0],"width":0.5}),text: new ol.style.Text({"text'
-                . '":"Ol"})});var minLoc = [0, 0];var maxLoc = [1, 1];var ex'
-                . 't = ol.extent.boundingExtent([minLoc, maxLoc]);ext = ol.p'
-                . 'roj.transformExtent(ext, ol.proj.get("EPSG:4326"), ol.pro'
-                . 'j.get(\'EPSG:3857\'));map.getView().fit(ext, map.getSize('
-                . '));var arr = [];var lineArr = [];var line = new ol.geom.L'
+                . '":"Ol"})});'
+                . 'var arr = [];var lineArr = [];var line = new ol.geom.L'
                 . 'inearRing(new Array((new ol.geom.Point([35,10]).transform'
                 . '(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).g'
                 . 'etCoordinates(), (new ol.geom.Point([10,20]).transform(ol'

@@ -207,20 +207,18 @@ class GisMultiPoint extends GisGeometry
      * Prepares JavaScript related to a row in the GIS dataset
      * to visualize it with OpenLayers.
      *
-     * @param string $spatial    GIS MULTIPOINT object
-     * @param int    $srid       Spatial reference ID
-     * @param string $label      Label for the GIS MULTIPOINT object
-     * @param int[]  $color      Color for the GIS MULTIPOINT object
-     * @param array  $scale_data Array containing data related to scaling
+     * @param string $spatial GIS MULTIPOINT object
+     * @param int    $srid    Spatial reference ID
+     * @param string $label   Label for the GIS MULTIPOINT object
+     * @param int[]  $color   Color for the GIS MULTIPOINT object
      *
      * @return string JavaScript related to a row in the GIS dataset
      */
     public function prepareRowAsOl(
-        $spatial,
+        string $spatial,
         int $srid,
         string $label,
         array $color,
-        array $scale_data,
     ): string {
         $fill_style = ['color' => 'white'];
         $stroke_style = [
@@ -250,8 +248,6 @@ class GisMultiPoint extends GisGeometry
         if ($srid === 0) {
             $srid = 4326;
         }
-
-        $result .= $this->getBoundsForOl($srid, $scale_data);
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
         $multipoint = mb_substr($spatial, 11, -1);

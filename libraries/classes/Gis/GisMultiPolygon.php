@@ -235,15 +235,14 @@ class GisMultiPolygon extends GisGeometry
      * Prepares JavaScript related to a row in the GIS dataset
      * to visualize it with OpenLayers.
      *
-     * @param string $spatial    GIS MULTIPOLYGON object
-     * @param int    $srid       Spatial reference ID
-     * @param string $label      Label for the GIS MULTIPOLYGON object
-     * @param int[]  $color      Color for the GIS MULTIPOLYGON object
-     * @param array  $scale_data Array containing data related to scaling
+     * @param string $spatial GIS MULTIPOLYGON object
+     * @param int    $srid    Spatial reference ID
+     * @param string $label   Label for the GIS MULTIPOLYGON object
+     * @param int[]  $color   Color for the GIS MULTIPOLYGON object
      *
      * @return string JavaScript related to a row in the GIS dataset
      */
-    public function prepareRowAsOl($spatial, int $srid, string $label, array $color, array $scale_data): string
+    public function prepareRowAsOl(string $spatial, int $srid, string $label, array $color): string
     {
         $color[] = 0.8;
         $fill_style = ['color' => $color];
@@ -265,8 +264,6 @@ class GisMultiPolygon extends GisGeometry
         if ($srid === 0) {
             $srid = 4326;
         }
-
-        $row .= $this->getBoundsForOl($srid, $scale_data);
 
         // Trim to remove leading 'MULTIPOLYGON(((' and trailing ')))'
         $multipolygon = mb_substr($spatial, 15, -3);

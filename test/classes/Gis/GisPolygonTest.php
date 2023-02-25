@@ -514,12 +514,11 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsOl() method
      *
-     * @param string $spatial    GIS POLYGON object
-     * @param int    $srid       spatial reference ID
-     * @param string $label      label for the GIS POLYGON object
-     * @param int[]  $color      color for the GIS POLYGON object
-     * @param array  $scale_data array containing data related to scaling
-     * @param string $output     expected output
+     * @param string $spatial GIS POLYGON object
+     * @param int    $srid    spatial reference ID
+     * @param string $label   label for the GIS POLYGON object
+     * @param int[]  $color   color for the GIS POLYGON object
+     * @param string $output  expected output
      *
      * @dataProvider providerForPrepareRowAsOl
      */
@@ -528,10 +527,9 @@ class GisPolygonTest extends GisGeomTestCase
         int $srid,
         string $label,
         array $color,
-        array $scale_data,
         string $output,
     ): void {
-        $ol = $this->object->prepareRowAsOl($spatial, $srid, $label, $color, $scale_data);
+        $ol = $this->object->prepareRowAsOl($spatial, $srid, $label, $color);
         $this->assertEquals($output, $ol);
     }
 
@@ -548,18 +546,9 @@ class GisPolygonTest extends GisGeomTestCase
                 4326,
                 'Ol',
                 [176, 46, 224],
-                [
-                    'minX' => '0',
-                    'minY' => '0',
-                    'maxX' => '1',
-                    'maxY' => '1',
-                ],
                 'var style = new ol.style.Style({fill: new ol.style.Fill({"color":[176,46,224,0.8]'
                 . '}),stroke: new ol.style.Stroke({"color":[0,0,0],"width":0.5}),text: new ol.styl'
-                . 'e.Text({"text":"Ol"})});var minLoc = [0, 0];var maxLoc = [1, 1];var ext = ol.ex'
-                . 'tent.boundingExtent([minLoc, maxLoc]);ext = ol.proj.transformExtent(ext, ol.pro'
-                . 'j.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'));map.getView().fit(ext, map.getS'
-                . 'ize());var arr = [];var lineArr = [];var line = new ol.geom.LinearRing(new Arra'
+                . 'e.Text({"text":"Ol"})});var arr = [];var lineArr = [];var line = new ol.geom.LinearRing(new Arra'
                 . 'y((new ol.geom.Point([123,0]).transform(ol.proj.get("EPSG:4326"), ol.proj.get('
                 . '\'EPSG:3857\'))).getCoordinates(), (new ol.geom.Point([23,30]).transform(ol.pro'
                 . 'j.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinates(), (new ol.geom'
