@@ -8923,7 +8923,6 @@
       <code><![CDATA[$this->expression]]></code>
       <code><![CDATA[$this->name]]></code>
       <code><![CDATA[$this->null]]></code>
-      <code><![CDATA[$this->subPart]]></code>
     </MixedAssignment>
     <PossiblyUnusedMethod>
       <code>getExpression</code>

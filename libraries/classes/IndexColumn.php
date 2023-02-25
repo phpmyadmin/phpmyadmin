@@ -92,7 +92,7 @@ class IndexColumn
         }
 
         if (isset($params['Sub_part'])) {
-            $this->subPart = $params['Sub_part'];
+            $this->subPart = (int) $params['Sub_part'];
         }
 
         if (isset($params['Expression'])) {
