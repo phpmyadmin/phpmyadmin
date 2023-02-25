@@ -4,21 +4,31 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Dbal;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 
-/**
- * @coversNothing
- */
+/** @coversNothing */
 class DbiDummyTest extends AbstractTestCase
 {
+    /** @var DatabaseInterface */
+    protected $dbi;
+
+    /** @var DbiDummy */
+    protected $dummyDbi;
+
     /**
      * Configures test parameters.
      */
     protected function setUp(): void
     {
         parent::setUp();
+
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['IconvExtraParams'] = '';
         $GLOBALS['server'] = 1;
@@ -69,7 +79,7 @@ class DbiDummyTest extends AbstractTestCase
     /**
      * Data provider for schema test
      */
-    public function schemaData(): array
+    public static function schemaData(): array
     {
         return [
             [
@@ -97,14 +107,14 @@ class DbiDummyTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $this->assertEquals(
             $expected,
-            Utilities::formatError($number, $message)
+            Utilities::formatError($number, $message),
         );
     }
 
     /**
      * Data provider for error formatting test
      */
-    public function errorData(): array
+    public static function errorData(): array
     {
         return [
             [
@@ -133,11 +143,11 @@ class DbiDummyTest extends AbstractTestCase
     {
         $this->assertEquals(
             'a',
-            $this->dbi->escapeString('a')
+            $this->dbi->escapeString('a'),
         );
         $this->assertEquals(
             'a\\\'',
-            $this->dbi->escapeString('a\'')
+            $this->dbi->escapeString('a\''),
         );
     }
 }

@@ -1888,6 +1888,8 @@ Generic settings
     A secret key used to encrypt/decrypt the URL query string.
     Should be 32 bytes long.
 
+    .. seealso:: :ref:`faq2_10`
+
 Cookie authentication options
 -----------------------------
 
@@ -1896,13 +1898,33 @@ Cookie authentication options
     :type: string
     :default: ``''``
 
-    The "cookie" auth\_type uses AES algorithm to encrypt the password. If you
-    are using the "cookie" auth\_type, enter here a random passphrase of your
-    choice. It will be used internally by the AES algorithm: you won’t be
-    prompted for this passphrase.
+    The "cookie" auth\_type uses the :term:`Sodium` extension to encrypt the cookies (see :term:`Cookie`). If you are
+    using the "cookie" auth\_type, enter here a generated string of random bytes to be used as an encryption key. It
+    will be used internally by the :term:`Sodium` extension: you won't be prompted for this encryption key.
 
-    The secret should be 32 characters long. Using shorter will lead to weaker security
-    of encrypted cookies, using longer will cause no harm.
+    Since a binary string is usually not printable, it can be converted into a hexadecimal representation (using a
+    function like `sodium_bin2hex <https://www.php.net/sodium_bin2hex>`_) and then used in the configuration file. For
+    example:
+
+    .. code-block:: php
+
+        // The string is a hexadecimal representation of a 32-bytes long string of random bytes.
+        $cfg['blowfish_secret'] = sodium_hex2bin('f16ce59f45714194371b48fe362072dc3b019da7861558cd4ad29e4d6fb13851');
+
+    Using a binary string is recommended. However, if all 32 bytes of the string are visible
+    characters, then a function like `sodium_bin2hex <https://www.php.net/sodium_bin2hex>`_ is not required. For
+    example:
+
+    .. code-block:: php
+
+        // A string of 32 characters.
+        $cfg['blowfish_secret'] = 'JOFw435365IScA&Q!cDugr!lSfuAz*OW';
+
+    .. warning::
+
+        The encryption key must be 32 bytes long. If it is longer than the length of bytes, only the first 32 bytes will
+        be used, and if it is shorter, a new temporary key will be automatically generated for you. However, this
+        temporary key will only last for the duration of the session.
 
     .. note::
 
@@ -1910,10 +1932,20 @@ Cookie authentication options
         Blowfish algorithm was originally used to do the encryption.
 
     .. versionchanged:: 3.1.0
+
         Since version 3.1.0 phpMyAdmin can generate this on the fly, but it
         makes a bit weaker security as this generated secret is stored in
         session and furthermore it makes impossible to recall user name from
         cookie.
+
+    .. versionchanged:: 5.2.0
+
+        Since version 5.2.0, phpMyAdmin uses the
+        `sodium\_crypto\_secretbox <https://www.php.net/sodium_crypto_secretbox>`_ and
+        `sodium\_crypto\_secretbox\_open <https://www.php.net/sodium_crypto_secretbox_open>`_ PHP functions to encrypt
+        and decrypt cookies, respectively.
+
+    .. seealso:: :ref:`faq2_10`
 
 .. config:option:: $cfg['CookieSameSite']
 
@@ -2729,6 +2761,15 @@ Export and import settings
 
     .. seealso:: :ref:`faq6_27`
 
+.. config:option:: $cfg['Export']['remove_definer_from_definitions']
+
+    :type: boolean
+    :default: false
+
+    Remove DEFINER clause from the event, view and routine definitions.
+
+    .. versionadded:: 5.2.0
+
 .. config:option:: $cfg['Import']
 
     :type: array
@@ -3460,6 +3501,10 @@ Various display setting
 Page titles
 -----------
 
+The page title displayed by your browser's window or tab title bar can be customized. You can use :ref:`faq6_27`.
+The following four options allow customizing various parts of the phpMyAdmin interface. Note that the login page
+title cannot be changed.
+
 .. config:option:: $cfg['TitleTable']
 
     :type: string
@@ -3479,8 +3524,6 @@ Page titles
 
     :type: string
     :default: ``'@HTTP_HOST@ | @PHPMYADMIN@'``
-
-    Allows you to specify window's title bar. You can use :ref:`faq6_27`.
 
 Theme manager settings
 ----------------------
@@ -3800,8 +3843,8 @@ following example shows two of them:
 .. code-block:: php
 
     <?php
-    $cfg['blowfish_secret'] = 'multiServerExample70518';
-    // any string of your choice
+    // The string is a hexadecimal representation of a 32-bytes long string of random bytes.
+    $cfg['blowfish_secret'] = sodium_hex2bin('f16ce59f45714194371b48fe362072dc3b019da7861558cd4ad29e4d6fb13851');
     $i = 0;
 
     $i++; // server 1 :
@@ -3881,7 +3924,7 @@ download the CA server certificate and tell phpMyAdmin to use it:
 .. code-block:: php
 
     // Address of your instance
-    $cfg['Servers'][$i]['host'] = 'replace-me-custer-name.cluster-replace-me-id.replace-me-region.rds.amazonaws.com';
+    $cfg['Servers'][$i]['host'] = 'replace-me-cluster-name.cluster-replace-me-id.replace-me-region.rds.amazonaws.com';
     // Use SSL for connection
     $cfg['Servers'][$i]['ssl'] = true;
     // You need to have the region CA file and the authority CA file (2019 edition CA for example) in the PEM bundle for it to work
@@ -3921,3 +3964,20 @@ reCaptcha using hCaptcha
 
 .. seealso:: `hCaptcha website <https://www.hcaptcha.com/>`_
 .. seealso:: `hCaptcha Developer Guide <https://docs.hcaptcha.com/>`_
+
+reCaptcha using Turnstile
++++++++++++++++++++++++++
+
+.. code-block:: php
+
+    $cfg['CaptchaMethod'] = 'checkbox';
+    $cfg['CaptchaApi'] = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+    $cfg['CaptchaCsp'] = 'https://challenges.cloudflare.com https://static.cloudflareinsights.com';
+    $cfg['CaptchaRequestParam'] = 'cf-turnstile';
+    $cfg['CaptchaResponseParam'] = 'cf-turnstile-response';
+    $cfg['CaptchaLoginPublicKey'] = '0xxxxxxxxxxxxxxxxxxxxxx';
+    $cfg['CaptchaLoginPrivateKey'] = '0x4AAAAAAAA_xx_xxxxxxxxxxxxxxxxxxxx';
+    $cfg['CaptchaSiteVerifyURL'] = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+    
+.. seealso:: `Cloudflare Dashboard <https://dash.cloudflare.com/>` 
+.. seealso:: `Turnstile Developer Guide <https://developers.cloudflare.com/turnstile/get-started/>` 

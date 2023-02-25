@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
@@ -20,29 +21,19 @@ use function implode;
  */
 class StatusController extends AbstractController
 {
-    /** @var ReplicationGui */
-    private $replicationGui;
-
-    /** @var DatabaseInterface */
-    private $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
         Data $data,
-        ReplicationGui $replicationGui,
-        DatabaseInterface $dbi
+        private ReplicationGui $replicationGui,
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template, $data);
-        $this->replicationGui = $replicationGui;
-        $this->dbi = $dbi;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $errorUrl;
-
-        $errorUrl = Url::getFromRoute('/');
+        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
@@ -62,7 +53,7 @@ class StatusController extends AbstractController
                 $bytes = Util::formatByteDown(
                     $this->data->status['Bytes_received'] + $this->data->status['Bytes_sent'],
                     3,
-                    1
+                    1,
                 );
                 $networkTraffic = implode(' ', $bytes);
             }
@@ -76,13 +67,20 @@ class StatusController extends AbstractController
             $traffic = $this->getTrafficInfo();
 
             $connections = $this->getConnectionsInfo();
+            $primaryConnection = $request->getParsedBodyParam('primary_connection');
 
             if ($primaryInfo['status']) {
-                $replication .= $this->replicationGui->getHtmlForReplicationStatusTable('primary');
+                $replication .= $this->replicationGui->getHtmlForReplicationStatusTable(
+                    $primaryConnection,
+                    'primary',
+                );
             }
 
             if ($replicaInfo['status']) {
-                $replication .= $this->replicationGui->getHtmlForReplicationStatusTable('replica');
+                $replication .= $this->replicationGui->getHtmlForReplicationStatusTable(
+                    $primaryConnection,
+                    'replica',
+                );
             }
         }
 
@@ -104,9 +102,7 @@ class StatusController extends AbstractController
         return (int) $this->dbi->fetchValue('SELECT UNIX_TIMESTAMP() - ' . $this->data->status['Uptime']);
     }
 
-    /**
-     * @return array
-     */
+    /** @return array */
     private function getTrafficInfo(): array
     {
         $hourFactor = 3600 / $this->data->status['Uptime'];
@@ -123,13 +119,13 @@ class StatusController extends AbstractController
         $bytesTotal = Util::formatByteDown(
             $this->data->status['Bytes_received'] + $this->data->status['Bytes_sent'],
             3,
-            1
+            1,
         );
         /** @var string[] $bytesTotalPerHour */
         $bytesTotalPerHour = Util::formatByteDown(
             ($this->data->status['Bytes_received'] + $this->data->status['Bytes_sent']) * $hourFactor,
             3,
-            1
+            1,
         );
 
         return [
@@ -151,9 +147,7 @@ class StatusController extends AbstractController
         ];
     }
 
-    /**
-     * @return array
-     */
+    /** @return array */
     private function getConnectionsInfo(): array
     {
         $hourFactor = 3600 / $this->data->status['Uptime'];
@@ -165,14 +159,14 @@ class StatusController extends AbstractController
                 $this->data->status['Aborted_connects'] * 100 / $this->data->status['Connections'],
                 0,
                 2,
-                true
+                true,
             ) . '%';
 
             $abortedPercentage = Util::formatNumber(
                 $this->data->status['Aborted_clients'] * 100 / $this->data->status['Connections'],
                 0,
                 2,
-                true
+                true,
             ) . '%';
         }
 

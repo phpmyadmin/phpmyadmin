@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins;
 
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
@@ -24,10 +25,8 @@ abstract class SchemaPlugin implements Plugin
 {
     /**
      * Object containing the specific schema export plugin type properties.
-     *
-     * @var SchemaPluginProperties
      */
-    protected $properties;
+    protected SchemaPluginProperties $properties;
 
     final public function __construct()
     {
@@ -57,12 +56,8 @@ abstract class SchemaPlugin implements Plugin
      */
     abstract protected function setProperties(): SchemaPluginProperties;
 
-    /**
-     * Exports the schema into the specified format.
-     *
-     * @param string $db database name
-     */
-    abstract public function exportSchema($db): bool;
+    /** @return array{fileName: non-empty-string, mediaType: non-empty-string, fileData: string} */
+    abstract public function getExportInfo(DatabaseName $db): array;
 
     /**
      * Adds export options common to all plugins.
@@ -82,7 +77,7 @@ abstract class SchemaPlugin implements Plugin
      *
      * @return array array of paper sizes
      */
-    protected function getPaperSizeArray()
+    protected function getPaperSizeArray(): array
     {
         $ret = [];
         foreach ($GLOBALS['cfg']['PDFPageSizes'] as $val) {
@@ -92,7 +87,7 @@ abstract class SchemaPlugin implements Plugin
         return $ret;
     }
 
-    public function isAvailable(): bool
+    public static function isAvailable(): bool
     {
         return true;
     }

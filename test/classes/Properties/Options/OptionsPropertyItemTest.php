@@ -8,9 +8,7 @@ use PhpMyAdmin\Properties\Options\OptionsPropertyItem;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\MockObject\MockObject;
 
-/**
- * @covers \PhpMyAdmin\Properties\Options\OptionsPropertyItem
- */
+/** @covers \PhpMyAdmin\Properties\Options\OptionsPropertyItem */
 class OptionsPropertyItemTest extends AbstractTestCase
 {
     /** @var OptionsPropertyItem|MockObject */
@@ -22,6 +20,7 @@ class OptionsPropertyItemTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->stub = $this->getMockForAbstractClass(OptionsPropertyItem::class);
     }
 
@@ -31,6 +30,7 @@ class OptionsPropertyItemTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->stub);
     }
 
@@ -45,7 +45,7 @@ class OptionsPropertyItemTest extends AbstractTestCase
 
         $this->assertEquals(
             'name123',
-            $this->stub->getName()
+            $this->stub->getName(),
         );
     }
 
@@ -60,7 +60,7 @@ class OptionsPropertyItemTest extends AbstractTestCase
 
         $this->assertEquals(
             'text123',
-            $this->stub->getText()
+            $this->stub->getText(),
         );
     }
 
@@ -75,7 +75,7 @@ class OptionsPropertyItemTest extends AbstractTestCase
 
         $this->assertEquals(
             'force123',
-            $this->stub->getForce()
+            $this->stub->getForce(),
         );
     }
 
@@ -83,7 +83,7 @@ class OptionsPropertyItemTest extends AbstractTestCase
     {
         $this->assertEquals(
             'options',
-            $this->stub->getPropertyType()
+            $this->stub->getPropertyType(),
         );
     }
 }

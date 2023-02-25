@@ -81,12 +81,9 @@ class File
     /** @var string charset of file */
     protected $charset = null;
 
-    /** @var ZipExtension */
-    private $zipExtension;
+    private ZipExtension $zipExtension;
 
-    /**
-     * @param bool|string $name file name or false
-     */
+    /** @param bool|string $name file name or false */
     public function __construct($name = false)
     {
         if ($name && is_string($name)) {
@@ -136,7 +133,7 @@ class File
      *
      * @param bool $is_temp sets the temp flag
      */
-    public function isTemp(?bool $is_temp = null): bool
+    public function isTemp(bool|null $is_temp = null): bool
     {
         if ($is_temp !== null) {
             $this->isTemp = $is_temp;
@@ -150,7 +147,7 @@ class File
      *
      * @param string|null $name file name
      */
-    public function setName(?string $name): void
+    public function setName(string|null $name): void
     {
         $this->name = trim((string) $name);
     }
@@ -160,7 +157,7 @@ class File
      *
      * @return string|false the binary file content, or false if no content
      */
-    public function getRawContent()
+    public function getRawContent(): string|false
     {
         if ($this->content !== null) {
             return $this->content;
@@ -185,7 +182,7 @@ class File
      * @return string|false the binary file content as a string,
      *                      or false if no content
      */
-    public function getContent()
+    public function getContent(): string|false
     {
         $result = $this->getRawContent();
         if ($result === false) {
@@ -212,7 +209,7 @@ class File
      *
      * @return string|null File::$_name
      */
-    public function getName(): ?string
+    public function getName(): string|null
     {
         return $this->name;
     }
@@ -244,7 +241,7 @@ class File
      */
     public function setUploadedFromTblChangeRequest(
         string $key,
-        string $rownumber
+        string $rownumber,
     ): bool {
         if (
             ! isset($_FILES['fields_upload'])
@@ -263,17 +260,17 @@ class File
                 break;
             case UPLOAD_ERR_INI_SIZE:
                 $this->errorMessage = Message::error(__(
-                    'The uploaded file exceeds the upload_max_filesize directive in php.ini.'
+                    'The uploaded file exceeds the upload_max_filesize directive in php.ini.',
                 ));
                 break;
             case UPLOAD_ERR_FORM_SIZE:
                 $this->errorMessage = Message::error(__(
-                    'The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form.'
+                    'The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form.',
                 ));
                 break;
             case UPLOAD_ERR_PARTIAL:
                 $this->errorMessage = Message::error(__(
-                    'The uploaded file was only partially uploaded.'
+                    'The uploaded file was only partially uploaded.',
                 ));
                 break;
             case UPLOAD_ERR_NO_TMP_DIR:
@@ -316,13 +313,11 @@ class File
      * @param string $key       key to process
      *
      * @return array
-     *
-     * @static
      */
     public function fetchUploadedFromTblChangeRequestMultiple(
         array $file,
         string $rownumber,
-        string $key
+        string $key,
     ): array {
         return [
             'name' => $file['name']['multi_edit'][$rownumber][$key],
@@ -341,7 +336,7 @@ class File
      */
     public function setSelectedFromTblChangeRequest(
         string $key,
-        ?string $rownumber = null
+        string|null $rownumber = null,
     ): bool {
         if (
             ! empty($_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key])
@@ -359,7 +354,7 @@ class File
      *
      * @return Message|null error message
      */
-    public function getError(): ?Message
+    public function getError(): Message|null
     {
         return $this->errorMessage;
     }
@@ -416,7 +411,7 @@ class File
         }
 
         $this->setName(
-            Util::userDir($GLOBALS['cfg']['UploadDir']) . Core::securePath($name)
+            Util::userDir($GLOBALS['cfg']['UploadDir']) . Core::securePath($name),
         );
         if (@is_link((string) $this->getName())) {
             $this->errorMessage = Message::error(__('File is a symbolic link'));
@@ -462,7 +457,7 @@ class File
         if ($tmp_subdir === null) {
             // cannot create directory or access, point user to FAQ 1.11
             $this->errorMessage = Message::error(__(
-                'Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc].'
+                'Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc].',
             ));
 
             return false;
@@ -470,7 +465,7 @@ class File
 
         $new_file_to_upload = (string) tempnam(
             $tmp_subdir,
-            basename((string) $this->getName())
+            basename((string) $this->getName()),
         );
 
         // suppress warnings from being displayed, but not from being logged
@@ -478,7 +473,7 @@ class File
         ob_start();
         $move_uploaded_file_result = move_uploaded_file(
             (string) $this->getName(),
-            $new_file_to_upload
+            $new_file_to_upload,
         );
         ob_end_clean();
         if (! $move_uploaded_file_result) {
@@ -508,7 +503,7 @@ class File
      * @todo   move file read part into readChunk() or getChunk()
      * @todo   add support for compression plugins
      */
-    protected function detectCompression()
+    protected function detectCompression(): string|false
     {
         // suppress warnings from being displayed, but not from being logged
         // f.e. any file access outside of open_basedir will issue a warning
@@ -570,9 +565,9 @@ class File
             __(
                 'You attempted to load file with unsupported compression (%s). '
                 . 'Either support for it is not implemented or disabled by your '
-                . 'configuration.'
+                . 'configuration.',
             ),
-            $this->getCompression()
+            $this->getCompression(),
         ));
     }
 
@@ -633,7 +628,7 @@ class File
      *
      * @param string|null $specific_entry Entry to open
      */
-    public function openZip(?string $specific_entry = null): bool
+    public function openZip(string|null $specific_entry = null): bool
     {
         $result = $this->zipExtension->getContents($this->getName(), $specific_entry);
         if (! empty($result['error'])) {

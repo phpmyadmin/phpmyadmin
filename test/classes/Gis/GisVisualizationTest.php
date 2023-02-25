@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests\Gis;
 use PhpMyAdmin\Gis\GisVisualization;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Gis\GisVisualization
- */
+/** @covers \PhpMyAdmin\Gis\GisVisualization */
 class GisVisualizationTest extends AbstractTestCase
 {
     /**
@@ -26,7 +24,7 @@ class GisVisualizationTest extends AbstractTestCase
             $gis,
             GisVisualization::class,
             'handleOptions',
-            []
+            [],
         );
         $dataSet = $this->callFunction(
             $gis,
@@ -37,20 +35,20 @@ class GisVisualizationTest extends AbstractTestCase
                     ['abc' => null],// The column is nullable
                     ['abc' => 2],// Some impossible test case
                 ],
-            ]
+            ],
         );
         $this->assertSame(
             [
                 'scale' => 1,
-                'x' => -15.0,
-                'y' => -210.0,
+                'x' => -300.0,
+                'y' => -225.0,
                 'minX' => 0.0,
                 'maxX' => 0.0,
                 'minY' => 0.0,
                 'maxY' => 0.0,
                 'height' => 450,
             ],
-            $dataSet
+            $dataSet,
         );
         $dataSet = $this->callFunction(
             $gis,
@@ -64,12 +62,12 @@ class GisVisualizationTest extends AbstractTestCase
                     ['abc' => 'POINT(100 250)'],
                     ['abc' => 'MULTIPOINT(125 50,156 250,178 143,175 80)'],
                 ],
-            ]
+            ],
         );
         $this->assertSame(
             [
                 'scale' => 2.1,
-                'x' => -38.21428571428572,
+                'x' => -45.35714285714286,
                 'y' => 42.85714285714286,
                 'minX' => 17.0,
                 'maxX' => 178.0,
@@ -78,7 +76,33 @@ class GisVisualizationTest extends AbstractTestCase
                 'height' => 450,
 
             ],
-            $dataSet
+            $dataSet,
+        );
+        // Regression test for bug with 0.0 sentinel values
+        $dataSet = $this->callFunction(
+            $gis,
+            GisVisualization::class,
+            'scaleDataSet',
+            [
+                [
+                    ['abc' => 'MULTIPOLYGON(((0 0,0 3,3 3,3 0,0 0),(1 1,1 2,2 2,2 1,1 1)))'],
+                    ['abc' => 'MULTIPOLYGON(((10 10,10 13,13 13,13 10,10 10),(11 11,11 12,12 12,12 11,11 11)))'],
+                ],
+            ],
+        );
+        $this->assertSame(
+            [
+                'scale' => 32.30769230769231,
+                'x' => -2.7857142857142865,
+                'y' => -0.4642857142857143,
+                'minX' => 0.0,
+                'maxX' => 13.0,
+                'minY' => 0.0,
+                'maxY' => 13.0,
+                'height' => 450,
+
+            ],
+            $dataSet,
         );
     }
 
@@ -99,7 +123,7 @@ class GisVisualizationTest extends AbstractTestCase
                 '',
                 0,
                 0,
-            ]
+            ],
         );
 
         $this->assertEquals('SELECT ASTEXT(`abc`) AS `abc`, SRID(`abc`) AS `srid` FROM () AS `temp_gis`', $queryString);
@@ -122,12 +146,12 @@ class GisVisualizationTest extends AbstractTestCase
                 '',
                 0,
                 0,
-            ]
+            ],
         );
 
         $this->assertEquals(
             'SELECT ST_ASTEXT(`abc`) AS `abc`, ST_SRID(`abc`) AS `srid` FROM () AS `temp_gis`',
-            $queryString
+            $queryString,
         );
     }
 
@@ -148,12 +172,12 @@ class GisVisualizationTest extends AbstractTestCase
                 'SELECT 1 FROM foo;',
                 0,
                 0,
-            ]
+            ],
         );
 
         $this->assertEquals(
             'SELECT ST_ASTEXT(`abc`) AS `abc`, ST_SRID(`abc`) AS `srid` FROM (SELECT 1 FROM foo) AS `temp_gis`',
-            $queryString
+            $queryString,
         );
     }
 
@@ -175,13 +199,13 @@ class GisVisualizationTest extends AbstractTestCase
                 '',
                 0,
                 0,
-            ]
+            ],
         );
 
         $this->assertEquals(
             'SELECT `country name`, ST_ASTEXT(`country_geom`) AS `country_geom`,'
             . ' ST_SRID(`country_geom`) AS `srid` FROM () AS `temp_gis`',
-            $queryString
+            $queryString,
         );
     }
 
@@ -202,12 +226,12 @@ class GisVisualizationTest extends AbstractTestCase
                 '',
                 10,// 10 rows
                 0,
-            ]
+            ],
         );
 
         $this->assertEquals(
             'SELECT ST_ASTEXT(`abc`) AS `abc`, ST_SRID(`abc`) AS `srid` FROM () AS `temp_gis` LIMIT 0, 10',
-            $queryString
+            $queryString,
         );
 
         $queryString = $this->callFunction(
@@ -222,12 +246,12 @@ class GisVisualizationTest extends AbstractTestCase
                 '',
                 15,// 15 rows
                 10,// position 10
-            ]
+            ],
         );
 
         $this->assertEquals(
             'SELECT ST_ASTEXT(`abc`) AS `abc`, ST_SRID(`abc`) AS `srid` FROM () AS `temp_gis` LIMIT 10, 15',
-            $queryString
+            $queryString,
         );
     }
 
@@ -248,12 +272,12 @@ class GisVisualizationTest extends AbstractTestCase
                 '',
                 0,
                 0,
-            ]
+            ],
         );
 
         $this->assertEquals(
             'SELECT ST_ASTEXT(`abc`, \'axis-order=long-lat\') AS `abc`, ST_SRID(`abc`) AS `srid` FROM () AS `temp_gis`',
-            $queryString
+            $queryString,
         );
     }
 
@@ -274,12 +298,12 @@ class GisVisualizationTest extends AbstractTestCase
                 '',
                 0,
                 0,
-            ]
+            ],
         );
 
         $this->assertEquals(
             'SELECT ST_ASTEXT(`abc`) AS `abc`, ST_SRID(`abc`) AS `srid` FROM () AS `temp_gis`',
-            $queryString
+            $queryString,
         );
     }
 }

@@ -23,23 +23,19 @@ use SimpleXMLElement;
 use function __;
 use function count;
 use function implode;
-use function libxml_disable_entity_loader;
 use function rtrim;
 use function simplexml_load_string;
 use function strcmp;
 use function strlen;
 
 use const LIBXML_COMPACT;
-use const PHP_VERSION_ID;
 
 /**
  * Handles the import for the ODS format
  */
 class ImportOds extends ImportPlugin
 {
-    /**
-     * @psalm-return non-empty-lowercase-string
-     */
+    /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
         return 'ods';
@@ -65,25 +61,25 @@ class ImportOds extends ImportPlugin
             __(
                 'The first line of the file contains the table column names'
                 . ' <i>(if this is unchecked, the first line will become part'
-                . ' of the data)</i>'
-            )
+                . ' of the data)</i>',
+            ),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new BoolPropertyItem(
             'empty_rows',
-            __('Do not import empty rows')
+            __('Do not import empty rows'),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new BoolPropertyItem(
             'recognize_percentages',
             __(
-                'Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>'
-            )
+                'Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>',
+            ),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new BoolPropertyItem(
             'recognize_currency',
-            __('Import currencies <i>(ex. $5.00 to 5.00)</i>')
+            __('Import currencies <i>(ex. $5.00 to 5.00)</i>'),
         );
         $generalOptions->addProperty($leaf);
 
@@ -99,19 +95,22 @@ class ImportOds extends ImportPlugin
     /**
      * Handles the whole import logic
      *
-     * @param array $sql_data 2-element array with sql data
+     * @return string[]
      */
-    public function doImport(?File $importHandle = null, array &$sql_data = []): void
+    public function doImport(File|null $importHandle = null): array
     {
-        global $db, $error, $timeout_passed, $finished;
+        $GLOBALS['error'] ??= null;
+        $GLOBALS['timeout_passed'] ??= null;
+        $GLOBALS['finished'] ??= null;
 
+        $sqlStatements = [];
         $buffer = '';
 
         /**
          * Read in the file via Import::getNextChunk so that
          * it can process compressed files
          */
-        while (! $finished && ! $error && ! $timeout_passed) {
+        while (! $GLOBALS['finished'] && ! $GLOBALS['error'] && ! $GLOBALS['timeout_passed']) {
             $data = $this->import->getNextChunk($importHandle);
             if ($data === false) {
                 /* subtract data we didn't handle yet and stop processing */
@@ -128,14 +127,6 @@ class ImportOds extends ImportPlugin
         }
 
         /**
-         * Disable loading of external XML entities for PHP versions below 8.0.
-         */
-        if (PHP_VERSION_ID < 80000) {
-            // phpcs:ignore Generic.PHP.DeprecatedFunctions.Deprecated
-            libxml_disable_entity_loader();
-        }
-
-        /**
          * Load the XML string
          *
          * The option LIBXML_COMPACT is specified because it can
@@ -148,11 +139,9 @@ class ImportOds extends ImportPlugin
 
         if ($xml === false) {
             $sheets = [];
-            $GLOBALS['message'] = Message::error(
-                __(
-                    'The XML file specified was either malformed or incomplete. Please correct the issue and try again.'
-                )
-            );
+            $GLOBALS['message'] = Message::error(__(
+                'The XML file specified was either malformed or incomplete. Please correct the issue and try again.',
+            ));
             $GLOBALS['error'] = true;
         } else {
             /** @var SimpleXMLElement $root */
@@ -160,7 +149,7 @@ class ImportOds extends ImportPlugin
             if (empty($root)) {
                 $sheets = [];
                 $GLOBALS['message'] = Message::error(
-                    __('Could not parse OpenDocument Spreadsheet!')
+                    __('Could not parse OpenDocument Spreadsheet!'),
                 );
                 $GLOBALS['error'] = true;
             } else {
@@ -215,18 +204,20 @@ class ImportOds extends ImportPlugin
          */
 
         /* Set database name to the currently selected one, if applicable */
-        [$db_name, $options] = $this->getDbnameAndOptions($db, 'ODS_DB');
+        [$db_name, $options] = $this->getDbnameAndOptions($GLOBALS['db'], 'ODS_DB');
 
         /* Non-applicable parameters */
         $create = null;
 
         /* Created and execute necessary SQL statements from data */
-        $this->import->buildSql($db_name, $tables, $analyses, $create, $options, $sql_data);
+        $this->import->buildSql($db_name, $tables, $analyses, $create, $options, $sqlStatements);
 
         unset($tables, $analyses);
 
         /* Commit any possible data in buffers */
-        $this->import->runQuery('', '', $sql_data);
+        $this->import->runQuery('', $sqlStatements);
+
+        return $sqlStatements;
     }
 
     /**
@@ -234,10 +225,8 @@ class ImportOds extends ImportPlugin
      *
      * @param SimpleXMLElement $cell_attrs Cell attributes
      * @param SimpleXMLElement $text       Texts
-     *
-     * @return float|string
      */
-    protected function getValue($cell_attrs, $text)
+    protected function getValue($cell_attrs, $text): float|string
     {
         if (
             isset($_REQUEST['ods_recognize_percentages'])
@@ -277,7 +266,7 @@ class ImportOds extends ImportPlugin
         bool $col_names_in_first_row,
         array $tempRow,
         array $col_names,
-        int $col_count
+        int $col_count,
     ): array {
         $cellCount = $row->count();
         $a = 0;
@@ -348,7 +337,7 @@ class ImportOds extends ImportPlugin
         array $col_names,
         int $col_count,
         int $max_cols,
-        array $tempRows
+        array $tempRows,
     ): array {
         foreach ($sheet as $row) {
             $type = $row->getName();
@@ -361,7 +350,7 @@ class ImportOds extends ImportPlugin
                 $col_names_in_first_row,
                 $tempRow,
                 $col_names,
-                $col_count
+                $col_count,
             );
 
             /* Find the widest row */
@@ -396,7 +385,7 @@ class ImportOds extends ImportPlugin
      *
      * @return array|array[]
      */
-    private function iterateOverTables($sheets): array
+    private function iterateOverTables(array|SimpleXMLElement $sheets): array
     {
         $tables = [];
         $max_cols = 0;
@@ -417,7 +406,7 @@ class ImportOds extends ImportPlugin
                 $col_names,
                 $col_count,
                 $max_cols,
-                $tempRows
+                $tempRows,
             );
 
             /* Skip over empty sheets */

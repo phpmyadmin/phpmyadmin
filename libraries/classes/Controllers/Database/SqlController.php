@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
@@ -18,34 +20,27 @@ use function htmlspecialchars;
  */
 class SqlController extends AbstractController
 {
-    /** @var SqlQueryForm */
-    private $sqlQueryForm;
-
-    public function __construct(ResponseRenderer $response, Template $template, string $db, SqlQueryForm $sqlQueryForm)
+    public function __construct(ResponseRenderer $response, Template $template, private SqlQueryForm $sqlQueryForm)
     {
-        parent::__construct($response, $template, $db);
-        $this->sqlQueryForm = $sqlQueryForm;
+        parent::__construct($response, $template);
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $goto, $back, $db, $cfg, $errorUrl;
+        $GLOBALS['goto'] ??= null;
+        $GLOBALS['back'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
 
-        $this->addScriptFiles([
-            'makegrid.js',
-            'vendor/jquery/jquery.uitablefilter.js',
-            'vendor/stickyfill.min.js',
-            'sql.js',
-        ]);
+        $this->addScriptFiles(['makegrid.js', 'vendor/jquery/jquery.uitablefilter.js', 'sql.js']);
 
         $pageSettings = new PageSettings('Sql');
         $this->response->addHTML($pageSettings->getErrorHTML());
         $this->response->addHTML($pageSettings->getHTML());
 
-        Util::checkParameters(['db']);
+        $this->checkParameters(['db']);
 
-        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $errorUrl .= Url::getCommon(['db' => $db], '&');
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
         if (! $this->hasDatabase()) {
             return;
@@ -55,17 +50,16 @@ class SqlController extends AbstractController
          * After a syntax error, we return to this script
          * with the typed query in the textarea.
          */
-        $goto = Url::getFromRoute('/database/sql');
-        $back = $goto;
+        $GLOBALS['goto'] = Url::getFromRoute('/database/sql');
+        $GLOBALS['back'] = $GLOBALS['goto'];
+        $delimiter = $request->getParsedBodyParam('delimiter', ';');
 
         $this->response->addHTML($this->sqlQueryForm->getHtml(
-            $db,
+            $GLOBALS['db'],
             '',
             true,
             false,
-            isset($_POST['delimiter'])
-                ? htmlspecialchars($_POST['delimiter'])
-                : ';'
+            htmlspecialchars($delimiter),
         ));
     }
 }

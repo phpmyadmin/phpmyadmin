@@ -20,35 +20,18 @@ class GisFactory
      * @param string $type type of the geometric object
      *
      * @return GisGeometry|false the singleton instance of geometric class of the given type
-     *
-     * @static
      */
-    public static function factory($type)
+    public static function factory($type): GisGeometry|false
     {
-        switch (strtoupper($type)) {
-            case 'MULTIPOLYGON':
-                return GisMultiPolygon::singleton();
-
-            case 'POLYGON':
-                return GisPolygon::singleton();
-
-            case 'MULTIPOINT':
-                return GisMultiPoint::singleton();
-
-            case 'POINT':
-                return GisPoint::singleton();
-
-            case 'MULTILINESTRING':
-                return GisMultiLineString::singleton();
-
-            case 'LINESTRING':
-                return GisLineString::singleton();
-
-            case 'GEOMETRYCOLLECTION':
-                return GisGeometryCollection::singleton();
-
-            default:
-                return false;
-        }
+        return match (strtoupper($type)) {
+            'MULTIPOLYGON' => GisMultiPolygon::singleton(),
+            'POLYGON' => GisPolygon::singleton(),
+            'MULTIPOINT' => GisMultiPoint::singleton(),
+            'POINT' => GisPoint::singleton(),
+            'MULTILINESTRING' => GisMultiLineString::singleton(),
+            'LINESTRING' => GisLineString::singleton(),
+            'GEOMETRYCOLLECTION' => GisGeometryCollection::singleton(),
+            default => false,
+        };
     }
 }

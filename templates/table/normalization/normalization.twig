@@ -1,0 +1,26 @@
+<form method="post" action="{{ url('/normalization/1nf/step1') }}" name="normalize" id="normalizeTable">
+  {{ get_hidden_inputs(db, table) }}
+
+  <fieldset class="pma-fieldset">
+    <legend>{{ 'Improve table structure (Normalization):'|trans }}</legend>
+
+    <h3>{{ 'Select up to what step you want to normalize'|trans }}</h3>
+
+    <div>
+      <input type="radio" name="normalizeTo" id="normalizeToRadio1" value="1nf" checked>
+      <label for="normalizeToRadio1">{{ 'First step of normalization (1NF)'|trans }}</label>
+    </div>
+    <div>
+      <input type="radio" name="normalizeTo" id="normalizeToRadio2" value="2nf">
+      <label for="normalizeToRadio2">{{ 'Second step of normalization (1NF+2NF)'|trans }}</label>
+    </div>
+    <div>
+      <input type="radio" name="normalizeTo" id="normalizeToRadio3" value="3nf">
+      <label for="normalizeToRadio3">{{ 'Third step of normalization (1NF+2NF+3NF)'|trans }}</label>
+    </div>
+  </fieldset>
+  <fieldset class="pma-fieldset tblFooters">
+    <span class="float-start">{{ 'Hint: Please follow the procedure carefully in order to obtain correct normalization'|trans }}</span>
+    <input class="btn btn-primary" type="submit" name="submit_normalize" value="{{ 'Go'|trans }}">
+  </fieldset>
+</form>

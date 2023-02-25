@@ -18,20 +18,20 @@ use function unlink;
 use const LC_ALL;
 use const PHP_INT_SIZE;
 
-/**
- * @covers \PhpMyAdmin\Encoding
- */
+/** @covers \PhpMyAdmin\Encoding */
 class EncodingTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
+
         Encoding::initEngine();
     }
 
     protected function tearDown(): void
     {
         parent::tearDown();
+
         Encoding::initEngine();
     }
 
@@ -44,7 +44,7 @@ class EncodingTest extends AbstractTestCase
     {
         $this->assertEquals(
             'test',
-            Encoding::convertString('UTF-8', 'UTF-8', 'test')
+            Encoding::convertString('UTF-8', 'UTF-8', 'test'),
         );
     }
 
@@ -54,13 +54,11 @@ class EncodingTest extends AbstractTestCase
         Encoding::setEngine(-1);
         $this->assertEquals(
             'test',
-            Encoding::convertString('UTF-8', 'anything', 'test')
+            Encoding::convertString('UTF-8', 'anything', 'test'),
         );
     }
 
-    /**
-     * @requires extension recode
-     */
+    /** @requires extension recode */
     public function testRecode(): void
     {
         Encoding::setEngine(Encoding::ENGINE_RECODE);
@@ -69,8 +67,8 @@ class EncodingTest extends AbstractTestCase
             Encoding::convertString(
                 'UTF-8',
                 'flat',
-                'Only That école & Can Be My Blame'
-            )
+                'Only That école & Can Be My Blame',
+            ),
         );
     }
 
@@ -101,8 +99,8 @@ class EncodingTest extends AbstractTestCase
                 Encoding::convertString(
                     'UTF-8',
                     'ISO-8859-1',
-                    "This is the Euro symbol '€'."
-                )
+                    "This is the Euro symbol '€'.",
+                ),
             );
         } elseif (PHP_INT_SIZE === 4) {
             // NOTE: this does not work on 32bit systems and requires "//IGNORE"
@@ -114,8 +112,8 @@ class EncodingTest extends AbstractTestCase
                 Encoding::convertString(
                     'UTF-8',
                     'ISO-8859-1',
-                    "This is the Euro symbol '€'."
-                )
+                    "This is the Euro symbol '€'.",
+                ),
             );
         }
     }
@@ -128,8 +126,8 @@ class EncodingTest extends AbstractTestCase
             Encoding::convertString(
                 'UTF-8',
                 'ISO-8859-1',
-                "This is the Euro symbol '€'."
-            )
+                "This is the Euro symbol '€'.",
+            ),
         );
     }
 
@@ -152,24 +150,24 @@ class EncodingTest extends AbstractTestCase
     {
         $this->assertEquals(
             'test',
-            Encoding::kanjiStrConv('test', '', '')
+            Encoding::kanjiStrConv('test', '', ''),
         );
 
         $GLOBALS['kanji_encoding_list'] = 'ASCII,SJIS,EUC-JP,JIS';
 
         $this->assertEquals(
             'test è',
-            Encoding::kanjiStrConv('test è', '', '')
+            Encoding::kanjiStrConv('test è', '', ''),
         );
 
         $this->assertEquals(
             mb_convert_encoding('test è', 'ASCII', 'SJIS'),
-            Encoding::kanjiStrConv('test è', 'ASCII', '')
+            Encoding::kanjiStrConv('test è', 'ASCII', ''),
         );
 
         $this->assertEquals(
             mb_convert_kana('全角', 'KV', 'SJIS'),
-            Encoding::kanjiStrConv('全角', '', 'kana')
+            Encoding::kanjiStrConv('全角', '', 'kana'),
         );
     }
 

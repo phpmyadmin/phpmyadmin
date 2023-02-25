@@ -28,10 +28,8 @@ class Logging
 {
     /**
      * Get authentication logging destination
-     *
-     * @return string
      */
-    public static function getLogDestination()
+    public static function getLogDestination(): string
     {
         $log_file = $GLOBALS['config']->get('AuthLog');
 
@@ -54,10 +52,8 @@ class Logging
      *
      * @param string $user   user name
      * @param string $status status message
-     *
-     * @return string
      */
-    public static function getLogMessage($user, $status)
+    public static function getLogMessage($user, $status): string
     {
         if ($status === 'ok') {
             return 'user authenticated: ' . $user . ' from ' . Core::getIp();
@@ -104,7 +100,7 @@ class Logging
             @error_log(
                 date('M d H:i:s') . ' phpmyadmin: ' . $message . "\n",
                 3,
-                $log_file
+                $log_file,
             );
         }
     }

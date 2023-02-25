@@ -21,15 +21,8 @@ use function str_contains;
  */
 class CheckUserPrivileges
 {
-    /** @var DatabaseInterface */
-    private $dbi;
-
-    /**
-     * @param DatabaseInterface $dbi DatabaseInterface object
-     */
-    public function __construct(DatabaseInterface $dbi)
+    public function __construct(private DatabaseInterface $dbi)
     {
-        $this->dbi = $dbi;
     }
 
     /**
@@ -37,7 +30,7 @@ class CheckUserPrivileges
      *
      * @param string $row grant row
      *
-     * @return array
+     * @return array<int,string>
      */
     public function getItemsFromShowGrantsRow(string $row): array
     {
@@ -62,13 +55,13 @@ class CheckUserPrivileges
         $showGrantsString = mb_substr(
             $row,
             6,
-            mb_strpos($row, ' ON ') - 6
+            mb_strpos($row, ' ON ') - 6,
         );
 
         $showGrantsTableName = mb_substr(
             $row,
             $tableNameStartOffset + 1,
-            $tableNameEndOffset - $tableNameStartOffset - 1
+            $tableNameEndOffset - $tableNameStartOffset - 1,
         );
         $showGrantsTableName = Util::unQuote($showGrantsTableName, '`');
 
@@ -90,7 +83,7 @@ class CheckUserPrivileges
     public function checkRequiredPrivilegesForAdjust(
         string $showGrantsString,
         string $showGrantsDbName,
-        string $showGrantsTableName
+        string $showGrantsTableName,
     ): void {
         // '... ALL PRIVILEGES ON *.* ...' OR '... ALL PRIVILEGES ON `mysql`.* ..'
         // OR
@@ -260,8 +253,8 @@ class CheckUserPrivileges
                     'USE ' . preg_replace(
                         '/' . $re1 . '(%|_)/',
                         '\\1\\3',
-                        $dbNameToTest
-                    )
+                        $dbNameToTest,
+                    ),
                 )
                 || mb_substr($this->dbi->getError(), 1, 4) == 1044)
             ) {
@@ -280,8 +273,8 @@ class CheckUserPrivileges
              * @todo collect $GLOBALS['db_to_create'] into an array,
              * to display a drop-down in the "Create database" dialog
              */
-             // we don't break, we want all possible databases
-             //break;
+            // we don't break, we want all possible databases
+            //break;
         }
 
         // must also cacheUnset() them in

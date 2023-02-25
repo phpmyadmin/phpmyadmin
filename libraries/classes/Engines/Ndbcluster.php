@@ -19,7 +19,7 @@ class Ndbcluster extends StorageEngine
      *
      * @return array   variable names
      */
-    public function getVariables()
+    public function getVariables(): array
     {
         return [
             'ndb_connectstring' => [],
@@ -32,7 +32,7 @@ class Ndbcluster extends StorageEngine
      *
      * @return string  SQL query LIKE pattern
      */
-    public function getVariablesLikePattern()
+    public function getVariablesLikePattern(): string
     {
         return 'ndb\\_%';
     }
@@ -43,7 +43,7 @@ class Ndbcluster extends StorageEngine
      *
      * @return string  mysql helppage filename
      */
-    public function getMysqlHelpPage()
+    public function getMysqlHelpPage(): string
     {
         return 'ndbcluster';
     }

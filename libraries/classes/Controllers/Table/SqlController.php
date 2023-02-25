@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
@@ -19,58 +21,49 @@ use function htmlspecialchars;
  */
 final class SqlController extends AbstractController
 {
-    /** @var SqlQueryForm */
-    private $sqlQueryForm;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
-        string $table,
-        SqlQueryForm $sqlQueryForm
+        private SqlQueryForm $sqlQueryForm,
     ) {
-        parent::__construct($response, $template, $db, $table);
-        $this->sqlQueryForm = $sqlQueryForm;
+        parent::__construct($response, $template);
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $errorUrl, $goto, $back, $db, $table, $cfg;
+        $GLOBALS['errorUrl'] ??= null;
+        $GLOBALS['goto'] ??= null;
+        $GLOBALS['back'] ??= null;
 
-        $this->addScriptFiles([
-            'makegrid.js',
-            'vendor/jquery/jquery.uitablefilter.js',
-            'vendor/stickyfill.min.js',
-            'sql.js',
-        ]);
+        $this->addScriptFiles(['makegrid.js', 'vendor/jquery/jquery.uitablefilter.js', 'sql.js']);
 
         $pageSettings = new PageSettings('Sql');
         $this->response->addHTML($pageSettings->getErrorHTML());
         $this->response->addHTML($pageSettings->getHTML());
 
-        Util::checkParameters(['db', 'table']);
+        $this->checkParameters(['db', 'table']);
 
-        $url_params = ['db' => $db, 'table' => $table];
-        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $errorUrl .= Url::getCommon($url_params, '&');
+        $url_params = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+        $GLOBALS['errorUrl'] .= Url::getCommon($url_params, '&');
 
-        DbTableExists::check();
+        DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
 
         /**
          * After a syntax error, we return to this script
          * with the typed query in the textarea.
          */
-        $goto = Url::getFromRoute('/table/sql');
-        $back = Url::getFromRoute('/table/sql');
+        $GLOBALS['goto'] = Url::getFromRoute('/table/sql');
+        $GLOBALS['back'] = Url::getFromRoute('/table/sql');
 
         $this->response->addHTML($this->sqlQueryForm->getHtml(
-            $db,
-            $table,
+            $GLOBALS['db'],
+            $GLOBALS['table'],
             $_GET['sql_query'] ?? true,
             false,
             isset($_POST['delimiter'])
                 ? htmlspecialchars($_POST['delimiter'])
-                : ';'
+                : ';',
         ));
     }
 }

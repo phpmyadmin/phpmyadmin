@@ -7,14 +7,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Svg;
 
-use PhpMyAdmin\Core;
-use PhpMyAdmin\ResponseRenderer;
 use XMLWriter;
 
 use function intval;
 use function is_int;
+use function is_string;
 use function sprintf;
-use function strlen;
 
 /**
  * This Class inherits the XMLwriter class and
@@ -46,17 +44,10 @@ class Svg extends XMLWriter
     public function __construct()
     {
         $this->openMemory();
-        /*
-         * Set indenting using three spaces,
-         * so output is formatted
-         */
-
+        // Set indenting using three spaces, so output is formatted
         $this->setIndent(true);
         $this->setIndentString('   ');
-        /*
-         * Create the XML document
-         */
-
+        // Create the XML document
         $this->startDocument('1.0', 'UTF-8');
         $this->startDtd('svg', '-//W3C//DTD SVG 1.1//EN', 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd');
         $this->endDtd();
@@ -171,29 +162,11 @@ class Svg extends XMLWriter
         $this->endDocument();
     }
 
-    /**
-     * output RelationStatsSvg Document
-     *
-     * svg document prompted to the user for download
-     * RelationStatsSvg document saved in .svg extension and can be
-     * easily changeable by using any svg IDE
-     *
-     * @see XMLWriter::startElement()
-     * @see XMLWriter::writeAttribute()
-     *
-     * @param string $fileName file name
-     */
-    public function showOutput($fileName): void
+    public function getOutputData(): string
     {
-        //ob_get_clean();
-        $output = $this->flush();
-        ResponseRenderer::getInstance()->disable();
-        Core::downloadHeader(
-            $fileName,
-            'image/svg+xml',
-            strlen($output)
-        );
-        print $output;
+        $data = $this->flush();
+
+        return is_string($data) ? $data : '';
     }
 
     /**
@@ -225,10 +198,10 @@ class Svg extends XMLWriter
         $name,
         $x,
         $y,
-        $width = '',
-        $height = '',
-        ?string $text = '',
-        $styles = ''
+        int|string $width = '',
+        int|string $height = '',
+        string|null $text = '',
+        $styles = '',
     ): void {
         $this->startElement($name);
         $this->writeAttribute('width', (string) $width);

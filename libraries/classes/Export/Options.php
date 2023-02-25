@@ -19,21 +19,12 @@ use function in_array;
 use function is_array;
 use function is_string;
 use function mb_strpos;
-use function strlen;
 use function urldecode;
 
 final class Options
 {
-    /** @var Relation */
-    private $relation;
-
-    /** @var TemplateModel */
-    private $templateModel;
-
-    public function __construct(Relation $relation, TemplateModel $templateModel)
+    public function __construct(private Relation $relation, private TemplateModel $templateModel)
     {
-        $this->relation = $relation;
-        $this->templateModel = $templateModel;
     }
 
     /**
@@ -52,9 +43,9 @@ final class Options
      *
      * @param string $tmpSelect Tmp selected method of export
      *
-     * @return array
+     * @return array<int, array{name: string, is_selected: bool}>
      */
-    public function getDatabasesForSelectOptions($tmpSelect = '')
+    public function getDatabasesForSelectOptions($tmpSelect = ''): array
     {
         /** @var array|string|null $dbSelect */
         $dbSelect = $_POST['db_select'] ?? null;
@@ -67,7 +58,7 @@ final class Options
         }
 
         $databases = [];
-        foreach ($GLOBALS['dblist']->databases as $currentDb) {
+        foreach ($GLOBALS['dbi']->getDatabaseList() as $currentDb) {
             if (Utilities::isSystemSchema($currentDb, true)) {
                 continue;
             }
@@ -77,7 +68,7 @@ final class Options
                 if (in_array($currentDb, $dbSelect)) {
                     $isSelected = true;
                 }
-            } elseif (! empty($tmpSelect)) {
+            } elseif ($tmpSelect !== '') {
                 if (mb_strpos(' ' . $tmpSelect, '|' . $currentDb . '|')) {
                     $isSelected = true;
                 }
@@ -110,12 +101,10 @@ final class Options
         $db,
         $table,
         $sqlQuery,
-        $numTables,
-        $unlimNumRows,
-        array $exportList
-    ) {
-        global $cfg;
-
+        int|string $numTables,
+        int|string $unlimNumRows,
+        array $exportList,
+    ): array {
         $exportTemplatesFeature = $this->relation->getRelationParameters()->exportTemplatesFeature;
 
         $templates = [];
@@ -125,7 +114,7 @@ final class Options
                 $exportTemplatesFeature->database,
                 $exportTemplatesFeature->exportTemplates,
                 $GLOBALS['cfg']['Server']['user'],
-                $exportType
+                $exportType,
             );
 
             $templates = is_array($templates) ? $templates : [];
@@ -133,10 +122,10 @@ final class Options
 
         $default = isset($_GET['what']) ? (string) $_GET['what'] : Plugins::getDefault('Export', 'format');
         $dropdown = Plugins::getChoice($exportList, $default);
-        $tableObject = new Table($table, $db);
+        $tableObject = new Table($table, $db, $GLOBALS['dbi']);
         $rows = [];
 
-        if (strlen($table) > 0 && empty($numTables) && ! $tableObject->isMerge() && $exportType !== 'raw') {
+        if ($table !== '' && $numTables === 0 && ! $tableObject->isMerge() && $exportType !== 'raw') {
             $rows = [
                 'allrows' => $_POST['allrows'] ?? null,
                 'limit_to' => $_POST['limit_to'] ?? null,
@@ -151,9 +140,9 @@ final class Options
         unset($_SESSION['tmpval']['aliases']);
         $filenameTemplate = $this->getFileNameTemplate($exportType, $_POST['filename_template'] ?? null);
         $isEncodingSupported = Encoding::isSupported();
-        $selectedCompression = $_POST['compression'] ?? $cfg['Export']['compression'] ?? 'none';
+        $selectedCompression = $_POST['compression'] ?? $GLOBALS['cfg']['Export']['compression'] ?? 'none';
 
-        if (isset($cfg['Export']['as_separate_files']) && $cfg['Export']['as_separate_files']) {
+        if (isset($GLOBALS['cfg']['Export']['as_separate_files']) && $GLOBALS['cfg']['Export']['as_separate_files']) {
             $selectedCompression = 'zip';
         }
 
@@ -161,7 +150,7 @@ final class Options
             'db' => $db,
             'table' => $table,
             'export_type' => $exportType,
-            'export_method' => $_POST['export_method'] ?? $cfg['Export']['method'] ?? 'quick',
+            'export_method' => $_POST['export_method'] ?? $GLOBALS['cfg']['Export']['method'] ?? 'quick',
             'template_id' => $_POST['template_id'] ?? '',
         ];
 
@@ -169,7 +158,7 @@ final class Options
             $hiddenInputs['single_table'] = true;
         }
 
-        if (! empty($sqlQuery)) {
+        if ($sqlQuery !== '') {
             $hiddenInputs['sql_query'] = $sqlQuery;
         }
 
@@ -184,14 +173,14 @@ final class Options
             ],
             'sql_query' => $sqlQuery,
             'hidden_inputs' => $hiddenInputs,
-            'export_method' => $_POST['quick_or_custom'] ?? $cfg['Export']['method'] ?? '',
+            'export_method' => $_POST['quick_or_custom'] ?? $GLOBALS['cfg']['Export']['method'] ?? '',
             'plugins_choice' => $dropdown,
             'options' => Plugins::getOptions('Export', $exportList),
             'can_convert_kanji' => Encoding::canConvertKanji(),
-            'exec_time_limit' => $cfg['ExecTimeLimit'],
+            'exec_time_limit' => $GLOBALS['cfg']['ExecTimeLimit'],
             'rows' => $rows,
-            'has_save_dir' => isset($cfg['SaveDir']) && ! empty($cfg['SaveDir']),
-            'save_dir' => Util::userDir((string) ($cfg['SaveDir'] ?? '')),
+            'has_save_dir' => isset($GLOBALS['cfg']['SaveDir']) && ! empty($GLOBALS['cfg']['SaveDir']),
+            'save_dir' => Util::userDir((string) ($GLOBALS['cfg']['SaveDir'] ?? '')),
             'export_is_checked' => $this->checkboxCheck('quick_export_onserver'),
             'export_overwrite_is_checked' => $this->checkboxCheck('quick_export_onserver_overwrite'),
             'has_aliases' => $hasAliases,
@@ -206,31 +195,40 @@ final class Options
             'lock_tables' => isset($_POST['lock_tables']),
             'is_encoding_supported' => $isEncodingSupported,
             'encodings' => $isEncodingSupported ? Encoding::listEncodings() : [],
-            'export_charset' => $cfg['Export']['charset'],
-            'export_asfile' => $cfg['Export']['asfile'],
-            'has_zip' => $cfg['ZipDump'] && function_exists('gzcompress'),
-            'has_gzip' => $cfg['GZipDump'] && function_exists('gzencode'),
+            'export_charset' => $GLOBALS['cfg']['Export']['charset'],
+            'export_asfile' => $GLOBALS['cfg']['Export']['asfile'],
+            'has_zip' => $GLOBALS['cfg']['ZipDump'] && function_exists('gzcompress'),
+            'has_gzip' => $GLOBALS['cfg']['GZipDump'] && function_exists('gzencode'),
             'selected_compression' => $selectedCompression,
             'filename_template' => $filenameTemplate,
         ];
     }
 
-    private function getFileNameTemplate(string $exportType, ?string $filename = null): string
+    private function getFileNameTemplate(string $exportType, string|null $filename = null): string
     {
-        global $cfg, $config;
+        $GLOBALS['config'] ??= null;
 
         if ($filename !== null) {
             return $filename;
         }
 
         if ($exportType === 'database') {
-            return (string) $config->getUserValue('pma_db_filename_template', $cfg['Export']['file_template_database']);
+            return (string) $GLOBALS['config']->getUserValue(
+                'pma_db_filename_template',
+                $GLOBALS['cfg']['Export']['file_template_database'],
+            );
         }
 
         if ($exportType === 'table') {
-            return (string) $config->getUserValue('pma_table_filename_template', $cfg['Export']['file_template_table']);
+            return (string) $GLOBALS['config']->getUserValue(
+                'pma_table_filename_template',
+                $GLOBALS['cfg']['Export']['file_template_table'],
+            );
         }
 
-        return (string) $config->getUserValue('pma_server_filename_template', $cfg['Export']['file_template_server']);
+        return (string) $GLOBALS['config']->getUserValue(
+            'pma_server_filename_template',
+            $GLOBALS['cfg']['Export']['file_template_server'],
+        );
     }
 }

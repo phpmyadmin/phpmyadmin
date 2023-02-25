@@ -15,6 +15,7 @@ use function explode;
 use function intval;
 use function is_numeric;
 use function is_object;
+use function is_string;
 use function json_decode;
 use function preg_match;
 use function strlen;
@@ -35,7 +36,7 @@ class VersionInformation
      *
      * @return stdClass|null JSON decoded object with the data
      */
-    public function getLatestVersion(): ?stdClass
+    public function getLatestVersion(): stdClass|null
     {
         if (! $GLOBALS['cfg']['VersionCheck']) {
             return null;
@@ -82,7 +83,7 @@ class VersionInformation
      *
      * @return mixed false on failure, integer on success
      */
-    public function versionToInt($version)
+    public function versionToInt($version): mixed
     {
         $parts = explode('-', $version);
         if (count($parts) > 1) {
@@ -108,7 +109,7 @@ class VersionInformation
         }
 
         if (count($parts) >= 4 && is_numeric($parts[3])) {
-            $result += 1 * (int) $parts[3];
+            $result += (int) $parts[3];
         }
 
         if (! empty($suffix)) {
@@ -132,7 +133,6 @@ class VersionInformation
                     $result += 10;
                     break;
                 case 'dev':
-                    $result += 0;
                     break;
             }
         } else {
@@ -150,7 +150,7 @@ class VersionInformation
      *
      * @return array|null containing the version and date of latest compatible version
      */
-    public function getLatestCompatibleVersion(array $releases)
+    public function getLatestCompatibleVersion(array $releases): array|null
     {
         // Maintains the latest compatible version
         $latestRelease = null;
@@ -200,7 +200,7 @@ class VersionInformation
      *
      * @return bool whether the condition is met
      */
-    public function evaluateVersionCondition(string $type, string $condition)
+    public function evaluateVersionCondition(string $type, string $condition): bool
     {
         $operator = null;
         $version = null;
@@ -228,7 +228,7 @@ class VersionInformation
             $myVersion = $this->getMySQLVersion();
         }
 
-        if ($myVersion !== null && $version !== null && $operator !== null) {
+        if (is_string($myVersion) && is_string($version) && is_string($operator)) {
             return version_compare($myVersion, $version, $operator);
         }
 
@@ -240,7 +240,7 @@ class VersionInformation
      *
      * @return string PHP version
      */
-    protected function getPHPVersion()
+    protected function getPHPVersion(): string
     {
         return PHP_VERSION;
     }
@@ -250,12 +250,10 @@ class VersionInformation
      *
      * @return string|null MySQL version
      */
-    protected function getMySQLVersion()
+    protected function getMySQLVersion(): string|null
     {
-        global $dbi;
-
-        if (isset($dbi)) {
-            return $dbi->getVersionString();
+        if (isset($GLOBALS['dbi'])) {
+            return $GLOBALS['dbi']->getVersionString();
         }
 
         return null;

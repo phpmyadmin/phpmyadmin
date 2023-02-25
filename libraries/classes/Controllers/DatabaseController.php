@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use PhpMyAdmin\Http\ServerRequest;
+
 final class DatabaseController extends AbstractController
 {
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $dblist;
-
-        $this->response->addJSON(['databases' => $dblist->databases]);
+        $this->response->addJSON(['databases' => $GLOBALS['dbi']->getDatabaseList()]);
     }
 }

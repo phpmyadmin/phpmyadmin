@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests\Plugins\Export\Helpers;
 use PhpMyAdmin\Plugins\Export\Helpers\TableProperty;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Plugins\Export\Helpers\TableProperty
- */
+/** @covers \PhpMyAdmin\Plugins\Export\Helpers\TableProperty */
 class TablePropertyTest extends AbstractTestCase
 {
     /** @var TableProperty */
@@ -21,6 +19,7 @@ class TablePropertyTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['server'] = 0;
         $row = [
             ' name ',
@@ -39,6 +38,7 @@ class TablePropertyTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 
@@ -63,14 +63,14 @@ class TablePropertyTest extends AbstractTestCase
 
         $this->assertEquals(
             'int',
-            $this->object->getPureType()
+            $this->object->getPureType(),
         );
 
         $this->object->type = 'char';
 
         $this->assertEquals(
             'char',
-            $this->object->getPureType()
+            $this->object->getPureType(),
         );
     }
 
@@ -86,7 +86,7 @@ class TablePropertyTest extends AbstractTestCase
 
         $this->assertEquals(
             $expected,
-            $this->object->isNotNull()
+            $this->object->isNotNull(),
         );
     }
 
@@ -95,7 +95,7 @@ class TablePropertyTest extends AbstractTestCase
      *
      * @return array Test Data
      */
-    public function isNotNullProvider(): array
+    public static function isNotNullProvider(): array
     {
         return [
             [
@@ -125,7 +125,7 @@ class TablePropertyTest extends AbstractTestCase
 
         $this->assertEquals(
             $expected,
-            $this->object->isUnique()
+            $this->object->isUnique(),
         );
     }
 
@@ -134,7 +134,7 @@ class TablePropertyTest extends AbstractTestCase
      *
      * @return array Test Data
      */
-    public function isUniqueProvider(): array
+    public static function isUniqueProvider(): array
     {
         return [
             [
@@ -172,7 +172,7 @@ class TablePropertyTest extends AbstractTestCase
 
         $this->assertEquals(
             $expected,
-            $this->object->getDotNetPrimitiveType()
+            $this->object->getDotNetPrimitiveType(),
         );
     }
 
@@ -181,7 +181,7 @@ class TablePropertyTest extends AbstractTestCase
      *
      * @return array Test Data
      */
-    public function getDotNetPrimitiveTypeProvider(): array
+    public static function getDotNetPrimitiveTypeProvider(): array
     {
         return [
             [
@@ -243,7 +243,7 @@ class TablePropertyTest extends AbstractTestCase
 
         $this->assertEquals(
             $expected,
-            $this->object->getDotNetObjectType()
+            $this->object->getDotNetObjectType(),
         );
     }
 
@@ -252,7 +252,7 @@ class TablePropertyTest extends AbstractTestCase
      *
      * @return array Test Data
      */
-    public function getDotNetObjectTypeProvider(): array
+    public static function getDotNetObjectTypeProvider(): array
     {
         return [
             [
@@ -309,14 +309,14 @@ class TablePropertyTest extends AbstractTestCase
 
         $this->assertEquals(
             "index=\"ä'7&lt;ab&gt;\"",
-            $this->object->getIndexName()
+            $this->object->getIndexName(),
         );
 
         $this->object->key = '';
 
         $this->assertEquals(
             '',
-            $this->object->getIndexName()
+            $this->object->getIndexName(),
         );
     }
 
@@ -325,13 +325,13 @@ class TablePropertyTest extends AbstractTestCase
         $this->object->key = 'PRI';
 
         $this->assertTrue(
-            $this->object->isPK()
+            $this->object->isPK(),
         );
 
         $this->object->key = '';
 
         $this->assertFalse(
-            $this->object->isPK()
+            $this->object->isPK(),
         );
     }
 
@@ -341,7 +341,7 @@ class TablePropertyTest extends AbstractTestCase
 
         $this->assertEquals(
             'text123Namename',
-            $this->object->formatCs('text123#name#')
+            $this->object->formatCs('text123#name#'),
         );
     }
 
@@ -351,7 +351,7 @@ class TablePropertyTest extends AbstractTestCase
 
         $this->assertEquals(
             '&quot;a\'index="&quot;a\'"',
-            $this->object->formatXml('#name##indexName#')
+            $this->object->formatXml('#name##indexName#'),
         );
     }
 
@@ -360,8 +360,8 @@ class TablePropertyTest extends AbstractTestCase
         $this->assertEquals(
             'NameintInt32intfalsetrue',
             $this->object->format(
-                '#ucfirstName##dotNetPrimitiveType##dotNetObjectType##type##notNull##unique#'
-            )
+                '#ucfirstName##dotNetPrimitiveType##dotNetObjectType##type##notNull##unique#',
+            ),
         );
     }
 }

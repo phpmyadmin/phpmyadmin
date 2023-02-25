@@ -8,34 +8,33 @@ use PhpMyAdmin\Controllers\Database\SqlController;
 
 use function __;
 use function defined;
-use function strlen;
 
 final class DbTableExists
 {
     /**
-     * Ensure the database and the table exist (else move to the "parent" script)
-     * and display headers
+     * Ensure the database and the table exist (else move to the "parent" script) and display headers.
      */
-    public static function check(): void
+    public static function check(string $db, string $table, bool $isTransformationWrapper = false): void
     {
-        self::checkDatabase();
-        self::checkTable();
+        self::checkDatabase($db, $isTransformationWrapper);
+        self::checkTable($db, $table, $isTransformationWrapper);
     }
 
-    private static function checkDatabase(): void
+    private static function checkDatabase(string $db, bool $isTransformationWrapper): void
     {
-        global $db, $dbi, $is_db, $message, $show_as_php, $sql_query;
+        $GLOBALS['message'] ??= null;
+        $GLOBALS['show_as_php'] ??= null;
 
-        if (! empty($is_db)) {
+        if (! empty($GLOBALS['is_db'])) {
             return;
         }
 
-        $is_db = false;
-        if (strlen($db) > 0) {
-            $is_db = @$dbi->selectDb($db);
+        $GLOBALS['is_db'] = false;
+        if ($db !== '') {
+            $GLOBALS['is_db'] = @$GLOBALS['dbi']->selectDb($db);
         }
 
-        if ($is_db || defined('IS_TRANSFORMATION_WRAPPER')) {
+        if ($GLOBALS['is_db'] || $isTransformationWrapper) {
             return;
         }
 
@@ -44,7 +43,7 @@ final class DbTableExists
             $response->setRequestStatus(false);
             $response->addJSON(
                 'message',
-                Message::error(__('No databases selected.'))
+                Message::error(__('No databases selected.')),
             );
 
             exit;
@@ -52,16 +51,16 @@ final class DbTableExists
 
         $urlParams = ['reload' => 1];
 
-        if (isset($message)) {
-            $urlParams['message'] = $message;
+        if (isset($GLOBALS['message'])) {
+            $urlParams['message'] = $GLOBALS['message'];
         }
 
-        if (! empty($sql_query)) {
-            $urlParams['sql_query'] = $sql_query;
+        if (! empty($GLOBALS['sql_query'])) {
+            $urlParams['sql_query'] = $GLOBALS['sql_query'];
         }
 
-        if (isset($show_as_php)) {
-            $urlParams['show_as_php'] = $show_as_php;
+        if (isset($GLOBALS['show_as_php'])) {
+            $urlParams['show_as_php'] = $GLOBALS['show_as_php'];
         }
 
         Core::sendHeaderLocation('./index.php?route=/' . Url::getCommonRaw($urlParams, '&'));
@@ -69,49 +68,47 @@ final class DbTableExists
         exit;
     }
 
-    private static function checkTable(): void
+    private static function checkTable(string $db, string $table, bool $isTransformationWrapper): void
     {
-        global $containerBuilder, $db, $table, $dbi, $is_table;
-
-        if (! empty($is_table) || defined('PMA_SUBMIT_MULT') || defined('TABLE_MAY_BE_ABSENT')) {
+        if (! empty($GLOBALS['is_table']) || defined('PMA_SUBMIT_MULT') || defined('TABLE_MAY_BE_ABSENT')) {
             return;
         }
 
-        $is_table = false;
-        if (strlen($table) > 0) {
-            $is_table = $dbi->getCache()->getCachedTableContent([$db, $table], false);
-            if ($is_table) {
+        $GLOBALS['is_table'] = false;
+        if ($table !== '') {
+            $GLOBALS['is_table'] = $GLOBALS['dbi']->getCache()->getCachedTableContent([$db, $table], false);
+            if ($GLOBALS['is_table']) {
                 return;
             }
 
-            $result = $dbi->tryQuery('SHOW TABLES LIKE \'' . $dbi->escapeString($table) . '\';');
-            $is_table = $result && $result->numRows();
+            $result = $GLOBALS['dbi']->tryQuery('SHOW TABLES LIKE \'' . $GLOBALS['dbi']->escapeString($table) . '\';');
+            $GLOBALS['is_table'] = $result && $result->numRows();
         }
 
-        if ($is_table) {
+        if ($GLOBALS['is_table']) {
             return;
         }
 
-        if (defined('IS_TRANSFORMATION_WRAPPER')) {
+        if ($isTransformationWrapper) {
             exit;
         }
 
-        if (strlen($table) > 0) {
+        if ($table !== '') {
             /**
              * SHOW TABLES doesn't show temporary tables, so try select
              * (as it can happen just in case temporary table, it should be fast):
              */
-            $result = $dbi->tryQuery('SELECT COUNT(*) FROM ' . Util::backquote($table) . ';');
-            $is_table = $result && $result->numRows();
+            $result = $GLOBALS['dbi']->tryQuery('SELECT COUNT(*) FROM ' . Util::backquote($table) . ';');
+            $GLOBALS['is_table'] = $result && $result->numRows();
         }
 
-        if ($is_table) {
+        if ($GLOBALS['is_table']) {
             return;
         }
 
         /** @var SqlController $controller */
-        $controller = $containerBuilder->get(SqlController::class);
-        $controller();
+        $controller = Core::getContainerBuilder()->get(SqlController::class);
+        $controller(Common::getRequest());
 
         exit;
     }

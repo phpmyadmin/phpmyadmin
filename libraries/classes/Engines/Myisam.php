@@ -21,14 +21,14 @@ class Myisam extends StorageEngine
      *
      * @return array   variable names
      */
-    public function getVariables()
+    public function getVariables(): array
     {
         return [
             'myisam_data_pointer_size' => [
                 'title' => __('Data pointer size'),
                 'desc' => __(
                     'The default pointer size in bytes, to be used by CREATE TABLE '
-                    . 'for MyISAM tables when no MAX_ROWS option is specified.'
+                    . 'for MyISAM tables when no MAX_ROWS option is specified.',
                 ),
                 'type' => StorageEngine::DETAILS_TYPE_SIZE,
             ],
@@ -36,7 +36,7 @@ class Myisam extends StorageEngine
                 'title' => __('Automatic recovery mode'),
                 'desc' => __(
                     'The mode for automatic recovery of crashed MyISAM tables, as '
-                    . 'set via the --myisam-recover server startup option.'
+                    . 'set via the --myisam-recover server startup option.',
                 ),
             ],
             'myisam_max_sort_file_size' => [
@@ -44,7 +44,7 @@ class Myisam extends StorageEngine
                 'desc' => __(
                     'The maximum size of the temporary file MySQL is allowed to use '
                     . 'while re-creating a MyISAM index (during REPAIR TABLE, ALTER '
-                    . 'TABLE, or LOAD DATA INFILE).'
+                    . 'TABLE, or LOAD DATA INFILE).',
                 ),
                 'type' => StorageEngine::DETAILS_TYPE_SIZE,
             ],
@@ -53,7 +53,7 @@ class Myisam extends StorageEngine
                 'desc' => __(
                     'If the temporary file used for fast MyISAM index creation '
                     . 'would be larger than using the key cache by the amount '
-                    . 'specified here, prefer the key cache method.'
+                    . 'specified here, prefer the key cache method.',
                 ),
                 'type' => StorageEngine::DETAILS_TYPE_SIZE,
             ],
@@ -62,7 +62,7 @@ class Myisam extends StorageEngine
                 'desc' => __(
                     'If this value is greater than 1, MyISAM table indexes are '
                     . 'created in parallel (each index in its own thread) during '
-                    . 'the repair by sorting process.'
+                    . 'the repair by sorting process.',
                 ),
                 'type' => StorageEngine::DETAILS_TYPE_NUMERIC,
             ],
@@ -71,7 +71,7 @@ class Myisam extends StorageEngine
                 'desc' => __(
                     'The buffer that is allocated when sorting MyISAM indexes '
                     . 'during a REPAIR TABLE or when creating indexes with CREATE '
-                    . 'INDEX or ALTER TABLE.'
+                    . 'INDEX or ALTER TABLE.',
                 ),
                 'type' => StorageEngine::DETAILS_TYPE_SIZE,
             ],

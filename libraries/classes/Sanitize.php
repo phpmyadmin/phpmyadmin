@@ -15,19 +15,18 @@ use function array_merge;
 use function count;
 use function htmlspecialchars;
 use function in_array;
-use function is_array;
-use function is_bool;
-use function is_int;
 use function is_string;
+use function json_encode;
 use function preg_match;
 use function preg_replace;
 use function preg_replace_callback;
-use function str_replace;
 use function str_starts_with;
 use function strlen;
 use function strtolower;
 use function strtr;
 use function substr;
+
+use const JSON_HEX_TAG;
 
 /**
  * This class includes various sanitization methods that can be called statically
@@ -46,7 +45,7 @@ class Sanitize
         $url = strtolower($url);
         $valid_starts = [
             'https://',
-            './url.php?url=https%3a%2f%2f',
+            'index.php?route=/url&url=https%3a%2f%2f',
             './doc/html/',
             './index.php?',
         ];
@@ -100,7 +99,7 @@ class Sanitize
      *
      * @return string Replaced string
      */
-    public static function replaceBBLink(array $found)
+    public static function replaceBBLink(array $found): string
     {
         /* Check for valid link */
         if (! self::checkLink($found[1])) {
@@ -209,23 +208,23 @@ class Sanitize
         $pattern = '/\[a@([^]"@]*)(@([^]"]*))?\]/';
 
         /* Find and replace all links */
-        $message = (string) preg_replace_callback($pattern, static function (array $match) {
-            return self::replaceBBLink($match);
-        }, $message);
+        $message = (string) preg_replace_callback(
+            $pattern,
+            static fn (array $match) => self::replaceBBLink($match),
+            $message,
+        );
 
         /* Replace documentation links */
         $message = (string) preg_replace_callback(
             '/\[doc@([a-zA-Z0-9_-]+)(@([a-zA-Z0-9_-]*))?\]/',
             /** @param string[] $match */
-            static function (array $match): string {
-                return self::replaceDocLink($match);
-            },
-            $message
+            static fn (array $match): string => self::replaceDocLink($match),
+            $message,
         );
 
         /* Possibly escape result */
         if ($escape) {
-            $message = htmlspecialchars($message);
+            return htmlspecialchars($message);
         }
 
         return $message;
@@ -245,7 +244,7 @@ class Sanitize
      *
      * @return string  the sanitized filename
      */
-    public static function sanitizeFilename($filename, $replaceDots = false)
+    public static function sanitizeFilename($filename, $replaceDots = false): string
     {
         $pattern = '/[^A-Za-z0-9_';
         // if we don't have to replace dots
@@ -255,118 +254,22 @@ class Sanitize
         }
 
         $pattern .= '-]/';
-        $filename = preg_replace($pattern, '_', $filename);
 
-        return $filename;
-    }
-
-    /**
-     * Format a string so it can be a string inside JavaScript code inside an
-     * eventhandler (onclick, onchange, on..., ).
-     * This function is used to displays a javascript confirmation box for
-     * "DROP/DELETE/ALTER" queries.
-     *
-     * @param string $a_string       the string to format
-     * @param bool   $add_backquotes whether to add backquotes to the string or not
-     *
-     * @return string   the formatted string
-     */
-    public static function jsFormat($a_string = '', $add_backquotes = true)
-    {
-        $a_string = htmlspecialchars((string) $a_string);
-        $a_string = self::escapeJsString($a_string);
-        // Needed for inline javascript to prevent some browsers
-        // treating it as a anchor
-        $a_string = str_replace('#', '\\#', $a_string);
-
-        return $add_backquotes
-            ? Util::backquote($a_string)
-            : $a_string;
-    }
-
-    /**
-     * escapes a string to be inserted as string a JavaScript block
-     * enclosed by <![CDATA[ ... ]]>
-     * this requires only to escape ' with \' and end of script block
-     *
-     * We also remove NUL byte as some browsers (namely MSIE) ignore it and
-     * inserting it anywhere inside </script would allow to bypass this check.
-     *
-     * @param string $string the string to be escaped
-     *
-     * @return string  the escaped string
-     */
-    public static function escapeJsString($string)
-    {
-        return preg_replace(
-            '@</script@i',
-            '</\' + \'script',
-            strtr(
-                (string) $string,
-                [
-                    "\000" => '',
-                    '\\' => '\\\\',
-                    '\'' => '\\\'',
-                    '"' => '\"',
-                    "\n" => '\n',
-                    "\r" => '\r',
-                ]
-            )
-        );
-    }
-
-    /**
-     * Formats a value for javascript code.
-     *
-     * @param string|bool|int $value String to be formatted.
-     *
-     * @return int|string formatted value.
-     */
-    public static function formatJsVal($value)
-    {
-        if (is_bool($value)) {
-            if ($value) {
-                return 'true';
-            }
-
-            return 'false';
-        }
-
-        if (is_int($value)) {
-            return $value;
-        }
-
-        return '"' . self::escapeJsString($value) . '"';
+        return preg_replace($pattern, '_', $filename);
     }
 
     /**
      * Formats an javascript assignment with proper escaping of a value
      * and support for assigning array of strings.
      *
-     * @param string $key    Name of value to set
-     * @param mixed  $value  Value to set, can be either string or array of strings
-     * @param bool   $escape Whether to escape value or keep it as it is
-     *                       (for inclusion of js code)
+     * @param string $key   Name of value to set
+     * @param mixed  $value Value to set, can be either string or array of strings
      *
      * @return string Javascript code.
      */
-    public static function getJsValue($key, $value, $escape = true)
+    public static function getJsValue($key, $value): string
     {
-        $result = $key . ' = ';
-        if (! $escape) {
-            $result .= $value;
-        } elseif (is_array($value)) {
-            $result .= '[';
-            foreach ($value as $val) {
-                $result .= self::formatJsVal($val) . ',';
-            }
-
-            $result .= "];\n";
-        } else {
-            $result .= self::formatJsVal($value) . ";\n";
-        }
-
-        return $result;
+        return $key . ' = ' . json_encode($value, JSON_HEX_TAG) . ";\n";
     }
 
     /**
@@ -374,13 +277,13 @@ class Sanitize
      *
      * @param string[] $allowList list of variables to allow
      */
-    public static function removeRequestVars(&$allowList): void
+    public static function removeRequestVars($allowList): void
     {
         // do not check only $_REQUEST because it could have been overwritten
         // and use type casting because the variables could have become
         // strings
         $keys = array_keys(
-            array_merge((array) $_REQUEST, (array) $_GET, (array) $_POST, (array) $_COOKIE)
+            array_merge((array) $_REQUEST, (array) $_GET, (array) $_POST, (array) $_COOKIE),
         );
 
         foreach ($keys as $key) {

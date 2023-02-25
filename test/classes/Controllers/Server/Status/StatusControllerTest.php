@@ -5,24 +5,38 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 
 use PhpMyAdmin\Controllers\Server\Status\StatusController;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Replication;
 use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Server\Status\StatusController
- */
+/** @covers \PhpMyAdmin\Controllers\Server\Status\StatusController */
 class StatusControllerTest extends AbstractTestCase
 {
+    /** @var DatabaseInterface */
+    protected $dbi;
+
+    /** @var DbiDummy */
+    protected $dummyDbi;
+
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['text_dir'] = 'ltr';
+
         parent::setGlobalConfig();
+
         parent::setTheme();
+
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
@@ -34,7 +48,7 @@ class StatusControllerTest extends AbstractTestCase
 
     public function testIndex(): void
     {
-        $data = new Data();
+        $data = new Data($GLOBALS['dbi']);
 
         $bytesReceived = 100;
         $bytesSent = 200;
@@ -55,8 +69,8 @@ class StatusControllerTest extends AbstractTestCase
             $response,
             $template,
             $data,
-            new ReplicationGui(new Replication(), $template),
-            $GLOBALS['dbi']
+            new ReplicationGui(new Replication($GLOBALS['dbi']), $template),
+            $GLOBALS['dbi'],
         );
 
         $replicationInfo = $data->getReplicationInfo();
@@ -64,8 +78,8 @@ class StatusControllerTest extends AbstractTestCase
         $replicationInfo->replicaVariables = [];
 
         $this->dummyDbi->addSelectDb('mysql');
-        $controller();
-        $this->assertAllSelectsConsumed();
+        $controller($this->createStub(ServerRequest::class));
+        $this->dummyDbi->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 
         $traffic = $bytesReceived + $bytesSent;
@@ -79,7 +93,7 @@ class StatusControllerTest extends AbstractTestCase
         $this->assertStringContainsString($primaryHtml, $html);
 
         //validate 2: Status::getHtmlForServerStateTraffic
-        $trafficHtml = '<table class="table table-light table-striped table-hover col-12 col-md-5 w-auto">';
+        $trafficHtml = '<table class="table table-striped table-hover col-12 col-md-5 w-auto">';
         $this->assertStringContainsString($trafficHtml, $html);
         //traffic hint
         $trafficHtml = 'On a busy server, the byte counters may overrun';
@@ -93,8 +107,8 @@ class StatusControllerTest extends AbstractTestCase
         $this->assertStringContainsString('<th scope="col">Connections</th>', $html);
         $this->assertStringContainsString('<th class="text-end" scope="col">ø per hour</th>', $html);
         $this->assertStringContainsString(
-            '<table class="table table-light table-striped table-hover col-12 col-md-6 w-auto">',
-            $html
+            '<table class="table table-striped table-hover col-12 col-md-6 w-auto">',
+            $html,
         );
         $this->assertStringContainsString('<th>Max. concurrent connections</th>', $html);
         //Max_used_connections

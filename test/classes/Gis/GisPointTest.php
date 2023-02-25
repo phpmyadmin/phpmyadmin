@@ -5,11 +5,16 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisPoint;
+use PhpMyAdmin\Gis\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
+use function file_exists;
+
 /**
  * @covers \PhpMyAdmin\Gis\GisPoint
+ * @runTestsInSeparateProcesses
+ * @preserveGlobalState disabled
  */
 class GisPointTest extends GisGeomTestCase
 {
@@ -23,6 +28,7 @@ class GisPointTest extends GisGeomTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->object = GisPoint::singleton();
     }
 
@@ -33,6 +39,7 @@ class GisPointTest extends GisGeomTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 
@@ -41,7 +48,7 @@ class GisPointTest extends GisGeomTestCase
      *
      * @return array data for testGenerateWkt
      */
-    public function providerForTestGenerateWkt(): array
+    public static function providerForTestGenerateWkt(): array
     {
         return [
             [
@@ -101,7 +108,7 @@ class GisPointTest extends GisGeomTestCase
      */
     public function testGetShape(array $row_data, string $shape): void
     {
-        $this->assertEquals($this->object->getShape($row_data), $shape);
+        $this->assertEquals($shape, $this->object->getShape($row_data));
     }
 
     /**
@@ -109,7 +116,7 @@ class GisPointTest extends GisGeomTestCase
      *
      * @return array data for testGetShape
      */
-    public function providerForTestGetShape(): array
+    public static function providerForTestGetShape(): array
     {
         return [
             [
@@ -127,31 +134,17 @@ class GisPointTest extends GisGeomTestCase
      *
      * @return array data for testGenerateParams
      */
-    public function providerForTestGenerateParams(): array
+    public static function providerForTestGenerateParams(): array
     {
         return [
             [
                 "'POINT(5.02 8.45)',124",
-                null,
                 [
-                    'srid' => '124',
+                    'srid' => 124,
                     0 => [
                         'POINT' => [
-                            'x' => '5.02',
-                            'y' => '8.45',
-                        ],
-                    ],
-                ],
-            ],
-            [
-                'POINT(5.02 8.45)',
-                2,
-                [
-                    2 => [
-                        'gis_type' => 'POINT',
-                        'POINT' => [
-                            'x' => '5.02',
-                            'y' => '8.45',
+                            'x' => 5.02,
+                            'y' => 8.45,
                         ],
                     ],
                 ],
@@ -164,80 +157,79 @@ class GisPointTest extends GisGeomTestCase
      *
      * @return array data for testScaleRow
      */
-    public function providerForTestScaleRow(): array
+    public static function providerForTestScaleRow(): array
     {
         return [
             [
                 'POINT(12 35)',
-                [
-                    'minX' => 12,
-                    'maxX' => 12,
-                    'minY' => 35,
-                    'maxY' => 35,
-                ],
+                new ScaleData(12, 12, 35, 35),
             ],
         ];
     }
 
-    /**
-     * @requires extension gd
-     */
+    /** @requires extension gd */
     public function testPrepareRowAsPng(): void
     {
-        $image = ImageWrapper::create(120, 150);
+        $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
         $this->assertNotNull($image);
         $return = $this->object->prepareRowAsPng(
             'POINT(12 35)',
             'image',
-            '#B02EE0',
-            ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
-            $image
+            [176, 46, 224],
+            ['x' => -88, 'y' => -27, 'scale' => 1, 'height' => 124],
+            $image,
         );
-        $this->assertEquals(120, $return->width());
-        $this->assertEquals(150, $return->height());
+        $this->assertEquals(200, $return->width());
+        $this->assertEquals(124, $return->height());
+
+        $fileExpected = $this->testDir . '/point-expected.png';
+        $fileActual = $this->testDir . '/point-actual.png';
+        $this->assertTrue($image->png($fileActual));
+        $this->assertFileEquals($fileExpected, $fileActual);
     }
 
     /**
      * test case for prepareRowAsPdf() method
      *
-     * @param string $spatial     GIS POINT object
-     * @param string $label       label for the GIS POINT object
-     * @param string $point_color color for the GIS POINT object
-     * @param array  $scale_data  array containing data related to scaling
-     * @param TCPDF  $pdf         TCPDF instance
+     * @param string $spatial    GIS POINT object
+     * @param string $label      label for the GIS POINT object
+     * @param int[]  $color      color for the GIS POINT object
+     * @param array  $scale_data array containing data related to scaling
      *
      * @dataProvider providerForPrepareRowAsPdf
      */
     public function testPrepareRowAsPdf(
         string $spatial,
         string $label,
-        string $point_color,
+        array $color,
         array $scale_data,
-        TCPDF $pdf
+        TCPDF $pdf,
     ): void {
-        $return = $this->object->prepareRowAsPdf($spatial, $label, $point_color, $scale_data, $pdf);
-        $this->assertInstanceOf(TCPDF::class, $return);
+        $return = $this->object->prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
+
+        $fileExpectedArch = $this->testDir . '/point-expected-' . $this->getArch() . '.pdf';
+        $fileExpectedGeneric = $this->testDir . '/point-expected.pdf';
+        $fileExpected = file_exists($fileExpectedArch) ? $fileExpectedArch : $fileExpectedGeneric;
+        $fileActual = $this->testDir . '/point-actual.pdf';
+        $return->Output($fileActual, 'F');
+        $this->assertFileEquals($fileExpected, $fileActual);
     }
 
     /**
-     * data provider for prepareRowAsPdf() test case
+     * data provider for testPrepareRowAsPdf() test case
      *
-     * @return array test data for prepareRowAsPdf() test case
+     * @return array test data for testPrepareRowAsPdf() test case
      */
-    public function providerForPrepareRowAsPdf(): array
+    public static function providerForPrepareRowAsPdf(): array
     {
         return [
             [
                 'POINT(12 35)',
                 'pdf',
-                '#B02EE0',
-                [
-                    'x' => 12,
-                    'y' => 69,
-                    'scale' => 2,
-                    'height' => 150,
-                ],
-                new TCPDF(),
+                [176, 46, 224],
+                ['x' => -93, 'y' => -114, 'scale' => 1, 'height' => 297],
+
+                parent::createEmptyPdf('POINT'),
             ],
         ];
     }
@@ -245,30 +237,23 @@ class GisPointTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsSvg() method
      *
-     * @param string $spatial    GIS POINT object
-     * @param string $label      label for the GIS POINT object
-     * @param string $pointColor color for the GIS POINT object
-     * @param array  $scaleData  array containing data related to scaling
-     * @param string $output     expected output
+     * @param string $spatial   GIS POINT object
+     * @param string $label     label for the GIS POINT object
+     * @param int[]  $color     color for the GIS POINT object
+     * @param array  $scaleData array containing data related to scaling
+     * @param string $output    expected output
      *
      * @dataProvider providerForPrepareRowAsSvg
      */
     public function testPrepareRowAsSvg(
         string $spatial,
         string $label,
-        string $pointColor,
+        array $color,
         array $scaleData,
-        string $output
+        string $output,
     ): void {
-        $this->assertEquals(
-            $output,
-            $this->object->prepareRowAsSvg(
-                $spatial,
-                $label,
-                $pointColor,
-                $scaleData
-            )
-        );
+        $svg = $this->object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
+        $this->assertEquals($output, $svg);
     }
 
     /**
@@ -276,13 +261,13 @@ class GisPointTest extends GisGeomTestCase
      *
      * @return array test data for prepareRowAsSvg() test case
      */
-    public function providerForPrepareRowAsSvg(): array
+    public static function providerForPrepareRowAsSvg(): array
     {
         return [
             [
                 'POINT(12 35)',
                 'svg',
-                '#B02EE0',
+                [176, 46, 224],
                 [
                     'x' => 12,
                     'y' => 69,
@@ -297,12 +282,12 @@ class GisPointTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsOl() method
      *
-     * @param string $spatial     GIS POINT object
-     * @param int    $srid        spatial reference ID
-     * @param string $label       label for the GIS POINT object
-     * @param array  $point_color color for the GIS POINT object
-     * @param array  $scale_data  array containing data related to scaling
-     * @param string $output      expected output
+     * @param string $spatial    GIS POINT object
+     * @param int    $srid       spatial reference ID
+     * @param string $label      label for the GIS POINT object
+     * @param int[]  $color      color for the GIS POINT object
+     * @param array  $scale_data array containing data related to scaling
+     * @param string $output     expected output
      *
      * @dataProvider providerForPrepareRowAsOl
      */
@@ -310,20 +295,12 @@ class GisPointTest extends GisGeomTestCase
         string $spatial,
         int $srid,
         string $label,
-        array $point_color,
+        array $color,
         array $scale_data,
-        string $output
+        string $output,
     ): void {
-        $this->assertEquals(
-            $output,
-            $this->object->prepareRowAsOl(
-                $spatial,
-                $srid,
-                $label,
-                $point_color,
-                $scale_data
-            )
-        );
+        $ol = $this->object->prepareRowAsOl($spatial, $srid, $label, $color, $scale_data);
+        $this->assertEquals($output, $ol);
     }
 
     /**
@@ -331,7 +308,7 @@ class GisPointTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsOl() test case
      */
-    public function providerForPrepareRowAsOl(): array
+    public static function providerForPrepareRowAsOl(): array
     {
         return [
             [

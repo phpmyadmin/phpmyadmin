@@ -8,6 +8,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Features\SavedQueryByExampleSearchesFeature;
+use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Exceptions\SavedSearchesException;
 
 use function __;
 use function count;
@@ -54,7 +56,7 @@ class SavedSearches
     /**
      * Criterias
      *
-     * @var array
+     * @var array|null
      */
     private $criterias = null;
 
@@ -65,10 +67,10 @@ class SavedSearches
      *
      * @return static
      */
-    public function setId($searchId)
+    public function setId($searchId): static
     {
         $searchId = (int) $searchId;
-        if (empty($searchId)) {
+        if ($searchId === 0) {
             $searchId = null;
         }
 
@@ -79,10 +81,8 @@ class SavedSearches
 
     /**
      * Getter of id
-     *
-     * @return int|null
      */
-    public function getId()
+    public function getId(): int|null
     {
         return $this->id;
     }
@@ -94,7 +94,7 @@ class SavedSearches
      *
      * @return static
      */
-    public function setSearchName($searchName)
+    public function setSearchName($searchName): static
     {
         $this->searchName = $searchName;
 
@@ -103,10 +103,8 @@ class SavedSearches
 
     /**
      * Getter of searchName
-     *
-     * @return string
      */
-    public function getSearchName()
+    public function getSearchName(): string
     {
         return $this->searchName;
     }
@@ -119,7 +117,7 @@ class SavedSearches
      *
      * @return static
      */
-    public function setCriterias($criterias, $json = false)
+    public function setCriterias(array|string $criterias, $json = false): static
     {
         if ($json === true && is_string($criterias)) {
             $this->criterias = json_decode($criterias, true);
@@ -156,7 +154,7 @@ class SavedSearches
         } else {
             $data['rows'] = min(
                 max(0, intval($data['rows'])),
-                100
+                100,
             );
         }
 
@@ -171,10 +169,8 @@ class SavedSearches
 
     /**
      * Getter for criterias
-     *
-     * @return array
      */
-    public function getCriterias()
+    public function getCriterias(): array|null
     {
         return $this->criterias;
     }
@@ -186,7 +182,7 @@ class SavedSearches
      *
      * @return static
      */
-    public function setUsername($username)
+    public function setUsername($username): static
     {
         $this->username = $username;
 
@@ -195,10 +191,8 @@ class SavedSearches
 
     /**
      * Getter for username
-     *
-     * @return string
      */
-    public function getUsername()
+    public function getUsername(): string
     {
         return $this->username;
     }
@@ -210,7 +204,7 @@ class SavedSearches
      *
      * @return static
      */
-    public function setDbname($dbname)
+    public function setDbname($dbname): static
     {
         $this->dbname = $dbname;
 
@@ -219,30 +213,21 @@ class SavedSearches
 
     /**
      * Getter for DB name
-     *
-     * @return string
      */
-    public function getDbname()
+    public function getDbname(): string
     {
         return $this->dbname;
     }
 
     /**
      * Save the search
+     *
+     * @throws SavedSearchesException
      */
     public function save(SavedQueryByExampleSearchesFeature $savedQueryByExampleSearchesFeature): bool
     {
-        global $dbi;
-
         if ($this->getSearchName() == null) {
-            $message = Message::error(
-                __('Please provide a name for this bookmarked search.')
-            );
-            $response = ResponseRenderer::getInstance();
-            $response->setRequestStatus($message->isSuccess());
-            $response->addJSON('fieldWithError', 'searchName');
-            $response->addJSON('message', $message);
-            exit;
+            throw new SavedSearchesException(__('Please provide a name for this bookmarked search.'));
         }
 
         if (
@@ -251,13 +236,7 @@ class SavedSearches
             || $this->getSearchName() == null
             || $this->getCriterias() == null
         ) {
-            $message = Message::error(
-                __('Missing information to save the bookmarked search.')
-            );
-            $response = ResponseRenderer::getInstance();
-            $response->setRequestStatus($message->isSuccess());
-            $response->addJSON('message', $message);
-            exit;
+            throw new SavedSearchesException(__('Missing information to save the bookmarked search.'));
         }
 
         $savedSearchesTbl = Util::backquote($savedQueryByExampleSearchesFeature->database) . '.'
@@ -266,34 +245,26 @@ class SavedSearches
         //If it's an insert.
         if ($this->getId() === null) {
             $wheres = [
-                "search_name = '" . $dbi->escapeString($this->getSearchName())
-                . "'",
+                'search_name = ' . $GLOBALS['dbi']->quoteString($this->getSearchName(), Connection::TYPE_CONTROL),
             ];
             $existingSearches = $this->getList($savedQueryByExampleSearchesFeature, $wheres);
 
-            if (! empty($existingSearches)) {
-                $message = Message::error(
-                    __('An entry with this name already exists.')
-                );
-                $response = ResponseRenderer::getInstance();
-                $response->setRequestStatus($message->isSuccess());
-                $response->addJSON('fieldWithError', 'searchName');
-                $response->addJSON('message', $message);
-                exit;
+            if ($existingSearches !== []) {
+                throw new SavedSearchesException(__('An entry with this name already exists.'));
             }
 
             $sqlQuery = 'INSERT INTO ' . $savedSearchesTbl
                 . '(`username`, `db_name`, `search_name`, `search_data`)'
                 . ' VALUES ('
-                . "'" . $dbi->escapeString($this->getUsername()) . "',"
-                . "'" . $dbi->escapeString($this->getDbname()) . "',"
-                . "'" . $dbi->escapeString($this->getSearchName()) . "',"
-                . "'" . $dbi->escapeString(json_encode($this->getCriterias()))
-                . "')";
+                . $GLOBALS['dbi']->quoteString($this->getUsername(), Connection::TYPE_CONTROL) . ','
+                . $GLOBALS['dbi']->quoteString($this->getDbname(), Connection::TYPE_CONTROL) . ','
+                . $GLOBALS['dbi']->quoteString($this->getSearchName(), Connection::TYPE_CONTROL) . ','
+                . $GLOBALS['dbi']->quoteString(json_encode($this->getCriterias()), Connection::TYPE_CONTROL)
+                . ')';
 
-            $dbi->queryAsControlUser($sqlQuery);
+            $GLOBALS['dbi']->queryAsControlUser($sqlQuery);
 
-            $this->setId($dbi->insertId());
+            $this->setId($GLOBALS['dbi']->insertId());
 
             return true;
         }
@@ -301,74 +272,53 @@ class SavedSearches
         //Else, it's an update.
         $wheres = [
             'id != ' . $this->getId(),
-            "search_name = '" . $dbi->escapeString($this->getSearchName()) . "'",
+            'search_name = ' . $GLOBALS['dbi']->quoteString($this->getSearchName()),
         ];
         $existingSearches = $this->getList($savedQueryByExampleSearchesFeature, $wheres);
 
-        if (! empty($existingSearches)) {
-            $message = Message::error(
-                __('An entry with this name already exists.')
-            );
-            $response = ResponseRenderer::getInstance();
-            $response->setRequestStatus($message->isSuccess());
-            $response->addJSON('fieldWithError', 'searchName');
-            $response->addJSON('message', $message);
-            exit;
+        if ($existingSearches !== []) {
+            throw new SavedSearchesException(__('An entry with this name already exists.'));
         }
 
         $sqlQuery = 'UPDATE ' . $savedSearchesTbl
-            . "SET `search_name` = '"
-            . $dbi->escapeString($this->getSearchName()) . "', "
-            . "`search_data` = '"
-            . $dbi->escapeString(json_encode($this->getCriterias())) . "' "
+            . 'SET `search_name` = '
+            . $GLOBALS['dbi']->quoteString($this->getSearchName(), Connection::TYPE_CONTROL) . ', '
+            . '`search_data` = '
+            . $GLOBALS['dbi']->quoteString(json_encode($this->getCriterias()), Connection::TYPE_CONTROL) . ' '
             . 'WHERE id = ' . $this->getId();
 
-        return (bool) $dbi->queryAsControlUser($sqlQuery);
+        return (bool) $GLOBALS['dbi']->queryAsControlUser($sqlQuery);
     }
 
     /**
      * Delete the search
+     *
+     * @throws SavedSearchesException
      */
     public function delete(SavedQueryByExampleSearchesFeature $savedQueryByExampleSearchesFeature): bool
     {
-        global $dbi;
-
         if ($this->getId() == null) {
-            $message = Message::error(
-                __('Missing information to delete the search.')
-            );
-            $response = ResponseRenderer::getInstance();
-            $response->setRequestStatus($message->isSuccess());
-            $response->addJSON('fieldWithError', 'searchId');
-            $response->addJSON('message', $message);
-            exit;
+            throw new SavedSearchesException(__('Missing information to delete the search.'));
         }
 
         $savedSearchesTbl = Util::backquote($savedQueryByExampleSearchesFeature->database) . '.'
             . Util::backquote($savedQueryByExampleSearchesFeature->savedSearches);
 
         $sqlQuery = 'DELETE FROM ' . $savedSearchesTbl
-            . "WHERE id = '" . $dbi->escapeString((string) $this->getId()) . "'";
+            . 'WHERE id = ' . $GLOBALS['dbi']->quoteString((string) $this->getId(), Connection::TYPE_CONTROL);
 
-        return (bool) $dbi->queryAsControlUser($sqlQuery);
+        return (bool) $GLOBALS['dbi']->queryAsControlUser($sqlQuery);
     }
 
     /**
      * Load the current search from an id.
+     *
+     * @throws SavedSearchesException
      */
     public function load(SavedQueryByExampleSearchesFeature $savedQueryByExampleSearchesFeature): bool
     {
-        global $dbi;
-
         if ($this->getId() == null) {
-            $message = Message::error(
-                __('Missing information to load the search.')
-            );
-            $response = ResponseRenderer::getInstance();
-            $response->setRequestStatus($message->isSuccess());
-            $response->addJSON('fieldWithError', 'searchId');
-            $response->addJSON('message', $message);
-            exit;
+            throw new SavedSearchesException(__('Missing information to load the search.'));
         }
 
         $savedSearchesTbl = Util::backquote($savedQueryByExampleSearchesFeature->database)
@@ -376,18 +326,13 @@ class SavedSearches
             . Util::backquote($savedQueryByExampleSearchesFeature->savedSearches);
         $sqlQuery = 'SELECT id, search_name, search_data '
             . 'FROM ' . $savedSearchesTbl . ' '
-            . "WHERE id = '" . $dbi->escapeString((string) $this->getId()) . "' ";
+            . 'WHERE id = ' . $GLOBALS['dbi']->quoteString((string) $this->getId(), Connection::TYPE_CONTROL);
 
-        $resList = $dbi->queryAsControlUser($sqlQuery);
+        $resList = $GLOBALS['dbi']->queryAsControlUser($sqlQuery);
         $oneResult = $resList->fetchAssoc();
 
         if ($oneResult === []) {
-            $message = Message::error(__('Error while loading the search.'));
-            $response = ResponseRenderer::getInstance();
-            $response->setRequestStatus($message->isSuccess());
-            $response->addJSON('fieldWithError', 'searchId');
-            $response->addJSON('message', $message);
-            exit;
+            throw new SavedSearchesException(__('Error while loading the search.'));
         }
 
         $this->setSearchName($oneResult['search_name'])
@@ -403,10 +348,10 @@ class SavedSearches
      *
      * @return array List of saved searches or empty array on failure
      */
-    public function getList(SavedQueryByExampleSearchesFeature $savedQueryByExampleSearchesFeature, array $wheres = [])
-    {
-        global $dbi;
-
+    public function getList(
+        SavedQueryByExampleSearchesFeature $savedQueryByExampleSearchesFeature,
+        array $wheres = [],
+    ): array {
         if ($this->getUsername() == null || $this->getDbname() == null) {
             return [];
         }
@@ -417,8 +362,8 @@ class SavedSearches
         $sqlQuery = 'SELECT id, search_name '
             . 'FROM ' . $savedSearchesTbl . ' '
             . 'WHERE '
-            . "username = '" . $dbi->escapeString($this->getUsername()) . "' "
-            . "AND db_name = '" . $dbi->escapeString($this->getDbname()) . "' ";
+            . 'username = ' . $GLOBALS['dbi']->quoteString($this->getUsername(), Connection::TYPE_CONTROL) . ' '
+            . 'AND db_name = ' . $GLOBALS['dbi']->quoteString($this->getDbname(), Connection::TYPE_CONTROL) . ' ';
 
         foreach ($wheres as $where) {
             $sqlQuery .= 'AND ' . $where . ' ';
@@ -426,7 +371,7 @@ class SavedSearches
 
         $sqlQuery .= 'order by search_name ASC ';
 
-        $resList = $dbi->queryAsControlUser($sqlQuery);
+        $resList = $GLOBALS['dbi']->queryAsControlUser($sqlQuery);
 
         return $resList->fetchAllKeyPair();
     }

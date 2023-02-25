@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table\Maintenance;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\Table\AbstractController;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Dbal\InvalidIdentifierName;
 use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
@@ -22,23 +23,13 @@ use function count;
 
 final class CheckController extends AbstractController
 {
-    /** @var Maintenance */
-    private $model;
-
-    /** @var Config */
-    private $config;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
-        string $table,
-        Maintenance $model,
-        Config $config
+        private Maintenance $model,
+        private Config $config,
     ) {
-        parent::__construct($response, $template, $db, $table);
-        $this->model = $model;
-        $this->config = $config;
+        parent::__construct($response, $template);
     }
 
     public function __invoke(ServerRequest $request): void
@@ -62,7 +53,7 @@ final class CheckController extends AbstractController
             foreach ($selectedTablesParam as $table) {
                 $selectedTables[] = TableName::fromValue($table);
             }
-        } catch (InvalidArgumentException $exception) {
+        } catch (InvalidIdentifierName $exception) {
             $message = Message::error($exception->getMessage());
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $message->getDisplay());
@@ -82,7 +73,7 @@ final class CheckController extends AbstractController
         $message = Generator::getMessage(
             __('Your SQL query has been executed successfully.'),
             $query,
-            'success'
+            'success',
         );
 
         $indexesProblems = $this->model->getIndexesProblems($database, $selectedTables);

@@ -4,17 +4,16 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database\Structure;
 
-use PhpMyAdmin\Controllers\Database\AbstractController;
+use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Http\ServerRequest;
 
 use function __;
 
 final class CopyFormController extends AbstractController
 {
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $db, $dblist;
-
-        $selected = $_POST['selected_tbl'] ?? [];
+        $selected = $request->getParsedBodyParam('selected_tbl', []);
 
         if (empty($selected)) {
             $this->response->setRequestStatus(false);
@@ -23,14 +22,14 @@ final class CopyFormController extends AbstractController
             return;
         }
 
-        $urlParams = ['db' => $db];
+        $urlParams = ['db' => $GLOBALS['db']];
         foreach ($selected as $selectedValue) {
             $urlParams['selected'][] = $selectedValue;
         }
 
-        $databasesList = $dblist->databases;
+        $databasesList = $GLOBALS['dbi']->getDatabaseList();
         foreach ($databasesList as $key => $databaseName) {
-            if ($databaseName == $db) {
+            if ($databaseName == $GLOBALS['db']) {
                 $databasesList->offsetUnset($key);
                 break;
             }

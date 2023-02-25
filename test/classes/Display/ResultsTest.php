@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Display;
 
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Display\DisplayParts;
 use PhpMyAdmin\Display\Results as DisplayResults;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Html\Generator;
@@ -14,10 +15,11 @@ use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_External;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
-use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Utils\Query;
+use PhpMyAdmin\StatementInfo;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Transformations;
 use stdClass;
 
@@ -36,13 +38,18 @@ use const MYSQLI_TYPE_DATETIME;
 use const MYSQLI_TYPE_DECIMAL;
 use const MYSQLI_TYPE_LONG;
 use const MYSQLI_TYPE_STRING;
+use const MYSQLI_TYPE_TIME;
 use const MYSQLI_TYPE_TIMESTAMP;
 
-/**
- * @covers \PhpMyAdmin\Display\Results
- */
+/** @covers \PhpMyAdmin\Display\Results */
 class ResultsTest extends AbstractTestCase
 {
+    /** @var DatabaseInterface */
+    protected $dbi;
+
+    /** @var DbiDummy */
+    protected $dummyDbi;
+
     /** @var DisplayResults */
     protected $object;
 
@@ -53,8 +60,15 @@ class ResultsTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setLanguage();
+
         parent::setGlobalConfig();
+
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
+        $this->setTheme();
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
@@ -72,6 +86,7 @@ class ResultsTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 
@@ -80,76 +95,14 @@ class ResultsTest extends AbstractTestCase
      */
     public function testisSelect(): void
     {
-        $parser = new Parser('SELECT * FROM pma');
         $this->assertTrue(
             $this->callFunction(
                 $this->object,
                 DisplayResults::class,
                 'isSelect',
-                [
-                    [
-                        'statement' => $parser->statements[0],
-                        'select_from' => true,
-                    ],
-                ]
-            )
+                [StatementInfo::fromArray(Query::getAll('SELECT * FROM pma'))],
+            ),
         );
-    }
-
-    /**
-     * Test for navigation buttons
-     *
-     * @param string $caption        iconic caption for button
-     * @param string $title          text for button
-     * @param int    $pos            position for next query
-     * @param string $html_sql_query query ready for display
-     *
-     * @dataProvider providerForTestGetTableNavigationButton
-     */
-    public function testGetTableNavigationButton(
-        string $caption,
-        string $title,
-        int $pos,
-        string $html_sql_query
-    ): void {
-        $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
-        $_SESSION[' PMA_token '] = 'token';
-
-        $actual = $this->callFunction(
-            $this->object,
-            DisplayResults::class,
-            'getTableNavigationButton',
-            [
-                &$caption,
-                $title,
-                $pos,
-                $html_sql_query,
-                true,
-            ]
-        );
-
-        $this->assertStringContainsString('<form action="index.php?route=/sql', $actual);
-        $this->assertStringContainsString('" method="post" >', $actual);
-        $this->assertStringContainsString('name="sql_query" value="SELECT * FROM `pma_bookmark` WHERE 1"', $actual);
-        $this->assertStringContainsString('name="pos" value="1"', $actual);
-        $this->assertStringContainsString('value="btn" title="Submit"', $actual);
-    }
-
-    /**
-     * Provider for testGetTableNavigationButton
-     *
-     * @return array array data for testGetTableNavigationButton
-     */
-    public function providerForTestGetTableNavigationButton(): array
-    {
-        return [
-            [
-                'btn',
-                'Submit',
-                1,
-                'SELECT * FROM `pma_bookmark` WHERE 1',
-            ],
-        ];
     }
 
     public function testGetClassForDateTimeRelatedFieldsCase1(): void
@@ -160,8 +113,8 @@ class ResultsTest extends AbstractTestCase
                 $this->object,
                 DisplayResults::class,
                 'getClassForDateTimeRelatedFields',
-                [new FieldMetadata(MYSQLI_TYPE_TIMESTAMP, 0, (object) [])]
-            )
+                [new FieldMetadata(MYSQLI_TYPE_TIMESTAMP, 0, (object) [])],
+            ),
         );
     }
 
@@ -173,8 +126,8 @@ class ResultsTest extends AbstractTestCase
                 $this->object,
                 DisplayResults::class,
                 'getClassForDateTimeRelatedFields',
-                [new FieldMetadata(MYSQLI_TYPE_DATE, 0, (object) [])]
-            )
+                [new FieldMetadata(MYSQLI_TYPE_DATE, 0, (object) [])],
+            ),
         );
     }
 
@@ -186,8 +139,8 @@ class ResultsTest extends AbstractTestCase
                 $this->object,
                 DisplayResults::class,
                 'getClassForDateTimeRelatedFields',
-                [new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [])]
-            )
+                [new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [])],
+            ),
         );
     }
 
@@ -206,8 +159,8 @@ class ResultsTest extends AbstractTestCase
                 $this->object,
                 DisplayResults::class,
                 'getOffsets',
-                []
-            )
+                [],
+            ),
         );
     }
 
@@ -227,8 +180,8 @@ class ResultsTest extends AbstractTestCase
                 $this->object,
                 DisplayResults::class,
                 'getOffsets',
-                []
-            )
+                [],
+            ),
         );
     }
 
@@ -237,7 +190,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @return array parameters and output
      */
-    public function dataProviderForTestGetSpecialLinkUrl(): array
+    public static function dataProviderForTestGetSpecialLinkUrl(): array
     {
         return [
             [
@@ -286,7 +239,7 @@ class ResultsTest extends AbstractTestCase
         string $column_value,
         array $row_info,
         string $field_name,
-        string $output
+        string $output,
     ): void {
         $specialSchemaLinks = [
             'information_schema' => [
@@ -335,8 +288,8 @@ class ResultsTest extends AbstractTestCase
                     $specialSchemaLinks[$db][$table][$field_name],
                     $column_value,
                     $row_info,
-                ]
-            )
+                ],
+            ),
         );
     }
 
@@ -345,7 +298,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @return array parameters and output
      */
-    public function dataProviderForTestGetRowInfoForSpecialLinks(): array
+    public static function dataProviderForTestGetRowInfoForSpecialLinks(): array
     {
         $column_names = [
             'host',
@@ -403,7 +356,7 @@ class ResultsTest extends AbstractTestCase
         int $fields_count,
         array $row,
         array $col_order,
-        array $output
+        array $output,
     ): void {
         $this->object->properties['fields_meta'] = $fields_meta;
         $this->object->properties['fields_cnt'] = $fields_count;
@@ -417,50 +370,26 @@ class ResultsTest extends AbstractTestCase
                 [
                     $row,
                     $col_order,
-                ]
-            )
+                ],
+            ),
         );
     }
 
-    /**
-     * Data provider for testSetHighlightedColumnGlobalField
-     *
-     * @return array parameters and output
-     */
-    public function dataProviderForTestSetHighlightedColumnGlobalField(): array
+    public function testSetHighlightedColumnGlobalField(): void
     {
-        $parser = new Parser('SELECT * FROM db_name WHERE `db_name`.`tbl`.id > 0 AND `id` < 10');
-
-        return [
-            [
-                ['statement' => $parser->statements[0]],
-                [
-                    'db_name' => 'true',
-                    'tbl' => 'true',
-                    'id' => 'true',
-                ],
-            ],
-        ];
-    }
-
-    /**
-     * Test setHighlightedColumnGlobalField
-     *
-     * @param array $analyzed_sql the analyzed query
-     * @param array $output       setting value of setHighlightedColumnGlobalField
-     *
-     * @dataProvider dataProviderForTestSetHighlightedColumnGlobalField
-     */
-    public function testSetHighlightedColumnGlobalField(array $analyzed_sql, array $output): void
-    {
+        $query = 'SELECT * FROM db_name WHERE `db_name`.`tbl`.id > 0 AND `id` < 10';
         $this->callFunction(
             $this->object,
             DisplayResults::class,
             'setHighlightedColumnGlobalField',
-            [$analyzed_sql]
+            [StatementInfo::fromArray(Query::getAll($query))],
         );
 
-        $this->assertEquals($output, $this->object->properties['highlight_columns']);
+        $this->assertEquals([
+            'db_name' => 'true',
+            'tbl' => 'true',
+            'id' => 'true',
+        ], $this->object->properties['highlight_columns']);
     }
 
     /**
@@ -468,7 +397,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @return array parameters and output
      */
-    public function dataProviderForTestGetPartialText(): array
+    public static function dataProviderForTestGetPartialText(): array
     {
         return [
             [
@@ -534,8 +463,8 @@ class ResultsTest extends AbstractTestCase
                 $this->object,
                 DisplayResults::class,
                 'getPartialText',
-                [$str]
-            )
+                [$str],
+            ),
         );
     }
 
@@ -554,7 +483,7 @@ class ResultsTest extends AbstractTestCase
      *   string
      * }}
      */
-    public function dataProviderForTestHandleNonPrintableContents(): array
+    public static function dataProviderForTestHandleNonPrintableContents(): array
     {
         $transformation_plugin = new Text_Plain_Link();
         $meta = new FieldMetadata(MYSQLI_TYPE_BLOB, 0, (object) ['orgtable' => 'bar']);
@@ -645,13 +574,13 @@ class ResultsTest extends AbstractTestCase
         bool $display_binary,
         bool $display_blob,
         string $category,
-        ?string $content,
-        ?TransformationsPlugin $transformation_plugin,
+        string|null $content,
+        TransformationsPlugin|null $transformation_plugin,
         $transform_options,
         object $meta,
         array $url_params,
-        ?bool $is_truncated,
-        string $output
+        bool|null $is_truncated,
+        string $output,
     ): void {
         $_SESSION['tmpval']['display_binary'] = $display_binary;
         $_SESSION['tmpval']['display_blob'] = $display_blob;
@@ -670,8 +599,8 @@ class ResultsTest extends AbstractTestCase
                     $meta,
                     $url_params,
                     &$is_truncated,
-                ]
-            )
+                ],
+            ),
         );
     }
 
@@ -687,11 +616,10 @@ class ResultsTest extends AbstractTestCase
      *   bool,
      *   TransformationsPlugin|null,
      *   array,
-     *   array,
      *   string
      * }}
      */
-    public function dataProviderForTestGetDataCellForNonNumericColumns(): array
+    public static function dataProviderForTestGetDataCellForNonNumericColumns(): array
     {
         $transformation_plugin = new Text_Plain_Link();
         $transformation_plugin_external = new Text_Plain_External();
@@ -738,7 +666,6 @@ class ResultsTest extends AbstractTestCase
                 false,
                 null,
                 ['https://www.example.com/'],
-                [],
                 'class="disableAjax">[BLOB - 4 B]</a>'
                 . '</td>' . "\n",
             ],
@@ -751,7 +678,6 @@ class ResultsTest extends AbstractTestCase
                 $url_params,
                 false,
                 $transformation_plugin,
-                [],
                 [],
                 '<td class="text-start grid_edit transformed hex">'
                 . '1001'
@@ -766,7 +692,6 @@ class ResultsTest extends AbstractTestCase
                 $url_params,
                 false,
                 $transformation_plugin,
-                [],
                 [],
                 '<td data-decimals="0"' . "\n"
                 . '    data-type="string"' . "\n"
@@ -784,7 +709,6 @@ class ResultsTest extends AbstractTestCase
                 false,
                 null,
                 [],
-                [],
                 '<td data-decimals="0" data-type="string" '
                 . 'data-originallength="11" '
                 . 'class="grid_edit pre_wrap">foo bar baz</td>' . "\n",
@@ -798,7 +722,6 @@ class ResultsTest extends AbstractTestCase
                 $url_params,
                 false,
                 $transformation_plugin_external,
-                [],
                 [],
                 '<td data-decimals="0" data-type="string" '
                 . 'data-originallength="11" '
@@ -814,7 +737,6 @@ class ResultsTest extends AbstractTestCase
                 false,
                 null,
                 [],
-                [],
                 '<td data-decimals="0" data-type="datetime" '
                 . 'data-originallength="19" '
                 . 'class="grid_edit text-nowrap">2020-09-20 16:35:00</td>' . "\n",
@@ -823,37 +745,36 @@ class ResultsTest extends AbstractTestCase
     }
 
     /**
-     * @param string      $protectBinary        all|blob|noblob|no
-     * @param string|null $column               the relevant column in data row
-     * @param string      $class                the html class for column
-     * @param object      $meta                 the meta-information about the field
-     * @param array       $map                  the list of relations
-     * @param array       $_url_params          the parameters for generate url
-     * @param bool        $condition_field      the column should highlighted or not
-     * @param array       $transform_options    the transformation parameters
-     * @param array       $analyzed_sql_results the analyzed query
-     * @param string      $output               the output of this function
+     * @param string      $protectBinary     all|blob|noblob|no
+     * @param string|null $column            the relevant column in data row
+     * @param string      $class             the html class for column
+     * @param object      $meta              the meta-information about the field
+     * @param array       $map               the list of relations
+     * @param array       $_url_params       the parameters for generate url
+     * @param bool        $condition_field   the column should highlighted or not
+     * @param array       $transform_options the transformation parameters
+     * @param string      $output            the output of this function
      *
      * @dataProvider dataProviderForTestGetDataCellForNonNumericColumns
      */
     public function testGetDataCellForNonNumericColumns(
         string $protectBinary,
-        ?string $column,
+        string|null $column,
         string $class,
         object $meta,
         array $map,
         array $_url_params,
         bool $condition_field,
-        ?TransformationsPlugin $transformation_plugin,
+        TransformationsPlugin|null $transformation_plugin,
         array $transform_options,
-        array $analyzed_sql_results,
-        string $output
+        string $output,
     ): void {
         $_SESSION['tmpval']['display_binary'] = true;
         $_SESSION['tmpval']['display_blob'] = false;
         $_SESSION['tmpval']['relational_display'] = false;
         $GLOBALS['cfg']['LimitChars'] = 50;
         $GLOBALS['cfg']['ProtectBinary'] = $protectBinary;
+        $statementInfo = $this->createStub(StatementInfo::class);
         $this->assertStringContainsString(
             $output,
             $this->callFunction(
@@ -869,9 +790,9 @@ class ResultsTest extends AbstractTestCase
                     $condition_field,
                     $transformation_plugin,
                     $transform_options,
-                    $analyzed_sql_results,
-                ]
-            )
+                    $statementInfo,
+                ],
+            ),
         );
     }
 
@@ -936,7 +857,7 @@ class ResultsTest extends AbstractTestCase
                         'mimetype' => '',
                         'transformation' => 'output/text_plain_bool2text.php',
                     ],
-                ]
+                ],
             );
 
         $GLOBALS['dbi'] = $dbi;
@@ -957,11 +878,11 @@ class ResultsTest extends AbstractTestCase
                 0,
                 false,
                 [],
-                '',
+                'disabled',
                 false,
                 $query,
-                Query::getAll($query),
-            ]
+                StatementInfo::fromArray(Query::getAll($query)),
+            ],
         );
 
         // Dateformat
@@ -970,7 +891,7 @@ class ResultsTest extends AbstractTestCase
         $this->assertStringContainsString('>T<', $output);
     }
 
-    public function dataProviderGetSortOrderHiddenInputs(): array
+    public static function dataProviderGetSortOrderHiddenInputs(): array
     {
         // SQL to add the column
         // SQL to remove the column
@@ -1039,15 +960,13 @@ class ResultsTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * @dataProvider dataProviderGetSortOrderHiddenInputs
-     */
+    /** @dataProvider dataProviderGetSortOrderHiddenInputs */
     public function testGetSortOrderHiddenInputs(
         string $sqlAdd,
         string $sqlRemove,
         array $urlParams,
         string $colName,
-        string $urlParamsRemove
+        string $urlParamsRemove,
     ): void {
         $output = $this->callFunction(
             $this->object,
@@ -1056,39 +975,37 @@ class ResultsTest extends AbstractTestCase
             [
                 $urlParams,
                 $colName,
-            ]
+            ],
         );
         $out = urldecode(htmlspecialchars_decode($output));
         $this->assertStringContainsString(
             'name="url-remove-order" value="index.php?route=/sql&sql_query=' . $sqlRemove,
             $out,
-            'The remove query should be found'
+            'The remove query should be found',
         );
 
         $this->assertStringContainsString(
             'name="url-add-order" value="index.php?route=/sql&sql_query=' . $sqlAdd,
             $out,
-            'The add query should be found'
+            'The add query should be found',
         );
 
         $firstLine = explode("\n", $out)[0] ?? '';
         $this->assertStringContainsString(
             'url-remove-order',
             $firstLine,
-            'The first line should contain url-remove-order input'
+            'The first line should contain url-remove-order input',
         );
         $this->assertStringNotContainsString(
             'url-add-order',
             $firstLine,
-            'The first line should contain NOT url-add-order input'
+            'The first line should contain NOT url-add-order input',
         );
 
         $this->assertStringContainsString($urlParamsRemove, $firstLine, 'The first line should contain the URL params');
     }
 
-    /**
-     * @see https://github.com/phpmyadmin/phpmyadmin/issues/16836
-     */
+    /** @see https://github.com/phpmyadmin/phpmyadmin/issues/16836 */
     public function testBuildValueDisplayNoTrainlingSpaces(): void
     {
         $output = $this->callFunction(
@@ -1099,7 +1016,7 @@ class ResultsTest extends AbstractTestCase
                 'my_class',
                 false,
                 '  special value  ',
-            ]
+            ],
         );
         $this->assertSame('<td class="text-start my_class">  special value  </td>' . "\n", $output);
         $output = $this->callFunction(
@@ -1110,7 +1027,7 @@ class ResultsTest extends AbstractTestCase
                 'my_class',
                 false,
                 '0x11e6ac0cfb1e8bf3bf48b827ebdafb0b',
-            ]
+            ],
         );
         $this->assertSame('<td class="text-start my_class">0x11e6ac0cfb1e8bf3bf48b827ebdafb0b</td>' . "\n", $output);
         $output = $this->callFunction(
@@ -1121,23 +1038,43 @@ class ResultsTest extends AbstractTestCase
                 'my_class',
                 true,// condition mode
                 '0x11e6ac0cfb1e8bf3bf48b827ebdafb0b',
-            ]
+            ],
         );
         $this->assertSame(
             '<td class="text-start my_class condition">0x11e6ac0cfb1e8bf3bf48b827ebdafb0b</td>' . "\n",
-            $output
+            $output,
         );
     }
 
-    /**
-     * @dataProvider providerSetConfigParamsForDisplayTable
-     */
+    public function testPftextConfigParam(): void
+    {
+        $db = 'test_db';
+        $table = 'test_table';
+
+        $query = 'ANALYZE FORMAT=JSON SELECT * FROM test_table';
+        [$analyzedSqlResults] = ParseAnalyze::sqlQuery($query, $db);
+
+        $object = new DisplayResults($this->dbi, $db, $table, 1, '', $query);
+        $object->setConfigParamsForDisplayTable($analyzedSqlResults);
+
+        $this->assertSame('F', $_SESSION['tmpval']['pftext']);
+
+        $query = 'ANALYZE NO_WRITE_TO_BINLOG TABLE test_table';
+        [$analyzedSqlResults] = ParseAnalyze::sqlQuery($query, $db);
+
+        $object = new DisplayResults($this->dbi, $db, $table, 1, '', $query);
+        $object->setConfigParamsForDisplayTable($analyzedSqlResults);
+
+        $this->assertSame('P', $_SESSION['tmpval']['pftext']);
+    }
+
+    /** @dataProvider providerSetConfigParamsForDisplayTable */
     public function testSetConfigParamsForDisplayTable(
         array $session,
         array $get,
         array $post,
         array $request,
-        array $expected
+        array $expected,
     ): void {
         $_SESSION = $session;
         $_GET = $get;
@@ -1147,22 +1084,23 @@ class ResultsTest extends AbstractTestCase
         $db = 'test_db';
         $table = 'test_table';
         $query = 'SELECT * FROM `test_db`.`test_table`;';
+        [$analyzedSqlResults] = ParseAnalyze::sqlQuery($query, $db);
 
         $object = new DisplayResults($this->dbi, $db, $table, 1, '', $query);
-        $object->setConfigParamsForDisplayTable();
+        $object->setConfigParamsForDisplayTable($analyzedSqlResults);
 
         $this->assertArrayHasKey('tmpval', $_SESSION);
         $this->assertIsArray($_SESSION['tmpval']);
         $this->assertSame($expected, $_SESSION['tmpval']);
     }
 
-    public function providerSetConfigParamsForDisplayTable(): array
+    public static function providerSetConfigParamsForDisplayTable(): array
     {
         $cfg = ['RelationalDisplay' => DisplayResults::RELATIONAL_KEY, 'MaxRows' => 25, 'RepeatCells' => 100];
 
         return [
             'default values' => [
-                [],
+                [' PMA_token ' => 'token'],
                 [],
                 [],
                 [],
@@ -1216,6 +1154,7 @@ class ResultsTest extends AbstractTestCase
                             'j' => [],
                         ],
                     ],
+                    ' PMA_token ' => 'token',
                 ],
                 [],
                 [],
@@ -1254,7 +1193,7 @@ class ResultsTest extends AbstractTestCase
                 ],
             ],
             'default and request values' => [
-                [],
+                [' PMA_token ' => 'token'],
                 ['session_max_rows' => '27'],
                 ['session_max_rows' => '28'],
                 [
@@ -1317,6 +1256,7 @@ class ResultsTest extends AbstractTestCase
                             'i' => [],
                         ],
                     ],
+                    ' PMA_token ' => 'token',
                 ],
                 [],
                 ['session_max_rows' => DisplayResults::ALL_ROWS],
@@ -1364,23 +1304,21 @@ class ResultsTest extends AbstractTestCase
 
     public function testGetTable(): void
     {
-        global $db, $table;
-
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
 
-        $db = 'test_db';
-        $table = 'test_table';
+        $GLOBALS['db'] = 'test_db';
+        $GLOBALS['table'] = 'test_table';
         $query = 'SELECT * FROM `test_db`.`test_table`;';
 
-        $object = new DisplayResults($this->dbi, $db, $table, 1, '', $query);
+        $object = new DisplayResults($this->dbi, $GLOBALS['db'], $GLOBALS['table'], 1, '', $query);
         $object->properties['unique_id'] = 1234567890;
 
-        [$analyzedSqlResults] = ParseAnalyze::sqlQuery($query, $db);
+        [$statementInfo] = ParseAnalyze::sqlQuery($query, $GLOBALS['db']);
         $fieldsMeta = [
             new FieldMetadata(
                 MYSQLI_TYPE_DECIMAL,
                 MYSQLI_PRI_KEY_FLAG | MYSQLI_NUM_FLAG | MYSQLI_NOT_NULL_FLAG,
-                (object) ['name' => 'id']
+                (object) ['name' => 'id'],
             ),
             new FieldMetadata(MYSQLI_TYPE_STRING, MYSQLI_NOT_NULL_FLAG, (object) ['name' => 'name']),
             new FieldMetadata(MYSQLI_TYPE_DATETIME, MYSQLI_NOT_NULL_FLAG, (object) ['name' => 'datetimefield']),
@@ -1389,21 +1327,21 @@ class ResultsTest extends AbstractTestCase
         $object->setProperties(
             3,
             $fieldsMeta,
-            $analyzedSqlResults['is_count'],
-            $analyzedSqlResults['is_export'],
-            $analyzedSqlResults['is_func'],
-            $analyzedSqlResults['is_analyse'],
+            $statementInfo->isCount,
+            $statementInfo->isExport,
+            $statementInfo->isFunction,
+            $statementInfo->isAnalyse,
             3,
             count($fieldsMeta),
             1.234,
             'ltr',
-            $analyzedSqlResults['is_maint'],
-            $analyzedSqlResults['is_explain'],
-            $analyzedSqlResults['is_show'],
+            $statementInfo->isMaint,
+            $statementInfo->isExplain,
+            $statementInfo->isShow,
             null,
             null,
             true,
-            false
+            false,
         );
 
         $_SESSION = ['tmpval' => [], ' PMA_token ' => 'token'];
@@ -1420,17 +1358,19 @@ class ResultsTest extends AbstractTestCase
         $_SESSION['tmpval']['query']['27b1330f2076ef45d236f20839a92831']['max_rows'] = 25;
 
         $dtResult = $this->dbi->tryQuery($query);
-        $displayParts = [
-            'edit_lnk' => DisplayResults::UPDATE_ROW,
-            'del_lnk' => DisplayResults::DELETE_ROW,
-            'sort_lnk' => '1',
-            'nav_bar' => '1',
-            'bkm_form' => '1',
-            'text_btn' => '0',
-            'pview_lnk' => '1',
-        ];
+
+        $displayParts = DisplayParts::fromArray([
+            'hasEditLink' => true,
+            'deleteLink' => DisplayParts::DELETE_ROW,
+            'hasSortLink' => true,
+            'hasNavigationBar' => true,
+            'hasBookmarkForm' => true,
+            'hasTextButton' => false,
+            'hasPrintLink' => true,
+        ]);
+
         $this->assertNotFalse($dtResult);
-        $actual = $object->getTable($dtResult, $displayParts, $analyzedSqlResults);
+        $actual = $object->getTable($dtResult, $displayParts, $statementInfo);
 
         $template = new Template();
 
@@ -1528,17 +1468,15 @@ class ResultsTest extends AbstractTestCase
             'sql_query_message' => Generator::getMessage(
                 Message::success('Showing rows 0 -  2 (3 total, Query took 1.2340 seconds.)'),
                 $query,
-                'success'
+                'success',
             ),
             'navigation' => [
-                'move_backward_buttons' => '',
                 'page_selector' => '',
-                'move_forward_buttons' => '',
                 'number_total_page' => 1,
                 'has_show_all' => true,
                 'hidden_fields' => [
-                    'db' => $db,
-                    'table' => $table,
+                    'db' => $GLOBALS['db'],
+                    'table' => $GLOBALS['table'],
                     'server' => 1,
                     'sql_query' => $query,
                     'is_browse_distinct' => false,
@@ -1550,8 +1488,8 @@ class ResultsTest extends AbstractTestCase
                 'pos' => 0,
                 'sort_by_key' => [
                     'hidden_fields' => [
-                        'db' => $db,
-                        'table' => $table,
+                        'db' => $GLOBALS['db'],
+                        'table' => $GLOBALS['table'],
                         'server' => 1,
                         'sort_by_key' => '1',
                         'session_max_rows' => 25,
@@ -1574,6 +1512,7 @@ class ResultsTest extends AbstractTestCase
                         ],
                     ],
                 ],
+                'is_last_page' => true,
             ],
             'headers' => [
                 'column_order' => [
@@ -1584,7 +1523,7 @@ class ResultsTest extends AbstractTestCase
                 ],
                 'options' => '$optionsBlock',
                 'has_bulk_actions_form' => false,
-                'button' => '<thead class="table-light"><tr>' . "\n",
+                'button' => '<thead><tr>' . "\n",
                 'table_headers_for_columns' => $tableHeadersForColumns,
                 'column_at_right_side' => "\n" . '<td class="d-print-none"></td>',
             ],
@@ -1616,16 +1555,16 @@ class ResultsTest extends AbstractTestCase
                 'has_print_link' => true,
                 'has_export_link' => true,
                 'url_params' => [
-                    'db' => $db,
-                    'table' => $table,
+                    'db' => $GLOBALS['db'],
+                    'table' => $GLOBALS['table'],
                     'printview' => '1',
                     'sql_query' => $query,
                     'single_table' => 'true',
                     'unlim_num_rows' => 3,
                 ],
             ],
-            'db' => $db,
-            'table' => $table,
+            'db' => $GLOBALS['db'],
+            'table' => $GLOBALS['table'],
             'unique_id' => 1234567890,
             'sql_query' => $query,
             'goto' => '',
@@ -1638,5 +1577,387 @@ class ResultsTest extends AbstractTestCase
         ]);
 
         $this->assertEquals($tableTemplate, $actual);
+    }
+
+    public function testGetTable2(): void
+    {
+        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+
+        $GLOBALS['db'] = 'test_db';
+        $GLOBALS['table'] = 'test_table';
+        $query = 'SELECT COUNT(*) AS `Rows`, `name` FROM `test_table` GROUP BY `name` ORDER BY `name`';
+
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+
+        $object = new DisplayResults($dbi, $GLOBALS['db'], $GLOBALS['table'], 1, '', $query);
+        $object->properties['unique_id'] = 1234567890;
+
+        [$statementInfo] = ParseAnalyze::sqlQuery($query, $GLOBALS['db']);
+        $fieldsMeta = [
+            new FieldMetadata(
+                MYSQLI_TYPE_LONG,
+                MYSQLI_NUM_FLAG | MYSQLI_NOT_NULL_FLAG,
+                (object) ['name' => 'Rows'],
+            ),
+            new FieldMetadata(MYSQLI_TYPE_STRING, MYSQLI_NOT_NULL_FLAG, (object) ['name' => 'name']),
+        ];
+
+        $dummyDbi->addResult($query, [['2', 'abcd'], ['1', 'foo']], ['Rows', 'name'], $fieldsMeta);
+
+        $object->setProperties(
+            2,
+            $fieldsMeta,
+            $statementInfo->isCount,
+            $statementInfo->isExport,
+            $statementInfo->isFunction,
+            $statementInfo->isAnalyse,
+            2,
+            count($fieldsMeta),
+            1.234,
+            'ltr',
+            $statementInfo->isMaint,
+            $statementInfo->isExplain,
+            $statementInfo->isShow,
+            null,
+            null,
+            true,
+            true,
+        );
+
+        $_SESSION = ['tmpval' => [], ' PMA_token ' => 'token'];
+        $_SESSION['tmpval']['geoOption'] = '';
+        $_SESSION['tmpval']['hide_transformation'] = false;
+        $_SESSION['tmpval']['display_blob'] = '';
+        $_SESSION['tmpval']['display_binary'] = '';
+        $_SESSION['tmpval']['relational_display'] = '';
+        $_SESSION['tmpval']['possible_as_geometry'] = '';
+        $_SESSION['tmpval']['pftext'] = '';
+        $_SESSION['tmpval']['max_rows'] = 25;
+        $_SESSION['tmpval']['pos'] = 0;
+        $_SESSION['tmpval']['repeat_cells'] = 0;
+        $_SESSION['tmpval']['query']['f2a8e80312ca180031ad773b573adbe1']['max_rows'] = 25;
+
+        $dtResult = $dbi->tryQuery($query);
+
+        $displayParts = DisplayParts::fromArray([
+            'hasEditLink' => false,
+            'deleteLink' => DisplayParts::NO_DELETE,
+            'hasSortLink' => true,
+            'hasNavigationBar' => true,
+            'hasBookmarkForm' => true,
+            'hasTextButton' => false,
+            'hasPrintLink' => true,
+        ]);
+
+        $this->assertNotFalse($dtResult);
+        $actual = $object->getTable($dtResult, $displayParts, $statementInfo);
+
+        $template = new Template();
+
+        $tableHeadersForColumns = $template->render('display/results/table_headers_for_columns', [
+            'is_sortable' => true,
+            'columns' => [
+                [
+                    'column_name' => 'Rows',
+                    'order_link' => '<a href="index.php?route=/sql&server=0&lang=en&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table'
+                        . '%60+GROUP+BY+%60name%60++%0AORDER+BY+%60Rows%60+ASC&sql_signature='
+                        . '8412b2f6bb4473905c68b2612d95d0020dda32282b3f5bf7a63fbaa98163016e&session_max_rows=25'
+                        . '&is_browse_distinct=1&server=0&lang=en" class="sortlink">Rows<input type="hidden" value="'
+                        . 'index.php?route=/sql&server=0&lang=en&db=test_db&table=test_table&sql_query='
+                        . 'SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table%60+GROUP+BY+'
+                        . '%60name%60++%0AORDER+BY+%60name%60+ASC%2C+%60Rows%60+ASC&sql_signature='
+                        . '6077a1df2401b3fa1ca67a940e3bb3cf6ff126ee5245137b07d68b1e7fe4075a&session_max_rows=25'
+                        . '&is_browse_distinct=1&server=0&lang=en"></a><input type="hidden" name="url-remove-order"'
+                        . ' value="index.php?route=/sql&db=test_db&table=test_table&sql_query='
+                        . 'SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table%60+GROUP+BY+%60name'
+                        . '%60+ORDER+BY+%60name%60+ASC&sql_signature='
+                        . 'a6daf20f5593bc5d7c62fdb7dc564994f9e4a928f4488ab41b653c264bed70e7&session_max_rows=25'
+                        . '&is_browse_distinct=1&server=0&lang=en">' . "\n"
+                        . '<input type="hidden" name="url-add-order" value="'
+                        . 'index.php?route=/sql&db=test_db&table=test_table&sql_query='
+                        . 'SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table%60+GROUP+BY+'
+                        . '%60name%60++%0AORDER+BY+%60name%60+ASC%2C+%60Rows%60+ASC&sql_signature='
+                        . '6077a1df2401b3fa1ca67a940e3bb3cf6ff126ee5245137b07d68b1e7fe4075a&session_max_rows=25'
+                        . '&is_browse_distinct=1&server=0&lang=en">',
+                    'comments' => '',
+                    'is_browse_pointer_enabled' => true,
+                    'is_browse_marker_enabled' => true,
+                    'is_column_hidden' => false,
+                    'is_column_numeric' => true,
+                ],
+                [
+                    'column_name' => 'name',
+                    'order_link' => '<a href="index.php?route=/sql&server=0&lang=en&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table'
+                        . '%60+GROUP+BY+%60name%60++%0AORDER+BY+%60name%60+DESC&sql_signature='
+                        . 'de2cda64ffdeae7d1181feb386c1c47acea4de444235f1cdc29cf4556d4bae4c&session_max_rows=25'
+                        . '&is_browse_distinct=1&server=0&lang=en" class="sortlink">name <img src="themes/dot.gif"'
+                        . ' title="" alt="Ascending" class="icon ic_s_asc soimg"> <img src="themes/dot.gif" title=""'
+                        . ' alt="Descending" class="icon ic_s_desc soimg hide"> <small>1</small><input type="hidden"'
+                        . ' value="index.php?route=/sql&server=0&lang=en&db=test_db&table=test_table&sql_query='
+                        . 'SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table%60+GROUP+BY+'
+                        . '%60name%60++%0AORDER+BY+%60name%60+DESC&sql_signature='
+                        . 'de2cda64ffdeae7d1181feb386c1c47acea4de444235f1cdc29cf4556d4bae4c&session_max_rows=25'
+                        . '&is_browse_distinct=1&server=0&lang=en"></a><input type="hidden" name="url-remove-order"'
+                        . ' value="index.php?route=/sql&db=test_db&table=test_table&sql_query='
+                        . 'SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table%60+GROUP+BY+'
+                        . '%60name%60&sql_signature=1e391c9073b55f6d88696ff3b6991df45636bd24c32e7c235c8ff7ef640161ce'
+                        . '&session_max_rows=25&is_browse_distinct=1&server=0&lang=en'
+                        . '&discard_remembered_sort=1">' . "\n" . '<input type="hidden" name="url-add-order" value="'
+                        . 'index.php?route=/sql&db=test_db&table=test_table&sql_query='
+                        . 'SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table%60+GROUP+BY+'
+                        . '%60name%60++%0AORDER+BY+%60name%60+DESC&sql_signature='
+                        . 'de2cda64ffdeae7d1181feb386c1c47acea4de444235f1cdc29cf4556d4bae4c&session_max_rows=25'
+                        . '&is_browse_distinct=1&server=0&lang=en">',
+                    'comments' => '',
+                    'is_browse_pointer_enabled' => true,
+                    'is_browse_marker_enabled' => true,
+                    'is_column_hidden' => false,
+                    'is_column_numeric' => false,
+                ],
+            ],
+        ]);
+
+        $tableTemplate = $template->render('display/results/table', [
+            'sql_query_message' => Generator::getMessage(
+                Message::success('Showing rows 0 -  1 (2 total, Query took 1.2340 seconds.)'),
+                $query,
+                'success',
+            ),
+            'navigation' => [
+                'page_selector' => '',
+                'number_total_page' => 1,
+                'has_show_all' => true,
+                'hidden_fields' => [
+                    'db' => $GLOBALS['db'],
+                    'table' => $GLOBALS['table'],
+                    'server' => 1,
+                    'sql_query' => $query,
+                    'is_browse_distinct' => true,
+                    'goto' => '',
+                ],
+                'session_max_rows' => 'all',
+                'is_showing_all' => false,
+                'max_rows' => 25,
+                'pos' => 0,
+                'sort_by_key' => [],
+                'is_last_page' => true,
+            ],
+            'headers' => [
+                'column_order' => [],
+                'options' => '$optionsBlock',
+                'has_bulk_actions_form' => false,
+                'button' => '<thead><tr>' . "\n",
+                'table_headers_for_columns' => $tableHeadersForColumns,
+                'column_at_right_side' => "\n" . '<td class="d-print-none"></td>',
+            ],
+            'body' => '<tr><td data-decimals="0" data-type="int" class="'
+                . 'text-end data not_null text-nowrap">2</td>' . "\n"
+                . '<td data-decimals="0" data-type="string" data-originallength="4" class="'
+                . 'data not_null relation text pre_wrap"><a href="index.php?route=/sql&server=0&lang=en'
+                . '&db=test_db&table=test_table&pos=0&sql_signature='
+                . '435bef10ad40031af7da88ea735cdc55ee91ac589b93adf10a10101b00e4d7ac&sql_query='
+                . 'SELECT+%2A+FROM+%60test_db%60.%60test_table%60+WHERE+%60name%60+%3D+%27abcd%27&server=0&lang=en'
+                . '" title="abcd">abcd</a></td>' . "\n"
+                . '</tr>' . "\n"
+                . '<tr><td data-decimals="0" data-type="int" class="'
+                . 'text-end data not_null text-nowrap">1</td>' . "\n"
+                . '<td data-decimals="0" data-type="string" data-originallength="3" class="'
+                . 'data not_null relation text pre_wrap"><a href="index.php?route=/sql&server=0&lang=en&db=test_db'
+                . '&table=test_table&pos=0&sql_signature='
+                . '8b25f948acdbde1631297c34c6fe773c1751dfed5e59a30e3ee909773512e297&sql_query='
+                . 'SELECT+%2A+FROM+%60test_db%60.%60test_table%60+WHERE+%60name%60+%3D+%27foo%27&server=0&lang=en"'
+                . ' title="foo">foo</a></td>' . "\n"
+                . '</tr>' . "\n",
+            'bulk_links' => [],
+            'operations' => [
+                'has_procedure' => false,
+                'has_geometry' => false,
+                'has_print_link' => true,
+                'has_export_link' => true,
+                'url_params' => [
+                    'db' => $GLOBALS['db'],
+                    'table' => $GLOBALS['table'],
+                    'printview' => '1',
+                    'sql_query' => $query,
+                    'single_table' => 'true',
+                    'unlim_num_rows' => 2,
+                ],
+            ],
+            'db' => $GLOBALS['db'],
+            'table' => $GLOBALS['table'],
+            'unique_id' => 1234567890,
+            'sql_query' => $query,
+            'goto' => '',
+            'unlim_num_rows' => 2,
+            'displaywork' => false,
+            'relwork' => false,
+            'save_cells_at_once' => false,
+            'default_sliders_state' => 'closed',
+            'text_dir' => 'ltr',
+        ]);
+
+        $this->assertEquals($tableTemplate, $actual);
+    }
+
+    /** @return array<string, array{string, string, int}> */
+    public static function dataProviderSortOrder(): array
+    {
+        return [
+            'Default date' => [
+                'SMART',
+                'DESC',// date types are DESC in SMART mode
+                MYSQLI_TYPE_DATE,
+            ],
+            'ASC date' => [
+                'ASC',
+                'ASC',// do as config says
+                MYSQLI_TYPE_DATE,
+            ],
+            'DESC date' => [
+                'DESC',
+                'DESC',// do as config says
+                MYSQLI_TYPE_DATE,
+            ],
+            'Default date-time' => [
+                'SMART',
+                'DESC',// date time types are DESC in SMART mode
+                MYSQLI_TYPE_DATETIME,
+            ],
+            'ASC date-time' => [
+                'ASC',
+                'ASC',// do as config says
+                MYSQLI_TYPE_DATETIME,
+            ],
+            'DESC date-time' => [
+                'DESC',
+                'DESC',// do as config says
+                MYSQLI_TYPE_DATETIME,
+            ],
+            'Default time' => [
+                'SMART',
+                'DESC',// time types are DESC in SMART mode
+                MYSQLI_TYPE_TIME,
+            ],
+            'ASC time' => [
+                'ASC',
+                'ASC',// do as config says
+                MYSQLI_TYPE_TIME,
+            ],
+            'DESC time' => [
+                'DESC',
+                'DESC',// do as config says
+                MYSQLI_TYPE_TIME,
+            ],
+            'Default timestamp' => [
+                'SMART',
+                'DESC',// timestamp types are DESC in SMART mode
+                MYSQLI_TYPE_TIMESTAMP,
+            ],
+            'ASC timestamp' => [
+                'ASC',
+                'ASC',// do as config says
+                MYSQLI_TYPE_TIMESTAMP,
+            ],
+            'DESC timestamp' => [
+                'DESC',
+                'DESC',// do as config says
+                MYSQLI_TYPE_TIMESTAMP,
+            ],
+            'Default string' => [
+                'SMART',
+                'ASC',// string types are ASC in SMART mode
+                MYSQLI_TYPE_STRING,
+            ],
+            'ASC string' => [
+                'ASC',
+                'ASC',// do as config says
+                MYSQLI_TYPE_STRING,
+            ],
+            'DESC string' => [
+                'DESC',
+                'DESC',// do as config says
+                MYSQLI_TYPE_STRING,
+            ],
+        ];
+    }
+
+    /** @dataProvider dataProviderSortOrder */
+    public function testGetSingleAndMultiSortUrls(
+        string $orderSetting,
+        string $querySortDirection,
+        int $metaType,
+    ): void {
+        $GLOBALS['cfg']['Order'] = $orderSetting;
+
+        $data = $this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'getSingleAndMultiSortUrls',
+            [
+                ['`Country`.`Code` ASC'], // sortExpression,
+                ['`Country`.`Code`'], // sortExpressionNoDirection,
+                '`Country`.',
+                'FoundedIn',
+                ['ASC'], // sortDirection,
+                new FieldMetadata($metaType, 0, (object) []),
+            ],
+        );
+
+        $this->assertSame([
+            "\n" . 'ORDER BY `Country`.`FoundedIn` ' . $querySortDirection, // singleSortOrder
+            "\n" . 'ORDER BY `Country`.`Code` ASC, `Country`.`FoundedIn` ' . $querySortDirection, // sortOrderColumns
+            '', // orderImg
+        ], $data);
+
+        $data = $this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'getSingleAndMultiSortUrls',
+            [
+                ['`Country`.`Code` ASC'], // sortExpression,
+                ['`Country`.`Code`'], // sortExpressionNoDirection,
+                '`Country`.',
+                'Code2',
+                ['ASC'], // sortDirection,
+                new FieldMetadata($metaType, 0, (object) []),
+            ],
+        );
+
+        $this->assertSame([
+            "\n" . 'ORDER BY `Country`.`Code2` ' . $querySortDirection, // singleSortOrder
+            "\n" . 'ORDER BY `Country`.`Code` ASC, `Country`.`Code2` ' . $querySortDirection, // sortOrderColumns
+            '', // orderImg
+        ], $data);
+
+        $data = $this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'getSingleAndMultiSortUrls',
+            [
+                [
+                    '`Country`.`Continent` DESC","`Country`.`Region` ASC',
+                    '`Country`.`Population` ASC',
+                ], // sortExpression,
+                [
+                    '`Country`.`Continent`',
+                    '`Country`.`Region`',
+                    '`Country`.`Population`',
+                ], // sortExpressionNoDirection,
+                '`Country`.',
+                'Code2',
+                ['DESC', 'ASC', 'ASC'], // sortDirection,
+                new FieldMetadata($metaType, 0, (object) []),
+            ],
+        );
+
+        $this->assertSame([
+            "\n" . 'ORDER BY `Country`.`Code2` ' . $querySortDirection, // singleSortOrder
+            "\n" . 'ORDER BY `Country`.`Continent` DESC, `Country`.`Region` ASC'
+                . ', `Country`.`Population` ASC, `Country`.`Code2` ' . $querySortDirection, // sortOrderColumns
+            '', // orderImg
+        ], $data);
     }
 }

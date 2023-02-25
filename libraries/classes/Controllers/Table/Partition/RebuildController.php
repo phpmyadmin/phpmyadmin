@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table\Partition;
 
-use PhpMyAdmin\Controllers\Table\AbstractController;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Dbal\InvalidIdentifierName;
 use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
@@ -20,17 +21,15 @@ use function __;
 
 final class RebuildController extends AbstractController
 {
-    /** @var Maintenance */
-    private $model;
+    private Maintenance $model;
 
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
-        string $table,
-        Maintenance $maintenance
+        Maintenance $maintenance,
     ) {
-        parent::__construct($response, $template, $db, $table);
+        parent::__construct($response, $template);
+
         $this->model = $maintenance;
     }
 
@@ -39,10 +38,10 @@ final class RebuildController extends AbstractController
         $partitionName = $request->getParsedBodyParam('partition_name');
 
         try {
-            Assert::stringNotEmpty($partitionName);
+            Assert::stringNotEmpty($partitionName, __('The partition name must be a non-empty string.'));
             $database = DatabaseName::fromValue($request->getParam('db'));
             $table = TableName::fromValue($request->getParam('table'));
-        } catch (InvalidArgumentException $exception) {
+        } catch (InvalidIdentifierName | InvalidArgumentException $exception) {
             $message = Message::error($exception->getMessage());
             $this->response->addHTML($message->getDisplay());
 
@@ -55,13 +54,13 @@ final class RebuildController extends AbstractController
             $message = Generator::getMessage(
                 __('Your SQL query has been executed successfully.'),
                 $query,
-                'success'
+                'success',
             );
         } else {
             $message = Generator::getMessage(
                 __('Error'),
                 $query,
-                'error'
+                'error',
             );
         }
 

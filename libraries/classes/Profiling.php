@@ -43,7 +43,7 @@ final class Profiling
     }
 
     /** @return array<string, string>|null */
-    public static function getInformation(DatabaseInterface $dbi): ?array
+    public static function getInformation(DatabaseInterface $dbi): array|null
     {
         if (! isset($_SESSION['profiling']) || ! self::isSupported($dbi)) {
             return null;

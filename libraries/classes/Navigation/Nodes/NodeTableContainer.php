@@ -23,6 +23,7 @@ class NodeTableContainer extends NodeDatabaseChildContainer
     public function __construct()
     {
         parent::__construct(__('Tables'), Node::CONTAINER);
+
         $this->icon = ['image' => 'b_browse', 'title' => __('Tables')];
         $this->links = [
             'text' => ['route' => '/database/structure', 'params' => ['tbl_type' => 'table', 'db' => null]],

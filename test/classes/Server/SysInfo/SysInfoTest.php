@@ -8,9 +8,7 @@ use PhpMyAdmin\Server\SysInfo\Base;
 use PhpMyAdmin\Server\SysInfo\SysInfo;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Server\SysInfo\SysInfo
- */
+/** @covers \PhpMyAdmin\Server\SysInfo\SysInfo */
 class SysInfoTest extends AbstractTestCase
 {
     /**
@@ -25,14 +23,16 @@ class SysInfoTest extends AbstractTestCase
     {
         $this->assertEquals(
             $expected,
-            SysInfo::getOs($os)
+            SysInfo::getOs($os),
         );
     }
 
     /**
      * Data provider for OS detection tests.
+     *
+     * @return string[][]
      */
-    public function sysInfoOsProvider(): array
+    public static function sysInfoOsProvider(): array
     {
         return [
             [
@@ -67,6 +67,6 @@ class SysInfoTest extends AbstractTestCase
      */
     public function testGetSysInfoSupported(): void
     {
-        $this->assertTrue(SysInfo::get()->supported());
+        $this->assertTrue(SysInfo::get()::isSupported());
     }
 }

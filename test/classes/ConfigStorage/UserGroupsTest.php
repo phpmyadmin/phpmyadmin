@@ -9,6 +9,7 @@ use PhpMyAdmin\ConfigStorage\Features\ConfigurableMenusFeature;
 use PhpMyAdmin\ConfigStorage\UserGroups;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
@@ -16,9 +17,7 @@ use PhpMyAdmin\Url;
 
 use function htmlspecialchars;
 
-/**
- * @covers \PhpMyAdmin\ConfigStorage\UserGroups
- */
+/** @covers \PhpMyAdmin\ConfigStorage\UserGroups */
 class UserGroupsTest extends AbstractTestCase
 {
     /** @var ConfigurableMenusFeature */
@@ -30,13 +29,15 @@ class UserGroupsTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
 
         $this->configurableMenusFeature = new ConfigurableMenusFeature(
             DatabaseName::fromValue('pmadb'),
             TableName::fromValue('usergroups'),
-            TableName::fromValue('users')
+            TableName::fromValue('users'),
         );
     }
 
@@ -85,7 +86,7 @@ class UserGroupsTest extends AbstractTestCase
         $this->assertStringContainsString(
             '<button type="button" class="btn btn-link" data-bs-toggle="modal"'
             . ' data-bs-target="#deleteUserGroupModal" data-user-group="usergroup">',
-            $html
+            $html,
         );
     }
 
@@ -97,19 +98,16 @@ class UserGroupsTest extends AbstractTestCase
         $userDelQuery = 'DELETE FROM `pmadb`.`users` WHERE `usergroup`=\'ug\'';
         $userGrpDelQuery = 'DELETE FROM `pmadb`.`usergroups` WHERE `usergroup`=\'ug\'';
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects($this->exactly(2))
-            ->method('queryAsControlUser')
-            ->withConsecutive([$this->equalTo($userDelQuery)], [$this->equalTo($userGrpDelQuery)]);
-        $dbi->expects($this->any())
-            ->method('escapeString')
-            ->will($this->returnArgument(0));
+        $result = $this->createStub(ResultInterface::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->expects($this->exactly(2))->method('queryAsControlUser')->willReturnMap([
+            [$userDelQuery, $result],
+            [$userGrpDelQuery, $result],
+        ]);
+        $dbi->expects($this->any())->method('quoteString')
+            ->will($this->returnCallback(static fn (string $string): string => "'" . $string . "'"));
 
-        $GLOBALS['dbi'] = $dbi;
-
-        UserGroups::delete($this->configurableMenusFeature, 'ug');
+        UserGroups::delete($dbi, $this->configurableMenusFeature, 'ug');
     }
 
     /**
@@ -156,11 +154,11 @@ class UserGroupsTest extends AbstractTestCase
         $this->assertStringContainsString('<input type="hidden" name="editUserGroupSubmit" value="1"', $html);
         $this->assertStringContainsString(
             '<input type="checkbox" class="checkall" checked="checked" name="server_sql" value="Y">',
-            $html
+            $html,
         );
         $this->assertStringContainsString(
             '<input type="checkbox" class="checkall" name="server_databases" value="Y">',
-            $html
+            $html,
         );
     }
 }

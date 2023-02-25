@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests\Selenium\Table;
 use Facebook\WebDriver\WebDriverKeys;
 use PhpMyAdmin\Tests\Selenium\TestBase;
 
-/**
- * @coversNothing
- */
+/** @coversNothing */
 class BrowseTest extends TestBase
 {
     /**
@@ -18,6 +16,7 @@ class BrowseTest extends TestBase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->dbQuery(
             'USE `' . $this->databaseName . '`;'
             . 'CREATE TABLE `test_table` ('
@@ -29,7 +28,7 @@ class BrowseTest extends TestBase
             . 'INSERT INTO `test_table` (`id`, `name`, `datetimefield`) VALUES'
             . " (1, 'abcd', '2011-01-20 02:00:02'),"
             . " (2, 'foo', '2010-01-20 02:00:02'),"
-            . " (3, 'Abcd', '2012-01-20 02:00:02');"
+            . " (3, 'Abcd', '2012-01-20 02:00:02');",
         );
 
         $this->login();
@@ -51,17 +50,17 @@ class BrowseTest extends TestBase
 
         $this->assertEquals(
             '1',
-            $this->getCellByTableClass('table_results', 1, 5)
+            $this->getCellByTableClass('table_results', 1, 5),
         );
 
         $this->assertEquals(
             '3',
-            $this->getCellByTableClass('table_results', 2, 5)
+            $this->getCellByTableClass('table_results', 2, 5),
         );
 
         $this->assertEquals(
             '2',
-            $this->getCellByTableClass('table_results', 3, 5)
+            $this->getCellByTableClass('table_results', 3, 5),
         );
 
         // case 2
@@ -70,17 +69,17 @@ class BrowseTest extends TestBase
 
         $this->assertEquals(
             '2',
-            $this->getCellByTableClass('table_results', 1, 5)
+            $this->getCellByTableClass('table_results', 1, 5),
         );
 
         $this->assertEquals(
             '1',
-            $this->getCellByTableClass('table_results', 2, 5)
+            $this->getCellByTableClass('table_results', 2, 5),
         );
 
         $this->assertEquals(
             '3',
-            $this->getCellByTableClass('table_results', 3, 5)
+            $this->getCellByTableClass('table_results', 3, 5),
         );
 
         // case 2
@@ -90,17 +89,17 @@ class BrowseTest extends TestBase
         $this->getCellByTableClass('table_results', 1, 5);
         $this->assertEquals(
             '3',
-            $this->getCellByTableClass('table_results', 1, 5)
+            $this->getCellByTableClass('table_results', 1, 5),
         );
 
         $this->assertEquals(
             '1',
-            $this->getCellByTableClass('table_results', 2, 5)
+            $this->getCellByTableClass('table_results', 2, 5),
         );
 
         $this->assertEquals(
             '2',
-            $this->getCellByTableClass('table_results', 3, 5)
+            $this->getCellByTableClass('table_results', 3, 5),
         );
 
         // case 4
@@ -109,17 +108,17 @@ class BrowseTest extends TestBase
 
         $this->assertEquals(
             '2',
-            $this->getCellByTableClass('table_results', 1, 5)
+            $this->getCellByTableClass('table_results', 1, 5),
         );
 
         $this->assertEquals(
             '1',
-            $this->getCellByTableClass('table_results', 2, 5)
+            $this->getCellByTableClass('table_results', 2, 5),
         );
 
         $this->assertEquals(
             '3',
-            $this->getCellByTableClass('table_results', 3, 5)
+            $this->getCellByTableClass('table_results', 3, 5),
         );
     }
 
@@ -141,17 +140,17 @@ class BrowseTest extends TestBase
 
         $this->assertEquals(
             '2',
-            $this->byId('field_1_3')->getAttribute('value')
+            $this->byId('field_1_3')->getAttribute('value'),
         );
 
         $this->assertEquals(
             'foo',
-            $this->byId('field_2_3')->getAttribute('value')
+            $this->byId('field_2_3')->getAttribute('value'),
         );
 
         $this->assertEquals(
             '2010-01-20 02:00:02',
-            $this->byId('field_3_3')->getAttribute('value')
+            $this->byId('field_3_3')->getAttribute('value'),
         );
 
         $this->byId('field_3_3')->clear();
@@ -170,12 +169,12 @@ class BrowseTest extends TestBase
 
         $this->assertEquals(
             'foobar',
-            $this->getCellByTableClass('table_results', 2, 6)
+            $this->getCellByTableClass('table_results', 2, 6),
         );
 
         $this->assertEquals(
             '2009-01-02 00:00:00',
-            $this->getCellByTableClass('table_results', 2, 7)
+            $this->getCellByTableClass('table_results', 2, 7),
         );
     }
 
@@ -194,9 +193,9 @@ class BrowseTest extends TestBase
         $this->assertEquals(
             $this->waitForElement(
                 'xpath',
-                "//div[not(contains(@style,'display: none;'))]//textarea[contains(@class, 'edit_box')]"
+                "//div[not(contains(@style,'display: none;'))]//textarea[contains(@class, 'edit_box')]",
             )->getAttribute('value'),
-            'abcd'
+            'abcd',
         );
 
         $this->byCssSelector('textarea.edit_box')->clear();
@@ -210,7 +209,7 @@ class BrowseTest extends TestBase
 
         $this->assertEquals(
             'abcde',
-            $this->getCellByTableClass('table_results', 1, 6)
+            $this->getCellByTableClass('table_results', 1, 6),
         );
     }
 
@@ -228,12 +227,12 @@ class BrowseTest extends TestBase
 
         $this->assertEquals(
             'Abcd',
-            $this->byId('field_2_3')->getAttribute('value')
+            $this->byId('field_2_3')->getAttribute('value'),
         );
 
         $this->assertEquals(
             '2012-01-20 02:00:02',
-            $this->byId('field_3_3')->getAttribute('value')
+            $this->byId('field_3_3')->getAttribute('value'),
         );
 
         $this->byId('field_2_3')->clear();
@@ -250,12 +249,12 @@ class BrowseTest extends TestBase
 
         $this->assertEquals(
             'ABCDEFG',
-            $this->getCellByTableClass('table_results', 4, 6)
+            $this->getCellByTableClass('table_results', 4, 6),
         );
 
         $this->assertEquals(
             '2012-01-02 00:00:00',
-            $this->getCellByTableClass('table_results', 4, 7)
+            $this->getCellByTableClass('table_results', 4, 7),
         );
     }
 
@@ -274,7 +273,7 @@ class BrowseTest extends TestBase
         $this->byId('fieldID_1')->sendKeys('abcd');
         $this->selectByLabel(
             $this->byName('criteriaColumnOperators[1]'),
-            'LIKE %...%'
+            'LIKE %...%',
         );
 
         $this->scrollToBottom();
@@ -288,12 +287,12 @@ class BrowseTest extends TestBase
 
         $this->assertEquals(
             '1',
-            $this->getCellByTableClass('table_results', 1, 5)
+            $this->getCellByTableClass('table_results', 1, 5),
         );
 
         $this->assertEquals(
             '3',
-            $this->getCellByTableClass('table_results', 2, 5)
+            $this->getCellByTableClass('table_results', 2, 5),
         );
     }
 
@@ -313,14 +312,23 @@ class BrowseTest extends TestBase
         $this->byId('buttonYes')->click();
 
         $this->waitAjax();
-        $success = $this->waitForElement('className', 'alert-success');
+
+        $success = $this->waitForElement(
+            'cssSelector',
+            '.sqlqueryresults > .result_query:nth-child(1) > .alert-success',
+        );
+        $this->assertStringContainsString('Your SQL query has been executed successfully.', $success->getText());
+        $success = $this->waitForElement(
+            'cssSelector',
+            '.sqlqueryresults > .result_query:nth-child(2) > .alert-success',
+        );
         $this->assertStringContainsString('Showing rows', $success->getText());
 
         $this->assertFalse(
             $this->isElementPresent(
                 'cssSelector',
-                'table.table_results tbody tr:nth-child(2)'
-            )
+                'table.table_results tbody tr:nth-child(2)',
+            ),
         );
     }
 }

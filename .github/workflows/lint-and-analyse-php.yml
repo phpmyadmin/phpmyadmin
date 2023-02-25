@@ -8,49 +8,18 @@ on:
       - master
       - QA_**
 
+permissions:
+  contents: read
+
 jobs:
-  lint-node:
-    runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[ci skip]')"
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
-
-      - name: Get Yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Cache Yarn dependencies
-        uses: actions/cache@v2
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: Install modules
-        run: yarn install --non-interactive
-
-      - name: Lint JavaScript files
-        run: yarn run js-lint --quiet
-
-      - name: Lint CSS files
-        run: yarn run css-lint
-
   lint-php-files:
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[ci skip]')"
     strategy:
       matrix:
-        php-version: ["7.2"]
+        php-version: ["8.1"]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2
@@ -61,36 +30,45 @@ jobs:
         run: composer validate --strict
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v1
+        # Allow the previous check to fail but not abort
+        if: always()
+        uses: ramsey/composer-install@v2
         with:
           dependency-versions: highest
           # Ignore zip for php-webdriver/webdriver
           composer-options: "--ignore-platform-req=ext-zip"
 
       - name: Cache coding-standard
-        uses: actions/cache@v2
+        # Allow the previous check to fail but not abort
+        if: always()
+        uses: actions/cache@v3
         with:
           path: .phpcs-cache
           key: phpcs-cache
 
       - name: Lint PHP files
+        # Allow the previous check to fail but not abort
+        if: always()
         run: ./test/ci-phplint
 
       - name: Check coding-standard
+        # Allow the previous check to fail but not abort
+        if: always()
         run: composer phpcs
 
       - name: Check Twig templates
+        # Allow the previous check to fail but not abort
+        if: always()
         run: composer run twig-lint
 
   analyse-php:
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[ci skip]')"
     strategy:
       matrix:
-        php-version: ["7.2"]
+        php-version: ["8.1"]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2
@@ -99,7 +77,7 @@ jobs:
           extensions: mbstring, iconv, mysqli, zip, gd, bz2
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v1
+        uses: ramsey/composer-install@v2
         with:
           dependency-versions: highest
 
@@ -107,4 +85,6 @@ jobs:
         run: composer phpstan -- --memory-limit 2G
 
       - name: Analyse files with Psalm
+        # Allow the previous check to fail but not abort
+        if: always()
         run: composer psalm -- --shepherd

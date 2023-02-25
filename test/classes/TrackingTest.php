@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use DateTimeImmutable;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracking;
@@ -13,12 +15,14 @@ use PhpMyAdmin\Url;
 
 use function __;
 use function _pgettext;
+use function date;
 use function htmlspecialchars;
+use function ini_get;
+use function ini_restore;
+use function ini_set;
 use function sprintf;
 
-/**
- * @covers \PhpMyAdmin\Tracking
- */
+/** @covers \PhpMyAdmin\Tracking */
 class TrackingTest extends AbstractTestCase
 {
     /** @var Tracking $tracking */
@@ -30,7 +34,10 @@ class TrackingTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setTheme();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'PMA_db';
@@ -50,10 +57,10 @@ class TrackingTest extends AbstractTestCase
 
         $template = new Template();
         $this->tracking = new Tracking(
-            new SqlQueryForm($template),
+            new SqlQueryForm($template, $GLOBALS['dbi']),
             $template,
             new Relation($GLOBALS['dbi']),
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
         );
     }
 
@@ -64,21 +71,24 @@ class TrackingTest extends AbstractTestCase
     {
         $data = [
             [
-                'date' => '20120102',
+                'date' => '2012-01-01 12:34:56',
                 'username' => 'username1',
                 'statement' => 'statement1',
             ],
             [
-                'date' => '20130102',
+                'date' => '2013-01-01 12:34:56',
                 'username' => 'username2',
                 'statement' => 'statement2',
             ],
         ];
-        $filter_ts_from = 0;
-        $filter_ts_to = 999999999999;
         $filter_users = ['username1'];
 
-        $ret = $this->tracking->filter($data, $filter_ts_from, $filter_ts_to, $filter_users);
+        $ret = $this->tracking->filter(
+            $data,
+            $filter_users,
+            new DateTimeImmutable('2010-01-01 12:34:56'),
+            new DateTimeImmutable('2020-01-01 12:34:56'),
+        );
 
         $this->assertEquals('username1', $ret[0]['username']);
         $this->assertEquals('statement1', $ret[0]['statement']);
@@ -124,14 +134,14 @@ class TrackingTest extends AbstractTestCase
             sprintf(
                 __('Create version %1$s of %2$s'),
                 2,
-                htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table'])
+                htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table']),
             ),
-            $html
+            $html,
         );
         $this->assertStringContainsString(
             '<input type="checkbox" name="delete" value="true"'
                 . ' checked="checked">' . "\n" . '            DELETE<br>',
-            $html
+            $html,
         );
         $this->assertStringContainsString(__('Create version'), $html);
         $this->assertStringContainsString('Deactivate now', $html);
@@ -189,66 +199,66 @@ class TrackingTest extends AbstractTestCase
 
         $this->assertStringContainsString(
             __('Column'),
-            $html
+            $html,
         );
         $this->assertStringContainsString(
             __('Type'),
-            $html
+            $html,
         );
         $this->assertStringContainsString(
             __('Collation'),
-            $html
+            $html,
         );
         $this->assertStringContainsString(
             __('Default'),
-            $html
+            $html,
         );
         $this->assertStringContainsString(
             __('Comment'),
-            $html
+            $html,
         );
 
         //column1
         $item1 = $columns[0];
         $this->assertStringContainsString(
             htmlspecialchars($item1['Field']),
-            $html
+            $html,
         );
         $this->assertStringContainsString(
             htmlspecialchars($item1['Type']),
-            $html
+            $html,
         );
         $this->assertStringContainsString(
             htmlspecialchars($item1['Collation']),
-            $html
+            $html,
         );
         $this->assertStringContainsString('<em>NULL</em>', $html);
         $this->assertStringContainsString(
             htmlspecialchars($item1['Comment']),
-            $html
+            $html,
         );
 
         //column2
         $item1 = $columns[1];
         $this->assertStringContainsString(
             htmlspecialchars($item1['Field']),
-            $html
+            $html,
         );
         $this->assertStringContainsString(
             htmlspecialchars($item1['Type']),
-            $html
+            $html,
         );
         $this->assertStringContainsString(
             htmlspecialchars($item1['Collation']),
-            $html
+            $html,
         );
         $this->assertStringContainsString(
             _pgettext('None for default', 'None'),
-            $html
+            $html,
         );
         $this->assertStringContainsString(
             htmlspecialchars($item1['Comment']),
-            $html
+            $html,
         );
     }
 
@@ -267,50 +277,40 @@ class TrackingTest extends AbstractTestCase
      */
     public function testGetHtmlForTrackingReportr(): void
     {
-        $_POST['version'] = 10;
-        $_POST['date_from'] = 'date_from';
-        $_POST['date_to'] = 'date_to';
-        $_POST['users'] = 'users';
-        $_POST['logtype'] = 'logtype';
         $data = [
             'tracking' => 'tracking',
-            'ddlog' => ['ddlog'],
-            'dmlog' => ['dmlog'],
+            'ddlog' => [['date' => '2022-11-02 22:15:24']],
+            'dmlog' => [['date' => '2022-11-02 22:15:24']],
         ];
         $url_params = [];
-        $selection_schema = false;
-        $selection_data = false;
-        $selection_both = false;
-        $filter_ts_to = 0;
-        $filter_ts_from = 0;
         $filter_users = [];
 
         $html = $this->tracking->getHtmlForTrackingReport(
             $data,
             $url_params,
-            $selection_schema,
-            $selection_data,
-            $selection_both,
-            $filter_ts_to,
-            $filter_ts_from,
-            $filter_users
+            'schema_and_data',
+            $filter_users,
+            '10',
+            new DateTimeImmutable('2022-11-03 22:15:24'),
+            new DateTimeImmutable('2022-11-04 22:15:24'),
+            'users',
         );
 
         $this->assertStringContainsString(
             __('Tracking report'),
-            $html
+            $html,
         );
 
         $this->assertStringContainsString(
             __('Tracking statements'),
-            $html
+            $html,
         );
 
         $this->assertStringContainsString($data['tracking'], $html);
 
         $version = Url::getHiddenInputs($url_params + [
             'report' => 'true',
-            'version' => $_POST['version'],
+            'version' => '10',
         ]);
 
         $this->assertStringContainsString($version, $html);
@@ -319,33 +319,22 @@ class TrackingTest extends AbstractTestCase
 
         $this->assertStringContainsString(
             __('Structure only'),
-            $html
+            $html,
         );
 
         $this->assertStringContainsString(
             __('Data only'),
-            $html
+            $html,
         );
 
         $this->assertStringContainsString(
             __('Structure and data'),
-            $html
+            $html,
         );
 
-        $this->assertStringContainsString(
-            htmlspecialchars($_POST['date_from']),
-            $html
-        );
-
-        $this->assertStringContainsString(
-            htmlspecialchars($_POST['date_to']),
-            $html
-        );
-
-        $this->assertStringContainsString(
-            htmlspecialchars($_POST['users']),
-            $html
-        );
+        $this->assertStringContainsString('2022-11-03 22:15:24', $html);
+        $this->assertStringContainsString('2022-11-04 22:15:24', $html);
+        $this->assertStringContainsString('users', $html);
     }
 
     /**
@@ -353,13 +342,12 @@ class TrackingTest extends AbstractTestCase
      */
     public function testGetHtmlForDataManipulationStatements(): void
     {
-        $_POST['version'] = '10';
         $data = [
             'tracking' => 'tracking',
             'dmlog' => [
                 [
                     'statement' => 'statement',
-                    'date' => 'date',
+                    'date' => '2013-01-01 12:34:56',
                     'username' => 'username',
                 ],
             ],
@@ -368,33 +356,32 @@ class TrackingTest extends AbstractTestCase
         $url_params = [];
         $ddlog_count = 10;
         $drop_image_or_text = 'text';
-        $filter_ts_to = 9999999999;
-        $filter_ts_from = 0;
         $filter_users = ['*'];
 
         $html = $this->tracking->getHtmlForDataManipulationStatements(
             $data,
             $filter_users,
-            $filter_ts_from,
-            $filter_ts_to,
             $url_params,
             $ddlog_count,
-            $drop_image_or_text
+            $drop_image_or_text,
+            '10',
+            new DateTimeImmutable('2010-01-01 12:34:56'),
+            new DateTimeImmutable('2020-01-01 12:34:56'),
         );
 
         $this->assertStringContainsString(
             __('Date'),
-            $html
+            $html,
         );
 
         $this->assertStringContainsString(
             __('Username'),
-            $html
+            $html,
         );
 
         $this->assertStringContainsString(
             __('Data manipulation statement'),
-            $html
+            $html,
         );
 
         $this->assertStringContainsString($data['dmlog'][0]['date'], $html);
@@ -407,58 +394,55 @@ class TrackingTest extends AbstractTestCase
      */
     public function testGetHtmlForDataDefinitionStatements(): void
     {
-        $_POST['version'] = '10';
-
         $data = [
             'tracking' => 'tracking',
             'ddlog' => [
                 [
                     'statement' => 'statement',
-                    'date' => 'date',
+                    'date' => '2013-01-01 12:34:56',
                     'username' => 'username',
                 ],
             ],
             'dmlog' => ['dmlog'],
         ];
         $filter_users = ['*'];
-        $filter_ts_to = 9999999999;
-        $filter_ts_from = 0;
         $url_params = [];
         $drop_image_or_text = 'text';
 
         [$html, $count] = $this->tracking->getHtmlForDataDefinitionStatements(
             $data,
             $filter_users,
-            $filter_ts_from,
-            $filter_ts_to,
             $url_params,
-            $drop_image_or_text
+            $drop_image_or_text,
+            '10',
+            new DateTimeImmutable('2010-01-01 12:34:56'),
+            new DateTimeImmutable('2020-01-01 12:34:56'),
         );
 
         $this->assertStringContainsString(
             __('Date'),
-            $html
+            $html,
         );
 
         $this->assertStringContainsString(
             __('Username'),
-            $html
+            $html,
         );
 
         $this->assertStringContainsString(
             __('Data definition statement'),
-            $html
+            $html,
         );
 
         $this->assertStringContainsString(
             __('Action'),
-            $html
+            $html,
         );
 
         //PMA_getHtmlForDataDefinitionStatement
         $this->assertStringContainsString(
             htmlspecialchars($data['ddlog'][0]['username']),
-            $html
+            $html,
         );
 
         $this->assertEquals(2, $count);
@@ -487,52 +471,52 @@ class TrackingTest extends AbstractTestCase
 
         $this->assertStringContainsString(
             __('Indexes'),
-            $html
+            $html,
         );
         $this->assertStringContainsString(
             __('Keyname'),
-            $html
+            $html,
         );
         $this->assertStringContainsString(
             __('Type'),
-            $html
+            $html,
         );
         $this->assertStringContainsString(
             __('Unique'),
-            $html
+            $html,
         );
         $this->assertStringContainsString(
             __('Packed'),
-            $html
+            $html,
         );
         $this->assertStringContainsString(
             __('Column'),
-            $html
+            $html,
         );
         $this->assertStringContainsString(
             __('Cardinality'),
-            $html
+            $html,
         );
         // items
         $this->assertStringContainsString(
             htmlspecialchars($indexs[0]['Key_name']),
-            $html
+            $html,
         );
         $this->assertStringContainsString(
             htmlspecialchars($indexs[0]['Index_type']),
-            $html
+            $html,
         );
         $this->assertStringContainsString(
             htmlspecialchars($indexs[0]['Column_name']),
-            $html
+            $html,
         );
         $this->assertStringContainsString(
             htmlspecialchars($indexs[0]['Cardinality']),
-            $html
+            $html,
         );
         $this->assertStringContainsString(
             htmlspecialchars($indexs[0]['Collation']),
-            $html
+            $html,
         );
     }
 
@@ -576,30 +560,53 @@ class TrackingTest extends AbstractTestCase
      */
     public function testGetEntries(): void
     {
-        $_POST['logtype'] = 'schema';
         $data = [
             'tracking' => 'tracking',
             'ddlog' => [
                 [
                     'statement' => 'statement1',
-                    'date' => 'date2',
+                    'date' => '2012-01-01 12:34:56',
                     'username' => 'username3',
                 ],
             ],
             'dmlog' => [
                 [
                     'statement' => 'statement1',
-                    'date' => 'date2',
+                    'date' => '2013-01-01 12:34:56',
                     'username' => 'username3',
                 ],
             ],
         ];
         $filter_users = ['*'];
-        $filter_ts_to = 9999999999;
-        $filter_ts_from = 0;
 
-        $entries = $this->tracking->getEntries($data, $filter_ts_from, $filter_ts_to, $filter_users);
+        $entries = $this->tracking->getEntries(
+            $data,
+            $filter_users,
+            'schema',
+            new DateTimeImmutable('2010-01-01 12:34:56'),
+            new DateTimeImmutable('2020-01-01 12:34:56'),
+        );
         $this->assertEquals('username3', $entries[0]['username']);
         $this->assertEquals('statement1', $entries[0]['statement']);
+    }
+
+    public function testGetDownloadInfoForExport(): void
+    {
+        $tracking = new Tracking(
+            $this->createStub(SqlQueryForm::class),
+            $this->createStub(Template::class),
+            $this->createStub(Relation::class),
+            $this->createStub(DatabaseInterface::class),
+        );
+        ini_set('url_rewriter.tags', 'a=href,area=href,frame=src,form=,fieldset=');
+        $entries = [['statement' => 'first statement'], ['statement' => 'second statement']];
+        $expectedDump = '# Tracking report for table `test&gt; table`' . "\n"
+            . '# ' . date('Y-m-d H:i:s') . "\n"
+            . 'first statementsecond statement';
+        $actual = $tracking->getDownloadInfoForExport('test>  table', $entries);
+        $this->assertSame('log_test&gt; table.sql', $actual['filename']);
+        $this->assertSame($expectedDump, $actual['dump']);
+        $this->assertSame('', ini_get('url_rewriter.tags'));
+        ini_restore('url_rewriter.tags');
     }
 }

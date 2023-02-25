@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Auth;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Footer;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Plugins\Auth\AuthenticationHttp;
 use PhpMyAdmin\ResponseRenderer;
@@ -15,9 +14,7 @@ use function base64_encode;
 use function ob_get_clean;
 use function ob_start;
 
-/**
- * @covers \PhpMyAdmin\Plugins\Auth\AuthenticationHttp
- */
+/** @covers \PhpMyAdmin\Plugins\Auth\AuthenticationHttp */
 class AuthenticationHttpTest extends AbstractNetworkTestCase
 {
     /** @var AuthenticationHttp */
@@ -29,8 +26,12 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setGlobalConfig();
+
         parent::setTheme();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['cfg']['Servers'] = [];
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
@@ -49,29 +50,13 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 
-    /**
-     * @param mixed   $set_minimal set minimal
-     * @param mixed   $body_id     body id
-     * @param mixed   $set_title   set title
-     * @param mixed[] ...$headers  headers
-     */
-    public function doMockResponse($set_minimal, $body_id, $set_title, ...$headers): void
+    /** @param mixed[] ...$headers */
+    public function doMockResponse(int $set_minimal, int $body_id, int $set_title, ...$headers): void
     {
-        // mock footer
-        $mockFooter = $this->getMockBuilder(Footer::class)
-            ->disableOriginalConstructor()
-            ->onlyMethods(['setMinimal'])
-            ->getMock();
-
-        $mockFooter->expects($this->exactly($set_minimal))
-            ->method('setMinimal')
-            ->with();
-
-        // mock header
-
         $mockHeader = $this->getMockBuilder(Header::class)
             ->disableOriginalConstructor()
             ->onlyMethods(
@@ -79,7 +64,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
                     'setBodyId',
                     'setTitle',
                     'disableMenuAndConsole',
-                ]
+                ],
             )
             ->getMock();
 
@@ -98,10 +83,9 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         // set mocked headers and footers
         $mockResponse = $this->mockResponse($headers);
 
-        $mockResponse->expects($this->exactly($set_title))
-            ->method('getFooter')
-            ->with()
-            ->will($this->returnValue($mockFooter));
+        $mockResponse->expects($this->exactly($set_minimal))
+            ->method('setMinimalFooter')
+            ->with();
 
         $mockResponse->expects($this->exactly($set_title))
             ->method('getHeader')
@@ -112,7 +96,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
             $this->object->logOut();
         } else {
             $this->assertFalse(
-                $this->object->showLoginForm()
+                $this->object->showLoginForm(),
             );
         }
     }
@@ -126,7 +110,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
             0,
             0,
             0,
-            ['Location: https://example.com/logout']
+            ['Location: https://example.com/logout'],
         );
     }
 
@@ -141,7 +125,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
             1,
             ['WWW-Authenticate: Basic realm="phpMyAdmin verboseMessag"'],
             ['status: 401 Unauthorized'],
-            401
+            401,
         );
     }
 
@@ -156,7 +140,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
             1,
             ['WWW-Authenticate: Basic realm="phpMyAdmin hst"'],
             ['status: 401 Unauthorized'],
-            401
+            401,
         );
     }
 
@@ -171,7 +155,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
             1,
             ['WWW-Authenticate: Basic realm="realmmessage"'],
             ['status: 401 Unauthorized'],
-            401
+            401,
         );
     }
 
@@ -195,7 +179,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         $expectedReturn,
         string $expectedUser,
         $expectedPass,
-        $old_usr = ''
+        $old_usr = '',
     ): void {
         $_SERVER[$userIndex] = $user;
         $_SERVER[$passIndex] = $pass;
@@ -204,7 +188,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
 
         $this->assertEquals(
             $expectedReturn,
-            $this->object->readCredentials()
+            $this->object->readCredentials(),
         );
 
         $this->assertEquals($expectedUser, $this->object->user);
@@ -220,7 +204,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
      *
      * @return array Test data
      */
-    public function readCredentialsProvider(): array
+    public static function readCredentialsProvider(): array
     {
         return [
             [
@@ -282,7 +266,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         $GLOBALS['cfg']['Server']['user'] = 'testUser';
 
         $this->assertTrue(
-            $this->object->storeCredentials()
+            $this->object->storeCredentials(),
         );
 
         $this->assertEquals('testUser', $GLOBALS['cfg']['Server']['user']);
@@ -308,7 +292,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         ];
 
         $this->assertTrue(
-            $this->object->storeCredentials()
+            $this->object->storeCredentials(),
         );
 
         $this->assertEquals(
@@ -317,7 +301,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
                 'password' => 'testPass',
                 'host' => 'a',
             ],
-            $GLOBALS['cfg']['Server']
+            $GLOBALS['cfg']['Server'],
         );
 
         $this->assertEquals(2, $GLOBALS['server']);
@@ -338,7 +322,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         ];
 
         $this->assertTrue(
-            $this->object->storeCredentials()
+            $this->object->storeCredentials(),
         );
 
         $this->assertEquals(
@@ -347,7 +331,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
                 'password' => 'testPass',
                 'host' => 'a',
             ],
-            $GLOBALS['cfg']['Server']
+            $GLOBALS['cfg']['Server'],
         );
 
         $this->assertEquals(3, $GLOBALS['server']);
@@ -355,9 +339,11 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
 
     /**
      * @group medium
+     * @runInSeparateProcess
      */
     public function testAuthFails(): void
     {
+        $GLOBALS['cfg']['Server']['host'] = '';
         $_REQUEST = [];
         ResponseRenderer::getInstance()->setAjax(false);
 

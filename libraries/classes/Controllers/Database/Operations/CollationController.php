@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database\Operations;
 
-use PhpMyAdmin\Controllers\Database\AbstractController;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\ResponseRenderer;
@@ -17,84 +18,73 @@ use function __;
 
 final class CollationController extends AbstractController
 {
-    /** @var Operations */
-    private $operations;
-
-    /** @var DatabaseInterface */
-    private $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
-        Operations $operations,
-        DatabaseInterface $dbi
+        private Operations $operations,
+        private DatabaseInterface $dbi,
     ) {
-        parent::__construct($response, $template, $db);
-        $this->operations = $operations;
-        $this->dbi = $dbi;
+        parent::__construct($response, $template);
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $db, $cfg, $errorUrl;
+        $GLOBALS['errorUrl'] ??= null;
 
         if (! $this->response->isAjax()) {
             return;
         }
 
-        if (empty($_POST['db_collation'])) {
+        $dbCollation = $request->getParsedBodyParam('db_collation') ?? '';
+        if (empty($dbCollation)) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', Message::error(__('No collation provided.')));
 
             return;
         }
 
-        Util::checkParameters(['db']);
+        $this->checkParameters(['db']);
 
-        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $errorUrl .= Url::getCommon(['db' => $db], '&');
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
         if (! $this->hasDatabase()) {
             return;
         }
 
-        $sql_query = 'ALTER DATABASE ' . Util::backquote($db)
-            . ' DEFAULT' . Util::getCharsetQueryPart($_POST['db_collation'] ?? '');
+        $sql_query = 'ALTER DATABASE ' . Util::backquote($GLOBALS['db'])
+            . ' DEFAULT' . Util::getCharsetQueryPart($dbCollation);
         $this->dbi->query($sql_query);
         $message = Message::success();
 
         /**
          * Changes tables charset if requested by the user
          */
-        if (isset($_POST['change_all_tables_collations']) && $_POST['change_all_tables_collations'] === 'on') {
-            [$tables] = Util::getDbInfo($db, '');
-            foreach ($tables as $tableName => $data) {
-                if ($this->dbi->getTable($db, $tableName)->isView()) {
+        if ($request->getParsedBodyParam('change_all_tables_collations') === 'on') {
+            [$tables] = Util::getDbInfo($request, $GLOBALS['db']);
+            foreach ($tables as ['Name' => $tableName]) {
+                if ($this->dbi->getTable($GLOBALS['db'], $tableName)->isView()) {
                     // Skip views, we can not change the collation of a view.
                     // issue #15283
                     continue;
                 }
 
                 $sql_query = 'ALTER TABLE '
-                    . Util::backquote($db)
+                    . Util::backquote($GLOBALS['db'])
                     . '.'
                     . Util::backquote($tableName)
                     . ' DEFAULT '
-                    . Util::getCharsetQueryPart($_POST['db_collation'] ?? '');
+                    . Util::getCharsetQueryPart($dbCollation);
                 $this->dbi->query($sql_query);
 
                 /**
                  * Changes columns charset if requested by the user
                  */
-                if (
-                    ! isset($_POST['change_all_tables_columns_collations']) ||
-                    $_POST['change_all_tables_columns_collations'] !== 'on'
-                ) {
+                if ($request->getParsedBodyParam('change_all_tables_columns_collations') !== 'on') {
                     continue;
                 }
 
-                $this->operations->changeAllColumnsCollation($db, $tableName, $_POST['db_collation']);
+                $this->operations->changeAllColumnsCollation($GLOBALS['db'], $tableName, $dbCollation);
             }
         }
 

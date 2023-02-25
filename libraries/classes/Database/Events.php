@@ -7,21 +7,27 @@ namespace PhpMyAdmin\Database;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 use function __;
+use function array_column;
+use function array_multisort;
 use function count;
 use function explode;
 use function htmlspecialchars;
 use function in_array;
 use function intval;
+use function is_string;
 use function mb_strtoupper;
 use function sprintf;
 use function str_contains;
 use function strtoupper;
 use function trim;
+
+use const SORT_ASC;
 
 /**
  * Functions for event management.
@@ -56,25 +62,9 @@ class Events
         'MINUTE_SECOND',
     ];
 
-    /** @var DatabaseInterface */
-    private $dbi;
-
-    /** @var Template */
-    private $template;
-
-    /** @var ResponseRenderer */
-    private $response;
-
-    /**
-     * @param DatabaseInterface $dbi      DatabaseInterface instance.
-     * @param Template          $template Template instance.
-     * @param ResponseRenderer  $response Response instance.
-     */
-    public function __construct(DatabaseInterface $dbi, Template $template, $response)
+    /** @param ResponseRenderer $response */
+    public function __construct(private DatabaseInterface $dbi, private Template $template, private $response)
     {
-        $this->dbi = $dbi;
-        $this->template = $template;
-        $this->response = $response;
     }
 
     /**
@@ -82,7 +72,8 @@ class Events
      */
     public function handleEditor(): void
     {
-        global $db, $table, $errors, $message;
+        $GLOBALS['errors'] ??= null;
+        $GLOBALS['message'] ??= null;
 
         if (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit'])) {
             $sql_query = '';
@@ -90,28 +81,28 @@ class Events
             $item_query = $this->getQueryFromRequest();
 
             // set by getQueryFromRequest()
-            if (! count($errors)) {
+            if (! count($GLOBALS['errors'])) {
                 // Execute the created query
                 if (! empty($_POST['editor_process_edit'])) {
                     // Backup the old trigger, in case something goes wrong
-                    $create_item = $this->dbi->getDefinition($db, 'EVENT', $_POST['item_original_name']);
+                    $create_item = self::getDefinition($this->dbi, $GLOBALS['db'], $_POST['item_original_name']);
                     $drop_item = 'DROP EVENT IF EXISTS '
                         . Util::backquote($_POST['item_original_name'])
                         . ";\n";
                     $result = $this->dbi->tryQuery($drop_item);
                     if (! $result) {
-                        $errors[] = sprintf(
+                        $GLOBALS['errors'][] = sprintf(
                             __('The following query has failed: "%s"'),
-                            htmlspecialchars($drop_item)
+                            htmlspecialchars($drop_item),
                         )
                         . '<br>'
                         . __('MySQL said: ') . $this->dbi->getError();
                     } else {
                         $result = $this->dbi->tryQuery($item_query);
                         if (! $result) {
-                            $errors[] = sprintf(
+                            $GLOBALS['errors'][] = sprintf(
                                 __('The following query has failed: "%s"'),
-                                htmlspecialchars($item_query)
+                                htmlspecialchars($item_query),
                             )
                             . '<br>'
                             . __('MySQL said: ') . $this->dbi->getError();
@@ -119,14 +110,14 @@ class Events
                             // the new one. Try to restore the backup query
                             $result = $this->dbi->tryQuery($create_item);
                             if (! $result) {
-                                $errors = $this->checkResult($create_item, $errors);
+                                $GLOBALS['errors'] = $this->checkResult($create_item, $GLOBALS['errors']);
                             }
                         } else {
-                            $message = Message::success(
-                                __('Event %1$s has been modified.')
+                            $GLOBALS['message'] = Message::success(
+                                __('Event %1$s has been modified.'),
                             );
-                            $message->addParam(
-                                Util::backquote($_POST['item_name'])
+                            $GLOBALS['message']->addParam(
+                                Util::backquote($_POST['item_name']),
                             );
                             $sql_query = $drop_item . $item_query;
                         }
@@ -135,67 +126,67 @@ class Events
                     // 'Add a new item' mode
                     $result = $this->dbi->tryQuery($item_query);
                     if (! $result) {
-                        $errors[] = sprintf(
+                        $GLOBALS['errors'][] = sprintf(
                             __('The following query has failed: "%s"'),
-                            htmlspecialchars($item_query)
+                            htmlspecialchars($item_query),
                         )
                         . '<br><br>'
                         . __('MySQL said: ') . $this->dbi->getError();
                     } else {
-                        $message = Message::success(
-                            __('Event %1$s has been created.')
+                        $GLOBALS['message'] = Message::success(
+                            __('Event %1$s has been created.'),
                         );
-                        $message->addParam(
-                            Util::backquote($_POST['item_name'])
+                        $GLOBALS['message']->addParam(
+                            Util::backquote($_POST['item_name']),
                         );
                         $sql_query = $item_query;
                     }
                 }
             }
 
-            if (count($errors)) {
-                $message = Message::error(
+            if (count($GLOBALS['errors'])) {
+                $GLOBALS['message'] = Message::error(
                     '<b>'
                     . __(
-                        'One or more errors have occurred while processing your request:'
+                        'One or more errors have occurred while processing your request:',
                     )
-                    . '</b>'
+                    . '</b>',
                 );
-                $message->addHtml('<ul>');
-                foreach ($errors as $string) {
-                    $message->addHtml('<li>' . $string . '</li>');
+                $GLOBALS['message']->addHtml('<ul>');
+                foreach ($GLOBALS['errors'] as $string) {
+                    $GLOBALS['message']->addHtml('<li>' . $string . '</li>');
                 }
 
-                $message->addHtml('</ul>');
+                $GLOBALS['message']->addHtml('</ul>');
             }
 
-            $output = Generator::getMessage($message, $sql_query);
+            $output = Generator::getMessage($GLOBALS['message'], $sql_query);
 
             if ($this->response->isAjax()) {
-                if ($message->isSuccess()) {
-                    $events = $this->dbi->getEvents($db, $_POST['item_name']);
+                if ($GLOBALS['message']->isSuccess()) {
+                    $events = $this->getDetails($GLOBALS['db'], $_POST['item_name']);
                     $event = $events[0];
                     $this->response->addJSON(
                         'name',
                         htmlspecialchars(
-                            mb_strtoupper($_POST['item_name'])
-                        )
+                            mb_strtoupper($_POST['item_name']),
+                        ),
                     );
                     if (! empty($event)) {
                         $sqlDrop = sprintf(
                             'DROP EVENT IF EXISTS %s',
-                            Util::backquote($event['name'])
+                            Util::backquote($event['name']),
                         );
                         $this->response->addJSON(
                             'new_row',
                             $this->template->render('database/events/row', [
-                                'db' => $db,
-                                'table' => $table,
+                                'db' => $GLOBALS['db'],
+                                'table' => $GLOBALS['table'],
                                 'event' => $event,
-                                'has_privilege' => Util::currentUserHasPrivilege('EVENT', $db),
+                                'has_privilege' => Util::currentUserHasPrivilege('EVENT', $GLOBALS['db']),
                                 'sql_drop' => $sqlDrop,
                                 'row_class' => '',
-                            ])
+                            ]),
                         );
                     }
 
@@ -203,7 +194,7 @@ class Events
                     $this->response->addJSON('message', $output);
                 } else {
                     $this->response->setRequestStatus(false);
-                    $this->response->addJSON('message', $message);
+                    $this->response->addJSON('message', $GLOBALS['message']);
                 }
 
                 $this->response->addJSON('tableType', 'events');
@@ -215,7 +206,7 @@ class Events
          * Display a form used to add/edit a trigger, if necessary
          */
         if (
-            ! count($errors)
+            ! count($GLOBALS['errors'])
             && (! empty($_POST['editor_process_add'])
             || ! empty($_POST['editor_process_edit'])
             || (empty($_REQUEST['add_item'])
@@ -257,7 +248,7 @@ class Events
             $mode = 'edit';
         }
 
-        $this->sendEditor($mode, $item, $title, $db, $operation);
+        $this->sendEditor($mode, $item, $title, $GLOBALS['db'], $operation);
     }
 
     /**
@@ -265,7 +256,7 @@ class Events
      *
      * @return array    Data necessary to create the editor.
      */
-    public function getDataFromRequest()
+    public function getDataFromRequest(): array
     {
         $retval = [];
         $indices = [
@@ -304,16 +295,14 @@ class Events
      *
      * @return array|null Data necessary to create the editor.
      */
-    public function getDataFromName($name): ?array
+    public function getDataFromName($name): array|null
     {
-        global $db;
-
         $retval = [];
         $columns = '`EVENT_NAME`, `STATUS`, `EVENT_TYPE`, `EXECUTE_AT`, '
                  . '`INTERVAL_VALUE`, `INTERVAL_FIELD`, `STARTS`, `ENDS`, '
                  . '`EVENT_DEFINITION`, `ON_COMPLETION`, `DEFINER`, `EVENT_COMMENT`';
         $where = 'EVENT_SCHEMA ' . Util::getCollateForIS() . '='
-                 . "'" . $this->dbi->escapeString($db) . "' "
+                 . "'" . $this->dbi->escapeString($GLOBALS['db']) . "' "
                  . "AND EVENT_NAME='" . $this->dbi->escapeString($name) . "'";
         $query = 'SELECT ' . $columns . ' FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE ' . $where . ';';
         $item = $this->dbi->fetchSingleRow($query);
@@ -360,10 +349,8 @@ class Events
      *
      * @return string   HTML code for the editor.
      */
-    public function getEditorForm($mode, $operation, array $item)
+    public function getEditorForm($mode, $operation, array $item): string
     {
-        global $db;
-
         if ($operation === 'change') {
             if ($item['item_type'] === 'RECURRING') {
                 $item['item_type'] = 'ONE TIME';
@@ -375,7 +362,7 @@ class Events
         }
 
         return $this->template->render('database/events/editor_form', [
-            'db' => $db,
+            'db' => $GLOBALS['db'],
             'event' => $item,
             'mode' => $mode,
             'is_ajax' => $this->response->isAjax(),
@@ -390,9 +377,9 @@ class Events
      *
      * @return string  The CREATE EVENT query.
      */
-    public function getQueryFromRequest()
+    public function getQueryFromRequest(): string
     {
-        global $errors;
+        $GLOBALS['errors'] ??= null;
 
         $query = 'CREATE ';
         if (! empty($_POST['item_definer'])) {
@@ -401,7 +388,7 @@ class Events
                 $query .= 'DEFINER=' . Util::backquote($arr[0]);
                 $query .= '@' . Util::backquote($arr[1]) . ' ';
             } else {
-                $errors[] = __('The definer must be in the "username@hostname" format!');
+                $GLOBALS['errors'][] = __('The definer must be in the "username@hostname" format!');
             }
         }
 
@@ -409,7 +396,7 @@ class Events
         if (! empty($_POST['item_name'])) {
             $query .= Util::backquote($_POST['item_name']) . ' ';
         } else {
-            $errors[] = __('You must provide an event name!');
+            $GLOBALS['errors'][] = __('You must provide an event name!');
         }
 
         $query .= 'ON SCHEDULE ';
@@ -423,7 +410,7 @@ class Events
                     $query .= 'EVERY ' . intval($_POST['item_interval_value']) . ' ';
                     $query .= $_POST['item_interval_field'] . ' ';
                 } else {
-                    $errors[] = __('You must provide a valid interval value for the event.');
+                    $GLOBALS['errors'][] = __('You must provide a valid interval value for the event.');
                 }
 
                 if (! empty($_POST['item_starts'])) {
@@ -443,11 +430,11 @@ class Events
                         . $this->dbi->escapeString($_POST['item_execute_at'])
                         . "' ";
                 } else {
-                    $errors[] = __('You must provide a valid execution time for the event.');
+                    $GLOBALS['errors'][] = __('You must provide a valid execution time for the event.');
                 }
             }
         } else {
-            $errors[] = __('You must provide a valid type for the event.');
+            $GLOBALS['errors'][] = __('You must provide a valid type for the event.');
         }
 
         $query .= 'ON COMPLETION ';
@@ -473,7 +460,7 @@ class Events
         if (! empty($_POST['item_definition'])) {
             $query .= $_POST['item_definition'];
         } else {
-            $errors[] = __('You must provide an event definition.');
+            $GLOBALS['errors'][] = __('You must provide an event definition.');
         }
 
         return $query;
@@ -492,7 +479,7 @@ class Events
      *
      * @return array
      */
-    private function checkResult($createStatement, array $errors)
+    private function checkResult($createStatement, array $errors): array
     {
         // OMG, this is really bad! We dropped the query,
         // failed to create a new one
@@ -516,7 +503,7 @@ class Events
      * @param string     $db        Database
      * @param string     $operation Operation 'change' or ''
      */
-    private function sendEditor($mode, ?array $item, $title, $db, $operation): void
+    private function sendEditor($mode, array|null $item, $title, $db, $operation): void
     {
         if ($item !== null) {
             $editor = $this->getEditorForm($mode, $operation, $item);
@@ -535,7 +522,7 @@ class Events
         $message .= sprintf(
             __('No event with name %1$s found in database %2$s.'),
             htmlspecialchars(Util::backquote($_REQUEST['item_name'])),
-            htmlspecialchars(Util::backquote($db))
+            htmlspecialchars(Util::backquote($db)),
         );
         $message = Message::error($message);
         if ($this->response->isAjax()) {
@@ -549,14 +536,12 @@ class Events
 
     public function export(): void
     {
-        global $db;
-
         if (empty($_GET['export_item']) || empty($_GET['item_name'])) {
             return;
         }
 
         $itemName = $_GET['item_name'];
-        $exportData = $this->dbi->getDefinition($db, 'EVENT', $itemName);
+        $exportData = self::getDefinition($this->dbi, $GLOBALS['db'], $itemName);
 
         if (! $exportData) {
             $exportData = false;
@@ -588,7 +573,7 @@ class Events
         $message = sprintf(
             __('Error in processing request: No event with name %1$s found in database %2$s.'),
             $itemName,
-            htmlspecialchars(Util::backquote($db))
+            htmlspecialchars(Util::backquote($GLOBALS['db'])),
         );
         $message = Message::error($message);
 
@@ -600,5 +585,55 @@ class Events
         }
 
         $this->response->addHTML($message->getDisplay());
+    }
+
+    /**
+     * Returns details about the EVENTs for a specific database.
+     *
+     * @param string $db   db name
+     * @param string $name event name
+     *
+     * @return array information about EVENTs
+     */
+    public function getDetails(string $db, string $name = ''): array
+    {
+        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+            $query = QueryGenerator::getInformationSchemaEventsRequest(
+                $this->dbi->escapeString($db),
+                $name === '' ? null : $this->dbi->escapeString($name),
+            );
+        } else {
+            $query = 'SHOW EVENTS FROM ' . Util::backquote($db);
+            if ($name !== '') {
+                $query .= " WHERE `Name` = '" . $this->dbi->escapeString($name) . "'";
+            }
+        }
+
+        $result = [];
+        $events = $this->dbi->fetchResult($query);
+
+        foreach ($events as $event) {
+            $result[] = [
+                'name' => $event['Name'],
+                'type' => $event['Type'],
+                'status' => $event['Status'],
+            ];
+        }
+
+        // Sort results by name
+        $name = array_column($result, 'name');
+        array_multisort($name, SORT_ASC, $result);
+
+        return $result;
+    }
+
+    public static function getDefinition(DatabaseInterface $dbi, string $db, string $name): string|null
+    {
+        $result = $dbi->fetchValue(
+            'SHOW CREATE EVENT ' . Util::backquote($db) . '.' . Util::backquote($name),
+            'Create Event',
+        );
+
+        return is_string($result) ? $result : null;
     }
 }

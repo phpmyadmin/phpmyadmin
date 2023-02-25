@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 
 use function array_merge;
 use function array_replace_recursive;
@@ -30,13 +30,15 @@ use function sys_get_temp_dir;
 use function tempnam;
 use function unlink;
 
+use const CONFIG_FILE;
 use const DIRECTORY_SEPARATOR;
 use const INFO_MODULES;
-use const PHP_EOL;
 use const PHP_OS;
+use const TEST_PATH;
 
 /**
  * @covers \PhpMyAdmin\Config
+ * @psalm-import-type ConnectionType from Connection
  */
 class ConfigTest extends AbstractTestCase
 {
@@ -53,17 +55,22 @@ class ConfigTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setTheme();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $_SERVER['HTTP_USER_AGENT'] = '';
-        $this->object = new Config();
+        $this->object = $this->createConfig();
         $GLOBALS['server'] = 0;
         $_SESSION['git_location'] = '.git';
         $_SESSION['is_git_revision'] = true;
-        $GLOBALS['config'] = new Config(CONFIG_FILE);
+        $GLOBALS['config'] = new Config();
+        $GLOBALS['config']->loadAndCheck(CONFIG_FILE);
         $GLOBALS['cfg']['ProxyUrl'] = '';
 
         //for testing file permissions
-        $this->permTestObj = new Config(ROOT_PATH . 'config.sample.inc.php');
+        $this->permTestObj = new Config();
+        $this->permTestObj->loadAndCheck(ROOT_PATH . 'config.sample.inc.php');
     }
 
     /**
@@ -73,6 +80,7 @@ class ConfigTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
         unset($this->permTestObj);
     }
@@ -82,7 +90,7 @@ class ConfigTest extends AbstractTestCase
      */
     public function testLoadConfigs(): void
     {
-        $defaultConfig = new Config();
+        $defaultConfig = $this->createConfig();
         $tmpConfig = tempnam('./', 'config.test.inc.php');
         if ($tmpConfig === false) {
             $this->markTestSkipped('Creating a temporary file does not work');
@@ -93,15 +101,17 @@ class ConfigTest extends AbstractTestCase
         // end of setup
 
         // Test loading an empty file does not change the default config
-        $config = new Config($tmpConfig);
+        $config = new Config();
+        $config->loadAndCheck($tmpConfig);
         $this->assertSame($defaultConfig->settings, $config->settings);
 
-        $contents = '<?php' . PHP_EOL
+        $contents = '<?php' . "\n"
                     . '$cfg[\'ProtectBinary\'] = true;';
         file_put_contents($tmpConfig, $contents);
 
         // Test loading a config changes the setup
-        $config = new Config($tmpConfig);
+        $config = new Config();
+        $config->loadAndCheck($tmpConfig);
         $defaultConfig->settings['ProtectBinary'] = true;
         $this->assertSame($defaultConfig->settings, $config->settings);
         $defaultConfig->settings['ProtectBinary'] = 'blob';
@@ -116,7 +126,7 @@ class ConfigTest extends AbstractTestCase
      */
     public function testLoadInvalidConfigs(): void
     {
-        $defaultConfig = new Config();
+        $defaultConfig = $this->createConfig();
         $tmpConfig = tempnam('./', 'config.test.inc.php');
         if ($tmpConfig === false) {
             $this->markTestSkipped('Creating a temporary file does not work');
@@ -127,30 +137,33 @@ class ConfigTest extends AbstractTestCase
         // end of setup
 
         // Test loading an empty file does not change the default config
-        $config = new Config($tmpConfig);
+        $config = new Config();
+        $config->loadAndCheck($tmpConfig);
         $this->assertSame($defaultConfig->settings, $config->settings);
 
-        $contents = '<?php' . PHP_EOL
+        $contents = '<?php' . "\n"
                     . '$cfg[\'fooBar\'] = true;';
         file_put_contents($tmpConfig, $contents);
 
         // Test loading a custom key config changes the setup
-        $config = new Config($tmpConfig);
+        $config = new Config();
+        $config->loadAndCheck($tmpConfig);
         $defaultConfig->settings['fooBar'] = true;
         // Equals because of the key sorting
         $this->assertEquals($defaultConfig->settings, $config->settings);
         unset($defaultConfig->settings['fooBar']);
 
-        $contents = '<?php' . PHP_EOL
-                    . '$cfg[\'/InValidKey\'] = true;' . PHP_EOL
-                    . '$cfg[\'In/ValidKey\'] = true;' . PHP_EOL
-                    . '$cfg[\'/InValid/Key\'] = true;' . PHP_EOL
-                    . '$cfg[\'In/Valid/Key\'] = true;' . PHP_EOL
+        $contents = '<?php' . "\n"
+                    . '$cfg[\'/InValidKey\'] = true;' . "\n"
+                    . '$cfg[\'In/ValidKey\'] = true;' . "\n"
+                    . '$cfg[\'/InValid/Key\'] = true;' . "\n"
+                    . '$cfg[\'In/Valid/Key\'] = true;' . "\n"
                     . '$cfg[\'ValidKey\'] = true;';
         file_put_contents($tmpConfig, $contents);
 
         // Test loading a custom key config changes the setup
-        $config = new Config($tmpConfig);
+        $config = new Config();
+        $config->loadAndCheck($tmpConfig);
         $defaultConfig->settings['ValidKey'] = true;
         // Equals because of the key sorting
         $this->assertEquals($defaultConfig->settings, $config->settings);
@@ -202,15 +215,19 @@ class ConfigTest extends AbstractTestCase
      *
      * @dataProvider userAgentProvider
      */
-    public function testCheckClient(string $agent, string $os, ?string $browser = null, ?string $version = null): void
-    {
+    public function testCheckClient(
+        string $agent,
+        string $os,
+        string|null $browser = null,
+        string|null $version = null,
+    ): void {
         $_SERVER['HTTP_USER_AGENT'] = $agent;
         $this->object->checkClient();
         $this->assertEquals($os, $this->object->get('PMA_USR_OS'));
         if ($os != null) {
             $this->assertEquals(
                 $browser,
-                $this->object->get('PMA_USR_BROWSER_AGENT')
+                $this->object->get('PMA_USR_BROWSER_AGENT'),
             );
         }
 
@@ -220,7 +237,7 @@ class ConfigTest extends AbstractTestCase
 
         $this->assertEquals(
             $version,
-            $this->object->get('PMA_USR_BROWSER_VER')
+            $this->object->get('PMA_USR_BROWSER_VER'),
         );
     }
 
@@ -229,7 +246,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function userAgentProvider(): array
+    public static function userAgentProvider(): array
     {
         return [
             [
@@ -313,9 +330,7 @@ class ConfigTest extends AbstractTestCase
                 'FIREFOX',
                 '12.0',
             ],
-            /**
-             * @todo Is this version really expected?
-             */
+            /** @todo Is this version really expected? */
             [
                 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.4+ (KHTML, like G'
                 . 'ecko) Version/5.0 Safari/535.4+ SUSE/12.1 (3.2.1) Epiphany/3.2.1',
@@ -346,7 +361,7 @@ class ConfigTest extends AbstractTestCase
             $this->assertEquals(
                 0,
                 $this->object->get('PMA_IS_GD2'),
-                'imagecreatetruecolor does not exist, PMA_IS_GD2 should be 0'
+                'imagecreatetruecolor does not exist, PMA_IS_GD2 should be 0',
             );
         }
 
@@ -357,13 +372,13 @@ class ConfigTest extends AbstractTestCase
                 $this->assertEquals(
                     1,
                     $this->object->get('PMA_IS_GD2'),
-                    'GD Version >= 2, PMA_IS_GD2 should be 1'
+                    'GD Version >= 2, PMA_IS_GD2 should be 1',
                 );
             } else {
                 $this->assertEquals(
                     0,
                     $this->object->get('PMA_IS_GD2'),
-                    'GD Version < 2, PMA_IS_GD2 should be 0'
+                    'GD Version < 2, PMA_IS_GD2 should be 0',
                 );
             }
         }
@@ -382,13 +397,13 @@ class ConfigTest extends AbstractTestCase
             $this->assertEquals(
                 1,
                 $this->object->get('PMA_IS_GD2'),
-                'PMA_IS_GD2 should be 1'
+                'PMA_IS_GD2 should be 1',
             );
         } else {
             $this->assertEquals(
                 0,
                 $this->object->get('PMA_IS_GD2'),
-                'PMA_IS_GD2 should be 0'
+                'PMA_IS_GD2 should be 0',
             );
         }
     }
@@ -414,7 +429,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function serverNames(): array
+    public static function serverNames(): array
     {
         return [
             [
@@ -477,7 +492,7 @@ class ConfigTest extends AbstractTestCase
         $this->assertEquals($config, $this->object->default);
         $this->assertEquals(
             array_replace_recursive(['is_setup' => false, 'AvailableCharsets' => ['test']], $config),
-            $this->object->settings
+            $this->object->settings,
         );
     }
 
@@ -490,7 +505,7 @@ class ConfigTest extends AbstractTestCase
         $this->assertFalse($this->object->checkConfigSource());
         $this->assertEquals(0, $this->object->sourceMtime);
 
-        $this->object->setSource(ROOT_PATH . 'test/test_data/config.inc.php');
+        $this->object->setSource(TEST_PATH . 'test/test_data/config.inc.php');
 
         $this->assertNotEmpty($this->object->getSource());
         $this->assertTrue($this->object->checkConfigSource());
@@ -522,7 +537,7 @@ class ConfigTest extends AbstractTestCase
         $this->assertEquals(
             ROOT_PATH . 'config.sample.inc.php',
             $this->object->getSource(),
-            'Cant set new source'
+            'Cant set new source',
         );
     }
 
@@ -554,7 +569,7 @@ class ConfigTest extends AbstractTestCase
         string $protoCloudFront,
         string $pmaAbsoluteUri,
         int $port,
-        bool $expected
+        bool $expected,
     ): void {
         $_SERVER['HTTP_SCHEME'] = $scheme;
         $_SERVER['HTTPS'] = $https;
@@ -576,7 +591,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function httpsParams(): array
+    public static function httpsParams(): array
     {
         return [
             [
@@ -811,7 +826,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array data for testGetRootPath
      */
-    public function rootUris(): array
+    public static function rootUris(): array
     {
         return [
             [
@@ -919,15 +934,15 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function configPaths(): array
+    public static function configPaths(): array
     {
         return [
             [
-                ROOT_PATH . 'test/test_data/config.inc.php',
+                TEST_PATH . 'test/test_data/config.inc.php',
                 true,
             ],
             [
-                ROOT_PATH . 'test/test_data/config-nonexisting.inc.php',
+                TEST_PATH . 'test/test_data/config-nonexisting.inc.php',
                 false,
             ],
         ];
@@ -953,7 +968,7 @@ class ConfigTest extends AbstractTestCase
         $this->object->setUserValue('TEST_COOKIE_USER_VAL', '', 'cfg_val_1');
         $this->assertEquals(
             $this->object->getUserValue('TEST_COOKIE_USER_VAL', 'fail'),
-            'cfg_val_1'
+            'cfg_val_1',
         );
     }
 
@@ -995,8 +1010,8 @@ class ConfigTest extends AbstractTestCase
             $this->object->setCookie(
                 'TEST_DEF_COOKIE',
                 'test_def_123',
-                'test_def_123'
-            )
+                'test_def_123',
+            ),
         );
 
         $this->assertTrue(
@@ -1004,16 +1019,16 @@ class ConfigTest extends AbstractTestCase
                 'TEST_CONFIG_COOKIE',
                 'test_val_123',
                 null,
-                3600
-            )
+                3600,
+            ),
         );
 
         $this->assertTrue(
             $this->object->setCookie(
                 'TEST_CONFIG_COOKIE',
                 '',
-                'default_val'
-            )
+                'default_val',
+            ),
         );
 
         $_COOKIE['TEST_MANUAL_COOKIE'] = 'some_test_val';
@@ -1021,8 +1036,8 @@ class ConfigTest extends AbstractTestCase
             $this->object->setCookie(
                 'TEST_MANUAL_COOKIE',
                 'other',
-                'other'
-            )
+                'other',
+            ),
         );
     }
 
@@ -1033,11 +1048,16 @@ class ConfigTest extends AbstractTestCase
      */
     public function testGetTempDir(): void
     {
-        $this->object->set('TempDir', sys_get_temp_dir() . DIRECTORY_SEPARATOR);
+        $dir = realpath(sys_get_temp_dir());
+        $this->assertNotFalse($dir);
+        $this->assertDirectoryExists($dir);
+        $this->assertDirectoryIsWritable($dir);
+
+        $this->object->set('TempDir', $dir . DIRECTORY_SEPARATOR);
         // Check no double slash is here
         $this->assertEquals(
-            sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'upload',
-            $this->object->getTempDir('upload')
+            $dir . DIRECTORY_SEPARATOR . 'upload',
+            $this->object->getTempDir('upload'),
         );
     }
 
@@ -1045,14 +1065,20 @@ class ConfigTest extends AbstractTestCase
      * Test for getUploadTempDir
      *
      * @group file-system
+     * @depends testGetTempDir
      */
     public function testGetUploadTempDir(): void
     {
-        $this->object->set('TempDir', realpath(sys_get_temp_dir()) . DIRECTORY_SEPARATOR);
+        $dir = realpath(sys_get_temp_dir());
+        $this->assertNotFalse($dir);
+        $this->assertDirectoryExists($dir);
+        $this->assertDirectoryIsWritable($dir);
+
+        $this->object->set('TempDir', $dir . DIRECTORY_SEPARATOR);
 
         $this->assertEquals(
             $this->object->getTempDir('upload'),
-            $this->object->getUploadTempDir()
+            $this->object->getUploadTempDir(),
         );
     }
 
@@ -1078,7 +1104,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function serverSettingsProvider(): array
+    public static function serverSettingsProvider(): array
     {
         return [
             'empty' => [
@@ -1099,19 +1125,44 @@ class ConfigTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * @group with-trigger-error
-     */
     public function testCheckServersWithInvalidServer(): void
     {
-        $this->expectError();
-        $this->expectErrorMessage('Invalid server index: invalid');
-
-        $this->object->settings['Servers'] = ['invalid' => ['host' => '127.0.0.1'], 1 => ['host' => '127.0.0.1']];
+        $server = ['host' => '127.0.0.1'];
+        $this->object->settings['Servers'] = ['invalid' => $server, 1 => $server, 0 => $server, 2 => 'invalid'];
         $this->object->checkServers();
-        $expected = array_merge($this->object->defaultServer, ['host' => '127.0.0.1']);
+        $expected = array_merge($this->object->defaultServer, $server);
 
+        $this->assertArrayNotHasKey('invalid', $this->object->settings['Servers']);
+        $this->assertArrayNotHasKey(0, $this->object->settings['Servers']);
+        $this->assertArrayNotHasKey(2, $this->object->settings['Servers']);
+        $this->assertArrayHasKey(1, $this->object->settings['Servers']);
         $this->assertEquals($expected, $this->object->settings['Servers'][1]);
+    }
+
+    public function testCheckServersWithOnlyInvalidServers(): void
+    {
+        $server = ['host' => '127.0.0.1'];
+        $this->object->settings['Servers'] = ['invalid' => $server, -1 => $server, 0 => $server];
+        $this->object->checkServers();
+
+        $this->assertArrayNotHasKey('invalid', $this->object->settings['Servers']);
+        $this->assertArrayNotHasKey(0, $this->object->settings['Servers']);
+        $this->assertArrayNotHasKey(-1, $this->object->settings['Servers']);
+        $this->assertArrayHasKey(1, $this->object->settings['Servers']);
+        /** @psalm-suppress InvalidArrayOffset */
+        $this->assertEquals($this->object->defaultServer, $this->object->settings['Servers'][1]);
+    }
+
+    public function testCheckServersWithServerKeysGreaterThanOne(): void
+    {
+        $server = ['host' => '127.0.0.1'];
+        $this->object->settings['Servers'] = [2 => $server];
+        $this->object->checkServers();
+        $expected = array_merge($this->object->defaultServer, $server);
+
+        $this->assertArrayNotHasKey(1, $this->object->settings['Servers']);
+        $this->assertArrayHasKey(2, $this->object->settings['Servers']);
+        $this->assertEquals($expected, $this->object->settings['Servers'][2]);
     }
 
     /**
@@ -1137,7 +1188,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function selectServerProvider(): array
+    public static function selectServerProvider(): array
     {
         return [
             'zero' => [
@@ -1192,13 +1243,13 @@ class ConfigTest extends AbstractTestCase
      * Test for getConnectionParams
      *
      * @param array      $server_cfg Server configuration
-     * @param int        $mode       Mode to test
      * @param array|null $server     Server array to test
      * @param array      $expected   Expected result
+     * @psalm-param ConnectionType $mode
      *
      * @dataProvider connectionParams
      */
-    public function testGetConnectionParams(array $server_cfg, int $mode, ?array $server, array $expected): void
+    public function testGetConnectionParams(array $server_cfg, int $mode, array|null $server, array $expected): void
     {
         $GLOBALS['cfg']['Server'] = $server_cfg;
         $result = Config::getConnectionParams($mode, $server);
@@ -1210,7 +1261,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @return array
      */
-    public function connectionParams(): array
+    public static function connectionParams(): array
     {
         $cfg_basic = [
             'user' => 'u',
@@ -1242,7 +1293,7 @@ class ConfigTest extends AbstractTestCase
         return [
             [
                 $cfg_basic,
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 null,
                 [
                     'u',
@@ -1263,7 +1314,7 @@ class ConfigTest extends AbstractTestCase
             ],
             [
                 $cfg_basic,
-                DatabaseInterface::CONNECT_CONTROL,
+                Connection::TYPE_CONTROL,
                 null,
                 [
                     'u2',
@@ -1280,7 +1331,7 @@ class ConfigTest extends AbstractTestCase
             ],
             [
                 $cfg_ssl,
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 null,
                 [
                     'u',
@@ -1301,7 +1352,7 @@ class ConfigTest extends AbstractTestCase
             ],
             [
                 $cfg_ssl,
-                DatabaseInterface::CONNECT_CONTROL,
+                Connection::TYPE_CONTROL,
                 null,
                 [
                     'u2',
@@ -1318,7 +1369,7 @@ class ConfigTest extends AbstractTestCase
             ],
             [
                 $cfg_control_ssl,
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 null,
                 [
                     'u',
@@ -1340,7 +1391,7 @@ class ConfigTest extends AbstractTestCase
             ],
             [
                 $cfg_control_ssl,
-                DatabaseInterface::CONNECT_CONTROL,
+                Connection::TYPE_CONTROL,
                 null,
                 [
                     'u2',

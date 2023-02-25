@@ -15,29 +15,21 @@ interface TransformationsInterface
 {
     /**
      * Gets the transformation description
-     *
-     * @return string
      */
-    public static function getInfo();
+    public static function getInfo(): string;
 
     /**
      * Gets the specific MIME type
-     *
-     * @return string
      */
-    public static function getMIMEType();
+    public static function getMIMEType(): string;
 
     /**
      * Gets the specific MIME subtype
-     *
-     * @return string
      */
-    public static function getMIMESubtype();
+    public static function getMIMESubtype(): string;
 
     /**
      * Gets the transformation name of the specific plugin
-     *
-     * @return string
      */
-    public static function getName();
+    public static function getName(): string;
 }

@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
-/**
- * @coversNothing
- */
+/** @coversNothing */
 class LoginTest extends TestBase
 {
     /**
@@ -19,6 +17,7 @@ class LoginTest extends TestBase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->logOutIfLoggedIn();
     }
 

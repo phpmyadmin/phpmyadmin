@@ -5,24 +5,38 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Controllers\Server\EnginesController;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Server\EnginesController
- */
+/** @covers \PhpMyAdmin\Controllers\Server\EnginesController */
 class EnginesControllerTest extends AbstractTestCase
 {
+    /** @var DatabaseInterface */
+    protected $dbi;
+
+    /** @var DbiDummy */
+    protected $dummyDbi;
+
     /**
      * Prepares environment for the test.
      */
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['text_dir'] = 'ltr';
+
         parent::setGlobalConfig();
+
         parent::setTheme();
+
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
@@ -33,15 +47,13 @@ class EnginesControllerTest extends AbstractTestCase
 
     public function testIndex(): void
     {
-        global $dbi;
-
         $response = new ResponseRenderer();
 
-        $controller = new EnginesController($response, new Template(), $dbi);
+        $controller = new EnginesController($response, new Template(), $GLOBALS['dbi']);
 
         $this->dummyDbi->addSelectDb('mysql');
-        $controller->__invoke();
-        $this->assertAllSelectsConsumed();
+        $controller->__invoke($this->createStub(ServerRequest::class));
+        $this->dummyDbi->assertAllSelectsConsumed();
 
         $actual = $response->getHTMLResult();
 

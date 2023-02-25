@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Error;
 use PhpMyAdmin\ErrorReport;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Utils\HttpRequest;
 use PhpMyAdmin\Version;
 
@@ -19,17 +21,25 @@ use const ENT_QUOTES;
 use const JSON_PRETTY_PRINT;
 use const JSON_UNESCAPED_SLASHES;
 
-/**
- * @covers \PhpMyAdmin\ErrorReport
- */
+/** @covers \PhpMyAdmin\ErrorReport */
 class ErrorReportTest extends AbstractTestCase
 {
+    /** @var DatabaseInterface */
+    protected $dbi;
+
+    /** @var DbiDummy */
+    protected $dummyDbi;
+
     /** @var ErrorReport $errorReport */
     private $errorReport;
 
     protected function setUp(): void
     {
         parent::setUp();
+
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['ProxyUrl'] = '';
@@ -44,7 +54,7 @@ class ErrorReportTest extends AbstractTestCase
             new HttpRequest(),
             new Relation($this->dbi),
             new Template(),
-            $GLOBALS['config']
+            $GLOBALS['config'],
         );
         $this->errorReport->setSubmissionUrl('http://localhost');
     }
@@ -118,7 +128,7 @@ class ErrorReportTest extends AbstractTestCase
                 'POST',
                 false,
                 json_encode($report),
-                'Content-Type: application/json'
+                'Content-Type: application/json',
             )
             ->willReturn($return);
 
@@ -126,7 +136,7 @@ class ErrorReportTest extends AbstractTestCase
             $httpRequest,
             new Relation($this->dbi),
             new Template(),
-            $GLOBALS['config']
+            $GLOBALS['config'],
         );
         $this->errorReport->setSubmissionUrl($submissionUrl);
 
@@ -205,7 +215,7 @@ class ErrorReportTest extends AbstractTestCase
         $form = $this->errorReport->getForm();
         $this->assertStringContainsString(
             '<pre class="pre-scrollable">' . htmlspecialchars((string) $expectedData, ENT_QUOTES) . '</pre>',
-            $form
+            $form,
         );
     }
 
@@ -217,7 +227,7 @@ class ErrorReportTest extends AbstractTestCase
             '            if (response.success) {',
             '                // Get the column min value.',
             '                var min = response.column_data.min',
-            '                    ? \'(\' + Messages.strColumnMin +',
+            '                    ? \'(\' + window.Messages.strColumnMin +',
             '    this.completion.cm.removeKeyMap(this.keyMap);',
             '                        \' \' + response.column_data.min + \')\'',
             '                    : \'\';',
@@ -276,7 +286,7 @@ class ErrorReportTest extends AbstractTestCase
      *
      * @return array[]
      */
-    public function urlsToSanitize(): array
+    public static function urlsToSanitize(): array
     {
         return [
             [
@@ -355,8 +365,8 @@ class ErrorReportTest extends AbstractTestCase
                 $this->errorReport,
                 ErrorReport::class,
                 'sanitizeUrl',
-                [$url]
-            )
+                [$url],
+            ),
         );
     }
 }

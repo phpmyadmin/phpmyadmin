@@ -15,12 +15,12 @@ class TrackerExtension extends AbstractExtension
      *
      * @return TwigFunction[]
      */
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return [
             new TwigFunction(
                 'get_tracker_version',
-                [Tracker::class, 'getVersion']
+                Tracker::getVersion(...),
             ),
         ];
     }

@@ -21,6 +21,7 @@ abstract class NodeDatabaseChildContainer extends NodeDatabaseChild
     public function __construct($name, $type = Node::OBJECT)
     {
         parent::__construct($name, $type);
+
         if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
             return;
         }
@@ -34,7 +35,7 @@ abstract class NodeDatabaseChildContainer extends NodeDatabaseChild
      *
      * @return string type of the item
      */
-    protected function getItemType()
+    protected function getItemType(): string
     {
         return 'group';
     }

@@ -15,12 +15,12 @@ class CoreExtension extends AbstractExtension
      *
      * @return TwigFilter[]
      */
-    public function getFilters()
+    public function getFilters(): array
     {
         return [
             new TwigFilter(
                 'link',
-                [Core::class, 'linkURL']
+                Core::linkURL(...),
             ),
         ];
     }

@@ -23,12 +23,8 @@ use function trim;
 
 final class Search
 {
-    /** @var DatabaseInterface */
-    private $dbi;
-
-    public function __construct(DatabaseInterface $dbi)
+    public function __construct(private DatabaseInterface $dbi)
     {
-        $this->dbi = $dbi;
     }
 
     /**
@@ -109,7 +105,7 @@ final class Search
                 $_POST['criteriaColumnTypes'][$column_index],
                 $operator,
                 $unaryFlag,
-                $tmp_geom_func
+                $tmp_geom_func,
             );
 
             if (! $whereClause) {
@@ -144,7 +140,7 @@ final class Search
         $types,
         $func_type,
         $unaryFlag,
-        $geom_func = null
+        $geom_func = null,
     ): string {
         // If geometry function is set
         if (! empty($geom_func)) {
@@ -164,7 +160,7 @@ final class Search
             // strings to numbers and numbers to strings as necessary
             // during the comparison
             if (
-                preg_match('@char|binary|blob|text|set|date|time|year@i', $types)
+                preg_match('@char|binary|blob|text|set|date|time|year|uuid@i', $types)
                 || mb_strpos(' ' . $func_type, 'LIKE')
             ) {
                 $quot = '\'';
@@ -266,7 +262,7 @@ final class Search
         $names,
         $func_type,
         $types,
-        $geom_func = null
+        $geom_func = null,
     ): string {
         $geom_unary_functions = [
             'IsEmpty' => 1,

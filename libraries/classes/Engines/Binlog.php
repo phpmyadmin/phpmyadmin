@@ -20,7 +20,7 @@ class Binlog extends StorageEngine
      *
      * @return string  mysql helppage filename
      */
-    public function getMysqlHelpPage()
+    public function getMysqlHelpPage(): string
     {
         return 'binary-log';
     }

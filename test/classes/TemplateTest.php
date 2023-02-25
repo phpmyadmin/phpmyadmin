@@ -8,9 +8,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Twig\Extensions\Node\TransNode;
 use Twig\Error\LoaderError;
 
-/**
- * @covers \PhpMyAdmin\Template
- */
+/** @covers \PhpMyAdmin\Template */
 class TemplateTest extends AbstractTestCase
 {
     /** @var Template */
@@ -22,6 +20,7 @@ class TemplateTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->template = new Template();
     }
 
@@ -31,15 +30,13 @@ class TemplateTest extends AbstractTestCase
      */
     public function testGetTwigEnvironment(): void
     {
-        global $cfg;
-
         $this->loadContainerBuilder();
 
-        $cfg['environment'] = 'production';
+        $GLOBALS['cfg']['environment'] = 'production';
         $twig = Template::getTwigEnvironment(null);
         $this->assertFalse($twig->isDebug());
         $this->assertFalse(TransNode::$enableAddDebugInfo);
-        $cfg['environment'] = 'development';
+        $GLOBALS['cfg']['environment'] = 'development';
         $twig = Template::getTwigEnvironment(null);
         $this->assertTrue($twig->isDebug());
         $this->assertTrue(TransNode::$enableAddDebugInfo);
@@ -67,7 +64,7 @@ class TemplateTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerTestSet(): array
+    public static function providerTestSet(): array
     {
         return [
             ['test/add_data'],
@@ -87,7 +84,7 @@ class TemplateTest extends AbstractTestCase
     {
         $this->assertEquals(
             $value,
-            $this->template->render($templateFile, [$key => $value])
+            $this->template->render($templateFile, [$key => $value]),
         );
     }
 
@@ -96,7 +93,7 @@ class TemplateTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerTestDynamicRender(): array
+    public static function providerTestDynamicRender(): array
     {
         return [
             [
@@ -128,7 +125,7 @@ class TemplateTest extends AbstractTestCase
     {
         $this->assertEquals(
             $expectedResult,
-            $this->template->render($templateFile)
+            $this->template->render($templateFile),
         );
     }
 
@@ -137,7 +134,7 @@ class TemplateTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerTestRender(): array
+    public static function providerTestRender(): array
     {
         return [
             [
@@ -160,7 +157,7 @@ class TemplateTest extends AbstractTestCase
     {
         $this->assertEquals(
             $expectedResult,
-            $this->template->render($templateFile, $renderParams)
+            $this->template->render($templateFile, $renderParams),
         );
     }
 
@@ -169,7 +166,7 @@ class TemplateTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerTestRenderGettext(): array
+    public static function providerTestRenderGettext(): array
     {
         return [
             [

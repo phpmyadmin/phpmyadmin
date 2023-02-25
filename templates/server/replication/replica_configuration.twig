@@ -102,7 +102,7 @@
   {% elseif not has_replica_configure %}
     {% apply format('<a href="' ~ url('/server/replication') ~ '" data-post="' ~ get_common(url_params|merge({
       'replica_configure': true,
-      'repl_clear_scr': true
+      'replica_clear_screen': true
     })) ~ '">', '</a>')|raw %}
       {% trans 'This server is not configured as replica in a replication process. Would you like to %sconfigure%s it?' %}
     {% endapply %}

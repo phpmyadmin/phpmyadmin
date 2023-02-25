@@ -10,13 +10,18 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 
 use function __;
 
-/**
- * @covers \PhpMyAdmin\Server\Plugins
- */
+/** @covers \PhpMyAdmin\Server\Plugins */
 class PluginsTest extends AbstractTestCase
 {
     /** @var Plugins */
     private $plugins;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+    }
 
     public function testGetAll(): void
     {
@@ -100,7 +105,7 @@ class PluginsTest extends AbstractTestCase
                 'auth_socket' => __('Unix Socket based authentication'),
                 'unknown_auth_plugin' => 'Unknown authentication',
             ],
-            $plugins
+            $plugins,
         );
     }
 }

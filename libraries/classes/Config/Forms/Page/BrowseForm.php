@@ -12,10 +12,8 @@ use PhpMyAdmin\Config\Forms\User\MainForm;
 
 class BrowseForm extends BaseForm
 {
-    /**
-     * @return array
-     */
-    public static function getForms()
+    /** @return array */
+    public static function getForms(): array
     {
         return [
             'Browse' => MainForm::getForms()['Browse'],

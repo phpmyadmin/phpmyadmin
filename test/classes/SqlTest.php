@@ -6,11 +6,13 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Transformations;
 use stdClass;
 
@@ -18,11 +20,15 @@ use const MYSQLI_TYPE_SHORT;
 use const MYSQLI_TYPE_TIMESTAMP;
 use const MYSQLI_TYPE_VAR_STRING;
 
-/**
- * @covers \PhpMyAdmin\Sql
- */
+/** @covers \PhpMyAdmin\Sql */
 class SqlTest extends AbstractTestCase
 {
+    /** @var DatabaseInterface */
+    protected $dbi;
+
+    /** @var DbiDummy */
+    protected $dummyDbi;
+
     /** @var Sql */
     private $sql;
 
@@ -32,8 +38,14 @@ class SqlTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setLanguage();
+
         parent::setTheme();
+
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
@@ -50,6 +62,7 @@ class SqlTest extends AbstractTestCase
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
         $GLOBALS['cfg']['enable_drag_drop_import'] = true;
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+        $GLOBALS['showtable'] = null;
 
         $relation = new Relation($GLOBALS['dbi']);
         $this->sql = new Sql(
@@ -58,7 +71,7 @@ class SqlTest extends AbstractTestCase
             new RelationCleanup($GLOBALS['dbi'], $relation),
             new Operations($GLOBALS['dbi'], $relation),
             new Transformations(),
-            new Template()
+            new Template(),
         );
     }
 
@@ -71,11 +84,12 @@ class SqlTest extends AbstractTestCase
         $GLOBALS['_SESSION']['tmpval']['pos'] = 1;
         $GLOBALS['_SESSION']['tmpval']['max_rows'] = 2;
 
-        $analyzed_sql_results = $this->parseAndAnalyze('SELECT * FROM test LIMIT 0, 10');
-        $this->assertEquals(
-            'SELECT * FROM test LIMIT 1, 2 ',
-            $this->callFunction($this->sql, Sql::class, 'getSqlWithLimitClause', [&$analyzed_sql_results])
-        );
+        $this->assertEquals('SELECT * FROM test LIMIT 1, 2 ', $this->callFunction(
+            $this->sql,
+            Sql::class,
+            'getSqlWithLimitClause',
+            [ParseAnalyze::sqlQuery('SELECT * FROM test LIMIT 0, 10', $GLOBALS['db'])[0]],
+        ));
     }
 
     /**
@@ -88,32 +102,32 @@ class SqlTest extends AbstractTestCase
 
         $this->assertTrue(
             $this->callFunction($this->sql, Sql::class, 'isRememberSortingOrder', [
-                $this->parseAndAnalyze('SELECT * FROM tbl'),
-            ])
+                ParseAnalyze::sqlQuery('SELECT * FROM tbl', $GLOBALS['db'])[0],
+            ]),
         );
 
         $this->assertFalse(
             $this->callFunction($this->sql, Sql::class, 'isRememberSortingOrder', [
-                $this->parseAndAnalyze('SELECT col FROM tbl'),
-            ])
+                ParseAnalyze::sqlQuery('SELECT col FROM tbl', $GLOBALS['db'])[0],
+            ]),
         );
 
         $this->assertFalse(
             $this->callFunction($this->sql, Sql::class, 'isRememberSortingOrder', [
-                $this->parseAndAnalyze('SELECT 1'),
-            ])
+                ParseAnalyze::sqlQuery('SELECT 1', $GLOBALS['db'])[0],
+            ]),
         );
 
         $this->assertFalse(
             $this->callFunction($this->sql, Sql::class, 'isRememberSortingOrder', [
-                $this->parseAndAnalyze('SELECT col1, col2 FROM tbl'),
-            ])
+                ParseAnalyze::sqlQuery('SELECT col1, col2 FROM tbl', $GLOBALS['db'])[0],
+            ]),
         );
 
         $this->assertFalse(
             $this->callFunction($this->sql, Sql::class, 'isRememberSortingOrder', [
-                $this->parseAndAnalyze('SELECT COUNT(*) from tbl'),
-            ])
+                ParseAnalyze::sqlQuery('SELECT COUNT(*) from tbl', $GLOBALS['db'])[0],
+            ]),
         );
     }
 
@@ -127,14 +141,14 @@ class SqlTest extends AbstractTestCase
 
         $this->assertTrue(
             $this->callFunction($this->sql, Sql::class, 'isAppendLimitClause', [
-                $this->parseAndAnalyze('SELECT * FROM tbl'),
-            ])
+                ParseAnalyze::sqlQuery('SELECT * FROM tbl', $GLOBALS['db'])[0],
+            ]),
         );
 
         $this->assertFalse(
             $this->callFunction($this->sql, Sql::class, 'isAppendLimitClause', [
-                $this->parseAndAnalyze('SELECT * from tbl LIMIT 0, 10'),
-            ])
+                ParseAnalyze::sqlQuery('SELECT * from tbl LIMIT 0, 10', $GLOBALS['db'])[0],
+            ]),
         );
     }
 
@@ -144,18 +158,18 @@ class SqlTest extends AbstractTestCase
         $GLOBALS['_SESSION']['tmpval']['max_rows'] = 10;
 
         $this->assertTrue(Sql::isJustBrowsing(
-            $this->parseAndAnalyze('SELECT * FROM db.tbl'),
-            null
+            ParseAnalyze::sqlQuery('SELECT * FROM db.tbl', $GLOBALS['db'])[0],
+            null,
         ));
 
         $this->assertTrue(Sql::isJustBrowsing(
-            $this->parseAndAnalyze('SELECT * FROM tbl WHERE 1'),
-            null
+            ParseAnalyze::sqlQuery('SELECT * FROM tbl WHERE 1', $GLOBALS['db'])[0],
+            null,
         ));
 
         $this->assertFalse(Sql::isJustBrowsing(
-            $this->parseAndAnalyze('SELECT * from tbl1, tbl2 LIMIT 0, 10'),
-            null
+            ParseAnalyze::sqlQuery('SELECT * from tbl1, tbl2 LIMIT 0, 10', $GLOBALS['db'])[0],
+            null,
         ));
     }
 
@@ -166,20 +180,20 @@ class SqlTest extends AbstractTestCase
     {
         $this->assertTrue(
             $this->callFunction($this->sql, Sql::class, 'isDeleteTransformationInfo', [
-                $this->parseAndAnalyze('ALTER TABLE tbl DROP COLUMN col'),
-            ])
+                ParseAnalyze::sqlQuery('ALTER TABLE tbl DROP COLUMN col', $GLOBALS['db'])[0],
+            ]),
         );
 
         $this->assertTrue(
             $this->callFunction($this->sql, Sql::class, 'isDeleteTransformationInfo', [
-                $this->parseAndAnalyze('DROP TABLE tbl'),
-            ])
+                ParseAnalyze::sqlQuery('DROP TABLE tbl', $GLOBALS['db'])[0],
+            ]),
         );
 
         $this->assertFalse(
             $this->callFunction($this->sql, Sql::class, 'isDeleteTransformationInfo', [
-                $this->parseAndAnalyze('SELECT * from tbl'),
-            ])
+                ParseAnalyze::sqlQuery('SELECT * from tbl', $GLOBALS['db'])[0],
+            ]),
         );
     }
 
@@ -190,26 +204,26 @@ class SqlTest extends AbstractTestCase
     {
         $this->assertTrue(
             $this->sql->hasNoRightsToDropDatabase(
-                $this->parseAndAnalyze('DROP DATABASE db'),
+                ParseAnalyze::sqlQuery('DROP DATABASE db', $GLOBALS['db'])[0],
                 false,
-                false
-            )
+                false,
+            ),
         );
 
         $this->assertFalse(
             $this->sql->hasNoRightsToDropDatabase(
-                $this->parseAndAnalyze('DROP TABLE tbl'),
+                ParseAnalyze::sqlQuery('DROP TABLE tbl', $GLOBALS['db'])[0],
                 false,
-                false
-            )
+                false,
+            ),
         );
 
         $this->assertFalse(
             $this->sql->hasNoRightsToDropDatabase(
-                $this->parseAndAnalyze('SELECT * from tbl'),
+                ParseAnalyze::sqlQuery('SELECT * from tbl', $GLOBALS['db'])[0],
                 false,
-                false
-            )
+                false,
+            ),
         );
     }
 
@@ -231,7 +245,7 @@ class SqlTest extends AbstractTestCase
             $col3,
         ];
         $this->assertFalse(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta])
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]),
         );
 
         // should not matter on where the odd column occurs
@@ -241,7 +255,7 @@ class SqlTest extends AbstractTestCase
             $col1,
         ];
         $this->assertFalse(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta])
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]),
         );
 
         $fields_meta = [
@@ -250,7 +264,7 @@ class SqlTest extends AbstractTestCase
             $col2,
         ];
         $this->assertFalse(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta])
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]),
         );
     }
 
@@ -272,7 +286,7 @@ class SqlTest extends AbstractTestCase
         ];
 
         $this->assertTrue(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta])
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]),
         );
     }
 
@@ -295,7 +309,7 @@ class SqlTest extends AbstractTestCase
             $col3,
         ];
         $this->assertTrue(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta])
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]),
         );
 
         // should not matter on where the function column occurs
@@ -305,7 +319,7 @@ class SqlTest extends AbstractTestCase
             $col1,
         ];
         $this->assertTrue(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta])
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]),
         );
 
         $fields_meta = [
@@ -314,7 +328,7 @@ class SqlTest extends AbstractTestCase
             $col2,
         ];
         $this->assertTrue(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta])
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]),
         );
     }
 
@@ -337,23 +351,11 @@ class SqlTest extends AbstractTestCase
         ];
 
         $this->assertFalse(
-            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta])
+            $this->callFunction($this->sql, Sql::class, 'resultSetHasJustOneTable', [$fields_meta]),
         );
     }
 
-    /**
-     * @return mixed
-     */
-    private function parseAndAnalyze(string $sqlQuery)
-    {
-        global $db;
-
-        [$analyzedSqlResults] = ParseAnalyze::sqlQuery($sqlQuery, $db);
-
-        return $analyzedSqlResults;
-    }
-
-    public function dataProviderCountQueryResults(): array
+    public static function dataProviderCountQueryResults(): array
     {
         // sql query
         // session tmpval
@@ -361,6 +363,34 @@ class SqlTest extends AbstractTestCase
         // result
         // just browsing
         return [
+            'join on SELECT results with *' => [
+                // -- Showing rows 0 - 49 (164056 total, 0 in query, Query took 0.1498 seconds.)
+                'select * from game_auth_logs l join ('
+                    . ' select al.user_id, max(al.id) as id from game_auth_logs al '
+                    . 'where al.successfull = 1 group by al.user_id ) last_log on last_log.id = l.id;',
+                ['max_rows' => 50, 'pos' => 0],
+                164056,
+                50,
+                false,
+                'SELECT COUNT(*) FROM (SELECT 1 FROM game_auth_logs AS `l` JOIN ('
+                    . ' select al.user_id, max(al.id) as id from game_auth_logs al '
+                    . 'where al.successfull = 1 group by al.user_id ) AS `last_log` ON last_log.id = l.id'
+                    . ' ) as cnt',
+            ],
+            'join on SELECT results with alias.*' => [
+                // -- Showing rows 0 - 24 (267 total, Query took 0.1533 seconds.)
+                'select l.* from game_auth_logs l join ('
+                    . ' select al.user_id, max(al.id) as id from game_auth_logs al '
+                    . 'where al.successfull = 1 group by al.user_id ) last_log on last_log.id = l.id;',
+                ['max_rows' => 50, 'pos' => 0],
+                267,
+                50,
+                false,
+                'SELECT COUNT(*) FROM (SELECT 1 FROM game_auth_logs AS `l` JOIN ('
+                    . ' select al.user_id, max(al.id) as id from game_auth_logs al '
+                    . 'where al.successfull = 1 group by al.user_id ) AS `last_log` ON last_log.id = l.id'
+                    . ' ) as cnt',
+            ],
             [
                 'SELECT * FROM company_users WHERE id != 0 LIMIT 0, 10',
                 ['max_rows' => 250],
@@ -537,15 +567,14 @@ class SqlTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * @dataProvider dataProviderCountQueryResults
-     */
+    /** @dataProvider dataProviderCountQueryResults */
     public function testCountQueryResults(
-        ?string $sqlQuery,
+        string|null $sqlQuery,
         array $sessionTmpVal,
         int $numRows,
         int $expectedNumRows,
-        bool $justBrowsing = false
+        bool $justBrowsing = false,
+        string|null $expectedCountQuery = null,
     ): void {
         if ($justBrowsing) {
             $GLOBALS['cfg']['Server']['DisableIS'] = true;
@@ -553,7 +582,14 @@ class SqlTest extends AbstractTestCase
 
         $_SESSION['tmpval'] = $sessionTmpVal;
 
-        $analyzed_sql_results = $sqlQuery === null ? [] : $this->parseAndAnalyze($sqlQuery);
+        if ($expectedCountQuery !== null) {
+            $this->dummyDbi->addResult(
+                $expectedCountQuery,
+                [[$expectedNumRows]],
+                [],
+                [],
+            );
+        }
 
         $result = $this->callFunction(
             $this->sql,
@@ -564,10 +600,11 @@ class SqlTest extends AbstractTestCase
                 $justBrowsing,
                 'my_dataset',// db
                 'company_users',// table
-                $analyzed_sql_results,
-            ]
+                ParseAnalyze::sqlQuery($sqlQuery ?? '', $GLOBALS['db'])[0],
+            ],
         );
-        $this->assertSame($expectedNumRows, $result);
+        $this->assertEquals($expectedNumRows, $result);
+        $this->dummyDbi->assertAllQueriesConsumed();
     }
 
     public function testExecuteQueryAndSendQueryResponse(): void
@@ -585,7 +622,7 @@ class SqlTest extends AbstractTestCase
                 new FieldMetadata(MYSQLI_TYPE_SHORT, 0, (object) ['length' => 5]),
                 new FieldMetadata(MYSQLI_TYPE_VAR_STRING, 0, (object) ['length' => 200]),
                 new FieldMetadata(MYSQLI_TYPE_TIMESTAMP, 0, (object) ['length' => 19]),
-            ]
+            ],
         );
         $this->dummyDbi->addResult(
             'SHOW TABLE STATUS FROM `sakila` WHERE `Name` LIKE \'country%\'',
@@ -634,7 +671,7 @@ class SqlTest extends AbstractTestCase
                 'Comment',
                 'Max_index_length',
                 'Temporary',
-            ]
+            ],
         );
         $this->dummyDbi->addResult(
             'SHOW CREATE TABLE `sakila`.`country`',
@@ -650,7 +687,7 @@ class SqlTest extends AbstractTestCase
                     . ') ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8mb4',
                 ],
             ],
-            ['Table', 'Create Table']
+            ['Table', 'Create Table'],
         );
         $this->dummyDbi->addResult('SELECT COUNT(*) FROM `sakila`.`country`', [['109']]);
         $this->dummyDbi->addResult(
@@ -690,7 +727,7 @@ class SqlTest extends AbstractTestCase
                     '',
                 ],
             ],
-            ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment']
+            ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
         );
         $this->dummyDbi->addResult(
             'SHOW COLUMNS FROM `sakila`.`country`',
@@ -699,17 +736,17 @@ class SqlTest extends AbstractTestCase
                 ['country', 'varchar(50)', 'NO', '', null, ''],
                 ['last_update', 'timestamp', 'NO', '', 'current_timestamp()', 'on update current_timestamp()'],
             ],
-            ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra']
+            ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
         );
         $this->dummyDbi->addResult(
             'SHOW INDEXES FROM `sakila`.`country`',
             [['country', '0', 'PRIMARY', 'country_id']],
-            ['Table', 'Non_unique', 'Key_name', 'Column_name']
+            ['Table', 'Non_unique', 'Key_name', 'Column_name'],
         );
         $this->dummyDbi->addResult(
-            'SELECT TABLE_NAME FROM information_schema.VIEWS'
+            'SELECT 1 FROM information_schema.VIEWS'
             . ' WHERE TABLE_SCHEMA = \'sakila\' AND TABLE_NAME = \'country\' AND IS_UPDATABLE = \'YES\'',
-            []
+            [],
         );
         $_SESSION['sql_from_query_box'] = true;
         $GLOBALS['db'] = 'sakila';
@@ -731,7 +768,7 @@ class SqlTest extends AbstractTestCase
             null,
             null,
             'SELECT * FROM `sakila`.`country` LIMIT 0, 3;',
-            null
+            null,
         );
         $this->assertStringContainsString('Showing rows 0 -  2 (3 total', $actual);
         $this->assertStringContainsString('SELECT * FROM `sakila`.`country` LIMIT 0, 3;', $actual);

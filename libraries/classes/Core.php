@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Exceptions\MissingExtensionException;
 use PhpMyAdmin\Http\ServerRequest;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -15,7 +16,6 @@ use function array_pop;
 use function array_walk_recursive;
 use function chr;
 use function count;
-use function defined;
 use function explode;
 use function filter_var;
 use function function_exists;
@@ -24,6 +24,7 @@ use function gmdate;
 use function hash_equals;
 use function hash_hmac;
 use function header;
+use function header_remove;
 use function htmlspecialchars;
 use function http_build_query;
 use function in_array;
@@ -31,7 +32,6 @@ use function intval;
 use function is_array;
 use function is_string;
 use function json_decode;
-use function json_encode;
 use function mb_strlen;
 use function mb_strpos;
 use function mb_substr;
@@ -41,17 +41,14 @@ use function preg_match;
 use function preg_replace;
 use function session_write_close;
 use function sprintf;
-use function str_contains;
 use function str_replace;
 use function strlen;
 use function strpos;
 use function strtolower;
-use function strtr;
 use function substr;
 use function trigger_error;
 use function unserialize;
 use function urldecode;
-use function vsprintf;
 
 use const DATE_RFC1123;
 use const E_USER_ERROR;
@@ -77,79 +74,6 @@ class Core
     }
 
     /**
-     * displays the given error message on phpMyAdmin error page in foreign language,
-     * ends script execution and closes session
-     *
-     * loads language file if not loaded already
-     *
-     * @param string       $error_message the error message or named error message
-     * @param string|array $message_args  arguments applied to $error_message
-     */
-    public static function fatalError(
-        string $error_message,
-        $message_args = null
-    ): void {
-        global $dbi;
-
-        /* Use format string if applicable */
-        if (is_string($message_args)) {
-            $error_message = sprintf($error_message, $message_args);
-        } elseif (is_array($message_args)) {
-            $error_message = vsprintf($error_message, $message_args);
-        }
-
-        /*
-         * Avoid using Response class as config does not have to be loaded yet
-         * (this can happen on early fatal error)
-         */
-        if (
-            isset($dbi, $GLOBALS['config'])
-            && $GLOBALS['config']->get('is_setup') === false
-            && ResponseRenderer::getInstance()->isAjax()
-        ) {
-            $response = ResponseRenderer::getInstance();
-            $response->setRequestStatus(false);
-            $response->addJSON('message', Message::error($error_message));
-
-            if (! defined('TESTSUITE')) {
-                exit;
-            }
-
-            return;
-        }
-
-        if (! empty($_REQUEST['ajax_request'])) {
-            // Generate JSON manually
-            self::headerJSON();
-            echo json_encode(
-                [
-                    'success' => false,
-                    'message' => Message::error($error_message)->getDisplay(),
-                ]
-            );
-
-            if (! defined('TESTSUITE')) {
-                exit;
-            }
-
-            return;
-        }
-
-        $error_message = strtr($error_message, ['<br>' => '[br]']);
-        $template = new Template();
-
-        echo $template->render('error/generic', [
-            'lang' => $GLOBALS['lang'] ?? 'en',
-            'dir' => $GLOBALS['text_dir'] ?? 'ltr',
-            'error_message' => Sanitize::sanitizeMessage($error_message),
-        ]);
-
-        if (! defined('TESTSUITE')) {
-            exit;
-        }
-    }
-
-    /**
      * Returns a link to the PHP documentation
      *
      * @param string $target anchor in documentation
@@ -161,7 +85,7 @@ class Core
         /* List of PHP documentation translations */
         $php_doc_languages = [
             'pt_BR',
-            'zh',
+            'zh_CN',
             'fr',
             'de',
             'ja',
@@ -172,7 +96,11 @@ class Core
 
         $lang = 'en';
         if (isset($GLOBALS['lang']) && in_array($GLOBALS['lang'], $php_doc_languages)) {
-            $lang = $GLOBALS['lang'];
+            if ($GLOBALS['lang'] === 'zh_CN') {
+                $lang = 'zh';
+            } else {
+                $lang = $GLOBALS['lang'];
+            }
         }
 
         return self::linkURL('https://www.php.net/manual/' . $lang . '/' . $target);
@@ -188,9 +116,9 @@ class Core
     public static function warnMissingExtension(
         string $extension,
         bool $fatal = false,
-        string $extra = ''
+        string $extra = '',
     ): void {
-        global $errorHandler;
+        $GLOBALS['errorHandler'] ??= null;
 
         $message = 'The %s extension is missing. Please check your PHP configuration.';
 
@@ -206,12 +134,10 @@ class Core
         }
 
         if ($fatal) {
-            self::fatalError($message);
-
-            return;
+            throw new MissingExtensionException(Sanitize::sanitizeMessage($message));
         }
 
-        $errorHandler->addError($message, E_USER_WARNING, '', 0, false);
+        $GLOBALS['errorHandler']->addError($message, E_USER_WARNING, '', 0, false);
     }
 
     /**
@@ -223,9 +149,7 @@ class Core
      */
     public static function getTableCount(string $db): int
     {
-        global $dbi;
-
-        $tables = $dbi->tryQuery('SHOW TABLES FROM ' . Util::backquote($db) . ';');
+        $tables = $GLOBALS['dbi']->tryQuery('SHOW TABLES FROM ' . Util::backquote($db) . ';');
 
         if ($tables) {
             return $tables->numRows();
@@ -242,7 +166,7 @@ class Core
      *
      * @param string|int $size size (Default = 0)
      */
-    public static function getRealSize($size = 0): int
+    public static function getRealSize(string|int $size = 0): int
     {
         if (! $size) {
             return 0;
@@ -274,13 +198,13 @@ class Core
      * @param array  $allowList allow list to check page against
      * @param bool   $include   whether the page is going to be included
      */
-    public static function checkPageValidity(&$page, array $allowList = [], $include = false): bool
+    public static function checkPageValidity(string $page, array $allowList = [], $include = false): bool
     {
-        if (empty($allowList)) {
+        if ($allowList === []) {
             $allowList = ['index.php'];
         }
 
-        if (empty($page)) {
+        if ($page === '') {
             return false;
         }
 
@@ -295,7 +219,7 @@ class Core
         $_page = mb_substr(
             $page,
             0,
-            (int) mb_strpos($page . '?', '?')
+            (int) mb_strpos($page . '?', '?'),
         );
         if (in_array($_page, $allowList)) {
             return true;
@@ -305,7 +229,7 @@ class Core
         $_page = mb_substr(
             $_page,
             0,
-            (int) mb_strpos($_page . '?', '?')
+            (int) mb_strpos($_page . '?', '?'),
         );
 
         return in_array($_page, $allowList);
@@ -359,7 +283,7 @@ class Core
             return;
         }
 
-        /*
+        /**
          * Avoid relative path redirect problems in case user entered URL
          * like /phpmyadmin/index.php/ which some web servers happily accept.
          */
@@ -387,14 +311,12 @@ class Core
     }
 
     /**
-     * Outputs application/json headers. This includes no caching.
+     * Returns application/json headers. This includes no caching.
+     *
+     * @return array<string, string>
      */
-    public static function headerJSON(): void
+    public static function headerJSON(): array
     {
-        if (defined('TESTSUITE')) {
-            return;
-        }
-
         // No caching
         $headers = self::getNoCacheHeaders();
 
@@ -407,30 +329,10 @@ class Core
          */
         $headers['X-Content-Type-Options'] = 'nosniff';
 
-        foreach ($headers as $name => $value) {
-            header(sprintf('%s: %s', $name, $value));
-        }
+        return $headers;
     }
 
-    /**
-     * Outputs headers to prevent caching in browser (and on the way).
-     */
-    public static function noCacheHeader(): void
-    {
-        if (defined('TESTSUITE')) {
-            return;
-        }
-
-        $headers = self::getNoCacheHeaders();
-
-        foreach ($headers as $name => $value) {
-            header(sprintf('%s: %s', $name, $value));
-        }
-    }
-
-    /**
-     * @return array<string, string>
-     */
+    /** @return array<string, string> */
     public static function getNoCacheHeaders(): array
     {
         $headers = [];
@@ -466,7 +368,7 @@ class Core
         string $filename,
         string $mimetype,
         int $length = 0,
-        bool $no_cache = true
+        bool $no_cache = true,
     ): void {
         $headers = [];
 
@@ -476,18 +378,17 @@ class Core
 
         /* Replace all possibly dangerous chars in filename */
         $filename = Sanitize::sanitizeFilename($filename);
-        if (! empty($filename)) {
+        if ($filename !== '') {
             $headers['Content-Description'] = 'File Transfer';
             $headers['Content-Disposition'] = 'attachment; filename="' . $filename . '"';
         }
 
         $headers['Content-Type'] = $mimetype;
 
-        // inform the server that compression has been done,
-        // to avoid a double compression (for example with Apache + mod_deflate)
-        if (str_contains($mimetype, 'gzip') && $GLOBALS['config']->get('PMA_USR_BROWSER_AGENT') !== 'CHROME') {
-            $headers['Content-Encoding'] = 'gzip';
-        }
+        // The default output in PMA uses gzip,
+        // so if we want to output uncompressed file, we should reset the encoding.
+        // See PHP bug https://github.com/php/php-src/issues/8218
+        header_remove('Content-Encoding');
 
         $headers['Content-Transfer-Encoding'] = 'binary';
 
@@ -511,7 +412,7 @@ class Core
      *
      * @return array|mixed|null array element or $default
      */
-    public static function arrayRead(string $path, array $array, $default = null)
+    public static function arrayRead(string $path, array $array, $default = null): mixed
     {
         $keys = explode('/', $path);
         $value =& $array;
@@ -619,10 +520,10 @@ class Core
         $query = http_build_query(['url' => $vars['url']]);
 
         if ($GLOBALS['config'] !== null && $GLOBALS['config']->get('is_setup')) {
-            return '../url.php?' . $query;
+            return '../index.php?route=/url&' . $query;
         }
 
-        return './url.php?' . $query;
+        return 'index.php?route=/url&' . $query;
     }
 
     /**
@@ -633,30 +534,17 @@ class Core
      */
     public static function isAllowedDomain(string $url): bool
     {
-        $arr = parse_url($url);
-
-        if (! is_array($arr)) {
-            $arr = [];
-        }
-
-        // We need host to be set
-        if (! isset($arr['host']) || strlen($arr['host']) == 0) {
+        $parsedUrl = parse_url($url);
+        if (
+            ! is_array($parsedUrl)
+            || ! isset($parsedUrl['host'])
+            || isset($parsedUrl['user'])
+            || isset($parsedUrl['pass'])
+            || isset($parsedUrl['port'])
+        ) {
             return false;
         }
 
-        // We do not want these to be present
-        $blocked = [
-            'user',
-            'pass',
-            'port',
-        ];
-        foreach ($blocked as $part) {
-            if (isset($arr[$part]) && strlen((string) $arr[$part]) != 0) {
-                return false;
-            }
-        }
-
-        $domain = $arr['host'];
         $domainAllowList = [
             /* Include current domain */
             $_SERVER['SERVER_NAME'],
@@ -684,7 +572,7 @@ class Core
             'mysqldatabaseadministration.blogspot.com',
         ];
 
-        return in_array($domain, $domainAllowList);
+        return in_array($parsedUrl['host'], $domainAllowList, true);
     }
 
     /**
@@ -707,10 +595,10 @@ class Core
      *
      * @param array|string $query_data Array containing queries or query itself
      */
-    public static function previewSQL($query_data): void
+    public static function previewSQL(array|string $query_data): void
     {
         $retval = '<div class="preview_sql">';
-        if (empty($query_data)) {
+        if ($query_data === '' || $query_data === []) {
             $retval .= __('No change');
         } elseif (is_array($query_data)) {
             foreach ($query_data as $query) {
@@ -736,12 +624,10 @@ class Core
             $empty = true;
             array_walk_recursive(
                 $value,
-                /**
-                 * @param mixed $item
-                 */
+                /** @param mixed $item */
                 static function ($item) use (&$empty): void {
                     $empty = $empty && empty($item);
-                }
+                },
             );
 
             return $empty;
@@ -757,8 +643,7 @@ class Core
      */
     public static function setPostAsGlobal(array $post_patterns): void
     {
-        global $containerBuilder;
-
+        $container = self::getContainerBuilder();
         foreach (array_keys($_POST) as $post_key) {
             foreach ($post_patterns as $one_post_pattern) {
                 if (! preg_match($one_post_pattern, $post_key)) {
@@ -766,7 +651,7 @@ class Core
                 }
 
                 $GLOBALS[$post_key] = $_POST[$post_key];
-                $containerBuilder->setParameter($post_key, $GLOBALS[$post_key]);
+                $container->setParameter($post_key, $GLOBALS[$post_key]);
             }
         }
     }
@@ -776,7 +661,7 @@ class Core
      *
      * @return string|bool the ip of the user
      */
-    public static function getIp()
+    public static function getIp(): string|bool
     {
         /* Get the address of user */
         if (empty($_SERVER['REMOTE_ADDR'])) {
@@ -851,10 +736,8 @@ class Core
      * It does not unserialize data containing objects
      *
      * @param string $data Data to unserialize
-     *
-     * @return mixed|null
      */
-    public static function safeUnserialize(string $data)
+    public static function safeUnserialize(string $data): mixed
     {
         /* validate serialized data */
         $length = strlen($data);
@@ -938,16 +821,12 @@ class Core
      * Sign the sql query using hmac using the session token
      *
      * @param string $sqlQuery The sql query
-     *
-     * @return string
      */
-    public static function signSqlQuery($sqlQuery)
+    public static function signSqlQuery($sqlQuery): string
     {
-        global $cfg;
-
         $secret = $_SESSION[' HMAC_secret '] ?? '';
 
-        return hash_hmac('sha256', $sqlQuery, $secret . $cfg['blowfish_secret']);
+        return hash_hmac('sha256', $sqlQuery, $secret . $GLOBALS['cfg']['blowfish_secret']);
     }
 
     /**
@@ -958,22 +837,24 @@ class Core
      */
     public static function checkSqlQuerySignature($sqlQuery, $signature): bool
     {
-        global $cfg;
-
         $secret = $_SESSION[' HMAC_secret '] ?? '';
-        $hmac = hash_hmac('sha256', $sqlQuery, $secret . $cfg['blowfish_secret']);
+        $hmac = hash_hmac('sha256', $sqlQuery, $secret . $GLOBALS['cfg']['blowfish_secret']);
 
         return hash_equals($hmac, $signature);
     }
 
-    /**
-     * Get the container builder
-     */
     public static function getContainerBuilder(): ContainerBuilder
     {
+        $containerBuilder = $GLOBALS['containerBuilder'] ?? null;
+        if ($containerBuilder instanceof ContainerBuilder) {
+            return $containerBuilder;
+        }
+
         $containerBuilder = new ContainerBuilder();
         $loader = new PhpFileLoader($containerBuilder, new FileLocator(ROOT_PATH . 'libraries'));
         $loader->load('services_loader.php');
+
+        $GLOBALS['containerBuilder'] = $containerBuilder;
 
         return $containerBuilder;
     }
@@ -1011,7 +892,7 @@ class Core
         if ($decryptedQuery === null) {
             $request = $request->withQueryParams($queryParams);
             if (is_array($parsedBody)) {
-                $request = $request->withParsedBody($parsedBody);
+                return $request->withParsedBody($parsedBody);
             }
 
             return $request;
@@ -1032,7 +913,7 @@ class Core
 
         $request = $request->withQueryParams($queryParams);
         if (is_array($parsedBody)) {
-            $request = $request->withParsedBody($parsedBody);
+            return $request->withParsedBody($parsedBody);
         }
 
         return $request;

@@ -6,9 +6,7 @@ namespace PhpMyAdmin\Tests\Properties\Plugins;
 
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 
-/**
- * @covers \PhpMyAdmin\Properties\Plugins\ExportPluginProperties
- */
+/** @covers \PhpMyAdmin\Properties\Plugins\ExportPluginProperties */
 class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
 {
     /** @var ExportPluginProperties */
@@ -20,6 +18,7 @@ class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->object = new ExportPluginProperties();
     }
 
@@ -29,6 +28,7 @@ class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 
@@ -36,7 +36,7 @@ class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
     {
         $this->assertEquals(
             'export',
-            $this->object->getItemType()
+            $this->object->getItemType(),
         );
     }
 
@@ -50,7 +50,7 @@ class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
         $this->object->setForceFile(true);
 
         $this->assertTrue(
-            $this->object->getForceFile()
+            $this->object->getForceFile(),
         );
     }
 }

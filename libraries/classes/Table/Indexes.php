@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Table;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\Table\StructureController;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
@@ -18,20 +21,11 @@ use function __;
 
 final class Indexes
 {
-    /** @var ResponseRenderer */
-    protected $response;
-
-    /** @var Template */
-    protected $template;
-
-    /** @var DatabaseInterface */
-    private $dbi;
-
-    public function __construct(ResponseRenderer $response, Template $template, DatabaseInterface $dbi)
-    {
-        $this->response = $response;
-        $this->template = $template;
-        $this->dbi = $dbi;
+    public function __construct(
+        protected ResponseRenderer $response,
+        protected Template $template,
+        private DatabaseInterface $dbi,
+    ) {
     }
 
     /**
@@ -44,8 +38,6 @@ final class Indexes
      */
     public function doSaveData(Index $index, bool $renameMode, string $db, string $table): void
     {
-        global $containerBuilder;
-
         $error = false;
         if ($renameMode && Compatibility::isCompatibleRenameIndex($this->dbi->getVersion())) {
             $oldIndexName = $_POST['old_index'];
@@ -55,7 +47,7 @@ final class Indexes
                     $index->setName('PRIMARY');
                 } elseif ($index->getName() !== 'PRIMARY') {
                     $error = Message::error(
-                        __('The name of the primary key must be "PRIMARY"!')
+                        __('The name of the primary key must be "PRIMARY"!'),
                     );
                 }
             }
@@ -64,7 +56,7 @@ final class Indexes
                 $db,
                 $table,
                 $oldIndexName,
-                $index->getName()
+                $index->getName(),
             );
         } else {
             $sql_query = $this->dbi->getTable($db, $table)
@@ -75,22 +67,22 @@ final class Indexes
         if (isset($_POST['preview_sql'])) {
             $this->response->addJSON(
                 'sql_data',
-                $this->template->render('preview_sql', ['query_data' => $sql_query])
+                $this->template->render('preview_sql', ['query_data' => $sql_query]),
             );
         } elseif (! $error) {
             $this->dbi->query($sql_query);
             $response = ResponseRenderer::getInstance();
             if ($response->isAjax()) {
                 $message = Message::success(
-                    __('Table %1$s has been altered successfully.')
+                    __('Table %1$s has been altered successfully.'),
                 );
                 $message->addParam($table);
                 $this->response->addJSON(
                     'message',
-                    Generator::getMessage($message, $sql_query, 'success')
+                    Generator::getMessage($message, $sql_query, 'success'),
                 );
 
-                $indexes = Index::getFromTable($table, $db);
+                $indexes = Index::getFromTable($this->dbi, $table, $db);
                 $indexesDuplicates = Index::findDuplicates($table, $db);
 
                 $this->response->addJSON(
@@ -102,16 +94,28 @@ final class Indexes
                         ],
                         'indexes' => $indexes,
                         'indexes_duplicates' => $indexesDuplicates,
-                    ])
+                    ]),
                 );
             } else {
                 /** @var StructureController $controller */
-                $controller = $containerBuilder->get(StructureController::class);
-                $controller();
+                $controller = Core::getContainerBuilder()->get(StructureController::class);
+                $controller(Common::getRequest());
             }
         } else {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $error);
         }
+    }
+
+    public function executeAddIndexSql(string|DatabaseName $db, string $sql): Message
+    {
+        $this->dbi->selectDb($db);
+        $result = $this->dbi->tryQuery($sql);
+
+        if (! $result) {
+            return Message::error($this->dbi->getError());
+        }
+
+        return Message::success();
     }
 }

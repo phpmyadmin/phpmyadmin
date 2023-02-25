@@ -14,9 +14,7 @@ use function stripos;
 use const CURLOPT_CAINFO;
 use const CURLOPT_CAPATH;
 
-/**
- * @covers \PhpMyAdmin\Utils\HttpRequest
- */
+/** @covers \PhpMyAdmin\Utils\HttpRequest */
 class HttpRequestTest extends AbstractTestCase
 {
     /** @var HttpRequest */
@@ -25,7 +23,10 @@ class HttpRequestTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setProxySettings();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $this->httpRequest = new HttpRequest();
     }
 
@@ -35,7 +36,7 @@ class HttpRequestTest extends AbstractTestCase
     private function checkCurlSslFlagsSupport(): void
     {
         $curl = curl_version();
-        /*
+        /**
          * Some SSL engines in CURL do not support CURLOPT_CAPATH
          * and CURLOPT_CAINFO flags, see
          * https://curl.haxx.se/docs/ssl-compared.html
@@ -69,7 +70,7 @@ class HttpRequestTest extends AbstractTestCase
             $this->httpRequest,
             HttpRequest::class,
             'curl',
-            [$url, $method, $return_only_status]
+            [$url, $method, $return_only_status],
         );
         $this->validateHttp($result, $expected);
     }
@@ -150,7 +151,7 @@ class HttpRequestTest extends AbstractTestCase
             $this->httpRequest,
             HttpRequest::class,
             'fopen',
-            [$url, $method, $return_only_status]
+            [$url, $method, $return_only_status],
         );
         $this->validateHttp($result, $expected);
     }
@@ -201,7 +202,7 @@ class HttpRequestTest extends AbstractTestCase
     /**
      * Data provider for HTTP tests
      */
-    public function httpRequests(): array
+    public static function httpRequests(): array
     {
         return [
             [

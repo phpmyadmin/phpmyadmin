@@ -23,6 +23,7 @@ class NodeEventContainer extends NodeDatabaseChildContainer
     public function __construct()
     {
         parent::__construct(__('Events'), Node::CONTAINER);
+
         $this->icon = ['image' => 'b_events', 'title' => __('Events')];
         $this->links = [
             'text' => ['route' => '/database/events', 'params' => ['db' => null]],

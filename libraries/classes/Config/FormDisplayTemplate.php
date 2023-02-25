@@ -8,11 +8,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Config;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Template;
 
 use function array_shift;
-use function implode;
+use function json_encode;
+
+use const JSON_HEX_TAG;
 
 /**
  * PhpMyAdmin\Config\FormDisplayTemplate class
@@ -22,18 +23,11 @@ class FormDisplayTemplate
     /** @var int */
     public $group;
 
-    /** @var Config */
-    protected $config;
-
     /** @var Template */
     public $template;
 
-    /**
-     * @param Config $config Config instance
-     */
-    public function __construct(Config $config)
+    public function __construct(protected Config $config)
     {
-        $this->config = $config;
         $this->template = new Template();
     }
 
@@ -70,7 +64,7 @@ class FormDisplayTemplate
         $value,
         $description = '',
         $valueIsDefault = true,
-        $opts = null
+        $opts = null,
     ): string {
         $isSetupScript = $this->config->get('is_setup');
         $optionIsDisabled = ! $isSetupScript && isset($opts['userprefs_allow']) && ! $opts['userprefs_allow'];
@@ -139,18 +133,14 @@ class FormDisplayTemplate
      * @param string|array $validators validators callback
      * @param array        $jsArray    will be updated with javascript code
      */
-    public function addJsValidate($fieldId, $validators, array &$jsArray): void
+    public function addJsValidate($fieldId, string|array $validators, array &$jsArray): void
     {
         foreach ((array) $validators as $validator) {
             $validator = (array) $validator;
             $vName = array_shift($validator);
-            $vArgs = [];
-            foreach ($validator as $arg) {
-                $vArgs[] = Sanitize::escapeJsString($arg);
-            }
-
-            $vArgs = $vArgs ? ", ['" . implode("', '", $vArgs) . "']" : '';
-            $jsArray[] = "registerFieldValidator('" . $fieldId . "', '" . $vName . "', true" . $vArgs . ')';
+            $vArgs = $validator !== [] ? ', ' . json_encode($validator, JSON_HEX_TAG) : '';
+            $jsArray[] = "window.Config.registerFieldValidator('"
+                . $fieldId . "', '" . $vName . "', true" . $vArgs . ')';
         }
     }
 

@@ -61,7 +61,7 @@ class Validator
      *
      * @return array
      */
-    public static function getValidators(ConfigFile $cf)
+    public static function getValidators(ConfigFile $cf): array
     {
         static $validators = null;
 
@@ -93,7 +93,7 @@ class Validator
 
                     $uv[$i] = Core::arrayRead(
                         mb_substr($uv[$i], 6),
-                        $GLOBALS['config']->baseSettings
+                        $GLOBALS['config']->baseSettings,
                     );
                 }
             }
@@ -120,15 +120,13 @@ class Validator
      * @param array        $values       Values to validate
      * @param bool         $isPostSource tells whether $values are directly from
      *                                   POST request
-     *
-     * @return bool|array
      */
     public static function validate(
         ConfigFile $cf,
-        $validatorId,
-        array &$values,
-        $isPostSource
-    ) {
+        string|array $validatorId,
+        array $values,
+        $isPostSource,
+    ): bool|array {
         // find validators
         $validatorId = (array) $validatorId;
         $validators = static::getValidators($cf);
@@ -142,7 +140,7 @@ class Validator
             $vids[] = $vid;
         }
 
-        if (empty($vids)) {
+        if ($vids === []) {
             return false;
         }
 
@@ -198,7 +196,7 @@ class Validator
             $newResult[$k2] = $v;
         }
 
-        return empty($newResult) ? true : $newResult;
+        return $newResult === [] ? true : $newResult;
     }
 
     /**
@@ -210,8 +208,6 @@ class Validator
      * @param string $user     username to use
      * @param string $pass     password to use
      * @param string $errorKey key to use in return array
-     *
-     * @return bool|array
      */
     public static function testDBConnection(
         $host,
@@ -219,8 +215,8 @@ class Validator
         $socket,
         $user,
         $pass = null,
-        $errorKey = 'Server'
-    ) {
+        $errorKey = 'Server',
+    ): bool|array {
         if ($GLOBALS['cfg']['DBG']['demo']) {
             // Connection test disabled on the demo server!
             return true;
@@ -232,9 +228,9 @@ class Validator
         error_clear_last();
 
         /** @var string $socket */
-        $socket = empty($socket) ? null : $socket;
+        $socket = $socket === '' ? null : $socket;
         /** @var int $port */
-        $port = empty($port) ? null : (int) $port;
+        $port = $port === '' ? null : (int) $port;
 
         mysqli_report(MYSQLI_REPORT_OFF);
 
@@ -265,7 +261,7 @@ class Validator
      *
      * @return array
      */
-    public static function validateServer($path, array $values)
+    public static function validateServer($path, array $values): array
     {
         $result = [
             'Server' => '',
@@ -287,14 +283,14 @@ class Validator
 
         if ($values['Servers/1/auth_type'] === 'signon' && empty($values['Servers/1/SignonSession'])) {
             $result['Servers/1/SignonSession'] = __(
-                'Empty signon session name while using [kbd]signon[/kbd] authentication method!'
+                'Empty signon session name while using [kbd]signon[/kbd] authentication method!',
             );
             $error = true;
         }
 
         if ($values['Servers/1/auth_type'] === 'signon' && empty($values['Servers/1/SignonURL'])) {
             $result['Servers/1/SignonURL'] = __(
-                'Empty signon URL while using [kbd]signon[/kbd] authentication method!'
+                'Empty signon URL while using [kbd]signon[/kbd] authentication method!',
             );
             $error = true;
         }
@@ -311,7 +307,7 @@ class Validator
                 empty($values['Servers/1/socket']) ? '' : $values['Servers/1/socket'],
                 empty($values['Servers/1/user']) ? '' : $values['Servers/1/user'],
                 $password,
-                'Server'
+                'Server',
             );
 
             if (is_array($test)) {
@@ -332,7 +328,7 @@ class Validator
      *
      * @return array
      */
-    public static function validatePMAStorage($path, array $values)
+    public static function validatePMAStorage($path, array $values): array
     {
         $result = [
             'Server_pmadb' => '',
@@ -348,14 +344,14 @@ class Validator
         $result = [];
         if (empty($values['Servers/1/controluser'])) {
             $result['Servers/1/controluser'] = __(
-                'Empty phpMyAdmin control user while using phpMyAdmin configuration storage!'
+                'Empty phpMyAdmin control user while using phpMyAdmin configuration storage!',
             );
             $error = true;
         }
 
         if (empty($values['Servers/1/controlpass'])) {
             $result['Servers/1/controlpass'] = __(
-                'Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!'
+                'Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!',
             );
             $error = true;
         }
@@ -367,7 +363,7 @@ class Validator
                 empty($values['Servers/1/socket']) ? '' : $values['Servers/1/socket'],
                 empty($values['Servers/1/controluser']) ? '' : $values['Servers/1/controluser'],
                 empty($values['Servers/1/controlpass']) ? '' : $values['Servers/1/controlpass'],
-                'Server_pmadb'
+                'Server_pmadb',
             );
             if (is_array($test)) {
                 $result = array_merge($result, $test);
@@ -385,7 +381,7 @@ class Validator
      *
      * @return array
      */
-    public static function validateRegex($path, array $values)
+    public static function validateRegex($path, array $values): array
     {
         $result = [$path => ''];
 
@@ -419,7 +415,7 @@ class Validator
      *
      * @return array
      */
-    public static function validateTrustedProxies($path, array $values)
+    public static function validateTrustedProxies($path, array $values): array
     {
         $result = [$path => []];
 
@@ -483,8 +479,8 @@ class Validator
         $allowNegative,
         $allowZero,
         $maxValue,
-        $errorString
-    ) {
+        $errorString,
+    ): string {
         if (empty($values[$path])) {
             return '';
         }
@@ -511,7 +507,7 @@ class Validator
      *
      * @return array
      */
-    public static function validatePortNumber($path, array $values)
+    public static function validatePortNumber($path, array $values): array
     {
         return [
             $path => static::validateNumber(
@@ -520,7 +516,7 @@ class Validator
                 false,
                 false,
                 65535,
-                __('Not a valid port number!')
+                __('Not a valid port number!'),
             ),
         ];
     }
@@ -533,7 +529,7 @@ class Validator
      *
      * @return array
      */
-    public static function validatePositiveNumber($path, array $values)
+    public static function validatePositiveNumber($path, array $values): array
     {
         return [
             $path => static::validateNumber(
@@ -542,7 +538,7 @@ class Validator
                 false,
                 false,
                 PHP_INT_MAX,
-                __('Not a positive number!')
+                __('Not a positive number!'),
             ),
         ];
     }
@@ -555,7 +551,7 @@ class Validator
      *
      * @return array
      */
-    public static function validateNonNegativeNumber($path, array $values)
+    public static function validateNonNegativeNumber($path, array $values): array
     {
         return [
             $path => static::validateNumber(
@@ -564,7 +560,7 @@ class Validator
                 false,
                 true,
                 PHP_INT_MAX,
-                __('Not a non-negative number!')
+                __('Not a non-negative number!'),
             ),
         ];
     }
@@ -576,10 +572,8 @@ class Validator
      * @param string $path   path to config
      * @param array  $values config values
      * @param string $regex  regular expression to match
-     *
-     * @return array|string
      */
-    public static function validateByRegex($path, array $values, $regex)
+    public static function validateByRegex($path, array $values, $regex): array|string
     {
         if (! isset($values[$path])) {
             return '';
@@ -599,14 +593,14 @@ class Validator
      *
      * @return array
      */
-    public static function validateUpperBound($path, array $values, $maxValue)
+    public static function validateUpperBound($path, array $values, $maxValue): array
     {
         $result = $values[$path] <= $maxValue;
 
         return [
             $path => $result ? '' : sprintf(
                 __('Value must be less than or equal to %s!'),
-                $maxValue
+                $maxValue,
             ),
         ];
     }

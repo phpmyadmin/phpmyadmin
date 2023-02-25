@@ -18,9 +18,9 @@ declare(strict_types=1);
  *
  * @param string $user User name
  *
- * @return array
+ * @return array<int,string>
  */
-function get_login_credentials($user)
+function get_login_credentials($user): array
 {
     /* Optionally we can use passed username */
     if (! empty($user)) {

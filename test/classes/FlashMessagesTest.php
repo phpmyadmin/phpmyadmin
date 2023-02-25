@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\FlashMessages;
 use RuntimeException;
 
-/**
- * @covers \PhpMyAdmin\FlashMessages
- */
+/** @covers \PhpMyAdmin\FlashMessages */
 class FlashMessagesTest extends AbstractTestCase
 {
     private const STORAGE_KEY = 'flashMessages';
@@ -64,7 +62,7 @@ class FlashMessagesTest extends AbstractTestCase
                 'error' => ['Error1', 'Error2'],
                 'warning' => ['Warning'],
             ],
-            $messages
+            $messages,
         );
     }
 }

@@ -36,10 +36,8 @@ class Text_Plain_Xml extends TransformationsPlugin
 
     /**
      * Gets the transformation description of the specific plugin
-     *
-     * @return string
      */
-    public static function getInfo()
+    public static function getInfo(): string
     {
         return __('Formats text as XML with syntax highlighting.');
     }
@@ -50,10 +48,8 @@ class Text_Plain_Xml extends TransformationsPlugin
      * @param string             $buffer  text to be transformed
      * @param array              $options transformation options
      * @param FieldMetadata|null $meta    meta information
-     *
-     * @return string
      */
-    public function applyTransformation($buffer, array $options = [], ?FieldMetadata $meta = null)
+    public function applyTransformation($buffer, array $options = [], FieldMetadata|null $meta = null): string
     {
         return '<code class="xml"><pre>' . "\n"
         . htmlspecialchars($buffer) . "\n"
@@ -64,30 +60,24 @@ class Text_Plain_Xml extends TransformationsPlugin
 
     /**
      * Gets the plugin`s MIME type
-     *
-     * @return string
      */
-    public static function getMIMEType()
+    public static function getMIMEType(): string
     {
         return 'Text';
     }
 
     /**
      * Gets the plugin`s MIME subtype
-     *
-     * @return string
      */
-    public static function getMIMESubtype()
+    public static function getMIMESubtype(): string
     {
         return 'Plain';
     }
 
     /**
      * Gets the transformation name of the specific plugin
-     *
-     * @return string
      */
-    public static function getName()
+    public static function getName(): string
     {
         return 'XML';
     }

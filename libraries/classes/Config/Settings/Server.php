@@ -10,9 +10,7 @@ use function is_array;
 
 // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
 
-/**
- * @psalm-immutable
- */
+/** @psalm-immutable */
 final class Server
 {
     /**
@@ -509,9 +507,7 @@ final class Server
      */
     public $hide_connection_errors;
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
+    /** @param array<int|string, mixed> $server */
     public function __construct(array $server = [])
     {
         $this->host = $this->setHost($server);
@@ -575,9 +571,16 @@ final class Server
         $this->hide_connection_errors = $this->setHideConnectionErrors($server);
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
+    /** @return static */
+    public function withSSL(bool $ssl): Server
+    {
+        $clone = clone $this;
+        $clone->ssl = $ssl;
+
+        return $clone;
+    }
+
+    /** @param array<int|string, mixed> $server */
     private function setHost(array $server): string
     {
         if (isset($server['host'])) {
@@ -587,9 +590,7 @@ final class Server
         return 'localhost';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
+    /** @param array<int|string, mixed> $server */
     private function setPort(array $server): string
     {
         if (isset($server['port'])) {
@@ -599,9 +600,7 @@ final class Server
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
+    /** @param array<int|string, mixed> $server */
     private function setSocket(array $server): string
     {
         if (isset($server['socket'])) {
@@ -611,9 +610,7 @@ final class Server
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
+    /** @param array<int|string, mixed> $server */
     private function setSsl(array $server): bool
     {
         if (isset($server['ssl'])) {
@@ -623,10 +620,8 @@ final class Server
         return false;
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
-    private function setSslKey(array $server): ?string
+    /** @param array<int|string, mixed> $server */
+    private function setSslKey(array $server): string|null
     {
         if (isset($server['ssl_key'])) {
             return (string) $server['ssl_key'];
@@ -635,10 +630,8 @@ final class Server
         return null;
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
-    private function setSslCert(array $server): ?string
+    /** @param array<int|string, mixed> $server */
+    private function setSslCert(array $server): string|null
     {
         if (isset($server['ssl_cert'])) {
             return (string) $server['ssl_cert'];
@@ -647,10 +640,8 @@ final class Server
         return null;
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
-    private function setSslCa(array $server): ?string
+    /** @param array<int|string, mixed> $server */
+    private function setSslCa(array $server): string|null
     {
         if (isset($server['ssl_ca'])) {
             return (string) $server['ssl_ca'];
@@ -659,10 +650,8 @@ final class Server
         return null;
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
-    private function setSslCaPath(array $server): ?string
+    /** @param array<int|string, mixed> $server */
+    private function setSslCaPath(array $server): string|null
     {
         if (isset($server['ssl_ca_path'])) {
             return (string) $server['ssl_ca_path'];
@@ -671,10 +660,8 @@ final class Server
         return null;
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
-    private function setSslCiphers(array $server): ?string
+    /** @param array<int|string, mixed> $server */
+    private function setSslCiphers(array $server): string|null
     {
         if (isset($server['ssl_ciphers'])) {
             return (string) $server['ssl_ciphers'];
@@ -683,9 +670,7 @@ final class Server
         return null;
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
+    /** @param array<int|string, mixed> $server */
     private function setSslVerify(array $server): bool
     {
         if (isset($server['ssl_verify'])) {
@@ -695,9 +680,7 @@ final class Server
         return true;
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
+    /** @param array<int|string, mixed> $server */
     private function setCompress(array $server): bool
     {
         if (isset($server['compress'])) {
@@ -707,9 +690,7 @@ final class Server
         return false;
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
+    /** @param array<int|string, mixed> $server */
     private function setControlhost(array $server): string
     {
         if (isset($server['controlhost'])) {
@@ -719,9 +700,7 @@ final class Server
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
+    /** @param array<int|string, mixed> $server */
     private function setControlport(array $server): string
     {
         if (isset($server['controlport'])) {
@@ -731,9 +710,7 @@ final class Server
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
+    /** @param array<int|string, mixed> $server */
     private function setControluser(array $server): string
     {
         if (isset($server['controluser'])) {
@@ -743,9 +720,7 @@ final class Server
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
+    /** @param array<int|string, mixed> $server */
     private function setControlpass(array $server): string
     {
         if (isset($server['controlpass'])) {
@@ -769,9 +744,7 @@ final class Server
         return 'cookie';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
+    /** @param array<int|string, mixed> $server */
     private function setAuthHttpRealm(array $server): string
     {
         if (isset($server['auth_http_realm'])) {
@@ -781,9 +754,7 @@ final class Server
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
+    /** @param array<int|string, mixed> $server */
     private function setUser(array $server): string
     {
         if (isset($server['user'])) {
@@ -793,9 +764,7 @@ final class Server
         return 'root';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
+    /** @param array<int|string, mixed> $server */
     private function setPassword(array $server): string
     {
         if (isset($server['password'])) {
@@ -805,9 +774,7 @@ final class Server
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
+    /** @param array<int|string, mixed> $server */
     private function setSignonSession(array $server): string
     {
         if (isset($server['SignonSession'])) {
@@ -863,9 +830,7 @@ final class Server
         return $params;
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
+    /** @param array<int|string, mixed> $server */
     private function setSignonScript(array $server): string
     {
         if (isset($server['SignonScript'])) {
@@ -875,9 +840,7 @@ final class Server
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
+    /** @param array<int|string, mixed> $server */
     private function setSignonUrl(array $server): string
     {
         if (isset($server['SignonURL'])) {
@@ -887,9 +850,7 @@ final class Server
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
+    /** @param array<int|string, mixed> $server */
     private function setLogoutUrl(array $server): string
     {
         if (isset($server['LogoutURL'])) {
@@ -904,7 +865,7 @@ final class Server
      *
      * @return string|string[]
      */
-    private function setOnlyDb(array $server)
+    private function setOnlyDb(array $server): string|array
     {
         $onlyDb = '';
         if (isset($server['only_db'])) {
@@ -922,9 +883,7 @@ final class Server
         return $onlyDb;
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
+    /** @param array<int|string, mixed> $server */
     private function setHideDb(array $server): string
     {
         if (isset($server['hide_db'])) {
@@ -934,9 +893,7 @@ final class Server
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
+    /** @param array<int|string, mixed> $server */
     private function setVerbose(array $server): string
     {
         if (isset($server['verbose'])) {
@@ -946,9 +903,7 @@ final class Server
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
+    /** @param array<int|string, mixed> $server */
     private function setPmadb(array $server): string
     {
         if (isset($server['pmadb'])) {
@@ -958,12 +913,8 @@ final class Server
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     *
-     * @return false|string
-     */
-    private function setBookmarktable(array $server)
+    /** @param array<int|string, mixed> $server */
+    private function setBookmarktable(array $server): false|string
     {
         if (isset($server['bookmarktable'])) {
             return $server['bookmarktable'] === false ? false : (string) $server['bookmarktable'];
@@ -972,12 +923,8 @@ final class Server
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     *
-     * @return false|string
-     */
-    private function setRelation(array $server)
+    /** @param array<int|string, mixed> $server */
+    private function setRelation(array $server): false|string
     {
         if (isset($server['relation'])) {
             return $server['relation'] === false ? false : (string) $server['relation'];
@@ -986,12 +933,8 @@ final class Server
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     *
-     * @return false|string
-     */
-    private function setTableInfo(array $server)
+    /** @param array<int|string, mixed> $server */
+    private function setTableInfo(array $server): false|string
     {
         if (isset($server['table_info'])) {
             return $server['table_info'] === false ? false : (string) $server['table_info'];
@@ -1000,12 +943,8 @@ final class Server
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     *
-     * @return false|string
-     */
-    private function setTableCoords(array $server)
+    /** @param array<int|string, mixed> $server */
+    private function setTableCoords(array $server): false|string
     {
         if (isset($server['table_coords'])) {
             return $server['table_coords'] === false ? false : (string) $server['table_coords'];
@@ -1014,12 +953,8 @@ final class Server
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     *
-     * @return false|string
-     */
-    private function setPdfPages(array $server)
+    /** @param array<int|string, mixed> $server */
+    private function setPdfPages(array $server): false|string
     {
         if (isset($server['pdf_pages'])) {
             return $server['pdf_pages'] === false ? false : (string) $server['pdf_pages'];
@@ -1028,12 +963,8 @@ final class Server
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     *
-     * @return false|string
-     */
-    private function setColumnInfo(array $server)
+    /** @param array<int|string, mixed> $server */
+    private function setColumnInfo(array $server): false|string
     {
         if (isset($server['column_info'])) {
             return $server['column_info'] === false ? false : (string) $server['column_info'];
@@ -1042,12 +973,8 @@ final class Server
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     *
-     * @return false|string
-     */
-    private function setHistory(array $server)
+    /** @param array<int|string, mixed> $server */
+    private function setHistory(array $server): false|string
     {
         if (isset($server['history'])) {
             return $server['history'] === false ? false : (string) $server['history'];
@@ -1056,12 +983,8 @@ final class Server
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     *
-     * @return false|string
-     */
-    private function setRecent(array $server)
+    /** @param array<int|string, mixed> $server */
+    private function setRecent(array $server): false|string
     {
         if (isset($server['recent'])) {
             return $server['recent'] === false ? false : (string) $server['recent'];
@@ -1070,12 +993,8 @@ final class Server
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     *
-     * @return false|string
-     */
-    private function setFavorite(array $server)
+    /** @param array<int|string, mixed> $server */
+    private function setFavorite(array $server): false|string
     {
         if (isset($server['favorite'])) {
             return $server['favorite'] === false ? false : (string) $server['favorite'];
@@ -1084,12 +1003,8 @@ final class Server
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     *
-     * @return false|string
-     */
-    private function setTableUiprefs(array $server)
+    /** @param array<int|string, mixed> $server */
+    private function setTableUiprefs(array $server): false|string
     {
         if (isset($server['table_uiprefs'])) {
             return $server['table_uiprefs'] === false ? false : (string) $server['table_uiprefs'];
@@ -1098,12 +1013,8 @@ final class Server
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     *
-     * @return false|string
-     */
-    private function setTracking(array $server)
+    /** @param array<int|string, mixed> $server */
+    private function setTracking(array $server): false|string
     {
         if (isset($server['tracking'])) {
             return $server['tracking'] === false ? false : (string) $server['tracking'];
@@ -1112,12 +1023,8 @@ final class Server
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     *
-     * @return false|string
-     */
-    private function setUserconfig(array $server)
+    /** @param array<int|string, mixed> $server */
+    private function setUserconfig(array $server): false|string
     {
         if (isset($server['userconfig'])) {
             return $server['userconfig'] === false ? false : (string) $server['userconfig'];
@@ -1126,12 +1033,8 @@ final class Server
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     *
-     * @return false|string
-     */
-    private function setUsers(array $server)
+    /** @param array<int|string, mixed> $server */
+    private function setUsers(array $server): false|string
     {
         if (isset($server['users'])) {
             return $server['users'] === false ? false : (string) $server['users'];
@@ -1140,12 +1043,8 @@ final class Server
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     *
-     * @return false|string
-     */
-    private function setUsergroups(array $server)
+    /** @param array<int|string, mixed> $server */
+    private function setUsergroups(array $server): false|string
     {
         if (isset($server['usergroups'])) {
             return $server['usergroups'] === false ? false : (string) $server['usergroups'];
@@ -1154,12 +1053,8 @@ final class Server
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     *
-     * @return false|string
-     */
-    private function setNavigationhiding(array $server)
+    /** @param array<int|string, mixed> $server */
+    private function setNavigationhiding(array $server): false|string
     {
         if (isset($server['navigationhiding'])) {
             return $server['navigationhiding'] === false
@@ -1170,12 +1065,8 @@ final class Server
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     *
-     * @return false|string
-     */
-    private function setSavedsearches(array $server)
+    /** @param array<int|string, mixed> $server */
+    private function setSavedsearches(array $server): false|string
     {
         if (isset($server['savedsearches'])) {
             return $server['savedsearches'] === false ? false : (string) $server['savedsearches'];
@@ -1184,12 +1075,8 @@ final class Server
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     *
-     * @return false|string
-     */
-    private function setCentralColumns(array $server)
+    /** @param array<int|string, mixed> $server */
+    private function setCentralColumns(array $server): false|string
     {
         if (isset($server['central_columns'])) {
             return $server['central_columns'] === false ? false : (string) $server['central_columns'];
@@ -1198,12 +1085,8 @@ final class Server
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     *
-     * @return false|string
-     */
-    private function setDesignerSettings(array $server)
+    /** @param array<int|string, mixed> $server */
+    private function setDesignerSettings(array $server): false|string
     {
         if (isset($server['designer_settings'])) {
             return $server['designer_settings'] === false
@@ -1214,12 +1097,8 @@ final class Server
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     *
-     * @return false|string
-     */
-    private function setExportTemplates(array $server)
+    /** @param array<int|string, mixed> $server */
+    private function setExportTemplates(array $server): false|string
     {
         if (isset($server['export_templates'])) {
             return $server['export_templates'] === false
@@ -1247,9 +1126,7 @@ final class Server
         return 100;
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
+    /** @param array<int|string, mixed> $server */
     private function setSessionTimeZone(array $server): string
     {
         if (isset($server['SessionTimeZone'])) {
@@ -1259,9 +1136,7 @@ final class Server
         return '';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
+    /** @param array<int|string, mixed> $server */
     private function setAllowRoot(array $server): bool
     {
         if (isset($server['AllowRoot'])) {
@@ -1271,9 +1146,7 @@ final class Server
         return true;
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
+    /** @param array<int|string, mixed> $server */
     private function setAllowNoPassword(array $server): bool
     {
         if (isset($server['AllowNoPassword'])) {
@@ -1311,9 +1184,7 @@ final class Server
         return $allowDeny;
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
+    /** @param array<int|string, mixed> $server */
     private function setDisableIs(array $server): bool
     {
         if (isset($server['DisableIS'])) {
@@ -1323,9 +1194,7 @@ final class Server
         return false;
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
+    /** @param array<int|string, mixed> $server */
     private function setTrackingVersionAutoCreate(array $server): bool
     {
         if (isset($server['tracking_version_auto_create'])) {
@@ -1335,9 +1204,7 @@ final class Server
         return false;
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
+    /** @param array<int|string, mixed> $server */
     private function setTrackingDefaultStatements(array $server): string
     {
         if (isset($server['tracking_default_statements'])) {
@@ -1348,9 +1215,7 @@ final class Server
             . 'TRUNCATE,REPLACE,CREATE VIEW,ALTER VIEW,DROP VIEW,CREATE DATABASE,ALTER DATABASE,DROP DATABASE';
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
+    /** @param array<int|string, mixed> $server */
     private function setTrackingAddDropView(array $server): bool
     {
         if (isset($server['tracking_add_drop_view'])) {
@@ -1360,9 +1225,7 @@ final class Server
         return true;
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
+    /** @param array<int|string, mixed> $server */
     private function setTrackingAddDropTable(array $server): bool
     {
         if (isset($server['tracking_add_drop_table'])) {
@@ -1372,9 +1235,7 @@ final class Server
         return true;
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
+    /** @param array<int|string, mixed> $server */
     private function setTrackingAddDropDatabase(array $server): bool
     {
         if (isset($server['tracking_add_drop_database'])) {
@@ -1384,9 +1245,7 @@ final class Server
         return true;
     }
 
-    /**
-     * @param array<int|string, mixed> $server
-     */
+    /** @param array<int|string, mixed> $server */
     private function setHideConnectionErrors(array $server): bool
     {
         if (isset($server['hide_connection_errors'])) {

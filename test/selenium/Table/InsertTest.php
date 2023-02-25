@@ -6,9 +6,7 @@ namespace PhpMyAdmin\Tests\Selenium\Table;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
 
-/**
- * @coversNothing
- */
+/** @coversNothing */
 class InsertTest extends TestBase
 {
     /**
@@ -18,6 +16,7 @@ class InsertTest extends TestBase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->dbQuery(
             'USE `' . $this->databaseName . '`;'
             . 'CREATE TABLE `test_table` ('
@@ -25,7 +24,7 @@ class InsertTest extends TestBase
             . ' `name` varchar(20) NOT NULL,'
             . ' `datetimefield` datetime NOT NULL,'
             . ' PRIMARY KEY (`id`)'
-            . ');'
+            . ');',
         );
 
         $this->login();
@@ -66,7 +65,7 @@ class InsertTest extends TestBase
 
         $this->selectByLabel(
             $this->byName('after_insert'),
-            'Insert another new row'
+            'Insert another new row',
         );
 
         // post
@@ -90,7 +89,7 @@ class InsertTest extends TestBase
         // New message
         $ele = $this->waitForElement(
             'xpath',
-            "//div[contains(@class, 'alert-success') and not(contains(@class, 'message'))]"
+            "//div[contains(@class, 'alert-success') and not(contains(@class, 'message'))]",
         );
         $this->assertStringContainsString('1 row inserted', $ele->getText());
 
@@ -109,47 +108,47 @@ class InsertTest extends TestBase
 
         $this->assertEquals(
             '1',
-            $this->getCellByTableClass('table_results', 1, 5)
+            $this->getCellByTableClass('table_results', 1, 5),
         );
 
         $this->assertEquals(
             'abcd',
-            $this->getCellByTableClass('table_results', 1, 6)
+            $this->getCellByTableClass('table_results', 1, 6),
         );
 
         $this->assertEquals(
             '2011-01-02 00:00:00',
-            $this->getCellByTableClass('table_results', 1, 7)
+            $this->getCellByTableClass('table_results', 1, 7),
         );
 
         $this->assertEquals(
             '2',
-            $this->getCellByTableClass('table_results', 2, 5)
+            $this->getCellByTableClass('table_results', 2, 5),
         );
 
         $this->assertEquals(
             'foo',
-            $this->getCellByTableClass('table_results', 2, 6)
+            $this->getCellByTableClass('table_results', 2, 6),
         );
 
         $this->assertEquals(
             '2012-01-02 00:00:00',
-            $this->getCellByTableClass('table_results', 2, 7)
+            $this->getCellByTableClass('table_results', 2, 7),
         );
 
         $this->assertEquals(
             '4',
-            $this->getCellByTableClass('table_results', 3, 5)
+            $this->getCellByTableClass('table_results', 3, 5),
         );
 
         $this->assertEquals(
             'Abcd',
-            $this->getCellByTableClass('table_results', 3, 6)
+            $this->getCellByTableClass('table_results', 3, 6),
         );
 
         $this->assertEquals(
             '2013-01-02 00:00:00',
-            $this->getCellByTableClass('table_results', 3, 7)
+            $this->getCellByTableClass('table_results', 3, 7),
         );
     }
 }

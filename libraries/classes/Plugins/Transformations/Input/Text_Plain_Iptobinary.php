@@ -24,10 +24,8 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
 {
     /**
      * Gets the transformation description of the plugin
-     *
-     * @return string
      */
-    public static function getInfo()
+    public static function getInfo(): string
     {
         return __('Converts an Internet network address in (IPv4/IPv6) format to binary');
     }
@@ -43,7 +41,7 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
      *
      * @return string IP address
      */
-    public function applyTransformation($buffer, array $options = [], ?FieldMetadata $meta = null)
+    public function applyTransformation($buffer, array $options = [], FieldMetadata|null $meta = null): string
     {
         return FormatConverter::ipToBinary($buffer);
     }
@@ -73,8 +71,8 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
         $text_dir,
         $tabindex,
         $tabindex_for_value,
-        $idindex
-    ) {
+        $idindex,
+    ): string {
         $html = '';
         $val = '';
         if (! empty($value)) {
@@ -105,30 +103,24 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
 
     /**
      * Gets the transformation name of the plugin
-     *
-     * @return string
      */
-    public static function getName()
+    public static function getName(): string
     {
         return 'IPv4/IPv6 To Binary';
     }
 
     /**
      * Gets the plugin`s MIME type
-     *
-     * @return string
      */
-    public static function getMIMEType()
+    public static function getMIMEType(): string
     {
         return 'Text';
     }
 
     /**
      * Gets the plugin`s MIME subtype
-     *
-     * @return string
      */
-    public static function getMIMESubtype()
+    public static function getMIMESubtype(): string
     {
         return 'Plain';
     }

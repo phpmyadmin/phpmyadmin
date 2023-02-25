@@ -10,26 +10,15 @@ use function __;
 
 class Plugins
 {
-    /** @var DatabaseInterface */
-    private $dbi;
-
-    /**
-     * @param DatabaseInterface $dbi DatabaseInterface instance
-     */
-    public function __construct(DatabaseInterface $dbi)
+    public function __construct(private DatabaseInterface $dbi)
     {
-        $this->dbi = $dbi;
     }
 
-    /**
-     * @return Plugin[]
-     */
+    /** @return Plugin[] */
     public function getAll(): array
     {
-        global $cfg;
-
         $sql = 'SHOW PLUGINS';
-        if (! $cfg['Server']['DisableIS']) {
+        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $sql = 'SELECT * FROM information_schema.PLUGINS ORDER BY PLUGIN_TYPE, PLUGIN_NAME';
         }
 
@@ -42,14 +31,12 @@ class Plugins
         return $plugins;
     }
 
-    /**
-     * @return array<int|string, string>
-     */
+    /** @return array<int|string, string> */
     public function getAuthentication(): array
     {
         $result = $this->dbi->query(
             'SELECT `PLUGIN_NAME`, `PLUGIN_DESCRIPTION` FROM `information_schema`.`PLUGINS`'
-                . ' WHERE `PLUGIN_TYPE` = \'AUTHENTICATION\';'
+                . ' WHERE `PLUGIN_TYPE` = \'AUTHENTICATION\';',
         );
 
         $plugins = [];
@@ -91,9 +78,7 @@ class Plugins
         return $description;
     }
 
-    /**
-     * @param array $row Row fetched from database
-     */
+    /** @param array $row Row fetched from database */
     private function mapRowToPlugin(array $row): Plugin
     {
         return Plugin::fromState([

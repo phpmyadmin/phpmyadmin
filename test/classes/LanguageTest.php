@@ -8,6 +8,7 @@ use PhpMyAdmin\LanguageManager;
 
 use function _ngettext;
 use function count;
+use function file_exists;
 use function is_readable;
 use function strtolower;
 
@@ -26,6 +27,7 @@ class LanguageTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $loc = LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo';
         if (! is_readable($loc)) {
             $this->markTestSkipped('Missing compiled locales.');
@@ -37,6 +39,7 @@ class LanguageTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         // Ensure we have English locale after tests
         $lang = $this->manager->getLanguage('en');
         if ($lang === false) {
@@ -97,7 +100,7 @@ class LanguageTest extends AbstractTestCase
                 $lang->getCode(),
                 strtolower($lang->getEnglishName()),
                 'Maybe this language does not exist in LanguageManager class'
-                . ', see: https://github.com/phpmyadmin/phpmyadmin/issues/16300.'
+                . ', see: https://github.com/phpmyadmin/phpmyadmin/issues/16300.',
             );
         }
     }
@@ -150,7 +153,7 @@ class LanguageTest extends AbstractTestCase
      * @param string $accept  Value for HTTP Accept-Language header
      * @param string $agent   Value for HTTP User-Agent header
      * @param string $default Value for default language
-     * @param string $expect  Expected language name
+     * @param string $expect  Expected language code
      *
      * @dataProvider selectDataProvider
      */
@@ -162,8 +165,13 @@ class LanguageTest extends AbstractTestCase
         string $accept,
         string $agent,
         string $default,
-        string $expect
+        string $expect,
     ): void {
+        if ($expect !== 'en' && ! file_exists(LOCALE_PATH . '/' . $expect . '/LC_MESSAGES/phpmyadmin.mo')) {
+            // This could happen after removing incomplete .mo files.
+            $this->markTestSkipped('Locale file does not exists: ' . $expect);
+        }
+
         $GLOBALS['config']->set('FilterLanguages', '');
         $GLOBALS['config']->set('Lang', $lang);
         $GLOBALS['config']->set('is_https', false);
@@ -176,7 +184,7 @@ class LanguageTest extends AbstractTestCase
 
         $lang = $this->manager->selectLanguage();
 
-        $this->assertEquals($expect, $lang->getEnglishName());
+        $this->assertEquals($expect, $lang->getCode());
 
         $GLOBALS['config']->set('Lang', '');
         $_POST['lang'] = '';
@@ -190,101 +198,33 @@ class LanguageTest extends AbstractTestCase
     /**
      * Data provider for language selection test.
      *
-     * @return array Test parameters.
+     * @return string[][]
      */
-    public function selectDataProvider(): array
+    public static function selectDataProvider(): array
     {
         return [
-            [
-                'cs',
-                'en',
-                '',
-                '',
-                '',
-                '',
-                '',
-                'Czech',
-            ],
-            [
-                '',
-                'cs',
-                '',
-                '',
-                '',
-                '',
-                '',
-                'Czech',
-            ],
-            [
-                '',
-                'cs',
-                'en',
-                '',
-                '',
-                '',
-                '',
-                'Czech',
-            ],
-            [
-                '',
-                '',
-                'cs',
-                '',
-                '',
-                '',
-                '',
-                'Czech',
-            ],
-            [
-                '',
-                '',
-                '',
-                'cs',
-                '',
-                '',
-                '',
-                'Czech',
-            ],
-            [
-                '',
-                '',
-                '',
-                '',
-                'cs,en-US;q=0.7,en;q=0.3',
-                '',
-                '',
-                'Czech',
-            ],
-            [
-                '',
-                '',
-                '',
-                '',
-                '',
-                'Mozilla/5.0 (Linux; U; Android 2.2.2; tr-tr; GM FOX)',
-                '',
-                'Turkish',
-            ],
-            [
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                'cs',
-                'Czech',
-            ],
-            [
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                'English',
-            ],
+            ['cs', 'en', '', '', '', '', '', 'cs'],
+            ['', 'cs', '', '', '', '', '', 'cs'],
+            ['', 'cs', 'en', '', '', '', '', 'cs'],
+            ['', '', 'cs', '', '', '', '', 'cs'],
+            ['', '', '', 'cs', '', '', '', 'cs'],
+            ['', '', '', '', 'cs,en-US;q=0.7,en;q=0.3', '', '', 'cs'],
+            ['', '', '', '', '', 'Mozilla/5.0 (Linux; U; Android 2.2.2; tr-tr; GM FOX)', '', 'tr'],
+            ['', '', '', '', '', '', 'cs', 'cs'],
+            ['', '', '', '', '', '', '', 'en'],
+            ['', '', '', '', 'pt;q=0.8,en-US;q=0.5,en;q=0.3', '', 'en', 'pt'],
+            ['', '', '', '', 'pt-PT,pt;q=0.8,en-US;q=0.5,en;q=0.3', '', 'en', 'pt'],
+            ['', '', '', '', 'pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3', '', 'en', 'pt_BR'],
+            ['', '', '', '', 'ar;q=0.8,en-US;q=0.5,en;q=0.3', '', 'en', 'ar'],
+            ['', '', '', '', 'ar-AE,ar;q=0.8,en-US;q=0.5,en;q=0.3', '', 'en', 'ar'],
+            ['', '', '', '', 'ar-LY,ar;q=0.8,en-US;q=0.5,en;q=0.3', '', 'en', 'ar_LY'],
+            ['', '', '', '', 'en,pt;q=0.5', '', 'pt', 'en'],
+            ['', '', '', '', 'en-GB,en;q=0.7,pt;q=0.3', '', 'pt', 'en_GB'],
+            ['', '', '', '', 'en-US,en;q=0.7,pt;q=0.3', '', 'pt', 'en'],
+            ['', '', '', '', 'zh,en;q=0.5', '', 'en', 'zh_CN'],
+            ['', '', '', '', 'zh-CN,zh;q=0.7,en;q=0.3', '', 'en', 'zh_CN'],
+            ['', '', '', '', 'zh-HK,zh;q=0.7,en;q=0.3', '', 'en', 'zh_TW'],
+            ['', '', '', '', 'zh-TW,zh;q=0.7,en;q=0.3', '', 'en', 'zh_TW'],
         ];
     }
 
@@ -310,7 +250,7 @@ class LanguageTest extends AbstractTestCase
 
         $this->assertEquals(
             $locale,
-            $this->manager->getCurrentLanguage()->getCode()
+            $this->manager->getCurrentLanguage()->getCode(),
         );
     }
 
@@ -319,7 +259,7 @@ class LanguageTest extends AbstractTestCase
      *
      * @return array with arrays of available locales
      */
-    public function listLocales(): array
+    public static function listLocales(): array
     {
         $ret = [];
         foreach (LanguageManager::getInstance()->availableLanguages() as $language) {

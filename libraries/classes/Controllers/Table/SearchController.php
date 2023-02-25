@@ -6,9 +6,11 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
@@ -21,6 +23,7 @@ use PhpMyAdmin\Utils\Gis;
 
 use function in_array;
 use function intval;
+use function is_array;
 use function mb_strtolower;
 use function md5;
 use function preg_match;
@@ -70,10 +73,8 @@ class SearchController extends AbstractController
     private $columnNullFlags;
     /**
      * Whether a geometry column is present
-     *
-     * @var bool
      */
-    private $geomColumnFlag;
+    private bool $geomColumnFlag;
     /**
      * Foreign Keys
      *
@@ -81,28 +82,14 @@ class SearchController extends AbstractController
      */
     private $foreigners;
 
-    /** @var Search */
-    private $search;
-
-    /** @var Relation */
-    private $relation;
-
-    /** @var DatabaseInterface */
-    private $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
-        string $table,
-        Search $search,
-        Relation $relation,
-        DatabaseInterface $dbi
+        private Search $search,
+        private Relation $relation,
+        private DatabaseInterface $dbi,
     ) {
-        parent::__construct($response, $template, $db, $table);
-        $this->search = $search;
-        $this->relation = $relation;
-        $this->dbi = $dbi;
+        parent::__construct($response, $template);
 
         $this->columnNames = [];
         $this->columnTypes = [];
@@ -121,7 +108,7 @@ class SearchController extends AbstractController
     private function loadTableInfo(): void
     {
         // Gets the list and number of columns
-        $columns = $this->dbi->getColumns($this->db, $this->table, true);
+        $columns = $this->dbi->getColumns($GLOBALS['db'], $GLOBALS['table'], true);
         // Get details about the geometry functions
         $geom_types = Gis::getDataTypes();
 
@@ -164,27 +151,24 @@ class SearchController extends AbstractController
         }
 
         // Retrieve foreign keys
-        $this->foreigners = $this->relation->getForeigners($this->db, $this->table);
+        $this->foreigners = $this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table']);
     }
 
     /**
      * Index action
      */
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $db, $table, $urlParams, $cfg, $errorUrl;
+        $this->checkParameters(['db', 'table']);
 
-        Util::checkParameters(['db', 'table']);
+        $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+        $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
 
-        $urlParams = ['db' => $db, 'table' => $table];
-        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $errorUrl .= Url::getCommon($urlParams, '&');
-
-        DbTableExists::check();
+        DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
 
         $this->addScriptFiles([
             'makegrid.js',
-            'vendor/stickyfill.min.js',
             'sql.js',
             'table/select.js',
             'table/change.js',
@@ -227,7 +211,7 @@ class SearchController extends AbstractController
             $i = 0;
             foreach ($row as $col => $val) {
                 if (isset($fields_meta[$i]) && $fields_meta[$i]->isMappedTypeBit) {
-                    $row[$col] = Util::printableBitValue((int) $val, (int) $fields_meta[$i]->length);
+                    $row[$col] = Util::printableBitValue((int) $val, $fields_meta[$i]->length);
                 }
 
                 $i++;
@@ -258,14 +242,14 @@ class SearchController extends AbstractController
             new RelationCleanup($this->dbi, $this->relation),
             new Operations($this->dbi, $this->relation),
             new Transformations(),
-            $this->template
+            $this->template,
         );
 
         $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
-            null, // analyzed_sql_results
+            null,
             false, // is_gotofile
-            $this->db, // db
-            $this->table, // table
+            $GLOBALS['db'], // db
+            $GLOBALS['table'], // table
             null, // find_real_end
             null, // sql_query_for_bookmark
             null, // extra_data
@@ -275,7 +259,7 @@ class SearchController extends AbstractController
             null, // disp_query
             null, // disp_message
             $sql_query, // sql_query
-            null // complete_query
+            null, // complete_query
         ));
     }
 
@@ -284,23 +268,21 @@ class SearchController extends AbstractController
      */
     public function displaySelectionFormAction(): void
     {
-        global $goto, $cfg;
-
-        if (! isset($goto)) {
-            $goto = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        if (! isset($GLOBALS['goto'])) {
+            $GLOBALS['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
         }
 
         $this->render('table/search/index', [
-            'db' => $this->db,
-            'table' => $this->table,
-            'goto' => $goto,
+            'db' => $GLOBALS['db'],
+            'table' => $GLOBALS['table'],
+            'goto' => $GLOBALS['goto'],
             'self' => $this,
             'geom_column_flag' => $this->geomColumnFlag,
             'column_names' => $this->columnNames,
             'column_types' => $this->columnTypes,
             'column_collations' => $this->columnCollations,
-            'default_sliders_state' => $cfg['InitialSlidersState'],
-            'max_rows' => intval($cfg['MaxRows']),
+            'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
+            'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
         ]);
     }
 
@@ -317,15 +299,13 @@ class SearchController extends AbstractController
      * Finds minimum and maximum value of a given column.
      *
      * @param string $column Column name
-     *
-     * @return array|null
      */
-    public function getColumnMinMax($column): ?array
+    public function getColumnMinMax($column): array|null
     {
         $sql_query = 'SELECT MIN(' . Util::backquote($column) . ') AS `min`, '
             . 'MAX(' . Util::backquote($column) . ') AS `max` '
-            . 'FROM ' . Util::backquote($this->db) . '.'
-            . Util::backquote($this->table);
+            . 'FROM ' . Util::backquote($GLOBALS['db']) . '.'
+            . Util::backquote($GLOBALS['table']);
 
         return $this->dbi->fetchSingleRow($sql_query);
     }
@@ -339,7 +319,7 @@ class SearchController extends AbstractController
      *
      * @return array Array containing column's properties
      */
-    public function getColumnProperties($search_index, $column_index)
+    public function getColumnProperties($search_index, $column_index): array
     {
         $selected_operator = ($_POST['criteriaColumnOperators'][$search_index] ?? '');
         $entered_value = ($_POST['criteriaValues'] ?? '');
@@ -351,7 +331,7 @@ class SearchController extends AbstractController
         $typeOperators = $this->dbi->types->getTypeOperatorsHtml(
             $cleanType,
             $this->columnNullFlags[$column_index],
-            $selected_operator
+            $selected_operator,
         );
         $func = $this->template->render('table/search/column_comparison_operators', [
             'search_index' => $search_index,
@@ -363,10 +343,12 @@ class SearchController extends AbstractController
             $this->columnNames[$column_index],
             false,
             '',
-            ''
+            '',
         );
         $htmlAttributes = '';
-        if (in_array($cleanType, $this->dbi->types->getIntegerTypes())) {
+        $isInteger = in_array($cleanType, $this->dbi->types->getIntegerTypes());
+        $isFloat = in_array($cleanType, $this->dbi->types->getFloatTypes());
+        if ($isInteger) {
             $extractedColumnspec = Util::extractColumnSpec($this->originalColumnTypes[$column_index]);
             $is_unsigned = $extractedColumnspec['unsigned'];
             $minMaxValues = $this->dbi->types->getIntegerRange($cleanType, ! $is_unsigned);
@@ -377,10 +359,31 @@ class SearchController extends AbstractController
         $htmlAttributes .= ' onfocus="return '
                         . 'verifyAfterSearchFieldChange(' . $search_index . ', \'#tbl_search_form\')"';
 
+        $foreignDropdown = '';
+
+        $searchColumnInForeigners = $this->relation->searchColumnInForeigners(
+            $this->foreigners,
+            $this->columnNames[$column_index],
+        );
+
+        if (
+            $this->foreigners
+            && $searchColumnInForeigners
+            && is_array($foreignData['disp_row'])
+        ) {
+            $foreignDropdown = $this->relation->foreignDropdown(
+                $foreignData['disp_row'],
+                $foreignData['foreign_field'],
+                $foreignData['foreign_display'],
+                '',
+                $GLOBALS['cfg']['ForeignKeyMaxLimit'],
+            );
+        }
+
         $value = $this->template->render('table/search/input_box', [
             'str' => '',
             'column_type' => (string) $type,
-            'column_data_type' => strtoupper($cleanType),
+            'column_data_type' => $isInteger ? 'INT' : ($isFloat ? 'FLOAT' : strtoupper($cleanType)),
             'html_attributes' => $htmlAttributes,
             'column_id' => 'fieldID_',
             'in_zoom_search_edit' => false,
@@ -388,12 +391,15 @@ class SearchController extends AbstractController
             'column_name' => $this->columnNames[$column_index],
             'column_name_hash' => md5($this->columnNames[$column_index]),
             'foreign_data' => $foreignData,
-            'table' => $this->table,
+            'table' => $GLOBALS['table'],
             'column_index' => $search_index,
-            'foreign_max_limit' => $GLOBALS['cfg']['ForeignKeyMaxLimit'],
             'criteria_values' => $entered_value,
-            'db' => $this->db,
+            'db' => $GLOBALS['db'],
             'in_fbs' => true,
+            'foreign_dropdown' => $foreignDropdown,
+            'search_column_in_foreigners' => $searchColumnInForeigners,
+            'is_integer' => $isInteger,
+            'is_float' => $isFloat,
         ]);
 
         return [

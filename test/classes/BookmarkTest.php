@@ -6,14 +6,20 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Bookmark;
 use PhpMyAdmin\ConfigStorage\Features\BookmarkFeature;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\TableName;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 
-/**
- * @covers \PhpMyAdmin\Bookmark
- */
+/** @covers \PhpMyAdmin\Bookmark */
 class BookmarkTest extends AbstractTestCase
 {
+    /** @var DatabaseInterface */
+    protected $dbi;
+
+    /** @var DbiDummy */
+    protected $dummyDbi;
+
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
@@ -21,6 +27,10 @@ class BookmarkTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
         $GLOBALS['cfg']['Server']['user'] = 'root';
         $GLOBALS['cfg']['Server']['pmadb'] = 'phpmyadmin';
         $GLOBALS['cfg']['Server']['bookmarktable'] = 'pma_bookmark';
@@ -38,16 +48,16 @@ class BookmarkTest extends AbstractTestCase
             'SELECT * FROM `phpmyadmin`.`pma_bookmark` WHERE ( `user` = \'\' OR `user` = \'root\' )'
                 . ' AND dbase = \'sakila\' ORDER BY label ASC',
             [['1', 'sakila', 'root', 'label', 'SELECT * FROM `actor` WHERE `actor_id` < 10;']],
-            ['id', 'dbase', 'user', 'label', 'query']
+            ['id', 'dbase', 'user', 'label', 'query'],
         );
         $actual = Bookmark::getList(
             new BookmarkFeature(DatabaseName::fromValue('phpmyadmin'), TableName::fromValue('pma_bookmark')),
             $GLOBALS['dbi'],
             $GLOBALS['cfg']['Server']['user'],
-            'sakila'
+            'sakila',
         );
         $this->assertContainsOnlyInstancesOf(Bookmark::class, $actual);
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
     }
 
     /**
@@ -60,11 +70,11 @@ class BookmarkTest extends AbstractTestCase
             Bookmark::get(
                 $GLOBALS['dbi'],
                 $GLOBALS['cfg']['Server']['user'],
-                'phpmyadmin',
-                '1'
-            )
+                DatabaseName::fromValue('phpmyadmin'),
+                '1',
+            ),
         );
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
     }
 
     /**
@@ -83,6 +93,6 @@ class BookmarkTest extends AbstractTestCase
         $this->assertNotFalse($bookmark);
         $this->dummyDbi->addSelectDb('phpmyadmin');
         $this->assertFalse($bookmark->save());
-        $this->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllSelectsConsumed();
     }
 }

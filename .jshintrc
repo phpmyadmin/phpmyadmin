@@ -1,4 +1,6 @@
 {
+    "esversion" : 6,
+
     // Show more errors
     "maxerr" : 1000,
 

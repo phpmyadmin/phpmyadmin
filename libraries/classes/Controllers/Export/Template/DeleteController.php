@@ -13,27 +13,17 @@ use PhpMyAdmin\Template;
 
 final class DeleteController extends AbstractController
 {
-    /** @var TemplateModel */
-    private $model;
-
-    /** @var Relation */
-    private $relation;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        TemplateModel $model,
-        Relation $relation
+        private TemplateModel $model,
+        private Relation $relation,
     ) {
         parent::__construct($response, $template);
-        $this->model = $model;
-        $this->relation = $relation;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        global $cfg;
-
         $templateId = (int) $request->getParsedBodyParam('templateId');
 
         $exportTemplatesFeature = $this->relation->getRelationParameters()->exportTemplatesFeature;
@@ -44,8 +34,8 @@ final class DeleteController extends AbstractController
         $result = $this->model->delete(
             $exportTemplatesFeature->database,
             $exportTemplatesFeature->exportTemplates,
-            $cfg['Server']['user'],
-            $templateId
+            $GLOBALS['cfg']['Server']['user'],
+            $templateId,
         );
 
         if ($result !== '') {

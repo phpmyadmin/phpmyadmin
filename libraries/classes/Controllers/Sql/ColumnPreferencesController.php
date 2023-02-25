@@ -7,52 +7,49 @@ namespace PhpMyAdmin\Controllers\Sql;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Sql;
+use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
+
+use function array_map;
+use function explode;
+use function is_string;
 
 final class ColumnPreferencesController extends AbstractController
 {
-    /** @var Sql */
-    private $sql;
-
-    /** @var CheckUserPrivileges */
-    private $checkUserPrivileges;
-
-    /** @var DatabaseInterface */
-    private $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Sql $sql,
-        CheckUserPrivileges $checkUserPrivileges,
-        DatabaseInterface $dbi
+        private CheckUserPrivileges $checkUserPrivileges,
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
-        $this->sql = $sql;
-        $this->checkUserPrivileges = $checkUserPrivileges;
-        $this->dbi = $dbi;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $db, $table;
-
         $this->checkUserPrivileges->getPrivileges();
 
-        $tableObject = $this->dbi->getTable($db, $table);
+        $tableObject = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
         $status = false;
 
+        /** @var string|null $tableCreateTime */
+        $tableCreateTime = $request->getParsedBodyParam('table_create_time');
+
         // set column order
-        if (isset($_POST['col_order'])) {
-            $status = $this->sql->setColumnProperty($tableObject, 'col_order');
+        $colorder = $request->getParsedBodyParam('col_order');
+        if (is_string($colorder)) {
+            $propertyValue = array_map('intval', explode(',', $colorder));
+            $status = $tableObject->setUiProp(Table::PROP_COLUMN_ORDER, $propertyValue, $tableCreateTime);
         }
 
         // set column visibility
-        if ($status === true && isset($_POST['col_visib'])) {
-            $status = $this->sql->setColumnProperty($tableObject, 'col_visib');
+        $colvisib = $request->getParsedBodyParam('col_visib');
+        if ($status === true && is_string($colvisib)) {
+            $propertyValue = array_map('intval', explode(',', $colvisib));
+            $status = $tableObject->setUiProp(Table::PROP_COLUMN_ORDER, $propertyValue, $tableCreateTime);
         }
 
         if ($status instanceof Message) {

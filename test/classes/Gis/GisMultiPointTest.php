@@ -5,13 +5,16 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisMultiPoint;
+use PhpMyAdmin\Gis\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
-use function preg_match;
+use function file_exists;
 
 /**
  * @covers \PhpMyAdmin\Gis\GisMultiPoint
+ * @runTestsInSeparateProcesses
+ * @preserveGlobalState disabled
  */
 class GisMultiPointTest extends GisGeomTestCase
 {
@@ -25,6 +28,7 @@ class GisMultiPointTest extends GisGeomTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->object = GisMultiPoint::singleton();
     }
 
@@ -35,6 +39,7 @@ class GisMultiPointTest extends GisGeomTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 
@@ -43,7 +48,7 @@ class GisMultiPointTest extends GisGeomTestCase
      *
      * @return array data for testGenerateWkt
      */
-    public function providerForTestGenerateWkt(): array
+    public static function providerForTestGenerateWkt(): array
     {
         $gis_data1 = [
             0 => [
@@ -100,8 +105,8 @@ class GisMultiPointTest extends GisGeomTestCase
         ];
 
         $this->assertEquals(
+            'MULTIPOINT(5.02 8.45,6.14 0.15)',
             $this->object->getShape($gis_data),
-            'MULTIPOINT(5.02 8.45,6.14 0.15)'
         );
     }
 
@@ -110,37 +115,27 @@ class GisMultiPointTest extends GisGeomTestCase
      *
      * @return array data for testGenerateParams
      */
-    public function providerForTestGenerateParams(): array
+    public static function providerForTestGenerateParams(): array
     {
-        $temp1 = [
-            'MULTIPOINT' => [
-                'no_of_points' => 2,
-                0 => [
-                    'x' => '5.02',
-                    'y' => '8.45',
-                ],
-                1 => [
-                    'x' => '6.14',
-                    'y' => '0.15',
-                ],
-            ],
-        ];
-        $temp2 = $temp1;
-        $temp2['gis_type'] = 'MULTIPOINT';
-
         return [
             [
                 "'MULTIPOINT(5.02 8.45,6.14 0.15)',124",
-                null,
                 [
-                    'srid' => '124',
-                    0 => $temp1,
+                    'srid' => 124,
+                    0 => [
+                        'MULTIPOINT' => [
+                            'no_of_points' => 2,
+                            0 => [
+                                'x' => 5.02,
+                                'y' => 8.45,
+                            ],
+                            1 => [
+                                'x' => 6.14,
+                                'y' => 0.15,
+                            ],
+                        ],
+                    ],
                 ],
-            ],
-            [
-                'MULTIPOINT(5.02 8.45,6.14 0.15)',
-                2,
-                [2 => $temp2],
             ],
         ];
     }
@@ -150,59 +145,62 @@ class GisMultiPointTest extends GisGeomTestCase
      *
      * @return array data for testScaleRow
      */
-    public function providerForTestScaleRow(): array
+    public static function providerForTestScaleRow(): array
     {
         return [
             [
                 'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
-                [
-                    'minX' => 12,
-                    'maxX' => 69,
-                    'minY' => 23,
-                    'maxY' => 78,
-                ],
+                new ScaleData(69, 12, 78, 23),
             ],
         ];
     }
 
-    /**
-     * @requires extension gd
-     */
+    /** @requires extension gd */
     public function testPrepareRowAsPng(): void
     {
-        $image = ImageWrapper::create(120, 150);
+        $image = ImageWrapper::create(200, 124, ['red' => 229, 'green' => 229, 'blue' => 229]);
         $this->assertNotNull($image);
         $return = $this->object->prepareRowAsPng(
             'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
             'image',
-            '#B02EE0',
-            ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
-            $image
+            [176, 46, 224],
+            ['x' => -18, 'y' => 14, 'scale' => 1.71, 'height' => 124],
+            $image,
         );
-        $this->assertEquals(120, $return->width());
-        $this->assertEquals(150, $return->height());
+        $this->assertEquals(200, $return->width());
+        $this->assertEquals(124, $return->height());
+
+        $fileExpected = $this->testDir . '/multipoint-expected.png';
+        $fileActual = $this->testDir . '/multipoint-actual.png';
+        $this->assertTrue($image->png($fileActual));
+        $this->assertFileEquals($fileExpected, $fileActual);
     }
 
     /**
      * test case for prepareRowAsPdf() method
      *
-     * @param string $spatial     GIS MULTIPOINT object
-     * @param string $label       label for the GIS MULTIPOINT object
-     * @param string $point_color color for the GIS MULTIPOINT object
-     * @param array  $scale_data  array containing data related to scaling
-     * @param TCPDF  $pdf         TCPDF instance
+     * @param string $spatial    GIS MULTIPOINT object
+     * @param string $label      label for the GIS MULTIPOINT object
+     * @param int[]  $color      color for the GIS MULTIPOINT object
+     * @param array  $scale_data array containing data related to scaling
      *
      * @dataProvider providerForPrepareRowAsPdf
      */
     public function testPrepareRowAsPdf(
         string $spatial,
         string $label,
-        string $point_color,
+        array $color,
         array $scale_data,
-        TCPDF $pdf
+        TCPDF $pdf,
     ): void {
-        $return = $this->object->prepareRowAsPdf($spatial, $label, $point_color, $scale_data, $pdf);
-        $this->assertInstanceOf(TCPDF::class, $return);
+        $return = $this->object->prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf);
+
+        $fileExpectedArch = $this->testDir . '/multipoint-expected-' . $this->getArch() . '.pdf';
+        $fileExpectedGeneric = $this->testDir . '/multipoint-expected.pdf';
+        $fileExpected = file_exists($fileExpectedArch) ? $fileExpectedArch : $fileExpectedGeneric;
+        $fileActual = $this->testDir . '/multipoint-actual.pdf';
+        $return->Output($fileActual, 'F');
+        $this->assertFileEquals($fileExpected, $fileActual);
     }
 
     /**
@@ -210,20 +208,16 @@ class GisMultiPointTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsPdf() test case
      */
-    public function providerForPrepareRowAsPdf(): array
+    public static function providerForPrepareRowAsPdf(): array
     {
         return [
             [
                 'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
                 'pdf',
-                '#B02EE0',
-                [
-                    'x' => 12,
-                    'y' => 69,
-                    'scale' => 2,
-                    'height' => 150,
-                ],
-                new TCPDF(),
+                [176, 46, 224],
+                ['x' => 7, 'y' => 3, 'scale' => 3.16, 'height' => 297],
+
+                parent::createEmptyPdf('MULTIPOINT'),
             ],
         ];
     }
@@ -231,23 +225,23 @@ class GisMultiPointTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsSvg() method
      *
-     * @param string $spatial    GIS MULTIPOINT object
-     * @param string $label      label for the GIS MULTIPOINT object
-     * @param string $pointColor color for the GIS MULTIPOINT object
-     * @param array  $scaleData  array containing data related to scaling
-     * @param string $output     expected output
+     * @param string $spatial   GIS MULTIPOINT object
+     * @param string $label     label for the GIS MULTIPOINT object
+     * @param int[]  $color     color for the GIS MULTIPOINT object
+     * @param array  $scaleData array containing data related to scaling
+     * @param string $output    expected output
      *
      * @dataProvider providerForPrepareRowAsSvg
      */
     public function testPrepareRowAsSvg(
         string $spatial,
         string $label,
-        string $pointColor,
+        array $color,
         array $scaleData,
-        string $output
+        string $output,
     ): void {
-        $string = $this->object->prepareRowAsSvg($spatial, $label, $pointColor, $scaleData);
-        $this->assertEquals(1, preg_match($output, $string));
+        $svg = $this->object->prepareRowAsSvg($spatial, $label, $color, $scaleData);
+        $this->assertEquals($output, $svg);
     }
 
     /**
@@ -255,30 +249,30 @@ class GisMultiPointTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsSvg() test case
      */
-    public function providerForPrepareRowAsSvg(): array
+    public static function providerForPrepareRowAsSvg(): array
     {
         return [
             [
                 'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
                 'svg',
-                '#B02EE0',
+                [176, 46, 224],
                 [
                     'x' => 12,
                     'y' => 69,
                     'scale' => 2,
                     'height' => 150,
                 ],
-                '/^(<circle cx="72" cy="138" r="3" name="svg" class="multipoint '
-                . 'vector" fill="white" stroke="#B02EE0" stroke-width="2" id="svg)'
-                . '(\d+)("\/><circle cx="114" cy="242" r="3" name="svg" class="mult'
-                . 'ipoint vector" fill="white" stroke="#B02EE0" stroke-width="2" id'
-                . '="svg)(\d+)("\/><circle cx="26" cy="198" r="3" name="svg" class='
-                . '"multipoint vector" fill="white" stroke="#B02EE0" stroke-width='
-                . '"2" id="svg)(\d+)("\/><circle cx="4" cy="182" r="3" name="svg" '
-                . 'class="multipoint vector" fill="white" stroke="#B02EE0" stroke-'
-                . 'width="2" id="svg)(\d+)("\/><circle cx="46" cy="132" r="3" name='
-                . '"svg" class="multipoint vector" fill="white" stroke="#B02EE0" '
-                . 'stroke-width="2" id="svg)(\d+)("\/>)$/',
+                '<circle cx="72" cy="138" r="3" name="svg" class="multipoint '
+                . 'vector" fill="white" stroke="#b02ee0" stroke-width="2" id="'
+                . 'svg1234567890"/><circle cx="114" cy="242" r="3" name="svg" class="mult'
+                . 'ipoint vector" fill="white" stroke="#b02ee0" stroke-width="2" id'
+                . '="svg1234567890"/><circle cx="26" cy="198" r="3" name="svg" class='
+                . '"multipoint vector" fill="white" stroke="#b02ee0" stroke-width='
+                . '"2" id="svg1234567890"/><circle cx="4" cy="182" r="3" name="svg" '
+                . 'class="multipoint vector" fill="white" stroke="#b02ee0" stroke-'
+                . 'width="2" id="svg1234567890"/><circle cx="46" cy="132" r="3" name='
+                . '"svg" class="multipoint vector" fill="white" stroke="#b02ee0" '
+                . 'stroke-width="2" id="svg1234567890"/>',
             ],
         ];
     }
@@ -286,12 +280,12 @@ class GisMultiPointTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsOl() method
      *
-     * @param string $spatial     GIS MULTIPOINT object
-     * @param int    $srid        spatial reference ID
-     * @param string $label       label for the GIS MULTIPOINT object
-     * @param array  $point_color color for the GIS MULTIPOINT object
-     * @param array  $scale_data  array containing data related to scaling
-     * @param string $output      expected output
+     * @param string $spatial    GIS MULTIPOINT object
+     * @param int    $srid       spatial reference ID
+     * @param string $label      label for the GIS MULTIPOINT object
+     * @param int[]  $color      color for the GIS MULTIPOINT object
+     * @param array  $scale_data array containing data related to scaling
+     * @param string $output     expected output
      *
      * @dataProvider providerForPrepareRowAsOl
      */
@@ -299,20 +293,12 @@ class GisMultiPointTest extends GisGeomTestCase
         string $spatial,
         int $srid,
         string $label,
-        array $point_color,
+        array $color,
         array $scale_data,
-        string $output
+        string $output,
     ): void {
-        $this->assertEquals(
-            $output,
-            $this->object->prepareRowAsOl(
-                $spatial,
-                $srid,
-                $label,
-                $point_color,
-                $scale_data
-            )
-        );
+        $ol = $this->object->prepareRowAsOl($spatial, $srid, $label, $color, $scale_data);
+        $this->assertEquals($output, $ol);
     }
 
     /**
@@ -320,7 +306,7 @@ class GisMultiPointTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsOl() test case
      */
-    public function providerForPrepareRowAsOl(): array
+    public static function providerForPrepareRowAsOl(): array
     {
         return [
             [

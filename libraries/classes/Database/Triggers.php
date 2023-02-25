@@ -7,11 +7,14 @@ namespace PhpMyAdmin\Database;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 use function __;
+use function array_column;
+use function array_multisort;
 use function count;
 use function explode;
 use function htmlspecialchars;
@@ -20,6 +23,8 @@ use function mb_strtoupper;
 use function sprintf;
 use function str_contains;
 use function trim;
+
+use const SORT_ASC;
 
 /**
  * Functions for trigger management.
@@ -32,25 +37,9 @@ class Triggers
     /** @var array<int, string> */
     private $event = ['INSERT', 'UPDATE', 'DELETE'];
 
-    /** @var DatabaseInterface */
-    private $dbi;
-
-    /** @var Template */
-    private $template;
-
-    /** @var ResponseRenderer */
-    private $response;
-
-    /**
-     * @param DatabaseInterface $dbi      DatabaseInterface instance.
-     * @param Template          $template Template instance.
-     * @param ResponseRenderer  $response Response instance.
-     */
-    public function __construct(DatabaseInterface $dbi, Template $template, $response)
+    /** @param ResponseRenderer $response */
+    public function __construct(private DatabaseInterface $dbi, private Template $template, private $response)
     {
-        $this->dbi = $dbi;
-        $this->template = $template;
-        $this->response = $response;
     }
 
     /**
@@ -58,23 +47,21 @@ class Triggers
      */
     public function main(): void
     {
-        global $db, $table;
-
         /**
          * Process all requests
          */
         $this->handleEditor();
         $this->export();
 
-        $items = $this->dbi->getTriggers($db, $table);
-        $hasTriggerPrivilege = Util::currentUserHasPrivilege('TRIGGER', $db, $table);
+        $items = self::getDetails($this->dbi, $GLOBALS['db'], $GLOBALS['table']);
+        $hasTriggerPrivilege = Util::currentUserHasPrivilege('TRIGGER', $GLOBALS['db'], $GLOBALS['table']);
         $isAjax = $this->response->isAjax() && empty($_REQUEST['ajax_page_request']);
 
         $rows = '';
         foreach ($items as $item) {
             $rows .= $this->template->render('database/triggers/row', [
-                'db' => $db,
-                'table' => $table,
+                'db' => $GLOBALS['db'],
+                'table' => $GLOBALS['table'],
                 'trigger' => $item,
                 'has_drop_privilege' => $hasTriggerPrivilege,
                 'has_edit_privilege' => $hasTriggerPrivilege,
@@ -83,8 +70,8 @@ class Triggers
         }
 
         echo $this->template->render('database/triggers/list', [
-            'db' => $db,
-            'table' => $table,
+            'db' => $GLOBALS['db'],
+            'table' => $GLOBALS['table'],
             'items' => $items,
             'rows' => $rows,
             'has_privilege' => $hasTriggerPrivilege,
@@ -96,7 +83,8 @@ class Triggers
      */
     public function handleEditor(): void
     {
-        global $db, $errors, $message, $table;
+        $GLOBALS['errors'] ??= null;
+        $GLOBALS['message'] ??= null;
 
         if (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit'])) {
             $sql_query = '';
@@ -104,7 +92,7 @@ class Triggers
             $item_query = $this->getQueryFromRequest();
 
             // set by getQueryFromRequest()
-            if (! count($errors)) {
+            if (! count($GLOBALS['errors'])) {
                 // Execute the created query
                 if (! empty($_POST['editor_process_edit'])) {
                     // Backup the old trigger, in case something goes wrong
@@ -113,18 +101,18 @@ class Triggers
                     $drop_item = $trigger['drop'] . ';';
                     $result = $this->dbi->tryQuery($drop_item);
                     if (! $result) {
-                        $errors[] = sprintf(
+                        $GLOBALS['errors'][] = sprintf(
                             __('The following query has failed: "%s"'),
-                            htmlspecialchars($drop_item)
+                            htmlspecialchars($drop_item),
                         )
                         . '<br>'
                         . __('MySQL said: ') . $this->dbi->getError();
                     } else {
                         $result = $this->dbi->tryQuery($item_query);
                         if (! $result) {
-                            $errors[] = sprintf(
+                            $GLOBALS['errors'][] = sprintf(
                                 __('The following query has failed: "%s"'),
-                                htmlspecialchars($item_query)
+                                htmlspecialchars($item_query),
                             )
                             . '<br>'
                             . __('MySQL said: ') . $this->dbi->getError();
@@ -133,14 +121,14 @@ class Triggers
                             $result = $this->dbi->tryQuery($create_item);
 
                             if (! $result) {
-                                $errors = $this->checkResult($create_item, $errors);
+                                $GLOBALS['errors'] = $this->checkResult($create_item, $GLOBALS['errors']);
                             }
                         } else {
-                            $message = Message::success(
-                                __('Trigger %1$s has been modified.')
+                            $GLOBALS['message'] = Message::success(
+                                __('Trigger %1$s has been modified.'),
                             );
-                            $message->addParam(
-                                Util::backquote($_POST['item_name'])
+                            $GLOBALS['message']->addParam(
+                                Util::backquote($_POST['item_name']),
                             );
                             $sql_query = $drop_item . $item_query;
                         }
@@ -149,45 +137,45 @@ class Triggers
                     // 'Add a new item' mode
                     $result = $this->dbi->tryQuery($item_query);
                     if (! $result) {
-                        $errors[] = sprintf(
+                        $GLOBALS['errors'][] = sprintf(
                             __('The following query has failed: "%s"'),
-                            htmlspecialchars($item_query)
+                            htmlspecialchars($item_query),
                         )
                         . '<br><br>'
                         . __('MySQL said: ') . $this->dbi->getError();
                     } else {
-                        $message = Message::success(
-                            __('Trigger %1$s has been created.')
+                        $GLOBALS['message'] = Message::success(
+                            __('Trigger %1$s has been created.'),
                         );
-                        $message->addParam(
-                            Util::backquote($_POST['item_name'])
+                        $GLOBALS['message']->addParam(
+                            Util::backquote($_POST['item_name']),
                         );
                         $sql_query = $item_query;
                     }
                 }
             }
 
-            if (count($errors)) {
-                $message = Message::error(
+            if (count($GLOBALS['errors'])) {
+                $GLOBALS['message'] = Message::error(
                     '<b>'
                     . __(
-                        'One or more errors have occurred while processing your request:'
+                        'One or more errors have occurred while processing your request:',
                     )
-                    . '</b>'
+                    . '</b>',
                 );
-                $message->addHtml('<ul>');
-                foreach ($errors as $string) {
-                    $message->addHtml('<li>' . $string . '</li>');
+                $GLOBALS['message']->addHtml('<ul>');
+                foreach ($GLOBALS['errors'] as $string) {
+                    $GLOBALS['message']->addHtml('<li>' . $string . '</li>');
                 }
 
-                $message->addHtml('</ul>');
+                $GLOBALS['message']->addHtml('</ul>');
             }
 
-            $output = Generator::getMessage($message, $sql_query);
+            $output = Generator::getMessage($GLOBALS['message'], $sql_query);
 
             if ($this->response->isAjax()) {
-                if ($message->isSuccess()) {
-                    $items = $this->dbi->getTriggers($db, $table, '');
+                if ($GLOBALS['message']->isSuccess()) {
+                    $items = self::getDetails($this->dbi, $GLOBALS['db'], $GLOBALS['table'], '');
                     $trigger = false;
                     foreach ($items as $value) {
                         if ($value['name'] != $_POST['item_name']) {
@@ -198,34 +186,38 @@ class Triggers
                     }
 
                     $insert = false;
-                    if (empty($table) || ($trigger !== false && $table == $trigger['table'])) {
+                    if (empty($GLOBALS['table']) || ($trigger !== false && $GLOBALS['table'] == $trigger['table'])) {
                         $insert = true;
-                        $hasTriggerPrivilege = Util::currentUserHasPrivilege('TRIGGER', $db, $table);
+                        $hasTriggerPrivilege = Util::currentUserHasPrivilege(
+                            'TRIGGER',
+                            $GLOBALS['db'],
+                            $GLOBALS['table'],
+                        );
                         $this->response->addJSON(
                             'new_row',
                             $this->template->render('database/triggers/row', [
-                                'db' => $db,
-                                'table' => $table,
+                                'db' => $GLOBALS['db'],
+                                'table' => $GLOBALS['table'],
                                 'trigger' => $trigger,
                                 'has_drop_privilege' => $hasTriggerPrivilege,
                                 'has_edit_privilege' => $hasTriggerPrivilege,
                                 'row_class' => '',
-                            ])
+                            ]),
                         );
                         $this->response->addJSON(
                             'name',
                             htmlspecialchars(
                                 mb_strtoupper(
-                                    $_POST['item_name']
-                                )
-                            )
+                                    $_POST['item_name'],
+                                ),
+                            ),
                         );
                     }
 
                     $this->response->addJSON('insert', $insert);
                     $this->response->addJSON('message', $output);
                 } else {
-                    $this->response->addJSON('message', $message);
+                    $this->response->addJSON('message', $GLOBALS['message']);
                     $this->response->setRequestStatus(false);
                 }
 
@@ -238,7 +230,7 @@ class Triggers
          * Display a form used to add/edit a trigger, if necessary
          */
         if (
-            ! count($errors)
+            ! count($GLOBALS['errors'])
             && (! empty($_POST['editor_process_add'])
             || ! empty($_POST['editor_process_edit'])
             || (empty($_REQUEST['add_item'])
@@ -269,7 +261,7 @@ class Triggers
             $mode = 'edit';
         }
 
-        $this->sendEditor($mode, $item, $title, $db, $table);
+        $this->sendEditor($mode, $item, $title, $GLOBALS['db'], $GLOBALS['table']);
     }
 
     /**
@@ -277,7 +269,7 @@ class Triggers
      *
      * @return array    Data necessary to create the editor.
      */
-    public function getDataFromRequest()
+    public function getDataFromRequest(): array
     {
         $retval = [];
         $indices = [
@@ -304,12 +296,10 @@ class Triggers
      *
      * @return array|null Data necessary to create the editor.
      */
-    public function getDataFromName($name): ?array
+    public function getDataFromName($name): array|null
     {
-        global $db, $table;
-
         $temp = [];
-        $items = $this->dbi->getTriggers($db, $table, '');
+        $items = self::getDetails($this->dbi, $GLOBALS['db'], $GLOBALS['table'], '');
         foreach ($items as $value) {
             if ($value['name'] != $name) {
                 continue;
@@ -367,9 +357,9 @@ class Triggers
      *
      * @return string  The CREATE TRIGGER query.
      */
-    public function getQueryFromRequest()
+    public function getQueryFromRequest(): string
     {
-        global $db, $errors;
+        $GLOBALS['errors'] ??= null;
 
         $query = 'CREATE ';
         if (! empty($_POST['item_definer'])) {
@@ -378,7 +368,7 @@ class Triggers
                 $query .= 'DEFINER=' . Util::backquote($arr[0]);
                 $query .= '@' . Util::backquote($arr[1]) . ' ';
             } else {
-                $errors[] = __('The definer must be in the "username@hostname" format!');
+                $GLOBALS['errors'][] = __('The definer must be in the "username@hostname" format!');
             }
         }
 
@@ -386,33 +376,33 @@ class Triggers
         if (! empty($_POST['item_name'])) {
             $query .= Util::backquote($_POST['item_name']) . ' ';
         } else {
-            $errors[] = __('You must provide a trigger name!');
+            $GLOBALS['errors'][] = __('You must provide a trigger name!');
         }
 
         if (! empty($_POST['item_timing']) && in_array($_POST['item_timing'], $this->time)) {
             $query .= $_POST['item_timing'] . ' ';
         } else {
-            $errors[] = __('You must provide a valid timing for the trigger!');
+            $GLOBALS['errors'][] = __('You must provide a valid timing for the trigger!');
         }
 
         if (! empty($_POST['item_event']) && in_array($_POST['item_event'], $this->event)) {
             $query .= $_POST['item_event'] . ' ';
         } else {
-            $errors[] = __('You must provide a valid event for the trigger!');
+            $GLOBALS['errors'][] = __('You must provide a valid event for the trigger!');
         }
 
         $query .= 'ON ';
-        if (! empty($_POST['item_table']) && in_array($_POST['item_table'], $this->dbi->getTables($db))) {
+        if (! empty($_POST['item_table']) && in_array($_POST['item_table'], $this->dbi->getTables($GLOBALS['db']))) {
             $query .= Util::backquote($_POST['item_table']);
         } else {
-            $errors[] = __('You must provide a valid table name!');
+            $GLOBALS['errors'][] = __('You must provide a valid table name!');
         }
 
         $query .= ' FOR EACH ROW ';
         if (! empty($_POST['item_definition'])) {
             $query .= $_POST['item_definition'];
         } else {
-            $errors[] = __('You must provide a trigger definition.');
+            $GLOBALS['errors'][] = __('You must provide a trigger definition.');
         }
 
         return $query;
@@ -424,7 +414,7 @@ class Triggers
      *
      * @return array
      */
-    private function checkResult($createStatement, array $errors)
+    private function checkResult($createStatement, array $errors): array
     {
         // OMG, this is really bad! We dropped the query,
         // failed to create a new one
@@ -448,7 +438,7 @@ class Triggers
      * @param string     $db    Database
      * @param string     $table Table
      */
-    private function sendEditor($mode, ?array $item, $title, $db, $table): void
+    private function sendEditor($mode, array|null $item, $title, $db, $table): void
     {
         if ($item !== null) {
             $editor = $this->getEditorForm($db, $table, $mode, $item);
@@ -467,7 +457,7 @@ class Triggers
         $message .= sprintf(
             __('No trigger with name %1$s found in database %2$s.'),
             htmlspecialchars(Util::backquote($_REQUEST['item_name'])),
-            htmlspecialchars(Util::backquote($db))
+            htmlspecialchars(Util::backquote($db)),
         );
         $message = Message::error($message);
         if ($this->response->isAjax()) {
@@ -481,14 +471,12 @@ class Triggers
 
     private function export(): void
     {
-        global $db, $table;
-
         if (empty($_GET['export_item']) || empty($_GET['item_name'])) {
             return;
         }
 
         $itemName = $_GET['item_name'];
-        $triggers = $this->dbi->getTriggers($db, $table, '');
+        $triggers = self::getDetails($this->dbi, $GLOBALS['db'], $GLOBALS['table'], '');
         $exportData = false;
 
         foreach ($triggers as $trigger) {
@@ -519,7 +507,7 @@ class Triggers
         $message = sprintf(
             __('Error in processing request: No trigger with name %1$s found in database %2$s.'),
             htmlspecialchars(Util::backquote($itemName)),
-            htmlspecialchars(Util::backquote($db))
+            htmlspecialchars(Util::backquote($GLOBALS['db'])),
         );
         $message = Message::error($message);
 
@@ -531,5 +519,76 @@ class Triggers
         }
 
         $this->response->addHTML($message->getDisplay());
+    }
+
+    /**
+     * Returns details about the TRIGGERs for a specific table or database.
+     *
+     * @param string $db        db name
+     * @param string $table     table name
+     * @param string $delimiter the delimiter to use (may be empty)
+     *
+     * @return array information about triggers (may be empty)
+     */
+    public static function getDetails(
+        DatabaseInterface $dbi,
+        string $db,
+        string $table = '',
+        string $delimiter = '//',
+    ): array {
+        $result = [];
+        if (! $GLOBALS['cfg']['Server']['DisableIS']) {
+            $query = QueryGenerator::getInformationSchemaTriggersRequest(
+                $dbi->escapeString($db),
+                $table === '' ? null : $dbi->escapeString($table),
+            );
+        } else {
+            $query = 'SHOW TRIGGERS FROM ' . Util::backquote($db);
+            if ($table !== '') {
+                $query .= " LIKE '" . $dbi->escapeString($table) . "';";
+            }
+        }
+
+        $triggers = $dbi->fetchResult($query);
+
+        foreach ($triggers as $trigger) {
+            if ($GLOBALS['cfg']['Server']['DisableIS']) {
+                $trigger['TRIGGER_NAME'] = $trigger['Trigger'];
+                $trigger['ACTION_TIMING'] = $trigger['Timing'];
+                $trigger['EVENT_MANIPULATION'] = $trigger['Event'];
+                $trigger['EVENT_OBJECT_TABLE'] = $trigger['Table'];
+                $trigger['ACTION_STATEMENT'] = $trigger['Statement'];
+                $trigger['DEFINER'] = $trigger['Definer'];
+            }
+
+            $oneResult = [];
+            $oneResult['name'] = $trigger['TRIGGER_NAME'];
+            $oneResult['table'] = $trigger['EVENT_OBJECT_TABLE'];
+            $oneResult['action_timing'] = $trigger['ACTION_TIMING'];
+            $oneResult['event_manipulation'] = $trigger['EVENT_MANIPULATION'];
+            $oneResult['definition'] = $trigger['ACTION_STATEMENT'];
+            $oneResult['definer'] = $trigger['DEFINER'];
+
+            // do not prepend the schema name; this way, importing the
+            // definition into another schema will work
+            $oneResult['full_trigger_name'] = Util::backquote($trigger['TRIGGER_NAME']);
+            $oneResult['drop'] = 'DROP TRIGGER IF EXISTS '
+                . $oneResult['full_trigger_name'];
+            $oneResult['create'] = 'CREATE TRIGGER '
+                . $oneResult['full_trigger_name'] . ' '
+                . $trigger['ACTION_TIMING'] . ' '
+                . $trigger['EVENT_MANIPULATION']
+                . ' ON ' . Util::backquote($trigger['EVENT_OBJECT_TABLE'])
+                . "\n" . ' FOR EACH ROW '
+                . $trigger['ACTION_STATEMENT'] . "\n" . $delimiter . "\n";
+
+            $result[] = $oneResult;
+        }
+
+        // Sort results by name
+        $name = array_column($result, 'name');
+        array_multisort($name, SORT_ASC, $result);
+
+        return $result;
     }
 }

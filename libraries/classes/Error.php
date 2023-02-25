@@ -13,7 +13,6 @@ use function count;
 use function debug_backtrace;
 use function explode;
 use function function_exists;
-use function get_class;
 use function gettype;
 use function htmlspecialchars;
 use function implode;
@@ -115,10 +114,8 @@ class Error extends Message
 
     /**
      * Holds the backtrace for this error
-     *
-     * @var array
      */
-    protected $backtrace = [];
+    protected array $backtrace = [];
 
     /**
      * Hide location of errors
@@ -136,6 +133,7 @@ class Error extends Message
     public function __construct(int $errno, string $errstr, string $errfile, int $errline)
     {
         parent::__construct();
+
         $this->setNumber($errno);
         $this->setMessage($errstr, false);
         $this->setFile($errfile);
@@ -254,7 +252,7 @@ class Error extends Message
     {
         try {
             $backtrace = serialize($this->getBacktrace());
-        } catch (Throwable $e) {
+        } catch (Throwable) {
             $backtrace = '';
         }
 
@@ -264,7 +262,7 @@ class Error extends Message
                 $this->getMessage() .
                 $this->getFile() .
                 $this->getLine() .
-                $backtrace
+                $backtrace,
             );
         }
 
@@ -337,7 +335,7 @@ class Error extends Message
     public function getHtmlTitle(): string
     {
         return htmlspecialchars(
-            mb_substr($this->getTitle(), 0, 100)
+            mb_substr($this->getTitle(), 0, 100),
         );
     }
 
@@ -354,62 +352,52 @@ class Error extends Message
      */
     public function getBacktraceDisplay(): string
     {
-        return self::formatBacktrace(
-            $this->getBacktrace(),
-            "<br>\n",
-            "<br>\n"
-        );
+        return self::formatBacktrace($this->getBacktrace());
     }
 
     /**
      * return formatted backtrace field
      *
-     * @param array  $backtrace Backtrace data
-     * @param string $separator Arguments separator to use
-     * @param string $lines     Lines separator to use
+     * @param array $backtrace Backtrace data
      *
      * @return string formatted backtrace
      */
-    public static function formatBacktrace(
-        array $backtrace,
-        string $separator,
-        string $lines
-    ): string {
-        $retval = '';
+    public static function formatBacktrace(array $backtrace): string
+    {
+        $retval = '<ol class="list-group">';
 
         foreach ($backtrace as $step) {
+            $retval .= '<li class="list-group-item">';
             if (isset($step['file'], $step['line'])) {
-                $retval .= self::relPath($step['file'])
-                    . '#' . $step['line'] . ': ';
+                $retval .= self::relPath($step['file']) . '#' . $step['line'] . ': ';
             }
 
             if (isset($step['class'])) {
                 $retval .= $step['class'] . $step['type'];
             }
 
-            $retval .= self::getFunctionCall($step, $separator);
-            $retval .= $lines;
+            $retval .= self::getFunctionCall($step);
+            $retval .= '</li>';
         }
 
-        return $retval;
+        return $retval . '</ol>';
     }
 
     /**
      * Formats function call in a backtrace
      *
-     * @param array  $step      backtrace step
-     * @param string $separator Arguments separator to use
+     * @param array $step backtrace step
      */
-    public static function getFunctionCall(array $step, string $separator): string
+    public static function getFunctionCall(array $step): string
     {
         $retval = $step['function'] . '(';
         if (isset($step['args'])) {
             if (count($step['args']) > 1) {
-                $retval .= $separator;
+                $retval .= '<br>';
                 foreach ($step['args'] as $arg) {
                     $retval .= "\t";
                     $retval .= $arg;
-                    $retval .= ',' . $separator;
+                    $retval .= ',<br>';
                 }
             } elseif (count($step['args']) > 0) {
                 foreach ($step['args'] as $arg) {
@@ -456,7 +444,7 @@ class Error extends Message
             $retval .= gettype($arg) . ' '
                 . htmlspecialchars(var_export($arg, true));
         } elseif (is_object($arg)) {
-            $retval .= '<Class:' . get_class($arg) . '>';
+            $retval .= '<Class:' . $arg::class . '>';
         } else {
             $retval .= gettype($arg);
         }
@@ -477,25 +465,17 @@ class Error extends Message
             $context = 'danger';
         }
 
-        $retval = '<div class="alert alert-' . $context . '" role="alert">';
-        if (! $this->isUserError()) {
-            $retval .= '<strong>' . $this->getType() . '</strong>';
-            $retval .= ' in ' . $this->getFile() . '#' . $this->getLine();
-            $retval .= "<br>\n";
-        }
+        $template = new Template();
 
-        $retval .= $this->getMessage();
-        if (! $this->isUserError()) {
-            $retval .= "<br>\n";
-            $retval .= "<br>\n";
-            $retval .= "<strong>Backtrace</strong><br>\n";
-            $retval .= "<br>\n";
-            $retval .= $this->getBacktraceDisplay();
-        }
-
-        $retval .= '</div>';
-
-        return $retval;
+        return $template->render('error/get_display', [
+            'context' => $context,
+            'is_user_error' => $this->isUserError(),
+            'type' => $this->getType(),
+            'file' => $this->getFile(),
+            'line' => $this->getLine(),
+            'message' => $this->getMessage(),
+            'formatted_backtrace' => $this->getBacktraceDisplay(),
+        ]);
     }
 
     /**
@@ -503,8 +483,8 @@ class Error extends Message
      */
     public function isUserError(): bool
     {
-        return $this->hideLocation ||
-            ($this->getNumber() & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_DEPRECATED));
+        return $this->hideLocation
+            || ($this->getNumber() & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_DEPRECATED));
     }
 
     /**
@@ -528,12 +508,12 @@ class Error extends Message
 
         $hereParts = explode(
             DIRECTORY_SEPARATOR,
-            (string) realpath(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..')
+            (string) realpath(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..'),
         );
         $destParts = explode(DIRECTORY_SEPARATOR, $dest);
 
         $result = '.';
-        while (implode(DIRECTORY_SEPARATOR, $destParts) != implode(DIRECTORY_SEPARATOR, $hereParts)) {
+        while (implode(DIRECTORY_SEPARATOR, $destParts) !== implode(DIRECTORY_SEPARATOR, $hereParts)) {
             if (count($hereParts) > count($destParts)) {
                 array_pop($hereParts);
                 $result .= DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..';

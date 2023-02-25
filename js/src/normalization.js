@@ -1,12 +1,16 @@
+import $ from 'jquery';
+import { AJAX } from './modules/ajax.js';
+import { Functions } from './modules/functions.js';
+import { CommonParams } from './modules/common.js';
+import { ajaxShowMessage } from './modules/ajax-message.js';
+import { escapeHtml, escapeJsString } from './modules/functions/escape.js';
+
 /**
  * @fileoverview   events handling from normalization page
  * @name            normalization
  *
  * @requires    jQuery
  */
-
-// eslint-disable-next-line no-unused-vars
-/* global centralColumnList:writable */ // js/functions.js
 
 /**
  * AJAX scripts for normalization
@@ -19,13 +23,12 @@ var dataParsed = null;
 
 function appendHtmlColumnsList () {
     $.post(
-        'index.php?route=/normalization',
+        'index.php?route=/normalization/get-columns',
         {
             'ajax_request': true,
             'db': CommonParams.get('db'),
             'table': CommonParams.get('table'),
             'server': CommonParams.get('server'),
-            'getColumns': true
         },
         function (data) {
             if (data.success === true) {
@@ -41,15 +44,14 @@ function goTo3NFStep1 (newTables) {
         tables = [CommonParams.get('table')];
     }
     $.post(
-        'index.php?route=/normalization',
+        'index.php?route=/normalization/3nf/step1',
         {
             'ajax_request': true,
             'db': CommonParams.get('db'),
             'server': CommonParams.get('server'),
             'tables': tables,
-            'step': '3.1'
         }, function (data) {
-            $('#page_content').find('h3').html(Messages.str3NFNormalization);
+            $('#page_content').find('h3').html(window.Messages.str3NFNormalization);
             $('#mainContent').find('legend').html(data.legendText);
             $('#mainContent').find('h4').html(data.headText);
             $('#mainContent').find('p').html(data.subText);
@@ -67,7 +69,7 @@ function goTo3NFStep1 (newTables) {
                 $('<input>')
                     .attr({
                         type: 'button',
-                        value: Messages.strDone,
+                        value: window.Messages.strDone,
                         class: 'btn btn-primary'
                     })
                     .on('click', function () {
@@ -81,15 +83,14 @@ function goTo3NFStep1 (newTables) {
 
 function goTo2NFStep1 () {
     $.post(
-        'index.php?route=/normalization',
+        'index.php?route=/normalization/2nf/step1',
         {
             'ajax_request': true,
             'db': CommonParams.get('db'),
             'table': CommonParams.get('table'),
             'server': CommonParams.get('server'),
-            'step': '2.1'
         }, function (data) {
-            $('#page_content h3').html(Messages.str2NFNormalization);
+            $('#page_content h3').html(window.Messages.str2NFNormalization);
             $('#mainContent legend').html(data.legendText);
             $('#mainContent h4').html(data.headText);
             $('#mainContent p').html(data.subText);
@@ -99,7 +100,7 @@ function goTo2NFStep1 () {
                 $('<input>')
                     .attr({
                         type: 'submit',
-                        value: Messages.strDone,
+                        value: window.Messages.strDone,
                         class: 'btn btn-primary'
                     })
                     .on('click', function () {
@@ -108,7 +109,7 @@ function goTo2NFStep1 () {
                     .appendTo('.tblFooters');
             } else {
                 if (normalizeto === '3nf') {
-                    $('#mainContent #newCols').html(Messages.strToNextStep);
+                    $('#mainContent #newCols').html(window.Messages.strToNextStep);
                     setTimeout(function () {
                         goTo3NFStep1([CommonParams.get('table')]);
                     }, 3000);
@@ -122,9 +123,9 @@ function goToFinish1NF () {
         goTo2NFStep1();
         return true;
     }
-    $('#mainContent legend').html(Messages.strEndStep);
+    $('#mainContent legend').html(window.Messages.strEndStep);
     $('#mainContent h4').html(
-        '<h3>' + Functions.sprintf(Messages.strFinishMsg, Functions.escapeHtml(CommonParams.get('table'))) + '</h3>'
+        '<h3>' + window.sprintf(window.Messages.strFinishMsg, escapeHtml(CommonParams.get('table'))) + '</h3>'
     );
     $('#mainContent p').html('');
     $('#mainContent #extra').html('');
@@ -132,16 +133,14 @@ function goToFinish1NF () {
     $('.tblFooters').html('');
 }
 
-// eslint-disable-next-line no-unused-vars
 function goToStep4 () {
     $.post(
-        'index.php?route=/normalization',
+        'index.php?route=/normalization/1nf/step4',
         {
             'ajax_request': true,
             'db': CommonParams.get('db'),
             'table': CommonParams.get('table'),
             'server': CommonParams.get('server'),
-            'step4': true
         }, function (data) {
             $('#mainContent legend').html(data.legendText);
             $('#mainContent h4').html(data.headText);
@@ -150,21 +149,22 @@ function goToStep4 () {
             $('#mainContent #newCols').html('');
             $('.tblFooters').html('');
             for (var pk in primaryKey) {
-                $('#extra input[value=\'' + Functions.escapeJsString(primaryKey[pk]) + '\']').attr('disabled','disabled');
+                $('#extra input[value=\'' + escapeJsString(primaryKey[pk]) + '\']').attr('disabled', 'disabled');
             }
         }
     );
 }
 
+window.goToStep4 = goToStep4;
+
 function goToStep3 () {
     $.post(
-        'index.php?route=/normalization',
+        'index.php?route=/normalization/1nf/step3',
         {
             'ajax_request': true,
             'db': CommonParams.get('db'),
             'table': CommonParams.get('table'),
             'server': CommonParams.get('server'),
-            'step3': true
         }, function (data) {
             $('#mainContent legend').html(data.legendText);
             $('#mainContent h4').html(data.headText);
@@ -174,7 +174,7 @@ function goToStep3 () {
             $('.tblFooters').html('');
             primaryKey = JSON.parse(data.primary_key);
             for (var pk in primaryKey) {
-                $('#extra input[value=\'' + Functions.escapeJsString(primaryKey[pk]) + '\']').attr('disabled','disabled');
+                $('#extra input[value=\'' + escapeJsString(primaryKey[pk]) + '\']').attr('disabled', 'disabled');
             }
         }
     );
@@ -182,13 +182,12 @@ function goToStep3 () {
 
 function goToStep2 (extra) {
     $.post(
-        'index.php?route=/normalization',
+        'index.php?route=/normalization/1nf/step2',
         {
             'ajax_request': true,
             'db': CommonParams.get('db'),
             'table': CommonParams.get('table'),
-            'server': CommonParams.get('server'),
-            'step2': true
+            'server': CommonParams.get('server')
         }, function (data) {
             $('#mainContent legend').html(data.legendText);
             $('#mainContent h4').html(data.headText);
@@ -197,8 +196,8 @@ function goToStep2 (extra) {
             $('.tblFooters').html('');
             if (data.hasPrimaryKey === '1') {
                 if (extra === 'goToStep3') {
-                    $('#mainContent h4').html(Messages.strPrimaryKeyAdded);
-                    $('#mainContent p').html(Messages.strToNextStep);
+                    $('#mainContent h4').html(window.Messages.strPrimaryKeyAdded);
+                    $('#mainContent p').html(window.Messages.strToNextStep);
                 }
                 if (extra === 'goToFinish1NF') {
                     goToFinish1NF();
@@ -226,13 +225,13 @@ function goTo2NFFinish (pd) {
         'table': CommonParams.get('table'),
         'server': CommonParams.get('server'),
         'pd': JSON.stringify(pd),
-        'newTablesName':JSON.stringify(tables),
-        'createNewTables2NF':1 };
+        'newTablesName': JSON.stringify(tables),
+    };
     $.ajax({
         type: 'POST',
-        url: 'index.php?route=/normalization',
+        url: 'index.php?route=/normalization/2nf/create-new-tables',
         data: datastring,
-        async:false,
+        async: false,
         success: function (data) {
             if (data.success === true) {
                 if (data.queryError === false) {
@@ -247,11 +246,11 @@ function goTo2NFFinish (pd) {
                     $('#mainContent #extra').html('');
                     $('.tblFooters').html('');
                 } else {
-                    Functions.ajaxShowMessage(data.extra, false);
+                    ajaxShowMessage(data.extra, false);
                 }
                 $('#pma_navigation_reload').trigger('click');
             } else {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         }
     });
@@ -271,13 +270,13 @@ function goTo3NFFinish (newTables) {
         'ajax_request': true,
         'db': CommonParams.get('db'),
         'server': CommonParams.get('server'),
-        'newTables':JSON.stringify(newTables),
-        'createNewTables3NF':1 };
+        'newTables': JSON.stringify(newTables),
+    };
     $.ajax({
         type: 'POST',
-        url: 'index.php?route=/normalization',
+        url: 'index.php?route=/normalization/3nf/create-new-tables',
         data: datastring,
-        async:false,
+        async: false,
         success: function (data) {
             if (data.success === true) {
                 if (data.queryError === false) {
@@ -287,11 +286,11 @@ function goTo3NFFinish (newTables) {
                     $('#mainContent #extra').html('');
                     $('.tblFooters').html('');
                 } else {
-                    Functions.ajaxShowMessage(data.extra, false);
+                    ajaxShowMessage(data.extra, false);
                 }
                 $('#pma_navigation_reload').trigger('click');
             } else {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         }
     });
@@ -301,19 +300,19 @@ var backup = '';
 
 function goTo2NFStep2 (pd, primaryKey) {
     $('#newCols').html('');
-    $('#mainContent legend').html(Messages.strStep + ' 2.2 ' + Messages.strConfirmPd);
-    $('#mainContent h4').html(Messages.strSelectedPd);
-    $('#mainContent p').html(Messages.strPdHintNote);
+    $('#mainContent legend').html(window.Messages.strStep + ' 2.2 ' + window.Messages.strConfirmPd);
+    $('#mainContent h4').html(window.Messages.strSelectedPd);
+    $('#mainContent p').html(window.Messages.strPdHintNote);
     var extra = '<div class="dependencies_box">';
     var pdFound = false;
     for (var dependson in pd) {
         if (dependson !== primaryKey) {
             pdFound = true;
-            extra += '<p class="d-block m-1">' + Functions.escapeHtml(dependson) + ' -> ' + Functions.escapeHtml(pd[dependson].toString()) + '</p>';
+            extra += '<p class="d-block m-1">' + escapeHtml(dependson) + ' -> ' + escapeHtml(pd[dependson].toString()) + '</p>';
         }
     }
-    if (!pdFound) {
-        extra += '<p class="d-block m-1">' + Messages.strNoPdSelected + '</p>';
+    if (! pdFound) {
+        extra += '<p class="d-block m-1">' + window.Messages.strNoPdSelected + '</p>';
         extra += '</div>';
     } else {
         extra += '</div>';
@@ -323,23 +322,23 @@ function goTo2NFStep2 (pd, primaryKey) {
             'table': CommonParams.get('table'),
             'server': CommonParams.get('server'),
             'pd': JSON.stringify(pd),
-            'getNewTables2NF':1 };
+        };
         $.ajax({
             type: 'POST',
-            url: 'index.php?route=/normalization',
+            url: 'index.php?route=/normalization/2nf/new-tables',
             data: datastring,
-            async:false,
+            async: false,
             success: function (data) {
                 if (data.success === true) {
                     extra += data.message;
                 } else {
-                    Functions.ajaxShowMessage(data.error, false);
+                    ajaxShowMessage(data.error, false);
                 }
             }
         });
     }
     $('#mainContent #extra').html(extra);
-    $('.tblFooters').html('<input type="button" class="btn btn-primary" value="' + Messages.strBack + '" id="backEditPd"><input type="button" class="btn btn-primary" id="goTo2NFFinish" value="' + Messages.strGo + '">');
+    $('.tblFooters').html('<input type="button" class="btn btn-primary" value="' + window.Messages.strBack + '" id="backEditPd"><input type="button" class="btn btn-primary" id="goTo2NFFinish" value="' + window.Messages.strGo + '">');
     $('#goTo2NFFinish').on('click', function () {
         goTo2NFFinish(pd);
     });
@@ -347,9 +346,9 @@ function goTo2NFStep2 (pd, primaryKey) {
 
 function goTo3NFStep2 (pd, tablesTds) {
     $('#newCols').html('');
-    $('#mainContent legend').html(Messages.strStep + ' 3.2 ' + Messages.strConfirmTd);
-    $('#mainContent h4').html(Messages.strSelectedTd);
-    $('#mainContent p').html(Messages.strPdHintNote);
+    $('#mainContent legend').html(window.Messages.strStep + ' 3.2 ' + window.Messages.strConfirmTd);
+    $('#mainContent h4').html(window.Messages.strSelectedTd);
+    $('#mainContent p').html(window.Messages.strPdHintNote);
     var extra = '<div class="dependencies_box">';
     var pdFound = false;
     for (var table in tablesTds) {
@@ -357,12 +356,12 @@ function goTo3NFStep2 (pd, tablesTds) {
             var dependson = tablesTds[table][i];
             if (dependson !== '' && dependson !== table) {
                 pdFound = true;
-                extra += '<p class="d-block m-1">' + Functions.escapeHtml(dependson) + ' -> ' + Functions.escapeHtml(pd[dependson].toString()) + '</p>';
+                extra += '<p class="d-block m-1">' + escapeHtml(dependson) + ' -> ' + escapeHtml(pd[dependson].toString()) + '</p>';
             }
         }
     }
-    if (!pdFound) {
-        extra += '<p class="d-block m-1">' + Messages.strNoTdSelected + '</p>';
+    if (! pdFound) {
+        extra += '<p class="d-block m-1">' + window.Messages.strNoTdSelected + '</p>';
         extra += '</div>';
     } else {
         extra += '</div>';
@@ -372,32 +371,33 @@ function goTo3NFStep2 (pd, tablesTds) {
             'tables': JSON.stringify(tablesTds),
             'server': CommonParams.get('server'),
             'pd': JSON.stringify(pd),
-            'getNewTables3NF':1 };
+        };
         $.ajax({
             type: 'POST',
-            url: 'index.php?route=/normalization',
+            url: 'index.php?route=/normalization/3nf/new-tables',
             data: datastring,
-            async:false,
+            async: false,
             success: function (data) {
                 dataParsed = data;
                 if (data.success === true) {
                     extra += dataParsed.html;
                 } else {
-                    Functions.ajaxShowMessage(data.error, false);
+                    ajaxShowMessage(data.error, false);
                 }
             }
         });
     }
     $('#mainContent #extra').html(extra);
-    $('.tblFooters').html('<input type="button" class="btn btn-primary" value="' + Messages.strBack + '" id="backEditPd"><input type="button" class="btn btn-primary" id="goTo3NFFinish" value="' + Messages.strGo + '">');
+    $('.tblFooters').html('<input type="button" class="btn btn-primary" value="' + window.Messages.strBack + '" id="backEditPd"><input type="button" class="btn btn-primary" id="goTo3NFFinish" value="' + window.Messages.strGo + '">');
     $('#goTo3NFFinish').on('click', function () {
-        if (!pdFound) {
+        if (! pdFound) {
             goTo3NFFinish([]);
         } else {
             goTo3NFFinish(dataParsed.newTables);
         }
     });
 }
+
 function processDependencies (primaryKey, isTransitive) {
     var pk = primaryKey;
     var pd = {};
@@ -409,7 +409,7 @@ function processDependencies (primaryKey, isTransitive) {
         if (isTransitive === true) {
             tblname = $(this).data('tablename');
             pk = tblname;
-            if (!(tblname in tablesTds)) {
+            if (! (tblname in tablesTds)) {
                 tablesTds[tblname] = [];
             }
             tablesTds[tblname].push(pk);
@@ -419,7 +419,7 @@ function processDependencies (primaryKey, isTransitive) {
         dependsOn = '';
         $('#' + formId + ' input[type=checkbox]:checked').each(function () {
             dependsOn += $(this).val() + ', ';
-            $(this).attr('checked','checked');
+            $(this).attr('checked', 'checked');
         });
         if (dependsOn === '') {
             dependsOn = pk;
@@ -431,7 +431,7 @@ function processDependencies (primaryKey, isTransitive) {
         }
         pd[dependsOn].push($(this).data('colname'));
         if (isTransitive === true) {
-            if (!(tblname in tablesTds)) {
+            if (! (tblname in tablesTds)) {
                 tablesTds[tblname] = [];
             }
             if ($.inArray(dependsOn, tablesTds[tblname]) === -1) {
@@ -451,11 +451,11 @@ function processDependencies (primaryKey, isTransitive) {
 function moveRepeatingGroup (repeatingCols) {
     var newTable = $('input[name=repeatGroupTable]').val();
     var newColumn = $('input[name=repeatGroupColumn]').val();
-    if (!newTable) {
+    if (! newTable) {
         $('input[name=repeatGroupTable]').trigger('focus');
         return false;
     }
-    if (!newColumn) {
+    if (! newColumn) {
         $('input[name=repeatGroupColumn]').trigger('focus');
         return false;
     }
@@ -465,28 +465,29 @@ function moveRepeatingGroup (repeatingCols) {
         'table': CommonParams.get('table'),
         'server': CommonParams.get('server'),
         'repeatingColumns': repeatingCols,
-        'newTable':newTable,
-        'newColumn':newColumn,
-        'primary_columns':primaryKey.toString()
+        'newTable': newTable,
+        'newColumn': newColumn,
+        'primary_columns': primaryKey.toString()
     };
     $.ajax({
         type: 'POST',
-        url: 'index.php?route=/normalization',
+        url: 'index.php?route=/normalization/move-repeating-group',
         data: datastring,
-        async:false,
+        async: false,
         success: function (data) {
             if (data.success === true) {
                 if (data.queryError === false) {
                     goToStep3();
                 }
-                Functions.ajaxShowMessage(data.message, false);
+                ajaxShowMessage(data.message, false);
                 $('#pma_navigation_reload').trigger('click');
             } else {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         }
     });
 }
+
 AJAX.registerTeardown('normalization.js', function () {
     $('#extra').off('click', '#selectNonAtomicCol');
     $('#splitGo').off('click');
@@ -512,18 +513,17 @@ AJAX.registerOnload('normalization.js', function () {
     });
 
     $('#splitGo').on('click', function () {
-        if (!selectedCol || selectedCol === '') {
+        if (! selectedCol || selectedCol === '') {
             return false;
         }
         var numField = $('#numField').val();
         $.post(
-            'index.php?route=/normalization',
+            'index.php?route=/normalization/create-new-column',
             {
                 'ajax_request': true,
                 'db': CommonParams.get('db'),
                 'table': CommonParams.get('table'),
                 'server': CommonParams.get('server'),
-                'splitColumn': true,
                 'numFields': numField
             },
             function (data) {
@@ -536,7 +536,7 @@ AJAX.registerOnload('normalization.js', function () {
                         .attr({
                             type: 'submit',
                             id: 'saveSplit',
-                            value: Messages.strSave,
+                            value: window.Messages.strSave,
                             class: 'btn btn-primary'
                         })
                         .appendTo('.tblFooters');
@@ -545,7 +545,7 @@ AJAX.registerOnload('normalization.js', function () {
                         .attr({
                             type: 'submit',
                             id: 'cancelSplit',
-                            value: Messages.strCancel,
+                            value: window.Messages.strCancel,
                             class: 'btn btn-secondary'
                         })
                         .on('click', function () {
@@ -558,8 +558,8 @@ AJAX.registerOnload('normalization.js', function () {
         );
         return false;
     });
-    $('.tblFooters').on('click','#saveSplit', function () {
-        centralColumnList = [];
+    $('.tblFooters').on('click', '#saveSplit', function () {
+        window.centralColumnList = [];
         if ($('#newCols #field_0_1').val() === '') {
             $('#newCols #field_0_1').trigger('focus');
             return false;
@@ -577,7 +577,7 @@ AJAX.registerOnload('normalization.js', function () {
                         'table': CommonParams.get('table'),
                         'server': CommonParams.get('server'),
                         'dropped_column': selectedCol,
-                        'purge' : 1,
+                        'purge': 1,
                         'sql_query': 'ALTER TABLE `' + CommonParams.get('table') + '` DROP `' + selectedCol + '`;',
                         'is_js_confirmed': 1
                     },
@@ -587,26 +587,25 @@ AJAX.registerOnload('normalization.js', function () {
                             $('#newCols').html('');
                             $('.tblFooters').html('');
                         } else {
-                            Functions.ajaxShowMessage(data.error, false);
+                            ajaxShowMessage(data.error, false);
                         }
                         selectedCol = '';
                     }
                 );
             } else {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         });
     });
 
     $('#extra').on('click', '#addNewPrimary', function () {
         $.post(
-            'index.php?route=/normalization',
+            'index.php?route=/normalization/add-new-primary',
             {
                 'ajax_request': true,
                 'db': CommonParams.get('db'),
                 'table': CommonParams.get('table'),
                 'server': CommonParams.get('server'),
-                'addNewPrimary': true
             },
             function (data) {
                 if (data.success === true) {
@@ -618,7 +617,7 @@ AJAX.registerOnload('normalization.js', function () {
                         .attr({
                             type: 'submit',
                             id: 'saveNewPrimary',
-                            value: Messages.strSave,
+                            value: window.Messages.strSave,
                             class: 'btn btn-primary'
                         })
                         .appendTo('.tblFooters');
@@ -626,7 +625,7 @@ AJAX.registerOnload('normalization.js', function () {
                         .attr({
                             type: 'submit',
                             id: 'cancelSplit',
-                            value: Messages.strCancel,
+                            value: window.Messages.strCancel,
                             class: 'btn btn-secondary'
                         })
                         .on('click', function () {
@@ -635,7 +634,7 @@ AJAX.registerOnload('normalization.js', function () {
                         })
                         .appendTo('.tblFooters');
                 } else {
-                    Functions.ajaxShowMessage(data.error, false);
+                    ajaxShowMessage(data.error, false);
                 }
             }
         );
@@ -647,8 +646,8 @@ AJAX.registerOnload('normalization.js', function () {
         datastring += argsep + 'field_key[0]=primary_0' + argsep + 'ajax_request=1' + argsep + 'do_save_data=1' + argsep + 'field_where=last';
         $.post('index.php?route=/table/add-field', datastring, function (data) {
             if (data.success === true) {
-                $('#mainContent h4').html(Messages.strPrimaryKeyAdded);
-                $('#mainContent p').html(Messages.strToNextStep);
+                $('#mainContent h4').html(window.Messages.strPrimaryKeyAdded);
+                $('#mainContent p').html(window.Messages.strToNextStep);
                 $('#mainContent #extra').html('');
                 $('#mainContent #newCols').html('');
                 $('.tblFooters').html('');
@@ -656,7 +655,7 @@ AJAX.registerOnload('normalization.js', function () {
                     goToStep3();
                 }, 2000);
             } else {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         });
     });
@@ -680,7 +679,7 @@ AJAX.registerOnload('normalization.js', function () {
                 if (data.success === true) {
                     goToStep2('goToFinish1NF');
                 } else {
-                    Functions.ajaxShowMessage(data.error, false);
+                    ajaxShowMessage(data.error, false);
                 }
             }
         );
@@ -694,16 +693,16 @@ AJAX.registerOnload('normalization.js', function () {
         if (repeatingCols !== '') {
             var newColName = $('#extra input[type=checkbox]:checked').first().val();
             repeatingCols = repeatingCols.slice(0, -2);
-            var confirmStr = Functions.sprintf(Messages.strMoveRepeatingGroup, Functions.escapeHtml(repeatingCols), Functions.escapeHtml(CommonParams.get('table')));
-            confirmStr += '<input type="text" name="repeatGroupTable" placeholder="' + Messages.strNewTablePlaceholder + '">' +
-                '( ' + Functions.escapeHtml(primaryKey.toString()) + ', <input type="text" name="repeatGroupColumn" placeholder="' + Messages.strNewColumnPlaceholder + '" value="' + Functions.escapeHtml(newColName) + '">)' +
+            var confirmStr = window.sprintf(window.Messages.strMoveRepeatingGroup, escapeHtml(repeatingCols), escapeHtml(CommonParams.get('table')));
+            confirmStr += '<input type="text" name="repeatGroupTable" placeholder="' + window.Messages.strNewTablePlaceholder + '">' +
+                '( ' + escapeHtml(primaryKey.toString()) + ', <input type="text" name="repeatGroupColumn" placeholder="' + window.Messages.strNewColumnPlaceholder + '" value="' + escapeHtml(newColName) + '">)' +
                 '</ol>';
             $('#newCols').html(confirmStr);
 
             $('<input>')
                 .attr({
                     type: 'submit',
-                    value: Messages.strCancel,
+                    value: window.Messages.strCancel,
                     class: 'btn btn-secondary'
                 })
                 .on('click', function () {
@@ -714,7 +713,7 @@ AJAX.registerOnload('normalization.js', function () {
             $('<input>')
                 .attr({
                     type: 'submit',
-                    value: Messages.strGo,
+                    value: window.Messages.strGo,
                     class: 'btn btn-primary'
                 })
                 .on('click', function () {
@@ -727,15 +726,15 @@ AJAX.registerOnload('normalization.js', function () {
         event.preventDefault();
         var url = {
             'create_index': 1,
-            'server':  CommonParams.get('server'),
+            'server': CommonParams.get('server'),
             'db': CommonParams.get('db'),
             'table': CommonParams.get('table'),
             'added_fields': 1,
-            'add_fields':1,
-            'index': { 'Key_name':'PRIMARY' },
+            'add_fields': 1,
+            'index': { 'Key_name': 'PRIMARY' },
             'ajax_request': true
         };
-        var title = Messages.strAddPrimaryKey;
+        var title = window.Messages.strAddPrimaryKey;
         Functions.indexEditorDialog(url, title, function () {
             // on success
             $('.sqlqueryresults').remove();
@@ -750,29 +749,28 @@ AJAX.registerOnload('normalization.js', function () {
     });
     $('#mainContent').on('click', '#showPossiblePd', function () {
         if ($(this).hasClass('hideList')) {
-            $(this).html('+ ' + Messages.strShowPossiblePd);
+            $(this).html('+ ' + window.Messages.strShowPossiblePd);
             $(this).removeClass('hideList');
             $('#newCols').slideToggle('slow');
             return false;
         }
         if ($('#newCols').html() !== '') {
-            $('#showPossiblePd').html('- ' + Messages.strHidePd);
+            $('#showPossiblePd').html('- ' + window.Messages.strHidePd);
             $('#showPossiblePd').addClass('hideList');
             $('#newCols').slideToggle('slow');
             return false;
         }
         $('#newCols').insertAfter('#mainContent h4');
-        $('#newCols').html('<div class="text-center">' + Messages.strLoading + '<br>' + Messages.strWaitForPd + '</div>');
+        $('#newCols').html('<div class="text-center">' + window.Messages.strLoading + '<br>' + window.Messages.strWaitForPd + '</div>');
         $.post(
-            'index.php?route=/normalization',
+            'index.php?route=/normalization/partial-dependencies',
             {
                 'ajax_request': true,
                 'db': CommonParams.get('db'),
                 'table': CommonParams.get('table'),
                 'server': CommonParams.get('server'),
-                'findPdl': true
             }, function (data) {
-                $('#showPossiblePd').html('- ' + Messages.strHidePd);
+                $('#showPossiblePd').html('- ' + window.Messages.strHidePd);
                 $('#showPossiblePd').addClass('hideList');
                 $('#newCols').html(data.message);
             });

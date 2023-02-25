@@ -4,141 +4,171 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Server\SysInfo;
 
-use COM;
+use com;
+use Throwable;
 
+use function array_merge;
 use function class_exists;
-use function count;
-use function in_array;
-use function is_string;
-use function trim;
+use function intdiv;
+use function intval;
 
 /**
  * Windows NT based SysInfo class
  */
 class WindowsNt extends Base
 {
-    /** @var COM|null */
-    private $wmi;
-
-    /**
-     * The OS name
-     *
-     * @var string
-     */
-    public $os = 'WINNT';
+    /** @var object|null */
+    private $wmiService = null;
 
     /**
      * Constructor to access to wmi database.
      */
     public function __construct()
     {
-        if (! class_exists('COM')) {
-            $this->wmi = null;
-
+        if (! class_exists('com')) {
             return;
         }
 
-        // initialize the wmi object
-        $objLocator = new COM('WbemScripting.SWbemLocator');
-        $this->wmi = $objLocator->ConnectServer();
+        /**
+         * @see https://www.php.net/manual/en/class.com.php
+         * @see https://docs.microsoft.com/en-us/windows/win32/wmisdk/swbemlocator
+         * @see https://docs.microsoft.com/en-us/windows/win32/wmisdk/swbemservices
+         *
+         * @psalm-suppress MixedAssignment, UndefinedMagicMethod, MixedMethodCall
+         * @phpstan-ignore-next-line
+         */
+        $this->wmiService = (new com('WbemScripting.SWbemLocator'))->ConnectServer();
     }
 
     /**
      * Gets load information
      *
-     * @return array with load data
+     * @return array<string, int> with load data
      */
-    public function loadavg()
+    public function loadavg(): array
     {
-        $sum = 0;
-        $buffer = $this->getWMI('Win32_Processor', ['LoadPercentage']);
-
-        foreach ($buffer as $load) {
-            $value = $load['LoadPercentage'];
-            $sum += $value;
-        }
-
-        return ['loadavg' => $sum / count($buffer)];
+        return ['loadavg' => $this->getLoadPercentage()];
     }
 
     /**
      * Checks whether class is supported in this environment
      */
-    public function supported(): bool
+    public static function isSupported(): bool
     {
-        return $this->wmi !== null;
-    }
-
-    /**
-     * Reads data from WMI
-     *
-     * @param string $strClass Class to read
-     * @param array  $strValue Values to read
-     *
-     * @return array with results
-     */
-    private function getWMI($strClass, array $strValue = [])
-    {
-        $arrData = [];
-
-        $objWEBM = $this->wmi->Get($strClass);
-        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        $arrProp = $objWEBM->Properties_;
-        $arrWEBMCol = $objWEBM->Instances_();
-        foreach ($arrWEBMCol as $objItem) {
-            $arrInstance = [];
-            foreach ($arrProp as $propItem) {
-                // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-                $name = $propItem->Name;
-                if (! empty($strValue) && ! in_array($name, $strValue)) {
-                    continue;
-                }
-
-                $value = $objItem->$name;
-                if (is_string($value)) {
-                    $arrInstance[$name] = trim($value);
-                } else {
-                    $arrInstance[$name] = $value;
-                }
-            }
-
-            $arrData[] = $arrInstance;
-        }
-
-        return $arrData;
+        return class_exists('com');
     }
 
     /**
      * Gets information about memory usage
      *
-     * @return array with memory usage data
+     * @return array<string, int> with memory usage data
+     * @psalm-return array{
+     *     MemTotal: int,
+     *     MemFree: int,
+     *     MemUsed: int,
+     *     SwapTotal: int,
+     *     SwapUsed: int,
+     *     SwapPeak: int,
+     *     SwapFree: int
+     * }
      */
-    public function memory()
+    public function memory(): array
     {
-        $buffer = $this->getWMI(
-            'Win32_OperatingSystem',
-            [
-                'TotalVisibleMemorySize',
-                'FreePhysicalMemory',
-            ]
-        );
-        $mem = [];
-        $mem['MemTotal'] = $buffer[0]['TotalVisibleMemorySize'];
-        $mem['MemFree'] = $buffer[0]['FreePhysicalMemory'];
-        $mem['MemUsed'] = $mem['MemTotal'] - $mem['MemFree'];
+        return array_merge($this->getSystemMemory(), $this->getPageFileUsage());
+    }
 
-        $buffer = $this->getWMI('Win32_PageFileUsage');
-
-        $mem['SwapTotal'] = 0;
-        $mem['SwapUsed'] = 0;
-        $mem['SwapPeak'] = 0;
-
-        foreach ($buffer as $swapdevice) {
-            $mem['SwapTotal'] += $swapdevice['AllocatedBaseSize'] * 1024;
-            $mem['SwapUsed'] += $swapdevice['CurrentUsage'] * 1024;
-            $mem['SwapPeak'] += $swapdevice['PeakUsage'] * 1024;
+    /**
+     * @return array<string, int>
+     * @psalm-return array{MemTotal: int, MemFree: int, MemUsed: int}
+     */
+    private function getSystemMemory(): array
+    {
+        if ($this->wmiService === null) {
+            return ['MemTotal' => 0, 'MemFree' => 0, 'MemUsed' => 0];
         }
 
-        return $mem;
+        /**
+         * @see https://docs.microsoft.com/en-us/windows/win32/wmisdk/swbemobject-instances-
+         * @see https://docs.microsoft.com/en-us/windows/win32/cimwin32prov/win32-operatingsystem
+         *
+         * @var object[] $instances
+         * @psalm-suppress MixedMethodCall
+         * @phpstan-ignore-next-line
+         */
+        $instances = $this->wmiService->Get('Win32_OperatingSystem')->Instances_();
+        $totalMemory = 0;
+        $freeMemory = 0;
+        foreach ($instances as $instance) {
+            // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+            $totalMemory += (int) $instance->TotalVisibleMemorySize; /* @phpstan-ignore-line */
+            $freeMemory += (int) $instance->FreePhysicalMemory; /* @phpstan-ignore-line */
+            // phpcs:enable
+        }
+
+        return ['MemTotal' => $totalMemory, 'MemFree' => $freeMemory, 'MemUsed' => $totalMemory - $freeMemory];
+    }
+
+    /**
+     * @return array<string, int>
+     * @psalm-return array{SwapTotal: int, SwapUsed: int, SwapPeak: int, SwapFree: int}
+     */
+    private function getPageFileUsage(): array
+    {
+        if ($this->wmiService === null) {
+            return ['SwapTotal' => 0, 'SwapUsed' => 0, 'SwapPeak' => 0, 'SwapFree' => 0];
+        }
+
+        /**
+         * @see https://docs.microsoft.com/en-us/windows/win32/wmisdk/swbemobject-instances-
+         * @see https://docs.microsoft.com/en-us/windows/win32/cimwin32prov/win32-pagefileusage
+         *
+         * @var object[] $instances
+         * @psalm-suppress MixedMethodCall
+         * @phpstan-ignore-next-line
+         */
+        $instances = $this->wmiService->Get('Win32_PageFileUsage')->Instances_();
+        $total = 0;
+        $used = 0;
+        $peak = 0;
+        foreach ($instances as $instance) {
+            // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+            $total += intval($instance->AllocatedBaseSize) * 1024; /* @phpstan-ignore-line */
+            $used += intval($instance->CurrentUsage) * 1024; /* @phpstan-ignore-line */
+            $peak += intval($instance->PeakUsage) * 1024; /* @phpstan-ignore-line */
+            // phpcs:enable
+        }
+
+        return ['SwapTotal' => $total, 'SwapUsed' => $used, 'SwapPeak' => $peak, 'SwapFree' => $total - $used];
+    }
+
+    private function getLoadPercentage(): int
+    {
+        if ($this->wmiService === null) {
+            return 0;
+        }
+
+        /**
+         * @see https://docs.microsoft.com/en-us/windows/win32/wmisdk/swbemobject-instances-
+         * @see https://docs.microsoft.com/en-us/windows/win32/cimwin32prov/win32-processor
+         *
+         * @var object[] $instances
+         * @psalm-suppress MixedMethodCall
+         * @phpstan-ignore-next-line
+         */
+        $instances = $this->wmiService->Get('Win32_Processor')->Instances_();
+        $i = 0;
+        $sum = 0;
+        foreach ($instances as $instance) {
+            // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+            $sum += (int) $instance->LoadPercentage; /* @phpstan-ignore-line */
+            // Can't use count($instances).
+            $i++;
+        }
+
+        try {
+            return intdiv($sum, $i);
+        } catch (Throwable) {
+            return 0;
+        }
     }
 }

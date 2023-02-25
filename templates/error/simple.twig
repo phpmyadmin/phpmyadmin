@@ -1,0 +1,11 @@
+<div class="container">
+  <h2>{{ 'Something went wrong'|trans }}</h2>
+  <div class="card">
+    <div class="card-body">
+      {{ error_message|error }}
+      {% if back_url != '' %}
+        <a class="card-link" href="{{ back_url }}">{{ 'Go back'|trans }}</a>
+      {% endif %}
+    </div>
+  </div>
+</div>

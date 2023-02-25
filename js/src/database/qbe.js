@@ -1,11 +1,12 @@
+import $ from 'jquery';
+import { AJAX } from '../modules/ajax.js';
+import { Functions } from '../modules/functions.js';
+
 /**
  * @fileoverview    function used in QBE for DB
  * @name            Database Operations
  *
- * @requires    jQuery
  * @requires    jQueryUI
- * @requires    js/functions.js
- *
  */
 
 /**
@@ -73,8 +74,8 @@ AJAX.registerOnload('database/qbe.js', function () {
      * Ajax event handlers for 'Delete bookmark'
      */
     $(document).on('click', '#deleteSearch', function () {
-        var question = Functions.sprintf(Messages.strConfirmDeleteQBESearch, $('#searchId').find('option:selected').text());
-        if (!confirm(question)) {
+        var question = window.sprintf(window.Messages.strConfirmDeleteQBESearch, $('#searchId').find('option:selected').text());
+        if (! confirm(question)) {
             return false;
         }
 

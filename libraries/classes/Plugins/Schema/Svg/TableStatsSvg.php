@@ -60,7 +60,7 @@ class TableStatsSvg extends TableStats
         &$same_wide_width,
         $showKeys = false,
         $tableDimension = false,
-        $offline = false
+        $offline = false,
     ) {
         parent::__construct($diagram, $db, $pageNumber, $tableName, $showKeys, $tableDimension, $offline);
 
@@ -84,7 +84,7 @@ class TableStatsSvg extends TableStats
         ExportRelationSchema::dieSchema(
             $this->pageNumber,
             'SVG',
-            sprintf(__('The %s table doesn\'t exist!'), $this->tableName)
+            sprintf(__('The %s table doesn\'t exist!'), $this->tableName),
         );
     }
 
@@ -101,16 +101,13 @@ class TableStatsSvg extends TableStats
         foreach ($this->fields as $field) {
             $this->width = max(
                 $this->width,
-                $this->font->getStringWidth($field, $font, $fontSize)
+                $this->font->getStringWidth($field, $font, $fontSize),
             );
         }
 
         $this->width += $this->font->getStringWidth('  ', $font, $fontSize);
 
-        /*
-         * it is unknown what value must be added, because
-         * table title is affected by the table width value
-         */
+        // it is unknown what value must be added, because table title is affected by the table width value
         while ($this->width < $this->font->getStringWidth($this->getTitle(), $font, $fontSize)) {
             $this->width += 7;
         }
@@ -143,7 +140,7 @@ class TableStatsSvg extends TableStats
             $this->width,
             $this->heightCell,
             null,
-            'fill:#007;stroke:black;'
+            'fill:#007;stroke:black;',
         );
         $this->diagram->printElement(
             'text',
@@ -152,7 +149,7 @@ class TableStatsSvg extends TableStats
             $this->width,
             $this->heightCell,
             $this->getTitle(),
-            'fill:#fff;'
+            'fill:#fff;',
         );
         foreach ($this->fields as $field) {
             $this->currentCell += $this->heightCell;
@@ -174,7 +171,7 @@ class TableStatsSvg extends TableStats
                 $this->width,
                 $this->heightCell,
                 null,
-                'fill:' . $fillColor . ';stroke:black;'
+                'fill:' . $fillColor . ';stroke:black;',
             );
             $this->diagram->printElement(
                 'text',
@@ -183,7 +180,7 @@ class TableStatsSvg extends TableStats
                 $this->width,
                 $this->heightCell,
                 $field,
-                'fill:black;'
+                'fill:black;',
             );
         }
     }

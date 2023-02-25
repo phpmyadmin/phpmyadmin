@@ -15,7 +15,6 @@ use PhpMyAdmin\Util;
 use function array_sum;
 use function count;
 use function implode;
-use function is_numeric;
 use function json_decode;
 use function mb_strlen;
 use function mb_strpos;
@@ -31,15 +30,9 @@ use function strlen;
  */
 class Monitor
 {
-    /** @var DatabaseInterface */
-    private $dbi;
-
-    /**
-     * @param DatabaseInterface $dbi DatabaseInterface instance
-     */
-    public function __construct($dbi)
+    /** @param DatabaseInterface $dbi */
+    public function __construct(private $dbi)
     {
-        $this->dbi = $dbi;
     }
 
     /**
@@ -63,7 +56,7 @@ class Monitor
             $statusVars,
             $sysinfo,
             $cpuload,
-            $memory
+            $memory,
         );
 
         // Retrieve all required status variables
@@ -73,7 +66,7 @@ class Monitor
                 "SHOW GLOBAL STATUS WHERE Variable_name='"
                 . implode("' OR Variable_name='", $statusVars) . "'",
                 0,
-                1
+                1,
             );
         }
 
@@ -84,7 +77,7 @@ class Monitor
                 "SHOW GLOBAL VARIABLES WHERE Variable_name='"
                 . implode("' OR Variable_name='", $serverVars) . "'",
                 0,
-                1
+                1,
             );
         }
 
@@ -108,7 +101,7 @@ class Monitor
     private function getJsonForChartingDataSet(
         array $ret,
         array $statusVarValues,
-        array $serverVarValues
+        array $serverVarValues,
     ): array {
         foreach ($ret as $chart_id => $chartNodes) {
             foreach ($chartNodes as $node_id => $nodeDataPoints) {
@@ -146,8 +139,8 @@ class Monitor
         array $statusVars,
         $sysinfo,
         $cpuload,
-        $memory
-    ) {
+        $memory,
+    ): array {
         // For each chart
         foreach ($ret as $chartId => $chartNodes) {
             // For each data series
@@ -162,7 +155,7 @@ class Monitor
                         $ret[$chartId][$nodeId][$pointId],
                         $sysinfo,
                         $cpuload,
-                        $memory
+                        $memory,
                     );
                 } /* foreach */
             } /* foreach */
@@ -197,8 +190,8 @@ class Monitor
         array $ret,
         $sysinfo,
         $cpuload,
-        $memory
-    ) {
+        $memory,
+    ): array {
         /**
          * We only collect the status and server variables here to read them all in one query,
          * and only afterwards assign them. Also do some allow list filtering on the names
@@ -266,10 +259,8 @@ class Monitor
      *
      * @param int $start Unix Time: Start time for query
      * @param int $end   Unix Time: End time for query
-     *
-     * @return array
      */
-    public function getJsonForLogDataTypeSlow(int $start, int $end): array
+    public function getJsonForLogDataTypeSlow(int $start, int $end): array|null
     {
         $query = 'SELECT start_time, user_host, ';
         $query .= 'Sec_to_Time(Sum(Time_to_Sec(query_time))) as query_time, ';
@@ -279,10 +270,13 @@ class Monitor
         $query .= 'COUNT(sql_text) AS \'#\' ';
         $query .= 'FROM `mysql`.`slow_log` ';
         $query .= 'WHERE start_time > FROM_UNIXTIME(' . $start . ') ';
-        $query .= 'AND start_time < FROM_UNIXTIME(' . $end . ') GROUP BY sql_text';
+        // See: mode = ONLY_FULL_GROUP_BY
+        $query .= 'AND start_time < FROM_UNIXTIME(' . $end . ') GROUP BY start_time, user_host, db, sql_text';
 
         $result = $this->dbi->tryQuery($query);
-        // TODO: check for false
+        if ($result === false) {
+            return null;
+        }
 
         $return = [
             'rows' => [],
@@ -294,8 +288,8 @@ class Monitor
                 mb_substr(
                     $row['sql_text'],
                     0,
-                    (int) mb_strpos($row['sql_text'], ' ')
-                )
+                    (int) mb_strpos($row['sql_text'], ' '),
+                ),
             );
 
             switch ($type) {
@@ -308,8 +302,8 @@ class Monitor
                             (array) Util::formatByteDown(
                                 mb_strlen($row['sql_text']),
                                 2,
-                                2
-                            )
+                                2,
+                            ),
                         );
                         $row['sql_text'] = mb_substr($row['sql_text'], 0, 200)
                             . '... [' . $implodeSqlText . ']';
@@ -335,21 +329,19 @@ class Monitor
     }
 
     /**
-     * Returns JSon for log data with type: general
+     * Returns JSON for log data with type: general
      *
      * @param int  $start           Unix Time: Start time for query
      * @param int  $end             Unix Time: End time for query
      * @param bool $isTypesLimited  Whether to limit types or not
      * @param bool $removeVariables Whether to remove variables or not
-     *
-     * @return array
      */
     public function getJsonForLogDataTypeGeneral(
         int $start,
         int $end,
         bool $isTypesLimited,
-        bool $removeVariables
-    ): array {
+        bool $removeVariables,
+    ): array|null {
         $limitTypes = '';
         if ($isTypesLimited) {
             $limitTypes = 'AND argument REGEXP \'^(INSERT|SELECT|UPDATE|DELETE)\' ';
@@ -361,10 +353,13 @@ class Monitor
         $query .= 'WHERE command_type=\'Query\' ';
         $query .= 'AND event_time > FROM_UNIXTIME(' . $start . ') ';
         $query .= 'AND event_time < FROM_UNIXTIME(' . $end . ') ';
-        $query .= $limitTypes . 'GROUP by argument'; // HAVING count > 1';
+        // See: mode = ONLY_FULL_GROUP_BY
+        $query .= $limitTypes . 'GROUP by event_time, user_host, thread_id, server_id, argument'; // HAVING count > 1';
 
         $result = $this->dbi->tryQuery($query);
-        // TODO: check for false
+        if ($result === false) {
+            return null;
+        }
 
         $return = [
             'rows' => [],
@@ -385,16 +380,20 @@ class Monitor
             $return['sum'][$type] += $row['#'];
 
             switch ($type) {
-            /** @noinspection PhpMissingBreakStatementInspection */
+                /** @noinspection PhpMissingBreakStatementInspection */
                 case 'insert':
                     // Group inserts if selected
                     if (
                         $removeVariables && preg_match(
                             '/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i',
                             $row['argument'],
-                            $matches
+                            $matches,
                         )
                     ) {
+                        if (! isset($insertTables[$matches[2]])) {
+                            $insertTables[$matches[2]] = 0;
+                        }
+
                         $insertTables[$matches[2]]++;
                         if ($insertTables[$matches[2]] > 1) {
                             $return['rows'][$insertTablesFirst]['#'] = $insertTables[$matches[2]];
@@ -403,7 +402,7 @@ class Monitor
                             // there's been other queries
                             $temp = $return['rows'][$insertTablesFirst]['argument'];
                             $return['rows'][$insertTablesFirst]['argument'] .= $this->getSuspensionPoints(
-                                $temp[strlen($temp) - 1]
+                                $temp[strlen($temp) - 1],
                             );
 
                             // Group this value, thus do not add to the result list
@@ -427,8 +426,8 @@ class Monitor
                             (array) Util::formatByteDown(
                                 mb_strlen($row['argument']),
                                 2,
-                                2
-                            )
+                                2,
+                            ),
                         )
                             . ']';
                     }
@@ -473,16 +472,11 @@ class Monitor
      *
      * @return array JSON
      */
-    public function getJsonForLoggingVars(?string $name, ?string $value): array
+    public function getJsonForLoggingVars(string|null $name, string|null $value): array
     {
         if (isset($name, $value)) {
-            $escapedValue = $this->dbi->escapeString($value);
-            if (! is_numeric($escapedValue)) {
-                $escapedValue = "'" . $escapedValue . "'";
-            }
-
             if (! preg_match('/[^a-zA-Z0-9_]+/', $name)) {
-                $this->dbi->query('SET GLOBAL ' . $name . ' = ' . $escapedValue);
+                $this->dbi->query('SET GLOBAL ' . $name . ' = ' . $this->dbi->quoteString($value));
             }
         }
 
@@ -490,7 +484,7 @@ class Monitor
             'SHOW GLOBAL VARIABLES WHERE Variable_name IN'
             . ' ("general_log","slow_query_log","long_query_time","log_output")',
             0,
-            1
+            1,
         );
     }
 
@@ -504,9 +498,9 @@ class Monitor
      */
     public function getJsonForQueryAnalyzer(
         string $database,
-        string $query
+        string $query,
     ): array {
-        global $cached_affected_rows;
+        $GLOBALS['cached_affected_rows'] ??= null;
 
         $return = [];
 
@@ -524,7 +518,7 @@ class Monitor
         $sqlQuery = preg_replace('/^(\s*SELECT)/i', '\\1 SQL_NO_CACHE', $query);
 
         $this->dbi->tryQuery($sqlQuery);
-        $return['affectedRows'] = $cached_affected_rows;
+        $return['affectedRows'] = $GLOBALS['cached_affected_rows'];
 
         $result = $this->dbi->tryQuery('EXPLAIN ' . $sqlQuery);
         if ($result !== false) {
@@ -537,7 +531,7 @@ class Monitor
         if ($profiling) {
             $return['profiling'] = [];
             $result = $this->dbi->tryQuery(
-                'SELECT seq,state,duration FROM INFORMATION_SCHEMA.PROFILING WHERE QUERY_ID=1 ORDER BY seq'
+                'SELECT seq,state,duration FROM INFORMATION_SCHEMA.PROFILING WHERE QUERY_ID=1 ORDER BY seq',
             );
             if ($result !== false) {
                 $return['profiling'] = $result->fetchAllAssoc();

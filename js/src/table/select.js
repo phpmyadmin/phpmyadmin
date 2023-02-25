@@ -1,12 +1,16 @@
+import $ from 'jquery';
+import { AJAX } from '../modules/ajax.js';
+import { Functions } from '../modules/functions.js';
+import { CommonParams } from '../modules/common.js';
+import highlightSql from '../modules/sql-highlight.js';
+import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
+
 /**
  * @fileoverview JavaScript functions used on /table/search
- *
- * @requires    jQuery
- * @requires    js/functions.js
  */
 
 /* global changeValueFieldType, verifyAfterSearchFieldChange */ // js/table/change.js
-/* global openGISEditor, gisEditorLoaded, loadJSAndGISEditor, loadGISEditor */ // js/gis_data_editor.js
+/* global openGISEditor, loadJSAndGISEditor, loadGISEditor */ // js/gis_data_editor.js
 
 var TableSelect = {};
 
@@ -64,14 +68,14 @@ AJAX.registerOnload('table/select.js', function () {
         .hide();
 
     $('#togglesearchformlink')
-        .html(Messages.strShowSearchCriteria)
+        .html(window.Messages.strShowSearchCriteria)
         .on('click', function () {
             var $link = $(this);
             $('#tbl_search_form').slideToggle();
-            if ($link.text() === Messages.strHideSearchCriteria) {
-                $link.text(Messages.strShowSearchCriteria);
+            if ($link.text() === window.Messages.strHideSearchCriteria) {
+                $link.text(window.Messages.strShowSearchCriteria);
             } else {
-                $link.text(Messages.strHideSearchCriteria);
+                $link.text(window.Messages.strHideSearchCriteria);
             }
             // avoid default click action
             return false;
@@ -109,7 +113,7 @@ AJAX.registerOnload('table/select.js', function () {
 
         // empty previous search results while we are waiting for new results
         $('#sqlqueryresultsouter').empty();
-        var $msgbox = Functions.ajaxShowMessage(Messages.strSearching, false);
+        var $msgbox = ajaxShowMessage(window.Messages.strSearching, false);
 
         Functions.prepareForAjaxRequest($searchForm);
 
@@ -155,7 +159,7 @@ AJAX.registerOnload('table/select.js', function () {
         }
 
         $.post($searchForm.attr('action'), values, function (data) {
-            Functions.ajaxRemoveMessage($msgbox);
+            ajaxRemoveMessage($msgbox);
             if (typeof data !== 'undefined' && data.success === true) {
                 if (typeof data.sql_query !== 'undefined') { // zero rows
                     $('#sqlqueryresultsouter').html(data.sql_query);
@@ -169,7 +173,7 @@ AJAX.registerOnload('table/select.js', function () {
                     .hide();
                 $('#togglesearchformlink')
                     // always start with the Show message
-                    .text(Messages.strShowSearchCriteria);
+                    .text(window.Messages.strShowSearchCriteria);
                 $('#togglesearchformdiv')
                     // now it's time to show the div containing the link
                     .show();
@@ -177,7 +181,7 @@ AJAX.registerOnload('table/select.js', function () {
             } else {
                 $('#sqlqueryresultsouter').html(data.error);
             }
-            Functions.highlightSql($('#sqlqueryresultsouter'));
+            highlightSql($('#sqlqueryresultsouter'));
         }); // end $.post()
     });
 
@@ -264,7 +268,7 @@ AJAX.registerOnload('table/select.js', function () {
         // Token
 
         openGISEditor();
-        if (!gisEditorLoaded) {
+        if (! window.gisEditorLoaded) {
             loadJSAndGISEditor(value, field, type, inputName);
         } else {
             loadGISEditor(value, field, type, inputName);
@@ -294,7 +298,7 @@ AJAX.registerOnload('table/select.js', function () {
         var operator = $(this).val();
 
         if ((operator === 'BETWEEN' || operator === 'NOT BETWEEN') && dataType) {
-            var $msgbox = Functions.ajaxShowMessage();
+            var $msgbox = ajaxShowMessage();
             $.ajax({
                 url: 'index.php?route=/table/search',
                 type: 'POST',
@@ -307,17 +311,17 @@ AJAX.registerOnload('table/select.js', function () {
                     'range_search': 1
                 },
                 success: function (response) {
-                    Functions.ajaxRemoveMessage($msgbox);
+                    ajaxRemoveMessage($msgbox);
                     if (response.success) {
                         // Get the column min value.
                         var min = response.column_data.min
-                            ? '(' + Messages.strColumnMin +
-                                ' ' + response.column_data.min + ')'
+                            ? '(' + window.Messages.strColumnMin +
+                            ' ' + response.column_data.min + ')'
                             : '';
                         // Get the column max value.
                         var max = response.column_data.max
-                            ? '(' + Messages.strColumnMax +
-                                ' ' + response.column_data.max + ')'
+                            ? '(' + window.Messages.strColumnMax +
+                            ' ' + response.column_data.max + ')'
                             : '';
                         $('#rangeSearchModal').modal('show');
                         $('#rangeSearchLegend').first().html(operator);
@@ -329,7 +333,7 @@ AJAX.registerOnload('table/select.js', function () {
                         // Add datepicker wherever required.
                         Functions.addDatepicker($('#min_value'), dataType);
                         Functions.addDatepicker($('#max_value'), dataType);
-                        $('#rangeSearchModalGo').on('click',  function () {
+                        $('#rangeSearchModalGo').on('click', function () {
                             var minValue = $('#min_value').val();
                             var maxValue = $('#max_value').val();
                             var finalValue = '';
@@ -371,11 +375,11 @@ AJAX.registerOnload('table/select.js', function () {
                             $('#rangeSearchModal').modal('hide');
                         });
                     } else {
-                        Functions.ajaxShowMessage(response.error);
+                        ajaxShowMessage(response.error);
                     }
                 },
                 error: function () {
-                    Functions.ajaxShowMessage(Messages.strErrorProcessingRequest);
+                    ajaxShowMessage(window.Messages.strErrorProcessingRequest);
                 }
             });
         }

@@ -47,17 +47,20 @@ class TransformationPluginsTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setLanguage();
+
         // For Application Octetstream Download plugin
-        global $row, $fields_meta;
-        $fields_meta = [];
-        $row = [
+
+        $GLOBALS['fields_meta'] = [];
+        $GLOBALS['row'] = [
             'pma' => 'aaa',
             'pca' => 'bbb',
         ];
 
         // For Image_*_Inline plugin
         parent::setGlobalConfig();
+
         $GLOBALS['Server'] = 1;
 
         // For Date Format plugin
@@ -67,7 +70,7 @@ class TransformationPluginsTest extends AbstractTestCase
     /**
      * Data provider for testGetMulti
      */
-    public function multiDataProvider(): array
+    public static function multiDataProvider(): array
     {
         $GLOBALS['cfg']['CodemirrorEnable'] = false;
 
@@ -719,14 +722,14 @@ class TransformationPluginsTest extends AbstractTestCase
         $reflectionMethod = new ReflectionMethod($object, $method);
         $this->assertEquals(
             $expected,
-            $reflectionMethod->invokeArgs($object, $args)
+            $reflectionMethod->invokeArgs($object, $args),
         );
     }
 
     /**
      * Data provider for testTransformation
      */
-    public function transformationDataProvider(): array
+    public static function transformationDataProvider(): array
     {
         $GLOBALS['cfg']['CodemirrorEnable'] = false;
 
@@ -845,7 +848,7 @@ class TransformationPluginsTest extends AbstractTestCase
                     [0],
                     new FieldMetadata(MYSQLI_TYPE_TINY, 0, (object) []),
                 ],
-                '<dfn onclick="alert(\'12345\');" title="12345">Jan 01, 1970 at 03:25 AM</dfn>',
+                '<dfn onclick="alert(&quot;12345&quot;);" title="12345">Jan 01, 1970 at 03:25 AM</dfn>',
             ],
             [
                 new Text_Plain_Dateformat(),
@@ -854,7 +857,7 @@ class TransformationPluginsTest extends AbstractTestCase
                     [0],
                     new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) []),
                 ],
-                '<dfn onclick="alert(\'12345678\');" title="12345678">May 23, 1970 at 09:21 PM</dfn>',
+                '<dfn onclick="alert(&quot;12345678&quot;);" title="12345678">May 23, 1970 at 09:21 PM</dfn>',
             ],
             [
                 new Text_Plain_Dateformat(),
@@ -863,7 +866,7 @@ class TransformationPluginsTest extends AbstractTestCase
                     [0],
                     new FieldMetadata(-1, 0, (object) []),
                 ],
-                '<dfn onclick="alert(\'123456789\');" title="123456789">Nov 29, 1973 at 09:33 PM</dfn>',
+                '<dfn onclick="alert(&quot;123456789&quot;);" title="123456789">Nov 29, 1973 at 09:33 PM</dfn>',
             ],
             [
                 new Text_Plain_Dateformat(),
@@ -872,7 +875,7 @@ class TransformationPluginsTest extends AbstractTestCase
                     [0],
                     new FieldMetadata(-1, 0, (object) []),
                 ],
-                '<dfn onclick="alert(\'20100201\');" title="20100201">Feb 01, 2010 at 12:00 AM</dfn>',
+                '<dfn onclick="alert(&quot;20100201&quot;);" title="20100201">Feb 01, 2010 at 12:00 AM</dfn>',
             ],
             [
                 new Text_Plain_Dateformat(),
@@ -885,7 +888,7 @@ class TransformationPluginsTest extends AbstractTestCase
                     ],
                     new FieldMetadata(-1, 0, (object) []),
                 ],
-                '<dfn onclick="alert(\'1617153941\');" title="1617153941">Mar 31, 2021 at 01:25 AM</dfn>',
+                '<dfn onclick="alert(&quot;1617153941&quot;);" title="1617153941">Mar 31, 2021 at 01:25 AM</dfn>',
             ],
             [
                 new Text_Plain_Dateformat(),
@@ -898,7 +901,7 @@ class TransformationPluginsTest extends AbstractTestCase
                     ],
                     new FieldMetadata(-1, 0, (object) []),
                 ],
-                '<dfn onclick="alert(\'1617153941\');" title="1617153941">2021-03-31  01:25:41</dfn>',
+                '<dfn onclick="alert(&quot;1617153941&quot;);" title="1617153941">2021-03-31  01:25:41</dfn>',
             ],
             [
                 new Text_Plain_Dateformat(),
@@ -911,7 +914,7 @@ class TransformationPluginsTest extends AbstractTestCase
                     ],
                     new FieldMetadata(-1, 0, (object) []),
                 ],
-                '<dfn onclick="alert(\'1617153941\');" title="1617153941">Mar 31, 2021 at 01:25 AM</dfn>',
+                '<dfn onclick="alert(&quot;1617153941&quot;);" title="1617153941">Mar 31, 2021 at 01:25 AM</dfn>',
             ],
             [
                 new Text_Plain_Dateformat(),
@@ -924,7 +927,7 @@ class TransformationPluginsTest extends AbstractTestCase
                     ],
                     new FieldMetadata(-1, 0, (object) []),
                 ],
-                '<dfn onclick="alert(\'1617153941\');" title="1617153941">01:25:41 2021-31-03</dfn>',
+                '<dfn onclick="alert(&quot;1617153941&quot;);" title="1617153941">01:25:41 2021-31-03</dfn>',
             ],
             [
                 new Text_Plain_External(),
@@ -1270,19 +1273,19 @@ class TransformationPluginsTest extends AbstractTestCase
         array $applyArgs,
         $transformed,
         bool $success = true,
-        string $error = ''
+        string $error = '',
     ): void {
         $reflectionMethod = new ReflectionMethod($object, 'applyTransformation');
         $this->assertEquals(
             $transformed,
-            $reflectionMethod->invokeArgs($object, $applyArgs)
+            $reflectionMethod->invokeArgs($object, $applyArgs),
         );
 
         // For output transformation plugins, this method may not exist
         if (method_exists($object, 'isSuccess')) {
             $this->assertEquals(
                 $success,
-                $object->isSuccess()
+                $object->isSuccess(),
             );
         }
 
@@ -1293,7 +1296,7 @@ class TransformationPluginsTest extends AbstractTestCase
 
         $this->assertEquals(
             $error,
-            $object->getError()
+            $object->getError(),
         );
     }
 }

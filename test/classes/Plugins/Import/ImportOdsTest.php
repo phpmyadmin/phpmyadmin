@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Import;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportOds;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 
 use function __;
 use function str_repeat;
@@ -17,6 +19,12 @@ use function str_repeat;
  */
 class ImportOdsTest extends AbstractTestCase
 {
+    /** @var DatabaseInterface */
+    protected $dbi;
+
+    /** @var DbiDummy */
+    protected $dummyDbi;
+
     /** @var ImportOds */
     protected $object;
 
@@ -27,8 +35,21 @@ class ImportOdsTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $GLOBALS['plugin_param'] = 'csv';
+        $GLOBALS['error'] = null;
+        $GLOBALS['timeout_passed'] = null;
+        $GLOBALS['maximum_time'] = null;
+        $GLOBALS['charset_conversion'] = null;
+        $GLOBALS['db'] = '';
+        $GLOBALS['skip_queries'] = null;
+        $GLOBALS['max_sql_len'] = null;
+        $GLOBALS['executed_queries'] = null;
+        $GLOBALS['run_query'] = null;
+        $GLOBALS['sql_query'] = '';
+        $GLOBALS['go_sql'] = null;
         $this->object = new ImportOds();
 
         //setting
@@ -55,6 +76,7 @@ class ImportOdsTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 
@@ -68,15 +90,15 @@ class ImportOdsTest extends AbstractTestCase
         $properties = $this->object->getProperties();
         $this->assertEquals(
             __('OpenDocument Spreadsheet'),
-            $properties->getText()
+            $properties->getText(),
         );
         $this->assertEquals(
             'ods',
-            $properties->getExtension()
+            $properties->getExtension(),
         );
         $this->assertEquals(
             __('Options'),
-            $properties->getOptionsText()
+            $properties->getOptionsText(),
         );
     }
 
@@ -89,13 +111,15 @@ class ImportOdsTest extends AbstractTestCase
     {
         //$sql_query_disabled will show the import SQL detail
         //$import_notice will show the import detail result
-        global $import_notice, $sql_query, $sql_query_disabled;
-        $sql_query_disabled = false;
+
+        $GLOBALS['sql_query_disabled'] = false;
 
         $GLOBALS['import_file'] = 'test/test_data/db_test.ods';
         $_REQUEST['ods_empty_rows'] = true;
 
-        parent::setGlobalDbi();
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
 
         $importHandle = new File($GLOBALS['import_file']);
         $importHandle->setDecompressContent(true);
@@ -106,29 +130,29 @@ class ImportOdsTest extends AbstractTestCase
 
         $this->assertStringContainsString(
             'CREATE DATABASE IF NOT EXISTS `ODS_DB` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci',
-            $sql_query
+            $GLOBALS['sql_query'],
         );
-        $this->assertStringContainsString('CREATE TABLE IF NOT EXISTS `ODS_DB`.`pma_bookmark`', $sql_query);
+        $this->assertStringContainsString('CREATE TABLE IF NOT EXISTS `ODS_DB`.`pma_bookmark`', $GLOBALS['sql_query']);
         $this->assertStringContainsString(
             'INSERT INTO `ODS_DB`.`pma_bookmark` (`A`, `B`, `C`, `D`) VALUES (1, \'dbbase\', NULL, \'ddd\');',
-            $sql_query
+            $GLOBALS['sql_query'],
         );
 
         //asset that all databases and tables are imported
         $this->assertStringContainsString(
             'The following structures have either been created or altered.',
-            $import_notice
+            $GLOBALS['import_notice'],
         );
-        $this->assertStringContainsString('Go to database: `ODS_DB`', $import_notice);
-        $this->assertStringContainsString('Edit settings for `ODS_DB`', $import_notice);
-        $this->assertStringContainsString('Go to table: `pma_bookmark`', $import_notice);
-        $this->assertStringContainsString('Edit settings for `pma_bookmark`', $import_notice);
+        $this->assertStringContainsString('Go to database: `ODS_DB`', $GLOBALS['import_notice']);
+        $this->assertStringContainsString('Edit settings for `ODS_DB`', $GLOBALS['import_notice']);
+        $this->assertStringContainsString('Go to table: `pma_bookmark`', $GLOBALS['import_notice']);
+        $this->assertStringContainsString('Edit settings for `pma_bookmark`', $GLOBALS['import_notice']);
 
         //asset that the import process is finished
         $this->assertTrue($GLOBALS['finished']);
     }
 
-    public function dataProviderOdsEmptyRows(): array
+    public static function dataProviderOdsEmptyRows(): array
     {
         return [
             'remove empty columns' => [true],
@@ -147,14 +171,16 @@ class ImportOdsTest extends AbstractTestCase
     {
         //$sql_query_disabled will show the import SQL detail
         //$import_notice will show the import detail result
-        global $import_notice, $sql_query, $sql_query_disabled;
-        $sql_query_disabled = false;
+
+        $GLOBALS['sql_query_disabled'] = false;
 
         $GLOBALS['import_file'] = 'test/test_data/import-slim.ods.xml';
         $_REQUEST['ods_col_names'] = true;
         $_REQUEST['ods_empty_rows'] = $odsEmptyRowsMode;
 
-        parent::setGlobalDbi();
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
 
         $importHandle = new File($GLOBALS['import_file']);
         $importHandle->setDecompressContent(false);// Not compressed
@@ -226,18 +252,18 @@ class ImportOdsTest extends AbstractTestCase
              . ' (\'12\')'
              . ($odsEmptyRowsMode ? '' : ',' . "\n" . ' (NULL)')
              . ($odsEmptyRowsMode ? ';;' : ',' . "\n" . ' (NULL);;'),
-            $sql_query
+            $GLOBALS['sql_query'],
         );
 
         //asset that all databases and tables are imported
         $this->assertStringContainsString(
             'The following structures have either been created or altered.',
-            $import_notice
+            $GLOBALS['import_notice'],
         );
-        $this->assertStringContainsString('Go to database: `ODS_DB`', $import_notice);
-        $this->assertStringContainsString('Edit settings for `ODS_DB`', $import_notice);
-        $this->assertStringContainsString('Go to table: `Shop`', $import_notice);
-        $this->assertStringContainsString('Edit settings for `Shop`', $import_notice);
+        $this->assertStringContainsString('Go to database: `ODS_DB`', $GLOBALS['import_notice']);
+        $this->assertStringContainsString('Edit settings for `ODS_DB`', $GLOBALS['import_notice']);
+        $this->assertStringContainsString('Go to table: `Shop`', $GLOBALS['import_notice']);
+        $this->assertStringContainsString('Edit settings for `Shop`', $GLOBALS['import_notice']);
 
         //asset that the import process is finished
         $this->assertTrue($GLOBALS['finished']);

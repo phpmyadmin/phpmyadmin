@@ -12,7 +12,6 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function in_array;
-use function intval;
 
 /**
  * Represents a columns node in the navigation tree
@@ -38,15 +37,16 @@ class NodeTable extends NodeDatabaseChild
     public function __construct($name, $type = Node::OBJECT, $isGroup = false)
     {
         parent::__construct($name, $type, $isGroup);
+
         $icon = $this->addIcon(
-            Util::getScriptNameForOption($GLOBALS['cfg']['NavigationTreeDefaultTabTable'], 'table')
+            Util::getScriptNameForOption($GLOBALS['cfg']['NavigationTreeDefaultTabTable'], 'table'),
         );
         if ($icon !== null) {
             $this->icon = $icon;
         }
 
         $this->secondIcon = $this->addIcon(
-            Util::getScriptNameForOption($GLOBALS['cfg']['NavigationTreeDefaultTabTable2'], 'table')
+            Util::getScriptNameForOption($GLOBALS['cfg']['NavigationTreeDefaultTabTable2'], 'table'),
         );
         $title = (string) Util::getTitleForTarget($GLOBALS['cfg']['DefaultTabTable']);
         $this->title = $title;
@@ -78,31 +78,27 @@ class NodeTable extends NodeDatabaseChild
      * @param string $type         The type of item we are looking for
      *                             ('columns' or 'indexes')
      * @param string $searchClause A string used to filter the results of the query
-     *
-     * @return int
      */
-    public function getPresence($type = '', $searchClause = '')
+    public function getPresence($type = '', $searchClause = ''): int
     {
-        global $dbi;
-
         $retval = 0;
         $db = $this->realParent()->realName;
         $table = $this->realName;
         switch ($type) {
             case 'columns':
                 if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-                    $db = $dbi->escapeString($db);
-                    $table = $dbi->escapeString($table);
+                    $db = $GLOBALS['dbi']->escapeString($db);
+                    $table = $GLOBALS['dbi']->escapeString($table);
                     $query = 'SELECT COUNT(*) ';
                     $query .= 'FROM `INFORMATION_SCHEMA`.`COLUMNS` ';
                     $query .= "WHERE `TABLE_NAME`='" . $table . "' ";
                     $query .= "AND `TABLE_SCHEMA`='" . $db . "'";
-                    $retval = (int) $dbi->fetchValue($query);
+                    $retval = (int) $GLOBALS['dbi']->fetchValue($query);
                 } else {
                     $db = Util::backquote($db);
                     $table = Util::backquote($table);
-                    $query = 'SHOW COLUMNS FROM ' . $table . ' FROM ' . $db . '';
-                    $retval = (int) $dbi->queryAndGetNumRows($query);
+                    $query = 'SHOW COLUMNS FROM ' . $table . ' FROM ' . $db;
+                    $retval = (int) $GLOBALS['dbi']->queryAndGetNumRows($query);
                 }
 
                 break;
@@ -110,24 +106,24 @@ class NodeTable extends NodeDatabaseChild
                 $db = Util::backquote($db);
                 $table = Util::backquote($table);
                 $query = 'SHOW INDEXES FROM ' . $table . ' FROM ' . $db;
-                $retval = (int) $dbi->queryAndGetNumRows($query);
+                $retval = (int) $GLOBALS['dbi']->queryAndGetNumRows($query);
                 break;
             case 'triggers':
                 if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-                    $db = $dbi->escapeString($db);
-                    $table = $dbi->escapeString($table);
+                    $db = $GLOBALS['dbi']->escapeString($db);
+                    $table = $GLOBALS['dbi']->escapeString($table);
                     $query = 'SELECT COUNT(*) ';
                     $query .= 'FROM `INFORMATION_SCHEMA`.`TRIGGERS` ';
                     $query .= 'WHERE `EVENT_OBJECT_SCHEMA` '
                     . Util::getCollateForIS() . "='" . $db . "' ";
                     $query .= 'AND `EVENT_OBJECT_TABLE` '
                     . Util::getCollateForIS() . "='" . $table . "'";
-                    $retval = (int) $dbi->fetchValue($query);
+                    $retval = (int) $GLOBALS['dbi']->fetchValue($query);
                 } else {
                     $db = Util::backquote($db);
-                    $table = $dbi->escapeString($table);
+                    $table = $GLOBALS['dbi']->escapeString($table);
                     $query = 'SHOW TRIGGERS FROM ' . $db . " WHERE `Table` = '" . $table . "'";
-                    $retval = (int) $dbi->queryAndGetNumRows($query);
+                    $retval = (int) $GLOBALS['dbi']->queryAndGetNumRows($query);
                 }
 
                 break;
@@ -150,10 +146,8 @@ class NodeTable extends NodeDatabaseChild
      *
      * @return array
      */
-    public function getData($type, $pos, $searchClause = '')
+    public function getData(string $type, int $pos, string $searchClause = ''): array
     {
-        global $dbi;
-
         $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
         $retval = [];
         $db = $this->realParent()->realName;
@@ -161,8 +155,8 @@ class NodeTable extends NodeDatabaseChild
         switch ($type) {
             case 'columns':
                 if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-                    $db = $dbi->escapeString($db);
-                    $table = $dbi->escapeString($table);
+                    $db = $GLOBALS['dbi']->escapeString($db);
+                    $table = $GLOBALS['dbi']->escapeString($table);
                     $query = 'SELECT `COLUMN_NAME` AS `name` ';
                     $query .= ',`COLUMN_KEY` AS `key` ';
                     $query .= ',`DATA_TYPE` AS `type` ';
@@ -172,15 +166,15 @@ class NodeTable extends NodeDatabaseChild
                     $query .= "WHERE `TABLE_NAME`='" . $table . "' ";
                     $query .= "AND `TABLE_SCHEMA`='" . $db . "' ";
                     $query .= 'ORDER BY `COLUMN_NAME` ASC ';
-                    $query .= 'LIMIT ' . intval($pos) . ', ' . $maxItems;
-                    $retval = $dbi->fetchResult($query);
+                    $query .= 'LIMIT ' . $pos . ', ' . $maxItems;
+                    $retval = $GLOBALS['dbi']->fetchResult($query);
                     break;
                 }
 
                 $db = Util::backquote($db);
                 $table = Util::backquote($table);
                 $query = 'SHOW COLUMNS FROM ' . $table . ' FROM ' . $db;
-                $handle = $dbi->tryQuery($query);
+                $handle = $GLOBALS['dbi']->tryQuery($query);
                 if ($handle === false) {
                     break;
                 }
@@ -208,7 +202,7 @@ class NodeTable extends NodeDatabaseChild
                 $db = Util::backquote($db);
                 $table = Util::backquote($table);
                 $query = 'SHOW INDEXES FROM ' . $table . ' FROM ' . $db;
-                $handle = $dbi->tryQuery($query);
+                $handle = $GLOBALS['dbi']->tryQuery($query);
                 if ($handle === false) {
                     break;
                 }
@@ -230,8 +224,8 @@ class NodeTable extends NodeDatabaseChild
                 break;
             case 'triggers':
                 if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-                    $db = $dbi->escapeString($db);
-                    $table = $dbi->escapeString($table);
+                    $db = $GLOBALS['dbi']->escapeString($db);
+                    $table = $GLOBALS['dbi']->escapeString($table);
                     $query = 'SELECT `TRIGGER_NAME` AS `name` ';
                     $query .= 'FROM `INFORMATION_SCHEMA`.`TRIGGERS` ';
                     $query .= 'WHERE `EVENT_OBJECT_SCHEMA` '
@@ -239,15 +233,15 @@ class NodeTable extends NodeDatabaseChild
                     $query .= 'AND `EVENT_OBJECT_TABLE` '
                     . Util::getCollateForIS() . "='" . $table . "' ";
                     $query .= 'ORDER BY `TRIGGER_NAME` ASC ';
-                    $query .= 'LIMIT ' . intval($pos) . ', ' . $maxItems;
-                    $retval = $dbi->fetchResult($query);
+                    $query .= 'LIMIT ' . $pos . ', ' . $maxItems;
+                    $retval = $GLOBALS['dbi']->fetchResult($query);
                     break;
                 }
 
                 $db = Util::backquote($db);
-                $table = $dbi->escapeString($table);
+                $table = $GLOBALS['dbi']->escapeString($table);
                 $query = 'SHOW TRIGGERS FROM ' . $db . " WHERE `Table` = '" . $table . "'";
-                $handle = $dbi->tryQuery($query);
+                $handle = $GLOBALS['dbi']->tryQuery($query);
                 if ($handle === false) {
                     break;
                 }
@@ -277,7 +271,7 @@ class NodeTable extends NodeDatabaseChild
      *
      * @return string type of the item
      */
-    protected function getItemType()
+    protected function getItemType(): string
     {
         return 'table';
     }
@@ -290,29 +284,15 @@ class NodeTable extends NodeDatabaseChild
      * @return array<string, string>|null
      * @psalm-return array{image: string, title: string}|null
      */
-    private function addIcon(string $page): ?array
+    private function addIcon(string $page): array|null
     {
-        if (empty($page)) {
-            return null;
-        }
-
-        switch ($page) {
-            case Url::getFromRoute('/table/structure'):
-                return ['image' => 'b_props', 'title' => __('Structure')];
-
-            case Url::getFromRoute('/table/search'):
-                return ['image' => 'b_search', 'title' => __('Search')];
-
-            case Url::getFromRoute('/table/change'):
-                return ['image' => 'b_insrow', 'title' => __('Insert')];
-
-            case Url::getFromRoute('/table/sql'):
-                return ['image' => 'b_sql', 'title' => __('SQL')];
-
-            case Url::getFromRoute('/sql'):
-                return ['image' => 'b_browse', 'title' => __('Browse')];
-        }
-
-        return null;
+        return match ($page) {
+            Url::getFromRoute('/table/structure') => ['image' => 'b_props', 'title' => __('Structure')],
+            Url::getFromRoute('/table/search') => ['image' => 'b_search', 'title' => __('Search')],
+            Url::getFromRoute('/table/change') => ['image' => 'b_insrow', 'title' => __('Insert')],
+            Url::getFromRoute('/table/sql') => ['image' => 'b_sql', 'title' => __('SQL')],
+            Url::getFromRoute('/sql') => ['image' => 'b_browse', 'title' => __('Browse')],
+            default => null,
+        };
     }
 }

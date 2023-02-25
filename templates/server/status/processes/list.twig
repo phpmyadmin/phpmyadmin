@@ -1,6 +1,6 @@
 <div class="responsivetable row">
-  <table id="tableprocesslist" class="table table-light table-striped table-hover sortable w-auto">
-    <thead class="table-light">
+  <table id="tableprocesslist" class="table table-striped table-hover sortable w-auto">
+    <thead>
       <tr>
         <th>{% trans 'Processes' %}</th>
         {% for column in columns %}
@@ -45,11 +45,29 @@
             </a>
           </td>
           <td class="font-monospace text-end">{{ row.id }}</td>
-          <td>{{ row.user }}</td>
+          <td>
+            {% if row.user != 'system user' %}
+              <a href="{{ url('/server/privileges', {
+                  'username': row.user,
+                  'hostname': row.host,
+                  'dbname': row.db,
+                  'tablename': '',
+                  'routinename': '',
+                }) }}">
+                {{ row.user }}
+              </a>
+            {% else %}
+              {{ row.user }}
+            {% endif %}
+          </td>
           <td>{{ row.host }}</td>
           <td>
             {% if row.db != '' %}
-              {{ row.db }}
+              <a href="{{ url('/database/structure', {
+                  'db': row.db,
+                }) }}">
+                {{ row.db }}
+              </a>
             {% else %}
               <em>{% trans 'None' %}</em>
             {% endif %}
@@ -57,7 +75,9 @@
           <td>{{ row.command }}</td>
           <td class="font-monospace text-end">{{ row.time }}</td>
           <td>{{ row.state }}</td>
-          <td>{{ row.progress }}</td>
+          {% if is_mariadb %}
+            <td>{{ row.progress }}</td>
+          {% endif %}
           <td>{{ row.info|raw }}</td>
       {% endfor %}
     </tbody>

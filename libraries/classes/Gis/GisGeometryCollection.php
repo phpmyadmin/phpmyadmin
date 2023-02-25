@@ -7,14 +7,15 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
+use ErrorException;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
-use function array_merge;
 use function count;
 use function mb_strpos;
 use function mb_substr;
 use function str_split;
+use function strtoupper;
 
 /**
  * Handles actions related to GIS GEOMETRYCOLLECTION objects
@@ -36,7 +37,7 @@ class GisGeometryCollection extends GisGeometry
      *
      * @return GisGeometryCollection the singleton
      */
-    public static function singleton()
+    public static function singleton(): GisGeometryCollection
     {
         if (! isset(self::$instance)) {
             self::$instance = new GisGeometryCollection();
@@ -49,12 +50,10 @@ class GisGeometryCollection extends GisGeometry
      * Scales each row.
      *
      * @param string $spatial spatial data of a row
-     *
-     * @return array array containing the min, max values for x and y coordinates
      */
-    public function scaleRow($spatial)
+    public function scaleRow(string $spatial): ScaleData|null
     {
-        $min_max = [];
+        $min_max = null;
 
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $goem_col = mb_substr($spatial, 19, -1);
@@ -77,28 +76,7 @@ class GisGeometryCollection extends GisGeometry
 
             $scale_data = $gis_obj->scaleRow($sub_part);
 
-            // Update minimum/maximum values for x and y coordinates.
-            $c_maxX = (float) $scale_data['maxX'];
-            if (! isset($min_max['maxX']) || $c_maxX > $min_max['maxX']) {
-                $min_max['maxX'] = $c_maxX;
-            }
-
-            $c_minX = (float) $scale_data['minX'];
-            if (! isset($min_max['minX']) || $c_minX < $min_max['minX']) {
-                $min_max['minX'] = $c_minX;
-            }
-
-            $c_maxY = (float) $scale_data['maxY'];
-            if (! isset($min_max['maxY']) || $c_maxY > $min_max['maxY']) {
-                $min_max['maxY'] = $c_maxY;
-            }
-
-            $c_minY = (float) $scale_data['minY'];
-            if (isset($min_max['minY']) && $c_minY >= $min_max['minY']) {
-                continue;
-            }
-
-            $min_max['minY'] = $c_minY;
+            $min_max = $min_max === null ? $scale_data : $scale_data?->merge($min_max);
         }
 
         return $min_max;
@@ -107,17 +85,17 @@ class GisGeometryCollection extends GisGeometry
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string      $spatial    GIS POLYGON object
-     * @param string|null $label      Label for the GIS POLYGON object
-     * @param string      $color      Color for the GIS POLYGON object
-     * @param array       $scale_data Array containing data related to scaling
+     * @param string $spatial    GIS POLYGON object
+     * @param string $label      Label for the GIS POLYGON object
+     * @param int[]  $color      Color for the GIS POLYGON object
+     * @param array  $scale_data Array containing data related to scaling
      */
     public function prepareRowAsPng(
         $spatial,
-        ?string $label,
-        $color,
+        string $label,
+        array $color,
         array $scale_data,
-        ImageWrapper $image
+        ImageWrapper $image,
     ): ImageWrapper {
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $goem_col = mb_substr($spatial, 19, -1);
@@ -146,15 +124,15 @@ class GisGeometryCollection extends GisGeometry
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string      $spatial    GIS GEOMETRYCOLLECTION object
-     * @param string|null $label      label for the GIS GEOMETRYCOLLECTION object
-     * @param string      $color      color for the GIS GEOMETRYCOLLECTION object
-     * @param array       $scale_data array containing data related to scaling
-     * @param TCPDF       $pdf        TCPDF instance
+     * @param string $spatial    GIS GEOMETRYCOLLECTION object
+     * @param string $label      label for the GIS GEOMETRYCOLLECTION object
+     * @param int[]  $color      color for the GIS GEOMETRYCOLLECTION object
+     * @param array  $scale_data array containing data related to scaling
+     * @param TCPDF  $pdf
      *
      * @return TCPDF the modified TCPDF instance
      */
-    public function prepareRowAsPdf($spatial, ?string $label, $color, array $scale_data, $pdf)
+    public function prepareRowAsPdf($spatial, string $label, array $color, array $scale_data, $pdf): TCPDF
     {
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $goem_col = mb_substr($spatial, 19, -1);
@@ -185,12 +163,12 @@ class GisGeometryCollection extends GisGeometry
      *
      * @param string $spatial    GIS GEOMETRYCOLLECTION object
      * @param string $label      label for the GIS GEOMETRYCOLLECTION object
-     * @param string $color      color for the GIS GEOMETRYCOLLECTION object
+     * @param int[]  $color      color for the GIS GEOMETRYCOLLECTION object
      * @param array  $scale_data array containing data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg($spatial, $label, $color, array $scale_data)
+    public function prepareRowAsSvg($spatial, string $label, array $color, array $scale_data): string
     {
         $row = '';
 
@@ -225,12 +203,12 @@ class GisGeometryCollection extends GisGeometry
      * @param string $spatial    GIS GEOMETRYCOLLECTION object
      * @param int    $srid       spatial reference ID
      * @param string $label      label for the GIS GEOMETRYCOLLECTION object
-     * @param array  $color      color for the GIS GEOMETRYCOLLECTION object
+     * @param int[]  $color      color for the GIS GEOMETRYCOLLECTION object
      * @param array  $scale_data array containing data related to scaling
      *
      * @return string JavaScript related to a row in the GIS dataset
      */
-    public function prepareRowAsOl($spatial, int $srid, $label, $color, array $scale_data)
+    public function prepareRowAsOl($spatial, int $srid, string $label, array $color, array $scale_data): string
     {
         $row = '';
 
@@ -263,9 +241,9 @@ class GisGeometryCollection extends GisGeometry
      *
      * @param string $geom_col geometry collection string
      *
-     * @return array the constituents of the geometry collection object
+     * @return string[] the constituents of the geometry collection object
      */
-    private function explodeGeomCol($geom_col)
+    private function explodeGeomCol($geom_col): array
     {
         $sub_parts = [];
         $br_count = 0;
@@ -297,7 +275,7 @@ class GisGeometryCollection extends GisGeometry
      *
      * @return string WKT with the set of parameters passed by the GIS editor
      */
-    public function generateWkt(array $gis_data, $index, $empty = '')
+    public function generateWkt(array $gis_data, $index, $empty = ''): string
     {
         $geom_count = $gis_data['GEOMETRYCOLLECTION']['geom_count'] ?? 1;
         $wkt = 'GEOMETRYCOLLECTION(';
@@ -323,43 +301,54 @@ class GisGeometryCollection extends GisGeometry
     }
 
     /**
+     * GeometryCollection does not have coordinates of its own
+     *
+     * @param string $wkt Value of the GIS column
+     */
+    protected function getCoordinateParams(string $wkt): array
+    {
+        throw new ErrorException('Has no own coordinates');
+    }
+
+    /**
      * Generates parameters for the GIS data editor from the value of the GIS column.
      *
      * @param string $value of the GIS column
      *
      * @return array parameters for the GIS editor from the value of the GIS column
      */
-    public function generateParams($value)
+    public function generateParams(string $value): array
     {
-        $params = [];
-        $data = GisGeometry::generateParams($value);
-        $params['srid'] = $data['srid'];
+        $data = $this->parseWktAndSrid($value);
         $wkt = $data['wkt'];
 
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $goem_col = mb_substr($wkt, 19, -1);
-        // Split the geometry collection object to get its constituents.
-        $sub_parts = $this->explodeGeomCol($goem_col);
-        $params['GEOMETRYCOLLECTION']['geom_count'] = count($sub_parts);
+        $wkt_geometries = $this->explodeGeomCol($goem_col);
+        $params = [
+            'srid' => $data['srid'],
+            'GEOMETRYCOLLECTION' => [
+                'geom_count' => count($wkt_geometries),
+            ],
+        ];
 
         $i = 0;
-        foreach ($sub_parts as $sub_part) {
-            $type_pos = mb_strpos($sub_part, '(');
+        foreach ($wkt_geometries as $wkt_geometry) {
+            $type_pos = mb_strpos($wkt_geometry, '(');
             if ($type_pos === false) {
                 continue;
             }
 
-            $type = mb_substr($sub_part, 0, $type_pos);
-            /**
-             * @var GisMultiPolygon|GisPolygon|GisMultiPoint|GisPoint|GisMultiLineString|GisLineString $gis_obj
-             */
-            $gis_obj = GisFactory::factory($type);
+            $wkt_type = strtoupper(mb_substr($wkt_geometry, 0, $type_pos));
+            $gis_obj = GisFactory::factory($wkt_type);
             if (! $gis_obj) {
                 continue;
             }
 
-            $params = array_merge($params, $gis_obj->generateParams($sub_part, $i));
-            $i++;
+            $params[$i++] = [
+                'gis_type' => $wkt_type,
+                $wkt_type => $gis_obj->getCoordinateParams($wkt_geometry),
+            ];
         }
 
         return $params;

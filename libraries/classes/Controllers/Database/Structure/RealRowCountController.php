@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database\Structure;
 
-use PhpMyAdmin\Controllers\Database\AbstractController;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -18,40 +19,36 @@ use function json_encode;
  */
 final class RealRowCountController extends AbstractController
 {
-    /** @var DatabaseInterface */
-    private $dbi;
-
-    public function __construct(ResponseRenderer $response, Template $template, string $db, DatabaseInterface $dbi)
+    public function __construct(ResponseRenderer $response, Template $template, private DatabaseInterface $dbi)
     {
-        parent::__construct($response, $template, $db);
-        $this->dbi = $dbi;
+        parent::__construct($response, $template);
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $cfg, $db, $errorUrl;
+        $GLOBALS['errorUrl'] ??= null;
 
         $parameters = [
             'real_row_count_all' => $_REQUEST['real_row_count_all'] ?? null,
             'table' => $_REQUEST['table'] ?? null,
         ];
 
-        Util::checkParameters(['db']);
+        $this->checkParameters(['db']);
 
-        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $errorUrl .= Url::getCommon(['db' => $db], '&');
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
         if (! $this->hasDatabase() || ! $this->response->isAjax()) {
             return;
         }
 
-        [$tables] = Util::getDbInfo($this->db, '_structure');
+        [$tables] = Util::getDbInfo($request, $GLOBALS['db']);
 
         // If there is a request to update all table's row count.
         if (! isset($parameters['real_row_count_all'])) {
             // Get the real row count for the table.
             $realRowCount = (int) $this->dbi
-                ->getTable($this->db, (string) $parameters['table'])
+                ->getTable($GLOBALS['db'], (string) $parameters['table'])
                 ->getRealRowCountTable();
             // Format the number.
             $realRowCount = Util::formatNumber($realRowCount, 0);
@@ -66,7 +63,7 @@ final class RealRowCountController extends AbstractController
         // Iterate over each table and fetch real row count.
         foreach ($tables as $table) {
             $rowCount = $this->dbi
-                ->getTable($this->db, $table['TABLE_NAME'])
+                ->getTable($GLOBALS['db'], $table['TABLE_NAME'])
                 ->getRealRowCountTable();
             $realRowCountAll[] = [
                 'table' => $table['TABLE_NAME'],

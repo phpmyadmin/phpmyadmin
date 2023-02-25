@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Html\Generator;
 
 use function count;
@@ -21,15 +22,8 @@ use function trim;
  */
 class CreateAddField
 {
-    /** @var DatabaseInterface */
-    private $dbi;
-
-    /**
-     * @param DatabaseInterface $dbi DatabaseInterface interface
-     */
-    public function __construct(DatabaseInterface $dbi)
+    public function __construct(private DatabaseInterface $dbi)
     {
-        $this->dbi = $dbi;
     }
 
     /**
@@ -70,7 +64,7 @@ class CreateAddField
      */
     private function buildColumnCreationStatement(
         int $fieldCount,
-        bool $isCreateTable = true
+        bool $isCreateTable = true,
     ): array {
         $definitions = [];
         $previousField = -1;
@@ -80,21 +74,20 @@ class CreateAddField
                 continue;
             }
 
-            $definition = $this->getStatementPrefix($isCreateTable) .
-                    Table::generateFieldSpec(
-                        trim($_POST['field_name'][$i]),
-                        $_POST['field_type'][$i],
-                        $_POST['field_length'][$i],
-                        $_POST['field_attribute'][$i],
-                        $_POST['field_collation'][$i] ?? '',
-                        $_POST['field_null'][$i] ?? 'NO',
-                        $_POST['field_default_type'][$i],
-                        $_POST['field_default_value'][$i],
-                        $_POST['field_extra'][$i] ?? false,
-                        $_POST['field_comments'][$i] ?? '',
-                        $_POST['field_virtuality'][$i] ?? '',
-                        $_POST['field_expression'][$i] ?? ''
-                    );
+            $definition = $this->getStatementPrefix($isCreateTable) . Table::generateFieldSpec(
+                trim($_POST['field_name'][$i]),
+                $_POST['field_type'][$i],
+                $_POST['field_length'][$i],
+                $_POST['field_attribute'][$i],
+                $_POST['field_collation'][$i] ?? '',
+                $_POST['field_null'][$i] ?? 'NO',
+                $_POST['field_default_type'][$i],
+                $_POST['field_default_value'][$i],
+                $_POST['field_extra'][$i] ?? '',
+                $_POST['field_comments'][$i] ?? '',
+                $_POST['field_virtuality'][$i] ?? '',
+                $_POST['field_expression'][$i] ?? '',
+            );
 
             $definition .= $this->setColumnCreationStatementSuffix($previousField, $isCreateTable);
             $previousField = $i;
@@ -115,7 +108,7 @@ class CreateAddField
      */
     private function setColumnCreationStatementSuffix(
         int $previousField,
-        bool $isCreateTable = true
+        bool $isCreateTable = true,
     ): string {
         // no suffix is needed if request is a table creation
         if ($isCreateTable) {
@@ -157,7 +150,7 @@ class CreateAddField
     private function buildIndexStatement(
         array $index,
         string $indexChoice,
-        bool $isCreateTable = true
+        bool $isCreateTable = true,
     ): string {
         if ($index === []) {
             return '';
@@ -325,7 +318,7 @@ class CreateAddField
      */
     private function getPartitionDefinition(
         array $partition,
-        bool $isSubPartition = false
+        bool $isSubPartition = false,
     ): string {
         $sqlQuery = ' ' . ($isSubPartition ? 'SUB' : '') . 'PARTITION ';
         $sqlQuery .= $partition['name'];
@@ -398,12 +391,16 @@ class CreateAddField
             . Util::backquote(trim($table)) . ' (' . $sqlStatement . ')';
 
         // Adds table type, character set, comments and partition definition
-        if (! empty($_POST['tbl_storage_engine']) && ($_POST['tbl_storage_engine'] !== 'Default')) {
-            $sqlQuery .= ' ENGINE = ' . $this->dbi->escapeString($_POST['tbl_storage_engine']);
+        if (
+            ! empty($_POST['tbl_storage_engine'])
+            && ($_POST['tbl_storage_engine'] !== 'Default')
+            && StorageEngine::isValid($_POST['tbl_storage_engine'])
+        ) {
+            $sqlQuery .= ' ENGINE = ' . $_POST['tbl_storage_engine'];
         }
 
         if (! empty($_POST['tbl_collation'])) {
-            $sqlQuery .= Util::getCharsetQueryPart($_POST['tbl_collation'] ?? '');
+            $sqlQuery .= Util::getCharsetQueryPart($_POST['tbl_collation']);
         }
 
         if (
@@ -411,13 +408,11 @@ class CreateAddField
             && ! empty($_POST['tbl_storage_engine'])
             && $_POST['tbl_storage_engine'] === 'FEDERATED'
         ) {
-            $sqlQuery .= " CONNECTION = '"
-                . $this->dbi->escapeString($_POST['connection']) . "'";
+            $sqlQuery .= ' CONNECTION = ' . $this->dbi->quoteString($_POST['connection']);
         }
 
         if (! empty($_POST['comment'])) {
-            $sqlQuery .= ' COMMENT = \''
-                . $this->dbi->escapeString($_POST['comment']) . '\'';
+            $sqlQuery .= ' COMMENT = ' . $this->dbi->quoteString($_POST['comment']);
         }
 
         $sqlQuery .= $this->getPartitionsDefinition();
@@ -456,13 +451,12 @@ class CreateAddField
      * @param string $table current table
      */
     public function getColumnCreationQuery(
-        string $table
+        string $table,
     ): string {
         // get column addition statements
         $sqlStatement = $this->getColumnCreationStatements(false);
 
-        $sqlQuery = 'ALTER TABLE ' .
-            Util::backquote($table) . ' ' . $sqlStatement;
+        $sqlQuery = 'ALTER TABLE ' . Util::backquote($table) . ' ' . $sqlStatement;
         if (isset($_POST['online_transaction'])) {
             $sqlQuery .= ', ALGORITHM=INPLACE, LOCK=NONE';
         }
@@ -473,23 +467,23 @@ class CreateAddField
     /**
      * Function to execute the column creation statement
      *
-     * @param string $db       current database
-     * @param string $sqlQuery the query to run
-     * @param string $errorUrl error page url
+     * @param DatabaseName $db       current database
+     * @param string       $sqlQuery the query to run
+     * @param string       $errorUrl error page url
      */
     public function tryColumnCreationQuery(
-        string $db,
+        DatabaseName $db,
         string $sqlQuery,
-        string $errorUrl
+        string $errorUrl,
     ): bool {
         // To allow replication, we first select the db to use and then run queries
         // on this db.
         if (! $this->dbi->selectDb($db)) {
             Generator::mysqlDie(
                 $this->dbi->getError(),
-                'USE ' . Util::backquote($db),
+                'USE ' . Util::backquote($db->getName()),
                 false,
-                $errorUrl
+                $errorUrl,
             );
         }
 

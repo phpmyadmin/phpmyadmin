@@ -11,9 +11,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use function __;
 use function sprintf;
 
-/**
- * @covers \PhpMyAdmin\Engines\Pbxt
- */
+/** @covers \PhpMyAdmin\Engines\Pbxt */
 class PbxtTest extends AbstractTestCase
 {
     /** @var Pbxt */
@@ -27,6 +25,7 @@ class PbxtTest extends AbstractTestCase
     {
         parent::setUp();
 
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $this->object = new Pbxt('pbxt');
     }
@@ -38,6 +37,7 @@ class PbxtTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 
@@ -54,7 +54,7 @@ class PbxtTest extends AbstractTestCase
                     'desc' => __(
                         'This is the amount of memory allocated to the'
                         . ' index cache. Default value is 32MB. The memory'
-                        . ' allocated here is used only for caching index pages.'
+                        . ' allocated here is used only for caching index pages.',
                     ),
                     'type' => 1,
                 ],
@@ -64,7 +64,7 @@ class PbxtTest extends AbstractTestCase
                         'This is the amount of memory allocated to the'
                         . ' record cache used to cache table data. The default'
                         . ' value is 32MB. This memory is used to cache changes to'
-                        . ' the handle data (.xtd) and row pointer (.xtr) files.'
+                        . ' the handle data (.xtd) and row pointer (.xtr) files.',
                     ),
                     'type' => 1,
                 ],
@@ -73,7 +73,7 @@ class PbxtTest extends AbstractTestCase
                     'desc' => __(
                         'The amount of memory allocated to the'
                         . ' transaction log cache used to cache on transaction log'
-                        . ' data. The default is 16MB.'
+                        . ' data. The default is 16MB.',
                     ),
                     'type' => 1,
                 ],
@@ -81,7 +81,7 @@ class PbxtTest extends AbstractTestCase
                     'title' => __('Log file threshold'),
                     'desc' => __(
                         'The size of a transaction log before rollover,'
-                        . ' and a new log is created. The default value is 16MB.'
+                        . ' and a new log is created. The default value is 16MB.',
                     ),
                     'type' => 1,
                 ],
@@ -90,7 +90,7 @@ class PbxtTest extends AbstractTestCase
                     'desc' => __(
                         'The size of the global transaction log buffer'
                         . ' (the engine allocates 2 buffers of this size).'
-                        . ' The default is 1MB.'
+                        . ' The default is 1MB.',
                     ),
                     'type' => 1,
                 ],
@@ -99,7 +99,7 @@ class PbxtTest extends AbstractTestCase
                     'desc' => __(
                         'The amount of data written to the transaction'
                         . ' log before a checkpoint is performed.'
-                        . ' The default value is 24MB.'
+                        . ' The default value is 24MB.',
                     ),
                     'type' => 1,
                 ],
@@ -110,7 +110,7 @@ class PbxtTest extends AbstractTestCase
                         . ' value is 64MB. PBXT can create a maximum of 32000 data'
                         . ' logs, which are used by all tables. So the value of'
                         . ' this variable can be increased to increase the total'
-                        . ' amount of data that can be stored in the database.'
+                        . ' amount of data that can be stored in the database.',
                     ),
                     'type' => 1,
                 ],
@@ -119,7 +119,7 @@ class PbxtTest extends AbstractTestCase
                     'desc' => __(
                         'The percentage of garbage in a data log file'
                         . ' before it is compacted. This is a value between 1 and'
-                        . ' 99. The default is 50.'
+                        . ' 99. The default is 50.',
                     ),
                     'type' => 2,
                 ],
@@ -129,7 +129,7 @@ class PbxtTest extends AbstractTestCase
                         'The size of the buffer used when writing a data'
                         . ' log. The default is 256MB. The engine allocates one'
                         . ' buffer per thread, but only if the thread is required'
-                        . ' to write a data log.'
+                        . ' to write a data log.',
                     ),
                     'type' => 1,
                 ],
@@ -150,11 +150,11 @@ class PbxtTest extends AbstractTestCase
                         . ' (pbxt/system/xlog*.xt) the system will maintain. If the'
                         . ' number of logs exceeds this value then old logs will be'
                         . ' deleted, otherwise they are renamed and given the next'
-                        . ' highest number.'
+                        . ' highest number.',
                     ),
                     'type' => 2,
                 ],
-            ]
+            ],
         );
     }
 
@@ -170,7 +170,7 @@ class PbxtTest extends AbstractTestCase
     {
         $this->assertEquals(
             $this->object->resolveTypeSize($formatted_size),
-            $output
+            $output,
         );
     }
 
@@ -179,7 +179,7 @@ class PbxtTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerFortTestResolveTypeSize(): array
+    public static function providerFortTestResolveTypeSize(): array
     {
         return [
             [
@@ -213,7 +213,7 @@ class PbxtTest extends AbstractTestCase
     {
         $this->assertEquals(
             $this->object->getInfoPages(),
-            ['Documentation' => 'Documentation']
+            ['Documentation' => 'Documentation'],
         );
     }
 
@@ -227,18 +227,18 @@ class PbxtTest extends AbstractTestCase
             '<p>'
             . sprintf(
                 __(
-                    'Documentation and further information about PBXT can be found on the %sPrimeBase XT Home Page%s.'
+                    'Documentation and further information about PBXT can be found on the %sPrimeBase XT Home Page%s.',
                 ),
-                '<a href="' . Core::linkURL('https://mariadb.com/kb/en/mariadb/about-pbxt/')
+                '<a href="' . Core::linkURL('https://mariadb.com/kb/en/about-pbxt/')
                 . '" rel="noopener noreferrer" target="_blank">',
-                '</a>'
+                '</a>',
             )
-            . '</p>' . "\n"
+            . '</p>' . "\n",
         );
 
         $this->assertEquals(
             $this->object->getPage('NonExistMethod'),
-            false
+            false,
         );
     }
 }

@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\Export\ExportLatex;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -16,10 +17,10 @@ use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PhpMyAdmin\Transformations;
 use ReflectionMethod;
 
 use function __;
-use function array_shift;
 use function ob_get_clean;
 use function ob_start;
 
@@ -38,6 +39,8 @@ class ExportLatexTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['output_charset_conversion'] = false;
@@ -49,7 +52,11 @@ class ExportLatexTest extends AbstractTestCase
         $GLOBALS['plugin_param']['single_table'] = false;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
-        $this->object = new ExportLatex();
+        $this->object = new ExportLatex(
+            new Relation($GLOBALS['dbi']),
+            new Export($GLOBALS['dbi']),
+            new Transformations(),
+        );
     }
 
     /**
@@ -58,6 +65,7 @@ class ExportLatexTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 
@@ -76,29 +84,28 @@ class ExportLatexTest extends AbstractTestCase
         $_SESSION = ['relation' => [$GLOBALS['server'] => $relationParameters->toArray()]];
 
         $method = new ReflectionMethod(ExportLatex::class, 'setProperties');
-        $method->setAccessible(true);
         $properties = $method->invoke($this->object, null);
 
         $this->assertInstanceOf(ExportPluginProperties::class, $properties);
 
         $this->assertEquals(
             'LaTeX',
-            $properties->getText()
+            $properties->getText(),
         );
 
         $this->assertEquals(
             'tex',
-            $properties->getExtension()
+            $properties->getExtension(),
         );
 
         $this->assertEquals(
             'application/x-tex',
-            $properties->getMimeType()
+            $properties->getMimeType(),
         );
 
         $this->assertEquals(
             'Options',
-            $properties->getOptionsText()
+            $properties->getOptionsText(),
         );
 
         $options = $properties->getOptions();
@@ -107,59 +114,61 @@ class ExportLatexTest extends AbstractTestCase
 
         $this->assertEquals(
             'Format Specific Options',
-            $options->getName()
+            $options->getName(),
         );
 
         $generalOptionsArray = $options->getProperties();
 
-        $generalOptions = array_shift($generalOptionsArray);
+        $generalOptions = $generalOptionsArray->current();
+        $generalOptionsArray->next();
 
         $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'general_opts',
-            $generalOptions->getName()
+            $generalOptions->getName(),
         );
 
         $generalProperties = $generalOptions->getProperties();
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
 
         $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
         $this->assertEquals(
             'caption',
-            $property->getName()
+            $property->getName(),
         );
 
         $this->assertEquals(
             'Include table caption',
-            $property->getText()
+            $property->getText(),
         );
 
-        $generalOptions = array_shift($generalOptionsArray);
+        $generalOptions = $generalOptionsArray->current();
+        $generalOptionsArray->next();
 
         $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'dump_what',
-            $generalOptions->getName()
+            $generalOptions->getName(),
         );
 
         $this->assertEquals(
             'Dump table',
-            $generalOptions->getText()
+            $generalOptions->getText(),
         );
 
         $generalProperties = $generalOptions->getProperties();
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
 
         $this->assertInstanceOf(RadioPropertyItem::class, $property);
 
         $this->assertEquals(
             'structure_or_data',
-            $property->getName()
+            $property->getName(),
         );
 
         $this->assertEquals(
@@ -168,235 +177,245 @@ class ExportLatexTest extends AbstractTestCase
                 'data' => __('data'),
                 'structure_and_data' => __('structure and data'),
             ],
-            $property->getValues()
+            $property->getValues(),
         );
 
         // hide structure
-        $generalOptions = array_shift($generalOptionsArray);
+        $generalOptions = $generalOptionsArray->current();
+        $generalOptionsArray->next();
 
         $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'structure',
-            $generalOptions->getName()
+            $generalOptions->getName(),
         );
 
         $this->assertEquals(
             'Object creation options',
-            $generalOptions->getText()
+            $generalOptions->getText(),
         );
 
         $this->assertEquals(
             'data',
-            $generalOptions->getForce()
+            $generalOptions->getForce(),
         );
 
         $generalProperties = $generalOptions->getProperties();
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
+        $generalProperties->next();
 
         $this->assertInstanceOf(TextPropertyItem::class, $property);
 
         $this->assertEquals(
             'structure_caption',
-            $property->getName()
+            $property->getName(),
         );
 
         $this->assertEquals(
             'Table caption:',
-            $property->getText()
+            $property->getText(),
         );
 
         $this->assertEquals(
             'faq6-27',
-            $property->getDoc()
+            $property->getDoc(),
         );
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
+        $generalProperties->next();
 
         $this->assertInstanceOf(TextPropertyItem::class, $property);
 
         $this->assertEquals(
             'structure_continued_caption',
-            $property->getName()
+            $property->getName(),
         );
 
         $this->assertEquals(
             'Table caption (continued):',
-            $property->getText()
+            $property->getText(),
         );
 
         $this->assertEquals(
             'faq6-27',
-            $property->getDoc()
+            $property->getDoc(),
         );
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
+        $generalProperties->next();
 
         $this->assertInstanceOf(TextPropertyItem::class, $property);
 
         $this->assertEquals(
             'structure_label',
-            $property->getName()
+            $property->getName(),
         );
 
         $this->assertEquals(
             'Label key:',
-            $property->getText()
+            $property->getText(),
         );
 
         $this->assertEquals(
             'faq6-27',
-            $property->getDoc()
+            $property->getDoc(),
         );
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
+        $generalProperties->next();
 
         $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
         $this->assertEquals(
             'relation',
-            $property->getName()
+            $property->getName(),
         );
 
         $this->assertEquals(
             'Display foreign key relationships',
-            $property->getText()
+            $property->getText(),
         );
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
+        $generalProperties->next();
 
         $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
         $this->assertEquals(
             'comments',
-            $property->getName()
+            $property->getName(),
         );
 
         $this->assertEquals(
             'Display comments',
-            $property->getText()
+            $property->getText(),
         );
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
 
         $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
         $this->assertEquals(
             'mime',
-            $property->getName()
+            $property->getName(),
         );
 
         $this->assertEquals(
             'Display media types',
-            $property->getText()
+            $property->getText(),
         );
 
         // data options
-        $generalOptions = array_shift($generalOptionsArray);
+        $generalOptions = $generalOptionsArray->current();
 
         $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'data',
-            $generalOptions->getName()
+            $generalOptions->getName(),
         );
 
         $this->assertEquals(
             'Data dump options',
-            $generalOptions->getText()
+            $generalOptions->getText(),
         );
 
         $this->assertEquals(
             'structure',
-            $generalOptions->getForce()
+            $generalOptions->getForce(),
         );
 
         $generalProperties = $generalOptions->getProperties();
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
+        $generalProperties->next();
 
         $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
         $this->assertEquals(
             'columns',
-            $property->getName()
+            $property->getName(),
         );
 
         $this->assertEquals(
             'Put columns names in the first row:',
-            $property->getText()
+            $property->getText(),
         );
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
+        $generalProperties->next();
 
         $this->assertInstanceOf(TextPropertyItem::class, $property);
 
         $this->assertEquals(
             'data_caption',
-            $property->getName()
+            $property->getName(),
         );
 
         $this->assertEquals(
             'Table caption:',
-            $property->getText()
+            $property->getText(),
         );
 
         $this->assertEquals(
             'faq6-27',
-            $property->getDoc()
+            $property->getDoc(),
         );
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
+        $generalProperties->next();
 
         $this->assertInstanceOf(TextPropertyItem::class, $property);
 
         $this->assertEquals(
             'data_continued_caption',
-            $property->getName()
+            $property->getName(),
         );
 
         $this->assertEquals(
             'Table caption (continued):',
-            $property->getText()
+            $property->getText(),
         );
 
         $this->assertEquals(
             'faq6-27',
-            $property->getDoc()
+            $property->getDoc(),
         );
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
+        $generalProperties->next();
 
         $this->assertInstanceOf(TextPropertyItem::class, $property);
 
         $this->assertEquals(
             'data_label',
-            $property->getName()
+            $property->getName(),
         );
 
         $this->assertEquals(
             'Label key:',
-            $property->getText()
+            $property->getText(),
         );
 
         $this->assertEquals(
             'faq6-27',
-            $property->getDoc()
+            $property->getDoc(),
         );
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
 
         $this->assertInstanceOf(TextPropertyItem::class, $property);
 
         $this->assertEquals(
             'null',
-            $property->getName()
+            $property->getName(),
         );
 
         $this->assertEquals(
             'Replace NULL with:',
-            $property->getText()
+            $property->getText(),
         );
 
         // case 2
@@ -412,13 +431,12 @@ class ExportLatexTest extends AbstractTestCase
 
     public function testExportHeader(): void
     {
-        $GLOBALS['crlf'] = "\n";
         $GLOBALS['cfg']['Server']['port'] = 80;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
 
         ob_start();
         $this->assertTrue(
-            $this->object->exportHeader()
+            $this->object->exportHeader(),
         );
         $result = ob_get_clean();
 
@@ -430,32 +448,30 @@ class ExportLatexTest extends AbstractTestCase
     public function testExportFooter(): void
     {
         $this->assertTrue(
-            $this->object->exportFooter()
+            $this->object->exportFooter(),
         );
     }
 
     public function testExportDBHeader(): void
     {
-        $GLOBALS['crlf'] = "\n";
-
         $this->expectOutputString("% \n% Database: 'testDB'\n% \n");
 
         $this->assertTrue(
-            $this->object->exportDBHeader('testDB')
+            $this->object->exportDBHeader('testDB'),
         );
     }
 
     public function testExportDBFooter(): void
     {
         $this->assertTrue(
-            $this->object->exportDBFooter('testDB')
+            $this->object->exportDBFooter('testDB'),
         );
     }
 
     public function testExportDBCreate(): void
     {
         $this->assertTrue(
-            $this->object->exportDBCreate('testDB', 'database')
+            $this->object->exportDBCreate('testDB', 'database'),
         );
     }
 
@@ -474,9 +490,8 @@ class ExportLatexTest extends AbstractTestCase
         $this->assertTrue($this->object->exportData(
             'test_db',
             'test_table',
-            "\n",
             'localhost',
-            'SELECT * FROM `test_db`.`test_table`;'
+            'SELECT * FROM `test_db`.`test_table`;',
         ));
         $result = ob_get_clean();
 
@@ -496,7 +511,7 @@ class ExportLatexTest extends AbstractTestCase
             '2 & foo & 2010-01-20 02:00:02 \\\\ \hline ' . "\n" .
             '3 & Abcd & 2012-01-20 02:00:02 \\\\ \hline ' . "\n" .
             ' \end{longtable}' . "\n",
-            $result
+            $result,
         );
 
         // case 2
@@ -506,9 +521,8 @@ class ExportLatexTest extends AbstractTestCase
         $this->assertTrue($this->object->exportData(
             'test_db',
             'test_table',
-            "\n",
             'localhost',
-            'SELECT * FROM `test_db`.`test_table`;'
+            'SELECT * FROM `test_db`.`test_table`;',
         ));
         $result = ob_get_clean();
 
@@ -524,7 +538,7 @@ class ExportLatexTest extends AbstractTestCase
             '2 & foo & 2010-01-20 02:00:02 \\\\ \hline ' . "\n" .
             '3 & Abcd & 2012-01-20 02:00:02 \\\\ \hline ' . "\n" .
             ' \end{longtable}' . "\n",
-            $result
+            $result,
         );
     }
 
@@ -564,7 +578,7 @@ class ExportLatexTest extends AbstractTestCase
                         'transformation' => 'testfoo',
                         'mimetype' => 'testmimetype_',
                     ],
-                ]
+                ],
             );
 
         $columns = [
@@ -620,14 +634,13 @@ class ExportLatexTest extends AbstractTestCase
             $this->object->exportStructure(
                 'database',
                 '',
-                "\n",
                 'example.com',
                 'test',
                 'test',
                 true,
                 true,
-                true
-            )
+                true,
+            ),
         );
         $result = ob_get_clean();
 
@@ -652,7 +665,7 @@ class ExportLatexTest extends AbstractTestCase
             '& Testmimetype/ \\\\ \\hline ' . "\n" .
             'fields &   & No & def &  &  \\\\ \\hline ' . "\n" .
             ' \\end{longtable}' . "\n",
-            $result
+            $result,
         );
 
         // case 2
@@ -679,7 +692,7 @@ class ExportLatexTest extends AbstractTestCase
                         'transformation' => 'testfoo',
                         'mimetype' => 'test<',
                     ],
-                ]
+                ],
             );
 
         $dbi->expects($this->once())
@@ -722,14 +735,13 @@ class ExportLatexTest extends AbstractTestCase
             $this->object->exportStructure(
                 'database',
                 '',
-                "\n",
                 'example.com',
                 'test',
                 'test',
                 true,
                 true,
-                true
-            )
+                true,
+            ),
         );
         $result = ob_get_clean();
 
@@ -738,7 +750,7 @@ class ExportLatexTest extends AbstractTestCase
         $this->assertStringContainsString(
             '\\textbf{\\textit{name1}} & set(abc) & Yes & NULL & ' .
             'ftable (ffield) &  &  \\\\ \\hline',
-            $result
+            $result,
         );
 
         // case 3
@@ -781,11 +793,10 @@ class ExportLatexTest extends AbstractTestCase
             $this->object->exportStructure(
                 'database',
                 '',
-                "\n",
                 'example.com',
                 'test',
-                'test'
-            )
+                'test',
+            ),
         );
         $result = ob_get_clean();
 
@@ -800,11 +811,10 @@ class ExportLatexTest extends AbstractTestCase
             $this->object->exportStructure(
                 'database',
                 '',
-                "\n",
                 'example.com',
                 'triggers',
-                'test'
-            )
+                'test',
+            ),
         );
     }
 
@@ -812,7 +822,7 @@ class ExportLatexTest extends AbstractTestCase
     {
         $this->assertEquals(
             '\\$\\%\\{foo\\&bar\\}\\#\\_\\^',
-            ExportLatex::texEscape('$%{foo&bar}#_^')
+            ExportLatex::texEscape('$%{foo&bar}#_^'),
         );
     }
 }

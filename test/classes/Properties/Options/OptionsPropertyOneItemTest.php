@@ -8,9 +8,7 @@ use PhpMyAdmin\Properties\Options\OptionsPropertyOneItem;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\MockObject\MockObject;
 
-/**
- * @covers \PhpMyAdmin\Properties\Options\OptionsPropertyOneItem
- */
+/** @covers \PhpMyAdmin\Properties\Options\OptionsPropertyOneItem */
 class OptionsPropertyOneItemTest extends AbstractTestCase
 {
     /** @var OptionsPropertyOneItem|MockObject  */
@@ -22,6 +20,7 @@ class OptionsPropertyOneItemTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->stub = $this->getMockForAbstractClass(OptionsPropertyOneItem::class);
     }
 
@@ -31,6 +30,7 @@ class OptionsPropertyOneItemTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->stub);
     }
 
@@ -48,7 +48,7 @@ class OptionsPropertyOneItemTest extends AbstractTestCase
                 1,
                 2,
             ],
-            $this->stub->getValues()
+            $this->stub->getValues(),
         );
     }
 
@@ -63,7 +63,7 @@ class OptionsPropertyOneItemTest extends AbstractTestCase
 
         $this->assertEquals(
             12,
-            $this->stub->getLen()
+            $this->stub->getLen(),
         );
     }
 
@@ -78,7 +78,7 @@ class OptionsPropertyOneItemTest extends AbstractTestCase
 
         $this->assertEquals(
             'force123',
-            $this->stub->getForce()
+            $this->stub->getForce(),
         );
     }
 
@@ -93,7 +93,7 @@ class OptionsPropertyOneItemTest extends AbstractTestCase
 
         $this->assertEquals(
             'doc123',
-            $this->stub->getDoc()
+            $this->stub->getDoc(),
         );
     }
 
@@ -108,7 +108,7 @@ class OptionsPropertyOneItemTest extends AbstractTestCase
 
         $this->assertEquals(
             22,
-            $this->stub->getSize()
+            $this->stub->getSize(),
         );
     }
 }

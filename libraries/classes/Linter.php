@@ -29,9 +29,9 @@ class Linter
      *
      * @param string|UtfString $str String to be analyzed.
      *
-     * @return array
+     * @return int[]
      */
-    public static function getLines($str)
+    public static function getLines(string|UtfString $str): array
     {
         if ((! ($str instanceof UtfString)) && defined('USE_UTF_STRINGS') && USE_UTF_STRINGS) {
             // If the lexer uses UtfString for processing then the position will
@@ -52,8 +52,7 @@ class Linter
         // first byte of the third character. The fourth and the last one
         // (which is actually a new line) aren't going to be processed at
         // all.
-        $len = $str instanceof UtfString ?
-            $str->length() : strlen($str);
+        $len = $str instanceof UtfString ? $str->length() : strlen($str);
 
         $lines = [0];
         for ($i = 0; $i < $len; ++$i) {
@@ -75,7 +74,7 @@ class Linter
      *
      * @return array
      */
-    public static function findLineNumberAndColumn(array $lines, $pos)
+    public static function findLineNumberAndColumn(array $lines, $pos): array
     {
         $line = 0;
         foreach ($lines as $lineNo => $lineStart) {
@@ -99,7 +98,7 @@ class Linter
      *
      * @return array
      */
-    public static function lint($query)
+    public static function lint($query): array
     {
         // Disabling lint for huge queries to save some resources.
         if (mb_strlen($query) > 10000) {
@@ -132,8 +131,6 @@ class Linter
 
         /**
          * The response containing of all errors.
-         *
-         * @var array
          */
         $response = [];
 
@@ -153,7 +150,7 @@ class Linter
             // Ending position of the string that caused the error.
             [$toLine, $toColumn] = static::findLineNumberAndColumn(
                 $lines,
-                $error[3] + mb_strlen((string) $error[2])
+                $error[3] + mb_strlen((string) $error[2]),
             );
 
             // Building the response.
@@ -161,7 +158,7 @@ class Linter
                 'message' => sprintf(
                     __('%1$s (near <code>%2$s</code>)'),
                     htmlspecialchars((string) $error[0]),
-                    htmlspecialchars((string) $error[2])
+                    htmlspecialchars((string) $error[2]),
                 ),
                 'fromLine' => $fromLine,
                 'fromColumn' => $fromColumn,

@@ -7,25 +7,21 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Url;
 use stdClass;
 
 use function __;
 use function _pgettext;
 use function hash;
+use function header;
 use function htmlspecialchars;
-use function mb_strpos;
-use function ob_end_clean;
-use function ob_get_contents;
-use function ob_start;
-use function preg_quote;
 use function serialize;
 use function str_repeat;
+use function strtr;
 
-/**
- * @covers \PhpMyAdmin\Core
- */
+use const ENT_QUOTES;
+
+/** @covers \PhpMyAdmin\Core */
 class CoreTest extends AbstractNetworkTestCase
 {
     /**
@@ -34,8 +30,12 @@ class CoreTest extends AbstractNetworkTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setTheme();
+
         parent::setLanguage();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
 
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = '';
@@ -77,72 +77,72 @@ class CoreTest extends AbstractNetworkTestCase
 
         $this->assertEquals(
             Core::arrayRead('int', $arr),
-            $arr['int']
+            $arr['int'],
         );
 
         $this->assertEquals(
             Core::arrayRead('str', $arr),
-            $arr['str']
+            $arr['str'],
         );
 
         $this->assertEquals(
             Core::arrayRead('arr/0', $arr),
-            $arr['arr'][0]
+            $arr['arr'][0],
         );
 
         $this->assertEquals(
             Core::arrayRead('arr/1', $arr),
-            $arr['arr'][1]
+            $arr['arr'][1],
         );
 
         $this->assertEquals(
             Core::arrayRead('arr/2', $arr),
-            $arr['arr'][2]
+            $arr['arr'][2],
         );
 
         $this->assertEquals(
             Core::arrayRead('sarr/arr1/0', $arr),
-            $arr['sarr']['arr1'][0]
+            $arr['sarr']['arr1'][0],
         );
 
         $this->assertEquals(
             Core::arrayRead('sarr/arr1/1', $arr),
-            $arr['sarr']['arr1'][1]
+            $arr['sarr']['arr1'][1],
         );
 
         $this->assertEquals(
             Core::arrayRead('sarr/arr1/2', $arr),
-            $arr['sarr']['arr1'][2]
+            $arr['sarr']['arr1'][2],
         );
 
         $this->assertEquals(
             Core::arrayRead('sarr/0/0', $arr),
-            $arr['sarr'][0][0]
+            $arr['sarr'][0][0],
         );
 
         $this->assertEquals(
             Core::arrayRead('sarr/0/1', $arr),
-            $arr['sarr'][0][1]
+            $arr['sarr'][0][1],
         );
 
         $this->assertEquals(
             Core::arrayRead('sarr/0/1/2', $arr),
-            $arr['sarr'][0][1][2]
+            $arr['sarr'][0][1][2],
         );
 
         $this->assertEquals(
             Core::arrayRead('sarr/not_exiting/1', $arr),
-            null
+            null,
         );
 
         $this->assertEquals(
             Core::arrayRead('sarr/not_exiting/1', $arr, 0),
-            0
+            0,
         );
 
         $this->assertEquals(
             Core::arrayRead('sarr/not_exiting/1', $arr, 'default_val'),
-            'default_val'
+            'default_val',
         );
     }
 
@@ -293,14 +293,14 @@ class CoreTest extends AbstractNetworkTestCase
     /**
      * Test for Core::checkPageValidity
      *
-     * @param string|null $page      Page
-     * @param array       $allowList Allow list
-     * @param bool        $include   whether the page is going to be included
-     * @param bool        $expected  Expected value
+     * @param string $page      Page
+     * @param array  $allowList Allow list
+     * @param bool   $include   whether the page is going to be included
+     * @param bool   $expected  Expected value
      *
      * @dataProvider providerTestGotoNowhere
      */
-    public function testGotoNowhere(?string $page, array $allowList, bool $include, bool $expected): void
+    public function testGotoNowhere(string $page, array $allowList, bool $include, bool $expected): void
     {
         $this->assertSame($expected, Core::checkPageValidity($page, $allowList, $include));
     }
@@ -310,17 +310,17 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @return array
      */
-    public function providerTestGotoNowhere(): array
+    public static function providerTestGotoNowhere(): array
     {
         return [
             [
-                null,
+                '',
                 [],
                 false,
                 false,
             ],
             [
-                null,
+                '',
                 [],
                 true,
                 false,
@@ -362,42 +362,6 @@ class CoreTest extends AbstractNetworkTestCase
                 false,
             ],
         ];
-    }
-
-    /**
-     * Test for Core::fatalError
-     */
-    public function testFatalErrorMessage(): void
-    {
-        $_REQUEST = [];
-        ResponseRenderer::getInstance()->setAjax(false);
-
-        $this->expectOutputRegex('/FatalError!/');
-        Core::fatalError('FatalError!');
-    }
-
-    /**
-     * Test for Core::fatalError
-     */
-    public function testFatalErrorMessageWithArgs(): void
-    {
-        $_REQUEST = [];
-        ResponseRenderer::getInstance()->setAjax(false);
-
-        $message = 'Fatal error #%d in file %s.';
-        $params = [
-            1,
-            'error_file.php',
-        ];
-
-        $this->expectOutputRegex('/Fatal error #1 in file error_file.php./');
-        Core::fatalError($message, $params);
-
-        $message = 'Fatal error in file %s.';
-        $params = 'error_file.php';
-
-        $this->expectOutputRegex('/Fatal error in file error_file.php./');
-        Core::fatalError($message, $params);
     }
 
     /**
@@ -420,7 +384,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @return array
      */
-    public function providerTestGetRealSize(): array
+    public static function providerTestGetRealSize(): array
     {
         return [
             [
@@ -482,8 +446,8 @@ class CoreTest extends AbstractNetworkTestCase
         $lang = _pgettext('PHP documentation language', 'en');
         $this->assertEquals(
             Core::getPHPDocLink('function'),
-            './url.php?url=https%3A%2F%2Fwww.php.net%2Fmanual%2F'
-            . $lang . '%2Ffunction'
+            'index.php?route=/url&url=https%3A%2F%2Fwww.php.net%2Fmanual%2F'
+            . $lang . '%2Ffunction',
         );
     }
 
@@ -505,16 +469,16 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @return array
      */
-    public function providerTestLinkURL(): array
+    public static function providerTestLinkURL(): array
     {
         return [
             [
                 'https://wiki.phpmyadmin.net',
-                './url.php?url=https%3A%2F%2Fwiki.phpmyadmin.net',
+                'index.php?route=/url&url=https%3A%2F%2Fwiki.phpmyadmin.net',
             ],
             [
                 'https://wiki.phpmyadmin.net',
-                './url.php?url=https%3A%2F%2Fwiki.phpmyadmin.net',
+                'index.php?route=/url&url=https%3A%2F%2Fwiki.phpmyadmin.net',
             ],
             [
                 'wiki.phpmyadmin.net',
@@ -550,7 +514,9 @@ class CoreTest extends AbstractNetworkTestCase
     public function testSendHeaderLocationWithoutSidWithoutIis(): void
     {
         $GLOBALS['server'] = 0;
+
         parent::setGlobalConfig();
+
         $GLOBALS['config']->set('PMA_IS_IIS', null);
 
         $testUri = 'https://example.com/test.php';
@@ -565,7 +531,9 @@ class CoreTest extends AbstractNetworkTestCase
     public function testSendHeaderLocationIisLongUri(): void
     {
         $GLOBALS['server'] = 0;
+
         parent::setGlobalConfig();
+
         $GLOBALS['config']->set('PMA_IS_IIS', true);
 
         // over 600 chars
@@ -580,19 +548,24 @@ class CoreTest extends AbstractNetworkTestCase
             . '&test=test&test=test&test=test&test=test&test=test&test=test'
             . '&test=test&test=test&test=test&test=test&test=test&test=test'
             . '&test=test&test=test';
-        $testUri_html = htmlspecialchars($testUri);
-        $testUri_js = Sanitize::escapeJsString($testUri);
+        $testUri_js = strtr($testUri, [
+            ':' => '\u003A',
+            '/' => '\/', // Twig uses the short escape sequence
+            '?' => '\u003F',
+            '&' => '\u0026',
+            '=' => '\u003D',
+        ]);
 
         $header = "<html>\n<head>\n    <title>- - -</title>"
             . "\n    <meta http-equiv=\"expires\" content=\"0\">"
             . "\n    <meta http-equiv=\"Pragma\" content=\"no-cache\">"
             . "\n    <meta http-equiv=\"Cache-Control\" content=\"no-cache\">"
-            . "\n    <meta http-equiv=\"Refresh\" content=\"0;url=" . $testUri_html . '">'
+            . "\n    <meta http-equiv=\"Refresh\" content=\"0;url=" . htmlspecialchars($testUri, ENT_QUOTES) . '">'
             . "\n    <script type=\"text/javascript\">\n        //<![CDATA["
             . "\n        setTimeout(function() { window.location = decodeURI('" . $testUri_js . "'); }, 2000);"
             . "\n        //]]>\n    </script>\n</head>"
             . "\n<body>\n<script type=\"text/javascript\">\n    //<![CDATA["
-            . "\n    document.write('<p><a href=\"" . $testUri_html . '">' . __('Go') . "</a></p>');"
+            . "\n    document.write('<p><a href=\"" . $testUri_js . '">' . __('Go') . "</a></p>');"
             . "\n    //]]>\n</script>\n</body>\n</html>\n";
 
         $this->expectOutputString($header);
@@ -602,63 +575,47 @@ class CoreTest extends AbstractNetworkTestCase
         Core::sendHeaderLocation($testUri);
     }
 
-    /**
-     * Test for unserializing
-     *
-     * @param string $url      URL to test
-     * @param mixed  $expected Expected result
-     *
-     * @dataProvider provideTestIsAllowedDomain
-     */
-    public function testIsAllowedDomain(string $url, $expected): void
+    /** @dataProvider provideTestIsAllowedDomain */
+    public function testIsAllowedDomain(string $url, bool $expected): void
     {
         $_SERVER['SERVER_NAME'] = 'server.local';
         $this->assertEquals(
             $expected,
-            Core::isAllowedDomain($url)
+            Core::isAllowedDomain($url),
         );
     }
 
     /**
-     * Test data provider
-     *
-     * @return array
+     * @return array<int, array<int, bool|string>>
+     * @psalm-return list<array{string, bool}>
      */
-    public function provideTestIsAllowedDomain(): array
+    public static function provideTestIsAllowedDomain(): array
     {
         return [
-            [
-                'https://www.phpmyadmin.net/',
-                true,
-            ],
-            [
-                'http://duckduckgo.com\\@github.com',
-                false,
-            ],
-            [
-                'https://github.com/',
-                true,
-            ],
-            [
-                'https://github.com:123/',
-                false,
-            ],
-            [
-                'https://user:pass@github.com:123/',
-                false,
-            ],
-            [
-                'https://user:pass@github.com/',
-                false,
-            ],
-            [
-                'https://server.local/',
-                true,
-            ],
-            [
-                './relative/',
-                false,
-            ],
+            ['', false],
+            ['//', false],
+            ['https://www.phpmyadmin.net/', true],
+            ['https://www.phpmyadmin.net:123/', false],
+            ['http://duckduckgo.com\\@github.com', false],
+            ['https://user:pass@github.com:123/', false],
+            ['https://user:pass@github.com/', false],
+            ['https://server.local/', true],
+            ['./relative/', false],
+            ['//wiki.phpmyadmin.net', true],
+            ['//www.phpmyadmin.net', true],
+            ['//phpmyadmin.net', true],
+            ['//demo.phpmyadmin.net', true],
+            ['//docs.phpmyadmin.net', true],
+            ['//dev.mysql.com', true],
+            ['//bugs.mysql.com', true],
+            ['//mariadb.org', true],
+            ['//mariadb.com', true],
+            ['//php.net', true],
+            ['//www.php.net', true],
+            ['//github.com', true],
+            ['//www.github.com', true],
+            ['//www.percona.com', true],
+            ['//mysqldatabaseadministration.blogspot.com', true],
         ];
     }
 
@@ -674,7 +631,7 @@ class CoreTest extends AbstractNetworkTestCase
     {
         $this->assertEquals(
             $expected,
-            Core::safeUnserialize($data)
+            Core::safeUnserialize($data),
         );
     }
 
@@ -683,7 +640,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @return array
      */
-    public function provideTestSafeUnserialize(): array
+    public static function provideTestSafeUnserialize(): array
     {
         return [
             [
@@ -746,7 +703,7 @@ class CoreTest extends AbstractNetworkTestCase
     {
         $this->assertEquals(
             $expected,
-            Core::sanitizeMySQLHost($host)
+            Core::sanitizeMySQLHost($host),
         );
     }
 
@@ -755,7 +712,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @return array
      */
-    public function provideTestSanitizeMySQLHost(): array
+    public static function provideTestSanitizeMySQLHost(): array
     {
         return [
             [
@@ -784,15 +741,15 @@ class CoreTest extends AbstractNetworkTestCase
     {
         $this->assertEquals(
             Core::securePath('../../../etc/passwd'),
-            './././etc/passwd'
+            './././etc/passwd',
         );
         $this->assertEquals(
             Core::securePath('/var/www/../phpmyadmin'),
-            '/var/www/./phpmyadmin'
+            '/var/www/./phpmyadmin',
         );
         $this->assertEquals(
             Core::securePath('./path/with..dots/../../file..php'),
-            './path/with.dots/././file.php'
+            './path/with.dots/././file.php',
         );
     }
 
@@ -809,7 +766,7 @@ class CoreTest extends AbstractNetworkTestCase
             . '" target="Documentation"><em>' . $ext
             . '</em></a> extension is missing. Please check your PHP configuration.';
 
-        $this->expectOutputRegex('@' . preg_quote($warn, '@') . '@');
+        $this->expectExceptionMessage($warn);
 
         Core::warnMissingExtension($ext, true);
     }
@@ -830,12 +787,9 @@ class CoreTest extends AbstractNetworkTestCase
             . '</em></a> extension is missing. Please check your PHP configuration.'
             . ' ' . $extra;
 
-        ob_start();
-        Core::warnMissingExtension($ext, true, $extra);
-        $printed = ob_get_contents();
-        ob_end_clean();
+        $this->expectExceptionMessage($warn);
 
-        $this->assertGreaterThan(0, mb_strpos((string) $printed, $warn));
+        Core::warnMissingExtension($ext, true, $extra);
     }
 
     /**
@@ -931,11 +885,9 @@ class CoreTest extends AbstractNetworkTestCase
 
     public function testPopulateRequestWithEncryptedQueryParams(): void
     {
-        global $config;
-
         $_SESSION = [];
-        $config->set('URLQueryEncryption', true);
-        $config->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
+        $GLOBALS['config']->set('URLQueryEncryption', true);
+        $GLOBALS['config']->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
 
         $_GET = ['pos' => '0', 'eq' => Url::encryptQuery('{"db":"test_db","table":"test_table"}')];
         $_REQUEST = $_GET;
@@ -962,13 +914,11 @@ class CoreTest extends AbstractNetworkTestCase
      */
     public function testPopulateRequestWithEncryptedQueryParamsWithInvalidParam(
         array $encrypted,
-        array $decrypted
+        array $decrypted,
     ): void {
-        global $config;
-
         $_SESSION = [];
-        $config->set('URLQueryEncryption', true);
-        $config->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
+        $GLOBALS['config']->set('URLQueryEncryption', true);
+        $GLOBALS['config']->set('URLQueryEncryptionSecretKey', str_repeat('a', 32));
 
         $_GET = $encrypted;
         $_REQUEST = $encrypted;
@@ -985,10 +935,8 @@ class CoreTest extends AbstractNetworkTestCase
         $this->assertEquals($decrypted, $_REQUEST);
     }
 
-    /**
-     * @return array<int, array<int, array<string, string|mixed[]>>>
-     */
-    public function providerForTestPopulateRequestWithEncryptedQueryParamsWithInvalidParam(): array
+    /** @return array<int, array<int, array<string, string|mixed[]>>> */
+    public static function providerForTestPopulateRequestWithEncryptedQueryParamsWithInvalidParam(): array
     {
         return [
             [[], []],
@@ -996,5 +944,59 @@ class CoreTest extends AbstractNetworkTestCase
             [['eq' => ''], []],
             [['eq' => 'invalid'], []],
         ];
+    }
+
+    /**
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     * @requires extension xdebug
+     * @group ext-xdebug
+     */
+    public function testDownloadHeader(): void
+    {
+        $GLOBALS['config']->set('PMA_USR_BROWSER_AGENT', 'FIREFOX');
+
+        header('Cache-Control: private, max-age=10800');
+
+        Core::downloadHeader('test.sql', 'text/x-sql', 100, false);
+
+        // phpcs:disable SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFullyQualifiedName
+        $headersList = \xdebug_get_headers();
+        // phpcs:enable
+
+        $this->assertContains('Cache-Control: private, max-age=10800', $headersList);
+        $this->assertContains('Content-Description: File Transfer', $headersList);
+        $this->assertContains('Content-Disposition: attachment; filename="test.sql"', $headersList);
+        $this->assertContains('Content-type: text/x-sql;charset=UTF-8', $headersList);
+        $this->assertContains('Content-Transfer-Encoding: binary', $headersList);
+        $this->assertContains('Content-Length: 100', $headersList);
+        $this->assertNotContains('Content-Encoding: gzip', $headersList);
+    }
+
+    /**
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     * @requires extension xdebug
+     * @group ext-xdebug
+     */
+    public function testDownloadHeader2(): void
+    {
+        $GLOBALS['config']->set('PMA_USR_BROWSER_AGENT', 'FIREFOX');
+
+        header('Cache-Control: private, max-age=10800');
+
+        Core::downloadHeader('test.sql.gz', 'application/x-gzip', 0, false);
+
+        // phpcs:disable SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFullyQualifiedName
+        $headersList = \xdebug_get_headers();
+        // phpcs:enable
+
+        $this->assertContains('Cache-Control: private, max-age=10800', $headersList);
+        $this->assertContains('Content-Description: File Transfer', $headersList);
+        $this->assertContains('Content-Disposition: attachment; filename="test.sql.gz"', $headersList);
+        $this->assertContains('Content-Type: application/x-gzip', $headersList);
+        $this->assertNotContains('Content-Encoding: gzip', $headersList);
+        $this->assertContains('Content-Transfer-Encoding: binary', $headersList);
+        $this->assertNotContains('Content-Length: 0', $headersList);
     }
 }

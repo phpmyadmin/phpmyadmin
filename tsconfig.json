@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "es6",
+        "allowJs": true,
+        "declaration": true,
+        "emitDeclarationOnly": true,
+        "declarationMap": true,
+        "checkJs": true,
+        "outDir": "./build/js",
+        "allowSyntheticDefaultImports": true,
+        "strict": false,
+        "isolatedModules": true
+    },
+    "include": ["./js/global.d.ts", "./js/src/**/*"],
+    "exclude": ["node_modules"]
+}

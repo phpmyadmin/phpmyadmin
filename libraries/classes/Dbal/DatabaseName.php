@@ -8,9 +8,7 @@ use Stringable;
 use Webmozart\Assert\Assert;
 use Webmozart\Assert\InvalidArgumentException;
 
-/**
- * @psalm-immutable
- */
+/** @psalm-immutable */
 final class DatabaseName implements Stringable
 {
     /**
@@ -28,37 +26,58 @@ final class DatabaseName implements Stringable
     /**
      * @param mixed $name
      *
-     * @throws InvalidArgumentException
+     * @throws InvalidDatabaseName
      */
     private function __construct($name)
     {
-        Assert::stringNotEmpty($name);
-        Assert::maxLength($name, self::MAX_LENGTH);
-        Assert::notEndsWith($name, ' ');
+        try {
+            Assert::stringNotEmpty($name);
+        } catch (InvalidArgumentException) {
+            throw InvalidDatabaseName::fromEmptyName();
+        }
+
+        try {
+            Assert::maxLength($name, self::MAX_LENGTH);
+        } catch (InvalidArgumentException) {
+            throw InvalidDatabaseName::fromLongName(self::MAX_LENGTH);
+        }
+
+        try {
+            Assert::notEndsWith($name, ' ');
+        } catch (InvalidArgumentException) {
+            throw InvalidDatabaseName::fromNameWithTrailingSpace();
+        }
+
         $this->name = $name;
     }
 
     /**
      * @param mixed $name
      *
-     * @throws InvalidArgumentException
+     * @throws InvalidDatabaseName
      */
     public static function fromValue($name): self
     {
         return new self($name);
     }
 
-    /**
-     * @psalm-return non-empty-string
-     */
+    /** @param mixed $name */
+    public static function tryFromValue($name): self|null
+    {
+        try {
+            return new self($name);
+        } catch (InvalidDatabaseName) {
+            return null;
+        }
+    }
+
+    /** @psalm-return non-empty-string */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @psalm-return non-empty-string
-     */
+    /** @psalm-return non-empty-string */
     public function __toString(): string
     {
         return $this->name;

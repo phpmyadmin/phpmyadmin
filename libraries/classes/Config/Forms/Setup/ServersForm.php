@@ -13,10 +13,8 @@ use function __;
 
 class ServersForm extends BaseForm
 {
-    /**
-     * @return array
-     */
-    public static function getForms()
+    /** @return array */
+    public static function getForms(): array
     {
         // phpcs:disable Squiz.Arrays.ArrayDeclaration.KeySpecified,Squiz.Arrays.ArrayDeclaration.NoKeySpecified
         return [

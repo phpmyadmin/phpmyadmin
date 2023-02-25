@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Schema;
 
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\Svg\SvgRelationSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
@@ -23,6 +24,8 @@ class SvgRelationSchemaTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $_REQUEST['page_number'] = 33;
         $_REQUEST['svg_show_color'] = true;
         $_REQUEST['svg_show_keys'] = true;
@@ -43,7 +46,7 @@ class SvgRelationSchemaTest extends AbstractTestCase
         $GLOBALS['PMA_PHP_SELF'] = '';
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
 
-        $this->object = new SvgRelationSchema('test_db');
+        $this->object = new SvgRelationSchema(DatabaseName::fromValue('test_db'));
     }
 
     /**
@@ -53,6 +56,7 @@ class SvgRelationSchemaTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 

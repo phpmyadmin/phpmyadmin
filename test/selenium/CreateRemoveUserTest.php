@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
-/**
- * @coversNothing
- */
+use function bin2hex;
+use function random_bytes;
+
+/** @coversNothing */
 class CreateRemoveUserTest extends TestBase
 {
     /**
@@ -36,8 +37,9 @@ class CreateRemoveUserTest extends TestBase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->skipIfNotSuperUser();
-        $this->txtUsername = 'pma_user';
+        $this->txtUsername = 'test_user_' . bin2hex(random_bytes(4));
         $this->txtPassword = 'abc_123';
         $this->login();
     }
@@ -102,13 +104,13 @@ class CreateRemoveUserTest extends TestBase
         $this->byId('dropUsersDbCheckbox')->click();
 
         $this->byId('buttonGo')->click();
-        $this->waitForElement('cssSelector', 'button.submitOK')->click();
+        $this->waitForElement('id', 'functionConfirmOkButton')->click();
         $this->acceptAlert();
 
         $success = $this->waitForElement('cssSelector', '.alert-success');
         $this->assertStringContainsString(
             'The selected users have been deleted',
-            $success->getText()
+            $success->getText(),
         );
     }
 }

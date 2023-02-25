@@ -1,3 +1,6 @@
+import $ from 'jquery';
+import { AJAX } from '../modules/ajax.js';
+
 /**
  * JSON syntax highlighting transformation plugin
  *
@@ -5,7 +8,7 @@
  */
 AJAX.registerOnload('transformations/json_editor.js', function () {
     $('textarea.transform_json_editor').each(function () {
-        CodeMirror.fromTextArea(this, {
+        window.CodeMirror.fromTextArea(this, {
             lineNumbers: true,
             matchBrackets: true,
             indentUnit: 4,

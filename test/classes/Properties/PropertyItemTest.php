@@ -8,9 +8,7 @@ use PhpMyAdmin\Properties\PropertyItem;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\MockObject\MockObject;
 
-/**
- * @covers \PhpMyAdmin\Properties\PropertyItem
- */
+/** @covers \PhpMyAdmin\Properties\PropertyItem */
 class PropertyItemTest extends AbstractTestCase
 {
     /** @var PropertyItem|MockObject */
@@ -22,6 +20,7 @@ class PropertyItemTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->stub = $this->getMockForAbstractClass(PropertyItem::class);
     }
 
@@ -31,6 +30,7 @@ class PropertyItemTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->stub);
     }
 
@@ -38,7 +38,7 @@ class PropertyItemTest extends AbstractTestCase
     {
         $this->assertEquals(
             null,
-            $this->stub->getGroup()
+            $this->stub->getGroup(),
         );
     }
 }

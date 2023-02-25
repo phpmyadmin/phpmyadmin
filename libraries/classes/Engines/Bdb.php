@@ -21,7 +21,7 @@ class Bdb extends StorageEngine
      *
      * @return array   variable names
      */
-    public function getVariables()
+    public function getVariables(): array
     {
         return [
             'version_bdb' => [
@@ -50,7 +50,7 @@ class Bdb extends StorageEngine
      *
      * @return string LIKE pattern
      */
-    public function getVariablesLikePattern()
+    public function getVariablesLikePattern(): string
     {
         return '%bdb%';
     }
@@ -61,7 +61,7 @@ class Bdb extends StorageEngine
      *
      * @return string  mysql helppage filename
      */
-    public function getMysqlHelpPage()
+    public function getMysqlHelpPage(): string
     {
         return 'bdb';
     }

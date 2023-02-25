@@ -22,15 +22,13 @@ abstract class TextImageLinkTransformationsPlugin extends TransformationsPlugin
 {
     /**
      * Gets the transformation description of the specific plugin
-     *
-     * @return string
      */
-    public static function getInfo()
+    public static function getInfo(): string
     {
         return __(
             'Displays an image and a link; the column contains the filename. The'
             . ' first option is a URL prefix like "https://www.example.com/". The'
-            . ' second and third options are the width and the height in pixels.'
+            . ' second and third options are the width and the height in pixels.',
         );
     }
 
@@ -40,10 +38,8 @@ abstract class TextImageLinkTransformationsPlugin extends TransformationsPlugin
      * @param string             $buffer  text to be transformed
      * @param array              $options transformation options
      * @param FieldMetadata|null $meta    meta information
-     *
-     * @return string
      */
-    public function applyTransformation($buffer, array $options = [], ?FieldMetadata $meta = null)
+    public function applyTransformation($buffer, array $options = [], FieldMetadata|null $meta = null): string
     {
         $cfg = $GLOBALS['cfg'];
         $options = $this->getOptions($options, $cfg['DefaultTransformations']['TextImageLink']);
@@ -67,10 +63,8 @@ abstract class TextImageLinkTransformationsPlugin extends TransformationsPlugin
 
     /**
      * Gets the transformation name of the specific plugin
-     *
-     * @return string
      */
-    public static function getName()
+    public static function getName(): string
     {
         return 'Image Link';
     }

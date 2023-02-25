@@ -1,11 +1,14 @@
-/**
- * @package PhpMyAdmin-Designer
- */
+import $ from 'jquery';
+import { Functions } from '../modules/functions.js';
+import { CommonParams } from '../modules/common.js';
+import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
+import refreshMainContent from '../modules/functions/refreshMainContent.js';
+import { Navigation } from '../modules/navigation.js';
+import { DesignerObjects } from './objects.js';
+import { DesignerHistory } from './history.js';
+import { DesignerPage } from './page.js';
+import { DesignerConfig } from './config.js';
 
-/* global DesignerObjects */ // js/designer/objects.js
-/* global DesignerHistory, historyArray, selectField */ // js/designer/history.js
-/* global contr, db, designerTablesEnabled, displayField, hTabs, jTabs, selectedPage:writable, server */ // js/designer/init.js
-/* global DesignerPage */ // js/designer/page.js
 /* global themeImagePath */ // templates/javascript/variables.twig
 
 var DesignerMove = {};
@@ -13,37 +16,6 @@ var DesignerMove = {};
 var change = 0; // variable to track any change in designer layout.
 var showRelationLines = true;
 var alwaysShowText = false;
-
-AJAX.registerTeardown('designer/move.js', function () {
-    $(document).off('fullscreenchange');
-    $('#selflink').show();
-});
-
-AJAX.registerOnload('designer/move.js', function () {
-    var $content = $('#page_content');
-    var $img = $('#toggleFullscreen').find('img');
-    var $span = $img.siblings('span');
-
-    $content.css({ 'margin-left': '3px' });
-    $(document).on('fullscreenchange', function () {
-        if (! document.fullscreenElement) {
-            $content.removeClass('content_fullscreen')
-                .css({ 'width': 'auto', 'height': 'auto' });
-            $('#osn_tab').css({ 'width': 'auto', 'height': 'auto' });
-            $img.attr('src', $img.data('enter'))
-                .attr('title', $span.data('enter'));
-            $span.text($span.data('enter'));
-
-            // Saving the fullscreen state in config when
-            // designer exists fullscreen mode via ESC key
-
-            var valueSent = 'off';
-            DesignerMove.saveValueInConfig('full_screen', valueSent);
-        }
-    });
-
-    $('#selflink').hide();
-});
 
 DesignerMove.markSaved = function () {
     change = 0;
@@ -59,33 +31,33 @@ var mainDirection = $('html').attr('dir') === 'rtl' ? 'right' : 'left';
 // Will be used to multiply the offsetLeft by -1 if the direction is rtl.
 var directionEffect = mainDirection === 'right' ? -1 : 1;
 var curClick = null;
-var smS           = 0;
-var smAdd         = 10;
-var sLeft         = 0;
-var sRight        = 0;
-var onRelation    = 0;
-var onGrid        = 0;
+var smS = 0;
+var smAdd = 10;
+var sLeft = 0;
+var sRight = 0;
+var onRelation = 0;
+var onGrid = 0;
 var onDisplayField = 0;
 // relation_style: 0 - angular 1 - direct
 var onAngularDirect = 1;
-var clickField    = 0;
-var linkRelation  = '';
-var canvasWidth   = 0;
-var canvasHeight  = 0;
-var osnTabWidth  = 0;
+var clickField = 0;
+var linkRelation = '';
+var canvasWidth = 0;
+var canvasHeight = 0;
+var osnTabWidth = 0;
 var osnTabHeight = 0;
-var heightField   = 7;
+var heightField = 7;
 var globX;
 var globY;
 var timeoutId;
 var layerMenuCurClick = 0;
-var fromArray = [];
+window.fromArray = [];
 var menuMoved = false;
 var gridSize = 10;
 
 // ------------------------------------------------------------------------------
 
-var isIe = document.all && !window.opera;
+var isIe = document.all && ! window.opera;
 
 if (isIe) {
     window.onscroll = DesignerMove.generalScroll;
@@ -172,7 +144,7 @@ DesignerMove.mouseMove = function (e) {
 
     if (onRelation || onDisplayField) {
         document.getElementById('designer_hint').style.left = (globX + 20) + 'px';
-        document.getElementById('designer_hint').style.top  = (globY + 20) + 'px';
+        document.getElementById('designer_hint').style.top = (globY + 20) + 'px';
     }
 };
 
@@ -189,17 +161,17 @@ DesignerMove.mouseUp = function () {
 // ------------------------------------------------------------------------------
 
 DesignerMove.canvasPos = function () {
-    canvasWidth  = document.getElementById('canvas').width  = osnTabWidth  - 3;
+    canvasWidth = document.getElementById('canvas').width = osnTabWidth - 3;
     canvasHeight = document.getElementById('canvas').height = osnTabHeight - 3;
 
     if (isIe) {
-        document.getElementById('canvas').style.width  = ((osnTabWidth  - 3) ? (osnTabWidth  - 3) : 0) + 'px';
+        document.getElementById('canvas').style.width = ((osnTabWidth - 3) ? (osnTabWidth - 3) : 0) + 'px';
         document.getElementById('canvas').style.height = ((osnTabHeight - 3) ? (osnTabHeight - 3) : 0) + 'px';
     }
 };
 
 DesignerMove.osnTabPos = function () {
-    osnTabWidth  = parseInt(document.getElementById('osn_tab').style.width, 10);
+    osnTabWidth = parseInt(document.getElementById('osn_tab').style.width, 10);
     osnTabHeight = parseInt(document.getElementById('osn_tab').style.height, 10);
 };
 
@@ -265,14 +237,14 @@ DesignerMove.main = function () {
 DesignerMove.resizeOsnTab = function () {
     var maxX = 0;
     var maxY = 0;
-    for (var key in jTabs) {
+    for (var key in DesignerConfig.jTabs) {
         var kX = parseInt(document.getElementById(key).style[mainDirection], 10) + document.getElementById(key).offsetWidth;
         var kY = parseInt(document.getElementById(key).style.top, 10) + document.getElementById(key).offsetHeight;
         maxX = maxX < kX ? kX : maxX;
         maxY = maxY < kY ? kY : maxY;
     }
 
-    osnTabWidth  = maxX + 50;
+    osnTabWidth = maxX + 50;
     osnTabHeight = maxY + 50;
     DesignerMove.canvasPos();
 };
@@ -313,22 +285,22 @@ DesignerMove.reload = function () {
     var key3;
     DesignerMove.clear();
     var osnTab = document.getElementById('osn_tab');
-    for (K in contr) {
-        for (key in contr[K]) {
+    for (K in DesignerConfig.contr) {
+        for (key in DesignerConfig.contr[K]) {
             // contr name
-            for (key2 in contr[K][key]) {
+            for (key2 in DesignerConfig.contr[K][key]) {
                 // table name
-                for (key3 in contr[K][key][key2]) {
+                for (key3 in DesignerConfig.contr[K][key][key2]) {
                     // field name
-                    if (!document.getElementById('check_vis_' + key2).checked ||
-                        !document.getElementById('check_vis_' + contr[K][key][key2][key3][0]).checked) {
+                    if (! document.getElementById('check_vis_' + key2).checked ||
+                        ! document.getElementById('check_vis_' + DesignerConfig.contr[K][key][key2][key3][0]).checked) {
                         // if hide
                         continue;
                     }
-                    var x1Left  = document.getElementById(key2).offsetLeft + 1;
+                    var x1Left = document.getElementById(key2).offsetLeft + 1;
                     var x1Right = x1Left + document.getElementById(key2).offsetWidth;
-                    var x2Left  = document.getElementById(contr[K][key][key2][key3][0]).offsetLeft;
-                    var x2Right = x2Left + document.getElementById(contr[K][key][key2][key3][0]).offsetWidth;
+                    var x2Left = document.getElementById(DesignerConfig.contr[K][key][key2][key3][0]).offsetLeft;
+                    var x2Right = x2Left + document.getElementById(DesignerConfig.contr[K][key][key2][key3][0]).offsetWidth;
                     a[0] = Math.abs(x1Left - x2Left);
                     a[1] = Math.abs(x1Left - x2Right);
                     a[2] = Math.abs(x1Right - x2Left);
@@ -382,10 +354,10 @@ DesignerMove.reload = function () {
 
 
                     rowOffsetTop = 0;
-                    tabHideButton = document.getElementById('id_hide_tbody_' + contr[K][key][key2][key3][0]);
+                    tabHideButton = document.getElementById('id_hide_tbody_' + DesignerConfig.contr[K][key][key2][key3][0]);
                     if (tabHideButton.innerHTML === 'v') {
-                        var toColumn = document.getElementById(contr[K][key][key2][key3][0] +
-                            '.' + contr[K][key][key2][key3][1]);
+                        var toColumn = document.getElementById(DesignerConfig.contr[K][key][key2][key3][0] +
+                            '.' + DesignerConfig.contr[K][key][key2][key3][1]);
                         if (toColumn) {
                             rowOffsetTop = toColumn.offsetTop;
                         } else {
@@ -394,12 +366,12 @@ DesignerMove.reload = function () {
                     }
 
                     var y2 =
-                        document.getElementById(contr[K][key][key2][key3][0]).offsetTop +
+                        document.getElementById(DesignerConfig.contr[K][key][key2][key3][0]).offsetTop +
                         rowOffsetTop +
                         heightField;
 
                     DesignerMove.drawLine0(
-                        x1, x2, y1, y2, osnTab, contr[K][key][key2][key3][0] + '.' + contr[K][key][key2][key3][1]
+                        x1, x2, y1, y2, osnTab, DesignerConfig.contr[K][key][key2][key3][0] + '.' + DesignerConfig.contr[K][key][key2][key3][1]
                     );
                 }
             }
@@ -417,7 +389,7 @@ DesignerMove.reload = function () {
  */
 DesignerMove.line = function (x1, y1, x2, y2, colorLine) {
     var canvas = document.getElementById('canvas');
-    var ctx    = canvas.getContext('2d');
+    var ctx = canvas.getContext('2d');
     ctx.strokeStyle = colorLine;
     ctx.lineWidth = 1;
     ctx.beginPath();
@@ -538,7 +510,7 @@ DesignerMove.circle = function (x, y, r, w, color) {
 
 DesignerMove.clear = function () {
     var canvas = document.getElementById('canvas');
-    var ctx    = canvas.getContext('2d');
+    var ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 };
 
@@ -586,9 +558,9 @@ DesignerMove.addTableToTablesList = function (index, tableDom) {
     var dbEncoded = $(tableDom).find('.small_tab_pref').attr('db_url');
     var tableEncoded = $(tableDom).find('.small_tab_pref').attr('table_name_url');
     var tableIsChecked = $(tableDom).css('display') === 'block' ? 'checked' : '';
-    var checkboxStatus = (tableIsChecked === 'checked') ? Messages.strHide : Messages.strShow;
+    var checkboxStatus = (tableIsChecked === 'checked') ? window.Messages.strHide : window.Messages.strShow;
     var $newTableLine = $('<tr>' +
-        '    <td title="' + Messages.strStructure + '"' +
+        '    <td title="' + window.Messages.strStructure + '"' +
         '        width="1px"' +
         '        class="L_butt2_1">' +
         '        <img alt=""' +
@@ -618,9 +590,9 @@ DesignerMove.addTableToTablesList = function (index, tableDom) {
     });
     $($newTableLine).find('.scroll_tab_checkbox').on('click', function () {
         $(this).attr('title', function (i, currentvalue) {
-            return currentvalue === Messages.strHide ? Messages.strShow : Messages.strHide;
+            return currentvalue === window.Messages.strHide ? window.Messages.strShow : window.Messages.strHide;
         });
-        DesignerMove.visibleTab(this,$(this).val());
+        DesignerMove.visibleTab(this, $(this).val());
     });
     var $tablesCounter = $('#tables_counter');
     $tablesCounter.text(parseInt($tablesCounter.text(), 10) + 1);
@@ -644,14 +616,14 @@ DesignerMove.displayModal = function (form, heading, type) {
 
 DesignerMove.addOtherDbTables = function () {
     var $selectDb = $('<select id="add_table_from"></select>');
-    $selectDb.append('<option value="">' + Messages.strNone + '</option>');
+    $selectDb.append('<option value="">' + window.Messages.strNone + '</option>');
 
     var $selectTable = $('<select id="add_table"></select>');
-    $selectTable.append('<option value="">' + Messages.strNone + '</option>');
+    $selectTable.append('<option value="">' + window.Messages.strNone + '</option>');
 
     $.post('index.php?route=/sql', {
-        'ajax_request' : true,
-        'sql_query' : 'SHOW databases;',
+        'ajax_request': true,
+        'sql_query': 'SHOW databases;',
         'server': CommonParams.get('server')
     }, function (data) {
         $(data.message).find('table.table_results.data.ajax').find('td.data').each(function () {
@@ -662,7 +634,7 @@ DesignerMove.addOtherDbTables = function () {
 
     var $form = $('<form action="" class="ajax"></form>')
         .append($selectDb).append($selectTable);
-    var modal = DesignerMove.displayModal($form, Messages.strAddTables, '#designerGoModal');
+    var modal = DesignerMove.displayModal($form, window.Messages.strAddTables, '#designerGoModal');
     $('#designerModalGoButton').on('click', function () {
         var db = $('#add_table_from').val();
         var table = $('#add_table').val();
@@ -670,8 +642,8 @@ DesignerMove.addOtherDbTables = function () {
         // Check if table already imported or not.
         var $table = $('[id="' + encodeURIComponent(db) + '.' + encodeURIComponent(table) + '"]');
         if ($table.length !== 0) {
-            Functions.ajaxShowMessage(
-                Functions.sprintf(Messages.strTableAlreadyExists, db + '.' + table),
+            ajaxShowMessage(
+                window.sprintf(window.Messages.strTableAlreadyExists, db + '.' + table),
                 undefined,
                 'error'
             );
@@ -679,10 +651,10 @@ DesignerMove.addOtherDbTables = function () {
         }
 
         $.post('index.php?route=/database/designer', {
-            'ajax_request' : true,
-            'dialog' : 'add_table',
-            'db' : db,
-            'table' : table,
+            'ajax_request': true,
+            'dialog': 'add_table',
+            'db': db,
+            'table': table,
             'server': CommonParams.get('server')
         }, function (data) {
             var $newTableDom = $(data.message);
@@ -695,10 +667,12 @@ DesignerMove.addOtherDbTables = function () {
                 $('#container-form').append($newTableDom);
                 DesignerMove.enableTableEvents(null, $newTableDom);
                 DesignerMove.addTableToTablesList(null, $newTableDom);
-                jTabs[dbEncoded + '.' + tableEncoded] = 1;
+                DesignerConfig.jTabs[dbEncoded + '.' + tableEncoded] = 1;
                 DesignerMove.markUnsaved();
             }
         });
+
+        $('#designerModalGoButton').off('click');// Unregister the event for other modals to not call this one
         modal.modal('hide');
     });
     $('#add_table_from').on('change', function () {
@@ -706,15 +680,15 @@ DesignerMove.addOtherDbTables = function () {
             var dbName = $(this).val();
             var sqlQuery = 'SHOW tables;';
             $.post('index.php?route=/sql', {
-                'ajax_request' : true,
+                'ajax_request': true,
                 'sql_query': sqlQuery,
-                'db' : dbName,
+                'db': dbName,
                 'server': CommonParams.get('server')
             }, function (data) {
                 $selectTable.html('');
                 var rows = $(data.message).find('table.table_results.data.ajax').find('td.data');
                 if (rows.length === 0) {
-                    $selectTable.append('<option value="">' + Messages.strNone + '</option>');
+                    $selectTable.append('<option value="">' + window.Messages.strNone + '</option>');
                 }
                 rows.each(function () {
                     var val = $(this)[0].innerText;
@@ -735,7 +709,7 @@ DesignerMove.new = function () {
 // ------------------------------ SAVE ------------------------------------------
 // (del?) no for pdf
 DesignerMove.save = function (url) {
-    for (var key in jTabs) {
+    for (var key in DesignerConfig.jTabs) {
         document.getElementById('t_x_' + key + '_').value = parseInt(document.getElementById(key).style.left, 10);
         document.getElementById('t_y_' + key + '_').value = parseInt(document.getElementById(key).style.top, 10);
         document.getElementById('t_v_' + key + '_').value = document.getElementById('id_tbody_' + key).style.display === 'none' ? 0 : 1;
@@ -747,11 +721,11 @@ DesignerMove.save = function (url) {
 
 DesignerMove.getUrlPos = function (forceString) {
     var key;
-    if (designerTablesEnabled || forceString) {
+    if (DesignerConfig.designerTablesEnabled || forceString) {
         var poststr = '';
         var argsep = CommonParams.get('arg_separator');
         var i = 1;
-        for (key in jTabs) {
+        for (key in DesignerConfig.jTabs) {
             poststr += argsep + 't_x[' + i + ']=' + parseInt(document.getElementById(key).style.left, 10);
             poststr += argsep + 't_y[' + i + ']=' + parseInt(document.getElementById(key).style.top, 10);
             poststr += argsep + 't_v[' + i + ']=' + (document.getElementById('id_tbody_' + key).style.display === 'none' ? 0 : 1);
@@ -763,7 +737,7 @@ DesignerMove.getUrlPos = function (forceString) {
         return poststr;
     } else {
         var coords = [];
-        for (key in jTabs) {
+        for (key in DesignerConfig.jTabs) {
             if (document.getElementById('check_vis_' + key).checked) {
                 var x = parseInt(document.getElementById(key).style.left, 10);
                 var y = parseInt(document.getElementById(key).style.top, 10);
@@ -779,19 +753,19 @@ DesignerMove.getUrlPos = function (forceString) {
 };
 
 DesignerMove.save2 = function (callback) {
-    if (designerTablesEnabled) {
+    if (DesignerConfig.designerTablesEnabled) {
         var argsep = CommonParams.get('arg_separator');
         var poststr = 'operation=savePage' + argsep + 'save_page=same' + argsep + 'ajax_request=true';
-        poststr += argsep + 'server=' + server + argsep + 'db=' + encodeURIComponent(db) + argsep + 'selected_page=' + selectedPage;
+        poststr += argsep + 'server=' + DesignerConfig.server + argsep + 'db=' + encodeURIComponent(DesignerConfig.db) + argsep + 'selected_page=' + DesignerConfig.selectedPage;
         poststr += DesignerMove.getUrlPos();
 
-        var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+        var $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
         $.post('index.php?route=/database/designer', poststr, function (data) {
             if (data.success === false) {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             } else {
-                Functions.ajaxRemoveMessage($msgbox);
-                Functions.ajaxShowMessage(Messages.strModificationSaved);
+                ajaxRemoveMessage($msgbox);
+                ajaxShowMessage(window.Messages.strModificationSaved);
                 DesignerMove.markSaved();
                 if (typeof callback !== 'undefined') {
                     callback();
@@ -800,7 +774,7 @@ DesignerMove.save2 = function (callback) {
         });
     } else {
         var name = $('#page_name').html().trim();
-        DesignerPage.saveToSelectedPage(db, selectedPage, name, DesignerMove.getUrlPos(), function () {
+        DesignerPage.saveToSelectedPage(DesignerConfig.db, DesignerConfig.selectedPage, name, DesignerMove.getUrlPos(), function () {
             DesignerMove.markSaved();
             if (typeof callback !== 'undefined') {
                 callback();
@@ -813,22 +787,22 @@ DesignerMove.submitSaveDialogAndClose = function (callback, modal) {
     var $form = $('#save_page');
     var name = $form.find('input[name="selected_value"]').val().trim();
     if (name === '') {
-        Functions.ajaxShowMessage(Messages.strEnterValidPageName, false);
+        ajaxShowMessage(window.Messages.strEnterValidPageName, false);
         return;
     }
     modal.modal('hide');
 
-    if (designerTablesEnabled) {
-        var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+    if (DesignerConfig.designerTablesEnabled) {
+        var $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
         Functions.prepareForAjaxRequest($form);
         $.post($form.attr('action'), $form.serialize() + DesignerMove.getUrlPos(), function (data) {
             if (data.success === false) {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             } else {
-                Functions.ajaxRemoveMessage($msgbox);
+                ajaxRemoveMessage($msgbox);
                 DesignerMove.markSaved();
                 if (data.id) {
-                    selectedPage = data.id;
+                    DesignerConfig.selectedPage = data.id;
                 }
                 $('#page_name').text(name);
                 if (typeof callback !== 'undefined') {
@@ -837,10 +811,10 @@ DesignerMove.submitSaveDialogAndClose = function (callback, modal) {
             }
         });
     } else {
-        DesignerPage.saveToNewPage(db, name, DesignerMove.getUrlPos(), function (page) {
+        DesignerPage.saveToNewPage(DesignerConfig.db, name, DesignerMove.getUrlPos(), function (page) {
             DesignerMove.markSaved();
             if (page.pgNr) {
-                selectedPage = page.pgNr;
+                DesignerConfig.selectedPage = page.pgNr;
             }
             $('#page_name').text(page.pageDescr);
             if (typeof callback !== 'undefined') {
@@ -851,17 +825,17 @@ DesignerMove.submitSaveDialogAndClose = function (callback, modal) {
 };
 
 DesignerMove.save3 = function (callback) {
-    if (selectedPage !== -1) {
+    if (DesignerConfig.selectedPage !== -1) {
         DesignerMove.save2(callback);
     } else {
         var $form = $('<form action="index.php?route=/database/designer" method="post" name="save_page" id="save_page" class="ajax"></form>')
-            .append('<input type="hidden" name="server" value="' + server + '">')
-            .append($('<input type="hidden" name="db" />').val(db))
+            .append('<input type="hidden" name="server" value="' + DesignerConfig.server + '">')
+            .append($('<input type="hidden" name="db" />').val(DesignerConfig.db))
             .append('<input type="hidden" name="operation" value="savePage">')
             .append('<input type="hidden" name="save_page" value="new">')
-            .append('<label for="selected_value">' + Messages.strPageName +
+            .append('<label for="selected_value">' + window.Messages.strPageName +
                 '</label>:<input type="text" name="selected_value">');
-        var modal = DesignerMove.displayModal($form, Messages.strSavePage, '#designerGoModal');
+        var modal = DesignerMove.displayModal($form, window.Messages.strSavePage, '#designerGoModal');
         $form.on('submit', function (e) {
             e.preventDefault();
             DesignerMove.submitSaveDialogAndClose(callback, modal);
@@ -869,6 +843,8 @@ DesignerMove.save3 = function (callback) {
         $('#designerModalGoButton').on('click', function () {
             var $form = $('#save_page');
             $form.trigger('submit');
+
+            $('#designerModalGoButton').off('click');// Unregister the event for other modals to not call this one
             modal.modal('hide');
         });
     }
@@ -877,31 +853,33 @@ DesignerMove.save3 = function (callback) {
 // ------------------------------ EDIT PAGES ------------------------------------------
 DesignerMove.editPages = function () {
     DesignerMove.promptToSaveCurrentPage(function () {
-        var $msgbox = Functions.ajaxShowMessage();
+        var $msgbox = ajaxShowMessage();
         $.post('index.php?route=/database/designer', {
             'ajax_request': true,
-            'server': server,
-            'db': db,
+            'server': DesignerConfig.server,
+            'db': DesignerConfig.db,
             'dialog': 'edit'
         }, function (data) {
             if (data.success === false) {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             } else {
-                Functions.ajaxRemoveMessage($msgbox);
+                ajaxRemoveMessage($msgbox);
 
-                if (! designerTablesEnabled) {
-                    DesignerPage.createPageList(db, function (options) {
+                if (! DesignerConfig.designerTablesEnabled) {
+                    DesignerPage.createPageList(DesignerConfig.db, function (options) {
                         $('#selected_page').append(options);
                     });
                 }
-                var modal = DesignerMove.displayModal(data.message, Messages.strOpenPage, '#designerGoModal');
+                var modal = DesignerMove.displayModal(data.message, window.Messages.strOpenPage, '#designerGoModal');
                 $('#designerModalGoButton').on('click', function () {
                     var $form = $('#edit_delete_pages');
                     var selected = $form.find('select[name="selected_page"]').val();
                     if (selected === '0') {
-                        Functions.ajaxShowMessage(Messages.strSelectPage, 2000);
+                        ajaxShowMessage(window.Messages.strSelectPage, 2000);
                         return;
                     }
+
+                    $('#designerModalGoButton').off('click');// Unregister the event for other modals to not call this one
                     modal.modal('hide');
                     DesignerMove.loadPage(selected);
                 });
@@ -912,64 +890,66 @@ DesignerMove.editPages = function () {
 
 // -----------------------------  DELETE PAGES ---------------------------------------
 DesignerMove.deletePages = function () {
-    var $msgbox = Functions.ajaxShowMessage();
+    var $msgbox = ajaxShowMessage();
     $.post('index.php?route=/database/designer', {
         'ajax_request': true,
-        'server': server,
-        'db': db,
+        'server': DesignerConfig.server,
+        'db': DesignerConfig.db,
         'dialog': 'delete'
     }, function (data) {
         if (data.success === false) {
-            Functions.ajaxShowMessage(data.error, false);
+            ajaxShowMessage(data.error, false);
         } else {
-            Functions.ajaxRemoveMessage($msgbox);
+            ajaxRemoveMessage($msgbox);
 
-            if (! designerTablesEnabled) {
-                DesignerPage.createPageList(db, function (options) {
+            if (! DesignerConfig.designerTablesEnabled) {
+                DesignerPage.createPageList(DesignerConfig.db, function (options) {
                     $('#selected_page').append(options);
                 });
             }
 
-            var modal = DesignerMove.displayModal(data.message, Messages.strDeletePage, '#designerGoModal');
+            var modal = DesignerMove.displayModal(data.message, window.Messages.strDeletePage, '#designerGoModal');
             $('#designerModalGoButton').on('click', function () {
                 var $form = $('#edit_delete_pages');
                 var selected = $form.find('select[name="selected_page"]').val();
                 if (selected === '0') {
-                    Functions.ajaxShowMessage(Messages.strSelectPage, 2000);
+                    ajaxShowMessage(window.Messages.strSelectPage, 2000);
                     return;
                 }
 
-                var $messageBox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
-                var deletingCurrentPage = parseInt(selected) === selectedPage;
+                var $messageBox = ajaxShowMessage(window.Messages.strProcessingRequest);
+                var deletingCurrentPage = parseInt(selected) === DesignerConfig.selectedPage;
                 Functions.prepareForAjaxRequest($form);
 
-                if (designerTablesEnabled) {
+                if (DesignerConfig.designerTablesEnabled) {
                     $.post($form.attr('action'), $form.serialize(), function (data) {
                         if (data.success === false) {
-                            Functions.ajaxShowMessage(data.error, false);
+                            ajaxShowMessage(data.error, false);
                         } else {
-                            Functions.ajaxRemoveMessage($messageBox);
+                            ajaxRemoveMessage($messageBox);
                             if (deletingCurrentPage) {
                                 DesignerMove.loadPage(null);
                             } else {
-                                Functions.ajaxShowMessage(Messages.strSuccessfulPageDelete);
+                                ajaxShowMessage(window.Messages.strSuccessfulPageDelete);
                             }
                         }
                     }); // end $.post()
                 } else {
                     DesignerPage.deletePage(selected, function (success) {
                         if (! success) {
-                            Functions.ajaxShowMessage('Error', false);
+                            ajaxShowMessage('Error', false);
                         } else {
-                            Functions.ajaxRemoveMessage($messageBox);
+                            ajaxRemoveMessage($messageBox);
                             if (deletingCurrentPage) {
                                 DesignerMove.loadPage(null);
                             } else {
-                                Functions.ajaxShowMessage(Messages.strSuccessfulPageDelete);
+                                ajaxShowMessage(window.Messages.strSuccessfulPageDelete);
                             }
                         }
                     });
                 }
+
+                $('#designerModalGoButton').off('click');// Unregister the event for other modals to not call this one
                 modal.modal('hide');
             });
         }
@@ -978,98 +958,99 @@ DesignerMove.deletePages = function () {
 
 // ------------------------------ SAVE AS PAGES ---------------------------------------
 DesignerMove.saveAs = function () {
-    var $msgbox = Functions.ajaxShowMessage();
+    var $msgbox = ajaxShowMessage();
     $.post('index.php?route=/database/designer', {
         'ajax_request': true,
-        'server': server,
-        'db': db,
+        'server': DesignerConfig.server,
+        'db': DesignerConfig.db,
         'dialog': 'save_as'
     }, function (data) {
         if (data.success === false) {
-            Functions.ajaxShowMessage(data.error, false);
+            ajaxShowMessage(data.error, false);
         } else {
-            Functions.ajaxRemoveMessage($msgbox);
+            ajaxRemoveMessage($msgbox);
 
-            if (! designerTablesEnabled) {
-                DesignerPage.createPageList(db, function (options) {
+            if (! DesignerConfig.designerTablesEnabled) {
+                DesignerPage.createPageList(DesignerConfig.db, function (options) {
                     $('#selected_page').append(options);
                 });
             }
 
-            var modal = DesignerMove.displayModal(data.message, Messages.strSavePageAs, '#designerGoModal');
+            var modal = DesignerMove.displayModal(data.message, window.Messages.strSavePageAs, '#designerGoModal');
             $('#designerModalGoButton').on('click', function () {
-                var $form           = $('#save_as_pages');
-                var selectedValue  = $form.find('input[name="selected_value"]').val().trim();
-                var $selectedPage  = $form.find('select[name="selected_page"]');
-                var choice          = $form.find('input[name="save_page"]:checked').val();
-                var name            = '';
+                var $form = $('#save_as_pages');
+                var selectedValue = $form.find('input[name="selected_value"]').val().trim();
+                var $selectedPage = $form.find('select[name="selected_page"]');
+                var choice = $form.find('input[name="save_page"]:checked').val();
+                var name = '';
 
                 if (choice === 'same') {
                     if ($selectedPage.val() === '0') {
-                        Functions.ajaxShowMessage(Messages.strSelectPage, 2000);
+                        ajaxShowMessage(window.Messages.strSelectPage, 2000);
                         return;
                     }
                     name = $selectedPage.find('option:selected').text();
                 } else if (choice === 'new') {
                     if (selectedValue === '') {
-                        Functions.ajaxShowMessage(Messages.strEnterValidPageName, 2000);
+                        ajaxShowMessage(window.Messages.strEnterValidPageName, 2000);
                         return;
                     }
                     name = selectedValue;
                 }
 
-                var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
-                if (designerTablesEnabled) {
+                var $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
+                if (DesignerConfig.designerTablesEnabled) {
                     Functions.prepareForAjaxRequest($form);
                     $.post($form.attr('action'), $form.serialize() + DesignerMove.getUrlPos(), function (data) {
                         if (data.success === false) {
-                            Functions.ajaxShowMessage(data.error, false);
+                            ajaxShowMessage(data.error, false);
                         } else {
-                            Functions.ajaxRemoveMessage($msgbox);
+                            ajaxRemoveMessage($msgbox);
                             DesignerMove.markSaved();
                             if (data.id) {
-                                selectedPage = data.id;
+                                DesignerConfig.selectedPage = data.id;
                             }
-                            DesignerMove.loadPage(selectedPage);
+                            DesignerMove.loadPage(DesignerConfig.selectedPage);
                         }
                     }); // end $.post()
                 } else {
                     if (choice === 'same') {
                         var selectedPageId = $selectedPage.find('option:selected').val();
-                        DesignerPage.saveToSelectedPage(db, selectedPageId, name, DesignerMove.getUrlPos(), function (page) {
-                            Functions.ajaxRemoveMessage($msgbox);
+                        DesignerPage.saveToSelectedPage(DesignerConfig.db, selectedPageId, name, DesignerMove.getUrlPos(), function (page) {
+                            ajaxRemoveMessage($msgbox);
                             DesignerMove.markSaved();
                             if (page.pgNr) {
-                                selectedPage = page.pgNr;
+                                DesignerConfig.selectedPage = page.pgNr;
                             }
-                            DesignerMove.loadPage(selectedPage);
+                            DesignerMove.loadPage(DesignerConfig.selectedPage);
                         });
                     } else if (choice === 'new') {
-                        DesignerPage.saveToNewPage(db, name, DesignerMove.getUrlPos(), function (page) {
-                            Functions.ajaxRemoveMessage($msgbox);
+                        DesignerPage.saveToNewPage(DesignerConfig.db, name, DesignerMove.getUrlPos(), function (page) {
+                            ajaxRemoveMessage($msgbox);
                             DesignerMove.markSaved();
                             if (page.pgNr) {
-                                selectedPage = page.pgNr;
+                                DesignerConfig.selectedPage = page.pgNr;
                             }
-                            DesignerMove.loadPage(selectedPage);
+                            DesignerMove.loadPage(DesignerConfig.selectedPage);
                         });
                     }
                 }
 
+                $('#designerModalGoButton').off('click');// Unregister the event for other modals to not call this one
                 modal.modal('hide');
             });
             // select current page by default
-            if (selectedPage !== -1) {
-                $('select[name="selected_page"]').val(selectedPage);
+            if (DesignerConfig.selectedPage !== -1) {
+                $('select[name="selected_page"]').val(DesignerConfig.selectedPage);
             }
         }
     }); // end $.post()
 };
 
 DesignerMove.promptToSaveCurrentPage = function (callback) {
-    if (change === 1 || selectedPage === -1) {
-        var modal = DesignerMove.displayModal('<div>' + Messages.strLeavingPage + '</div>',
-            Messages.strSavePage, '#designerPromptModal');
+    if (change === 1 || DesignerConfig.selectedPage === -1) {
+        var modal = DesignerMove.displayModal('<div>' + window.Messages.strLeavingPage + '</div>',
+            window.Messages.strSavePage, '#designerPromptModal');
         $('#designerModalYesButton').on('click', function () {
             modal.modal('hide');
             DesignerMove.save3(callback);
@@ -1085,23 +1066,23 @@ DesignerMove.promptToSaveCurrentPage = function (callback) {
 
 // ------------------------------ EXPORT PAGES ---------------------------------------
 DesignerMove.exportPages = function () {
-    var $msgbox = Functions.ajaxShowMessage();
+    var $msgbox = ajaxShowMessage();
     var argsep = CommonParams.get('arg_separator');
 
     $.post('index.php?route=/database/designer', {
         'ajax_request': true,
-        'server': server,
-        'db': db,
+        'server': DesignerConfig.server,
+        'db': DesignerConfig.db,
         'dialog': 'export',
-        'selected_page': selectedPage
+        'selected_page': DesignerConfig.selectedPage
     }, function (data) {
         if (data.success === false) {
-            Functions.ajaxShowMessage(data.error, false);
+            ajaxShowMessage(data.error, false);
         } else {
-            Functions.ajaxRemoveMessage($msgbox);
+            ajaxRemoveMessage($msgbox);
 
             var $form = $(data.message);
-            if (!designerTablesEnabled) {
+            if (! DesignerConfig.designerTablesEnabled) {
                 $form.append('<input type="hidden" name="offline_export" value="true">');
             }
             $.each(DesignerMove.getUrlPos(true).substring(1).split(argsep), function () {
@@ -1118,9 +1099,10 @@ DesignerMove.exportPages = function () {
                 $form.find('#' + format + '_options').show();
             }).trigger('change');
 
-            var modal = DesignerMove.displayModal($form, Messages.strExportRelationalSchema, '#designerGoModal');
+            var modal = DesignerMove.displayModal($form, window.Messages.strExportRelationalSchema, '#designerGoModal');
             $('#designerModalGoButton').on('click', function () {
                 $('#id_export_pages').trigger('submit');
+                $('#designerModalGoButton').off('click');// Unregister the event for other modals to not call this one
                 modal.modal('hide');
             });
         }
@@ -1128,18 +1110,18 @@ DesignerMove.exportPages = function () {
 };
 
 DesignerMove.loadPage = function (page) {
-    if (designerTablesEnabled) {
+    if (DesignerConfig.designerTablesEnabled) {
         var paramPage = '';
         var argsep = CommonParams.get('arg_separator');
         if (page !== null) {
             paramPage = argsep + 'page=' + page;
         }
-        $('<a href="index.php?route=/database/designer&server=' + server + argsep + 'db=' + encodeURIComponent(db) + paramPage + '"></a>')
+        $('<a href="index.php?route=/database/designer&server=' + DesignerConfig.server + argsep + 'db=' + encodeURIComponent(DesignerConfig.db) + paramPage + '"></a>')
             .appendTo($('#page_content'))
             .trigger('click');
     } else {
         if (page === null) {
-            DesignerPage.showTablesInLandingPage(db);
+            DesignerPage.showTablesInLandingPage(DesignerConfig.db);
         } else if (page > -1) {
             DesignerPage.loadHtmlForPage(page);
         } else if (page === -1) {
@@ -1151,7 +1133,7 @@ DesignerMove.loadPage = function (page) {
 
 DesignerMove.grid = function () {
     var valueSent = '';
-    if (!onGrid) {
+    if (! onGrid) {
         onGrid = 1;
         valueSent = 'on';
         document.getElementById('grid_button').className = 'M_butt_Selected_down';
@@ -1184,12 +1166,12 @@ DesignerMove.saveValueInConfig = function (indexSent, valueSent) {
             'operation': 'save_setting_value',
             'index': indexSent,
             'ajax_request': true,
-            'server': server,
+            'server': DesignerConfig.server,
             'value': valueSent
         },
         function (data) {
             if (data.success === false) {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         });
 };
@@ -1200,10 +1182,10 @@ DesignerMove.startRelation = function () {
         return;
     }
 
-    if (!onRelation) {
+    if (! onRelation) {
         document.getElementById('foreign_relation').style.display = '';
         onRelation = 1;
-        document.getElementById('designer_hint').innerHTML = Messages.strSelectReferencedKey;
+        document.getElementById('designer_hint').innerHTML = window.Messages.strSelectReferencedKey;
         document.getElementById('designer_hint').style.display = 'block';
         document.getElementById('rel_button').className = 'M_butt_Selected_down';
     } else {
@@ -1220,27 +1202,27 @@ DesignerMove.clickField = function (db, T, f, pk) {
     var pkLocal = parseInt(pk);
     var argsep = CommonParams.get('arg_separator');
     if (onRelation) {
-        if (!clickField) {
+        if (! clickField) {
             // .style.display=='none'        .style.display = 'none'
-            if (!pkLocal) {
-                alert(Messages.strPleaseSelectPrimaryOrUniqueKey);
+            if (! pkLocal) {
+                alert(window.Messages.strPleaseSelectPrimaryOrUniqueKey);
                 return;// 0;
             }// PK
-            if (jTabs[db + '.' + T] !== 1) {
+            if (DesignerConfig.jTabs[db + '.' + T] !== 1) {
                 document.getElementById('foreign_relation').style.display = 'none';
             }
             clickField = 1;
             linkRelation = 'DB1=' + db + argsep + 'T1=' + T + argsep + 'F1=' + f;
-            document.getElementById('designer_hint').innerHTML = Messages.strSelectForeignKey;
+            document.getElementById('designer_hint').innerHTML = window.Messages.strSelectForeignKey;
         } else {
             DesignerMove.startRelation(); // hidden hint...
-            if (jTabs[db + '.' + T] !== 1 || !pkLocal) {
+            if (DesignerConfig.jTabs[db + '.' + T] !== 1 || ! pkLocal) {
                 document.getElementById('foreign_relation').style.display = 'none';
             }
             var left = globX - (document.getElementById('layer_new_relation').offsetWidth >> 1);
             document.getElementById('layer_new_relation').style.left = left + 'px';
             var top = globY - document.getElementById('layer_new_relation').offsetHeight;
-            document.getElementById('layer_new_relation').style.top  = top + 'px';
+            document.getElementById('layer_new_relation').style.top = top + 'px';
             document.getElementById('layer_new_relation').style.display = 'block';
             linkRelation += argsep + 'DB2=' + db + argsep + 'T2=' + T + argsep + 'F2=' + f;
         }
@@ -1249,11 +1231,11 @@ DesignerMove.clickField = function (db, T, f, pk) {
     if (onDisplayField) {
         var fieldNameToSend = decodeURIComponent(f);
         var newDisplayFieldClass = 'tab_field';
-        var oldTabField = document.getElementById('id_tr_' + T + '.' + displayField[T]);
+        var oldTabField = document.getElementById('id_tr_' + T + '.' + DesignerConfig.displayField[T]);
         // if is display field
-        if (displayField[T] === f) {// The display field is already the one defined, user wants to remove it
+        if (DesignerConfig.displayField[T] === f) {// The display field is already the one defined, user wants to remove it
             newDisplayFieldClass = 'tab_field';
-            delete displayField[T];
+            delete DesignerConfig.displayField[T];
             if (oldTabField) {// Clear the style
                 // Set display field class on old item
                 oldTabField.className = 'tab_field';
@@ -1261,16 +1243,16 @@ DesignerMove.clickField = function (db, T, f, pk) {
             fieldNameToSend = '';
         } else {
             newDisplayFieldClass = 'tab_field_3';
-            if (displayField[T]) { // Had a previous one, clear it
+            if (DesignerConfig.displayField[T]) { // Had a previous one, clear it
                 if (oldTabField) {
                     // Set display field class on old item
                     oldTabField.className = 'tab_field';
                 }
-                delete displayField[T];
+                delete DesignerConfig.displayField[T];
             }
-            displayField[T] = f;
+            DesignerConfig.displayField[T] = f;
 
-            var tabField = document.getElementById('id_tr_' + T + '.' + displayField[T]);
+            var tabField = document.getElementById('id_tr_' + T + '.' + DesignerConfig.displayField[T]);
             if (tabField) {
                 // Set new display field class
                 tabField.className = newDisplayFieldClass;
@@ -1281,22 +1263,22 @@ DesignerMove.clickField = function (db, T, f, pk) {
         document.getElementById('designer_hint').style.display = 'none';
         document.getElementById('display_field_button').className = 'M_butt';
 
-        var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+        var $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
         $.post('index.php?route=/database/designer',
             {
                 'operation': 'setDisplayField',
                 'ajax_request': true,
-                'server': server,
+                'server': DesignerConfig.server,
                 'db': db,
                 'table': T,
                 'field': fieldNameToSend
             },
             function (data) {
                 if (data.success === false) {
-                    Functions.ajaxShowMessage(data.error, false);
+                    ajaxShowMessage(data.error, false);
                 } else {
-                    Functions.ajaxRemoveMessage($msgbox);
-                    Functions.ajaxShowMessage(Messages.strModificationSaved);
+                    ajaxRemoveMessage($msgbox);
+                    ajaxShowMessage(window.Messages.strModificationSaved);
                 }
             });
     }
@@ -1305,32 +1287,32 @@ DesignerMove.clickField = function (db, T, f, pk) {
 DesignerMove.newRelation = function () {
     document.getElementById('layer_new_relation').style.display = 'none';
     var argsep = CommonParams.get('arg_separator');
-    linkRelation += argsep + 'server=' + server + argsep + 'db=' + db + argsep + 'db2=p';
+    linkRelation += argsep + 'server=' + DesignerConfig.server + argsep + 'db=' + DesignerConfig.db + argsep + 'db2=p';
     linkRelation += argsep + 'on_delete=' + document.getElementById('on_delete').value + argsep + 'on_update=' + document.getElementById('on_update').value;
     linkRelation += argsep + 'operation=addNewRelation' + argsep + 'ajax_request=true';
 
-    var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+    var $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
     $.post('index.php?route=/database/designer', linkRelation, function (data) {
         if (data.success === false) {
-            Functions.ajaxShowMessage(data.error, false);
+            ajaxShowMessage(data.error, false);
         } else {
-            Functions.ajaxRemoveMessage($msgbox);
-            Functions.ajaxShowMessage(data.message);
-            DesignerMove.loadPage(selectedPage);
+            ajaxRemoveMessage($msgbox);
+            ajaxShowMessage(data.message);
+            DesignerMove.loadPage(DesignerConfig.selectedPage);
         }
     }); // end $.post()
 };
 
 // -------------------------- create tables -------------------------------------
 DesignerMove.startTableNew = function () {
-    CommonParams.set('table', '');
-    CommonActions.refreshMain('index.php?route=/table/create');
+    Navigation.update(CommonParams.set('table', ''));
+    refreshMainContent('index.php?route=/table/create');
 };
 
 DesignerMove.startTabUpd = function (db, table) {
-    CommonParams.set('db', db);
-    CommonParams.set('table', table);
-    CommonActions.refreshMain('index.php?route=/table/structure');
+    Navigation.update(CommonParams.set('db', db));
+    Navigation.update(CommonParams.set('table', table));
+    refreshMainContent('index.php?route=/table/structure');
 };
 
 // --------------------------- hide tables --------------------------------------
@@ -1366,7 +1348,7 @@ DesignerMove.smallTabAll = function (idThis) {
 
 // invert max/min all tables
 DesignerMove.smallTabInvert = function () {
-    for (var key in jTabs) {
+    for (var key in DesignerConfig.jTabs) {
         DesignerMove.smallTab(key, 0);
     }
     DesignerMove.reload();
@@ -1381,7 +1363,7 @@ DesignerMove.relationLinesInvert = function () {
 };
 
 DesignerMove.smallTabRefresh = function () {
-    for (var key in jTabs) {
+    for (var key in DesignerConfig.jTabs) {
         if (document.getElementById('id_hide_tbody_' + key).innerHTML !== 'v') {
             DesignerMove.smallTab(key, 0);
         }
@@ -1389,7 +1371,7 @@ DesignerMove.smallTabRefresh = function () {
 };
 
 DesignerMove.smallTab = function (t, reload) {
-    var id      = document.getElementById('id_tbody_' + t);
+    var id = document.getElementById('id_tbody_' + t);
     var idThis = document.getElementById('id_hide_tbody_' + t);
     if (idThis.innerHTML === 'v') {
         // ---CROSS
@@ -1445,18 +1427,18 @@ DesignerMove.canvasClick = function (id, event) {
     localY -= $('#osn_tab').offset().top;
     DesignerMove.clear();
     var osnTab = document.getElementById('osn_tab');
-    for (K in contr) {
-        for (key in contr[K]) {
-            for (key2 in contr[K][key]) {
-                for (key3 in contr[K][key][key2]) {
+    for (K in DesignerConfig.contr) {
+        for (key in DesignerConfig.contr[K]) {
+            for (key2 in DesignerConfig.contr[K][key]) {
+                for (key3 in DesignerConfig.contr[K][key][key2]) {
                     if (! document.getElementById('check_vis_' + key2).checked ||
-                        ! document.getElementById('check_vis_' + contr[K][key][key2][key3][0]).checked) {
+                        ! document.getElementById('check_vis_' + DesignerConfig.contr[K][key][key2][key3][0]).checked) {
                         continue; // if hide
                     }
-                    var x1Left  = document.getElementById(key2).offsetLeft + 1;// document.getElementById(key2+"."+key3).offsetLeft;
+                    var x1Left = document.getElementById(key2).offsetLeft + 1;// document.getElementById(key2+"."+key3).offsetLeft;
                     var x1Right = x1Left + document.getElementById(key2).offsetWidth;
-                    var x2Left  = document.getElementById(contr[K][key][key2][key3][0]).offsetLeft;// +document.getElementById(contr[K][key2][key3][0]+"."+contr[K][key2][key3][1]).offsetLeft
-                    var x2Right = x2Left + document.getElementById(contr[K][key][key2][key3][0]).offsetWidth;
+                    var x2Left = document.getElementById(DesignerConfig.contr[K][key][key2][key3][0]).offsetLeft;// +document.getElementById(contr[K][key2][key3][0]+"."+contr[K][key2][key3][1]).offsetLeft
+                    var x2Right = x2Left + document.getElementById(DesignerConfig.contr[K][key][key2][key3][0]).offsetWidth;
                     a[0] = Math.abs(x1Left - x2Left);
                     a[1] = Math.abs(x1Left - x2Right);
                     a[2] = Math.abs(x1Right - x2Left);
@@ -1489,28 +1471,28 @@ DesignerMove.canvasClick = function (id, event) {
                     if (n === 0) {
                         x1 = x1Left - smS;
                         x2 = x2Left - smS;
-                        sLeft    = 1;
+                        sLeft = 1;
                     }
 
                     var y1 = document.getElementById(key2).offsetTop + document.getElementById(key2 + '.' + key3).offsetTop + heightField;
-                    var y2 = document.getElementById(contr[K][key][key2][key3][0]).offsetTop +
-                                     document.getElementById(contr[K][key][key2][key3][0] + '.' + contr[K][key][key2][key3][1]).offsetTop + heightField;
+                    var y2 = document.getElementById(DesignerConfig.contr[K][key][key2][key3][0]).offsetTop +
+                        document.getElementById(DesignerConfig.contr[K][key][key2][key3][0] + '.' + DesignerConfig.contr[K][key][key2][key3][1]).offsetTop + heightField;
 
-                    if (!selected && localX > x1 - 10 && localX < x1 + 10 && localY > y1 - 7 && localY < y1 + 7) {
+                    if (! selected && localX > x1 - 10 && localX < x1 + 10 && localY > y1 - 7 && localY < y1 + 7) {
                         DesignerMove.drawLine0(
                             x1, x2, y1, y2, osnTab, 'rgba(255,0,0,1)'
                         );
 
                         selected = 1;
-                        Key0 = contr[K][key][key2][key3][0];
-                        Key1 = contr[K][key][key2][key3][1];
+                        Key0 = DesignerConfig.contr[K][key][key2][key3][0];
+                        Key1 = DesignerConfig.contr[K][key][key2][key3][1];
                         Key2 = key2;
                         Key3 = key3;
                         Key = K;
                     } else {
                         DesignerMove.drawLine0(
                             x1, x2, y1, y2, osnTab,
-                            contr[K][key][key2][key3][0] + '.' + contr[K][key][key2][key3][1]
+                            DesignerConfig.contr[K][key][key2][key3][0] + '.' + DesignerConfig.contr[K][key][key2][key3][1]
                         );
                     }
                 }
@@ -1532,17 +1514,17 @@ DesignerMove.canvasClick = function (id, event) {
 DesignerMove.updRelation = function () {
     document.getElementById('layer_upd_relation').style.display = 'none';
     var argsep = CommonParams.get('arg_separator');
-    linkRelation += argsep + 'server=' + server + argsep + 'db=' + db;
+    linkRelation += argsep + 'server=' + DesignerConfig.server + argsep + 'db=' + DesignerConfig.db;
     linkRelation += argsep + 'operation=removeRelation' + argsep + 'ajax_request=true';
 
-    var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+    var $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
     $.post('index.php?route=/database/designer', linkRelation, function (data) {
         if (data.success === false) {
-            Functions.ajaxShowMessage(data.error, false);
+            ajaxShowMessage(data.error, false);
         } else {
-            Functions.ajaxRemoveMessage($msgbox);
-            Functions.ajaxShowMessage(data.message);
-            DesignerMove.loadPage(selectedPage);
+            ajaxRemoveMessage($msgbox);
+            ajaxShowMessage(data.message);
+            DesignerMove.loadPage(DesignerConfig.selectedPage);
         }
     }); // end $.post()
 };
@@ -1569,7 +1551,7 @@ DesignerMove.hideTabAll = function (idThis) {
     var E = document.getElementById('container-form');
     var EelementsLength = E.elements.length;
     for (var i = 0; i < EelementsLength; i++) {
-        if (E.elements[i].type === 'checkbox' && E.elements[i].id.substring(0, 10) === 'check_vis_') {
+        if (E.elements[i].type === 'checkbox' && E.elements[i].id.startsWith('check_vis_')) {
             if (idThis.alt === 'v') {
                 E.elements[i].checked = true;
                 document.getElementById(E.elements[i].value).style.display = '';
@@ -1599,14 +1581,14 @@ DesignerMove.noHaveConstr = function (idThis) {
     var key;
     var key2;
     var key3;
-    for (K in contr) {
-        for (key in contr[K]) {
+    for (K in DesignerConfig.contr) {
+        for (key in DesignerConfig.contr[K]) {
             // contr name
-            for (key2 in contr[K][key]) {
+            for (key2 in DesignerConfig.contr[K][key]) {
                 // table name
-                for (key3 in contr[K][key][key2]) {
+                for (key3 in DesignerConfig.contr[K][key][key2]) {
                     // field name
-                    a[key2] = a[contr[K][key][key2][key3][0]] = 1; // exist constr
+                    a[key2] = a[DesignerConfig.contr[K][key][key2][key3][0]] = 1; // exist constr
                 }
             }
         }
@@ -1622,8 +1604,8 @@ DesignerMove.noHaveConstr = function (idThis) {
     var E = document.getElementById('container-form');
     var EelementsLength = E.elements.length;
     for (var i = 0; i < EelementsLength; i++) {
-        if (E.elements[i].type === 'checkbox' && E.elements[i].id.substring(0, 10) === 'check_vis_') {
-            if (!DesignerMove.inArrayK(E.elements[i].value, a)) {
+        if (E.elements[i].type === 'checkbox' && E.elements[i].id.startsWith('check_vis_')) {
+            if (! DesignerMove.inArrayK(E.elements[i].value, a)) {
                 if (idThis.alt === 'v') {
                     E.elements[i].checked = true;
                     document.getElementById(E.elements[i].value).style.display = '';
@@ -1644,7 +1626,7 @@ DesignerMove.generalScroll = function () {
             // eslint-disable-next-line compat/compat
             document.getElementById('top_menu').style.left = document.body.scrollLeft + 'px';
             // eslint-disable-next-line compat/compat
-            document.getElementById('top_menu').style.top  = document.body.scrollTop + 'px';
+            document.getElementById('top_menu').style.top = document.body.scrollTop + 'px';
         },
         200
     );
@@ -1686,7 +1668,7 @@ DesignerMove.sideMenuRight = function (idThis) {
     moveMenuIcon.attr('src', moveMenuIcon.attr('data-right'));
     moveMenuIcon.attr('data-right', srcMoveIcon);
 
-    menuMoved = !menuMoved;
+    menuMoved = ! menuMoved;
     DesignerMove.saveValueInConfig('side_menu', $('#side_menu').hasClass('right'));
     $('#key_Left_Right').toggleClass('M_butt_Selected_down');
     $('#key_Left_Right').toggleClass('M_butt');
@@ -1697,13 +1679,13 @@ DesignerMove.showText = function () {
 };
 
 DesignerMove.hideText = function () {
-    if (!alwaysShowText) {
+    if (! alwaysShowText) {
         $('#side_menu').find('.hidable').hide();
     }
 };
 
 DesignerMove.pinText = function () {
-    alwaysShowText = !alwaysShowText;
+    alwaysShowText = ! alwaysShowText;
     $('#pin_Text').toggleClass('M_butt_Selected_down');
     $('#pin_Text').toggleClass('M_butt');
     DesignerMove.saveValueInConfig('pin_text', alwaysShowText);
@@ -1713,9 +1695,9 @@ DesignerMove.startDisplayField = function () {
     if (onRelation) {
         return;
     }
-    if (!onDisplayField) {
+    if (! onDisplayField) {
         onDisplayField = 1;
-        document.getElementById('designer_hint').innerHTML = Messages.strChangeDisplay;
+        document.getElementById('designer_hint').innerHTML = window.Messages.strChangeDisplay;
         document.getElementById('designer_hint').style.display = 'block';
         document.getElementById('display_field_button').className = 'M_butt_Selected_down';// '#FFEE99';gray #AAAAAA
 
@@ -1777,7 +1759,7 @@ DesignerMove.clickOption = function (dbName, tableName, columnName, tableDbNameU
     var left = globX - (designerOptions.offsetWidth >> 1);
     designerOptions.style.left = left + 'px';
     // var top = Glob_Y - designerOptions.offsetHeight - 10;
-    designerOptions.style.top  = (screen.height / 4) + 'px';
+    designerOptions.style.top = (screen.height / 4) + 'px';
     designerOptions.style.display = 'block';
     document.getElementById('ok_add_object_db_and_table_name_url').value = tableDbNameUrl;
     document.getElementById('ok_add_object_db_name').value = dbName;
@@ -1814,19 +1796,19 @@ DesignerMove.selectAll = function (tableName, dbName, idSelectAll) {
         this.disabled = parentIsChecked;
     });
     if (parentIsChecked) {
-        selectField.push('`' + tableName + '`.*');
-        fromArray.push(tableName);
+        DesignerHistory.selectField.push('`' + tableName + '`.*');
+        window.fromArray.push(tableName);
     } else {
         var i;
-        for (i = 0; i < selectField.length; i++) {
-            if (selectField[i] === ('`' + tableName + '`.*')) {
-                selectField.splice(i, 1);
+        for (i = 0; i < DesignerHistory.selectField.length; i++) {
+            if (DesignerHistory.selectField[i] === ('`' + tableName + '`.*')) {
+                DesignerHistory.selectField.splice(i, 1);
             }
         }
         var k;
-        for (k = 0; k < fromArray.length; k++) {
-            if (fromArray[k] === tableName) {
-                fromArray.splice(k, 1);
+        for (k = 0; k < window.fromArray.length; k++) {
+            if (window.fromArray[k] === tableName) {
+                window.fromArray.splice(k, 1);
                 break;
             }
         }
@@ -1836,7 +1818,7 @@ DesignerMove.selectAll = function (tableName, dbName, idSelectAll) {
 
 DesignerMove.tableOnOver = function (idThis, val, buil) {
     var builLocal = parseInt(buil);
-    if (!val) {
+    if (! val) {
         document.getElementById('id_zag_' + idThis).className = 'tab_zag_2';
         if (builLocal) {
             document.getElementById('id_zag_' + idThis + '_2').className = 'tab_zag_2';
@@ -1850,7 +1832,7 @@ DesignerMove.tableOnOver = function (idThis, val, buil) {
 };
 
 /**
- * This function stores selected column information in selectField[]
+ * This function stores selected column information in DesignerHistory.selectField[]
  * In case column is checked it add else it deletes
  *
  * @param {string} tableName
@@ -1862,18 +1844,18 @@ DesignerMove.storeColumn = function (tableName, colName, checkboxId) {
     var k;
     var selectKeyField = '`' + tableName + '`.`' + colName + '`';
     if (document.getElementById(checkboxId).checked === true) {
-        selectField.push(selectKeyField);
-        fromArray.push(tableName);
+        DesignerHistory.selectField.push(selectKeyField);
+        window.fromArray.push(tableName);
     } else {
-        for (i = 0; i < selectField.length; i++) {
-            if (selectField[i] === selectKeyField) {
-                selectField.splice(i, 1);
+        for (i = 0; i < DesignerHistory.selectField.length; i++) {
+            if (DesignerHistory.selectField[i] === selectKeyField) {
+                DesignerHistory.selectField.splice(i, 1);
                 break;
             }
         }
-        for (k = 0; k < fromArray.length; k++) {
-            if (fromArray[k] === tableName) {
-                fromArray.splice(k, 1);
+        for (k = 0; k < window.fromArray.length; k++) {
+            if (window.fromArray[k] === tableName) {
+                window.fromArray.splice(k, 1);
                 break;
             }
         }
@@ -1881,9 +1863,9 @@ DesignerMove.storeColumn = function (tableName, colName, checkboxId) {
 };
 
 /**
- * This function builds object and adds them to historyArray
+ * This function builds object and adds them to DesignerHistory.historyArray
  * first it does a few checks on each object, then makes an object(where,rename,groupby,aggregate,orderby)
- * then a new history object is made and finally all these history objects are added to historyArray[]
+ * then a new history object is made and finally all these history objects are added to DesignerHistory.historyArray[]
  *
  * @param {string} dbName
  * @param {string} tableName
@@ -1895,30 +1877,30 @@ DesignerMove.addObject = function (dbName, tableName, colName, dbTableNameUrl) {
     var whereObj;
     var rel = document.getElementById('rel_opt');
     var sum = 0;
-    var init = historyArray.length;
+    var init = DesignerHistory.historyArray.length;
     if (rel.value !== '--') {
         if (document.getElementById('Query').value === '') {
-            Functions.ajaxShowMessage(Functions.sprintf(Messages.strQueryEmpty));
+            ajaxShowMessage(window.sprintf(window.Messages.strQueryEmpty));
             return;
         }
         p = document.getElementById('Query');
         whereObj = new DesignerHistory.Where(rel.value, p.value);// make where object
-        historyArray.push(new DesignerHistory.HistoryObj(colName, whereObj, tableName, hTabs[dbTableNameUrl], 'Where'));
+        DesignerHistory.historyArray.push(new DesignerHistory.HistoryObj(colName, whereObj, tableName, DesignerConfig.hTabs[dbTableNameUrl], 'Where'));
         sum = sum + 1;
     }
     if (document.getElementById('new_name').value !== '') {
         var renameObj = new DesignerHistory.Rename(document.getElementById('new_name').value);// make Rename object
-        historyArray.push(new DesignerHistory.HistoryObj(colName, renameObj, tableName, hTabs[dbTableNameUrl], 'Rename'));
+        DesignerHistory.historyArray.push(new DesignerHistory.HistoryObj(colName, renameObj, tableName, DesignerConfig.hTabs[dbTableNameUrl], 'Rename'));
         sum = sum + 1;
     }
     if (document.getElementById('operator').value !== '---') {
         var aggregateObj = new DesignerHistory.Aggregate(document.getElementById('operator').value);
-        historyArray.push(new DesignerHistory.HistoryObj(colName, aggregateObj, tableName, hTabs[dbTableNameUrl], 'Aggregate'));
+        DesignerHistory.historyArray.push(new DesignerHistory.HistoryObj(colName, aggregateObj, tableName, DesignerConfig.hTabs[dbTableNameUrl], 'Aggregate'));
         sum = sum + 1;
         // make aggregate operator
     }
     if (document.getElementById('groupby').checked === true) {
-        historyArray.push(new DesignerHistory.HistoryObj(colName, 'GroupBy', tableName, hTabs[dbTableNameUrl], 'GroupBy'));
+        DesignerHistory.historyArray.push(new DesignerHistory.HistoryObj(colName, 'GroupBy', tableName, DesignerConfig.hTabs[dbTableNameUrl], 'GroupBy'));
         sum = sum + 1;
         // make groupby
     }
@@ -1931,20 +1913,20 @@ DesignerMove.addObject = function (dbName, tableName, colName, dbTableNameUrl) {
             document.getElementById('having').value,
             document.getElementById('h_operator').value
         );// make where object
-        historyArray.push(new DesignerHistory.HistoryObj(colName, whereObj, tableName, hTabs[dbTableNameUrl], 'Having'));
+        DesignerHistory.historyArray.push(new DesignerHistory.HistoryObj(colName, whereObj, tableName, DesignerConfig.hTabs[dbTableNameUrl], 'Having'));
         sum = sum + 1;
         // make having
     }
     if (document.getElementById('orderby').value !== '---') {
         var orderByObj = new DesignerHistory.OrderBy(document.getElementById('orderby').value);
-        historyArray.push(new DesignerHistory.HistoryObj(colName, orderByObj, tableName, hTabs[dbTableNameUrl], 'OrderBy'));
+        DesignerHistory.historyArray.push(new DesignerHistory.HistoryObj(colName, orderByObj, tableName, DesignerConfig.hTabs[dbTableNameUrl], 'OrderBy'));
         sum = sum + 1;
         // make orderby
     }
-    Functions.ajaxShowMessage(Functions.sprintf(Messages.strObjectsCreated, sum));
+    ajaxShowMessage(window.sprintf(window.Messages.strObjectsCreated, sum));
     // output sum new objects created
     var existingDiv = document.getElementById('ab');
-    existingDiv.innerHTML = DesignerHistory.display(init, historyArray.length);
+    existingDiv.innerHTML = DesignerHistory.display(init, DesignerHistory.historyArray.length);
     DesignerMove.closeOption();
     $('#ab').accordion('refresh');
 };
@@ -1998,205 +1980,19 @@ DesignerMove.enableTableEvents = function (index, element) {
     });
 
     $(element).find('.tab_zag_noquery').on('mouseover', function () {
-        DesignerMove.tableOnOver($(this).attr('table_name'),0, $(this).attr('query_set'));
+        DesignerMove.tableOnOver($(this).attr('table_name'), 0, $(this).attr('query_set'));
     });
     $(element).find('.tab_zag_noquery').on('mouseout', function () {
-        DesignerMove.tableOnOver($(this).attr('table_name'),1, $(this).attr('query_set'));
+        DesignerMove.tableOnOver($(this).attr('table_name'), 1, $(this).attr('query_set'));
     });
     $(element).find('.tab_zag_query').on('mouseover', function () {
-        DesignerMove.tableOnOver($(this).attr('table_name'),0, 1);
+        DesignerMove.tableOnOver($(this).attr('table_name'), 0, 1);
     });
     $(element).find('.tab_zag_query').on('mouseout', function () {
-        DesignerMove.tableOnOver($(this).attr('table_name'),1, 1);
+        DesignerMove.tableOnOver($(this).attr('table_name'), 1, 1);
     });
 
     DesignerMove.enablePageContentEvents();
 };
 
-AJAX.registerTeardown('designer/move.js', function () {
-    $('#side_menu').off('mouseenter mouseleave');
-    $('#key_Show_left_menu').off('click');
-    $('#toggleFullscreen').off('click');
-    $('#newPage').off('click');
-    $('#editPage').off('click');
-    $('#savePos').off('click');
-    $('#SaveAs').off('click');
-    $('#delPages').off('click');
-    $('#StartTableNew').off('click');
-    $('#rel_button').off('click');
-    $('#StartTableNew').off('click');
-    $('#display_field_button').off('click');
-    $('#reloadPage').off('click');
-    $('#angular_direct_button').off('click');
-    $('#grid_button').off('click');
-    $('#key_SB_all').off('click');
-    $('#SmallTabInvert').off('click');
-    $('#relLineInvert').off('click');
-    $('#exportPages').off('click');
-    $('#query_builder').off('click');
-    $('#key_Left_Right').off('click');
-    $('#pin_Text').off('click');
-    $('#canvas').off('click');
-    $('#key_HS_all').off('click');
-    $('#key_HS').off('click');
-    $('.scroll_tab_struct').off('click');
-    $('.scroll_tab_checkbox').off('click');
-    $('#id_scroll_tab').find('tr').off('click', '.designer_Tabs2,.designer_Tabs');
-    $('.designer_tab').off('click', '.select_all_1');
-    $('.designer_tab').off('click', '.small_tab,.small_tab2');
-    $('.designer_tab').off('click', '.small_tab_pref_1');
-    $('.tab_zag_noquery').off('mouseover');
-    $('.tab_zag_noquery').off('mouseout');
-    $('.tab_zag_query').off('mouseover');
-    $('.tab_zag_query').off('mouseout');
-    $('.designer_tab').off('click','.tab_field_2,.tab_field_3,.tab_field');
-    $('.designer_tab').off('click', '.select_all_store_col');
-    $('.designer_tab').off('click', '.small_tab_pref_click_opt');
-    $('#del_button').off('click');
-    $('#cancel_button').off('click');
-    $('#ok_add_object').off('click');
-    $('#cancel_close_option').off('click');
-    $('#ok_new_rel_panel').off('click');
-    $('#cancel_new_rel_panel').off('click');
-    $('#page_content').off('mouseup');
-    $('#page_content').off('mousedown');
-    $('#page_content').off('mousemove');
-});
-
-AJAX.registerOnload('designer/move.js', function () {
-    $('#key_Show_left_menu').on('click', function () {
-        DesignerMove.showLeftMenu(this);
-        return false;
-    });
-    $('#toggleFullscreen').on('click', function () {
-        DesignerMove.toggleFullscreen();
-        return false;
-    });
-    $('#addOtherDbTables').on('click', function () {
-        DesignerMove.addOtherDbTables();
-        return false;
-    });
-    $('#newPage').on('click', function () {
-        DesignerMove.new();
-        return false;
-    });
-    $('#editPage').on('click', function () {
-        DesignerMove.editPages();
-        return false;
-    });
-    $('#savePos').on('click', function () {
-        DesignerMove.save3();
-        return false;
-    });
-    $('#SaveAs').on('click', function () {
-        DesignerMove.saveAs();
-        $(document).on('ajaxStop', function () {
-            $('#selected_value').on('click', function () {
-                $('#savePageNewRadio').prop('checked', true);
-            });
-        });
-        return false;
-    });
-    $('#delPages').on('click', function () {
-        DesignerMove.deletePages();
-        return false;
-    });
-    $('#StartTableNew').on('click', function () {
-        DesignerMove.startTableNew();
-        return false;
-    });
-    $('#rel_button').on('click', function () {
-        DesignerMove.startRelation();
-        return false;
-    });
-    $('#display_field_button').on('click', function () {
-        DesignerMove.startDisplayField();
-        return false;
-    });
-    $('#reloadPage').on('click', function () {
-        DesignerMove.loadPage(selectedPage);
-    });
-    $('#angular_direct_button').on('click', function () {
-        DesignerMove.angularDirect();
-        return false;
-    });
-    $('#grid_button').on('click', function () {
-        DesignerMove.grid();
-        return false;
-    });
-    $('#key_SB_all').on('click', function () {
-        DesignerMove.smallTabAll(this);
-        return false;
-    });
-    $('#SmallTabInvert').on('click', function () {
-        DesignerMove.smallTabInvert();
-        return false;
-    });
-    $('#relLineInvert').on('click', function () {
-        DesignerMove.relationLinesInvert();
-        return false;
-    });
-    $('#exportPages').on('click', function () {
-        DesignerMove.exportPages();
-        return false;
-    });
-    $('#query_builder').on('click', function () {
-        DesignerHistory.buildQuery('SQL Query on Database', 0);
-    });
-    $('#key_Left_Right').on('click', function () {
-        DesignerMove.sideMenuRight(this);
-        return false;
-    });
-    $('#side_menu').on('mouseenter', function () {
-        DesignerMove.showText();
-        return false;
-    });
-    $('#side_menu').on('mouseleave', function () {
-        DesignerMove.hideText();
-        return false;
-    });
-    $('#pin_Text').on('click', function () {
-        DesignerMove.pinText(this);
-        return false;
-    });
-    $('#canvas').on('click', function (event) {
-        DesignerMove.canvasClick(this, event);
-    });
-    $('#key_HS_all').on('click', function () {
-        DesignerMove.hideTabAll(this);
-        return false;
-    });
-    $('#key_HS').on('click', function () {
-        DesignerMove.noHaveConstr(this);
-        return false;
-    });
-
-    $('.designer_tab').each(DesignerMove.enableTableEvents);
-    $('.designer_tab').each(DesignerMove.addTableToTablesList);
-
-    $('input#del_button').on('click', function () {
-        DesignerMove.updRelation();
-    });
-    $('input#cancel_button').on('click', function () {
-        document.getElementById('layer_upd_relation').style.display = 'none';
-        DesignerMove.reload();
-    });
-    $('input#ok_add_object').on('click', function () {
-        DesignerMove.addObject(
-            $('#ok_add_object_db_name').val(),
-            $('#ok_add_object_table_name').val(),
-            $('#ok_add_object_col_name').val(),
-            $('#ok_add_object_db_and_table_name_url').val()
-        );
-    });
-    $('input#cancel_close_option').on('click', function () {
-        DesignerMove.closeOption();
-    });
-    $('input#ok_new_rel_panel').on('click', function () {
-        DesignerMove.newRelation();
-    });
-    $('input#cancel_new_rel_panel').on('click', function () {
-        document.getElementById('layer_new_relation').style.display = 'none';
-    });
-    DesignerMove.enablePageContentEvents();
-});
+export { DesignerMove };

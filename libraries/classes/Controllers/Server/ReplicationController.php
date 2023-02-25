@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\ResponseRenderer;
@@ -22,84 +23,112 @@ use function is_array;
  */
 class ReplicationController extends AbstractController
 {
-    /** @var ReplicationGui */
-    private $replicationGui;
-
-    /** @var DatabaseInterface */
-    private $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        ReplicationGui $replicationGui,
-        DatabaseInterface $dbi
+        private ReplicationGui $replicationGui,
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
-        $this->replicationGui = $replicationGui;
-        $this->dbi = $dbi;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $urlParams, $errorUrl;
+        $GLOBALS['urlParams'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
 
-        $params = [
-            'url_params' => $_POST['url_params'] ?? null,
-            'primary_configure' => $_POST['primary_configure'] ?? null,
-            'replica_configure' => $_POST['replica_configure'] ?? null,
-            'repl_clear_scr' => $_POST['repl_clear_scr'] ?? null,
-        ];
-        $errorUrl = Url::getFromRoute('/');
+        $hasReplicaClearScreen = (bool) $request->getParsedBodyParam('replica_clear_screen');
+        $replicaConfigure = $request->getParsedBodyParam('replica_configure');
+        $primaryConfigure = $request->getParsedBodyParam('primary_configure');
+
+        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
         }
 
         $replicationInfo = new ReplicationInfo($this->dbi);
-        $replicationInfo->load($_POST['primary_connection'] ?? null);
+        /** @var string|null $primaryConnection */
+        $primaryConnection = $request->getParsedBodyParam('primary_connection');
+        $replicationInfo->load($primaryConnection);
 
         $primaryInfo = $replicationInfo->getPrimaryInfo();
         $replicaInfo = $replicationInfo->getReplicaInfo();
 
         $this->addScriptFiles(['server/privileges.js', 'replication.js', 'vendor/zxcvbn-ts.js']);
 
-        if (isset($params['url_params']) && is_array($params['url_params'])) {
-            $urlParams = $params['url_params'];
+        $urlParams = $request->getParsedBodyParam('url_params');
+        if (is_array($urlParams)) {
+            $GLOBALS['urlParams'] = $urlParams;
         }
 
         if ($this->dbi->isSuperUser()) {
-            $this->replicationGui->handleControlRequest();
+            /** @var string|null $srReplicaAction */
+            $srReplicaAction = $request->getParsedBodyParam('sr_replica_action');
+            /** @var string|int $srSkipErrorsCount */
+            $srSkipErrorsCount = $request->getParsedBodyParam('sr_skip_errors_count', 1);
+            /** @var string|null $srReplicaControlParam */
+            $srReplicaControlParam = $request->getParsedBodyParam('sr_replica_control_param');
+
+            $this->replicationGui->handleControlRequest(
+                $request->getParsedBodyParam('sr_take_action') !== null,
+                $request->getParsedBodyParam('replica_changeprimary') !== null,
+                $request->getParsedBodyParam('sr_replica_server_control') !== null,
+                $srReplicaAction,
+                $request->getParsedBodyParam('sr_replica_skip_error') !== null,
+                (int) $srSkipErrorsCount,
+                $srReplicaControlParam,
+                $request->getParsedBodyParam('username', ''),
+                $request->getParsedBodyParam('pma_pw', ''),
+                $request->getParsedBodyParam('hostname', ''),
+                (int) $request->getParsedBodyParam('text_port'),
+            );
         }
 
         $errorMessages = $this->replicationGui->getHtmlForErrorMessage();
 
         if ($primaryInfo['status']) {
-            $primaryReplicationHtml = $this->replicationGui->getHtmlForPrimaryReplication();
+            /** @var string|null $primaryAddUser */
+            $primaryAddUser = $request->getParsedBodyParam('primary_add_user');
+            /** @var string $username */
+            $username = $request->getParsedBodyParam('username');
+            /** @var string $hostname */
+            $hostname = $request->getParsedBodyParam('hostname');
+
+            $primaryReplicationHtml = $this->replicationGui->getHtmlForPrimaryReplication(
+                $primaryConnection,
+                $hasReplicaClearScreen,
+                $primaryAddUser,
+                $username,
+                $hostname,
+            );
         }
 
-        if (isset($params['primary_configure'])) {
+        if ($primaryConfigure !== null) {
             $primaryConfigurationHtml = $this->replicationGui->getHtmlForPrimaryConfiguration();
         } else {
-            if (! isset($params['repl_clear_scr'])) {
+            if (! $hasReplicaClearScreen) {
                 $replicaConfigurationHtml = $this->replicationGui->getHtmlForReplicaConfiguration(
+                    $primaryConnection,
                     $replicaInfo['status'],
-                    $replicationInfo->getReplicaStatus()
+                    $replicationInfo->getReplicaStatus(),
+                    $replicaConfigure !== null,
                 );
             }
 
-            if (isset($params['replica_configure'])) {
+            if ($replicaConfigure !== null) {
                 $changePrimaryHtml = $this->replicationGui->getHtmlForReplicationChangePrimary('replica_changeprimary');
             }
         }
 
         $this->render('server/replication/index', [
-            'url_params' => $urlParams,
+            'url_params' => $GLOBALS['urlParams'],
             'is_super_user' => $this->dbi->isSuperUser(),
             'error_messages' => $errorMessages,
             'is_primary' => $primaryInfo['status'],
-            'primary_configure' => $params['primary_configure'],
-            'replica_configure' => $params['replica_configure'],
-            'clear_screen' => $params['repl_clear_scr'],
+            'primary_configure' => $primaryConfigure,
+            'replica_configure' => $replicaConfigure,
+            'clear_screen' => $hasReplicaClearScreen,
             'primary_replication_html' => $primaryReplicationHtml ?? '',
             'primary_configuration_html' => $primaryConfigurationHtml ?? '',
             'replica_configuration_html' => $replicaConfigurationHtml ?? '',

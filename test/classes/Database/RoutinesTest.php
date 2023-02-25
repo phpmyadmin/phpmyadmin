@@ -6,14 +6,13 @@ namespace PhpMyAdmin\Tests\Database;
 
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Types;
 
-/**
- * @covers \PhpMyAdmin\Database\Routines
- */
+/** @covers \PhpMyAdmin\Database\Routines */
 class RoutinesTest extends AbstractTestCase
 {
     /** @var Routines */
@@ -25,9 +24,14 @@ class RoutinesTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setGlobalConfig();
+
         parent::setLanguage();
+
         parent::setTheme();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
         $GLOBALS['server'] = 0;
@@ -37,19 +41,20 @@ class RoutinesTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['proc_priv'] = false;
         $GLOBALS['is_reload_priv'] = false;
+        $GLOBALS['errors'] = [];
 
         $this->routines = new Routines(
             $GLOBALS['dbi'],
             new Template(),
-            ResponseRenderer::getInstance()
+            ResponseRenderer::getInstance(),
         );
     }
 
     /**
      * Test for getDataFromRequest
      *
-     * @param array $in  Input
-     * @param array $out Expected output
+     * @param array<string, mixed> $in  Input
+     * @param array<string, mixed> $out Expected output
      *
      * @dataProvider providerGetDataFromRequest
      */
@@ -72,9 +77,9 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Data provider for testGetDataFromRequest
      *
-     * @return array
+     * @return array<array{array<string, mixed>, array<string, mixed>}>
      */
-    public function providerGetDataFromRequest(): array
+    public static function providerGetDataFromRequest(): array
     {
         return [
             [
@@ -310,7 +315,7 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Test for getParameterRow
      *
-     * @param array $data Data for routine
+     * @param array<string, mixed> $data Data for routine
      *
      * @depends testGetParameterRowEmpty
      * @dataProvider providerGetParameterRow
@@ -319,16 +324,16 @@ class RoutinesTest extends AbstractTestCase
     {
         $this->assertStringContainsString(
             $matcher,
-            $this->routines->getParameterRow($data, $index)
+            $this->routines->getParameterRow($data, $index),
         );
     }
 
     /**
      * Data provider for testGetParameterRow
      *
-     * @return array
+     * @return array<array{array<string, mixed>, int, string}>
      */
-    public function providerGetParameterRow(): array
+    public static function providerGetParameterRow(): array
     {
         $data = [
             'item_name' => '',
@@ -388,7 +393,7 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Test for getParameterRow
      *
-     * @param array $data Data for routine
+     * @param array<string, mixed> $data Data for routine
      *
      * @depends testGetParameterRow
      * @dataProvider providerGetParameterRowAjax
@@ -398,7 +403,7 @@ class RoutinesTest extends AbstractTestCase
         ResponseRenderer::getInstance()->setAjax(true);
         $this->assertStringContainsString(
             $matcher,
-            $this->routines->getParameterRow($data)
+            $this->routines->getParameterRow($data),
         );
         ResponseRenderer::getInstance()->setAjax(false);
     }
@@ -406,9 +411,9 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Data provider for testGetParameterRowAjax
      *
-     * @return array
+     * @return array<array{array<string, mixed>, string}>
      */
-    public function providerGetParameterRowAjax(): array
+    public static function providerGetParameterRowAjax(): array
     {
         $data = [
             'item_name' => '',
@@ -463,7 +468,7 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Test for getEditorForm
      *
-     * @param array $data Data for routine
+     * @param array<string, mixed> $data Data for routine
      *
      * @depends testGetParameterRowAjax
      * @dataProvider providerGetEditorForm1
@@ -472,16 +477,16 @@ class RoutinesTest extends AbstractTestCase
     {
         $this->assertStringContainsString(
             $matcher,
-            $this->routines->getEditorForm('add', '', $data)
+            $this->routines->getEditorForm('add', '', $data),
         );
     }
 
     /**
      * Data provider for testGetEditorForm1
      *
-     * @return array
+     * @return array<array{array<string, mixed>, string}>
      */
-    public function providerGetEditorForm1(): array
+    public static function providerGetEditorForm1(): array
     {
         $data = [
             'item_name' => '',
@@ -580,7 +585,7 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Test for getEditorForm
      *
-     * @param array $data Data for routine
+     * @param array<string, mixed> $data Data for routine
      *
      * @depends testGetParameterRowAjax
      * @dataProvider providerGetEditorForm2
@@ -589,16 +594,16 @@ class RoutinesTest extends AbstractTestCase
     {
         $this->assertStringContainsString(
             $matcher,
-            $this->routines->getEditorForm('edit', 'change', $data)
+            $this->routines->getEditorForm('edit', 'change', $data),
         );
     }
 
     /**
      * Data provider for testGetEditorForm2
      *
-     * @return array
+     * @return array<array{array<string, mixed>, string}>
      */
-    public function providerGetEditorForm2(): array
+    public static function providerGetEditorForm2(): array
     {
         $data = [
             'item_name' => 'foo',
@@ -697,7 +702,7 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Test for getEditorForm
      *
-     * @param array $data Data for routine
+     * @param array<string, mixed> $data Data for routine
      *
      * @depends testGetParameterRowAjax
      * @dataProvider providerGetEditorForm3
@@ -707,7 +712,7 @@ class RoutinesTest extends AbstractTestCase
         ResponseRenderer::getInstance()->setAjax(true);
         $this->assertStringContainsString(
             $matcher,
-            $this->routines->getEditorForm('edit', 'remove', $data)
+            $this->routines->getEditorForm('edit', 'remove', $data),
         );
         ResponseRenderer::getInstance()->setAjax(false);
     }
@@ -715,9 +720,9 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Data provider for testGetEditorForm3
      *
-     * @return array
+     * @return array<array{array<string, mixed>, string}>
      */
-    public function providerGetEditorForm3(): array
+    public static function providerGetEditorForm3(): array
     {
         $data = [
             'item_name' => 'foo',
@@ -760,11 +765,7 @@ class RoutinesTest extends AbstractTestCase
             ],
             [
                 $data,
-                'name="routine_addparameter"',
-            ],
-            [
-                $data,
-                'name="routine_removeparameter"',
+                'id="addRoutineParameterButton"',
             ],
             [
                 $data,
@@ -816,7 +817,7 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Test for getEditorForm
      *
-     * @param array $data Data for routine
+     * @param array<string, mixed> $data Data for routine
      *
      * @depends testGetParameterRowAjax
      * @dataProvider providerGetEditorForm4
@@ -825,16 +826,16 @@ class RoutinesTest extends AbstractTestCase
     {
         $this->assertStringContainsString(
             $matcher,
-            $this->routines->getEditorForm('edit', 'change', $data)
+            $this->routines->getEditorForm('edit', 'change', $data),
         );
     }
 
     /**
      * Data provider for testGetEditorForm4
      *
-     * @return array
+     * @return array<array{array<string, mixed>, string}>
      */
-    public function providerGetEditorForm4(): array
+    public static function providerGetEditorForm4(): array
     {
         $data = [
             'item_name' => 'foo',
@@ -873,7 +874,7 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Test for getExecuteForm
      *
-     * @param array $data Data for routine
+     * @param array<string, mixed> $data Data for routine
      *
      * @dataProvider providerGetExecuteForm1
      */
@@ -883,16 +884,16 @@ class RoutinesTest extends AbstractTestCase
 
         $this->assertStringContainsString(
             $matcher,
-            $this->routines->getExecuteForm($data)
+            $this->routines->getExecuteForm($data),
         );
     }
 
     /**
      * Data provider for testGetExecuteForm1
      *
-     * @return array
+     * @return array<array{array<string, mixed>, string}>
      */
-    public function providerGetExecuteForm1(): array
+    public static function providerGetExecuteForm1(): array
     {
         $data = [
             'item_name' => 'foo',
@@ -1012,7 +1013,7 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Test for getExecuteForm
      *
-     * @param array $data Data for routine
+     * @param array<string, string|int|array<mixed>> $data Data for routine
      *
      * @dataProvider providerGetExecuteForm2
      */
@@ -1021,7 +1022,7 @@ class RoutinesTest extends AbstractTestCase
         ResponseRenderer::getInstance()->setAjax(true);
         $this->assertStringContainsString(
             $matcher,
-            $this->routines->getExecuteForm($data)
+            $this->routines->getExecuteForm($data),
         );
         ResponseRenderer::getInstance()->setAjax(false);
     }
@@ -1029,9 +1030,9 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Data provider for testGetExecuteForm2
      *
-     * @return array
+     * @return array<array{array<string, string|int|array<mixed>>, string}>
      */
-    public function providerGetExecuteForm2(): array
+    public static function providerGetExecuteForm2(): array
     {
         $data = [
             'item_name' => 'foo',
@@ -1127,19 +1128,17 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Test for getQueryFromRequest
      *
-     * @param array  $request Request
-     * @param string $query   Query
-     * @param int    $num_err Error number
+     * @param array<string, string|array<string>> $request Request
+     * @param string                              $query   Query
+     * @param int                                 $num_err Error number
      *
      * @dataProvider providerGetQueryFromRequest
      */
     public function testGetQueryFromRequest(array $request, string $query, int $num_err): void
     {
-        global $errors, $cfg;
+        $GLOBALS['cfg']['ShowFunctionFields'] = false;
 
-        $cfg['ShowFunctionFields'] = false;
-
-        $errors = [];
+        $GLOBALS['errors'] = [];
 
         $old_dbi = $GLOBALS['dbi'] ?? null;
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -1153,34 +1152,34 @@ class RoutinesTest extends AbstractTestCase
                     [
                         [
                             'foo',
-                            DatabaseInterface::CONNECT_USER,
+                            Connection::TYPE_USER,
                             'foo',
                         ],
                         [
                             "foo's bar",
-                            DatabaseInterface::CONNECT_USER,
+                            Connection::TYPE_USER,
                             "foo\'s bar",
                         ],
                         [
                             '',
-                            DatabaseInterface::CONNECT_USER,
+                            Connection::TYPE_USER,
                             '',
                         ],
-                    ]
-                )
+                    ],
+                ),
             );
         $GLOBALS['dbi'] = $dbi;
 
         $routines = new Routines(
             $dbi,
             new Template(),
-            ResponseRenderer::getInstance()
+            ResponseRenderer::getInstance(),
         );
 
         unset($_POST);
         $_POST = $request;
         $this->assertEquals($query, $routines->getQueryFromRequest());
-        $this->assertCount($num_err, $errors);
+        $this->assertCount($num_err, $GLOBALS['errors']);
 
         // reset
         $GLOBALS['dbi'] = $old_dbi;
@@ -1189,9 +1188,9 @@ class RoutinesTest extends AbstractTestCase
     /**
      * Data provider for testGetQueryFromRequest
      *
-     * @return array
+     * @return array<array{array<string, string|array<string>>, string, int}>
      */
-    public function providerGetQueryFromRequest(): array
+    public static function providerGetQueryFromRequest(): array
     {
         return [
             // Testing success
@@ -1432,5 +1431,85 @@ class RoutinesTest extends AbstractTestCase
                 1,
             ],
         ];
+    }
+
+    public function testGetFunctionNames(): void
+    {
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult(
+            'SHOW FUNCTION STATUS;',
+            [
+                ['db_test', 'test_func', 'FUNCTION'],
+                ['test_db', 'test_func1', 'FUNCTION'],
+                ['test_db', '', 'FUNCTION'],
+                ['test_db', 'test_func2', 'FUNCTION'],
+                ['test_db', 'test_func', 'PROCEDURE'],
+            ],
+            ['Db', 'Name', 'Type'],
+        );
+
+        $names = Routines::getFunctionNames($this->createDatabaseInterface($dbiDummy), 'test_db');
+        $this->assertSame(['test_func1', 'test_func2'], $names);
+
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
+    public function testGetFunctionNamesWithEmptyReturn(): void
+    {
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult(
+            'SHOW FUNCTION STATUS;',
+            [
+                ['db_test', 'test_func', 'FUNCTION'],
+                ['test_db', '', 'FUNCTION'],
+                ['test_db', 'test_func', 'PROCEDURE'],
+            ],
+            ['Db', 'Name', 'Type'],
+        );
+
+        $names = Routines::getFunctionNames($this->createDatabaseInterface($dbiDummy), 'test_db');
+        $this->assertSame([], $names);
+
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
+    public function testGetProcedureNames(): void
+    {
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult(
+            'SHOW PROCEDURE STATUS;',
+            [
+                ['db_test', 'test_proc', 'PROCEDURE'],
+                ['test_db', 'test_proc1', 'PROCEDURE'],
+                ['test_db', '', 'PROCEDURE'],
+                ['test_db', 'test_proc2', 'PROCEDURE'],
+                ['test_db', 'test_proc', 'FUNCTION'],
+            ],
+            ['Db', 'Name', 'Type'],
+        );
+
+        $names = Routines::getProcedureNames($this->createDatabaseInterface($dbiDummy), 'test_db');
+        $this->assertSame(['test_proc1', 'test_proc2'], $names);
+
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
+    public function testGetProcedureNamesWithEmptyReturn(): void
+    {
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult(
+            'SHOW PROCEDURE STATUS;',
+            [
+                ['db_test', 'test_proc', 'PROCEDURE'],
+                ['test_db', '', 'PROCEDURE'],
+                ['test_db', 'test_proc', 'FUNCTION'],
+            ],
+            ['Db', 'Name', 'Type'],
+        );
+
+        $names = Routines::getProcedureNames($this->createDatabaseInterface($dbiDummy), 'test_db');
+        $this->assertSame([], $names);
+
+        $dbiDummy->assertAllQueriesConsumed();
     }
 }

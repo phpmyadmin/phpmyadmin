@@ -5,22 +5,37 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Database\MultiTableQuery;
 
 use PhpMyAdmin\Controllers\Database\MultiTableQuery\TablesController;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Database\MultiTableQuery\TablesController
- */
+/** @covers \PhpMyAdmin\Controllers\Database\MultiTableQuery\TablesController */
 class TablesControllerTest extends AbstractTestCase
 {
+    /** @var DatabaseInterface */
+    protected $dbi;
+
+    /** @var DbiDummy */
+    protected $dummyDbi;
+
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setLanguage();
-        parent::setGlobalDbi();
+
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
+
         parent::loadContainerBuilder();
+
         parent::loadDbiIntoContainerBuilder();
+
         $GLOBALS['server'] = 1;
         $GLOBALS['PMA_PHP_SELF'] = '';
+
         parent::loadResponseIntoContainerBuilder();
     }
 
@@ -32,10 +47,11 @@ class TablesControllerTest extends AbstractTestCase
         ];
         $_GET['db'] = 'test';
 
-        global $containerBuilder;
         /** @var TablesController $multiTableQueryController */
-        $multiTableQueryController = $containerBuilder->get(TablesController::class);
-        $multiTableQueryController();
+        $multiTableQueryController = $GLOBALS['containerBuilder']->get(TablesController::class);
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getQueryParam')->willReturnOnConsecutiveCalls($_GET['tables'], $_GET['db']);
+        $multiTableQueryController($request);
         $this->assertSame(
             [
                 'foreignKeyConstrains' => [
@@ -47,7 +63,7 @@ class TablesControllerTest extends AbstractTestCase
                     ],
                 ],
             ],
-            $this->getResponseJsonResult()
+            $this->getResponseJsonResult(),
         );
     }
 }

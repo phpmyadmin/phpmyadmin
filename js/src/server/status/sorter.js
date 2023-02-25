@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 // TODO: tablesorter shouldn't sort already sorted columns
 // eslint-disable-next-line no-unused-vars
 function initTableSorter (tabid) {
@@ -20,6 +22,8 @@ function initTableSorter (tabid) {
         .append('<div class="sorticon"></div>');
 }
 
+window.initTableSorter = initTableSorter;
+
 $(function () {
     $.tablesorter.addParser({
         id: 'fancyNumber',
@@ -27,9 +31,9 @@ $(function () {
             return (/^[0-9]?[0-9,\\.]*\s?(k|M|G|T|%)?$/).test(s);
         },
         format: function (s) {
-            var num = jQuery.tablesorter.formatFloat(
-                s.replace(Messages.strThousandsSeparator, '')
-                    .replace(Messages.strDecimalSeparator, '.')
+            var num = $.tablesorter.formatFloat(
+                s.replace(window.Messages.strThousandsSeparator, '')
+                    .replace(window.Messages.strDecimalSeparator, '.')
             );
 
             var factor = 1;
@@ -37,7 +41,7 @@ $(function () {
             case '%':
                 factor = -2;
                 break;
-            // Todo: Complete this list (as well as in the regexp a few lines up)
+                // Todo: Complete this list (as well as in the regexp a few lines up)
             case 'k':
                 factor = 3;
                 break;

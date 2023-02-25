@@ -6,11 +6,10 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
 
-/**
- * @covers \PhpMyAdmin\Transformations
- */
+/** @covers \PhpMyAdmin\Transformations */
 class TransformationsTest extends AbstractTestCase
 {
     /** @var Transformations */
@@ -22,6 +21,8 @@ class TransformationsTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
         $GLOBALS['cfg'] = [
@@ -53,14 +54,14 @@ class TransformationsTest extends AbstractTestCase
     {
         $this->assertEquals(
             $expected,
-            $this->transformations->getOptions($input)
+            $this->transformations->getOptions($input),
         );
     }
 
     /**
      * Data provided for parsing options
      */
-    public function getOptionsData(): array
+    public static function getOptionsData(): array
     {
         return [
             [
@@ -100,7 +101,8 @@ class TransformationsTest extends AbstractTestCase
     }
 
     /**
-     * Test for getting available types.
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
      */
     public function testGetTypes(): void
     {
@@ -184,7 +186,7 @@ class TransformationsTest extends AbstractTestCase
                     'Text_Plain_Substring.php',
                 ],
             ],
-            $this->transformations->getAvailableMimeTypes()
+            $this->transformations->getAvailableMimeTypes(),
         );
     }
 
@@ -219,7 +221,7 @@ class TransformationsTest extends AbstractTestCase
                     'input_transformation_options' => '',
                 ],
             ],
-            $this->transformations->getMime('pma_test', 'table1')
+            $this->transformations->getMime('pma_test', 'table1'),
         );
     }
 
@@ -234,7 +236,7 @@ class TransformationsTest extends AbstractTestCase
             ->getMock();
         $dbi->expects($this->any())
             ->method('tryQuery')
-            ->will($this->returnValue(true));
+            ->will($this->returnValue($this->createStub(DummyResult::class)));
         $GLOBALS['dbi'] = $dbi;
 
         // Case 1 : no configuration storage
@@ -271,11 +273,11 @@ class TransformationsTest extends AbstractTestCase
     {
         $this->assertEquals(
             $expected,
-            $this->transformations->fixUpMime($value)
+            $this->transformations->fixUpMime($value),
         );
     }
 
-    public function fixupData(): array
+    public static function fixupData(): array
     {
         return [
             [
@@ -313,11 +315,11 @@ class TransformationsTest extends AbstractTestCase
     {
         $this->assertEquals(
             $expectedDescription,
-            $this->transformations->getDescription($file)
+            $this->transformations->getDescription($file),
         );
     }
 
-    public function providerGetDescription(): array
+    public static function providerGetDescription(): array
     {
         return [
             [
@@ -347,11 +349,11 @@ class TransformationsTest extends AbstractTestCase
     {
         $this->assertEquals(
             $expectedName,
-            $this->transformations->getName($file)
+            $this->transformations->getName($file),
         );
     }
 
-    public function providerGetName(): array
+    public static function providerGetName(): array
     {
         return [
             [

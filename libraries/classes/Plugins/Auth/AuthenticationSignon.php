@@ -23,9 +23,6 @@ use function session_name;
 use function session_set_cookie_params;
 use function session_start;
 use function session_write_close;
-use function version_compare;
-
-use const PHP_VERSION;
 
 /**
  * Handles the SignOn authentication method
@@ -42,7 +39,15 @@ class AuthenticationSignon extends AuthenticationPlugin
         ResponseRenderer::getInstance()->disable();
         unset($_SESSION['LAST_SIGNON_URL']);
         if (empty($GLOBALS['cfg']['Server']['SignonURL'])) {
-            Core::fatalError('You must set SignonURL!');
+            echo $this->template->render('error/generic', [
+                'lang' => $GLOBALS['lang'] ?? 'en',
+                'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+                'error_message' => 'You must set SignonURL!',
+            ]);
+
+            if (! defined('TESTSUITE')) {
+                exit;
+            }
         } else {
             Core::sendHeaderLocation($GLOBALS['cfg']['Server']['SignonURL']);
         }
@@ -59,7 +64,7 @@ class AuthenticationSignon extends AuthenticationPlugin
      *
      * @param array $sessionCookieParams The cookie params
      */
-    public function setCookieParams(?array $sessionCookieParams = null): void
+    public function setCookieParams(array|null $sessionCookieParams = null): void
     {
         /* Session cookie params from config */
         if ($sessionCookieParams === null) {
@@ -68,22 +73,13 @@ class AuthenticationSignon extends AuthenticationPlugin
 
         /* Sanitize cookie params */
         $defaultCookieParams = /** @return mixed */ static function (string $key) {
-            switch ($key) {
-                case 'lifetime':
-                    return 0;
-
-                case 'path':
-                    return '/';
-
-                case 'domain':
-                    return '';
-
-                case 'secure':
-                case 'httponly':
-                    return false;
-            }
-
-            return null;
+            return match ($key) {
+                'lifetime' => 0,
+                'path' => '/',
+                'domain' => '',
+                'secure', 'httponly' => false,
+                default => null,
+            };
         };
 
         foreach (['lifetime', 'path', 'domain', 'secure', 'httponly'] as $key) {
@@ -98,22 +94,11 @@ class AuthenticationSignon extends AuthenticationPlugin
             isset($sessionCookieParams['samesite'])
             && ! in_array($sessionCookieParams['samesite'], ['Lax', 'Strict'])
         ) {
-                // Not a valid value for samesite
-                unset($sessionCookieParams['samesite']);
+            // Not a valid value for samesite
+            unset($sessionCookieParams['samesite']);
         }
 
-        if (version_compare(PHP_VERSION, '7.3.0', '>=')) {
-            /** @psalm-suppress InvalidArgument */
-            session_set_cookie_params($sessionCookieParams);
-        } else {
-            session_set_cookie_params(
-                $sessionCookieParams['lifetime'],
-                $sessionCookieParams['path'],
-                $sessionCookieParams['domain'],
-                $sessionCookieParams['secure'],
-                $sessionCookieParams['httponly']
-            );
-        }
+        session_set_cookie_params($sessionCookieParams);
     }
 
     /**
@@ -145,10 +130,13 @@ class AuthenticationSignon extends AuthenticationPlugin
         /* Handle script based auth */
         if ($script_name !== '') {
             if (! @file_exists($script_name)) {
-                Core::fatalError(
-                    __('Can not find signon authentication script:')
-                    . ' ' . $script_name
-                );
+                echo $this->template->render('error/generic', [
+                    'lang' => $GLOBALS['lang'] ?? 'en',
+                    'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+                    'error_message' => __('Can not find signon authentication script:') . ' ' . $script_name,
+                ]);
+
+                exit;
             }
 
             include $script_name;
@@ -292,10 +280,8 @@ class AuthenticationSignon extends AuthenticationPlugin
 
     /**
      * Returns URL for login form.
-     *
-     * @return string
      */
-    public function getLoginFormURL()
+    public function getLoginFormURL(): string
     {
         return $GLOBALS['cfg']['Server']['SignonURL'];
     }

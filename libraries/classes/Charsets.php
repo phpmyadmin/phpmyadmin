@@ -71,8 +71,7 @@ class Charsets
     /**
      * Loads charset data from the server
      *
-     * @param DatabaseInterface $dbi       DatabaseInterface instance
-     * @param bool              $disableIs Disable use of INFORMATION_SCHEMA
+     * @param bool $disableIs Disable use of INFORMATION_SCHEMA
      */
     private static function loadCharsets(DatabaseInterface $dbi, bool $disableIs): void
     {
@@ -104,8 +103,7 @@ class Charsets
     /**
      * Loads collation data from the server
      *
-     * @param DatabaseInterface $dbi       DatabaseInterface instance
-     * @param bool              $disableIs Disable use of INFORMATION_SCHEMA
+     * @param bool $disableIs Disable use of INFORMATION_SCHEMA
      */
     private static function loadCollations(DatabaseInterface $dbi, bool $disableIs): void
     {
@@ -138,12 +136,11 @@ class Charsets
         }
     }
 
-     /**
-      * Get current server charset
-      *
-      * @param DatabaseInterface $dbi       DatabaseInterface instance
-      * @param bool              $disableIs Disable use of INFORMATION_SCHEMA
-      */
+    /**
+     * Get current server charset
+     *
+     * @param bool $disableIs Disable use of INFORMATION_SCHEMA
+     */
     public static function getServerCharset(DatabaseInterface $dbi, bool $disableIs): Charset
     {
         if (self::$serverCharset !== null) {
@@ -175,7 +172,7 @@ class Charsets
                 [
                     'Charset' => __('Unknown'),
                     'Description' => __('Unknown'),
-                ]
+                ],
             );
         }
 
@@ -185,8 +182,7 @@ class Charsets
     /**
      * Get all server charsets
      *
-     * @param DatabaseInterface $dbi       DatabaseInterface instance
-     * @param bool              $disableIs Disable use of INFORMATION_SCHEMA
+     * @param bool $disableIs Disable use of INFORMATION_SCHEMA
      *
      * @return array<string, Charset>
      */
@@ -200,8 +196,7 @@ class Charsets
     /**
      * Get all server collations
      *
-     * @param DatabaseInterface $dbi       DatabaseInterface instance
-     * @param bool              $disableIs Disable use of INFORMATION_SCHEMA
+     * @param bool $disableIs Disable use of INFORMATION_SCHEMA
      *
      * @return array<string, array<string, Collation>>
      */
@@ -213,13 +208,15 @@ class Charsets
     }
 
     /**
-     * @param DatabaseInterface $dbi       DatabaseInterface instance
-     * @param bool              $disableIs Disable use of INFORMATION_SCHEMA
-     * @param string|null       $name      Collation name
+     * @param bool   $disableIs Disable use of INFORMATION_SCHEMA
+     * @param string $name      Collation name
      */
-    public static function findCollationByName(DatabaseInterface $dbi, bool $disableIs, ?string $name): ?Collation
-    {
-        $charset = explode('_', $name ?? '')[0];
+    public static function findCollationByName(
+        DatabaseInterface $dbi,
+        bool $disableIs,
+        string $name,
+    ): Collation|null {
+        $charset = explode('_', $name)[0];
         $collations = self::getCollations($dbi, $disableIs);
 
         return $collations[$charset][$name] ?? null;

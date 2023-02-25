@@ -40,7 +40,6 @@
                   <tbody>
                   {% for column_index in 0..column_names|length - 1 %}
                     {% set field_popup = column_names[column_index] %}
-                    {% set foreign_data = get_foreign_data(foreigners, field_popup, false, '', '') %}
                     <tr class="noclick">
                       <th>{{ column_names[column_index] }}</th>
                       {# Null checkbox if column can be null #}
@@ -59,13 +58,15 @@
                           'foreigners': foreigners,
                           'column_name': field_popup,
                           'column_name_hash': column_name_hashes[field_popup],
-                          'foreign_data': foreign_data,
+                          'foreign_data': foreign_data[column_index],
                           'table': table,
                           'column_index': column_index,
                           'foreign_max_limit': foreign_max_limit,
                           'criteria_values': '',
                           'db': db,
-                          'in_fbs': false
+                          'in_fbs': false,
+                          'foreign_dropdown': foreign_dropdown[column_index],
+                          'search_columns_in_foreigners': search_columns_in_foreigners[column_index]
                         } only %}
                       </th>
                     </tr>

@@ -13,6 +13,7 @@ use PhpMyAdmin\FieldMetadata;
 use Webmozart\Assert\Assert;
 
 use function array_column;
+use function array_key_exists;
 use function is_array;
 use function is_bool;
 use function is_string;
@@ -27,14 +28,10 @@ final class MysqliResult implements ResultInterface
 {
     /**
      * The result identifier produced by the DBiExtension
-     *
-     * @var mysqli_result|null $result
      */
-    private $result;
+    private mysqli_result|null $result;
 
-    /**
-     * @param mysqli_result|bool $result
-     */
+    /** @param mysqli_result|bool $result */
     public function __construct($result)
     {
         $this->result = is_bool($result) ? null : $result;
@@ -44,7 +41,7 @@ final class MysqliResult implements ResultInterface
      * Returns a generator that traverses through the whole result set
      * and returns each row as an associative array
      *
-     * @return Generator<int, array<string, string|null>, mixed, void>
+     * @psalm-return Generator<int, array<string, string|null>, mixed, void>
      */
     public function getIterator(): Generator
     {
@@ -95,10 +92,8 @@ final class MysqliResult implements ResultInterface
      * Returns a single value from the given result; false on error
      *
      * @param int|string $field
-     *
-     * @return string|false|null
      */
-    public function fetchValue($field = 0)
+    public function fetchValue($field = 0): string|false|null
     {
         if (is_string($field)) {
             $row = $this->fetchAssoc();
@@ -106,7 +101,11 @@ final class MysqliResult implements ResultInterface
             $row = $this->fetchRow();
         }
 
-        return $row[$field] ?? false;
+        if (! array_key_exists($field, $row)) {
+            return false;
+        }
+
+        return $row[$field];
     }
 
     /**
@@ -210,10 +209,9 @@ final class MysqliResult implements ResultInterface
     /**
      * Returns the number of rows in the result
      *
-     * @return string|int
      * @psalm-return int|numeric-string
      */
-    public function numRows()
+    public function numRows(): string|int
     {
         if (! $this->result) {
             return 0;

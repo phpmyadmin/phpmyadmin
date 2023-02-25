@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database\Structure;
 
-use PhpMyAdmin\Controllers\Database\AbstractController;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\StructureController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\ResponseRenderer;
@@ -16,57 +17,42 @@ use function count;
 
 final class CopyTableController extends AbstractController
 {
-    /** @var Operations */
-    private $operations;
-
-    /** @var StructureController */
-    private $structureController;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
-        Operations $operations,
-        StructureController $structureController
+        private Operations $operations,
+        private StructureController $structureController,
     ) {
-        parent::__construct($response, $template, $db);
-        $this->operations = $operations;
-        $this->structureController = $structureController;
+        parent::__construct($response, $template);
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $db, $message;
-
-        $selected = $_POST['selected'] ?? [];
-        $targetDb = $_POST['target_db'] ?? null;
+        $selected = $request->getParsedBodyParam('selected', []);
+        $targetDb = $request->getParsedBodyParam('target_db');
         $selectedCount = count($selected);
 
         for ($i = 0; $i < $selectedCount; $i++) {
             Table::moveCopy(
-                $db,
+                $GLOBALS['db'],
                 $selected[$i],
                 $targetDb,
                 $selected[$i],
-                $_POST['what'],
+                $request->getParsedBodyParam('what'),
                 false,
                 'one_table',
-                isset($_POST['drop_if_exists']) && $_POST['drop_if_exists'] === 'true'
+                $request->getParsedBodyParam('drop_if_exists') === 'true',
             );
 
-            if (empty($_POST['adjust_privileges'])) {
+            if (! $request->hasBodyParam('adjust_privileges')) {
                 continue;
             }
 
-            $this->operations->adjustPrivilegesCopyTable($db, $selected[$i], $targetDb, $selected[$i]);
+            $this->operations->adjustPrivilegesCopyTable($GLOBALS['db'], $selected[$i], $targetDb, $selected[$i]);
         }
 
-        $message = Message::success();
+        $GLOBALS['message'] = Message::success();
 
-        if (empty($_POST['message'])) {
-            $_POST['message'] = $message;
-        }
-
-        ($this->structureController)();
+        ($this->structureController)($request);
     }
 }

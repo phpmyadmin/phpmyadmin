@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database\Structure;
 
-use PhpMyAdmin\Controllers\Database\AbstractController;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
@@ -14,18 +15,14 @@ use function __;
 
 final class ShowCreateController extends AbstractController
 {
-    /** @var DatabaseInterface */
-    private $dbi;
-
-    public function __construct(ResponseRenderer $response, Template $template, string $db, DatabaseInterface $dbi)
+    public function __construct(ResponseRenderer $response, Template $template, private DatabaseInterface $dbi)
     {
-        parent::__construct($response, $template, $db);
-        $this->dbi = $dbi;
+        parent::__construct($response, $template);
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        $selected = $_POST['selected_tbl'] ?? [];
+        $selected = $request->getParsedBodyParam('selected_tbl', []);
 
         if (empty($selected)) {
             $this->response->setRequestStatus(false);
@@ -51,7 +48,7 @@ final class ShowCreateController extends AbstractController
         $tables = ['tables' => [], 'views' => []];
 
         foreach ($selected as $table) {
-            $object = $this->dbi->getTable($this->db, $table);
+            $object = $this->dbi->getTable($GLOBALS['db'], $table);
 
             $tables[$object->isView() ? 'views' : 'tables'][] = [
                 'name' => Core::mimeDefaultFunction($table),

@@ -5,24 +5,38 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Controllers\Server\CollationsController;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Server\CollationsController
- */
+/** @covers \PhpMyAdmin\Controllers\Server\CollationsController */
 class CollationsControllerTest extends AbstractTestCase
 {
+    /** @var DatabaseInterface */
+    protected $dbi;
+
+    /** @var DbiDummy */
+    protected $dummyDbi;
+
     /**
      * Prepares environment for the test.
      */
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['text_dir'] = 'ltr';
+
         parent::setGlobalConfig();
+
         parent::setTheme();
+
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
@@ -38,8 +52,8 @@ class CollationsControllerTest extends AbstractTestCase
         $controller = new CollationsController($response, new Template(), $GLOBALS['dbi']);
 
         $this->dummyDbi->addSelectDb('mysql');
-        $controller();
-        $this->assertAllSelectsConsumed();
+        $controller($this->createStub(ServerRequest::class));
+        $this->dummyDbi->assertAllSelectsConsumed();
         $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString('<div><strong>latin1</strong></div>', $actual);

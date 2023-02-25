@@ -5,17 +5,33 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Database\Structure;
 
 use PhpMyAdmin\Controllers\Database\Structure\RealRowCountController;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 
 use function json_encode;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Database\Structure\RealRowCountController
- */
+/** @covers \PhpMyAdmin\Controllers\Database\Structure\RealRowCountController */
 class RealRowCountControllerTest extends AbstractTestCase
 {
+    /** @var DatabaseInterface */
+    protected $dbi;
+
+    /** @var DbiDummy */
+    protected $dummyDbi;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
+    }
+
     public function testRealRowCount(): void
     {
         $GLOBALS['server'] = 1;
@@ -30,14 +46,14 @@ class RealRowCountControllerTest extends AbstractTestCase
 
         $_REQUEST['table'] = 'City';
 
-        (new RealRowCountController($response, new Template(), 'world', $this->dbi))();
+        (new RealRowCountController($response, new Template(), $this->dbi))($this->createStub(ServerRequest::class));
 
         $json = $response->getJSONResult();
         $this->assertEquals('4,079', $json['real_row_count']);
 
         $_REQUEST['real_row_count_all'] = 'on';
 
-        (new RealRowCountController($response, new Template(), 'world', $this->dbi))();
+        (new RealRowCountController($response, new Template(), $this->dbi))($this->createStub(ServerRequest::class));
 
         $json = $response->getJSONResult();
         $expected = [

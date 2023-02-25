@@ -25,7 +25,7 @@ class Cache
      * @param array       $tables information for tables of some databases
      * @param string|bool $table  table name
      */
-    public function cacheTableData(array $tables, $table): void
+    public function cacheTableData(array $tables, string|bool $table): void
     {
         // Note: I don't see why we would need array_merge_recursive() here,
         // as it creates double entries for the same table (for example a double
@@ -34,7 +34,7 @@ class Cache
         //  array_merge() renumbers numeric keys starting with 0, therefore
         //  we would lose a db name that consists only of numbers
 
-        foreach ($tables as $one_database => $_) {
+        foreach ($tables as $one_database => $tablesInDatabase) {
             if (isset($this->tableCache[$one_database])) {
                 // the + operator does not do the intended effect
                 // when the cache for one table already exists
@@ -42,9 +42,9 @@ class Cache
                     unset($this->tableCache[$one_database][$table]);
                 }
 
-                $this->tableCache[$one_database] += $tables[$one_database];
+                $this->tableCache[$one_database] += $tablesInDatabase;
             } else {
-                $this->tableCache[$one_database] = $tables[$one_database];
+                $this->tableCache[$one_database] = $tablesInDatabase;
             }
         }
     }
@@ -55,7 +55,7 @@ class Cache
      * @param array|null $contentPath Array with the target path
      * @param mixed      $value       Target value
      */
-    public function cacheTableContent(?array $contentPath, $value): void
+    public function cacheTableContent(array|null $contentPath, $value): void
     {
         $loc = &$this->tableCache;
 
@@ -90,7 +90,7 @@ class Cache
      *
      * @return mixed cached value or default
      */
-    public function getCachedTableContent(array $contentPath, $default = null)
+    public function getCachedTableContent(array $contentPath, $default = null): mixed
     {
         return Util::getValueByKey($this->tableCache, $contentPath, $default);
     }

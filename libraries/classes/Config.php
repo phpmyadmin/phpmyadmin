@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Config\Settings;
+use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Exceptions\ConfigException;
+use Throwable;
 
 use function __;
 use function array_filter;
@@ -13,7 +16,6 @@ use function array_replace_recursive;
 use function array_slice;
 use function count;
 use function defined;
-use function error_get_last;
 use function error_reporting;
 use function explode;
 use function fclose;
@@ -28,6 +30,7 @@ use function get_object_vars;
 use function implode;
 use function ini_get;
 use function intval;
+use function is_array;
 use function is_dir;
 use function is_int;
 use function is_numeric;
@@ -51,24 +54,22 @@ use function sprintf;
 use function str_contains;
 use function str_replace;
 use function stripos;
-use function strlen;
 use function strtolower;
 use function substr;
 use function sys_get_temp_dir;
 use function time;
-use function trigger_error;
 use function trim;
 
 use const ARRAY_FILTER_USE_KEY;
 use const DIRECTORY_SEPARATOR;
-use const E_USER_ERROR;
 use const PHP_OS;
 use const PHP_URL_PATH;
 use const PHP_URL_SCHEME;
-use const PHP_VERSION_ID;
 
 /**
  * Configuration handling
+ *
+ * @psalm-import-type ConnectionType from Connection
  */
 class Config
 {
@@ -87,9 +88,6 @@ class Config
     /** @var int     source modification time */
     public $sourceMtime = 0;
 
-    /** @var int */
-    public $setMtime = 0;
-
     /** @var bool */
     public $errorConfigFile = false;
 
@@ -97,24 +95,18 @@ class Config
     public $defaultServer = [];
 
     /**
-     * @var bool whether init is done or not
-     * set this to false to force some initial checks
-     * like checking for required functions
+     * @param string|null $source source to read config from
+     *
+     * @throws ConfigException
      */
-    public $done = false;
-
-    /**
-     * @param string $source source to read config from
-     */
-    public function __construct(?string $source = null)
+    public function loadAndCheck(string|null $source = null): void
     {
         $this->settings = ['is_setup' => false];
 
-        // functions need to refresh in case of config file changed goes in
-        // PhpMyAdmin\Config::load()
+        // functions need to refresh in case of config file changed goes in PhpMyAdmin\Config::load()
         $this->load($source);
 
-        // other settings, independent from config file, comes in
+        // other settings, independent of config file, comes in
         $this->checkSystem();
 
         $this->baseSettings = $this->settings;
@@ -340,12 +332,12 @@ class Config
      * loads configuration from $source, usually the config file
      * should be called on object creation
      *
-     * @param string $source config file
+     * @param string|null $source config file
+     *
+     * @throws ConfigException
      */
-    public function load(?string $source = null): bool
+    public function load(string|null $source = null): bool
     {
-        global $isConfigLoading;
-
         $this->loadDefaults();
 
         if ($source !== null) {
@@ -369,10 +361,13 @@ class Config
         }
 
         ob_start();
-        $isConfigLoading = true;
-        /** @psalm-suppress UnresolvableInclude */
-        $eval_result = include $this->getSource();
-        $isConfigLoading = false;
+        try {
+            /** @psalm-suppress UnresolvableInclude */
+            $eval_result = include $this->getSource();
+        } catch (Throwable) {
+            throw new ConfigException('Failed to load phpMyAdmin configuration.');
+        }
+
         ob_end_clean();
 
         if ($canUseErrorReporting) {
@@ -399,10 +394,8 @@ class Config
          */
         $cfg = array_filter(
             $cfg,
-            static function (string $key): bool {
-                return ! str_contains($key, '/');
-            },
-            ARRAY_FILTER_USE_KEY
+            static fn (string $key): bool => ! str_contains($key, '/'),
+            ARRAY_FILTER_USE_KEY,
         );
 
         $this->settings = array_replace_recursive($this->settings, $cfg);
@@ -415,37 +408,33 @@ class Config
      */
     private function setConnectionCollation(): void
     {
-        global $dbi;
-
         $collation_connection = $this->get('DefaultConnectionCollation');
         if (empty($collation_connection) || $collation_connection == $GLOBALS['collation_connection']) {
             return;
         }
 
-        $dbi->setCollation($collation_connection);
+        $GLOBALS['dbi']->setCollation($collation_connection);
     }
 
     /**
      * Loads user preferences and merges them with current config
      * must be called after control connection has been established
      */
-    public function loadUserPreferences(): void
+    public function loadUserPreferences(bool $isMinimumCommon = false): void
     {
-        global $isMinimumCommon;
-
         // index.php should load these settings, so that phpmyadmin.css.php
         // will have everything available in session cache
         $server = $GLOBALS['server'] ?? (! empty($GLOBALS['cfg']['ServerDefault'])
                 ? $GLOBALS['cfg']['ServerDefault']
                 : 0);
         $cache_key = 'server_' . $server;
-        if ($server > 0 && ! isset($isMinimumCommon)) {
+        if ($server > 0 && ! $isMinimumCommon) {
             // cache user preferences, use database only when needed
             if (
                 ! isset($_SESSION['cache'][$cache_key]['userprefs'])
                 || $_SESSION['cache'][$cache_key]['config_mtime'] < $this->sourceMtime
             ) {
-                $userPreferences = new UserPreferences();
+                $userPreferences = new UserPreferences($GLOBALS['dbi']);
                 $prefs = $userPreferences->load();
                 $_SESSION['cache'][$cache_key]['userprefs'] = $userPreferences->apply($prefs['config_data']);
                 $_SESSION['cache'][$cache_key]['userprefs_mtime'] = $prefs['mtime'];
@@ -467,7 +456,7 @@ class Config
         $this->settings = array_replace_recursive($this->settings, $config_data);
         $GLOBALS['cfg'] = array_replace_recursive($GLOBALS['cfg'], $config_data);
 
-        if (isset($isMinimumCommon)) {
+        if ($isMinimumCommon) {
             return;
         }
 
@@ -488,7 +477,7 @@ class Config
                     null,
                     'ThemeDefault',
                     $tmanager->theme->getId(),
-                    'original'
+                    'original',
                 );
             }
         } else {
@@ -544,12 +533,12 @@ class Config
      * @return true|Message
      */
     public function setUserValue(
-        ?string $cookie_name,
+        string|null $cookie_name,
         string $cfg_path,
         $new_cfg_value,
-        $default_value = null
-    ) {
-        $userPreferences = new UserPreferences();
+        $default_value = null,
+    ): bool|Message {
+        $userPreferences = new UserPreferences($GLOBALS['dbi']);
         $result = true;
         // use permanent user preferences if possible
         $prefs_type = $this->get('user_preferences');
@@ -581,10 +570,8 @@ class Config
      *
      * @param string $cookie_name cookie name
      * @param mixed  $cfg_value   config value
-     *
-     * @return mixed
      */
-    public function getUserValue(string $cookie_name, $cfg_value)
+    public function getUserValue(string $cookie_name, $cfg_value): mixed
     {
         $cookie_exists = ! empty($this->getCookie($cookie_name));
         $prefs_type = $this->get('user_preferences');
@@ -611,9 +598,7 @@ class Config
         $this->source = trim($source);
     }
 
-    /**
-     * check config source
-     */
+    /** @throws ConfigException */
     public function checkConfigSource(): bool
     {
         if (! $this->getSource()) {
@@ -640,16 +625,13 @@ class Config
 
             if ($contents === false) {
                 $this->sourceMtime = 0;
-                Core::fatalError(
-                    sprintf(
-                        function_exists('__')
+
+                throw new ConfigException(sprintf(
+                    function_exists('__')
                         ? __('Existing configuration file (%s) is not readable.')
                         : 'Existing configuration file (%s) is not readable.',
-                        $this->getSource()
-                    )
-                );
-
-                return false;
+                    $this->getSource(),
+                ));
             }
         }
 
@@ -659,6 +641,8 @@ class Config
     /**
      * verifies the permissions on config file (if asked by configuration)
      * (must be called after config.inc.php has been merged)
+     *
+     * @throws ConfigException
      */
     public function checkPermissions(): void
     {
@@ -679,16 +663,14 @@ class Config
         }
 
         $this->sourceMtime = 0;
-        Core::fatalError(
-            __(
-                'Wrong permissions on configuration file, should not be world writable!'
-            )
-        );
+
+        throw new ConfigException(__('Wrong permissions on configuration file, should not be world writable!'));
     }
 
     /**
-     * Checks for errors
-     * (must be called after config.inc.php has been merged)
+     * Checks for errors (must be called after config.inc.php has been merged)
+     *
+     * @throws ConfigException
      */
     public function checkErrors(): void
     {
@@ -701,7 +683,8 @@ class Config
             . __('This usually means there is a syntax error in it, please check any errors shown below.')
             . '[br][br]'
             . '[conferr]';
-        trigger_error($error, E_USER_ERROR);
+
+        throw new ConfigException(Sanitize::sanitizeMessage($error));
     }
 
     /**
@@ -711,13 +694,9 @@ class Config
      *
      * @return mixed|null value
      */
-    public function get(string $setting)
+    public function get(string $setting): mixed
     {
-        if (isset($this->settings[$setting])) {
-            return $this->settings[$setting];
-        }
-
-        return null;
+        return $this->settings[$setting] ?? null;
     }
 
     /**
@@ -733,7 +712,6 @@ class Config
         }
 
         $this->settings[$setting] = $value;
-        $this->setMtime = time();
     }
 
     /**
@@ -865,7 +843,7 @@ class Config
 
         $parts = explode(
             '/',
-            rtrim(str_replace('\\', '/', $parsedUrlPath), '/')
+            rtrim(str_replace('\\', '/', $parsedUrlPath), '/'),
         );
 
         /* Remove filename */
@@ -906,7 +884,7 @@ class Config
             time() - 3600,
             $this->getRootPath(),
             '',
-            $this->isHttps()
+            $this->isHttps(),
         );
     }
 
@@ -923,11 +901,11 @@ class Config
     public function setCookie(
         string $cookie,
         string $value,
-        ?string $default = null,
-        ?int $validity = null,
-        bool $httponly = true
+        string|null $default = null,
+        int|null $validity = null,
+        bool $httponly = true,
     ): bool {
-        if (strlen($value) > 0 && $default !== null && $value === $default) {
+        if ($value !== '' && $value === $default) {
             // default value is used
             if ($this->issetCookie($cookie)) {
                 // remove cookie
@@ -937,7 +915,7 @@ class Config
             return false;
         }
 
-        if (strlen($value) === 0 && $this->issetCookie($cookie)) {
+        if ($value === '' && $this->issetCookie($cookie)) {
             // remove cookie, value is empty
             return $this->removeCookie($cookie);
         }
@@ -966,18 +944,6 @@ class Config
             /** @psalm-var 'Lax'|'Strict'|'None' $cookieSameSite */
             $cookieSameSite = $this->get('CookieSameSite');
 
-            if (PHP_VERSION_ID < 70300) {
-                return setcookie(
-                    $httpCookieName,
-                    $value,
-                    $validity,
-                    $this->getRootPath() . '; SameSite=' . $cookieSameSite,
-                    '',
-                    $this->isHttps(),
-                    $httponly
-                );
-            }
-
             $optionalParams = [
                 'expires' => $validity,
                 'path' => $this->getRootPath(),
@@ -1001,13 +967,9 @@ class Config
      *
      * @return mixed|null result of getCookie()
      */
-    public function getCookie(string $cookieName)
+    public function getCookie(string $cookieName): mixed
     {
-        if (isset($_COOKIE[$this->getCookieName($cookieName)])) {
-            return $_COOKIE[$this->getCookieName($cookieName)];
-        }
-
-        return null;
+        return $_COOKIE[$this->getCookieName($cookieName)] ?? null;
     }
 
     /**
@@ -1028,33 +990,6 @@ class Config
     public function issetCookie(string $cookieName): bool
     {
         return isset($_COOKIE[$this->getCookieName($cookieName)]);
-    }
-
-    /**
-     * Error handler to catch fatal errors when loading configuration
-     * file
-     */
-    public static function fatalErrorHandler(): void
-    {
-        global $isConfigLoading;
-
-        if (! isset($isConfigLoading) || ! $isConfigLoading) {
-            return;
-        }
-
-        $error = error_get_last();
-        if ($error === null) {
-            return;
-        }
-
-        Core::fatalError(
-            sprintf(
-                'Failed to load phpMyAdmin configuration (%s:%s): %s',
-                Error::relPath($error['file']),
-                $error['line'],
-                $error['message']
-            )
-        );
     }
 
     /**
@@ -1100,7 +1035,7 @@ class Config
      *
      * @staticvar array<string,string|null> $temp_dir
      */
-    public function getTempDir(string $name): ?string
+    public function getTempDir(string $name): string|null
     {
         static $temp_dir = [];
 
@@ -1130,7 +1065,7 @@ class Config
     /**
      * Returns temporary directory
      */
-    public function getUploadTempDir(): ?string
+    public function getUploadTempDir(): string|null
     {
         // First try configured temp dir
         // Fallback to PHP upload_tmp_dir
@@ -1167,7 +1102,7 @@ class Config
                 if (
                     $server['host'] == $request
                     || $server['verbose'] == $request
-                    || $verboseToLower == $serverToLower
+                    || $verboseToLower === $serverToLower
                     || md5($verboseToLower) === $serverToLower
                 ) {
                     $request = $i;
@@ -1219,70 +1154,70 @@ class Config
         }
 
         // We have server(s) => apply default configuration
-        $new_servers = [];
+        $newServers = [];
 
-        foreach ($this->settings['Servers'] as $server_index => $each_server) {
+        foreach ($this->settings['Servers'] as $serverIndex => $server) {
             // Detect wrong configuration
-            if (! is_int($server_index) || $server_index < 1) {
-                trigger_error(
-                    sprintf(__('Invalid server index: %s'), $server_index),
-                    E_USER_ERROR
-                );
+            if (! is_int($serverIndex) || $serverIndex < 1 || ! is_array($server)) {
+                continue;
             }
 
-            $each_server = array_merge($this->defaultServer, $each_server);
+            $server = array_merge($this->defaultServer, $server);
 
             // Final solution to bug #582890
             // If we are using a socket connection
             // and there is nothing in the verbose server name
             // or the host field, then generate a name for the server
             // in the form of "Server 2", localized of course!
-            if (empty($each_server['host']) && empty($each_server['verbose'])) {
-                $each_server['verbose'] = sprintf(__('Server %d'), $server_index);
+            if (empty($server['host']) && empty($server['verbose'])) {
+                $server['verbose'] = sprintf(__('Server %d'), $serverIndex);
             }
 
-            $new_servers[$server_index] = $each_server;
+            $newServers[$serverIndex] = $server;
         }
 
-        $this->settings['Servers'] = $new_servers;
+        if ($newServers === []) {
+            // Ensures it has at least one valid server config.
+            $newServers = [1 => $this->defaultServer];
+        }
+
+        $this->settings['Servers'] = $newServers;
     }
 
     /**
      * Return connection parameters for the database server
      *
-     * @param int        $mode   Connection mode on of CONNECT_USER, CONNECT_CONTROL
-     *                           or CONNECT_AUXILIARY.
+     * @param int        $mode   Connection mode.
      * @param array|null $server Server information like host/port/socket/persistent
+     * @psalm-param ConnectionType $mode
      *
      * @return array user, host and server settings array
      */
-    public static function getConnectionParams(int $mode, ?array $server = null): array
+    public static function getConnectionParams(int $mode, array|null $server = null): array
     {
-        global $cfg;
-
         $user = null;
         $password = null;
 
-        if ($mode == DatabaseInterface::CONNECT_USER) {
-            $user = $cfg['Server']['user'];
-            $password = $cfg['Server']['password'];
-            $server = $cfg['Server'];
-        } elseif ($mode == DatabaseInterface::CONNECT_CONTROL) {
-            $user = $cfg['Server']['controluser'];
-            $password = $cfg['Server']['controlpass'];
+        if ($mode == Connection::TYPE_USER) {
+            $user = $GLOBALS['cfg']['Server']['user'];
+            $password = $GLOBALS['cfg']['Server']['password'];
+            $server = $GLOBALS['cfg']['Server'];
+        } elseif ($mode == Connection::TYPE_CONTROL) {
+            $user = $GLOBALS['cfg']['Server']['controluser'];
+            $password = $GLOBALS['cfg']['Server']['controlpass'];
 
             $server = [];
 
-            $server['hide_connection_errors'] = $cfg['Server']['hide_connection_errors'];
+            $server['hide_connection_errors'] = $GLOBALS['cfg']['Server']['hide_connection_errors'];
 
-            if (! empty($cfg['Server']['controlhost'])) {
-                $server['host'] = $cfg['Server']['controlhost'];
+            if (! empty($GLOBALS['cfg']['Server']['controlhost'])) {
+                $server['host'] = $GLOBALS['cfg']['Server']['controlhost'];
             } else {
-                $server['host'] = $cfg['Server']['host'];
+                $server['host'] = $GLOBALS['cfg']['Server']['host'];
             }
 
             // Share the settings if the host is same
-            if ($server['host'] == $cfg['Server']['host']) {
+            if ($server['host'] == $GLOBALS['cfg']['Server']['host']) {
                 $shared = [
                     'port',
                     'socket',
@@ -1296,21 +1231,21 @@ class Config
                     'ssl_verify',
                 ];
                 foreach ($shared as $item) {
-                    if (! isset($cfg['Server'][$item])) {
+                    if (! isset($GLOBALS['cfg']['Server'][$item])) {
                         continue;
                     }
 
-                    $server[$item] = $cfg['Server'][$item];
+                    $server[$item] = $GLOBALS['cfg']['Server'][$item];
                 }
             }
 
             // Set configured port
-            if (! empty($cfg['Server']['controlport'])) {
-                $server['port'] = $cfg['Server']['controlport'];
+            if (! empty($GLOBALS['cfg']['Server']['controlport'])) {
+                $server['port'] = $GLOBALS['cfg']['Server']['controlport'];
             }
 
             // Set any configuration with control_ prefix
-            foreach ($cfg['Server'] as $key => $val) {
+            foreach ($GLOBALS['cfg']['Server'] as $key => $val) {
                 if (substr($key, 0, 8) !== 'control_') {
                     continue;
                 }
@@ -1375,8 +1310,6 @@ class Config
      */
     public function getLoginCookieValidityFromCache(int $server): void
     {
-        global $cfg;
-
         $cacheKey = 'server_' . $server;
 
         if (! isset($_SESSION['cache'][$cacheKey]['userprefs']['LoginCookieValidity'])) {
@@ -1385,6 +1318,6 @@ class Config
 
         $value = $_SESSION['cache'][$cacheKey]['userprefs']['LoginCookieValidity'];
         $this->set('LoginCookieValidity', $value);
-        $cfg['LoginCookieValidity'] = $value;
+        $GLOBALS['cfg']['LoginCookieValidity'] = $value;
     }
 }

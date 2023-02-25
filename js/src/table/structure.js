@@ -1,15 +1,21 @@
+import $ from 'jquery';
+import { AJAX } from '../modules/ajax.js';
+import { Functions } from '../modules/functions.js';
+import { Navigation } from '../modules/navigation.js';
+import { CommonParams } from '../modules/common.js';
+import highlightSql from '../modules/sql-highlight.js';
+import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
+import { Indexes } from '../modules/indexes.js';
+import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.js';
+import { escapeHtml } from '../modules/functions/escape.js';
+import refreshMainContent from '../modules/functions/refreshMainContent.js';
+
 /**
  * @fileoverview    functions used on the table structure page
  * @name            Table Structure
  *
- * @requires    jQuery
  * @requires    jQueryUI
- * @required    js/functions.js
  */
-
-// eslint-disable-next-line no-unused-vars
-/* global primaryIndexes:writable, indexes:writable, fulltextIndexes:writable, spatialIndexes:writable */ // js/functions.js
-/* global sprintf */ // js/vendor/sprintf.js
 
 /**
  * AJAX scripts for /table/structure
@@ -30,7 +36,6 @@ function reloadFieldForm () {
         $('#fieldsForm').replaceWith($tempDiv.find('#fieldsForm'));
         $('#addColumns').replaceWith($tempDiv.find('#addColumns'));
         $('#move_columns_dialog').find('ul').replaceWith($tempDiv.find('#move_columns_dialog ul'));
-        $('#moveColumns').removeClass('move-active');
     });
     $('#page_content').show();
 }
@@ -42,6 +47,7 @@ function checkFirst () {
         $('input[name=field_where]').val('after');
     }
 }
+
 /**
  * Unbind all event handlers before tearing down a page
  */
@@ -56,11 +62,7 @@ AJAX.registerTeardown('table/structure.js', function () {
 });
 
 AJAX.registerOnload('table/structure.js', function () {
-    // Re-initialize variables.
-    primaryIndexes = [];
-    indexes = [];
-    fulltextIndexes = [];
-    spatialIndexes = [];
+    Indexes.resetColumnLists();
 
     /**
      *Ajax action for submitting the "Column Change" and "Add Column" form
@@ -76,7 +78,7 @@ AJAX.registerOnload('table/structure.js', function () {
 
 
         function submitForm () {
-            var $msg = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+            var $msg = ajaxShowMessage(window.Messages.strProcessingRequest);
             $.post($form.attr('action'), $form.serialize() + CommonParams.get('arg_separator') + 'do_save_data=1', function (data) {
                 if ($('.sqlqueryresults').length !== 0) {
                     $('.sqlqueryresults').remove();
@@ -88,14 +90,14 @@ AJAX.registerOnload('table/structure.js', function () {
                         .empty()
                         .append(data.message)
                         .show();
-                    Functions.highlightSql($('#page_content'));
+                    highlightSql($('#page_content'));
                     $('.result_query .alert-primary').remove();
                     if (typeof data.structure_refresh_route !== 'string') {
                         // Do not reload the form when the code below freshly filled it
                         reloadFieldForm();
                     }
                     $form.remove();
-                    Functions.ajaxRemoveMessage($msg);
+                    ajaxRemoveMessage($msg);
                     Navigation.reload();
                     if (typeof data.structure_refresh_route === 'string') {
                         // Fetch the table structure right after adding a new column
@@ -105,10 +107,10 @@ AJAX.registerOnload('table/structure.js', function () {
                             }
                         });
                     } else {
-                        CommonActions.refreshMain('index.php?route=/table/structure');
+                        refreshMainContent('index.php?route=/table/structure');
                     }
                 } else {
-                    Functions.ajaxShowMessage(data.error, false);
+                    ajaxShowMessage(data.error, false);
                 }
             }); // end $.post()
         }
@@ -155,8 +157,8 @@ AJAX.registerOnload('table/structure.js', function () {
 
                 // If Collation is changed, Warn and Confirm
                 if (checkIfConfirmRequired($form)) {
-                    var question = sprintf(
-                        Messages.strChangeColumnCollation, 'https://wiki.phpmyadmin.net/pma/Garbled_data'
+                    var question = window.sprintf(
+                        window.Messages.strChangeColumnCollation, 'https://wiki.phpmyadmin.net/pma/Garbled_data'
                     );
                     $form.confirm(question, $form.attr('action'), function () {
                         submitForm();
@@ -185,7 +187,7 @@ AJAX.registerOnload('table/structure.js', function () {
          * @var currColumnName    String containing name of the field referred to by {@link curr_row}
          */
         var currColumnName = $currRow.children('th').children('label').text().trim();
-        currColumnName = Functions.escapeHtml(currColumnName);
+        currColumnName = escapeHtml(currColumnName);
         /**
          * @var $afterFieldItem    Corresponding entry in the 'After' field.
          */
@@ -193,15 +195,15 @@ AJAX.registerOnload('table/structure.js', function () {
         /**
          * @var question String containing the question to be asked for confirmation
          */
-        var question = Functions.sprintf(Messages.strDoYouReally, 'ALTER TABLE `' + currTableName + '` DROP `' + currColumnName + '`;');
+        var question = window.sprintf(window.Messages.strDoYouReally, 'ALTER TABLE `' + currTableName + '` DROP `' + currColumnName + '`;');
         var $thisAnchor = $(this);
         $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
-            var $msg = Functions.ajaxShowMessage(Messages.strDroppingColumn, false);
-            var params = Functions.getJsConfirmCommonParam(this, $thisAnchor.getPostData());
+            var $msg = ajaxShowMessage(window.Messages.strDroppingColumn, false);
+            var params = getJsConfirmCommonParam(this, $thisAnchor.getPostData());
             params += CommonParams.get('arg_separator') + 'ajax_page_request=1';
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
-                    Functions.ajaxRemoveMessage($msg);
+                    ajaxRemoveMessage($msg);
                     if ($('.result_query').length) {
                         $('.result_query').remove();
                     }
@@ -209,7 +211,7 @@ AJAX.registerOnload('table/structure.js', function () {
                         $('<div class="result_query"></div>')
                             .html(data.sql_query)
                             .prependTo('#structure_content');
-                        Functions.highlightSql($('#page_content'));
+                        highlightSql($('#page_content'));
                     }
                     // Adjust the row numbers
                     for (var $row = $currRow.next(); $row.length > 0; $row = $row.next()) {
@@ -226,7 +228,7 @@ AJAX.registerOnload('table/structure.js', function () {
 
                     // by default select the (new) last option to add new column
                     // (in case last column is dropped)
-                    $('select[name=after_field] option').last().attr('selected','selected');
+                    $('select[name=after_field] option').last().attr('selected', 'selected');
 
                     // refresh table stats
                     if (data.tableStat) {
@@ -236,7 +238,7 @@ AJAX.registerOnload('table/structure.js', function () {
                     $('.index_info').replaceWith(data.indexes_list);
                     Navigation.reload();
                 } else {
-                    Functions.ajaxShowMessage(Messages.strErrorProcessingRequest + ' : ' + data.error, false);
+                    ajaxShowMessage(window.Messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
             }); // end $.post()
         });
@@ -264,16 +266,16 @@ AJAX.registerOnload('table/structure.js', function () {
         } else if ($this.is('.add_fulltext_anchor')) {
             addClause = 'ADD FULLTEXT';
         }
-        var question = Functions.sprintf(Messages.strDoYouReally, 'ALTER TABLE `' +
-                Functions.escapeHtml(currTableName) + '` ' + addClause + '(`' + Functions.escapeHtml(currColumnName) + '`);');
+        var question = window.sprintf(window.Messages.strDoYouReally, 'ALTER TABLE `' +
+            escapeHtml(currTableName) + '` ' + addClause + '(`' + escapeHtml(currColumnName) + '`);');
 
         var $thisAnchor = $(this);
 
         $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
-            Functions.ajaxShowMessage();
+            ajaxShowMessage();
             AJAX.source = $this;
 
-            var params = Functions.getJsConfirmCommonParam(this, $thisAnchor.getPostData());
+            var params = getJsConfirmCommonParam(this, $thisAnchor.getPostData());
             params += CommonParams.get('arg_separator') + 'ajax_page_request=1';
             $.post(url, params, AJAX.responseHandler);
         });
@@ -281,16 +283,12 @@ AJAX.registerOnload('table/structure.js', function () {
 
     /**
      * Inline move columns
-    **/
+     **/
     $(document).on('click', '#move_columns_anchor', function (e) {
         e.preventDefault();
 
-        if ($(this).hasClass('move-active')) {
-            return;
-        }
-
         var buttonOptionsError = {};
-        buttonOptionsError[Messages.strOK] = function () {
+        buttonOptionsError[window.Messages.strOK] = function () {
             $(this).dialog('close').remove();
         };
 
@@ -323,24 +321,54 @@ AJAX.registerOnload('table/structure.js', function () {
         var $form = $('#move_columns_dialog').find('form');
         $form.data('serialized-unmoved', $form.serialize());
 
+        const designerModalPreviewModal = document.getElementById('designerModalPreviewModal');
+        designerModalPreviewModal.addEventListener('shown.bs.modal', () => {
+            const modalBody = designerModalPreviewModal.querySelector('.modal-body');
+            const $form = $('#move_column_form');
+            const formUrl = $form.attr('action');
+            const sep = CommonParams.get('arg_separator');
+            const formData = $form.serialize() +
+                sep + 'preview_sql=1' +
+                sep + 'ajax_request=1';
+            $.post({
+                url: formUrl,
+                data: formData,
+                success: response => {
+                    if (! response.success) {
+                        modalBody.innerHTML = '<div class="alert alert-danger" role="alert">' + window.Messages.strErrorProcessingRequest + '</div>';
+                        return;
+                    }
+
+                    modalBody.innerHTML = response.sql_data;
+                    highlightSql($('#designerModalPreviewModal'));
+                },
+                error: () => {
+                    modalBody.innerHTML = '<div class="alert alert-danger" role="alert">' + window.Messages.strErrorProcessingRequest + '</div>';
+                }
+            });
+        });
+        designerModalPreviewModal.addEventListener('hidden.bs.modal', () => {
+            designerModalPreviewModal.querySelector('.modal-body').innerHTML = '<div class="spinner-border" role="status">' +
+                '<span class="visually-hidden">' + window.Messages.strLoading + '</span></div>';
+        });
+
         $('#moveColumnsModal').modal('show');
+        $('#designerModalGoButton').off('click');// Unregister previous modals
         $('#designerModalGoButton').on('click', function () {
-            // Off event necessary, else the function fires multiple times
-            $('#designerModalGoButton').off('click');
             event.preventDefault();
-            var $msgbox = Functions.ajaxShowMessage();
+            var $msgbox = ajaxShowMessage();
             var $this = $('#moveColumnsModal');
             var $form = $this.find('form');
             var serialized = $form.serialize();
             // check if any columns were moved at all
             $('#moveColumnsModal').modal('hide');
             if (serialized === $form.data('serialized-unmoved')) {
-                Functions.ajaxRemoveMessage($msgbox);
+                ajaxRemoveMessage($msgbox);
                 return;
             }
             $.post($form.prop('action'), serialized + CommonParams.get('arg_separator') + 'ajax_request=true', function (data) {
                 if (data.success === false) {
-                    Functions.ajaxRemoveMessage($msgbox);
+                    ajaxRemoveMessage($msgbox);
                     var errorModal = $('#moveColumnsErrorModal');
                     errorModal.modal('show');
                     errorModal.find('.modal-body').first().html(data.error);
@@ -368,24 +396,9 @@ AJAX.registerOnload('table/structure.js', function () {
                             .removeClass('odd even')
                             .addClass($row.index() % 2 === 0 ? 'odd' : 'even');
                     }
-                    Functions.ajaxShowMessage(data.message);
+                    ajaxShowMessage(data.message);
                 }
             });
-        });
-
-        $('#designerModalPreviewButton').on('click', function () {
-            // Function for Previewing SQL
-            $('#moveColumnsModal').modal('hide');
-            var $form = $('#move_column_form');
-            Functions.previewSql($form);
-        });
-
-        $('#previewSQLCloseButton').on('click', function () {
-            $('#moveColumnsModal').modal('show');
-        });
-
-        $('#designerModalCloseButton').on('click', function () {
-            $('#move_columns_anchor').removeClass('move-active');
         });
     });
 
@@ -398,7 +411,7 @@ AJAX.registerOnload('table/structure.js', function () {
         var argsep = CommonParams.get('arg_separator');
         var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
 
-        Functions.ajaxShowMessage();
+        ajaxShowMessage();
         AJAX.source = $form;
 
         $.post(this.formAction, submitData, AJAX.responseHandler);
@@ -413,17 +426,17 @@ AJAX.registerOnload('table/structure.js', function () {
 
         function submitPartitionAction (url) {
             var params = 'ajax_request=true&ajax_page_request=true&' + $link.getPostData();
-            Functions.ajaxShowMessage();
+            ajaxShowMessage();
             AJAX.source = $link;
             $.post(url, params, AJAX.responseHandler);
         }
 
         if ($link.is('#partition_action_DROP')) {
-            $link.confirm(Messages.strDropPartitionWarning, $link.attr('href'), function (url) {
+            $link.confirm(window.Messages.strDropPartitionWarning, $link.attr('href'), function (url) {
                 submitPartitionAction(url);
             });
         } else if ($link.is('#partition_action_TRUNCATE')) {
-            $link.confirm(Messages.strTruncatePartitionWarning, $link.attr('href'), function (url) {
+            $link.confirm(window.Messages.strTruncatePartitionWarning, $link.attr('href'), function (url) {
                 submitPartitionAction(url);
             });
         } else {
@@ -437,13 +450,13 @@ AJAX.registerOnload('table/structure.js', function () {
     $(document).on('click', '#remove_partitioning.ajax', function (e) {
         e.preventDefault();
         var $link = $(this);
-        var question = Messages.strRemovePartitioningWarning;
+        var question = window.Messages.strRemovePartitioningWarning;
         $link.confirm(question, $link.attr('href'), function (url) {
-            var params = Functions.getJsConfirmCommonParam({
-                'ajax_request' : true,
-                'ajax_page_request' : true
+            var params = getJsConfirmCommonParam({
+                'ajax_request': true,
+                'ajax_page_request': true
             }, $link.getPostData());
-            Functions.ajaxShowMessage();
+            ajaxShowMessage();
             AJAX.source = $link;
             $.post(url, params, AJAX.responseHandler);
         });

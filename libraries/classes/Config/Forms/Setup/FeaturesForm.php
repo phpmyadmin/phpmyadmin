@@ -11,10 +11,8 @@ use function array_diff;
 
 class FeaturesForm extends \PhpMyAdmin\Config\Forms\User\FeaturesForm
 {
-    /**
-     * @return array
-     */
-    public static function getForms()
+    /** @return array */
+    public static function getForms(): array
     {
         // phpcs:disable Squiz.Arrays.ArrayDeclaration.KeySpecified,Squiz.Arrays.ArrayDeclaration.NoKeySpecified
         $result = parent::getForms();
@@ -24,7 +22,7 @@ class FeaturesForm extends \PhpMyAdmin\Config\Forms\User\FeaturesForm
             [
                 'Servers/1/only_db',
                 'Servers/1/hide_db',
-            ]
+            ],
         );
         /* Following are not available to user */
         $result['Import_export'] = [

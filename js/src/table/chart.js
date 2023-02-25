@@ -1,6 +1,10 @@
+import $ from 'jquery';
+import { AJAX } from '../modules/ajax.js';
+import { Functions } from '../modules/functions.js';
+import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
+import { escapeHtml } from '../modules/functions/escape.js';
 
 /* global ColumnType, DataTable, JQPlotChartFactory */ // js/chart.js
-/* global codeMirrorEditor */ // js/functions.js
 
 var chartData = {};
 var tempChartTitle;
@@ -20,12 +24,12 @@ function extractDate (dateString) {
     matches = dateTimeRegExp.exec(dateString);
     if (matches !== null && matches.length > 0) {
         match = matches[0];
-        return new Date(match.substr(0, 4), parseInt(match.substr(5, 2), 10) - 1, match.substr(8, 2), match.substr(11, 2), match.substr(14, 2), match.substr(17, 2));
+        return new Date(match.substring(0, 4), parseInt(match.substring(5, 7), 10) - 1, match.substring(8, 10), match.substring(11, 13), match.substring(14, 16), match.substring(17, 19));
     } else {
         matches = dateRegExp.exec(dateString);
         if (matches !== null && matches.length > 0) {
             match = matches[0];
-            return new Date(match.substr(0, 4), parseInt(match.substr(5, 2), 10) - 1, match.substr(8, 2));
+            return new Date(match.substring(0, 4), parseInt(match.substring(5, 7), 10) - 1, match.substring(8, 10));
         }
     }
     return null;
@@ -37,32 +41,32 @@ function queryChart (data, columnNames, settings) {
     }
 
     var plotSettings = {
-        title : {
-            text : settings.title,
+        title: {
+            text: settings.title,
             escapeHtml: true
         },
-        grid : {
-            drawBorder : false,
-            shadow : false,
-            background : 'rgba(0,0,0,0)'
+        grid: {
+            drawBorder: false,
+            shadow: false,
+            background: 'rgba(0,0,0,0)'
         },
-        legend : {
-            show : true,
-            placement : 'outsideGrid',
-            location : 'e',
+        legend: {
+            show: true,
+            placement: 'outsideGrid',
+            location: 'e',
             rendererOptions: {
                 numberColumns: 2
             }
         },
-        axes : {
-            xaxis : {
-                label : Functions.escapeHtml(settings.xaxisLabel)
+        axes: {
+            xaxis: {
+                label: escapeHtml(settings.xaxisLabel)
             },
-            yaxis : {
-                label : settings.yaxisLabel
+            yaxis: {
+                label: settings.yaxisLabel
             }
         },
-        stackSeries : settings.stackSeries
+        stackSeries: settings.stackSeries
     };
 
     // create the chart
@@ -167,7 +171,7 @@ function drawChart () {
 
     var columnNames = [];
     $('#chartXAxisSelect option').each(function () {
-        columnNames.push(Functions.escapeHtml($(this).text()));
+        columnNames.push(escapeHtml($(this).text()));
     });
     try {
         currentChart = queryChart(chartData, columnNames, currentSettings);
@@ -175,7 +179,7 @@ function drawChart () {
             $('#saveChart').attr('href', currentChart.toImageString());
         }
     } catch (err) {
-        Functions.ajaxShowMessage(err.message, false);
+        ajaxShowMessage(err.message, false);
     }
 }
 
@@ -227,7 +231,7 @@ function onDataSeriesChange () {
             $('#lineChartTypeRadio').prop('checked', true);
             currentSettings.type = 'line';
         }
-        yAxisTitle = Messages.strYValues;
+        yAxisTitle = window.Messages.strYValues;
     }
     $('#yAxisLabelInput').val(yAxisTitle);
     currentSettings.yaxisLabel = yAxisTitle;
@@ -259,7 +263,7 @@ AJAX.registerOnload('table/chart.js', function () {
         $('#querychart').width($('#resizer').width() * 0.96);
         if (currentChart !== null) {
             currentChart.redraw({
-                resetAxes : true
+                resetAxes: true
             });
         }
     });
@@ -271,7 +275,7 @@ AJAX.registerOnload('table/chart.js', function () {
             document.getElementById('barStacked').classList.remove('d-none');
         } else {
             $('#barStackedCheckbox').prop('checked', false);
-            $.extend(true, currentSettings, { stackSeries : false });
+            $.extend(true, currentSettings, { stackSeries: false });
             document.getElementById('barStacked').classList.add('d-none');
         }
         drawChart();
@@ -280,8 +284,8 @@ AJAX.registerOnload('table/chart.js', function () {
     // handle chosing alternative data format
     $('#seriesColumnCheckbox').on('click', function () {
         var $seriesColumn = $('#chartSeriesColumnSelect');
-        var $valueColumn  = $('#chartValueColumnSelect');
-        var $chartSeries  = $('#chartSeriesSelect');
+        var $valueColumn = $('#chartValueColumnSelect');
+        var $chartSeries = $('#chartSeriesSelect');
         if ($(this).is(':checked')) {
             $seriesColumn.prop('disabled', false);
             $valueColumn.prop('disabled', false);
@@ -301,9 +305,9 @@ AJAX.registerOnload('table/chart.js', function () {
     // handle stacking for bar, column and area charts
     $('#barStackedCheckbox').on('click', function () {
         if ($(this).is(':checked')) {
-            $.extend(true, currentSettings, { stackSeries : true });
+            $.extend(true, currentSettings, { stackSeries: true });
         } else {
-            $.extend(true, currentSettings, { stackSeries : false });
+            $.extend(true, currentSettings, { stackSeries: false });
         }
         drawChart();
     });
@@ -362,24 +366,24 @@ AJAX.registerOnload('table/chart.js', function () {
     // handler for ajax form submission
     $('#tblchartform').on('submit', function () {
         var $form = $(this);
-        if (codeMirrorEditor) {
-            $form[0].elements.sql_query.value = codeMirrorEditor.getValue();
+        if (window.codeMirrorEditor) {
+            $form[0].elements.sql_query.value = window.codeMirrorEditor.getValue();
         }
-        if (!Functions.checkSqlQuery($form[0])) {
+        if (! Functions.checkSqlQuery($form[0])) {
             return false;
         }
 
-        var $msgbox = Functions.ajaxShowMessage();
+        var $msgbox = ajaxShowMessage();
         Functions.prepareForAjaxRequest($form);
         $.post($form.attr('action'), $form.serialize(), function (data) {
             if (typeof data !== 'undefined' &&
-                    data.success === true &&
-                    typeof data.chartData !== 'undefined') {
+                data.success === true &&
+                typeof data.chartData !== 'undefined') {
                 chartData = JSON.parse(data.chartData);
                 drawChart();
-                Functions.ajaxRemoveMessage($msgbox);
+                ajaxRemoveMessage($msgbox);
             } else {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         }, 'json'); // end $.post()
 
@@ -395,16 +399,16 @@ AJAX.registerOnload('table/chart.js', function () {
         .trigger('resizestop');
 
     currentSettings = {
-        type : 'line',
-        width : $('#resizer').width() - 20,
-        height : $('#resizer').height() - 20,
-        xaxisLabel : $('#xAxisLabelInput').val(),
-        yaxisLabel : $('#yAxisLabelInput').val(),
-        title : $('#chartTitleInput').val(),
-        stackSeries : false,
-        mainAxis : parseInt($('#chartXAxisSelect').val(), 10),
-        selectedSeries : getSelectedSeries(),
-        seriesColumn : null
+        type: 'line',
+        width: $('#resizer').width() - 20,
+        height: $('#resizer').height() - 20,
+        xaxisLabel: $('#xAxisLabelInput').val(),
+        yaxisLabel: $('#yAxisLabelInput').val(),
+        title: $('#chartTitleInput').val(),
+        stackSeries: false,
+        mainAxis: parseInt($('#chartXAxisSelect').val(), 10),
+        selectedSeries: getSelectedSeries(),
+        seriesColumn: null
     };
 
     var vals = $('input[name="dateTimeCols"]').val().split(' ');

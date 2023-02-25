@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests\Setup;
 use PhpMyAdmin\Setup\Index as SetupIndex;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Setup\Index
- */
+/** @covers \PhpMyAdmin\Setup\Index */
 class IndexTest extends AbstractTestCase
 {
     /**
@@ -18,6 +16,7 @@ class IndexTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['cfg']['ProxyUrl'] = '';
     }
 
@@ -50,7 +49,7 @@ class IndexTest extends AbstractTestCase
                     ],
                 ],
             ],
-            $_SESSION['messages']
+            $_SESSION['messages'],
         );
 
         // case 2
@@ -62,7 +61,7 @@ class IndexTest extends AbstractTestCase
                 'error' => [],
                 'notice' => [],
             ],
-            $_SESSION['messages']
+            $_SESSION['messages'],
         );
     }
 
@@ -80,7 +79,7 @@ class IndexTest extends AbstractTestCase
                 'title' => 'testTitle',
                 'message' => 'msg',
             ],
-            $_SESSION['messages']['type']['123']
+            $_SESSION['messages']['type']['123'],
         );
     }
 
@@ -113,7 +112,7 @@ class IndexTest extends AbstractTestCase
                     ],
                 ],
             ],
-            $_SESSION['messages']
+            $_SESSION['messages'],
         );
     }
 

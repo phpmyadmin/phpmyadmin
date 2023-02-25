@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
-/**
- * @coversNothing
- */
+/** @coversNothing */
 class CreateDropDatabaseTest extends TestBase
 {
     /**
@@ -15,6 +13,7 @@ class CreateDropDatabaseTest extends TestBase
     protected function setUp(): void
     {
         parent::setUp();
+
         /* TODO: For now this tests needs superuser for deleting database */
         $this->skipIfNotSuperUser();
         $this->login();
@@ -45,7 +44,7 @@ class CreateDropDatabaseTest extends TestBase
             function (): void {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 $this->assertEquals($this->databaseName, $this->getCellByTableClass('table_results', 1, 1));
-            }
+            },
         );
 
         $this->dropDatabase();
@@ -74,7 +73,7 @@ class CreateDropDatabaseTest extends TestBase
 
         $this->waitForElementNotPresent(
             'cssSelector',
-            "input[name='selected_dbs[]'][value='" . $this->databaseName . "']"
+            "input[name='selected_dbs[]'][value='" . $this->databaseName . "']",
         );
 
         $this->waitForElement('cssSelector', 'span.ajax_notification .alert-success');
@@ -83,7 +82,7 @@ class CreateDropDatabaseTest extends TestBase
             'SHOW DATABASES LIKE \'' . $this->databaseName . '\';',
             function (): void {
                 $this->assertFalse($this->isElementPresent('className', 'table_results'));
-            }
+            },
         );
     }
 }

@@ -1,3 +1,7 @@
+import $ from 'jquery';
+import { AJAX } from '../modules/ajax.js';
+import { escapeHtml } from '../modules/functions/escape.js';
+
 /**
  * @fileoverview    Javascript functions used in server user groups page
  * @name            Server User Groups
@@ -19,9 +23,9 @@ AJAX.registerOnload('server/user_groups.js', function () {
     const deleteUserGroupModal = $('#deleteUserGroupModal');
     deleteUserGroupModal.on('show.bs.modal', function (event) {
         const userGroupName = $(event.relatedTarget).data('user-group');
-        this.querySelector('.modal-body').innerText = Functions.sprintf(
-            Messages.strDropUserGroupWarning,
-            Functions.escapeHtml(userGroupName)
+        this.querySelector('.modal-body').innerText = window.sprintf(
+            window.Messages.strDropUserGroupWarning,
+            escapeHtml(userGroupName)
         );
     });
     deleteUserGroupModal.on('shown.bs.modal', function (event) {

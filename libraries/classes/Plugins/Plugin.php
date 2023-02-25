@@ -8,12 +8,10 @@ use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
 
 interface Plugin
 {
-    /**
-     * @psalm-return non-empty-lowercase-string
-     */
+    /** @psalm-return non-empty-lowercase-string */
     public function getName(): string;
 
     public function getProperties(): PluginPropertyItem;
 
-    public function isAvailable(): bool;
+    public static function isAvailable(): bool;
 }

@@ -27,25 +27,20 @@ class Text_Plain_Sql extends SQLTransformationsPlugin
         $scripts->addFile('vendor/codemirror/lib/codemirror.js');
         $scripts->addFile('vendor/codemirror/mode/sql/sql.js');
         $scripts->addFile('vendor/codemirror/addon/runmode/runmode.js');
-        $scripts->addFile('functions.js');
     }
 
     /**
      * Gets the plugin`s MIME type
-     *
-     * @return string
      */
-    public static function getMIMEType()
+    public static function getMIMEType(): string
     {
         return 'Text';
     }
 
     /**
      * Gets the plugin`s MIME subtype
-     *
-     * @return string
      */
-    public static function getMIMESubtype()
+    public static function getMIMESubtype(): string
     {
         return 'Plain';
     }

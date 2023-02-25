@@ -24,10 +24,8 @@ class SysInfo
      * Returns OS type used for sysinfo class
      *
      * @param string $php_os PHP_OS constant
-     *
-     * @return string
      */
-    public static function getOs($php_os = PHP_OS)
+    public static function getOs($php_os = PHP_OS): string
     {
         // look for common UNIX-like systems
         $unix_like = [
@@ -46,29 +44,26 @@ class SysInfo
      *
      * @return Base sysinfo class
      */
-    public static function get()
+    public static function get(): Base
     {
         $php_os = self::getOs();
 
         switch ($php_os) {
             case 'Linux':
-                $sysInfo = new Linux();
-                if ($sysInfo->supported()) {
-                    return $sysInfo;
+                if (Linux::isSupported()) {
+                    return new Linux();
                 }
 
                 break;
             case 'WINNT':
-                $sysInfo = new WindowsNt();
-                if ($sysInfo->supported()) {
-                    return $sysInfo;
+                if (WindowsNt::isSupported()) {
+                    return new WindowsNt();
                 }
 
                 break;
             case 'SunOS':
-                $sysInfo = new SunOs();
-                if ($sysInfo->supported()) {
-                    return $sysInfo;
+                if (SunOs::isSupported()) {
+                    return new SunOs();
                 }
 
                 break;

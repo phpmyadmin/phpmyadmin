@@ -9,21 +9,17 @@ use PHPUnit\Framework\TestCase;
 
 use function count;
 
-/**
- * @covers \PhpMyAdmin\Partitioning\TablePartitionDefinition
- */
+/** @covers \PhpMyAdmin\Partitioning\TablePartitionDefinition */
 class TablePartitionDefinitionTest extends TestCase
 {
-    /**
-     * @dataProvider providerGetDetails
-     */
+    /** @dataProvider providerGetDetails */
     public function testGetDetails(
         string $partitionBy,
         bool $canHaveSubpartitions,
         bool $valueEnabled,
         int $partitionCount,
         int $subPartitionCount,
-        ?array $partitions
+        array|null $partitions,
     ): void {
         $expected = [
             'partition_by' => $partitionBy,
@@ -149,7 +145,7 @@ class TablePartitionDefinitionTest extends TestCase
      *   0: string, 1: bool, 2: bool, 3: int, 4: int, 5: array<string, string|array<string, string>[]>[]|null
      * }>
      */
-    public function providerGetDetails(): array
+    public static function providerGetDetails(): array
     {
         return [
             'partition by RANGE' => ['RANGE', true, true, 2, 2, [['name' => 'part0']]],
@@ -234,16 +230,11 @@ class TablePartitionDefinitionTest extends TestCase
             'value_enabled' => false,
         ];
 
-        $actual = TablePartitionDefinition::getDetails($expected);
-        $this->assertEquals($expected, $actual);
-
         $actual = TablePartitionDefinition::getDetails();
         $this->assertEquals($expected, $actual);
     }
 
-    /**
-     * @dataProvider providerGetDetailsWithMaxPartitions
-     */
+    /** @dataProvider providerGetDetailsWithMaxPartitions */
     public function testGetDetailsWithMaxPartitions(int $partitionCount, string $partitionCountFromPost): void
     {
         $_POST = ['partition_count' => $partitionCountFromPost];
@@ -255,10 +246,8 @@ class TablePartitionDefinitionTest extends TestCase
         $this->assertEquals($partitionCount, count($actual['partitions']));
     }
 
-    /**
-     * @psalm-return array{0: int, 1: string}[]
-     */
-    public function providerGetDetailsWithMaxPartitions(): array
+    /** @psalm-return array{0: int, 1: string}[] */
+    public static function providerGetDetailsWithMaxPartitions(): array
     {
         return ['count within the limit' => [8192, '8192'], 'count above the limit' => [8192, '8193']];
     }

@@ -9,31 +9,31 @@ import { Circle, Fill, Stroke, Style, Text } from 'ol/style.js';
 import { Feature, Map, View } from 'ol';
 
 const ol = {
-  control: {
-    Attribution, MousePosition, Zoom
-  },
-  coordinate: {
-    createStringXY
-  },
-  extent: {
-    boundingExtent
-  },
-  geom: {
-    LineString, LinearRing, MultiLineString, MultiPoint, MultiPolygon, Point, Polygon
-  },
-  layer: {
-    Tile, Vector: VectorLayer
-  },
-  proj: {
-    fromLonLat, get, transformExtent
-  },
-  source: {
-    OSM, Vector: VectorSource
-  },
-  style: {
-    Circle, Fill, Stroke, Style, Text
-  },
-  Feature, Map, View
-}
+    control: {
+        Attribution, MousePosition, Zoom
+    },
+    coordinate: {
+        createStringXY
+    },
+    extent: {
+        boundingExtent
+    },
+    geom: {
+        LineString, LinearRing, MultiLineString, MultiPoint, MultiPolygon, Point, Polygon
+    },
+    layer: {
+        Tile, Vector: VectorLayer
+    },
+    proj: {
+        fromLonLat, get, transformExtent
+    },
+    source: {
+        OSM, Vector: VectorSource
+    },
+    style: {
+        Circle, Fill, Stroke, Style, Text
+    },
+    Feature, Map, View
+};
 
 export default ol;

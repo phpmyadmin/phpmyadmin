@@ -21,9 +21,7 @@ use ReflectionMethod;
 use function __;
 use function sprintf;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Table\IndexesController
- */
+/** @covers \PhpMyAdmin\Controllers\Table\IndexesController */
 class IndexesControllerTest extends AbstractTestCase
 {
     /**
@@ -32,6 +30,7 @@ class IndexesControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setTheme();
 
         /**
@@ -102,15 +101,12 @@ class IndexesControllerTest extends AbstractTestCase
         $template = new Template();
 
         $method = new ReflectionMethod(IndexesController::class, 'displayForm');
-        $method->setAccessible(true);
 
         $ctrl = new IndexesController(
             $response,
             $template,
-            $GLOBALS['db'],
-            $GLOBALS['table'],
             $GLOBALS['dbi'],
-            new Indexes($response, $template, $GLOBALS['dbi'])
+            new Indexes($response, $template, $GLOBALS['dbi']),
         );
 
         $_POST['create_index'] = true;
@@ -125,28 +121,28 @@ class IndexesControllerTest extends AbstractTestCase
                     'db' => 'db',
                     'table' => 'table',
                     'create_index' => 1,
-                ]
+                ],
             ),
-            $html
+            $html,
         );
 
         $doc_html = Generator::showHint(
             Message::notice(
                 __(
-                    '"PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!'
-                )
-            )->getMessage()
+                    '"PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!',
+                ),
+            )->getMessage(),
         );
         $this->assertStringContainsString($doc_html, $html);
 
         $this->assertStringContainsString(
             MySQLDocumentation::show('ALTER_TABLE'),
-            $html
+            $html,
         );
 
         $this->assertStringContainsString(
             sprintf(__('Add %s column(s) to index'), 1),
-            $html
+            $html,
         );
 
         //$field_name & $field_type

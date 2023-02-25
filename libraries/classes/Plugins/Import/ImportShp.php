@@ -54,9 +54,7 @@ class ImportShp extends ImportPlugin
         $this->zipExtension = new ZipExtension(new ZipArchive());
     }
 
-    /**
-     * @psalm-return non-empty-lowercase-string
-     */
+    /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
         return 'shp';
@@ -75,16 +73,18 @@ class ImportShp extends ImportPlugin
     /**
      * Handles the whole import logic
      *
-     * @param array $sql_data 2-element array with sql data
+     * @return string[]
      */
-    public function doImport(?File $importHandle = null, array &$sql_data = []): void
+    public function doImport(File|null $importHandle = null): array
     {
-        global $db, $error, $finished, $import_file, $local_import_file, $message, $dbi;
-
+        $GLOBALS['error'] ??= null;
+        $GLOBALS['import_file'] ??= null;
+        $GLOBALS['local_import_file'] ??= null;
+        $GLOBALS['message'] ??= null;
         $GLOBALS['finished'] = false;
 
         if ($importHandle === null || $this->zipExtension === null) {
-            return;
+            return [];
         }
 
         /** @see ImportShp::readFromBuffer() */
@@ -95,14 +95,14 @@ class ImportShp extends ImportPlugin
         $shp = new ShapeFileImport(1);
         // If the zip archive has more than one file,
         // get the correct content to the buffer from .shp file.
-        if ($compression === 'application/zip' && $this->zipExtension->getNumberOfFiles($import_file) > 1) {
+        if ($compression === 'application/zip' && $this->zipExtension->getNumberOfFiles($GLOBALS['import_file']) > 1) {
             if ($importHandle->openZip('/^.*\.shp$/i') === false) {
-                $message = Message::error(
-                    __('There was an error importing the ESRI shape file: "%s".')
+                $GLOBALS['message'] = Message::error(
+                    __('There was an error importing the ESRI shape file: "%s".'),
                 );
-                $message->addParam($importHandle->getError());
+                $GLOBALS['message']->addParam($importHandle->getError());
 
-                return;
+                return [];
             }
         }
 
@@ -113,11 +113,11 @@ class ImportShp extends ImportPlugin
             // If we can extract the zip archive to 'TempDir'
             // and use the files in it for import
             if ($compression === 'application/zip' && $temp !== null) {
-                $dbf_file_name = $this->zipExtension->findFile($import_file, '/^.*\.dbf$/i');
+                $dbf_file_name = $this->zipExtension->findFile($GLOBALS['import_file'], '/^.*\.dbf$/i');
                 // If the corresponding .dbf file is in the zip archive
                 if ($dbf_file_name) {
                     // Extract the .dbf file and point to it.
-                    $extracted = $this->zipExtension->extract($import_file, $dbf_file_name);
+                    $extracted = $this->zipExtension->extract($GLOBALS['import_file'], $dbf_file_name);
                     if ($extracted !== false) {
                         // remove filename extension, e.g.
                         // dresden_osm.shp/gis.osm_transport_a_v06.dbf
@@ -140,12 +140,16 @@ class ImportShp extends ImportPlugin
                         }
                     }
                 }
-            } elseif (! empty($local_import_file) && ! empty($GLOBALS['cfg']['UploadDir']) && $compression === 'none') {
+            } elseif (
+                ! empty($GLOBALS['local_import_file'])
+                && ! empty($GLOBALS['cfg']['UploadDir'])
+                && $compression === 'none'
+            ) {
                 // If file is in UploadDir, use .dbf file in the same UploadDir
                 // to load extra data.
                 // Replace the .shp with .*,
                 // so the bsShapeFiles library correctly locates .dbf file.
-                $shp->fileName = mb_substr($import_file, 0, -4) . '.*';
+                $shp->fileName = mb_substr($GLOBALS['import_file'], 0, -4) . '.*';
             }
         }
 
@@ -158,13 +162,13 @@ class ImportShp extends ImportPlugin
         }
 
         if ($shp->lastError != '') {
-            $error = true;
-            $message = Message::error(
-                __('There was an error importing the ESRI shape file: "%s".')
+            $GLOBALS['error'] = true;
+            $GLOBALS['message'] = Message::error(
+                __('There was an error importing the ESRI shape file: "%s".'),
             );
-            $message->addParam($shp->lastError);
+            $GLOBALS['message']->addParam($shp->lastError);
 
-            return;
+            return [];
         }
 
         switch ($shp->shapeType) {
@@ -188,13 +192,13 @@ class ImportShp extends ImportPlugin
                 $gis_type = 'multipoint';
                 break;
             default:
-                $error = true;
-                $message = Message::error(
-                    __('MySQL Spatial Extension does not support ESRI type "%s".')
+                $GLOBALS['error'] = true;
+                $GLOBALS['message'] = Message::error(
+                    __('MySQL Spatial Extension does not support ESRI type "%s".'),
                 );
-                $message->addParam($shp->getShapeName());
+                $GLOBALS['message']->addParam($shp->getShapeName());
 
-                return;
+                return [];
         }
 
         if (isset($gis_type)) {
@@ -237,12 +241,12 @@ class ImportShp extends ImportPlugin
         }
 
         if (count($rows) === 0) {
-            $error = true;
-            $message = Message::error(
-                __('The imported file does not contain any data!')
+            $GLOBALS['error'] = true;
+            $GLOBALS['message'] = Message::error(
+                __('The imported file does not contain any data!'),
             );
 
-            return;
+            return [];
         }
 
         // Column names for spatial column and the rest of the columns,
@@ -258,8 +262,8 @@ class ImportShp extends ImportPlugin
         }
 
         // Set table name based on the number of tables
-        if (strlen((string) $db) > 0) {
-            $result = $dbi->fetchResult('SHOW TABLES');
+        if (strlen((string) $GLOBALS['db']) > 0) {
+            $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
             $table_name = 'TABLE ' . (count($result) + 1);
         } else {
             $table_name = 'TBL_NAME';
@@ -283,8 +287,8 @@ class ImportShp extends ImportPlugin
         $analyses[$table_no][Import::FORMATTEDSQL][$spatial_col] = true;
 
         // Set database name to the currently selected one, if applicable
-        if (strlen((string) $db) > 0) {
-            $db_name = $db;
+        if (strlen((string) $GLOBALS['db']) > 0) {
+            $db_name = $GLOBALS['db'];
             $options = ['create_db' => false];
         } else {
             $db_name = 'SHP_DB';
@@ -293,15 +297,18 @@ class ImportShp extends ImportPlugin
 
         // Created and execute necessary SQL statements from data
         $null_param = null;
-        $this->import->buildSql($db_name, $tables, $analyses, $null_param, $options, $sql_data);
+        $sqlStatements = [];
+        $this->import->buildSql($db_name, $tables, $analyses, $null_param, $options, $sqlStatements);
 
         unset($tables, $analyses);
 
-        $finished = true;
-        $error = false;
+        $GLOBALS['finished'] = true;
+        $GLOBALS['error'] = false;
 
         // Commit any possible data in buffers
-        $this->import->runQuery('', '', $sql_data);
+        $this->import->runQuery('', $sqlStatements);
+
+        return $sqlStatements;
     }
 
     /**
@@ -311,25 +318,25 @@ class ImportShp extends ImportPlugin
      * Sets $eof when $GLOBALS['finished'] is set and the buffer falls short.
      *
      * @param int $length number of bytes
-     *
-     * @return string
      */
-    public static function readFromBuffer($length)
+    public static function readFromBuffer($length): string
     {
-        global $buffer, $eof, $importHandle;
+        $GLOBALS['buffer'] ??= null;
+        $GLOBALS['eof'] ??= null;
+        $GLOBALS['importHandle'] ??= null;
 
         $import = new Import();
 
-        if (strlen((string) $buffer) < $length) {
+        if (strlen((string) $GLOBALS['buffer']) < $length) {
             if ($GLOBALS['finished']) {
-                $eof = true;
+                $GLOBALS['eof'] = true;
             } else {
-                $buffer .= $import->getNextChunk($importHandle);
+                $GLOBALS['buffer'] .= $import->getNextChunk($GLOBALS['importHandle']);
             }
         }
 
-        $result = substr($buffer, 0, $length);
-        $buffer = substr($buffer, $length);
+        $result = substr($GLOBALS['buffer'], 0, $length);
+        $GLOBALS['buffer'] = substr($GLOBALS['buffer'], $length);
 
         return $result;
     }

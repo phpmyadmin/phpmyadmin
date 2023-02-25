@@ -9,9 +9,7 @@ use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\Template;
 
-/**
- * @covers \PhpMyAdmin\ReplicationGui
- */
+/** @covers \PhpMyAdmin\ReplicationGui */
 class ReplicationGuiTest extends AbstractTestCase
 {
     /**
@@ -27,6 +25,8 @@ class ReplicationGuiTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         //$_POST
         $_POST['primary_add_user'] = 'primary_add_user';
 
@@ -46,15 +46,13 @@ class ReplicationGuiTest extends AbstractTestCase
         $GLOBALS['server'] = 0;
         $GLOBALS['urlParams'] = [];
 
-        $this->replicationGui = new ReplicationGui(new Replication(), new Template());
+        $this->replicationGui = new ReplicationGui(new Replication($GLOBALS['dbi']), new Template());
     }
 
-    /**
-     * @group medium
-     */
+    /** @group medium */
     public function testGetHtmlForPrimaryReplication(): void
     {
-        $html = $this->replicationGui->getHtmlForPrimaryReplication();
+        $html = $this->replicationGui->getHtmlForPrimaryReplication(null, false, 'primary_add_user', null, null);
 
         //validate 1: Primary replication
         $this->assertStringContainsString('<div class="card-header">Primary replication</div>', $html);
@@ -95,8 +93,10 @@ class ReplicationGuiTest extends AbstractTestCase
 
         //Call the test function
         $html = $this->replicationGui->getHtmlForReplicaConfiguration(
+            null,
             true,
-            $replicationInfo->getReplicaStatus()
+            $replicationInfo->getReplicaStatus(),
+            isset($_POST['replica_configure']),
         );
 
         //legend

@@ -26,9 +26,7 @@ use const PHP_EOL;
  */
 class ImportLdi extends AbstractImportCsv
 {
-    /**
-     * @psalm-return non-empty-lowercase-string
-     */
+    /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
         return 'ldi';
@@ -40,7 +38,7 @@ class ImportLdi extends AbstractImportCsv
         $importPluginProperties->setText('CSV using LOAD DATA');
         $importPluginProperties->setExtension('ldi');
 
-        if (! $this->isAvailable()) {
+        if (! self::isAvailable()) {
             return $importPluginProperties;
         }
 
@@ -59,19 +57,19 @@ class ImportLdi extends AbstractImportCsv
 
         $leaf = new TextPropertyItem(
             'columns',
-            __('Column names: ')
+            __('Column names: '),
         );
         $generalOptions->addProperty($leaf);
 
         $leaf = new BoolPropertyItem(
             'ignore',
-            __('Do not abort on INSERT error')
+            __('Do not abort on INSERT error'),
         );
         $generalOptions->addProperty($leaf);
 
         $leaf = new BoolPropertyItem(
             'local_option',
-            __('Use LOCAL keyword')
+            __('Use LOCAL keyword'),
         );
         $generalOptions->addProperty($leaf);
 
@@ -87,76 +85,81 @@ class ImportLdi extends AbstractImportCsv
     /**
      * Handles the whole import logic
      *
-     * @param array $sql_data 2-element array with sql data
+     * @return string[]
      */
-    public function doImport(?File $importHandle = null, array &$sql_data = []): void
+    public function doImport(File|null $importHandle = null): array
     {
-        global $finished, $import_file, $charset_conversion, $table, $dbi;
-        global $ldi_local_option, $ldi_replace, $ldi_ignore, $ldi_terminated,
-               $ldi_enclosed, $ldi_escaped, $ldi_new_line, $skip_queries, $ldi_columns;
+        $GLOBALS['finished'] ??= null;
+        $GLOBALS['import_file'] ??= null;
+        $GLOBALS['charset_conversion'] ??= null;
+        $GLOBALS['ldi_local_option'] ??= null;
+        $GLOBALS['ldi_replace'] ??= null;
+        $GLOBALS['ldi_ignore'] ??= null;
+        $GLOBALS['ldi_terminated'] ??= null;
+        $GLOBALS['ldi_enclosed'] ??= null;
+        $GLOBALS['ldi_escaped'] ??= null;
+        $GLOBALS['ldi_new_line'] ??= null;
+        $GLOBALS['skip_queries'] ??= null;
+        $GLOBALS['ldi_columns'] ??= null;
 
+        $sqlStatements = [];
         $compression = '';
         if ($importHandle !== null) {
             $compression = $importHandle->getCompression();
         }
 
-        if ($import_file === 'none' || $compression !== 'none' || $charset_conversion) {
+        if ($GLOBALS['import_file'] === 'none' || $compression !== 'none' || $GLOBALS['charset_conversion']) {
             // We handle only some kind of data!
             $GLOBALS['message'] = Message::error(
-                __('This plugin does not support compressed imports!')
+                __('This plugin does not support compressed imports!'),
             );
             $GLOBALS['error'] = true;
 
-            return;
+            return [];
         }
 
         $sql = 'LOAD DATA';
-        if (isset($ldi_local_option)) {
+        if (isset($GLOBALS['ldi_local_option'])) {
             $sql .= ' LOCAL';
         }
 
-        $sql .= ' INFILE \'' . $dbi->escapeString($import_file)
-            . '\'';
-        if (isset($ldi_replace)) {
+        $sql .= ' INFILE ' . $GLOBALS['dbi']->quoteString($GLOBALS['import_file']);
+        if (isset($GLOBALS['ldi_replace'])) {
             $sql .= ' REPLACE';
-        } elseif (isset($ldi_ignore)) {
+        } elseif (isset($GLOBALS['ldi_ignore'])) {
             $sql .= ' IGNORE';
         }
 
-        $sql .= ' INTO TABLE ' . Util::backquote($table);
+        $sql .= ' INTO TABLE ' . Util::backquote($GLOBALS['table']);
 
-        if (strlen((string) $ldi_terminated) > 0) {
-            $sql .= ' FIELDS TERMINATED BY \'' . $ldi_terminated . '\'';
+        if (strlen((string) $GLOBALS['ldi_terminated']) > 0) {
+            $sql .= ' FIELDS TERMINATED BY \'' . $GLOBALS['ldi_terminated'] . '\'';
         }
 
-        if (strlen((string) $ldi_enclosed) > 0) {
-            $sql .= ' ENCLOSED BY \''
-                . $dbi->escapeString($ldi_enclosed) . '\'';
+        if (strlen((string) $GLOBALS['ldi_enclosed']) > 0) {
+            $sql .= ' ENCLOSED BY ' . $GLOBALS['dbi']->quoteString($GLOBALS['ldi_enclosed']);
         }
 
-        if (strlen((string) $ldi_escaped) > 0) {
-            $sql .= ' ESCAPED BY \''
-                . $dbi->escapeString($ldi_escaped) . '\'';
+        if (strlen((string) $GLOBALS['ldi_escaped']) > 0) {
+            $sql .= ' ESCAPED BY ' . $GLOBALS['dbi']->quoteString($GLOBALS['ldi_escaped']);
         }
 
-        if (strlen((string) $ldi_new_line) > 0) {
-            if ($ldi_new_line === 'auto') {
-                $ldi_new_line = PHP_EOL == "\n"
-                    ? '\n'
-                    : '\r\n';
+        if (strlen((string) $GLOBALS['ldi_new_line']) > 0) {
+            if ($GLOBALS['ldi_new_line'] === 'auto') {
+                $GLOBALS['ldi_new_line'] = PHP_EOL;
             }
 
-            $sql .= ' LINES TERMINATED BY \'' . $ldi_new_line . '\'';
+            $sql .= ' LINES TERMINATED BY \'' . $GLOBALS['ldi_new_line'] . '\'';
         }
 
-        if ($skip_queries > 0) {
-            $sql .= ' IGNORE ' . $skip_queries . ' LINES';
-            $skip_queries = 0;
+        if ($GLOBALS['skip_queries'] > 0) {
+            $sql .= ' IGNORE ' . $GLOBALS['skip_queries'] . ' LINES';
+            $GLOBALS['skip_queries'] = 0;
         }
 
-        if (strlen((string) $ldi_columns) > 0) {
+        if (strlen((string) $GLOBALS['ldi_columns']) > 0) {
             $sql .= ' (';
-            $tmp = preg_split('/,( ?)/', $ldi_columns);
+            $tmp = preg_split('/,( ?)/', $GLOBALS['ldi_columns']);
 
             if (! is_array($tmp)) {
                 $tmp = [];
@@ -170,32 +173,30 @@ class ImportLdi extends AbstractImportCsv
 
                 /* Trim also `, if user already included backquoted fields */
                 $sql .= Util::backquote(
-                    trim($tmp[$i], " \t\r\n\0\x0B`")
+                    trim($tmp[$i], " \t\r\n\0\x0B`"),
                 );
             }
 
             $sql .= ')';
         }
 
-        $this->import->runQuery($sql, $sql, $sql_data);
-        $this->import->runQuery('', '', $sql_data);
-        $finished = true;
+        $this->import->runQuery($sql, $sqlStatements);
+        $this->import->runQuery('', $sqlStatements);
+        $GLOBALS['finished'] = true;
+
+        return $sqlStatements;
     }
 
-    public function isAvailable(): bool
+    public static function isAvailable(): bool
     {
-        global $plugin_param;
-
         // We need relations enabled and we work only on database.
-        return isset($plugin_param) && $plugin_param === 'table';
+        return isset($GLOBALS['plugin_param']) && $GLOBALS['plugin_param'] === 'table';
     }
 
     private function setLdiLocalOptionConfig(): void
     {
-        global $dbi;
-
         $GLOBALS['cfg']['Import']['ldi_local_option'] = false;
-        $result = $dbi->tryQuery('SELECT @@local_infile;');
+        $result = $GLOBALS['dbi']->tryQuery('SELECT @@local_infile;');
 
         if ($result === false || $result->numRows() <= 0) {
             return;

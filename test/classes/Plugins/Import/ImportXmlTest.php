@@ -28,7 +28,21 @@ class ImportXmlTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
+        $GLOBALS['error'] = null;
+        $GLOBALS['timeout_passed'] = null;
+        $GLOBALS['maximum_time'] = null;
+        $GLOBALS['charset_conversion'] = null;
+        $GLOBALS['db'] = '';
+        $GLOBALS['skip_queries'] = null;
+        $GLOBALS['max_sql_len'] = null;
+        $GLOBALS['sql_query_disabled'] = null;
+        $GLOBALS['sql_query'] = '';
+        $GLOBALS['executed_queries'] = null;
+        $GLOBALS['run_query'] = null;
+        $GLOBALS['go_sql'] = null;
 
         $this->object = new ImportXml();
 
@@ -52,6 +66,7 @@ class ImportXmlTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 
@@ -65,20 +80,20 @@ class ImportXmlTest extends AbstractTestCase
         $properties = $this->object->getProperties();
         $this->assertEquals(
             __('XML'),
-            $properties->getText()
+            $properties->getText(),
         );
         $this->assertEquals(
             'xml',
-            $properties->getExtension()
+            $properties->getExtension(),
         );
         $this->assertEquals(
             'text/xml',
-            $properties->getMimeType()
+            $properties->getMimeType(),
         );
         $this->assertNull($properties->getOptions());
         $this->assertEquals(
             __('Options'),
-            $properties->getOptionsText()
+            $properties->getOptionsText(),
         );
     }
 
@@ -91,7 +106,6 @@ class ImportXmlTest extends AbstractTestCase
     public function testDoImport(): void
     {
         //$import_notice will show the import detail result
-        global $import_notice;
 
         //Mock DBI
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -121,12 +135,12 @@ class ImportXmlTest extends AbstractTestCase
         //asset that all databases and tables are imported
         $this->assertStringContainsString(
             'The following structures have either been created or altered.',
-            $import_notice
+            $GLOBALS['import_notice'],
         );
-        $this->assertStringContainsString('Go to database: `phpmyadmintest`', $import_notice);
-        $this->assertStringContainsString('Edit settings for `phpmyadmintest`', $import_notice);
-        $this->assertStringContainsString('Go to table: `pma_bookmarktest`', $import_notice);
-        $this->assertStringContainsString('Edit settings for `pma_bookmarktest`', $import_notice);
+        $this->assertStringContainsString('Go to database: `phpmyadmintest`', $GLOBALS['import_notice']);
+        $this->assertStringContainsString('Edit settings for `phpmyadmintest`', $GLOBALS['import_notice']);
+        $this->assertStringContainsString('Go to table: `pma_bookmarktest`', $GLOBALS['import_notice']);
+        $this->assertStringContainsString('Edit settings for `pma_bookmarktest`', $GLOBALS['import_notice']);
         $this->assertTrue($GLOBALS['finished']);
     }
 }

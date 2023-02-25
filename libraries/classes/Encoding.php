@@ -175,9 +175,9 @@ class Encoding
     public static function convertString(
         string $src_charset,
         string $dest_charset,
-        string $what
+        string $what,
     ): string {
-        if ($src_charset == $dest_charset) {
+        if ($src_charset === $dest_charset) {
             return $what;
         }
 
@@ -185,19 +185,16 @@ class Encoding
             self::initEngine();
         }
 
-        switch (self::$engine) {
-            case self::ENGINE_RECODE:
-                return recode_string($src_charset . '..' . $dest_charset, $what);
-
-            case self::ENGINE_ICONV:
-                return iconv($src_charset, $dest_charset . ($GLOBALS['cfg']['IconvExtraParams'] ?? ''), $what);
-
-            case self::ENGINE_MB:
-                return mb_convert_encoding($what, $dest_charset, $src_charset);
-
-            default:
-                return $what;
-        }
+        return match (self::$engine) {
+            self::ENGINE_RECODE => recode_string($src_charset . '..' . $dest_charset, $what),
+            self::ENGINE_ICONV => iconv(
+                $src_charset,
+                $dest_charset . ($GLOBALS['cfg']['IconvExtraParams'] ?? ''),
+                $what,
+            ),
+            self::ENGINE_MB => mb_convert_encoding($what, $dest_charset, $src_charset),
+            default => $what,
+        };
     }
 
     /**
@@ -266,7 +263,7 @@ class Encoding
             $str = $dist;
         }
 
-        if ($string_encoding != $enc && $enc != '') {
+        if ($string_encoding !== $enc && $enc != '') {
             return mb_convert_encoding($str, $enc, $string_encoding);
         }
 
@@ -348,7 +345,7 @@ class Encoding
 
         return array_intersect(
             array_map('strtolower', mb_list_encodings()),
-            $GLOBALS['cfg']['AvailableCharsets']
+            $GLOBALS['cfg']['AvailableCharsets'],
         );
     }
 }

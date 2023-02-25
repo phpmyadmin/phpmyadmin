@@ -26,6 +26,7 @@ use function mb_substr;
 use function ob_get_clean;
 use function ob_start;
 use function rtrim;
+use function trim;
 
 use const PNG_ALL_FILTERS;
 
@@ -44,28 +45,6 @@ class GisVisualization
     private $settings = [
         // Array of colors to be used for GIS visualizations.
         'colors' => [
-            '#B02EE0',
-            '#E0642E',
-            '#E0D62E',
-            '#2E97E0',
-            '#BCE02E',
-            '#E02E75',
-            '#5CE02E',
-            '#E0B02E',
-            '#0022E0',
-            '#726CB1',
-            '#481A36',
-            '#BAC658',
-            '#127224',
-            '#825119',
-            '#238C74',
-            '#4C489B',
-            '#87C9BF',
-        ],
-
-
-        // Hex values for abovementioned colours
-        'colors_hex' => [
             [176, 46, 224],
             [224, 100, 46],
             [224, 214, 46],
@@ -99,7 +78,7 @@ class GisVisualization
      *
      * @return array the settings array
      */
-    public function getSettings()
+    public function getSettings(): array
     {
         return $this->settings;
     }
@@ -111,10 +90,8 @@ class GisVisualization
      * @param array  $options   Users specified options
      * @param int    $row       number of rows
      * @param int    $pos       start position
-     *
-     * @return GisVisualization
      */
-    public static function get($sql_query, array $options, $row, $pos)
+    public static function get($sql_query, array $options, $row, $pos): GisVisualization
     {
         return new GisVisualization($sql_query, $options, $row, $pos);
     }
@@ -125,10 +102,8 @@ class GisVisualization
      * @param array $data    Raw data, if set, parameters other than $options will be
      *                       ignored
      * @param array $options Users specified options
-     *
-     * @return GisVisualization
      */
-    public static function getByData(array $data, array $options)
+    public static function getByData(array $data, array $options): GisVisualization
     {
         return new GisVisualization(null, $options, null, null, $data);
     }
@@ -185,7 +160,7 @@ class GisVisualization
      *
      * @return string the modified sql query.
      */
-    private function modifySqlQuery($sql_query, $rows, $pos)
+    private function modifySqlQuery($sql_query, $rows, $pos): string
     {
         $isMariaDb = $this->userSpecifiedSettings['isMariaDB'] === true;
         $modified_query = 'SELECT ';
@@ -244,9 +219,7 @@ class GisVisualization
      */
     private function fetchRawData(): array
     {
-        global $dbi;
-
-        $modified_result = $dbi->tryQuery($this->modifiedSql);
+        $modified_result = $GLOBALS['dbi']->tryQuery($this->modifiedSql);
 
         if ($modified_result === false) {
             return [];
@@ -276,7 +249,7 @@ class GisVisualization
      *
      * @return string the sanitized file name
      */
-    private function sanitizeName($file_name, $ext)
+    private function sanitizeName($file_name, $ext): string
     {
         $file_name = Sanitize::sanitizeFilename($file_name);
 
@@ -285,7 +258,7 @@ class GisVisualization
         $required_extension = '.' . $ext;
         $extension_length = mb_strlen($required_extension);
         $user_extension = mb_substr($file_name, -$extension_length);
-        if (mb_strtolower($user_extension) != $required_extension) {
+        if (mb_strtolower($user_extension) !== $required_extension) {
             $file_name .= $required_extension;
         }
 
@@ -310,7 +283,7 @@ class GisVisualization
      *
      * @return string the generated image resource
      */
-    private function svg()
+    private function svg(): string
     {
         $this->init();
 
@@ -335,7 +308,7 @@ class GisVisualization
      *
      * @return string the visualization as a SVG
      */
-    public function asSVG()
+    public function asSVG(): string
     {
         return $this->svg();
     }
@@ -357,14 +330,14 @@ class GisVisualization
      *
      * @return ImageWrapper|null the generated image resource
      */
-    private function png(): ?ImageWrapper
+    private function png(): ImageWrapper|null
     {
         $this->init();
 
         $image = ImageWrapper::create(
             $this->settings['width'],
             $this->settings['height'],
-            ['red' => 229, 'green' => 229, 'blue' => 229]
+            ['red' => 229, 'green' => 229, 'blue' => 229],
         );
         if ($image === null) {
             return null;
@@ -382,7 +355,7 @@ class GisVisualization
      *
      * @return string the visualization as a PNG
      */
-    public function asPng()
+    public function asPng(): string
     {
         $image = $this->png();
         if ($image === null) {
@@ -392,7 +365,6 @@ class GisVisualization
         // render and save it to variable
         ob_start();
         $image->png(null, 9, PNG_ALL_FILTERS);
-        $image->destroy();
         $output = ob_get_clean();
 
         // base64 encode
@@ -415,7 +387,6 @@ class GisVisualization
 
         $this->writeToFile($file_name, 'image/png', 'png');
         $image->png(null, 9, PNG_ALL_FILTERS);
-        $image->destroy();
     }
 
     /**
@@ -425,7 +396,7 @@ class GisVisualization
      *
      * @todo Should return JSON to avoid eval() in gis_data_editor.js
      */
-    public function asOl()
+    public function asOl(): string
     {
         $this->init();
         $scale_data = $this->scaleDataSet($this->data);
@@ -500,7 +471,7 @@ class GisVisualization
      *
      * @return string File
      */
-    public function toImage($format)
+    public function toImage($format): string
     {
         if ($format === 'svg') {
             return $this->asSVG();
@@ -541,14 +512,9 @@ class GisVisualization
      *
      * @return array an array containing the scale, x and y offsets
      */
-    private function scaleDataSet(array $data)
+    private function scaleDataSet(array $data): array
     {
-        $min_max = [
-            'maxX' => 0.0,
-            'maxY' => 0.0,
-            'minX' => 0.0,
-            'minY' => 0.0,
-        ];
+        $min_max = null;
         $border = 15;
         // effective width and height of the plot
         $plot_width = $this->settings['width'] - 2 * $border;
@@ -573,59 +539,37 @@ class GisVisualization
                 continue;
             }
 
-            $scale_data = $gis_obj->scaleRow($row[$this->settings['spatialColumn']]);
+            $scaleData = $gis_obj->scaleRow($row[$this->settings['spatialColumn']]);
 
             // Update minimum/maximum values for x and y coordinates.
-            $c_maxX = (float) $scale_data['maxX'];
-            if ($min_max['maxX'] === 0.0 || $c_maxX > $min_max['maxX']) {
-                $min_max['maxX'] = $c_maxX;
-            }
-
-            $c_minX = (float) $scale_data['minX'];
-            if ($min_max['minX'] === 0.0 || $c_minX < $min_max['minX']) {
-                $min_max['minX'] = $c_minX;
-            }
-
-            $c_maxY = (float) $scale_data['maxY'];
-            if ($min_max['maxY'] === 0.0 || $c_maxY > $min_max['maxY']) {
-                $min_max['maxY'] = $c_maxY;
-            }
-
-            $c_minY = (float) $scale_data['minY'];
-            if ($min_max['minY'] !== 0.0 && $c_minY >= $min_max['minY']) {
-                continue;
-            }
-
-            $min_max['minY'] = $c_minY;
+            $min_max = $min_max === null ? $scaleData : $scaleData?->merge($min_max);
         }
 
+        $min_max ??= new ScaleData(0, 0, 0, 0);
+
         // scale the visualization
-        $x_ratio = ($min_max['maxX'] - $min_max['minX']) / $plot_width;
-        $y_ratio = ($min_max['maxY'] - $min_max['minY']) / $plot_height;
+        $x_ratio = ($min_max->maxX - $min_max->minX) / $plot_width;
+        $y_ratio = ($min_max->maxY - $min_max->minY) / $plot_height;
         $ratio = $x_ratio > $y_ratio ? $x_ratio : $y_ratio;
 
         $scale = $ratio != 0 ? 1 / $ratio : 1;
 
-        if ($x_ratio < $y_ratio) {
-            // center horizontally
-            $x = ($min_max['maxX'] + $min_max['minX'] - $plot_width / $scale) / 2;
-            // fit vertically
-            $y = $min_max['minY'] - ($border / $scale);
-        } else {
-            // fit horizontally
-            $x = $min_max['minX'] - ($border / $scale);
-            // center vertically
-            $y = ($min_max['maxY'] + $min_max['minY'] - $plot_height / $scale) / 2;
-        }
+        // Center plot
+        $x = $ratio == 0 || $x_ratio < $y_ratio
+            ? ($min_max->maxX + $min_max->minX - $this->settings['width'] / $scale) / 2
+            : $min_max->minX - ($border / $scale);
+        $y = $ratio == 0 || $x_ratio >= $y_ratio
+            ? ($min_max->maxY + $min_max->minY - $this->settings['height'] / $scale) / 2
+            : $min_max->minY - ($border / $scale);
 
         return [
             'scale' => $scale,
             'x' => $x,
             'y' => $y,
-            'minX' => $min_max['minX'],
-            'maxX' => $min_max['maxX'],
-            'minY' => $min_max['minY'],
-            'maxY' => $min_max['maxY'],
+            'minX' => $min_max->minX,
+            'maxX' => $min_max->maxX,
+            'minY' => $min_max->minY,
+            'maxY' => $min_max->maxY,
             'height' => $this->settings['height'],
         ];
     }
@@ -641,14 +585,18 @@ class GisVisualization
      *
      * @return mixed the formatted array of data
      */
-    private function prepareDataSet(array $data, array $scale_data, $format, $results)
-    {
-        $color_number = 0;
+    private function prepareDataSet(
+        array $data,
+        array $scale_data,
+        $format,
+        ImageWrapper|TCPDF|string|false $results,
+    ): mixed {
+        /** @var int[][] $colors */
+        $colors = $this->settings['colors'];
+        $color_index = 0;
 
         // loop through the rows
         foreach ($data as $row) {
-            $index = $color_number % count($this->settings['colors']);
-
             // Figure out the data type
             $ref_data = $row[$this->settings['spatialColumn']];
             if (! is_string($ref_data)) {
@@ -667,45 +615,43 @@ class GisVisualization
                 continue;
             }
 
-            $label = '';
-            if (isset($this->settings['labelColumn'], $row[$this->settings['labelColumn']])) {
-                $label = $row[$this->settings['labelColumn']];
-            }
+            $color = $colors[$color_index];
+            $label = trim((string) ($row[$this->settings['labelColumn']] ?? ''));
 
             if ($format === 'svg') {
                 $results .= $gis_obj->prepareRowAsSvg(
                     $row[$this->settings['spatialColumn']],
                     $label,
-                    $this->settings['colors'][$index],
-                    $scale_data
+                    $color,
+                    $scale_data,
                 );
             } elseif ($format === 'png') {
                 $results = $gis_obj->prepareRowAsPng(
                     $row[$this->settings['spatialColumn']],
                     $label,
-                    $this->settings['colors'][$index],
+                    $color,
                     $scale_data,
-                    $results
+                    $results,
                 );
             } elseif ($format === 'pdf' && $results instanceof TCPDF) {
                 $results = $gis_obj->prepareRowAsPdf(
                     $row[$this->settings['spatialColumn']],
                     $label,
-                    $this->settings['colors'][$index],
+                    $color,
                     $scale_data,
-                    $results
+                    $results,
                 );
             } elseif ($format === 'ol') {
                 $results .= $gis_obj->prepareRowAsOl(
                     $row[$this->settings['spatialColumn']],
                     (int) $row['srid'],
                     $label,
-                    $this->settings['colors_hex'][$index],
-                    $scale_data
+                    $color,
+                    $scale_data,
                 );
             }
 
-            $color_number++;
+            $color_index = ($color_index + 1) % count($colors);
         }
 
         return $results;

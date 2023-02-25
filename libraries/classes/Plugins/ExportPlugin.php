@@ -25,27 +25,18 @@ abstract class ExportPlugin implements Plugin
 {
     /**
      * Object containing the specific export plugin type properties.
-     *
-     * @var ExportPluginProperties
      */
-    protected $properties;
+    protected ExportPluginProperties $properties;
 
     /** @var Relation */
     public $relation;
 
-    /** @var Export */
-    protected $export;
-
-    /** @var Transformations */
-    protected $transformations;
-
-    final public function __construct()
-    {
-        global $dbi;
-
-        $this->relation = new Relation($dbi);
-        $this->export = new Export($dbi);
-        $this->transformations = new Transformations();
+    final public function __construct(
+        Relation $relation,
+        protected Export $export,
+        protected Transformations $transformations,
+    ) {
+        $this->relation = $relation;
         $this->init();
         $this->properties = $this->setProperties();
     }
@@ -89,7 +80,6 @@ abstract class ExportPlugin implements Plugin
      *
      * @param string $db       database name
      * @param string $table    table name
-     * @param string $crlf     the end of line sequence
      * @param string $errorUrl the url to go back in case of error
      * @param string $sqlQuery SQL query for obtaining data
      * @param array  $aliases  Aliases of db/table/columns
@@ -97,10 +87,9 @@ abstract class ExportPlugin implements Plugin
     abstract public function exportData(
         $db,
         $table,
-        $crlf,
         $errorUrl,
         $sqlQuery,
-        array $aliases = []
+        array $aliases = [],
     ): bool;
 
     /**
@@ -132,15 +121,12 @@ abstract class ExportPlugin implements Plugin
     /**
      * Outputs for raw query
      *
-     * @param string $errorUrl the url to go back in case of error
-     * @param string $sqlQuery the rawquery to output
-     * @param string $crlf     the seperator for a file
+     * @param string      $errorUrl the url to go back in case of error
+     * @param string|null $db       the database where the query is executed
+     * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(
-        string $errorUrl,
-        string $sqlQuery,
-        string $crlf
-    ): bool {
+    public function exportRawQuery(string $errorUrl, string|null $db, string $sqlQuery): bool
+    {
         return false;
     }
 
@@ -149,7 +135,6 @@ abstract class ExportPlugin implements Plugin
      *
      * @param string $db         database name
      * @param string $table      table name
-     * @param string $crlf       the end of line sequence
      * @param string $errorUrl   the url to go back in case of error
      * @param string $exportMode 'create_table','triggers','create_view',
      *                            'stand_in'
@@ -167,7 +152,6 @@ abstract class ExportPlugin implements Plugin
     public function exportStructure(
         $db,
         $table,
-        $crlf,
         $errorUrl,
         $exportMode,
         $exportType,
@@ -175,7 +159,7 @@ abstract class ExportPlugin implements Plugin
         $comments = false,
         $mime = false,
         $dates = false,
-        array $aliases = []
+        array $aliases = [],
     ): bool {
         return true;
     }
@@ -183,14 +167,14 @@ abstract class ExportPlugin implements Plugin
     /**
      * Exports metadata from Configuration Storage
      *
-     * @param string       $db            database being exported
-     * @param string|array $tables        table(s) being exported
-     * @param array        $metadataTypes types of metadata to export
+     * @param string          $db            database being exported
+     * @param string|string[] $tables        table(s) being exported
+     * @param string[]        $metadataTypes types of metadata to export
      */
     public function exportMetadata(
         $db,
-        $tables,
-        array $metadataTypes
+        string|array $tables,
+        array $metadataTypes,
     ): bool {
         return true;
     }
@@ -200,12 +184,11 @@ abstract class ExportPlugin implements Plugin
      *
      * @param string $db      the database name
      * @param string $view    the view name
-     * @param string $crlf    the end of line sequence
      * @param array  $aliases Aliases of db/table/columns
      *
      * @return string resulting definition
      */
-    public function getTableDefStandIn($db, $view, $crlf, $aliases = [])
+    public function getTableDefStandIn($db, $view, $aliases = []): string
     {
         return '';
     }
@@ -218,7 +201,7 @@ abstract class ExportPlugin implements Plugin
      *
      * @return string Formatted triggers list
      */
-    protected function getTriggers($db, $table)
+    protected function getTriggers($db, $table): string
     {
         return '';
     }
@@ -284,9 +267,9 @@ abstract class ExportPlugin implements Plugin
      *
      * @return string alias of the identifier if found or ''
      */
-    public function getAlias(array $aliases, $id, $type = 'dbtblcol', $db = '', $tbl = '')
+    public function getAlias(array $aliases, $id, $type = 'dbtblcol', $db = '', $tbl = ''): string
     {
-        if (! empty($db) && isset($aliases[$db])) {
+        if ($db !== '' && isset($aliases[$db])) {
             $aliases = [
                 $db => $aliases[$db],
             ];
@@ -303,7 +286,7 @@ abstract class ExportPlugin implements Plugin
                 continue;
             }
 
-            if (! empty($tbl) && isset($db['tables'][$tbl])) {
+            if ($tbl !== '' && isset($db['tables'][$tbl])) {
                 $db['tables'] = [
                     $tbl => $db['tables'][$tbl],
                 ];
@@ -350,9 +333,8 @@ abstract class ExportPlugin implements Plugin
         array $foreigners,
         $fieldName,
         $db,
-        array $aliases = []
-    ) {
-        $relation = '';
+        array $aliases = [],
+    ): string {
         $foreigner = $this->relation->searchColumnInForeigners($foreigners, $fieldName);
         if ($foreigner) {
             $ftable = $foreigner['foreign_table'];
@@ -365,13 +347,13 @@ abstract class ExportPlugin implements Plugin
                 $ftable = $aliases[$db]['tables'][$ftable]['alias'];
             }
 
-            $relation = $ftable . ' (' . $ffield . ')';
+            return $ftable . ' (' . $ffield . ')';
         }
 
-        return $relation;
+        return '';
     }
 
-    public function isAvailable(): bool
+    public static function isAvailable(): bool
     {
         return true;
     }

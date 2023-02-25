@@ -1,12 +1,9 @@
-<form action="{{ url('/table/structure/primary') }}" method="post">
+<form action="{{ url('/table/structure/primary') }}" method="post" class="card">
   {{ get_hidden_inputs({'db': db, 'table': table, 'selected': selected}) }}
+  <div class="card-header">{% trans 'Do you really want to execute the following query?' %}</div>
 
-  <fieldset class="pma-fieldset confirmation">
-    <legend>
-      {% trans 'Do you really want to execute the following query?' %}
-    </legend>
-
-    <code>
+  <div class="card-body">
+    <code class="text-danger">
       ALTER TABLE {{ backquote(table) }}<br>
       &nbsp;&nbsp;DROP PRIMARY KEY,<br>
       &nbsp;&nbsp;&nbsp;ADD PRIMARY KEY(<br>
@@ -16,10 +13,10 @@
       {% endfor %}
       &nbsp;&nbsp;&nbsp;);
     </code>
-  </fieldset>
+  </div>
 
-  <fieldset class="pma-fieldset tblFooters">
+  <div class="card-footer">
     <input id="buttonYes" class="btn btn-secondary" type="submit" name="mult_btn" value="{% trans 'Yes' %}">
     <input id="buttonNo" class="btn btn-secondary" type="submit" name="mult_btn" value="{% trans 'No' %}">
-  </fieldset>
+  </div>
 </form>

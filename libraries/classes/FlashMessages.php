@@ -43,7 +43,7 @@ final class FlashMessages
     }
 
     /** @return string[]|null */
-    public function getMessage(string $key): ?array
+    public function getMessage(string $key): array|null
     {
         return $this->previousMessages[$key] ?? null;
     }

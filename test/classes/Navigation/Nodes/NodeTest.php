@@ -5,15 +5,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Navigation\Nodes\Node;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use ReflectionMethod;
 
-/**
- * @covers \PhpMyAdmin\Navigation\Nodes\Node
- */
+/** @covers \PhpMyAdmin\Navigation\Nodes\Node */
 class NodeTest extends AbstractTestCase
 {
     /**
@@ -22,6 +19,8 @@ class NodeTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
     }
@@ -31,16 +30,16 @@ class NodeTest extends AbstractTestCase
      */
     public function testAddNode(): void
     {
-        $parent = NodeFactory::getInstance('Node', 'parent');
-        $child = NodeFactory::getInstance('Node', 'child');
+        $parent = new Node('parent');
+        $child = new Node('child');
         $parent->addChild($child);
         $this->assertEquals(
             $parent->getChild($child->name),
-            $child
+            $child,
         );
         $this->assertEquals(
             $parent->getChild($child->realName, true),
-            $child
+            $child,
         );
     }
 
@@ -49,12 +48,12 @@ class NodeTest extends AbstractTestCase
      */
     public function testGetChildError(): void
     {
-        $parent = NodeFactory::getInstance('Node', 'parent');
+        $parent = new Node('parent');
         $this->assertNull(
-            $parent->getChild('foo')
+            $parent->getChild('foo'),
         );
         $this->assertNull(
-            $parent->getChild('foo', true)
+            $parent->getChild('foo', true),
         );
     }
 
@@ -63,16 +62,16 @@ class NodeTest extends AbstractTestCase
      */
     public function testRemoveNode(): void
     {
-        $parent = NodeFactory::getInstance('Node', 'parent');
-        $child = NodeFactory::getInstance('Node', 'child');
+        $parent = new Node('parent');
+        $child = new Node('child');
         $parent->addChild($child);
         $this->assertEquals(
             $parent->getChild($child->name),
-            $child
+            $child,
         );
         $parent->removeChild($child->name);
         $this->assertNull(
-            $parent->getChild($child->name)
+            $parent->getChild($child->name),
         );
     }
 
@@ -81,37 +80,37 @@ class NodeTest extends AbstractTestCase
      */
     public function testNodeHasChildren(): void
     {
-        $parent = NodeFactory::getInstance();
-        $emptyContainer = NodeFactory::getInstance('Node', 'empty', Node::CONTAINER);
-        $child = NodeFactory::getInstance();
+        $parent = new Node('default');
+        $emptyContainer = new Node('empty', Node::CONTAINER);
+        $child = new Node('default');
         // test with no children
         $this->assertEquals(
             $parent->hasChildren(true),
-            false
+            false,
         );
         $this->assertEquals(
             $parent->hasChildren(false),
-            false
+            false,
         );
         // test with an empty container
         $parent->addChild($emptyContainer);
         $this->assertEquals(
             $parent->hasChildren(true),
-            true
+            true,
         );
         $this->assertEquals(
             $parent->hasChildren(false),
-            false
+            false,
         );
         // test with a real child
         $parent->addChild($child);
         $this->assertEquals(
             $parent->hasChildren(true),
-            true
+            true,
         );
         $this->assertEquals(
             $parent->hasChildren(false),
-            true
+            true,
         );
     }
 
@@ -121,25 +120,25 @@ class NodeTest extends AbstractTestCase
     public function testNumChildren(): void
     {
         // start with root node only
-        $parent = NodeFactory::getInstance();
+        $parent = new Node('default');
         $this->assertEquals($parent->numChildren(), 0);
         // add a child
-        $child = NodeFactory::getInstance();
+        $child = new Node('default');
         $parent->addChild($child);
         $this->assertEquals($parent->numChildren(), 1);
         // add a direct grandchild, this one doesn't count as
         // it's not enclosed in a CONTAINER
-        $child->addChild(NodeFactory::getInstance());
+        $child->addChild(new Node('default'));
         $this->assertEquals($parent->numChildren(), 1);
         // add a container, this one doesn't count wither
-        $container = NodeFactory::getInstance('Node', 'default', Node::CONTAINER);
+        $container = new Node('default', Node::CONTAINER);
         $parent->addChild($container);
         $this->assertEquals($parent->numChildren(), 1);
         // add a grandchild to container, this one counts
-        $container->addChild(NodeFactory::getInstance());
+        $container->addChild(new Node('default'));
         $this->assertEquals($parent->numChildren(), 2);
         // add another grandchild to container, this one counts
-        $container->addChild(NodeFactory::getInstance());
+        $container->addChild(new Node('default'));
         $this->assertEquals($parent->numChildren(), 3);
     }
 
@@ -148,11 +147,11 @@ class NodeTest extends AbstractTestCase
      */
     public function testParents(): void
     {
-        $parent = NodeFactory::getInstance();
+        $parent = new Node('default');
         $this->assertEquals($parent->parents(), []); // exclude self
         $this->assertEquals($parent->parents(true), [$parent]); // include self
 
-        $child = NodeFactory::getInstance();
+        $child = new Node('default');
         $parent->addChild($child);
 
         $this->assertEquals($child->parents(), [$parent]); // exclude self
@@ -161,7 +160,7 @@ class NodeTest extends AbstractTestCase
             [
                 $child,
                 $parent,
-            ]
+            ],
         ); // include self
     }
 
@@ -170,10 +169,10 @@ class NodeTest extends AbstractTestCase
      */
     public function testRealParent(): void
     {
-        $parent = NodeFactory::getInstance();
+        $parent = new Node('default');
         $this->assertFalse($parent->realParent());
 
-        $child = NodeFactory::getInstance();
+        $child = new Node('default');
         $parent->addChild($child);
         $this->assertEquals($child->realParent(), $parent);
     }
@@ -184,8 +183,8 @@ class NodeTest extends AbstractTestCase
      */
     public function testHasSiblingsWithNoSiblings(): void
     {
-        $parent = NodeFactory::getInstance();
-        $child = NodeFactory::getInstance();
+        $parent = new Node('default');
+        $child = new Node('default');
         $parent->addChild($child);
         $this->assertFalse($child->hasSiblings());
     }
@@ -196,23 +195,23 @@ class NodeTest extends AbstractTestCase
      */
     public function testHasSiblingsWithSiblings(): void
     {
-        $parent = NodeFactory::getInstance();
-        $firstChild = NodeFactory::getInstance();
+        $parent = new Node('default');
+        $firstChild = new Node('default');
         $parent->addChild($firstChild);
-        $secondChild = NodeFactory::getInstance();
+        $secondChild = new Node('default');
         $parent->addChild($secondChild);
         // Normal case; two Node:NODE type siblings
         $this->assertTrue($firstChild->hasSiblings());
 
-        $parent = NodeFactory::getInstance();
-        $firstChild = NodeFactory::getInstance();
+        $parent = new Node('default');
+        $firstChild = new Node('default');
         $parent->addChild($firstChild);
-        $secondChild = NodeFactory::getInstance('Node', 'default', Node::CONTAINER);
+        $secondChild = new Node('default', Node::CONTAINER);
         $parent->addChild($secondChild);
         // Empty Node::CONTAINER type node should not be considered in hasSiblings()
         $this->assertFalse($firstChild->hasSiblings());
 
-        $grandChild = NodeFactory::getInstance();
+        $grandChild = new Node('default');
         $secondChild->addChild($grandChild);
         // Node::CONTAINER type nodes with children are counted for hasSiblings()
         $this->assertTrue($firstChild->hasSiblings());
@@ -224,12 +223,12 @@ class NodeTest extends AbstractTestCase
      */
     public function testHasSiblingsForNodesAtLevelThree(): void
     {
-        $parent = NodeFactory::getInstance();
-        $child = NodeFactory::getInstance();
+        $parent = new Node('default');
+        $child = new Node('default');
         $parent->addChild($child);
-        $grandChild = NodeFactory::getInstance();
+        $grandChild = new Node('default');
         $child->addChild($grandChild);
-        $greatGrandChild = NodeFactory::getInstance();
+        $greatGrandChild = new Node('default');
         $grandChild->addChild($greatGrandChild);
 
         // Should return false for node that are two levels deeps
@@ -244,19 +243,18 @@ class NodeTest extends AbstractTestCase
     public function testGetWhereClause(): void
     {
         $method = new ReflectionMethod(Node::class, 'getWhereClause');
-        $method->setAccessible(true);
 
         // Vanilla case
-        $node = NodeFactory::getInstance();
+        $node = new Node('default');
         $this->assertEquals(
             'WHERE TRUE ',
-            $method->invoke($node, 'SCHEMA_NAME')
+            $method->invoke($node, 'SCHEMA_NAME'),
         );
 
         // When a schema names is passed as search clause
         $this->assertEquals(
             "WHERE TRUE AND `SCHEMA_NAME` LIKE '%schemaName%' ",
-            $method->invoke($node, 'SCHEMA_NAME', 'schemaName')
+            $method->invoke($node, 'SCHEMA_NAME', 'schemaName'),
         );
 
         if (! isset($GLOBALS['cfg']['Server'])) {
@@ -267,7 +265,7 @@ class NodeTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['hide_db'] = 'regexpHideDb';
         $this->assertEquals(
             "WHERE TRUE AND `SCHEMA_NAME` NOT REGEXP 'regexpHideDb' ",
-            $method->invoke($node, 'SCHEMA_NAME')
+            $method->invoke($node, 'SCHEMA_NAME'),
         );
         unset($GLOBALS['cfg']['Server']['hide_db']);
 
@@ -275,7 +273,7 @@ class NodeTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['only_db'] = 'stringOnlyDb';
         $this->assertEquals(
             "WHERE TRUE AND ( `SCHEMA_NAME` LIKE 'stringOnlyDb' ) ",
-            $method->invoke($node, 'SCHEMA_NAME')
+            $method->invoke($node, 'SCHEMA_NAME'),
         );
         unset($GLOBALS['cfg']['Server']['only_db']);
 
@@ -286,7 +284,7 @@ class NodeTest extends AbstractTestCase
         ];
         $this->assertEquals(
             'WHERE TRUE AND ( `SCHEMA_NAME` LIKE \'onlyDbOne\' OR `SCHEMA_NAME` LIKE \'onlyDbTwo\' ) ',
-            $method->invoke($node, 'SCHEMA_NAME')
+            $method->invoke($node, 'SCHEMA_NAME'),
         );
         unset($GLOBALS['cfg']['Server']['only_db']);
     }
@@ -324,7 +322,7 @@ class NodeTest extends AbstractTestCase
 
         // It would have been better to mock _getWhereClause method
         // but strangely, mocking private methods is not supported in PHPUnit
-        $node = NodeFactory::getInstance();
+        $node = new Node('default');
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -358,7 +356,7 @@ class NodeTest extends AbstractTestCase
 
         // It would have been better to mock _getWhereClause method
         // but strangely, mocking private methods is not supported in PHPUnit
-        $node = NodeFactory::getInstance();
+        $node = new Node('default');
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -387,7 +385,7 @@ class NodeTest extends AbstractTestCase
         $GLOBALS['cfg']['FirstLevelNavigationItems'] = $limit;
         $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '_';
 
-        $node = NodeFactory::getInstance();
+        $node = new Node('default');
 
         $resultStub = $this->createMock(DummyResult::class);
 
@@ -403,7 +401,7 @@ class NodeTest extends AbstractTestCase
             ->willReturnOnConsecutiveCalls(
                 ['0' => 'db'],
                 ['0' => 'aa_db'],
-                []
+                [],
             );
 
         $dbi->expects($this->once())
@@ -411,7 +409,7 @@ class NodeTest extends AbstractTestCase
             ->with(
                 "SHOW DATABASES WHERE TRUE AND `Database` LIKE '%db%' AND ("
                 . " LOCATE('db_', CONCAT(`Database`, '_')) = 1"
-                . " OR LOCATE('aa_', CONCAT(`Database`, '_')) = 1 )"
+                . " OR LOCATE('aa_', CONCAT(`Database`, '_')) = 1 )",
             );
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
@@ -440,7 +438,7 @@ class NodeTest extends AbstractTestCase
 
         // It would have been better to mock _getWhereClause method
         // but strangely, mocking private methods is not supported in PHPUnit
-        $node = NodeFactory::getInstance();
+        $node = new Node('default');
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -465,7 +463,7 @@ class NodeTest extends AbstractTestCase
         $query .= 'FROM INFORMATION_SCHEMA.SCHEMATA ';
         $query .= 'WHERE TRUE ';
 
-        $node = NodeFactory::getInstance();
+        $node = new Node('default');
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -485,7 +483,7 @@ class NodeTest extends AbstractTestCase
         $GLOBALS['dbs_to_test'] = false;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
 
-        $node = NodeFactory::getInstance();
+        $node = new Node('default');
 
         $resultStub = $this->createMock(DummyResult::class);
 

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Schema;
 
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
@@ -23,6 +24,8 @@ class DiaRelationSchemaTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $_REQUEST['page_number'] = 33;
         $_REQUEST['dia_show_color'] = true;
         $_REQUEST['dia_show_keys'] = true;
@@ -39,7 +42,7 @@ class DiaRelationSchemaTest extends AbstractTestCase
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
 
-        $this->object = new DiaRelationSchema('test_db');
+        $this->object = new DiaRelationSchema(DatabaseName::fromValue('test_db'));
     }
 
     /**
@@ -49,6 +52,7 @@ class DiaRelationSchemaTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 

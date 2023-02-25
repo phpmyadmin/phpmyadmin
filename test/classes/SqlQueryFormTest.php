@@ -6,20 +6,26 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Url;
 
 use function __;
 use function htmlspecialchars;
 
-/**
- * @covers \PhpMyAdmin\SqlQueryForm
- */
+/** @covers \PhpMyAdmin\SqlQueryForm */
 class SqlQueryFormTest extends AbstractTestCase
 {
+    /** @var DatabaseInterface */
+    protected $dbi;
+
+    /** @var DbiDummy */
+    protected $dummyDbi;
+
     /** @var SqlQueryForm */
     private $sqlQueryForm;
 
@@ -29,8 +35,32 @@ class SqlQueryFormTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setLanguage();
-        $this->sqlQueryForm = new SqlQueryForm(new Template());
+
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dummyDbi->addResult(
+            'SHOW FULL COLUMNS FROM `PMA_db`.`PMA_table`',
+            [
+                [
+                    'field1',
+                    'Comment1',
+                ],
+            ],
+            [
+                'Field',
+                'Comment',
+            ],
+        );
+
+        $this->dummyDbi->addResult(
+            'SHOW INDEXES FROM `PMA_db`.`PMA_table`',
+            [],
+        );
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
+        $this->sqlQueryForm = new SqlQueryForm(new Template(), $this->dbi);
 
         //$GLOBALS
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
@@ -66,26 +96,6 @@ class SqlQueryFormTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['user'] = 'user';
         $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
         $GLOBALS['cfg']['Server']['bookmarktable'] = 'bookmarktable';
-
-        parent::setGlobalDbi();
-        $this->dummyDbi->addResult(
-            'SHOW FULL COLUMNS FROM `PMA_db`.`PMA_table`',
-            [
-                [
-                    'field1',
-                    'Comment1',
-                ],
-            ],
-            [
-                'Field',
-                'Comment',
-            ]
-        );
-
-        $this->dummyDbi->addResult(
-            'SHOW INDEXES FROM `PMA_db`.`PMA_table`',
-            []
-        );
     }
 
     /**
@@ -100,7 +110,7 @@ class SqlQueryFormTest extends AbstractTestCase
         //validate 1: query
         $this->assertStringContainsString(
             htmlspecialchars($query),
-            $html
+            $html,
         );
 
         //validate 2: enable auto select text in textarea
@@ -110,7 +120,7 @@ class SqlQueryFormTest extends AbstractTestCase
         //validate 3: MySQLDocumentation::show
         $this->assertStringContainsString(
             MySQLDocumentation::show('SELECT'),
-            $html
+            $html,
         );
 
         //validate 4: $fields_list
@@ -124,7 +134,7 @@ class SqlQueryFormTest extends AbstractTestCase
         $this->assertStringContainsString('<input type="button" value="DELETE" id="delete"', $html);
         $this->assertStringContainsString(
             __('Clear'),
-            $html
+            $html,
         );
     }
 
@@ -141,7 +151,7 @@ class SqlQueryFormTest extends AbstractTestCase
         //validate 1: query
         $this->assertStringContainsString(
             htmlspecialchars($query),
-            $html
+            $html,
         );
 
         //validate 2: $enctype
@@ -156,20 +166,20 @@ class SqlQueryFormTest extends AbstractTestCase
         $db = $GLOBALS['db'];
         $this->assertStringContainsString(
             Url::getHiddenInputs($db, $table),
-            $html
+            $html,
         );
 
         //validate 5: $goto
         $goto = empty($GLOBALS['goto']) ? Url::getFromRoute('/table/sql') : $GLOBALS['goto'];
         $this->assertStringContainsString(
             htmlspecialchars($goto),
-            $html
+            $html,
         );
 
         //validate 6: Kanji encoding form
         $this->assertStringContainsString(
             Encoding::kanjiEncodingForm(),
-            $html
+            $html,
         );
         $GLOBALS['lang'] = 'en';
     }

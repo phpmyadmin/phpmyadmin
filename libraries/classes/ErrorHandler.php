@@ -33,7 +33,6 @@ use const E_USER_ERROR;
 use const E_USER_NOTICE;
 use const E_USER_WARNING;
 use const E_WARNING;
-use const PHP_VERSION_ID;
 
 /**
  * handling errors
@@ -56,10 +55,8 @@ class ErrorHandler
 
     /**
      * Initial error reporting state
-     *
-     * @var int
      */
-    protected $errorReporting = 0;
+    protected int $errorReporting = 0;
 
     public function __construct()
     {
@@ -70,8 +67,8 @@ class ErrorHandler
          * rely on PHPUnit doing it's own error handling which we break here.
          */
         if (! defined('TESTSUITE')) {
-            set_exception_handler([$this, 'handleException']);
-            set_error_handler([$this, 'handleError']);
+            set_exception_handler($this->handleException(...));
+            set_error_handler($this->handleError(...));
         }
 
         if (! Util::isErrorReportingAvailable()) {
@@ -103,13 +100,13 @@ class ErrorHandler
                     0,
                     __('Too many error messages, some are not displayed.'),
                     __FILE__,
-                    __LINE__
+                    __LINE__,
                 );
                 $_SESSION['errors'][$error->getHash()] = $error;
                 break;
             }
 
-            if ((! ($error instanceof Error)) || $error->isDisplayed()) {
+            if ($error->isDisplayed()) {
                 continue;
             }
 
@@ -186,16 +183,16 @@ class ErrorHandler
      * @param string $errfile error file
      * @param int    $errline error line
      *
+     * @return false
+     *
      * @throws ErrorException
      */
     public function handleError(
         int $errno,
         string $errstr,
         string $errfile,
-        int $errline
-    ): void {
-        global $cfg;
-
+        int $errline,
+    ): bool {
         if (Util::isErrorReportingAvailable()) {
             /**
             * Check if Error Control Operator (@) was used, but still show
@@ -203,11 +200,12 @@ class ErrorHandler
             * See: https://github.com/phpmyadmin/phpmyadmin/issues/16729
             */
             $isSilenced = ! (error_reporting() & $errno);
-            if (PHP_VERSION_ID < 80000) {
-                $isSilenced = error_reporting() == 0;
-            }
 
-            if (isset($cfg['environment']) && $cfg['environment'] === 'development' && ! $isSilenced) {
+            if (
+                isset($GLOBALS['cfg']['environment'])
+                && $GLOBALS['cfg']['environment'] === 'development'
+                && ! $isSilenced
+            ) {
                 throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
             }
 
@@ -216,31 +214,32 @@ class ErrorHandler
                 $this->errorReporting != 0 &&
                 ($errno & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_DEPRECATED)) == 0
             ) {
-                return;
+                return false;
             }
         } else {
             if (($errno & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_DEPRECATED)) == 0) {
-                return;
+                return false;
             }
         }
 
         $this->addError($errstr, $errno, $errfile, $errline, true);
+
+        return false;
     }
 
     /**
      * Hides exception if it's not in the development environment.
-     *
-     * @throws Throwable
      */
     public function handleException(Throwable $exception): void
     {
         $config = $GLOBALS['config'] ?? null;
-        $environment = $config instanceof Config ? $config->get('environment') : 'production';
-        if ($environment !== 'development') {
-            return;
-        }
-
-        throw $exception;
+        $this->hideLocation = ! $config instanceof Config || $config->get('environment') !== 'development';
+        $this->addError(
+            $exception::class . ': ' . $exception->getMessage(),
+            (int) $exception->getCode(),
+            $exception->getFile(),
+            $exception->getLine(),
+        );
     }
 
     /**
@@ -265,7 +264,7 @@ class ErrorHandler
         int $errno,
         string $errfile,
         int $errline,
-        bool $escape = true
+        bool $escape = true,
     ): void {
         if ($escape) {
             $errstr = htmlspecialchars($errstr);
@@ -275,8 +274,11 @@ class ErrorHandler
         $error = new Error($errno, $errstr, $errfile, $errline);
         $error->setHideLocation($this->hideLocation);
 
-        // do not repeat errors
-        $this->errors[$error->getHash()] = $error;
+        // Deprecation errors will be shown in development environment, as they will have a different number.
+        if ($error->getNumber() !== E_DEPRECATED) {
+            // do not repeat errors
+            $this->errors[$error->getHash()] = $error;
+        }
 
         switch ($error->getNumber()) {
             case E_STRICT:
@@ -303,7 +305,9 @@ class ErrorHandler
             default:
                 // FATAL error, display it and exit
                 $this->dispFatalError($error);
-                exit;
+                if (! defined('TESTSUITE')) {
+                    exit;
+                }
         }
     }
 
@@ -334,7 +338,9 @@ class ErrorHandler
 
         echo $error->getDisplay();
         $this->dispPageEnd();
-        exit;
+        if (! defined('TESTSUITE')) {
+            exit;
+        }
     }
 
     /**
@@ -367,7 +373,7 @@ class ErrorHandler
      *
      * @param Error $error the error
      */
-    protected function dispPageStart(?Error $error = null): void
+    protected function dispPageStart(Error|null $error = null): void
     {
         ResponseRenderer::getInstance()->disable();
         echo '<html><head><title>';
@@ -409,7 +415,7 @@ class ErrorHandler
 
         // if preference is not 'never' and
         // there are 'actual' errors to be reported
-        if ($GLOBALS['cfg']['SendErrorReports'] !== 'never' && $this->countErrors() != $this->countUserErrors()) {
+        if ($GLOBALS['cfg']['SendErrorReports'] !== 'never' && $this->countErrors() !== $this->countUserErrors()) {
             // add report button.
             $retval .= '<form method="post" action="' . Url::getFromRoute('/error-report')
                     . '" id="pma_report_errors_form"';
@@ -564,7 +570,7 @@ class ErrorHandler
     public function hasErrorsForPrompt(): bool
     {
         return $GLOBALS['cfg']['SendErrorReports'] !== 'never'
-            && $this->countErrors() != $this->countUserErrors();
+            && $this->countErrors() !== $this->countUserErrors();
     }
 
     /**
@@ -575,7 +581,7 @@ class ErrorHandler
     public function reportErrors(): void
     {
         // if there're no actual errors,
-        if (! $this->hasErrors() || $this->countErrors() == $this->countUserErrors()) {
+        if (! $this->hasErrors() || $this->countErrors() === $this->countUserErrors()) {
             // then simply return.
             return;
         }
@@ -591,8 +597,8 @@ class ErrorHandler
             } else {
                 // send the error reports asynchronously & without asking user
                 $jsCode .= '$("#pma_report_errors_form").submit();'
-                        . 'Functions.ajaxShowMessage(
-                            Messages.phpErrorsBeingSubmitted, false
+                        . 'window.ajaxShowMessage(
+                            window.Messages.phpErrorsBeingSubmitted, false
                         );';
                 // js code to appropriate focusing,
                 $jsCode .= '$("html, body").animate({
@@ -603,22 +609,22 @@ class ErrorHandler
             //ask user whether to submit errors or not.
             if (! $response->isAjax()) {
                 // js code to show appropriate msgs, event binding & focusing.
-                $jsCode = 'Functions.ajaxShowMessage(Messages.phpErrorsFound);'
+                $jsCode = 'window.ajaxShowMessage(window.Messages.phpErrorsFound);'
                         . '$("#pma_ignore_errors_popup").on("click", function() {
-                            Functions.ignorePhpErrors()
+                            window.ignorePhpErrors()
                         });'
                         . '$("#pma_ignore_all_errors_popup").on("click",
                             function() {
-                                Functions.ignorePhpErrors(false)
+                                window.ignorePhpErrors(false)
                             });'
                         . '$("#pma_ignore_errors_bottom").on("click", function(e) {
                             e.preventDefault();
-                            Functions.ignorePhpErrors()
+                            window.ignorePhpErrors()
                         });'
                         . '$("#pma_ignore_all_errors_bottom").on("click",
                             function(e) {
                                 e.preventDefault();
-                                Functions.ignorePhpErrors(false)
+                                window.ignorePhpErrors(false)
                             });'
                         . '$("html, body").animate({
                             scrollTop:$(document).height()
@@ -628,6 +634,6 @@ class ErrorHandler
 
         // The errors are already sent from the response.
         // Just focus on errors division upon load event.
-        $response->getFooter()->getScripts()->addCode($jsCode);
+        $response->getFooterScripts()->addCode($jsCode);
     }
 }

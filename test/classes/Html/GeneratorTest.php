@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Html;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Url;
+use PhpMyAdmin\Types;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -15,9 +16,7 @@ use function call_user_func_array;
 use function htmlspecialchars;
 use function urlencode;
 
-/**
- * @covers \PhpMyAdmin\Html\Generator
- */
+/** @covers \PhpMyAdmin\Html\Generator */
 class GeneratorTest extends AbstractTestCase
 {
     /**
@@ -26,6 +25,7 @@ class GeneratorTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setLanguage();
     }
 
@@ -47,7 +47,6 @@ class GeneratorTest extends AbstractTestCase
      */
     public function testGetDbLinkNull(): void
     {
-        global $cfg;
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['server'] = 99;
         $database = $GLOBALS['db'];
@@ -55,14 +54,14 @@ class GeneratorTest extends AbstractTestCase
             '<a href="'
             . Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'],
-                'database'
+                'database',
             )
             . '&db=' . $database
             . '&server=99&lang=en" '
             . 'title="Jump to database “'
             . htmlspecialchars($database) . '”.">'
             . htmlspecialchars($database) . '</a>',
-            Generator::getDbLink()
+            Generator::getDbLink(),
         );
     }
 
@@ -76,13 +75,13 @@ class GeneratorTest extends AbstractTestCase
         $this->assertEquals(
             '<a href="' . Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'],
-                'database'
+                'database',
             )
             . '&db=' . $database
             . '&server=99&lang=en" title="Jump to database “'
             . htmlspecialchars($database) . '”.">'
             . htmlspecialchars($database) . '</a>',
-            Generator::getDbLink($database)
+            Generator::getDbLink($database),
         );
     }
 
@@ -97,14 +96,14 @@ class GeneratorTest extends AbstractTestCase
             '<a href="'
             . Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'],
-                'database'
+                'database',
             )
             . '&db='
             . htmlspecialchars(urlencode($database))
             . '&server=99&lang=en" title="Jump to database “'
             . htmlspecialchars($database) . '”.">'
             . htmlspecialchars($database) . '</a>',
-            Generator::getDbLink($database)
+            Generator::getDbLink($database),
         );
     }
 
@@ -117,7 +116,7 @@ class GeneratorTest extends AbstractTestCase
 
         $this->assertEquals(
             '<span class="text-nowrap"></span>',
-            Generator::getIcon('b_comment')
+            Generator::getIcon('b_comment'),
         );
     }
 
@@ -130,7 +129,7 @@ class GeneratorTest extends AbstractTestCase
 
         $this->assertEquals(
             '<span class="text-nowrap"><img src="themes/dot.gif" title="" alt="" class="icon ic_b_comment"></span>',
-            Generator::getIcon('b_comment')
+            Generator::getIcon('b_comment'),
         );
     }
 
@@ -146,7 +145,7 @@ class GeneratorTest extends AbstractTestCase
             '<span class="text-nowrap"><img src="themes/dot.gif" title="'
             . $alternate_text . '" alt="' . $alternate_text
             . '" class="icon ic_b_comment"></span>',
-            Generator::getIcon('b_comment', $alternate_text)
+            Generator::getIcon('b_comment', $alternate_text),
         );
     }
 
@@ -164,7 +163,7 @@ class GeneratorTest extends AbstractTestCase
             '<span class="text-nowrap"><img src="themes/dot.gif" title="'
             . $alternate_text . '" alt="' . $alternate_text
             . '" class="icon ic_b_comment">&nbsp;' . $alternate_text . '</span>',
-            Generator::getIcon('b_comment', $alternate_text, true, false)
+            Generator::getIcon('b_comment', $alternate_text, true, false),
         );
     }
 
@@ -178,14 +177,14 @@ class GeneratorTest extends AbstractTestCase
 
         $target = 'docu';
         $lang = _pgettext('PHP documentation language', 'en');
-        $expected = '<a href="./url.php?url=https%3A%2F%2Fwww.php.net%2Fmanual%2F' . $lang
+        $expected = '<a href="index.php?route=/url&url=https%3A%2F%2Fwww.php.net%2Fmanual%2F' . $lang
             . '%2F' . $target . '" target="documentation">'
             . '<img src="themes/dot.gif" title="' . __('Documentation') . '" alt="'
             . __('Documentation') . '" class="icon ic_b_help"></a>';
 
         $this->assertEquals(
             $expected,
-            Generator::showPHPDocumentation($target)
+            Generator::showPHPDocumentation($target),
         );
     }
 
@@ -208,7 +207,7 @@ class GeneratorTest extends AbstractTestCase
                     Generator::class,
                     'linkOrButton',
                 ],
-                $params
+                $params,
             );
             $this->assertEquals($match, $result);
         } finally {
@@ -221,10 +220,8 @@ class GeneratorTest extends AbstractTestCase
      *
      * @return array
      */
-    public function linksOrButtons(): array
+    public static function linksOrButtons(): array
     {
-        parent::setGlobalConfig();
-
         return [
             [
                 [
@@ -283,18 +280,19 @@ class GeneratorTest extends AbstractTestCase
             ],
             [
                 [
-                    'url.php?url=http://phpmyadmin.net/',
+                    'index.php?route=/url&url=http://phpmyadmin.net/',
                     null,
                     'text',
                     [],
                     '_blank',
                 ],
                 1000,
-                '<a href="url.php?url=http://phpmyadmin.net/" target="_blank" rel="noopener noreferrer">text</a>',
+                '<a href="index.php?route=/url&url=http://phpmyadmin.net/" target="_blank"'
+                . ' rel="noopener noreferrer">text</a>',
             ],
             [
                 [
-                    Url::getFromRoute('/server/databases'),
+                    'index.php?route=/server/databases',
                     ['some' => 'parameter'],
                     'text',
                 ],
@@ -303,7 +301,7 @@ class GeneratorTest extends AbstractTestCase
             ],
             [
                 [
-                    Url::getFromRoute('/server/databases'),
+                    'index.php?route=/server/databases',
                     null,
                     'text',
                 ],
@@ -312,7 +310,7 @@ class GeneratorTest extends AbstractTestCase
             ],
             [
                 [
-                    Url::getFromRoute('/server/databases'),
+                    'index.php?route=/server/databases',
                     ['some' => 'parameter'],
                     'text',
                 ],
@@ -321,7 +319,7 @@ class GeneratorTest extends AbstractTestCase
             ],
             [
                 [
-                    Url::getFromRoute('/server/databases'),
+                    'index.php?route=/server/databases',
                     null,
                     'text',
                 ],
@@ -337,7 +335,7 @@ class GeneratorTest extends AbstractTestCase
             '<code class="sql"><pre>' . "\n"
             . 'SELECT 1 &lt; 2' . "\n"
             . '</pre></code>',
-            Generator::formatSql('SELECT 1 < 2')
+            Generator::formatSql('SELECT 1 < 2'),
         );
 
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 6;
@@ -346,7 +344,7 @@ class GeneratorTest extends AbstractTestCase
             '<code class="sql"><pre>' . "\n"
             . 'SELECT[...]' . "\n"
             . '</pre></code>',
-            Generator::formatSql('SELECT 1 < 2', true)
+            Generator::formatSql('SELECT 1 < 2', true),
         );
     }
 
@@ -355,50 +353,48 @@ class GeneratorTest extends AbstractTestCase
      */
     public function testGetServerSSL(): void
     {
-        global $cfg;
-
         $sslNotUsed = '<span class="">SSL is not being used</span>'
-        . ' <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
+        . ' <a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
         . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
         . ' class="icon ic_b_help"></a>';
 
         $sslNotUsedCaution = '<span class="text-danger">SSL is not being used</span>'
-        . ' <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
+        . ' <a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
         . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
         . ' class="icon ic_b_help"></a>';
 
-        $cfg['Server'] = [
+        $GLOBALS['cfg']['Server'] = [
             'ssl' => false,
             'host' => '127.0.0.1',
         ];
         $this->assertEquals(
             $sslNotUsed,
-            Generator::getServerSSL()
+            Generator::getServerSSL(),
         );
 
-        $cfg['Server'] = [
+        $GLOBALS['cfg']['Server'] = [
             'ssl' => false,
             'host' => 'custom.host',
         ];
-        $cfg['MysqlSslWarningSafeHosts'] = ['localhost', '127.0.0.1'];
+        $GLOBALS['cfg']['MysqlSslWarningSafeHosts'] = ['localhost', '127.0.0.1'];
 
         $this->assertEquals(
             $sslNotUsedCaution,
-            Generator::getServerSSL()
+            Generator::getServerSSL(),
         );
 
-        $cfg['Server'] = [
+        $GLOBALS['cfg']['Server'] = [
             'ssl' => false,
             'host' => 'custom.host',
         ];
-        $cfg['MysqlSslWarningSafeHosts'] = ['localhost', '127.0.0.1', 'custom.host'];
+        $GLOBALS['cfg']['MysqlSslWarningSafeHosts'] = ['localhost', '127.0.0.1', 'custom.host'];
 
         $this->assertEquals(
             $sslNotUsed,
-            Generator::getServerSSL()
+            Generator::getServerSSL(),
         );
 
-        $cfg['Server'] = [
+        $GLOBALS['cfg']['Server'] = [
             'ssl' => false,
             'ssl_verify' => true,
             'host' => 'custom.host',
@@ -406,10 +402,10 @@ class GeneratorTest extends AbstractTestCase
 
         $this->assertEquals(
             $sslNotUsed,
-            Generator::getServerSSL()
+            Generator::getServerSSL(),
         );
 
-        $cfg['Server'] = [
+        $GLOBALS['cfg']['Server'] = [
             'ssl' => true,
             'ssl_verify' => false,
             'host' => 'custom.host',
@@ -417,13 +413,13 @@ class GeneratorTest extends AbstractTestCase
 
         $this->assertEquals(
             '<span class="text-danger">SSL is used with disabled verification</span>'
-            . ' <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
+            . ' <a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
             . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
             . ' class="icon ic_b_help"></a>',
-            Generator::getServerSSL()
+            Generator::getServerSSL(),
         );
 
-        $cfg['Server'] = [
+        $GLOBALS['cfg']['Server'] = [
             'ssl' => true,
             'ssl_verify' => true,
             'host' => 'custom.host',
@@ -431,13 +427,13 @@ class GeneratorTest extends AbstractTestCase
 
         $this->assertEquals(
             '<span class="text-danger">SSL is used without certification authority</span>'
-            . ' <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
+            . ' <a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
             . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
             . ' class="icon ic_b_help"></a>',
-            Generator::getServerSSL()
+            Generator::getServerSSL(),
         );
 
-        $cfg['Server'] = [
+        $GLOBALS['cfg']['Server'] = [
             'ssl' => true,
             'ssl_verify' => true,
             'ssl_ca' => '/etc/ssl/ca.crt',
@@ -446,10 +442,92 @@ class GeneratorTest extends AbstractTestCase
 
         $this->assertEquals(
             '<span class="">SSL is used</span>'
-            . ' <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
+            . ' <a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
             . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
             . ' class="icon ic_b_help"></a>',
-            Generator::getServerSSL()
+            Generator::getServerSSL(),
         );
+    }
+
+    /**
+     * Test for Generator::getDefaultFunctionForField
+     *
+     * @param array  $field      field settings
+     * @param bool   $insertMode true if insert mode
+     * @param string $expected   expected result
+     * @psalm-param array<string, string|bool|null> $field
+     *
+     * @dataProvider providerForTestGetDefaultFunctionForField
+     */
+    public function testGetDefaultFunctionForField(
+        array $field,
+        bool $insertMode,
+        string $expected,
+    ): void {
+        $dbiStub = $this->createStub(DatabaseInterface::class);
+        $dbiStub->types = new Types($dbiStub);
+        $dbiStub->method('getVersion')->willReturn(50700);
+
+        $GLOBALS['dbi'] = $dbiStub;
+
+        $result = Generator::getDefaultFunctionForField($field, $insertMode);
+
+        $this->assertEquals($expected, $result);
+    }
+
+    /**
+     * Data provider for Generator::getDefaultFunctionForField test
+     *
+     * @return array
+     * @psalm-return array<int, array{array<string, string|bool|null>, bool, string}>
+     */
+    public static function providerForTestGetDefaultFunctionForField(): array
+    {
+        return [
+            [
+                [
+                    'True_Type' => 'GEOMETRY',
+                    'first_timestamp' => false,
+                    'Extra' => null,
+                    'Key' => '',
+                    'Type' => '',
+                    'Null' => 'NO',
+                ],
+                true,
+                'ST_GeomFromText',
+            ],
+            [
+                [
+                    'True_Type' => 'timestamp',
+                    'first_timestamp' => true,
+                    'Extra' => null,
+                    'Key' => '',
+                    'Type' => '',
+                    'Null' => 'NO',
+                ],
+                true,
+                'NOW',
+            ],
+            [
+                [
+                    'True_Type' => 'uuid',
+                    'first_timestamp' => false,
+                    'Key' => '',
+                    'Type' => '',
+                ],
+                true,
+                '',
+            ],
+            [
+                [
+                    'True_Type' => '',
+                    'first_timestamp' => false,
+                    'Key' => 'PRI',
+                    'Type' => 'char(36)',
+                ],
+                true,
+                'UUID',
+            ],
+        ];
     }
 }

@@ -46,7 +46,7 @@ class TableStatsDia extends TableStats
         $tableName,
         $pageNumber,
         $showKeys = false,
-        $offline = false
+        $offline = false,
     ) {
         parent::__construct($diagram, $db, $pageNumber, $tableName, $showKeys, false, $offline);
 
@@ -65,7 +65,7 @@ class TableStatsDia extends TableStats
         ExportRelationSchema::dieSchema(
             $this->pageNumber,
             'DIA',
-            sprintf(__('The %s table doesn\'t exist!'), $this->tableName)
+            sprintf(__('The %s table doesn\'t exist!'), $this->tableName),
         );
     }
 
@@ -94,7 +94,7 @@ class TableStatsDia extends TableStats
                 '00FF00',
             ];
             shuffle($listOfColors);
-            $this->tableColor = '#' . $listOfColors[0] . '';
+            $this->tableColor = '#' . $listOfColors[0];
         } else {
             $this->tableColor = '#000000';
         }
@@ -104,7 +104,7 @@ class TableStatsDia extends TableStats
         $this->diagram->startElement('dia:object');
         $this->diagram->writeAttribute('type', 'Database - Table');
         $this->diagram->writeAttribute('version', '0');
-        $this->diagram->writeAttribute('id', '' . $this->tableId . '');
+        $this->diagram->writeAttribute('id', '' . $this->tableId);
         $this->diagram->writeRaw(
             '<dia:attribute name="obj_pos">
                 <dia:point val="'
@@ -174,7 +174,7 @@ class TableStatsDia extends TableStats
             </dia:attribute>
             <dia:attribute name="comment_font_height">
                 <dia:real val="0.69999999999999996"/>
-            </dia:attribute>'
+            </dia:attribute>',
         );
 
         $this->diagram->startElement('dia:attribute');
@@ -191,7 +191,7 @@ class TableStatsDia extends TableStats
                 </dia:attribute>
                     <dia:attribute name="comment">
                 <dia:string>##</dia:string>
-                </dia:attribute>'
+                </dia:attribute>',
             );
             unset($pm);
             $pm = 'false';
@@ -213,7 +213,7 @@ class TableStatsDia extends TableStats
                 <dia:attribute name="unique">
                     <dia:boolean val="' . $pm . '"/>
                 </dia:attribute>
-                </dia:composite>'
+                </dia:composite>',
             );
         }
 

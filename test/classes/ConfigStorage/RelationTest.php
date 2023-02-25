@@ -18,54 +18,40 @@ use function implode;
  */
 class RelationTest extends AbstractTestCase
 {
-    /** @var Relation */
-    private $relation;
-
-    /**
-     * Sets up the fixture, for example, opens a network connection.
-     * This method is called before a test is executed.
-     */
-    protected function setUp(): void
-    {
-        parent::setUp();
-        parent::setTheme();
-        $GLOBALS['server'] = 1;
-        $GLOBALS['db'] = 'db';
-        $GLOBALS['cfg']['Server']['user'] = 'root';
-        $GLOBALS['cfg']['Server']['pmadb'] = 'phpmyadmin';
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['cfg']['ZeroConf'] = true;
-        $GLOBALS['cfg']['ServerDefault'] = 0;
-        $_SESSION['relation'] = [];
-
-        $this->relation = new Relation($GLOBALS['dbi']);
-    }
-
     /**
      * Test for getDisplayField
      */
     public function testPMAGetDisplayField(): void
     {
-        $this->dummyDbi->addSelectDb('phpmyadmin');
+        $GLOBALS['cfg']['Server']['user'] = 'root';
+        $GLOBALS['cfg']['Server']['pmadb'] = 'phpmyadmin';
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+
+        $relation = new Relation($dbi);
+
+        $dummyDbi->addSelectDb('phpmyadmin');
         $db = 'information_schema';
         $table = 'CHARACTER_SETS';
         $this->assertEquals(
             'DESCRIPTION',
-            $this->relation->getDisplayField($db, $table)
+            $relation->getDisplayField($db, $table),
         );
-        $this->assertAllSelectsConsumed();
+        $dummyDbi->assertAllSelectsConsumed();
 
         $db = 'information_schema';
         $table = 'TABLES';
         $this->assertEquals(
             'TABLE_COMMENT',
-            $this->relation->getDisplayField($db, $table)
+            $relation->getDisplayField($db, $table),
         );
 
         $db = 'information_schema';
         $table = 'PMA';
         $this->assertFalse(
-            $this->relation->getDisplayField($db, $table)
+            $relation->getDisplayField($db, $table),
         );
     }
 
@@ -74,6 +60,7 @@ class RelationTest extends AbstractTestCase
      */
     public function testPMAGetComments(): void
     {
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ServerDefault'] = 0;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -95,13 +82,14 @@ class RelationTest extends AbstractTestCase
         $dbi->expects($this->any())->method('getColumns')
             ->will($this->returnValue($getColumnsResult));
 
+        $relation = new Relation($dbi);
+
         $GLOBALS['dbi'] = $dbi;
-        $this->relation->dbi = $GLOBALS['dbi'];
 
         $db = 'information_schema';
         $this->assertEquals(
             [''],
-            $this->relation->getComments($db)
+            $relation->getComments($db),
         );
 
         $db = 'information_schema';
@@ -111,7 +99,7 @@ class RelationTest extends AbstractTestCase
                 'field1' => 'Comment1',
                 'field2' => 'Comment1',
             ],
-            $this->relation->getComments($db, $table)
+            $relation->getComments($db, $table),
         );
     }
 
@@ -135,23 +123,25 @@ class RelationTest extends AbstractTestCase
             ->method('getError')
             ->will($this->onConsecutiveCalls('Error', ''));
         $GLOBALS['dbi'] = $dbi;
-        $this->relation->dbi = $GLOBALS['dbi'];
+
+        $relation = new Relation($dbi);
 
         $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
         $GLOBALS['cfg']['Server']['column_info'] = 'column_info';
 
         // Case 1
-        $actual = $this->relation->tryUpgradeTransformations();
+        $actual = $relation->tryUpgradeTransformations();
         $this->assertFalse($actual);
 
         // Case 2
-        $actual = $this->relation->tryUpgradeTransformations();
+        $actual = $relation->tryUpgradeTransformations();
         $this->assertTrue($actual);
     }
 
     public function testSearchColumnInForeignersError(): void
     {
-        $this->assertFalse($this->relation->searchColumnInForeigners([], 'id'));
+        $relation = new Relation($this->createDatabaseInterface());
+        $this->assertFalse($relation->searchColumnInForeigners([], 'id'));
     }
 
     /**
@@ -185,7 +175,9 @@ class RelationTest extends AbstractTestCase
             ],
         ];
 
-        $foreigner = $this->relation->searchColumnInForeigners($foreigners, 'id');
+        $relation = new Relation($this->createDatabaseInterface());
+
+        $foreigner = $relation->searchColumnInForeigners($foreigners, 'id');
         $expected = [];
         $expected['foreign_field'] = 'id';
         $expected['foreign_db'] = 'GSoC14';
@@ -199,21 +191,20 @@ class RelationTest extends AbstractTestCase
 
     public function testFixPmaTablesNothingWorks(): void
     {
-        parent::setGlobalDbi();
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
 
-        $this->relation = new Relation($this->dbi);
+        $relation = new Relation($dbi);
 
-        $this->dummyDbi->removeDefaultResults();
-        $this->dummyDbi->addResult('SHOW TABLES FROM `db_pma`;', false);
+        $dummyDbi->removeDefaultResults();
+        $dummyDbi->addResult('SHOW TABLES FROM `db_pma`;', false);
 
-        $this->relation->fixPmaTables('db_pma', false);
-        $this->assertAllQueriesConsumed();
+        $relation->fixPmaTables('db_pma', false);
+        $dummyDbi->assertAllQueriesConsumed();
     }
 
     public function testFixPmaTablesNormal(): void
     {
-        parent::setGlobalDbi();
-
         $GLOBALS['db'] = '';
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['user'] = '';
@@ -238,34 +229,36 @@ class RelationTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['designer_settings'] = '';
         $GLOBALS['cfg']['Server']['export_templates'] = '';
 
-        $this->relation = new Relation($this->dbi);
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $relation = new Relation($dbi);
 
-        $this->dummyDbi->removeDefaultResults();
-        $this->dummyDbi->addResult(
+        $dummyDbi->removeDefaultResults();
+        $dummyDbi->addResult(
             'SHOW TABLES FROM `db_pma`;',
             [
                 ['pma__userconfig'],
             ],
-            ['Tables_in_db_pma']
+            ['Tables_in_db_pma'],
         );
 
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             'SHOW TABLES FROM `db_pma`',
             [
                 ['pma__userconfig'],
             ],
-            ['Tables_in_db_pma']
+            ['Tables_in_db_pma'],
         );
 
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             'SELECT NULL FROM `pma__userconfig` LIMIT 0',
-            [['NULL']]
+            [['NULL']],
         );
-        $this->dummyDbi->addSelectDb('db_pma');
+        $dummyDbi->addSelectDb('db_pma');
 
         $_SESSION['relation'] = [];
 
-        $this->relation->fixPmaTables('db_pma', false);
+        $relation->fixPmaTables('db_pma', false);
 
         $this->assertArrayHasKey($GLOBALS['server'], $_SESSION['relation'], 'The cache is expected to be filled');
         /** @psalm-suppress EmptyArrayAccess */
@@ -278,14 +271,12 @@ class RelationTest extends AbstractTestCase
         ]);
         $this->assertSame($relationParameters->toArray(), $_SESSION['relation'][$GLOBALS['server']]);
 
-        $this->assertAllQueriesConsumed();
-        $this->assertAllSelectsConsumed();
+        $dummyDbi->assertAllQueriesConsumed();
+        $dummyDbi->assertAllSelectsConsumed();
     }
 
     public function testFixPmaTablesNormalFixTables(): void
     {
-        parent::setGlobalDbi();
-
         $GLOBALS['db'] = '';
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['user'] = '';
@@ -310,33 +301,36 @@ class RelationTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['designer_settings'] = '';
         $GLOBALS['cfg']['Server']['export_templates'] = '';
 
-        $this->relation = new Relation($this->dbi);
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
 
-        $this->dummyDbi->removeDefaultResults();
-        $this->dummyDbi->addResult(
+        $relation = new Relation($dbi);
+
+        $dummyDbi->removeDefaultResults();
+        $dummyDbi->addResult(
             'SHOW TABLES FROM `db_pma`;',
             [
                 ['pma__userconfig'],
             ],
-            ['Tables_in_db_pma']
+            ['Tables_in_db_pma'],
         );
 
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             'SHOW TABLES FROM `db_pma`',
             [
                 ['pma__userconfig'],
             ],
-            ['Tables_in_db_pma']
+            ['Tables_in_db_pma'],
         );
 
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             'SELECT NULL FROM `pma__userconfig` LIMIT 0',
-            [['NULL']]
+            [['NULL']],
         );
-        $this->dummyDbi->addSelectDb('db_pma');
-        $this->dummyDbi->addSelectDb('db_pma');
+        $dummyDbi->addSelectDb('db_pma');
+        $dummyDbi->addSelectDb('db_pma');
 
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__bookmark` '
             . '-- CREATE TABLE IF NOT EXISTS `pma__bookmark` ( '
@@ -346,9 +340,9 @@ class RelationTest extends AbstractTestCase
                 . ' `label` varchar(255) COLLATE utf8_general_ci NOT NULL default \'\','
                 . ' `query` text NOT NULL, PRIMARY KEY (`id`) )'
                 . ' COMMENT=\'Bookmarks\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__relation` '
             . '-- CREATE TABLE IF NOT EXISTS `pma__relation` ( '
@@ -359,19 +353,19 @@ class RelationTest extends AbstractTestCase
                 . ' PRIMARY KEY (`master_db`,`master_table`,`master_field`),'
                 . ' KEY `foreign_field` (`foreign_db`,`foreign_table`) ) COMMENT=\'Relation table\''
                 . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__table_info`'
             . ' -- CREATE TABLE IF NOT EXISTS `pma__table_info` ( '
                 . '`db_name` varchar(64) NOT NULL default \'\', `table_name` varchar(64) NOT NULL default \'\','
                 . ' `display_field` varchar(64) NOT NULL default \'\', PRIMARY KEY (`db_name`,`table_name`) )'
                 . ' COMMENT=\'Table information for phpMyAdmin\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
 
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__table_coords`'
             . ' -- CREATE TABLE IF NOT EXISTS `pma__table_coords` ( '
@@ -381,9 +375,9 @@ class RelationTest extends AbstractTestCase
                 . ' PRIMARY KEY (`db_name`,`table_name`,`pdf_page_number`) )'
                 . ' COMMENT=\'Table coordinates for phpMyAdmin PDF output\''
                 . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__pdf_pages`'
             . ' -- CREATE TABLE IF NOT EXISTS `pma__pdf_pages` ( '
@@ -391,9 +385,9 @@ class RelationTest extends AbstractTestCase
                 . ' `page_descr` varchar(50) COLLATE utf8_general_ci NOT NULL default \'\', PRIMARY KEY (`page_nr`),'
                 . ' KEY `db_name` (`db_name`) ) COMMENT=\'PDF relation pages for phpMyAdmin\''
                 . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__column_info`'
             . ' -- CREATE TABLE IF NOT EXISTS `pma__column_info` ( '
@@ -407,9 +401,9 @@ class RelationTest extends AbstractTestCase
                 . ' `input_transformation_options` varchar(255) NOT NULL default \'\','
                 . ' PRIMARY KEY (`id`), UNIQUE KEY `db_name` (`db_name`,`table_name`,`column_name`) )'
                 . ' COMMENT=\'Column information for phpMyAdmin\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__history` '
             . '-- CREATE TABLE IF NOT EXISTS `pma__history` ( '
@@ -418,25 +412,25 @@ class RelationTest extends AbstractTestCase
                 . ' `timevalue` timestamp NOT NULL default CURRENT_TIMESTAMP, `sqlquery` text NOT NULL,'
                 . ' PRIMARY KEY (`id`), KEY `username` (`username`,`db`,`table`,`timevalue`) )'
                 . ' COMMENT=\'SQL history for phpMyAdmin\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__recent` '
             . '-- CREATE TABLE IF NOT EXISTS `pma__recent` ( '
                 . '`username` varchar(64) NOT NULL, `tables` text NOT NULL, PRIMARY KEY (`username`) )'
                 . ' COMMENT=\'Recently accessed tables\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__favorite` '
             . '-- CREATE TABLE IF NOT EXISTS `pma__favorite` ( '
                 . '`username` varchar(64) NOT NULL, `tables` text NOT NULL, PRIMARY KEY (`username`) )'
                 . ' COMMENT=\'Favorite tables\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__table_uiprefs`'
             . ' -- CREATE TABLE IF NOT EXISTS `pma__table_uiprefs` ( '
@@ -445,9 +439,9 @@ class RelationTest extends AbstractTestCase
                 . ' `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,'
                 . ' PRIMARY KEY (`username`,`db_name`,`table_name`) ) COMMENT=\'Tables\'\' UI preferences\''
                 . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__tracking` '
             . '-- CREATE TABLE IF NOT EXISTS `pma__tracking` ( '
@@ -464,9 +458,9 @@ class RelationTest extends AbstractTestCase
                 . ' default \'1\', PRIMARY KEY (`db_name`,`table_name`,`version`) )'
                 . ' COMMENT=\'Database changes tracking for phpMyAdmin\''
                 . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__users` '
             . '-- CREATE TABLE IF NOT EXISTS `pma__users` ( '
@@ -474,9 +468,9 @@ class RelationTest extends AbstractTestCase
                 . ' PRIMARY KEY (`username`,`usergroup`) )'
                 . ' COMMENT=\'Users and their assignments to user groups\''
                 . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__usergroups`'
             . ' -- CREATE TABLE IF NOT EXISTS `pma__usergroups` ( '
@@ -485,9 +479,9 @@ class RelationTest extends AbstractTestCase
                 . ' PRIMARY KEY (`usergroup`,`tab`,`allowed`) )'
                 . ' COMMENT=\'User groups with configured menu items\''
                 . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__navigationhiding`'
             . ' -- CREATE TABLE IF NOT EXISTS `pma__navigationhiding` ( '
@@ -496,9 +490,9 @@ class RelationTest extends AbstractTestCase
                 . ' `table_name` varchar(64) NOT NULL,'
                 . ' PRIMARY KEY (`username`,`item_name`,`item_type`,`db_name`,`table_name`) )'
                 . ' COMMENT=\'Hidden items of navigation tree\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__savedsearches`'
             . ' -- CREATE TABLE IF NOT EXISTS `pma__savedsearches` ( '
@@ -507,9 +501,9 @@ class RelationTest extends AbstractTestCase
                 . ' `search_data` text NOT NULL, PRIMARY KEY (`id`),'
                 . ' UNIQUE KEY `u_savedsearches_username_dbname` (`username`,`db_name`,`search_name`) )'
                 . ' COMMENT=\'Saved searches\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__central_columns`'
             . ' -- CREATE TABLE IF NOT EXISTS `pma__central_columns` ( '
@@ -518,18 +512,18 @@ class RelationTest extends AbstractTestCase
                 . ' `col_extra` varchar(255) default \'\', `col_default` text,'
                 . ' PRIMARY KEY (`db_name`,`col_name`) )'
                 . ' COMMENT=\'Central list of columns\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__designer_settings`'
             . ' -- CREATE TABLE IF NOT EXISTS `pma__designer_settings` ( '
                 . '`username` varchar(64) NOT NULL, `settings_data` text NOT NULL,'
                 . ' PRIMARY KEY (`username`) )'
                 . ' COMMENT=\'Settings related to Designer\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__export_templates`'
             . ' -- CREATE TABLE IF NOT EXISTS `pma__export_templates` ( '
@@ -538,14 +532,14 @@ class RelationTest extends AbstractTestCase
                 . ' `template_data` text NOT NULL, PRIMARY KEY (`id`),'
                 . ' UNIQUE KEY `u_user_type_template` (`username`,`export_type`,`template_name`) )'
                 . ' COMMENT=\'Saved export templates\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
 
         $this->assertSame('', $GLOBALS['cfg']['Server']['pmadb']);
 
         $_SESSION['relation'] = [];
 
-        $this->relation->fixPmaTables('db_pma', true);
+        $relation->fixPmaTables('db_pma', true);
         $this->assertArrayNotHasKey('message', $GLOBALS);
         $this->assertArrayHasKey($GLOBALS['server'], $_SESSION['relation'], 'The cache is expected to be filled');
         /** @psalm-suppress EmptyArrayAccess */
@@ -559,14 +553,12 @@ class RelationTest extends AbstractTestCase
         ]);
         $this->assertSame($relationParameters->toArray(), $_SESSION['relation'][$GLOBALS['server']]);
 
-        $this->assertAllQueriesConsumed();
-        $this->assertAllSelectsConsumed();
+        $dummyDbi->assertAllQueriesConsumed();
+        $dummyDbi->assertAllSelectsConsumed();
     }
 
     public function testFixPmaTablesNormalFixTablesWithCustomOverride(): void
     {
-        parent::setGlobalDbi();
-
         $GLOBALS['db'] = '';
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['user'] = '';
@@ -591,10 +583,13 @@ class RelationTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['designer_settings'] = '';
         $GLOBALS['cfg']['Server']['export_templates'] = '';
 
-        $this->relation = new Relation($this->dbi);
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
 
-        $this->dummyDbi->removeDefaultResults();
-        $this->dummyDbi->addResult(
+        $relation = new Relation($dbi);
+
+        $dummyDbi->removeDefaultResults();
+        $dummyDbi->addResult(
             'SHOW TABLES FROM `db_pma`;',
             [
                 ['pma__userconfig'],
@@ -602,10 +597,10 @@ class RelationTest extends AbstractTestCase
                 // If the check does not consider the custom name it will skip the table
                 ['pma__relation'],
             ],
-            ['Tables_in_db_pma']
+            ['Tables_in_db_pma'],
         );
 
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             'SHOW TABLES FROM `db_pma`',
             [
                 ['pma__userconfig'],
@@ -613,15 +608,15 @@ class RelationTest extends AbstractTestCase
                 // If the check does not consider the custom name it will skip the table
                 ['pma__relation'],
             ],
-            ['Tables_in_db_pma']
+            ['Tables_in_db_pma'],
         );
 
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             'SELECT NULL FROM `pma__userconfig` LIMIT 0',
-            [['NULL']]
+            [['NULL']],
         );
 
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__bookmark` '
             . '-- CREATE TABLE IF NOT EXISTS `pma__bookmark` ( '
@@ -631,9 +626,9 @@ class RelationTest extends AbstractTestCase
                 . ' `label` varchar(255) COLLATE utf8_general_ci NOT NULL default \'\','
                 . ' `query` text NOT NULL, PRIMARY KEY (`id`) )'
                 . ' COMMENT=\'Bookmarks\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `custom_relation_pma` '
             . '-- CREATE TABLE IF NOT EXISTS `custom_relation_pma` ( '
@@ -644,19 +639,19 @@ class RelationTest extends AbstractTestCase
                 . ' PRIMARY KEY (`master_db`,`master_table`,`master_field`),'
                 . ' KEY `foreign_field` (`foreign_db`,`foreign_table`) ) COMMENT=\'Relation table\''
                 . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__table_info`'
             . ' -- CREATE TABLE IF NOT EXISTS `pma__table_info` ( '
                 . '`db_name` varchar(64) NOT NULL default \'\', `table_name` varchar(64) NOT NULL default \'\','
                 . ' `display_field` varchar(64) NOT NULL default \'\', PRIMARY KEY (`db_name`,`table_name`) )'
                 . ' COMMENT=\'Table information for phpMyAdmin\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
 
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__table_coords`'
             . ' -- CREATE TABLE IF NOT EXISTS `pma__table_coords` ( '
@@ -666,9 +661,9 @@ class RelationTest extends AbstractTestCase
                 . ' PRIMARY KEY (`db_name`,`table_name`,`pdf_page_number`) )'
                 . ' COMMENT=\'Table coordinates for phpMyAdmin PDF output\''
                 . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__pdf_pages`'
             . ' -- CREATE TABLE IF NOT EXISTS `pma__pdf_pages` ( '
@@ -676,9 +671,9 @@ class RelationTest extends AbstractTestCase
                 . ' `page_descr` varchar(50) COLLATE utf8_general_ci NOT NULL default \'\', PRIMARY KEY (`page_nr`),'
                 . ' KEY `db_name` (`db_name`) ) COMMENT=\'PDF relation pages for phpMyAdmin\''
                 . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__column_info`'
             . ' -- CREATE TABLE IF NOT EXISTS `pma__column_info` ( '
@@ -692,9 +687,9 @@ class RelationTest extends AbstractTestCase
                 . ' `input_transformation_options` varchar(255) NOT NULL default \'\','
                 . ' PRIMARY KEY (`id`), UNIQUE KEY `db_name` (`db_name`,`table_name`,`column_name`) )'
                 . ' COMMENT=\'Column information for phpMyAdmin\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__history` '
             . '-- CREATE TABLE IF NOT EXISTS `pma__history` ( '
@@ -703,25 +698,25 @@ class RelationTest extends AbstractTestCase
                 . ' `timevalue` timestamp NOT NULL default CURRENT_TIMESTAMP, `sqlquery` text NOT NULL,'
                 . ' PRIMARY KEY (`id`), KEY `username` (`username`,`db`,`table`,`timevalue`) )'
                 . ' COMMENT=\'SQL history for phpMyAdmin\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__recent` '
             . '-- CREATE TABLE IF NOT EXISTS `pma__recent` ( '
                 . '`username` varchar(64) NOT NULL, `tables` text NOT NULL, PRIMARY KEY (`username`) )'
                 . ' COMMENT=\'Recently accessed tables\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__favorite` '
             . '-- CREATE TABLE IF NOT EXISTS `pma__favorite` ( '
                 . '`username` varchar(64) NOT NULL, `tables` text NOT NULL, PRIMARY KEY (`username`) )'
                 . ' COMMENT=\'Favorite tables\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__table_uiprefs`'
             . ' -- CREATE TABLE IF NOT EXISTS `pma__table_uiprefs` ( '
@@ -730,9 +725,9 @@ class RelationTest extends AbstractTestCase
                 . ' `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,'
                 . ' PRIMARY KEY (`username`,`db_name`,`table_name`) ) COMMENT=\'Tables\'\' UI preferences\''
                 . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__tracking` '
             . '-- CREATE TABLE IF NOT EXISTS `pma__tracking` ( '
@@ -749,9 +744,9 @@ class RelationTest extends AbstractTestCase
                 . ' default \'1\', PRIMARY KEY (`db_name`,`table_name`,`version`) )'
                 . ' COMMENT=\'Database changes tracking for phpMyAdmin\''
                 . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__users` '
             . '-- CREATE TABLE IF NOT EXISTS `pma__users` ( '
@@ -759,9 +754,9 @@ class RelationTest extends AbstractTestCase
                 . ' PRIMARY KEY (`username`,`usergroup`) )'
                 . ' COMMENT=\'Users and their assignments to user groups\''
                 . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__usergroups`'
             . ' -- CREATE TABLE IF NOT EXISTS `pma__usergroups` ( '
@@ -770,9 +765,9 @@ class RelationTest extends AbstractTestCase
                 . ' PRIMARY KEY (`usergroup`,`tab`,`allowed`) )'
                 . ' COMMENT=\'User groups with configured menu items\''
                 . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__navigationhiding`'
             . ' -- CREATE TABLE IF NOT EXISTS `pma__navigationhiding` ( '
@@ -781,9 +776,9 @@ class RelationTest extends AbstractTestCase
                 . ' `table_name` varchar(64) NOT NULL,'
                 . ' PRIMARY KEY (`username`,`item_name`,`item_type`,`db_name`,`table_name`) )'
                 . ' COMMENT=\'Hidden items of navigation tree\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__savedsearches`'
             . ' -- CREATE TABLE IF NOT EXISTS `pma__savedsearches` ( '
@@ -792,9 +787,9 @@ class RelationTest extends AbstractTestCase
                 . ' `search_data` text NOT NULL, PRIMARY KEY (`id`),'
                 . ' UNIQUE KEY `u_savedsearches_username_dbname` (`username`,`db_name`,`search_name`) )'
                 . ' COMMENT=\'Saved searches\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__central_columns`'
             . ' -- CREATE TABLE IF NOT EXISTS `pma__central_columns` ( '
@@ -803,18 +798,18 @@ class RelationTest extends AbstractTestCase
                 . ' `col_extra` varchar(255) default \'\', `col_default` text,'
                 . ' PRIMARY KEY (`db_name`,`col_name`) )'
                 . ' COMMENT=\'Central list of columns\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__designer_settings`'
             . ' -- CREATE TABLE IF NOT EXISTS `pma__designer_settings` ( '
                 . '`username` varchar(64) NOT NULL, `settings_data` text NOT NULL,'
                 . ' PRIMARY KEY (`username`) )'
                 . ' COMMENT=\'Settings related to Designer\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__export_templates`'
             . ' -- CREATE TABLE IF NOT EXISTS `pma__export_templates` ( '
@@ -823,16 +818,16 @@ class RelationTest extends AbstractTestCase
                 . ' `template_data` text NOT NULL, PRIMARY KEY (`id`),'
                 . ' UNIQUE KEY `u_user_type_template` (`username`,`export_type`,`template_name`) )'
                 . ' COMMENT=\'Saved export templates\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            []
+            [],
         );
 
         $this->assertSame('db_pma', $GLOBALS['cfg']['Server']['pmadb']);
 
         $_SESSION['relation'] = [];
 
-        $this->dummyDbi->addSelectDb('db_pma');
-        $this->dummyDbi->addSelectDb('db_pma');
-        $this->relation->fixPmaTables('db_pma', true);
+        $dummyDbi->addSelectDb('db_pma');
+        $dummyDbi->addSelectDb('db_pma');
+        $relation->fixPmaTables('db_pma', true);
         $this->assertArrayNotHasKey('message', $GLOBALS);
         $this->assertArrayHasKey($GLOBALS['server'], $_SESSION['relation'], 'The cache is expected to be filled');
         /** @psalm-suppress EmptyArrayAccess */
@@ -846,14 +841,12 @@ class RelationTest extends AbstractTestCase
         ]);
         $this->assertSame($relationParameters->toArray(), $_SESSION['relation'][$GLOBALS['server']]);
 
-        $this->assertAllQueriesConsumed();
-        $this->assertAllSelectsConsumed();
+        $dummyDbi->assertAllQueriesConsumed();
+        $dummyDbi->assertAllSelectsConsumed();
     }
 
     public function testFixPmaTablesNormalFixTablesFails(): void
     {
-        parent::setGlobalDbi();
-
         $GLOBALS['db'] = '';
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['user'] = '';
@@ -878,20 +871,23 @@ class RelationTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['designer_settings'] = '';
         $GLOBALS['cfg']['Server']['export_templates'] = '';
 
-        $this->relation = new Relation($this->dbi);
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
 
-        $this->dummyDbi->removeDefaultResults();
-        $this->dummyDbi->addResult(
+        $relation = new Relation($dbi);
+
+        $dummyDbi->removeDefaultResults();
+        $dummyDbi->addResult(
             'SHOW TABLES FROM `db_pma`;',
             [
                 ['pma__userconfig'],
             ],
-            ['Tables_in_db_pma']
+            ['Tables_in_db_pma'],
         );
 
         // Fail the query
-        $this->dummyDbi->addErrorCode('MYSQL_ERROR');
-        $this->dummyDbi->addResult(
+        $dummyDbi->addErrorCode('MYSQL_ERROR');
+        $dummyDbi->addResult(
             '-- -------------------------------------------------------- -- --'
             . ' Table structure for table `pma__bookmark` '
             . '-- CREATE TABLE IF NOT EXISTS `pma__bookmark` ( '
@@ -901,15 +897,15 @@ class RelationTest extends AbstractTestCase
                 . ' `label` varchar(255) COLLATE utf8_general_ci NOT NULL default \'\','
                 . ' `query` text NOT NULL, PRIMARY KEY (`id`) )'
                 . ' COMMENT=\'Bookmarks\' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;',
-            false
+            false,
         );
-        $this->dummyDbi->addSelectDb('db_pma');
+        $dummyDbi->addSelectDb('db_pma');
 
         $this->assertSame('', $GLOBALS['cfg']['Server']['pmadb']);
 
         $_SESSION['relation'] = [];
 
-        $this->relation->fixPmaTables('db_pma', true);
+        $relation->fixPmaTables('db_pma', true);
 
         $this->assertArrayHasKey('message', $GLOBALS);
         $this->assertSame('MYSQL_ERROR', $GLOBALS['message']);
@@ -917,54 +913,61 @@ class RelationTest extends AbstractTestCase
 
         $this->assertSame([], $_SESSION['relation']);
 
-        $this->assertAllQueriesConsumed();
-        $this->assertAllErrorCodesConsumed();
-        $this->assertAllSelectsConsumed();
+        $dummyDbi->assertAllQueriesConsumed();
+        $dummyDbi->assertAllErrorCodesConsumed();
+        $dummyDbi->assertAllSelectsConsumed();
     }
 
     public function testCreatePmaDatabase(): void
     {
-        parent::setGlobalDbi();
-        $this->relation = new Relation($this->dbi);
+        $GLOBALS['cfg']['Server']['user'] = 'root';
+        $GLOBALS['cfg']['Server']['pmadb'] = 'phpmyadmin';
 
-        $this->dummyDbi->removeDefaultResults();
-        $this->dummyDbi->addResult(
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+
+        $relation = new Relation($dbi);
+
+        $dummyDbi->removeDefaultResults();
+        $dummyDbi->addResult(
             'CREATE DATABASE IF NOT EXISTS `phpmyadmin`',
-            []
+            [],
         );
 
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             'SHOW TABLES FROM `phpmyadmin`',
-            []
+            [],
         );
-        $this->dummyDbi->addSelectDb('phpmyadmin');
+        $dummyDbi->addSelectDb('phpmyadmin');
 
         $this->assertArrayNotHasKey('errno', $GLOBALS);
 
         $this->assertTrue(
-            $this->relation->createPmaDatabase('phpmyadmin')
+            $relation->createPmaDatabase('phpmyadmin'),
         );
 
         $this->assertArrayNotHasKey('message', $GLOBALS);
 
-        $this->assertAllQueriesConsumed();
-        $this->assertAllErrorCodesConsumed();
-        $this->assertAllSelectsConsumed();
+        $dummyDbi->assertAllQueriesConsumed();
+        $dummyDbi->assertAllErrorCodesConsumed();
+        $dummyDbi->assertAllSelectsConsumed();
     }
 
     public function testCreatePmaDatabaseFailsError1044(): void
     {
-        parent::setGlobalDbi();
-        $this->relation = new Relation($this->dbi);
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
 
-        $this->dummyDbi->removeDefaultResults();
-        $this->dummyDbi->addErrorCode('MYSQL_ERROR');
-        $this->dummyDbi->addResult('CREATE DATABASE IF NOT EXISTS `phpmyadmin`', false);
+        $relation = new Relation($dbi);
+
+        $dummyDbi->removeDefaultResults();
+        $dummyDbi->addErrorCode('MYSQL_ERROR');
+        $dummyDbi->addResult('CREATE DATABASE IF NOT EXISTS `phpmyadmin`', false);
 
         $GLOBALS['errno'] = 1044;// ER_DBACCESS_DENIED_ERROR
 
         $this->assertFalse(
-            $this->relation->createPmaDatabase('phpmyadmin')
+            $relation->createPmaDatabase('phpmyadmin'),
         );
 
         $this->assertArrayHasKey('message', $GLOBALS);
@@ -972,38 +975,43 @@ class RelationTest extends AbstractTestCase
             'You do not have necessary privileges to create a database named'
             . ' \'phpmyadmin\'. You may go to \'Operations\' tab of any'
             . ' database to set up the phpMyAdmin configuration storage there.',
-            $GLOBALS['message']
+            $GLOBALS['message'],
         );
 
-        $this->assertAllQueriesConsumed();
-        $this->assertAllErrorCodesConsumed();
+        $dummyDbi->assertAllQueriesConsumed();
+        $dummyDbi->assertAllErrorCodesConsumed();
     }
 
     public function testCreatePmaDatabaseFailsError1040(): void
     {
-        parent::setGlobalDbi();
-        $this->relation = new Relation($this->dbi);
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
 
-        $this->dummyDbi->removeDefaultResults();
-        $this->dummyDbi->addErrorCode('Too many connections');
-        $this->dummyDbi->addResult('CREATE DATABASE IF NOT EXISTS `pma_1040`', false);
+        $relation = new Relation($dbi);
+
+        $dummyDbi->removeDefaultResults();
+        $dummyDbi->addErrorCode('Too many connections');
+        $dummyDbi->addResult('CREATE DATABASE IF NOT EXISTS `pma_1040`', false);
 
         $GLOBALS['errno'] = 1040;
 
         $this->assertFalse(
-            $this->relation->createPmaDatabase('pma_1040')
+            $relation->createPmaDatabase('pma_1040'),
         );
 
         $this->assertArrayHasKey('message', $GLOBALS);
         $this->assertSame('Too many connections', $GLOBALS['message']);
 
-        $this->assertAllQueriesConsumed();
-        $this->assertAllErrorCodesConsumed();
+        $dummyDbi->assertAllQueriesConsumed();
+        $dummyDbi->assertAllErrorCodesConsumed();
     }
 
     public function testGetDefaultPmaTableNames(): void
     {
-        $this->relation = new Relation($this->dbi);
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+
+        $relation = new Relation($dbi);
 
         $data = [
             'pma__bookmark' => implode("\n", [
@@ -1395,7 +1403,7 @@ class RelationTest extends AbstractTestCase
 
         $this->assertSame(
             $data,
-            $this->relation->getDefaultPmaTableNames([])
+            $relation->getDefaultPmaTableNames([]),
         );
 
         $data['pma__export_templates'] = implode("\n", [
@@ -1422,46 +1430,48 @@ class RelationTest extends AbstractTestCase
 
         $this->assertSame(
             $data,
-            $this->relation->getDefaultPmaTableNames(['pma__export_templates' => 'db_exporttemplates_pma'])
+            $relation->getDefaultPmaTableNames(['pma__export_templates' => 'db_exporttemplates_pma']),
         );
     }
 
     public function testInitRelationParamsCacheDefaultDbNameDbDoesNotExist(): void
     {
-        parent::setGlobalDbi();
-
         $GLOBALS['db'] = '';
         $GLOBALS['server'] = 0;
 
-        $this->dummyDbi->removeDefaultResults();
-        $this->dummyDbi->addResult('SHOW TABLES FROM `phpmyadmin`;', false);
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
 
-        $relation = new Relation($this->dbi);
+        $dummyDbi->removeDefaultResults();
+        $dummyDbi->addResult('SHOW TABLES FROM `phpmyadmin`;', false);
+
+        $relation = new Relation($dbi);
         $relation->initRelationParamsCache();
 
-        $this->assertAllQueriesConsumed();
+        $dummyDbi->assertAllQueriesConsumed();
     }
 
     public function testInitRelationParamsCacheDefaultDbNameDbExistsServerZero(): void
     {
-        parent::setGlobalDbi();
-
         $GLOBALS['db'] = '';
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['Server'] = [];
 
-        $this->dummyDbi->removeDefaultResults();
-        $this->dummyDbi->addResult(
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+
+        $dummyDbi->removeDefaultResults();
+        $dummyDbi->addResult(
             'SHOW TABLES FROM `phpmyadmin`;',
             [
                 ['pma__userconfig'],
             ],
-            ['Tables_in_phpmyadmin']
+            ['Tables_in_phpmyadmin'],
         );
 
         $_SESSION['relation'] = [];
 
-        $relation = new Relation($this->dbi);
+        $relation = new Relation($dbi);
         $relation->initRelationParamsCache();
 
         $this->assertArrayHasKey($GLOBALS['server'], $_SESSION['relation'], 'The cache is expected to be filled');
@@ -1476,13 +1486,11 @@ class RelationTest extends AbstractTestCase
             'userconfig' => 'pma__userconfig',
             'pmadb' => false,// This is the expected value for server = 0
         ], $GLOBALS['cfg']['Server']);
-        $this->assertAllQueriesConsumed();
+        $dummyDbi->assertAllQueriesConsumed();
     }
 
     public function testInitRelationParamsCacheDefaultDbNameDbExistsFirstServer(): void
     {
-        parent::setGlobalDbi();
-
         $GLOBALS['db'] = '';
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server'] = [];
@@ -1508,37 +1516,40 @@ class RelationTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['designer_settings'] = '';
         $GLOBALS['cfg']['Server']['export_templates'] = '';
 
-        $this->dummyDbi->removeDefaultResults();
-        $this->dummyDbi->addResult(
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+
+        $dummyDbi->removeDefaultResults();
+        $dummyDbi->addResult(
             'SHOW TABLES FROM `phpmyadmin`;',
             [
                 ['pma__userconfig'],
             ],
-            ['Tables_in_phpmyadmin']
+            ['Tables_in_phpmyadmin'],
         );
 
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             'SHOW TABLES FROM `phpmyadmin`',
             [
                 ['pma__userconfig'],
             ],
-            ['Tables_in_phpmyadmin']
+            ['Tables_in_phpmyadmin'],
         );
 
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             'SELECT NULL FROM `pma__userconfig` LIMIT 0',
             [
                 ['NULL'],
             ],
-            ['NULL']
+            ['NULL'],
         );
 
         $_SESSION['relation'] = [];
 
-        $this->dummyDbi->addSelectDb('phpmyadmin');
-        $relation = new Relation($this->dbi);
+        $dummyDbi->addSelectDb('phpmyadmin');
+        $relation = new Relation($dbi);
         $relation->initRelationParamsCache();
-        $this->assertAllSelectsConsumed();
+        $dummyDbi->assertAllSelectsConsumed();
 
         $this->assertArrayHasKey($GLOBALS['server'], $_SESSION['relation'], 'The cache is expected to be filled');
         /** @psalm-suppress EmptyArrayAccess */
@@ -1576,13 +1587,11 @@ class RelationTest extends AbstractTestCase
             'export_templates' => '',
         ], $GLOBALS['cfg']['Server']);
 
-        $this->assertAllQueriesConsumed();
+        $dummyDbi->assertAllQueriesConsumed();
     }
 
     public function testInitRelationParamsCacheDefaultDbNameDbExistsFirstServerNotWorkingTable(): void
     {
-        parent::setGlobalDbi();
-
         $GLOBALS['db'] = '';
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server'] = [];
@@ -1608,31 +1617,34 @@ class RelationTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['designer_settings'] = '';
         $GLOBALS['cfg']['Server']['export_templates'] = '';
 
-        $this->dummyDbi->removeDefaultResults();
-        $this->dummyDbi->addResult(
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+
+        $dummyDbi->removeDefaultResults();
+        $dummyDbi->addResult(
             'SHOW TABLES FROM `phpmyadmin`;',
             [
                 ['pma__userconfig'],
             ],
-            ['Tables_in_phpmyadmin']
+            ['Tables_in_phpmyadmin'],
         );
 
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             'SHOW TABLES FROM `phpmyadmin`',
             [
                 ['pma__userconfig'],
             ],
-            ['Tables_in_phpmyadmin']
+            ['Tables_in_phpmyadmin'],
         );
 
-        $this->dummyDbi->addResult('SELECT NULL FROM `pma__userconfig` LIMIT 0', false);
+        $dummyDbi->addResult('SELECT NULL FROM `pma__userconfig` LIMIT 0', false);
 
         $_SESSION['relation'] = [];
 
-        $this->dummyDbi->addSelectDb('phpmyadmin');
-        $relation = new Relation($this->dbi);
+        $dummyDbi->addSelectDb('phpmyadmin');
+        $relation = new Relation($dbi);
         $relation->initRelationParamsCache();
-        $this->assertAllSelectsConsumed();
+        $dummyDbi->assertAllSelectsConsumed();
 
         $this->assertArrayHasKey($GLOBALS['server'], $_SESSION['relation'], 'The cache is expected to be filled');
         /** @psalm-suppress EmptyArrayAccess */
@@ -1669,13 +1681,11 @@ class RelationTest extends AbstractTestCase
             'export_templates' => '',
         ], $GLOBALS['cfg']['Server']);
 
-        $this->assertAllQueriesConsumed();
+        $dummyDbi->assertAllQueriesConsumed();
     }
 
     public function testInitRelationParamsCacheDefaultDbNameDbExistsFirstServerOverride(): void
     {
-        parent::setGlobalDbi();
-
         $GLOBALS['db'] = '';
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server'] = [];
@@ -1701,8 +1711,11 @@ class RelationTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['designer_settings'] = '';
         $GLOBALS['cfg']['Server']['export_templates'] = '';
 
-        $this->dummyDbi->removeDefaultResults();
-        $this->dummyDbi->addResult(
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+
+        $dummyDbi->removeDefaultResults();
+        $dummyDbi->addResult(
             'SHOW TABLES FROM `PMA-storage`;',
             [
                 [
@@ -1710,10 +1723,10 @@ class RelationTest extends AbstractTestCase
                     'pma__usergroups',
                 ],
             ],
-            ['Tables_in_PMA-storage']
+            ['Tables_in_PMA-storage'],
         );
 
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             'SHOW TABLES FROM `PMA-storage`',
             [
                 [
@@ -1721,35 +1734,35 @@ class RelationTest extends AbstractTestCase
                     'pma__usergroups',
                 ],
             ],
-            ['Tables_in_PMA-storage']
+            ['Tables_in_PMA-storage'],
         );
 
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             'SELECT NULL FROM `pma__userconfig_custom` LIMIT 0',
             [
                 ['NULL'],
             ],
-            ['NULL']
+            ['NULL'],
         );
 
-        $this->dummyDbi->addSelectDb('PMA-storage');
+        $dummyDbi->addSelectDb('PMA-storage');
 
         $_SESSION['relation'] = [];
 
-        $relation = new Relation($this->dbi);
+        $relation = new Relation($dbi);
         $relation->initRelationParamsCache();
 
         $this->assertArrayHasKey(
             'relation',
             $_SESSION,
             'The cache is expected to be filled because the custom override'
-            . 'was undertood (pma__userconfig vs pma__userconfig_custom)'
+            . 'was undertood (pma__userconfig vs pma__userconfig_custom)',
         );
 
-        $this->assertAllQueriesConsumed();
-        $this->assertAllSelectsConsumed();
+        $dummyDbi->assertAllQueriesConsumed();
+        $dummyDbi->assertAllSelectsConsumed();
 
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             'SHOW TABLES FROM `PMA-storage`',
             [
                 [
@@ -1757,22 +1770,22 @@ class RelationTest extends AbstractTestCase
                     'pma__usergroups',
                 ],
             ],
-            ['Tables_in_PMA-storage']
+            ['Tables_in_PMA-storage'],
         );
 
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             'SELECT NULL FROM `pma__userconfig_custom` LIMIT 0',
             [
                 ['NULL'],
             ],
-            ['NULL']
+            ['NULL'],
         );
 
-        $this->dummyDbi->addSelectDb('PMA-storage');
+        $dummyDbi->addSelectDb('PMA-storage');
         /** @psalm-suppress EmptyArrayAccess */
         unset($_SESSION['relation'][$GLOBALS['server']]);
         $relationData = $relation->getRelationParameters();
-        $this->assertAllSelectsConsumed();
+        $dummyDbi->assertAllSelectsConsumed();
 
         $relationParameters = RelationParameters::fromArray([
             'db' => 'PMA-storage',
@@ -1805,7 +1818,7 @@ class RelationTest extends AbstractTestCase
             'export_templates' => '',
         ], $GLOBALS['cfg']['Server']);
 
-        $this->assertAllQueriesConsumed();
+        $dummyDbi->assertAllQueriesConsumed();
     }
 
     /**
@@ -1816,24 +1829,29 @@ class RelationTest extends AbstractTestCase
      */
     public function testRenameTable(array $params, array $queries): void
     {
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+
+        $relation = new Relation($dbi);
+
         $GLOBALS['server'] = 1;
         $_SESSION['relation'] = [];
         $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray($params)->toArray();
 
         foreach ($queries as $query) {
-            $this->dummyDbi->addResult($query, []);
+            $dummyDbi->addResult($query, []);
         }
 
-        $this->relation->renameTable('db_1', 'db_2', 'table_1', 'table_2');
+        $relation->renameTable('db_1', 'db_2', 'table_1', 'table_2');
 
-        $this->assertAllQueriesConsumed();
+        $dummyDbi->assertAllQueriesConsumed();
     }
 
     /**
      * @return array<int, array<int, array<int|string, bool|string>>>
      * @psalm-return list<array{array<string, bool|string>, string[]}>
      */
-    public function providerForTestRenameTable(): array
+    public static function providerForTestRenameTable(): array
     {
         // phpcs:disable Generic.Files.LineLength.TooLong
         return [
@@ -1873,6 +1891,11 @@ class RelationTest extends AbstractTestCase
 
     public function testRenameTableEscaping(): void
     {
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+
+        $relation = new Relation($dbi);
+
         $GLOBALS['server'] = 1;
         $_SESSION['relation'] = [];
         $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
@@ -1883,14 +1906,14 @@ class RelationTest extends AbstractTestCase
             'table_coords' => 'table`coords',
         ])->toArray();
 
-        $this->dummyDbi->addResult(
+        $dummyDbi->addResult(
             'UPDATE `pma``db`.`table``coords` SET db_name = \'db\\\'1\', table_name = \'table\\\'2\''
                 . ' WHERE db_name = \'db\\\'1\' AND table_name = \'table\\\'1\'',
-            []
+            [],
         );
 
-        $this->relation->renameTable('db\'1', 'db\'1', 'table\'1', 'table\'2');
+        $relation->renameTable('db\'1', 'db\'1', 'table\'1', 'table\'2');
 
-        $this->assertAllQueriesConsumed();
+        $dummyDbi->assertAllQueriesConsumed();
     }
 }

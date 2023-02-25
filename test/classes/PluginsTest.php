@@ -4,20 +4,29 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Transformations;
 
-/**
- * @covers \PhpMyAdmin\Plugins
- */
+/** @covers \PhpMyAdmin\Plugins */
 class PluginsTest extends AbstractTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->loadContainerBuilder();
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+
+        parent::loadDbiIntoContainerBuilder();
+    }
+
     public function testGetExport(): void
     {
-        global $plugin_param;
-
         $GLOBALS['server'] = 1;
         $plugins = Plugins::getExport('database', false);
-        $this->assertEquals(['export_type' => 'database', 'single_table' => false], $plugin_param);
+        $this->assertEquals(['export_type' => 'database', 'single_table' => false], $GLOBALS['plugin_param']);
         $this->assertIsArray($plugins);
         $this->assertCount(14, $plugins);
         $this->assertContainsOnlyInstancesOf(Plugins\ExportPlugin::class, $plugins);
@@ -25,10 +34,8 @@ class PluginsTest extends AbstractTestCase
 
     public function testGetImport(): void
     {
-        global $plugin_param;
-
         $plugins = Plugins::getImport('database');
-        $this->assertEquals('database', $plugin_param);
+        $this->assertEquals('database', $GLOBALS['plugin_param']);
         $this->assertIsArray($plugins);
         $this->assertCount(6, $plugins);
         $this->assertContainsOnlyInstancesOf(Plugins\ImportPlugin::class, $plugins);
@@ -51,26 +58,24 @@ class PluginsTest extends AbstractTestCase
     public function testGetDefault(
         string $expected,
         $actualConfig,
-        ?string $actualGet,
+        string|null $actualGet,
         string $section,
         string $option,
-        ?bool $timeoutPassed
+        bool|null $timeoutPassed,
     ): void {
-        global $cfg, $strLatexContinued, $strLatexStructure, $timeout_passed;
-
         $_GET = [];
         $_REQUEST = [];
         if ($timeoutPassed !== null) {
-            $timeout_passed = $timeoutPassed;
+            $GLOBALS['timeout_passed'] = $timeoutPassed;
             $_REQUEST[$option] = $actualGet;
         } elseif ($actualGet !== null) {
             $_GET[$option] = $actualGet;
         }
 
-        $strLatexContinued = '(continued)';
-        $strLatexStructure = 'Structure of table @TABLE@';
+        $GLOBALS['strLatexContinued'] = '(continued)';
+        $GLOBALS['strLatexStructure'] = 'Structure of table @TABLE@';
         /** @psalm-suppress InvalidArrayOffset, PossiblyInvalidArrayAssignment */
-        $cfg[$section][$option] = $actualConfig;
+        $GLOBALS['cfg'][$section][$option] = $actualConfig;
         $default = Plugins::getDefault($section, $option);
         $this->assertSame($expected, $default);
     }
@@ -79,7 +84,7 @@ class PluginsTest extends AbstractTestCase
      * @return array[]
      * @psalm-return array{array{string, string|int|null, string|null, 'Export'|'Import'|'Schema', string, bool|null}}
      */
-    public function providerForTestGetDefault(): array
+    public static function providerForTestGetDefault(): array
     {
         return [
             ['xml', 'xml', null, 'Export', 'format', null],
@@ -102,22 +107,36 @@ class PluginsTest extends AbstractTestCase
 
     public function testGetChoice(): void
     {
-        global $plugin_param;
-
         $GLOBALS['server'] = 1;
-        $plugin_param = ['export_type' => 'database', 'single_table' => false];
+        $GLOBALS['plugin_param'] = ['export_type' => 'database', 'single_table' => false];
         $exportList = [
-            new Plugins\Export\ExportJson(),
-            new Plugins\Export\ExportOds(),
-            new Plugins\Export\ExportSql(),
-            new Plugins\Export\ExportXml(),
+            new Plugins\Export\ExportJson(
+                new Relation($GLOBALS['dbi']),
+                new Export($GLOBALS['dbi']),
+                new Transformations(),
+            ),
+            new Plugins\Export\ExportOds(
+                new Relation($GLOBALS['dbi']),
+                new Export($GLOBALS['dbi']),
+                new Transformations(),
+            ),
+            new Plugins\Export\ExportSql(
+                new Relation($GLOBALS['dbi']),
+                new Export($GLOBALS['dbi']),
+                new Transformations(),
+            ),
+            new Plugins\Export\ExportXml(
+                new Relation($GLOBALS['dbi']),
+                new Export($GLOBALS['dbi']),
+                new Transformations(),
+            ),
         ];
         $actual = Plugins::getChoice($exportList, 'xml');
         $expected = [
-            ['name' => 'json', 'text' => 'JSON', 'is_selected' => false, 'force_file' => false],
-            ['name' => 'ods', 'text' => 'OpenDocument Spreadsheet', 'is_selected' => false, 'force_file' => true],
-            ['name' => 'sql', 'text' => 'SQL', 'is_selected' => false, 'force_file' => false],
-            ['name' => 'xml', 'text' => 'XML', 'is_selected' => true, 'force_file' => false],
+            ['name' => 'json', 'text' => 'JSON', 'is_selected' => false, 'is_binary' => false],
+            ['name' => 'ods', 'text' => 'OpenDocument Spreadsheet', 'is_selected' => false, 'is_binary' => true],
+            ['name' => 'sql', 'text' => 'SQL', 'is_selected' => false, 'is_binary' => false],
+            ['name' => 'xml', 'text' => 'XML', 'is_selected' => true, 'is_binary' => false],
         ];
         $this->assertEquals($expected, $actual);
     }

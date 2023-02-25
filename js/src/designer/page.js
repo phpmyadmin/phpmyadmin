@@ -1,8 +1,10 @@
-/* global DesignerOfflineDB */ // js/designer/database.js
-// eslint-disable-next-line no-unused-vars
-/* global db, selectedPage:writable */ // js/designer/init.js
-/* global DesignerMove */ // js/designer/move.js
-/* global DesignerObjects */ // js/designer/objects.js
+import $ from 'jquery';
+import { ajaxShowMessage } from '../modules/ajax-message.js';
+import { escapeHtml } from '../modules/functions/escape.js';
+import { DesignerConfig } from './config.js';
+import { DesignerOfflineDB } from './database.js';
+import { DesignerMove } from './move.js';
+import { DesignerObjects } from './objects.js';
 
 var DesignerPage = {};
 
@@ -10,7 +12,7 @@ DesignerPage.showTablesInLandingPage = function (db) {
     DesignerPage.loadFirstPage(db, function (page) {
         if (page) {
             DesignerPage.loadHtmlForPage(page.pgNr);
-            selectedPage = page.pgNr;
+            DesignerConfig.selectedPage = page.pgNr;
         } else {
             DesignerPage.showNewPageTables(true);
         }
@@ -45,12 +47,12 @@ DesignerPage.saveToSelectedPage = function (db, pageId, pageName, tablePositions
         if (typeof callback !== 'undefined') {
             callback(page);
         }
-        selectedPage = page.pgNr;
+        DesignerConfig.selectedPage = page.pgNr;
     });
 };
 
 DesignerPage.createNewPage = function (db, pageName, callback) {
-    var newPage = new DesignerObjects.PdfPage(db, pageName);
+    var newPage = new DesignerObjects.PdfPage(db, pageName, []);
     DesignerOfflineDB.addObject('pdf_pages', newPage, function (pgNr) {
         newPage.pgNr = pgNr;
         if (typeof callback !== 'undefined') {
@@ -70,7 +72,7 @@ DesignerPage.createPageList = function (db, callback) {
             var page = pages[p];
             if (page.dbName === db) {
                 html += '<option value="' + page.pgNr + '">';
-                html += Functions.escapeHtml(page.pageDescr) + '</option>';
+                html += escapeHtml(page.pageDescr) + '</option>';
             }
         }
         if (typeof callback !== 'undefined') {
@@ -122,8 +124,8 @@ DesignerPage.showNewPageTables = function (check) {
             DesignerMove.visibleTab(input, input.value);
         }
     }
-    selectedPage = -1;
-    $('#page_name').text(Messages.strUntitled);
+    DesignerConfig.selectedPage = -1;
+    $('#page_name').text(window.Messages.strUntitled);
     DesignerMove.markUnsaved();
 };
 
@@ -133,7 +135,7 @@ DesignerPage.loadHtmlForPage = function (pageId) {
         $('#name-panel').find('#page_name').text(page.pageDescr);
         var tableMissing = false;
         for (var t = 0; t < tblCords.length; t++) {
-            var tbId = db + '.' + tblCords[t].tableName;
+            var tbId = DesignerConfig.db + '.' + tblCords[t].tableName;
             var table = document.getElementById(tbId);
             if (table === null) {
                 tableMissing = true;
@@ -149,9 +151,9 @@ DesignerPage.loadHtmlForPage = function (pageId) {
         DesignerMove.markSaved();
         if (tableMissing === true) {
             DesignerMove.markUnsaved();
-            Functions.ajaxShowMessage(Messages.strSavedPageTableMissing);
+            ajaxShowMessage(window.Messages.strSavedPageTableMissing);
         }
-        selectedPage = page.pgNr;
+        DesignerConfig.selectedPage = page.pgNr;
     });
 };
 
@@ -176,3 +178,5 @@ DesignerPage.getRandom = function (max, min) {
     var val = Math.random() * (max - min) + min;
     return Math.floor(val);
 };
+
+export { DesignerPage };

@@ -13,10 +13,8 @@ use function __;
 
 class SqlForm extends BaseForm
 {
-    /**
-     * @return array
-     */
-    public static function getForms()
+    /** @return array */
+    public static function getForms(): array
     {
         return [
             'Sql_queries' => [
@@ -40,10 +38,7 @@ class SqlForm extends BaseForm
         ];
     }
 
-    /**
-     * @return string
-     */
-    public static function getName()
+    public static function getName(): string
     {
         return __('SQL queries');
     }

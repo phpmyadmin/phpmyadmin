@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Transformation;
 
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
@@ -16,16 +17,15 @@ use function array_keys;
  */
 class OverviewController extends AbstractController
 {
-    /** @var Transformations */
-    private $transformations;
-
-    public function __construct(ResponseRenderer $response, Template $template, Transformations $transformations)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        private Transformations $transformations,
+    ) {
         parent::__construct($response, $template);
-        $this->transformations = $transformations;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $header = $this->response->getHeader();
         $header->disableMenuAndConsole();

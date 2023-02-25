@@ -45,9 +45,9 @@ class Url
         $db = '',
         $table = '',
         $indent = 0,
-        $skip = []
-    ) {
-        global $config;
+        $skip = [],
+    ): string {
+        $GLOBALS['config'] ??= null;
 
         if (is_array($db)) {
             $params =& $db;
@@ -66,7 +66,7 @@ class Url
             $params['server'] = $GLOBALS['server'];
         }
 
-        if (empty($config->getCookie('pma_lang')) && ! empty($GLOBALS['lang'])) {
+        if (empty($GLOBALS['config']->getCookie('pma_lang')) && ! empty($GLOBALS['lang'])) {
             $params['lang'] = $GLOBALS['lang'];
         }
 
@@ -118,7 +118,7 @@ class Url
      *
      * @return string form fields of type hidden
      */
-    public static function getHiddenFields(array $values, $pre = '', $is_token = false)
+    public static function getHiddenFields(array $values, $pre = '', $is_token = false): string
     {
         $fields = '';
 
@@ -128,7 +128,7 @@ class Url
         }
 
         foreach ($values as $name => $value) {
-            if (! empty($pre)) {
+            if ($pre !== '') {
                 $name = $pre . '[' . $name . ']';
             }
 
@@ -175,7 +175,7 @@ class Url
      *
      * @return string   string with URL parameters
      */
-    public static function getCommon(array $params = [], $divider = '?', $encrypt = true)
+    public static function getCommon(array $params = [], $divider = '?', $encrypt = true): string
     {
         return self::getCommonRaw($params, $divider, $encrypt);
     }
@@ -209,22 +209,24 @@ class Url
      *
      * @return string   string with URL parameters
      */
-    public static function getCommonRaw(array $params = [], $divider = '?', $encrypt = true)
+    public static function getCommonRaw(array $params = [], $divider = '?', $encrypt = true): string
     {
-        global $config;
+        $GLOBALS['config'] ??= null;
 
         // avoid overwriting when creating navigation panel links to servers
         if (
             isset($GLOBALS['server'])
             && $GLOBALS['server'] != $GLOBALS['cfg']['ServerDefault']
             && ! isset($params['server'])
-            && ! $config->get('is_setup')
+            && ! $GLOBALS['config']->get('is_setup')
         ) {
             $params['server'] = $GLOBALS['server'];
         }
 
         // Can be null when the user is missing an extension.
-        if ($config !== null && empty($config->getCookie('pma_lang')) && ! empty($GLOBALS['lang'])) {
+        if (
+            $GLOBALS['config'] !== null && empty($GLOBALS['config']->getCookie('pma_lang')) && ! empty($GLOBALS['lang'])
+        ) {
             $params['lang'] = $GLOBALS['lang'];
         }
 
@@ -240,16 +242,14 @@ class Url
     /**
      * @param array<int|string, mixed> $params
      * @param bool                     $encrypt whether to encrypt URL params
-     *
-     * @return string
      */
-    public static function buildHttpQuery($params, $encrypt = true)
+    public static function buildHttpQuery($params, $encrypt = true): string
     {
-        global $config;
+        $GLOBALS['config'] ??= null;
 
         $separator = self::getArgSeparator();
 
-        if (! $encrypt || ! $config->get('URLQueryEncryption')) {
+        if (! $encrypt || $GLOBALS['config'] === null || ! $GLOBALS['config']->get('URLQueryEncryption')) {
             return http_build_query($params, '', $separator);
         }
 
@@ -268,8 +268,6 @@ class Url
             'hostname',
             'dbname',
             'tablename',
-            'checkprivsdb',
-            'checkprivstable',
         ];
         $paramsToEncrypt = [];
         foreach ($params as $paramKey => $paramValue) {
@@ -295,7 +293,7 @@ class Url
         return strtr(base64_encode($crypto->encrypt($query)), '+/', '-_');
     }
 
-    public static function decryptQuery(string $query): ?string
+    public static function decryptQuery(string $query): string|null
     {
         $crypto = new Crypto();
 
@@ -313,7 +311,7 @@ class Url
      *
      * @return string  character used for separating url parts usually ; or &
      */
-    public static function getArgSeparator($encode = 'none')
+    public static function getArgSeparator($encode = 'none'): string
     {
         static $separator = null;
         static $html_separator = null;
@@ -335,15 +333,10 @@ class Url
             $html_separator = htmlentities($separator);
         }
 
-        switch ($encode) {
-            case 'html':
-                return $html_separator;
-
-            case 'text':
-            case 'none':
-            default:
-                return $separator;
-        }
+        return match ($encode) {
+            'html' => $html_separator,
+            default => $separator,
+        };
     }
 
     /**

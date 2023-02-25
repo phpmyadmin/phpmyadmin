@@ -14,6 +14,7 @@ use function tempnam;
 use function unlink;
 
 /**
+ * @covers \PhpMyAdmin\OpenDocument
  * @requires extension zip
  */
 class OpenDocumentTest extends AbstractTestCase
@@ -22,11 +23,12 @@ class OpenDocumentTest extends AbstractTestCase
     {
         $document = OpenDocument::create(
             'application/vnd.oasis.opendocument.text',
-            '<data>'
+            '<data>',
         );
         $this->assertNotFalse($document);
 
-        $tmpFile = (string) tempnam('./', 'open-document-test');
+        $tmpFile = tempnam('./', 'open-document-test');
+        $this->assertNotFalse($tmpFile);
         $this->assertNotFalse(file_put_contents($tmpFile, $document), 'The temp file should be written');
 
         $zipExtension = new ZipExtension(new ZipArchive());
@@ -44,10 +46,12 @@ class OpenDocumentTest extends AbstractTestCase
         $this->assertStringContainsString(
             // Do not use a full version or seconds could be out of sync and cause flaky test failures
             '<meta:creation-date>' . $dateTimeCreation,
-            $zipExtension->getContents($tmpFile, '/meta\.xml/')['data']
+            $zipExtension->getContents($tmpFile, '/meta\.xml/')['data'],
         );
 
         $this->assertSame(5, $zipExtension->getNumberOfFiles($tmpFile));
+        // Unset to close any file that were left open.
+        unset($zipExtension);
         $this->assertTrue(unlink($tmpFile));
     }
 }

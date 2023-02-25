@@ -11,15 +11,11 @@ use PhpMyAdmin\Tests\AbstractNetworkTestCase;
 
 use function ob_get_clean;
 use function ob_start;
-use function phpversion;
 use function session_get_cookie_params;
 use function session_id;
 use function session_name;
-use function version_compare;
 
-/**
- * @covers \PhpMyAdmin\Plugins\Auth\AuthenticationSignon
- */
+/** @covers \PhpMyAdmin\Plugins\Auth\AuthenticationSignon */
 class AuthenticationSignonTest extends AbstractNetworkTestCase
 {
     /** @var AuthenticationSignon */
@@ -31,9 +27,14 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setLanguage();
+
         parent::setGlobalConfig();
+
         parent::setTheme();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
@@ -47,6 +48,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 
@@ -92,7 +94,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
         $_SESSION['LAST_SIGNON_URL'] = 'https://example.com/SignonDiffURL';
 
         $this->assertFalse(
-            $this->object->readCredentials()
+            $this->object->readCredentials(),
         );
     }
 
@@ -108,7 +110,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
         $GLOBALS['cfg']['Server']['user'] = 'user';
 
         $this->assertTrue(
-            $this->object->readCredentials()
+            $this->object->readCredentials(),
         );
 
         $this->assertEquals('user', $this->object->user);
@@ -152,17 +154,17 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
                 'port' => '80',
                 'user' => 'user',
             ],
-            $GLOBALS['cfg']['Server']
+            $GLOBALS['cfg']['Server'],
         );
 
         $this->assertEquals(
             $sessionName,
-            session_name()
+            session_name(),
         );
 
         $this->assertEquals(
             $sessionID,
-            session_id()
+            session_id(),
         );
 
         $this->assertArrayNotHasKey('LAST_SIGNON_URL', $_SESSION);
@@ -187,7 +189,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
         $_SESSION['PMA_single_signon_token'] = 'pmaToken';
 
         $this->assertTrue(
-            $this->object->readCredentials()
+            $this->object->readCredentials(),
         );
 
         $this->assertEquals('user123', $this->object->user);
@@ -201,7 +203,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
         $this->object->password = 'testPass123';
 
         $this->assertTrue(
-            $this->object->storeCredentials()
+            $this->object->storeCredentials(),
         );
 
         $this->assertEquals('testUser123', $GLOBALS['cfg']['Server']['user']);
@@ -226,7 +228,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
         $this->assertEquals(
             'Login without a password is forbidden by configuration (see AllowNoPassword)',
-            $_SESSION['PMA_single_signon_error_message']
+            $_SESSION['PMA_single_signon_error_message'],
         );
     }
 
@@ -269,7 +271,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
             'You have been automatically logged out due to inactivity of'
             . ' 1440 seconds. Once you log in again, you should be able to'
             . ' resume the work where you left off.',
-            $_SESSION['PMA_single_signon_error_message']
+            $_SESSION['PMA_single_signon_error_message'],
         );
     }
 
@@ -347,14 +349,10 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
             'httponly' => false,
             'samesite' => '',
         ];
-        // php did not set 'samesite' attribute in session_get_cookie_params since not yet implemented
-        if (version_compare((string) phpversion(), '7.3.0', '<')) {
-            unset($defaultOptions['samesite']);
-        }
 
         $this->assertSame(
             $defaultOptions,
-            session_get_cookie_params()
+            session_get_cookie_params(),
         );
     }
 }

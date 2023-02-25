@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisGeometry;
+use PhpMyAdmin\Gis\ScaleData;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\MockObject\MockObject;
 
-/**
- * @covers \PhpMyAdmin\Gis\GisGeometry
- */
+/** @covers \PhpMyAdmin\Gis\GisGeometry */
 class GisGeometryTest extends AbstractTestCase
 {
     /** @var GisGeometry|MockObject */
@@ -23,6 +22,7 @@ class GisGeometryTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->object = $this->getMockForAbstractClass(GisGeometry::class);
     }
 
@@ -33,19 +33,20 @@ class GisGeometryTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 
     /**
      * tests setMinMax method
      *
-     * @param string $point_set Point set
-     * @param array  $min_max   Existing min, max values
-     * @param array  $output    Expected output array
+     * @param string         $point_set Point set
+     * @param ScaleData|null $min_max   Existing min, max values
+     * @param ScaleData|null $output    Expected output array
      *
      * @dataProvider providerForTestSetMinMax
      */
-    public function testSetMinMax(string $point_set, array $min_max, array $output): void
+    public function testSetMinMax(string $point_set, ScaleData|null $min_max, ScaleData|null $output): void
     {
         $this->assertEquals(
             $output,
@@ -56,8 +57,8 @@ class GisGeometryTest extends AbstractTestCase
                 [
                     $point_set,
                     $min_max,
-                ]
-            )
+                ],
+            ),
         );
     }
 
@@ -66,84 +67,69 @@ class GisGeometryTest extends AbstractTestCase
      *
      * @return array data for testSetMinMax
      */
-    public function providerForTestSetMinMax(): array
+    public static function providerForTestSetMinMax(): array
     {
         return [
             [
                 '12 35,48 75,69 23,25 45,14 53,35 78',
-                [],
-                [
-                    'minX' => 12,
-                    'maxX' => 69,
-                    'minY' => 23,
-                    'maxY' => 78,
-                ],
+                null,
+                new ScaleData(69, 12, 78, 23),
             ],
             [
                 '12 35,48 75,69 23,25 45,14 53,35 78',
-                [
-                    'minX' => 2,
-                    'maxX' => 29,
-                    'minY' => 23,
-                    'maxY' => 128,
-                ],
-                [
-                    'minX' => 2,
-                    'maxX' => 69,
-                    'minY' => 23,
-                    'maxY' => 128,
-                ],
+                new ScaleData(29, 2, 128, 23),
+                new ScaleData(69, 2, 128, 23),
             ],
         ];
     }
 
     /**
-     * tests generateParams method
+     * tests parseWktAndSrid method
      *
      * @param string $value  Geometry data
      * @param array  $output Expected output
      *
-     * @dataProvider providerForTestGenerateParams
+     * @dataProvider providerForTestParseWktAndSrid
      */
-    public function testGenerateParams(string $value, array $output): void
+    public function testParseWktAndSrid(string $value, array $output): void
     {
         $this->assertEquals(
             $output,
             $this->callFunction(
                 $this->object,
                 GisGeometry::class,
-                'generateParams',
-                [$value]
-            )
+                'parseWktAndSrid',
+                [$value],
+            ),
         );
     }
 
     /**
-     * data provider for testGenerateParams
+     * data provider for testParseWktAndSrid
      *
-     * @return array data for testGenerateParams
+     * @return array data for testParseWktAndSrid
      */
-    public function providerForTestGenerateParams(): array
+    public static function providerForTestParseWktAndSrid(): array
     {
         return [
             [
                 "'MULTIPOINT(125 50,156 25,178 43,175 80)',125",
                 [
-                    'srid' => '125',
+                    'srid' => 125,
                     'wkt' => 'MULTIPOINT(125 50,156 25,178 43,175 80)',
                 ],
             ],
             [
                 'MULTIPOINT(125 50,156 25,178 43,175 80)',
                 [
-                    'srid' => '0',
+                    'srid' => 0,
                     'wkt' => 'MULTIPOINT(125 50,156 25,178 43,175 80)',
                 ],
             ],
             [
                 'foo',
                 [
-                    'srid' => '0',
+                    'srid' => 0,
                     'wkt' => '',
                 ],
             ],
@@ -160,7 +146,7 @@ class GisGeometryTest extends AbstractTestCase
      *
      * @dataProvider providerForTestExtractPoints
      */
-    public function testExtractPoints(string $point_set, ?array $scale_data, bool $linear, array $output): void
+    public function testExtractPoints(string $point_set, array|null $scale_data, bool $linear, array $output): void
     {
         $this->assertEquals(
             $output,
@@ -172,8 +158,8 @@ class GisGeometryTest extends AbstractTestCase
                     $point_set,
                     $scale_data,
                     $linear,
-                ]
-            )
+                ],
+            ),
         );
     }
 
@@ -182,7 +168,7 @@ class GisGeometryTest extends AbstractTestCase
      *
      * @return array data for testExtractPoints
      */
-    public function providerForTestExtractPoints(): array
+    public static function providerForTestExtractPoints(): array
     {
         return [
             // with no scale data
@@ -287,8 +273,8 @@ class GisGeometryTest extends AbstractTestCase
                 [
                     $srid,
                     $scale_data,
-                ]
-            )
+                ],
+            ),
         );
     }
 
@@ -297,7 +283,7 @@ class GisGeometryTest extends AbstractTestCase
      *
      * @return array test data for the testGetBoundsForOl() test case
      */
-    public function providerForTestGetBoundsForOl(): array
+    public static function providerForTestGetBoundsForOl(): array
     {
         return [
             [
@@ -339,8 +325,8 @@ class GisGeometryTest extends AbstractTestCase
                 [
                     $polygons,
                     $srid,
-                ]
-            )
+                ],
+            ),
         );
     }
 
@@ -349,7 +335,7 @@ class GisGeometryTest extends AbstractTestCase
      *
      * @return array test data for testGetPolygonArrayForOpenLayers() test case
      */
-    public function providerForTestGetPolygonArrayForOpenLayers(): array
+    public static function providerForTestGetPolygonArrayForOpenLayers(): array
     {
         return [
             [

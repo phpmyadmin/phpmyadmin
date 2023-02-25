@@ -5,19 +5,24 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 
 class LogoutController
 {
-    public function __invoke(): void
+    public function __construct(private AuthenticationPluginFactory $authPluginFactory)
     {
-        global $auth_plugin, $token_mismatch;
+    }
 
-        if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST' || $token_mismatch) {
+    public function __invoke(ServerRequest $request): void
+    {
+        if (! $request->isPost() || $GLOBALS['token_mismatch']) {
             Core::sendHeaderLocation('./index.php?route=/');
 
             return;
         }
 
-        $auth_plugin->logOut();
+        $authPlugin = $this->authPluginFactory->create();
+        $authPlugin->logOut();
     }
 }

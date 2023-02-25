@@ -64,9 +64,8 @@ class SpecialSchemaLinks
      */
     public static function get(): array
     {
-        global $cfg;
-
-        $defaultPage = './' . Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        $defaultPageDatabase = './' . Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+        $defaultPageTable = './' . Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
 
         return [
             'mysql' => [
@@ -89,7 +88,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'Db',
                             ],
                         ],
-                        'default_page' => $defaultPage,
+                        'default_page' => $defaultPageTable,
                     ],
                     'column_name' => [
                         'link_param' => 'field',
@@ -140,7 +139,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'database_name',
                             ],
                         ],
-                        'default_page' => $defaultPage,
+                        'default_page' => $defaultPageTable,
                     ],
                     'index_name' => [
                         'link_param' => 'index',
@@ -166,7 +165,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'database_name',
                             ],
                         ],
-                        'default_page' => $defaultPage,
+                        'default_page' => $defaultPageTable,
                     ],
                 ],
                 'proc' => [
@@ -256,7 +255,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'Db',
                             ],
                         ],
-                        'default_page' => $defaultPage,
+                        'default_page' => $defaultPageTable,
                     ],
                 ],
                 'user' => [
@@ -282,7 +281,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'table_schema',
                             ],
                         ],
-                        'default_page' => $defaultPage,
+                        'default_page' => $defaultPageTable,
                     ],
                     'column_name' => [
                         'link_param' => 'field',
@@ -308,7 +307,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'constraint_schema',
                             ],
                         ],
-                        'default_page' => $defaultPage,
+                        'default_page' => $defaultPageTable,
                     ],
                     'column_name' => [
                         'link_param' => 'field',
@@ -332,7 +331,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'referenced_table_schema',
                             ],
                         ],
-                        'default_page' => $defaultPage,
+                        'default_page' => $defaultPageTable,
                     ],
                     'referenced_column_name' => [
                         'link_param' => 'field',
@@ -358,7 +357,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'table_schema',
                             ],
                         ],
-                        'default_page' => $defaultPage,
+                        'default_page' => $defaultPageTable,
                     ],
                 ],
                 'processlist' => [
@@ -382,7 +381,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'constraint_schema',
                             ],
                         ],
-                        'default_page' => $defaultPage,
+                        'default_page' => $defaultPageTable,
                     ],
                     'referenced_table_name' => [
                         'link_param' => 'table',
@@ -392,7 +391,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'constraint_schema',
                             ],
                         ],
-                        'default_page' => $defaultPage,
+                        'default_page' => $defaultPageTable,
                     ],
                 ],
                 'routines' => [
@@ -414,7 +413,7 @@ class SpecialSchemaLinks
                 'schemata' => [
                     'schema_name' => [
                         'link_param' => 'db',
-                        'default_page' => $defaultPage,
+                        'default_page' => $defaultPageDatabase,
                     ],
                 ],
                 'statistics' => [
@@ -426,7 +425,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'table_schema',
                             ],
                         ],
-                        'default_page' => $defaultPage,
+                        'default_page' => $defaultPageTable,
                     ],
                     'column_name' => [
                         'link_param' => 'field',
@@ -452,7 +451,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'table_schema',
                             ],
                         ],
-                        'default_page' => $defaultPage,
+                        'default_page' => $defaultPageTable,
                     ],
                 ],
                 'table_constraints' => [
@@ -464,7 +463,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'table_schema',
                             ],
                         ],
-                        'default_page' => $defaultPage,
+                        'default_page' => $defaultPageTable,
                     ],
                 ],
                 'views' => [
@@ -476,7 +475,7 @@ class SpecialSchemaLinks
                                 'column_name' => 'table_schema',
                             ],
                         ],
-                        'default_page' => $defaultPage,
+                        'default_page' => $defaultPageTable,
                     ],
                 ],
             ],

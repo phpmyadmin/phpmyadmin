@@ -20,7 +20,7 @@ if (
         $vendorConfig['versionCheckDefault'],
         $vendorConfig['localePath'],
         $vendorConfig['cacheDir'],
-        $vendorConfig['versionSuffix']
+        $vendorConfig['versionSuffix'],
     )
 ) {
     exit;

@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests\Properties\Plugins;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Properties\Plugins\ImportPluginProperties
- */
+/** @covers \PhpMyAdmin\Properties\Plugins\ImportPluginProperties */
 class ImportPluginPropertiesTest extends AbstractTestCase
 {
     /** @var ImportPluginProperties */
@@ -21,6 +19,7 @@ class ImportPluginPropertiesTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->object = new ImportPluginProperties();
     }
 
@@ -30,6 +29,7 @@ class ImportPluginPropertiesTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 
@@ -37,7 +37,7 @@ class ImportPluginPropertiesTest extends AbstractTestCase
     {
         $this->assertEquals(
             'import',
-            $this->object->getItemType()
+            $this->object->getItemType(),
         );
     }
 
@@ -52,7 +52,7 @@ class ImportPluginPropertiesTest extends AbstractTestCase
 
         $this->assertEquals(
             'options123',
-            $this->object->getOptionsText()
+            $this->object->getOptionsText(),
         );
     }
 
@@ -67,7 +67,7 @@ class ImportPluginPropertiesTest extends AbstractTestCase
 
         $this->assertEquals(
             'mime123',
-            $this->object->getMimeType()
+            $this->object->getMimeType(),
         );
     }
 }

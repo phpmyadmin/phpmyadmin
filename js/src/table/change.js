@@ -1,14 +1,15 @@
+import $ from 'jquery';
+import { AJAX } from '../modules/ajax.js';
+import { Functions } from '../modules/functions.js';
+
 /**
  * @fileoverview    function used in table data manipulation pages
  *
- * @requires    jQuery
  * @requires    jQueryUI
- * @requires    js/functions.js
- *
  */
 
 /* global extendingValidatorMessages */ // templates/javascript/variables.twig
-/* global openGISEditor, gisEditorLoaded, loadJSAndGISEditor, loadGISEditor */ // js/gis_data_editor.js
+/* global openGISEditor, loadJSAndGISEditor, loadGISEditor */ // js/gis_data_editor.js
 
 /**
  * Modify form controls when the "NULL" checkbox is checked
@@ -23,16 +24,16 @@
 function nullify (theType, urlField, md5Field, multiEdit) {
     var rowForm = document.forms.insertForm;
 
-    if (typeof(rowForm.elements['funcs' + multiEdit + '[' + md5Field + ']']) !== 'undefined') {
+    if (typeof (rowForm.elements['funcs' + multiEdit + '[' + md5Field + ']']) !== 'undefined') {
         rowForm.elements['funcs' + multiEdit + '[' + md5Field + ']'].selectedIndex = -1;
     }
 
     // "ENUM" field with more than 20 characters
     if (Number(theType) === 1) {
-        rowForm.elements['fields' + multiEdit + '[' + md5Field +  ']'][1].selectedIndex = -1;
-    // Other "ENUM" field
+        rowForm.elements['fields' + multiEdit + '[' + md5Field + ']'][1].selectedIndex = -1;
+        // Other "ENUM" field
     } else if (Number(theType) === 2) {
-        var elts     = rowForm.elements['fields' + multiEdit + '[' + md5Field + ']'];
+        var elts = rowForm.elements['fields' + multiEdit + '[' + md5Field + ']'];
         // when there is just one option in ENUM:
         if (elts.checked) {
             elts.checked = false;
@@ -42,23 +43,22 @@ function nullify (theType, urlField, md5Field, multiEdit) {
                 elts[i].checked = false;
             } // end for
         } // end if
-    // "SET" field
+        // "SET" field
     } else if (Number(theType) === 3) {
-        rowForm.elements['fields' + multiEdit + '[' + md5Field +  '][]'].selectedIndex = -1;
-    // Foreign key field (drop-down)
+        rowForm.elements['fields' + multiEdit + '[' + md5Field + '][]'].selectedIndex = -1;
+        // Foreign key field (drop-down)
     } else if (Number(theType) === 4) {
-        rowForm.elements['fields' + multiEdit + '[' + md5Field +  ']'].selectedIndex = -1;
-    // foreign key field (with browsing icon for foreign values)
+        rowForm.elements['fields' + multiEdit + '[' + md5Field + ']'].selectedIndex = -1;
+        // foreign key field (with browsing icon for foreign values)
     } else if (Number(theType) === 6) {
         rowForm.elements['fields' + multiEdit + '[' + md5Field + ']'].value = '';
-    // Other field types
+        // Other field types
     } else /* if (theType === 5)*/ {
         rowForm.elements['fields' + multiEdit + '[' + md5Field + ']'].value = '';
     } // end if... else if... else
 
     return true;
 } // end of the 'nullify()' function
-
 
 /**
  * javascript DateTime format validation.
@@ -69,6 +69,7 @@ function nullify (theType, urlField, md5Field, multiEdit) {
 function daysInFebruary (year) {
     return (((year % 4 === 0) && (((year % 100 !== 0)) || (year % 400 === 0))) ? 29 : 28);
 }
+
 // function to convert single digit to double digit
 function fractionReplace (number) {
     var num = parseInt(number, 10);
@@ -176,10 +177,10 @@ function verifyAfterSearchFieldChange (index, searchFormId) {
             });
             // validator method for IN(...), NOT IN(...)
             // BETWEEN and NOT BETWEEN
-            jQuery.validator.addMethod('validationFunctionForMultipleInt', function (value) {
+            $.validator.addMethod('validationFunctionForMultipleInt', function (value) {
                 return value.match(/^(?:(?:\d\s*)|\s*)+(?:,\s*\d+)*$/i) !== null;
             },
-            Messages.strEnterValidNumber
+            window.Messages.strEnterValidNumber
             );
             validateMultipleIntField($thisInput, true);
         } else {
@@ -193,8 +194,23 @@ function verifyAfterSearchFieldChange (index, searchFormId) {
         }
         // Update error on dropdown change
         $thisInput.valid();
+    } else if ($thisInput.data('type') === 'FLOAT') {
+        // Trim spaces
+        $thisInput.val($thisInput.val().trim());
+
+        $(searchFormId).validate({
+            // update errors as we write
+            onkeyup: function (element) {
+                $(element).valid();
+            }
+        });
+        validateFloatField($thisInput, true);
+        // Update error on dropdown change
+        $thisInput.valid();
     }
 }
+
+window.verifyAfterSearchFieldChange = verifyAfterSearchFieldChange;
 
 /**
  * Validate the an input contains multiple int values
@@ -258,6 +274,26 @@ function validateIntField (jqueryInput, returnValueIfIsNumber) {
     });
 }
 
+/**
+ * Validate the an input contains an float value
+ * @param {jQuery} jqueryInput the Jquery object
+ * @param {boolean} returnValueIfIsNumber the value to return if the validator passes
+ * @return {void}
+ */
+function validateFloatField (jqueryInput, returnValueIfIsNumber) {
+    // removing previous rules
+    jqueryInput.rules('remove');
+
+    jqueryInput.rules('add', {
+        number: {
+            param: true,
+            depends: function () {
+                return returnValueIfIsNumber;
+            }
+        },
+    });
+}
+
 function verificationsAfterFieldChange (urlField, multiEdit, theType) {
     var evt = window.event || arguments.callee.caller.arguments[0];
     var target = evt.target || evt.srcElement;
@@ -276,15 +312,16 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
 
     // To generate the textbox that can take the salt
     var newSaltBox = '<br><input type=text name=salt[multi_edit][' + multiEdit + '][' + urlField + ']' +
-        ' id=salt_' + target.id + ' placeholder=\'' + Messages.strEncryptionKey + '\'>';
+        ' id=salt_' + target.id + ' placeholder=\'' + window.Messages.strEncryptionKey + '\'>';
 
     // If encrypting or decrypting functions that take salt as input is selected append the new textbox for salt
     if (target.value === 'AES_ENCRYPT' ||
-            target.value === 'AES_DECRYPT' ||
-            target.value === 'DES_ENCRYPT' ||
-            target.value === 'DES_DECRYPT' ||
-            target.value === 'ENCRYPT') {
-        if (!($('#salt_' + target.id).length)) {
+        target.value === 'AES_DECRYPT' ||
+        target.value === 'DES_ENCRYPT' ||
+        target.value === 'DES_DECRYPT' ||
+        target.value === 'ENCRYPT' ||
+        target.value === 'SHA2') {
+        if (! ($('#salt_' + target.id).length)) {
             $thisInput.after(newSaltBox);
         }
     } else {
@@ -319,10 +356,10 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
         });
     }
 
-    if (target.value === 'HEX' && theType.substring(0,3) === 'int') {
+    if (target.value === 'HEX' && theType.startsWith('int')) {
         // Add note when HEX function is selected on a int
-        var newHexInfo = '<br><p id="note' +  target.id + '">' + Messages.HexConversionInfo + '</p>';
-        if (!$('#note' + target.id).length) {
+        var newHexInfo = '<br><p id="note' + target.id + '">' + window.Messages.HexConversionInfo + '</p>';
+        if (! $('#note' + target.id).length) {
             $thisInput.after(newHexInfo);
         }
     } else {
@@ -338,10 +375,10 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
     $('input[name=\'insert_ignore_' + multiEdit + '\']').prop('checked', false);
 
     var charExceptionHandling;
-    if (theType.substring(0,4) === 'char') {
-        charExceptionHandling = theType.substring(5,6);
-    } else if (theType.substring(0,7) === 'varchar') {
-        charExceptionHandling = theType.substring(8,9);
+    if (theType.startsWith('char')) {
+        charExceptionHandling = theType.substring(5, 6);
+    } else if (theType.startsWith('varchar')) {
+        charExceptionHandling = theType.substring(8, 9);
     }
     if (functionSelected) {
         $thisInput.removeAttr('min');
@@ -406,6 +443,8 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
         $thisInput.data('rulesadded', null);
     }
 }
+
+window.verificationsAfterFieldChange = verificationsAfterFieldChange;
 /* End of fields validation*/
 
 /**
@@ -431,17 +470,17 @@ AJAX.registerOnload('table/change.js', function () {
     if ($('#insertForm').length) {
         // validate the comment form when it is submitted
         $('#insertForm').validate();
-        jQuery.validator.addMethod('validationFunctionForHex', function (value) {
+        $.validator.addMethod('validationFunctionForHex', function (value) {
             return value.match(/^[a-f0-9]*$/i) !== null;
         });
 
-        jQuery.validator.addMethod('validationFunctionForMd5', function (value, element, options) {
-            return !(value.substring(0, 3) === 'MD5' &&
+        $.validator.addMethod('validationFunctionForMd5', function (value, element, options) {
+            return ! (value.startsWith('MD5') &&
                 typeof options.data('maxlength') !== 'undefined' &&
                 options.data('maxlength') < 32);
         });
 
-        jQuery.validator.addMethod('validationFunctionForAesDesEncrypt', function (value, element, options) {
+        $.validator.addMethod('validationFunctionForAesDesEncrypt', function (value, element, options) {
             var funType = value.substring(0, 3);
             if (funType !== 'AES' && funType !== 'DES') {
                 return false;
@@ -456,7 +495,7 @@ AJAX.registerOnload('table/change.js', function () {
             return false;
         });
 
-        jQuery.validator.addMethod('validationFunctionForDateTime', function (value, element, options) {
+        $.validator.addMethod('validationFunctionForDateTime', function (value, element, options) {
             var dtValue = value;
             var theType = options;
             if (theType === 'date') {
@@ -508,7 +547,7 @@ AJAX.registerOnload('table/change.js', function () {
         var inputName = $span.parent('td').children('input[type=\'text\']').attr('name');
 
         openGISEditor();
-        if (!gisEditorLoaded) {
+        if (! window.gisEditorLoaded) {
             loadJSAndGISEditor(value, field, type, inputName);
         } else {
             loadGISEditor(value, field, type, inputName);
@@ -518,7 +557,7 @@ AJAX.registerOnload('table/change.js', function () {
     /**
      * Forced validation check of fields
      */
-    $(document).on('click','input[name^=\'insert_ignore_\']', function () {
+    $(document).on('click', 'input[name^=\'insert_ignore_\']', function () {
         $('#insertForm').valid();
     });
 
@@ -656,7 +695,7 @@ function addNewContinueInsertionFields (event) {
                 $thisElement.attr('id', newId);
                 $thisElement.find('option').filter(function () {
                     return $(this).text() === prevSelectedValue;
-                }).attr('selected','selected');
+                }).attr('selected', 'selected');
 
                 // If salt field is there then update its id.
                 var nextSaltInput = $thisElement.parent().next('td').next('td').find('input[name*=\'salt\']');
@@ -693,8 +732,8 @@ function addNewContinueInsertionFields (event) {
 
             if ($thisElement.is('.checkbox_null')) {
                 $thisElement
-                // this event was bound earlier by jQuery but
-                // to the original row, not the cloned one, so unbind()
+                    // this event was bound earlier by jQuery but
+                    // to the original row, not the cloned one, so unbind()
                     .off('click')
                     // Keep these values to be used when the element
                     // will be clicked
@@ -773,7 +812,7 @@ function addNewContinueInsertionFields (event) {
             if (currRows === 1) {
                 $('<input id="insert_ignore_1" type="checkbox" name="insert_ignore_1" checked="checked">')
                     .insertBefore($('table.insertRowTable').last())
-                    .after('<label for="insert_ignore_1">' + Messages.strIgnore + '</label>');
+                    .after('<label for="insert_ignore_1">' + window.Messages.strIgnore + '</label>');
             } else {
                 /**
                  * @var $last_checkbox   Object reference to the last checkbox in #insertForm
@@ -827,8 +866,8 @@ function addNewContinueInsertionFields (event) {
          * Displays alert if data loss possible on decrease
          * of rows.
          */
-        var checkLock = jQuery.isEmptyObject(AJAX.lockedTargets);
-        if (checkLock || confirm(Messages.strConfirmRowChange) === true) {
+        var checkLock = $.isEmptyObject(AJAX.lockedTargets);
+        if (checkLock || confirm(window.Messages.strConfirmRowChange) === true) {
             while (currRows > targetRows) {
                 $('input[id^=insert_ignore]').last()
                     .nextUntil('fieldset')
@@ -844,7 +883,6 @@ function addNewContinueInsertionFields (event) {
     Functions.addDateTimePicker();
 }
 
-// eslint-disable-next-line no-unused-vars
 function changeValueFieldType (elem, searchIndex) {
     var fieldsValue = $('input#fieldID_' + searchIndex);
     if (0 === fieldsValue.size()) {
@@ -873,3 +911,5 @@ function changeValueFieldType (elem, searchIndex) {
         $('#fieldID_' + searchIndex).prop('multiple', false);
     }
 }
+
+window.changeValueFieldType = changeValueFieldType;

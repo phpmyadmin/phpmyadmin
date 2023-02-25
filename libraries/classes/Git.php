@@ -42,7 +42,6 @@ use function trim;
 use function unpack;
 
 use const DIRECTORY_SEPARATOR;
-use const PHP_EOL;
 
 /**
  * Git class to manipulate Git data
@@ -51,10 +50,8 @@ class Git
 {
     /**
      * Enable Git information search and process
-     *
-     * @var bool
      */
-    private $showGitRevision;
+    private bool $showGitRevision;
 
     /**
      * Git has been found and the data fetched
@@ -138,7 +135,7 @@ class Git
         return true;
     }
 
-    private function readPackFile(string $packFile, int $packOffset): ?string
+    private function readPackFile(string $packFile, int $packOffset): string|null
     {
         // open pack file
         $packFileRes = fopen($packFile, 'rb');
@@ -189,7 +186,7 @@ class Git
         return $commit;
     }
 
-    private function getPackOffset(string $packFile, string $hash): ?int
+    private function getPackOffset(string $packFile, string $hash): int|null
     {
         // load index
         $index_data = @file_get_contents($packFile);
@@ -211,7 +208,7 @@ class Git
         // parse fanout table
         $fanout = unpack(
             'N*',
-            substr($index_data, 8, 256 * 4)
+            substr($index_data, 8, 256 * 4),
         );
 
         // find where we should search
@@ -232,10 +229,10 @@ class Git
         for ($position = $start; $position < $end; $position++) {
             $sha = strtolower(
                 bin2hex(
-                    substr($index_data, $offset + ($position * 20), 20)
-                )
+                    substr($index_data, $offset + ($position * 20), 20),
+                ),
             );
-            if ($sha == $hash) {
+            if ($sha === $hash) {
                 $found = true;
                 break;
             }
@@ -249,7 +246,7 @@ class Git
         $offset = 8 + (256 * 4) + (24 * $fanout[256]);
         $packOffsets = unpack(
             'N',
-            substr($index_data, $offset + ($position * 4), 4)
+            substr($index_data, $offset + ($position * 4), 4),
         );
 
         return $packOffsets[1];
@@ -260,10 +257,8 @@ class Git
      *
      * @param string $gitFolder The Git folder
      * @param string $hash      The commit hash
-     *
-     * @return array|false|null
      */
-    private function unPackGz(string $gitFolder, string $hash)
+    private function unPackGz(string $gitFolder, string $hash): array|false|null
     {
         $commit = false;
 
@@ -394,7 +389,11 @@ class Git
                 $user2['date'] .= $user[4];
             }
 
-            ${$linetype} = $user2;
+            if ($linetype === 'author') {
+                $author = $user2;
+            } elseif ($linetype === 'committer') {
+                $committer = $user2;
+            }
         } while ($dataline != '');
 
         $message = trim(implode(' ', $commit));
@@ -411,7 +410,7 @@ class Git
      *
      * @return stdClass|null The commit body from the GitHub API
      */
-    private function isRemoteCommit(&$commit, bool &$isRemoteCommit, string $hash): ?stdClass
+    private function isRemoteCommit($commit, bool &$isRemoteCommit, string $hash): stdClass|null
     {
         $httpRequest = new HttpRequest();
 
@@ -450,11 +449,9 @@ class Git
 
     private function getHashFromHeadRef(string $gitFolder, string $refHead): array
     {
-        $branch = false;
-
         // are we on any branch?
         if (! str_contains($refHead, '/')) {
-            return [trim($refHead), $branch];
+            return [trim($refHead), false];
         }
 
         // remove ref: prefix
@@ -486,7 +483,7 @@ class Git
         }
 
         // split file to lines
-        $refLines = explode(PHP_EOL, $packedRefs);
+        $refLines = explode("\n", $packedRefs);
         foreach ($refLines as $line) {
             // skip comments
             if ($line[0] === '#') {
@@ -501,7 +498,7 @@ class Git
             }
 
             // have found our ref?
-            if ($parts[1] == $refHead) {
+            if ($parts[1] === $refHead) {
                 $hash = $parts[0];
                 break;
             }
@@ -517,7 +514,7 @@ class Git
         return [$hash, $branch];
     }
 
-    private function getCommonDirContents(string $gitFolder): ?string
+    private function getCommonDirContents(string $gitFolder): string|null
     {
         if (! is_file($gitFolder . '/commondir')) {
             return null;
@@ -534,7 +531,7 @@ class Git
     /**
      * detects Git revision, if running inside repo
      */
-    public function checkGitRevision(): ?array
+    public function checkGitRevision(): array|null
     {
         // find out if there is a .git folder
         $gitFolder = '';
@@ -578,7 +575,7 @@ class Git
         $commit_json = $this->isRemoteCommit(
             $commit, // Will be modified if necessary by the function
             $is_remote_commit, // Will be modified if necessary by the function
-            $hash
+            $hash,
         );
 
         $is_remote_branch = false;

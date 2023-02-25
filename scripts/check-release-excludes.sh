@@ -45,11 +45,20 @@ validateExtension() {
                 foundFileExt
             fi
         ;;
+        js/global.d.ts)
+        ;;
         js/vendor/*)
             if [ \
                 "${extension}" != "js" -a "${extension}" != "map" \
                 -a "${extension}" != "css" -a "${filename}" != "LICENSE" \
                 -a "${extension}" != "txt" \
+            ]; then
+                foundFileExt
+            fi
+        ;;
+        js/dist/*)
+            if [ \
+                "${extension}" != "js" -a "${extension}" != "map" \
             ]; then
                 foundFileExt
             fi
@@ -124,7 +133,7 @@ validateExtension() {
                 foundFileExt
             fi
         ;;
-        vendor/phpseclib/phpseclib/phpseclib/openssl.cnf)
+        vendor/composer/ca-bundle/res/cacert.pem)
         ;;
         vendor/pragmarx/google2fa-qrcode/composer.lock)
         ;;
@@ -163,13 +172,17 @@ validateExtension() {
         ;;
         RELEASE-DATE-[1-9].[0-9].[0-9]-dev)
         ;;
+        RELEASE-DATE-[1-9].[0-9]+snapshot)
+        ;;
         CONTRIBUTING.md)
         ;;
         README)
         ;;
         favicon.ico)
         ;;
-        babel.config.json)
+        tsconfig.json)
+        ;;
+        webpack.config.cjs)
         ;;
         package.json)
         ;;
@@ -179,15 +192,9 @@ validateExtension() {
         ;;
         yarn.lock)
         ;;
-        .rtlcssrc.json)
-        ;;
         robots.txt)
         ;;
         index.php)
-        ;;
-        url.php)
-        ;;
-        js/messages.php)
         ;;
         config.sample.inc.php)
         ;;
@@ -203,6 +210,10 @@ validateExtension() {
 for filePath in ${FILE_LIST}; do
     validateExtension
     case $filePath in
+        */rector*.php)
+        foundFile;;
+        */.gitkeep)
+        foundFile;;
         */.editorconfig)
         foundFile;;
         */easy-coding-standard.neon)
@@ -324,6 +335,8 @@ for filePath in ${FILE_LIST}; do
         *CODE_OF_CONDUCT.md*)
         foundFile;;
         *PERFORMANCE.md*)
+        foundFile;;
+        *phar*)
         foundFile;;
         *) ;;
     esac

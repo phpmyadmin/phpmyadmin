@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\Export\ExportCodegen;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -11,6 +13,7 @@ use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Transformations;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;
@@ -33,8 +36,14 @@ class ExportCodegenTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
-        $this->object = new ExportCodegen();
+        $this->object = new ExportCodegen(
+            new Relation($GLOBALS['dbi']),
+            new Export($GLOBALS['dbi']),
+            new Transformations(),
+        );
     }
 
     /**
@@ -43,57 +52,54 @@ class ExportCodegenTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 
     public function testInitSpecificVariables(): void
     {
         $method = new ReflectionMethod(ExportCodegen::class, 'init');
-        $method->setAccessible(true);
         $method->invoke($this->object, null);
 
         $attrCgFormats = new ReflectionProperty(ExportCodegen::class, 'cgFormats');
-        $attrCgFormats->setAccessible(true);
 
         $this->assertEquals(
             [
                 'NHibernate C# DO',
                 'NHibernate XML',
             ],
-            $attrCgFormats->getValue($this->object)
+            $attrCgFormats->getValue($this->object),
         );
     }
 
     public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportCodegen::class, 'setProperties');
-        $method->setAccessible(true);
         $method->invoke($this->object, null);
 
         $attrProperties = new ReflectionProperty(ExportCodegen::class, 'properties');
-        $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(ExportPluginProperties::class, $properties);
 
         $this->assertEquals(
             'CodeGen',
-            $properties->getText()
+            $properties->getText(),
         );
 
         $this->assertEquals(
             'cs',
-            $properties->getExtension()
+            $properties->getExtension(),
         );
 
         $this->assertEquals(
             'text/cs',
-            $properties->getMimeType()
+            $properties->getMimeType(),
         );
 
         $this->assertEquals(
             'Options',
-            $properties->getOptionsText()
+            $properties->getOptionsText(),
         );
 
         $options = $properties->getOptions();
@@ -102,42 +108,43 @@ class ExportCodegenTest extends AbstractTestCase
 
         $this->assertEquals(
             'Format Specific Options',
-            $options->getName()
+            $options->getName(),
         );
 
         $generalOptionsArray = $options->getProperties();
-        $generalOptions = $generalOptionsArray[0];
+        $generalOptions = $generalOptionsArray->current();
 
         $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'general_opts',
-            $generalOptions->getName()
+            $generalOptions->getName(),
         );
 
         $generalProperties = $generalOptions->getProperties();
 
-        $hidden = $generalProperties[0];
+        $hidden = $generalProperties->current();
+        $generalProperties->next();
 
         $this->assertInstanceOf(HiddenPropertyItem::class, $hidden);
 
         $this->assertEquals(
             'structure_or_data',
-            $hidden->getName()
+            $hidden->getName(),
         );
 
-        $select = $generalProperties[1];
+        $select = $generalProperties->current();
 
         $this->assertInstanceOf(SelectPropertyItem::class, $select);
 
         $this->assertEquals(
             'format',
-            $select->getName()
+            $select->getName(),
         );
 
         $this->assertEquals(
             'Format:',
-            $select->getText()
+            $select->getText(),
         );
 
         $this->assertEquals(
@@ -145,35 +152,35 @@ class ExportCodegenTest extends AbstractTestCase
                 'NHibernate C# DO',
                 'NHibernate XML',
             ],
-            $select->getValues()
+            $select->getValues(),
         );
     }
 
     public function testExportHeader(): void
     {
         $this->assertTrue(
-            $this->object->exportHeader()
+            $this->object->exportHeader(),
         );
     }
 
     public function testExportFooter(): void
     {
         $this->assertTrue(
-            $this->object->exportFooter()
+            $this->object->exportFooter(),
         );
     }
 
     public function testExportDBHeader(): void
     {
         $this->assertTrue(
-            $this->object->exportDBHeader('testDB')
+            $this->object->exportDBHeader('testDB'),
         );
     }
 
     public function testExportDBFooter(): void
     {
         $this->assertTrue(
-            $this->object->exportDBFooter('testDB')
+            $this->object->exportDBFooter('testDB'),
         );
     }
 
@@ -187,7 +194,7 @@ class ExportCodegenTest extends AbstractTestCase
         $GLOBALS['save_on_server'] = false;
 
         ob_start();
-        $this->object->exportData('test_db', 'test_table', "\n", 'localhost', 'SELECT * FROM `test_db`.`test_table`;');
+        $this->object->exportData('test_db', 'test_table', 'localhost', 'SELECT * FROM `test_db`.`test_table`;');
         $result = ob_get_clean();
 
         $this->assertIsString($result);
@@ -207,12 +214,12 @@ class ExportCodegenTest extends AbstractTestCase
             . '        </property>' . "\n"
             . '    </class>' . "\n"
             . '</hibernate-mapping>',
-            $result
+            $result,
         );
 
         $GLOBALS['codegen_format'] = 4;
 
-        $this->object->exportData('test_db', 'test_table', "\n", 'localhost', 'SELECT * FROM `test_db`.`test_table`;');
+        $this->object->exportData('test_db', 'test_table', 'localhost', 'SELECT * FROM `test_db`.`test_table`;');
 
         $this->expectOutputString('4 is not supported.');
     }
@@ -221,25 +228,24 @@ class ExportCodegenTest extends AbstractTestCase
     {
         $this->assertEquals(
             '_Ⅲfoo',
-            ExportCodegen::cgMakeIdentifier('Ⅲ{}96`{}foo', true)
+            ExportCodegen::cgMakeIdentifier('Ⅲ{}96`{}foo', true),
         );
 
         $this->assertEquals(
             'TestⅢ',
-            ExportCodegen::cgMakeIdentifier('`98testⅢ{}96`{}', true)
+            ExportCodegen::cgMakeIdentifier('`98testⅢ{}96`{}', true),
         );
 
         $this->assertEquals(
             'testⅢ',
-            ExportCodegen::cgMakeIdentifier('`98testⅢ{}96`{}', false)
+            ExportCodegen::cgMakeIdentifier('`98testⅢ{}96`{}', false),
         );
     }
 
     public function testHandleNHibernateCSBody(): void
     {
         $method = new ReflectionMethod(ExportCodegen::class, 'handleNHibernateCSBody');
-        $method->setAccessible(true);
-        $result = $method->invoke($this->object, 'test_db', 'test_table', "\n");
+        $result = $method->invoke($this->object, 'test_db', 'test_table');
 
         $this->assertEquals(
             'using System;' . "\n" .
@@ -284,15 +290,14 @@ class ExportCodegenTest extends AbstractTestCase
             '    }' . "\n" .
             '    #endregion' . "\n" .
             '}',
-            $result
+            $result,
         );
     }
 
     public function testHandleNHibernateXMLBody(): void
     {
         $method = new ReflectionMethod(ExportCodegen::class, 'handleNHibernateXMLBody');
-        $method->setAccessible(true);
-        $result = $method->invoke($this->object, 'test_db', 'test_table', "\n");
+        $result = $method->invoke($this->object, 'test_db', 'test_table');
 
         $this->assertEquals(
             '<?xml version="1.0" encoding="utf-8" ?>' . "\n" .
@@ -310,7 +315,7 @@ class ExportCodegenTest extends AbstractTestCase
             '        </property>' . "\n" .
             '    </class>' . "\n" .
             '</hibernate-mapping>',
-            $result
+            $result,
         );
     }
 
@@ -326,9 +331,6 @@ class ExportCodegenTest extends AbstractTestCase
         $getter = $reflection->getMethod('getCgFormats');
         $setter = $reflection->getMethod('setCgFormats');
 
-        $getter->setAccessible(true);
-        $setter->setAccessible(true);
-
         $setter->invoke($this->object, [1, 2]);
 
         $this->assertEquals(
@@ -336,7 +338,7 @@ class ExportCodegenTest extends AbstractTestCase
                 1,
                 2,
             ],
-            $getter->invoke($this->object)
+            $getter->invoke($this->object),
         );
     }
 }

@@ -20,15 +20,13 @@ abstract class FormattedTransformationsPlugin extends TransformationsPlugin
 {
     /**
      * Gets the transformation description of the specific plugin
-     *
-     * @return string
      */
-    public static function getInfo()
+    public static function getInfo(): string
     {
         return __(
             'Displays the contents of the column as-is, without running it'
             . ' through htmlspecialchars(). That is, the column is assumed'
-            . ' to contain valid HTML.'
+            . ' to contain valid HTML.',
         );
     }
 
@@ -38,10 +36,8 @@ abstract class FormattedTransformationsPlugin extends TransformationsPlugin
      * @param string             $buffer  text to be transformed
      * @param array              $options transformation options
      * @param FieldMetadata|null $meta    meta information
-     *
-     * @return string
      */
-    public function applyTransformation($buffer, array $options = [], ?FieldMetadata $meta = null)
+    public function applyTransformation($buffer, array $options = [], FieldMetadata|null $meta = null): string
     {
         return '<iframe srcdoc="'
             . strtr($buffer, '"', '\'')
@@ -52,10 +48,8 @@ abstract class FormattedTransformationsPlugin extends TransformationsPlugin
 
     /**
      * Gets the transformation name of the specific plugin
-     *
-     * @return string
      */
-    public static function getName()
+    public static function getName(): string
     {
         return 'Formatted';
     }

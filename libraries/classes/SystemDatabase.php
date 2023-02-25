@@ -12,20 +12,15 @@ use function sprintf;
 
 class SystemDatabase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
-
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
     /**
      * Get instance of SystemDatabase
      *
      * @param DatabaseInterface $dbi Database interface for the system database
      */
-    public function __construct(DatabaseInterface $dbi)
+    public function __construct(protected DatabaseInterface $dbi)
     {
-        $this->dbi = $dbi;
         $this->relation = new Relation($this->dbi);
     }
 
@@ -37,7 +32,7 @@ class SystemDatabase
      *
      * @return ResultInterface|false Result of executed SQL query
      */
-    public function getExistingTransformationData($db)
+    public function getExistingTransformationData($db): ResultInterface|false
     {
         $browserTransformationFeature = $this->relation->getRelationParameters()->browserTransformationFeature;
         if ($browserTransformationFeature === null) {
@@ -47,10 +42,10 @@ class SystemDatabase
         // Get the existing transformation details of the same database
         // from pma__column_info table
         $transformationSql = sprintf(
-            "SELECT * FROM %s.%s WHERE `db_name` = '%s'",
+            'SELECT * FROM %s.%s WHERE `db_name` = %s',
             Util::backquote($browserTransformationFeature->database),
             Util::backquote($browserTransformationFeature->columnInfo),
-            $this->dbi->escapeString($db)
+            $this->dbi->quoteString($db),
         );
 
         return $this->dbi->tryQuery($transformationSql);
@@ -60,7 +55,7 @@ class SystemDatabase
      * Get SQL query for store new transformation details of a VIEW
      *
      * @param ResultInterface $transformationData Result set of SQL execution
-     * @param array           $columnMap          Details of VIEW columns
+     * @param SystemColumn[]  $columnMap          Details of VIEW columns
      * @param string          $viewName           Name of the VIEW
      * @param string          $db                 Database name of the VIEW
      *
@@ -70,8 +65,8 @@ class SystemDatabase
         ResultInterface $transformationData,
         array $columnMap,
         $viewName,
-        $db
-    ) {
+        $db,
+    ): string {
         $browserTransformationFeature = $this->relation->getRelationParameters()->browserTransformationFeature;
         if ($browserTransformationFeature === null) {
             return '';
@@ -84,7 +79,7 @@ class SystemDatabase
             . '`comment`, `mimetype`, `transformation`, '
             . '`transformation_options`) VALUES',
             Util::backquote($browserTransformationFeature->database),
-            Util::backquote($browserTransformationFeature->columnInfo)
+            Util::backquote($browserTransformationFeature->columnInfo),
         );
 
         $columnCount = 0;
@@ -93,24 +88,22 @@ class SystemDatabase
         while ($dataRow = $transformationData->fetchAssoc()) {
             foreach ($columnMap as $column) {
                 if (
-                    $dataRow['table_name'] != $column['table_name']
-                    || $dataRow['column_name'] != $column['refering_column']
+                    $dataRow['table_name'] != $column->tableName
+                    || $dataRow['column_name'] != $column->referringColumn
                 ) {
                     continue;
                 }
 
                 $newTransformationsSql .= sprintf(
-                    "%s ('%s', '%s', '%s', '%s', '%s', '%s', '%s')",
+                    '%s (%s, %s, %s, %s, %s, %s, %s)',
                     $addComma ? ', ' : '',
-                    $db,
-                    $viewName,
-                    $column['real_column'] ?? $column['refering_column'],
-                    $dataRow['comment'],
-                    $dataRow['mimetype'],
-                    $dataRow['transformation'],
-                    $GLOBALS['dbi']->escapeString(
-                        $dataRow['transformation_options']
-                    )
+                    $this->dbi->quoteString($db),
+                    $this->dbi->quoteString($viewName),
+                    $this->dbi->quoteString($column->realColumn ?? $column->referringColumn),
+                    $this->dbi->quoteString($dataRow['comment']),
+                    $this->dbi->quoteString($dataRow['mimetype']),
+                    $this->dbi->quoteString($dataRow['transformation']),
+                    $this->dbi->quoteString($dataRow['transformation_options']),
                 );
 
                 $addComma = true;
@@ -118,11 +111,34 @@ class SystemDatabase
                 break;
             }
 
-            if ($columnCount == count($columnMap)) {
+            if ($columnCount === count($columnMap)) {
                 break;
             }
         }
 
         return $columnCount > 0 ? $newTransformationsSql : '';
+    }
+
+    /**
+     * @param string[] $viewColumns
+     *
+     * @return SystemColumn[]
+     * @psalm-return list<SystemColumn>
+     */
+    public function getColumnMapFromSql(string $sqlQuery, array $viewColumns): array
+    {
+        $result = $this->dbi->tryQuery($sqlQuery);
+
+        if ($result === false) {
+            return [];
+        }
+
+        $columnMap = [];
+
+        foreach ($this->dbi->getFieldsMeta($result) as $i => $field) {
+            $columnMap[] = new SystemColumn($field->table, $field->name, $viewColumns[$i] ?? null);
+        }
+
+        return $columnMap;
     }
 }

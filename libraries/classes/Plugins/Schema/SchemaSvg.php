@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema;
 
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\Svg\SvgRelationSchema;
 use PhpMyAdmin\Plugins\SchemaPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -21,9 +22,7 @@ use function __;
  */
 class SchemaSvg extends SchemaPlugin
 {
-    /**
-     * @psalm-return non-empty-lowercase-string
-     */
+    /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
         return 'svg';
@@ -52,7 +51,7 @@ class SchemaSvg extends SchemaPlugin
         // create leaf items and add them to the group
         $leaf = new BoolPropertyItem(
             'all_tables_same_width',
-            __('Same width for all tables')
+            __('Same width for all tables'),
         );
         $specificOptions->addProperty($leaf);
 
@@ -65,16 +64,16 @@ class SchemaSvg extends SchemaPlugin
         return $schemaPluginProperties;
     }
 
-    /**
-     * Exports the schema into SVG format.
-     *
-     * @param string $db database name
-     */
-    public function exportSchema($db): bool
+    /** @return array{fileName: non-empty-string, mediaType: non-empty-string, fileData: string} */
+    public function getExportInfo(DatabaseName $db): array
     {
         $export = new SvgRelationSchema($db);
-        $export->showOutput();
+        $exportInfo = $export->getExportInfo();
 
-        return true;
+        return [
+            'fileName' => $exportInfo['fileName'],
+            'mediaType' => 'image/svg+xml',
+            'fileData' => $exportInfo['fileData'],
+        ];
     }
 }

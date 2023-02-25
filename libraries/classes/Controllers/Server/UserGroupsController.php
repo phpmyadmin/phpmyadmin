@@ -8,35 +8,29 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\UserGroups;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
 use function __;
+use function is_string;
 
 /**
  * Displays the 'User groups' sub page under 'Users' page.
  */
 class UserGroupsController extends AbstractController
 {
-    /** @var Relation */
-    private $relation;
-
-    /** @var DatabaseInterface */
-    private $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Relation $relation,
-        DatabaseInterface $dbi
+        private Relation $relation,
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
-        $this->relation = $relation;
-        $this->dbi = $dbi;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $configurableMenusFeature = $this->relation->getRelationParameters()->configurableMenusFeature;
         if ($configurableMenusFeature === null) {
@@ -50,7 +44,7 @@ class UserGroupsController extends AbstractController
          */
         if (! $this->dbi->isSuperUser()) {
             $this->response->addHTML(
-                Message::error(__('No Privileges'))->getDisplay()
+                Message::error(__('No Privileges'))->getDisplay(),
             );
 
             return;
@@ -62,43 +56,42 @@ class UserGroupsController extends AbstractController
             'is_super_user' => $this->dbi->isSuperUser(),
         ]);
 
-        /**
-         * Delete user group
-         */
-        if (! empty($_POST['deleteUserGroup'])) {
-            UserGroups::delete($configurableMenusFeature, $_POST['userGroup']);
+        /** @var mixed $userGroup */
+        $userGroup = $request->getParsedBodyParam('userGroup');
+        if ($request->hasBodyParam('deleteUserGroup') && is_string($userGroup) && $userGroup !== '') {
+            UserGroups::delete($this->dbi, $configurableMenusFeature, $userGroup);
         }
 
         /**
          * Add a new user group
          */
-        if (! empty($_POST['addUserGroupSubmit'])) {
-            UserGroups::edit($configurableMenusFeature, $_POST['userGroup'], true);
+        if ($request->hasBodyParam('addUserGroupSubmit')) {
+            UserGroups::edit($configurableMenusFeature, $request->getParsedBodyParam('userGroup'), true);
         }
 
         /**
          * Update a user group
          */
-        if (! empty($_POST['editUserGroupSubmit'])) {
-            UserGroups::edit($configurableMenusFeature, $_POST['userGroup']);
+        if ($request->hasBodyParam('editUserGroupSubmit')) {
+            UserGroups::edit($configurableMenusFeature, $request->getParsedBodyParam('userGroup'));
         }
 
-        if (isset($_POST['viewUsers'])) {
+        if ($request->hasBodyParam('viewUsers')) {
             // Display users belonging to a user group
             $this->response->addHTML(UserGroups::getHtmlForListingUsersofAGroup(
                 $configurableMenusFeature,
-                $_POST['userGroup']
+                $request->getParsedBodyParam('userGroup'),
             ));
         }
 
-        if (isset($_GET['addUserGroup'])) {
+        if ($request->hasQueryParam('addUserGroup')) {
             // Display add user group dialog
             $this->response->addHTML(UserGroups::getHtmlToEditUserGroup($configurableMenusFeature));
-        } elseif (isset($_POST['editUserGroup'])) {
+        } elseif ($request->hasBodyParam('editUserGroup')) {
             // Display edit user group dialog
             $this->response->addHTML(UserGroups::getHtmlToEditUserGroup(
                 $configurableMenusFeature,
-                $_POST['userGroup']
+                $request->getParsedBodyParam('userGroup'),
             ));
         } else {
             // Display user groups table

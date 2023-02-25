@@ -25,6 +25,7 @@ class NodeView extends NodeDatabaseChild
     public function __construct($name, $type = Node::OBJECT, $isGroup = false)
     {
         parent::__construct($name, $type, $isGroup);
+
         $this->icon = ['image' => 'b_props', 'title' => __('View')];
         $this->links = [
             'text' => ['route' => '/sql', 'params' => ['pos' => 0, 'db' => null, 'table' => null]],
@@ -39,7 +40,7 @@ class NodeView extends NodeDatabaseChild
      *
      * @return string type of the item
      */
-    protected function getItemType()
+    protected function getItemType(): string
     {
         return 'view';
     }

@@ -18,7 +18,6 @@ use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\SqlParser\Utils\BufferedQuery;
 
 use function __;
-use function count;
 use function implode;
 use function mb_strlen;
 use function preg_replace;
@@ -28,9 +27,7 @@ use function preg_replace;
  */
 class ImportSql extends ImportPlugin
 {
-    /**
-     * @psalm-return non-empty-lowercase-string
-     */
+    /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
         return 'sql';
@@ -38,15 +35,13 @@ class ImportSql extends ImportPlugin
 
     protected function setProperties(): ImportPluginProperties
     {
-        global $dbi;
-
         $importPluginProperties = new ImportPluginProperties();
         $importPluginProperties->setText('SQL');
         $importPluginProperties->setExtension('sql');
         $importPluginProperties->setOptionsText(__('Options'));
 
-        $compats = $dbi->getCompatibilities();
-        if (count($compats) > 0) {
+        $compats = $GLOBALS['dbi']->getCompatibilities();
+        if ($compats !== []) {
             $values = [];
             foreach ($compats as $val) {
                 $values[$val] = $val;
@@ -62,26 +57,26 @@ class ImportSql extends ImportPlugin
             // create primary items and add them to the group
             $leaf = new SelectPropertyItem(
                 'compatibility',
-                __('SQL compatibility mode:')
+                __('SQL compatibility mode:'),
             );
             $leaf->setValues($values);
             $leaf->setDoc(
                 [
                     'manual_MySQL_Database_Administration',
                     'Server_SQL_mode',
-                ]
+                ],
             );
             $generalOptions->addProperty($leaf);
             $leaf = new BoolPropertyItem(
                 'no_auto_value_on_zero',
-                __('Do not use <code>AUTO_INCREMENT</code> for zero values')
+                __('Do not use <code>AUTO_INCREMENT</code> for zero values'),
             );
             $leaf->setDoc(
                 [
                     'manual_MySQL_Database_Administration',
                     'Server_SQL_mode',
                     'sqlmode_no_auto_value_on_zero',
-                ]
+                ],
             );
             $generalOptions->addProperty($leaf);
 
@@ -97,14 +92,15 @@ class ImportSql extends ImportPlugin
     /**
      * Handles the whole import logic
      *
-     * @param array $sql_data 2-element array with sql data
+     * @return string[]
      */
-    public function doImport(?File $importHandle = null, array &$sql_data = []): void
+    public function doImport(File|null $importHandle = null): array
     {
-        global $error, $timeout_passed, $dbi;
+        $GLOBALS['error'] ??= null;
+        $GLOBALS['timeout_passed'] ??= null;
 
         // Handle compatibility options.
-        $this->setSQLMode($dbi, $_REQUEST);
+        $this->setSQLMode($GLOBALS['dbi'], $_REQUEST);
 
         $bq = new BufferedQuery();
         if (isset($_POST['sql_delimiter'])) {
@@ -118,13 +114,15 @@ class ImportSql extends ImportPlugin
          */
         $GLOBALS['finished'] = false;
 
-        while (! $error && (! $timeout_passed)) {
+        $sqlStatements = [];
+
+        while (! $GLOBALS['error'] && ! $GLOBALS['timeout_passed']) {
             // Getting the first statement, the remaining data and the last
             // delimiter.
             $statement = $bq->extract();
 
             // If there is no full statement, we are looking for more data.
-            if (empty($statement)) {
+            if ($statement === false || $statement === '') {
                 // Importing new data.
                 $newData = $this->import->getNextChunk($importHandle);
 
@@ -148,21 +146,23 @@ class ImportSql extends ImportPlugin
             }
 
             // Executing the query.
-            $this->import->runQuery($statement, $statement, $sql_data);
+            $this->import->runQuery($statement, $sqlStatements);
         }
 
         // Extracting remaining statements.
-        while (! $error && ! $timeout_passed && ! empty($bq->query)) {
+        while (! $GLOBALS['error'] && ! $GLOBALS['timeout_passed'] && ! empty($bq->query)) {
             $statement = $bq->extract(true);
-            if (empty($statement)) {
+            if ($statement === false || $statement === '') {
                 continue;
             }
 
-            $this->import->runQuery($statement, $statement, $sql_data);
+            $this->import->runQuery($statement, $sqlStatements);
         }
 
         // Finishing.
-        $this->import->runQuery('', '', $sql_data);
+        $this->import->runQuery('', $sqlStatements);
+
+        return $sqlStatements;
     }
 
     /**
@@ -171,7 +171,7 @@ class ImportSql extends ImportPlugin
      * @param DatabaseInterface $dbi     Database interface
      * @param array             $request Request array
      */
-    private function setSQLMode($dbi, array $request): void
+    private function setSQLMode(DatabaseInterface $dbi, array $request): void
     {
         $sql_modes = [];
         if (isset($request['sql_compatibility']) && $request['sql_compatibility'] !== 'NONE') {
@@ -182,12 +182,10 @@ class ImportSql extends ImportPlugin
             $sql_modes[] = 'NO_AUTO_VALUE_ON_ZERO';
         }
 
-        if (count($sql_modes) <= 0) {
+        if ($sql_modes === []) {
             return;
         }
 
-        $dbi->tryQuery(
-            'SET SQL_MODE="' . implode(',', $sql_modes) . '"'
-        );
+        $dbi->tryQuery('SET SQL_MODE="' . implode(',', $sql_modes) . '"');
     }
 }

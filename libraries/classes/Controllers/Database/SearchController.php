@@ -4,9 +4,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -16,66 +19,51 @@ use function __;
 
 class SearchController extends AbstractController
 {
-    /** @var DatabaseInterface */
-    private $dbi;
-
-    public function __construct(ResponseRenderer $response, Template $template, string $db, DatabaseInterface $dbi)
+    public function __construct(ResponseRenderer $response, Template $template, private DatabaseInterface $dbi)
     {
-        parent::__construct($response, $template, $db);
-        $this->dbi = $dbi;
+        parent::__construct($response, $template);
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $cfg, $db, $errorUrl, $urlParams, $tables, $num_tables, $total_num_tables, $sub_part;
-        global $tooltip_truename, $tooltip_aliasname, $pos;
+        $GLOBALS['errorUrl'] ??= null;
+        $GLOBALS['urlParams'] ??= null;
 
-        $this->addScriptFiles([
-            'database/search.js',
-            'vendor/stickyfill.min.js',
-            'sql.js',
-            'makegrid.js',
-        ]);
+        $this->addScriptFiles(['database/search.js', 'sql.js', 'makegrid.js']);
 
-        Util::checkParameters(['db']);
+        $this->checkParameters(['db']);
 
-        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $errorUrl .= Url::getCommon(['db' => $db], '&');
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
         if (! $this->hasDatabase()) {
             return;
         }
 
-        // If config variable $cfg['UseDbSearch'] is on false : exit.
-        if (! $cfg['UseDbSearch']) {
-            Generator::mysqlDie(
-                __('Access denied!'),
-                '',
-                false,
-                $errorUrl
+        if (! $GLOBALS['cfg']['UseDbSearch']) {
+            $errorMessage = __(
+                'Searching inside the database is disabled by the [code]$cfg[\'UseDbSearch\'][/code] configuration.',
             );
+            $errorMessage .= MySQLDocumentation::showDocumentation('config', 'cfg_UseDbSearch');
+            $this->response->setRequestStatus(false);
+            if ($this->response->isAjax()) {
+                $this->response->addJSON('message', Message::error($errorMessage)->getDisplay());
+
+                return;
+            }
+
+            $this->render('error/simple', ['error_message' => $errorMessage, 'back_url' => $GLOBALS['errorUrl']]);
+
+            return;
         }
 
-        $urlParams['goto'] = Url::getFromRoute('/database/search');
+        $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/search');
 
         // Create a database search instance
-        $databaseSearch = new Search($this->dbi, $db, $this->template);
-
-        // Display top links if we are not in an Ajax request
-        if (! $this->response->isAjax()) {
-            [
-                $tables,
-                $num_tables,
-                $total_num_tables,
-                $sub_part,,,
-                $tooltip_truename,
-                $tooltip_aliasname,
-                $pos,
-            ] = Util::getDbInfo($db, $sub_part ?? '');
-        }
+        $databaseSearch = new Search($this->dbi, $GLOBALS['db'], $this->template);
 
         // Main search form has been submitted, get results
-        if (isset($_POST['submit_search'])) {
+        if ($request->hasBodyParam('submit_search')) {
             $this->response->addHTML($databaseSearch->getSearchResults());
         }
 

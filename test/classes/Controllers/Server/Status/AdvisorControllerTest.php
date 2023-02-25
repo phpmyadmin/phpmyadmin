@@ -4,17 +4,16 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 
-use PhpMyAdmin\Advisor;
+use PhpMyAdmin\Advisory\Advisor;
 use PhpMyAdmin\Controllers\Server\Status\AdvisorController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Server\Status\AdvisorController
- */
+/** @covers \PhpMyAdmin\Controllers\Server\Status\AdvisorController */
 class AdvisorControllerTest extends AbstractTestCase
 {
     /** @var ResponseRenderer */
@@ -29,9 +28,14 @@ class AdvisorControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['text_dir'] = 'ltr';
+
         parent::setGlobalConfig();
+
         parent::setTheme();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
 
         $GLOBALS['server'] = 1;
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
@@ -40,7 +44,7 @@ class AdvisorControllerTest extends AbstractTestCase
 
         $this->response = new ResponseRenderer();
         $this->template = new Template();
-        $this->data = new Data();
+        $this->data = new Data($GLOBALS['dbi']);
     }
 
     public function testIndexWithoutData(): void
@@ -51,10 +55,10 @@ class AdvisorControllerTest extends AbstractTestCase
             $this->response,
             $this->template,
             $this->data,
-            new Advisor($GLOBALS['dbi'], new ExpressionLanguage())
+            new Advisor($GLOBALS['dbi'], new ExpressionLanguage()),
         );
 
-        $controller();
+        $controller($this->createStub(ServerRequest::class));
 
         $expected = $this->template->render('server/status/advisor/index', [
             'data' => [],
@@ -62,7 +66,7 @@ class AdvisorControllerTest extends AbstractTestCase
 
         $this->assertSame(
             $expected,
-            $this->response->getHTMLResult()
+            $this->response->getHTMLResult(),
         );
     }
 
@@ -98,13 +102,13 @@ class AdvisorControllerTest extends AbstractTestCase
 
         $controller = new AdvisorController($this->response, $this->template, $this->data, $advisor);
 
-        $controller();
+        $controller($this->createStub(ServerRequest::class));
 
         $expected = $this->template->render('server/status/advisor/index', ['data' => $advisorData]);
 
         $this->assertSame(
             $expected,
-            $this->response->getHTMLResult()
+            $this->response->getHTMLResult(),
         );
     }
 }

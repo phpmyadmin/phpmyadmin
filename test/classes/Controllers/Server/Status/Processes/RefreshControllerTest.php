@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Server\Status\Processes;
 
 use PhpMyAdmin\Controllers\Server\Status\Processes\RefreshController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Processes;
 use PhpMyAdmin\Template;
@@ -15,9 +16,7 @@ use PhpMyAdmin\Url;
 use function __;
 use function htmlspecialchars;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Server\Status\Processes\RefreshController
- */
+/** @covers \PhpMyAdmin\Controllers\Server\Status\Processes\RefreshController */
 class RefreshControllerTest extends AbstractTestCase
 {
     /** @var Data */
@@ -26,8 +25,12 @@ class RefreshControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['text_dir'] = 'ltr';
+
         parent::setGlobalConfig();
+
         parent::setTheme();
 
         $GLOBALS['server'] = 1;
@@ -37,7 +40,7 @@ class RefreshControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
 
-        $this->data = new Data();
+        $this->data = new Data($GLOBALS['dbi']);
     }
 
     public function testRefresh(): void
@@ -46,7 +49,7 @@ class RefreshControllerTest extends AbstractTestCase
             'User' => 'User1',
             'Host' => 'Host1',
             'Id' => 'Id1',
-            'db' => 'db1',
+            'Db' => 'db1',
             'Command' => 'Command1',
             'Info' => 'Info1',
             'State' => 'State1',
@@ -61,14 +64,21 @@ class RefreshControllerTest extends AbstractTestCase
             $response,
             new Template(),
             $this->data,
-            new Processes($GLOBALS['dbi'])
+            new Processes($GLOBALS['dbi']),
         );
 
-        $_POST['full'] = '1';
-        $_POST['order_by_field'] = 'process';
-        $_POST['sort_order'] = 'DESC';
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['column_name', '', ''],
+            ['order_by_field', '', 'process'],
+            ['sort_order', '', 'DESC'],
+        ]);
+        $request->method('hasBodyParam')->willReturnMap([
+            ['full', true],
+            ['showExecuting', false],
+        ]);
 
-        $controller();
+        $controller($request);
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString('index.php?route=/server/status/processes', $html);
@@ -78,31 +88,31 @@ class RefreshControllerTest extends AbstractTestCase
         $this->assertStringContainsString('ajax kill_process', $html);
         $this->assertStringContainsString(
             __('Kill'),
-            $html
+            $html,
         );
 
         //validate 2: $process['User']
         $this->assertStringContainsString(
             htmlspecialchars($process['User']),
-            $html
+            $html,
         );
 
         //validate 3: $process['Host']
         $this->assertStringContainsString(
             htmlspecialchars($process['Host']),
-            $html
+            $html,
         );
 
         //validate 4: $process['db']
         $this->assertStringContainsString(
-            __('None'),
-            $html
+            $process['Db'],
+            $html,
         );
 
         //validate 5: $process['Command']
         $this->assertStringContainsString(
             htmlspecialchars($process['Command']),
-            $html
+            $html,
         );
 
         //validate 6: $process['Time']

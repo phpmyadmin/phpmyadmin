@@ -5,18 +5,17 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\PrivilegesController;
-use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Url;
 
 use function __;
 use function _pgettext;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Table\PrivilegesController
- */
+/** @covers \PhpMyAdmin\Controllers\Table\PrivilegesController */
 class PrivilegesControllerTest extends AbstractTestCase
 {
     /**
@@ -25,19 +24,21 @@ class PrivilegesControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setLanguage();
+
         parent::setTheme();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
     }
 
     public function testIndex(): void
     {
-        global $dbi, $db, $table, $server, $cfg, $PMA_PHP_SELF;
-
-        $db = 'db';
-        $table = 'table';
-        $server = 0;
-        $cfg['Server']['DisableIS'] = false;
-        $PMA_PHP_SELF = 'index.php';
+        $GLOBALS['db'] = 'db';
+        $GLOBALS['table'] = 'table';
+        $GLOBALS['server'] = 0;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
 
         $privileges = [];
 
@@ -45,65 +46,106 @@ class PrivilegesControllerTest extends AbstractTestCase
         $serverPrivileges->method('getAllPrivileges')
             ->willReturn($privileges);
 
-        $actual = (new PrivilegesController(
-            ResponseRenderer::getInstance(),
-            new Template(),
-            $db,
-            $table,
-            $serverPrivileges,
-            $dbi
-        ))(['checkprivsdb' => $db, 'checkprivstable' => $table]);
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParam')->willReturnMap([
+            ['db', null, 'db'],
+            ['table', null, 'table'],
+        ]);
 
-        $this->assertStringContainsString($db . '.' . $table, $actual);
+        $response = new ResponseRenderer();
+        (new PrivilegesController(
+            $response,
+            new Template(),
+            $serverPrivileges,
+            $GLOBALS['dbi'],
+        ))($request);
+        $actual = $response->getHTMLResult();
+
+        $this->assertStringContainsString($GLOBALS['db'] . '.' . $GLOBALS['table'], $actual);
 
         //validate 2: Url::getCommon
         $item = Url::getCommon([
-            'db' => $db,
-            'table' => $table,
+            'db' => $GLOBALS['db'],
+            'table' => $GLOBALS['table'],
         ], '');
         $this->assertStringContainsString($item, $actual);
 
         //validate 3: items
         $this->assertStringContainsString(
             __('User'),
-            $actual
+            $actual,
         );
         $this->assertStringContainsString(
             __('Host'),
-            $actual
+            $actual,
         );
         $this->assertStringContainsString(
             __('Type'),
-            $actual
+            $actual,
         );
         $this->assertStringContainsString(
             __('Privileges'),
-            $actual
+            $actual,
         );
         $this->assertStringContainsString(
             __('Grant'),
-            $actual
+            $actual,
         );
         $this->assertStringContainsString(
             __('Action'),
-            $actual
+            $actual,
         );
         $this->assertStringContainsString(
             __('No user found'),
-            $actual
+            $actual,
         );
 
         //_pgettext('Create new user', 'New')
         $this->assertStringContainsString(
             _pgettext('Create new user', 'New'),
-            $actual
+            $actual,
         );
-        $this->assertStringContainsString(
-            Url::getCommon([
-                'checkprivsdb' => $db,
-                'checkprivstable' => $table,
-            ]),
-            $actual
-        );
+    }
+
+    public function testWithInvalidDatabaseName(): void
+    {
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParam')->willReturnMap([
+            ['db', null, ''],
+            ['table', null, 'table'],
+        ]);
+
+        $response = new ResponseRenderer();
+        (new PrivilegesController(
+            $response,
+            new Template(),
+            $this->createStub(Privileges::class),
+            $this->createDatabaseInterface(),
+        ))($request);
+        $actual = $response->getHTMLResult();
+
+        $this->assertStringContainsString('<div class="alert alert-danger" role="alert">', $actual);
+        $this->assertStringContainsString('The database name must be a non-empty string.', $actual);
+    }
+
+    public function testWithInvalidTableName(): void
+    {
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParam')->willReturnMap([
+            ['db', null, 'db'],
+            ['table', null, ''],
+        ]);
+
+        $response = new ResponseRenderer();
+        (new PrivilegesController(
+            $response,
+            new Template(),
+            $this->createStub(Privileges::class),
+            $this->createDatabaseInterface(),
+        ))($request);
+        $actual = $response->getHTMLResult();
+
+        $this->assertStringContainsString('<div class="alert alert-danger" role="alert">', $actual);
+        $this->assertStringContainsString('The table name must be a non-empty string.', $actual);
     }
 }

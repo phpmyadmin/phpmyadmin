@@ -7,7 +7,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Database\CentralColumns;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -20,66 +22,62 @@ use function sprintf;
 
 class CentralColumnsController extends AbstractController
 {
-    /** @var CentralColumns */
-    private $centralColumns;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
-        CentralColumns $centralColumns
+        private CentralColumns $centralColumns,
     ) {
-        parent::__construct($response, $template, $db);
-        $this->centralColumns = $centralColumns;
+        parent::__construct($response, $template);
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $cfg, $db, $message, $pos, $num_cols;
+        $GLOBALS['message'] ??= null;
+        $GLOBALS['num_cols'] ??= null;
 
-        if (isset($_POST['edit_save'])) {
+        if ($request->hasBodyParam('edit_save')) {
             echo $this->editSave([
-                'col_name' => $_POST['col_name'] ?? null,
-                'orig_col_name' => $_POST['orig_col_name'] ?? null,
-                'col_default' => $_POST['col_default'] ?? null,
-                'col_default_sel' => $_POST['col_default_sel'] ?? null,
-                'col_extra' => $_POST['col_extra'] ?? null,
-                'col_isNull' => $_POST['col_isNull'] ?? null,
-                'col_length' => $_POST['col_length'] ?? null,
-                'col_attribute' => $_POST['col_attribute'] ?? null,
-                'col_type' => $_POST['col_type'] ?? null,
-                'collation' => $_POST['collation'] ?? null,
+                'col_name' => $request->getParsedBodyParam('col_name'),
+                'orig_col_name' => $request->getParsedBodyParam('orig_col_name'),
+                'col_default' => $request->getParsedBodyParam('col_default'),
+                'col_default_sel' => $request->getParsedBodyParam('col_default_sel'),
+                'col_extra' => $request->getParsedBodyParam('col_extra'),
+                'col_isNull' => $request->getParsedBodyParam('col_isNull'),
+                'col_length' => $request->getParsedBodyParam('col_length'),
+                'col_attribute' => $request->getParsedBodyParam('col_attribute'),
+                'col_type' => $request->getParsedBodyParam('col_type'),
+                'collation' => $request->getParsedBodyParam('collation'),
             ]);
 
             return;
         }
 
-        if (isset($_POST['add_new_column'])) {
+        if ($request->hasBodyParam('add_new_column')) {
             $tmp_msg = $this->addNewColumn([
-                'col_name' => $_POST['col_name'] ?? null,
-                'col_default' => $_POST['col_default'] ?? null,
-                'col_default_sel' => $_POST['col_default_sel'] ?? null,
-                'col_extra' => $_POST['col_extra'] ?? null,
-                'col_isNull' => $_POST['col_isNull'] ?? null,
-                'col_length' => $_POST['col_length'] ?? null,
-                'col_attribute' => $_POST['col_attribute'] ?? null,
-                'col_type' => $_POST['col_type'] ?? null,
-                'collation' => $_POST['collation'] ?? null,
+                'col_name' => $request->getParsedBodyParam('col_name'),
+                'col_default' => $request->getParsedBodyParam('col_default'),
+                'col_default_sel' => $request->getParsedBodyParam('col_default_sel'),
+                'col_extra' => $request->getParsedBodyParam('col_extra'),
+                'col_isNull' => $request->getParsedBodyParam('col_isNull'),
+                'col_length' => $request->getParsedBodyParam('col_length'),
+                'col_attribute' => $request->getParsedBodyParam('col_attribute'),
+                'col_type' => $request->getParsedBodyParam('col_type'),
+                'collation' => $request->getParsedBodyParam('collation'),
             ]);
         }
 
-        if (isset($_POST['getColumnList'])) {
+        if ($request->hasBodyParam('getColumnList')) {
             $this->response->addJSON('message', $this->getColumnList([
-                'cur_table' => $_POST['cur_table'] ?? null,
+                'cur_table' => $request->getParsedBodyParam('cur_table'),
             ]));
 
             return;
         }
 
-        if (isset($_POST['add_column'])) {
+        if ($request->hasBodyParam('add_column')) {
             $tmp_msg = $this->addColumn([
-                'table-select' => $_POST['table-select'] ?? null,
-                'column-select' => $_POST['column-select'] ?? null,
+                'table-select' => $request->getParsedBodyParam('table-select'),
+                'column-select' => $request->getParsedBodyParam('column-select'),
             ]);
         }
 
@@ -89,74 +87,76 @@ class CentralColumnsController extends AbstractController
             'database/central_columns.js',
         ]);
 
-        if (isset($_POST['edit_central_columns_page'])) {
+        if ($request->hasBodyParam('edit_central_columns_page')) {
             $this->editPage([
-                'selected_fld' => $_POST['selected_fld'] ?? null,
-                'db' => $_POST['db'] ?? null,
+                'selected_fld' => $request->getParsedBodyParam('selected_fld'),
+                'db' => $request->getParsedBodyParam('db'),
             ]);
 
             return;
         }
 
-        if (isset($_POST['multi_edit_central_column_save'])) {
-            $message = $this->updateMultipleColumn([
-                'db' => $_POST['db'] ?? null,
-                'orig_col_name' => $_POST['orig_col_name'] ?? null,
-                'field_name' => $_POST['field_name'] ?? null,
-                'field_default_type' => $_POST['field_default_type'] ?? null,
-                'field_default_value' => $_POST['field_default_value'] ?? null,
-                'field_length' => $_POST['field_length'] ?? null,
-                'field_attribute' => $_POST['field_attribute'] ?? null,
-                'field_type' => $_POST['field_type'] ?? null,
-                'field_collation' => $_POST['field_collation'] ?? null,
-                'field_null' => $_POST['field_null'] ?? null,
-                'col_extra' => $_POST['col_extra'] ?? null,
+        if ($request->hasBodyParam('multi_edit_central_column_save')) {
+            $GLOBALS['message'] = $this->updateMultipleColumn([
+                'db' => $request->getParsedBodyParam('db'),
+                'orig_col_name' => $request->getParsedBodyParam('orig_col_name'),
+                'field_name' => $request->getParsedBodyParam('field_name'),
+                'field_default_type' => $request->getParsedBodyParam('field_default_type'),
+                'field_default_value' => $request->getParsedBodyParam('field_default_value'),
+                'field_length' => $request->getParsedBodyParam('field_length'),
+                'field_attribute' => $request->getParsedBodyParam('field_attribute'),
+                'field_type' => $request->getParsedBodyParam('field_type'),
+                'field_collation' => $request->getParsedBodyParam('field_collation'),
+                'field_null' => $request->getParsedBodyParam('field_null'),
+                'col_extra' => $request->getParsedBodyParam('col_extra'),
             ]);
-            if (! is_bool($message)) {
+            if (! is_bool($GLOBALS['message'])) {
                 $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', $message);
+                $this->response->addJSON('message', $GLOBALS['message']);
             }
         }
 
-        if (isset($_POST['delete_save'])) {
+        if ($request->hasBodyParam('delete_save')) {
             $tmp_msg = $this->deleteSave([
-                'db' => $_POST['db'] ?? null,
-                'col_name' => $_POST['col_name'] ?? null,
+                'db' => $request->getParsedBodyParam('db'),
+                'col_name' => $request->getParsedBodyParam('col_name'),
             ]);
         }
 
         $this->main([
-            'pos' => $_POST['pos'] ?? null,
-            'total_rows' => $_POST['total_rows'] ?? null,
+            'pos' => $request->getParsedBodyParam('pos'),
+            'total_rows' => $request->getParsedBodyParam('total_rows'),
         ]);
 
         $pos = 0;
-        if (isset($_POST['pos']) && is_numeric($_POST['pos'])) {
-            $pos = (int) $_POST['pos'];
+        if (is_numeric($request->getParsedBodyParam('pos'))) {
+            $pos = (int) $request->getParsedBodyParam('pos');
         }
 
-        $num_cols = $this->centralColumns->getColumnsCount($db, $pos, (int) $cfg['MaxRows']);
-        $message = Message::success(
-            sprintf(__('Showing rows %1$s - %2$s.'), $pos + 1, $pos + $num_cols)
+        $GLOBALS['num_cols'] = $this->centralColumns->getColumnsCount(
+            $GLOBALS['db'],
+            $pos,
+            (int) $GLOBALS['cfg']['MaxRows'],
+        );
+        $GLOBALS['message'] = Message::success(
+            sprintf(__('Showing rows %1$s - %2$s.'), $pos + 1, $pos + $GLOBALS['num_cols']),
         );
         if (! isset($tmp_msg) || $tmp_msg === true) {
             return;
         }
 
-        $message = $tmp_msg;
+        $GLOBALS['message'] = $tmp_msg;
     }
 
-    /**
-     * @param array $params Request parameters
-     */
+    /** @param array $params Request parameters */
     public function main(array $params): void
     {
-        global $text_dir;
+        $GLOBALS['text_dir'] ??= null;
 
         if (! empty($params['total_rows']) && is_numeric($params['total_rows'])) {
             $totalRows = (int) $params['total_rows'];
         } else {
-            $totalRows = $this->centralColumns->getCount($this->db);
+            $totalRows = $this->centralColumns->getCount($GLOBALS['db']);
         }
 
         $pos = 0;
@@ -164,7 +164,12 @@ class CentralColumnsController extends AbstractController
             $pos = (int) $params['pos'];
         }
 
-        $variables = $this->centralColumns->getTemplateVariablesForMain($this->db, $totalRows, $pos, $text_dir);
+        $variables = $this->centralColumns->getTemplateVariablesForMain(
+            $GLOBALS['db'],
+            $totalRows,
+            $pos,
+            $GLOBALS['text_dir'],
+        );
 
         $this->render('database/central_columns/main', $variables);
     }
@@ -176,7 +181,7 @@ class CentralColumnsController extends AbstractController
      */
     public function getColumnList(array $params): array
     {
-        return $this->centralColumns->getListRaw($this->db, $params['cur_table'] ?? '');
+        return $this->centralColumns->getListRaw($GLOBALS['db'], $params['cur_table'] ?? '');
     }
 
     /**
@@ -184,7 +189,7 @@ class CentralColumnsController extends AbstractController
      *
      * @return true|Message
      */
-    public function editSave(array $params)
+    public function editSave(array $params): bool|Message
     {
         $columnDefault = $params['col_default'];
         if ($columnDefault === 'NONE' && $params['col_default_sel'] !== 'USER_DEFINED') {
@@ -192,7 +197,7 @@ class CentralColumnsController extends AbstractController
         }
 
         return $this->centralColumns->updateOneColumn(
-            $this->db,
+            $GLOBALS['db'],
             $params['orig_col_name'],
             $params['col_name'],
             $params['col_type'],
@@ -201,7 +206,7 @@ class CentralColumnsController extends AbstractController
             isset($params['col_isNull']) ? 1 : 0,
             $params['collation'],
             $params['col_extra'] ?? '',
-            $columnDefault
+            $columnDefault,
         );
     }
 
@@ -210,7 +215,7 @@ class CentralColumnsController extends AbstractController
      *
      * @return true|Message
      */
-    public function addNewColumn(array $params)
+    public function addNewColumn(array $params): bool|Message
     {
         $columnDefault = $params['col_default'];
         if ($columnDefault === 'NONE' && $params['col_default_sel'] !== 'USER_DEFINED') {
@@ -218,7 +223,7 @@ class CentralColumnsController extends AbstractController
         }
 
         return $this->centralColumns->updateOneColumn(
-            $this->db,
+            $GLOBALS['db'],
             '',
             $params['col_name'],
             $params['col_type'],
@@ -227,7 +232,7 @@ class CentralColumnsController extends AbstractController
             isset($params['col_isNull']) ? 1 : 0,
             $params['collation'],
             $params['col_extra'] ?? '',
-            $columnDefault
+            $columnDefault,
         );
     }
 
@@ -236,18 +241,16 @@ class CentralColumnsController extends AbstractController
      *
      * @return true|Message
      */
-    public function addColumn(array $params)
+    public function addColumn(array $params): bool|Message
     {
         return $this->centralColumns->syncUniqueColumns(
             [$params['column-select']],
             false,
-            $params['table-select']
+            $params['table-select'],
         );
     }
 
-    /**
-     * @param array $params Request parameters
-     */
+    /** @param array $params Request parameters */
     public function editPage(array $params): void
     {
         $rows = $this->centralColumns->getHtmlForEditingPage($params['selected_fld'], $params['db']);
@@ -260,7 +263,7 @@ class CentralColumnsController extends AbstractController
      *
      * @return true|Message
      */
-    public function updateMultipleColumn(array $params)
+    public function updateMultipleColumn(array $params): bool|Message
     {
         return $this->centralColumns->updateMultipleColumn($params);
     }
@@ -270,7 +273,7 @@ class CentralColumnsController extends AbstractController
      *
      * @return true|Message
      */
-    public function deleteSave(array $params)
+    public function deleteSave(array $params): bool|Message
     {
         $name = [];
         parse_str($params['col_name'], $name);

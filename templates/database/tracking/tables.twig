@@ -6,8 +6,8 @@
         <form method="post" action="{{ url('/database/tracking') }}" name="trackedForm"
             id="trackedForm" class="ajax">
             {{ get_hidden_inputs(db) }}
-            <table id="versions" class="table table-light table-striped table-hover w-auto">
-                <thead class="table-light">
+            <table id="versions" class="table table-striped table-hover w-auto">
+                <thead>
                     <tr>
                         <th></th>
                         <th>{% trans 'Table' %}</th>
@@ -146,8 +146,8 @@
     <form method="post" action="{{ url('/database/tracking') }}" name="untrackedForm"
         id="untrackedForm" class="ajax">
         {{ get_hidden_inputs(db) }}
-        <table id="noversions" class="table table-light table-striped table-hover w-auto">
-            <thead class="table-light">
+        <table id="noversions" class="table table-striped table-hover w-auto">
+            <thead>
                 <tr>
                     <th></th>
                     <th>{% trans 'Table' %}</th>

@@ -11,9 +11,7 @@ use Symfony\Component\Console\Command\Command;
 use function class_exists;
 use function sprintf;
 
-/**
- * @covers \PhpMyAdmin\Command\WriteGitRevisionCommand
- */
+/** @covers \PhpMyAdmin\Command\WriteGitRevisionCommand */
 class WriteGitRevisionCommandTest extends AbstractTestCase
 {
     /** @var WriteGitRevisionCommand */
@@ -29,18 +27,11 @@ class WriteGitRevisionCommandTest extends AbstractTestCase
             ->onlyMethods(['gitCli'])
             ->getMock();
 
-        $this->command->expects($this->exactly(3))
-            ->method('gitCli')
-            ->withConsecutive(
-                ['describe --always'],
-                ['log -1 --format="%H"'],
-                ['symbolic-ref -q HEAD']
-            )
-            ->willReturnOnConsecutiveCalls(
-                'RELEASE_5_1_0-638-g1c018e2a6c',
-                '1c018e2a6c6d518c4a2dde059e49f33af67c4636',
-                'refs/heads/cli-rev-info'
-            );
+        $this->command->expects($this->exactly(3))->method('gitCli')->willReturnMap([
+            ['describe --always', 'RELEASE_5_1_0-638-g1c018e2a6c'],
+            ['log -1 --format="%H"', '1c018e2a6c6d518c4a2dde059e49f33af67c4636'],
+            ['symbolic-ref -q HEAD', 'refs/heads/cli-rev-info'],
+        ]);
 
         $output = $this->callFunction(
             $this->command,
@@ -49,7 +40,7 @@ class WriteGitRevisionCommandTest extends AbstractTestCase
             [
                 'https://github.com/phpmyadmin/phpmyadmin/commit/%s',
                 'https://github.com/phpmyadmin/phpmyadmin/tree/%s',
-            ]
+            ],
         );
         $template = <<<'PHP'
 <?php
@@ -75,9 +66,9 @@ PHP;
                 'RELEASE_5_1_0-638-g1c018e2a6c',
                 'https://github.com/phpmyadmin/phpmyadmin/commit/1c018e2a6c6d518c4a2dde059e49f33af67c4636',
                 'cli-rev-info',
-                'https://github.com/phpmyadmin/phpmyadmin/tree/cli-rev-info'
+                'https://github.com/phpmyadmin/phpmyadmin/tree/cli-rev-info',
             ),
-            $output
+            $output,
         );
     }
 }

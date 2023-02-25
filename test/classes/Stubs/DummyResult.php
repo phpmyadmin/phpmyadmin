@@ -12,6 +12,7 @@ use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\FieldMetadata;
 
 use function array_column;
+use function array_key_exists;
 use function is_string;
 
 /**
@@ -33,9 +34,7 @@ class DummyResult implements ResultInterface
      */
     private $link;
 
-    /**
-     * @param int|false $result
-     */
+    /** @param int|false $result */
     public function __construct(DbiDummy $link, $result)
     {
         $this->link = $link;
@@ -46,7 +45,7 @@ class DummyResult implements ResultInterface
      * Returns a generator that traverses through the whole result set
      * and returns each row as an associative array
      *
-     * @return Generator<int, array<string, string|null>, mixed, void>
+     * @psalm-return Generator<int, array<string, string|null>, mixed, void>
      */
     public function getIterator(): Generator
     {
@@ -92,10 +91,8 @@ class DummyResult implements ResultInterface
      * Returns a single value from the given result; false on error
      *
      * @param int|string $field
-     *
-     * @return string|false|null
      */
-    public function fetchValue($field = 0)
+    public function fetchValue($field = 0): string|false|null
     {
         if (is_string($field)) {
             $row = $this->fetchAssoc();
@@ -103,7 +100,16 @@ class DummyResult implements ResultInterface
             $row = $this->fetchRow();
         }
 
-        return $row[$field] ?? false;
+        if (! array_key_exists($field, $row)) {
+            return false;
+        }
+
+        /**
+         * PMA uses mostly textual mysqli protocol. In comparison to prepared statements (binary protocol),
+         * it returns all data types as strings. PMA is not ready to enable automatic cast to int/float, so
+         * in our dummy class we will force string cast on all values.
+         */
+        return $row[$field] === null ? null : (string) $row[$field];
     }
 
     /**
@@ -190,10 +196,9 @@ class DummyResult implements ResultInterface
     /**
      * Returns the number of rows in the result
      *
-     * @return string|int
      * @psalm-return int|numeric-string
      */
-    public function numRows()
+    public function numRows(): string|int
     {
         return $this->link->numRows($this->result);
     }

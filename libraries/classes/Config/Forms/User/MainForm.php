@@ -13,10 +13,8 @@ use function __;
 
 class MainForm extends BaseForm
 {
-    /**
-     * @return array
-     */
-    public static function getForms()
+    /** @return array */
+    public static function getForms(): array
     {
         return [
             'Startup' => [
@@ -82,10 +80,7 @@ class MainForm extends BaseForm
         ];
     }
 
-    /**
-     * @return string
-     */
-    public static function getName()
+    public static function getName(): string
     {
         return __('Main panel');
     }

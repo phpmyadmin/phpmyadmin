@@ -21,10 +21,8 @@ abstract class TextFileUploadTransformationsPlugin extends IOTransformationsPlug
 {
     /**
      * Gets the transformation description of the specific plugin
-     *
-     * @return string
      */
-    public static function getInfo()
+    public static function getInfo(): string
     {
         return __('File upload functionality for TEXT columns. It does not have a textarea for input.');
     }
@@ -35,10 +33,8 @@ abstract class TextFileUploadTransformationsPlugin extends IOTransformationsPlug
      * @param string             $buffer  text to be transformed
      * @param array              $options transformation options
      * @param FieldMetadata|null $meta    meta information
-     *
-     * @return string
      */
-    public function applyTransformation($buffer, array $options = [], ?FieldMetadata $meta = null)
+    public function applyTransformation($buffer, array $options = [], FieldMetadata|null $meta = null): string
     {
         return $buffer;
     }
@@ -68,8 +64,8 @@ abstract class TextFileUploadTransformationsPlugin extends IOTransformationsPlug
         $text_dir,
         $tabindex,
         $tabindex_for_value,
-        $idindex
-    ) {
+        $idindex,
+    ): string {
         $html = '';
         if (! empty($value)) {
             $html = '<input type="hidden" name="fields_prev' . $column_name_appendix
@@ -88,10 +84,8 @@ abstract class TextFileUploadTransformationsPlugin extends IOTransformationsPlug
 
     /**
      * Gets the transformation name of the specific plugin
-     *
-     * @return string
      */
-    public static function getName()
+    public static function getName(): string
     {
         return 'Text file upload';
     }

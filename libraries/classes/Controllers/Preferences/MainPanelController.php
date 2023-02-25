@@ -9,6 +9,7 @@ use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\MainForm;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
@@ -20,38 +21,30 @@ use function ltrim;
 
 class MainPanelController extends AbstractController
 {
-    /** @var UserPreferences */
-    private $userPreferences;
-
-    /** @var Relation */
-    private $relation;
-
-    /** @var Config */
-    private $config;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        UserPreferences $userPreferences,
-        Relation $relation,
-        Config $config
+        private UserPreferences $userPreferences,
+        private Relation $relation,
+        private Config $config,
     ) {
         parent::__construct($response, $template);
-        $this->userPreferences = $userPreferences;
-        $this->relation = $relation;
-        $this->config = $config;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $cfg, $cf, $error, $tabHash, $hash, $server, $route;
+        $GLOBALS['cf'] ??= null;
+        $GLOBALS['error'] ??= null;
+        $GLOBALS['tabHash'] ??= null;
+        $GLOBALS['hash'] ??= null;
+        $GLOBALS['server'] ??= null;
 
-        $cf = new ConfigFile($this->config->baseSettings);
-        $this->userPreferences->pageInit($cf);
+        $GLOBALS['cf'] = new ConfigFile($this->config->baseSettings);
+        $this->userPreferences->pageInit($GLOBALS['cf']);
 
-        $formDisplay = new MainForm($cf, 1);
+        $formDisplay = new MainForm($GLOBALS['cf'], 1);
 
-        if (isset($_POST['revert'])) {
+        if ($request->hasBodyParam('revert')) {
             // revert erroneous fields to their default values
             $formDisplay->fixErrors();
             $this->redirect('/preferences/main-panel');
@@ -59,49 +52,45 @@ class MainPanelController extends AbstractController
             return;
         }
 
-        $error = null;
+        $GLOBALS['error'] = null;
         if ($formDisplay->process(false) && ! $formDisplay->hasErrors()) {
             // Load 2FA settings
-            $twoFactor = new TwoFactor($cfg['Server']['user']);
+            $twoFactor = new TwoFactor($GLOBALS['cfg']['Server']['user']);
             // save settings
-            $result = $this->userPreferences->save($cf->getConfigArray());
+            $result = $this->userPreferences->save($GLOBALS['cf']->getConfigArray());
             // save back the 2FA setting only
             $twoFactor->save();
             if ($result === true) {
                 // reload config
                 $this->config->loadUserPreferences();
-                $tabHash = $_POST['tab_hash'] ?? null;
-                $hash = ltrim($tabHash, '#');
-                $this->userPreferences->redirect('index.php?route=/preferences/main-panel', null, $hash);
+                $GLOBALS['tabHash'] = $request->getParsedBodyParam('tab_hash');
+                $GLOBALS['hash'] = ltrim($GLOBALS['tabHash'], '#');
+                $this->userPreferences->redirect('index.php?route=/preferences/main-panel', null, $GLOBALS['hash']);
 
                 return;
             }
 
-            $error = $result;
+            $GLOBALS['error'] = $result;
         }
-
-        $this->addScriptFiles(['config.js']);
 
         $relationParameters = $this->relation->getRelationParameters();
 
         $this->render('preferences/header', [
-            'route' => $route,
-            'is_saved' => ! empty($_GET['saved']),
+            'route' => $request->getRoute(),
+            'is_saved' => $request->hasQueryParam('saved'),
             'has_config_storage' => $relationParameters->userPreferencesFeature !== null,
         ]);
 
-        if ($formDisplay->hasErrors()) {
-            $formErrors = $formDisplay->displayErrors();
-        }
+        $formErrors = $formDisplay->displayErrors();
 
         $this->render('preferences/forms/main', [
-            'error' => $error ? $error->getDisplay() : '',
+            'error' => $GLOBALS['error'] ? $GLOBALS['error']->getDisplay() : '',
             'has_errors' => $formDisplay->hasErrors(),
-            'errors' => $formErrors ?? null,
+            'errors' => $formErrors,
             'form' => $formDisplay->getDisplay(
                 true,
                 Url::getFromRoute('/preferences/main-panel'),
-                ['server' => $server]
+                ['server' => $GLOBALS['server']],
             ),
         ]);
 

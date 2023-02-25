@@ -6,9 +6,7 @@ namespace PhpMyAdmin\Tests\Selenium\Database;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
 
-/**
- * @coversNothing
- */
+/** @coversNothing */
 class OperationsTest extends TestBase
 {
     /**
@@ -17,6 +15,7 @@ class OperationsTest extends TestBase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->login();
     }
 
@@ -46,8 +45,8 @@ class OperationsTest extends TestBase
         $this->assertNotNull(
             $this->waitForElement(
                 'xpath',
-                "//span[@class='breadcrumb-comment' and contains(., 'comment_foobar')]"
-            )
+                "//span[@class='breadcrumb-comment' and contains(., 'comment_foobar')]",
+            ),
         );
     }
 
@@ -68,11 +67,11 @@ class OperationsTest extends TestBase
 
         $this->byCssSelector("form#rename_db_form input[type='submit']")->click();
 
-        $this->waitForElement('cssSelector', 'button.submitOK')->click();
+        $this->waitForElement('id', 'functionConfirmOkButton')->click();
 
         $this->waitForElement(
             'xpath',
-            "//a[contains(text(),'Database: ') and contains(text(),'" . $new_db_name . "')]"
+            "//a[contains(text(),'Database: ') and contains(text(),'" . $new_db_name . "')]",
         );
 
         $this->dbQuery(
@@ -80,14 +79,14 @@ class OperationsTest extends TestBase
             function () use ($new_db_name): void {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 $this->assertEquals($new_db_name, $this->getCellByTableClass('table_results', 1, 1));
-            }
+            },
         );
 
         $this->dbQuery(
             'SHOW DATABASES LIKE \'' . $this->databaseName . '\'',
             function (): void {
                 $this->assertFalse($this->isElementPresent('className', 'table_results'));
-            }
+            },
         );
 
         $this->databaseName = $new_db_name;
@@ -115,7 +114,7 @@ class OperationsTest extends TestBase
             'xpath',
             "//div[@class='alert alert-success' and contains(., 'Database "
             . $this->databaseName
-            . ' has been copied to ' . $new_db_name . "')]"
+            . ' has been copied to ' . $new_db_name . "')]",
         );
 
         $this->dbQuery(
@@ -123,7 +122,7 @@ class OperationsTest extends TestBase
             function () use ($new_db_name): void {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 $this->assertEquals($new_db_name, $this->getCellByTableClass('table_results', 1, 1));
-            }
+            },
         );
 
         $this->dbQuery('DROP DATABASE `' . $new_db_name . '`;');

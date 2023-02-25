@@ -24,31 +24,21 @@ class Console
      *
      * @var bool
      */
-    private $isEnabled;
+    private $isEnabled = true;
 
     /**
      * Whether we are servicing an ajax request.
      *
      * @var bool
      */
-    private $isAjax;
-
-    /** @var Relation */
-    private $relation;
+    private $isAjax = false;
 
     /** @var Template */
     public $template;
 
-    /**
-     * Creates a new class instance
-     */
-    public function __construct()
+    public function __construct(private Relation $relation, Template $template)
     {
-        global $dbi;
-
-        $this->isEnabled = true;
-        $this->relation = new Relation($dbi);
-        $this->template = new Template();
+        $this->template = $template;
     }
 
     /**
@@ -75,25 +65,23 @@ class Console
      */
     public static function getBookmarkContent(): string
     {
-        global $dbi;
-
         $template = new Template();
-        $relation = new Relation($dbi);
+        $relation = new Relation($GLOBALS['dbi']);
         $bookmarkFeature = $relation->getRelationParameters()->bookmarkFeature;
         if ($bookmarkFeature === null) {
             return '';
         }
 
-        $bookmarks = Bookmark::getList($bookmarkFeature, $dbi, $GLOBALS['cfg']['Server']['user']);
+        $bookmarks = Bookmark::getList($bookmarkFeature, $GLOBALS['dbi'], $GLOBALS['cfg']['Server']['user']);
         $count_bookmarks = count($bookmarks);
         if ($count_bookmarks > 0) {
             $welcomeMessage = sprintf(
                 _ngettext(
                     'Showing %1$d bookmark (both private and shared)',
                     'Showing %1$d bookmarks (both private and shared)',
-                    $count_bookmarks
+                    $count_bookmarks,
                 ),
-                $count_bookmarks
+                $count_bookmarks,
             );
         } else {
             $welcomeMessage = __('No bookmarks');
@@ -125,13 +113,11 @@ class Console
         }
 
         $bookmarkFeature = $this->relation->getRelationParameters()->bookmarkFeature;
-        $image = Html\Generator::getImage('console', __('SQL Query Console'));
         $_sql_history = $this->relation->getHistory($GLOBALS['cfg']['Server']['user']);
         $bookmarkContent = static::getBookmarkContent();
 
         return $this->template->render('console/display', [
             'has_bookmark_feature' => $bookmarkFeature !== null,
-            'image' => $image,
             'sql_history' => $_sql_history,
             'bookmark_content' => $bookmarkContent,
         ]);

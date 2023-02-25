@@ -1,0 +1,53 @@
+<?php
+
+namespace PhpMyAdmin\SqlParser;
+
+class Core {}
+class Parser extends Core {}
+abstract class Statement {}
+
+namespace PhpMyAdmin\SqlParser\Utils;
+
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statement;
+
+class Query
+{
+    /**
+     * @param string $query
+     * @return array{
+     *   distinct: bool,
+     *   drop_database: bool,
+     *   group: bool,
+     *   having: bool,
+     *   is_affected: bool,
+     *   is_analyse: bool,
+     *   is_count: bool,
+     *   is_delete: bool,
+     *   is_explain: bool,
+     *   is_export: bool,
+     *   is_func: bool,
+     *   is_group: bool,
+     *   is_insert: bool,
+     *   is_maint: bool,
+     *   is_procedure: bool,
+     *   is_replace: bool,
+     *   is_select: bool,
+     *   is_show: bool,
+     *   is_subquery: bool,
+     *   join: bool,
+     *   limit: bool,
+     *   offset: bool,
+     *   order: bool,
+     *   querytype: ('ALTER'|'ANALYZE'|'CALL'|'CHECK'|'CHECKSUM'|'CREATE'|'DELETE'|'DROP'|'EXPLAIN'|'INSERT'|'LOAD'|'OPTIMIZE'|'REPAIR'|'REPLACE'|'SELECT'|'SET'|'SHOW'|'UPDATE'|false),
+     *   reload: bool,
+     *   select_from: bool,
+     *   union: bool,
+     *   parser?: Parser,
+     *   statement?: Statement,
+     *   select_tables?: list<array{string|null, string|null}>,
+     *   select_expr?: list<string|null>
+     * }
+     */
+    public static function getAll($query);
+}

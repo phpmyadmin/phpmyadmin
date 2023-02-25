@@ -12,8 +12,8 @@
       </legend>
 
       <div class="table-responsive-md jsresponsive">
-        <table class="table table-light table-striped table-hover w-auto">
-          <thead class="table-light">
+        <table class="table table-striped table-hover w-auto">
+          <thead>
             <tr>
               <th></th>
               <th>{% trans 'User name' %}</th>
@@ -136,7 +136,7 @@
           'adduser': true,
           'dbname': db,
           'tablename': table
-        }) }}" rel="{{ get_common({'checkprivsdb': db, 'checkprivstable': table}) }}">
+        }) }}">
           {{ get_icon('b_usradd', 'Add user account'|trans) }}
         </a>
       </fieldset>

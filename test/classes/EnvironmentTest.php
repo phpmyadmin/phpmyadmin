@@ -8,9 +8,7 @@ use function version_compare;
 
 use const PHP_VERSION;
 
-/**
- * @coversNothing
- */
+/** @coversNothing */
 class EnvironmentTest extends AbstractTestCase
 {
     /**
@@ -19,8 +17,8 @@ class EnvironmentTest extends AbstractTestCase
     public function testPhpVersion(): void
     {
         $this->assertTrue(
-            version_compare('7.2.5', PHP_VERSION, '<='),
-            'phpMyAdmin requires PHP 7.2.5 or above'
+            version_compare('8.1.0', PHP_VERSION, '<='),
+            'phpMyAdmin requires PHP 8.1.0 or above',
         );
     }
 }

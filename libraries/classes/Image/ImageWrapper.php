@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Image;
 
-use function count;
+use GdImage;
+
 use function extension_loaded;
 use function function_exists;
 use function imagearc;
@@ -12,7 +13,6 @@ use function imagecolorallocate;
 use function imagecopyresampled;
 use function imagecreatefromstring;
 use function imagecreatetruecolor;
-use function imagedestroy;
 use function imagefilledpolygon;
 use function imagefilledrectangle;
 use function imagejpeg;
@@ -22,25 +22,13 @@ use function imagestring;
 use function imagesx;
 use function imagesy;
 
-use const PHP_VERSION_ID;
-
 final class ImageWrapper
 {
-    /** @var resource */
-    private $image;
-
-    /**
-     * @param resource $image
-     */
-    private function __construct($image)
+    private function __construct(private GdImage $image)
     {
-        $this->image = $image;
     }
 
-    /**
-     * @return resource
-     */
-    public function getImage()
+    public function getImage(): GdImage
     {
         return $this->image;
     }
@@ -49,7 +37,7 @@ final class ImageWrapper
      * @param array<string, int>|null $background
      * @psalm-param array{red: int, green: int, blue: int} $background
      */
-    public static function create(int $width, int $height, ?array $background = null): ?self
+    public static function create(int $width, int $height, array|null $background = null): self|null
     {
         if (! extension_loaded('gd')) {
             return null;
@@ -66,21 +54,17 @@ final class ImageWrapper
 
         $backgroundColor = imagecolorallocate($image, $background['red'], $background['green'], $background['blue']);
         if ($backgroundColor === false) {
-            imagedestroy($image);
-
             return null;
         }
 
         if (! imagefilledrectangle($image, 0, 0, $width - 1, $height - 1, $backgroundColor)) {
-            imagedestroy($image);
-
             return null;
         }
 
         return new self($image);
     }
 
-    public static function fromString(string $data): ?self
+    public static function fromString(string $data): self|null
     {
         if (! extension_loaded('gd')) {
             return null;
@@ -101,15 +85,12 @@ final class ImageWrapper
         int $height,
         int $startAngle,
         int $endAngle,
-        int $color
+        int $color,
     ): bool {
         return imagearc($this->image, $centerX, $centerY, $width, $height, $startAngle, $endAngle, $color);
     }
 
-    /**
-     * @return int|false
-     */
-    public function colorAllocate(int $red, int $green, int $blue)
+    public function colorAllocate(int $red, int $green, int $blue): int|false
     {
         return imagecolorallocate($this->image, $red, $green, $blue);
     }
@@ -123,7 +104,7 @@ final class ImageWrapper
         int $destinationWidth,
         int $destinationHeight,
         int $sourceWidth,
-        int $sourceHeight
+        int $sourceHeight,
     ): bool {
         return imagecopyresampled(
             $this->image,
@@ -135,25 +116,13 @@ final class ImageWrapper
             $destinationWidth,
             $destinationHeight,
             $sourceWidth,
-            $sourceHeight
+            $sourceHeight,
         );
     }
 
-    public function destroy(): bool
-    {
-        if (PHP_VERSION_ID >= 80000) {
-            return true;
-        }
-
-        return imagedestroy($this->image);
-    }
-
+    /** @param list<int> $points */
     public function filledPolygon(array $points, int $color): bool
     {
-        if (PHP_VERSION_ID < 80000) {
-            return imagefilledpolygon($this->image, $points, (int) (count($points) / 2), $color);
-        }
-
         return imagefilledpolygon($this->image, $points, $color);
     }
 
@@ -162,9 +131,7 @@ final class ImageWrapper
         return imagesy($this->image);
     }
 
-    /**
-     * @param resource|string|null $file
-     */
+    /** @param resource|string|null $file */
     public function jpeg($file = null, int $quality = -1): bool
     {
         if (! function_exists('imagejpeg')) {
@@ -179,9 +146,7 @@ final class ImageWrapper
         return imageline($this->image, $x1, $y1, $x2, $y2, $color);
     }
 
-    /**
-     * @param resource|string|null $file
-     */
+    /** @param resource|string|null $file */
     public function png($file = null, int $quality = -1, int $filters = -1): bool
     {
         if (! function_exists('imagepng')) {

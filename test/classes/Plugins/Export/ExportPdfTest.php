@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\Export\ExportPdf;
 use PhpMyAdmin\Plugins\Export\Helpers\Pdf;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -12,11 +14,11 @@ use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Transformations;
 use ReflectionMethod;
 use ReflectionProperty;
 
 use function __;
-use function array_shift;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Export\ExportPdf
@@ -33,13 +35,19 @@ class ExportPdfTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['output_charset_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
-        $this->object = new ExportPdf();
+        $this->object = new ExportPdf(
+            new Relation($GLOBALS['dbi']),
+            new Export($GLOBALS['dbi']),
+            new Transformations(),
+        );
     }
 
     /**
@@ -48,43 +56,42 @@ class ExportPdfTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 
     public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportPdf::class, 'setProperties');
-        $method->setAccessible(true);
         $method->invoke($this->object, null);
 
         $attrProperties = new ReflectionProperty(ExportPdf::class, 'properties');
-        $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(ExportPluginProperties::class, $properties);
 
         $this->assertEquals(
             'PDF',
-            $properties->getText()
+            $properties->getText(),
         );
 
         $this->assertEquals(
             'pdf',
-            $properties->getExtension()
+            $properties->getExtension(),
         );
 
         $this->assertEquals(
             'application/pdf',
-            $properties->getMimeType()
+            $properties->getMimeType(),
         );
 
         $this->assertEquals(
             'Options',
-            $properties->getOptionsText()
+            $properties->getOptionsText(),
         );
 
         $this->assertTrue(
-            $properties->getForceFile()
+            $properties->getForceFile(),
         );
 
         $options = $properties->getOptions();
@@ -93,54 +100,55 @@ class ExportPdfTest extends AbstractTestCase
 
         $this->assertEquals(
             'Format Specific Options',
-            $options->getName()
+            $options->getName(),
         );
 
         $generalOptionsArray = $options->getProperties();
 
-        $generalOptions = array_shift($generalOptionsArray);
+        $generalOptions = $generalOptionsArray->current();
+        $generalOptionsArray->next();
 
         $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'general_opts',
-            $generalOptions->getName()
+            $generalOptions->getName(),
         );
 
         $generalProperties = $generalOptions->getProperties();
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
 
         $this->assertInstanceOf(TextPropertyItem::class, $property);
 
         $this->assertEquals(
             'report_title',
-            $property->getName()
+            $property->getName(),
         );
 
-        $generalOptions = array_shift($generalOptionsArray);
+        $generalOptions = $generalOptionsArray->current();
 
         $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'dump_what',
-            $generalOptions->getName()
+            $generalOptions->getName(),
         );
 
         $this->assertEquals(
             'Dump table',
-            $generalOptions->getText()
+            $generalOptions->getText(),
         );
 
         $generalProperties = $generalOptions->getProperties();
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
 
         $this->assertInstanceOf(RadioPropertyItem::class, $property);
 
         $this->assertEquals(
             'structure_or_data',
-            $property->getName()
+            $property->getName(),
         );
 
         $this->assertEquals(
@@ -149,7 +157,7 @@ class ExportPdfTest extends AbstractTestCase
                 'data' => __('data'),
                 'structure_and_data' => __('structure and data'),
             ],
-            $property->getValues()
+            $property->getValues(),
         );
     }
 
@@ -166,11 +174,10 @@ class ExportPdfTest extends AbstractTestCase
             ->method('setTopMargin');
 
         $attrPdf = new ReflectionProperty(ExportPdf::class, 'pdf');
-        $attrPdf->setAccessible(true);
         $attrPdf->setValue($this->object, $pdf);
 
         $this->assertTrue(
-            $this->object->exportHeader()
+            $this->object->exportHeader(),
         );
     }
 
@@ -181,35 +188,35 @@ class ExportPdfTest extends AbstractTestCase
             ->getMock();
 
         $pdf->expects($this->once())
-            ->method('getPDFData');
+            ->method('getPDFData')
+            ->willReturn('');
 
         $attrPdf = new ReflectionProperty(ExportPdf::class, 'pdf');
-        $attrPdf->setAccessible(true);
         $attrPdf->setValue($this->object, $pdf);
 
         $this->assertTrue(
-            $this->object->exportFooter()
+            $this->object->exportFooter(),
         );
     }
 
     public function testExportDBHeader(): void
     {
         $this->assertTrue(
-            $this->object->exportDBHeader('testDB')
+            $this->object->exportDBHeader('testDB'),
         );
     }
 
     public function testExportDBFooter(): void
     {
         $this->assertTrue(
-            $this->object->exportDBFooter('testDB')
+            $this->object->exportDBFooter('testDB'),
         );
     }
 
     public function testExportDBCreate(): void
     {
         $this->assertTrue(
-            $this->object->exportDBCreate('testDB', 'database')
+            $this->object->exportDBCreate('testDB', 'database'),
         );
     }
 
@@ -224,17 +231,15 @@ class ExportPdfTest extends AbstractTestCase
             ->with('SELECT');
 
         $attrPdf = new ReflectionProperty(ExportPdf::class, 'pdf');
-        $attrPdf->setAccessible(true);
         $attrPdf->setValue($this->object, $pdf);
 
         $this->assertTrue(
             $this->object->exportData(
                 'db',
                 'table',
-                "\n",
                 'phpmyadmin.net/err',
-                'SELECT'
-            )
+                'SELECT',
+            ),
         );
     }
 
@@ -246,14 +251,12 @@ class ExportPdfTest extends AbstractTestCase
     public function testSetGetPdf(): void
     {
         $setter = new ReflectionMethod(ExportPdf::class, 'setPdf');
-        $setter->setAccessible(true);
         $setter->invoke($this->object, new Pdf());
 
         $getter = new ReflectionMethod(ExportPdf::class, 'getPdf');
-        $getter->setAccessible(true);
         $this->assertInstanceOf(
             Pdf::class,
-            $getter->invoke($this->object)
+            $getter->invoke($this->object),
         );
     }
 }

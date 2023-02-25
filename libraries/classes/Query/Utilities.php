@@ -13,6 +13,7 @@ use function array_slice;
 use function debug_backtrace;
 use function explode;
 use function htmlspecialchars;
+use function htmlspecialchars_decode;
 use function intval;
 use function md5;
 use function sprintf;
@@ -57,10 +58,12 @@ class Utilities
      * @param string $schema_name        Name of schema (database) to test
      * @param bool   $testForMysqlSchema Whether 'mysql' schema should
      *                                   be treated the same as IS and DD
+     *
+     * @psalm-pure
      */
     public static function isSystemSchema(
         string $schema_name,
-        bool $testForMysqlSchema = false
+        bool $testForMysqlSchema = false,
     ): bool {
         $schema_name = strtolower($schema_name);
 
@@ -87,7 +90,7 @@ class Utilities
     {
         $error_message = htmlspecialchars($error_message);
 
-        $error = '#' . ((string) $error_number);
+        $error = '#' . $error_number;
         $separator = ' &mdash; ';
 
         if ($error_number == 2002) {
@@ -111,10 +114,9 @@ class Utilities
                  * InnoDB constraints, see
                  * https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html
                  */
-                $error .= ' - ' . $error_message .
-                    ' (<a href="' .
-                    Url::getFromRoute('/server/engines/InnoDB/Status') .
-                    '">' . __('Details…') . '</a>)';
+                $error .= ' - ' . $error_message . ' (<a href="'
+                    . Url::getFromRoute('/server/engines/InnoDB/Status')
+                    . '">' . __('Details…') . '</a>)';
             }
         } else {
             $error .= ' - ' . $error_message;
@@ -136,8 +138,6 @@ class Utilities
      */
     public static function usortComparisonCallback(array $a, array $b, string $sortBy, string $sortOrder): int
     {
-        global $cfg;
-
         /* No sorting when key is not present */
         if (! isset($a[$sortBy], $b[$sortBy])) {
             return 0;
@@ -145,12 +145,12 @@ class Utilities
 
         // produces f.e.:
         // return -1 * strnatcasecmp($a['SCHEMA_TABLES'], $b['SCHEMA_TABLES'])
-        $compare = $cfg['NaturalOrder'] ? strnatcasecmp(
+        $compare = $GLOBALS['cfg']['NaturalOrder'] ? strnatcasecmp(
             (string) $a[$sortBy],
-            (string) $b[$sortBy]
+            (string) $b[$sortBy],
         ) : strcasecmp(
             (string) $a[$sortBy],
-            (string) $b[$sortBy]
+            (string) $b[$sortBy],
         );
 
         return ($sortOrder === 'ASC' ? 1 : -1) * $compare;
@@ -176,22 +176,26 @@ class Utilities
      * @param ResultInterface|false $result       Query result
      * @param int|float             $time         Time to execute query
      */
-    public static function debugLogQueryIntoSession(string $query, ?string $errorMessage, $result, $time): void
-    {
+    public static function debugLogQueryIntoSession(
+        string $query,
+        string|null $errorMessage,
+        ResultInterface|false $result,
+        int|float $time,
+    ): void {
         $dbgInfo = [];
 
         if ($result === false && $errorMessage !== null) {
-            $dbgInfo['error'] = '<span class="text-danger">'
-                . htmlspecialchars($errorMessage) . '</span>';
+            // because Utilities::formatError is applied in DbiMysqli
+            $dbgInfo['error'] = htmlspecialchars_decode($errorMessage);
         }
 
-        $dbgInfo['query'] = htmlspecialchars($query);
+        $dbgInfo['query'] = $query;
         $dbgInfo['time'] = $time;
         // Get and slightly format backtrace, this is used
         // in the javascript console.
         // Strip call to debugLogQueryIntoSession
         $dbgInfo['trace'] = Error::processBacktrace(
-            array_slice(debug_backtrace(), 1)
+            array_slice(debug_backtrace(), 1),
         );
         $dbgInfo['hash'] = md5($query);
 

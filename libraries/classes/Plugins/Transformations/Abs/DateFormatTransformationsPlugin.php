@@ -9,19 +9,21 @@ namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
-use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
 
 use function __;
 use function checkdate;
 use function gmdate;
 use function htmlspecialchars;
+use function json_encode;
 use function mb_strlen;
 use function mb_strtolower;
 use function mb_substr;
 use function mktime;
 use function preg_match;
 use function strtotime;
+
+use const ENT_COMPAT;
 
 /**
  * Provides common methods for all of the date format transformations plugins.
@@ -30,10 +32,8 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
 {
     /**
      * Gets the transformation description of the specific plugin
-     *
-     * @return string
      */
-    public static function getInfo()
+    public static function getInfo(): string
     {
         return __(
             'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp'
@@ -44,7 +44,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
             . ' UTC one (use "local" or "utc" strings) for that. According to'
             . ' that, date format has different value - for "local" see the'
             . ' documentation for PHP\'s strftime() function and for "utc" it'
-            . ' is done using gmdate() function.'
+            . ' is done using gmdate() function.',
         );
     }
 
@@ -54,10 +54,8 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
      * @param string             $buffer  text to be transformed
      * @param array              $options transformation options
      * @param FieldMetadata|null $meta    meta information
-     *
-     * @return string
      */
-    public function applyTransformation($buffer, array $options = [], ?FieldMetadata $meta = null)
+    public function applyTransformation($buffer, array $options = [], FieldMetadata|null $meta = null): string
     {
         $buffer = (string) $buffer;
         // possibly use a global transform and feed it with special options
@@ -110,7 +108,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
                         $aDate['second'],
                         $aDate['month'],
                         $aDate['day'],
-                        $aDate['year']
+                        $aDate['year'],
                     );
                 }
 
@@ -142,8 +140,8 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
                 $text = 'INVALID DATE TYPE';
             }
 
-            return '<dfn onclick="alert(\'' . Sanitize::jsFormat($source, false) . '\');" title="'
-                . htmlspecialchars((string) $source) . '">' . htmlspecialchars((string) $text) . '</dfn>';
+            return '<dfn onclick="alert(' . htmlspecialchars((string) json_encode($source), ENT_COMPAT) . ');" title="'
+                . htmlspecialchars($source) . '">' . htmlspecialchars($text) . '</dfn>';
         }
 
         return htmlspecialchars((string) $buffer);
@@ -153,10 +151,8 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
 
     /**
      * Gets the transformation name of the specific plugin
-     *
-     * @return string
      */
-    public static function getName()
+    public static function getName(): string
     {
         return 'Date Format';
     }

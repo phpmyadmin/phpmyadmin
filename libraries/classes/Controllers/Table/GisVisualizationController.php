@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Gis\GisVisualization;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -26,28 +28,22 @@ final class GisVisualizationController extends AbstractController
     /** @var GisVisualization */
     private $visualization;
 
-    /** @var DatabaseInterface */
-    private $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
-        string $table,
-        DatabaseInterface $dbi
+        private DatabaseInterface $dbi,
     ) {
-        parent::__construct($response, $template, $db, $table);
-        $this->dbi = $dbi;
+        parent::__construct($response, $template);
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $cfg, $urlParams, $db, $errorUrl;
+        $GLOBALS['urlParams'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
+        $this->checkParameters(['db']);
 
-        Util::checkParameters(['db']);
-
-        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $errorUrl .= Url::getCommon(['db' => $db], '&');
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
         if (! $this->hasDatabase()) {
             return;
@@ -67,7 +63,7 @@ final class GisVisualizationController extends AbstractController
         if ($sqlQuery == '') {
             $this->response->setRequestStatus(false);
             $this->response->addHTML(
-                Message::error(__('No SQL query was set to fetch data.'))->getDisplay()
+                Message::error(__('No SQL query was set to fetch data.'))->getDisplay(),
             );
 
             return;
@@ -135,11 +131,7 @@ final class GisVisualizationController extends AbstractController
             return;
         }
 
-        $this->addScriptFiles([
-            'vendor/openlayers/OpenLayers.js',
-            'vendor/jquery/jquery.svg.js',
-            'table/gis_visualization.js',
-        ]);
+        $this->addScriptFiles(['vendor/openlayers/OpenLayers.js', 'table/gis_visualization.js']);
 
         // If all the rows contain SRID, use OpenStreetMaps on the initial loading.
         if (! isset($_POST['displayVisualization'])) {
@@ -151,38 +143,36 @@ final class GisVisualizationController extends AbstractController
         }
 
         $this->visualization->setUserSpecifiedSettings($visualizationSettings);
-        if ($visualizationSettings != null) {
-            foreach ($this->visualization->getSettings() as $setting => $val) {
-                if (isset($visualizationSettings[$setting])) {
-                    continue;
-                }
-
-                $visualizationSettings[$setting] = $val;
+        foreach ($this->visualization->getSettings() as $setting => $val) {
+            if (isset($visualizationSettings[$setting])) {
+                continue;
             }
+
+            $visualizationSettings[$setting] = $val;
         }
 
         /**
          * Displays the page
          */
-        $urlParams['goto'] = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $urlParams['back'] = Url::getFromRoute('/sql');
-        $urlParams['sql_query'] = $sqlQuery;
-        $urlParams['sql_signature'] = Core::signSqlQuery($sqlQuery);
+        $GLOBALS['urlParams']['goto'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+        $GLOBALS['urlParams']['back'] = Url::getFromRoute('/sql');
+        $GLOBALS['urlParams']['sql_query'] = $sqlQuery;
+        $GLOBALS['urlParams']['sql_signature'] = Core::signSqlQuery($sqlQuery);
         $downloadUrl = Url::getFromRoute('/table/gis-visualization', array_merge(
-            $urlParams,
+            $GLOBALS['urlParams'],
             [
                 'saveToFile' => true,
                 'session_max_rows' => $rows,
                 'pos' => $pos,
                 'visualizationSettings[spatialColumn]' => $visualizationSettings['spatialColumn'],
-                'visualizationSettings[labelColumn]' => $visualizationSettings['labelColumn'],
-            ]
+                'visualizationSettings[labelColumn]' => $visualizationSettings['labelColumn'] ?? null,
+            ],
         ));
 
         $startAndNumberOfRowsFieldset = Generator::getStartAndNumberOfRowsFieldsetData($sqlQuery);
 
         $html = $this->template->render('table/gis_visualization/gis_visualization', [
-            'url_params' => $urlParams,
+            'url_params' => $GLOBALS['urlParams'],
             'download_url' => $downloadUrl,
             'label_candidates' => $labelCandidates,
             'spatial_candidates' => $spatialCandidates,

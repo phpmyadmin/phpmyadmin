@@ -6,9 +6,7 @@ namespace PhpMyAdmin\Tests\Selenium\Database;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
 
-/**
- * @coversNothing
- */
+/** @coversNothing */
 class StructureTest extends TestBase
 {
     /**
@@ -17,6 +15,7 @@ class StructureTest extends TestBase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->dbQuery(
             'USE `' . $this->databaseName . '`;'
             . 'CREATE TABLE `test_table` ('
@@ -29,7 +28,7 @@ class StructureTest extends TestBase
             . ' `val` int(11) NOT NULL,'
             . ' PRIMARY KEY (`id`)'
             . ');'
-            . 'INSERT INTO `test_table` (val) VALUES (2);'
+            . 'INSERT INTO `test_table` (val) VALUES (2);',
         );
 
         $this->login();
@@ -49,13 +48,13 @@ class StructureTest extends TestBase
     {
         $this->byXPath("(//a[contains(., 'Empty')])[1]")->click();
 
-        $this->waitForElement('cssSelector', 'button.submitOK')->click();
+        $this->waitForElement('id', 'functionConfirmOkButton')->click();
 
         $this->assertNotNull(
             $this->waitForElement(
                 'xpath',
-                '//div[@class=\'alert alert-success\' and contains(., \'MySQL returned an empty result\')]'
-            )
+                '//div[@class=\'alert alert-success\' and contains(., \'MySQL returned an empty result\')]',
+            ),
         );
 
         $this->dbQuery(
@@ -64,7 +63,7 @@ class StructureTest extends TestBase
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 // [ ] | Edit | Copy | Delete | 1 | 5
                 $this->assertEquals('Count: 0', $this->getCellByTableClass('table_results', 1, 1));
-            }
+            },
         );
     }
 
@@ -79,7 +78,7 @@ class StructureTest extends TestBase
 
         $this->selectByLabel(
             $this->byName('submit_mult'),
-            'Drop'
+            'Drop',
         );
 
         $this->waitForElement('id', 'buttonYes')
@@ -91,7 +90,7 @@ class StructureTest extends TestBase
             'SHOW TABLES FROM `' . $this->databaseName . '`;',
             function (): void {
                 $this->assertFalse($this->isElementPresent('className', 'table_results'));
-            }
+            },
         );
     }
 }

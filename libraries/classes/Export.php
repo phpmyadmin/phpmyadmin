@@ -10,10 +10,13 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Controllers\Database\ExportController as DatabaseExportController;
 use PhpMyAdmin\Controllers\Server\ExportController as ServerExportController;
 use PhpMyAdmin\Controllers\Table\ExportController as TableExportController;
+use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Exceptions\ExportException;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\SchemaPlugin;
 
 use function __;
+use function array_filter;
 use function array_merge_recursive;
 use function error_get_last;
 use function fclose;
@@ -25,6 +28,7 @@ use function gzencode;
 use function header;
 use function htmlentities;
 use function htmlspecialchars;
+use function http_build_query;
 use function implode;
 use function in_array;
 use function ini_get;
@@ -45,17 +49,15 @@ use function strtolower;
 use function substr;
 use function time;
 use function trim;
-use function urlencode;
+
+use const ENT_COMPAT;
 
 /**
  * PhpMyAdmin\Export class
  */
 class Export
 {
-    /** @var DatabaseInterface */
-    private $dbi;
-
-    /** @var mixed */
+    /** @var string */
     public $dumpBuffer = '';
 
     /** @var int */
@@ -64,12 +66,9 @@ class Export
     /** @var array */
     public $dumpBufferObjects = [];
 
-    /**
-     * @param DatabaseInterface $dbi DatabaseInterface instance
-     */
-    public function __construct($dbi)
+    /** @param DatabaseInterface $dbi */
+    public function __construct(private $dbi)
     {
-        $this->dbi = $dbi;
     }
 
     /**
@@ -103,7 +102,7 @@ class Export
      */
     public function gzencodeNeeded(): bool
     {
-        /*
+        /**
          * We should gzencode only if the function exists
          * but we don't want to compress twice, therefore
          * gzencode only if transparent compression is not enabled
@@ -123,9 +122,10 @@ class Export
      *
      * @param string $line the insert statement
      */
-    public function outputHandler(?string $line): bool
+    public function outputHandler(string $line): bool
     {
-        global $time_start, $save_filename;
+        $GLOBALS['time_start'] ??= null;
+        $GLOBALS['save_filename'] ??= null;
 
         // Kanji encoding convert feature
         if ($GLOBALS['output_kanji_conversion']) {
@@ -136,7 +136,7 @@ class Export
         if ($GLOBALS['buffer_needed']) {
             $this->dumpBuffer .= $line;
             if ($GLOBALS['onfly_compression']) {
-                $this->dumpBufferLength += strlen((string) $line);
+                $this->dumpBufferLength += strlen($line);
 
                 if ($this->dumpBufferLength > $GLOBALS['memory_limit']) {
                     if ($GLOBALS['output_charset_conversion']) {
@@ -146,18 +146,18 @@ class Export
                     if ($GLOBALS['compression'] === 'gzip' && $this->gzencodeNeeded()) {
                         // as a gzipped file
                         // without the optional parameter level because it bugs
-                        $this->dumpBuffer = gzencode($this->dumpBuffer);
+                        $this->dumpBuffer = (string) gzencode($this->dumpBuffer);
                     }
 
                     if ($GLOBALS['save_on_server']) {
-                        $writeResult = @fwrite($GLOBALS['file_handle'], (string) $this->dumpBuffer);
+                        $writeResult = @fwrite($GLOBALS['file_handle'], $this->dumpBuffer);
                         // Here, use strlen rather than mb_strlen to get the length
                         // in bytes to compare against the number of bytes written.
-                        if ($writeResult != strlen((string) $this->dumpBuffer)) {
+                        if ($writeResult != strlen($this->dumpBuffer)) {
                             $GLOBALS['message'] = Message::error(
-                                __('Insufficient space to save the file %s.')
+                                __('Insufficient space to save the file %s.'),
                             );
-                            $GLOBALS['message']->addParam($save_filename);
+                            $GLOBALS['message']->addParam($GLOBALS['save_filename']);
 
                             return false;
                         }
@@ -170,8 +170,8 @@ class Export
                 }
             } else {
                 $timeNow = time();
-                if ($time_start >= $timeNow + 30) {
-                    $time_start = $timeNow;
+                if ($GLOBALS['time_start'] >= $timeNow + 30) {
+                    $GLOBALS['time_start'] = $timeNow;
                     header('X-pmaPing: Pong');
                 }
             }
@@ -180,27 +180,27 @@ class Export
                 $line = Encoding::convertString('utf-8', $GLOBALS['charset'], $line);
             }
 
-            if ($GLOBALS['save_on_server'] && mb_strlen((string) $line) > 0) {
+            if ($GLOBALS['save_on_server'] && mb_strlen($line) > 0) {
                 if ($GLOBALS['file_handle'] !== null) {
-                    $writeResult = @fwrite($GLOBALS['file_handle'], (string) $line);
+                    $writeResult = @fwrite($GLOBALS['file_handle'], $line);
                 } else {
                     $writeResult = false;
                 }
 
                 // Here, use strlen rather than mb_strlen to get the length
                 // in bytes to compare against the number of bytes written.
-                if (! $writeResult || $writeResult != strlen((string) $line)) {
+                if (! $writeResult || $writeResult != strlen($line)) {
                     $GLOBALS['message'] = Message::error(
-                        __('Insufficient space to save the file %s.')
+                        __('Insufficient space to save the file %s.'),
                     );
-                    $GLOBALS['message']->addParam($save_filename);
+                    $GLOBALS['message']->addParam($GLOBALS['save_filename']);
 
                     return false;
                 }
 
                 $timeNow = time();
-                if ($time_start >= $timeNow + 30) {
-                    $time_start = $timeNow;
+                if ($GLOBALS['time_start'] >= $timeNow + 30) {
+                    $GLOBALS['time_start'] = $timeNow;
                     header('X-pmaPing: Pong');
                 }
             } else {
@@ -209,7 +209,7 @@ class Export
             }
         } else {
             // We export as html - replace special chars
-            echo htmlspecialchars((string) $line);
+            echo htmlspecialchars($line, ENT_COMPAT);
         }
 
         return true;
@@ -218,14 +218,16 @@ class Export
     /**
      * Returns HTML containing the footer for a displayed export
      *
-     * @param string $backButton    the link for going Back
-     * @param string $refreshButton the link for refreshing page
+     * @param string $exportType the export type
+     * @param string $db         the database name
+     * @param string $table      the table name
      *
      * @return string the HTML output
      */
     public function getHtmlForDisplayedExportFooter(
-        string $backButton,
-        string $refreshButton
+        string $exportType,
+        string $db,
+        string $table,
     ): string {
         /**
          * Close the html tags and add the footers for on-screen export
@@ -234,8 +236,8 @@ class Export
             . '    </form>'
             . '<br>'
             // bottom back button
-            . $backButton
-            . $refreshButton
+            . $this->getHTMLForBackButton($exportType, $db, $table)
+            . $this->getHTMLForRefreshButton($exportType)
             . '</div>'
             . '<script type="text/javascript">' . "\n"
             . '//<![CDATA[' . "\n"
@@ -258,7 +260,7 @@ class Export
         $memoryLimitNumber = (int) substr($memoryLimit, 0, -1);
         $lowerLastChar = strtolower(substr($memoryLimit, -1));
         // 2 MB as default
-        if (empty($memoryLimit) || $memoryLimit == '-1') {
+        if ($memoryLimit === '' || $memoryLimit === '0' || $memoryLimit === '-1') {
             $memoryLimit = 2 * 1024 * 1024;
         } elseif ($lowerLastChar === 'm') {
             $memoryLimit = $memoryLimitNumber * 1024 * 1024;
@@ -295,7 +297,7 @@ class Export
     public function getFinalFilenameAndMimetypeForFilename(
         ExportPlugin $exportPlugin,
         string $compression,
-        string $filename
+        string $filename,
     ): array {
         // Grab basic dump extension and mime type
         // Check if the user already added extension;
@@ -303,7 +305,7 @@ class Export
         $requiredExtension = '.' . $exportPlugin->getProperties()->getExtension();
         $extensionLength = mb_strlen($requiredExtension);
         $userExtension = mb_substr($filename, -$extensionLength);
-        if (mb_strtolower($userExtension) != $requiredExtension) {
+        if (mb_strtolower($userExtension) !== $requiredExtension) {
             $filename .= $requiredExtension;
         }
 
@@ -341,38 +343,38 @@ class Export
         string $rememberTemplate,
         ExportPlugin $exportPlugin,
         string $compression,
-        string $filenameTemplate
+        string $filenameTemplate,
     ): array {
         if ($exportType === 'server') {
-            if (! empty($rememberTemplate)) {
+            if ($rememberTemplate !== '' && $rememberTemplate !== '0') {
                 $GLOBALS['config']->setUserValue(
                     'pma_server_filename_template',
                     'Export/file_template_server',
-                    $filenameTemplate
+                    $filenameTemplate,
                 );
             }
         } elseif ($exportType === 'database') {
-            if (! empty($rememberTemplate)) {
+            if ($rememberTemplate !== '' && $rememberTemplate !== '0') {
                 $GLOBALS['config']->setUserValue(
                     'pma_db_filename_template',
                     'Export/file_template_database',
-                    $filenameTemplate
+                    $filenameTemplate,
                 );
             }
         } elseif ($exportType === 'raw') {
-            if (! empty($rememberTemplate)) {
+            if ($rememberTemplate !== '' && $rememberTemplate !== '0') {
                 $GLOBALS['config']->setUserValue(
                     'pma_raw_filename_template',
                     'Export/file_template_raw',
-                    $filenameTemplate
+                    $filenameTemplate,
                 );
             }
         } else {
-            if (! empty($rememberTemplate)) {
+            if ($rememberTemplate !== '' && $rememberTemplate !== '0') {
                 $GLOBALS['config']->setUserValue(
                     'pma_table_filename_template',
                     'Export/file_template_table',
-                    $filenameTemplate
+                    $filenameTemplate,
                 );
             }
         }
@@ -414,15 +416,15 @@ class Export
         ) {
             $message = Message::error(
                 __(
-                    'File %s already exists on server, change filename or check overwrite option.'
-                )
+                    'File %s already exists on server, change filename or check overwrite option.',
+                ),
             );
             $message->addParam($saveFilename);
         } elseif (@is_file($saveFilename) && ! @is_writable($saveFilename)) {
             $message = Message::error(
                 __(
-                    'The web server does not have permission to save the file %s.'
-                )
+                    'The web server does not have permission to save the file %s.',
+                ),
             );
             $message->addParam($saveFilename);
         } else {
@@ -431,8 +433,8 @@ class Export
             if ($fileHandle === false) {
                 $message = Message::error(
                     __(
-                        'The web server does not have permission to save the file %s.'
-                    )
+                        'The web server does not have permission to save the file %s.',
+                    ),
                 );
                 $message->addParam($saveFilename);
             }
@@ -457,27 +459,25 @@ class Export
     public function closeFile(
         $fileHandle,
         string $dumpBuffer,
-        string $saveFilename
+        string $saveFilename,
     ): Message {
         $writeResult = @fwrite($fileHandle, $dumpBuffer);
         fclose($fileHandle);
         // Here, use strlen rather than mb_strlen to get the length
         // in bytes to compare against the number of bytes written.
-        if (strlen($dumpBuffer) > 0 && (! $writeResult || $writeResult != strlen($dumpBuffer))) {
-            $message = new Message(
+        if ($dumpBuffer !== '' && $writeResult !== strlen($dumpBuffer)) {
+            return new Message(
                 __('Insufficient space to save the file %s.'),
                 Message::ERROR,
-                [$saveFilename]
-            );
-        } else {
-            $message = new Message(
-                __('Dump has been saved to file %s.'),
-                Message::SUCCESS,
-                [$saveFilename]
+                [$saveFilename],
             );
         }
 
-        return $message;
+        return new Message(
+            __('Dump has been saved to file %s.'),
+            Message::SUCCESS,
+            [$saveFilename],
+        );
     }
 
     /**
@@ -486,10 +486,8 @@ class Export
      * @param array|string $dumpBuffer  the current dump buffer
      * @param string       $compression the compression mode
      * @param string       $filename    the filename
-     *
-     * @return array|string|bool
      */
-    public function compress($dumpBuffer, string $compression, string $filename)
+    public function compress(array|string $dumpBuffer, string $compression, string $filename): array|string|bool
     {
         if ($compression === 'zip' && function_exists('gzcompress')) {
             $zipExtension = new ZipExtension();
@@ -512,7 +510,7 @@ class Export
      */
     public function saveObjectInBuffer(string $objectName, bool $append = false): void
     {
-        if (! empty($this->dumpBuffer)) {
+        if ($this->dumpBuffer !== '') {
             if ($append && isset($this->dumpBufferObjects[$objectName])) {
                 $this->dumpBufferObjects[$objectName] .= $this->dumpBuffer;
             } else {
@@ -532,88 +530,24 @@ class Export
      * @param string $db         the database name
      * @param string $table      the table name
      *
-     * @return string[] the generated HTML and back button
+     * @return string the generated HTML and back button
      */
     public function getHtmlForDisplayedExportHeader(
         string $exportType,
         string $db,
-        string $table
-    ): array {
-        $html = '<div>';
-
+        string $table,
+    ): string {
         /**
          * Displays a back button with all the $_POST data in the URL
-         * (store in a variable to also display after the textarea)
          */
-        $backButton = '<p>[ <a href="';
-        if ($exportType === 'server') {
-            $backButton .= Url::getFromRoute('/server/export') . '" data-post="' . Url::getCommon([], '', false);
-        } elseif ($exportType === 'database') {
-            $backButton .= Url::getFromRoute('/database/export') . '" data-post="' . Url::getCommon(
-                ['db' => $db],
-                '',
-                false
-            );
-        } else {
-            $backButton .= Url::getFromRoute('/table/export') . '" data-post="' . Url::getCommon(
-                ['db' => $db, 'table' => $table],
-                '',
-                false
-            );
-        }
-
-        $postParams = $_POST;
-
-        // Convert the multiple select elements from an array to a string
-        if ($exportType === 'database') {
-            $structOrDataForced = empty($postParams['structure_or_data_forced']);
-            if ($structOrDataForced && ! isset($postParams['table_structure'])) {
-                $postParams['table_structure'] = [];
-            }
-
-            if ($structOrDataForced && ! isset($postParams['table_data'])) {
-                $postParams['table_data'] = [];
-            }
-        }
-
-        foreach ($postParams as $name => $value) {
-            if (is_array($value)) {
-                continue;
-            }
-
-            $backButton .= '&amp;' . urlencode((string) $name) . '=' . urlencode((string) $value);
-        }
-
-        $backButton .= '&amp;repopulate=1">' . __('Back') . '</a> ]</p>';
-        $html .= '<br>';
-        $html .= $backButton;
-        $refreshButton = '<form id="export_refresh_form" method="POST" action="'
-            . Url::getFromRoute('/export') . '" class="disableAjax">';
-        $refreshButton .= '[ <a class="disableAjax export_refresh_btn">' . __('Refresh') . '</a> ]';
-        foreach ($postParams as $name => $value) {
-            if (is_array($value)) {
-                foreach ($value as $val) {
-                    $refreshButton .= '<input type="hidden" name="' . htmlentities((string) $name)
-                        . '[]" value="' . htmlentities((string) $val) . '">';
-                }
-            } else {
-                $refreshButton .= '<input type="hidden" name="' . htmlentities((string) $name)
-                    . '" value="' . htmlentities((string) $value) . '">';
-            }
-        }
-
-        $refreshButton .= '</form>';
-        $html .= $refreshButton
+        return '<div>'
+            . '<br>'
+            . $this->getHTMLForBackButton($exportType, $db, $table)
+            . $this->getHTMLForRefreshButton($exportType)
             . '<br>'
             . '<form name="nofunction">'
             . '<textarea name="sqldump" cols="50" rows="30" '
             . 'id="textSQLDUMP" wrap="OFF">';
-
-        return [
-            $html,
-            $backButton,
-            $refreshButton,
-        ];
     }
 
     /**
@@ -622,7 +556,6 @@ class Export
      * @param string|array $dbSelect        the selected databases to export
      * @param string       $whatStrucOrData structure or data or both
      * @param ExportPlugin $exportPlugin    the selected export plugin
-     * @param string       $crlf            end of line character(s)
      * @param string       $errorUrl        the URL in case of error
      * @param string       $exportType      the export type
      * @param bool         $doRelation      whether to export relation info
@@ -633,10 +566,9 @@ class Export
      * @param string       $separateFiles   whether it is a separate-files export
      */
     public function exportServer(
-        $dbSelect,
+        string|array $dbSelect,
         string $whatStrucOrData,
         ExportPlugin $exportPlugin,
-        string $crlf,
         string $errorUrl,
         string $exportType,
         bool $doRelation,
@@ -644,28 +576,27 @@ class Export
         bool $doMime,
         bool $doDates,
         array $aliases,
-        string $separateFiles
+        string $separateFiles,
     ): void {
-        if (! empty($dbSelect) && is_array($dbSelect)) {
+        if (is_array($dbSelect) && $dbSelect !== []) {
             $tmpSelect = implode('|', $dbSelect);
             $tmpSelect = '|' . $tmpSelect . '|';
         }
 
         // Walk over databases
-        foreach ($GLOBALS['dblist']->databases as $currentDb) {
+        foreach ($this->dbi->getDatabaseList() as $currentDb) {
             if (! isset($tmpSelect) || ! mb_strpos(' ' . $tmpSelect, '|' . $currentDb . '|')) {
                 continue;
             }
 
             $tables = $this->dbi->getTables($currentDb);
             $this->exportDatabase(
-                $currentDb,
+                DatabaseName::fromValue($currentDb),
                 $tables,
                 $whatStrucOrData,
                 $tables,
                 $tables,
                 $exportPlugin,
-                $crlf,
                 $errorUrl,
                 $exportType,
                 $doRelation,
@@ -673,7 +604,7 @@ class Export
                 $doMime,
                 $doDates,
                 $aliases,
-                $separateFiles === 'database' ? $separateFiles : ''
+                $separateFiles === 'database' ? $separateFiles : '',
             );
             if ($separateFiles !== 'server') {
                 continue;
@@ -686,13 +617,12 @@ class Export
     /**
      * Export at the database level
      *
-     * @param string       $db              the database to export
+     * @param DatabaseName $db              the database to export
      * @param array        $tables          the tables to export
      * @param string       $whatStrucOrData structure or data or both
      * @param array        $tableStructure  whether to export structure for each table
      * @param array        $tableData       whether to export data for each table
      * @param ExportPlugin $exportPlugin    the selected export plugin
-     * @param string       $crlf            end of line character(s)
      * @param string       $errorUrl        the URL in case of error
      * @param string       $exportType      the export type
      * @param bool         $doRelation      whether to export relation info
@@ -703,13 +633,12 @@ class Export
      * @param string       $separateFiles   whether it is a separate-files export
      */
     public function exportDatabase(
-        string $db,
+        DatabaseName $db,
         array $tables,
         string $whatStrucOrData,
         array $tableStructure,
         array $tableData,
         ExportPlugin $exportPlugin,
-        string $crlf,
         string $errorUrl,
         string $exportType,
         bool $doRelation,
@@ -717,16 +646,16 @@ class Export
         bool $doMime,
         bool $doDates,
         array $aliases,
-        string $separateFiles
+        string $separateFiles,
     ): void {
-        $dbAlias = ! empty($aliases[$db]['alias'])
-            ? $aliases[$db]['alias'] : '';
+        $dbAlias = ! empty($aliases[$db->getName()]['alias'])
+            ? $aliases[$db->getName()]['alias'] : '';
 
-        if (! $exportPlugin->exportDBHeader($db, $dbAlias)) {
+        if (! $exportPlugin->exportDBHeader($db->getName(), $dbAlias)) {
             return;
         }
 
-        if (! $exportPlugin->exportDBCreate($db, $exportType, $dbAlias)) {
+        if (! $exportPlugin->exportDBCreate($db->getName(), $exportType, $dbAlias)) {
             return;
         }
 
@@ -739,7 +668,7 @@ class Export
             || $GLOBALS['sql_structure_or_data'] === 'structure_and_data')
             && isset($GLOBALS['sql_procedure_function'])
         ) {
-            $exportPlugin->exportRoutines($db, $aliases);
+            $exportPlugin->exportRoutines($db->getName(), $aliases);
 
             if ($separateFiles === 'database') {
                 $this->saveObjectInBuffer('routines');
@@ -749,7 +678,7 @@ class Export
         $views = [];
 
         foreach ($tables as $table) {
-            $tableObject = new Table($table, $db);
+            $tableObject = new Table($table, $db->getName(), $this->dbi);
             // if this is a view, collect it for later;
             // views must be exported after the tables
             $isView = $tableObject->isView();
@@ -769,9 +698,8 @@ class Export
                         $separateFiles == ''
                         && isset($GLOBALS['sql_create_view'])
                         && ! $exportPlugin->exportStructure(
-                            $db,
+                            $db->getName(),
                             $table,
-                            $crlf,
                             $errorUrl,
                             'stand_in',
                             $exportType,
@@ -779,7 +707,7 @@ class Export
                             $doComments,
                             $doMime,
                             $doDates,
-                            $aliases
+                            $aliases,
                         )
                     ) {
                         break;
@@ -792,12 +720,12 @@ class Export
                         // This obtains the current table's size
                         $query = 'SELECT data_length + index_length
                               from information_schema.TABLES
-                              WHERE table_schema = "' . $this->dbi->escapeString($db) . '"
-                              AND table_name = "' . $this->dbi->escapeString($table) . '"';
+                              WHERE table_schema = ' . $this->dbi->quoteString($db->getName()) . '
+                              AND table_name = ' . $this->dbi->quoteString($table);
 
                         $size = (int) $this->dbi->fetchValue($query);
                         //Converting the size to MB
-                        $size /= 1024 / 1024;
+                        $size /= 1024 * 1024;
                         if ($size > $tableSize) {
                             continue;
                         }
@@ -805,9 +733,8 @@ class Export
 
                     if (
                         ! $exportPlugin->exportStructure(
-                            $db,
+                            $db->getName(),
                             $table,
-                            $crlf,
                             $errorUrl,
                             'create_table',
                             $exportType,
@@ -815,7 +742,7 @@ class Export
                             $doComments,
                             $doMime,
                             $doDates,
-                            $aliases
+                            $aliases,
                         )
                     ) {
                         break;
@@ -829,14 +756,14 @@ class Export
                 && in_array($table, $tableData)
                 && ! $isView
             ) {
-                $tableObj = new Table($table, $db);
+                $tableObj = new Table($table, $db->getName(), $this->dbi);
                 $nonGeneratedCols = $tableObj->getNonGeneratedColumns(true);
 
                 $localQuery = 'SELECT ' . implode(', ', $nonGeneratedCols)
-                    . ' FROM ' . Util::backquote($db)
+                    . ' FROM ' . Util::backquote($db->getName())
                     . '.' . Util::backquote($table);
 
-                if (! $exportPlugin->exportData($db, $table, $crlf, $errorUrl, $localQuery, $aliases)) {
+                if (! $exportPlugin->exportData($db->getName(), $table, $errorUrl, $localQuery, $aliases)) {
                     break;
                 }
             }
@@ -858,9 +785,8 @@ class Export
 
             if (
                 ! $exportPlugin->exportStructure(
-                    $db,
+                    $db->getName(),
                     $table,
-                    $crlf,
                     $errorUrl,
                     'triggers',
                     $exportType,
@@ -868,7 +794,7 @@ class Export
                     $doComments,
                     $doMime,
                     $doDates,
-                    $aliases
+                    $aliases,
                 )
             ) {
                 break;
@@ -890,9 +816,8 @@ class Export
 
                 if (
                     ! $exportPlugin->exportStructure(
-                        $db,
+                        $db->getName(),
                         $view,
-                        $crlf,
                         $errorUrl,
                         'create_view',
                         $exportType,
@@ -900,7 +825,7 @@ class Export
                         $doComments,
                         $doMime,
                         $doDates,
-                        $aliases
+                        $aliases,
                     )
                 ) {
                     break;
@@ -914,7 +839,7 @@ class Export
             }
         }
 
-        if (! $exportPlugin->exportDBFooter($db)) {
+        if (! $exportPlugin->exportDBFooter($db->getName())) {
             return;
         }
 
@@ -923,7 +848,7 @@ class Export
             // Types of metadata to export.
             // In the future these can be allowed to be selected by the user
             $metadataTypes = $this->getMetadataTypes();
-            $exportPlugin->exportMetadata($db, $tables, $metadataTypes);
+            $exportPlugin->exportMetadata($db->getName(), $tables, $metadataTypes);
 
             if ($separateFiles === 'database') {
                 $this->saveObjectInBuffer('metadata');
@@ -942,7 +867,7 @@ class Export
             return;
         }
 
-        $exportPlugin->exportEvents($db);
+        $exportPlugin->exportEvents($db->getName());
 
         if ($separateFiles !== 'database') {
             return;
@@ -956,33 +881,33 @@ class Export
      *
      * @param string       $whatStrucOrData whether to export structure for each table or raw
      * @param ExportPlugin $exportPlugin    the selected export plugin
-     * @param string       $crlf            end of line character(s)
      * @param string       $errorUrl        the URL in case of error
+     * @param string|null  $db              the database where the query is executed
      * @param string       $sqlQuery        the query to be executed
      * @param string       $exportType      the export type
      */
     public static function exportRaw(
         string $whatStrucOrData,
         ExportPlugin $exportPlugin,
-        string $crlf,
         string $errorUrl,
+        string|null $db,
         string $sqlQuery,
-        string $exportType
+        string $exportType,
     ): void {
         // In case the we need to dump just the raw query
         if ($whatStrucOrData !== 'raw') {
             return;
         }
 
-        if (! $exportPlugin->exportRawQuery($errorUrl, $sqlQuery, $crlf)) {
-            $GLOBALS['message'] = Message::error(
-                // phpcs:disable Generic.Files.LineLength.TooLong
-                /* l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular */
-                __('Exporting a raw query is not supported for this export method.')
-            );
-
+        if ($exportPlugin->exportRawQuery($errorUrl, $db, $sqlQuery)) {
             return;
         }
+
+        $GLOBALS['message'] = Message::error(
+            // phpcs:disable Generic.Files.LineLength.TooLong
+            /* l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular */
+            __('Exporting a raw query is not supported for this export method.'),
+        );
     }
 
     /**
@@ -992,7 +917,6 @@ class Export
      * @param string       $table           the table to export
      * @param string       $whatStrucOrData structure or data or both
      * @param ExportPlugin $exportPlugin    the selected export plugin
-     * @param string       $crlf            end of line character(s)
      * @param string       $errorUrl        the URL in case of error
      * @param string       $exportType      the export type
      * @param bool         $doRelation      whether to export relation info
@@ -1010,18 +934,17 @@ class Export
         string $table,
         string $whatStrucOrData,
         ExportPlugin $exportPlugin,
-        string $crlf,
         string $errorUrl,
         string $exportType,
         bool $doRelation,
         bool $doComments,
         bool $doMime,
         bool $doDates,
-        ?string $allrows,
+        string|null $allrows,
         string $limitTo,
         string $limitFrom,
         string $sqlQuery,
-        array $aliases
+        array $aliases,
     ): void {
         $dbAlias = ! empty($aliases[$db]['alias'])
             ? $aliases[$db]['alias'] : '';
@@ -1037,7 +960,7 @@ class Export
             $addQuery = '';
         }
 
-        $tableObject = new Table($table, $db);
+        $tableObject = new Table($table, $db, $this->dbi);
         $isView = $tableObject->isView();
         if ($whatStrucOrData === 'structure' || $whatStrucOrData === 'structure_and_data') {
             if ($isView) {
@@ -1046,7 +969,6 @@ class Export
                         ! $exportPlugin->exportStructure(
                             $db,
                             $table,
-                            $crlf,
                             $errorUrl,
                             'create_view',
                             $exportType,
@@ -1054,7 +976,7 @@ class Export
                             $doComments,
                             $doMime,
                             $doDates,
-                            $aliases
+                            $aliases,
                         )
                     ) {
                         return;
@@ -1065,7 +987,6 @@ class Export
                     ! $exportPlugin->exportStructure(
                         $db,
                         $table,
-                        $crlf,
                         $errorUrl,
                         'create_table',
                         $exportType,
@@ -1073,7 +994,7 @@ class Export
                         $doComments,
                         $doMime,
                         $doDates,
-                        $aliases
+                        $aliases,
                     )
                 ) {
                     return;
@@ -1085,9 +1006,9 @@ class Export
         // for example, a PDF report
         // if it is a merge table, no data is exported
         if ($whatStrucOrData === 'data' || $whatStrucOrData === 'structure_and_data') {
-            if (! empty($sqlQuery)) {
+            if ($sqlQuery !== '') {
                 // only preg_replace if needed
-                if (! empty($addQuery)) {
+                if ($addQuery !== '') {
                     // remove trailing semicolon before adding a LIMIT
                     $sqlQuery = preg_replace('%;\s*$%', '', $sqlQuery);
                 }
@@ -1096,7 +1017,7 @@ class Export
                 $this->dbi->selectDb($db);
             } else {
                 // Data is exported only for Non-generated columns
-                $tableObj = new Table($table, $db);
+                $tableObj = new Table($table, $db, $this->dbi);
                 $nonGeneratedCols = $tableObj->getNonGeneratedColumns(true);
 
                 $localQuery = 'SELECT ' . implode(', ', $nonGeneratedCols)
@@ -1104,7 +1025,7 @@ class Export
                     . '.' . Util::backquote($table) . $addQuery;
             }
 
-            if (! $exportPlugin->exportData($db, $table, $crlf, $errorUrl, $localQuery, $aliases)) {
+            if (! $exportPlugin->exportData($db, $table, $errorUrl, $localQuery, $aliases)) {
                 return;
             }
         }
@@ -1119,7 +1040,6 @@ class Export
                 ! $exportPlugin->exportStructure(
                     $db,
                     $table,
-                    $crlf,
                     $errorUrl,
                     'triggers',
                     $exportType,
@@ -1127,7 +1047,7 @@ class Export
                     $doComments,
                     $doMime,
                     $doDates,
-                    $aliases
+                    $aliases,
                 )
             ) {
                 return;
@@ -1153,30 +1073,31 @@ class Export
      */
     public function showPage(string $exportType): void
     {
-        global $active_page, $containerBuilder;
-
+        $GLOBALS['active_page'] ??= null;
+        $request = Common::getRequest();
+        $container = Core::getContainerBuilder();
         if ($exportType === 'server') {
-            $active_page = Url::getFromRoute('/server/export');
+            $GLOBALS['active_page'] = Url::getFromRoute('/server/export');
             /** @var ServerExportController $controller */
-            $controller = $containerBuilder->get(ServerExportController::class);
-            $controller();
+            $controller = $container->get(ServerExportController::class);
+            $controller($request);
 
             return;
         }
 
         if ($exportType === 'database') {
-            $active_page = Url::getFromRoute('/database/export');
+            $GLOBALS['active_page'] = Url::getFromRoute('/database/export');
             /** @var DatabaseExportController $controller */
-            $controller = $containerBuilder->get(DatabaseExportController::class);
-            $controller();
+            $controller = $container->get(DatabaseExportController::class);
+            $controller($request);
 
             return;
         }
 
-        $active_page = Url::getFromRoute('/table/export');
+        $GLOBALS['active_page'] = Url::getFromRoute('/table/export');
         /** @var TableExportController $controller */
-        $controller = $containerBuilder->get(TableExportController::class);
-        $controller();
+        $controller = $container->get(TableExportController::class);
+        $controller($request);
     }
 
     /**
@@ -1202,7 +1123,7 @@ class Export
                 $val1 = $db['alias'][0];
                 $val2 = $db['alias'][1];
                 // Use aliases2 alias if non empty
-                $aliases[$dbName]['alias'] = empty($val2) ? $val1 : $val2;
+                $aliases[$dbName]['alias'] = $val2 !== '' && $val2 !== null ? $val2 : $val1;
             }
 
             if (! isset($db['tables'])) {
@@ -1214,7 +1135,7 @@ class Export
                     $val1 = $tbl['alias'][0];
                     $val2 = $tbl['alias'][1];
                     // Use aliases2 alias if non empty
-                    $aliases[$dbName]['tables'][$tableName]['alias'] = empty($val2) ? $val1 : $val2;
+                    $aliases[$dbName]['tables'][$tableName]['alias'] = $val2 !== '' && $val2 !== null ? $val2 : $val1;
                 }
 
                 if (! isset($tbl['columns'])) {
@@ -1229,7 +1150,7 @@ class Export
                     $val1 = $colAs[0];
                     $val2 = $colAs[1];
                     // Use aliases2 alias if non empty
-                    $aliases[$dbName]['tables'][$tableName]['columns'][$col] = empty($val2) ? $val1 : $val2;
+                    $aliases[$dbName]['tables'][$tableName]['columns'][$col] = $val2 !== '' && $val2 !== null ? $val2 : $val1;
                 }
             }
         }
@@ -1240,17 +1161,17 @@ class Export
     /**
      * Locks tables
      *
-     * @param string $db       database name
-     * @param array  $tables   list of table names
-     * @param string $lockType lock type; "[LOW_PRIORITY] WRITE" or "READ [LOCAL]"
+     * @param DatabaseName $db       database name
+     * @param array        $tables   list of table names
+     * @param string       $lockType lock type; "[LOW_PRIORITY] WRITE" or "READ [LOCAL]"
      *
      * @return mixed result of the query
      */
-    public function lockTables(string $db, array $tables, string $lockType = 'WRITE')
+    public function lockTables(DatabaseName $db, array $tables, string $lockType = 'WRITE'): mixed
     {
         $locks = [];
         foreach ($tables as $table) {
-            $locks[] = Util::backquote($db) . '.'
+            $locks[] = Util::backquote($db->getName()) . '.'
                 . Util::backquote($table) . ' ' . $lockType;
         }
 
@@ -1264,7 +1185,7 @@ class Export
      *
      * @return mixed result of the query
      */
-    public function unlockTables()
+    public function unlockTables(): mixed
     {
         return $this->dbi->tryQuery('UNLOCK TABLES');
     }
@@ -1311,30 +1232,100 @@ class Export
      * get all the export options and verify
      * call and include the appropriate Schema Class depending on $export_type
      *
-     * @param string|null $exportType format of the export
+     * @param non-empty-string $exportType
+     *
+     * @return array{fileName: non-empty-string, mediaType: non-empty-string, fileData: string}
+     *
+     * @throws ExportException
      */
-    public function processExportSchema(?string $exportType): void
+    public function getExportSchemaInfo(DatabaseName $db, string $exportType): array
     {
         /**
          * default is PDF, otherwise validate it's only letters a-z
          */
-        if (! isset($exportType) || ! preg_match('/^[a-zA-Z]+$/', $exportType)) {
+        if (! preg_match('/^[a-zA-Z]+$/', $exportType)) {
             $exportType = 'pdf';
         }
 
-        // sanitize this parameter which will be used below in a file inclusion
-        $exportType = Core::securePath($exportType);
-
         // get the specific plugin
-        /** @var SchemaPlugin $exportPlugin */
+        /** @var SchemaPlugin|null $exportPlugin */
         $exportPlugin = Plugins::getPlugin('schema', $exportType);
 
         // Check schema export type
         if ($exportPlugin === null) {
-            Core::fatalError(__('Bad type!'));
+            throw new ExportException(__('Bad type!'));
         }
 
-        $this->dbi->selectDb($_POST['db']);
-        $exportPlugin->exportSchema($_POST['db']);
+        $this->dbi->selectDb($db);
+
+        return $exportPlugin->getExportInfo($db);
+    }
+
+    private function getHTMLForRefreshButton(string $exportType): string
+    {
+        $postParams = $this->getPostParams($exportType);
+
+        $refreshButton = '<form id="export_refresh_form" method="POST" action="'
+            . Url::getFromRoute('/export') . '" class="disableAjax">';
+        $refreshButton .= '[ <a class="disableAjax export_refresh_btn">' . __('Refresh') . '</a> ]';
+        foreach ($postParams as $name => $value) {
+            if (is_array($value)) {
+                foreach ($value as $val) {
+                    $refreshButton .= '<input type="hidden" name="' . htmlentities((string) $name)
+                        . '[]" value="' . htmlentities((string) $val) . '">';
+                }
+            } else {
+                $refreshButton .= '<input type="hidden" name="' . htmlentities((string) $name)
+                    . '" value="' . htmlentities((string) $value) . '">';
+            }
+        }
+
+        return $refreshButton . '</form>';
+    }
+
+    private function getHTMLForBackButton(string $exportType, string $db, string $table): string
+    {
+        $backButton = '<p>[ <a href="';
+        if ($exportType === 'server') {
+            $backButton .= Url::getFromRoute('/server/export') . '" data-post="' . Url::getCommon([], '', false);
+        } elseif ($exportType === 'database') {
+            $backButton .= Url::getFromRoute('/database/export') . '" data-post="' . Url::getCommon(
+                ['db' => $db],
+                '',
+                false,
+            );
+        } else {
+            $backButton .= Url::getFromRoute('/table/export') . '" data-post="' . Url::getCommon(
+                ['db' => $db, 'table' => $table],
+                '',
+                false,
+            );
+        }
+
+        $postParams = array_filter($this->getPostParams($exportType), static fn ($value) => ! is_array($value));
+        $backButton .= '&amp;' . http_build_query($postParams);
+
+        $backButton .= '&amp;repopulate=1">' . __('Back') . '</a> ]</p>';
+
+        return $backButton;
+    }
+
+    private function getPostParams(string $exportType): array
+    {
+        $postParams = $_POST;
+
+        // Convert the multiple select elements from an array to a string
+        if ($exportType === 'database') {
+            $structOrDataForced = empty($postParams['structure_or_data_forced']);
+            if ($structOrDataForced && ! isset($postParams['table_structure'])) {
+                $postParams['table_structure'] = [];
+            }
+
+            if ($structOrDataForced && ! isset($postParams['table_data'])) {
+                $postParams['table_data'] = [];
+            }
+        }
+
+        return $postParams;
     }
 }

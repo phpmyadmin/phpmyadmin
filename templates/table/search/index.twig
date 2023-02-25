@@ -29,8 +29,8 @@
     <div class="card-body">
       <div id="fieldset_table_qbe">
         <div class="table-responsive-md jsresponsive">
-          <table class="table table-light table-striped table-hover table-sm w-auto">
-            <thead class="table-light">
+          <table class="table table-striped table-hover table-sm w-auto">
+            <thead>
               <tr>
                 {% if geom_column_flag %}
                   <th>{% trans 'Function' %}</th>
@@ -182,7 +182,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
       </div>
       <div class="modal-body">
-        <fieldset class="pma-fieldset">
+        <fieldset>
           <legend id="rangeSearchLegend"></legend>
           <label for="min_value">{% trans 'Minimum value:' %}</label>
           <input type="text" id="min_value"><br>

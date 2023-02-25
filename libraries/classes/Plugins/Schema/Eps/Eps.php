@@ -7,11 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Eps;
 
-use PhpMyAdmin\Core;
-use PhpMyAdmin\ResponseRenderer;
-
-use function strlen;
-
 /**
  * This Class is EPS Library and
  * helps in developing structure of EPS Schema Export
@@ -38,8 +33,7 @@ class Eps
      */
     public function __construct()
     {
-        $this->stringCommands = '';
-        $this->stringCommands .= "%!PS-Adobe-3.0 EPSF-3.0 \n";
+        $this->stringCommands = "%!PS-Adobe-3.0 EPSF-3.0 \n";
     }
 
     /**
@@ -116,7 +110,7 @@ class Eps
      *
      * @return string return the font name e.g Arial
      */
-    public function getFont()
+    public function getFont(): string
     {
         return $this->font;
     }
@@ -152,7 +146,7 @@ class Eps
         $y_from = 0,
         $x_to = 0,
         $y_to = 0,
-        $lineWidth = 0
+        $lineWidth = 0,
     ): void {
         $this->stringCommands .= $lineWidth . " setlinewidth  \n";
         $this->stringCommands .= $x_from . ' ' . $y_from . " moveto \n";
@@ -234,24 +228,8 @@ class Eps
         $this->stringCommands .= "showpage \n";
     }
 
-    /**
-     * Output EPS Document for download
-     *
-     * @param string $fileName name of the eps document
-     */
-    public function showOutput($fileName): void
+    public function getOutputData(): string
     {
-        // if(ob_get_clean()){
-        //ob_end_clean();
-        //}
-        $output = $this->stringCommands;
-        ResponseRenderer::getInstance()
-            ->disable();
-        Core::downloadHeader(
-            $fileName,
-            'image/x-eps',
-            strlen($output)
-        );
-        print $output;
+        return $this->stringCommands;
     }
 }

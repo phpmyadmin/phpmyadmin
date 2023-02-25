@@ -1,10 +1,14 @@
+import $ from 'jquery';
+import { AJAX } from './modules/ajax.js';
+import { Functions } from './modules/functions.js';
+import { ajaxShowMessage } from './modules/ajax-message.js';
+import getJsConfirmCommonParam from './modules/functions/getJsConfirmCommonParam.js';
+
 /**
  * @fileoverview    Javascript functions used in server replication page
  * @name            Server Replication
  *
- * @requires    jQuery
  * @requires    jQueryUI
- * @requires    js/functions.js
  */
 
 var randomServerId = Math.floor(Math.random() * 10000000);
@@ -81,11 +85,11 @@ AJAX.registerOnload('replication.js', function () {
     $('#reset_replica').on('click', function (e) {
         e.preventDefault();
         var $anchor = $(this);
-        var question = Messages.strResetReplicaWarning;
+        var question = window.Messages.strResetReplicaWarning;
         $anchor.confirm(question, $anchor.attr('href'), function (url) {
-            Functions.ajaxShowMessage();
+            ajaxShowMessage();
             AJAX.source = $anchor;
-            var params = Functions.getJsConfirmCommonParam({
+            var params = getJsConfirmCommonParam({
                 'ajax_page_request': true,
                 'ajax_request': true
             }, $anchor.getPostData());

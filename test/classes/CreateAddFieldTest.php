@@ -8,9 +8,7 @@ use PhpMyAdmin\CreateAddField;
 
 use function json_encode;
 
-/**
- * @covers \PhpMyAdmin\CreateAddField
- */
+/** @covers \PhpMyAdmin\CreateAddField */
 class CreateAddFieldTest extends AbstractTestCase
 {
     /** @var CreateAddField */
@@ -22,14 +20,16 @@ class CreateAddFieldTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $this->createAddField = new CreateAddField($GLOBALS['dbi']);
     }
 
     /**
      * Test for getPartitionsDefinition
      *
-     * @param string $expected Expected result
-     * @param array  $request  $_REQUEST array
+     * @param string       $expected Expected result
+     * @param array<mixed> $request  $_REQUEST array
      *
      * @dataProvider providerGetPartitionsDefinition
      */
@@ -43,9 +43,9 @@ class CreateAddFieldTest extends AbstractTestCase
     /**
      * Data provider for testGetPartitionsDefinition
      *
-     * @return array
+     * @return array<array{string, array<mixed>}>
      */
-    public function providerGetPartitionsDefinition(): array
+    public static function providerGetPartitionsDefinition(): array
     {
         return [
             [
@@ -227,10 +227,10 @@ class CreateAddFieldTest extends AbstractTestCase
     /**
      * Test for getTableCreationQuery
      *
-     * @param string $expected Expected result
-     * @param string $db       Database name
-     * @param string $table    Table name
-     * @param array  $request  $_REQUEST array
+     * @param string                        $expected Expected result
+     * @param string                        $db       Database name
+     * @param string                        $table    Table name
+     * @param array<string, string|mixed[]> $request  $_REQUEST array
      *
      * @dataProvider providerGetTableCreationQuery
      */
@@ -244,9 +244,9 @@ class CreateAddFieldTest extends AbstractTestCase
     /**
      * Data provider for testGetTableCreationQuery
      *
-     * @return array
+     * @return array<array{string, string, string, array<string, string|mixed[]>}>
      */
-    public function providerGetTableCreationQuery(): array
+    public static function providerGetTableCreationQuery(): array
     {
         return [
             [
@@ -263,7 +263,24 @@ class CreateAddFieldTest extends AbstractTestCase
                 ],
             ],
             [
-                'CREATE TABLE `db`.`table` () ENGINE = Inno\\\'DB CHARSET=armscii8 COMMENT = \'my \\\'table\';',
+                'CREATE TABLE `db`.`table` () ENGINE = dummy CHARSET=armscii8 COMMENT = \'my \\\'table\';',
+                'db',
+                'table',
+                [
+                    'field_name' => [],
+                    'primary_indexes' => '{}',
+                    'indexes' => '{}',
+                    'unique_indexes' => '{}',
+                    'fulltext_indexes' => '{}',
+                    'spatial_indexes' => '{}',
+                    'tbl_storage_engine' => 'dummy',
+                    'tbl_collation' => 'armscii8',
+                    'connection' => 'aaaa',
+                    'comment' => 'my \'table',
+                ],
+            ],
+            [
+                'CREATE TABLE `db`.`table` () CHARSET=armscii8 COMMENT = \'my \\\'table\';',
                 'db',
                 'table',
                 [
@@ -285,8 +302,8 @@ class CreateAddFieldTest extends AbstractTestCase
     /**
      * Test for getNumberOfFieldsFromRequest
      *
-     * @param int   $expected Expected result
-     * @param array $request  $_REQUEST array
+     * @param int     $expected Expected result
+     * @param mixed[] $request  $_REQUEST array
      *
      * @dataProvider providerGetNumberOfFieldsFromRequest
      */
@@ -300,9 +317,9 @@ class CreateAddFieldTest extends AbstractTestCase
     /**
      * Data provider for testGetNumberOfFieldsFromRequest
      *
-     * @return array
+     * @return array<array{int, mixed[]}>
      */
-    public function providerGetNumberOfFieldsFromRequest(): array
+    public static function providerGetNumberOfFieldsFromRequest(): array
     {
         return [
             [
@@ -315,9 +332,9 @@ class CreateAddFieldTest extends AbstractTestCase
     /**
      * Data provider for testGetColumnCreationQuery
      *
-     * @return array[]
+     * @return list<array{string, array<string, string|string[]|false>}>
      */
-    public function providerGetColumnCreationQueryRequest(): array
+    public static function providerGetColumnCreationQueryRequest(): array
     {
         return [
             [
@@ -502,6 +519,8 @@ class CreateAddFieldTest extends AbstractTestCase
     }
 
     /**
+     * @param array<string, string|string[]|false> $request
+     *
      * @dataProvider providerGetColumnCreationQueryRequest
      */
     public function testGetColumnCreationQuery(string $expected, array $request): void

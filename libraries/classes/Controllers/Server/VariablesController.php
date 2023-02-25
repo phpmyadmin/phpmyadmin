@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -25,37 +26,32 @@ use function trim;
  */
 class VariablesController extends AbstractController
 {
-    /** @var DatabaseInterface */
-    private $dbi;
-
-    public function __construct(ResponseRenderer $response, Template $template, DatabaseInterface $dbi)
+    public function __construct(ResponseRenderer $response, Template $template, private DatabaseInterface $dbi)
     {
         parent::__construct($response, $template);
-        $this->dbi = $dbi;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $errorUrl;
-
-        $params = ['filter' => $_GET['filter'] ?? null];
-        $errorUrl = Url::getFromRoute('/');
+        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
         }
 
-        $filterValue = ! empty($params['filter']) ? $params['filter'] : '';
+        $filterValue = $request->getQueryParam('filter', '');
 
         $this->addScriptFiles(['server/variables.js']);
 
         $variables = [];
         $serverVarsResult = $this->dbi->tryQuery('SHOW SESSION VARIABLES;');
         if ($serverVarsResult !== false) {
+            /** @var array<string, string> $serverVarsSession */
             $serverVarsSession = $serverVarsResult->fetchAllKeyPair();
 
             unset($serverVarsResult);
 
+            /** @var array<string, string> $serverVars */
             $serverVars = $this->dbi->fetchResult('SHOW GLOBAL VARIABLES;', 0, 1);
 
             // list of static (i.e. non-editable) system variables
@@ -67,7 +63,7 @@ class VariablesController extends AbstractController
                 $docLink = Generator::linkToVarDocumentation(
                     $name,
                     $this->dbi->isMariaDB(),
-                    str_replace('_', '&nbsp;', $name)
+                    str_replace('_', '&nbsp;', $name),
                 );
 
                 [$formattedValue, $isEscaped] = $this->formatVariable($name, $value);
@@ -103,7 +99,7 @@ class VariablesController extends AbstractController
      *
      * @return array formatted string and bool if string is HTML formatted
      */
-    private function formatVariable($name, $value): array
+    private function formatVariable($name, int|string $value): array
     {
         $isHtmlFormatted = false;
         $formattedValue = $value;
@@ -121,8 +117,8 @@ class VariablesController extends AbstractController
                         [
                             'valueTitle' => Util::formatNumber($value, 0),
                             'value' => implode(' ', $bytes),
-                        ]
-                    )
+                        ],
+                    ),
                 );
             } else {
                 $formattedValue = Util::formatNumber($value, 0);

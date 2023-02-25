@@ -13,14 +13,13 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 
-/**
- * @covers \PhpMyAdmin\Table\Indexes
- */
+/** @covers \PhpMyAdmin\Table\Indexes */
 class IndexesTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setTheme();
 
         /**

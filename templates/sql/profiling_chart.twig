@@ -92,7 +92,7 @@
   <div id="profilingchart" class="hide"></div>
 
   <script type="text/javascript">
-    AJAX.registerOnload('sql.js', function () {
+    window.AJAX.registerOnload('sql.js', function () {
       Sql.makeProfilingChart();
       Sql.initProfilingTables();
     });

@@ -13,10 +13,8 @@ use function __;
 
 class ExportForm extends BaseForm
 {
-    /**
-     * @return array
-     */
-    public static function getForms()
+    /** @return array */
+    public static function getForms(): array
     {
         // phpcs:disable Squiz.Arrays.ArrayDeclaration.KeySpecified,Squiz.Arrays.ArrayDeclaration.NoKeySpecified
         return [
@@ -145,10 +143,7 @@ class ExportForm extends BaseForm
         // phpcs:enable
     }
 
-    /**
-     * @return string
-     */
-    public static function getName()
+    public static function getName(): string
     {
         return __('Export');
     }

@@ -19,143 +19,66 @@ use PhpMyAdmin\Properties\PropertyItem;
  */
 abstract class PluginPropertyItem extends PropertyItem
 {
-    /**
-     * Text
-     *
-     * @var string
-     */
-    private $text;
-    /**
-     * Extension
-     *
-     * @var string
-     */
-    private $extension;
-    /**
-     * Options
-     *
-     * @var OptionsPropertyRootGroup|null
-     */
-    private $options = null;
-    /**
-     * Options text
-     *
-     * @var string
-     */
-    private $optionsText;
-    /**
-     * MIME Type
-     *
-     * @var string
-     */
-    private $mimeType;
+    private string $text = '';
+    private string $extension = '';
+    private OptionsPropertyRootGroup|null $options = null;
+    private string $optionsText = '';
+    private string $mimeType = '';
 
-    /**
-     * Gets the text
-     *
-     * @return string
-     */
-    public function getText()
+    public function getText(): string
     {
         return $this->text;
     }
 
-    /**
-     * Sets the text
-     *
-     * @param string $text text
-     */
-    public function setText($text): void
+    public function setText(string $text): void
     {
         $this->text = $text;
     }
 
-    /**
-     * Gets the extension
-     *
-     * @return string
-     */
-    public function getExtension()
+    public function getExtension(): string
     {
         return $this->extension;
     }
 
-    /**
-     * Sets the extension
-     *
-     * @param string $extension extension
-     */
-    public function setExtension($extension): void
+    public function setExtension(string $extension): void
     {
         $this->extension = $extension;
     }
 
-    /**
-     * Gets the options
-     *
-     * @return OptionsPropertyRootGroup|null
-     */
-    public function getOptions()
+    public function getOptions(): OptionsPropertyRootGroup|null
     {
         return $this->options;
     }
 
-    /**
-     * Sets the options
-     *
-     * @param OptionsPropertyRootGroup $options options
-     */
-    public function setOptions($options): void
+    public function setOptions(OptionsPropertyRootGroup $options): void
     {
         $this->options = $options;
     }
 
-    /**
-     * Gets the options text
-     *
-     * @return string
-     */
-    public function getOptionsText()
+    public function getOptionsText(): string
     {
         return $this->optionsText;
     }
 
-    /**
-     * Sets the options text
-     *
-     * @param string $optionsText optionsText
-     */
-    public function setOptionsText($optionsText): void
+    public function setOptionsText(string $optionsText): void
     {
         $this->optionsText = $optionsText;
     }
 
-    /**
-     * Gets the MIME type
-     *
-     * @return string
-     */
-    public function getMimeType()
+    public function getMimeType(): string
     {
         return $this->mimeType;
     }
 
-    /**
-     * Sets the MIME type
-     *
-     * @param string $mimeType MIME type
-     */
-    public function setMimeType($mimeType): void
+    public function setMimeType(string $mimeType): void
     {
         $this->mimeType = $mimeType;
     }
 
     /**
      * Returns the property type ( either "options", or "plugin" ).
-     *
-     * @return string
      */
-    public function getPropertyType()
+    public function getPropertyType(): string
     {
         return 'plugin';
     }

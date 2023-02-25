@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Schema;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -20,15 +21,11 @@ use function rawurldecode;
  * This class is inherited by all schema classes
  * It contains those methods which are common in them
  * it works like factory pattern
+ *
+ * @template T
  */
 class ExportRelationSchema
 {
-    /** @var string */
-    protected $db;
-
-    /** @var Dia\Dia|Eps\Eps|Pdf\Pdf|Svg\Svg|null */
-    protected $diagram;
-
     /** @var bool */
     protected $showColor = false;
 
@@ -53,22 +50,14 @@ class ExportRelationSchema
     /** @var bool */
     protected $offline = false;
 
-    /** @var Relation */
-    protected $relation;
+    protected Relation $relation;
 
-    /**
-     * @param string                               $db      database name
-     * @param Pdf\Pdf|Svg\Svg|Eps\Eps|Dia\Dia|null $diagram schema diagram
-     */
-    public function __construct($db, $diagram)
+    /** @param T $diagram */
+    public function __construct(protected DatabaseName $db, protected $diagram)
     {
-        global $dbi;
-
-        $this->db = $db;
-        $this->diagram = $diagram;
         $this->setPageNumber((int) $_REQUEST['page_number']);
         $this->setOffline(isset($_REQUEST['offline_export']));
-        $this->relation = new Relation($dbi);
+        $this->relation = new Relation($GLOBALS['dbi']);
     }
 
     /**
@@ -86,7 +75,7 @@ class ExportRelationSchema
      *
      * @return int schema page number
      */
-    public function getPageNumber()
+    public function getPageNumber(): int
     {
         return $this->pageNumber;
     }
@@ -178,7 +167,7 @@ class ExportRelationSchema
      *
      * @return string orientation
      */
-    public function getOrientation()
+    public function getOrientation(): string
     {
         return $this->orientation;
     }
@@ -198,7 +187,7 @@ class ExportRelationSchema
      *
      * @return string paper size
      */
-    public function getPaper()
+    public function getPaper(): string
     {
         return $this->paper;
     }
@@ -239,16 +228,12 @@ class ExportRelationSchema
     }
 
     /**
-     * Returns the file name
+     * @param non-empty-string $extension
      *
-     * @param string $extension file extension
-     *
-     * @return string file name
+     * @return non-empty-string
      */
-    protected function getFileName($extension): string
+    protected function getFileName(string $extension): string
     {
-        global $dbi;
-
         $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
 
         $filename = $this->db . $extension;
@@ -258,7 +243,7 @@ class ExportRelationSchema
                 . Util::backquote($pdfFeature->database) . '.'
                 . Util::backquote($pdfFeature->pdfPages)
                 . ' WHERE page_nr = ' . $this->pageNumber;
-            $_name_rs = $dbi->queryAsControlUser($_name_sql);
+            $_name_rs = $GLOBALS['dbi']->queryAsControlUser($_name_sql);
             $_name_row = $_name_rs->fetchRow();
             $filename = $_name_row[0] . $extension;
         }

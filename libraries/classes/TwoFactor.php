@@ -15,10 +15,14 @@ use PhpMyAdmin\Plugins\TwoFactor\Invalid;
 use PhpMyAdmin\Plugins\TwoFactor\Key;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
 use PragmaRX\Google2FAQRCode\Google2FA;
+use XMLWriter;
 
 use function array_merge;
 use function class_exists;
+use function extension_loaded;
 use function in_array;
+use function is_array;
+use function is_string;
 use function ucfirst;
 
 /**
@@ -26,37 +30,31 @@ use function ucfirst;
  */
 class TwoFactor
 {
-    /** @var string */
-    public $user;
-
-    /** @var array */
+    /**
+     * @var array
+     * @psalm-var array{backend: string, settings: mixed[], type?: 'session'|'db'}
+     */
     public $config;
 
-    /** @var bool */
-    protected $writable;
+    protected bool $writable;
 
     /** @var TwoFactorPlugin */
     protected $backend;
 
-    /** @var array */
-    protected $available;
+    protected array $available;
 
-    /** @var UserPreferences */
-    private $userPreferences;
+    private UserPreferences $userPreferences;
 
     /**
      * Creates new TwoFactor object
      *
      * @param string $user User name
      */
-    public function __construct($user)
+    public function __construct(public $user)
     {
-        global $dbi;
+        (new Relation($GLOBALS['dbi']))->initRelationParamsCache();
 
-        (new Relation($dbi))->initRelationParamsCache();
-
-        $this->userPreferences = new UserPreferences();
-        $this->user = $user;
+        $this->userPreferences = new UserPreferences($GLOBALS['dbi']);
         $this->available = $this->getAvailableBackends();
         $this->config = $this->readConfig();
         $this->writable = ($this->config['type'] === 'db');
@@ -66,26 +64,27 @@ class TwoFactor
     /**
      * Reads the configuration
      *
-     * @return array
+     * @psalm-return array{backend: string, settings: mixed[], type: 'session'|'db'}
      */
-    public function readConfig()
+    public function readConfig(): array
     {
         $result = [];
         $config = $this->userPreferences->load();
-        if (isset($config['config_data']['2fa'])) {
+        if (isset($config['config_data']['2fa']) && is_array($config['config_data']['2fa'])) {
             $result = $config['config_data']['2fa'];
         }
 
-        $result['type'] = $config['type'];
-        if (! isset($result['backend'])) {
-            $result['backend'] = '';
+        $backend = '';
+        if (isset($result['backend']) && is_string($result['backend'])) {
+            $backend = $result['backend'];
         }
 
-        if (! isset($result['settings'])) {
-            $result['settings'] = [];
+        $settings = [];
+        if (isset($result['settings']) && is_array($result['settings'])) {
+            $settings = $result['settings'];
         }
 
-        return $result;
+        return ['backend' => $backend, 'settings' => $settings, 'type' => $config['type']];
     }
 
     public function isWritable(): bool
@@ -98,9 +97,7 @@ class TwoFactor
         return $this->backend;
     }
 
-    /**
-     * @return array
-     */
+    /** @return array */
     public function getAvailable(): array
     {
         return $this->available;
@@ -108,26 +105,30 @@ class TwoFactor
 
     public function showSubmit(): bool
     {
-        $backend = $this->backend;
-
-        return $backend::$showSubmit;
+        return $this->backend::$showSubmit;
     }
 
     /**
      * Returns list of available backends
      *
-     * @return array
+     * @return string[]
      */
-    public function getAvailableBackends()
+    public function getAvailableBackends(): array
     {
         $result = [];
         if ($GLOBALS['cfg']['DBG']['simple2fa']) {
             $result[] = 'simple';
         }
 
-        if (class_exists(Google2FA::class) && class_exists(ImageRenderer::class)) {
+        if (
+            class_exists(Google2FA::class)
+            && class_exists(ImageRenderer::class)
+            && (class_exists(XMLWriter::class) || extension_loaded('imagick'))
+        ) {
             $result[] = 'application';
         }
+
+        $result[] = 'WebAuthn';
 
         if (class_exists(U2FServer::class)) {
             $result[] = 'key';
@@ -139,9 +140,9 @@ class TwoFactor
     /**
      * Returns list of missing dependencies
      *
-     * @return array
+     * @return array<int, array{class: string, dep: string}>
      */
-    public function getMissingDeps()
+    public function getMissingDeps(): array
     {
         $result = [];
         if (! class_exists(Google2FA::class)) {
@@ -173,16 +174,15 @@ class TwoFactor
      *
      * @param string $name Backend name
      *
-     * @return string
      * @psalm-return class-string
      */
-    public function getBackendClass($name)
+    public function getBackendClass($name): string
     {
         $result = TwoFactorPlugin::class;
         if (in_array($name, $this->available)) {
             /** @psalm-var class-string $result */
             $result = 'PhpMyAdmin\\Plugins\\TwoFactor\\' . ucfirst($name);
-        } elseif (! empty($name)) {
+        } elseif ($name !== '') {
             $result = Invalid::class;
         }
 
@@ -191,10 +191,8 @@ class TwoFactor
 
     /**
      * Returns backend for current user
-     *
-     * @return TwoFactorPlugin
      */
-    public function getBackendForCurrentUser()
+    public function getBackendForCurrentUser(): TwoFactorPlugin
     {
         $name = $this->getBackendClass($this->config['backend']);
 
@@ -224,7 +222,7 @@ class TwoFactor
      *
      * @return string HTML code
      */
-    public function render()
+    public function render(): string
     {
         return $this->backend->getError() . $this->backend->render();
     }
@@ -234,7 +232,7 @@ class TwoFactor
      *
      * @return string HTML code
      */
-    public function setup()
+    public function setup(): string
     {
         return $this->backend->getError() . $this->backend->setup();
     }
@@ -244,7 +242,7 @@ class TwoFactor
      *
      * @return true|Message
      */
-    public function save()
+    public function save(): bool|Message
     {
         return $this->userPreferences->persistOption('2fa', $this->config, null);
     }
@@ -259,10 +257,9 @@ class TwoFactor
      */
     public function configure($name): bool
     {
-        $this->config = ['backend' => $name];
+        $this->config = ['backend' => $name, 'settings' => []];
         if ($name === '') {
             $cls = $this->getBackendClass($name);
-            $this->config['settings'] = [];
             $this->backend = new $cls($this);
         } else {
             if (! in_array($name, $this->available)) {
@@ -270,7 +267,6 @@ class TwoFactor
             }
 
             $cls = $this->getBackendClass($name);
-            $this->config['settings'] = [];
             $this->backend = new $cls($this);
             if (! $this->backend->configure()) {
                 return false;
@@ -288,9 +284,9 @@ class TwoFactor
     /**
      * Returns array with all available backends
      *
-     * @return array
+     * @return array<int, array{id: mixed, name: mixed, description: mixed}>
      */
-    public function getAllBackends()
+    public function getAllBackends(): array
     {
         $all = array_merge([''], $this->available);
         $backends = [];

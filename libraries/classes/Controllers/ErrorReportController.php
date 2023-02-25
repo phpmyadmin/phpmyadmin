@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\ErrorReport;
 use PhpMyAdmin\Http\ServerRequest;
@@ -27,43 +28,30 @@ use function time;
  */
 class ErrorReportController extends AbstractController
 {
-    /** @var ErrorReport */
-    private $errorReport;
-
-    /** @var ErrorHandler */
-    private $errorHandler;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        ErrorReport $errorReport,
-        ErrorHandler $errorHandler
+        private ErrorReport $errorReport,
+        private ErrorHandler $errorHandler,
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
-        $this->errorReport = $errorReport;
-        $this->errorHandler = $errorHandler;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        global $cfg;
-
         /** @var string $exceptionType */
         $exceptionType = $request->getParsedBodyParam('exception_type', '');
-        /** @var string|null $sendErrorReport */
-        $sendErrorReport = $request->getParsedBodyParam('send_error_report');
         /** @var string|null $automatic */
         $automatic = $request->getParsedBodyParam('automatic');
         /** @var string|null $alwaysSend */
         $alwaysSend = $request->getParsedBodyParam('always_send');
-        /** @var string|null $getSettings */
-        $getSettings = $request->getParsedBodyParam('get_settings');
 
         if (! in_array($exceptionType, ['js', 'php'])) {
             return;
         }
 
-        if ($sendErrorReport) {
+        if ($request->hasBodyParam('send_error_report')) {
             if ($exceptionType === 'php') {
                 /**
                  * Prevent infinite error submission.
@@ -95,23 +83,22 @@ class ErrorReportController extends AbstractController
                     $success = false;
                 } else {
                     $decoded_response = json_decode($server_response, true);
-                    $success = ! empty($decoded_response) ?
-                        $decoded_response['success'] : false;
+                    $success = ! empty($decoded_response) && $decoded_response['success'];
                 }
 
                 /* Message to show to the user */
                 if ($success) {
-                    if ($automatic === 'true' || $cfg['SendErrorReports'] === 'always') {
+                    if ($automatic === 'true' || $GLOBALS['cfg']['SendErrorReports'] === 'always') {
                         $msg = __(
                             'An error has been detected and an error report has been '
-                            . 'automatically submitted based on your settings.'
+                            . 'automatically submitted based on your settings.',
                         );
                     } else {
                         $msg = __('Thank you for submitting this report.');
                     }
                 } else {
                     $msg = __(
-                        'An error has been detected and an error report has been generated but failed to be sent.'
+                        'An error has been detected and an error report has been generated but failed to be sent.',
                     );
                     $msg .= ' ';
                     $msg .= __('If you experience any problems please submit a bug report manually.');
@@ -134,10 +121,10 @@ class ErrorReportController extends AbstractController
                         $this->response->addJSON('errSubmitMsg', $msg);
                     }
                 } elseif ($exceptionType === 'php') {
-                    $jsCode = 'Functions.ajaxShowMessage(\'<div class="alert alert-danger" role="alert">'
+                    $jsCode = 'window.ajaxShowMessage(\'<div class="alert alert-danger" role="alert">'
                         . $msg
                         . '</div>\', false);';
-                    $this->response->getFooter()->getScripts()->addCode($jsCode);
+                    $this->response->getFooterScripts()->addCode($jsCode);
                 }
 
                 if ($exceptionType === 'php') {
@@ -147,12 +134,12 @@ class ErrorReportController extends AbstractController
 
                 /* Persist always send settings */
                 if ($alwaysSend === 'true') {
-                    $userPreferences = new UserPreferences();
+                    $userPreferences = new UserPreferences($this->dbi);
                     $userPreferences->persistOption('SendErrorReports', 'always', 'ask');
                 }
             }
-        } elseif ($getSettings) {
-            $this->response->addJSON('report_setting', $cfg['SendErrorReports']);
+        } elseif ($request->hasBodyParam('get_settings')) {
+            $this->response->addJSON('report_setting', $GLOBALS['cfg']['SendErrorReports']);
         } elseif ($exceptionType === 'js') {
             $this->response->addJSON('report_modal', $this->errorReport->getEmptyModal());
             $this->response->addHTML($this->errorReport->getForm());

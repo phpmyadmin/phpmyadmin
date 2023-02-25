@@ -8,9 +8,7 @@ use PhpMyAdmin\Message;
 
 use function md5;
 
-/**
- * @covers \PhpMyAdmin\Message
- */
+/** @covers \PhpMyAdmin\Message */
 class MessageTest extends AbstractTestCase
 {
     /** @var Message */
@@ -23,6 +21,7 @@ class MessageTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->object = new Message();
     }
 
@@ -44,7 +43,7 @@ class MessageTest extends AbstractTestCase
         $this->assertEquals($this->object, Message::success('test<&>'));
         $this->assertEquals(
             'Your SQL query has been executed successfully.',
-            Message::success()->getString()
+            Message::success()->getString(),
         );
     }
 
@@ -162,7 +161,7 @@ class MessageTest extends AbstractTestCase
         $this->object->addParam(Message::notice('test'));
         $this->assertEquals(
             [Message::notice('test')],
-            $this->object->getParams()
+            $this->object->getParams(),
         );
         $this->object->addParam('test');
         $this->assertEquals(
@@ -170,7 +169,7 @@ class MessageTest extends AbstractTestCase
                 Message::notice('test'),
                 'test',
             ],
-            $this->object->getParams()
+            $this->object->getParams(),
         );
         $this->object->addParam('test');
         $this->assertEquals(
@@ -179,7 +178,7 @@ class MessageTest extends AbstractTestCase
                 'test',
                 Message::notice('test'),
             ],
-            $this->object->getParams()
+            $this->object->getParams(),
         );
     }
 
@@ -194,7 +193,7 @@ class MessageTest extends AbstractTestCase
         $this->object->addParamHtml('</a>');
         $this->assertEquals(
             'Hello <a href="">user&lt;&gt;</a>',
-            $this->object->getMessage()
+            $this->object->getMessage(),
         );
     }
 
@@ -209,7 +208,7 @@ class MessageTest extends AbstractTestCase
                 '*',
                 Message::notice('test'),
             ],
-            $this->object->getAddedMessages()
+            $this->object->getAddedMessages(),
         );
         $this->object->addText('test', '');
         $this->assertEquals(
@@ -218,7 +217,7 @@ class MessageTest extends AbstractTestCase
                 Message::notice('test'),
                 Message::notice('test'),
             ],
-            $this->object->getAddedMessages()
+            $this->object->getAddedMessages(),
         );
     }
 
@@ -230,7 +229,7 @@ class MessageTest extends AbstractTestCase
         $this->object->addText('test<>', '');
         $this->assertEquals(
             [Message::notice('test&lt;&gt;')],
-            $this->object->getAddedMessages()
+            $this->object->getAddedMessages(),
         );
         $this->object->addHtml('<b>test</b>');
         $this->assertEquals(
@@ -239,12 +238,12 @@ class MessageTest extends AbstractTestCase
                 ' ',
                 Message::rawNotice('<b>test</b>'),
             ],
-            $this->object->getAddedMessages()
+            $this->object->getAddedMessages(),
         );
         $this->object->addMessage(Message::notice('test<>'));
         $this->assertEquals(
             'test&lt;&gt; <b>test</b> test<>',
-            $this->object->getMessage()
+            $this->object->getMessage(),
         );
     }
 
@@ -265,7 +264,7 @@ class MessageTest extends AbstractTestCase
                 Message::error('PMA_Test2'),
                 Message::notice('Test3'),
             ],
-            $this->object->getAddedMessages()
+            $this->object->getAddedMessages(),
         );
     }
 
@@ -287,12 +286,12 @@ class MessageTest extends AbstractTestCase
                 Message::notice('test&lt;b&gt;'),
                 Message::notice('test2'),
             ],
-            $this->object->getAddedMessages()
+            $this->object->getAddedMessages(),
         );
 
         $this->assertEquals(
             'test1test&lt;b&gt;test2',
-            $this->object->getMessage()
+            $this->object->getMessage(),
         );
     }
 
@@ -315,14 +314,14 @@ class MessageTest extends AbstractTestCase
         $this->object->setString('test&string<>', false);
         $this->assertEquals(
             'test&amp;string&lt;&gt;',
-            Message::sanitize($this->object)
+            Message::sanitize($this->object),
         );
         $this->assertEquals(
             [
                 'test&amp;string&lt;&gt;',
                 'test&amp;string&lt;&gt;',
             ],
-            Message::sanitize([$this->object, $this->object])
+            Message::sanitize([$this->object, $this->object]),
         );
     }
 
@@ -331,7 +330,7 @@ class MessageTest extends AbstractTestCase
      *
      * @return array Test data
      */
-    public function decodeBBDataProvider(): array
+    public static function decodeBBDataProvider(): array
     {
         return [
             [
@@ -352,7 +351,7 @@ class MessageTest extends AbstractTestCase
             ],
             [
                 '[a@https://example.com/@Documentation]link[/a]',
-                '<a href="./url.php?url=https%3A%2F%2Fexample.com%2F" target="Documentation">link</a>',
+                '<a href="index.php?route=/url&url=https%3A%2F%2Fexample.com%2F" target="Documentation">link</a>',
             ],
             [
                 '[a@./non-existing@Documentation]link[/a]',
@@ -360,19 +359,19 @@ class MessageTest extends AbstractTestCase
             ],
             [
                 '[doc@foo]link[/doc]',
-                '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2F'
+                '<a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2F'
                 . 'latest%2Fsetup.html%23foo" '
                 . 'target="documentation">link</a>',
             ],
             [
                 '[doc@page@anchor]link[/doc]',
-                '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2F'
+                '<a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2F'
                 . 'latest%2Fpage.html%23anchor" '
                 . 'target="documentation">link</a>',
             ],
             [
                 '[doc@faqmysql]link[/doc]',
-                '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2F'
+                '<a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2F'
                 . 'latest%2Ffaq.html%23faqmysql" '
                 . 'target="documentation">link</a>',
             ],
@@ -400,19 +399,19 @@ class MessageTest extends AbstractTestCase
     {
         $this->assertEquals(
             'test string',
-            Message::format('test string')
+            Message::format('test string'),
         );
         $this->assertEquals(
             'test string',
-            Message::format('test string', 'a')
+            Message::format('test string', 'a'),
         );
         $this->assertEquals(
             'test string',
-            Message::format('test string', [])
+            Message::format('test string', []),
         );
         $this->assertEquals(
             'test string',
-            Message::format('%s string', ['test'])
+            Message::format('%s string', ['test']),
         );
     }
 
@@ -425,7 +424,7 @@ class MessageTest extends AbstractTestCase
         $this->object->setMessage('<&>test', false);
         $this->assertEquals(
             md5(Message::NOTICE . '<&>test<&>test'),
-            $this->object->getHash()
+            $this->object->getHash(),
         );
     }
 
@@ -441,7 +440,7 @@ class MessageTest extends AbstractTestCase
         $this->object->addParam('test param 2');
         $this->assertEquals(
             'test string test param 1 test param 2',
-            $this->object->getMessage()
+            $this->object->getMessage(),
         );
     }
 
@@ -463,10 +462,10 @@ class MessageTest extends AbstractTestCase
     {
         $this->object->setMessage('[kbd]test[/kbd] [doc@cfg_Example]test[/doc]');
         $this->assertEquals(
-            '<kbd>test</kbd> <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.'
+            '<kbd>test</kbd> <a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.'
             . 'net%2Fen%2Flatest%2Fconfig.html%23cfg_Example"'
             . ' target="documentation">test</a>',
-            $this->object->getMessage()
+            $this->object->getMessage(),
         );
     }
 
@@ -493,7 +492,7 @@ class MessageTest extends AbstractTestCase
             '<div class="alert alert-primary" role="alert">' . "\n"
             . '  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Test Message' . "\n"
             . '</div>' . "\n",
-            $this->object->getDisplay()
+            $this->object->getDisplay(),
         );
         $this->assertTrue($this->object->isDisplayed());
     }
@@ -513,7 +512,7 @@ class MessageTest extends AbstractTestCase
      *
      * @return array Test-data
      */
-    public function providerAffectedRows(): array
+    public static function providerAffectedRows(): array
     {
         return [
             [
@@ -558,7 +557,7 @@ class MessageTest extends AbstractTestCase
      *
      * @return array Test-data
      */
-    public function providerInsertedRows(): array
+    public static function providerInsertedRows(): array
     {
         return [
             [
@@ -603,7 +602,7 @@ class MessageTest extends AbstractTestCase
      *
      * @return array Test-data
      */
-    public function providerDeletedRows(): array
+    public static function providerDeletedRows(): array
     {
         return [
             [

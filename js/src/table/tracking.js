@@ -1,3 +1,9 @@
+import $ from 'jquery';
+import { AJAX } from '../modules/ajax.js';
+import { CommonParams } from '../modules/common.js';
+import { ajaxShowMessage } from '../modules/ajax-message.js';
+import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.js';
+
 /**
  * Unbind all event handlers before tearing down the page
  */
@@ -57,14 +63,14 @@ AJAX.registerOnload('table/tracking.js', function () {
         var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + $button.val();
 
         if ($button.val() === 'delete_version') {
-            var question = Messages.strDeleteTrackingVersionMultiple;
+            var question = window.Messages.strDeleteTrackingVersionMultiple;
             $button.confirm(question, $form.attr('action'), function (url) {
-                Functions.ajaxShowMessage();
+                ajaxShowMessage();
                 AJAX.source = $form;
                 $.post(url, submitData, AJAX.responseHandler);
             });
         } else {
-            Functions.ajaxShowMessage();
+            ajaxShowMessage();
             AJAX.source = $form;
             $.post($form.attr('action'), submitData, AJAX.responseHandler);
         }
@@ -76,12 +82,12 @@ AJAX.registerOnload('table/tracking.js', function () {
     $('body').on('click', 'a.delete_version_anchor.ajax', function (e) {
         e.preventDefault();
         var $anchor = $(this);
-        var question = Messages.strDeleteTrackingVersion;
+        var question = window.Messages.strDeleteTrackingVersion;
         $anchor.confirm(question, $anchor.attr('href'), function (url) {
-            Functions.ajaxShowMessage();
+            ajaxShowMessage();
             AJAX.source = $anchor;
             var argSep = CommonParams.get('arg_separator');
-            var params = Functions.getJsConfirmCommonParam(this, $anchor.getPostData());
+            var params = getJsConfirmCommonParam(this, $anchor.getPostData());
             params += argSep + 'ajax_page_request=1';
             $.post(url, params, AJAX.responseHandler);
         });
@@ -93,12 +99,12 @@ AJAX.registerOnload('table/tracking.js', function () {
     $('body').on('click', 'a.delete_entry_anchor.ajax', function (e) {
         e.preventDefault();
         var $anchor = $(this);
-        var question = Messages.strDeletingTrackingEntry;
+        var question = window.Messages.strDeletingTrackingEntry;
         $anchor.confirm(question, $anchor.attr('href'), function (url) {
-            Functions.ajaxShowMessage();
+            ajaxShowMessage();
             AJAX.source = $anchor;
             var argSep = CommonParams.get('arg_separator');
-            var params = Functions.getJsConfirmCommonParam(this, $anchor.getPostData());
+            var params = getJsConfirmCommonParam(this, $anchor.getPostData());
             params += argSep + 'ajax_page_request=1';
             $.post(url, params, AJAX.responseHandler);
         });

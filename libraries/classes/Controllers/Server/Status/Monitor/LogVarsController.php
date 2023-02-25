@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Server\Status\Monitor;
 
 use PhpMyAdmin\Controllers\Server\Status\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
@@ -14,33 +15,21 @@ use PhpMyAdmin\Url;
 
 final class LogVarsController extends AbstractController
 {
-    /** @var Monitor */
-    private $monitor;
-
-    /** @var DatabaseInterface */
-    private $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
         Data $data,
-        Monitor $monitor,
-        DatabaseInterface $dbi
+        private Monitor $monitor,
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template, $data);
-        $this->monitor = $monitor;
-        $this->dbi = $dbi;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $errorUrl;
+        $GLOBALS['errorUrl'] ??= null;
 
-        $params = [
-            'varName' => $_POST['varName'] ?? null,
-            'varValue' => $_POST['varValue'] ?? null,
-        ];
-        $errorUrl = Url::getFromRoute('/');
+        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
@@ -52,8 +41,8 @@ final class LogVarsController extends AbstractController
 
         $this->response->addJSON([
             'message' => $this->monitor->getJsonForLoggingVars(
-                $params['varName'],
-                $params['varValue']
+                $request->getParsedBodyParam('varName'),
+                $request->getParsedBodyParam('varValue'),
             ),
         ]);
     }

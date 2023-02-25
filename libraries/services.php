@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
+use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 
 return [
     'services' => [
         'advisor' => [
-            'class' => PhpMyAdmin\Advisor::class,
+            'class' => PhpMyAdmin\Advisory\Advisor::class,
             'arguments' => [
                 '$dbi' => '@dbi',
                 '$expression' => '@expression_language',
@@ -20,7 +21,6 @@ return [
         ],
         'config' => [
             'class' => PhpMyAdmin\Config::class,
-            'arguments' => [CONFIG_FILE],
         ],
         'central_columns' => [
             'class' => PhpMyAdmin\Database\CentralColumns::class,
@@ -87,6 +87,7 @@ return [
         'expression_language' => [
             'class' => Symfony\Component\ExpressionLanguage\ExpressionLanguage::class,
         ],
+        'file_listing' => ['class' => PhpMyAdmin\FileListing::class],
         'flash' => [
             'class' => PhpMyAdmin\FlashMessages::class,
         ],
@@ -102,7 +103,7 @@ return [
         ],
         'insert_edit' => [
             'class' => PhpMyAdmin\InsertEdit::class,
-            'arguments' => ['@dbi'],
+            'arguments' => ['@dbi', '@relation', '@transformations', '@file_listing', '@template'],
         ],
         'navigation' => [
             'class' => PhpMyAdmin\Navigation\Navigation::class,
@@ -132,6 +133,9 @@ return [
             'class' => PhpMyAdmin\Partitioning\Maintenance::class,
             'arguments' => ['$dbi' => '@dbi'],
         ],
+        AuthenticationPluginFactory::class => [
+            'class' => AuthenticationPluginFactory::class,
+        ],
         'relation' => [
             'class' => Relation::class,
             'arguments' => ['$dbi' => '@dbi'],
@@ -145,6 +149,7 @@ return [
         ],
         'replication' => [
             'class' => PhpMyAdmin\Replication::class,
+            'arguments' => ['$dbi' => '@dbi'],
         ],
         'replication_gui' => [
             'class' => PhpMyAdmin\ReplicationGui::class,
@@ -156,6 +161,14 @@ return [
         'response' => [
             'class' => PhpMyAdmin\ResponseRenderer::class,
             'factory' => [PhpMyAdmin\ResponseRenderer::class, 'getInstance'],
+        ],
+        'routines' => [
+            'class' => PhpMyAdmin\Database\Routines::class,
+            'arguments' => [
+                '@dbi',
+                '@template',
+                '@response',
+            ],
         ],
         'server_plugins' => [
             'class' => PhpMyAdmin\Server\Plugins::class,
@@ -188,10 +201,11 @@ return [
         ],
         'sql_query_form' => [
             'class' => PhpMyAdmin\SqlQueryForm::class,
-            'arguments' => ['$template' => '@template'],
+            'arguments' => ['$template' => '@template', '$dbi' => '@dbi'],
         ],
         'status_data' => [
             'class' => PhpMyAdmin\Server\Status\Data::class,
+            'arguments' => ['@dbi'],
         ],
         'status_monitor' => [
             'class' => PhpMyAdmin\Server\Status\Monitor::class,
@@ -200,6 +214,10 @@ return [
         'status_processes' => [
             'class' => PhpMyAdmin\Server\Status\Processes::class,
             'arguments' => ['@dbi'],
+        ],
+        'table_columns_definition' => [
+            'class' => PhpMyAdmin\Table\ColumnsDefinition::class,
+            'arguments' => ['$dbi' => '@dbi', '$relation' => '@relation', '$transformations' => '@transformations'],
         ],
         'table_indexes' => [
             'class' => PhpMyAdmin\Table\Indexes::class,
@@ -228,12 +246,28 @@ return [
         'transformations' => [
             'class' => PhpMyAdmin\Transformations::class,
         ],
+        'triggers' => [
+            'class' => PhpMyAdmin\Database\Triggers::class,
+            'arguments' => [
+                '@dbi',
+                '@template',
+                '@response',
+            ],
+        ],
         'user_password' => [
             'class' => PhpMyAdmin\UserPassword::class,
-            'arguments' => ['@server_privileges'],
+            'arguments' => [
+                '@server_privileges',
+                '@' . AuthenticationPluginFactory::class,
+                '@dbi',
+            ],
         ],
         'user_preferences' => [
             'class' => PhpMyAdmin\UserPreferences::class,
+            'arguments' => ['@dbi'],
+        ],
+        'version_information' => [
+            'class' => PhpMyAdmin\VersionInformation::class,
         ],
         PhpMyAdmin\DatabaseInterface::class => 'dbi',
         PhpMyAdmin\FlashMessages::class => 'flash',

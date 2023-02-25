@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests\Dbal;
 use PhpMyAdmin\Dbal\Warning;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \PhpMyAdmin\Dbal\Warning
- */
+/** @covers \PhpMyAdmin\Dbal\Warning */
 class WarningTest extends TestCase
 {
     /**
@@ -30,7 +28,7 @@ class WarningTest extends TestCase
      * @return int[][]|string[][]|string[][][]
      * @psalm-return array{string[], string, int, string, string}[]
      */
-    public function providerForTestWarning(): array
+    public static function providerForTestWarning(): array
     {
         return [
             [

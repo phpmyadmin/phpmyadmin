@@ -29,24 +29,6 @@ use function sprintf;
  */
 abstract class TableStats
 {
-    /** @var Dia\Dia|Eps\Eps|Pdf\Pdf|Svg\Svg */
-    protected $diagram;
-
-    /** @var string */
-    protected $db;
-
-    /** @var int */
-    protected $pageNumber;
-
-    /** @var string */
-    protected $tableName;
-
-    /** @var bool */
-    protected $showKeys;
-
-    /** @var bool */
-    protected $tableDimension;
-
     /** @var mixed */
     public $displayfield;
 
@@ -68,14 +50,9 @@ abstract class TableStats
     /** @var int */
     public $heightCell = 0;
 
-    /** @var bool */
-    protected $offline;
+    protected Relation $relation;
 
-    /** @var Relation */
-    protected $relation;
-
-    /** @var Font */
-    protected $font;
+    protected Font $font;
 
     /**
      * @param Pdf\Pdf|Svg\Svg|Eps\Eps|Dia\Dia $diagram        schema diagram
@@ -88,27 +65,15 @@ abstract class TableStats
      * @param bool                            $offline        whether the coordinates are sent from the browser
      */
     public function __construct(
-        $diagram,
-        $db,
-        $pageNumber,
-        $tableName,
-        $showKeys,
-        $tableDimension,
-        $offline
+        protected $diagram,
+        protected $db,
+        protected $pageNumber,
+        protected $tableName,
+        protected $showKeys,
+        protected $tableDimension,
+        protected $offline,
     ) {
-        global $dbi;
-
-        $this->diagram = $diagram;
-        $this->db = $db;
-        $this->pageNumber = $pageNumber;
-        $this->tableName = $tableName;
-
-        $this->showKeys = $showKeys;
-        $this->tableDimension = $tableDimension;
-
-        $this->offline = $offline;
-
-        $this->relation = new Relation($dbi);
+        $this->relation = new Relation($GLOBALS['dbi']);
         $this->font = new Font();
 
         // checks whether the table exists
@@ -127,22 +92,20 @@ abstract class TableStats
      */
     protected function validateTableAndLoadFields(): void
     {
-        global $dbi;
-
         $sql = 'DESCRIBE ' . Util::backquote($this->tableName);
-        $result = $dbi->tryQuery($sql);
+        $result = $GLOBALS['dbi']->tryQuery($sql);
         if (! $result || ! $result->numRows()) {
             $this->showMissingTableError();
             exit;
         }
 
         if ($this->showKeys) {
-            $indexes = Index::getFromTable($this->tableName, $this->db);
+            $indexes = Index::getFromTable($GLOBALS['dbi'], $this->tableName, $this->db);
             $all_columns = [];
             foreach ($indexes as $index) {
                 $all_columns = array_merge(
                     $all_columns,
-                    array_flip(array_keys($index->getColumns()))
+                    array_flip(array_keys($index->getColumns())),
                 );
             }
 
@@ -192,9 +155,7 @@ abstract class TableStats
      */
     protected function loadPrimaryKey(): void
     {
-        global $dbi;
-
-        $result = $dbi->query('SHOW INDEX FROM ' . Util::backquote($this->tableName) . ';');
+        $result = $GLOBALS['dbi']->query('SHOW INDEX FROM ' . Util::backquote($this->tableName) . ';');
         if ($result->numRows() <= 0) {
             return;
         }
@@ -214,7 +175,7 @@ abstract class TableStats
      *
      * @return string title of the current table
      */
-    protected function getTitle()
+    protected function getTitle(): string
     {
         return ($this->tableDimension
             ? sprintf('%.0fx%0.f', $this->width, $this->heightCell)

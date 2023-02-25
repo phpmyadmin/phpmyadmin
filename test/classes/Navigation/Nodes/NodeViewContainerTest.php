@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
-use PhpMyAdmin\Navigation\NodeFactory;
+use PhpMyAdmin\Navigation\Nodes\NodeViewContainer;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Navigation\Nodes\NodeViewContainer
- */
+/** @covers \PhpMyAdmin\Navigation\Nodes\NodeViewContainer */
 class NodeViewContainerTest extends AbstractTestCase
 {
     /**
@@ -18,6 +16,8 @@ class NodeViewContainerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
         $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '_';
@@ -30,14 +30,14 @@ class NodeViewContainerTest extends AbstractTestCase
      */
     public function testConstructor(): void
     {
-        $parent = NodeFactory::getInstance('NodeViewContainer');
+        $parent = new NodeViewContainer();
         $this->assertIsArray($parent->links);
         $this->assertEquals(
             [
                 'text' => ['route' => '/database/structure', 'params' => ['tbl_type' => 'view', 'db' => null]],
                 'icon' => ['route' => '/database/structure', 'params' => ['tbl_type' => 'view', 'db' => null]],
             ],
-            $parent->links
+            $parent->links,
         );
         $this->assertEquals('views', $parent->realName);
         $this->assertStringContainsString('viewContainer', $parent->classes);

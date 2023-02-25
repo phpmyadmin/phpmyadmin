@@ -15,13 +15,9 @@ use function json_decode;
 
 final class SetConfigController extends AbstractController
 {
-    /** @var Config */
-    private $config;
-
-    public function __construct(ResponseRenderer $response, Template $template, Config $config)
+    public function __construct(ResponseRenderer $response, Template $template, private Config $config)
     {
         parent::__construct($response, $template);
-        $this->config = $config;
     }
 
     public function __invoke(ServerRequest $request): void

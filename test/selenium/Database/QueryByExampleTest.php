@@ -8,9 +8,7 @@ use PhpMyAdmin\Tests\Selenium\TestBase;
 
 use function trim;
 
-/**
- * @coversNothing
- */
+/** @coversNothing */
 class QueryByExampleTest extends TestBase
 {
     /**
@@ -27,7 +25,7 @@ class QueryByExampleTest extends TestBase
             . ' `val` int(11) NOT NULL,'
             . ' PRIMARY KEY (`id`)'
             . ');'
-            . 'INSERT INTO `test_table` (val) VALUES (2), (6), (5), (3), (4), (4), (5);'
+            . 'INSERT INTO `test_table` (val) VALUES (2), (6), (5), (3), (4), (4), (5);',
         );
 
         $this->login();
@@ -49,12 +47,12 @@ class QueryByExampleTest extends TestBase
         /* Select Columns to be used in the query */
         $this->selectByValue(
             $this->waitForElement('name', 'criteriaColumn[0]'),
-            '`test_table`.`id`'
+            '`test_table`.`id`',
         );
 
         $this->selectByValue(
             $this->waitForElement('name', 'criteriaColumn[1]'),
-            '`test_table`.`val`'
+            '`test_table`.`val`',
         );
 
         /* Set aliases for the columns */
@@ -64,23 +62,23 @@ class QueryByExampleTest extends TestBase
         /* Set Sort orders */
         $this->selectByLabel(
             $this->waitForElement('name', 'criteriaSort[0]'),
-            'Descending'
+            'Descending',
         );
 
         $this->selectByLabel(
             $this->waitForElement('name', 'criteriaSort[1]'),
-            'Ascending'
+            'Ascending',
         );
 
         /* Select sort order amongst columns */
         $this->selectByValue(
             $this->waitForElement('name', 'criteriaSortOrder[0]'),
-            '2'
+            '2',
         );
 
         $this->selectByValue(
             $this->waitForElement('name', 'criteriaSortOrder[1]'),
-            '1'
+            '1',
         );
 
         /* Set criteria conditions */
@@ -124,51 +122,51 @@ class QueryByExampleTest extends TestBase
         /* Assert Row 1 */
         $this->assertEquals(
             4,
-            $this->getCellByTableClass('table_results', 1, 5)
+            $this->getCellByTableClass('table_results', 1, 5),
         );
         $this->assertEquals(
             3,
-            $this->getCellByTableClass('table_results', 1, 6)
+            $this->getCellByTableClass('table_results', 1, 6),
         );
 
         /* Assert Row 2 */
         $this->assertEquals(
             6,
-            $this->getCellByTableClass('table_results', 2, 5)
+            $this->getCellByTableClass('table_results', 2, 5),
         );
         $this->assertEquals(
             4,
-            $this->getCellByTableClass('table_results', 2, 6)
+            $this->getCellByTableClass('table_results', 2, 6),
         );
 
         /* Assert Row 3 */
         $this->assertEquals(
             5,
-            $this->getCellByTableClass('table_results', 3, 5)
+            $this->getCellByTableClass('table_results', 3, 5),
         );
         $this->assertEquals(
             4,
-            $this->getCellByTableClass('table_results', 3, 6)
+            $this->getCellByTableClass('table_results', 3, 6),
         );
 
         /* Assert Row 4 */
         $this->assertEquals(
             7,
-            $this->getCellByTableClass('table_results', 4, 5)
+            $this->getCellByTableClass('table_results', 4, 5),
         );
         $this->assertEquals(
             5,
-            $this->getCellByTableClass('table_results', 4, 6)
+            $this->getCellByTableClass('table_results', 4, 6),
         );
 
         /* Assert Row 5 */
         $this->assertEquals(
             3,
-            $this->getCellByTableClass('table_results', 5, 5)
+            $this->getCellByTableClass('table_results', 5, 5),
         );
         $this->assertEquals(
             5,
-            $this->getCellByTableClass('table_results', 5, 6)
+            $this->getCellByTableClass('table_results', 5, 6),
         );
     }
 }

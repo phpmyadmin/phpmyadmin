@@ -8,15 +8,20 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportCsv;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 
 use function __;
 use function basename;
 
-/**
- * @covers \PhpMyAdmin\Plugins\Import\ImportCsv
- */
+/** @covers \PhpMyAdmin\Plugins\Import\ImportCsv */
 class ImportCsvTest extends AbstractTestCase
 {
+    /** @var DatabaseInterface */
+    protected $dbi;
+
+    /** @var DbiDummy */
+    protected $dummyDbi;
+
     /** @var ImportCsv */
     protected $object;
 
@@ -27,11 +32,29 @@ class ImportCsvTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
         $GLOBALS['server'] = 0;
         $GLOBALS['plugin_param'] = 'csv';
-        $this->object = new ImportCsv();
+        $GLOBALS['errorUrl'] = 'index.php?route=/';
+        $GLOBALS['error'] = false;
+        $GLOBALS['db'] = '';
+        $GLOBALS['table'] = '';
+        $GLOBALS['sql_query'] = '';
+        $GLOBALS['message'] = null;
+        $GLOBALS['csv_columns'] = null;
+        $GLOBALS['timeout_passed'] = null;
+        $GLOBALS['maximum_time'] = null;
+        $GLOBALS['charset_conversion'] = null;
+        $GLOBALS['skip_queries'] = null;
+        $GLOBALS['max_sql_len'] = null;
+        $GLOBALS['executed_queries'] = null;
+        $GLOBALS['run_query'] = null;
+        $GLOBALS['go_sql'] = null;
 
-        unset($GLOBALS['db']);
+        $this->object = new ImportCsv();
 
         //setting
         $GLOBALS['finished'] = false;
@@ -68,6 +91,7 @@ class ImportCsvTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 
@@ -81,11 +105,11 @@ class ImportCsvTest extends AbstractTestCase
         $properties = $this->object->getProperties();
         $this->assertEquals(
             __('CSV'),
-            $properties->getText()
+            $properties->getText(),
         );
         $this->assertEquals(
             'csv',
-            $properties->getExtension()
+            $properties->getExtension(),
         );
     }
 
@@ -97,8 +121,8 @@ class ImportCsvTest extends AbstractTestCase
     public function testDoImport(): void
     {
         //$sql_query_disabled will show the import SQL detail
-        global $sql_query, $sql_query_disabled;
-        $sql_query_disabled = false;
+
+        $GLOBALS['sql_query_disabled'] = false;
 
         $importHandle = new File($GLOBALS['import_file']);
         $importHandle->open();
@@ -107,10 +131,13 @@ class ImportCsvTest extends AbstractTestCase
         $this->object->doImport($importHandle);
 
         //asset that all sql are executed
-        $this->assertStringContainsString('CREATE DATABASE IF NOT EXISTS `CSV_DB 1` DEFAULT CHARACTER', $sql_query);
+        $this->assertStringContainsString(
+            'CREATE DATABASE IF NOT EXISTS `CSV_DB 1` DEFAULT CHARACTER',
+            $GLOBALS['sql_query'],
+        );
         $this->assertStringContainsString(
             'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`' . $GLOBALS['import_file_name'] . '`',
-            $sql_query
+            $GLOBALS['sql_query'],
         );
 
         $this->assertTrue($GLOBALS['finished']);
@@ -124,8 +151,8 @@ class ImportCsvTest extends AbstractTestCase
     public function testDoPartialImport(): void
     {
         //$sql_query_disabled will show the import SQL detail
-        global $sql_query, $sql_query_disabled;
-        $sql_query_disabled = false;
+
+        $GLOBALS['sql_query_disabled'] = false;
 
         $importHandle = new File($GLOBALS['import_file']);
         $importHandle->open();
@@ -139,8 +166,14 @@ class ImportCsvTest extends AbstractTestCase
         $this->object->doImport($importHandle);
 
         //asset that all sql are executed
-        $this->assertStringContainsString('CREATE DATABASE IF NOT EXISTS `ImportTestDb` DEFAULT CHARACTER', $sql_query);
-        $this->assertStringContainsString('CREATE TABLE IF NOT EXISTS `ImportTestDb`.`ImportTestTable`', $sql_query);
+        $this->assertStringContainsString(
+            'CREATE DATABASE IF NOT EXISTS `ImportTestDb` DEFAULT CHARACTER',
+            $GLOBALS['sql_query'],
+        );
+        $this->assertStringContainsString(
+            'CREATE TABLE IF NOT EXISTS `ImportTestDb`.`ImportTestTable`',
+            $GLOBALS['sql_query'],
+        );
 
         $this->assertTrue($GLOBALS['finished']);
 
@@ -161,11 +194,11 @@ class ImportCsvTest extends AbstractTestCase
         $properties = $this->object->getProperties();
         $this->assertEquals(
             __('CSV'),
-            $properties->getText()
+            $properties->getText(),
         );
         $this->assertEquals(
             'csv',
-            $properties->getExtension()
+            $properties->getExtension(),
         );
     }
 
@@ -177,8 +210,8 @@ class ImportCsvTest extends AbstractTestCase
     public function testDoImportNotAnalysis(): void
     {
         //$sql_query_disabled will show the import SQL detail
-        global $sql_query, $sql_query_disabled;
-        $sql_query_disabled = false;
+
+        $GLOBALS['sql_query_disabled'] = false;
 
         $importHandle = new File($GLOBALS['import_file']);
         $importHandle->open();
@@ -187,11 +220,14 @@ class ImportCsvTest extends AbstractTestCase
         $this->object->doImport($importHandle);
 
         //asset that all sql are executed
-        $this->assertStringContainsString('CREATE DATABASE IF NOT EXISTS `CSV_DB 1` DEFAULT CHARACTER', $sql_query);
+        $this->assertStringContainsString(
+            'CREATE DATABASE IF NOT EXISTS `CSV_DB 1` DEFAULT CHARACTER',
+            $GLOBALS['sql_query'],
+        );
 
         $this->assertStringContainsString(
             'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`' . $GLOBALS['import_file_name'] . '`',
-            $sql_query
+            $GLOBALS['sql_query'],
         );
 
         $this->assertTrue($GLOBALS['finished']);
@@ -205,24 +241,26 @@ class ImportCsvTest extends AbstractTestCase
     public function testDoImportNormal(): void
     {
         //$sql_query_disabled will show the import SQL detail
-        global $sql_query, $sql_query_disabled;
-        $sql_query_disabled = false;
+
+        $GLOBALS['sql_query_disabled'] = false;
         $GLOBALS['import_type'] = 'query';
         $GLOBALS['import_file'] = 'none';
         $GLOBALS['csv_terminated'] = ',';
         $GLOBALS['import_text'] = '"Row 1","Row 2"' . "\n" . '"123","456"';
 
-        parent::setGlobalDbi();
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
 
         $this->dummyDbi->addResult(
             'SHOW DATABASES',
-            []
+            [],
         );
 
         $this->dummyDbi->addResult(
-            'SELECT TABLE_NAME FROM information_schema.VIEWS'
+            'SELECT 1 FROM information_schema.VIEWS'
             . ' WHERE TABLE_SCHEMA = \'CSV_DB 1\' AND TABLE_NAME = \'db_test\'',
-            []
+            [],
         );
 
         $this->object->doImport();
@@ -232,11 +270,11 @@ class ImportCsvTest extends AbstractTestCase
             . 'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`db_test` (`COL 1` varchar(5), `COL 2` varchar(5))'
             . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;;INSERT INTO `CSV_DB 1`.`db_test`'
             . ' (`COL 1`, `COL 2`) VALUES (\'Row 1\', \'Row 2\'),' . "\n" . ' (\'123\', \'456\');;',
-            $sql_query
+            $GLOBALS['sql_query'],
         );
 
         $this->assertEquals(true, $GLOBALS['finished']);
-        $this->assertAllQueriesConsumed();
+        $this->dummyDbi->assertAllQueriesConsumed();
     }
 
     /**
@@ -247,8 +285,8 @@ class ImportCsvTest extends AbstractTestCase
     public function testDoImportSkipHeaders(): void
     {
         //$sql_query_disabled will show the import SQL detail
-        global $sql_query, $sql_query_disabled;
-        $sql_query_disabled = false;
+
+        $GLOBALS['sql_query_disabled'] = false;
         $GLOBALS['import_type'] = 'query';
         $GLOBALS['import_file'] = 'none';
         $GLOBALS['csv_terminated'] = ',';
@@ -256,17 +294,19 @@ class ImportCsvTest extends AbstractTestCase
 
         $_REQUEST['csv_col_names'] = 'something';
 
-        parent::setGlobalDbi();
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
 
         $this->dummyDbi->addResult(
             'SHOW DATABASES',
-            []
+            [],
         );
 
         $this->dummyDbi->addResult(
-            'SELECT TABLE_NAME FROM information_schema.VIEWS'
+            'SELECT 1 FROM information_schema.VIEWS'
             . ' WHERE TABLE_SCHEMA = \'CSV_DB 1\' AND TABLE_NAME = \'db_test\'',
-            []
+            [],
         );
 
         $this->object->doImport();
@@ -276,10 +316,10 @@ class ImportCsvTest extends AbstractTestCase
             . 'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`db_test` (`Row 1` int(3), `Row 2` int(3))'
             . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;;INSERT INTO `CSV_DB 1`.`db_test`'
             . ' (`Row 1`, `Row 2`) VALUES (123, 456);;',
-            $sql_query
+            $GLOBALS['sql_query'],
         );
 
         $this->assertEquals(true, $GLOBALS['finished']);
-        $this->assertAllQueriesConsumed();
+        $this->dummyDbi->assertAllQueriesConsumed();
     }
 }

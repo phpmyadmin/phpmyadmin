@@ -21,22 +21,14 @@ use function __;
 use function htmlspecialchars;
 use function sprintf;
 use function str_contains;
-use function strlen;
 
 /**
  * PhpMyAdmin\SqlQueryForm class
  */
 class SqlQueryForm
 {
-    /** @var Template */
-    private $template;
-
-    /**
-     * @param Template $template Template object
-     */
-    public function __construct(Template $template)
+    public function __construct(private Template $template, private DatabaseInterface $dbi)
     {
-        $this->template = $template;
     }
 
     /**
@@ -49,8 +41,6 @@ class SqlQueryForm
      *                                 false if not inside querywindow
      * @param string      $delimiter   delimiter
      *
-     * @return string
-     *
      * @usedby  /server/sql
      * @usedby  /database/sql
      * @usedby  /table/sql
@@ -60,12 +50,10 @@ class SqlQueryForm
     public function getHtml(
         string $db,
         string $table,
-        $query = true,
-        $display_tab = false,
-        $delimiter = ';'
-    ) {
-        global $dbi;
-
+        bool|string $query = true,
+        bool|string $display_tab = false,
+        $delimiter = ';',
+    ): string {
         if (! $display_tab) {
             $display_tab = 'full';
         }
@@ -78,10 +66,10 @@ class SqlQueryForm
             }
         }
 
-        if (strlen($db) === 0) {
+        if ($db === '') {
             // prepare for server related
             $goto = empty($GLOBALS['goto']) ? Url::getFromRoute('/server/sql') : $GLOBALS['goto'];
-        } elseif (strlen($table) === 0) {
+        } elseif ($table === '') {
             // prepare for db related
             $goto = empty($GLOBALS['goto']) ? Url::getFromRoute('/database/sql') : $GLOBALS['goto'];
         } else {
@@ -92,19 +80,24 @@ class SqlQueryForm
             [$legend, $query, $columns_list] = $this->init($query);
         }
 
-        $relation = new Relation($dbi);
+        $relation = new Relation($this->dbi);
         $bookmarkFeature = $relation->getRelationParameters()->bookmarkFeature;
 
         $bookmarks = [];
         if ($display_tab === 'full' && $bookmarkFeature !== null) {
-            $bookmark_list = Bookmark::getList($bookmarkFeature, $dbi, $GLOBALS['cfg']['Server']['user'], $db);
+            $bookmark_list = Bookmark::getList(
+                $bookmarkFeature,
+                $this->dbi,
+                $GLOBALS['cfg']['Server']['user'],
+                $db,
+            );
 
             foreach ($bookmark_list as $bookmarkItem) {
                 $bookmarks[] = [
                     'id' => $bookmarkItem->getId(),
                     'variable_count' => $bookmarkItem->getVariableCount(),
                     'label' => $bookmarkItem->getLabel(),
-                    'is_shared' => empty($bookmarkItem->getUser()),
+                    'is_shared' => $bookmarkItem->getUser() === '',
                 ];
             }
         }
@@ -138,22 +131,20 @@ class SqlQueryForm
      *
      * @return array ($legend, $query, $columns_list)
      */
-    public function init($query)
+    public function init($query): array
     {
-        global $dbi;
-
         $columns_list = [];
-        if (strlen($GLOBALS['db']) === 0) {
+        if ($GLOBALS['db'] === '') {
             // prepare for server related
             $legend = sprintf(
                 __('Run SQL query/queries on server “%s”'),
                 htmlspecialchars(
                     ! empty($GLOBALS['cfg']['Servers'][$GLOBALS['server']]['verbose'])
                     ? $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['verbose']
-                    : $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['host']
-                )
+                    : $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['host'],
+                ),
             );
-        } elseif (strlen($GLOBALS['table']) === 0) {
+        } elseif ($GLOBALS['table'] === '') {
             // prepare for db related
             $db = $GLOBALS['db'];
             // if you want navigation:
@@ -163,8 +154,8 @@ class SqlQueryForm
                 . '">';
             $tmp_db_link .= htmlspecialchars($db) . '</a>';
             $legend = sprintf(__('Run SQL query/queries on database %s'), $tmp_db_link);
-            if (empty($query)) {
-                $query = Util::expandUserString($GLOBALS['cfg']['DefaultQueryDatabase'], 'backquote');
+            if ($query === '') {
+                $query = Util::expandUserString($GLOBALS['cfg']['DefaultQueryDatabase'], Util::backquote(...));
             }
         } else {
             $db = $GLOBALS['db'];
@@ -172,14 +163,14 @@ class SqlQueryForm
             // Get the list and number of fields
             // we do a try_query here, because we could be in the query window,
             // trying to synchronize and the table has not yet been created
-            $columns_list = $dbi->getColumns($db, $GLOBALS['table'], true);
+            $columns_list = $this->dbi->getColumns($db, $GLOBALS['table'], true);
 
             $scriptName = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
             $tmp_tbl_link = '<a href="' . $scriptName . Url::getCommon(['db' => $db, 'table' => $table], '&') . '">';
             $tmp_tbl_link .= htmlspecialchars($db) . '.' . htmlspecialchars($table) . '</a>';
             $legend = sprintf(__('Run SQL query/queries on table %s'), $tmp_tbl_link);
-            if (empty($query)) {
-                $query = Util::expandUserString($GLOBALS['cfg']['DefaultQueryTable'], 'backquote');
+            if ($query === '') {
+                $query = Util::expandUserString($GLOBALS['cfg']['DefaultQueryTable'], Util::backquote(...));
             }
         }
 

@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Cache;
 use stdClass;
 
-/**
- * @covers \PhpMyAdmin\Cache
- */
+/** @covers \PhpMyAdmin\Cache */
 class CacheTest extends AbstractTestCase
 {
     public function setUp(): void
@@ -17,10 +15,8 @@ class CacheTest extends AbstractTestCase
         Cache::purge();
     }
 
-    /**
-     * @return array[]
-     */
-    public function dataProviderCacheKeyValues(): array
+    /** @return array[] */
+    public static function dataProviderCacheKeyValues(): array
     {
         return [
             'normal key and false value' => [
@@ -46,9 +42,9 @@ class CacheTest extends AbstractTestCase
     public function testCacheHas(string $cacheKey, $valueToCache): void
     {
         $this->assertFalse(Cache::has($cacheKey));
-        $this->assertTrue(Cache::set($cacheKey, $valueToCache));
+        Cache::set($cacheKey, $valueToCache);
         $this->assertTrue(Cache::has($cacheKey));
-        $this->assertTrue(Cache::remove($cacheKey));
+        Cache::remove($cacheKey);
         $this->assertFalse(Cache::has($cacheKey));
     }
 
@@ -60,9 +56,9 @@ class CacheTest extends AbstractTestCase
     public function testCachePurge(string $cacheKey, $valueToCache): void
     {
         $this->assertFalse(Cache::has($cacheKey));
-        $this->assertTrue(Cache::set($cacheKey, $valueToCache));
+        Cache::set($cacheKey, $valueToCache);
         $this->assertTrue(Cache::has($cacheKey));
-        $this->assertTrue(Cache::purge());
+        Cache::purge();
         $this->assertFalse(Cache::has($cacheKey));
     }
 
@@ -74,7 +70,7 @@ class CacheTest extends AbstractTestCase
     public function testCacheSet(string $cacheKey, $valueToCache): void
     {
         $this->assertFalse(Cache::has($cacheKey));
-        $this->assertTrue(Cache::set($cacheKey, $valueToCache));
+        Cache::set($cacheKey, $valueToCache);
         $this->assertTrue(Cache::has($cacheKey));
     }
 
@@ -86,7 +82,7 @@ class CacheTest extends AbstractTestCase
     public function testCacheGet(string $cacheKey, $valueToCache): void
     {
         $this->assertFalse(Cache::has($cacheKey));
-        $this->assertTrue(Cache::set($cacheKey, $valueToCache));
+        Cache::set($cacheKey, $valueToCache);
         $this->assertTrue(Cache::has($cacheKey));
         $this->assertSame(Cache::get($cacheKey), $valueToCache);
     }
@@ -99,10 +95,10 @@ class CacheTest extends AbstractTestCase
     public function testCacheGetDefaultValue(string $cacheKey, $valueToCache): void
     {
         $this->assertFalse(Cache::has($cacheKey));
-        $this->assertTrue(Cache::set($cacheKey, $valueToCache));
+        Cache::set($cacheKey, $valueToCache);
         $this->assertTrue(Cache::has($cacheKey));
         $this->assertSame(Cache::get($cacheKey, null), $valueToCache);
-        $this->assertTrue(Cache::remove($cacheKey));
+        Cache::remove($cacheKey);
         $this->assertFalse(Cache::has($cacheKey));
         $this->assertNull(Cache::get($cacheKey, null));
         $defaultValue = new stdClass();
@@ -118,9 +114,9 @@ class CacheTest extends AbstractTestCase
     public function testCacheRemove(string $cacheKey, $valueToCache): void
     {
         $this->assertFalse(Cache::has($cacheKey));
-        $this->assertTrue(Cache::set($cacheKey, $valueToCache));
+        Cache::set($cacheKey, $valueToCache);
         $this->assertTrue(Cache::has($cacheKey));
-        $this->assertTrue(Cache::remove($cacheKey));
+        Cache::remove($cacheKey);
         $this->assertFalse(Cache::has($cacheKey));
     }
 }

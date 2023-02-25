@@ -70,17 +70,13 @@ final class ReplicationInfo
     /** @var array */
     private $replicaInfo = [];
 
-    /** @var DatabaseInterface */
-    private $dbi;
-
-    public function __construct(DatabaseInterface $dbi)
+    public function __construct(private DatabaseInterface $dbi)
     {
-        $this->dbi = $dbi;
     }
 
-    public function load(?string $connection = null): void
+    public function load(string|null $connection = null): void
     {
-        global $urlParams;
+        $GLOBALS['urlParams'] ??= null;
 
         $this->setPrimaryStatus();
 
@@ -89,7 +85,7 @@ final class ReplicationInfo
 
             if ($this->multiPrimaryStatus) {
                 $this->setDefaultPrimaryConnection($connection);
-                $urlParams['primary_connection'] = $connection;
+                $GLOBALS['urlParams']['primary_connection'] = $connection;
             }
         }
 
@@ -125,7 +121,7 @@ final class ReplicationInfo
 
     private function setDefaultPrimaryConnection(string $connection): void
     {
-        $this->dbi->query(sprintf('SET @@default_master_connection = \'%s\'', $this->dbi->escapeString($connection)));
+        $this->dbi->query(sprintf('SET @@default_master_connection = %s', $this->dbi->quoteString($connection)));
     }
 
     private static function fill(array $status, string $key): array
@@ -153,9 +149,7 @@ final class ReplicationInfo
         $this->primaryInfo['Ignore_DB'] = self::fill($this->primaryStatus, 'Binlog_Ignore_DB');
     }
 
-    /**
-     * @return array
-     */
+    /** @return array */
     public function getPrimaryInfo(): array
     {
         return $this->primaryInfo;
@@ -181,9 +175,7 @@ final class ReplicationInfo
         $this->replicaInfo['Wild_Ignore_Table'] = self::fill($this->replicaStatus, 'Replicate_Wild_Ignore_Table');
     }
 
-    /**
-     * @return array
-     */
+    /** @return array */
     public function getReplicaInfo(): array
     {
         return $this->replicaInfo;

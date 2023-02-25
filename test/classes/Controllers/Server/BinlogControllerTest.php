@@ -5,26 +5,37 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Controllers\Server\BinlogController;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Utils\SessionCache;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Server\BinlogController
- */
+/** @covers \PhpMyAdmin\Controllers\Server\BinlogController */
 class BinlogControllerTest extends AbstractTestCase
 {
-    /**
-     * Prepares environment for the test.
-     */
+    /** @var DatabaseInterface */
+    protected $dbi;
+
+    /** @var DbiDummy */
+    protected $dummyDbi;
+
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['text_dir'] = 'ltr';
+
         parent::setGlobalConfig();
+
         parent::setTheme();
+
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
 
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['cfg']['ServerDefault'] = 'server';
@@ -44,11 +55,14 @@ class BinlogControllerTest extends AbstractTestCase
 
         $controller = new BinlogController($response, new Template(), $GLOBALS['dbi']);
 
-        $_POST['log'] = 'index1';
-        $_POST['pos'] = '3';
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['log', null, 'index1'],
+            ['pos', 0, '3'],
+        ]);
         $this->dummyDbi->addSelectDb('mysql');
-        $controller();
-        $this->assertAllSelectsConsumed();
+        $controller($request);
+        $this->dummyDbi->assertAllSelectsConsumed();
         $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString('Select binary log to view', $actual);
@@ -60,8 +74,8 @@ class BinlogControllerTest extends AbstractTestCase
         $this->assertStringContainsString("SHOW BINLOG EVENTS IN 'index1' LIMIT 3, 10", $actual);
 
         $this->assertStringContainsString(
-            '<table class="table table-light table-striped table-hover align-middle" id="binlogTable">',
-            $actual
+            '<table class="table table-striped table-hover align-middle" id="binlogTable">',
+            $actual,
         );
 
         $urlNavigation = Url::getFromRoute('/server/binlog') . '" data-post="log=index1&pos=3&'

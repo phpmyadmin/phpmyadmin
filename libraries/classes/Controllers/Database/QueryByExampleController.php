@@ -6,8 +6,12 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Database\Qbe;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Exceptions\SavedSearchesException;
+use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SavedSearches;
@@ -21,90 +25,114 @@ use function stripos;
 
 class QueryByExampleController extends AbstractController
 {
-    /** @var Relation */
-    private $relation;
-
-    /** @var DatabaseInterface */
-    private $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
-        Relation $relation,
-        DatabaseInterface $dbi
+        private Relation $relation,
+        private DatabaseInterface $dbi,
     ) {
-        parent::__construct($response, $template, $db);
-        $this->relation = $relation;
-        $this->dbi = $dbi;
+        parent::__construct($response, $template);
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $db, $savedSearchList, $savedSearch, $currentSearchId;
-        global $sql_query, $goto, $sub_part, $tables, $num_tables, $total_num_tables;
-        global $tooltip_truename, $tooltip_aliasname, $pos, $urlParams, $cfg, $errorUrl;
+        $GLOBALS['goto'] ??= null;
+        $GLOBALS['urlParams'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
 
         $savedQbeSearchesFeature = $this->relation->getRelationParameters()->savedQueryByExampleSearchesFeature;
 
         $savedSearchList = [];
         $savedSearch = null;
-        $currentSearchId = null;
         $this->addScriptFiles(['database/qbe.js']);
         if ($savedQbeSearchesFeature !== null) {
             //Get saved search list.
             $savedSearch = new SavedSearches();
             $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
-                ->setDbname($db);
+                ->setDbname($GLOBALS['db']);
 
-            if (! empty($_POST['searchId'])) {
-                $savedSearch->setId($_POST['searchId']);
+            $searchId = $request->getParsedBodyParam('searchId');
+            if (! empty($searchId)) {
+                $savedSearch->setId($searchId);
             }
 
             //Action field is sent.
-            if (isset($_POST['action'])) {
-                $savedSearch->setSearchName($_POST['searchName']);
-                if ($_POST['action'] === 'create') {
-                    $savedSearch->setId(null)
-                        ->setCriterias($_POST)
-                        ->save($savedQbeSearchesFeature);
-                } elseif ($_POST['action'] === 'update') {
-                    $savedSearch->setCriterias($_POST)
-                        ->save($savedQbeSearchesFeature);
-                } elseif ($_POST['action'] === 'delete') {
-                    $savedSearch->delete($savedQbeSearchesFeature);
+            if ($request->hasBodyParam('action')) {
+                $savedSearch->setSearchName($request->getParsedBodyParam('searchName'));
+                $action = $request->getParsedBodyParam('action');
+                if ($action === 'create') {
+                    try {
+                        $savedSearch->setId(null)
+                            ->setCriterias($request->getParsedBody())
+                            ->save($savedQbeSearchesFeature);
+                    } catch (SavedSearchesException $exception) {
+                        $this->response->setRequestStatus(false);
+                        $this->response->addJSON('fieldWithError', 'searchName');
+                        $this->response->addJSON('message', Message::error($exception->getMessage())->getDisplay());
+
+                        return;
+                    }
+                } elseif ($action === 'update') {
+                    try {
+                        $savedSearch->setCriterias($request->getParsedBody())
+                            ->save($savedQbeSearchesFeature);
+                    } catch (SavedSearchesException $exception) {
+                        $this->response->setRequestStatus(false);
+                        $this->response->addJSON('fieldWithError', 'searchName');
+                        $this->response->addJSON('message', Message::error($exception->getMessage())->getDisplay());
+
+                        return;
+                    }
+                } elseif ($action === 'delete') {
+                    try {
+                        $savedSearch->delete($savedQbeSearchesFeature);
+                    } catch (SavedSearchesException $exception) {
+                        $this->response->setRequestStatus(false);
+                        $this->response->addJSON('fieldWithError', 'searchId');
+                        $this->response->addJSON('message', Message::error($exception->getMessage())->getDisplay());
+
+                        return;
+                    }
+
                     //After deletion, reset search.
                     $savedSearch = new SavedSearches();
                     $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
-                        ->setDbname($db);
+                        ->setDbname($GLOBALS['db']);
                     $_POST = [];
-                } elseif ($_POST['action'] === 'load') {
-                    if (empty($_POST['searchId'])) {
+                } elseif ($action === 'load') {
+                    if (empty($searchId)) {
                         //when not loading a search, reset the object.
                         $savedSearch = new SavedSearches();
                         $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
-                            ->setDbname($db);
+                            ->setDbname($GLOBALS['db']);
                         $_POST = [];
                     } else {
-                        $savedSearch->load($savedQbeSearchesFeature);
+                        try {
+                            $savedSearch->load($savedQbeSearchesFeature);
+                        } catch (SavedSearchesException $exception) {
+                            $this->response->setRequestStatus(false);
+                            $this->response->addJSON('fieldWithError', 'searchId');
+                            $this->response->addJSON('message', Message::error($exception->getMessage())->getDisplay());
+
+                            return;
+                        }
                     }
                 }
                 //Else, it's an "update query"
             }
 
             $savedSearchList = $savedSearch->getList($savedQbeSearchesFeature);
-            $currentSearchId = $savedSearch->getId();
         }
 
         /**
          * A query has been submitted -> (maybe) execute it
          */
         $hasMessageToDisplay = false;
-        if (isset($_POST['submit_sql']) && ! empty($sql_query)) {
-            if (stripos($sql_query, 'SELECT') !== 0) {
+        if ($request->hasBodyParam('submit_sql') && ! empty($GLOBALS['sql_query'])) {
+            if (stripos($GLOBALS['sql_query'], 'SELECT') !== 0) {
                 $hasMessageToDisplay = true;
             } else {
-                $goto = Url::getFromRoute('/database/sql');
+                $GLOBALS['goto'] = Url::getFromRoute('/database/sql');
 
                 $sql = new Sql(
                     $this->dbi,
@@ -112,55 +140,50 @@ class QueryByExampleController extends AbstractController
                     new RelationCleanup($this->dbi, $this->relation),
                     new Operations($this->dbi, $this->relation),
                     new Transformations(),
-                    $this->template
+                    $this->template,
                 );
 
                 $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
-                    null, // analyzed_sql_results
+                    null,
                     false, // is_gotofile
-                    $_POST['db'], // db
+                    $request->getParsedBodyParam('db'), // db
                     null, // table
                     false, // find_real_end
                     null, // sql_query_for_bookmark
                     null, // extra_data
                     null, // message_to_show
                     null, // sql_data
-                    $goto, // goto
+                    $GLOBALS['goto'], // goto
                     null, // disp_query
                     null, // disp_message
-                    $sql_query, // sql_query
-                    null // complete_query
+                    $GLOBALS['sql_query'], // sql_query
+                    null, // complete_query
                 ));
             }
         }
 
-        $sub_part = '_qbe';
+        $this->checkParameters(['db']);
 
-        Util::checkParameters(['db']);
-
-        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $errorUrl .= Url::getCommon(['db' => $db], '&');
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
         if (! $this->hasDatabase()) {
             return;
         }
 
-        $urlParams['goto'] = Url::getFromRoute('/database/qbe');
+        $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/qbe');
 
-        [
-            $tables,
-            $num_tables,
-            $total_num_tables,
-            $sub_part,,,
-            $tooltip_truename,
-            $tooltip_aliasname,
-            $pos,
-        ] = Util::getDbInfo($db, $sub_part);
-
-        $databaseQbe = new Qbe($this->relation, $this->template, $this->dbi, $db, $savedSearchList, $savedSearch);
+        $databaseQbe = new Qbe(
+            $this->relation,
+            $this->template,
+            $this->dbi,
+            $GLOBALS['db'],
+            $savedSearchList,
+            $savedSearch,
+        );
 
         $this->render('database/qbe/index', [
-            'url_params' => $urlParams,
+            'url_params' => $GLOBALS['urlParams'],
             'has_message_to_display' => $hasMessageToDisplay,
             'selection_form_html' => $databaseQbe->getSelectionForm(),
         ]);

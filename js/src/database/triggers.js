@@ -1,3 +1,10 @@
+import $ from 'jquery';
+import { AJAX } from '../modules/ajax.js';
+import { Functions } from '../modules/functions.js';
+import { Navigation } from '../modules/navigation.js';
+import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
+import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.js';
+
 AJAX.registerTeardown('database/triggers.js', function () {
     $(document).off('click', 'a.ajax.add_anchor, a.ajax.edit_anchor');
     $(document).off('click', 'a.ajax.export_anchor');
@@ -17,14 +24,9 @@ const DatabaseTriggers = {
      */
     syntaxHiglighter: null,
     /**
-     * @var buttonOptions Object containing options for
-     *                    the jQueryUI dialog buttons
-     */
-    buttonOptions: {},
-    /**
      * Validate editor form fields.
      *
-     * @return {bool}
+     * @return {boolean}
      */
     validate: function () {
         /**
@@ -37,7 +39,7 @@ const DatabaseTriggers = {
         $elm = $('table.rte_table').last().find('input[name=item_name]');
         if ($elm.val() === '') {
             $elm.trigger('focus');
-            alert(Messages.strFormEmpty);
+            alert(window.Messages.strFormEmpty);
             return false;
         }
         $elm = $('table.rte_table').find('textarea[name=item_definition]');
@@ -47,7 +49,7 @@ const DatabaseTriggers = {
             } else {
                 $('textarea[name=item_definition]').last().trigger('focus');
             }
-            alert(Messages.strFormEmpty);
+            alert(window.Messages.strFormEmpty);
             return false;
         }
         // The validation has so far passed, so now
@@ -59,18 +61,18 @@ const DatabaseTriggers = {
      * This function can be overridden by
      * other files in this folder
      *
-     * @return {bool}
+     * @return {boolean}
      */
     validateCustom: function () {
         return true;
     }, // end validateCustom()
 
     exportDialog: function ($this) {
-        var $msg = Functions.ajaxShowMessage();
+        var $msg = ajaxShowMessage();
         if ($this.attr('id') === 'bulkActionExportButton') {
             var combined = {
                 success: true,
-                title: Messages.strExport,
+                title: window.Messages.strExport,
                 message: '',
                 error: ''
             };
@@ -103,17 +105,22 @@ const DatabaseTriggers = {
         } else {
             $.get($this.attr('href'), { 'ajax_request': true }, showExport);
         }
-        Functions.ajaxRemoveMessage($msg);
+        ajaxRemoveMessage($msg);
 
         function showExport (data) {
             if (data.success === true) {
-                Functions.ajaxRemoveMessage($msg);
+                ajaxRemoveMessage($msg);
                 /**
-                 * @var button_options Object containing options
+                 * @var buttonOptions Object containing options
                  *                     for jQueryUI dialog buttons
                  */
-                var buttonOptions = {};
-                buttonOptions[Messages.strClose] = function () {
+                var buttonOptions = {
+                    [window.Messages.strClose]: {
+                        text: window.Messages.strClose,
+                        class: 'btn btn-primary',
+                    },
+                };
+                buttonOptions[window.Messages.strClose].click = function () {
                     $(this).dialog('close').remove();
                 };
                 /**
@@ -121,6 +128,9 @@ const DatabaseTriggers = {
                  */
                 data.message = '<textarea cols="40" rows="15" class="w-100">' + data.message + '</textarea>';
                 var $ajaxDialog = $('<div>' + data.message + '</div>').dialog({
+                    classes: {
+                        'ui-dialog-titlebar-close': 'btn-close'
+                    },
                     width: 500,
                     buttons: buttonOptions,
                     title: data.title
@@ -133,7 +143,7 @@ const DatabaseTriggers = {
                 var $elm = $ajaxDialog.find('textarea');
                 Functions.getSqlEditor($elm);
             } else {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         } // end showExport()
     },  // end exportDialog()
@@ -155,17 +165,27 @@ const DatabaseTriggers = {
          * @var $msg jQuery object containing the reference to
          *           the AJAX message shown to the user
          */
-        var $msg = Functions.ajaxShowMessage();
+        var $msg = ajaxShowMessage();
         $.get($this.attr('href'), { 'ajax_request': true }, function (data) {
             if (data.success === true) {
+                var buttonOptions = {
+                    [window.Messages.strGo]: {
+                        text: window.Messages.strGo,
+                        class: 'btn btn-primary',
+                    },
+                    [window.Messages.strClose]: {
+                        text: window.Messages.strClose,
+                        class: 'btn btn-secondary',
+                    },
+                };
                 // We have successfully fetched the editor form
-                Functions.ajaxRemoveMessage($msg);
+                ajaxRemoveMessage($msg);
                 // Now define the function that is called when
                 // the user presses the "Go" button
-                that.buttonOptions[Messages.strGo] = function () {
+                buttonOptions[window.Messages.strGo].click = function () {
                     // Move the data from the codemirror editor back to the
                     // textarea, where it can be used in the form submission.
-                    if (typeof CodeMirror !== 'undefined') {
+                    if (typeof window.CodeMirror !== 'undefined') {
                         that.syntaxHiglighter.save();
                     }
                     // Validate editor and submit request, if passed.
@@ -174,14 +194,14 @@ const DatabaseTriggers = {
                          * @var data Form data to be sent in the AJAX request
                          */
                         var data = $('form.rte_form').last().serialize();
-                        $msg = Functions.ajaxShowMessage(
-                            Messages.strProcessingRequest
+                        $msg = ajaxShowMessage(
+                            window.Messages.strProcessingRequest
                         );
                         var url = $('form.rte_form').last().attr('action');
                         $.post(url, data, function (data) {
                             if (data.success === true) {
                                 // Item created successfully
-                                Functions.ajaxRemoveMessage($msg);
+                                ajaxRemoveMessage($msg);
                                 Functions.slidingMessage(data.message);
                                 that.$ajaxDialog.dialog('close');
                                 // If we are in 'edit' mode, we must
@@ -272,21 +292,24 @@ const DatabaseTriggers = {
                                 }
                                 Navigation.reload();
                             } else {
-                                Functions.ajaxShowMessage(data.error, false);
+                                ajaxShowMessage(data.error, false);
                             }
                         }); // end $.post()
                     } // end "if (that.validate())"
                 }; // end of function that handles the submission of the Editor
-                that.buttonOptions[Messages.strClose] = function () {
+                buttonOptions[window.Messages.strClose].click = function () {
                     $(this).dialog('close');
                 };
                 /**
                  * Display the dialog to the user
                  */
                 that.$ajaxDialog = $('<div id="rteDialog">' + data.message + '</div>').dialog({
+                    classes: {
+                        'ui-dialog-titlebar-close': 'btn-close'
+                    },
                     width: 700,
                     minWidth: 500,
-                    buttons: that.buttonOptions,
+                    buttons: buttonOptions,
                     // Issue #15810 - use button titles for modals (eg: new procedure)
                     // Respect the order: title on href tag, href content, title sent in response
                     title: $this.attr('title') || $this.text() || $(data.title).text(),
@@ -327,7 +350,7 @@ const DatabaseTriggers = {
                 linterOptions.triggerEditor = true;
                 that.syntaxHiglighter = Functions.getSqlEditor($elm, {}, 'both', linterOptions);
             } else {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         }); // end $.get()
     },
@@ -349,8 +372,8 @@ const DatabaseTriggers = {
              * @var msg jQuery object containing the reference to
              *          the AJAX message shown to the user
              */
-            var $msg = Functions.ajaxShowMessage(Messages.strProcessingRequest);
-            var params = Functions.getJsConfirmCommonParam(this, $this.getPostData());
+            var $msg = ajaxShowMessage(window.Messages.strProcessingRequest);
+            var params = getJsConfirmCommonParam(this, $this.getPostData());
             $.post(url, params, function (data) {
                 if (data.success === true) {
                     /**
@@ -393,12 +416,12 @@ const DatabaseTriggers = {
                         });
                     }
                     // Get rid of the "Loading" message
-                    Functions.ajaxRemoveMessage($msg);
+                    ajaxRemoveMessage($msg);
                     // Show the query that we just executed
                     Functions.slidingMessage(data.sql_query);
                     Navigation.reload();
                 } else {
-                    Functions.ajaxShowMessage(data.error, false);
+                    ajaxShowMessage(data.error, false);
                 }
             }); // end $.post()
         });
@@ -406,12 +429,12 @@ const DatabaseTriggers = {
 
     dropMultipleDialog: function ($this) {
         // We ask for confirmation here
-        $this.confirm(Messages.strDropRTEitems, '', function () {
+        $this.confirm(window.Messages.strDropRTEitems, '', function () {
             /**
              * @var msg jQuery object containing the reference to
              *          the AJAX message shown to the user
              */
-            var $msg = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+            var $msg = ajaxShowMessage(window.Messages.strProcessingRequest);
 
             // drop anchors of all selected rows
             var dropAnchors = $('input.checkall:checked').parents('tr').find('.drop_anchor');
@@ -425,7 +448,7 @@ const DatabaseTriggers = {
                  * @var $curr_row Object containing reference to the current row
                  */
                 var $currRow = $anchor.parents('tr');
-                var params = Functions.getJsConfirmCommonParam(this, $anchor.getPostData());
+                var params = getJsConfirmCommonParam(this, $anchor.getPostData());
                 $.post($anchor.attr('href'), params, function (data) {
                     returnCount++;
                     if (data.success === true) {
@@ -470,13 +493,13 @@ const DatabaseTriggers = {
                         if (returnCount === count) {
                             if (success) {
                                 // Get rid of the "Loading" message
-                                Functions.ajaxRemoveMessage($msg);
+                                ajaxRemoveMessage($msg);
                                 $('#rteListForm_checkall').prop({ checked: false, indeterminate: false });
                             }
                             Navigation.reload();
                         }
                     } else {
-                        Functions.ajaxShowMessage(data.error, false);
+                        ajaxShowMessage(data.error, false);
                         success = false;
                         if (returnCount === count) {
                             Navigation.reload();

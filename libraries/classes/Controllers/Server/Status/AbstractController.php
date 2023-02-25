@@ -11,12 +11,8 @@ use PhpMyAdmin\Template;
 
 abstract class AbstractController extends Controller
 {
-    /** @var Data */
-    protected $data;
-
-    public function __construct(ResponseRenderer $response, Template $template, Data $data)
+    public function __construct(ResponseRenderer $response, Template $template, protected Data $data)
     {
         parent::__construct($response, $template);
-        $this->data = $data;
     }
 }

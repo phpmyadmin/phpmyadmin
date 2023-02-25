@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -22,54 +23,42 @@ class BinlogController extends AbstractController
 {
     /**
      * binary log files
-     *
-     * @var array
      */
-    protected $binaryLogs;
+    protected array $binaryLogs;
 
-    /** @var DatabaseInterface */
-    private $dbi;
-
-    public function __construct(ResponseRenderer $response, Template $template, DatabaseInterface $dbi)
+    public function __construct(ResponseRenderer $response, Template $template, private DatabaseInterface $dbi)
     {
         parent::__construct($response, $template);
-        $this->dbi = $dbi;
 
         $this->binaryLogs = $this->dbi->fetchResult(
             'SHOW MASTER LOGS',
-            'Log_name'
+            'Log_name',
         );
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $cfg, $errorUrl;
+        $log = $request->getParsedBodyParam('log');
+        $position = (int) $request->getParsedBodyParam('pos', 0);
 
-        $params = [
-            'log' => $_POST['log'] ?? null,
-            'pos' => $_POST['pos'] ?? null,
-            'is_full_query' => $_POST['is_full_query'] ?? null,
-        ];
-        $errorUrl = Url::getFromRoute('/');
+        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
         }
 
-        $position = ! empty($params['pos']) ? (int) $params['pos'] : 0;
-
         $urlParams = [];
-        if (isset($params['log']) && array_key_exists($params['log'], $this->binaryLogs)) {
-            $urlParams['log'] = $params['log'];
+        if (array_key_exists($log, $this->binaryLogs)) {
+            $urlParams['log'] = $log;
         }
 
         $isFullQuery = false;
-        if (! empty($params['is_full_query'])) {
+        if ($request->hasBodyParam('is_full_query')) {
             $isFullQuery = true;
             $urlParams['is_full_query'] = 1;
         }
 
-        $sqlQuery = $this->getSqlQuery($params['log'] ?? '', $position, (int) $cfg['MaxRows']);
+        $sqlQuery = $this->getSqlQuery($log ?? '', $position, (int) $GLOBALS['cfg']['MaxRows']);
         $result = $this->dbi->query($sqlQuery);
 
         $numRows = $result->numRows();
@@ -79,8 +68,8 @@ class BinlogController extends AbstractController
         $nextParams = $urlParams;
         if ($position > 0) {
             $fullQueriesParams['pos'] = $position;
-            if ($position > $cfg['MaxRows']) {
-                $previousParams['pos'] = $position - $cfg['MaxRows'];
+            if ($position > $GLOBALS['cfg']['MaxRows']) {
+                $previousParams['pos'] = $position - $GLOBALS['cfg']['MaxRows'];
             }
         }
 
@@ -89,8 +78,8 @@ class BinlogController extends AbstractController
             unset($fullQueriesParams['is_full_query']);
         }
 
-        if ($numRows >= $cfg['MaxRows']) {
-            $nextParams['pos'] = $position + $cfg['MaxRows'];
+        if ($numRows >= $GLOBALS['cfg']['MaxRows']) {
+            $nextParams['pos'] = $position + $GLOBALS['cfg']['MaxRows'];
         }
 
         $values = $result->fetchAllAssoc();
@@ -98,11 +87,11 @@ class BinlogController extends AbstractController
         $this->render('server/binlog/index', [
             'url_params' => $urlParams,
             'binary_logs' => $this->binaryLogs,
-            'log' => $params['log'],
+            'log' => $log,
             'sql_message' => Generator::getMessage(Message::success(), $sqlQuery),
             'values' => $values,
             'has_previous' => $position > 0,
-            'has_next' => $numRows >= $cfg['MaxRows'],
+            'has_next' => $numRows >= $GLOBALS['cfg']['MaxRows'],
             'previous_params' => $previousParams,
             'full_queries_params' => $fullQueriesParams,
             'next_params' => $nextParams,
@@ -119,10 +108,10 @@ class BinlogController extends AbstractController
     private function getSqlQuery(
         string $log,
         int $position,
-        int $maxRows
+        int $maxRows,
     ): string {
         $sqlQuery = 'SHOW BINLOG EVENTS';
-        if (! empty($log)) {
+        if ($log !== '') {
             $sqlQuery .= ' IN \'' . $log . '\'';
         }
 

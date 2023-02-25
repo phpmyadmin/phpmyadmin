@@ -10,9 +10,7 @@ use function date;
 use function sleep;
 use function strtotime;
 
-/**
- * @coversNothing
- */
+/** @coversNothing */
 class EventsTest extends TestBase
 {
     /**
@@ -21,6 +19,7 @@ class EventsTest extends TestBase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->dbQuery(
             'USE `' . $this->databaseName . '`;'
             . 'CREATE TABLE `test_table` ('
@@ -29,7 +28,7 @@ class EventsTest extends TestBase
             . ' PRIMARY KEY (`id`)'
             . ');'
             . 'INSERT INTO `test_table` (val) VALUES (2);'
-            . 'SET GLOBAL event_scheduler="ON";'
+            . 'SET GLOBAL event_scheduler="ON";',
         );
         $this->login();
         $this->navigateDatabase($this->databaseName);
@@ -45,6 +44,7 @@ class EventsTest extends TestBase
     protected function tearDown(): void
     {
         $this->dbQuery('SET GLOBAL event_scheduler="OFF"');
+
         parent::tearDown();
     }
 
@@ -66,7 +66,7 @@ class EventsTest extends TestBase
             function (): void {
                 // Do you really want to execute [..]
                 $this->acceptAlert();
-            }
+            },
         );
     }
 
@@ -90,7 +90,7 @@ class EventsTest extends TestBase
         $this->byName('item_name')->sendKeys('test_event');
         $this->selectByLabel(
             $this->byName('item_interval_field'),
-            'MINUTE_SECOND'
+            'MINUTE_SECOND',
         );
 
         $this->byName('item_starts')->click()->clear()->sendKeys(date('Y-m-d', strtotime('-1 day')) . ' 00:00:00');
@@ -111,15 +111,15 @@ class EventsTest extends TestBase
                 ->click()// Click to free the mouse
                 ->perform();
 
-        $this->byXPath("//button[contains(., 'Go')]")->click();
+        $this->byCssSelector('div.ui-dialog-buttonset button:nth-child(1)')->click();
 
         $this->waitForElement(
             'xpath',
-            '//div[@class=\'alert alert-success\' and contains(., \'Event `test_event` has been created\')]'
+            '//div[@class=\'alert alert-success\' and contains(., \'Event `test_event` has been created\')]',
         );
         $this->waitForElementNotPresent(
             'xpath',
-            '//div[@id=\'alertLabel\' and not(contains(@style,\'display: none;\'))]'
+            '//div[@id=\'alertLabel\' and not(contains(@style,\'display: none;\'))]',
         );
 
         // Refresh the page
@@ -128,8 +128,8 @@ class EventsTest extends TestBase
         $this->assertTrue(
             $this->isElementPresent(
                 'xpath',
-                "//td[contains(., 'test_event')]"
-            )
+                "//td[contains(., 'test_event')]",
+            ),
         );
 
         $this->dbQuery(
@@ -140,7 +140,7 @@ class EventsTest extends TestBase
                 $this->assertEquals($this->databaseName, $this->getCellByTableClass('table_results', 1, 1));
                 $this->assertEquals('test_event', $this->getCellByTableClass('table_results', 1, 2));
                 $this->assertEquals('RECURRING', $this->getCellByTableClass('table_results', 1, 5));
-            }
+            },
         );
 
         sleep(2);
@@ -150,7 +150,7 @@ class EventsTest extends TestBase
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 // [ ] | Edit | Copy | Delete | 1 | <number>
                 $this->assertGreaterThan(2, (int) $this->getCellByTableClass('table_results', 1, 5));
-            }
+            },
         );
     }
 
@@ -174,11 +174,11 @@ class EventsTest extends TestBase
         $this->byName('item_interval_value')->clear();
         $this->byName('item_interval_value')->sendKeys('2');
 
-        $this->byXPath("//button[contains(., 'Go')]")->click();
+        $this->byCssSelector('div.ui-dialog-buttonset button:nth-child(1)')->click();
 
         $this->waitForElement(
             'xpath',
-            '//div[@class=\'alert alert-success\' and contains(., \'Event `test_event` has been modified\')]'
+            '//div[@class=\'alert alert-success\' and contains(., \'Event `test_event` has been modified\')]',
         );
 
         sleep(2);
@@ -188,7 +188,7 @@ class EventsTest extends TestBase
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 // [ ] | Edit | Copy | Delete | 4
                 $this->assertGreaterThan(3, (int) $this->getCellByTableClass('table_results', 1, 5));
-            }
+            },
         );
     }
 
@@ -207,7 +207,7 @@ class EventsTest extends TestBase
         $this->waitForElement('xpath', '//div[contains(., "Event scheduler status")]');
 
         $this->byPartialLinkText('Drop')->click();
-        $this->waitForElement('className', 'submitOK')->click();
+        $this->waitForElement('id', 'functionConfirmOkButton')->click();
 
         $this->waitAjaxMessage();
 
@@ -216,7 +216,7 @@ class EventsTest extends TestBase
             . 'SHOW EVENTS WHERE Db=\'' . $this->databaseName . '\' AND Name=\'test_event\';',
             function (): void {
                 $this->assertFalse($this->isElementPresent('className', 'table_results'));
-            }
+            },
         );
     }
 }

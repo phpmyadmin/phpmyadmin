@@ -60,7 +60,7 @@ class TableStatsEps extends TableStats
         &$same_wide_width,
         $showKeys = false,
         $tableDimension = false,
-        $offline = false
+        $offline = false,
     ) {
         parent::__construct($diagram, $db, $pageNumber, $tableName, $showKeys, $tableDimension, $offline);
 
@@ -84,7 +84,7 @@ class TableStatsEps extends TableStats
         ExportRelationSchema::dieSchema(
             $this->pageNumber,
             'EPS',
-            sprintf(__('The %s table doesn\'t exist!'), $this->tableName)
+            sprintf(__('The %s table doesn\'t exist!'), $this->tableName),
         );
     }
 
@@ -101,15 +101,12 @@ class TableStatsEps extends TableStats
         foreach ($this->fields as $field) {
             $this->width = max(
                 $this->width,
-                $this->font->getStringWidth($field, $font, (int) $fontSize)
+                $this->font->getStringWidth($field, $font, (int) $fontSize),
             );
         }
 
         $this->width += $this->font->getStringWidth('      ', $font, (int) $fontSize);
-        /*
-         * it is unknown what value must be added, because
-        * table title is affected by the table width value
-        */
+        // it is unknown what value must be added, because table title is affected by the table width value
         while ($this->width < $this->font->getStringWidth($this->getTitle(), $font, (int) $fontSize)) {
             $this->width += 7;
         }

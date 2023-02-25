@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use PhpMyAdmin\Http\ServerRequest;
+
 use function __;
 use function is_readable;
 use function printf;
@@ -17,7 +19,7 @@ use function readfile;
  */
 class LicenseController extends AbstractController
 {
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $this->response->disable();
         $this->response->header('Content-type: text/plain; charset=utf-8');
@@ -33,10 +35,10 @@ class LicenseController extends AbstractController
 
         printf(
             __(
-                'The %s file is not available on this system, please visit %s for more information.'
+                'The %s file is not available on this system, please visit %s for more information.',
             ),
             $filename,
-            'https://www.phpmyadmin.net/'
+            'https://www.phpmyadmin.net/',
         );
     }
 }

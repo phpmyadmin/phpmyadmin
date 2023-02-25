@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Transformation;
 
 use PhpMyAdmin\Controllers\Transformation\OverviewController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -12,9 +13,7 @@ use PhpMyAdmin\Transformations;
 
 use function __;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Transformation\OverviewController
- */
+/** @covers \PhpMyAdmin\Controllers\Transformation\OverviewController */
 class OverviewControllerTest extends AbstractTestCase
 {
     /**
@@ -23,8 +22,12 @@ class OverviewControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setGlobalConfig();
+
         parent::setTheme();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['text_dir'] = 'ltr';
 
         $GLOBALS['server'] = 1;
@@ -39,20 +42,20 @@ class OverviewControllerTest extends AbstractTestCase
 
         $controller = new OverviewController($response, new Template(), new Transformations());
 
-        $controller();
+        $controller($this->createStub(ServerRequest::class));
         $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString(
             __('Available media types'),
-            $actual
+            $actual,
         );
         $this->assertStringContainsString(
             'id="transformation">' . __('Available browser display transformations'),
-            $actual
+            $actual,
         );
         $this->assertStringContainsString(
             'id="input_transformation">' . __('Available input transformations'),
-            $actual
+            $actual,
         );
         $this->assertStringContainsString('Text/Plain', $actual);
         $this->assertStringContainsString('Image/JPEG: Inline', $actual);

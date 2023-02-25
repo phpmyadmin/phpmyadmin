@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ThemeManager;
 
-/**
- * @covers \PhpMyAdmin\ThemeManager
- */
+/** @covers \PhpMyAdmin\ThemeManager */
 class ThemeManagerTest extends AbstractTestCase
 {
     /**
@@ -18,7 +16,9 @@ class ThemeManagerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setGlobalConfig();
+
         $GLOBALS['cfg']['ThemePerServer'] = false;
         $GLOBALS['cfg']['ThemeDefault'] = 'pmahomme';
         $GLOBALS['cfg']['ServerDefault'] = 0;
@@ -70,7 +70,7 @@ class ThemeManagerTest extends AbstractTestCase
     {
         $tm = new ThemeManager();
         $this->assertTrue(
-            $tm->setThemeCookie()
+            $tm->setThemeCookie(),
         );
     }
 }

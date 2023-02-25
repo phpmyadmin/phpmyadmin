@@ -12,9 +12,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use function ob_get_clean;
 use function ob_start;
 
-/**
- * @covers \PhpMyAdmin\Plugins\Auth\AuthenticationConfig
- */
+/** @covers \PhpMyAdmin\Plugins\Auth\AuthenticationConfig */
 class AuthenticationConfigTest extends AbstractTestCase
 {
     /** @var AuthenticationConfig */
@@ -26,9 +24,14 @@ class AuthenticationConfigTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setLanguage();
+
         parent::setGlobalConfig();
+
         parent::setTheme();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
@@ -44,13 +47,14 @@ class AuthenticationConfigTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 
     public function testAuth(): void
     {
         $this->assertTrue(
-            $this->object->showLoginForm()
+            $this->object->showLoginForm(),
         );
     }
 
@@ -61,14 +65,14 @@ class AuthenticationConfigTest extends AbstractTestCase
             'password' => 'password',
         ];
         $this->assertTrue(
-            $this->object->readCredentials()
+            $this->object->readCredentials(),
         );
     }
 
     public function testAuthSetUser(): void
     {
         $this->assertTrue(
-            $this->object->storeCredentials()
+            $this->object->storeCredentials(),
         );
     }
 
@@ -92,16 +96,16 @@ class AuthenticationConfigTest extends AbstractTestCase
         $this->assertStringContainsString(
             'You probably did not create a configuration file. You might want ' .
             'to use the <a href="setup/">setup script</a> to create one.',
-            $html
+            $html,
         );
 
         $this->assertStringContainsString(
-            '<strong>MySQL said: </strong><a href="./url.php?url=https%3A%2F%2F' .
+            '<strong>MySQL said: </strong><a href="index.php?route=/url&url=https%3A%2F%2F' .
             'dev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Fserver-error-reference.html"' .
             ' target="mysql_doc">' .
             '<img src="themes/dot.gif" title="Documentation" alt="Documentation" ' .
             'class="icon ic_b_help"></a>',
-            $html
+            $html,
         );
 
         $this->assertStringContainsString('Cannot connect: invalid settings.', $html);
@@ -109,7 +113,7 @@ class AuthenticationConfigTest extends AbstractTestCase
         $this->assertStringContainsString(
             '<a href="index.php?route=/&server=0&lang=en" '
             . 'class="btn btn-primary mt-1 mb-1 disableAjax">Retry to connect</a>',
-            $html
+            $html,
         );
     }
 }

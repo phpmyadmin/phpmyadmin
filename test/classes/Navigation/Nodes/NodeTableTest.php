@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
-use PhpMyAdmin\Navigation\NodeFactory;
+use PhpMyAdmin\Navigation\Nodes\NodeTable;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Navigation\Nodes\NodeTable
- */
+/** @covers \PhpMyAdmin\Navigation\Nodes\NodeTable */
 class NodeTableTest extends AbstractTestCase
 {
     /**
@@ -18,6 +16,8 @@ class NodeTableTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
 
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = 'search';
@@ -35,7 +35,7 @@ class NodeTableTest extends AbstractTestCase
      */
     public function testConstructor(): void
     {
-        $parent = NodeFactory::getInstance('NodeTable');
+        $parent = new NodeTable('default');
         $this->assertIsArray($parent->links);
         $this->assertEquals(
             [
@@ -44,7 +44,7 @@ class NodeTableTest extends AbstractTestCase
                 'second_icon' => ['route' => '/table/change', 'params' => ['db' => null, 'table' => null]],
                 'title' => 'Browse',
             ],
-            $parent->links
+            $parent->links,
         );
         $this->assertStringContainsString('table', $parent->classes);
     }
@@ -60,7 +60,7 @@ class NodeTableTest extends AbstractTestCase
     public function testIcon(string $target, string $imageName, string $imageTitle): void
     {
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = $target;
-        $node = NodeFactory::getInstance('NodeTable');
+        $node = new NodeTable('default');
         $this->assertEquals($imageName, $node->icon['image']);
         $this->assertEquals($imageTitle, $node->icon['title']);
     }
@@ -70,7 +70,7 @@ class NodeTableTest extends AbstractTestCase
      *
      * @return array data for testIcon()
      */
-    public function providerForTestIcon(): array
+    public static function providerForTestIcon(): array
     {
         return [
             ['structure', 'b_props', 'Structure'],

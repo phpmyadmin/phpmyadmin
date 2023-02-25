@@ -68,10 +68,8 @@ class Form
 
     /**
      * ConfigFile instance
-     *
-     * @var ConfigFile
      */
-    private $configFile;
+    private ConfigFile $configFile;
 
     /**
      * A counter for the number of groups
@@ -92,7 +90,7 @@ class Form
         $formName,
         array $form,
         ConfigFile $cf,
-        $index = null
+        $index = null,
     ) {
         $this->index = $index;
         $this->configFile = $cf;
@@ -106,14 +104,14 @@ class Form
      *
      * @return string|null one of: boolean, integer, double, string, select, array
      */
-    public function getOptionType($optionName)
+    public function getOptionType($optionName): string|null
     {
         $key = ltrim(
             mb_substr(
                 $optionName,
-                (int) mb_strrpos($optionName, '/')
+                (int) mb_strrpos($optionName, '/'),
             ),
-            '/'
+            '/',
         );
 
         return $this->fieldsTypes[$key] ?? null;
@@ -126,7 +124,7 @@ class Form
      *
      * @return array
      */
-    public function getOptionValueList($optionPath)
+    public function getOptionValueList($optionPath): array
     {
         $value = $this->configFile->getDbEntry($optionPath);
         if ($value === null) {
@@ -188,7 +186,7 @@ class Form
                 function ($value, $key, $prefix): void {
                     $this->readFormPathsCallback($value, $key, $prefix);
                 },
-                $prefix
+                $prefix,
             );
 
             return;
@@ -229,7 +227,7 @@ class Form
             function ($value, $key, $prefix): void {
                 $this->readFormPathsCallback($value, $key, $prefix);
             },
-            ''
+            '',
         );
 
         // $this->fields is an array of the form: [0..n] => 'field path'
@@ -239,7 +237,7 @@ class Form
         foreach ($paths as $path) {
             $key = ltrim(
                 mb_substr($path, (int) mb_strrpos($path, '/')),
-                '/'
+                '/',
             );
             $this->fields[$key] = $path;
         }
@@ -251,18 +249,17 @@ class Form
      */
     protected function readTypes(): void
     {
-        $cf = $this->configFile;
         foreach ($this->fields as $name => $path) {
             if (mb_strpos((string) $name, ':group:') === 0) {
                 $this->fieldsTypes[$name] = 'group';
                 continue;
             }
 
-            $v = $cf->getDbEntry($path);
+            $v = $this->configFile->getDbEntry($path);
             if ($v !== null) {
                 $type = is_array($v) ? 'select' : $v;
             } else {
-                $type = gettype($cf->getDefault($path));
+                $type = gettype($this->configFile->getDefault($path));
             }
 
             $this->fieldsTypes[$name] = $type;

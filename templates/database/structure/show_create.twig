@@ -4,7 +4,7 @@
   {% if tables.tables is not empty %}
     <fieldset class="pma-fieldset">
       <legend>{% trans 'Tables' %}</legend>
-      <table class="table table-light table-striped show_create">
+      <table class="table table-striped show_create">
         <thead>
           <tr>
             <th>{% trans 'Table' %}</th>
@@ -14,7 +14,7 @@
         <tbody>
           {% for table in tables.tables %}
             <tr>
-              <td><strong>{{ table.name }}</strong></td>
+              <td><strong>{{ table.name|raw }}</strong></td>
               <td>{{ table.show_create|raw }}</td>
             </tr>
           {% endfor %}
@@ -26,7 +26,7 @@
   {% if tables.views is not empty %}
     <fieldset class="pma-fieldset">
       <legend>{% trans 'Views' %}</legend>
-      <table class="table table-light table-striped show_create">
+      <table class="table table-striped show_create">
         <thead>
           <tr>
             <th>{% trans 'View' %}</th>

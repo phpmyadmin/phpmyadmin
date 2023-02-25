@@ -5,26 +5,40 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 
 use PhpMyAdmin\Controllers\Server\Status\ProcessesController;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Processes;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Server\Status\ProcessesController
- */
+/** @covers \PhpMyAdmin\Controllers\Server\Status\ProcessesController */
 class ProcessesControllerTest extends AbstractTestCase
 {
+    /** @var DatabaseInterface */
+    protected $dbi;
+
+    /** @var DbiDummy */
+    protected $dummyDbi;
+
     /** @var Data */
     private $data;
 
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['text_dir'] = 'ltr';
+
         parent::setGlobalConfig();
+
         parent::setTheme();
+
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
@@ -33,7 +47,7 @@ class ProcessesControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
 
-        $this->data = new Data();
+        $this->data = new Data($this->dbi);
     }
 
     public function testIndex(): void
@@ -45,18 +59,18 @@ class ProcessesControllerTest extends AbstractTestCase
             new Template(),
             $this->data,
             $GLOBALS['dbi'],
-            new Processes($GLOBALS['dbi'])
+            new Processes($GLOBALS['dbi']),
         );
 
         $this->dummyDbi->addSelectDb('mysql');
-        $controller();
-        $this->assertAllSelectsConsumed();
+        $controller($this->createStub(ServerRequest::class));
+        $this->dummyDbi->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(
             'Note: Enabling the auto refresh here might cause '
             . 'heavy traffic between the web server and the MySQL server.',
-            $html
+            $html,
         );
         // Test tab links
         $this->assertStringContainsString('<div class="tabLinks row">', $html);
@@ -68,34 +82,47 @@ class ProcessesControllerTest extends AbstractTestCase
         $this->assertStringContainsString('5 seconds', $html);
 
         $this->assertStringContainsString(
-            '<table id="tableprocesslist" class="table table-light table-striped table-hover sortable w-auto">',
-            $html
+            '<table id="tableprocesslist" class="table table-striped table-hover sortable w-auto">',
+            $html,
         );
         $this->assertStringContainsString('<th>Processes</th>', $html);
         $this->assertStringContainsString('Show full queries', $html);
         $this->assertStringContainsString('index.php?route=/server/status/processes', $html);
 
-        $_POST['full'] = '1';
-        $_POST['column_name'] = 'Database';
-        $_POST['order_by_field'] = 'db';
-        $_POST['sort_order'] = 'ASC';
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['column_name', '', 'Database'],
+            ['order_by_field', '', 'Db'],
+            ['sort_order', '', 'ASC'],
+        ]);
+        $request->method('hasBodyParam')->willReturnMap([
+            ['full', true],
+            ['showExecuting', false],
+        ]);
 
         $this->dummyDbi->addSelectDb('mysql');
-        $controller();
-        $this->assertAllSelectsConsumed();
+        $controller($request);
+        $this->dummyDbi->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString('Truncate shown queries', $html);
         $this->assertStringContainsString('Database', $html);
         $this->assertStringContainsString('DESC', $html);
 
-        $_POST['column_name'] = 'Host';
-        $_POST['order_by_field'] = 'Host';
-        $_POST['sort_order'] = 'DESC';
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['column_name', '', 'Host'],
+            ['order_by_field', '', 'Host'],
+            ['sort_order', '', 'DESC'],
+        ]);
+        $request->method('hasBodyParam')->willReturnMap([
+            ['full', true],
+            ['showExecuting', false],
+        ]);
 
         $this->dummyDbi->addSelectDb('mysql');
-        $controller();
-        $this->assertAllSelectsConsumed();
+        $controller($request);
+        $this->dummyDbi->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString('Host', $html);

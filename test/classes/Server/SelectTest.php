@@ -10,9 +10,7 @@ use PhpMyAdmin\Util;
 
 use function __;
 
-/**
- * @covers \PhpMyAdmin\Server\Select
- */
+/** @covers \PhpMyAdmin\Server\Select */
 class SelectTest extends AbstractTestCase
 {
     /**
@@ -21,6 +19,7 @@ class SelectTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         //$_REQUEST
         $_REQUEST['log'] = 'index1';
         $_REQUEST['pos'] = 3;
@@ -81,18 +80,18 @@ class SelectTest extends AbstractTestCase
             $this->assertStringContainsString(
                 Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabServer'],
-                    'server'
+                    'server',
                 ),
-                $html
+                $html,
             );
 
             $this->assertStringContainsString(
                 __('Current server:'),
-                $html
+                $html,
             );
             $this->assertStringContainsString(
                 '(' . __('Servers') . ')',
-                $html
+                $html,
             );
         }
 
@@ -103,7 +102,7 @@ class SelectTest extends AbstractTestCase
         $this->assertStringContainsString($server['user'], $html);
     }
 
-    public function renderDataProvider(): array
+    public static function renderDataProvider(): array
     {
         return [
             'only options, don\'t omit fieldset' => [

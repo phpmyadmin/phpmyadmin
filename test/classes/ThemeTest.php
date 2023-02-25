@@ -10,10 +10,9 @@ use PhpMyAdmin\ThemeManager;
 use function filemtime;
 
 use const DIRECTORY_SEPARATOR;
+use const TEST_PATH;
 
-/**
- * @covers \PhpMyAdmin\Theme
- */
+/** @covers \PhpMyAdmin\Theme */
 class ThemeTest extends AbstractTestCase
 {
     /** @var Theme */
@@ -28,14 +27,16 @@ class ThemeTest extends AbstractTestCase
      */
     protected function setUp(): void
     {
-        global $theme;
-
         parent::setUp();
+
         parent::setTheme();
+
         $this->object = new Theme();
-        $this->backup = $theme;
-        $theme = $this->object;
+        $this->backup = $GLOBALS['theme'];
+        $GLOBALS['theme'] = $this->object;
+
         parent::setGlobalConfig();
+
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = '99';
     }
@@ -46,10 +47,9 @@ class ThemeTest extends AbstractTestCase
      */
     protected function tearDown(): void
     {
-        global $theme;
-
         parent::tearDown();
-        $theme = $this->backup;
+
+        $GLOBALS['theme'] = $this->backup;
     }
 
     /**
@@ -68,10 +68,10 @@ class ThemeTest extends AbstractTestCase
      */
     public function testCheckImgPathIncorrect(): void
     {
-        $this->object->setPath(ROOT_PATH . 'test/classes/_data/incorrect_theme');
+        $this->object->setPath(TEST_PATH . 'test/classes/_data/incorrect_theme');
         $this->assertFalse(
             $this->object->loadInfo(),
-            'Theme name is not properly set'
+            'Theme name is not properly set',
         );
     }
 
@@ -80,10 +80,10 @@ class ThemeTest extends AbstractTestCase
      */
     public function testCheckImgPathFull(): void
     {
-        $this->object->setFsPath(ROOT_PATH . 'test/classes/_data/gen_version_info/');
+        $this->object->setFsPath(TEST_PATH . 'test/classes/_data/gen_version_info/');
         $this->assertTrue($this->object->loadInfo());
         $this->assertEquals('Test Theme', $this->object->getName());
-        $this->assertEquals('5.1', $this->object->getVersion());
+        $this->assertEquals('6.0', $this->object->getVersion());
     }
 
     /**
@@ -91,16 +91,16 @@ class ThemeTest extends AbstractTestCase
      */
     public function testLoadInfo(): void
     {
-        $this->object->setFsPath(ROOT_PATH . 'themes/original/');
+        $this->object->setFsPath(ROOT_PATH . 'public/themes/original/');
         $infofile = $this->object->getFsPath() . 'theme.json';
         $this->assertTrue($this->object->loadInfo());
 
         $this->assertEquals(
             filemtime($infofile),
-            $this->object->mtimeInfo
+            $this->object->mtimeInfo,
         );
 
-        $this->object->setPath(ROOT_PATH . 'themes/original');
+        $this->object->setPath(ROOT_PATH . 'public/themes/original');
         $this->object->mtimeInfo = (int) filemtime($infofile);
         $this->assertTrue($this->object->loadInfo());
         $this->assertEquals('Original', $this->object->getName());
@@ -114,7 +114,7 @@ class ThemeTest extends AbstractTestCase
         $newTheme = Theme::load(
             ThemeManager::getThemesDir() . 'original',
             ThemeManager::getThemesFsDir() . 'original' . DIRECTORY_SEPARATOR,
-            'original'
+            'original',
         );
         $this->assertNotNull($newTheme);
         $this->assertInstanceOf(Theme::class, $newTheme);
@@ -129,8 +129,8 @@ class ThemeTest extends AbstractTestCase
             Theme::load(
                 ThemeManager::getThemesDir() . 'nonexistent',
                 ThemeManager::getThemesFsDir() . 'nonexistent' . DIRECTORY_SEPARATOR,
-                'nonexistent'
-            )
+                'nonexistent',
+            ),
         );
     }
 
@@ -173,7 +173,7 @@ class ThemeTest extends AbstractTestCase
         $this->assertEquals(
             '0.0.0.0',
             $this->object->getVersion(),
-            'Version 0.0.0.0 by default'
+            'Version 0.0.0.0 by default',
         );
 
         $this->object->setVersion('1.2.3.4');
@@ -212,7 +212,7 @@ class ThemeTest extends AbstractTestCase
     {
         $this->assertEmpty(
             $this->object->getImgPath(),
-            'ImgPath is empty by default'
+            'ImgPath is empty by default',
         );
         $this->object->setImgPath('/new/path');
 
@@ -228,11 +228,11 @@ class ThemeTest extends AbstractTestCase
      *
      * @dataProvider providerForGetImgPath
      */
-    public function testGetImgPath(?string $file, ?string $fallback, string $output): void
+    public function testGetImgPath(string|null $file, string|null $fallback, string $output): void
     {
         $this->assertEquals(
             $this->object->getImgPath($file, $fallback),
-            $output
+            $output,
         );
     }
 
@@ -241,7 +241,7 @@ class ThemeTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerForGetImgPath(): array
+    public static function providerForGetImgPath(): array
     {
         return [
             [

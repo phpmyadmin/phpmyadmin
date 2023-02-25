@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Server\Databases;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -21,37 +22,27 @@ use function is_array;
 
 final class DestroyController extends AbstractController
 {
-    /** @var DatabaseInterface */
-    private $dbi;
-
-    /** @var Transformations */
-    private $transformations;
-
-    /** @var RelationCleanup */
-    private $relationCleanup;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        DatabaseInterface $dbi,
-        Transformations $transformations,
-        RelationCleanup $relationCleanup
+        private DatabaseInterface $dbi,
+        private Transformations $transformations,
+        private RelationCleanup $relationCleanup,
     ) {
         parent::__construct($response, $template);
-        $this->dbi = $dbi;
-        $this->transformations = $transformations;
-        $this->relationCleanup = $relationCleanup;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $selected, $errorUrl, $cfg, $dblist, $reload;
+        $GLOBALS['selected'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
+        $GLOBALS['reload'] ??= null;
 
-        $selected_dbs = $_POST['selected_dbs'] ?? null;
+        $selected_dbs = $request->getParsedBodyParam('selected_dbs');
 
         if (
             ! $this->response->isAjax()
-            || (! $this->dbi->isSuperUser() && ! $cfg['AllowUserDropDatabase'])
+            || (! $this->dbi->isSuperUser() && ! $GLOBALS['cfg']['AllowUserDropDatabase'])
         ) {
             $message = Message::error();
             $json = ['message' => $message];
@@ -73,27 +64,27 @@ final class DestroyController extends AbstractController
             return;
         }
 
-        $errorUrl = Url::getFromRoute('/server/databases');
-        $selected = $selected_dbs;
+        $GLOBALS['errorUrl'] = Url::getFromRoute('/server/databases');
+        $GLOBALS['selected'] = $selected_dbs;
         $numberOfDatabases = count($selected_dbs);
 
         foreach ($selected_dbs as $database) {
             $this->relationCleanup->database($database);
             $aQuery = 'DROP DATABASE ' . Util::backquote($database);
-            $reload = true;
+            $GLOBALS['reload'] = true;
 
             $this->dbi->query($aQuery);
             $this->transformations->clear($database);
         }
 
-        $dblist->databases->build();
+        $this->dbi->getDatabaseList()->build();
 
         $message = Message::success(
             _ngettext(
                 '%1$d database has been dropped successfully.',
                 '%1$d databases have been dropped successfully.',
-                $numberOfDatabases
-            )
+                $numberOfDatabases,
+            ),
         );
         $message->addParam($numberOfDatabases);
         $json = ['message' => $message];

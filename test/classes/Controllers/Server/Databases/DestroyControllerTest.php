@@ -8,6 +8,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Server\Databases\DestroyController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -15,15 +16,18 @@ use PhpMyAdmin\Transformations;
 
 use function __;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Server\Databases\DestroyController
- */
+/** @covers \PhpMyAdmin\Controllers\Server\Databases\DestroyController */
 class DestroyControllerTest extends AbstractTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
+    }
+
     public function testDropDatabases(): void
     {
-        global $cfg;
-
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
@@ -35,17 +39,17 @@ class DestroyControllerTest extends AbstractTestCase
         $response = new ResponseRenderer();
         $response->setAjax(true);
 
-        $cfg['AllowUserDropDatabase'] = true;
+        $GLOBALS['cfg']['AllowUserDropDatabase'] = true;
 
         $controller = new DestroyController(
             $response,
             new Template(),
             $dbi,
             new Transformations(),
-            new RelationCleanup($dbi, new Relation($dbi))
+            new RelationCleanup($dbi, new Relation($dbi)),
         );
 
-        $controller();
+        $controller($this->createStub(ServerRequest::class));
         $actual = $response->getJSONResult();
 
         $this->assertArrayHasKey('message', $actual);

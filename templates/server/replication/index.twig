@@ -13,7 +13,7 @@
 
     {% if is_primary %}
       {{ primary_replication_html|raw }}
-    {% elseif primary_configure is null and clear_screen is null %}
+    {% elseif primary_configure is null and not clear_screen %}
       <div class="card mb-2">
         <div class="card-header">{% trans 'Primary replication' %}</div>
         <div class="card-body">
@@ -29,7 +29,7 @@
     {% if primary_configure is not null %}
       {{ primary_configuration_html|raw }}
     {% else %}
-      {% if clear_screen is null %}
+      {% if not clear_screen %}
         {{ replica_configuration_html|raw }}
       {% endif %}
       {% if replica_configure is not null %}

@@ -22,31 +22,22 @@ use function mb_substr;
  */
 class BrowseForeigners
 {
-    /** @var int */
-    private $limitChars;
-    /** @var int */
-    private $maxRows;
-    /** @var int */
-    private $repeatCells;
-    /** @var bool */
-    private $showAll;
+    private int $limitChars;
+    private int $maxRows;
+    private int $repeatCells;
+    private bool $showAll;
 
     /** @var Template */
     public $template;
 
-    /**
-     * @param Template $template Template object
-     */
     public function __construct(Template $template)
     {
-        global $cfg;
-
         $this->template = $template;
 
-        $this->limitChars = (int) $cfg['LimitChars'];
-        $this->maxRows = (int) $cfg['MaxRows'];
-        $this->repeatCells = (int) $cfg['RepeatCells'];
-        $this->showAll = (bool) $cfg['ShowAll'];
+        $this->limitChars = (int) $GLOBALS['cfg']['LimitChars'];
+        $this->maxRows = (int) $GLOBALS['cfg']['MaxRows'];
+        $this->repeatCells = (int) $GLOBALS['cfg']['RepeatCells'];
+        $this->showAll = (bool) $GLOBALS['cfg']['ShowAll'];
     }
 
     /**
@@ -69,9 +60,9 @@ class BrowseForeigners
         int $indexByKeyname,
         array $descriptions,
         int $indexByDescription,
-        string $currentValue
+        string $currentValue,
     ): array {
-        global $theme;
+        $GLOBALS['theme'] ??= null;
 
         $horizontalCount++;
         $output = '';
@@ -126,7 +117,7 @@ class BrowseForeigners
         ]);
 
         $output .= '<td width="20%"><img src="'
-            . ($theme instanceof Theme ? $theme->getImgPath('spacer.png') : '')
+            . ($GLOBALS['theme'] instanceof Theme ? $GLOBALS['theme']->getImgPath('spacer.png') : '')
             . '" alt="" width="1" height="1"></td>';
 
         $output .= $this->template->render('table/browse_foreigners/column_element', [
@@ -168,8 +159,8 @@ class BrowseForeigners
         string $table,
         string $field,
         array $foreignData,
-        ?string $fieldKey,
-        string $currentValue
+        string|null $fieldKey,
+        string $currentValue,
     ): string {
         $gotoPage = $this->getHtmlForGotoPage($foreignData);
         $foreignShowAll = $this->template->render('table/browse_foreigners/show_all', [
@@ -210,7 +201,7 @@ class BrowseForeigners
             . '</fieldset>'
             . '</form>';
 
-        $output .= '<table class="table table-light table-striped table-hover" id="browse_foreign_table">';
+        $output .= '<table class="table table-striped table-hover" id="browse_foreign_table">';
 
         if (! is_array($foreignData['disp_row'])) {
             return $output . '</tbody>'
@@ -258,7 +249,7 @@ class BrowseForeigners
                 $indexByKeyname,
                 $descriptions,
                 $indexByDescription,
-                $currentValue
+                $currentValue,
             );
             $output .= $html;
         }
@@ -273,7 +264,7 @@ class BrowseForeigners
      *
      * @param string $description the key name's description
      *
-     * @return array the new description and title
+     * @return array<int,string> the new description and title
      */
     private function getDescriptionAndTitle(string $description): array
     {
@@ -296,19 +287,18 @@ class BrowseForeigners
      *
      * @param array|null $foreignData foreign data
      */
-    private function getHtmlForGotoPage(?array $foreignData): string
+    private function getHtmlForGotoPage(array|null $foreignData): string
     {
-        $gotoPage = '';
         isset($_POST['pos']) ? $pos = $_POST['pos'] : $pos = 0;
         if ($foreignData === null || ! is_array($foreignData['disp_row'])) {
-            return $gotoPage;
+            return '';
         }
 
         $pageNow = (int) floor($pos / $this->maxRows) + 1;
         $nbTotalPage = (int) ceil($foreignData['the_total'] / $this->maxRows);
 
         if ($foreignData['the_total'] > $this->maxRows) {
-            $gotoPage = Util::pageselector(
+            return Util::pageselector(
                 'pos',
                 $this->maxRows,
                 $pageNow,
@@ -318,11 +308,11 @@ class BrowseForeigners
                 5,
                 20,
                 10,
-                __('Page number:')
+                __('Page number:'),
             );
         }
 
-        return $gotoPage;
+        return '';
     }
 
     /**
@@ -330,9 +320,9 @@ class BrowseForeigners
      *
      * @param string|null $foreignShowAll foreign navigation
      */
-    public function getForeignLimit(?string $foreignShowAll): ?string
+    public function getForeignLimit(string|null $foreignShowAll): string|null
     {
-        if (isset($foreignShowAll) && $foreignShowAll == __('Show all')) {
+        if ($foreignShowAll === __('Show all')) {
             return null;
         }
 

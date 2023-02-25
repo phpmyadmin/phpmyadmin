@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Git;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
@@ -14,16 +15,12 @@ use function strtotime;
 
 final class GitInfoController extends AbstractController
 {
-    /** @var Config */
-    private $config;
-
-    public function __construct(ResponseRenderer $response, Template $template, Config $config)
+    public function __construct(ResponseRenderer $response, Template $template, private Config $config)
     {
         parent::__construct($response, $template);
-        $this->config = $config;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         if (! $this->response->isAjax()) {
             return;

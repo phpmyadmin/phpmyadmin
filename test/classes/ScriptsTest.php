@@ -10,9 +10,7 @@ use ReflectionProperty;
 
 use function rawurlencode;
 
-/**
- * @covers \PhpMyAdmin\Scripts
- */
+/** @covers \PhpMyAdmin\Scripts */
 class ScriptsTest extends AbstractTestCase
 {
     /** @var Scripts */
@@ -25,6 +23,7 @@ class ScriptsTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->object = new Scripts();
     }
 
@@ -35,6 +34,7 @@ class ScriptsTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 
@@ -43,16 +43,25 @@ class ScriptsTest extends AbstractTestCase
      */
     public function testGetDisplay(): void
     {
+        $this->object->addFile('vendor/codemirror/lib/codemirror.js');
         $this->object->addFile('common.js');
 
         $actual = $this->object->getDisplay();
 
         $this->assertStringContainsString(
             'src="js/dist/common.js?v=' . rawurlencode(Version::VERSION) . '"',
-            $actual
+            $actual,
         );
-        $this->assertStringContainsString('.add(\'common.js\', 1)', $actual);
-        $this->assertStringContainsString('AJAX.fireOnload(\'common.js\')', $actual);
+        $this->assertStringContainsString(
+            'window.AJAX.scriptHandler.add(\'vendor\/codemirror\/lib\/codemirror.js\', false);',
+            $actual,
+        );
+        $this->assertStringContainsString('window.AJAX.scriptHandler.add(\'common.js\', true);', $actual);
+        $this->assertStringContainsString('window.AJAX.fireOnload(\'common.js\')', $actual);
+        $this->assertStringNotContainsString(
+            'window.AJAX.fireOnload(\'vendor\/codemirror\/lib\/codemirror.js\')',
+            $actual,
+        );
     }
 
     /**
@@ -87,7 +96,7 @@ class ScriptsTest extends AbstractTestCase
                     'fire' => 1,
                 ],
             ],
-            $this->object->getFiles()
+            $this->object->getFiles(),
         );
     }
 
@@ -97,7 +106,6 @@ class ScriptsTest extends AbstractTestCase
     public function testAddFile(): void
     {
         $reflection = new ReflectionProperty(Scripts::class, 'files');
-        $reflection->setAccessible(true);
 
         // Assert empty _files property of
         // Scripts
@@ -123,7 +131,6 @@ class ScriptsTest extends AbstractTestCase
     public function testAddFiles(): void
     {
         $reflection = new ReflectionProperty(Scripts::class, 'files');
-        $reflection->setAccessible(true);
 
         $filenames = [
             'common.js',

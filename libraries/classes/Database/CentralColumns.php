@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Database;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
@@ -32,13 +33,6 @@ use function trim;
 class CentralColumns
 {
     /**
-     * DatabaseInterface instance
-     *
-     * @var DatabaseInterface
-     */
-    private $dbi;
-
-    /**
      * Current user
      *
      * @var string
@@ -47,10 +41,8 @@ class CentralColumns
 
     /**
      * Number of rows displayed when browsing a result set
-     *
-     * @var int
      */
-    private $maxRows;
+    private int $maxRows;
 
     /**
      * Which editor should be used for CHAR/VARCHAR fields
@@ -61,24 +53,16 @@ class CentralColumns
 
     /**
      * Disable use of INFORMATION_SCHEMA
-     *
-     * @var bool
      */
-    private $disableIs;
+    private bool $disableIs;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
     /** @var Template */
     public $template;
 
-    /**
-     * @param DatabaseInterface $dbi DatabaseInterface instance
-     */
-    public function __construct(DatabaseInterface $dbi)
+    public function __construct(private DatabaseInterface $dbi)
     {
-        $this->dbi = $dbi;
-
         $this->user = $GLOBALS['cfg']['Server']['user'];
         $this->maxRows = (int) $GLOBALS['cfg']['MaxRows'];
         $this->charEditing = $GLOBALS['cfg']['CharEditing'];
@@ -93,7 +77,7 @@ class CentralColumns
      *
      * @return array|bool the central_columns parameters for the current user
      */
-    public function getParams()
+    public function getParams(): array|bool
     {
         static $cfgCentralColumns = null;
 
@@ -136,7 +120,7 @@ class CentralColumns
         }
 
         $pmadb = $cfgCentralColumns['db'];
-        $this->dbi->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
+        $this->dbi->selectDb($pmadb, Connection::TYPE_CONTROL);
         $central_list_table = $cfgCentralColumns['table'];
         //get current values of $db from central column list
         if ($num == 0) {
@@ -148,7 +132,7 @@ class CentralColumns
                 . 'LIMIT ' . $from . ', ' . $num . ';';
         }
 
-        $has_list = $this->dbi->fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL);
+        $has_list = $this->dbi->fetchResult($query, null, null, Connection::TYPE_CONTROL);
         $this->handleColumnExtra($has_list);
 
         return $has_list;
@@ -169,12 +153,12 @@ class CentralColumns
         }
 
         $pmadb = $cfgCentralColumns['db'];
-        $this->dbi->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
+        $this->dbi->selectDb($pmadb, Connection::TYPE_CONTROL);
         $central_list_table = $cfgCentralColumns['table'];
-        $query = 'SELECT count(db_name) FROM ' .
-            Util::backquote($central_list_table) . ' '
+        $query = 'SELECT count(db_name) FROM '
+            . Util::backquote($central_list_table) . ' '
             . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\';';
-        $res = $this->dbi->fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL);
+        $res = $this->dbi->fetchResult($query, null, null, Connection::TYPE_CONTROL);
         if (isset($res[0])) {
             return (int) $res[0];
         }
@@ -195,7 +179,7 @@ class CentralColumns
     private function findExistingColNames(
         string $db,
         string $cols,
-        bool $allFields = false
+        bool $allFields = false,
     ): array {
         $cfgCentralColumns = $this->getParams();
         if (! is_array($cfgCentralColumns)) {
@@ -203,18 +187,18 @@ class CentralColumns
         }
 
         $pmadb = $cfgCentralColumns['db'];
-        $this->dbi->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
+        $this->dbi->selectDb($pmadb, Connection::TYPE_CONTROL);
         $central_list_table = $cfgCentralColumns['table'];
         if ($allFields) {
             $query = 'SELECT * FROM ' . Util::backquote($central_list_table) . ' '
                 . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\' AND col_name IN (' . $cols . ');';
-            $has_list = $this->dbi->fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL);
+            $has_list = $this->dbi->fetchResult($query, null, null, Connection::TYPE_CONTROL);
             $this->handleColumnExtra($has_list);
         } else {
             $query = 'SELECT col_name FROM '
                 . Util::backquote($central_list_table) . ' '
                 . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\' AND col_name IN (' . $cols . ');';
-            $has_list = $this->dbi->fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL);
+            $has_list = $this->dbi->fetchResult($query, null, null, Connection::TYPE_CONTROL);
         }
 
         return $has_list;
@@ -236,7 +220,7 @@ class CentralColumns
         string $column,
         array $def,
         string $db,
-        string $central_list_table
+        string $central_list_table,
     ): string {
         $type = '';
         $length = 0;
@@ -285,12 +269,12 @@ class CentralColumns
     public function syncUniqueColumns(
         array $field_select,
         bool $isTable = true,
-        ?string $table = null
-    ) {
+        string|null $table = null,
+    ): bool|Message {
         $cfgCentralColumns = $this->getParams();
         if (! is_array($cfgCentralColumns)) {
             return Message::error(
-                __('The configuration storage is not ready for the central list of columns feature.')
+                __('The configuration storage is not ready for the central list of columns feature.'),
             );
         }
 
@@ -348,28 +332,26 @@ class CentralColumns
             $message = Message::notice(
                 sprintf(
                     __(
-                        'Could not add %1$s as they already exist in central list!'
+                        'Could not add %1$s as they already exist in central list!',
                     ),
-                    htmlspecialchars($existingCols)
-                )
+                    htmlspecialchars($existingCols),
+                ),
             );
             $message->addMessage(
                 Message::notice(
-                    'Please remove them first from central list if you want to update above columns'
-                )
+                    'Please remove them first from central list if you want to update above columns',
+                ),
             );
         }
 
-        $this->dbi->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
-        if (! empty($insQuery)) {
-            foreach ($insQuery as $query) {
-                if (! $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
-                    $message = Message::error(__('Could not add columns!'));
-                    $message->addMessage(
-                        Message::rawError($this->dbi->getError(DatabaseInterface::CONNECT_CONTROL))
-                    );
-                    break;
-                }
+        $this->dbi->selectDb($pmadb, Connection::TYPE_CONTROL);
+        foreach ($insQuery as $query) {
+            if (! $this->dbi->tryQuery($query, Connection::TYPE_CONTROL)) {
+                $message = Message::error(__('Could not add columns!'));
+                $message->addMessage(
+                    Message::rawError($this->dbi->getError(Connection::TYPE_CONTROL)),
+                );
+                break;
             }
         }
 
@@ -391,12 +373,12 @@ class CentralColumns
     public function deleteColumnsFromList(
         string $database,
         array $field_select,
-        bool $isTable = true
-    ) {
+        bool $isTable = true,
+    ): bool|Message {
         $cfgCentralColumns = $this->getParams();
         if (! is_array($cfgCentralColumns)) {
             return Message::error(
-                __('The configuration storage is not ready for the central list of columns feature.')
+                __('The configuration storage is not ready for the central list of columns feature.'),
             );
         }
 
@@ -448,23 +430,23 @@ class CentralColumns
             $message = Message::notice(
                 sprintf(
                     __(
-                        'Couldn\'t remove Column(s) %1$s as they don\'t exist in central columns list!'
+                        'Couldn\'t remove Column(s) %1$s as they don\'t exist in central columns list!',
                     ),
-                    htmlspecialchars($colNotExist)
-                )
+                    htmlspecialchars($colNotExist),
+                ),
             );
         }
 
-        $this->dbi->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
+        $this->dbi->selectDb($pmadb, Connection::TYPE_CONTROL);
 
         $query = 'DELETE FROM ' . Util::backquote($central_list_table) . ' '
             . 'WHERE db_name = \'' . $this->dbi->escapeString($database) . '\' AND col_name IN (' . $cols . ');';
 
-        if (! $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
+        if (! $this->dbi->tryQuery($query, Connection::TYPE_CONTROL)) {
             $message = Message::error(__('Could not remove columns!'));
             $message->addHtml('<br>' . htmlspecialchars($cols) . '<br>');
             $message->addMessage(
-                Message::rawError($this->dbi->getError(DatabaseInterface::CONNECT_CONTROL))
+                Message::rawError($this->dbi->getError(Connection::TYPE_CONTROL)),
             );
         }
 
@@ -482,8 +464,8 @@ class CentralColumns
      */
     public function makeConsistentWithList(
         string $db,
-        array $selected_tables
-    ) {
+        array $selected_tables,
+    ): bool|Message {
         $message = true;
         foreach ($selected_tables as $table) {
             $query = 'ALTER TABLE ' . Util::backquote($table);
@@ -554,10 +536,10 @@ class CentralColumns
     public function getFromTable(
         string $db,
         string $table,
-        bool $allFields = false
+        bool $allFields = false,
     ): array {
         $cfgCentralColumns = $this->getParams();
-        if (empty($cfgCentralColumns)) {
+        if ($cfgCentralColumns === false || $cfgCentralColumns === []) {
             return [];
         }
 
@@ -569,12 +551,8 @@ class CentralColumns
         }
 
         $cols = trim($cols, ',');
-        $has_list = $this->findExistingColNames($db, $cols, $allFields);
-        if (! empty($has_list)) {
-            return (array) $has_list;
-        }
 
-        return [];
+        return $this->findExistingColNames($db, $cols, $allFields);
     }
 
     /**
@@ -603,17 +581,17 @@ class CentralColumns
         int $col_isNull,
         string $collation,
         string $col_extra,
-        string $col_default
-    ) {
+        string $col_default,
+    ): bool|Message {
         $cfgCentralColumns = $this->getParams();
         if (! is_array($cfgCentralColumns)) {
             return Message::error(
-                __('The configuration storage is not ready for the central list of columns feature.')
+                __('The configuration storage is not ready for the central list of columns feature.'),
             );
         }
 
         $centralTable = $cfgCentralColumns['table'];
-        $this->dbi->selectDb($cfgCentralColumns['db'], DatabaseInterface::CONNECT_CONTROL);
+        $this->dbi->selectDb($cfgCentralColumns['db'], Connection::TYPE_CONTROL);
         if ($orig_col_name == '') {
             $def = [];
             $def['Type'] = $col_type;
@@ -642,8 +620,8 @@ class CentralColumns
                 . '\'';
         }
 
-        if (! $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
-            return Message::error($this->dbi->getError(DatabaseInterface::CONNECT_CONTROL));
+        if (! $this->dbi->tryQuery($query, Connection::TYPE_CONTROL)) {
+            return Message::error($this->dbi->getError(Connection::TYPE_CONTROL));
         }
 
         return true;
@@ -656,7 +634,7 @@ class CentralColumns
      *
      * @return true|Message
      */
-    public function updateMultipleColumn(array $params)
+    public function updateMultipleColumn(array $params): bool|Message
     {
         $columnDefault = $params['field_default_type'];
         $columnIsNull = [];
@@ -682,7 +660,7 @@ class CentralColumns
                 $columnIsNull[$i],
                 $params['field_collation'][$i],
                 $columnExtra[$i],
-                $columnDefault[$i]
+                $columnDefault[$i],
             );
             if (! is_bool($message)) {
                 return $message;
@@ -763,7 +741,7 @@ class CentralColumns
         }
 
         $centralTable = $cfgCentralColumns['table'];
-        if (empty($table) || $table == '') {
+        if ($table === '') {
             $query = 'SELECT * FROM ' . Util::backquote($centralTable) . ' '
                 . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\';';
         } else {
@@ -784,8 +762,8 @@ class CentralColumns
             $query .= ';';
         }
 
-        $this->dbi->selectDb($cfgCentralColumns['db'], DatabaseInterface::CONNECT_CONTROL);
-        $columns_list = $this->dbi->fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL);
+        $this->dbi->selectDb($cfgCentralColumns['db'], Connection::TYPE_CONTROL);
+        $columns_list = $this->dbi->fetchResult($query, null, null, Connection::TYPE_CONTROL);
         $this->handleColumnExtra($columns_list);
 
         return $columns_list;
@@ -870,13 +848,13 @@ class CentralColumns
         }
 
         $pmadb = $cfgCentralColumns['db'];
-        $this->dbi->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
+        $this->dbi->selectDb($pmadb, Connection::TYPE_CONTROL);
         $central_list_table = $cfgCentralColumns['table'];
         //get current values of $db from central column list
         $query = 'SELECT COUNT(db_name) FROM ' . Util::backquote($central_list_table) . ' '
-            . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\'' .
-            ($num === 0 ? '' : 'LIMIT ' . $from . ', ' . $num) . ';';
-        $result = $this->dbi->fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL);
+            . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\''
+            . ($num === 0 ? '' : 'LIMIT ' . $from . ', ' . $num) . ';';
+        $result = $this->dbi->fetchResult($query, null, null, Connection::TYPE_CONTROL);
 
         if (isset($result[0])) {
             return (int) $result[0];
@@ -885,9 +863,7 @@ class CentralColumns
         return -1;
     }
 
-    /**
-     * @return string[]
-     */
+    /** @return string[] */
     public function getColumnsNotInCentralList(string $db, string $table): array
     {
         $existingColumns = $this->getFromTable($db, $table);
@@ -912,7 +888,7 @@ class CentralColumns
         string $db,
         int $total_rows,
         int $pos,
-        string $text_dir
+        string $text_dir,
     ): array {
         $max_rows = $this->maxRows;
         $attribute_types = $this->dbi->types->getAttributes();
@@ -923,7 +899,7 @@ class CentralColumns
             'pos',
             $this->maxRows,
             $tn_pageNow,
-            $tn_nbTotalPage
+            $tn_nbTotalPage,
         ) : '';
         $this->dbi->selectDb($db);
         $tables = $this->dbi->getTables($db);

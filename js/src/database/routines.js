@@ -1,3 +1,10 @@
+import $ from 'jquery';
+import { AJAX } from '../modules/ajax.js';
+import { Functions } from '../modules/functions.js';
+import { Navigation } from '../modules/navigation.js';
+import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.js';
+import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.js';
+
 AJAX.registerTeardown('database/routines.js', function () {
     $(document).off('click', 'a.ajax.add_anchor');
     $(document).off('click', 'a.ajax.edit_anchor');
@@ -9,7 +16,7 @@ AJAX.registerTeardown('database/routines.js', function () {
     $(document).off('change', 'select[name=item_type]');
     $(document).off('change', 'select[name^=item_param_type]');
     $(document).off('change', 'select[name=item_returntype]');
-    $(document).off('click', 'input[name=routine_addparameter]');
+    $(document).off('click', '#addRoutineParameterButton');
     $(document).off('click', 'a.routine_param_remove_anchor');
 });
 
@@ -28,14 +35,9 @@ const DatabaseRoutines = {
      */
     syntaxHiglighter: null,
     /**
-     * @var buttonOptions Object containing options for
-     *                    the jQueryUI dialog buttons
-     */
-    buttonOptions: {},
-    /**
      * Validate editor form fields.
      *
-     * @return {bool}
+     * @return {boolean}
      */
     validate: function () {
         /**
@@ -48,7 +50,7 @@ const DatabaseRoutines = {
         $elm = $('table.rte_table').last().find('input[name=item_name]');
         if ($elm.val() === '') {
             $elm.trigger('focus');
-            alert(Messages.strFormEmpty);
+            alert(window.Messages.strFormEmpty);
             return false;
         }
         $elm = $('table.rte_table').find('textarea[name=item_definition]');
@@ -58,7 +60,7 @@ const DatabaseRoutines = {
             } else {
                 $('textarea[name=item_definition]').last().trigger('focus');
             }
-            alert(Messages.strFormEmpty);
+            alert(window.Messages.strFormEmpty);
             return false;
         }
         // The validation has so far passed, so now
@@ -67,11 +69,11 @@ const DatabaseRoutines = {
     },
 
     exportDialog: function ($this) {
-        var $msg = Functions.ajaxShowMessage();
+        var $msg = ajaxShowMessage();
         if ($this.attr('id') === 'bulkActionExportButton') {
             var combined = {
                 success: true,
-                title: Messages.strExport,
+                title: window.Messages.strExport,
                 message: '',
                 error: ''
             };
@@ -82,7 +84,7 @@ const DatabaseRoutines = {
 
             // No routine is exportable (due to privilege issues)
             if (count === 0) {
-                Functions.ajaxShowMessage(Messages.NoExportable);
+                ajaxShowMessage(window.Messages.NoExportable);
             }
             var p = $.when();
             exportAnchors.each(function () {
@@ -109,24 +111,32 @@ const DatabaseRoutines = {
         } else {
             $.get($this.attr('href'), { 'ajax_request': true }, showExport);
         }
-        Functions.ajaxRemoveMessage($msg);
+        ajaxRemoveMessage($msg);
 
         function showExport (data) {
             if (data.success === true) {
-                Functions.ajaxRemoveMessage($msg);
+                ajaxRemoveMessage($msg);
                 /**
-                 * @var button_options Object containing options
+                 * @var buttonOptions Object containing options
                  *                     for jQueryUI dialog buttons
                  */
-                var buttonOptions = {};
-                buttonOptions[Messages.strClose] = function () {
-                    $(this).dialog('close').remove();
+                var buttonOptions = {
+                    [window.Messages.strClose]: {
+                        text: window.Messages.strClose,
+                        class: 'btn btn-primary',
+                        click: function () {
+                            $(this).dialog('close').remove();
+                        }
+                    },
                 };
                 /**
                  * Display the dialog to the user
                  */
                 data.message = '<textarea cols="40" rows="15" class="w-100">' + data.message + '</textarea>';
                 var $ajaxDialog = $('<div>' + data.message + '</div>').dialog({
+                    classes: {
+                        'ui-dialog-titlebar-close': 'btn-close'
+                    },
                     width: 500,
                     buttons: buttonOptions,
                     title: data.title
@@ -139,7 +149,7 @@ const DatabaseRoutines = {
                 var $elm = $ajaxDialog.find('textarea');
                 Functions.getSqlEditor($elm);
             } else {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         } // end showExport()
     },  // end exportDialog()
@@ -161,17 +171,27 @@ const DatabaseRoutines = {
          * @var $msg jQuery object containing the reference to
          *           the AJAX message shown to the user
          */
-        var $msg = Functions.ajaxShowMessage();
+        var $msg = ajaxShowMessage();
         $.get($this.attr('href'), { 'ajax_request': true }, function (data) {
             if (data.success === true) {
+                var buttonOptions = {
+                    [window.Messages.strGo]: {
+                        text: window.Messages.strGo,
+                        class: 'btn btn-primary',
+                    },
+                    [window.Messages.strClose]: {
+                        text: window.Messages.strClose,
+                        class: 'btn btn-secondary',
+                    },
+                };
                 // We have successfully fetched the editor form
-                Functions.ajaxRemoveMessage($msg);
+                ajaxRemoveMessage($msg);
                 // Now define the function that is called when
                 // the user presses the "Go" button
-                that.buttonOptions[Messages.strGo] = function () {
+                buttonOptions[window.Messages.strGo].click = function () {
                     // Move the data from the codemirror editor back to the
                     // textarea, where it can be used in the form submission.
-                    if (typeof CodeMirror !== 'undefined') {
+                    if (typeof window.CodeMirror !== 'undefined') {
                         that.syntaxHiglighter.save();
                     }
                     // Validate editor and submit request, if passed.
@@ -180,14 +200,14 @@ const DatabaseRoutines = {
                          * @var data Form data to be sent in the AJAX request
                          */
                         var data = $('form.rte_form').last().serialize();
-                        $msg = Functions.ajaxShowMessage(
-                            Messages.strProcessingRequest
+                        $msg = ajaxShowMessage(
+                            window.Messages.strProcessingRequest
                         );
                         var url = $('form.rte_form').last().attr('action');
                         $.post(url, data, function (data) {
                             if (data.success === true) {
                                 // Item created successfully
-                                Functions.ajaxRemoveMessage($msg);
+                                ajaxRemoveMessage($msg);
                                 Functions.slidingMessage(data.message);
                                 that.$ajaxDialog.dialog('close');
 
@@ -280,21 +300,25 @@ const DatabaseRoutines = {
                                 }
                                 Navigation.reload();
                             } else {
-                                Functions.ajaxShowMessage(data.error, false);
+                                ajaxShowMessage(data.error, false);
                             }
                         }); // end $.post()
                     } // end "if (that.validate())"
                 }; // end of function that handles the submission of the Editor
-                that.buttonOptions[Messages.strClose] = function () {
+                buttonOptions[window.Messages.strClose].click = function () {
                     $(this).dialog('close');
                 };
                 /**
                  * Display the dialog to the user
                  */
                 that.$ajaxDialog = $('<div id="rteDialog">' + data.message + '</div>').dialog({
+                    classes: {
+                        'ui-dialog-titlebar-close': 'btn-close'
+                    },
+                    height: 400,
                     width: 700,
                     minWidth: 500,
-                    buttons: that.buttonOptions,
+                    buttons: buttonOptions,
                     // Issue #15810 - use button titles for modals (eg: new procedure)
                     // Respect the order: title on href tag, href content, title sent in response
                     title: $this.attr('title') || $this.text() || $(data.title).text(),
@@ -338,7 +362,7 @@ const DatabaseRoutines = {
                 // Execute item-specific code
                 that.postDialogShow(data);
             } else {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         }); // end $.get()
     },
@@ -360,8 +384,8 @@ const DatabaseRoutines = {
              * @var msg jQuery object containing the reference to
              *          the AJAX message shown to the user
              */
-            var $msg = Functions.ajaxShowMessage(Messages.strProcessingRequest);
-            var params = Functions.getJsConfirmCommonParam(this, $this.getPostData());
+            var $msg = ajaxShowMessage(window.Messages.strProcessingRequest);
+            var params = getJsConfirmCommonParam(this, $this.getPostData());
             $.post(url, params, function (data) {
                 if (data.success === true) {
                     /**
@@ -404,12 +428,12 @@ const DatabaseRoutines = {
                         });
                     }
                     // Get rid of the "Loading" message
-                    Functions.ajaxRemoveMessage($msg);
+                    ajaxRemoveMessage($msg);
                     // Show the query that we just executed
                     Functions.slidingMessage(data.sql_query);
                     Navigation.reload();
                 } else {
-                    Functions.ajaxShowMessage(data.error, false);
+                    ajaxShowMessage(data.error, false);
                 }
             }); // end $.post()
         });
@@ -417,12 +441,12 @@ const DatabaseRoutines = {
 
     dropMultipleDialog: function ($this) {
         // We ask for confirmation here
-        $this.confirm(Messages.strDropRTEitems, '', function () {
+        $this.confirm(window.Messages.strDropRTEitems, '', function () {
             /**
              * @var msg jQuery object containing the reference to
              *          the AJAX message shown to the user
              */
-            var $msg = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+            var $msg = ajaxShowMessage(window.Messages.strProcessingRequest);
 
             // drop anchors of all selected rows
             var dropAnchors = $('input.checkall:checked').parents('tr').find('.drop_anchor');
@@ -436,7 +460,7 @@ const DatabaseRoutines = {
                  * @var $curr_row Object containing reference to the current row
                  */
                 var $currRow = $anchor.parents('tr');
-                var params = Functions.getJsConfirmCommonParam(this, $anchor.getPostData());
+                var params = getJsConfirmCommonParam(this, $anchor.getPostData());
                 $.post($anchor.attr('href'), params, function (data) {
                     returnCount++;
                     if (data.success === true) {
@@ -481,13 +505,13 @@ const DatabaseRoutines = {
                         if (returnCount === count) {
                             if (success) {
                                 // Get rid of the "Loading" message
-                                Functions.ajaxRemoveMessage($msg);
+                                ajaxRemoveMessage($msg);
                                 $('#rteListForm_checkall').prop({ checked: false, indeterminate: false });
                             }
                             Navigation.reload();
                         }
                     } else {
-                        Functions.ajaxShowMessage(data.error, false);
+                        ajaxShowMessage(data.error, false);
                         success = false;
                         if (returnCount === count) {
                             Navigation.reload();
@@ -509,8 +533,6 @@ const DatabaseRoutines = {
         var that = this;
         // Make adjustments in the dialog to make it AJAX compatible
         $('td.routine_param_remove').show();
-        $('input[name=routine_removeparameter]').remove();
-        $('input[name=routine_addparameter]').css('width', '100%');
         // Enable/disable the 'options' dropdowns for parameters as necessary
         $('table.routine_params_table').last().find('th[colspan=2]').attr('colspan', '1');
         $('table.routine_params_table').last().find('tr').has('td').each(function () {
@@ -554,19 +576,19 @@ const DatabaseRoutines = {
                  *                the input field being reindexed
                  */
                 var inputname = $(this).attr('name');
-                if (inputname.substr(0, 14) === 'item_param_dir') {
-                    $(this).attr('name', inputname.substr(0, 14) + '[' + index + ']');
-                } else if (inputname.substr(0, 15) === 'item_param_name') {
-                    $(this).attr('name', inputname.substr(0, 15) + '[' + index + ']');
-                } else if (inputname.substr(0, 15) === 'item_param_type') {
-                    $(this).attr('name', inputname.substr(0, 15) + '[' + index + ']');
-                } else if (inputname.substr(0, 17) === 'item_param_length') {
-                    $(this).attr('name', inputname.substr(0, 17) + '[' + index + ']');
+                if (inputname.startsWith('item_param_dir')) {
+                    $(this).attr('name', inputname.substring(0, 14) + '[' + index + ']');
+                } else if (inputname.startsWith('item_param_name')) {
+                    $(this).attr('name', inputname.substring(0, 15) + '[' + index + ']');
+                } else if (inputname.startsWith('item_param_type')) {
+                    $(this).attr('name', inputname.substring(0, 15) + '[' + index + ']');
+                } else if (inputname.startsWith('item_param_length')) {
+                    $(this).attr('name', inputname.substring(0, 17) + '[' + index + ']');
                     $(this).attr('id', 'item_param_length_' + index);
-                } else if (inputname.substr(0, 20) === 'item_param_opts_text') {
-                    $(this).attr('name', inputname.substr(0, 20) + '[' + index + ']');
-                } else if (inputname.substr(0, 19) === 'item_param_opts_num') {
-                    $(this).attr('name', inputname.substr(0, 19) + '[' + index + ']');
+                } else if (inputname.startsWith('item_param_opts_text')) {
+                    $(this).attr('name', inputname.substring(0, 20) + '[' + index + ']');
+                } else if (inputname.startsWith('item_param_opts_num')) {
+                    $(this).attr('name', inputname.substring(0, 19) + '[' + index + ']');
                 }
             });
             index++;
@@ -575,7 +597,7 @@ const DatabaseRoutines = {
     /**
      * Validate custom editor form fields.
      *
-     * @return {bool}
+     * @return {boolean}
      */
     validateCustom: function () {
         /**
@@ -593,9 +615,9 @@ const DatabaseRoutines = {
             if (isSuccess) {
                 $(this).find(':input').each(function () {
                     inputname = $(this).attr('name');
-                    if (inputname.substr(0, 14) === 'item_param_dir' ||
-                        inputname.substr(0, 15) === 'item_param_name' ||
-                        inputname.substr(0, 15) === 'item_param_type') {
+                    if (inputname.startsWith('item_param_dir') ||
+                        inputname.startsWith('item_param_name') ||
+                        inputname.startsWith('item_param_type')) {
                         if ($(this).val() === '') {
                             $(this).trigger('focus');
                             isSuccess = false;
@@ -608,7 +630,7 @@ const DatabaseRoutines = {
             }
         });
         if (! isSuccess) {
-            alert(Messages.strFormEmpty);
+            alert(window.Messages.strFormEmpty);
             return false;
         }
         this.$ajaxDialog.find('table.routine_params_table').last().find('tr').each(function () {
@@ -616,7 +638,7 @@ const DatabaseRoutines = {
             var $inputtyp = $(this).find('select[name^=item_param_type]');
             var $inputlen = $(this).find('input[name^=item_param_length]');
             if ($inputtyp.length && $inputlen.length) {
-                if (($inputtyp.val() === 'ENUM' || $inputtyp.val() === 'SET' || $inputtyp.val().substr(0, 3) === 'VAR') &&
+                if (($inputtyp.val() === 'ENUM' || $inputtyp.val() === 'SET' || $inputtyp.val().startsWith('VAR')) &&
                     $inputlen.val() === ''
                 ) {
                     $inputlen.trigger('focus');
@@ -626,7 +648,7 @@ const DatabaseRoutines = {
             }
         });
         if (! isSuccess) {
-            alert(Messages.strFormEmpty);
+            alert(window.Messages.strFormEmpty);
             return false;
         }
         if (this.$ajaxDialog.find('select[name=item_type]').find(':selected').val() === 'FUNCTION') {
@@ -634,11 +656,11 @@ const DatabaseRoutines = {
             // be set, if the type is SET, ENUM, VARCHAR or VARBINARY.
             var $returntyp = this.$ajaxDialog.find('select[name=item_returntype]');
             var $returnlen = this.$ajaxDialog.find('input[name=item_returnlength]');
-            if (($returntyp.val() === 'ENUM' || $returntyp.val() === 'SET' || $returntyp.val().substr(0, 3) === 'VAR') &&
+            if (($returntyp.val() === 'ENUM' || $returntyp.val() === 'SET' || $returntyp.val().startsWith('VAR')) &&
                 $returnlen.val() === ''
             ) {
                 $returnlen.trigger('focus');
-                alert(Messages.strFormEmpty);
+                alert(window.Messages.strFormEmpty);
                 return false;
             }
         }
@@ -646,7 +668,7 @@ const DatabaseRoutines = {
             // A function must contain a RETURN statement in its definition
             if (this.$ajaxDialog.find('table.rte_table').find('textarea[name=item_definition]').val().toUpperCase().indexOf('RETURN') < 0) {
                 this.syntaxHiglighter.focus();
-                alert(Messages.MissingReturn);
+                alert(window.Messages.MissingReturn);
                 return false;
             }
         }
@@ -680,7 +702,7 @@ const DatabaseRoutines = {
          *             to an element to be displayed when no
          *             "length/values" field is available
          */
-        var $noLen  = $len.parent().parent().find('.no_len');
+        var $noLen = $len.parent().parent().find('.no_len');
 
         // Process for parameter options
         switch ($type.val()) {
@@ -742,50 +764,62 @@ const DatabaseRoutines = {
         }
     },
     executeDialog: function ($this) {
-        var that = this;
         /**
          * @var msg jQuery object containing the reference to
          *          the AJAX message shown to the user
          */
-        var $msg = Functions.ajaxShowMessage();
-        var params = Functions.getJsConfirmCommonParam($this[0], $this.getPostData());
+        var $msg = ajaxShowMessage();
+        var params = getJsConfirmCommonParam($this[0], $this.getPostData());
         $.post($this.attr('href'), params, function (data) {
             if (data.success === true) {
-                Functions.ajaxRemoveMessage($msg);
+                ajaxRemoveMessage($msg);
                 // If 'data.dialog' is true we show a dialog with a form
                 // to get the input parameters for routine, otherwise
                 // we just show the results of the query
                 if (data.dialog) {
+                    var buttonOptions = {
+                        [window.Messages.strGo]: {
+                            text: window.Messages.strGo,
+                            class: 'btn btn-primary',
+                        },
+                        [window.Messages.strClose]: {
+                            text: window.Messages.strClose,
+                            class: 'btn btn-secondary',
+                        },
+                    };
                     // Define the function that is called when
                     // the user presses the "Go" button
-                    that.buttonOptions[Messages.strGo] = function () {
+                    buttonOptions[window.Messages.strGo].click = function () {
                         /**
                          * @var data Form data to be sent in the AJAX request
                          */
                         var data = $('form.rte_form').last().serialize();
-                        $msg = Functions.ajaxShowMessage(
-                            Messages.strProcessingRequest
+                        $msg = ajaxShowMessage(
+                            window.Messages.strProcessingRequest
                         );
                         $.post('index.php?route=/database/routines', data, function (data) {
                             if (data.success === true) {
                                 // Routine executed successfully
-                                Functions.ajaxRemoveMessage($msg);
+                                ajaxRemoveMessage($msg);
                                 Functions.slidingMessage(data.message);
                                 $ajaxDialog.dialog('close');
                             } else {
-                                Functions.ajaxShowMessage(data.error, false);
+                                ajaxShowMessage(data.error, false);
                             }
                         });
                     };
-                    that.buttonOptions[Messages.strClose] = function () {
+                    buttonOptions[window.Messages.strClose].click = function () {
                         $(this).dialog('close');
                     };
                     /**
                      * Display the dialog to the user
                      */
                     var $ajaxDialog = $('<div>' + data.message + '</div>').dialog({
+                        classes: {
+                            'ui-dialog-titlebar-close': 'btn-close'
+                        },
                         width: 650,
-                        buttons: that.buttonOptions,
+                        buttons: buttonOptions,
                         title: data.title,
                         modal: true,
                         close: function () {
@@ -809,19 +843,19 @@ const DatabaseRoutines = {
                              * @var data Form data to be sent in the AJAX request
                              */
                             var data = $(this).serialize();
-                            $msg = Functions.ajaxShowMessage(
-                                Messages.strProcessingRequest
+                            $msg = ajaxShowMessage(
+                                window.Messages.strProcessingRequest
                             );
                             var url = $(this).attr('action');
                             $.post(url, data, function (data) {
                                 if (data.success === true) {
                                     // Routine executed successfully
-                                    Functions.ajaxRemoveMessage($msg);
+                                    ajaxRemoveMessage($msg);
                                     Functions.slidingMessage(data.message);
                                     $('form.rte_form').off('keyup');
                                     $ajaxDialog.remove();
                                 } else {
-                                    Functions.ajaxShowMessage(data.error, false);
+                                    ajaxShowMessage(data.error, false);
                                 }
                             });
                         }
@@ -831,7 +865,7 @@ const DatabaseRoutines = {
                     Functions.slidingMessage(data.message);
                 }
             } else {
-                Functions.ajaxShowMessage(data.error, false);
+                ajaxShowMessage(data.error, false);
             }
         }); // end $.post()
     }
@@ -894,7 +928,7 @@ AJAX.registerOnload('database/routines.js', function () {
         );
     });
 
-    $(document).on('click', 'input[name=routine_addparameter]', function (event) {
+    $(document).on('click', '#addRoutineParameterButton', function (event) {
         event.preventDefault();
         /**
          * @var routine_params_table jQuery object containing the reference

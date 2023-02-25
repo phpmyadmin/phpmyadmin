@@ -7,13 +7,13 @@ namespace PhpMyAdmin\Controllers\Export;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\ExportController as DatabaseExportController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Exceptions\ExportException;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
-use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\SqlParser\Parser;
@@ -36,29 +36,34 @@ use function register_shutdown_function;
 use function strlen;
 use function time;
 
-use const PHP_EOL;
-
 final class ExportController extends AbstractController
 {
-    /** @var Export */
-    private $export;
-
-    public function __construct(ResponseRenderer $response, Template $template, Export $export)
+    public function __construct(ResponseRenderer $response, Template $template, private Export $export)
     {
         parent::__construct($response, $template);
-        $this->export = $export;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        global $containerBuilder, $db, $export_type, $filename_template, $sql_query, $errorUrl, $message;
-        global $compression, $crlf, $asfile, $buffer_needed, $save_on_server, $file_handle, $separate_files;
-        global $output_charset_conversion, $output_kanji_conversion, $table, $what, $export_plugin, $single_table;
-        global $compression_methods, $onserver, $back_button, $refreshButton, $save_filename, $filename;
-        global $quick_export, $cfg, $tables, $table_select, $aliases;
-        global $time_start, $charset, $remember_template, $mime_type, $num_tables;
-        global $active_page, $do_relation, $do_comments, $do_mime, $do_dates, $whatStrucOrData, $db_select;
-        global $table_structure, $table_data, $lock_tables, $allrows, $limit_to, $limit_from;
+        $GLOBALS['export_type'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
+        $GLOBALS['message'] ??= null;
+        $GLOBALS['compression'] ??= null;
+        $GLOBALS['asfile'] ??= null;
+        $GLOBALS['buffer_needed'] ??= null;
+        $GLOBALS['save_on_server'] ??= null;
+        $GLOBALS['file_handle'] ??= null;
+        $GLOBALS['output_charset_conversion'] ??= null;
+        $GLOBALS['output_kanji_conversion'] ??= null;
+        $GLOBALS['what'] ??= null;
+        $GLOBALS['single_table'] ??= null;
+        $GLOBALS['save_filename'] ??= null;
+        $GLOBALS['tables'] ??= null;
+        $GLOBALS['table_select'] ??= null;
+        $GLOBALS['time_start'] ??= null;
+        $GLOBALS['charset'] ??= null;
+        $GLOBALS['active_page'] ??= null;
+        $GLOBALS['table_data'] ??= null;
 
         /** @var array<string, string> $postParams */
         $postParams = $request->getParsedBody();
@@ -79,222 +84,78 @@ final class ExportController extends AbstractController
         $onServerParam = $request->getParsedBodyParam('onserver');
         /** @var array|null $aliasesParam */
         $aliasesParam = $request->getParsedBodyParam('aliases');
-        /** @var string|null $structureOrDataForced */
-        $structureOrDataForced = $request->getParsedBodyParam('structure_or_data_forced');
+        $structureOrDataForced = $request->hasBodyParam('structure_or_data_forced');
+        $rememberTemplate = $request->getParsedBodyParam('remember_template');
+        $dbSelect = $request->getParsedBodyParam('db_select');
+        $tableStructure = $request->getParsedBodyParam('table_structure');
+        $lockTables = $request->hasBodyParam('lock_tables');
 
         $this->addScriptFiles(['export_output.js']);
 
-        /**
-         * Sets globals from $_POST
-         *
-         * - Please keep the parameters in order of their appearance in the form
-         * - Some of these parameters are not used, as the code below directly
-         *   verifies from the superglobal $_POST or $_REQUEST
-         * TODO: this should be removed to avoid passing user input to GLOBALS
-         * without checking
-         */
-        $allowedPostParams = [
-            'db',
-            'table',
-            'what',
-            'single_table',
-            'export_type',
-            'export_method',
-            'quick_or_custom',
-            'db_select',
-            'table_select',
-            'table_structure',
-            'table_data',
-            'limit_to',
-            'limit_from',
-            'allrows',
-            'lock_tables',
-            'output_format',
-            'filename_template',
-            'maxsize',
-            'remember_template',
-            'charset',
-            'compression',
-            'as_separate_files',
-            'knjenc',
-            'xkana',
-            'htmlword_structure_or_data',
-            'htmlword_null',
-            'htmlword_columns',
-            'mediawiki_headers',
-            'mediawiki_structure_or_data',
-            'mediawiki_caption',
-            'pdf_structure_or_data',
-            'odt_structure_or_data',
-            'odt_relation',
-            'odt_comments',
-            'odt_mime',
-            'odt_columns',
-            'odt_null',
-            'codegen_structure_or_data',
-            'codegen_format',
-            'excel_null',
-            'excel_removeCRLF',
-            'excel_columns',
-            'excel_edition',
-            'excel_structure_or_data',
-            'yaml_structure_or_data',
-            'ods_null',
-            'ods_structure_or_data',
-            'ods_columns',
-            'json_structure_or_data',
-            'json_pretty_print',
-            'json_unicode',
-            'xml_structure_or_data',
-            'xml_export_events',
-            'xml_export_functions',
-            'xml_export_procedures',
-            'xml_export_tables',
-            'xml_export_triggers',
-            'xml_export_views',
-            'xml_export_contents',
-            'texytext_structure_or_data',
-            'texytext_columns',
-            'texytext_null',
-            'phparray_structure_or_data',
-            'sql_include_comments',
-            'sql_header_comment',
-            'sql_dates',
-            'sql_relation',
-            'sql_mime',
-            'sql_use_transaction',
-            'sql_disable_fk',
-            'sql_compatibility',
-            'sql_structure_or_data',
-            'sql_create_database',
-            'sql_drop_table',
-            'sql_procedure_function',
-            'sql_create_table',
-            'sql_create_view',
-            'sql_create_trigger',
-            'sql_view_current_user',
-            'sql_simple_view_export',
-            'sql_if_not_exists',
-            'sql_or_replace_view',
-            'sql_auto_increment',
-            'sql_backquotes',
-            'sql_truncate',
-            'sql_delayed',
-            'sql_ignore',
-            'sql_type',
-            'sql_insert_syntax',
-            'sql_max_query_size',
-            'sql_hex_for_binary',
-            'sql_utc_time',
-            'sql_drop_database',
-            'sql_views_as_tables',
-            'sql_metadata',
-            'csv_separator',
-            'csv_enclosed',
-            'csv_escaped',
-            'csv_terminated',
-            'csv_null',
-            'csv_removeCRLF',
-            'csv_columns',
-            'csv_structure_or_data',
-            // csv_replace should have been here but we use it directly from $_POST
-            'latex_caption',
-            'latex_structure_or_data',
-            'latex_structure_caption',
-            'latex_structure_continued_caption',
-            'latex_structure_label',
-            'latex_relation',
-            'latex_comments',
-            'latex_mime',
-            'latex_columns',
-            'latex_data_caption',
-            'latex_data_continued_caption',
-            'latex_data_label',
-            'latex_null',
-            'aliases',
-        ];
-
-        foreach ($allowedPostParams as $param) {
-            if (! isset($postParams[$param])) {
-                continue;
-            }
-
-            $GLOBALS[$param] = $postParams[$param];
-        }
-
-        Util::checkParameters(['what', 'export_type']);
+        $this->setGlobalsFromRequest($postParams);
 
         // sanitize this parameter which will be used below in a file inclusion
-        $what = Core::securePath($whatParam);
+        $GLOBALS['what'] = Core::securePath($whatParam);
+
+        $this->checkParameters(['what', 'export_type']);
 
         // export class instance, not array of properties, as before
-        /** @var ExportPlugin $export_plugin */
-        $export_plugin = Plugins::getPlugin('export', $what, [
-            'export_type' => (string) $export_type,
-            'single_table' => isset($single_table),
+        $exportPlugin = Plugins::getPlugin('export', $GLOBALS['what'], [
+            'export_type' => (string) $GLOBALS['export_type'],
+            'single_table' => isset($GLOBALS['single_table']),
         ]);
 
         // Check export type
-        if (empty($export_plugin)) {
-            Core::fatalError(__('Bad type!'));
+        if ($exportPlugin === null) {
+            $this->response->setRequestStatus(false);
+            $this->response->addHTML(Message::error(__('Bad type!'))->getDisplay());
+
+            return;
         }
 
         /**
          * valid compression methods
          */
-        $compression_methods = [];
+        $compressionMethods = [];
         if ($GLOBALS['cfg']['ZipDump'] && function_exists('gzcompress')) {
-            $compression_methods[] = 'zip';
+            $compressionMethods[] = 'zip';
         }
 
         if ($GLOBALS['cfg']['GZipDump'] && function_exists('gzencode')) {
-            $compression_methods[] = 'gzip';
+            $compressionMethods[] = 'gzip';
         }
 
         /**
          * init and variable checking
          */
-        $compression = '';
-        $onserver = false;
-        $save_on_server = false;
-        $buffer_needed = false;
-        $back_button = '';
-        $refreshButton = '';
-        $save_filename = '';
-        $file_handle = '';
-        $errorUrl = '';
+        $GLOBALS['compression'] = '';
+        $GLOBALS['save_on_server'] = false;
+        $GLOBALS['buffer_needed'] = false;
+        $GLOBALS['save_filename'] = '';
+        $GLOBALS['file_handle'] = '';
+        $GLOBALS['errorUrl'] = '';
         $filename = '';
-        $separate_files = '';
+        $separateFiles = '';
 
         // Is it a quick or custom export?
-        if ($quickOrCustom === 'quick') {
-            $quick_export = true;
-        } else {
-            $quick_export = false;
-        }
+        $isQuickExport = $quickOrCustom === 'quick';
 
         if ($outputFormat === 'astext') {
-            $asfile = false;
+            $GLOBALS['asfile'] = false;
         } else {
-            $asfile = true;
+            $GLOBALS['asfile'] = true;
             if ($asSeparateFiles && $compressionParam === 'zip') {
-                $separate_files = $asSeparateFiles;
+                $separateFiles = $asSeparateFiles;
             }
 
-            if (in_array($compressionParam, $compression_methods)) {
-                $compression = $compressionParam;
-                $buffer_needed = true;
+            if (in_array($compressionParam, $compressionMethods)) {
+                $GLOBALS['compression'] = $compressionParam;
+                $GLOBALS['buffer_needed'] = true;
             }
 
-            if (($quick_export && $quickExportOnServer) || (! $quick_export && $onServerParam)) {
-                if ($quick_export) {
-                    $onserver = $quickExportOnServer;
-                } else {
-                    $onserver = $onServerParam;
-                }
-
+            if (($isQuickExport && $quickExportOnServer) || (! $isQuickExport && $onServerParam)) {
                 // Will we save dump on server?
-                $save_on_server = ! empty($cfg['SaveDir']);
+                $GLOBALS['save_on_server'] = ! empty($GLOBALS['cfg']['SaveDir']);
             }
         }
 
@@ -302,7 +163,7 @@ final class ExportController extends AbstractController
          * If we are sending the export file (as opposed to just displaying it
          * as text), we have to bypass the usual PhpMyAdmin\Response mechanism
          */
-        if ($outputFormat === 'sendit' && ! $save_on_server) {
+        if ($outputFormat === 'sendit' && ! $GLOBALS['save_on_server']) {
             $this->response->disable();
             //Disable all active buffers (see: ob_get_status(true) at this point)
             do {
@@ -314,35 +175,38 @@ final class ExportController extends AbstractController
             } while ($hasBuffer);
         }
 
-        $tables = [];
+        $GLOBALS['tables'] = [];
         // Generate error url and check for needed variables
-        if ($export_type === 'server') {
-            $errorUrl = Url::getFromRoute('/server/export');
-        } elseif ($export_type === 'database' && strlen($db) > 0) {
-            $errorUrl = Url::getFromRoute('/database/export', ['db' => $db]);
+        if ($GLOBALS['export_type'] === 'server') {
+            $GLOBALS['errorUrl'] = Url::getFromRoute('/server/export');
+        } elseif ($GLOBALS['export_type'] === 'database' && strlen($GLOBALS['db']) > 0) {
+            $GLOBALS['errorUrl'] = Url::getFromRoute('/database/export', ['db' => $GLOBALS['db']]);
             // Check if we have something to export
-            $tables = $table_select ?? [];
-        } elseif ($export_type === 'table' && strlen($db) > 0 && strlen($table) > 0) {
-            $errorUrl = Url::getFromRoute('/table/export', [
-                'db' => $db,
-                'table' => $table,
+            $GLOBALS['tables'] = $GLOBALS['table_select'] ?? [];
+        } elseif ($GLOBALS['export_type'] === 'table' && strlen($GLOBALS['db']) > 0 && strlen($GLOBALS['table']) > 0) {
+            $GLOBALS['errorUrl'] = Url::getFromRoute('/table/export', [
+                'db' => $GLOBALS['db'],
+                'table' => $GLOBALS['table'],
             ]);
-        } elseif ($export_type === 'raw') {
-            $errorUrl = Url::getFromRoute('/server/export', ['sql_query' => $sql_query]);
+        } elseif ($GLOBALS['export_type'] === 'raw') {
+            $GLOBALS['errorUrl'] = Url::getFromRoute('/server/export', ['sql_query' => $GLOBALS['sql_query']]);
         } else {
-            Core::fatalError(__('Bad parameters!'));
+            $this->response->setRequestStatus(false);
+            $this->response->addHTML(Message::error(__('Bad parameters!'))->getDisplay());
+
+            return;
         }
 
         // Merge SQL Query aliases with Export aliases from
         // export page, Export page aliases are given more
         // preference over SQL Query aliases.
-        $parser = new Parser($sql_query);
+        $parser = new Parser($GLOBALS['sql_query']);
         $aliases = [];
         if (! empty($parser->statements[0]) && ($parser->statements[0] instanceof SelectStatement)) {
-            $aliases = Misc::getAliases($parser->statements[0], $db);
+            $aliases = Misc::getAliases($parser->statements[0], $GLOBALS['db']);
         }
 
-        if (! empty($aliasesParam)) {
+        if ($aliasesParam !== null && $aliasesParam !== []) {
             $aliases = $this->export->mergeAliases($aliases, $aliasesParam);
             $_SESSION['tmpval']['aliases'] = $aliasesParam;
         }
@@ -351,8 +215,8 @@ final class ExportController extends AbstractController
          * Increase time limit for script execution and initializes some variables
          */
         Util::setTimeLimit();
-        if (! empty($cfg['MemoryLimit'])) {
-            ini_set('memory_limit', $cfg['MemoryLimit']);
+        if (! empty($GLOBALS['cfg']['MemoryLimit'])) {
+            ini_set('memory_limit', $GLOBALS['cfg']['MemoryLimit']);
         }
 
         register_shutdown_function([$this->export, 'shutdown']);
@@ -364,59 +228,58 @@ final class ExportController extends AbstractController
         $this->export->dumpBufferObjects = [];
 
         // We send fake headers to avoid browser timeout when buffering
-        $time_start = time();
+        $GLOBALS['time_start'] = time();
 
-        // Defines the default <CR><LF> format.
-        // For SQL always use \n as MySQL wants this on all platforms.
-        if ($what === 'sql') {
-            $crlf = "\n";
-        } else {
-            $crlf = PHP_EOL;
-        }
-
-        $output_kanji_conversion = Encoding::canConvertKanji();
+        $GLOBALS['output_kanji_conversion'] = Encoding::canConvertKanji();
 
         // Do we need to convert charset?
-        $output_charset_conversion = $asfile
+        $GLOBALS['output_charset_conversion'] = $GLOBALS['asfile']
             && Encoding::isSupported()
-            && isset($charset) && $charset !== 'utf-8';
+            && isset($GLOBALS['charset']) && $GLOBALS['charset'] !== 'utf-8';
 
         // Use on the fly compression?
         $GLOBALS['onfly_compression'] = $GLOBALS['cfg']['CompressOnFly']
-            && $compression === 'gzip';
+            && $GLOBALS['compression'] === 'gzip';
         if ($GLOBALS['onfly_compression']) {
             $GLOBALS['memory_limit'] = $this->export->getMemoryLimit();
         }
 
         // Generate filename and mime type if needed
-        if ($asfile) {
-            if (empty($remember_template)) {
-                $remember_template = '';
+        $mimeType = '';
+        if ($GLOBALS['asfile']) {
+            if (empty($rememberTemplate)) {
+                $rememberTemplate = '';
             }
 
-            [$filename, $mime_type] = $this->export->getFilenameAndMimetype(
-                $export_type,
-                $remember_template,
-                $export_plugin,
-                $compression,
-                $filename_template
+            [$filename, $mimeType] = $this->export->getFilenameAndMimetype(
+                $GLOBALS['export_type'],
+                $rememberTemplate,
+                $exportPlugin,
+                $GLOBALS['compression'],
+                $request->getParsedBodyParam('filename_template'),
             );
-        } else {
-            $mime_type = '';
         }
 
         // For raw query export, filename will be export.extension
-        if ($export_type === 'raw') {
-            [$filename] = $this->export->getFinalFilenameAndMimetypeForFilename($export_plugin, $compression, 'export');
+        if ($GLOBALS['export_type'] === 'raw') {
+            [$filename] = $this->export->getFinalFilenameAndMimetypeForFilename(
+                $exportPlugin,
+                $GLOBALS['compression'],
+                'export',
+            );
         }
 
         // Open file on server if needed
-        if ($save_on_server) {
-            [$save_filename, $message, $file_handle] = $this->export->openFile($filename, $quick_export);
+        if ($GLOBALS['save_on_server']) {
+            [
+                $GLOBALS['save_filename'],
+                $GLOBALS['message'],
+                $GLOBALS['file_handle'],
+            ] = $this->export->openFile($filename, $isQuickExport);
 
             // problem opening export file on server?
-            if (! empty($message)) {
-                $this->export->showPage($export_type);
+            if (! empty($GLOBALS['message'])) {
+                $this->export->showPage($GLOBALS['export_type']);
 
                 return;
             }
@@ -425,37 +288,35 @@ final class ExportController extends AbstractController
              * Send headers depending on whether the user chose to download a dump file
              * or not
              */
-            if ($asfile) {
+            if ($GLOBALS['asfile']) {
                 // Download
                 // (avoid rewriting data containing HTML with anchors and forms;
                 // this was reported to happen under Plesk)
                 ini_set('url_rewriter.tags', '');
                 $filename = Sanitize::sanitizeFilename($filename);
 
-                Core::downloadHeader($filename, $mime_type);
+                Core::downloadHeader($filename, $mimeType);
             } else {
                 // HTML
-                if ($export_type === 'database') {
-                    $num_tables = count($tables);
-                    if ($num_tables === 0) {
-                        $message = Message::error(
-                            __('No tables found in database.')
+                if ($GLOBALS['export_type'] === 'database') {
+                    $GLOBALS['num_tables'] = count($GLOBALS['tables']);
+                    if ($GLOBALS['num_tables'] === 0) {
+                        $GLOBALS['message'] = Message::error(
+                            __('No tables found in database.'),
                         );
-                        $active_page = Url::getFromRoute('/database/export');
+                        $GLOBALS['active_page'] = Url::getFromRoute('/database/export');
                         /** @var DatabaseExportController $controller */
-                        $controller = $containerBuilder->get(DatabaseExportController::class);
-                        $controller();
+                        $controller = Core::getContainerBuilder()->get(DatabaseExportController::class);
+                        $controller($request);
                         exit;
                     }
                 }
 
-                [$html, $back_button, $refreshButton] = $this->export->getHtmlForDisplayedExportHeader(
-                    $export_type,
-                    $db,
-                    $table
+                echo $this->export->getHtmlForDisplayedExportHeader(
+                    $GLOBALS['export_type'],
+                    $GLOBALS['db'],
+                    $GLOBALS['table'],
                 );
-                echo $html;
-                unset($html);
             }
         }
 
@@ -465,175 +326,169 @@ final class ExportController extends AbstractController
             $this->export->dumpBufferLength = 0;
 
             // Add possibly some comments to export
-            if (! $export_plugin->exportHeader()) {
+            if (! $exportPlugin->exportHeader()) {
                 throw new ExportException('Failure during header export.');
             }
 
             // Will we need relation & co. setup?
-            $do_relation = isset($GLOBALS[$what . '_relation']);
-            $do_comments = isset($GLOBALS[$what . '_include_comments'])
-                || isset($GLOBALS[$what . '_comments']);
-            $do_mime = isset($GLOBALS[$what . '_mime']);
+            $doRelation = isset($GLOBALS[$GLOBALS['what'] . '_relation']);
+            $doComments = isset($GLOBALS[$GLOBALS['what'] . '_include_comments'])
+                || isset($GLOBALS[$GLOBALS['what'] . '_comments']);
+            $doMime = isset($GLOBALS[$GLOBALS['what'] . '_mime']);
 
             // Include dates in export?
-            $do_dates = isset($GLOBALS[$what . '_dates']);
+            $doDates = isset($GLOBALS[$GLOBALS['what'] . '_dates']);
 
-            $whatStrucOrData = $GLOBALS[$what . '_structure_or_data'];
+            $whatStrucOrData = $GLOBALS[$GLOBALS['what'] . '_structure_or_data'];
 
-            if ($export_type === 'raw') {
+            if ($GLOBALS['export_type'] === 'raw') {
                 $whatStrucOrData = 'raw';
             }
 
             /**
              * Builds the dump
              */
-            if ($export_type === 'server') {
-                if (! isset($db_select)) {
-                    $db_select = '';
+            if ($GLOBALS['export_type'] === 'server') {
+                if ($dbSelect === null) {
+                    $dbSelect = '';
                 }
 
                 $this->export->exportServer(
-                    $db_select,
+                    $dbSelect,
                     $whatStrucOrData,
-                    $export_plugin,
-                    $crlf,
-                    $errorUrl,
-                    $export_type,
-                    $do_relation,
-                    $do_comments,
-                    $do_mime,
-                    $do_dates,
+                    $exportPlugin,
+                    $GLOBALS['errorUrl'],
+                    $GLOBALS['export_type'],
+                    $doRelation,
+                    $doComments,
+                    $doMime,
+                    $doDates,
                     $aliases,
-                    $separate_files
+                    $separateFiles,
                 );
-            } elseif ($export_type === 'database') {
-                if (! isset($table_structure) || ! is_array($table_structure)) {
-                    $table_structure = [];
+            } elseif ($GLOBALS['export_type'] === 'database') {
+                if (! is_array($tableStructure)) {
+                    $tableStructure = [];
                 }
 
-                if (! isset($table_data) || ! is_array($table_data)) {
-                    $table_data = [];
+                if (! isset($GLOBALS['table_data']) || ! is_array($GLOBALS['table_data'])) {
+                    $GLOBALS['table_data'] = [];
                 }
 
                 if ($structureOrDataForced) {
-                    $table_structure = $tables;
-                    $table_data = $tables;
+                    $tableStructure = $GLOBALS['tables'];
+                    $GLOBALS['table_data'] = $GLOBALS['tables'];
                 }
 
-                if (isset($lock_tables)) {
-                    $this->export->lockTables($db, $tables, 'READ');
+                if ($lockTables) {
+                    $this->export->lockTables(DatabaseName::fromValue($GLOBALS['db']), $GLOBALS['tables'], 'READ');
                     try {
                         $this->export->exportDatabase(
-                            $db,
-                            $tables,
+                            DatabaseName::fromValue($GLOBALS['db']),
+                            $GLOBALS['tables'],
                             $whatStrucOrData,
-                            $table_structure,
-                            $table_data,
-                            $export_plugin,
-                            $crlf,
-                            $errorUrl,
-                            $export_type,
-                            $do_relation,
-                            $do_comments,
-                            $do_mime,
-                            $do_dates,
+                            $tableStructure,
+                            $GLOBALS['table_data'],
+                            $exportPlugin,
+                            $GLOBALS['errorUrl'],
+                            $GLOBALS['export_type'],
+                            $doRelation,
+                            $doComments,
+                            $doMime,
+                            $doDates,
                             $aliases,
-                            $separate_files
+                            $separateFiles,
                         );
                     } finally {
                         $this->export->unlockTables();
                     }
                 } else {
                     $this->export->exportDatabase(
-                        $db,
-                        $tables,
+                        DatabaseName::fromValue($GLOBALS['db']),
+                        $GLOBALS['tables'],
                         $whatStrucOrData,
-                        $table_structure,
-                        $table_data,
-                        $export_plugin,
-                        $crlf,
-                        $errorUrl,
-                        $export_type,
-                        $do_relation,
-                        $do_comments,
-                        $do_mime,
-                        $do_dates,
+                        $tableStructure,
+                        $GLOBALS['table_data'],
+                        $exportPlugin,
+                        $GLOBALS['errorUrl'],
+                        $GLOBALS['export_type'],
+                        $doRelation,
+                        $doComments,
+                        $doMime,
+                        $doDates,
                         $aliases,
-                        $separate_files
+                        $separateFiles,
                     );
                 }
-            } elseif ($export_type === 'raw') {
-                Export::exportRaw($whatStrucOrData, $export_plugin, $crlf, $errorUrl, $sql_query, $export_type);
+            } elseif ($GLOBALS['export_type'] === 'raw') {
+                Export::exportRaw(
+                    $whatStrucOrData,
+                    $exportPlugin,
+                    $GLOBALS['errorUrl'],
+                    $GLOBALS['db'],
+                    $GLOBALS['sql_query'],
+                    $GLOBALS['export_type'],
+                );
             } else {
                 // We export just one table
-                // $allrows comes from the form when "Dump all rows" has been selected
-                if (! isset($allrows)) {
-                    $allrows = '';
-                }
 
-                if (! isset($limit_to)) {
-                    $limit_to = '0';
-                }
+                $allrows = $request->getParsedBodyParam('allrows', '');
+                $limitTo = $request->getParsedBodyParam('limit_to', '0');
+                $limitFrom = $request->getParsedBodyParam('limit_from', '0');
 
-                if (! isset($limit_from)) {
-                    $limit_from = '0';
-                }
-
-                if (isset($lock_tables)) {
+                if ($lockTables) {
                     try {
-                        $this->export->lockTables($db, [$table], 'READ');
+                        $this->export->lockTables(DatabaseName::fromValue($GLOBALS['db']), [$GLOBALS['table']], 'READ');
                         $this->export->exportTable(
-                            $db,
-                            $table,
+                            $GLOBALS['db'],
+                            $GLOBALS['table'],
                             $whatStrucOrData,
-                            $export_plugin,
-                            $crlf,
-                            $errorUrl,
-                            $export_type,
-                            $do_relation,
-                            $do_comments,
-                            $do_mime,
-                            $do_dates,
+                            $exportPlugin,
+                            $GLOBALS['errorUrl'],
+                            $GLOBALS['export_type'],
+                            $doRelation,
+                            $doComments,
+                            $doMime,
+                            $doDates,
                             $allrows,
-                            $limit_to,
-                            $limit_from,
-                            $sql_query,
-                            $aliases
+                            $limitTo,
+                            $limitFrom,
+                            $GLOBALS['sql_query'],
+                            $aliases,
                         );
                     } finally {
                         $this->export->unlockTables();
                     }
                 } else {
                     $this->export->exportTable(
-                        $db,
-                        $table,
+                        $GLOBALS['db'],
+                        $GLOBALS['table'],
                         $whatStrucOrData,
-                        $export_plugin,
-                        $crlf,
-                        $errorUrl,
-                        $export_type,
-                        $do_relation,
-                        $do_comments,
-                        $do_mime,
-                        $do_dates,
+                        $exportPlugin,
+                        $GLOBALS['errorUrl'],
+                        $GLOBALS['export_type'],
+                        $doRelation,
+                        $doComments,
+                        $doMime,
+                        $doDates,
                         $allrows,
-                        $limit_to,
-                        $limit_from,
-                        $sql_query,
-                        $aliases
+                        $limitTo,
+                        $limitFrom,
+                        $GLOBALS['sql_query'],
+                        $aliases,
                     );
                 }
             }
 
-            if (! $export_plugin->exportFooter()) {
+            if (! $exportPlugin->exportFooter()) {
                 throw new ExportException('Failure during footer export.');
             }
-        } catch (ExportException $e) {
+        } catch (ExportException) {
             // Ignore
         }
 
-        if ($save_on_server && ! empty($message)) {
-            $this->export->showPage($export_type);
+        if ($GLOBALS['save_on_server'] && ! empty($GLOBALS['message'])) {
+            $this->export->showPage($GLOBALS['export_type']);
 
             return;
         }
@@ -641,42 +496,468 @@ final class ExportController extends AbstractController
         /**
          * Send the dump as a file...
          */
-        if (empty($asfile)) {
-            echo $this->export->getHtmlForDisplayedExportFooter($back_button, $refreshButton);
+        if (empty($GLOBALS['asfile'])) {
+            echo $this->export->getHtmlForDisplayedExportFooter(
+                $GLOBALS['export_type'],
+                $GLOBALS['db'],
+                $GLOBALS['table'],
+            );
 
             return;
         }
 
         // Convert the charset if required.
-        if ($output_charset_conversion) {
+        if ($GLOBALS['output_charset_conversion']) {
             $this->export->dumpBuffer = Encoding::convertString(
                 'utf-8',
                 $GLOBALS['charset'],
-                $this->export->dumpBuffer
+                $this->export->dumpBuffer,
             );
         }
 
         // Compression needed?
-        if ($compression) {
-            if (! empty($separate_files)) {
+        if ($GLOBALS['compression']) {
+            if ($separateFiles) {
                 $this->export->dumpBuffer = $this->export->compress(
                     $this->export->dumpBufferObjects,
-                    $compression,
-                    $filename
+                    $GLOBALS['compression'],
+                    $filename,
                 );
             } else {
-                $this->export->dumpBuffer = $this->export->compress($this->export->dumpBuffer, $compression, $filename);
+                $this->export->dumpBuffer = $this->export->compress(
+                    $this->export->dumpBuffer,
+                    $GLOBALS['compression'],
+                    $filename,
+                );
             }
         }
 
         /* If we saved on server, we have to close file now */
-        if ($save_on_server) {
-            $message = $this->export->closeFile($file_handle, $this->export->dumpBuffer, $save_filename);
-            $this->export->showPage($export_type);
+        if ($GLOBALS['save_on_server']) {
+            $GLOBALS['message'] = $this->export->closeFile(
+                $GLOBALS['file_handle'],
+                $this->export->dumpBuffer,
+                $GLOBALS['save_filename'],
+            );
+            $this->export->showPage($GLOBALS['export_type']);
 
             return;
         }
 
         echo $this->export->dumpBuffer;
+    }
+
+    /**
+     * Please keep the parameters in order of their appearance in the form.
+     * Some of these parameters are not used.
+     *
+     * @param mixed[] $postParams
+     */
+    private function setGlobalsFromRequest(array $postParams): void
+    {
+        if (isset($postParams['single_table'])) {
+            $GLOBALS['single_table'] = $postParams['single_table'];
+        }
+
+        if (isset($postParams['export_type'])) {
+            $GLOBALS['export_type'] = $postParams['export_type'];
+        }
+
+        if (isset($postParams['table_select'])) {
+            $GLOBALS['table_select'] = $postParams['table_select'];
+        }
+
+        if (isset($postParams['table_data'])) {
+            $GLOBALS['table_data'] = $postParams['table_data'];
+        }
+
+        if (isset($postParams['maxsize'])) {
+            $GLOBALS['maxsize'] = $postParams['maxsize'];
+        }
+
+        if (isset($postParams['charset'])) {
+            $GLOBALS['charset'] = $postParams['charset'];
+        }
+
+        if (isset($postParams['compression'])) {
+            $GLOBALS['compression'] = $postParams['compression'];
+        }
+
+        if (isset($postParams['knjenc'])) {
+            $GLOBALS['knjenc'] = $postParams['knjenc'];
+        }
+
+        if (isset($postParams['xkana'])) {
+            $GLOBALS['xkana'] = $postParams['xkana'];
+        }
+
+        if (isset($postParams['htmlword_structure_or_data'])) {
+            $GLOBALS['htmlword_structure_or_data'] = $postParams['htmlword_structure_or_data'];
+        }
+
+        if (isset($postParams['htmlword_null'])) {
+            $GLOBALS['htmlword_null'] = $postParams['htmlword_null'];
+        }
+
+        if (isset($postParams['htmlword_columns'])) {
+            $GLOBALS['htmlword_columns'] = $postParams['htmlword_columns'];
+        }
+
+        if (isset($postParams['mediawiki_headers'])) {
+            $GLOBALS['mediawiki_headers'] = $postParams['mediawiki_headers'];
+        }
+
+        if (isset($postParams['mediawiki_structure_or_data'])) {
+            $GLOBALS['mediawiki_structure_or_data'] = $postParams['mediawiki_structure_or_data'];
+        }
+
+        if (isset($postParams['mediawiki_caption'])) {
+            $GLOBALS['mediawiki_caption'] = $postParams['mediawiki_caption'];
+        }
+
+        if (isset($postParams['pdf_structure_or_data'])) {
+            $GLOBALS['pdf_structure_or_data'] = $postParams['pdf_structure_or_data'];
+        }
+
+        if (isset($postParams['odt_structure_or_data'])) {
+            $GLOBALS['odt_structure_or_data'] = $postParams['odt_structure_or_data'];
+        }
+
+        if (isset($postParams['odt_relation'])) {
+            $GLOBALS['odt_relation'] = $postParams['odt_relation'];
+        }
+
+        if (isset($postParams['odt_comments'])) {
+            $GLOBALS['odt_comments'] = $postParams['odt_comments'];
+        }
+
+        if (isset($postParams['odt_mime'])) {
+            $GLOBALS['odt_mime'] = $postParams['odt_mime'];
+        }
+
+        if (isset($postParams['odt_columns'])) {
+            $GLOBALS['odt_columns'] = $postParams['odt_columns'];
+        }
+
+        if (isset($postParams['odt_null'])) {
+            $GLOBALS['odt_null'] = $postParams['odt_null'];
+        }
+
+        if (isset($postParams['codegen_structure_or_data'])) {
+            $GLOBALS['codegen_structure_or_data'] = $postParams['codegen_structure_or_data'];
+        }
+
+        if (isset($postParams['codegen_format'])) {
+            $GLOBALS['codegen_format'] = $postParams['codegen_format'];
+        }
+
+        if (isset($postParams['excel_null'])) {
+            $GLOBALS['excel_null'] = $postParams['excel_null'];
+        }
+
+        if (isset($postParams['excel_removeCRLF'])) {
+            $GLOBALS['excel_removeCRLF'] = $postParams['excel_removeCRLF'];
+        }
+
+        if (isset($postParams['excel_columns'])) {
+            $GLOBALS['excel_columns'] = $postParams['excel_columns'];
+        }
+
+        if (isset($postParams['excel_edition'])) {
+            $GLOBALS['excel_edition'] = $postParams['excel_edition'];
+        }
+
+        if (isset($postParams['excel_structure_or_data'])) {
+            $GLOBALS['excel_structure_or_data'] = $postParams['excel_structure_or_data'];
+        }
+
+        if (isset($postParams['yaml_structure_or_data'])) {
+            $GLOBALS['yaml_structure_or_data'] = $postParams['yaml_structure_or_data'];
+        }
+
+        if (isset($postParams['ods_null'])) {
+            $GLOBALS['ods_null'] = $postParams['ods_null'];
+        }
+
+        if (isset($postParams['ods_structure_or_data'])) {
+            $GLOBALS['ods_structure_or_data'] = $postParams['ods_structure_or_data'];
+        }
+
+        if (isset($postParams['ods_columns'])) {
+            $GLOBALS['ods_columns'] = $postParams['ods_columns'];
+        }
+
+        if (isset($postParams['json_structure_or_data'])) {
+            $GLOBALS['json_structure_or_data'] = $postParams['json_structure_or_data'];
+        }
+
+        if (isset($postParams['json_pretty_print'])) {
+            $GLOBALS['json_pretty_print'] = $postParams['json_pretty_print'];
+        }
+
+        if (isset($postParams['json_unicode'])) {
+            $GLOBALS['json_unicode'] = $postParams['json_unicode'];
+        }
+
+        if (isset($postParams['xml_structure_or_data'])) {
+            $GLOBALS['xml_structure_or_data'] = $postParams['xml_structure_or_data'];
+        }
+
+        if (isset($postParams['xml_export_events'])) {
+            $GLOBALS['xml_export_events'] = $postParams['xml_export_events'];
+        }
+
+        if (isset($postParams['xml_export_functions'])) {
+            $GLOBALS['xml_export_functions'] = $postParams['xml_export_functions'];
+        }
+
+        if (isset($postParams['xml_export_procedures'])) {
+            $GLOBALS['xml_export_procedures'] = $postParams['xml_export_procedures'];
+        }
+
+        if (isset($postParams['xml_export_tables'])) {
+            $GLOBALS['xml_export_tables'] = $postParams['xml_export_tables'];
+        }
+
+        if (isset($postParams['xml_export_triggers'])) {
+            $GLOBALS['xml_export_triggers'] = $postParams['xml_export_triggers'];
+        }
+
+        if (isset($postParams['xml_export_views'])) {
+            $GLOBALS['xml_export_views'] = $postParams['xml_export_views'];
+        }
+
+        if (isset($postParams['xml_export_contents'])) {
+            $GLOBALS['xml_export_contents'] = $postParams['xml_export_contents'];
+        }
+
+        if (isset($postParams['texytext_structure_or_data'])) {
+            $GLOBALS['texytext_structure_or_data'] = $postParams['texytext_structure_or_data'];
+        }
+
+        if (isset($postParams['texytext_columns'])) {
+            $GLOBALS['texytext_columns'] = $postParams['texytext_columns'];
+        }
+
+        if (isset($postParams['texytext_null'])) {
+            $GLOBALS['texytext_null'] = $postParams['texytext_null'];
+        }
+
+        if (isset($postParams['phparray_structure_or_data'])) {
+            $GLOBALS['phparray_structure_or_data'] = $postParams['phparray_structure_or_data'];
+        }
+
+        if (isset($postParams['sql_include_comments'])) {
+            $GLOBALS['sql_include_comments'] = $postParams['sql_include_comments'];
+        }
+
+        if (isset($postParams['sql_header_comment'])) {
+            $GLOBALS['sql_header_comment'] = $postParams['sql_header_comment'];
+        }
+
+        if (isset($postParams['sql_dates'])) {
+            $GLOBALS['sql_dates'] = $postParams['sql_dates'];
+        }
+
+        if (isset($postParams['sql_relation'])) {
+            $GLOBALS['sql_relation'] = $postParams['sql_relation'];
+        }
+
+        if (isset($postParams['sql_mime'])) {
+            $GLOBALS['sql_mime'] = $postParams['sql_mime'];
+        }
+
+        if (isset($postParams['sql_use_transaction'])) {
+            $GLOBALS['sql_use_transaction'] = $postParams['sql_use_transaction'];
+        }
+
+        if (isset($postParams['sql_disable_fk'])) {
+            $GLOBALS['sql_disable_fk'] = $postParams['sql_disable_fk'];
+        }
+
+        if (isset($postParams['sql_compatibility'])) {
+            $GLOBALS['sql_compatibility'] = $postParams['sql_compatibility'];
+        }
+
+        if (isset($postParams['sql_structure_or_data'])) {
+            $GLOBALS['sql_structure_or_data'] = $postParams['sql_structure_or_data'];
+        }
+
+        if (isset($postParams['sql_create_database'])) {
+            $GLOBALS['sql_create_database'] = $postParams['sql_create_database'];
+        }
+
+        if (isset($postParams['sql_drop_table'])) {
+            $GLOBALS['sql_drop_table'] = $postParams['sql_drop_table'];
+        }
+
+        if (isset($postParams['sql_procedure_function'])) {
+            $GLOBALS['sql_procedure_function'] = $postParams['sql_procedure_function'];
+        }
+
+        if (isset($postParams['sql_create_table'])) {
+            $GLOBALS['sql_create_table'] = $postParams['sql_create_table'];
+        }
+
+        if (isset($postParams['sql_create_view'])) {
+            $GLOBALS['sql_create_view'] = $postParams['sql_create_view'];
+        }
+
+        if (isset($postParams['sql_create_trigger'])) {
+            $GLOBALS['sql_create_trigger'] = $postParams['sql_create_trigger'];
+        }
+
+        if (isset($postParams['sql_view_current_user'])) {
+            $GLOBALS['sql_view_current_user'] = $postParams['sql_view_current_user'];
+        }
+
+        if (isset($postParams['sql_simple_view_export'])) {
+            $GLOBALS['sql_simple_view_export'] = $postParams['sql_simple_view_export'];
+        }
+
+        if (isset($postParams['sql_if_not_exists'])) {
+            $GLOBALS['sql_if_not_exists'] = $postParams['sql_if_not_exists'];
+        }
+
+        if (isset($postParams['sql_or_replace_view'])) {
+            $GLOBALS['sql_or_replace_view'] = $postParams['sql_or_replace_view'];
+        }
+
+        if (isset($postParams['sql_auto_increment'])) {
+            $GLOBALS['sql_auto_increment'] = $postParams['sql_auto_increment'];
+        }
+
+        if (isset($postParams['sql_backquotes'])) {
+            $GLOBALS['sql_backquotes'] = $postParams['sql_backquotes'];
+        }
+
+        if (isset($postParams['sql_truncate'])) {
+            $GLOBALS['sql_truncate'] = $postParams['sql_truncate'];
+        }
+
+        if (isset($postParams['sql_delayed'])) {
+            $GLOBALS['sql_delayed'] = $postParams['sql_delayed'];
+        }
+
+        if (isset($postParams['sql_ignore'])) {
+            $GLOBALS['sql_ignore'] = $postParams['sql_ignore'];
+        }
+
+        if (isset($postParams['sql_type'])) {
+            $GLOBALS['sql_type'] = $postParams['sql_type'];
+        }
+
+        if (isset($postParams['sql_insert_syntax'])) {
+            $GLOBALS['sql_insert_syntax'] = $postParams['sql_insert_syntax'];
+        }
+
+        if (isset($postParams['sql_max_query_size'])) {
+            $GLOBALS['sql_max_query_size'] = $postParams['sql_max_query_size'];
+        }
+
+        if (isset($postParams['sql_hex_for_binary'])) {
+            $GLOBALS['sql_hex_for_binary'] = $postParams['sql_hex_for_binary'];
+        }
+
+        if (isset($postParams['sql_utc_time'])) {
+            $GLOBALS['sql_utc_time'] = $postParams['sql_utc_time'];
+        }
+
+        if (isset($postParams['sql_drop_database'])) {
+            $GLOBALS['sql_drop_database'] = $postParams['sql_drop_database'];
+        }
+
+        if (isset($postParams['sql_views_as_tables'])) {
+            $GLOBALS['sql_views_as_tables'] = $postParams['sql_views_as_tables'];
+        }
+
+        if (isset($postParams['sql_metadata'])) {
+            $GLOBALS['sql_metadata'] = $postParams['sql_metadata'];
+        }
+
+        if (isset($postParams['csv_separator'])) {
+            $GLOBALS['csv_separator'] = $postParams['csv_separator'];
+        }
+
+        if (isset($postParams['csv_enclosed'])) {
+            $GLOBALS['csv_enclosed'] = $postParams['csv_enclosed'];
+        }
+
+        if (isset($postParams['csv_escaped'])) {
+            $GLOBALS['csv_escaped'] = $postParams['csv_escaped'];
+        }
+
+        if (isset($postParams['csv_terminated'])) {
+            $GLOBALS['csv_terminated'] = $postParams['csv_terminated'];
+        }
+
+        if (isset($postParams['csv_null'])) {
+            $GLOBALS['csv_null'] = $postParams['csv_null'];
+        }
+
+        if (isset($postParams['csv_removeCRLF'])) {
+            $GLOBALS['csv_removeCRLF'] = $postParams['csv_removeCRLF'];
+        }
+
+        if (isset($postParams['csv_columns'])) {
+            $GLOBALS['csv_columns'] = $postParams['csv_columns'];
+        }
+
+        if (isset($postParams['csv_structure_or_data'])) {
+            $GLOBALS['csv_structure_or_data'] = $postParams['csv_structure_or_data'];
+        }
+
+        if (isset($postParams['latex_caption'])) {
+            $GLOBALS['latex_caption'] = $postParams['latex_caption'];
+        }
+
+        if (isset($postParams['latex_structure_or_data'])) {
+            $GLOBALS['latex_structure_or_data'] = $postParams['latex_structure_or_data'];
+        }
+
+        if (isset($postParams['latex_structure_caption'])) {
+            $GLOBALS['latex_structure_caption'] = $postParams['latex_structure_caption'];
+        }
+
+        if (isset($postParams['latex_structure_continued_caption'])) {
+            $GLOBALS['latex_structure_continued_caption'] = $postParams['latex_structure_continued_caption'];
+        }
+
+        if (isset($postParams['latex_structure_label'])) {
+            $GLOBALS['latex_structure_label'] = $postParams['latex_structure_label'];
+        }
+
+        if (isset($postParams['latex_relation'])) {
+            $GLOBALS['latex_relation'] = $postParams['latex_relation'];
+        }
+
+        if (isset($postParams['latex_comments'])) {
+            $GLOBALS['latex_comments'] = $postParams['latex_comments'];
+        }
+
+        if (isset($postParams['latex_mime'])) {
+            $GLOBALS['latex_mime'] = $postParams['latex_mime'];
+        }
+
+        if (isset($postParams['latex_columns'])) {
+            $GLOBALS['latex_columns'] = $postParams['latex_columns'];
+        }
+
+        if (isset($postParams['latex_data_caption'])) {
+            $GLOBALS['latex_data_caption'] = $postParams['latex_data_caption'];
+        }
+
+        if (isset($postParams['latex_data_continued_caption'])) {
+            $GLOBALS['latex_data_continued_caption'] = $postParams['latex_data_continued_caption'];
+        }
+
+        if (isset($postParams['latex_data_label'])) {
+            $GLOBALS['latex_data_label'] = $postParams['latex_data_label'];
+        }
+
+        // phpcs:ignore SlevomatCodingStandard.ControlStructures.EarlyExit.EarlyExitNotUsed
+        if (isset($postParams['latex_null'])) {
+            $GLOBALS['latex_null'] = $postParams['latex_null'];
+        }
     }
 }

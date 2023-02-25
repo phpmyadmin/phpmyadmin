@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
@@ -21,20 +22,18 @@ use function str_replace;
 
 class QueriesController extends AbstractController
 {
-    /** @var DatabaseInterface */
-    private $dbi;
-
-    public function __construct(ResponseRenderer $response, Template $template, Data $data, DatabaseInterface $dbi)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        Data $data,
+        private DatabaseInterface $dbi,
+    ) {
         parent::__construct($response, $template, $data);
-        $this->dbi = $dbi;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $errorUrl;
-
-        $errorUrl = Url::getFromRoute('/');
+        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');

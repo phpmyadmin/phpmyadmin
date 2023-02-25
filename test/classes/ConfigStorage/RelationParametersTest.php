@@ -90,11 +90,11 @@ class RelationParametersTest extends TestCase
         $this->assertNotNull($relationParameters->relationFeature);
         $this->assertSame(
             $relationParameters->browserTransformationFeature->columnInfo,
-            $relationParameters->columnCommentsFeature->columnInfo
+            $relationParameters->columnCommentsFeature->columnInfo,
         );
         $this->assertSame(
             $relationParameters->relationFeature->relation,
-            $relationParameters->displayFeature->relation
+            $relationParameters->displayFeature->relation,
         );
 
         $relationParameters = RelationParameters::fromArray([
@@ -254,10 +254,8 @@ class RelationParametersTest extends TestCase
         $this->assertSame($expected, RelationParameters::fromArray($params)->toArray());
     }
 
-    /**
-     * @return array<string, array<int, array<string, mixed>>>
-     */
-    public function providerForTestToArray(): array
+    /** @return array<string, array<int, array<string, mixed>>> */
+    public static function providerForTestToArray(): array
     {
         return [
             'default values' => [

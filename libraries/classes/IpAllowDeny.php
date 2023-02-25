@@ -39,12 +39,10 @@ class IpAllowDeny
     {
         if (mb_strpos($testRange, ':') > -1 || mb_strpos($ipToTest, ':') > -1) {
             // assume IPv6
-            $result = $this->ipv6MaskTest($testRange, $ipToTest);
-        } else {
-            $result = $this->ipv4MaskTest($testRange, $ipToTest);
+            return $this->ipv6MaskTest($testRange, $ipToTest);
         }
 
-        return $result;
+        return $this->ipv4MaskTest($testRange, $ipToTest);
     }
 
     /**
@@ -83,7 +81,7 @@ class IpAllowDeny
                 $maskl += 2 ** (30 - $i);
             }
 
-            return ($maskl & $rangel) == ($maskl & $ipl);
+            return ($maskl & $rangel) === ($maskl & $ipl);
         }
 
         // range based
@@ -97,7 +95,7 @@ class IpAllowDeny
                     $result = false;
                 }
             } else {
-                if ($maskocts[$i] <> $ipocts[$i]) {
+                if ($maskocts[$i] !== $ipocts[$i]) {
                     $result = false;
                 }
             }
@@ -238,8 +236,6 @@ class IpAllowDeny
      */
     private function allowDeny($type): bool
     {
-        global $cfg;
-
         // Grabs true IP of the user and returns if it can't be found
         $remote_ip = Core::getIp();
         if (empty($remote_ip)) {
@@ -247,11 +243,11 @@ class IpAllowDeny
         }
 
         // copy username
-        $username = $cfg['Server']['user'];
+        $username = $GLOBALS['cfg']['Server']['user'];
 
         // copy rule database
-        if (isset($cfg['Server']['AllowDeny']['rules'])) {
-            $rules = $cfg['Server']['AllowDeny']['rules'];
+        if (isset($GLOBALS['cfg']['Server']['AllowDeny']['rules'])) {
+            $rules = $GLOBALS['cfg']['Server']['AllowDeny']['rules'];
             if (! is_array($rules)) {
                 $rules = [];
             }

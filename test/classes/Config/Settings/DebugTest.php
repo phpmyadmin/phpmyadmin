@@ -10,9 +10,7 @@ use PHPUnit\Framework\TestCase;
 use function array_keys;
 use function array_merge;
 
-/**
- * @covers \PhpMyAdmin\Config\Settings\Debug
- */
+/** @covers \PhpMyAdmin\Config\Settings\Debug */
 class DebugTest extends TestCase
 {
     /** @var array<string, bool> */
@@ -48,7 +46,7 @@ class DebugTest extends TestCase
      * @return mixed[][][][]
      * @psalm-return (array{0: string, 1: mixed, 2: mixed})[][][]
      */
-    public function providerForTestConstructor(): array
+    public static function providerForTestConstructor(): array
     {
         return [
             'null values' => [

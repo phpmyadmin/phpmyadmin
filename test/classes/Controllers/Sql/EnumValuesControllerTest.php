@@ -5,59 +5,70 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Sql;
 
 use PhpMyAdmin\Controllers\Sql\EnumValuesController;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Sql\EnumValuesController
- */
+/** @covers \PhpMyAdmin\Controllers\Sql\EnumValuesController */
 class EnumValuesControllerTest extends AbstractTestCase
 {
+    /** @var DatabaseInterface */
+    protected $dbi;
+
+    /** @var DbiDummy */
+    protected $dummyDbi;
+
     protected function setUp(): void
     {
         parent::setUp();
-        parent::setGlobalDbi();
+
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
+
         parent::loadContainerBuilder();
+
         parent::loadDbiIntoContainerBuilder();
+
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+
         parent::loadResponseIntoContainerBuilder();
     }
 
     public function testGetEnumValuesError(): void
     {
-        global $containerBuilder, $_POST;
-
         $this->dummyDbi->addResult('SHOW COLUMNS FROM `cvv`.`enums` LIKE \'set\'', false);
 
-        $_POST = [
-            'ajax_request' => true,
-            'db' => 'cvv',
-            'table' => 'enums',
-            'column' => 'set',
-            'curr_value' => 'b&c',
-        ];
-        $GLOBALS['db'] = $_POST['db'];
-        $GLOBALS['table'] = $_POST['table'];
+        $GLOBALS['db'] = 'cvv';
+        $GLOBALS['table'] = 'enums';
 
-        $containerBuilder->setParameter('db', $GLOBALS['db']);
-        $containerBuilder->setParameter('table', $GLOBALS['table']);
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['db', null, 'cvv'],
+            ['table', null, 'enums'],
+            ['column', null, 'set'],
+            ['curr_value', null, 'b&c'],
+        ]);
+
+        $GLOBALS['containerBuilder']->setParameter('db', $GLOBALS['db']);
+        $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
         /** @var EnumValuesController $sqlController */
-        $sqlController = $containerBuilder->get(EnumValuesController::class);
-        $sqlController();
+        $sqlController = $GLOBALS['containerBuilder']->get(EnumValuesController::class);
+        $sqlController($request);
 
         $this->assertResponseWasNotSuccessfull();
 
         $this->assertSame(
             ['message' => 'Error in processing request'],
-            $this->getResponseJsonResult()
+            $this->getResponseJsonResult(),
         );
     }
 
     public function testGetEnumValuesSuccess(): void
     {
-        global $containerBuilder, $_POST;
-
         $this->dummyDbi->addResult(
             'SHOW COLUMNS FROM `cvv`.`enums` LIKE \'set\'',
             [
@@ -77,24 +88,25 @@ class EnumValuesControllerTest extends AbstractTestCase
                 'Key',
                 'Default',
                 'Extra',
-            ]
+            ],
         );
 
-        $_POST = [
-            'ajax_request' => true,
-            'db' => 'cvv',
-            'table' => 'enums',
-            'column' => 'set',
-            'curr_value' => 'b&c',
-        ];
-        $GLOBALS['db'] = $_POST['db'];
-        $GLOBALS['table'] = $_POST['table'];
+        $GLOBALS['db'] = 'cvv';
+        $GLOBALS['table'] = 'enums';
 
-        $containerBuilder->setParameter('db', $GLOBALS['db']);
-        $containerBuilder->setParameter('table', $GLOBALS['table']);
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['db', null, 'cvv'],
+            ['table', null, 'enums'],
+            ['column', null, 'set'],
+            ['curr_value', null, 'b&c'],
+        ]);
+
+        $GLOBALS['containerBuilder']->setParameter('db', $GLOBALS['db']);
+        $GLOBALS['containerBuilder']->setParameter('table', $GLOBALS['table']);
         /** @var EnumValuesController $sqlController */
-        $sqlController = $containerBuilder->get(EnumValuesController::class);
-        $sqlController();
+        $sqlController = $GLOBALS['containerBuilder']->get(EnumValuesController::class);
+        $sqlController($request);
 
         $this->assertResponseWasSuccessfull();
 
@@ -110,7 +122,7 @@ class EnumValuesControllerTest extends AbstractTestCase
                     . '      <option value=""></option>' . "\n"
                     . '  </select>' . "\n",
             ],
-            $this->getResponseJsonResult()
+            $this->getResponseJsonResult(),
         );
     }
 }

@@ -13,10 +13,8 @@ use PhpMyAdmin\Config\Forms\User\MainForm;
 
 class EditForm extends BaseForm
 {
-    /**
-     * @return array
-     */
-    public static function getForms()
+    /** @return array */
+    public static function getForms(): array
     {
         return [
             'Edit' => MainForm::getForms()['Edit'],

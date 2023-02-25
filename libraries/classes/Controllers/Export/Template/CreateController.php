@@ -16,27 +16,17 @@ use function is_array;
 
 final class CreateController extends AbstractController
 {
-    /** @var TemplateModel */
-    private $model;
-
-    /** @var Relation */
-    private $relation;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        TemplateModel $model,
-        Relation $relation
+        private TemplateModel $model,
+        private Relation $relation,
     ) {
         parent::__construct($response, $template);
-        $this->model = $model;
-        $this->relation = $relation;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        global $cfg;
-
         /** @var string $exportType */
         $exportType = $request->getParsedBodyParam('exportType', '');
         /** @var string $templateName */
@@ -52,7 +42,7 @@ final class CreateController extends AbstractController
         }
 
         $template = ExportTemplate::fromArray([
-            'username' => $cfg['Server']['user'],
+            'username' => $GLOBALS['cfg']['Server']['user'],
             'exportType' => $exportType,
             'name' => $templateName,
             'data' => $templateData,
@@ -60,7 +50,7 @@ final class CreateController extends AbstractController
         $result = $this->model->create(
             $exportTemplatesFeature->database,
             $exportTemplatesFeature->exportTemplates,
-            $template
+            $template,
         );
 
         if ($result !== '') {
@@ -74,7 +64,7 @@ final class CreateController extends AbstractController
             $exportTemplatesFeature->database,
             $exportTemplatesFeature->exportTemplates,
             $template->getUsername(),
-            $template->getExportType()
+            $template->getExportType(),
         );
 
         $this->response->setRequestStatus(true);
@@ -83,7 +73,7 @@ final class CreateController extends AbstractController
             $this->template->render('export/template_options', [
                 'templates' => is_array($templates) ? $templates : [],
                 'selected_template' => $templateId,
-            ])
+            ]),
         );
     }
 }

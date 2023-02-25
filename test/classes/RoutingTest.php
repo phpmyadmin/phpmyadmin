@@ -8,9 +8,13 @@ use FastRoute\Dispatcher;
 use PhpMyAdmin\Controllers\HomeController;
 use PhpMyAdmin\Routing;
 
-/**
- * @covers \PhpMyAdmin\Routing
- */
+use function copy;
+use function unlink;
+
+use const CACHE_DIR;
+use const TEST_PATH;
+
+/** @covers \PhpMyAdmin\Routing */
 class RoutingTest extends AbstractTestCase
 {
     /**
@@ -18,69 +22,42 @@ class RoutingTest extends AbstractTestCase
      */
     public function testGetDispatcher(): void
     {
+        $expected = [Dispatcher::FOUND, HomeController::class, []];
+        $cacheFilename = CACHE_DIR . 'routes.cache.php';
+        $validCacheFilename = TEST_PATH . 'test/test_data/routes/routes-valid.cache.txt';
+        $invalidCacheFilename = TEST_PATH . 'test/test_data/routes/routes-invalid.cache.txt';
+        $GLOBALS['cfg']['environment'] = null;
+
+        $this->assertDirectoryIsWritable(CACHE_DIR);
+
+        // Valid cache file.
+        $this->assertTrue(copy($validCacheFilename, $cacheFilename));
         $dispatcher = Routing::getDispatcher();
         $this->assertInstanceOf(Dispatcher::class, $dispatcher);
-        $this->assertSame(
-            [Dispatcher::FOUND, HomeController::class, []],
-            $dispatcher->dispatch('GET', '/')
-        );
-    }
+        $this->assertSame($expected, $dispatcher->dispatch('GET', '/'));
+        $this->assertFileEquals($validCacheFilename, $cacheFilename);
 
-    /**
-     * Test for Routing::getCurrentRoute
-     */
-    public function testGetCurrentRouteNoParams(): void
-    {
-        $this->assertSame('/', Routing::getCurrentRoute());
-    }
+        // Invalid cache file.
+        $this->assertTrue(copy($invalidCacheFilename, $cacheFilename));
+        $dispatcher = Routing::getDispatcher();
+        $this->assertInstanceOf(Dispatcher::class, $dispatcher);
+        $this->assertSame($expected, $dispatcher->dispatch('GET', '/'));
+        $this->assertFileNotEquals($invalidCacheFilename, $cacheFilename);
 
-    /**
-     * Test for Routing::getCurrentRoute
-     */
-    public function testGetCurrentRouteGet(): void
-    {
-        $_GET['route'] = '/test';
-        $this->assertSame('/test', Routing::getCurrentRoute());
-    }
+        // Create new cache file.
+        $this->assertTrue(unlink($cacheFilename));
 
-    /**
-     * Test for Routing::getCurrentRoute
-     */
-    public function testGetCurrentRoutePost(): void
-    {
-        unset($_GET['route']);
-        $_POST['route'] = '/testpost';
-        $this->assertSame('/testpost', Routing::getCurrentRoute());
-    }
+        $this->assertFileDoesNotExist($cacheFilename);
 
-    /**
-     * Test for Routing::getCurrentRoute
-     */
-    public function testGetCurrentRouteGetIsOverPost(): void
-    {
-        $_GET['route'] = '/testget';
-        $_POST['route'] = '/testpost';
-        $this->assertSame('/testget', Routing::getCurrentRoute());
-    }
+        $dispatcher = Routing::getDispatcher();
+        $this->assertInstanceOf(Dispatcher::class, $dispatcher);
+        $this->assertSame($expected, $dispatcher->dispatch('GET', '/'));
+        $this->assertFileExists($cacheFilename);
 
-    /**
-     * Test for Routing::getCurrentRoute
-     */
-    public function testGetCurrentRouteRedirectDbStructure(): void
-    {
-        unset($_POST['route']);
-        unset($_GET['route']);
-        $_GET['db'] = 'testDB';
-        $this->assertSame('/database/structure', Routing::getCurrentRoute());
-    }
-
-    /**
-     * Test for Routing::getCurrentRoute
-     */
-    public function testGetCurrentRouteRedirectSql(): void
-    {
-        $_GET['db'] = 'testDB';
-        $_GET['table'] = 'tableTest';
-        $this->assertSame('/sql', Routing::getCurrentRoute());
+        // Without a cache file.
+        $GLOBALS['cfg']['environment'] = 'development';
+        $dispatcher = Routing::getDispatcher();
+        $this->assertInstanceOf(Dispatcher::class, $dispatcher);
+        $this->assertSame($expected, $dispatcher->dispatch('GET', '/'));
     }
 }

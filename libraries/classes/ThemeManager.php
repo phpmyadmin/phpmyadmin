@@ -27,16 +27,15 @@ class ThemeManager
     /**
      * ThemeManager instance
      *
-     * @static
      * @var ThemeManager
      */
     private static $instance;
 
     /** @var string file-system path to the theme folder */
-    private $themesPath;
+    private string $themesPath;
 
     /** @var string path to theme folder as an URL */
-    private $themesPathUrl;
+    private string $themesPathUrl;
 
     /** @var array<string,Theme> available themes */
     public $themes = [];
@@ -56,9 +55,7 @@ class ThemeManager
     /** @var string */
     public $themeDefault;
 
-    /**
-     * @const string The name of the fallback theme
-     */
+    /** @const string The name of the fallback theme */
     public const FALLBACK_THEME = 'pmahomme';
 
     public function __construct()
@@ -81,9 +78,9 @@ class ThemeManager
             trigger_error(
                 sprintf(
                     __('Default theme %s not found!'),
-                    htmlspecialchars($GLOBALS['cfg']['ThemeDefault'])
+                    htmlspecialchars($GLOBALS['cfg']['ThemeDefault']),
                 ),
-                E_USER_ERROR
+                E_USER_ERROR,
             );
             $configThemeExists = false;
         } else {
@@ -134,15 +131,15 @@ class ThemeManager
      *
      * @param string|null $theme theme name
      */
-    public function setActiveTheme(?string $theme): bool
+    public function setActiveTheme(string|null $theme): bool
     {
         if (! $this->checkTheme($theme)) {
             trigger_error(
                 sprintf(
                     __('Theme %s not found!'),
-                    htmlspecialchars((string) $theme)
+                    htmlspecialchars((string) $theme),
                 ),
-                E_USER_ERROR
+                E_USER_ERROR,
             );
 
             return false;
@@ -162,7 +159,7 @@ class ThemeManager
      *
      * @return string cookie name
      */
-    public function getThemeCookieName()
+    public function getThemeCookieName(): string
     {
         // Allow different theme per server
         if (isset($GLOBALS['server']) && $this->perServer) {
@@ -177,13 +174,13 @@ class ThemeManager
      *
      * @return string|false theme name from cookie or false
      */
-    public function getThemeCookie()
+    public function getThemeCookie(): string|false
     {
-        global $config;
+        $GLOBALS['config'] ??= null;
 
         $name = $this->getThemeCookieName();
-        if ($config->issetCookie($name)) {
-            return $config->getCookie($name);
+        if ($GLOBALS['config']->issetCookie($name)) {
+            return $GLOBALS['config']->getCookie($name);
         }
 
         return false;
@@ -200,7 +197,7 @@ class ThemeManager
         $GLOBALS['config']->setCookie(
             $this->getThemeCookieName(),
             $themeId,
-            $this->themeDefault
+            $this->themeDefault,
         );
         // force a change of a dummy session variable to avoid problems
         // with the caching of phpmyadmin.css.php
@@ -246,7 +243,7 @@ class ThemeManager
      *
      * @param string|null $theme name fo theme to check for
      */
-    public function checkTheme(?string $theme): bool
+    public function checkTheme(string|null $theme): bool
     {
         return array_key_exists($theme ?? '', $this->themes);
     }
@@ -266,7 +263,7 @@ class ThemeManager
         return $themes;
     }
 
-    public static function initializeTheme(): ?Theme
+    public static function initializeTheme(): Theme|null
     {
         $themeManager = self::getInstance();
 
@@ -278,7 +275,7 @@ class ThemeManager
      */
     public static function getThemesFsDir(): string
     {
-        return ROOT_PATH . 'themes' . DIRECTORY_SEPARATOR;
+        return ROOT_PATH . 'public/themes' . DIRECTORY_SEPARATOR;
     }
 
     /**

@@ -33,29 +33,12 @@ class ErrorReport
      */
     private $submissionUrl = 'https://reports.phpmyadmin.net/incidents/create';
 
-    /** @var HttpRequest */
-    private $httpRequest;
-
-    /** @var Relation */
-    private $relation;
-
-    /** @var Template */
-    public $template;
-
-    /** @var Config */
-    private $config;
-
-    /**
-     * @param HttpRequest $httpRequest HttpRequest instance
-     * @param Relation    $relation    Relation instance
-     * @param Template    $template    Template instance
-     */
-    public function __construct(HttpRequest $httpRequest, Relation $relation, Template $template, Config $config)
-    {
-        $this->httpRequest = $httpRequest;
-        $this->relation = $relation;
-        $this->template = $template;
-        $this->config = $config;
+    public function __construct(
+        private HttpRequest $httpRequest,
+        private Relation $relation,
+        public Template $template,
+        private Config $config,
+    ) {
     }
 
     /**
@@ -224,14 +207,14 @@ class ErrorReport
      *
      * @return string|bool|null the reply of the server
      */
-    public function send(array $report)
+    public function send(array $report): string|bool|null
     {
         return $this->httpRequest->create(
             $this->submissionUrl,
             'POST',
             false,
             json_encode($report),
-            'Content-Type: application/json'
+            'Content-Type: application/json',
         );
     }
 

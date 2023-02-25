@@ -76,8 +76,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         $response->setHttpResponseCode(401);
 
         /* HTML header */
-        $footer = $response->getFooter();
-        $footer->setMinimal();
+        $response->setMinimalFooter();
         $header = $response->getHeader();
         $header->setTitle(__('Access denied!'));
         $header->disableMenuAndConsole();
@@ -89,8 +88,8 @@ class AuthenticationHttp extends AuthenticationPlugin
         $response->addHTML('<h3>');
         $response->addHTML(
             Message::error(
-                __('Wrong username/password. Access denied.')
-            )->getDisplay()
+                __('Wrong username/password. Access denied.'),
+            )->getDisplay(),
         );
         $response->addHTML('</h3>');
 
@@ -181,12 +180,12 @@ class AuthenticationHttp extends AuthenticationPlugin
 
         // User logged out -> ensure the new username is not the same
         $old_usr = $_REQUEST['old_usr'] ?? '';
-        if (! empty($old_usr) && (isset($this->user) && hash_equals($old_usr, $this->user))) {
+        if (! empty($old_usr) && hash_equals($old_usr, $this->user)) {
             $this->user = '';
         }
 
         // Returns whether we get authentication settings or not
-        return ! empty($this->user);
+        return $this->user !== '';
     }
 
     /**
@@ -196,23 +195,28 @@ class AuthenticationHttp extends AuthenticationPlugin
      */
     public function showFailure($failure): void
     {
-        global $dbi;
-
         parent::showFailure($failure);
-        $error = $dbi->getError();
+
+        $error = $GLOBALS['dbi']->getError();
         if ($error && $GLOBALS['errno'] != 1045) {
-            Core::fatalError($error);
-        } else {
-            $this->authForm();
+            echo $this->template->render('error/generic', [
+                'lang' => $GLOBALS['lang'] ?? 'en',
+                'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+                'error_message' => $error,
+            ]);
+
+            if (! defined('TESTSUITE')) {
+                exit;
+            }
         }
+
+        $this->authForm();
     }
 
     /**
      * Returns URL for login form.
-     *
-     * @return string
      */
-    public function getLoginFormURL()
+    public function getLoginFormURL(): string
     {
         return './index.php?route=/&old_usr=' . $this->user;
     }

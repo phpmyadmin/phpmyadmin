@@ -8,10 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Properties\Options;
 
 use Countable;
-
-use function array_diff;
-use function count;
-use function in_array;
+use SplObjectStorage;
 
 /**
  * Parents group property items and provides methods to manage groups of
@@ -24,9 +21,16 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
     /**
      * Holds a group of properties (PhpMyAdmin\Properties\Options\OptionsPropertyItem instances)
      *
-     * @var array
+     * @var SplObjectStorage<OptionsPropertyItem, null>
      */
-    private $properties;
+    private SplObjectStorage $properties;
+
+    public function __construct(string|null $name = null, string|null $text = null)
+    {
+        parent::__construct($name, $text);
+
+        $this->properties = new SplObjectStorage();
+    }
 
     /**
      * Adds a property to the group of properties
@@ -34,13 +38,9 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
      * @param OptionsPropertyItem $property the property instance to be added
      *                                      to the group
      */
-    public function addProperty($property): void
+    public function addProperty(OptionsPropertyItem $property): void
     {
-        if (! $this->getProperties() == null && in_array($property, $this->getProperties(), true)) {
-            return;
-        }
-
-        $this->properties[] = $property;
+        $this->properties->attach($property);
     }
 
     /**
@@ -49,22 +49,17 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
      * @param OptionsPropertyItem $property the property instance to be removed
      *                                      from the group
      */
-    public function removeProperty($property): void
+    public function removeProperty(OptionsPropertyItem $property): void
     {
-        $this->properties = array_diff(
-            $this->getProperties(),
-            [$property]
-        );
+        $this->properties->detach($property);
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
     /**
      * Gets the instance of the class
-     *
-     * @return OptionsPropertyGroup
      */
-    public function getGroup()
+    public function getGroup(): static
     {
         return $this;
     }
@@ -72,9 +67,9 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
     /**
      * Gets the group of properties
      *
-     * @return array
+     * @return SplObjectStorage<OptionsPropertyItem, null>
      */
-    public function getProperties()
+    public function getProperties(): SplObjectStorage
     {
         return $this->properties;
     }
@@ -84,11 +79,7 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
      */
     public function getNrOfProperties(): int
     {
-        if ($this->properties === null) {
-            return 0;
-        }
-
-        return count($this->properties);
+        return $this->properties->count();
     }
 
     /**

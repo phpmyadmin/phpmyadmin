@@ -22,9 +22,7 @@ use function __;
  */
 class ExportExcel extends ExportCsv
 {
-    /**
-     * @psalm-return non-empty-lowercase-string
-     */
+    /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
         return 'excel';
@@ -48,29 +46,29 @@ class ExportExcel extends ExportCsv
         // create primary items and add them to the group
         $leaf = new TextPropertyItem(
             'null',
-            __('Replace NULL with:')
+            __('Replace NULL with:'),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new BoolPropertyItem(
             'removeCRLF',
-            __('Remove carriage return/line feed characters within columns')
+            __('Remove carriage return/line feed characters within columns'),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new BoolPropertyItem(
             'columns',
-            __('Put columns names in the first row')
+            __('Put columns names in the first row'),
         );
         $generalOptions->addProperty($leaf);
         $leaf = new SelectPropertyItem(
             'edition',
-            __('Excel edition:')
+            __('Excel edition:'),
         );
         $leaf->setValues(
             [
                 'win' => 'Windows',
                 'mac_excel2003' => 'Excel 2003 / Macintosh',
                 'mac_excel2008' => 'Excel 2008 / Macintosh',
-            ]
+            ],
         );
         $generalOptions->addProperty($leaf);
         $leaf = new HiddenPropertyItem('structure_or_data');

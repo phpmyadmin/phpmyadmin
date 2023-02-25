@@ -30,7 +30,7 @@ final class FixPoTwigCommand extends Command
         $this->setDescription('Fixes POT file for Twig templates');
         $this->setHelp(
             'The <info>%command.name%</info> command fixes the Twig file name and line number in the'
-            . ' POT file to match the Twig template and not the compiled Twig file.'
+            . ' POT file to match the Twig template and not the compiled Twig file.',
         );
     }
 
@@ -67,7 +67,7 @@ final class FixPoTwigCommand extends Command
 
                 return $replace[0] . ':0';
             },
-            $pot
+            $pot,
         );
         if ($pot === null) {
             return Command::FAILURE;

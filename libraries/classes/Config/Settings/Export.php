@@ -469,9 +469,10 @@ final class Export
      */
     public $yaml_structure_or_data;
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @var bool */
+    public $remove_definer_from_definitions;
+
+    /** @param array<int|string, mixed> $export */
     public function __construct(array $export = [])
     {
         $this->format = $this->setFormat($export);
@@ -582,6 +583,7 @@ final class Export
         $this->xml_export_views = $this->setXmlExportViews($export);
         $this->xml_export_contents = $this->setXmlExportContents($export);
         $this->yaml_structure_or_data = $this->setYamlStructureOrData($export);
+        $this->remove_definer_from_definitions = $this->setRemoveDefinerClause($export);
     }
 
     /**
@@ -641,9 +643,7 @@ final class Export
         return $export['compression'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setLockTables(array $export): bool
     {
         if (! isset($export['lock_tables'])) {
@@ -653,9 +653,7 @@ final class Export
         return (bool) $export['lock_tables'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setAsSeparateFiles(array $export): bool
     {
         if (! isset($export['as_separate_files'])) {
@@ -665,9 +663,7 @@ final class Export
         return (bool) $export['as_separate_files'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setAsFile(array $export): bool
     {
         if (! isset($export['asfile'])) {
@@ -677,9 +673,7 @@ final class Export
         return (bool) $export['asfile'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setCharset(array $export): string
     {
         if (! isset($export['charset'])) {
@@ -689,9 +683,7 @@ final class Export
         return (string) $export['charset'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setOnServer(array $export): bool
     {
         if (! isset($export['onserver'])) {
@@ -701,9 +693,7 @@ final class Export
         return (bool) $export['onserver'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setOnServerOverwrite(array $export): bool
     {
         if (! isset($export['onserver_overwrite'])) {
@@ -713,9 +703,7 @@ final class Export
         return (bool) $export['onserver_overwrite'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setQuickExportOnServer(array $export): bool
     {
         if (! isset($export['quick_export_onserver'])) {
@@ -725,9 +713,7 @@ final class Export
         return (bool) $export['quick_export_onserver'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setQuickExportOnServerOverwrite(array $export): bool
     {
         if (! isset($export['quick_export_onserver_overwrite'])) {
@@ -737,9 +723,7 @@ final class Export
         return (bool) $export['quick_export_onserver_overwrite'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setRememberFileTemplate(array $export): bool
     {
         if (! isset($export['remember_file_template'])) {
@@ -749,9 +733,7 @@ final class Export
         return (bool) $export['remember_file_template'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setFileTemplateTable(array $export): string
     {
         if (! isset($export['file_template_table'])) {
@@ -761,9 +743,7 @@ final class Export
         return (string) $export['file_template_table'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setFileTemplateDatabase(array $export): string
     {
         if (! isset($export['file_template_database'])) {
@@ -773,9 +753,7 @@ final class Export
         return (string) $export['file_template_database'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setFileTemplateServer(array $export): string
     {
         if (! isset($export['file_template_server'])) {
@@ -818,9 +796,7 @@ final class Export
         return $codegenFormat === 1 ? 1 : 0;
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setOdsColumns(array $export): bool
     {
         if (! isset($export['ods_columns'])) {
@@ -830,9 +806,7 @@ final class Export
         return (bool) $export['ods_columns'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setOdsNull(array $export): string
     {
         if (! isset($export['ods_null'])) {
@@ -859,9 +833,7 @@ final class Export
         return $export['odt_structure_or_data'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setOdtColumns(array $export): bool
     {
         if (! isset($export['odt_columns'])) {
@@ -871,9 +843,7 @@ final class Export
         return (bool) $export['odt_columns'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setOdtRelation(array $export): bool
     {
         if (! isset($export['odt_relation'])) {
@@ -883,9 +853,7 @@ final class Export
         return (bool) $export['odt_relation'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setOdtComments(array $export): bool
     {
         if (! isset($export['odt_comments'])) {
@@ -895,9 +863,7 @@ final class Export
         return (bool) $export['odt_comments'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setOdtMime(array $export): bool
     {
         if (! isset($export['odt_mime'])) {
@@ -907,9 +873,7 @@ final class Export
         return (bool) $export['odt_mime'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setOdtNull(array $export): string
     {
         if (! isset($export['odt_null'])) {
@@ -936,9 +900,7 @@ final class Export
         return $export['htmlword_structure_or_data'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setHtmlwordColumns(array $export): bool
     {
         if (! isset($export['htmlword_columns'])) {
@@ -948,9 +910,7 @@ final class Export
         return (bool) $export['htmlword_columns'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setHtmlwordNull(array $export): string
     {
         if (! isset($export['htmlword_null'])) {
@@ -977,9 +937,7 @@ final class Export
         return $export['texytext_structure_or_data'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setTexytextColumns(array $export): bool
     {
         if (! isset($export['texytext_columns'])) {
@@ -989,9 +947,7 @@ final class Export
         return (bool) $export['texytext_columns'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setTexytextNull(array $export): string
     {
         if (! isset($export['texytext_null'])) {
@@ -1001,13 +957,11 @@ final class Export
         return (string) $export['texytext_null'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setCsvColumns(array $export): bool
     {
         if (! isset($export['csv_columns'])) {
-            return false;
+            return true;
         }
 
         return (bool) $export['csv_columns'];
@@ -1030,9 +984,7 @@ final class Export
         return $export['csv_structure_or_data'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setCsvNull(array $export): string
     {
         if (! isset($export['csv_null'])) {
@@ -1042,9 +994,7 @@ final class Export
         return (string) $export['csv_null'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setCsvSeparator(array $export): string
     {
         if (! isset($export['csv_separator'])) {
@@ -1054,9 +1004,7 @@ final class Export
         return (string) $export['csv_separator'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setCsvEnclosed(array $export): string
     {
         if (! isset($export['csv_enclosed'])) {
@@ -1066,9 +1014,7 @@ final class Export
         return (string) $export['csv_enclosed'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setCsvEscaped(array $export): string
     {
         if (! isset($export['csv_escaped'])) {
@@ -1078,9 +1024,7 @@ final class Export
         return (string) $export['csv_escaped'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setCsvTerminated(array $export): string
     {
         if (! isset($export['csv_terminated'])) {
@@ -1090,9 +1034,7 @@ final class Export
         return (string) $export['csv_terminated'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setCsvRemoveCRLF(array $export): bool
     {
         if (! isset($export['csv_removeCRLF'])) {
@@ -1102,9 +1044,7 @@ final class Export
         return (bool) $export['csv_removeCRLF'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setExcelColumns(array $export): bool
     {
         if (! isset($export['excel_columns'])) {
@@ -1114,9 +1054,7 @@ final class Export
         return (bool) $export['excel_columns'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setExcelNull(array $export): string
     {
         if (! isset($export['excel_null'])) {
@@ -1143,9 +1081,7 @@ final class Export
         return $export['excel_edition'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setExcelRemoveCRLF(array $export): bool
     {
         if (! isset($export['excel_removeCRLF'])) {
@@ -1189,9 +1125,7 @@ final class Export
         return $export['latex_structure_or_data'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setLatexColumns(array $export): bool
     {
         if (! isset($export['latex_columns'])) {
@@ -1201,9 +1135,7 @@ final class Export
         return (bool) $export['latex_columns'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setLatexRelation(array $export): bool
     {
         if (! isset($export['latex_relation'])) {
@@ -1213,9 +1145,7 @@ final class Export
         return (bool) $export['latex_relation'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setLatexComments(array $export): bool
     {
         if (! isset($export['latex_comments'])) {
@@ -1225,9 +1155,7 @@ final class Export
         return (bool) $export['latex_comments'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setLatexMime(array $export): bool
     {
         if (! isset($export['latex_mime'])) {
@@ -1237,9 +1165,7 @@ final class Export
         return (bool) $export['latex_mime'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setLatexNull(array $export): string
     {
         if (! isset($export['latex_null'])) {
@@ -1249,9 +1175,7 @@ final class Export
         return (string) $export['latex_null'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setLatexCaption(array $export): bool
     {
         if (! isset($export['latex_caption'])) {
@@ -1261,9 +1185,7 @@ final class Export
         return (bool) $export['latex_caption'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setLatexStructureCaption(array $export): string
     {
         if (! isset($export['latex_structure_caption'])) {
@@ -1273,9 +1195,7 @@ final class Export
         return (string) $export['latex_structure_caption'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setLatexStructureContinuedCaption(array $export): string
     {
         if (! isset($export['latex_structure_continued_caption'])) {
@@ -1285,9 +1205,7 @@ final class Export
         return (string) $export['latex_structure_continued_caption'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setLatexDataCaption(array $export): string
     {
         if (! isset($export['latex_data_caption'])) {
@@ -1297,9 +1215,7 @@ final class Export
         return (string) $export['latex_data_caption'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setLatexDataContinuedCaption(array $export): string
     {
         if (! isset($export['latex_data_continued_caption'])) {
@@ -1309,9 +1225,7 @@ final class Export
         return (string) $export['latex_data_continued_caption'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setLatexDataLabel(array $export): string
     {
         if (! isset($export['latex_data_label'])) {
@@ -1321,9 +1235,7 @@ final class Export
         return (string) $export['latex_data_label'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setLatexStructureLabel(array $export): string
     {
         if (! isset($export['latex_structure_label'])) {
@@ -1350,9 +1262,7 @@ final class Export
         return $export['mediawiki_structure_or_data'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setMediawikiCaption(array $export): bool
     {
         if (! isset($export['mediawiki_caption'])) {
@@ -1362,9 +1272,7 @@ final class Export
         return (bool) $export['mediawiki_caption'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setMediawikiHeaders(array $export): bool
     {
         if (! isset($export['mediawiki_headers'])) {
@@ -1442,9 +1350,7 @@ final class Export
         return $export['json_structure_or_data'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setJsonPrettyPrint(array $export): bool
     {
         if (! isset($export['json_pretty_print'])) {
@@ -1454,9 +1360,7 @@ final class Export
         return (bool) $export['json_pretty_print'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setJsonUnicode(array $export): bool
     {
         if (! isset($export['json_unicode'])) {
@@ -1508,9 +1412,7 @@ final class Export
         return $export['sql_compatibility'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setSqlIncludeComments(array $export): bool
     {
         if (! isset($export['sql_include_comments'])) {
@@ -1520,9 +1422,7 @@ final class Export
         return (bool) $export['sql_include_comments'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setSqlDisableFk(array $export): bool
     {
         if (! isset($export['sql_disable_fk'])) {
@@ -1532,9 +1432,7 @@ final class Export
         return (bool) $export['sql_disable_fk'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setSqlViewsAsTables(array $export): bool
     {
         if (! isset($export['sql_views_as_tables'])) {
@@ -1544,9 +1442,7 @@ final class Export
         return (bool) $export['sql_views_as_tables'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setSqlMetadata(array $export): bool
     {
         if (! isset($export['sql_metadata'])) {
@@ -1556,9 +1452,7 @@ final class Export
         return (bool) $export['sql_metadata'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setSqlUseTransaction(array $export): bool
     {
         if (! isset($export['sql_use_transaction'])) {
@@ -1568,9 +1462,7 @@ final class Export
         return (bool) $export['sql_use_transaction'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setSqlCreateDatabase(array $export): bool
     {
         if (! isset($export['sql_create_database'])) {
@@ -1580,9 +1472,7 @@ final class Export
         return (bool) $export['sql_create_database'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setSqlDropDatabase(array $export): bool
     {
         if (! isset($export['sql_drop_database'])) {
@@ -1592,9 +1482,7 @@ final class Export
         return (bool) $export['sql_drop_database'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setSqlDropTable(array $export): bool
     {
         if (! isset($export['sql_drop_table'])) {
@@ -1604,9 +1492,7 @@ final class Export
         return (bool) $export['sql_drop_table'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setSqlIfNotExists(array $export): bool
     {
         if (! isset($export['sql_if_not_exists'])) {
@@ -1616,9 +1502,7 @@ final class Export
         return (bool) $export['sql_if_not_exists'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setSqlViewCurrentUser(array $export): bool
     {
         if (! isset($export['sql_view_current_user'])) {
@@ -1628,9 +1512,7 @@ final class Export
         return (bool) $export['sql_view_current_user'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setSqlOrReplaceView(array $export): bool
     {
         if (! isset($export['sql_or_replace_view'])) {
@@ -1640,9 +1522,7 @@ final class Export
         return (bool) $export['sql_or_replace_view'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setSqlProcedureFunction(array $export): bool
     {
         if (! isset($export['sql_procedure_function'])) {
@@ -1652,9 +1532,7 @@ final class Export
         return (bool) $export['sql_procedure_function'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setSqlCreateTable(array $export): bool
     {
         if (! isset($export['sql_create_table'])) {
@@ -1664,9 +1542,7 @@ final class Export
         return (bool) $export['sql_create_table'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setSqlCreateView(array $export): bool
     {
         if (! isset($export['sql_create_view'])) {
@@ -1676,9 +1552,7 @@ final class Export
         return (bool) $export['sql_create_view'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setSqlCreateTrigger(array $export): bool
     {
         if (! isset($export['sql_create_trigger'])) {
@@ -1688,9 +1562,7 @@ final class Export
         return (bool) $export['sql_create_trigger'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setSqlAutoIncrement(array $export): bool
     {
         if (! isset($export['sql_auto_increment'])) {
@@ -1700,9 +1572,7 @@ final class Export
         return (bool) $export['sql_auto_increment'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setSqlBackquotes(array $export): bool
     {
         if (! isset($export['sql_backquotes'])) {
@@ -1712,9 +1582,7 @@ final class Export
         return (bool) $export['sql_backquotes'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setSqlDates(array $export): bool
     {
         if (! isset($export['sql_dates'])) {
@@ -1724,9 +1592,7 @@ final class Export
         return (bool) $export['sql_dates'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setSqlRelation(array $export): bool
     {
         if (! isset($export['sql_relation'])) {
@@ -1736,9 +1602,7 @@ final class Export
         return (bool) $export['sql_relation'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setSqlTruncate(array $export): bool
     {
         if (! isset($export['sql_truncate'])) {
@@ -1748,9 +1612,7 @@ final class Export
         return (bool) $export['sql_truncate'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setSqlDelayed(array $export): bool
     {
         if (! isset($export['sql_delayed'])) {
@@ -1760,9 +1622,7 @@ final class Export
         return (bool) $export['sql_delayed'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setSqlIgnore(array $export): bool
     {
         if (! isset($export['sql_ignore'])) {
@@ -1772,9 +1632,7 @@ final class Export
         return (bool) $export['sql_ignore'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setSqlUtcTime(array $export): bool
     {
         if (! isset($export['sql_utc_time'])) {
@@ -1784,9 +1642,7 @@ final class Export
         return (bool) $export['sql_utc_time'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setSqlHexForBinary(array $export): bool
     {
         if (! isset($export['sql_hex_for_binary'])) {
@@ -1826,9 +1682,7 @@ final class Export
         return $maxQuerySize >= 0 ? $maxQuerySize : 50000;
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setSqlMime(array $export): bool
     {
         if (! isset($export['sql_mime'])) {
@@ -1838,9 +1692,7 @@ final class Export
         return (bool) $export['sql_mime'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setSqlHeaderComment(array $export): string
     {
         if (! isset($export['sql_header_comment'])) {
@@ -1867,9 +1719,7 @@ final class Export
         return $export['sql_insert_syntax'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setPdfReportTitle(array $export): string
     {
         if (! isset($export['pdf_report_title'])) {
@@ -1896,9 +1746,7 @@ final class Export
         return $export['xml_structure_or_data'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setXmlExportStruc(array $export): bool
     {
         if (! isset($export['xml_export_struc'])) {
@@ -1908,9 +1756,7 @@ final class Export
         return (bool) $export['xml_export_struc'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setXmlExportEvents(array $export): bool
     {
         if (! isset($export['xml_export_events'])) {
@@ -1920,9 +1766,7 @@ final class Export
         return (bool) $export['xml_export_events'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setXmlExportFunctions(array $export): bool
     {
         if (! isset($export['xml_export_functions'])) {
@@ -1932,9 +1776,7 @@ final class Export
         return (bool) $export['xml_export_functions'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setXmlExportProcedures(array $export): bool
     {
         if (! isset($export['xml_export_procedures'])) {
@@ -1944,9 +1786,7 @@ final class Export
         return (bool) $export['xml_export_procedures'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setXmlExportTables(array $export): bool
     {
         if (! isset($export['xml_export_tables'])) {
@@ -1956,9 +1796,7 @@ final class Export
         return (bool) $export['xml_export_tables'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setXmlExportTriggers(array $export): bool
     {
         if (! isset($export['xml_export_triggers'])) {
@@ -1968,9 +1806,7 @@ final class Export
         return (bool) $export['xml_export_triggers'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setXmlExportViews(array $export): bool
     {
         if (! isset($export['xml_export_views'])) {
@@ -1980,9 +1816,7 @@ final class Export
         return (bool) $export['xml_export_views'];
     }
 
-    /**
-     * @param array<int|string, mixed> $export
-     */
+    /** @param array<int|string, mixed> $export */
     private function setXmlExportContents(array $export): bool
     {
         if (! isset($export['xml_export_contents'])) {
@@ -2007,5 +1841,15 @@ final class Export
         }
 
         return $export['yaml_structure_or_data'];
+    }
+
+    /** @param array<int|string, mixed> $export */
+    private function setRemoveDefinerClause(array $export): bool
+    {
+        if (! isset($export['remove_definer_from_definitions'])) {
+            return false;
+        }
+
+        return (bool) $export['remove_definer_from_definitions'];
     }
 }

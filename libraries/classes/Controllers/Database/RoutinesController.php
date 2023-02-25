@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -21,29 +23,21 @@ use function strlen;
  */
 class RoutinesController extends AbstractController
 {
-    /** @var CheckUserPrivileges */
-    private $checkUserPrivileges;
-
-    /** @var DatabaseInterface */
-    private $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
-        CheckUserPrivileges $checkUserPrivileges,
-        DatabaseInterface $dbi
+        private CheckUserPrivileges $checkUserPrivileges,
+        private DatabaseInterface $dbi,
+        private Routines $routines,
     ) {
-        parent::__construct($response, $template, $db);
-        $this->checkUserPrivileges = $checkUserPrivileges;
-        $this->dbi = $dbi;
+        parent::__construct($response, $template);
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $db, $table, $tables, $num_tables, $total_num_tables, $sub_part;
-        global $tooltip_truename, $tooltip_aliasname, $pos;
-        global $errors, $errorUrl, $urlParams, $cfg;
+        $GLOBALS['errors'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
+        $GLOBALS['urlParams'] ??= null;
 
         $this->addScriptFiles(['database/routines.js']);
 
@@ -55,70 +49,58 @@ class RoutinesController extends AbstractController
             /**
              * Displays the header and tabs
              */
-            if (! empty($table) && in_array($table, $this->dbi->getTables($db))) {
-                Util::checkParameters(['db', 'table']);
+            if (! empty($GLOBALS['table']) && in_array($GLOBALS['table'], $this->dbi->getTables($GLOBALS['db']))) {
+                $this->checkParameters(['db', 'table']);
 
-                $urlParams = ['db' => $db, 'table' => $table];
-                $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-                $errorUrl .= Url::getCommon($urlParams, '&');
+                $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+                $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+                $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
 
-                DbTableExists::check();
+                DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
             } else {
-                $table = '';
+                $GLOBALS['table'] = '';
 
-                Util::checkParameters(['db']);
+                $this->checkParameters(['db']);
 
-                $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-                $errorUrl .= Url::getCommon(['db' => $db], '&');
+                $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+                $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
                 if (! $this->hasDatabase()) {
                     return;
                 }
-
-                [
-                    $tables,
-                    $num_tables,
-                    $total_num_tables,
-                    $sub_part,,,
-                    $tooltip_truename,
-                    $tooltip_aliasname,
-                    $pos,
-                ] = Util::getDbInfo($db, $sub_part ?? '');
             }
-        } elseif (strlen($db) > 0) {
-            $this->dbi->selectDb($db);
+        } elseif (strlen($GLOBALS['db']) > 0) {
+            $this->dbi->selectDb($GLOBALS['db']);
         }
 
         /**
          * Keep a list of errors that occurred while
          * processing an 'Add' or 'Edit' operation.
          */
-        $errors = [];
+        $GLOBALS['errors'] = [];
 
-        $routines = new Routines($this->dbi, $this->template, $this->response);
-
-        $routines->handleEditor();
-        $routines->handleExecute();
-        $routines->export();
+        $this->routines->handleEditor();
+        $this->routines->handleExecute();
+        $this->routines->export();
 
         if (! isset($type) || ! in_array($type, ['FUNCTION', 'PROCEDURE'])) {
             $type = null;
         }
 
-        $items = $this->dbi->getRoutines($db, $type);
+        $items = Routines::getDetails($this->dbi, $GLOBALS['db'], $type);
         $isAjax = $this->response->isAjax() && empty($_REQUEST['ajax_page_request']);
 
         $rows = '';
         foreach ($items as $item) {
-            $rows .= $routines->getRow($item, $isAjax ? 'ajaxInsert hide' : '');
+            $rows .= $this->routines->getRow($item, $isAjax ? 'ajaxInsert hide' : '');
         }
 
         $this->render('database/routines/index', [
-            'db' => $db,
-            'table' => $table,
+            'db' => $GLOBALS['db'],
+            'table' => $GLOBALS['table'],
             'items' => $items,
             'rows' => $rows,
-            'has_privilege' => Util::currentUserHasPrivilege('CREATE ROUTINE', $db, $table),
+            'has_privilege' => Util::currentUserHasPrivilege('CREATE ROUTINE', $GLOBALS['db'], $GLOBALS['table']),
         ]);
     }
 }

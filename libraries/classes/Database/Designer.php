@@ -26,24 +26,11 @@ use function str_contains;
  */
 class Designer
 {
-    /** @var DatabaseInterface */
-    private $dbi;
-
-    /** @var Relation */
-    private $relation;
-
     /** @var Template */
     public $template;
 
-    /**
-     * @param DatabaseInterface $dbi      DatabaseInterface object
-     * @param Relation          $relation Relation instance
-     * @param Template          $template Template instance
-     */
-    public function __construct(DatabaseInterface $dbi, Relation $relation, Template $template)
+    public function __construct(private DatabaseInterface $dbi, private Relation $relation, Template $template)
     {
-        $this->dbi = $dbi;
-        $this->relation = $relation;
         $this->template = $template;
     }
 
@@ -55,7 +42,7 @@ class Designer
      *
      * @return string html content
      */
-    public function getHtmlForEditOrDeletePages($db, $operation)
+    public function getHtmlForEditOrDeletePages($db, $operation): string
     {
         $relationParameters = $this->relation->getRelationParameters();
 
@@ -74,7 +61,7 @@ class Designer
      *
      * @return string html content
      */
-    public function getHtmlForPageSaveAs($db)
+    public function getHtmlForPageSaveAs($db): string
     {
         $relationParameters = $this->relation->getRelationParameters();
 
@@ -92,7 +79,7 @@ class Designer
      *
      * @return array array of schema page id and names
      */
-    private function getPageIdsAndNames($db)
+    private function getPageIdsAndNames($db): array
     {
         $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
         if ($pdfFeature === null) {
@@ -123,17 +110,15 @@ class Designer
      *
      * @param string $db   database name
      * @param int    $page the page to be exported
-     *
-     * @return string
      */
-    public function getHtmlForSchemaExport($db, $page)
+    public function getHtmlForSchemaExport($db, $page): string
     {
         $export_list = Plugins::getSchema();
 
         /* Fail if we didn't find any schema plugin */
-        if (empty($export_list)) {
+        if ($export_list === []) {
             return Message::error(
-                __('Could not load schema plugins, please check your installation!')
+                __('Could not load schema plugins, please check your installation!'),
             )->getDisplay();
         }
 
@@ -156,10 +141,8 @@ class Designer
      *
      * @return array stored values
      */
-    private function getSideMenuParamsArray()
+    private function getSideMenuParamsArray(): array
     {
-        global $dbi;
-
         $params = [];
 
         $databaseDesignerSettingsFeature = $this->relation->getRelationParameters()->databaseDesignerSettingsFeature;
@@ -168,7 +151,7 @@ class Designer
                 . Util::backquote($databaseDesignerSettingsFeature->database) . '.'
                 . Util::backquote($databaseDesignerSettingsFeature->designerSettings)
                 . ' WHERE ' . Util::backquote('username') . ' = "'
-                . $dbi->escapeString($GLOBALS['cfg']['Server']['user'])
+                . $this->dbi->escapeString($GLOBALS['cfg']['Server']['user'])
                 . '";';
 
             $result = $this->dbi->fetchSingleRow($query);
@@ -183,9 +166,9 @@ class Designer
     /**
      * Returns class names for various buttons on Designer Side Menu
      *
-     * @return array class names of various buttons
+     * @return array<string, string> class names of various buttons
      */
-    public function returnClassNamesFromMenuButtons()
+    public function returnClassNamesFromMenuButtons(): array
     {
         $classes_array = [];
         $params_array = $this->getSideMenuParamsArray();
@@ -249,9 +232,9 @@ class Designer
         $display_page,
         array $tab_column,
         array $tables_all_keys,
-        array $tables_pk_or_unique_keys
-    ) {
-        global $text_dir;
+        array $tables_pk_or_unique_keys,
+    ): string {
+        $GLOBALS['text_dir'] ??= null;
 
         $columns_type = [];
         foreach ($designerTables as $designerTable) {
@@ -288,7 +271,7 @@ class Designer
 
         return $this->template->render('database/designer/database_tables', [
             'db' => $GLOBALS['db'],
-            'text_dir' => $text_dir,
+            'text_dir' => $GLOBALS['text_dir'],
             'get_db' => $db,
             'has_query' => isset($_REQUEST['query']),
             'tab_pos' => $tab_pos,
@@ -312,9 +295,9 @@ class Designer
      * @param DesignerTable[] $scriptDisplayField   displayed tables in designer with their display fields
      * @param int             $displayPage          page number of the selected page
      * @param bool            $visualBuilderMode    whether this is visual query builder
-     * @param string          $selectedPage         name of the selected page
+     * @param string|null     $selectedPage         name of the selected page
      * @param array           $paramsArray          array with class name for various buttons on side menu
-     * @param array|null      $tabPos               table positions
+     * @param array           $tablePositions       table positions
      * @param array           $tabColumn            table column info
      * @param array           $tablesAllKeys        all indices
      * @param array           $tablesPkOrUniqueKeys unique or primary indices
@@ -328,16 +311,16 @@ class Designer
         array $scriptTables,
         array $scriptContr,
         array $scriptDisplayField,
-        $displayPage,
+        int $displayPage,
         bool $visualBuilderMode,
-        $selectedPage,
+        string|null $selectedPage,
         array $paramsArray,
-        ?array $tabPos,
+        array $tablePositions,
         array $tabColumn,
         array $tablesAllKeys,
-        array $tablesPkOrUniqueKeys
+        array $tablesPkOrUniqueKeys,
     ): string {
-        global $text_dir;
+        $GLOBALS['text_dir'] ??= null;
 
         $relationParameters = $this->relation->getRelationParameters();
         $columnsType = [];
@@ -388,20 +371,20 @@ class Designer
         $designerConfig->scriptContr = $scriptContr;
         $designerConfig->server = $GLOBALS['server'];
         $designerConfig->scriptDisplayField = $displayedFields;
-        $designerConfig->displayPage = (int) $displayPage;
+        $designerConfig->displayPage = $displayPage;
         $designerConfig->tablesEnabled = $relationParameters->pdfFeature !== null;
 
         return $this->template->render('database/designer/main', [
             'db' => $db,
-            'text_dir' => $text_dir,
+            'text_dir' => $GLOBALS['text_dir'],
             'get_db' => $getDb,
             'designer_config' => json_encode($designerConfig),
-            'display_page' => (int) $displayPage,
+            'display_page' => $displayPage,
             'has_query' => $visualBuilderMode,
             'visual_builder' => $visualBuilderMode,
             'selected_page' => $selectedPage,
             'params_array' => $paramsArray,
-            'tab_pos' => $tabPos,
+            'tab_pos' => $tablePositions,
             'tab_column' => $tabColumn,
             'tables_all_keys' => $tablesAllKeys,
             'tables_pk_or_unique_keys' => $tablesPkOrUniqueKeys,

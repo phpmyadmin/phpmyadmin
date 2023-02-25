@@ -8,9 +8,7 @@ use PhpMyAdmin\Tests\Selenium\TestBase;
 
 use function sleep;
 
-/**
- * @coversNothing
- */
+/** @coversNothing */
 class CreateTest extends TestBase
 {
     protected function setUp(): void
@@ -72,7 +70,7 @@ class CreateTest extends TestBase
         foreach ($column_dropdown_details as $selector => $value) {
             $this->waitForElement(
                 'xpath',
-                '//select[@id=\'' . $selector . '\']//option[contains(text(), \'' . $value . '\')]'
+                '//select[@id=\'' . $selector . '\']//option[contains(text(), \'' . $value . '\')]',
             )->click();
         }
 
@@ -110,77 +108,77 @@ class CreateTest extends TestBase
         // make assertions for first row
         $this->assertStringContainsString(
             'test_id',
-            $this->byCssSelector('label[for=checkbox_row_1]')->getText()
+            $this->byCssSelector('label[for=checkbox_row_1]')->getText(),
         );
 
         $this->assertEquals(
             'int(14)',
-            $this->getCellByTableId('tablestructure', 1, 4)
+            $this->getCellByTableId('tablestructure', 1, 4),
         );
 
         $this->assertEquals(
             'UNSIGNED',
-            $this->getCellByTableId('tablestructure', 1, 6)
+            $this->getCellByTableId('tablestructure', 1, 6),
         );
 
         $this->assertEquals(
             'No',
-            $this->getCellByTableId('tablestructure', 1, 7)
+            $this->getCellByTableId('tablestructure', 1, 7),
         );
 
         $this->assertEquals(
             'None',
-            $this->getCellByTableId('tablestructure', 1, 8)
+            $this->getCellByTableId('tablestructure', 1, 8),
         );
         $this->assertEquals(
             'comm1',
-            $this->getCellByTableId('tablestructure', 1, 9)
+            $this->getCellByTableId('tablestructure', 1, 9),
         );
 
         $this->assertEquals(
             'AUTO_INCREMENT',
-            $this->getCellByTableId('tablestructure', 1, 10)
+            $this->getCellByTableId('tablestructure', 1, 10),
         );
 
         $this->assertFalse(
             $this->isElementPresent(
                 'cssSelector',
                 'table#tablestructure tbody tr:nth-child(1) "
-                . "ul.table-structure-actions li.primary a'
-            )
+                . "ul.table-structure-actions li.primary a',
+            ),
         );
 
         // make assertions for second row
         $this->assertStringContainsString(
             'test_column',
-            $this->byCssSelector('label[for=checkbox_row_2]')->getText()
+            $this->byCssSelector('label[for=checkbox_row_2]')->getText(),
         );
 
         $this->assertEquals(
             'varchar(10)',
-            $this->getCellByTableId('tablestructure', 2, 4)
+            $this->getCellByTableId('tablestructure', 2, 4),
         );
 
         $this->assertEquals(
             'utf8mb4_general_ci',
-            $this->getCellByTableId('tablestructure', 2, 5)
+            $this->getCellByTableId('tablestructure', 2, 5),
         );
 
         $this->assertEquals(
             'Yes',
-            $this->getCellByTableId('tablestructure', 2, 7)
+            $this->getCellByTableId('tablestructure', 2, 7),
         );
 
         $this->assertEquals(
             'def',
-            $this->getCellByTableId('tablestructure', 2, 8)
+            $this->getCellByTableId('tablestructure', 2, 8),
         );
 
         $this->assertFalse(
             $this->isElementPresent(
                 'cssSelector',
-                'css=ul.table-structure-actions:nth-child(2) li.primary a'
-            )
+                'css=ul.table-structure-actions:nth-child(2) li.primary a',
+            ),
         );
     }
 }

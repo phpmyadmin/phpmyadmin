@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests\Partitioning;
 use PhpMyAdmin\Partitioning\SubPartition;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \PhpMyAdmin\Partitioning\SubPartition
- */
+/** @covers \PhpMyAdmin\Partitioning\SubPartition */
 class SubPartitionTest extends TestCase
 {
     public function testSubPartition(): void

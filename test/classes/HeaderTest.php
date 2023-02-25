@@ -24,8 +24,12 @@ class HeaderTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setTheme();
+
         parent::setLanguage();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
 
         $GLOBALS['server'] = 0;
         $GLOBALS['message'] = 'phpmyadminmessage';
@@ -33,7 +37,9 @@ class HeaderTest extends AbstractTestCase
         $GLOBALS['server'] = 'server';
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = '';
+
         parent::setGlobalConfig();
+
         $GLOBALS['cfg']['Servers'] = [];
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
@@ -51,7 +57,7 @@ class HeaderTest extends AbstractTestCase
         $header->disable();
         $this->assertEquals(
             '',
-            $header->getDisplay()
+            $header->getDisplay(),
         );
     }
 
@@ -64,7 +70,7 @@ class HeaderTest extends AbstractTestCase
         $header = new Header();
         $this->assertStringContainsString(
             '<title>phpMyAdmin</title>',
-            $header->getDisplay()
+            $header->getDisplay(),
         );
     }
 
@@ -77,7 +83,7 @@ class HeaderTest extends AbstractTestCase
         $header->setBodyId('PMA_header_id');
         $this->assertStringContainsString(
             'PMA_header_id',
-            $header->getDisplay()
+            $header->getDisplay(),
         );
     }
 
@@ -89,19 +95,16 @@ class HeaderTest extends AbstractTestCase
         $header = new Header();
         $this->assertArrayHasKey(
             'common_query',
-            $header->getJsParams()
+            $header->getJsParams(),
         );
     }
 
-    /**
-     * Test for Get JsParamsCode
-     */
     public function testGetJsParamsCode(): void
     {
         $header = new Header();
         $this->assertStringContainsString(
-            'CommonParams.setAll',
-            $header->getJsParamsCode()
+            'window.Navigation.update(window.CommonParams.setAll(',
+            $header->getJsParamsCode(),
         );
     }
 
@@ -113,7 +116,7 @@ class HeaderTest extends AbstractTestCase
         $header = new Header();
         $this->assertStringContainsString(
             'phpmyadminmessage',
-            $header->getMessage()
+            $header->getMessage(),
         );
     }
 
@@ -123,7 +126,6 @@ class HeaderTest extends AbstractTestCase
     public function testDisableWarnings(): void
     {
         $reflection = new ReflectionProperty(Header::class, 'warningsEnabled');
-        $reflection->setAccessible(true);
 
         $header = new Header();
         $header->disableWarnings();
@@ -143,21 +145,19 @@ class HeaderTest extends AbstractTestCase
         string $privateKey,
         string $publicKey,
         string $captchaCsp,
-        ?string $expectedFrameOptions,
+        string|null $expectedFrameOptions,
         string $expectedCsp,
         string $expectedXCsp,
-        string $expectedWebKitCsp
+        string $expectedWebKitCsp,
     ): void {
-        global $cfg;
-
         $header = new Header();
         $date = (string) gmdate(DATE_RFC1123);
 
-        $cfg['AllowThirdPartyFraming'] = $frameOptions;
-        $cfg['CSPAllow'] = $cspAllow;
-        $cfg['CaptchaLoginPrivateKey'] = $privateKey;
-        $cfg['CaptchaLoginPublicKey'] = $publicKey;
-        $cfg['CaptchaCsp'] = $captchaCsp;
+        $GLOBALS['cfg']['AllowThirdPartyFraming'] = $frameOptions;
+        $GLOBALS['cfg']['CSPAllow'] = $cspAllow;
+        $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = $privateKey;
+        $GLOBALS['cfg']['CaptchaLoginPublicKey'] = $publicKey;
+        $GLOBALS['cfg']['CaptchaCsp'] = $captchaCsp;
 
         $expected = [
             'X-Frame-Options' => $expectedFrameOptions,
@@ -183,7 +183,7 @@ class HeaderTest extends AbstractTestCase
         $this->assertSame($expected, $headers);
     }
 
-    public function providerForTestGetHttpHeaders(): array
+    public static function providerForTestGetHttpHeaders(): array
     {
         return [
             [
@@ -244,5 +244,28 @@ class HeaderTest extends AbstractTestCase
                     . 'img-src \'self\' data:  *.tile.openstreetmap.org captcha.tld csp.tld ;object-src \'none\';',
             ],
         ];
+    }
+
+    public function testAddedDefaultScripts(): void
+    {
+        $header = new Header();
+        $scripts = $header->getScripts();
+        $expected = [
+            ['name' => 'runtime.js', 'fire' => 0],
+            ['name' => 'vendor/jquery/jquery.min.js', 'fire' => 0],
+            ['name' => 'vendor/jquery/jquery-migrate.min.js', 'fire' => 0],
+            ['name' => 'vendor/sprintf.js', 'fire' => 0],
+            ['name' => 'vendor/jquery/jquery-ui.min.js', 'fire' => 0],
+            ['name' => 'name-conflict-fixes.js', 'fire' => 0],
+            ['name' => 'vendor/bootstrap/bootstrap.bundle.min.js', 'fire' => 0],
+            ['name' => 'vendor/js.cookie.min.js', 'fire' => 0],
+            ['name' => 'vendor/jquery/jquery.validate.min.js', 'fire' => 0],
+            ['name' => 'vendor/jquery/jquery-ui-timepicker-addon.js', 'fire' => 0],
+            ['name' => 'index.php', 'fire' => 0],
+            ['name' => 'shared.js', 'fire' => 0],
+            ['name' => 'menu_resizer.js', 'fire' => 1],
+            ['name' => 'main.js', 'fire' => 1],
+        ];
+        $this->assertSame($expected, $scripts->getFiles());
     }
 }

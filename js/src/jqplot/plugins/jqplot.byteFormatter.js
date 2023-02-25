@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /**
  * jqplot formatter for byte values
  *
@@ -9,13 +11,13 @@
         var val = value;
         var i = index;
         var units = [
-            Messages.strB,
-            Messages.strKiB,
-            Messages.strMiB,
-            Messages.strGiB,
-            Messages.strTiB,
-            Messages.strPiB,
-            Messages.strEiB
+            window.Messages.strB,
+            window.Messages.strKiB,
+            window.Messages.strMiB,
+            window.Messages.strGiB,
+            window.Messages.strTiB,
+            window.Messages.strPiB,
+            window.Messages.strEiB
         ];
         while (val >= 1024 && i <= 6) {
             val /= 1024;
@@ -49,4 +51,4 @@
             }
         };
     };
-}(jQuery));
+}($));

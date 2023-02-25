@@ -10,9 +10,7 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Database\Events
- */
+/** @covers \PhpMyAdmin\Database\Events */
 class EventsTest extends AbstractTestCase
 {
     /** @var Events */
@@ -24,9 +22,14 @@ class EventsTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setGlobalConfig();
+
         parent::setLanguage();
+
         parent::setTheme();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
@@ -37,7 +40,7 @@ class EventsTest extends AbstractTestCase
         $this->events = new Events(
             $GLOBALS['dbi'],
             new Template(),
-            ResponseRenderer::getInstance()
+            ResponseRenderer::getInstance(),
         );
     }
 
@@ -68,7 +71,7 @@ class EventsTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetDataFromRequest(): array
+    public static function providerGetDataFromRequest(): array
     {
         return [
             [
@@ -153,7 +156,7 @@ class EventsTest extends AbstractTestCase
         ResponseRenderer::getInstance()->setAjax(false);
         $this->assertStringContainsString(
             $matcher,
-            $this->events->getEditorForm('add', 'change', $data)
+            $this->events->getEditorForm('add', 'change', $data),
         );
     }
 
@@ -162,7 +165,7 @@ class EventsTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetEditorFormAdd(): array
+    public static function providerGetEditorFormAdd(): array
     {
         $data = [
             'item_name' => '',
@@ -208,7 +211,7 @@ class EventsTest extends AbstractTestCase
         ResponseRenderer::getInstance()->setAjax(false);
         $this->assertStringContainsString(
             $matcher,
-            $this->events->getEditorForm('edit', 'change', $data)
+            $this->events->getEditorForm('edit', 'change', $data),
         );
     }
 
@@ -217,7 +220,7 @@ class EventsTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetEditorFormEdit(): array
+    public static function providerGetEditorFormEdit(): array
     {
         $data = [
             'item_name' => 'foo',
@@ -263,7 +266,7 @@ class EventsTest extends AbstractTestCase
         ResponseRenderer::getInstance()->setAjax(true);
         $this->assertStringContainsString(
             $matcher,
-            $this->events->getEditorForm('edit', 'change', $data)
+            $this->events->getEditorForm('edit', 'change', $data),
         );
         ResponseRenderer::getInstance()->setAjax(false);
     }
@@ -273,7 +276,7 @@ class EventsTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetEditorFormAjax(): array
+    public static function providerGetEditorFormAjax(): array
     {
         $data = [
             'item_name' => '',
@@ -310,9 +313,7 @@ class EventsTest extends AbstractTestCase
      */
     public function testGetQueryFromRequest(array $request, string $query, int $num_err): void
     {
-        global $errors;
-
-        $errors = [];
+        $GLOBALS['errors'] = [];
 
         unset($_POST);
         $_POST = $request;
@@ -326,7 +327,7 @@ class EventsTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
 
         $this->assertEquals($query, $this->events->getQueryFromRequest());
-        $this->assertCount($num_err, $errors);
+        $this->assertCount($num_err, $GLOBALS['errors']);
     }
 
     /**
@@ -334,7 +335,7 @@ class EventsTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetQueryFromRequest(): array
+    public static function providerGetQueryFromRequest(): array
     {
         return [
             // Testing success

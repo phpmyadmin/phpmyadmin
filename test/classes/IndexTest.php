@@ -6,9 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Index;
 
-/**
- * @covers \PhpMyAdmin\Index
- */
+/** @covers \PhpMyAdmin\Index */
 class IndexTest extends AbstractTestCase
 {
     /** @var array */
@@ -20,6 +18,7 @@ class IndexTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->params['Schema'] = 'PMA_Schema';
         $this->params['Table'] = 'PMA_Table';
         $this->params['Key_name'] = 'PMA_Key_name';
@@ -32,23 +31,23 @@ class IndexTest extends AbstractTestCase
         //test add columns
         $column1 = [
             'Column_name' => 'column1',
-            'Seq_in_index' => 'index1',
+            'Seq_in_index' => '1',
             'Collation' => 'Collation1',
-            'Cardinality' => 'Cardinality1',
+            'Cardinality' => '1',
             'Null' => 'null1',
         ];
         $column2 = [
             'Column_name' => 'column2',
-            'Seq_in_index' => 'index2',
+            'Seq_in_index' => '2',
             'Collation' => 'Collation2',
-            'Cardinality' => 'Cardinality2',
+            'Cardinality' => '2',
             'Null' => 'null2',
         ];
         $column3 = [
             'Column_name' => 'column3',
-            'Seq_in_index' => 'index3',
+            'Seq_in_index' => '3',
             'Collation' => 'Collation3',
-            'Cardinality' => 'Cardinality3',
+            'Cardinality' => '3',
             'Null' => 'null3',
         ];
         $this->params['columns'][] = $column1;
@@ -64,35 +63,35 @@ class IndexTest extends AbstractTestCase
         $index = new Index($this->params);
         $this->assertEquals(
             'PMA_Index_comment',
-            $index->getComment()
+            $index->getComment(),
         );
         $this->assertEquals(
             'PMA_Comment',
-            $index->getRemarks()
+            $index->getRemarks(),
         );
         $this->assertEquals(
             'PMA_Index_choice',
-            $index->getChoice()
+            $index->getChoice(),
         );
         $this->assertEquals(
             'PMA_Packed',
-            $index->getPacked()
+            $index->getPacked(),
         );
         $this->assertEquals(
             'PMA_Non_unique',
-            $index->getNonUnique()
+            $index->getNonUnique(),
         );
         $this->assertStringContainsString(
             'PMA_Comment',
-            $index->getComments()
+            $index->getComments(),
         );
         $this->assertStringContainsString(
             'PMA_Index_comment',
-            $index->getComments()
+            $index->getComments(),
         );
         $this->assertEquals(
             'PMA_Index_choice',
-            $index->getChoice()
+            $index->getChoice(),
         );
     }
 
@@ -104,11 +103,11 @@ class IndexTest extends AbstractTestCase
         $this->params['Non_unique'] = '0';
         $index = new Index($this->params);
         $this->assertTrue(
-            $index->isUnique()
+            $index->isUnique(),
         );
         $this->assertEquals(
             'Yes',
-            $index->isUnique(true)
+            $index->isUnique(true),
         );
     }
 
@@ -124,7 +123,7 @@ class IndexTest extends AbstractTestCase
         $this->assertTrue($index->hasColumn('column3'));
         $this->assertEquals(
             3,
-            $index->getColumnCount()
+            $index->getColumnCount(),
         );
     }
 
@@ -137,7 +136,7 @@ class IndexTest extends AbstractTestCase
         $index->setName('PMA_name');
         $this->assertEquals(
             'PMA_name',
-            $index->getName()
+            $index->getName(),
         );
     }
 
@@ -150,19 +149,19 @@ class IndexTest extends AbstractTestCase
         $index_column = $index_columns['column1'];
         $this->assertEquals(
             'column1',
-            $index_column->getName()
+            $index_column->getName(),
         );
         $this->assertEquals(
-            'index1',
-            $index_column->getSeqInIndex()
+            '1',
+            $index_column->getSeqInIndex(),
         );
         $this->assertEquals(
             'Collation1',
-            $index_column->getCollation()
+            $index_column->getCollation(),
         );
         $this->assertEquals(
-            'Cardinality1',
-            $index_column->getCardinality()
+            '1',
+            $index_column->getCardinality(),
         );
     }
 }

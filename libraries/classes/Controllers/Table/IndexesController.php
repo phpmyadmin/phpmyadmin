@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Indexes;
@@ -24,37 +26,28 @@ use function min;
  */
 class IndexesController extends AbstractController
 {
-    /** @var DatabaseInterface */
-    private $dbi;
-
-    /** @var Indexes */
-    private $indexes;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
-        string $table,
-        DatabaseInterface $dbi,
-        Indexes $indexes
+        private DatabaseInterface $dbi,
+        private Indexes $indexes,
     ) {
-        parent::__construct($response, $template, $db, $table);
-        $this->dbi = $dbi;
-        $this->indexes = $indexes;
+        parent::__construct($response, $template);
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $db, $table, $urlParams, $cfg, $errorUrl;
+        $GLOBALS['urlParams'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
 
         if (! isset($_POST['create_edit_table'])) {
-            Util::checkParameters(['db', 'table']);
+            $this->checkParameters(['db', 'table']);
 
-            $urlParams = ['db' => $db, 'table' => $table];
-            $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-            $errorUrl .= Url::getCommon($urlParams, '&');
+            $GLOBALS['urlParams'] = ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']];
+            $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
+            $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
 
-            DbTableExists::check();
+            DbTableExists::check($GLOBALS['db'], $GLOBALS['table']);
         }
 
         if (isset($_POST['index'])) {
@@ -62,14 +55,14 @@ class IndexesController extends AbstractController
                 // coming already from form
                 $index = new Index($_POST['index']);
             } else {
-                $index = $this->dbi->getTable($this->db, $this->table)->getIndex($_POST['index']);
+                $index = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table'])->getIndex($_POST['index']);
             }
         } else {
             $index = new Index();
         }
 
         if (isset($_POST['do_save_data'])) {
-            $this->indexes->doSaveData($index, false, $this->db, $this->table);
+            $this->indexes->doSaveData($index, false, $GLOBALS['db'], $GLOBALS['table']);
 
             return;
         }
@@ -115,19 +108,18 @@ class IndexesController extends AbstractController
         if (isset($_POST['create_edit_table'])) {
             $fields = json_decode($_POST['columns'], true);
             $index_params = [
-                'Non_unique' => $_POST['index']['Index_choice'] === 'UNIQUE'
-                    ? '0' : '1',
+                'Non_unique' => $_POST['index']['Index_choice'] !== 'UNIQUE',
             ];
             $index->set($index_params);
             $add_fields = count($fields);
         } else {
-            $fields = $this->dbi->getTable($this->db, $this->table)
+            $fields = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table'])
                 ->getNameAndTypeOfTheColumns();
         }
 
         $form_params = [
-            'db' => $this->db,
-            'table' => $this->table,
+            'db' => $GLOBALS['db'],
+            'table' => $GLOBALS['table'],
         ];
 
         if (isset($_POST['create_index'])) {
@@ -138,8 +130,6 @@ class IndexesController extends AbstractController
             $form_params['old_index'] = $_POST['index'];
         }
 
-        $this->addScriptFiles(['indexes.js']);
-
         $this->render('table/index_form', [
             'fields' => $fields,
             'index' => $index,
@@ -147,6 +137,7 @@ class IndexesController extends AbstractController
             'add_fields' => $add_fields,
             'create_edit_table' => isset($_POST['create_edit_table']),
             'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
+            'is_from_nav' => isset($_POST['is_from_nav']),
         ]);
     }
 }

@@ -37,9 +37,6 @@ class TwoFactorPlugin
      */
     public static $showSubmit = true;
 
-    /** @var TwoFactor */
-    protected $twofactor;
-
     /** @var bool */
     protected $provided = false;
 
@@ -49,33 +46,25 @@ class TwoFactorPlugin
     /** @var Template */
     public $template;
 
-    /**
-     * Creates object
-     *
-     * @param TwoFactor $twofactor TwoFactor instance
-     */
-    public function __construct(TwoFactor $twofactor)
+    public function __construct(protected TwoFactor $twofactor)
     {
-        $this->twofactor = $twofactor;
         $this->template = new Template();
     }
 
     /**
      * Returns authentication error message
-     *
-     * @return string
      */
-    public function getError()
+    public function getError(): string
     {
         if ($this->provided) {
             if (! empty($this->message)) {
                 return Message::rawError(
-                    sprintf(__('Two-factor authentication failed: %s'), $this->message)
+                    sprintf(__('Two-factor authentication failed: %s'), $this->message),
                 )->getDisplay();
             }
 
             return Message::rawError(
-                __('Two-factor authentication failed.')
+                __('Two-factor authentication failed.'),
             )->getDisplay();
         }
 
@@ -95,7 +84,7 @@ class TwoFactorPlugin
      *
      * @return string HTML code
      */
-    public function render()
+    public function render(): string
     {
         return '';
     }
@@ -105,7 +94,7 @@ class TwoFactorPlugin
      *
      * @return string HTML code
      */
-    public function setup()
+    public function setup(): string
     {
         return '';
     }
@@ -120,20 +109,16 @@ class TwoFactorPlugin
 
     /**
      * Get user visible name
-     *
-     * @return string
      */
-    public static function getName()
+    public static function getName(): string
     {
         return __('No Two-Factor Authentication');
     }
 
     /**
      * Get user visible description
-     *
-     * @return string
      */
-    public static function getDescription()
+    public static function getDescription(): string
     {
         return __('Login using password only.');
     }
@@ -144,14 +129,12 @@ class TwoFactorPlugin
      * Either hostname or hostname with scheme.
      *
      * @param bool $return_url Whether to generate URL
-     *
-     * @return string
      */
-    public function getAppId($return_url)
+    public function getAppId($return_url): string
     {
-        global $config;
+        $GLOBALS['config'] ??= null;
 
-        $url = $config->get('PmaAbsoluteUri');
+        $url = $GLOBALS['config']->get('PmaAbsoluteUri');
         $parsed = [];
         if (! empty($url)) {
             $parsedUrl = parse_url($url);
@@ -162,7 +145,7 @@ class TwoFactorPlugin
         }
 
         if (! isset($parsed['scheme']) || strlen($parsed['scheme']) === 0) {
-            $parsed['scheme'] = $config->isHttps() ? 'https' : 'http';
+            $parsed['scheme'] = $GLOBALS['config']->isHttps() ? 'https' : 'http';
         }
 
         if (! isset($parsed['host']) || strlen($parsed['host']) === 0) {

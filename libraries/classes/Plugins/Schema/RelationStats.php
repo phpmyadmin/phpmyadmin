@@ -22,9 +22,6 @@ use function min;
  */
 abstract class RelationStats
 {
-    /** @var object */
-    protected $diagram;
-
     /** @var mixed */
     public $xSrc;
 
@@ -54,21 +51,17 @@ abstract class RelationStats
      * @param string $foreign_field The relation field in the foreign table
      */
     public function __construct(
-        $diagram,
+        protected $diagram,
         $master_table,
         $master_field,
         $foreign_table,
-        $foreign_field
+        $foreign_field,
     ) {
-        $this->diagram = $diagram;
-
         $src_pos = $this->getXy($master_table, $master_field);
         $dest_pos = $this->getXy($foreign_table, $foreign_field);
-        /*
-         * [0] is x-left
-        * [1] is x-right
-        * [2] is y
-        */
+        // [0] is x-left
+        // [1] is x-right
+        // [2] is y
         $src_left = $src_pos[0] - $this->wTick;
         $src_right = $src_pos[1] + $this->wTick;
         $dest_left = $dest_pos[0] - $this->wTick;
@@ -114,7 +107,7 @@ abstract class RelationStats
      *
      * @return array Arrows coordinates
      */
-    private function getXy($table, $column)
+    private function getXy($table, $column): array
     {
         $pos = array_search($column, $table->fields);
 

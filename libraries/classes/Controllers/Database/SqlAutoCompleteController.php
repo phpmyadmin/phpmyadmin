@@ -4,42 +4,35 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
-
-use function json_encode;
 
 /**
  * Table/Column autocomplete in SQL editors.
  */
 class SqlAutoCompleteController extends AbstractController
 {
-    /** @var DatabaseInterface */
-    private $dbi;
-
-    public function __construct(ResponseRenderer $response, Template $template, string $db, DatabaseInterface $dbi)
+    public function __construct(ResponseRenderer $response, Template $template, private DatabaseInterface $dbi)
     {
-        parent::__construct($response, $template, $db);
-        $this->dbi = $dbi;
+        parent::__construct($response, $template);
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $cfg, $db, $sql_autocomplete;
-
-        $sql_autocomplete = true;
-        if ($cfg['EnableAutocompleteForTablesAndColumns']) {
-            $db = $_POST['db'] ?? $db;
-            $sql_autocomplete = [];
+        $sqlAutocomplete = [];
+        if ($GLOBALS['cfg']['EnableAutocompleteForTablesAndColumns']) {
+            $db = $request->getParam('db', $GLOBALS['db']);
             if ($db) {
                 $tableNames = $this->dbi->getTables($db);
                 foreach ($tableNames as $tableName) {
-                    $sql_autocomplete[$tableName] = $this->dbi->getColumns($db, $tableName);
+                    $sqlAutocomplete[$tableName] = $this->dbi->getColumns($db, $tableName);
                 }
             }
         }
 
-        $this->response->addJSON(['tables' => json_encode($sql_autocomplete)]);
+        $this->response->addJSON(['tables' => $sqlAutocomplete]);
     }
 }

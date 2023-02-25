@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Template;
@@ -21,28 +22,18 @@ use function preg_replace;
  */
 class PluginsController extends AbstractController
 {
-    /** @var Plugins */
-    private $plugins;
-
-    /** @var DatabaseInterface */
-    private $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        Plugins $plugins,
-        DatabaseInterface $dbi
+        private Plugins $plugins,
+        private DatabaseInterface $dbi,
     ) {
         parent::__construct($response, $template);
-        $this->plugins = $plugins;
-        $this->dbi = $dbi;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $errorUrl;
-
-        $errorUrl = Url::getFromRoute('/');
+        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
@@ -63,7 +54,7 @@ class PluginsController extends AbstractController
             $cleanTypes[$type] = preg_replace(
                 '/[^a-z]/',
                 '',
-                mb_strtolower($type)
+                mb_strtolower($type),
             );
         }
 

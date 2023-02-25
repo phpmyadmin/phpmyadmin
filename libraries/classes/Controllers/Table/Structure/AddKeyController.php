@@ -4,41 +4,32 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table\Structure;
 
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Sql\SqlController;
-use PhpMyAdmin\Controllers\Table\AbstractController;
 use PhpMyAdmin\Controllers\Table\StructureController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
 final class AddKeyController extends AbstractController
 {
-    /** @var SqlController */
-    private $sqlController;
-
-    /** @var StructureController */
-    private $structureController;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
-        string $table,
-        SqlController $sqlController,
-        StructureController $structureController
+        private SqlController $sqlController,
+        private StructureController $structureController,
     ) {
-        parent::__construct($response, $template, $db, $table);
-        $this->sqlController = $sqlController;
-        $this->structureController = $structureController;
+        parent::__construct($response, $template);
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $reload;
+        $GLOBALS['reload'] ??= null;
 
-        ($this->sqlController)();
+        ($this->sqlController)($request);
 
-        $reload = true;
+        $GLOBALS['reload'] = true;
 
-        ($this->structureController)();
+        ($this->structureController)($request);
     }
 }

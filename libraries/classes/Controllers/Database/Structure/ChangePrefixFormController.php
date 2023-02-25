@@ -4,18 +4,16 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database\Structure;
 
-use PhpMyAdmin\Controllers\Database\AbstractController;
+use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Http\ServerRequest;
 
 use function __;
 
 final class ChangePrefixFormController extends AbstractController
 {
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $db;
-
-        $selected = $_POST['selected_tbl'] ?? [];
-        $submitMult = $_POST['submit_mult'] ?? '';
+        $selected = $request->getParsedBodyParam('selected_tbl', []);
 
         if (empty($selected)) {
             $this->response->setRequestStatus(false);
@@ -25,11 +23,11 @@ final class ChangePrefixFormController extends AbstractController
         }
 
         $route = '/database/structure/replace-prefix';
-        if ($submitMult === 'copy_tbl_change_prefix') {
+        if ($request->getParsedBodyParam('submit_mult', '') === 'copy_tbl_change_prefix') {
             $route = '/database/structure/copy-table-with-prefix';
         }
 
-        $urlParams = ['db' => $db];
+        $urlParams = ['db' => $GLOBALS['db']];
         foreach ($selected as $selectedValue) {
             $urlParams['selected'][] = $selectedValue;
         }

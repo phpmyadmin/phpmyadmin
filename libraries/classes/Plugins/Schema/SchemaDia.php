@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema;
 
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema;
 use PhpMyAdmin\Plugins\SchemaPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -21,9 +22,7 @@ use function __;
  */
 class SchemaDia extends SchemaPlugin
 {
-    /**
-     * @psalm-return non-empty-lowercase-string
-     */
+    /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
         return 'dia';
@@ -51,19 +50,19 @@ class SchemaDia extends SchemaPlugin
 
         $leaf = new SelectPropertyItem(
             'orientation',
-            __('Orientation')
+            __('Orientation'),
         );
         $leaf->setValues(
             [
                 'L' => __('Landscape'),
                 'P' => __('Portrait'),
-            ]
+            ],
         );
         $specificOptions->addProperty($leaf);
 
         $leaf = new SelectPropertyItem(
             'paper',
-            __('Paper size')
+            __('Paper size'),
         );
         $leaf->setValues($this->getPaperSizeArray());
         $specificOptions->addProperty($leaf);
@@ -77,16 +76,16 @@ class SchemaDia extends SchemaPlugin
         return $schemaPluginProperties;
     }
 
-    /**
-     * Exports the schema into DIA format.
-     *
-     * @param string $db database name
-     */
-    public function exportSchema($db): bool
+    /** @return array{fileName: non-empty-string, mediaType: non-empty-string, fileData: string} */
+    public function getExportInfo(DatabaseName $db): array
     {
         $export = new DiaRelationSchema($db);
-        $export->showOutput();
+        $exportInfo = $export->getExportInfo();
 
-        return true;
+        return [
+            'fileName' => $exportInfo['fileName'],
+            'mediaType' => 'application/x-dia-diagram',
+            'fileData' => $exportInfo['fileData'],
+        ];
     }
 }

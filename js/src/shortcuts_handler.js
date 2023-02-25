@@ -1,3 +1,7 @@
+import $ from 'jquery';
+import { CommonParams } from './modules/common.js';
+import { Functions } from './modules/functions.js';
+
 /**
  * @fileoverview    Handle shortcuts in various pages
  * @name            Shortcuts handler
@@ -5,8 +9,6 @@
  * @requires    jQuery
  * @requires    jQueryUI
  */
-
-/* global Console */ // js/console.js
 
 /**
  * Register key events on load
@@ -23,6 +25,7 @@ $(function () {
     var keyH = 72;
     var keyC = 67;
     var keyBackSpace = 8;
+    var keySlash = 191;
     $(document).on('keyup', function (e) {
         // is a string but is also a boolean according to https://api.jquery.com/prop/
         if ($(e.target).prop('contenteditable') === 'true' || $(e.target).prop('contenteditable') === true) {
@@ -54,12 +57,12 @@ $(function () {
             return;
         }
         if (e.ctrlKey && e.altKey && e.keyCode === keyC) {
-            Console.toggle();
+            window.Console.toggle();
         }
 
         if (e.ctrlKey && e.keyCode === keyK) {
             e.preventDefault();
-            Console.toggle();
+            window.Console.toggle();
         }
 
         if (e.target.nodeName === 'INPUT' || e.target.nodeName === 'TEXTAREA' || e.target.nodeName === 'SELECT') {
@@ -72,7 +75,7 @@ $(function () {
             databaseOp = true;
         } else if (e.keyCode === keyK) {
             e.preventDefault();
-            Console.toggle();
+            window.Console.toggle();
         } else if (e.keyCode === keyS) {
             if (databaseOp === true) {
                 isTable = CommonParams.get('table');
@@ -111,6 +114,8 @@ $(function () {
             window.history.back();
         } else if (e.keyCode === keyH) {
             $('.ic_b_home').first().trigger('click');
+        } else if (e.keyCode === keySlash) {
+            Functions.searchTablesModal();
         }
     });
 });

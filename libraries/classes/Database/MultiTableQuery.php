@@ -27,10 +27,8 @@ class MultiTableQuery
 {
     /**
      * DatabaseInterface instance
-     *
-     * @var DatabaseInterface
      */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     /**
      * Database name
@@ -49,24 +47,22 @@ class MultiTableQuery
     /**
      * Table names
      *
-     * @var array
+     * @var array<int, string>
      */
-    private $tables;
+    private array $tables;
 
     /** @var Template */
     public $template;
 
     /**
-     * @param DatabaseInterface $dbi                DatabaseInterface instance
-     * @param Template          $template           Template instance
-     * @param string            $dbName             Database name
-     * @param int               $defaultNoOfColumns Default number of columns
+     * @param string $dbName             Database name
+     * @param int    $defaultNoOfColumns Default number of columns
      */
     public function __construct(
         DatabaseInterface $dbi,
         Template $template,
         $dbName,
-        $defaultNoOfColumns = 3
+        $defaultNoOfColumns = 3,
     ) {
         $this->dbi = $dbi;
         $this->db = $dbName;
@@ -82,13 +78,13 @@ class MultiTableQuery
      *
      * @return string Multi-Table query page HTML
      */
-    public function getFormHtml()
+    public function getFormHtml(): string
     {
         $tables = [];
         foreach ($this->tables as $table) {
             $tables[$table]['hash'] = md5($table);
             $tables[$table]['columns'] = array_keys(
-                $this->dbi->getColumns($this->db, $table)
+                $this->dbi->getColumns($this->db, $table),
             );
         }
 
@@ -107,24 +103,22 @@ class MultiTableQuery
      */
     public static function displayResults($sqlQuery, $db): string
     {
-        global $dbi;
-
         [, $db] = ParseAnalyze::sqlQuery($sqlQuery, $db);
 
         $goto = Url::getFromRoute('/database/multi-table-query');
 
-        $relation = new Relation($dbi);
+        $relation = new Relation($GLOBALS['dbi']);
         $sql = new Sql(
-            $dbi,
+            $GLOBALS['dbi'],
             $relation,
-            new RelationCleanup($dbi, $relation),
-            new Operations($dbi, $relation),
+            new RelationCleanup($GLOBALS['dbi'], $relation),
+            new Operations($GLOBALS['dbi'], $relation),
             new Transformations(),
-            new Template()
+            new Template(),
         );
 
         return $sql->executeQueryAndSendQueryResponse(
-            null, // analyzed_sql_results
+            null,
             false, // is_gotofile
             $db, // db
             null, // table
@@ -137,7 +131,7 @@ class MultiTableQuery
             null, // disp_query
             null, // disp_message
             $sqlQuery, // sql_query
-            null // complete_query
+            null, // complete_query
         );
     }
 }

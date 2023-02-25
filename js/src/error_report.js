@@ -1,5 +1,8 @@
-
-/* global TraceKit */ // js/vendor/tracekit.js
+import $ from 'jquery';
+import { AJAX } from './modules/ajax.js';
+import { CommonParams } from './modules/common.js';
+import { ajaxShowMessage } from './modules/ajax-message.js';
+import getImageTag from './modules/functions/getImageTag.js';
 
 /**
  * general function, usually for data manipulation pages
@@ -27,7 +30,7 @@ var ErrorReport = {
      */
     errorDataHandler: function (data, exception) {
         if (data.success !== true) {
-            Functions.ajaxShowMessage(data.error, false);
+            ajaxShowMessage(data.error, false);
             return;
         }
         if (data.report_setting === 'ask') {
@@ -41,9 +44,9 @@ var ErrorReport = {
             $.post('index.php?route=/error-report', postData, function (data) {
                 if (data.success === false) {
                     // in the case of an error, show the error message returned.
-                    Functions.ajaxShowMessage(data.error, false);
+                    ajaxShowMessage(data.error, false);
                 } else {
-                    Functions.ajaxShowMessage(data.message, false);
+                    ajaxShowMessage(data.message, false);
                 }
             });
         }
@@ -53,7 +56,7 @@ var ErrorReport = {
         if (JSON.stringify(ErrorReport.lastException) === JSON.stringify(exception)) {
             return;
         }
-        if (exception.name === null || typeof(exception.name) === 'undefined') {
+        if (exception.name === null || typeof (exception.name) === 'undefined') {
             exception.name = ErrorReport.extractExceptionName(exception);
         }
         ErrorReport.lastException = exception;
@@ -89,9 +92,9 @@ var ErrorReport = {
             });
             $.post('index.php?route=/error-report', postData, function (data) {
                 if (data.success === false) {
-                    Functions.ajaxShowMessage(data.error, false);
+                    ajaxShowMessage(data.error, false);
                 } else {
-                    Functions.ajaxShowMessage(data.message, 3000);
+                    ajaxShowMessage(data.message, 3000);
                 }
             });
             $('#errorReportModal').modal('hide');
@@ -129,21 +132,21 @@ var ErrorReport = {
         var $div = $(
             '<div class="alert alert-danger" role="alert" id="error_notification_' + key + '"></div>'
         ).append(
-            Functions.getImage('s_error') + Messages.strErrorOccurred
+            getImageTag('s_error') + window.Messages.strErrorOccurred
         );
 
         var $buttons = $('<div class="float-end"></div>');
-        var buttonHtml  = '<button class="btn btn-primary" id="show_error_report_' + key + '">';
-        buttonHtml += Messages.strShowReportDetails;
+        var buttonHtml = '<button class="btn btn-primary" id="show_error_report_' + key + '">';
+        buttonHtml += window.Messages.strShowReportDetails;
         buttonHtml += '</button>';
 
         var settingsUrl = 'index.php?route=/preferences/features&server=' + CommonParams.get('server');
         buttonHtml += '<a class="ajax" href="' + settingsUrl + '">';
-        buttonHtml += Functions.getImage('s_cog', Messages.strChangeReportSettings);
+        buttonHtml += getImageTag('s_cog', window.Messages.strChangeReportSettings);
         buttonHtml += '</a>';
 
         buttonHtml += '<a href="#" id="ignore_error_' + key + '" data-notification-id="' + key + '">';
-        buttonHtml += Functions.getImage('b_close', Messages.strIgnore);
+        buttonHtml += getImageTag('b_close', window.Messages.strIgnore);
         buttonHtml += '</a>';
 
         $buttons.html(buttonHtml);
@@ -176,7 +179,7 @@ var ErrorReport = {
      * @return {string}
      */
     extractExceptionName: function (exception) {
-        if (exception.message === null || typeof(exception.message) === 'undefined') {
+        if (exception.message === null || typeof (exception.message) === 'undefined') {
             return '';
         }
 
@@ -210,7 +213,7 @@ var ErrorReport = {
                 var stack = exception.stack[i];
                 if (stack.context && stack.context.length) {
                     for (var j = 0; j < stack.context.length; j++) {
-                        if (stack.context[j].length >  80) {
+                        if (stack.context[j].length > 80) {
                             stack.context[j] = stack.context[j].substring(-1, 75) + '//...';
                         }
                     }
@@ -241,18 +244,18 @@ var ErrorReport = {
      * @return {Function}
      */
     wrapFunction: function (func) {
-        if (!func.wrapped) {
+        if (! func.wrapped) {
             var newFunc = function () {
                 try {
                     return func.apply(this, arguments);
                 } catch (x) {
-                    TraceKit.report(x);
+                    window.TraceKit.report(x);
                 }
             };
             newFunc.wrapped = true;
             // Set guid of wrapped function same as original function, so it can be removed
             // See bug#4146 (problem with jquery draggable and sortable)
-            newFunc.guid = func.guid = func.guid || newFunc.guid || jQuery.guid++;
+            newFunc.guid = func.guid = func.guid || newFunc.guid || $.guid++;
             return newFunc;
         } else {
             return func;
@@ -279,7 +282,7 @@ var ErrorReport = {
         var oldOn = $.fn.on;
         $.fn.on = function () {
             for (var i = 1; i <= 3; i++) {
-                if (typeof(arguments[i]) === 'function') {
+                if (typeof (arguments[i]) === 'function') {
                     arguments[i] = ErrorReport.wrapFunction(arguments[i]);
                     break;
                 }
@@ -299,6 +302,6 @@ var ErrorReport = {
 };
 
 AJAX.registerOnload('error_report.js', function () {
-    TraceKit.report.subscribe(ErrorReport.errorHandler);
+    window.TraceKit.report.subscribe(ErrorReport.errorHandler);
     ErrorReport.setUpErrorReporting();
 });

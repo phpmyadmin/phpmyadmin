@@ -5,23 +5,13 @@
         "plugin:compat/recommended"
     ],
     "plugins": ["no-jquery"],
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module"
+    },
     "env": {
         "browser": true,
-        "es6": true,
-        "jquery": true
-    },
-    "globals": {
-        "AJAX": "readonly",
-        "bootstrap": "readonly",
-        "CodeMirror": "readonly",
-        "CommonActions": "readonly",
-        "CommonParams": "readonly",
-        "Cookies": "readonly",
-        "Functions": "readonly",
-        "Messages": "readonly",
-        "Navigation": "readonly",
-        "OpenLayers": "readonly",
-        "Sql": "readonly"
+        "es6": true
     },
     "rules": {
         "valid-jsdoc": ["error", {

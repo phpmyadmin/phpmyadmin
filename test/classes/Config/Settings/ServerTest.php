@@ -12,9 +12,7 @@ use function array_merge;
 
 // phpcs:disable Generic.Files.LineLength.TooLong
 
-/**
- * @covers \PhpMyAdmin\Config\Settings\Server
- */
+/** @covers \PhpMyAdmin\Config\Settings\Server */
 class ServerTest extends TestCase
 {
     /** @var array<string, array|bool|int|string|null> */
@@ -110,7 +108,7 @@ class ServerTest extends TestCase
      * @return mixed[][][][]
      * @psalm-return (array{0: string, 1: mixed, 2: mixed})[][][]
      */
-    public function providerForTestConstructor(): array
+    public static function providerForTestConstructor(): array
     {
         return [
             'null values' => [

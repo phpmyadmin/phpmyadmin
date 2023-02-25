@@ -9,9 +9,7 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Database\Triggers
- */
+/** @covers \PhpMyAdmin\Database\Triggers */
 class TriggersTest extends AbstractTestCase
 {
     /** @var Triggers */
@@ -23,9 +21,14 @@ class TriggersTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setGlobalConfig();
+
         parent::setLanguage();
+
         parent::setTheme();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['db'] = 'pma_test';
@@ -35,7 +38,7 @@ class TriggersTest extends AbstractTestCase
         $this->triggers = new Triggers(
             $GLOBALS['dbi'],
             new Template(),
-            ResponseRenderer::getInstance()
+            ResponseRenderer::getInstance(),
         );
     }
 
@@ -66,7 +69,7 @@ class TriggersTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetDataFromRequestEmpty(): array
+    public static function providerGetDataFromRequestEmpty(): array
     {
         return [
             [
@@ -125,7 +128,7 @@ class TriggersTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $this->assertStringContainsString(
             $matcher,
-            $this->triggers->getEditorForm('pma_test', 'table', 'add', $data)
+            $this->triggers->getEditorForm('pma_test', 'table', 'add', $data),
         );
     }
 
@@ -134,7 +137,7 @@ class TriggersTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetEditorFormAdd(): array
+    public static function providerGetEditorFormAdd(): array
     {
         $data = [
             'item_name' => '',
@@ -171,7 +174,7 @@ class TriggersTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $this->assertStringContainsString(
             $matcher,
-            $this->triggers->getEditorForm('pma_test', 'table', 'edit', $data)
+            $this->triggers->getEditorForm('pma_test', 'table', 'edit', $data),
         );
     }
 
@@ -180,7 +183,7 @@ class TriggersTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetEditorFormEdit(): array
+    public static function providerGetEditorFormEdit(): array
     {
         $data = [
             'item_name' => 'foo',
@@ -217,7 +220,7 @@ class TriggersTest extends AbstractTestCase
         ResponseRenderer::getInstance()->setAjax(true);
         $this->assertStringContainsString(
             $matcher,
-            $this->triggers->getEditorForm('pma_test', 'table', 'edit', $data)
+            $this->triggers->getEditorForm('pma_test', 'table', 'edit', $data),
         );
         ResponseRenderer::getInstance()->setAjax(false);
     }
@@ -227,7 +230,7 @@ class TriggersTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetEditorFormAjax(): array
+    public static function providerGetEditorFormAjax(): array
     {
         $data = [
             'item_name' => 'foo',
@@ -267,11 +270,9 @@ class TriggersTest extends AbstractTestCase
         string $table,
         string $definition,
         string $query,
-        int $num_err
+        int $num_err,
     ): void {
-        global $errors;
-
-        $errors = [];
+        $GLOBALS['errors'] = [];
 
         $_POST['item_definer'] = $definer;
         $_POST['item_name'] = $name;
@@ -282,7 +283,7 @@ class TriggersTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
 
         $this->assertEquals($query, $this->triggers->getQueryFromRequest());
-        $this->assertCount($num_err, $errors);
+        $this->assertCount($num_err, $GLOBALS['errors']);
     }
 
     /**
@@ -290,7 +291,7 @@ class TriggersTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetQueryFromRequest(): array
+    public static function providerGetQueryFromRequest(): array
     {
         return [
             [

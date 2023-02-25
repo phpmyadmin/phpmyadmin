@@ -7,14 +7,17 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Auth;
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Exceptions\SessionHandlerException;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Session;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\SessionCache;
@@ -63,7 +66,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function showLoginForm(): bool
     {
-        global $conn_error, $route;
+        $GLOBALS['conn_error'] ??= null;
 
         $response = ResponseRenderer::getInstance();
 
@@ -126,11 +129,11 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $errorMessages = '';
         // Show error message
-        if (! empty($conn_error)) {
-            $errorMessages = Message::rawError((string) $conn_error)->getDisplay();
+        if (! empty($GLOBALS['conn_error'])) {
+            $errorMessages = Message::rawError((string) $GLOBALS['conn_error'])->getDisplay();
         } elseif (isset($_GET['session_expired']) && intval($_GET['session_expired']) == 1) {
             $errorMessages = Message::rawError(
-                __('Your session has expired. Please log in again.')
+                __('Your session has expired. Please log in again.'),
             )->getDisplay();
         }
 
@@ -147,9 +150,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         $_form_params = [];
-        if (isset($route)) {
-            $_form_params['route'] = $route;
-        }
+        $_form_params['route'] = Common::getRequest()->getRoute();
 
         if (strlen($GLOBALS['db'])) {
             $_form_params['db'] = $GLOBALS['db'];
@@ -227,7 +228,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function readCredentials(): bool
     {
-        global $conn_error;
+        $GLOBALS['conn_error'] ??= null;
 
         // Initialization
         /**
@@ -249,7 +250,9 @@ class AuthenticationCookie extends AuthenticationPlugin
                 && ! empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
             ) {
                 if (empty($_POST[$GLOBALS['cfg']['CaptchaResponseParam']])) {
-                    $conn_error = __('Missing reCAPTCHA verification, maybe it has been blocked by adblock?');
+                    $GLOBALS['conn_error'] = __(
+                        'Missing reCAPTCHA verification, maybe it has been blocked by adblock?',
+                    );
 
                     return false;
                 }
@@ -259,24 +262,24 @@ class AuthenticationCookie extends AuthenticationPlugin
                 if (function_exists('curl_init')) {
                     $reCaptcha = new ReCaptcha\ReCaptcha(
                         $GLOBALS['cfg']['CaptchaLoginPrivateKey'],
-                        new ReCaptcha\RequestMethod\CurlPost(null, $captchaSiteVerifyURL)
+                        new ReCaptcha\RequestMethod\CurlPost(null, $captchaSiteVerifyURL),
                     );
                 } elseif (ini_get('allow_url_fopen')) {
                     $reCaptcha = new ReCaptcha\ReCaptcha(
                         $GLOBALS['cfg']['CaptchaLoginPrivateKey'],
-                        new ReCaptcha\RequestMethod\Post($captchaSiteVerifyURL)
+                        new ReCaptcha\RequestMethod\Post($captchaSiteVerifyURL),
                     );
                 } else {
                     $reCaptcha = new ReCaptcha\ReCaptcha(
                         $GLOBALS['cfg']['CaptchaLoginPrivateKey'],
-                        new ReCaptcha\RequestMethod\SocketPost(null, $captchaSiteVerifyURL)
+                        new ReCaptcha\RequestMethod\SocketPost(null, $captchaSiteVerifyURL),
                     );
                 }
 
                 // verify captcha status.
                 $resp = $reCaptcha->verify(
                     $_POST[$GLOBALS['cfg']['CaptchaResponseParam']],
-                    Core::getIp()
+                    Core::getIp(),
                 );
 
                 // Check if the captcha entered is valid, if not stop the login.
@@ -284,9 +287,9 @@ class AuthenticationCookie extends AuthenticationPlugin
                     $codes = $resp->getErrorCodes();
 
                     if (in_array('invalid-json', $codes)) {
-                        $conn_error = __('Failed to connect to the reCAPTCHA service!');
+                        $GLOBALS['conn_error'] = __('Failed to connect to the reCAPTCHA service!');
                     } else {
-                        $conn_error = __('Entered captcha is wrong, try again!');
+                        $GLOBALS['conn_error'] = __('Entered captcha is wrong, try again!');
                     }
 
                     return false;
@@ -298,7 +301,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
             $password = $_POST['pma_password'] ?? '';
             if (strlen($password) >= 1000) {
-                $conn_error = __('Your password is too long. To prevent denial-of-service attacks, ' .
+                $GLOBALS['conn_error'] = __('Your password is too long. To prevent denial-of-service attacks, ' .
                     'phpMyAdmin restricts passwords to less than 1000 characters.');
 
                 return false;
@@ -317,7 +320,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
                     $match = preg_match($GLOBALS['cfg']['ArbitraryServerRegexp'], $tmp_host);
                     if (! $match) {
-                        $conn_error = __('You are not allowed to log in to this MySQL server!');
+                        $GLOBALS['conn_error'] = __('You are not allowed to log in to this MySQL server!');
 
                         return false;
                     }
@@ -326,8 +329,18 @@ class AuthenticationCookie extends AuthenticationPlugin
                 $GLOBALS['pma_auth_server'] = Core::sanitizeMySQLHost($_REQUEST['pma_servername']);
             }
 
-            /* Secure current session on login to avoid session fixation */
-            Session::secure();
+            try {
+                /* Secure current session on login to avoid session fixation */
+                Session::secure();
+            } catch (SessionHandlerException $exception) {
+                echo (new Template())->render('error/generic', [
+                    'lang' => $GLOBALS['lang'] ?? 'en',
+                    'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+                    'error_message' => $exception->getMessage(),
+                ]);
+
+                exit;
+            }
 
             return true;
         }
@@ -343,7 +356,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $value = $this->cookieDecrypt(
             $serverCookie,
-            $this->getEncryptionSecret()
+            $this->getEncryptionSecret(),
         );
 
         if ($value === null) {
@@ -395,7 +408,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $value = $this->cookieDecrypt(
             $serverCookie,
-            $this->getSessionEncryptionSecret()
+            $this->getSessionEncryptionSecret(),
         );
         if ($value === null) {
             return false;
@@ -424,8 +437,6 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function storeCredentials(): bool
     {
-        global $cfg;
-
         if ($GLOBALS['cfg']['AllowArbitraryServer'] && ! empty($GLOBALS['pma_auth_server'])) {
             /* Allow to specify 'host port' */
             $parts = explode(' ', $GLOBALS['pma_auth_server']);
@@ -437,10 +448,10 @@ class AuthenticationCookie extends AuthenticationPlugin
                 $tmp_port = '';
             }
 
-            if ($cfg['Server']['host'] != $GLOBALS['pma_auth_server']) {
-                $cfg['Server']['host'] = $tmp_host;
+            if ($GLOBALS['cfg']['Server']['host'] != $GLOBALS['pma_auth_server']) {
+                $GLOBALS['cfg']['Server']['host'] = $tmp_host;
                 if (! empty($tmp_port)) {
-                    $cfg['Server']['port'] = $tmp_port;
+                    $GLOBALS['cfg']['Server']['port'] = $tmp_port;
                 }
             }
 
@@ -455,8 +466,6 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function rememberCredentials(): void
     {
-        global $route;
-
         // Name and password cookies need to be refreshed each time
         // Duration = one month for username
         $this->storeUsernameCookie($this->user);
@@ -470,9 +479,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // any parameters to pass?
         $url_params = [];
-        if (isset($route)) {
-            $url_params['route'] = $route;
-        }
+        $url_params['route'] = Common::getRequest()->getRoute();
 
         if (strlen($GLOBALS['db']) > 0) {
             $url_params['db'] = $GLOBALS['db'];
@@ -511,7 +518,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         Core::sendHeaderLocation(
             './index.php?route=/' . Url::getCommonRaw($url_params, '&'),
-            true
+            true,
         );
 
         if (! defined('TESTSUITE')) {
@@ -532,8 +539,8 @@ class AuthenticationCookie extends AuthenticationPlugin
             'pmaUser-' . $GLOBALS['server'],
             $this->cookieEncrypt(
                 $username,
-                $this->getEncryptionSecret()
-            )
+                $this->getEncryptionSecret(),
+            ),
         );
     }
 
@@ -554,10 +561,10 @@ class AuthenticationCookie extends AuthenticationPlugin
             'pmaAuth-' . $GLOBALS['server'],
             $this->cookieEncrypt(
                 (string) json_encode($payload),
-                $this->getSessionEncryptionSecret()
+                $this->getSessionEncryptionSecret(),
             ),
             null,
-            (int) $GLOBALS['cfg']['LoginCookieStore']
+            (int) $GLOBALS['cfg']['LoginCookieStore'],
         );
     }
 
@@ -574,14 +581,14 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function showFailure($failure): void
     {
-        global $conn_error;
+        $GLOBALS['conn_error'] ??= null;
 
         parent::showFailure($failure);
 
         // Deletes password cookie and displays the login form
         $GLOBALS['config']->removeCookie('pmaAuth-' . $GLOBALS['server']);
 
-        $conn_error = $this->getErrorMessage($failure);
+        $GLOBALS['conn_error'] = $this->getErrorMessage($failure);
 
         $response = ResponseRenderer::getInstance();
 
@@ -597,9 +604,19 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     private function getEncryptionSecret(): string
     {
+        /** @var mixed $key */
         $key = $GLOBALS['cfg']['blowfish_secret'] ?? null;
-        if (is_string($key) && mb_strlen($key, '8bit') === SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
+        if (! is_string($key)) {
+            return $this->getSessionEncryptionSecret();
+        }
+
+        $length = mb_strlen($key, '8bit');
+        if ($length === SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
             return $key;
+        }
+
+        if ($length > SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
+            return mb_substr($key, 0, SODIUM_CRYPTO_SECRETBOX_KEYBYTES, '8bit');
         }
 
         return $this->getSessionEncryptionSecret();
@@ -610,6 +627,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     private function getSessionEncryptionSecret(): string
     {
+        /** @var mixed $key */
         $key = $_SESSION['encryption_key'] ?? null;
         if (is_string($key) && mb_strlen($key, '8bit') === SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
             return $key;
@@ -626,21 +644,21 @@ class AuthenticationCookie extends AuthenticationPlugin
         try {
             $nonce = random_bytes(SODIUM_CRYPTO_SECRETBOX_NONCEBYTES);
             $ciphertext = sodium_crypto_secretbox($data, $nonce, $secret);
-        } catch (Throwable $throwable) {
+        } catch (Throwable) {
             return '';
         }
 
         return base64_encode($nonce . $ciphertext);
     }
 
-    public function cookieDecrypt(string $encryptedData, string $secret): ?string
+    public function cookieDecrypt(string $encryptedData, string $secret): string|null
     {
         $encrypted = base64_decode($encryptedData);
         $nonce = mb_substr($encrypted, 0, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES, '8bit');
         $ciphertext = mb_substr($encrypted, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES, null, '8bit');
         try {
             $decrypted = sodium_crypto_secretbox_open($ciphertext, $nonce, $secret);
-        } catch (Throwable $throwable) {
+        } catch (Throwable) {
             return null;
         }
 
@@ -666,23 +684,23 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function logOut(): void
     {
-        global $config;
+        $GLOBALS['config'] ??= null;
 
         // -> delete password cookie(s)
         if ($GLOBALS['cfg']['LoginCookieDeleteAll']) {
             foreach (array_keys($GLOBALS['cfg']['Servers']) as $key) {
-                $config->removeCookie('pmaAuth-' . $key);
-                if (! $config->issetCookie('pmaAuth-' . $key)) {
+                $GLOBALS['config']->removeCookie('pmaAuth-' . $key);
+                if (! $GLOBALS['config']->issetCookie('pmaAuth-' . $key)) {
                     continue;
                 }
 
-                $config->removeCookie('pmaAuth-' . $key);
+                $GLOBALS['config']->removeCookie('pmaAuth-' . $key);
             }
         } else {
             $cookieName = 'pmaAuth-' . $GLOBALS['server'];
-            $config->removeCookie($cookieName);
-            if ($config->issetCookie($cookieName)) {
-                $config->removeCookie($cookieName);
+            $GLOBALS['config']->removeCookie($cookieName);
+            if ($GLOBALS['config']->issetCookie($cookieName)) {
+                $GLOBALS['config']->removeCookie($cookieName);
             }
         }
 

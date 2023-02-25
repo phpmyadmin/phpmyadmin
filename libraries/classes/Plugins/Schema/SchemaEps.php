@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema;
 
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Plugins\Schema\Eps\EpsRelationSchema;
 use PhpMyAdmin\Plugins\SchemaPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -22,9 +23,7 @@ use function __;
  */
 class SchemaEps extends SchemaPlugin
 {
-    /**
-     * @psalm-return non-empty-lowercase-string
-     */
+    /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
         return 'eps';
@@ -53,19 +52,19 @@ class SchemaEps extends SchemaPlugin
         // create leaf items and add them to the group
         $leaf = new BoolPropertyItem(
             'all_tables_same_width',
-            __('Same width for all tables')
+            __('Same width for all tables'),
         );
         $specificOptions->addProperty($leaf);
 
         $leaf = new SelectPropertyItem(
             'orientation',
-            __('Orientation')
+            __('Orientation'),
         );
         $leaf->setValues(
             [
                 'L' => __('Landscape'),
                 'P' => __('Portrait'),
-            ]
+            ],
         );
         $specificOptions->addProperty($leaf);
 
@@ -78,16 +77,16 @@ class SchemaEps extends SchemaPlugin
         return $schemaPluginProperties;
     }
 
-    /**
-     * Exports the schema into EPS format.
-     *
-     * @param string $db database name
-     */
-    public function exportSchema($db): bool
+    /** @return array{fileName: non-empty-string, mediaType: non-empty-string, fileData: string} */
+    public function getExportInfo(DatabaseName $db): array
     {
         $export = new EpsRelationSchema($db);
-        $export->showOutput();
+        $exportInfo = $export->getExportInfo();
 
-        return true;
+        return [
+            'fileName' => $exportInfo['fileName'],
+            'mediaType' => 'image/x-eps',
+            'fileData' => $exportInfo['fileData'],
+        ];
     }
 }

@@ -16,23 +16,13 @@ class SanitizeExtension extends AbstractExtension
      *
      * @return TwigFilter[]
      */
-    public function getFilters()
+    public function getFilters(): array
     {
         return [
             new TwigFilter(
-                'escape_js_string',
-                [Sanitize::class, 'escapeJsString'],
-                ['is_safe' => ['html']]
-            ),
-            new TwigFilter(
-                'js_format',
-                [Sanitize::class, 'jsFormat'],
-                ['is_safe' => ['html']]
-            ),
-            new TwigFilter(
                 'sanitize',
-                [Sanitize::class, 'sanitizeMessage'],
-                ['is_safe' => ['html']]
+                Sanitize::sanitizeMessage(...),
+                ['is_safe' => ['html']],
             ),
         ];
     }
@@ -42,13 +32,13 @@ class SanitizeExtension extends AbstractExtension
      *
      * @return TwigFunction[]
      */
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return [
             new TwigFunction(
                 'get_js_value',
-                [Sanitize::class, 'getJsValue'],
-                ['is_safe' => ['html']]
+                Sanitize::getJsValue(...),
+                ['is_safe' => ['html']],
             ),
         ];
     }

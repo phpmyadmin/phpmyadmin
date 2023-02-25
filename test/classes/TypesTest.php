@@ -6,9 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Types;
 
-/**
- * @covers \PhpMyAdmin\Types
- */
+/** @covers \PhpMyAdmin\Types */
 class TypesTest extends AbstractTestCase
 {
     /** @var Types */
@@ -21,6 +19,8 @@ class TypesTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $this->object = new Types($GLOBALS['dbi']);
     }
 
@@ -45,7 +45,7 @@ class TypesTest extends AbstractTestCase
                 "= ''",
                 "!= ''",
             ],
-            $this->object->getUnaryOperators()
+            $this->object->getUnaryOperators(),
         );
     }
 
@@ -59,7 +59,7 @@ class TypesTest extends AbstractTestCase
                 'IS NULL',
                 'IS NOT NULL',
             ],
-            $this->object->getNullOperators()
+            $this->object->getNullOperators(),
         );
     }
 
@@ -73,7 +73,7 @@ class TypesTest extends AbstractTestCase
                 '=',
                 '!=',
             ],
-            $this->object->getEnumOperators()
+            $this->object->getEnumOperators(),
         );
     }
 
@@ -100,7 +100,7 @@ class TypesTest extends AbstractTestCase
                 'BETWEEN',
                 'NOT BETWEEN',
             ],
-            $this->object->getTextOperators()
+            $this->object->getTextOperators(),
         );
     }
 
@@ -126,7 +126,27 @@ class TypesTest extends AbstractTestCase
                 'BETWEEN',
                 'NOT BETWEEN',
             ],
-            $this->object->getNumberOperators()
+            $this->object->getNumberOperators(),
+        );
+    }
+
+    /**
+     * Test for getUUIDOperators
+     */
+    public function testGetUUIDOperators(): void
+    {
+        $this->assertEquals(
+            [
+                '=',
+                '!=',
+                'LIKE',
+                'LIKE %...%',
+                'NOT LIKE',
+                'NOT LIKE %...%',
+                'IN (...)',
+                'NOT IN (...)',
+            ],
+            $this->object->getUUIDOperators(),
         );
     }
 
@@ -143,7 +163,7 @@ class TypesTest extends AbstractTestCase
     {
         $this->assertEquals(
             $output,
-            $this->object->getTypeOperators($type, $null)
+            $this->object->getTypeOperators($type, $null),
         );
     }
 
@@ -152,7 +172,7 @@ class TypesTest extends AbstractTestCase
      *
      * @return array data for testGetTypeOperators
      */
-    public function providerForGetTypeOperators(): array
+    public static function providerForGetTypeOperators(): array
     {
         return [
             [
@@ -194,6 +214,36 @@ class TypesTest extends AbstractTestCase
                     ],
                 ],
             ],
+            [
+                'UUID',
+                false,
+                [
+                    '=',
+                    '!=',
+                    'LIKE',
+                    'LIKE %...%',
+                    'NOT LIKE',
+                    'NOT LIKE %...%',
+                    'IN (...)',
+                    'NOT IN (...)',
+                ],
+            ],
+            [
+                'UUID',
+                true,
+                [
+                    '=',
+                    '!=',
+                    'LIKE',
+                    'LIKE %...%',
+                    'NOT LIKE',
+                    'NOT LIKE %...%',
+                    'IN (...)',
+                    'NOT IN (...)',
+                    'IS NULL',
+                    'IS NOT NULL',
+                ],
+            ],
         ];
     }
 
@@ -211,11 +261,11 @@ class TypesTest extends AbstractTestCase
         string $type,
         bool $null,
         string $selectedOperator,
-        string $output
+        string $output,
     ): void {
         $this->assertEquals(
             $output,
-            $this->object->getTypeOperatorsHtml($type, $null, $selectedOperator)
+            $this->object->getTypeOperatorsHtml($type, $null, $selectedOperator),
         );
     }
 
@@ -224,7 +274,7 @@ class TypesTest extends AbstractTestCase
      *
      * @return array test data for getTypeOperatorsHtml
      */
-    public function providerForTestGetTypeOperatorsHtml(): array
+    public static function providerForTestGetTypeOperatorsHtml(): array
     {
         return [
             [
@@ -247,7 +297,7 @@ class TypesTest extends AbstractTestCase
     {
         $this->assertNotEquals(
             '',
-            $this->object->getTypeDescription($type)
+            $this->object->getTypeDescription($type),
         );
     }
 
@@ -258,7 +308,7 @@ class TypesTest extends AbstractTestCase
     {
         $this->assertEquals(
             '',
-            $this->object->getTypeDescription('UNKNOWN')
+            $this->object->getTypeDescription('UNKNOWN'),
         );
     }
 
@@ -267,7 +317,7 @@ class TypesTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerForTestGetTypeDescription(): array
+    public static function providerForTestGetTypeDescription(): array
     {
         return [
             ['TINYINT'],
@@ -309,6 +359,9 @@ class TypesTest extends AbstractTestCase
             ['MULTILINESTRING'],
             ['MULTIPOLYGON'],
             ['GEOMETRYCOLLECTION'],
+            ['JSON'],
+            ['INET6'],
+            ['UUID'],
         ];
     }
 
@@ -322,14 +375,14 @@ class TypesTest extends AbstractTestCase
     {
         $this->assertEquals(
             $output,
-            $this->object->getFunctionsClass($class)
+            $this->object->getFunctionsClass($class),
         );
     }
 
     /**
      * Data provider for testing function lists
      */
-    public function providerFortTestGetFunctionsClass(): array
+    public static function providerFortTestGetFunctionsClass(): array
     {
         return [
             [
@@ -360,6 +413,7 @@ class TypesTest extends AbstractTestCase
                     'REVERSE',
                     'RTRIM',
                     'SHA1',
+                    'SHA2',
                     'SOUNDEX',
                     'SPACE',
                     'TRIM',
@@ -417,58 +471,58 @@ class TypesTest extends AbstractTestCase
             [
                 'NUMBER',
                 [
-                    '0' => 'ABS',
-                    '1' => 'ACOS',
-                    '2' => 'ASCII',
-                    '3' => 'ASIN',
-                    '4' => 'ATAN',
-                    '5' => 'BIT_LENGTH',
-                    '6' => 'BIT_COUNT',
-                    '7' => 'CEILING',
-                    '8' => 'CHAR_LENGTH',
-                    '9' => 'CONNECTION_ID',
-                    '10' => 'COS',
-                    '11' => 'COT',
-                    '12' => 'CRC32',
-                    '13' => 'DAYOFMONTH',
-                    '14' => 'DAYOFWEEK',
-                    '15' => 'DAYOFYEAR',
-                    '16' => 'DEGREES',
-                    '17' => 'EXP',
-                    '18' => 'FLOOR',
-                    '19' => 'HOUR',
-                    '20' => 'INET6_ATON',
-                    '21' => 'INET_ATON',
-                    '22' => 'LENGTH',
-                    '23' => 'LN',
-                    '24' => 'LOG',
-                    '25' => 'LOG2',
-                    '26' => 'LOG10',
-                    '27' => 'MICROSECOND',
-                    '28' => 'MINUTE',
-                    '29' => 'MONTH',
-                    '30' => 'OCT',
-                    '31' => 'ORD',
-                    '32' => 'PI',
-                    '33' => 'QUARTER',
-                    '34' => 'RADIANS',
-                    '35' => 'RAND',
-                    '36' => 'ROUND',
-                    '37' => 'SECOND',
-                    '38' => 'SIGN',
-                    '39' => 'SIN',
-                    '40' => 'SQRT',
-                    '41' => 'TAN',
-                    '42' => 'TO_DAYS',
-                    '43' => 'TO_SECONDS',
-                    '44' => 'TIME_TO_SEC',
-                    '45' => 'UNCOMPRESSED_LENGTH',
-                    '46' => 'UNIX_TIMESTAMP',
-                    '47' => 'UUID_SHORT',
-                    '48' => 'WEEK',
-                    '49' => 'WEEKDAY',
-                    '50' => 'WEEKOFYEAR',
-                    '51' => 'YEARWEEK',
+                    'ABS',
+                    'ACOS',
+                    'ASCII',
+                    'ASIN',
+                    'ATAN',
+                    'BIT_LENGTH',
+                    'BIT_COUNT',
+                    'CEILING',
+                    'CHAR_LENGTH',
+                    'CONNECTION_ID',
+                    'COS',
+                    'COT',
+                    'CRC32',
+                    'DAYOFMONTH',
+                    'DAYOFWEEK',
+                    'DAYOFYEAR',
+                    'DEGREES',
+                    'EXP',
+                    'FLOOR',
+                    'HOUR',
+                    'INET6_ATON',
+                    'INET_ATON',
+                    'LENGTH',
+                    'LN',
+                    'LOG',
+                    'LOG2',
+                    'LOG10',
+                    'MICROSECOND',
+                    'MINUTE',
+                    'MONTH',
+                    'OCT',
+                    'ORD',
+                    'PI',
+                    'QUARTER',
+                    'RADIANS',
+                    'RAND',
+                    'ROUND',
+                    'SECOND',
+                    'SIGN',
+                    'SIN',
+                    'SQRT',
+                    'TAN',
+                    'TO_DAYS',
+                    'TO_SECONDS',
+                    'TIME_TO_SEC',
+                    'UNCOMPRESSED_LENGTH',
+                    'UNIX_TIMESTAMP',
+                    'UUID_SHORT',
+                    'WEEK',
+                    'WEEKDAY',
+                    'WEEKOFYEAR',
+                    'YEARWEEK',
                 ],
             ],
             [
@@ -510,6 +564,7 @@ class TypesTest extends AbstractTestCase
                 'REVERSE',
                 'RTRIM',
                 'SHA1',
+                'SHA2',
                 'SOUNDEX',
                 'SPACE',
                 'TRIM',
@@ -520,7 +575,7 @@ class TypesTest extends AbstractTestCase
                 'UUID',
                 'VERSION',
             ],
-            $this->object->getFunctions('enum')
+            $this->object->getFunctions('enum'),
         );
     }
 
@@ -602,6 +657,7 @@ class TypesTest extends AbstractTestCase
                 'SECOND',
                 'SEC_TO_TIME',
                 'SHA1',
+                'SHA2',
                 'SIGN',
                 'SIN',
                 'SOUNDEX',
@@ -649,7 +705,7 @@ class TypesTest extends AbstractTestCase
                 'YEAR',
                 'YEARWEEK',
             ],
-            $this->object->getAllFunctions()
+            $this->object->getAllFunctions(),
         );
     }
 
@@ -666,7 +722,7 @@ class TypesTest extends AbstractTestCase
                 'UNSIGNED ZEROFILL',
                 'on update CURRENT_TIMESTAMP',
             ],
-            $this->object->getAttributes()
+            $this->object->getAttributes(),
         );
     }
 
@@ -736,7 +792,7 @@ class TypesTest extends AbstractTestCase
                 ],
                 'JSON' => ['JSON'],
             ],
-            $this->object->getColumns()
+            $this->object->getColumns(),
         );
     }
 
@@ -750,7 +806,7 @@ class TypesTest extends AbstractTestCase
     {
         $this->assertEquals(
             $output,
-            $this->object->getTypeClass($type)
+            $this->object->getTypeClass($type),
         );
     }
 
@@ -759,7 +815,7 @@ class TypesTest extends AbstractTestCase
      *
      * @return array for testing type detection
      */
-    public function providerFortTestGetTypeClass(): array
+    public static function providerFortTestGetTypeClass(): array
     {
         return [
             [
@@ -777,6 +833,14 @@ class TypesTest extends AbstractTestCase
             [
                 'SET',
                 'CHAR',
+            ],
+            [
+                'JSON',
+                'JSON',
+            ],
+            [
+                'UUID',
+                'UUID',
             ],
             [
                 'UNKNOWN',

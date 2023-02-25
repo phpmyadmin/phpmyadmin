@@ -37,9 +37,7 @@ class ImportMediawiki extends ImportPlugin
      */
     private $analyze;
 
-    /**
-     * @psalm-return non-empty-lowercase-string
-     */
+    /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
         return 'mediawiki';
@@ -64,11 +62,15 @@ class ImportMediawiki extends ImportPlugin
     /**
      * Handles the whole import logic
      *
-     * @param array $sql_data 2-element array with sql data
+     * @return string[]
      */
-    public function doImport(?File $importHandle = null, array &$sql_data = []): void
+    public function doImport(File|null $importHandle = null): array
     {
-        global $error, $timeout_passed, $finished;
+        $GLOBALS['error'] ??= null;
+        $GLOBALS['timeout_passed'] ??= null;
+        $GLOBALS['finished'] ??= null;
+
+        $sqlStatements = [];
 
         // Defaults for parser
 
@@ -97,7 +99,7 @@ class ImportMediawiki extends ImportPlugin
 
         $in_table_header = false;
 
-        while (! $finished && ! $error && ! $timeout_passed) {
+        while (! $GLOBALS['finished'] && ! $GLOBALS['error'] && ! $GLOBALS['timeout_passed']) {
             $data = $this->import->getNextChunk($importHandle);
 
             if ($data === false) {
@@ -129,7 +131,7 @@ class ImportMediawiki extends ImportPlugin
             $full_buffer_lines_count = count($buffer_lines);
             // If the reading is not finalized, the final line of the current chunk
             // will not be complete
-            if (! $finished) {
+            if (! $GLOBALS['finished']) {
                 $last_chunk_line = $buffer_lines[--$full_buffer_lines_count];
             }
 
@@ -171,7 +173,7 @@ class ImportMediawiki extends ImportPlugin
                             $cur_table_name = $match_table_name[1];
                             $inside_data_comment = true;
 
-                            $inside_structure_comment = $this->mngInsideStructComm($inside_structure_comment);
+                            $inside_structure_comment = false;
                         } elseif (preg_match('/^Table structure for `(.*)`$/', $cur_buffer_line, $match_table_name)) {
                             // The structure comments will be ignored
                             $inside_structure_comment = true;
@@ -231,7 +233,7 @@ class ImportMediawiki extends ImportPlugin
                         ];
 
                         // Import the current table data into the database
-                        $this->importDataOneTable($current_table, $sql_data);
+                        $this->importDataOneTable($current_table, $sqlStatements);
 
                         // Reset table name
                         $cur_table_name = '';
@@ -257,11 +259,7 @@ class ImportMediawiki extends ImportPlugin
 
                         // Delete the beginning of the column, if there is one
                         $cell = trim($cell);
-                        $col_start_chars = [
-                            '|',
-                            '!',
-                        ];
-                        foreach ($col_start_chars as $col_start_char) {
+                        foreach (['|', '!'] as $col_start_char) {
                             $cell = $this->getCellContent($cell, $col_start_char);
                         }
 
@@ -272,30 +270,32 @@ class ImportMediawiki extends ImportPlugin
                     // If it's none of the above, then the current line has a bad
                     // format
                     $message = Message::error(
-                        __('Invalid format of mediawiki input on line: <br>%s.')
+                        __('Invalid format of mediawiki input on line: <br>%s.'),
                     );
                     $message->addParam($cur_buffer_line);
-                    $error = true;
+                    $GLOBALS['error'] = true;
                 }
             }
         }
+
+        return $sqlStatements;
     }
 
     /**
      * Imports data from a single table
      *
-     * @param array $table    containing all table info:
-     *                        <code> $table[0] - string
-     *                        containing table name
-     *                        $table[1] - array[]   of
-     *                        table headers $table[2] -
-     *                        array[][] of table content
-     *                        rows </code>
-     * @param array $sql_data 2-element array with sql data
+     * @param array    $table         containing all table info:
+     *                                <code> $table[0] - string
+     *                                containing table name
+     *                                $table[1] - array[]   of
+     *                                table headers $table[2] -
+     *                                array[][] of table content
+     *                                rows </code>
+     * @param string[] $sqlStatements List of SQL statements to be executed
      *
      * @global bool $analyze whether to scan for column types
      */
-    private function importDataOneTable(array $table, array &$sql_data): void
+    private function importDataOneTable(array $table, array &$sqlStatements): void
     {
         $analyze = $this->getAnalyze();
         if ($analyze) {
@@ -317,11 +317,11 @@ class ImportMediawiki extends ImportPlugin
             $analyses = [];
             $analyses[] = $this->import->analyzeTable($tables[0]);
 
-            $this->executeImportTables($tables, $analyses, $sql_data);
+            $this->executeImportTables($tables, $analyses, $sqlStatements);
         }
 
         // Commit any possible data in buffers
-        $this->import->runQuery('', '', $sql_data);
+        $this->import->runQuery('', $sqlStatements);
     }
 
     /**
@@ -331,13 +331,11 @@ class ImportMediawiki extends ImportPlugin
      */
     private function setTableName(&$table_name): void
     {
-        global $dbi;
-
         if (! empty($table_name)) {
             return;
         }
 
-        $result = $dbi->fetchResult('SHOW TABLES');
+        $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
         // todo check if the name below already exists
         $table_name = 'TABLE ' . (count($result) + 1);
     }
@@ -367,34 +365,32 @@ class ImportMediawiki extends ImportPlugin
      * Sets the database name and additional options and calls Import::buildSql()
      * Used in PMA_importDataAllTables() and $this->importDataOneTable()
      *
-     * @param array $tables   structure:
-     *                        array(
-     *                        array(table_name, array() column_names, array()()
-     *                        rows)
-     *                        )
-     * @param array $analyses structure:
-     *                        $analyses = array(
-     *                        array(array() column_types, array() column_sizes)
-     *                        )
-     * @param array $sql_data 2-element array with sql data
+     * @param array    $tables        structure:
+     *                                array(
+     *                                array(table_name, array() column_names, array()()
+     *                                rows)
+     *                                )
+     * @param array    $analyses      structure:
+     *                                $analyses = array(
+     *                                array(array() column_types, array() column_sizes)
+     *                                )
+     * @param string[] $sqlStatements List of SQL statements to be executed
      *
      * @global string $db      name of the database to import in
      */
-    private function executeImportTables(array &$tables, array &$analyses, array &$sql_data): void
+    private function executeImportTables(array &$tables, array $analyses, array &$sqlStatements): void
     {
-        global $db;
-
         // $db_name : The currently selected database name, if applicable
         //            No backquotes
         // $options : An associative array of options
-        [$db_name, $options] = $this->getDbnameAndOptions($db, 'mediawiki_DB');
+        [$db_name, $options] = $this->getDbnameAndOptions($GLOBALS['db'], 'mediawiki_DB');
 
         // Array of SQL strings
         // Non-applicable parameters
         $create = null;
 
         // Create and execute necessary SQL statements from data
-        $this->import->buildSql($db_name, $tables, $analyses, $create, $options, $sql_data);
+        $this->import->buildSql($db_name, $tables, $analyses, $create, $options, $sqlStatements);
     }
 
     /**
@@ -406,7 +402,7 @@ class ImportMediawiki extends ImportPlugin
      *
      * @return string with replacements
      */
-    private function delimiterReplace($replace, $subject)
+    private function delimiterReplace($replace, $subject): string
     {
         // String that will be returned
         $cleaned = '';
@@ -492,7 +488,7 @@ class ImportMediawiki extends ImportPlugin
      *
      * @return array
      */
-    private function explodeMarkup($text)
+    private function explodeMarkup($text): array
     {
         $separator = '||';
         $placeholder = "\x00";
@@ -536,10 +532,8 @@ class ImportMediawiki extends ImportPlugin
      * Get cell
      *
      * @param string $cell Cell
-     *
-     * @return mixed
      */
-    private function getCellData($cell)
+    private function getCellData($cell): mixed
     {
         // A cell could contain both parameters and data
         $cell_data = explode('|', $cell, 2);
@@ -558,32 +552,15 @@ class ImportMediawiki extends ImportPlugin
     }
 
     /**
-     * Manage $inside_structure_comment
-     *
-     * @param bool $inside_structure_comment Value to test
-     */
-    private function mngInsideStructComm($inside_structure_comment): bool
-    {
-        // End ignoring structure rows
-        if ($inside_structure_comment) {
-            $inside_structure_comment = false;
-        }
-
-        return $inside_structure_comment;
-    }
-
-    /**
      * Get cell content
      *
      * @param string $cell           Cell
      * @param string $col_start_char Start char
-     *
-     * @return string
      */
-    private function getCellContent($cell, $col_start_char)
+    private function getCellContent(string $cell, string $col_start_char): string
     {
         if (mb_strpos($cell, $col_start_char) === 0) {
-            $cell = trim(mb_substr($cell, 1));
+            return trim(mb_substr($cell, 1));
         }
 
         return $cell;

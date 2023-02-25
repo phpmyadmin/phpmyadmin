@@ -15,18 +15,18 @@ class TransformationsExtension extends AbstractExtension
      *
      * @return TwigFunction[]
      */
-    public function getFunctions()
+    public function getFunctions(): array
     {
         $transformations = new Transformations();
 
         return [
             new TwigFunction(
                 'get_description',
-                [$transformations, 'getDescription']
+                $transformations->getDescription(...),
             ),
             new TwigFunction(
                 'get_name',
-                [$transformations, 'getName']
+                $transformations->getName(...),
             ),
         ];
     }

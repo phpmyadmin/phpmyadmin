@@ -13,7 +13,6 @@ use TCPDF_FONTS;
 
 use function __;
 use function count;
-use function strlen;
 use function strtr;
 
 /**
@@ -52,13 +51,14 @@ class Pdf extends TCPDF
         $unicode = true,
         $encoding = 'UTF-8',
         $diskcache = false,
-        $pdfa = false
+        $pdfa = false,
     ) {
         parent::__construct($orientation, $unit, $format, $unicode, $encoding, $diskcache, $pdfa);
-        $this->SetAuthor('phpMyAdmin ' . Version::VERSION);
+
+        $this->setAuthor('phpMyAdmin ' . Version::VERSION);
         $this->AddFont('DejaVuSans', '', 'dejavusans.php');
         $this->AddFont('DejaVuSans', 'B', 'dejavusansb.php');
-        $this->SetFont(self::PMA_PDF_FONT, '', 14);
+        $this->setFont(self::PMA_PDF_FONT, '', 14);
         $this->setFooterFont([self::PMA_PDF_FONT, '', 14]);
     }
 
@@ -73,8 +73,8 @@ class Pdf extends TCPDF
             return;
         }
 
-        $this->SetY(-15);
-        $this->SetFont(self::PMA_PDF_FONT, '', 14);
+        $this->setY(-15);
+        $this->setFont(self::PMA_PDF_FONT, '', 14);
         $this->Cell(
             0,
             6,
@@ -82,10 +82,10 @@ class Pdf extends TCPDF
             . $this->getAliasNumPage() . '/' . $this->getAliasNbPages(),
             'T',
             0,
-            'C'
+            'C',
         );
         $this->Cell(0, 6, Util::localisedDate(), 0, 1, 'R');
-        $this->SetY(20);
+        $this->setY(20);
 
         // set footerset
         $this->footerset[$this->page] = 1;
@@ -133,25 +133,8 @@ class Pdf extends TCPDF
     public function Error($error_message = ''): void
     {
         echo Message::error(
-            __('Error while creating PDF:') . ' ' . $error_message
+            __('Error while creating PDF:') . ' ' . $error_message,
         )->getDisplay();
         exit;
-    }
-
-    /**
-     * Sends file as a download to user.
-     *
-     * @param string $filename file name
-     */
-    public function download($filename): void
-    {
-        $pdfData = $this->getPDFData();
-        ResponseRenderer::getInstance()->disable();
-        Core::downloadHeader(
-            $filename,
-            'application/pdf',
-            strlen($pdfData)
-        );
-        echo $pdfData;
     }
 }

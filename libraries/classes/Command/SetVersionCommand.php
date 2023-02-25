@@ -16,7 +16,7 @@ use function sprintf;
 
 final class SetVersionCommand extends Command
 {
-    /** @var string */
+    /** @var string|null */
     protected static $defaultName = 'set-version';
 
     /** @var string */
@@ -87,7 +87,7 @@ PHP;
             $matches[3],
             $matches[4] ?? '',
             $matches[5] ?? '',
-            ($matches[5] ?? '') === 'dev' ? 'true' : 'false'
+            ($matches[5] ?? '') === 'dev' ? 'true' : 'false',
         );
     }
 

@@ -35,9 +35,7 @@ class ExportPdf extends ExportPlugin
      */
     private $pdfReportTitle = '';
 
-    /**
-     * @psalm-return non-empty-lowercase-string
-     */
+    /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
         return 'pdf';
@@ -74,7 +72,7 @@ class ExportPdf extends ExportPlugin
         // create primary items and add them to the group
         $leaf = new TextPropertyItem(
             'report_title',
-            __('Report title:')
+            __('Report title:'),
         );
         $generalOptions->addProperty($leaf);
         // add the group to the root group
@@ -83,7 +81,7 @@ class ExportPdf extends ExportPlugin
         // what to dump (structure/data/both) main group
         $dumpWhat = new OptionsPropertyMainGroup(
             'dump_what',
-            __('Dump table')
+            __('Dump table'),
         );
         $leaf = new RadioPropertyItem('structure_or_data');
         $leaf->setValues(
@@ -91,7 +89,7 @@ class ExportPdf extends ExportPlugin
                 'structure' => __('structure'),
                 'data' => __('data'),
                 'structure_and_data' => __('structure and data'),
-            ]
+            ],
         );
         $dumpWhat->addProperty($leaf);
         // add the group to the root group
@@ -167,7 +165,6 @@ class ExportPdf extends ExportPlugin
      *
      * @param string $db       database name
      * @param string $table    table name
-     * @param string $crlf     the end of line sequence
      * @param string $errorUrl the url to go back in case of error
      * @param string $sqlQuery SQL query for obtaining data
      * @param array  $aliases  Aliases of db/table/columns
@@ -175,10 +172,9 @@ class ExportPdf extends ExportPlugin
     public function exportData(
         $db,
         $table,
-        $crlf,
         $errorUrl,
         $sqlQuery,
-        array $aliases = []
+        array $aliases = [],
     ): bool {
         $db_alias = $db;
         $table_alias = $table;
@@ -198,16 +194,22 @@ class ExportPdf extends ExportPlugin
     /**
      * Outputs result of raw query in PDF format
      *
-     * @param string $errorUrl the url to go back in case of error
-     * @param string $sqlQuery the rawquery to output
-     * @param string $crlf     the end of line sequence
+     * @param string      $errorUrl the url to go back in case of error
+     * @param string|null $db       the database where the query is executed
+     * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string $errorUrl, string $sqlQuery, string $crlf): bool
+    public function exportRawQuery(string $errorUrl, string|null $db, string $sqlQuery): bool
     {
         $pdf = $this->getPdf();
         $pdf->setDbAlias('----');
         $pdf->setTableAlias('----');
         $pdf->setPurpose(__('Query result data'));
+
+        if ($db !== null) {
+            $pdf->setCurrentDb($db);
+            $GLOBALS['dbi']->selectDb($db);
+        }
+
         $pdf->mysqlReport($sqlQuery);
 
         return true;
@@ -218,7 +220,6 @@ class ExportPdf extends ExportPlugin
      *
      * @param string $db          database name
      * @param string $table       table name
-     * @param string $crlf        the end of line sequence
      * @param string $errorUrl    the url to go back in case of error
      * @param string $exportMode  'create_table', 'triggers', 'create_view',
      *                             'stand_in'
@@ -237,7 +238,6 @@ class ExportPdf extends ExportPlugin
     public function exportStructure(
         $db,
         $table,
-        $crlf,
         $errorUrl,
         $exportMode,
         $exportType,
@@ -245,7 +245,7 @@ class ExportPdf extends ExportPlugin
         $do_comments = false,
         $do_mime = false,
         $dates = false,
-        array $aliases = []
+        array $aliases = [],
     ): bool {
         $db_alias = $db;
         $table_alias = $table;
@@ -278,22 +278,20 @@ class ExportPdf extends ExportPlugin
          * comment display set true as presently in pdf
          * format, no option is present to take user input.
          */
-        $do_comments = true;
         switch ($exportMode) {
             case 'create_table':
-                $pdf->getTableDef($db, $table, $do_relation, $do_comments, $do_mime, false, $aliases);
+                $pdf->getTableDef($db, $table, $do_relation, true, $do_mime, false, $aliases);
                 break;
             case 'triggers':
                 $pdf->getTriggers($db, $table);
                 break;
             case 'create_view':
-                $pdf->getTableDef($db, $table, $do_relation, $do_comments, $do_mime, false, $aliases);
+                $pdf->getTableDef($db, $table, $do_relation, true, $do_mime, false, $aliases);
                 break;
             case 'stand_in':
-                /* export a stand-in definition to resolve view dependencies
-                 * Yet to develop this function
-                 * $pdf->getTableDefStandIn($db, $table, $crlf);
-                 */
+                // export a stand-in definition to resolve view dependencies
+                // Yet to develop this function
+                //$pdf->getTableDefStandIn($db, $table);
         }
 
         return true;
@@ -303,10 +301,8 @@ class ExportPdf extends ExportPlugin
 
     /**
      * Gets the PhpMyAdmin\Plugins\Export\Helpers\Pdf instance
-     *
-     * @return Pdf
      */
-    private function getPdf()
+    private function getPdf(): Pdf
     {
         return $this->pdf;
     }
@@ -321,7 +317,7 @@ class ExportPdf extends ExportPlugin
         $this->pdf = $pdf;
     }
 
-    public function isAvailable(): bool
+    public static function isAvailable(): bool
     {
         return class_exists(TCPDF::class);
     }

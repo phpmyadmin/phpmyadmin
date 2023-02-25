@@ -10,6 +10,7 @@ use function is_string;
 use function preg_match;
 use function sort;
 use function strlen;
+use function strtr;
 use function usort;
 
 /**
@@ -25,11 +26,9 @@ class ListDatabase extends ListAbstract
 {
     public function __construct()
     {
-        global $dbi;
-
         parent::__construct();
 
-        $checkUserPrivileges = new CheckUserPrivileges($dbi);
+        $checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
         $checkUserPrivileges->getPrivileges();
 
         $this->build();
@@ -60,10 +59,8 @@ class ListDatabase extends ListAbstract
      *
      * @return array
      */
-    protected function retrieve($like_db_name = null)
+    protected function retrieve($like_db_name = null): array
     {
-        global $dbi;
-
         $database_list = [];
         $command = '';
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
@@ -81,14 +78,14 @@ class ListDatabase extends ListAbstract
                 foreach ($GLOBALS['dbs_to_test'] as $db) {
                     $database_list = array_merge(
                         $database_list,
-                        $this->retrieve($db)
+                        $this->retrieve($db),
                     );
                 }
             }
         }
 
         if ($command) {
-            $database_list = $dbi->fetchResult($command, null, null);
+            $database_list = $GLOBALS['dbi']->fetchResult($command, null, null);
         }
 
         if ($GLOBALS['cfg']['NaturalOrder']) {
@@ -137,7 +134,7 @@ class ListDatabase extends ListAbstract
             // thus containing not escaped _ or %
             if (! preg_match('/(^|[^\\\\])(_|%)/', $each_only_db)) {
                 // ... not contains wildcard
-                $items[] = Util::unescapeMysqlWildcards($each_only_db);
+                $items[] = strtr($each_only_db, ['\\\\' => '\\', '\\_' => '_', '\\%' => '%']);
                 continue;
             }
 
@@ -154,7 +151,7 @@ class ListDatabase extends ListAbstract
      *
      * @return string default item
      */
-    public function getDefault()
+    public function getDefault(): string
     {
         if (strlen($GLOBALS['db']) > 0) {
             return $GLOBALS['db'];

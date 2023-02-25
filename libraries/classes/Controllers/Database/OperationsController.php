@@ -8,12 +8,15 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Dbal\InvalidDatabaseName;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Plugins;
-use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -21,7 +24,6 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function __;
-use function count;
 use function mb_strtolower;
 use function strlen;
 
@@ -30,78 +32,57 @@ use function strlen;
  */
 class OperationsController extends AbstractController
 {
-    /** @var Operations */
-    private $operations;
-
-    /** @var CheckUserPrivileges */
-    private $checkUserPrivileges;
-
-    /** @var Relation */
-    private $relation;
-
-    /** @var RelationCleanup */
-    private $relationCleanup;
-
-    /** @var DatabaseInterface */
-    private $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
-        Operations $operations,
-        CheckUserPrivileges $checkUserPrivileges,
-        Relation $relation,
-        RelationCleanup $relationCleanup,
-        DatabaseInterface $dbi
+        private Operations $operations,
+        private CheckUserPrivileges $checkUserPrivileges,
+        private Relation $relation,
+        private RelationCleanup $relationCleanup,
+        private DatabaseInterface $dbi,
     ) {
-        parent::__construct($response, $template, $db);
-        $this->operations = $operations;
-        $this->checkUserPrivileges = $checkUserPrivileges;
-        $this->relation = $relation;
-        $this->relationCleanup = $relationCleanup;
-        $this->dbi = $dbi;
+        parent::__construct($response, $template);
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $cfg, $db, $server, $sql_query, $move, $message, $tables_full, $errorUrl;
-        global $export_sql_plugin, $views, $sqlConstratints, $local_query, $reload, $urlParams, $tables;
-        global $total_num_tables, $sub_part, $tooltip_truename;
-        global $db_collation, $tooltip_aliasname, $pos, $is_information_schema, $single_table, $num_tables;
+        $GLOBALS['server'] ??= null;
+        $GLOBALS['message'] ??= null;
+        $GLOBALS['errorUrl'] ??= null;
+        $GLOBALS['reload'] ??= null;
+        $GLOBALS['urlParams'] ??= null;
+        $GLOBALS['single_table'] ??= null;
 
         $this->checkUserPrivileges->getPrivileges();
 
         $this->addScriptFiles(['database/operations.js']);
 
-        $sql_query = '';
+        $GLOBALS['sql_query'] = '';
 
         /**
          * Rename/move or copy database
          */
-        if (strlen($db) > 0 && (! empty($_POST['db_rename']) || ! empty($_POST['db_copy']))) {
-            if (! empty($_POST['db_rename'])) {
-                $move = true;
-            } else {
-                $move = false;
+        if (strlen($GLOBALS['db']) > 0 && ($request->hasBodyParam('db_rename') || $request->hasBodyParam('db_copy'))) {
+            $move = $request->hasBodyParam('db_rename');
+
+            try {
+                $newDatabaseName = DatabaseName::fromValue($request->getParsedBodyParam('newname'));
+                if ($this->dbi->getLowerCaseNames() === 1) {
+                    $newDatabaseName = DatabaseName::fromValue(mb_strtolower($newDatabaseName->getName()));
+                }
+            } catch (InvalidDatabaseName $exception) {
+                $newDatabaseName = null;
+                $GLOBALS['message'] = Message::error($exception->getMessage());
             }
 
-            if (! isset($_POST['newname']) || strlen($_POST['newname']) === 0) {
-                $message = Message::error(__('The database name is empty!'));
-            } else {
-                // lower_case_table_names=1 `DB` becomes `db`
-                if ($this->dbi->getLowerCaseNames() === '1') {
-                    $_POST['newname'] = mb_strtolower($_POST['newname']);
-                }
-
-                if ($_POST['newname'] === $_REQUEST['db']) {
-                    $message = Message::error(
-                        __('Cannot copy database to the same name. Change the name and try again.')
+            if ($newDatabaseName !== null) {
+                if ($newDatabaseName->getName() === $_REQUEST['db']) {
+                    $GLOBALS['message'] = Message::error(
+                        __('Cannot copy database to the same name. Change the name and try again.'),
                     );
                 } else {
-                    $_error = false;
-                    if ($move || ! empty($_POST['create_database_before_copying'])) {
-                        $this->operations->createDbBeforeCopy();
+                    if ($move || $request->hasBodyParam('create_database_before_copying')) {
+                        $this->operations->createDbBeforeCopy($newDatabaseName);
                     }
 
                     // here I don't use DELIMITER because it's not part of the
@@ -110,97 +91,105 @@ class OperationsController extends AbstractController
                     // to avoid selecting alternatively the current and new db
                     // we would need to modify the CREATE definitions to qualify
                     // the db name
-                    $this->operations->runProcedureAndFunctionDefinitions($db);
+                    $this->operations->runProcedureAndFunctionDefinitions($GLOBALS['db'], $newDatabaseName);
 
                     // go back to current db, just in case
-                    $this->dbi->selectDb($db);
+                    $this->dbi->selectDb($GLOBALS['db']);
 
-                    $tables_full = $this->dbi->getTablesFull($db);
+                    $tableNames = $this->dbi->getTables($GLOBALS['db']);
 
                     // remove all foreign key constraints, otherwise we can get errors
-                    /** @var ExportSql $export_sql_plugin */
-                    $export_sql_plugin = Plugins::getPlugin('export', 'sql', [
+                    $exportSqlPlugin = Plugins::getPlugin('export', 'sql', [
                         'export_type' => 'database',
-                        'single_table' => isset($single_table),
+                        'single_table' => isset($GLOBALS['single_table']),
                     ]);
 
                     // create stand-in tables for views
-                    $views = $this->operations->getViewsAndCreateSqlViewStandIn($tables_full, $export_sql_plugin, $db);
+                    $views = $this->operations->getViewsAndCreateSqlViewStandIn(
+                        $tableNames,
+                        $exportSqlPlugin,
+                        $GLOBALS['db'],
+                        $newDatabaseName,
+                    );
 
                     // copy tables
-                    $sqlConstratints = $this->operations->copyTables($tables_full, $move, $db);
+                    $sqlConstraints = $this->operations->copyTables(
+                        $tableNames,
+                        $move,
+                        $GLOBALS['db'],
+                        $newDatabaseName,
+                    );
 
                     // handle the views
-                    if (! $_error) {
-                        $this->operations->handleTheViews($views, $move, $db);
-                    }
-
-                    unset($views);
+                    $this->operations->handleTheViews(
+                        $views,
+                        $move,
+                        $GLOBALS['db'],
+                        $newDatabaseName,
+                    );
 
                     // now that all tables exist, create all the accumulated constraints
-                    if (! $_error && count($sqlConstratints) > 0) {
-                        $this->operations->createAllAccumulatedConstraints($sqlConstratints);
+                    if ($sqlConstraints !== []) {
+                        $this->operations->createAllAccumulatedConstraints(
+                            $sqlConstraints,
+                            $newDatabaseName,
+                        );
                     }
-
-                    unset($sqlConstratints);
 
                     if ($this->dbi->getVersion() >= 50100) {
                         // here DELIMITER is not used because it's not part of the
                         // language; each statement is sent one by one
 
-                        $this->operations->runEventDefinitionsForDb($db);
+                        $this->operations->runEventDefinitionsForDb($GLOBALS['db'], $newDatabaseName);
                     }
 
                     // go back to current db, just in case
-                    $this->dbi->selectDb($db);
+                    $this->dbi->selectDb($GLOBALS['db']);
 
                     // Duplicate the bookmarks for this db (done once for each db)
-                    $this->operations->duplicateBookmarks($_error, $db);
+                    $this->operations->duplicateBookmarks(false, $GLOBALS['db'], $newDatabaseName);
 
-                    if (! $_error && $move) {
-                        if (isset($_POST['adjust_privileges']) && ! empty($_POST['adjust_privileges'])) {
-                            $this->operations->adjustPrivilegesMoveDb($db, $_POST['newname']);
+                    if ($move) {
+                        if ($request->hasBodyParam('adjust_privileges')) {
+                            $this->operations->adjustPrivilegesMoveDb($GLOBALS['db'], $newDatabaseName);
                         }
 
                         /**
                          * cleanup pmadb stuff for this db
                          */
-                        $this->relationCleanup->database($db);
+                        $this->relationCleanup->database($GLOBALS['db']);
 
                         // if someday the RENAME DATABASE reappears, do not DROP
-                        $local_query = 'DROP DATABASE '
-                            . Util::backquote($db) . ';';
-                        $sql_query .= "\n" . $local_query;
-                        $this->dbi->query($local_query);
+                        $localQuery = 'DROP DATABASE ' . Util::backquote($GLOBALS['db']) . ';';
+                        $GLOBALS['sql_query'] .= "\n" . $localQuery;
+                        $this->dbi->query($localQuery);
 
-                        $message = Message::success(
-                            __('Database %1$s has been renamed to %2$s.')
+                        $GLOBALS['message'] = Message::success(
+                            __('Database %1$s has been renamed to %2$s.'),
                         );
-                        $message->addParam($db);
-                        $message->addParam($_POST['newname']);
-                    } elseif (! $_error) {
-                        if (isset($_POST['adjust_privileges']) && ! empty($_POST['adjust_privileges'])) {
-                            $this->operations->adjustPrivilegesCopyDb($db, $_POST['newname']);
+                        $GLOBALS['message']->addParam($GLOBALS['db']);
+                        $GLOBALS['message']->addParam($newDatabaseName->getName());
+                    } else {
+                        if ($request->hasBodyParam('adjust_privileges')) {
+                            $this->operations->adjustPrivilegesCopyDb($GLOBALS['db'], $newDatabaseName);
                         }
 
-                        $message = Message::success(
-                            __('Database %1$s has been copied to %2$s.')
+                        $GLOBALS['message'] = Message::success(
+                            __('Database %1$s has been copied to %2$s.'),
                         );
-                        $message->addParam($db);
-                        $message->addParam($_POST['newname']);
-                    } else {
-                        $message = Message::error();
+                        $GLOBALS['message']->addParam($GLOBALS['db']);
+                        $GLOBALS['message']->addParam($newDatabaseName->getName());
                     }
 
-                    $reload = true;
+                    $GLOBALS['reload'] = true;
 
                     /* Change database to be used */
-                    if (! $_error && $move) {
-                        $db = $_POST['newname'];
-                    } elseif (! $_error) {
-                        if (isset($_POST['switch_to_new']) && $_POST['switch_to_new'] === 'true') {
+                    if ($move) {
+                        $GLOBALS['db'] = $newDatabaseName->getName();
+                    } else {
+                        if ($request->getParsedBodyParam('switch_to_new') === 'true') {
                             $_SESSION['pma_switch_to_new'] = true;
-                            $db = $_POST['newname'];
+                            $GLOBALS['db'] = $newDatabaseName->getName();
                         } else {
                             $_SESSION['pma_switch_to_new'] = false;
                         }
@@ -213,14 +202,14 @@ class OperationsController extends AbstractController
              * generate the output with {@link ResponseRenderer} and exit
              */
             if ($this->response->isAjax()) {
-                $this->response->setRequestStatus($message->isSuccess());
-                $this->response->addJSON('message', $message);
-                $this->response->addJSON('newname', $_POST['newname']);
+                $this->response->setRequestStatus($GLOBALS['message']->isSuccess());
+                $this->response->addJSON('message', $GLOBALS['message']);
+                $this->response->addJSON('newname', $newDatabaseName?->getName() ?? '');
                 $this->response->addJSON(
                     'sql_query',
-                    Generator::getMessage('', $sql_query)
+                    Generator::getMessage('', $GLOBALS['sql_query']),
                 );
-                $this->response->addJSON('db', $db);
+                $this->response->addJSON('db', $GLOBALS['db']);
 
                 return;
             }
@@ -232,87 +221,72 @@ class OperationsController extends AbstractController
          * Check if comments were updated
          * (must be done before displaying the menu tabs)
          */
-        if (isset($_POST['comment'])) {
-            $this->relation->setDbComment($db, $_POST['comment']);
+        if ($request->hasBodyParam('comment')) {
+            $this->relation->setDbComment($GLOBALS['db'], $request->getParsedBodyParam('comment'));
         }
 
-        Util::checkParameters(['db']);
+        $this->checkParameters(['db']);
 
-        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $errorUrl .= Url::getCommon(['db' => $db], '&');
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
         if (! $this->hasDatabase()) {
             return;
         }
 
-        $urlParams['goto'] = Url::getFromRoute('/database/operations');
-
-        // Gets the database structure
-        $sub_part = '_structure';
-
-        [
-            $tables,
-            $num_tables,
-            $total_num_tables,
-            $sub_part,,
-            $isSystemSchema,
-            $tooltip_truename,
-            $tooltip_aliasname,
-            $pos,
-        ] = Util::getDbInfo($db, $sub_part);
+        $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/operations');
 
         $oldMessage = '';
-        if (isset($message)) {
-            $oldMessage = Generator::getMessage($message, $sql_query);
-            unset($message);
+        if (isset($GLOBALS['message'])) {
+            $oldMessage = Generator::getMessage($GLOBALS['message'], $GLOBALS['sql_query']);
+            unset($GLOBALS['message']);
         }
 
-        $db_collation = $this->dbi->getDbCollation($db);
-        $is_information_schema = Utilities::isSystemSchema($db);
+        $dbCollation = $this->dbi->getDbCollation($GLOBALS['db']);
 
-        if ($is_information_schema) {
+        if (Utilities::isSystemSchema($GLOBALS['db'])) {
             return;
         }
 
         $databaseComment = '';
         if ($relationParameters->columnCommentsFeature !== null) {
-            $databaseComment = $this->relation->getDbComment($db);
+            $databaseComment = $this->relation->getDbComment($GLOBALS['db']);
         }
 
         $hasAdjustPrivileges = $GLOBALS['db_priv'] && $GLOBALS['table_priv']
             && $GLOBALS['col_priv'] && $GLOBALS['proc_priv'] && $GLOBALS['is_reload_priv'];
 
-        $isDropDatabaseAllowed = ($this->dbi->isSuperUser() || $cfg['AllowUserDropDatabase'])
-            && ! $isSystemSchema && $db !== 'mysql';
+        $isDropDatabaseAllowed = ($this->dbi->isSuperUser() || $GLOBALS['cfg']['AllowUserDropDatabase'])
+            && $GLOBALS['db'] !== 'mysql';
 
         $switchToNew = isset($_SESSION['pma_switch_to_new']) && $_SESSION['pma_switch_to_new'];
 
         $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
         $collations = Charsets::getCollations($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
 
-        if (! $relationParameters->hasAllFeatures() && $cfg['PmaNoRelation_DisableWarning'] == false) {
-            $message = Message::notice(
+        if (! $relationParameters->hasAllFeatures() && $GLOBALS['cfg']['PmaNoRelation_DisableWarning'] == false) {
+            $GLOBALS['message'] = Message::notice(
                 __(
-                    'The phpMyAdmin configuration storage has been deactivated. %sFind out why%s.'
-                )
+                    'The phpMyAdmin configuration storage has been deactivated. %sFind out why%s.',
+                ),
             );
-            $message->addParamHtml(
+            $GLOBALS['message']->addParamHtml(
                 '<a href="' . Url::getFromRoute('/check-relations')
-                . '" data-post="' . Url::getCommon(['db' => $db]) . '">'
+                . '" data-post="' . Url::getCommon(['db' => $GLOBALS['db']]) . '">',
             );
-            $message->addParamHtml('</a>');
+            $GLOBALS['message']->addParamHtml('</a>');
             /* Show error if user has configured something, notice elsewhere */
-            if (! empty($cfg['Servers'][$server]['pmadb'])) {
-                $message->isError(true);
+            if (! empty($GLOBALS['cfg']['Servers'][$GLOBALS['server']]['pmadb'])) {
+                $GLOBALS['message']->isError(true);
             }
         }
 
         $this->render('database/operations/index', [
             'message' => $oldMessage,
-            'db' => $db,
+            'db' => $GLOBALS['db'],
             'has_comment' => $relationParameters->columnCommentsFeature !== null,
             'db_comment' => $databaseComment,
-            'db_collation' => $db_collation,
+            'db_collation' => $dbCollation,
             'has_adjust_privileges' => $hasAdjustPrivileges,
             'is_drop_database_allowed' => $isDropDatabaseAllowed,
             'switch_to_new' => $switchToNew,

@@ -4,59 +4,51 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table\Structure;
 
-use PhpMyAdmin\Controllers\Table\AbstractController;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Database\CentralColumns;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
 use function __;
+use function is_array;
 
 final class CentralColumnsRemoveController extends AbstractController
 {
-    /** @var CentralColumns */
-    private $centralColumns;
-
-    /** @var StructureController */
-    private $structureController;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
-        string $table,
-        CentralColumns $centralColumns,
-        StructureController $structureController
+        private CentralColumns $centralColumns,
+        private StructureController $structureController,
     ) {
-        parent::__construct($response, $template, $db, $table);
-        $this->centralColumns = $centralColumns;
-        $this->structureController = $structureController;
+        parent::__construct($response, $template);
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $db, $message;
+        $GLOBALS['message'] ??= null;
 
-        $selected = $_POST['selected_fld'] ?? [];
+        $selected = $request->getParsedBodyParam('selected_fld', []);
 
-        if (empty($selected)) {
+        if (! is_array($selected) || $selected === []) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 
             return;
         }
 
-        $centralColsError = $this->centralColumns->deleteColumnsFromList($db, $selected, false);
+        $centralColsError = $this->centralColumns->deleteColumnsFromList($GLOBALS['db'], $selected, false);
 
         if ($centralColsError instanceof Message) {
-            $message = $centralColsError;
+            $GLOBALS['message'] = $centralColsError;
         }
 
-        if (empty($message)) {
-            $message = Message::success();
+        if (empty($GLOBALS['message'])) {
+            $GLOBALS['message'] = Message::success();
         }
 
-        ($this->structureController)();
+        ($this->structureController)($request);
     }
 }

@@ -1,3 +1,6 @@
+import $ from 'jquery';
+import { AJAX } from '../modules/ajax.js';
+
 /**
  * XML editor plugin
  *
@@ -5,7 +8,7 @@
  */
 AJAX.registerOnload('transformations/xml_editor.js', function () {
     $('textarea.transform_xml_editor').each(function () {
-        CodeMirror.fromTextArea(this, {
+        window.CodeMirror.fromTextArea(this, {
             lineNumbers: true,
             indentUnit: 4,
             mode: 'application/xml',

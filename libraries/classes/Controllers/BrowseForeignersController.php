@@ -15,21 +15,13 @@ use PhpMyAdmin\Template;
  */
 class BrowseForeignersController extends AbstractController
 {
-    /** @var BrowseForeigners */
-    private $browseForeigners;
-
-    /** @var Relation */
-    private $relation;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        BrowseForeigners $browseForeigners,
-        Relation $relation
+        private BrowseForeigners $browseForeigners,
+        private Relation $relation,
     ) {
         parent::__construct($response, $template);
-        $this->browseForeigners = $browseForeigners;
-        $this->relation = $relation;
     }
 
     public function __invoke(ServerRequest $request): void
@@ -53,7 +45,7 @@ class BrowseForeignersController extends AbstractController
             return;
         }
 
-        $this->response->getFooter()->setMinimal();
+        $this->response->setMinimalFooter();
         $header = $this->response->getHeader();
         $header->disableMenuAndConsole();
         $header->setBodyId('body_browse_foreigners');
@@ -66,7 +58,7 @@ class BrowseForeignersController extends AbstractController
             true,
             $foreignFilter,
             $foreignLimit ?? '',
-            true
+            true,
         );
 
         $this->response->addHTML($this->browseForeigners->getHtmlForRelationalFieldSelection(
@@ -75,7 +67,7 @@ class BrowseForeignersController extends AbstractController
             $field,
             $foreignData,
             $fieldKey,
-            $data
+            $data,
         ));
     }
 }

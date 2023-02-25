@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Import;
 
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import\SimulateDml;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -20,24 +21,20 @@ use function explode;
 
 final class SimulateDmlController extends AbstractController
 {
-    /** @var SimulateDml */
-    private $simulateDml;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        SimulateDml $simulateDml
+        private SimulateDml $simulateDml,
     ) {
         parent::__construct($response, $template);
-        $this->simulateDml = $simulateDml;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $error = '';
         $errorMsg = __('Only single-table UPDATE and DELETE queries can be simulated.');
         /** @var string $sqlDelimiter */
-        $sqlDelimiter = $_POST['sql_delimiter'];
+        $sqlDelimiter = $request->getParsedBodyParam('sql_delimiter', '');
         $sqlData = [];
         /** @var string[] $queries */
         $queries = explode($sqlDelimiter, $GLOBALS['sql_query']);

@@ -9,6 +9,7 @@ parameters:
     bootstrapFiles:
         - test/phpstan-constants.php
     stubFiles:
+        - test/stubs/Query.stub
         - test/stubs/uploadprogress.stub
     excludePaths:
         - examples/openid.php
@@ -21,3 +22,18 @@ parameters:
     dynamicConstantNames:
         - ROOT_PATH
         - VERSION_SUFFIX
+    strictRules:
+        # Allow non-booleans in conditions.
+        booleansInConditions: false
+        # Allow the empty() construct.
+        disallowedConstructs: false
+        # Allow dynamic calls to static methods.
+        strictCalls: false
+    checkBenevolentUnionTypes: true
+    checkAlwaysTrueCheckTypeFunctionCall: true
+    checkAlwaysTrueStrictComparison: true
+    checkUninitializedProperties: true
+    polluteScopeWithAlwaysIterableForeach: true
+    checkDynamicProperties: true
+    checkTooWideReturnTypesInProtectedAndPublicMethods: true
+    polluteScopeWithLoopInitialAssignments: true

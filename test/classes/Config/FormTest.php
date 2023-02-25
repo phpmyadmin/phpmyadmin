@@ -11,12 +11,9 @@ use ReflectionClass;
 use ReflectionProperty;
 
 use function array_keys;
-use function method_exists;
 use function preg_match;
 
-/**
- * @covers \PhpMyAdmin\Config\Form
- */
+/** @covers \PhpMyAdmin\Config\Form */
 class FormTest extends AbstractTestCase
 {
     /** @var Form */
@@ -28,8 +25,11 @@ class FormTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setTheme();
+
         parent::setGlobalConfig();
+
         $GLOBALS['server'] = 0;
         $this->object = new Form(
             'pma_form_name',
@@ -38,7 +38,7 @@ class FormTest extends AbstractTestCase
                 'pma_form2',
             ],
             new ConfigFile(),
-            1
+            1,
         );
     }
 
@@ -48,6 +48,7 @@ class FormTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 
@@ -69,19 +70,18 @@ class FormTest extends AbstractTestCase
     public function testGetOptionType(): void
     {
         $attrFieldsTypes = new ReflectionProperty(Form::class, 'fieldsTypes');
-        $attrFieldsTypes->setAccessible(true);
         $attrFieldsTypes->setValue(
             $this->object,
-            ['7' => 'Seven']
+            ['7' => 'Seven'],
         );
 
         $this->assertNull(
-            $this->object->getOptionType('123/4/5/6')
+            $this->object->getOptionType('123/4/5/6'),
         );
 
         $this->assertEquals(
             'Seven',
-            $this->object->getOptionType('123/4/5/7')
+            $this->object->getOptionType('123/4/5/7'),
         );
     }
 
@@ -95,7 +95,7 @@ class FormTest extends AbstractTestCase
                 'NHibernate C# DO',
                 'NHibernate XML',
             ],
-            $this->object->getOptionValueList('Export/codegen_format')
+            $this->object->getOptionValueList('Export/codegen_format'),
         );
 
         $this->assertEquals(
@@ -104,7 +104,7 @@ class FormTest extends AbstractTestCase
                 '1' => 1,
                 '0' => 0,
             ],
-            $this->object->getOptionValueList('OBGzip')
+            $this->object->getOptionValueList('OBGzip'),
         );
 
         $this->assertEquals(
@@ -114,7 +114,7 @@ class FormTest extends AbstractTestCase
                 'right' => 'Right',
                 'both' => 'Both',
             ],
-            $this->object->getOptionValueList('RowActionLinks')
+            $this->object->getOptionValueList('RowActionLinks'),
         );
     }
 
@@ -125,7 +125,6 @@ class FormTest extends AbstractTestCase
     {
         $reflection = new ReflectionClass(Form::class);
         $method = $reflection->getMethod('readFormPathsCallback');
-        $method->setAccessible(true);
 
         $array = [
             'foo' => [
@@ -151,13 +150,7 @@ class FormTest extends AbstractTestCase
         $this->assertIsString($result[1]);
 
         // needs regexp because the counter is static
-
-        if (method_exists($this, 'assertMatchesRegularExpression')) {
-            $this->assertMatchesRegularExpression('/^preffoo\/foo\/bar\/\:group\:end\:\d+$/', $result[1]);
-        } else {
-            /** @psalm-suppress DeprecatedMethod */
-            $this->assertRegExp('/^preffoo\/foo\/bar\/\:group\:end\:\d+$/', $result[1]);
-        }
+        $this->assertMatchesRegularExpression('/^preffoo\/foo\/bar\/\:group\:end\:\d+$/', $result[1]);
     }
 
     /**
@@ -167,7 +160,6 @@ class FormTest extends AbstractTestCase
     {
         $reflection = new ReflectionClass(Form::class);
         $method = $reflection->getMethod('readFormPaths');
-        $method->setAccessible(true);
 
         $array = [
             'foo' => [
@@ -189,17 +181,10 @@ class FormTest extends AbstractTestCase
         unset($result['test']);
 
         // needs regexp because the counter is static
-
-        $keys = array_keys($result);
-        $key = $keys[0];
+        $key = array_keys($result)[0];
         $this->assertIsString($key);
 
-        if (method_exists($this, 'assertMatchesRegularExpression')) {
-            $this->assertMatchesRegularExpression('/^\:group\:end\:(\d+)$/', $key);
-        } else {
-            /** @psalm-suppress DeprecatedMethod */
-            $this->assertRegExp('/^\:group\:end\:(\d+)$/', $key);
-        }
+        $this->assertMatchesRegularExpression('/^\:group\:end\:(\d+)$/', $key);
 
         preg_match('/^\:group\:end\:(\d+)$/', $key, $matches);
         $digit = $matches[1];
@@ -214,7 +199,6 @@ class FormTest extends AbstractTestCase
     {
         $reflection = new ReflectionClass(Form::class);
         $method = $reflection->getMethod('readTypes');
-        $method->setAccessible(true);
 
         $this->object->fields = [
             'pma_form1' => 'Servers/1/port',
@@ -224,7 +208,6 @@ class FormTest extends AbstractTestCase
         ];
 
         $attrFieldsTypes = $reflection->getProperty('fieldsTypes');
-        $attrFieldsTypes->setAccessible(true);
 
         $method->invoke($this->object, null);
 
@@ -235,7 +218,7 @@ class FormTest extends AbstractTestCase
                 ':group:end:0' => 'group',
                 '1' => 'NULL',
             ],
-            $attrFieldsTypes->getValue($this->object)
+            $attrFieldsTypes->getValue($this->object),
         );
     }
 

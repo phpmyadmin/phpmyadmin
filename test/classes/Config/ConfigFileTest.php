@@ -12,9 +12,7 @@ use stdClass;
 use function array_keys;
 use function count;
 
-/**
- * @covers \PhpMyAdmin\Config\ConfigFile
- */
+/** @covers \PhpMyAdmin\Config\ConfigFile */
 class ConfigFileTest extends AbstractTestCase
 {
     /**
@@ -35,6 +33,7 @@ class ConfigFileTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['server'] = 1;
         $this->object = new ConfigFile();
     }
@@ -45,6 +44,7 @@ class ConfigFileTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         $this->object->setConfigData([]);
         unset($this->object);
     }
@@ -57,13 +57,13 @@ class ConfigFileTest extends AbstractTestCase
         // Check default dynamic values
         $this->assertEquals(
             [],
-            $this->object->getConfig()
+            $this->object->getConfig(),
         );
 
         // Check environment state
         $this->assertEquals(
             [],
-            $_SESSION['ConfigFile1']
+            $_SESSION['ConfigFile1'],
         );
 
         // Validate default value used in tests
@@ -101,7 +101,7 @@ class ConfigFileTest extends AbstractTestCase
         $this->assertEmpty($this->object->getConfig());
         $this->assertEquals(
             $default_config,
-            $this->object->getConfigArray()
+            $this->object->getConfigArray(),
         );
 
         /**
@@ -111,7 +111,7 @@ class ConfigFileTest extends AbstractTestCase
         $this->object->set('Servers/2/host', $default_host);
         $this->assertEquals(
             ['Servers' => [2 => ['host' => $default_host]]],
-            $this->object->getConfig()
+            $this->object->getConfig(),
         );
     }
 
@@ -133,7 +133,7 @@ class ConfigFileTest extends AbstractTestCase
                 'a' => 1,
                 'c' => 3,
             ],
-            $this->object->getConfig()
+            $this->object->getConfig(),
         );
 
         /**
@@ -148,7 +148,7 @@ class ConfigFileTest extends AbstractTestCase
                 'b' => 2,
                 'c' => 3,
             ],
-            $this->object->getConfig()
+            $this->object->getConfig(),
         );
     }
 
@@ -161,7 +161,7 @@ class ConfigFileTest extends AbstractTestCase
             [
                 'Servers/value1' => 'Servers/1/value1',
                 'Servers/value2' => 'Servers/1/value2',
-            ]
+            ],
         );
         $this->object->set('Servers/1/passthrough1', 1);
         $this->object->set('Servers/1/passthrough2', 2);
@@ -177,11 +177,11 @@ class ConfigFileTest extends AbstractTestCase
                     ],
                 ],
             ],
-            $this->object->getConfig()
+            $this->object->getConfig(),
         );
         $this->assertEquals(
             3,
-            $this->object->get('Servers/1/value1')
+            $this->object->get('Servers/1/value1'),
         );
     }
 
@@ -208,11 +208,11 @@ class ConfigFileTest extends AbstractTestCase
 
         $this->assertEquals(
             ['a' => 'b'],
-            $this->object->getConfig()
+            $this->object->getConfig(),
         );
         $this->assertEquals(
             ['a' => 'b'],
-            $this->object->getConfigArray()
+            $this->object->getConfigArray(),
         );
     }
 
@@ -229,29 +229,29 @@ class ConfigFileTest extends AbstractTestCase
         $this->object->set('Servers/6/host', $default_host, 'Servers/6/host');
         $this->assertEquals(
             $nondefault_host,
-            $this->object->get('Servers/4/host')
+            $this->object->get('Servers/4/host'),
         );
         $this->assertEquals(
             null,
-            $this->object->get('Servers/5/host')
+            $this->object->get('Servers/5/host'),
         );
         $this->assertEquals(
             $default_host,
-            $this->object->get('Servers/6/host')
+            $this->object->get('Servers/6/host'),
         );
 
         // return default value for nonexistent keys
         $this->assertNull(
-            $this->object->get('key not excist')
+            $this->object->get('key not excist'),
         );
         $this->assertEquals(
             [1],
-            $this->object->get('key not excist', [1])
+            $this->object->get('key not excist', [1]),
         );
         $default = new stdClass();
         $this->assertInstanceOf(
             stdClass::class,
-            $this->object->get('key not excist', $default)
+            $this->object->get('key not excist', $default),
         );
     }
 
@@ -276,7 +276,7 @@ class ConfigFileTest extends AbstractTestCase
 
         // values are not written when they are the same as in config.inc.php
         $this->object = new ConfigFile(
-            [self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $default_value]
+            [self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $default_value],
         );
         $this->object->set(self::SIMPLE_KEY_WITH_DEFAULT_VALUE, $default_value);
         $this->assertEmpty($this->object->getConfig());
@@ -285,12 +285,12 @@ class ConfigFileTest extends AbstractTestCase
         // allow to overwrite with value from the default values
         $config_inc_php_value = $default_value . 'suffix';
         $this->object = new ConfigFile(
-            [self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $config_inc_php_value]
+            [self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $config_inc_php_value],
         );
         $this->object->set(self::SIMPLE_KEY_WITH_DEFAULT_VALUE, $default_value);
         $this->assertEquals(
             [self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $default_value],
-            $this->object->getConfig()
+            $this->object->getConfig(),
         );
     }
 
@@ -330,7 +330,7 @@ class ConfigFileTest extends AbstractTestCase
                 'key' => 'ABC',
                 'key2' => 'value',
             ],
-            $this->object->getConfig()
+            $this->object->getConfig(),
         );
     }
 
@@ -341,12 +341,12 @@ class ConfigFileTest extends AbstractTestCase
     {
         $this->assertEquals(
             'Servers/1/abcd',
-            $this->object->getCanonicalPath('Servers/2/abcd')
+            $this->object->getCanonicalPath('Servers/2/abcd'),
         );
 
         $this->assertEquals(
             'Servers/foo/bar',
-            $this->object->getCanonicalPath('Servers/foo/bar')
+            $this->object->getCanonicalPath('Servers/foo/bar'),
         );
     }
 
@@ -361,12 +361,12 @@ class ConfigFileTest extends AbstractTestCase
 
         $this->assertEquals(
             $cfg_db['Servers'][1]['port'],
-            $this->object->getDbEntry('Servers/1/port')
+            $this->object->getDbEntry('Servers/1/port'),
         );
         $this->assertNull($this->object->getDbEntry('no such key'));
         $this->assertEquals(
             [1],
-            $this->object->getDbEntry('no such key', [1])
+            $this->object->getDbEntry('no such key', [1]),
         );
     }
 
@@ -383,7 +383,7 @@ class ConfigFileTest extends AbstractTestCase
 
         $this->assertEquals(
             4,
-            $this->object->getServerCount()
+            $this->object->getServerCount(),
         );
 
         $this->object->removeServer(2);
@@ -391,12 +391,12 @@ class ConfigFileTest extends AbstractTestCase
 
         $this->assertEquals(
             2,
-            $this->object->getServerCount()
+            $this->object->getServerCount(),
         );
 
         $this->assertLessThanOrEqual(
             2,
-            $this->object->get('ServerDefault')
+            $this->object->get('ServerDefault'),
         );
         $this->assertEquals(
             [
@@ -405,14 +405,14 @@ class ConfigFileTest extends AbstractTestCase
                     2 => ['x' => 4],
                 ],
             ],
-            $this->object->getConfig()
+            $this->object->getConfig(),
         );
         $this->assertEquals(
             [
                 'Servers/1/x' => 1,
                 'Servers/2/x' => 4,
             ],
-            $this->object->getConfigArray()
+            $this->object->getConfigArray(),
         );
     }
 
@@ -429,7 +429,7 @@ class ConfigFileTest extends AbstractTestCase
                 1 => ['x' => 'a'],
                 2 => ['x' => 'b'],
             ],
-            $this->object->getServers()
+            $this->object->getServers(),
         );
     }
 
@@ -440,7 +440,7 @@ class ConfigFileTest extends AbstractTestCase
     {
         $this->assertEquals(
             '',
-            $this->object->getServerDSN(1)
+            $this->object->getServerDSN(1),
         );
 
         $this->object->updateWithGlobalConfig(
@@ -453,11 +453,11 @@ class ConfigFileTest extends AbstractTestCase
                         'port' => '21',
                     ],
                 ],
-            ]
+            ],
         );
         $this->assertEquals(
             'mysqli://testUser@example.com:21',
-            $this->object->getServerDSN(1)
+            $this->object->getServerDSN(1),
         );
 
         $this->object->updateWithGlobalConfig(
@@ -472,11 +472,11 @@ class ConfigFileTest extends AbstractTestCase
                         'password' => '',
                     ],
                 ],
-            ]
+            ],
         );
         $this->assertEquals(
             'mysqli://testUser@123',
-            $this->object->getServerDSN(1)
+            $this->object->getServerDSN(1),
         );
 
         $this->object->updateWithGlobalConfig(
@@ -490,11 +490,11 @@ class ConfigFileTest extends AbstractTestCase
                         'password' => 'testPass',
                     ],
                 ],
-            ]
+            ],
         );
         $this->assertEquals(
             'mysqli://testUser:***@example.com:21',
-            $this->object->getServerDSN(1)
+            $this->object->getServerDSN(1),
         );
     }
 
@@ -505,19 +505,19 @@ class ConfigFileTest extends AbstractTestCase
     {
         $this->assertEquals(
             '',
-            $this->object->getServerName(1)
+            $this->object->getServerName(1),
         );
 
         $this->object->set('Servers/1/host', 'example.com');
         $this->assertEquals(
             'example.com',
-            $this->object->getServerName(1)
+            $this->object->getServerName(1),
         );
 
         $this->object->set('Servers/1/verbose', 'testData');
         $this->assertEquals(
             'testData',
-            $this->object->getServerName(1)
+            $this->object->getServerName(1),
         );
     }
 
@@ -538,7 +538,7 @@ class ConfigFileTest extends AbstractTestCase
                     'y',
                 ],
             ],
-            $this->object->getConfigArray()
+            $this->object->getConfigArray(),
         );
     }
 }

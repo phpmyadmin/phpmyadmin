@@ -4,9 +4,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use Exception;
+use PhpMyAdmin\Error;
 use PhpMyAdmin\ErrorHandler;
 
 use function array_keys;
+use function array_pop;
 use function count;
 
 use const E_RECOVERABLE_ERROR;
@@ -14,9 +17,7 @@ use const E_USER_NOTICE;
 use const E_USER_WARNING;
 use const E_WARNING;
 
-/**
- * @covers \PhpMyAdmin\ErrorHandler
- */
+/** @covers \PhpMyAdmin\ErrorHandler */
 class ErrorHandlerTest extends AbstractTestCase
 {
     /** @var ErrorHandler */
@@ -29,6 +30,9 @@ class ErrorHandlerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $this->object = new ErrorHandler();
         $_SESSION['errors'] = [];
         $GLOBALS['server'] = 0;
@@ -43,6 +47,7 @@ class ErrorHandlerTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 
@@ -51,7 +56,7 @@ class ErrorHandlerTest extends AbstractTestCase
      *
      * @return array data for testHandleError
      */
-    public function providerForTestHandleError(): array
+    public static function providerForTestHandleError(): array
     {
         return [
             [
@@ -93,7 +98,7 @@ class ErrorHandlerTest extends AbstractTestCase
         string $errfile,
         int $errline,
         string $output_show,
-        string $output_hide
+        string $output_hide,
     ): void {
         // TODO: Add other test cases for all combination of 'sendErrorReports'
         $GLOBALS['cfg']['SendErrorReports'] = 'never';
@@ -130,14 +135,14 @@ class ErrorHandlerTest extends AbstractTestCase
         string $errfile,
         int $errline,
         string $output_show,
-        string $output_hide
+        string $output_hide,
     ): void {
         $this->object->handleError($errno, $errstr, $errfile, $errline);
 
         $this->assertIsString($output_hide);// Useless check
         $this->assertStringContainsString(
             $output_show,
-            $this->object->getDispErrors()
+            $this->object->getDispErrors(),
         );
     }
 
@@ -150,7 +155,7 @@ class ErrorHandlerTest extends AbstractTestCase
             $this->object,
             ErrorHandler::class,
             'checkSavedErrors',
-            []
+            [],
         );
         $this->assertArrayNotHasKey('errors', $_SESSION);
     }
@@ -165,7 +170,7 @@ class ErrorHandlerTest extends AbstractTestCase
         $this->object->addError('Compile Error', E_WARNING, 'error.txt', 15);
         $this->assertEquals(
             1,
-            $this->object->countErrors()
+            $this->object->countErrors(),
         );
     }
 
@@ -180,23 +185,23 @@ class ErrorHandlerTest extends AbstractTestCase
         $this->object->addError('Compile Error', E_WARNING, 'error.txt', 16);
         $this->assertEquals(
             2,
-            $this->object->countErrors()
+            $this->object->countErrors(),
         );
         $this->assertEquals(
             [],
-            $this->object->sliceErrors(2)
+            $this->object->sliceErrors(2),
         );
         $this->assertEquals(
             2,
-            $this->object->countErrors()
+            $this->object->countErrors(),
         );
         $this->assertCount(
             1,
-            $this->object->sliceErrors(1)
+            $this->object->sliceErrors(1),
         );
         $this->assertEquals(
             1,
-            $this->object->countErrors()
+            $this->object->countErrors(),
         );
     }
 
@@ -224,7 +229,7 @@ class ErrorHandlerTest extends AbstractTestCase
             [
                 $firstKey => $elements[$firstKey],
             ],
-            $elements
+            $elements,
         );
         $this->assertEquals(9, count($this->object->getCurrentErrors()));
         $this->assertEquals(9, $this->object->countErrors());
@@ -250,12 +255,12 @@ class ErrorHandlerTest extends AbstractTestCase
         $this->object->addError('Compile Error', E_WARNING, 'error.txt', 15);
         $this->assertEquals(
             0,
-            $this->object->countUserErrors()
+            $this->object->countUserErrors(),
         );
         $this->object->addError('Compile Error', E_USER_WARNING, 'error.txt', 15);
         $this->assertEquals(
             1,
-            $this->object->countUserErrors()
+            $this->object->countUserErrors(),
         );
     }
 
@@ -282,7 +287,7 @@ class ErrorHandlerTest extends AbstractTestCase
     {
         $this->assertEquals(
             0,
-            $this->object->countDisplayErrors()
+            $this->object->countDisplayErrors(),
         );
     }
 
@@ -293,7 +298,7 @@ class ErrorHandlerTest extends AbstractTestCase
     {
         $this->assertEquals(
             0,
-            $this->object->countDisplayErrors()
+            $this->object->countDisplayErrors(),
         );
     }
 
@@ -303,5 +308,40 @@ class ErrorHandlerTest extends AbstractTestCase
     public function testHasDisplayErrors(): void
     {
         $this->assertFalse($this->object->hasDisplayErrors());
+    }
+
+    public function testHandleExceptionForDevEnv(): void
+    {
+        $GLOBALS['config']->set('environment', 'development');
+        $errorHandler = new ErrorHandler();
+        $this->assertSame([], $errorHandler->getCurrentErrors());
+        $errorHandler->handleException(new Exception('Exception message.'));
+        $output = $this->getActualOutputForAssertion();
+        $errors = $errorHandler->getCurrentErrors();
+        $this->assertCount(1, $errors);
+        $error = array_pop($errors);
+        $this->assertInstanceOf(Error::class, $error);
+        $this->assertSame('Exception: Exception message.', $error->getOnlyMessage());
+        $this->assertStringContainsString($error->getDisplay(), $output);
+        $this->assertStringContainsString('Internal error', $output);
+        $this->assertStringContainsString('ErrorHandlerTest.php#' . $error->getLine(), $output);
+        $this->assertStringContainsString('Exception: Exception message.', $output);
+    }
+
+    public function testHandleExceptionForProdEnv(): void
+    {
+        $GLOBALS['config']->set('environment', 'production');
+        $errorHandler = new ErrorHandler();
+        $this->assertSame([], $errorHandler->getCurrentErrors());
+        $errorHandler->handleException(new Exception('Exception message.'));
+        $output = $this->getActualOutputForAssertion();
+        $errors = $errorHandler->getCurrentErrors();
+        $this->assertCount(1, $errors);
+        $error = array_pop($errors);
+        $this->assertInstanceOf(Error::class, $error);
+        $this->assertSame('Exception: Exception message.', $error->getOnlyMessage());
+        $this->assertStringContainsString($error->getDisplay(), $output);
+        $this->assertStringContainsString('Exception: Exception message.', $output);
+        $this->assertStringNotContainsString('ErrorHandlerTest.php#' . $error->getLine(), $output);
     }
 }

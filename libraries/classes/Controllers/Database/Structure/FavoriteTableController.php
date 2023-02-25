@@ -5,7 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database\Structure;
 
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Controllers\Database\AbstractController;
+use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -21,18 +22,14 @@ use function sha1;
 
 final class FavoriteTableController extends AbstractController
 {
-    /** @var Relation */
-    private $relation;
-
-    public function __construct(ResponseRenderer $response, Template $template, string $db, Relation $relation)
+    public function __construct(ResponseRenderer $response, Template $template, private Relation $relation)
     {
-        parent::__construct($response, $template, $db);
-        $this->relation = $relation;
+        parent::__construct($response, $template);
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $cfg, $db, $errorUrl;
+        $GLOBALS['errorUrl'] ??= null;
 
         $parameters = [
             'favorite_table' => $_REQUEST['favorite_table'] ?? null,
@@ -40,10 +37,12 @@ final class FavoriteTableController extends AbstractController
             'sync_favorite_tables' => $_REQUEST['sync_favorite_tables'] ?? null,
         ];
 
-        Util::checkParameters(['db']);
+        if ($GLOBALS['db'] === '') {
+            return;
+        }
 
-        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $errorUrl .= Url::getCommon(['db' => $db], '&');
+        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => $GLOBALS['db']], '&');
 
         if (! $this->hasDatabase() || ! $this->response->isAjax()) {
             return;
@@ -57,7 +56,7 @@ final class FavoriteTableController extends AbstractController
         }
 
         // Required to keep each user's preferences separate.
-        $user = sha1($cfg['Server']['user']);
+        $user = sha1($GLOBALS['cfg']['Server']['user']);
 
         // Request for Synchronization of favorite tables.
         if (isset($parameters['sync_favorite_tables'])) {
@@ -66,7 +65,7 @@ final class FavoriteTableController extends AbstractController
                 $this->response->addJSON($this->synchronizeFavoriteTables(
                     $favoriteInstance,
                     $user,
-                    $favoriteTables
+                    $favoriteTables,
                 ));
             }
 
@@ -80,17 +79,17 @@ final class FavoriteTableController extends AbstractController
         if (isset($_REQUEST['remove_favorite'])) {
             if ($alreadyFavorite) {
                 // If already in favorite list, remove it.
-                $favoriteInstance->remove($this->db, $favoriteTable);
+                $favoriteInstance->remove($GLOBALS['db'], $favoriteTable);
                 $alreadyFavorite = false; // for favorite_anchor template
             }
         } elseif (isset($_REQUEST['add_favorite'])) {
             if (! $alreadyFavorite) {
                 $numTables = count($favoriteInstance->getTables());
-                if ($numTables == $cfg['NumFavoriteTables']) {
+                if ($numTables == $GLOBALS['cfg']['NumFavoriteTables']) {
                     $changes = false;
                 } else {
                     // Otherwise add to favorite list.
-                    $favoriteInstance->add($this->db, $favoriteTable);
+                    $favoriteInstance->add($GLOBALS['db'], $favoriteTable);
                     $alreadyFavorite = true; // for favorite_anchor template
                 }
             }
@@ -111,7 +110,7 @@ final class FavoriteTableController extends AbstractController
 
         // Check if current table is already in favorite list.
         $favoriteParams = [
-            'db' => $this->db,
+            'db' => $GLOBALS['db'],
             'ajax_request' => true,
             'favorite_table' => $favoriteTable,
             ($alreadyFavorite ? 'remove' : 'add') . '_favorite' => true,
@@ -122,7 +121,7 @@ final class FavoriteTableController extends AbstractController
         $json['list'] = $favoriteInstance->getHtmlList();
         $json['anchor'] = $this->template->render('database/structure/favorite_anchor', [
             'table_name_hash' => md5($favoriteTable),
-            'db_table_name_hash' => md5($this->db . '.' . $favoriteTable),
+            'db_table_name_hash' => md5($GLOBALS['db'] . '.' . $favoriteTable),
             'fav_params' => $favoriteParams,
             'already_favorite' => $alreadyFavorite,
         ]);
@@ -142,7 +141,7 @@ final class FavoriteTableController extends AbstractController
     private function synchronizeFavoriteTables(
         RecentFavoriteTable $favoriteInstance,
         string $user,
-        array $favoriteTables
+        array $favoriteTables,
     ): array {
         $favoriteInstanceTables = $favoriteInstance->getTables();
 
@@ -174,7 +173,7 @@ final class FavoriteTableController extends AbstractController
         RecentFavoriteTable::getInstance('favorite');
         $favoriteTables = $_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']] ?? [];
         foreach ($favoriteTables as $value) {
-            if ($value['db'] == $this->db && $value['table'] == $currentTable) {
+            if ($value['db'] == $GLOBALS['db'] && $value['table'] == $currentTable) {
                 return true;
             }
         }

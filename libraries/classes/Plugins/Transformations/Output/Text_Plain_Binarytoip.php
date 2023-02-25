@@ -20,14 +20,12 @@ class Text_Plain_Binarytoip extends TransformationsPlugin
 {
     /**
      * Gets the transformation description of the plugin
-     *
-     * @return string
      */
-    public static function getInfo()
+    public static function getInfo(): string
     {
         return __(
             'Converts an Internet network address stored as a binary string'
-            . ' into a string in Internet standard (IPv4/IPv6) format.'
+            . ' into a string in Internet standard (IPv4/IPv6) format.',
         );
     }
 
@@ -42,7 +40,7 @@ class Text_Plain_Binarytoip extends TransformationsPlugin
      *
      * @return string IP address
      */
-    public function applyTransformation($buffer, array $options = [], ?FieldMetadata $meta = null)
+    public function applyTransformation($buffer, array $options = [], FieldMetadata|null $meta = null): string
     {
         $isBinary = ($meta !== null && $meta->isBinary);
 
@@ -53,30 +51,24 @@ class Text_Plain_Binarytoip extends TransformationsPlugin
 
     /**
      * Gets the transformation name of the plugin
-     *
-     * @return string
      */
-    public static function getName()
+    public static function getName(): string
     {
         return 'Binary To IPv4/IPv6';
     }
 
     /**
      * Gets the plugin`s MIME type
-     *
-     * @return string
      */
-    public static function getMIMEType()
+    public static function getMIMEType(): string
     {
         return 'Text';
     }
 
     /**
      * Gets the plugin`s MIME subtype
-     *
-     * @return string
      */
-    public static function getMIMESubtype()
+    public static function getMIMESubtype(): string
     {
         return 'Plain';
     }

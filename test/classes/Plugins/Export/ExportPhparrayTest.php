@@ -4,16 +4,18 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\Export\ExportPhparray;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Transformations;
 use ReflectionMethod;
 use ReflectionProperty;
 
-use function array_shift;
 use function ob_get_clean;
 use function ob_start;
 
@@ -32,6 +34,8 @@ class ExportPhparrayTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['output_charset_conversion'] = false;
@@ -43,7 +47,11 @@ class ExportPhparrayTest extends AbstractTestCase
         $GLOBALS['lang'] = 'en';
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = '';
-        $this->object = new ExportPhparray();
+        $this->object = new ExportPhparray(
+            new Relation($GLOBALS['dbi']),
+            new Export($GLOBALS['dbi']),
+            new Transformations(),
+        );
     }
 
     /**
@@ -52,39 +60,38 @@ class ExportPhparrayTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
+
         unset($this->object);
     }
 
     public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportPhparray::class, 'setProperties');
-        $method->setAccessible(true);
         $method->invoke($this->object, null);
 
         $attrProperties = new ReflectionProperty(ExportPhparray::class, 'properties');
-        $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(ExportPluginProperties::class, $properties);
 
         $this->assertEquals(
             'PHP array',
-            $properties->getText()
+            $properties->getText(),
         );
 
         $this->assertEquals(
             'php',
-            $properties->getExtension()
+            $properties->getExtension(),
         );
 
         $this->assertEquals(
             'text/plain',
-            $properties->getMimeType()
+            $properties->getMimeType(),
         );
 
         $this->assertEquals(
             'Options',
-            $properties->getOptionsText()
+            $properties->getOptionsText(),
         );
 
         $options = $properties->getOptions();
@@ -93,55 +100,51 @@ class ExportPhparrayTest extends AbstractTestCase
 
         $this->assertEquals(
             'Format Specific Options',
-            $options->getName()
+            $options->getName(),
         );
 
         $generalOptionsArray = $options->getProperties();
-        $generalOptions = $generalOptionsArray[0];
+        $generalOptions = $generalOptionsArray->current();
 
         $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'general_opts',
-            $generalOptions->getName()
+            $generalOptions->getName(),
         );
 
         $generalProperties = $generalOptions->getProperties();
 
-        $property = array_shift($generalProperties);
+        $property = $generalProperties->current();
 
         $this->assertInstanceOf(HiddenPropertyItem::class, $property);
     }
 
     public function testExportHeader(): void
     {
-        $GLOBALS['crlf'] = ' ';
-
         ob_start();
         $this->assertTrue(
-            $this->object->exportHeader()
+            $this->object->exportHeader(),
         );
         $result = ob_get_clean();
 
         $this->assertIsString($result);
 
-        $this->assertStringContainsString('<?php ', $result);
+        $this->assertStringContainsString('<?php' . "\n", $result);
     }
 
     public function testExportFooter(): void
     {
         $this->assertTrue(
-            $this->object->exportFooter()
+            $this->object->exportFooter(),
         );
     }
 
     public function testExportDBHeader(): void
     {
-        $GLOBALS['crlf'] = "\n";
-
         ob_start();
         $this->assertTrue(
-            $this->object->exportDBHeader('db')
+            $this->object->exportDBHeader('db'),
         );
         $result = ob_get_clean();
 
@@ -153,14 +156,14 @@ class ExportPhparrayTest extends AbstractTestCase
     public function testExportDBFooter(): void
     {
         $this->assertTrue(
-            $this->object->exportDBFooter('testDB')
+            $this->object->exportDBFooter('testDB'),
         );
     }
 
     public function testExportDBCreate(): void
     {
         $this->assertTrue(
-            $this->object->exportDBCreate('testDB', 'database')
+            $this->object->exportDBCreate('testDB', 'database'),
         );
     }
 
@@ -171,10 +174,9 @@ class ExportPhparrayTest extends AbstractTestCase
             $this->object->exportData(
                 'test_db',
                 'test_table',
-                "\n",
                 'phpmyadmin.net/err',
-                'SELECT * FROM `test_db`.`test_table`;'
-            )
+                'SELECT * FROM `test_db`.`test_table`;',
+            ),
         );
         $result = ob_get_clean();
 
@@ -185,7 +187,7 @@ class ExportPhparrayTest extends AbstractTestCase
             '  array(\'id\' => \'2\',\'name\' => \'foo\',\'datetimefield\' => \'2010-01-20 02:00:02\'),' . "\n" .
             '  array(\'id\' => \'3\',\'name\' => \'Abcd\',\'datetimefield\' => \'2012-01-20 02:00:02\')' . "\n" .
             ');' . "\n",
-            $result
+            $result,
         );
 
         // case 2: test invalid variable name fix
@@ -194,10 +196,9 @@ class ExportPhparrayTest extends AbstractTestCase
             $this->object->exportData(
                 'test_db',
                 '0`932table',
-                "\n",
                 'phpmyadmin.net/err',
-                'SELECT * FROM `test_db`.`test_table`;'
-            )
+                'SELECT * FROM `test_db`.`test_table`;',
+            ),
         );
         $result = ob_get_clean();
 
@@ -209,7 +210,7 @@ class ExportPhparrayTest extends AbstractTestCase
             '  array(\'id\' => \'2\',\'name\' => \'foo\',\'datetimefield\' => \'2010-01-20 02:00:02\'),' . "\n" .
             '  array(\'id\' => \'3\',\'name\' => \'Abcd\',\'datetimefield\' => \'2012-01-20 02:00:02\')' . "\n" .
             ');' . "\n",
-            $result
+            $result,
         );
     }
 }

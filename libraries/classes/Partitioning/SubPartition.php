@@ -12,26 +12,14 @@ namespace PhpMyAdmin\Partitioning;
  */
 class SubPartition
 {
-    /** @var string the database */
-    protected $db;
-    /** @var string the table */
-    protected $table;
-    /** @var string partition name */
-    protected $name;
-    /** @var int ordinal */
-    protected $ordinal;
-    /** @var string partition method */
-    protected $method;
-    /** @var string partition expression */
-    protected $expression;
-    /** @var int no of table rows in the partition */
-    protected $rows;
-    /** @var int data length */
-    protected $dataLength;
-    /** @var int index length */
-    protected $indexLength;
-    /** @var string partition comment */
-    protected $comment;
+    protected string|null $name = null;
+    protected int|null $ordinal = null;
+    protected string|null $method = null;
+    protected string|null $expression = null;
+    protected int $rows = 0;
+    protected int $dataLength = 0;
+    protected int $indexLength = 0;
+    protected string $comment = '';
 
     /**
      * Constructs a partition
@@ -40,20 +28,9 @@ class SubPartition
      */
     public function __construct(array $row)
     {
-        $this->db = $row['TABLE_SCHEMA'];
-        $this->table = $row['TABLE_NAME'];
-        $this->loadData($row);
-    }
-
-    /**
-     * Loads data from the fetched row from information_schema.PARTITIONS
-     *
-     * @param array $row fetched row
-     */
-    protected function loadData(array $row): void
-    {
         $this->name = $row['SUBPARTITION_NAME'];
-        $this->ordinal = $row['SUBPARTITION_ORDINAL_POSITION'];
+        $this->ordinal = $row['SUBPARTITION_ORDINAL_POSITION'] !== null
+            ? (int) $row['SUBPARTITION_ORDINAL_POSITION'] : null;
         $this->method = $row['SUBPARTITION_METHOD'];
         $this->expression = $row['SUBPARTITION_EXPRESSION'];
         $this->loadCommonData($row);
@@ -66,88 +43,72 @@ class SubPartition
      */
     protected function loadCommonData(array $row): void
     {
-        $this->rows = $row['TABLE_ROWS'];
-        $this->dataLength = $row['DATA_LENGTH'];
-        $this->indexLength = $row['INDEX_LENGTH'];
+        $this->rows = (int) $row['TABLE_ROWS'];
+        $this->dataLength = (int) $row['DATA_LENGTH'];
+        $this->indexLength = (int) $row['INDEX_LENGTH'];
         $this->comment = $row['PARTITION_COMMENT'];
     }
 
     /**
      * Return the partition name
-     *
-     * @return string partition name
      */
-    public function getName()
+    public function getName(): string|null
     {
         return $this->name;
     }
 
     /**
      * Return the ordinal of the partition
-     *
-     * @return int the ordinal
      */
-    public function getOrdinal()
+    public function getOrdinal(): int|null
     {
         return $this->ordinal;
     }
 
     /**
      * Returns the partition method
-     *
-     * @return string partition method
      */
-    public function getMethod()
+    public function getMethod(): string|null
     {
         return $this->method;
     }
 
     /**
      * Returns the partition expression
-     *
-     * @return string partition expression
      */
-    public function getExpression()
+    public function getExpression(): string|null
     {
         return $this->expression;
     }
 
     /**
      * Returns the number of data rows
-     *
-     * @return int number of rows
      */
-    public function getRows()
+    public function getRows(): int
     {
         return $this->rows;
     }
 
     /**
      * Returns the data length
-     *
-     * @return int data length
      */
-    public function getDataLength()
+    public function getDataLength(): int
     {
         return $this->dataLength;
     }
 
     /**
      * Returns the index length
-     *
-     * @return int index length
      */
-    public function getIndexLength()
+    public function getIndexLength(): int
     {
         return $this->indexLength;
     }
 
     /**
      * Returns the partition comment
-     *
-     * @return string partition comment
      */
-    public function getComment()
+    public function getComment(): string
     {
         return $this->comment;
     }

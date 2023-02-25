@@ -23,6 +23,7 @@ class NodeIndexContainer extends Node
     public function __construct()
     {
         parent::__construct(__('Indexes'), Node::CONTAINER);
+
         $this->icon = ['image' => 'b_index', 'title' => __('Indexes')];
         $this->links = [
             'text' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],

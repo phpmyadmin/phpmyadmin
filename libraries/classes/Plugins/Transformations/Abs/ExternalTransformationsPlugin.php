@@ -33,10 +33,8 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
 {
     /**
      * Gets the transformation description of the specific plugin
-     *
-     * @return string
      */
-    public static function getInfo()
+    public static function getInfo(): string
     {
         return __(
             'LINUX ONLY: Launches an external application and feeds it the column'
@@ -50,7 +48,7 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
             . ' The third option, if set to 1, will convert the output using'
             . ' htmlspecialchars() (Default 1). The fourth option, if set to 1,'
             . ' will prevent wrapping and ensure that the output appears all on'
-            . ' one line (Default 1).'
+            . ' one line (Default 1).',
         );
     }
 
@@ -78,10 +76,8 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
      * @param string             $buffer  text to be transformed
      * @param array              $options transformation options
      * @param FieldMetadata|null $meta    meta information
-     *
-     * @return string
      */
-    public function applyTransformation($buffer, array $options = [], ?FieldMetadata $meta = null)
+    public function applyTransformation($buffer, array $options = [], FieldMetadata|null $meta = null): string
     {
         // possibly use a global transform and feed it with special options
 
@@ -121,9 +117,9 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
                 __(
                     'You are using the external transformation command line'
                     . ' options field, which has been deprecated for security reasons.'
-                    . ' Add all command line options directly to the definition in %s.'
+                    . ' Add all command line options directly to the definition in %s.',
                 ),
-                '[code]libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php[/code]'
+                '[code]libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php[/code]',
             ), E_USER_DEPRECATED);
         }
 
@@ -154,22 +150,18 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
         }
 
         if ($options[2] == 1 || $options[2] == '2') {
-            $retstring = htmlspecialchars($newstring);
-        } else {
-            $retstring = $newstring;
+            return htmlspecialchars($newstring);
         }
 
-        return $retstring;
+        return $newstring;
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
     /**
      * Gets the transformation name of the specific plugin
-     *
-     * @return string
      */
-    public static function getName()
+    public static function getName(): string
     {
         return 'External';
     }

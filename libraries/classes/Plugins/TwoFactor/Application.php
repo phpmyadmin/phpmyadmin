@@ -27,17 +27,12 @@ class Application extends TwoFactorPlugin
     /** @var string */
     public static $id = 'application';
 
-    /** @var Google2FA */
-    protected $google2fa;
+    protected Google2FA $google2fa;
 
-    /**
-     * Creates object
-     *
-     * @param TwoFactor $twofactor TwoFactor instance
-     */
     public function __construct(TwoFactor $twofactor)
     {
         parent::__construct($twofactor);
+
         $this->google2fa = new Google2FA();
         $this->google2fa->setWindow(8);
         if (isset($this->twofactor->config['settings']['secret'])) {
@@ -76,7 +71,7 @@ class Application extends TwoFactorPlugin
      *
      * @return string HTML code
      */
-    public function render()
+    public function render(): string
     {
         return $this->template->render('login/twofactor/application');
     }
@@ -86,13 +81,13 @@ class Application extends TwoFactorPlugin
      *
      * @return string HTML code
      */
-    public function setup()
+    public function setup(): string
     {
         $secret = $this->twofactor->config['settings']['secret'];
         $inlineUrl = $this->google2fa->getQRCodeInline(
             'phpMyAdmin (' . $this->getAppId(false) . ')',
             $this->twofactor->user,
-            $secret
+            $secret,
         );
 
         return $this->template->render('login/twofactor/application_configure', [
@@ -127,23 +122,19 @@ class Application extends TwoFactorPlugin
 
     /**
      * Get user visible name
-     *
-     * @return string
      */
-    public static function getName()
+    public static function getName(): string
     {
         return __('Authentication Application (2FA)');
     }
 
     /**
      * Get user visible description
-     *
-     * @return string
      */
-    public static function getDescription()
+    public static function getDescription(): string
     {
         return __(
-            'Provides authentication using HOTP and TOTP applications such as FreeOTP, Google Authenticator or Authy.'
+            'Provides authentication using HOTP and TOTP applications such as FreeOTP, Google Authenticator or Authy.',
         );
     }
 }

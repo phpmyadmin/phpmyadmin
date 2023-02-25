@@ -14,13 +14,11 @@ use function class_exists;
 use function sort;
 
 use const DIRECTORY_SEPARATOR;
-use const ROOT_PATH;
 use const SORT_NATURAL;
 use const SORT_REGULAR;
+use const TEST_PATH;
 
-/**
- * @covers \PhpMyAdmin\Command\TwigLintCommand
- */
+/** @covers \PhpMyAdmin\Command\TwigLintCommand */
 class TwigLintCommandTest extends AbstractTestCase
 {
     /** @var TwigLintCommand */
@@ -28,15 +26,14 @@ class TwigLintCommandTest extends AbstractTestCase
 
     public function setUp(): void
     {
-        global $cfg, $config;
-
         if (! class_exists(Command::class)) {
             $this->markTestSkipped('The Symfony Console is missing');
         }
 
         parent::setUp();
-        $cfg['environment'] = 'development';
-        $config = null;
+
+        $GLOBALS['cfg']['environment'] = 'development';
+        $GLOBALS['config'] = null;
 
         $this->command = new TwigLintCommand();
     }
@@ -44,7 +41,7 @@ class TwigLintCommandTest extends AbstractTestCase
     public function testGetTemplateContents(): void
     {
         $contents = $this->callFunction($this->command, TwigLintCommand::class, 'getTemplateContents', [
-            ROOT_PATH . 'test/classes/_data/file_listing/subfolder/one.ini',
+            TEST_PATH . 'test/classes/_data/file_listing/subfolder/one.ini',
         ]);
 
         $this->assertSame('key=value' . "\n", $contents);
@@ -52,7 +49,7 @@ class TwigLintCommandTest extends AbstractTestCase
 
     public function testFindFiles(): void
     {
-        $path = ROOT_PATH . 'test/classes/_data/file_listing';
+        $path = TEST_PATH . 'test/classes/_data/file_listing';
         $filesFound = $this->callFunction($this->command, TwigLintCommand::class, 'findFiles', [$path]);
 
         // Sort results to avoid file system test specific failures
@@ -68,7 +65,7 @@ class TwigLintCommandTest extends AbstractTestCase
 
     public function testGetFilesInfo(): void
     {
-        $path = ROOT_PATH . 'test/classes/_data/file_listing';
+        $path = TEST_PATH . 'test/classes/_data/file_listing';
         $filesInfos = $this->callFunction($this->command, TwigLintCommand::class, 'getFilesInfo', [$path]);
 
         // Sort results to avoid file system test specific failures
@@ -110,19 +107,16 @@ class TwigLintCommandTest extends AbstractTestCase
                 [
                     'foo.twig',
                     'foo-invalid.twig',
-                ]
+                ],
             );
 
-        $command->expects($this->exactly(2))
-            ->method('getTemplateContents')
-            ->withConsecutive(
-                ['foo.twig'],
-                ['foo-invalid.twig']
-            )
-            ->willReturnOnConsecutiveCalls('{{ file }}', '{{ file }');
+        $command->expects($this->exactly(2))->method('getTemplateContents')->willReturnMap([
+            ['foo.twig', '{{ file }}'],
+            ['foo-invalid.twig', '{{ file }'],
+        ]);
 
         $filesFound = $this->callFunction($command, TwigLintCommand::class, 'getFilesInfo', [
-            ROOT_PATH . 'test/classes/_data/file_listing',
+            TEST_PATH . 'test/classes/_data/file_listing',
         ]);
 
         $this->assertEquals([
@@ -138,7 +132,7 @@ class TwigLintCommandTest extends AbstractTestCase
                 'line' => 1,
                 'exception' => new SyntaxError('Unexpected "}".', 1, new Source(
                     '{{ file }',
-                    'foo-invalid.twig'
+                    'foo-invalid.twig',
                 )),
             ],
         ], $filesFound);

@@ -25,6 +25,7 @@ class NodeFunction extends NodeDatabaseChild
     public function __construct($name, $type = Node::OBJECT, $isGroup = false)
     {
         parent::__construct($name, $type, $isGroup);
+
         $this->icon = ['image' => 'b_routines', 'title' => __('Function')];
         $this->links = [
             'text' => [
@@ -45,7 +46,7 @@ class NodeFunction extends NodeDatabaseChild
      *
      * @return string type of the item
      */
-    protected function getItemType()
+    protected function getItemType(): string
     {
         return 'function';
     }

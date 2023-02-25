@@ -22,7 +22,7 @@ interface ResultInterface extends IteratorAggregate
      * Returns a generator that traverses through the whole result set
      * and returns each row as an associative array
      *
-     * @return Generator<int, array<string, string|null>, mixed, void>
+     * @psalm-return Generator<int, array<string, string|null>, mixed, void>
      */
     public function getIterator(): Generator;
 
@@ -42,12 +42,8 @@ interface ResultInterface extends IteratorAggregate
 
     /**
      * Returns a single value from the given result; false on error
-     *
-     * @param int|string $field
-     *
-     * @return string|false|null
      */
-    public function fetchValue($field = 0);
+    public function fetchValue(int|string $field = 0): string|false|null;
 
     /**
      * Returns all rows of the result
@@ -81,10 +77,9 @@ interface ResultInterface extends IteratorAggregate
     /**
      * Returns the number of rows in the result
      *
-     * @return string|int
      * @psalm-return int|numeric-string
      */
-    public function numRows();
+    public function numRows(): string|int;
 
     /**
      * Adjusts the result pointer to an arbitrary row in the result

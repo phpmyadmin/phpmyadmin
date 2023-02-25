@@ -32,12 +32,8 @@ use function substr;
  */
 class ZipExtension
 {
-    /** @var ZipArchive|null */
-    private $zip;
-
-    public function __construct(?ZipArchive $zip = null)
+    public function __construct(private ZipArchive|null $zip = null)
     {
-        $this->zip = $zip;
     }
 
     /**
@@ -46,10 +42,10 @@ class ZipExtension
      * @param string $file          path to zip file
      * @param string $specificEntry regular expression to match a file
      *
-     * @return array ($error_message, $file_data); $error_message
-     *                  is empty if no error
+     * @return array<string, string>
+     * @psalm-return array{error: string, data: string}
      */
-    public function getContents($file, $specificEntry = null)
+    public function getContents($file, $specificEntry = null): array
     {
         /**
         * This function is used to "import" a SQL file which has been exported earlier
@@ -115,7 +111,7 @@ class ZipExtension
         }
 
         /* Couldn't find any files that matched $specific_entry */
-        if (empty($fileData)) {
+        if ($fileData === '' || $fileData === false) {
             $errorMessage = __('Error in ZIP archive:')
                 . ' Could not find "' . $specificEntry . '"';
         }
@@ -136,7 +132,7 @@ class ZipExtension
      *
      * @return string|false the file name of the first file that matches the given regular expression
      */
-    public function findFile($file, $regex)
+    public function findFile($file, $regex): string|false
     {
         if ($this->zip === null) {
             return false;
@@ -165,20 +161,19 @@ class ZipExtension
      *
      * @return int the number of files in the zip archive or 0, either if there weren't any files or an error occurred.
      */
-    public function getNumberOfFiles($file)
+    public function getNumberOfFiles($file): int
     {
         if ($this->zip === null) {
             return 0;
         }
 
-        $num = 0;
         $res = $this->zip->open($file);
 
         if ($res === true) {
-            $num = $this->zip->numFiles;
+            return $this->zip->numFiles;
         }
 
-        return $num;
+        return 0;
     }
 
     /**
@@ -189,7 +184,7 @@ class ZipExtension
      *
      * @return string|false data on success, false otherwise
      */
-    public function extract($file, $entry)
+    public function extract($file, $entry): string|false
     {
         if ($this->zip === null) {
             return false;
@@ -216,9 +211,9 @@ class ZipExtension
      * @param array|string $name name of the file/files in the archive
      * @param int          $time the current timestamp
      *
-     * @return string|bool the ZIP file contents, or false if there was an error.
+     * @return string|false the ZIP file contents, or false if there was an error.
      */
-    public function createFile($data, $name, $time = 0)
+    public function createFile(array|string $data, array|string $name, $time = 0): string|false
     {
         $datasec = []; // Array to store compressed data
         $ctrlDir = []; // Central directory
@@ -238,7 +233,6 @@ class ZipExtension
 
             $data = $newData;
         } elseif (is_array($data) && is_array($name) && count($data) === count($name)) {
-            /** @var array $data */
             $data = array_combine($name, $data);
         } else {
             return false;
@@ -271,7 +265,7 @@ class ZipExtension
             $uncLen = strlen($dump);
             $crc = crc32($dump);
             $zdata = (string) gzcompress($dump);
-            $zdata = substr((string) substr($zdata, 0, strlen($zdata) - 4), 2); // fix crc bug
+            $zdata = substr(substr($zdata, 0, strlen($zdata) - 4), 2); // fix crc bug
             $cLen = strlen($zdata);
             $fr = "\x50\x4b\x03\x04"
                 . "\x14\x00" // ver needed to extract
@@ -308,7 +302,7 @@ class ZipExtension
                 . pack('v', 0) // disk number start
                 . pack('v', 0) // internal file attributes
                 . pack('V', 32) // external file attributes
-                                                 // - 'archive' bit set
+                // - 'archive' bit set
                 . pack('V', $oldOffset) // relative offset of local header
                 . $tempName; // filename
             $oldOffset += strlen($fr);
@@ -319,13 +313,12 @@ class ZipExtension
 
         /* Build string to return */
         $tempCtrlDir = implode('', $ctrlDir);
-        $header = $tempCtrlDir .
-            $eofCtrlDir .
-            pack('v', count($ctrlDir)) . //total #of entries "on this disk"
-            pack('v', count($ctrlDir)) . //total #of entries overall
-            pack('V', strlen($tempCtrlDir)) . //size of central dir
-            pack('V', $oldOffset) . //offset to start of central dir
-            "\x00\x00"; //.zip file comment length
+        $header = $tempCtrlDir . $eofCtrlDir
+            . pack('v', count($ctrlDir)) //total #of entries "on this disk"
+            . pack('v', count($ctrlDir)) //total #of entries overall
+            . pack('V', strlen($tempCtrlDir)) //size of central dir
+            . pack('V', $oldOffset) //offset to start of central dir
+            . "\x00\x00"; //.zip file comment length
 
         $data = implode('', $datasec);
 

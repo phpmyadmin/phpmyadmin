@@ -1,3 +1,5 @@
+import { ajaxShowMessage } from '../modules/ajax-message.js';
+
 var designerTables = [
     {
         name: 'pdf_pages',
@@ -11,7 +13,6 @@ var designerTables = [
     }
 ];
 
-// eslint-disable-next-line no-unused-vars
 var DesignerOfflineDB = (function () {
     var designerDB = {};
 
@@ -85,7 +86,7 @@ var DesignerOfflineDB = (function () {
         };
 
         request.onerror = function () {
-            Functions.ajaxShowMessage(Messages.strIndexedDBNotWorking, null, 'error');
+            ajaxShowMessage(window.Messages.strIndexedDBNotWorking, null, 'error');
         };
     };
 
@@ -97,7 +98,7 @@ var DesignerOfflineDB = (function () {
      */
     designerDB.loadObject = function (table, id, callback) {
         if (datastore === null) {
-            Functions.ajaxShowMessage(Messages.strIndexedDBNotWorking, null, 'error');
+            ajaxShowMessage(window.Messages.strIndexedDBNotWorking, null, 'error');
             return;
         }
 
@@ -118,7 +119,7 @@ var DesignerOfflineDB = (function () {
      */
     designerDB.loadAllObjects = function (table, callback) {
         if (datastore === null) {
-            Functions.ajaxShowMessage(Messages.strIndexedDBNotWorking, null, 'error');
+            ajaxShowMessage(window.Messages.strIndexedDBNotWorking, null, 'error');
             return;
         }
 
@@ -149,7 +150,7 @@ var DesignerOfflineDB = (function () {
      */
     designerDB.loadFirstObject = function (table, callback) {
         if (datastore === null) {
-            Functions.ajaxShowMessage(Messages.strIndexedDBNotWorking, null, 'error');
+            ajaxShowMessage(window.Messages.strIndexedDBNotWorking, null, 'error');
             return;
         }
 
@@ -180,7 +181,7 @@ var DesignerOfflineDB = (function () {
      */
     designerDB.addObject = function (table, obj, callback) {
         if (datastore === null) {
-            Functions.ajaxShowMessage(Messages.strIndexedDBNotWorking, null, 'error');
+            ajaxShowMessage(window.Messages.strIndexedDBNotWorking, null, 'error');
             return;
         }
 
@@ -204,7 +205,7 @@ var DesignerOfflineDB = (function () {
      */
     designerDB.deleteObject = function (table, id, callback) {
         if (datastore === null) {
-            Functions.ajaxShowMessage(Messages.strIndexedDBNotWorking, null, 'error');
+            ajaxShowMessage(window.Messages.strIndexedDBNotWorking, null, 'error');
             return;
         }
 
@@ -232,3 +233,5 @@ var DesignerOfflineDB = (function () {
     // Export the designerDB object.
     return designerDB;
 }());
+
+export { DesignerOfflineDB };

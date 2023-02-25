@@ -18,109 +18,48 @@ use PhpMyAdmin\Properties\PropertyItem;
 abstract class OptionsPropertyItem extends PropertyItem
 {
     /**
-     * Name
-     *
-     * @var string|null
-     */
-    private $name;
-    /**
-     * Text
-     *
-     * @var string|null
-     */
-    private $text;
-    /**
      * What to force
-     *
-     * @var string|null
      */
-    private $force;
+    private string|null $force = null;
 
-    /**
-     * @param string $name Item name
-     * @param string $text Item text
-     */
-    public function __construct($name = null, $text = null)
+    public function __construct(private string|null $name = null, private string|null $text = null)
     {
-        if ($name) {
-            $this->name = $name;
-        }
-
-        if (! $text) {
-            return;
-        }
-
-        $this->text = $text;
     }
 
-    /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
-
-    /**
-     * Gets the name
-     *
-     * @return string|null
-     */
-    public function getName()
+    public function getName(): string|null
     {
         return $this->name;
     }
 
-    /**
-     * Sets the name
-     *
-     * @param string $name name
-     */
-    public function setName($name): void
+    public function setName(string $name): void
     {
         $this->name = $name;
     }
 
-    /**
-     * Gets the text
-     *
-     * @return string|null
-     */
-    public function getText()
+    public function getText(): string|null
     {
         return $this->text;
     }
 
-    /**
-     * Sets the text
-     *
-     * @param string $text text
-     */
-    public function setText($text): void
+    public function setText(string $text): void
     {
         $this->text = $text;
     }
 
-    /**
-     * Gets the force parameter
-     *
-     * @return string|null
-     */
-    public function getForce()
+    public function getForce(): string|null
     {
         return $this->force;
     }
 
-    /**
-     * Sets the force parameter
-     *
-     * @param string $force force parameter
-     */
-    public function setForce($force): void
+    public function setForce(string $force): void
     {
         $this->force = $force;
     }
 
     /**
      * Returns the property type ( either "options", or "plugin" ).
-     *
-     * @return string
      */
-    public function getPropertyType()
+    public function getPropertyType(): string
     {
         return 'options';
     }

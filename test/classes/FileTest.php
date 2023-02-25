@@ -9,9 +9,7 @@ use PhpMyAdmin\File;
 use function bin2hex;
 use function file_get_contents;
 
-/**
- * @covers \PhpMyAdmin\File
- */
+/** @covers \PhpMyAdmin\File */
 class FileTest extends AbstractTestCase
 {
     /**
@@ -20,6 +18,7 @@ class FileTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $GLOBALS['charset_conversion'] = false;
     }
 
@@ -69,7 +68,8 @@ class FileTest extends AbstractTestCase
         $file->close();
     }
 
-    public function compressedFiles(): array
+    /** @return array<array{string, string}> */
+    public static function compressedFiles(): array
     {
         return [
             [

@@ -1,4 +1,4 @@
-<div id="edit_user_dialog">
+<div class="container" id="edit_user_dialog">
   <h2>
     {{ get_icon('b_usredit') }}
     {% trans 'Edit privileges:' %}
@@ -42,21 +42,23 @@
     <input type="hidden" name="routinename" value="{{ routine }}">
     <input type="hidden" name="grant_count" value="{{ privileges|length }}">
 
-    <fieldset class="pma-fieldset" id="fieldset_user_global_rights">
-      <legend data-submenu-label="{% trans 'Routine' %}">
+    <div class="card mb-3" id="fieldset_user_global_rights">
+      <div class="card-header js-submenu-label" data-submenu-label="{% trans 'Routine' %}">
         {% trans 'Routine-specific privileges' %}
-      </legend>
+      </div>
+      <div class="card-body">
       <p>
         <small>
           <em>{% trans 'Note: MySQL privilege names are expressed in English.' %}</em>
         </small>
       </p>
 
-      <fieldset class="pma-fieldset">
-        <legend>
+      <div class="card">
+        <div class="card-header">
           <input type="checkbox" class="sub_checkall_box" id="checkall_Routine_priv" title="{% trans 'Check all' %}">
           <label for="checkall_Routine_priv">{% trans 'Routine' %}</label>
-        </legend>
+        </div>
+        <div class="card-body">
 
         <div class="item">
           <input type="checkbox" class="checkall" name="Grant_priv" id="checkbox_Grant_priv" value="Y" title="
@@ -94,12 +96,14 @@
             </code>
           </label>
         </div>
-      </fieldset>
-    </fieldset>
+      </div>
+      </div>
+      </div>
+    </div>
 
-    <fieldset id="fieldset_user_privtable_footer" class="pma-fieldset tblFooters">
+    <div id="fieldset_user_privtable_footer">
       <input type="hidden" name="update_privs" value="1">
       <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
-    </fieldset>
+    </div>
   </form>
 </div>

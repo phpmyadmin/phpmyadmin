@@ -23,6 +23,7 @@ class NodeFunctionContainer extends NodeDatabaseChildContainer
     public function __construct()
     {
         parent::__construct(__('Functions'), Node::CONTAINER);
+
         $this->icon = ['image' => 'b_routines', 'title' => __('Functions')];
         $this->links = [
             'text' => ['route' => '/database/routines', 'params' => ['type' => 'FUNCTION', 'db' => null]],

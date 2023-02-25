@@ -12,6 +12,7 @@ use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use PhpMyAdmin\Types;
 
@@ -19,11 +20,15 @@ use function hash;
 
 use const MYSQLI_TYPE_LONG;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Table\SearchController
- */
+/** @covers \PhpMyAdmin\Controllers\Table\SearchController */
 class SearchControllerTest extends AbstractTestCase
 {
+    /** @var DatabaseInterface */
+    protected $dbi;
+
+    /** @var DbiDummy */
+    protected $dummyDbi;
+
     /** @var ResponseStub */
     private $response;
 
@@ -36,7 +41,12 @@ class SearchControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setTheme();
+
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
 
         /**
          * SET these to avoid undefined index error
@@ -111,11 +121,9 @@ class SearchControllerTest extends AbstractTestCase
         $ctrl = new SearchController(
             $this->response,
             $this->template,
-            $GLOBALS['db'],
-            $GLOBALS['table'],
             new Search($GLOBALS['dbi']),
             new Relation($GLOBALS['dbi']),
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
         );
 
         $result = $ctrl->getColumnMinMax('column');
@@ -127,22 +135,25 @@ class SearchControllerTest extends AbstractTestCase
      */
     public function testGetDataRowAction(): void
     {
-        global $containerBuilder;
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
+        $this->loadContainerBuilder();
 
-        parent::setGlobalDbi();
         parent::loadDbiIntoContainerBuilder();
+
         parent::loadResponseIntoContainerBuilder();
 
         $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
 
         $this->dummyDbi->addResult(
             'SHOW FULL COLUMNS FROM `PMA`.`PMA_BookMark`',
-            []
+            [],
         );
 
         $this->dummyDbi->addResult(
             'SHOW CREATE TABLE `PMA`.`PMA_BookMark`',
-            []
+            [],
         );
 
         $this->dummyDbi->addResult(
@@ -160,14 +171,14 @@ class SearchControllerTest extends AbstractTestCase
             [
                 new FieldMetadata(MYSQLI_TYPE_LONG, 0, (object) ['length' => 11]),
                 new FieldMetadata(MYSQLI_TYPE_LONG, 0, (object) ['length' => 11]),
-            ]
+            ],
         );
 
-        $containerBuilder->setParameter('db', 'PMA');
-        $containerBuilder->setParameter('table', 'PMA_BookMark');
+        $GLOBALS['containerBuilder']->setParameter('db', 'PMA');
+        $GLOBALS['containerBuilder']->setParameter('table', 'PMA_BookMark');
 
         /** @var SearchController $ctrl */
-        $ctrl = $containerBuilder->get(SearchController::class);
+        $ctrl = $GLOBALS['containerBuilder']->get(SearchController::class);
 
         $_POST['db'] = 'PMA';
         $_POST['table'] = 'PMA_BookMark';

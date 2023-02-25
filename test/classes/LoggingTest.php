@@ -6,9 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Logging;
 
-/**
- * @covers \PhpMyAdmin\Logging
- */
+/** @covers \PhpMyAdmin\Logging */
 class LoggingTest extends AbstractTestCase
 {
     public function testGetLogMessage(): void

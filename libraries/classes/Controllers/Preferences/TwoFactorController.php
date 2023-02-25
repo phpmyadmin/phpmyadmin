@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Preferences;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -16,30 +17,24 @@ use function count;
 
 class TwoFactorController extends AbstractController
 {
-    /** @var Relation */
-    private $relation;
-
-    public function __construct(ResponseRenderer $response, Template $template, Relation $relation)
+    public function __construct(ResponseRenderer $response, Template $template, private Relation $relation)
     {
         parent::__construct($response, $template);
-        $this->relation = $relation;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $cfg, $route;
-
         $relationParameters = $this->relation->getRelationParameters();
 
         echo $this->template->render('preferences/header', [
-            'route' => $route,
-            'is_saved' => ! empty($_GET['saved']),
+            'route' => $request->getRoute(),
+            'is_saved' => $request->hasQueryParam('saved'),
             'has_config_storage' => $relationParameters->userPreferencesFeature !== null,
         ]);
 
-        $twoFactor = new TwoFactor($cfg['Server']['user']);
+        $twoFactor = new TwoFactor($GLOBALS['cfg']['Server']['user']);
 
-        if (isset($_POST['2fa_remove'])) {
+        if ($request->hasBodyParam('2fa_remove')) {
             if (! $twoFactor->check(true)) {
                 echo $this->template->render('preferences/two_factor/confirm', [
                     'form' => $twoFactor->render(),
@@ -50,11 +45,11 @@ class TwoFactorController extends AbstractController
 
             $twoFactor->configure('');
             echo Message::rawNotice(__('Two-factor authentication has been removed.'))->getDisplay();
-        } elseif (isset($_POST['2fa_configure'])) {
-            if (! $twoFactor->configure($_POST['2fa_configure'])) {
+        } elseif ($request->hasBodyParam('2fa_configure')) {
+            if (! $twoFactor->configure($request->getParsedBodyParam('2fa_configure'))) {
                 echo $this->template->render('preferences/two_factor/configure', [
                     'form' => $twoFactor->setup(),
-                    'configure' => $_POST['2fa_configure'],
+                    'configure' => $request->getParsedBodyParam('2fa_configure'),
                 ]);
 
                 return;

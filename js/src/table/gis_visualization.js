@@ -1,12 +1,14 @@
+import $ from 'jquery';
+import { AJAX } from '../modules/ajax.js';
+import { escapeHtml } from '../modules/functions/escape.js';
+
 /**
  * @fileoverview    functions used for visualizing GIS data
  *
  * @requires    jquery
- * @requires    vendor/jquery/jquery.svg.js
- * @requires    vendor/jquery/jquery.mousewheel.js
  */
 
-/* global drawOpenLayers PASSIVE_EVENT_LISTENERS */ // templates/table/gis_visualization/gis_visualization.twig
+/* global drawOpenLayers */ // templates/table/gis_visualization/gis_visualization.twig
 
 // Constants
 var zoomFactor = 1.5;
@@ -29,7 +31,7 @@ var map;
  */
 function zoomAndPan () {
     var g = gisSvg.getElementById('groupPanel');
-    if (!g) {
+    if (! g) {
         return;
     }
 
@@ -39,6 +41,8 @@ function zoomAndPan () {
     $('polyline.vector', gisSvg).attr('stroke-width', 2 / scale);
     $('path.vector', gisSvg).attr('stroke-width', 0.5 / scale);
 }
+
+window.zoomAndPan = zoomAndPan;
 
 /**
  * Initially loads either SVG or OSM visualization based on the choice.
@@ -51,19 +55,23 @@ function selectVisualization () {
     }
 }
 
+window.selectVisualization = selectVisualization;
+
 /**
  * Adds necessary styles to the div that contains the openStreetMap.
  */
 function styleOSM () {
     var $placeholder = $('#placeholder');
     var cssObj = {
-        'border' : '1px solid #aaa',
-        'width' : $placeholder.width(),
-        'height' : $placeholder.height(),
-        'float' : 'right'
+        'border': '1px solid #aaa',
+        'width': $placeholder.width(),
+        'height': $placeholder.height(),
+        'float': 'right'
     };
     $('#openlayersmap').css(cssObj);
 }
+
+window.styleOSM = styleOSM;
 
 /**
  * Store a reference to the gis svg element.
@@ -72,11 +80,13 @@ function storeGisSvgRef () {
     gisSvg = $('#placeholder').find('svg').get(0);
 }
 
+window.storeGisSvgRef = storeGisSvgRef;
+
 /**
  * Adds controls for zooming and panning.
  */
 function addZoomPanControllers () {
-    if (!gisSvg) {
+    if (! gisSvg) {
         return;
     }
     var themeImagePath = $('#themeImagePath').val();
@@ -92,6 +102,8 @@ function addZoomPanControllers () {
         '<img class="button" id="zoom_out" src="' + themeImagePath + 'zoom-minus-mini.png">'
     );
 }
+
+window.addZoomPanControllers = addZoomPanControllers;
 
 /**
  * Resizes the GIS visualization to fit into the space available.
@@ -144,11 +156,14 @@ function drawOpenLayerMap () {
 function getRelativeCoords (e) {
     var position = $('#placeholder').offset();
     return {
-        x : e.pageX - position.left,
-        y : e.pageY - position.top
+        x: e.pageX - position.left,
+        y: e.pageY - position.top
     };
 }
 
+/**
+ * @param {WheelEvent} event
+ */
 function onGisMouseWheel (event) {
     if (event.deltaY === 0) {
         return;
@@ -156,7 +171,7 @@ function onGisMouseWheel (event) {
     event.preventDefault();
 
     var relCoords = getRelativeCoords(event);
-    var factor = event.deltaY > 0 ? zoomFactor : 1 / zoomFactor;
+    var factor = event.deltaY > 0 ? 1 / zoomFactor : zoomFactor;
     // zoom
     scale *= factor;
     // zooming keeping the position under mouse pointer unmoved.
@@ -170,7 +185,7 @@ function onGisMouseWheel (event) {
  *
  * Actions Ajaxified here:
  *
- * Zooming in and zooming out on mousewheel movement.
+ * Zooming in and zooming out on mouse wheel movement.
  * Panning the visualization on dragging.
  * Zooming in on double clicking.
  * Zooming out on clicking the zoom out button.
@@ -195,11 +210,7 @@ AJAX.registerTeardown('table/gis_visualization.js', function () {
     $(document).off('click', '#up_arrow');
     $(document).off('click', '#down_arrow');
     $('.vector').off('mousemove').off('mouseout');
-    $('#placeholder').get(0).removeEventListener(
-        'wheel',
-        onGisMouseWheel,
-        PASSIVE_EVENT_LISTENERS ? { passive: false } : undefined
-    );
+    $('#placeholder').get(0).removeEventListener('wheel', onGisMouseWheel, { passive: false });
     if (map) {
         // Removes ol.Map's resize listener from window
         map.setTarget(null);
@@ -230,11 +241,7 @@ AJAX.registerOnload('table/gis_visualization.js', function () {
         }
     });
 
-    $('#placeholder').get(0).addEventListener(
-        'wheel',
-        onGisMouseWheel,
-        PASSIVE_EVENT_LISTENERS ? { passive: false } : undefined
-    );
+    $('#placeholder').get(0).addEventListener('wheel', onGisMouseWheel, { passive: false });
 
     var dragX = 0;
     var dragY = 0;
@@ -255,10 +262,10 @@ AJAX.registerOnload('table/gis_visualization.js', function () {
 
     $(document).on('drag', 'svg', function (event, dd) {
         var newX = Math.round(dd.offset.left);
-        x +=  newX - dragX;
+        x += newX - dragX;
         dragX = newX;
         var newY = Math.round(dd.offset.top);
-        y +=  newY - dragY;
+        y += newY - dragY;
         dragY = newY;
         zoomAndPan();
     });
@@ -337,17 +344,17 @@ AJAX.registerOnload('table/gis_visualization.js', function () {
      * Detect the mousemove event and show tooltips.
      */
     $('.vector').on('mousemove', function (event) {
-        var contents = Functions.escapeHtml($(this).attr('name')).trim();
+        var contents = escapeHtml($(this).attr('name')).trim();
         $('#tooltip').remove();
         if (contents !== '') {
             $('<div id="tooltip">' + contents + '</div>').css({
-                position : 'absolute',
-                top : event.pageY + 10,
-                left : event.pageX + 10,
-                border : '1px solid #fdd',
-                padding : '2px',
-                'background-color' : '#fee',
-                opacity : 0.90
+                position: 'absolute',
+                top: event.pageY + 10,
+                left: event.pageX + 10,
+                border: '1px solid #fdd',
+                padding: '2px',
+                'background-color': '#fee',
+                opacity: 0.90
             }).appendTo('body').fadeIn(200);
         }
     });

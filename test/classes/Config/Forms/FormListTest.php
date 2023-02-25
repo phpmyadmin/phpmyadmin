@@ -23,7 +23,9 @@ class FormListTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setGlobalConfig();
+
         $GLOBALS['server'] = 1;
     }
 
@@ -44,7 +46,7 @@ class FormListTest extends AbstractTestCase
         /* Static API */
         $this->assertTrue($class::isValid('Export'));
         $this->assertEquals($prefix, $class::get('Export'));
-        foreach ($class::getAll() as $form) {
+        foreach ($class::getAllFormNames() as $form) {
             $form_class = $class::get($form);
             $this->assertNotNull($form_class);
             $this->assertNotNull($form_class::getName());
@@ -65,7 +67,7 @@ class FormListTest extends AbstractTestCase
      * @return string[][]
      * @psalm-return array{array{class-string<BaseFormList>, class-string<BaseForm>}}
      */
-    public function formObjects(): array
+    public static function formObjects(): array
     {
         return [
             [User\UserFormList::class, User\ExportForm::class],

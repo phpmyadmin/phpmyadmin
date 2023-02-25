@@ -94,13 +94,9 @@ class Compatibility
             $colTypePosComa = strpos($colType, '(');
             $colTypePosComa = $colTypePosComa !== false ? $colTypePosComa : strlen($colType);
             $columns[$column_name]['DATA_TYPE'] = substr($colType, 0, $colTypePosComa);
-            /**
-             * @todo guess CHARACTER_MAXIMUM_LENGTH from COLUMN_TYPE
-            */
+            /** @todo guess CHARACTER_MAXIMUM_LENGTH from COLUMN_TYPE */
             $columns[$column_name]['CHARACTER_MAXIMUM_LENGTH'] = null;
-            /**
-             * @todo guess CHARACTER_OCTET_LENGTH from CHARACTER_MAXIMUM_LENGTH
-             */
+            /** @todo guess CHARACTER_OCTET_LENGTH from CHARACTER_MAXIMUM_LENGTH */
             $columns[$column_name]['CHARACTER_OCTET_LENGTH'] = null;
             $columns[$column_name]['NUMERIC_PRECISION'] = null;
             $columns[$column_name]['NUMERIC_SCALE'] = null;
@@ -188,11 +184,12 @@ class Compatibility
      */
     public static function isVirtualColumnsSupported(int $serverVersion): bool
     {
+        // @see: https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-6.html
         if (self::isMySqlOrPerconaDb()) {
-            return $serverVersion >= 50705;
+            return $serverVersion >= 50706;
         }
 
-        // @see https://daniel-bartholomew.com/2010/09/30/road-to-mariadb-5-2-virtual-columns/
+        // @see https://mariadb.com/kb/en/changes-improvements-in-mariadb-52/#new-features
         if (self::isMariaDb()) {
             return $serverVersion >= 50200;
         }
@@ -201,13 +198,42 @@ class Compatibility
     }
 
     /**
+     * Check whether the database supports UUID data type
+     * true if uuid is supported
+     */
+    public static function isUUIDSupported(DatabaseInterface $dbi): bool
+    {
+        // @see: https://mariadb.com/kb/en/mariadb-1070-release-notes/#uuid
+        return $dbi->isMariaDB() && $dbi->getVersion() >= 100700; // 10.7.0
+    }
+
+    /**
      * Returns whether the database server supports virtual columns
      */
     public static function supportsStoredKeywordForVirtualColumns(int $serverVersion): bool
     {
+        // @see: https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-6.html
+        if (self::isMySqlOrPerconaDb()) {
+            return $serverVersion >= 50706;
+        }
+
         // @see https://mariadb.com/kb/en/generated-columns/#mysql-compatibility-support
         if (self::isMariaDb()) {
             return $serverVersion >= 100201;
+        }
+
+        return false;
+    }
+
+    /**
+     * Returns whether the database server supports compressed columns
+     */
+    public static function supportsCompressedColumns(int $serverVersion): bool
+    {
+        // @see https://mariadb.com/kb/en/innodb-page-compression/#comment_1992
+        // Comment: Page compression is only available in MariaDB >= 10.1. [...]
+        if (self::isMariaDb()) {
+            return $serverVersion >= 100100;
         }
 
         return false;

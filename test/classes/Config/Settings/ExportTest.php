@@ -10,9 +10,7 @@ use PHPUnit\Framework\TestCase;
 use function array_keys;
 use function array_merge;
 
-/**
- * @covers \PhpMyAdmin\Config\Settings\Export
- */
+/** @covers \PhpMyAdmin\Config\Settings\Export */
 class ExportTest extends TestCase
 {
     /** @var array<string, bool|int|string> */
@@ -48,7 +46,7 @@ class ExportTest extends TestCase
         'texytext_structure_or_data' => 'structure_and_data',
         'texytext_columns' => false,
         'texytext_null' => 'NULL',
-        'csv_columns' => false,
+        'csv_columns' => true,
         'csv_structure_or_data' => 'data',
         'csv_null' => 'NULL',
         'csv_separator' => ',',
@@ -157,7 +155,7 @@ class ExportTest extends TestCase
      * @return mixed[][][][]
      * @psalm-return (array{0: string, 1: mixed, 2: mixed})[][][]
      */
-    public function providerForTestConstructor(): array
+    public static function providerForTestConstructor(): array
     {
         return [
             'null values' => [
@@ -193,7 +191,7 @@ class ExportTest extends TestCase
                     ['texytext_structure_or_data', null, 'structure_and_data'],
                     ['texytext_columns', null, false],
                     ['texytext_null', null, 'NULL'],
-                    ['csv_columns', null, false],
+                    ['csv_columns', null, true],
                     ['csv_structure_or_data', null, 'data'],
                     ['csv_null', null, 'NULL'],
                     ['csv_separator', null, ','],
@@ -305,7 +303,7 @@ class ExportTest extends TestCase
                     ['texytext_structure_or_data', 'structure', 'structure'],
                     ['texytext_columns', false, false],
                     ['texytext_null', 'test', 'test'],
-                    ['csv_columns', false, false],
+                    ['csv_columns', true, true],
                     ['csv_structure_or_data', 'structure', 'structure'],
                     ['csv_null', 'test', 'test'],
                     ['csv_separator', 'test', 'test'],
@@ -409,7 +407,7 @@ class ExportTest extends TestCase
                     ['htmlword_columns', true, true],
                     ['texytext_structure_or_data', 'data', 'data'],
                     ['texytext_columns', true, true],
-                    ['csv_columns', true, true],
+                    ['csv_columns', false, false],
                     ['csv_structure_or_data', 'data', 'data'],
                     ['csv_removeCRLF', true, true],
                     ['excel_columns', false, false],

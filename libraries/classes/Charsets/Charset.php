@@ -14,31 +14,23 @@ final class Charset
 {
     /**
      * The character set name
-     *
-     * @var string
      */
-    private $name;
+    private string $name;
 
     /**
      * A description of the character set
-     *
-     * @var string
      */
-    private $description;
+    private string $description;
 
     /**
      * The default collation for the character set
-     *
-     * @var string
      */
-    private $defaultCollation;
+    private string $defaultCollation;
 
     /**
      * The maximum number of bytes required to store one character
-     *
-     * @var int
      */
-    private $maxLength;
+    private int $maxLength;
 
     /**
      * @param string $name             Charset name
@@ -50,7 +42,7 @@ final class Charset
         string $name,
         string $description,
         string $defaultCollation,
-        int $maxLength
+        int $maxLength,
     ) {
         $this->name = $name;
         $this->description = $description;
@@ -70,7 +62,7 @@ final class Charset
             $state['Charset'] ?? '',
             $state['Description'] ?? '',
             $state['Default collation'] ?? '',
-            (int) ($state['Maxlen'] ?? 0)
+            (int) ($state['Maxlen'] ?? 0),
         );
     }
 

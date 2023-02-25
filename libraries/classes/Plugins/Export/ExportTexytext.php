@@ -7,7 +7,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
+use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
+use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -21,16 +24,13 @@ use function __;
 use function htmlspecialchars;
 use function in_array;
 use function str_replace;
-use function stripslashes;
 
 /**
  * Handles the export for the Texy! text class
  */
 class ExportTexytext extends ExportPlugin
 {
-    /**
-     * @psalm-return non-empty-lowercase-string
-     */
+    /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
         return 'texytext';
@@ -52,7 +52,7 @@ class ExportTexytext extends ExportPlugin
         // what to dump (structure/data/both) main group
         $dumpWhat = new OptionsPropertyMainGroup(
             'general_opts',
-            __('Dump table')
+            __('Dump table'),
         );
         // create primary items and add them to the group
         $leaf = new RadioPropertyItem('structure_or_data');
@@ -61,7 +61,7 @@ class ExportTexytext extends ExportPlugin
                 'structure' => __('structure'),
                 'data' => __('data'),
                 'structure_and_data' => __('structure and data'),
-            ]
+            ],
         );
         $dumpWhat->addProperty($leaf);
         // add the main group to the root group
@@ -70,18 +70,18 @@ class ExportTexytext extends ExportPlugin
         // data options main group
         $dataOptions = new OptionsPropertyMainGroup(
             'data',
-            __('Data dump options')
+            __('Data dump options'),
         );
         $dataOptions->setForce('structure');
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
             'columns',
-            __('Put columns names in the first row')
+            __('Put columns names in the first row'),
         );
         $dataOptions->addProperty($leaf);
         $leaf = new TextPropertyItem(
             'null',
-            __('Replace NULL with:')
+            __('Replace NULL with:'),
         );
         $dataOptions->addProperty($leaf);
         // add the main group to the root group
@@ -117,12 +117,12 @@ class ExportTexytext extends ExportPlugin
      */
     public function exportDBHeader($db, $dbAlias = ''): bool
     {
-        if (empty($dbAlias)) {
+        if ($dbAlias === '') {
             $dbAlias = $db;
         }
 
         return $this->export->outputHandler(
-            '===' . __('Database') . ' ' . $dbAlias . "\n\n"
+            '===' . __('Database') . ' ' . $dbAlias . "\n\n",
         );
     }
 
@@ -153,7 +153,6 @@ class ExportTexytext extends ExportPlugin
      *
      * @param string $db       database name
      * @param string $table    table name
-     * @param string $crlf     the end of line sequence
      * @param string $errorUrl the url to go back in case of error
      * @param string $sqlQuery SQL query for obtaining data
      * @param array  $aliases  Aliases of db/table/columns
@@ -161,12 +160,11 @@ class ExportTexytext extends ExportPlugin
     public function exportData(
         $db,
         $table,
-        $crlf,
         $errorUrl,
         $sqlQuery,
-        array $aliases = []
+        array $aliases = [],
     ): bool {
-        global $what, $dbi;
+        $GLOBALS['what'] ??= null;
 
         $db_alias = $db;
         $table_alias = $table;
@@ -176,26 +174,33 @@ class ExportTexytext extends ExportPlugin
             ! $this->export->outputHandler(
                 $table_alias != ''
                 ? '== ' . __('Dumping data for table') . ' ' . $table_alias . "\n\n"
-                : '==' . __('Dumping data for query result') . "\n\n"
+                : '==' . __('Dumping data for query result') . "\n\n",
             )
         ) {
             return false;
         }
 
-        // Gets the data from the database
-        $result = $dbi->query($sqlQuery, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED);
-        $fields_cnt = $result->numFields();
+        /**
+         * Gets the data from the database
+         *
+         * @var ResultInterface $result
+         * @psalm-ignore-var
+         */
+        $result = $GLOBALS['dbi']->query(
+            $sqlQuery,
+            Connection::TYPE_USER,
+            DatabaseInterface::QUERY_UNBUFFERED,
+        );
 
         // If required, get fields name at the first line
-        if (isset($GLOBALS[$what . '_columns'])) {
+        if (isset($GLOBALS[$GLOBALS['what'] . '_columns'])) {
             $text_output = "|------\n";
             foreach ($result->getFieldNames() as $col_as) {
                 if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                     $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
                 }
 
-                $text_output .= '|'
-                    . htmlspecialchars(stripslashes($col_as));
+                $text_output .= '|' . htmlspecialchars($col_as);
             }
 
             $text_output .= "\n|------\n";
@@ -207,11 +212,11 @@ class ExportTexytext extends ExportPlugin
         // Format the data
         while ($row = $result->fetchRow()) {
             $text_output = '';
-            for ($j = 0; $j < $fields_cnt; $j++) {
-                if (! isset($row[$j])) {
-                    $value = $GLOBALS[$what . '_null'];
-                } elseif ($row[$j] == '0' || $row[$j] != '') {
-                    $value = $row[$j];
+            foreach ($row as $field) {
+                if ($field === null) {
+                    $value = $GLOBALS[$GLOBALS['what'] . '_null'];
+                } elseif ($field !== '') {
+                    $value = $field;
                 } else {
                     $value = ' ';
                 }
@@ -220,7 +225,7 @@ class ExportTexytext extends ExportPlugin
                     . str_replace(
                         '|',
                         '&#124;',
-                        htmlspecialchars($value)
+                        htmlspecialchars($value),
                     );
             }
 
@@ -236,13 +241,17 @@ class ExportTexytext extends ExportPlugin
     /**
      * Outputs result raw query in TexyText format
      *
-     * @param string $errorUrl the url to go back in case of error
-     * @param string $sqlQuery the rawquery to output
-     * @param string $crlf     the end of line sequence
+     * @param string      $errorUrl the url to go back in case of error
+     * @param string|null $db       the database where the query is executed
+     * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string $errorUrl, string $sqlQuery, string $crlf): bool
+    public function exportRawQuery(string $errorUrl, string|null $db, string $sqlQuery): bool
     {
-        return $this->exportData('', '', $crlf, $errorUrl, $sqlQuery);
+        if ($db !== null) {
+            $GLOBALS['dbi']->selectDb($db);
+        }
+
+        return $this->exportData($db ?? '', '', $errorUrl, $sqlQuery);
     }
 
     /**
@@ -250,22 +259,19 @@ class ExportTexytext extends ExportPlugin
      *
      * @param string $db      the database name
      * @param string $view    the view name
-     * @param string $crlf    the end of line sequence
      * @param array  $aliases Aliases of db/table/columns
      *
      * @return string resulting definition
      */
-    public function getTableDefStandIn($db, $view, $crlf, $aliases = [])
+    public function getTableDefStandIn($db, $view, $aliases = []): string
     {
-        global $dbi;
-
         $text_output = '';
 
         /**
          * Get the unique keys in the table
          */
         $unique_keys = [];
-        $keys = $dbi->getTableIndexes($db, $view);
+        $keys = $GLOBALS['dbi']->getTableIndexes($db, $view);
         foreach ($keys as $key) {
             if ($key['Non_unique'] != 0) {
                 continue;
@@ -277,7 +283,7 @@ class ExportTexytext extends ExportPlugin
         /**
          * Gets fields properties
          */
-        $dbi->selectDb($db);
+        $GLOBALS['dbi']->selectDb($db);
 
         /**
          * Displays the table structure
@@ -290,7 +296,7 @@ class ExportTexytext extends ExportPlugin
             . '|' . __('Default')
             . "\n|------\n";
 
-        $columns = $dbi->getColumns($db, $view);
+        $columns = $GLOBALS['dbi']->getColumns($db, $view);
         foreach ($columns as $column) {
             $col_as = $column['Field'] ?? null;
             if (! empty($aliases[$db]['tables'][$view]['columns'][$col_as])) {
@@ -309,7 +315,6 @@ class ExportTexytext extends ExportPlugin
      *
      * @param string $db            the database name
      * @param string $table         the table name
-     * @param string $crlf          the end of line sequence
      * @param string $error_url     the url to go back in case of error
      * @param bool   $do_relation   whether to include relation comments
      * @param bool   $do_comments   whether to include the pmadb-style column
@@ -330,7 +335,6 @@ class ExportTexytext extends ExportPlugin
     public function getTableDef(
         $db,
         $table,
-        $crlf,
         $error_url,
         $do_relation,
         $do_comments,
@@ -338,10 +342,8 @@ class ExportTexytext extends ExportPlugin
         $show_dates = false,
         $add_semicolon = true,
         $view = false,
-        array $aliases = []
-    ) {
-        global $dbi;
-
+        array $aliases = [],
+    ): string {
         $relationParameters = $this->relation->getRelationParameters();
 
         $text_output = '';
@@ -350,7 +352,7 @@ class ExportTexytext extends ExportPlugin
          * Get the unique keys in the table
          */
         $unique_keys = [];
-        $keys = $dbi->getTableIndexes($db, $table);
+        $keys = $GLOBALS['dbi']->getTableIndexes($db, $table);
         foreach ($keys as $key) {
             if ($key['Non_unique'] != 0) {
                 continue;
@@ -362,13 +364,13 @@ class ExportTexytext extends ExportPlugin
         /**
          * Gets fields properties
          */
-        $dbi->selectDb($db);
+        $GLOBALS['dbi']->selectDb($db);
 
         // Check if we can use Relations
         [$res_rel, $have_rel] = $this->relation->getRelationsAndStatus(
             $do_relation && $relationParameters->relationFeature !== null,
             $db,
-            $table
+            $table,
         );
 
         /**
@@ -396,7 +398,7 @@ class ExportTexytext extends ExportPlugin
 
         $text_output .= "\n|------\n";
 
-        $columns = $dbi->getColumns($db, $table);
+        $columns = $GLOBALS['dbi']->getColumns($db, $table);
         foreach ($columns as $column) {
             $col_as = $column['Field'];
             if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
@@ -411,8 +413,8 @@ class ExportTexytext extends ExportPlugin
                         $res_rel,
                         $field_name,
                         $db,
-                        $aliases
-                    )
+                        $aliases,
+                    ),
                 );
             }
 
@@ -427,7 +429,7 @@ class ExportTexytext extends ExportPlugin
                 $text_output .= '|'
                     . (isset($mime_map[$field_name])
                         ? htmlspecialchars(
-                            str_replace('_', '/', $mime_map[$field_name]['mimetype'])
+                            str_replace('_', '/', $mime_map[$field_name]['mimetype']),
                         )
                         : '');
             }
@@ -446,10 +448,8 @@ class ExportTexytext extends ExportPlugin
      *
      * @return string Formatted triggers list
      */
-    public function getTriggers($db, $table)
+    public function getTriggers($db, $table): string
     {
-        global $dbi;
-
         $dump = "|------\n";
         $dump .= '|' . __('Name');
         $dump .= '|' . __('Time');
@@ -457,18 +457,13 @@ class ExportTexytext extends ExportPlugin
         $dump .= '|' . __('Definition');
         $dump .= "\n|------\n";
 
-        $triggers = $dbi->getTriggers($db, $table);
+        $triggers = Triggers::getDetails($GLOBALS['dbi'], $db, $table);
 
         foreach ($triggers as $trigger) {
             $dump .= '|' . $trigger['name'];
             $dump .= '|' . $trigger['action_timing'];
             $dump .= '|' . $trigger['event_manipulation'];
-            $dump .= '|' .
-                str_replace(
-                    '|',
-                    '&#124;',
-                    htmlspecialchars($trigger['definition'])
-                );
+            $dump .= '|' . str_replace('|', '&#124;', htmlspecialchars($trigger['definition']));
             $dump .= "\n";
         }
 
@@ -480,7 +475,6 @@ class ExportTexytext extends ExportPlugin
      *
      * @param string $db          database name
      * @param string $table       table name
-     * @param string $crlf        the end of line sequence
      * @param string $errorUrl    the url to go back in case of error
      * @param string $exportMode  'create_table', 'triggers', 'create_view',
      *                             'stand_in'
@@ -499,7 +493,6 @@ class ExportTexytext extends ExportPlugin
     public function exportStructure(
         $db,
         $table,
-        $crlf,
         $errorUrl,
         $exportMode,
         $exportType,
@@ -507,10 +500,8 @@ class ExportTexytext extends ExportPlugin
         $do_comments = false,
         $do_mime = false,
         $dates = false,
-        array $aliases = []
+        array $aliases = [],
     ): bool {
-        global $dbi;
-
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
@@ -523,7 +514,6 @@ class ExportTexytext extends ExportPlugin
                 $dump .= $this->getTableDef(
                     $db,
                     $table,
-                    $crlf,
                     $errorUrl,
                     $do_relation,
                     $do_comments,
@@ -531,12 +521,11 @@ class ExportTexytext extends ExportPlugin
                     $dates,
                     true,
                     false,
-                    $aliases
+                    $aliases,
                 );
                 break;
             case 'triggers':
-                $dump = '';
-                $triggers = $dbi->getTriggers($db, $table);
+                $triggers = Triggers::getDetails($GLOBALS['dbi'], $db, $table);
                 if ($triggers) {
                     $dump .= '== ' . __('Triggers') . ' ' . $table_alias . "\n\n";
                     $dump .= $this->getTriggers($db, $table);
@@ -548,7 +537,6 @@ class ExportTexytext extends ExportPlugin
                 $dump .= $this->getTableDef(
                     $db,
                     $table,
-                    $crlf,
                     $errorUrl,
                     $do_relation,
                     $do_comments,
@@ -556,14 +544,14 @@ class ExportTexytext extends ExportPlugin
                     $dates,
                     true,
                     true,
-                    $aliases
+                    $aliases,
                 );
                 break;
             case 'stand_in':
                 $dump .= '== ' . __('Stand-in structure for view')
                 . ' ' . $table . "\n\n";
                 // export a stand-in definition to resolve view dependencies
-                $dump .= $this->getTableDefStandIn($db, $table, $crlf, $aliases);
+                $dump .= $this->getTableDefStandIn($db, $table, $aliases);
         }
 
         return $this->export->outputHandler($dump);
@@ -581,9 +569,9 @@ class ExportTexytext extends ExportPlugin
     public function formatOneColumnDefinition(
         $column,
         $unique_keys,
-        $col_alias = ''
-    ) {
-        if (empty($col_alias)) {
+        $col_alias = '',
+    ): string {
+        if ($col_alias === '') {
             $col_alias = $column['Field'];
         }
 

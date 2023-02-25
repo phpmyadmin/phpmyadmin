@@ -6,9 +6,12 @@ namespace PhpMyAdmin\Import;
 
 use PhpMyAdmin\Core;
 
+use function defined;
 use function function_exists;
+use function header;
 use function ini_get;
 use function json_encode;
+use function sprintf;
 use function ucwords;
 use function uniqid;
 
@@ -35,7 +38,7 @@ final class Ajax
         /**
          * unique ID for each upload
          */
-        $upload_id = uniqid('');
+        $upload_id = ! defined('TESTSUITE') ? uniqid('') : 'abc1234567890';
 
         /**
          * list of available plugins
@@ -71,7 +74,7 @@ final class Ajax
      */
     public static function progressCheck(): bool
     {
-        return function_exists('uploadprogress_get_info');
+        return ! defined('TESTSUITE') && function_exists('uploadprogress_get_info');
     }
 
     /**
@@ -79,7 +82,7 @@ final class Ajax
      */
     public static function sessionCheck(): bool
     {
-        return ini_get('session.upload_progress.enabled') === '1';
+        return ! defined('TESTSUITE') && ini_get('session.upload_progress.enabled') === '1';
     }
 
     /**
@@ -101,9 +104,12 @@ final class Ajax
      */
     public static function status($id): void
     {
-        Core::headerJSON();
+        foreach (Core::headerJSON() as $name => $value) {
+            header(sprintf('%s: %s', $name, $value));
+        }
+
         echo json_encode(
-            $_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getUploadStatus($id)
+            $_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getUploadStatus($id),
         );
     }
 }

@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -17,57 +19,44 @@ use function str_replace;
 
 class DataDictionaryController extends AbstractController
 {
-    /** @var Relation */
-    private $relation;
-
-    /** @var Transformations */
-    private $transformations;
-
-    /** @var DatabaseInterface */
-    private $dbi;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
-        Relation $relation,
-        Transformations $transformations,
-        DatabaseInterface $dbi
+        private Relation $relation,
+        private Transformations $transformations,
+        private DatabaseInterface $dbi,
     ) {
-        parent::__construct($response, $template, $db);
-        $this->relation = $relation;
-        $this->transformations = $transformations;
-        $this->dbi = $dbi;
+        parent::__construct($response, $template);
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        Util::checkParameters(['db'], true);
+        $this->checkParameters(['db'], true);
 
         $relationParameters = $this->relation->getRelationParameters();
 
-        $comment = $this->relation->getDbComment($this->db);
+        $comment = $this->relation->getDbComment($GLOBALS['db']);
 
-        $this->dbi->selectDb($this->db);
-        $tablesNames = $this->dbi->getTables($this->db);
+        $this->dbi->selectDb($GLOBALS['db']);
+        $tablesNames = $this->dbi->getTables($GLOBALS['db']);
 
         $tables = [];
         foreach ($tablesNames as $tableName) {
-            $showComment = (string) $this->dbi->getTable($this->db, $tableName)->getStatusInfo('TABLE_COMMENT');
+            $showComment = (string) $this->dbi->getTable($GLOBALS['db'], $tableName)->getStatusInfo('TABLE_COMMENT');
 
             [, $primaryKeys] = Util::processIndexData(
-                $this->dbi->getTableIndexes($this->db, $tableName)
+                $this->dbi->getTableIndexes($GLOBALS['db'], $tableName),
             );
 
             [$foreigners, $hasRelation] = $this->relation->getRelationsAndStatus(
                 $relationParameters->relationFeature !== null,
-                $this->db,
-                $tableName
+                $GLOBALS['db'],
+                $tableName,
             );
 
-            $columnsComments = $this->relation->getComments($this->db, $tableName);
+            $columnsComments = $this->relation->getComments($GLOBALS['db'], $tableName);
 
-            $columns = $this->dbi->getColumns($this->db, $tableName);
+            $columns = $this->dbi->getColumns($GLOBALS['db'], $tableName);
             $rows = [];
             foreach ($columns as $row) {
                 $extractedColumnSpec = Util::extractColumnSpec($row['Type']);
@@ -84,7 +73,7 @@ class DataDictionaryController extends AbstractController
 
                 $mime = '';
                 if ($relationParameters->browserTransformationFeature !== null) {
-                    $mimeMap = $this->transformations->getMime($this->db, $tableName, true);
+                    $mimeMap = $this->transformations->getMime($GLOBALS['db'], $tableName, true);
                     if (is_array($mimeMap) && isset($mimeMap[$row['Field']]['mimetype'])) {
                         $mime = str_replace('_', '/', $mimeMap[$row['Field']]['mimetype']);
                     }
@@ -109,12 +98,12 @@ class DataDictionaryController extends AbstractController
                 'has_relation' => $hasRelation,
                 'has_mime' => $relationParameters->browserTransformationFeature !== null,
                 'columns' => $rows,
-                'indexes' => Index::getFromTable($tableName, $this->db),
+                'indexes' => Index::getFromTable($this->dbi, $tableName, $GLOBALS['db']),
             ];
         }
 
         $this->render('database/data_dictionary/index', [
-            'database' => $this->db,
+            'database' => $GLOBALS['db'],
             'comment' => $comment,
             'tables' => $tables,
         ]);

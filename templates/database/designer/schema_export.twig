@@ -8,10 +8,6 @@
           {% endfor %}
         </select>
 
-        {% for option in plugins_choice %}
-          <input type="hidden" id="force_file_{{ option.name }}" value="true">
-        {% endfor %}
-
         <input type="hidden" name="page_number" value="{{ page }}">
         {{ options|raw }}
     </fieldset>

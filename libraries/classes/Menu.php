@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Utils\SessionCache;
 
@@ -27,26 +28,17 @@ class Menu
 {
     /**
      * Database name
-     *
-     * @var string
      */
-    private $db;
-
-    /** @var DatabaseInterface */
-    private $dbi;
+    private string $db;
 
     /**
      * Table name
-     *
-     * @var string
      */
-    private $table;
+    private string $table;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var Template */
-    private $template;
+    private Template $template;
 
     /**
      * Creates a new instance of Menu
@@ -54,10 +46,9 @@ class Menu
      * @param string $db    Database name
      * @param string $table Table name
      */
-    public function __construct(DatabaseInterface $dbi, string $db, string $table)
+    public function __construct(private DatabaseInterface $dbi, string $db, string $table)
     {
         $this->db = $db;
-        $this->dbi = $dbi;
         $this->table = $table;
         $this->relation = new Relation($dbi);
         $this->template = new Template();
@@ -115,7 +106,7 @@ class Menu
      *
      * @return array list of allowed tabs
      */
-    private function getAllowedTabs($level)
+    private function getAllowedTabs($level): array
     {
         $cacheKey = 'menu-levels-' . $level;
         if (SessionCache::has($cacheKey)) {
@@ -134,8 +125,8 @@ class Menu
                 . " WHERE `allowed` = 'N'"
                 . " AND `tab` LIKE '" . $level . "%'"
                 . ' AND `usergroup` = (SELECT usergroup FROM '
-                . $userTable . " WHERE `username` = '"
-                . $this->dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "')";
+                . $userTable . ' WHERE `username` = '
+                . $this->dbi->quoteString($GLOBALS['cfg']['Server']['user'], Connection::TYPE_CONTROL) . ')';
 
             $result = $this->dbi->tryQueryAsControlUser($sqlQuery);
             if ($result) {
@@ -143,7 +134,7 @@ class Menu
                     $tab = (string) $row['tab'];
                     $tabName = mb_substr(
                         $tab,
-                        mb_strpos($tab, '_') + 1
+                        mb_strpos($tab, '_') + 1,
                     );
                     unset($allowedTabs[$tabName]);
                 }
@@ -162,28 +153,26 @@ class Menu
      */
     private function getBreadcrumbs(): string
     {
-        global $cfg;
-
         $server = [];
         $database = [];
         $table = [];
 
-        if (empty($cfg['Server']['host'])) {
-            $cfg['Server']['host'] = '';
+        if (empty($GLOBALS['cfg']['Server']['host'])) {
+            $GLOBALS['cfg']['Server']['host'] = '';
         }
 
-        $server['name'] = ! empty($cfg['Server']['verbose'])
-            ? $cfg['Server']['verbose'] : $cfg['Server']['host'];
-        $server['name'] .= empty($cfg['Server']['port'])
-            ? '' : ':' . $cfg['Server']['port'];
-        $server['url'] = Util::getUrlForOption($cfg['DefaultTabServer'], 'server');
+        $server['name'] = ! empty($GLOBALS['cfg']['Server']['verbose'])
+            ? $GLOBALS['cfg']['Server']['verbose'] : $GLOBALS['cfg']['Server']['host'];
+        $server['name'] .= empty($GLOBALS['cfg']['Server']['port'])
+            ? '' : ':' . $GLOBALS['cfg']['Server']['port'];
+        $server['url'] = Util::getUrlForOption($GLOBALS['cfg']['DefaultTabServer'], 'server');
 
         if ($this->db !== '') {
             $database['name'] = $this->db;
-            $database['url'] = Util::getUrlForOption($cfg['DefaultTabDatabase'], 'database');
+            $database['url'] = Util::getUrlForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
             if ($this->table !== '') {
                 $table['name'] = $this->table;
-                $table['url'] = Util::getUrlForOption($cfg['DefaultTabTable'], 'table');
+                $table['url'] = Util::getUrlForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
                 $tableObj = $this->dbi->getTable($this->db, $this->table);
                 $table['is_view'] = $tableObj->isView();
                 $table['comment'] = '';
@@ -220,7 +209,7 @@ class Menu
      */
     private function getTableTabs(): array
     {
-        global $route;
+        $route = Common::getRequest()->getRoute();
 
         $isSystemSchema = Utilities::isSystemSchema($this->db);
         $tableIsView = $this->dbi->getTable($this->db, $this->table)
@@ -288,14 +277,11 @@ class Menu
         }
 
         if (($isSuperUser || $isCreateOrGrantUser) && ! $isSystemSchema) {
-            $tabs['privileges']['route'] = '/server/privileges';
-            $tabs['privileges']['args']['checkprivsdb'] = $this->db;
-            $tabs['privileges']['args']['checkprivstable'] = $this->table;
+            $tabs['privileges']['route'] = '/table/privileges';
             // stay on table view
-            $tabs['privileges']['args']['viewing_mode'] = 'table';
             $tabs['privileges']['text'] = __('Privileges');
             $tabs['privileges']['icon'] = 's_rights';
-            $tabs['privileges']['active'] = $route === '/server/privileges';
+            $tabs['privileges']['active'] = $route === '/table/privileges';
         }
 
         /**
@@ -342,7 +328,7 @@ class Menu
      */
     private function getDbTabs(): array
     {
-        global $route;
+        $route = Common::getRequest()->getRoute();
 
         $isSystemSchema = Utilities::isSystemSchema($this->db);
         $numTables = count($this->dbi->getTables($this->db));
@@ -399,13 +385,11 @@ class Menu
             $tabs['operation']['active'] = $route === '/database/operations';
 
             if ($isSuperUser || $isCreateOrGrantUser) {
-                $tabs['privileges']['route'] = '/server/privileges';
-                $tabs['privileges']['args']['checkprivsdb'] = $this->db;
+                $tabs['privileges']['route'] = '/database/privileges';
                 // stay on database view
-                $tabs['privileges']['args']['viewing_mode'] = 'db';
                 $tabs['privileges']['text'] = __('Privileges');
                 $tabs['privileges']['icon'] = 's_rights';
-                $tabs['privileges']['active'] = $route === '/server/privileges';
+                $tabs['privileges']['active'] = $route === '/database/privileges';
             }
 
             $tabs['routines']['route'] = '/database/routines';
@@ -459,7 +443,7 @@ class Menu
      */
     private function getServerTabs(): array
     {
-        global $route;
+        $route = Common::getRequest()->getRoute();
 
         $isSuperUser = $this->dbi->isSuperUser();
         $isCreateOrGrantUser = $this->dbi->isGrantUser() || $this->dbi->isCreateUser();
@@ -468,7 +452,7 @@ class Menu
         } else {
             $binaryLogs = $this->dbi->fetchResult(
                 'SHOW MASTER LOGS',
-                'Log_name'
+                'Log_name',
             );
             SessionCache::set('binary_logs', $binaryLogs);
         }
@@ -505,7 +489,6 @@ class Menu
                 '/server/privileges',
                 '/server/user-groups',
             ]);
-            $tabs['rights']['args']['viewing_mode'] = 'server';
         }
 
         $tabs['export']['icon'] = 'b_export';
@@ -573,10 +556,8 @@ class Menu
      * Set current table
      *
      * @param string $table Current table
-     *
-     * @return Menu
      */
-    public function setTable(string $table)
+    public function setTable(string $table): Menu
     {
         $this->table = $table;
 

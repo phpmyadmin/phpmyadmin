@@ -23,6 +23,7 @@ class NodeViewContainer extends NodeDatabaseChildContainer
     public function __construct()
     {
         parent::__construct(__('Views'), Node::CONTAINER);
+
         $this->icon = ['image' => 'b_views', 'title' => __('Views')];
         $this->links = [
             'text' => ['route' => '/database/structure', 'params' => ['tbl_type' => 'view', 'db' => null]],

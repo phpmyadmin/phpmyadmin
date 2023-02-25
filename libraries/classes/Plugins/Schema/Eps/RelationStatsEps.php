@@ -35,10 +35,12 @@ class RelationStatsEps extends RelationStats
         $master_table,
         $master_field,
         $foreign_table,
-        $foreign_field
+        $foreign_field,
     ) {
         $this->wTick = 10;
+
         parent::__construct($diagram, $master_table, $master_field, $foreign_table, $foreign_field);
+
         $this->ySrc += 10;
         $this->yDest += 10;
     }
@@ -61,7 +63,7 @@ class RelationStatsEps extends RelationStats
             $this->ySrc,
             $this->xDest + $this->destDir * $this->wTick,
             $this->yDest,
-            1
+            1,
         );
         $root2 = 2 * sqrt(2);
         $this->diagram->line(
@@ -69,28 +71,28 @@ class RelationStatsEps extends RelationStats
             $this->ySrc,
             $this->xSrc + $this->srcDir * (0.75 - 1 / $root2) * $this->wTick,
             $this->ySrc + $this->wTick / $root2,
-            1
+            1,
         );
         $this->diagram->line(
             $this->xSrc + $this->srcDir * $this->wTick * 0.75,
             $this->ySrc,
             $this->xSrc + $this->srcDir * (0.75 - 1 / $root2) * $this->wTick,
             $this->ySrc - $this->wTick / $root2,
-            1
+            1,
         );
         $this->diagram->line(
             $this->xDest + $this->destDir * $this->wTick / 2,
             $this->yDest,
             $this->xDest + $this->destDir * (0.5 + 1 / $root2) * $this->wTick,
             $this->yDest + $this->wTick / $root2,
-            1
+            1,
         );
         $this->diagram->line(
             $this->xDest + $this->destDir * $this->wTick / 2,
             $this->yDest,
             $this->xDest + $this->destDir * (0.5 + 1 / $root2) * $this->wTick,
             $this->yDest - $this->wTick / $root2,
-            1
+            1,
         );
     }
 }

@@ -22,13 +22,9 @@ use function trim;
 
 final class SetVariableController extends AbstractController
 {
-    /** @var DatabaseInterface */
-    private $dbi;
-
-    public function __construct(ResponseRenderer $response, Template $template, DatabaseInterface $dbi)
+    public function __construct(ResponseRenderer $response, Template $template, private DatabaseInterface $dbi)
     {
         parent::__construct($response, $template);
-        $this->dbi = $dbi;
     }
 
     /**
@@ -51,7 +47,7 @@ final class SetVariableController extends AbstractController
             $variableType === 'byte' && preg_match(
                 '/^\s*(\d+(\.\d+)?)\s*(mb|kb|mib|kib|gb|gib)\s*$/i',
                 $value,
-                $matches
+                $matches,
             )
         ) {
             $exp = [
@@ -79,7 +75,7 @@ final class SetVariableController extends AbstractController
                 'SHOW GLOBAL VARIABLES WHERE Variable_name="'
                 . $this->dbi->escapeString($variableName)
                 . '";',
-                DatabaseInterface::FETCH_NUM
+                DatabaseInterface::FETCH_NUM,
             );
             [$formattedValue, $isHtmlFormatted] = $this->formatVariable($variableName, $varValue[1]);
 
@@ -104,7 +100,7 @@ final class SetVariableController extends AbstractController
      *
      * @return array formatted string and bool if string is HTML formatted
      */
-    private function formatVariable($name, $value): array
+    private function formatVariable($name, int|string $value): array
     {
         $isHtmlFormatted = false;
         $formattedValue = $value;
@@ -122,8 +118,8 @@ final class SetVariableController extends AbstractController
                         [
                             'valueTitle' => Util::formatNumber($value, 0),
                             'value' => implode(' ', $bytes),
-                        ]
-                    )
+                        ],
+                    ),
                 );
             } else {
                 $formattedValue = Util::formatNumber($value, 0);

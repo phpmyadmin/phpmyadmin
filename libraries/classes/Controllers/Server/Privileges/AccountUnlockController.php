@@ -16,12 +16,12 @@ use function __;
 
 final class AccountUnlockController extends AbstractController
 {
-    /** @var AccountLocking */
-    private $model;
+    private AccountLocking $model;
 
     public function __construct(ResponseRenderer $response, Template $template, AccountLocking $accountLocking)
     {
         parent::__construct($response, $template);
+
         $this->model = $accountLocking;
     }
 

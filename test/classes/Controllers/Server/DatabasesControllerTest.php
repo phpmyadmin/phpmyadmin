@@ -4,27 +4,36 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
-use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Server\DatabasesController;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
-use PhpMyAdmin\Transformations;
-use stdClass;
 
 use function __;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Server\DatabasesController
- */
+/** @covers \PhpMyAdmin\Controllers\Server\DatabasesController */
 class DatabasesControllerTest extends AbstractTestCase
 {
+    /** @var DatabaseInterface */
+    protected $dbi;
+
+    /** @var DbiDummy */
+    protected $dummyDbi;
+
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setGlobalConfig();
+
         parent::setTheme();
+
+        $this->dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $GLOBALS['dbi'] = $this->dbi;
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'pma_test';
@@ -36,34 +45,25 @@ class DatabasesControllerTest extends AbstractTestCase
 
     public function testIndexAction(): void
     {
-        global $cfg, $dblist, $is_create_db_priv;
-
-        $dblist = new stdClass();
-        $dblist->databases = [
-            'sakila',
-            'employees',
-        ];
-
+        $GLOBALS['cfg']['Server']['only_db'] = '';
         $template = new Template();
-        $transformations = new Transformations();
-        $relationCleanup = new RelationCleanup(
-            $GLOBALS['dbi'],
-            new Relation($GLOBALS['dbi'])
-        );
 
         $response = new ResponseRenderer();
 
         $controller = new DatabasesController(
             $response,
             $template,
-            $transformations,
-            $relationCleanup,
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
         );
 
+        $this->dummyDbi->addResult(
+            'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`',
+            [['sakila'], ['employees']],
+            ['SCHEMA_NAME'],
+        );
         $this->dummyDbi->addSelectDb('mysql');
-        $controller();
-        $this->assertAllSelectsConsumed();
+        $controller($this->createStub(ServerRequest::class));
+        $this->dummyDbi->assertAllSelectsConsumed();
         $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString('data-filter-row="SAKILA"', $actual);
@@ -87,20 +87,18 @@ class DatabasesControllerTest extends AbstractTestCase
         $controller = new DatabasesController(
             $response,
             $template,
-            $transformations,
-            $relationCleanup,
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
         );
 
-        $cfg['ShowCreateDb'] = true;
-        $is_create_db_priv = true;
+        $GLOBALS['cfg']['ShowCreateDb'] = true;
+        $GLOBALS['is_create_db_priv'] = true;
         $_REQUEST['statistics'] = '1';
         $_REQUEST['sort_by'] = 'SCHEMA_TABLES';
         $_REQUEST['sort_order'] = 'desc';
 
         $this->dummyDbi->addSelectDb('mysql');
-        $controller();
-        $this->assertAllSelectsConsumed();
+        $controller($this->createStub(ServerRequest::class));
+        $this->dummyDbi->assertAllSelectsConsumed();
         $actual = $response->getHTMLResult();
 
         $this->assertStringNotContainsString(__('Enable statistics'), $actual);

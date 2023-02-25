@@ -20,9 +20,6 @@ use function shuffle;
  */
 class RelationStatsDia
 {
-    /** @var Dia */
-    protected $diagram;
-
     /** @var mixed */
     public $srcConnPointsRight;
 
@@ -41,12 +38,6 @@ class RelationStatsDia
     /** @var int */
     public $foreignTableId;
 
-    /** @var mixed */
-    public $masterTablePos;
-
-    /** @var mixed */
-    public $foreignTablePos;
-
     /** @var string */
     public $referenceColor = '#000000';
 
@@ -60,21 +51,18 @@ class RelationStatsDia
      * @param string        $foreign_field The relation field in the foreign table
      */
     public function __construct(
-        $diagram,
+        protected $diagram,
         $master_table,
         $master_field,
         $foreign_table,
-        $foreign_field
+        $foreign_field,
     ) {
-        $this->diagram = $diagram;
         $src_pos = $this->getXy($master_table, $master_field);
         $dest_pos = $this->getXy($foreign_table, $foreign_field);
         $this->srcConnPointsLeft = $src_pos[0];
         $this->srcConnPointsRight = $src_pos[1];
         $this->destConnPointsLeft = $dest_pos[0];
         $this->destConnPointsRight = $dest_pos[1];
-        $this->masterTablePos = $src_pos[2];
-        $this->foreignTablePos = $dest_pos[2];
         $this->masterTableId = $master_table->tableId;
         $this->foreignTableId = $foreign_table->tableId;
     }
@@ -91,7 +79,7 @@ class RelationStatsDia
      *
      * @return array Table right,left connection points and key position
      */
-    private function getXy($table, $column)
+    private function getXy($table, $column): array
     {
         $pos = array_search($column, $table->fields);
         // left, right, position
@@ -127,20 +115,15 @@ class RelationStatsDia
      *                        will be used to choose the random colors for
      *                        references lines. we can change/add more colors to
      *                        this
-     *
-     * @return bool|void
      */
-    public function relationDraw($showColor)
+    public function relationDraw($showColor): void
     {
         ++DiaRelationSchema::$objectId;
-        /*
-         * if source connection points and destination connection
-        * points are same then return it false and don't draw that
-        * relation
-        */
+        // if source connection points and destination connection points are same then
+        // don't draw that relation
         if ($this->srcConnPointsRight == $this->destConnPointsRight) {
             if ($this->srcConnPointsLeft == $this->destConnPointsLeft) {
-                return false;
+                return;
             }
         }
 
@@ -151,7 +134,7 @@ class RelationStatsDia
                 '00FF00',
             ];
             shuffle($listOfColors);
-            $this->referenceColor = '#' . $listOfColors[0] . '';
+            $this->referenceColor = '#' . $listOfColors[0];
         } else {
             $this->referenceColor = '#000000';
         }
@@ -231,7 +214,7 @@ class RelationStatsDia
             . $this->foreignTableId . '" connection="'
             . $this->destConnPointsRight . '"/>
             </dia:connections>
-            </dia:object>'
+            </dia:object>',
         );
     }
 }

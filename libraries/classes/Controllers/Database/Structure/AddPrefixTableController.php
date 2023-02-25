@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database\Structure;
 
-use PhpMyAdmin\Controllers\Database\AbstractController;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -16,49 +17,34 @@ use function count;
 
 final class AddPrefixTableController extends AbstractController
 {
-    /** @var DatabaseInterface */
-    private $dbi;
-
-    /** @var StructureController */
-    private $structureController;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
-        DatabaseInterface $dbi,
-        StructureController $structureController
+        private DatabaseInterface $dbi,
+        private StructureController $structureController,
     ) {
-        parent::__construct($response, $template, $db);
-        $this->dbi = $dbi;
-        $this->structureController = $structureController;
+        parent::__construct($response, $template);
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        global $db, $message, $sql_query;
+        $selected = $request->getParsedBodyParam('selected', []);
 
-        $selected = $_POST['selected'] ?? [];
-
-        $sql_query = '';
+        $GLOBALS['sql_query'] = '';
         $selectedCount = count($selected);
 
         for ($i = 0; $i < $selectedCount; $i++) {
-            $newTableName = $_POST['add_prefix'] . $selected[$i];
+            $newTableName = $request->getParsedBodyParam('add_prefix', '') . $selected[$i];
             $aQuery = 'ALTER TABLE ' . Util::backquote($selected[$i])
                 . ' RENAME ' . Util::backquote($newTableName);
 
-            $sql_query .= $aQuery . ';' . "\n";
-            $this->dbi->selectDb($db);
+            $GLOBALS['sql_query'] .= $aQuery . ';' . "\n";
+            $this->dbi->selectDb($GLOBALS['db']);
             $this->dbi->query($aQuery);
         }
 
-        $message = Message::success();
+        $GLOBALS['message'] = Message::success();
 
-        if (empty($_POST['message'])) {
-            $_POST['message'] = $message;
-        }
-
-        ($this->structureController)();
+        ($this->structureController)($request);
     }
 }

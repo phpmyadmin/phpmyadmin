@@ -28,7 +28,7 @@ class FileListing
      *
      * @return array|bool sorted file list on success, false on failure
      */
-    public function getDirContent(string $dir, string $expression = '')
+    public function getDirContent(string $dir, string $expression = ''): array|bool
     {
         if (! @file_exists($dir)) {
             return false;
@@ -75,8 +75,8 @@ class FileListing
     public function getFileSelectOptions(
         string $dir,
         string $extensions = '',
-        string $active = ''
-    ) {
+        string $active = '',
+    ): string|false {
         $list = $this->getDirContent($dir, $extensions);
         if ($list === false) {
             return false;
@@ -97,24 +97,22 @@ class FileListing
      */
     public function supportedDecompressions(): string
     {
-        global $cfg;
-
         $compressions = '';
 
-        if ($cfg['GZipDump'] && function_exists('gzopen')) {
+        if ($GLOBALS['cfg']['GZipDump'] && function_exists('gzopen')) {
             $compressions = 'gz';
         }
 
-        if ($cfg['BZipDump'] && function_exists('bzopen')) {
-            if (! empty($compressions)) {
+        if ($GLOBALS['cfg']['BZipDump'] && function_exists('bzopen')) {
+            if ($compressions !== '') {
                 $compressions .= '|';
             }
 
             $compressions .= 'bz2';
         }
 
-        if ($cfg['ZipDump'] && function_exists('gzinflate')) {
-            if (! empty($compressions)) {
+        if ($GLOBALS['cfg']['ZipDump'] && function_exists('gzinflate')) {
+            if ($compressions !== '') {
                 $compressions .= '|';
             }
 

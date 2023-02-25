@@ -14,11 +14,10 @@ use function array_merge;
 use function array_slice;
 use function count;
 use function explode;
-use function hexdec;
 use function json_encode;
 use function mb_substr;
 use function round;
-use function str_contains;
+use function sprintf;
 use function trim;
 
 /**
@@ -41,7 +40,7 @@ class GisMultiPolygon extends GisGeometry
      *
      * @return GisMultiPolygon the singleton
      */
-    public static function singleton()
+    public static function singleton(): GisMultiPolygon
     {
         if (! isset(self::$instance)) {
             self::$instance = new GisMultiPolygon();
@@ -55,28 +54,19 @@ class GisMultiPolygon extends GisGeometry
      *
      * @param string $spatial spatial data of a row
      *
-     * @return array an array containing the min, max values for x and y coordinates
+     * @return ScaleData|null the min, max values for x and y coordinates
      */
-    public function scaleRow($spatial)
+    public function scaleRow(string $spatial): ScaleData|null
     {
-        $min_max = [];
+        $min_max = null;
 
         // Trim to remove leading 'MULTIPOLYGON(((' and trailing ')))'
         $multipolygon = mb_substr($spatial, 15, -3);
-        // Separate each polygon
-        $polygons = explode(')),((', $multipolygon);
+        $wkt_polygons = explode(')),((', $multipolygon);
 
-        foreach ($polygons as $polygon) {
-            // If the polygon doesn't have an inner ring, use polygon itself
-            if (! str_contains($polygon, '),(')) {
-                $ring = $polygon;
-            } else {
-                // Separate outer ring and use it to determine min-max
-                $parts = explode('),(', $polygon);
-                $ring = $parts[0];
-            }
-
-            $min_max = $this->setMinMax($ring, $min_max);
+        foreach ($wkt_polygons as $wkt_polygon) {
+            $wkt_outer_ring = explode('),(', $wkt_polygon)[0];
+            $min_max = $this->setMinMax($wkt_outer_ring, $min_max);
         }
 
         return $min_max;
@@ -85,74 +75,58 @@ class GisMultiPolygon extends GisGeometry
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string      $spatial    GIS POLYGON object
-     * @param string|null $label      Label for the GIS POLYGON object
-     * @param string      $fill_color Color for the GIS POLYGON object
-     * @param array       $scale_data Array containing data related to scaling
+     * @param string $spatial    GIS POLYGON object
+     * @param string $label      Label for the GIS POLYGON object
+     * @param int[]  $color      Color for the GIS POLYGON object
+     * @param array  $scale_data Array containing data related to scaling
      */
     public function prepareRowAsPng(
         $spatial,
-        ?string $label,
-        $fill_color,
+        string $label,
+        array $color,
         array $scale_data,
-        ImageWrapper $image
+        ImageWrapper $image,
     ): ImageWrapper {
         // allocate colors
         $black = $image->colorAllocate(0, 0, 0);
-        $red = (int) hexdec(mb_substr($fill_color, 1, 2));
-        $green = (int) hexdec(mb_substr($fill_color, 3, 2));
-        $blue = (int) hexdec(mb_substr($fill_color, 4, 2));
-        $color = $image->colorAllocate($red, $green, $blue);
-
-        $label = trim($label ?? '');
+        $fill_color = $image->colorAllocate(...$color);
 
         // Trim to remove leading 'MULTIPOLYGON(((' and trailing ')))'
         $multipolygon = mb_substr($spatial, 15, -3);
         // Separate each polygon
         $polygons = explode(')),((', $multipolygon);
 
-        $first_poly = true;
         foreach ($polygons as $polygon) {
-            // If the polygon doesn't have an inner polygon
-            if (! str_contains($polygon, '),(')) {
-                $points_arr = $this->extractPoints($polygon, $scale_data, true);
-            } else {
-                // Separate outer and inner polygons
-                $parts = explode('),(', $polygon);
-                $outer = $parts[0];
-                $inner = array_slice($parts, 1);
+            $wkt_rings = explode('),(', $polygon);
 
-                $points_arr = $this->extractPoints($outer, $scale_data, true);
+            $points_arr = [];
 
-                foreach ($inner as $inner_poly) {
-                    $points_arr = array_merge(
-                        $points_arr,
-                        $this->extractPoints($inner_poly, $scale_data, true)
-                    );
-                }
+            foreach ($wkt_rings as $wkt_ring) {
+                $ring = $this->extractPoints($wkt_ring, $scale_data, true);
+                $points_arr = array_merge($points_arr, $ring);
             }
 
             // draw polygon
-            $image->filledPolygon($points_arr, $color);
+            $image->filledPolygon($points_arr, $fill_color);
             // mark label point if applicable
-            if ($label !== '' && $first_poly) {
-                $label_point = [
-                    $points_arr[2],
-                    $points_arr[3],
-                ];
+            if (isset($label_point)) {
+                continue;
             }
 
-            $first_poly = false;
+            $label_point = [
+                $points_arr[2],
+                $points_arr[3],
+            ];
         }
 
         // print label if applicable
-        if (isset($label_point)) {
+        if ($label !== '' && isset($label_point)) {
             $image->string(
                 1,
                 (int) round($label_point[0]),
                 (int) round($label_point[1]),
                 $label,
-                $black
+                $black,
             );
         }
 
@@ -162,71 +136,47 @@ class GisMultiPolygon extends GisGeometry
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string      $spatial    GIS MULTIPOLYGON object
-     * @param string|null $label      Label for the GIS MULTIPOLYGON object
-     * @param string      $fill_color Color for the GIS MULTIPOLYGON object
-     * @param array       $scale_data Array containing data related to scaling
-     * @param TCPDF       $pdf        TCPDF instance
+     * @param string $spatial    GIS MULTIPOLYGON object
+     * @param string $label      Label for the GIS MULTIPOLYGON object
+     * @param int[]  $color      Color for the GIS MULTIPOLYGON object
+     * @param array  $scale_data Array containing data related to scaling
+     * @param TCPDF  $pdf
      *
      * @return TCPDF the modified TCPDF instance
      */
-    public function prepareRowAsPdf($spatial, ?string $label, $fill_color, array $scale_data, $pdf)
+    public function prepareRowAsPdf($spatial, string $label, array $color, array $scale_data, $pdf): TCPDF
     {
-        // allocate colors
-        $red = hexdec(mb_substr($fill_color, 1, 2));
-        $green = hexdec(mb_substr($fill_color, 3, 2));
-        $blue = hexdec(mb_substr($fill_color, 4, 2));
-        $color = [
-            $red,
-            $green,
-            $blue,
-        ];
-
-        $label = trim($label ?? '');
-
         // Trim to remove leading 'MULTIPOLYGON(((' and trailing ')))'
         $multipolygon = mb_substr($spatial, 15, -3);
         // Separate each polygon
-        $polygons = explode(')),((', $multipolygon);
+        $wkt_polygons = explode(')),((', $multipolygon);
 
-        $first_poly = true;
-        foreach ($polygons as $polygon) {
-            // If the polygon doesn't have an inner polygon
-            if (! str_contains($polygon, '),(')) {
-                $points_arr = $this->extractPoints($polygon, $scale_data, true);
-            } else {
-                // Separate outer and inner polygons
-                $parts = explode('),(', $polygon);
-                $outer = $parts[0];
-                $inner = array_slice($parts, 1);
+        foreach ($wkt_polygons as $wkt_polygon) {
+            $wkt_rings = explode('),(', $wkt_polygon);
+            $points_arr = [];
 
-                $points_arr = $this->extractPoints($outer, $scale_data, true);
-
-                foreach ($inner as $inner_poly) {
-                    $points_arr = array_merge(
-                        $points_arr,
-                        $this->extractPoints($inner_poly, $scale_data, true)
-                    );
-                }
+            foreach ($wkt_rings as $wkt_ring) {
+                $ring = $this->extractPoints($wkt_ring, $scale_data, true);
+                $points_arr = array_merge($points_arr, $ring);
             }
 
             // draw polygon
             $pdf->Polygon($points_arr, 'F*', [], $color, true);
             // mark label point if applicable
-            if ($label !== '' && $first_poly) {
-                $label_point = [
-                    $points_arr[2],
-                    $points_arr[3],
-                ];
+            if (isset($label_point)) {
+                continue;
             }
 
-            $first_poly = false;
+            $label_point = [
+                $points_arr[2],
+                $points_arr[3],
+            ];
         }
 
         // print label if applicable
-        if (isset($label_point)) {
-            $pdf->SetXY($label_point[0], $label_point[1]);
-            $pdf->SetFontSize(5);
+        if ($label !== '' && isset($label_point)) {
+            $pdf->setXY($label_point[0], $label_point[1]);
+            $pdf->setFontSize(5);
             $pdf->Cell(0, 0, $label);
         }
 
@@ -238,19 +188,19 @@ class GisMultiPolygon extends GisGeometry
      *
      * @param string $spatial    GIS MULTIPOLYGON object
      * @param string $label      Label for the GIS MULTIPOLYGON object
-     * @param string $fill_color Color for the GIS MULTIPOLYGON object
+     * @param int[]  $color      Color for the GIS MULTIPOLYGON object
      * @param array  $scale_data Array containing data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg($spatial, $label, $fill_color, array $scale_data)
+    public function prepareRowAsSvg($spatial, string $label, array $color, array $scale_data): string
     {
         $polygon_options = [
             'name' => $label,
             'class' => 'multipolygon vector',
             'stroke' => 'black',
             'stroke-width' => 0.5,
-            'fill' => $fill_color,
+            'fill' => sprintf('#%02x%02x%02x', ...$color),
             'fill-rule' => 'evenodd',
             'fill-opacity' => 0.8,
         ];
@@ -260,31 +210,20 @@ class GisMultiPolygon extends GisGeometry
         // Trim to remove leading 'MULTIPOLYGON(((' and trailing ')))'
         $multipolygon = mb_substr($spatial, 15, -3);
         // Separate each polygon
-        $polygons = explode(')),((', $multipolygon);
+        $wkt_polygons = explode(')),((', $multipolygon);
 
-        foreach ($polygons as $polygon) {
+        foreach ($wkt_polygons as $wkt_polygon) {
             $row .= '<path d="';
 
-            // If the polygon doesn't have an inner polygon
-            if (! str_contains($polygon, '),(')) {
-                $row .= $this->drawPath($polygon, $scale_data);
-            } else {
-                // Separate outer and inner polygons
-                $parts = explode('),(', $polygon);
-                $outer = $parts[0];
-                $inner = array_slice($parts, 1);
-
-                $row .= $this->drawPath($outer, $scale_data);
-
-                foreach ($inner as $inner_poly) {
-                    $row .= $this->drawPath($inner_poly, $scale_data);
-                }
+            $wkt_rings = explode('),(', $wkt_polygon);
+            foreach ($wkt_rings as $wkt_ring) {
+                $row .= $this->drawPath($wkt_ring, $scale_data);
             }
 
             $polygon_options['id'] = $label . $this->getRandomId();
             $row .= '"';
             foreach ($polygon_options as $option => $val) {
-                $row .= ' ' . $option . '="' . trim((string) $val) . '"';
+                $row .= ' ' . $option . '="' . $val . '"';
             }
 
             $row .= '/>';
@@ -300,25 +239,25 @@ class GisMultiPolygon extends GisGeometry
      * @param string $spatial    GIS MULTIPOLYGON object
      * @param int    $srid       Spatial reference ID
      * @param string $label      Label for the GIS MULTIPOLYGON object
-     * @param array  $fill_color Color for the GIS MULTIPOLYGON object
+     * @param int[]  $color      Color for the GIS MULTIPOLYGON object
      * @param array  $scale_data Array containing data related to scaling
      *
      * @return string JavaScript related to a row in the GIS dataset
      */
-    public function prepareRowAsOl($spatial, int $srid, $label, $fill_color, array $scale_data)
+    public function prepareRowAsOl($spatial, int $srid, string $label, array $color, array $scale_data): string
     {
-        $fill_color[] = 0.8;
-        $fill_style = ['color' => $fill_color];
+        $color[] = 0.8;
+        $fill_style = ['color' => $color];
         $stroke_style = [
-            'color' => [0,0,0],
+            'color' => [0, 0, 0],
             'width' => 0.5,
         ];
         $row = 'var style = new ol.style.Style({'
             . 'fill: new ol.style.Fill(' . json_encode($fill_style) . '),'
             . 'stroke: new ol.style.Stroke(' . json_encode($stroke_style) . ')';
 
-        if (trim($label) !== '') {
-            $text_style = ['text' => trim($label)];
+        if ($label !== '') {
+            $text_style = ['text' => $label];
             $row .= ',text: new ol.style.Text(' . json_encode($text_style) . ')';
         }
 
@@ -350,7 +289,7 @@ class GisMultiPolygon extends GisGeometry
      *
      * @return string the code to draw the ring
      */
-    private function drawPath($polygon, array $scale_data)
+    private function drawPath($polygon, array $scale_data): string
     {
         $points_arr = $this->extractPoints($polygon, $scale_data);
 
@@ -374,7 +313,7 @@ class GisMultiPolygon extends GisGeometry
      *
      * @return string WKT with the set of parameters passed by the GIS editor
      */
-    public function generateWkt(array $gis_data, $index, $empty = '')
+    public function generateWkt(array $gis_data, $index, $empty = ''): string
     {
         $data_row = $gis_data[$index]['MULTIPOLYGON'];
 
@@ -427,7 +366,7 @@ class GisMultiPolygon extends GisGeometry
      *
      * @return string the WKT for the data from ESRI shape files
      */
-    public function getShape(array $row_data)
+    public function getShape(array $row_data): string
     {
         // Determines whether each line ring is an inner ring or an outer ring.
         // If it's an inner ring get a point on the surface which can be used to
@@ -509,67 +448,35 @@ class GisMultiPolygon extends GisGeometry
     }
 
     /**
-     * Generate parameters for the GIS data editor from the value of the GIS column.
+     * Generate coordinate parameters for the GIS data editor from the value of the GIS column.
      *
-     * @param string $value Value of the GIS column
-     * @param int    $index Index of the geometry
+     * @param string $wkt Value of the GIS column
      *
-     * @return array params for the GIS data editor from the value of the GIS column
+     * @return array Coordinate params for the GIS data editor from the value of the GIS column
      */
-    public function generateParams($value, $index = -1)
+    protected function getCoordinateParams(string $wkt): array
     {
-        $params = [];
-        if ($index == -1) {
-            $index = 0;
-            $data = GisGeometry::generateParams($value);
-            $params['srid'] = $data['srid'];
-            $wkt = $data['wkt'];
-        } else {
-            $params[$index]['gis_type'] = 'MULTIPOLYGON';
-            $wkt = $value;
-        }
-
         // Trim to remove leading 'MULTIPOLYGON(((' and trailing ')))'
-        $multipolygon = mb_substr($wkt, 15, -3);
-        // Separate each polygon
-        $polygons = explode(')),((', $multipolygon);
+        $wkt_multipolygon = mb_substr($wkt, 15, -3);
+        $wkt_polygons = explode(')),((', $wkt_multipolygon);
+        $coords = ['no_of_polygons' => count($wkt_polygons)];
 
-        $param_row =& $params[$index]['MULTIPOLYGON'];
-        $param_row['no_of_polygons'] = count($polygons);
-
-        $k = 0;
-        foreach ($polygons as $polygon) {
-            // If the polygon doesn't have an inner polygon
-            if (! str_contains($polygon, '),(')) {
-                $param_row[$k]['no_of_lines'] = 1;
-                $points_arr = $this->extractPoints($polygon, null);
-                $no_of_points = count($points_arr);
-                $param_row[$k][0]['no_of_points'] = $no_of_points;
+        foreach ($wkt_polygons as $k => $wkt_polygon) {
+            $wkt_rings = explode('),(', $wkt_polygon);
+            $coords[$k] = ['no_of_lines' => count($wkt_rings)];
+            foreach ($wkt_rings as $j => $wkt_ring) {
+                $points = $this->extractPoints($wkt_ring, null);
+                $no_of_points = count($points);
+                $coords[$k][$j] = ['no_of_points' => $no_of_points];
                 for ($i = 0; $i < $no_of_points; $i++) {
-                    $param_row[$k][0][$i]['x'] = $points_arr[$i][0];
-                    $param_row[$k][0][$i]['y'] = $points_arr[$i][1];
-                }
-            } else {
-                // Separate outer and inner polygons
-                $parts = explode('),(', $polygon);
-                $param_row[$k]['no_of_lines'] = count($parts);
-                $j = 0;
-                foreach ($parts as $ring) {
-                    $points_arr = $this->extractPoints($ring, null);
-                    $no_of_points = count($points_arr);
-                    $param_row[$k][$j]['no_of_points'] = $no_of_points;
-                    for ($i = 0; $i < $no_of_points; $i++) {
-                        $param_row[$k][$j][$i]['x'] = $points_arr[$i][0];
-                        $param_row[$k][$j][$i]['y'] = $points_arr[$i][1];
-                    }
-
-                    $j++;
+                    $coords[$k][$j][$i] = [
+                        'x' => $points[$i][0],
+                        'y' => $points[$i][1],
+                    ];
                 }
             }
-
-            $k++;
         }
 
-        return $params;
+        return $coords;
     }
 }

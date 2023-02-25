@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 /**
  * This file is internal to phpMyAdmin.
  * @license see the main phpMyAdmin license.
@@ -39,7 +41,7 @@
  * which is the actually draggable element.
  */
 (function ($) {
-    jQuery.fn.sortableTable = function (method) {
+    $.fn.sortableTable = function (method) {
         var methods = {
             init: function (options) {
                 var tb = new SortableTableInstance(this, options);
@@ -56,7 +58,7 @@
 
         if (methods[method]) {
             return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
-        } else if (typeof method === 'object' || !method) {
+        } else if (typeof method === 'object' || ! method) {
             return methods.init.apply(this, arguments);
         } else {
             $.error('Method ' + method + ' does not exist on jQuery.sortableTable');
@@ -79,7 +81,10 @@
                 if ($draggedEl.length === 0) {
                     return;
                 }
-                if (options.ignoreRect && insideRect({ x: e.pageX - $draggedEl.offset().left, y: e.pageY - $draggedEl.offset().top }, options.ignoreRect)) {
+                if (options.ignoreRect && insideRect({
+                    x: e.pageX - $draggedEl.offset().left,
+                    y: e.pageY - $draggedEl.offset().top
+                }, options.ignoreRect)) {
                     return;
                 }
 
@@ -243,7 +248,7 @@
             }
 
             function dropAt (x, y) {
-                if (!down) {
+                if (! down) {
                     return;
                 }
                 down = false;
@@ -257,7 +262,7 @@
                     }
                 });
 
-                if (!switched) {
+                if (! switched) {
                     if (previewMove) {
                         moveTo(previewMove);
                     }
@@ -268,10 +273,10 @@
             }
 
             function moveTo (elem, opts = {}) {
-                if (!opts.pos) {
+                if (! opts.pos) {
                     opts.pos = { left: 0, top: 0 };
                 }
-                if (!opts.duration) {
+                if (! opts.duration) {
                     opts.duration = 200;
                 }
 
@@ -290,4 +295,4 @@
             }
         }
     };
-}(jQuery));
+}($));

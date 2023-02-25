@@ -1,3 +1,7 @@
+import $ from 'jquery';
+import { AJAX } from '../modules/ajax.js';
+import { Functions } from '../modules/functions.js';
+
 /**
  * SQL syntax highlighting transformation plugin js
  *

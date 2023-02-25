@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FlashMessages;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -18,31 +20,17 @@ use function count;
 
 final class DropColumnController extends AbstractController
 {
-    /** @var DatabaseInterface */
-    private $dbi;
-
-    /** @var FlashMessages */
-    private $flash;
-
-    /** @var RelationCleanup */
-    private $relationCleanup;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        string $db,
-        string $table,
-        DatabaseInterface $dbi,
-        FlashMessages $flash,
-        RelationCleanup $relationCleanup
+        private DatabaseInterface $dbi,
+        private FlashMessages $flash,
+        private RelationCleanup $relationCleanup,
     ) {
-        parent::__construct($response, $template, $db, $table);
-        $this->dbi = $dbi;
-        $this->flash = $flash;
-        $this->relationCleanup = $relationCleanup;
+        parent::__construct($response, $template);
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         $selected = $_POST['selected'] ?? [];
 
@@ -56,15 +44,15 @@ final class DropColumnController extends AbstractController
         $selectedCount = count($selected);
         if (($_POST['mult_btn'] ?? '') === __('Yes')) {
             $i = 1;
-            $statement = 'ALTER TABLE ' . Util::backquote($this->table);
+            $statement = 'ALTER TABLE ' . Util::backquote($GLOBALS['table']);
 
             foreach ($selected as $field) {
-                $this->relationCleanup->column($this->db, $this->table, $field);
+                $this->relationCleanup->column($GLOBALS['db'], $GLOBALS['table'], $field);
                 $statement .= ' DROP ' . Util::backquote($field);
                 $statement .= $i++ === $selectedCount ? ';' : ',';
             }
 
-            $this->dbi->selectDb($this->db);
+            $this->dbi->selectDb($GLOBALS['db']);
             $result = $this->dbi->tryQuery($statement);
 
             if (! $result) {
@@ -79,13 +67,13 @@ final class DropColumnController extends AbstractController
                 _ngettext(
                     '%1$d column has been dropped successfully.',
                     '%1$d columns have been dropped successfully.',
-                    $selectedCount
-                )
+                    $selectedCount,
+                ),
             );
             $message->addParam($selectedCount);
         }
 
         $this->flash->addMessage($message->isError() ? 'danger' : 'success', $message->getMessage());
-        $this->redirect('/table/structure', ['db' => $this->db, 'table' => $this->table]);
+        $this->redirect('/table/structure', ['db' => $GLOBALS['db'], 'table' => $GLOBALS['table']]);
     }
 }

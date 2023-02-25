@@ -3,13 +3,14 @@
     <input type="hidden" name="username" value="{{ username }}">
     <input type="hidden" name="hostname" value="{{ hostname }}">
 
-    <fieldset class="pma-fieldset">
-        <legend data-submenu-label="{{ sub_menu_label }}">
+    <div class="card mb-3">
+        <div class="card-header js-submenu-label" data-submenu-label="{{ sub_menu_label }}">
             {{ legend }}
-        </legend>
+        </div>
 
-        <table class="table table-light table-striped table-hover w-auto">
-            <thead class="table-light">
+        <div class="card-body">
+        <table class="table table-striped table-hover w-auto">
+            <thead>
                 <tr>
                     <th scope="col">{{ type_label }}</th>
                     <th scope="col">{% trans 'Privileges' %}</th>
@@ -66,7 +67,7 @@
             <input type="text" id="text_dbname" name="dbname">
             {{ show_hint("Wildcards % and _ should be escaped with a \\ to use them literally."|trans) }}
         {% elseif type == 'table' %}
-            <input type="hidden" name="dbname" value="{{ database|escape_mysql_wildcards }}">
+            <input type="hidden" name="dbname" value="{{ escaped_database }}">
 
             <label for="text_tablename">{% trans 'Add privileges on the following table:' %}</label>
 
@@ -81,7 +82,7 @@
 
             <input type="text" id="text_tablename" name="tablename">
         {% else %}
-            <input type="hidden" name="dbname" value="{{ database|escape_mysql_wildcards }}">
+            <input type="hidden" name="dbname" value="{{ escaped_database }}">
 
             <label for="text_routinename">{% trans 'Add privileges on the following routine:' %}</label>
 
@@ -96,9 +97,10 @@
 
             <input type="text" id="text_routinename" name="routinename">
         {% endif %}
-    </fieldset>
+        </div>
+    </div>
 
-    <fieldset class="pma-fieldset tblFooters">
+    <div>
         <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
-    </fieldset>
+    </div>
 </form>

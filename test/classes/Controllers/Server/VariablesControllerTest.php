@@ -6,7 +6,9 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Controllers\Server\VariablesController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
 use PhpMyAdmin\Providers\ServerVariables\VoidProvider as ServerVariablesVoidProvider;
 use PhpMyAdmin\ResponseRenderer;
@@ -21,16 +23,17 @@ use function __;
 use function htmlspecialchars;
 use function str_replace;
 
-/**
- * @covers \PhpMyAdmin\Controllers\Server\VariablesController
- */
+/** @covers \PhpMyAdmin\Controllers\Server\VariablesController */
 class VariablesControllerTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setGlobalConfig();
+
         parent::setLanguage();
+
         parent::setTheme();
 
         $GLOBALS['text_dir'] = 'ltr';
@@ -63,14 +66,14 @@ class VariablesControllerTest extends AbstractTestCase
                 'SHOW SESSION VARIABLES;',
                 0,
                 1,
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 $serverSessionVariables,
             ],
             [
                 'SHOW GLOBAL VARIABLES;',
                 0,
                 1,
-                DatabaseInterface::CONNECT_USER,
+                Connection::TYPE_USER,
                 $serverGlobalVariables,
             ],
         ];
@@ -96,29 +99,29 @@ class VariablesControllerTest extends AbstractTestCase
 
         $controller = new VariablesController($response, new Template(), $dbi);
 
-        $controller();
+        $controller($this->createStub(ServerRequest::class));
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(
             Generator::getIcon('b_save', __('Save')),
-            $html
+            $html,
         );
         $this->assertStringContainsString(
             Generator::getIcon('b_close', __('Cancel')),
-            $html
+            $html,
         );
         $this->assertStringContainsString('<div class="card-header">' . __('Filters') . '</div>', $html);
         $this->assertStringContainsString(
             __('Containing the word:'),
-            $html
+            $html,
         );
         $this->assertStringContainsString(
             __('Variable'),
-            $html
+            $html,
         );
         $this->assertStringContainsString(
             __('Value'),
-            $html
+            $html,
         );
 
         $name = 'auto_increment_increment';
@@ -152,14 +155,13 @@ class VariablesControllerTest extends AbstractTestCase
             ->willReturnOnConsecutiveCalls('byte', 'string');
 
         $response = new ReflectionProperty(ServerVariablesProvider::class, 'instance');
-        $response->setAccessible(true);
         $response->setValue($voidProviderMock);
 
         [$formattedValue, $isHtmlFormatted] = $this->callFunction(
             $controller,
             VariablesController::class,
             'formatVariable',
-            $args
+            $args,
         );
 
         $this->assertEquals('<abbr title="3">3 B</abbr>', $formattedValue);
@@ -174,7 +176,7 @@ class VariablesControllerTest extends AbstractTestCase
             $controller,
             VariablesController::class,
             'formatVariable',
-            $args
+            $args,
         );
         $this->assertEquals('3', $formattedValue);
         $this->assertFalse($isHtmlFormatted);
@@ -188,7 +190,7 @@ class VariablesControllerTest extends AbstractTestCase
             $controller,
             VariablesController::class,
             'formatVariable',
-            $args
+            $args,
         );
         $this->assertEquals('value', $formattedValue);
         $this->assertFalse($isHtmlFormatted);
@@ -204,7 +206,6 @@ class VariablesControllerTest extends AbstractTestCase
         }
 
         $response = new ReflectionProperty(ServerVariablesProvider::class, 'instance');
-        $response->setAccessible(true);
         $response->setValue(null);
 
         $controller = new VariablesController(ResponseRenderer::getInstance(), new Template(), $GLOBALS['dbi']);
@@ -222,7 +223,7 @@ class VariablesControllerTest extends AbstractTestCase
             $controller,
             VariablesController::class,
             'formatVariable',
-            $args
+            $args,
         );
 
         $this->assertEquals('<abbr title="3">3 B</abbr>', $formattedValue);
@@ -237,7 +238,7 @@ class VariablesControllerTest extends AbstractTestCase
             $controller,
             VariablesController::class,
             'formatVariable',
-            $args
+            $args,
         );
         $this->assertEquals('3', $formattedValue);
         $this->assertFalse($isHtmlFormatted);
@@ -251,7 +252,7 @@ class VariablesControllerTest extends AbstractTestCase
             $controller,
             VariablesController::class,
             'formatVariable',
-            $args
+            $args,
         );
         $this->assertEquals('value', $formattedValue);
         $this->assertFalse($isHtmlFormatted);
@@ -263,7 +264,6 @@ class VariablesControllerTest extends AbstractTestCase
     public function testFormatVariableVoidProvider(): void
     {
         $response = new ReflectionProperty(ServerVariablesProvider::class, 'instance');
-        $response->setAccessible(true);
         $response->setValue(new ServerVariablesVoidProvider());
 
         $controller = new VariablesController(ResponseRenderer::getInstance(), new Template(), $GLOBALS['dbi']);
@@ -280,7 +280,7 @@ class VariablesControllerTest extends AbstractTestCase
             $controller,
             VariablesController::class,
             'formatVariable',
-            $args
+            $args,
         );
 
         $this->assertEquals('3', $formattedValue);

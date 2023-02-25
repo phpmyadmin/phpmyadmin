@@ -14,27 +14,17 @@ use PhpMyAdmin\Template;
 
 final class LoadController extends AbstractController
 {
-    /** @var TemplateModel */
-    private $model;
-
-    /** @var Relation */
-    private $relation;
-
     public function __construct(
         ResponseRenderer $response,
         Template $template,
-        TemplateModel $model,
-        Relation $relation
+        private TemplateModel $model,
+        private Relation $relation,
     ) {
         parent::__construct($response, $template);
-        $this->model = $model;
-        $this->relation = $relation;
     }
 
     public function __invoke(ServerRequest $request): void
     {
-        global $cfg;
-
         $templateId = (int) $request->getParsedBodyParam('templateId');
 
         $exportTemplatesFeature = $this->relation->getRelationParameters()->exportTemplatesFeature;
@@ -45,8 +35,8 @@ final class LoadController extends AbstractController
         $template = $this->model->load(
             $exportTemplatesFeature->database,
             $exportTemplatesFeature->exportTemplates,
-            $cfg['Server']['user'],
-            $templateId
+            $GLOBALS['cfg']['Server']['user'],
+            $templateId,
         );
 
         if (! $template instanceof ExportTemplate) {

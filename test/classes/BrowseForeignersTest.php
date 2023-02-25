@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\Template;
 
-/**
- * @covers \PhpMyAdmin\BrowseForeigners
- */
+/** @covers \PhpMyAdmin\BrowseForeigners */
 class BrowseForeignersTest extends AbstractTestCase
 {
     /** @var BrowseForeigners */
@@ -21,7 +19,9 @@ class BrowseForeignersTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         parent::setTheme();
+
         $GLOBALS['cfg']['LimitChars'] = 50;
         $GLOBALS['cfg']['MaxRows'] = 25;
         $GLOBALS['cfg']['RepeatCells'] = 100;
@@ -35,19 +35,19 @@ class BrowseForeignersTest extends AbstractTestCase
     public function testGetForeignLimit(): void
     {
         $this->assertNull(
-            $this->browseForeigners->getForeignLimit('Show all')
+            $this->browseForeigners->getForeignLimit('Show all'),
         );
 
         $this->assertEquals(
             'LIMIT 0, 25 ',
-            $this->browseForeigners->getForeignLimit(null)
+            $this->browseForeigners->getForeignLimit(null),
         );
 
         $_POST['pos'] = 10;
 
         $this->assertEquals(
             'LIMIT 10, 25 ',
-            $this->browseForeigners->getForeignLimit(null)
+            $this->browseForeigners->getForeignLimit(null),
         );
 
         $GLOBALS['cfg']['MaxRows'] = 50;
@@ -55,12 +55,12 @@ class BrowseForeignersTest extends AbstractTestCase
 
         $this->assertEquals(
             'LIMIT 10, 50 ',
-            $browseForeigners->getForeignLimit(null)
+            $browseForeigners->getForeignLimit(null),
         );
 
         $this->assertEquals(
             'LIMIT 10, 50 ',
-            $browseForeigners->getForeignLimit('xyz')
+            $browseForeigners->getForeignLimit('xyz'),
         );
     }
 
@@ -75,8 +75,8 @@ class BrowseForeignersTest extends AbstractTestCase
                 $this->browseForeigners,
                 BrowseForeigners::class,
                 'getHtmlForGotoPage',
-                [null]
-            )
+                [null],
+            ),
         );
 
         $_POST['pos'] = 15;
@@ -90,8 +90,8 @@ class BrowseForeignersTest extends AbstractTestCase
                 $this->browseForeigners,
                 BrowseForeigners::class,
                 'getHtmlForGotoPage',
-                [$foreignData]
-            )
+                [$foreignData],
+            ),
         );
 
         $foreignData['the_total'] = 30;
@@ -99,7 +99,7 @@ class BrowseForeignersTest extends AbstractTestCase
             $this->browseForeigners,
             BrowseForeigners::class,
             'getHtmlForGotoPage',
-            [$foreignData]
+            [$foreignData],
         );
 
         $this->assertStringStartsWith('Page number:', $result);
@@ -129,8 +129,8 @@ class BrowseForeignersTest extends AbstractTestCase
                 $this->browseForeigners,
                 BrowseForeigners::class,
                 'getDescriptionAndTitle',
-                [$desc]
-            )
+                [$desc],
+            ),
         );
 
         $GLOBALS['cfg']['LimitChars'] = 5;
@@ -145,8 +145,8 @@ class BrowseForeignersTest extends AbstractTestCase
                 $browseForeigners,
                 BrowseForeigners::class,
                 'getDescriptionAndTitle',
-                [$desc]
-            )
+                [$desc],
+            ),
         );
     }
 
@@ -170,14 +170,14 @@ class BrowseForeignersTest extends AbstractTestCase
             $field,
             $foreignData,
             $fieldkey,
-            $current_value
+            $current_value,
         );
 
         $this->assertStringContainsString(
             '<form class="ajax" '
             . 'id="browse_foreign_form" name="browse_foreign_from" '
             . 'action="index.php?route=/browse-foreigners',
-            $result
+            $result,
         );
         $this->assertStringContainsString('" method="post">', $result);
 
@@ -194,17 +194,17 @@ class BrowseForeignersTest extends AbstractTestCase
         $this->assertStringContainsString(
             '<input class="form-control" type="text" name="foreign_filter" '
             . 'id="input_foreign_filter" value="5" data-old="5">',
-            $result
+            $result,
         );
 
         $this->assertStringContainsString(
             '<input class="btn btn-primary" type="submit" name="submit_foreign_filter" value="Go">',
-            $result
+            $result,
         );
 
         $this->assertStringContainsString(
-            '<table class="table table-light table-striped table-hover" id="browse_foreign_table">',
-            $result
+            '<table class="table table-striped table-hover" id="browse_foreign_table">',
+            $result,
         );
 
         $foreignData['disp_row'] = [];
@@ -215,12 +215,12 @@ class BrowseForeignersTest extends AbstractTestCase
             $field,
             $foreignData,
             $fieldkey,
-            $current_value
+            $current_value,
         );
 
         $this->assertStringContainsString(
-            '<table class="table table-light table-striped table-hover" id="browse_foreign_table">',
-            $result
+            '<table class="table table-striped table-hover" id="browse_foreign_table">',
+            $result,
         );
 
         $this->assertStringContainsString('<th>', $result);

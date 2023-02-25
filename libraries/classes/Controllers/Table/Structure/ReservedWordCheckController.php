@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table\Structure;
 
-use PhpMyAdmin\Controllers\Table\AbstractController;
+use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\SqlParser\Context;
 
 use function _ngettext;
@@ -15,7 +16,7 @@ use function trim;
 
 final class ReservedWordCheckController extends AbstractController
 {
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         if ($GLOBALS['cfg']['ReservedWordDisableWarning'] !== false) {
             $this->response->setRequestStatus(false);
@@ -23,7 +24,7 @@ final class ReservedWordCheckController extends AbstractController
             return;
         }
 
-        $columns_names = $_POST['field_name'];
+        $columns_names = $request->getParsedBodyParam('field_name');
         $reserved_keywords_names = [];
         foreach ($columns_names as $column) {
             if (! Context::isKeyword(trim($column), true)) {
@@ -33,8 +34,8 @@ final class ReservedWordCheckController extends AbstractController
             $reserved_keywords_names[] = trim($column);
         }
 
-        if (Context::isKeyword(trim($this->table), true)) {
-            $reserved_keywords_names[] = trim($this->table);
+        if (Context::isKeyword(trim($GLOBALS['table']), true)) {
+            $reserved_keywords_names[] = trim($GLOBALS['table']);
         }
 
         if (count($reserved_keywords_names) === 0) {
@@ -47,10 +48,10 @@ final class ReservedWordCheckController extends AbstractController
                 _ngettext(
                     'The name \'%s\' is a MySQL reserved keyword.',
                     'The names \'%s\' are MySQL reserved keywords.',
-                    count($reserved_keywords_names)
+                    count($reserved_keywords_names),
                 ),
-                implode(',', $reserved_keywords_names)
-            )
+                implode(',', $reserved_keywords_names),
+            ),
         );
     }
 }

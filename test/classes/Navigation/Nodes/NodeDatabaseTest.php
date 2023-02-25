@@ -4,13 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
-use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Navigation\Nodes\NodeDatabase;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @covers \PhpMyAdmin\Navigation\Nodes\NodeDatabase
- */
+/** @covers \PhpMyAdmin\Navigation\Nodes\NodeDatabase */
 class NodeDatabaseTest extends AbstractTestCase
 {
     /**
@@ -19,6 +16,8 @@ class NodeDatabaseTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
         $GLOBALS['cfg']['MaxNavigationItems'] = 250;
@@ -31,7 +30,7 @@ class NodeDatabaseTest extends AbstractTestCase
      */
     public function testConstructor(): void
     {
-        $parent = NodeFactory::getInstance('NodeDatabase');
+        $parent = new NodeDatabase('default');
         $this->assertIsArray($parent->links);
         $this->assertEquals(
             [
@@ -42,7 +41,7 @@ class NodeDatabaseTest extends AbstractTestCase
                 'icon' => ['route' => '/database/operations', 'params' => ['db' => null]],
                 'title' => 'Structure',
             ],
-            $parent->links
+            $parent->links,
         );
         $this->assertStringContainsString('database', $parent->classes);
     }
@@ -52,26 +51,26 @@ class NodeDatabaseTest extends AbstractTestCase
      */
     public function testGetPresence(): void
     {
-        $parent = NodeFactory::getInstance('NodeDatabase');
+        $parent = new NodeDatabase('default');
         $this->assertEquals(
             2,
-            $parent->getPresence('tables')
+            $parent->getPresence('tables'),
         );
         $this->assertEquals(
             0,
-            $parent->getPresence('views')
+            $parent->getPresence('views'),
         );
         $this->assertEquals(
             1,
-            $parent->getPresence('functions')
+            $parent->getPresence('functions'),
         );
         $this->assertEquals(
             0,
-            $parent->getPresence('procedures')
+            $parent->getPresence('procedures'),
         );
         $this->assertEquals(
             0,
-            $parent->getPresence('events')
+            $parent->getPresence('events'),
         );
     }
 
@@ -80,7 +79,7 @@ class NodeDatabaseTest extends AbstractTestCase
      */
     public function testGetData(): void
     {
-        $parent = NodeFactory::getInstance('NodeDatabase');
+        $parent = new NodeDatabase('default');
 
         $tables = $parent->getData('tables', 0);
         $this->assertContains('test1', $tables);
@@ -102,13 +101,12 @@ class NodeDatabaseTest extends AbstractTestCase
      */
     public function testHiddenCount(): void
     {
-        /** @var NodeDatabase $parent */
-        $parent = NodeFactory::getInstance('NodeDatabase');
+        $parent = new NodeDatabase('default');
 
         $parent->setHiddenCount(3);
         $this->assertEquals(
             3,
-            $parent->getHiddenCount()
+            $parent->getHiddenCount(),
         );
     }
 }

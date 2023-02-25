@@ -46,8 +46,12 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
         $this->htmlString = '';
         $this->json = [];
         $this->isAjax = false;
+        $this->isDisabled = false;
 
         $GLOBALS['lang'] = 'en';
+        $GLOBALS['server'] ??= 1;
+        $GLOBALS['text_dir'] ??= 'ltr';
+        $GLOBALS['PMA_PHP_SELF'] ??= 'index.php';
         $this->header = new Header();
         $this->footer = new Footer();
     }
@@ -82,10 +86,8 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
 
     /**
      * Return the final concatenated HTML string
-     *
-     * @return string
      */
-    public function getHTMLResult()
+    public function getHTMLResult(): string
     {
         return $this->htmlString;
     }
@@ -95,7 +97,7 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
      *
      * @return array
      */
-    public function getJSONResult()
+    public function getJSONResult(): array
     {
         return $this->json;
     }
@@ -103,10 +105,8 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
     /**
      * Current I choose to return PhpMyAdmin\Header object directly because
      * our test has nothing about the Scripts and PhpMyAdmin\Header class.
-     *
-     * @return Header
      */
-    public function getHeader()
+    public function getHeader(): Header
     {
         return $this->header;
     }
@@ -169,5 +169,10 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
     public function getHttpResponseCode(): int
     {
         return $this->responseCode;
+    }
+
+    public function isDisabled(): bool
+    {
+        return $this->isDisabled;
     }
 }

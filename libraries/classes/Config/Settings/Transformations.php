@@ -8,9 +8,7 @@ use function is_array;
 
 // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
 
-/**
- * @psalm-immutable
- */
+/** @psalm-immutable */
 final class Transformations
 {
     /**
@@ -116,9 +114,7 @@ final class Transformations
      */
     public $TextLink;
 
-    /**
-     * @param array<int|string, mixed> $transformations
-     */
+    /** @param array<int|string, mixed> $transformations */
     public function __construct(array $transformations = [])
     {
         $this->Substring = $this->setSubstring($transformations);

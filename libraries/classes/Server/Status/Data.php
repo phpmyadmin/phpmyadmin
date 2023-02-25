@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Server\Status;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\Url;
 
@@ -48,9 +49,6 @@ class Data
     /** @var bool */
     public $dbIsLocal;
 
-    /** @var mixed */
-    public $section;
-
     /** @var array */
     public $sectionUsed;
 
@@ -60,8 +58,7 @@ class Data
     /** @var bool */
     public $dataLoaded;
 
-    /** @var ReplicationInfo */
-    private $replicationInfo;
+    private ReplicationInfo $replicationInfo;
 
     public function getReplicationInfo(): ReplicationInfo
     {
@@ -84,7 +81,7 @@ class Data
      *
      * @return array
      */
-    private function getAllocations()
+    private function getAllocations(): array
     {
         return [
             // variable name => section
@@ -138,7 +135,7 @@ class Data
      *
      * @return array
      */
-    private function getSections()
+    private function getSections(): array
     {
         return [
             // section => section name (description)
@@ -169,7 +166,7 @@ class Data
      *
      * @return array
      */
-    private function getLinks()
+    private function getLinks(): array
     {
         $primaryInfo = $this->replicationInfo->getPrimaryInfo();
         $replicaInfo = $this->replicationInfo->getReplicaInfo();
@@ -247,7 +244,7 @@ class Data
      *
      * @return array
      */
-    private function calculateValues(array $server_status, array $server_variables)
+    private function calculateValues(array $server_status, array $server_variables): array
     {
         // Key_buffer_fraction
         if (
@@ -316,8 +313,8 @@ class Data
         array $allocations,
         array $allocationMap,
         array $sectionUsed,
-        array $used_queries
-    ) {
+        array $used_queries,
+    ): array {
         foreach ($server_status as $name => $value) {
             $section_found = false;
             foreach ($allocations as $filter => $section) {
@@ -350,17 +347,15 @@ class Data
         ];
     }
 
-    public function __construct()
+    public function __construct(private DatabaseInterface $dbi)
     {
-        global $dbi;
-
-        $this->replicationInfo = new ReplicationInfo($dbi);
+        $this->replicationInfo = new ReplicationInfo($this->dbi);
         $this->replicationInfo->load($_POST['primary_connection'] ?? null);
 
         $this->selfUrl = basename($GLOBALS['PMA_PHP_SELF']);
 
         // get status from server
-        $server_status_result = $dbi->tryQuery('SHOW GLOBAL STATUS');
+        $server_status_result = $this->dbi->tryQuery('SHOW GLOBAL STATUS');
         if ($server_status_result === false) {
             $server_status = [];
             $this->dataLoaded = false;
@@ -371,7 +366,7 @@ class Data
         }
 
         // for some calculations we require also some server settings
-        $server_variables = $dbi->fetchResult('SHOW GLOBAL VARIABLES', 0, 1);
+        $server_variables = $this->dbi->fetchResult('SHOW GLOBAL VARIABLES', 0, 1);
 
         // cleanup of some deprecated values
         $server_status = self::cleanDeprecated($server_status);
@@ -436,7 +431,7 @@ class Data
      *
      * @return array
      */
-    public static function cleanDeprecated(array $server_status)
+    public static function cleanDeprecated(array $server_status): array
     {
         $deprecated = [
             'Com_prepare_sql' => 'Com_stmt_prepare',

@@ -20,59 +20,43 @@ final class Collation
 {
     /**
      * The collation name
-     *
-     * @var string
      */
-    private $name;
+    private string $name;
 
     /**
      * A description of the collation
-     *
-     * @var string
      */
-    private $description;
+    private string $description;
 
     /**
      * The name of the character set with which the collation is associated
-     *
-     * @var string
      */
-    private $charset;
+    private string $charset;
 
     /**
      * The collation ID
-     *
-     * @var int
      */
-    private $id;
+    private int $id;
 
     /**
      * Whether the collation is the default for its character set
-     *
-     * @var bool
      */
-    private $isDefault;
+    private bool $isDefault;
 
     /**
      * Whether the character set is compiled into the server
-     *
-     * @var bool
      */
-    private $isCompiled;
+    private bool $isCompiled;
 
     /**
      * Used for determining the memory used to sort strings in this collation
-     *
-     * @var int
      */
-    private $sortLength;
+    private int $sortLength;
 
     /**
      * The collation pad attribute
-     *
-     * @var string
      */
-    private $padAttribute;
+    private string $padAttribute;
 
     /**
      * @param string $name         Collation name
@@ -90,7 +74,7 @@ final class Collation
         bool $isDefault,
         bool $isCompiled,
         int $sortLength,
-        string $padAttribute
+        string $padAttribute,
     ) {
         $this->name = $name;
         $this->charset = $charset;
@@ -102,9 +86,7 @@ final class Collation
         $this->description = $this->buildDescription();
     }
 
-    /**
-     * @param string[] $state State obtained from the database server
-     */
+    /** @param string[] $state State obtained from the database server */
     public static function fromServer(array $state): self
     {
         return new self(
@@ -114,7 +96,7 @@ final class Collation
             isset($state['Default']) && ($state['Default'] === 'Yes' || $state['Default'] === '1'),
             isset($state['Compiled']) && ($state['Compiled'] === 'Yes' || $state['Compiled'] === '1'),
             (int) ($state['Sortlen'] ?? 0),
-            $state['Pad_attribute'] ?? ''
+            $state['Pad_attribute'] ?? '',
         );
     }
 
@@ -187,8 +169,7 @@ final class Collation
                 /* Next will be variant unless changed later */
                 $level = 4;
                 /* Locale name or code */
-                $found = true;
-                [$name, $level, $found] = $this->getNameForLevel1($unicode, $unknown, $part, $name, $level, $found);
+                [$name, $level, $found] = $this->getNameForLevel1($unicode, $unknown, $part, $name, $level);
                 if ($found) {
                     continue;
                 }
@@ -250,10 +231,8 @@ final class Collation
         return $this->buildName($name, $variant, $suffixes);
     }
 
-    /**
-     * @param string[] $suffixes
-     */
-    private function buildName(string $result, ?string $variant, array $suffixes): string
+    /** @param string[] $suffixes */
+    private function buildName(string $result, string|null $variant, array $suffixes): string
     {
         if ($variant !== null) {
             $result .= ' (' . $variant . ')';
@@ -266,24 +245,15 @@ final class Collation
         return $result;
     }
 
-    private function getVariant(string $part): ?string
+    private function getVariant(string $part): string|null
     {
-        switch ($part) {
-            case '0900':
-                return 'UCA 9.0.0';
-
-            case '520':
-                return 'UCA 5.2.0';
-
-            case 'mysql561':
-                return 'MySQL 5.6.1';
-
-            case 'mysql500':
-                return 'MySQL 5.0.0';
-
-            default:
-                return null;
-        }
+        return match ($part) {
+            '0900' => 'UCA 9.0.0',
+            '520' => 'UCA 5.2.0',
+            'mysql561' => 'MySQL 5.6.1',
+            'mysql500' => 'MySQL 5.0.0',
+            default => null,
+        };
     }
 
     /**
@@ -332,7 +302,7 @@ final class Collation
         bool $unicode,
         bool $unknown,
         string $part,
-        ?string $variant
+        string|null $variant,
     ): array {
         switch ($part) {
             case 'binary':
@@ -341,9 +311,10 @@ final class Collation
             // Unicode charsets
             case 'utf8mb4':
                 $variant = 'UCA 4.0.0';
-            // Fall through to other unicode
+                // Fall through to other unicode
             case 'ucs2':
             case 'utf8':
+            case 'utf8mb3':
             case 'utf16':
             case 'utf16le':
             case 'utf16be':
@@ -453,8 +424,9 @@ final class Collation
         string $part,
         string $name,
         int $level,
-        bool $found
     ): array {
+        $found = true;
+
         switch ($part) {
             case 'general':
                 break;

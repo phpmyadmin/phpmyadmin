@@ -19,10 +19,8 @@ class ShapeFileImport extends ShapeFile
      * Reads given number of bytes from SHP file
      *
      * @param int $bytes number of bytes
-     *
-     * @return string|false
      */
-    public function readSHP(int $bytes)
+    public function readSHP(int $bytes): string|false
     {
         return ImportShp::readFromBuffer($bytes);
     }
@@ -32,8 +30,8 @@ class ShapeFileImport extends ShapeFile
      */
     public function eofSHP(): bool
     {
-        global $eof;
+        $GLOBALS['eof'] ??= null;
 
-        return (bool) $eof;
+        return (bool) $GLOBALS['eof'];
     }
 }

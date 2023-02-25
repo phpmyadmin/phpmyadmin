@@ -6,14 +6,14 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ResponseRenderer;
 
-/**
- * @covers \PhpMyAdmin\ResponseRenderer
- */
+/** @covers \PhpMyAdmin\ResponseRenderer */
 class ResponseTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
+
+        $GLOBALS['dbi'] = $this->createDatabaseInterface();
 
         $GLOBALS['lang'] = 'en';
         $GLOBALS['server'] = 1;

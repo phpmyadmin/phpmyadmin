@@ -10,7 +10,7 @@
 
 {% block selection_options %}
   {% if export_type != 'raw' %}
-    <div class="card mb-3" id="databases_and_tables">
+    <div class="card mb-3 d-none" id="databases_and_tables">
       <div class="card-header">{% trans 'Tables:' %}</div>
       <div class="card-body" style="overflow-y: scroll; max-height: 20em;">
         <input type="hidden" name="structure_or_data_forced" value="{{ structure_or_data_forced }}">

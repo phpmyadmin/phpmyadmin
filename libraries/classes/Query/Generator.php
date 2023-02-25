@@ -6,9 +6,9 @@ namespace PhpMyAdmin\Query;
 
 use PhpMyAdmin\Util;
 
+use function array_map;
 use function count;
 use function implode;
-use function is_array;
 use function sprintf;
 
 /**
@@ -17,45 +17,54 @@ use function sprintf;
 class Generator
 {
     /**
-     * returns a segment of the SQL WHERE clause regarding table name and type
+     * returns a segment of the SQL WHERE clause regarding table name
      *
-     * @param array|string $escapedTableOrTables table(s)
-     * @param bool         $tblIsGroup           $table is a table group
-     * @param string       $tableType            whether table or view
+     * @param bool $tblIsGroup $table is a table group
      *
      * @return string a segment of the WHERE clause
      */
-    public static function getTableCondition(
-        $escapedTableOrTables,
+    public static function getTableNameCondition(
+        string $escapedTabletable,
         bool $tblIsGroup,
-        ?string $tableType
     ): string {
-        // get table information from information_schema
-        if ($escapedTableOrTables) {
-            if (is_array($escapedTableOrTables)) {
-                $sqlWhereTable = 'AND t.`TABLE_NAME` '
-                    . Util::getCollateForIS() . ' IN (\''
-                    . implode('\', \'', $escapedTableOrTables)
-                    . '\')';
-            } elseif ($tblIsGroup === true) {
-                $sqlWhereTable = 'AND t.`TABLE_NAME` LIKE \''
-                    . Util::escapeMysqlWildcards($escapedTableOrTables)
-                    . '%\'';
-            } else {
-                $sqlWhereTable = 'AND t.`TABLE_NAME` '
-                    . Util::getCollateForIS() . ' = \''
-                    . $escapedTableOrTables . '\'';
-            }
+        $sqlWhereTable = 'AND t.`TABLE_NAME` ';
+        if ($tblIsGroup === true) {
+            $sqlWhereTable .= 'LIKE ' . $escapedTabletable . '%';
         } else {
-            $sqlWhereTable = '';
+            $sqlWhereTable .= Util::getCollateForIS() . ' = ' . $escapedTabletable;
         }
 
-        if ($tableType) {
-            if ($tableType === 'view') {
-                $sqlWhereTable .= " AND t.`TABLE_TYPE` NOT IN ('BASE TABLE', 'SYSTEM VERSIONED')";
-            } elseif ($tableType === 'table') {
-                $sqlWhereTable .= " AND t.`TABLE_TYPE` IN ('BASE TABLE', 'SYSTEM VERSIONED')";
-            }
+        return $sqlWhereTable;
+    }
+
+    /**
+     * returns a segment of the SQL WHERE clause regarding table name
+     *
+     * @param string[] $escapedTables tables
+     *
+     * @return string a segment of the WHERE clause
+     */
+    public static function getTableNameConditionForMultiple(array $escapedTables): string
+    {
+        return 'AND t.`TABLE_NAME` ' . Util::getCollateForIS() . ' IN (' . implode(', ', $escapedTables) . ')';
+    }
+
+    /**
+     * returns a segment of the SQL WHERE clause regarding table type
+     *
+     * @param string|null $tableType whether table or view
+     *
+     * @return string a segment of the WHERE clause
+     */
+    public static function getTableTypeCondition(
+        string|null $tableType,
+    ): string {
+        $sqlWhereTable = '';
+
+        if ($tableType === 'view') {
+            $sqlWhereTable .= " AND t.`TABLE_TYPE` NOT IN ('BASE TABLE', 'SYSTEM VERSIONED')";
+        } elseif ($tableType === 'table') {
+            $sqlWhereTable .= " AND t.`TABLE_TYPE` IN ('BASE TABLE', 'SYSTEM VERSIONED')";
         }
 
         return $sqlWhereTable;
@@ -64,12 +73,12 @@ class Generator
     /**
      * returns the beginning of the SQL statement to fetch the list of tables
      *
-     * @param string[] $thisDatabases databases to list
-     * @param string   $sqlWhereTable additional condition
+     * @param string $thisDatabases databases to list
+     * @param string $sqlWhereTable additional condition
      *
      * @return string the SQL statement
      */
-    public static function getSqlForTablesFull(array $thisDatabases, string $sqlWhereTable): string
+    public static function getSqlForTablesFull(string $thisDatabases, string $sqlWhereTable): string
     {
         return 'SELECT *,'
             . ' `TABLE_SCHEMA`       AS `Db`,'
@@ -95,7 +104,7 @@ class Generator
             . ' `TABLE_COMMENT`      AS `Comment`'
             . ' FROM `information_schema`.`TABLES` t'
             . ' WHERE `TABLE_SCHEMA` ' . Util::getCollateForIS()
-            . ' IN (\'' . implode("', '", $thisDatabases) . '\')'
+            . ' IN (' . $thisDatabases . ')'
             . ' ' . $sqlWhereTable;
     }
 
@@ -111,11 +120,10 @@ class Generator
     public static function getTableIndexesSql(
         string $database,
         string $table,
-        ?string $where = null
+        string $where = '',
     ): string {
-        $sql = 'SHOW INDEXES FROM ' . Util::backquote($database) . '.'
-            . Util::backquote($table);
-        if ($where) {
+        $sql = 'SHOW INDEXES FROM ' . Util::backquote($database) . '.' . Util::backquote($table);
+        if ($where !== '') {
             $sql .= ' WHERE (' . $where . ')';
         }
 
@@ -133,19 +141,18 @@ class Generator
     public static function getColumnsSql(
         string $database,
         string $table,
-        ?string $escapedColumn = null,
-        bool $full = false
+        string|null $escapedColumn = null,
+        bool $full = false,
     ): string {
         return 'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS FROM '
             . Util::backquote($database) . '.' . Util::backquote($table)
-            . ($escapedColumn !== null ? " LIKE '"
-                . $escapedColumn . "'" : '');
+            . ($escapedColumn !== null ? " LIKE '" . $escapedColumn . "'" : '');
     }
 
     public static function getInformationSchemaRoutinesRequest(
         string $escapedDb,
-        ?string $routineType,
-        ?string $escapedRoutineName
+        string|null $routineType,
+        string|null $escapedRoutineName,
     ): string {
         $query = 'SELECT'
             . ' `ROUTINE_SCHEMA` AS `Db`,'
@@ -168,14 +175,13 @@ class Generator
         }
 
         if ($escapedRoutineName !== null) {
-            $query .= ' AND `SPECIFIC_NAME`'
-                . " = '" . $escapedRoutineName . "'";
+            $query .= ' AND `SPECIFIC_NAME`' . " = '" . $escapedRoutineName . "'";
         }
 
         return $query;
     }
 
-    public static function getInformationSchemaEventsRequest(string $escapedDb, ?string $escapedEventName): string
+    public static function getInformationSchemaEventsRequest(string $escapedDb, string|null $escapedEventName): string
     {
         $query = 'SELECT'
             . ' `EVENT_SCHEMA` AS `Db`,'
@@ -197,14 +203,13 @@ class Generator
             . ' WHERE `EVENT_SCHEMA` ' . Util::getCollateForIS()
             . " = '" . $escapedDb . "'";
         if ($escapedEventName !== null) {
-            $query .= ' AND `EVENT_NAME`'
-                . " = '" . $escapedEventName . "'";
+            $query .= ' AND `EVENT_NAME`' . " = '" . $escapedEventName . "'";
         }
 
         return $query;
     }
 
-    public static function getInformationSchemaTriggersRequest(string $escapedDb, ?string $escapedTable): string
+    public static function getInformationSchemaTriggersRequest(string $escapedDb, string|null $escapedTable): string
     {
         $query = 'SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION'
             . ', EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT'
@@ -214,8 +219,7 @@ class Generator
             . ' \'' . $escapedDb . '\'';
 
         if ($escapedTable !== null) {
-            $query .= ' AND EVENT_OBJECT_TABLE ' . Util::getCollateForIS()
-                . " = '" . $escapedTable . "';";
+            $query .= ' AND EVENT_OBJECT_TABLE ' . Util::getCollateForIS() . " = '" . $escapedTable . "';";
         }
 
         return $query;
@@ -245,7 +249,7 @@ class Generator
 
     public static function getInformationSchemaForeignKeyConstraintsRequest(
         string $escapedDatabase,
-        string $tablesListForQueryCsv
+        string $tablesListForQueryCsv,
     ): string {
         return 'SELECT'
             . ' TABLE_NAME,'
@@ -264,7 +268,7 @@ class Generator
         string $sqlWhereSchema,
         string $sortBy,
         string $sortOrder,
-        string $limit
+        string $limit,
     ): string {
         $sql = 'SELECT *, CAST(BIN_NAME AS CHAR CHARACTER SET utf8) AS SCHEMA_NAME FROM (';
         $sql .= 'SELECT BINARY s.SCHEMA_NAME AS BIN_NAME, s.DEFAULT_COLLATION_NAME';
@@ -300,33 +304,23 @@ class Generator
     }
 
     public static function getInformationSchemaColumnsFullRequest(
-        ?string $escapedDatabase,
-        ?string $escapedTable,
-        ?string $escapedColumn
-    ): array {
+        string|null $escapedDatabase,
+        string|null $escapedTable,
+        string|null $escapedColumn,
+    ): string {
         $sqlWheres = [];
-        $arrayKeys = [];
 
         // get columns information from information_schema
         if ($escapedDatabase !== null) {
-            $sqlWheres[] = '`TABLE_SCHEMA` = \''
-                . $escapedDatabase . '\' ';
-        } else {
-            $arrayKeys[] = 'TABLE_SCHEMA';
+            $sqlWheres[] = '`TABLE_SCHEMA` = ' . $escapedDatabase . ' ';
         }
 
         if ($escapedTable !== null) {
-            $sqlWheres[] = '`TABLE_NAME` = \''
-                . $escapedTable . '\' ';
-        } else {
-            $arrayKeys[] = 'TABLE_NAME';
+            $sqlWheres[] = '`TABLE_NAME` = ' . $escapedTable . ' ';
         }
 
         if ($escapedColumn !== null) {
-            $sqlWheres[] = '`COLUMN_NAME` = \''
-                . $escapedColumn . '\' ';
-        } else {
-            $arrayKeys[] = 'COLUMN_NAME';
+            $sqlWheres[] = '`COLUMN_NAME` = ' . $escapedColumn . ' ';
         }
 
         // for PMA bc:
@@ -343,11 +337,34 @@ class Generator
                     . ' `COLUMN_COMMENT`    AS `Comment`'
                . ' FROM `information_schema`.`COLUMNS`';
 
-        if (count($sqlWheres)) {
+        if ($sqlWheres !== []) {
             $sql .= "\n" . ' WHERE ' . implode(' AND ', $sqlWheres);
         }
 
-        return [$sql, $arrayKeys];
+        return $sql;
+    }
+
+    /** @return string[] */
+    public static function getInformationSchemaColumns(
+        string|null $database,
+        string|null $table,
+        string|null $column,
+    ): array {
+        $arrayKeys = [];
+
+        if ($database === null) {
+            $arrayKeys[] = 'TABLE_SCHEMA';
+        }
+
+        if ($table === null) {
+            $arrayKeys[] = 'TABLE_NAME';
+        }
+
+        if ($column === null) {
+            $arrayKeys[] = 'COLUMN_NAME';
+        }
+
+        return $arrayKeys;
     }
 
     /**
@@ -357,14 +374,14 @@ class Generator
         string $dbName,
         string $tableName,
         string $oldIndexName,
-        string $newIndexName
+        string $newIndexName,
     ): string {
         return sprintf(
             'ALTER TABLE %s.%s RENAME INDEX %s TO %s;',
             Util::backquote($dbName),
             Util::backquote($tableName),
             Util::backquote($oldIndexName),
-            Util::backquote($newIndexName)
+            Util::backquote($newIndexName),
         );
     }
 
@@ -374,7 +391,7 @@ class Generator
     public static function getQueryForReorderingTable(
         string $table,
         string $orderField,
-        ?string $order
+        string|null $order,
     ): string {
         return 'ALTER TABLE '
             . Util::backquote($table)
@@ -391,7 +408,7 @@ class Generator
     public static function getQueryForPartitioningTable(
         string $table,
         string $partitionOperation,
-        array $partitionNames
+        array $partitionNames,
     ): string {
         $sql_query = 'ALTER TABLE '
             . Util::backquote($table) . ' '
@@ -403,5 +420,13 @@ class Generator
         }
 
         return $sql_query . implode(', ', $partitionNames) . ';';
+    }
+
+    /** @param string[] $selectedColumns */
+    public static function getAddIndexSql(string $indexType, string $table, array $selectedColumns): string
+    {
+        $columnsSql = implode(', ', array_map(Util::backquote(...), $selectedColumns));
+
+        return 'ALTER TABLE ' . Util::backquote($table) . ' ADD ' . $indexType . '(' . $columnsSql . ');';
     }
 }

@@ -20,9 +20,9 @@ final class Crypto
 {
     private function getEncryptionKey(): string
     {
-        global $config;
+        $GLOBALS['config'] ??= null;
 
-        $key = $config->get('URLQueryEncryptionSecretKey');
+        $key = $GLOBALS['config']->get('URLQueryEncryptionSecretKey');
         if (is_string($key) && mb_strlen($key, '8bit') === SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
             return $key;
         }
@@ -47,14 +47,14 @@ final class Crypto
         return $nonce . $ciphertext;
     }
 
-    public function decrypt(string $encrypted): ?string
+    public function decrypt(string $encrypted): string|null
     {
         $key = $this->getEncryptionKey();
         $nonce = mb_substr($encrypted, 0, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES, '8bit');
         $ciphertext = mb_substr($encrypted, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES, null, '8bit');
         try {
             $decrypted = sodium_crypto_secretbox_open($ciphertext, $nonce, $key);
-        } catch (Throwable $e) {
+        } catch (Throwable) {
             return null;
         }
 
