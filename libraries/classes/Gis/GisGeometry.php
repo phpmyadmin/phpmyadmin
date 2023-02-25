@@ -11,6 +11,7 @@ use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
 use function array_map;
+use function array_reverse;
 use function defined;
 use function explode;
 use function json_encode;
@@ -184,8 +185,7 @@ abstract class GisGeometry
         $data = $this->parseWktAndSrid($value);
         $index = 0;
         $wkt = $data['wkt'];
-        preg_match('/^\w+/', $wkt, $matches);
-        $wktType = strtoupper($matches[0]);
+        $wktType = strtoupper(array_reverse(explode('Gis', static::class))[0]);
 
         return ['srid' => $data['srid'], $index => [$wktType => $this->getCoordinateParams($wkt)]];
     }
