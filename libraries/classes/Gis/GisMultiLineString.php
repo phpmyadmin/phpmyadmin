@@ -228,15 +228,14 @@ class GisMultiLineString extends GisGeometry
      * Prepares JavaScript related to a row in the GIS dataset
      * to visualize it with OpenLayers.
      *
-     * @param string $spatial    GIS MULTILINESTRING object
-     * @param int    $srid       Spatial reference ID
-     * @param string $label      Label for the GIS MULTILINESTRING object
-     * @param int[]  $color      Color for the GIS MULTILINESTRING object
-     * @param array  $scale_data Array containing data related to scaling
+     * @param string $spatial GIS MULTILINESTRING object
+     * @param int    $srid    Spatial reference ID
+     * @param string $label   Label for the GIS MULTILINESTRING object
+     * @param int[]  $color   Color for the GIS MULTILINESTRING object
      *
      * @return string JavaScript related to a row in the GIS dataset
      */
-    public function prepareRowAsOl($spatial, int $srid, string $label, array $color, array $scale_data): string
+    public function prepareRowAsOl(string $spatial, int $srid, string $label, array $color): string
     {
         $stroke_style = [
             'color' => $color,
@@ -255,8 +254,6 @@ class GisMultiLineString extends GisGeometry
         if ($srid === 0) {
             $srid = 4326;
         }
-
-        $row .= $this->getBoundsForOl($srid, $scale_data);
 
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
         $multilinestirng = mb_substr($spatial, 17, -2);

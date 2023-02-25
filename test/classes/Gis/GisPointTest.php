@@ -282,12 +282,11 @@ class GisPointTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsOl() method
      *
-     * @param string $spatial    GIS POINT object
-     * @param int    $srid       spatial reference ID
-     * @param string $label      label for the GIS POINT object
-     * @param int[]  $color      color for the GIS POINT object
-     * @param array  $scale_data array containing data related to scaling
-     * @param string $output     expected output
+     * @param string $spatial GIS POINT object
+     * @param int    $srid    spatial reference ID
+     * @param string $label   label for the GIS POINT object
+     * @param int[]  $color   color for the GIS POINT object
+     * @param string $output  expected output
      *
      * @dataProvider providerForPrepareRowAsOl
      */
@@ -296,10 +295,9 @@ class GisPointTest extends GisGeomTestCase
         int $srid,
         string $label,
         array $color,
-        array $scale_data,
         string $output,
     ): void {
-        $ol = $this->object->prepareRowAsOl($spatial, $srid, $label, $color, $scale_data);
+        $ol = $this->object->prepareRowAsOl($spatial, $srid, $label, $color);
         $this->assertEquals($output, $ol);
     }
 
@@ -316,24 +314,13 @@ class GisPointTest extends GisGeomTestCase
                 4326,
                 'Ol',
                 [176, 46, 224],
-                [
-                    'minX' => '0',
-                    'minY' => '0',
-                    'maxX' => '1',
-                    'maxY' => '1',
-                ],
                 'var fill = new ol.style.Fill({"color":"white"});'
                 . 'var stroke = new ol.style.Stroke({"color":[176'
                 . ',46,224],"width":2});var style = new ol.style.'
                 . 'Style({image: new ol.style.Circle({fill: fill,'
                 . 'stroke: stroke,radius: 3}),fill: fill,stroke: '
                 . 'stroke,text: new ol.style.Text({"text":"Ol","o'
-                . 'ffsetY":-9})});var minLoc = [0, 0];var maxLoc '
-                . '= [1, 1];var ext = ol.extent.boundingExtent([m'
-                . 'inLoc, maxLoc]);ext = ol.proj.transformExtent('
-                . 'ext, ol.proj.get("EPSG:4326"), ol.proj.get(\'E'
-                . 'PSG:3857\'));map.getView().fit(ext, map.getSiz'
-                . 'e());var point = new ol.Feature({geometry: (ne'
+                . 'ffsetY":-9})});var point = new ol.Feature({geometry: (ne'
                 . 'w ol.geom.Point([12,35]).transform(ol.proj.get'
                 . '("EPSG:4326"), ol.proj.get(\'EPSG:3857\')))});'
                 . 'point.setStyle(style);vectorLayer.addFeature(p'

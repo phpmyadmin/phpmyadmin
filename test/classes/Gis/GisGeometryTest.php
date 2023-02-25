@@ -254,58 +254,6 @@ class GisGeometryTest extends AbstractTestCase
     }
 
     /**
-     * test case for getBoundsForOl() method
-     *
-     * @param int    $srid       spatial reference ID
-     * @param array  $scale_data data related to scaling
-     * @param string $output     expected output
-     *
-     * @dataProvider providerForTestGetBoundsForOl
-     */
-    public function testGetBoundsForOl(int $srid, array $scale_data, string $output): void
-    {
-        $this->assertEquals(
-            $output,
-            $this->callFunction(
-                $this->object,
-                GisGeometry::class,
-                'getBoundsForOl',
-                [
-                    $srid,
-                    $scale_data,
-                ],
-            ),
-        );
-    }
-
-    /**
-     * data provider for testGetBoundsForOl() test case
-     *
-     * @return array test data for the testGetBoundsForOl() test case
-     */
-    public static function providerForTestGetBoundsForOl(): array
-    {
-        return [
-            [
-                4326,
-                [
-                    'minX' => '0',
-                    'minY' => '0',
-                    'maxX' => '1',
-                    'maxY' => '1',
-                ],
-                'var minLoc = [0, 0];var maxLoc = [1, 1];'
-                . 'var ext = ol.extent.boundingExtent([min'
-                . 'Loc, maxLoc]);ext = ol.proj.transformEx'
-                . 'tent(ext, ol.proj.get("EPSG:4326"), ol.'
-                . 'proj.get(\'EPSG:3857\'));map.getView().'
-                . 'fit(ext, map.getSize());',
-            ],
-
-        ];
-    }
-
-    /**
      * test case for getPolygonArrayForOpenLayers() method
      *
      * @param array  $polygons x and y coordinate pairs for each polygon

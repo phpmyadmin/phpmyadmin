@@ -266,12 +266,11 @@ class GisLineStringTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsOl() method
      *
-     * @param string $spatial    GIS LINESTRING object
-     * @param int    $srid       spatial reference ID
-     * @param string $label      label for the GIS LINESTRING object
-     * @param int[]  $color      color for the GIS LINESTRING object
-     * @param array  $scale_data array containing data related to scaling
-     * @param string $output     expected output
+     * @param string $spatial GIS LINESTRING object
+     * @param int    $srid    spatial reference ID
+     * @param string $label   label for the GIS LINESTRING object
+     * @param int[]  $color   color for the GIS LINESTRING object
+     * @param string $output  expected output
      *
      * @dataProvider providerForPrepareRowAsOl
      */
@@ -280,10 +279,9 @@ class GisLineStringTest extends GisGeomTestCase
         int $srid,
         string $label,
         array $color,
-        array $scale_data,
         string $output,
     ): void {
-        $ol = $this->object->prepareRowAsOl($spatial, $srid, $label, $color, $scale_data);
+        $ol = $this->object->prepareRowAsOl($spatial, $srid, $label, $color);
         $this->assertEquals($output, $ol);
     }
 
@@ -300,17 +298,9 @@ class GisLineStringTest extends GisGeomTestCase
                 4326,
                 'Ol',
                 [176, 46, 224],
-                [
-                    'minX' => '0',
-                    'minY' => '0',
-                    'maxX' => '1',
-                    'maxY' => '1',
-                ],
                 'var style = new ol.style.Style({stroke: new ol.style.Stroke({"color":[176,46,224],'
-                . '"width":2}), text: new ol.style.Text({"text":"Ol"})});var minLoc = [0, 0];var ma'
-                . 'xLoc = [1, 1];var ext = ol.extent.boundingExtent([minLoc, maxLoc]);ext = ol.proj'
-                . '.transformExtent(ext, ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'));map.'
-                . 'getView().fit(ext, map.getSize());var line = new ol.Feature({geometry: new ol.ge'
+                . '"width":2}), text: new ol.style.Text({"text":"Ol"})});'
+                . 'var line = new ol.Feature({geometry: new ol.ge'
                 . 'om.LineString(new Array((new ol.geom.Point([12,35]).transform(ol.proj.get("EPSG:'
                 . '4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinates(), (new ol.geom.Point([48,75'
                 . ']).transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinat'

@@ -7231,10 +7231,6 @@
       <code>$line</code>
       <code>$point</code>
       <code>$polygon</code>
-      <code><![CDATA[$scale_data['maxX']]]></code>
-      <code><![CDATA[$scale_data['maxY']]]></code>
-      <code><![CDATA[$scale_data['minX']]]></code>
-      <code><![CDATA[$scale_data['minY']]]></code>
     </MixedArgument>
     <MixedAssignment>
       <code>$line</code>
@@ -7863,8 +7859,6 @@
       <code>$ratio</code>
       <code>$scale</code>
       <code>$scale</code>
-      <code><![CDATA[$this->prepareDataSet($this->data, $scale_data, 'ol', '')]]></code>
-      <code><![CDATA[$this->prepareDataSet($this->data, $scale_data, 'svg', '')]]></code>
       <code><![CDATA[$this->settings['height']]]></code>
       <code><![CDATA[$this->settings['height']]]></code>
       <code><![CDATA[$this->settings['height'] / $scale]]></code>
@@ -7877,10 +7871,6 @@
       <code>null</code>
       <code>null</code>
     </NullArgument>
-    <PossiblyFalseOperand>
-      <code>$results</code>
-      <code>$results</code>
-    </PossiblyFalseOperand>
     <PossiblyInvalidArgument>
       <code>$results</code>
     </PossiblyInvalidArgument>
@@ -15894,7 +15884,6 @@
   </file>
   <file src="test/classes/Gis/GisGeometryTest.php">
     <MixedInferredReturnType>
-      <code>array</code>
       <code>array</code>
       <code>array</code>
       <code>array</code>

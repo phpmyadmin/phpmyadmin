@@ -42,10 +42,6 @@ class GisVisualizationTest extends AbstractTestCase
                 'scale' => 1,
                 'x' => -300.0,
                 'y' => -225.0,
-                'minX' => 0.0,
-                'maxX' => 0.0,
-                'minY' => 0.0,
-                'maxY' => 0.0,
                 'height' => 450,
             ],
             $dataSet,
@@ -69,12 +65,7 @@ class GisVisualizationTest extends AbstractTestCase
                 'scale' => 2.1,
                 'x' => -45.35714285714286,
                 'y' => 42.85714285714286,
-                'minX' => 17.0,
-                'maxX' => 178.0,
-                'minY' => 50.0 ,
-                'maxY' => 250.0,
                 'height' => 450,
-
             ],
             $dataSet,
         );
@@ -95,12 +86,7 @@ class GisVisualizationTest extends AbstractTestCase
                 'scale' => 32.30769230769231,
                 'x' => -2.7857142857142865,
                 'y' => -0.4642857142857143,
-                'minX' => 0.0,
-                'maxX' => 13.0,
-                'minY' => 0.0,
-                'maxY' => 13.0,
                 'height' => 450,
-
             ],
             $dataSet,
         );

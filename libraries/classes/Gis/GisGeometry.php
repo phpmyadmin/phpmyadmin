@@ -18,7 +18,6 @@ use function mb_substr;
 use function mt_getrandmax;
 use function preg_match;
 use function random_int;
-use function sprintf;
 use function str_replace;
 use function strtoupper;
 use function trim;
@@ -79,20 +78,18 @@ abstract class GisGeometry
      * Prepares the JavaScript related to a row in the GIS dataset
      * to visualize it with OpenLayers.
      *
-     * @param string $spatial    GIS data object
-     * @param int    $srid       spatial reference ID
-     * @param string $label      label for the GIS data object
-     * @param int[]  $color      color for the GIS data object
-     * @param array  $scale_data array containing data related to scaling
+     * @param string $spatial GIS data object
+     * @param int    $srid    spatial reference ID
+     * @param string $label   label for the GIS data object
+     * @param int[]  $color   color for the GIS data object
      *
      * @return string the JavaScript related to a row in the GIS dataset
      */
     abstract public function prepareRowAsOl(
-        $spatial,
+        string $spatial,
         int $srid,
         string $label,
         array $color,
-        array $scale_data,
     ): string;
 
     /**
@@ -114,31 +111,6 @@ abstract class GisGeometry
      * @return string WKT with the set of parameters passed by the GIS editor
      */
     abstract public function generateWkt(array $gis_data, $index, $empty = ''): string;
-
-    /**
-     * Returns OpenLayers.Bounds object that correspond to the bounds of GIS data.
-     *
-     * @param int   $srid       spatial reference ID
-     * @param array $scale_data data related to scaling
-     *
-     * @return string OpenLayers.Bounds object that
-     *                correspond to the bounds of GIS data
-     */
-    protected function getBoundsForOl(int $srid, array $scale_data): string
-    {
-        return sprintf(
-            'var minLoc = [%s, %s];'
-            . 'var maxLoc = [%s, %s];'
-            . 'var ext = ol.extent.boundingExtent([minLoc, maxLoc]);'
-            . 'ext = ol.proj.transformExtent(ext, ol.proj.get("EPSG:%s"), ol.proj.get(\'EPSG:3857\'));'
-            . 'map.getView().fit(ext, map.getSize());',
-            $scale_data['minX'],
-            $scale_data['minY'],
-            $scale_data['maxX'],
-            $scale_data['maxY'],
-            $srid,
-        );
-    }
 
     /**
      * Updates the min, max values with the given point set.
