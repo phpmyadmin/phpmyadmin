@@ -80,13 +80,13 @@ class GisPoint extends GisGeometry
 
         // Trim to remove leading 'POINT(' and trailing ')'
         $point = mb_substr($spatial, 6, -1);
-        $points_arr = $this->extractPoints($point, $scale_data);
+        $points_arr = $this->extractPointsLinear($point, $scale_data);
 
         // draw a small circle to mark the point
-        if ($points_arr[0][0] != '' && $points_arr[0][1] != '') {
+        if ($points_arr[0] != '' && $points_arr[0] != '') {
             $image->arc(
-                (int) round($points_arr[0][0]),
-                (int) round($points_arr[0][1]),
+                (int) round($points_arr[0]),
+                (int) round($points_arr[1]),
                 7,
                 7,
                 0,
@@ -97,8 +97,8 @@ class GisPoint extends GisGeometry
             if ($label !== '') {
                 $image->string(
                     1,
-                    (int) round($points_arr[0][0]),
-                    (int) round($points_arr[0][1]),
+                    (int) round($points_arr[0]),
+                    (int) round($points_arr[1]),
                     $label,
                     $black,
                 );
@@ -133,14 +133,14 @@ class GisPoint extends GisGeometry
 
         // Trim to remove leading 'POINT(' and trailing ')'
         $point = mb_substr($spatial, 6, -1);
-        $points_arr = $this->extractPoints($point, $scale_data);
+        $points_arr = $this->extractPointsLinear($point, $scale_data);
 
         // draw a small circle to mark the point
-        if ($points_arr[0][0] != '' && $points_arr[0][1] != '') {
-            $pdf->Circle($points_arr[0][0], $points_arr[0][1], 2, 0, 360, 'D', $line);
+        if ($points_arr[0] != '' && $points_arr[1] != '') {
+            $pdf->Circle($points_arr[0], $points_arr[1], 2, 0, 360, 'D', $line);
             // print label if applicable
             if ($label !== '') {
-                $pdf->setXY($points_arr[0][0], $points_arr[0][1]);
+                $pdf->setXY($points_arr[0], $points_arr[1]);
                 $pdf->setFontSize(5);
                 $pdf->Cell(0, 0, $label);
             }
@@ -172,12 +172,12 @@ class GisPoint extends GisGeometry
 
         // Trim to remove leading 'POINT(' and trailing ')'
         $point = mb_substr($spatial, 6, -1);
-        $points_arr = $this->extractPoints($point, $scale_data);
+        $points_arr = $this->extractPointsLinear($point, $scale_data);
 
         $row = '';
-        if (((float) $points_arr[0][0]) !== 0.0 && ((float) $points_arr[0][1]) !== 0.0) {
-            $row .= '<circle cx="' . $points_arr[0][0]
-                . '" cy="' . $points_arr[0][1] . '" r="3"';
+        if ($points_arr[0] !== 0.0 && $points_arr[1] !== 0.0) {
+            $row .= '<circle cx="' . $points_arr[0]
+                . '" cy="' . $points_arr[1] . '" r="3"';
             foreach ($point_options as $option => $val) {
                 $row .= ' ' . $option . '="' . $val . '"';
             }

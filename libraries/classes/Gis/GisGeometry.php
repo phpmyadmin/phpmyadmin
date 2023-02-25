@@ -10,9 +10,9 @@ namespace PhpMyAdmin\Gis;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
+use function array_map;
 use function defined;
 use function explode;
-use function floatval;
 use function mb_strripos;
 use function mb_substr;
 use function mt_getrandmax;
@@ -205,9 +205,9 @@ abstract class GisGeometry
      * @param array|null $scale_data data related to scaling
      * @param bool       $linear     if true, as a 1D array, else as a 2D array
      *
-     * @return array scaled points
+     * @return float[]|float[][] scaled points
      */
-    protected function extractPoints($point_set, $scale_data, $linear = false): array
+    private function extractPointsInternal(string $point_set, array|null $scale_data, bool $linear): array
     {
         $points_arr = [];
 
@@ -219,30 +219,59 @@ abstract class GisGeometry
             // Extract coordinates of the point
             $coordinates = explode(' ', $point);
 
-            if (isset($coordinates[0], $coordinates[1]) && trim($coordinates[0]) != '' && trim($coordinates[1]) != '') {
-                if ($scale_data != null) {
-                    $x = ($coordinates[0] - $scale_data['x']) * $scale_data['scale'];
-                    $y = $scale_data['height']
-                        - ($coordinates[1] - $scale_data['y']) * $scale_data['scale'];
+            if (isset($coordinates[1]) && trim($coordinates[0]) != '' && trim($coordinates[1]) != '') {
+                if ($scale_data === null) {
+                    $x = (float) $coordinates[0];
+                    $y = (float) $coordinates[1];
                 } else {
-                    $x = floatval(trim($coordinates[0]));
-                    $y = floatval(trim($coordinates[1]));
+                    $x = (float) (((float) $coordinates[0] - $scale_data['x']) * $scale_data['scale']);
+                    $y = (float) ($scale_data['height']
+                        - ((float) $coordinates[1] - $scale_data['y']) * $scale_data['scale']);
                 }
             } else {
-                $x = 0;
-                $y = 0;
+                $x = 0.0;
+                $y = 0.0;
             }
 
-            if (! $linear) {
-                $points_arr[] = [
-                    $x,
-                    $y,
-                ];
-            } else {
+            if ($linear) {
                 $points_arr[] = $x;
                 $points_arr[] = $y;
+            } else {
+                $points_arr[] = [$x, $y];
             }
         }
+
+        return $points_arr;
+    }
+
+    /**
+     * Extracts points, scales and returns them as an array.
+     *
+     * @param string     $wktCoords  string of comma separated points
+     * @param array|null $scale_data data related to scaling
+     *
+     * @return float[][] scaled points
+     */
+    protected function extractPoints(string $wktCoords, array|null $scale_data): array
+    {
+        /** @var float[][] $points_arr */
+        $points_arr = $this->extractPointsInternal($wktCoords, $scale_data, false);
+
+        return $points_arr;
+    }
+
+    /**
+     * Extracts points, scales and returns them as an linear array.
+     *
+     * @param string     $wktCoords  string of comma separated points
+     * @param array|null $scale_data data related to scaling
+     *
+     * @return float[] scaled points
+     */
+    protected function extractPointsLinear(string $wktCoords, array|null $scale_data): array
+    {
+        /** @var float[] $points_arr */
+        $points_arr = $this->extractPointsInternal($wktCoords, $scale_data, true);
 
         return $points_arr;
     }

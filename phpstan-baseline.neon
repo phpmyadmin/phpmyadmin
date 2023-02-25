@@ -4231,12 +4231,22 @@ parameters:
 			path: libraries/classes/Footer.php
 
 		-
+			message: "#^Casting to float something that's already float\\.$#"
+			count: 2
+			path: libraries/classes/Gis/GisGeometry.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:extractPoints\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometry.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:extractPoints\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:extractPointsInternal\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisGeometry.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:extractPointsLinear\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometry.php
 
@@ -4376,7 +4386,7 @@ parameters:
 			path: libraries/classes/Gis/GisLineString.php
 
 		-
-			message: "#^Cannot access offset int\\<0, max\\> on non\\-empty\\-array\\<'no_of_points'\\|int\\<0, max\\>, array\\{x\\: mixed, y\\: mixed\\}\\|int\\<0, max\\>\\>\\|int\\<1, max\\>\\.$#"
+			message: "#^Cannot access offset int\\<0, max\\> on non\\-empty\\-array\\<'no_of_points'\\|int\\<0, max\\>, array\\{x\\: float, y\\: float\\}\\|int\\<0, max\\>\\>\\|int\\<1, max\\>\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiLineString.php
 
@@ -4466,12 +4476,12 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPoint.php
 
 		-
-			message: "#^Cannot access offset int on non\\-empty\\-array\\<'no_of_lines'\\|int, array\\{no_of_points\\: int\\<0, max\\>, 0\\?\\: array\\{x\\: mixed, y\\: mixed\\}\\}\\|int\\<1, max\\>\\>\\|int\\<1, max\\>\\.$#"
+			message: "#^Cannot access offset int on non\\-empty\\-array\\<'no_of_lines'\\|int, array\\{no_of_points\\: int\\<0, max\\>, 0\\?\\: array\\{x\\: float, y\\: float\\}\\}\\|int\\<1, max\\>\\>\\|int\\<1, max\\>\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Cannot access offset int\\<0, max\\> on non\\-empty\\-array\\<'no_of_points'\\|int\\<0, max\\>, array\\{x\\: mixed, y\\: mixed\\}\\|int\\<0, max\\>\\>\\|int\\<1, max\\>\\.$#"
+			message: "#^Cannot access offset int\\<0, max\\> on non\\-empty\\-array\\<'no_of_points'\\|int\\<0, max\\>, array\\{x\\: float, y\\: float\\}\\|int\\<0, max\\>\\>\\|int\\<1, max\\>\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
@@ -4507,6 +4517,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\:\\:prepareRowAsSvg\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisMultiPolygon.php
+
+		-
+			message: "#^Parameter \\#1 \\$points of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:filledPolygon\\(\\) expects array\\<int, int\\>, array\\<float\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
@@ -4566,7 +4581,7 @@ parameters:
 			path: libraries/classes/Gis/GisPoint.php
 
 		-
-			message: "#^Cannot access offset int\\<0, max\\> on non\\-empty\\-array\\<'no_of_points'\\|int\\<0, max\\>, array\\{x\\: mixed, y\\: mixed\\}\\|int\\<0, max\\>\\>\\|int\\<1, max\\>\\.$#"
+			message: "#^Cannot access offset int\\<0, max\\> on non\\-empty\\-array\\<'no_of_points'\\|int\\<0, max\\>, array\\{x\\: float, y\\: float\\}\\|int\\<0, max\\>\\>\\|int\\<1, max\\>\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPolygon.php
 
@@ -4627,6 +4642,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:prepareRowAsSvg\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisPolygon.php
+
+		-
+			message: "#^Parameter \\#1 \\$points of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:filledPolygon\\(\\) expects array\\<int, int\\>, array\\<float\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPolygon.php
 
@@ -10261,7 +10281,7 @@ parameters:
 			path: test/classes/Gis/GisGeometryCollectionTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryTest\\:\\:providerForTestExtractPoints\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryTest\\:\\:providerForTestExtractPointsInternal\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisGeometryTest.php
 
@@ -10281,12 +10301,12 @@ parameters:
 			path: test/classes/Gis/GisGeometryTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryTest\\:\\:testExtractPoints\\(\\) has parameter \\$output with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryTest\\:\\:testExtractPointsInternal\\(\\) has parameter \\$output with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisGeometryTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryTest\\:\\:testExtractPoints\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryTest\\:\\:testExtractPointsInternal\\(\\) has parameter \\$scale_data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisGeometryTest.php
 

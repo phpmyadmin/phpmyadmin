@@ -101,7 +101,7 @@ class GisMultiPolygon extends GisGeometry
             $points_arr = [];
 
             foreach ($wkt_rings as $wkt_ring) {
-                $ring = $this->extractPoints($wkt_ring, $scale_data, true);
+                $ring = $this->extractPointsLinear($wkt_ring, $scale_data);
                 $points_arr = array_merge($points_arr, $ring);
             }
 
@@ -155,7 +155,7 @@ class GisMultiPolygon extends GisGeometry
             $points_arr = [];
 
             foreach ($wkt_rings as $wkt_ring) {
-                $ring = $this->extractPoints($wkt_ring, $scale_data, true);
+                $ring = $this->extractPointsLinear($wkt_ring, $scale_data);
                 $points_arr = array_merge($points_arr, $ring);
             }
 

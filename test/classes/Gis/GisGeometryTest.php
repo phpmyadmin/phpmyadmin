@@ -137,38 +137,40 @@ class GisGeometryTest extends AbstractTestCase
     }
 
     /**
-     * tests extractPoints method
+     * tests extractPointsInternal method
      *
      * @param string     $point_set  String of comma separated points
      * @param array|null $scale_data Data related to scaling
      * @param bool       $linear     If true, as a 1D array, else as a 2D array
      * @param array      $output     Expected output
      *
-     * @dataProvider providerForTestExtractPoints
+     * @dataProvider providerForTestExtractPointsInternal
      */
-    public function testExtractPoints(string $point_set, array|null $scale_data, bool $linear, array $output): void
-    {
-        $this->assertEquals(
-            $output,
-            $this->callFunction(
-                $this->object,
-                GisGeometry::class,
-                'extractPoints',
-                [
-                    $point_set,
-                    $scale_data,
-                    $linear,
-                ],
-            ),
+    public function testExtractPointsInternal(
+        string $point_set,
+        array|null $scale_data,
+        bool $linear,
+        array $output,
+    ): void {
+        $points = $this->callFunction(
+            $this->object,
+            GisGeometry::class,
+            'extractPointsInternal',
+            [
+                $point_set,
+                $scale_data,
+                $linear,
+            ],
         );
+        $this->assertEquals($output, $points);
     }
 
     /**
-     * data provider for testExtractPoints
+     * data provider for testExtractPointsInternal
      *
-     * @return array data for testExtractPoints
+     * @return array data for testExtractPointsInternal
      */
-    public static function providerForTestExtractPoints(): array
+    public static function providerForTestExtractPointsInternal(): array
     {
         return [
             // with no scale data
