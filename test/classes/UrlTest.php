@@ -182,16 +182,14 @@ class UrlTest extends AbstractTestCase
         );
     }
 
-    /** @return void */
-    public function testBuildHttpQueryWithUrlQueryEncryptionDisabled()
+    public function testBuildHttpQueryWithUrlQueryEncryptionDisabled(): void
     {
         $GLOBALS['config']->set('URLQueryEncryption', false);
         $params = ['db' => 'test_db', 'table' => 'test_table', 'pos' => 0];
         $this->assertEquals('db=test_db&table=test_table&pos=0', Url::buildHttpQuery($params));
     }
 
-    /** @return void */
-    public function testBuildHttpQueryWithUrlQueryEncryptionEnabled()
+    public function testBuildHttpQueryWithUrlQueryEncryptionEnabled(): void
     {
         $_SESSION = [];
         $GLOBALS['config']->set('URLQueryEncryption', true);
@@ -213,8 +211,7 @@ class UrlTest extends AbstractTestCase
         $this->assertSame('{"db":"test_db","table":"test_table"}', $decrypted);
     }
 
-    /** @return void */
-    public function testQueryEncryption()
+    public function testQueryEncryption(): void
     {
         $_SESSION = [];
         $GLOBALS['config']->set('URLQueryEncryption', true);

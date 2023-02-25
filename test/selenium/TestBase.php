@@ -887,10 +887,8 @@ abstract class TestBase extends TestCase
     /**
      * Wrapper around alertText method to not use it on not supported
      * browsers.
-     *
-     * @return mixed
      */
-    public function alertText()
+    public function alertText(): mixed
     {
         /**
          * Not supported in Safari Webdriver, see

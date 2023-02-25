@@ -3482,10 +3482,8 @@ class InsertEditTest extends AbstractTestCase
      * Convert mixed type value to string
      *
      * @param mixed $value
-     *
-     * @return string
      */
-    private function parseString($value)
+    private function parseString($value): string
     {
         if (is_string($value)) {
             return $value;

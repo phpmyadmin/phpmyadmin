@@ -20,7 +20,7 @@ declare(strict_types=1);
  *
  * @return array<int,string>
  */
-function get_login_credentials($user)
+function get_login_credentials($user): array
 {
     /* Optionally we can use passed username */
     if (! empty($user)) {
