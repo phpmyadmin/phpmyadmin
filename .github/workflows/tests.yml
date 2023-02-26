@@ -103,7 +103,7 @@ jobs:
           composer-options: ${{ matrix.composer-options }}
 
       - name: Run PHP tests
-        run: composer run phpunit -- --testsuite unit
+        run: composer run phpunit -- --testsuite unit --display-deprecations --display-notices --display-warnings --display-errors
 
       - name: Send coverage
         uses: codecov/codecov-action@v3

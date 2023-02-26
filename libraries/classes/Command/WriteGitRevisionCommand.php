@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Command;
 
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -16,13 +17,10 @@ use function sprintf;
 use function str_replace;
 use function trim;
 
+#[AsCommand(name: 'write-revision-info', description: 'Write Git revision.')]
 class WriteGitRevisionCommand extends Command
 {
-    /** @var string|null */
-    protected static $defaultName = 'write-revision-info';
-
-    /** @var string */
-    private static $generatedClassTemplate = <<<'PHP'
+    private static string $generatedClassTemplate = <<<'PHP'
 <?php
 
 declare(strict_types=1);
@@ -43,7 +41,6 @@ PHP;
 
     protected function configure(): void
     {
-        $this->setDescription('Write Git revision');
         $this->addOption(
             'remote-commit-url',
             null,

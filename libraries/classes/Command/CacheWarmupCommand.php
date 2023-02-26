@@ -12,6 +12,7 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use SplFileInfo;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -28,14 +29,11 @@ use function str_replace;
 use const CACHE_DIR;
 use const CONFIG_FILE;
 
+#[AsCommand(name: 'cache:warmup', description: 'Warms up the Twig templates cache.')]
 final class CacheWarmupCommand extends Command
 {
-    /** @var string|null */
-    protected static $defaultName = 'cache:warmup';
-
     protected function configure(): void
     {
-        $this->setDescription('Warms up the Twig templates cache');
         $this->addOption('twig', null, null, 'Warm up twig templates cache.');
         $this->addOption('routing', null, null, 'Warm up routing cache.');
         $this->addOption('twig-po', null, null, 'Warm up twig templates and write file mappings.');

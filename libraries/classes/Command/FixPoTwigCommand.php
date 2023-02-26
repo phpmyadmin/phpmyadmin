@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Command;
 
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -17,17 +18,14 @@ use function preg_replace_callback;
 
 use const ROOT_PATH;
 
+#[AsCommand(name: 'fix-po-twig', description: 'Fixes POT file for Twig templates.')]
 final class FixPoTwigCommand extends Command
 {
-    /** @var string|null */
-    protected static $defaultName = 'fix-po-twig';
-
     private const POT_FILE = ROOT_PATH . 'po/phpmyadmin.pot';
     private const REPLACE_FILE = ROOT_PATH . 'twig-templates/replace.json';
 
     protected function configure(): void
     {
-        $this->setDescription('Fixes POT file for Twig templates');
         $this->setHelp(
             'The <info>%command.name%</info> command fixes the Twig file name and line number in the'
             . ' POT file to match the Twig template and not the compiled Twig file.',

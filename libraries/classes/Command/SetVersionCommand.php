@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Command;
 
 use RangeException;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -14,13 +15,10 @@ use function file_put_contents;
 use function preg_match;
 use function sprintf;
 
+#[AsCommand(name: 'set-version', description: 'Sets the version number.')]
 final class SetVersionCommand extends Command
 {
-    /** @var string|null */
-    protected static $defaultName = 'set-version';
-
-    /** @var string */
-    private static $generatedClassTemplate = <<<'PHP'
+    private static string $generatedClassTemplate = <<<'PHP'
 <?php
 
 declare(strict_types=1);
@@ -51,7 +49,6 @@ PHP;
 
     protected function configure(): void
     {
-        $this->setDescription('Sets the version number');
         $this->setHelp('This command generates the PhpMyAdmin\Version class based on the version number provided.');
         $this->addArgument('version', InputArgument::REQUIRED, 'The version number');
     }
