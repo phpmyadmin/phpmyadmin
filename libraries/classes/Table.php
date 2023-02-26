@@ -147,6 +147,10 @@ class Table implements Stringable
      */
     public function getLastMessage(): string
     {
+        if ($this->messages === []) {
+            return '';
+        }
+
         return end($this->messages);
     }
 

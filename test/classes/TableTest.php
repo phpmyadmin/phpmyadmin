@@ -399,6 +399,12 @@ class TableTest extends AbstractTestCase
             'messages3',
             $table->getLastMessage(),
         );
+
+        $table->messages = [];
+        $this->assertEquals(
+            '',
+            $table->getLastMessage(),
+        );
     }
 
     /**
