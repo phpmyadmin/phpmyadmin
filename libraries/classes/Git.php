@@ -57,15 +57,23 @@ class Git
     private $showGitRevision;
 
     /**
+     * The path where the to search for .git folders
+     *
+     * @var string
+     */
+    private $baseDir;
+
+    /**
      * Git has been found and the data fetched
      *
      * @var bool
      */
     private $hasGit = false;
 
-    public function __construct(bool $showGitRevision)
+    public function __construct(bool $showGitRevision, ?string $baseDir = null)
     {
         $this->showGitRevision = $showGitRevision;
+        $this->baseDir = $baseDir ?? ROOT_PATH;
     }
 
     public function hasGitInformation(): bool
@@ -94,7 +102,7 @@ class Git
 
         // find out if there is a .git folder
         // or a .git file (--separate-git-dir)
-        $git = ROOT_PATH . '.git';
+        $git = $this->baseDir . '.git';
         if (is_dir($git)) {
             if (! @is_file($git . '/config')) {
                 $_SESSION['git_location'] = null;

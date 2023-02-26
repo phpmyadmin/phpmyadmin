@@ -15669,14 +15669,6 @@
       <code>$queryString</code>
     </MixedAssignment>
   </file>
-  <file src="test/classes/GitTest.php">
-    <RedundantCast occurrences="1">
-      <code>(string) $this-&gt;testDir</code>
-    </RedundantCast>
-    <RedundantCastGivenDocblockType occurrences="1">
-      <code>(string) $this-&gt;cwd</code>
-    </RedundantCastGivenDocblockType>
-  </file>
   <file src="test/classes/HeaderTest.php">
     <MixedInferredReturnType occurrences="1">
       <code>array</code>

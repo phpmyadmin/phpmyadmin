@@ -6,10 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Git;
 
-use function chdir;
 use function file_put_contents;
-use function getcwd;
-use function is_string;
 use function mkdir;
 use function mt_getrandmax;
 use function random_int;
@@ -32,9 +29,6 @@ class GitTest extends AbstractTestCase
     /** @var string */
     protected $testDir;
 
-    /** @var string */
-    protected $cwd;
-
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
@@ -43,14 +37,13 @@ class GitTest extends AbstractTestCase
     {
         parent::setUp();
         parent::setProxySettings();
-        $this->object = new Git(true);
-        $this->testDir = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'gittempdir_' . random_int(0, mt_getrandmax());
+        $this->testDir = sys_get_temp_dir() . DIRECTORY_SEPARATOR
+                        . 'gittempdir_' . random_int(0, mt_getrandmax()) . DIRECTORY_SEPARATOR;
+        $this->object = new Git(true, $this->testDir);
 
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
-        $this->cwd = is_string(getcwd()) ? getcwd() : './';
         mkdir($this->testDir);
-        chdir((string) $this->testDir);
     }
 
     /**
@@ -59,7 +52,6 @@ class GitTest extends AbstractTestCase
      */
     protected function tearDown(): void
     {
-        chdir((string) $this->cwd);
         rmdir($this->testDir);
         parent::tearDown();
         unset($this->object);
@@ -109,7 +101,7 @@ class GitTest extends AbstractTestCase
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
 
-        mkdir('.git');
+        mkdir($this->testDir . '.git');
 
         $this->assertFalse(
             $this->object->isGitRevision()
@@ -120,14 +112,14 @@ class GitTest extends AbstractTestCase
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
 
-        file_put_contents('.git/config', '');
+        file_put_contents($this->testDir . '.git/config', '');
 
         $this->assertTrue($this->object->isGitRevision());
 
         $this->assertFalse($this->object->hasGitInformation());
 
-        unlink('.git/config');
-        rmdir('.git');
+        unlink($this->testDir . '.git/config');
+        rmdir($this->testDir . '.git');
     }
 
     /**
@@ -137,7 +129,7 @@ class GitTest extends AbstractTestCase
      */
     public function testIsGitRevisionExternalGitDir(): void
     {
-        file_put_contents('.git', 'gitdir: ./.customgitdir');
+        file_put_contents($this->testDir . '.git', 'gitdir: ' . $this->testDir . '.customgitdir');
         $this->assertFalse(
             $this->object->isGitRevision()
         );
@@ -147,7 +139,7 @@ class GitTest extends AbstractTestCase
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
 
-        mkdir('.customgitdir');
+        mkdir($this->testDir . '.customgitdir');
 
         $this->assertTrue($this->object->isGitRevision());
 
@@ -156,7 +148,7 @@ class GitTest extends AbstractTestCase
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
 
-        file_put_contents('.git', 'random data here');
+        file_put_contents($this->testDir . '.git', 'random data here');
 
         $this->assertFalse(
             $this->object->isGitRevision()
@@ -164,8 +156,8 @@ class GitTest extends AbstractTestCase
 
         $this->assertFalse($this->object->hasGitInformation());
 
-        unlink('.git');
-        rmdir('.customgitdir');
+        unlink($this->testDir . '.git');
+        rmdir($this->testDir . '.customgitdir');
     }
 
     /**
@@ -175,28 +167,28 @@ class GitTest extends AbstractTestCase
      */
     public function testCheckGitRevisionPacksFolder(): void
     {
-        mkdir('.git');
-        file_put_contents('.git/config', '');
+        mkdir($this->testDir . '.git');
+        file_put_contents($this->testDir . '.git/config', '');
 
         $commit = $this->object->checkGitRevision();
 
         $this->assertNull($commit);
         $this->assertFalse($this->object->hasGitInformation());
 
-        file_put_contents('.git/HEAD', 'ref: refs/remotes/origin/master');
+        file_put_contents($this->testDir . '.git/HEAD', 'ref: refs/remotes/origin/master');
 
         $commit = $this->object->checkGitRevision();
 
         $this->assertNull($commit);
 
         file_put_contents(
-            '.git/packed-refs',
+            $this->testDir . '.git/packed-refs',
             '# pack-refs with: peeled fully-peeled sorted' . PHP_EOL .
             'c1f2ff2eb0c3fda741f859913fd589379f4e4a8f refs/tags/4.3.10' . PHP_EOL .
             '^6f2e60343b0a324c65f2d1411bf4bd03e114fb98' . PHP_EOL .
             '17bf8b7309919f8ac593d7c563b31472780ee83b refs/remotes/origin/master' . PHP_EOL
         );
-        mkdir('.git/objects/pack', 0777, true);//default = 0777, recursive mode
+        mkdir($this->testDir . '.git/objects/pack', 0777, true);//default = 0777, recursive mode
 
         $commit = $this->object->checkGitRevision();
 
@@ -241,12 +233,12 @@ class GitTest extends AbstractTestCase
         $this->assertIsString($commit['committer']['email']);
         $this->assertIsString($commit['committer']['date']);
 
-        rmdir('.git/objects/pack');
-        rmdir('.git/objects');
-        unlink('.git/packed-refs');
-        unlink('.git/HEAD');
-        unlink('.git/config');
-        rmdir('.git');
+        rmdir($this->testDir . '.git/objects/pack');
+        rmdir($this->testDir . '.git/objects');
+        unlink($this->testDir . '.git/packed-refs');
+        unlink($this->testDir . '.git/HEAD');
+        unlink($this->testDir . '.git/config');
+        rmdir($this->testDir . '.git');
     }
 
     /**
@@ -256,32 +248,35 @@ class GitTest extends AbstractTestCase
      */
     public function testCheckGitRevisionRefFile(): void
     {
-        mkdir('.git');
-        file_put_contents('.git/config', '');
+        mkdir($this->testDir . '.git');
+        file_put_contents($this->testDir . '.git/config', '');
 
         $commit = $this->object->checkGitRevision();
 
         $this->assertNull($commit);
         $this->assertFalse($this->object->hasGitInformation());
 
-        file_put_contents('.git/HEAD', 'ref: refs/remotes/origin/master');
-        mkdir('.git/refs/remotes/origin', 0777, true);
-        file_put_contents('.git/refs/remotes/origin/master', 'c1f2ff2eb0c3fda741f859913fd589379f4e4a8f');
-        mkdir('.git/objects/pack', 0777, true);//default = 0777, recursive mode
+        file_put_contents($this->testDir . '.git/HEAD', 'ref: refs/remotes/origin/master');
+        mkdir($this->testDir . '.git/refs/remotes/origin', 0777, true);
+        file_put_contents(
+            $this->testDir . '.git/refs/remotes/origin/master',
+            'c1f2ff2eb0c3fda741f859913fd589379f4e4a8f'
+        );
+        mkdir($this->testDir . '.git/objects/pack', 0777, true);//default = 0777, recursive mode
         $commit = $this->object->checkGitRevision();
 
         $this->assertNull($commit);
         $this->assertFalse($this->object->hasGitInformation());
 
-        unlink('.git/refs/remotes/origin/master');
-        rmdir('.git/refs/remotes/origin');
-        rmdir('.git/refs/remotes');
-        rmdir('.git/refs');
-        rmdir('.git/objects/pack');
-        rmdir('.git/objects');
-        unlink('.git/HEAD');
-        unlink('.git/config');
-        rmdir('.git');
+        unlink($this->testDir . '.git/refs/remotes/origin/master');
+        rmdir($this->testDir . '.git/refs/remotes/origin');
+        rmdir($this->testDir . '.git/refs/remotes');
+        rmdir($this->testDir . '.git/refs');
+        rmdir($this->testDir . '.git/objects/pack');
+        rmdir($this->testDir . '.git/objects');
+        unlink($this->testDir . '.git/HEAD');
+        unlink($this->testDir . '.git/config');
+        rmdir($this->testDir . '.git');
     }
 
     /**
@@ -291,30 +286,30 @@ class GitTest extends AbstractTestCase
      */
     public function testCheckGitRevisionPacksFile(): void
     {
-        mkdir('.git');
-        file_put_contents('.git/config', '');
+        mkdir($this->testDir . '.git');
+        file_put_contents($this->testDir . '.git/config', '');
 
         $commit = $this->object->checkGitRevision();
 
         $this->assertNull($commit);
         $this->assertFalse($this->object->hasGitInformation());
 
-        file_put_contents('.git/HEAD', 'ref: refs/remotes/origin/master');
+        file_put_contents($this->testDir . '.git/HEAD', 'ref: refs/remotes/origin/master');
 
         $commit = $this->object->checkGitRevision();
 
         $this->assertNull($commit);
 
         file_put_contents(
-            '.git/packed-refs',
+            $this->testDir . '.git/packed-refs',
             '# pack-refs with: peeled fully-peeled sorted' . PHP_EOL .
             'c1f2ff2eb0c3fda741f859913fd589379f4e4a8f refs/tags/4.3.10' . PHP_EOL .
             '^6f2e60343b0a324c65f2d1411bf4bd03e114fb98' . PHP_EOL .
             '17bf8b7309919f8ac593d7c563b31472780ee83b refs/remotes/origin/master' . PHP_EOL
         );
-        mkdir('.git/objects/info', 0777, true);
+        mkdir($this->testDir . '.git/objects/info', 0777, true);
         file_put_contents(
-            '.git/objects/info/packs',
+            $this->testDir . '.git/objects/info/packs',
             'P pack-faea49765800da462c70bea555848cc8c7a1c28d.pack' . PHP_EOL .
             '  pack-.pack' . PHP_EOL .
             PHP_EOL .
@@ -365,13 +360,13 @@ class GitTest extends AbstractTestCase
         $this->assertIsString($commit['committer']['email']);
         $this->assertIsString($commit['committer']['date']);
 
-        unlink('.git/objects/info/packs');
-        rmdir('.git/objects/info');
-        rmdir('.git/objects');
-        unlink('.git/packed-refs');
-        unlink('.git/HEAD');
-        unlink('.git/config');
-        rmdir('.git');
+        unlink($this->testDir . '.git/objects/info/packs');
+        rmdir($this->testDir . '.git/objects/info');
+        rmdir($this->testDir . '.git/objects');
+        unlink($this->testDir . '.git/packed-refs');
+        unlink($this->testDir . '.git/HEAD');
+        unlink($this->testDir . '.git/config');
+        rmdir($this->testDir . '.git');
     }
 
     /**
