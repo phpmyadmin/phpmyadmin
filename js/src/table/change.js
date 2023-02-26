@@ -296,6 +296,8 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
     // Remove possible blocking rules if the user changed functions
     $('#' + target.id).rules('remove', 'validationFunctionForMd5');
     $('#' + target.id).rules('remove', 'validationFunctionForAesDesEncrypt');
+    $('#' + target.id).rules('remove', 'validationFunctionForDateTime');
+    $('#' + target.id).rules('remove', 'maxlength');
 
     if (target.value === 'MD5') {
         $('#' + target.id).rules('add', {
@@ -349,10 +351,11 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
         // @todo: put back attributes if corresponding function is deselected
     }
 
-    if ($thisInput.data('rulesadded') === null && ! functionSelected) {
+    if ( ! functionSelected) {
         // call validate before adding rules
         $($thisInput[0].form).validate();
         // validate for date time
+
         if (theType === 'datetime' || theType === 'time' || theType === 'date' || theType === 'timestamp') {
             $thisInput.rules('add', {
                 validationFunctionForDateTime: {
@@ -368,6 +371,8 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
             validateIntField($thisInput, checkForCheckbox(multiEdit));
             // validation for CHAR types
         } else if ($thisInput.data('type') === 'CHAR') {
+        
+        if ($thisInput.data('type') === 'CHAR') {
             var maxlen = $thisInput.data('maxlength');
             if (typeof maxlen !== 'undefined') {
                 if (maxlen <= 4) {
