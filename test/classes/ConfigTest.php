@@ -871,26 +871,6 @@ class ConfigTest extends AbstractTestCase
                 '/foo/bar/phpmyadmin/',
             ],
             [
-                'https://example.net/baz/phpmyadmin/',
-                '',
-                '/baz/phpmyadmin/',
-            ],
-            [
-                'http://example.net/baz/phpmyadmin/',
-                '',
-                '/baz/phpmyadmin/',
-            ],
-            [
-                'http://example.net/phpmyadmin/',
-                '',
-                '/phpmyadmin/',
-            ],
-            [
-                'http://example.net/',
-                '',
-                '/',
-            ],
-            [
                 'http://example.net/',
                 'http://example.net/phpmyadmin/',
                 '/phpmyadmin/',

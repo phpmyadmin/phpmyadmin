@@ -837,7 +837,7 @@ class Config
             }
         }
 
-        $parsedUrlPath = parse_url(Routing::getCleanPathInfo(), PHP_URL_PATH);
+        $parsedUrlPath = Routing::getCleanPathInfo();
 
         $parts = explode(
             '/',
