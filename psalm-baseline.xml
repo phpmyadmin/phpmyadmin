@@ -14707,8 +14707,6 @@
       <code>$tableComment</code>
       <code>$tableRowFormat</code>
       <code><![CDATA[end($this->errors)]]></code>
-      <code><![CDATA[end($this->errors)]]></code>
-      <code><![CDATA[end($this->messages)]]></code>
       <code><![CDATA[end($this->messages)]]></code>
       <code>json_decode($value, true)</code>
     </MixedReturnStatement>
