@@ -26,13 +26,8 @@ use function strncasecmp;
  */
 class Types
 {
-    /** @var DatabaseInterface Database interface */
-    private DatabaseInterface $dbi;
-
-    /** @param DatabaseInterface $dbi Database interface instance */
-    public function __construct($dbi)
+    public function __construct(private DatabaseInterface $dbi)
     {
-        $this->dbi = $dbi;
     }
 
     /**
