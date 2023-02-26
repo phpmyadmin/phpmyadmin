@@ -43,10 +43,10 @@ abstract class TransformationsPlugin implements TransformationsInterface
     /**
      * Returns passed options or default values if they were not set
      *
-     * @param string[] $options  List of passed options
-     * @param string[] $defaults List of default values
+     * @param mixed[] $options  List of passed options
+     * @param mixed[] $defaults List of default values
      *
-     * @return array List of options possibly filled in by defaults.
+     * @return mixed[] List of options possibly filled in by defaults.
      */
     public function getOptions(array $options, array $defaults): array
     {

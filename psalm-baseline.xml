@@ -12229,9 +12229,6 @@
     </RiskyCast>
   </file>
   <file src="libraries/classes/Plugins/Transformations/Abs/Bool2TextTransformationsPlugin.php">
-    <MixedArgumentTypeCoercion>
-      <code>$options</code>
-    </MixedArgumentTypeCoercion>
     <MixedInferredReturnType>
       <code>string</code>
     </MixedInferredReturnType>
@@ -12241,9 +12238,6 @@
     </MixedReturnStatement>
   </file>
   <file src="libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php">
-    <InvalidArgument>
-      <code><![CDATA[$cfg['DefaultTransformations']['DateFormat']]]></code>
-    </InvalidArgument>
     <InvalidOperand>
       <code>$timestamp</code>
     </InvalidOperand>
@@ -12252,9 +12246,6 @@
       <code>$options[1]</code>
       <code>$options[2]</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code>$options</code>
-    </MixedArgumentTypeCoercion>
     <RedundantCastGivenDocblockType>
       <code>(string) $buffer</code>
       <code>(string) $buffer</code>
@@ -12295,12 +12286,6 @@
     </PossiblyNullIterator>
   </file>
   <file src="libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php">
-    <InvalidArgument>
-      <code><![CDATA[$cfg['DefaultTransformations']['External']]]></code>
-    </InvalidArgument>
-    <MixedArgumentTypeCoercion>
-      <code>$options</code>
-    </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code>$allowed_programs[$options[0]]</code>
       <code>$allowed_programs[0]</code>
@@ -12318,14 +12303,6 @@
       <code>$program</code>
     </MixedOperand>
   </file>
-  <file src="libraries/classes/Plugins/Transformations/Abs/HexTransformationsPlugin.php">
-    <InvalidArgument>
-      <code><![CDATA[$cfg['DefaultTransformations']['Hex']]]></code>
-    </InvalidArgument>
-    <MixedArgumentTypeCoercion>
-      <code>$options</code>
-    </MixedArgumentTypeCoercion>
-  </file>
   <file src="libraries/classes/Plugins/Transformations/Abs/ImageLinkTransformationsPlugin.php">
     <MixedArgument>
       <code><![CDATA[$options['wrapper_params']]]></code>
@@ -12337,26 +12314,17 @@
     </MixedArgument>
   </file>
   <file src="libraries/classes/Plugins/Transformations/Abs/InlineTransformationsPlugin.php">
-    <InvalidArgument>
-      <code><![CDATA[$cfg['DefaultTransformations']['Inline']]]></code>
-    </InvalidArgument>
     <MixedArgument>
       <code><![CDATA[$options['wrapper_params']]]></code>
       <code><![CDATA[$options['wrapper_params']]]></code>
       <code><![CDATA[$options['wrapper_params']]]></code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code>$options</code>
-    </MixedArgumentTypeCoercion>
   </file>
   <file src="libraries/classes/Plugins/Transformations/Abs/PreApPendTransformationsPlugin.php">
     <MixedArgument>
       <code>$options[0]</code>
       <code>$options[1]</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code>$options</code>
-    </MixedArgumentTypeCoercion>
   </file>
   <file src="libraries/classes/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php">
     <MixedArgument>
@@ -12364,12 +12332,6 @@
     </MixedArgument>
   </file>
   <file src="libraries/classes/Plugins/Transformations/Abs/SubstringTransformationsPlugin.php">
-    <InvalidArgument>
-      <code><![CDATA[$cfg['DefaultTransformations']['Substring']]]></code>
-    </InvalidArgument>
-    <MixedArgumentTypeCoercion>
-      <code>$options</code>
-    </MixedArgumentTypeCoercion>
     <MixedOperand>
       <code>$options[2]</code>
       <code>$options[2]</code>
@@ -12381,27 +12343,15 @@
     </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Plugins/Transformations/Abs/TextImageLinkTransformationsPlugin.php">
-    <InvalidArgument>
-      <code><![CDATA[$cfg['DefaultTransformations']['TextImageLink']]]></code>
-    </InvalidArgument>
-    <MixedArgumentTypeCoercion>
-      <code>$options</code>
-    </MixedArgumentTypeCoercion>
     <MixedOperand>
       <code>$options[0]</code>
     </MixedOperand>
   </file>
   <file src="libraries/classes/Plugins/Transformations/Abs/TextLinkTransformationsPlugin.php">
-    <InvalidArgument>
-      <code><![CDATA[$cfg['DefaultTransformations']['TextLink']]]></code>
-    </InvalidArgument>
     <MixedArgument>
       <code>$options[1] ?? $buffer</code>
       <code><![CDATA[$options[1] ?? '']]></code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code>$options</code>
-    </MixedArgumentTypeCoercion>
     <MixedOperand>
       <code><![CDATA[$options[0] ?? '']]></code>
     </MixedOperand>
@@ -12468,6 +12418,13 @@
       <code>getMIMESubtype</code>
       <code>getMIMEType</code>
     </PossiblyUnusedMethod>
+  </file>
+  <file src="libraries/classes/Plugins/TransformationsPlugin.php">
+    <MixedAssignment>
+      <code>$result[$key]</code>
+      <code>$result[$key]</code>
+      <code>$value</code>
+    </MixedAssignment>
   </file>
   <file src="libraries/classes/Plugins/TwoFactor/Application.php">
     <MixedArgument>
