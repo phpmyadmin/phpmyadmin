@@ -137,6 +137,10 @@ class Table implements Stringable
      */
     public function getLastError(): string
     {
+        if ($this->errors === []) {
+            return '';
+        }
+
         return end($this->errors);
     }
 

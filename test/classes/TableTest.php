@@ -400,6 +400,12 @@ class TableTest extends AbstractTestCase
             $table->getLastMessage(),
         );
 
+        $table->errors = [];
+        $this->assertEquals(
+            '',
+            $table->getLastError(),
+        );
+
         $table->messages = [];
         $this->assertEquals(
             '',
