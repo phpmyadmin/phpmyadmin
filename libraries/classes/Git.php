@@ -94,7 +94,7 @@ class Git
 
         // find out if there is a .git folder
         // or a .git file (--separate-git-dir)
-        $git = '.git';
+        $git = ROOT_PATH . '.git';
         if (is_dir($git)) {
             if (! @is_file($git . '/config')) {
                 $_SESSION['git_location'] = null;
