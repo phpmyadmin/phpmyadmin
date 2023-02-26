@@ -959,8 +959,6 @@ abstract class TestBase extends TestCase
         // go to table page
         $this->waitForElement('xpath', "//th//a[contains(., '" . $table . "')]")->click();
         $this->waitAjax();
-
-        $this->waitForElement('xpath', "//a[@class='nav-link text-nowrap' and contains(., 'Browse')]");
     }
 
     /**
@@ -985,9 +983,6 @@ abstract class TestBase extends TestCase
             '//tr[(contains(@class, "db-row"))]//a[contains(., "' . $database . '")]',
         )->click();
         $this->waitAjax();
-
-        // Wait for it to load
-        $this->waitForElement('xpath', "//a[@class='nav-link text-nowrap' and contains(., 'Structure')]");
     }
 
     /**

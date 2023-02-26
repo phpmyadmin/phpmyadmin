@@ -218,8 +218,6 @@ class OperationsTest extends TestBase
             '//div[@class=\'alert alert-success\' and contains(., \'MySQL returned an empty result set\')]',
         );
 
-        $this->waitForElement('xpath', "//a[@class='nav-link text-nowrap' and contains(., 'Structure')]");
-
         $this->dbQuery(
             'USE `' . $this->databaseName . '`;'
             . 'SHOW TABLES',
