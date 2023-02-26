@@ -663,7 +663,7 @@ class Types
      * VARCHAR, TINYINT, TEXT and DATE are listed first, based on
      * estimated popularity.
      *
-     * @return array
+     * @return string[]|array<string, string[]>
      */
     public function getColumns(): array
     {

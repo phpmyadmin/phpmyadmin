@@ -8544,9 +8544,7 @@
       <code>$alt</code>
       <code>$defaultFunction</code>
       <code><![CDATA[$field['True_Type']]]></code>
-      <code>$subvalue</code>
       <code>$title</code>
-      <code>$value</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$key</code>
@@ -8566,9 +8564,7 @@
       <code>$alt</code>
       <code>$defaultFunction</code>
       <code>$defaultFunction</code>
-      <code>$subvalue</code>
       <code>$title</code>
-      <code>$value</code>
       <code>$value</code>
     </MixedAssignment>
     <MixedInferredReturnType>
@@ -9738,7 +9734,6 @@
       <code>$cols</code>
       <code>$column</code>
       <code>$column</code>
-      <code>$columnTypeList</code>
       <code>$dependent</code>
       <code>$dependents</code>
       <code>$dependents</code>
@@ -15268,16 +15263,12 @@
       <code>$lastIndex</code>
       <code>$p</code>
       <code>$p</code>
-      <code>$retval[]</code>
-      <code>$retval[]</code>
       <code>$row</code>
       <code>$rowCount</code>
-      <code>$subvalue</code>
       <code>$table</code>
       <code>$table</code>
       <code><![CDATA[$table['disp_name']]]></code>
       <code>$unit</code>
-      <code>$value</code>
       <code>$value</code>
     </MixedAssignment>
     <MixedInferredReturnType>

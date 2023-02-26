@@ -9151,11 +9151,6 @@ parameters:
 			path: libraries/classes/Types.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Types\\:\\:getColumns\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Types.php
-
-		-
 			message: "#^Casting to string something that's already string\\.$#"
 			count: 2
 			path: libraries/classes/Url.php
