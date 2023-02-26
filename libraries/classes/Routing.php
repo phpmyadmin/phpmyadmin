@@ -17,15 +17,23 @@ use PhpMyAdmin\Http\ServerRequest;
 use Psr\Container\ContainerInterface;
 
 use function __;
+use function array_pop;
+use function explode;
 use function file_exists;
 use function file_put_contents;
 use function htmlspecialchars;
+use function implode;
 use function is_array;
 use function is_readable;
 use function is_writable;
+use function mb_strlen;
+use function mb_strpos;
+use function mb_strrpos;
+use function mb_substr;
 use function rawurldecode;
 use function sprintf;
 use function trigger_error;
+use function urldecode;
 use function var_export;
 
 use const CACHE_DIR;
@@ -207,5 +215,55 @@ class Routing
                 '[code]' . htmlspecialchars($route) . '[/code]',
             )),
         ]);
+    }
+
+    /**
+     * PATH_INFO could be compromised if set, so remove it from PHP_SELF
+     * and provide a clean PHP_SELF here
+     */
+    public static function getCleanPathInfo(): string
+    {
+        $pmaPhpSelf = Core::getenv('PHP_SELF');
+        if ($pmaPhpSelf === '') {
+            $pmaPhpSelf = urldecode(Core::getenv('REQUEST_URI'));
+        }
+
+        $_PATH_INFO = Core::getenv('PATH_INFO');
+        if ($_PATH_INFO !== '' && $pmaPhpSelf !== '') {
+            $question_pos = mb_strpos($pmaPhpSelf, '?');
+            if ($question_pos != false) {
+                $pmaPhpSelf = mb_substr($pmaPhpSelf, 0, $question_pos);
+            }
+
+            $path_info_pos = mb_strrpos($pmaPhpSelf, $_PATH_INFO);
+            if ($path_info_pos !== false) {
+                $path_info_part = mb_substr($pmaPhpSelf, $path_info_pos, mb_strlen($_PATH_INFO));
+                if ($path_info_part === $_PATH_INFO) {
+                    $pmaPhpSelf = mb_substr($pmaPhpSelf, 0, $path_info_pos);
+                }
+            }
+        }
+
+        $path = [];
+        foreach (explode('/', $pmaPhpSelf) as $part) {
+            // ignore parts that have no value
+            if ($part === '' || $part === '.') {
+                continue;
+            }
+
+            if ($part !== '..') {
+                // cool, we found a new part
+                $path[] = $part;
+            } elseif ($path !== []) {
+                // going back up? sure
+                array_pop($path);
+            }
+
+            // Here we intentionall ignore case where we go too up
+            // as there is nothing sane to do
+        }
+
+        /** TODO: Do we really need htmlspecialchars here? */
+        return htmlspecialchars('/' . implode('/', $path));
     }
 }
