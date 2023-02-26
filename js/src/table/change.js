@@ -294,6 +294,7 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
     }
 
     // Remove possible blocking rules if the user changed functions
+    $('#' + target.id).rules('remove', 'validationFunctionForNumeric');
     $('#' + target.id).rules('remove', 'validationFunctionForMd5');
     $('#' + target.id).rules('remove', 'validationFunctionForAesDesEncrypt');
     $('#' + target.id).rules('remove', 'validationFunctionForDateTime');
@@ -366,11 +367,16 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
                 }
             });
         }
-        // validation for integer type
-        if ($thisInput.data('type') === 'INT') {
-            validateIntField($thisInput, checkForCheckbox(multiEdit));
-            // validation for CHAR types
-        } else if ($thisInput.data('type') === 'CHAR') {
+        if (theType.startsWith('float') || theType.startsWith('decimal') || theType.startsWith('int')) {
+            $thisInput.rules('add', {
+                validationFunctionForNumeric: {
+                    param: theType,
+                    depends: function () {
+                        return checkForCheckbox(multiEdit);
+                    }
+                }
+            });
+        }
         
         if ($thisInput.data('type') === 'CHAR') {
             var maxlen = $thisInput.data('maxlength');
@@ -434,6 +440,10 @@ AJAX.registerTeardown('table/change.js', function () {
  */
 AJAX.registerOnload('table/change.js', function () {
     if ($('#insertForm').length) {
+
+
+        // Custom validation rules:
+        // --------
         // validate the comment form when it is submitted
         $('#insertForm').validate();
         jQuery.validator.addMethod('validationFunctionForHex', function (value) {
@@ -444,6 +454,10 @@ AJAX.registerOnload('table/change.js', function () {
             return !(value.substring(0, 3) === 'MD5' &&
                 typeof options.data('maxlength') !== 'undefined' &&
                 options.data('maxlength') < 32);
+        });
+
+        jQuery.validator.addMethod('validationFunctionForNumeric', function (value) {
+            return !isNaN(value);
         });
 
         jQuery.validator.addMethod('validationFunctionForAesDesEncrypt', function (value, element, options) {
