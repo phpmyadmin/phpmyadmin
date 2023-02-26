@@ -109,7 +109,7 @@
         "psalm/plugin-phpunit": "^0.18.4",
         "roave/security-advisories": "dev-latest",
         "symfony/console": "^6.2",
-        "tecnickcom/tcpdf": "6.5.0",
+        "tecnickcom/tcpdf": "6.6.2",
         "vimeo/psalm": "^5.7",
         "web-auth/webauthn-lib": "^3.3"
     },
