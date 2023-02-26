@@ -7156,6 +7156,11 @@ parameters:
 			path: libraries/classes/Plugins/Transformations/Abs/Bool2TextTransformationsPlugin.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Transformations\\\\Abs\\\\Bool2TextTransformationsPlugin\\:\\:applyTransformation\\(\\) should return string but returns mixed\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Transformations/Abs/Bool2TextTransformationsPlugin.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Transformations\\\\Abs\\\\CodeMirrorEditorTransformationPlugin\\:\\:applyTransformation\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Transformations/Abs/CodeMirrorEditorTransformationPlugin.php
@@ -7182,6 +7187,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Transformations\\\\Abs\\\\DateFormatTransformationsPlugin\\:\\:applyTransformation\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function mb_strtolower expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php
 
@@ -7241,8 +7251,23 @@ parameters:
 			path: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php
 
 		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Transformations/Abs/InlineTransformationsPlugin.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Transformations\\\\Abs\\\\InlineTransformationsPlugin\\:\\:applyTransformation\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
+			path: libraries/classes/Plugins/Transformations/Abs/InlineTransformationsPlugin.php
+
+		-
+			message: "#^Parameter \\#1 \\.\\.\\.\\$arrays of function array_merge expects array, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Transformations/Abs/InlineTransformationsPlugin.php
+
+		-
+			message: "#^Parameter \\#2 \\$additionalParameters of static method PhpMyAdmin\\\\Url\\:\\:getFromRoute\\(\\) expects array, mixed given\\.$#"
+			count: 2
 			path: libraries/classes/Plugins/Transformations/Abs/InlineTransformationsPlugin.php
 
 		-
@@ -7256,6 +7281,11 @@ parameters:
 			path: libraries/classes/Plugins/Transformations/Abs/PreApPendTransformationsPlugin.php
 
 		-
+			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Transformations/Abs/PreApPendTransformationsPlugin.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Transformations\\\\Abs\\\\RegexValidationTransformationsPlugin\\:\\:applyTransformation\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php
@@ -7264,6 +7294,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Transformations\\\\Abs\\\\SQLTransformationsPlugin\\:\\:applyTransformation\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Transformations/Abs/SQLTransformationsPlugin.php
+
+		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Transformations/Abs/SubstringTransformationsPlugin.php
 
 		-
 			message: "#^Casting to string something that's already string\\.$#"
@@ -7289,6 +7324,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Transformations\\\\Abs\\\\TextFileUploadTransformationsPlugin\\:\\:getInputHtml\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Transformations/Abs/TextFileUploadTransformationsPlugin.php
+
+		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Transformations/Abs/TextImageLinkTransformationsPlugin.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Transformations\\\\Abs\\\\TextImageLinkTransformationsPlugin\\:\\:applyTransformation\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
@@ -7357,11 +7397,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\TransformationsPlugin\\:\\:applyTransformationNoWrap\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/TransformationsPlugin.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\TransformationsPlugin\\:\\:getOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/TransformationsPlugin.php
 
