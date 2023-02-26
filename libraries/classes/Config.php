@@ -11,6 +11,7 @@ use Throwable;
 
 use function __;
 use function array_filter;
+use function array_key_last;
 use function array_merge;
 use function array_replace_recursive;
 use function array_slice;
@@ -853,7 +854,10 @@ class Config
             $parts = array_slice($parts, 0, count($parts) - 1);
         }
 
-        $parts[] = '';
+        // Add one more part to make the path end in slash unless it already ends with slash
+        if (count($parts) < 2 || $parts[array_key_last($parts)] !== '') {
+            $parts[] = '';
+        }
 
         return implode('/', $parts);
     }
