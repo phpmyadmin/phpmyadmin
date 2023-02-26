@@ -846,21 +846,6 @@ class ConfigTest extends AbstractTestCase
                 '/',
             ],
             [
-                '\\index.php',
-                '',
-                '/',
-            ],
-            [
-                '\\',
-                '',
-                '/',
-            ],
-            [
-                '\\path\\to\\index.php',
-                '',
-                '/path/to/',
-            ],
-            [
                 '/foo/bar/phpmyadmin/index.php',
                 '',
                 '/foo/bar/phpmyadmin/',

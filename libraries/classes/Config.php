@@ -52,7 +52,6 @@ use function rtrim;
 use function setcookie;
 use function sprintf;
 use function str_contains;
-use function str_replace;
 use function stripos;
 use function strtolower;
 use function substr;
@@ -841,7 +840,7 @@ class Config
 
         $parts = explode(
             '/',
-            rtrim(str_replace('\\', '/', $parsedUrlPath), '/'),
+            $parsedUrlPath,
         );
 
         /* Remove filename */
