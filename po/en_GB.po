@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-08 15:09+0000\n"
-"PO-Revision-Date: 2021-04-24 09:46+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2023-02-26 23:10+0000\n"
+"Last-Translator: \"Piotr W.\" <piotrwieland2012@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/en_GB/>\n"
+"phpmyadmin/5-2/en_GB/>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.7-dev\n"
+"X-Generator: Weblate 4.16-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -3163,7 +3163,7 @@ msgstr "Maximum execution time"
 
 #: libraries/classes/Config/Descriptions.php:655
 msgid "Use [code]LOCK TABLES[/code] statement"
-msgstr ""
+msgstr "Użyj oświadczenia"
 
 #: libraries/classes/Config/Descriptions.php:656
 msgid "Save as file"
@@ -4962,6 +4962,8 @@ msgstr "Showing rows %1$s - %2$s."
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
+"Istnieje już strona o nazwie \"%s\" proszę zmień nazwę ,nie można zapisać "
+"dwóch plików o tej samej nazwie."
 
 #: libraries/classes/Controllers/Database/ExportController.php:81
 #: libraries/classes/Controllers/Database/TrackingController.php:130
@@ -5254,6 +5256,9 @@ msgid ""
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"Konfiguracja pliku wymaga prawidłowego klucza cookie. Tymczasowy klucz "
+"zostanie automatycznie wygenerowany dla ciebie. Zapoznaj się proszę z "
+"[doc@cfg_blowfish_secret]dokumentacja[/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:328
 #, php-format
@@ -5262,6 +5267,9 @@ msgid ""
 "necessary. It should only be %d bytes long. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"Klucz szyfrowania ciasteczka w pliku konfiguracyjnym jest dłuższy niż to "
+"konieczne. Powinien mieć mniej/więcej %d bajtów. Zapoznaj się z "
+"[doc@cfg_blowfish_secret]dokumentacją[/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:346
 msgid ""
@@ -5737,13 +5745,13 @@ msgstr "Close"
 #: templates/server/privileges/users_overview.twig:105
 msgctxt "Lock the account."
 msgid "Lock"
-msgstr ""
+msgstr "Zablokuj"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:139
 #: templates/server/privileges/users_overview.twig:102
 msgctxt "Unlock the account."
 msgid "Unlock"
-msgstr ""
+msgstr "Odblokuj"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:140
 #: templates/server/privileges/users_overview.twig:100
@@ -7008,7 +7016,7 @@ msgstr "Delete page"
 #. l10n: When the user opens a page saved in the Designer
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:531
 msgid "Some tables saved in this page might have been renamed or deleted."
-msgstr ""
+msgstr "Niektóre wpisy tablic mogą zostać przeniesione bądź usunięte."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:532
 #: templates/database/designer/main.twig:10
@@ -7377,7 +7385,7 @@ msgstr "Timed out waiting for security key activation."
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:685
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
-msgstr ""
+msgstr "Błędne/nieznane zapytanie wysłane do klucza"
 
 #. l10n: unknown error code (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:687
@@ -7391,7 +7399,7 @@ msgstr "Unknown error"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:689
 msgctxt "U2F error"
 msgid "Client does not support security key."
-msgstr ""
+msgstr "Klient nie obsługuje klucza zabezpieczeń"
 
 #. l10n: error code 4 (from U2F API) on register
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:691
@@ -7414,6 +7422,8 @@ msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
+"WebAuthn jest niedostępny. Proszę użyć obsługiwanej przeglądarki w "
+"bezpiecznym kontekście (HTTPS)."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:701
 msgid ""
@@ -7421,6 +7431,9 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
+"Nie możesz otworzyć, zapisać ani usunąć układu strony, ponieważ \"IndexedDB\""
+" nie działa w Twojej przeglądarce, a konfiguracja przechowywania \"phpMyAdmin"
+"\" nie przewiduje takiej konfiguracji."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:706
 #, php-format
@@ -9034,6 +9047,8 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+"Błąd 1045: Brak Dostępu. Wymagane podanie dodatkowych informacji , więcej "
+"informacji będzie dostępne, ale jest ukryte w konfiguracji dyrektyw:%s."
 
 #: libraries/classes/Display/Results.php:897 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -12058,7 +12073,7 @@ msgstr "Old MySQL-4.0 authentication"
 #: libraries/classes/Server/Privileges/AccountLocking.php:30
 #: libraries/classes/Server/Privileges/AccountLocking.php:51
 msgid "Account locking is not supported."
-msgstr ""
+msgstr "Blokowanie kont jest niewspierane."
 
 #: libraries/classes/Server/Privileges.php:262
 msgid "No privileges."
@@ -13620,6 +13635,9 @@ msgid ""
 "The column width of integer types is ignored in your MySQL version unless "
 "defining a TINYINT(1) column"
 msgstr ""
+"Kolumny posiadające ciągi muszą być liczbami całkowitymi , inaczej bedą "
+"ignorowane przez twoją bazę danych MySQL, chyba że wersja przewiduje "
+"wprowadzenie kolumnę TINYINT(1)"
 
 #: templates/columns_definitions/column_definitions_form.twig:175
 #: templates/database/designer/main.twig:1097
