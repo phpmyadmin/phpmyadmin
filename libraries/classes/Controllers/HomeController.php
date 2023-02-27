@@ -28,6 +28,7 @@ use function count;
 use function extension_loaded;
 use function file_exists;
 use function ini_get;
+use function is_string;
 use function mb_strlen;
 use function preg_match;
 use function sprintf;
@@ -306,7 +307,12 @@ class HomeController extends AbstractController
          * Check if user does not have defined blowfish secret and it is being used.
          */
         if (! empty($_SESSION['encryption_key'])) {
-            $encryptionKeyLength = mb_strlen($GLOBALS['cfg']['blowfish_secret'], '8bit');
+            $encryptionKeyLength = 0;
+            // This can happen if the user did use getenv() to set blowfish_secret
+            if (is_string($GLOBALS['cfg']['blowfish_secret'])) {
+                $encryptionKeyLength = mb_strlen($GLOBALS['cfg']['blowfish_secret'], '8bit');
+            }
+
             if ($encryptionKeyLength < SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
                 $this->errors[] = [
                     'message' => __(

@@ -2632,6 +2632,9 @@
     <PossiblyUnusedMethod>
       <code>__construct</code>
     </PossiblyUnusedMethod>
+    <RedundantCondition>
+      <code><![CDATA[is_string($GLOBALS['cfg']['blowfish_secret'])]]></code>
+    </RedundantCondition>
     <UnusedVariable>
       <code>$collationsList</code>
     </UnusedVariable>
@@ -15190,8 +15193,6 @@
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$columnNames</code>
-      <code>$tableName</code>
-      <code>$tableName</code>
       <code><![CDATA[uksort($tables, 'strnatcasecmp')]]></code>
       <code><![CDATA[uksort($tables, 'strnatcasecmp')]]></code>
     </MixedArgumentTypeCoercion>
@@ -15220,6 +15221,7 @@
       <code><![CDATA[$row['Seq_in_index']]]></code>
       <code><![CDATA[$row['Sub_part']]]></code>
       <code><![CDATA[$table['Name']]]></code>
+      <code><![CDATA[$table['TABLE_NAME']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
@@ -16628,12 +16630,6 @@
       <code>$queryString</code>
       <code>$queryString</code>
     </MixedAssignment>
-  </file>
-  <file src="test/classes/GitTest.php">
-    <RedundantCast>
-      <code><![CDATA[(string) $this->cwd]]></code>
-      <code><![CDATA[(string) $this->testDir]]></code>
-    </RedundantCast>
   </file>
   <file src="test/classes/HeaderTest.php">
     <MixedInferredReturnType>

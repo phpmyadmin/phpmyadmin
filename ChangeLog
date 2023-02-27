@@ -15,6 +15,7 @@ phpMyAdmin - ChangeLog
 - issue #18106 Fix renaming database with a view
 - issue #18120 Fix bug with numerical tables during renaming database
 - issue #16851 Fix ($cfg['Order']) default column order doesn't have have any effect since phpMyAdmin 4.2.0
+- issue #18112 Fix open base dir warning on git version class
 
 5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid

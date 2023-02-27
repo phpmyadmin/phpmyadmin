@@ -10747,11 +10747,6 @@ parameters:
 
 		-
 			message: "#^Casting to string something that's already string\\.$#"
-			count: 2
-			path: test/classes/GitTest.php
-
-		-
-			message: "#^Casting to string something that's already string\\.$#"
 			count: 1
 			path: test/classes/HeaderTest.php
 

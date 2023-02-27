@@ -286,7 +286,9 @@ class Util
 
         $tableGroups = [];
 
-        foreach ($tables as $tableName => $table) {
+        foreach ($tables as $table) {
+            /** @var string $tableName */
+            $tableName = $table['TABLE_NAME'];
             $table['Rows'] = self::checkRowCount($db, $table);
 
             // in $group we save the reference to the place in $table_groups
@@ -2224,10 +2226,7 @@ class Util
                 }
 
                 if (count($names) > 0) {
-                    $tables = array_merge(
-                        $tables,
-                        $GLOBALS['dbi']->getTablesFull($db, $names),
-                    );
+                    $tables += $GLOBALS['dbi']->getTablesFull($db, $names);
                 }
 
                 if ($GLOBALS['cfg']['NaturalOrder']) {
