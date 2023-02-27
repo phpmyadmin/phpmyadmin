@@ -1804,6 +1804,13 @@ Generic settings
     middle-clicking for pasting the clipboard contents in some Linux
     distributions (such as Ubuntu) is not supported by all browsers.
 
+.. config:option:: $cfg['LintEnable']
+
+    :type: boolean
+    :default: true
+
+    Defines whether to use the parser to find any errors in the query before executing.
+
 .. config:option:: $cfg['DefaultForeignKeyChecks']
 
     :type: string
