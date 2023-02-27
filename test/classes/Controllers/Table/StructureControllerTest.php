@@ -40,7 +40,6 @@ class StructureControllerTest extends AbstractTestCase
         $GLOBALS['table'] = 'test_table';
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['lang'] = 'en';
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server'] = $GLOBALS['config']->defaultServer;
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $GLOBALS['cfg']['ShowStats'] = false;

@@ -37,7 +37,6 @@ class TrackingControllerTest extends AbstractTestCase
         $GLOBALS['db'] = 'test_db';
         $GLOBALS['table'] = 'test_table';
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $GLOBALS['cfg']['Server']['tracking_default_statements'] = 'CREATE TABLE,ALTER TABLE,DROP TABLE';
 

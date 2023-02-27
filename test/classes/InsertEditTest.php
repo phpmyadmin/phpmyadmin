@@ -66,7 +66,6 @@ class InsertEditTest extends AbstractTestCase
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         $GLOBALS['dbi'] = $this->dbi;
         $GLOBALS['server'] = 1;
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['db'] = 'db';

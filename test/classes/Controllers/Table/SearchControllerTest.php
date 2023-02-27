@@ -53,7 +53,6 @@ class SearchControllerTest extends AbstractTestCase
         $GLOBALS['db'] = 'PMA';
         $GLOBALS['table'] = 'PMA_BookMark';
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $relation = new Relation($GLOBALS['dbi']);
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 

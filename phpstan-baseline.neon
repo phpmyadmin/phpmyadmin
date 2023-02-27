@@ -201,11 +201,6 @@ parameters:
 			path: libraries/classes/Config.php
 
 		-
-			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, string\\|false\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Config.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$baseSettings type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Config.php
@@ -7896,13 +7891,13 @@ parameters:
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Access to an uninitialized property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$replicationInfo\\.$#"
-			count: 2
+			message: "#^Access to an uninitialized property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$config\\.$#"
+			count: 1
 			path: libraries/classes/Server/Status/Data.php
 
 		-
-			message: "#^Access to an uninitialized property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$selfUrl\\.$#"
-			count: 4
+			message: "#^Access to an uninitialized property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$replicationInfo\\.$#"
+			count: 2
 			path: libraries/classes/Server/Status/Data.php
 
 		-
@@ -9586,11 +9581,6 @@ parameters:
 			path: test/classes/Command/WriteGitRevisionCommandTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\CommonTest\\:\\:providerForTestCleanupPathInfo\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/CommonTest.php
-
-		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\) with string will always evaluate to true\\.$#"
 			count: 3
 			path: test/classes/Config/DescriptionTest.php
@@ -11228,6 +11218,11 @@ parameters:
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'FastRoute\\\\\\\\Dispatcher' and FastRoute\\\\Dispatcher will always evaluate to true\\.$#"
 			count: 4
+			path: test/classes/RoutingTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\RoutingTest\\:\\:providerForTestCleanupPathInfo\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
 			path: test/classes/RoutingTest.php
 
 		-

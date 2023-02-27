@@ -27,7 +27,6 @@ class FindReplaceControllerTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

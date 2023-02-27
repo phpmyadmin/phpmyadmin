@@ -40,7 +40,6 @@ class CoreTest extends AbstractNetworkTestCase
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
-        $GLOBALS['PMA_PHP_SELF'] = 'http://example.net/';
         $GLOBALS['config']->set('URLQueryEncryption', false);
     }
 

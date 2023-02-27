@@ -60,4 +60,75 @@ class RoutingTest extends AbstractTestCase
         $this->assertInstanceOf(Dispatcher::class, $dispatcher);
         $this->assertSame($expected, $dispatcher->dispatch('GET', '/'));
     }
+
+    /**
+     * @param string $php_self  The PHP_SELF value
+     * @param string $request   The REQUEST_URI value
+     * @param string $path_info The PATH_INFO value
+     * @param string $expected  Expected result
+     *
+     * @dataProvider providerForTestCleanupPathInfo
+     */
+    public function testCleanupPathInfo(string $php_self, string $request, string $path_info, string $expected): void
+    {
+        $_SERVER['PHP_SELF'] = $php_self;
+        $_SERVER['REQUEST_URI'] = $request;
+        $_SERVER['PATH_INFO'] = $path_info;
+        $actual = Routing::getCleanPathInfo();
+        $this->assertEquals($expected, $actual);
+    }
+
+    public static function providerForTestCleanupPathInfo(): array
+    {
+        return [
+            [
+                '/phpmyadmin/index.php/; cookieinj=value/',
+                '/phpmyadmin/index.php/;%20cookieinj=value///',
+                '/; cookieinj=value/',
+                '/phpmyadmin/index.php',
+            ],
+            [
+                '',
+                '/phpmyadmin/index.php/;%20cookieinj=value///',
+                '/; cookieinj=value/',
+                '/phpmyadmin/index.php',
+            ],
+            [
+                '',
+                '//example.com/../phpmyadmin/index.php',
+                '',
+                '/phpmyadmin/index.php',
+            ],
+            [
+                '',
+                '//example.com/../../.././phpmyadmin/index.php',
+                '',
+                '/phpmyadmin/index.php',
+            ],
+            [
+                '',
+                '/page.php/malicouspathinfo?malicouspathinfo',
+                'malicouspathinfo',
+                '/page.php',
+            ],
+            [
+                '/phpmyadmin/./index.php',
+                '/phpmyadmin/./index.php',
+                '',
+                '/phpmyadmin/index.php',
+            ],
+            [
+                '/phpmyadmin/index.php',
+                '/phpmyadmin/index.php',
+                '',
+                '/phpmyadmin/index.php',
+            ],
+            [
+                '',
+                '/phpmyadmin/index.php',
+                '',
+                '/phpmyadmin/index.php',
+            ],
+        ];
+    }
 }

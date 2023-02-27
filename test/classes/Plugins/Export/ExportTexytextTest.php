@@ -58,7 +58,6 @@ class ExportTexytextTest extends AbstractTestCase
         $GLOBALS['table'] = '';
         $GLOBALS['lang'] = 'en';
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['PMA_PHP_SELF'] = '';
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $this->object = new ExportTexytext(
             new Relation($GLOBALS['dbi']),

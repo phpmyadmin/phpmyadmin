@@ -32,7 +32,6 @@ class TriggersTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['db'] = 'pma_test';
         $GLOBALS['table'] = 'table';
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
 
         $this->triggers = new Triggers(
             $GLOBALS['dbi'],

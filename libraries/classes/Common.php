@@ -22,34 +22,25 @@ use RuntimeException;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 use function __;
-use function array_pop;
 use function count;
 use function date_default_timezone_get;
 use function date_default_timezone_set;
 use function define;
-use function explode;
 use function extension_loaded;
 use function function_exists;
 use function hash_equals;
-use function htmlspecialchars;
-use function implode;
 use function ini_get;
 use function ini_set;
 use function is_array;
 use function is_scalar;
 use function is_string;
 use function mb_internal_encoding;
-use function mb_strlen;
-use function mb_strpos;
-use function mb_strrpos;
-use function mb_substr;
 use function ob_start;
 use function restore_error_handler;
 use function session_id;
 use function sprintf;
 use function strlen;
 use function trigger_error;
-use function urldecode;
 
 use const CONFIG_FILE;
 use const E_USER_ERROR;
@@ -113,7 +104,6 @@ final class Common
         }
 
         self::configurePhpSettings();
-        self::cleanupPathInfo();
 
         /** @var Config $config */
         $config = $container->get('config');
@@ -400,55 +390,6 @@ final class Common
          * if not done here it will produce E_WARNING on every date/time function
          */
         date_default_timezone_set(@date_default_timezone_get());
-    }
-
-    /**
-     * PATH_INFO could be compromised if set, so remove it from PHP_SELF
-     * and provide a clean PHP_SELF here
-     */
-    public static function cleanupPathInfo(): void
-    {
-        $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
-        if (empty($GLOBALS['PMA_PHP_SELF'])) {
-            $GLOBALS['PMA_PHP_SELF'] = urldecode(Core::getenv('REQUEST_URI'));
-        }
-
-        $_PATH_INFO = Core::getenv('PATH_INFO');
-        if (! empty($_PATH_INFO) && ! empty($GLOBALS['PMA_PHP_SELF'])) {
-            $question_pos = mb_strpos($GLOBALS['PMA_PHP_SELF'], '?');
-            if ($question_pos != false) {
-                $GLOBALS['PMA_PHP_SELF'] = mb_substr($GLOBALS['PMA_PHP_SELF'], 0, $question_pos);
-            }
-
-            $path_info_pos = mb_strrpos($GLOBALS['PMA_PHP_SELF'], $_PATH_INFO);
-            if ($path_info_pos !== false) {
-                $path_info_part = mb_substr($GLOBALS['PMA_PHP_SELF'], $path_info_pos, mb_strlen($_PATH_INFO));
-                if ($path_info_part === $_PATH_INFO) {
-                    $GLOBALS['PMA_PHP_SELF'] = mb_substr($GLOBALS['PMA_PHP_SELF'], 0, $path_info_pos);
-                }
-            }
-        }
-
-        $path = [];
-        foreach (explode('/', $GLOBALS['PMA_PHP_SELF']) as $part) {
-            // ignore parts that have no value
-            if (empty($part) || $part === '.') {
-                continue;
-            }
-
-            if ($part !== '..') {
-                // cool, we found a new part
-                $path[] = $part;
-            } elseif (count($path) > 0) {
-                // going back up? sure
-                array_pop($path);
-            }
-
-            // Here we intentionall ignore case where we go too up
-            // as there is nothing sane to do
-        }
-
-        $GLOBALS['PMA_PHP_SELF'] = htmlspecialchars('/' . implode('/', $path));
     }
 
     private static function setGotoAndBackGlobals(ContainerInterface $container, Config $config): void

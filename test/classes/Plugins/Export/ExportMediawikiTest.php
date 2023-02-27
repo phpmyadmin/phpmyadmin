@@ -49,7 +49,6 @@ class ExportMediawikiTest extends AbstractTestCase
         $GLOBALS['table'] = '';
         $GLOBALS['lang'] = 'en';
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['PMA_PHP_SELF'] = '';
         $this->object = new ExportMediawiki(
             new Relation($GLOBALS['dbi']),
             new Export($GLOBALS['dbi']),

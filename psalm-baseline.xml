@@ -15625,9 +15625,6 @@
     </MixedAssignment>
   </file>
   <file src="test/classes/CommonTest.php">
-    <MixedInferredReturnType>
-      <code>array</code>
-    </MixedInferredReturnType>
     <RedundantConditionGivenDocblockType>
       <code>assertFalse</code>
       <code>assertTrue</code>
@@ -17040,6 +17037,11 @@
       <code>assertIsArray</code>
       <code>assertIsArray</code>
     </RedundantCondition>
+  </file>
+  <file src="test/classes/RoutingTest.php">
+    <MixedInferredReturnType>
+      <code>array</code>
+    </MixedInferredReturnType>
   </file>
   <file src="test/classes/SanitizeTest.php">
     <MixedInferredReturnType>

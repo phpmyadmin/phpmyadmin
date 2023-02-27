@@ -40,7 +40,7 @@ class AbstractControllerTest extends AbstractTestCase
         $GLOBALS['param1'] = 'param1';
         $GLOBALS['param2'] = null;
 
-        $message = 'index.php: Missing parameter: param2';
+        $message = 'Missing parameter: param2';
         $message .= MySQLDocumentation::showDocumentation('faq', 'faqmissingparameters', true);
         $message .= '[br]';
         $expected = Message::error($message)->getDisplay();

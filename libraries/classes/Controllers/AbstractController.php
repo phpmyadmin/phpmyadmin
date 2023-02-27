@@ -13,7 +13,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
 use function __;
-use function basename;
 use function defined;
 
 abstract class AbstractController
@@ -105,7 +104,6 @@ abstract class AbstractController
      */
     protected function checkParameters(array $params, bool $request = false): void
     {
-        $reportedScriptName = basename($GLOBALS['PMA_PHP_SELF']);
         $foundError = false;
         $errorMessage = '';
         if ($request) {
@@ -119,8 +117,8 @@ abstract class AbstractController
                 continue;
             }
 
-            $errorMessage .= $reportedScriptName
-                . ': ' . __('Missing parameter:') . ' '
+            $errorMessage .=
+                __('Missing parameter:') . ' '
                 . $param
                 . MySQLDocumentation::showDocumentation('faq', 'faqmissingparameters', true)
                 . '[br]';

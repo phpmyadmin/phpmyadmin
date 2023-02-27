@@ -52,7 +52,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['table'] = 'table';
         $_POST['pma_password'] = '';
         $this->object = new AuthenticationCookie();
-        $GLOBALS['PMA_PHP_SELF'] = '/phpmyadmin/';
+        $_SERVER['PHP_SELF'] = '/phpmyadmin/index.php';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['conn_error'] = null;
     }

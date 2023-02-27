@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Header;
 use ReflectionProperty;
 
@@ -33,7 +32,6 @@ class HeaderTest extends AbstractTestCase
 
         $GLOBALS['server'] = 0;
         $GLOBALS['message'] = 'phpmyadminmessage';
-        $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['server'] = 'server';
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = '';

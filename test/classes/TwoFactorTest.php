@@ -37,7 +37,6 @@ class TwoFactorTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = 'table';
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['DBG'] = [
             'simple2fa' => false,

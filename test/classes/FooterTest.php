@@ -35,7 +35,6 @@ class FooterTest extends AbstractTestCase
 
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $_SERVER['SCRIPT_NAME'] = 'index.php';
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
         $GLOBALS['text_dir'] = 'ltr';

@@ -13,7 +13,6 @@ use PhpMyAdmin\Dbal\DatabaseName;
 use function __;
 use function array_flip;
 use function array_merge;
-use function basename;
 use function htmlspecialchars;
 use function http_build_query;
 use function is_array;
@@ -304,8 +303,7 @@ class UserPreferences
             return '';
         }
 
-        $script_name = basename(basename($GLOBALS['PMA_PHP_SELF']));
-        $return_url = $script_name . '?' . http_build_query($_GET, '', '&');
+        $return_url = '?' . http_build_query($_GET, '', '&');
 
         return $this->template->render('preferences/autoload', [
             'hidden_inputs' => Url::getHiddenInputs(),

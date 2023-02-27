@@ -41,11 +41,10 @@ class MonitorControllerTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
 
-        $this->data = new Data($this->dbi);
+        $this->data = new Data($this->dbi, $GLOBALS['config']);
     }
 
     public function testIndex(): void

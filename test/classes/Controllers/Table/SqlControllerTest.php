@@ -41,7 +41,6 @@ class SqlControllerTest extends AbstractTestCase
         $GLOBALS['table'] = 'test_table';
         $GLOBALS['lang'] = 'en';
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server'] = $GLOBALS['config']->defaultServer;
 
         $this->dummyDbi->addSelectDb('test_db');

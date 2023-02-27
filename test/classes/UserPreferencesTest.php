@@ -29,7 +29,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         $GLOBALS['dbi'] = $this->createDatabaseInterface();
         $GLOBALS['server'] = 0;
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['PMA_PHP_SELF'] = '/phpmyadmin/';
+        $_SERVER['PHP_SELF'] = '/phpmyadmin/';
     }
 
     /**
@@ -378,7 +378,6 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
         $_REQUEST['prefs_autoload'] = 'nohide';
         $GLOBALS['cfg']['ServerDefault'] = 1;
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $result = $userPreferences->autoloadGetHeader();
 
         $this->assertStringContainsString(
@@ -392,6 +391,6 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
         $this->assertStringContainsString('<input type="hidden" name="submit_import" value="1">', $result);
 
-        $this->assertStringContainsString('<input type="hidden" name="return_url" value="index.php?">', $result);
+        $this->assertStringContainsString('<input type="hidden" name="return_url" value="?">', $result);
     }
 }

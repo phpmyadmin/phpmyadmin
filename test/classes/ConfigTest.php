@@ -815,7 +815,9 @@ class ConfigTest extends AbstractTestCase
      */
     public function testGetRootPath(string $request, string $absolute, string $expected): void
     {
-        $GLOBALS['PMA_PHP_SELF'] = $request;
+        $_SERVER['PHP_SELF'] = $request;
+        $_SERVER['REQUEST_URI'] = '';
+        $_SERVER['PATH_INFO'] = '';
         $this->object->set('PmaAbsoluteUri', $absolute);
         $this->assertEquals($expected, $this->object->getRootPath());
     }
@@ -844,21 +846,6 @@ class ConfigTest extends AbstractTestCase
                 '/',
             ],
             [
-                '\\index.php',
-                '',
-                '/',
-            ],
-            [
-                '\\',
-                '',
-                '/',
-            ],
-            [
-                '\\path\\to\\index.php',
-                '',
-                '/path/to/',
-            ],
-            [
                 '/foo/bar/phpmyadmin/index.php',
                 '',
                 '/foo/bar/phpmyadmin/',
@@ -869,24 +856,9 @@ class ConfigTest extends AbstractTestCase
                 '/foo/bar/phpmyadmin/',
             ],
             [
-                'https://example.net/baz/phpmyadmin/',
+                '/foo/bar/phpmyadmin',
                 '',
-                '/baz/phpmyadmin/',
-            ],
-            [
-                'http://example.net/baz/phpmyadmin/',
-                '',
-                '/baz/phpmyadmin/',
-            ],
-            [
-                'http://example.net/phpmyadmin/',
-                '',
-                '/phpmyadmin/',
-            ],
-            [
-                'http://example.net/',
-                '',
-                '/',
+                '/foo/bar/phpmyadmin/',
             ],
             [
                 'http://example.net/',

@@ -41,7 +41,6 @@ class StructureControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
 
         $table = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()

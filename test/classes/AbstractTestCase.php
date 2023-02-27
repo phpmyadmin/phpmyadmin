@@ -78,7 +78,6 @@ abstract class AbstractTestCase extends TestCase
         $GLOBALS['table'] = '';
         $GLOBALS['sql_query'] = '';
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
 
         // Config before DBI
         $this->setGlobalConfig();

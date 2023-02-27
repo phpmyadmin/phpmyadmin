@@ -48,7 +48,6 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
         $GLOBALS['lang'] = 'en';
         $GLOBALS['server'] ??= 1;
         $GLOBALS['text_dir'] ??= 'ltr';
-        $GLOBALS['PMA_PHP_SELF'] ??= 'index.php';
         $this->header = new Header();
         $this->footer = new Footer();
     }

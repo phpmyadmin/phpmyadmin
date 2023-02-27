@@ -11,6 +11,7 @@ use Throwable;
 
 use function __;
 use function array_filter;
+use function array_key_last;
 use function array_merge;
 use function array_replace_recursive;
 use function array_slice;
@@ -52,7 +53,6 @@ use function rtrim;
 use function setcookie;
 use function sprintf;
 use function str_contains;
-use function str_replace;
 use function stripos;
 use function strtolower;
 use function substr;
@@ -837,11 +837,11 @@ class Config
             }
         }
 
-        $parsedUrlPath = parse_url($GLOBALS['PMA_PHP_SELF'], PHP_URL_PATH);
+        $parsedUrlPath = Routing::getCleanPathInfo();
 
         $parts = explode(
             '/',
-            rtrim(str_replace('\\', '/', $parsedUrlPath), '/'),
+            $parsedUrlPath,
         );
 
         /* Remove filename */
@@ -854,7 +854,10 @@ class Config
             $parts = array_slice($parts, 0, count($parts) - 1);
         }
 
-        $parts[] = '';
+        // Add one more part to make the path end in slash unless it already ends with slash
+        if (count($parts) < 2 || $parts[array_key_last($parts)] !== '') {
+            $parts[] = '';
+        }
 
         return implode('/', $parts);
     }

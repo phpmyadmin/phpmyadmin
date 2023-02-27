@@ -58,7 +58,6 @@ class SqlTest extends AbstractTestCase
         $GLOBALS['cfg']['Confirm'] = true;
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
         $GLOBALS['cfg']['enable_drag_drop_import'] = true;
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['showtable'] = null;
 
         $relation = new Relation($GLOBALS['dbi']);

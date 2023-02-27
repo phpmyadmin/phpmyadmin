@@ -39,14 +39,13 @@ class StatusControllerTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
     }
 
     public function testIndex(): void
     {
-        $data = new Data($GLOBALS['dbi']);
+        $data = new Data($GLOBALS['dbi'], $GLOBALS['config']);
 
         $bytesReceived = 100;
         $bytesSent = 200;

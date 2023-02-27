@@ -42,7 +42,6 @@ class SvgRelationSchemaTest extends AbstractTestCase
         $GLOBALS['table'] = '';
         $GLOBALS['lang'] = 'en';
         $GLOBALS['text_dir'] = 'en';
-        $GLOBALS['PMA_PHP_SELF'] = '';
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
 
         $this->object = new SvgRelationSchema(DatabaseName::fromValue('test_db'));
