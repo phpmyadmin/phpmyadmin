@@ -9147,11 +9147,6 @@ parameters:
 
 		-
 			message: "#^Casting to string something that's already string\\.$#"
-			count: 1
-			path: libraries/classes/Types.php
-
-		-
-			message: "#^Casting to string something that's already string\\.$#"
 			count: 2
 			path: libraries/classes/Url.php
 

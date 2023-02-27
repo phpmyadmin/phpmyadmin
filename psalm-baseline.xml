@@ -15085,11 +15085,6 @@
       <code>new $cls($this)</code>
     </PropertyTypeCoercion>
   </file>
-  <file src="libraries/classes/Types.php">
-    <RedundantCastGivenDocblockType>
-      <code>(string) $type</code>
-    </RedundantCastGivenDocblockType>
-  </file>
   <file src="libraries/classes/Url.php">
     <MixedArgumentTypeCoercion>
       <code>$additionalParameters</code>

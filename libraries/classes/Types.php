@@ -214,7 +214,7 @@ class Types
      *
      * @param string $type The data type to get a description.
      */
-    public function getTypeDescription($type): string
+    public function getTypeDescription(string $type): string
     {
         return match (mb_strtoupper($type)) {
             'TINYINT' => __('A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255'),
@@ -360,9 +360,9 @@ class Types
      *
      * @param string $type The data type to get a class.
      */
-    public function getTypeClass($type): string
+    public function getTypeClass(string $type): string
     {
-        return match (mb_strtoupper((string) $type)) {
+        return match (mb_strtoupper($type)) {
             'TINYINT',
             'SMALLINT',
             'MEDIUMINT',
@@ -420,7 +420,7 @@ class Types
      *
      * @return string[]
      */
-    public function getFunctionsClass($class): array
+    public function getFunctionsClass(string $class): array
     {
         $isMariaDB = $this->dbi->isMariaDB();
         $serverVersion = $this->dbi->getVersion();
@@ -608,7 +608,7 @@ class Types
      *
      * @return string[]
      */
-    public function getFunctions($type): array
+    public function getFunctions(string $type): array
     {
         $class = $this->getTypeClass($type);
 
@@ -799,7 +799,7 @@ class Types
      *
      * @return string[] min and max values
      */
-    public function getIntegerRange($type, $signed = true): array
+    public function getIntegerRange(string $type, bool $signed = true): array
     {
         $min_max_data = [
             'unsigned' => [
