@@ -774,7 +774,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerExtractValueFromFormattedSize
      */
-    public function testExtractValueFromFormattedSize($size, $expected): void
+    public function testExtractValueFromFormattedSize(int|string $size, int|float $expected): void
     {
         $this->assertEquals(
             $expected,
@@ -824,7 +824,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerFormatByteDown
      */
-    public function testFormatByteDown($a, int $b, int $c, array $e): void
+    public function testFormatByteDown(float|int|string $a, int $b, int $c, array $e): void
     {
         $result = Util::formatByteDown($a, $b, $c);
         $this->assertIsArray($result);
@@ -1013,7 +1013,7 @@ class UtilTest extends AbstractTestCase
      * @param int              $c Number of decimals to retain
      * @param string           $d Expected value
      */
-    private function assertFormatNumber($a, int $b, int $c, string $d): void
+    private function assertFormatNumber(float|int|string $a, int $b, int $c, string $d): void
     {
         $this->assertEquals(
             $d,
@@ -1036,7 +1036,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerFormatNumber
      */
-    public function testFormatNumber($a, int $b, int $c, string $d): void
+    public function testFormatNumber(float|int|string $a, int $b, int $c, string $d): void
     {
         $this->assertFormatNumber($a, $b, $c, $d);
 
@@ -1201,13 +1201,13 @@ class UtilTest extends AbstractTestCase
     /**
      * Test for Util::getFormattedMaximumUploadSize
      *
-     * @param int|float $size Size (float on some cpu architectures)
-     * @param string    $unit Unit
-     * @param string    $res  Result
+     * @param int|float|string $size Size (float on some cpu architectures)
+     * @param string           $unit Unit
+     * @param string           $res  Result
      *
      * @dataProvider providerGetFormattedMaximumUploadSize
      */
-    public function testGetFormattedMaximumUploadSize($size, string $unit, string $res): void
+    public function testGetFormattedMaximumUploadSize(int|float|string $size, string $unit, string $res): void
     {
         $this->assertEquals(
             '(' . __('Max: ') . $res . $unit . ')',
@@ -1809,7 +1809,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerIsInteger
      */
-    public function testIsInteger(bool $expected, $input): void
+    public function testIsInteger(bool $expected, mixed $input): void
     {
         $isInteger = Util::isInteger($input);
         $this->assertEquals($expected, $isInteger);

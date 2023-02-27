@@ -573,7 +573,7 @@ class ResultsTest extends AbstractTestCase
         string $category,
         string|null $content,
         TransformationsPlugin|null $transformation_plugin,
-        $transform_options,
+        array|object $transform_options,
         object $meta,
         array $url_params,
         bool|null $is_truncated,

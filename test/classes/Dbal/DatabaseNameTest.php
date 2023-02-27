@@ -41,12 +41,8 @@ class DatabaseNameTest extends TestCase
         yield [str_repeat('a', 64)];
     }
 
-    /**
-     * @param mixed $name
-     *
-     * @dataProvider providerForTestInvalidNames
-     */
-    public function testInvalidNames($name, string $exceptionMessage): void
+    /** @dataProvider providerForTestInvalidNames */
+    public function testInvalidNames(mixed $name, string $exceptionMessage): void
     {
         $this->assertNull(DatabaseName::tryFromValue($name));
         $this->expectException(InvalidDatabaseName::class);

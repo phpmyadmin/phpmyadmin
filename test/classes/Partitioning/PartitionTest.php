@@ -33,14 +33,13 @@ class PartitionTest extends AbstractTestCase
     }
 
     /**
-     * @param string|false                      $varValue
      * @param array<int, array<string, string>> $pluginValue
      *
      * @dataProvider providerForTestHavePartitioning
      * @runInSeparateProcess
      * @preserveGlobalState disabled
      */
-    public function testHavePartitioning(bool $expected, int $version, $varValue, array $pluginValue): void
+    public function testHavePartitioning(bool $expected, int $version, string|false $varValue, array $pluginValue): void
     {
         $mock = $this->createStub(DatabaseInterface::class);
         $mock->method('getVersion')->willReturn($version);

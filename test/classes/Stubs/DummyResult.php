@@ -30,8 +30,7 @@ class DummyResult implements ResultInterface
      */
     private DbiDummy $link;
 
-    /** @param int|false $result */
-    public function __construct(DbiDummy $link, $result)
+    public function __construct(DbiDummy $link, int|false $result)
     {
         $this->link = $link;
         $this->result = $result;
@@ -85,10 +84,8 @@ class DummyResult implements ResultInterface
 
     /**
      * Returns a single value from the given result; false on error
-     *
-     * @param int|string $field
      */
-    public function fetchValue($field = 0): string|false|null
+    public function fetchValue(int|string $field = 0): string|false|null
     {
         if (is_string($field)) {
             $row = $this->fetchAssoc();

@@ -53,7 +53,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         unset($this->object);
     }
 
-    /** @param mixed[] ...$headers */
+    /** @param mixed ...$headers */
     public function doMockResponse(int $set_minimal, int $body_id, int $set_title, ...$headers): void
     {
         $mockHeader = $this->getMockBuilder(Header::class)
@@ -175,10 +175,10 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         string $pass,
         string $userIndex,
         string $passIndex,
-        $expectedReturn,
+        string|bool $expectedReturn,
         string $expectedUser,
-        $expectedPass,
-        $old_usr = '',
+        string|bool $expectedPass,
+        string|bool $old_usr = '',
     ): void {
         $_SERVER[$userIndex] = $user;
         $_SERVER[$passIndex] = $pass;

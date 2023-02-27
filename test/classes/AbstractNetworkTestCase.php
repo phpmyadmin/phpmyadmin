@@ -38,7 +38,7 @@ abstract class AbstractNetworkTestCase extends AbstractTestCase
      *
      * @param mixed[]|string|StringContains ...$param parameter for header method
      */
-    public function mockResponse(...$param): MockObject
+    public function mockResponse(array|string|StringContains ...$param): MockObject
     {
         $mockResponse = $this->getMockBuilder(ResponseRenderer::class)
             ->disableOriginalConstructor()

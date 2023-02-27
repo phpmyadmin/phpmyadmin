@@ -222,7 +222,7 @@ abstract class AbstractTestCase extends TestCase
      *
      * @return mixed the output from the protected method.
      */
-    protected function callFunction($object, string $className, string $methodName, array $params): mixed
+    protected function callFunction(object|null $object, string $className, string $methodName, array $params): mixed
     {
         $class = new ReflectionClass($className);
         $method = $class->getMethod($methodName);

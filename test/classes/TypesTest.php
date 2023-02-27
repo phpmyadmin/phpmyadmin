@@ -158,7 +158,7 @@ class TypesTest extends AbstractTestCase
      *
      * @dataProvider providerForGetTypeOperators
      */
-    public function testGetTypeOperators(string $type, bool $null, $output): void
+    public function testGetTypeOperators(string $type, bool $null, string|array $output): void
     {
         $this->assertEquals(
             $output,

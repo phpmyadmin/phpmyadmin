@@ -420,12 +420,11 @@ class InsertEditTest extends AbstractTestCase
     /**
      * Test for loadFirstRow
      *
-     * @param string|int  $configValue
      * @param array<bool> $rowsValue
      *
      * @dataProvider dataProviderConfigValueInsertRows
      */
-    public function testLoadFirstRow($configValue, array $rowsValue): void
+    public function testLoadFirstRow(string|int $configValue, array $rowsValue): void
     {
         $GLOBALS['cfg']['InsertRows'] = $configValue;
 
@@ -3477,10 +3476,8 @@ class InsertEditTest extends AbstractTestCase
 
     /**
      * Convert mixed type value to string
-     *
-     * @param mixed $value
      */
-    private function parseString($value): string
+    private function parseString(mixed $value): string
     {
         if (is_string($value)) {
             return $value;

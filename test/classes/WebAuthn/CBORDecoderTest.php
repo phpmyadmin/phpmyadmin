@@ -20,12 +20,8 @@ use const INF;
  */
 class CBORDecoderTest extends TestCase
 {
-    /**
-     * @param mixed $expected
-     *
-     * @dataProvider dataProviderForTestDecode
-     */
-    public function testDecode(string $encoded, $expected): void
+    /** @dataProvider dataProviderForTestDecode */
+    public function testDecode(string $encoded, mixed $expected): void
     {
         $decoder = new CBORDecoder();
         $data = hex2bin($encoded);

@@ -19,7 +19,7 @@ class OptimizeControllerTest extends AbstractTestCase
      *
      * @dataProvider providerForTestNoTableSelected
      */
-    public function testNoTableSelected($tables): void
+    public function testNoTableSelected(array|string|null $tables): void
     {
         $request = $this->createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['selected_tbl', null, $tables]]);

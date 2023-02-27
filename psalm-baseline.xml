@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.7.6@ae4ec68e00e4880e3f00b1edd2da891236d749ab">
+<files psalm-version="5.7.7@e028ba46ba0d7f9a78bc3201c251e137383e145f">
   <file src="libraries/classes/Advisory/Advisor.php">
     <MixedArgument>
       <code>$matches[1]</code>
@@ -16868,11 +16868,6 @@
     </RedundantCondition>
   </file>
   <file src="test/classes/Plugins/Auth/AuthenticationHttpTest.php">
-    <InvalidArgument>
-      <code>401</code>
-      <code>401</code>
-      <code>401</code>
-    </InvalidArgument>
     <MixedInferredReturnType>
       <code>array</code>
     </MixedInferredReturnType>

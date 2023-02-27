@@ -53,7 +53,7 @@ class ThemeSetControllerTest extends AbstractTestCase
      * @preserveGlobalState disabled
      * @dataProvider providerForTestWithoutTheme
      */
-    public function testWithoutTheme(bool $hasThemes, $themeName): void
+    public function testWithoutTheme(bool $hasThemes, array|string|null $themeName): void
     {
         $GLOBALS['cfg']['ThemeManager'] = $hasThemes;
 

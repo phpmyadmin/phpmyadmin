@@ -88,7 +88,7 @@ class ZipExtensionTest extends AbstractTestCase
      *
      * @dataProvider provideTestFindFile
      */
-    public function testFindFile(string $file, string $file_regexp, $output): void
+    public function testFindFile(string $file, string $file_regexp, string|bool $output): void
     {
         $this->assertEquals(
             $this->zipExtension->findFile($file, $file_regexp),

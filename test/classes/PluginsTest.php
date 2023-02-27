@@ -50,14 +50,13 @@ class PluginsTest extends AbstractTestCase
     }
 
     /**
-     * @param string|int|null $actualConfig
      * @psalm-param 'Export'|'Import'|'Schema' $section
      *
      * @dataProvider providerForTestGetDefault
      */
     public function testGetDefault(
         string $expected,
-        $actualConfig,
+        string|int|null $actualConfig,
         string|null $actualGet,
         string $section,
         string $option,

@@ -134,13 +134,11 @@ class HeaderTest extends AbstractTestCase
     }
 
     /**
-     * @param string|bool $frameOptions
-     *
      * @covers \PhpMyAdmin\Core::getNoCacheHeaders
      * @dataProvider providerForTestGetHttpHeaders
      */
     public function testGetHttpHeaders(
-        $frameOptions,
+        string|bool $frameOptions,
         string $cspAllow,
         string $privateKey,
         string $publicKey,

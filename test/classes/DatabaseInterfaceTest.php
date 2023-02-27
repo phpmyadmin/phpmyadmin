@@ -48,7 +48,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      *
      * @dataProvider currentUserData
      */
-    public function testGetCurrentUser($value, string $string, array $expected, bool $needsSecondCall): void
+    public function testGetCurrentUser(array|false $value, string $string, array $expected, bool $needsSecondCall): void
     {
         $dummyDbi = $this->createDbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);
@@ -859,12 +859,8 @@ class DatabaseInterfaceTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * @param string|false|null $result
-     *
-     * @dataProvider providerForTestGetLowerCaseNames
-     */
-    public function testGetLowerCaseNames($result, int $expected): void
+    /** @dataProvider providerForTestGetLowerCaseNames */
+    public function testGetLowerCaseNames(string|false|null $result, int $expected): void
     {
         $dbiDummy = $this->createDbiDummy();
         $expectedResult = $result !== false ? [[$result]] : [];

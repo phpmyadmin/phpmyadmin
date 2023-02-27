@@ -68,7 +68,7 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
      * @param mixed|null                        $value Null, if passing an array in $json otherwise
      *                                                 it's a string value to the key
      */
-    public function addJSON($json, $value = null): void
+    public function addJSON(string|int|array $json, $value = null): void
     {
         if (is_array($json)) {
             foreach ($json as $key => $value) {

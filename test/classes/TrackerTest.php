@@ -338,7 +338,7 @@ class TrackerTest extends AbstractTestCase
         string $dbname = 'pma_db',
         string $tablename = 'pma_tbl',
         string $version = '0.1',
-        $new_state = '1',
+        string|int $new_state = '1',
         string|null $type = null,
     ): void {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

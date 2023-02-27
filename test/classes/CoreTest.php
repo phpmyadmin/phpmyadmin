@@ -627,7 +627,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @dataProvider provideTestSafeUnserialize
      */
-    public function testSafeUnserialize(string $data, $expected): void
+    public function testSafeUnserialize(string $data, mixed $expected): void
     {
         $this->assertEquals(
             $expected,
