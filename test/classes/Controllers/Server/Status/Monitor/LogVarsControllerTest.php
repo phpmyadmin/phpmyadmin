@@ -17,14 +17,11 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 /** @covers \PhpMyAdmin\Controllers\Server\Status\Monitor\LogVarsController */
 class LogVarsControllerTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var DbiDummy */
-    protected $dummyDbi;
+    protected DbiDummy $dummyDbi;
 
-    /** @var Data */
-    private $data;
+    private Data $data;
 
     protected function setUp(): void
     {

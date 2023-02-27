@@ -17,11 +17,9 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 /** @covers \PhpMyAdmin\Controllers\Export\Template\UpdateController */
 class UpdateControllerTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var DbiDummy */
-    protected $dummyDbi;
+    protected DbiDummy $dummyDbi;
 
     protected function setUp(): void
     {

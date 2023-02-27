@@ -11,11 +11,9 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /** @covers \PhpMyAdmin\Config\FormDisplayTemplate */
 class FormDisplayTemplateTest extends AbstractTestCase
 {
-    /** @var FormDisplayTemplate */
-    protected $formDisplayTemplate;
+    protected FormDisplayTemplate $formDisplayTemplate;
 
-    /** @var Config */
-    protected $config;
+    protected Config $config;
 
     /**
      * Setup tests

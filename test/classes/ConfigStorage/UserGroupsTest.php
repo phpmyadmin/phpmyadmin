@@ -20,8 +20,7 @@ use function htmlspecialchars;
 /** @covers \PhpMyAdmin\ConfigStorage\UserGroups */
 class UserGroupsTest extends AbstractTestCase
 {
-    /** @var ConfigurableMenusFeature */
-    private $configurableMenusFeature;
+    private ConfigurableMenusFeature $configurableMenusFeature;
 
     /**
      * Prepares environment for the test.

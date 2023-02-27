@@ -11,8 +11,7 @@ use Twig\Error\LoaderError;
 /** @covers \PhpMyAdmin\Template */
 class TemplateTest extends AbstractTestCase
 {
-    /** @var Template */
-    protected $template;
+    protected Template $template;
 
     /**
      * Sets up the fixture.

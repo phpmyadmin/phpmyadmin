@@ -25,8 +25,7 @@ use function ob_start;
  */
 class ExportPhparrayTest extends AbstractTestCase
 {
-    /** @var ExportPhparray */
-    protected $object;
+    protected ExportPhparray $object;
 
     /**
      * Configures global environment.

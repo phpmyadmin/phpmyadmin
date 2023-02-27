@@ -14,10 +14,8 @@ class ReplicationGuiTest extends AbstractTestCase
 {
     /**
      * ReplicationGui instance
-     *
-     * @var ReplicationGui
      */
-    private $replicationGui;
+    private ReplicationGui $replicationGui;
 
     /**
      * Prepares environment for the test.

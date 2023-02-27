@@ -23,14 +23,11 @@ use const MYSQLI_TYPE_VAR_STRING;
 /** @covers \PhpMyAdmin\Sql */
 class SqlTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var DbiDummy */
-    protected $dummyDbi;
+    protected DbiDummy $dummyDbi;
 
-    /** @var Sql */
-    private $sql;
+    private Sql $sql;
 
     /**
      * Setup for test cases

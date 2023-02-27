@@ -17,11 +17,9 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 /** @covers \PhpMyAdmin\Controllers\Table\RelationController */
 class RelationControllerTest extends AbstractTestCase
 {
-    /** @var ResponseStub */
-    private $response;
+    private ResponseStub $response;
 
-    /** @var Template */
-    private $template;
+    private Template $template;
 
     /**
      * Configures environment

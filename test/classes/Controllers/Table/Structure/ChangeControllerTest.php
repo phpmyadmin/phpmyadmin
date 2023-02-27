@@ -18,11 +18,9 @@ use ReflectionClass;
 /** @covers \PhpMyAdmin\Controllers\Table\Structure\ChangeController */
 class ChangeControllerTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var DbiDummy */
-    protected $dummyDbi;
+    protected DbiDummy $dummyDbi;
 
     protected function setUp(): void
     {

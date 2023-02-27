@@ -21,14 +21,11 @@ use function htmlspecialchars;
 /** @covers \PhpMyAdmin\Controllers\Server\Status\QueriesController */
 class QueriesControllerTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var DbiDummy */
-    protected $dummyDbi;
+    protected DbiDummy $dummyDbi;
 
-    /** @var Data */
-    private $data;
+    private Data $data;
 
     protected function setUp(): void
     {

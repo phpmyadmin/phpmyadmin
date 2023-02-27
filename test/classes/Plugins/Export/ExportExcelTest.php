@@ -25,8 +25,7 @@ use ReflectionProperty;
  */
 class ExportExcelTest extends AbstractTestCase
 {
-    /** @var ExportExcel */
-    protected $object;
+    protected ExportExcel $object;
 
     /**
      * Configures global environment.

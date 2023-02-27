@@ -25,14 +25,11 @@ use const DIRECTORY_SEPARATOR;
  */
 class GitTest extends AbstractTestCase
 {
-    /** @var Git */
-    protected $object;
+    protected Git $object;
 
-    /** @var string */
-    protected $testDir;
+    protected string $testDir;
 
-    /** @var string */
-    protected $cwd;
+    protected string $cwd;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

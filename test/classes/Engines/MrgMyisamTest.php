@@ -10,8 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /** @covers \PhpMyAdmin\Engines\MrgMyisam */
 class MrgMyisamTest extends AbstractTestCase
 {
-    /** @var MrgMyisam */
-    protected $object;
+    protected MrgMyisam $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

@@ -16,11 +16,9 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 /** @covers \PhpMyAdmin\Controllers\Table\OperationsController */
 class OperationsControllerTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var DbiDummy */
-    protected $dummyDbi;
+    protected DbiDummy $dummyDbi;
 
     protected function setUp(): void
     {

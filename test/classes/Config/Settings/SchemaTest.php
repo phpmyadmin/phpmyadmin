@@ -14,7 +14,7 @@ use function array_merge;
 class SchemaTest extends TestCase
 {
     /** @var array<string, bool|string> */
-    private $defaultValues = [
+    private array $defaultValues = [
         'format' => 'pdf',
         'pdf_show_color' => true,
         'pdf_show_keys' => false,

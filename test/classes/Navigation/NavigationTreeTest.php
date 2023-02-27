@@ -11,8 +11,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /** @covers \PhpMyAdmin\Navigation\NavigationTree */
 class NavigationTreeTest extends AbstractTestCase
 {
-    /** @var NavigationTree */
-    protected $object;
+    protected NavigationTree $object;
 
     /**
      * Sets up the fixture.

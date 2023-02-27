@@ -17,11 +17,9 @@ use PhpMyAdmin\Utils\SessionCache;
 /** @covers \PhpMyAdmin\Controllers\Server\BinlogController */
 class BinlogControllerTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var DbiDummy */
-    protected $dummyDbi;
+    protected DbiDummy $dummyDbi;
 
     protected function setUp(): void
     {

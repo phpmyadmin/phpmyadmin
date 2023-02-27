@@ -32,14 +32,11 @@ use function ob_start;
  */
 class ExportHtmlwordTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var DbiDummy */
-    protected $dummyDbi;
+    protected DbiDummy $dummyDbi;
 
-    /** @var ExportHtmlword */
-    protected $object;
+    protected ExportHtmlword $object;
 
     /**
      * Configures global environment.

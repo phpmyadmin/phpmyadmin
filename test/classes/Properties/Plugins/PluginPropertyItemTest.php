@@ -10,8 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /** @covers \PhpMyAdmin\Properties\Plugins\PluginPropertyItem */
 class PluginPropertyItemTest extends AbstractTestCase
 {
-    /** @var PluginPropertyItem */
-    protected $stub;
+    protected PluginPropertyItem $stub;
 
     /**
      * Configures global environment.

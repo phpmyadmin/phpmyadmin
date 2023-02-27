@@ -15,10 +15,8 @@ class SystemDatabaseTest extends AbstractTestCase
 {
     /**
      * SystemDatabase instance
-     *
-     * @var SystemDatabase
      */
-    private $sysDb;
+    private SystemDatabase $sysDb;
 
     /**
      * Setup function for test cases

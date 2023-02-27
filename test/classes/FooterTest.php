@@ -15,10 +15,9 @@ use function json_encode;
 class FooterTest extends AbstractTestCase
 {
     /** @var array store private attributes of PhpMyAdmin\Footer */
-    public $privates = [];
+    public array $privates = [];
 
-    /** @var Footer */
-    protected $object;
+    protected Footer $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

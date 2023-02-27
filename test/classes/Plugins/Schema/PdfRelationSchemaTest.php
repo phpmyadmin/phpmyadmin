@@ -11,8 +11,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /** @covers \PhpMyAdmin\Plugins\Schema\Pdf\PdfRelationSchema */
 class PdfRelationSchemaTest extends AbstractTestCase
 {
-    /** @var PdfRelationSchema */
-    protected $object;
+    protected PdfRelationSchema $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

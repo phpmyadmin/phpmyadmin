@@ -18,8 +18,7 @@ use function __;
  */
 class ImportXmlTest extends AbstractTestCase
 {
-    /** @var ImportXml */
-    protected $object;
+    protected ImportXml $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

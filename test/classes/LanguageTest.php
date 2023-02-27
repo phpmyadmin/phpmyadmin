@@ -18,8 +18,7 @@ use function strtolower;
  */
 class LanguageTest extends AbstractTestCase
 {
-    /** @var LanguageManager */
-    private $manager;
+    private LanguageManager $manager;
 
     /**
      * Setup for Language tests.

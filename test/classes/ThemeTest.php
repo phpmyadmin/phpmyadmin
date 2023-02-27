@@ -15,11 +15,10 @@ use const TEST_PATH;
 /** @covers \PhpMyAdmin\Theme */
 class ThemeTest extends AbstractTestCase
 {
-    /** @var Theme */
-    protected $object;
+    protected Theme $object;
 
     /** @var Theme backup for session theme */
-    protected $backup;
+    protected Theme $backup;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

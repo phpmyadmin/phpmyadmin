@@ -18,8 +18,7 @@ use function gettype;
 /** @covers \PhpMyAdmin\Config\FormDisplay */
 class FormDisplayTest extends AbstractTestCase
 {
-    /** @var FormDisplay */
-    protected $object;
+    protected FormDisplay $object;
 
     /**
      * Configures global environment.

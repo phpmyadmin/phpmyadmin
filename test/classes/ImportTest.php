@@ -13,8 +13,7 @@ use const PHP_INT_MAX;
 /** @covers \PhpMyAdmin\Import */
 class ImportTest extends AbstractTestCase
 {
-    /** @var Import $import */
-    private $import;
+    private Import $import;
 
     /**
      * Prepares environment for the test.

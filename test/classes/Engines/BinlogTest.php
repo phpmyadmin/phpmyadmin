@@ -10,8 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /** @covers \PhpMyAdmin\Engines\Binlog */
 class BinlogTest extends AbstractTestCase
 {
-    /** @var Binlog */
-    protected $object;
+    protected Binlog $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

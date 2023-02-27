@@ -12,8 +12,7 @@ use function __;
 /** @covers \PhpMyAdmin\Engines\Bdb */
 class BdbTest extends AbstractTestCase
 {
-    /** @var Bdb */
-    protected $object;
+    protected Bdb $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

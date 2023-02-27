@@ -19,8 +19,7 @@ use function htmlspecialchars;
 /** @covers \PhpMyAdmin\Controllers\Server\Status\Processes\RefreshController */
 class RefreshControllerTest extends AbstractTestCase
 {
-    /** @var Data */
-    private $data;
+    private Data $data;
 
     protected function setUp(): void
     {

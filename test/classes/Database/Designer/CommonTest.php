@@ -19,14 +19,11 @@ use function sprintf;
 /** @covers \PhpMyAdmin\Database\Designer\Common */
 class CommonTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var DbiDummy */
-    protected $dummyDbi;
+    protected DbiDummy $dummyDbi;
 
-    /** @var Common */
-    private $designerCommon;
+    private Common $designerCommon;
 
     /**
      * Setup for test cases

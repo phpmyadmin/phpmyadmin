@@ -12,7 +12,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 class ExportRelationSchemaTest extends AbstractTestCase
 {
     /** @var ExportRelationSchema<null> */
-    protected $object;
+    protected ExportRelationSchema $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

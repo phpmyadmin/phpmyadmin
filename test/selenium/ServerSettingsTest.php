@@ -11,10 +11,8 @@ class ServerSettingsTest extends TestBase
 {
     /**
      * Create a test database for this test class
-     *
-     * @var bool
      */
-    protected static $createDatabase = false;
+    protected static bool $createDatabase = false;
 
     /**
      * setUp function

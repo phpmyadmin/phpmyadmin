@@ -16,14 +16,11 @@ use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 /** @covers \PhpMyAdmin\Controllers\Server\Status\AdvisorController */
 class AdvisorControllerTest extends AbstractTestCase
 {
-    /** @var ResponseRenderer */
-    private $response;
+    private ResponseRenderer $response;
 
-    /** @var Template */
-    private $template;
+    private Template $template;
 
-    /** @var Data */
-    private $data;
+    private Data $data;
 
     protected function setUp(): void
     {

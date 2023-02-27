@@ -20,8 +20,7 @@ use const E_WARNING;
 /** @covers \PhpMyAdmin\ErrorHandler */
 class ErrorHandlerTest extends AbstractTestCase
 {
-    /** @var ErrorHandler */
-    protected $object;
+    protected ErrorHandler $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

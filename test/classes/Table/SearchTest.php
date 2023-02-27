@@ -10,8 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /** @covers \PhpMyAdmin\Table\Search */
 class SearchTest extends AbstractTestCase
 {
-    /** @var Search */
-    private $search;
+    private Search $search;
 
     protected function setUp(): void
     {

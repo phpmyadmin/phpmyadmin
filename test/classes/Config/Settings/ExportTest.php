@@ -14,7 +14,7 @@ use function array_merge;
 class ExportTest extends TestCase
 {
     /** @var array<string, bool|int|string> */
-    private $defaultValues = [
+    private array $defaultValues = [
         'format' => 'sql',
         'method' => 'quick',
         'compression' => 'none',

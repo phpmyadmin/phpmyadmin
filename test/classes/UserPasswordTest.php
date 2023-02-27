@@ -18,8 +18,7 @@ use function str_repeat;
 /** @covers \PhpMyAdmin\UserPassword */
 class UserPasswordTest extends AbstractTestCase
 {
-    /** @var UserPassword */
-    private $object;
+    private UserPassword $object;
 
     protected function setUp(): void
     {

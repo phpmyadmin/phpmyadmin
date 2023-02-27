@@ -14,8 +14,7 @@ use function __;
 /** @covers \PhpMyAdmin\Plugins\Import\ImportMediawiki */
 class ImportMediawikiTest extends AbstractTestCase
 {
-    /** @var ImportMediawiki */
-    protected $object;
+    protected ImportMediawiki $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

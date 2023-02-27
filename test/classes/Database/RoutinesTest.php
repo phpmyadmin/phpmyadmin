@@ -15,8 +15,7 @@ use PhpMyAdmin\Types;
 /** @covers \PhpMyAdmin\Database\Routines */
 class RoutinesTest extends AbstractTestCase
 {
-    /** @var Routines */
-    private $routines;
+    private Routines $routines;
 
     /**
      * Set up

@@ -10,7 +10,7 @@ use PhpMyAdmin\Index;
 class IndexTest extends AbstractTestCase
 {
     /** @var array */
-    private $params = [];
+    private array $params = [];
 
     /**
      * Configures parameters.

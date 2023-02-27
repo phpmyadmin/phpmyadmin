@@ -14,7 +14,7 @@ use function array_merge;
 class ImportTest extends TestCase
 {
     /** @var array<string, bool|int|string> */
-    private $defaultValues = [
+    private array $defaultValues = [
         'format' => 'sql',
         'charset' => '',
         'allow_interrupt' => true,

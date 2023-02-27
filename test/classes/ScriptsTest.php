@@ -13,8 +13,7 @@ use function rawurlencode;
 /** @covers \PhpMyAdmin\Scripts */
 class ScriptsTest extends AbstractTestCase
 {
-    /** @var Scripts */
-    protected $object;
+    protected Scripts $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

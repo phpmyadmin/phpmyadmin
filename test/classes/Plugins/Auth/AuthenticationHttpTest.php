@@ -17,8 +17,7 @@ use function ob_start;
 /** @covers \PhpMyAdmin\Plugins\Auth\AuthenticationHttp */
 class AuthenticationHttpTest extends AbstractNetworkTestCase
 {
-    /** @var AuthenticationHttp */
-    protected $object;
+    protected AuthenticationHttp $object;
 
     /**
      * Configures global environment.

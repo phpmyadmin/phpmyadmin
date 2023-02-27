@@ -14,8 +14,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
  */
 class DiaRelationSchemaTest extends AbstractTestCase
 {
-    /** @var DiaRelationSchema */
-    protected $object;
+    protected DiaRelationSchema $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

@@ -11,8 +11,7 @@ use PhpMyAdmin\Url;
 /** @coversNothing */
 class SecurityTest extends AbstractTestCase
 {
-    /** @var Template */
-    protected $template;
+    protected Template $template;
 
     protected function setUp(): void
     {

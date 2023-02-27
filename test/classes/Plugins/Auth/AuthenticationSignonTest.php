@@ -18,8 +18,7 @@ use function session_name;
 /** @covers \PhpMyAdmin\Plugins\Auth\AuthenticationSignon */
 class AuthenticationSignonTest extends AbstractNetworkTestCase
 {
-    /** @var AuthenticationSignon */
-    protected $object;
+    protected AuthenticationSignon $object;
 
     /**
      * Configures global environment.

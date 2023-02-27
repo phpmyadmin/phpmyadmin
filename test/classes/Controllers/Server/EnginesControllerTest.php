@@ -15,11 +15,9 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 /** @covers \PhpMyAdmin\Controllers\Server\EnginesController */
 class EnginesControllerTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var DbiDummy */
-    protected $dummyDbi;
+    protected DbiDummy $dummyDbi;
 
     /**
      * Prepares environment for the test.

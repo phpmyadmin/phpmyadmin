@@ -30,8 +30,7 @@ use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 /** @covers \PhpMyAdmin\Plugins\Auth\AuthenticationCookie */
 class AuthenticationCookieTest extends AbstractNetworkTestCase
 {
-    /** @var AuthenticationCookie */
-    protected $object;
+    protected AuthenticationCookie $object;
 
     /**
      * Configures global environment.

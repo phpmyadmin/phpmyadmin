@@ -22,17 +22,13 @@ class DummyResult implements ResultInterface
 {
     /**
      * The result identifier produced by the DBiExtension
-     *
-     * @var int|false $result
      */
-    private $result;
+    private int|false $result;
 
     /**
      * Link to DbiDummy instance
-     *
-     * @var DbiDummy
      */
-    private $link;
+    private DbiDummy $link;
 
     /** @param int|false $result */
     public function __construct(DbiDummy $link, $result)

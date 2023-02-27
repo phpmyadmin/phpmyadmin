@@ -40,8 +40,7 @@ use const MYSQLI_TYPE_TINY_BLOB;
  */
 class ExportOdsTest extends AbstractTestCase
 {
-    /** @var ExportOds */
-    protected $object;
+    protected ExportOds $object;
 
     /**
      * Configures global environment.

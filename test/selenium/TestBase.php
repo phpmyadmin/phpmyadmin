@@ -61,45 +61,34 @@ use const JSON_UNESCAPED_SLASHES;
 
 abstract class TestBase extends TestCase
 {
-    /** @var RemoteWebDriver */
-    protected $webDriver;
+    protected RemoteWebDriver $webDriver;
 
     /**
      * Name of database for the test
-     *
-     * @var string
      */
-    public $databaseName;
+    public string $databaseName;
 
     /**
      * The session Id (Browserstack)
-     *
-     * @var string
      */
-    protected $sessionId;
+    protected string $sessionId;
 
     /**
      * The window handle for the SQL tab
-     *
-     * @var string|null
      */
-    private $sqlWindowHandle = null;
+    private string|null $sqlWindowHandle = null;
 
     private const SESSION_REST_URL = 'https://api.browserstack.com/automate/sessions/';
 
     /**
      * Create a test database for this test class
-     *
-     * @var bool
      */
-    protected static $createDatabase = true;
+    protected static bool $createDatabase = true;
 
     /**
      * Did the test create the phpMyAdmin storage database ?
-     *
-     * @var bool
      */
-    private $hadStorageDatabaseInstall = false;
+    private bool $hadStorageDatabaseInstall = false;
 
     /**
      * Configures the selenium and database link.

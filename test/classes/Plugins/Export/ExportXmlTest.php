@@ -28,8 +28,7 @@ use function ob_start;
  */
 class ExportXmlTest extends AbstractTestCase
 {
-    /** @var ExportXml */
-    protected $object;
+    protected ExportXml $object;
 
     /**
      * Configures global environment.

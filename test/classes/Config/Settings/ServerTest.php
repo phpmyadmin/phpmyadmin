@@ -16,7 +16,7 @@ use function array_merge;
 class ServerTest extends TestCase
 {
     /** @var array<string, array|bool|int|string|null> */
-    private $defaultValues = [
+    private array $defaultValues = [
         'host' => 'localhost',
         'port' => '',
         'socket' => '',

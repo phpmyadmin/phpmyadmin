@@ -23,14 +23,11 @@ use function json_encode;
 /** @covers \PhpMyAdmin\Normalization */
 class NormalizationTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var DbiDummy */
-    protected $dummyDbi;
+    protected DbiDummy $dummyDbi;
 
-    /** @var Normalization */
-    private $normalization;
+    private Normalization $normalization;
 
     /**
      * prepares environment for tests

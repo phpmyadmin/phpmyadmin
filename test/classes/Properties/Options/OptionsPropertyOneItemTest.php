@@ -11,8 +11,8 @@ use PHPUnit\Framework\MockObject\MockObject;
 /** @covers \PhpMyAdmin\Properties\Options\OptionsPropertyOneItem */
 class OptionsPropertyOneItemTest extends AbstractTestCase
 {
-    /** @var OptionsPropertyOneItem|MockObject  */
-    protected $stub;
+    /** @var OptionsPropertyOneItem&MockObject  */
+    protected OptionsPropertyOneItem $stub;
 
     /**
      * Configures global environment.

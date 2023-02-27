@@ -14,7 +14,7 @@ use function array_merge;
 class ConsoleTest extends TestCase
 {
     /** @var array<string, bool|int|string> */
-    private $defaultValues = [
+    private array $defaultValues = [
         'StartHistory' => false,
         'AlwaysExpand' => false,
         'CurrentQuery' => true,

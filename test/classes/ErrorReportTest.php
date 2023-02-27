@@ -24,14 +24,11 @@ use const JSON_UNESCAPED_SLASHES;
 /** @covers \PhpMyAdmin\ErrorReport */
 class ErrorReportTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var DbiDummy */
-    protected $dummyDbi;
+    protected DbiDummy $dummyDbi;
 
-    /** @var ErrorReport $errorReport */
-    private $errorReport;
+    private ErrorReport $errorReport;
 
     protected function setUp(): void
     {

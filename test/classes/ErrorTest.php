@@ -13,8 +13,7 @@ use const DIRECTORY_SEPARATOR;
 /** @covers \PhpMyAdmin\Error */
 class ErrorTest extends AbstractTestCase
 {
-    /** @var Error */
-    protected $object;
+    protected Error $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

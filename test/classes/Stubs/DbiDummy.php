@@ -61,7 +61,7 @@ class DbiDummy implements DbiExtension
      *     'pos'?: int
      * }[]
      */
-    private $filoQueries = [];
+    private array $filoQueries = [];
 
     /**
      * First in, last out queries
@@ -70,7 +70,7 @@ class DbiDummy implements DbiExtension
      *
      * @var string[]
      */
-    private $fifoDatabasesToSelect = [];
+    private array $fifoDatabasesToSelect = [];
 
     /**
      * @var array
@@ -82,13 +82,13 @@ class DbiDummy implements DbiExtension
      *     'pos'?: int
      * }[]
      */
-    private $dummyQueries = [];
+    private array $dummyQueries = [];
 
     /**
      * @var string[]
      * @psalm-var non-empty-string[]
      */
-    private $fifoErrorCodes = [];
+    private array $fifoErrorCodes = [];
 
     public const OFFSET_GLOBAL = 1000;
 

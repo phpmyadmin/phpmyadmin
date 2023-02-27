@@ -10,8 +10,7 @@ use PhpMyAdmin\IpAllowDeny;
 /** @covers \PhpMyAdmin\IpAllowDeny */
 class IpAllowDenyTest extends AbstractTestCase
 {
-    /** @var IpAllowDeny */
-    private $ipAllowDeny;
+    private IpAllowDeny $ipAllowDeny;
 
     /**
      * Prepares environment for the test.

@@ -30,8 +30,7 @@ use function ob_start;
  */
 class ExportLatexTest extends AbstractTestCase
 {
-    /** @var ExportLatex */
-    protected $object;
+    protected ExportLatex $object;
 
     /**
      * Configures global environment.

@@ -13,8 +13,7 @@ use function __;
 /** @covers \PhpMyAdmin\Server\Plugins */
 class PluginsTest extends AbstractTestCase
 {
-    /** @var Plugins */
-    private $plugins;
+    private Plugins $plugins;
 
     protected function setUp(): void
     {

@@ -14,7 +14,7 @@ use function array_merge;
 class DebugTest extends TestCase
 {
     /** @var array<string, bool> */
-    private $defaultValues = ['sql' => false, 'sqllog' => false, 'demo' => false, 'simple2fa' => false];
+    private array $defaultValues = ['sql' => false, 'sqllog' => false, 'demo' => false, 'simple2fa' => false];
 
     /**
      * @param mixed[][] $values

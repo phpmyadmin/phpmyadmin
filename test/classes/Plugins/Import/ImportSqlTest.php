@@ -12,8 +12,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /** @covers \PhpMyAdmin\Plugins\Import\ImportSql */
 class ImportSqlTest extends AbstractTestCase
 {
-    /** @var ImportSql */
-    protected $object;
+    protected ImportSql $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

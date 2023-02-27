@@ -20,9 +20,9 @@ class NodeDatabaseChildTest extends AbstractTestCase
     /**
      * Mock of NodeDatabaseChild
      *
-     * @var NodeDatabaseChild|MockObject
+     * @var NodeDatabaseChild&MockObject
      */
-    protected $object;
+    protected NodeDatabaseChild $object;
 
     /**
      * Sets up the fixture.

@@ -11,8 +11,7 @@ use function json_encode;
 /** @covers \PhpMyAdmin\CreateAddField */
 class CreateAddFieldTest extends AbstractTestCase
 {
-    /** @var CreateAddField */
-    private $createAddField;
+    private CreateAddField $createAddField;
 
     /**
      * Set up for test cases

@@ -16,8 +16,7 @@ use function preg_match;
 /** @covers \PhpMyAdmin\Config\Form */
 class FormTest extends AbstractTestCase
 {
-    /** @var Form */
-    protected $object;
+    protected Form $object;
 
     /**
      * Configures global environment.

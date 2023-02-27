@@ -10,8 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /** @covers \PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup */
 class OptionsPropertyMainGroupTest extends AbstractTestCase
 {
-    /** @var OptionsPropertyMainGroup */
-    protected $object;
+    protected OptionsPropertyMainGroup $object;
 
     /**
      * Configures global environment.

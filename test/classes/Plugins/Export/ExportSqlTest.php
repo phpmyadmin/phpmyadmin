@@ -45,8 +45,7 @@ use const MYSQLI_UNIQUE_KEY_FLAG;
  */
 class ExportSqlTest extends AbstractTestCase
 {
-    /** @var ExportSql */
-    protected $object;
+    protected ExportSql $object;
 
     /**
      * Configures global environment.

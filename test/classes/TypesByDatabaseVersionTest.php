@@ -12,10 +12,9 @@ use PHPUnit\Framework\MockObject\Stub;
 class TypesByDatabaseVersionTest extends AbstractTestCase
 {
     /** @var DatabaseInterface&Stub */
-    private $dbiStub;
+    private DatabaseInterface $dbiStub;
 
-    /** @var Types */
-    protected $object;
+    protected Types $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

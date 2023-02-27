@@ -20,11 +20,9 @@ use function htmlspecialchars;
 /** @covers \PhpMyAdmin\Controllers\Server\ShowEngineController */
 class ShowEngineControllerTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var DbiDummy */
-    protected $dummyDbi;
+    protected DbiDummy $dummyDbi;
 
     protected function setUp(): void
     {

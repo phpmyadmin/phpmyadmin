@@ -14,7 +14,7 @@ use function array_merge;
 class SqlQueryBoxTest extends TestCase
 {
     /** @var array<string, bool> */
-    private $defaultValues = ['Edit' => true, 'Explain' => true, 'ShowAsPHP' => true, 'Refresh' => true];
+    private array $defaultValues = ['Edit' => true, 'Explain' => true, 'ShowAsPHP' => true, 'Refresh' => true];
 
     /**
      * @param mixed[][] $values

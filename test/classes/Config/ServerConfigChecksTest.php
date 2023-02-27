@@ -19,8 +19,7 @@ use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 /** @covers \PhpMyAdmin\Config\ServerConfigChecks */
 class ServerConfigChecksTest extends AbstractTestCase
 {
-    /** @var string */
-    private $sessionID;
+    private string $sessionID;
 
     /** @throws ReflectionException */
     protected function setUp(): void

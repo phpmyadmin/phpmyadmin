@@ -9581,6 +9581,11 @@ parameters:
 			path: test/classes/Command/TwigLintCommandTest.php
 
 		-
+			message: "#^Class PhpMyAdmin\\\\Tests\\\\Command\\\\WriteGitRevisionCommandTest has an uninitialized property \\$command\\. Give it default value or assign it in the constructor\\.$#"
+			count: 1
+			path: test/classes/Command/WriteGitRevisionCommandTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\CommonTest\\:\\:providerForTestCleanupPathInfo\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/CommonTest.php
@@ -9889,6 +9894,16 @@ parameters:
 			message: "#^Parameter \\#1 \\$needle of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: test/classes/Database/CentralColumnsTest.php
+
+		-
+			message: "#^Class PhpMyAdmin\\\\Tests\\\\Database\\\\Designer\\\\CommonTest has an uninitialized property \\$designerCommon\\. Give it default value or assign it in the constructor\\.$#"
+			count: 1
+			path: test/classes/Database/Designer/CommonTest.php
+
+		-
+			message: "#^Class PhpMyAdmin\\\\Tests\\\\Database\\\\DesignerTest has an uninitialized property \\$designer\\. Give it default value or assign it in the constructor\\.$#"
+			count: 1
+			path: test/classes/Database/DesignerTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\EventsTest\\:\\:providerGetDataFromRequest\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -10236,6 +10251,11 @@ parameters:
 			path: test/classes/Gis/GisFactoryTest.php
 
 		-
+			message: "#^Class PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeomTestCase has an uninitialized property \\$object\\. Give it default value or assign it in the constructor\\.$#"
+			count: 1
+			path: test/classes/Gis/GisGeomTestCase.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeomTestCase\\:\\:testGenerateParams\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisGeomTestCase.php
@@ -10287,11 +10307,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryCollectionTest\\:\\:testPrepareRowAsSvg\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisGeometryCollectionTest.php
-
-		-
-			message: "#^PHPDoc type PhpMyAdmin\\\\Gis\\\\GisGeometryCollection of property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryCollectionTest\\:\\:\\$object is not the same as PHPDoc type PhpMyAdmin\\\\Gis\\\\GisGeometry of overridden property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeomTestCase\\:\\:\\$object\\.$#"
 			count: 1
 			path: test/classes/Gis/GisGeometryCollectionTest.php
 
@@ -10391,9 +10406,9 @@ parameters:
 			path: test/classes/Gis/GisLineStringTest.php
 
 		-
-			message: "#^PHPDoc type PhpMyAdmin\\\\Gis\\\\GisLineString of property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisLineStringTest\\:\\:\\$object is not the same as PHPDoc type PhpMyAdmin\\\\Gis\\\\GisGeometry of overridden property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeomTestCase\\:\\:\\$object\\.$#"
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getShape\\(\\)\\.$#"
 			count: 1
-			path: test/classes/Gis/GisLineStringTest.php
+			path: test/classes/Gis/GisMultiLineStringTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiLineStringTest\\:\\:providerForPrepareRowAsOl\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -10441,9 +10456,9 @@ parameters:
 			path: test/classes/Gis/GisMultiLineStringTest.php
 
 		-
-			message: "#^PHPDoc type PhpMyAdmin\\\\Gis\\\\GisMultiLineString of property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiLineStringTest\\:\\:\\$object is not the same as PHPDoc type PhpMyAdmin\\\\Gis\\\\GisGeometry of overridden property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeomTestCase\\:\\:\\$object\\.$#"
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getShape\\(\\)\\.$#"
 			count: 1
-			path: test/classes/Gis/GisMultiLineStringTest.php
+			path: test/classes/Gis/GisMultiPointTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPointTest\\:\\:providerForPrepareRowAsOl\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -10491,9 +10506,9 @@ parameters:
 			path: test/classes/Gis/GisMultiPointTest.php
 
 		-
-			message: "#^PHPDoc type PhpMyAdmin\\\\Gis\\\\GisMultiPoint of property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPointTest\\:\\:\\$object is not the same as PHPDoc type PhpMyAdmin\\\\Gis\\\\GisGeometry of overridden property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeomTestCase\\:\\:\\$object\\.$#"
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getShape\\(\\)\\.$#"
 			count: 1
-			path: test/classes/Gis/GisMultiPointTest.php
+			path: test/classes/Gis/GisMultiPolygonTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPolygonTest\\:\\:getData\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -10556,9 +10571,9 @@ parameters:
 			path: test/classes/Gis/GisMultiPolygonTest.php
 
 		-
-			message: "#^PHPDoc type PhpMyAdmin\\\\Gis\\\\GisMultiPolygon of property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPolygonTest\\:\\:\\$object is not the same as PHPDoc type PhpMyAdmin\\\\Gis\\\\GisGeometry of overridden property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeomTestCase\\:\\:\\$object\\.$#"
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getShape\\(\\)\\.$#"
 			count: 1
-			path: test/classes/Gis/GisMultiPolygonTest.php
+			path: test/classes/Gis/GisPointTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPointTest\\:\\:providerForPrepareRowAsOl\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -10616,9 +10631,24 @@ parameters:
 			path: test/classes/Gis/GisPointTest.php
 
 		-
-			message: "#^PHPDoc type PhpMyAdmin\\\\Gis\\\\GisPoint of property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPointTest\\:\\:\\$object is not the same as PHPDoc type PhpMyAdmin\\\\Gis\\\\GisGeometry of overridden property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeomTestCase\\:\\:\\$object\\.$#"
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:area\\(\\)\\.$#"
 			count: 1
-			path: test/classes/Gis/GisPointTest.php
+			path: test/classes/Gis/GisPolygonTest.php
+
+		-
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getPointOnSurface\\(\\)\\.$#"
+			count: 1
+			path: test/classes/Gis/GisPolygonTest.php
+
+		-
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:isOuterRing\\(\\)\\.$#"
+			count: 1
+			path: test/classes/Gis/GisPolygonTest.php
+
+		-
+			message: "#^Call to an undefined method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:isPointInsidePolygon\\(\\)\\.$#"
+			count: 2
+			path: test/classes/Gis/GisPolygonTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPolygonTest\\:\\:getData\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -10712,11 +10742,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPolygonTest\\:\\:testPrepareRowAsSvg\\(\\) has parameter \\$scaleData with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPolygonTest.php
-
-		-
-			message: "#^PHPDoc type PhpMyAdmin\\\\Gis\\\\GisPolygon of property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPolygonTest\\:\\:\\$object is not the same as PHPDoc type PhpMyAdmin\\\\Gis\\\\GisGeometry of overridden property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeomTestCase\\:\\:\\$object\\.$#"
 			count: 1
 			path: test/classes/Gis/GisPolygonTest.php
 
@@ -11151,6 +11176,16 @@ parameters:
 			path: test/classes/Plugins/Export/Helpers/TablePropertyTest.php
 
 		-
+			message: "#^Class PhpMyAdmin\\\\Tests\\\\Plugins\\\\Import\\\\ImportOdsTest has an uninitialized property \\$dbi\\. Give it default value or assign it in the constructor\\.$#"
+			count: 1
+			path: test/classes/Plugins/Import/ImportOdsTest.php
+
+		-
+			message: "#^Class PhpMyAdmin\\\\Tests\\\\Plugins\\\\Import\\\\ImportOdsTest has an uninitialized property \\$dummyDbi\\. Give it default value or assign it in the constructor\\.$#"
+			count: 1
+			path: test/classes/Plugins/Import/ImportOdsTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Plugins\\\\Import\\\\ImportOdsTest\\:\\:dataProviderOdsEmptyRows\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Plugins/Import/ImportOdsTest.php
@@ -11196,11 +11231,6 @@ parameters:
 			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
 
 		-
-			message: "#^PHPDoc type PhpMyAdmin\\\\Properties\\\\Plugins\\\\ExportPluginProperties of property PhpMyAdmin\\\\Tests\\\\Properties\\\\Plugins\\\\ExportPluginPropertiesTest\\:\\:\\$object is not the same as PHPDoc type PhpMyAdmin\\\\Properties\\\\Plugins\\\\ImportPluginProperties of overridden property PhpMyAdmin\\\\Tests\\\\Properties\\\\Plugins\\\\ImportPluginPropertiesTest\\:\\:\\$object\\.$#"
-			count: 1
-			path: test/classes/Properties/Plugins/ExportPluginPropertiesTest.php
-
-		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'FastRoute\\\\\\\\Dispatcher' and FastRoute\\\\Dispatcher will always evaluate to true\\.$#"
 			count: 4
 			path: test/classes/RoutingTest.php
@@ -11237,6 +11267,11 @@ parameters:
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\<int\\|string, string\\> will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Server/PluginsTest.php
+
+		-
+			message: "#^Class PhpMyAdmin\\\\Tests\\\\Server\\\\PluginsTest has an uninitialized property \\$plugins\\. Give it default value or assign it in the constructor\\.$#"
 			count: 1
 			path: test/classes/Server/PluginsTest.php
 
@@ -11479,6 +11514,11 @@ parameters:
 			message: "#^Parameter \\#1 \\$secret of method PragmaRX\\\\Google2FA\\\\Google2FA\\:\\:oathTotp\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: test/classes/TwoFactorTest.php
+
+		-
+			message: "#^Class PhpMyAdmin\\\\Tests\\\\TypesByDatabaseVersionTest has an uninitialized property \\$object\\. Give it default value or assign it in the constructor\\.$#"
+			count: 1
+			path: test/classes/TypesByDatabaseVersionTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\TypesTest\\:\\:providerForGetTypeOperators\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -11728,6 +11768,16 @@ parameters:
 		-
 			message: "#^Call to function is_string\\(\\) with non\\-falsy\\-string will always evaluate to true\\.$#"
 			count: 2
+			path: test/selenium/TestBase.php
+
+		-
+			message: "#^Strict comparison using \\!\\=\\= between Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebDriver and null will always evaluate to true\\.$#"
+			count: 1
+			path: test/selenium/TestBase.php
+
+		-
+			message: "#^Strict comparison using \\=\\=\\= between Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebDriver and null will always evaluate to false\\.$#"
+			count: 1
 			path: test/selenium/TestBase.php
 
 		-

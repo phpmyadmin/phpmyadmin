@@ -12,8 +12,8 @@ use PHPUnit\Framework\MockObject\MockObject;
 /** @covers \PhpMyAdmin\Gis\GisGeometry */
 class GisGeometryTest extends AbstractTestCase
 {
-    /** @var GisGeometry|MockObject */
-    protected $object;
+    /** @var GisGeometry&MockObject */
+    protected GisGeometry $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

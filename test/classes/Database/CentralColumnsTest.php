@@ -21,11 +21,10 @@ use function array_slice;
  */
 class CentralColumnsTest extends AbstractTestCase
 {
-    /** @var CentralColumns */
-    private $centralColumns;
+    private CentralColumns $centralColumns;
 
     /** @var array<int, array<string, string|int>> */
-    private $columnData = [
+    private array $columnData = [
         [
             'col_name' => 'id',
             'col_type' => 'integer',
@@ -56,7 +55,7 @@ class CentralColumnsTest extends AbstractTestCase
     ];
 
     /** @var array<int, array<string, string|int>> */
-    private $modifiedColumnData = [
+    private array $modifiedColumnData = [
         [
             'col_name' => 'id',
             'col_type' => 'integer',

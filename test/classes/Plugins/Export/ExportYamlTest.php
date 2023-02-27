@@ -25,8 +25,7 @@ use function ob_start;
  */
 class ExportYamlTest extends AbstractTestCase
 {
-    /** @var ExportYaml */
-    protected $object;
+    protected ExportYaml $object;
 
     /**
      * Configures global environment.

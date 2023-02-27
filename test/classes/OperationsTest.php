@@ -14,14 +14,11 @@ use function array_merge;
 /** @covers \PhpMyAdmin\Operations */
 class OperationsTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var DbiDummy */
-    protected $dummyDbi;
+    protected DbiDummy $dummyDbi;
 
-    /** @var Operations */
-    private $object;
+    private Operations $object;
 
     protected function setUp(): void
     {

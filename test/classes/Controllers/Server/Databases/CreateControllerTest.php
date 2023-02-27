@@ -18,11 +18,9 @@ use function sprintf;
 /** @covers \PhpMyAdmin\Controllers\Server\Databases\CreateController */
 final class CreateControllerTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var DbiDummy */
-    protected $dummyDbi;
+    protected DbiDummy $dummyDbi;
 
     protected function setUp(): void
     {

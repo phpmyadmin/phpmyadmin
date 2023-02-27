@@ -12,8 +12,7 @@ use function __;
 /** @covers \PhpMyAdmin\Engines\Myisam */
 class MyisamTest extends AbstractTestCase
 {
-    /** @var Myisam */
-    protected $object;
+    protected Myisam $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

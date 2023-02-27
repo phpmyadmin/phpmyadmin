@@ -10,8 +10,7 @@ use PHPUnit\Framework\TestCase;
 /** @covers \PhpMyAdmin\IndexColumn */
 class IndexColumnTest extends TestCase
 {
-    /** @var IndexColumn */
-    private $object;
+    private IndexColumn $object;
 
     protected function setUp(): void
     {

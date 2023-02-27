@@ -42,11 +42,10 @@ use const TEST_PATH;
  */
 class ConfigTest extends AbstractTestCase
 {
-    /** @var Config */
-    protected $object;
+    protected Config $object;
 
     /** @var Config to test file permission */
-    protected $permTestObj;
+    protected Config $permTestObj;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

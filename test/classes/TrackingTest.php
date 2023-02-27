@@ -25,8 +25,7 @@ use function sprintf;
 /** @covers \PhpMyAdmin\Tracking */
 class TrackingTest extends AbstractTestCase
 {
-    /** @var Tracking $tracking */
-    private $tracking;
+    private Tracking $tracking;
 
     /**
      * Setup function for test cases

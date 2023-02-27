@@ -26,11 +26,9 @@ use const MYSQLI_TYPE_STRING;
 /** @covers \PhpMyAdmin\Controllers\Export\ExportController */
 class ExportControllerTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var DbiDummy */
-    protected $dummyDbi;
+    protected DbiDummy $dummyDbi;
 
     protected function setUp(): void
     {

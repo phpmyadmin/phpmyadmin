@@ -20,11 +20,9 @@ use function _pgettext;
 /** @covers \PhpMyAdmin\Controllers\Database\PrivilegesController */
 class PrivilegesControllerTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var DbiDummy */
-    protected $dummyDbi;
+    protected DbiDummy $dummyDbi;
 
     protected function setUp(): void
     {

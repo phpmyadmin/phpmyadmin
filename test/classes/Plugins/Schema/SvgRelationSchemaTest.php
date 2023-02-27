@@ -14,8 +14,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
  */
 class SvgRelationSchemaTest extends AbstractTestCase
 {
-    /** @var SvgRelationSchema */
-    protected $object;
+    protected SvgRelationSchema $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

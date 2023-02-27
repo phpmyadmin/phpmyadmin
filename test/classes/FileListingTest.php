@@ -15,8 +15,7 @@ use const TEST_PATH;
 /** @covers \PhpMyAdmin\FileListing */
 class FileListingTest extends AbstractTestCase
 {
-    /** @var FileListing $fileListing */
-    private $fileListing;
+    private FileListing $fileListing;
 
     protected function setUp(): void
     {

@@ -10,8 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /** @covers \PhpMyAdmin\Engines\Ndbcluster */
 class NdbclusterTest extends AbstractTestCase
 {
-    /** @var Ndbcluster */
-    protected $object;
+    protected Ndbcluster $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

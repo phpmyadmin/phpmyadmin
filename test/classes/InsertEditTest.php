@@ -43,14 +43,11 @@ use const MYSQLI_TYPE_TINY;
  */
 class InsertEditTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var DbiDummy */
-    protected $dummyDbi;
+    protected DbiDummy $dummyDbi;
 
-    /** @var InsertEdit */
-    private $insertEdit;
+    private InsertEdit $insertEdit;
 
     /**
      * Setup for test cases

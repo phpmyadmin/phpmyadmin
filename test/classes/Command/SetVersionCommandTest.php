@@ -15,8 +15,7 @@ use function sprintf;
 /** @covers \PhpMyAdmin\Command\SetVersionCommand */
 class SetVersionCommandTest extends AbstractTestCase
 {
-    /** @var SetVersionCommand */
-    private $command;
+    private SetVersionCommand $command;
 
     public function setUp(): void
     {

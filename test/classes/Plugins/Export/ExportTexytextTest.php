@@ -30,14 +30,11 @@ use function ob_start;
  */
 class ExportTexytextTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var DbiDummy */
-    protected $dummyDbi;
+    protected DbiDummy $dummyDbi;
 
-    /** @var ExportTexytext */
-    protected $object;
+    protected ExportTexytext $object;
 
     /**
      * Configures global environment.

@@ -23,8 +23,7 @@ use ReflectionProperty;
  */
 class ExportJsonTest extends AbstractTestCase
 {
-    /** @var ExportJson */
-    protected $object;
+    protected ExportJson $object;
 
     /**
      * Configures global environment.

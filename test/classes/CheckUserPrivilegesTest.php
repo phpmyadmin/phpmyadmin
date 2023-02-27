@@ -9,8 +9,7 @@ use PhpMyAdmin\CheckUserPrivileges;
 /** @covers \PhpMyAdmin\CheckUserPrivileges */
 class CheckUserPrivilegesTest extends AbstractTestCase
 {
-    /** @var CheckUserPrivileges */
-    private $checkUserPrivileges;
+    private CheckUserPrivileges $checkUserPrivileges;
 
     /**
      * prepares environment for tests

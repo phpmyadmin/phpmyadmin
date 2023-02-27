@@ -13,8 +13,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /** @covers \PhpMyAdmin\Database\Events */
 class EventsTest extends AbstractTestCase
 {
-    /** @var Events */
-    private $events;
+    private Events $events;
 
     /**
      * Set up

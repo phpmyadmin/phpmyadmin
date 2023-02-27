@@ -11,7 +11,7 @@ use stdClass;
 class VersionInformationTest extends AbstractTestCase
 {
     /** @var stdClass[] */
-    private $releases;
+    private array $releases;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

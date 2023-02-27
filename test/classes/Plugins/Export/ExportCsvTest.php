@@ -27,8 +27,7 @@ use function ob_start;
  */
 class ExportCsvTest extends AbstractTestCase
 {
-    /** @var ExportCsv */
-    protected $object;
+    protected ExportCsv $object;
 
     /**
      * Configures global environment.

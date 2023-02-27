@@ -14,11 +14,9 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 /** @covers \PhpMyAdmin\Bookmark */
 class BookmarkTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var DbiDummy */
-    protected $dummyDbi;
+    protected DbiDummy $dummyDbi;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

@@ -17,8 +17,7 @@ use PhpMyAdmin\Util;
 /** @covers \PhpMyAdmin\Export\Options */
 class OptionsTest extends AbstractTestCase
 {
-    /** @var Options */
-    private $export;
+    private Options $export;
 
     protected function setUp(): void
     {

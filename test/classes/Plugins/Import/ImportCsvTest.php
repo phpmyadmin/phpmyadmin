@@ -16,14 +16,11 @@ use function basename;
 /** @covers \PhpMyAdmin\Plugins\Import\ImportCsv */
 class ImportCsvTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var DbiDummy */
-    protected $dummyDbi;
+    protected DbiDummy $dummyDbi;
 
-    /** @var ImportCsv */
-    protected $object;
+    protected ImportCsv $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

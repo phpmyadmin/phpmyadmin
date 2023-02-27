@@ -19,14 +19,11 @@ use function str_repeat;
  */
 class ImportOdsTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var DbiDummy */
-    protected $dummyDbi;
+    protected DbiDummy $dummyDbi;
 
-    /** @var ImportOds */
-    protected $object;
+    protected ImportOds $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

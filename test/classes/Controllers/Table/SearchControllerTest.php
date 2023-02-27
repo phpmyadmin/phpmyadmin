@@ -23,17 +23,13 @@ use const MYSQLI_TYPE_LONG;
 /** @covers \PhpMyAdmin\Controllers\Table\SearchController */
 class SearchControllerTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var DbiDummy */
-    protected $dummyDbi;
+    protected DbiDummy $dummyDbi;
 
-    /** @var ResponseStub */
-    private $response;
+    private ResponseStub $response;
 
-    /** @var Template */
-    private $template;
+    private Template $template;
 
     /**
      * Setup function for test cases

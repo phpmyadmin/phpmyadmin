@@ -17,8 +17,7 @@ use const CURLOPT_CAPATH;
 /** @covers \PhpMyAdmin\Utils\HttpRequest */
 class HttpRequestTest extends AbstractTestCase
 {
-    /** @var HttpRequest */
-    private $httpRequest;
+    private HttpRequest $httpRequest;
 
     protected function setUp(): void
     {

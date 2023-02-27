@@ -18,8 +18,7 @@ use function extension_loaded;
  */
 class ImportShpTest extends AbstractTestCase
 {
-    /** @var ImportShp */
-    protected $object;
+    protected ImportShp $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

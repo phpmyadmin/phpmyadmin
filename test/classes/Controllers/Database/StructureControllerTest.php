@@ -19,17 +19,13 @@ use ReflectionException;
 /** @covers \PhpMyAdmin\Controllers\Database\StructureController */
 class StructureControllerTest extends AbstractTestCase
 {
-    /** @var ResponseStub */
-    private $response;
+    private ResponseStub $response;
 
-    /** @var Relation */
-    private $relation;
+    private Relation $relation;
 
-    /** @var Replication */
-    private $replication;
+    private Replication $replication;
 
-    /** @var Template */
-    private $template;
+    private Template $template;
 
     /**
      * Prepares environment for the test.

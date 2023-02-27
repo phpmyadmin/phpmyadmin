@@ -21,8 +21,7 @@ use const TEST_PATH;
 /** @covers \PhpMyAdmin\Command\TwigLintCommand */
 class TwigLintCommandTest extends AbstractTestCase
 {
-    /** @var TwigLintCommand */
-    private $command;
+    private TwigLintCommand $command;
 
     public function setUp(): void
     {

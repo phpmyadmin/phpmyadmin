@@ -22,10 +22,8 @@ class ConfigFileTest extends AbstractTestCase
 
     /**
      * Object under test
-     *
-     * @var ConfigFile
      */
-    protected $object;
+    protected ConfigFile $object;
 
     /**
      * Setup function for test cases

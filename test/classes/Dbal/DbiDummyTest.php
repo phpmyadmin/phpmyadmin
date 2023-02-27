@@ -13,11 +13,9 @@ use PhpMyAdmin\Tests\Stubs\DummyResult;
 /** @coversNothing */
 class DbiDummyTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var DbiDummy */
-    protected $dummyDbi;
+    protected DbiDummy $dummyDbi;
 
     /**
      * Configures test parameters.

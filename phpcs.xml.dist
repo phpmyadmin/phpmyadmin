@@ -41,9 +41,6 @@
     <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingTraversableTypeHintSpecification">
         <severity>4</severity>
     </rule>
-    <rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint">
-        <severity>4</severity>
-    </rule>
     <rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingTraversableTypeHintSpecification">
         <severity>4</severity>
     </rule>

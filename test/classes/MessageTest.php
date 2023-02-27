@@ -11,8 +11,7 @@ use function md5;
 /** @covers \PhpMyAdmin\Message */
 class MessageTest extends AbstractTestCase
 {
-    /** @var Message */
-    protected $object;
+    protected Message $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

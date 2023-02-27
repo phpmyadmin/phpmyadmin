@@ -9,8 +9,7 @@ use PhpMyAdmin\Types;
 /** @covers \PhpMyAdmin\Types */
 class TypesTest extends AbstractTestCase
 {
-    /** @var Types */
-    protected $object;
+    protected Types $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

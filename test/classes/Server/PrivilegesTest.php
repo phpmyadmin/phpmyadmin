@@ -31,11 +31,9 @@ use function implode;
 /** @covers \PhpMyAdmin\Server\Privileges */
 class PrivilegesTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var DbiDummy */
-    protected $dummyDbi;
+    protected DbiDummy $dummyDbi;
 
     protected function setUp(): void
     {

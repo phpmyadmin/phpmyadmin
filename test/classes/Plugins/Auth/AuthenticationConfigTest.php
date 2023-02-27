@@ -15,8 +15,7 @@ use function ob_start;
 /** @covers \PhpMyAdmin\Plugins\Auth\AuthenticationConfig */
 class AuthenticationConfigTest extends AbstractTestCase
 {
-    /** @var AuthenticationConfig */
-    protected $object;
+    protected AuthenticationConfig $object;
 
     /**
      * Configures global environment.

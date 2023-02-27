@@ -10,8 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /** @covers \PhpMyAdmin\Engines\Memory */
 class MemoryTest extends AbstractTestCase
 {
-    /** @var Memory */
-    protected $object;
+    protected Memory $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

@@ -11,10 +11,8 @@ class ListDatabaseTest extends AbstractTestCase
 {
     /**
      * ListDatabase instance
-     *
-     * @var ListDatabase
      */
-    private $object;
+    private ListDatabase $object;
 
     /**
      * SetUp for test cases

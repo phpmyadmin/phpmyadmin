@@ -12,8 +12,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /** @covers \PhpMyAdmin\Database\Triggers */
 class TriggersTest extends AbstractTestCase
 {
-    /** @var Triggers */
-    private $triggers;
+    private Triggers $triggers;
 
     /**
      * Set up

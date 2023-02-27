@@ -37,7 +37,7 @@ use const ROOT_PATH;
 class SettingsTest extends TestCase
 {
     /** @var array<string, array|bool|int|string|null> */
-    private $defaultValues = [
+    private array $defaultValues = [
         'PmaAbsoluteUri' => '',
         'AuthLog' => 'auto',
         'AuthLogSuccess' => false,

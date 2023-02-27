@@ -14,8 +14,7 @@ use function sprintf;
 /** @covers \PhpMyAdmin\Engines\Pbxt */
 class PbxtTest extends AbstractTestCase
 {
-    /** @var Pbxt */
-    protected $object;
+    protected Pbxt $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

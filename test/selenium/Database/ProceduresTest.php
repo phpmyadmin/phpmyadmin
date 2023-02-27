@@ -14,10 +14,8 @@ class ProceduresTest extends TestBase
 {
     /**
      * The sql_mode before tests
-     *
-     * @var string
      */
-    private $originalSqlMode = '';
+    private string $originalSqlMode = '';
 
     /**
      * Setup the browser environment to run the selenium test case

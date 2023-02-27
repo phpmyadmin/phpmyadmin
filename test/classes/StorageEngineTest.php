@@ -27,14 +27,12 @@ use function json_encode;
 /** @covers \PhpMyAdmin\StorageEngine */
 class StorageEngineTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var DbiDummy */
-    protected $dummyDbi;
+    protected DbiDummy $dummyDbi;
 
-    /** @var StorageEngine|MockObject */
-    protected $object;
+    /** @var StorageEngine&MockObject */
+    protected StorageEngine $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

@@ -20,14 +20,11 @@ use function htmlspecialchars;
 /** @covers \PhpMyAdmin\SqlQueryForm */
 class SqlQueryFormTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var DbiDummy */
-    protected $dummyDbi;
+    protected DbiDummy $dummyDbi;
 
-    /** @var SqlQueryForm */
-    private $sqlQueryForm;
+    private SqlQueryForm $sqlQueryForm;
 
     /**
      * Test for setUp

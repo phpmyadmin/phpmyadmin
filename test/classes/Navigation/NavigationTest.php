@@ -15,8 +15,7 @@ use PhpMyAdmin\Url;
 /** @covers \PhpMyAdmin\Navigation\Navigation */
 class NavigationTest extends AbstractTestCase
 {
-    /** @var Navigation */
-    protected $object;
+    protected Navigation $object;
 
     /**
      * Sets up the fixture.

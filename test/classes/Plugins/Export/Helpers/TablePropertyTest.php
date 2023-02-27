@@ -10,8 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /** @covers \PhpMyAdmin\Plugins\Export\Helpers\TableProperty */
 class TablePropertyTest extends AbstractTestCase
 {
-    /** @var TableProperty */
-    protected $object;
+    protected TableProperty $object;
 
     /**
      * Configures global environment.

@@ -24,11 +24,9 @@ use const PHP_INT_MAX;
  */
 abstract class GisGeomTestCase extends AbstractTestCase
 {
-    /** @var string */
-    protected $testDir = '';
+    protected string $testDir = '';
 
-    /** @var GisGeometry */
-    protected $object;
+    protected GisGeometry $object;
 
     protected function setUp(): void
     {

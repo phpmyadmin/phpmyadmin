@@ -35,7 +35,7 @@ abstract class AbstractTestCase extends TestCase
      *
      * @var string[]
      */
-    private $globalsAllowList = [
+    private array $globalsAllowList = [
         '__composer_autoload_files',
         'GLOBALS',
         '_SERVER',

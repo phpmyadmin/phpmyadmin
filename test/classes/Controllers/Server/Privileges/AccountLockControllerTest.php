@@ -19,16 +19,14 @@ use PHPUnit\Framework\MockObject\Stub;
 class AccountLockControllerTest extends AbstractTestCase
 {
     /** @var DatabaseInterface&Stub */
-    private $dbiStub;
+    private DatabaseInterface $dbiStub;
 
     /** @var ServerRequest&Stub  */
-    private $requestStub;
+    private ServerRequest $requestStub;
 
-    /** @var ResponseRenderer */
-    private $responseRendererStub;
+    private ResponseRenderer $responseRendererStub;
 
-    /** @var AccountLockController */
-    private $controller;
+    private AccountLockController $controller;
 
     protected function setUp(): void
     {

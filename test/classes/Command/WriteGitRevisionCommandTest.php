@@ -14,8 +14,7 @@ use function sprintf;
 /** @covers \PhpMyAdmin\Command\WriteGitRevisionCommand */
 class WriteGitRevisionCommandTest extends AbstractTestCase
 {
-    /** @var WriteGitRevisionCommand */
-    private $command;
+    private WriteGitRevisionCommand $command;
 
     public function testGetGeneratedClassValidVersion(): void
     {

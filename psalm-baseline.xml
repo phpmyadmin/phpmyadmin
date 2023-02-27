@@ -7907,6 +7907,9 @@
       <code>$black</code>
       <code>$line_color</code>
     </PossiblyFalseArgument>
+    <PossiblyUnusedMethod>
+      <code>getShape</code>
+    </PossiblyUnusedMethod>
     <RedundantPropertyInitializationCheck>
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
@@ -7973,6 +7976,9 @@
       <code>$black</code>
       <code>$point_color</code>
     </PossiblyFalseArgument>
+    <PossiblyUnusedMethod>
+      <code>getShape</code>
+    </PossiblyUnusedMethod>
     <RedundantPropertyInitializationCheck>
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
@@ -8083,6 +8089,9 @@
       <code>$black</code>
       <code>$fill_color</code>
     </PossiblyFalseArgument>
+    <PossiblyUnusedMethod>
+      <code>getShape</code>
+    </PossiblyUnusedMethod>
     <RedundantPropertyInitializationCheck>
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
@@ -8133,6 +8142,9 @@
       <code>$black</code>
       <code>$point_color</code>
     </PossiblyFalseArgument>
+    <PossiblyUnusedMethod>
+      <code>getShape</code>
+    </PossiblyUnusedMethod>
     <RedundantPropertyInitializationCheck>
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
@@ -16468,9 +16480,6 @@
       <code>array</code>
       <code>array</code>
     </MixedInferredReturnType>
-    <NonInvariantDocblockPropertyType>
-      <code>$object</code>
-    </NonInvariantDocblockPropertyType>
     <PossiblyUnusedMethod>
       <code>providerForTestGenerateParams</code>
       <code>providerForTestScaleRow</code>
@@ -16491,9 +16500,6 @@
       <code>array</code>
       <code>array</code>
     </MixedInferredReturnType>
-    <NonInvariantDocblockPropertyType>
-      <code>$object</code>
-    </NonInvariantDocblockPropertyType>
     <PossiblyUnusedMethod>
       <code>providerForTestGenerateParams</code>
       <code>providerForTestGenerateWkt</code>
@@ -16506,14 +16512,14 @@
       <code>array</code>
       <code>array</code>
     </MixedInferredReturnType>
-    <NonInvariantDocblockPropertyType>
-      <code>$object</code>
-    </NonInvariantDocblockPropertyType>
     <PossiblyUnusedMethod>
       <code>providerForTestGenerateParams</code>
       <code>providerForTestGenerateWkt</code>
       <code>providerForTestScaleRow</code>
     </PossiblyUnusedMethod>
+    <UndefinedMethod>
+      <code>getShape</code>
+    </UndefinedMethod>
   </file>
   <file src="test/classes/Gis/GisMultiPointTest.php">
     <MixedInferredReturnType>
@@ -16521,14 +16527,14 @@
       <code>array</code>
       <code>array</code>
     </MixedInferredReturnType>
-    <NonInvariantDocblockPropertyType>
-      <code>$object</code>
-    </NonInvariantDocblockPropertyType>
     <PossiblyUnusedMethod>
       <code>providerForTestGenerateParams</code>
       <code>providerForTestGenerateWkt</code>
       <code>providerForTestScaleRow</code>
     </PossiblyUnusedMethod>
+    <UndefinedMethod>
+      <code>getShape</code>
+    </UndefinedMethod>
   </file>
   <file src="test/classes/Gis/GisMultiPolygonTest.php">
     <MixedArrayAssignment>
@@ -16545,14 +16551,14 @@
       <code>array</code>
       <code>array</code>
     </MixedInferredReturnType>
-    <NonInvariantDocblockPropertyType>
-      <code>$object</code>
-    </NonInvariantDocblockPropertyType>
     <PossiblyUnusedMethod>
       <code>providerForTestGenerateParams</code>
       <code>providerForTestGenerateWkt</code>
       <code>providerForTestScaleRow</code>
     </PossiblyUnusedMethod>
+    <UndefinedMethod>
+      <code>getShape</code>
+    </UndefinedMethod>
   </file>
   <file src="test/classes/Gis/GisPointTest.php">
     <MixedInferredReturnType>
@@ -16561,14 +16567,14 @@
       <code>array</code>
       <code>array</code>
     </MixedInferredReturnType>
-    <NonInvariantDocblockPropertyType>
-      <code>$object</code>
-    </NonInvariantDocblockPropertyType>
     <PossiblyUnusedMethod>
       <code>providerForTestGenerateParams</code>
       <code>providerForTestGenerateWkt</code>
       <code>providerForTestScaleRow</code>
     </PossiblyUnusedMethod>
+    <UndefinedMethod>
+      <code>getShape</code>
+    </UndefinedMethod>
   </file>
   <file src="test/classes/Gis/GisPolygonTest.php">
     <MixedArrayAccess>
@@ -16596,14 +16602,18 @@
       <code>array</code>
       <code>array</code>
     </MixedInferredReturnType>
-    <NonInvariantDocblockPropertyType>
-      <code>$object</code>
-    </NonInvariantDocblockPropertyType>
     <PossiblyUnusedMethod>
       <code>providerForTestGenerateParams</code>
       <code>providerForTestGenerateWkt</code>
       <code>providerForTestScaleRow</code>
     </PossiblyUnusedMethod>
+    <UndefinedMethod>
+      <code>area</code>
+      <code>getPointOnSurface</code>
+      <code>isOuterRing</code>
+      <code>isPointInsidePolygon</code>
+      <code>isPointInsidePolygon</code>
+    </UndefinedMethod>
   </file>
   <file src="test/classes/Gis/GisVisualizationTest.php">
     <MixedAssignment>
@@ -16621,11 +16631,9 @@
   </file>
   <file src="test/classes/GitTest.php">
     <RedundantCast>
+      <code><![CDATA[(string) $this->cwd]]></code>
       <code><![CDATA[(string) $this->testDir]]></code>
     </RedundantCast>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(string) $this->cwd]]></code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="test/classes/HeaderTest.php">
     <MixedInferredReturnType>
@@ -16814,25 +16822,6 @@
     <MixedInferredReturnType>
       <code>array</code>
     </MixedInferredReturnType>
-  </file>
-  <file src="test/classes/Navigation/Nodes/NodeDatabaseChildTest.php">
-    <MixedArgument>
-      <code>$html</code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code>$html</code>
-    </MixedAssignment>
-    <MixedMethodCall>
-      <code>method</code>
-      <code>will</code>
-    </MixedMethodCall>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$this->object]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyUndefinedMethod>
-      <code>expects</code>
-      <code>getHtmlForControlButtons</code>
-    </PossiblyUndefinedMethod>
   </file>
   <file src="test/classes/Navigation/Nodes/NodeTableTest.php">
     <MixedInferredReturnType>
@@ -17061,41 +17050,6 @@
       <code>assertIsArray</code>
     </RedundantCondition>
   </file>
-  <file src="test/classes/Properties/Options/OptionsPropertyItemTest.php">
-    <PossiblyUndefinedMethod>
-      <code>getForce</code>
-      <code>getName</code>
-      <code>getPropertyType</code>
-      <code>getText</code>
-      <code>setForce</code>
-      <code>setName</code>
-      <code>setText</code>
-    </PossiblyUndefinedMethod>
-  </file>
-  <file src="test/classes/Properties/Options/OptionsPropertyOneItemTest.php">
-    <PossiblyUndefinedMethod>
-      <code>getDoc</code>
-      <code>getForce</code>
-      <code>getLen</code>
-      <code>getSize</code>
-      <code>getValues</code>
-      <code>setDoc</code>
-      <code>setForce</code>
-      <code>setLen</code>
-      <code>setSize</code>
-      <code>setValues</code>
-    </PossiblyUndefinedMethod>
-  </file>
-  <file src="test/classes/Properties/Plugins/ExportPluginPropertiesTest.php">
-    <NonInvariantDocblockPropertyType>
-      <code>$object</code>
-    </NonInvariantDocblockPropertyType>
-  </file>
-  <file src="test/classes/Properties/PropertyItemTest.php">
-    <PossiblyUndefinedMethod>
-      <code>getGroup</code>
-    </PossiblyUndefinedMethod>
-  </file>
   <file src="test/classes/SanitizeTest.php">
     <MixedInferredReturnType>
       <code>array</code>
@@ -17171,79 +17125,33 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/StorageEngineTest.php">
-    <MixedAssignment>
-      <code>$actual</code>
-    </MixedAssignment>
     <MixedInferredReturnType>
       <code>array</code>
     </MixedInferredReturnType>
-    <NoInterfaceProperties>
-      <code><![CDATA[$this->object->support]]></code>
-      <code><![CDATA[$this->object->support]]></code>
-      <code><![CDATA[$this->object->support]]></code>
-    </NoInterfaceProperties>
-    <PossiblyUndefinedMethod>
-      <code>getArray</code>
-      <code>getComment</code>
-      <code>getInfoPages</code>
-      <code>getMysqlHelpPage</code>
-      <code>getPage</code>
-      <code>getStorageEngines</code>
-      <code>getSupportInformationMessage</code>
-      <code>getSupportInformationMessage</code>
-      <code>getSupportInformationMessage</code>
-      <code>getSupportInformationMessage</code>
-      <code>getTitle</code>
-      <code>getVariables</code>
-      <code>getVariablesLikePattern</code>
-      <code>isValid</code>
-      <code>isValid</code>
-      <code>isValid</code>
-      <code>isValid</code>
-      <code>resolveTypeSize</code>
-    </PossiblyUndefinedMethod>
   </file>
   <file src="test/classes/Stubs/DbiDummy.php">
     <InvalidDocblock>
-      <code>private $dummyQueries = [];</code>
-      <code>private $filoQueries = [];</code>
+      <code>private array $dummyQueries = [];</code>
+      <code>private array $filoQueries = [];</code>
     </InvalidDocblock>
-    <MissingPropertyType>
-      <code>$dummyQueries</code>
-      <code>$filoQueries</code>
-    </MissingPropertyType>
     <MixedArgument>
       <code><![CDATA[$query_data['columns'] ?? []]]></code>
       <code><![CDATA[$query_data['result']]]></code>
       <code><![CDATA[$query_data['result']]]></code>
-      <code><![CDATA[$this->dummyQueries]]></code>
-      <code><![CDATA[$this->filoQueries]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$query['used']]]></code>
       <code><![CDATA[$query_data['columns'][$key]]]></code>
       <code><![CDATA[$query_data['result'][$query_data['pos']]]]></code>
-      <code><![CDATA[$this->dummyQueries[$i]]]></code>
-      <code><![CDATA[$this->dummyQueries[$i]]]></code>
       <code><![CDATA[$this->dummyQueries[$i]['query']]]></code>
       <code><![CDATA[$this->dummyQueries[$i]['result']]]></code>
-      <code><![CDATA[$this->dummyQueries[$result - self::OFFSET_GLOBAL]]]></code>
-      <code><![CDATA[$this->filoQueries[$i]]]></code>
-      <code><![CDATA[$this->filoQueries[$i]]]></code>
-      <code><![CDATA[$this->filoQueries[$i]]]></code>
       <code><![CDATA[$this->filoQueries[$i]['query']]]></code>
       <code><![CDATA[$this->filoQueries[$i]['result']]]></code>
-      <code><![CDATA[$this->filoQueries[$i]['used']]]></code>
-      <code><![CDATA[$this->filoQueries[$result]]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
-      <code><![CDATA[$this->dummyQueries[$i]]]></code>
       <code><![CDATA[$this->dummyQueries[$i]['pos']]]></code>
-      <code><![CDATA[$this->filoQueries[$i]]]></code>
-      <code><![CDATA[$this->filoQueries[$i]]]></code>
       <code><![CDATA[$this->filoQueries[$i]['pos']]]></code>
       <code><![CDATA[$this->filoQueries[$i]['used']]]></code>
-      <code><![CDATA[$this->filoQueries[]]]></code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
       <code><![CDATA[$query_data['result'][$query_data['pos']]]]></code>
@@ -17614,7 +17522,6 @@
   </file>
   <file src="test/selenium/TestBase.php">
     <DocblockTypeContradiction>
-      <code><![CDATA[$this->webDriver === null]]></code>
       <code><![CDATA['']]></code>
       <code><![CDATA['']]></code>
     </DocblockTypeContradiction>
@@ -17648,11 +17555,12 @@
     <RedundantCondition>
       <code><![CDATA[$text && is_string($text)]]></code>
       <code><![CDATA[$text && is_string($text)]]></code>
+      <code><![CDATA[$this->webDriver !== null]]></code>
       <code>is_string($text)</code>
       <code>is_string($text)</code>
     </RedundantCondition>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[$this->webDriver !== null]]></code>
-    </RedundantConditionGivenDocblockType>
+    <TypeDoesNotContainNull>
+      <code><![CDATA[$this->webDriver === null]]></code>
+    </TypeDoesNotContainNull>
   </file>
 </files>

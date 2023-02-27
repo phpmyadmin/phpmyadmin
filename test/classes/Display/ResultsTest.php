@@ -44,14 +44,11 @@ use const MYSQLI_TYPE_TIMESTAMP;
 /** @covers \PhpMyAdmin\Display\Results */
 class ResultsTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var DbiDummy */
-    protected $dummyDbi;
+    protected DbiDummy $dummyDbi;
 
-    /** @var DisplayResults */
-    protected $object;
+    protected DisplayResults $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

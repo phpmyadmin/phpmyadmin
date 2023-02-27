@@ -40,14 +40,11 @@ use const MYSQLI_TYPE_STRING;
  */
 class ExportOdtTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var DbiDummy */
-    protected $dummyDbi;
+    protected DbiDummy $dummyDbi;
 
-    /** @var ExportOdt */
-    protected $object;
+    protected ExportOdt $object;
 
     /**
      * Configures global environment.

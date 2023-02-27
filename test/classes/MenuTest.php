@@ -12,11 +12,9 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 /** @covers \PhpMyAdmin\Menu */
 class MenuTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    protected $dbi;
+    protected DatabaseInterface $dbi;
 
-    /** @var DbiDummy */
-    protected $dummyDbi;
+    protected DbiDummy $dummyDbi;
 
     /**
      * Configures global environment.

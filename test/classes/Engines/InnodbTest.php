@@ -12,8 +12,7 @@ use function __;
 /** @covers \PhpMyAdmin\Engines\Innodb */
 class InnodbTest extends AbstractTestCase
 {
-    /** @var Innodb */
-    protected $object;
+    protected Innodb $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

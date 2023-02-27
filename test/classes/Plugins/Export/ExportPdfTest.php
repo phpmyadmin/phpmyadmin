@@ -26,8 +26,7 @@ use function __;
  */
 class ExportPdfTest extends AbstractTestCase
 {
-    /** @var ExportPdf */
-    protected $object;
+    protected ExportPdf $object;
 
     /**
      * Configures global environment.

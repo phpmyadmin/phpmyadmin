@@ -11,8 +11,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /** @covers \PhpMyAdmin\Plugins\Schema\Eps\EpsRelationSchema */
 class EpsRelationSchemaTest extends AbstractTestCase
 {
-    /** @var EpsRelationSchema */
-    protected $object;
+    protected EpsRelationSchema $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

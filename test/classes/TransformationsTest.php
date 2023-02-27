@@ -12,8 +12,7 @@ use PhpMyAdmin\Transformations;
 /** @covers \PhpMyAdmin\Transformations */
 class TransformationsTest extends AbstractTestCase
 {
-    /** @var Transformations */
-    private $transformations;
+    private Transformations $transformations;
 
     /**
      * Set up global environment.

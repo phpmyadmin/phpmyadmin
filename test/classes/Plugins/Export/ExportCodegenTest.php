@@ -27,8 +27,7 @@ use function ob_start;
  */
 class ExportCodegenTest extends AbstractTestCase
 {
-    /** @var ExportCodegen */
-    protected $object;
+    protected ExportCodegen $object;
 
     /**
      * Configures global environment.

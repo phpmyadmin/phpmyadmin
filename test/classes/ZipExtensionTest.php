@@ -17,8 +17,7 @@ use function unlink;
  */
 class ZipExtensionTest extends AbstractTestCase
 {
-    /** @var ZipExtension */
-    private $zipExtension;
+    private ZipExtension $zipExtension;
 
     protected function setUp(): void
     {

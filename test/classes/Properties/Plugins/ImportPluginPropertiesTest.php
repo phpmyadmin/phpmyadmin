@@ -10,8 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /** @covers \PhpMyAdmin\Properties\Plugins\ImportPluginProperties */
 class ImportPluginPropertiesTest extends AbstractTestCase
 {
-    /** @var ImportPluginProperties */
-    protected $object;
+    protected ImportPluginProperties $object;
 
     /**
      * Configures global environment.
