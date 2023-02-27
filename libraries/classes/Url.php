@@ -32,19 +32,15 @@ class Url
      *
      * @see Url::getCommon()
      *
-     * @param string|array $db     optional database name
-     *                             (can also be an array of parameters)
-     * @param string       $table  optional table name
-     * @param int          $indent indenting level
-     * @param string|array $skip   do not generate a hidden field for this parameter
-     *                             (can be an array of strings)
+     * @param string|array $db    optional database name (can also be an array of parameters)
+     * @param string       $table optional table name
+     * @param string|array $skip  do not generate a hidden field for this parameter (can be an array of strings)
      *
      * @return string   string with input fields
      */
     public static function getHiddenInputs(
         $db = '',
         $table = '',
-        $indent = 0,
         $skip = [],
     ): string {
         $GLOBALS['config'] ??= null;

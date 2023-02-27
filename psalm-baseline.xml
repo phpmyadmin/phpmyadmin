@@ -14619,9 +14619,6 @@
       <code>get</code>
       <code>getCookie</code>
     </PossiblyNullReference>
-    <PossiblyUnusedParam>
-      <code>$indent</code>
-    </PossiblyUnusedParam>
     <RedundantCastGivenDocblockType>
       <code>(string) $db</code>
       <code>(string) $table</code>
