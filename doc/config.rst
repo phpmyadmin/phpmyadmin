@@ -1809,6 +1809,8 @@ Generic settings
     :type: boolean
     :default: true
 
+    .. versionadded:: 4.5.0
+
     Defines whether to use the parser to find any errors in the query before executing.
 
 .. config:option:: $cfg['DefaultForeignKeyChecks']
