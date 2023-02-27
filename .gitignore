@@ -63,3 +63,6 @@ phpstan.neon
 infection.json
 infection.log
 /public/build/
+/js/dist/
+/setup/
+/themes/
