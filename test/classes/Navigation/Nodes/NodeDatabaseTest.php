@@ -31,7 +31,6 @@ class NodeDatabaseTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = new NodeDatabase('default');
-        $this->assertIsArray($parent->links);
         $this->assertEquals(
             [
                 'text' => [

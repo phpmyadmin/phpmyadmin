@@ -14,463 +14,294 @@ use function in_array;
  */
 final class Export
 {
-    /**
-     * @var string
-     * @psalm-var 'codegen'|'csv'|'excel'|'htmlexcel'|'htmlword'|'latex'|'ods'|'odt'|'pdf'|'sql'|'texytext'|'xml'|'yaml'
-     */
-    public $format;
+    /** @psalm-var 'codegen'|'csv'|'excel'|'htmlexcel'|'htmlword'|'latex'|'ods'|'odt'|'pdf'|'sql'|'texytext'|'xml'|'yaml' */
+    public string $format;
 
-    /**
-     * @var string
-     * @psalm-var 'quick'|'custom'|'custom-no-form'
-     */
-    public $method;
+    /** @psalm-var 'quick'|'custom'|'custom-no-form' */
+    public string $method;
 
-    /**
-     * @var string
-     * @psalm-var 'none'|'zip'|'gzip'
-     */
-    public $compression;
+    /** @psalm-var 'none'|'zip'|'gzip' */
+    public string $compression;
 
     /**
      * Whether to LOCK TABLES before exporting
-     *
-     * @var bool
      */
-    public $lock_tables;
+    public bool $lock_tables;
 
     /**
      * Whether to export databases/tables as separate files
-     *
-     * @var bool
      */
-    public $as_separate_files;
+    public bool $as_separate_files;
 
-    /** @var bool */
-    public $asfile;
+    public bool $asfile;
 
-    /** @var string */
-    public $charset;
+    public string $charset;
 
-    /** @var bool */
-    public $onserver;
+    public bool $onserver;
 
-    /** @var bool */
-    public $onserver_overwrite;
+    public bool $onserver_overwrite;
 
-    /** @var bool */
-    public $quick_export_onserver;
+    public bool $quick_export_onserver;
 
-    /** @var bool */
-    public $quick_export_onserver_overwrite;
+    public bool $quick_export_onserver_overwrite;
 
-    /** @var bool */
-    public $remember_file_template;
+    public bool $remember_file_template;
 
-    /** @var string */
-    public $file_template_table;
+    public string $file_template_table;
 
-    /** @var string */
-    public $file_template_database;
+    public string $file_template_database;
 
-    /** @var string */
-    public $file_template_server;
+    public string $file_template_server;
 
-    /**
-     * @var string
-     * @psalm-var StructureOrDataType
-     */
-    public $codegen_structure_or_data;
+    /** @psalm-var StructureOrDataType */
+    public string $codegen_structure_or_data;
 
-    /**
-     * @var int
-     * @psalm-var 0|1
-     */
-    public $codegen_format;
+    /** @psalm-var 0|1 */
+    public int $codegen_format;
 
-    /** @var bool */
-    public $ods_columns;
+    public bool $ods_columns;
 
-    /** @var string */
-    public $ods_null;
+    public string $ods_null;
 
-    /**
-     * @var string
-     * @psalm-var StructureOrDataType
-     */
-    public $odt_structure_or_data;
+    /** @psalm-var StructureOrDataType */
+    public string $odt_structure_or_data;
 
-    /** @var bool */
-    public $odt_columns;
+    public bool $odt_columns;
 
-    /** @var bool */
-    public $odt_relation;
+    public bool $odt_relation;
 
-    /** @var bool */
-    public $odt_comments;
+    public bool $odt_comments;
 
-    /** @var bool */
-    public $odt_mime;
+    public bool $odt_mime;
 
-    /** @var string */
-    public $odt_null;
+    public string $odt_null;
 
-    /**
-     * @var string
-     * @psalm-var StructureOrDataType
-     */
-    public $htmlword_structure_or_data;
+    /** @psalm-var StructureOrDataType */
+    public string $htmlword_structure_or_data;
 
-    /** @var bool */
-    public $htmlword_columns;
+    public bool $htmlword_columns;
 
-    /** @var string */
-    public $htmlword_null;
+    public string $htmlword_null;
 
-    /**
-     * @var string
-     * @psalm-var StructureOrDataType
-     */
-    public $texytext_structure_or_data;
+    /** @psalm-var StructureOrDataType */
+    public string $texytext_structure_or_data;
 
-    /** @var bool */
-    public $texytext_columns;
+    public bool $texytext_columns;
 
-    /** @var string */
-    public $texytext_null;
+    public string $texytext_null;
 
-    /** @var bool */
-    public $csv_columns;
+    public bool $csv_columns;
 
-    /**
-     * @var string
-     * @psalm-var StructureOrDataType
-     */
-    public $csv_structure_or_data;
+    /** @psalm-var StructureOrDataType */
+    public string $csv_structure_or_data;
 
-    /** @var string */
-    public $csv_null;
+    public string $csv_null;
 
-    /** @var string */
-    public $csv_separator;
+    public string $csv_separator;
 
-    /** @var string */
-    public $csv_enclosed;
+    public string $csv_enclosed;
 
-    /** @var string */
-    public $csv_escaped;
+    public string $csv_escaped;
 
-    /** @var string */
-    public $csv_terminated;
+    public string $csv_terminated;
 
-    /** @var bool */
-    public $csv_removeCRLF;
+    public bool $csv_removeCRLF;
 
-    /** @var bool */
-    public $excel_columns;
+    public bool $excel_columns;
 
-    /** @var string */
-    public $excel_null;
+    public string $excel_null;
 
-    /**
-     * @var string
-     * @psalm-var 'win'|'mac_excel2003'|'mac_excel2008'
-     */
-    public $excel_edition;
+    /** @psalm-var 'win'|'mac_excel2003'|'mac_excel2008' */
+    public string $excel_edition;
 
-    /** @var bool */
-    public $excel_removeCRLF;
+    public bool $excel_removeCRLF;
 
-    /**
-     * @var string
-     * @psalm-var StructureOrDataType
-     */
-    public $excel_structure_or_data;
+    /** @psalm-var StructureOrDataType */
+    public string $excel_structure_or_data;
 
-    /**
-     * @var string
-     * @psalm-var StructureOrDataType
-     */
-    public $latex_structure_or_data;
+    /** @psalm-var StructureOrDataType */
+    public string $latex_structure_or_data;
 
-    /** @var bool */
-    public $latex_columns;
+    public bool $latex_columns;
 
-    /** @var bool */
-    public $latex_relation;
+    public bool $latex_relation;
 
-    /** @var bool */
-    public $latex_comments;
+    public bool $latex_comments;
 
-    /** @var bool */
-    public $latex_mime;
+    public bool $latex_mime;
 
-    /** @var string */
-    public $latex_null;
+    public string $latex_null;
 
-    /** @var bool */
-    public $latex_caption;
+    public bool $latex_caption;
 
-    /** @var string */
-    public $latex_structure_caption;
+    public string $latex_structure_caption;
 
-    /** @var string */
-    public $latex_structure_continued_caption;
+    public string $latex_structure_continued_caption;
 
-    /** @var string */
-    public $latex_data_caption;
+    public string $latex_data_caption;
 
-    /** @var string */
-    public $latex_data_continued_caption;
+    public string $latex_data_continued_caption;
 
-    /** @var string */
-    public $latex_data_label;
+    public string $latex_data_label;
 
-    /** @var string */
-    public $latex_structure_label;
+    public string $latex_structure_label;
 
-    /**
-     * @var string
-     * @psalm-var StructureOrDataType
-     */
-    public $mediawiki_structure_or_data;
+    /** @psalm-var StructureOrDataType */
+    public string $mediawiki_structure_or_data;
 
-    /** @var bool */
-    public $mediawiki_caption;
+    public bool $mediawiki_caption;
 
-    /** @var bool */
-    public $mediawiki_headers;
+    public bool $mediawiki_headers;
 
-    /**
-     * @var string
-     * @psalm-var StructureOrDataType
-     */
-    public $ods_structure_or_data;
+    /** @psalm-var StructureOrDataType */
+    public string $ods_structure_or_data;
 
-    /**
-     * @var string
-     * @psalm-var StructureOrDataType
-     */
-    public $pdf_structure_or_data;
+    /** @psalm-var StructureOrDataType */
+    public string $pdf_structure_or_data;
 
-    /**
-     * @var string
-     * @psalm-var StructureOrDataType
-     */
-    public $phparray_structure_or_data;
+    /** @psalm-var StructureOrDataType */
+    public string $phparray_structure_or_data;
 
-    /**
-     * @var string
-     * @psalm-var StructureOrDataType
-     */
-    public $json_structure_or_data;
+    /** @psalm-var StructureOrDataType */
+    public string $json_structure_or_data;
 
-    /** @var bool */
-    public $json_pretty_print;
+    public bool $json_pretty_print;
 
-    /** @var bool */
-    public $json_unicode;
+    public bool $json_unicode;
 
-    /**
-     * @var string
-     * @psalm-var StructureOrDataType
-     */
-    public $sql_structure_or_data;
+    /** @psalm-var StructureOrDataType */
+    public string $sql_structure_or_data;
 
-    /**
-     * @var string
-     * @psalm-var 'NONE'|'ANSI'|'DB2'|'MAXDB'|'MYSQL323'|'MYSQL40'|'MSSQL'|'ORACLE'|'TRADITIONAL'
-     */
-    public $sql_compatibility;
+    /** @psalm-var 'NONE'|'ANSI'|'DB2'|'MAXDB'|'MYSQL323'|'MYSQL40'|'MSSQL'|'ORACLE'|'TRADITIONAL' */
+    public string $sql_compatibility;
 
     /**
      * Whether to include comments in SQL export.
-     *
-     * @var bool
      */
-    public $sql_include_comments;
+    public bool $sql_include_comments;
 
-    /** @var bool */
-    public $sql_disable_fk;
+    public bool $sql_disable_fk;
 
-    /** @var bool */
-    public $sql_views_as_tables;
+    public bool $sql_views_as_tables;
 
-    /** @var bool */
-    public $sql_metadata;
+    public bool $sql_metadata;
 
-    /** @var bool */
-    public $sql_use_transaction;
+    public bool $sql_use_transaction;
 
-    /** @var bool */
-    public $sql_create_database;
+    public bool $sql_create_database;
 
-    /** @var bool */
-    public $sql_drop_database;
+    public bool $sql_drop_database;
 
-    /** @var bool */
-    public $sql_drop_table;
+    public bool $sql_drop_table;
 
     /**
      * true by default for correct behavior when dealing with exporting
      * of VIEWs and the stand-in table
-     *
-     * @var bool
      */
-    public $sql_if_not_exists;
+    public bool $sql_if_not_exists;
 
-    /** @var bool */
-    public $sql_view_current_user;
+    public bool $sql_view_current_user;
 
-    /** @var bool */
-    public $sql_or_replace_view;
+    public bool $sql_or_replace_view;
 
-    /** @var bool */
-    public $sql_procedure_function;
+    public bool $sql_procedure_function;
 
-    /** @var bool */
-    public $sql_create_table;
+    public bool $sql_create_table;
 
-    /** @var bool */
-    public $sql_create_view;
+    public bool $sql_create_view;
 
-    /** @var bool */
-    public $sql_create_trigger;
+    public bool $sql_create_trigger;
 
-    /** @var bool */
-    public $sql_auto_increment;
+    public bool $sql_auto_increment;
 
-    /** @var bool */
-    public $sql_backquotes;
+    public bool $sql_backquotes;
 
-    /** @var bool */
-    public $sql_dates;
+    public bool $sql_dates;
 
-    /** @var bool */
-    public $sql_relation;
+    public bool $sql_relation;
 
-    /** @var bool */
-    public $sql_truncate;
+    public bool $sql_truncate;
 
-    /** @var bool */
-    public $sql_delayed;
+    public bool $sql_delayed;
 
-    /** @var bool */
-    public $sql_ignore;
+    public bool $sql_ignore;
 
     /**
      * Export time in UTC.
-     *
-     * @var bool
      */
-    public $sql_utc_time;
+    public bool $sql_utc_time;
 
-    /** @var bool */
-    public $sql_hex_for_binary;
+    public bool $sql_hex_for_binary;
 
-    /**
-     * @var string
-     * @psalm-var 'INSERT'|'UPDATE'|'REPLACE'
-     */
-    public $sql_type;
+    /** @psalm-var 'INSERT'|'UPDATE'|'REPLACE' */
+    public string $sql_type;
 
-    /**
-     * @var int
-     * @psalm-var 0|positive-int
-     */
-    public $sql_max_query_size;
+    /** @psalm-var 0|positive-int */
+    public int $sql_max_query_size;
 
-    /** @var bool */
-    public $sql_mime;
+    public bool $sql_mime;
 
     /**
      * \n is replaced by new line
-     *
-     * @var string
      */
-    public $sql_header_comment;
+    public string $sql_header_comment;
 
     /**
      * Whether to use complete inserts, extended inserts, both, or neither
      *
-     * @var string
      * @psalm-var 'complete'|'extended'|'both'|'none'
      */
-    public $sql_insert_syntax;
+    public string $sql_insert_syntax;
 
-    /** @var string */
-    public $pdf_report_title;
+    public string $pdf_report_title;
 
-    /**
-     * @var string
-     * @psalm-var StructureOrDataType
-     */
-    public $xml_structure_or_data;
+    /** @psalm-var StructureOrDataType */
+    public string $xml_structure_or_data;
 
     /**
      * Export schema for each structure
-     *
-     * @var bool
      */
-    public $xml_export_struc;
+    public bool $xml_export_struc;
 
     /**
      * Export events
-     *
-     * @var bool
      */
-    public $xml_export_events;
+    public bool $xml_export_events;
 
     /**
      * Export functions
-     *
-     * @var bool
      */
-    public $xml_export_functions;
+    public bool $xml_export_functions;
 
     /**
      * Export procedures
-     *
-     * @var bool
      */
-    public $xml_export_procedures;
+    public bool $xml_export_procedures;
 
     /**
      * Export schema for each table
-     *
-     * @var bool
      */
-    public $xml_export_tables;
+    public bool $xml_export_tables;
 
     /**
      * Export triggers
-     *
-     * @var bool
      */
-    public $xml_export_triggers;
+    public bool $xml_export_triggers;
 
     /**
      * Export views
-     *
-     * @var bool
      */
-    public $xml_export_views;
+    public bool $xml_export_views;
 
     /**
      * Export contents data
-     *
-     * @var bool
      */
-    public $xml_export_contents;
+    public bool $xml_export_contents;
 
-    /**
-     * @var string
-     * @psalm-var StructureOrDataType
-     */
-    public $yaml_structure_or_data;
+    /** @psalm-var StructureOrDataType */
+    public string $yaml_structure_or_data;
 
-    /** @var bool */
-    public $remove_definer_from_definitions;
+    public bool $remove_definer_from_definitions;
 
     /** @param array<int|string, mixed> $export */
     public function __construct(array $export = [])

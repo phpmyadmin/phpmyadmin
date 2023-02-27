@@ -67,151 +67,95 @@ final class FieldMetadata
     public const TYPE_DATETIME = 12;
     public const TYPE_YEAR = 13;
 
-    /**
-     * @var bool
-     * @readonly
-     */
-    public $isMultipleKey;
+    /** @readonly */
+    public bool $isMultipleKey;
 
-    /**
-     * @var bool
-     * @readonly
-     */
-    public $isPrimaryKey;
+    /** @readonly */
+    public bool $isPrimaryKey;
 
-    /**
-     * @var bool
-     * @readonly
-     */
-    public $isUniqueKey;
+    /** @readonly */
+    public bool $isUniqueKey;
 
-    /**
-     * @var bool
-     * @readonly
-     */
-    public $isNotNull;
+    /** @readonly */
+    public bool $isNotNull;
 
-    /**
-     * @var bool
-     * @readonly
-     */
-    public $isUnsigned;
+    /** @readonly */
+    public bool $isUnsigned;
 
-    /**
-     * @var bool
-     * @readonly
-     */
-    public $isZerofill;
+    /** @readonly */
+    public bool $isZerofill;
 
-    /**
-     * @var bool
-     * @readonly
-     */
-    public $isNumeric;
+    /** @readonly */
+    public bool $isNumeric;
 
-    /**
-     * @var bool
-     * @readonly
-     */
-    public $isBlob;
+    /** @readonly */
+    public bool $isBlob;
 
-    /**
-     * @var bool
-     * @readonly
-     */
-    public $isBinary;
+    /** @readonly */
+    public bool $isBinary;
 
-    /**
-     * @var bool
-     * @readonly
-     */
-    public $isEnum;
+    /** @readonly */
+    public bool $isEnum;
 
-    /**
-     * @var bool
-     * @readonly
-     */
-    public $isSet;
+    /** @readonly */
+    public bool $isSet;
 
-    /** @var int|null */
-    private $mappedType;
+    private int|null $mappedType = null;
 
-    /**
-     * @var bool
-     * @readonly
-     */
-    public $isMappedTypeBit;
+    /** @readonly */
+    public bool $isMappedTypeBit;
 
-    /**
-     * @var bool
-     * @readonly
-     */
-    public $isMappedTypeGeometry;
+    /** @readonly */
+    public bool $isMappedTypeGeometry;
 
-    /**
-     * @var bool
-     * @readonly
-     */
-    public $isMappedTypeTimestamp;
+    /** @readonly */
+    public bool $isMappedTypeTimestamp;
 
     /**
      * The column name
-     *
-     * @var string
      */
-    public $name;
+    public string $name;
 
     /**
      * The original column name if an alias did exist
-     *
-     * @var string
      */
-    public $orgname;
+    public string $orgname;
 
     /**
      * The table name
-     *
-     * @var string
      */
-    public $table;
+    public string $table;
 
     /**
      * The original table name
-     *
-     * @var string
      */
-    public $orgtable;
+    public string $orgtable;
 
     /**
      * The charset number
      *
      * @readonly
-     * @var int
      */
-    public $charsetnr;
+    public int $charsetnr;
 
     /**
      * The number of decimals used (for integer fields)
      *
      * @readonly
-     * @var int
      */
-    public $decimals;
+    public int $decimals;
 
     /**
      * The width of the field, as specified in the table definition.
      *
      * @readonly
-     * @var int
      */
-    public $length;
+    public int $length;
 
     /**
      * A field only used by the Results class
-     *
-     * @var string
      */
-    public $internalMediaType;
+    public string|null $internalMediaType = null;
 
     public function __construct(int $fieldType, int $fieldFlags, object $field)
     {

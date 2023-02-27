@@ -60,25 +60,13 @@ use function uksort;
  */
 class Privileges
 {
-    /** @var Template */
-    public $template;
-
-    /** @var DatabaseInterface */
-    public $dbi;
-
-    /** @var Relation */
-    public $relation;
-
     public function __construct(
-        Template $template,
-        DatabaseInterface $dbi,
-        Relation $relation,
+        public Template $template,
+        public DatabaseInterface $dbi,
+        public Relation $relation,
         private RelationCleanup $relationCleanup,
         private Plugins $plugins,
     ) {
-        $this->template = $template;
-        $this->dbi = $dbi;
-        $this->relation = $relation;
     }
 
     /**

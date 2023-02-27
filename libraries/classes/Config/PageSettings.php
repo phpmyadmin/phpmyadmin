@@ -22,24 +22,18 @@ class PageSettings
 {
     /**
      * Contains id of the form element
-     *
-     * @var string
      */
-    private $elemId = 'page_settings_modal';
+    private string $elemId = 'page_settings_modal';
 
     /**
      * Name of the group to show
-     *
-     * @var string
      */
-    private $groupName = '';
+    private string $groupName = '';
 
     /**
      * Contains HTML of errors
-     *
-     * @var string
      */
-    private $errorHTML = '';
+    private string $errorHTML = '';
 
     /**
      * Contains HTML of settings

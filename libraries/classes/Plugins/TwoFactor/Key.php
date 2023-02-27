@@ -31,8 +31,7 @@ use function json_encode;
  */
 class Key extends TwoFactorPlugin
 {
-    /** @var string */
-    public static $id = 'key';
+    public static string $id = 'key';
 
     public function __construct(TwoFactor $twofactor)
     {

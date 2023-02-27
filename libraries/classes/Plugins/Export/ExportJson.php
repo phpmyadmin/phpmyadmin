@@ -31,8 +31,7 @@ use const JSON_UNESCAPED_UNICODE;
  */
 class ExportJson extends ExportPlugin
 {
-    /** @var bool */
-    private $first = true;
+    private bool $first = true;
 
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string

@@ -32,13 +32,12 @@ use function sprintf;
 class EpsRelationSchema extends ExportRelationSchema
 {
     /** @var TableStatsEps[] */
-    private $tables = [];
+    private array $tables = [];
 
     /** @var RelationStatsEps[] Relations */
-    private $relations = [];
+    private array $relations = [];
 
-    /** @var int */
-    private $tablewidth = 0;
+    private int|float $tablewidth = 0;
 
     /**
      * Upon instantiation This starts writing the EPS document

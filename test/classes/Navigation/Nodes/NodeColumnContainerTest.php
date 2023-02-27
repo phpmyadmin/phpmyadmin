@@ -24,7 +24,6 @@ class NodeColumnContainerTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = new NodeColumnContainer();
-        $this->assertIsArray($parent->links);
         $this->assertEquals(
             [
                 'text' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],

@@ -38,7 +38,7 @@ class LanguageManager
      * @var array<string, string[]>
      * @psalm-var array<string, array{non-empty-string, non-empty-string, string, non-empty-string, string}>
      */
-    private static $languageData = [
+    private static array $languageData = [
         'af' => [
             'af',
             'Afrikaans',
@@ -709,22 +709,18 @@ class LanguageManager
     ];
 
     /** @var array */
-    private $availableLocales;
+    private array $availableLocales = [];
 
     /** @var Language[] */
-    private $availableLanguages = [];
+    private array $availableLanguages = [];
 
-    /** @var bool */
-    private $langFailedConfig = false;
+    private bool $langFailedConfig = false;
 
-    /** @var bool */
-    private $langFailedCookie = false;
+    private bool $langFailedCookie = false;
 
-    /** @var bool */
-    private $langFailedRequest = false;
+    private bool $langFailedRequest = false;
 
-    /** @var LanguageManager */
-    private static $instance;
+    private static LanguageManager|null $instance = null;
 
     /**
      * Returns LanguageManager singleton

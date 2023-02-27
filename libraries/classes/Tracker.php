@@ -52,7 +52,7 @@ class Tracker
      *
      * @var array
      */
-    protected static $trackingCache = [];
+    protected static array $trackingCache = [];
 
     /**
      * Actually enables tracking. This needs to be done after all

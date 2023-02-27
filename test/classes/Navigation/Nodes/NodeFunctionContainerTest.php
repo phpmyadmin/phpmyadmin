@@ -27,7 +27,6 @@ class NodeFunctionContainerTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = new NodeFunctionContainer();
-        $this->assertIsArray($parent->links);
         $this->assertEquals(
             [
                 'text' => ['route' => '/database/routines', 'params' => ['type' => 'FUNCTION', 'db' => null]],

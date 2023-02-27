@@ -24,7 +24,7 @@ class NodeTable extends NodeDatabaseChild
      * @var array<string, string>|null
      * @psalm-var array{image: string, title: string}|null
      */
-    public $secondIcon;
+    public array|null $secondIcon = null;
 
     /**
      * Initialises the class

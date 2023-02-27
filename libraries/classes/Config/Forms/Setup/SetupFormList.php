@@ -13,7 +13,7 @@ use PhpMyAdmin\Config\Forms\BaseFormList;
 class SetupFormList extends BaseFormList
 {
     /** @var array<string, class-string<BaseForm>> */
-    protected static $all = [
+    protected static array $all = [
         'Config' => ConfigForm::class,
         'Export' => ExportForm::class,
         'Features' => FeaturesForm::class,

@@ -28,8 +28,7 @@ use function trim;
  */
 class GisPolygon extends GisGeometry
 {
-    /** @var self */
-    private static $instance;
+    private static self $instance;
 
     /**
      * A private constructor; prevents direct creation of object.

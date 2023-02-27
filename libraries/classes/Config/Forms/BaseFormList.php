@@ -20,10 +20,10 @@ class BaseFormList
      *
      * @var array<string, class-string<BaseForm>>
      */
-    protected static $all = [];
+    protected static array $all = [];
 
     /** @var BaseForm[] */
-    private $forms;
+    private array $forms = [];
 
     /** @return string[] */
     public static function getAllFormNames(): array

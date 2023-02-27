@@ -25,11 +25,9 @@ use function sprintf;
  */
 class TableStatsDia extends TableStats
 {
-    /** @var int */
-    public $tableId;
+    public int $tableId;
 
-    /** @var string */
-    public $tableColor = '#000000';
+    public string $tableColor = '#000000';
 
     /**
      * @param Dia    $diagram    The current dia document

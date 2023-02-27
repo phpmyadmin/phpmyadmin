@@ -27,28 +27,26 @@ use function sprintf;
  */
 class TableStatsEps extends TableStats
 {
-    /** @var int */
-    public $height;
+    public int $height;
 
-    /** @var int */
-    public $currentCell = 0;
+    public int $currentCell = 0;
 
     /**
      * @see Eps
      * @see TableStatsEps::setWidthTable
      * @see TableStatsEps::setHeightTable
      *
-     * @param Eps    $diagram         The EPS diagram
-     * @param string $db              The database name
-     * @param string $tableName       The table name
-     * @param string $font            The font  name
-     * @param int    $fontSize        The font size
-     * @param int    $pageNumber      Page number
-     * @param int    $same_wide_width The max width among tables
-     * @param bool   $showKeys        Whether to display keys or not
-     * @param bool   $tableDimension  Whether to display table position or not
-     * @param bool   $offline         Whether the coordinates are sent
-     *                                from the browser
+     * @param Eps       $diagram         The EPS diagram
+     * @param string    $db              The database name
+     * @param string    $tableName       The table name
+     * @param string    $font            The font  name
+     * @param int       $fontSize        The font size
+     * @param int       $pageNumber      Page number
+     * @param int|float $same_wide_width The max width among tables
+     * @param bool      $showKeys        Whether to display keys or not
+     * @param bool      $tableDimension  Whether to display table position or not
+     * @param bool      $offline         Whether the coordinates are sent
+     *                                   from the browser
      */
     public function __construct(
         $diagram,

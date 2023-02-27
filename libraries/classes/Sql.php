@@ -74,7 +74,7 @@ class Sql
 
         $tableObject = new Table($table, $db, $this->dbi);
 
-        if (empty($statementInfo->order)) {
+        if (! $statementInfo->order) {
             // Retrieving the name of the column we should sort after.
             $sortCol = $tableObject->getUiProp(Table::PROP_SORTED_COLUMN);
             if (empty($sortCol)) {
@@ -355,7 +355,7 @@ class Sql
             || $statementInfo->isAnalyse)
             && ($statementInfo->selectFrom
                 || $statementInfo->isSubquery)
-            && empty($statementInfo->limit);
+            && ! $statementInfo->limit;
     }
 
     /**
@@ -367,18 +367,18 @@ class Sql
     {
         return ! $statementInfo->isGroup
             && ! $statementInfo->isFunction
-            && empty($statementInfo->union)
-            && empty($statementInfo->distinct)
+            && ! $statementInfo->union
+            && ! $statementInfo->distinct
             && $statementInfo->selectFrom
             && (count($statementInfo->selectTables) === 1)
             && (empty($statementInfo->statement->where)
                 || (count($statementInfo->statement->where) === 1
                     && $statementInfo->statement->where[0]->expr === '1'))
-            && empty($statementInfo->group)
+            && ! $statementInfo->group
             && ! isset($findRealEnd)
             && ! $statementInfo->isSubquery
             && ! $statementInfo->join
-            && empty($statementInfo->having);
+            && ! $statementInfo->having;
     }
 
     /**
@@ -691,8 +691,8 @@ class Sql
                 }
 
                 // Removes LIMIT clause that might have been added
-                if ($statementInfo->limit !== null) {
-                    $statement->limit = null;
+                if ($statementInfo->limit !== false) {
+                    $statement->limit = false;
                 }
 
                 if ($statementInfo->isGroup === false && count($statement->expr) === 1) {
@@ -999,7 +999,7 @@ class Sql
         $response = ResponseRenderer::getInstance();
         $response->addJSON($extraData ?? []);
 
-        if (empty($statementInfo->isSelect) || isset($extraData['error'])) {
+        if (! $statementInfo->isSelect || isset($extraData['error'])) {
             return $queryMessage;
         }
 
@@ -1063,7 +1063,7 @@ class Sql
             'db' => $db,
             'table' => $table,
             'sql_query' => $sqlQuery,
-            'is_procedure' => ! empty($statementInfo->isProcedure),
+            'is_procedure' => $statementInfo->isProcedure,
         ]);
     }
 
@@ -1603,7 +1603,7 @@ class Sql
         // drop-down.
         if (
             $this->isRememberSortingOrder($statementInfo)
-            && empty($statementInfo->union)
+            && ! $statementInfo->union
             && ! isset($_POST['sort_by_key'])
         ) {
             if (! isset($_SESSION['sql_from_query_box'])) {

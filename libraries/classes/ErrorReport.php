@@ -28,10 +28,8 @@ class ErrorReport
 {
     /**
      * The URL where to submit reports to
-     *
-     * @var string
      */
-    private $submissionUrl = 'https://reports.phpmyadmin.net/incidents/create';
+    private string $submissionUrl = 'https://reports.phpmyadmin.net/incidents/create';
 
     public function __construct(
         private HttpRequest $httpRequest,

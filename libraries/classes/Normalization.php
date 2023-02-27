@@ -32,22 +32,12 @@ use function trim;
  */
 class Normalization
 {
-    /**
-     * DatabaseInterface instance
-     */
-    private DatabaseInterface $dbi;
-
-    /** @var Template */
-    public $template;
-
     public function __construct(
-        DatabaseInterface $dbi,
+        private DatabaseInterface $dbi,
         private Relation $relation,
         private Transformations $transformations,
-        Template $template,
+        public Template $template,
     ) {
-        $this->dbi = $dbi;
-        $this->template = $template;
     }
 
     /**

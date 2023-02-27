@@ -16,7 +16,7 @@ use function is_array;
 class Cache
 {
     /** @var array Table data cache */
-    private $tableCache = [];
+    private array $tableCache = [];
 
     /**
      * Caches table data so Table does not require to issue

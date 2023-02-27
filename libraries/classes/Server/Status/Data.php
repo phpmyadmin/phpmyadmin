@@ -29,34 +29,31 @@ use function str_contains;
 class Data
 {
     /** @var array */
-    public $status;
+    public array $status;
 
     /** @var array */
-    public $sections;
+    public array $sections;
 
     /** @var array */
-    public $variables;
+    public array $variables;
 
     /** @var array */
-    public $usedQueries;
+    public array $usedQueries;
 
     /** @var array */
-    public $allocationMap;
+    public array $allocationMap;
 
     /** @var array */
-    public $links;
+    public array $links;
 
-    /** @var bool */
-    public $dbIsLocal;
+    public bool $dbIsLocal;
 
     /** @var array */
-    public $sectionUsed;
+    public array $sectionUsed;
 
-    /** @var string */
-    public $selfUrl;
+    public string $selfUrl;
 
-    /** @var bool */
-    public $dataLoaded;
+    public bool $dataLoaded;
 
     private ReplicationInfo $replicationInfo;
 

@@ -36,16 +36,14 @@ class ExportXml extends ExportPlugin
 {
     /**
      * Table name
-     *
-     * @var string
      */
-    private $table;
+    private string $table = '';
     /**
      * Table names
      *
      * @var array
      */
-    private $tables = [];
+    private array $tables = [];
 
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string

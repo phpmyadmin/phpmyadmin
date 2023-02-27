@@ -18,8 +18,7 @@ use function __;
  */
 class Simple extends TwoFactorPlugin
 {
-    /** @var string */
-    public static $id = 'simple';
+    public static string $id = 'simple';
 
     /**
      * Checks authentication, returns true on success

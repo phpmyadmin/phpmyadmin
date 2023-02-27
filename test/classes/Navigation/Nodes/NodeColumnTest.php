@@ -24,7 +24,6 @@ class NodeColumnTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = new NodeColumn(['name' => 'name', 'key' => 'key']);
-        $this->assertIsArray($parent->links);
         $this->assertEquals(
             [
                 'text' => [

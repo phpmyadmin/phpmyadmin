@@ -48,21 +48,20 @@ class StorageEngine
     protected const DETAILS_TYPE_BOOLEAN = 3; // 'ON' or 'OFF'
 
     /** @var string engine name */
-    public $engine = 'dummy';
+    public string $engine = 'dummy';
 
     /** @var string engine title/description */
-    public $title = 'PMA Dummy Engine Class';
+    public string $title = 'PMA Dummy Engine Class';
 
     /** @var string engine lang description */
-    public $comment = 'If you read this text inside phpMyAdmin, something went wrong...';
+    public string $comment = 'If you read this text inside phpMyAdmin, something went wrong...';
 
     /**
      * Engine supported by current server.
      *
-     * @var int
      * @psalm-var self::SUPPORT_NO|self::SUPPORT_DISABLED|self::SUPPORT_YES|self::SUPPORT_DEFAULT
      */
-    public $support = self::SUPPORT_NO;
+    public int $support = self::SUPPORT_NO;
 
     /** @param string $engine The engine ID */
     public function __construct($engine)

@@ -27,7 +27,6 @@ class NodeEventContainerTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = new NodeEventContainer();
-        $this->assertIsArray($parent->links);
         $this->assertEquals(
             [
                 'text' => ['route' => '/database/events', 'params' => ['db' => null]],

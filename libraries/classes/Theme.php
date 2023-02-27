@@ -33,28 +33,28 @@ use const E_USER_ERROR;
 class Theme
 {
     /** @var string theme version */
-    public $version = '0.0.0.0';
+    public string $version = '0.0.0.0';
 
     /** @var string theme name */
-    public $name = '';
+    public string $name = '';
 
     /** @var string theme id */
-    public $id = '';
+    public string $id = '';
 
     /** @var string theme path */
-    public $path = '';
+    public string $path = '';
 
     /** @var string file system theme path */
-    private $fsPath = '';
+    private string $fsPath = '';
 
     /** @var string image path as an URL */
-    public $imgPath = '';
+    public string $imgPath = '';
 
     /** @var string image path on the file-system */
-    public $imgPathFs = '';
+    public string $imgPathFs = '';
 
     /** @var int last modification time for info file */
-    public $mtimeInfo = 0;
+    public int $mtimeInfo = 0;
 
     /**
      * needed because sometimes, the mtime for different themes
@@ -62,7 +62,7 @@ class Theme
      *
      * @var int filesize for info file
      */
-    public $filesizeInfo = 0;
+    public int $filesizeInfo = 0;
 
     /**
      * Loads theme information

@@ -20,7 +20,7 @@ final class Transformations
      * @var array<int, int|string>
      * @psalm-var array{0: int, 1: 'all'|int, 2: string}
      */
-    public $Substring;
+    public array $Substring;
 
     /**
      * Converts Boolean values to text (default 'T' and 'F').
@@ -29,7 +29,7 @@ final class Transformations
      * @var string[]
      * @psalm-var array{0: string, 1: string}
      */
-    public $Bool2Text;
+    public array $Bool2Text;
 
     /**
      * LINUX ONLY: Launches an external application and feeds it the column data via standard input.
@@ -46,7 +46,7 @@ final class Transformations
      * @var array<int, int|string>
      * @psalm-var array{0: int, 1: string, 2: int, 3: int}
      */
-    public $External;
+    public array $External;
 
     /**
      * Prepends and/or Appends text to a string.
@@ -55,7 +55,7 @@ final class Transformations
      * @var string[]
      * @psalm-var array{0: string, 1: string}
      */
-    public $PreApPend;
+    public array $PreApPend;
 
     /**
      * Displays hexadecimal representation of data.
@@ -64,7 +64,7 @@ final class Transformations
      * @var string[]
      * @psalm-var array{0: 0|positive-int}
      */
-    public $Hex;
+    public array $Hex;
 
     /**
      * Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp column as formatted date.
@@ -77,7 +77,7 @@ final class Transformations
      * @var array<int, int|string>
      * @psalm-var array{0: 0|positive-int, 1: string, 2: 'local'|'utc'}
      */
-    public $DateFormat;
+    public array $DateFormat;
 
     /**
      * Displays a clickable thumbnail.
@@ -92,7 +92,7 @@ final class Transformations
      *   wrapper_params: array<array-key, string>
      * }
      */
-    public $Inline;
+    public array $Inline;
 
     /**
      * Displays an image and a link; the column contains the filename.
@@ -102,7 +102,7 @@ final class Transformations
      * @var array<int, int|string|null>
      * @psalm-var array{0: string|null, 1: 0|positive-int, 2: 0|positive-int}
      */
-    public $TextImageLink;
+    public array $TextImageLink;
 
     /**
      * Displays a link; the column contains the filename.
@@ -112,7 +112,7 @@ final class Transformations
      * @var array<int, string|null>
      * @psalm-var array{0: string|null, 1: string|null, 2: bool|null}
      */
-    public $TextLink;
+    public array $TextLink;
 
     /** @param array<int|string, mixed> $transformations */
     public function __construct(array $transformations = [])

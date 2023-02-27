@@ -34,12 +34,11 @@ class TwoFactor
      * @var array
      * @psalm-var array{backend: string, settings: mixed[], type?: 'session'|'db'}
      */
-    public $config;
+    public array $config;
 
     protected bool $writable;
 
-    /** @var TwoFactorPlugin */
-    protected $backend;
+    protected TwoFactorPlugin $backend;
 
     protected array $available;
 

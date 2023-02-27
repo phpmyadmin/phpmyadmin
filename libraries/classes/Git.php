@@ -55,10 +55,8 @@ class Git
 
     /**
      * Git has been found and the data fetched
-     *
-     * @var bool
      */
-    private $hasGit = false;
+    private bool $hasGit = false;
 
     public function __construct(bool $showGitRevision)
     {

@@ -32,10 +32,10 @@ use const SORT_ASC;
 class Triggers
 {
     /** @var array<int, string> */
-    private $time = ['BEFORE', 'AFTER'];
+    private array $time = ['BEFORE', 'AFTER'];
 
     /** @var array<int, string> */
-    private $event = ['INSERT', 'UPDATE', 'DELETE'];
+    private array $event = ['INSERT', 'UPDATE', 'DELETE'];
 
     /** @param ResponseRenderer $response */
     public function __construct(private DatabaseInterface $dbi, private Template $template, private $response)

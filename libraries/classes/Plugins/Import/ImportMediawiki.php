@@ -32,10 +32,8 @@ class ImportMediawiki extends ImportPlugin
 {
     /**
      * Whether to analyze tables
-     *
-     * @var bool
      */
-    private $analyze;
+    private bool $analyze = false;
 
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string

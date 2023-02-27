@@ -47,172 +47,146 @@ class Qbe
 {
     /**
      * Database name
-     *
-     * @var string
      */
-    private $db;
+    private string $db;
     /**
      * Table Names (selected/non-selected)
      *
      * @var array
      */
-    private $criteriaTables = [];
+    private array $criteriaTables = [];
     /**
      * Column Names
      *
      * @var array
      */
-    private $columnNames = [];
+    private array $columnNames = [];
     /**
      * Number of columns
-     *
-     * @var int
      */
-    private $criteriaColumnCount;
+    private int $criteriaColumnCount;
     /**
      * Number of Rows
-     *
-     * @var int
      */
-    private $criteriaRowCount;
+    private int $criteriaRowCount;
     /**
      * Whether to insert a new column
-     *
-     * @var array|null
      */
-    private $criteriaColumnInsert;
+    private array|null $criteriaColumnInsert = null;
     /**
      * Whether to delete a column
-     *
-     * @var array|null
      */
-    private $criteriaColumnDelete;
+    private array|null $criteriaColumnDelete = null;
     /**
      * Whether to insert a new row
      *
      * @var array
      */
-    private $criteriaRowInsert;
+    private array $criteriaRowInsert;
     /**
      * Whether to delete a row
      *
      * @var array
      */
-    private $criteriaRowDelete;
+    private array $criteriaRowDelete;
     /**
      * Already set criteria values
      *
      * @var array
      */
-    private $criteria;
+    private array $criteria;
     /**
      * Previously set criteria values
      *
      * @var array
      */
-    private $prevCriteria;
+    private array $prevCriteria;
     /**
      * AND/OR relation b/w criteria columns
      *
      * @var array
      */
-    private $criteriaAndOrColumn;
+    private array $criteriaAndOrColumn;
     /**
      * AND/OR relation b/w criteria rows
      *
      * @var array
      */
-    private $criteriaAndOrRow;
+    private array $criteriaAndOrRow;
     /**
      * Large width of a column
-     *
-     * @var string
      */
-    private $realwidth;
+    private string $realwidth;
     /**
      * Minimum width of a column
-     *
-     * @var int
      */
-    private $formColumnWidth;
+    private int $formColumnWidth;
     /**
      * Selected columns in the form
      *
      * @var array
      */
-    private $formColumns = [];
+    private array $formColumns = [];
     /**
      * Entered aliases in the form
      *
      * @var array
      */
-    private $formAliases = [];
+    private array $formAliases = [];
     /**
      * Chosen sort options in the form
      *
      * @var array
      */
-    private $formSorts = [];
+    private array $formSorts = [];
     /**
      * Chosen sort orders in the form
      *
      * @var array
      */
-    private $formSortOrders = [];
+    private array $formSortOrders = [];
     /**
      * Show checkboxes in the form
      *
      * @var array
      */
-    private $formShows = [];
+    private array $formShows = [];
     /**
      * Entered criteria values in the form
      *
      * @var array
      */
-    private $formCriterions = [];
+    private array $formCriterions = [];
     /**
      * AND/OR column radio buttons in the form
      *
      * @var array
      */
-    private $formAndOrCols;
+    private array $formAndOrCols;
     /**
      * AND/OR row radio buttons in the form
      *
      * @var array
      */
-    private $formAndOrRows;
+    private array $formAndOrRows;
     /**
      * New column count in case of add/delete
-     *
-     * @var int
      */
-    private $newColumnCount;
+    private int $newColumnCount = 0;
     /**
      * New row count in case of add/delete
-     *
-     * @var int
      */
-    private $newRowCount;
+    private int $newRowCount = 0;
     /**
      * List of saved searches
      *
      * @var array
      */
-    private $savedSearchList = [];
+    private array $savedSearchList = [];
     /**
      * Current search
-     *
-     * @var SavedSearches|null
      */
-    private $currentSearch = null;
-
-    /** @var Relation */
-    private $relation;
-
-    /** @var Template */
-    public $template;
+    private SavedSearches|null $currentSearch = null;
 
     /**
      * @param DatabaseInterface  $dbi
@@ -221,8 +195,8 @@ class Qbe
      * @param SavedSearches|null $currentSearch   Current search id
      */
     public function __construct(
-        Relation $relation,
-        Template $template,
+        private Relation $relation,
+        public Template $template,
         public $dbi,
         $dbname,
         array $savedSearchList = [],
@@ -231,8 +205,6 @@ class Qbe
         $this->db = $dbname;
         $this->savedSearchList = $savedSearchList;
         $this->currentSearch = $currentSearch;
-        $this->relation = $relation;
-        $this->template = $template;
 
         $this->loadCriterias();
         // Sets criteria parameters
@@ -976,7 +948,7 @@ class Qbe
         $criteriaCount = 0;
         for ($columnIndex = 0; $columnIndex < $this->criteriaColumnCount; $columnIndex++) {
             if (
-                isset($lastWhere, $this->formAndOrCols)
+                isset($lastWhere)
                 && ! empty($this->formColumns[$columnIndex])
                 && ! empty($this->formCriterions[$columnIndex])
                 && $columnIndex

@@ -31,10 +31,8 @@ class Footer
     private Scripts $scripts;
     /**
      * Whether we are servicing an ajax request.
-     *
-     * @var bool
      */
-    private $isAjax;
+    private bool $isAjax = false;
     /**
      * Whether to only close the BODY and HTML tags
      * or also include scripts, errors and links

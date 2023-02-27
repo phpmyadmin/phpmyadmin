@@ -230,14 +230,13 @@ class Results
      * @var array<string, array<string, array<string, string[]>>>
      * @psalm-var array<string, array<string, array<string, array{string, class-string, string}>>> $transformationInfo
      */
-    public $transformationInfo;
+    public array $transformationInfo = [];
 
     private Relation $relation;
 
     private Transformations $transformations;
 
-    /** @var Template */
-    public $template;
+    public Template $template;
 
     /**
      * @param string $db       the database name
@@ -644,7 +643,7 @@ class Results
                 || $this->properties['is_export']
                 || $this->properties['is_func']
                 || $this->properties['is_analyse'])
-            && ! empty($statementInfo->selectFrom)
+            && $statementInfo->selectFrom
             && ! empty($statementInfo->statement->from)
             && (count($statementInfo->statement->from) === 1)
             && ! empty($statementInfo->statement->from[0]->table);
@@ -1883,7 +1882,7 @@ class Results
             $nowrap,
         ]);
 
-        if (isset($meta->internalMediaType)) {
+        if ($meta->internalMediaType !== null) {
             $classes[] = preg_replace('/\//', '_', $meta->internalMediaType);
         }
 
@@ -3957,7 +3956,7 @@ class Results
         // display the Export link).
         if (
             ($statementInfo->queryType === self::QUERY_TYPE_SELECT)
-            && empty($statementInfo->isProcedure)
+            && ! $statementInfo->isProcedure
         ) {
             if (count($statementInfo->selectTables) === 1) {
                 $urlParams['single_table'] = 'true';
@@ -3993,7 +3992,7 @@ class Results
         }
 
         return [
-            'has_procedure' => ! empty($statementInfo->isProcedure),
+            'has_procedure' => $statementInfo->isProcedure,
             'has_geometry' => $geometryFound,
             'has_print_link' => $hasPrintLink,
             'has_export_link' => $statementInfo->queryType === self::QUERY_TYPE_SELECT,

@@ -66,10 +66,8 @@ class ExportSql extends ExportPlugin
 {
     /**
      * Whether charset header was sent.
-     *
-     * @var bool
      */
-    private $sentCharset = false;
+    private bool $sentCharset = false;
 
     protected function init(): void
     {

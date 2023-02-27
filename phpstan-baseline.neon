@@ -406,11 +406,6 @@ parameters:
 			path: libraries/classes/Config/Form.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Config\\\\Form\\:\\:\\$index \\(int\\) does not accept int\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Config/Form.php
-
-		-
 			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 2
 			path: libraries/classes/Config/Form.php
@@ -2301,6 +2296,11 @@ parameters:
 			path: libraries/classes/Controllers/Table/GetFieldController.php
 
 		-
+			message: "#^Class PhpMyAdmin\\\\Controllers\\\\Table\\\\GisVisualizationController has an uninitialized property \\$visualization\\. Give it default value or assign it in the constructor\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/GisVisualizationController.php
+
+		-
 			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/IndexesController.php
@@ -3141,17 +3141,7 @@ parameters:
 			path: libraries/classes/Database/Qbe.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Database\\\\Qbe\\:\\:\\$formAndOrCols \\(array\\) in isset\\(\\) is not nullable\\.$#"
-			count: 1
-			path: libraries/classes/Database/Qbe.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Database\\\\Qbe\\:\\:\\$formAndOrCols type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Database/Qbe.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Database\\\\Qbe\\:\\:\\$formAndOrRows \\(array\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Database/Qbe.php
 
@@ -3881,12 +3871,7 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\FieldMetadata\\:\\:\\$internalMediaType \\(string\\) does not accept \\(array\\<int, string\\>\\|string\\)\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\FieldMetadata\\:\\:\\$internalMediaType \\(string\\) in isset\\(\\) is not nullable\\.$#"
+			message: "#^Property PhpMyAdmin\\\\FieldMetadata\\:\\:\\$internalMediaType \\(string\\|null\\) does not accept \\(array\\<int, string\\>\\|string\\)\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
@@ -4151,6 +4136,26 @@ parameters:
 			path: libraries/classes/Export/Template.php
 
 		-
+			message: "#^Access to an uninitialized property PhpMyAdmin\\\\FieldMetadata\\:\\:\\$name\\.$#"
+			count: 1
+			path: libraries/classes/FieldMetadata.php
+
+		-
+			message: "#^Access to an uninitialized property PhpMyAdmin\\\\FieldMetadata\\:\\:\\$orgname\\.$#"
+			count: 1
+			path: libraries/classes/FieldMetadata.php
+
+		-
+			message: "#^Access to an uninitialized property PhpMyAdmin\\\\FieldMetadata\\:\\:\\$orgtable\\.$#"
+			count: 1
+			path: libraries/classes/FieldMetadata.php
+
+		-
+			message: "#^Access to an uninitialized property PhpMyAdmin\\\\FieldMetadata\\:\\:\\$table\\.$#"
+			count: 1
+			path: libraries/classes/FieldMetadata.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\FieldMetadata\\:\\:getTypeMap\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/FieldMetadata.php
@@ -4186,7 +4191,7 @@ parameters:
 			path: libraries/classes/File.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\File\\:\\:\\$content \\(string\\) does not accept string\\|false\\.$#"
+			message: "#^Property PhpMyAdmin\\\\File\\:\\:\\$content \\(string\\|null\\) does not accept string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/File.php
 
@@ -4351,11 +4356,6 @@ parameters:
 			path: libraries/classes/Gis/GisGeometryCollection.php
 
 		-
-			message: "#^Static property PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:\\$instance \\(PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\) in isset\\(\\) is not nullable\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisGeometryCollection.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisLineString\\:\\:generateWkt\\(\\) has parameter \\$gis_data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisLineString.php
@@ -4392,11 +4392,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#5 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:string\\(\\) expects int, int\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisLineString.php
-
-		-
-			message: "#^Static property PhpMyAdmin\\\\Gis\\\\GisLineString\\:\\:\\$instance \\(PhpMyAdmin\\\\Gis\\\\GisLineString\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisLineString.php
 
@@ -4451,11 +4446,6 @@ parameters:
 			path: libraries/classes/Gis/GisMultiLineString.php
 
 		-
-			message: "#^Static property PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\:\\:\\$instance \\(PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\) in isset\\(\\) is not nullable\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiLineString.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\:\\:generateWkt\\(\\) has parameter \\$gis_data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPoint.php
@@ -4502,11 +4492,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#7 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:arc\\(\\) expects int, int\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPoint.php
-
-		-
-			message: "#^Static property PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\:\\:\\$instance \\(PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPoint.php
 
@@ -4571,11 +4556,6 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Static property PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\:\\:\\$instance \\(PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\) in isset\\(\\) is not nullable\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPolygon.php
-
-		-
 			message: "#^Variable \\$label_point in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 2
 			path: libraries/classes/Gis/GisMultiPolygon.php
@@ -4622,11 +4602,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#7 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:arc\\(\\) expects int, int\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisPoint.php
-
-		-
-			message: "#^Static property PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:\\$instance \\(PhpMyAdmin\\\\Gis\\\\GisPoint\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPoint.php
 
@@ -4707,11 +4682,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#5 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:string\\(\\) expects int, int\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisPolygon.php
-
-		-
-			message: "#^Static property PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:\\$instance \\(PhpMyAdmin\\\\Gis\\\\GisPolygon\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPolygon.php
 
@@ -5672,7 +5642,7 @@ parameters:
 
 		-
 			message: "#^Casting to string something that's already string\\.$#"
-			count: 6
+			count: 4
 			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
@@ -5697,11 +5667,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Navigation\\\\NavigationTree\\:\\:parsePath\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
-			message: "#^Offset 'text' on array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/NavigationTree.php
 
@@ -5741,11 +5706,6 @@ parameters:
 			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\:\\:\\$title \\(string\\) on left side of \\?\\? is not nullable\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
 			message: "#^Cannot access property \\$children on PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/Nodes/Node.php
@@ -5757,7 +5717,7 @@ parameters:
 
 		-
 			message: "#^Casting to string something that's already string\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Navigation/Nodes/Node.php
 
 		-
@@ -6301,6 +6261,11 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportOdt.php
 
 		-
+			message: "#^Class PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportPdf has an uninitialized property \\$pdf\\. Give it default value or assign it in the constructor\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Export/ExportPdf.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportPdf\\:\\:exportData\\(\\) has parameter \\$aliases with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportPdf.php
@@ -6504,6 +6469,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportYaml\\:\\:exportData\\(\\) has parameter \\$aliases with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportYaml.php
+
+		-
+			message: "#^Class PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf has an uninitialized property \\$results\\. Give it default value or assign it in the constructor\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
 
 		-
 			message: "#^For loop initial assignment overwrites variable \\$i\\.$#"
@@ -6941,6 +6911,11 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php
 
 		-
+			message: "#^Parameter \\#3 \\$x_to of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\:\\:rect\\(\\) expects int, float\\|int given\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php
+
+		-
 			message: "#^Parameter \\#3 \\$y of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\:\\:showXY\\(\\) expects int, float\\|int given\\.$#"
 			count: 2
 			path: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php
@@ -7021,11 +6996,6 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\ExportRelationSchema\\<PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\>\\:\\:\\$orientation \\(string\\) in isset\\(\\) is not nullable\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
 			message: "#^Call to an undefined method object\\:\\:lineScale\\(\\)\\.$#"
 			count: 7
 			path: libraries/classes/Plugins/Schema/Pdf/RelationStatsPdf.php
@@ -7041,17 +7011,7 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Pdf/RelationStatsPdf.php
 
 		-
-			message: "#^Binary operation \"\\+\\=\" between int and array\\<float\\>\\|float results in an error\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$width \\(int\\) does not accept \\(float\\|int\\)\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$width \\(int\\) does not accept array\\<float\\>\\|float\\|int\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$width \\(float\\|int\\) does not accept array\\<float\\>\\|float\\|int\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
 
@@ -7082,7 +7042,7 @@ parameters:
 
 		-
 			message: "#^Casting to string something that's already string\\.$#"
-			count: 3
+			count: 2
 			path: libraries/classes/Plugins/Schema/Svg/Svg.php
 
 		-
@@ -7938,6 +7898,11 @@ parameters:
 		-
 			message: "#^Access to an uninitialized property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$replicationInfo\\.$#"
 			count: 2
+			path: libraries/classes/Server/Status/Data.php
+
+		-
+			message: "#^Access to an uninitialized property PhpMyAdmin\\\\Server\\\\Status\\\\Data\\:\\:\\$selfUrl\\.$#"
+			count: 4
 			path: libraries/classes/Server/Status/Data.php
 
 		-
@@ -8811,11 +8776,6 @@ parameters:
 			path: libraries/classes/ThemeManager.php
 
 		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 1
-			path: libraries/classes/ThemeManager.php
-
-		-
 			message: "#^If condition is always true\\.$#"
 			count: 1
 			path: libraries/classes/ThemeManager.php
@@ -8827,11 +8787,6 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\ThemeManager\\:\\:\\$activeTheme \\(string\\) does not accept string\\|null\\.$#"
-			count: 1
-			path: libraries/classes/ThemeManager.php
-
-		-
-			message: "#^Static property PhpMyAdmin\\\\ThemeManager\\:\\:\\$instance \\(PhpMyAdmin\\\\ThemeManager\\) in empty\\(\\) is not falsy\\.$#"
 			count: 1
 			path: libraries/classes/ThemeManager.php
 
@@ -9267,11 +9222,6 @@ parameters:
 
 		-
 			message: "#^Cannot use array destructuring on array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Casting to int something that's already int\\.$#"
 			count: 1
 			path: libraries/classes/Util.php
 
@@ -10971,94 +10921,9 @@ parameters:
 			path: test/classes/MimeTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/Navigation/Nodes/NodeColumnContainerTest.php
-
-		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/Navigation/Nodes/NodeColumnTest.php
-
-		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/Navigation/Nodes/NodeDatabaseTest.php
-
-		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/Navigation/Nodes/NodeEventContainerTest.php
-
-		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/Navigation/Nodes/NodeEventTest.php
-
-		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/Navigation/Nodes/NodeFunctionContainerTest.php
-
-		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/Navigation/Nodes/NodeFunctionTest.php
-
-		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/Navigation/Nodes/NodeIndexContainerTest.php
-
-		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/Navigation/Nodes/NodeIndexTest.php
-
-		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/Navigation/Nodes/NodeProcedureContainerTest.php
-
-		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/Navigation/Nodes/NodeProcedureTest.php
-
-		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/Navigation/Nodes/NodeTableContainerTest.php
-
-		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/Navigation/Nodes/NodeTableTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Navigation\\\\Nodes\\\\NodeTableTest\\:\\:providerForTestIcon\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Navigation/Nodes/NodeTableTest.php
-
-		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/Navigation/Nodes/NodeTriggerContainerTest.php
-
-		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/Navigation/Nodes/NodeTriggerTest.php
-
-		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/Navigation/Nodes/NodeViewContainerTest.php
-
-		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/Navigation/Nodes/NodeViewTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'extra' and array\\{legendText\\: string, headText\\: string, queryError\\: bool, extra\\: PhpMyAdmin\\\\Message\\} will always evaluate to true\\.$#"

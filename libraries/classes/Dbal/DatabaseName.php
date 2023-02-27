@@ -17,11 +17,8 @@ final class DatabaseName implements Stringable
      */
     private const MAX_LENGTH = 64;
 
-    /**
-     * @var string
-     * @psalm-var non-empty-string
-     */
-    private $name;
+    /** @psalm-var non-empty-string */
+    private string $name;
 
     /**
      * @param mixed $name

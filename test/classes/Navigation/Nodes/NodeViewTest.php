@@ -27,7 +27,6 @@ class NodeViewTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = new NodeView('default');
-        $this->assertIsArray($parent->links);
         $this->assertEquals(
             [
                 'text' => ['route' => '/sql', 'params' => ['pos' => 0, 'db' => null, 'table' => null]],

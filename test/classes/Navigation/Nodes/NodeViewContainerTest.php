@@ -31,7 +31,6 @@ class NodeViewContainerTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = new NodeViewContainer();
-        $this->assertIsArray($parent->links);
         $this->assertEquals(
             [
                 'text' => ['route' => '/database/structure', 'params' => ['tbl_type' => 'view', 'db' => null]],

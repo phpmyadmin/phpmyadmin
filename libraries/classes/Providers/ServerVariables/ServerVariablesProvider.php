@@ -10,8 +10,7 @@ use function class_exists;
 
 class ServerVariablesProvider
 {
-    /** @var ServerVariablesProviderInterface|null */
-    private static $instance = null;
+    private static ServerVariablesProviderInterface|null $instance = null;
 
     public static function getImplementation(): ServerVariablesProviderInterface
     {

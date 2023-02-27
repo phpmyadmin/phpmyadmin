@@ -10,15 +10,7 @@ use PhpMyAdmin\Dbal\TableName;
 /** @psalm-immutable */
 final class SqlHistoryFeature
 {
-    /** @var DatabaseName */
-    public $database;
-
-    /** @var TableName */
-    public $history;
-
-    public function __construct(DatabaseName $database, TableName $history)
+    public function __construct(public DatabaseName $database, public TableName $history)
     {
-        $this->database = $database;
-        $this->history = $history;
     }
 }

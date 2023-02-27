@@ -56,7 +56,7 @@ class FormDisplay
      *
      * @var array<string, Form>
      */
-    private $forms = [];
+    private array $forms = [];
 
     /**
      * Stores validation errors, indexed by paths
@@ -65,14 +65,14 @@ class FormDisplay
      *
      * @var array
      */
-    private $errors = [];
+    private array $errors = [];
 
     /**
      * Paths changed so that they can be used as HTML ids, indexed by paths
      *
      * @var array
      */
-    private $translatedPaths = [];
+    private array $translatedPaths = [];
 
     /**
      * Server paths change indexes so we define maps from current server
@@ -80,28 +80,24 @@ class FormDisplay
      *
      * @var array
      */
-    private $systemPaths = [];
+    private array $systemPaths = [];
 
     /**
      * Tells whether forms have been validated
-     *
-     * @var bool
      */
-    private $isValidated = true;
+    private bool $isValidated = true;
 
     /**
      * Dictionary with user preferences keys
-     *
-     * @var array|null
      */
-    private $userprefsKeys;
+    private array|null $userprefsKeys = null;
 
     /**
      * Dictionary with disallowed user preferences keys
      *
      * @var array
      */
-    private $userprefsDisallow;
+    private array $userprefsDisallow = [];
 
     private FormDisplayTemplate $formDisplayTemplate;
 

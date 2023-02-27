@@ -21,11 +21,11 @@ class Scripts
      * @var array<string, array<string, int|string|array<string, string>>>
      * @psalm-var array<string, array{has_onload: 0|1, filename: non-empty-string, params: array<string, string>}>
      */
-    private $files;
+    private array $files = [];
     /**
      * A string of discrete javascript code snippets
      */
-    private string $code;
+    private string $code = '';
 
     private Template $template;
 
@@ -35,8 +35,6 @@ class Scripts
     public function __construct()
     {
         $this->template = new Template();
-        $this->files = [];
-        $this->code = '';
     }
 
     /**

@@ -40,22 +40,17 @@ abstract class AuthenticationPlugin
 {
     /**
      * Username
-     *
-     * @var string
      */
-    public $user = '';
+    public string $user = '';
 
     /**
      * Password
-     *
-     * @var string
      */
-    public $password = '';
+    public string $password = '';
 
     protected IpAllowDeny $ipAllowDeny;
 
-    /** @var Template */
-    public $template;
+    public Template $template;
 
     public function __construct()
     {

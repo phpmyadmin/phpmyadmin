@@ -35,13 +35,11 @@ use const SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING;
  */
 class WebAuthn extends TwoFactorPlugin
 {
-    /** @var string */
-    public static $id = 'WebAuthn';
+    public static string $id = 'WebAuthn';
 
     private Server $server;
 
-    /** @var ServerRequest|null */
-    public $serverRequest = null;
+    public ServerRequest|null $serverRequest = null;
 
     public function __construct(TwoFactor $twofactor)
     {

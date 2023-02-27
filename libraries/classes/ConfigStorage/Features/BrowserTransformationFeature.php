@@ -10,15 +10,7 @@ use PhpMyAdmin\Dbal\TableName;
 /** @psalm-immutable */
 final class BrowserTransformationFeature
 {
-    /** @var DatabaseName */
-    public $database;
-
-    /** @var TableName */
-    public $columnInfo;
-
-    public function __construct(DatabaseName $database, TableName $columnInfo)
+    public function __construct(public DatabaseName $database, public TableName $columnInfo)
     {
-        $this->database = $database;
-        $this->columnInfo = $columnInfo;
     }
 }

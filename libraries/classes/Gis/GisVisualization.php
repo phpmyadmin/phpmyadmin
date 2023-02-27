@@ -36,13 +36,12 @@ use const PNG_ALL_FILTERS;
 class GisVisualization
 {
     /** @var array   Raw data for the visualization */
-    private $data;
+    private array $data;
 
-    /** @var string */
-    private $modifiedSql;
+    private string $modifiedSql = '';
 
     /** @var array   Set of default settings values are here. */
-    private $settings = [
+    private array $settings = [
         // Array of colors to be used for GIS visualizations.
         'colors' => [
             [176, 46, 224],
@@ -71,7 +70,7 @@ class GisVisualization
     ];
 
     /** @var array   Options that the user has specified. */
-    private $userSpecifiedSettings = null;
+    private array $userSpecifiedSettings;
 
     /**
      * Returns the settings array
@@ -234,10 +233,6 @@ class GisVisualization
      */
     private function handleOptions(): void
     {
-        if ($this->userSpecifiedSettings === null) {
-            return;
-        }
-
         $this->settings = array_merge($this->settings, $this->userSpecifiedSettings);
     }
 

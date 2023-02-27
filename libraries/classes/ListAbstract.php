@@ -13,7 +13,7 @@ use function in_array;
 abstract class ListAbstract extends ArrayObject
 {
     /** @var mixed   empty item */
-    protected $itemEmpty = '';
+    protected mixed $itemEmpty = '';
 
     /**
      * defines what is an empty item (0, '', false or null)

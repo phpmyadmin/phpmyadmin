@@ -11,47 +11,29 @@ use function in_array;
 /** @psalm-immutable */
 final class Console
 {
-    /** @var bool */
-    public $StartHistory;
+    public bool $StartHistory;
 
-    /** @var bool */
-    public $AlwaysExpand;
+    public bool $AlwaysExpand;
 
-    /** @var bool */
-    public $CurrentQuery;
+    public bool $CurrentQuery;
 
-    /** @var bool */
-    public $EnterExecutes;
+    public bool $EnterExecutes;
 
-    /** @var bool */
-    public $DarkTheme;
+    public bool $DarkTheme;
 
-    /**
-     * @var string
-     * @psalm-var 'info'|'show'|'collapse'
-     */
-    public $Mode;
+    /** @psalm-var 'info'|'show'|'collapse' */
+    public string $Mode;
 
-    /**
-     * @var int
-     * @psalm-var positive-int
-     */
-    public $Height;
+    /** @psalm-var positive-int */
+    public int $Height;
 
-    /** @var bool */
-    public $GroupQueries;
+    public bool $GroupQueries;
 
-    /**
-     * @var string
-     * @psalm-var 'exec'|'time'|'count'
-     */
-    public $OrderBy;
+    /** @psalm-var 'exec'|'time'|'count' */
+    public string $OrderBy;
 
-    /**
-     * @var string
-     * @psalm-var 'asc'|'desc'
-     */
-    public $Order;
+    /** @psalm-var 'asc'|'desc' */
+    public string $Order;
 
     /** @param mixed[] $console */
     public function __construct(array $console = [])

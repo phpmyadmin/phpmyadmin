@@ -49,13 +49,13 @@ use const SORT_ASC;
 class Routines
 {
     /** @var array<int, string> */
-    private $directions = ['IN', 'OUT', 'INOUT'];
+    private array $directions = ['IN', 'OUT', 'INOUT'];
 
     /** @var array<int, string> */
-    private $sqlDataAccess = ['CONTAINS SQL', 'NO SQL', 'READS SQL DATA', 'MODIFIES SQL DATA'];
+    private array $sqlDataAccess = ['CONTAINS SQL', 'NO SQL', 'READS SQL DATA', 'MODIFIES SQL DATA'];
 
     /** @var array<int, string> */
-    private $numericOptions = ['UNSIGNED', 'ZEROFILL', 'UNSIGNED ZEROFILL'];
+    private array $numericOptions = ['UNSIGNED', 'ZEROFILL', 'UNSIGNED ZEROFILL'];
 
     /** @param ResponseRenderer $response */
     public function __construct(private DatabaseInterface $dbi, private Template $template, private $response)

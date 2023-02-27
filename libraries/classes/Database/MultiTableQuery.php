@@ -26,50 +26,18 @@ use function md5;
 class MultiTableQuery
 {
     /**
-     * DatabaseInterface instance
-     */
-    private DatabaseInterface $dbi;
-
-    /**
-     * Database name
-     *
-     * @var string
-     */
-    private $db;
-
-    /**
-     * Default number of columns
-     *
-     * @var int
-     */
-    private $defaultNoOfColumns;
-
-    /**
      * Table names
      *
      * @var array<int, string>
      */
     private array $tables;
 
-    /** @var Template */
-    public $template;
-
-    /**
-     * @param string $dbName             Database name
-     * @param int    $defaultNoOfColumns Default number of columns
-     */
     public function __construct(
-        DatabaseInterface $dbi,
-        Template $template,
-        $dbName,
-        $defaultNoOfColumns = 3,
+        private DatabaseInterface $dbi,
+        public Template $template,
+        private string $db,
+        private int $defaultNoOfColumns = 3,
     ) {
-        $this->dbi = $dbi;
-        $this->db = $dbName;
-        $this->defaultNoOfColumns = $defaultNoOfColumns;
-
-        $this->template = $template;
-
         $this->tables = $this->dbi->getTables($this->db);
     }
 

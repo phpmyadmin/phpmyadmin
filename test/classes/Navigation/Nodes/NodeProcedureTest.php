@@ -27,7 +27,6 @@ class NodeProcedureTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = new NodeProcedure('default');
-        $this->assertIsArray($parent->links);
         $this->assertEquals(
             [
                 'text' => [

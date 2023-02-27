@@ -31,19 +31,19 @@ use function str_contains;
 class DatabasesController extends AbstractController
 {
     /** @var array array of database details */
-    private $databases = [];
+    private array $databases = [];
 
     /** @var int number of databases */
-    private $databaseCount = 0;
+    private int $databaseCount = 0;
 
     /** @var string sort by column */
-    private $sortBy;
+    private string $sortBy = '';
 
     /** @var string sort order of databases */
-    private $sortOrder;
+    private string $sortOrder = '';
 
     /** @var bool whether to show database statistics */
-    private $hasStatistics;
+    private bool $hasStatistics = false;
 
     public function __construct(
         ResponseRenderer $response,

@@ -33,8 +33,7 @@ class UserPreferences
 {
     private Relation $relation;
 
-    /** @var Template */
-    public $template;
+    public Template $template;
 
     public function __construct(private DatabaseInterface $dbi)
     {

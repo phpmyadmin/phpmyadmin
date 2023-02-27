@@ -35,16 +35,16 @@ use const SORT_ASC;
 class Events
 {
     /** @var array<string, array<int, string>> */
-    private $status = [
+    private array $status = [
         'query' => ['ENABLE', 'DISABLE', 'DISABLE ON SLAVE'],
         'display' => ['ENABLED', 'DISABLED', 'SLAVESIDE_DISABLED'],
     ];
 
     /** @var array<int, string> */
-    private $type = ['RECURRING', 'ONE TIME'];
+    private array $type = ['RECURRING', 'ONE TIME'];
 
     /** @var array<int, string> */
-    private $interval = [
+    private array $interval = [
         'YEAR',
         'QUARTER',
         'MONTH',

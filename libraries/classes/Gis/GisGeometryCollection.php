@@ -22,8 +22,7 @@ use function strtoupper;
  */
 class GisGeometryCollection extends GisGeometry
 {
-    /** @var self */
-    private static $instance;
+    private static self $instance;
 
     /**
      * A private constructor; prevents direct creation of object.

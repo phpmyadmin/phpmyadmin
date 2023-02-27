@@ -14,8 +14,7 @@ use function ucfirst;
 
 class AuthenticationPluginFactory
 {
-    /** @var AuthenticationPlugin|null */
-    private $plugin = null;
+    private AuthenticationPlugin|null $plugin = null;
 
     /** @throws AuthenticationPluginException */
     public function create(): AuthenticationPlugin

@@ -10,15 +10,7 @@ use PhpMyAdmin\Dbal\TableName;
 /** @psalm-immutable */
 final class RecentlyUsedTablesFeature
 {
-    /** @var DatabaseName */
-    public $database;
-
-    /** @var TableName */
-    public $recent;
-
-    public function __construct(DatabaseName $database, TableName $recent)
+    public function __construct(public DatabaseName $database, public TableName $recent)
     {
-        $this->database = $database;
-        $this->recent = $recent;
     }
 }

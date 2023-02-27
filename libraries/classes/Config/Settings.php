@@ -48,61 +48,45 @@ final class Settings
      * test to see that the auto-detection code works in your system. A good
      * test is to browse a table, then edit a row and save it.  There will be
      * an error message if phpMyAdmin cannot auto-detect the correct value.
-     *
-     * @var string
      */
-    public $PmaAbsoluteUri;
+    public string $PmaAbsoluteUri;
 
     /**
      * Configure authentication logging destination
-     *
-     * @var string
      */
-    public $AuthLog;
+    public string $AuthLog;
 
     /**
      * Whether to log successful authentication attempts
-     *
-     * @var bool
      */
-    public $AuthLogSuccess;
+    public bool $AuthLogSuccess;
 
     /**
      * Disable the default warning that is displayed on the DB Details Structure page if
      * any of the required Tables for the configuration storage could not be found
-     *
-     * @var bool
      */
-    public $PmaNoRelation_DisableWarning;
+    public bool $PmaNoRelation_DisableWarning;
 
     /**
      * Disable the default warning that is displayed if Suhosin is detected
-     *
-     * @var bool
      */
-    public $SuhosinDisableWarning;
+    public bool $SuhosinDisableWarning;
 
     /**
      * Disable the default warning that is displayed if session.gc_maxlifetime
      * is less than `LoginCookieValidity`
-     *
-     * @var bool
      */
-    public $LoginCookieValidityDisableWarning;
+    public bool $LoginCookieValidityDisableWarning;
 
     /**
      * Disable the default warning about MySQL reserved words in column names
-     *
-     * @var bool
      */
-    public $ReservedWordDisableWarning;
+    public bool $ReservedWordDisableWarning;
 
     /**
      * Show warning about incomplete translations on certain threshold.
-     *
-     * @var int
      */
-    public $TranslationWarningThreshold;
+    public int $TranslationWarningThreshold;
 
     /**
      * Allows phpMyAdmin to be included from a other document in a frame;
@@ -110,19 +94,16 @@ final class Settings
      * 'sameorigin' prevents phpMyAdmin to be included from another document
      * in a frame, unless that document belongs to the same domain.
      *
-     * @var bool|string
      * @psalm-var bool|'sameorigin'
      */
-    public $AllowThirdPartyFraming;
+    public bool|string $AllowThirdPartyFraming;
 
     /**
      * The 'cookie' auth_type uses the Sodium extension to encrypt the cookies. If at least one server configuration
      * uses 'cookie' auth_type, enter here a generated string of random bytes to be used as an encryption key. The
      * encryption key must be 32 bytes long.
-     *
-     * @var string
      */
-    public $blowfish_secret;
+    public string $blowfish_secret;
 
     /**
      * Server(s) configuration
@@ -136,7 +117,7 @@ final class Settings
      * @var array<int, Server>
      * @psalm-var array<int<1, max>, Server>
      */
-    public $Servers;
+    public array $Servers;
 
     /**
      * Default server (0 = no default server)
@@ -147,17 +128,14 @@ final class Settings
      * If you have only one server configured, $cfg['ServerDefault'] *MUST* be
      * set to that server.
      *
-     * @var int
      * @psalm-var 0|positive-int
      */
-    public $ServerDefault;
+    public int $ServerDefault;
 
     /**
      * whether version check is active
-     *
-     * @var bool
      */
-    public $VersionCheck;
+    public bool $VersionCheck;
 
     /**
      * The url of the proxy to be used when retrieving the information about
@@ -165,339 +143,262 @@ final class Settings
      * the server where phpMyAdmin is installed does not have direct access to
      * the internet.
      * The format is: "hostname:portnumber"
-     *
-     * @var string
      */
-    public $ProxyUrl;
+    public string $ProxyUrl;
 
     /**
      * The username for authenticating with the proxy. By default, no
      * authentication is performed. If a username is supplied, Basic
      * Authentication will be performed. No other types of authentication
      * are currently supported.
-     *
-     * @var string
      */
-    public $ProxyUser;
+    public string $ProxyUser;
 
     /**
      * The password for authenticating with the proxy.
-     *
-     * @var string
      */
-    public $ProxyPass;
+    public string $ProxyPass;
 
     /**
      * maximum number of db's displayed in database list
      *
-     * @var int
      * @psalm-var positive-int
      */
-    public $MaxDbList;
+    public int $MaxDbList;
 
     /**
      * maximum number of tables displayed in table list
      *
-     * @var int
      * @psalm-var positive-int
      */
-    public $MaxTableList;
+    public int $MaxTableList;
 
     /**
      * whether to show hint or not
-     *
-     * @var bool
      */
-    public $ShowHint;
+    public bool $ShowHint;
 
     /**
      * maximum number of characters when a SQL query is displayed
      *
-     * @var int
      * @psalm-var positive-int
      */
-    public $MaxCharactersInDisplayedSQL;
+    public int $MaxCharactersInDisplayedSQL;
 
     /**
      * use GZIP output buffering if possible (true|false|'auto')
      *
-     * @var string|bool
      * @psalm-var 'auto'|bool
      */
-    public $OBGzip;
+    public string|bool $OBGzip;
 
     /**
      * use persistent connections to MySQL database
-     *
-     * @var bool
      */
-    public $PersistentConnections;
+    public bool $PersistentConnections;
 
     /**
      * maximum execution time in seconds (0 for no limit)
      *
-     * @var int
      * @psalm-var 0|positive-int
      */
-    public $ExecTimeLimit;
+    public int $ExecTimeLimit;
 
     /**
      * Path for storing session data (session_save_path PHP parameter).
-     *
-     * @var string
      */
-    public $SessionSavePath;
+    public string $SessionSavePath;
 
     /**
      * Hosts or IPs to consider safe when checking if SSL is used or not
      *
      * @var string[]
      */
-    public $MysqlSslWarningSafeHosts;
+    public array $MysqlSslWarningSafeHosts;
 
     /**
      * maximum allocated bytes ('-1' for no limit, '0' for no change)
      * this is a string because '16M' is a valid value; we must put here
      * a string as the default value so that /setup accepts strings
-     *
-     * @var string
      */
-    public $MemoryLimit;
+    public string $MemoryLimit;
 
     /**
      * mark used tables, make possible to show locked tables (since MySQL 3.23.30)
-     *
-     * @var bool
      */
-    public $SkipLockedTables;
+    public bool $SkipLockedTables;
 
     /**
      * show SQL queries as run
-     *
-     * @var bool
      */
-    public $ShowSQL;
+    public bool $ShowSQL;
 
     /**
      * retain SQL input on Ajax execute
-     *
-     * @var bool
      */
-    public $RetainQueryBox;
+    public bool $RetainQueryBox;
 
     /**
      * use CodeMirror syntax highlighting for editing SQL
-     *
-     * @var bool
      */
-    public $CodemirrorEnable;
+    public bool $CodemirrorEnable;
 
     /**
      * use the parser to find any errors in the query before executing
-     *
-     * @var bool
      */
-    public $LintEnable;
+    public bool $LintEnable;
 
     /**
      * show a 'Drop database' link to normal users
-     *
-     * @var bool
      */
-    public $AllowUserDropDatabase;
+    public bool $AllowUserDropDatabase;
 
     /**
      * confirm some commands that can result in loss of data
-     *
-     * @var bool
      */
-    public $Confirm;
+    public bool $Confirm;
 
     /**
      * sets SameSite attribute of the Set-Cookie HTTP response header
      *
-     * @var string
      * @psalm-var 'Lax'|'Strict'|'None'
      */
-    public $CookieSameSite;
+    public string $CookieSameSite;
 
     /**
      * recall previous login in cookie authentication mode or not
-     *
-     * @var bool
      */
-    public $LoginCookieRecall;
+    public bool $LoginCookieRecall;
 
     /**
      * validity of cookie login (in seconds; 1440 matches php.ini's
      * session.gc_maxlifetime)
      *
-     * @var int
      * @psalm-var positive-int
      */
-    public $LoginCookieValidity;
+    public int $LoginCookieValidity;
 
     /**
      * how long login cookie should be stored (in seconds)
      *
-     * @var int
      * @psalm-var 0|positive-int
      */
-    public $LoginCookieStore;
+    public int $LoginCookieStore;
 
     /**
      * whether to delete all login cookies on logout
-     *
-     * @var bool
      */
-    public $LoginCookieDeleteAll;
+    public bool $LoginCookieDeleteAll;
 
     /**
      * whether to enable the "database search" feature or not
-     *
-     * @var bool
      */
-    public $UseDbSearch;
+    public bool $UseDbSearch;
 
     /**
      * if set to true, PMA continues computing multiple-statement queries
      * even if one of the queries failed
-     *
-     * @var bool
      */
-    public $IgnoreMultiSubmitErrors;
+    public bool $IgnoreMultiSubmitErrors;
 
     /**
      * Define whether phpMyAdmin will encrypt sensitive data from the URL query string.
-     *
-     * @var bool
      */
-    public $URLQueryEncryption;
+    public bool $URLQueryEncryption;
 
     /**
      * A secret key used to encrypt/decrypt the URL query string. Should be 32 bytes long.
-     *
-     * @var string
      */
-    public $URLQueryEncryptionSecretKey;
+    public string $URLQueryEncryptionSecretKey;
 
     /**
      * allow login to any user entered server in cookie based authentication
-     *
-     * @var bool
      */
-    public $AllowArbitraryServer;
+    public bool $AllowArbitraryServer;
 
     /**
      * restrict by IP (with regular expression) the MySQL servers the user can enter
      * when $cfg['AllowArbitraryServer'] = true
-     *
-     * @var string
      */
-    public $ArbitraryServerRegexp;
+    public string $ArbitraryServerRegexp;
 
     /**
      * To enable reCaptcha v2 checkbox mode if necessary
      *
-     * @var string
      * @psalm-var 'invisible'|'checkbox'
      */
-    public $CaptchaMethod;
+    public string $CaptchaMethod;
 
     /**
      * URL for the reCaptcha v2 compatible API to use
-     *
-     * @var string
      */
-    public $CaptchaApi;
+    public string $CaptchaApi;
 
     /**
      * Content-Security-Policy snippet for the reCaptcha v2 compatible API
-     *
-     * @var string
      */
-    public $CaptchaCsp;
+    public string $CaptchaCsp;
 
     /**
      * reCaptcha API's request parameter name
-     *
-     * @var string
      */
-    public $CaptchaRequestParam;
+    public string $CaptchaRequestParam;
 
     /**
      * reCaptcha API's response parameter name
-     *
-     * @var string
      */
-    public $CaptchaResponseParam;
+    public string $CaptchaResponseParam;
 
     /**
      * if reCaptcha is enabled it needs public key to connect with the service
-     *
-     * @var string
      */
-    public $CaptchaLoginPublicKey;
+    public string $CaptchaLoginPublicKey;
 
     /**
      * if reCaptcha is enabled it needs private key to connect with the service
-     *
-     * @var string
      */
-    public $CaptchaLoginPrivateKey;
+    public string $CaptchaLoginPrivateKey;
 
     /**
      * if reCaptcha is enabled may need an URL for site verify
-     *
-     * @var string
      */
-    public $CaptchaSiteVerifyURL;
+    public string $CaptchaSiteVerifyURL;
 
     /**
      * Enable drag and drop import
      *
      * @see https://github.com/phpmyadmin/phpmyadmin/issues/13155
-     *
-     * @var bool
      */
-    public $enable_drag_drop_import;
+    public bool $enable_drag_drop_import;
 
     /**
      * In the navigation panel, replaces the database tree with a selector
-     *
-     * @var bool
      */
-    public $ShowDatabasesNavigationAsTree;
+    public bool $ShowDatabasesNavigationAsTree;
 
     /**
      * maximum number of first level databases displayed in navigation panel
      *
-     * @var int
      * @psalm-var positive-int
      */
-    public $FirstLevelNavigationItems;
+    public int $FirstLevelNavigationItems;
 
     /**
      * maximum number of items displayed in navigation panel
      *
-     * @var int
      * @psalm-var positive-int
      */
-    public $MaxNavigationItems;
+    public int $MaxNavigationItems;
 
     /**
      * turn the select-based light menu into a tree
-     *
-     * @var bool
      */
-    public $NavigationTreeEnableGrouping;
+    public bool $NavigationTreeEnableGrouping;
 
     /**
      * the separator to sub-tree the select-based light menu tree
-     *
-     * @var string
      */
-    public $NavigationTreeDbSeparator;
+    public string $NavigationTreeDbSeparator;
 
     /**
      * Which string will be used to generate table prefixes
@@ -505,94 +406,78 @@ final class Settings
      *
      * @var string|string[]|false
      */
-    public $NavigationTreeTableSeparator;
+    public string|array|false $NavigationTreeTableSeparator;
 
     /**
      * How many sublevels should be displayed when splitting up tables
      * by the above Separator
      *
-     * @var int
      * @psalm-var positive-int
      */
-    public $NavigationTreeTableLevel;
+    public int $NavigationTreeTableLevel;
 
     /**
      * link with main panel by highlighting the current db/table
-     *
-     * @var bool
      */
-    public $NavigationLinkWithMainPanel;
+    public bool $NavigationLinkWithMainPanel;
 
     /**
      * display logo at top of navigation panel
-     *
-     * @var bool
      */
-    public $NavigationDisplayLogo;
+    public bool $NavigationDisplayLogo;
 
     /**
      * where should logo link point to (can also contain an external URL)
-     *
-     * @var string
      */
-    public $NavigationLogoLink;
+    public string $NavigationLogoLink;
 
     /**
      * whether to open the linked page in the main window ('main') or
      * in a new window ('new')
      *
-     * @var string
      * @psalm-var 'main'|'new'
      */
-    public $NavigationLogoLinkWindow;
+    public string $NavigationLogoLinkWindow;
 
     /**
      * number of recently used tables displayed in the navigation panel
      *
-     * @var int
      * @psalm-var 0|positive-int
      */
-    public $NumRecentTables;
+    public int $NumRecentTables;
 
     /**
      * number of favorite tables displayed in the navigation panel
      *
-     * @var int
      * @psalm-var 0|positive-int
      */
-    public $NumFavoriteTables;
+    public int $NumFavoriteTables;
 
     /**
      * display a JavaScript table filter in the navigation panel
      * when more then x tables are present
      *
-     * @var int
      * @psalm-var positive-int
      */
-    public $NavigationTreeDisplayItemFilterMinimum;
+    public int $NavigationTreeDisplayItemFilterMinimum;
 
     /**
      * display server choice at top of navigation panel
-     *
-     * @var bool
      */
-    public $NavigationDisplayServers;
+    public bool $NavigationDisplayServers;
 
     /**
      * server choice as links
-     *
-     * @var bool
      */
-    public $DisplayServersList;
+    public bool $DisplayServersList;
 
     /**
      * display a JavaScript database filter in the navigation panel
      * when more then x databases are present
      *
-     * @var int
      * @psalm-var positive-int
      */
-    public $NavigationTreeDisplayDbFilterMinimum;
+    public int $NavigationTreeDisplayDbFilterMinimum;
 
     /**
      * target of the navigation panel quick access icon
@@ -604,10 +489,9 @@ final class Settings
      * 'insert' = insert row page
      * 'browse' = browse page
      *
-     * @var string
      * @psalm-var 'structure'|'sql'|'search'|'insert'|'browse'
      */
-    public $NavigationTreeDefaultTabTable;
+    public string $NavigationTreeDefaultTabTable;
 
     /**
      * target of the navigation panel quick second access icon
@@ -620,196 +504,149 @@ final class Settings
      * 'browse' = browse page
      * '' = no link
      *
-     * @var string
      * @psalm-var 'structure'|'sql'|'search'|'insert'|'browse'|''
      */
-    public $NavigationTreeDefaultTabTable2;
+    public string $NavigationTreeDefaultTabTable2;
 
     /**
      * Enables the possibility of navigation tree expansion
-     *
-     * @var bool
      */
-    public $NavigationTreeEnableExpansion;
+    public bool $NavigationTreeEnableExpansion;
 
     /**
      * Show tables in navigation panel
-     *
-     * @var bool
      */
-    public $NavigationTreeShowTables;
+    public bool $NavigationTreeShowTables;
 
     /**
      * Show views in navigation panel
-     *
-     * @var bool
      */
-    public $NavigationTreeShowViews;
+    public bool $NavigationTreeShowViews;
 
     /**
      * Show functions in navigation panel
-     *
-     * @var bool
      */
-    public $NavigationTreeShowFunctions;
+    public bool $NavigationTreeShowFunctions;
 
     /**
      * Show procedures in navigation panel
-     *
-     * @var bool
      */
-    public $NavigationTreeShowProcedures;
+    public bool $NavigationTreeShowProcedures;
 
     /**
      * Show events in navigation panel
-     *
-     * @var bool
      */
-    public $NavigationTreeShowEvents;
+    public bool $NavigationTreeShowEvents;
 
     /**
      * Width of navigation panel
      *
-     * @var int
      * @psalm-var 0|positive-int
      */
-    public $NavigationWidth;
+    public int $NavigationWidth;
 
     /**
      * Automatically expands single database in navigation panel
-     *
-     * @var bool
      */
-    public $NavigationTreeAutoexpandSingleDb;
+    public bool $NavigationTreeAutoexpandSingleDb;
 
     /**
      * allow to display statistics and space usage in the pages about database
      * details and table properties
-     *
-     * @var bool
      */
-    public $ShowStats;
+    public bool $ShowStats;
 
     /**
      * show PHP info link
-     *
-     * @var bool
      */
-    public $ShowPhpInfo;
+    public bool $ShowPhpInfo;
 
     /**
      * show MySQL server and web server information
-     *
-     * @var bool
      */
-    public $ShowServerInfo;
+    public bool $ShowServerInfo;
 
     /**
      * show change password link
-     *
-     * @var bool
      */
-    public $ShowChgPassword;
+    public bool $ShowChgPassword;
 
     /**
      * show create database form
-     *
-     * @var bool
      */
-    public $ShowCreateDb;
+    public bool $ShowCreateDb;
 
     /**
      * show charset column in database structure (true|false)?
-     *
-     * @var bool
      */
-    public $ShowDbStructureCharset;
+    public bool $ShowDbStructureCharset;
 
     /**
      * show comment column in database structure (true|false)?
-     *
-     * @var bool
      */
-    public $ShowDbStructureComment;
+    public bool $ShowDbStructureComment;
 
     /**
      * show creation timestamp column in database structure (true|false)?
-     *
-     * @var bool
      */
-    public $ShowDbStructureCreation;
+    public bool $ShowDbStructureCreation;
 
     /**
      * show last update timestamp column in database structure (true|false)?
-     *
-     * @var bool
      */
-    public $ShowDbStructureLastUpdate;
+    public bool $ShowDbStructureLastUpdate;
 
     /**
      * show last check timestamp column in database structure (true|false)?
-     *
-     * @var bool
      */
-    public $ShowDbStructureLastCheck;
+    public bool $ShowDbStructureLastCheck;
 
     /**
      * allow hide action columns to drop down menu in database structure (true|false)?
-     *
-     * @var bool
      */
-    public $HideStructureActions;
+    public bool $HideStructureActions;
 
     /**
      * Show column comments in table structure view (true|false)?
-     *
-     * @var bool
      */
-    public $ShowColumnComments;
+    public bool $ShowColumnComments;
 
     /**
      * Use icons instead of text for the navigation bar buttons (table browse)
      * ('text'|'icons'|'both')
      *
-     * @var string
      * @psalm-var 'text'|'icons'|'both'
      */
-    public $TableNavigationLinksMode;
+    public string $TableNavigationLinksMode;
 
     /**
      * Defines whether a user should be displayed a "show all (records)"
      * button in browse mode or not.
-     *
-     * @var bool
      */
-    public $ShowAll;
+    public bool $ShowAll;
 
     /**
      * Number of rows displayed when browsing a result set. If the result
      * set contains more rows, "Previous" and "Next".
      * Possible values: 25,50,100,250,500
      *
-     * @var int
      * @psalm-var positive-int
      */
-    public $MaxRows;
+    public int $MaxRows;
 
     /**
      * default for 'ORDER BY' clause (valid values are 'ASC', 'DESC' or 'SMART' -ie
      * descending order for fields of type TIME, DATE, DATETIME & TIMESTAMP,
      * ascending order else-)
      *
-     * @var string
      * @psalm-var 'ASC'|'DESC'|'SMART'
      */
-    public $Order;
+    public string $Order;
 
     /**
      * grid editing: save edited cell(s) in browse-mode at once
-     *
-     * @var bool
      */
-    public $SaveCellsAtOnce;
+    public bool $SaveCellsAtOnce;
 
     /**
      * grid editing: which action triggers it, or completely disable the feature
@@ -819,10 +656,9 @@ final class Settings
      * 'double-click'
      * 'disabled'
      *
-     * @var string
      * @psalm-var 'double-click'|'click'|'disabled'
      */
-    public $GridEditing;
+    public string $GridEditing;
 
     /**
      * Options > Relational display
@@ -831,10 +667,9 @@ final class Settings
      * 'K' for key value
      * 'D' for display column
      *
-     * @var string
      * @psalm-var 'K'|'D'
      */
-    public $RelationalDisplay;
+    public string $RelationalDisplay;
 
     /**
      * disallow editing of binary fields
@@ -844,58 +679,49 @@ final class Settings
      *   'noblob' disallow editing except for BLOB fields
      *   'all'    disallow editing
      *
-     * @var string|false
      * @psalm-var 'blob'|'noblob'|'all'|false
      */
-    public $ProtectBinary;
+    public string|false $ProtectBinary;
 
     /**
      * Display the function fields in edit/insert mode
-     *
-     * @var bool
      */
-    public $ShowFunctionFields;
+    public bool $ShowFunctionFields;
 
     /**
      * Display the type fields in edit/insert mode
-     *
-     * @var bool
      */
-    public $ShowFieldTypesInDataEditView;
+    public bool $ShowFieldTypesInDataEditView;
 
     /**
      * Which editor should be used for CHAR/VARCHAR fields:
      *  input - allows limiting of input length
      *  textarea - allows newlines in fields
      *
-     * @var string
      * @psalm-var 'input'|'textarea'
      */
-    public $CharEditing;
+    public string $CharEditing;
 
     /**
      * The minimum size for character input fields
      *
-     * @var int
      * @psalm-var 0|positive-int
      */
-    public $MinSizeForInputField;
+    public int $MinSizeForInputField;
 
     /**
      * The maximum size for character input fields
      *
-     * @var int
      * @psalm-var positive-int
      */
-    public $MaxSizeForInputField;
+    public int $MaxSizeForInputField;
 
     /**
      * How many rows can be inserted at one time
      *
-     * @var int
      * @psalm-var positive-int
      */
-    public $InsertRows;
+    public int $InsertRows;
 
     /**
      * Sort order for items in a foreign-key drop-down list.
@@ -904,77 +730,64 @@ final class Settings
      * @var string[]
      * @psalm-var array{0: 'content-id'|'id-content', 1?: 'content-id'|'id-content'}
      */
-    public $ForeignKeyDropdownOrder;
+    public array $ForeignKeyDropdownOrder;
 
     /**
      * A drop-down list will be used if fewer items are present
      *
-     * @var int
      * @psalm-var positive-int
      */
-    public $ForeignKeyMaxLimit;
+    public int $ForeignKeyMaxLimit;
 
     /**
      * Whether to disable foreign key checks while importing
      *
-     * @var string
      * @psalm-var 'default'|'enable'|'disable'
      */
-    public $DefaultForeignKeyChecks;
+    public string $DefaultForeignKeyChecks;
 
     /**
      * Allow for the use of zip compression (requires zip support to be enabled)
-     *
-     * @var bool
      */
-    public $ZipDump;
+    public bool $ZipDump;
 
     /**
      * Allow for the use of gzip compression (requires zlib)
-     *
-     * @var bool
      */
-    public $GZipDump;
+    public bool $GZipDump;
 
     /**
      * Allow for the use of bzip2 decompression (requires bz2 extension)
-     *
-     * @var bool
      */
-    public $BZipDump;
+    public bool $BZipDump;
 
     /**
      * Will compress gzip exports on the fly without the need for much memory.
      * If you encounter problems with created gzip files disable this feature.
-     *
-     * @var bool
      */
-    public $CompressOnFly;
+    public bool $CompressOnFly;
 
     /**
      * How to display the menu tabs ('icons'|'text'|'both')
      *
-     * @var string
      * @psalm-var 'icons'|'text'|'both'
      */
-    public $TabsMode;
+    public string $TabsMode;
 
     /**
      * How to display various action links ('icons'|'text'|'both')
      *
-     * @var string
      * @psalm-var 'icons'|'text'|'both'
      */
-    public $ActionLinksMode;
+    public string $ActionLinksMode;
 
     /**
      * How many columns should be used for table display of a database?
      * (a value larger than 1 results in some information being hidden)
      *
-     * @var int
      * @psalm-var positive-int
      */
-    public $PropertiesNumColumns;
+    public int $PropertiesNumColumns;
 
     /**
      * Possible values:
@@ -984,10 +797,9 @@ final class Settings
      * 'variables' = MySQL server variables
      * 'privileges' = user management
      *
-     * @var string
      * @psalm-var 'welcome'|'databases'|'status'|'variables'|'privileges'
      */
-    public $DefaultTabServer;
+    public string $DefaultTabServer;
 
     /**
      * Possible values:
@@ -996,10 +808,9 @@ final class Settings
      * 'search' = search query
      * 'operations' = operations on database
      *
-     * @var string
      * @psalm-var 'structure'|'sql'|'search'|'operations'
      */
-    public $DefaultTabDatabase;
+    public string $DefaultTabDatabase;
 
     /**
      * Possible values:
@@ -1009,63 +820,49 @@ final class Settings
      * 'insert' = insert row page
      * 'browse' = browse page
      *
-     * @var string
      * @psalm-var 'structure'|'sql'|'search'|'insert'|'browse'
      */
-    public $DefaultTabTable;
+    public string $DefaultTabTable;
 
     /**
      * Whether to display image or text or both image and text in table row
      * action segment. Value can be either of ``image``, ``text`` or ``both``.
      *
-     * @var string
      * @psalm-var 'icons'|'text'|'both'
      */
-    public $RowActionType;
+    public string $RowActionType;
 
-    /** @var Export */
-    public $Export;
+    public Export $Export;
 
-    /** @var Import */
-    public $Import;
+    public Import $Import;
 
-    /** @var Schema */
-    public $Schema;
+    public Schema $Schema;
 
     /** @var string[] */
-    public $PDFPageSizes;
+    public array $PDFPageSizes;
 
-    /** @var string */
-    public $PDFDefaultPageSize;
+    public string $PDFDefaultPageSize;
 
     /**
      * Default language to use, if not browser-defined or user-defined
-     *
-     * @var string
      */
-    public $DefaultLang;
+    public string $DefaultLang;
 
     /**
      * Default connection collation
-     *
-     * @var string
      */
-    public $DefaultConnectionCollation;
+    public string $DefaultConnectionCollation;
 
     /**
      * Force: always use this language, e.g. 'en'
-     *
-     * @var string
      */
-    public $Lang;
+    public string $Lang;
 
     /**
      * Regular expression to limit listed languages, e.g. '^(cs|en)' for Czech and
      * English only
-     *
-     * @var string
      */
-    public $FilterLanguages;
+    public string $FilterLanguages;
 
     /**
      * You can select here which functions will be used for character set conversion.
@@ -1076,19 +873,16 @@ final class Settings
      *      mb     - use mbstring extension
      *      none   - disable encoding conversion
      *
-     * @var string
      * @psalm-var 'auto'|'iconv'|'recode'|'mb'|'none'
      */
-    public $RecodingEngine;
+    public string $RecodingEngine;
 
     /**
      * Specify some parameters for iconv used in character set conversion. See iconv
      * documentation for details:
      * https://www.gnu.org/savannah-checkouts/gnu/libiconv/documentation/libiconv-1.15/iconv_open.3.html
-     *
-     * @var string
      */
-    public $IconvExtraParams;
+    public string $IconvExtraParams;
 
     /**
      * Available character sets for MySQL conversion. currently contains all which could
@@ -1098,193 +892,157 @@ final class Settings
      *
      * @var string[]
      */
-    public $AvailableCharsets;
+    public array $AvailableCharsets;
 
     /**
      * enable the left panel pointer
-     *
-     * @var bool
      */
-    public $NavigationTreePointerEnable;
+    public bool $NavigationTreePointerEnable;
 
     /**
      * enable the browse pointer
-     *
-     * @var bool
      */
-    public $BrowsePointerEnable;
+    public bool $BrowsePointerEnable;
 
     /**
      * enable the browse marker
-     *
-     * @var bool
      */
-    public $BrowseMarkerEnable;
+    public bool $BrowseMarkerEnable;
 
     /**
      * textarea size (columns) in edit mode
      * (this value will be emphasized (*2) for SQL
      * query textareas and (*1.25) for query window)
      *
-     * @var int
      * @psalm-var positive-int
      */
-    public $TextareaCols;
+    public int $TextareaCols;
 
     /**
      * textarea size (rows) in edit mode
      *
-     * @var int
      * @psalm-var positive-int
      */
-    public $TextareaRows;
+    public int $TextareaRows;
 
     /**
      * double size of textarea size for LONGTEXT columns
-     *
-     * @var bool
      */
-    public $LongtextDoubleTextarea;
+    public bool $LongtextDoubleTextarea;
 
     /**
      * auto-select when clicking in the textarea of the query-box
-     *
-     * @var bool
      */
-    public $TextareaAutoSelect;
+    public bool $TextareaAutoSelect;
 
     /**
      * textarea size (columns) for CHAR/VARCHAR
      *
-     * @var int
      * @psalm-var positive-int
      */
-    public $CharTextareaCols;
+    public int $CharTextareaCols;
 
     /**
      * textarea size (rows) for CHAR/VARCHAR
      *
-     * @var int
      * @psalm-var positive-int
      */
-    public $CharTextareaRows;
+    public int $CharTextareaRows;
 
     /**
      * Max field data length in browse mode for all non-numeric fields
      *
-     * @var int
      * @psalm-var positive-int
      */
-    public $LimitChars;
+    public int $LimitChars;
 
     /**
      * Where to show the edit/copy/delete links in browse mode
      * Possible values are 'left', 'right', 'both' and 'none'.
      *
-     * @var string
      * @psalm-var 'left'|'right'|'both'|'none'
      */
-    public $RowActionLinks;
+    public string $RowActionLinks;
 
     /**
      * Whether to show row links (Edit, Copy, Delete) and checkboxes for
      * multiple row operations even when the selection does not have a unique key.
-     *
-     * @var bool
      */
-    public $RowActionLinksWithoutUnique;
+    public bool $RowActionLinksWithoutUnique;
 
     /**
      * Default sort order by primary key.
      *
-     * @var string
      * @psalm-var 'NONE'|'ASC'|'DESC'
      */
-    public $TablePrimaryKeyOrder;
+    public string $TablePrimaryKeyOrder;
 
     /**
      * remember the last way a table sorted
-     *
-     * @var bool
      */
-    public $RememberSorting;
+    public bool $RememberSorting;
 
     /**
      * shows column comments in 'browse' mode.
-     *
-     * @var bool
      */
-    public $ShowBrowseComments;
+    public bool $ShowBrowseComments;
 
     /**
      * shows column comments in 'table property' mode.
-     *
-     * @var bool
      */
-    public $ShowPropertyComments;
+    public bool $ShowPropertyComments;
 
     /**
      * repeat header names every X cells? (0 = deactivate)
      *
-     * @var int
      * @psalm-var 0|positive-int
      */
-    public $RepeatCells;
+    public int $RepeatCells;
 
     /**
      * Set to true if you want DB-based query history.If false, this utilizes
      * JS-routines to display query history (lost by window close)
-     *
-     * @var bool
      */
-    public $QueryHistoryDB;
+    public bool $QueryHistoryDB;
 
     /**
      * When using DB-based query history, how many entries should be kept?
      *
-     * @var int
      * @psalm-var positive-int
      */
-    public $QueryHistoryMax;
+    public int $QueryHistoryMax;
 
     /**
      * Use MIME-Types (stored in column comments table) for
-     *
-     * @var bool
      */
-    public $BrowseMIME;
+    public bool $BrowseMIME;
 
     /**
      * When approximate count < this, PMA will get exact count for table rows.
      *
-     * @var int
      * @psalm-var positive-int
      */
-    public $MaxExactCount;
+    public int $MaxExactCount;
 
     /**
      * Zero means that no row count is done for views; see the doc
      *
-     * @var int
      * @psalm-var 0|positive-int
      */
-    public $MaxExactCountViews;
+    public int $MaxExactCountViews;
 
     /**
      * Sort table and database in natural order
-     *
-     * @var bool
      */
-    public $NaturalOrder;
+    public bool $NaturalOrder;
 
     /**
      * Initial state for sliders
      * (open | closed | disabled)
      *
-     * @var string
      * @psalm-var 'open'|'closed'|'disabled'
      */
-    public $InitialSlidersState;
+    public string $InitialSlidersState;
 
     /**
      * User preferences: disallow these settings
@@ -1292,135 +1050,104 @@ final class Settings
      *
      * @var string[]
      */
-    public $UserprefsDisallow;
+    public array $UserprefsDisallow;
 
     /**
      * User preferences: enable the Developer tab
-     *
-     * @var bool
      */
-    public $UserprefsDeveloperTab;
+    public bool $UserprefsDeveloperTab;
 
     /**
      * title of browser window when a table is selected
-     *
-     * @var string
      */
-    public $TitleTable;
+    public string $TitleTable;
 
     /**
      * title of browser window when a database is selected
-     *
-     * @var string
      */
-    public $TitleDatabase;
+    public string $TitleDatabase;
 
     /**
      * title of browser window when a server is selected
-     *
-     * @var string
      */
-    public $TitleServer;
+    public string $TitleServer;
 
     /**
      * title of browser window when nothing is selected
-     *
-     * @var string
      */
-    public $TitleDefault;
+    public string $TitleDefault;
 
     /**
      * if you want to use selectable themes and if ThemesPath not empty
      * set it to true, else set it to false (default is false);
-     *
-     * @var bool
      */
-    public $ThemeManager;
+    public bool $ThemeManager;
 
     /**
      * set up default theme, you can set up here an valid
      * path to themes or 'original' for the original pma-theme
-     *
-     * @var string
      */
-    public $ThemeDefault;
+    public string $ThemeDefault;
 
     /**
      * allow different theme for each configured server
-     *
-     * @var bool
      */
-    public $ThemePerServer;
+    public bool $ThemePerServer;
 
     /**
      * Default query for table
-     *
-     * @var string
      */
-    public $DefaultQueryTable;
+    public string $DefaultQueryTable;
 
     /**
      * Default query for database
-     *
-     * @var string
      */
-    public $DefaultQueryDatabase;
+    public string $DefaultQueryDatabase;
 
     /**
      * SQL Query box settings
      * These are the links display in all of the SQL Query boxes
-     *
-     * @var SqlQueryBox
      */
-    public $SQLQuery;
+    public SqlQueryBox $SQLQuery;
 
     /**
      * Enables autoComplete for table & column names in SQL queries
-     *
-     * @var bool
      */
-    public $EnableAutocompleteForTablesAndColumns;
+    public bool $EnableAutocompleteForTablesAndColumns;
 
     /**
      * Directory for uploaded files that can be executed by phpMyAdmin.
      * For example './upload'. Leave empty for no upload directory support.
      * Use %u for username inclusion.
-     *
-     * @var string
      */
-    public $UploadDir;
+    public string $UploadDir;
 
     /**
      * Directory where phpMyAdmin can save exported data on server.
      * For example './save'. Leave empty for no save directory support.
      * Use %u for username inclusion.
-     *
-     * @var string
      */
-    public $SaveDir;
+    public string $SaveDir;
 
     /**
      * Directory where phpMyAdmin can save temporary files.
-     *
-     * @var string
      */
-    public $TempDir;
+    public string $TempDir;
 
     /**
      * Is GD >= 2 available? Set to yes/no/auto. 'auto' does auto-detection,
      * which is the only safe way to determine GD version.
      *
-     * @var string
      * @psalm-var 'auto'|'yes'|'no'
      */
-    public $GD2Available;
+    public string $GD2Available;
 
     /**
      * Lists proxy IP and HTTP header combinations which are trusted for IP allow/deny
      *
      * @var array<string, string>
      */
-    public $TrustedProxies;
+    public array $TrustedProxies;
 
     /**
      * We normally check the permissions on the configuration file to ensure
@@ -1428,10 +1155,8 @@ final class Settings
      * a NTFS filesystem mounted on a non-Windows server, in which case the
      * permissions seems wrong but in fact cannot be detected. In this case
      * a sysadmin would set the following to false.
-     *
-     * @var bool
      */
-    public $CheckConfigurationPermissions;
+    public bool $CheckConfigurationPermissions;
 
     /**
      * Limit for length of URL in links. When length would be above this limit, it
@@ -1441,26 +1166,21 @@ final class Settings
      * (see https://www.boutell.com/newfaq/misc/urllength.html) but we put
      * 1000 to accommodate Suhosin, see bug #3358750.
      *
-     * @var int
      * @psalm-var positive-int
      */
-    public $LinkLengthLimit;
+    public int $LinkLengthLimit;
 
     /**
      * Additional string to allow in CSP headers.
-     *
-     * @var string
      */
-    public $CSPAllow;
+    public string $CSPAllow;
 
     /**
      * Disable the table maintenance mass operations, like optimizing or
      * repairing the selected tables of a database. An accidental execution
      * of such a maintenance task can enormously slow down a bigger database.
-     *
-     * @var bool
      */
-    public $DisableMultiTableMaintenance;
+    public bool $DisableMultiTableMaintenance;
 
     /**
      * Whether or not to query the user before sending the error report to
@@ -1469,31 +1189,24 @@ final class Settings
      * Available options
      * (ask | always | never)
      *
-     * @var string
      * @psalm-var 'ask'|'always'|'never'
      */
-    public $SendErrorReports;
+    public string $SendErrorReports;
 
     /**
      * Whether Enter or Ctrl+Enter executes queries in the console.
-     *
-     * @var bool
      */
-    public $ConsoleEnterExecutes;
+    public bool $ConsoleEnterExecutes;
 
     /**
      * Zero Configuration mode.
-     *
-     * @var bool
      */
-    public $ZeroConf;
+    public bool $ZeroConf;
 
     /**
      * Developers ONLY!
-     *
-     * @var Debug
      */
-    public $DBG;
+    public Debug $DBG;
 
     /**
      * Sets the working environment
@@ -1503,32 +1216,28 @@ final class Settings
      *
      * Possible values are 'production' or 'development'
      *
-     * @var string
      * @psalm-var 'production'|'development'
      */
-    public $environment;
+    public string $environment;
 
     /**
      * Default functions for above defined groups
      *
      * @var array<string, string>
      */
-    public $DefaultFunctions;
+    public array $DefaultFunctions;
 
     /**
      * Max rows retrieved for zoom search
      *
-     * @var int
      * @psalm-var positive-int
      */
-    public $maxRowPlotLimit;
+    public int $maxRowPlotLimit;
 
     /**
      * Show Git revision if applicable
-     *
-     * @var bool
      */
-    public $ShowGitRevision;
+    public bool $ShowGitRevision;
 
     /**
      * MySQL minimal version required
@@ -1536,38 +1245,31 @@ final class Settings
      * @var array<string, int|string>
      * @psalm-var array{internal: int, human: string}
      */
-    public $MysqlMinVersion;
+    public array $MysqlMinVersion;
 
     /**
      * Disable shortcuts
-     *
-     * @var bool
      */
-    public $DisableShortcutKeys;
+    public bool $DisableShortcutKeys;
 
     /**
      * Console configuration
      *
      * This is mostly meant for user preferences.
-     *
-     * @var Console
      */
-    public $Console;
+    public Console $Console;
 
     /**
      * Initialize default transformations array
-     *
-     * @var Transformations
      */
-    public $DefaultTransformations;
+    public Transformations $DefaultTransformations;
 
     /**
      * Set default for FirstDayOfCalendar
      *
-     * @var int
      * @psalm-var 0|positive-int
      */
-    public $FirstDayOfCalendar;
+    public int $FirstDayOfCalendar;
 
     /** @param array<int|string, mixed> $settings */
     public function __construct(array $settings)

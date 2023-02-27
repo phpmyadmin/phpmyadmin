@@ -27,7 +27,7 @@ use function strncasecmp;
 class Types
 {
     /** @var DatabaseInterface Database interface */
-    private $dbi;
+    private DatabaseInterface $dbi;
 
     /** @param DatabaseInterface $dbi Database interface instance */
     public function __construct($dbi)

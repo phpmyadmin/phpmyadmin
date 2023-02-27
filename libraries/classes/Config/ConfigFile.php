@@ -34,14 +34,12 @@ class ConfigFile
      *
      * @var array
      */
-    private $cfgDb;
+    private array $cfgDb;
 
     /**
      * Stores original PMA config, not modified by user preferences
-     *
-     * @var array|null
      */
-    private $baseCfg;
+    private array|null $baseCfg = null;
 
     /**
      * Whether we are currently working in PMA Setup context
@@ -53,7 +51,7 @@ class ConfigFile
      *
      * @var array
      */
-    private $persistKeys = [];
+    private array $persistKeys = [];
 
     /**
      * Changes keys while updating config in {@link updateWithGlobalConfig()}
@@ -61,14 +59,12 @@ class ConfigFile
      *
      * @var array
      */
-    private $cfgUpdateReadMapping = [];
+    private array $cfgUpdateReadMapping = [];
 
     /**
      * Key filter for {@link set()}
-     *
-     * @var array|null
      */
-    private $setFilter;
+    private array|null $setFilter = null;
 
     /**
      * Instance id (key in $_SESSION array, separate for each server -

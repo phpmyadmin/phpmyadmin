@@ -37,25 +37,20 @@ use function sprintf;
 class SvgRelationSchema extends ExportRelationSchema
 {
     /** @var TableStatsDia[]|TableStatsEps[]|TableStatsPdf[]|TableStatsSvg[] */
-    private $tables = [];
+    private array $tables = [];
 
     /** @var RelationStatsSvg[] Relations */
-    private $relations = [];
+    private array $relations = [];
 
-    /** @var int|float */
-    private $xMax = 0;
+    private int|float $xMax = 0;
 
-    /** @var int|float */
-    private $yMax = 0;
+    private int|float $yMax = 0;
 
-    /** @var int|float */
-    private $xMin = 100000;
+    private int|float $xMin = 100000;
 
-    /** @var int|float */
-    private $yMin = 100000;
+    private int|float $yMin = 100000;
 
-    /** @var int */
-    private $tablewidth = 0;
+    private int|float $tablewidth = 0;
 
     /**
      * Upon instantiation This starts writing the SVG XML document

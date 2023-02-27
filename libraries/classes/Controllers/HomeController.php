@@ -41,7 +41,7 @@ class HomeController extends AbstractController
      * @var array<int, array<string, string>>
      * @psalm-var list<array{message: string, severity: 'warning'|'notice'}>
      */
-    private $errors = [];
+    private array $errors = [];
 
     public function __construct(
         ResponseRenderer $response,

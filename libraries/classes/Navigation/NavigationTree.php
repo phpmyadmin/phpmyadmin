@@ -83,57 +83,57 @@ class NavigationTree
      *            This does not include nodes created after the grouping
      *            of nodes has been performed
      */
-    private $aPath = [];
+    private array $aPath = [];
     /**
      * @var array The virtual paths to all expanded nodes in the tree
      *            This includes nodes created after the grouping of
      *            nodes has been performed
      */
-    private $vPath = [];
+    private array $vPath = [];
     /**
      * @var int Position in the list of databases,
      *          used for pagination
      */
-    private $pos = 0;
+    private int $pos = 0;
     /**
      * @var string[] The names of the type of items that are being paginated on
      *               the second level of the navigation tree. These may be
      *               tables, views, functions, procedures or events.
      */
-    private $pos2Name = [];
+    private array $pos2Name = [];
     /**
      * @var int[] The positions of nodes in the lists of tables, views,
      *            routines or events used for pagination
      */
-    private $pos2Value = [];
+    private array $pos2Value = [];
     /**
      * @var string[] The names of the type of items that are being paginated
      *               on the second level of the navigation tree.
      *               These may be columns or indexes
      */
-    private $pos3Name = [];
+    private array $pos3Name = [];
     /**
      * @var int[] The positions of nodes in the lists of columns or indexes
      *            used for pagination
      */
-    private $pos3Value = [];
+    private array $pos3Value = [];
     /**
      * @var string The search clause to use in SQL queries for
      *             fetching databases
      *             Used by the asynchronous fast filter
      */
-    private $searchClause = '';
+    private string $searchClause = '';
     /**
      * @var string The search clause to use in SQL queries for
      *             fetching nodes
      *             Used by the asynchronous fast filter
      */
-    private $searchClause2 = '';
+    private string $searchClause2 = '';
     /**
      * @var bool Whether a warning was raised for large item groups
      *           which can affect performance.
      */
-    private $largeGroupWarning = false;
+    private bool $largeGroupWarning = false;
 
     /** @param Template $template */
     public function __construct(private $template, private DatabaseInterface $dbi)
@@ -674,7 +674,7 @@ class NavigationTree
             foreach ($node->children as $child) {
                 $prefixPos = false;
                 foreach ($separators as $separator) {
-                    $sepPos = mb_strpos((string) $child->name, $separator);
+                    $sepPos = mb_strpos($child->name, $separator);
                     if (
                         $sepPos === false
                         || $sepPos === mb_strlen($child->name)
@@ -762,7 +762,7 @@ class NavigationTree
                 // FIXME: this could be more efficient
                 foreach ($node->children as $child) {
                     $keySeparatorLength = mb_strlen((string) $key) + $separatorLength;
-                    $nameSubstring = mb_substr((string) $child->name, 0, $keySeparatorLength);
+                    $nameSubstring = mb_substr($child->name, 0, $keySeparatorLength);
                     if (
                         ($nameSubstring !== $key . $separator && $child->name !== $key)
                         || $child->type != Node::OBJECT
@@ -1132,7 +1132,7 @@ class NavigationTree
                         array_intersect_key($args, $node->links['text']['params']),
                     ),
                     'is_ajax' => $linkHasAjaxClass,
-                    'title' => $node->links['title'] ?? $node->title ?? '',
+                    'title' => $node->links['title'] ?? $node->title,
                 ];
             }
 

@@ -10,19 +10,10 @@ use PhpMyAdmin\Dbal\TableName;
 /** @psalm-immutable */
 final class PdfFeature
 {
-    /** @var DatabaseName */
-    public $database;
-
-    /** @var TableName */
-    public $pdfPages;
-
-    /** @var TableName */
-    public $tableCoords;
-
-    public function __construct(DatabaseName $database, TableName $pdfPages, TableName $tableCoords)
-    {
-        $this->database = $database;
-        $this->pdfPages = $pdfPages;
-        $this->tableCoords = $tableCoords;
+    public function __construct(
+        public DatabaseName $database,
+        public TableName $pdfPages,
+        public TableName $tableCoords,
+    ) {
     }
 }

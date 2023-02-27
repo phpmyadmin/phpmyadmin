@@ -76,8 +76,7 @@ class Header
 
     private Template $template;
 
-    /** @var bool */
-    private $isTransformationWrapper = false;
+    private bool $isTransformationWrapper = false;
 
     /**
      * Creates a new class instance

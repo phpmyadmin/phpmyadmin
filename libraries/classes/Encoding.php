@@ -49,10 +49,8 @@ class Encoding
 
     /**
      * Chosen encoding engine
-     *
-     * @var int
      */
-    private static $engine = null;
+    private static int|null $engine = null;
 
     /**
      * Map of conversion engine configurations
@@ -65,7 +63,7 @@ class Encoding
      *
      * @var array
      */
-    private static $enginemap = [
+    private static array $enginemap = [
         'iconv' => [
             'iconv',
             self::ENGINE_ICONV,
@@ -93,7 +91,7 @@ class Encoding
      *
      * @var array
      */
-    private static $engineorder = [
+    private static array $engineorder = [
         'iconv',
         'mb',
         'recode',
@@ -101,10 +99,8 @@ class Encoding
 
     /**
      * Kanji encodings list
-     *
-     * @var string
      */
-    private static $kanjiEncodings = 'ASCII,SJIS,EUC-JP,JIS';
+    private static string $kanjiEncodings = 'ASCII,SJIS,EUC-JP,JIS';
 
     /**
      * Initializes encoding engine detecting available backends.

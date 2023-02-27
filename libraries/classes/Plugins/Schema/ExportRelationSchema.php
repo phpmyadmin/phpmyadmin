@@ -26,29 +26,21 @@ use function rawurldecode;
  */
 class ExportRelationSchema
 {
-    /** @var bool */
-    protected $showColor = false;
+    protected bool $showColor = false;
 
-    /** @var bool */
-    protected $tableDimension = false;
+    protected bool $tableDimension = false;
 
-    /** @var bool */
-    protected $sameWide = false;
+    protected bool $sameWide = false;
 
-    /** @var bool */
-    protected $showKeys = false;
+    protected bool $showKeys = false;
 
-    /** @var string */
-    protected $orientation = 'L';
+    protected string $orientation = 'L';
 
-    /** @var string */
-    protected $paper = 'A4';
+    protected string $paper = 'A4';
 
-    /** @var int */
-    protected $pageNumber = 0;
+    protected int $pageNumber = 0;
 
-    /** @var bool */
-    protected $offline = false;
+    protected bool $offline = false;
 
     protected Relation $relation;
 

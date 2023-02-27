@@ -69,7 +69,7 @@ class Import
     public const FORMATTEDSQL = 2;
 
     /** @var string|null importRunBuffer */
-    private $importRunBuffer = null;
+    private string|null $importRunBuffer = null;
 
     public function __construct()
     {

@@ -22,17 +22,13 @@ use function sprintf;
  */
 class Svg extends XMLWriter
 {
-    /** @var string */
-    public $title = '';
+    public string $title = '';
 
-    /** @var string */
-    public $author = 'phpMyAdmin';
+    public string $author = 'phpMyAdmin';
 
-    /** @var string */
-    public $font = 'Arial';
+    public string $font = 'Arial';
 
-    /** @var int */
-    public $fontSize = 12;
+    public int $fontSize = 12;
 
     /**
      * Upon instantiation This starts writing the RelationStatsSvg XML document
@@ -188,8 +184,8 @@ class Svg extends XMLWriter
      * @param int         $y      The y attribute defines the top position of the
      *                            element (e.g. y="0" places the element 0 pixels
      *                            from the top of the browser window)
-     * @param int|string  $width  The width attribute defines the width the element
-     * @param int|string  $height The height attribute defines the height the element
+     * @param int|float   $width  The width attribute defines the width the element
+     * @param int         $height The height attribute defines the height the element
      * @param string|null $text   The text attribute defines the text the element
      * @param string      $styles The style attribute defines the style the element
      *                            styles can be defined like CSS styles
@@ -198,8 +194,8 @@ class Svg extends XMLWriter
         $name,
         $x,
         $y,
-        int|string $width = '',
-        int|string $height = '',
+        int|float $width,
+        int $height,
         string|null $text = '',
         $styles = '',
     ): void {
@@ -210,7 +206,7 @@ class Svg extends XMLWriter
         $this->writeAttribute('y', (string) $y);
         $this->writeAttribute('style', (string) $styles);
         if (isset($text)) {
-            $this->writeAttribute('font-family', (string) $this->font);
+            $this->writeAttribute('font-family', $this->font);
             $this->writeAttribute('font-size', $this->fontSize . 'px');
             $this->text($text);
         }

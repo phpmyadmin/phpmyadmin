@@ -20,26 +20,19 @@ use function shuffle;
  */
 class RelationStatsDia
 {
-    /** @var mixed */
-    public $srcConnPointsRight;
+    public mixed $srcConnPointsRight;
 
-    /** @var mixed */
-    public $srcConnPointsLeft;
+    public mixed $srcConnPointsLeft;
 
-    /** @var mixed */
-    public $destConnPointsRight;
+    public mixed $destConnPointsRight;
 
-    /** @var mixed */
-    public $destConnPointsLeft;
+    public mixed $destConnPointsLeft;
 
-    /** @var int */
-    public $masterTableId;
+    public int $masterTableId;
 
-    /** @var int */
-    public $foreignTableId;
+    public int $foreignTableId;
 
-    /** @var string */
-    public $referenceColor = '#000000';
+    public string $referenceColor = '#000000';
 
     /**
      * @see Relation_Stats_Dia::getXy

@@ -22,26 +22,19 @@ use function min;
  */
 abstract class RelationStats
 {
-    /** @var mixed */
-    public $xSrc;
+    public mixed $xSrc;
 
-    /** @var mixed */
-    public $ySrc;
+    public mixed $ySrc;
 
-    /** @var int */
-    public $srcDir;
+    public int $srcDir;
 
-    /** @var int */
-    public $destDir;
+    public int $destDir;
 
-    /** @var mixed */
-    public $xDest;
+    public mixed $xDest;
 
-    /** @var mixed */
-    public $yDest;
+    public mixed $yDest;
 
-    /** @var int */
-    public $wTick = 0;
+    public int $wTick = 0;
 
     /**
      * @param object $diagram       The diagram
