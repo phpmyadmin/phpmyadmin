@@ -2301,11 +2301,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/IndexesController.php
 
 		-
-			message: "#^Cannot cast mixed to string\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/RelationController.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\RelationController\\:\\:updateForForeignKeys\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/RelationController.php

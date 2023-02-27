@@ -58,7 +58,7 @@ final class RelationController extends AbstractController
         ];
 
         $table = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table']);
-        $storageEngine = mb_strtoupper((string) $table->getStatusInfo('Engine'));
+        $storageEngine = $table->getStorageEngine();
 
         $relationParameters = $this->relation->getRelationParameters();
 
@@ -198,9 +198,8 @@ final class RelationController extends AbstractController
         ]);
 
         // common form
-        $engine = $this->dbi->getTable($GLOBALS['db'], $GLOBALS['table'])->getStorageEngine();
         $this->render('table/relation/common_form', [
-            'is_foreign_key_supported' => ForeignKey::isSupported($engine),
+            'is_foreign_key_supported' => ForeignKey::isSupported($storageEngine),
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
             'relation_parameters' => $relationParameters,

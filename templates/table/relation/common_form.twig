@@ -4,7 +4,7 @@
 <form method="post" action="{{ url('/table/relation') }}">
     {{ get_hidden_inputs(db, table) }}
     {# InnoDB #}
-    {% if is_foreign_key_supported(tbl_storage_engine) %}
+    {% if is_foreign_key_supported %}
         <fieldset class="pma-fieldset mb-3">
             <legend>{% trans 'Foreign key constraints' %}</legend>
             <div class="table-responsive-md jsresponsive">
@@ -51,7 +51,7 @@
     {% endif %}
 
     {% if relation_parameters.relationFeature is not null %}
-        {% if default_sliders_state != 'disabled' and is_foreign_key_supported(tbl_storage_engine) %}
+        {% if default_sliders_state != 'disabled' and is_foreign_key_supported %}
         <div class="mb-3">
           <button class="btn btn-sm btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#internalRelationships" aria-expanded="{{ default_sliders_state == 'open' ? 'true' : 'false' }}" aria-controls="internalRelationships">
             {% trans 'Internal relationships' %}
@@ -71,7 +71,7 @@
                     <th>{% trans 'Column' %}</th>
                     <th>
                       {% trans 'Internal relation' %}
-                      {% if is_foreign_key_supported(tbl_storage_engine) %}
+                      {% if is_foreign_key_supported %}
                         {{ show_hint('An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.'|trans) }}
                       {% endif %}
                     </th>
@@ -148,7 +148,7 @@
                 </tbody>
             </table>
         </fieldset>
-        {% if default_sliders_state != 'disabled' and is_foreign_key_supported(tbl_storage_engine) %}
+        {% if default_sliders_state != 'disabled' and is_foreign_key_supported %}
         </div>
         {% endif %}
     {% endif %}
