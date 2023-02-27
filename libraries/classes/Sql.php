@@ -1035,6 +1035,7 @@ class Sql
                 ]),
                 'user' => $GLOBALS['cfg']['Server']['user'],
                 'sql_query' => $completeQuery ?? $sqlQuery,
+                'allow_shared_bookmarks' => $GLOBALS['cfg']['AllowSharedBookmarks'],
             ]);
         }
 

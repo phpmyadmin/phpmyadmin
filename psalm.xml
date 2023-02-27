@@ -44,6 +44,7 @@
             cached_affected_rows: int|numeric-string,
             cfg: array{
                 AllowArbitraryServer: bool,
+                AllowSharedBookmarks: bool,
                 AllowThirdPartyFraming: bool|'sameorigin',
                 ArbitraryServerRegexp: string,
                 AvailableCharsets: string[],

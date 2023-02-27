@@ -1924,6 +1924,17 @@ final class Settings
     public int $QueryHistoryMax;
 
     /**
+     * Allow shared bookmarks between users
+     *
+     * ```php
+     * $cfg['AllowSharedBookmarks'] = true;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_AllowSharedBookmarks
+     */
+    public bool $AllowSharedBookmarks;
+
+    /**
      * Use MIME-Types (stored in column comments table) for
      *
      * ```php
@@ -2563,6 +2574,7 @@ final class Settings
         $this->repeatCells = $this->setRepeatCells($settings);
         $this->QueryHistoryDB = $this->setQueryHistoryDB($settings);
         $this->QueryHistoryMax = $this->setQueryHistoryMax($settings);
+        $this->AllowSharedBookmarks = $this->setAllowSharedBookmarks($settings);
         $this->BrowseMIME = $this->setBrowseMIME($settings);
         $this->MaxExactCount = $this->setMaxExactCount($settings);
         $this->MaxExactCountViews = $this->setMaxExactCountViews($settings);
@@ -2760,6 +2772,7 @@ final class Settings
             'RepeatCells' => $this->repeatCells,
             'QueryHistoryDB' => $this->QueryHistoryDB,
             'QueryHistoryMax' => $this->QueryHistoryMax,
+            'AllowSharedBookmarks' => $this->AllowSharedBookmarks,
             'BrowseMIME' => $this->BrowseMIME,
             'MaxExactCount' => $this->MaxExactCount,
             'MaxExactCountViews' => $this->MaxExactCountViews,
@@ -4783,6 +4796,16 @@ final class Settings
         $queryHistoryMax = (int) $settings['QueryHistoryMax'];
 
         return $queryHistoryMax >= 1 ? $queryHistoryMax : 25;
+    }
+
+    /** @param array<int|string, mixed> $settings */
+    private function setAllowSharedBookmarks(array $settings): bool
+    {
+        if (! isset($settings['AllowSharedBookmarks'])) {
+            return true;
+        }
+
+        return (bool) $settings['AllowSharedBookmarks'];
     }
 
     /** @param array<int|string, mixed> $settings */

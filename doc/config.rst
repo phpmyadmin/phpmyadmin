@@ -3537,6 +3537,15 @@ Various display setting
     specify the amount of saved history items using
     :config:option:`$cfg['QueryHistoryMax']`.
 
+.. config:option:: $cfg['AllowSharedBookmarks']
+
+    :type: boolean
+    :default: true
+
+    .. versionadded:: 6.0.0
+
+    Allow users to create bookmarks that are available for all other users
+
 .. config:option:: $cfg['BrowseMIME']
 
     :type: boolean

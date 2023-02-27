@@ -87,12 +87,14 @@
               <input class="form-control" type="text" name="bkm_label" id="bkm_label" tabindex="110" value="">
             </div>
 
-            <div class="col-12">
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="bkm_all_users" tabindex="111" id="id_bkm_all_users" value="true">
-                <label class="form-check-label" for="id_bkm_all_users">{% trans 'Let every user access this bookmark' %}</label>
+            {% if allow_shared_bookmarks %}
+              <div class="col-12">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" name="bkm_all_users" tabindex="111" id="id_bkm_all_users" value="true">
+                  <label class="form-check-label" for="id_bkm_all_users">{% trans 'Let every user access this bookmark' %}</label>
+                </div>
               </div>
-            </div>
+            {% endif %}
 
             <div class="col-12">
               <div class="form-check form-check-inline">

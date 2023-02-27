@@ -43,7 +43,7 @@ class BookmarkTest extends AbstractTestCase
     public function testGetList(): void
     {
         $this->dummyDbi->addResult(
-            'SELECT * FROM `phpmyadmin`.`pma_bookmark` WHERE ( `user` = \'\' OR `user` = \'root\' )'
+            'SELECT * FROM `phpmyadmin`.`pma_bookmark` WHERE (`user` = \'root\' OR `user` = \'\')'
                 . ' AND dbase = \'sakila\' ORDER BY label ASC',
             [['1', 'sakila', 'root', 'label', 'SELECT * FROM `actor` WHERE `actor_id` < 10;']],
             ['id', 'dbase', 'user', 'label', 'query'],

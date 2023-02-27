@@ -652,6 +652,7 @@
   <file src="libraries/classes/Config/Forms/Setup/SqlForm.php">
     <MixedArrayAssignment>
       <code><![CDATA[$result['Sql_queries'][]]]></code>
+      <code><![CDATA[$result['Sql_queries'][]]]></code>
     </MixedArrayAssignment>
   </file>
   <file src="libraries/classes/Config/ServerConfigChecks.php">
