@@ -8,8 +8,6 @@ use Stringable;
 
 use function __;
 use function _ngettext;
-use function array_unshift;
-use function count;
 use function htmlspecialchars;
 use function is_array;
 use function is_float;
@@ -585,23 +583,6 @@ class Message implements Stringable
     }
 
     /**
-     * wrapper for sprintf()
-     *
-     * @param mixed[] ...$params Params
-     *
-     * @return string formatted
-     */
-    public static function format(...$params): string
-    {
-        if (isset($params[1]) && is_array($params[1])) {
-            array_unshift($params[1], $params[0]);
-            $params = $params[1];
-        }
-
-        return sprintf(...$params);
-    }
-
-    /**
      * returns unique Message::$hash, if not exists it will be created
      *
      * @return string Message::$hash
@@ -636,8 +617,8 @@ class Message implements Stringable
             $message = $this->getMessageWithIcon($message);
         }
 
-        if (count($this->getParams()) > 0) {
-            $message = self::format($message, $this->getParams());
+        if ($this->params !== []) {
+            $message = sprintf($message, ...$this->params);
         }
 
         if ($this->useBBCode) {

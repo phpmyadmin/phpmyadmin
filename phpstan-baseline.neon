@@ -5591,11 +5591,6 @@ parameters:
 			path: libraries/classes/Message.php
 
 		-
-			message: "#^Right side of && is always true\\.$#"
-			count: 1
-			path: libraries/classes/Message.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Navigation\\\\Navigation\\:\\:getHiddenItems\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/Navigation.php

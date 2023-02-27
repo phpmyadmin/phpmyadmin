@@ -8787,12 +8787,8 @@
     </PossiblyFalseOperand>
   </file>
   <file src="libraries/classes/Message.php">
-    <InvalidArgument>
-      <code>$message</code>
-    </InvalidArgument>
     <MixedArgument>
-      <code>$params</code>
-      <code>$params</code>
+      <code><![CDATA[$this->params]]></code>
     </MixedArgument>
     <MixedAssignment>
       <code>$add_message</code>
@@ -8814,10 +8810,6 @@
     <MixedReturnStatement>
       <code><![CDATA[self::$level[$this->getNumber()]]]></code>
     </MixedReturnStatement>
-    <RedundantConditionGivenDocblockType>
-      <code>is_array($params[1])</code>
-      <code><![CDATA[isset($params[1]) && is_array($params[1])]]></code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Navigation/Navigation.php">
     <DeprecatedMethod>
@@ -16213,13 +16205,6 @@
     </InvalidArgument>
   </file>
   <file src="test/classes/MessageTest.php">
-    <InvalidArgument>
-      <code><![CDATA['%s string']]></code>
-      <code><![CDATA['a']]></code>
-      <code><![CDATA['test string']]></code>
-      <code><![CDATA['test string']]></code>
-      <code><![CDATA['test string']]></code>
-    </InvalidArgument>
     <MixedInferredReturnType>
       <code>array</code>
       <code>array</code>
