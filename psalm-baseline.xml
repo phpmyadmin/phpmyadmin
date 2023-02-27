@@ -11680,9 +11680,6 @@
       <code>$options[1]</code>
       <code>$options[2]</code>
     </MixedArgument>
-    <RedundantCastGivenDocblockType>
-      <code>(string) $buffer</code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php">
     <InvalidArrayOffset>
@@ -11769,9 +11766,6 @@
       <code>$options[2]</code>
       <code>$options[2]</code>
     </MixedOperand>
-    <RedundantCastGivenDocblockType>
-      <code>(string) $buffer</code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Plugins/Transformations/Abs/TextImageLinkTransformationsPlugin.php">
     <MixedOperand>
@@ -14088,16 +14082,14 @@
     <MixedInferredReturnType>
       <code>false|string</code>
       <code>string</code>
-      <code>string</code>
     </MixedInferredReturnType>
     <MixedReturnStatement>
-      <code>$buffer</code>
       <code>$buffer</code>
       <code>$isBinary ? bin2hex($buffer) : $buffer</code>
       <code>$isBinary ? bin2hex($buffer) : $buffer</code>
     </MixedReturnStatement>
     <RedundantCast>
-      <code>(string) long2ip((int) $buffer)</code>
+      <code>(string) long2ip((int) $bufferAsFloat)</code>
     </RedundantCast>
   </file>
   <file src="libraries/classes/Utils/Gis.php">
@@ -15897,7 +15889,6 @@
   </file>
   <file src="test/classes/Utils/FormatConverterTest.php">
     <MixedInferredReturnType>
-      <code>array</code>
       <code>array</code>
       <code>array</code>
       <code>array</code>

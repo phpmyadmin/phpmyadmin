@@ -23,6 +23,7 @@ use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Longtoipv4;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_PreApPend;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Substring;
+use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 
@@ -437,17 +438,17 @@ class TransformationPluginsTest extends AbstractTestCase
             ],
             [
                 new Text_Plain_Dateformat(),
-                [12345, [0], new FieldMetadata(MYSQLI_TYPE_TINY, 0, (object) [])],
+                ['12345', [0], new FieldMetadata(MYSQLI_TYPE_TINY, 0, (object) [])],
                 '<dfn onclick="alert(&quot;12345&quot;);" title="12345">Jan 01, 1970 at 03:25 AM</dfn>',
             ],
             [
                 new Text_Plain_Dateformat(),
-                [12345678, [0], new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [])],
+                ['12345678', [0], new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [])],
                 '<dfn onclick="alert(&quot;12345678&quot;);" title="12345678">May 23, 1970 at 09:21 PM</dfn>',
             ],
             [
                 new Text_Plain_Dateformat(),
-                [123456789, [0], new FieldMetadata(-1, 0, (object) [])],
+                ['123456789', [0], new FieldMetadata(-1, 0, (object) [])],
                 '<dfn onclick="alert(&quot;123456789&quot;);" title="123456789">Nov 29, 1973 at 09:33 PM</dfn>',
             ],
             [
@@ -531,8 +532,8 @@ class TransformationPluginsTest extends AbstractTestCase
                 . ' target="_blank" rel="noopener noreferrer">https://example.com/PMA_TXT_LINK</a>',
             ],
             [new Text_Plain_Link(), ['PMA_TXT_LINK', ['./php/', 'text_name']], './php/PMA_TXT_LINK'],
-            [new Text_Plain_Longtoipv4(), [42949672, ['option1', 'option2']], '2.143.92.40'],
-            [new Text_Plain_Longtoipv4(), [4294967295, ['option1', 'option2']], '255.255.255.255'],
+            [new Text_Plain_Longtoipv4(), ['42949672', []], '2.143.92.40'],
+            [new Text_Plain_Longtoipv4(), ['4294967295', ['option1', 'option2']], '255.255.255.255'],
             [new Text_Plain_PreApPend(), ['My', ['php', 'Admin']], 'phpMyAdmin'],
             [new Text_Plain_Substring(), ['PMA_BUFFER', [1, 3, 'suffix']], 'suffixMA_suffix'],
             [new Text_Plain_Substring(), ['PMA_BUFFER', ['1', '3', 'suffix']], 'suffixMA_suffix'],
@@ -544,8 +545,7 @@ class TransformationPluginsTest extends AbstractTestCase
             [new Text_Plain_Substring(), ['PMA_BUFFER', ['-1']], '…R…'],
             [new Text_Plain_Substring(), ['PMA_BUFFER', [0, 2]], 'PM…'],
             [new Text_Plain_Substring(), ['PMA_BUFFER', ['0', '2']], 'PM…'],
-            [new Text_Plain_Substring(), [2, []], '2'],
-            [new Text_Plain_Longtoipv4(), [168496141], '10.11.12.13'],
+            [new Text_Plain_Substring(), ['2', []], '2'],
             [new Text_Plain_Longtoipv4(), ['168496141'], '10.11.12.13'],
             [new Text_Plain_Longtoipv4(), ['my ip'], 'my ip'],
             [new Text_Plain_Longtoipv4(), ['<my ip>'], '&lt;my ip&gt;'],
@@ -596,27 +596,25 @@ class TransformationPluginsTest extends AbstractTestCase
     /**
      * Tests for applyTransformation, isSuccess, getError
      *
-     * @param object     $object      instance of the plugin
-     * @param array      $applyArgs   arguments for applyTransformation
-     * @param string|int $transformed the expected output of applyTransformation
-     * @param bool       $success     the expected output of isSuccess
-     * @param string     $error       the expected output of getError
+     * @param TransformationsPlugin $object      instance of the plugin
+     * @param array                 $applyArgs   arguments for applyTransformation
+     * @param string|int            $transformed the expected output of applyTransformation
+     * @param bool                  $success     the expected output of isSuccess
+     * @param string                $error       the expected output of getError
+     * @psalm-param array{string, array, FieldMetadata|null} $applyArgs
      *
      * @dataProvider transformationDataProvider
      * @group medium
      */
     public function testTransformation(
-        object $object,
+        TransformationsPlugin $object,
         array $applyArgs,
         string|int $transformed,
         bool $success = true,
         string $error = '',
     ): void {
-        $reflectionMethod = new ReflectionMethod($object, 'applyTransformation');
-        $this->assertEquals(
-            $transformed,
-            $reflectionMethod->invokeArgs($object, $applyArgs),
-        );
+        $actual = $object->applyTransformation(...$applyArgs);
+        $this->assertEquals($transformed, $actual);
 
         // For output transformation plugins, this method may not exist
         if (method_exists($object, 'isSuccess')) {

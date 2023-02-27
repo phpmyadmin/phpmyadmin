@@ -39,7 +39,7 @@ abstract class ImageUploadTransformationsPlugin extends IOTransformationsPlugin
      * @param array              $options transformation options
      * @param FieldMetadata|null $meta    meta information
      */
-    public function applyTransformation($buffer, array $options = [], FieldMetadata|null $meta = null): string
+    public function applyTransformation(string $buffer, array $options = [], FieldMetadata|null $meta = null): string
     {
         return $buffer;
     }

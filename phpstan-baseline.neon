@@ -6781,11 +6781,6 @@ parameters:
 			path: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php
 
 		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Transformations\\\\Abs\\\\DateFormatTransformationsPlugin\\:\\:applyTransformation\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php
@@ -6898,11 +6893,6 @@ parameters:
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
 			count: 2
-			path: libraries/classes/Plugins/Transformations/Abs/SubstringTransformationsPlugin.php
-
-		-
-			message: "#^Casting to string something that's already string\\.$#"
-			count: 1
 			path: libraries/classes/Plugins/Transformations/Abs/SubstringTransformationsPlugin.php
 
 		-
@@ -8896,22 +8886,12 @@ parameters:
 			path: libraries/classes/Util.php
 
 		-
-			message: "#^Cannot cast mixed to int\\.$#"
-			count: 1
-			path: libraries/classes/Utils/FormatConverter.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Utils\\\\FormatConverter\\:\\:binaryToIp\\(\\) should return string\\|false but returns mixed\\.$#"
 			count: 2
 			path: libraries/classes/Utils/FormatConverter.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Utils\\\\FormatConverter\\:\\:ipToBinary\\(\\) should return string but returns mixed\\.$#"
-			count: 1
-			path: libraries/classes/Utils/FormatConverter.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Utils\\\\FormatConverter\\:\\:longToIp\\(\\) should return string but returns mixed\\.$#"
 			count: 1
 			path: libraries/classes/Utils/FormatConverter.php
 
@@ -11032,11 +11012,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Utils\\\\FormatConverterTest\\:\\:providerIpToLong\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Utils/FormatConverterTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Utils\\\\FormatConverterTest\\:\\:providerLongToIp\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Utils/FormatConverterTest.php
 

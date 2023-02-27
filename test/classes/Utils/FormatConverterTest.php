@@ -114,10 +114,19 @@ class FormatConverterTest extends AbstractTestCase
     /**
      * Data provider for longToIp
      *
-     * @return array
+     * @return array<array{string, string}>
      */
     public static function providerLongToIp(): array
     {
-        return [['10.11.12.13', '168496141'], ['my ip', 'my ip']];
+        return [
+            ['my ip', 'my ip'],
+            ['10.11.12.13', '168496141'],
+            ['-1', '-1'],
+            ['0.0.0.0', '0'],
+            ['127.255.255.255', '2147483647'],
+            ['128.0.0.0', '2147483648'],
+            ['255.255.255.255', '4294967295'],
+            ['4294967296', '4294967296'],
+        ];
     }
 }

@@ -77,14 +77,16 @@ class FormatConverter
     /**
      * Transforms a long to an IP
      *
-     * @param mixed $buffer Data to transform
+     * @param string $buffer Data to transform
      */
-    public static function longToIp(mixed $buffer): string
+    public static function longToIp(string $buffer): string
     {
         if (! Util::isInteger($buffer) || $buffer < 0 || $buffer > 4294967295) {
             return $buffer;
         }
 
-        return (string) long2ip((int) $buffer);
+        $bufferAsFloat = (float) $buffer;
+
+        return (string) long2ip((int) $bufferAsFloat);
     }
 }
