@@ -10,7 +10,7 @@
       {% if has_check_page_refresh %}
         <input type="hidden" name="check_page_refresh" id="check_page_refresh" value="">
       {% endif %}
-      {{ get_hidden_inputs('', '', 0, 'server') }}
+      {{ get_hidden_inputs('', '', 'server') }}
       <input type="hidden" name="eol" value="{{ eol }}">
 
       <textarea class="form-control font-monospace" rows="20" name="textconfig" spellcheck="false" aria-label="{% trans 'Generated configuration file' %}">

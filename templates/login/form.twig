@@ -47,7 +47,7 @@
 <form method="post" id="login_form" action="index.php?route=/" name="login_form" class="
   {{- not is_session_expired ? 'disableAjax hide ' }}js-show"{{ not has_autocomplete ? ' autocomplete="off"' }}>
   {# Do not generate a "server" hidden field as we want the "server" drop-down to have priority. #}
-  {{ get_hidden_inputs(form_params, '', 0, 'server') }}
+  {{ get_hidden_inputs(form_params, '', 'server') }}
   <input type="hidden" name="set_session" value="{{ session_id }}">
   {% if is_session_expired %}
     <input type="hidden" name="session_timedout" value="1">

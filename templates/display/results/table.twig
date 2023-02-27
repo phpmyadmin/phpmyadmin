@@ -278,7 +278,7 @@
 
 {% if headers.has_bulk_actions_form %}
   <form method="post" name="resultsForm" id="resultsForm_{{ unique_id }}" class="ajax">
-    {{ get_hidden_inputs(db, table, 1) }}
+    {{ get_hidden_inputs(db, table) }}
     <input type="hidden" name="goto" value="{{ url('/sql') }}">
 {% endif %}
 

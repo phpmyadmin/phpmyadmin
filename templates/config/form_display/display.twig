@@ -3,7 +3,7 @@
   {% if has_check_page_refresh %}
     <input type="hidden" name="check_page_refresh" id="check_page_refresh" value="">
   {% endif %}
-  {{ get_hidden_inputs('', '', 0, 'server') }}
+  {{ get_hidden_inputs('', '', 'server') }}
   {{ get_hidden_fields(hidden_fields, '', true) }}
 
   <ul class="nav nav-tabs" id="configFormDisplayTab" role="tablist">
